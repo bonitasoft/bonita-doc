@@ -1,0 +1,56 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Create or modify a page</title></head><body class="front">
+		<div id="content">
+	<h1>1.7.2.2 Create or modify a page</h1>
+    <p>The var_uiDesigner is a powerful application for designing Bonita BPM custom pages and forms.
+    It runs in a browser.  Launching it from Bonita BPM Studio starts a web server and opens your default browser at the UI designer home page.</p>
+
+
+<h2 id="open-the-page-designer">Starting the UI designer</h2>
+<h3 id="from-studio-menu-bar">From Bonita BPM Studio menu bar</h3>
+<p>Open the <b>Development</b> menu then choose <b>Open UI designer</b>, or click the UI designer icon in the coolbar.</p>
+
+<h3 id="from-form-mapping-tab">From a form mapping tab</h3>
+<p>Select a human task or a pool, go to the <b>Details</b> panel, <b>Execution</b> tab. Then go to the relevant form mapping tab:</p>
+<ul><li><strong><em>Instantiation form</em></strong> for a form to start a process instance</li>
+    <li><strong><em>Overview page</em></strong> for a process instance overview page</li>
+    <li><strong><em>Form</em></strong> for a form on a human task</li>
+</ul><p>With the form type set to <b>UI designer</b>, you can select a form from the dropdown list and click the pencil icon to edit it, or you can   choose <b>Create a new
+    form</b>.</p>
+    
+<h2 id="design-a-page">Design a page</h2>
+<p>After a page is created, you can update it in the <b>Page editor</b>. Update your page by dragging and dropping widgets from the palette to the whiteboard. Edit widget properties in
+    the widget properties panel and create data and bind it to the  widgets.</p>
+    
+<p>In the Performance and Efficiency editions, you can optimize the page design for a given device type by configuring <a href="/widget-properties#widget-width">device-specific values for the Width property</a> for widgets.
+Use the a device types bar in the Page editor to choose the target device type.</p>
+<img alt="Device type selection" src="images/images-6_0/pb-resolution.png"><h2 id="preview-a-page">Preview a page</h2>
+<p>You can preview page rendering by clicking the <b><em>Preview</em></b> button. Another browser window opens with the
+    page as it will be displayed after deployment. If you update the page, the preview is automatically refreshed when you save your page (not available for Internet Explorer 9).
+</p>
+
+<p>In the Performance and Efficiency editions, you can use the a device types bar on the preview screen to choose the target device type.</p>
+
+<p>The preview presents the page as it would be displayed on the selected type of device.</p>
+    
+<h2 id="export-a-page">Export a page</h2>
+<p>You can export a page to deploy it in Bonita BPM Portal as a custom page or to import it into another UI designer.</p>
+
+<p>To export a page,   click the <b><em>Export</em></b> button <img alt="Export button" src="images/images-6_0/pb-export.png"> on the Page editor or the UI designer home page. A zip file is downloaded
+    to your computer. It contains a Bonita BPM custom page, which also suitable for import into another UI designer.</p>
+    
+<p>After export you can modify your page's code by directly editing the code located in <em>resources</em> folder. Be aware that any modification you make to the code in this way will
+    be available when page is deployed in Bonita BPM Portal but not if you import the page into another UI designer.</p>
+    
+<h2 id="import-a-page">Import a page</h2>
+<p>To import a page from another UI designer, go to the UI designer home page and click the <b><em>Import</em></b> button <img alt="Import button" src="images/images-6_0/pb-import.png">. When you
+    import a page, its dependencies (such as custom widgets and fragments used by the page) are automatically be imported too.</p>
+<p>Warning: a custom page that has not been designed with the UI designer cannot be imported into the UI designer.</p>
+
+<h2 id="pages-in-bos-bar-file">Pages in .bos/.bar file</h2>
+<p>When you generate the <code>.bar</code> file of a process, the mapped pages created with the UI designer are embedded in the file. 
+When you deploy in Bonita BPM the process using the <code>.bar</code> file, the pages are imported and deployed.</p>
+
+<p>In the same way, you can choose to export your pages in the process <code>.bos</code> file. When you import this <code>.bos</code> file into another Bonita BPM Studio, the pages become available to you in the UI
+    designer of that Studio.</p>
+</div>
+	</body></html>

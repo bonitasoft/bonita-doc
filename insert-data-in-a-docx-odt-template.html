@@ -1,0 +1,73 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Insert data in a .docx/.odt template</title></head><body class="front">
+		<div id="content">
+	<h1>1.8.5 Insert data in a .docx/.odt template</h1>
+    <p>The <b>insert data in a .docx/.odt template connector</b> allows to fill a specified template file by inserting values coming from the current process instance, for example from a form attached to a human task.</p>
+<p>The template is a LibreOffice/OpenOffice <code>.odt</code> file or a Microsoft Word<code>.docx</code> file with special placeholders called <code>keys</code>.
+ A key is a replaceable element in the template that is identified with a dollar sign and surrounded by braces, (eg. ${element}), following the <a href="https://velocity.apache.org/engine/releases/velocity-1.7/user-guide.html">Velocity Template Language</a>.</p>
+<p>To configure the connector for a task, add a connector (in or out) to the task, choose the "Office" category, and select "insert data in a .dox/odt template".</p> 
+<p>In the connector configuration, the keys are mapped to variables from the process or from any other data source.
+    At some point in the process instance, the template file must be set as the content of a document created at pool level.
+    When the connector runs, it creates a file based on the template and inserts the current values of the relevant variables into the appropriate placeholders (keys) in the file.
+    The generated file can replace the template in the same document or be stored in another document of the process. A common usage is to send the document by email or store it in an external information system using another connector.
+</p>
+
+<h2>How to insert <code>keys</code> in a template file</h2>
+<h3>Using Word (docx) - Tested versions are <b>Microsoft Word 2007/2010</b>, may work on later versions</h3>
+<h4>Create a <code>field</code></h4>
+<ul><li>Insertion &gt; QuickPart &gt; Field...</li>
+    <li>Select FusionField (or MergeField in some Word versions) and use a template (see Velocity templating language) as field name (eg: ${name}, ${user.Name}...etc)</li>
+    <li>Click OK</li>
+</ul><h4>Updating an existing <code>key</code></h4>
+<ul><li>Right click on the Fusionfield to edit</li>
+    <li>Click on Update field...</li>
+</ul><h3>Using LibreOffice (odt)</h3>
+<ul><li>Insert &gt; Fields &gt; More fields...</li>
+    <li>Go to Variables tab, select UserField and use a template (see Velocity templating language) as value (eg: ${name}, ${user.Name}...etc)</li>
+    <li>Choose Text format</li>
+    <li>Click Insert</li>
+</ul>
+
+For further information about the template design, <a href="https://code.google.com/p/xdocreport/wiki/DesignReport" target="_blank">click here</a>
+
+<b>Warning:</b> there is a known issue when adding an image in a .docx using drag'n'drop instead of a copy/paste. The image is not rendered properly if you convert the generated file into PDF.
+
+<h2>Example of template using key values taken from a business variable</h2>
+
+<h3>Business Data model used in the example</h3>
+
+<p>Here is a <a href="images/special_code/study-leave-template.docx">template example</a> for Leave Request submission and approval.<br>
+    This .docx file uses keys, most of which will be replaced by values from business variables created from the following <b>Business Data Model</b>:</p>
+<p><img src="images/images-6_0/MyUser_Model_lazy.png"><br></p>
+<p><img src="images/images-6_0/Address_Model.png"><br></p>
+<p><img src="images/images-6_0/StudyLeave_Model.png"><br></p>
+
+<h3>Connector configuration</h3>
+<p>
+    The  configuration is as follows:<br><br><img src="images/images-6_0/document_templating_input_mappings.png"></p>
+<p>
+    In this example, the key named <code>user</code> is mapped to the business variable <code>user</code>, the key named <code>leave</code> is mapped to the business variable <code>studyLeave</code>,
+    and the key named <code>today</code> is mapped to a groovy script expression with the following content:
+    <code>
+        import java.text.SimpleDateFormat;
+        new SimpleDateFormat("yyyy/MM/dd").format(new Date())
+    </code>
+    <br></p><ul><li>If the keys are mapped with complex objects, pass the high level object to the mapping (eg. <b>'user'</b>). The connector will handle the sub-structure of this complex object (eg. <b>${user.firstName}</b>)</li>
+    <li>When using business variables, relations "loaded when needed" (lazy mode) are not loaded in a connector execution context. To use such relations, create new keys, like "userAddress" in the above example.</li>
+    <li>If the replacement value is null, then the field key will be rendered (eg. <b>${userAddress.line2}</b>). Use a "!" mark to render blank value, like <b>$!{userAddress.line2}</b> if userAddress.line2 may be null.</li>
+</ul><p>
+    And the output file mapping:<br><img src="images/images-6_0/document_templating_outputs.png"><br></p>
+
+<p>
+    In this business example, the requesting user enters personal information in a process form. In a subsequent step, the reviewing user adds Approval information. The entered values are then provided as inputs to the <b>insert data in a .docx/.odt template connector</b> to replace the keys.
+    The generated output file is then stored in a document of the process.
+</p>
+
+This connector is built upon <b>XdocReport</b> third party library, for more information check their Wiki at <a href="https://github.com/opensagres/xdocreport/wiki" target="_blank">https://github.com/opensagres/xdocreport/wiki</a>
+
+You will find out advanced report design documentation:
+<ul><li><a href="https://github.com/opensagres/xdocreport/wiki/DocxReportingJavaMainListFieldAdvancedTable" target="_blank">Loop for keys in table rows</a></li>
+    <li><a href="https://github.com/opensagres/xdocreport/wiki/DocxDesignReportMacro" target="_blank">Use a MS Word macro to design the report</a></li>
+    <li><a href="https://github.com/opensagres/xdocreport.samples" target="_blank">Report samples</a></li>
+    <li>...</li>
+</ul></div>
+	</body></html>

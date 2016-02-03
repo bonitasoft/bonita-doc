@@ -1,0 +1,73 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>First steps after setup</title></head><body class="front">
+		<div id="content">
+	<h1>2.3.9 First steps after setup</h1>
+    <p>This page explains the post-installation setup tasks that you must carry out.</p>
+
+<dl><dt><a href="#check">Check the installation</a></dt>
+<dt><a href="#reset_pw">Change the default credentials</a></dt>
+<dt><a href="#security">Review security</a></dt>
+<dt><a href="#create_admin">Create a Bonita BPM Portal administrator</a></dt>
+</dl><h2 id="check">Check the installation</h2>
+<p>To verify that the installation was successful and the database is correctly configured, connect to Bonita BPM Portal.</p>
+<p>In the URL field of your web browser, enter the local host address, e.g. <code>http://localhost:8080/bonita</code>.</p>
+<p><strong>Note:</strong> If the Bonita BPM Portal login page is not displayed, <a href="http://www.wikihow.com/Clear-Your-Browser's-Cache">empty your browser cache</a> and then reload the page.</p> 
+
+<p>At this stage no organization information is loaded: only the technical user account exists.</p>
+
+<h2 id="reset_pw">Change the default credentials</h2>
+
+<p>As a security precaution, we <strong>strongly recommend</strong> that before you start your application server, you change the default username and password used for the platform administrator and for the default tenant administrator.</p>
+
+<h3>Platform administrator</h3>
+
+<p>The username and password for the platform administrator are defined in var_bonita_home in the file <code>/engine-server/conf/platform/bonita-platform-community-custom.properties</code>, by the following properties:</p>
+<ul><li><code>platformAdminUsername</code> defines the username (default <code>platformAdmin</code>)</li>
+    <li><code>platformAdminPassword</code> defines the password (default <code>platform</code>)</li>
+</ul><p>This password is used for platform-level administration tasks, such as creating a tenant.</p>
+
+<h3>Tenant administrator</h3>
+
+<p>Each tenant has an administrator, with a tenant-specific username and password. The tenant administrator is also known as the tenant technical user.</p>
+
+<p>When the platform is created, default values for the tenant administrator username and password are defined in var_bonita_home in the file 
+<code>engine-server/conf/tenants/template/bonita-tenant-community-custom.properties</code>, by the following properties:</p>
+<ul><li><code>userName</code> defines the username (default <code>install</code>)</li>
+    <li><code>userPassword</code> defines the password (default <code>install</code>)</li>
+</ul><p>When you create a tenant, the tenant administrator is created with the default username and password, unless you specify new values. 
+Change these tenant-specific credentials for an existing tenant by updating the <code>userName</code> and <code>userPassword</code> properties in 
+<code>engine-server/conf/tenants/</code><em><code>tenant_id</code></em><code>/bonita-tenant-community-custom.properties</code>, 
+where <em><code>tenant_id</code></em> is the id number of the tenant (<code>1</code> for the default tenant).</p>
+
+<p>For the default tenant, the tenant administrator username and password must also be defined in var_bh_code_replace<code>/client/platform/conf/platform-tenant-config.properties</code>, 
+with exactly the same values that you set in <code>engine-server/conf/tenants/</code><em><code>default_tenant_id</code></em><code>/bonita-tenant-community-custom.properties</code>. 
+At platform creation, this file contains the default username and password for the default tenant. 
+</p>
+
+
+
+<h2 id="security">Review security</h2>
+    
+<p>There are a number of ways you can improve the security of your platform. 
+Review the <a href="/rest-api-authorization-0">REST API authorization</a> and the other features relating to <a href="/product-bos-sp/security-and-authentication">security and authentication</a> that are available in Bonita BPM and in your operating system, and update your platform as required for your production environment. 
+For example, most environments require a <a href="/enforce-password-policy-0">password policy</a>.</p>
+
+
+
+<h2 id="create_admin">Create a Bonita BPM Portal administrator</h2>
+
+
+<p>Create a user with the "administrator" profile:</p>
+<p>Note: do not create a user or an administrator with the same login and password as the technical users (platform and tenant)</p>
+<ol><li>Log in to Bonita BPM Portal as the technical user. <br><strong>Note:</strong> If your system is using single sign-on with CAS, you need to log in with the following URL: <code>http://</code><em><code>hostname:port</code></em><code>/bonita/login.jsp?redirectUrl=portal/homepage</code>.</li>
+<li>Create a user with the standard profile.</li>
+<li>Go to <strong>Organization</strong> &gt; <strong>Profiles</strong>. Select "Administrator" profile.</li> 
+<li>Click on the "More" button (in the top right corner).</li>
+<li>Under "Users mapping", click on "Add a user".</li>
+<li>Select your user and click on the "Add" button. Log out as the Technical user and log back in as the newly created user with administrative rights.</li>
+<li>Create <a href="/manage-user-0">users with the standard profile</a>.</li>
+<li>You can add newly created users to the "User" (standard) profile or to a custom profile.</li>
+</ol><p>If you already have a system that stores information about end users, you can use it to create user accounts in Bonita.</p>
+
+<p>If you use an LDAP or Active Directory system, you can use the <a href="/ldap-synchronizer-3">LDAP synchronizer</a> tool to keep the Bonita BPM Portal organization synchronized with it.</p>
+</div>
+	</body></html>

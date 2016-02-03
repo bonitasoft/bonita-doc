@@ -1,0 +1,141 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Tomcat bundle</title></head><body class="front">
+		<div id="content">
+	<h1>2.3.3 Tomcat bundle</h1>
+    <p>The Tomcat bundle is a .zip archive that contains the Apache Tomcat JEE application server prepackaged along with Bonita BPM web application and Bonita configuration folder (known as var_bonita_home). 
+The Tomcat bundle is a regular .zip archive based on Tomcat zip distribution.</p>
+
+<p>There are three stages to installing the Tomcat bundle:</p>
+
+<ol><li>Download the distribution and unpack the files.</li>
+    <li>Get and install a license. This is not necessary if you are installing the Community edition.</li>
+    <li>Configure the database.</li>
+</ol><p>When these three stages are complete, you can start Tomcat to validate the installation. Then there are some post-installation setup tasks.</p>
+
+<dl><dt><a href="#download_unzip">Download and unzip the Tomcat bundle</a></dt>
+    <dt><a href="#license">License installation</a></dt>
+    <dt><a href="#edition">Edition specification</a></dt>
+    <dt><a href="#db">Database configuration</a></dt>
+    <dt><a href="#start_stop">Start and shut down Tomcat</a></dt>
+    <dt><a href="#postinstall">First steps after installation</a></dt>
+</dl><p>There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft in the Tomcat bundle and in the Tomcat directories of the Deploy bundle) and the Microsoft SQL Server driver
+(refer to: <a href="http://msdn.microsoft.com/en-us/library/aa342335.aspx">MSDN note</a>, <a href="http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html">Bitronix note</a>).
+Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the JBoss bundle provided by Bonitasoft.</p>
+
+<h2 id="download_unzip">Download and unzip the Tomcat bundle</h2>
+
+
+
+<h3 id="download">Download</h3>
+
+
+
+<p>For the Community edition:</p>
+<ul><li>Go to the <a href="http://www.bonitasoft.com/how-we-do-it/downloads">Bonitasoft website</a> and get the Bonita BPM Community edition Tomcat bundle.</li>
+</ul><p>For a Subscription edition:</p>
+<ul><li>Go to the <a href="https://customer.bonitasoft.com/download/request">Customer Portal</a> and download the Bonita BPM Subscription Pack edition Tomcat bundle.</li>
+  </ul><h3 id="unzip">Unzip</h3>
+
+
+  
+<p>The fully qualified folder path (including the BonitaBPM-x.y.z-Tomcat-7.0.55 folder) to the folder where you unzip the Tomcat bundle is referred to as <code><tomcat_home></tomcat_home></code>. We recommend the following locations: </p>
+<ul><li>Windows: <code>C:\BonitaBPM</code>. If you want to unzip the bundle to another folder, avoid spaces in the folder name. </li>
+<li>Linux: in <code>/opt/BonitaBPM</code>. Make sure that Linux user account used to execute Tomcat is the owner of the folders and files.</li>
+</ul><p><strong>Important note </strong>: Do not leave any blank spaces in the path to the directory containing the Tomcat installation.</p>
+
+
+  
+<h3 id="content">Content of the Tomcat bundle</h3>
+
+
+
+<p>The Tomcat bundle is based on a standard Tomcat installation with the following additions:</p>
+<ul><li><code>bin/setenv.bat</code>: script to configure JVM system properties for Windows.</li>
+<li><code>bin/setenv.sh</code>: script to configure JVM system properties for Linux.</li>
+<li><code>bonita</code>: var_bonita_home folder (standard, or edition-specific).</li>
+<li><code>conf/Catalina/localhost/bonita.xml</code>: Tomcat context configuration for Bonita web application. Define data sources used by Bonita Engine.</li>
+<li><code>conf/bitronix-*.properties</code>: configuration files for Bitronix</li>
+<li><code>catalina.properties</code>: modified to include lib/bonita folder to Tomcat classpath.</li>
+<li><code>context.xml</code>: modified to add JTA support using Bitronix library.</li>
+<li><code>logging.properties</code>: modified to create a log file dedicated to Bonita.</li>
+<li><code>server.xml</code>: modified to add listener for Bitronix and h2 (see below for modification needed if you want to switch to another RDBMS).</li>
+<li><code>lib/bonita</code>: extra libraries needed by Bonita. The following libraries are included: Bitronix JTA Transaction Manager, h2, SLF4J (required by Bitronix).</li>
+<li><code>request_key_utils</code>: script to generate license request keys (Subscription editions only).</li>
+<li><code>webapps/bonita.war</code>: the Bonita web application.</li>
+</ul><h2 id="license">License installation</h2>
+
+
+
+<p>If you are installing a Subscription edition, you need to <a href="/licenses-1">request a license</a>. </p>
+
+<p>Whe you receive your license, copy the file to the <code><tomcat_home>/bonita/server/licenses</tomcat_home></code> folder.</p>
+
+<h2 id="edition">Edition specification</h2>
+
+<p>If you are installing the Performance Subscription edition, 
+you need to edit <code>engine-server/conf/platform-init/bonita-platform-init-community-custom.properties</code> 
+and change the value of the <code>activeProfiles</code> key to <code>'community,performance'</code>. No change is needed for the Community, Teamwork, or Efficiency edition.
+</p>
+
+<h2 id="db">Database configuration</h2> 
+
+
+
+<p>The Tomcat bundle is configured to use a h2 database by default. h2 is fine for a test platform, but for production, you are recommended to use one of the supported databases. </p>
+
+<p>If you want to use another database you need to specify the <a href="/database-configuration-2">database configuration</a>. Make sure you do this before you start Tomcat.</p>
+
+
+
+<h2 id="start_stop">Start and shut down Tomcat</h2>
+
+
+
+<h3 id="start">Tomcat start script</h3>
+
+
+
+<p>Tomcat can be started by executing the following commands:</p>
+
+<ul><li>Windows: <code><tomcat_home>\bin\startup.bat</tomcat_home></code></li>
+<li>Linux: <code><tomcat_home>/bin/startup.sh</tomcat_home></code></li>
+</ul><h3 id="custom_start">Custom start-up script</h3>
+
+
+
+<p>If you have a Subscription Pack license covering fewer CPU cores that are available on your server, you need to limit number of CPUs available to Tomcat. 
+Do this this, you need to use a custom start script to to start Tomcat only with the number of cores allowed by the license (e.g. 2 cores for a development license).</p>
+
+
+
+<h4 id="start_win">For Windows:</h4>
+
+
+
+<ul><li>Go to folder <code>/bin/</code></li>
+    <li>Create a file called <code>mystartup.bat</code></li>
+    <li>Content of the file should be <code>start /AFFINITY 3 startup.bat</code> where 3 is the affinity mask (expressed as a hexadecimal number)</li>
+</ul><h4 id="start_linux">For Linux:</h4>
+
+
+
+<ul><li>Go to the folder <code>/bin/</code>.</li>
+    <li>Create a file called <code>mystartup.sh</code>. </li>
+    <li>The content of the file should be <code>taskset -c 0,1 startup.sh 0,1</code> (where 0,1 indicate the CPU cores to use).</li>
+</ul><h3 id="shutdown">Shut down Tomcat</h3>
+
+
+
+<p>Tomcat can be shut down by executing the following command:</p>
+<ul><li>Windows: <code><tomcat_home>\bin\shutdown</tomcat_home></code></li>
+    <li>Linux: <code><tomcat_home>/bin/shutdown.sh</tomcat_home></code></li>
+</ul><p>If you see <code>checkThreadLocalMapForLeaks</code> errors, the probably indicates that Tomcat is shutting down before all work threads are completed. 
+You can <a href="/performance-tuning-2#work_service">increase the work service termination timeout</a> to ensure that work is complete before shutdown. </p>
+
+
+
+<h2 id="postinstall">First steps after installation</h2>
+
+
+
+<p>Once you have got your Tomcat bundle up and running a <a href="/first-steps-after-setup-1">few extra steps</a> are required in order to get a fully operational Bonita BPM platform.</p></div>
+	</body></html>

@@ -1,0 +1,84 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>List and search</title></head><body class="front">
+		<div id="content">
+	<h1>4.5.6 List and search</h1>
+    <p>The Bonita BPM Engine APIs contain several list and search methods. This page explains the difference between list and search, and explains how to configure <a href="#word_based_search">word-based search</a>.</p>
+
+<p>The following example shows how to use a list method to see the archived activity instances:</p>
+<code type="java">
+List<archivedactivityinstance> archivedActivityInstances = TenantAPIAccessor.getProcessAPI(session).getArchivedActivityInstances(instance.getId(), 0, 100, ActivityInstanceCriterion.NAME_ASC);
+</archivedactivityinstance></code>
+
+<p>The following example shows how to use a search method to see the archived activity instances.</p>
+<code type="java">
+SearchOptionsBuilder searchBuilder = new SearchOptionsBuilder(0, 100);
+searchBuilder.sort(ArchivedActivityInstanceSearchDescriptor.NAME, Order.ASC);
+SearchResult<archivedactivityinstance> archActivitResult = TenantAPIAccessor.getProcessAPI(session).searchArchivedActivities(searchBuilder.done());
+</archivedactivityinstance></code>
+
+<p>These two examples above return identical information. Both list and search can be used to return a specified number of results, sorted according to a specified criterion.</p>
+
+<p>The advantage of using list is that it is a single query, so has better performance. It is also simpler to code. </p>
+
+<p>The advantage of using search is that you can specify filters to get a more precise set of results, which can be more efficient. Several filters can be added. By default, an implicit AND clause is added when several filters are added. If the need is different,
+you can have an OR clause, of more complex clauses. See <a href="http://documentation.bonitasoft.com/javadoc/api/7.1/org/bonitasoft/engine/search/SearchOptionsBuilder.html">SearchOptionsBuilder methods</a> for filtering that matches your needs. <br>
+The following example is a more precise search for archived activity instances, using a filter:</p>
+
+<code type="java">
+SearchOptionsBuilder searchBuilder = new SearchOptionsBuilder(0, 100);
+// implicit AND clause between the following two filters:
+searchBuilder.filter(ArchivedActivityInstanceSearchDescriptor.ROOT_PROCESS_INSTANCE_ID, processInstance.getId());
+searchBuilder.filter(ArchivedActivityInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getId());
+searchBuilder.sort(ArchivedActivityInstanceSearchDescriptor.NAME, Order.ASC);
+SearchResult<archivedactivityinstance> archActivitResult = TenantAPIAccessor.getProcessAPI(session).searchArchivedActivities(searchBuilder.done());
+</archivedactivityinstance></code>
+
+Below is another example of a more complex search filtering.
+<code type="java">
+SearchOptionsBuilder sob = new SearchOptionsBuilder(0, 10);
+sob.filter(HumanTaskInstanceSearchDescriptor.PROCESS_INSTANCE_ID, myProcessInstance.getId());
+sob.or();
+sob.differentFrom(HumanTaskInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getId());
+</code>
+
+<h2 id="word_based_search">Word-based search</h2>
+
+<p>By default, search uses a "starts by" algorithm for searching, and finds matches where the search string occurs at the start of a phrase. 
+If word-based search is enabled, you can search for a string that is preceded by white space or is at the start of the phrase. 
+For example:</p>
+
+<table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><th valign="top">Phrase in database</th>
+			<th valign="top">Search string</th>
+			<th valign="top">Matches with "starts with"</th>
+			<th valign="top">Matches with word-based search</th>
+		</tr><tr><td valign="top">Hello Charles</td>
+			<td valign="top">charles</td>
+			<td valign="top">no</td>
+			<td valign="top">yes</td>
+		</tr><tr><td valign="top">Hello Charles</td>
+			<td valign="top">he</td>
+			<td valign="top">yes</td>
+			<td valign="top">yes</td>
+		</tr><tr><td valign="top">Hello Charles</td>
+			<td valign="top">carl</td>
+			<td valign="top">no</td>
+			<td valign="top">no</td>
+		</tr><tr><td valign="top">Hello_Charles</td>
+			<td valign="top">ch</td>
+			<td valign="top">no</td>
+			<td valign="top">no</td>
+		</tr></tbody></table><br><p>Using word-based search has an impact on performance, so by default it is disabled. You can enable it for the platform or for a tenant. If you enable it, you can exclude any objects for which it is not useful.</p>
+<p>To configure word-based search, edit <em><code>bonita_home</code></em><code>bonita-platform-community-custom.properties</code> and make the following changes: </p>
+
+<ol><li>Change the value of <code>bonita.platform.persistence.platform.enableWordSearch</code> (for the platform) or 
+<code>bonita.platform.persistence.tenant.enableWordSearch</code> (for a tenant) to <code>true</code> in the following line:
+<code type="xml">
+<constructor-arg name="enableWordSearch" value="false"></constructor-arg></code>
+    </li>
+    <li>For each object you be excluded from word-based search, add a mapping to the <code>wordSearchExclusionMappings</code> set. Each mapping has the following form:
+<code type="xml">
+<value>org.bonitasoft.engine.identity.model.SUser</value></code>
+    </li>
+</ol><p>When you restart the Engine, these settings are applied and word-based search comes into operation.</p>
+
+</div>
+	</body></html>

@@ -1,0 +1,73 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Web service connector overview</title></head><body class="front">
+		<div id="content">
+	<h1>1.8.19 Web service connector overview</h1>
+    <div id="top"></div>
+<div id="call"></div>
+<h2>Generic configuration</h2>
+<ol><li>Go to Web services in the connectors list. 
+    </li><li>Select<strong> Web Service Client.</strong></li>
+    <li>Click on <em><strong>Next</strong></em></li>
+    <li>Enter a name and description for the connector.</li>
+    <li>Click on <em><strong>Next.</strong></em></li>
+</ol><p>To format your entries according to SOAP specifications, go to <a href="http://www.w3.org/TR/soap12-part1/#intro" target="_blank">SOAP!</a>
+</p>
+<p>See a working example of a web service connector in this <a href="/web-service-connector-tutorial-0">tutorial</a>.</p>
+
+<div class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign"></span> Warning: this connector uses the StAX API. StAX libraries cannot be loaded in more than one classloader but must instead be placed in a single location where they can be called by all the items that use them. 
+When you configure a process that uses this connector, you must <a href="/manage-jar-files-0">manage the jar files</a>.</div>
+
+
+<h2>Input</h2>
+<table class="table"><tbody><tr><th>Input type</th>
+<th>Description</th>
+<th>Type</th>
+</tr><tr><td>Target NS</td>
+<td>Target NS (URL)</td>
+<td>String</td>
+</tr><tr><td>Service name</td>
+<td>Name of web service</td>
+<td>String</td>
+</tr><tr><td>Port name</td>
+<td>Web service port name</td>
+<td>String</td>
+</tr><tr><td>Request</td>
+<td>Request entity</td>
+<td>String</td>
+</tr><tr><td>End point address</td>
+<td>URL</td>
+<td>String</td>
+</tr><tr><td>Binding</td>
+<td>Specify protocol and data format</td>
+<td>String</td>
+</tr><tr><td>Password</td>
+<td>Password of user authorized to access</td>
+<td>String</td>
+</tr><tr><td>Service NS</td>
+<td>Target namespace (URL)</td>
+<td>String</td>
+</tr><tr><td>Service name</td>
+<td>Name of web service</td>
+<td>String</td>
+</tr><tr><td>Port name</td>
+<td>Web service port name</td>
+<td>String</td>
+</tr><tr><td>End point address</td>
+<td>URL</td>
+<td>String</td>
+</tr><td>Binding</td>
+<td>Specify protocol and data format</td>
+<td>String</td>
+
+</tbody></table><h2>Output</h2>
+<table class="table"><tbody><tr><th>Output type</th>
+<th>Description</th>
+<th>Type</th>
+</tr><tr><td>Response</td>
+<td>Result of execution</td>
+<td>Source</td>
+</tr></tbody></table><h2>Result</h2>
+<p>The connector will locate and execute the specific web service and return and output in the form of a Java object.</p>
+
+
+</div>
+	</body></html>

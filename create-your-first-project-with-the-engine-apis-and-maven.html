@@ -1,0 +1,233 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Create your first project with the Engine APIs and Maven</title></head><body class="front">
+		<div id="content">
+	<h1>4.5.2 Create your first project with the Engine APIs and Maven</h1>
+    <p>This page contains an example of to set up a Maven project to create a client that uses the Bonita BPM client APIs to communicate with the Bonita BPM Engine and run a process. 
+It assumes that you are a Java programmer familiar with using Maven.</p>
+
+<p></p><dl><dt><a href="#apis">Bonita BPM Client APIs</a></dt>
+<dt><a href="#maven_dependencies">Maven dependencies</a></dt>
+<dt><a href="#bonita_home">Bonita home</a></dt>
+<dt><a href="#login">Log in</a></dt>
+<dt><a href="#java_client_example">Example of a client program</a></dt>
+</dl><h2 id="apis">Bonita BPM Client APIs</h2>
+
+<p>In this example, we use the following APIs:</p>
+<ul><li>LoginAPI:  Manages the login on tenants. Using this API you can obtain an APISession, which is required for access to the tenant APIs, such as the IdentityAPI and the ProcessAPI.
+</li><li>ProcessAPI: Manages processes. Using this API you can handle process execution (for example, start a process, retrieve a task, execute a task, or retrieve data) and process management 
+(for example, deploy, undeploy, enable or disable a process). </li>
+</ul><p></p>
+
+<h2 id="maven_dependencies">Maven dependencies</h2>
+
+<p>In order to use the client APIs, you need to add a dependency to the <code>bonita-client</code> artifact in your Maven <code>pom.xml</code> file: </p>
+
+<code type="xml">
+<properties><bonita.bpm.version>7.0.0</bonita.bpm.version>
+   ...
+</properties><!-- Bonita BPM Engine --><dependency><groupid>org.bonitasoft.engine</groupid><artifactid>bonita-client</artifactid><version>${bonita.bpm.version}</version></dependency></code>
+
+
+<h2 id="bonita_home">Bonita home</h2>
+
+<p>In order to execute this client example you need to set the Java system property <code>bonita.home</code>, for example <code>-Dbonita.home=<path to bonita home></path></code>, 
+and <a href="/configuring-bonita-home-client-1">configure a var_bonita_home for the client</a>. The bonita home used must have the same version as
+the Bonita BPM Engine, which is configured in bonita.bpm.version (here 7.0.0). </p>
+
+
+<h2 id="login">Log in</h2>
+
+<p>The first action of the client must be to log in. This example shows how to log in when accessing the server over HTTP:</p>
+
+<code type="java">
+Map<string string> settings = new HashMap<string string>();
+settings.put("server.url", "http://localhost:8080");
+settings.put("application.name", "bonita");
+APITypeManager.setAPITypeAndParams(ApiAccessType.HTTP, settings);
+// get the LoginAPI using the TenantAPIAccessor
+LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
+// log in to the tenant to create a session
+APISession apiSession = loginAPI.login(username, password);
+</string></string></code>
+
+
+<h2 id="java_client_example">Example of a client program</h2>
+
+<p>In this example, a user interacts with a Bonita BPM process by choosing actions from a command-line client program written in Java.</p>
+
+<p>The user can choose one of the following actions:</p>
+<ul><li>start a process</li>
+<li>list open process instances: process instances that have not yet completed</li>
+<li>list archived process instances: process instances that have completed</li>
+<li>list pending tasks</li>
+<li>execute a task</li>
+</ul><p>The program displays a menu presented by the <code>getMenutTextContent</code> method:</p>
+<code type="java">
+private static String getMenutTextContent() {
+   StringBuilder stb = new StringBuilder("\nChoose the action to be executed:\n");
+   stb.append("0 - exit\n");
+   stb.append("1 - start a process\n");
+   stb.append("2 - list open process instances\n");
+   stb.append("3 - list archived process instances\n");
+   stb.append("4 - list pending tasks \n");
+   stb.append("5 - execute a task\n");
+   stb.append("Choice:");
+   String message = stb.toString();
+   return message;
+   }
+</code>
+
+<p>These choices are interpreted by the following code:</p>
+<code type="java">
+private static void executeActions(ProcessDefinition processDefinition) 
+    throws IOException, BonitaException {
+    String message = getMenutTextContent();
+    String choice = null;
+    do {
+        // show the menu and read the action chosen by the user
+        choice = readLine(message);
+        if ("1".equals(choice)) {
+            // if user chooses 1, start a new process instance
+            startProcess(processDefinition);
+        } else if ("2".equals(choice)) {
+            // if user chooses 2, list open process instances
+            listOpenedProcessInstances();
+        } else if ("3".equals(choice)) {
+            // if user chooses 3, list archived process instances
+            listArchivedProcessInstances();
+        } else if ("4".equals(choice)) {
+            // if user chooses 4, list pending tasks
+            listPendingTasks();
+        } else if ("5".equals(choice)) {
+            // if user chooses 5, execute the task chosen by the user
+            executeATask();
+        } else if (!"0".equals(choice)) {
+            System.out.println("Invalid choice!");
+        }
+    } while (!"0".equals(choice));
+}
+</code>
+
+<h3>Start a process</h3>
+<code type="java">
+private static void startProcess(ProcessDefinition processDefinition) {
+    ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(apiSession);
+    ProcessInstance processInstance = processAPI.startProcess(processDefinition.getId());
+}
+</code>
+
+<h3>List open process instances</h3>
+
+<p>All Bonita BPM Engine API methods that deal with collections are paged to avoid having too many entries in memory. 
+For these methods, if you want to retrieve all results you need handle this page by page. 
+This the case with the searchProcessInstances method used here to retrieve open process instances. In the example, each page will contain up to 5 (PAGE_SIZE) elements:</p>
+
+<code type="java">
+private static void listOpenedProcessInstances() {
+    // the result will be retrieved by pages of PAGE_SIZE size
+    int startIndex = 0;
+    int page = 1;
+    SearchResult<processinstance> result = null;
+    do {
+        // get the current page of open process instances
+        result = getOpenProcessInstancePage(session, startIndex);
+        // print the current page
+        printOpenedProcessIntancesPage(page, result);
+
+        // go to next page
+        startIndex += PAGE_SIZE;
+        page++;
+    } while (result.getResult().size() == PAGE_SIZE);
+}
+</processinstance></code>
+
+<code type="java">
+private static SearchResult<processinstance> getOpenProcessInstancePage(APISession apiSession, int startIndex) throws BonitaException {
+    // create a new SeachOptions with given start index and PAGE_SIZE as max number of elements
+    SearchOptionsBuilder optionsBuilder = new SearchOptionsBuilder(startIndex, PAGE_SIZE);
+    // sort the result by the process instance id in ascending order
+    optionsBuilder.sort(ProcessInstanceSearchDescriptor.ID, Order.ASC);
+    // perform the request and return the result
+    ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(apiSession);
+    return processAPI.searchProcessInstances(optionsBuilder.done());
+}
+</processinstance></code>
+
+<h3>List archived process instances</h3> 
+
+<p>In order to retrieve all archived process instances you also need to iterate page by page:</p>
+<code type="java">
+private static void listArchivedProcessInstances() {
+    // the result will be retrieved by pages of PAGE_SIZE size
+    int startIndex = 0;
+    int page = 1;
+    SearchResult<archivedprocessinstance> result = null;
+    do {
+        // get the current page of opened process instances
+        result = getArchivedProcessInstancePage(session, startIndex);
+        // print the current page
+        printArchivedProcessInstancePage(page, result);
+
+        // go to the next page
+        startIndex += PAGE_SIZE;
+        page++;
+    } while (result.getResult().size() == PAGE_SIZE);
+}
+</archivedprocessinstance></code>
+
+<code type="java">
+private static SearchResult<archivedprocessinstance> getArchivedProcessInstancePage(APISession apiSession, int startIndex) throws BonitaException {
+    // create a new SeachOptions with given start index and PAGE_SIZE as max number of elements
+    SearchOptionsBuilder optionsBuilder = new SearchOptionsBuilder(startIndex, PAGE_SIZE);
+    // when process instances are archived the original process instance id is supplied by SOURCE_OBJECT_ID,
+    // so the result will be sort by the SOURCE_OBJECT_ID
+    optionsBuilder.sort(ArchivedProcessInstancesSearchDescriptor.SOURCE_OBJECT_ID, Order.ASC);
+    // perform the request and return the result;
+    ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(apiSession);
+    return processAPI.searchArchivedProcessInstances(optionsBuilder.done());
+}
+</archivedprocessinstance></code>
+
+<h3>List pending tasks</h3>
+
+<p>To get the pending tasks for the logged user, you use the method getPendingHumanTaskInstances.</p>
+
+<code type="java">
+private static void listPendingTasks() {
+    ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(apiSession);
+    // the result will be retrieved by pages of PAGE_SIZE size
+    int startIndex = 0;
+    int page = 1;
+    List<humantaskinstance> pendingTasks = null;
+    do {
+        // get the current page
+        pendingTasks = processAPI.getPendingHumanTaskInstances(session.getUserId(), startIndex, PAGE_SIZE, ActivityInstanceCriterion.LAST_UPDATE_ASC);
+        // print the current page
+        printTasksPage(page, pendingTasks);
+
+        // got to next page
+        startIndex += PAGE_SIZE;
+        page++;
+    } while (pendingTasks.size() == PAGE_SIZE);
+}
+</humantaskinstance></code>
+
+<h3>Execute a task</h3>
+
+<p>Before a user can execute a task, the task needs to be assigned to the user. The assignUserTask method assigns the task to the user. The executeFlowNode method executes the task.</p>
+<code type="java">
+private static void executeATask() {
+    processAPI.assignUserTask(taskToExecute.getId(), session.getUserId());
+
+    processAPI.executeFlowNode(taskToExecute.getId());
+}
+</code>
+
+
+
+
+
+
+
+
+</div>
+	</body></html>

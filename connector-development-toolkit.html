@@ -1,0 +1,309 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Connector development toolkit</title></head><body class="front">
+		<div id="content">
+	<h1>4.3.2 Connector development toolkit</h1>
+    <ul><li><a href="#overview">Overview</a></li>
+    <li><a href="#install">Installation</a></li>
+    <li><a href="#creatingConnectorDef">Creating a new connector definition</a></li>
+    <li><a href="#creatingConnectorImpl">Creating a new connector implementation</a></li>
+    <li><a href="#widgetTypeReference">Widget types and parameters</a>
+        <ul><li><a href="#mandatory-common">Mandatory common widget parameters</a></li>
+			<li><a href="#optional-common">Optional common widget parameters</a></li>
+            <li><a href="#typeRadioGroup">RadioGroup widget parameters</a></li>
+            <li><a href="#typeSelect">Select widget parameters</a></li>
+            <li><a href="#typeArray">Array widget parameters</a></li>
+            <li><a href="#typeList">List widget parameters</a></li>
+            <li><a href="#typeGroup">Group widget parameters</a></li>
+        </ul></li>
+</ul><h2 id="overview">Overview</h2>
+
+<p>The Connector Development Toolkit is a set of tools for implementing and testing Bonita BPM connectors independently of the Bonita BPM Studio.<br>
+A connector implemented with the toolkit can be used in Bonita BPM Studio or in Bonita BPM Portal just like any Bonita BPM connector.</p>
+
+<p>This toolkit uses industry-standard tools such as Java IDEs, dependency management tools (Maven), and unit testing frameworks (JUnit, Mockito and AssertJ). 
+It has the following benefits for connector developers:</p>
+<ul><li>You can use any Java IDE for implementation, so you have access to all configuration options and can make use of convenient features such as refactoring.</li>
+    <li>You can unit test connectors, perform integration tests, and automate builds with a CI platforms.</li>
+    <li>It simplifies refactoring of connector wizards, by enabling them to be regenerated them at any time.</li>
+    <li>It simplifies dependency management and connector artifact version management, by leveraging Maven capabilities.</li>
+</ul><h2 id="install">Installation</h2>
+<h3>Prerequisites</h3>
+<p>To develop and test a Bonita BPM connector with the toolkit, you need the following software installed:</p>
+<ul><li>Java 7 or later</li>
+    <li>Maven 3.2.x or later</li>
+</ul><h3>Installation procedure</h3>
+<ol><li>Download the toolkit from the Customer Portal.</li>
+    <li>Unzip the toolkit file into a temporary installation folder.</li>
+    <li>Run either <code>install.bat</code> for Windows users or <code>install.sh</code> for Mac or Linux users.</li>
+    <li>When the installer has finished, delete the temporary installation folder because you no longer not need.</li>
+</ol><h2 id="creatingConnectorDef">Creating a new connector definition</h2>
+
+<ol><li>Open a command window and navigate to the folder that will hold your connector definition.</li>
+    <li>Prepare to run the following command (Windows users: remove the trailing slashes and edit the content to have everything on a single line):
+<code type="xml">
+mvn archetype:generate \
+    -DinteractiveMode=false \
+    -DarchetypeGroupId=com.bonitasoft.connector.definition \
+    -DarchetypeArtifactId=bonita-connector-definition-archetype \
+    -DarchetypeVersion=1.0 \
+    -DgroupId=com.mycompany.connectors \
+    -DartifactId=myFirstConnector \
+    -Dversion=1.0.0
+</code>
+        <p>Before running the command, update the following parameter values:</p>
+        <table border="1" style="margin:10px auto; width:90%; min-height:125px;"><tr><th>Parameter</th>
+            <th>Description</th>
+        </tr><tr><td>archetypeVersion</td>
+            <td>This must match the version of the toolkit.</td>
+        </tr><tr><td>groupId</td>
+            <td>Maven project group id.</td>
+        </tr><tr><td>artifactId</td>
+            <td>Maven project artifact id and Bonita BPM connector definition id.</td>
+        </tr><tr><td>version</td>
+            <td>Maven project version and Bonita BPM connector definition version.</td>
+        </tr></table><br></li>
+        
+        <li>Run the command. This generates a new folder named <code>artifactId</code> containing the connector definition project files, as follows:
+<code>
+<artifactid>/
+    src/main/resources/
+        category-icon.png
+        connector_definition.xml
+        connector-icon.png
+    pom.xml
+</artifactid></code>
+    </li>
+    <li>Configure the <code>src/main/resources/connector_definition.xml</code> file to define the connector wizard pages with their inputs, widgets,and outputs 
+    (see <a href="#widgetTypeReference">Connector widget reference</a> for details).</li>
+    <li>Optionally, change the icons for the connector and the connector category in the <code>src/main/resources</code> folder.</li>
+</ol><h2 id="creatingConnectorImpl">Creating a new connector implementation</h2>
+<p>A connector definition can hold multiple implementations so the steps described in this section can be repeated.<br>
+All implementations will be stored under the definition project folder.</p>
+
+<div class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Caution:</strong> Connector implementations that are not located under the definition project folder will not compile.</div>
+
+<ol><li>Open a command window and navigate to the folder that contains the connector definition project.</li>
+    <li>
+        Prepare to run the following command (Windows users: remove the trailing slashes and edit the content to have everything on a single line):
+<code type="xml">
+mvn archetype:generate \
+    -DinteractiveMode=false \
+    -DarchetypeGroupId=com.bonitasoft.connector.implementation \
+    -DarchetypeArtifactId=bonita-connector-implementation-archetype \
+    -DarchetypeVersion=1.0 \
+    -DgroupId=com.mycompany.connectors \
+    -DartifactId=myFirstConnectorImpl \
+    -Dversion=1.0.0 \
+    -DdefinitionId=myFirstConnector \
+    -DdefinitionVersion=1.0.0
+</code>
+        <p>Before running the command, update the following parameter values:</p>
+        <table border="1" style="margin:10px auto; width:90%; min-height:125px;"><tr><th>Parameter</th>
+            <th>Description</th>
+        </tr><tr><td>archetypeVersion</td>
+            <td>This should match the version of the toolkit.</td>
+        </tr><tr><td>groupId</td>
+            <td>Maven project group id and Java package for the Bonita BPM connector implementation.</td>
+        </tr><tr><td>artifactId</td>
+            <td>Maven artifact id and Bonita BPM connector implementation id.</td>
+        </tr><tr><td>version</td>
+            <td>Maven version id and Bonita BPM connector implementation version.</td>
+        </tr><tr><td>definitionId</td>
+            <td>This should match the connector definition artifactId.</td>
+        </tr><tr><td>definitionVersion</td>
+            <td>This should match the connector definition version.</td>
+        </tr></table><br></li>
+        <li>Run the command. This generates a new folder named <code>artifactId</code> containing the connector implementation project.
+    </li>
+    <li>
+        <p>In the connector implementation project folder, run the following command :</p>
+<code>
+mvn bonita-connector-definition:generate
+</code>
+        <p>This generates the connector abstract definition class based on the definition configuration:</p>
+<code>
+<artifactid>/src/main/java/<groupid>/Abstract<connectordefinitionartifactid>.java
+</connectordefinitionartifactid></groupid></artifactid></code>
+        
+        <div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span> <strong>Note:</strong>
+        If you subsequently change the connector definition configuration, run this command again to apply your changes.<br>
+        This will regenerate the abstract definition class, overwriting the previous version.</div>
+    </li>
+    <li>
+        <p>In the connector implementation project folder, run the following command :</p>
+<code>
+mvn bonita-connector-implementation:generate
+</code>
+        <p>This generates a stub of the connector implementation and test classes:</p>
+<code>
+src/main/java/<groupid>/<artifactid>.java
+src/test/java/<groupid>/<artifactid>Tests.java
+</artifactid></groupid></artifactid></groupid></code>
+        <div class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Caution:</strong> Do not run this command again at a later stage, because it resets your implementation and test classes.</div>
+    </li>
+    <li>Complete your connector implementation and test classes.</li>
+    <li>
+        <p>When you are ready to package the connector, run this command in the implementation project folder:</p>
+<code>
+mvn package
+</code>
+        <p>This will produce a connector zip file that can be imported in Bonita BPM Studio:</p>
+<code>
+/target/<artifactid>-<version>-dist.zip
+</version></artifactid></code>
+    </li>
+</ol><h2 id="widgetTypeReference">Widget types and parameters</h2>
+<p>The following widget types are supported in connectors:</p>
+<table border="1" style="margin:10px auto; width:90%; min-height:275px;"><tr><th>Widget</th>
+        <th>Description</th>
+    </tr><tr><td>Text</td>
+        <td>Text field</td>
+    </tr><tr><td>Password</td>
+        <td>Text field with obfuscated characters</td>
+    </tr><tr><td>TextArea</td>
+        <td>Multi-line text field</td>
+    </tr><tr><td>Checkbox</td>
+        <td>Single checkbox</td>
+    </tr><tr><td>RadioGroup</td>
+        <td>Group of radio buttons</td>
+    </tr><tr><td>Select</td>
+        <td>Drop down</td>
+    </tr><tr><td>Array</td>
+        <td>Editable table with user customizable rows and columns</td>
+    </tr><tr><td>ScriptEditor</td>
+        <td>Multi-line text zone for entering a script</td>
+    </tr><tr><td>List</td>
+        <td>List in which user can add/remove elements</td>
+    </tr><tr><td>Group</td>
+        <td>Collapsile zone that contains one or more widgets</td>
+    </tr></table><br><p>This is the same as the set of connector widgets available Bonita BPM Studio.</p>
+<p>A widget is configured by setting parameters. Some <a href="#mandatory-common">mandatory parameters</a> and <a href="#optional-common">optional parameters</a> are common to all types of widget. 
+There are also some specific widget properties for some types of widget, which are listed later in this page.</p>
+
+<h3 id="mandatory-common">Mandatory common widget parameters</h3>
+<table border="1" style="margin:10px auto; width:90%; min-height:150px;"><tr><th>Parameter</th>
+        <th>Description</th>
+    </tr><tr><td>id</td>
+        <td>Unique widget identifier.</td>
+    </tr><tr><td>label</td>
+        <td>Text displayed beside the widget.</td>
+    </tr><tr><td>widgetType</td>
+        <td>Type of the widget. Set this to Text, Password, TextArea, Checkbox, RadioGroup, Select, Array, ScriptEditor, List, or Group.</td>
+    </tr><tr><td>javaType</td>
+        <td>Java type used to assign the value of this widget. This is not supported for Group widgets.</td>
+    </tr></table><h3 id="optional-common">Optional common widget parameters</h3>
+<table border="1" style="margin:10px auto; width:90%; min-height:120px;"><tr><th>Parameter</th>
+        <th>Description</th>
+        <th>Default value</th>
+    </tr><tr><td>mandatory</td>
+        <td>Boolean flag that indicates whether or not this widget can be left empty.</td>
+        <td>true</td>
+    </tr><tr><td>defaultValue</td>
+        <td>Default value assigned to this widget.</td>
+        <td>n/a</td>
+    </tr><tr><td>description</td>
+        <td>Mouseover text displayed by the 'information' icon beside the widget. If there is no description, the icon is not displayed.</td>
+        <td>n/a</td>
+    </tr></table><p>The following example is the configuration for a Text widget:</p>
+<code type="xml">
+<widget><id>firstName</id><label>First name</label>
+    <widgettype>Text</widgettype><javatype>java.lang.String</javatype><mandatory>true</mandatory><defaultvalue>John</defaultvalue><description>Your first name</description></widget></code>
+
+
+<h3 id="typeRadioGroup">RadioGroup widget parameters</h3>
+
+<table border="1" style="margin:10px auto; width:90%; min-height:90px;"><tr><th>Parameter</th>
+        <th>Mandatory</th>
+        <th>Description</th>
+        <th>Default value</th>
+    </tr><tr><td>choices</td>
+        <td>yes</td>
+        <td>List of values for the radio button group. Each value is specified in a "choice" tag.</td>
+        <td>n/a</td>
+    </tr><tr><td>orientation</td>
+        <td>no</td>
+        <td>Alignment of the widget values. One of: HORIZONTAL or VERTICAL.</td>
+        <td>VERTICAL</td>
+    </tr></table><p>The following example is the configuration for a RadioGroup widget with three choices:</p>
+<code type="xml">
+<widget><id>radioGroup</id><label>RadioGroup widget</label>
+	<javatype>java.lang.String</javatype><widgettype>RadioGroup</widgettype><choices><choice>Choice1</choice><choice>Choice2</choice><choice>Choice3</choice></choices><orientation>VERTICAL</orientation></widget></code>
+
+
+<h3 id="typeSelect">Select widget parameters</h3>
+
+<table border="1" style="margin:10px auto; width:90%; min-height:60px;"><tr><th>Parameter</th>
+        <th>Mandatory</th>
+        <th>Description</th>
+        <th>Default value</th>
+    </tr><tr><td>items</td>
+        <td>yes</td>
+        <td>List of values for the widget. Each value is specified in an "item" tag.</td>
+        <td>n/a</td>
+    </tr></table><p>The following example is the configuration for a Select widget with three choices:</p>
+
+<code type="xml">
+<widget><id>select</id><label>Select widget</label>
+	<javatype>java.lang.String</javatype><widgettype>Select</widgettype><items><item>Item1</item><item>Item2</item><item>Item3</item></items></widget></code>
+
+
+<h3 id="typeArray">Array widget specific parameters</h3>
+
+<p>All Array widget specific parameters are mandatory and must be placed under a single parent "arrayOptions" tag.</p>
+
+<table border="1" style="margin:10px auto; width:90%; min-height:180px;"><tr><th>Parameter</th>
+        <th>Description</th>
+    </tr><tr><td>cols</td>
+        <td>Initial number of columns in the table.</td>
+    </tr><tr><td>rows</td>
+        <td>Initial number of rows in the table. A value of -1 indicates a table with no row (only the column headers are displayed).</td>
+    </tr><tr><td>fixedCols</td>
+        <td>Boolean flag that indicates whether the number of table columns can be modified by the end user. If set to "true", the user cannot add or remove columns.</td>
+    </tr><tr><td>fixedRows</td>
+        <td>Boolean flag that indicates whether the number of table rows can be modified by the end user. If set to "true", the user cannot add or remove rows.</td>
+    </tr><tr><td>colsCaption</td>
+        <td>List of captions for the column headers. Each caption is specified in a "colsCaption" tag.</td>
+    </tr></table><p>The following example is the configuration for an Array widget two columns and any number of rows:</p>
+
+
+<code type="xml">
+<widget><id>array</id><label>Array widget</label>
+	<javatype>java.util.List</javatype><widgettype>Array</widgettype><arrayoptions><cols>2</cols><rows>-1</rows><fixedcols>true</fixedcols><fixedrows>false</fixedrows><colscaptions><colscaption>Header 1</colscaption><colscaption>Header 2</colscaption></colscaptions></arrayoptions></widget></code>
+
+
+<h3 id="typeList">List widget specific parameters</h3>
+
+<table border="1" style="margin:10px auto; width:90%; min-height:60px;"><tr><th>Parameter</th>
+        <th>Mandatory</th>
+        <th>Description</th>
+        <th>Default value</th>
+    </tr><tr><td>showDocuments</td>
+        <td>no</td>
+        <td>Boolean flag that indicates whether the end user can select Bonita BPM documents in the list of values.</td>
+        <td>false</td>
+    </tr></table><p>The following example is the configuration for a List widget:</p>
+
+<code type="xml">
+<widget><id>list</id><label>List widget</label>
+	<javatype>java.util.List</javatype><widgettype>List</widgettype><showdocuments>true</showdocuments></widget></code>
+
+
+<h3 id="typeGroup">Group widget parameters</h3>
+
+<p><b>Note:</b> A Group widget does not support the common "javaType" parameter.</p>
+
+<table border="1" style="margin:10px auto; width:90%; min-height:90px;"><tr><th>Parameter</th>
+        <th>Description</th>
+    </tr><tr><td>collapsed</td>
+        <td>Boolean flag that indicates whether the group is collapsed by default.</td>
+    </tr><tr><td>widgets</td>
+        <td>Specifies the list of widgets contained in the group.</td>
+    </tr></table><p>The following example is the configuration for a Group widget that contains two other widgets:</p>
+
+<code type="xml">
+<widget><id>credentials</id><widgettype>Group</widgettype><label>User credentials</label>
+	<collapsed>true</collapsed><widgets><widget><id>login</id><javatype>java.lang.String</javatype><mandatory>true</mandatory><widgettype>Text</widgettype><label>Login</label>
+		</widget><widget><id>password</id><javatype>java.lang.String</javatype><mandatory>true</mandatory><widgettype>Password</widgettype><label>Password</label>
+		</widget></widgets></widget></code>
+
+</div>
+	</body></html>

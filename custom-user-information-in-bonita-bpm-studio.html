@@ -1,0 +1,100 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Custom user information in Bonita BPM Studio</title></head><body class="front">
+		<div id="content">
+	<h1>1.9.4 Custom user information in Bonita BPM Studio</h1>
+    <p>You can use custom user information to assign task to users based on information that is specific to your organization and not included in the standard organization definition. 
+You define the attributes that you want to store, and then add the values for the users. </p>
+
+<a href="#usecase">Example usecases</a>
+<a href="#default">List of users</a>
+<a href="#customtab">Custom tab</a>
+<a href="#userinformanag">User information management</a>
+<a href="#assign">Assign tasks automatically</a>
+<a href="#newactorcat">New actor filter category</a>
+<a href="#newactorval">New actor filter value</a>
+<a href="#assignauto">Assign tasks automatically</a>
+<a href="#howtoadd">How to add custom information to a user</a>
+<a href="#howtosetfilter">How to set an actor filter for a user</a>
+
+<h3><div id="usecase">Example usecases</div></h3>
+<p>Some example use cases for custom information are to create a security badge with an individual value (number) for each user, an office skill for a user, a special professional activity, or geographical details. All these types of information are not displayed in standard information tabs.</p>
+
+<h2><div id="default">List of users</div></h2>
+<p>By default, in the Organization menu &gt; Manage organizations &gt; Organization users &gt; <strong>List of users</strong>, four tabs contain standard information about a user in the Organization:</p>
+<ul><li>General (Title, First and last name, Job title)</li>
+    <li>Membership (Group/role)</li>
+    <li>Personal (Email, phone, website, address etc.)</li>
+    <li>Business card (Email, phone, website, address etc.)</li>
+
+    
+</ul><h3><div id="customtab">Custom tab</div></h3>
+<p>A tab called <strong>Custom</strong>, has been added to the four default tabs.</p>
+<p>When a user is selected in the <strong>List of users</strong>, the custom information for each user is displayed in the <strong>Custom</strong> tab. If a custom user information is added for one user, it is applied to all users in the organization.</p>
+<p>This custom user information is also displayed in the <strong>User information management</strong> tab.</p>
+<p>When the <strong>Custom tab</strong> is clicked, the <strong>configuration name</strong> (applied to all users) and a <strong>value</strong> (applied only to a single user), are displayed in the panel.</p>
+<p>A link called <strong>Manage custom information</strong>, is displayed in the Custom tab, which takes the user straight to the <strong>User information management tab</strong>.</p>
+<p>This information can be modified using the edit button.</p>
+
+<h2><div id="userinformanag">User information management</div></h2>
+<p>A tab called <strong>User information management</strong> displays a pane with both the default and custom information for a user.</p>
+<p><strong>Custom information</strong> (editable) is displayed on the right hand side of the pane. Two buttons, <strong>add</strong> and <strong>delete</strong> allow the edition of custom information in the Custom pane.</p>
+
+
+<h2><div id="newactorcat">New actor filter category</div></h2>
+<p>An actor filter category called <strong>Organization</strong> has been added. It contains an actor filter called <strong>Users with Custom information</strong>.</p>
+<p>The actor filter can be added to actor for a lane or a task (not a pool).</p>
+<p>A task is assigned to an actor. An actor is mapped to a list of users. This filter is applied to the set of users mapped to the actor.  When the filter is applied, each user which has not added custom information (a value) to their user description (custom tab) will be filtered out. They will not be eligible to perform the task.</p>
+
+
+<h2><div id="newactorval">Actor filter value</div></h2>
+<p>An actor filter definition must have a value is order to make the filter work. This value is used on the actor filter. 
+For example, a filter could be defined as a language. The value for the filter could be French, or English etc.
+An actor has users mapped to it, who can perform a task.
+When custom user information is added to a user, the actor filter will use the value contained in the definition to select users who posses this value in the custom user information tab.</p>
+This enables certain users to be mapped to a given task. When the process is run, the user will be automatically assigned to the task.
+<p>A link called <strong>Manage custom information</strong>, is displayed in the Custom tab, which links directly to the User information management tab.</p>
+
+<h2><div id="assignauto">Assign tasks automatically</div></h2>
+<p>Check the checkbox to apply this feature. This feature is only applied when there is one user assigned to a task.</p>
+
+
+<h2><div id="howtoadd">How to add custom information to a user</div></h2>
+<ol><li>In Bonita BPM Studio, go to <strong>Organization</strong> in the cool bar</li>
+    <li>Click on <em><strong>Manage</strong></em> in the dropdown menu</li>
+    <li>Click on <em><strong>Next</strong></em> 3 times to get to the <strong>Organization users</strong> window</li>
+    <li>Click on <em><strong>List of users</strong></em> and select a user to edit</li>
+    <li>Note: there are 2 ways to access the edit menu for Custom information: in <strong>List of users</strong>, either click on the <strong>Custom tab</strong>, <em><strong>Manage user information</strong></em>, or
+    click on the <strong>User information management</strong> tab</li>
+    <li>In the <strong>Custom information</strong> pane on the right hand side of the window,  the current click on <em><strong>Add</strong></em></li>
+    
+    <li>This will put a default name <strong>Information1</strong> in the <strong>Name column</strong></li>
+    <li>Add a description (if needed). This will only appear in Bonita BPM Studio.</li>
+    <li>Double click on the default name <strong>Information1</strong>, to modify it to your needs</li>
+    <li>Click on <strong>Finish</strong></li>
+    <li>A message is displayed: <em>The Organization has been modified. It is recommended to re-publish it. Do you want to do it now?</em></li>
+    <li>Click on <strong>Yes</strong></li>
+    <p>Note that the filters will not work if users have changed values and not re-published the Organization. This will throw a synchronization error.</p>
+    <li>A confirmation message is displayed showing the organization was successfully re-published</li>
+    <li>Click on <strong>Ok</strong></li>
+    <li>A new custom tab is applied to all users. This can be used by the actor filter to map the user to a task.</li>
+    <li>Add a value</li>
+    <li>The name of the information and its value is displayed in the custom tab</li>
+ </ol><p>Note: this value can be changed by a user with the Admin profile in Bonita BPM Portal. See <a href="/custom-user-information-bonita-bpm-portal-0">How to edit Custom information for a single user</a>
+</p><p>If the value is changed in Bonita BPM Portal by the admin, and the filter value does not exist in the organization</p>
+
+
+<h2><div id="howtosetfilter">How to set a new actor filter for an actor</div></h2>
+<ol><li>In a process diagram, select a <strong>lane or a task</strong></li>
+    <li>Now, select an <strong>actor</strong> to apply the filter</li>
+    <li>In the <strong>Details panel</strong>, Go to General &gt; Actors &gt; Actor filter &gt; <strong>Set</strong></li>
+    <li>In the Actor filters window &gt; Categories, click on Organization &gt; <em><strong>Users with Custom information</strong></em></li>
+    <li>Click on <em><strong>Next</strong></em></li>
+    <li>Enter a name and a description for the filter definition</li>
+    <li>Click on <em><strong>Next</strong></em></li>
+    <li>Enter a <strong>Name</strong></li>
+    <li>Enter a value which will be used a the filter on the actor</li>
+    <li>The users mapped to the actor, should already have custom information defined for them. If the value set here belongs to one of the users, the filter will be applied to this user.</li>
+    <li><strong>Partial match </strong> and <strong>assign task automatically</strong> can be selected for the user (optional)</li>
+    <li>Click on <em><strong>Finish</strong></em></li>
+    <li>The filter is set for the actor and is displayed in the actor filter field</li>
+</ol></div>
+	</body></html>

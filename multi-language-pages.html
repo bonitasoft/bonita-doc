@@ -1,0 +1,145 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Multi-language pages</title></head><body class="front">
+		<div id="content">
+	<h1>1.7.2.11 Multi-language pages</h1>
+    In the Bonita BPM Subscription editions, the UI designer includes a mechanism to add translations for page elements, to support multi-language pages. 
+The text displayed in the preview and at runtime adapts to the locale or browser language automatically. The UI designer itself is displayed in the language of your Bonita BPM Studio.
+    The Preview window is displayed in the language set for Bonita BPM Portal.
+
+
+<p>You can translate all the text displayed on a page or form: the labels, the placeholders, the available values of a list, and the date format of the DatePicker widget. 
+The phrases in the base language are used as the keys to the translated phrases. 
+</p>
+
+<p>
+    <a href="#howitworks">How it works</a><br><a href="#tutorial">Tutorial: creating a multi-language page</a><br><a href="#sharing">Sharing translations</a>
+</p>
+
+<h2 id="howitworks">How it works</h2>
+
+<p>Each page has a <a href="/assets-0">localization asset</a> that contains the keys and the translations for all phrases and all languages that the page supports. 
+The asset is a file, <code>localization.json</code>. Each language is identified by the ISO 639 language attribute (for example, fr-FR, es-ES). 
+Open the default <code>localization.json</code> asset to see how this file must be formatted. You can modify the default asset for your page, or import a new asset to replace the default one.</p>
+
+<p>In production, a page is displayed in the language specified by the BOS_locale cookie value. This value must match exactly one of the language codes in the <code>localization.json</code> asset.
+The BOS_locale value is set by selecting a language in Bonita BPM Portal or in a custom widget.
+If BOS_locale is not set or its value does not match a language code, the browser language is used. 
+If neither the BOS_locole nor the browser language matches a language code in <code>localization.json</code>, the untranslated keys are displayed in the page.
+</p>
+
+<p>To use a localization asset, replace the default <code>localization.json</code> file with a file of the same format containing all the keys in the page and the translations into the target languages. The localisation asset is at page level.  
+The format of file must be:</p>
+<code>
+{
+"ISO 639-1 code for language-A": 
+  {
+    "english key":"translated key for language-A",
+    "english key2":"translated key2 for language-A",
+     ...
+   },
+"ISO 639-1 code for language-B ": 
+  {
+    "english key":"translated key for language-B",
+  "english key2":"translated key2 for language-B",
+
+     ...
+   }
+  ...
+</code>
+
+<p>The code that specifies a language in <code>localization.json</code> must be the same as the code in the <code>.po</code> files used to <a href="/languages-1">add the language to the Portal</a>.</p>
+
+<h2 id="tutorial">Tutorial: creating a multi-language page</h2>
+
+
+<p>This tutorial explains how to create a multi-language version of the Travel Tool application page from the <a href="/getting-started-tutorial-1">getting started tutorial</a>, adding French and Russian text to the page. 
+It assumes that you have already created the Travel Tool page following the instructions in the <a href="/getting-started-tutorial-1">getting started tutorial</a>.</p>
+
+<p>
+<a href="#translate">Translate the text</a><br><a href="#locales">Add languages to Bonita BPM Portal</a><br><a href="#asset">Add a localization asset to the page</a><br><a href="#custom-widget">Translate contents in custom widgets</a><br><a href="#preview">Preview the page</a><br><a href="#deploy">Deploy</a><br></p>
+
+
+<h3 id="translate">Translate the text</h3>
+
+<p>Translation is done outside the Bonita BPM, in any suitable translation editor. The only requirement is that you provide the translated text as a localization asset in the format required by the UI designer.</p>
+
+<p>The first step is to create a list of all the text strings used in the page. These strings are the keys that are used to serve the relevant translated string in the translated versions of page.  
+For this simple page, you could create the key list by hand from the text that is visible in the Page editor. 
+However, to be sure that you identify all the items that need to be translated, export the page zip file, and edit the <code>page.json</code> file to retrieve all the text strings. 
+In addition to the text strings, look for any date format strings and URLs that could contain a locale attribute.</p>
+
+<p>For the Travel Tool application page, this is the set of text strings to translate:</p>
+
+<code>
+Travel Tool
+This page lists your pending and approved travel requests.
+My pending requests
+Departure date
+Number of nights
+Hotel needed
+Destination
+Reason
+Create new travel request
+My approved travel requests
+yes
+no
+</code>
+
+<p>These strings are the keys used to identify the text to display in each translation. Translate these strings into the languages that you want to support. For this tutorial, the additional languages are French and Russian.</p>
+
+<h3 id="locales">Add languages to Bonita BPM Portal</h3>
+
+<p>Before you can view a page in a language, that language must be supported for Bonita BPM web applications. 
+French is one of the default languages supported, so you just need to support for Russian. 
+To do this, <a href="/languages-1">add Russian from the Community translations to your Bonita BPM Portal</a>. 
+Make sure that you add both the Community and Subscription files. Then restart your Bonita BPM Studio, start the Portal, and change the language to Russian to check that it is available.</p>
+
+<h3 id="asset">Add a localization asset to the page</h3>
+<p>Create a <code>localization.json</code> file in the format shown above, containing the French and Russian translations of the page text. 
+The language identifier must match the language identifier in the <code>.po</code> files containing the Portal translations.
+Use an online Json checker to make sure there are no format errors in the file. The file will look something like this:</p>
+
+<code type="json">
+[[include:localization.json]]
+</code>
+
+<p>You can <a href="images/special_code//localization.json">download a copy of this <code>localization.json</code> file</a> for testing.</p>
+
+<p>In the UI designer, import this file as an asset of the travel tool page. This will replace any existing <code>localization.json</code> file. Save the page.</p>
+
+<h3 id="custom-widget">Translate contents in custom widgets</h3>
+<p>In the custom widget editor, use the the <em>uiTranslate</em> filter or the <em>ui-translate</em> directive to indicate content to translate. See <a href="custom-widgets-0#custom-widget-translation">Custom widgets section</a> for more information.</p>
+
+<h3 id="preview">Preview the page</h3>
+<p>Now preview the page in each language. To do this, you need to modify the language used for Bonita BPM web applications, which you do by setting the Portal language from the Portal Settings menu.</p>
+
+<div style="text-align: center;"><img src="images/images-6_0/l10n-combined-previews.png" alt="Multi-language page previews" title="Multi-language page previews"><div style="clear: both" class="caption"><span style="display: block;color: #BC071B;text-align: center;margin-top: 10px">Multi-language page previews</span></div></div>
+
+<p>Check the translated versions of the page, and update the translated text if necessary. To update the translations, edit your <code>localization.json</code> file and then upload it again.
+Adjust the page layout if necessary to allow for language differences. Your multi-language page is now complete, ready to be included in an application and deployed.</p>
+
+<h3 id="deploy">Deploy</h3>
+
+<p>To put a multi-language page into production in an application, follow the same steps as for a single-language page: <a href="/resource-management#import">upload the page to the Portal</a> and then <a href="/applications-0#pages">add it to the application</a>. You can follow the steps for <a href="/getting-started-tutorial-1#build-app">building the application</a> from the getting started tutorial.</p>
+
+<p>After deployment, an application user will see the page in the language configured for their Bonita BPM web applications. A user can set this by selecting the language in Bonita BPM Portal.
+If the selected language is not supported in the page, the untranslated key text is displayed.</p> 
+
+
+
+
+
+<h2 id="sharing">Sharing translations</h2>
+
+<p>Depending on the applications and processes you have, there could be some phrases that are common to many pages or forms. 
+If this is the case, consider using a single <code>localization.json</code> for all pages. 
+You still need to attach it as an asset to each page, but it could make your translation process more efficient by removing duplication. 
+Alternatively, your translation management tools might provide a mechanism for sharing the translations required for various pages, which would enable you to extract the keys and translations required for a page and construct the .json file.</p>
+
+
+
+
+
+
+
+</div>
+	</body></html>

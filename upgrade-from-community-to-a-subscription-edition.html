@@ -1,0 +1,59 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Upgrade from Community to Subscription edition</title></head><body class="front">
+		<div id="content">
+	<h1>2.8 Upgrade from Community to Subscription edition</h1>
+    <p>Upgrading means moving from a Bonita BPM Community edition environment to any Bonita BPM Subscription 
+edition  environment.</p>
+
+<div class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Warnings:</strong>
+<ul><li>An upgrade can only be performed on a single Bonita BPM versions. You cannot migrate to a new version at the same time as you update edition.</li>
+    <li>After it is applied, an upgrade cannot be undone.</li>
+</ul></div>
+
+<p>An upgrade is performed in two phases:</p>
+<ul><li><a href="#studio_upgrade">Bonita BPM Studio upgrade</a></li>
+    <li><a href="#platform_upgrade">Bonita BPM platform upgrade</a></li>
+</ul><h2 id="studio_upgrade">Bonita BPM Studio upgrade
+</h2><p>To upgrade a Community edition Bonita BPM Studio and its resources (such as process diagrams, data models), follow these steps:</p>
+<ol><li><a href="/bonita-bpm-studio-installation-2">Install a Bonita BPM Studio</a> Subscription edition.</li>
+    <li>Export your resources from the Bonita BPM Studio Community edition to <code>.bos</code> files.  We recommend that you keep these resource files as a backup.</li>
+    <li>Import your resource files into the Bonita BPM Studio in Subscription edition.</li>
+</ol><p>The upgrade is performed automatically and silently when importing resources into Bonita BPM Studio Subscription edition.</p>
+<p>Remember that an upgrade is a non-reversible operation: 
+after your resources are imported in the Subscription edition, you will not be able to export from the Subscription edition Studio and then import them back into the Community edition.</p>
+
+
+
+<h2 id="platform_upgrade">Bonita BPM platform upgrade
+</h2><p>Upgrading a Bonita BPM platform allows you to keep the platform data (process definitions, cases, BDM...) 
+while  benefiting from the Subscription edition features.</p>
+<p>The upgrade procedure is quite simple and only requires a limited service downtime (less than an hour for basic configurations).</p>
+
+<div class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Warning:</strong> 
+A Bonita BPM platform upgrade can only be performed on the same database type.</div>
+
+<p>To upgrade a Bonita BPM platform from Community edition to a Subscription edition, follow these steps:</p>
+<ol><li><a href="/back-bonita-bpm-platform-0">Backup your Bonita BPM platform and databases</a>.</li>
+    <li>Make sure that the platform is shut down.</li>
+    <li><a href="/product-bos-sp/basic-bonita-bpm-platform-installation">Install a new Bonita BPM platform</a> Subscription edition with an H2 database. 
+    (The database is only used temporarily).</li>
+    <li>Start the Bonita BPM Subscription platform for the first time (this will initialize the platform data).</li>
+    <li>Log in to the Bonita BPM Portal as the technical user (default login and password: install) to make sure that your installation is functional.</li>
+    <li>Shut down the server.</li>
+    <li>Reset the Bonita BPM Portal menus by deleting this file:
+        <code><bonita_home>/engine-server/work/tenants/1/profiles.md5</bonita_home></code>
+    </li>
+    <li>Overwrite the <code><bonita_home>/engine-server/work/tenants/1/processes</bonita_home></code> folder of your Subscription edition installation with your 
+    backup files for the this folder from the Community edition. This will transfer your process definitions. </li>
+    <li>If the Community edition platform was running on a H2 database, use the files from your Community edition back to overwrite the following files of your Subscription edition installation:<br><code><bonita_home>/engine-server/work/platform/bonita_journal.db.h2.db</bonita_home></code><br><code><bonita_home>/engine-server/work/platform/business_data.db.h2.db</bonita_home></code>
+    </li>
+    <li>If the Community edition platform was not running on a H2 database:
+        <ol type="a"><li>From your Subscription edition installation, delete these files:<br><code><bonita_home>/engine-server/work/platform/bonita_journal.db.h2.db</bonita_home></code><br><code><bonita_home>/engine-server/work/platform/business_data.db.h2.db</bonita_home></code>
+            </li>
+            <li>Configure your Subscription edition platform to use your Community edition database.</li>
+        </ol></li>
+    <li>Start the Subscription edition platform.</li>
+    <li>Log in to the Bonita BPM Portal with your administration or personal account (it should have been imported during the upgrade).</li>
+    <li>Validate that the dialog displayed from the top right "Settings / About" menu indicates the correct Subscription edition.</li>
+    <li>Validate that your platform data is properly upgraded. This is the end of the upgrade procedure.</li>
+</ol></div>
+	</body></html>

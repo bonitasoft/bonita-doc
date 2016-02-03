@@ -1,0 +1,171 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Handling documents</title></head><body class="front">
+		<div id="content">
+	<h1>4.5.5.5 Handling documents</h1>
+    <p>This page shows an example of how to manipulate documents in a Bonita BPM process using the Java APIs. </p>
+
+<p>A document is treated in a similar way to a variable in Bonita BPM Engine database. It is defined in Bonita BPM Studio or programmatically, and is stored in the Bonita BPM Engine database. Inside a process instance, a document is a byte stream.</p>
+
+
+ <p>
+<a href="#configure">Configure a process document</a><br><a href="#convert">Convert a file to a document</a><br><a href="#create_case">Create a case with a document</a><br><a href="#attach">Attach a document to a case</a></p>
+
+<h2 id="configure">Configure a process document</h2>
+
+<p>To configure a document in a process definition, go to the <strong>Details</strong> panel, <strong>General</strong> view, <strong>Documents</strong> pane.
+An external document is specified by URI. An internal document is specified by path and file name, by clicking the <strong><em>Browse...</em></strong> button.</p>
+
+<div style="text-align: center;"><img src="images/images-6_0/documents_declarations.png" alt="Configure documents" title="Configure documents"><div style="clear: both" class="caption"><span style="display: block;color: #BC071B;text-align: center;margin-top: 10px">Configure documents</span></div></div>
+
+
+
+<h2 id="convert">Convert a file to a document</h2>
+
+<p>The following example shows how to convert the content of a document to a byte stream that can then be used to create or update the content of a document.</p>
+
+<code type="java">
+/**
+ * load the file give in parameters and return a byteArray or a null value
+ * 
+ * @param fileName
+ * @return
+ */
+public static ByteArrayOutputStream loadFile(String fileName) {
+	FileInputStream file = null;
+	int read;
+	try {
+		file = new FileInputStream(fileName);
+
+		ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+		byte[] content = new byte[2048 * 16 * 16];
+
+		while ((read = file.read(content)) &gt; 0) {
+				byteArray.write(content, 0, read);
+		}
+
+		return byteArray;
+	} catch (FileNotFoundException e) {
+			e.printStackTrace();
+	} catch (IOException e) {
+			e.printStackTrace();
+	} finally {
+		if (file != null)
+			try {
+				file.close();
+			} catch (IOException e) {
+		}
+	}
+	return null;
+}
+</code>
+
+<p></p>
+
+
+
+<h2 id="create_case">Create a case with a document</h2>
+
+<p>The following method, <code>createCaseWithDocument</code>, creates a case and attaches a document to it.</p>
+
+<code type="java">
+public static void createCaseWithDocument(String processDefinitionName, String processVersion, Map<string object> variables, Map<string object> documents, ProcessAPI processAPI)
+    throws ProcessDefinitionNotFoundException, InvalidExpressionException, ProcessActivationException, ProcessExecutionException {
+
+    long processDefinitionId = processAPI.getProcessDefinitionId(processDefinitionName, processVersion);
+                
+                
+        // ----- create list of operations -----                
+        List<operation> listOperations = new ArrayList<operation>();
+                
+        // variables
+        Map<string serializable> ListExpressionsContext = new HashMap<string serializable>();
+
+        for (String variableName : variables.keySet()) {
+
+            if (variables.get(variableName) == null || (!(variables.get(variableName) instanceof Serializable)))
+                continue;
+            Object value = variables.get(variableName);
+            Serializable valueSerializable = (Serializable) value;
+
+            variableName = variableName.toLowerCase();
+            Expression expr = new ExpressionBuilder().createExpression(variableName, variableName, value.getClass().getName(), ExpressionType.TYPE_INPUT);
+            Operation op = new OperationBuilder().createSetDataOperation(variableName, expr);
+            listOperations.add(op);
+            ListExpressionsContext.put(variableName, valueSerializable);
+            }
+                
+        // update document
+        for (String documentName : documents.keySet()) {
+
+            if (documents.get(documentName) == null)
+                continue;
+
+            DocumentValue documentValue = null;
+
+            if (documents.get(documentName) instanceof String)
+                {
+                    documentValue = new DocumentValue( ((String) documents.get(documentName)));
+                }
+                else if (documents.get(documentName) instanceof byte[])
+                {
+                    // byte
+                    documentValue = new DocumentValue(((byte[])documents.get(documentName)), "plain/text", "myfilename");        
+                }
+                else if (documents.get(documentName) instanceof ByteArrayOutputStream)
+                    {
+                        documentValue = new DocumentValue(((ByteArrayOutputStream) documents.get(documentName)).toByteArray(), "plain/text", "myfilename");         // url
+                    }
+                Operation docRefOperation = new OperationBuilder().createSetDocument(documentName,
+                    new ExpressionBuilder().createInputExpression(documentName+"Reference", DocumentValue.class.getName()));
+                        
+                listOperations.add(docRefOperation);
+                ListExpressionsContext.put(documentName+"Reference", documentValue);
+            }
+                
+        // ----- start process instance -----
+        processAPI.startProcess(processDefinitionId, listOperations, ListExpressionsContext);
+    }   
+    
+    
+</string></string></operation></operation></string></string></code>
+
+<p>In this example, we construct two maps, one containing case data and one containing an invoice document and reference. 
+The invoice documented is created by converting a local file to a byte stream using the <a href="#convert">loadFile</a> method defined above. 
+The two maps are then used to create a case of the process using the <code>createCaseWithDocument</code> method defined above.</p>
+
+<code type="java">
+// ---------- create a case with the value
+Map<string object> firstInvoice = new HashMap<string object>();
+firstInvoice.put("emailAddress", "jan.Fisher@bonitasoft.com");
+firstInvoice.put("invoiceId", Long.valueOf(45));
+firstInvoice.put("dateOfInvoice", new Date());
+Map<string object> firstInvoiceDocument = new HashMap<string object>();
+firstInvoiceDocument.put("invoiceReference", "http://documentation.bonitasoft.com");
+firstInvoiceDocument.put("invoiceLetter", loadFile("c:/tmp/firstinvoice.pdf"));
+createCaseWithDocument("IntegrateMyApplication", "1.0", firstInvoice, firstInvoiceDocument, processAPI);
+</string></string></string></string></code>
+
+<p></p>
+
+<h2 id="attach">Attach a document to a case</h2>
+
+<p>To attach a document to a case, use the <code>attachDocument</code> method of the process API. 
+This method is used to create a document and to update it: you update a document by replacing it is replaced with the new version. 
+You can provide either a URL pointing to an external document or a byte stream, as shown in the example below:</p>
+
+<code type="java">
+// update the document
+for (String documentName : documentsToUpdate.keySet()) {
+    if (documentsToUpdate.get(documentName) instanceof String)
+	// document provided by pointer URL
+       processAPI.attachDocument(pendingTask.getId(), documentName, "TheFileName", "application/pdf", (String) documentsToUpdate.get(documentName));
+
+    else if (documentsToUpdate.get(documentName) instanceof ByteArrayOutputStream)
+	// document provided as byte stream
+       processAPI.attachDocument(pendingTask.getId(), documentName, "TheFileName", "application/pdf", ((ByteArrayOutputStream) documentsToUpdate.get(documentName)).toByteArray());
+    }
+</code>
+
+<p></p>
+
+</div>
+	</body></html>

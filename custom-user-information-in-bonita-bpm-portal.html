@@ -1,0 +1,36 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Custom user information in Bonita BPM Portal</title></head><body class="front">
+		<div id="content">
+	<h1>3.7.2.5 Custom user information in Bonita BPM Portal</h1>
+    <p>Custom user information defined in the Organization in Bonita BPM Studio is displayed in the Bonita BPM Portal in the <strong>More</strong> page for a user (only accessible under the Administrator profile).
+</p>
+<p>The <strong>Users with custom information</strong> filter in Bonita BPM Studio uses this custom information to map which users can perform tasks in the Bonita BPM Portal.</p>
+<p>In Bonita BPM Portal, this custom information can only be accessed and edited by a user (Administrator profile only).</p>
+<p>Note: if no customer user definitions are set in Bonita BPM Studio, then no information will be displayed in the Bonita BPM Portal. However definitions can be added and modified manually and using the WEB REST API</p>
+<p>Note: the custom user definition cannot be modified in Bonita BPM Portal by the admin. The custom value for a user can be modified by the Administrator.
+This gives flexibility to the admin to re-assign tasks to different users.</p>
+<p>The Organization .xml file can also be exported from Bonita BPM Portal, and modified by hand externally, then re-imported back into Bonita BPM Portal.
+The API can also modify the organization.</p>
+<p>See <a href="/custom-user-information-bonita-bpm-studio-0">Custom user information in Bonita BPM Studio</a></p>
+
+<h2 id="view">How to view Custom information for a user</h2>
+<ol><li>Log on as a user with&gt;Administrator rights.</li>
+    <li>Go to the <strong>Organization</strong> menu and choose  <strong>Users</strong>.</li>
+    <li>Select a user in the list, by clicking on a name.</li>
+    <li>Click <em><strong>More</strong></em>.</li>
+    <li>The custom user definition and value are displayed in the zone called <strong>Other</strong>.</li>
+</ol><h2 id="edit">How to edit Custom information for a single user</h2>
+<ol><li><strong>Log on </strong> as a user with <em><strong>Administrator rights</strong></em>.</li>
+    <li><li>Go to the <strong>Organization</strong> menu and choose  <strong>Users</strong>.</li>
+    <li>Select a user in the list, by clicking on a name.</li>
+    <li>Click <em><strong>More</strong></em>.</li>
+    <li>The custom user definition and value are displayed in the zone called <strong>Other</strong>.</li>
+    <li>Click <em><strong>Edit user</strong></em> in the top right corner of the screen.</li>
+    <li>In the <strong>Edit a user</strong> pop-up window, click on the <em><strong>Other</strong></em> tab.</li>
+    <li>Enter a value for the definition (defined in Bonita BPM Studio), which will only be added to this user.</li>
+    <li>Click <em><strong>Save</strong></em>. This closes the pop-up.</li>
+    <li>The new value for the the definition will be updated and displayed in the <strong>Other</strong> zone.</li>
+</ol><p>Note that changing the value will modify the filtering and map the user to a different task.</p>
+
+
+</div>
+	</body></html>
