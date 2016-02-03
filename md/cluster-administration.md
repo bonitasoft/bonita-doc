@@ -12,7 +12,7 @@ This page explains how to manage a Bonita BPM cluster.
 ## Backing up a cluster
 
 
-Back up your cluster in the same as you would [back up a standalone Bonita BPM system](/back-bonita-bpm-platform-0), by backing up `bonita_home` and the database. 
+Back up your cluster in the same as you would [back up a standalone Bonita BPM system](/back-bonita-bpm-platform.md), by backing up `bonita_home` and the database. 
 You also need to back up the load balancer (see your load balancer documentation for details of how to do this).
 
 

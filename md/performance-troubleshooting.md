@@ -68,7 +68,7 @@ These are the key indicators to check:
 * Threads: Number of threads, number of deadlocks
 
 A large number of deadlocks, or memory heap starvation may indicate a performance issue.
-Follow the [JVM performance tuning recommendations](/performance-tuning-2#jvm) and increase provisioning to get the optimum performance.
+Follow the [JVM performance tuning recommendations](/performance-tuning.md#jvm) and increase provisioning to get the optimum performance.
 
 
 
@@ -117,9 +117,9 @@ Predict and then monitor the following:
 All connection numbers must be defined according to the performance tuning recommendations:
 
 * 
-Monitor connection number managed by client (see [Client Threads](/performance-tuning-2#client_threads))
-* Check connection number managed by Bonitasoft Server (See [Work Service](/performance-tuning-2#work_service%20), Connector service, and [Scheduler Service](/performance-tuning-2#scheduler_service))
-* Check number of database connections defined in Bonitasoft (see [Database connections](/performance-tuning-2#db_connections) and [Datasource settings](/performance-tuning-2#db_connections%20))
+Monitor connection number managed by client (see [Client Threads](/performance-tuning.md#client_threads))
+* Check connection number managed by Bonitasoft Server (See [Work Service](/performance-tuning.md#work_service%20), Connector service, and [Scheduler Service](/performance-tuning.md#scheduler_service))
+* Check number of database connections defined in Bonitasoft (see [Database connections](/performance-tuning.md#db_connections) and [Datasource settings](/performance-tuning.md#db_connections%20))
 * Check maximum number of simultaneous connections on database
 * Monitor number of simultaneous connections on database
 * Monitor SQL request duration time
@@ -127,16 +127,16 @@ Monitor connection number managed by client (see [Client Threads](/performance-t
 ## Connectors
 
 
-Use the [connector time tracker](/performance-tuning-2#timetracker) to check connector performance. 
+Use the [connector time tracker](/performance-tuning.md#timetracker) to check connector performance. 
 
 
 ## Cron jobs
 
 
-The Bonita BPM Engine uses the Scheduler service to trigger jobs in a recurrent manner. It might be possible to improve performance by [optimizing the cron settings](/performance-tuning-2#cron).
+The Bonita BPM Engine uses the Scheduler service to trigger jobs in a recurrent manner. It might be possible to improve performance by [optimizing the cron settings](/performance-tuning.md#cron).
 
 
 ## Performance tuning
 
 
-See [Performance tuning](/performance-tuning-2).
+See [Performance tuning](/performance-tuning.md).

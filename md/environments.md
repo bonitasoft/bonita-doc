@@ -44,7 +44,7 @@ in an environment
 
 To configure a process for an environment, select the 
 environment from the **Configure** menu in the Cool bar. Then use 
-the configuration wizard to [configure the process](/configuring-process-bonita-bpm-studio-0).
+the configuration wizard to [configure the process](/configuring-process-bonita-bpm-studio.md).
 
 
 

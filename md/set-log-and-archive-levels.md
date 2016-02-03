@@ -13,7 +13,7 @@ You can configure the information that is recorded in the archive and the logs.
 
 In the portal, after a process is executed, it can be viewed using the "Archived" filter.
 There you can find the information on the process instances (the cases). This information is also available using the Web REST API. 
-By default, all the information is archived but in the Performance edition this is [configurable](/configurable-archive-1).
+By default, all the information is archived but in the Performance edition this is [configurable](/configurable-archive.md).
 
 
 Recommended configuration (Performance only):
@@ -23,16 +23,16 @@ To keep all the user activity, set all the flowNode types to true.
 * 
 To maximize the overall performance of the system and reduce the disk space used by the database, set all the values to false. Completed tasks will not be visible.
 
-Between these two extreme cases, you can [customize archiving](/configurable-archive-1) to your exact need.
+Between these two extreme cases, you can [customize archiving](/configurable-archive.md) to your exact need.
 
 
 ## Technical log
 
 
-The [technical logger service](/technical-logger-service-0) is part of the Bonita BPM Engine. The default implementation is based on the framework Java Util Logging.
+The [technical logger service](/technical-logger-service.md) is part of the Bonita BPM Engine. The default implementation is based on the framework Java Util Logging.
 
 
-You can [configure the log level](/logging-0). The log level can be set on several categories in the `logging.properties` file. Some categories are very specific to a particular issue. 
+You can [configure the log level](/logging.md). The log level can be set on several categories in the `logging.properties` file. Some categories are very specific to a particular issue. 
 For example:
 
 * If you have an issue related to the database access, it might be interesting to change the level of `org.hibernate.level` from the default, `WARNING`, to `FINE`.
@@ -42,7 +42,7 @@ For example:
 ## Queriable log
 
 
-You can use the [queriable logger service](/queriable-logger-service-0) to log in a database the creation, deletion or update of bonita objects that are not related to a process (for instance users, groups, roles, profiles). 
+You can use the [queriable logger service](/queriable-logger-service.md) to log in a database the creation, deletion or update of bonita objects that are not related to a process (for instance users, groups, roles, profiles). 
 Items that can be [archived](#archive) cannot be included in the queriable log.
 
 

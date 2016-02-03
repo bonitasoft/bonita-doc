@@ -20,7 +20,7 @@ An upgrade is performed in two phases:
 
 To upgrade a Community edition Bonita BPM Studio and its resources (such as process diagrams, data models), follow these steps:
 
-1. [Install a Bonita BPM Studio](/bonita-bpm-studio-installation-2) Subscription edition.
+1. [Install a Bonita BPM Studio](/bonita-bpm-studio-installation.md) Subscription edition.
 2. Export your resources from the Bonita BPM Studio Community edition to `.bos` files. We recommend that you keep these resource files as a backup.
 3. Import your resource files into the Bonita BPM Studio in Subscription edition.
 
@@ -46,7 +46,7 @@ A Bonita BPM platform upgrade can only be performed on the same database type.
 
 To upgrade a Bonita BPM platform from Community edition to a Subscription edition, follow these steps:
 
-1. [Backup your Bonita BPM platform and databases](/back-bonita-bpm-platform-0).
+1. [Backup your Bonita BPM platform and databases](/back-bonita-bpm-platform.md).
 2. Make sure that the platform is shut down.
 3. [Install a new Bonita BPM platform](/product-bos-sp/basic-bonita-bpm-platform-installation) Subscription edition with an H2 database. 
 (The database is only used temporarily).

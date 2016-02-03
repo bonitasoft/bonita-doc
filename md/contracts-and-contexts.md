@@ -45,7 +45,7 @@ In Bonita BPM Studio select the pool to create the process instantiation contrac
 Go to the **Details** panel, **Execution** tab, **Contract** pane.
 In the Inputs tab, declare each expected input and its type. You have two options: declare the input manually or from a business variable using the **Add from data** option. 
 Defining an input based on a variable saves you time, and is the preferred option if the aim of the input is to initialize (or update) the business variable. 
-In addition, using **Add from data** on a task contract automatically generates [operations](/operations-0) to update the selected business variables with the task inputs.
+In addition, using **Add from data** on a task contract automatically generates [operations](/operations.md) to update the selected business variables with the task inputs.
 In the Constraints tab, declare expressions that check the validity of the value of each input. 
 A constraint has a name, a content, and a error message. 
 The message is logged if the constraint is not met. Make sure to provide a meaningful name and message to help process users understand why the system rejected the order to start the process or execute a task.

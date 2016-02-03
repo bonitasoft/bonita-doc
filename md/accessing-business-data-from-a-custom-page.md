@@ -7,7 +7,7 @@ It will describe how to display a Business Data inside a Custom page.
 
 
 **Note:** This information applies to custom pages created manually. 
-If you [create a page using the UI designer](/create-or-modify-page), access business data using the [REST bdm API](/bdm-api-0).
+If you [create a page using the UI designer](/create-or-modify-page), access business data using the [REST bdm API](/bdm-api.md).
 
 
 ## Pre-requisites
@@ -16,8 +16,8 @@ Before getting to the main part of this tutorial, you will need to carry out the
 
 1. Create a [Business Data Management model](/business-data-model) in Bonita BPM Studio.
 2. Export and deploy a [Business Data Management model](/business-data-model).
-3. Define a groovy custom page. See [Custom pages](/custom-pages-2#examples).
-4. Add a custom page to Bonita BPM Portal (as an Administrator). See [Custom profiles](/custom-profiles-2) and [Custom pages](/custom-pages-2).
+3. Define a groovy custom page. See [Custom pages](/custom-pages.md#examples).
+4. Add a custom page to Bonita BPM Portal (as an Administrator). See [Custom profiles](/custom-profiles.md) and [Custom pages](/custom-pages.md).
 
 ## Main steps
 

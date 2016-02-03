@@ -1,6 +1,6 @@
 # 1.7.2.7 Custom widgets
 
-If the [standard widgets](/widgets-0) do not meet your needs, you can create a custom widget to match exactly what you want to.
+If the [standard widgets](/widgets.md) do not meet your needs, you can create a custom widget to match exactly what you want to.
 After creation, a custom widget is available in the palette for designing pages, forms or fragments. 
 
 

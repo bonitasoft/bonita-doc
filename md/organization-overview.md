@@ -32,7 +32,7 @@ Europe, you could call the actor _sales\_mgr\_europe_.
 
 
 A user is a person who has a username and a password in a Bonita BPM organization, and can therefore perform steps in a process. 
-Before you deploy a process, you need to [map the process actors](/actors-1#Mapping_an_actor). This mapping defines who can carry out steps in the process. 
+Before you deploy a process, you need to [map the process actors](/actors.md#Mapping_an_actor). This mapping defines who can carry out steps in the process. 
 
 
 
@@ -121,7 +121,7 @@ information:
 
 
 * 
-[LDAP synchronizer](/ldap-synchronizer-3) (in the Performance, Efficiency, and Teamwork editions of Bonita BPM), for 
+[LDAP synchronizer](/ldap-synchronizer.md) (in the Performance, Efficiency, and Teamwork editions of Bonita BPM), for 
 keeping the Bonita BPM organization synchronized with your external LDAP directory. Synchronization is one-way, from LDAP to Bonita BPM. You can run the synchronizer once to
 load the organization then manage it within Bonita BPM Portal, or you can run the synchronizer on a schedule and manage the organization externally.
 
@@ -142,7 +142,7 @@ Custom user information enables custom details to be added to a user in the Orga
 ### In Bonita BPM Studio:
 
 Use the **Custom** tab in **Organization users** to add Custom information to a user. 
-This [custom information is defined in Bonita BPM Studio](/custom-user-information-bonita-bpm-studio-0#howtoadd),
+This [custom information is defined in Bonita BPM Studio](/custom-user-information-bonita-bpm-studio.md#howtoadd),
 then applied to an actor filter, and when deployed in Bonita BPM Portal, enables the filtering of users mapped to tasks.
 
 
@@ -157,13 +157,13 @@ The organization will be modified on the remote server. This enables tasks to be
 which is then used to filter users for tasks.
 
 
-See [custom user information in Bonita BPM Studio](/custom-user-information-bonita-bpm-studio-0) for setting the definition and values for the filter
+See [custom user information in Bonita BPM Studio](/custom-user-information-bonita-bpm-studio.md) for setting the definition and values for the filter
 
 
 ### In Bonita BPM Portal:
 
 
-This custom information can only be seen and [edited](/custom-user-information-bonita-bpm-portal-0) by users who have the Administrator profile.
+This custom information can only be seen and [edited](/custom-user-information-bonita-bpm-portal.md) by users who have the Administrator profile.
 
 Note that if the custom user information does not exist in Bonita BPM Studio, modifying its value for a user in Bonita BPM Portal will not make any difference to the filter, apart from creating an error. 
 Synchronize the Organization between Bonita BPM Studio and Bonita BPM Portal first by publishing it so all values are up to date.

@@ -71,7 +71,7 @@ You cannot have more than one handler for a given event, but you can use the isI
 ## Example
 
 
-This example shows an event handler that detects changes in the state of activity instances. If an activity has moved into Failed state, the event handler calls [DelayedRetry](/technical-logger-service-0#delayedretry).
+This example shows an event handler that detects changes in the state of activity instances. If an activity has moved into Failed state, the event handler calls [DelayedRetry](/technical-logger-service.md#delayedretry).
 
 
 ### Registration

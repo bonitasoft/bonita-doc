@@ -8,7 +8,7 @@ This page explains how to:
 * [Build a process for deployment](#build_for_deployment)
 * [Export a process diagram as an image](#export_image)
 
-You can also [Migrate a process diagram from Bonita Open Solution 5.x](/migrate-process-bonita-open-solution-5x-1).
+You can also [Migrate a process diagram from Bonita Open Solution 5.x](/migrate-process-bonita-open-solution-5x.md).
 
 
 ## Import a process diagram into Bonita BPM Studio
@@ -31,7 +31,7 @@ You can import diagrams that were exported from the following tools:
 * XPDL 1.0
 * jBPM 3.2
 
-You can also [migrate a process diagram from Bonita Open Solution 5.x](/migrate-process-bonita-open-solution-5x-1).
+You can also [migrate a process diagram from Bonita Open Solution 5.x](/migrate-process-bonita-open-solution-5x.md).
 
 
 ### What is supported or compatible?

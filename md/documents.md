@@ -164,14 +164,14 @@ For example, a file containing a scanned copy of a travel receipt does not need 
 
 
 The Bonita BPM Studio Document Repository contains documents that have been imported from the file system. After a document is imported, it is called a resource. 
-When you [build a process bar file for deployment](/build-process-deployment-0), the resources used in the process are automatically included.
+When you [build a process bar file for deployment](/build-process-deployment.md), the resources used in the process are automatically included.
 A resource is available to all processes in an installation of Studio. 
 A resource cannot be updated directly in Studio, but is updated by uploading a new file. 
 Typically, resources are used for information that is stable and common to all instances of a process, or is used in several processes. 
 The resource is used to initialize the document object in the process instance. You cannot use a resource to update a document object. 
 
 
-When you [export a process in a bos file for import into another Studio](/import-and-export-process-1#export_for_exchange), you must select the resources that are used so that they are included.
+When you [export a process in a bos file for import into another Studio](/import-and-export-process.md#export_for_exchange), you must select the resources that are used so that they are included.
 
 
 
@@ -320,7 +320,7 @@ A document is represented in a form definition by the [upload widget](widgets).
 ## Connectors and documents
 
 
-During a process instance, you can use [connectors](/connectivity-overview-0) to manipulate documents. 
+During a process instance, you can use [connectors](/connectivity-overview.md) to manipulate documents. 
 In addition to the connectors that interact with content management systems (such as the Alfrecso and CMIS connectors), 
 some other connectors can also manipulate documents. For example:
 

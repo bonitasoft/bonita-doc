@@ -27,9 +27,9 @@ Reporting is composed in several ordered steps.
 
 At design time:
 
-1. [Reporting database setup](/set-reporting-database-0)
-2. [KPI definition in Bonita BPM Studio](/set-kpis-0)
-3. [Report creation in the BI tool](/create-report-0)
+1. [Reporting database setup](/set-reporting-database.md)
+2. [KPI definition in Bonita BPM Studio](/set-kpis.md)
+3. [Report creation in the BI tool](/create-report.md)
 
 At execution time:
 

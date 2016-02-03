@@ -106,7 +106,7 @@ During development, you can use the tools in the `h2-1.3.170.jar` in the workspa
 If you modify database content manually, there is risk of losing data and losing synchronization with business objects in a process instance. However, it can be useful to view the database for debugging processes. If you change the BDM during development, this can also cause problems in existing process definitions.
 
 
-When you are ready to go to production, you need to [configure a database and business data datasources for business data](/database-configuration-business-data-1) in your production environment.
+When you are ready to go to production, you need to [configure a database and business data datasources for business data](/database-configuration-business-data.md) in your production environment.
 
 
 
@@ -137,7 +137,7 @@ A business object definition consists of the following:
 * A `persistenceId`, created automatically
 
 Business objects can be combined using [composition or aggregation](#compos) relationships. They are managed using standard create, read, update, delete actions.
-A business object can be read directly using the [Engine Java API](/javadoc-71) specifying the Java DAO, or using the [REST API](/bdm-api-0). To read a business object in a Groovy expression, use the DAO.
+A business object can be read directly using the [Engine Java API](/javadoc-71) specifying the Java DAO, or using the [REST API](/bdm-api.md). To read a business object in a Groovy expression, use the DAO.
 A business object can be updated only in a process, using an operation.
 
 
@@ -346,7 +346,7 @@ There are two ways to export a business data model: in a ZIP file for deployment
 To deploy the BDM, you export it as a ZIP file from Bonita BPM Studio and then import it into Bonita BPM Portal.
 
 
-**Warning:** Before deploying the business data model, you must [](/pause-and-resume-bpm-services-1)pause the service, so that the update can be performed without affecting ongoing processes. You are recommended to backup the database before deploying a new BDM.
+**Warning:** Before deploying the business data model, you must [](/pause-and-resume-bpm-services.md)pause the service, so that the update can be performed without affecting ongoing processes. You are recommended to backup the database before deploying a new BDM.
 
 
 Follow these steps:

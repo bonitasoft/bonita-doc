@@ -78,7 +78,7 @@ If you have multiple tenants that use business data objects, you need to create 
 
 
 The following sections show how to configuire the data sources for [JBoss](#ds_jboss) and [Tomcat](ds_tomcat). 
-There is also an [example of how to configure data sources for Weblogic](/how-install-red-hat-oracle-jvm-weblogic-oracle-0#datasources). 
+There is also an [example of how to configure data sources for Weblogic](/how-install-red-hat-oracle-jvm-weblogic-oracle.md#datasources). 
 
 
 ### Configuration for JBoss

@@ -16,8 +16,8 @@ The links in this page to the source code repository are to the 7.0.0 code, but 
 
 If you want to find out how to customize authentication refer to the dedicated documentation pages:
 
-* [LDAP server / Active Directory](/active-directory-or-ldap-authentication-0)
-* [CAS single sign-on (SSO)](/single-sign-cas-1)
+* [LDAP server / Active Directory](/active-directory-or-ldap-authentication.md)
+* [CAS single sign-on (SSO)](/single-sign-cas.md)
 
 ## Bonita BPM Portal authentication scenario
 
@@ -112,7 +112,7 @@ that will add session information as HTTP session attribute.
 that will redirect the user to the requested page.
 
 
-**Note:** If you [configure your Bonita BPM platform to use CAS](/single-sign-cas-1), the logical flow of authentication is the same as above. 
+**Note:** If you [configure your Bonita BPM platform to use CAS](/single-sign-cas.md), the logical flow of authentication is the same as above. 
 The difference is that at step 7 the CASRemoteLoginManager is used instead of the default loginManager and at step 12 the `JAASGenericAuthenticationServiceImpl` is called instead of the default authentication service, `AuthenticationServiceImpl`. 
 The `loginManager-config.properties` file for a tenant controls which login manager and authentication service (`cfg-bonita-authentication-impl.xml`) are used.
 

@@ -46,4 +46,4 @@ A custom profile is created by the Administrator.
 Each profile can be given a set of customized functions organized in a customized navigation menu.
 
 
-See [Custom profiles](/custom-profiles-2).
+See [Custom profiles](/custom-profiles.md).

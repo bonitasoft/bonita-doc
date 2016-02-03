@@ -25,7 +25,7 @@ For each version, there are several packaging options. Each edition has a specif
 
 There is now a single var\_bonita\_home, simplifying download options and installation. The edition is set in a properties file. There are no other differences to packaging. 
 
-See the [Installation overview](/bonita-bpm-installation-overview-0).
+See the [Installation overview](/bonita-bpm-installation-overview.md).
 
 
 
@@ -41,7 +41,7 @@ Not in 6.x
 
 A contract defines a clear separation between the process and the forms, making it possible to update the process user interface on the live system. 
 
-See [Contracts](/contracts-and-contexts-0).
+See [Contracts](/contracts-and-contexts.md).
 
 Live update
 
@@ -72,7 +72,7 @@ Each actor in a process can be mapped to a Group, Role, Membership or User withi
 
 No change.
 
-See [Actor mapping](/actors-1#Mapping_an_actor) and [Actor filtering](/actor-filtering-0).
+See [Actor mapping](/actors.md#Mapping_an_actor) and [Actor filtering](/actor-filtering.md).
 
 Environments
 
@@ -88,7 +88,7 @@ By having these Environments set up in the Studio, the developer can export proc
 
 No change.
 
-See [Environments](/environments-0).
+See [Environments](/environments.md).
 
 Parameters
 
@@ -96,7 +96,7 @@ A Parameter is configuration information that can be attached to a process. Para
 
 Now available in all editions.
 
-See [Parameters](/parameters-1) and [Environments](/environments-0).
+See [Parameters](/parameters.md) and [Environments](/environments.md).
 
 Workspace API
 
@@ -108,7 +108,7 @@ The Workspace API is provided to generate `.bar` files from the command line, re
 
 No change. The Workspace API can export pages that are mapped to process instantiation, process overview, or to tasks. It cannot export application pages that are not elements of a process.
 
-See [Automating process builds](/automating-process-builds-1).
+See [Automating process builds](/automating-process-builds.md).
 
 
 
@@ -133,12 +133,12 @@ Process migration
 
 A process exported from Bonita Open Solution 5.9 or 5.10 must be modified to run in Bonita BPM. When you import a process from 5.9 or 5.10 into Bonita BPM Studio, you see a report that guides you through the changes that are necessary.
 
-See [Migrate a process from Bonita Open Solution 5.9 or 5.10](/migrate-process-bonita-open-solution-5x-1).
+See [Migrate a process from Bonita Open Solution 5.9 or 5.10](/migrate-process-bonita-open-solution-5x.md).
 
 A process created in Bonita BPM 6.x will run in 7.x without any modification. 
 However, to take advantage of the new features in Bonita BPM 7.x, you need to add contracts and migrate the forms.
 
-See [Contracts](/contracts-and-contexts-0) and [Migrate a form from 6.x](/migrate-form-6x).
+See [Contracts](/contracts-and-contexts.md) and [Migrate a form from 6.x](/migrate-form-6x).
 
 Application theme and layout
 
@@ -178,7 +178,7 @@ Convenience Groovy functions are provided to help write scripts more quickly. Th
 
 No changes to the expression editor. It is not available from the UI designer.
 
-See [Using expressions and scripts](/using-expressions-and-scripts-0).
+See [Using expressions and scripts](/using-expressions-and-scripts.md).
 
 Validation 
 
@@ -186,7 +186,7 @@ The validation view shows all validation errors in the same location in the Stud
 
 The existence of mapped forms is verified, but the form definition is not validated for forms created with the UI designer.
 
-See [Process testing overview](/process-testing-overview-0).
+See [Process testing overview](/process-testing-overview.md).
 
 Iteration
 
@@ -194,14 +194,14 @@ Iteration can be by loop or by multi-instantiation. Multi-instantiation no longe
 
 No change.
 
-See [Iteration](/iteration-1).
+See [Iteration](/iteration.md).
 
 Connectors
 A number of standard connector are provided, and it is possible to create your own custom connectors.
 
 No change.
 
-See [Connectivity](/connectivity-overview-0).
+See [Connectivity](/connectivity-overview.md).
 
 Organization for testing
 
@@ -209,13 +209,13 @@ Several organizations can be defined in the Studio, for test purposes. The organ
 
 No change.
 
-See [Organization overview](/organization-overview-0).
+See [Organization overview](/organization-overview.md).
 
 Anonymous user
 
 You can define a process that has an unknown initiator.
 
-See [Start a process as an anonymous user](/actors-1).
+See [Start a process as an anonymous user](/actors.md).
 
 Not supported.
 
@@ -264,7 +264,7 @@ Users can choose how to manage tasks. They can perform one task after another in
 
 No change for users. An administrator or process manager (or a user with an appropriate custom profile) can see at a glance that status of all tasks in a case, and can perform a task for a user.
 
-See [Manage a task](/tasks-3).
+See [Manage a task](/tasks.md).
 
 Mobile web portal 
 
@@ -272,7 +272,7 @@ A specially designed mobile interface to Bonita BPM Portal enables users to carr
 
 No change. 
 
-See [Mobile overview](/mobile-portal-overview-1).
+See [Mobile overview](/mobile-portal-overview.md).
 
 Subtasks 
 
@@ -280,7 +280,7 @@ A Subtask is a part of a self-assigned existing task. A Subtask must be assigned
 
 No change.
 
-See [Manage a subtask](/subtasks-1).
+See [Manage a subtask](/subtasks.md).
 
 Replay tasks and connectors in error
 
@@ -288,7 +288,7 @@ It is now possible for the administrator to replay a task or a connector that is
 
 No change.
 
-See [Process configuration overview](/process-configuration-overview-0) and [Mobile overview](/mobile-portal-overview-1).
+See [Process configuration overview](/process-configuration-overview.md) and [Mobile overview](/mobile-portal-overview.md).
 
 Anonymous user
 
@@ -310,4 +310,4 @@ A separate var\_bonita\_home for each edition and for cluster.
 
 A common var\_bonita\_home used for all editions, simplifying download and installation. Improved structure for var\_bonita\_home/server that is easier to maintain and customize.
 
-See [Bonita Home](/bonita-home-0).
+See [Bonita Home](/bonita-home.md).

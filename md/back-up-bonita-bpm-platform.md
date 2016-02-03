@@ -1,7 +1,7 @@
 # 2.6 Back up Bonita BPM Platform
 
 Any basic one node (non-clustered) installation can be backed up to be restored later. 
-In a [Bonita BPM cluster](/overview-bonita-bpm-cluster-0), you need to back up the nodes, the shared database, and the shared [Bonita home](/bonita-home-0).
+In a [Bonita BPM cluster](/overview-bonita-bpm-cluster.md), you need to back up the nodes, the shared database, and the shared [Bonita home](/bonita-home.md).
 
 
 

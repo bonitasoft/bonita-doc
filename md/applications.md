@@ -50,7 +50,7 @@ An application is a collection of pages and processes that meets a business need
 
 
 * [Pages](pages): the user interface components of the application. An application must contain at least one page.
-* [Processes](/processes-0): the logic execution components of the application. An application must contain at least one process. A process can contain [forms](/forms), which are the user interface of the process. 
+* [Processes](/processes.md): the logic execution components of the application. An application must contain at least one process. A process can contain [forms](/forms), which are the user interface of the process. 
 * [REST API extensions](/rest-api-extensions): called from pages or forms to retrieve data to be presented to the user. 
 * [Layout](/layouts): the frame in which application pages are displayed. 
 * [Theme](/theme-resources): the appearance of application pages, including fonts and colors. 
@@ -62,9 +62,9 @@ An application is a collection of pages and processes that meets a business need
 An application requires the following to be available:
 
 
-* The [business data model](/bdm-management-bonita-bpm-portal-1) (BDM) must be deployed
-* The [organization](/organization-portal-overview-0) data must be deployed, so that application users can log in.
-* The access [authorizations](/rest-api-authorization-0) that grant users access to the application resources must be defined.
+* The [business data model](/bdm-management-bonita-bpm-portal.md) (BDM) must be deployed
+* The [organization](/organization-portal-overview.md) data must be deployed, so that application users can log in.
+* The access [authorizations](/rest-api-authorization.md) that grant users access to the application resources must be defined.
 
 ## Developing an application
 
@@ -146,7 +146,7 @@ To specify the application theme:
 ### Specifying application pages
 
 
-When you specify application pages, you create a mapping between the application and the [pages](/custom-pages-2) it contains. The pages themselves must already exist.
+When you specify application pages, you create a mapping between the application and the [pages](/custom-pages.md) it contains. The pages themselves must already exist.
 
 
 To specify the application pages:
@@ -250,7 +250,7 @@ If you are setting up a new production environment by importing all the data, im
 * processes (including forms)
 * applications
 
-You will also need to apply any [custom authorization](/rest-api-authorization-0) definitions.
+You will also need to apply any [custom authorization](/rest-api-authorization.md) definitions.
 
 
 To import applications:

@@ -30,10 +30,10 @@ used in the form. You can also use form variables with connectors that are
 associated with the form.
 
 See also:  
-[Data types and defining a variable](/define-variable-0)  
+[Data types and defining a variable](/define-variable.md)  
 [Complex data types](/complex-data-types)  
 [Data handling in a form](/data-handling-form)  
-[Saving data entered in a widget group](/saving-data-widget-group-0)
+[Saving data entered in a widget group](/saving-data-widget-group.md)
 
 
 ![Scope of variables](images/images-6_0/variables_scope.png)
@@ -106,7 +106,7 @@ compared with the number of days requested to see whether the employee is entitl
 connector is used to update the number of available days after this request is approved, by subtracting the number of days requested.
 
 
-You can also use data stored in external information system components, such as a CRM document storage system. These systems are also accessed using a [connector](//connectivity-overview-0).
+You can also use data stored in external information system components, such as a CRM document storage system. These systems are also accessed using a [connector](//connectivity-overview.md).
 
 
 ## Define a variable
@@ -133,7 +133,7 @@ long, double, text, Java object, XML schema (XSD) and option list. You can also
 define a variable as _multiple_, that is, an array or collection of
 values of the specified type.
 
-Note that since 6.3, Business data is now available. For a detailed explanation, see the [Business Data overview](/business-data-overview-0).
+Note that since 6.3, Business data is now available. For a detailed explanation, see the [Business Data overview](/business-data-overview.md).
 
 
 You can also define additional [complex

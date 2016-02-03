@@ -20,10 +20,10 @@ These configuration steps are the same for all database connectors except the da
 3. Select the **.jar file** of the database driver. Click _**Next**_.
 4. Enter the **Access information**. Click _**Next**_.
 5. Enter the **Input query**. This is a query to send to the database. You can put single or multiple queries separated by a separator. 
-You can also use the [graphical query builder](/graphical-query-builder-0) to specify the query. Click _**Next**_.
+You can also use the [graphical query builder](/graphical-query-builder.md) to specify the query. Click _**Next**_.
 6. Choose how you want to specify the operations on connector outputs. Choose **Graphical mode** or **Scripting mode**. 
 The Graphical mode does not require scripting. Click _**Next**_.
-7. Specify the output operations, using the [Graphical mode](/initialize-variable-database-without-scripting-or-java-code-0) or using expressions.
+7. Specify the output operations, using the [Graphical mode](/initialize-variable-database-without-scripting-or-java-code.md) or using expressions.
 8. In the **Edit expression window**, set the **provided variable** to get data from the external database.
 9. Click _**Finish**_.
 
@@ -58,9 +58,9 @@ To configure the datasource connector, follow these steps:
 2. Enter the **Name**, **Description**, **Event** and **error message** (if any). Click _**Next**_.
 3. Specify the datasource name and, optionally, properties. Click _**Next**_.
 4. Enter the **Input query**. This is a query to send to the database. You can put single or multiple queries separated by a separator. 
-You can also use the [graphical query builder](/graphical-query-builder-0) to specify the query. Click _**Next**_.
+You can also use the [graphical query builder](/graphical-query-builder.md) to specify the query. Click _**Next**_.
 5. Choose how you want to specify the operations on connector outputs. Choose **Graphical mode** or **Scripting mode**. 
 The Graphical mode does not require scripting. Click _**Next**_.
-6. Specify the output operations, using the [Graphical mode](/initialize-variable-database-without-scripting-or-java-code-0) or using expressions.
+6. Specify the output operations, using the [Graphical mode](/initialize-variable-database-without-scripting-or-java-code.md) or using expressions.
 7. In the **Edit expression window**, set the **provided variable** to get data from the external database.
 8. Click _**Finish**_.

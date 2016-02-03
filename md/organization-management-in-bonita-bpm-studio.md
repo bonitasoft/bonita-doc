@@ -39,7 +39,7 @@ You can also use this sample organization to test a process that you develop.
 You must load an organization into Bonita BPM Engine before running a process. There are two ways to to do this:
 
 * Create the organization in Bonita BPM Studio, export it, and then import it into Bonita BPM Portal.
-* If you have a Subscription edition, use the [LDAP synchronizer](/ldap-synchronizer-3) to automatically load information from your LDAP directory into Bonita BPM Engine. 
+* If you have a Subscription edition, use the [LDAP synchronizer](/ldap-synchronizer.md) to automatically load information from your LDAP directory into Bonita BPM Engine. 
 
 
 To specify an organization manually, you create the
@@ -109,7 +109,7 @@ Choose **Export...** or **Import...** from the **Organization** menu.
 To prepare your production system (unless you are using the LDAP synchronizer), 
 you must create the organization that you need for all the processes that will be deployed, export it from Bonita BPM Studio,
 and import it into Bonita BPM Portal. After the organization is imported into Bonita BPM Portal, 
-you can [manage groups](/manage-group-1), [roles](/manage-role-0), and [users](/manage-user-0) in the organization.
+you can [manage groups](/manage-group.md), [roles](/manage-role.md), and [users](/manage-user.md) in the organization.
 
 
 

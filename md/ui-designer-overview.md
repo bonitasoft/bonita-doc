@@ -6,7 +6,7 @@ Use the UI designer to create and update pages for business applications, forms 
 
 
 * Create pages directly in the var\_uiDesigner.
-* Start form design in Bonita BPM Studio from the appropriate [contract](/contracts-and-contexts-0).
+* Start form design in Bonita BPM Studio from the appropriate [contract](/contracts-and-contexts.md).
 * Create [layouts](layouts) by duplicating the default layout available in the Bonita BPM Portal resources and then updating it.
 
 You can import an existing page, form, or layout to edit, or duplicate existing ones.

@@ -23,7 +23,7 @@ This page contains an overview of how to integrate an application with Bonita BP
 If your application is using a technology other than Java, you can integrate it with the Bonita BPM solution using the Web REST API. This API provides access to all Bonita BPM objects (like processes, tasks, users, connectors etc.), to execute operations on them (create, retrieve, update, delete). You can use these operations to create a workflow with Bonita BPM and integrate it into your application. The Bonita BPM Engine remains responsible for executing the workflow logic (connectors, gateways with conditions, messages, timers etc.) while your application gives access to the workflow. Users can manage processes and tasks, and perform administrative activities.
 
 
-Access to the Web REST API depends on [REST API authorization](/rest-api-authorization-0) settings.
+Access to the Web REST API depends on [REST API authorization](/rest-api-authorization.md) settings.
 
 
 ![diagram of architecture of a REST client integrated with Bonita BPM](images/images-6_0/rest_overview.png)
@@ -310,7 +310,7 @@ The order attributeNames are the same as those you get in the object representat
 * f: list of filters, specified as attributeName=attributeValue. To filter on more than one attribute, specify an f parameters for each attribute. The final filter parameter value must be URL encoded. 
 The attributes you can filter on are specific to the resource.
 
-* s: search on name or search indexes. The matching policy depends on the configuration of [word-based search](/list-and-search-1#word_based_search). 
+* s: search on name or search indexes. The matching policy depends on the configuration of [word-based search](/list-and-search.md#word_based_search). 
 For example, if word-based search is enabled, `s=Valid` returns matches containing the string "valid" at the start of any word in the attribute value word, 
 such as "Valid address", "Not a valid address", and "Validated request" but not "Invalid request".
 If word-based search is disabled, `s=Valid` returns matches containing the string "valid" at the start of the attribute value, such as "Valid address" or "Validated request" but not "Not a valid address" or "Invalid request".

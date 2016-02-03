@@ -9,7 +9,7 @@ and the Engine log file. The UI designer log file is available in var\_bh\_code\
 
 
 
-See the [Logging overview](/logging-0) for details of how logging is implemented in Bonita BPM and how to add logging to Groovy scripts or Java code that you add to a process
+See the [Logging overview](/logging.md) for details of how logging is implemented in Bonita BPM and how to add logging to Groovy scripts or Java code that you add to a process
 
 
 ## Studio log file

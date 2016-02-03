@@ -70,8 +70,8 @@ At platform creation, this file contains the default username and password for t
 
 
 There are a number of ways you can improve the security of your platform. 
-Review the [REST API authorization](/rest-api-authorization-0) and the other features relating to [security and authentication](/product-bos-sp/security-and-authentication) that are available in Bonita BPM and in your operating system, and update your platform as required for your production environment. 
-For example, most environments require a [password policy](/enforce-password-policy-0).
+Review the [REST API authorization](/rest-api-authorization.md) and the other features relating to [security and authentication](/product-bos-sp/security-and-authentication) that are available in Bonita BPM and in your operating system, and update your platform as required for your production environment. 
+For example, most environments require a [password policy](/enforce-password-policy.md).
 
 
 
@@ -91,10 +91,10 @@ Note: do not create a user or an administrator with the same login and password 
 4. Click on the "More" button (in the top right corner).
 5. Under "Users mapping", click on "Add a user".
 6. Select your user and click on the "Add" button. Log out as the Technical user and log back in as the newly created user with administrative rights.
-7. Create [users with the standard profile](/manage-user-0).
+7. Create [users with the standard profile](/manage-user.md).
 8. You can add newly created users to the "User" (standard) profile or to a custom profile.
 
 If you already have a system that stores information about end users, you can use it to create user accounts in Bonita.
 
 
-If you use an LDAP or Active Directory system, you can use the [LDAP synchronizer](/ldap-synchronizer-3) tool to keep the Bonita BPM Portal organization synchronized with it.
+If you use an LDAP or Active Directory system, you can use the [LDAP synchronizer](/ldap-synchronizer.md) tool to keep the Bonita BPM Portal organization synchronized with it.

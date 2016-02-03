@@ -19,7 +19,7 @@ In a BPM-based application, use:
   * can be used at several places in the process
   * is private to the process, not used elsewhere in the application
 
-* External databases, with [connectors](/connectivity-overview-0) and [custom data types](/complex-data-types-0), for information that
+* External databases, with [connectors](/connectivity-overview.md) and [custom data types](/complex-data-types.md), for information that
   * is used by multiple applications besides Bonita BPM
 
 
@@ -31,10 +31,10 @@ Key benefits of using business data:
 * Improved performance compared with process variables or external databases
 * Easier application maintenance
 
-An application page accesses business data using the [bdm REST API](/bdm-api-0). A page also contains page [variables](/variables), which have no meaning outside the page.
+An application page accesses business data using the [bdm REST API](/bdm-api.md). A page also contains page [variables](/variables), which have no meaning outside the page.
 
 
-The data that is passed from a form to a process is defined using a [contract](/contracts-and-contexts-0). Define a contract for process instantiation and for each human task. 
+The data that is passed from a form to a process is defined using a [contract](/contracts-and-contexts.md). Define a contract for process instantiation and for each human task. 
 These contracts are part of the process definition. 
-A form has access to business data and documents using the [context](/contracts-and-contexts-0) and the [REST API](/product-bos-sp/web-rest-api-0). 
+A form has access to business data and documents using the [context](/contracts-and-contexts.md) and the [REST API](/product-bos-sp/web-rest-api.md). 
 A form also contains form [variables](/variables), which have no meaning outside the form.

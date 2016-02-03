@@ -289,11 +289,11 @@ To create a user with the "administrator" profile:
 5. Click on the **_More_** button (in the top right corner).
 6. Under **Users mapping**, click on **_Add a user_**.
 7. Select your user and click on the **_Add_** button. Log out as the Technical user and log back in as the newly created user with administrative rights.
-8. Create [users with the standard profile](/manage-user-0).
+8. Create [users with the standard profile](/manage-user.md).
 9. You can add newly created users to the **User** (standard) profile or to a custom profile.
 
 #### Information
 
 If you already have a system that stores information about end users, you can use it to create user accounts in Bonita BPM. 
 
-If you use an LDAP or Active Directory system, you can use the [LDAP synchronizer](/ldap-synchronizer-3) to keep the Bonita BPM organization synchronized with it.
+If you use an LDAP or Active Directory system, you can use the [LDAP synchronizer](/ldap-synchronizer.md) to keep the Bonita BPM organization synchronized with it.

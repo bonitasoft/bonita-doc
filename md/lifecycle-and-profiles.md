@@ -25,7 +25,7 @@ how the Bonita BPM components use [profiles](#components) to manage the features
 
 
 During this phase, the business analyst specifies the processes that are in the application and
-[creates the process diagrams](/diagram-overview-0). The application developer takes the
+[creates the process diagrams](/diagram-overview.md). The application developer takes the
 specification of each process and creates a running process, adding forms, scripts
 or Java code if required. Each process is tested and debugged. It
 can also be evaluated using simulations. When a process is
@@ -33,7 +33,7 @@ complete, it is exported ready for deployment.
 
 
 This phase needs only the Bonita BPM Studio component of Bonita BPM.
-See the [Bonita BPM Studio installation overview](/bonita-bpm-studio-installation-2) for details of how to install Bonita BPM Studio for process
+See the [Bonita BPM Studio installation overview](/bonita-bpm-studio-installation.md) for details of how to install Bonita BPM Studio for process
 creation.
 
 
@@ -48,19 +48,19 @@ of the application creation phase, the platform administrator prepares
 the infrastructure needed to support the deployed application. This
 infrastructure includes Bonita BPM, and prerequisites such as a
 database and an application server. There are many options for how
-Bonita BPM can be installed: see the [Installation overview](/bonita-bpm-installation-overview-0) for details.
+Bonita BPM can be installed: see the [Installation overview](/bonita-bpm-installation-overview.md) for details.
 
 
 
 
-Preparing the system also includes [defining the organization](/organization-overview-0), with all the users, groups, and roles
+Preparing the system also includes [defining the organization](/organization-overview.md), with all the users, groups, and roles
 required for running processes and applications. Bonita BPM Studio contains an example organization, ACME, which you can use for
 testing.
 
 
 When configuration is complete, the system is ready for application
 deployment. The administrator deploys the processes and the application pages, and updates the configuration as needed, including [mapping process
-actors](/actors-1#Mapping_an_actor) to users in the organization.
+actors](/actors.md#Mapping_an_actor) to users in the organization.
 
 
 
@@ -69,7 +69,7 @@ actors](/actors-1#Mapping_an_actor) to users in the organization.
 
 ## Production
 
-To [deploy a process](/processes-0#installanapp), you import it into Bonita BPM Portal and start it. After the process is started, process instances can be started. The details
+To [deploy a process](/processes.md#installanapp), you import it into Bonita BPM Portal and start it. After the process is started, process instances can be started. The details
 of how process instances are started depend on the process
 definition.
 
@@ -96,4 +96,4 @@ interface cleaner and easier to navigate.
 
 In Bonita BPM Portal, a profile is associated to a login, and by
 default only a user with the administrator profile can 
-[change the profile of a user.](/profiles-overview-2) A user can have any number of profiles. It is also possible to define [custom profiles](/custom-profiles-2).
+[change the profile of a user.](/profiles-overview.md) A user can have any number of profiles. It is also possible to define [custom profiles](/custom-profiles.md).

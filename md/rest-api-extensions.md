@@ -28,7 +28,7 @@ A REST API should be resource oriented. Here the resource name could be LDAPUser
 7. Enter the **pathTemplate** for this REST API extension, for example _ldap/users_. 
 This will be the access point of the API, and follows this pattern: `{bonita_portal_context}/API/extension/ldap/users`.
 8. Define a **Permission** for the extension, for example _read\_ldap\_users_. 
-Each REST API extension should declare its own [authorization permission](/rest-api-authorization-0). Users require this permission to use the extension. /li\>
+Each REST API extension should declare its own [authorization permission](/rest-api-authorization.md). Users require this permission to use the extension. /li\>
 9. Click **Next**
 10. Add **URL parameters** that will be passed to the API. By default, _p_ and _c_ parameters are defined to enables paged result, it apllies well in our examples as we want to return a list of users.
 11. Click **Create**.

@@ -27,4 +27,4 @@ be used to [define a variable](/specify-data-process).
 
 Warning: Java data types (defined in a JAR file) use the STAX API. 
 Stax libraries cannot be loaded in more than one classloader but must instead be placed in a single location where they can be called by all the items that use them. 
-When you configure a process that uses Java data types, you must [manage the jar files](/manage-jar-files-0).
+When you configure a process that uses Java data types, you must [manage the jar files](/manage-jar-files.md).

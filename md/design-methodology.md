@@ -154,7 +154,7 @@ in validation before testing the process.
 
 Bonita BPM Studio includes an environment for testing a process locally, before
 deployment. You can test the process without connectors by clicking **_Debug_**, test each connector
-independently using teh connector wizard **_Test_** button, then run the process by clicking **_Debug_** to test it with connectors. You need to [configure](/process-configuration-overview-0)
+independently using teh connector wizard **_Test_** button, then run the process by clicking **_Debug_** to test it with connectors. You need to [configure](/process-configuration-overview.md)
 the process before testing it locally.
 
 
@@ -175,7 +175,7 @@ a limited number of users or cases.
 ## Deployment
 
 
-When testing is complete, the processes are ready to be deployed in Bonita BPM Portal and the application is ready to be put into production. You need to [configure](/process-configuration-overview-0) each process for
+When testing is complete, the processes are ready to be deployed in Bonita BPM Portal and the application is ready to be put into production. You need to [configure](/process-configuration-overview.md) each process for
 deployment before putting it into production.
 
 
@@ -187,8 +187,8 @@ deployment before putting it into production.
 
 Before you can run a process in production, you need to define your organization with entries for all process users,
 groups, and roles. You also need to map the process actors to the real people who will carry out process steps. 
-You can [manage your organization in Bonita BPM Portal](/organization-portal-overview-0) for a production system. 
-While you are in the testing phase, you can [manage the organization in Bonita BPM Studio](/organization-management-bonita-bpm-studio-0).
+You can [manage your organization in Bonita BPM Portal](/organization-portal-overview.md) for a production system. 
+While you are in the testing phase, you can [manage the organization in Bonita BPM Studio](/organization-management-bonita-bpm-studio.md).
 
 
 

@@ -90,7 +90,7 @@ Typically, a form has input fields and a submit button, though these can also be
 
 A page consists of widgets that are arranged in containers and rows. The UI designer provides a set of default widgets that you can use to design a page.
 The default widgets are available from the palette panel, which is on the left side of the Page editor. A widget has properties that control how it appears and how it is used. There are some general properties that all widgets have, and some properties that are specific to the widget type. 
-You can also create [custom widgets](/custom-widgets-0).
+You can also create [custom widgets](/custom-widgets.md).
 
 
 Each widget in the palette has a description. To show a widget description, just roll over the top right corner of the widget in the widget palette.
@@ -298,7 +298,7 @@ An extended table widget that provides column sorting, filtering, and paging in 
 
 Set the **Data source** to _Bonita API_ to populate the data table with records from a Bonita BPM REST API. 
 Then enter a REST API URL in the **URL** property. Use the **API request parameters** property to pass additional parameters to the request. 
-Supported parameters are described in the [REST API Overview](/rest-api-overview-0#standard_search_params) and in the REST API documentation for the relevant resource. 
+Supported parameters are described in the [REST API Overview](/rest-api-overview.md#standard_search_params) and in the REST API documentation for the relevant resource. 
 You do not need to specify paging parameters (such as `?p=0&c=10`), because the data table handles paging automatically when you use a Bonita API data source. 
 The value of the **Page size** property controls how many rows are displayed in a table view, and automatically adds buttons to show subsequent pages of the table.
 

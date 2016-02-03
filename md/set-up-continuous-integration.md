@@ -142,7 +142,7 @@ zip $WORKSPACE/process-bars.zip $WORKSPACE/process-bars/*
 This sample script invokes BonitaStudioBuilder to build all processes from your process-repository using the CI environment.
 
 
-See the [BonitaStudioBuilder documentation](/automating-process-builds-1) for information on script options.
+See the [BonitaStudioBuilder documentation](/automating-process-builds.md) for information on script options.
 
   3. 
 Share generated business archives as a Maven artifacts
@@ -199,8 +199,8 @@ It is also possible to use cargo to deploy the generated bar file into an applic
 For this example we are using a Maven project to write our tests.
 
 1. In your IDE create a new Maven project and share it (for example using SVN or Git).
-2. [Configure local access](/configuring-bonita-home-client-1) to Bonita BPM Engine.
-3. As we want to test processes build with a Bonita BPM Subscription edition, you need to [configure the required Maven artifacts](/create-your-first-project-engine-apis-and-maven-0#maven_dependencies). 
+2. [Configure local access](/configuring-bonita-home-client.md) to Bonita BPM Engine.
+3. As we want to test processes build with a Bonita BPM Subscription edition, you need to [configure the required Maven artifacts](/create-your-first-project-engine-apis-and-maven.md#maven_dependencies). 
 
 You should also check that there is a valid license file in `${bonita.home.folder}/server/licenses`.
 4. We recommend that you write your test cases in the src/test/java folder of your project and put all related resources (Bar files, organization file...) in src/test/resources.

@@ -14,7 +14,7 @@ Bonita BPM 7.1 introduces a new Bonita BPM Subscription Pack edition licensing m
 The **_License_** menu in Bonita BPM Portal displays information about the current license. This information is available to the platform administrator only.
 
 
-The [license for Bonita BPM Studio](/bonita-bpm-studio-installation-2#license) is installed using a wizard when you start the studio for the first time after installation (or after the previous license expires).
+The [license for Bonita BPM Studio](/bonita-bpm-studio-installation.md#license) is installed using a wizard when you start the studio for the first time after installation (or after the previous license expires).
 
 
 

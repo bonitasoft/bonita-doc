@@ -94,7 +94,7 @@ Note that the APIs are the same for the Teamwork, Efficiency, and Performance ed
 If you try to access a feature for which you do not have a license, a _Feature not active_ error message is returned.
 
 
-There is also a high-level [Web REST API](/rest-api-overview-0), intended for customers developing portal applications.
+There is also a high-level [Web REST API](/rest-api-overview.md), intended for customers developing portal applications.
 
 
 

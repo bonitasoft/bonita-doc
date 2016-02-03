@@ -3,7 +3,7 @@
 A Look & Feel defines the appearance of Bonita BPM Portal Web interface and Bonita BPM Portal Mobile interface.
 
 
-A Look & Feel is not used to specify Application layout and theme. To modify Application layout and theme, see [Specifying application layout](/applications-0#layout) and [Specifying application theme](/applications-0#theme) 
+A Look & Feel is not used to specify Application layout and theme. To modify Application layout and theme, see [Specifying application layout](/applications.md#layout) and [Specifying application theme](/applications.md#theme) 
 
 
 [Import and apply a new Look & Feel](#import)  
@@ -16,7 +16,7 @@ A Look & Feel is not used to specify Application layout and theme. To modify App
 
 
 The Bonita BPM Portal Web interface and the Bonita BPM Portal Mobile interface each have a Look & Feel, which is defined in a set of files in a zip archive.
-You can [create a new Look & Feel](/creating-new-look-feel-1) for one of these items. When you have created the new Look & Feel, you apply it using Bonita BPM Portal, as follows:
+You can [create a new Look & Feel](/creating-new-look-feel.md) for one of these items. When you have created the new Look & Feel, you apply it using Bonita BPM Portal, as follows:
 
 
 1. Log into Bonita BPM Portal as Administrator.
@@ -89,7 +89,7 @@ This is useful if you have accidentally loaded a Look & Feel that contains error
 
 
 1. 
-Use the REST client to [log in](/rest-api-overview-0#authentication) as a registered user of the Engine.
+Use the REST client to [log in](/rest-api-overview.md#authentication) as a registered user of the Engine.
 2. Create a PUT request of the form `http://localhost:8080/bonita/API/portal/theme/default`, specifying the relevant hostname and port number.
 3. In the request body, specify `{"type":"portal"}` to restore the web Look & Feel, or
 `{"type":"mobile"}` to restore the mobile Look & Feel.
@@ -103,4 +103,4 @@ The next time you load a Portal page, the default Look & Feel is used.
 Restoring the default Look & Feel with a REST client
 
 
-It is also possible to [restore the default Look & Feel using the Bonita BPM Engine API](/restore-default-look-feel-0).
+It is also possible to [restore the default Look & Feel using the Bonita BPM Engine API](/restore-default-look-feel.md).

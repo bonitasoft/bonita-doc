@@ -71,9 +71,9 @@ defined for the pool, by selecting the actor from the drop-down
 list, or you can use an [actor
 filter](#Using_an_actor_filter).
 
-See [Custom user information in Bonita BPM Studio](/custom-user-information-bonita-bpm-studio-0)
+See [Custom user information in Bonita BPM Studio](/custom-user-information-bonita-bpm-studio.md)
 
-See [Custom user information in Bonita BPM Portal](/custom-user-information-bonita-bpm-portal-0)
+See [Custom user information in Bonita BPM Portal](/custom-user-information-bonita-bpm-portal.md)
 
 
 
@@ -108,7 +108,7 @@ definition.
 
 
 For information about creating a new actor filter, see
-[Creating an actor filter](/creating-actor-filter-0).
+[Creating an actor filter](/creating-actor-filter.md).
 
 
 
@@ -120,7 +120,7 @@ For information about creating a new actor filter, see
 Before a process can be tested, you must map the actors in the process to
 users in the organization. Before you can do this, you must
 [define 
-your organization Bonita BPM Studio](/organization-management-bonita-bpm-studio-0) and upload it to Bonita BPM Portal.
+your organization Bonita BPM Studio](/organization-management-bonita-bpm-studio.md) and upload it to Bonita BPM Portal.
 
 
 

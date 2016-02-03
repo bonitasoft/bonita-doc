@@ -6,13 +6,13 @@
 A user with Administration rights has the maximum rights to manage activity on Bonita BPM Portal.
 
 
-* [Manage user rights](/profiles-overview-2)
-* [Manage a user](/manage-user-0)
-* [Manage a group](/manage-group-1)
-* [Manage a role](/manage-role-0)
-* [Manage a process](/processes-0)
-* [Manage a case](/cases-3)
-* [Manage a task](/tasks-3)
-* [Manage a subtask](/subtasks-1)
-* [Manage a category](/processe-0#addcat)
-* [Import/export an organization](/organization-portal-overview-0)
+* [Manage user rights](/profiles-overview.md)
+* [Manage a user](/manage-user.md)
+* [Manage a group](/manage-group.md)
+* [Manage a role](/manage-role.md)
+* [Manage a process](/processes.md)
+* [Manage a case](/cases.md)
+* [Manage a task](/tasks.md)
+* [Manage a subtask](/subtasks.md)
+* [Manage a category](/processe.md#addcat)
+* [Import/export an organization](/organization-portal-overview.md)

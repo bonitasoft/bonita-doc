@@ -35,7 +35,7 @@ These tenants are configured with a single database. This illustration shows a p
 ## Platform configuration
 
 
-The platform is the part of the system that is common to all tenants. The platforms and tenant configurations are defined in [``](/bonita-home-0).
+The platform is the part of the system that is common to all tenants. The platforms and tenant configurations are defined in [``](/bonita-home.md).
 
 The platform configuration directory is located here: `engine-server/conf/platform`.
 
@@ -48,11 +48,11 @@ There is also a default tenant configuration, located here: `engine-server/conf/
 ## Tenant creation
 
 
-A tenant can be created using the Java PlatformAPI (see the [Javadoc](/javadoc-71)) or the [platform REST API](/platform-api-1).
+A tenant can be created using the Java PlatformAPI (see the [Javadoc](/javadoc-71)) or the [platform REST API](/platform-api.md).
 
 
 **Note:** 
-If business objects will be deployed in the newly created tenant do not forget to [create the business data database and configure specific data sources](/database-configuration-business-data-1).
+If business objects will be deployed in the newly created tenant do not forget to [create the business data database and configure specific data sources](/database-configuration-business-data.md).
 
 
 ### Java PlatformAPI
@@ -92,7 +92,7 @@ You need to copy these files from the var\_bonita\_home client tenant template i
 ### REST API 
 
 
-The [platform REST API](/platform-api-1) calls the Java PlatformAPI to create the tenant. 
+The [platform REST API](/platform-api.md) calls the Java PlatformAPI to create the tenant. 
 It also creates the web elements that are required for the Bonita BPM Portal to work with multitenancy, notably the `bonita/client/tenants/*` files. You do not need to copy any files manually.
 
 
@@ -186,4 +186,4 @@ If you attempt an operation that is not permitted while a tenant is paused, a `T
 
 
 You can also pause and resume a tenant using the 
-[REST API](/platform-api-1#tenant) or [Bonita BPM Portal](/pause-and-resume-bpm-services-1).
+[REST API](/platform-api.md#tenant) or [Bonita BPM Portal](/pause-and-resume-bpm-services.md).

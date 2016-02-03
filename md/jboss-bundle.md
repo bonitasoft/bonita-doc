@@ -57,7 +57,7 @@ The folder where you unzip the Jboss bundle is known as _``_. We recommend the f
 
 
 
-If you are installing a Subscription edition, you need to [request a license](/licenses-1).
+If you are installing a Subscription edition, you need to [request a license](/licenses.md).
 
 
 When you receive your license, copy the file to the `/bonita/server/licenses` folder.
@@ -82,7 +82,7 @@ and change the value of the `activeProfiles` key to `'community,performance'`. N
 The JBoss bundle is configured to use an h2 database by default. h2 is suitable for a test platform, but for production, you are recommended to use one of the supported databases.
 
 
-If you want to use another database you need to specify the [database configuration](/database-configuration-2). Make sure you do this before you start JBoss.
+If you want to use another database you need to specify the [database configuration](/database-configuration.md). Make sure you do this before you start JBoss.
 
 
 
@@ -129,4 +129,4 @@ JBoss can be shut down by running the following script:
 ## First steps after installation
 
 
-Once you have your JBoss bundle up and running, complete these [first steps](/first-steps-after-setup-1) to get a fully operational Bonita BPM platform.
+Once you have your JBoss bundle up and running, complete these [first steps](/first-steps-after-setup.md) to get a fully operational Bonita BPM platform.

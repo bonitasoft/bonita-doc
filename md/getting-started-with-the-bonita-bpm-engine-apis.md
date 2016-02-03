@@ -1,6 +1,6 @@
 # 4.5 Getting started with the Bonita BPM Engine APIs
 
-Before you run a Bonita BPM application, [configure bonita\_home](/configuring-bonita-home-client-0) to specify how the application accesses the Bonita BPM Engine, and set the `bonita.home` system property.
+Before you run a Bonita BPM application, [configure bonita\_home](/configuring-bonita-home-client.md) to specify how the application accesses the Bonita BPM Engine, and set the `bonita.home` system property.
 
 
 All sequences of API calls start with logging in to create a session then using the AccessorUtil to retrieve the APIs that will be used in the application.

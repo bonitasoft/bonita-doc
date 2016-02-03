@@ -18,7 +18,7 @@ The components of Bonita BPM have their own ways to produce logs, which are desc
 
 
 
-All the Engine services call the [technical logger service](/technical-logger-service-0) in order to write log
+All the Engine services call the [technical logger service](/technical-logger-service.md) in order to write log
 messages. There is no direct access to any logging framework such as log4j, JUL or SLF4J.
 
 
@@ -49,7 +49,7 @@ The UI designer log file is available in _BONITA\_HOME_/tomcat/logs/ui-designer.
 
 
 
-The [technical logger service](/technical-logger-service-0) uses SLF4J
+The [technical logger service](/technical-logger-service.md) uses SLF4J
 (version 1.6.1) to create the log. SLF4J is also used directly by Bonita dependencies such as Hibernate, Quartz
 and Ehcache.
 

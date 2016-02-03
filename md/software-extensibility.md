@@ -78,7 +78,7 @@ In Community, Teamwork, Efficiency, and Performance editions
 
 Bonita BPM comes with more than 80 [standard connectors](/product-bos-sp/connectivity) to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
 A new connector enables you to provide new connectivity capabilities for processes. 
-To [implement a new connector](/creating-connector-0), you need to provide some XML description files and a 
+To [implement a new connector](/creating-connector.md), you need to provide some XML description files and a 
 Java class respecting the [Connector interface](/javadoc-71). 
 Connectors can be implemented directly from Bonita BPM Studio.
 
@@ -88,8 +88,8 @@ Connectors can be implemented directly from Bonita BPM Studio.
 In Community, Teamwork, Efficiency, and Performance editions
 
 
-Bonita BPM comes with a set of [standard actor filters](/actor-filtering-0) that can be used to reduce the list of candidates for process tasks.
-A new actor filter enables you to provide new filtering capabilities to processes. To [implement a new actor filter](/creating-actor-filter-0), 
+Bonita BPM comes with a set of [standard actor filters](/actor-filtering.md) that can be used to reduce the list of candidates for process tasks.
+A new actor filter enables you to provide new filtering capabilities to processes. To [implement a new actor filter](/creating-actor-filter.md), 
 you need to provide some XML description files and a Java class respecting the [UserFilter interface](/javadoc-71). 
 Actor filters can be implemented directly from Bonita BPM Studio.
 
@@ -117,7 +117,7 @@ ProcessBuilder and Business Objects DAO are examples of APIs that can be leverag
 In Community, Teamwork, Efficiency, and Performance editions
 
 
-The [REST APIs](/rest-api-overview-0) enable you to integrate your Bonita BPM processes into your application and execute operations on Bonita BPM objects including business objects. 
+The [REST APIs](/rest-api-overview.md) enable you to integrate your Bonita BPM processes into your application and execute operations on Bonita BPM objects including business objects. 
 Pages and forms created with the UI designer reply on the REST APIs to manage data.
 
 
@@ -131,7 +131,7 @@ In the Bonita BPM subscription edition, Bonita BPM Studio contains [tooling for 
 In Community, Teamwork, Efficiency, and Performance editions
 
 
-A [custom page](/custom-pages-2) is a page that you can add into Bonita BPM Portal to form part of an application, customize information provided in default portal pages, or to add new features to the portal. 
+A [custom page](/custom-pages.md) is a page that you can add into Bonita BPM Portal to form part of an application, customize information provided in default portal pages, or to add new features to the portal. 
 To implement a page, you need to provide HTML, CSS and Javascript resources respecting some packaging constraints. 
 You can create a page using the [UI designer](/ui-designer-overview), which automatically creates a well-formed page. 
 You can also use the legacy 6.x custom page construction methods.
@@ -144,7 +144,7 @@ Note that although the page framework provided in the product is stable, we cann
 In Community, Teamwork, Efficiency, and Performance editions
 
 
-If the standard UI designer [widgets](/widgets) do not meet your needs, you can create a [custom widget](/custom-widgets-0). 
+If the standard UI designer [widgets](/widgets) do not meet your needs, you can create a [custom widget](/custom-widgets.md). 
 You can then use your custom widget in pages, forms, and (for Subscription editions) fragments.
 
 
@@ -167,7 +167,7 @@ In Teamwork, Efficiency, and Performance editions
 
 
 From Bonita BPM 6.3, the Engine authentication service is considered to be an official extension point of the solution. It is now safe to provide your own implementation of this service to better fit the needs of your projects.
-[Default authentication implementations](/user-authentication-3) are provided allow to check user credentials from the Bonita BPM database, LDAP or a CAS SSO server (using JAAS).
+[Default authentication implementations](/user-authentication.md) are provided allow to check user credentials from the Bonita BPM database, LDAP or a CAS SSO server (using JAAS).
 To implement an Authentication Service, provide a Java class respecting the Authentication Service interface.
 
 
@@ -179,7 +179,7 @@ In Teamwork, Efficiency, and Performance editions
 
 
 An event handler is an extension to the engine that is configured to run when a specified event occurs. An event is a change to any object in the database.
-To [implement an event handler](/event-handlers-0), you need to provide a Java class respecting the Handler interface.
+To [implement an event handler](/event-handlers.md), you need to provide a Java class respecting the Handler interface.
 
 
 ### BonitaStudioBuilder 
@@ -188,7 +188,7 @@ In Teamwork, Efficiency, and Performance editions
 
 
 Bonita BPM includes a script, BonitaStudioBuilder (also known as the Workspace API), for building a bar file from a process in a repository. 
-This intended to be used for [automating process builds](/automating-process-builds-1) in a continuous integration and testing environment.
+This intended to be used for [automating process builds](/automating-process-builds.md) in a continuous integration and testing environment.
 You can use the BonitaStudioBuilder to build a bar file for processes stored in a repository. This script will be kept stable in time.
 
 
@@ -199,13 +199,13 @@ In Teamwork, Efficiency, and Performance editions
 
 
 The Bonita BPM Portal Look & Feel gives the ability to customize the appearance of the portal Web interface. As a Portal Administrator, you can import a new Look & Feel (.zip archive). 
-To [create a new Look & Feel](/creating-new-look-feel-1), provide CSS and resources files.
+To [create a new Look & Feel](/creating-new-look-feel.md), provide CSS and resources files.
 
 
 ### Portal language pack 
 
 
-Bonita BPM Portal comes with a number of language packs by default. You can also [add languages](/languages-1). 
+Bonita BPM Portal comes with a number of language packs by default. You can also [add languages](/languages.md). 
 It is also possible to use this same mechanism to customize the portal terminology to your business environment. For example, an e-commerce business could change _Cases_ to _Orders_.
 
 
@@ -213,7 +213,7 @@ It is also possible to use this same mechanism to customize the portal terminolo
 ### Custom data types 
 
 
-A [custom data type](/complex-data-types-0) is a Java object (.jar file) or an XML definition (.xsd file) of a data structure. 
+A [custom data type](/complex-data-types.md) is a Java object (.jar file) or an XML definition (.xsd file) of a data structure. 
 You can create a custom data type and use it to define a process variable if the standard data types are not suitable for your process. 
 Note that although the custom data type framework provided in the product is stable, we cannot guarantee that all custom data types will work with future versions, because this depends on the details of how the data type is implemented.
 

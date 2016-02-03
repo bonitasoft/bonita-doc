@@ -61,7 +61,7 @@ Bonita BPM comes with a set of optimized initialization scripts for the [support
 
 **Note:** This page explains database configuration for the Bonita BPM Engine database.
 If you are using [business data objects](/business-data-model-856), these are stored in a separate database.
-By default, the h2 database is used. For production we recommend that you [configure a different database for business data](/database-configuration-business-data-1).
+By default, the h2 database is used. For production we recommend that you [configure a different database for business data](/database-configuration-business-data.md).
 
 
 
@@ -346,7 +346,7 @@ org.h2.jdbcx.JdbcDataSource
 
 
 The following sections show how to configuire the datasources for [JBoss](#ds_jboss) and [Tomcat](ds_tomcat). 
-There is also an [example of how to configure datasources for Weblogic](/how-install-red-hat-oracle-jvm-weblogic-oracle-0#datasources). 
+There is also an [example of how to configure datasources for Weblogic](/how-install-red-hat-oracle-jvm-weblogic-oracle.md#datasources). 
 
 
 ### JBoss
@@ -362,7 +362,7 @@ This section explains how to configure the data sources if you are using JBoss:
 4. Modify the values for following settings to your configuration: server address, server port, database name, user name and password.
 
 **Note: ** for a first test, you might want to keep the h2 section related to Business Data Management (BDM) feature (driver and data sources configuration).
-You can update the [configuration related to BDM](/database-configuration-business-data-1) later.
+You can update the [configuration related to BDM](/database-configuration-business-data.md) later.
 
 
 
@@ -409,7 +409,7 @@ The second data source run SQL queries outside any transaction. To configure it:
 
 
 **Warning:** If you use the default configuration for business data (BDM), do not remove h2 yet. 
-First make sure that you have [configured Business Data](/database-configuration-business-data-1) to use your own RDBMS.
+First make sure that you have [configured Business Data](/database-configuration-business-data.md) to use your own RDBMS.
 
 
 
@@ -440,7 +440,7 @@ Also, for extra security, you can remove it from `bonita-platform.properties` fi
 
 
 
-Configure the database to use UTF-8\.
+Configure the database to use UTF.md\.
 
 
 Edit `postgresql.conf` and set a non-zero value for `max_prepared_transactions`. 

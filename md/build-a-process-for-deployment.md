@@ -23,7 +23,7 @@ Exporting a configuration will export all the information and other items that y
 4. Specify the location where the .bar file will be created. The filename is determined by the process name and cannot be changed at this stage.
 5. Click **Finish**. The business archive is created.
 
-You can now [install the process in Bonita BPM Portal](/processes-0#installanapp).
+You can now [install the process in Bonita BPM Portal](/processes.md#installanapp).
 
 
 
@@ -38,5 +38,5 @@ and import it into Bonita BPM Portal.
 
 
 To export the organization, go to the **Organization** menu and choose **Export...**. You
-can then [import the organization into Bonita BPM Portal](/importexport-organization-1). After the organization is imported into Bonita BPM Portal, 
-you can [manage the groups](/manage-group-1), [roles](/manage-role-0), and [users](/manage-user-0) in the organization.
+can then [import the organization into Bonita BPM Portal](/importexport-organization.md). After the organization is imported into Bonita BPM Portal, 
+you can [manage the groups](/manage-group.md), [roles](/manage-role.md), and [users](/manage-user.md) in the organization.

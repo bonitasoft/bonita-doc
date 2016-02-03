@@ -42,7 +42,7 @@ org.bonitasoft.enginebonita-client${bonita.bpm.version}`
 
 
 In order to execute this client example you need to set the Java system property `bonita.home`, for example `-Dbonita.home=`, 
-and [configure a var\_bonita\_home for the client](/configuring-bonita-home-client-1). The bonita home used must have the same version as
+and [configure a var\_bonita\_home for the client](/configuring-bonita-home-client.md). The bonita home used must have the same version as
 the Bonita BPM Engine, which is configured in bonita.bpm.version (here 7.0.0). 
 
 

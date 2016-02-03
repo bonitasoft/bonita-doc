@@ -242,7 +242,7 @@ When you are using CAS, the password for a user is managed in your CAS system. H
 ## LDAP synchronizer and CAS
 
 
-If you are using an LDAP service and the [LDAP synchronizer](/ldap-synchronizer-3) to manage your user data, you can continue to do this and use CAS. The LDAP synchronizer user must be registered in CAS. 
+If you are using an LDAP service and the [LDAP synchronizer](/ldap-synchronizer.md) to manage your user data, you can continue to do this and use CAS. The LDAP synchronizer user must be registered in CAS. 
 Alternatively, the LDAP synchronizer could be run with the tenant technical user, because this bypasses the SSO login. 
 
 We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your CAS server. 
@@ -266,7 +266,7 @@ We recommend that you use LDAP as your master source for information, synchroniz
 For detailed information about the procedure to install Restful access on your CAS SSO server, see the following links:
 [CAS SSO RESTful API](http://jasig.github.io/cas/4.1.x/index.html)
 
-[Bonita BPM REST API](/rest-api-overview-0)
+[Bonita BPM REST API](/rest-api-overview.md)
 
 
 

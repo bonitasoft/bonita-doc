@@ -64,10 +64,10 @@ All files in this folder are used only for Bonita BPM Portal and will have no im
       * `cache-config.xml`: forms object model cache configuration.
       * `jaas-standard.cfg`: example of JAAS configuration for JaasLoginManager.
       * `loginManager-config.properties` (Portal only): specify and configure the implementation of the Login Manager component.
-This component is used to verify the username and password provided by the user (see [User authentication overview](/user-authentication-3) for more details).
+This component is used to verify the username and password provided by the user (see [User authentication overview](/user-authentication.md) for more details).
       * `platform-tenant-config.properties`: used by Bonita BPM Portal to connect to the default tenant to retrieve its id. 
 Then used to initialize the Portal tenant configuration based on a template (copy of `tenant-template` folder to tenants folder).
-      * `security-config.properties`: configuration for [Cross-Site Request Forgery](/csrf-0) protection.
+      * `security-config.properties`: configuration for [Cross-Site Request Forgery](/csrf.md) protection.
 
     * `tenant-template`: template configuration files used for tenant creation.
       * `conf`: configuration files:
@@ -180,7 +180,7 @@ The LDAP synchronizer is in fact a Bonita client application.
 
 It relies on the Bonita client library and so requires a var\_bonita\_home folder.
 
-If you need to configure LDAP synchronizer, refer to [LDAP synchronizer documentation](/ldap-synchronizer-3).
+If you need to configure LDAP synchronizer, refer to [LDAP synchronizer documentation](/ldap-synchronizer.md).
 
 
 

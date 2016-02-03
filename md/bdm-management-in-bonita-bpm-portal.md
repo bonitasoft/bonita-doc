@@ -13,7 +13,7 @@ The Business objects must match the structure used by the deployed processes. Ma
 
 2. In the Bonita BPM Portal, log in as the technical user (default login 'install', default password 'install').
 3. Go to the **BPM Services** menu.
-4. Click on **Pause** to [](/pause-and-resume-bpm-services-1)pause the tenant. 
+4. Click on **Pause** to [](/pause-and-resume-bpm-services.md)pause the tenant. 
 
 
 **Note:** The deployment of a Business Data Model requires pausing the service during the operation, so that the update can be performed without affecting ongoing processes. 
@@ -32,7 +32,7 @@ Please note that existing business database tables will be modified definitively
 in the business database, so as to store business objects appropriately when modified by processes. 
 10. The Business Data Model will now be installed.
 11. Go to the **BPM Services** menu.
-12. Click on **Resume** to [](/pause-and-resume-bpm-services-1#how_unpause)resume tenant activity.
+12. Click on **Resume** to [](/pause-and-resume-bpm-services.md#how_unpause)resume tenant activity.
 
 **Note:** the database model is automatically updated. You should avoid changing the database schema manually as it may jeopardize the persistence of business objects and cause errors at process runtime.
 It is recommended to perform a backup of the business database before deploying a business data model.

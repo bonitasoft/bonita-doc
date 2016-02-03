@@ -15,11 +15,11 @@ Pages are [exported. imported, modified, and deleted](/resources-management) as 
 A form is a [page](/pages) that belongs to a process. It could be a process instantiation form, a human task form, or an overview form. There are some extra things to consider when you are creating a form compared with an ordinary page, concerning how data is passed between the process instance and the form.
 
 
-A [context](/contracts-and-contexts-0#context) is the set of data provided by the process instance or task instance to the form. 
+A [context](/contracts-and-contexts.md#context) is the set of data provided by the process instance or task instance to the form. 
 There is no context for a process instantiation form.
 
 
-A [contract](/contracts-and-contexts-0) is the definition of that data that the form returns to the process instance. There is no contract for an overview form.
+A [contract](/contracts-and-contexts.md) is the definition of that data that the form returns to the process instance. There is no contract for an overview form.
 
 
 Three auto-generated forms are provided by default, for process instantiation, for human task execution, and for the case overview. 

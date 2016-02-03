@@ -200,4 +200,4 @@ If your report contains sub reports, these should be placed in a directory named
 If your report uses a style sheet you may also provide a .jrtx file in the archive.
 
 
-Once you have packaged the Jasper report as a ZIP archive, you can [install it in the Bonita BPM Portal](/analytics-0#install).
+Once you have packaged the Jasper report as a ZIP archive, you can [install it in the Bonita BPM Portal](/analytics.md#install).

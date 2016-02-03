@@ -10,7 +10,7 @@ The following standard actor filters are provided:
 * _Initiator_ assigns the task to the user who initiated the process.
 * _Initiator manager_ assigns the task to the manager of the user who initiated the process.
 * _User manager_ assigns the task to the manager of the user who would be assigned to the task if the filter were not present.
-* _Users with Custom information_ is a new actor filter used to assign tasks to users based on [custom information](/custom-user-information-bonita-bpm-studio-0) (available from 6.3.2).
+* _Users with Custom information_ is a new actor filter used to assign tasks to users based on [custom information](/custom-user-information-bonita-bpm-studio.md) (available from 6.3.2).
 
 
 You can create additional actor filters to meet the needs of your process. An actor filter consists of a definition and an implementation. This means that you can modify the definition 
@@ -33,10 +33,10 @@ standard actor filter.
 * Export... Export the actor filter files in a zip.
 * Import... Import a zip containing the actor filter files.
 
-You can also create additional actor filters by creating the necessary files directly, as described in [Creating an actor filter](/creating-actor-filter-0).
+You can also create additional actor filters by creating the necessary files directly, as described in [Creating an actor filter](/creating-actor-filter.md).
 
 
-For details of how to apply an actor filter to a task or lane, see [Actors](/actors-1).
+For details of how to apply an actor filter to a task or lane, see [Actors](/actors.md).
 
 
 When you add an actor filter to a process, Bonita BPM Studio automatically adds an implementation snapshot jar file for the actor filter to your workspace. 

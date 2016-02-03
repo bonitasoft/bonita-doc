@@ -137,4 +137,4 @@ For example, to get the number of overdue open tasks, choose `apiAccessor` from 
 ## Log messages in a Groovy script
 
 
-You can [add logging](/logging-overview-0#your_log) to Groovy scripts or Java code that you develop.
+You can [add logging](/logging-overview.md#your_log) to Groovy scripts or Java code that you develop.

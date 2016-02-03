@@ -178,13 +178,13 @@ For example: ``
 
 ### API acces
 
-If your page is viewed in a custom profile or in an application, you will have access facilities for [the portal API](/rest-api-overview-0).
+If your page is viewed in a custom profile or in an application, you will have access facilities for [the portal API](/rest-api-overview.md).
 
 you will be abble to access the portal API using the following path: "../API/{API name}/{resource name}"
 
 
 ### Theme access
 
-If your page is viewed in an application, you will have access facilities for [the application theme](/applications-0#theme).
+If your page is viewed in an application, you will have access facilities for [the application theme](/applications.md#theme).
 
 You can directly access a resource by adding the following link in `index.html`: ``

@@ -20,7 +20,7 @@ The phrases in the base language are used as the keys to the translated phrases.
 ## How it works
 
 
-Each page has a [localization asset](/assets-0) that contains the keys and the translations for all phrases and all languages that the page supports. 
+Each page has a [localization asset](/assets.md) that contains the keys and the translations for all phrases and all languages that the page supports. 
 The asset is a file, `localization.json`. Each language is identified by the ISO 639 language attribute (for example, fr-FR, es-ES). 
 Open the default `localization.json` asset to see how this file must be formatted. You can modify the default asset for your page, or import a new asset to replace the default one.
 
@@ -53,15 +53,15 @@ The format of file must be:
 `
 
 
-The code that specifies a language in `localization.json` must be the same as the code in the `.po` files used to [add the language to the Portal](/languages-1).
+The code that specifies a language in `localization.json` must be the same as the code in the `.po` files used to [add the language to the Portal](/languages.md).
 
 
 ## Tutorial: creating a multi-language page
 
 
 
-This tutorial explains how to create a multi-language version of the Travel Tool application page from the [getting started tutorial](/getting-started-tutorial-1), adding French and Russian text to the page. 
-It assumes that you have already created the Travel Tool page following the instructions in the [getting started tutorial](/getting-started-tutorial-1).
+This tutorial explains how to create a multi-language version of the Travel Tool application page from the [getting started tutorial](/getting-started-tutorial.md), adding French and Russian text to the page. 
+It assumes that you have already created the Travel Tool page following the instructions in the [getting started tutorial](/getting-started-tutorial.md).
 
 
 
@@ -113,7 +113,7 @@ These strings are the keys used to identify the text to display in each translat
 
 Before you can view a page in a language, that language must be supported for Bonita BPM web applications. 
 French is one of the default languages supported, so you just need to support for Russian. 
-To do this, [add Russian from the Community translations to your Bonita BPM Portal](/languages-1). 
+To do this, [add Russian from the Community translations to your Bonita BPM Portal](/languages.md). 
 Make sure that you add both the Community and Subscription files. Then restart your Bonita BPM Studio, start the Portal, and change the language to Russian to check that it is available.
 
 
@@ -136,7 +136,7 @@ In the UI designer, import this file as an asset of the travel tool page. This w
 
 ### Translate contents in custom widgets
 
-In the custom widget editor, use the the _uiTranslate_ filter or the _ui-translate_ directive to indicate content to translate. See [Custom widgets section](custom-widgets-0#custom-widget-translation) for more information.
+In the custom widget editor, use the the _uiTranslate_ filter or the _ui-translate_ directive to indicate content to translate. See [Custom widgets section](custom-widgets.md#custom-widget-translation) for more information.
 
 
 ### Preview the page
@@ -156,7 +156,7 @@ Adjust the page layout if necessary to allow for language differences. Your mult
 ### Deploy
 
 
-To put a multi-language page into production in an application, follow the same steps as for a single-language page: [upload the page to the Portal](/resource-management#import) and then [add it to the application](/applications-0#pages). You can follow the steps for [building the application](/getting-started-tutorial-1#build-app) from the getting started tutorial.
+To put a multi-language page into production in an application, follow the same steps as for a single-language page: [upload the page to the Portal](/resource-management#import) and then [add it to the application](/applications.md#pages). You can follow the steps for [building the application](/getting-started-tutorial.md#build-app) from the getting started tutorial.
 
 
 After deployment, an application user will see the page in the language configured for their Bonita BPM web applications. A user can set this by selecting the language in Bonita BPM Portal.

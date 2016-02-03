@@ -28,8 +28,8 @@ Logging out will send the user back to the login page.
 Note: in a system that uses CAS to provide single sign-on, the administrator can remove the logout option. In this case, to log out of the portal you must log out of the CAS system or close your browser.
 
 
-See also [First steps after setup](/first-steps-after-setup-1)
+See also [First steps after setup](/first-steps-after-setup.md)
 
-See also [Active directory/ldap authentication](/active-directory-or-ldap-authentication-0)
+See also [Active directory/ldap authentication](/active-directory-or-ldap-authentication.md)
 
 See also [Accessing Bonita BPM Portal and forms by URL](/accessing-bonita-bpm-portal-and-forms-url-0%0D%0A)

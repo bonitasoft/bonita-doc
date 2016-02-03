@@ -140,4 +140,4 @@ Bonita BPM Studio. This user must be in the organization you have
 selected.
 4. Click Publish.
 
-After it has been uploaded, you can [modify the organization in Bonita BPM Portal](/organization-portal-overview-0).
+After it has been uploaded, you can [modify the organization in Bonita BPM Portal](/organization-portal-overview.md).
