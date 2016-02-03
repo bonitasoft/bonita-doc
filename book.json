@@ -1,0 +1,9 @@
+{
+    "variables": {
+        "current_version": "7.3.0"
+    },
+
+    "styles": {
+        "website": "styles/bonitasoft.css"
+    }
+}
