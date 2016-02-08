@@ -1,3 +1,3 @@
 # bonita-doc
 
-download gitbook and do a `gitbook serve`
+download gitbook and do a `gitbook serve` in md folder
