@@ -23,19 +23,19 @@
 
 <p>An application is a collection of pages and processes that meets a business need. It contains some or all of the following:</p>
 
-<ul><li><a href="pages">Pages</a>: the user interface components of the application. An application must contain at least one page.</li>
-<li><a href="/processes-0">Processes</a>: the logic execution components of the application. An application must contain at least one process. A process can contain <a href="/forms">forms</a>, which are the user interface of the process.</li> 
-<li><a href="/rest-api-extensions">REST API extensions</a>: called from pages or forms to retrieve data to be presented to the user.</li> 
-<li><a href="/layouts">Layout</a>: the frame in which application pages are displayed.</li> 
-<li><a href="/theme-resources">Theme</a>: the appearance of application pages, including fonts and colors.</li> 
+<ul><li><a href="/pages.html">Pages</a>: the user interface components of the application. An application must contain at least one page.</li>
+<li><a href="/processes.html">Processes</a>: the logic execution components of the application. An application must contain at least one process. A process can contain <a href="/forms.html">forms</a>, which are the user interface of the process.</li> 
+<li><a href="/rest-api-extensions.html">REST API extensions</a>: called from pages or forms to retrieve data to be presented to the user.</li> 
+<li><a href="/layouts.html">Layout</a>: the frame in which application pages are displayed.</li> 
+<li><a href="/themes.html">Theme</a>: the appearance of application pages, including fonts and colors.</li> 
 
 </ul><h2 id="prereqs">Application prerequisites</h2>
 
 <p>An application requires the following to be available:</p>
 
-<ul><li>The <a href="/bdm-management-bonita-bpm-portal-1">business data model</a> (BDM) must be deployed</li>
-<li>The <a href="/organization-portal-overview-0">organization</a> data must be deployed, so that application users can log in.</li>
-<li>The access <a href="/rest-api-authorization-0">authorizations</a> that grant users access to the application resources must be defined.</li>
+<ul><li>The <a href="/bdm-management-in-bonita-bpm-portal.html">business data model</a> (BDM) must be deployed</li>
+<li>The <a href="/organization-in-bonita-bpm-portal-overview.html">organization</a> data must be deployed, so that application users can log in.</li>
+<li>The access <a href="/rest-api-authorization.html">authorizations</a> that grant users access to the application resources must be defined.</li>
 </ul><h2 id="develop">Developing an application</h2>
 
 <p>When developing an application there are three independent factors to consider:</p>
@@ -72,10 +72,10 @@ The application builder is a graphical interface in Bonita BPM Portal for specif
     <li>Click <strong><em>Create</em></strong>.</li>
 </ol><p>The new application is created, with the information that you specified.
     However, at this stage the application contains only the default home page. You must specify the pages in the application, and then define the navigation.</p>
-<div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"> </span> <strong>Note:</strong> When you define the URL token for an application, you cannot use "API","content" or "theme" (case insensitive). Those words are reserved for internal use.</div>
+<div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"> </span> <strong>Note:</strong> When you define the URL token for an application, you cannot use &quot;API&quot;,&quot;content&quot; or &quot;theme&quot; (case insensitive). Those words are reserved for internal use.</div>
 
 <h3 id="layout">Specifying application layout (Subscription editions)</h3>
-<p>Each application is associated with a <a href="/layouts">layout</a> that defines the main frame of this application.</p>
+<p>Each application is associated with a <a href="/layouts.html">layout</a> that defines the main frame of this application.</p>
 <p>To specify the application layout:</p>
 <ol><li>In the menu bar, click <strong>Applications</strong>. The Applications list page is displayed.</li>
     <li>Click the edit icon (...) for the application you want to edit. The application details page is displayed.</li>
@@ -84,7 +84,7 @@ The application builder is a graphical interface in Bonita BPM Portal for specif
     <li>Choose the new layout from the drop down list. Layouts must be previously deployed.</li>
     <li>Click on the validate button.</li>
 </ol><h3 id="theme">Specifying application theme (Subscription editions)</h3>
-<p>Each application is associated with a <a href="/theme-resources">theme</a> that defines the application appearance. All pages developed with the <a href="/ui-designer-overview">UI Designer</a>  will automatically benefit of application theme.
+<p>Each application is associated with a <a href="/themes.html">theme</a> that defines the application appearance. All pages developed with the <a href="/ui-designer-overview.html">UI Designer</a>  will automatically benefit of application theme.
     If you develop pages by yourself you need to include the following line in your source to get theme working <code><link rel="stylesheet" href="../theme/theme.css"></code>.</p>
 <p>To specify the application theme:</p>
 <ol><li>In the menu bar, click <strong>Applications</strong>. The Applications list page is displayed.</li>
@@ -95,7 +95,7 @@ The application builder is a graphical interface in Bonita BPM Portal for specif
     <li>Click on the validate button.</li>
 </ol><h3 id="pages">Specifying application pages</h3>
 
-<p>When you specify application pages, you create a mapping between the application and the <a href="/custom-pages-2">pages</a> it contains. The  pages themselves must already exist.</p>
+<p>When you specify application pages, you create a mapping between the application and the <a href="/pages.html">pages</a> it contains. The  pages themselves must already exist.</p>
 
 <p>To specify the application pages:</p>
 
@@ -106,7 +106,7 @@ The application builder is a graphical interface in Bonita BPM Portal for specif
         You can <strong>remove a page</strong> by clicking the trashcan icon for that page.
         The pages are listed in alphabetical order.</li>
     <li>Select the page that will be the application home page. The default home page is selected by default. To change this, click the Home icon on the row of the relevant page.</li>
-</ol><div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"> </span> <strong>Note:</strong> When you define the URL token for a page, you cannot use "API","content" or "theme" (case insensitive). Those words are reserved for internal use.</div>
+</ol><div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"> </span> <strong>Note:</strong> When you define the URL token for a page, you cannot use &quot;API&quot;,&quot;content&quot; or &quot;theme&quot; (case insensitive). Those words are reserved for internal use.</div>
 
 <h3 id="nav">Defining application navigation</h3>
 
@@ -173,7 +173,7 @@ The application builder is a graphical interface in Bonita BPM Portal for specif
         <li>business data model</li>
 		<li>processes (including forms)</li>
         <li>applications</li>
-    </ul><p>You will also need to apply any <a href="/rest-api-authorization-0">custom authorization</a> definitions.</p>
+    </ul><p>You will also need to apply any <a href="/rest-api-authorization.html">custom authorization</a> definitions.</p>
 
     <p>To import applications:</p>
 
@@ -207,12 +207,12 @@ The application builder is a graphical interface in Bonita BPM Portal for specif
         </ul></li>
 </ol><h3 id="update-app-resources">Updating application resources</h3>
 
-<p>Some resources of an application can be updated live without needing to stop the processes or require users to log out of the application. <a href="/live-update">Live update</a> is primarily intended for rapid deployment of updates in a pre-production test environment. It can be used to deploy updates in a production environment, but in most production environments applications and their components are versioned, so a planned roll-out is more typical.</p>
+<p>Some resources of an application can be updated live without needing to stop the processes or require users to log out of the application. <a href="/live-update.html">Live update</a> is primarily intended for rapid deployment of updates in a pre-production test environment. It can be used to deploy updates in a production environment, but in most production environments applications and their components are versioned, so a planned roll-out is more typical.</p>
 
 <p>You can use live update for the following resources:</p>
-<ul><li><a href="/live-update#forms">Pages and forms</a></li>
-<li><a href="/live-update#parameters">Parameters</a></li>
-<li><a href="/live-update#connectors">Connectors</a></li>
+<ul><li><a href="/live-update.html#forms">Pages and forms</a></li>
+<li><a href="/live-update.html#parameters">Parameters</a></li>
+<li><a href="/live-update.html#connectors">Connectors</a></li>
 </ul><p>
 
 

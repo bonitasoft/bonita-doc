@@ -9,7 +9,7 @@ This page describes the queriable logger service.</p>
 information about 
 administration operations such as deployment of a new process definition, commands, reporting, actor mapping, Portal Look &amp; Feel themes, and organization and user management.</p>
 <p>
-The Bonita BPM Engine stores information in the queriable log. The information in the log is accessible using the <a href="/javadoc-71">LogAPI</a>
+The Bonita BPM Engine stores information in the queriable log. The information in the log is accessible using the <a href="/javadoc.html">LogAPI</a>
 (Performance, Efficiency, and Teamwork editions only).
 </p>
 <p>
@@ -24,7 +24,7 @@ Here is an example of how to search for log message about a specific activity:</
 <code type="java">
 final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
 builder.filter(LogSearchDescriptor.ACTION_SCOPE, aTaskId);
-builder.searchTerm("Adding a new user");
+builder.searchTerm(&quot;Adding a new user&quot;);
 builder.sort(LogSearchDescriptor.ACTION_TYPE, Order.ASC);
 final LogAPI logAPI = TenantAPIAccessor.getLogAPI(session);
 final SearchResult<log> searchedLogs = logAPI.searchLogs(builder.done());

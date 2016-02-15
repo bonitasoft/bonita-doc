@@ -1,12 +1,12 @@
 <?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Customize the existing living application Layout</title></head><body class="front">
 		<div id="content">
 	<h1>4.8 Customize the existing living application Layout</h1>
-    <p>Has it is explained in the <a href="/layouts">layouts</a> documentation, it is possible to customize the existing application layout using the UI designer.</p>
+    <p>Has it is explained in the <a href="/layouts.html">layouts</a> documentation, it is possible to customize the existing application layout using the UI designer.</p>
 <p>For example, you could:</p>
 <ul><li>add a login box</li>
 <li>change the menu to add a side menu</li>
 <li>add a footer</li>
-</ul><p>Prerequisites to custumize the existing living application layout:</p>
+</ul><p>Prerequisites to customize the existing living application layout:</p>
 <ul><li>Basic knowledge of Java script</li>
 <li>Basic knowledge of angular</li>
 <li>Basic knowledge of bootstrap</li>
@@ -54,9 +54,9 @@ replace the template by using the following one:
 	<div class="row">
 		<div id="leftCol">
 			<div class="well"> 
-				<ul class="nav nav-stacked" id="sidebar"><li ng-class="{active:ctrl.pageToken===menu.applicationPageId.token}" ng-repeat="menu in ctrl.filterChildren(-1)" dropdown>
+				<ul class="nav nav-stacked" id="sidebar"><li ng-class="{active:ctrl.pageToken===menu.applicationPageId.token}" ng-repeat="menu in ctrl.filterChildren(-1)" dropdown="">
 						<a ng-if="!ctrl.isParentMenu(menu)" ng-href="../{{menu.applicationPageId.token}}/" ng-click="ctrl.reload()">{{menu.displayName}}</a>            
-						<a ng-if="ctrl.isParentMenu(menu)" dropdown-toggle>{{menu.displayName}}<span class="caret"></span></a>
+						<a ng-if="ctrl.isParentMenu(menu)" dropdown-toggle="">{{menu.displayName}}<span class="caret"></span></a>
 						<ul ng-if="ctrl.isParentMenu(menu)" class="dropdown-menu"><li ng-repeat="childMenu in ctrl.filterChildren(menu.id)">
 								<a ng-href="../{{childMenu.applicationPageId.token}}/" ng-click="ctrl.reload()">{{childMenu.displayName}}</a>
 							</li>

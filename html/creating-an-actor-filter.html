@@ -4,7 +4,7 @@
     <a id="top"></a><p>An actor filter is implemented in Bonita BPM in two parts, the
 definition and the implementation. This enables you to change the
 implementation without changing the definition. Several implementations can be
-created for a single definition. See <a href="/actor-filtering">here </a>for a list of actor
+created for a single definition. See <a href="/actor-filtering.html">here </a>for a list of actor
 filters provided with the product.</p>
 
 <p>An actor filter is a type of connector and is created in the same way, using the same schema files as
@@ -172,7 +172,7 @@ ExecutionContext. The following methods must be implemented:</p>
   <li><span class="tt">shouldAutoAssignTaskIfSingleResult
     to assign the step to the user if filter returns one user</span></li>
 </ul><p>For details of the APIs, the methods and related objects, see the  
-<a href="/javadoc-71">Javadoc</a>.</p>
+<a href="/javadoc.html">Javadoc</a>.</p>
 
 <h3>Actor filter example code</h3>
 
@@ -198,7 +198,7 @@ public class ProcessinitiatorManagerUserFilter extends AbstractUserFilter {
 
     @Override
     public boolean shouldAutoAssignTaskIfSingleResult() {
-        final Boolean autoAssignO = (Boolean) getInputParameter("autoAssign");
+        final Boolean autoAssignO = (Boolean) getInputParameter(&quot;autoAssign&quot;);
         return autoAssignO == null ? true : autoAssignO;
     }
 

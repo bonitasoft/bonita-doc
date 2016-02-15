@@ -39,7 +39,7 @@ Add an image asset at page level if the image is used as a custom widget propert
 
 <pre>
 function hi(name){
-  return 'Welcome ' + name + ' to the UI Designer';
+  return &apos;Welcome &apos; + name + &apos; to the UI Designer&apos;;
 }
 </pre>
 
@@ -48,14 +48,14 @@ function hi(name){
 <li>Select the type: <b>JavaScript</b>.</li>
 <li>Set the source to <b>Local</b>.</li>
 <li>Upload your JavaScript file. The file appears in the asset list.</li>
-<li>In the <b>Variables</b> panel, add a new String variable called "name".</li>
-<li>Create a JavaScript expression that calls the "hi" function. </li>
-<li>Add an input widget linked to the "name" variable and a text widget linked to the hi variable.<br><img alt="CSS asset" src="images/images-6_0/jsasset.png"></li>
+<li>In the <b>Variables</b> panel, add a new String variable called &quot;name&quot;.</li>
+<li>Create a JavaScript expression that calls the &quot;hi&quot; function. </li>
+<li>Add an input widget linked to the &quot;name&quot; variable and a text widget linked to the hi variable.<br><img alt="CSS asset" src="images/images-6_0/jsasset.png"></li>
 <li>Click on the preview button. You will see a page containing the welcome message. The name will change when you change the value of the name variable. </li>
 </ol><h3>Localization asset (Subscription editions only)</h3>
 
 <p>The localization asset of a page is a local file called <code>localization.json</code> that contains the text presented in the page with translations into the languages that you want to support. 
-This enables you to create <a href="/multi-language-pages">multi-language pages</a>.</p>
+This enables you to create <a href="/multi-language-pages.html">multi-language pages</a>.</p>
 
 <p>A page cannot have more than one localization asset. When you upload a new <code>localization.json</code> asset file, it overwrites the existing one.</p>
 
@@ -80,13 +80,13 @@ A custom widget cannot contain a localization asset. Instead, include the text a
 <p>In the custom widget editor, create a widget with two properties:</p>
 
 <code type="xml">
-{name : "src", type : "text", "Default value" : "assets/img/assetname.png"}
-{name : "description", type : "text"}
+{name : &quot;src&quot;, type : &quot;text&quot;, &quot;Default value&quot; : &quot;assets/img/assetname.png&quot;}
+{name : &quot;description&quot;, type : &quot;text&quot;}
 </code>
 
 <p>You do not need to define a controller but you must create an HTML template: </p>
 
-<code>&lt;img ng-src="{{properties.src}}" alt="{{properties.description}}"&gt;</code>
+<code>&lt;img ng-src=&quot;{{properties.src}}&quot; alt=&quot;{{properties.description}}&quot;&gt;</code>
 
 <p>You can now use this custom widget in any page, by adding an image asset and changing the property src to point to it. For an external asset, specify a URL. To load a local image, specify a relative path as follows:</p>
 

@@ -24,7 +24,7 @@
 <p>This sample shows how to construct the complete URL. Prefer the short format for backward compatibility.</p>
 
 <code type="java">
-    return new StringBuffer("URL: <a href="%5C%22%22)" .append>here</a>")
+    return new StringBuffer(&quot;URL: <a href="%5C%22%22)" .append="">here</a>&quot;)
     .toString();
 </code>
 
@@ -35,7 +35,7 @@
 <p>This sample shows how to construct the short URL. Prefer this format for backward compatibility. You will automatically be redirected to the complete format.</p>
 
 <code type="java">
-    return new StringBuffer("URL: <a href="%5C%22%22)" .append>here</a>")
+    return new StringBuffer(&quot;URL: <a href="%5C%22%22)" .append="">here</a>&quot;)
     .toString();
 </code>
 
@@ -52,7 +52,7 @@
 <p>This sample shows how to construct the complete URL. Prefer the short format for backward compatibility.</p>
 
 <code type="java">
-    return new StringBuffer("URL: <a href="%5C%22%22)" .append>here</a>")
+    return new StringBuffer(&quot;URL: <a href="%5C%22%22)" .append="">here</a>&quot;)
     .toString();
 </code>
 
@@ -63,7 +63,7 @@
 <p>This sample shows how to construct the short URL. Prefer this format for backward compatibility. You will automatically be redirected to the complete format.</p>
 
 <code type="java">
-    return new StringBuffer("URL: <a href="%5C%22%22)" .append>here</a>")
+    return new StringBuffer(&quot;URL: <a href="%5C%22%22)" .append="">here</a>&quot;)
     .toString();
 </code>
 
@@ -74,7 +74,7 @@
 <h2><a id="task_url"></a>Task URL</h2>
 
 <div class="alert alert-danger"><span class="glyphicon glyphicon-info-sign"> </span> <strong>Important:</strong> A task is not automatically assigned to the user who accesses the task form.
-    If a user is using Bonita BPM Portal, the assignment is automatic. However, if a user is accessing a form directly from an application, there must first be a <a href="/bpm-api-849#humantask">REST API call to assign the task to the user</a>.
+    If a user is using Bonita BPM Portal, the assignment is automatic. However, if a user is accessing a form directly from an application, there must first be a <a href="/bpm-api.html#humantask">REST API call to assign the task to the user</a>.
     Otherwise, the user will not be able to execute the task.</div>
     
 <p>The following code samples show how to generate a link to a human task.</p>
@@ -84,7 +84,7 @@
 <p>This sample shows how to construct the complete URL. Prefer the short format for backward compatibility.</p>
 
 <code type="java">
-    return new StringBuffer("URL: <a href="%5C%22%22)" .append>here</a>")
+    return new StringBuffer(&quot;URL: <a href="%5C%22%22)" .append="">here</a>&quot;)
     .toString();
 </code>
 
@@ -95,7 +95,7 @@
 <p>This sample shows how to construct the short URL. Prefer  this format for backward compatibility. You will automatically be redirected to the complete format.</p>
 
 <code type="java">
-    return new StringBuffer("URL: <a href="%5C%22%22)" .append>here</a>")
+    return new StringBuffer(&quot;URL: <a href="%5C%22%22)" .append="">here</a>&quot;)
     .toString();
 </code>
 
@@ -104,20 +104,20 @@
 </p><p>Or if you only have the process instance ID and the task name:</p>
 
 <code type="java">
-    return new StringBuffer("URL: <a href="%5C%22%22)" .append>here</a>")
+    return new StringBuffer(&quot;URL: <a href="%5C%22%22)" .append="">here</a>&quot;)
     .toString();
 </code>
 
 <p>Example:<br><code>http://localhost:8080/bonita/portal/form/processInstance/8/task/request%20approval</code>
 
-</p><p>With the above format, the first task with the name "request approval" available for the user found in the process instance with id 8 will be displayed.</p>
+</p><p>With the above format, the first task with the name &quot;request approval&quot; available for the user found in the process instance with id 8 will be displayed.</p>
 
 
 
 <h2><a id="autologin"></a>Using autologin</h2>
 
 Bonita BPM 6.x URL syntax is supported in 7.x. Thus, 6.x autologin feature is supported in 7.0 version with 6.x URL syntax.
-Go to <a href="accessing-bonita-bpm-portal-and-forms-url">Accessing Bonita BPM Portal and forms by URL 6.5 documentation</a> for more information about this.
+Go to <a href="/bonita-bpm-portal-urls.html">Accessing Bonita BPM Portal and forms by URL 6.5 documentation</a> for more information about this.
 
 <p></p>
 

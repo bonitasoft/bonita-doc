@@ -26,7 +26,7 @@ These tenants are configured with a single database. This illustration shows a p
 
 <img src="images/images-6_0/v6tenant.png" alt="multi-tenancy" title="Multi-tenancy topology"><h2 id="plat">Platform configuration</h2>
 
-<p>The platform is the part of the system that is common to all tenants. The platforms and tenant configurations are defined in <a href="/bonita-home-0"><code><bonita_home></bonita_home></code></a>.</p>
+<p>The platform is the part of the system that is common to all tenants. The platforms and tenant configurations are defined in <a href="/bonita-home.html"><code><bonita_home></bonita_home></code></a>.</p>
 <p>The platform configuration directory is located here: <code>engine-server/conf/platform</code>.</p>
 
 <p>There is a separate configuration directory for each tenant, located here: <code>engine-server/conf/tenants/<tenant_id></tenant_id></code>. 
@@ -35,28 +35,28 @@ There is also a default tenant configuration, located here: <code>engine-server/
 
 <h2 id="tenconfig">Tenant creation</h2>
 
-<p>A tenant can be created using the Java PlatformAPI (see the <a href="/javadoc-71">Javadoc</a>) or the <a href="/platform-api-1">platform REST API</a>.</p>
+<p>A tenant can be created using the Java PlatformAPI (see the <a href="/javadoc.html">Javadoc</a>) or the <a href="/platform-api.html">platform REST API</a>.</p>
 
 <div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong> 
-If business objects will be deployed in the newly created tenant do not forget to <a href="/database-configuration-business-data-1">create the business data database and configure specific data sources</a>.</div>
+If business objects will be deployed in the newly created tenant do not forget to <a href="/database-configuration-for-business-data.html">create the business data database and configure specific data sources</a>.</div>
 
 <h3>Java PlatformAPI</h3>
 
 <p>The Java PlatformAPI creates the tenant by updating the database and creating the <code>bonita/server/tenants/*</code> files. 
-The following example code uses the Engine Java APIs to create a tenant called "myNewTenantName":</p>
+The following example code uses the Engine Java APIs to create a tenant called &quot;myNewTenantName&quot;:</p>
 <code type="java">
 // Get platform login API using the PlatformAPIAccessor
 PlatformLoginAPI platformLoginAPI = PlatformAPIAccessor.getPlatformLoginAPI();
 // Log in to the platform
-PlatformSession platformSession = platformLoginAPI.login("platformAdmin", "platform");
+PlatformSession platformSession = platformLoginAPI.login(&quot;platformAdmin&quot;, &quot;platform&quot;);
 
 // Get the platform API
 PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(platformSession);
 
 // Create a new tenant
-TenantCreator tenantCreator = new TenantCreator("myNewTenantName");
-tenantCreator.setUsername("install");
-tenantCreator.setPassword("install");
+TenantCreator tenantCreator = new TenantCreator(&quot;myNewTenantName&quot;);
+tenantCreator.setUsername(&quot;install&quot;);
+tenantCreator.setPassword(&quot;install&quot;);
 long tenantId = platformAPI.createTenant(tenantCreator);
 platformAPI.activateTenant(tenantId);
 
@@ -72,7 +72,7 @@ You need to copy these files from the var_bonita_home client tenant template int
     <li>If you need specific settings (for example for authentication), you can configure your tenant in <code>var_bonita_home/client/tenants/TENANT_ID/conf</code></li>
 </ul><h3>REST API</h3>   
 
-<p>The <a href="/platform-api-1">platform REST API</a> calls the Java PlatformAPI to create the tenant. 
+<p>The <a href="/platform-api.html">platform REST API</a> calls the Java PlatformAPI to create the tenant. 
     It also creates the web elements that are required for the Bonita BPM Portal to work with multitenancy, notably the <code>bonita/client/tenants/*</code> files. You do not need to copy any files manually.</p>
     
 
@@ -93,19 +93,19 @@ http://localhost:8080/bonita/mobile/?tenant=2</p>
 
 
 <h3 id="mtApi">Bonita APIs</h3>
-<p>Use the <a href="/javadoc-71">PlatformAPI</a> to perform operations on tenants.</p>
+<p>Use the <a href="/javadoc.html">PlatformAPI</a> to perform operations on tenants.</p>
 
 <p>Example: retrieving a tenant from its name and log into it</p>
 <code type="java">
 // Get platform login API using the PlatformAPIAccessor
 PlatformLoginAPI platformLoginAPI = PlatformAPIAccessor.getPlatformLoginAPI();
 // Log in to the platform
-PlatformSession platformSession = platformLoginAPI.login("platformAdmin", "platform");
+PlatformSession platformSession = platformLoginAPI.login(&quot;platformAdmin&quot;, &quot;platform&quot;);
 
 // Get the plaform API
 PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(platformSession);
 // Retrieve your tenant by name
-Tenant tenant = platformAPI.getTenantByName("myTenant");
+Tenant tenant = platformAPI.getTenantByName(&quot;myTenant&quot;);
 
 // Log out of the platform
 platformLoginAPI.logout(platformSession);
@@ -113,7 +113,7 @@ platformLoginAPI.logout(platformSession);
 // Get the login API using the TenantAPIAccessor
 final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
 // Log in to the tenant
-final APISession apiSession = loginAPI.login(tenant.getId(), "install", "install");
+final APISession apiSession = loginAPI.login(tenant.getId(), &quot;install&quot;, &quot;install&quot;);
 
 // TODO: Perform some operations on the tenant...
 
@@ -147,6 +147,6 @@ if (tenantAdministrationAPI.isPaused()) {
 </ul><p>If you attempt an operation that is not permitted while a tenant is paused, a <code>TenantIsPausedException</code> is thrown.</p>
 
 <p>You can also pause and resume a tenant using the 
-<a href="/platform-api-1#tenant">REST API</a> or <a href="/pause-and-resume-bpm-services-1">Bonita BPM Portal</a>.</p>
+<a href="/platform-api.html#tenant">REST API</a> or <a href="/pause-and-resume-bpm-services.html">Bonita BPM Portal</a>.</p>
 </div>
 	</body></html>

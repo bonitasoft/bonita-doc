@@ -9,7 +9,7 @@
 </li><li><em>Initiator</em> assigns the task to the user who initiated the process.</li>
 <li><em>Initiator manager</em> assigns the task to the manager of the user who initiated the process.</li>
 <li><em>User manager</em> assigns the task to the manager of the user who would be assigned to the task if the filter were not present.</li>
-<li><em>Users with Custom information</em> is a new actor filter used to assign tasks to users based on <a href="/custom-user-information-bonita-bpm-studio-0">custom information</a> (available from 6.3.2).</li>
+<li><em>Users with Custom information</em> is a new actor filter used to assign tasks to users based on <a href="/custom-user-information-in-bonita-bpm-studio.html">custom information</a> (available from 6.3.2).</li>
 </ul><p>
 You can create additional actor filters to meet the needs of your process. An actor filter consists of a definition and an implementation. This means that you can modify the definition 
 and implementation independently. For example, if you update the implementation to improve performance, there is no need to modify the definition.
@@ -28,9 +28,9 @@ with comments indicating where you need to supply code. You can create a new imp
 <li>Edit implementation... Modify the implementation of an actor filter. You cannot modify the implementation of a standard actor filter; however, you can create a new implementation.</li>
 <li>Export... Export the actor filter files in a zip.</li>
 <li>Import... Import a zip containing the actor filter files.</li>
-</ul><p>You can also create additional actor filters by creating the necessary files directly, as described in <a href="/creating-actor-filter-0">Creating an actor filter</a>.</p>
+</ul><p>You can also create additional actor filters by creating the necessary files directly, as described in <a href="/creating-an-actor-filter.html">Creating an actor filter</a>.</p>
 
-<p>For details of how to apply an actor filter to a task or lane, see <a href="/actors-1">Actors</a>.</p>
+<p>For details of how to apply an actor filter to a task or lane, see <a href="/actors.html">Actors</a>.</p>
 
 <p>When you add an actor filter to a process, Bonita BPM Studio automatically adds an implementation snapshot jar file for the actor filter to your workspace. 
 For example, if you add the single user actor filter, the file <code>bonita-userfilter-single-user-impl-</code><em><code>x.y.z</code></em><code>-SNAPSHOT.jar</code> is added to your workspace, 

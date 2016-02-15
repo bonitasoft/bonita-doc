@@ -7,7 +7,7 @@
 <li><a href="#export_for_exchange">Export items from a Bonita BPM Studio repository to import into another Bonita BPM Studio</a></li>
 <li><a href="#build_for_deployment">Build a process for deployment</a></li>
 <li><a href="#export_image">Export a process diagram as an image</a></li>
-</ul><p>You can also <a href="/migrate-process-bonita-open-solution-5x-1">Migrate a process diagram from Bonita Open Solution 5.x</a>.</p>
+</ul><p>You can also <a href="/migrate-a-process-from-bonita-open-solution-5x.html">Migrate a process diagram from Bonita Open Solution 5.x</a>.</p>
 
 <h2 id="import">Import a process diagram into Bonita BPM Studio</h2>
 <p>
@@ -24,7 +24,7 @@ You can import diagrams that were exported from the following tools:</p>
 <li>ARIS BPM 7.x</li>
 <li>XPDL 1.0</li>
 <li>jBPM 3.2</li>
-</ul><p>You can also <a href="/migrate-process-bonita-open-solution-5x-1">migrate a process diagram from Bonita Open Solution 5.x</a>.</p>
+</ul><p>You can also <a href="/migrate-a-process-from-bonita-open-solution-5x.html">migrate a process diagram from Bonita Open Solution 5.x</a>.</p>
 
 <h3>What is supported or compatible?</h3>
 <p>
@@ -35,18 +35,18 @@ but you cannot import a diagram that was created with the Performance edition in
 
 <p>
 If the format to be imported is BPMN 2.0 compatible, any of the BPMN 2.0 elements displayed in the Bonita BPM Studio <strong>BPMN elements</strong> menu, can be imported successfully. However, if the element to be 
-imported is&nbsp;<strong>not displayed </strong>in the <strong>BPMN elements</strong> menu, it is not supported by Bonita BPM, so Bonita BPM Studio will&nbsp;<em>interpret</em> the element and create the&nbsp;<em>closest BPMN element</em> 
+imported is&#xA0;<strong>not displayed </strong>in the <strong>BPMN elements</strong> menu, it is not supported by Bonita BPM, so Bonita BPM Studio will&#xA0;<em>interpret</em> the element and create the&#xA0;<em>closest BPMN element</em> 
 that is supported. The following specific changes are made for all import formats:</p>
-<ul><li>If a task in an imported process is&nbsp;<strong>not recognised</strong>, Bonita BPM Studio will create an abstract task for it by default.</li>
+<ul><li>If a task in an imported process is&#xA0;<strong>not recognised</strong>, Bonita BPM Studio will create an abstract task for it by default.</li>
 <li>A task format can be <strong>redimensioned</strong> (Height/width) when it is imported.</li>
-<li>If a multiple event is&nbsp;<strong>not recognised</strong>, Bonita BPM Studio takes the first element in order that it can interpret.</li>
-<li>If a gateway is&nbsp;<strong>not supported</strong>, it will be interpreted by default as an AND gateway.</li>
-<li>If there are&nbsp;<strong>multiple pools&nbsp;</strong>in a *.bar file, they will all be imported into a single process diagram.</li>
+<li>If a multiple event is&#xA0;<strong>not recognised</strong>, Bonita BPM Studio takes the first element in order that it can interpret.</li>
+<li>If a gateway is&#xA0;<strong>not supported</strong>, it will be interpreted by default as an AND gateway.</li>
+<li>If there are&#xA0;<strong>multiple pools&#xA0;</strong>in a *.bar file, they will all be imported into a single process diagram.</li>
 </ul><p>The following sections list restrictions for specific import formats.</p>
 
 <h4>BPMN 2.0 (*.bpmn)</h4>
 
-<p>Most BPM applications export in the BPMN 2.0 file format. This format is the most compatible with Bonita BPM Studio. See&nbsp;<a href="http://www.bpmn.org/#tabs-implementers">here</a>&nbsp;for a list of applications 
+<p>Most BPM applications export in the BPMN 2.0 file format. This format is the most compatible with Bonita BPM Studio. See&#xA0;<a href="http://www.bpmn.org/#tabs-implementers">here</a>&#xA0;for a list of applications 
 which export in the .bpmn format.</p>
 
 <h4>Microsoft Visio 2010 (*.vdx)</h4>
@@ -58,7 +58,7 @@ This feature is available in the Performance, Efficiency, and Teamwork editions.
 <li>Visio supports all shapes defined in the BPMN 1.2 standard. See <a href="http://blogs.msdn.com/b/visio/archive/2009/12/03/bpmn-support-in-visio-2010.aspx">here for more info about Visio compatibility</a>.</li>
 </ul><h4>Aris BPM 7.x (*.xml)</h4>
     
-<ul><li>This feature is available in the Performance, Efficiency, and Teamwork editions.</li></ul><p>See the&nbsp;<a href="http://www.softwareag.com/corporate/products/az/aris/default.asp">Aris website</a> for 
+<ul><li>This feature is available in the Performance, Efficiency, and Teamwork editions.</li></ul><p>See the&#xA0;<a href="http://www.softwareag.com/corporate/products/az/aris/default.asp">Aris website</a> for 
 more information about exporting in the BPMN 2.0 format ready for importing into Bonita BPM Studio.</p>
 
 <h4>XPDL from Bonita 4 (*.xpdl)</h4>

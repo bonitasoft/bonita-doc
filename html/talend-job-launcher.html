@@ -25,7 +25,7 @@ To prepare the job in Talend Open Studio:</p>
     <li>your job jar file, <em><code>jobName_version</code></em><code>.jar</code></li>
     </ul></li>
 <li>In Bonita BPM Studio, go  to the <strong>Development</strong> menu, <strong>Manage jars</strong> option, and import the jar files listed above.</li>
-</ol><p>When you <a href="/configuring-process-bonita-bpm-studio-0">configure a process</a> that uses this connector, you must add these jar files to the  <strong>Process dependencies</strong>.</p>
+</ol><p>When you <a href="/configuring-a-process.html">configure a process</a> that uses this connector, you must add these jar files to the  <strong>Process dependencies</strong>.</p>
 
 <p>To configure the Talend Job launcher connector, follow the steps in the wizard.</p>
 
@@ -66,13 +66,13 @@ List<list>&gt; listOfParameters = new ArrayList<list>&gt;();
 List<object> aParameter = null;
 
 aParameter = new ArrayList<object>();
-aParameter.add("nbline");
+aParameter.add(&quot;nbline&quot;);
 aParameter.add(10);
 listOfParameters.add(aParameter);
 
 aParameter = new ArrayList<object>();
-aParameter.add("name");
-aParameter.add("renaudp");
+aParameter.add(&quot;name&quot;);
+aParameter.add(&quot;renaudp&quot;);
 listOfParameters.add(aParameter);
 
 return listOfParameters;

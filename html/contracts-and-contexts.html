@@ -13,7 +13,7 @@ A contract is composed of inputs and constraints. Inputs are pieces of informati
     <li>Constraints:
     <ul><li>End Date after Start Date</li>
         <li>Start Date in the future</li>
-        <li>Leave type in ("Annual Leave", "Unpaid Leave")</li>
+        <li>Leave type in (&quot;Annual Leave&quot;, &quot;Unpaid Leave&quot;)</li>
     </ul></li>
 </ul><p><a href="#define">Why do you need to define a contract, and what inputs used for?</a><br><a href="#specify">Specifying a contract</a><br><a href="#context">Context</a>
 	</p>
@@ -37,7 +37,7 @@ After validation, the inputs are used to initialize business data, or process da
 Go to the <b>Details</b> panel, <b>Execution</b> tab, <b>Contract</b> pane.
 In the Inputs tab, declare each expected input and its type. You have two options: declare the input manually or from a business variable using the <strong>Add from data</strong> option. 
 Defining an input based on a variable saves you time, and is the preferred option if the aim of the input is to initialize (or update) the business variable. 
-In addition, using <strong>Add from data</strong> on a task contract automatically generates <a href="/operations-0">operations</a> to update the selected business variables with the task inputs.
+In addition, using <strong>Add from data</strong> on a task contract automatically generates <a href="/operations.html">operations</a> to update the selected business variables with the task inputs.
 In the Constraints tab, declare expressions that check the validity of the value of each input. 
 A constraint has a name, a content, and a error message. 
 The message is logged if the constraint is not met. Make sure to provide a meaningful name and message to help process users understand why the system rejected the order to start the process or execute a task.</p>
@@ -46,12 +46,12 @@ The message is logged if the constraint is not met. Make sure to provide a meani
 
 
 <img src="images/images-6_0/contractDoc.PNG"><p>
- <br>&nbsp;<br></p>
+ <br>&#xA0;<br></p>
 <img src="images/images-6_0/ConstraintsDoc.PNG"><p>
- <br>&nbsp;<br></p>
+ <br>&#xA0;<br></p>
 <p>Stacktrace example in case of contract violation</p>
 <img src="images/images-6_0/constraintError.PNG"><p>
- <br>&nbsp;<br></p>
+ <br>&#xA0;<br></p>
 <p>Supported input types:</p>
 <ol><li><b>Boolean:</b> accepts true or false values</li>
     <li><b>complex:</b>  a tree structure that is equivalent to a  key-value map where keys are fixed (e.g. if an input named user with children attributes firstname and lastname)</li>
@@ -60,7 +60,7 @@ The message is logged if the constraint is not met. Make sure to provide a meani
     <li><b>file:</b>  a document</li>
     <li><b>integer:</b>  a numeric value (e.g. 4)</li>
     <li><b>text:</b>  a string </li>
-</ol><p>Check 'multiple' to specify that the input is a list of its primary type (for example, a list of integers).</p>
+</ol><p>Check &apos;multiple&apos; to specify that the input is a list of its primary type (for example, a list of integers).</p>
 <p><b>Constraints</b></p>
 <p>A constraint is a Groovy expression that returns a Boolean. If the value is false, the constraint is not met, so the contract not fulfilled  and the system will not execute the instantiation or task.</p>
 <p><b>Note:</b> the constraint is limited to contract input and cannot reference external systems (such as connectors or databases).</p>

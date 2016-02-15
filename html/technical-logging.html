@@ -6,7 +6,7 @@
     <h2>Purpose</h2>
     <p>The purpose of this service is to provide an abstraction to the logging framework to all Bonita BPM Engine services, to facilitate debugging of other services.</p>
 	<p>
-	The logged messages are not intended to be accessible through the Engine API (see <a href="/queriable-logger-service-0">Queriable logger service</a>).</p>
+	The logged messages are not intended to be accessible through the Engine API (see <a href="/queriable-logging.html">Queriable logger service</a>).</p>
 	
 	<h2>Usage</h2>
 	<p>
@@ -26,7 +26,7 @@
 	<p>
 		The technical logger 
         <a href="https://github.com/bonitasoft/bonita-engine/blob/master/services/bonita-log/bonita-log-technical-slf4j/src/main/java/org/bonitasoft/engine/log/technical/TechnicalLoggerSLF4JImpl.java">implementation</a> 
-        uses SLF4J version 1.6.1 to handle the log. SLF4J itself uses a back-end logging framework to write log messages. See the <a href="/logging-0">logging
+        uses SLF4J version 1.6.1 to handle the log. SLF4J itself uses a back-end logging framework to write log messages. See the <a href="/logging.html">logging
 			overview</a> for more details.
 	</p>
 	<p>Logged messages are passed to SLF4J with appropriate logger information so the source of the message remains
@@ -34,7 +34,7 @@
 
 <h2 id="delayedretry">Example</h2>
 
-<p>The following example, <code>DelayedRetry</code>, shows how to write messages to the technical log. <code>DelayedRetry</code> can be called from an <a href="/event-handlers-0">event handler</a> that detects failed tasks.</p>
+<p>The following example, <code>DelayedRetry</code>, shows how to write messages to the technical log. <code>DelayedRetry</code> can be called from an <a href="/event-handlers.html">event handler</a> that detects failed tasks.</p>
 
 <code type="java">
 package com.bonitasoft.handlers;
@@ -68,7 +68,7 @@ public class DelayedRetry implements Runnable {
 //          if (technicalLog
 //                  .isLoggable(this.getClass(), TechnicalLogSeverity.TRACE)) {
                 StringBuilder message = new StringBuilder();
-                message.append("Starting to wait before trying again task execution ");
+                message.append(&quot;Starting to wait before trying again task execution &quot;);
                 message.append(taskId);
                 technicalLog.log(this.getClass(), TechnicalLogSeverity.TRACE,
                         message.toString());
@@ -80,7 +80,7 @@ public class DelayedRetry implements Runnable {
 //          if (technicalLog
 //                  .isLoggable(this.getClass(), TechnicalLogSeverity.TRACE)) {
                 StringBuilder message2 = new StringBuilder();
-                message2.append("Will now try task execution ");
+                message2.append(&quot;Will now try task execution &quot;);
                 message2.append(taskId);
                 technicalLog.log(this.getClass(), TechnicalLogSeverity.TRACE,
                         message2.toString());
@@ -90,7 +90,7 @@ public class DelayedRetry implements Runnable {
             LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
 
             // Log in to the tenant to create a session
-            final APISession session = loginAPI.login("admin", "bpm");
+            final APISession session = loginAPI.login(&quot;admin&quot;, &quot;bpm&quot;);
 
             // Get the ProcessRuntimeAPI using the TenantAPIAccessor and the
             // previously created session
@@ -102,7 +102,7 @@ public class DelayedRetry implements Runnable {
 //          if (technicalLog.isLoggable(this.getClass(),
 //                  TechnicalLogSeverity.ERROR)) {
                 technicalLog.log(this.getClass(), TechnicalLogSeverity.ERROR,
-                        "Error while retyring task execution. Task id: "
+                        &quot;Error while retyring task execution. Task id: &quot;
                                 + taskId, e);
 //          }
         }

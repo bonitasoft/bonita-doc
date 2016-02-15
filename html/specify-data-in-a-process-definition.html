@@ -23,7 +23,7 @@ explains how to handle data in a process, including specifying process- and task
   <li>A form variable is available only in the form, and is used to store data
     used in the form. You can also use form variables with connectors that are
     associated with the form.</li>
-</ul><p>See also:<br><a href="/define-variable-0">Data types and defining a variable</a><a><br></a><a href="/complex-data-types">Complex data types</a><br><a href="/data-handling-form">Data handling in a form</a><br><a href="/saving-data-widget-group-0">Saving data entered in a widget group</a></p>
+</ul><p>See also:<br><a href="/define-a-variable.html">Data types and defining a variable</a><a><br></a><a href="/create-a-complex-data-type.html">Complex data types</a><br><a href="/data-handling-form">Data handling in a form</a><br><a href="/saving-data-from-a-widget-group.html">Saving data entered in a widget group</a></p>
 
 <div style="text-align: center;"><img src="images/images-6_0/variables_scope.png" alt="Scope of variables" title="Scope of variables"><div style="clear: both" class="caption"><span style="display: block;color: #BC071B;text-align: center;margin-top: 10px">Scope of variables</span></div></div>
 
@@ -37,7 +37,7 @@ explains how to handle data in a process, including specifying process- and task
   <li>Use the minimum number of variables possible; having an unnecessarily
     large set of variables has an impact on performance. </li>
 </ul><p>There are also a number of variables that are provided by default in a process, such as the id of the current user. They are available through the
-<a href="/using-expressions-and-scripts">expression editor</a>.</p>
+<a href="/expressions-and-scripts.html">expression editor</a>.</p>
 
 
 
@@ -53,7 +53,7 @@ When deciding whether to use a transient or persistent variable, consider whethe
 In particular, if a operation script does several things, one of which is to update a transient variable and the app server restarts after the 
 script has run but before the end of the task, the transient variable is reset but the other changes made by the script survive the restart.</p>
 
-<ul><liprocess variables are persistent.><li>Task variables
+<ul><liprocess variables="" are="" persistent.=""><li>Task variables
     can be transient or persistent.</li>
   <li>Form variables are transient.</li>
 </liprocess></ul><p>Best practice:</p>
@@ -73,12 +73,12 @@ data in the calling process available in the subprocess.
 
 <h2><a name="L2424" id="L2424"></a>External data</h2>
 
-<p>A process or application can use data that is stored in an external database and accessed using a <a href="/list-database-connectors">database connector</a>. For example, in a process for requesting annual leave, there could
+<p>A process or application can use data that is stored in an external database and accessed using a <a href="/list-of-database-connectors.html">database connector</a>. For example, in a process for requesting annual leave, there could
 be a step that uses a connector to retrieve the number of days available for an employee and stores this in a transient variable. This variable is then
 compared with the number of days requested to see whether the employee is entitled to take the requested number of days. In a later step, another
 connector is used to update the number of available days after this request is approved, by subtracting the number of days requested.</p>
 
-<p>You can also use data stored in external information system components, such as a CRM document storage system. These systems are also accessed using a <a href="//connectivity-overview-0">connector</a>.</p>
+<p>You can also use data stored in external information system components, such as a CRM document storage system. These systems are also accessed using a <a href="/connectivity-overview.html">connector</a>.</p>
 
 <h2 id="define_a_variable">Define a variable</h2>
 
@@ -99,9 +99,9 @@ specify a default value or a list of available values.</p>
 long, double, text, Java object, XML schema (XSD) and option list. You can also
 define a variable as <em>multiple</em>, that is, an array or collection of
 values of the specified type.</p>
-<p>Note that since 6.3, Business data is now available. For a detailed explanation, see the <a href="/business-data-overview-0">Business Data overview</a>.</p>
+<p>Note that since 6.3, Business data is now available. For a detailed explanation, see the <a href="/business-data-overview.html">Business Data overview</a>.</p>
 
-<p>You can also define additional <a href="/complex-data-types">complex
+<p>You can also define additional <a href="/create-a-complex-data-type.html">complex
 data types</a> as Java objects or as XML objects.</p>
 
 <p></p>
@@ -124,7 +124,7 @@ define a variable with one of these types:</p>
   <li>Go to the <strong>Details</strong> panel, <strong>General</strong> view, <strong>Data</strong> pane. A list of the variables
     already defined is displayed.</li>
   <li>Choose if you want to add Process data or Business data. Click <strong><em>Add...</em></strong>.
- Note: if you add Business data, only add it at the pool/lane level. See this tutorial as a guide for the next steps<a href="/how-add-business-data-data-process"> How to add Business data to a process</a>.</li>
+ Note: if you add Business data, only add it at the pool/lane level. See this tutorial as a guide for the next steps<a href="/tutorial-how-to-add-a-business-object-to-a-process.html"> How to add Business data to a process</a>.</li>
   
   <li>Specify a name for the variable. The name must be unique within the scope
     of the variable. For easier process maintenance, it is a good idea to make
@@ -145,7 +145,7 @@ define a variable with one of these types:</p>
 </ol><h3><a id="define_java_object"></a>Define a Java object variable</h3>
 
 <p>You can define a variable whose data type is Java object. Before you define
-the variable, you must <a href="/complex-data-types">create the data type definition</a>.</p>
+the variable, you must <a href="/create-a-complex-data-type.html">create the data type definition</a>.</p>
 
 <p>To add a Java object variable:</p>
 <ol><li>Open your process diagram in Bonita BPM Studio.</li>
@@ -176,7 +176,7 @@ definition to the application or process dependencies.</p>
 <h3><a id="define_xml"></a>Define an XML variable</h3>
 
 <p>An XML variable has a data type that is defined by an XML schema file.
-Before you define the variable, you must <a href="/complex-data-types">create the XML schema</a> that contains
+Before you define the variable, you must <a href="/create-a-complex-data-type.html">create the XML schema</a> that contains
 the data type definition. The data type definition is stored in an XML
 schema (XSD) file that belongs to a namespace.</p>
 

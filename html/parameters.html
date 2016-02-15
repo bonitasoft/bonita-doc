@@ -3,7 +3,7 @@
 	<h1>1.6.4 Parameters</h1>
     <p>You can use a parameter to store a value that differs between deployments but is fixed for all cases of a deployed process. 
 The value is set when you configure the process. For example, 
-if you have a process for approving expense reports, you could define a parameter for the approver&rsquo;s email address that is set at deployment. 
+if you have a process for approving expense reports, you could define a parameter for the approver&#x2019;s email address that is set at deployment. 
 If you are using the Performance or Efficiency edition, the value can also be changed after deployment. </p>
 
 <p><a href="#defining_a_process_parameter">Defining a process parameter</a><br><a href="#configuring_parameter_values">Configuring parameter values</a><br><a href="#parameter_usage_in_forms">Parameter usage in forms</a></p>
@@ -25,7 +25,7 @@ You can define a parameter for a pool or for a lane. A parameter can be of type 
 
 <h2 id="configuring_parameter_values">Configuring parameter values</h2>
 
-<p>Parameter values are set in Bonita BPM Studio when the process is configured (see the <a href="/process-configuration-overview-0">process configuration overview</a> for other details of how to configure a process).</p>
+<p>Parameter values are set in Bonita BPM Studio when the process is configured (see the <a href="/process-configuration-overview.html">process configuration overview</a> for other details of how to configure a process).</p>
 
 <p>To set a parameter value:</p>
 <ol><li>Open the process diagram in Bonita BPM Studio.</li>
@@ -37,17 +37,17 @@ You can define a parameter for a pool or for a lane. A parameter can be of type 
 You can also set parameter values by importing a <span class="tt">parameter.properties</span> file. The values in the file are used to set the values of the corresponding parameters. 
 Note that importing a <span class="tt">parameters.properties</span> file does not create parameters in the process, just sets the values of those that exist if they are present in the file.</p>
 
-<p>When you build a process for deployment (see <a href="/import-and-export-process-1">Import and export a process</a>), the <span class="tt">.bar</span> archive that is 
+<p>When you build a process for deployment (see <a href="/import-and-export-a-process.html">Import and export a process</a>), the <span class="tt">.bar</span> archive that is 
 created also contains a <span class="tt">parameters.properties</span> file.</p>
 
 <p>You can edit a <span class="tt">parameters.properties</span> file to change the value of a parameter before importing it into Bonita BPM Studio or before deploying the <span class="tt">.bar</span>. 
 You can also edit the file after process deployment, but this is not recommended if the process is running. If you need to
-change a parameter value for a process that is in production, <a href="/processes-0#modpar">update the process configuration in Bonita BPM Portal</a>).</p>
+change a parameter value for a process that is in production, <a href="/processes.html#modpar">update the process configuration in Bonita BPM Portal</a>).</p>
 
 
 <h2 id="parameter_usage_in_forms">Parameter usage in forms</h2>
 
-<p>From 7.x, to use parameters in forms, you need to retrieve them using the <a href="/bpm-api-1#processparameter">REST API.</a>
+<p>From 7.x, to use parameters in forms, you need to retrieve them using the <a href="/bpm-api.html#processparameter">REST API.</a>
     
     
 </p>

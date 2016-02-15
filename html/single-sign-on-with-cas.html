@@ -88,16 +88,16 @@ insert the variable <code>SECURITY_OPTS</code> in the line <code>CATALINA_OPTS=.
 <code type="java">
 BonitaAuthentication-1 {
   org.jasig.cas.client.jaas.CasLoginModule required
-    ticketValidatorClass="org.jasig.cas.client.validation.Cas20ServiceTicketValidator"
-    casServerUrlPrefix="http://ip_address:port/cas"
-    tolerance="20000"
-    service="http://ip_address:port/loginservice"
-    defaultRoles="admin,operator"
-    roleAttributeNames="memberOf,eduPersonAffiliation"
-    principalGroupName="CallerPrincipal"
-    roleGroupName="Roles"
-    cacheAssertions="true"
-    cacheTimeout="480";
+    ticketValidatorClass=&quot;org.jasig.cas.client.validation.Cas20ServiceTicketValidator&quot;
+    casServerUrlPrefix=&quot;http://ip_address:port/cas&quot;
+    tolerance=&quot;20000&quot;
+    service=&quot;http://ip_address:port/loginservice&quot;
+    defaultRoles=&quot;admin,operator&quot;
+    roleAttributeNames=&quot;memberOf,eduPersonAffiliation&quot;
+    principalGroupName=&quot;CallerPrincipal&quot;
+    roleGroupName=&quot;Roles&quot;
+    cacheAssertions=&quot;true&quot;
+    cacheTimeout=&quot;480&quot;;
 };
 </code>
     
@@ -201,7 +201,7 @@ To do this, set the <code>logout.link.hidden=true</code> option in <code>authent
 
 <h2 id="ldap">LDAP synchronizer and CAS</h2>
 
-<p>If you are using an LDAP service and the <a href="/ldap-synchronizer-3">LDAP synchronizer</a> to manage your user data, you can continue to do this and use CAS. The LDAP synchronizer user must be registered in CAS. 
+<p>If you are using an LDAP service and the <a href="/ldap-synchronizer.html">LDAP synchronizer</a> to manage your user data, you can continue to do this and use CAS. The LDAP synchronizer user must be registered in CAS. 
 Alternatively, the LDAP synchronizer could be run with the tenant technical user, because this bypasses the SSO login. </p>
 <p>We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your CAS server. </p>
 
@@ -225,7 +225,7 @@ Alternatively, the LDAP synchronizer could be run with the tenant technical user
 <p>For detailed information about the procedure to install Restful access on your CAS SSO server, see the following links:</p>
 <a href="http://jasig.github.io/cas/4.1.x/index.html">CAS SSO RESTful API</a>
 
-<a href="/rest-api-overview-0">Bonita BPM REST API</a>
+<a href="/rest-api-overview.html">Bonita BPM REST API</a>
 <p>
 
 </p><div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong> All calls issued to get the TGT or ST are made to the CAS SSO server.</div>

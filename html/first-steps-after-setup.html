@@ -10,7 +10,7 @@
 </dl><h2 id="check">Check the installation</h2>
 <p>To verify that the installation was successful and the database is correctly configured, connect to Bonita BPM Portal.</p>
 <p>In the URL field of your web browser, enter the local host address, e.g. <code>http://localhost:8080/bonita</code>.</p>
-<p><strong>Note:</strong> If the Bonita BPM Portal login page is not displayed, <a href="http://www.wikihow.com/Clear-Your-Browser's-Cache">empty your browser cache</a> and then reload the page.</p> 
+<p><strong>Note:</strong> If the Bonita BPM Portal login page is not displayed, <a href="http://www.wikihow.com/Clear-Your-Browser&apos;s-Cache">empty your browser cache</a> and then reload the page.</p> 
 
 <p>At this stage no organization information is loaded: only the technical user account exists.</p>
 
@@ -48,26 +48,26 @@ At platform creation, this file contains the default username and password for t
 <h2 id="security">Review security</h2>
     
 <p>There are a number of ways you can improve the security of your platform. 
-Review the <a href="/rest-api-authorization-0">REST API authorization</a> and the other features relating to <a href="/product-bos-sp/security-and-authentication">security and authentication</a> that are available in Bonita BPM and in your operating system, and update your platform as required for your production environment. 
-For example, most environments require a <a href="/enforce-password-policy-0">password policy</a>.</p>
+Review the <a href="/rest-api-authorization.html">REST API authorization</a> and the other features relating to <a href="/security-and-authentication.html">security and authentication</a> that are available in Bonita BPM and in your operating system, and update your platform as required for your production environment. 
+For example, most environments require a <a href="/enforce-password-policy.html">password policy</a>.</p>
 
 
 
 <h2 id="create_admin">Create a Bonita BPM Portal administrator</h2>
 
 
-<p>Create a user with the "administrator" profile:</p>
+<p>Create a user with the &quot;administrator&quot; profile:</p>
 <p>Note: do not create a user or an administrator with the same login and password as the technical users (platform and tenant)</p>
 <ol><li>Log in to Bonita BPM Portal as the technical user. <br><strong>Note:</strong> If your system is using single sign-on with CAS, you need to log in with the following URL: <code>http://</code><em><code>hostname:port</code></em><code>/bonita/login.jsp?redirectUrl=portal/homepage</code>.</li>
 <li>Create a user with the standard profile.</li>
-<li>Go to <strong>Organization</strong> &gt; <strong>Profiles</strong>. Select "Administrator" profile.</li> 
-<li>Click on the "More" button (in the top right corner).</li>
-<li>Under "Users mapping", click on "Add a user".</li>
-<li>Select your user and click on the "Add" button. Log out as the Technical user and log back in as the newly created user with administrative rights.</li>
-<li>Create <a href="/manage-user-0">users with the standard profile</a>.</li>
-<li>You can add newly created users to the "User" (standard) profile or to a custom profile.</li>
+<li>Go to <strong>Organization</strong> &gt; <strong>Profiles</strong>. Select &quot;Administrator&quot; profile.</li> 
+<li>Click on the &quot;More&quot; button (in the top right corner).</li>
+<li>Under &quot;Users mapping&quot;, click on &quot;Add a user&quot;.</li>
+<li>Select your user and click on the &quot;Add&quot; button. Log out as the Technical user and log back in as the newly created user with administrative rights.</li>
+<li>Create <a href="/manage-a-user.html">users with the standard profile</a>.</li>
+<li>You can add newly created users to the &quot;User&quot; (standard) profile or to a custom profile.</li>
 </ol><p>If you already have a system that stores information about end users, you can use it to create user accounts in Bonita.</p>
 
-<p>If you use an LDAP or Active Directory system, you can use the <a href="/ldap-synchronizer-3">LDAP synchronizer</a> tool to keep the Bonita BPM Portal organization synchronized with it.</p>
+<p>If you use an LDAP or Active Directory system, you can use the <a href="/ldap-synchronizer.html">LDAP synchronizer</a> tool to keep the Bonita BPM Portal organization synchronized with it.</p>
 </div>
 	</body></html>

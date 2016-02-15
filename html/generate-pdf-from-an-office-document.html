@@ -2,16 +2,16 @@
 		<div id="content">
 	<h1>1.8.10 Generate PDF from an Office document</h1>
     <p>The Office document converter connector converts a document from <code>.odt</code> or <code>.docx</code> format to PDF.
-It can be used in conjunction with the <a href="/document-templating-868">Insert data in a .docx/.odt template connector</a>.
+It can be used in conjunction with the <a href="/insert-data-in-a-docxodt-template.html">Insert data in a .docx/.odt template connector</a>.
 The generated document can then be sent by email or stored in an external information system using the relevant connector.</p>
 <p>
-    For proper conversion, you must specify the character encoding that is used in the source document. On most Windows configurations, encoding <b>"windows-1252"</b> is used. 
+    For proper conversion, you must specify the character encoding that is used in the source document. On most Windows configurations, encoding <b>&quot;windows-1252&quot;</b> is used. 
     UTF-8 is assumed if you do not specify the encoding (that is, if the field is left blank in the connector configuration wizard).
-    <b>Warning:</b> As an example when using special characters like '&euro;' with an invalid encoding will generate a PDF without those characters.
+    <b>Warning:</b> As an example when using special characters like &apos;&#x20AC;&apos; with an invalid encoding will generate a PDF without those characters.
 </p>
 
 <h2>Known limitations</h2>
-<b>Warning:</b> there is known issue when adding an image in a docx using drag'n'drop instead of a copy/paste. The image is not render properly when converted into PDF.
+<b>Warning:</b> there is known issue when adding an image in a docx using drag&apos;n&apos;drop instead of a copy/paste. The image is not render properly when converted into PDF.
 <p>Rendering issues (In the worst case the text will not be visible in the generated PDF, in the best case it can be visible but not exactly as in the office document):</p>
 <ul><li>Bullet points</li>
 <li>Strike-through (text with this formatting will not be visible in the generated PDF)</li>

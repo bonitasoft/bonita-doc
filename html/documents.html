@@ -62,8 +62,8 @@ For example, a process to claim travel expenses could have a document list for e
 import org.bonitasoft.engine.bpm.document.DocumentValue
 
 [
-  new DocumentValue("http://url.to.my.cms.document"),//External
-  new DocumentValue("exampleContentType".getBytes(), "text/plain", "example.txt")//Internal
+  new DocumentValue(&quot;http://url.to.my.cms.document&quot;),//External
+  new DocumentValue(&quot;exampleContentType&quot;.getBytes(), &quot;text/plain&quot;, &quot;example.txt&quot;)//Internal
 ]  
 </code>
 
@@ -113,7 +113,7 @@ Also, if your process updates a document and sends new content to the CMS, consi
 This might be handled automatically by the CMS itself, or might need to be managed by the connector.</p>
 
 <p>For example, in a process to approve a document for publication, the document exists in an external file store or CMS before the process is instantiated. 
-At a step in the process, the document is approved for external publication, and a new revision of the file is created with a "Confidential" watermark removed. 
+At a step in the process, the document is approved for external publication, and a new revision of the file is created with a &quot;Confidential&quot; watermark removed. 
 This new revision is uploaded to the CMS by connector, and continues to exist after the process instance is completed and archived.</p>
 
 
@@ -127,13 +127,13 @@ For example, a file containing a scanned copy of a travel receipt does not need 
 <h3 id="resource">Resource</h3>
 
 <p>The Bonita BPM Studio Document Repository contains documents that have been imported from the file system. After a document is imported, it is called a resource. 
-When you <a href="/build-process-deployment-0">build a process bar file for deployment</a>, the resources used in the process are automatically included.
+When you <a href="/build-a-process-for-deployment.html">build a process bar file for deployment</a>, the resources used in the process are automatically included.
 A resource is available to all processes in an installation of  Studio. 
 A resource cannot be updated directly in Studio, but is updated by uploading a new file. 
 Typically, resources are used for information that is stable and common to all instances of a process, or is used in several processes. 
 The resource is used to initialize the document object in the process instance. You cannot use a resource to update a document object. </p>
 
-<p>When you <a href="/import-and-export-process-1#export_for_exchange">export a process in a bos file for import into another Studio</a>, you must select the resources that are used so that they are included.</p>
+<p>When you <a href="/import-and-export-a-process.html#export_for_exchange">export a process in a bos file for import into another Studio</a>, you must select the resources that are used so that they are included.</p>
 
 <p>
 The dialog for adding a resource to the document repository is inside the dialog for adding a resource to a process definition. However, you can add a resource without updating the process definition, as follows.
@@ -218,19 +218,19 @@ If you want to specify the MIME type, click <strong>Manage MIME type...</strong>
 <p>To map a document when using a call activity:</p>
 
 <ol><li>
-Define a document in the main process, for example "mainDoc".</li>
+Define a document in the main process, for example &quot;mainDoc&quot;.</li>
 <li>
-Define a document in the called process, for example "subDoc".</li>
+Define a document in the called process, for example &quot;subDoc&quot;.</li>
 <li>
-In the call activity of the main process, add a task variable of type long (for example called "docId") that will contain the id of the instance of mainDoc. 
+In the call activity of the main process, add a task variable of type long (for example called &quot;docId&quot;) that will contain the id of the instance of mainDoc. 
 Set the default value of docId with the following code:</li>
 <code type="java">
-apiAccessor.getProcessAPI().getLastDocument(processInstanceId, "mainDoc").getId();
+apiAccessor.getProcessAPI().getLastDocument(processInstanceId, &quot;mainDoc&quot;).getId();
 </code>
 
 <li>
 In the called process, add a pool-level variable of type long (for example called docId).</li>
-<li>Define the <a href="/called-processes#data_mapping">variable mapping in the call activity</a> so that docId in the call activity is mapped to docId in the called process. </li>
+<li>Define the <a href="/called-processes.html#data_mapping">variable mapping in the call activity</a> so that docId in the call activity is mapped to docId in the called process. </li>
 <li>In the called process, as the first task add an automatic task that will get the mainDoc, create a DocumentValue object with the content of mainDoc, and use it to update the content of subDoc. 
 To do this, define an operation in the automatic task as follows:
 <ol style="list-style-type: lower-alpha;"><li>In the first field, select subDoc.</li>
@@ -250,11 +250,11 @@ return docValue;
 
 <p>After you have specified the documents in the process definition, you need to define how they are handled in the process tasks. </p>
 
-<p>A document is represented in a form definition by the <a href="widgets">upload widget</a>.</p>
+<p>A document is represented in a form definition by the <a href="/widgets.html">upload widget</a>.</p>
 
 <h2 id="connectors">Connectors and  documents</h2>
 
-<p>During a process instance, you can use <a href="/connectivity-overview-0">connectors</a> to manipulate documents. 
+<p>During a process instance, you can use <a href="/connectivity-overview.html">connectors</a> to manipulate documents. 
 In addition to the connectors that interact with content management systems (such as the Alfrecso and CMIS connectors), 
 some other connectors can also manipulate documents. For example:</p>
 <ul><li>A task that uses the Email connector to send a message can attach a document to the message.</li>

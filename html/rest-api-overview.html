@@ -11,7 +11,7 @@
 
 <p>If your application is using a  technology other than Java, you can integrate it with the Bonita BPM solution using the Web REST API. This API provides access to all Bonita BPM objects (like processes, tasks, users, connectors etc.), to execute operations on them (create, retrieve, update, delete). You can use these operations to create a workflow with Bonita BPM and integrate it into your application. The Bonita BPM Engine remains responsible for executing the workflow logic (connectors, gateways with conditions, messages, timers etc.) while your application gives access to the workflow. Users can manage processes and tasks, and perform administrative activities.</p>
 
-<p>Access to the Web REST API depends on <a href="/rest-api-authorization-0">REST API authorization</a> settings.</p>
+<p>Access to the Web REST API depends on <a href="/rest-api-authorization.html">REST API authorization</a> settings.</p>
 
 <div style="text-align: center;"><img width="50%" src="images/images-6_0/rest_overview.png" alt="diagram of architecture of a REST client integrated with Bonita BPM" title="Bonita BPM REST architecture"><div style="clear: both" class="caption"><span style="display: block;color: #BC071B;text-align: center;margin-top: 10px">Bonita BPM REST architecture</span></div></div>
 
@@ -63,12 +63,12 @@
 
 <p>After the application is connected to the Bonita BPM Engine, you can start calling API methods.  The following is a typical scenario for an end user.</p>
 
-<ol><li><a href="/bpm-api-849#case">Start a new case with variables</a>: Provide a form for the user to enter initial data. Then call the method to start a new case using the values entered by the user to initialize some variables. The engine will start the execution of the process. Depending on the design of your process, there might then be some human tasks available for the end user.</li>
-<li><a href="/bpm-api-849#humantask">List the pending tasks for a user</a>: Retrieve a list of available human tasks for the logged in user. When the user selects a task to do, you can display the corresponding form. It can be an external form or a Bonita BPM form that can be accessed by url.</li>
-<li><a href="/bpm-api-849#activity">Update variables and execute a task</a>: If your application is using an external form, update the values of the variables in your process. 
+<ol><li><a href="/bpm-api.html#case">Start a new case with variables</a>: Provide a form for the user to enter initial data. Then call the method to start a new case using the values entered by the user to initialize some variables. The engine will start the execution of the process. Depending on the design of your process, there might then be some human tasks available for the end user.</li>
+<li><a href="/bpm-api.html#humantask">List the pending tasks for a user</a>: Retrieve a list of available human tasks for the logged in user. When the user selects a task to do, you can display the corresponding form. It can be an external form or a Bonita BPM form that can be accessed by url.</li>
+<li><a href="/bpm-api.html#activity">Update variables and execute a task</a>: If your application is using an external form, update the values of the variables in your process. 
 You can use a method to update process or activity variables with values coming from your application. When the user submits the external form, you can call a method to execute a task. 
 The engine will then continue the execution of the workflow as designed.</li>
-<li><a href="/bpm-api-849#connectorinstance">Handle tasks in error</a>: Get a list of tasks that are in the failed state, and then replay each task by doing three steps: get the list of failed connectors, reset the state of failed connectors and replay the failed task.</li>
+<li><a href="/bpm-api.html#connectorinstance">Handle tasks in error</a>: Get a list of tasks that are in the failed state, and then replay each task by doing three steps: get the list of failed connectors, reset the state of failed connectors and replay the failed task.</li>
 </ol><p></p>
 
 <h3 id="log_out">Logout from Bonita BPM</h3>
@@ -146,7 +146,7 @@ The engine will then continue the execution of the workflow as designed.</li>
 
 
 <h2 id="api_extensions">API Extensions</h2>
-<p>You can create <a href="/rest-api-extensions">Rest API Extensions</a> to extend the Rest API by adding missing ressources (not provided by the Rest API). 
+<p>You can create <a href="/rest-api-extensions.html">Rest API Extensions</a> to extend the Rest API by adding missing ressources (not provided by the Rest API). 
 It is possible for an extension to interact with the engine (via the API) or with any other external service (for example a database, a directory, or a web service).</p>
 
 
@@ -229,7 +229,7 @@ It is possible for an extension to interact with the engine (via the API) or wit
  </tr><tr><td valign="top">Request Method</td>
   <td valign="top">DELETE </td>
  </tr><tr><td valign="top">Request Payload</td>
-  <td valign="top"> A list of identifiers in JSON, for example <code>["id1","id2","id3"]</code>. Compound identifiers are separated by '/' characters.</td>
+  <td valign="top"> A list of identifiers in JSON, for example <code>[&quot;id1&quot;,&quot;id2&quot;,&quot;id3&quot;]</code>. Compound identifiers are separated by &apos;/&apos; characters.</td>
  </tr><tr><td valign="top">Response</td>
   <td valign="top"><code type="xml">empty </code></td>
  </tr><tr><td valign="top">Example</td>
@@ -240,7 +240,7 @@ It is possible for an extension to interact with the engine (via the API) or wit
 
 <p>The required object is specified with a set of filters in the request URL. The URL parameters must be URL-encoded.</p>
 <p>Results are returned in a paged list, and you can specify the page (counting from zero), the number of results per page (count), and the sort key (order). You can see the total number of matching results in the HTTP response header Content-Range.
-If you are searching for business data using a custom query, there must be a <a href="/business-data-model-863#queries">count query in the BDM</a>. If there is no count query, results from a custom query on business data cannot be paged properly (the header Content-Range will be absent). 
+If you are searching for business data using a custom query, there must be a <a href="/define-and-deploy-the-bdm.html#queries">count query in the BDM</a>. If there is no count query, results from a custom query on business data cannot be paged properly (the header Content-Range will be absent). 
 For business data default queries, the count query is defined automatically.
 </p>
 
@@ -266,10 +266,10 @@ The order attributeNames are the same as those you get in the object representat
 <li>f: list of filters, specified as attributeName=attributeValue. To filter on more than one attribute, specify an f parameters for each attribute.  The final filter parameter value must be URL encoded. 
 The attributes you can filter on are specific to the resource.</li>
 
-<li>s: search on name or search indexes. The matching policy depends on the configuration of <a href="/list-and-search-1#word_based_search">word-based search</a>. 
-For example, if word-based search is enabled, <code>s=Valid</code> returns matches containing the string "valid" at the start of any word in the attribute value word, 
-such as "Valid address", "Not a valid address", and "Validated request" but not "Invalid request".
-If word-based search is disabled, <code>s=Valid</code> returns matches containing the string "valid" at the start of the attribute value, such as "Valid address" or "Validated request" but not "Not a valid address" or "Invalid request".</li>
+<li>s: search on name or search indexes. The matching policy depends on the configuration of <a href="/using-list-and-search-methods.html#word_based_search">word-based search</a>. 
+For example, if word-based search is enabled, <code>s=Valid</code> returns matches containing the string &quot;valid&quot; at the start of any word in the attribute value word, 
+such as &quot;Valid address&quot;, &quot;Not a valid address&quot;, and &quot;Validated request&quot; but not &quot;Invalid request&quot;.
+If word-based search is disabled, <code>s=Valid</code> returns matches containing the string &quot;valid&quot; at the start of the attribute value, such as &quot;Valid address&quot; or &quot;Validated request&quot; but not &quot;Not a valid address&quot; or &quot;Invalid request&quot;.</li>
 
 <li>d: the list of attributes for which you want to make an extended request (called a deploy) and retrieve attributes of a linked resource. 
 This means that instead of retrieving the ID or a parent or referenced resource, you can retrieve the full object. 

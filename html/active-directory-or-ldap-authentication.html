@@ -25,11 +25,11 @@
 </ul><div class="alert alert-info">
     <strong>Important notes:</strong>
     <ul><li>This documentation applies to an existing and working Bonita BPM installation
-            (see the <a href="/bonita-bpm-installation-overview-0">installation instructions</a>).
+            (see the <a href="/bonita-bpm-installation-overview.html">installation instructions</a>).
         </li>
         <li>In order to have functioning Active Directory/LDAP authentication, the user login (username) must exist
             both in the LDAP directory and in the Bonita BPM database (user password is checked against the LDAP server but user
-            information is read from Bonita BPM database).<br> We recommend that you use the <a href="/ldap-synchronizer-3">LDAP
+            information is read from Bonita BPM database).<br> We recommend that you use the <a href="/ldap-synchronizer.html">LDAP
                 synchronizer</a> to create Bonita BPM users in a Bonita BPM database.
         </li>
     </ul></div>
@@ -52,8 +52,8 @@
     <li>LDAP listening port (e.g. 389 by default)</li>
     <li>Is it possible to build the user distinguished name with user name that the user specifies when logging in?<br> For
         example, if the user name is: <code>john.smith</code> and the user DN is: <code>CN=John	Smith,CN=Users,DC=MyDomain,DC=com</code>,
-        it's not possible to build the DN dynamically.<br>But it's possible to do so if the
-        DN is: <code>uid=john.smith,ou=people,dc=example,dc=com</code>.<br> If it's not possible to build the DN using the
+        it&apos;s not possible to build the DN dynamically.<br>But it&apos;s possible to do so if the
+        DN is: <code>uid=john.smith,ou=people,dc=example,dc=com</code>.<br> If it&apos;s not possible to build the DN using the
         user name you will need the following extra information:
         <ul><li>The DN of the LDAP entry under which all users are located (e.g. <code>CN=Users,DC=MyDomain,DC=com</code>)
             </li>
@@ -66,7 +66,7 @@
         </ul></li>
     <li>Does the LDAP server allow anonymous search?</li>
     <li>Does the LDAP server allow search for all users that can possibly log in?</li>
-    <li>If search can only be performed by a limited number of "technical" accounts you will need the user name and
+    <li>If search can only be performed by a limited number of &quot;technical&quot; accounts you will need the user name and
         password of such an account.</li>
 </ul><h2 id="createJAAS">Create a JAAS configuration file</h2>
 
@@ -86,11 +86,11 @@
 
 <h3 id="attributesToSet">LdapLoginModule attributes to set</h3>
 <p>
-    It's important to identify which
+    It&apos;s important to identify which
     <code>LdapLoginModule</code>
     attributes you need to set.
     This will be at least one of <code>authIdentity</code>, <code>userFilter</code>, <code>tryFirstPass</code>, <code>java.naming.security.principal</code> or <code>java.naming.security.credentials</code>.
-    Based on the information described in the "Before you start" section, you can identify which of the following cases
+    Based on the information described in the &quot;Before you start&quot; section, you can identify which of the following cases
     applies:
 </p>
 
@@ -110,7 +110,7 @@
 
 <p>
     <strong><code>userProvider</code></strong>: set this to
-    <code>ldap://<ldap server address>:<ldap server port>/<dn of the ldap entry under which all users are located></dn></ldap></ldap></code>.
+    <code>ldap://<ldap server="" address="">:<ldap server="" port="">/<dn of="" the="" ldap="" entry="" under="" which="" all="" users="" are="" located=""></dn></ldap></ldap></code>.
     For example: <code>ldap://localhost:389/CN=Users,DC=MyDomain,DC=com</code></p>
 
 
@@ -191,8 +191,8 @@
     Here is an example of JAAS configuration file:<br><code type="java">
         BonitaAuthentication-1 {
         com.sun.security.auth.module.LdapLoginModule sufficient
-        userProvider="ldap://localhost:389/ou=people,dc=example,dc=com"
-        authIdentity="uid={USERNAME},ou=people,dc=example,dc=com"
+        userProvider=&quot;ldap://localhost:389/ou=people,dc=example,dc=com&quot;
+        authIdentity=&quot;uid={USERNAME},ou=people,dc=example,dc=com&quot;
         useSSL=false;
         };
     </code>
@@ -265,7 +265,7 @@
 
     <li>Locate the line that starts: <code>rem set SECURITY_OPTS</code></li>
 
-    <li>Uncomment it, i.e. remove "rem" keyword and set property value to: <code>${CATALINA_HOME}/conf/jaas.cfg</code></li>
+    <li>Uncomment it, i.e. remove &quot;rem&quot; keyword and set property value to: <code>${CATALINA_HOME}/conf/jaas.cfg</code></li>
 
     <li>Locate the line that starts: <code>set CATALINA_OPTS=</code></li>
 
@@ -287,9 +287,9 @@
 <code type="java">
     BonitaAuthentication-1 {
     com.sun.security.auth.module.LdapLoginModule sufficient
-    userProvider="ldap://localhost:389/CN=Users,DC=MyDomain,DC=com"
-    userFilter="(&amp;(objectClass=user)(userPrincipalName={USERNAME}@mydomain.com))"
-    authIdentity="{USERNAME}@mydomain.com"
+    userProvider=&quot;ldap://localhost:389/CN=Users,DC=MyDomain,DC=com&quot;
+    userFilter=&quot;(&amp;(objectClass=user)(userPrincipalName={USERNAME}@mydomain.com))&quot;
+    authIdentity=&quot;{USERNAME}@mydomain.com&quot;
     debug=true
     useSSL=false;
     };
@@ -300,9 +300,9 @@
 <code type="java">
     BonitaAuthentication-1 {
     com.sun.security.auth.module.LdapLoginModule sufficient
-    userProvider="ldap://localhost:389/CN=Users,DC=MyDomain,DC=com"
-    userFilter="(&amp;(objectClass=user)(userPrincipalName={USERNAME}))"
-    authIdentity="{USERNAME}"
+    userProvider=&quot;ldap://localhost:389/CN=Users,DC=MyDomain,DC=com&quot;
+    userFilter=&quot;(&amp;(objectClass=user)(userPrincipalName={USERNAME}))&quot;
+    authIdentity=&quot;{USERNAME}&quot;
     debug=true
     useSSL=false;
     };
@@ -315,11 +315,11 @@
 <code type="java">
     BonitaAuthentication-1 {
     com.sun.security.auth.module.LdapLoginModule sufficient
-    userProvider="ldap://localhost:389/CN=Users,DC=MyDomain,DC=com"
-    userFilter="(&amp;(objectClass=user)(userPrincipalName={USERNAME}@mydomain.com))"
+    userProvider=&quot;ldap://localhost:389/CN=Users,DC=MyDomain,DC=com&quot;
+    userFilter=&quot;(&amp;(objectClass=user)(userPrincipalName={USERNAME}@mydomain.com))&quot;
     tryFirstPass=true
-    java.naming.security.principal="technical.user@mydomain.com"
-    java.naming.security.credentials="technical_user_password"
+    java.naming.security.principal=&quot;technical.user@mydomain.com&quot;
+    java.naming.security.credentials=&quot;technical_user_password&quot;
     debug=true
     useSSL=false;
     };
@@ -333,8 +333,8 @@
     <code type="java">
         BonitaAuthentication-1 {
         com.sun.security.auth.module.LdapLoginModule sufficient
-        userProvider="ldap://localhost:389"
-        authIdentity="uid={USERNAME},ou=grenoble,dc=example,dc=com"
+        userProvider=&quot;ldap://localhost:389&quot;
+        authIdentity=&quot;uid={USERNAME},ou=grenoble,dc=example,dc=com&quot;
         debug=true
         useSSL=false;
         };
@@ -356,7 +356,7 @@ BonitaAuthentication-1 {
 
 <h2 id="limitations">Known limitations</h2>
 <p>The Active Directory configuration has been tested in single domain configuration. If you a running with multiple domains
-    it's likely that the user will have to type a username including domain name when logging in.</p>
+    it&apos;s likely that the user will have to type a username including domain name when logging in.</p>
 
 <h2 id="troubleshooting">Troubleshooting</h2>
 
@@ -372,9 +372,9 @@ BonitaAuthentication-1 {
     <code>LDAP: error code 49 - 80090308: LdapErr: DSID-0C0903A9, comment: AcceptSecurityContext error, data 52e, v1db1</code>.
     This error code can have several root causes:
 </p>
-<ul><li>The user doesn't exist in AD: in the JAAS configuration, verify the user filter and validate it using a tool such as
+<ul><li>The user doesn&apos;t exist in AD: in the JAAS configuration, verify the user filter and validate it using a tool such as
         Apache Directory Studio.</li>
-    <li>The username doesn't include the domain name: in the JAAS configuration, make sure that the <code>authIdentity</code> value
+    <li>The username doesn&apos;t include the domain name: in the JAAS configuration, make sure that the <code>authIdentity</code> value
         includes the domain name.
     </li>
     <li>The user password provided is not correct.</li>

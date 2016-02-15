@@ -11,11 +11,11 @@ The example is developed using Maven, and is a Java program to list the failed t
 <h2 id="getting_started">Getting started</h2>
 
 <p>You need to be familiar with building a Maven project with Bonita BPM as a dependency. 
-You also need to be familiar with using the Bonita BPM Engine APIs. If this is not the case, follow this <a href="/getting-started-bonita-bpm-engine-apis-0">tutorial</a>.
-The <a href="/development-overview-2#L373">development overview</a> contains a list of the APIs with a short description of each one.
-For details of the methods available in the Bonita BPM Engine APIs, see the <a href="/javadoc-70">Javadoc</a>. 
+You also need to be familiar with using the Bonita BPM Engine APIs. If this is not the case, follow this <a href="/getting-started-with-the-bonita-bpm-engine-apis.html">tutorial</a>.
+The <a href="/development-overview.html#L373">development overview</a> contains a list of the APIs with a short description of each one.
+For details of the methods available in the Bonita BPM Engine APIs, see the <a href="/javadoc.html">Javadoc</a>. 
 
-</p><p>This example uses the Bonita BPM Engine Java APIs but there is also a <a href="/rest-api-overview-0">REST API</a>.
+</p><p>This example uses the Bonita BPM Engine Java APIs but there is also a <a href="/rest-api-overview.html">REST API</a>.
 
 </p><p>In this example, the Maven project has the following settings:</p>
 <ul><li>Group Id: org.mycompany.bonita</li>
@@ -71,13 +71,13 @@ print(failedTasks);
 
 <h2 id="write_main">Create a main class</h2>
 
-<p>Let&rsquo;s create a <code>CLI.java</code> class that will be the entry point of our application. The CLI will simply delegate to our <code>ListFailedTasksCmd</code> 
+<p>Let&#x2019;s create a <code>CLI.java</code> class that will be the entry point of our application. The CLI will simply delegate to our <code>ListFailedTasksCmd</code> 
 the responsibility to fetch failed tasks and display them on the standard output. The CLI will take as input parameters the username, password and the maximum number of failed tasks to display.</p>
 
 <code type="java">
 public static void main(String[] args) {
   if(args.length != 3) {
-    throw new IllegalArgumentException("Usage: you should provide <username><password><number of tasks to display>");
+    throw new IllegalArgumentException(&quot;Usage: you should provide <username><password><number of="" tasks="" to="" display="">&quot;);
   }
 
   try {
@@ -119,7 +119,7 @@ At the end we should get the following structure in a zip:</p>
 <build><plugins>
 ...
 <plugin><groupid>org.apache.maven.plugins</groupid><artifactid>maven-assembly-plugin</artifactid><executions><execution><id>generate-package</id><phase>package</phase><goals><goal>single</goal></goals><configuration><ignoredirformatextensions>true</ignoredirformatextensions><finalname>${zipName}</finalname><descriptors><descriptor>assembly.xml</descriptor></descriptors></configuration></execution></executions></plugin>
-&hellip;
+&#x2026;
 </plugins></build></code>
 
 <p>The maven-assembly-plugin enables us to generate the zip as described in assembly.xml file with the specified zipName, e.g. <code>Bonita-CLI-1.0.0</code>.</p>
@@ -229,8 +229,8 @@ import org.bonitasoft.engine.session.APISession;
  * 
  */
 public class ListFailedTasksCmd implements Callable<void> {
-    private static final String ROW_SEPARATOR = "\n";
-	private static final String COL_SEPARATOR = "\t";
+    private static final String ROW_SEPARATOR = &quot;\n&quot;;
+	private static final String COL_SEPARATOR = &quot;\t&quot;;
 
 	private String userName;
 	private String password;
@@ -270,19 +270,19 @@ public class ListFailedTasksCmd implements Callable<void> {
 		List<activityinstance> activities = failedTasks.getResult();
 		StringBuffer line = new StringBuffer();
 		// Header
-		line.append(ROW_SEPARATOR).append("List of activities:")
-				.append("(" + failedTasks.getCount() + " item(s) found)")
+		line.append(ROW_SEPARATOR).append(&quot;List of activities:&quot;)
+				.append(&quot;(&quot; + failedTasks.getCount() + &quot; item(s) found)&quot;)
 				.append(ROW_SEPARATOR);
-		line.append(COL_SEPARATOR).append("State").append(COL_SEPARATOR)
-				.append("On").append(COL_SEPARATOR).append("id")
-				.append(COL_SEPARATOR).append("Name");
+		line.append(COL_SEPARATOR).append(&quot;State&quot;).append(COL_SEPARATOR)
+				.append(&quot;On&quot;).append(COL_SEPARATOR).append(&quot;id&quot;)
+				.append(COL_SEPARATOR).append(&quot;Name&quot;);
 		line.append(ROW_SEPARATOR);
 		// Display in a table layout
 		for (ActivityInstance activityInstance : activities) {
 			line.append(COL_SEPARATOR);
 			line.append(activityInstance.getState()).append(COL_SEPARATOR);
 			line.append(
-					new SimpleDateFormat("HH:MM").format(activityInstance
+					new SimpleDateFormat(&quot;HH:MM&quot;).format(activityInstance
 							.getReachedStateDate())).append(COL_SEPARATOR);
 			line.append(activityInstance.getId()).append(COL_SEPARATOR);
 			line.append(activityInstance.getName()).append(COL_SEPARATOR);

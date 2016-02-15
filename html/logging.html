@@ -11,7 +11,7 @@
 <h3>Bonita BPM Engine</h3>
 
 <p>
-All the Engine services call the <a href="/technical-logger-service-0">technical logger service</a> in order to write log
+All the Engine services call the <a href="/technical-logging.html">technical logger service</a> in order to write log
 messages. There is no direct access to any logging framework such as log4j, JUL or SLF4J.
 </p>
 
@@ -33,7 +33,7 @@ menu <strong>Show Engine log</strong> option.</p>
 <h3>Bonita BPM Engine and Bonita BPM Portal</h3>
 
 <p>
-The <a href="/technical-logger-service-0">technical logger service</a> uses SLF4J
+The <a href="/technical-logging.html">technical logger service</a> uses SLF4J
 (version 1.6.1) to create the log. SLF4J is also used directly by Bonita dependencies such as Hibernate, Quartz
 and Ehcache.
 </p>
@@ -57,9 +57,9 @@ Here is an example of the JUL configuration for the logger used in the <a href="
 <code type="xml">
 # Reuse Bonita log handler (file bonita.log) for org.mycompany.connector loggers
 org.mycompany.connector.handlers = 5bonita.org.apache.juli.FileHandler
-# Set log level to "finest" for newly created connector
+# Set log level to &quot;finest&quot; for newly created connector
 org.mycompany.connector.level = FINEST
-# Set log level to "finest" for Groovy script
+# Set log level to &quot;finest&quot; for Groovy script
 org.bonitasoft.groovy.script.level = FINEST
 </code>
 
@@ -84,13 +84,13 @@ slf4j-api jar file temporarily to your process dependencies (click <strong><em>C
 </p>
 <p>
 This is an example of how to log debug information in a Groovy script. Note that we recommend that you use a logger name that
-starts with "org.bonitasoft", so that the default Bonita logging configuration is applied to your logger. Also, ending
+starts with &quot;org.bonitasoft&quot;, so that the default Bonita logging configuration is applied to your logger. Also, ending
 your logger name with a name similar to the Groovy script will be helpful to identify source of the message.</p>
 <code type="java">
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-Logger logger = LoggerFactory.getLogger("org.bonitasoft.groovy.script.my_int_init_script");
-logger.debug("Set initial value of process variable using Groovy script");
+Logger logger = LoggerFactory.getLogger(&quot;org.bonitasoft.groovy.script.my_int_init_script&quot;);
+logger.debug(&quot;Set initial value of process variable using Groovy script&quot;);
 return Integer.valueOf(3 + 5);
 </code>
 
@@ -101,9 +101,9 @@ private static final Logger LOGGER = LoggerFactory.getLogger(SumImpl.class);
 
 @Override 
 protected void executeBusinessLogic() throws ConnectorException {
-LOGGER.debug("Trying to sum {} and {}.", getIntegerA(), getIntegerB());
+LOGGER.debug(&quot;Trying to sum {} and {}.&quot;, getIntegerA(), getIntegerB());
 int sum = getIntegerA() + getIntegerB(); 
-LOGGER.debug("The sum is: {}", sum);
+LOGGER.debug(&quot;The sum is: {}&quot;, sum);
 setSum(sum);
 }
 </code>

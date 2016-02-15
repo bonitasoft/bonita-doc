@@ -42,13 +42,13 @@ final SearchResult<processdeploymentinfo> deploymentInfoResults = processAPI.sea
 <code type="java">
 // enable the process
 processAPI.enableProcess(processDefinition.getId());
-System.out.println("A new process was enabled: " + processDefinition.getId());
+System.out.println(&quot;A new process was enabled: &quot; + processDefinition.getId());
 </code>
 <p>The next step is to <strong>start an instance</strong> of the deployed process:</p>
 <code type="java">
 // start the process
             final ProcessInstance processInstance = processAPI.startProcess(processDefinition.getId());
-System.out.println("A new process instance was started with id: " + processInstance.getId());
+System.out.println(&quot;A new process instance was started with id: &quot; + processInstance.getId());
 </code>
 
 <h2 id="set_variables">Set variables in a process instance</h2>
@@ -65,7 +65,7 @@ to build an operation that will assign the value to the variable when the proces
 <code type="java">
 public void createInstance(String processDefinitionName, 
          String processVersion, 
-         Map<string object> variables, 
+         Map<string object=""> variables, 
          APISession apiSession)  {
     ProcessAPI processAPI;
     try {
@@ -93,7 +93,7 @@ private Operation buildAssignOperation(final String dataInstanceName,
 { final LeftOperand leftOperand = new LeftOperandBuilder().createNewInstance().setName(dataInstanceName).done();
     final Expression expression = new ExpressionBuilder().createNewInstance(dataInstanceName).setContent(newConstantValue).setExpressionType(expressionType.name()).setReturnType(className).done();
     final Operation operation;
-    operation = new OperationBuilder().createNewInstance().setOperator("=").setLeftOperand(leftOperand).setType(OperatorType.ASSIGNMENT).setRightOperand(expression).done();
+    operation = new OperationBuilder().createNewInstance().setOperator(&quot;=&quot;).setLeftOperand(leftOperand).setType(OperatorType.ASSIGNMENT).setRightOperand(expression).done();
     return operation;}
 </operation></operation></string></code>
 
@@ -106,14 +106,14 @@ specifying the data type by identifying the class of the object.
 These expressions are concatenated into a list of operations, which is used to initialize the variables when the process instance is created.</p>
 
 <code type="java">
-public void createCase(String processDefinitionName, String processVersion, Map<string object> variables, ProcessAPI processAPI) {
+public void createCase(String processDefinitionName, String processVersion, Map<string object=""> variables, ProcessAPI processAPI) {
 
     try {
 
             long processDefinitionId = processAPI.getProcessDefinitionId(processDefinitionName, processVersion);
             // ----- create list of operations -----
             List<operation> listOperations = new ArrayList<operation>();
-            Map<string serializable> listVariablesSerializable = new HashMap<string serializable>();
+            Map<string serializable=""> listVariablesSerializable = new HashMap<string serializable="">();
 
             for (String variableName : variables.keySet()) {
 
@@ -132,7 +132,7 @@ public void createCase(String processDefinitionName, String processVersion, Map<
             // ----- start process instance -----
             processAPI.startProcess(processDefinitionId, listOperations, listVariablesSerializable);
 
-            // System.out.println("*** End Create Case ****");
+            // System.out.println(&quot;*** End Create Case ****&quot;);
 
         } catch (Exception e) {
               e.printStackTrace();
@@ -150,7 +150,7 @@ Version 6.1 of Bonita BPM introduces a new method for starting a case of process
 method, as shown in the following example:</p>
 
 <code type="java">
-public void instantiateProcess(String processDefinitionName, String processVersion, Map<string serializable> variables, APISession apiSession)  {
+public void instantiateProcess(String processDefinitionName, String processVersion, Map<string serializable=""> variables, APISession apiSession)  {
     try {
         ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(apiSession);
         long processId = processAPI.getProcessDefinitionId(processDefinitionName, processVersion);
@@ -167,15 +167,15 @@ public void instantiateProcess(String processDefinitionName, String processVersi
 
 <code type="java">
 final ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);
-final String dataInstanceName = "acase";
+final String dataInstanceName = &quot;acase&quot;;
 final long activityInstanceId = 2;
 
 final LeftOperand leftOperand = new LeftOperandBuilder().createNewInstance().setName(dataInstanceName)
                 .setType(LeftOperand.TYPE_DATA).done();
-final Expression expression = new ExpressionBuilder().createGroovyScriptExpression("updateDataCaseTest",
-                "new com.bonitasoft.support.Case(\"title\", \"description\")",
+final Expression expression = new ExpressionBuilder().createGroovyScriptExpression(&quot;updateDataCaseTest&quot;,
+                &quot;new com.bonitasoft.support.Case(\&quot;title\&quot;, \&quot;description\&quot;)&quot;,
                 Case.class.getName());
-final Operation operation = new OperationBuilder().createNewInstance().setOperator("=").setLeftOperand(leftOperand).setType(OperatorType.ASSIGNMENT)
+final Operation operation = new OperationBuilder().createNewInstance().setOperator(&quot;=&quot;).setLeftOperand(leftOperand).setType(OperatorType.ASSIGNMENT)
                 .setRightOperand(expression).done();
 
 final List<operation> operations = new ArrayList<operation>();
@@ -246,7 +246,7 @@ final ArchivedProcessInstance archivedProcessInstance = processAPI.getArchivedPr
 <code type="java">
 final ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(apiSession);
 final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
-builder.filter(ArchivedProcessInstancesSearchDescriptor.<attribute to filter on>, <attribute value>);
+builder.filter(ArchivedProcessInstancesSearchDescriptor.<attribute to="" filter="" on="">, <attribute value="">);
 final SearchResult<archivedprocessinstance> archivedProcessInstanceResults = processAPI.searchArchivedProcessInstances(builder.done());
 </archivedprocessinstance></attribute></attribute></code>
 
@@ -273,7 +273,7 @@ processAPI.cancelProcessInstance(processInstanceID);
 </p>
 <code type="java">
 // create a business archive
-final BusinessArchive businessArchive = BusinessArchiveFactory.readBusinessArchive(new File("/deploy/travelRequest"));
+final BusinessArchive businessArchive = BusinessArchiveFactory.readBusinessArchive(new File(&quot;/deploy/travelRequest&quot;));
 </code>
 
 <p>Now <strong>deploy and enable the process</strong>:</p>
@@ -290,14 +290,14 @@ final ProcessDefinition processDefinition = getProcessAPI().deployAndEnableProce
 <code type="java">
 // deploy the process
 final ProcessDefinition processDefinition = processAPI.deploy(processDefinitionBuilder.done());
-System.out.println("A new process was deployed with id: " + processDefinition.getId());
+System.out.println(&quot;A new process was deployed with id: &quot; + processDefinition.getId());
 </code>
 
-</p><p>Once the process is deployed, it's necessary to <strong>map the actors</strong> defined in the process to existing users in the database 
+</p><p>Once the process is deployed, it&apos;s necessary to <strong>map the actors</strong> defined in the process to existing users in the database 
 before enabling the process. In this example, the actor defined in the process will be mapped to the current logged in user, whose id is available 
 in the session (attention, this user cannot be the technical user):</p>
 <code type="java">
-// map the actor "delivery" to the current logged in user
+// map the actor &quot;delivery&quot; to the current logged in user
 final List<actorinstance> actors = processAPI.getActors(processDefinition.getId(), 0, 1, ActorCriterion.NAME_ASC);
 processAPI.addUserToActor(actors.get(0).getId(), session.getUserId());
 </actorinstance></code>
@@ -307,7 +307,7 @@ To <strong>enable the process</strong>, call the method <span class="tt">enableP
 <code type="java">
 // enable the process
 processAPI.enableProcess(processDefinition.getId());
-System.out.println("A new process was enabled: " + processDefinition.getId());
+System.out.println(&quot;A new process was enabled: &quot; + processDefinition.getId());
 </code>
 
 <h2 id="get_design">Get the process design definition</h2>
@@ -317,9 +317,9 @@ System.out.println("A new process was enabled: " + processDefinition.getId());
 
 <code type="java">
 //Create a process definition
-final ProcessDefinitionBuilder processBuilder = new ProcessDefinitionBuilder().createNewInstance("name", "1.0");
-processBuilder.addDescription("description");
-processBuilder.addAutomaticTask("AutomaticTask");
+final ProcessDefinitionBuilder processBuilder = new ProcessDefinitionBuilder().createNewInstance(&quot;name&quot;, &quot;1.0&quot;);
+processBuilder.addDescription(&quot;description&quot;);
+processBuilder.addAutomaticTask(&quot;AutomaticTask&quot;);
         
 //Deploy and enable the process
 final ProcessDefinition processDefinition = getProcessAPI().deploy(

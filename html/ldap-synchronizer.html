@@ -15,7 +15,7 @@ all output is written to a log file.</p>
 
 <h2>LDAP objects supported</h2>
 
-<p>The synchronizer will synchronize LDAP objects that inherit from the "person" class as users in Bonita BPM.
+<p>The synchronizer will synchronize LDAP objects that inherit from the &quot;person&quot; class as users in Bonita BPM.
 The synchronizer application does not support user meta data and cannot synchronize passwords. A new user password is initialized with the user name.</p>
 
 <p>The tool supports LDAP groups of the following classes:</p>
@@ -31,7 +31,7 @@ This directory contains a sample configuration.</p>
 
 <p>Create a dedicated bonita.home for the LDAP Synchronizer, and set the API access mode used by the LDAP Synchronizer, by editing the bonita-client-custom.properties file. 
 The LDAP Synchronizer can use the HTTP, or EJB3 modes, but not local access. For more information about API access modes, 
-see the <a href="/development-overview-2">Development overview</a>.</p>
+see the <a href="/development-overview.html">Development overview</a>.</p>
 
 <p>There is a var_bonita_home directory in the deploy zip that can be used. Copy this directory into the LDAP synchronizer directory.</p>
 
@@ -50,11 +50,11 @@ There are five properties files:</p>
 <li>sync.properties defines the synchronization settings.</li>
 </ul><p>All configurations files can be found in the conf directory.</p>
 
-<p><strong>Note</strong>: to use a special character in a properties file, use the Unicode equivalent. For example, for &agrave; use \u00E0. 
+<p><strong>Note</strong>: to use a special character in a properties file, use the Unicode equivalent. For example, for &#xE0; use \u00E0. 
 You can use a tool such as <a href="http://docs.oracle.com/javase/7/docs/technotes/tools/solaris/native2ascii.html">native2ascii</a> to convert any special characters in the configuration files to Unicode.</p>
 
 
-<p>You also need to <a href="/configuring-bonita-home-client-1">create a dedicated bonita.home</a> for the LDAP Synchronizer.</p>
+<p>You also need to <a href="/configuring-bonita-home-for-a-client.html">create a dedicated bonita.home</a> for the LDAP Synchronizer.</p>
 
 
 <div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong> This is not the same as the bonita.home used by the server. Every client needs its own bonita.home.</div>
@@ -79,11 +79,11 @@ You can use a tool such as <a href="http://docs.oracle.com/javase/7/docs/technot
 <td>Password of the Bonita BPM account used for synchronization.</td>
 <td>install</td>
 </tr><tr><td>technicalUser</td>
-<td>This is the <a href="/first-steps-after-setup-1#reset_pw">username of the platform adminstrator</a>.
+<td>This is the <a href="/first-steps-after-setup.html#reset_pw">username of the platform adminstrator</a>.
 </td>
 <td>platformAdmin</td>
 </tr><tr><td>technicalPassword</td>
-<td>This is the <a href="/first-steps-after-setup-1#reset_pw">password of the platform adminstrator</a>.</td>
+<td>This is the <a href="/first-steps-after-setup.html#reset_pw">password of the platform adminstrator</a>.</td>
 <td>platform</td>
 </tr></table><h3>ldap.properties</h3>
 
@@ -105,7 +105,7 @@ You can use a tool such as <a href="http://docs.oracle.com/javase/7/docs/technot
 <td>password of the LDAP ?browser account</td>
 <td>root</td>
 </tr><tr><td>directory_user_type</td>
-<td>type of the user object ("user" for an Active Directory, "person" for an LDAP)</td>
+<td>type of the user object (&quot;user&quot; for an Active Directory, &quot;person&quot; for an LDAP)</td>
 <td>person</td>
 </tr></table><p></p>
 
@@ -127,7 +127,7 @@ You can use a tool such as <a href="http://docs.oracle.com/javase/7/docs/technot
 <td>INFO</td>
 </tr></table><p>The date format in log file names follows the syntax of the Java SimpleDateFormat class. 
 This is useful to control the number of log file create as the logger will append information to an existing log file if the file name already exists. 
-Example: if you set the format to "?yyyy-mm"&#157;, you will get one new log file per month.</p>
+Example: if you set the format to &quot;?yyyy-mm&quot;&#x9D;, you will get one new log file per month.</p>
         
 <p></p>
  
@@ -234,7 +234,7 @@ Example: if you set the format to "?yyyy-mm"&#157;, you will get one new log fil
 
 </ul><h4>LDAP Watched directory object properties syntax</h4>
 
-<p>A watched directory is defined by an id that is declared in the "?ldap_watched_directories"&#157; list. 
+<p>A watched directory is defined by an id that is declared in the &quot;?ldap_watched_directories&quot;&#x9D; list. 
 This id provides access to the object properties with this syntax: object_id.property.</p>
 
 <p>Here are the available object properties:</p>
@@ -242,7 +242,7 @@ This id provides access to the object properties with this syntax: object_id.pro
 <table border="2" cellpadding="2" cellspacing="2" width="100%"><tr><td>ldap_search_dn</td>
 <td>DN of the LDAP watched directory that will be used to get the list of the LDAP users.</td>
 </tr><tr><td>ldap_search_filter</td>
-<td>LDAP user search filter (mandatory attribute, but can be a wide filter such as "cn=*").</td>
+<td>LDAP user search filter (mandatory attribute, but can be a wide filter such as &quot;cn=*&quot;).</td>
 </tr></table><p>Example of a watched directory declaration:</p>
 
 <code>
@@ -261,7 +261,7 @@ dir2.ldap_search_filter =   cn=*
 
 <h4>LDAP Group object properties syntax</h4>
 
-<p>An LDAP group is defined by an id which is declared in the "ldap_groups"&#157; list.  This id provides access to the object properties with this syntax: object_id.property.
+<p>An LDAP group is defined by an id which is declared in the &quot;ldap_groups&quot;&#x9D; list.  This id provides access to the object properties with this syntax: object_id.property.
 You can also specify groups with a search: all groups that match the search are synchronized.</p>
 
 <p>Groups will be synchronized based on the matching of their LDAP common name (CN) and their Bonita BPM names.</p>
@@ -307,7 +307,7 @@ group2.force_add_non_existing_users  =  false
 <table border="2" cellpadding="2" cellspacing="2" width="100%"><tr><td>ldap_group_search_dn</td>
     <td>DN of the LDAP watched directory that will be used to get the list of the LDAP groups.</td>
 </tr><tr><td>ldap_group_search_filter</td>
-    <td>LDAP group search filter (mandatory attribute, but can be a wide filter such as "cn=*").</td>
+    <td>LDAP group search filter (mandatory attribute, but can be a wide filter such as &quot;cn=*&quot;).</td>
 </tr><tr><td>force_add_non_existing_users</td>
     <td>optional boolean attribute (true by default) that defines whether group members that are not present in Bonita BPM should be imported (if false, these users are ignored).</td>
 </tr></table><p><br>Example of group searches:</p>
@@ -317,12 +317,12 @@ group2.force_add_non_existing_users  =  false
 ldap_search_filter_groups  =  search1,search2
 
 # Specify search1 settings: 
-# sync all groups under ou=people,dc=bonita,dc=com with cn starting with "A_"
+# sync all groups under ou=people,dc=bonita,dc=com with cn starting with &quot;A_&quot;
 search1.ldap_group_search_dn  =  ou=people,dc=bonita,dc=com
 search1.ldap_group_search_filter  =  cn=A_*
 
 # Specify search2 settings: 
-# sync all groups under ou=people,dc=bonita,dc=com with cn starting with "B_" 
+# sync all groups under ou=people,dc=bonita,dc=com with cn starting with &quot;B_&quot; 
 # but without importing new users inside these groups
 search2.ldap_group_search_dn  =  ou=people,dc=bonita,dc=com
 search2.ldap_group_search_filter  =  cn=B_*
@@ -352,8 +352,8 @@ where <code>x.y.z</code> is the version of Bonita BPM you are running.
 <h2 id="tenant">Using the LDAP synchronizer in a non-default tenant</h2>
 
 <p><strong>Installation:</strong> The LDAP Synchronizer is installed on the platform as described above. 
-After installation, Check that the <a href="/profiles-overview-2">"User" profile</a> is defined for the tenant. 
-The default tenant has a "User" profile by default, but it must be created manually when a tenant is created. 
+After installation, Check that the <a href="/profiles-overview.html">&quot;User&quot; profile</a> is defined for the tenant. 
+The default tenant has a &quot;User&quot; profile by default, but it must be created manually when a tenant is created. 
 The LDAP synchronizer will fail if this profile is not defined.</p>
 
 <p><strong>Configuration:</strong> To configure the LDAP synchronizer for a tenant that is not the default tenant:
@@ -363,7 +363,7 @@ The LDAP synchronizer will fail if this profile is not defined.</p>
 </ul><p><strong>Running:</strong> To run the LDAP Synchronizer on a tenant, give the name of the tenant as a parameter of the script.</p>
 
 <p>Important - Additional information </p>
-<p>The tool can determine the list of users belonging to a group by looking these properties, depending on the group's objectClass:
+<p>The tool can determine the list of users belonging to a group by looking these properties, depending on the group&apos;s objectClass:
 </p><ul><li>member: group <code>objectclass</code></li>
     <li>memberURL: <code>groupOfURLs</code> objectclass</li>
     <li>member: <code>groupOfNames</code> objectclass</li>

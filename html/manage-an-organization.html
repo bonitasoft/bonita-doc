@@ -10,13 +10,13 @@
 
 <p>This example explains how to import an organization definition from an XML file into Bonita BPM Engine. </p>
 
-<p>The structure of the XML file is defined in an <a href="/organization-overview-0#XMLSchema">XSD file</a>. 
+<p>The structure of the XML file is defined in an <a href="/organization-overview.html#XMLSchema">XSD file</a>. 
 To see an example of a well-formed XML file for an organization, export the ACME sample organization from Bonita BPM Studio.</p>
 
 <p>In the following example, the organization definition is stored in a file called <code>ACME.xml</code>, which is stored in <code>path</code>. The file content is converted to a string, and then imported.</p>
 
 <code type="java">
-final pOrganizationResourceName = &ldquo;path/ACME.xml&rdquo;
+final pOrganizationResourceName = &#x201C;path/ACME.xml&#x201D;
 final File orgFile = FileUtils.toFile(getClass().getResource(pOrganizationResourceName));
 final String orgContent = FileUtils.readFileToString(orgFile, CharEncoding.UTF_8);
 getIdentityAPI().importOrganization(orgContent);

@@ -1,18 +1,18 @@
 <?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Creating a new Look &amp; Feel</title></head><body class="front">
 		<div id="content">
-	<h1>3.10.2 Creating a new Look </h1>
+	<h1>3.10.2 Creating a new Look &amp; Feel</h1>
     <p>A Look &amp; Feel is defined in a set of files. You can set the Look &amp; Feel for the Bonita BPM Portal Web interface, an application, a custom page, or for the Bonita BPM Portal Mobile interface. </p>
 
 <p>
 <a href="#web">Bonita BPM Portal Web default Look &amp; Feel</a><br><a href="#mobile">Bonita BPM Portal Mobile default Look &amp; Feel</a><br><a href="#migration">Recommendation: Form footers</a>
 </p>
 
-<p>This page explains how to modify the Look &amp; Feel of Bonita BPM Portal and of forms in processes run from the Portal. You can also <a href="/specify-look-and-feel-0">specify the Look &amp; Feel of a web application in Bonita BPM Studio</a>. 
+<p>This page explains how to modify the Look &amp; Feel of Bonita BPM Portal and of forms in processes run from the Portal. You can also <a href="/specify-look-and-feel.html">specify the Look &amp; Feel of a web application in Bonita BPM Studio</a>. 
 The definition in the Portal overrides the definition created in Studio. </p>
 
-<p>To create a new Look &amp; Feel in Bonita BPM Portal, <a href="/managing-look-feel-0#export_default">export the default Look &amp; Feel</a> and modify the relevant components. 
+<p>To create a new Look &amp; Feel in Bonita BPM Portal, <a href="/managing-look-feel.html#export_default">export the default Look &amp; Feel</a> and modify the relevant components. 
 You can either edit the files directly, or you can use a plugin and update the Look &amp; Feel in a browser. 
-When the new Look &amp; Feel is ready, <a href="/managing-look-feel-0#import">import and apply the new Look &amp; Feel</a>.</p>
+When the new Look &amp; Feel is ready, <a href="/managing-look-feel.html#import">import and apply the new Look &amp; Feel</a>.</p>
 
 <p>There are two types of page in the Portal: pages developed with GWT, as in earlier versions, and new pages, such as the Case monitoring page, that have been developed using Angular. 
 The two types of page have different mechanisms for defining Look &amp; Feel.
@@ -95,7 +95,7 @@ do not upload any malicious or vulnerable code. If you wish to learn more about 
     <td>The entry point that identifies the files to be compiled to create the Bootstrap Look &amp; Feel for Portal pages developed with Angular.</td>
 </tr><tr><td>skin/skin.config.less</td>
     <td>The main LESS file that defines the appearance.
-     Change this file to modify the appearance of Bonita BPM Portal web <code><not mobile></not></code>. You only need to modify the other LESS files if you want to change the behaviour of the pages.</td>
+     Change this file to modify the appearance of Bonita BPM Portal web <code><not mobile=""></not></code>. You only need to modify the other LESS files if you want to change the behaviour of the pages.</td>
 </tr><tr><td>tools</td>
 	<td>Contains special files required for compatibility with Internet Explorer. </td>
 </tr><tr><td>VERSION</td>
@@ -159,7 +159,7 @@ do not upload any malicious or vulnerable code. If you wish to learn more about 
 }
 </code>
 
-<p>With this definition, the form footer is displayed instead of the Portal footer, and the form's iframe is now contained in a table row. This is recommended for easier maintenance and to avoid issues at future migrations.</p>
+<p>With this definition, the form footer is displayed instead of the Portal footer, and the form&apos;s iframe is now contained in a table row. This is recommended for easier maintenance and to avoid issues at future migrations.</p>
 
 <p></p></div>
 	</body></html>

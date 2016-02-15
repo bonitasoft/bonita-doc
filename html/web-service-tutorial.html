@@ -64,12 +64,12 @@ import org.xml.sax.InputSource;
 // Clean response xml document
 responseDocumentBody.normalizeDocument();
 // Get result node
-NodeList resultList = responseDocumentBody.getElementsByTagName("GetWeatherResult");
+NodeList resultList = responseDocumentBody.getElementsByTagName(&quot;GetWeatherResult&quot;);
 Element resultElement = (Element) resultList.item(0);
 String weatherDataAsXML = resultElement.getTextContent();
 
 // Check for empty result
-if ("Data Not Found".equalsIgnoreCase(weatherDataAsXML))
+if (&quot;Data Not Found&quot;.equalsIgnoreCase(weatherDataAsXML))
     return null;
 
 // Parse embedded XML of result
@@ -82,7 +82,7 @@ Node weatherNode = weatherDataDocument.getDocumentElement();
 // Save weather data
 Map<string> data = new HashMap<string>();
 NodeList childNodes = weatherNode.getChildNodes();
-for (int i=0; i<childnodes.getlength i node if node.element_node string key="node.getNodeName();" value="node.getTextContent();" data.put return data><ul><li>In <strong>Return type</strong> enter java.util.Map</li>
+for (int i=0; i<childnodes.getlength i="" node="" if="" node.element_node="" string="" key="node.getNodeName();" value="node.getTextContent();" data.put="" return="" data=""><ul><li>In <strong>Return type</strong> enter java.util.Map</li>
 </ul><li>Select the Display weather task and add a blank form (without any widget) by going into the Application &gt; Pageflow tab</li>
     <li>In the form builder, drag and drop a table widget to create a table</li>
     <li>Select the table widget, click on the Data tab</li>
@@ -104,8 +104,8 @@ return table;
 <ul><li>In <strong>Return type</strong> enter: java.util.list</li>
 </ul><li>Create a submit button called <strong>Close</strong></li>
     <li>Select the <strong>No result found task </strong>and add a blank form by going into the Application &gt; Pageflow tab</li>
-<ul><li>Add a message widget and sets its initial value to &ldquo;Sorry, no result found.&rdquo;</li>
-    <li>Add a submit button and name it &ldquo;Close&rdquo;</li>
+<ul><li>Add a message widget and sets its initial value to &#x201C;Sorry, no result found.&#x201D;</li>
+    <li>Add a submit button and name it &#x201C;Close&#x201D;</li>
 </ul><li>Once you have finished creating the diagram and configuring the tasks, the script and form fields, click <strong>Run</strong> to deploy and run the process in Bonita BPM Portal.</li>
 
 <li>In the first form, enter a country and a city e.g. France, Grenoble</li>

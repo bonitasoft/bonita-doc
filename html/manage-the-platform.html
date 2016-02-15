@@ -10,7 +10,7 @@
 // Get platform login API using the PlatformAPIAccessor
 PlatformLoginAPI platformLoginAPI = PlatformAPIAccessor.getPlatformLoginAPI();
 // Log in to the platform
-PlatformSession platformSession = platformLoginAPI.login("platformAdmin", "platform");
+PlatformSession platformSession = platformLoginAPI.login(&quot;platformAdmin&quot;, &quot;platform&quot;);
 
 // Get the platform API
 PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(platformSession);    
@@ -23,7 +23,7 @@ PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(platformSession);
 platformAPI.createPlatform();
 </code>
 <p>The next step is to <strong>initialize the platform</strong>, that is, create the default tenant and initialize the Bonita BPM Engine environment. 
-After this step the technical user will be able to connect to the engine and to create new users or <a href="/manage-organization#org">import the organization</a>. No users are created by 
+After this step the technical user will be able to connect to the engine and to create new users or <a href="/manage-an-organization.html#org">import the organization</a>. No users are created by 
 default and the default username/password for the technical user to connect to the Bonita BPM Engine are stored in the file <span class="tt">bonita-server.properties<span> that is in the <em>BONITA_HOME</em> directory.</span></span></p>
 <code type="java">
 // initialize the platform

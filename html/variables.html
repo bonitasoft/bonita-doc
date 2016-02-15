@@ -30,7 +30,7 @@
     The call to the specified URL is done using an HTTP GET request. The result is stored in the page data model.
     You can parameterize the URL construction with other data using <code>{{variableName}}</code> syntax.</p>
 
-You can retrieve information using the <a href="/product-bos-sp/web-rest-api-0">Bonita REST APIs</a>. Here are some examples:
+You can retrieve information using the <a href="/rest-api.html">Bonita REST APIs</a>. Here are some examples:
 
 <ul><li><p>Get the id of the current user: API URL:
 <code>../API/system/session/{{userId}}</code></p>
@@ -42,11 +42,11 @@ You can retrieve information using the <a href="/product-bos-sp/web-rest-api-0">
     API URL: <code>../API/bpm/humanTask/{{taskId}}</code></p>
 </li>
 
-<li><p>Retrieve a <a href="/bdm-api-0">business object</a> associated with a process instance:
+<li><p>Retrieve a <a href="/bdm-api.html">business object</a> associated with a process instance:
     API URL: <code>../API/bdm/businessDataReference/{{caseId}}/{{businessDataName}}</code></p>
 </li>
 
-<li><p>Retrieve business data using the reference in the <a href="/contracts-and-contexts-0#context">context</a> when building a form.
+<li><p>Retrieve business data using the reference in the <a href="/contracts-and-contexts.html#context">context</a> when building a form.
     API URL: <code>../{{context.myBusinessData_ref.link}}</code></p>
 </li>
 </ul><h3 id="expression-variable">Expression variables</h3>
@@ -62,7 +62,7 @@ You can retrieve information using the <a href="/product-bos-sp/web-rest-api-0">
 
 <h2 id="using-variable">Using a variable</h2>
 
-<p>A variable is used with a <a href="/widgets-0">widget</a>.
+<p>A variable is used with a <a href="/widgets.html">widget</a>.
     There are many ways to use a variable in widget properties.
     In a property containing text or HTML to be displayed in a widget, you can use the syntax <em>{{variableName}}</em> in the content o make it dynamic the
     content. For example, you could display the users name in a welcome message.
@@ -74,7 +74,7 @@ You can retrieve information using the <a href="/product-bos-sp/web-rest-api-0">
 <h2 id="bonita-form">Bonita BPM forms</h2>
 
 <p>One of the goals of the UI designer is to enable you to build forms for process instantiation and human tasks.
-The <a href="/contracts-and-contexts-0">context and contract</a>  decouple the UI from the process.  The UI designer
+The <a href="/contracts-and-contexts.html">context and contract</a>  decouple the UI from the process.  The UI designer
     retrieves the context in which a human task form executes. When a form is submitted for process instantiation or for a human task, the UI designer
     sends data to fulfil the contract.</p>
 

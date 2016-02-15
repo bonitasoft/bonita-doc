@@ -1,12 +1,12 @@
 <?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Connectivity overview</title></head><body class="front">
 		<div id="content">
 	<h1>1.8 Connectivity overview</h1>
-    <p>A connector is an element in a process that accesses an external system to read or write information. Bonita BPM contains a set of standard connectors. You can also <a href="/creating-connector">create a custom connector</a>.</p> 
+    <p>A connector is an element in a process that accesses an external system to read or write information. Bonita BPM contains a set of standard connectors. You can also <a href="/creating-a-connector.html">create a custom connector</a>.</p> 
 
 <p>A connector consists of a definition, implementation, and configuration.</p>
 <ul><li>The definition specified the external interfaces for input and output, including the configuration wizard.</li>
 <li> The implementation is the Java code that acts on the inputs, interacts with the external system, and returns outputs to the process. There can be any number of implementations for a given definition.</li>
-<li>The configuration is the specification of how the connector is used in a specific process or task, including the implementation to be used. The implementation is specified when you <a href="/configuring-process-bonita-bpm-studio">configure the process</a>. The other information is specified in the wizard when you <a href="#add">add the connector</a>.</li>
+<li>The configuration is the specification of how the connector is used in a specific process or task, including the implementation to be used. The implementation is specified when you <a href="/configuring-a-process.html">configure the process</a>. The other information is specified in the wizard when you <a href="#add">add the connector</a>.</li>
 </ul><p>You can add a connector a pool or to a task, at the start (<em>connector in</em>) or at the end (<em>connector out</em>). 
 A pool connector in is executed when the process is instantiated. A pool connector out is executed when the process instance terminates, regardless of the reason for termination. If a process has more than one terminate end event or flow leading to the end of the process instance, make sure that it is always appropriate for the pool connector out to be executed. If it not, use task connectors instead.</p>
 
@@ -27,7 +27,7 @@ A task connector out is executed after the task and after any operations defined
 <li>Follow the wizard to configure the connector. For details, see the connector-specific documentation pages.</li>
 </ol><h2 id="add-form">Connectors and forms</h2>
 
-<p>In Bonita BPM 6.x, you could add a connector to a form. This is no longer possible with forms created with the UI designer. To achieve the same result, create a <a href="/rest-api-extensions">REST API extension</a>.
+<p>In Bonita BPM 6.x, you could add a connector to a form. This is no longer possible with forms created with the UI designer. To achieve the same result, create a <a href="/rest-api-extensions.html">REST API extension</a>.
 
 There is an example showing how to execute SQL queries on a external database.</p>
 
@@ -37,7 +37,7 @@ There is an example showing how to execute SQL queries on a external database.</
 
 <h2 id="edit">Edit a connector</h2>
 
-<p>To change the implementation of a connector for a process, update the <a href="/configuring-process-bonita-bpm-studio">process configuration</a>.</p>
+<p>To change the implementation of a connector for a process, update the <a href="/configuring-a-process.html">process configuration</a>.</p>
 
 <p>To change connector configuration for a pool or task, use the connector wizard:</p>
 

@@ -25,7 +25,7 @@ There are some examples below. In these examples:
 
 </p><ul><li>We use the default application server SSL port number, 8443, for connections. If you use this port number, it needs to be specified in the URL by users.  
 If you use the default HTTPS port number, 443, users do not need to specify the port in the URL.</li>
-<li>You must ensure that the SSL connector is configured with the parameter <code>URIEncoding="UTF-8"</code>.</li>
+<li>You must ensure that the SSL connector is configured with the parameter <code>URIEncoding=&quot;UTF-8&quot;</code>.</li>
 <li>When the configuration is complete, the web application is only available through HTTPS. For other configuration, allowing both HTTP and HTTPS access, see your application server or SSL service documentation. </li>
 <li>The operating system is Ubuntu.</li>
 <li>The starting point is a bundle that has been installed and configured but not started.</li></ul><h2 id="jboss_keystore">JBoss with keystore</h2>
@@ -162,15 +162,15 @@ Edit <code>conf/server.xml</code> and include the <code>RemoteIpValve</code> con
 Note: Make sure that the regular expression set with <code>internalProxies</code> matches your IP addresses.
 </p>
 <p>As explained by the <a href="https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html">RemoteIpValve documentation</a>: 
-"This valve replaces the apparent client remote IP address and hostname for the request with the IP address list presented by a proxy or a load balancer via a request headers (e.g. "X-Forwarded-For"). 
-Another feature of this valve is to replace the apparent scheme (http/https) and server port with the scheme presented by a proxy or a load balancer via a request header (e.g. "X-Forwarded-Proto")."
+&quot;This valve replaces the apparent client remote IP address and hostname for the request with the IP address list presented by a proxy or a load balancer via a request headers (e.g. &quot;X-Forwarded-For&quot;). 
+Another feature of this valve is to replace the apparent scheme (http/https) and server port with the scheme presented by a proxy or a load balancer via a request header (e.g. &quot;X-Forwarded-Proto&quot;).&quot;
 </p>
 <li>
-If you use the AccessLogValve, edit <code>conf/server.xml</code> and set <code>requestAttributesEnabled="true"</code>:</li>
+If you use the AccessLogValve, edit <code>conf/server.xml</code> and set <code>requestAttributesEnabled=&quot;true&quot;</code>:</li>
 
 <code type="xml">
-        <valve classname="org.apache.catalina.valves.AccessLogValve" directory="logs" prefix="localhost_access_log." suffix=".txt" requestattributesenabled="true" pattern='%a %{X-Forwarded-Proto}i %l %u %t "%r" %s %b'></valve></code>
-If you omit this, %a will log your load balancer's IP address and not the client's IP address.
+        <valve classname="org.apache.catalina.valves.AccessLogValve" directory="logs" prefix="localhost_access_log." suffix=".txt" requestattributesenabled="true" pattern="%a %{X-Forwarded-Proto}i %l %u %t &quot;%r&quot; %s %b"></valve></code>
+If you omit this, %a will log your load balancer&apos;s IP address and not the client&apos;s IP address.
 
 </ol></div>
 	</body></html>

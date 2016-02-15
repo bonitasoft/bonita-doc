@@ -9,11 +9,11 @@
 The links in this page to the source code repository are to the 7.0.0 code, but ther are only minor differences for 7.1.0 and the maintenance releases.</p>
 
 <p>If you want to find out how to customize authentication refer to the dedicated documentation pages:</p>
-<ul><li><a href="/active-directory-or-ldap-authentication-0">LDAP server / Active Directory</a></li>
-    <li><a href="/single-sign-cas-1">CAS single sign-on (SSO)</a></li>
+<ul><li><a href="/active-directory-or-ldap-authentication.html">LDAP server / Active Directory</a></li>
+    <li><a href="/single-sign-on-with-cas.html">CAS single sign-on (SSO)</a></li>
 </ul><h2 id="user">Bonita BPM Portal authentication scenario</h2>
 
-<p>To help understand how user authentication is performed, let's take a typical case where a user accesses the Bonita BPM Portal for the first time. This scenario is the default (no LDAP authentication, nor CAS).</p>
+<p>To help understand how user authentication is performed, let&apos;s take a typical case where a user accesses the Bonita BPM Portal for the first time. This scenario is the default (no LDAP authentication, nor CAS).</p>
 <img src="images/images-6_0/user_auth_schema_70.png" width="652" height="825" alt="user authentication" title="user authentication"><ol><li>In a web browser, the user types the URL of Bonita BPM Portal
 			(e.g. <code>http://localhost:8080/bonita</code>) that will initiate a
 			HTTP request handled by the application server that delegates
@@ -100,7 +100,7 @@ The links in this page to the source code repository are to the 7.0.0 code, but 
 		<li>Call get back to <a href="https://github.com/bonitasoft/bonita-web/blob/7.0.0/server/src/main/java/org/bonitasoft/console/common/server/login/servlet/LoginServlet.java">LoginServlet</a>
 			that will redirect the user to the requested page.
 		</li>
-	</ol><p><strong>Note:</strong> If you <a href="/single-sign-cas-1">configure your Bonita BPM platform to use CAS</a>, the logical flow of authentication is the same as above. 
+	</ol><p><strong>Note:</strong> If you <a href="/single-sign-on-with-cas.html">configure your Bonita BPM platform to use CAS</a>, the logical flow of authentication is the same as above. 
 The difference is that at step 7 the CASRemoteLoginManager is used instead of the default loginManager and at step 12 the <code>JAASGenericAuthenticationServiceImpl</code> is called instead of the default authentication service, <code>AuthenticationServiceImpl</code>. 
 The <code>loginManager-config.properties</code> file for a tenant controls which login manager and authentication service (<code>cfg-bonita-authentication-impl.xml</code>) are used.</p>
 

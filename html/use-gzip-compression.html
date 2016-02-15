@@ -10,11 +10,11 @@
 <p>To activate compression for JBoss:</p>
     <ul><li>For Linux systems: edit <code>bin/standalone.conf</code> and uncomment this line:</li>
         <code type="java">
-JAVA_OPTS="$JAVA_OPTS -Dorg.apache.coyote.http11.Http11Protocol.COMPRESSION=on" 
+JAVA_OPTS=&quot;$JAVA_OPTS -Dorg.apache.coyote.http11.Http11Protocol.COMPRESSION=on&quot; 
         </code>
                 <li>For Windows systems: edit <code>bin/standalone.conf.bat</code> and uncomment this line:</li>
         <code type="java">
-set "JAVA_OPTS=%JAVA_OPTS% -Dorg.apache.coyote.http11.Http11Protocol.COMPRESSION=on"
+set &quot;JAVA_OPTS=%JAVA_OPTS% -Dorg.apache.coyote.http11.Http11Protocol.COMPRESSION=on&quot;
         </code>
     </ul><h2 id="tomcat">Tomcat</h2>
 
@@ -22,10 +22,10 @@ set "JAVA_OPTS=%JAVA_OPTS% -Dorg.apache.coyote.http11.Http11Protocol.COMPRESSION
 
 <p>Open <code>server.xml</code> and find the Connector configuration that you use. Edit the section to add following parameters:</p>
 <code type="xml">
-compression="on"
-compressionMinSize="X"
-noCompressionUserAgents="Y"
-compressableMimeType="Z"
+compression=&quot;on&quot;
+compressionMinSize=&quot;X&quot;
+noCompressionUserAgents=&quot;Y&quot;
+compressableMimeType=&quot;Z&quot;
 </code>
 
 <table border="1" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><th valign="top">Property</th>
@@ -63,7 +63,7 @@ If you use a different package, use the corresponding path; for example on Ubunt
 
 <p>After you modify the file, restart your application server and test with the following <code>curl</code> command:</p>
 
-<code>curl -I -H 'Accept-Encoding: gzip' http://</code><em><code>ip_address:port</code></em><code>/bonita/login.jsp</code>
+<code>curl -I -H &apos;Accept-Encoding: gzip&apos; http://</code><em><code>ip_address:port</code></em><code>/bonita/login.jsp</code>
 
 <p>Check that the header returned contains the line <code>Content-Encoding: gzip</code>. For example, on a JBoss system the output will be similar to this:</p>
 

@@ -21,7 +21,7 @@ the state of the activity will be the state previously recorded.</p>
 <li>Reset the states of a list connectors, using <span class="tt">setConnectorInstanceState(final Map&gt; connectorsToReset)</span>.</li>
 <li>Retry a failed activity, using <span class="tt">replayActivity(long activityInstanceId)</span>.</li>
 <li>Reset the states of a list of failed connectors and, in the same operation, retry the corresponding failed activity, using 
-<span class="tt">replayActivity(long activityInstanceId, <code type="java">Map<long connectorstatereset></long></code> connectorsToReset)</span>.</li>
+<span class="tt">replayActivity(long activityInstanceId, <code type="java">Map<long connectorstatereset=""></long></code> connectorsToReset)</span>.</li>
 </ul><p></p>
 
 <h2>Code explained</h2>
@@ -29,14 +29,14 @@ the state of the activity will be the state previously recorded.</p>
 <p>In this example, an activity has failed because a connector failed to execute.</p>
 
 <p>The methods that are used to reset process items are in the ProcessManagementAPI, and the details are in the 
- <a href="/product-bos-sp/javadoc">Javadoc</a>. These methods
+ <a href="/javadoc.html">Javadoc</a>. These methods
 are accessed through the ProcessAPI, which extends the ProcessManagementAPI.</p>
 
 <p>First you need to log in, create the session, and get the ProcessAPI:</p>
 
 <code type="java">
         final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
-        final APISession session = loginAPI.login("USERNAME", "PASSWORD");
+        final APISession session = loginAPI.login(&quot;USERNAME&quot;, &quot;PASSWORD&quot;);
         final ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);
 </code>
 
@@ -55,7 +55,7 @@ are accessed through the ProcessAPI, which extends the ProcessManagementAPI.</p>
         // search why the connector failed:
         final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
         builder.filter(LogSearchDescriptor.ACTION_SCOPE, failedTaskId);
-        builder.searchTerm("Connector execution failure");
+        builder.searchTerm(&quot;Connector execution failure&quot;);
         builder.sort(LogSearchDescriptor.ACTION_TYPE, Order.ASC);
         final LogAPI logAPI = TenantAPIAccessor.getLogAPI(session);
         final SearchResult<log> searchedLogs = logAPI.searchLogs(builder.done());
@@ -109,14 +109,14 @@ public class SkipConnectorAndReplayActivity {
 
     public static void main(final String[] args) throws Exception {
 
-        // Let's consider we know the id of the failed Activity:
+        // Let&apos;s consider we know the id of the failed Activity:
         final long failedTaskId = 123456789l;
 
         // First action: Login to the api:
         final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
-        final APISession session = loginAPI.login("USERNAME", "PASSWORD");
+        final APISession session = loginAPI.login(&quot;USERNAME&quot;, &quot;PASSWORD&quot;);
         final ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);
-        // we suppose here that we have an activity in state failed with the id 'failedTaskId'
+        // we suppose here that we have an activity in state failed with the id &apos;failedTaskId&apos;
         // retrieve the failed connector:
         final SearchOptions searchOptions = new SearchOptionsBuilder(0, 1).filter(ConnectorInstancesSearchDescriptor.CONTAINER_ID, failedTaskId)
                 .filter(ConnectorInstancesSearchDescriptor.STATE, ConnectorState.FAILED).done();
@@ -126,7 +126,7 @@ public class SkipConnectorAndReplayActivity {
         // search why the connector failed:
         final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
         builder.filter(LogSearchDescriptor.ACTION_SCOPE, failedTaskId);
-        builder.searchTerm("Connector execution failure");
+        builder.searchTerm(&quot;Connector execution failure&quot;);
         builder.sort(LogSearchDescriptor.ACTION_TYPE, Order.ASC);
         final LogAPI logAPI = TenantAPIAccessor.getLogAPI(session);
         final SearchResult<log> searchedLogs = logAPI.searchLogs(builder.done());

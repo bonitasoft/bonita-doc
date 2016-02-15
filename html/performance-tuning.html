@@ -34,7 +34,7 @@ You need to know how to install and configure Bonita BPM.</p>
     <dd><a href="#process_design">Process design</a></dd>
     <dd><a href="#event_handlers">Event handlers</a></dd>
     <dd><a href="#cron">Cron jobs</a></dd>
-</dl><p>It is also possible to <a href="/configure-application-server-gzip-compression-1">use gzip compression</a> on your application server to improve performance.</p>
+</dl><p>It is also possible to <a href="/use-gzip-compression.html">use gzip compression</a> on your application server to improve performance.</p>
 
 <p></p>
 
@@ -77,7 +77,7 @@ The maximum possible number of parallel threads that could be required at any gi
 
 <h2 id="engine_access">Engine access</h2>
 
-<p>This section deals with performance impact of your choice of <a href="/development-overview-2#L365">Engine access mode</a>.</p>
+<p>This section deals with performance impact of your choice of <a href="/development-overview.html#L365">Engine access mode</a>.</p>
 
 <p>There are various ways to access the Engine APIs provided by Bonita BPM Engine. Choose the most suitable access mode for your deployment, requirements, and preferences. 
 The access modes rely on different technologies and have different benefits and drawbacks. In this section, we will describe the performance characteristics of each mode.</p>
@@ -125,7 +125,7 @@ See the <a href="http://hc.apache.org/httpcomponents-client-ga/tutorial/html/con
 
 <h4>REST</h4>
 
-<p>This method of accessing the Bonita BPM capabilities is not yet integrated as an engine service but exists as a web application service accessed using the <a href="/rest-api-overview-0">Web REST API</a>. 
+<p>This method of accessing the Bonita BPM capabilities is not yet integrated as an engine service but exists as a web application service accessed using the <a href="/rest-api-overview.html">Web REST API</a>. 
 No details are provided here as it is currently out of scope. 
 In general, the constraints are almost the same as for the HTTP mode, but we do not provide any Java client for this access mode.</p>
 
@@ -134,7 +134,7 @@ In general, the constraints are almost the same as for the HTTP mode, but we do 
 <h2 id="concurrency">Concurrent execution
 
 </h2><p>This section describes some aspects of engine configuration that have a performance impact if there is a high level of concurrent execution. 
-Before you read this, make sure you are familiar with the engine <a href="/execution-sequence-states-and-transactions-0">execution sequence, states, and transactions</a>.</p>
+Before you read this, make sure you are familiar with the engine <a href="/execution-sequence-states-and-transactions.html">execution sequence, states, and transactions</a>.</p>
 
 <p>There are two main entry points for load on the engine:</p>
 <ul><li><strong>API calls</strong> coming from outside the engine</li>
@@ -283,9 +283,9 @@ The desired number of parallel processing threads is the sum of the number of wo
 </p><p>For Tomcat:</p>
 
 <ul><li>
-For bonitaSequenceManagerDS, edit <code>conf/Catalina/localhost/bonita.xml</code> and set <code>maxActive=&rdquo;yourvalue&rdquo;</code>.</li>
+For bonitaSequenceManagerDS, edit <code>conf/Catalina/localhost/bonita.xml</code> and set <code>maxActive=&#x201D;yourvalue&#x201D;</code>.</li>
 <li>
-For bonitaDS, edit <code>conf/bitronix-resources.properties</code> and set <code>resource.ds1.maxPoolSize=&rdquo;yourvalue&rdquo;</code>.</li>
+For bonitaDS, edit <code>conf/bitronix-resources.properties</code> and set <code>resource.ds1.maxPoolSize=&#x201D;yourvalue&#x201D;</code>.</li>
 </ul><p>
 For JBoss:
 </p><ul><li>
@@ -327,20 +327,20 @@ query the database, which is a consequence of the range size values. See <a href
 <p>For the Teamwork, Efficiency, and Performance editions, Bonita BPM Engine has a cache providing a persistence layer using Hibernate caching. 
 
 </p><p>EhCache configuration for this persistence layer is defined in a file named <code>bonita-platform-hibernate-cache.xml.notused</code> and <code>bonita-tenant-hibernate-cache.xml.notused</code> in <code> engine-server/conf/platform/</code>.
-To apply the configuration of those files, remove the '.notused' suffix.
+To apply the configuration of those files, remove the &apos;.notused&apos; suffix.
 It is possible to modify the cache settings in those files for each kind of object.</p>
-<p>Before going into production, we encourage to finely tune the "Level-2" object cache in a pre-prod environment:
+<p>Before going into production, we encourage to finely tune the &quot;Level-2&quot; object cache in a pre-prod environment:
 </p><ul><li>activate Hibernate cache statistics by setting at <b>true</b> the parameter <b>hibernate.generate_statistics</b> in file <b>[bonita-home]/engine-server/cong/platform/bonita-platform-community-custom.properties</b></li>
 	<li>activate logs at INFO level:
-<code>&lt;logger name="org.bonitasoft.engine.persistence" level="INFO"/&gt;
-&lt;logger name="com.bonitasoft.engine.persistence" level="INFO"/&gt;</code>
+<code>&lt;logger name=&quot;org.bonitasoft.engine.persistence&quot; level=&quot;INFO&quot;/&gt;
+&lt;logger name=&quot;com.bonitasoft.engine.persistence&quot; level=&quot;INFO&quot;/&gt;</code>
     </li>
 	<li>run load tests to simulate a production environment</li>
-	<li>analyse the "2nd Level Cache Ratio" log messages generated, combined with the "soft-locked cache entry was expired" <b>warnings messages</b> to change the configuration in file <b>&lt;bonita-home&gt;/server/platform/conf/hibernate-cache-tenant.xml</b>.
-	For instance, if on entity <b>org.bonitasoft.engine.core.document.model.impl.SDocumentImpl</b>, the "soft-locked cache entry was expired" warnings message occurs, it means the size of the <b>maxElementsInMemory</b>
-	parameter must be increased, provided it is a reasonable memory size and provided the "2nd Level Cache Ratio" is not low for this element. If the "2nd Level Cache Ratio" is low or even 0, it means the cache is never used to read several times the same entity,
+	<li>analyse the &quot;2nd Level Cache Ratio&quot; log messages generated, combined with the &quot;soft-locked cache entry was expired&quot; <b>warnings messages</b> to change the configuration in file <b>&lt;bonita-home&gt;/server/platform/conf/hibernate-cache-tenant.xml</b>.
+	For instance, if on entity <b>org.bonitasoft.engine.core.document.model.impl.SDocumentImpl</b>, the &quot;soft-locked cache entry was expired&quot; warnings message occurs, it means the size of the <b>maxElementsInMemory</b>
+	parameter must be increased, provided it is a reasonable memory size and provided the &quot;2nd Level Cache Ratio&quot; is not low for this element. If the &quot;2nd Level Cache Ratio&quot; is low or even 0, it means the cache is never used to read several times the same entity,
 	which means the <b>timeToLiveSeconds</b> parameter should be increased, or that the cache should be completely deactivated for this entity.</li>
-</ul><p>Below is an example of a "soft-locked cache entry was expired" warning message:</p>
+</ul><p>Below is an example of a &quot;soft-locked cache entry was expired&quot; warning message:</p>
 
 <code type="xml">
 WARNING: Cache org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl Key org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl#org.bonitasoft.engine.persistence.PersistentObjectId@25505ff 
@@ -454,7 +454,7 @@ For example, in <a href="https://github.com/bitronix/btm/wiki/JDBC-pools-configu
 <h3 id="logs">Logs</h3>
 
 <p>In general, increasing the log level is useful for debugging but has a performance cost. 
-With this in mind, <a href="/set-log-and-archive-levels-0">define the log level for technical logs, queriable logs and archives</a>.</p>
+With this in mind, <a href="/set-log-and-archive-levels.html">define the log level for technical logs, queriable logs and archives</a>.</p>
 
 <p>Remember that Bonita BPM Engine dependencies also have their own log and debug options that may impact strongly the system performance. 
 Be sure to configure these appropriately.</p>
@@ -473,7 +473,7 @@ To activate connector time tracking: </p>
 Change the value of <code>startFlushThread</code> from <code>false</code> to <code>true</code>.
 </li>
 <li>
-Uncomment 'flushEventListeners' and 'activatedRecords' beans.
+Uncomment &apos;flushEventListeners&apos; and &apos;activatedRecords&apos; beans.
 </li>
 </ol><h2 id="misc">Process design, event handlers, and cron jobs</h2>
 
@@ -495,7 +495,7 @@ We strongly recommend that you add only appropriate handlers and carefully code 
 
 <h3 id="cron">Cron jobs</h3>
 
-<p>Bonita BPM Engine uses the <a href="/bonita-bpm-engine-architecture-3#scheduler">Scheduler service</a> to trigger jobs in a recurrent manner.</p>
+<p>Bonita BPM Engine uses the <a href="/engine-architecture-overview.html#scheduler">Scheduler service</a> to trigger jobs in a recurrent manner.</p>
 
 <p>The Bonita BPM Scheduler service implementation uses the Quartz Scheduler. 
 A cron job in Quartz can run at maximum every second (you cannot set a lower value than 1 second).

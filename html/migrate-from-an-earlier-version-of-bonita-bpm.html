@@ -18,7 +18,7 @@ To migrate from 6.5.4 to 7.1.1 or later there are two phases: first you upgrade 
 You are recommended not to start 7.0.0 after you migrate to it, but to proceed immediately with the second phase of the migration.</div>
 
 
-<p>The script migrates your platform bonita_home and the database. You cannot <a href="/upgrade-community-subscription-edition">change edition</a> while migrating. If you are running a
+<p>The script migrates your platform bonita_home and the database. You cannot <a href="/upgrade-from-community-to-a-subscription-edition.html">change edition</a> while migrating. If you are running a
 
     Bonita BPM Subscription Pack edition, you need a valid license for your target version.
     If you are upgrading to a new maintenance version and not changing the minor version number (for example, you are migrating from 6.3.0
@@ -71,10 +71,10 @@ You are recommended not to start 7.0.0 after you migrate to it, but to proceed i
 
 <p>There is no guarantee that the Look &amp; Feel definition is compatible across maintenance versions.
     For example, in 6.2.2, <code>jquery+</code> was renamed <code>jqueryplus</code> in <code>BonitaConsole.html</code>, for compatibility with more application servers.
-    If you are using a custom Look &amp; Feel, <a href="/managing-look-feel-1#export_current">export</a> it before migration.
-    Then after the migration is complete, <a href="/managing-look-feel-1#export_default">export the default Look &amp; Feel</a> from the new version,
-    modify your custom Look &amp; Feel to be compatible with the new definition, and with the <a href="/creating-new-look-feel-1#migration">recommendations for form footers</a>.
-    Then <a href="/managing-look-feel-1#import">import</a> your updated custom Look &amp; Feel into Bonita BPM Portal.</p>
+    If you are using a custom Look &amp; Feel, <a href="/managing-look-feel.html#export_current">export</a> it before migration.
+    Then after the migration is complete, <a href="/managing-look-feel.html#export_default">export the default Look &amp; Feel</a> from the new version,
+    modify your custom Look &amp; Feel to be compatible with the new definition, and with the <a href="/creating-a-new-look-feel.html#migration">recommendations for form footers</a>.
+    Then <a href="/managing-look-feel.html#import">import</a> your updated custom Look &amp; Feel into Bonita BPM Portal.</p>
 
 <p>The migration script supports MySQL, Postgres, Oracle, and MS SQLServer. There is no migration for h2 databases.</p>
 
@@ -142,9 +142,9 @@ You are recommended not to start 7.0.0 after you migrate to it, but to proceed i
 
             <code>db.url=jdbc:mysql://localhost:3306/bonita_migration?allowMultiQueries=true</code>.</p>
 
-    </li><li>If you use a custom Look &amp; Feel, <a href="/managing-look-feel-1#export_current">export</a> it, and then <a href="/managing-look-feel-1#restore_default">restore the default Look &amp; Feel</a>.</li>
+    </li><li>If you use a custom Look &amp; Feel, <a href="/managing-look-feel.html#export_current">export</a> it, and then <a href="/managing-look-feel.html#restore_default">restore the default Look &amp; Feel</a>.</li>
     <li>Stop the application server and database server.</li>
-    <li><a href="/back-bonita-bpm-platform-0">Back up your platform</a> and database in case of problems during migration.</li>
+    <li><a href="/back-up-bonita-bpm-platform.html">Back up your platform</a> and database in case of problems during migration.</li>
 
     <li>Go to the directory containing the migration tool.</li>
     <li>Run the migration script:
@@ -174,23 +174,23 @@ You are recommended not to start 7.0.0 after you migrate to it, but to proceed i
         (for example by updating <code>bonita-platform.properties</code> or services configuration files). </li>
 
     <li>Unzip the target bundle version into a directory. In the steps below, this directory is called <code>bonita-target-version</code>.
-        <a href="/bonita-bpm-installation-overview-0">Install the bundle</a> and configure it but do not start it. </li>
+        <a href="/bonita-bpm-installation-overview.html">Install the bundle</a> and configure it but do not start it. </li>
 
     <li>In your new <code>bonita-target-version</code> folder, delete the <code>bonita</code> folder. You will use the <code>bonita_home</code> that you have migrated instead.</li>
 
     <li>Set the bonita_home system property to point to the migrated <code>bonita_home</code>.</li>
 
-    <li><a href="/database-configuration-2">Configure the bundle to use the migrated database</a>. Do not recreate the database.</li>
+    <li><a href="/database-configuration.html">Configure the bundle to use the migrated database</a>. Do not recreate the database.</li>
 
     <li>Make sure there is a valid license file in <code>bonita-target-version/bonita_home/server/licenses</code>.
         <ul><li>If you have migrated from an earlier maintenance version of the same minor version, for example, from 6.3.0 to 6.3.1, your existing license is still valid and you do not need to do anything.</li>
-            <li>If you have have migrated from an earlier minor version, for example from 6.0.4 to 6.2.1, you need to <a href="/licenses-1">request a new license</a>.
+            <li>If you have have migrated from an earlier minor version, for example from 6.0.4 to 6.2.1, you need to <a href="/licenses.html">request a new license</a>.
                 Use the license request utility of the new version to create the license request key.</li>
         </ul></li>
         
     <li>Start the application server. Before you start Bonita BPM Portal, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal pages instead of the new version. 
     Log in to the Portal and verify that the migration has completed. 
-    If you did not set the default Look &amp; Feel before migration and you cannot log in, you need to <a href="/managing-look-feel-1#restore_default">restore the default Look &amp; Feel</a> using a REST client or the Engine API.</li>
+    If you did not set the default Look &amp; Feel before migration and you cannot log in, you need to <a href="/managing-look-feel.html#restore_default">restore the default Look &amp; Feel</a> using a REST client or the Engine API.</li>
 
 </ol><p>The migration is now complete. If you were using a custom Look &amp; Feel before migration, test it on the new version before applying it to your migrated platform.</p>
 

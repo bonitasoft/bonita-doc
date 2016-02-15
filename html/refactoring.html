@@ -3,7 +3,7 @@
 	<h1>1.5.4 Refactoring</h1>
     <p>Refactoring a process definition means changing the name of a process element without changing the external behaviour. Typically, this is done when a process definition is almost complete, 
 to improve readability and maintainability, 
-or to adopt a new set of <a href="/naming-conventions">naming conventions</a>. In Bonita BPM Studio, when you change the name of an element, the change is propagated to all the places that reference this element. 
+or to adopt a new set of <a href="/naming-conventions.html">naming conventions</a>. In Bonita BPM Studio, when you change the name of an element, the change is propagated to all the places that reference this element. 
 If the change is simple (for example, you rename a variable used in transitions), the change is made automatically. 
 If the change is more complex, such as renaming a variable used in a Groovy script, Bonita BPM Studio displays the update for you to validate before it is implemented.
 Refactoring is also used when you delete a process element. Expressions using the element directly will be cleared and expressions having dependency on it will clear the dependency and replace it by a blank placeholder in Groovy scripts.
@@ -40,9 +40,9 @@ If you also plan to refactor the subprocess, you should refactor it first, befor
 
 <p>Refactoring is not available for the following process definition elements:
 </p><ul><li>7.x pages do not reflect modifications of business data, documents and contract inputs.</li>
-<li>"List of options" elements are not managed by refactoring. If you rename n option, you need to manually update any widgets that use this option as initial value.</li>
+<li>&quot;List of options&quot; elements are not managed by refactoring. If you rename n option, you need to manually update any widgets that use this option as initial value.</li>
 <li>Refactoring cannot be used to modify the type of an element, It is limited to renaming.</li>
-<li>Expression dependencies are not recomputed in the Groovy script comparison editor. This means that you need to manually go back to each expression dependency and uncheck/check the "automatic dependency resolution" if you added a new element in the Groovy script comparison editor.</li>
+<li>Expression dependencies are not recomputed in the Groovy script comparison editor. This means that you need to manually go back to each expression dependency and uncheck/check the &quot;automatic dependency resolution&quot; if you added a new element in the Groovy script comparison editor.</li>
 </ul><h2 id="example">Example</h2>
 
 <p>Suppose you have a process that loops to collect feedback on a new product feature, and has an process variable called <em>count</em> that is used to count the number of people who complete the survey form. 

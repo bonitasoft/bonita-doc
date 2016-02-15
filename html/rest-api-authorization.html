@@ -2,7 +2,7 @@
 		<div id="content">
 	<h1>2.4.5 REST API authorization</h1>
     <p>The Bonita BPM Portal, or any application that uses the Web REST API, enables user to access resources.
-    The set of resources that a user can access is determined by default by the user's profile.
+    The set of resources that a user can access is determined by default by the user&apos;s profile.
     This authorization mechanism ensures that users can only access the appropriate resources.
     This means, for example, that a user with only the User profile cannot perform actions intended for the Administrator.</p>
 
@@ -21,7 +21,7 @@
     <dt><a href="#activate">Activating and deactivating authorization</a></dt>
     <dt><a href="#migrate">Migration</a></dt>
     <dt><a href="#permissions_table">Permissions and resources</a></dt>
-</dl><p>The authorization mechanism is a "white list" implementation.
+</dl><p>The authorization mechanism is a &quot;white list&quot; implementation.
     It has two phases,
     a dynamic phase, which uses a script to grant or deny authorization,
     and a static phase, which checks in the static configuration to see whether the user is authorized to access a given resource.
@@ -83,7 +83,7 @@
 <h3 id="compound">Compound permissions mapping</h3>
 
 <p>The <code>compound-permissions-mapping.properties</code> file defines sets of simple permissions that are grouped together into a compound permission.
-    You can use a compound permission as "shorthand" for a list of simple permissions.
+    You can use a compound permission as &quot;shorthand&quot; for a list of simple permissions.
     By default, the file contains a compound permission that corresponds to each page of the Bonita BPM Portal, including <a href="#custom_pages">custom pages</a>.</p>
 
 <p>For example:</p>
@@ -108,7 +108,7 @@
     profile|User=[look_and_feel]
 </code>
 
-<p>You can also assign a permission to a specific user. This is useful if you want to give a named user access to a resource that is not accessible through the user's profiles.
+<p>You can also assign a permission to a specific user. This is useful if you want to give a named user access to a resource that is not accessible through the user&apos;s profiles.
     For example, if the user John.Smith is assigned the User profile, he does not have permission to manage the portal Look &amp; Feel.
     You can add this specific permission to <code>custom-permissions-mapping.properties</code> by adding this line:</p>
 <code type="xml">
@@ -185,9 +185,9 @@
     @Override
     public boolean check(APISession apiSession, APICallContext apiCallContext, APIAccessor apiAccessor, Logger logger) {
     long currentUserId = apiSession.getUserId();
-    if ("GET".equals(apiCallContext.getMethod())) {
+    if (&quot;GET&quot;.equals(apiCallContext.getMethod())) {
     return checkGetMethod(apiCallContext, apiAccessor, currentUserId, logger)
-    } else if ("POST".equals(apiCallContext.getMethod())) {
+    } else if (&quot;POST&quot;.equals(apiCallContext.getMethod())) {
     return checkPostMethod(apiCallContext, apiAccessor, currentUserId, logger)
     }
     return false
@@ -195,11 +195,11 @@
 
     private boolean checkPostMethod(APICallContext apiCallContext, APIAccessor apiAccessor, long currentUserId, Logger logger) {
     def body = apiCallContext.getBodyAsJSON()
-    def processDefinitionId = body.optLong("processDefinitionId")
+    def processDefinitionId = body.optLong(&quot;processDefinitionId&quot;)
     if (processDefinitionId  listUsers = processAPI.searchUsersWhoCanStartProcessDefinition(processDefinitionId, searchOptionBuilder.done());
-    logger.debug("RuleCase : nb Result [" + listUsers.getCount() + "] ?");
+    logger.debug(&quot;RuleCase : nb Result [&quot; + listUsers.getCount() + &quot;] ?&quot;);
     def canStart = listUsers.getCount() == 1
-    logger.debug("RuleCase : User allowed to start? " + canStart)
+    logger.debug(&quot;RuleCase : User allowed to start? &quot; + canStart)
     return canStart
     }
 
@@ -208,23 +208,23 @@
     def filters = apiCallContext.getFilters()
     if (apiCallContext.getResourceId() != null) {
     def processInstanceId = Long.valueOf(apiCallContext.getResourceId())
-    if(apiCallContext.getResourceName().startsWith("archived")){
+    if(apiCallContext.getResourceName().startsWith(&quot;archived&quot;)){
     //no way to check that the we were involved in an archived case, can just show started by
     try{
     return processAPI.getArchivedProcessInstance(processInstanceId).getStartedBy() == currentUserId
     }catch(ArchivedProcessInstanceNotFoundException e){
-    logger.debug("archived process not found, "+e.getMessage())
+    logger.debug(&quot;archived process not found, &quot;+e.getMessage())
     return false
     }
     }else{
     def isInvolved = processAPI.isInvolvedInProcessInstance(currentUserId, processInstanceId)
-    logger.debug("RuleCase : allowed because get on process that user is involved in")
+    logger.debug(&quot;RuleCase : allowed because get on process that user is involved in&quot;)
     return isInvolved
     }
     } else {
     def stringUserId = String.valueOf(currentUserId)
-    if (stringUserId.equals(filters.get("started_by")) || stringUserId.equals(filters.get("user_id")) || stringUserId.equals(filters.get("supervisor_id"))) {
-    logger.debug("RuleCase : allowed because searching filters contains user id")
+    if (stringUserId.equals(filters.get(&quot;started_by&quot;)) || stringUserId.equals(filters.get(&quot;user_id&quot;)) || stringUserId.equals(filters.get(&quot;supervisor_id&quot;))) {
+    logger.debug(&quot;RuleCase : allowed because searching filters contains user id&quot;)
     return true
     }
     }
@@ -244,7 +244,7 @@
 
 <h2 id="login">User login</h2>
 
-<p>When a user logs in, after the user is <a href="/user-authentication-3">authenticated</a>, a map of <code>LoggedUserPermissions</code> is created.
+<p>When a user logs in, after the user is <a href="/user-authentication-overview.html">authenticated</a>, a map of <code>LoggedUserPermissions</code> is created.
     <code>LoggedUserPermissions</code> is a combination of the information from <code>compound-permissions-mapping.properties</code> and
     <code>CustomUserPermissionsMapping</code> that is relevant to the user.
     It takes into account all the profiles assigned to the user, not only the current profile, so when you change profile the map does not need to be recreated.</p>
@@ -258,19 +258,19 @@
     If so, the user is authorized.
     Otherwise, access is refused.
     If access is not authorized, a message is written in the log so that the Administrator is aware that an unauthorized user has tried to gain access.
-    Note that this level of logging is only available if you <a href="/logging-0">set the logging level</a> to <code>FINEST</code>.</p>
+    Note that this level of logging is only available if you <a href="/logging.html">set the logging level</a> to <code>FINEST</code>.</p>
 
 
 <h2 id="custom_pages">Authorizing access to a custom page</h2>
 
-<p>When a new <a href="/custom-pages-2">custom page</a> is added, the permissions defined in the page properties are added to the permissions configuration files and the cache.
+<p>When a new <a href="/pages.html">custom page</a> is added, the permissions defined in the page properties are added to the permissions configuration files and the cache.
     It is not necessary to restart the applications server to activate security for the new custom page.
     Depending on the permissions that a user of the page already has, it might be necessary to log out and log in again to get access to the new custom page.</p>
 
 
 <h2 id="custom-profile">Authorization and custom profiles</h2>
 
-<p>When a new <a href="/custom-profiles-2">custom profile</a> is created, the permissions mappings are updated in the configuration files and in the cache.
+<p>When a new <a href="/custom-profiles.html">custom profile</a> is created, the permissions mappings are updated in the configuration files and in the cache.
     It is not necessary to restart the application server to activate security for the new custom profile.</p>
 
 <h2 id="activate">Activating and deactivating authorization</h2>
@@ -323,11 +323,11 @@ When you migrate from a version earlier than 6.4.0, authorization is configured 
 <p>If you have an existing custom page and want to activate authorization, you need to add permissions to the definition of the custom page.
     To add authorization to an existing custom page:</p>
 
-<ol><li>Export the <a href="/custom-pages-2">custom page</a>.</li>
-    <li>Update the page properties with <a href="/custom-pages-2#permissions">permissions</a>.</li>
+<ol><li>Export the <a href="/pages.html">custom page</a>.</li>
+    <li>Update the page properties with <a href="/pages.html#permissions">permissions</a>.</li>
     <li>Activate authorization, by editing <code>security-config.properties</code> and setting the value of the <code>security.rest.api.authorizations.check.enabled</code> property to <code>true</code>.</li>
     <li>Restart the application server.</li>
-    <li>Import the <a href="/custom-pages-2">custom page</a>.</li>
+    <li>Import the <a href="/pages.html">custom page</a>.</li>
 </ol><p>If you have an existing custom profile, the permissions relating to the profiles is automatically added to the permissions files, so you do not need to update the profile.
     However, if a custom profile use a custom page, you must update the custom page definition to add permissions before you activate authorization.</p>
 
@@ -387,7 +387,7 @@ When you migrate from a version earlier than 6.4.0, authorization is configured 
     </tr><tr><td valign="top"> document_visualization</td><td valign="top">[GET|bpm/caseDocument, GET|bpm/document, GET|bpm/archiveddocument, GET|bpm/archivedCaseDocument]
     </td>
     </tr><tr><td valign="top"> flownode_management</td><td valign="top">[PUT|bpm/flowNode, PUT|bpm/activity, PUT|bpm/task, PUT|bpm/timerEventTrigger]
-        "
+        &quot;
     </td>
     </tr><tr><td valign="top"> flownode_visualization</td><td valign="top">[GET|bpm/processResolutionProblem, GET|bpm/flowNode, GET|bpm/activity, GET|bpm/task, GET|bpm/activityVariable, GET|bpm/archivedFlowNode, GET|bpm/archivedActivity, GET|bpm/archivedTask, GET|bpm/timerEventTrigger]
     </td>

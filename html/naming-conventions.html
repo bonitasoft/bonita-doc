@@ -8,7 +8,7 @@ For example, you cannot have two variables called <code>beanCounter</code> in a 
 You could, however, have a variable called <code>beanCounter</code> and an actor called <code>beanCounter</code>.</p>
 
 <p>Note: Variables are not shared between Studio and UI Designer. Furthermore, in the UI Designer, variables are not shared between pages. 
-For information about to use variables in the UI Designer, go to <a href="/variables">Variables</a>.</p>
+For information about to use variables in the UI Designer, go to <a href="/variables.html">Variables</a>.</p>
 
 <p>Even in a relatively simple process, the number of names quickly becomes large. Adopting a naming strategy improves the readability and maintainability of your processes, and makes it easier to reuse elements. We propose the following best practises.</p>
 
@@ -49,7 +49,7 @@ You could also indicate the data type explicitly. For example, <code>p_int_numbe
 
 <li>
 Name a connector instance with a descriptive name to indicate what it is doing, not just the connector type. 
-This is particularly important if a process uses the same connector at several points to handle different data. For example, in a process to update an employee's contact details, 
+This is particularly important if a process uses the same connector at several points to handle different data. For example, in a process to update an employee&apos;s contact details, 
 you could use the PostgreSQL connector to get the existing data and to write the updated values, 
 so you could name the connector instances <code>posrgresqlGetEmployeeContactInfo</code> and <code>postgresqlUpdateEmployeeContactInfo</code>.</li>
 

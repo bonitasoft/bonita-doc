@@ -14,17 +14,17 @@
 <p><strong>Create a new user</strong> by calling the <span class="tt">createUser</span> method:</p>
 <code type="java">
 // create new user, with username john and password bpm
-final User user = identityAPI.createUser("john", "bpm");
-System.out.println("New user created: " + user);
+final User user = identityAPI.createUser(&quot;john&quot;, &quot;bpm&quot;);
+System.out.println(&quot;New user created: &quot; + user);
 </code>
 
 <p>Alternatively, you can create a more complex user object as follows:</p>
 <code type="java">
 // create complex user 
-UserCreator creator = new UserCreator("john", "bpm");
-creator.setFirstName("Johnny").setLastName("B. Good");
-ContactDataCreator proContactDataCreator = new ContactDataCreator().setAddress("32 rue 
-        Gustave Eiffel").setCity("Grenoble").setPhoneNumber("555 14 12 541");
+UserCreator creator = new UserCreator(&quot;john&quot;, &quot;bpm&quot;);
+creator.setFirstName(&quot;Johnny&quot;).setLastName(&quot;B. Good&quot;);
+ContactDataCreator proContactDataCreator = new ContactDataCreator().setAddress(&quot;32 rue 
+        Gustave Eiffel&quot;).setCity(&quot;Grenoble&quot;).setPhoneNumber(&quot;555 14 12 541&quot;);
 creator.setProfessionalContactData(proContactDataCreator);
 final User user2 = identityAPI.createUser(creator);
 </code>
@@ -32,10 +32,10 @@ final User user2 = identityAPI.createUser(creator);
 <p>Now add the user to a Bonita BPM Portal profile. A user who does not have a profile cannot log in to Bonita BPM Portal.</p>
 <code type="java">
 // reference the user in the profile User
-// the user must be now registered in one profile. Let's choose the profile user
+// the user must be now registered in one profile. Let&apos;s choose the profile user
 org.bonitasoft.engine.api.ProfileAPI orgProfileAPI = apiAccessor.getProfileAPI();
 SearchOptionsBuilder searchOptionsBuilder = new SearchOptionsBuilder(0,10);
-searchOptionsBuilder.filter(ProfileSearchDescriptor.NAME, "user");
+searchOptionsBuilder.filter(ProfileSearchDescriptor.NAME, &quot;user&quot;);
 SearchResult<profile> searchResultProfile = orgProfileAPI.searchProfiles(searchOptionsBuilder.done());
     
 // we should find one result now
@@ -126,16 +126,16 @@ public class BonitaClientApplicationExample {
 
         // example code:
         final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
-        System.out.println("login with install//install");
-        final APISession session = loginAPI.login("install", "install");
+        System.out.println(&quot;login with install//install&quot;);
+        final APISession session = loginAPI.login(&quot;install&quot;, &quot;install&quot;);
         final IdentityAPI identityAPI = TenantAPIAccessor.getIdentityAPI(session);
         final SearchResult<user> searchUsers = identityAPI.searchUsers(new SearchOptionsBuilder(0, 20).done());
-        System.out.println("20 first users:");
+        System.out.println(&quot;20 first users:&quot;);
         for (final User user : searchUsers.getResult()) {
-            System.out.println(" * " + user.getUserName() + " -- " + user.getId());
+            System.out.println(&quot; * &quot; + user.getUserName() + &quot; -- &quot; + user.getId());
         }
         loginAPI.logout(session);
-        System.out.println("logged out");
+        System.out.println(&quot;logged out&quot;);
     }
 }
 </user></code>
@@ -147,14 +147,14 @@ public class BonitaClientApplicationExample {
 
 
 <p>To <strong>get the pending tasks</strong> for a given user, call the <span class="tt">getPendingHumanTaskInstances</span> method.
-In this example, the first page of the current logged user's tasks are retrieved ordered by priority. 
+In this example, the first page of the current logged user&apos;s tasks are retrieved ordered by priority. 
 Each page contains up to 20 tasks.</p>
 <code type="java">
 // get the pending tasks for the current logged in user
 final List<humantaskinstance> pendingTasks = 
        processAPI.getPendingHumanTaskInstances(session.getUserId(), 
            0, 20, ActivityInstanceCriterion.PRIORITY_ASC);
-System.out.println("Pending tasks for user " + session.getUserName() + ": " + pendingTasks);
+System.out.println(&quot;Pending tasks for user &quot; + session.getUserName() + &quot;: &quot; + pendingTasks);
 </humantaskinstance></code>
 
 <p>Note that this does not return tasks that are already assigned to the user.</p>
@@ -174,8 +174,8 @@ for (final HumanTaskInstance pendingTask : pendingTasks) {
 
 <p>This example shows how to get the list of users who are eligible to perform a task.</p>
 
-<p>First, it creates a simple process containing one human task, called "step1". 
-This task will be performed by a user who is mapped to the "expert" actor. An actor filter is applied to "step1", assigning the task specifically to the superExpert user.</p>
+<p>First, it creates a simple process containing one human task, called &quot;step1&quot;. 
+This task will be performed by a user who is mapped to the &quot;expert&quot; actor. An actor filter is applied to &quot;step1&quot;, assigning the task specifically to the superExpert user.</p>
 
 <p>Next, it calls <code>getPossibleUsersOfHumanTask</code> to get the list of all users who are eligible to perform the step1 according to the process definition. 
 This will be a list of all the users who are mapped to the expert actor.</p>
@@ -187,30 +187,30 @@ The actor filter is applied and a shorter list of users is returned (in this cas
 <p>Dynamic task assignment using <code>getPossibleUsersOfPendingHumanTask</code> re-evaluates the actor mapping including any actor filters. 
 It is useful if your organization changes after a process instance is started and you need to modify the list of users who can perform a task.</p>
 
-<p>Finally, it executes the task for the fist user on the list. This "execute for" feature is not available in the Community and Teamwork editions.</p>
+<p>Finally, it executes the task for the fist user on the list. This &quot;execute for&quot; feature is not available in the Community and Teamwork editions.</p>
 
 <code type="java">
 // Create a process definition containing a human task, step1
 // Step1 is performed by actor expert adjusted by an actor filter
 
 
-final ProcessDefinitionBuilder designProcessDefinition = new ProcessDefinitionBuilder().createNewInstance("assign", "5.0");
-designProcessDefinition.addActor("expert");
-final UserTaskDefinitionBuilder taskDefinitionBuilder = designProcessDefinition.addUserTask("step1", "expert");
+final ProcessDefinitionBuilder designProcessDefinition = new ProcessDefinitionBuilder().createNewInstance(&quot;assign&quot;, &quot;5.0&quot;);
+designProcessDefinition.addActor(&quot;expert&quot;);
+final UserTaskDefinitionBuilder taskDefinitionBuilder = designProcessDefinition.addUserTask(&quot;step1&quot;, &quot;expert&quot;);
 
-        taskDefinitionBuilder.addUserFilter("test", "org.bonitasoft.engine.filter.user.testFilter", "1.0").addInput("userId",
+        taskDefinitionBuilder.addUserFilter(&quot;test&quot;, &quot;org.bonitasoft.engine.filter.user.testFilter&quot;, &quot;1.0&quot;).addInput(&quot;userId&quot;,
                 new ExpressionBuilder().createConstantLongExpression(superExpert.getId()));
 
-final ProcessDefinition processDefinition = deployAndEnableWithActor(designProcessDefinition.done(), "expert", role);
+final ProcessDefinition processDefinition = deployAndEnableWithActor(designProcessDefinition.done(), &quot;expert&quot;, role);
 
 final ProcessInstance processInstance = getProcessAPI().startProcess(processDefinition.getId());
 Thread.sleep(3000);
 final SearchOptionsBuilder searchOptionsBuilder = new SearchOptionsBuilder(0, 1);
-searchOptionsBuilder.filter(HumanTaskInstanceSearchDescriptor.NAME, "step1");
+searchOptionsBuilder.filter(HumanTaskInstanceSearchDescriptor.NAME, &quot;step1&quot;);
 final HumanTaskInstance userTask = getProcessAPI().searchHumanTaskInstances(searchOptionsBuilder.done()).getResult().get(0);
 
-// Get all users of the actor of the userTask called 'step1'
-List<user> possibleUsers = getProcessAPI().getPossibleUsersOfHumanTask(processDefinition.getId(), "step1", 0, 10);
+// Get all users of the actor of the userTask called &apos;step1&apos;
+List<user> possibleUsers = getProcessAPI().getPossibleUsersOfHumanTask(processDefinition.getId(), &quot;step1&quot;, 0, 10);
 
 
 // Get the filtered list of users for the task instance

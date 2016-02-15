@@ -4,9 +4,9 @@
     <h2>Configuration overview</h2>
 
 
-<p>If you are using <a href="/business-data-model-856">business data</a>, the business objects used in your processes are stored using a separate database, not in the main database that is used by the Bonita BPM Engine. 
+<p>If you are using <a href="/define-and-deploy-the-bdm.html">business data</a>, the business objects used in your processes are stored using a separate database, not in the main database that is used by the Bonita BPM Engine. 
 You need to configure the following:</p>
-<ul><li>A database created in a <a href="var_support_guide">supported RDBMS</a></li>
+<ul><li>A database created in a <a href="https://customer.bonitasoft.com/support-policies">supported RDBMS</a></li>
 <li>JNDI data sources to access the database</li>
 </ul><p>Note that configuration is done per tenant. If you have multiple tenants to configure, you need to apply instructions below individually to each tenant.</p>
 
@@ -56,8 +56,8 @@ The data sources for business data objects are independent of the Bonita BPM Eng
 If you have multiple tenants that use business data objects, you need to create a <code>BusinessDataDS</code> and a <code>NotManagedBizDataDS</code> for each tenant.</div>
 
 
-<p>The following sections show how to configuire the data sources for <a href="#ds_jboss">JBoss</a> and <a href="ds_tomcat">Tomcat</a>. 
-There is also an <a href="/how-install-red-hat-oracle-jvm-weblogic-oracle-0#datasources">example of how to configure data sources for Weblogic</a>.</p>	
+<p>The following sections show how to configuire the data sources for <a href="#ds_jboss">JBoss</a> and <a href="#ds_tomcat">Tomcat</a>. 
+There is also an <a href="/red-hat-oracle-jvm-weblogic-oracle.html#datasources">example of how to configure data sources for Weblogic</a>.</p>	
 
 <h3 id="ds_jboss">Configuration for JBoss</h3>
 

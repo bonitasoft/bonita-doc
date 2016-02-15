@@ -43,7 +43,7 @@ txManager.begin();
 DataInstance processDataInstanceFoo = processAPI.getProcessDataInstance(dataFoo, procId);
 DataInstance processDataInstanceBar = processAPI.getProcessDataInstance(dataBar, procId);
 if (((Integer) processDataInstanceFoo.getValue()) != 3 &amp;&amp; ((Integer) processDataInstanceBar.getValue()) != 4) {
-   System.err.println("The values for the variables foo and bar should not have been changed.");
+   System.err.println(&quot;The values for the variables foo and bar should not have been changed.&quot;);
 }
 txManager.commit();
 </code>
@@ -89,7 +89,7 @@ class MyCallable implements Callable<sprocessinstance> {
 
 class MyCommand extends TenantCommand {
 	@Override
-    public Serializable execute(final Map<string serializable> parameters, final TenantServiceAccessor serviceAccessor) {
+    public Serializable execute(final Map<string serializable=""> parameters, final TenantServiceAccessor serviceAccessor) {
 		SProcessInstanceService processInstanceService = serviceAccessor.getProcessInstanceService();
 		MyCallable callable = new MyCallable(processInstanceService);
 		SProcessInstance processInstance;

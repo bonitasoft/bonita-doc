@@ -1,7 +1,7 @@
 <?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Creating a REST API extension</title></head><body class="front">
 		<div id="content">
 	<h1>4.4.11 Creating a REST API extension</h1>
-    <p>REST API extensions provide data sources for forms and pages. They can be used to query <a href="/business-data-model-856">business data</a> or an external information system (such as a database, web service, or LDAP directory).
+    <p>REST API extensions provide data sources for forms and pages. They can be used to query <a href="/define-and-deploy-the-bdm.html">business data</a> or an external information system (such as a database, web service, or LDAP directory).
 They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
 In the Bonita BPM Studio, a REST API Extension is a <a href="http://maven.apache.org/">Maven artifact</a>.</p>
 
@@ -24,7 +24,7 @@ A REST API should be resource oriented. Here the resource name could be LDAPUser
 <li>Enter the <strong>pathTemplate</strong> for this REST API extension, for example <em>ldap/users</em>. 
 This will be the access point of the API, and follows this pattern: <code>{bonita_portal_context}/API/extension/ldap/users</code>.</li>
 <li>Define a <strong>Permission</strong> for the extension, for example <em>read_ldap_users</em>. 
-Each REST API extension should declare its own <a href="/rest-api-authorization-0">authorization permission</a>. Users require this permission to use the extension. /li&gt;
+Each REST API extension should declare its own <a href="/rest-api-authorization.html">authorization permission</a>. Users require this permission to use the extension. /li&gt;
 </li><li>Click <strong>Next</strong></li>
 <li>Add <strong>URL parameters</strong> that will be passed to the API. By default, <em>p</em> and <em>c</em> parameters are defined to enables paged result, it apllies well in our examples as we want to return a list of users.</li>
 <li>Click <strong>Create</strong>.</li>
@@ -41,24 +41,24 @@ Another file of interest is the <code>pom.xml</code> of your project, where you 
 <li><code>content.xml</code>: A maven assembly to package the REST API Extension for deployment.</li>
 </ul><h2>Write the code</h2>
 <ol><li>Right click the <code>IndexTest.groovy</code> file and click on <strong>REST API Extension</strong> &gt; <strong>Run JUnit Tests</strong>. The JUnit view displays the test results. All tests should pass.</li>
-    <li>Because the values of the parameters <em>p</em> and <em>c</em> are supposed to be integer values, update the generated content to match that (for example, replace "value1" by "0")</li>
+    <li>Because the values of the parameters <em>p</em> and <em>c</em> are supposed to be integer values, update the generated content to match that (for example, replace &quot;value1&quot; by &quot;0&quot;)</li>
     <li>Update <code>IndexTest.groovy</code> to add a new test to validate that the page parameter is an integer:
     <code>
  def should_return_an_error_response_if_p_parameter_is_not_a_positive_integer() {
-		given: "a request with p parmeter not being a positive integer"
+		given: &quot;a request with p parmeter not being a positive integer&quot;
 		def index = new Index()
-		httpRequest.getParameter("p") &gt;&gt; "aStringValue"
+		httpRequest.getParameter(&quot;p&quot;) &gt;&gt; &quot;aStringValue&quot;
 		// Other parameters return a valid value
-		httpRequest.getParameter("c") &gt;&gt; "50"
+		httpRequest.getParameter(&quot;c&quot;) &gt;&gt; &quot;50&quot;
 
-		when: "Invoking the REST API"
+		when: &quot;Invoking the REST API&quot;
 		def apiResponse = index.doHandle(httpRequest, new RestApiResponseBuilder(), context)
 
-		then: "A JSON response is returned with a HTTP Bad Request Status (400) and an error message in body"
+		then: &quot;A JSON response is returned with a HTTP Bad Request Status (400) and an error message in body&quot;
 		def jsonResponse = new JsonSlurper().parseText(apiResponse.response)
 		// Validate returned response
 		apiResponse.httpStatus == 400
-		jsonResponse.error == "the parameter p is not a positive integer"
+		jsonResponse.error == &quot;the parameter p is not a positive integer&quot;
 	}
 </code></li>
 <li>Re-run the tests. The test above should fail.</li>
@@ -70,9 +70,9 @@ Another file of interest is the <code>pom.xml</code> of your project, where you 
 		// Be careful, parameter values are always returned as String values
 
 		// Retrieve p parameter
-		def p = request.getParameter "p"
+		def p = request.getParameter &quot;p&quot;
 		if (p == null) {
-			return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,"""{"error" : "the parameter p is missing"}""")
+			return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,&quot;&quot;&quot;{&quot;error&quot; : &quot;the parameter p is missing&quot;}&quot;&quot;&quot;)
 		}
 		def pageNumber;
 		try{

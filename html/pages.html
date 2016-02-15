@@ -22,12 +22,12 @@ Add a welcome page, with dashboards showing activity in Bonita BPM and related e
 <dd><a href="#page-resources">Page resources</a></dd>
 <dd><a href="#api-access">API access</a></dd>
 <dd><a href="#theme-access">Theme access</a></dd>
-</dl><p>Pages are <a href="/resources-management">exported. imported, modified, and deleted</a> as resources in Bonita BPM Portal. </p>
+</dl><p>Pages are <a href="/resource-management.html">exported. imported, modified, and deleted</a> as resources in Bonita BPM Portal. </p>
 
 
 <h2 id="page_definition">Custom page definition</h2>
 
-<p>A page resource has the general <a href="/resource-management#resource_definition">resource definition</a>. 
+<p>A page resource has the general <a href="/resource-management.html#resource_definition">resource definition</a>. 
 If it contains an <code>Index.groovy</code> file, this must implement the <a href="#pageController">PageController interface</a>, optionally with libraries. 
 If you create a custom page with the UI designer, it has the reequired structure and content automatically.</p>
 
@@ -78,28 +78,28 @@ In practice, you will probably use a combination of Groovy and HTML to create yo
 <p>You can reuse pages from the Bonita BPM Portal in your custom pages. For example, in a page giving details of a case history, you could include the live case status diagram to show the current status. For example, for case 1 of process definition 8270554088248243867, include these lines in your custom page definition:</p>
 
 <code>
-def idProcess = "8270554088248243867";
-def idCase = "1";
-out.write("""<iframe src="../portal.js/#/admin/monitoring/%24%7BidProcess%7D-%24%7BidCase%7D%22" style="width:100%; height:100%"></iframe>""");
+def idProcess = &quot;8270554088248243867&quot;;
+def idCase = &quot;1&quot;;
+out.write(&quot;&quot;&quot;<iframe src="../portal.js/#/admin/monitoring/%24%7BidProcess%7D-%24%7BidCase%7D%22" style="width:100%; height:100%"></iframe>&quot;&quot;&quot;);
 </code>
 
 <p>This displays the case diagram exactly as it appears in the standard Bonita BPM Portal page. You can modify the view to hide the Portal <strong>Back</strong> button by adding <code>?diagramOnly</code> to the URL:</p>
 
 <code>
-out.write("""<iframe src="../portal.js/#/admin/monitoring/%24%7BidProcess%7D-%24%7BidCase%7D?diagramOnly%7D%22" style="width:100%; height:100%"></iframe>""");
+out.write(&quot;&quot;&quot;<iframe src="../portal.js/#/admin/monitoring/%24%7BidProcess%7D-%24%7BidCase%7D?diagramOnly%7D%22" style="width:100%; height:100%"></iframe>&quot;&quot;&quot;);
 </code>	
 
 <h3 id="debug">Debugging a custom page in development</h3>
 
 <p>While you are developing a custom page, you can enable custom page debug mode for your portal. In debug mode, you can see changes to your custom page without importing a new zip archive.</p>
 
-<p>To enable custom page debug mode, edit <code> <bonita_home>/client/tenants/<tenant id>/conf/console-config.properties</tenant></bonita_home></code> and set <code>custom.page.debug</code> to <code>true</code>.</p>
+<p>To enable custom page debug mode, edit <code> <bonita_home>/client/tenants/<tenant id="">/conf/console-config.properties</tenant></bonita_home></code> and set <code>custom.page.debug</code> to <code>true</code>.</p>
 
 <p>To work on a page in debug mode:</p>
 
-<ol><li>Import your custom page zip archive into the portal. This creates a directory <code><bonita_home>/client/tenants/<tenant id>/work/pages/<your custom page></your></tenant></bonita_home></code>.</li>
+<ol><li>Import your custom page zip archive into the portal. This creates a directory <code><bonita_home>/client/tenants/<tenant id="">/work/pages/<your custom="" page=""></your></tenant></bonita_home></code>.</li>
     <li>Publish the page to a profile, then log out and log in as a user having this profile.</li>
-    <li>You can now update <code>Index.groovy</code> and the contents of the <code>lib</code> directory directly in <code><bonita_home>/client/tenants/<tenant id>/work/pages/<your custom page></your></tenant></bonita_home></code>.</li>
+    <li>You can now update <code>Index.groovy</code> and the contents of the <code>lib</code> directory directly in <code><bonita_home>/client/tenants/<tenant id="">/work/pages/<your custom="" page=""></your></tenant></bonita_home></code>.</li>
     <li>To view the page after you modify it, refresh the page in the browser.</li>
 </ol><p>When you have finished developing the page, recreate the custom page zip archive, and then <a href="#edit">modify the page</a> to import it. This makes your final version of the page permanently available.</p>
 
@@ -116,19 +116,19 @@ However, this cannot be guaranteed for all future migrations.</p>
 <p>The <code>bonita.css</code> can be retrieved using <code>pageResourceProvider.getBonitaThemeCSSURL()
 </code>
 </p>
-<p>Other <code>css/js</code> resources can be retrieved using <code>pageResourceProvider.getResourceURL("<path in the custom page resources folder>")
-</path></code></p>
+<p>Other <code>css/js</code> resources can be retrieved using <code>pageResourceProvider.getResourceURL(&quot;<path in="" the="" custom="" page="" resources="" folder=""></path>&quot;)
+</code></p>
 
 <p>If you are not using Groovy you can directly access a resource by adding a link in <code>index.html</code>.</p>
 <p>For example: <code><link href="css/file.css" rel="stylesheet"></code></p>
 
 
 <h3 id="api-access">API acces</h3>
-<p>If your page is viewed in a custom profile or in an application, you will have access facilities for <a href="/rest-api-overview-0">the portal API</a>.</p>
-<p>you will be abble to access the portal API using the following path: "../API/{API name}/{resource name}"</p>
+<p>If your page is viewed in a custom profile or in an application, you will have access facilities for <a href="/rest-api-overview.html">the portal API</a>.</p>
+<p>you will be abble to access the portal API using the following path: &quot;../API/{API name}/{resource name}&quot;</p>
 
 <h3 id="theme-access">Theme access</h3>
-<p>If your page is viewed in an application, you will have access facilities for  <a href="/applications-0#theme">the application theme</a>.</p>
+<p>If your page is viewed in an application, you will have access facilities for  <a href="/applications.html#theme">the application theme</a>.</p>
 <p>You can directly access a resource by adding the following link in <code>index.html</code>: <code><link href="../theme/theme.css" rel="stylesheet"></code></p>
 
 </div>

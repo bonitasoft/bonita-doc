@@ -13,7 +13,7 @@ This enables you to check at each stage that your processes run correctly.</p>
 
 <p>A node that will be in a cluster is installed in exactly the same way as a standalone node. </p>
 
-<ol><li>Follow the instructions to <a href="/ubuntu-openjdk-tomcat-postgresql-0">install the 
+<ol><li>Follow the instructions to <a href="/ubuntu-openjdk-tomcat-postgresql.html">install the 
 Tomcat bundle on Ubuntu</a>.</li>
 <li>In var_bonita_home, update <code>engine-server/conf/platform/bonita-platform-sp-custom.properties</code> and set the <code>bonita.cluster</code> property to <code>true</code>.</li>
 <li>In order to use cluster mode in environments where multicast is disabled (like main IaaS providers), you should switch to TcpIp mode, or AWS for Amazon Web Services cloud provider. This can be parametered in  <code>/engine-server/conf/platform-sp-cluster-custom.properties.</code>Only one mode can be selected, so only one of the following properties must be set to true: 
@@ -25,11 +25,11 @@ Tomcat bundle on Ubuntu</a>.</li>
 <li>In your <code>setenv.sh</code> file (Linux) or <code>setenv.bat</code> file (Windows), extend the <code>DB_OPTS</code> setting to specify a cluster name, as shown in the following examples:
 <p>Linux or Mac OS:</p>
 <code type="xml">
-DB_OPTS="-Dsysprop.bonita.db.vendor=postgresql -Dbonita.cluster.group.name=myBPMCluster"
+DB_OPTS=&quot;-Dsysprop.bonita.db.vendor=postgresql -Dbonita.cluster.group.name=myBPMCluster&quot;
 </code> 
 <p>Windows:</p>
 <code type="xml">
-set DB_OPTS="-Dsysprop.bonita.db.vendor=postgresql" "-Dbonita.cluster.group.name=myBPMCluster"
+set DB_OPTS=&quot;-Dsysprop.bonita.db.vendor=postgresql&quot; &quot;-Dbonita.cluster.group.name=myBPMCluster&quot;
 </code> 
 
 <p>By default, the cluster name is <em>bonita</em>. The cluster name is used in the discovery process when you add a node to the cluster. If you only have one cluster in your network, you can use the default name.</p>

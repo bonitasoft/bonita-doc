@@ -29,8 +29,8 @@ It assumes that you are a Java programmer familiar with using Maven.</p>
 
 <h2 id="bonita_home">Bonita home</h2>
 
-<p>In order to execute this client example you need to set the Java system property <code>bonita.home</code>, for example <code>-Dbonita.home=<path to bonita home></path></code>, 
-and <a href="/configuring-bonita-home-client-1">configure a var_bonita_home for the client</a>. The bonita home used must have the same version as
+<p>In order to execute this client example you need to set the Java system property <code>bonita.home</code>, for example <code>-Dbonita.home=<path to="" bonita="" home=""></path></code>, 
+and <a href="/configuring-bonita-home-for-a-client.html">configure a var_bonita_home for the client</a>. The bonita home used must have the same version as
 the Bonita BPM Engine, which is configured in bonita.bpm.version (here 7.0.0). </p>
 
 
@@ -39,9 +39,9 @@ the Bonita BPM Engine, which is configured in bonita.bpm.version (here 7.0.0). <
 <p>The first action of the client must be to log in. This example shows how to log in when accessing the server over HTTP:</p>
 
 <code type="java">
-Map<string string> settings = new HashMap<string string>();
-settings.put("server.url", "http://localhost:8080");
-settings.put("application.name", "bonita");
+Map<string string=""> settings = new HashMap<string string="">();
+settings.put(&quot;server.url&quot;, &quot;http://localhost:8080&quot;);
+settings.put(&quot;application.name&quot;, &quot;bonita&quot;);
 APITypeManager.setAPITypeAndParams(ApiAccessType.HTTP, settings);
 // get the LoginAPI using the TenantAPIAccessor
 LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
@@ -63,14 +63,14 @@ APISession apiSession = loginAPI.login(username, password);
 </ul><p>The program displays a menu presented by the <code>getMenutTextContent</code> method:</p>
 <code type="java">
 private static String getMenutTextContent() {
-   StringBuilder stb = new StringBuilder("\nChoose the action to be executed:\n");
-   stb.append("0 - exit\n");
-   stb.append("1 - start a process\n");
-   stb.append("2 - list open process instances\n");
-   stb.append("3 - list archived process instances\n");
-   stb.append("4 - list pending tasks \n");
-   stb.append("5 - execute a task\n");
-   stb.append("Choice:");
+   StringBuilder stb = new StringBuilder(&quot;\nChoose the action to be executed:\n&quot;);
+   stb.append(&quot;0 - exit\n&quot;);
+   stb.append(&quot;1 - start a process\n&quot;);
+   stb.append(&quot;2 - list open process instances\n&quot;);
+   stb.append(&quot;3 - list archived process instances\n&quot;);
+   stb.append(&quot;4 - list pending tasks \n&quot;);
+   stb.append(&quot;5 - execute a task\n&quot;);
+   stb.append(&quot;Choice:&quot;);
    String message = stb.toString();
    return message;
    }
@@ -85,25 +85,25 @@ private static void executeActions(ProcessDefinition processDefinition)
     do {
         // show the menu and read the action chosen by the user
         choice = readLine(message);
-        if ("1".equals(choice)) {
+        if (&quot;1&quot;.equals(choice)) {
             // if user chooses 1, start a new process instance
             startProcess(processDefinition);
-        } else if ("2".equals(choice)) {
+        } else if (&quot;2&quot;.equals(choice)) {
             // if user chooses 2, list open process instances
             listOpenedProcessInstances();
-        } else if ("3".equals(choice)) {
+        } else if (&quot;3&quot;.equals(choice)) {
             // if user chooses 3, list archived process instances
             listArchivedProcessInstances();
-        } else if ("4".equals(choice)) {
+        } else if (&quot;4&quot;.equals(choice)) {
             // if user chooses 4, list pending tasks
             listPendingTasks();
-        } else if ("5".equals(choice)) {
+        } else if (&quot;5&quot;.equals(choice)) {
             // if user chooses 5, execute the task chosen by the user
             executeATask();
-        } else if (!"0".equals(choice)) {
-            System.out.println("Invalid choice!");
+        } else if (!&quot;0&quot;.equals(choice)) {
+            System.out.println(&quot;Invalid choice!&quot;);
         }
-    } while (!"0".equals(choice));
+    } while (!&quot;0&quot;.equals(choice));
 }
 </code>
 

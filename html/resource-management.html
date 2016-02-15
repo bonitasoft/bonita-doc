@@ -3,11 +3,11 @@
 	<h1>3.5 Resource management</h1>
     <p>This page explains how to add a resource to the Bonita BPM Portal and make it available to users. A resource is an artifact that extends the portal.</p>
 <p>It is typed and can be one of the following:</p> 
-<ul><li> <a href="/pages">Page</a></li>
-<li> <a href="/Forms">Form</a></li>
-<li> <a href="/Layouts">Layout</a></li>
-<li> <a href="/theme-resources">Theme</a></li>
-<li> <a href="/rest-api-extensions">API extension</a></li>
+<ul><li> <a href="/pages.html">Page</a></li>
+<li> <a href="/forms.html">Form</a></li>
+<li> <a href="/layouts.html">Layout</a></li>
+<li> <a href="/themes.html">Theme</a></li>
+<li> <a href="/rest-api-extensions.html">API extension</a></li>
 </ul><dl><dt><a href="#resource_definition">Resource definition</a></dt>
 <dt><a href="#permissions">Authorization permissions for resources</a></dt>
 <dt><a href="#export">Exporting a resource</a></dt>
@@ -37,7 +37,7 @@ contentType=layout
 
 </ul><h2 id="permissions">Authorization permissions for resources</h2>
 
-<p>If you are using <a href="/rest-api-authorization-0">REST API authorization</a> and your resource needs the Web REST API, 
+<p>If you are using <a href="/rest-api-authorization.html">REST API authorization</a> and your resource needs the Web REST API, 
 you need to specify the permissions that a user needs to have in order to access those API. 
 These permissions are defined in the <code>page.properties</code> file. If your resources is a page written in Groovy and uses the Bonita BPM Engine Java APIs, you do not need to specify permissions.
 For each REST resource accessed in other resources, specify the authorization needed for each method used. 
@@ -46,7 +46,7 @@ You can find the relevant file in <code>bonita-home\client\tenants\[tenant-id]\c
 <p>The following example shows the permissions defined for a page that enables a user to view but not update organization information:</p>
 
 <code type="sml">
-#The name must start with 'custompage_'
+#The name must start with &apos;custompage_&apos;
 name=custompage_orgViewer
 displayName=Organization viewer
 description=Organization viewer page. You cannot modify the organization from this page.
@@ -76,9 +76,9 @@ contentType=page
 <li>Click <strong><em>Add</em></strong>.</li>
 <li>In the Content field, specify the zip archive to be imported. Click in the field, then specify the location and filename in the popup.</li>
 <li>Click <strong><em>Add</em></strong>. The resource is added to the portal</li>
-</ol><p>If you have specified a resource permission that is not defined in the <a href="/rest-api-authorization-0">REST API authorization configuration</a> and REST API authorization is configured to be on, you will see an error message.</p>
+</ol><p>If you have specified a resource permission that is not defined in the <a href="/rest-api-authorization.html">REST API authorization configuration</a> and REST API authorization is configured to be on, you will see an error message.</p>
 
-<p>After a resource is added to the portal, it can be  used in an <a href="/applications-0">application</a> or in<a href="#custom-profiles-2"> a custom profile</a>.</p>
+<p>After a resource is added to the portal, it can be  used in an <a href="/applications.html">application</a> or in<a href="#custom-profiles-2"> a custom profile</a>.</p>
 
 <h2 id="edit">Modifying a resource</h2>
 

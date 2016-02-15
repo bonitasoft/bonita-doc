@@ -49,7 +49,7 @@ Widgets are configured directly in the Jasper report as properties.</p>
 <p>This is how to do this in iReport:</p>
 <ol><li>In the <strong>Report Inspector</strong> tree, right click on <strong>Parameters</strong> and select <strong>Add Parameter</strong>.</li>
 	<li>In the parameter properties, update the <strong>Name</strong> property to <code>BONITA_HTML_FORM</code>.</li>
-	<li>Drag and drop an <strong>HTML</strong> component from the <strong>Palette</strong> onto your report's <strong>Title</strong> section.</li>
+	<li>Drag and drop an <strong>HTML</strong> component from the <strong>Palette</strong> onto your report&apos;s <strong>Title</strong> section.</li>
 	<li>Select the <strong>HTML</strong> component that you have added.</li>
 	<li>In the component properties, set the <strong>HTML Content Exp.</strong> property to <code>$P{BONITA_HTML_FORM}</code>.</li>
 </ol><p>When the HTML form rendering parameter and component are ready, you need to set the report properties to configure the widgets that your report will integrate.</p>
@@ -86,16 +86,16 @@ Widgets are configured directly in the Jasper report as properties.</p>
 	</tr><tr><td>BONITA_FORM_<em>XXX</em>_AVAILABLE_VALUES</td>
 		<td rowspan="2">Yes: one of these two properties is required</td>
 		<td>Static list of available values defined in a JSON format.<br>
-			Example: <code>[{"id":"FR","label":"France"}, {"id":"US","label":"United States of America"}, {"id":"ES","label":"Spain"}]</code>
+			Example: <code>[{&quot;id&quot;:&quot;FR&quot;,&quot;label&quot;:&quot;France&quot;}, {&quot;id&quot;:&quot;US&quot;,&quot;label&quot;:&quot;United States of America&quot;}, {&quot;id&quot;:&quot;ES&quot;,&quot;label&quot;:&quot;Spain&quot;}]</code>
 		</td>
 	</tr><tr><td>BONITA_FORM_<em>XXX</em>_QUERY</td>
 		<td>Query that dynamically retrieves the list of available values from the Bonita BPM database.</td>
 	</tr><tr><td>BONITA_FORM_<em>XXX</em>_HAS_ALL</td>
 		<td>No</td>
-		<td>Set this to <code>TRUE</code> if you wish to dynamically add an "All" item to the list of available values. Otherwise, ignore this property.</td>
+		<td>Set this to <code>TRUE</code> if you wish to dynamically add an &quot;All&quot; item to the list of available values. Otherwise, ignore this property.</td>
 	</tr><tr><td>BONITA_FORM_<em>XXX</em>_HAS_ALL_VALUE</td>
-		<td>Only if the "All" item is active</td>
-		<td>Specifies the value returned when the "All" item is selected.</td>
+		<td>Only if the &quot;All&quot; item is active</td>
+		<td>Specifies the value returned when the &quot;All&quot; item is selected.</td>
 	</tr></table><p>The <strong>DATE</strong> and <strong>DATE_RANGE</strong> widgets have the following extra properties:</p>
 <table border="1" style="margin:10px; width:100%;"><tr><td style="text-align:center; font-weight:bold;">Property</td>
 		<td style="text-align:center; font-weight:bold;">Mandatory</td>
@@ -107,10 +107,10 @@ Widgets are configured directly in the Jasper report as properties.</p>
 	</tr><tr><td>BONITA_FORM_<em>XXX</em>_QUERY</td>
 		<td>Query that dynamically retrieves the initial value from the Bonita BPM database.</td>
 	</tr></table><p>Create the report properties using iReport as following:</p>
-<ol><li>In the <strong>Report Inspector</strong> tree, right click on the report&rsquo;s name and select <strong>Properties</strong>.</li>
+<ol><li>In the <strong>Report Inspector</strong> tree, right click on the report&#x2019;s name and select <strong>Properties</strong>.</li>
 	<li>In the <strong>More</strong> section, configure <strong>Properties</strong> by clicking on <strong>...</strong></li>
 	<li>Add the properties based on the widgets you need.</li>
-</ol><p>Here is an example of a report configuration containing a "Period" date range and a "State" select widget:</p>
+</ol><p>Here is an example of a report configuration containing a &quot;Period&quot; date range and a &quot;State&quot; select widget:</p>
 <img src="images/images-6_0/exampleswidgets.png" alt="Widget property example in iReport" style="width:50%;"><h3>Package a report for Bonita BPM Portal integration</h3>
 <p>In order to integrate a Jasper report in Bonita BPM Portal, you need to prepare a ZIP archive.</p>
 
@@ -118,7 +118,7 @@ Widgets are configured directly in the Jasper report as properties.</p>
 <p>If your report requires a connection to the reporting database, the archive must contain:</p>
 <ul><li>The JDBC driver jar file used to connect to the reporting database. Do not include this file in the archive if the driver is already deployed at server level.</li>
 	<li>A <i>connection.properties</i> text file that contains the reporting database connection settings:
-		<table border="1" style="margin:10px; width:500px;"><tr><td style="text-align:center; font-weight: bold;">Property</td><td style="text-align:center; font-weight: bold;">Description</td></tr><tr><td>dbUrl</td><td>JDBC Url to access the reporting database</td></tr><tr><td>dbDriverClassName</td><td>The JDBC driver's class name</td></tr><tr><td>dbUser</td><td>The login of the database user</td></tr><tr><td>dbPassword</td><td>The password of the database user</td></tr></table><p>For example, connecting to a local MySQL database named <em>BonitaReport</em> with a user <em>root</em> and password <em>root</em>:</p>
+		<table border="1" style="margin:10px; width:500px;"><tr><td style="text-align:center; font-weight: bold;">Property</td><td style="text-align:center; font-weight: bold;">Description</td></tr><tr><td>dbUrl</td><td>JDBC Url to access the reporting database</td></tr><tr><td>dbDriverClassName</td><td>The JDBC driver&apos;s class name</td></tr><tr><td>dbUser</td><td>The login of the database user</td></tr><tr><td>dbPassword</td><td>The password of the database user</td></tr></table><p>For example, connecting to a local MySQL database named <em>BonitaReport</em> with a user <em>root</em> and password <em>root</em>:</p>
 <code>
 dbUrl=jdbc:mysql://localhost:3306/BonitaReport
 dbDriverClassName=com.mysql.jdbc.Driver
@@ -129,7 +129,7 @@ dbPassword=root
 </ul><p>If your report contains sub reports, these should be placed in a directory named <code>sub</code>.</p>
 <p>If your report uses a style sheet you may also provide a .jrtx file in the archive.</p>
 
-<p>Once you have packaged the Jasper report as a ZIP archive, you can <a href="/analytics-0#install">install it in the Bonita BPM Portal</a>.</p>
+<p>Once you have packaged the Jasper report as a ZIP archive, you can <a href="/analytics.html#install">install it in the Bonita BPM Portal</a>.</p>
 
 
 </div>

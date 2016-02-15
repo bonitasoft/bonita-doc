@@ -21,7 +21,7 @@
 
 <ol><li>In a UI designer page, create a variable to specify the collection, which must be an array. 
 In a typical application, a collection is defined by a JavaScript or External API variable, but for easy page development, you can use a fixed JSON array. 
-For this example, create a JSON variable called <em>fruits</em> containing <code>["banana","apple","pineapple","cherry"]</code>.</li>
+For this example, create a JSON variable called <em>fruits</em> containing <code>[&quot;banana&quot;,&quot;apple&quot;,&quot;pineapple&quot;,&quot;cherry&quot;]</code>.</li>
 <li>Add a container widget to your page and bind the variable <em>fruits</em> to the <strong>Repeat contents</strong> property.</li>
 <li>In the container, add an input widget with the following properties:
 <ul><li>Bind the <strong>Value</strong> property to <em>$item</em>.</li>  
@@ -67,9 +67,9 @@ This example uses a more complex array with a list of producing countries nested
 
 <pre>
 {
-   "fruit":"fruit name",
-   "producingCountries":
-               ["country1","country2"]
+   &quot;fruit&quot;:&quot;fruit name&quot;,
+   &quot;producingCountries&quot;:
+               [&quot;country1&quot;,&quot;country2&quot;]
 }
 </pre>
 
@@ -77,14 +77,14 @@ This example uses a more complex array with a list of producing countries nested
 <pre>
 [
   {
-   "fruit":"banana",
-   "producingCountries":
-               ["India","China"]
+   &quot;fruit&quot;:&quot;banana&quot;,
+   &quot;producingCountries&quot;:
+               [&quot;India&quot;,&quot;China&quot;]
    },
    {
-    "fruit":"apple",
-    "producingCountries":
-                ["China","USA"]
+    &quot;fruit&quot;:&quot;apple&quot;,
+    &quot;producingCountries&quot;:
+                [&quot;China&quot;,&quot;USA&quot;]
     }
 ]
 </pre>

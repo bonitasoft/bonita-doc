@@ -5,13 +5,14 @@
 
 <p>This tutorial explains how to create an application that includes a process. The application is created using the Bonita BPM Community edition, and uses features that are available in all editions. The example application is a business travel tool, and is similar to the simple travel request process that was used in the getting started tutorial for earlier versions of Bonita BPM:</p>
 
-<p><em>An employee opens the Travel Tool application to view their pending and approved travel requests. They create a new travel request. Then the request is sent to the employee's manager. 
+<p>Note that example solution is vailable on <a href="https://github.com/Bonitasoft-Community/getting-started-turorial">GitHub repository</a>.</p>
+
+<p><em>An employee opens the Travel Tool application to view their pending and approved travel requests. They create a new travel request. Then the request is sent to the employee&apos;s manager. 
 The manager reviews the request and approves or refuses it.</em>
 In a real travel management application, there would be several process steps after approval: estimating costs, possibly getting a second level of approval if the cost passes a certain threshold, submitting an expenses claim after the travel, reviewing the expenses claim, escalating anything out of policy, and authorizing payment. However, for this tutorial you will consider only the first part of the process, where a travel request is submitted and then reviewed.</p>
 
-<p><img alt="new feature highlighter" src="images/images-6_0/star.png"> This tutorial assumes that you are a developer using Bonita BPM for the first time. 
-It gives instructions for using Bonita BPM Studio, the UI Designer, and Bonita BPM Portal. It assumes you are familiar with JavaScript, JSON and REST APIs. 
-If you are already a Bonita BPM user, look for the star highlighting new and changed features, including features now in the Community edition that were previously only available in Subscription editions.</p>
+<p>This tutorial assumes that you are a developer using Bonita BPM for the first time. 
+It gives instructions for using Bonita BPM Studio, the UI Designer, and Bonita BPM Portal. It assumes you are familiar with JavaScript, JSON and REST APIs.</p>
 
 <p>Use Bonita BPM Studio to define your process, including using the UI Designer to create pages and forms. Then use Bonita BPM Portal to build the application.</p>
 
@@ -41,7 +42,7 @@ If you are already a Bonita BPM user, look for the star highlighting new and cha
 	</ul></li>
 </ul><h2 id="create-app-page">Design application pages</h2>
 
-<p><img alt="new feature highlighter" src="images/images-6_0/star.png">
+<p>
 The first step in creating an application is to design the application pages in the UI Designer using dummy data, creating a prototype application as seen by users. This enables you to review the application with the stakeholders and get validation of the application design before proceeding to more complex tasks.</p>
 
 <p>The Bonita BPM Studio UI Designer is an environment for creating application pages and forms. To start the UI Designer, click the UI Designer icon in the Bonita BPM Studio coolbar (at the top of the screen). The UI Designer opens in a browser.</p>
@@ -59,7 +60,7 @@ Remember to click <strong><em>Save</em></strong> to save your work frequently.</
 
 <h3 id="create-user-page">Create travel tool home page</h3>
 
-<p><img alt="new feature highlighter" src="images/images-6_0/star.png">In Bonita BPM Studio, start the UI Designer by clicking the icon in the coolbar. This opens the UI Designer in your browser, at the home page.</p>
+<p>In Bonita BPM Studio, start the UI Designer by clicking the icon in the coolbar. This opens the UI Designer in your browser, at the home page.</p>
 
 <p>In the UI Designer home page, click on the <strong>Create</strong> button. This brings a pop-up.
 In the pop-up, set the type to <em>Application page</em> and name to <em>TravelTool</em>.
@@ -74,7 +75,7 @@ Specify the characteristics of a widget by selecting it and updating the propert
 	<li>A TITLE widget, with the <strong>Text</strong> property set to <em>Travel tool</em>.</li>
 	<li>A TEXT widget, with text introducing the application: <code>This page lists your pending and approved travel requests.</code></li>
 	<li>A CONTAINER for the user pending requests, with the following widgets:
-		<ul><li>A TITLE widget with a lower title level than the page title (for example, "Level 3"), with the text <code>My pending requests</code>.</li>
+		<ul><li>A TITLE widget with a lower title level than the page title (for example, &quot;Level 3&quot;), with the text <code>My pending requests</code>.</li>
 			<li>A TABLE widget for listing pending travel requests, with the following properties:
 				<ul><li><strong>Headers</strong> set to <code>Departure date, Number of nights, Hotel needed, Destination, Reason</code></li>
 					<li><strong>Columns key</strong> set to <code>departureDate, numberOfNights, hotelNeeded, destination, reason</code></li>
@@ -96,83 +97,83 @@ Change the arrangement of the widgets in the whiteboard using drag and drop and 
 
 <h3 id="use-dummy-data">Add dummy data</h3>
 
-<p><img alt="new feature highlighter" src="images/images-6_0/star.png">Now use some dummy data to see how the tables will look when there is data. 
+<p>Now use some dummy data to see how the tables will look when there is data. 
 First create a variable containing the data, and then bind the variable to the widget <strong>Value</strong> property. 
 In the application, the real data will be business data retrieved by a REST API call. 
-The dummy data for the travel requests is in JSON. You need two JSON variables, <code>myPendingRequests_dummy</code> and <code>myApprovedRequests_dummy</code>.</p>
+The dummy data for the travel requests is in JSON. You need two JSON variables, <code>myPendingRequests</code> and <code>myApprovedRequests</code>.</p>
 
-<p>To create <strong>myPendingRequests_dummy</strong>: </p>
+<p>To create <strong>myPendingRequests</strong>: </p>
 <ol><li>In the <b>Variables</b> panel (at the bottom of the page), click <strong><em>Create a new variable</em></strong>.</li>
-<li>Enter the variable name, <b>myPendingRequests_dummy</b>.</li>
+<li>Enter the variable name, <b>myPendingRequests</b>.</li>
 <li>Select the JSON type.</li>
 <li>Enter this value:
 <code>
 [
     {
-        "userId": 3,
-        "destination": "Grenoble",
-        "departureDate": "2016-02-09",
-        "numberOfNights": 1,
-        "hotelNeeded": true,
-        "reason": "Bonita BPM 7.2 launch",
-        "status": "pending",
-        "refusalReason": ""
+        &quot;userId&quot;: 3,
+        &quot;destination&quot;: &quot;Grenoble&quot;,
+        &quot;departureDate&quot;: &quot;2016-02-09&quot;,
+        &quot;numberOfNights&quot;: 1,
+        &quot;hotelNeeded&quot;: true,
+        &quot;reason&quot;: &quot;Bonita BPM 7.2 launch&quot;,
+        &quot;status&quot;: &quot;pending&quot;,
+        &quot;refusalReason&quot;: &quot;&quot;
     },
     {
-        "userId": 3,
-        "departureDate": "2016-10-09",
-        "numberOfNights": 3,
-        "hotelNeeded": false,
-        "destination": "Paris",
-        "reason": "Open source conference",
-        "status": "pending",
-        "refusalReason": ""
+        &quot;userId&quot;: 3,
+        &quot;departureDate&quot;: &quot;2016-10-09&quot;,
+        &quot;numberOfNights&quot;: 3,
+        &quot;hotelNeeded&quot;: false,
+        &quot;destination&quot;: &quot;Paris&quot;,
+        &quot;reason&quot;: &quot;Open source conference&quot;,
+        &quot;status&quot;: &quot;pending&quot;,
+        &quot;refusalReason&quot;: &quot;&quot;
     },
     {
-        "userId": 3,
-        "departureDate": "2016-07-07",
-        "numberOfNights": 4,
-        "hotelNeeded": false,
-        "destination": "San Francisco",
-        "reason": "BPAD training",
-        "status": "pending",
-        "refusalReason": ""
+        &quot;userId&quot;: 3,
+        &quot;departureDate&quot;: &quot;2016-07-07&quot;,
+        &quot;numberOfNights&quot;: 4,
+        &quot;hotelNeeded&quot;: false,
+        &quot;destination&quot;: &quot;San Francisco&quot;,
+        &quot;reason&quot;: &quot;BPAD training&quot;,
+        &quot;status&quot;: &quot;pending&quot;,
+        &quot;refusalReason&quot;: &quot;&quot;
     }
 ]
 </code>
 </li>
 <li>Click <strong><em>Save</em></strong>.</li>
 <li>Select the table widget for the pending requests.</li>
-<li>In the <b>Content</b> property, click the link icon at the right, then click in the box and choose <code>myPendingRequests_dummy</code> from the list of variables (start typing the variable name to get auto-completion).</li>
+<li>In the <b>Content</b> property, click the link icon at the right (&quot;fx&quot;), then click in the box and choose <code>myPendingRequests</code> from the list of variables (start typing the variable name to get auto-completion).</li>
 <li>Click <b><em>Preview</em></b> to see the page with data for pending requests.</li>
-</ol><p>Now follow the same steps to create <code>myApprovedRequests_dummy</code> with the following content:</p>
+</ol><p>Now follow the same steps to create <code>myApprovedRequests</code> with the following content:</p>
 
 <code>
 [
     {
-        "userId": 3,
-        "destination": "Tokyo",
-        "departureDate": "2016-10-10",
-        "numberOfNights": 5,
-        "hotelNeeded": true,
-        "reason": "BPM for HR conference",
-        "status": "approved",
-        "refusalReason": ""
+        &quot;userId&quot;: 3,
+        &quot;destination&quot;: &quot;Tokyo&quot;,
+        &quot;departureDate&quot;: &quot;2016-10-10&quot;,
+        &quot;numberOfNights&quot;: 5,
+        &quot;hotelNeeded&quot;: true,
+        &quot;reason&quot;: &quot;BPM for HR conference&quot;,
+        &quot;status&quot;: &quot;approved&quot;,
+        &quot;refusalReason&quot;: &quot;&quot;
     },
     {
-        "userId": 3,
-        "departureDate": "2015-12-11",
-        "numberOfNights": 3,
-        "hotelNeeded": false,
-        "destination": "San Francisco",
-        "reason": "Meetings with team",
-        "status": "approved",
-        "refusalReason": ""
+        &quot;userId&quot;: 3,
+        &quot;departureDate&quot;: &quot;2015-12-11&quot;,
+        &quot;numberOfNights&quot;: 3,
+        &quot;hotelNeeded&quot;: false,
+        &quot;destination&quot;: &quot;San Francisco&quot;,
+        &quot;reason&quot;: &quot;Meetings with team&quot;,
+        &quot;status&quot;: &quot;approved&quot;,
+        &quot;refusalReason&quot;: &quot;&quot;
     }
 ]
 </code>
 
-<p>When you have defined this variable, select the table widget for the approved requests and set the value of the <b>Content</b> property to <code>myApprovedRequests_dummy</code>.</p>
+<p>When you have defined this variable, select the table widget for the approved requests and set the value of the <b>Content</b> property to <code>myApprovedRequests_dummy</code> (remember to click on the &quot;bind&quot; icon).</p>
 
 
 <h3 id="review-improve">Review and improve the page</h3>
@@ -181,11 +182,9 @@ The dummy data for the travel requests is in JSON. You need two JSON variables, 
 You can drag and drop widgets to reorder them, and you can change properties including <b>Width</b> and <b>Alignment</b>. For example, to improve this page, you could make the following changes:</p>
 
 <ul><li>Select the username widget, and change the <b>Alignment</b> to <code>right</code>.</li>
-	<li>Select the "Travel Tool" title and drag it beside the username. The size of the username widget will automatically adjust, so that both widgets are in the same row.</li>
-	<li>Select the "Create new travel request" link widget and change the <b>Alignment</b> to <code>center</code>.</li>
+	<li>Select the &quot;Travel Tool&quot; title and drag it beside the username. The size of the username widget will automatically adjust, so that both widgets are in the same row.</li>
+	<li>Select the &quot;Create new travel request&quot; link widget and change the <b>Alignment</b> to <code>center</code>.</li>
 </ul><h2 id="create-data-model">Create the data model</h2>
-
-<p><img alt="new feature highlighter" src="images/images-6_0/star.png"> Business data is new for 7.0 in the Community edition. </p>
 
 <p>There are two stages to defining variables: first you define the business data model, and then you specify how the process handles objects of the model. 
 The model is defined as a set of Java objects, and the process uses instances of these objects. If you are not familiar with the terminology, all you need to remember is that the model is the global definition, with a collection of structured variables. 
@@ -228,7 +227,7 @@ For your process, you select the subset that is relevant.</p>
 				<td>String</td>
 				<td>no</td>
 			</tr></table><br><p>To add each attribute:</p>
-		<ol type="a"><li>In the <strong>Attributes</strong> tab, click <strong><em>Add</em></strong>. A temporary attribute name is added to the Name column.</li>
+		<ol type="a"><li>In the <strong>Attributes</strong> tab, click <strong><em>Add</em></strong>. A temporary attribute name (&quot;attribute1&quot;) is added to the Name column.</li>
 			<li>Change the temporary name to the attribute name.</li>
 			<li>Select the type from the drop-down list. To display the list, click at the right end of the <strong>Type</strong> column.</li>
 			<li>There are no <b>Multiple</b> attributes in this object, so you can ignore this column.</li>
@@ -237,7 +236,7 @@ For your process, you select the subset that is relevant.</p>
 
 	<li>Add a custom query that you will use to search for data using both the userId and the status:
 		<ol type="a"><li>In the <strong>Queries</strong> tab, select <strong>Custom</strong>.</li>
-			<li>Click <strong><em>Add</em></strong>. A temporary query name is added to the <b>Name</b> column.</li>
+			<li>Click <strong><em>Add</em></strong>. A temporary query name (&quot;query1&quot;) is added to the <b>Name</b> column.</li>
 			<li>Change the temporary name to <code>findByUserIdAndStatus</code>.</li>
 			<li>Click in the query column, and then click the edit icon at the right. This opens a popup with a proposed custom query that uses all the attributes.</li>
 			<li>In the <b>JPQL Query</b> field, remove these lines:
@@ -271,7 +270,7 @@ Create the diagram as follows:</p>
 	<li>In the <strong>General</strong> tab, <strong>Diagram</strong> pane, click <strong><em>Edit...</em></strong> next to the <strong>Name</strong> field.</li>
 	<li>Enter the new diagram name, <em>Simple Travel Request</em>, in the popup and click <strong><em>OK</em></strong>. You can see in the tab at the top of the whiteboard that the diagram name has changed.</li>
 	<li>Now give the Pool a more descriptive name. Select the pool by clicking in the space between the pool border and the lane border at the left side of the diagram. 
-	Then go to the <strong>Details</strong> panel, <strong>Pool</strong> tab, and click <strong><em>Edit...</em></strong> next to the <strong>Name</strong> field. Enter the new pool name, <em>Travel Request</em>, in the popup.
+	Then go to the <strong>Details</strong> panel, <strong>General</strong> tab, <strong>Pool</strong> pane, and click <strong><em>Edit...</em></strong> next to the <strong>Name</strong> field. Enter the new pool name, <em>Travel Request</em>, in the popup.
 	When you have renamed the diagram and the pool, the diagram looks like this:
 	<p style="text-align:center;"></p><div style="text-align: center;"><img src="images/images-6_0/7.0-getting-started-renamed-diagram.png" alt="Diagram with names changed" title="Diagram with names changed"><div style="clear: both" class="caption"><span style="display: block;color: #BC071B;text-align: center;margin-top: 10px">Diagram with names changed</span></div></div>
 	</li>
@@ -288,8 +287,8 @@ Create the diagram as follows:</p>
 Define a <em>travelRequest</em> business variable, which is an instance of the <em>TravelRequest</em> object type. Follow these steps:</p>
 
 <ol><li>Select the pool.</li>
-	<li>Go to the <strong>Details</strong> panel, <strong>Data</strong> pane and click <strong><em>Add...</em></strong> beside the Business variables box.</li>
-	<li>In the  Name field, type <em>travelRequest</em>.</li>
+	<li>Go to the <strong>Details</strong> panel, <strong>Data</strong> tab, <strong>Pool variables</strong> pane and click <strong><em>Add...</em></strong> beside the Business variables box.</li>
+	<li>In the Name field, type <em>travelRequest</em>.</li>
 	<li>Add a description to document your development if you want to.</li>
 	<li>From the Business Object list, choose <em>TravelRequest</em>.</li>
 	<li>Do not configure the default value. The default value uses information that is in the contract, so you will define it later.</li>
@@ -299,7 +298,7 @@ Define a <em>travelRequest</em> business variable, which is an instance of the <
 
 <h3 id="create-contracts">Create contracts</h3>
 
-<p><img alt="new feature highlighter" src="images/images-6_0/star.png"> A contract is the specification of what a form must return to the process instance.  Define a contract for process instantiation, and for each human task. </p>
+<p>A contract is the specification of what a form must return to the process instance. Define a contract for process instantiation, and for each human task. </p>
 <p>The contract does not need to include information that is sent from the process instance to the form. This is included in the context, which is the set of information passed to the form. You cannot configure the context.</p>
 
 <p>The information that you specify in the contract is a subset of the information used in the process.
@@ -309,7 +308,7 @@ To specify the process instantiation contract, select the pool and follow these 
 	<li>Select <em>travelRequest</em> and click <strong><em>Next</em></strong>.</li>
 	<li>Specify the attributes to include. By default, all the attributes are checked, so uncheck those that are not relevant: <em>userId</em>, <em>status</em> and <em>refusalReason</em>.</li>
 	<li>Leave the radio button on automatic generation of initialization script.</li>
-	<li>Click <strong><em>Finish</em></strong> and safely ignore the two warnings related to contract generation as we will take care of those in time.</li>
+	<li>Click <strong><em>Finish</em></strong> and safely ignore the warning related to contract generation as we will take care of those in time.</li>
 </ol><p>Now that the case instantiation contract is set up, we will add two constraints on its values. 
 The first one will ensure that the departure date is in the future and the second will validate that the number of nights is greater or equal to zero.</p>
 <ol><li>Still in the <strong>Contract</strong> pane, switch to the <strong>Constraints</strong> tab and click <strong><em>Add</em></strong>. This adds a placeholder constraint.</li>
@@ -324,7 +323,7 @@ The first one will ensure that the departure date is in the future and the secon
 	        <li>Expression: <code type="java">travelRequestInput.numberOfNights &gt;= 0</code></li>
 	        <li>Error message: <code>Number of nights must be greater or equal to zero.</code></li>
 	    </ul></li>
-</ol><p>In the <strong>Details</strong> panel, click the arrow next to <strong>travelRequestInput</strong> to expand the list of attributes.
+</ol><p>In the <strong>Details</strong> panel, <strong>Contract</strong> pane, <strong>Inputs</strong> tab click the arrow next to <strong>travelRequestInput</strong> to expand the list of attributes.
 For each attribute, add a <strong>Description</strong>. The description is displayed in the automatically generated form used for process testing, so include information that will help the user complete the form correctly, as follows:</p>
 
 <table border="2" style="width:600px; margin:5px 0;"><tr><th>Attribute</th>
@@ -354,7 +353,7 @@ It also has a constraint: a <em>refusalReason</em> must be specified if the mana
         	</tr><tr><td>status</td>
         		<td>Text</td>
         		<td>No</td>
-        		<td>Indicate whether you accept or refuse this request.</td>
+        		<td>Indicate whether you approve or refuse this request.</td>
         	</tr><tr><td>refusalReason</td>
         		<td>Text</td>
         		<td>No</td>
@@ -364,32 +363,32 @@ It also has a constraint: a <em>refusalReason</em> must be specified if the mana
 	<li>Click on the placeholder name and change it to <em>reasonRequired</em>.</li>
 	<li>Click in the <strong>Expression</strong> field, then click on the icon that appears at the right of the field. This opens a popup where you can enter the constraint expression.</li>
 	<li>Define the constraint with this script:
-<code type="java">status=="approved" || (status=="refused" &amp;&amp; refusalReason != null &amp;&amp; !refusalReason.isEmpty())</code>
+<code type="java">status==&quot;approved&quot; || (status==&quot;refused&quot; &amp;&amp; !&quot;&quot;.equals(refusalReason))</code>
 	</li>
 	<li>In the <strong>Error message</strong> column, add this text: <code>If you refuse a request, you must give a reason.</code></li>
 </ol><h3 id="define-bo-initial-values">Define business object initial values</h3>
 
-<p><img alt="new feature highlighter" src="images/images-6_0/star.png"> Now that the contract is defined, you can configure the initial value of <em>travelRequest</em>, as follows:</p>
+<p>Now that the contract is defined, you can configure the initial value of <em>travelRequest</em>, as follows:</p>
 
-<ol><li>Select the pool and go to the <strong>Details</strong> panel, <strong>Data</strong> tab.</li>
+<ol><li>Select the pool and go to the <strong>Details</strong> panel, <strong>Data</strong> tab, <strong>Pool variables</strong> pane.</li>
 	<li>Double-click <em>travelRequest</em> to edit it.</li>
 	<li>Click the pencil icon beside the <strong>Default value</strong> field. This opens the expression editor.</li>
 	<li>An <em>initTravelRequest()</em> script was automatically generated to initialize our data with the contract. We will complete this script by setting up the <em>userId</em> and <em>status</em> attributes.<br>
 	Insert the following code after the first line:
-<code type="java">travelRequestVar.userId = BonitaUsers.getProcessInstanceInitiator(apiAccessor, processInstanceId).getId();
-travelRequestVar.status = "pending";</code>
+<code type="java">travelRequestVar.userId = BonitaUsers.getProcessInstanceInitiator(apiAccessor, processInstanceId).id
+travelRequestVar.status = &quot;pending&quot;</code>
 	</li>
 	<li>Click <strong><em>OK</em></strong> to save the expression.</li>
 	<li>Click <strong><em>OK</em></strong> again to save the updated object definition.</li>
 </ol><h3 id="update-bo">Update business object with review data</h3>
 
-<p><img alt="new feature highlighter" src="images/images-6_0/star.png">
+<p>
 You need to define operations to update the business object with the values entered for <em>status</em> and <em>refusalReason</em> in the <em>Manager review</em> form.
 Select the <em>Manager review</em> task, and go to the <strong>Details</strong> panel, <strong>Execution</strong> tab, <strong>Operations</strong> pane. First define the operation for <em>status</em>, as follows:</p>
 
 <ol><li>Create a new operation by clicking <strong><em>Add</em></strong>.</li>
 	<li>In the first field, click the down-arrow to display a list of variables on which an operation can be performed, and double-click <em>travelRequest</em>.</li>
-	<li>Click <strong><em>Takes value of</em></strong>. This opens a popup listing the available operations. Choose <strong><em>Use a Java method</em></strong>. The popup displays a list of available methods. Click <strong><em>setStatus(String)</em></strong>, and then click <strong><em>OK</em></strong>.</li>
+	<li>Click <strong><em>Takes value of</em></strong>. This opens a popup listing the available operations. Choose <strong><em>Use a Java method</em></strong>. The popup displays a list of available methods. Click <strong><em>setStatus(String) - void</em></strong>, and then click <strong><em>OK</em></strong>.</li>
 	<li>In the last field, click the down-arrow to display a list of variables, and double-click <em>status</em>.</li>
 </ol><p>Repeat these steps for to define the operation for <em>refusalReason</em>.</p>
 
@@ -399,10 +398,10 @@ Select the <em>Manager review</em> task, and go to the <strong>Details</strong> 
 
 <h3 id="specify_actors">Specify actors</h3>
 
-<p>The next stage is to define who carries out the steps in the process. This is done by assigning <a href="/actors-1">actors</a>. 
+<p>The next stage is to define who carries out the steps in the process. This is done by assigning <a href="/actors.html">actors</a>. 
 An actor is a placeholder for the person who will do a task. 
 When you configure a process, you make the connection between the actors defined in the process definition and the real-world people who will do process steps. 
-Bonita BPM Studio comes with a test organization, called ACME, which you can use for testing. In this example, we have two people, the employee who initiates the process, and the employee's manager.
+Bonita BPM Studio comes with a test organization, called ACME, which you can use for testing. In this example, we have two people, the employee who initiates the process, and the employee&apos;s manager.
 The managers are also employees, so you can use the same actor for process instantiation and for the review task, but use a filter to specify who does the approval step. This is how it works:</p>
 
 <ol><li>In the diagram, select the pool and go to the <strong>Details</strong> panel, <strong>General</strong> tab, <strong>Actors</strong> pane. This is where you define all the actors for the process.
@@ -423,29 +422,29 @@ The managers are also employees, so you can use the same actor for process insta
 
 <h3 id="test-process">Run process with temporary forms</h3>
 
-<p><img alt="new feature highlighter" src="images/images-6_0/star.png">You can run a process that is in development before you create forms, by using temporary forms that are created automatically.
+<p>You can run a process that is in development before you create forms, by using temporary forms that are created automatically.
 This section explains how to configure the process and run it from Bonita BPM Studio.</p>
 
 <p>Before you can run the process, you need to configure it. Use the default setting for almost everything for the first tests. 
 There are just two things to configure for this example process, the actor mapping and the name of the test user.</p>
 <ol><li>Open the Configuration dialog, by clicking <strong><em>Configure</em></strong> in the coolbar.</li>
 	<li>Click <strong>Actor mapping</strong> in the menu on the left of the popup. The actor mapping box lists the actors and shows the default mapping: The Employee actor is mapped to a group called acme, which contains all the employees of the example organization called ACME. You do not need to change this.</li>
-	<li>Now specify the name of the test user. For this example, we can specify the user Helen Kelly, in the ACME test organization. Her manager is William Jobs. Click <strong>Authentication</strong> in the left menu, and specify Helen's username, <code>helen.kelly</code>, and password, <code>bpm</code>.</li>
+	<li>Now specify the name of the test user. For this example, we can specify the user Helen Kelly, in the ACME test organization. Her manager is William Jobs. Click <strong>Authentication</strong> in the left menu, and specify Helen&apos;s username, <code>helen.kelly</code>, and password, <code>bpm</code>.</li>
 	<li>The configuration is now complete, so click <strong><em>Finish</em></strong>.</li>
 </ol><p>Now you can run the process and see the temporary forms, to check that the process definition is correct.</p>
 
 <ol><li>Click <strong><em>Run</em></strong> in the coolbar. This opens a browser window, logs you in to Bonita BPM Portal as Helen, and displays the travel request form.</li>
-	<li>Fill out the form. Make sure that you use the right format for each field in the temporary forms ("yyyy-mm-dd" format for dates and either "true" or "false" value for booleans).
+	<li>Fill out the form. Make sure that you use the right format for each field in the temporary forms (&quot;yyyy-mm-dd&quot; format for dates and either &quot;true&quot; or &quot;false&quot; value for booleans).
 	When you have filled out the form, click <strong><em>Start</em></strong>. This submits the form and starts the process instance.</li>
-	<li>At the top-right of the Portal window, click the arrow beside Helen's name and choose <strong><em>Logout</em></strong>.</li>
-	<li>Log in as Helen's manager, William Jobs, with username <code>william.jobs</code> and password <code>bpm</code>. The <strong>Tasks</strong> view is displayed, where there is a task called <em>Manager review</em>.</li>
+	<li>At the top-right of the Portal window, click the arrow beside Helen&apos;s name and choose <strong><em>Logout</em></strong>.</li>
+	<li>Log in as Helen&apos;s manager, William Jobs, with username <code>william.jobs</code> and password <code>bpm</code>. The <strong>Tasks</strong> view is displayed, where there is a task called <em>Manager review</em>.</li>
 	<li>Select the <em>Manager review</em> task and click <strong><em>Do it</em></strong>. The temporary form for the manager review is displayed.
 	It contains fields for the items defined in the contract for this step, but not the information that Helen entered in the request.
 	When you create  your own forms, you will add this information, so that the manger can see the details of the request before approving or refusing it.
 	For now, you can see the form, so you have verified that the process definition is correct.</li>
 </ol><h2 id="create-forms">Create forms</h2>
 
-<p><img alt="new feature highlighter" src="images/images-6_0/star.png"> The easiest way to create a process form is to generate it automatically from the contract. This automatically creates a mapping between the process and the form and defines form data. You can then update the form manually to add or remove field, and to change the layout.</p>
+<p>The easiest way to create a process form is to generate it automatically from the contract. This automatically creates a mapping between the process and the form and defines form data. You can then update the form manually to add or remove field, and to change the layout.</p>
 
 <p>While using the UI Designer, click <strong><em>Save</em></strong> frequently to save your work.</p>
 
@@ -464,12 +463,12 @@ To have more space to update the page, you can hide the <strong>Variables</stron
 
 <ol><li>Drag a <strong>Form container</strong> widget from the palette on a new row on the top of you form.
 	Note: when holding the new widget and hovering the area at the top of the form, a greyed area representing a new row will appear.</li>
-	<li>Drag all of the other widgets of your form except for the <em>Container</em> widget inside the <em>Form container</em>. Note: a Container widget is a widget that is used to group other widget. It does not have a label and is identified by a solid grey border.</li>
+	<li>Drag all (including &quot;Submit&quot; button) of the other widgets of your form except for the <em>Container</em> widget inside the <em>Form container</em>. Note: a Container widget is a widget that is used to group other widget. It does not have a label and is identified by a solid grey border.</li>
 	<li>Select the now empty <em>Container</em> widget and remove it.</li>
 	<li>Select the <em>Destination</em> widget and set the <em>Required</em> property to <em>yes</em>.
 	Repeat the operation for the <em>Departure Date</em>, <em>Number Of Nights</em> and <em>Reason</em> widgets.</li>
 	<li>Select the <em>Number Of Nights</em> widget and set its <em>Min value</em> property to <em>0</em>.</li>
-	<li>Select the <em>Submit</em> widget and click on the binding icon next to the <em>Disabled</em> property.</li>
+	<li>Select the <em>Submit</em> widget and click on the binding icon (&quot;fx&quot;) next to the <em>Disabled</em> property.</li>
 	Enter this script in the text field that just appeared: <code>$form.$invalid</code><br>
 	This will enable the Submit button only when the form content is valid.
 	<li>Preview the form and try to enter some values to make sure that the validation works.</li>
@@ -482,10 +481,10 @@ To have more space to update the page, you can hide the <strong>Variables</stron
 	<li>Make the Departure date widget narrower. To do this, select it and change the value of the <strong>Width</strong> property to 4 columns.</li>
 	<li>Move the Destination widget up to the top of the form (below the title).</li>
 	<li>Move the Number of nights and Hotel needed widgets to the same row as the Departure date, and reduce the widths. Note: when you add a widget to a row, it automatically takes all the remaining columns, so set the width after you move the widgets.</li>
-	<li>Clear the initial values for Departure date and Number of nights to show the placeholders at run time :
+	<li>Clear the initial values for Departure date and Number of nights to show the placeholders at run time:
 	    <ol type="a"><li>In the <strong>Variables panel</strong> (at the bottom of the page), locate the row containing the <em>formInput</em> variable.</li>
 	        <li>Click on the pencil icon located at the right side of this row.</li>
-	        <li>Change the values of the <em>departureDate</em> and <em>numberOfNights</em> attributes to <em>null</em>.</li>
+	        <li>Change the values of the <em>departureDate</em> and <em>numberOfNights</em> attributes from <em>0</em> to <em>null</em>.</li>
 	        <li>Click on <strong>Save</strong>.</li>
 	    </ol></li>
 </ol><p>When you have finished, the preview of the form looks like this:</p>
@@ -511,12 +510,12 @@ To have more space to update the page, you can hide the <strong>Variables</stron
 		    <td>JSON</td>
 		    <td>
 <code>[
-    {"label": "Accept request", "value": "accepted"},
-    {"label": "Refuse request", "value": "refused"}
+    {&quot;label&quot;: &quot;Approve request&quot;, &quot;value&quot;: &quot;approved&quot;},
+    {&quot;label&quot;: &quot;Refuse request&quot;, &quot;value&quot;: &quot;refused&quot;}
 ]</code>
 		    </td>
 		</tr></table><br></li>
-	<li>Edit the <em>formInput</em> variable and set the value for the <em>status</em> attribute to <em>accepted</em>.</li>
+	<li>Edit the <em>formInput</em> variable and set the value for the <em>status</em> attribute to <em>&quot;approved&quot;</em>.</li>
 	<li>Add a <em>Form container</em> widget and move the 3 other widgets inside this container.
 	All of the other widgets you will add will also be placed inside the form container.</li>
 	<li>Add a title widget and set its text property to <code>Review travel request</code>.
@@ -547,24 +546,21 @@ To have more space to update the page, you can hide the <strong>Variables</stron
     		<td>request.reason</td>
 			<td>yes</td>
 		</tr></table></li>
+	<li>Remove the &quot;Refusal reason&quot; widget that was added automatically, we will replace it by something more user-friendly in the next step.</li>
 	<li>Add a Text area widget with the following properties:
 		<table border="2" style="width:600px; margin:5px 0;"><tr><th>Property</th>
     		<th>Value</th>
 		</tr><tr><td>Hidden</td>
-    		<td><code>formInput.status == 'accepted'</code></td>
-		</tr><tr><td>Required</td>
-    		<td>yes</td>
+    		<td><code>formInput.status == &apos;approved&apos;</code> (click on &quot;bind&quot; icon)</td>
 		</tr><tr><td>Label</td>
     		<td>Refusal reason</td>
-		</tr><tr><td>Placeholder</td>
-    		<td>If you refuse a request, you must give a reason.</td>
 		</tr><tr><td>Value</td>
     		<td><code>formInput.refusalReason</code></td>
 		</tr></table>
-		The dynamic <em>Hidden</em> property will hide the widget when the request status is set to 'accepted'.
+		The dynamic <em>Hidden</em> property will hide the widget when the request status is set to &apos;approved&apos;.
 		Otherwise, the field will be marked as required and the form validation will prevent the user from refusing a request without a reason.
 	</li>
-    <li>Remove the Status widget that was added automatically, we will replace it by something more user-friendly in the next step.</li>
+    <li>Remove the Status widget that was added automatically.</li>
 	<li>Add a Radio buttons widget with the following properties:
         <table border="2" style="width:600px; margin:5px 0;"><tr><th>Property</th>
     		<th>Value</th>
@@ -574,10 +570,10 @@ To have more space to update the page, you can hide the <strong>Variables</stron
     		<td>statusValues</td>
 		</tr><tr><td>Displayed keys</td>
     		<td>label</td>
-		</tr><tr><td>Selected Value</td>
-    		<td><code>formInput.status</code></td>
 		</tr><tr><td>Returned keys</td>
     		<td>value</td>
+		</tr><tr><td>Selected Value</td>
+    		<td><code>formInput.status</code></td>
 		</tr></table></li>
 	<li>Select the <em>Submit</em> widget and bind its <em>Disabled</em> property to <code>$form.$invalid</code></li>
 	<li>Preview the form to test the validation and rearrange the widgets until it looks like this in the editor:
@@ -601,8 +597,6 @@ When the review form is displayed, it contains the information that Helen entere
 	<li>In Bonita BPM Portal, create the application.</li>
 </ol><h3 id="update-variables">Update the application page</h3>
 
-<p><img alt="new feature highlighter" src="images/images-6_0/star.png">There are three stages to updating the page: first create some variables, then change the widget data mappings, and then remove the dummy variables.</p>
-
 <p>Create the following variables:</p>
 
 <table border="2" style="width:100%; margin:5px 0;"><tr><th>Name</th>
@@ -614,6 +608,11 @@ When the review form is displayed, it contains the information that Helen entere
 </tr><tr><td>processDef</td>
 	<td>External API</td>
 	<td><code>../API/bpm/process?p=0&amp;c=1&amp;f=name=Travel%20Request</code></td>
+</tr></table><p>Update (edit) the following variables:</p>
+
+<table border="2" style="width:100%; margin:5px 0;"><tr><th>Name</th>
+	<th>Type</th>
+	<th>Value</th>
 </tr><tr><td>myPendingRequests</td>
 	<td>External API</td>
 	<td><code>../API/bdm/businessData/com.company.model.TravelRequest?q=findByUserIdAndStatus&amp;p=0&amp;c=10&amp;f=userId={{session.user_id}}&amp;f=status=pending</code></td>
@@ -623,24 +622,19 @@ When the review form is displayed, it contains the information that Helen entere
 </tr></table><p>Now update the widgets to use the new variables:</p>
 
 <ol><li>Select the username widget at the top of the page, and update the <b>Text</b> to this value: <code>{{session.user_name}}</code>.</li>
-	<li>Update the pending requests table widget to change the <b>Content</b> binding to <code>myPendingRequests</code>. </li>
-	<li>Update the approved requests table widget to change the <b>Content</b> binding to <code>myApprovedRequests</code>.</li>
 	<li>For both pending and approved requests, set the <b>Column keys</b> to <code>departureDate | date, numberOfNights, hotelNeeded, destination, reason</code>, to set the date format.</li>
-</ol><p>Remove the <em>myPendingRequests_dummy</em> and <em>myApprovedRequests_dummy</em> variables.</p>
+</ol><h3 id="buttons">Link button to process</h3>
 
-
-<h3 id="buttons">Link button to process</h3>
-
-<p><img alt="new feature highlighter" src="images/images-6_0/star.png"> When the user clicks the button on the Travel Tool page for creating a travel request, the application displays the form for creating a request.
+<p>When the user clicks the button on the Travel Tool page for creating a travel request, the application displays the form for creating a request.
 This is the instantiation form for the Travel Request process.
-To configure this, select the button and set the target URL property to <code>/bonita/portal/resource/process/Travel%20Request/1.0/content/?id={{processDef[0].id}}</code>. </p>
+To configure this, select the button and set the target URL property to <code>&quot;/bonita/portal/resource/process/Travel%20Request/1.0/content/?id=&quot;+processDef[0].id</code>. </p>
 
 <p>After the user submits the form, the Tasks view of Bonita BPM Portal is displayed.</p>
 
 
 <h3 id="build-app">Build application</h3>
 
-<p><img alt="new feature highlighter" src="images/images-6_0/star.png"> To build the Travel Tool application, you need to export the page from the UI Designer, deploy the process, and then create the application in Bonita BPM Portal.</p>
+<p>To build the Travel Tool application, you need to export the page from the UI Designer, deploy the process, and then create the application in Bonita BPM Portal.</p>
 
 <p>To export the page, click the <b><em>Export</em></b> icon in the Page editor or on the home page. The page is exported as a zip file in your default browser download location.</p>
 

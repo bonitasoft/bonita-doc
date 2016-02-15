@@ -6,7 +6,7 @@ so if a node becomes unavailable, the remaining nodes in the cluster can take ov
 and therefore to your business. A Bonita BPM cluster alone does not guarantee high availability. 
 You must also ensure that the prerequisite infrastructure is highly available.</p>
 
-<p>See also:<br><a href="/building-bonita-bpm-cluster-0">Building a Bonita BPM cluster</a><br><a href="/cluster-administration-0">Cluster administration</a></p>
+<p>See also:<br><a href="/building-a-bonita-bpm-cluster.html">Building a Bonita BPM cluster</a><br><a href="/cluster-administration.html">Cluster administration</a></p>
 
 <h2>Introduction</h2>
 <p>
@@ -76,7 +76,7 @@ This is known as failover, and can be automated or manual.</li>
 <li><strong>Client</strong>: a process application client. A client application connects to the cluster through the load balancer, and uses the Bonita BPM Engine API. 
 Even if your process users do not use Bonita BPM Portal, it is still present in the cluster, so can be used for administration.</li>
 
-</ul><h3><a href="limitations"></a>Limitations</h3>
+</ul><h3>Limitations</h3>
 
  <p>The nodes must all be in the same datacenter, to keep latency of updates to shared information to an acceptable level.</p>
  
@@ -87,7 +87,7 @@ Even if your process users do not use Bonita BPM Portal, it is still present in 
  <p>The load balancer must be configured to use sticky sessions (this is needed to manage sessions created when users log in to the Portal).</p>
  
  <p>There is no automated migration from a Bonita Open Solution 5.10 cluster to a Bonita BPM cluster, because the cluster models are completely different. 
- You can <a href="/migrate-process-bonita-open-solution-5x-1">migrate a process from 5.10</a>, but you need to build your Bonita BPM cluster from scratch.</p>
+ You can <a href="/migrate-a-process-from-bonita-open-solution-5x.html">migrate a process from 5.10</a>, but you need to build your Bonita BPM cluster from scratch.</p>
 
 
 
@@ -98,7 +98,7 @@ Even if your process users do not use Bonita BPM Portal, it is still present in 
 If an active node fails or is stopped, the load balancer redirects work to the remaining active nodes. This keeps the downtime to a minimum, but increases the load on the active nodes. </p>
 
 <p>A passive node is installed with exactly the same software and has the same configuration as an active node, but the application server and Bonita BPM Engine are not started.
-A passive node is a "cold standby". 
+A passive node is a &quot;cold standby&quot;. 
 It does not consume computing resources. 
 To add a cold-standby node to the cluster, the necessary licenses must be installed, the configuration must be completed, the application server must be started,
 and it must it must be activated in the load balancer.</p>

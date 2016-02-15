@@ -78,49 +78,49 @@ $&gt; cp license.lic /path/to/BonitaBPMStudio/BonitaBPMSubscription-6.1.0/lic_fo
 
 <li><p>Create Jenkins job</p>
 
-<p>In Jenkins, create a new job of type &ldquo;Build a free-style software project&rdquo;. 
-Specify a job name for example &ldquo;BonitaBPM-BuildProcesses&rdquo;.</p>
+<p>In Jenkins, create a new job of type &#x201C;Build a free-style software project&#x201D;. 
+Specify a job name for example &#x201C;BonitaBPM-BuildProcesses&#x201D;.</p>
 </li>
 
 <li> <p>Configure Jenkins job</p>
 
-<ol style="list-style-type: lower-alpha;"><li>Check out your process repository from Subversion. To do this, configure the &ldquo;Source Code Management&rdquo; section to retrieve (check out) your Subversion process shared repository. 
-Specify the repository URL, and optionally your local repository. We recommend that you set teh check-out strategy to <em>Use 'svn update' as much as possible</em>.
+<ol style="list-style-type: lower-alpha;"><li>Check out your process repository from Subversion. To do this, configure the &#x201C;Source Code Management&#x201D; section to retrieve (check out) your Subversion process shared repository. 
+Specify the repository URL, and optionally your local repository. We recommend that you set teh check-out strategy to <em>Use &apos;svn update&apos; as much as possible</em>.
 </li>
 <li><p>Invoke BonitaStudioBuilder script</p>
 
 <p>Note: only one instance of BonitaStudioBuilder can be executed at a time on a computer.</p>
-<p>Add a build step of type &ldquo;Execute shell&rdquo; configured with the following content:</p>
+<p>Add a build step of type &#x201C;Execute shell&#x201D; configured with the following content:</p>
 
 <code type="xml">
 #!/usr/bin/env sh
 
-echo "##### Clean previously generated business archives"
+echo &quot;##### Clean previously generated business archives&quot;
 rm -Rf $WORKSPACE/process-bars
-echo ""
+echo &quot;&quot;
 
-echo "##### Clean BonitaStudioBuilder workspace before each execution"
+echo &quot;##### Clean BonitaStudioBuilder workspace before each execution&quot;
 rm -Rf /path/to/BonitaBPMStudio/workspace
-echo ""
+echo &quot;&quot;
 
-echo "##### Execute BonitaStudioBuilder for all processes"
+echo &quot;##### Execute BonitaStudioBuilder for all processes&quot;
 cd /path/to/BonitaBPMStudio/..
 ./BonitaBPMStudio/workspace_api_scripts/BonitaStudioBuilder.sh -repoPath=$WORKSPACE/process-repository -outputFolder=$WORKSPACE/process-bars -buildAll -environment=CI
 
-echo "##### Package generated business archives"
+echo &quot;##### Package generated business archives&quot;
 zip $WORKSPACE/process-bars.zip $WORKSPACE/process-bars/*
 </code>
 
 <p>This sample script invokes BonitaStudioBuilder to build all processes from your process-repository using the CI environment.</p>
 
-<p>See the <a href="/automating-process-builds-1">BonitaStudioBuilder documentation</a> for information on script options.</p>
+<p>See the <a href="/automating-process-builds.html">BonitaStudioBuilder documentation</a> for information on script options.</p>
 </li>
 <li><p>Share generated business archives as a Maven artifacts</p>
 <p>One way to make the generated .bar files available to other Maven projects is to install them as Maven artifacts.
 The following example installs the processes artifact in the local Maven repository.</p> 
 
 <p>The Maven artifact could also be deployed to a centralized Maven repository manager solution.
-To do so, add a second build step of type &ldquo;Invoke top-level Maven targets&rdquo; configured as follows:</p>
+To do so, add a second build step of type &#x201C;Invoke top-level Maven targets&#x201D; configured as follows:</p>
 
 <code type="xml">
 Goals: install:install-file
@@ -136,12 +136,12 @@ file=$WORKSPACE/process-bars.zip
 </li>
 <li><p>Archive generated artifact in Jenkins</p>
 <p>You can archive the job artifact (generated processes package) in Jenkins.
-To do so, add a post-build action of type &ldquo;Archive the artifacts&rdquo; and choose to archive the &ldquo;process-bars.zip&rdquo; package.
+To do so, add a post-build action of type &#x201C;Archive the artifacts&#x201D; and choose to archive the &#x201C;process-bars.zip&#x201D; package.
 As a result, the generated business archives will be made available for download from Jenkins interface.</p>
 </li>
 </ol></li>
 </ol><li><p>Run the Jenkins job</p>
-<p>Run the &ldquo;BonitaBPM-BuildProcesses&rdquo; Jenkins job. When it is finished, the Maven artifact <code>com.acme.bonita:process-bars:1.0.0-SNAPSHOT</code> in installed in the local Maven repository of the CI server.
+<p>Run the &#x201C;BonitaBPM-BuildProcesses&#x201D; Jenkins job. When it is finished, the Maven artifact <code>com.acme.bonita:process-bars:1.0.0-SNAPSHOT</code> in installed in the local Maven repository of the CI server.
 The generated processes package is also available as a job build artifact in Jenkins.</p>
 
 </li>
@@ -157,11 +157,11 @@ It is also possible to use cargo to deploy the generated bar file into an applic
 
 <p>For this example we are using a Maven project to write our tests.</p>
 <ol><li>In your IDE create a new Maven project and share it (for example using SVN or Git).</li>
-<li><a href="/configuring-bonita-home-client-1">Configure local access</a> to Bonita BPM Engine.</li>
-<li>As we want to test processes build with a Bonita BPM Subscription edition, you need to <a href="/create-your-first-project-engine-apis-and-maven-0#maven_dependencies">configure the required Maven artifacts</a>. 
+<li><a href="/configuring-bonita-home-for-a-client.html">Configure local access</a> to Bonita BPM Engine.</li>
+<li>As we want to test processes build with a Bonita BPM Subscription edition, you need to <a href="/create-your-first-project-with-the-engine-apis-and-maven.html#maven_dependencies">configure the required Maven artifacts</a>. 
 
 You should also check that there is a valid license file in <code>${bonita.home.folder}/server/licenses</code>.</li>
-<li>We recommend that you write your test cases in the src/test/java folder of your project and put all related resources (Bar files, organization file&hellip;) in src/test/resources.</li>
+<li>We recommend that you write your test cases in the src/test/java folder of your project and put all related resources (Bar files, organization file&#x2026;) in src/test/resources.</li>
 
 <li>Before installing your processes load the relevant organization (regarding your actor mapping). You may have to export your organization from a Bonita BPM Studio:
 Menu Organization &gt; Export, Select your Organization.
@@ -169,7 +169,7 @@ Menu Organization &gt; Export, Select your Organization.
 <p>For example:</p>
 <code type="java">
 private void installOrganization(){
-File organizationFile = new          File(MyTestCase.class.getResource("/ACME.xml").getFile());
+File organizationFile = new          File(MyTestCase.class.getResource(&quot;/ACME.xml&quot;).getFile());
 String organizationContent = getFileContent(organizationFile);
 getIdentityAPI().importOrganization(organizationContent);
 }
@@ -180,9 +180,9 @@ getIdentityAPI().importOrganization(organizationContent);
 <code type="java">
 @Test
 public void deploy() throws Exception{
-//Retrieve automatically generated bars as a Map<filename filecontent>
+//Retrieve automatically generated bars as a Map<filename filecontent="">
 Map<string> bars = getBars();
-    Assert.assertTrue("No bar found in resources",!bars.isEmpty());
+    Assert.assertTrue(&quot;No bar found in resources&quot;,!bars.isEmpty());
 
 //For each bar deploy and enable it
 for(Entry<string> entry : bars.entrySet()){
@@ -190,7 +190,7 @@ for(Entry<string> entry : bars.entrySet()){
 		final String entryKey = entry.getKey();
 	ProcessDefinition def = getProcessAPI().deploy(archive);
 		final long defId = def.getId();
-		Assert.assertNotNull("Failed to deploy "+entryKey,def);
+		Assert.assertNotNull(&quot;Failed to deploy &quot;+entryKey,def);
 		getProcessAPI().enableProcess(defId);
 		getProcessAPI().disableProcess(defId);
 		getProcessAPI().deleteProcessDefinition(defId);
@@ -204,7 +204,7 @@ for(Entry<string> entry : bars.entrySet()){
 <li>Configure the source code management to retrieve your Maven project.</li>
 
 	<li>Add a build step</li>
-<li>Select &ldquo;Invoke top-level Maven targets&rdquo;</li>
+<li>Select &#x201C;Invoke top-level Maven targets&#x201D;</li>
 <li>Use following Goal: org.apache.maven.plugins:maven-dependency-plugin:2.7:get</li>
 <li>In properties, set the following:
 <ul><li>version=1.0.0-SNAPSHOT</li>
@@ -214,7 +214,7 @@ for(Entry<string> entry : bars.entrySet()){
 <li>packaging=zip</li>
 </ul></li></ol><div style="text-align: center;"><img src="images/images-6_0/Get_processes.png" alt="Get the processes" title="Get the processes"><div style="clear: both" class="caption"><span style="display: block;color: #BC071B;text-align: center;margin-top: 10px">Get the processes</span></div></div>
 
-<ol><li value="7">Then add another build step to unzip the artifact. Select &ldquo;Execute shell&rdquo;, and use
+<ol><li value="7">Then add another build step to unzip the artifact. Select &#x201C;Execute shell&#x201D;, and use
 the command <code>unzip process-bars-1.0.0-SNAPSHOT.zip -d project/src/test/resources</code>.</li>
 </ol><div style="text-align: center;"><img src="images/images-6_0/Unzip_processes.png" alt="Unzip the processes" title="Unzip the processes"><div style="clear: both" class="caption"><span style="display: block;color: #BC071B;text-align: center;margin-top: 10px">Unzip the processes</span></div></div>
 

@@ -51,10 +51,10 @@ store it and use it for each API call by adding a new header X-Bonita-API-Token 
 </p><ul><li>Send an initial request to the session API.</li>
     <li>Retrieve the <code>X-Bonita-API-Token</code> from the response header and store it.</li>
     <li>In future API requests, add a header called <code>X-Bonita-API-Token </code>containing the stored token. The <code>X-Bonita-API-Token</code> is valid for the whole client session.</li>
-</ul><p><i>Note:</i> in the UI Designer preview page, calls to Bonita REST API will not work if CSRF security is activated (in the Studio's Tomcat). It is due to the fact that UI Designer and Bonita REST API are not in the same web application. 
+</ul><p><i>Note:</i> in the UI Designer preview page, calls to Bonita REST API will not work if CSRF security is activated (in the Studio&apos;s Tomcat). It is due to the fact that UI Designer and Bonita REST API are not in the same web application. 
 The <code>X-Bonita-API-Token</code> cookie is therefore not visible to the UI Designer.</p>
 
-<a href="/user-authentication-3"> User authentication overview</a>
+<a href="/user-authentication-overview.html"> User authentication overview</a>
 <a href="http://www.acunetix.com/what-are-csrf-attacks/"> Read more about CSRF attacks</a>
 </div>
 	</body></html>

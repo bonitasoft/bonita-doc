@@ -52,12 +52,12 @@ One database schema is required by Bonita BPM Engine to store all information.</
 
 <p>The Bonita BPM Engine connects to the database is done through the Hibernate library (version 4.2).
 This provides a level of abstraction between the Engine and the RDBMS.
-Bonita BPM comes with a set of optimized initialization scripts for the <a href="var_support_guide">supported RDBMSs</a>.</p>
+Bonita BPM comes with a set of optimized initialization scripts for the <a href="https://customer.bonitasoft.com/support-policies">supported RDBMSs</a>.</p>
 
 <div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span>
 <strong>Note:</strong> This page explains database configuration for the Bonita BPM Engine database.
-If you are using <a href="/business-data-model-856">business data objects</a>, these are stored in a separate database.
-By default, the h2 database is used. For production we recommend that you <a href="/database-configuration-business-data-1">configure a different database for business data</a>.</div>
+If you are using <a href="/define-and-deploy-the-bdm.html">business data objects</a>, these are stored in a separate database.
+By default, the h2 database is used. For production we recommend that you <a href="/database-configuration-for-business-data.html">configure a different database for business data</a>.</div>
 
 
 
@@ -170,7 +170,7 @@ If the property is not defined, the fallback value is h2: <code>db.vendor=${sysp
 
 	<table border="2"><tr><th>Database vendor</th>
 			<th>Download link</th>
-		</tr><tr><td>PostgreSQL (use "Current Version")</td>
+		</tr><tr><td>PostgreSQL (use &quot;Current Version&quot;)</td>
 			<td><a href="http://jdbc.postgresql.org/download.html#current">download</a></td>
 		</tr><tr><td>Oracle Database</td>
 			<td><a href="http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html">download</a></td>
@@ -275,8 +275,8 @@ If the property is not defined, the fallback value is h2: <code>db.vendor=${sysp
 			<td>org.h2.Driver</td>
 			<td>org.h2.jdbcx.JdbcDataSource</td>
 		</tr></table><p></p>	
-<p>The following sections show how to configuire the datasources for <a href="#ds_jboss">JBoss</a> and <a href="ds_tomcat">Tomcat</a>. 
-There is also an <a href="/how-install-red-hat-oracle-jvm-weblogic-oracle-0#datasources">example of how to configure datasources for Weblogic</a>.</p>	
+<p>The following sections show how to configuire the datasources for <a href="#ds_jboss">JBoss</a> and <a href="#ds_tomcat">Tomcat</a>. 
+There is also an <a href="/red-hat-oracle-jvm-weblogic-oracle.html#datasources">example of how to configure datasources for Weblogic</a>.</p>	
 	
 	<h3 id="ds_jboss">JBoss</h3>
 	
@@ -288,14 +288,14 @@ There is also an <a href="/how-install-red-hat-oracle-jvm-weblogic-oracle-0#data
 	    <li>Uncomment the settings matching your RDBMS vendor.</li>
 	    <li>Modify the values for following settings to your configuration: server address, server port, database name, user name and password.</li>
 	</ol><p><strong>Note: </strong> for a first test, you might want to keep the h2 section related to Business Data Management (BDM) feature (driver and data sources configuration).
-	You can update the <a href="/database-configuration-business-data-1">configuration related to BDM</a> later.</p>
+	You can update the <a href="/database-configuration-for-business-data.html">configuration related to BDM</a> later.</p>
 
 
 
 	<h3 id="ds_tomcat">Tomcat</h3>
 	
 	
-	<p>Configuration of data source for Tomcat is in two parts: because Tomcat doesn't support JTA natively, one data source will be configured in the Bitronix configuration file and the other data source will be configured
+	<p>Configuration of data source for Tomcat is in two parts: because Tomcat doesn&apos;t support JTA natively, one data source will be configured in the Bitronix configuration file and the other data source will be configured
 		in the standard Tomcat context configuration file.</p>
 
 	<h4>JTA data source (managed by Bitronix)</h4>
@@ -326,7 +326,7 @@ There is also an <a href="/how-install-red-hat-oracle-jvm-weblogic-oracle-0#data
 
 <div class="alert alert-warning">
     <span class="glyphicon glyphicon-warning-sign"></span> <strong>Warning:</strong> If you use the default configuration for business data (BDM), do not remove h2 yet. 
-    First make sure that you have <a href="/database-configuration-business-data-1">configured Business Data</a> to use your own RDBMS.
+    First make sure that you have <a href="/database-configuration-for-business-data.html">configured Business Data</a> to use your own RDBMS.
 </div>
 
 	
@@ -372,7 +372,7 @@ If your database already exists, see the Oracle documentation for details of how
 <p>The procedure below is used to create the settings  to enable the Bonita BPM Engine to connect to the Oracle database.</p>
 <p>It is assumed in the procedure that:</p>
 <ul><li>Oracle product is already installed and running</li>
-<li>An 'Oracle' OS user is already created</li>
+<li>An &apos;Oracle&apos; OS user is already created</li>
 <li>A database already exists</li>
 <li>The environment is already set:</li>
 </ul><code>
@@ -457,23 +457,23 @@ ORACLE_SID=...</code>
 <p>Here is the list of steps to perform (as an example, the database name BONITA_BPM is used):</p>
 <ol><li>Make sure you have already downloaded and installed the <a href="http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&amp;id=11774">Microsoft SQL Server JDBC Driver 4.0</a>.</li>
     <li>Copy the <code>sqljdbc_xa.dll</code> from <code>%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc_4.0\enu\xa\x64\</code> (x64 for 64 bit version of Windows, x86 for 32 bit version of Windows) to <code>%SQLSERVER_INSTALL_ROO%\Instance_root\MSSQL10.MSSQLSERVER\MSSQL\Binn\.</code></li>
-    <li>Copy/paste the content of xa_install.sql file (located in %JDBC_DRIVER_INSTALL_ROOT%\sqljdbc_4.0\enu\xa) to SQL Server Management Studio's Query Editor.</li>
+    <li>Copy/paste the content of xa_install.sql file (located in %JDBC_DRIVER_INSTALL_ROOT%\sqljdbc_4.0\enu\xa) to SQL Server Management Studio&apos;s Query Editor.</li>
     <li>Execute the query in the Query Editor.</li>
-    <li>To confirm successful execution of the script,  open the "Object Explorer" and go to: <strong>Master</strong> &gt; <strong>Programmability</strong> &gt; <strong>Extended Stored Procedures</strong>. 
+    <li>To confirm successful execution of the script,  open the &quot;Object Explorer&quot; and go to: <strong>Master</strong> &gt; <strong>Programmability</strong> &gt; <strong>Extended Stored Procedures</strong>. 
     You should have 12 new procedures, each with a name starting with <code>dbo.xp.sqljdbc_xa_</code>.</li>
-    <li>Assign the new role 'SqlJDBCXAUser' to the user who owns the Bonita BPM Engine database (<code>bonitadev</code> in our example.
-    To do this, execute the following command in the SQL editor: <code>USE master GO  CREATE USER 'bonitadev', 'bonitadev' GO sp_addrolemember [SqlJDBCXAUser], 'bonitadev'</code></li>
-    <li>In the Windows "Start" menu, select <strong>Administrative Tools</strong>-&gt; <strong>Services</strong>.</li>
-    <li>In the "Services" window, make sure that the <strong>Distributed Transaction Coordinator</strong> service is set to start automatically. If it's not yet started, start it.</li>
-    <li>Make sure that the other services it depends on, namely "Remote Procedure Call" and "Security Accounts Manager", are also set to start automatically. </li>
-    <li>Run the <code>dcomcnfg</code> command, or go to the "Start" menu, then  Administrative Tools &gt; Component Services.</li>
+    <li>Assign the new role &apos;SqlJDBCXAUser&apos; to the user who owns the Bonita BPM Engine database (<code>bonitadev</code> in our example.
+    To do this, execute the following command in the SQL editor: <code>USE master GO  CREATE USER &apos;bonitadev&apos;, &apos;bonitadev&apos; GO sp_addrolemember [SqlJDBCXAUser], &apos;bonitadev&apos;</code></li>
+    <li>In the Windows &quot;Start&quot; menu, select <strong>Administrative Tools</strong>-&gt; <strong>Services</strong>.</li>
+    <li>In the &quot;Services&quot; window, make sure that the <strong>Distributed Transaction Coordinator</strong> service is set to start automatically. If it&apos;s not yet started, start it.</li>
+    <li>Make sure that the other services it depends on, namely &quot;Remote Procedure Call&quot; and &quot;Security Accounts Manager&quot;, are also set to start automatically. </li>
+    <li>Run the <code>dcomcnfg</code> command, or go to the &quot;Start&quot; menu, then  Administrative Tools &gt; Component Services.</li>
     <li>In the left navigation pane, navigate to <strong>Component Services</strong> &gt; <strong>Computers</strong> &gt; <strong>My Computer</strong> &gt; <strong>Distributed Transaction Coordinator</strong>.</li>
     <li>Select and right-click on <em><strong>Local DTC</strong></em> and then <em><strong>Properties</strong></em>.</li>
     <li>Click on <em><strong>Security</strong></em> tab. Ensure that the checkbox for <strong>Enable XA Transactions</strong> is checked.</li>
     <li>Click <em><strong>Apply</strong></em>,  then click <em><strong>OK</strong></em></li>
     <li>Then stop and restart SQLServer.</li>
     <li>Create the BONITA_BPM database: <code>CREATE DATABASE BONITA_BPM GO</code>.</li>
-    <li>Set <code>bonitadev</code> as owner of BONITA_BPM database (use, for example, 'Microsoft SQL Management Studio')</li>
+    <li>Set <code>bonitadev</code> as owner of BONITA_BPM database (use, for example, &apos;Microsoft SQL Management Studio&apos;)</li>
 </ol><h4>Recommended configuration for lock management</h4>
 <p>Run the script below to avoid deadlocks:</p>
 <p><code>ALTER DATABASE BONITA_BPM SET SINGLE_USER WITH ROLLBACK IMMEDIATE</code></p>
@@ -490,7 +490,7 @@ ORACLE_SID=...</code>
 <p>MySQL defines a maximum packet size on the server side. The default value for this settings are appropriate for most standard use cases.
 However, you need to increase the packet size if you see the following error: </p>
 <code>
-Error: 1153 SQLSTATE: 08S01 (ER_NET_PACKET_TOO_LARGE) Message: Got a packet bigger than 'max_allowed_packet' bytes
+Error: 1153 SQLSTATE: 08S01 (ER_NET_PACKET_TOO_LARGE) Message: Got a packet bigger than &apos;max_allowed_packet&apos; bytes
 </code>
 
 <p>

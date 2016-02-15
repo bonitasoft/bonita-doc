@@ -37,12 +37,12 @@ In fact Oracle Java is provided only in this subscription.
     <li>In the package list, select the latest version of <strong>Oracle Java Development Kit</strong>.</li>
     <li>Click the <em><strong>Apply</strong></em> button.</li>
     <li>Type your root user password and click the <em><strong>Authenticate</strong></em> button.</li>
-    <li>You can now close the "Add/Remove Software" window.</li>
+    <li>You can now close the &quot;Add/Remove Software&quot; window.</li>
 </ol><h3>Check the Java setup</h3>
 <p>To check that Java is correctly set up:</p>
 <ol><li>Go to <strong>Applications / System Tools / Terminal</strong>. </li>
 <li>In the terminal window, type <code>java -version</code>. You should get something like:
-<code>java version "1.7.0_15"
+<code>java version &quot;1.7.0_15&quot;
 Java(TM) SE Runtime Environment (build 1.7.0_15-b03)
 Java HotSpot(TM) 64-Bit
 Server VM (build 23.7-b01, mixed mode)</code>
@@ -77,7 +77,7 @@ To set up WebLogic, you need to know the location of the <strong>Java home folde
 Oracle JDK 7 64 bits, the Java home folder will be:
 <code>/usr/lib/jvm/java-1.7.0-oracle-1.7.0.15.x86_64</code>.
 </li>
-<li>You just need to follow a standard installation of WebLogic. The Bonita BPM platform doesn't have any specific
+<li>You just need to follow a standard installation of WebLogic. The Bonita BPM platform doesn&apos;t have any specific
 needs.</li>
 <li>Once the installation of WebLogic is completed, you will need to create a new domain. Make sure you remember the user name
 and password, as you will need both later on in the installation guidelines.</li>
@@ -88,7 +88,7 @@ would be:
 </li>
 </ol><h2 id="datasources">Data source declaration</h2>
 <p>Here we will configure data sources that are available at a global scope (all applications deployed). For all Bonita BPM Platform systems, you need two data sources, bonitaDS and bonitaSequenceManagerDS. 
-If you are using  <a href="/business-data-model-856">business data</a>, you need two additional data sources, BusinessDataDS and NotManagedBizDataDS.</p>
+If you are using  <a href="/define-and-deploy-the-bdm.html">business data</a>, you need two additional data sources, BusinessDataDS and NotManagedBizDataDS.</p>
 
 
 <h3>bonitaDS and BusinessDataDS</h3>
@@ -154,7 +154,7 @@ If you are using  <a href="/business-data-model-856">business data</a>, you need
 <ol><li>Download the deploy.zip file from the <a href="http://www.bonitasoft.com/downloads-v2">Bonitasoft site</a> for the Community edition 
     or from the <a href="https://customer.bonitasoft.com/download/request">Customer Portal</a> for Subscription editions.</li>
 <li>Unzip the deploy bundle. The path to the unzipped deploy bundle will be referred to as <code><deploy_home></deploy_home></code></li>
-<li>Create a new folder to store Bonita "home" folder. For the Community or Subscription edition, copy bonita "home" folder from deploy bundle folder
+<li>Create a new folder to store Bonita &quot;home&quot; folder. For the Community or Subscription edition, copy bonita &quot;home&quot; folder from deploy bundle folder
    (<code><deploy_home>/bonita_home-x.y.z</deploy_home></code>) (where <code>x.y.z</code> is the version number) to the newly created folder. 
    The full path including <code>bonita_home-x.y.z</code>
    will be referred as <code><bonita_home></bonita_home></code>.</li>
@@ -183,7 +183,7 @@ If you are using  <a href="/business-data-model-856">business data</a>, you need
 
 <li>Configure JVM system properties:
    	<ul><li>Edit <code><weblogic_home>/user_projects/domains/<domain_name>/bin/startWebLogic.sh</domain_name></weblogic_home></code> and set: </li></ul><code type="xml">
-JAVA_OPTIONS="${SAVE_JAVA_OPTIONS} -Dbonita.home=<bonita_home>"
+JAVA_OPTIONS=&quot;${SAVE_JAVA_OPTIONS} -Dbonita.home=<bonita_home>&quot;
 </bonita_home></code>
        
 </li>
@@ -207,8 +207,8 @@ JAVA_OPTIONS="${SAVE_JAVA_OPTIONS} -Dbonita.home=<bonita_home>"
 <li>Click  <em><strong>Finish</strong></em>.</li>
 </ul></li></ol><h2>Check the installation</h2>
 <ol><li>To verify that the installation was successful and the database is correctly configured, connect to Bonita BPM Portal.
-</li><li>In the URL field of your web browser, enter the host address, for example <code>http://localhost:7001/bonita"&gt;http://localhost:7001/bonita</code>.</li>
-</ol><p><strong>Note:</strong> If the Bonita BPM Portal login page is not displayed, <a href="http://www.wikihow.com/Clear-Your-Browser's-Cache">empty your browser cache</a> and then reload the page.</p> 
+</li><li>In the URL field of your web browser, enter the host address, for example <code>http://localhost:7001/bonita&quot;&gt;http://localhost:7001/bonita</code>.</li>
+</ol><p><strong>Note:</strong> If the Bonita BPM Portal login page is not displayed, <a href="http://www.wikihow.com/Clear-Your-Browser&apos;s-Cache">empty your browser cache</a> and then reload the page.</p> 
 
 <p>At this stage no organization information is loaded: only the technical user account exists.</p>
 
@@ -229,7 +229,7 @@ JAVA_OPTIONS="${SAVE_JAVA_OPTIONS} -Dbonita.home=<bonita_home>"
 <li><code>client/platform/conf/platform-tenant-config.properties</code></li>
 </ul><h2>Create an Administrator user</h2>
 <p>Note: do not create a user or an administrator with the same login as the technical users (platform and tenant) </p>
-<p>To create a user with the "administrator" profile:</p>
+<p>To create a user with the &quot;administrator&quot; profile:</p>
 <ol><li>Log in to Bonita BPM Portal as the technical user.</li>
     <li>Create a new user.</li>
     <li>Go to <strong>Configuration</strong> /<strong>Profiles</strong>.</li>
@@ -237,11 +237,11 @@ JAVA_OPTIONS="${SAVE_JAVA_OPTIONS} -Dbonita.home=<bonita_home>"
     <li>Click on the <strong><em>More</em></strong> button (in the top right corner).</li>
     <li>Under <strong>Users mapping</strong>, click on <strong><em>Add a user</em></strong>.</li>
     <li>Select your user and click on the <strong><em>Add</em></strong> button. Log out as the Technical user and log back in as the newly created user with administrative rights.</li>
-    <li>Create <a href="/manage-user-0">users with the standard profile</a>.</li>
+    <li>Create <a href="/manage-a-user.html">users with the standard profile</a>.</li>
     <li>You can add newly created users to the <strong>User</strong> (standard) profile or to a custom profile.</li>
 </ol><h4>Information</h4>
 <p>If you already have a system that stores information about end users, you can use it to create user accounts in Bonita BPM. </p>
-<p>If you use an LDAP or Active Directory system, you can use the <a href="/ldap-synchronizer-3">LDAP synchronizer</a> to keep the Bonita BPM organization synchronized with it.</p>
+<p>If you use an LDAP or Active Directory system, you can use the <a href="/ldap-synchronizer.html">LDAP synchronizer</a> to keep the Bonita BPM organization synchronized with it.</p>
 
 
 

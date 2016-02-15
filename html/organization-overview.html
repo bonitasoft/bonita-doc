@@ -24,7 +24,7 @@ by any member of the HR team, you could call the actor <i>hr</i>, or if a step c
 Europe, you could call the actor <i>sales_mgr_europe</i>.</p>
 
 <p>A user is a person who has a username and a password in a Bonita BPM organization, and can therefore perform steps in a process. 
-Before you deploy a process, you need to <a href="/actors-1#Mapping_an_actor">map the process actors</a>. This mapping defines who can carry out steps in the process. </p>
+Before you deploy a process, you need to <a href="/actors.html#Mapping_an_actor">map the process actors</a>. This mapping defines who can carry out steps in the process. </p>
 
 
 
@@ -87,7 +87,7 @@ for other tools and that it is stored in an LDAP directory. Bonita BPM has three
 information:</p>
 
 <ul><li>
-<a href="/ldap-synchronizer-3">LDAP synchronizer</a> (in the Performance, Efficiency, and Teamwork editions of Bonita BPM), for 
+<a href="/ldap-synchronizer.html">LDAP synchronizer</a> (in the Performance, Efficiency, and Teamwork editions of Bonita BPM), for 
 keeping the Bonita BPM organization synchronized with your external LDAP directory. Synchronization is one-way, from LDAP to Bonita BPM. You can run the synchronizer once to
     load the organization then manage it within Bonita BPM Portal, or you can run the synchronizer on a schedule and manage the organization externally.
 </li>
@@ -104,7 +104,7 @@ You can modify the ACME organization and you can create other organizations.</li
 
 <h3> In Bonita BPM Studio:</h3>
 <p>Use the <strong>Custom</strong> tab in <strong>Organization users</strong> to add Custom information to a user. 
-This <a href="/custom-user-information-bonita-bpm-studio-0#howtoadd">custom information is defined in Bonita BPM Studio</a>,
+This <a href="/custom-user-information-in-bonita-bpm-studio.html#howtoadd">custom information is defined in Bonita BPM Studio</a>,
 then applied to an actor filter, and when deployed in Bonita BPM Portal, enables the filtering of users mapped to tasks.</p>
 
 <p>The custom user information is saved in the Organization schema and published so it can be used in Bonita BPM Portal.</p>
@@ -116,11 +116,11 @@ However, the value associated with a filter definition can be modified by a user
 The organization will be modified on the remote server. This enables tasks to be re-assigned to users in processes that are already deployed,
 which is then used to filter users for tasks.</p>
 
-<p>See <a href="/custom-user-information-bonita-bpm-studio-0">custom user information in Bonita BPM Studio</a> for setting the definition and values for the filter
+<p>See <a href="/custom-user-information-in-bonita-bpm-studio.html">custom user information in Bonita BPM Studio</a> for setting the definition and values for the filter
 
 </p><h3> In Bonita BPM Portal:</h3>
 
-<p>This custom information can only be seen and <a href="/custom-user-information-bonita-bpm-portal-0">edited</a> by users who have the Administrator profile.</p>
+<p>This custom information can only be seen and <a href="/custom-user-information-in-bonita-bpm-portal.html">edited</a> by users who have the Administrator profile.</p>
 <p>Note that if the custom user information does not exist in Bonita BPM Studio, modifying its value for a user in Bonita BPM Portal will not make any difference to the filter, apart from creating an error. 
 Synchronize the Organization between Bonita BPM Studio and Bonita BPM Portal first by publishing it so all values are up to date.</p>
 

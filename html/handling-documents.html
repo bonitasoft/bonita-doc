@@ -67,7 +67,7 @@ public static ByteArrayOutputStream loadFile(String fileName) {
 <p>The following method, <code>createCaseWithDocument</code>, creates a case and attaches a document to it.</p>
 
 <code type="java">
-public static void createCaseWithDocument(String processDefinitionName, String processVersion, Map<string object> variables, Map<string object> documents, ProcessAPI processAPI)
+public static void createCaseWithDocument(String processDefinitionName, String processVersion, Map<string object=""> variables, Map<string object=""> documents, ProcessAPI processAPI)
     throws ProcessDefinitionNotFoundException, InvalidExpressionException, ProcessActivationException, ProcessExecutionException {
 
     long processDefinitionId = processAPI.getProcessDefinitionId(processDefinitionName, processVersion);
@@ -77,7 +77,7 @@ public static void createCaseWithDocument(String processDefinitionName, String p
         List<operation> listOperations = new ArrayList<operation>();
                 
         // variables
-        Map<string serializable> ListExpressionsContext = new HashMap<string serializable>();
+        Map<string serializable=""> ListExpressionsContext = new HashMap<string serializable="">();
 
         for (String variableName : variables.keySet()) {
 
@@ -108,17 +108,17 @@ public static void createCaseWithDocument(String processDefinitionName, String p
                 else if (documents.get(documentName) instanceof byte[])
                 {
                     // byte
-                    documentValue = new DocumentValue(((byte[])documents.get(documentName)), "plain/text", "myfilename");        
+                    documentValue = new DocumentValue(((byte[])documents.get(documentName)), &quot;plain/text&quot;, &quot;myfilename&quot;);        
                 }
                 else if (documents.get(documentName) instanceof ByteArrayOutputStream)
                     {
-                        documentValue = new DocumentValue(((ByteArrayOutputStream) documents.get(documentName)).toByteArray(), "plain/text", "myfilename");         // url
+                        documentValue = new DocumentValue(((ByteArrayOutputStream) documents.get(documentName)).toByteArray(), &quot;plain/text&quot;, &quot;myfilename&quot;);         // url
                     }
                 Operation docRefOperation = new OperationBuilder().createSetDocument(documentName,
-                    new ExpressionBuilder().createInputExpression(documentName+"Reference", DocumentValue.class.getName()));
+                    new ExpressionBuilder().createInputExpression(documentName+&quot;Reference&quot;, DocumentValue.class.getName()));
                         
                 listOperations.add(docRefOperation);
-                ListExpressionsContext.put(documentName+"Reference", documentValue);
+                ListExpressionsContext.put(documentName+&quot;Reference&quot;, documentValue);
             }
                 
         // ----- start process instance -----
@@ -134,14 +134,14 @@ The two maps are then used to create a case of the process using the <code>creat
 
 <code type="java">
 // ---------- create a case with the value
-Map<string object> firstInvoice = new HashMap<string object>();
-firstInvoice.put("emailAddress", "jan.Fisher@bonitasoft.com");
-firstInvoice.put("invoiceId", Long.valueOf(45));
-firstInvoice.put("dateOfInvoice", new Date());
-Map<string object> firstInvoiceDocument = new HashMap<string object>();
-firstInvoiceDocument.put("invoiceReference", "http://documentation.bonitasoft.com");
-firstInvoiceDocument.put("invoiceLetter", loadFile("c:/tmp/firstinvoice.pdf"));
-createCaseWithDocument("IntegrateMyApplication", "1.0", firstInvoice, firstInvoiceDocument, processAPI);
+Map<string object=""> firstInvoice = new HashMap<string object="">();
+firstInvoice.put(&quot;emailAddress&quot;, &quot;jan.Fisher@bonitasoft.com&quot;);
+firstInvoice.put(&quot;invoiceId&quot;, Long.valueOf(45));
+firstInvoice.put(&quot;dateOfInvoice&quot;, new Date());
+Map<string object=""> firstInvoiceDocument = new HashMap<string object="">();
+firstInvoiceDocument.put(&quot;invoiceReference&quot;, &quot;http://documentation.bonitasoft.com&quot;);
+firstInvoiceDocument.put(&quot;invoiceLetter&quot;, loadFile(&quot;c:/tmp/firstinvoice.pdf&quot;));
+createCaseWithDocument(&quot;IntegrateMyApplication&quot;, &quot;1.0&quot;, firstInvoice, firstInvoiceDocument, processAPI);
 </string></string></string></string></code>
 
 <p></p>
@@ -157,11 +157,11 @@ You can provide either a URL pointing to an external document or a byte stream, 
 for (String documentName : documentsToUpdate.keySet()) {
     if (documentsToUpdate.get(documentName) instanceof String)
 	// document provided by pointer URL
-       processAPI.attachDocument(pendingTask.getId(), documentName, "TheFileName", "application/pdf", (String) documentsToUpdate.get(documentName));
+       processAPI.attachDocument(pendingTask.getId(), documentName, &quot;TheFileName&quot;, &quot;application/pdf&quot;, (String) documentsToUpdate.get(documentName));
 
     else if (documentsToUpdate.get(documentName) instanceof ByteArrayOutputStream)
 	// document provided as byte stream
-       processAPI.attachDocument(pendingTask.getId(), documentName, "TheFileName", "application/pdf", ((ByteArrayOutputStream) documentsToUpdate.get(documentName)).toByteArray());
+       processAPI.attachDocument(pendingTask.getId(), documentName, &quot;TheFileName&quot;, &quot;application/pdf&quot;, ((ByteArrayOutputStream) documentsToUpdate.get(documentName)).toByteArray());
     }
 </code>
 

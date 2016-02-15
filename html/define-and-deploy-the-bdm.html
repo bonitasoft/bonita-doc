@@ -3,7 +3,7 @@
 	<h1>1.6.2 Business data model</h1>
     <p>The business data model is the definition of the business data that is shared by processes and process-based applications in a tenant.
     This page explains how to define the business data model and how to deploy it.
-    After the model is defined, you can use it to <a href="/specify-data-process-definition">specify the business data used in a process</a>.</p>
+    After the model is defined, you can use it to <a href="/specify-data-in-a-process-definition.html">specify the business data used in a process</a>.</p>
 
 <dl><dt><a href="#bdmmodel">Business data model (BDM)</a></dt>
     <dt><a href="#bdmanddb">Business data storage</a></dt>
@@ -49,7 +49,7 @@
 <p>During development, you can use the tools in the <code>h2-1.3.170.jar</code> in the workspace Tomcat library to view the business data in the h2 database.
     If you modify database content manually, there is risk of losing data and losing synchronization with business objects in a process instance. However, it can be useful to view the database for debugging processes. If you change the BDM during development, this can also cause problems in existing process definitions.</p>
 
-<p>When you are ready to go to production, you need to <a href="/database-configuration-business-data-1">configure a database and business data datasources for business data</a> in your production environment.</p>
+<p>When you are ready to go to production, you need to <a href="/database-configuration-for-business-data.html">configure a database and business data datasources for business data</a> in your production environment.</p>
 
 
 
@@ -75,7 +75,7 @@
     <li>Indexes for some attributes (optional)</li>
     <li>A <code>persistenceId</code>, created automatically</li>
 </ul><p>Business objects can be combined using <a href="#compos">composition or aggregation</a> relationships. They are managed using standard create, read, update, delete actions.
-    A business object can be read directly using the <a href="/javadoc-71">Engine Java API</a> specifying the Java DAO, or using the <a href="/bdm-api-0">REST API</a>. To read a business object in a Groovy expression, use the DAO.
+    A business object can be read directly using the <a href="/javadoc.html">Engine Java API</a> specifying the Java DAO, or using the <a href="/bdm-api.html">REST API</a>. To read a business object in a Groovy expression, use the DAO.
     A business object can be updated only in a process, using an operation.</p>
 
 
@@ -237,7 +237,7 @@
 
 <p>To deploy the BDM, you export it as a ZIP file from Bonita BPM Studio and then import it into Bonita BPM Portal.</p>
 
-<div class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign"> </span> <strong>Warning:</strong> Before deploying the business data model, you must <a href="/pause-and-resume-bpm-services-1"></a>pause the service, so that the update can be performed without affecting ongoing processes. You are recommended to backup the database before deploying a new BDM.</div>
+<div class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign"> </span> <strong>Warning:</strong> Before deploying the business data model, you must <a href="/pause-and-resume-bpm-services.html"></a>pause the service, so that the update can be performed without affecting ongoing processes. You are recommended to backup the database before deploying a new BDM.</div>
 
 <p>Follow these steps:</p>
 
@@ -281,11 +281,11 @@
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?><businessobjectmodel><businessobjects><businessobject qualifiedname="com.company.model.LeaveRequest"><fields><field name="startDate" type="DATE" nullable="false" length="255" collection="false"></field><field name="endDate" type="DATE" nullable="false" length="255" collection="false"></field><field name="returnDate" type="DATE" nullable="false" length="255" collection="false"></field><field name="daysOff" type="DOUBLE" nullable="false" length="255" collection="false"></field><field name="leaveType" type="STRING" nullable="false" length="255" collection="false"></field><field name="approved" type="BOOLEAN" nullable="true" length="255" collection="false"></field></fields><uniqueconstraints></uniqueconstraints><queries><query name="query1" content="SELECT l.daysOff
 FROM LeaveRequest l 
 WHERE 
-l.leaveType = 'Test'" returntype="java.lang.Double"><queryparameters></queryparameters></query></queries></businessobject></businessobjects></businessobjectmodel></code>
+l.leaveType = &apos;Test&apos;" returntype="java.lang.Double"><queryparameters></queryparameters></query></queries></businessobject></businessobjects></businessobjectmodel></code>
 
 <h2 id="boprocesses">Business objects in processes</h2>
 
-<p>When you design a process, you specify the variables to be used in the process. These can include variables that are instances of business objects defined in the BDM. You <a href="/specify-data-process-definition">define a business object variable</a> in Bonita BPM Studio in a similar way to defining other process variables.</p>
+<p>When you design a process, you specify the variables to be used in the process. These can include variables that are instances of business objects defined in the BDM. You <a href="/specify-data-in-a-process-definition.html">define a business object variable</a> in Bonita BPM Studio in a similar way to defining other process variables.</p>
 
 
 <h3 id="ID">persistenceID</h3>
@@ -305,7 +305,7 @@ l.leaveType = 'Test'" returntype="java.lang.Double"><queryparameters></querypara
 <p>In the contract definition panel of the Studio (<strong>Details</strong> panel, <strong>Execution</strong> tab, <strong>Contract</strong> pane), you can import contract inputs from a BDM definition using the <strong>Add from data...</strong> button.
     It creates a complex input mapping the BDM class attributes (if an attribute is not a primitive Java element, another complex input is created and it goes on).By selecting <b>Auto-generate the initialization script</b>, the default value of the selected business data will be automatically initialized with an auto-generated script when clicking on finish. </p>
 
-<p>If you select <b>No, thanks. I'll manually define how to use the contract.</b>, you will need to create a Groovy script that will set input to BDM attribute.</p>
+<p>If you select <b>No, thanks. I&apos;ll manually define how to use the contract.</b>, you will need to create a Groovy script that will set input to BDM attribute.</p>
 
 <p>For instance, with the above <i>com.company.model.LeaveRequest</i> class, using the <strong>Add from data...</strong> action in the <strong>Details</strong> panel, <strong>Execution</strong> tab, <strong>Contract</strong> pane will create the following complex input :
 </p><ul><li>
@@ -337,7 +337,7 @@ Then, you need to go back to the process variable list (<strong>Details</strong>
 
 <p>In the case where a business object has to be initialized from task level inputs, you can set contract inputs from the <strong>Add from data...</strong> action like in <a href="#initBDM_instantiation">previous section</a> and generate automatically operations by selectionning <b>Auto-generate the initialization script</b>. The operations will be generated for business data attributes you selected. You can manage it inside the <strong>Details</strong> panel, <strong>Execution</strong> tab, <strong>Operations</strong> pane. </p><p>
 
-</p><p>If you select <b>No, thanks. I'll manually define how to use the contract.</b> or create inputs manually, you can go to operation pane and add a new operation using the <em><strong>Add</strong></em> button.</p>
+</p><p>If you select <b>No, thanks. I&apos;ll manually define how to use the contract.</b> or create inputs manually, you can go to operation pane and add a new operation using the <em><strong>Add</strong></em> button.</p>
 
 <p>
     In the first select box, choose the variable of type <i>com.company.model.LeaveRequest</i>, then, click on <em><strong>Takes value of</strong></em> link and select <em><strong>Instantiate with</strong></em> in <i>Operator type</i> and click <em><strong>OK</strong></em>.
