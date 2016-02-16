@@ -1,0 +1,78 @@
+<h2>i18nlocale</h2>
+
+<h3>Description</h3>
+<p>List the available locales.</p>
+
+
+<h3>Identifier</h3>
+<p>None, can only search on this resource</p>
+
+
+<h3>Representation</h3>
+<pre>{
+&quot;name&quot;:&quot;<em>Name of the language</em>&quot;,
+&quot;locale&quot;:&quot;<em>code of the locale</em>&quot;
+}</pre>
+
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+	<li>GET - list available locales</li>
+</ul>
+
+
+<h3>List available locales</h3>
+
+<table border="1" cellpadding="1" cellspacing="1">
+	<tbody><tr>
+		<td valign="top">Request url</td>
+		<td valign="top">http://../API/system/i18nlocale</td></tr>
+	<tr>
+		<td valign="top"><p>Request method</p></td>
+		<td valign="top"><p>GET</p>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top"><p>Request payload</p></td>
+		<td valign="top"><p>empty</p>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top"><p>Response payload</p></td>
+		<td valign="top"><p>The list of locales as JSON</p>
+		</td>
+	</tr>
+	</tbody>
+</table>
+
+<h4>Example</h4>
+
+<p>List the available locales. In this example, three locales are available: English, Italiano, Deutsch.
+
+<table border="1" cellpadding="1" cellspacing="1">
+	<tbody>
+	<tr>
+		<td valign="top">Request url</td>
+		<td valign="top">GET|API/system/i18nlocale?p=0&amp;c=10/td&gt;
+	</td></tr>
+
+	<tr>
+		<td valign="top"><p>Response payload</p></td>
+		<td valign="top"><pre><code>[
+{
+	&quot;name&quot;:&quot;English&quot;,
+	&quot;locale&quot;:&quot;en&quot;
+},
+{
+	&quot;name&quot;:&quot;Italiano&quot;,
+	&quot;locale&quot;:&quot;it&quot;
+},
+{
+	&quot;name&quot;:&quot;Deutsch&quot;,
+	&quot;locale&quot;:&quot;de&quot;
+}
+]</code></pre></td>
+	</tr>
+	</tbody>
+</table>
+</p>

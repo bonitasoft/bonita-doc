@@ -1,0 +1,138 @@
+<h2>archivedManualTask</h2>
+
+<h3>Description</h3>
+<p>Use the archivedManualTask resource to access archived process subtasks.</p>
+
+
+<h3>Identifier</h3>
+<p>Simple, the ID of the object (a long value)</p>
+
+<h3>Representation</h3>
+
+<pre>{ 
+&quot;displayDescription&quot;: &quot;<em>the human readable subtask description (string)</em>&quot;, 
+&quot;executedBySubstitute&quot;: &quot;<em>the id (long) of the user who really performed this subtask in case where a substitute did it, or 0 if the subtask was not performed by a substitute</em>&quot;, 
+&quot;processId&quot;: &quot;<em>the process id (long) that is associated with this subtask</em>&quot;, 
+&quot;state&quot;: &quot;<em>the current state of the subtask (string,  for example, ready, completed, failed)</em>&quot;, 
+&quot;rootContainerId&quot;: &quot;<em>the root process id (long) of the root case that is associated with this subtask</em>&quot;, 
+&quot;type&quot;: &quot;MANUAL_TASK&quot;, 
+&quot;assigned_id&quot;: &quot;<em>the user id (long) that this subtask is assigned to, or 0 if it is unassigned</em>&quot;, 
+&quot;id&quot;: &quot;<em>the subtask id (long)</em>&quot;, 
+&quot;sourceObjectId&quot;:&quot;<em>id (long) of the original manualTask before archiving</em>&quot;, 
+&quot;executedBy&quot;: &quot;<em>the id (long) of the user who executed the task, or 0 if the task has not been executed</em>&quot;,
+&quot;caseId&quot;:&quot;<em>id (long) of the case that is associated with this subtask</em>&quot;, 
+&quot;priority&quot;:&quot;normal&quot;, 
+&quot;actorId&quot;: &quot;<em>the id (long) of the actor that can execute this subtask, null otherwise</em>&quot;, 
+&quot;description&quot;: &quot;<em>the subtask description (string)</em>&quot;, 
+&quot;name&quot;: &quot;<em>the subtask name (string)</em>&quot;, 
+&quot;reached_state_date&quot;: &quot;<em>the date (&apos;yyyy-MM-dd HH:mm:ss.SSS&apos;) when this subtask reached the current state, for example &apos;2014-10-17 16:05:42.626&apos;</em>&quot;, 
+&quot;archivedDate&quot;: &quot;<em>the date ((&apos;yyyy-MM-dd HH:mm:ss.SSS&apos;)) when this subtask was archived, for example &apos;2014-10-17 16:05:42.626&apos;</em>&quot;,
+&quot;rootCaseId&quot;: &quot;<em>the root case initiator id (long) that is associated with this subtask&apos;s case</em>&quot;, 
+&quot;displayName&quot;: &quot;<em>the display name (string) of this subtask</em>&quot;, 
+&quot;parentTaskId&quot;:&quot;<em>id (long) of the parentTask that the subtask is associated with</em>&quot;, 
+&quot;dueDate&quot;: &quot;<em>the date (&apos;yyyy-MM-dd HH:mm:ss.SSS&apos;) when this subtask is due, for example &apos;2014-10-17 16:05:42.626&apos;</em>&quot;, 
+&quot;last_update_date&quot;: &quot;<em>the date (&apos;yyyy-MM-dd HH:mm:ss.SSS&apos;) when this subtask was last updated, for example &apos;2014-10-17 16:05:42.626&apos;)</em>&quot;
+ }
+</pre>
+
+
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+	<li>GET - Read or search an archived subtask</li>
+</ul>
+
+<h3>Retrieve a subtask</h3>
+
+<p>Use a GET method to retrieve information about a subtask.</p>
+
+<p>Example: Get the information about the subtask with id=160007.</p>
+
+<table border="2">
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>URL</td>
+<td><code>http://localhost:8080/bonita/API/bpm/archivedManualTask/40001</code></td>
+</tr>
+<tr>
+<td>Payload</td>
+<td>empty</td>
+</tr>
+<tr>
+<td>Response</td>
+<td><pre>
+<code>
+{
+&quot;displayDescription&quot;:&quot;this is a test&quot;,
+&quot;executedBySubstitute&quot;:&quot;1&quot;,
+&quot;processId&quot;:&quot;8367255255370237633&quot;,
+&quot;parentCaseId&quot;:&quot;1&quot;,
+&quot;state&quot;:&quot;completed&quot;,
+&quot;rootContainerId&quot;:&quot;1&quot;,
+&quot;type&quot;:&quot;MANUAL_TASK&quot;,
+&quot;assigned_id&quot;:&quot;1&quot;,
+&quot;id&quot;:&quot;160007&quot;,
+&quot;sourceObjectId&quot;:&quot;40003&quot;,
+&quot;executedBy&quot;:&quot;1&quot;,
+&quot;caseId&quot;:&quot;1&quot;,
+&quot;priority&quot;:&quot;highest&quot;,
+&quot;actorId&quot;:&quot;1&quot;,
+&quot;description&quot;:&quot;this is a test&quot;,
+&quot;name&quot;:&quot;myTest&quot;,
+&quot;reached_state_date&quot;:&quot;2014-12-01 17:20:47.200&quot;,
+&quot;rootCaseId&quot;:&quot;1&quot;,
+&quot;archivedDate&quot;:&quot;2014-12-01 17:20:47.217&quot;,
+&quot;displayName&quot;:&quot;myTest&quot;,
+&quot;parentTaskId&quot;:&quot;40001&quot;,
+&quot;dueDate&quot;:&quot;2014-12-17 00:00:00.000&quot;,
+&quot;last_update_date&quot;:&quot;2014-12-01 17:20:47.200&quot;
+}
+</code>
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Search subtasks</h3>
+
+<p>Use a GET method with filters and search terms to search for subtasks.</p> 
+<p>You can filter on:</p>
+<ul>
+<li>assigned_id={user_id}: retrieve only the manual tasks assigned to the specified user. For example, retrieve the manual tasks assigned to user with id 1: <code>http://localhost:8080/bonita/API/bpm/archivedManualTask?p=0&amp;c=10&amp;f=assigned_id%3d1</code>.</li>
+<li>state=skipped | completed | failed :  retrieve only the manual tasks with the specified state. For example, retrieve the ready tasks: <code>http://localhost:8080/bonita/API/bpm/archivedManualTask?p=0&amp;c=10&amp;f=state%3dready</code>.</li>
+<li>caseId={case_id}:  retrieve only the manual tasks created in the specified case. For example, retrieve the manual tasks for the case_id 2: <code>http://localhost:8080/bonita/API/bpm/archivedManualTask?p=0&amp;c=10&amp;f=caseId%3d2</code>.</li>
+<li>parentTaskId={parentTask_id}: retrieve only the manual tasks for a specific parentTask_id. For example, retrieve the manual tasks for the parentTask_id 40001: <code>http://localhost:8080/bonita/API/bpm/archivedManualTask?p=0&amp;c=10&amp;f=parentTaskId%3d40001</code>.</li>
+</ul>
+ 
+<p>You can search on:</p>
+<ul>
+<li>name: search all manual tasks with a name that starts with the search string. For example, search for all manual tasks that have a name that starts with MySubTask: <code> http://localhost:8080/bonita/API/bpm/archivedManualTask?p=0&amp;c=10&amp;s=MySubTask</code>.</li>
+</ul>
+
+<h4>Description</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+    		<td valign="top">Request url</td>
+			<td valign="top">/API/bpm/archivedManualTask?p={page}&amp;c={count}&amp;o={orders}&amp;f={filters}&amp;s={search}&amp;d={deploy}</td>
+			</tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>GET</p>
+		</td></tr>
+				<tr>
+			<td valign="top"><p>Request payload</p></td>
+			<td valign="top"><p>empty</p>
+		</td></tr>
+		<tr>
+			<td valign="top"><p>Response</p></td>
+			<td valign="top"><p>An array of manualTask objects</p>
+			</td>
+		</tr>
+	</tbody>
+</table>

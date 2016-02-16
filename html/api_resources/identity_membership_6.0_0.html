@@ -1,0 +1,196 @@
+<h2>membership</h2>
+
+<h3>Description</h3>
+<p>Manage membership of users. There is a membership when a user belongs to a group and a role. Use this resource to add, search, and delete memberships.</p>
+
+
+<h3>Identifier</h3>
+<p>A compound identifier constructed from user_id/group_id/role_id where each id is a long value.</p>
+
+
+<h3>Representation</h3>
+<pre>{
+&quot;assigned_date&quot;:&quot;<em>creation date (format: &quot;2014-12-31 15:17:24.736&quot;)</em>&quot;,
+&quot;role_id&quot;:&quot;<em>id of the role of this membership</em>&quot;,
+&quot;assigned_by_user_id&quot;:&quot;<em>id of the user who created the membership (-1 if the role was created by the tenant admin or by an organisation import)</em>&quot;,
+&quot;group_id&quot;:&quot;<em>id of the group of this membership</em>&quot;,
+&quot;user_id&quot;:&quot;<em>id of the user in this membership</em>&quot;
+}</pre>
+
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+	<li>POST - Create a membership</li>
+	<li>GET - Search for memberships of a user</li>
+	<li>DELETE - Remove a membership</li>
+	<li>DELETE - Remove a membership</li>
+</ul>
+
+
+<h3>Create a membership</h3>
+<p>This action creates (assigns) a membership to a user.</p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+	<tbody><tr>
+		<td valign="top">Request url</td>
+		<td valign="top">http://../API/identity/membership</td></tr>
+	<tr>
+		<td valign="top"><p>Request method</p></td>
+		<td valign="top"><p>POST</p>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top"><p>Request payload</p></td>
+		<td valign="top"><p>A partial representation of a membership object with the mandatory &quot;user_id&quot;, &quot;group_id&quot; and &quot;role_id&quot; attributes</p>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top"><p>Response payload</p></td>
+		<td valign="top"><p>The full JSON representation of the membership that was created</p>
+		</td>
+	</tr>
+	</tbody>
+</table>
+
+<h4>Response codes</h4>
+
+<p>403 if a membership already exists</p>
+
+<h4>Example</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+	<tbody>
+	<tr>
+		<td valign="top">Request url</td>
+		<td valign="top">POST|/API/identity/membership</td>
+	</tr>
+	<tr>
+		<td valign="top"><p>Request payload</p></td>
+		<td valign="top"><pre><code>{
+&quot;user_id&quot;:&quot;4&quot;,
+&quot;group_id&quot;:&quot;5&quot;,
+&quot;role_id&quot;:&quot;1&quot;
+}</code></pre></td>
+	</tr>
+	<tr>
+		<td valign="top"><p>Response payload</p></td>
+		<td valign="top"><pre><code>{
+&quot;assigned_date&quot;:&quot;2014-12-02 17:57:09.315&quot;,
+&quot;role_id&quot;:&quot;1&quot;,
+&quot;assigned_by_user_id&quot;:&quot;-1&quot;,
+&quot;group_id&quot;:&quot;5&quot;,
+&quot;user_id&quot;:&quot;4&quot;
+}</code></pre></td>
+	</tr>
+	</tbody>
+</table>
+
+
+<h3>Search memberships of a user</h3>
+<p>This action search memberships of a user.</p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+	<tbody><tr>
+		<td valign="top">Request url</td>
+		<td valign="top">http://../API/identity/membership?p=0&amp;c=10&amp;f=user_id%3d&lt;the id of the user&gt;</td></tr>
+	<tr>
+		<td valign="top"><p>Request method</p></td>
+		<td valign="top"><p>POST</p>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top"><p>Request payload</p></td>
+		<td valign="top"><p>empty</p>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top"><p>Response payload</p></td>
+		<td valign="top"><p>The full JSON representation of the memberships of the user</p>
+		</td>
+	</tr>
+	</tbody>
+</table>
+
+<h4>Parameters</h4>
+
+<p>The following filter is mandatory:</p>
+
+<ul>
+	<li>user_id=&lt;id of the user&gt;</li>
+</ul>
+
+<p>It is possible to use the deploy option to retrieve the value of elements specified by an attribute value. For example, if you specify <code>d=group_id</code>, the result will contain the group details in place of the group id.</p>
+
+<ul>
+	<li>group (d=group_id)</li>
+	<li>role (d=role_id)</li>
+	<li>user (d=user_id)</li>
+	<li>user that created the membership (d=assigned_by_user_id)</li>
+</ul>
+
+<p>It is possible to order by the value of the following attributes:</p>
+
+<ul>
+	<li>role name  (o=ROLE_NAME_ASC or o=ROLE_NAME_DESC)</li>
+	<li>group name (o=GROUP_NAME_ASC ASC ru o=GROUP_NAME_DESC)</li>
+	<li>assigned date (o=ASSIGNED_DATE_ASC or o=ASSIGNED_DATE_DESC)</li>
+</ul>
+
+<h4>Example</h4>
+
+<p>Get the memberships for the user with id 125, and return the role details associated with each membership.</p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+	<tbody>
+	<tr>
+		<td valign="top">Request url</td>
+		<td valign="top">GET|/API/identity/membership?p=0&amp;c=10&amp;f=user_id%3d125&amp;d=role_id</td>
+	</tr>
+
+	<tr>
+		<td valign="top"><p>Response payload</p></td>
+		<td valign="top"><pre><code>[{
+	&quot;assigned_date&quot;:&quot;2014-12-02 17:57:09.315&quot;,
+	&quot;role_id&quot;:
+	{
+		&quot;creation_date&quot;:&quot;2014-12-01 18:51:54.791&quot;,
+		&quot;created_by_user_id&quot;:&quot;4&quot;,
+		&quot;id&quot;:&quot;4&quot;,
+		&quot;icon&quot;:&quot;&quot;,
+		&quot;description&quot;:&quot;manager of the department&quot;,
+		&quot;name&quot;:&quot;manager&quot;,
+		&quot;displayName&quot;:&quot;department manager&quot;,
+		&quot;last_update_date&quot;:&quot;2014-12-01 18:51:54.791&quot;
+	},
+	&quot;assigned_by_user_id&quot;:&quot;12&quot;,
+	&quot;group_id&quot;:&quot;5&quot;,
+	&quot;user_id&quot;:&quot;125&quot;
+}]</code></pre></td>
+	</tr>
+	</tbody>
+</table>
+
+<h3>Delete a membership</h3>
+<p>Delete a membership of a user using the group id and role id.</p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+	<tbody><tr>
+		<td valign="top">Request url</td>
+		<td valign="top">http://../API/identity/membership/&lt;the id of the user&gt;/&lt;the id of the group&gt;/&lt;the id of the role&gt;</td></tr>
+	<tr>
+		<td valign="top"><p>Request method</p></td>
+		<td valign="top"><p>DELETE</p>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top"><p>Request payload</p></td>
+		<td valign="top"><p>empty</p>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top"><p>Response payload</p></td>
+		<td valign="top"><p>empty</p>
+		</td>
+	</tr>
+	</tbody>
+</table>
