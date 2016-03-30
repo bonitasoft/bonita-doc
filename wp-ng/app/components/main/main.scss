@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+header {
+    background-color: #EBF0F2;
+    padding: 50px;
+    text-align: center;
+}
+
+section {
+    padding: 50px;
+
+    .image-container {
+        display: inline-block;
+        margin-right: 50px;
+    }
+
+    .text-container {
+        display: inline-block;
+        vertical-align: bottom;
+    }
+}
