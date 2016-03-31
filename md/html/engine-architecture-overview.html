@@ -1,0 +1,621 @@
+<style type="text/css">/** https://gist.github.com/andyferra/2554919#file-github-css **/
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0; }
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+ul :last-child, ol :last-child {
+  margin-bottom: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+pre {
+  background-color: #073642;
+  color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+</style><link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+<h1 id="4-7-bonita-bpm-engine-architecture">4.7 Bonita BPM Engine architecture</h1>
+<p>This page describes the Bonita BPM Engine. It includes information
+about <a href="#APIs">APIs</a>, <a href="#BPM_services">BPM services</a>, <a href="#Generic_services">generic services</a>, and <a href="#Packaging">packaging</a>.</p>
+<p>The Bonita BPM Engine is the runtime processor at the core of Bonita BPM.  It
+executes processes, handling actions related to tasks, such as database access,
+and housekeeping actions such as logging. The Engine is composed of a number of
+services and APIs. The services are either BPM services or generic services.</p>
+<p><img src="images/images-6_0/dev_arch_engine_architecture_simple.png" alt="engine architecture diagram">  </p>
+<p>The Bonita BPM Engine component services are completely configurable using an XML
+file called <code>bonita-server.properties</code>, which is located in the server
+configuration folder <code>conf\bonita\server\default\conf\</code>. 
+This configuration file describes all the available services
+used by default. It is possible to change a service or replace it with a
+different implementation. In addition to the standard services, BonitaSoft will support 
+a system that uses any services we provide. Certain services are available only for the Performance, Efficiency, and Teamwork editions. The editions also
+includes contributions that enhance some services. There are also some internal
+services that are used within the Engine but are not described here.</p>
+<p>Services are served to the Engine using a ServiceAccessor. By default, this
+uses Spring to bind services and to retrieve services instances. The Spring
+configuration files are stored in <strong><em>BONITA_HOME</em></strong>, and can
+be modified to change the implementation of a service or to tailor it. </p>
+<p>The Engine can be installed on a Java Virtual
+Machine (JVM), in any web/JEE container, or can be used as a simple Java
+library.</p>
+<h2 id="apis">APIs</h2>
+<p>This section contains a summary of the Bonita BPM Engine APIs. For details of the APIs, the methods and related objects, see the 
+<a href="/javadoc-71">Javadoc</a>.</p>
+<p>Identity API
+Manages information about an organization, that is, the set of users
+who can act in processes. Handles creation, modification, and deletion
+of organizations, groups, roles, memberships, and users.</p>
+<p>Organization API
+Import or export an organization.</p>
+<p>Process API
+Handles actions related to processes (deploy, enable, start, disable,
+delete), executes activities, updates process data, search for a
+retrieve process entities.</p>
+<p>Login API
+Logs in to the engine in a platform and creates a
+session.</p>
+<p>Monitoring API
+Retrieves information about current activity, such as the number of
+users logged in, or the number of processes currently being
+executed.</p>
+<p>Log API
+provides access to business logs, for searching and to retrieve
+information about current or archived processes.</p>
+<p>Platform command API
+Creates, starts, stops platform.</p>
+<p>Document API
+Manages documents that are attached to a process instance.</p>
+<p>Theme API
+Manages the Look &amp; Feel of the Bonita BPM Portal web and mobile interfaces and forms.</p>
+<p>Tenant Management API
+Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in Teamwork, Efficiency, and Performance editions.</p>
+<p>There is also a Web API, which is for internal use only, and a Command API,
+which is primarily for internal use.</p>
+<h2 id="bpm-services">BPM services</h2>
+<p>BPM services are related to BPM activities.</p>
+<h3 id="actor-mapping">Actor mapping</h3>
+<p>Description: 
+Manage mapping between actors and users, roles, and groups. </p>
+<p>Used by: - </p>
+<p>Implementation: org.bonitasoft.engine.actor.mapping.impl.ActorMappingServiceImpl </p>
+<h3 id="categorydescription-">CategoryDescription:</h3>
+<p>Manage categories of processes. A category is a way to classify processes. Categories are handled manually by administrators 
+in Bonita BPM Portal and are visible to portal users. </p>
+<p>Used by: Command service </p>
+<p>Implementation: org.bonitasoft.engine.core.category.impl.CategoryServiceImpl</p>
+<p>Notes: Store categories with the persistence service </p>
+<h3 id="connectordescription-">ConnectorDescription:</h3>
+<p>Execute a connector using the ConnectorDefinition: get the connector from the file system, evaluate expressions of input 
+parameters, instantiate/execute the connector and then execute output operations. </p>
+<p>Used by: 
+Command service </p>
+<p>Implementation: 
+org.bonitasoft.engine.core.connector.impl.ConnectorServiceImpl </p>
+<h3 id="expression-resolverdescription-">Expression resolverDescription:</h3>
+<p>Evaluate expressions and the associated dependencies. The expression resolver default implementation take all expressions and 
+dependencies, flattens them and orders them by type. It then evaluate all expressions starting with expressions that are known to have no 
+dependencies. All expressions that are evaluated at the same time have the same context of evaluation. </p>
+<p>Used by: Any service that evaluates expressions </p>
+<p>Implementation: 
+org.bonitasoft.engine.core.expression.control.api.impl.ExpressionResolverServiceImpl </p>
+<h3 id="logindescription-">LoginDescription:</h3>
+<p>Log in to or out of the Engine. </p>
+<p>Used by: APIs </p>
+<p>Implementation: org.bonitasoft.engine.core.login.LoginServiceImpl </p>
+<h3 id="platform-logindescription-">Platform loginDescription:</h3>
+<p>Log in to or out of the Engine at the platform level. </p>
+<p>Used by: </p>
+<p>APIs </p>
+<p>Implementation: 
+org.bonitasoft.engine.core.platform.login.impl.PlatformLoginServiceImpl </p>
+<h3 id="operationdescription-">OperationDescription:</h3>
+<p>Execute operations that update data. The Operation service can use different types of update method. 
+The default methods, called Operators, are ASSIGNMENT, JAVA_METHOD, and XPATH_UPDATE_QUERY. </p>
+<p>Used by: 
+Engine service, APIs when updating data using an operation </p>
+<p>Implementation: 
+org.bonitasoft.engine.core.operation.impl.OperationServiceImpl </p>
+<h3 id="parameterdescription-for-the-performance-efficiency-and-teamwork-editions-manage-parameters-of-a-process-parameters-are-set-for">ParameterDescription: For the Performance, Efficiency, and Teamwork editions, manage parameters of a process. Parameters are set for</h3>
+<p>the scope of a process definition and are designed to be used as global configuration of a process, for example, you could store the URL of a 
+database you use in some connectors. </p>
+<p>Used by: Engine, APIs, ExpressionService (using the contributed 
+evaluator) when reading and updating parameters </p>
+<p>Implementation: 
+org.bonitasoft.engine.parameter.propertyfile.PropertyFileParameterService </p>
+<p>Notes: Relies on Java properties in a file to store and retrieve parameters </p>
+<h3 id="process-comment">Process comment</h3>
+<p>Description: Create, update, get, list, or delete comments attached to a process instance. </p>
+<p>Used by: APIs </p>
+<p>Implementation: 
+org.bonitasoft.engine.core.process.comment.api.impl.SCommentServiceImpl </p>
+<p>Notes: Relies on persistence service to store comments </p>
+<h3 id="process-definition">Process definition</h3>
+<p>Description: Handle process definition objects. </p>
+<p>Used by: Engine </p>
+<p>Implementation: 
+org.bonitasoft.engine.core.process.definition.ProcessDefinitionServiceImpl </p>
+<p>Notes: Stores definition in file system and in cache using XML </p>
+<h3 id="enginedescription-handles-process-execution-">EngineDescription: Handles process execution.</h3>
+<p>Used by: APIs when executing processes or activities </p>
+<p>Implementation: the Engine itself </p>
+<h3 id="process-instancedescription-">Process instanceDescription:</h3>
+<p>Handle process instance objects. </p>
+<p>Used by: Engine </p>
+<p>Implementation: org.bonitasoft.engine.core.process.instance.impl.ProcessInstanceServiceImpl </p>
+<p>Notes: Relies on the persistence service to store objects </p>
+<h3 id="supervisor-mappingdescription-define-the-mapping-between-a-process-definition-and-the">Supervisor mappingDescription: Define the mapping between a process definition and the</h3>
+<p>user who supervises it. </p>
+<p>Used by: APIs </p>
+<p>Implementation: org.bonitasoft.engine.supervisor.mapping.impl.SupervisorMappingServiceImpl </p>
+<h3 id="user-filterdescription-">User filterDescription:</h3>
+<p>Read and execute a userfilter that filters the set of users eligible to carry out a pending task. </p>
+<p>Used by: Engine </p>
+<p>Implementation: org.bonitasoft.engine.core.filter.impl.UserFilterServiceImpl </p>
+<p>Notes: Uses the cache and read user filter of the file system </p>
+<h2 id="generic-services">Generic services</h2>
+<p>Generic services  perform actions that are not related to BPM but are required for successful process execution. No generic service has a dependency on a BPM service.</p>
+<h3 id="archive">Archive</h3>
+<p>Description: Store and retrieve objects that will no longer change. 
+For example, a process instance that is finished is archived using this service. </p>
+<p>Used by: ProcessInstance service to store ArchivedProcessInstance objects </p>
+<p>Implementation: org.bonitasoft.engine.archive.impl.ArchiveServiceImpl </p>
+<h3 id="authenticationdescription-">AuthenticationDescription:</h3>
+<p>Check user credentials using a map. </p>
+<p>Used by: Login service in Bonita BPM Teamwork, Efficiency, and Performance editions </p>
+<p>Implementation: org.bonitasoft.engine.authentication.impl.GenericAuthenticationServiceImpl </p>
+<p>Notes: Uses the Identity service to check user credentials </p>
+<h3 id="querieable-logsdescription-log-information-related-to-business-actions-for">Querieable logsDescription: Log information related to business actions. For</h3>
+<p>example, ?Activity &#39;step1&#39; was created with id = 12? or ?Connector email-1.0.0 was successfully executed on activity 1547?. By default, log 
+information is stored in a database for easy query. </p>
+<p>Used by: Any service storing objects: ?deleted activity[..]?  </p>
+<p>Scheduler service: ?Job executed [...]?    </p>
+<p>Implementations: 
+org.bonitasoft.engine.services.impl.SyncBusinessLoggerServiceImpl 
+(Community edition: insert logs directly in database)<br>org.bonitasoft.engine.log.api.impl.BatchBusinessLoggerImpl 
+(Teamwork, Efficiency, and Performance editions: inserts all logs in 
+batch at the end of the transaction) </p>
+<h3 id="tenant-cachedescription-store-objects-in-the-cache-and-retrieve-them-the">Tenant cacheDescription: Store objects in the cache, and retrieve them. The</h3>
+<p>service handles different caches that can be configured separately. </p>
+<p>Used by: ProcessDefinition service, Connector service, Expression 
+service: put reusable definition objects in cache </p>
+<p>Implementation: 
+org.bonitasoft.engine.cache.ehcache.EhCacheCacheService </p>
+<p>Notes: Uses EhCache to cache objects </p>
+<h3 id="platform-cachedescription-store-objects-in-the-cache-and-retrieve-them-the">Platform cacheDescription: Store objects in the cache, and retrieve them. The</h3>
+<p>service handles different caches that can be configured separately. </p>
+<p>Used by: ProcessDefinition service, Connector service, Expression 
+service: put reusable definition objects in cache </p>
+<p>Implementation: 
+org.bonitasoft.engine.cache.ehcache.PlatformEhCacheCacheService </p>
+<p>Notes: Uses EhCache to cache objects </p>
+<h3 id="classloaderdescription-an-abstraction-layer-of-the-classloader-making-it-easy">ClassLoaderDescription: An abstraction layer of the classloader, making it easy</h3>
+<p>to change the classloader implementation at runtime. There is a 
+hierarchy of classloaders, with a platform classloader handling items 
+used by the whole platform, and a process classloader for items specify to a 
+process. Each classloader is identified by a type and an Id. </p>
+<p>Used by: Server APIs, to create and set the classloader at 
+platform level.<br>Engine, to handle classloader of type process </p>
+<p>Implementation: org.bonitasoft.engine.classloader.ClassLoaderServiceImpl </p>
+<p>Notes: Relies on the dependency service to load the jar put in 
+dependencies for a specific classloader </p>
+<h3 id="platform-commanddescription-register-and-execute-platform-commands-commands-are">Platform commandDescription: Register and execute platform commands. Commands are</h3>
+<p>Java classes that can be executed by the engine using the API. Using this service you can create your own code to be put server side and call it from a client. </p>
+<p>Used by: API to execute platform-level commands </p>
+<p>Implementation: org.bonitasoft.engine.platform.command.impl.PlatformCommandServiceImpl </p>
+<p>Notes: Uses persistence service to store commands </p>
+<h3 id="connector-executordescription-execute-a-connector-take-the-instantiated-connector">Connector executorDescription: Execute a connector: take the instantiated Connector</h3>
+<p>object, set its parameters, and execute it. </p>
+<p>Used by: Connector service, to execute the instantiated connector </p>
+<p>Implementation: org.bonitasoft.engine.connector.impl.ConnectorExecutorImpl </p>
+<h3 id="datadescription-handle-datasource-objects-which-describe-how-to">DataDescription: Handle DataSource objects, which describe how to</h3>
+<p>retrieve and store data on an internal or external system. The Engine 
+contains two default implementations: org.bonitasoft.engine.data.instance.DataInstanceDataSourceImpl, 
+which handles data stored in database, and org.bonitasoft.engine.core.data.instance.impl.TransientDataInstanceDataSource, 
+which handles data stored in memory. </p>
+<p>Used by: DataInstance service, to get the data source of a data definition to get its value </p>
+<p>Implementation: org.bonitasoft.engine.data.DataServiceImpl </p>
+<h3 id="datainstancedescription-handle-data-instance-objects-a-data-instance-is-a">DataInstanceDescription: Handle data instance objects. A data instance is a</h3>
+<p>variable that has a name, a type, and a value. This service also handles expressions of type VARIABLE_TYPE. A VARIABLE_TYPE expression 
+references a data instance. When an expression is evaluated, the value of the data instance is returned. </p>
+<p>Used by: Process API, Process executor, all services that access data </p>
+<p>Implementation: org.bonitasoft.engine.data.DataInstanceServiceImpl </p>
+<p>Notes: Uses the persistence service to store data instances </p>
+<h3 id="dependencydescription-declare-java-dependencies-on-business-objects-these">DependencyDescription: Declare Java dependencies on business objects. These</h3>
+<p>dependencies have a name and a content that is the JAR itself. For example, a process that uses an email connector has a dependency on 
+javamail.jar that is declared at deployment. </p>
+<p>Used by: Engine, to declare process dependencies  </p>
+<p>ClassloaderService, to retrieve dependencies of process </p>
+<p>Implementation: 
+org.bonitasoft.engine.dependency.impl.DependencyServiceImpl </p>
+<p>Notes: Dependency information is stored in database </p>
+<h3 id="platform-dependencydescription-declare-dependencies-between-entities-that-are-related">Platform dependencyDescription: Declare dependencies between entities that are related</h3>
+<p>to the platform, for example,  platform commands declare platform dependencies. </p>
+<p>Used by: Platform Command service, to declare dependency of platform commands </p>
+<p>Implementation: org.bonitasoft.engine.dependency.impl.PlatformDependencyServiceImpl </p>
+<p>Notes: Dependency information is stored in database </p>
+<h3 id="documentdescription-store-content-and-properties-of-a-document-and-map-the-document-to-an-instance-of-a-process-">DocumentDescription: Store content and properties of a document and map the document to an instance of a process.</h3>
+<p>Used by: Engine APIs when retrieving documents. </p>
+<p>Implementation: org.bonitasoft.engine.core.document.api.impl.DocumentServiceImpl </p>
+<p>Notes: The mapping of the document is not stored in the same table as the documetn itself. </p>
+<h3 id="expressiondescription-evaluate-an-expression-using-the-evaluator-provided-by">ExpressionDescription: Evaluate an expression using the evaluator provided by</h3>
+<p>another service (but do not evaluate dependencies of the expression). This service is extended by evaluators specific to the kind of 
+expression to be evaluated. For example, in the Performance, Efficiency, and Teamwork editions, the ParameterService contributes an evaluator to evaluate expressions that reference a 
+parameter. To add a new kind of expression, contribute a class 
+implementing org.bonitasoft.engine.expression.ExpressionExecutorStrategy to the ExpressionExecutorStrategy class. </p>
+<p>Used by: ExpressionResolverService. to evaluate an expression and its dependencies </p>
+<p>Implementation: org.bonitasoft.engine.expression.impl.ExpressionServiceImpl </p>
+<h3 id="identitydescription-handle-information-about-elements-of-an-organization">IdentityDescription: Handle information about elements of an organization</h3>
+<p>(users, groups, roles, memberships). </p>
+<p>Used by: ProcessExecutor, to resolve actor mappings. </p>
+<p>Implementation: org.bonitasoft.engine.identity.impl.IdentityServiceImpl </p>
+<h3 id="incidentdescription-service-that-reports-incidents-to-an-administrator-">IncidentDescription: Service that reports incidents to an administrator.</h3>
+<p>An incident is an error that cannot be handled by the engine. The default implementation log is a file named &quot;Incidents.log&quot; inside the tenant folder. </p>
+<p>Used by: Mainly by the work service. </p>
+<p>Implementation: org.bonitasoft.engine.incident.IncidentServiceImpl </p>
+<h3 id="jobdescription-handle-and-trace-execution-of-internal-jobs-of-the-engine-">JobDescription: Handle and trace execution of internal jobs of the engine.</h3>
+<p>A job is an internal action that can be triggered once or several times. (e.g. Timers are implemented using jobs.) </p>
+<p>Used by: Scheduler service. </p>
+<p>Implementation: org.bonitasoft.engine.scheduler.impl.JobServiceImpl, </p>
+<h3 id="lockdescription-enable-synchronization-of-code-execution-the-service">LockDescription: Enable synchronization of code execution. The service</h3>
+<p>enables creation of shared locks and exclusive locks. If a shared lock is taken out, other shared locks can also be taken out. If an exclusive 
+lock is taken out, it blocks execution until the lock is released. </p>
+<p>Used by: ProcessExecutor, for canceling a process or for merging execution of branches </p>
+<p>Implementation: org.bonitasoft.engine.lock.impl.MemoryLockService </p>
+<p>Notes: Uses java.util.concurrent.locks.ReentrantReadWriteLock 
+objects that are in memory only </p>
+<h3 id="monitoringdescription-monitor-engine-activity-such-as-active-transactions-">MonitoringDescription: Monitor Engine activity, such as active transactions,</h3>
+<p>active users, or JVM status. </p>
+<p>Used by: API </p>
+<p>Implementation: org.bonitasoft.engine.monitoring.impl.MonitoringServiceImpl </p>
+<h3 id="tenant-monitoringdescription-provide-metrics-on-a-tenant-">Tenant MonitoringDescription: Provide metrics on a tenant.</h3>
+<p>Used by: API </p>
+<p>Implementation: com.bonitasoft.engine.monitoring.impl.TenantMonitoringServiceImpl </p>
+<h3 id="platform-monitoringdescription-provide-metrics-on-a-platform-">Platform MonitoringDescription: Provide metrics on a platform.</h3>
+<p>Used by: API </p>
+<p>Implementation: com.bonitasoft.engine.monitoring.impl.PlatformMonitoringServiceImpl </p>
+<h3 id="persistencedescription-handle-storage-of-objects-in-a-persistent-medium-there">PersistenceDescription: Handle storage of objects in a persistent medium. There</h3>
+<p>are two services, bonita-persistence-read for reading objects and bonita-persistence-api for reading and writing objects. The default 
+implementation stores objects in the database, but the service could be implemented for any other type of persistent storage. The persistence 
+service gives a unique identifier to an object. </p>
+<p>Used by: All services reading persistent objects (such as 
+processInstanceService) use bonita-persistence-read. All services creating or modifying objects use bonita-persistence-api. </p>
+<p>Implementation: Hibernate </p>
+<h3 id="platformdescription-handle-creation-activation-and-deletion-of-platform-">PlatformDescription: Handle creation, activation, and deletion of platform.</h3>
+<p>The platform is the foundation of the Engine: creating the platform means creating database tables that are used by the Engine. </p>
+<p>Used by: - </p>
+<p>Implementation: org.bonitasoft.engine.platform.impl.PlatformServiceImpl </p>
+<p>Notes: Uses the persistence service to create platform. </p>
+<h3 id="profiledescription-handle-profiles-a-profile-is-an-entity-with-a-name-">ProfileDescription: Handle profiles. A profile is an entity with a name,</h3>
+<p>description, and icon path that is associated with a user, group, role, 
+or membership. A profile entity is used by Bonita BPM Portal to determine a 
+user&#39;s profile (user, process manager, or administrator). </p>
+<p>Used by: API, used by Bonita BPM Portal to modify user profiles. </p>
+<p>Implementation: org.bonitasoft.engine.profile.impl.ProfileServiceImpl </p>
+<p>Notes: Uses persistence service to store privileges </p>
+<h3 id="recorderdescription-">RecorderDescription:</h3>
+<p>A layer between the persistence service and all services 
+that need to store objects. It ensures that events are triggered and 
+that queriable log entries are written. </p>
+<p>Used by: All services storing objects. For example, the 
+ProcessInstanceService stores a ProcessInstanceObject using the recorder </p>
+<p>Implementation: org.bonitasoft.engine.recorder.impl.RecorderImpl </p>
+<h3 id="reportingdescription-handle-storage-retrieval-and-update-of-reports-">ReportingDescription: Handle storage, retrieval, and update of reports.</h3>
+<p>Used by: API </p>
+<p>Implementation: com.bonitasoft.engine.core.reporting.ReportingServiceImpl </p>
+<h3 id="schedulerdescription-handle-jobs-and-ensure-that-they-are-executed-at-the">SchedulerDescription: Handle jobs and ensure that they are executed at the</h3>
+<p>required time. There are three kinds of trigger: OneShotTrigger to 
+execute a job once only at a given time, RepeatTrigger to execute a job 
+a finite number of times at a given interval, and CronTrigger to 
+execute a job according to a Unix-type structure. </p>
+<p>Used by: ProcessEngine, for timers and for launching the job that 
+matches a message event </p>
+<p>Implementation: QuartzSchedulerService, org.bonitasoft.engine.scheduler.impl.SchedulerServiceImpl </p>
+<p>Notes: Relies on Quartz to launch jobs </p>
+<h3 id="sessiondescription-handle-user-sessions-a-session-is-an-object-stored-in">SessionDescription: Handle user sessions. A session is an object stored in</h3>
+<p>memory that contains several kinds of information about the client that 
+uses it, for example, userId, ClientIp, ExpirationDate. </p>
+<p>Used by: LoginService,SchedulerService,WorkService to create sessions </p>
+<p>Implementation: org.bonitasoft.engine.session.impl.SessionServiceImpl </p>
+<h3 id="platform-sessiondescription-handle-platform-sessions-these-sessions-are-created">Platform sessionDescription: Handle platform sessions. These sessions are created</h3>
+<p>when something logs in to the platform. </p>
+<p>Used by: PlatformLoginService </p>
+<p>Implementation: org.bonitasoft.engine.platform.session.impl.PlatformSessionServiceImpl </p>
+<h3 id="themedescription-handle-storage-retrieval-and-update-of-portal-themes-">ThemeDescription: Handle storage, retrieval, and update of portal themes.</h3>
+<p>Used by: API. </p>
+<p>Implementation: 
+org.bonitasoft.engine.theme.impl.ThemeServiceImpl </p>
+<h3 id="transactiondescription-handles-business-transactions-a-business-transaction-is">TransactionDescription: Handles business transactions. A business transaction is</h3>
+<p>a high-level transaction that contains several technical transactions. 
+This service is compatible with JTA. </p>
+<p>Used by: Almost all services, including persistence service to 
+register technical transactions. </p>
+<p>Implementation: 
+org.bonitasoft.engine.transaction.TransactionServiceImpl </p>
+<h3 id="technical-loggerdescription-an-abstraction-layer-used-to-access-the-logger">Technical loggerDescription: An abstraction layer used to access the logger</h3>
+<p>implementation. Clients of this service can log information using different levels: TRACE, DEBUG, INFO, WARNING, ERROR. </p>
+<p>Used by: All services that log information in the technical log. </p>
+<p>Implementation: TechnicalLoggerSLF4JImpl </p>
+<p>Notes: Implementation based on SLF4J </p>
+<h3 id="workdescription-trigger-work-for-immediate-execution-but-asynchronously-">WorkDescription: Trigger work for immediate execution but asynchronously.</h3>
+<p>Unlike the scheduler service, which uses persistent storage, the Work 
+service stores data in memory for better performance. This means that 
+clients of the service must handle restart if a triggered work does not 
+complete. For example, if the JVM shuts down, when it restarts the 
+client must check for incomplete work and re-trigger it. </p>
+<p>Used by: ProcessExecutor, to trigger work to execute flow 
+elements one after another </p>
+<p>Implementation: org.bonitasoft.engine.work.ExecutorWorkService </p>
+<p>Notes: Trigger launches work in a ThreadPool. For Community 
+Edition, work items are launched in sequence, each one in a new thread. For Teamwork, Efficiency, and Performance Editions, work items are 
+triggered in multiple threads. </p>
+<h3 id="xmldescription-parse-and-write-xml-files-">XMLDescription: Parse and write XML files.</h3>
+<p>Used by: BusinessArchiveBuilder, to read/write process 
+definitions<br>ConnectorService, to read connector definition </p>
+<p>Implementations: org.bonitasoft.engine.xml.parse.SAXParser (parse using sax)<br>org.bonitasoft.engine.xml.SAXValidator (validate using sax)<br>org.bonitasoft.engine.xml.DOMWriter (write using DOM) </p>
+<h2 id="packagingthe-engine-is-provided-as-three-jar-files-">PackagingThe Engine is provided as three .jar files:</h2>
+<ul>
+<li>bonita-common contains code that is used by both the server and client sides of the application. 
+For example, the API interface is accessed both on the server side, which contains the API implementations, and 
+on the client side, which has a proxy on the API. It also contains objects such as BusinessArchive, which is the 
+JavaObject representation of a .bar file. </li>
+<li>bonita-server contains code used on by the server. For example, it contains service implementations, 
+the services accessor, and API implementations. </li>
+<li>bonita-client contains client-only code. For example, it contains the Accessor service for the APIs, 
+which is not in the common or server packages to prevent the server code calling the client-side API accessor. </li>
+</ul>
+<p>In the Performance, Efficiency, and Teamwork editions, these jar files are bonita-common-sp.jar, bonita-server-sp.jar, and bonita-client-sp.jar.<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></p>

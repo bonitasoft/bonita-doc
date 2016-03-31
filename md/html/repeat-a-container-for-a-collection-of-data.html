@@ -1,0 +1,409 @@
+<style type="text/css">/** https://gist.github.com/andyferra/2554919#file-github-css **/
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0; }
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+ul :last-child, ol :last-child {
+  margin-bottom: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+pre {
+  background-color: #073642;
+  color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+</style><link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+<h1 id="1-7-2-5-repeat-a-container-for-a-collection-of-data">1.7.2.5 Repeat a container for a collection of data</h1>
+<p>The content of a container can be included multiple times in a page, once for each element in a collection of data. The content is repeated as many times as necessary to display all the data in the collection.</p>
+<p>A collection is an array of data referenced by a variable. The UI Designer provides some built-in variables that you can use to specify the collection or an element within it:</p>
+<ul>
+<li><em>$index</em>: the index of the current iteration of the collection (counting from zero)</li>
+<li><em>$item</em>: the element of the current iteration</li>
+<li><em>$collection</em>: the current collection (not available in releases earlier than 7.1.3)
+<img src="images/images-6_0/UID_ContainerCollection.png" alt="Collection variables"></li>
+</ul>
+<p>The rest of this page contains some examples of how to repeat the content of a container over a collection.</p>
+<p><a href="#simple-repeat-contents">Simple collection</a><br><a href="#simple-repeat-contents">Modifiable simple collection</a><br><a href="#structured-repeat-contents">Structured collection</a><br><a href="#structured-repeat-contents">Nested collections</a></p>
+<p>Follow the examples in sequence, because each one builds on the previous example.</p>
+<h2 id="simple-collection">Simple collection</h2>
+<p>This section explains how display the elements from a simple collection in a repeatable container.</p>
+<p>In this example, the collection of data is a list of fruits. You want to display this list in a table and enables users to modify the name of a fruit. To create the table in a page: </p>
+<ol>
+<li>In a UI designer page, create a variable to specify the collection, which must be an array. 
+In a typical application, a collection is defined by a JavaScript or External API variable, but for easy page development, you can use a fixed JSON array. 
+For this example, create a JSON variable called <em>fruits</em> containing <code>[&quot;banana&quot;,&quot;apple&quot;,&quot;pineapple&quot;,&quot;cherry&quot;]</code>.</li>
+<li>Add a container widget to your page and bind the variable <em>fruits</em> to the <strong>Repeat contents</strong> property.</li>
+<li><p>In the container, add an input widget with the following properties:</p>
+<ul>
+<li>Bind the <strong>Value</strong> property to <em>$item</em>. </li>
+<li>Set the <strong>Label</strong> property to <em>Fruit type</em>.</li>
+<li>Set the <strong>Label position</strong> property to <em>Left</em>.</li>
+</ul>
+</li>
+<li><p>Check the Preview, which should look something like this:
+<img src="images/images-6_0/UID_ContainerSimpleFruits.png" alt="Simple collection repeated"></p>
+</li>
+</ol>
+<p>A user can modify the name of a fruit by typing in the input field.</p>
+<h2 id="modifiable-simple-collection">Modifiable simple collection</h2>
+<p>This section shows how to update the container that you defined in the previous section, to enable the user to add an element to a collection or to remove an element. 
+Adding an element adds a repeat of the container content. Removing an element removes the repeat.</p>
+<ol>
+<li><p>In the page, add a button widget above the container (not in the container) the following properties:</p>
+<ul>
+<li><strong>Label</strong>: <em>Add a fruit</em></li>
+<li><strong>Alignment</strong>: <em>right</em></li>
+<li><strong>Style</strong>: <em>success</em></li>
+<li><strong>Action</strong>: <em>Add to collection</em></li>
+<li><strong>Collection</strong>: <em>fruits</em></li>
+<li><strong>Add</strong>: <em>Last</em>, to add the new item at the end of the collection</li>
+<li><strong>Value to add</strong>: leave this empty because there is no specific structure to add</li>
+</ul>
+</li>
+<li><p>In the container, add a button widget on the same line as the input widget labelled Fruit type, with the following properties:</p>
+<ul>
+<li><strong>Label</strong>: <em>Remove this fruit</em></li>
+<li><strong>Alignment</strong>: <em>right</em></li>
+<li><strong>Style</strong>: <em>danger</em></li>
+<li><strong>Action</strong>: <em>Remove from collection</em></li>
+<li><strong>Collection</strong>: <em>$collection</em>, to point to the current collection, fruits</li>
+<li><strong>Remove</strong>: <em>Item</em>, to remove the current item related to this line</li>
+<li><strong>Item to remove</strong>: <em>$item</em>, to reference the current element</li>
+</ul>
+</li>
+<li><p>Check the Preview, which should look something like this:
+<img src="images/images-6_0/UID_ContainerSimpleFruitsAddRemove.png" alt="Simple collection repeated"></p>
+</li>
+</ol>
+<p>A user can now add a new fruit or remove a fruit, dynamically changing the collection.</p>
+<h2 id="structured-collection">Structured collection</h2>
+<p>This section explains how to update the container to display a structured collection using repeated content. 
+The previous examples used a simple array of names of fruits, where each item was a primitive String type. 
+This example uses a more complex array with a list of producing countries nested within each item in the list of fruits. It has the following structure:</p>
+<pre><code>{
+   "<span class="hljs-attribute">fruit</span>":<span class="hljs-value"><span class="hljs-string">"fruit name"</span></span>,
+   "<span class="hljs-attribute">producingCountries</span>":
+               <span class="hljs-value">[<span class="hljs-string">"country1"</span>,<span class="hljs-string">"country2"</span>]
+</span>}
+</code></pre><ol>
+<li>Create a new variable,<em>fruitsProducingCountries</em>, with the following value: </li>
+</ol>
+<pre><code>[
+  {
+   "<span class="hljs-attribute">fruit</span>":<span class="hljs-value"><span class="hljs-string">"banana"</span></span>,
+   "<span class="hljs-attribute">producingCountries</span>":
+               <span class="hljs-value">[<span class="hljs-string">"India"</span>,<span class="hljs-string">"China"</span>]
+   </span>},
+   {
+    "<span class="hljs-attribute">fruit</span>":<span class="hljs-value"><span class="hljs-string">"apple"</span></span>,
+    "<span class="hljs-attribute">producingCountries</span>":
+                <span class="hljs-value">[<span class="hljs-string">"China"</span>,<span class="hljs-string">"USA"</span>]
+    </span>}
+]
+</code></pre><ol>
+<li>Select the container and change the <strong>Repeat contents</strong> property so that it binds to <em>fruitsProducingCountries</em> instead of to <em>fruits</em>.</li>
+<li>Select the input widget that displays the fruit and change the <strong>Value</strong> property to bind to <em>$item.fruit</em>.</li>
+<li>Select the <em>Add fruit</em> button and change the <strong>Collection</strong> property to bind to <em>fruitsProducingCountries</em>.</li>
+<li>Check the Preview. You see the same result as in the previous example.
+The country information is present in the data collection but is not displayed. You can still change the name of a fruit, and add or remove an entry.</li>
+</ol>
+<h2 id="nested-collections">Nested collections</h2>
+<p>This section explains how to update the container configuration to handle a structured collection that includes nested structures, to enable a user to add or remove elements at any level of the collection. 
+The updated page displays the producing countries for each fruit. A user can rename, add, or remove a fruit, and add or remove a producing country for a fruit.</p>
+<ol>
+<li>Add a button widget in the existing container, below the row that contains the <em>Fruit type</em> input widget and the <em>Remove this fruit</em> button. Configure the button widget properties as follows:<ul>
+<li><strong>Label</strong>: <em>Add producing country</em></li>
+<li><strong>Alignment</strong>: <em>left</em></li>
+<li><strong>Style</strong>: <em>success</em></li>
+<li><strong>Action</strong>: <em>Add to collection</em></li>
+<li><strong>Collection</strong>: <em>$item.producingCountries</em>, to specify the element of the data structure to which the element is added</li>
+<li><strong>Add</strong>: <em>Last</em>, to add the new item is added at the end of the collection</li>
+<li><strong>Value to add</strong>: leave this empty because there is no specific structure to add</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li>Add a new Container widget inside the existing container below the <em>Add producing country</em> button. </li>
+<li><p>To repeat the content of this new container for the collection of producing countries associated with each fruit type, bind the <strong>Repeat contents</strong> property of this container to <em>$item.producingCountries</em>. </p>
+</li>
+<li><p>Add an input widget in the new container to display the producing countries. Set the widget properties as follows:</p>
+<ul>
+<li><strong>Label</strong>: <em>Producing country</em></li>
+<li><strong>Label position</strong>: <em>left</em></li>
+<li><strong>Value</strong>: bind to <em>$item</em>, to specify the current item within the collection <em>producingCountries</em>.</li>
+</ul>
+</li>
+<li><p>To enable the user to remove a producing country item, add a button widget in the container in the same row as the <em>Producing country</em> input widget. Configure the button widget properties as follows:</p>
+<ul>
+<li><strong>Label</strong>: <em>Remove this producing country</em></li>
+<li><strong>Alignment</strong>: <em>righ</em></li>
+<li><strong>Style</strong>: <em>danger</em></li>
+<li><strong>Action</strong>: <em>Remove from collection</em></li>
+<li><strong>Collection</strong>: <em>$collection</em>, to specify the current collection, producingCountries 
+(you could also specify the collection explicitly as <em>fruitsProducingCountries.producingCountries</em>, but for better maintainability this is not recommended because
+if you specify the collection explicitly and subsequently change the collection name or the parent collection name, you need to remember to update this property setting)</li>
+<li><strong>Remove</strong>: <em>Item</em>, to remove the current item related to this line</li>
+<li><strong>Item to remove</strong>: <em>$item</em>, to specify the current element</li>
+</ul>
+</li>
+<li><p>Check the Preview, which should look something like this:
+<img src="images/images-6_0/UID_ContainerStructuredFruitsAddRemove.png" alt="Simple collection repeated"></p>
+</li>
+</ol>
+<p>You can rename, add, and remove fruits, and add or remove countries, dynamically changing the structure of your collection.<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></p>

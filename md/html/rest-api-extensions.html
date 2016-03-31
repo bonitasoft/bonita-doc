@@ -1,0 +1,394 @@
+<style type="text/css">/** https://gist.github.com/andyferra/2554919#file-github-css **/
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0; }
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+ul :last-child, ol :last-child {
+  margin-bottom: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+pre {
+  background-color: #073642;
+  color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+</style><link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+<h1 id="4-4-11-creating-a-rest-api-extension">4.4.11 Creating a REST API extension</h1>
+<p>REST API extensions provide data sources for forms and pages. They can be used to query <a href="/business-data-model-856">business data</a> or an external information system (such as a database, web service, or LDAP directory).
+They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
+In the Bonita BPM Studio, a REST API Extension is a <a href="http://maven.apache.org/">Maven artifact</a>.</p>
+<p>Prerequisites for developing a REST API extension:</p>
+<ul>
+<li>Basic knowledge of Maven</li>
+<li>Groovy/Java development expertise</li>
+</ul>
+<p>The following sections show how to create and deploy a REST API extension. As an example, they show a REST API extension that queries the corporate LDAP directory to get the list of all users.</p>
+<h2 id="create-a-new-rest-api-extension">Create a new REST API Extension</h2>
+<ol>
+<li>In the <strong>Development</strong> menu, choose <strong>REST API Extension</strong> then <strong>New...</strong>.</li>
+</ol>
+<p>A REST API should be resource oriented. Here the resource name could be LDAPUser.</p>
+<ol>
+<li>Enter a <strong>Display name</strong>, for example <em>LDAPUser REST API Extension</em>.</li>
+<li>Enter a <strong>Description</strong>, for example <em>Query the company LDAP directory to retrieve ldap users</em>.</li>
+<li>Enter a package name, use to set the artifact <strong>Group id</strong>, by example: com.company.rest.api</li>
+<li>Enter a <strong>Project name</strong>, for example <em>ldapUserRestAPIExension</em>, also used as <strong>Artifact id</strong></li>
+<li>Click <strong>Next</strong>.</li>
+<li>Enter the <strong>pathTemplate</strong> for this REST API extension, for example <em>ldap/users</em>. 
+This will be the access point of the API, and follows this pattern: <code>{bonita_portal_context}/API/extension/ldap/users</code>.</li>
+<li>Define a <strong>Permission</strong> for the extension, for example <em>read_ldap_users</em>. 
+Each REST API extension should declare its own <a href="/rest-api-authorization.md">authorization permission</a>. Users require this permission to use the extension. /li></li>
+<li>Click <strong>Next</strong></li>
+<li>Add <strong>URL parameters</strong> that will be passed to the API. By default, <em>p</em> and <em>c</em> parameters are defined to enables paged result, it apllies well in our examples as we want to return a list of users.</li>
+<li>Click <strong>Create</strong>.</li>
+</ol>
+<p>When the project is created, Bonita BPM Studio presents a developer interface. This gives access to the project resources, a console view, a problem overview, a JUnit view, and an outline.
+It also opens two files: <code>Index.groovy</code> which is the RestAPIController and <code>page.properties</code> where the REST API extension is configured.
+Another file of interest is the <code>pom.xml</code> of your project, where you can add dependencies.</p>
+<p>Note: <code>provided</code> must be used for dependencies that are already available at runtime, such as Bonita BPM dependencies or common dependencies that are already in the classpath.</p>
+<p>A new REST API extension is generated with some initial content:</p>
+<ul>
+<li><code>Index.groovy</code>: The RestAPIController with some generated code as an example of how to retrieve URL parameters and return responses.</li>
+<li><code>IndexTest.groovy</code>: The unit tests covering the generated code using <a href="http://spockframework.github.io/spock/docs/1.0/index.html">Spock framework</a>.</li>
+<li><code>page.properties</code>: The REST API extension configuration properties.</li>
+<li><code>configuration.properties</code>: An example of a configuration property file for the business logic.</li>
+<li><code>content.xml</code>: A maven assembly to package the REST API Extension for deployment.</li>
+</ul>
+<h2 id="write-the-code">Write the code</h2>
+<ol>
+<li>Right click the <code>IndexTest.groovy</code> file and click on <strong>REST API Extension</strong> > <strong>Run JUnit Tests</strong>. The JUnit view displays the test results. All tests should pass.</li>
+<li>Because the values of the parameters <em>p</em> and <em>c</em> are supposed to be integer values, update the generated content to match that (for example, replace &quot;value1&quot; by &quot;0&quot;)</li>
+<li><p>Update <code>IndexTest.groovy</code> to add a new test to validate that the page parameter is an integer:
+`
+def should_return_an_error_response_if_p_parameter_is_not_a_positive_integer() {</p>
+<pre><code> given: <span class="hljs-string">"a request with p parmeter not being a positive integer"</span>
+ <span class="hljs-keyword">def</span> index = <span class="hljs-keyword">new</span> Index()
+ httpRequest.getParameter(<span class="hljs-string">"p"</span>) &gt;&gt; <span class="hljs-string">"aStringValue"</span>
+ <span class="hljs-comment">// Other parameters return a valid value</span>
+ httpRequest.getParameter(<span class="hljs-string">"c"</span>) &gt;&gt; <span class="hljs-string">"50"</span>
+
+ when: <span class="hljs-string">"Invoking the REST API"</span>
+ <span class="hljs-keyword">def</span> apiResponse = index.doHandle(httpRequest, <span class="hljs-keyword">new</span> RestApiResponseBuilder(), context)
+
+ then: <span class="hljs-string">"A JSON response is returned with a HTTP Bad Request Status (400) and an error message in body"</span>
+ <span class="hljs-keyword">def</span> jsonResponse = <span class="hljs-keyword">new</span> JsonSlurper().parseText(apiResponse.response)
+ <span class="hljs-comment">// Validate returned response</span>
+ apiResponse.httpStatus == <span class="hljs-number">400</span>
+ jsonResponse.error == <span class="hljs-string">"the parameter p is not a positive integer"</span>
+</code></pre><p> }
+`</p>
+</li>
+<li>Re-run the tests. The test above should fail.</li>
+<li><p>Edit <code>Index.groovy</code> to make the test pass:
+`
+@Override
+ RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {</p>
+<pre><code> <span class="hljs-comment">// To retrieve query parameters use the request.getParameter(..) method.</span>
+ <span class="hljs-comment">// Be careful, parameter values are always returned as String values</span>
+
+ <span class="hljs-comment">// Retrieve p parameter</span>
+ <span class="hljs-keyword">def</span> p = request.getParameter <span class="hljs-string">"p"</span>
+ <span class="hljs-keyword">if</span> (p == <span class="hljs-keyword">null</span>) {
+     <span class="hljs-keyword">return</span> buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,<span class="hljs-string">"""{"error" : "the parameter p is missing"}"""</span>)
+ }
+ <span class="hljs-keyword">def</span> pageNumber;
+ <span class="hljs-keyword">try</span>{
+     pageNumber = p as int
+     <span class="hljs-keyword">if</span>(pageNumber 
+</code></pre><p>`</p>
+</li>
+<li>Re-run the tests. All tests should pass.</li>
+<li>Repeat this operation for the <em>c</em> parameter.</li>
+<li>Now you can add the business logic to query the LDAP directory.
+All configuration information (including security and connection parameters) can be stored in a the <code>configuration.properties</code> file. 
+The result of the query must be returned as a <a href="http://www.json.org/">JSON representation</a>. 
+You can use <a href="http://docs.groovy-lang.org/latest/html/gapi/groovy/json/JsonBuilder.html">groovy.json.JsonBuilder</a> to transform a Java object into JSON.</li>
+<li>To return a paged result you may use <code>buildPagedResponse</code> method instead of <code>buildResponse</code>
+<code>return buildPagedResponse(responseBuilder, new JsonBuilder(result).toPrettyString(), p as int, c as int, totalUsers)</code>
+Where <em>totalUsers</em> is the total number of users returned for the current query in the ldap (Should be retrieved with a count query).</li>
+</ol>
+<h2 id="configure-logging-properties">Configure logging.properties</h2>
+<p>You may want to use the generated SLF4J LOGGER to log informations, warnings or errors relevant for error recovery.To Configure the log output, modify the logging.properties of the tomcat.</p>
+<ol>
+<li>Open logging.properties file: %TOMCAT_FOLDER%/conf/logging.properties (if you are in a Studio environment, tomcat folder is located here be default: %STUDIO_DIR%/workspace/tomcat)</li>
+<li>Append the following lines at the end of the files:
+`<h1 id="log-rest-api-extension-output-in-bonita-log-file">log rest api extension output in bonita.log file</h1>
+<h1 id="com-company-rest-api-is-an-example-of-a-package-where-the-restapicontroller-is-you-must-use-your-own-package-here-">com.company.rest.api is an example of a package where the RestAPIController is. You must use your own package here.</h1>
+ com.company.rest.api.handlers = 5bonita.org.apache.juli.FileHandler
+ com.company.rest.api.level = INFO
+`</li>
+<li>Restart tomcat to apply changes. (In Studio,menu Server > Restart Web server)</li>
+</ol>
+<h2 id="deploy-the-ldap-rest-api-extension">Deploy the LDAP REST API extension</h2>
+<ol>
+<li>In the <strong>Development</strong> menu, choose <strong>REST API Extension</strong> then <strong>Edit permissions mapping</strong>.</li>
+<li>Save and close the file.</li>
+<li>Append this line:
+<code>profile|User=[read_ldap_users]</code> 
+This means that anyone logged in with the user profile is granted this permission.</li>
+<li>Save and close the file.</li>
+</ol>
+<ol>
+<li>In the <strong>Development</strong> menu, choose <strong>REST API Extension</strong> > <strong>Deploy...</strong> and then deploy ldapUserRestAPIExension.</li>
+<li>In the coolbar, click the Portal icon. This opens the Bonita BPM Portal in your browser.</li>
+<li>In the Portal, change to the <strong>Administrator</strong> profile.</li>
+<li>Go to the <strong>Resources</strong> tab, and check that the LDAPUser REST API extension is in the list of REST API extension resources. </li>
+<li>Open a new tab in the web browser and enter the following URL: <code>http://localhost:8080/bonita/API/extension/ldap/users?p=0&amp;c=100</code>. The JSON response body should be displayed.</li>
+</ol>
+<p>The LDAP REST API extension can be used in forms and pages in the <strong>UI Designer</strong> using an <code>External API</code> variable.<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></p>

@@ -1,0 +1,424 @@
+<style type="text/css">/** https://gist.github.com/andyferra/2554919#file-github-css **/
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0; }
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+ul :last-child, ol :last-child {
+  margin-bottom: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+pre {
+  background-color: #073642;
+  color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+</style><link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+<h1 id="1-10-4-create-a-report">1.10.4 Create a report</h1>
+<p>The final step when setting up reporting is to create a report template using a Business Intelligence (BI) tool.</p>
+<p>You are free to choose any BI tool to do so, but if you want to display reports inside the Bonita BPM Portal you should design your reports using one of the following tools:</p>
+<ul>
+<li><a href="http://community.jaspersoft.com/project/ireport-designer">JasperReports iReport Designer</a> - Older stable tool in maintenance mode</li>
+<li><a href="http://community.jaspersoft.com/project/jaspersoft-studio">Jaspersoft Studio</a> - Newer tool</li>
+</ul>
+<h2 id="bonita-bpm-integration-guidelines-and-tips-for-jasper-reports">Bonita BPM integration guidelines and tips for Jasper reports</h2>
+<p>This documentation does not detail the use of Jaspersoft Studio but provides some guidelines for report integration in Bonita BPM Portal. 
+There are minor differences depending on which Japsersoft tool you are using, but these concern the user interface of the Japsersoft tools, not the Bonita BPM behavior.
+For details about the use of the Jaspersoft products, please refer to their documentation:</p>
+<ul>
+<li><a href="http://community.jaspersoft.com/project/ireport-designer/resources">JasperReports iReport Designer documentation</a></li>
+<li><a href="http://community.jaspersoft.com/project/jaspersoft-studio/resources">Jaspersoft Studio documentation</a></li>
+</ul>
+<h3 id="change-the-script-language-to-java">Change the script language to Java</h3>
+<p>By default Jasper reports use Groovy as a script language. 
+However, Bonita BPM Portal does not provide Groovy dependencies to the report so you need to switch the report script language to Java.</p>
+<p>This is how to do this for iReport:</p>
+<ol>
+<li>In the <strong>Report inspector</strong> tree located on the left-hand side, select the root element.</li>
+<li>In the properties table located on the right-hand side, locate the <strong>Language</strong> property and change it to <strong>Java</strong>.</li>
+</ol>
+<h3 id="access-bonita-bpm-database">Access Bonita BPM database</h3>
+<p>If you build a report that requires access to the Bonita BPM database, you need to add the Bonita BPM SQL Query Executor as a report dependency.
+All queries that fetch Bonita BPM Engine data must use this query executor.</p>
+<p>This is how to add the query executor as a report dependency in iReport:</p>
+<ol>
+<li>Open the <strong>Tools</strong> menu and select <strong>Options</strong>.</li>
+<li>Make sure the <strong>iReport</strong> header is selected.</li>
+<li>Select the <strong>Query Executers</strong> tab.</li>
+<li>Click on the <strong><em>Add</em></strong> button.</li>
+<li>Fill the form using the following values:
+FieldValue</li>
+</ol>
+<p>LanguageBONITASQL</p>
+<p>Factory classorg.bonitasoft.JRBonitaJdbcQueryExecuterFactory</p>
+<p>Fields Provider class (optional)com.jaspersoft.ireport.designer.data.fieldsproviders.SQLFieldsProvider</p>
+<ol>
+<li>Click on <strong><em>OK</em></strong>.</li>
+<li>Still in the <strong>Options</strong> window, select the <strong>Classpath</strong> tab.</li>
+<li>Click on <strong><em>Add JAR</em></strong>.</li>
+<li>Browse to your Bonita BPM Studio installation directory and navigate to <code>workspace/tomcat/webapps/bonita/WEB-INF/lib/</code>.</li>
+<li>Select the <code>console-server-sp-X.Y.Z.jar</code> file, where <code>X.Y.Z</code> is the Bonita BPM version.</li>
+<li>Click on <strong><em>Open</em></strong>.</li>
+</ol>
+<h3 id="add-interactivity-with-bonita-bpm-portal-to-your-report">Add interactivity with Bonita BPM Portal to your report</h3>
+<p>When creating a report you may need to enable Bonita BPM Portal users to interact with it.
+Bonita BPM Portal integration of the Jasper report viewer makes interactivity possible by providing widgets that can control report parameters.
+Widgets are configured directly in the Jasper report as properties.</p>
+<p>Here is the sequence of events when an interactive Jasper report is displayed in Bonita BPM Portal:</p>
+<ol>
+<li>Bonita BPM Portal reads the report properties and generates an HTML form containing the widgets.</li>
+<li>The HTML code is injected as a report parameter by Bonita BPM Portal.</li>
+<li>The report renders the HTML code using the parameter.</li>
+<li>The end-user can then interact with the widgets and the report is automatically re-generated if a value changes.</li>
+</ol>
+<p>To enable interactivity, the first thing to do is to prepare the HTML form rendering parameter and component.</p>
+<p>This is how to do this in iReport:</p>
+<ol>
+<li>In the <strong>Report Inspector</strong> tree, right click on <strong>Parameters</strong> and select <strong>Add Parameter</strong>.</li>
+<li>In the parameter properties, update the <strong>Name</strong> property to <code>BONITA_HTML_FORM</code>.</li>
+<li>Drag and drop an <strong>HTML</strong> component from the <strong>Palette</strong> onto your report&#39;s <strong>Title</strong> section.</li>
+<li>Select the <strong>HTML</strong> component that you have added.</li>
+<li>In the component properties, set the <strong>HTML Content Exp.</strong> property to <code>$P{BONITA_HTML_FORM}</code>.</li>
+</ol>
+<p>When the HTML form rendering parameter and component are ready, you need to set the report properties to configure the widgets that your report will integrate.</p>
+<p>All widgets share the following mandatory properties (<code>XXX</code> is replaced by a number used to identify the widget):
+Property
+Mandatory
+Description</p>
+<p>BONITA_FORM_<em>XXX</em>_ID
+Yes
+Base name of the report parameter that will be updated with the widget value.  </p>
+<p>Special rules apply depending on the widget type (see next parameter):  </p>
+<ul>
+<li>For a <strong>SELECT</strong> widget, the parameter name is the same as the base name.  </li>
+</ul>
+<p>Example: if <code>BONITA_FORM_1_ID</code> is set to <code>p_country</code> then, the report parameter should be named <code>p_country</code>.</p>
+<ul>
+<li>For a <strong>DATE</strong> widget, the value will be saved to a parameter with the <strong>_from</strong> suffix.  </li>
+</ul>
+<p>Example: if <code>BONITA_FORM_2_ID</code> is set to <code>p_birthday</code>, then the report parameter should be named <code>p_birthday_from</code>.</p>
+<ul>
+<li>For a <strong>DATE_RANGE</strong> widget, the values will be saved to two parameters: one with a <strong>_from</strong> suffix and one with a <strong>_to</strong> suffix.  </li>
+</ul>
+<p>Example: if <code>BONITA_FORM_3_ID</code> is set to <code>p_period</code>, then the two report parameters should be named <code>p_period_from</code> and <code>p_period_to</code>.</p>
+<p>BONITA_FORM_<em>XXX</em>_WIDGET
+Yes
+Widget type. Can be one of the following:</p>
+<ul>
+<li><code>SELECT</code> for a drop down allowing a single selection</li>
+<li><code>DATE</code> for a date picker</li>
+<li><code>DATE_RANGE</code> for a date range picker with a start date and an end date</li>
+</ul>
+<p>BONITA_FORM_<em>XXX</em>_LABEL
+Yes
+Widget label</p>
+<p>The <strong>SELECT</strong> widget has the following extra properties:
+Property
+Mandatory
+Description</p>
+<p>BONITA_FORM_<em>XXX</em>_AVAILABLE_VALUES
+Yes: one of these two properties is required
+Static list of available values defined in a JSON format.  </p>
+<p>Example: <code>[{&quot;id&quot;:&quot;FR&quot;,&quot;label&quot;:&quot;France&quot;}, {&quot;id&quot;:&quot;US&quot;,&quot;label&quot;:&quot;United States of America&quot;}, {&quot;id&quot;:&quot;ES&quot;,&quot;label&quot;:&quot;Spain&quot;}]</code></p>
+<p>BONITA_FORM_<em>XXX</em>_QUERY
+Query that dynamically retrieves the list of available values from the Bonita BPM database.</p>
+<p>BONITA_FORM_<em>XXX</em>_HAS_ALL
+No
+Set this to <code>TRUE</code> if you wish to dynamically add an &quot;All&quot; item to the list of available values. Otherwise, ignore this property.</p>
+<p>BONITA_FORM_<em>XXX</em>_HAS_ALL_VALUE
+Only if the &quot;All&quot; item is active
+Specifies the value returned when the &quot;All&quot; item is selected.</p>
+<p>The <strong>DATE</strong> and <strong>DATE_RANGE</strong> widgets have the following extra properties:
+Property
+Mandatory
+Description</p>
+<p>BONITA_FORM_<em>XXX</em>_INITIAL_VALUE
+Yes: one of these two properties is required
+Static initial value defined in the ISO format.  </p>
+<p>Example: <code>2015-01-28</code></p>
+<p>BONITA_FORM_<em>XXX</em>_QUERY
+Query that dynamically retrieves the initial value from the Bonita BPM database.</p>
+<p>Create the report properties using iReport as following:</p>
+<ol>
+<li>In the <strong>Report Inspector</strong> tree, right click on the report&#39;s name and select <strong>Properties</strong>.</li>
+<li>In the <strong>More</strong> section, configure <strong>Properties</strong> by clicking on <strong>...</strong></li>
+<li>Add the properties based on the widgets you need.</li>
+</ol>
+<p>Here is an example of a report configuration containing a &quot;Period&quot; date range and a &quot;State&quot; select widget:
+<img src="images/images-6_0/exampleswidgets.png" alt="Widget property example in iReport"></p>
+<h3 id="package-a-report-for-bonita-bpm-portal-integration">Package a report for Bonita BPM Portal integration</h3>
+<p>In order to integrate a Jasper report in Bonita BPM Portal, you need to prepare a ZIP archive.</p>
+<p>The archive should contain at least the compiled Jasper report (a file with a .jasper extension).</p>
+<p>If your report requires a connection to the reporting database, the archive must contain:</p>
+<ul>
+<li>The JDBC driver jar file used to connect to the reporting database. Do not include this file in the archive if the driver is already deployed at server level.</li>
+<li>A <em>connection.properties</em> text file that contains the reporting database connection settings:
+PropertyDescription</li>
+</ul>
+<p>dbUrlJDBC Url to access the reporting database</p>
+<p>dbDriverClassNameThe JDBC driver&#39;s class name</p>
+<p>dbUserThe login of the database user</p>
+<p>dbPasswordThe password of the database user</p>
+<p>For example, connecting to a local MySQL database named <em>BonitaReport</em> with a user <em>root</em> and password <em>root</em>:
+<code>dbUrl=jdbc:mysql://localhost:3306/BonitaReport
+dbDriverClassName=com.mysql.jdbc.Driver
+dbUser=root
+dbPassword=root</code></p>
+<p>If your report contains sub reports, these should be placed in a directory named <code>sub</code>.</p>
+<p>If your report uses a style sheet you may also provide a .jrtx file in the archive.</p>
+<p>Once you have packaged the Jasper report as a ZIP archive, you can <a href="/analytics.md#install">install it in the Bonita BPM Portal</a>.<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></p>

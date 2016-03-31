@@ -1,0 +1,339 @@
+<style type="text/css">/** https://gist.github.com/andyferra/2554919#file-github-css **/
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0; }
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+ul :last-child, ol :last-child {
+  margin-bottom: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+pre {
+  background-color: #073642;
+  color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+</style><link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+<h1 id="1-5-2-naming-conventions">1.5.2 Naming conventions</h1>
+<p>Every element in a process definition has a name. The only rules about naming are that you cannot 
+use <a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html">Java language keywords</a> 
+and that you cannot use the same name for more than one element within the same diagram. 
+For example, you cannot have two variables called <code>beanCounter</code> in a diagram, even if they are in different pools. 
+You could, however, have a variable called <code>beanCounter</code> and an actor called <code>beanCounter</code>.</p>
+<p>Note: Variables are not shared between Studio and UI Designer. Furthermore, in the UI Designer, variables are not shared between pages. 
+For information about to use variables in the UI Designer, go to <a href="/variables">Variables</a>.</p>
+<p>Even in a relatively simple process, the number of names quickly becomes large. Adopting a naming strategy improves the readability and maintainability of your processes, and makes it easier to reuse elements. We propose the following best practises.</p>
+<ul>
+<li>Make names meaningful. The goal is to make it obvious what something does without needing to open it. It is better to have a long, meaningful name than a short name. 
+In most cases, a name only has to be typed once and then is selected from a list, so there is no advantage to using short names. For example, it is better name a Boolean variable <code>hasRequestedReceipt</code> 
+rather than just <code>receipt</code>.</li>
+<li>Names can indicate either what something is or what it does. For a variable, it is more useful to indicate what it is, that is, what it stores. For any other element, indicate what it does.</li>
+<li><p>Be consistent within a process and also between processes, to facilitate reuse or copying. Reuse is more likely if it is easy to find the element you want to reuse or copy.</p>
+</li>
+<li><p>Name a pool with the high-level business process name. If you have several pools in a business process, use names that convey how the pools are related. 
+For example, if you have a business process for reviewing and approving leave requests that has a main process, a called process for reviewing requests, and a called process for escalations, 
+you could call the pools <code>Leave Request</code>, <code>Leave Request Review</code>, and <code>Leave Request Escalation</code>.</p>
+</li>
+<li>Name a lane to indicate who is acting in the process. In general, you should use the actor name and group activities by the same actor into the same lane. 
+The additional benefit of this is that it makes actors visible in the process diagram.</li>
+<li>Name a task according to what is being done. This is important for all types of task, not just human tasks.</li>
+<li>Name a form according to what is being done prefixed with the process name. It will be easier to understand where and why forms are used inside the UI designer home page.</li>
+<li><p>For usability as well as maintainability, use the same structure in all task names. In a leave request process, for example, do not call the tasks <code>Manager reviews request</code> and <code>HR review</code>.</p>
+</li>
+<li><p>Name a gateway for the decision that is being made.</p>
+</li>
+<li><p>Name all the transitions out of a gateway.</p>
+</li>
+<li><p>The name of an end events should indicate what is being ended, possibly with the reason. In a process with several flows, you need to know which flow has ended. 
+For example: <code>leaveApproval_ManagerReview</code>, or <code>leaveApproval_RejectionFlow</code>.</p>
+</li>
+<li><p>For variables, differentiate between process data and task data. You could prefix all process data names with <code>p_</code> and all task data with <code>t_</code>, or you could append the name with <code>_in_p_ProcessName</code> 
+or <code>in_t_TaskName</code>.</p>
+</li>
+<li><p>For variables and parameters, indicate the datatype in the name. This can be done implicitly, with terms like <em>is</em> or <em>has</em> (for Booleans), <em>date</em>, <em>price</em>, <em>number</em>, etc. For example:
+<code>p_hasRequestedReceipt</code> instead of <code>p_RecieptRequested</code>,
+<code>p_dateOfFirstLeaveDay</code> instead of <code>p_FirstLeaveDay</code>,
+<code>p_numberOfDaysRequested</code> instead of <code>p_DaysRequested</code>, or 
+<code>p_pricePerDayOfTraining</code> instead of <code>p_TrainingFee</code>.</p>
+</li>
+</ul>
+<p>You could also indicate the data type explicitly. For example, <code>p_int_numberOfDaysRequested</code> or <code>p_date_StartOfLeave</code>.</p>
+<ul>
+<li><p>Name a connector instance with a descriptive name to indicate what it is doing, not just the connector type. 
+This is particularly important if a process uses the same connector at several points to handle different data. For example, in a process to update an employee&#39;s contact details, 
+you could use the PostgreSQL connector to get the existing data and to write the updated values, 
+so you could name the connector instances <code>posrgresqlGetEmployeeContactInfo</code> and <code>postgresqlUpdateEmployeeContactInfo</code>.</p>
+</li>
+<li><p>Name an expression (such as a Groovy script) with a descriptive name that indicates the purpose. Use a name that is unique within the business process.</p>
+</li>
+<li><p>If you have a library of reusable elements (for example Groovy scripts, or data type definitions), give each element a name that is obvious and descriptive, for maximum reuse. 
+For example, <code>createOperationsListFromVariablesMap</code>, not <code>createOperations</code>.
+If you import a reusable element but modify it in a process, save it with a new name that is unique in the repository and identifies the process where it is used. 
+This avoids the risk of the amended element overwriting the standard one, which would cause problems for processes using the standard one.</p>
+</li>
+</ul>
+<p><strong>Note:</strong> There are forbidden keywords which cannot be used in an application name, task name, or process name. 
+The forbidden keywords, which are not case sensitive, are: </p>
+<ul>
+<li>content</li>
+<li>theme</li>
+<li>api </li>
+</ul>
+<p>In addition to using a predictable naming scheme, you can improve the maintainability of a process by specifying a description for every element. 
+It is also possible to use text annotations on the diagram itself. However, a large number of text annotations can make a diagram difficult to read. 
+You are recommended to use a text annotation primarily for a temporary note, as a reminder to complete or correct something, or for communication between business analyst and application designer.<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></p>

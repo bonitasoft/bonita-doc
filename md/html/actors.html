@@ -1,0 +1,387 @@
+<style type="text/css">/** https://gist.github.com/andyferra/2554919#file-github-css **/
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0; }
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+ul :last-child, ol :last-child {
+  margin-bottom: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+pre {
+  background-color: #073642;
+  color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+</style><link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+<h1 id="1-5-5-actors">1.5.5 Actors</h1>
+<p>There are two stages to specifying who performs a step in a
+process:</p>
+<ul>
+<li>When the process is designed, the business analyst designates
+an actor for the step. An actor is a placeholder that defines
+the theoretical user who will perform the step.</li>
+<li>Before a process is deployed, the actors are mapped to the
+real users in an organization.</li>
+</ul>
+<p><a href="#Defining_an_actor">Defining an actor</a><br><a href="#Setting_the_initiator">Setting the initiator</a><br><a href="#Using_an_actor_filter">Using an actor filter</a><br><a href="#Mapping_an_actor">Mapping an actor</a><br><a href="#Dynamic_people_assignment">Updating task assignment dynamically</a><br><a href="#Export_or_import_actor_mapping">Export or import actor
+mapping</a></p>
+<h2 id="defining-an-actor">Defining an actor</h2>
+<p>When you define a process, you define who will carry out a step in
+the process by specifying an actor. For example, if a step can be
+done by any member of the HR team, you could call the actor hr, or
+if a step can only be done by the sales team manager in Europe, you
+could call the actor sales_mgr_europe.</p>
+<p>Typically, an actor is defined for each step in a process, but you
+can also specify an actor for all steps in a pool or lane. You can
+also use an actor filter to specify the logical relationships
+between actors. For example, in a process to request vacation days,
+the request step can be carried out by any user, but the approval
+step must be carried out by the manager of the requesting user.</p>
+<p>You can define an actor at pool, lane, or step, and the definitions
+are related. You must define actors in the order pool, lane, step.</p>
+<p>To define actors for a process:</p>
+<ol>
+<li><p>Define the actors for the pool:</p>
+<ol>
+<li><p>Select the  pool and go to the <strong>Details</strong> panel, <strong>General</strong>
+tab, <strong>Actors</strong> pane. If you have already defined any actors, they
+are shown in the table. </p>
+</li>
+<li><p>Click <strong><em>Add</em></strong>. A new row is added to the table, with a temporary
+name for the new actor (for example, Actor1). To change the
+name, select it and type the name you want to use. You can
+also add a description.</p>
+</li>
+<li><p>Repeat step 2 to add all the actors required for the
+process. You can also remove an actor, by selecting it and
+clicking <strong><em>Remove</em></strong>.</p>
+</li>
+<li><p>Select the actor that will be the initiator of the process
+cases, and click <strong><em>Set as initiator</em></strong>. If you 
+do not define an initiator for the pool, the process cannot be started 
+in Bonita BPM Portal. Instead, it will have to be started programmatically.</p>
+</li>
+</ol>
+</li>
+<li><p>For each lane, define the actor. You can either select an
+actor that was defined for the pool, by selecting the actor from
+the drop-down list, or you can use an <a href="#Using_an_actor_filter">actor filter</a>.</p>
+</li>
+<li>For each step, define the actor. You can use the actor defined
+for the lane, or specify an actor for the step. To specify an
+actor for the step, you can either select an actor that was
+defined for the pool, by selecting the actor from the drop-down
+list, or you can use an <a href="#Using_an_actor_filter">actor
+filter</a>.</li>
+</ol>
+<p>See <a href="/custom-user-information-bonita-bpm-studio.md">Custom user information in Bonita BPM Studio</a></p>
+<p>See <a href="/custom-user-information-bonita-bpm-portal.md">Custom user information in Bonita BPM Portal</a></p>
+<h2 id="setting-the-initiator">Setting the initiator</h2>
+<p>The initiator is the user who starts a process instance. For a process that is started by a person, you must specify at least one actor to be the initiator. Any user who maps
+to this actor can then start a process instance. If a process is started automatically (for example on a schedule), it is not necessary to designate an initiator.</p>
+<h2 id="using-an-actor-filter">Using an actor filter</h2>
+<p>To specify an actor filter, click <strong><em>Set...</em></strong>, choose one of the
+predefined actor filters from the list, and follow the
+instructions in the wizard to configure the actor selector.</p>
+<p>To change the configuration of an actor filter, select the actor
+filter, click <strong><em>Edit...</em></strong> and modify the information using the wizard.</p>
+<p>To delete an actor filter, select the actor filter and click the
+Erase icon. Note that this does not remove the actor filter from
+the list of predefined actor filters, just from the process
+definition.</p>
+<p>For information about creating a new actor filter, see
+<a href="/creating-actor-filter.md">Creating an actor filter</a>.</p>
+<h2 id="mapping-an-actor">Mapping an actor</h2>
+<p>Before a process can be tested, you must map the actors in the process to
+users in the organization. Before you can do this, you must
+<a href="/organization-management-bonita-bpm-studio.md">define 
+your organization Bonita BPM Studio</a> and upload it to Bonita BPM Portal.</p>
+<p>To map the process actors:</p>
+<ol>
+<li>Open the process diagram in Bonita BPM Studio, and click <strong>Configure</strong>
+in the cool bar. The actor mapping dialog is displayed, and
+indicates any actors in the process that are not yet mapped.</li>
+<li>For each unmapped actor, click the actor name to select it.
+You can then map it to a group, role, membership (that is, a
+role within a group), or specific user.</li>
+</ol>
+<p>When you deploy a process, if you have the same organization definition in Bonita BPM Studio and Bonita BPM Portal, 
+you can map the actors first in Bonita BPM Studio then include the mappings when you build the process for deployment.
+Otherwise, you can configure the actor mappings in Bonita BPM Portal after the process is deployed, when you resolve the process.</p>
+<h2 id="updating-task-assignment-dynamically">Updating task assignment dynamically</h2>
+<p>The Bonita BPM Engine API contains a method to re-evaluate the assignment of a task by reapplying the actor mapping any actor filters. 
+This means that if there are changes in your organization, you can update any active process instances to assign tasks to the correct people.
+This is known as <a href="/manage-users#get_eligible">dynamic task assignment</a>.</p>
+<h2 id="export-or-import">Export or import</h2>
+<p>actor mapping</p>
+<p>When you have mapped the actors for a process, you can export the
+mapping as a file. The exported file is in XML. To export the
+mapping as a file, open the process diagram in Bonita BPM Studio,
+click <strong><em>Configure</em></strong> in the cool bar, and select <strong>Actor mapping</strong>. The
+actor mapping dialog is displayed. Click <strong><em>Export actor mapping as
+file...</em></strong> and specify the name and location of the file to be
+created.</p>
+<p>You can also import an actor mapping file that was exported from
+Bonita BPM Studio. To import a mapping file, open the process diagram
+in Bonita BPM Studio, click <strong><em>Configure</em></strong> in the cool bar, and select
+<strong>Actor mapping</strong>. The actor mapping dialog is displayed. Click <strong><em>Import
+actor mapping file...</em></strong> and specify the name and location of the
+file to be imported. <em>Warning</em>: When the actor mapping information is
+imported, it overrides the existing mappings defined for the
+process.<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></p>

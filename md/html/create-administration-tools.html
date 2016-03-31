@@ -1,0 +1,507 @@
+<style type="text/css">/** https://gist.github.com/andyferra/2554919#file-github-css **/
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0; }
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+ul :last-child, ol :last-child {
+  margin-bottom: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+pre {
+  background-color: #073642;
+  color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+</style><link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+<h1 id="4-5-5-6-create-administration-tools">4.5.5.6 Create administration tools</h1>
+<p>This page contains an example of how to create tools to administer your Bonita BPM system. 
+The example is developed using Maven, and is a Java program to list the failed tasks, wrapped in a script so that it can be executed in an environment with no window manager.</p>
+<p><a href="#getting_started">Getting started</a><br><a href="#write_class">Write a class that lists failed tasks</a><br><a href="#write_main">Create a main class</a><br><a href="#package">Prepare packaging</a><br><a href="#script">Wrap into a Shell script</a><br><a href="#code">Complete code</a></p>
+<h2 id="getting-started">Getting started</h2>
+<p>You need to be familiar with building a Maven project with Bonita BPM as a dependency. 
+You also need to be familiar with using the Bonita BPM Engine APIs. If this is not the case, follow this <a href="/getting-started-bonita-bpm-engine-apis.md">tutorial</a>.
+The <a href="/development-overview.md#L373">development overview</a> contains a list of the APIs with a short description of each one.
+For details of the methods available in the Bonita BPM Engine APIs, see the <a href="/javadoc-70">Javadoc</a>. </p>
+<p>This example uses the Bonita BPM Engine Java APIs but there is also a <a href="/rest-api-overview.md">REST API</a>.</p>
+<p>In this example, the Maven project has the following settings:</p>
+<ul>
+<li>Group Id: org.mycompany.bonita</li>
+<li>Artifact Id: bonita-cli</li>
+</ul>
+<p>You must have a running Bonita BPM system. The simplest way to do this is to run a Bonita BPM Tomcat bundle locally. 
+You also need a user: in this example the user has username <em>admin</em> and password <em>secret</em>.</p>
+<h2 id="write-a-class-that-lists-failed-tasks">Write a class that lists failed tasks</h2>
+<p>Bonita BPM provides a client to leverage the Java APIs. This is the easiest starting point for an application, so this is what we will use in the example.</p>
+<p>Set up your Maven project with a maven dependency to bonita-client. Then create a class to execute the business logic. In this example, the class is called <code>ListFailedTasksCmd</code>. 
+It implements <code>Callable</code>, and calls methods to log in the API, then to execute the business logic, and finally to log out from the API.</p>
+<p><code>public Void call() throws Exception {
+    login();
+    try {
+        printFailedTasks();
+    } finally {
+        logout();
+    }
+}</code></p>
+<p>The business logic of this example gets a list of the failed tasks and prints them to standard output. 
+The maximum number of failed activities to retrieve is provided by the class field <code>nbTodisplay</code>. 
+The method <code>printFailedTasks</code> is doing the actual job of searching for activities whose state is FAILED. </p>
+<p>TIP: Like for any methods in the API listing elements, the <code>searchActivities</code> method takes paging information to limit the number of elements to retrieve. 
+This prevents clients from retrieving too much data at the same time and filling up the whole memory. 
+This is a common way to avoid users getting <code>OutOfMemory</code> errors. It is better to make several successive calls to the API than to retrieve too much data.</p>
+<p>`
+protected void printFailedTasks() throws BonitaHomeNotSetException,
+            ServerAPIException, UnknownAPITypeException, SearchException {</p>
+<p>ProcessRuntimeAPI taskAPI = (ProcessRuntimeAPI) TenantAPIAccessor.getProcessAPI(session);
+SearchOptions failedSearchOptions = new SearchOptionsBuilder(0,nbTodisplay)
+    .filter(ActivityInstanceSearchDescriptor.STATE_NAME, ActivityStates.FAILED_STATE)
+    .done();</p>
+<p>SearchResult failedTasks = taskAPI.searchActivities(failedSearchOptions);
+print(failedTasks);
+}
+`</p>
+<p>See the complete source code for this class is in <code>ListFailedTasksCmd.java</code>.</p>
+<h2 id="create-a-main-class">Create a main class</h2>
+<p>Let&#39;s create a <code>CLI.java</code> class that will be the entry point of our application. The CLI will simply delegate to our <code>ListFailedTasksCmd</code> 
+the responsibility to fetch failed tasks and display them on the standard output. The CLI will take as input parameters the username, password and the maximum number of failed tasks to display.</p>
+<p>`
+public static void main(String[] args) {
+  if(args.length != 3) {
+    throw new IllegalArgumentException(&quot;Usage: you should provide &quot;);
+  }</p>
+<p>  try {
+       new ListFailedTasksCmd(args[0], args[1], Integer.parseInt(args[2])).call();
+  } catch (Exception e) {
+       e.printStackTrace();
+  }
+}
+`</p>
+<h2 id="prepare-packaging">Prepare packaging</h2>
+<p>As we have seen, the tool has several dependencies required to be executed. This means that our classes should be packaged along with these dependencies in a single bundle. 
+To do this, build a zip with all the resources that the system will require to run the CLI.</p>
+<h3 id="declare-an-assembly">Declare an Assembly</h3>
+<p>Create an <code>assembly.xml</code> file at the root to describe the final packaging. 
+<code>zipfalse/src/main/resources**744/lib</code></p>
+<p>This assembly gathers all the dependencies into a <code>lib</code> folder along with all the content of the <code>src/main/resources</code> before zipping the whole collection.
+At the end we should get the following structure in a zip:</p>
+<p><code>|-bonita/
+|-lib/
+   |- bonita-cli.jar
+   |-*.jar</code></p>
+<h3 id="update-the-pom-xml-file-to-call-the-assembly-when-building-the-project">Update the <code>pom.xml</code> file to call the assembly when building the project</h3>
+<p>`
+bonita-cli-${project.version}${project.build.directory}
+...</p>
+<p>...
+org.apache.maven.pluginsmaven-assembly-plugingenerate-packagepackagesingletrue${zipName}assembly.xml
+…
+`</p>
+<p>The maven-assembly-plugin enables us to generate the zip as described in assembly.xml file with the specified zipName, e.g. <code>Bonita-CLI-1.0.0</code>.</p>
+<h3 id="make-the-bonita-cli-jar-executable">Make the <code>bonita-cli.jar</code> executable</h3>
+<p>In order to launch the expected class, <code>CLI.java</code>, edit the <code>pom.xml</code> and add the following lines. This will create a manifest during the build of the Maven project in the jar file which contains the main class.</p>
+<p>`</p>
+<pre><code><span class="hljs-keyword">...</span>
+    org.apache.maven.pluginsmaven-jar-plugin2.4trueorg.mycompany.bonita.cli.CLI*.bat*.sh
+        <span class="hljs-keyword">...</span>
+    `
+</code></pre><h3 id="build-and-test">Build and test</h3>
+<p>Right click on the project, select Run As > Maven Install. The output <code>Bonita-CLI-1.0.0.zip</code> is located in <code>/target</code>.
+Open a console, go to the target folder, and unzip <code>Bonita-CLI-1.0.0.zip</code>.
+Before executing make sure to configure the bonita client to point the bonita engine by editing <code>${bonita.home}/engine-client/conf/bonita-client-custom.properties</code>.
+For example:
+`</p>
+<h1 id="http">HTTP</h1>
+<p>org.bonitasoft.engine.api-type = HTTP
+server.url = <a href="http://localhost:8080">http://localhost:8080</a>
+application.name = bonita
+`</p>
+<p>To test our main class, execute the following command:</p>
+<ul>
+<li><p>On Linux:<code>java -jar lib/*.jar admin secret 10 -Dbonita.home=\</code>pwd`/bonita
+`</p>
+</li>
+<li><p>On Windows:<code>java -Dbonita.home=bonita -jar lib/bonita-cli-1.0.0.jar admin secret 10</code></p>
+</li>
+</ul>
+<p>These commands are cumbersome, so the next section explains how to create a script to hide the complexity.</p>
+<h2 id="wrap-in-a-shell-script">Wrap in a Shell script</h2>
+<p>In the resources folder of your project, create a new file <code>bonita-cli.sh</code> or <code>bonita-cli.bat</code>:</p>
+<p><code>bonita-cli.sh</code>:
+`</p>
+<h1 id="-bin-sh">!/bin/sh</h1>
+<p>java -Dbonita.home=`pwd`/bonita -jar lib/bonita-cli-<em>.jar $</em>
+`</p>
+<p><code>bonita-cli.bat</code>:
+<code>java -Dbonita.home=bonita -jar lib/bonita-cli-1.0.0.jar %*</code></p>
+<p>Build the whole project again. When the build completes, the zip file should contain the following structure:</p>
+<p><img src="images/images-6_0/content-zip.png" alt="Zip file structure"></p>
+<p>Run the appropriate script:</p>
+<ul>
+<li>On Linux:<code>./bonita-cli.sh admin secret 10</code></li>
+</ul>
+<ul>
+<li>On Windows:<code>bonita-cli.bat admin secret 10</code></li>
+</ul>
+<p>Here is an example of output:</p>
+<p><code>List of activities:(1 item(s) found)
+  State   On      id      Name
+  failed  16:11   100     Review Git Pull Request from: N Chabanoles</code></p>
+<h2 id="complete-code-example">Complete code example</h2>
+<p>`
+package org.mycompany.bonita.cli.cmd;</p>
+<p>import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.concurrent.Callable;</p>
+<p>import org.bonitasoft.engine.api.ProcessRuntimeAPI;
+import org.bonitasoft.engine.api.TenantAPIAccessor;
+import org.bonitasoft.engine.bpm.flownode.ActivityInstance;
+import org.bonitasoft.engine.bpm.flownode.ActivityInstanceSearchDescriptor;
+import org.bonitasoft.engine.bpm.flownode.ActivityStates;
+import org.bonitasoft.engine.exception.BonitaHomeNotSetException;
+import org.bonitasoft.engine.exception.SearchException;
+import org.bonitasoft.engine.exception.ServerAPIException;
+import org.bonitasoft.engine.exception.UnknownAPITypeException;
+import org.bonitasoft.engine.platform.LoginException;
+import org.bonitasoft.engine.search.SearchOptions;
+import org.bonitasoft.engine.search.SearchOptionsBuilder;
+import org.bonitasoft.engine.search.SearchResult;
+import org.bonitasoft.engine.session.APISession;</p>
+<p>/**</p>
+<ul>
+<li>*/</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>@author Nicolas Chabanoles</li>
+<li>@author Joachim Segala</li>
+<li><p>*/
+public class ListFailedTasksCmd implements Callable {
+ private static final String ROW_SEPARATOR = &quot;\n&quot;;
+ private static final String COL_SEPARATOR = &quot;\t&quot;;</p>
+<p> private String userName;
+ private String password;
+ private APISession session;
+ private int nbTodisplay;</p>
+<p> public ListFailedTasksCmd(String user, String pass, int nbTodisplay) {</p>
+<pre><code><span class="hljs-attribute"> userName </span>=<span class="hljs-string"> user;
+ password = pass;
+ this.nbTodisplay = nbTodisplay;</span>
+</code></pre><p> }</p>
+<p> public Void call() throws Exception {</p>
+<pre><code> login();
+ <span class="hljs-keyword">try</span> {
+     printFailedTasks();
+ } <span class="hljs-keyword">finally</span> {
+     logout();
+ }
+ <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+</code></pre><p> }</p>
+<p> protected void printFailedTasks() throws BonitaHomeNotSetException,</p>
+<pre><code>     ServerAPIException, UnknownAPITypeException, SearchException {
+ ProcessRuntimeAPI taskAPI = (ProcessRuntimeAPI) TenantAPIAccessor
+         <span class="hljs-preprocessor">.getProcessAPI</span>(session)<span class="hljs-comment">;</span>
+ SearchOptions failedSearchOptions = new SearchOptionsBuilder(<span class="hljs-number">0</span>,
+         nbTodisplay)<span class="hljs-preprocessor">.filter</span>(
+         ActivityInstanceSearchDescriptor<span class="hljs-preprocessor">.STATE</span>_NAME,
+         ActivityStates<span class="hljs-preprocessor">.FAILED</span>_STATE)<span class="hljs-preprocessor">.done</span>()<span class="hljs-comment">;</span>
+ SearchResult failedTasks = taskAPI
+         <span class="hljs-preprocessor">.searchActivities</span>(failedSearchOptions)<span class="hljs-comment">;</span>
+ print(failedTasks)<span class="hljs-comment">;</span>
+</code></pre><p> }</p>
+<p> protected void print(SearchResult failedTasks) {</p>
+<pre><code> List activities = failedTasks<span class="hljs-preprocessor">.getResult</span>()<span class="hljs-comment">;</span>
+ StringBuffer line = new StringBuffer()<span class="hljs-comment">;</span>
+ // Header
+ line<span class="hljs-preprocessor">.append</span>(ROW_SEPARATOR)<span class="hljs-preprocessor">.append</span>(<span class="hljs-string">"List of activities:"</span>)
+         <span class="hljs-preprocessor">.append</span>(<span class="hljs-string">"("</span> + failedTasks<span class="hljs-preprocessor">.getCount</span>() + <span class="hljs-string">" item(s) found)"</span>)
+         <span class="hljs-preprocessor">.append</span>(ROW_SEPARATOR)<span class="hljs-comment">;</span>
+ line<span class="hljs-preprocessor">.append</span>(COL_SEPARATOR)<span class="hljs-preprocessor">.append</span>(<span class="hljs-string">"State"</span>)<span class="hljs-preprocessor">.append</span>(COL_SEPARATOR)
+         <span class="hljs-preprocessor">.append</span>(<span class="hljs-string">"On"</span>)<span class="hljs-preprocessor">.append</span>(COL_SEPARATOR)<span class="hljs-preprocessor">.append</span>(<span class="hljs-string">"id"</span>)
+         <span class="hljs-preprocessor">.append</span>(COL_SEPARATOR)<span class="hljs-preprocessor">.append</span>(<span class="hljs-string">"Name"</span>)<span class="hljs-comment">;</span>
+ line<span class="hljs-preprocessor">.append</span>(ROW_SEPARATOR)<span class="hljs-comment">;</span>
+ // Display <span class="hljs-keyword">in</span> a table layout
+ for (ActivityInstance activityInstance : activities) {
+     line<span class="hljs-preprocessor">.append</span>(COL_SEPARATOR)<span class="hljs-comment">;</span>
+     line<span class="hljs-preprocessor">.append</span>(activityInstance<span class="hljs-preprocessor">.getState</span>())<span class="hljs-preprocessor">.append</span>(COL_SEPARATOR)<span class="hljs-comment">;</span>
+     line<span class="hljs-preprocessor">.append</span>(
+             new SimpleDateFormat(<span class="hljs-string">"HH:MM"</span>)<span class="hljs-preprocessor">.format</span>(activityInstance
+                     <span class="hljs-preprocessor">.getReachedStateDate</span>()))<span class="hljs-preprocessor">.append</span>(COL_SEPARATOR)<span class="hljs-comment">;</span>
+     line<span class="hljs-preprocessor">.append</span>(activityInstance<span class="hljs-preprocessor">.getId</span>())<span class="hljs-preprocessor">.append</span>(COL_SEPARATOR)<span class="hljs-comment">;</span>
+     line<span class="hljs-preprocessor">.append</span>(activityInstance<span class="hljs-preprocessor">.getName</span>())<span class="hljs-preprocessor">.append</span>(COL_SEPARATOR)<span class="hljs-comment">;</span>
+     line<span class="hljs-preprocessor">.append</span>(ROW_SEPARATOR)<span class="hljs-comment">;</span>
+ }
+ System<span class="hljs-preprocessor">.out</span><span class="hljs-preprocessor">.println</span>(line<span class="hljs-preprocessor">.toString</span>())<span class="hljs-comment">;</span>
+</code></pre><p> }</p>
+<p> private void logout() {</p>
+<pre><code> <span class="hljs-keyword">if</span> (session != <span class="hljs-keyword">null</span>) {
+     <span class="hljs-keyword">try</span> {
+         TenantAPIAccessor.getLoginAPI().logout(session);
+     } <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> e) {
+         e.printStackTrace();
+     }
+ }
+</code></pre><p> }</p>
+<p> protected void login() throws LoginException, BonitaHomeNotSetException,</p>
+<pre><code>     ServerAPIException, UnknownAPITypeException {
+ this<span class="hljs-preprocessor">.session</span> = TenantAPIAccessor<span class="hljs-preprocessor">.getLoginAPI</span>()
+         <span class="hljs-preprocessor">.login</span>(userName, password)<span class="hljs-comment">;</span>
+</code></pre><p> }
+}
+`<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></p>
+</li>
+</ul>
