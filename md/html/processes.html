@@ -1,275 +1,4 @@
-<style type="text/css">/** https://gist.github.com/andyferra/2554919#file-github-css **/
-body {
-  font-family: Helvetica, arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: white;
-  padding: 30px; }
-
-body > *:first-child {
-  margin-top: 0 !important; }
-body > *:last-child {
-  margin-bottom: 0 !important; }
-
-a {
-  color: #4183C4; }
-a.absent {
-  color: #cc0000; }
-a.anchor {
-  display: block;
-  padding-left: 30px;
-  margin-left: -30px;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0; }
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 20px 0 10px;
-  padding: 0;
-  font-weight: bold;
-  -webkit-font-smoothing: antialiased;
-  cursor: text;
-  position: relative; }
-
-h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
-  text-decoration: none; }
-
-h1 tt, h1 code {
-  font-size: inherit; }
-
-h2 tt, h2 code {
-  font-size: inherit; }
-
-h3 tt, h3 code {
-  font-size: inherit; }
-
-h4 tt, h4 code {
-  font-size: inherit; }
-
-h5 tt, h5 code {
-  font-size: inherit; }
-
-h6 tt, h6 code {
-  font-size: inherit; }
-
-h1 {
-  font-size: 28px;
-  color: black; }
-
-h2 {
-  font-size: 24px;
-  border-bottom: 1px solid #cccccc;
-  color: black; }
-
-h3 {
-  font-size: 18px; }
-
-h4 {
-  font-size: 16px; }
-
-h5 {
-  font-size: 14px; }
-
-h6 {
-  color: #777777;
-  font-size: 14px; }
-
-p, blockquote, ul, ol, dl, li, table, pre {
-  margin: 15px 0; }
-
-hr {
-  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
-  border: 0 none;
-  color: #cccccc;
-  height: 4px;
-  padding: 0; }
-
-body > h2:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-body > h1:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-  body > h1:first-child + h2 {
-    margin-top: 0;
-    padding-top: 0; }
-body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-
-a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-  margin-top: 0;
-  padding-top: 0; }
-
-h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-  margin-top: 0; }
-
-li p.first {
-  display: inline-block; }
-
-ul, ol {
-  padding-left: 30px; }
-
-ul :first-child, ol :first-child {
-  margin-top: 0; }
-
-ul :last-child, ol :last-child {
-  margin-bottom: 0; }
-
-dl {
-  padding: 0; }
-  dl dt {
-    font-size: 14px;
-    font-weight: bold;
-    font-style: italic;
-    padding: 0;
-    margin: 15px 0 5px; }
-    dl dt:first-child {
-      padding: 0; }
-    dl dt > :first-child {
-      margin-top: 0; }
-    dl dt > :last-child {
-      margin-bottom: 0; }
-  dl dd {
-    margin: 0 0 15px;
-    padding: 0 15px; }
-    dl dd > :first-child {
-      margin-top: 0; }
-    dl dd > :last-child {
-      margin-bottom: 0; }
-
-blockquote {
-  border-left: 4px solid #dddddd;
-  padding: 0 15px;
-  color: #777777; }
-  blockquote > :first-child {
-    margin-top: 0; }
-  blockquote > :last-child {
-    margin-bottom: 0; }
-
-table {
-  padding: 0; }
-  table tr {
-    border-top: 1px solid #cccccc;
-    background-color: white;
-    margin: 0;
-    padding: 0; }
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8; }
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0; }
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0; }
-
-img {
-  max-width: 100%; }
-
-span.frame {
-  display: block;
-  overflow: hidden; }
-  span.frame > span {
-    border: 1px solid #dddddd;
-    display: block;
-    float: left;
-    overflow: hidden;
-    margin: 13px 0 0;
-    padding: 7px;
-    width: auto; }
-  span.frame span img {
-    display: block;
-    float: left; }
-  span.frame span span {
-    clear: both;
-    color: #333333;
-    display: block;
-    padding: 5px 0 0; }
-span.align-center {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-center > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: center; }
-  span.align-center span img {
-    margin: 0 auto;
-    text-align: center; }
-span.align-right {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px 0 0;
-    text-align: right; }
-  span.align-right span img {
-    margin: 0;
-    text-align: right; }
-span.float-left {
-  display: block;
-  margin-right: 13px;
-  overflow: hidden;
-  float: left; }
-  span.float-left span {
-    margin: 13px 0 0; }
-span.float-right {
-  display: block;
-  margin-left: 13px;
-  overflow: hidden;
-  float: right; }
-  span.float-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: right; }
-
-code, tt {
-  margin: 0 2px;
-  padding: 0 5px;
-  white-space: nowrap;
-  border: 1px solid #eaeaea;
-  border-radius: 3px; }
-
-pre code {
-  margin: 0;
-  padding: 0;
-  white-space: pre;
-  border: none;
-  background: transparent; }
-
-pre {
-  background-color: #073642;
-  color: #f8f8f8;
-  border: 1px solid #cccccc;
-  font-size: 13px;
-  line-height: 19px;
-  overflow: auto;
-  padding: 6px 10px;
-  border-radius: 3px; }
-  pre code, pre tt {
-    background-color: transparent;
-    border: none; }
-
-</style><link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
-<h1 id="3-3-processes">3.3 Processes</h1>
+<h1 id="processes">3.3 Processes</h1>
 <p>Logged on with the Administrator profile, you have rights to manage a process as follows:</p>
 <ul>
 <li><a href="#installanapp">How to install a process</a></li>
@@ -288,7 +17,7 @@ pre {
 <li><a href="#editScriptContent">How to edit a script content</a></li>
 </ul>
 <h2 id="how-to-install-a-new-process">How to install a new process</h2>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Go to the BPM tab</li>
 <li>Click <em><strong>Processes</strong></em></li>
 <li>Click <em><strong>Install new process</strong></em></li>
@@ -300,7 +29,7 @@ pre {
 <p>You can only install a .bar file that was exported from a Bonita BPM Studio of the same minor (7.x) version as your Bonita BPM Portal and Bonita BPM Engine. If you have a .bar file that was exported from an earlier version of Bonita BPM Studio (7.x.md), it will not work with Bonita BPM Engine. Export the process definition as a .bos file from your old Bonita BPM Studio, import in into the new Studio, then export it as a .bar. This is necessary for a .bar that has not been deployed. A process that was developed in an older version of Bonita BPM Studio and is already deployed is migrated automatically when you migrate your platform. However, for future maintenance of the process definition, you are recommended to update all your process bar files to the latest version each time you update your platform.</p>
 <p><a href="images/videos-6_0/install_an_app_in_bonita_portal.mp4">Watch the Install a process video</a></p>
 <h2 id="how-to-resolve-a-process">How to resolve a process</h2>
-<p>Resolving a process means completing the configuration in the Portal and making sure that all dependencies are met. A process has to be resolved before it can be enabled. </p>
+<p>Resolving a process means completing the configuration in the Portal and making sure that all dependencies are met. A process has to be resolved before it can be enabled.</p>
 <p>To resolve a process, you must complete the configuration of the actor mappings, parameters, forms, and connectors defined for the process. You can also configure other information such as Categories and Scripts, but this is not mandatory for resolving a process.</p>
 <ul>
 <li><strong>Actor mapping</strong>; Every actor in a process must be mapped to at least one user, group, role or membership.</li>
@@ -310,16 +39,16 @@ pre {
 <li><strong>Forms</strong>: Every form defined in a process must be mapped to a page or a URL.</li>
 </ul>
 <p>To resolve a process:</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Go to BPM tab.</li>
 <li>Click <em><strong>Processes</strong></em>,</li>
-<li>Click on a <em><strong>Process</strong></em>. The Configuration section of the right panel shows whether there are items to be resolved. </li>
+<li>Click on a <em><strong>Process</strong></em>. The Configuration section of the right panel shows whether there are items to be resolved.</li>
 <li>Click on <em><strong>More</strong></em>.</li>
 <li>A summary of configuration problems is displayed below the process name in a well and warning icons are displayed in the left navigation list.</li>
 <li>Modify your configuration for each element displayed.</li>
 </ol>
 <h2 id="how-to-enable-a-process">How to enable a process</h2>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Go to the BPM menu tab</li>
 <li>Click <em><strong>Processes</strong></em></li>
 <li>Click <em><strong>Resolved filter</strong></em></li>
@@ -331,11 +60,11 @@ pre {
 </ol>
 <p><strong>Note:</strong> You can also select the processes you want to enable by checking the box in the Resolved list, then click <em><strong>ENABLE</strong></em> button in the bulk actions section</p>
 <h2 id="how-to-disable-a-process">How to disable a process</h2>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Go to the BPM tab</li>
 <li>Click <em><strong>Processes</strong></em></li>
 <li>Click <em><strong>Enabled filter</strong></em></li>
-<li>Select the process </li>
+<li>Select the process</li>
 <li>Click <em><strong>Disable</strong></em></li>
 <li>The activation state changes to &quot;disabled&quot;</li>
 <li>The process disappears from enabled filter and is located in the disabled filter</li>
@@ -343,7 +72,7 @@ pre {
 <p><strong>Note:</strong> You can also disable a process in the more details view, by clicking <em><strong>Enabled</strong></em> toggle button.</p>
 <h2 id="how-to-delete-a-process">How to delete a process</h2>
 <p><strong>Note:</strong>A process must be disabled before it can be deleted.</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Go to BPM menu tab</li>
 <li>Click <em><strong>Processes</strong></em></li>
 <li>Select the process to delete by checking the tickbox next to the process</li>
@@ -351,7 +80,7 @@ pre {
 </ol>
 <p>You can also delete the process in the more details view of a disabled process by clicking <em><strong>DELETE</strong></em>, then click <em><strong>DELETE</strong></em> in the modal window</p>
 <h2 id="how-to-create-a-category-for-a-process">How to create a category for a process</h2>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Go to BPM tab</li>
 <li>Select a process in the list</li>
 <li>Click <em><strong>More</strong></em></li>
@@ -361,7 +90,7 @@ pre {
 </ol>
 <p>After you created a category and added to the process, you can add other processes to the category.</p>
 <h2 id="how-to-add-a-category-to-a-process">How to add a category to a process</h2>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Go to BPM tab</li>
 <li>Select a process in the list</li>
 <li>Click <em><strong>More</strong></em></li>
@@ -370,7 +99,7 @@ pre {
 <li>Click <em><strong>Save</strong></em></li>
 </ol>
 <h2 id="how-to-add-an-entity-to-an-actor">How to add an entity to an actor</h2>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Go to the BPM tab.</li>
 <li>Click <em><strong>Processes</strong></em>.</li>
 <li>Select a process in the list.</li>
@@ -382,7 +111,7 @@ pre {
 </ol>
 <p><strong>Note:</strong> Notice that only the first 200 actors are displayed in the dropdown.</p>
 <h2 id="how-to-remove-an-entity-from-an-actor">How to remove an entity from an actor</h2>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Go to the BPM tab.</li>
 <li>Click <em><strong>Processes</strong></em>.</li>
 <li>Select a process in the list.</li>
@@ -391,12 +120,12 @@ pre {
 <li>In the Actors section, click the <em><strong>pencil</strong></em> button in the user, group, role or membership column of the actor line.</li>
 <li>In the opened popup, there is a list of the actors already mapped.</li>
 <li>Click the <em><strong>X</strong></em> button next to the actor, or click <em><strong>Remove all</strong></em>.</li>
-<li>A list appears filled with the actors you can to remove. You can undo a removal by clicking <em><strong>X</strong></em> button next to the actor or by clicking <em><strong>Enable all</strong></em> </li>
+<li>A list appears filled with the actors you can to remove. You can undo a removal by clicking <em><strong>X</strong></em> button next to the actor or by clicking <em><strong>Enable all</strong></em></li>
 <li>Click <em><strong>APPLY</strong></em>.</li>
 </ol>
 <h2 id="how-to-modify-a-parameter-in-the-administrator-profile">How to modify a parameter in the Administrator profile</h2>
 <p><strong>Note:</strong> For Bonita BPM Performance and Efficiency editions only.</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Go to the BPM tab</li>
 <li>Click <em><strong>Processes</strong></em></li>
 <li>Select a process</li>
@@ -408,7 +137,7 @@ pre {
 </ol>
 <h2 id="how-to-edit-a-connector-implementation">How to edit a connector implementation</h2>
 <p><strong>Note:</strong> For Bonita BPM Performance and Efficiency editions only.</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Go to the BPM tab</li>
 <li>Click <em><strong>Processes</strong></em></li>
 <li>Click <em><strong>More</strong></em> button</li>
@@ -419,7 +148,7 @@ pre {
 </ol>
 <h2 id="how-to-fix-forms">How to fix forms</h2>
 <p><strong>Note:</strong> For Bonita BPM Performance and Efficiency editions only.</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Go to the BPM tab.</li>
 <li>Click <em><strong>Processes</strong></em>.</li>
 <li>Click <em><strong>More</strong></em> button.</li>
@@ -432,7 +161,7 @@ pre {
 <p><strong>Note:</strong> You can also upload a form in order to create a new mapping.</p>
 <h2 id="how-to-upload-a-new-form">How to upload a new form</h2>
 <p><strong>Note:</strong> For Bonita BPM Performance and Efficiency editions only.</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Go to the BPM tab.</li>
 <li>Click <em><strong>Processes</strong></em>.</li>
 <li>Click <em><strong>More</strong></em> button.</li>
@@ -447,7 +176,7 @@ pre {
 </ol>
 <h2 id="how-to-edit-an-existing-form">How to edit an existing form</h2>
 <p><strong>Note:</strong> For Bonita BPM Performance and Efficiency editions only.</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Go to the BPM tab.</li>
 <li>Click <em><strong>Processes</strong></em>.</li>
 <li>Click <em><strong>More</strong></em> button.</li>
@@ -462,7 +191,7 @@ pre {
 </ol>
 <h2 id="how-to-edit-a-script-content">How to edit a script content</h2>
 <p><strong>Note:</strong> For Bonita BPM Performance and Efficiency editions only.</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Go to the BPM tab</li>
 <li>Click <em><strong>Processes</strong></em></li>
 <li>Click <em><strong>More</strong></em> button</li>
@@ -472,5 +201,5 @@ pre {
 <li>Click the <em><strong>pencil</strong></em> button next to a script name</li>
 <li>A popup window is displayed</li>
 <li>Edit your script content</li>
-<li>Click <em><strong>SAVE</strong></em><script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></li>
+<li>Click <em><strong>SAVE</strong></em></li>
 </ol>

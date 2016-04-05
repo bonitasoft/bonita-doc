@@ -1,277 +1,12 @@
-<style type="text/css">/** https://gist.github.com/andyferra/2554919#file-github-css **/
-body {
-  font-family: Helvetica, arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: white;
-  padding: 30px; }
-
-body > *:first-child {
-  margin-top: 0 !important; }
-body > *:last-child {
-  margin-bottom: 0 !important; }
-
-a {
-  color: #4183C4; }
-a.absent {
-  color: #cc0000; }
-a.anchor {
-  display: block;
-  padding-left: 30px;
-  margin-left: -30px;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0; }
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 20px 0 10px;
-  padding: 0;
-  font-weight: bold;
-  -webkit-font-smoothing: antialiased;
-  cursor: text;
-  position: relative; }
-
-h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
-  text-decoration: none; }
-
-h1 tt, h1 code {
-  font-size: inherit; }
-
-h2 tt, h2 code {
-  font-size: inherit; }
-
-h3 tt, h3 code {
-  font-size: inherit; }
-
-h4 tt, h4 code {
-  font-size: inherit; }
-
-h5 tt, h5 code {
-  font-size: inherit; }
-
-h6 tt, h6 code {
-  font-size: inherit; }
-
-h1 {
-  font-size: 28px;
-  color: black; }
-
-h2 {
-  font-size: 24px;
-  border-bottom: 1px solid #cccccc;
-  color: black; }
-
-h3 {
-  font-size: 18px; }
-
-h4 {
-  font-size: 16px; }
-
-h5 {
-  font-size: 14px; }
-
-h6 {
-  color: #777777;
-  font-size: 14px; }
-
-p, blockquote, ul, ol, dl, li, table, pre {
-  margin: 15px 0; }
-
-hr {
-  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
-  border: 0 none;
-  color: #cccccc;
-  height: 4px;
-  padding: 0; }
-
-body > h2:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-body > h1:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-  body > h1:first-child + h2 {
-    margin-top: 0;
-    padding-top: 0; }
-body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-
-a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-  margin-top: 0;
-  padding-top: 0; }
-
-h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-  margin-top: 0; }
-
-li p.first {
-  display: inline-block; }
-
-ul, ol {
-  padding-left: 30px; }
-
-ul :first-child, ol :first-child {
-  margin-top: 0; }
-
-ul :last-child, ol :last-child {
-  margin-bottom: 0; }
-
-dl {
-  padding: 0; }
-  dl dt {
-    font-size: 14px;
-    font-weight: bold;
-    font-style: italic;
-    padding: 0;
-    margin: 15px 0 5px; }
-    dl dt:first-child {
-      padding: 0; }
-    dl dt > :first-child {
-      margin-top: 0; }
-    dl dt > :last-child {
-      margin-bottom: 0; }
-  dl dd {
-    margin: 0 0 15px;
-    padding: 0 15px; }
-    dl dd > :first-child {
-      margin-top: 0; }
-    dl dd > :last-child {
-      margin-bottom: 0; }
-
-blockquote {
-  border-left: 4px solid #dddddd;
-  padding: 0 15px;
-  color: #777777; }
-  blockquote > :first-child {
-    margin-top: 0; }
-  blockquote > :last-child {
-    margin-bottom: 0; }
-
-table {
-  padding: 0; }
-  table tr {
-    border-top: 1px solid #cccccc;
-    background-color: white;
-    margin: 0;
-    padding: 0; }
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8; }
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0; }
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0; }
-
-img {
-  max-width: 100%; }
-
-span.frame {
-  display: block;
-  overflow: hidden; }
-  span.frame > span {
-    border: 1px solid #dddddd;
-    display: block;
-    float: left;
-    overflow: hidden;
-    margin: 13px 0 0;
-    padding: 7px;
-    width: auto; }
-  span.frame span img {
-    display: block;
-    float: left; }
-  span.frame span span {
-    clear: both;
-    color: #333333;
-    display: block;
-    padding: 5px 0 0; }
-span.align-center {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-center > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: center; }
-  span.align-center span img {
-    margin: 0 auto;
-    text-align: center; }
-span.align-right {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px 0 0;
-    text-align: right; }
-  span.align-right span img {
-    margin: 0;
-    text-align: right; }
-span.float-left {
-  display: block;
-  margin-right: 13px;
-  overflow: hidden;
-  float: left; }
-  span.float-left span {
-    margin: 13px 0 0; }
-span.float-right {
-  display: block;
-  margin-left: 13px;
-  overflow: hidden;
-  float: right; }
-  span.float-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: right; }
-
-code, tt {
-  margin: 0 2px;
-  padding: 0 5px;
-  white-space: nowrap;
-  border: 1px solid #eaeaea;
-  border-radius: 3px; }
-
-pre code {
-  margin: 0;
-  padding: 0;
-  white-space: pre;
-  border: none;
-  background: transparent; }
-
-pre {
-  background-color: #073642;
-  color: #f8f8f8;
-  border: 1px solid #cccccc;
-  font-size: 13px;
-  line-height: 19px;
-  overflow: auto;
-  padding: 6px 10px;
-  border-radius: 3px; }
-  pre code, pre tt {
-    background-color: transparent;
-    border: none; }
-
-</style><link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
-<h1 id="2-2-bonita-bpm-studio-installation">2.2 Bonita BPM Studio installation</h1>
+<h1 id="bonita-bpm-studio-installation">2.2 Bonita BPM Studio installation</h1>
 <p>This page explains how to install Bonita BPM Studio for developing processes. There are installer wizards for Windows, Linux, and Mac systems, and an OS-independent archive that can be installed on any system.</p>
-<p><a href="#prerequisites">Prerequisites</a><br><a href="#download">Download Bonita BPM Studio</a><br><a href="#installer">Install using a wizard</a><br><a href="#all_os">Install using OS-independent archive</a><br><a href="#start">Start Bonita BPM Studio</a><br><a href="#license">License</a><br><a href="#troubleshooting">Troubleshooting</a></p>
+<p><a href="#prerequisites">Prerequisites</a><br />
+<a href="#download">Download Bonita BPM Studio</a><br />
+<a href="#installer">Install using a wizard</a><br />
+<a href="#all_os">Install using OS-independent archive</a><br />
+<a href="#start">Start Bonita BPM Studio</a><br />
+<a href="#license">License</a><br />
+<a href="#troubleshooting">Troubleshooting</a></p>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>Check the <a href="var_support_guide">Support Guide</a> for details of prerequisite hardware and software.</p>
 <p>Before you download Bonita BPM Studio, make sure that you know whether you are using a using a 32 or 64-bit system, and that you have the appropriate Java version installed:</p>
@@ -280,76 +15,34 @@ pre {
 <li>For Windows, see the <a href="http://windows.microsoft.com/en-us/windows7/32-bit-and-64-bit-windows-frequently-asked-questions">32 and 64 bit Windows FAQ</a>.</li>
 <li>For Mac, 32-bit Java is no longer supported, so there is no 32-bit version of Bonita BPM for Mac systems.</li>
 </ul>
-<p>Note for Mac users of OS X 10.7.5 and above: a new security feature called <strong>Gatekeeper</strong> prevents the installation of software that is not officially recognized by Apple.
-For more information and details of how to install Bonita BPM Studio on a system running Gatekeeper, see the <a href="http://support.apple.com/kb/ht5290">Apple support site</a>.</p>
+<p>Note for Mac users of OS X 10.7.5 and above: a new security feature called <strong>Gatekeeper</strong> prevents the installation of software that is not officially recognized by Apple. For more information and details of how to install Bonita BPM Studio on a system running Gatekeeper, see the <a href="http://support.apple.com/kb/ht5290">Apple support site</a>.</p>
 <h2 id="download-bonita-bpm-studio">Download Bonita BPM Studio</h2>
 <p>For a Subscription edition of Bonita BPM Studio, go to the <a href="https://customer.bonitasoft.com/download/request">Customer Portal</a> and request a download.</p>
-<p>For the Community edition of Bonita BPM Studio, go to the Bonitasoft website <a href="http://www.bonitasoft.com/how-we-do-it/downloads">downloads page</a>. 
-On this page there are buttons to download the Studio installer for your current operating system and the <em>all in one</em>, OS-independent version. 
-To download the installer for a different operating system, select it from the drop-down menu beside the <strong>Choose</strong> button, and click <strong><em>Choose</em></strong>. 
-Then click the <strong><em>Download</em></strong> button.</p>
+<p>For the Community edition of Bonita BPM Studio, go to the Bonitasoft website <a href="http://www.bonitasoft.com/how-we-do-it/downloads">downloads page</a>. On this page there are buttons to download the Studio installer for your current operating system and the <em>all in one</em>, OS-independent version. To download the installer for a different operating system, select it from the drop-down menu beside the <strong>Choose</strong> button, and click <strong><em>Choose</em></strong>. Then click the <strong><em>Download</em></strong> button.</p>
 <p>When the download is complete, you have one of the following new files:</p>
-<p>Operating system
-Community edition
-Subscription editions</p>
-<p>32-bit
-64-bit
-32-bit
-64-bit</p>
-<p>Linux
-<code>BonitaBPMCommunity-x.y.z-x86.run</code>
-<code>BonitaBPMCommunity-x.y.z-x86_64.run</code>
-<code>BonitaBPMSubscription-x.y.z-x86.run</code>
-<code>BonitaBPMSubscription-x.y.z-x86_64.run</code></p>
-<p>Windows
-<code>BonitaBPMCommunity-x..zy-x86.exe</code>
-<code>BonitaBPMCommunity-x.y.z-x86_64.exe</code>
-<code>BonitaBPMSubscription-x..zy-x86.exe</code>
-<code>BonitaBPMSubscription-x.y.z-x86_64.exe</code></p>
-<p>Mac
-<code>Not provided</code>
-<code>BonitaBPMCommunity-x.y.z-x86_64.dmg</code>
-<code>Not provided</code>
-<code>BonitaBPMSubscription-x.y.z-x86_64.dmg</code></p>
-<p>All
-<code>BonitaBPMCommunity-x.y.z.zip</code>
-<code>BonitaBPMSubscription-x.y.z.zip</code></p>
+<p>Operating system Community edition Subscription editions</p>
+<p>32-bit 64-bit 32-bit 64-bit</p>
+<p>Linux <code>BonitaBPMCommunity-x.y.z-x86.run</code> <code>BonitaBPMCommunity-x.y.z-x86_64.run</code> <code>BonitaBPMSubscription-x.y.z-x86.run</code> <code>BonitaBPMSubscription-x.y.z-x86_64.run</code></p>
+<p>Windows <code>BonitaBPMCommunity-x..zy-x86.exe</code> <code>BonitaBPMCommunity-x.y.z-x86_64.exe</code> <code>BonitaBPMSubscription-x..zy-x86.exe</code> <code>BonitaBPMSubscription-x.y.z-x86_64.exe</code></p>
+<p>Mac <code>Not provided</code> <code>BonitaBPMCommunity-x.y.z-x86_64.dmg</code> <code>Not provided</code> <code>BonitaBPMSubscription-x.y.z-x86_64.dmg</code></p>
+<p>All <code>BonitaBPMCommunity-x.y.z.zip</code> <code>BonitaBPMSubscription-x.y.z.zip</code></p>
 <h2 id="install-using-a-wizard">Install using a wizard</h2>
 <p>To run the installer wizard for Linux, Windows, or Mac, double-click the downloaded file.</p>
 <p>Then follow the installation wizard through to the end of the installation procedure.</p>
-<p>The installer import workspace feature applies only to local repositories. 
-If you have shared repositories in your workspace, you will need to reconnect to these manually, and possibly migrate the processes to your new version of Bonita BPM Studio. 
-The default workspace is automatically initialized at the end of the installation.</p>
+<p>The installer import workspace feature applies only to local repositories. If you have shared repositories in your workspace, you will need to reconnect to these manually, and possibly migrate the processes to your new version of Bonita BPM Studio. The default workspace is automatically initialized at the end of the installation.</p>
 <h2 id="install-using-os-independent-archive">Install using OS-independent archive</h2>
 <p>To install Bonita BPM Studio using the zip archive, unzip the downloaded .zip file to a folder on your hard drive. Avoid using a folder with a long path. Do not use a path that contains spaces.</p>
 <h2 id="start-bonita-bpm-studio">Start Bonita BPM Studio</h2>
 <p>To start Bonita BPM Studio, go to the directory where you installed it, and run the launcher for your operating system:</p>
-<p>Operating system
-Community edition
-Subscription editions</p>
-<p>32-bit
-64-bit
-32-bit
-64-bit</p>
-<p>Linux
-<code>BonitaBPMCommunity-linux</code>
-<code>BonitaBPMCommunity64-linux</code>
-<code>BonitaBPMSubscription-linux</code>
-<code>BonitaBPMSubscription64-linux</code></p>
-<p>Windows
-<code>BonitaBPMCommunity.exe</code>
-<code>BonitaBPMCommunity64.exe</code>
-<code>BonitaBPMSubscription.exe</code>
-<code>BonitaBPMSubscription64.exe</code></p>
-<p>Mac
-<code>Not provided</code>
-<code>BonitaBPMCommunity64.app</code>
-<code>Not provided</code>
-<code>BonitaBPMSubscription64.app</code></p>
+<p>Operating system Community edition Subscription editions</p>
+<p>32-bit 64-bit 32-bit 64-bit</p>
+<p>Linux <code>BonitaBPMCommunity-linux</code> <code>BonitaBPMCommunity64-linux</code> <code>BonitaBPMSubscription-linux</code> <code>BonitaBPMSubscription64-linux</code></p>
+<p>Windows <code>BonitaBPMCommunity.exe</code> <code>BonitaBPMCommunity64.exe</code> <code>BonitaBPMSubscription.exe</code> <code>BonitaBPMSubscription64.exe</code></p>
+<p>Mac <code>Not provided</code> <code>BonitaBPMCommunity64.app</code> <code>Not provided</code> <code>BonitaBPMSubscription64.app</code></p>
 <h2 id="license">License</h2>
 <p>This information applies to the Subscription editions. No license is needed for the Community edition.</p>
 <p>When you launch Bonita BPM Studio for the first time, you need to install a license:</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Click <em><strong>Copy to clipboard</strong></em> to copy the request key from the pop-up</li>
 <li>Use the generated request key to request a license on the <a href="https://customer.bonitasoft.com/license/request">Customer portal</a></li>
 <li><em><strong>Check</strong></em> your email box (after a few minutes) and open the email from <em>no-reply@bonitasoft.com</em></li>
@@ -359,25 +52,13 @@ Subscription editions</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <h3 id="log-files">Log files</h3>
 <p>In case of trouble when running Bonita BPM Studio, you might want to take a look at log files.</p>
-<p>Studio log file can be displayed from Bonita BPM Studio in &quot;Help&quot; -> &quot;Show Bonita BPM Studio log&quot; menu.</p>
-<p>If Studio fails to start, you can open the log file manually. File is named <code>.log</code> and is located in <code>&lt;studio_folder&gt;/workspace/.metadata</code> folder.
-Note that folder might be hidden and file might not be displayed if you choose to hide file extensions in your file manager.</p>
+<p>Studio log file can be displayed from Bonita BPM Studio in &quot;Help&quot; -&gt; &quot;Show Bonita BPM Studio log&quot; menu.</p>
+<p>If Studio fails to start, you can open the log file manually. File is named <code>.log</code> and is located in <code>&lt;studio_folder&gt;/workspace/.metadata</code> folder. Note that folder might be hidden and file might not be displayed if you choose to hide file extensions in your file manager.</p>
 <p>There is a separate log file for the UI designer, <code>&lt;studio_folder&gt;/workspace/tomcat/logs/ui-designer.log</code>.</p>
 <h3 id="outofmemory-error-in-bonita-bpm-studio">OutOfMemory error in Bonita BPM Studio</h3>
-<p>After installation, you might see an <code>OutOfMemory</code> error in Bonita BPM Studio.
-This error sometimes occurs when importing a large process definition.
-The log messages are similar to the following:</p>
-<p>`
-!ENTRY org.bonitasoft.studio.importer 4 0 2014-04-25 09:43:49.467
-!ERROR Import has failed for file Autorisation Engagement Depenses-2.0.bos</p>
-<p>!ENTRY org.bonitasoft.studio.importer 4 0 2014-04-25 09:43:49.470
-!ERROR 
-!STACK 0
-java.lang.reflect.InvocationTargetException
-...
-Caused by: java.lang.OutOfMemoryError: GC overhead limit exceeded
-`</p>
+<p>After installation, you might see an <code>OutOfMemory</code> error in Bonita BPM Studio. This error sometimes occurs when importing a large process definition. The log messages are similar to the following:</p>
+<p>` !ENTRY org.bonitasoft.studio.importer 4 0 2014-04-25 09:43:49.467 !ERROR Import has failed for file Autorisation Engagement Depenses-2.0.bos</p>
+<p>!ENTRY org.bonitasoft.studio.importer 4 0 2014-04-25 09:43:49.470 !ERROR !STACK 0 java.lang.reflect.InvocationTargetException ... Caused by: java.lang.OutOfMemoryError: GC overhead limit exceeded `</p>
 <p>To fix this issue, you need to increase the memory allocated to the JVM that runs the Bonita BPM Studio.</p>
-<p>Edit the <code>*.ini</code> file that corresponds to the executable you use to launch the Studio 
-(e.g. <code>BonitaBPMSubscription64.ini</code> if you run on Windows 64bits) and modify this line: <code>-Xmx512m</code> to <code>-Xmx1024m</code> (or higher).</p>
-<p>Then restart Bonita BPM Studio.<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></p>
+<p>Edit the <code>*.ini</code> file that corresponds to the executable you use to launch the Studio (e.g. <code>BonitaBPMSubscription64.ini</code> if you run on Windows 64bits) and modify this line: <code>-Xmx512m</code> to <code>-Xmx1024m</code> (or higher).</p>
+<p>Then restart Bonita BPM Studio.</p>

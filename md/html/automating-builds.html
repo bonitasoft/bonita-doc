@@ -1,333 +1,35 @@
-<style type="text/css">/** https://gist.github.com/andyferra/2554919#file-github-css **/
-body {
-  font-family: Helvetica, arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: white;
-  padding: 30px; }
-
-body > *:first-child {
-  margin-top: 0 !important; }
-body > *:last-child {
-  margin-bottom: 0 !important; }
-
-a {
-  color: #4183C4; }
-a.absent {
-  color: #cc0000; }
-a.anchor {
-  display: block;
-  padding-left: 30px;
-  margin-left: -30px;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0; }
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 20px 0 10px;
-  padding: 0;
-  font-weight: bold;
-  -webkit-font-smoothing: antialiased;
-  cursor: text;
-  position: relative; }
-
-h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
-  text-decoration: none; }
-
-h1 tt, h1 code {
-  font-size: inherit; }
-
-h2 tt, h2 code {
-  font-size: inherit; }
-
-h3 tt, h3 code {
-  font-size: inherit; }
-
-h4 tt, h4 code {
-  font-size: inherit; }
-
-h5 tt, h5 code {
-  font-size: inherit; }
-
-h6 tt, h6 code {
-  font-size: inherit; }
-
-h1 {
-  font-size: 28px;
-  color: black; }
-
-h2 {
-  font-size: 24px;
-  border-bottom: 1px solid #cccccc;
-  color: black; }
-
-h3 {
-  font-size: 18px; }
-
-h4 {
-  font-size: 16px; }
-
-h5 {
-  font-size: 14px; }
-
-h6 {
-  color: #777777;
-  font-size: 14px; }
-
-p, blockquote, ul, ol, dl, li, table, pre {
-  margin: 15px 0; }
-
-hr {
-  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
-  border: 0 none;
-  color: #cccccc;
-  height: 4px;
-  padding: 0; }
-
-body > h2:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-body > h1:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-  body > h1:first-child + h2 {
-    margin-top: 0;
-    padding-top: 0; }
-body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-
-a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-  margin-top: 0;
-  padding-top: 0; }
-
-h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-  margin-top: 0; }
-
-li p.first {
-  display: inline-block; }
-
-ul, ol {
-  padding-left: 30px; }
-
-ul :first-child, ol :first-child {
-  margin-top: 0; }
-
-ul :last-child, ol :last-child {
-  margin-bottom: 0; }
-
-dl {
-  padding: 0; }
-  dl dt {
-    font-size: 14px;
-    font-weight: bold;
-    font-style: italic;
-    padding: 0;
-    margin: 15px 0 5px; }
-    dl dt:first-child {
-      padding: 0; }
-    dl dt > :first-child {
-      margin-top: 0; }
-    dl dt > :last-child {
-      margin-bottom: 0; }
-  dl dd {
-    margin: 0 0 15px;
-    padding: 0 15px; }
-    dl dd > :first-child {
-      margin-top: 0; }
-    dl dd > :last-child {
-      margin-bottom: 0; }
-
-blockquote {
-  border-left: 4px solid #dddddd;
-  padding: 0 15px;
-  color: #777777; }
-  blockquote > :first-child {
-    margin-top: 0; }
-  blockquote > :last-child {
-    margin-bottom: 0; }
-
-table {
-  padding: 0; }
-  table tr {
-    border-top: 1px solid #cccccc;
-    background-color: white;
-    margin: 0;
-    padding: 0; }
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8; }
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0; }
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0; }
-
-img {
-  max-width: 100%; }
-
-span.frame {
-  display: block;
-  overflow: hidden; }
-  span.frame > span {
-    border: 1px solid #dddddd;
-    display: block;
-    float: left;
-    overflow: hidden;
-    margin: 13px 0 0;
-    padding: 7px;
-    width: auto; }
-  span.frame span img {
-    display: block;
-    float: left; }
-  span.frame span span {
-    clear: both;
-    color: #333333;
-    display: block;
-    padding: 5px 0 0; }
-span.align-center {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-center > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: center; }
-  span.align-center span img {
-    margin: 0 auto;
-    text-align: center; }
-span.align-right {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px 0 0;
-    text-align: right; }
-  span.align-right span img {
-    margin: 0;
-    text-align: right; }
-span.float-left {
-  display: block;
-  margin-right: 13px;
-  overflow: hidden;
-  float: left; }
-  span.float-left span {
-    margin: 13px 0 0; }
-span.float-right {
-  display: block;
-  margin-left: 13px;
-  overflow: hidden;
-  float: right; }
-  span.float-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: right; }
-
-code, tt {
-  margin: 0 2px;
-  padding: 0 5px;
-  white-space: nowrap;
-  border: 1px solid #eaeaea;
-  border-radius: 3px; }
-
-pre code {
-  margin: 0;
-  padding: 0;
-  white-space: pre;
-  border: none;
-  background: transparent; }
-
-pre {
-  background-color: #073642;
-  color: #f8f8f8;
-  border: 1px solid #cccccc;
-  font-size: 13px;
-  line-height: 19px;
-  overflow: auto;
-  padding: 6px 10px;
-  border-radius: 3px; }
-  pre code, pre tt {
-    background-color: transparent;
-    border: none; }
-
-</style><link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
-<h1 id="4-12-2-automating-builds">4.12.2 Automating builds</h1>
-<p>Bonita BPM includes a Workspace API, which is a script, <code>BonitaStudioBuilder</code>, for building a bar file from a process and/or a zip file from a REST API extension in a repository. 
-This intended for use in a continuous integration and testing environment. </p>
-<p>You can use the <code>BonitaStudioBuilder</code> to build a bar file for processes and Rest API extensions stored in a repository. It accesses the build features of Bonita BPM Studio in the background. 
-Bonita BPM Studio must be installed but must not be running. You must to use a dedicated Bonita BPM Studio for continuous integration.
-This is because the Bonita BPM Studio <code>workspace</code> directory should be removed before running the <code>BonitaStudioBuilder</code> script. 
-(For continuous integration, it is best practice to clean the files before and after a build.)</p>
+<h1 id="automating-builds">4.12.2 Automating builds</h1>
+<p>Bonita BPM includes a Workspace API, which is a script, <code>BonitaStudioBuilder</code>, for building a bar file from a process and/or a zip file from a REST API extension in a repository. This intended for use in a continuous integration and testing environment.</p>
+<p>You can use the <code>BonitaStudioBuilder</code> to build a bar file for processes and Rest API extensions stored in a repository. It accesses the build features of Bonita BPM Studio in the background. Bonita BPM Studio must be installed but must not be running. You must to use a dedicated Bonita BPM Studio for continuous integration. This is because the Bonita BPM Studio <code>workspace</code> directory should be removed before running the <code>BonitaStudioBuilder</code> script. (For continuous integration, it is best practice to clean the files before and after a build.)</p>
 <p>To use <code>BonitaStudioBuilder</code>, you need the following:</p>
 <ul>
 <li>Bonita BPM Studio (the same version as the Bonita BPM repository). This must be a dedicated Bonita BPM Studio and repository used only for your <code>BonitaStudioBuilder</code>, because the tool removes the content of the repository.</li>
 <li>A window manager</li>
 <li>Java 1.7</li>
 </ul>
-<p>After Bonita BPM Studio is installed, the <code>BonitaStudioBuilder</code> scripts are in the <code>workspace_api_scripts</code> folder. 
-There are scripts for Windows (<code>.bat</code>), Linux (<code>.sh</code>), and MacOS (<code>_Mac.sh</code>).</p>
+<p>After Bonita BPM Studio is installed, the <code>BonitaStudioBuilder</code> scripts are in the <code>workspace_api_scripts</code> folder. There are scripts for Windows (<code>.bat</code>), Linux (<code>.sh</code>), and MacOS (<code>_Mac.sh</code>).</p>
 <p>Pass configuration information to the <code>BonitaStudioBuilder</code> script as system properties, using the following arguments:</p>
-<p>Argument
-Purpose</p>
-<p><code>repoPath</code>
-The parent folder of the repository storing the process. Typically, this is the trunk folder. It can also be a folder in tags if you want to point to a restore point in the repository. 
-You cannot use a remote repository folder. A process to be built must be manually checked out before running the script.</p>
-<p><code>outputFolder</code>
-The folder where the generated bar and zip files will be stored.</p>
-<p><code>processes</code>
-The list of the processes in the repository for which bar files are required. 
-For each process, specify the process identifier and, optionally, the version. 
-If you do not specify the version, the latest version is used.   </p>
-<p>Format: <em>process</em>,<em>version;_process</em>,<em>version</em>...  </p>
+<p>Argument Purpose</p>
+<p><code>repoPath</code> The parent folder of the repository storing the process. Typically, this is the trunk folder. It can also be a folder in tags if you want to point to a restore point in the repository. You cannot use a remote repository folder. A process to be built must be manually checked out before running the script.</p>
+<p><code>outputFolder</code> The folder where the generated bar and zip files will be stored.</p>
+<p><code>processes</code> The list of the processes in the repository for which bar files are required. For each process, specify the process identifier and, optionally, the version. If you do not specify the version, the latest version is used.</p>
+<p>Format: <em>process</em>,_version;<em>process</em>,<em>version</em>...</p>
 <p>Example: <code>-process=TravelRequest,1.5;Expenses;LeaveRequest,1.0</code>_</p>
-<p><code>buildAllProcesses</code>
-If enabled, bar files are built for the latest version of each process in the repository.</p>
-<p><code>buildAllRestAPIExtensions</code>
-If enabled, zip files are built and installed in maven repository for all REST API extensions in the repository.</p>
-<p><code>buildAll</code>
-If enabled, bar files are built for the latest version of each process in the repository and zip files are built and installed in maven repository for all REST API extensions.</p>
-<p><code>migrate</code>
-If enabled, you can point the <code>repoPath</code> argument to a repository of an older version than the version of the running Bonita BPM Studio. 
-The processes in the older version repository will be automatically migrated to the current version.</p>
-<p><code>environment</code>
-The <a href="/environments.md">environment</a> with which the bar files will be built. 
-The environment defines the <a href="/configuring-process-bonita-bpm-studio.md">process configuration</a>, including dependencies. 
-If you do not specify an environment, the exported bar file will not contain the dependencies. 
-All the specified processes are built for the same environment. 
-If you want to build for different environments, you need to run the script once for each environment.</p>
+<p><code>buildAllProcesses</code> If enabled, bar files are built for the latest version of each process in the repository.</p>
+<p><code>buildAllRestAPIExtensions</code> If enabled, zip files are built and installed in maven repository for all REST API extensions in the repository.</p>
+<p><code>buildAll</code> If enabled, bar files are built for the latest version of each process in the repository and zip files are built and installed in maven repository for all REST API extensions.</p>
+<p><code>migrate</code> If enabled, you can point the <code>repoPath</code> argument to a repository of an older version than the version of the running Bonita BPM Studio. The processes in the older version repository will be automatically migrated to the current version.</p>
+<p><code>environment</code> The <a href="/environments.md">environment</a> with which the bar files will be built. The environment defines the <a href="/configuring-process-bonita-bpm-studio.md">process configuration</a>, including dependencies. If you do not specify an environment, the exported bar file will not contain the dependencies. All the specified processes are built for the same environment. If you want to build for different environments, you need to run the script once for each environment.</p>
 <p>To run the script:</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Check out the project to a directory in the Studio path.</li>
 <li>Delete the content of the <code>workspace</code> directory in your Bonita BPM Studio installation.</li>
-<li>Run the script. For example:
-<code>./BonitaStudioBuilder.sh -repoPath=/home/myBonitaRepoCheckedOut
--outputFolder=/home/bonita/myArtefacts -buildAll -migrate 
--environment=Qualification</code></li>
+<li>Run the script. For example: <code>./BonitaStudioBuilder.sh -repoPath=/home/myBonitaRepoCheckedOut -outputFolder=/home/bonita/myArtefacts -buildAll -migrate  -environment=Qualification</code></li>
 </ol>
 <p>When the script runs, information is logged in <code>workspace/.metadata/.log</code>.</p>
 <h2 id="deploying-a-process-bar-file">Deploying a process bar file</h2>
-<p>From the bar file, a process can be <a href="/processes.md">deployed manually using Bonita BPM Portal</a>. 
-You can also <a href="/manage-process#deploy">deploy a process using the Engine API</a>.</p>
+<p>From the bar file, a process can be <a href="/processes.md">deployed manually using Bonita BPM Portal</a>. You can also <a href="/manage-process#deploy">deploy a process using the Engine API</a>.</p>
 <h2 id="deploying-a-rest-api-extension-file">Deploying a REST API extension file</h2>
-<p>From the zip file, a REST API extension can be <a href="/rest-api-extensions-866#install">deployed manually using Bonita BPM Portal</a>. 
-You can also deploy a REST API extension using the REST API.</p>
+<p>From the zip file, a REST API extension can be <a href="/rest-api-extensions-866#install">deployed manually using Bonita BPM Portal</a>. You can also deploy a REST API extension using the REST API.</p>
 <h2 id="automate-build-of-a-specific-rest-api-extension">Automate build of a specific REST API extension</h2>
-<p>A REST API extension is a maven project stored in a Studio repository. You can find them in the studio workspace: <code>workspace/yourRepositoryName/restAPIExtensions/yourRestAPIProject</code>. From there you can simply use maven cli or a CI job to build, test or packake your REST API Extension.<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></p>
+<p>A REST API extension is a maven project stored in a Studio repository. You can find them in the studio workspace: <code>workspace/yourRepositoryName/restAPIExtensions/yourRestAPIProject</code>. From there you can simply use maven cli or a CI job to build, test or packake your REST API Extension.</p>

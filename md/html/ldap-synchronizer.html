@@ -1,287 +1,10 @@
-<style type="text/css">/** https://gist.github.com/andyferra/2554919#file-github-css **/
-body {
-  font-family: Helvetica, arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: white;
-  padding: 30px; }
-
-body > *:first-child {
-  margin-top: 0 !important; }
-body > *:last-child {
-  margin-bottom: 0 !important; }
-
-a {
-  color: #4183C4; }
-a.absent {
-  color: #cc0000; }
-a.anchor {
-  display: block;
-  padding-left: 30px;
-  margin-left: -30px;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0; }
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 20px 0 10px;
-  padding: 0;
-  font-weight: bold;
-  -webkit-font-smoothing: antialiased;
-  cursor: text;
-  position: relative; }
-
-h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
-  text-decoration: none; }
-
-h1 tt, h1 code {
-  font-size: inherit; }
-
-h2 tt, h2 code {
-  font-size: inherit; }
-
-h3 tt, h3 code {
-  font-size: inherit; }
-
-h4 tt, h4 code {
-  font-size: inherit; }
-
-h5 tt, h5 code {
-  font-size: inherit; }
-
-h6 tt, h6 code {
-  font-size: inherit; }
-
-h1 {
-  font-size: 28px;
-  color: black; }
-
-h2 {
-  font-size: 24px;
-  border-bottom: 1px solid #cccccc;
-  color: black; }
-
-h3 {
-  font-size: 18px; }
-
-h4 {
-  font-size: 16px; }
-
-h5 {
-  font-size: 14px; }
-
-h6 {
-  color: #777777;
-  font-size: 14px; }
-
-p, blockquote, ul, ol, dl, li, table, pre {
-  margin: 15px 0; }
-
-hr {
-  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
-  border: 0 none;
-  color: #cccccc;
-  height: 4px;
-  padding: 0; }
-
-body > h2:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-body > h1:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-  body > h1:first-child + h2 {
-    margin-top: 0;
-    padding-top: 0; }
-body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-
-a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-  margin-top: 0;
-  padding-top: 0; }
-
-h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-  margin-top: 0; }
-
-li p.first {
-  display: inline-block; }
-
-ul, ol {
-  padding-left: 30px; }
-
-ul :first-child, ol :first-child {
-  margin-top: 0; }
-
-ul :last-child, ol :last-child {
-  margin-bottom: 0; }
-
-dl {
-  padding: 0; }
-  dl dt {
-    font-size: 14px;
-    font-weight: bold;
-    font-style: italic;
-    padding: 0;
-    margin: 15px 0 5px; }
-    dl dt:first-child {
-      padding: 0; }
-    dl dt > :first-child {
-      margin-top: 0; }
-    dl dt > :last-child {
-      margin-bottom: 0; }
-  dl dd {
-    margin: 0 0 15px;
-    padding: 0 15px; }
-    dl dd > :first-child {
-      margin-top: 0; }
-    dl dd > :last-child {
-      margin-bottom: 0; }
-
-blockquote {
-  border-left: 4px solid #dddddd;
-  padding: 0 15px;
-  color: #777777; }
-  blockquote > :first-child {
-    margin-top: 0; }
-  blockquote > :last-child {
-    margin-bottom: 0; }
-
-table {
-  padding: 0; }
-  table tr {
-    border-top: 1px solid #cccccc;
-    background-color: white;
-    margin: 0;
-    padding: 0; }
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8; }
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0; }
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0; }
-
-img {
-  max-width: 100%; }
-
-span.frame {
-  display: block;
-  overflow: hidden; }
-  span.frame > span {
-    border: 1px solid #dddddd;
-    display: block;
-    float: left;
-    overflow: hidden;
-    margin: 13px 0 0;
-    padding: 7px;
-    width: auto; }
-  span.frame span img {
-    display: block;
-    float: left; }
-  span.frame span span {
-    clear: both;
-    color: #333333;
-    display: block;
-    padding: 5px 0 0; }
-span.align-center {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-center > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: center; }
-  span.align-center span img {
-    margin: 0 auto;
-    text-align: center; }
-span.align-right {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px 0 0;
-    text-align: right; }
-  span.align-right span img {
-    margin: 0;
-    text-align: right; }
-span.float-left {
-  display: block;
-  margin-right: 13px;
-  overflow: hidden;
-  float: left; }
-  span.float-left span {
-    margin: 13px 0 0; }
-span.float-right {
-  display: block;
-  margin-left: 13px;
-  overflow: hidden;
-  float: right; }
-  span.float-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: right; }
-
-code, tt {
-  margin: 0 2px;
-  padding: 0 5px;
-  white-space: nowrap;
-  border: 1px solid #eaeaea;
-  border-radius: 3px; }
-
-pre code {
-  margin: 0;
-  padding: 0;
-  white-space: pre;
-  border: none;
-  background: transparent; }
-
-pre {
-  background-color: #073642;
-  color: #f8f8f8;
-  border: 1px solid #cccccc;
-  font-size: 13px;
-  line-height: 19px;
-  overflow: auto;
-  padding: 6px 10px;
-  border-radius: 3px; }
-  pre code, pre tt {
-    background-color: transparent;
-    border: none; }
-
-</style><link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
-<h1 id="1-9-5-ldap-synchronizer">1.9.5 LDAP synchronizer</h1>
-<p>The LDAP synchronizer is a service for synchronizing 
-Bonita BPM and LDAP directory users and groups in a single direction, LDAP to Bonita BPM. </p>
-<p>The LDAP synchronization service keeps the Bonita BPM organization information synchronized with an external LDAP directory, by creating, updating, or removing
-users and groups in the organization
-to match as closely as possible the user list attributes defined in LDAP. It does not modify the LDAP directory.</p>
-<p>The LDAP Synchronizer connects to both the LDAP server and Bonita BPM Engine to read the data from the LDAP server and modify the organization in the Bonita BPM Engine database using the API.
-Both the Engine and the LDAP server must be running when the LDAP Synchronizer tool is run.</p>
-<p>The synchronizer program runs in the background. There is no user interface: all configuration settings are specified in files and
-all output is written to a log file.</p>
+<h1 id="ldap-synchronizer">1.9.5 LDAP synchronizer</h1>
+<p>The LDAP synchronizer is a service for synchronizing Bonita BPM and LDAP directory users and groups in a single direction, LDAP to Bonita BPM.</p>
+<p>The LDAP synchronization service keeps the Bonita BPM organization information synchronized with an external LDAP directory, by creating, updating, or removing users and groups in the organization to match as closely as possible the user list attributes defined in LDAP. It does not modify the LDAP directory.</p>
+<p>The LDAP Synchronizer connects to both the LDAP server and Bonita BPM Engine to read the data from the LDAP server and modify the organization in the Bonita BPM Engine database using the API. Both the Engine and the LDAP server must be running when the LDAP Synchronizer tool is run.</p>
+<p>The synchronizer program runs in the background. There is no user interface: all configuration settings are specified in files and all output is written to a log file.</p>
 <h2 id="ldap-objects-supported">LDAP objects supported</h2>
-<p>The synchronizer will synchronize LDAP objects that inherit from the &quot;person&quot; class as users in Bonita BPM.
-The synchronizer application does not support user meta data and cannot synchronize passwords. A new user password is initialized with the user name.</p>
+<p>The synchronizer will synchronize LDAP objects that inherit from the &quot;person&quot; class as users in Bonita BPM. The synchronizer application does not support user meta data and cannot synchronize passwords. A new user password is initialized with the user name.</p>
 <p>The tool supports LDAP groups of the following classes:</p>
 <ul>
 <li>group</li>
@@ -291,14 +14,10 @@ The synchronizer application does not support user meta data and cannot synchron
 <li>ds-virtual-static-group</li>
 </ul>
 <h2 id="installation">Installation</h2>
-<p>To install the synchronizer, unzip the provided deploy.zip file and configure the files located under the conf directory. 
-This directory contains a sample configuration.</p>
-<p>Create a dedicated bonita.home for the LDAP Synchronizer, and set the API access mode used by the LDAP Synchronizer, by editing the bonita-client-custom.properties file. 
-The LDAP Synchronizer can use the HTTP, or EJB3 modes, but not local access. For more information about API access modes, 
-see the <a href="/development-overview.md">Development overview</a>.</p>
+<p>To install the synchronizer, unzip the provided deploy.zip file and configure the files located under the conf directory. This directory contains a sample configuration.</p>
+<p>Create a dedicated bonita.home for the LDAP Synchronizer, and set the API access mode used by the LDAP Synchronizer, by editing the bonita-client-custom.properties file. The LDAP Synchronizer can use the HTTP, or EJB3 modes, but not local access. For more information about API access modes, see the <a href="/development-overview.md">Development overview</a>.</p>
 <p>There is a var_bonita_home directory in the deploy zip that can be used. Copy this directory into the LDAP synchronizer directory.</p>
-<p>Customize the configuration for your system, by editing the <a href="#config_files">configuration files</a>. 
-There are some additional considerations for <a href="#tenant">using the LDAP synchronizer in a non-default tenant</a>.</p>
+<p>Customize the configuration for your system, by editing the <a href="#config_files">configuration files</a>. There are some additional considerations for <a href="#tenant">using the LDAP synchronizer in a non-default tenant</a>.</p>
 <h2 id="configuration-files">Configuration files</h2>
 <p>There are five properties files:</p>
 <ul>
@@ -309,186 +28,129 @@ There are some additional considerations for <a href="#tenant">using the LDAP sy
 <li>sync.properties defines the synchronization settings.</li>
 </ul>
 <p>All configurations files can be found in the conf directory.</p>
-<p><strong>Note</strong>: to use a special character in a properties file, use the Unicode equivalent. For example, for à use \u00E0. 
-You can use a tool such as <a href="http://docs.oracle.com/javase/7/docs/technotes/tools/solaris/native2ascii.html">native2ascii</a> to convert any special characters in the configuration files to Unicode.</p>
+<p><strong>Note</strong>: to use a special character in a properties file, use the Unicode equivalent. For example, for à use \u00E0. You can use a tool such as <a href="http://docs.oracle.com/javase/7/docs/technotes/tools/solaris/native2ascii.html">native2ascii</a> to convert any special characters in the configuration files to Unicode.</p>
 <p>You also need to <a href="/configuring-bonita-home-client.md">create a dedicated bonita.home</a> for the LDAP Synchronizer.</p>
 <p><strong>Note:</strong> This is not the same as the bonita.home used by the server. Every client needs its own bonita.home.</p>
-<h3 id="bonita-properties">bonita.properties</h3>
-<p>This file defines the connection settings and specifies the account used for user synchronization (requires administration privileges).
-Item
-Description
-Default</p>
-<p>bonita_home
-The path to the var_bonita_home folder of the LDAP Synchronizer.</p>
-<p>login
-The login to provide is a userName. </p>
+<h3 id="bonita.properties">bonita.properties</h3>
+<p>This file defines the connection settings and specifies the account used for user synchronization (requires administration privileges). Item Description Default</p>
+<p>bonita_home The path to the var_bonita_home folder of the LDAP Synchronizer.</p>
+<p>login The login to provide is a userName.</p>
 <p>install</p>
-<p>password
-Password of the Bonita BPM account used for synchronization.
-install</p>
-<p>technicalUser
-This is the <a href="/first-steps-after-setup.md#reset_pw">username of the platform adminstrator</a>.</p>
+<p>password Password of the Bonita BPM account used for synchronization. install</p>
+<p>technicalUser This is the <a href="/first-steps-after-setup.md#reset_pw">username of the platform adminstrator</a>.</p>
 <p>platformAdmin</p>
-<p>technicalPassword
-This is the <a href="/first-steps-after-setup.md#reset_pw">password of the platform adminstrator</a>.
-platform</p>
-<h3 id="ldap-properties">ldap.properties</h3>
+<p>technicalPassword This is the <a href="/first-steps-after-setup.md#reset_pw">password of the platform adminstrator</a>. platform</p>
+<h3 id="ldap.properties">ldap.properties</h3>
 <p>This file defines the LDAP connection settings and specifies the account used for user browsing.</p>
-<p>Item
-Description
-Default</p>
-<p>host_url
-LDAP server URL
-ldap://localhost:389</p>
-<p>auth_type
-LDAP authentication type (supported values: none, simple or strong)
-simple</p>
-<p>principal_dn
-distinguished name (DN) of the user account used for browsing through the LDAP users
-cn=Directory Manager</p>
-<p>principal_password
-password of the LDAP ?browser account
-root</p>
-<p>directory_user_type
-type of the user object (&quot;user&quot; for an Active Directory, &quot;person&quot; for an LDAP)
-person</p>
-<h3 id="logger-properties">logger.properties</h3>
+<p>Item Description Default</p>
+<p>host_url LDAP server URL ldap://localhost:389</p>
+<p>auth_type LDAP authentication type (supported values: none, simple or strong) simple</p>
+<p>principal_dn distinguished name (DN) of the user account used for browsing through the LDAP users cn=Directory Manager</p>
+<p>principal_password password of the LDAP ?browser account root</p>
+<p>directory_user_type type of the user object (&quot;user&quot; for an Active Directory, &quot;person&quot; for an LDAP) person</p>
+<h3 id="logger.properties">logger.properties</h3>
 <p>This file provides the settings for the logger. Default settings should be fine for most uses.</p>
-<p>Item
-Description
-Default</p>
-<p>log_dir_path
-directory path where the log files will be stored. The log files are named on the following template: <em><code>log_file_date_prefix</code></em><code>_LDAP-BOS_Synchronizer.log</code>
-logs/</p>
-<p>log_file_date_prefix
-date format used for prefixing the log file name
-yyyy=MM=dd</p>
-<p>log_level
-level of reporting of the logger (relevant values are INFO for production use, FINE for debug use)
-INFO</p>
-<p>The date format in log file names follows the syntax of the Java SimpleDateFormat class. 
-This is useful to control the number of log file create as the logger will append information to an existing log file if the file name already exists. 
-Example: if you set the format to &quot;?yyyy-mm&quot;, you will get one new log file per month.</p>
-<h3 id="mapper-properties">mapper.properties</h3>
+<p>Item Description Default</p>
+<p>log_dir_path directory path where the log files will be stored. The log files are named on the following template: <em><code>log_file_date_prefix</code></em><code>_LDAP-BOS_Synchronizer.log</code> logs/</p>
+<p>log_file_date_prefix date format used for prefixing the log file name yyyy=MM=dd</p>
+<p>log_level level of reporting of the logger (relevant values are INFO for production use, FINE for debug use) INFO</p>
+<p>The date format in log file names follows the syntax of the Java SimpleDateFormat class. This is useful to control the number of log file create as the logger will append information to an existing log file if the file name already exists. Example: if you set the format to &quot;?yyyy-mm&quot;, you will get one new log file per month.</p>
+<h3 id="mapper.properties">mapper.properties</h3>
 <p>This file specifies the translation between Bonita BPM and LDAP directory user attributes such as:</p>
 <p><code>bonita_property = ldap_property</code></p>
 <p>The only mandatory property is user_name, which is the key defined for matching users. All other properties are optional.</p>
 <p>An LDAP property may be used several times in the configuration file but each Bonita property should be defined only once. Unused properties should be commented out.</p>
 <p>These are the supported Bonita BPM user properties:</p>
-<p>General information
-Professional information
-Personal information</p>
-<p>user_name  </p>
-<p>first_name  </p>
-<p>last_name  </p>
-<p>title  </p>
-<p>job_title  </p>
-<p>manager
-pro_email  </p>
-<p>pro_phone  </p>
-<p>pro_mobile  </p>
-<p>pro_fax  </p>
-<p>pro_website  </p>
-<p>pro_room  </p>
-<p>pro_building  </p>
-<p>pro_address  </p>
-<p>pro_city  </p>
-<p>pro_zip_code  </p>
-<p>pro_state  </p>
-<p>pro_country
-perso_email  </p>
-<p>perso_phone  </p>
-<p>perso_mobile  </p>
-<p>perso_fax  </p>
-<p>perso_website  </p>
-<p>perso_room  </p>
-<p>perso_building  </p>
-<p>perso_address  </p>
-<p>perso_city  </p>
-<p>perso_zip_code  </p>
-<p>perso_state  </p>
+<p>General information Professional information Personal information</p>
+<p>user_name</p>
+<p>first_name</p>
+<p>last_name</p>
+<p>title</p>
+<p>job_title</p>
+<p>manager pro_email</p>
+<p>pro_phone</p>
+<p>pro_mobile</p>
+<p>pro_fax</p>
+<p>pro_website</p>
+<p>pro_room</p>
+<p>pro_building</p>
+<p>pro_address</p>
+<p>pro_city</p>
+<p>pro_zip_code</p>
+<p>pro_state</p>
+<p>pro_country perso_email</p>
+<p>perso_phone</p>
+<p>perso_mobile</p>
+<p>perso_fax</p>
+<p>perso_website</p>
+<p>perso_room</p>
+<p>perso_building</p>
+<p>perso_address</p>
+<p>perso_city</p>
+<p>perso_zip_code</p>
+<p>perso_state</p>
 <p>perso_country</p>
-<p>The following items are configured by default:
-Item
-Default</p>
-<p>user_name
-uid</p>
-<p>last_name
-sn</p>
-<p>title
-title</p>
-<p>pro_email
-mail</p>
-<p>pro_phone
-telephoneNumber</p>
-<p>pro_mobile
-mobile</p>
-<p>perso_phone
-homePhone</p>
-<h3 id="sync-properties">sync.properties</h3>
+<p>The following items are configured by default: Item Default</p>
+<p>user_name uid</p>
+<p>last_name sn</p>
+<p>title title</p>
+<p>pro_email mail</p>
+<p>pro_phone telephoneNumber</p>
+<p>pro_mobile mobile</p>
+<p>perso_phone homePhone</p>
+<h3 id="sync.properties">sync.properties</h3>
 <p>This file defines the synchronization settings.</p>
 <ul>
-<li>error_level_upon_failing_to_get_related_user: optional parameter that specifies whether an error should be blocking upon getting related users (manager)  </li>
+<li>error_level_upon_failing_to_get_related_user: optional parameter that specifies whether an error should be blocking upon getting related users (manager)</li>
 </ul>
-<p>Supported values: ignore, warn or fatal  </p>
+<p>Supported values: ignore, warn or fatal</p>
 <p>Default value: warn</p>
 <ul>
-<li>bonita_username_case: optional parameter that specifies whether the LDAP user names should be converted to a given case upon being imported in Bonita BPM.  </li>
+<li>bonita_username_case: optional parameter that specifies whether the LDAP user names should be converted to a given case upon being imported in Bonita BPM.</li>
 </ul>
-<p>Supported values: mixed, uppercase or lowercase  </p>
+<p>Supported values: mixed, uppercase or lowercase</p>
 <p>Default value: mixed (conserves the current LDAP user name case)</p>
 <ul>
-<li>ldap_watched_directories: defines the LDAP directories to watch.  </li>
+<li>ldap_watched_directories: defines the LDAP directories to watch.</li>
 </ul>
-<p>Supported values: list of LDAP watched directory object identifiers separated by commas.  </p>
+<p>Supported values: list of LDAP watched directory object identifiers separated by commas.</p>
 <p>The syntax for watched directory object properties is detailed in the next section.</p>
 <ul>
-<li>bonita_nosync_users: specifies the list of users who should not be synchronized.  </li>
+<li>bonita_nosync_users: specifies the list of users who should not be synchronized.</li>
 </ul>
 <p>Supported values: user names separated by commas.</p>
 <ul>
-<li>bonita_user_role: specified the profile assigned to Bonita users.  </li>
+<li>bonita_user_role: specified the profile assigned to Bonita users.</li>
 </ul>
 <p>Default value: user</p>
 <ul>
-<li>bonita_deactivate_users: optional parameter that specifies whether the tool should deactivate Bonita BPM users who are not present in LDAP. 
-When bonita_deactivate_users is set to true, a Bonita BPM user who is not present in LDAP is deactivated. The user are not removed from Bonita BPM, but they cannot start process instances or do tasks.
-Note: If a user is deactivated in Bonita BPM but present in LDAP, the tool always activates the user.  </li>
+<li>bonita_deactivate_users: optional parameter that specifies whether the tool should deactivate Bonita BPM users who are not present in LDAP. When bonita_deactivate_users is set to true, a Bonita BPM user who is not present in LDAP is deactivated. The user are not removed from Bonita BPM, but they cannot start process instances or do tasks. Note: If a user is deactivated in Bonita BPM but present in LDAP, the tool always activates the user.</li>
 </ul>
-<p>Supported values: true or false  </p>
+<p>Supported values: true or false</p>
 <p>Default value: true</p>
 <ul>
-<li>allow_recursive_groups: optional parameter that specifies whether sub-groups should also be synchronized.  </li>
+<li>allow_recursive_groups: optional parameter that specifies whether sub-groups should also be synchronized.</li>
 </ul>
-<p>Supported values: true or false  </p>
+<p>Supported values: true or false</p>
 <p>Default value: true</p>
 <ul>
-<li>ldap_groups: optional parameter that specifies the LDAP groups that should be synchronized.  </li>
+<li>ldap_groups: optional parameter that specifies the LDAP groups that should be synchronized.</li>
 </ul>
-<p>Supported values: list of LDAP Group object identifiers separated by commas.  </p>
+<p>Supported values: list of LDAP Group object identifiers separated by commas.</p>
 <p>The syntax for group object properties is detailed in a later section.</p>
 <h4 id="ldap-watched-directory-object-properties-syntax">LDAP Watched directory object properties syntax</h4>
-<p>A watched directory is defined by an id that is declared in the &quot;?ldap_watched_directories&quot; list. 
-This id provides access to the object properties with this syntax: object_id.property.</p>
+<p>A watched directory is defined by an id that is declared in the &quot;?ldap_watched_directories&quot; list. This id provides access to the object properties with this syntax: object_id.property.</p>
 <p>Here are the available object properties:</p>
-<p>ldap_search_dn
-DN of the LDAP watched directory that will be used to get the list of the LDAP users.</p>
-<p>ldap_search_filter
-LDAP user search filter (mandatory attribute, but can be a wide filter such as &quot;cn=*&quot;).</p>
+<p>ldap_search_dn DN of the LDAP watched directory that will be used to get the list of the LDAP users.</p>
+<p>ldap_search_filter LDAP user search filter (mandatory attribute, but can be a wide filter such as &quot;cn=*&quot;).</p>
 <p>Example of a watched directory declaration:</p>
-<p>`</p>
-<h1 id="declare-a-list-of-ldap-watched-directories">Declare a list of LDAP watched directories</h1>
-<p>ldap_watched_directories = dir1,dir2</p>
+<p>` # Declare a list of LDAP watched directories ldap_watched_directories = dir1,dir2</p>
 <h1 id="specify-dir1-settings">Specify dir1 settings</h1>
-<p>dir1.ldap_search_dn =   ou=People,dc=example,dc=com
-dir1.ldap_search_filter =   cn=*</p>
+<p>dir1.ldap_search_dn = ou=People,dc=example,dc=com dir1.ldap_search_filter = cn=*</p>
 <h1 id="specify-dir2-settings">Specify dir2 settings</h1>
-<p>dir2.ldap_search_dn =   ou=OtherPeople,dc=example,dc=com
-dir2.ldap_search_filter =   cn=*
-`</p>
+<p>dir2.ldap_search_dn = ou=OtherPeople,dc=example,dc=com dir2.ldap_search_filter = cn=* `</p>
 <h4 id="ldap-group-object-properties-syntax">LDAP Group object properties syntax</h4>
-<p>An LDAP group is defined by an id which is declared in the &quot;ldap_groups&quot; list. This id provides access to the object properties with this syntax: object_id.property.
-You can also specify groups with a search: all groups that match the search are synchronized.</p>
+<p>An LDAP group is defined by an id which is declared in the &quot;ldap_groups&quot; list. This id provides access to the object properties with this syntax: object_id.property. You can also specify groups with a search: all groups that match the search are synchronized.</p>
 <p>Groups will be synchronized based on the matching of their LDAP common name (CN) and their Bonita BPM names.</p>
 <p>The tool will automatically detect the group class from LDAP.</p>
 <p>Here are the LDAP group classes supported by the LDAP Synchronizer:</p>
@@ -500,49 +162,32 @@ You can also specify groups with a search: all groups that match the search are 
 <li>ds-virtual-static-group</li>
 </ul>
 <p>Groups can be declared individually in the configuration file with the following properties :</p>
-<p>ldap_group_dn
-mandatory attribute that specifies the DN of the LDAP group.</p>
-<p>forced_bonita_group_name
-optional attribute that renames the Bonita group instead of using the original LDAP group name.</p>
-<p>force_add_non_existing_users
-optional Boolean attribute (true by default) that defines whether group members that are not present in Bonita BPM should be imported (if false, these users are ignored).</p>
+<p>ldap_group_dn mandatory attribute that specifies the DN of the LDAP group.</p>
+<p>forced_bonita_group_name optional attribute that renames the Bonita group instead of using the original LDAP group name.</p>
+<p>force_add_non_existing_users optional Boolean attribute (true by default) that defines whether group members that are not present in Bonita BPM should be imported (if false, these users are ignored).</p>
 <p>Example of group declarations:</p>
-<p>`</p>
-<h1 id="list-of-groups-to-synchronize">List of groups to synchronize</h1>
-<p>ldap_groups = group1, group2</p>
+<p>` # List of groups to synchronize ldap_groups = group1, group2</p>
 <h1 id="specify-group1-settings">Specify group1 settings</h1>
-<p>group1.ldap_group_dn  =  cn=group1,ou=groups,dc=bonita,dc=com
-group1.forced_bonita_group_name  =  forced group1</p>
-<h1 id="specify-group2-settings-">Specify group2 settings:</h1>
+<p>group1.ldap_group_dn = cn=group1,ou=groups,dc=bonita,dc=com group1.forced_bonita_group_name = forced group1</p>
+<h1 id="specify-group2-settings">Specify group2 settings:</h1>
 <h1 id="sync-the-group-with-specified-dn-but-not-the-users-inside-this-group">sync the group with specified dn but not the users inside this group</h1>
-<p>group2.ldap_group_dn  =  cn=group2,ou=groups,dc=bonita,dc=com
-group2.force_add_non_existing_users  =  false
-`</p>
+<p>group2.ldap_group_dn = cn=group2,ou=groups,dc=bonita,dc=com group2.force_add_non_existing_users = false `</p>
 <p>In combination or as an alternative, groups can be declared using the result of an LDAP search that is defined in the configuration file with the following properties :</p>
-<p>ldap_group_search_dn
-DN of the LDAP watched directory that will be used to get the list of the LDAP groups.</p>
-<p>ldap_group_search_filter
-LDAP group search filter (mandatory attribute, but can be a wide filter such as &quot;cn=*&quot;).</p>
-<p>force_add_non_existing_users
-optional boolean attribute (true by default) that defines whether group members that are not present in Bonita BPM should be imported (if false, these users are ignored).</p>
+<p>ldap_group_search_dn DN of the LDAP watched directory that will be used to get the list of the LDAP groups.</p>
+<p>ldap_group_search_filter LDAP group search filter (mandatory attribute, but can be a wide filter such as &quot;cn=*&quot;).</p>
+<p>force_add_non_existing_users optional boolean attribute (true by default) that defines whether group members that are not present in Bonita BPM should be imported (if false, these users are ignored).</p>
 <p>Example of group searches:</p>
-<p>`</p>
-<h1 id="specify-search-of-groups">Specify search of groups</h1>
-<p>ldap_search_filter_groups  =  search1,search2</p>
-<h1 id="specify-search1-settings-">Specify search1 settings:</h1>
-<h1 id="sync-all-groups-under-ou-people-dc-bonita-dc-com-with-cn-starting-with-a_-">sync all groups under ou=people,dc=bonita,dc=com with cn starting with &quot;A_&quot;</h1>
-<p>search1.ldap<em>group_search_dn  =  ou=people,dc=bonita,dc=com
-search1.ldap_group_search_filter  =  cn=A</em>*</p>
-<h1 id="specify-search2-settings-">Specify search2 settings:</h1>
-<h1 id="sync-all-groups-under-ou-people-dc-bonita-dc-com-with-cn-starting-with-b_-">sync all groups under ou=people,dc=bonita,dc=com with cn starting with &quot;B_&quot;</h1>
+<p>` #Specify search of groups ldap_search_filter_groups = search1,search2</p>
+<h1 id="specify-search1-settings">Specify search1 settings:</h1>
+<h1 id="sync-all-groups-under-oupeopledcbonitadccom-with-cn-starting-with-a_">sync all groups under ou=people,dc=bonita,dc=com with cn starting with &quot;A_&quot;</h1>
+<p>search1.ldap_group_search_dn = ou=people,dc=bonita,dc=com search1.ldap_group_search_filter = cn=A_*</p>
+<h1 id="specify-search2-settings">Specify search2 settings:</h1>
+<h1 id="sync-all-groups-under-oupeopledcbonitadccom-with-cn-starting-with-b_">sync all groups under ou=people,dc=bonita,dc=com with cn starting with &quot;B_&quot;</h1>
 <h1 id="but-without-importing-new-users-inside-these-groups">but without importing new users inside these groups</h1>
-<p>search2.ldap<em>group_search_dn  =  ou=people,dc=bonita,dc=com
-search2.ldap_group_search_filter  =  cn=B</em>*
-search2.force_add_non_existing_users  =  false
-`</p>
+<p>search2.ldap_group_search_dn = ou=people,dc=bonita,dc=com search2.ldap_group_search_filter = cn=B_* search2.force_add_non_existing_users = false `</p>
 <h2 id="running-the-synchronizer">Running the synchronizer</h2>
 <p>Below are all the actions completed by the LDAP synchronizer tool:</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Reads all Users in the source LDAP directory</li>
 <li>Creates all Users in the bonita engine db</li>
 <li>Reads all Groups in the source LDAP directory</li>
@@ -552,27 +197,23 @@ search2.force_add_non_existing_users  =  false
 <li>For all Users belonging to the groups in the Bonita BPM Engine db and not in the groups in the source LDAP directory, do Delete membership (user, role-in-ldap-tool-config, group)</li>
 <li>Creates all memberships for all users and groups with a configured role (user, role-in-ldap-tool-config, group)</li>
 </ol>
-<p>To run the LDAP synchronizer, execute the script <code>BonitaBPMSubscription-x.y.z-LDAP-Synchronizer.bat</code> (for Windows) or <code>BonitaBPMSubscription-x.y.z-LDAP-Synchronizer.sh</code> (for Linux), 
-where <code>x.y.z</code> is the version of Bonita BPM you are running.</p>
+<p>To run the LDAP synchronizer, execute the script <code>BonitaBPMSubscription-x.y.z-LDAP-Synchronizer.bat</code> (for Windows) or <code>BonitaBPMSubscription-x.y.z-LDAP-Synchronizer.sh</code> (for Linux), where <code>x.y.z</code> is the version of Bonita BPM you are running.</p>
 <p><strong>Warning:</strong> Do not modify the Organization from the Bonita BPM Portal while the tool is running, as this will cause a synchronization error.</p>
 <h2 id="using-the-ldap-synchronizer-in-a-non-default-tenant">Using the LDAP synchronizer in a non-default tenant</h2>
-<p><strong>Installation:</strong> The LDAP Synchronizer is installed on the platform as described above. 
-After installation, Check that the <a href="/profiles-overview.md">&quot;User&quot; profile</a> is defined for the tenant. 
-The default tenant has a &quot;User&quot; profile by default, but it must be created manually when a tenant is created. 
-The LDAP synchronizer will fail if this profile is not defined.</p>
+<p><strong>Installation:</strong> The LDAP Synchronizer is installed on the platform as described above. After installation, Check that the <a href="/profiles-overview.md">&quot;User&quot; profile</a> is defined for the tenant. The default tenant has a &quot;User&quot; profile by default, but it must be created manually when a tenant is created. The LDAP synchronizer will fail if this profile is not defined.</p>
 <p><strong>Configuration:</strong> To configure the LDAP synchronizer for a tenant that is not the default tenant:</p>
 <ul>
 <li>Create a new folder in <code>$BonitaSynchronizerFolder/conf</code> with the same name as the name of the tenant (not the id) that was set when the tenant was created.</li>
 <li>Copy the contents of the default folder from <code>$BonitaSynchronizerFolder/conf</code> to this new tenant-specific folder.</li>
-<li>Configure the LDAP synchronizer for the tenant by editing the configuration files in the tenant-specific folder, as described above. </li>
+<li>Configure the LDAP synchronizer for the tenant by editing the configuration files in the tenant-specific folder, as described above.</li>
 </ul>
 <p><strong>Running:</strong> To run the LDAP Synchronizer on a tenant, give the name of the tenant as a parameter of the script.</p>
-<p>Important - Additional information </p>
-<p>The tool can determine the list of users belonging to a group by looking these properties, depending on the group&#39;s objectClass:</p>
+<p>Important - Additional information</p>
+<p>The tool can determine the list of users belonging to a group by looking these properties, depending on the group's objectClass:</p>
 <ul>
 <li>member: group <code>objectclass</code></li>
 <li>memberURL: <code>groupOfURLs</code> objectclass</li>
 <li>member: <code>groupOfNames</code> objectclass</li>
 <li>uniqueMember: <code>groupOfUniqueNames</code> objectclass</li>
-<li>ds-target-group-dn: <code>ds-virtual-static-group</code> objectclass<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></li>
+<li>ds-target-group-dn: <code>ds-virtual-static-group</code> objectclass</li>
 </ul>

@@ -1,282 +1,12 @@
-<style type="text/css">/** https://gist.github.com/andyferra/2554919#file-github-css **/
-body {
-  font-family: Helvetica, arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: white;
-  padding: 30px; }
-
-body > *:first-child {
-  margin-top: 0 !important; }
-body > *:last-child {
-  margin-bottom: 0 !important; }
-
-a {
-  color: #4183C4; }
-a.absent {
-  color: #cc0000; }
-a.anchor {
-  display: block;
-  padding-left: 30px;
-  margin-left: -30px;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0; }
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 20px 0 10px;
-  padding: 0;
-  font-weight: bold;
-  -webkit-font-smoothing: antialiased;
-  cursor: text;
-  position: relative; }
-
-h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
-  text-decoration: none; }
-
-h1 tt, h1 code {
-  font-size: inherit; }
-
-h2 tt, h2 code {
-  font-size: inherit; }
-
-h3 tt, h3 code {
-  font-size: inherit; }
-
-h4 tt, h4 code {
-  font-size: inherit; }
-
-h5 tt, h5 code {
-  font-size: inherit; }
-
-h6 tt, h6 code {
-  font-size: inherit; }
-
-h1 {
-  font-size: 28px;
-  color: black; }
-
-h2 {
-  font-size: 24px;
-  border-bottom: 1px solid #cccccc;
-  color: black; }
-
-h3 {
-  font-size: 18px; }
-
-h4 {
-  font-size: 16px; }
-
-h5 {
-  font-size: 14px; }
-
-h6 {
-  color: #777777;
-  font-size: 14px; }
-
-p, blockquote, ul, ol, dl, li, table, pre {
-  margin: 15px 0; }
-
-hr {
-  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
-  border: 0 none;
-  color: #cccccc;
-  height: 4px;
-  padding: 0; }
-
-body > h2:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-body > h1:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-  body > h1:first-child + h2 {
-    margin-top: 0;
-    padding-top: 0; }
-body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-
-a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-  margin-top: 0;
-  padding-top: 0; }
-
-h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-  margin-top: 0; }
-
-li p.first {
-  display: inline-block; }
-
-ul, ol {
-  padding-left: 30px; }
-
-ul :first-child, ol :first-child {
-  margin-top: 0; }
-
-ul :last-child, ol :last-child {
-  margin-bottom: 0; }
-
-dl {
-  padding: 0; }
-  dl dt {
-    font-size: 14px;
-    font-weight: bold;
-    font-style: italic;
-    padding: 0;
-    margin: 15px 0 5px; }
-    dl dt:first-child {
-      padding: 0; }
-    dl dt > :first-child {
-      margin-top: 0; }
-    dl dt > :last-child {
-      margin-bottom: 0; }
-  dl dd {
-    margin: 0 0 15px;
-    padding: 0 15px; }
-    dl dd > :first-child {
-      margin-top: 0; }
-    dl dd > :last-child {
-      margin-bottom: 0; }
-
-blockquote {
-  border-left: 4px solid #dddddd;
-  padding: 0 15px;
-  color: #777777; }
-  blockquote > :first-child {
-    margin-top: 0; }
-  blockquote > :last-child {
-    margin-bottom: 0; }
-
-table {
-  padding: 0; }
-  table tr {
-    border-top: 1px solid #cccccc;
-    background-color: white;
-    margin: 0;
-    padding: 0; }
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8; }
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0; }
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0; }
-
-img {
-  max-width: 100%; }
-
-span.frame {
-  display: block;
-  overflow: hidden; }
-  span.frame > span {
-    border: 1px solid #dddddd;
-    display: block;
-    float: left;
-    overflow: hidden;
-    margin: 13px 0 0;
-    padding: 7px;
-    width: auto; }
-  span.frame span img {
-    display: block;
-    float: left; }
-  span.frame span span {
-    clear: both;
-    color: #333333;
-    display: block;
-    padding: 5px 0 0; }
-span.align-center {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-center > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: center; }
-  span.align-center span img {
-    margin: 0 auto;
-    text-align: center; }
-span.align-right {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px 0 0;
-    text-align: right; }
-  span.align-right span img {
-    margin: 0;
-    text-align: right; }
-span.float-left {
-  display: block;
-  margin-right: 13px;
-  overflow: hidden;
-  float: left; }
-  span.float-left span {
-    margin: 13px 0 0; }
-span.float-right {
-  display: block;
-  margin-left: 13px;
-  overflow: hidden;
-  float: right; }
-  span.float-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: right; }
-
-code, tt {
-  margin: 0 2px;
-  padding: 0 5px;
-  white-space: nowrap;
-  border: 1px solid #eaeaea;
-  border-radius: 3px; }
-
-pre code {
-  margin: 0;
-  padding: 0;
-  white-space: pre;
-  border: none;
-  background: transparent; }
-
-pre {
-  background-color: #073642;
-  color: #f8f8f8;
-  border: 1px solid #cccccc;
-  font-size: 13px;
-  line-height: 19px;
-  overflow: auto;
-  padding: 6px 10px;
-  border-radius: 3px; }
-  pre code, pre tt {
-    background-color: transparent;
-    border: none; }
-
-</style><link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
-<h1 id="4-7-2-event-handlers">4.7.2 Event handlers</h1>
-<p>An event handler is an extension to the engine that is configured to run when a specified event occurs. You can add event handlers for several purposes and you can configure which events you want to catch. 
-We strongly recommend that you add only appropriate handlers and carefully code the handler filters to handle only those events that you are interested in.</p>
+<h1 id="event-handlers">4.7.2 Event handlers</h1>
+<p>An event handler is an extension to the engine that is configured to run when a specified event occurs. You can add event handlers for several purposes and you can configure which events you want to catch. We strongly recommend that you add only appropriate handlers and carefully code the handler filters to handle only those events that you are interested in.</p>
 <p><strong><a href="#add">Add an event handler</a></strong></p>
 <p><strong><a href="#register">Register an event handler</a></strong></p>
 <p><strong><a href="#example">Example</a></strong></p>
 <blockquote>
 <p><a href="#registration">Registration</a></p>
+</blockquote>
+<blockquote>
 <p><a href="#code">Event handler source code</a></p>
 </blockquote>
 <p><strong><a href="#list">Event list</a></strong></p>
@@ -288,203 +18,106 @@ We strongly recommend that you add only appropriate handlers and carefully code 
 </ul>
 <p>At the end of this page there is a <a href="#list">list of all the events</a>.</p>
 <h2 id="add-an-event-handler">Add an event handler</h2>
-<p>An event handler is added to the system as a jar file and made available using a classloader.   </p>
+<p>An event handler is added to the system as a jar file and made available using a classloader.</p>
 <p>(e.g. placing jar file under /WEB-INF/lib folder of the web application)</p>
-<p>An event handler contains a filter, <code>isInterested</code>, which detects the relevant instances of the event. 
-The <a href="#code">example</a> below shows how to use the State Id of a flow node to filter for a particular state (in this case, failed). 
-Flownode State Ids are defined in the subclasses of <code>org.bonitasoft.engine.core.process.instance.api.states.FlowNodeState</code>.
-There is no exhaustive list; the set of states is extensible without notice.</p>
+<p>An event handler contains a filter, <code>isInterested</code>, which detects the relevant instances of the event. The <a href="#code">example</a> below shows how to use the State Id of a flow node to filter for a particular state (in this case, failed). Flownode State Ids are defined in the subclasses of <code>org.bonitasoft.engine.core.process.instance.api.states.FlowNodeState</code>. There is no exhaustive list; the set of states is extensible without notice.</p>
 <p>Event handlers are recursive, that is, if an event handler itself modifies something and triggers an event, the relevant event handler is called. This means you might need to include loop detection in your event handler.</p>
 <h2 id="register-an-event-handler">Register an event handler</h2>
-<p>An event handler is registered on an event by adding an entry to the appropriate map.
-The list of handlers registered at platform level can be extended in the <code>BONITA_HOME/engine-server/conf/platform/bonita-platform-sp-custom.xml</code> file.
-Theist of handlers registered at tenant level can be extended in the <code>BONITA_HOME/engine-server/conf/tenants/TENANT_ID/bonita-tenant-sp-custom.xml</code> file.</p>
-<p>Each entry in the map is a key-value pair, which specifies the event handler to be called for each event. 
-The isInterested filter in the event handler detects the relevant instances of the event and calls the event handler. 
-You cannot have more than one handler for a given event, but you can use the isInterested filter to specify different actions for different instances of the event.</p>
+<p>An event handler is registered on an event by adding an entry to the appropriate map. The list of handlers registered at platform level can be extended in the <code>BONITA_HOME/engine-server/conf/platform/bonita-platform-sp-custom.xml</code> file. Theist of handlers registered at tenant level can be extended in the <code>BONITA_HOME/engine-server/conf/tenants/TENANT_ID/bonita-tenant-sp-custom.xml</code> file.</p>
+<p>Each entry in the map is a key-value pair, which specifies the event handler to be called for each event. The isInterested filter in the event handler detects the relevant instances of the event and calls the event handler. You cannot have more than one handler for a given event, but you can use the isInterested filter to specify different actions for different instances of the event.</p>
 <h2 id="example">Example</h2>
 <p>This example shows an event handler that detects changes in the state of activity instances. If an activity has moved into Failed state, the event handler calls <a href="/technical-logger-service.md#delayedretry">DelayedRetry</a>.</p>
 <h3 id="registration">Registration</h3>
 <p><code>java.util.HashMap</code></p>
 <h3 id="event-handler-source-code">Event handler source code</h3>
-<p>`
-package com.bonitasoft.handlers;</p>
-<p>import org.bonitasoft.engine.core.process.instance.model.SFlowNodeInstance;
-import org.bonitasoft.engine.events.model.SEvent;
-import org.bonitasoft.engine.events.model.SHandler;
-import org.bonitasoft.engine.events.model.SHandlerExecutionException;</p>
-<p>/**</p>
-<ul>
-<li>Handler that run when a task is failed. The handler will start a new</li>
-<li>thread that will try to run again the task with a delay.</li>
-<li></li>
-<li>@author Antoine Mottier</li>
-<li><p>*/
-public class FailedTaskHandler implements SHandler {</p>
-<p> /**</p>
-<ul>
-<li>Build the handler. </li>
-<li><p>*/
+<p>` package com.bonitasoft.handlers;</p>
+<p>import org.bonitasoft.engine.core.process.instance.model.SFlowNodeInstance; import org.bonitasoft.engine.events.model.SEvent; import org.bonitasoft.engine.events.model.SHandler; import org.bonitasoft.engine.events.model.SHandlerExecutionException;</p>
+<p>/** * Handler that run when a task is failed. The handler will start a new * thread that will try to run again the task with a delay. * * <span class="citation">@author</span> Antoine Mottier * */ public class FailedTaskHandler implements SHandler {</p>
+<pre><code>/**
+ * Build the handler. 
+ * 
+ */
 public FailedTaskHandler() {
-}</p>
-<p>public void execute(SEvent event) throws SHandlerExecutionException {
- // Get the object (the task object) associted with the event
- SFlowNodeInstance flowNodeInstance = (SFlowNodeInstance) event.getObject();</p>
-<p> // Configure and start a retry thread
- DelayedRetry delayedRetry = new DelayedRetry();
- delayedRetry.setTaskId(flowNodeInstance.getId());
- delayedRetry.setTechnicalLog(technicalLog);
- Thread delayedRetryThread = new Thread(delayedRetry, &quot;Retry task: &quot;</p>
-<pre><code>     + flowNodeInstance<span class="hljs-preprocessor">.getId</span>())<span class="hljs-comment">;</span>
-</code></pre><p> delayedRetryThread.start();
-}</p>
-<p>/**</p>
-</li>
-<li><p>Report if this handler should take care of the received event.
-*/
-public boolean isInterested(SEvent event) {
- boolean isInterested = false;</p>
-<p> // Get the object associated with the event
- Object eventObject = event.getObject();</p>
-<p> // Check that event is related to a task
- if (eventObject instanceof SFlowNodeInstance) {</p>
-<pre><code> SFlowNodeInstance flowNodeInstance = (SFlowNodeInstance) eventObject;    
+}
 
- // Verify <span class="hljs-keyword">that</span> state <span class="hljs-keyword">of</span> the task <span class="hljs-keyword">is</span> failed. See
- // FailedActivityStateImpl
- isInterested = (flowNodeInstance.getStateId() == 3);
-</code></pre><p> }</p>
-<p> return isInterested;
-}</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>}
-`</p>
+public void execute(SEvent event) throws SHandlerExecutionException {
+    // Get the object (the task object) associted with the event
+    SFlowNodeInstance flowNodeInstance = (SFlowNodeInstance) event.getObject();
+    
+    // Configure and start a retry thread
+    DelayedRetry delayedRetry = new DelayedRetry();
+    delayedRetry.setTaskId(flowNodeInstance.getId());
+    delayedRetry.setTechnicalLog(technicalLog);
+    Thread delayedRetryThread = new Thread(delayedRetry, &quot;Retry task: &quot;
+            + flowNodeInstance.getId());
+    delayedRetryThread.start();
+}
+
+/**
+ * Report if this handler should take care of the received event.
+ */
+public boolean isInterested(SEvent event) {
+    boolean isInterested = false;
+
+    // Get the object associated with the event
+    Object eventObject = event.getObject();
+
+    // Check that event is related to a task
+    if (eventObject instanceof SFlowNodeInstance) {
+        SFlowNodeInstance flowNodeInstance = (SFlowNodeInstance) eventObject;   
+        
+        // Verify that state of the task is failed. See
+        // FailedActivityStateImpl
+        isInterested = (flowNodeInstance.getStateId() == 3);
+    }
+
+    return isInterested;
+}</code></pre>
+<p>} `</p>
 <h2 id="event-list">Event list</h2>
 <p>This is a snapshot of the events used in the Engine.</p>
-<p>Service
-Events</p>
+<p>Service Events</p>
 <p>ActivityInstanceServiceImpl</p>
-<p>ACTIVITYINSTANCE_CREATED, 
-HUMAN_TASK_INSTANCE_ASSIGNEE_UPDATED, 
-ACTIVITYINSTANCE_STATE_UPDATED, 
-ACTIVITY_INSTANCE_TOKEN_COUNT_UPDATED, 
-HIDDEN_TASK_CREATED, 
-HIDDEN_TASK_DELETED, 
-PENDINGACTIVITYMAPPING_CREATED, 
-PENDINGACTIVITYMAPPING_DELETED</p>
+<p>ACTIVITYINSTANCE_CREATED, HUMAN_TASK_INSTANCE_ASSIGNEE_UPDATED, ACTIVITYINSTANCE_STATE_UPDATED, ACTIVITY_INSTANCE_TOKEN_COUNT_UPDATED, HIDDEN_TASK_CREATED, HIDDEN_TASK_DELETED, PENDINGACTIVITYMAPPING_CREATED, PENDINGACTIVITYMAPPING_DELETED</p>
 <p>ActorMappingServiceImpl</p>
-<p>ACTOR_CREATED, 
-ACTOR_DELETED, 
-ACTOR_UPDATED, 
-ACTOR_MEMBER_CREATED, 
-ACTOR_MEMBER_DELETED</p>
+<p>ACTOR_CREATED, ACTOR_DELETED, ACTOR_UPDATED, ACTOR_MEMBER_CREATED, ACTOR_MEMBER_DELETED</p>
 <p>CategoryServiceImpl</p>
-<p>CATEGORY_CREATED, 
-CATEGORY_DELETED, 
-CATEGORY_UPDATED</p>
+<p>CATEGORY_CREATED, CATEGORY_DELETED, CATEGORY_UPDATED</p>
 <p>CommandServiceImpl</p>
-<p>COMMAND_CREATED, 
-COMMAND_DELETED, 
-COMMAND_UPDATED</p>
+<p>COMMAND_CREATED, COMMAND_DELETED, COMMAND_UPDATED</p>
 <p>SCommentServiceImpl</p>
-<p>COMMENT_CREATED, 
-COMMENT_DELETED</p>
+<p>COMMENT_CREATED, COMMENT_DELETED</p>
 <p>ConnectorInstanceServiceImpl</p>
-<p>CONNECTOR_INSTANCE_CREATED, 
-CONNECTOR_INSTANCE_DELETED, 
-CONNECTOR_INSTANCE_STATE_UPDATED, 
-CONNECTOR_INSTANCE_UPDATED</p>
+<p>CONNECTOR_INSTANCE_CREATED, CONNECTOR_INSTANCE_DELETED, CONNECTOR_INSTANCE_STATE_UPDATED, CONNECTOR_INSTANCE_UPDATED</p>
 <p>DependencyServiceImpl</p>
-<p>DEPENDENCY_CREATED, 
-DEPENDENCYMAPPING_CREATED, 
-DEPENDENCY_DELETED, 
-DEPENDENCYMAPPING_DELETED, 
-DEPENDENCY_UPDATED, 
-DEPENDENCYMAPPING_UPDATED</p>
+<p>DEPENDENCY_CREATED, DEPENDENCYMAPPING_CREATED, DEPENDENCY_DELETED, DEPENDENCYMAPPING_DELETED, DEPENDENCY_UPDATED, DEPENDENCYMAPPING_UPDATED</p>
 <p>DocumentMappingServiceImpl</p>
-<p>DOCUMENTMAPPING_CREATED, 
-DOCUMENTMAPPING_DELETED, 
-DOCUMENTMAPPING_UPDATED</p>
+<p>DOCUMENTMAPPING_CREATED, DOCUMENTMAPPING_DELETED, DOCUMENTMAPPING_UPDATED</p>
 <p>SEventInstanceServiceImpl</p>
-<p>EVENT_INSTANCE_CREATED, 
-EVENT_TRIGGER_INSTANCE_CREATED, 
-EVENT_TRIGGER_INSTANCE_DELETED, 
-MESSAGE_INSTANCE_CREATED, 
-MESSAGE_INSTANCE_DELETED, 
-MESSAGE_INSTANCE_UPDATED</p>
+<p>EVENT_INSTANCE_CREATED, EVENT_TRIGGER_INSTANCE_CREATED, EVENT_TRIGGER_INSTANCE_DELETED, MESSAGE_INSTANCE_CREATED, MESSAGE_INSTANCE_DELETED, MESSAGE_INSTANCE_UPDATED</p>
 <p>ExternalIdentityMappingServiceImpl</p>
-<p>EXTERNAL_IDENTITY_MAPPING_CREATED, 
-EXTERNAL_IDENTITY_MAPPING_DELETED</p>
+<p>EXTERNAL_IDENTITY_MAPPING_CREATED, EXTERNAL_IDENTITY_MAPPING_DELETED</p>
 <p>FlowNodeInstanceServiceImpl</p>
-<p>ARCHIVED_FLOWNODE_INSTANCE_DELETED, 
-FLOWNODE_INSTANCE_DELETED</p>
+<p>ARCHIVED_FLOWNODE_INSTANCE_DELETED, FLOWNODE_INSTANCE_DELETED</p>
 <p>GatewayInstanceServiceImpl</p>
-<p>GATEWAYINSTANCE_CREATED, 
-GATEWAYINSTANCE_HITBYS_UPDATED, 
-GATEWAYINSTANCE_STATE_UPDATED</p>
+<p>GATEWAYINSTANCE_CREATED, GATEWAYINSTANCE_HITBYS_UPDATED, GATEWAYINSTANCE_STATE_UPDATED</p>
 <p>IdentityServiceImpl</p>
-<p>GROUP_CREATED, 
-GROUP_DELETED, 
-GROUP_UPDATED, 
-METADATA_CREATED, 
-METADATA_DELETED, 
-METADATA_UPDATED, 
-METADATAVALUE_CREATED, 
-METADATAVALUE_DELETED, 
-METADATAVALUE_UPDATED, 
-ROLE_UPDATED, 
-ROLE_CREATED, 
-ROLE_DELETED, 
-USER_UPDATED, 
-USER_CREATED, 
-USER_DELETED, 
-USER_CONTACT_INFO_UPDATED, 
-USER_CONTACT_INFO_CREATED, 
-USER_CONTACT_INFO_DELETED, 
-USERMEMBERSHIP_UPDATED, 
-USERMEMBERSHIP_CREATED, 
-USERMEMBERSHIP_DELETED</p>
+<p>GROUP_CREATED, GROUP_DELETED, GROUP_UPDATED, METADATA_CREATED, METADATA_DELETED, METADATA_UPDATED, METADATAVALUE_CREATED, METADATAVALUE_DELETED, METADATAVALUE_UPDATED, ROLE_UPDATED, ROLE_CREATED, ROLE_DELETED, USER_UPDATED, USER_CREATED, USER_DELETED, USER_CONTACT_INFO_UPDATED, USER_CONTACT_INFO_CREATED, USER_CONTACT_INFO_DELETED, USERMEMBERSHIP_UPDATED, USERMEMBERSHIP_CREATED, USERMEMBERSHIP_DELETED</p>
 <p>JobServiceImpl</p>
-<p>eventType_CREATED, 
-eventType_DELETED</p>
+<p>eventType_CREATED, eventType_DELETED</p>
 <p>JobWrapper</p>
-<p>JOB_COMPLETED, 
-JOB_EXECUTING</p>
+<p>JOB_COMPLETED, JOB_EXECUTING</p>
 <p>ProcessDefinitionServiceImpl</p>
-<p>PROCESSDEFINITION_CREATED, 
-PROCESSDEFINITION_DELETED, 
-PROCESSDEFINITION_DEPLOY_INFO_UPDATED, 
-PROCESSDEFINITION_IS_DISABLED_UPDATED, 
-PROCESSDEFINITION_IS_ENABLED_UPDATED, 
-PROCESSDEFINITION_IS_RESOLVED_UPDATED</p>
+<p>PROCESSDEFINITION_CREATED, PROCESSDEFINITION_DELETED, PROCESSDEFINITION_DEPLOY_INFO_UPDATED, PROCESSDEFINITION_IS_DISABLED_UPDATED, PROCESSDEFINITION_IS_ENABLED_UPDATED, PROCESSDEFINITION_IS_RESOLVED_UPDATED</p>
 <p>ProcessInstanceServiceImpl</p>
-<p>MIGRATION_PLAN_UPDATED, 
-PROCESS_INSTANCE_CATEGORY_STATE_UPDATED, 
-PROCESSINSTANCE_CREATED, 
-PROCESSINSTANCE_DELETED, 
-PROCESSINSTANCE_STATE_UPDATED, 
-PROCESSINSTANCE_UPDATED</p>
+<p>MIGRATION_PLAN_UPDATED, PROCESS_INSTANCE_CATEGORY_STATE_UPDATED, PROCESSINSTANCE_CREATED, PROCESSINSTANCE_DELETED, PROCESSINSTANCE_STATE_UPDATED, PROCESSINSTANCE_UPDATED</p>
 <p>ProfileServiceImpl</p>
-<p>PROFILE_CREATED, 
-PROFILE_DELETED, 
-PROFILE_UPDATED, 
-ENTRY_PROFILE_CREATED, 
-ENTRY_PROFILE_DELETED, 
-ENTRY_PROFILE_UPDATED, 
-PROFILE_MEMBER_DELETED</p>
+<p>PROFILE_CREATED, PROFILE_DELETED, PROFILE_UPDATED, ENTRY_PROFILE_CREATED, ENTRY_PROFILE_DELETED, ENTRY_PROFILE_UPDATED, PROFILE_MEMBER_DELETED</p>
 <p>ReportingServiceImpl</p>
-<p>REPORT_CREATED, 
-REPORT_DELETED</p>
+<p>REPORT_CREATED, REPORT_DELETED</p>
 <p>SupervisorMappingServiceImpl</p>
-<p>SUPERVISOR_CREATED, 
-SUPERVISOR_DELETED</p>
+<p>SUPERVISOR_CREATED, SUPERVISOR_DELETED</p>
 <p>ThemeServiceImpl</p>
-<p>THEME_CREATED, 
-THEME_DELETED, 
-THEME_UPDATED</p>
+<p>THEME_CREATED, THEME_DELETED, THEME_UPDATED</p>
 <p>TokenServiceImpl</p>
-<p>PROCESS_INSTANCE_TOKEN_COUNT_CREATED, 
-PROCESS_INSTANCE_TOKEN_COUNT_DELETED<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></p>
+<p>PROCESS_INSTANCE_TOKEN_COUNT_CREATED, PROCESS_INSTANCE_TOKEN_COUNT_DELETED</p>

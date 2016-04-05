@@ -1,0 +1,16 @@
+{
+  "name": "bonita-doc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "gitbook-plugin-search-pro": "1.0.7"
+  },
+  "devDependencies": {
+    "markdown-it": "6.0.1"
+  },
+  "scripts": {
+    "html": "for i in $(ls *.md); do pandoc -r markdown -t html  $i -o \"html/$i.html\"; done;"
+  },
+  "author": "Julien Reboul <julien.reboul@bonitasoft.com>",
+  "license": "GPL-2.0"
+}

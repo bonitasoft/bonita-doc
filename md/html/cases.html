@@ -1,280 +1,13 @@
-<style type="text/css">/** https://gist.github.com/andyferra/2554919#file-github-css **/
-body {
-  font-family: Helvetica, arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: white;
-  padding: 30px; }
-
-body > *:first-child {
-  margin-top: 0 !important; }
-body > *:last-child {
-  margin-bottom: 0 !important; }
-
-a {
-  color: #4183C4; }
-a.absent {
-  color: #cc0000; }
-a.anchor {
-  display: block;
-  padding-left: 30px;
-  margin-left: -30px;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0; }
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 20px 0 10px;
-  padding: 0;
-  font-weight: bold;
-  -webkit-font-smoothing: antialiased;
-  cursor: text;
-  position: relative; }
-
-h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
-  text-decoration: none; }
-
-h1 tt, h1 code {
-  font-size: inherit; }
-
-h2 tt, h2 code {
-  font-size: inherit; }
-
-h3 tt, h3 code {
-  font-size: inherit; }
-
-h4 tt, h4 code {
-  font-size: inherit; }
-
-h5 tt, h5 code {
-  font-size: inherit; }
-
-h6 tt, h6 code {
-  font-size: inherit; }
-
-h1 {
-  font-size: 28px;
-  color: black; }
-
-h2 {
-  font-size: 24px;
-  border-bottom: 1px solid #cccccc;
-  color: black; }
-
-h3 {
-  font-size: 18px; }
-
-h4 {
-  font-size: 16px; }
-
-h5 {
-  font-size: 14px; }
-
-h6 {
-  color: #777777;
-  font-size: 14px; }
-
-p, blockquote, ul, ol, dl, li, table, pre {
-  margin: 15px 0; }
-
-hr {
-  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
-  border: 0 none;
-  color: #cccccc;
-  height: 4px;
-  padding: 0; }
-
-body > h2:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-body > h1:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-  body > h1:first-child + h2 {
-    margin-top: 0;
-    padding-top: 0; }
-body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-
-a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-  margin-top: 0;
-  padding-top: 0; }
-
-h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-  margin-top: 0; }
-
-li p.first {
-  display: inline-block; }
-
-ul, ol {
-  padding-left: 30px; }
-
-ul :first-child, ol :first-child {
-  margin-top: 0; }
-
-ul :last-child, ol :last-child {
-  margin-bottom: 0; }
-
-dl {
-  padding: 0; }
-  dl dt {
-    font-size: 14px;
-    font-weight: bold;
-    font-style: italic;
-    padding: 0;
-    margin: 15px 0 5px; }
-    dl dt:first-child {
-      padding: 0; }
-    dl dt > :first-child {
-      margin-top: 0; }
-    dl dt > :last-child {
-      margin-bottom: 0; }
-  dl dd {
-    margin: 0 0 15px;
-    padding: 0 15px; }
-    dl dd > :first-child {
-      margin-top: 0; }
-    dl dd > :last-child {
-      margin-bottom: 0; }
-
-blockquote {
-  border-left: 4px solid #dddddd;
-  padding: 0 15px;
-  color: #777777; }
-  blockquote > :first-child {
-    margin-top: 0; }
-  blockquote > :last-child {
-    margin-bottom: 0; }
-
-table {
-  padding: 0; }
-  table tr {
-    border-top: 1px solid #cccccc;
-    background-color: white;
-    margin: 0;
-    padding: 0; }
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8; }
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0; }
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0; }
-
-img {
-  max-width: 100%; }
-
-span.frame {
-  display: block;
-  overflow: hidden; }
-  span.frame > span {
-    border: 1px solid #dddddd;
-    display: block;
-    float: left;
-    overflow: hidden;
-    margin: 13px 0 0;
-    padding: 7px;
-    width: auto; }
-  span.frame span img {
-    display: block;
-    float: left; }
-  span.frame span span {
-    clear: both;
-    color: #333333;
-    display: block;
-    padding: 5px 0 0; }
-span.align-center {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-center > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: center; }
-  span.align-center span img {
-    margin: 0 auto;
-    text-align: center; }
-span.align-right {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px 0 0;
-    text-align: right; }
-  span.align-right span img {
-    margin: 0;
-    text-align: right; }
-span.float-left {
-  display: block;
-  margin-right: 13px;
-  overflow: hidden;
-  float: left; }
-  span.float-left span {
-    margin: 13px 0 0; }
-span.float-right {
-  display: block;
-  margin-left: 13px;
-  overflow: hidden;
-  float: right; }
-  span.float-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: right; }
-
-code, tt {
-  margin: 0 2px;
-  padding: 0 5px;
-  white-space: nowrap;
-  border: 1px solid #eaeaea;
-  border-radius: 3px; }
-
-pre code {
-  margin: 0;
-  padding: 0;
-  white-space: pre;
-  border: none;
-  background: transparent; }
-
-pre {
-  background-color: #073642;
-  color: #f8f8f8;
-  border: 1px solid #cccccc;
-  font-size: 13px;
-  line-height: 19px;
-  overflow: auto;
-  padding: 6px 10px;
-  border-radius: 3px; }
-  pre code, pre tt {
-    background-color: transparent;
-    border: none; }
-
-</style><link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
-<h1 id="3-3-2-cases">3.3.2 Cases</h1>
-<p><a href="#start_case">Start a case</a><br><a href="#add_comment">Add a comment to a case</a><br><a href="#see_cases">See cases I have worked on as a user</a><br><a href="#start_case_for">Start a case for another user</a><br><a href="#case_status_table">View status of cases</a></p>
+<h1 id="cases">3.3.2 Cases</h1>
+<p><a href="#start_case">Start a case</a><br />
+<a href="#add_comment">Add a comment to a case</a><br />
+<a href="#see_cases">See cases I have worked on as a user</a><br />
+<a href="#start_case_for">Start a case for another user</a><br />
+<a href="#case_status_table">View status of cases</a></p>
 <p>Logged on with the Administrator or Process Manager profile, you have rights to manage a case as follows:</p>
 <h2 id="add-a-comment-to-a-case">Add a comment to a case</h2>
-<ol>
-<li>Go to <strong>BPM</strong> > <strong>Cases</strong></li>
+<ol style="list-style-type: decimal">
+<li>Go to <strong>BPM</strong> &gt; <strong>Cases</strong></li>
 <li>Click a <em><strong>Case id</strong></em> or <em><strong>ellipsis</strong></em> icon.</li>
 <li>Enter a comment in the <strong>comment field</strong></li>
 <li>Click <em><strong>Add comment</strong></em></li>
@@ -282,36 +15,27 @@ pre {
 <h2 id="start-a-case-for-another-user">Start a case for another user</h2>
 <p>This feature is available with the Efficiency and Performance editions.</p>
 <p>To start a case for another user:</p>
-<ol>
-<li>Go to <strong>BPM</strong> > <strong>Processes</strong>.</li>
+<ol style="list-style-type: decimal">
+<li>Go to <strong>BPM</strong> &gt; <strong>Processes</strong>.</li>
 <li>Select the process and click <strong><em>Start for</em></strong>.</li>
 <li>In the popup, specify the user for whom you are starting the case. Only valid users for the case are displayed.</li>
 <li>Click <strong><em>Start</em></strong>.</li>
 </ol>
-<p>The case is started as though the specified user had started it. 
-For example, if a you start a case for user A and a subsequent task is to be done by the manager of the user, it is assigned to user A&#39;s manager, not to your manager.</p>
+<p>The case is started as though the specified user had started it. For example, if a you start a case for user A and a subsequent task is to be done by the manager of the user, it is assigned to user A's manager, not to your manager.</p>
 <h2 id="view-status-of-cases">View status of cases</h2>
-<p>To view the open or archived cases, go to <strong>BPM</strong> > <strong>Cases</strong>. The case table is displayed, showing the open cases. 
-To switch between <strong>Open cases</strong> and <strong>Archived cases</strong> cases, use the tabs.</p>
-<p>In a row in the table, you can click a case id or the ellipsis icon to open the case details page, or click the process name to open the process details page. </p>
+<p>To view the open or archived cases, go to <strong>BPM</strong> &gt; <strong>Cases</strong>. The case table is displayed, showing the open cases. To switch between <strong>Open cases</strong> and <strong>Archived cases</strong> cases, use the tabs.</p>
+<p>In a row in the table, you can click a case id or the ellipsis icon to open the case details page, or click the process name to open the process details page.</p>
 <p>You can change the view to see only the information that you need:</p>
 <ul>
 <li>View the cases of a specified process, by selecting the process name, or name and version, from the dropdown lists.</li>
 <li>Search indexes are also available as additional columns. In this way, you can use search indexes for adding business information to your cases. It is also possible to search on search indexes values.</li>
-<li>Filter the cases by state, by choosing <strong>With failures</strong> or <strong>All</strong> from the <strong>State</strong> dropdown list. 
-The <strong>Failed tasks</strong> column shows the number of failed tasks and tasks where a connector has failed when starting or ending a case. A connector failure at a task is counted as a task failure. 
-Connector failures on case start or end are shown by an exclamation point (!).</li>
+<li>Filter the cases by state, by choosing <strong>With failures</strong> or <strong>All</strong> from the <strong>State</strong> dropdown list. The <strong>Failed tasks</strong> column shows the number of failed tasks and tasks where a connector has failed when starting or ending a case. A connector failure at a task is counted as a task failure. Connector failures on case start or end are shown by an exclamation point (!).</li>
 <li>Add or remove a column in the table, by selecting or deselecting it in the <strong>Columns</strong> menu.</li>
 <li>Change the column order, by dragging and dropping the column name in the <strong>Columns</strong> menu.</li>
-<li>Sort the table in ascending or descending order of one of the columns, by clicking arrow beside the column header. 
-If the table is already sorted by the column you select, the first click reverses the sort order. If the table is currently sorted by some other column, clicking the header sorts by this column in ascending order. 
-You can then click on the arrow to reverse the sort order. </li>
+<li>Sort the table in ascending or descending order of one of the columns, by clicking arrow beside the column header. If the table is already sorted by the column you select, the first click reverses the sort order. If the table is currently sorted by some other column, clicking the header sorts by this column in ascending order. You can then click on the arrow to reverse the sort order.</li>
 </ul>
 <p>These changes to the view are stored in your browser <a href="https://en.wikipedia.org/wiki/Web_storage#Local_and_session_storage">Local Storage</a>: If you navigate away from the page then go back, the view will be as you configured it. If you reload the page, or close and reopen the same browser, your stored changes will be reapplied. If you want to go back to the default view settings, clear your browser cache and local storage.</p>
 <p>From this table, you can delete a cases, or several cases. Select the cases you want to delete, and click <strong><em>Delete</em></strong>. Confirm in the popup that you want to delete the selected cases.</p>
-<p>if you are using the Performance, Efficiency, or Teamwork edition, you can also open a diagram of a case, by clicking on the picture icon for the case. 
-On the diagram, colored flags on the steps show the number of step instances in the possible states. Click <strong><em>Show key</em></strong> to see an explanation of the display. 
-Remember that a failure at a step does not necessarily mean that the case has failed entirely, but it might indicate that some action is needed, perhaps to replay a connector.</p>
+<p>if you are using the Performance, Efficiency, or Teamwork edition, you can also open a diagram of a case, by clicking on the picture icon for the case. On the diagram, colored flags on the steps show the number of step instances in the possible states. Click <strong><em>Show key</em></strong> to see an explanation of the display. Remember that a failure at a step does not necessarily mean that the case has failed entirely, but it might indicate that some action is needed, perhaps to replay a connector.</p>
 <p>The process diagram is constructed from the deployed process definition. This means that some details visible in Bonita BPM Studio, such as comments, are not available.</p>
-<p>Note: if a process was deployed from a bar file created in Bonita BPM Studio 6.3 or earlier, the diagram display is not available. This is because some details of the .bar structure have changed. 
-To see the diagram for such a process, export the process definition from Bonita BPM Studio 6.3 as a .bos file, import it into Bonita BPM Studio 6.4 or later, generate a new .bar file, and deploy it.<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></p>
+<p>Note: if a process was deployed from a bar file created in Bonita BPM Studio 6.3 or earlier, the diagram display is not available. This is because some details of the .bar structure have changed. To see the diagram for such a process, export the process definition from Bonita BPM Studio 6.3 as a .bos file, import it into Bonita BPM Studio 6.4 or later, generate a new .bar file, and deploy it.</p>

@@ -1,304 +1,24 @@
-<style type="text/css">/** https://gist.github.com/andyferra/2554919#file-github-css **/
-body {
-  font-family: Helvetica, arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: white;
-  padding: 30px; }
-
-body > *:first-child {
-  margin-top: 0 !important; }
-body > *:last-child {
-  margin-bottom: 0 !important; }
-
-a {
-  color: #4183C4; }
-a.absent {
-  color: #cc0000; }
-a.anchor {
-  display: block;
-  padding-left: 30px;
-  margin-left: -30px;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0; }
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 20px 0 10px;
-  padding: 0;
-  font-weight: bold;
-  -webkit-font-smoothing: antialiased;
-  cursor: text;
-  position: relative; }
-
-h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
-  text-decoration: none; }
-
-h1 tt, h1 code {
-  font-size: inherit; }
-
-h2 tt, h2 code {
-  font-size: inherit; }
-
-h3 tt, h3 code {
-  font-size: inherit; }
-
-h4 tt, h4 code {
-  font-size: inherit; }
-
-h5 tt, h5 code {
-  font-size: inherit; }
-
-h6 tt, h6 code {
-  font-size: inherit; }
-
-h1 {
-  font-size: 28px;
-  color: black; }
-
-h2 {
-  font-size: 24px;
-  border-bottom: 1px solid #cccccc;
-  color: black; }
-
-h3 {
-  font-size: 18px; }
-
-h4 {
-  font-size: 16px; }
-
-h5 {
-  font-size: 14px; }
-
-h6 {
-  color: #777777;
-  font-size: 14px; }
-
-p, blockquote, ul, ol, dl, li, table, pre {
-  margin: 15px 0; }
-
-hr {
-  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
-  border: 0 none;
-  color: #cccccc;
-  height: 4px;
-  padding: 0; }
-
-body > h2:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-body > h1:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-  body > h1:first-child + h2 {
-    margin-top: 0;
-    padding-top: 0; }
-body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-
-a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-  margin-top: 0;
-  padding-top: 0; }
-
-h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-  margin-top: 0; }
-
-li p.first {
-  display: inline-block; }
-
-ul, ol {
-  padding-left: 30px; }
-
-ul :first-child, ol :first-child {
-  margin-top: 0; }
-
-ul :last-child, ol :last-child {
-  margin-bottom: 0; }
-
-dl {
-  padding: 0; }
-  dl dt {
-    font-size: 14px;
-    font-weight: bold;
-    font-style: italic;
-    padding: 0;
-    margin: 15px 0 5px; }
-    dl dt:first-child {
-      padding: 0; }
-    dl dt > :first-child {
-      margin-top: 0; }
-    dl dt > :last-child {
-      margin-bottom: 0; }
-  dl dd {
-    margin: 0 0 15px;
-    padding: 0 15px; }
-    dl dd > :first-child {
-      margin-top: 0; }
-    dl dd > :last-child {
-      margin-bottom: 0; }
-
-blockquote {
-  border-left: 4px solid #dddddd;
-  padding: 0 15px;
-  color: #777777; }
-  blockquote > :first-child {
-    margin-top: 0; }
-  blockquote > :last-child {
-    margin-bottom: 0; }
-
-table {
-  padding: 0; }
-  table tr {
-    border-top: 1px solid #cccccc;
-    background-color: white;
-    margin: 0;
-    padding: 0; }
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8; }
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0; }
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0; }
-
-img {
-  max-width: 100%; }
-
-span.frame {
-  display: block;
-  overflow: hidden; }
-  span.frame > span {
-    border: 1px solid #dddddd;
-    display: block;
-    float: left;
-    overflow: hidden;
-    margin: 13px 0 0;
-    padding: 7px;
-    width: auto; }
-  span.frame span img {
-    display: block;
-    float: left; }
-  span.frame span span {
-    clear: both;
-    color: #333333;
-    display: block;
-    padding: 5px 0 0; }
-span.align-center {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-center > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: center; }
-  span.align-center span img {
-    margin: 0 auto;
-    text-align: center; }
-span.align-right {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px 0 0;
-    text-align: right; }
-  span.align-right span img {
-    margin: 0;
-    text-align: right; }
-span.float-left {
-  display: block;
-  margin-right: 13px;
-  overflow: hidden;
-  float: left; }
-  span.float-left span {
-    margin: 13px 0 0; }
-span.float-right {
-  display: block;
-  margin-left: 13px;
-  overflow: hidden;
-  float: right; }
-  span.float-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: right; }
-
-code, tt {
-  margin: 0 2px;
-  padding: 0 5px;
-  white-space: nowrap;
-  border: 1px solid #eaeaea;
-  border-radius: 3px; }
-
-pre code {
-  margin: 0;
-  padding: 0;
-  white-space: pre;
-  border: none;
-  background: transparent; }
-
-pre {
-  background-color: #073642;
-  color: #f8f8f8;
-  border: 1px solid #cccccc;
-  font-size: 13px;
-  line-height: 19px;
-  overflow: auto;
-  padding: 6px 10px;
-  border-radius: 3px; }
-  pre code, pre tt {
-    background-color: transparent;
-    border: none; }
-
-</style><link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
-<h1 id="2-4-8-overview-of-bonita-bpm-in-a-cluster">2.4.8 Overview of Bonita BPM in a cluster</h1>
-<p>You can use Bonita BPM in a cluster configuration to provide increased availability: more than one node runs Bonita BPM Engine, 
-so if a node becomes unavailable, the remaining nodes in the cluster can take over, minimizing the interruption to the service 
-and therefore to your business. A Bonita BPM cluster alone does not guarantee high availability. 
-You must also ensure that the prerequisite infrastructure is highly available.</p>
-<p>See also:<br><a href="/building-bonita-bpm-cluster.md">Building a Bonita BPM cluster</a><br><a href="/cluster-administration.md">Cluster administration</a></p>
+<h1 id="overview-of-bonita-bpm-in-a-cluster">2.4.8 Overview of Bonita BPM in a cluster</h1>
+<p>You can use Bonita BPM in a cluster configuration to provide increased availability: more than one node runs Bonita BPM Engine, so if a node becomes unavailable, the remaining nodes in the cluster can take over, minimizing the interruption to the service and therefore to your business. A Bonita BPM cluster alone does not guarantee high availability. You must also ensure that the prerequisite infrastructure is highly available.</p>
+<p>See also:<br />
+<a href="/building-bonita-bpm-cluster.md">Building a Bonita BPM cluster</a><br />
+<a href="/cluster-administration.md">Cluster administration</a></p>
 <h2 id="introduction">Introduction</h2>
-<p>The advantage of using a cluster configuration is better availability. The cost is a slightly more complicated configuration to set up and maintain. 
-A process that already runs on Bonita BPM will run without modification on Bonita BPM in a cluster.</p>
-<p>Bonita BPM cluster characteristics: </p>
+<p>The advantage of using a cluster configuration is better availability. The cost is a slightly more complicated configuration to set up and maintain. A process that already runs on Bonita BPM will run without modification on Bonita BPM in a cluster.</p>
+<p>Bonita BPM cluster characteristics:</p>
 <ul>
 <li><strong>High availability</strong>: Provided you have at least two active nodes and the prerequisite infrastructure is highly available, your Bonita BPM cluster is highly available.</li>
 </ul>
 <h3 id="differences-for-bonita-bpm-portal-users">Differences for Bonita BPM Portal users</h3>
-<p>The HTTP load balancer hides the fact that you are not always using the same Bonita BPM Portal. The exception to this is if a node fails while you are completing a form; 
-in this case, the data you have entered might not be stored, and you will have to start filling in the form again when a new Bonita Portal takes over.</p>
+<p>The HTTP load balancer hides the fact that you are not always using the same Bonita BPM Portal. The exception to this is if a node fails while you are completing a form; in this case, the data you have entered might not be stored, and you will have to start filling in the form again when a new Bonita Portal takes over.</p>
 <h3 id="differences-for-process-designers">Differences for process designers</h3>
-<p>No changes are needed to make a process run in a Bonita BPM cluster. A process that runs in a non-cluster system will run unchanged in a cluster. 
-However, depending on your process, some optimizations might be possible. For example, to minimize the impact on users of a failover while they are filling in forms, do not make forms too long. 
-This is recommended good practise for all process forms, but is even more important when a process is running in a cluster.</p>
+<p>No changes are needed to make a process run in a Bonita BPM cluster. A process that runs in a non-cluster system will run unchanged in a cluster. However, depending on your process, some optimizations might be possible. For example, to minimize the impact on users of a failover while they are filling in forms, do not make forms too long. This is recommended good practise for all process forms, but is even more important when a process is running in a cluster.</p>
 <p>The Bonita BPM Studio development environment runs on a single node; there is no advantage to installing it on a cluster.</p>
 <h2 id="technical-description">Technical description</h2>
 <p>This section describes the structure of Bonita BPM deployed in a cluster. A cluster is a collection of nodes each running Bonita BPM Engine, Bonita BPM Portal, and an application server.</p>
-<p>A Bonita BPM cluster is a collection of at least two nodes that run Bonita BPM Engine, Bonita BPM Portal, and an application server. 
-An HTTP load balancer directs the connection to one of the available Bonita BPM nodes, balancing the workload of the nodes. 
-If a node becomes unavailable, the load balancer redirects the connection to another node.</p>
-<p>The Bonita BPM Engines exchange information to enable the redirection. This means that all automatic actions handled by the Engine (including automatic tasks, events, timers, and automatic state transitions of tasks) 
-are automatically taken over by another node. </p>
-<p>Each Bonita BPM Portal works with a local Bonita BPM Engine, so when a user logs in, they are logged in to a specific node. If that node becomes unavailable, the user session is lost. 
-This means that any transaction that is not yet committed is lost, including any data entered in a form but not submitted. The user will need to log back in to the Portal.</p>
+<p>A Bonita BPM cluster is a collection of at least two nodes that run Bonita BPM Engine, Bonita BPM Portal, and an application server. An HTTP load balancer directs the connection to one of the available Bonita BPM nodes, balancing the workload of the nodes. If a node becomes unavailable, the load balancer redirects the connection to another node.</p>
+<p>The Bonita BPM Engines exchange information to enable the redirection. This means that all automatic actions handled by the Engine (including automatic tasks, events, timers, and automatic state transitions of tasks) are automatically taken over by another node.</p>
+<p>Each Bonita BPM Portal works with a local Bonita BPM Engine, so when a user logs in, they are logged in to a specific node. If that node becomes unavailable, the user session is lost. This means that any transaction that is not yet committed is lost, including any data entered in a form but not submitted. The user will need to log back in to the Portal.</p>
 <p>Assumptions: We assume that Ubuntu Linux is used as the operating system for Bonita BPM nodes in a production system. The application server used is Tomcat.</p>
 <p>Prerequisite infrastructure:</p>
 <ul>
@@ -307,49 +27,34 @@ This means that any transaction that is not yet committed is lost, including any
 <li><code>bonita_home</code> NFS mounted and available with read-write access from all nodes</li>
 <li>A highly available database accessible from all nodes</li>
 </ul>
-<p><img src="images/images-6_0/cluster_structure.png" alt="Cluster structure diagram"></p>
+<div class="figure">
+<img src="images/images-6_0/cluster_structure.png" alt="Cluster structure diagram" />
+<p class="caption">Cluster structure diagram</p>
+</div>
 <p>Cluster structure</p>
 <p>Definitions:</p>
 <ul>
-<li><p><strong>Load balancer</strong>: an HTTP load balancer manages the allocation of work to nodes in the cluster. 
-No load balancer is provided with Bonita BPM, so you can choose the most appropriate for your system. For a production system with a high load, a hardware load balancer is recommended.</p>
-</li>
-<li><p><strong><code>bonita_home</code></strong>: <code>bonita_home</code> is the configuration directory for a Bonita BPM client. It is where properties files and process definitions are stored. 
-In a cluster, there is a single shared <code>bonita_home</code> directory that is NFS mounted with simultaneous read access from all nodes.</p>
-</li>
-<li><p><strong>Node</strong>: a JVM running a Tomcat application server, Bonita BPM Engine, and Bonita BPM Portal. For high availability, separate physical nodes are required.</p>
-</li>
-<li><p><strong>Engine database</strong>: a single database used by all the Bonita BPM Engines in the cluster. It is the equivalent of the local database in a non-cluster configuration. 
-The database needs to be highly available and to handle multiple simultaneous accesses. </p>
-</li>
-<li><p><strong>Failover</strong>: if a node in the cluster fails, the work it was performing is redirected by the load balancer to another node in the cluster. 
-This is known as failover, and can be automated or manual.</p>
-</li>
-<li><p><strong>Client</strong>: a process application client. A client application connects to the cluster through the load balancer, and uses the Bonita BPM Engine API. 
-Even if your process users do not use Bonita BPM Portal, it is still present in the cluster, so can be used for administration.</p>
-</li>
+<li><p><strong>Load balancer</strong>: an HTTP load balancer manages the allocation of work to nodes in the cluster. No load balancer is provided with Bonita BPM, so you can choose the most appropriate for your system. For a production system with a high load, a hardware load balancer is recommended.</p></li>
+<li><p><strong><code>bonita_home</code></strong>: <code>bonita_home</code> is the configuration directory for a Bonita BPM client. It is where properties files and process definitions are stored. In a cluster, there is a single shared <code>bonita_home</code> directory that is NFS mounted with simultaneous read access from all nodes.</p></li>
+<li><p><strong>Node</strong>: a JVM running a Tomcat application server, Bonita BPM Engine, and Bonita BPM Portal. For high availability, separate physical nodes are required.</p></li>
+<li><p><strong>Engine database</strong>: a single database used by all the Bonita BPM Engines in the cluster. It is the equivalent of the local database in a non-cluster configuration. The database needs to be highly available and to handle multiple simultaneous accesses.</p></li>
+<li><p><strong>Failover</strong>: if a node in the cluster fails, the work it was performing is redirected by the load balancer to another node in the cluster. This is known as failover, and can be automated or manual.</p></li>
+<li><p><strong>Client</strong>: a process application client. A client application connects to the cluster through the load balancer, and uses the Bonita BPM Engine API. Even if your process users do not use Bonita BPM Portal, it is still present in the cluster, so can be used for administration.</p></li>
 </ul>
-<h3 id="-limitations-limitations"><a href="limitations"></a>Limitations</h3>
+<h3 id="limitations"><a href="limitations"></a>Limitations</h3>
 <p>The nodes must all be in the same datacenter, to keep latency of updates to shared information to an acceptable level.</p>
-<p>All nodes must run the same software configuration (same versions on Bonita BPM and application server). </p>
+<p>All nodes must run the same software configuration (same versions on Bonita BPM and application server).</p>
 <p>The Hibernate cache must be disabled.</p>
 <p>The load balancer must be configured to use sticky sessions (this is needed to manage sessions created when users log in to the Portal).</p>
-<p>There is no automated migration from a Bonita Open Solution 5.10 cluster to a Bonita BPM cluster, because the cluster models are completely different. 
-You can <a href="/migrate-process-bonita-open-solution-5x.md">migrate a process from 5.10</a>, but you need to build your Bonita BPM cluster from scratch.</p>
+<p>There is no automated migration from a Bonita Open Solution 5.10 cluster to a Bonita BPM cluster, because the cluster models are completely different. You can <a href="/migrate-process-bonita-open-solution-5x.md">migrate a process from 5.10</a>, but you need to build your Bonita BPM cluster from scratch.</p>
 <h3 id="active-and-passive-nodes">Active and passive nodes</h3>
-<p>An active node is installed with Bonita BPM and accesses the shared <code>bonita_home</code>. It is allocated work by the load balancer. 
-If an active node fails or is stopped, the load balancer redirects work to the remaining active nodes. This keeps the downtime to a minimum, but increases the load on the active nodes. </p>
-<p>A passive node is installed with exactly the same software and has the same configuration as an active node, but the application server and Bonita BPM Engine are not started.
-A passive node is a &quot;cold standby&quot;. 
-It does not consume computing resources. 
-To add a cold-standby node to the cluster, the necessary licenses must be installed, the configuration must be completed, the application server must be started,
-and it must it must be activated in the load balancer.</p>
-<p>A cluster needs a minimum of two active nodes for high availability. The maximum number of nodes you can have depends on the load balancer you are using. </p>
+<p>An active node is installed with Bonita BPM and accesses the shared <code>bonita_home</code>. It is allocated work by the load balancer. If an active node fails or is stopped, the load balancer redirects work to the remaining active nodes. This keeps the downtime to a minimum, but increases the load on the active nodes.</p>
+<p>A passive node is installed with exactly the same software and has the same configuration as an active node, but the application server and Bonita BPM Engine are not started. A passive node is a &quot;cold standby&quot;. It does not consume computing resources. To add a cold-standby node to the cluster, the necessary licenses must be installed, the configuration must be completed, the application server must be started, and it must it must be activated in the load balancer.</p>
+<p>A cluster needs a minimum of two active nodes for high availability. The maximum number of nodes you can have depends on the load balancer you are using.</p>
 <h3 id="advantages-and-drawbacks">Advantages and drawbacks</h3>
 <p>A Bonita BPM cluster has the following advantages over a single-node system:</p>
 <ul>
-<li>A cluster provides high availability, as long as your entire infrastructure, including the network and database are highly available. 
-If a node is shut down, stops, or crashes, anything that was running on that node is automatically retrieved by another running node in the cluster.</li>
+<li>A cluster provides high availability, as long as your entire infrastructure, including the network and database are highly available. If a node is shut down, stops, or crashes, anything that was running on that node is automatically retrieved by another running node in the cluster.</li>
 <li>A new node is discovered and added to the cluster easily because of the Hazelcast in-memory data grid.</li>
 <li>The network connection of a node is flexible: it can be configured with or without multicast.</li>
 <li>A cluster is easy to configure.</li>
@@ -362,7 +67,7 @@ If a node is shut down, stops, or crashes, anything that was running on that nod
 <li>The bonita.home directory must be shared by NFS, so to maintain high availability, you should use an HA NFS service.</li>
 <li>All the nodes must use the same database, so the database itself must be highly available.</li>
 </ul>
-<h3 id="comparison-with-5-x">Comparison with 5.x</h3>
+<h3 id="comparison-with-5.x">Comparison with 5.x</h3>
 <p>In Bonita Open Solution 5.10, the cluster implementation had the following advantages:</p>
 <ul>
 <li>Support for high availability</li>
@@ -370,11 +75,10 @@ If a node is shut down, stops, or crashes, anything that was running on that nod
 </ul>
 <p>It also had the following drawbacks:</p>
 <ul>
-<li>There is no node discovery mechanism, and the cluster construction relies on the database. 
-This means that performance is lower than an in-memory data grid.</li>
+<li>There is no node discovery mechanism, and the cluster construction relies on the database. This means that performance is lower than an in-memory data grid.</li>
 <li>Only one node is responsible for execution of matching events, which can be a performance bottleneck.</li>
 <li>Only active-active modes is supported. There is no mechanism for starting a new node if a cluster node goes out of service. This could be provided by a third-party application.</li>
 <li>There is no integrated load balancer, so the client application selects the node on which to make a API call. You should use an external load balancer. For high volume, a hardware load balancer is recommended.</li>
 <li>All the nodes must use the same database, so the database itself must be highly available.</li>
-<li>The Bonita Large Data Repository (Bonita LDR) folder must be shared by NFS, so to maintain high availability, you should use an HA NFS service.<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></li>
+<li>The Bonita Large Data Repository (Bonita LDR) folder must be shared by NFS, so to maintain high availability, you should use an HA NFS service.</li>
 </ul>

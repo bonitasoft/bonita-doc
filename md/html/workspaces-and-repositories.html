@@ -1,275 +1,4 @@
-<style type="text/css">/** https://gist.github.com/andyferra/2554919#file-github-css **/
-body {
-  font-family: Helvetica, arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: white;
-  padding: 30px; }
-
-body > *:first-child {
-  margin-top: 0 !important; }
-body > *:last-child {
-  margin-bottom: 0 !important; }
-
-a {
-  color: #4183C4; }
-a.absent {
-  color: #cc0000; }
-a.anchor {
-  display: block;
-  padding-left: 30px;
-  margin-left: -30px;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0; }
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 20px 0 10px;
-  padding: 0;
-  font-weight: bold;
-  -webkit-font-smoothing: antialiased;
-  cursor: text;
-  position: relative; }
-
-h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
-  text-decoration: none; }
-
-h1 tt, h1 code {
-  font-size: inherit; }
-
-h2 tt, h2 code {
-  font-size: inherit; }
-
-h3 tt, h3 code {
-  font-size: inherit; }
-
-h4 tt, h4 code {
-  font-size: inherit; }
-
-h5 tt, h5 code {
-  font-size: inherit; }
-
-h6 tt, h6 code {
-  font-size: inherit; }
-
-h1 {
-  font-size: 28px;
-  color: black; }
-
-h2 {
-  font-size: 24px;
-  border-bottom: 1px solid #cccccc;
-  color: black; }
-
-h3 {
-  font-size: 18px; }
-
-h4 {
-  font-size: 16px; }
-
-h5 {
-  font-size: 14px; }
-
-h6 {
-  color: #777777;
-  font-size: 14px; }
-
-p, blockquote, ul, ol, dl, li, table, pre {
-  margin: 15px 0; }
-
-hr {
-  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
-  border: 0 none;
-  color: #cccccc;
-  height: 4px;
-  padding: 0; }
-
-body > h2:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-body > h1:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-  body > h1:first-child + h2 {
-    margin-top: 0;
-    padding-top: 0; }
-body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-
-a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-  margin-top: 0;
-  padding-top: 0; }
-
-h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-  margin-top: 0; }
-
-li p.first {
-  display: inline-block; }
-
-ul, ol {
-  padding-left: 30px; }
-
-ul :first-child, ol :first-child {
-  margin-top: 0; }
-
-ul :last-child, ol :last-child {
-  margin-bottom: 0; }
-
-dl {
-  padding: 0; }
-  dl dt {
-    font-size: 14px;
-    font-weight: bold;
-    font-style: italic;
-    padding: 0;
-    margin: 15px 0 5px; }
-    dl dt:first-child {
-      padding: 0; }
-    dl dt > :first-child {
-      margin-top: 0; }
-    dl dt > :last-child {
-      margin-bottom: 0; }
-  dl dd {
-    margin: 0 0 15px;
-    padding: 0 15px; }
-    dl dd > :first-child {
-      margin-top: 0; }
-    dl dd > :last-child {
-      margin-bottom: 0; }
-
-blockquote {
-  border-left: 4px solid #dddddd;
-  padding: 0 15px;
-  color: #777777; }
-  blockquote > :first-child {
-    margin-top: 0; }
-  blockquote > :last-child {
-    margin-bottom: 0; }
-
-table {
-  padding: 0; }
-  table tr {
-    border-top: 1px solid #cccccc;
-    background-color: white;
-    margin: 0;
-    padding: 0; }
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8; }
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0; }
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0; }
-
-img {
-  max-width: 100%; }
-
-span.frame {
-  display: block;
-  overflow: hidden; }
-  span.frame > span {
-    border: 1px solid #dddddd;
-    display: block;
-    float: left;
-    overflow: hidden;
-    margin: 13px 0 0;
-    padding: 7px;
-    width: auto; }
-  span.frame span img {
-    display: block;
-    float: left; }
-  span.frame span span {
-    clear: both;
-    color: #333333;
-    display: block;
-    padding: 5px 0 0; }
-span.align-center {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-center > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: center; }
-  span.align-center span img {
-    margin: 0 auto;
-    text-align: center; }
-span.align-right {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px 0 0;
-    text-align: right; }
-  span.align-right span img {
-    margin: 0;
-    text-align: right; }
-span.float-left {
-  display: block;
-  margin-right: 13px;
-  overflow: hidden;
-  float: left; }
-  span.float-left span {
-    margin: 13px 0 0; }
-span.float-right {
-  display: block;
-  margin-left: 13px;
-  overflow: hidden;
-  float: right; }
-  span.float-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: right; }
-
-code, tt {
-  margin: 0 2px;
-  padding: 0 5px;
-  white-space: nowrap;
-  border: 1px solid #eaeaea;
-  border-radius: 3px; }
-
-pre code {
-  margin: 0;
-  padding: 0;
-  white-space: pre;
-  border: none;
-  background: transparent; }
-
-pre {
-  background-color: #073642;
-  color: #f8f8f8;
-  border: 1px solid #cccccc;
-  font-size: 13px;
-  line-height: 19px;
-  overflow: auto;
-  padding: 6px 10px;
-  border-radius: 3px; }
-  pre code, pre tt {
-    background-color: transparent;
-    border: none; }
-
-</style><link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
-<h1 id="1-15-workspaces-and-repositories">1.15 Workspaces and repositories</h1>
+<h1 id="workspaces-and-repositories">1.15 Workspaces and repositories</h1>
 <p>This page explains how to use a shared repository so that several people can collaborate on process design.</p>
 <p><strong><a href="#intro">Workspaces and repositories</a></strong></p>
 <blockquote>
@@ -281,60 +10,61 @@ pre {
 <p><strong><a href="#shared">Use a shared repository</a></strong></p>
 <blockquote>
 <p><a href="#prereq">Prerequisites</a></p>
+</blockquote>
+<blockquote>
 <p><a href="#create_shared">Create a shared repository</a></p>
+</blockquote>
+<blockquote>
 <p><a href="#connect_shared">Connect to a shared repository</a></p>
+</blockquote>
+<blockquote>
 <p><a href="#change_repo">Change repository</a></p>
+</blockquote>
+<blockquote>
 <p><a href="#sync">Synchronize a shared repository</a></p>
+</blockquote>
+<blockquote>
 <p><a href="#locks">Manage locks on shared resources</a></p>
+</blockquote>
+<blockquote>
 <p><a href="#conflicts">Avoiding conflicts</a></p>
+</blockquote>
+<blockquote>
 <p><a href="#history">Versioning and history</a></p>
+</blockquote>
+<blockquote>
 <p><a href="#restore_points">Restore points</a></p>
 </blockquote>
-<h2 id="workspaces-and-repositories">Workspaces and repositories</h2>
-<p>A workspace is a directory where Bonita BPM Studio stores working files related to process design. When you install Bonita BPM Studio, a workspace is created automatically. </p>
-<p>A local repository is a directory within your workspace. 
-You can use local repositories to organize your work efficiently, for example by separating processes that do not interact.</p>
-<p>A team repository is a shared repository on a Subversion (SVN) server that is used by the team collaborating on developing a process. 
-A shared repository has typical code management features: locks, synchronization, versioning. 
-Your workspace contains your local copy of the shared repository, which is synchronized with the shared repository on the SVN server.
-Note that the values of the process configurations (such as parameters) will not be synchronized on the remote SVN, to allow each Studio to have its own configuration.</p>
+<h2 id="workspaces-and-repositories-1">Workspaces and repositories</h2>
+<p>A workspace is a directory where Bonita BPM Studio stores working files related to process design. When you install Bonita BPM Studio, a workspace is created automatically.</p>
+<p>A local repository is a directory within your workspace. You can use local repositories to organize your work efficiently, for example by separating processes that do not interact.</p>
+<p>A team repository is a shared repository on a Subversion (SVN) server that is used by the team collaborating on developing a process. A shared repository has typical code management features: locks, synchronization, versioning. Your workspace contains your local copy of the shared repository, which is synchronized with the shared repository on the SVN server. Note that the values of the process configurations (such as parameters) will not be synchronized on the remote SVN, to allow each Studio to have its own configuration.</p>
 <h3 id="switch-workspace">Switch workspace</h3>
 <p>The default workspace is <em>studio_install_directory</em>/workspace.</p>
 <p>To use a different workspace:</p>
-<ol>
-<li>Go to the <strong>Diagram</strong> menu and choose <strong>Switch workspace...</strong>. </li>
+<ol style="list-style-type: decimal">
+<li>Go to the <strong>Diagram</strong> menu and choose <strong>Switch workspace...</strong>.</li>
 <li>A popup shows the path of the workspace you are currently using.</li>
 <li>In the popup, specify the path of the workspace you want to use. If the new workspace does not exist, you are asked whether you want to create it.</li>
 <li>Click <strong><em>OK</em></strong>.</li>
-<li>The workspace switch is applied the next time Bonita BPM Studio starts. Click <strong><em>OK</em></strong> in the popup to restart Studio, 
-or <strong><em>Cancel</em></strong> to continue in your current session.</li>
+<li>The workspace switch is applied the next time Bonita BPM Studio starts. Click <strong><em>OK</em></strong> in the popup to restart Studio, or <strong><em>Cancel</em></strong> to continue in your current session.</li>
 </ol>
 <h3 id="create-a-local-repository">Create a local repository</h3>
-<p>You can create a local repository in your local workspace.
-The repository is created in your current workspace.</p>
+<p>You can create a local repository in your local workspace. The repository is created in your current workspace.</p>
 <p>To create a local repository:</p>
-<ol>
-<li><p>Go to the <strong>Repository</strong> menu, choose <strong>Local</strong>, then choose <strong>Create new local repository</strong>.</p>
-</li>
-<li><p>Specify a name for the new repository.</p>
-</li>
-<li><p>Click <strong><em>OK</em></strong> .</p>
-</li>
-<li><p>A status window shows the progress of the repository being built. 
-When the repository has been successfully created, a message shows you are working with the new local repository.</p>
-</li>
-<li><p>Click on <strong><em>OK</em></strong> to finish.</p>
-</li>
+<ol style="list-style-type: decimal">
+<li><p>Go to the <strong>Repository</strong> menu, choose <strong>Local</strong>, then choose <strong>Create new local repository</strong>.</p></li>
+<li><p>Specify a name for the new repository.</p></li>
+<li><p>Click <strong><em>OK</em></strong> .</p></li>
+<li><p>A status window shows the progress of the repository being built. When the repository has been successfully created, a message shows you are working with the new local repository.</p></li>
+<li><p>Click on <strong><em>OK</em></strong> to finish.</p></li>
 </ol>
 <p>A new local repository is created. A new directory with the same name as the repository is added to your local workspace folder.</p>
 <p>In Bonita BPM Studio, you can see the new repository name shown at the top left, in the title bar.</p>
 <h2 id="use-a-shared-repository">Use a shared repository</h2>
-<p>A shared repository is a repository on an SVN server. It can be accessed by members of the team working on a process definition. 
-It is protected by username and password. Only directories in the SVN &#39;trunk&#39; can be used as Bonita repositories.
-The repository created remotely is then copied to your default local workspace and synchronized.</p>
+<p>A shared repository is a repository on an SVN server. It can be accessed by members of the team working on a process definition. It is protected by username and password. Only directories in the SVN 'trunk' can be used as Bonita repositories. The repository created remotely is then copied to your default local workspace and synchronized.</p>
 <p>A shared Bonita BPM development repository contains the artifacts developed in Bonita BPM Studio and the UI designer. For the UI designer artifacts, there is no locking, merging, or conflict management.</p>
-<p><strong>Caution:</strong> Items defined in Bonita BPM Portal are not stored in the shared repository. 
-This includes applications and custom profiles. To share these artifacts, export them into an external repository such as Git. </p>
+<p><strong>Caution:</strong> Items defined in Bonita BPM Portal are not stored in the shared repository. This includes applications and custom profiles. To share these artifacts, export them into an external repository such as Git.</p>
 <h3 id="prerequisites">Prerequisites</h3>
 <ul>
 <li>A central SVN server accessible by the process designers, accessible by URL, and protected by login and password.</li>
@@ -342,136 +72,89 @@ This includes applications and custom profiles. To share these artifacts, export
 </ul>
 <h3 id="create-a-shared-repository">Create a shared repository</h3>
 <p>There are two stages to creating a repository: connect to the SVN server, then specify the name of the new repository. Follow these steps:</p>
-<ol>
-<li><p>In the <strong>Repository</strong> menu, choose <strong>Team</strong>.</p>
-</li>
-<li><p>Click on <strong>Connect to the repository</strong>.</p>
-</li>
-<li><p>In the Create a new connection window, enter the URL, username, and password in the appropriate fields.</p>
-</li>
-<li><p>Click <strong><em>Next</em></strong> to connect to the remote SVN server.</p>
-</li>
-<li><p>From time to time, depending on your system and network security setup, you may be asked to confirm security credentials.</p>
-</li>
-<li><p>A popup displays a list of the existing Bonita repositories available on the SVN server.</p>
-</li>
-</ol>
-<ol>
-<li><p>Click on the button <strong><em>Create a new Bonita repository</em></strong>.</p>
-</li>
-<li><p>In the window, Repository name, give the repository a name e.g &quot;my_new_repository&quot;.</p>
-</li>
-<li><p>Click on <strong><em>OK</em></strong>.</p>
-</li>
+<ol style="list-style-type: decimal">
+<li><p>In the <strong>Repository</strong> menu, choose <strong>Team</strong>.</p></li>
+<li><p>Click on <strong>Connect to the repository</strong>.</p></li>
+<li><p>In the Create a new connection window, enter the URL, username, and password in the appropriate fields.</p></li>
+<li><p>Click <strong><em>Next</em></strong> to connect to the remote SVN server.</p></li>
+<li><p>From time to time, depending on your system and network security setup, you may be asked to confirm security credentials.</p></li>
+<li><p>A popup displays a list of the existing Bonita repositories available on the SVN server.</p></li>
+<li><p>Click on the button <strong><em>Create a new Bonita repository</em></strong>.</p></li>
+<li><p>In the window, Repository name, give the repository a name e.g &quot;my_new_repository&quot;.</p></li>
+<li><p>Click on <strong><em>OK</em></strong>.</p></li>
 </ol>
 <p>The new repository is created locally and copied remotely to the SVN server. You can configure synchronization for this new shared repository.</p>
 <h3 id="connect-to-a-shared-repository">Connect to a shared repository</h3>
 <p>To connect to a shared repository, follow these steps:</p>
-<ol>
-<li><p>In the <strong>Repository</strong> menu, choose <strong>Team</strong>.</p>
-</li>
-<li><p>Click on <strong>Connect to the repository</strong>.</p>
-</li>
-<li><p>In the Create a new connection window, enter the URL, username, and password in the appropriate fields.</p>
-</li>
-<li><p>Click on <strong><em>Next</em></strong> to connect to the remote SVN server.</p>
-</li>
-<li><p>From time to time, depending on your system and network security setup, you may be asked to confirm security credentials.</p>
-</li>
-<li><p>A popup displays a list of the existing Bonita repositories available on the SVN server.</p>
-</li>
+<ol style="list-style-type: decimal">
+<li><p>In the <strong>Repository</strong> menu, choose <strong>Team</strong>.</p></li>
+<li><p>Click on <strong>Connect to the repository</strong>.</p></li>
+<li><p>In the Create a new connection window, enter the URL, username, and password in the appropriate fields.</p></li>
+<li><p>Click on <strong><em>Next</em></strong> to connect to the remote SVN server.</p></li>
+<li><p>From time to time, depending on your system and network security setup, you may be asked to confirm security credentials.</p></li>
+<li><p>A popup displays a list of the existing Bonita repositories available on the SVN server.</p></li>
+<li><p>Select the name of the repository, and click <strong><em>Connect</em></strong>.</p></li>
+<li><p>A message is displayed, showing that you are connected to the shared repository. You can see the name of repository at the top left, in the title bar.</p></li>
+<li><p>Click on <strong><em>OK</em></strong>.</p></li>
 </ol>
-<ol>
-<li><p>Select the name of the repository, and click <strong><em>Connect</em></strong>.</p>
-</li>
-<li><p>A message is displayed, showing that you are connected to the shared repository. You can see the name of repository at the top left, in the title bar.</p>
-</li>
-<li><p>Click on <strong><em>OK</em></strong>.</p>
-</li>
-</ol>
-<p>The first time you connect to a repository, you might get a security warning. 
-Configure security for the connection according to your organization&#39;s security policy.</p>
+<p>The first time you connect to a repository, you might get a security warning. Configure security for the connection according to your organization's security policy.</p>
 <h3 id="change-repository">Change repository</h3>
 <p>Before you change to a different repository, make sure you have saved your work.</p>
 <p>To change repository, follow these steps:</p>
-<ol>
-<li><p>In the <strong>Repository</strong> menu, choose <strong>Change the repository</strong>.</p>
-</li>
-<li><p>A list of the available repositories is displayed. These are the local and shared repositories in your current workspace.</p>
-</li>
+<ol style="list-style-type: decimal">
+<li><p>In the <strong>Repository</strong> menu, choose <strong>Change the repository</strong>.</p></li>
+<li>A list of the available repositories is displayed. These are the local and shared repositories in your current workspace.</li>
 <li>Select the repository to switch to, and click <strong><em>OK</em></strong>.</li>
-<li>A confirmation message is displayed when you are working in the new location.
-You can see the name of repository at the top left, in the title bar.</li>
+<li><p>A confirmation message is displayed when you are working in the new location. You can see the name of repository at the top left, in the title bar.</p></li>
 </ol>
 <p>If the list does not contain the name of the repository you want to use, check that you are using the correct workspace, and if necessary, switch workspace.</p>
 <h3 id="synchronize-a-shared-repository">Synchronize a shared repository</h3>
-<p>Synchronizing a shared repository means merging the changes you have made in your local copy into the central repository on the server, 
-and updating your local copy with the result.
-There are three modes for synchronizing:</p>
+<p>Synchronizing a shared repository means merging the changes you have made in your local copy into the central repository on the server, and updating your local copy with the result. There are three modes for synchronizing:</p>
 <ul>
-<li>Recommended: Use manual synchronization for all repositories: With this mode, no automatic synchronization is done in either direction. This is the default behavior.
-You launch synchronization manually, by going to the <strong>Repository</strong> menu, choosing <strong>Team</strong> then <strong>Commit artifacts</strong>. There is also a keyboard shortcut: <strong><em>Ctrl+Alt+C</em></strong>.</li>
-<li>Use automatic synchronization for all repositories: With this mode, every time you make a change, it is saved in both your local copy and the central repository. 
-Changes made to the central repository are sent immediately to your local copy. 
-You can only use this mode if you have a continuous network connection to the system hosting the SVN server. There is a significant network performance cost for using automatic synchronization. This option is not recommended.</li>
+<li>Recommended: Use manual synchronization for all repositories: With this mode, no automatic synchronization is done in either direction. This is the default behavior. You launch synchronization manually, by going to the <strong>Repository</strong> menu, choosing <strong>Team</strong> then <strong>Commit artifacts</strong>. There is also a keyboard shortcut: <strong><em>Ctrl+Alt+C</em></strong>.</li>
+<li>Use automatic synchronization for all repositories: With this mode, every time you make a change, it is saved in both your local copy and the central repository. Changes made to the central repository are sent immediately to your local copy. You can only use this mode if you have a continuous network connection to the system hosting the SVN server. There is a significant network performance cost for using automatic synchronization. This option is not recommended.</li>
 <li>Define synchronization mode repository by repository: With this mode, you define whether synchronization is manual or automatic for each repository.</li>
 </ul>
 <h3 id="manage-locks-on-shared-resources">Manage locks on shared resources</h3>
 <p>This information applies to artifacts created in Bonita BPM Studio but not those created in the UI designer.</p>
-<p>Bonita BPM Studio automatically locks an artifact (process or shared resource) when you open it for editing. You can also lock an artifact manually. 
-If you try to open an artifact that is locked by another user, a popup tells you that the artifact is logged and gives the SVN username of the person who owns the lock. 
-You can choose to open the artifact in read-only mode, which means you cannot make any changes. 
-It is also possible to unlock a locked artifact and lock it yourself, but this is not generally recommended except as a last resort if the owner of the lock cannot be contacted to release the lock.</p>
+<p>Bonita BPM Studio automatically locks an artifact (process or shared resource) when you open it for editing. You can also lock an artifact manually. If you try to open an artifact that is locked by another user, a popup tells you that the artifact is logged and gives the SVN username of the person who owns the lock. You can choose to open the artifact in read-only mode, which means you cannot make any changes. It is also possible to unlock a locked artifact and lock it yourself, but this is not generally recommended except as a last resort if the owner of the lock cannot be contacted to release the lock.</p>
 <p>You can choose to open an artifact in read-only mode, even if it is not locked by another user. If an artifact you are viewing in read-only mode is locked, there is a lock icon in the name tab at the top of the whiteboard.</p>
 <p>To manually lock or unlock an artifact:</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Go to the <strong>Repository</strong> menu, and choose <strong>Team</strong>, then <strong>Manage locks</strong>.</li>
 <li>A popup displays the list of artifacts.</li>
 <li>Select the artifact to lock or unlock, and then click the <strong><em>Lock</em></strong> or <strong><em>Unlock</em></strong> button.</li>
 <li>Click <strong><em>OK</em></strong>.</li>
 </ol>
-<p>To check the lock status of an artifact, go to the <strong>Diagram</strong> menu and choose <strong>Open</strong>, 
-or click <strong><em>Open</em></strong> in the coolbar. 
-In the popup, artifacts that you have locked are marked with a green padlock, and artifacts that another user has locked are marked with a red padlock and the user&#39;s SVN username. 
-From the popup, you can:</p>
+<p>To check the lock status of an artifact, go to the <strong>Diagram</strong> menu and choose <strong>Open</strong>, or click <strong><em>Open</em></strong> in the coolbar. In the popup, artifacts that you have locked are marked with a green padlock, and artifacts that another user has locked are marked with a red padlock and the user's SVN username. From the popup, you can:</p>
 <ul>
 <li>Open a process that you have locked (marked with a green padlock) or that is not locked (no padlock).</li>
 <li>Open a process in read-only mode. You can do this for any process, but it is most useful for a process that is locked by another user (red padlock).</li>
 <li>Open a locked process (red padlock). You can open a locked process in read-only mode. You cannot open a locked process read-write.</li>
 </ul>
 <h3 id="avoiding-conflicts">Avoiding conflicts</h3>
-<p>A conflict occurs when two or more users update the same process in a repository and the updates are not compatible. 
-If you are using a shared repository, Bonita BPM Studio automatically locks a Studio artifact when a user opens it for edit. (Note: UI desinger artifacts are not locked.)
-This means that only one user at a time can update the artifact, avoiding the possibility of conflicts. The only risk of conflicts is if a user takes over a lock from another user who has not committed their changes. 
-For this reason, you are not recommended to unlock artifacts that are locked by another user.</p>
-<p>It is also good practise to commit your changes regularly, to keep your local working copy synchronized with the central repository. 
-To commit your changes, go to the <strong>Repository</strong> menu, choose <strong>Team</strong>, and then choose <strong>Commit artifacts</strong>. 
-When you commit your changes, you have the option to release the lock so that another user can edit the artifact. By default, your lock is maintained. 
-If you want to release the lock, uncheck the <strong>Keep locks</strong> box in the Commit dialog.</p>
+<p>A conflict occurs when two or more users update the same process in a repository and the updates are not compatible. If you are using a shared repository, Bonita BPM Studio automatically locks a Studio artifact when a user opens it for edit. (Note: UI desinger artifacts are not locked.) This means that only one user at a time can update the artifact, avoiding the possibility of conflicts. The only risk of conflicts is if a user takes over a lock from another user who has not committed their changes. For this reason, you are not recommended to unlock artifacts that are locked by another user.</p>
+<p>It is also good practise to commit your changes regularly, to keep your local working copy synchronized with the central repository. To commit your changes, go to the <strong>Repository</strong> menu, choose <strong>Team</strong>, and then choose <strong>Commit artifacts</strong>. When you commit your changes, you have the option to release the lock so that another user can edit the artifact. By default, your lock is maintained. If you want to release the lock, uncheck the <strong>Keep locks</strong> box in the Commit dialog.</p>
 <h3 id="versioning-and-history">Versioning and history</h3>
-<p>If you are using a shared repository, all modifications to an artifact are recorded by the SVN server. </p>
+<p>If you are using a shared repository, all modifications to an artifact are recorded by the SVN server.</p>
 <p>To view the history for an artifact:</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Go to the <strong>Repository</strong> menu and choose <strong>Team</strong>, then <strong>History</strong>.</li>
 <li>In the history list popup, select the artifact in the left-hand column.</li>
-<li>The revision history for the selected artifact is displayed in the right-hand column. 
-This shows all the changes that have been made, and the author of each change.</li>
+<li>The revision history for the selected artifact is displayed in the right-hand column. This shows all the changes that have been made, and the author of each change.</li>
 </ol>
-<p>To revert to an older version, click on that version in the revision history, then click on <strong><em>Revert to this version</em></strong> in the popup.
-The selected version will be restored.</p>
+<p>To revert to an older version, click on that version in the revision history, then click on <strong><em>Revert to this version</em></strong> in the popup. The selected version will be restored.</p>
 <h3 id="restore-points">Restore points</h3>
-<p>A restore point is a marker in a repository that you can use to restore your repository back to an earlier state. 
-The difference between a restore point and a version in the revision history is that a restore point applies to the whole repository but a 
-version applies to a single artifact.</p>
+<p>A restore point is a marker in a repository that you can use to restore your repository back to an earlier state. The difference between a restore point and a version in the revision history is that a restore point applies to the whole repository but a version applies to a single artifact.</p>
 <p>To create a restore point:</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Go to the <strong>Repository</strong> menu and choose <strong>Team</strong>, then <strong>Manage restore points</strong>.</li>
 <li>Select <strong>Create a restore point</strong> then click <strong><em>Next</em></strong>.</li>
 <li>Enter a description for the restore point, then click <strong><em>Create</em></strong>. The restore point is created.</li>
 </ol>
 <p>To restore an older point:</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Go to the <strong>Repository</strong> menu and choose choose <strong>Team</strong>, then <strong>Manage restore points</strong>.</li>
 <li>Select <strong>Restore to an older point</strong> then click <strong><em>Next</em></strong>.</li>
-<li>Select the restore point you want to restore, then click <strong><em>Restore</em></strong>. The repository reverts to the restore point.<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></li>
+<li>Select the restore point you want to restore, then click <strong><em>Restore</em></strong>. The repository reverts to the restore point.</li>
 </ol>

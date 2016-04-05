@@ -1,318 +1,43 @@
-<style type="text/css">/** https://gist.github.com/andyferra/2554919#file-github-css **/
-body {
-  font-family: Helvetica, arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: white;
-  padding: 30px; }
-
-body > *:first-child {
-  margin-top: 0 !important; }
-body > *:last-child {
-  margin-bottom: 0 !important; }
-
-a {
-  color: #4183C4; }
-a.absent {
-  color: #cc0000; }
-a.anchor {
-  display: block;
-  padding-left: 30px;
-  margin-left: -30px;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0; }
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 20px 0 10px;
-  padding: 0;
-  font-weight: bold;
-  -webkit-font-smoothing: antialiased;
-  cursor: text;
-  position: relative; }
-
-h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
-  text-decoration: none; }
-
-h1 tt, h1 code {
-  font-size: inherit; }
-
-h2 tt, h2 code {
-  font-size: inherit; }
-
-h3 tt, h3 code {
-  font-size: inherit; }
-
-h4 tt, h4 code {
-  font-size: inherit; }
-
-h5 tt, h5 code {
-  font-size: inherit; }
-
-h6 tt, h6 code {
-  font-size: inherit; }
-
-h1 {
-  font-size: 28px;
-  color: black; }
-
-h2 {
-  font-size: 24px;
-  border-bottom: 1px solid #cccccc;
-  color: black; }
-
-h3 {
-  font-size: 18px; }
-
-h4 {
-  font-size: 16px; }
-
-h5 {
-  font-size: 14px; }
-
-h6 {
-  color: #777777;
-  font-size: 14px; }
-
-p, blockquote, ul, ol, dl, li, table, pre {
-  margin: 15px 0; }
-
-hr {
-  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
-  border: 0 none;
-  color: #cccccc;
-  height: 4px;
-  padding: 0; }
-
-body > h2:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-body > h1:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-  body > h1:first-child + h2 {
-    margin-top: 0;
-    padding-top: 0; }
-body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-
-a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-  margin-top: 0;
-  padding-top: 0; }
-
-h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-  margin-top: 0; }
-
-li p.first {
-  display: inline-block; }
-
-ul, ol {
-  padding-left: 30px; }
-
-ul :first-child, ol :first-child {
-  margin-top: 0; }
-
-ul :last-child, ol :last-child {
-  margin-bottom: 0; }
-
-dl {
-  padding: 0; }
-  dl dt {
-    font-size: 14px;
-    font-weight: bold;
-    font-style: italic;
-    padding: 0;
-    margin: 15px 0 5px; }
-    dl dt:first-child {
-      padding: 0; }
-    dl dt > :first-child {
-      margin-top: 0; }
-    dl dt > :last-child {
-      margin-bottom: 0; }
-  dl dd {
-    margin: 0 0 15px;
-    padding: 0 15px; }
-    dl dd > :first-child {
-      margin-top: 0; }
-    dl dd > :last-child {
-      margin-bottom: 0; }
-
-blockquote {
-  border-left: 4px solid #dddddd;
-  padding: 0 15px;
-  color: #777777; }
-  blockquote > :first-child {
-    margin-top: 0; }
-  blockquote > :last-child {
-    margin-bottom: 0; }
-
-table {
-  padding: 0; }
-  table tr {
-    border-top: 1px solid #cccccc;
-    background-color: white;
-    margin: 0;
-    padding: 0; }
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8; }
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0; }
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0; }
-
-img {
-  max-width: 100%; }
-
-span.frame {
-  display: block;
-  overflow: hidden; }
-  span.frame > span {
-    border: 1px solid #dddddd;
-    display: block;
-    float: left;
-    overflow: hidden;
-    margin: 13px 0 0;
-    padding: 7px;
-    width: auto; }
-  span.frame span img {
-    display: block;
-    float: left; }
-  span.frame span span {
-    clear: both;
-    color: #333333;
-    display: block;
-    padding: 5px 0 0; }
-span.align-center {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-center > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: center; }
-  span.align-center span img {
-    margin: 0 auto;
-    text-align: center; }
-span.align-right {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px 0 0;
-    text-align: right; }
-  span.align-right span img {
-    margin: 0;
-    text-align: right; }
-span.float-left {
-  display: block;
-  margin-right: 13px;
-  overflow: hidden;
-  float: left; }
-  span.float-left span {
-    margin: 13px 0 0; }
-span.float-right {
-  display: block;
-  margin-left: 13px;
-  overflow: hidden;
-  float: right; }
-  span.float-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: right; }
-
-code, tt {
-  margin: 0 2px;
-  padding: 0 5px;
-  white-space: nowrap;
-  border: 1px solid #eaeaea;
-  border-radius: 3px; }
-
-pre code {
-  margin: 0;
-  padding: 0;
-  white-space: pre;
-  border: none;
-  background: transparent; }
-
-pre {
-  background-color: #073642;
-  color: #f8f8f8;
-  border: 1px solid #cccccc;
-  font-size: 13px;
-  line-height: 19px;
-  overflow: auto;
-  padding: 6px 10px;
-  border-radius: 3px; }
-  pre code, pre tt {
-    background-color: transparent;
-    border: none; }
-
-</style><link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
-<h1 id="2-3-7-bonita-home">2.3.7 Bonita home</h1>
+<h1 id="bonita-home">2.3.7 Bonita home</h1>
 <p>var_bonita_home is a folder which contains configuration, working, and temporary folders and files. This folder is used by Bonita BPM Engine, Bonita BPM Portal and the Bonita Client Library (Engine APIs client library packaged in bonita-client.jar).</p>
-<p>The location of the var_bonita_home folder depends on your installation.
-It is defined by a JVM system property called <code>bonita.home</code>.</p>
+<p>The location of the var_bonita_home folder depends on your installation. It is defined by a JVM system property called <code>bonita.home</code>.</p>
 <p><strong><a href="#download">Downloading var_bonita_home</a></strong></p>
 <p><strong><a href="#structure">Bonita home folder structure</a></strong></p>
 <p><strong><a href="#location">Bonita home location</a></strong></p>
 <blockquote>
 <p><a href="#studio">Bonita Studio</a></p>
+</blockquote>
+<blockquote>
 <p><a href="#bundles">Bonita JBoss and Tomcat bundles</a></p>
+</blockquote>
+<blockquote>
 <p><a href="#deploy">Deploy bundle</a></p>
+</blockquote>
+<blockquote>
 <p><a href="#ldap">LDAP synchronizer</a></p>
+</blockquote>
+<blockquote>
 <p><a href="#client">In your own client application</a></p>
 </blockquote>
-<h2 id="downloading-var-_bonita-_home">Downloading var_bonita_home</h2>
+<h2 id="downloading-var_bonita_home">Downloading var_bonita_home</h2>
 <p>There are two var_bonita_homes: one for the Community edition and one for the Subscription editions.</p>
-<p>If you are using a Subscription edition, you can change from one edition to another by updating the value of the <code>activeProfiles</code> key in 
-<code>engine-server/conf/platform-init/bonita-platform-init-community-custom.properties</code> before starting the platform.
-The value is a comma-separated list with no spaces. 
-You must have a suitable license installed for the specified subscription editions.</p>
-<p><strong>Important:</strong> Performance edition users must add &#39;performance&#39; to the default value so that the value is &#39;community,performance&#39;.</p>
-<p>It is useful to store your var_bonita_home folder in a versioning or source code control system (such as Git), so that you have a record of the changes that you make. </p>
-<h2 id="var-_bonita-_home-folder-structure">var_bonita_home folder structure</h2>
+<p>If you are using a Subscription edition, you can change from one edition to another by updating the value of the <code>activeProfiles</code> key in <code>engine-server/conf/platform-init/bonita-platform-init-community-custom.properties</code> before starting the platform. The value is a comma-separated list with no spaces. You must have a suitable license installed for the specified subscription editions.</p>
+<p><strong>Important:</strong> Performance edition users must add 'performance' to the default value so that the value is 'community,performance'.</p>
+<p>It is useful to store your var_bonita_home folder in a versioning or source code control system (such as Git), so that you have a record of the changes that you make.</p>
+<h2 id="var_bonita_home-folder-structure">var_bonita_home folder structure</h2>
 <p><strong>Note</strong>: the contents of the var_bonita_home folder depend on the Bonita BPM version and edition installed.</p>
 <ul>
-<li><p><code>client</code>: files related to Bonita BPM Portal:</p>
+<li><code>client</code>: files related to Bonita BPM Portal:</li>
+<li><code>platform</code>: files that impact Bonita BPM Portal, no matter which tenant is called. Also includes reference template files used for each new tenant. All files in this folder are used only for Bonita BPM Portal and will have no impact on the Bonita client library.
 <ul>
-<li><p><code>platform</code>: files that impact Bonita BPM Portal, no matter which tenant is called. Also includes reference template files used for each new tenant.
-All files in this folder are used only for Bonita BPM Portal and will have no impact on the Bonita client library.</p>
-<ul>
-<li><p><code>conf</code>: configuration files.</p>
-<ul>
+<li><code>conf</code>: configuration files.</li>
 <li><code>cache-config.xml</code>: forms object model cache configuration.</li>
 <li><code>jaas-standard.cfg</code>: example of JAAS configuration for JaasLoginManager.</li>
-<li><code>loginManager-config.properties</code> (Portal only): specify and configure the implementation of the Login Manager component.
-This component is used to verify the username and password provided by the user (see <a href="/user-authentication.md">User authentication overview</a> for more details).</li>
-<li><code>platform-tenant-config.properties</code>: used by Bonita BPM Portal to connect to the default tenant to retrieve its id. 
-Then used to initialize the Portal tenant configuration based on a template (copy of <code>tenant-template</code> folder to tenants folder).</li>
-<li><code>security-config.properties</code>: configuration for <a href="/csrf.md">Cross-Site Request Forgery</a> protection.</li>
-</ul>
-</li>
-<li><p><code>tenant-template</code>: template configuration files used for tenant creation.</p>
-<ul>
-<li><p><code>conf</code>: configuration files:</p>
+<li><code>loginManager-config.properties</code> (Portal only): specify and configure the implementation of the Login Manager component. This component is used to verify the username and password provided by the user (see <a href="/user-authentication.md">User authentication overview</a> for more details).</li>
+<li><code>platform-tenant-config.properties</code>: used by Bonita BPM Portal to connect to the default tenant to retrieve its id. Then used to initialize the Portal tenant configuration based on a template (copy of <code>tenant-template</code> folder to tenants folder).</li>
+<li><p><code>security-config.properties</code>: configuration for <a href="/csrf.md">Cross-Site Request Forgery</a> protection.</p></li>
+<li><code>tenant-template</code>: template configuration files used for tenant creation.</li>
+<li><code>conf</code>: configuration files:
 <ul>
 <li><code>compound-permissions-mapping.properties</code>: association between Bonita BPM Portal pages and the list of permissions required to visualize them.</li>
 <li><code>console-config.properties</code>: settings such as maximum permitted file size for files uploaded using Bonita BPM forms, or the flag for custom page debug mode.</li>
@@ -322,71 +47,45 @@ Then used to initialize the Portal tenant configuration based on a template (cop
 <li><code>loginManager-config.properties</code>: same as Login Manager configuration at platform level but overloaded for the tenant.</li>
 <li><code>resources-permissions-mapping.properties</code>: association between REST operations and the permissions required to perform them.</li>
 <li><code>security-config.properties</code>: used for the autologin feature (not currently supported).</li>
-</ul>
-</li>
-<li><p><code>work</code>: various files needed for the operation of Bonita BPM Portal.</p>
+</ul></li>
+<li><code>work</code>: various files needed for the operation of Bonita BPM Portal.
 <ul>
-<li><code>icons</code>: Portal images. </li>
-<li><code>pages</code>: </li>
-<li><code>theme</code>: Portal look and feel definition. Also includes the default look and feel for forms. </li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code><span class="hljs-subst">*</span> <span class="hljs-string">`work`</span>:
-  <span class="hljs-subst">*</span> <span class="hljs-string">`i18n`</span>: defines <span class="hljs-keyword">Portal</span> translations (at Platform level, shared <span class="hljs-keyword">by</span> <span class="hljs-literal">all</span> tenants)<span class="hljs-built_in">.</span>
-</code></pre><ul>
-<li><code>tenants</code>: includes tenant-specific files (configuration, work and temporary). 
-The files in this folder are used only by Bonita BPM Portal and have no impact on Bonita client. There is a sub-folder in this folder for each tenant. Sub-folder content is based on the <code>tenant-template</code> content.</li>
-</ul>
+<li><code>icons</code>: Portal images.</li>
+<li><code>pages</code>:</li>
+<li><code>theme</code>: Portal look and feel definition. Also includes the default look and feel for forms.</li>
+</ul></li>
+<li><code>work</code>:</li>
+<li><p><code>i18n</code>: defines Portal translations (at Platform level, shared by all tenants).</p></li>
+</ul></li>
+<li><p><code>tenants</code>: includes tenant-specific files (configuration, work and temporary). The files in this folder are used only by Bonita BPM Portal and have no impact on Bonita client. There is a sub-folder in this folder for each tenant. Sub-folder content is based on the <code>tenant-template</code> content.</p></li>
+<li><code>engine-client</code>: files related to Bonita Client Library.</li>
+<li><code>conf</code>: configuration of bonita-client library. This is where you can modify the client configuration.
 <ul>
-<li><code>engine-client</code>: files related to Bonita Client Library.<ul>
-<li><code>conf</code>: configuration of bonita-client library. This is where you can modify the client configuration.<ul>
 <li><code>bonita-client-custom.properties</code>: define how the Bonita client accesses the Bonita BPM Engine APIs. Three options are available: Java, HTTP or EJB. The file includes extra settings for HTTP and EJB (e.g. server address).</li>
+</ul></li>
+<li><code>server</code>:</li>
+<li><p><code>licenses</code>: contains license files. When you setup a server, you should put the license file here.</p></li>
+<li><code>engine-server</code>: contains all Bonita Server related files.</li>
+<li><p><code>conf</code>: folder containing the files that you can modify. The properties and services in this folder override the default configuration. This folder cannot be deleted.</p></li>
+<li><p><code>work</code>: folder containing the default configuration files. Do not modify them. The folder also serves as a storage location for some services. This folder cannot be deleted.</p></li>
+<li><p><code>temp</code>: folder containing the temporary files that services need. Subfolders of this folder can safely be deleted when the server is not running.</p></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><code>server</code>:<ul>
-<li><code>licenses</code>: contains license files. When you setup a server, you should put the license file here.</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p><code>engine-server</code>: contains all Bonita Server related files.</p>
-<ul>
-<li><p><code>conf</code>: folder containing the files that you can modify. The properties and services in this folder override the default configuration. This folder cannot be deleted.</p>
-</li>
-<li><p><code>work</code>: folder containing the default configuration files. Do not modify them. The folder also serves as a storage location for some services. This folder cannot be deleted.</p>
-</li>
-<li><p><code>temp</code>: folder containing the temporary files that services need. Subfolders of this folder can safely be deleted when the server is not running.</p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="var-_bonita-_home-location">var_bonita_home location</h2>
+<h2 id="var_bonita_home-location">var_bonita_home location</h2>
 <h3 id="bonita-bpm-studio">Bonita BPM Studio</h3>
 <p>Bonita BPM Studio includes two copies of the var_bonita_home folder:</p>
-<ol>
-<li><code>BonitaBPM[edition-name]-x.y.z/workspace/bonita</code>:  </li>
+<ol style="list-style-type: decimal">
+<li><code>BonitaBPM[edition-name]-x.y.z/workspace/bonita</code>:</li>
 </ol>
-<p>Studio uses the Bonita client library to communicate with the Bonita BPM Engine (part of the Bonita BPM Platform embedded in Studio for testing).  </p>
+<p>Studio uses the Bonita client library to communicate with the Bonita BPM Engine (part of the Bonita BPM Platform embedded in Studio for testing).</p>
 <p>This home define the Bonita client configuration.</p>
-<ol>
-<li><code>BonitaBPM[edition-name]-x.y.z/workspace/[repository-name]/bonita_home</code>:  </li>
+<ol start="2" style="list-style-type: decimal">
+<li><code>BonitaBPM[edition-name]-x.y.z/workspace/[repository-name]/bonita_home</code>:</li>
 </ol>
 <p>This home is the configuration of the Bonita BPM Portal, client library and Engine of the Studio, that is, its embedded Bonita BPM Platform.</p>
 <h3 id="bonita-bpm-jboss-and-tomcat-bundles">Bonita BPM JBoss and Tomcat bundles</h3>
 <p>In Tomcat and JBoss bundles, var_bonita_home is located at the root folder of the bundle.</p>
 <p>You might want to change location of var_bonita_home.</p>
-<p>In this case, you will need to update the value of the JVM system properties, so the path points to the new location. </p>
+<p>In this case, you will need to update the value of the JVM system properties, so the path points to the new location.</p>
 <h3 id="deploy-bundle">Deploy bundle</h3>
 <p>The var_bonita_home folder provided in the deploy bundle can be used in various situations, such as:</p>
 <ul>
@@ -404,4 +103,4 @@ The files in this folder are used only by Bonita BPM Portal and have no impact o
 <p>Because you are building a client application, you need only the <code>engine-client</code> folder, not the other folders.</p>
 <p>The other folders are useful only to Bonita BPM Portal, so they are not needed.</p>
 <p>In the <code>engine-client</code> folder, the <code>conf/bonita-client-custom.properties</code> file overrides the settings of the <code>work/bonita-client-community.properties</code> file.</p>
-<p>This <code>engine-client/conf/bonita-client-custom.properties</code> properties file defines how the Bonita client library connects to the Bonita BPM Engine.<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></p>
+<p>This <code>engine-client/conf/bonita-client-custom.properties</code> properties file defines how the Bonita client library connects to the Bonita BPM Engine.</p>

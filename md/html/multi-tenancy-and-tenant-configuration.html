@@ -1,373 +1,64 @@
-<style type="text/css">/** https://gist.github.com/andyferra/2554919#file-github-css **/
-body {
-  font-family: Helvetica, arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: white;
-  padding: 30px; }
-
-body > *:first-child {
-  margin-top: 0 !important; }
-body > *:last-child {
-  margin-bottom: 0 !important; }
-
-a {
-  color: #4183C4; }
-a.absent {
-  color: #cc0000; }
-a.anchor {
-  display: block;
-  padding-left: 30px;
-  margin-left: -30px;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0; }
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 20px 0 10px;
-  padding: 0;
-  font-weight: bold;
-  -webkit-font-smoothing: antialiased;
-  cursor: text;
-  position: relative; }
-
-h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
-  text-decoration: none; }
-
-h1 tt, h1 code {
-  font-size: inherit; }
-
-h2 tt, h2 code {
-  font-size: inherit; }
-
-h3 tt, h3 code {
-  font-size: inherit; }
-
-h4 tt, h4 code {
-  font-size: inherit; }
-
-h5 tt, h5 code {
-  font-size: inherit; }
-
-h6 tt, h6 code {
-  font-size: inherit; }
-
-h1 {
-  font-size: 28px;
-  color: black; }
-
-h2 {
-  font-size: 24px;
-  border-bottom: 1px solid #cccccc;
-  color: black; }
-
-h3 {
-  font-size: 18px; }
-
-h4 {
-  font-size: 16px; }
-
-h5 {
-  font-size: 14px; }
-
-h6 {
-  color: #777777;
-  font-size: 14px; }
-
-p, blockquote, ul, ol, dl, li, table, pre {
-  margin: 15px 0; }
-
-hr {
-  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
-  border: 0 none;
-  color: #cccccc;
-  height: 4px;
-  padding: 0; }
-
-body > h2:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-body > h1:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-  body > h1:first-child + h2 {
-    margin-top: 0;
-    padding-top: 0; }
-body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-
-a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-  margin-top: 0;
-  padding-top: 0; }
-
-h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-  margin-top: 0; }
-
-li p.first {
-  display: inline-block; }
-
-ul, ol {
-  padding-left: 30px; }
-
-ul :first-child, ol :first-child {
-  margin-top: 0; }
-
-ul :last-child, ol :last-child {
-  margin-bottom: 0; }
-
-dl {
-  padding: 0; }
-  dl dt {
-    font-size: 14px;
-    font-weight: bold;
-    font-style: italic;
-    padding: 0;
-    margin: 15px 0 5px; }
-    dl dt:first-child {
-      padding: 0; }
-    dl dt > :first-child {
-      margin-top: 0; }
-    dl dt > :last-child {
-      margin-bottom: 0; }
-  dl dd {
-    margin: 0 0 15px;
-    padding: 0 15px; }
-    dl dd > :first-child {
-      margin-top: 0; }
-    dl dd > :last-child {
-      margin-bottom: 0; }
-
-blockquote {
-  border-left: 4px solid #dddddd;
-  padding: 0 15px;
-  color: #777777; }
-  blockquote > :first-child {
-    margin-top: 0; }
-  blockquote > :last-child {
-    margin-bottom: 0; }
-
-table {
-  padding: 0; }
-  table tr {
-    border-top: 1px solid #cccccc;
-    background-color: white;
-    margin: 0;
-    padding: 0; }
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8; }
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0; }
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0; }
-
-img {
-  max-width: 100%; }
-
-span.frame {
-  display: block;
-  overflow: hidden; }
-  span.frame > span {
-    border: 1px solid #dddddd;
-    display: block;
-    float: left;
-    overflow: hidden;
-    margin: 13px 0 0;
-    padding: 7px;
-    width: auto; }
-  span.frame span img {
-    display: block;
-    float: left; }
-  span.frame span span {
-    clear: both;
-    color: #333333;
-    display: block;
-    padding: 5px 0 0; }
-span.align-center {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-center > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: center; }
-  span.align-center span img {
-    margin: 0 auto;
-    text-align: center; }
-span.align-right {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px 0 0;
-    text-align: right; }
-  span.align-right span img {
-    margin: 0;
-    text-align: right; }
-span.float-left {
-  display: block;
-  margin-right: 13px;
-  overflow: hidden;
-  float: left; }
-  span.float-left span {
-    margin: 13px 0 0; }
-span.float-right {
-  display: block;
-  margin-left: 13px;
-  overflow: hidden;
-  float: right; }
-  span.float-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: right; }
-
-code, tt {
-  margin: 0 2px;
-  padding: 0 5px;
-  white-space: nowrap;
-  border: 1px solid #eaeaea;
-  border-radius: 3px; }
-
-pre code {
-  margin: 0;
-  padding: 0;
-  white-space: pre;
-  border: none;
-  background: transparent; }
-
-pre {
-  background-color: #073642;
-  color: #f8f8f8;
-  border: 1px solid #cccccc;
-  font-size: 13px;
-  line-height: 19px;
-  overflow: auto;
-  padding: 6px 10px;
-  border-radius: 3px; }
-  pre code, pre tt {
-    background-color: transparent;
-    border: none; }
-
-</style><link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
-<h1 id="2-4-9-multi-tenancy-and-tenant-configuration">2.4.9 Multi-tenancy and tenant configuration</h1>
+<h1 id="multi-tenancy-and-tenant-configuration">2.4.9 Multi-tenancy and tenant configuration</h1>
 <p>This page explains the architecture and configuration of a multi-tenant system using Bonita BPM.</p>
-<p><a href="#archi">Platform architecture</a>
-<a href="#plat">Platform configuration</a>
-<a href="#tenconfig">Tenant creation</a>
-<a href="#mtAccess">Tenant access</a>
-<a href="#pauserestart">Pause and resume a tenant</a></p>
+<p><a href="#archi">Platform architecture</a> <a href="#plat">Platform configuration</a> <a href="#tenconfig">Tenant creation</a> <a href="#mtAccess">Tenant access</a> <a href="#pauserestart">Pause and resume a tenant</a></p>
 <h2 id="platform-architecture">Platform architecture</h2>
 <p>By default, all installations of Bonita BPM create a single tenant. However multi-tenancy is possible with the Performance edition.</p>
-<p>Multi-tenancy involves a single software installation, called a <strong>platform</strong>, that can serve multiple independent organizations, called <strong>tenants</strong>.
-Each tenant is a separate, self contained configuration for a single client/company. 
-Artifacts are deployed at tenant level, so a tenant has its own organization (users, groups, roles), processes (apps, cases, trasks), reports, and custom pages.
-Data within a tenant is completely isolated. A tenant cannot access data from any other tenant. A user logged in to a tenant cannot access any other tenant.</p>
+<p>Multi-tenancy involves a single software installation, called a <strong>platform</strong>, that can serve multiple independent organizations, called <strong>tenants</strong>. Each tenant is a separate, self contained configuration for a single client/company. Artifacts are deployed at tenant level, so a tenant has its own organization (users, groups, roles), processes (apps, cases, trasks), reports, and custom pages. Data within a tenant is completely isolated. A tenant cannot access data from any other tenant. A user logged in to a tenant cannot access any other tenant.</p>
 <p>After the installation of any Bonita BPM version (Community or Subscription), a single default tenant is created and ready for use.</p>
-<p><img src="images/images-6_0/default_tenant_setup.png" alt="default">  </p>
-<p>If you are using the Performance edition, you can create additional tenants, using the Platform API or the REST API.
-These tenants are configured with a single database. This illustration shows a platform with three tenants.</p>
-<p><img src="images/images-6_0/v6tenant.png" alt="multi-tenancy"></p>
+<div class="figure">
+<img src="images/images-6_0/default_tenant_setup.png" alt="default" />
+<p class="caption">default</p>
+</div>
+<p>If you are using the Performance edition, you can create additional tenants, using the Platform API or the REST API. These tenants are configured with a single database. This illustration shows a platform with three tenants.</p>
+<div class="figure">
+<img src="images/images-6_0/v6tenant.png" alt="multi-tenancy" />
+<p class="caption">multi-tenancy</p>
+</div>
 <h2 id="platform-configuration">Platform configuration</h2>
 <p>The platform is the part of the system that is common to all tenants. The platforms and tenant configurations are defined in <a href="/bonita-home.md">``</a>.</p>
 <p>The platform configuration directory is located here: <code>engine-server/conf/platform</code>.</p>
-<p>There is a separate configuration directory for each tenant, located here: <code>engine-server/conf/tenants/</code>. 
-There is also a default tenant configuration, located here: <code>engine-server/conf/tenants/template</code>.</p>
+<p>There is a separate configuration directory for each tenant, located here: <code>engine-server/conf/tenants/</code>. There is also a default tenant configuration, located here: <code>engine-server/conf/tenants/template</code>.</p>
 <h2 id="tenant-creation">Tenant creation</h2>
 <p>A tenant can be created using the Java PlatformAPI (see the <a href="/javadoc-71">Javadoc</a>) or the <a href="/platform-api.md">platform REST API</a>.</p>
-<p><strong>Note:</strong> 
-If business objects will be deployed in the newly created tenant do not forget to <a href="/database-configuration-business-data.md">create the business data database and configure specific data sources</a>.</p>
+<p><strong>Note:</strong> If business objects will be deployed in the newly created tenant do not forget to <a href="/database-configuration-business-data.md">create the business data database and configure specific data sources</a>.</p>
 <h3 id="java-platformapi">Java PlatformAPI</h3>
-<p>The Java PlatformAPI creates the tenant by updating the database and creating the <code>bonita/server/tenants/*</code> files. 
-The following example code uses the Engine Java APIs to create a tenant called &quot;myNewTenantName&quot;:
-`
-// Get platform login API using the PlatformAPIAccessor
-PlatformLoginAPI platformLoginAPI = PlatformAPIAccessor.getPlatformLoginAPI();
-// Log in to the platform
-PlatformSession platformSession = platformLoginAPI.login(&quot;platformAdmin&quot;, &quot;platform&quot;);</p>
-<p>// Get the platform API
-PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(platformSession);</p>
-<p>// Create a new tenant
-TenantCreator tenantCreator = new TenantCreator(&quot;myNewTenantName&quot;);
-tenantCreator.setUsername(&quot;install&quot;);
-tenantCreator.setPassword(&quot;install&quot;);
-long tenantId = platformAPI.createTenant(tenantCreator);
-platformAPI.activateTenant(tenantId);</p>
-<p>// Log out of the platform
-platformLoginAPI.logout(platformSession);
-`</p>
-<p>This creates the server-side configuration files in var_bonita_home, but it does not create the client part of the bonita_home for the tenant, which are required for the Bonita BPM Portal to work. 
-You need to copy these files from the var_bonita_home client tenant template into the newly created tenant, and configure the settings (if you need specific settings):</p>
+<p>The Java PlatformAPI creates the tenant by updating the database and creating the <code>bonita/server/tenants/*</code> files. The following example code uses the Engine Java APIs to create a tenant called &quot;myNewTenantName&quot;: ` // Get platform login API using the PlatformAPIAccessor PlatformLoginAPI platformLoginAPI = PlatformAPIAccessor.getPlatformLoginAPI(); // Log in to the platform PlatformSession platformSession = platformLoginAPI.login(&quot;platformAdmin&quot;, &quot;platform&quot;);</p>
+<p>// Get the platform API PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(platformSession);</p>
+<p>// Create a new tenant TenantCreator tenantCreator = new TenantCreator(&quot;myNewTenantName&quot;); tenantCreator.setUsername(&quot;install&quot;); tenantCreator.setPassword(&quot;install&quot;); long tenantId = platformAPI.createTenant(tenantCreator); platformAPI.activateTenant(tenantId);</p>
+<p>// Log out of the platform platformLoginAPI.logout(platformSession); `</p>
+<p>This creates the server-side configuration files in var_bonita_home, but it does not create the client part of the bonita_home for the tenant, which are required for the Bonita BPM Portal to work. You need to copy these files from the var_bonita_home client tenant template into the newly created tenant, and configure the settings (if you need specific settings):</p>
 <ul>
 <li>Create a directory nammed with the identifier of the newly created tenant in <code>var_bonita_home/client/tenants/</code></li>
 <li>Copy all the content from <code>var_bonita_home/client/platform/tenant-template/</code> into <code>var_bonita_home/client/tenants/TENANT_ID</code> (where TENANT_ID is the tenant identifier)</li>
 <li>If you need specific settings (for example for authentication), you can configure your tenant in <code>var_bonita_home/client/tenants/TENANT_ID/conf</code></li>
 </ul>
 <h3 id="rest-api">REST API</h3>
-<p>The <a href="/platform-api.md">platform REST API</a> calls the Java PlatformAPI to create the tenant. 
-It also creates the web elements that are required for the Bonita BPM Portal to work with multitenancy, notably the <code>bonita/client/tenants/*</code> files. You do not need to copy any files manually.</p>
+<p>The <a href="/platform-api.md">platform REST API</a> calls the Java PlatformAPI to create the tenant. It also creates the web elements that are required for the Bonita BPM Portal to work with multitenancy, notably the <code>bonita/client/tenants/*</code> files. You do not need to copy any files manually.</p>
 <h2 id="tenant-access">Tenant access</h2>
 <p>A tenant is identified by an id, which is used to log in and to retrieve the tenant. A tenant also has a name. You can use the tenant name to retrieve the tenant id.</p>
 <h3 id="bonita-bpm-portal">Bonita BPM Portal</h3>
 <p>In order to access Bonita BPM Portal desktop and mobile application, add the parameter <code>tenant=TENANT_ID</code> (where TENANT_ID is the tenant identifier) in the URL before you login.</p>
-<p>Example for Bonita BPM Portal desktop version and tenant 2:  </p>
-<p><a href="http://localhost:8080/bonita/login.jsp?tenant=2">http://localhost:8080/bonita/login.jsp?tenant=2</a></p>
-<p>Example for Bonita BPM Portal mobile version and tenant 2:  </p>
-<p><a href="http://localhost:8080/bonita/mobile/?tenant=2">http://localhost:8080/bonita/mobile/?tenant=2</a></p>
+<p>Example for Bonita BPM Portal desktop version and tenant 2:</p>
+<p>http://localhost:8080/bonita/login.jsp?tenant=2</p>
+<p>Example for Bonita BPM Portal mobile version and tenant 2:</p>
+<p>http://localhost:8080/bonita/mobile/?tenant=2</p>
 <h3 id="bonita-apis">Bonita APIs</h3>
 <p>Use the <a href="/javadoc-71">PlatformAPI</a> to perform operations on tenants.</p>
-<p>Example: retrieving a tenant from its name and log into it
-`
-// Get platform login API using the PlatformAPIAccessor
-PlatformLoginAPI platformLoginAPI = PlatformAPIAccessor.getPlatformLoginAPI();
-// Log in to the platform
-PlatformSession platformSession = platformLoginAPI.login(&quot;platformAdmin&quot;, &quot;platform&quot;);</p>
-<p>// Get the plaform API
-PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(platformSession);
-// Retrieve your tenant by name
-Tenant tenant = platformAPI.getTenantByName(&quot;myTenant&quot;);</p>
-<p>// Log out of the platform
-platformLoginAPI.logout(platformSession);</p>
-<p>// Get the login API using the TenantAPIAccessor
-final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
-// Log in to the tenant
-final APISession apiSession = loginAPI.login(tenant.getId(), &quot;install&quot;, &quot;install&quot;);</p>
+<p>Example: retrieving a tenant from its name and log into it ` // Get platform login API using the PlatformAPIAccessor PlatformLoginAPI platformLoginAPI = PlatformAPIAccessor.getPlatformLoginAPI(); // Log in to the platform PlatformSession platformSession = platformLoginAPI.login(&quot;platformAdmin&quot;, &quot;platform&quot;);</p>
+<p>// Get the plaform API PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(platformSession); // Retrieve your tenant by name Tenant tenant = platformAPI.getTenantByName(&quot;myTenant&quot;);</p>
+<p>// Log out of the platform platformLoginAPI.logout(platformSession);</p>
+<p>// Get the login API using the TenantAPIAccessor final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI(); // Log in to the tenant final APISession apiSession = loginAPI.login(tenant.getId(), &quot;install&quot;, &quot;install&quot;);</p>
 <p>// TODO: Perform some operations on the tenant...</p>
-<p>// Log out of the tenant
-loginAPI.logout(apiSession);
-`</p>
+<p>// Log out of the tenant loginAPI.logout(apiSession); `</p>
 <h2 id="pause-and-resume-a-tenant">Pause and resume a tenant</h2>
-<p>To perform certain maintenance operations (notably when updating the business data model), you must pause the BPM service of a tenant. The 
-TenantAdministrationAPI contains the following methods related to pausing a tenant:</p>
+<p>To perform certain maintenance operations (notably when updating the business data model), you must pause the BPM service of a tenant. The TenantAdministrationAPI contains the following methods related to pausing a tenant:</p>
 <ul>
 <li><code>TenantAdministrationAPI.isPaused()</code> returns true if the Tenant BPM service is paused.</li>
 <li><code>TenantAdministrationAPI.pause()</code> pauses the tenant BPM service.</li>
 <li><code>TenantAdministrationAPI.resume(</code>) resume the tenant BPM service.</li>
 </ul>
 <p>For example, to resume the service in a tenant:</p>
-<p><code>TenantAdministrationAPI tenantAdministrationAPI = TenantAPIAccessor.getTenantAdministrationAPI(apiSession);
-if (tenantAdministrationAPI.isPaused()) {
-    tenantAdministrationAPI.resume();
-}</code></p>
+<p><code>TenantAdministrationAPI tenantAdministrationAPI = TenantAPIAccessor.getTenantAdministrationAPI(apiSession); if (tenantAdministrationAPI.isPaused()) {     tenantAdministrationAPI.resume(); }</code></p>
 <p>While service is paused in a tenant, only the following methods are valid:</p>
 <ul>
 <li>IdentityAPI method calls</li>
@@ -376,5 +67,4 @@ if (tenantAdministrationAPI.isPaused()) {
 <li>TenantAdministrationAPI method calls</li>
 </ul>
 <p>If you attempt an operation that is not permitted while a tenant is paused, a <code>TenantIsPausedException</code> is thrown.</p>
-<p>You can also pause and resume a tenant using the 
-<a href="/platform-api.md#tenant">REST API</a> or <a href="/pause-and-resume-bpm-services.md">Bonita BPM Portal</a>.<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></p>
+<p>You can also pause and resume a tenant using the <a href="/platform-api.md#tenant">REST API</a> or <a href="/pause-and-resume-bpm-services.md">Bonita BPM Portal</a>.</p>
