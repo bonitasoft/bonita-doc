@@ -1,12 +1,4 @@
-body {
-    margin: 0;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    line-height: 1.42857143;
-    font-size: 14px;
-    color: #333
-}
-
-.list-group {
-  max-width: 450px;
-  padding-top: 20px;
+.documentation-content {
+  height: calc(100vh - 70px);
+  overflow-y: auto;
 }

@@ -3,10 +3,14 @@ body {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     line-height: 1.42857143;
     font-size: 14px;
-    color: #333
+    color: #333;
 }
 
 .list-group {
   max-width: 450px;
   padding-top: 20px;
+  .toc-h3 > a {
+    margin-left: 15px;
+    font-size: 0.9em;
+  }
 }

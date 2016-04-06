@@ -1,3 +1,8 @@
+.documentation-navigation {
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+}
+
 .tree-node {
   margin-left: 15px;
 }
