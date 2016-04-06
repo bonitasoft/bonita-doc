@@ -1,9 +1,17 @@
-<div ng-repeat="node in navCtrl.data">
-  <ng-include src="'navigation/item.html'"></ng-include>
+<div class="documentation-navigation">
+  <h2>Bonita BPM 7.3</h2>
+  <div ng-repeat="node in navCtrl.data">
+    <ng-include src="'navigation/item.html'"></ng-include>
+  </div>
 </div>
 <script type="text/ng-template" id="navigation/item.html">
-  <a href="" ng-click="node.isExpanded= !node.isExpanded">{{ node.title }}</a>
-  <div uib-collapse="!node.isExpanded">
+  <div ng-click="node.isExpanded=!node.isExpanded">
+    <span ng-if="node.data && node.data.length" class="glyphicon" 
+      ng-class="{'glyphicon-triangle-right': !node.isExpanded, 'glyphicon-triangle-bottom': node.isExpanded}"></span>
+    <span ng-if="!node.data || !node.data.length" class="glyphicon glyphicon-tag"></span>
+    <a href="">{{ node.title }}</a>
+  </div>
+  <div class="tree-node" uib-collapse="!node.isExpanded">
     <div ng-repeat="node in node.data">
       <ng-include src="'navigation/item.html'"></ng-include>
     </div>
