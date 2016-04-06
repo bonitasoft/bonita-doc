@@ -6,24 +6,12 @@ import 'components/navigation/navigation.scss';
 import 'components/main/main.html';
 import 'components/main/main.scss';
 import mainCtrl from 'components/main/main-controller';
-import 'components/content/content.html';
-import ContentCtrl from 'components/content/content-controller';
 
 export default /*@ngInject*/ function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
   $stateProvider.state('main', {
     url: '/',
-    abstract: true,
-    views: {
-      '@': {
-        templateUrl: '/components/main/main.html',
-        controller: mainCtrl,
-        controllerAs: 'mainCtrl'
-      }
-    }
-  }).state('main.content', {
-    url: '',
     views: {
       'header': {
         templateUrl: '/components/header/header.html'
@@ -37,9 +25,9 @@ export default /*@ngInject*/ function($stateProvider, $urlRouterProvider) {
         }
       },
       'content': {
-        templateUrl: '/components/content/content.html',
-        controller: ContentCtrl,
-        controllerAs: 'contentCtrl'
+        templateUrl: '/components/main/main.html',
+        controller: mainCtrl,
+        controllerAs: 'mainCtrl'
       }
     }
   });

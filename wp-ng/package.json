@@ -10,9 +10,12 @@
     "angular-ui-tree": "2.14.0",
     "bootstrap-sass": "3.3.6",
     "css-loader": "0.21.0",
+    "himalaya": "0.2.0",
     "jquery": "^2.1.4",
     "markdown-it": "6.0.1",
-    "toc": "github:jgallen23/toc"
+    "toc": "github:jgallen23/toc",
+    "xmldom": "0.1.22",
+    "xpath": "0.0.22"
   },
   "devDependencies": {
     "angular-mocks": "1.5.3",
