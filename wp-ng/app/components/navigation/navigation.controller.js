@@ -1,9 +1,9 @@
 import angular from 'angular';
 
 export default class NavigationCtrl {
-  constructor(taxonomy, $stateParams, versions, $state) {
+  constructor(taxonomy, $stateParams, properties, $state) {
     this.taxonomy = taxonomy;
-    this.version = $stateParams.version || versions.defaultVersion || '7.3';
+    this.version = $stateParams.version || properties.defaultVersion || '7.3';
     this.$stateParams = $stateParams;
     this.$state = $state;
     if ($stateParams.page) {
@@ -11,8 +11,8 @@ export default class NavigationCtrl {
     }
   }
   goTo(page) {
-    this.$state.transitionTo(this.$state.current, angular.extend(this.$stateParams, { page: page.replace(/\.(md|html)$/, '') }), {
-      reload: false, inherit: true, notify: false
+    this.$state.transitionTo('main.content', angular.extend(this.$stateParams, { page: page.replace(/\.(md|html)$/, '') }), {
+      reload: false, inherit: true, notify: this.$state.current.name !== 'main.content'
     });
   }
   expandPathToPage(node, page) {

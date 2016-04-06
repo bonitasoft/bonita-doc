@@ -16,11 +16,11 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-right" role="search"> 
+      <form class="navbar-form navbar-right" role="search" ng-submit="headerCtrl.search(headerCtrl.searchRequest)"> 
          <div class="input-group"> 
-           <input type="text" class="form-control" placeholder="Search"> 
+           <input type="text" class="form-control" ng-model="headerCtrl.searchRequest" placeholder="Search"> 
            <span class="input-group-btn">
-             <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+             <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
            </span>
          </div> 
       </form> 

@@ -1,0 +1,30 @@
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 1,
+    "params": {
+      "hl.requireFieldMatch": "true",
+      "indent": "true",
+      "q": "solr",
+      "_": "1459977812268",
+      "hl.simple.pre": "<em>",
+      "hl.simple.post": "</em>",
+      "hl.fl": "text",
+      "hl.usePhraseHighlighter": "true",
+      "wt": "json",
+      "hl": "true"
+    }
+  },
+  "response": {
+    "numFound": 1,
+    "start": 0,
+    "docs": [
+      {
+        "title": [
+          "solr-word"
+        ],
+        "author": "Grant Ingersoll"
+      }
+    ]
+  }
+}

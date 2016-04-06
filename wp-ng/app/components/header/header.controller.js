@@ -1,15 +1,20 @@
 import angular from 'angular';
 
 export default class HeaderController {
-  constructor(versions, $stateParams, $state) {
-    this.versionList = versions.list;
-    this.selectedVersion = $stateParams.version || versions.defaultVersion;
+  constructor(properties, $stateParams, $state, $http) {
+    'ngInject';
+    this.versionList = properties.versionList;
+    this.selectedVersion = $stateParams.version || properties.defaultVersion;
     this.$state = $state;
     this.$stateParams = $stateParams;
+    this.$http = $http;
   }
   selectVersion(version) {
-    this.$state.transitionTo(this.$state.current, angular.extend(this.$stateParams, { version: version }), {
-      reload: true, inherit: false, notify: true
+    this.$state.transitionTo('main.content', angular.extend(this.$stateParams, { version: version }), {
+      reload: false, inherit: false, notify: true
     });
+  }
+  search(searchRequest) {
+    this.$state.go('main.content.search', {searchRequest: searchRequest, page: null});
   }
 }

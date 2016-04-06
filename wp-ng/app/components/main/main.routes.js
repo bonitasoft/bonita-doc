@@ -7,6 +7,8 @@ import 'components/navigation/navigation.scss';
 import 'components/main/main.html';
 import 'components/main/main.scss';
 import mainCtrl from 'components/main/main-controller';
+import SearchController from 'components/search/search.controller';
+import 'components/search/search.html';
 import 'components/content/content.html';
 import 'components/content/content.scss';
 import ContentCtrl from 'components/content/content-controller';
@@ -25,22 +27,22 @@ export default /*@ngInject*/ function($stateProvider, $urlRouterProvider) {
       },
     },
     resolve: {
-      versions: /*@ngInject*/ $http => $http.get('/versions.json').then(response => response.data)
+      properties: /*@ngInject*/ $http => $http.get('/properties.json').then(response => response.data)
     }
   }).state('main.content', {
     url: '',
     views: {
-      'header': {
+      'header@main': {
         templateUrl: '/components/header/header.html',
         controller: HeaderController,
         controllerAs: 'headerCtrl',
       },
-      'navigation': {
+      'navigation@main': {
         templateUrl: '/components/navigation/navigation.html',
         controller: NavigationController,
         controllerAs: 'navCtrl'
       },
-      'content': {
+      'content@main': {
         templateUrl: '/components/content/content.html',
         controller: ContentCtrl,
         controllerAs: 'contentCtrl'
@@ -48,6 +50,18 @@ export default /*@ngInject*/ function($stateProvider, $urlRouterProvider) {
     },
     resolve: {
       taxonomy: /*@ngInject*/ $http => $http.get('/taxonomy.json').then(response => response.data)
+    }
+  }).state('main.content.search', {
+    url: 'search?searchRequest',
+    views: {
+      'content@main': {
+        templateUrl: '/components/search/search.html',
+        controller: SearchController,
+        controllerAs: 'searchCtrl'
+      }
+    },
+    resolve: {
+      searchResults: /*@ngInject*/ ($http, $stateParams, properties) => $http.jsonp(properties.solrUrl + '&q=' + encodeURIComponent($stateParams.searchRequest), {jsonp: 'json.wrf'}).then(response => response.data).catch(response => response)
     }
   });
 }
