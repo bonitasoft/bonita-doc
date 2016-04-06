@@ -1,3 +1,7 @@
 import angular from 'angular';
 
-angular.module('directives', []);
+import TocGenerator from './toc.directive';
+
+export default angular.module('com.bonitasoft.documentation.directives', [])
+  .directive('tocGenerator', TocGenerator.createInstance)
+  .name;

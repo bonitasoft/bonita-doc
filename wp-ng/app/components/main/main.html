@@ -1,16 +1,6 @@
-<header>
-    <h1>{{mainCtrl.applicationName}}</h1>
-</header>
-<section>
-    <div class="image-container">
-        <img src="/images/yeoman.png">
+<div ng-click="mainCtrl.goto($event)" toc-generator>
+    <div class="col-xs-12 documentation-page">
+        <ng-include src="'html/widgets.html'">
+        </ng-include>
     </div>
-    <div class="text-container">
-        <h3>Angular ES6 Webpack Application</h3>
-        <p>With a little help from <a href="https://yeoman.io">Yeoman</a></p>
-    </div>
-    <div ng-click="mainCtrl.goto($event)">
-    <marked ng-include="'md/widgets.md'">
-    </marked>
-    </div>
-</section>
+</div>

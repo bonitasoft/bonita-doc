@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="bonita-doc">
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>bonita-doc</title>
     </head>
     <body>
-        <div ng-app="bonita-doc">
-           	<div ui-view></div>
+        <div ui-view="header"></div>
+        <div class="container">
+            <div class="col-md-3" ui-view="navigation"></div>
+            <div class="col-md-9" ui-view="content"></div>
         </div>
         <script src="http://localhost:9001/webpack-dev-server.js"></script>
         <script src="bundle.js"></script>

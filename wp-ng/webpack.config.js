@@ -30,8 +30,12 @@ module.exports = {
                 loaders: ['style', 'css?root=' + __dirname + '/app', 'autoprefixer-loader?browsers=last 2 versions', 'sass'],
             },
             {
-                test: /\.png$/,
+                test: /\.png($|\?)|\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/,
                 loader: 'file-loader'
+            },
+            { 
+                test: /\.css$/, 
+                loader: "style-loader!css-loader" 
             },
             {   
                 test: /\.md$/,

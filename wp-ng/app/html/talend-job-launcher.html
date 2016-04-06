@@ -1,0 +1,53 @@
+<h1>1.8.16 Talend Job launcher connector</h1>
+<p>The Talend Job launcher connector enables you to launch a Talend job that uses the Talend open source software.</p>
+<p>For example, you could initialize a process variable by running a job that retrieves information from a Talend data repository,
+or you could use process data to update a data repository by passing it as a job parameter.</p>
+<p>The job is defined in Talend Open Studio and is referenced by the project name, job name, and job version set when the job is created.</p>
+<p>The connector returns a buffer containing the output of the job, in a Java object. You can configure the connector to print the buffer automatically,
+or you can set the value of a variable with the buffer content.</p>
+<p>To prepare the job in Talend Open Studio:</p>
+<ol>
+<li>Create a project</li>
+<li>Create the job. Note the name and version.</li>
+<li>Export the job. This creates a zip file.</li>
+<li>Extract the following jar files from the zip file.</li>
+</ol>
+<ul>
+<li><code>systemRoutines.jar</code></li>
+<li><code>userRoutines.jar</code></li>
+<li><code>dom4j-1.6.1.jar</code></li>
+<li>your job jar file, <em><code>jobName_version</code></em><code>.jar</code></li>
+</ul>
+<ol start="5">
+<li>In Bonita BPM Studio, go to the <strong>Development</strong> menu, <strong>Manage jars</strong> option, and import the jar files listed above.</li>
+</ol>
+<p>When you <a href="/configuring-process-bonita-bpm-studio.md">configure a process</a> that uses this connector, you must add these jar files to the <strong>Process dependencies</strong>.</p>
+<p>To configure the Talend Job launcher connector, follow the steps in the wizard.</p>
+<p>Specify the job as follows:</p>
+<p>Input
+Description
+Type</p>
+<p>Project name
+The name of the Talend project.
+string</p>
+<p>Job name
+The name of the job.
+string</p>
+<p>Job version
+The version of the job.
+string</p>
+<p>Job parameters
+The parameters to pass to the job. Specify these either as a table of key-value pairs or as a <a href="#expression_example">Groovy expression</a>.
+string</p>
+<p>Print buffer output
+Whether you want to automatically print the content of the buffer returned by the job. Specify this either by checking the box or as an expression.
+Boolean</p>
+<p>When the connector runs in a process instance, it triggers the specified job in your Talend system, and retrieves the job output.</p>
+<h2>Expression example</h2>
+<p>If you provide job parameters as an expression, the Groovy script must return a <code>java.util.List&gt;</code> object, where the second List contains only two elements, the parameter name and value:</p>
+<ul>
+<li>The element with index 0 is the parameter name (<code>java.lang.String</code>).</li>
+<li>The element with index 1 is the parameter value (<code>java.lang.Object</code>).</li>
+</ul>
+<p>The following example Groovy script creates a list with two parameters, <code>nbline</code> and <code>name</code>, and their values:</p>
+<p><code>import java.util.List; import java.util.ArrayList; List&gt; listOfParameters = new ArrayList&gt;(); List</code></p>

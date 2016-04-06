@@ -1,0 +1,81 @@
+<h1>4 Development overview</h1>
+<p>You can use the Bonita BPM Engine APIs to customize or add to the Bonita BPM
+software. Typical developments are adding a connector, adding an actor filter,
+and replacing or supplementing a service.</p>
+<p>In this page:</p>
+<p><a href="#L363">Concepts</a><br>
+<a href="#L373">APIs</a><br>
+<a href="#L365">API access</a><br>
+<a href="#L832">Getting started</a></p>
+<h2>Concepts</h2>
+<h3>Session</h3>
+<p>This version of Bonita BPM introduces the concept of a <em>session</em>. A
+session is the context in which processing occurs, and is created when a user
+logs in to the Engine.</p>
+<p>The APIs remain available for the duration of a session.</p>
+<h3>User validation</h3>
+<p>This version of Bonita BPM introduces user validation: when a user name and
+password are sent to the Engine, it checks that the user exists in the current
+organization. If the user is not known, an error is thrown and processing
+stops.</p>
+<h2>APIs</h2>
+<p>Bonita BPM Engine has the following Java APIs:</p>
+<p>Identity API
+Manages information about an organization, that is, the set of users
+who can act in processes. Handles creation, modification, and deletion
+of organizations, groups, roles, memberships, and users.</p>
+<p>Organization API
+Import or export an organization.</p>
+<p>Process API
+Handles actions related to processes (deploy, enable, start, disable,
+delete), executes activities, updates process data, search for a
+retrieve process entities.</p>
+<p>Login API
+Logs in to the engine in a platform and creates a
+session.</p>
+<p>Monitoring API
+Retrieves information about current activity, such as the number of
+users logged in, or the number of processes currently being
+executed.</p>
+<p>Log API
+provides access to business logs, for searching and to retrieve
+information about current or archived processes.</p>
+<p>Platform command API
+Creates, starts, stops platform.</p>
+<p>Document API
+Manages documents that are attached to a process instance.</p>
+<p>Theme API
+Manages the Look &amp; Feel of the Bonita BPM Portal web and mobile interfaces and forms.</p>
+<p>Tenant Management API
+Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in Teamwork, Efficiency, and Performance editions.</p>
+<p>There is also a Web API, which is for internal use only, and a Command API,
+which is primarily for internal use.</p>
+<p>For details of the Engine APIs, the methods and related objects, see the
+<a href="/javadoc-71">Javadoc</a>.
+Note that the APIs are the same for the Teamwork, Efficiency, and Performance editions, but some features are only active if the appropriate license is installed.
+If you try to access a feature for which you do not have a license, a <em>Feature not active</em> error message is returned.</p>
+<p>There is also a high-level <a href="/rest-api-overview.md">Web REST API</a>, intended for customers developing portal applications.</p>
+<h2>API access</h2>
+<p>The Bonita BPM Engine APIs can be accessed locally or remotely, in the following
+modes:</p>
+<ul>
+<li>Local: the client accesses the server directly in local mode</li>
+<li>EJB3: the client accesses a remote server using EJB3 mode</li>
+<li>HTTP: the client accesses a remote server via HTTP</li>
+</ul>
+<p><img src="images/images-6_0/dev_overview_api_access.png" alt="Diagram of API access options"></p>
+<p>APi access methods</p>
+<p>The mode you use must be specified in the bonita-client-custom.properties file. By
+default, the access mode is local. This can be used when the client and engine
+are using the same JVM. The file contains commented out configurations for
+remote access modes. To change the mode, simply comment out the configuration
+for local and uncomment the relevant remote configuration.</p>
+<p>There is a slight overhead in using the remote access methods, so you are recommended to use local access whenever it is possible.</p>
+<h2>Getting started</h2>
+<p>All sequences of API calls start with logging in to create a session then
+using the AccessorUtil to retrieve the APIs that will be used in the
+application.</p>
+<p>The following example shows how to retrieve the LoginAPI, then use it to log
+in and create a session, then retrieve for Process API for that session.
+The tenantAPIAccessor is used on all systems, even though there is only a single tenant.</p>
+<p><code>final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI(); APISession session = loginAPI.login(userName, password); ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);</code></p>

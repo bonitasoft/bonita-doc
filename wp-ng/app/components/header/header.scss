@@ -1,0 +1,17 @@
+.navbar-brand {
+  padding: 3px;
+}
+.navbar-default {
+  background-color: #035;
+
+  a#version.dropdown-toggle {
+    background-color: #D03;
+    color:white;
+    &:hover {
+      color:grey;
+    }
+  }
+}
+.navbar-form .btn {
+   padding: 6px 12px 7px 12px;
+}

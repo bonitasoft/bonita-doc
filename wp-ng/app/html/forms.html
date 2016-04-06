@@ -1,0 +1,18 @@
+<h1>3.5.3 Forms</h1>
+<p>This page explains how to add a form resource to the Portal and make it available to users. Form resources are intended for use in applications.</p>
+<p><strong><a href="#form_definition">Form definition</a></strong></p>
+<p>Pages are <a href="/resources-management">exported. imported, modified, and deleted</a> as resources in Bonita BPM Portal.</p>
+<h2>Form definition</h2>
+<p>A form is a <a href="/pages">page</a> that belongs to a process. It could be a process instantiation form, a human task form, or an overview form. There are some extra things to consider when you are creating a form compared with an ordinary page, concerning how data is passed between the process instance and the form.</p>
+<p>A <a href="/contracts-and-contexts.md#context">context</a> is the set of data provided by the process instance or task instance to the form.
+There is no context for a process instantiation form.</p>
+<p>A <a href="/contracts-and-contexts.md">contract</a> is the definition of that data that the form returns to the process instance. There is no contract for an overview form.</p>
+<p>Three auto-generated forms are provided by default, for process instantiation, for human task execution, and for the case overview.</p>
+<p>The process instantiation and step execution auto-generated forms are based on the relevant contract and they are a useful tool for testing and debugging your application.</p>
+<p>The overview consists of three main sections:</p>
+<ul>
+<li>List of business data: it shows the content of the business variables used by the case.</li>
+<li>List of documents: it shows the content of each document used by the case.</li>
+<li>Timeline: it shows in chronological order information about all the actions that have been performed in the selected case.</li>
+</ul>
+<p>You can see how to manage the link between process and and form in the documenation about <a href="/live-update#forms">live update</a></p>

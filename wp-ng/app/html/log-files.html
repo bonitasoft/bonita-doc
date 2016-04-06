@@ -1,0 +1,28 @@
+<h1>1.13.4 Log files</h1>
+<p>During development, the Studio log file and UI designer log file contain messages about development activities, including any errors.
+When you run a process for testing, messages are written to the Engine log file.</p>
+<p>From the Bonita BPM Studio Help menu you can access the Studio log file
+and the Engine log file. The UI designer log file is available in var_bh_code_replace<code>/tomcat/logs/ui-designer.log</code>, but it is not accessible from the Studio Help menu.</p>
+<p>See the <a href="/logging.md">Logging overview</a> for details of how logging is implemented in Bonita BPM and how to add logging to Groovy scripts or Java code that you add to a process</p>
+<h2>Studio log file</h2>
+<p>To access the Studio log file, choose <strong>Bonita BPM Studio log</strong> from the <strong>Help</strong> menu.</p>
+<p>For Bonita BPM Studio, you can set the level of logging. Edit the <code>config.ini</code> in the Studio root/configuration/ directory and set the value of
+eclipse.log.level to ERROR, WARNING, INFO, or ALL.</p>
+<p>ERROR
+Only error messages are logged</p>
+<p>WARNING
+Only error and warning messages are logged</p>
+<p>INFO
+Error, warning, and Info message are logged (this is the default)</p>
+<p>ALL
+All messages are logged, including debug information</p>
+<h2>Engine log file</h2>
+<p>When you run a process locally from Bonita BPM Studio for testing, you can access the Engine log file by choosing <strong>Bonita BPM Engine log</strong> from the <strong>Help</strong> menu.
+The logging level for Engine when it is started from Studio is always <code>INFO</code>.</p>
+<p>On a deployed system, you can configure the log level and you can access the log files directly, in <em>BONITA_HOME</em>/tomcat/logs.
+Each file name includes the date when the file was created. There are several log files:</p>
+<ul>
+<li><em>bonita.date</em>.log is the Bonita BPM Engine log file.</li>
+<li><em>catalina.date</em>.log is the log file for the Tomcat application server used by Bonita BPM Studio.</li>
+<li><em>host-manager.date</em>.log, <em>localhost.date</em>.log, and <em>manager.date</em>.log are internal Tomcat log files.</li>
+</ul>

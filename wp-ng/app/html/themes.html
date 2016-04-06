@@ -1,0 +1,24 @@
+<h1>3.5.5 Themes</h1>
+<p>This page explains how to create a theme and add it to the Portal.</p>
+<p>A theme is an archive of files used to define and share CSS definitions and images for an application.
+It enables you to specify the same style for all pages and layout of an application.
+Each application can have its own theme.</p>
+<p>There are some examples of themes in the portal.</p>
+<p>A theme is <a href="/resources-management">exported, imported, modified, and deleted</a> as a resource in Bonita BPM Portal. You specify the <a href="/applications.md#theme">theme for an application</a> in Bonita BPM Portal.</p>
+<p><strong><a href="#theme_definition">Theme definition</a></strong></p>
+<p><strong><a href="#constraints">Constraints</a></strong></p>
+<h2>Theme definition</h2>
+<p>A theme is imported as a zip archive containing a <code>page.properties</code> file and a <code>resources</code> folder.</p>
+<ul>
+<li>The <code>page.properties</code> file contains the metadata for the theme (the name used in the URL, the display name, and a description). For example:</li>
+</ul>
+<p><code>name=custompage_defaulttheme displayName=Default theme description=Application theme based on Bootstrap &quot;Simplex&quot; theme (see http://bootswatch.com/simplex/) contentType=theme</code></p>
+<ul>
+<li>The <code>resources</code> folder must contain at least an <code>index.html</code> file and a CSS file named <code>theme.css</code>. The index file must be present in the zip but is ignored, so can be empty.</li>
+</ul>
+<p>Any CSS, images or JavaScript files can be shared using a theme resource.</p>
+<p><a href="#export">Export the examples</a> to see how to structure a theme.</p>
+<p>The default themes are based on the <a href="https://bootswatch.com/">bootswatch example</a>, so you can easily choose another existing theme and package it to define a new theme.</p>
+<p>It is also possible to customize your own theme using <a href="http://bootstrap-live-customizer.com/">bootstrap-live-customizer</a> or <a href="http://getbootstrap.com/customize/">bootstrap basic customization tool</a>.</p>
+<h2>Constraints</h2>
+<p>A theme can only be associated with an application to define the style. It cannot itself be used as a simple application page.</p>

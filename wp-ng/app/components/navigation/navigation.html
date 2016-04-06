@@ -1,0 +1,11 @@
+<div ng-repeat="node in navCtrl.data">
+  <ng-include src="'navigation/item.html'"></ng-include>
+</div>
+<script type="text/ng-template" id="navigation/item.html">
+  <a href="" ng-click="node.isExpanded= !node.isExpanded">{{ node.title }}</a>
+  <div uib-collapse="!node.isExpanded">
+    <div ng-repeat="node in node.data">
+      <ng-include src="'navigation/item.html'"></ng-include>
+    </div>
+  </div>
+</script>
