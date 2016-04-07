@@ -1,5 +1,5 @@
 {
   "defaultVersion": "7.3",
   "versionList": ["7.3", "7.2"],
-  "solrUrl": "http://localhost:8983/solr/tika/select?wt=json&indent=true&hl=true&hl.fl=text&hl.simple.pre=%3Cem%3E&hl.simple.post=%3C%2Fem%3E&hl.requireFieldMatch=true&hl.usePhraseHighlighter=true"
+  "solrUrl": "http://localhost:8983/solr/bonita/select?wt=json&hl=true&hl.fl=content&hl.simple.pre=%3Cem%3E&hl.simple.post=%3C%2Fem%3E&hl.requireFieldMatch=true&hl.usePhraseHighlighter=true&hl.snippets=3&hl.fragsize=100&hl.mergeContiguous=true"
 }

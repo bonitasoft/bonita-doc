@@ -61,7 +61,7 @@ export default /*@ngInject*/ function($stateProvider, $urlRouterProvider) {
       }
     },
     resolve: {
-      searchResults: /*@ngInject*/ ($http, $stateParams, properties) => $http.jsonp(properties.solrUrl + '&q=' + encodeURIComponent($stateParams.searchRequest), {jsonp: 'json.wrf'}).then(response => response.data).catch(response => response)
+      searchResults: /*@ngInject*/ ($http, $stateParams, properties) => $http.get(properties.solrUrl + '&q=' + encodeURIComponent($stateParams.searchRequest)).then(response => response.data).catch(response => response)
     }
   });
 }
