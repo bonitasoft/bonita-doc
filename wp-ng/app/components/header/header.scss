@@ -17,6 +17,9 @@
         color:grey;
       }
     }
+    &.open > a.version {
+      color:grey;
+    }
   }
 }
 .navbar-form .btn {

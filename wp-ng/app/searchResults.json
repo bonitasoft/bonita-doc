@@ -20,11 +20,14 @@
     "start": 0,
     "docs": [
       {
-        "title": [
-          "solr-word"
-        ],
+        "name": "solr-word",
         "author": "Grant Ingersoll"
       }
-    ]
+    ],
+    "highlighting": {
+      "solr-word": {
+        "content": ["pouetpouet"]
+      }
+    }
   }
 }

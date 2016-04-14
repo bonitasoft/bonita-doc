@@ -17,9 +17,12 @@
     }
   }
   .text-danger {
-    a {
+    a, .fa.fa-circle-o {
       color: #d03
     }
     font-weight: bold;
+  }
+  .fa.fa-circle-o {
+    font-size: 0.8em;
   }
 }

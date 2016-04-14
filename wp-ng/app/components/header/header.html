@@ -13,20 +13,18 @@
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
-          <img alt="Bonitasoft" src="http://doc.preprod.bonitasoft.net/sites/docs.bonitasoft.com/themes/bonita_doc3/images/logo_white.png">
+          <img alt="Bonitasoft" src="http://documentation.bonitasoft.com/sites/docs.bonitasoft.com/files/../../../sites/docs.bonitasoft.com/themes/bonita_doc3/images/logo_white.png">
         </a>
       </div>
       <ul class="nav navbar-nav">
         <li ng-class="{active: version.name === headerCtrl.selectedVersion}" ng-repeat="version in headerCtrl.supportedVersionList">
           <a class="version" ui-sref="main.content({version: version.name})" ng-if="version.state">{{version.name}}</a>
-          <a class="version" ng-href="{{ 'http://documentation.bonitasoft.com/version/' + version.url}}" ng-if="version.url">{{version.name}}</a>
+          <a ng-click="headerCtrl.goToFormerDocumentationSite(version.url)" href=""class="version" ng-if="version.url">{{version.name}}</a>
         </li>
         <li class="dropdown" uib-dropdown>
-        <a class="version" href="#" class="dropdown-toggle" uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">Other <span class="caret"></span></a>
+        <a class="version" href="#" class="dropdown-toggle" uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">Older versions <span class="caret"></span></a>
           <ul class="dropdown-menu" uib-dropdown-menu>
-            <li role="menuitem" ng-repeat="version in headerCtrl.unsupportedVersionList"><a ng-href="{{ 'http://documentation.bonitasoft.com/version/' + version.url }}">{{ version.name }}</a></li>
-            <li class="divider"></li>
-            <li role="menuitem"><a href="http://doc.preprod.bonitasoft.net/">Older versions</a></li>
+            <li role="menuitem" ng-repeat="version in headerCtrl.unsupportedVersionList"><a ng-click="headerCtrl.goToFormerDocumentationSite(version.url)" href="">{{ version.name }}</a></li>
           </ul>
         </li>
       </ul>
