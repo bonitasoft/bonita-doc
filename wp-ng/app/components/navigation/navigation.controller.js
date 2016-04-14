@@ -1,4 +1,4 @@
-import angular from 'angular';
+import _ from 'lodash';
 
 export default class NavigationCtrl {
   constructor(taxonomy, $stateParams, properties, $state) {
@@ -11,7 +11,7 @@ export default class NavigationCtrl {
     }
   }
   goTo(page) {
-    this.$state.transitionTo('main.content', angular.extend(this.$stateParams, { page: page.replace(/\.(md|html)$/, '') }), {
+    this.$state.transitionTo('main.content', _.extend(this.$stateParams, { page: page.replace(/\.(md|html)$/, '') }), {
       reload: false, inherit: true, notify: this.$state.current.name !== 'main.content'
     });
   }
