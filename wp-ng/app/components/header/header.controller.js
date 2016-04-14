@@ -3,7 +3,8 @@ import angular from 'angular';
 export default class HeaderController {
   constructor(properties, $stateParams, $state, $http) {
     'ngInject';
-    this.versionList = properties.versionList;
+    this.supportedVersionList = properties.supportedVersionList.filter((item, index) => index < 5);
+    this.unsupportedVersionList = properties.supportedVersionList.filter((item, index) => index >= 5);
     this.selectedVersion = $stateParams.version || properties.defaultVersion;
     this.$state = $state;
     this.$stateParams = $stateParams;

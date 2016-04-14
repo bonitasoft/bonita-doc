@@ -33,7 +33,7 @@ gulp.task("webpack-dev-server", function(callback) {
 		stats: {
 			colors: true
 		}
-	}).listen(9001, "localhost", function(err) {
+	}).listen(9001, "0.0.0.0", function(err) {
 		if(err) throw new gutil.PluginError("webpack-dev-server", err);
 		gutil.log("[webpack-dev-server]", "http://127.0.0.1:9001");
 	});

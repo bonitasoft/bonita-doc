@@ -10,6 +10,8 @@
     "angular-ui-tree": "2.14.0",
     "bootstrap-sass": "3.3.6",
     "css-loader": "0.21.0",
+    "font-awesome": "4.5.0",
+    "font-awesome-webpack": "0.0.4",
     "himalaya": "0.2.0",
     "jquery": "^2.1.4",
     "markdown-it": "6.0.1",

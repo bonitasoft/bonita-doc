@@ -1,5 +1,5 @@
 {
   "defaultVersion": "7.3",
-  "versionList": ["7.3", "7.2"],
+  "supportedVersionList": [{"name": "7.3", "state": "73"}, {"name": "7.2", "url":"72"}, {"name": "7.1", "url":"71"}, {"name": "7.0", "url": "70"},{"name": "6.4", "url":"64"}, {"name": "6.3", "url":"63"}, {"name":"6.2", "url":"62"}, {"name": "6.1", "url": "61"}],
   "solrUrl": "http://localhost:8983/solr/bonita/select?wt=json&hl=true&hl.fl=content&hl.simple.pre=%3Cem%3E&hl.simple.post=%3C%2Fem%3E&hl.requireFieldMatch=true&hl.usePhraseHighlighter=true&hl.snippets=3&hl.fragsize=100&hl.mergeContiguous=true"
 }

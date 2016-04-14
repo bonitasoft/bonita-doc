@@ -1,5 +1,5 @@
 <h3>Search results for <i>{{ searchCtrl.searchRequest }}</i></h3>
-<div class="media" ng-repeat="result in searchCtrl.results">
+<div class="documentation-search media" ng-repeat="result in searchCtrl.results">
   <div class="media-body">
     <h4 class="media-heading"><a ui-sref="main.content({page: result.page})" href="">{{ result.page }}</a></h4>
     <div ng-bind-html="result.summary"></div> 

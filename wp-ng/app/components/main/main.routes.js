@@ -7,6 +7,7 @@ import 'components/navigation/navigation.scss';
 import 'components/main/main.html';
 import 'components/main/main.scss';
 import mainCtrl from 'components/main/main-controller';
+import 'components/search/search.scss';
 import SearchController from 'components/search/search.controller';
 import 'components/search/search.html';
 import 'components/content/content.html';

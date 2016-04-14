@@ -9,8 +9,15 @@ body {
 .list-group {
   max-width: 450px;
   padding-top: 20px;
+  .list-group-item {
+    &.toc-h2, &.toc-h3 {
+      padding: 3px 15px;
+    }
+  }
   .toc-h3 > a {
     margin-left: 15px;
-    font-size: 0.9em;
   }
+}
+.content--noPaddingRight {
+  padding-right: 0px;
 }

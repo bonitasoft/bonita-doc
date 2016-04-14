@@ -6,7 +6,7 @@
 </div>
 <script type="text/ng-template" id="navigation/item.html">
   <div ng-if="!node.children || !node.children.length" ng-class="{'text-danger': navCtrl.isPageCurrentlyDisplayed(node.href)}">
-    <span class="glyphicon glyphicon-tag"></span>
+    <i class="fa fa-circle-o" aria-hidden="true"></i>
     <a href="" ng-click="navCtrl.goTo(node.href)">{{ node.name }}</a>
   </div>
   <div ng-if="node.children && node.children.length" ng-click="node.isExpanded=!node.isExpanded">

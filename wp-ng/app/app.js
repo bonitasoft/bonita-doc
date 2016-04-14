@@ -8,11 +8,10 @@ import directives from 'directives/directives';
 
 import 'bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 import uiBootstrap from 'angular-ui-bootstrap';
-import uiTree from 'angular-ui-tree';
-import 'angular-ui-tree/dist/angular-ui-tree.css';
+import 'font-awesome/scss/font-awesome.scss';
 
 import mainRoutes from 'components/main/main.routes';
 
-angular.module('bonita-doc', ['ui.router', 'services', directives, 'ngSanitize', uiBootstrap, uiTree])
+angular.module('bonita-doc', ['ui.router', 'services', directives, 'ngSanitize', uiBootstrap])
 
 .config(mainRoutes);
