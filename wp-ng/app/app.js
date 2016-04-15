@@ -3,7 +3,7 @@ import angular from 'angular';
 import 'angular-ui-router';
 import 'angular-sanitize';
 
-import 'services/services';
+import services from 'services/services';
 import directives from 'directives/directives';
 
 import 'bootstrap-sass/assets/stylesheets/_bootstrap.scss';
@@ -12,6 +12,7 @@ import 'font-awesome/scss/font-awesome.scss';
 
 import mainRoutes from 'components/main/main.routes';
 
-angular.module('bonita-doc', ['ui.router', 'services', directives, 'ngSanitize', uiBootstrap])
+angular.module('bonita-doc', ['ui.router', services, directives, 'ngSanitize', uiBootstrap])
 
-.config(mainRoutes);
+.config(mainRoutes)
+.config($locationProvider => $locationProvider.html5Mode(true).hashPrefix('!'));

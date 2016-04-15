@@ -16,6 +16,7 @@
     "jquery": "^2.1.4",
     "lodash": "4.11.1",
     "markdown-it": "6.0.1",
+    "qs": "6.1.0",
     "toc": "github:jgallen23/toc",
     "xmldom": "0.1.22",
     "xpath": "0.0.22"

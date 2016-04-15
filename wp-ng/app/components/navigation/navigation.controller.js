@@ -12,7 +12,7 @@ export default class NavigationCtrl {
   }
   goTo(page) {
     this.$state.transitionTo('main.content', _.extend(this.$stateParams, { page: page.replace(/\.(md|html)$/, '') }), {
-      reload: false, inherit: true, notify: this.$state.current.name !== 'main.content'
+      reload: 'main.content', inherit: false, notify: this.$state.current.name !== 'main.content'
     });
   }
   expandPathToPage(node, page) {

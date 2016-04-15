@@ -28,7 +28,8 @@ export default /*@ngInject*/ function($stateProvider, $urlRouterProvider) {
       },
     },
     resolve: {
-      properties: /*@ngInject*/ $http => $http.get('/properties.json').then(response => response.data)
+      properties: /*@ngInject*/ $http => $http.get('/properties.json').then(response => response.data),
+      taxonomy: /*@ngInject*/ $http => $http.get('/taxonomy.json').then(response => response.data)
     }
   }).state('main.content', {
     url: '',
@@ -48,12 +49,9 @@ export default /*@ngInject*/ function($stateProvider, $urlRouterProvider) {
         controller: ContentCtrl,
         controllerAs: 'contentCtrl'
       }
-    },
-    resolve: {
-      taxonomy: /*@ngInject*/ $http => $http.get('/taxonomy.json').then(response => response.data)
     }
   }).state('main.content.search', {
-    url: 'search?searchRequest',
+    url: 'search?searchRequest&start&pageSize',
     views: {
       'content@main': {
         templateUrl: '/components/search/search.html',
@@ -62,7 +60,7 @@ export default /*@ngInject*/ function($stateProvider, $urlRouterProvider) {
       }
     },
     resolve: {
-      searchResults: /*@ngInject*/ ($http, $stateParams, properties) => $http.get(properties.solrUrl + '&q=' + encodeURIComponent($stateParams.searchRequest)).then(response => response.data).catch(response => response)
+      searchResults: /*@ngInject*/ (searchService, $stateParams, properties) => searchService.search(properties, $stateParams.searchRequest, $stateParams.start, $stateParams.pageSize)
     }
   });
 }

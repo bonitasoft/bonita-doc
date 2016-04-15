@@ -27,10 +27,9 @@ export default class HeaderController {
         You will be redirected to the former documentation site
        </div>
        <div class="modal-footer ng-scope">
-            <button class="btn btn-primary" type="button" ng-click="$close()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="$dismiss()">Cancel</button>
-        </div> `,
-      size: 'sm'
+            <button class="btn btn-primary" type="button" ng-click="$close()">Go !</button>
+            <button class="btn btn-default" type="button" ng-click="$dismiss()">Nah...</button>
+        </div> `
     }).result.then(() => this.window.location = 'http://documentation.bonitasoft.com/version/' + versionFragment);
   }
 }

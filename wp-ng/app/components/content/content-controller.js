@@ -15,9 +15,9 @@ export default class ContentController {
         $event.preventDefault();
         return false;
       }
-      console.log($event.target);
-      if ($event.target.hash.match(/^[#]/)) {
-        this.$state.transitionTo(this.$state.current, angular.extend(this.$stateParams, { page: '' }), {
+      console.log($event.target.attributes.href);
+      if ($event.target.attributes && $event.target.attributes.href && $event.target.attributes.href.value && $event.target.attributes.href.value.match(/^\//)) {
+        this.$state.transitionTo(this.$state.current, angular.extend(this.$stateParams, { page: $event.target.attributes.href.value.replace(/^\/(.*)\.md$/, '$1') }), {
           reload: true, inherit: false, notify: true
         });
       }
