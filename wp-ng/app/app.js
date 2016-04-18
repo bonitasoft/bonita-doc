@@ -15,4 +15,4 @@ import mainRoutes from 'components/main/main.routes';
 angular.module('bonita-doc', ['ui.router', services, directives, 'ngSanitize', uiBootstrap])
 
 .config(mainRoutes)
-.config($locationProvider => $locationProvider.html5Mode(true).hashPrefix('!'));
+.config(/*@ngInject*/ $locationProvider => $locationProvider.html5Mode(true).hashPrefix('!'));

@@ -2,7 +2,7 @@
 <div class="documentation-search">
   <div class="media" ng-repeat="result in searchCtrl.results">
     <div class="media-body">
-      <h4 class="media-heading"><a ui-sref="main.content({page: result.page})" href="">{{ result.page }}</a></h4>
+      <h4 class="media-heading"><a ui-sref="main.content({page: result.page})" ui-sref-opts="{ reload: 'main.content', inherit: false, notify: true }" href="">{{ result.page }}</a></h4>
       <div ng-bind-html="result.summary"></div> 
     </div>
   </div>

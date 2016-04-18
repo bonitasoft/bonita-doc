@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import 'components/header/header.html';
 import HeaderController from 'components/header/header.controller';
 import 'components/header/header.scss';
@@ -29,7 +31,14 @@ export default /*@ngInject*/ function($stateProvider, $urlRouterProvider) {
     },
     resolve: {
       properties: /*@ngInject*/ $http => $http.get('/properties.json').then(response => response.data),
-      taxonomy: /*@ngInject*/ $http => $http.get('/taxonomy.json').then(response => response.data)
+      taxonomy: /*@ngInject*/ $http => $http.get('/taxonomy.json').then(response => response.data),
+      currentVersion: /*ngInject*/ (properties, $stateParams) => {
+        if($stateParams.version) {
+          return _.find(properties.supportedVersionList, version => version.name === $stateParams.version);
+        } else {
+          return _.first(properties.supportedVersionList);
+        }
+      }
     }
   }).state('main.content', {
     url: '',

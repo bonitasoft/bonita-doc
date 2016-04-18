@@ -2,6 +2,7 @@ import _ from 'lodash';
 
 export default class SearchController {
   constructor(searchResults, $stateParams, $state, properties) {
+    'ngInject';
     this.pageSize = 10;
     this.searchRequest = $stateParams.searchRequest;
     this.updateSearchParams(searchResults);
