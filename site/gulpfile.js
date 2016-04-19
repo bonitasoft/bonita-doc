@@ -21,7 +21,6 @@ var knownOptions = {
 
 var options = minimist(process.argv.slice(2), knownOptions);
 
-var versionMajorMinor = fs.readFileSync(__dirname + '/VERSION');
 var gitHash = '';
 
 gulp.task('webpack-dev-server', function(callback) {

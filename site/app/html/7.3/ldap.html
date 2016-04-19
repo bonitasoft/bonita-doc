@@ -1,74 +1,78 @@
-<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>LDAP connector</title></head><body class="front">
-		<div id="content">
-	<h1>1.8.8 LDAP connector</h1>
-    <p>The LDAP connector searches in an LDAP directory and returns a list.</p>
-
+<h1>1.8.8 LDAP connector</h1>
+<p>The LDAP connector searches in an LDAP directory and returns a list.</p>
 <p>Configuring an LDAP connector with the wizard:</p>
-
-<ol><li>In the <strong>General</strong> screen:
-    <ul><li>Enter a name and description for the connector. </li>
-    <li>Specify whether the connector runs at the start or the end of the step.</li>
-	<li>Specify the behavior if the connector fails.</li>
-    <li>Click <strong><em>Next</em></strong>.</li></ul></li>
-	
-<li>Specify the LDAP server information:<br><table border="1" cellpadding="" width="100%" cellspacing=""><tr><th>Input</th>
-	<th>Description</th>
-	<th>Type</th>
-</tr><tr><td>Host</td>
-	<td>IP address or name of server hosting LDAP directory</td>
-	<td>string</td>
-</tr><tr><td>Port</td>
-	<td>LDAP directory port number</td>
-	<td>number</td>
-</tr><tr><td>Protocol</td>
-	<td>LDAP directory port number</td>
-	<td>select</td>
-</tr><tr><td>user</td>
-	<td>LDAP user name</td>
-	<td>string</td>
-</tr><tr><td>password</td>
-	<td>LDAP user password</td>
-	<td>string</td>
-</tr></table><p>Then click <strong><em>Next</em></strong>.</p></li>
-
-
-<li>Specify the search criteria:
-
-<table border="1" cellpadding="" width="100%" cellspacing=""><tr><th>Input</th>
-	<th>Description</th>
-	<th>Type</th>
-</tr><tr><td>Base DN</td>
-	<td>the Distinguished Name at which to start search</td>
-	<td>string</td>
-</tr><tr><td>Filter</td>
-	<td>specify a subset, e.g. (&amp;(objectClass=person)(givenname=John))</td>
-	<td>string in accordance with LDAP syntax</td>
-</tr><tr><td>Attributes</td>
-	<td>define attributes to return in result entries using LDAP syntax</td>
-	<td>string of strings separated by &quot;,&quot;</td>
-</tr><tr><td>Scope</td>
-	<td><ul><li>subtree: entire subtree starting as the base DN</li>
-	        <li>one level: entries immediately below the base DN</li>
-			<li>base: search just the named entry</li></ul></td>
-	<td>select</td>
-</tr><tr><td>Size limit</td>
-	<td>maximum number of entries to return</td>
-	<td>number</td>
-</tr><tr><td>Time limit (in seconds)</td>
-	<td>maximum time to allow search to run</td>
-	<td>number</td>
-</tr><tr><td>Referral handling</td>
-	<td>ignore or follow referrals</td>
-	<td>select</td>
-</tr><tr><td>Alias dereferencing</td>
-	<td><ul><li>always: always dereference aliases</li>
-	        <li>searching: dereference aliases only after name resolution</li>
-			<li>never: never dereference aliases</li>
-			<li>finding: dereference aliases only during name resolution</li></ul></td>
-	<td>select</td>
-</tr></table>
-Then click <strong><em>Next</em></strong>.</li>
+<ol>
+<li>In the <strong>General</strong> screen:</li>
+</ol>
+<ul>
+<li>Enter a name and description for the connector.</li>
+<li>Specify whether the connector runs at the start or the end of the step.</li>
+<li>Specify the behavior if the connector fails.</li>
+<li>Click <strong><em>Next</em></strong>.</li>
+</ul>
+<ol start="2">
+<li>Specify the LDAP server information:<br>
+Input
+Description
+Type</li>
+</ol>
+<p>Host
+IP address or name of server hosting LDAP directory
+string</p>
+<p>Port
+LDAP directory port number
+number</p>
+<p>Protocol
+LDAP directory port number
+select</p>
+<p>user
+LDAP user name
+string</p>
+<p>password
+LDAP user password
+string</p>
+<p>Then click <strong><em>Next</em></strong>.</p>
+<ol start="3">
+<li>Specify the search criteria:</li>
+</ol>
+<p>Input
+Description
+Type</p>
+<p>Base DN
+the Distinguished Name at which to start search
+string</p>
+<p>Filter
+specify a subset, e.g. (&amp;(objectClass=person)(givenname=John))
+string in accordance with LDAP syntax</p>
+<p>Attributes
+define attributes to return in result entries using LDAP syntax
+string of strings separated by &quot;,&quot;</p>
+<p>Scope</p>
+<ul>
+<li>subtree: entire subtree starting as the base DN</li>
+<li>one level: entries immediately below the base DN</li>
+<li>base: search just the named entry
+select</li>
+</ul>
+<p>Size limit
+maximum number of entries to return
+number</p>
+<p>Time limit (in seconds)
+maximum time to allow search to run
+number</p>
+<p>Referral handling
+ignore or follow referrals
+select</p>
+<p>Alias dereferencing</p>
+<ul>
+<li>always: always dereference aliases</li>
+<li>searching: dereference aliases only after name resolution</li>
+<li>never: never dereference aliases</li>
+<li>finding: dereference aliases only during name resolution
+select</li>
+</ul>
+<p>Then click <strong><em>Next</em></strong>.</p>
+<ol start="4">
 <li>Specify the output operations. The connector returns a list object.</li>
 <li>Click <strong><em>Finish</em></strong>.</li>
-</ol></div>
-	</body></html>
+</ol>

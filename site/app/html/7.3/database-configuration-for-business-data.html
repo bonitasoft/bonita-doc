@@ -1,125 +1,111 @@
-<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Database configuration for business data</title></head><body class="front">
-		<div id="content">
-	<h1>2.3.6 Database configuration for business data</h1>
-    <h2>Configuration overview</h2>
-
-
-<p>If you are using <a href="/define-and-deploy-the-bdm.html">business data</a>, the business objects used in your processes are stored using a separate database, not in the main database that is used by the Bonita BPM Engine. 
+<h1>2.3.6 Database configuration for business data</h1>
+<h2>Configuration overview</h2>
+<p>If you are using <a href="/business-data-model-856">business data</a>, the business objects used in your processes are stored using a separate database, not in the main database that is used by the Bonita BPM Engine.
 You need to configure the following:</p>
-<ul><li>A database created in a <a href="https://customer.bonitasoft.com/support-policies">supported RDBMS</a></li>
+<ul>
+<li>A database created in a <a href="var_support_guide">supported RDBMS</a></li>
 <li>JNDI data sources to access the database</li>
-</ul><p>Note that configuration is done per tenant. If you have multiple tenants to configure, you need to apply instructions below individually to each tenant.</p>
-
+</ul>
+<p>Note that configuration is done per tenant. If you have multiple tenants to configure, you need to apply instructions below individually to each tenant.</p>
 <h2>Database creation</h2>
 <p>In your RDBMS, create a database to be used to store business object. Do not reuse the Bonita BPM Engine database.</p>
 <p>Configure the database to use the UTF-8 character set.</p>
 <p>In your RDBMS, make sure there is a user defined with privileges to create tables and query them.</p>
-
 <p>Edit <code>bonita/engine-server/conf/tenants/</code><em><code>tenant-id</code></em><code>/bonita-tenant-community-custom.properties</code> for each tenant and set the <code>bdm.db.vendor</code> property to indicate the RDBMS vendor.
 The possible values for <code>bdm.db.vendor</code> are:</p>
-
-	<table border="2"><tr><th>Database vendor</th>
-			<th>Property value</th>
-		</tr><tr><td>PostgreSQL</td>
-			<td>postgres</td>
-		</tr><tr><td>Oracle database</td>
-			<td>oracle</td>
-		</tr><tr><td>SQL Server</td>
-			<td>sqlserver</td>
-		</tr><tr><td>MySQL</td>
-			<td>mysql</td>
-		</tr><tr><td>h2 (default for testing, not for production)</td>
-			<td>h2</td>
-		</tr></table><br><p>Setting the RDBMS vendor automatically configures the relevant Hibernate dialog. 
+<p>Database vendor
+Property value</p>
+<p>PostgreSQL
+postgres</p>
+<p>Oracle database
+oracle</p>
+<p>SQL Server
+sqlserver</p>
+<p>MySQL
+mysql</p>
+<p>h2 (default for testing, not for production)
+h2</p>
+<p>Setting the RDBMS vendor automatically configures the relevant Hibernate dialog.
 If you need to change the Hibernate dialog for any reason, reset the vendor property for the tenant.</p>
-
-
-<p>If you want to use a PostgreSQL database and it is already running, edit <code>postgresql.conf</code> and set a non-zero value for <code>max_prepared_transactions</code>. 
-The default value, 0, disables prepared transactions, which is not recommended for Bonita BPM Engine. 
-The value should be at least as large as the value set for <code>max_connections</code> (default is typically 100). 
+<p>If you want to use a PostgreSQL database and it is already running, edit <code>postgresql.conf</code> and set a non-zero value for <code>max_prepared_transactions</code>.
+The default value, 0, disables prepared transactions, which is not recommended for Bonita BPM Engine.
+The value should be at least as large as the value set for <code>max_connections</code> (default is typically 100).
 See the <a href="http://www.postgresql.org/docs/9.3/static/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS">PostgreSQL documentation</a> for details.</p>
-
 <p>For remaining configuration steps, you will need the following information:</p>
-<ul><li>RDBMS server address</li>
+<ul>
+<li>RDBMS server address</li>
 <li>RDBMS server port</li>
 <li>Database name</li>
 <li>User name</li>
 <li>User password</li>
-</ul><h2>Data sources</h2>
-
-
+</ul>
+<h2>Data sources</h2>
 <p>For business data objects, you need to configure two data sources: <code>BusinessDataDS</code> and <code>NotManagedBizDataDS</code>. Two data sources are required because some RDBMS do not support use of transactions for table creation.
-The data sources for business data objects are independent of the Bonita BPM Engine data sources (<code>bonitaDS</code> and <code>bonitaSequenceManagerDS</code>).
-</p>
-
-<div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong> 
-If you have multiple tenants that use business data objects, you need to create a <code>BusinessDataDS</code> and a <code>NotManagedBizDataDS</code> for each tenant.</div>
-
-
-<p>The following sections show how to configuire the data sources for <a href="#ds_jboss">JBoss</a> and <a href="#ds_tomcat">Tomcat</a>. 
-There is also an <a href="/red-hat-oracle-jvm-weblogic-oracle.html#datasources">example of how to configure data sources for Weblogic</a>.</p>	
-
-<h3 id="ds_jboss">Configuration for JBoss</h3>
-
-
-<p>Edit the <code><jboss_home>/standalone/configuration/standalone.xml</jboss_home></code> configuration file and find the <code>BusinessDataDS</code> and <code>NotManagedBizDataDS</code> data sources definitions. 
+The data sources for business data objects are independent of the Bonita BPM Engine data sources (<code>bonitaDS</code> and <code>bonitaSequenceManagerDS</code>).</p>
+<p><strong>Note:</strong>
+If you have multiple tenants that use business data objects, you need to create a <code>BusinessDataDS</code> and a <code>NotManagedBizDataDS</code> for each tenant.</p>
+<p>The following sections show how to configuire the data sources for <a href="#ds_jboss">JBoss</a> and <a href="ds_tomcat">Tomcat</a>.
+There is also an <a href="/how-install-red-hat-oracle-jvm-weblogic-oracle.md#datasources">example of how to configure data sources for Weblogic</a>.</p>
+<h3>Configuration for JBoss</h3>
+<p>Edit the <code>/standalone/configuration/standalone.xml</code> configuration file and find the <code>BusinessDataDS</code> and <code>NotManagedBizDataDS</code> data sources definitions.
 The configuration file contains examples for each of the supported RDBMSs to guide you. Edit the following settings:</p>
-
-<ul><li>For <code>BusinessDataDS</code>, update the values of the following settings:
-	<ul><li><code><driver></driver></code>: the driver to be used to access your database. See the RDBMS-specific examples in the configuration file.</li>
-		<li><code><xa-datasource-property name="URL"></xa-datasource-property></code>: combination of serverName + portNumber + databaseName. See the examples in the configuration file.</li>
-		<li><code><xa-datasource-property name="User"></xa-datasource-property></code>: RDBMS user name.</li>
-		<li><code><xa-datasource-property name="Password"></xa-datasource-property></code>: RDBMS user password.</li>
-		<li><code><check-valid-connection-sql></check-valid-connection-sql></code>: <code>SELECT 1 FROM dual</code> for Oracle, <code>SELECT 1</code> for any other supported RDBMS.</li>
-		<li><code><background-validation-millis></background-validation-millis></code>: must be lower than your RDBMS connection timeout.</li>
-	</ul></li>
-
-<li>For <code><no-tx-datasource></no-tx-datasource></code>, update the values of the following settings:
-	<ul><li><code><driver></driver></code>: the driver to be used to access your database. See the RDBMS-specific examples in the configuration file.</li>
-		<li><code><connection-url></connection-url></code>: combination of serverName + portNumber + databaseName. See the examples in the  configuration file.</li>
-		<li><code><user-name></user-name></code>: RDBMS user name.</li>
-		<li><code><password></password></code>: RDBMS user password.</li>
-		<li><code><check-valid-connection-sql></check-valid-connection-sql></code>: <code>SELECT 1 FROM dual</code> for Oracle, <code>SELECT 1</code> for any other supported RDBMS.</li>
-		<li><code><background-validation-millis></background-validation-millis></code>: must be lower than your RDBMS connection timeout.</li>
-	</ul></li>
-
-<li>
-In the <code><drivers></drivers></code> declaration, specify the <code><xa-datasource-class></xa-datasource-class></code> and <code><datasource-class></datasource-class></code> for the driver you specify in the data source definitions. 
-See the RDBMS-specific examples to find the correct values for your RDBMS.</li>
-
-</ul><div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong> If you have multiple tenants that use business data objects, you need to declare separate data sources for each tenant. Make sure that the values of properties <code>jndi-name</code> and <code>pool-name</code> are unique. 
-Edit <code>bonita/engine-server/conf/tenants/</code><em><code>tenant-id</code></em><code>/bonita-tenant-community-custom.properties</code> file and set the tenant-specific JNDI data source name in <code>bdm.datasource.jndi.path</code> and <code>bdm.notmanageddatasource.jndi.path</code>.</div>
-
-
-<h3 id="ds_tomcat">Configuration for Tomcat</h3>
-
-
+<ul>
+<li>For <code>BusinessDataDS</code>, update the values of the following settings:
+<ul>
+<li>``: the driver to be used to access your database. See the RDBMS-specific examples in the configuration file.</li>
+<li>``: combination of serverName + portNumber + databaseName. See the examples in the configuration file.</li>
+<li>``: RDBMS user name.</li>
+<li>``: RDBMS user password.</li>
+<li>``: <code>SELECT 1 FROM dual</code> for Oracle, <code>SELECT 1</code> for any other supported RDBMS.</li>
+<li>``: must be lower than your RDBMS connection timeout.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>For ``, update the values of the following settings:
+<ul>
+<li>``: the driver to be used to access your database. See the RDBMS-specific examples in the configuration file.</li>
+<li>``: combination of serverName + portNumber + databaseName. See the examples in the configuration file.</li>
+<li>``: RDBMS user name.</li>
+<li>``: RDBMS user password.</li>
+<li>``: <code>SELECT 1 FROM dual</code> for Oracle, <code>SELECT 1</code> for any other supported RDBMS.</li>
+<li>``: must be lower than your RDBMS connection timeout.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li></li>
+</ul>
+<p>In the <code>declaration, specify the</code> and `` for the driver you specify in the data source definitions.
+See the RDBMS-specific examples to find the correct values for your RDBMS.</p>
+<p><strong>Note:</strong> If you have multiple tenants that use business data objects, you need to declare separate data sources for each tenant. Make sure that the values of properties <code>jndi-name</code> and <code>pool-name</code> are unique.
+Edit <code>bonita/engine-server/conf/tenants/</code><em><code>tenant-id</code></em><code>/bonita-tenant-community-custom.properties</code> file and set the tenant-specific JNDI data source name in <code>bdm.datasource.jndi.path</code> and <code>bdm.notmanageddatasource.jndi.path</code>.</p>
+<h3>Configuration for Tomcat</h3>
 <p>If you are using Tomcat, you need to configure one data source directly in Tomcat and one in Bitronix.</p>
-
-<strong>Tomcat configuration</strong>
-<p>Edit the <code><tomcat_home>/conf/Catalina/localhost/bonita.xml</tomcat_home></code> configuration file and find the data source named <code>NotManagedBizDataDS</code>. The configuration file contains examples of settings to guide you. Edit the following settings and set the values appropriate for your RDBMS and database configuration:</p>
-<ul><li><code>validationQuery</code>: <code>SELECT 1 FROM dual</code> for Oracle, <code>SELECT 1</code> for any other supported RDBMS.</li>
+<p><strong>Tomcat configuration</strong></p>
+<p>Edit the <code>/conf/Catalina/localhost/bonita.xml</code> configuration file and find the data source named <code>NotManagedBizDataDS</code>. The configuration file contains examples of settings to guide you. Edit the following settings and set the values appropriate for your RDBMS and database configuration:</p>
+<ul>
+<li><code>validationQuery</code>: <code>SELECT 1 FROM dual</code> for Oracle, <code>SELECT 1</code> for any other supported RDBMS.</li>
 <li><code>validationInterval</code>: must be lower than your RDBMS connection timeout.</li>
 <li><code>username</code>: RDBMS user name.</li>
 <li><code>password</code>: RDBMS user password.</li>
 <li><code>driverClassName</code>: JDBC driver full class name. See the examples to find the value for your RDBMS.</li>
 <li><code>url</code>: combination of serverName + portNumber + databaseName. See the examples in the configuration file.</li>
-</ul><div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong> 
-If you have multiple tenants that use business data objects, copy the blocks <code>BusinessDataDS</code> and <code>NotManagedBizDataDS</code> for each tenant, and rename them with a unique name (for example <code>BusinessDataDS_</code><em><code>tenant-id</code></em> and <code>NotManagedBizDataDS_</code><em><code>tenant-id</code></em>). 
-Edit <code>bonita/engine-server/conf/tenants/</code><em><code>tenant-id</code></em><code>/bonita-tenant-community-custom.properties</code> file and set the tenant-specific JNDI data source name in <code>bdm.datasource.jndi.path</code> and <code>bdm.notmanageddatasource.jndi.path</code>.</div>
-</div>
-
-<strong>Bitronix configuration</strong>
-
-<p>Edit the <code><tomcat_home>/conf/bitronix-resources.properties</tomcat_home></code> configuration file and find the parameters starting with <code>resource.ds2</code>. The configuration file contains examples of settings to guide you. Edit the following settings and set the values appropriate for your RDBMS and database configuration:</p>
-<ul><li><code>resource.ds2.className</code>: JDBC driver full class name. See the examples to find the relevant value for your RDBMS.</li>
-	<li><code>resource.ds2.driverProperties.user</code>: RDBMS user name.</li>
-	<li><code>resource.ds2.driverProperties.password</code>: RDBMS user password.</li>
-	<li><code>resource.ds2.driverProperties.serverName</code>: address (IP or host name) of your RDBMS server.</li>
-	<li><code>resource.ds2.driverProperties.portNumber</code>: port of your RDBMS server.</li>
-	<li><code>resource.ds2.driverProperties.databaseName</code>: database name.</li>
-	<li><code>resource.ds2.driverProperties.URL</code>: can optionally be used instead of serverName + portNumber + databaseName.</li>
-</ul><div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong> 
-If you have multiple tenants that use business data objects, copy this block of properties for each tenant, and replace <code>ds2</code> in the property names with a unique value for each tenant (for example ds3). 
-Also make sure that <code>resource.ds?.uniqueName</code> is actually a unique name and update the value for <code>uniqueName</code> parameter accordingly in <code>bonita.xml</code> file.</div>
-	</body></html>
+</ul>
+<p><strong>Note:</strong>
+If you have multiple tenants that use business data objects, copy the blocks <code>BusinessDataDS</code> and <code>NotManagedBizDataDS</code> for each tenant, and rename them with a unique name (for example <code>BusinessDataDS_</code><em><code>tenant-id</code></em> and <code>NotManagedBizDataDS_</code><em><code>tenant-id</code></em>).
+Edit <code>bonita/engine-server/conf/tenants/</code><em><code>tenant-id</code></em><code>/bonita-tenant-community-custom.properties</code> file and set the tenant-specific JNDI data source name in <code>bdm.datasource.jndi.path</code> and <code>bdm.notmanageddatasource.jndi.path</code>.</p>
+<p><strong>Bitronix configuration</strong></p>
+<p>Edit the <code>/conf/bitronix-resources.properties</code> configuration file and find the parameters starting with <code>resource.ds2</code>. The configuration file contains examples of settings to guide you. Edit the following settings and set the values appropriate for your RDBMS and database configuration:</p>
+<ul>
+<li><code>resource.ds2.className</code>: JDBC driver full class name. See the examples to find the relevant value for your RDBMS.</li>
+<li><code>resource.ds2.driverProperties.user</code>: RDBMS user name.</li>
+<li><code>resource.ds2.driverProperties.password</code>: RDBMS user password.</li>
+<li><code>resource.ds2.driverProperties.serverName</code>: address (IP or host name) of your RDBMS server.</li>
+<li><code>resource.ds2.driverProperties.portNumber</code>: port of your RDBMS server.</li>
+<li><code>resource.ds2.driverProperties.databaseName</code>: database name.</li>
+<li><code>resource.ds2.driverProperties.URL</code>: can optionally be used instead of serverName + portNumber + databaseName.</li>
+</ul>
+<p><strong>Note:</strong>
+If you have multiple tenants that use business data objects, copy this block of properties for each tenant, and replace <code>ds2</code> in the property names with a unique value for each tenant (for example ds3).
+Also make sure that <code>resource.ds?.uniqueName</code> is actually a unique name and update the value for <code>uniqueName</code> parameter accordingly in <code>bonita.xml</code> file.</p>

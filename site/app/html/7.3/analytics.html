@@ -1,112 +1,113 @@
-<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Analytics</title></head><body class="front">
-		<div id="content">
-	<h1>3.8 Analytics</h1>
-    <p>A report presents the Administrator with data about the usage of cases and tasks in processes. </p>
-
-<p>
-<a href="#default_reports">Default reports</a><br><a href="#install">Install a custom report</a> <br><a href="#create">Export a report</a><br><a href="#ja">Manage Japanese PDF reports</a>
-</p>
-
-
+<h1>3.8 Analytics</h1>
+<p>A report presents the Administrator with data about the usage of cases and tasks in processes.</p>
+<p><a href="#default_reports">Default reports</a><br>
+<a href="#install">Install a custom report</a><br>
+<a href="#create">Export a report</a><br>
+<a href="#ja">Manage Japanese PDF reports</a></p>
 <p>There are four reports available by default:</p>
-<ul><li>Case average time - export in .pdf</li>
-    <li>Case list - export in .pdf</li>
-    <li>Task list - export in .pdf</li>
-    <li>Case history - export in .csv</li>
-</ul><p>You can also <a href="/reporting-overview.html">define</a> and <a href="#install">install a custom report</a>. For example, you could define a report to track purchase order progress.</p>
-
-
-<h2 id="default_reports">Default reports</h2>
-
-
+<ul>
+<li>Case average time - export in .pdf</li>
+<li>Case list - export in .pdf</li>
+<li>Task list - export in .pdf</li>
+<li>Case history - export in .csv</li>
+</ul>
+<p>You can also <a href="/reporting-overview.md">define</a> and <a href="#install">install a custom report</a>. For example, you could define a report to track purchase order progress.</p>
+<h2>Default reports</h2>
 <h3>Case average time</h3>
 <p>Choose a filter to display certain parameters:</p>
-<ul><li>Case average time: period, processes</li>
-    <li>Case list: period, state (all, archived, opened), processes (all)</li>
-    <li>Task list: period, state (all, archived failed, opened)</li>
-</ul><h3>Case list</h3>
+<ul>
+<li>Case average time: period, processes</li>
+<li>Case list: period, state (all, archived, opened), processes (all)</li>
+<li>Task list: period, state (all, archived failed, opened)</li>
+</ul>
+<h3>Case list</h3>
 <p>Choose a filter to display certain parameters:</p>
-<ul><li>Case average time: period, process</li>
-    <li>Case list: period, state (all, archived, opened), process (all)</li>
-    <li>Task list: period, state (all, archived failed, opened)</li>
-</ul><h3>Task list time</h3>
-
+<ul>
+<li>Case average time: period, process</li>
+<li>Case list: period, state (all, archived, opened), process (all)</li>
+<li>Task list: period, state (all, archived failed, opened)</li>
+</ul>
+<h3>Task list time</h3>
 <p>Choose a filter to display certain parameters:</p>
-<ul><li>Case average time: period, process</li>
-    <li>Case list: period, state (all, archived, opened), process (all)</li>
-    <li>Task list: period, state (all, archived failed, opened)</li>
-</ul><h3>Case history</h3>
+<ul>
+<li>Case average time: period, process</li>
+<li>Case list: period, state (all, archived, opened), process (all)</li>
+<li>Task list: period, state (all, archived failed, opened)</li>
+</ul>
+<h3>Case history</h3>
 <p>For Efficiency and Performance editions.</p>
-<p>This report lists human actions on cases. This enables you to analyse and standardize cases in processes.
-</p><p>In the case history report, the format of the exported file is a .csv file. This enables the  data to be sorted and filtered.</p>
-
+<p>This report lists human actions on cases. This enables you to analyse and standardize cases in processes.</p>
+<p>In the case history report, the format of the exported file is a .csv file. This enables the data to be sorted and filtered.</p>
 <h4>Parameters</h4>
 <p>In the report, the <strong>query</strong> parameters are displayed in the <strong>Parameters</strong> section:</p>
-<ul><li>Date range - Period with two fields <strong>from</strong> and <strong> to</strong> or select a <strong> date</strong></li>
-    <li>Process - Select <strong> All</strong> or a <strong> specific process and version</strong> </li>
-</ul><p>If a selection is made in the <strong> Process combo box</strong>, the following combo box is displayed:
-</p><ul><li>Case ID list named &quot;Cases&quot; &gt; Select &quot;All&quot; or a specific case ID. This is only available when a process is selected</li>
-</ul><h4>Generated export display</h4>
+<ul>
+<li>Date range - Period with two fields <strong>from</strong> and <strong>to</strong> or select a <strong>date</strong></li>
+<li>Process - Select <strong>All</strong> or a <strong>specific process and version</strong></li>
+</ul>
+<p>If a selection is made in the <strong>Process combo box</strong>, the following combo box is displayed:</p>
+<ul>
+<li>Case ID list named &quot;Cases&quot; &gt; Select &quot;All&quot; or a specific case ID. This is only available when a process is selected</li>
+</ul>
+<h4>Generated export display</h4>
 <p>The generated .csv export contains the following in order of display:</p>
-<ul><li>Date</li>
-    <li>Time</li>
-    <li>Case ID</li>
+<ul>
+<li>Date</li>
+<li>Time</li>
+<li>Case ID</li>
 <li>Process name</li>
 <li>Process version</li>
 <li>First name</li>
 <li>Last name</li>
 <li>User name</li>
-<li>Action</li>
-    <ul><li>Started</li>
-        <li>Skipped</li>
-        <li>Failed</li>
-        <li>Done</li>
-    </ul><li>Task or Subtask</li>
+<li>Action
+<ul>
+<li>Started</li>
+<li>Skipped</li>
+<li>Failed</li>
+<li>Done</li>
+</ul>
+</li>
+<li>Task or Subtask</li>
 <li>Parent task name (only filled if there is a subtask created for a task)</li>
 <li>Due date</li>
 <li>Due time</li>
 <li>Overdue - (only filled if the task is done after the due date)</li>
-</ul><p>Note: what is not exported in the .csv report</p>
-<ul><li>Comments</li>
-    <li>Human actions performed on <strong>Parameters and variables</strong></li>
-</ul><h2 id="install">Install a custom report</h2>   
-
+</ul>
+<p>Note: what is not exported in the .csv report</p>
+<ul>
+<li>Comments</li>
+<li>Human actions performed on <strong>Parameters and variables</strong></li>
+</ul>
+<h2>Install a custom report</h2>
 <p>You can import a customized report into Bonita BPM Portal.</p>
 <p>Custom reports are created externally using <a href="http://community.jaspersoft.com/project/jaspersoft-studio">Jaspersoft Studio</a>.</p>
-
 <h3>Contents of a .report archive (.zip), used in Jasper</h3>
-<p>The report archive (.zip) contains the Jasper file, a connection properties file  and a .jar driver file.
+<p>The report archive (.zip) contains the Jasper file, a connection properties file and a .jar driver file.
 Optionally, a properties file can be added if the report is localized in different languages.</p>
-
 <h3>Install a report created in the standard Jasper format.</h3>
-
-<ol><li>Go to <strong>Analytics</strong>.</li>
-    <li>Click the <em><strong>Install</strong></em> button in the top left corner of the screen.</li>
-    <li>Name the report.</li>
-    <li>Select to your Jasper file (.zip) on your disk drive.</li>
-    <li>Click <em><strong>Install</strong></em>.</li>
-</ol><h3>Result</h3>
+<ol>
+<li>Go to <strong>Analytics</strong>.</li>
+<li>Click the <em><strong>Install</strong></em> button in the top left corner of the screen.</li>
+<li>Name the report.</li>
+<li>Select to your Jasper file (.zip) on your disk drive.</li>
+<li>Click <em><strong>Install</strong></em>.</li>
+</ol>
+<h3>Result</h3>
 <p>A report is displayed in Bonita BPM Portal containing your data.</p>
-
-
-
-
-
-<h2 id="create">Export a report</h2>
-
+<h2>Export a report</h2>
 <p>A report in the Bonita BPM Portal can be exported as a .pdf file.</p>
-<ol><li>Go to <strong>Analytics</strong>.</li>
-    <li>Select the report that you want to export. This can be one of the default reports, or a custom report that you have installed.</li>
-    <li>Click the <em><strong>More</strong></em> button.</li>
-    <li>Click the <em><strong>Export</strong></em> button.</li>
-    <li>Specify where the report PDF file will be saved.</li>
-    <li>Click <em><strong>OK</strong></em>.</li>
-</ol><h2 id="ja">Manage Japanese PDF reports</h2>
-
-<p>Japanese language support for reports is not provided by default. 
-In order to display the Japanese translations in the default PDF reports, you need to download the Japanese translation <code>my_report_ja_jp.properties</code> file from <a href="http://translate.bonitasoft.org/">Crowdin</a>. 
+<ol>
+<li>Go to <strong>Analytics</strong>.</li>
+<li>Select the report that you want to export. This can be one of the default reports, or a custom report that you have installed.</li>
+<li>Click the <em><strong>More</strong></em> button.</li>
+<li>Click the <em><strong>Export</strong></em> button.</li>
+<li>Specify where the report PDF file will be saved.</li>
+<li>Click <em><strong>OK</strong></em>.</li>
+</ol>
+<h2>Manage Japanese PDF reports</h2>
+<p>Japanese language support for reports is not provided by default.
+In order to display the Japanese translations in the default PDF reports, you need to download the Japanese translation <code>my_report_ja_jp.properties</code> file from <a href="http://translate.bonitasoft.org/">Crowdin</a>.
 If the tenant is deployed and your report has been displayed, open the directory of the report in the var_bonita_home folder
-(<code>bonita/client/tenants/</code><em><code>yourTenantId</code></em><code>/work/reports/</code><em><code>yourReport</code></em>). 
-Then add your &quot;ja_jp.properties&quot; translation files to this directory. 
-If your report has never been displayed, go to your deployed war or ear &gt; <code>WEB-INF\classes</code> then edit your report zip file to add the Japanese properties file. </p></div>
-	</body></html>
+(<code>bonita/client/tenants/</code><em><code>yourTenantId</code></em><code>/work/reports/</code><em><code>yourReport</code></em>).
+Then add your &quot;ja_jp.properties&quot; translation files to this directory.
+If your report has never been displayed, go to your deployed war or ear &gt; <code>WEB-INF\classes</code> then edit your report zip file to add the Japanese properties file.</p>

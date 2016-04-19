@@ -1,39 +1,32 @@
-<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Actor filtering</title></head><body class="front">
-		<div id="content">
-	<h1>1.5.6 Actor filtering</h1>
-    <p><a id="top"></a>An actor filter refines the list of users who can perform a task, by filtering the list of users mapped to the actor.</p>
-
+<h1>1.5.6 Actor filtering</h1>
+<p>An actor filter refines the list of users who can perform a task, by filtering the list of users mapped to the actor.</p>
 <p>The following standard actor filters are provided:</p>
-<ul><li><em>Single user</em> assigns the task to the specified user.</li> 
-<li><em>Task performer</em> assigns the task to the user who performed the specified previous human task (in earlier versions with was known as actor continuity).
-</li><li><em>Initiator</em> assigns the task to the user who initiated the process.</li>
+<ul>
+<li><em>Single user</em> assigns the task to the specified user.</li>
+<li><em>Task performer</em> assigns the task to the user who performed the specified previous human task (in earlier versions with was known as actor continuity).</li>
+<li><em>Initiator</em> assigns the task to the user who initiated the process.</li>
 <li><em>Initiator manager</em> assigns the task to the manager of the user who initiated the process.</li>
 <li><em>User manager</em> assigns the task to the manager of the user who would be assigned to the task if the filter were not present.</li>
-<li><em>Users with Custom information</em> is a new actor filter used to assign tasks to users based on <a href="/custom-user-information-in-bonita-bpm-studio.html">custom information</a> (available from 6.3.2).</li>
-</ul><p>
-You can create additional actor filters to meet the needs of your process. An actor filter consists of a definition and an implementation. This means that you can modify the definition 
-and implementation independently. For example, if you update the implementation to improve performance, there is no need to modify the definition.
-</p>
-
-<p>An actor filter definition defines the properties of the actor filter and defines the wizard that used to configure the actor filter when it is used in a process. 
-An actor filter implementation consists of a set of properties and a Java class. 
+<li><em>Users with Custom information</em> is a new actor filter used to assign tasks to users based on <a href="/custom-user-information-bonita-bpm-studio.md">custom information</a> (available from 6.3.2).</li>
+</ul>
+<p>You can create additional actor filters to meet the needs of your process. An actor filter consists of a definition and an implementation. This means that you can modify the definition
+and implementation independently. For example, if you update the implementation to improve performance, there is no need to modify the definition.</p>
+<p>An actor filter definition defines the properties of the actor filter and defines the wizard that used to configure the actor filter when it is used in a process.
+An actor filter implementation consists of a set of properties and a Java class.
 Bonita BPM Studio provides the following options from the <strong>Development</strong> menu for managing actor filters:</p>
-
-<ul><li>New definition... Create a new actor filter definition, specifying the properties, the input required by the actor filter, 
+<ul>
+<li>New definition... Create a new actor filter definition, specifying the properties, the input required by the actor filter,
 the dialog in the configuration wizard, and the languages supported in the wizard.</li>
 <li>Edit definition... Modify the definition of an actor filter. You cannot modify the definition of a standard actor filter.</li>
 <li>New implementation... Create the implementation of an actor filter by specifying the properties including the Java class name and package. The wizard automatically creates a stub of the Java code,
 with comments indicating where you need to supply code. You can create a new implementation for a
-    standard actor filter.</li>
+standard actor filter.</li>
 <li>Edit implementation... Modify the implementation of an actor filter. You cannot modify the implementation of a standard actor filter; however, you can create a new implementation.</li>
 <li>Export... Export the actor filter files in a zip.</li>
 <li>Import... Import a zip containing the actor filter files.</li>
-</ul><p>You can also create additional actor filters by creating the necessary files directly, as described in <a href="/creating-an-actor-filter.html">Creating an actor filter</a>.</p>
-
-<p>For details of how to apply an actor filter to a task or lane, see <a href="/actors.html">Actors</a>.</p>
-
-<p>When you add an actor filter to a process, Bonita BPM Studio automatically adds an implementation snapshot jar file for the actor filter to your workspace. 
-For example, if you add the single user actor filter, the file <code>bonita-userfilter-single-user-impl-</code><em><code>x.y.z</code></em><code>-SNAPSHOT.jar</code> is added to your workspace, 
+</ul>
+<p>You can also create additional actor filters by creating the necessary files directly, as described in <a href="/creating-actor-filter.md">Creating an actor filter</a>.</p>
+<p>For details of how to apply an actor filter to a task or lane, see <a href="/actors.md">Actors</a>.</p>
+<p>When you add an actor filter to a process, Bonita BPM Studio automatically adds an implementation snapshot jar file for the actor filter to your workspace.
+For example, if you add the single user actor filter, the file <code>bonita-userfilter-single-user-impl-</code><em><code>x.y.z</code></em><code>-SNAPSHOT.jar</code> is added to your workspace,
 where <em><code>x.y.z</code></em> is the version of the implementation jar file.</p>
-</div>
-	</body></html>

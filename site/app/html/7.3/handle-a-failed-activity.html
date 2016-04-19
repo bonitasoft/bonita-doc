@@ -1,93 +1,43 @@
-<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Handle a failed activity</title></head><body class="front">
-		<div id="content">
-	<h1>4.5.5.2 Handle a failed activity</h1>
-    <p><a id="top"></a>An activity (or task) can fail in Bonita BPM Engine for several reasons. Typical reasons include:</p>
-
-<ul><li>An input expression evaluation fails (for example because of invalid syntax, or incorrect values).</li>
+<h1>4.5.5.2 Handle a failed activity</h1>
+<p>An activity (or task) can fail in Bonita BPM Engine for several reasons. Typical reasons include:</p>
+<ul>
+<li>An input expression evaluation fails (for example because of invalid syntax, or incorrect values).</li>
 <li>The condition in an output transition fails to evaluate properly.</li>
 <li>A connector fails to execute because of remote system connection problem.</li>
 <li>A connector fails to execute because of erroneous connector implementation.</li>
 <li>A connector fails to execute because a connector input or output expression fails to evaluate.</li>
-</ul><p>In these cases, the activity is considered to have failed, and its state is recorded as FAILED in the Bonita database.</p>
-
-<p>Note that if communication between the server and the database is interrupted, the activity failure cannot be recorded. In this case, 
+</ul>
+<p>In these cases, the activity is considered to have failed, and its state is recorded as FAILED in the Bonita database.</p>
+<p>Note that if communication between the server and the database is interrupted, the activity failure cannot be recorded. In this case,
 the state of the activity will be the state previously recorded.</p>
-
 <h2>Possible actions on activity failure</h2>
-
 <p>The Process Management API provides the following actions:</p>
-
-<ul><li>Reset the state of a failed connector, using <code type="java">setConnectorInstanceState(long connectorInstanceId, ConnectorStateReset state)</code>.</li>
-<li>Reset the states of a list connectors, using <span class="tt">setConnectorInstanceState(final Map&gt; connectorsToReset)</span>.</li>
-<li>Retry a failed activity, using <span class="tt">replayActivity(long activityInstanceId)</span>.</li>
-<li>Reset the states of a list of failed connectors and, in the same operation, retry the corresponding failed activity, using 
-<span class="tt">replayActivity(long activityInstanceId, <code type="java">Map<long connectorstatereset=""></long></code> connectorsToReset)</span>.</li>
-</ul><p></p>
-
+<ul>
+<li>Reset the state of a failed connector, using <code>setConnectorInstanceState(long connectorInstanceId, ConnectorStateReset state)</code>.</li>
+<li>Reset the states of a list connectors, using setConnectorInstanceState(final Map&gt; connectorsToReset).</li>
+<li>Retry a failed activity, using replayActivity(long activityInstanceId).</li>
+<li>Reset the states of a list of failed connectors and, in the same operation, retry the corresponding failed activity, using
+replayActivity(long activityInstanceId, <code>Map</code> connectorsToReset).</li>
+</ul>
 <h2>Code explained</h2>
-
 <p>In this example, an activity has failed because a connector failed to execute.</p>
-
-<p>The methods that are used to reset process items are in the ProcessManagementAPI, and the details are in the 
- <a href="/javadoc.html">Javadoc</a>. These methods
+<p>The methods that are used to reset process items are in the ProcessManagementAPI, and the details are in the
+<a href="/product-bos-sp/javadoc">Javadoc</a>. These methods
 are accessed through the ProcessAPI, which extends the ProcessManagementAPI.</p>
-
 <p>First you need to log in, create the session, and get the ProcessAPI:</p>
-
-<code type="java">
-        final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
-        final APISession session = loginAPI.login(&quot;USERNAME&quot;, &quot;PASSWORD&quot;);
-        final ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);
-</code>
-
+<p><code>final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI(); final APISession session = loginAPI.login(&quot;USERNAME&quot;, &quot;PASSWORD&quot;); final ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);</code></p>
 <p>Then find the connector instance that failed:</p>
-
-<code type="java">
-        final SearchOptions searchOptions = new SearchOptionsBuilder(0, 1).filter(ConnectorInstancesSearchDescriptor.CONTAINER_ID, failedTaskId)
-                .filter(ConnectorInstancesSearchDescriptor.STATE, ConnectorState.FAILED).done();
-        final SearchResult<connectorinstance> searchResult = processAPI.searchConnectorInstances(searchOptions);
-        final ConnectorInstance connectorInstance = searchResult.getResult().get(0);
-</connectorinstance></code>
-
+<p><code>final SearchOptions searchOptions = new SearchOptionsBuilder(0, 1).filter(ConnectorInstancesSearchDescriptor.CONTAINER_ID, failedTaskId) .filter(ConnectorInstancesSearchDescriptor.STATE, ConnectorState.FAILED).done(); final SearchResult searchResult = processAPI.searchConnectorInstances(searchOptions); final ConnectorInstance connectorInstance = searchResult.getResult().get(0);</code></p>
 <p>Find the reason for the failure by searching the internal logs:</p>
-
-<code type="java">
-        // search why the connector failed:
-        final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
-        builder.filter(LogSearchDescriptor.ACTION_SCOPE, failedTaskId);
-        builder.searchTerm(&quot;Connector execution failure&quot;);
-        builder.sort(LogSearchDescriptor.ACTION_TYPE, Order.ASC);
-        final LogAPI logAPI = TenantAPIAccessor.getLogAPI(session);
-        final SearchResult<log> searchedLogs = logAPI.searchLogs(builder.done());
-        for (Log log : searchedLogs.getResult()) {
-            // Print the failed connecor reason message:
-            System.out.println(log.getMessage());
-        }
-</log></code>
-
+<p><code>// search why the connector failed: final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100); builder.filter(LogSearchDescriptor.ACTION_SCOPE, failedTaskId); builder.searchTerm(&quot;Connector execution failure&quot;); builder.sort(LogSearchDescriptor.ACTION_TYPE, Order.ASC); final LogAPI logAPI = TenantAPIAccessor.getLogAPI(session); final SearchResult searchedLogs = logAPI.searchLogs(builder.done()); for (Log log : searchedLogs.getResult()) { // Print the failed connecor reason message: System.out.println(log.getMessage()); }</code></p>
 <p>Then either reset the state of the connector instance and re-execute it, or skip the connector, as shown below:</p>
-
-<code type="java">
-        processAPI.setConnectorInstanceState(connectorInstance.getId(), ConnectorStateReset.SKIPPED);
-</code>
-
-Then try to execute the activity again:
-
-<code type="java">
-        processAPI.retryTask(failedTaskId);
-</code>
-
+<p><code>processAPI.setConnectorInstanceState(connectorInstance.getId(), ConnectorStateReset.SKIPPED);</code></p>
+<p>Then try to execute the activity again:</p>
+<p><code>processAPI.retryTask(failedTaskId);</code></p>
 <p>Finally, log out:</p>
-
-<code type="java">
-            loginAPI.logout(session);
-</code>
-
-<p></p>
-
+<p><code>loginAPI.logout(session);</code></p>
 <h2>Complete code</h2>
-
-<code type="java">
+<p>`
 import org.bonitasoft.engine.api.LoginAPI;
 import org.bonitasoft.engine.bpm.connector.ConnectorInstance;
 import org.bonitasoft.engine.bpm.connector.ConnectorInstancesSearchDescriptor;
@@ -97,55 +47,50 @@ import org.bonitasoft.engine.search.Order;
 import org.bonitasoft.engine.search.SearchOptions;
 import org.bonitasoft.engine.search.SearchOptionsBuilder;
 import org.bonitasoft.engine.search.SearchResult;
-import org.bonitasoft.engine.session.APISession;
-
-import com.bonitasoft.engine.api.LogAPI;
+import org.bonitasoft.engine.session.APISession;</p>
+<p>import com.bonitasoft.engine.api.LogAPI;
 import com.bonitasoft.engine.api.ProcessAPI;
 import com.bonitasoft.engine.api.TenantAPIAccessor;
 import com.bonitasoft.engine.log.Log;
-import com.bonitasoft.engine.log.LogSearchDescriptor;
+import com.bonitasoft.engine.log.LogSearchDescriptor;</p>
+<p>public class SkipConnectorAndReplayActivity {</p>
+<pre><code>public static void main(final String[] args) throws Exception {
 
-public class SkipConnectorAndReplayActivity {
+    // Let's consider we know the id of the failed Activity:
+    final long failedTaskId = 123456789l;
 
-    public static void main(final String[] args) throws Exception {
+    // First action: Login to the api:
+    final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
+    final APISession session = loginAPI.login(&quot;USERNAME&quot;, &quot;PASSWORD&quot;);
+    final ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);
+    // we suppose here that we have an activity in state failed with the id 'failedTaskId'
+    // retrieve the failed connector:
+    final SearchOptions searchOptions = new SearchOptionsBuilder(0, 1).filter(ConnectorInstancesSearchDescriptor.CONTAINER_ID, failedTaskId)
+            .filter(ConnectorInstancesSearchDescriptor.STATE, ConnectorState.FAILED).done();
+    final SearchResult searchResult = processAPI.searchConnectorInstances(searchOptions);
+    final ConnectorInstance connectorInstance = searchResult.getResult().get(0);
 
-        // Let&apos;s consider we know the id of the failed Activity:
-        final long failedTaskId = 123456789l;
-
-        // First action: Login to the api:
-        final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
-        final APISession session = loginAPI.login(&quot;USERNAME&quot;, &quot;PASSWORD&quot;);
-        final ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);
-        // we suppose here that we have an activity in state failed with the id &apos;failedTaskId&apos;
-        // retrieve the failed connector:
-        final SearchOptions searchOptions = new SearchOptionsBuilder(0, 1).filter(ConnectorInstancesSearchDescriptor.CONTAINER_ID, failedTaskId)
-                .filter(ConnectorInstancesSearchDescriptor.STATE, ConnectorState.FAILED).done();
-        final SearchResult<connectorinstance> searchResult = processAPI.searchConnectorInstances(searchOptions);
-        final ConnectorInstance connectorInstance = searchResult.getResult().get(0);
-
-        // search why the connector failed:
-        final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
-        builder.filter(LogSearchDescriptor.ACTION_SCOPE, failedTaskId);
-        builder.searchTerm(&quot;Connector execution failure&quot;);
-        builder.sort(LogSearchDescriptor.ACTION_TYPE, Order.ASC);
-        final LogAPI logAPI = TenantAPIAccessor.getLogAPI(session);
-        final SearchResult<log> searchedLogs = logAPI.searchLogs(builder.done());
-        for (Log log : searchedLogs.getResult()) {
-            // Print the failed connecor reason message:
-            System.out.println(log.getMessage());
-        }
-
-        // do something for the failed connector instance, skip it:
-        processAPI.setConnectorInstanceState(connectorInstance.getId(), ConnectorStateReset.SKIPPED);
-
-        // Retry to execute the activity:
-        processAPI.retryTask(failedTaskId);
-
-        // Finally log properly out of Bonita BPM Engine:
-        loginAPI.logout(session);
+    // search why the connector failed:
+    final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
+    builder.filter(LogSearchDescriptor.ACTION_SCOPE, failedTaskId);
+    builder.searchTerm(&quot;Connector execution failure&quot;);
+    builder.sort(LogSearchDescriptor.ACTION_TYPE, Order.ASC);
+    final LogAPI logAPI = TenantAPIAccessor.getLogAPI(session);
+    final SearchResult searchedLogs = logAPI.searchLogs(builder.done());
+    for (Log log : searchedLogs.getResult()) {
+        // Print the failed connecor reason message:
+        System.out.println(log.getMessage());
     }
-}
-</log></connectorinstance></code>
 
-<p></p></div>
-	</body></html>
+    // do something for the failed connector instance, skip it:
+    processAPI.setConnectorInstanceState(connectorInstance.getId(), ConnectorStateReset.SKIPPED);
+
+    // Retry to execute the activity:
+    processAPI.retryTask(failedTaskId);
+
+    // Finally log properly out of Bonita BPM Engine:
+    loginAPI.logout(session);
+}
+</code></pre>
+<p>}
+`</p>

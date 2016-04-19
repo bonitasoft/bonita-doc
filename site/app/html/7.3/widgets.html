@@ -1,221 +1,216 @@
-<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Widgets</title></head><body class="front">
-		<div id="content">
-	<h1>1.7.2.3 Widgets</h1>
-    <p>The UI designer is a tool for creating pages and forms for use in a BPM application. 
-A form is mapped to process instantiation or to a human task and must fulfill a <a href="/contracts-and-contexts.html">contract</a>. 
-A page is not mapped to any part of a process. 
-There is real no difference between a page and a form, so the procedure for designing them is the same.  
+<h1>1.7.2.3 Widgets</h1>
+<p>The UI designer is a tool for creating pages and forms for use in a BPM application.
+A form is mapped to process instantiation or to a human task and must fulfill a <a href="/contracts">contract</a>.
+A page is not mapped to any part of a process.
+There is real no difference between a page and a form, so the procedure for designing them is the same.
 Typically, a form has input fields and a submit button, though these can also be present in a page. This documentation uses the term <em>page</em> for both pages and forms, unless otherwise stated.</p>
-
-<p>
-</p><dl><dt><a href="#page-structure">Page structure</a></dt>
-<dt><a href="#containers-widgets">Containers</a></dt>
-<dd><a href="#adding-components-to-a-row">Adding a widget to a row</a></dd>
-<dd><a href="#adding-rows">Adding a row</a></dd>
-<dd><a href="#repeat-contents">Repeat content</a></dd>
-<dd><a href="#save-as-fragment">Save as fragment</a></dd>
-<dd><a href="#tab-container-widget">Tab container widget</a></dd>
-<dd><a href="#form-container-widget">Form container widget</a></dd>
-<dt><a href="#text-widget">Text widgets</a></dt>
-<dt><a href="#input-widgets">Input widgets</a></dt>
-<dd><a href="#input-widget">Text input widget</a></dd>
-<dd><a href="#select-widget">Select widget</a></dd>
-<dd><a href="#autocomplete-widget">Autocomplete widget</a></dd>
-<dd><a href="#datepicker-widget">Datepicker widget</a></dd>
-<dd><a href="#radio-widget">Radio button widget</a></dd>
-<dd><a href="#checklist-widget">Checklist widget</a></dd>
-<dd><a href="#checkbox-widget">Checkbox widget</a></dd>
-<dd><a href="#button-widget">Button widget</a></dd>
-<dd><a href="#upload-widget">File upload widget</a></dd>
-<dt><a href="#table-widget">Table widget</a></dt>
-<dt><a href="#image-widget">Image widget</a></dt>
-<dt><a href="#datatable-widget">Data table widget</a></dt>
-<dt><a href="#chart-widget">Chart widget</a></dt>
-</dl><h2 id="page-structure">Page structure</h2>
-
+<p><strong><a href="#page-structure">Page structure</a></strong></p>
+<p><strong><a href="#containers-widgets">Containers</a></strong></p>
+<blockquote>
+<p><a href="#adding-components-to-a-row">Adding a widget to a row</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#adding-rows">Adding a row</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#repeat-contents">Repeat content</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#save-as-fragment">Save as fragment</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#tab-container-widget">Tab container widget</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#form-container-widget">Form container widget</a></p>
+</blockquote>
+<p><strong><a href="#text-widget">Text widgets</a></strong></p>
+<p><strong><a href="#input-widgets">Input widgets</a></strong></p>
+<blockquote>
+<p><a href="#input-widget">Text input widget</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#select-widget">Select widget</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#autocomplete-widget">Autocomplete widget</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#datepicker-widget">Datepicker widget</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#radio-widget">Radio button widget</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#checklist-widget">Checklist widget</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#checkbox-widget">Checkbox widget</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#button-widget">Button widget</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#upload-widget">File upload widget</a></p>
+</blockquote>
+<p><strong><a href="#table-widget">Table widget</a></strong></p>
+<p><strong><a href="#image-widget">Image widget</a></strong></p>
+<p><strong><a href="#datatable-widget">Data table widget</a></strong></p>
+<p><strong><a href="#chart-widget">Chart widget</a></strong></p>
+<h2>Page structure</h2>
 <p>A page consists of widgets that are arranged in containers and rows. The UI designer provides a set of default widgets that you can use to design a page.
-The default widgets are available from the palette panel, which is on the left side of the Page editor. A widget has properties that control how it appears and how it is used. There are some general properties that all widgets have, and some properties that are specific to the widget type. 
-You can also create  <a href="/custom-widgets.html">custom widgets</a>.</p>
-
+The default widgets are available from the palette panel, which is on the left side of the Page editor. A widget has properties that control how it appears and how it is used. There are some general properties that all widgets have, and some properties that are specific to the widget type.
+You can also create <a href="/custom-widgets.md">custom widgets</a>.</p>
 <p>Each widget in the palette has a description. To show a widget description, just roll over the top right corner of the widget in the widget palette.</p>
-
 <p>A container is a widget that contains other widgets. You can have nested containers. A typical use for containers is to control the main layout of your page. For example, if you want to create a two-column layout, you will start your page by adding two containers on the same row, each one spanning six columns of the page. A page does not need to have a container, but it is useful.</p>
-
 <p>A row is a mechanism for aligning widgets across a page or a container. When you create a new, empty, page, it contains a row. If you add a container to the page, it contains a row.
-A row occupies the whole width of the page or container it is inside, which is considered to be 12 units. When you add a widget to a row, you specify the widget width, up to a maximum of 12 units. The actual width is calculated when the page is displayed.
-
-
-</p><h2 id="containers-widgets">Containers</h2>
-
-<p>A container widget is used to hold other widgets. By default, a container has one row, where you can drop component widgets. You can use containers to control the layout of a page. 
-For example, you can create a two-column layout by placing two containers side by side in a row. 
-You can also make the page layout dynamic by <a href="/repeat-a-container-for-a-collection-of-data.html">repeating a container to display a collection of data</a>.</p>
-
-<h3 id="adding-components-to-a-row">Adding a widget to a row</h3>
+A row occupies the whole width of the page or container it is inside, which is considered to be 12 units. When you add a widget to a row, you specify the widget width, up to a maximum of 12 units. The actual width is calculated when the page is displayed.</p>
+<h2>Containers</h2>
+<p>A container widget is used to hold other widgets. By default, a container has one row, where you can drop component widgets. You can use containers to control the layout of a page.
+For example, you can create a two-column layout by placing two containers side by side in a row.
+You can also make the page layout dynamic by <a href="/repeat-container-collection-data-862">repeating a container to display a collection of data</a>.</p>
+<h3>Adding a widget to a row</h3>
 <p>If the row has some space at the end, the widget will fill the remaining empty space in the row. If the row has no empty space, the dropped component will be automatically resized to fit a row width, creating a new row.</p>
-<h3 id="adding-rows">Adding a row</h3>
-<p>According your needs, a container can have any number of rows. </p>
-<p>To add a widget in a new row, a container has two dropzones where you can drop a widget from the palette. These dropzones are situated at the top of the container and at the bottom of the container. When your mouse is over the upper or lower border of a widget in a row, the dropzone becomes visible, as shown in these examples: </p>
-
+<h3>Adding a row</h3>
+<p>According your needs, a container can have any number of rows.</p>
+<p>To add a widget in a new row, a container has two dropzones where you can drop a widget from the palette. These dropzones are situated at the top of the container and at the bottom of the container. When your mouse is over the upper or lower border of a widget in a row, the dropzone becomes visible, as shown in these examples:</p>
 <p>Example 1: add a title widget in a new row above a paragraph widget:
 <img src="images/images-6_0/create-row-top.png" alt="drop at the top"></p>
 <p>Example 2: add a paragraph widget in a new row below a title widget:
 <img src="images/images-6_0/create-row-bottom.png" alt="drop at the bottom"></p>
-
 <p>When you drop a widget in one of these two zones, a new row is automatically created.</p>
-
 <p>The rows of a container are indicated by a thin pale grey rectangle on the left side within the container. A row is always the full width of the page. In this example, you can see a container with four rows.
 <img src="images/images-6_0/row-normal.png" alt="A 4 row container"></p>
 <p>To move or delete a row, position your mouse in the row, and the row toolbar is displayed.
 <img src="images/images-6_0/row-over.png" alt="row toolbar">
-Use the controls in the toolbar to move the row up or down, or to delete it. </p>
-
-
-<h3 id="repeat-contents">Repeat content</h3>
+Use the controls in the toolbar to move the row up or down, or to delete it.</p>
+<h3>Repeat content</h3>
 <p>A container can repeat the content dynamically. This is useful if you need to repeat a set of components for each element in a data collection. Bind the <strong>Repeat content</strong> property to an array variable. To specify the current element of the collection, use <code>$item</code>. This is useful if you want to display some property of the current element.</p>
-
-<h3 id="save-as-fragment">Save as fragment</h3>
+<h3>Save as fragment</h3>
 <p>If you are using the Performance, Efficiency, or Teamwork edition, you can save any container as a fragment. This enables you to reuse the set of widgets in other pages.</p>
-
-<h3 id="tab-container-widget">Tab container widget</h3>
+<h3>Tab container widget</h3>
 <p>Use the <strong>tab container</strong> to structure a page using tabs. To edit a tab name, select the corresponding tab to display its properties.
 Each tab is a container widget.</p>
-
-<h3 id="form-container-widget">Form container widget</h3>
+<h3>Form container widget</h3>
 <p>Use the <strong>form container</strong> to enable form validation for input widgets. The form container also exposes a local <strong>$form</strong> which is the AngularJS form object associated to the form container.</p>
-<p>For example, you can bind the button&apos;s disabled property to <em>$form.$invalid</em> to prevent user from clicking the button, until the form inputs are valid.</p>
-
-
-
-
-<h2 id="text-widget">Text widgets</h2>
-<p>Use a text widget for information that is displayed on a page. This includes titles, paragraphs, and lists. For each, you can specify the text and its alignment. There are several types of text widget:
-</p>
-<ul><li>Link, for embedding an HTML link for navigation to an external site.</li>
+<p>For example, you can bind the button's disabled property to <em>$form.$invalid</em> to prevent user from clicking the button, until the form inputs are valid.</p>
+<h2>Text widgets</h2>
+<p>Use a text widget for information that is displayed on a page. This includes titles, paragraphs, and lists. For each, you can specify the text and its alignment. There are several types of text widget:</p>
+<ul>
+<li>Link, for embedding an HTML link for navigation to an external site.</li>
 <li>Title, for headings. You can set the level from 1 to 6.</li>
 <li>Text, for chunks of text. Text supports basic HTML tags such a paragraph, list or image...</li>
-</ul><h2 id="input-widgets">Input widgets</h2>
+</ul>
+<h2>Input widgets</h2>
 <p>Use an input widget to enable a user to provide input. In addition to the general widget properties, all input widgets have the following:</p>
-<ul><li>A Required property which prevents button from being clicked when put inside a form container</li>
+<ul>
+<li>A Required property which prevents button from being clicked when put inside a form container</li>
 <li>A Read-only/disabled property which prevents the user from modifying the value</li>
 <li>A Label (which can be hidden)</li>
 <li>A property to specify whether input is mandatory</li>
 <li>A Value property that is used to capture the value entered by the user.</li>
-</ul><p>The sections below describe the available input widgets.</p>
-
-<h3 id="input-widget">Text input widget</h3>
-<p>Use the text input widget an input field on a page.  There are four types of input:</p>
-<ul><li>text: a free-form text field</li>
+</ul>
+<p>The sections below describe the available input widgets.</p>
+<h3>Text input widget</h3>
+<p>Use the text input widget an input field on a page. There are four types of input:</p>
+<ul>
+<li>text: a free-form text field</li>
 <li>email: an email address</li>
 <li>number: a decimal or integer number</li>
 <li>password: like text but each character is replaced by an asterisk.</li>
-</ul><h3 id="select-widget">Select widget</h3>
+</ul>
+<h3>Select widget</h3>
 <p>Use a select widget to offer the user a drop-down list of values. The user selects the required value.
-The <strong>available values</strong> property is used to populate the list of available values. Alternatively for simple data, you can provide a comma-separated list of values (for example,  red, green, blue).
- You can also use data binding and specify a variable to populate the list of available values. In this case, specify a label key, which identifies the attribute to be displayed in the widget.</p>
-
-<h3 id="autocomplete-widget">Autocomplete widget</h3>
-<p>Use  an autocomplete widget to offer the user a list of possible values based on data entered in the field. For example, in a firstName field, if the user types <em>chri</em>, the values <em>chris</em>, <em>christine</em>, <em>christian</em>, <em>christiane</em> are proposed. The user selects the correct value. To define the <strong>available values</strong>, bind a data source to initialize the suggestions. For suggestions that are an array of objects, you can specify a <strong>displayed key</strong> to identify the attribute to show as a suggestion in the widget. The value must be bound to a variable that will hold the selected suggestion.</p>
-
-<h3 id="datepicker-widget">Datepicker widget</h3>
+The <strong>available values</strong> property is used to populate the list of available values. Alternatively for simple data, you can provide a comma-separated list of values (for example, red, green, blue).
+You can also use data binding and specify a variable to populate the list of available values. In this case, specify a label key, which identifies the attribute to be displayed in the widget.</p>
+<h3>Autocomplete widget</h3>
+<p>Use an autocomplete widget to offer the user a list of possible values based on data entered in the field. For example, in a firstName field, if the user types <em>chri</em>, the values <em>chris</em>, <em>christine</em>, <em>christian</em>, <em>christiane</em> are proposed. The user selects the correct value. To define the <strong>available values</strong>, bind a data source to initialize the suggestions. For suggestions that are an array of objects, you can specify a <strong>displayed key</strong> to identify the attribute to show as a suggestion in the widget. The value must be bound to a variable that will hold the selected suggestion.</p>
+<h3>Datepicker widget</h3>
 <p>Use a datepicker widget to display a calendar from which the user can select a date. You can configure the displayed <strong>date format</strong> using a pattern, using <code>yyyy</code> for year, <code>MM</code> for Month, <code>dd</code> for day, <code>mm</code> for minutes.</p>
 <p>You can force the timezone to 0 using the relevant property.</p>
 <p>For more information about supported formats, read the Angular documentation for <a href="https://docs.angularjs.org/api/ng/filter/date">date filter</a>.</p>
-
-<h3 id="radio-widget">Radio button widget</h3>
-<p>Use a radio button widget to create a set of radio buttons for the available values, from which the user picks one value. 
+<h3>Radio button widget</h3>
+<p>Use a radio button widget to create a set of radio buttons for the available values, from which the user picks one value.
 To define the <strong>available values</strong>, you can provide a comma-separated list for simple values (for example: red, green, blue), or bind to a variable that holds an array of values.
 If the values are JavaScript objects, you can also specify a <strong>displayed key</strong> that identifies the attribute to be used to label the radio buttons
 and a <strong>returned key</strong> so <strong>selected value</strong> will return only a specific key rather that the whole corresponding object.</p>
 <p>The selected value should be bound to a variable that will hold the data for the chosen radio button.</p>
-
-<h3 id="checkbox-widget">Checkbox widget</h3>
+<h3>Checkbox widget</h3>
 <p>Use a checkbox widget to create a unique checkbox. The value property will be true or false, depending on the checked value of the checkbox.</p>
-
-<h3 id="checklist-widget">Checklist widget</h3>
-<p>Use a checklist widget to create a set of checkboxes for the available values, from which the users picks any number of values. To define the <strong>available values</strong>, you can provide a comma-separated list for simple values (for example: red, green, blue), or bind to a variable that holds an array of values.
-
-If the values are JavaScript objects, you can also specify a <strong>displayed key</strong> that identifies the attribute to be used to label the checkboxes 
+<h3>Checklist widget</h3>
+<p>Use a checklist widget to create a set of checkboxes for the available values, from which the users picks any number of values. To define the <strong>available values</strong>, you can provide a comma-separated list for simple values (for example: red, green, blue), or bind to a variable that holds an array of values.</p>
+<p>If the values are JavaScript objects, you can also specify a <strong>displayed key</strong> that identifies the attribute to be used to label the checkboxes
 and a <strong>returned key</strong> so <strong>selected value</strong> will return only a specific key rather that the whole corresponding object.</p>
-
-
 <p>The selected values are captured through the <strong>Selected values</strong> property.</p>
 <p><strong>Warning:</strong> Do not bind the <strong>Selected values</strong> property to a specific item from the available values collection because selected values will be updated each time you modify a checkbox. Do not bind the Selected values to the Available values collection, because this could lead to unexpected behaviors.</p>
-
-<h3 id="button-widget">Button widget</h3>
-<p>Use a button widget to enable to user to trigger an action. The button can perform a <code>PUT</code>, <code>POST</code>, <code>GET</code> (from 7.1.3), or <code>DELETE</code> (from 7.1.3)  request and send data to a given URL. 
+<h3>Button widget</h3>
+<p>Use a button widget to enable to user to trigger an action. The button can perform a <code>PUT</code>, <code>POST</code>, <code>GET</code> (from 7.1.3), or <code>DELETE</code> (from 7.1.3) request and send data to a given URL.
 You can use a variable to hold the resulting data after success or failure.</p>
 <p>For pages that are displayed in a task or process context, the button widget can be used to submit a form, completing the human task or starting a process instance. For form submission, you need to define only the data to send. The URL is extracted from the context.</p>
 <p>Finally, you can use the widget button to add or remove a data from a given collection.</p>
 <p>When inside a form container, the button is automatically disabled while the form is invalid.</p>
-
-<h3 id="upload-widget">File upload widget</h3>
+<h3>File upload widget</h3>
 <p>Use an upload widget to perform a file upload (POST) on the specified <strong>URL</strong>. Data returned by the server is stored in the <strong>value</strong> property.</p>
-
-
-<h2 id="table-widget">Table widget</h2>
+<h2>Table widget</h2>
 <p>Use a table widget to display data in a table. In order to display the data, first define the <strong>headers</strong> property with a comma-separated list of column headings.</p>
 <p>Then bind the <strong>content</strong> to an array of JavaScript objects.</p>
 <p>Finally, provide a comma-separated list for the <strong>columns keys</strong> indicating the attribute to display in each column.</p>
 <p>To get the data from a selected row, bind <strong>selected row</strong> to a variable.</p>
-
-
-<h2 id="image-widget">Image widget</h2>
-<p>Use an image widget to display an image. The image widget is able to display images from local assets or an image from a URL:
-    </p><ul><li><p>To use an image asset in the image widget, set the <strong>Source type</strong> property to <em>Asset</em>, and then enter the image name in the <strong>Asset name</strong> input field.</p></li>
-        <li><p>To use an online image in the image widget, set the <strong>Source type</strong> property to <em>URL</em>, and then enter the image URL in the <strong>URL</strong> input field.</p></li>
-    </ul><p><em><strong>Note</strong></em>: Applies from <em>7.0.2</em></p>
-
-<h2 id="datatable-widget">Data table widget (Subscription editions)</h2>
-
+<h2>Image widget</h2>
+<p>Use an image widget to display an image. The image widget is able to display images from local assets or an image from a URL:</p>
+<ul>
+<li>To use an image asset in the image widget, set the <strong>Source type</strong> property to <em>Asset</em>, and then enter the image name in the <strong>Asset name</strong> input field.</li>
+<li></li>
+</ul>
+<p>To use an online image in the image widget, set the <strong>Source type</strong> property to <em>URL</em>, and then enter the image URL in the <strong>URL</strong> input field.</p>
+<p><em><strong>Note</strong></em>: Applies from <em>7.0.2</em></p>
+<h2>Data table widget (Subscription editions)</h2>
 <p>An extended table widget that provides column sorting, filtering, and paging in addition to the standard table widget facilities.</p>
-
-<p>Set the <strong>Data source</strong> to <em>Bonita API</em> to populate the data table with records from a Bonita BPM REST API.  
-Then enter a REST API URL in the <strong>URL</strong> property. Use the <strong>API request parameters</strong> property to pass additional parameters to the request. 
-Supported parameters are described in the <a href="/rest-api-overview.html#standard_search_params">REST API Overview</a> and in the REST API documentation for the relevant resource. 
-You do not need to specify paging parameters (such as <code>?p=0&amp;c=10</code>), because the data table handles paging automatically when you use a Bonita API data source. 
+<p>Set the <strong>Data source</strong> to <em>Bonita API</em> to populate the data table with records from a Bonita BPM REST API.
+Then enter a REST API URL in the <strong>URL</strong> property. Use the <strong>API request parameters</strong> property to pass additional parameters to the request.
+Supported parameters are described in the <a href="/rest-api-overview.md#standard_search_params">REST API Overview</a> and in the REST API documentation for the relevant resource.
+You do not need to specify paging parameters (such as <code>?p=0&amp;c=10</code>), because the data table handles paging automatically when you use a Bonita API data source.
 The value of the <strong>Page size</strong> property controls how many rows are displayed in a table view, and automatically adds buttons to show subsequent pages of the table.</p>
-
-<p>Alternatively, you can set the <strong>Data source</strong> to <em>Variable</em> and use a variable definition to point ot the table content. 
+<p>Alternatively, you can set the <strong>Data source</strong> to <em>Variable</em> and use a variable definition to point ot the table content.
 Note that if you use a Variable datasource and an External API variable, the paging of the table content is not handled automatically.</p>
-
-<p>When a data table is displayed (including in the Preview), the user can click on a column heading to reorder the table rows by this column. 
-Some fields do not support sorting but still display the sort button which is a known limitation. 
+<p>When a data table is displayed (including in the Preview), the user can click on a column heading to reorder the table rows by this column.
+Some fields do not support sorting but still display the sort button which is a known limitation.
 The ordering applies to the visible rows in the table, not to the entire table.</p>
-
 <p>You can provide a filter for users to update the displayed table to show only the rows that match the filter. To do this:</p>
-<ol><li>Add a widget to the page where the user will specify the filter. This can be an Input widget for free-form text, or a Select widget to choose from a preset list.</li>
-    <li>Create a filter variable in the variable panel. If you are using an Input widget, this variable has no value.</li>
-    <li>Bind the filter variable to the widget.</li>
-    <li>Bind the filter variable to the Data table widget <strong>Filter</strong> property.</li>
-</ol><p>When the table is displayed, each time the user updates the filter, the table display is updated accordingly. The filter is applied to the table rows that are currently displayed.</p>
-
+<ol>
+<li>Add a widget to the page where the user will specify the filter. This can be an Input widget for free-form text, or a Select widget to choose from a preset list.</li>
+<li>Create a filter variable in the variable panel. If you are using an Input widget, this variable has no value.</li>
+<li>Bind the filter variable to the widget.</li>
+<li>Bind the filter variable to the Data table widget <strong>Filter</strong> property.</li>
+</ol>
+<p>When the table is displayed, each time the user updates the filter, the table display is updated accordingly. The filter is applied to the table rows that are currently displayed.</p>
 <p>Note: it is only possible to filter on attributes that are searchable in the REST resource definition. To search on an attribute of a business object, make sure that the BDM contains the necessary queries.</p>
-
-
-
-<h2 id="chart-widget">Chart widget (Subscription editions)</h2>
-
+<h2>Chart widget (Subscription editions)</h2>
 <p>Use the chart widget to create a graphical display of data to ease understanding. This widget is based on angular-chart-0.8.1, which is based on Chart.js.
-    For information, see the <a href="http://jtblin.github.io/angular-chart.js/">Angular chart documentation</a> or <a href="http://www.chartjs.org/docs/">Chart.js documentation</a>.</p>
-
+For information, see the <a href="http://jtblin.github.io/angular-chart.js/">Angular chart documentation</a> or <a href="http://www.chartjs.org/docs/">Chart.js documentation</a>.</p>
 <p>The widget can display several styles of chart:</p>
-<ul><li>For a single set of data points:
-        <ul><li>Bar</li>
-            <li>Line</li>
-            <li>Radar</li>
-        </ul></li>
-    <li>For one or more sets of data points:
-        <ul><li>Pie</li>
-            <li>Doughnut</li>
-            <li>Polar area</li>
-        </ul></li>
-</ul><p>Provide each set of data for display in a JSON array, containing numeicral values.
-    You can enter a single array directly in the Value property, or bind it to any variable that provides an array.
-    For a multiple set chart, bind it to any variable that provides an array of arrays, all sets having have the same length.
-    The list of values in the <strong>Labels</strong> property must be have same length as an associated set.</p>
+<ul>
+<li>
+<p>For a single set of data points:</p>
+<ul>
+<li>Bar</li>
+<li>Line</li>
+<li>Radar</li>
+</ul>
+</li>
+<li>
+<p>For one or more sets of data points:</p>
+<ul>
+<li>Pie</li>
+<li>Doughnut</li>
+<li>Polar area</li>
+</ul>
+</li>
+</ul>
+<p>Provide each set of data for display in a JSON array, containing numeicral values.
+You can enter a single array directly in the Value property, or bind it to any variable that provides an array.
+For a multiple set chart, bind it to any variable that provides an array of arrays, all sets having have the same length.
+The list of values in the <strong>Labels</strong> property must be have same length as an associated set.</p>
 <p>Charts can be customized more deeply using the <strong>Advanced options</strong> property. To specify advanced options, bind this property to a JSON variable that specifies the options.
-    Options are specific to each chart type and are listed in the <a href="http://www.chartjs.org/docs/">Chart.js documentation</a> in the <i>Chart options</i> section for each chart style 
-    (for example, there are spacing <a href="http://www.chartjs.org/docs/#bar-chart-chart-options">options for bar charts</a>).</p>
-</div>
-	</body></html>
+Options are specific to each chart type and are listed in the <a href="http://www.chartjs.org/docs/">Chart.js documentation</a> in the <em>Chart options</em> section for each chart style
+(for example, there are spacing <a href="http://www.chartjs.org/docs/#bar-chart-chart-options">options for bar charts</a>).</p>

@@ -1,25 +1,23 @@
-<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Managing dependencies</title></head><body class="front">
-		<div id="content">
-	<h1>1.12.5 Managing dependencies</h1>
-    <p>A dependency is an external code module, not provided in Bonita BPM, that is used by a process. This page explains how to manage dependencies using
+<h1>1.12.5 Managing dependencies</h1>
+<p>A dependency is an external code module, not provided in Bonita BPM, that is used by a process. This page explains how to manage dependencies using
 Bonita BPM Studio, so that when you build a process for deployment, all the dependencies are met.</p>
-
-<p>Dependencies are primarily managed through the Development menu of Bonita BPM Studio. This makes the external module available for all processes. 
+<p>Dependencies are primarily managed through the Development menu of Bonita BPM Studio. This makes the external module available for all processes.
 You can also import a dependency when you configure a process, but in this case, it is only available for the process you are configuring.</p>
-
 <p>From the Development menu, you can manage:</p>
-<ul><li>Connectors</li>
+<ul>
+<li>Connectors</li>
 <li>Actor filters</li>
 <li>Data types</li>
 <li>Business data model</li>
 <li>Validators</li>
 <li>Scripts</li>
 <li>Other jar files</li>
-</ul><p>To specify the dependencies for a process, click <strong><em>Configure</em></strong> in the coolbar. You can then define Process dependencies and Application dependencies.</p>
-<ul><li>Process dependencies are modules required by the process when it runs. These are specified in Studio and are managed by the Engine. </li>
-    <li>Application dependencies are modules required by clients of the engine, including forms. 
-If forms (or any client) manipulate objects programmatically, the dependencies must be in the client&apos;s classpath. 
+</ul>
+<p>To specify the dependencies for a process, click <strong><em>Configure</em></strong> in the coolbar. You can then define Process dependencies and Application dependencies.</p>
+<ul>
+<li>Process dependencies are modules required by the process when it runs. These are specified in Studio and are managed by the Engine.</li>
+<li>Application dependencies are modules required by clients of the engine, including forms.
+If forms (or any client) manipulate objects programmatically, the dependencies must be in the client's classpath.
 The classpath is initialized with the application dependencies specified in the Studio. The most common use case for application dependencies is custom datatypes.</li>
-</ul><p>Note that certain libraries cannot be included in more than one classpath. To avoid this problem, we recommend that you always check for <a href="/manage-jar-files.html#duplicate_libraries">duplicate libraries</a> when you configure a process.</p>
-</div>
-	</body></html>
+</ul>
+<p>Note that certain libraries cannot be included in more than one classpath. To avoid this problem, we recommend that you always check for <a href="/manage-jar-files.md#duplicate_libraries">duplicate libraries</a> when you configure a process.</p>

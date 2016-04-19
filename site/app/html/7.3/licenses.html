@@ -1,129 +1,61 @@
-<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Licenses</title></head><body class="front">
-		<div id="content">
-	<h1>2.3.8 Licenses</h1>
-    <p>Bonita BPM 7.1 introduces a new Bonita BPM Subscription Pack edition licensing model: case-counter licensing. This page explains how to manage the license for your Bonita BPM platform, under the case-counter licensing model or using the legacy licensing model.</p>
-
-<dl><dt><a href="#case-counter">Case-counter licensing</a></dt>
-<dt><a href="#legacy">Legacy licensing</a></dt>
-<dt><a href="#installation">License installation</a></dt>
-<dt><a href="#renewal">License renewal</a></dt>
-</dl><p>The <strong><em>License</em></strong> menu in Bonita BPM Portal displays information about the current license. This information is available to the platform administrator only.</p>
-
-<p>The <a href="/bonita-bpm-studio-installation.html#license">license for Bonita BPM Studio</a> is installed using a wizard when you start the studio for the first time after installation (or after the previous license expires).</p>
-
-
-<h2 id="case-counter">Case-counter licensing</h2>
- 
- <p>A case-counter license defines the maximum number of cases (process instances) that the platform is permitted to start in the counter period. 
- The counter period is typically one year and starts when your Subscription starts or on the anniversary.
- Each time a case starts, the case counter is increased by one.  
- Case-counter licenses are available for development and for production. A development license must not be used for production, and typically has a lower case limit than a production license. 
- The maximum number of cases is defined in your commercial contract, in discussion with your sales person.</p><p>
- 
- </p><p>As well as using Bonita BPM Portal, you can monitor the case counter using the <a href="/platform-api.html#license">REST API</a>. You can also check the expiration date of the license with the REST API.
-</p>
- 
- 
+<h1>2.3.8 Licenses</h1>
+<p>Bonita BPM 7.1 introduces a new Bonita BPM Subscription Pack edition licensing model: case-counter licensing. This page explains how to manage the license for your Bonita BPM platform, under the case-counter licensing model or using the legacy licensing model.</p>
+<p><strong><a href="#case-counter">Case-counter licensing</a></strong></p>
+<p><strong><a href="#legacy">Legacy licensing</a></strong></p>
+<p><strong><a href="#installation">License installation</a></strong></p>
+<p><strong><a href="#renewal">License renewal</a></strong></p>
+<p>The <strong><em>License</em></strong> menu in Bonita BPM Portal displays information about the current license. This information is available to the platform administrator only.</p>
+<p>The <a href="/bonita-bpm-studio-installation.md#license">license for Bonita BPM Studio</a> is installed using a wizard when you start the studio for the first time after installation (or after the previous license expires).</p>
+<h2>Case-counter licensing</h2>
+<p>A case-counter license defines the maximum number of cases (process instances) that the platform is permitted to start in the counter period.
+The counter period is typically one year and starts when your Subscription starts or on the anniversary.
+Each time a case starts, the case counter is increased by one.
+Case-counter licenses are available for development and for production. A development license must not be used for production, and typically has a lower case limit than a production license.
+The maximum number of cases is defined in your commercial contract, in discussion with your sales person.</p>
+<p>As well as using Bonita BPM Portal, you can monitor the case counter using the <a href="/platform-api-861#license">REST API</a>. You can also check the expiration date of the license with the REST API.</p>
 <p>When the case counter reaches the limit set in the license, no more cases can be started. Active cases continue to completion.</p>
-
- 
-<p>If a user tries to submits a case start form after the case counter maximum limit is reached, the form cannot be submitted and they see an error message. 
+<p>If a user tries to submits a case start form after the case counter maximum limit is reached, the form cannot be submitted and they see an error message.
 Note that if the process is still using legacy forms, there is no error message.</p>
-
- 
-<h2 id="legacy">Legacy licensing</h2>
-
+<h2>Legacy licensing</h2>
 <p>A legacy license has an expiration date but no case limit.</p>
-
- <p>Shortly before the license expiration date, an email message is sent to the address where the previous license was sent.
- The exact number of days before the expiration this reminder message is sent depends on your subscription and is set 
- by the sales person you talk to, when purchasing the first license (so if you have a specific need, discuss it with them). You can also check the expiration date using the <a href="/platform-api.html#license">REST API</a>. This is useful if the email address previously used is no longer active, or if the recipient is not checking email (for example, during vacation).</p>
- 
-
- <p>A legacy license is limited to a preset number of CPU cores. A development license is limited to two CPU cores. 
- A production license can allow four CPU cores or more. If your server has more CPU cores than the number allocated to Bonita BPM execution in your license, you will need to limit the number of cores available to Bonita BPM Platform.</p>
- <p>Below you can find some examples to limit execution of standalone Tomcat setup to 2 CPU cores:</p>
- 
- <p>For Windows: <br><code>start /AFFINITY 3 startup.bat</code><br>
- where 3 is the affinity mask (expressed as a hexadecimal number). 1 -&gt; 1 CPU core, 3 -&gt; 2 CPU cores, 7 -&gt; 3 CPU cores, 15 -&gt; 4 CPU cores...
- </p>
- 
- <p>For Linux: <br><code>#!/bin/sh taskset -c 0,1 startup.sh </code><br>
- where 
- 0,1 indicates CPU cores to use. You can set a list of CPU cores to use or a range. E.g.: 0,1,2,3 or 0-3</p>
- 
- <p>Replace <code>startup.[bat|sh]</code> with the appropriate launcher of your application server (<code>startup.bat</code> if for Tomcat).</p>
-
-
-
-<h2 id="installation">License installation</h2>
-
+<p>Shortly before the license expiration date, an email message is sent to the address where the previous license was sent.
+The exact number of days before the expiration this reminder message is sent depends on your subscription and is set
+by the sales person you talk to, when purchasing the first license (so if you have a specific need, discuss it with them). You can also check the expiration date using the <a href="/platform-api-861#license">REST API</a>. This is useful if the email address previously used is no longer active, or if the recipient is not checking email (for example, during vacation).</p>
+<p>A legacy license is limited to a preset number of CPU cores. A development license is limited to two CPU cores.
+A production license can allow four CPU cores or more. If your server has more CPU cores than the number allocated to Bonita BPM execution in your license, you will need to limit the number of cores available to Bonita BPM Platform.</p>
+<p>Below you can find some examples to limit execution of standalone Tomcat setup to 2 CPU cores:</p>
+<p>For Windows:<br>
+<code>start /AFFINITY 3 startup.bat</code></p>
+<p>where 3 is the affinity mask (expressed as a hexadecimal number). 1 -&gt; 1 CPU core, 3 -&gt; 2 CPU cores, 7 -&gt; 3 CPU cores, 15 -&gt; 4 CPU cores...</p>
+<p>For Linux:<br>
+<code>#!/bin/sh taskset -c 0,1 startup.sh</code></p>
+<p>where
+0,1 indicates CPU cores to use. You can set a list of CPU cores to use or a range. E.g.: 0,1,2,3 or 0-3</p>
+<p>Replace <code>startup.[bat|sh]</code> with the appropriate launcher of your application server (<code>startup.bat</code> if for Tomcat).</p>
+<h2>License installation</h2>
 <p>Your contract with BonitaSoft specifies the details of the subscription you have purchased, including the edition, license model, and case limit for case-counter licensing. A license matching the subscription details is generated on request.</p>
-
 <p>To obtain and install the license, follow these steps:</p>
-
- <ol><li><a href="#plat_get">Get a request key</a> for Bonita BPM Platform.
- </li><li>Go to the <a href="https://customer.bonitasoft.com/license/request">Customer portal</a> license request page.</li>
- <li>Fill in the details in the form.</li>
- <li>The license file will be sent to you by email.</li>
- <li><a href="#plat_install">Install</a> the license file for Bonita BPM Platform.</li>
- </ol><h3 id="plat_get">Generate a license request key</h3>
- 
-<p>You need to generate the license key on the server where you install Bonita BPM Platform. A request key looks like this:</p>
-<code> 
-(CIVpYDRB8bhouXdWadLY1M9TVctwYUYuv7ou7sqeIrSUSuCqUIkjQAs0ZGgzbtqv3gguFOHlyMZkyvwdr4HLgg==)
-</code>
-
- <p>To generate a request key, go to the <code>request_key_utils</code> folder of your Bonita BPM installation and run the <code>generateRequestKey.bat</code> script (for Windows) or the <code>generateRequestKey.sh</code> script (for other operating systems).</p>
+<ol>
+<li><a href="#plat_get">Get a request key</a> for Bonita BPM Platform.</li>
+<li>Go to the <a href="https://customer.bonitasoft.com/license/request">Customer portal</a> license request page.</li>
+<li>Fill in the details in the form.</li>
+<li>The license file will be sent to you by email.</li>
+<li><a href="#plat_install">Install</a> the license file for Bonita BPM Platform.</li>
+</ol>
+<h3>Generate a license request key</h3>
+<p>You need to generate the license key on the server where you install Bonita BPM Platform. A request key looks like this:
+<code>(CIVpYDRB8bhouXdWadLY1M9TVctwYUYuv7ou7sqeIrSUSuCqUIkjQAs0ZGgzbtqv3gguFOHlyMZkyvwdr4HLgg==)</code></p>
+<p>To generate a request key, go to the <code>request_key_utils</code> folder of your Bonita BPM installation and run the <code>generateRequestKey.bat</code> script (for Windows) or the <code>generateRequestKey.sh</code> script (for other operating systems).</p>
 <p>Use the generated request key to request a license on the <a href="https://customer.bonitasoft.com/license/request">Customer portal</a> license request page. Note: keep the brackets () in the key.
- If the key is separated by a line break, remove it and put the key on a single line.</p>
- 
-
-  <h3 id="plat_install">Install the license</h3>
- 
- <p>When you receive the license file (<code>.lic</code> file extension) copy it to the <code>server/licenses</code> folder located inside Bonita home.</p>
- 
- 
-<h2 id="renewal">License renewal</h2>
-
-<p>To renew your license, you need the request key, which you can get using the script, from the Bonita BPM Portal page, or by using the <a href="/platform-api.html#license">REST API</a>.</p>
-
-<p>For either type of license, if you are still within the Subscription period when you approach the license expiration date, request a new license that starts on the last day of your current license. 
-Put the license you receive in the license folder alongside the existing license. 
+If the key is separated by a line break, remove it and put the key on a single line.</p>
+<h3>Install the license</h3>
+<p>When you receive the license file (<code>.lic</code> file extension) copy it to the <code>server/licenses</code> folder located inside Bonita home.</p>
+<h2>License renewal</h2>
+<p>To renew your license, you need the request key, which you can get using the script, from the Bonita BPM Portal page, or by using the <a href="/platform-api-861#license">REST API</a>.</p>
+<p>For either type of license, if you are still within the Subscription period when you approach the license expiration date, request a new license that starts on the last day of your current license.
+Put the license you receive in the license folder alongside the existing license.
 When you reach the &quot;changeover&quot; date for the licenses, Bonita BPM Engine switches automatically from the expired license to the valid one.</p>
-
 <p>If you approach both the license expiration date and the end of the Subscription period, contact your sales person.</p>
-
-<p>For case-counter licensing, the case counter is reset at the end of the counter period. 
-If your license expiry date is before the end of the counter period, obtain and install a new license as usual. The case counter will continue from its current value under the new license.
-
-If you approach or reach the case counter limit before the end of the license period, contact your sales person to obtain a new license with additional cases.</p>
- 
-
-
-
-
-
-
- 
- 
- 
- 
- 
- 
-
- 
- 
- 
-
- 
-
-
- 
- 
-
- 
-
- 
- </div>
-	</body></html>
+<p>For case-counter licensing, the case counter is reset at the end of the counter period.
+If your license expiry date is before the end of the counter period, obtain and install a new license as usual. The case counter will continue from its current value under the new license.</p>
+<p>If you approach or reach the case counter limit before the end of the license period, contact your sales person to obtain a new license with additional cases.</p>

@@ -1,123 +1,134 @@
-<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Creating a REST API extension</title></head><body class="front">
-		<div id="content">
-	<h1>4.4.11 Creating a REST API extension</h1>
-    <p>REST API extensions provide data sources for forms and pages. They can be used to query <a href="/define-and-deploy-the-bdm.html">business data</a> or an external information system (such as a database, web service, or LDAP directory).
+<h1>4.4.11 Creating a REST API extension</h1>
+<p>REST API extensions provide data sources for forms and pages. They can be used to query <a href="/business-data-model-856">business data</a> or an external information system (such as a database, web service, or LDAP directory).
 They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
 In the Bonita BPM Studio, a REST API Extension is a <a href="http://maven.apache.org/">Maven artifact</a>.</p>
-
 <p>Prerequisites for developing a REST API extension:</p>
-<ul><li>Basic knowledge of Maven</li>
+<ul>
+<li>Basic knowledge of Maven</li>
 <li>Groovy/Java development expertise</li>
-</ul><p>The following sections show how to create and deploy a REST API extension. As an example, they show a REST API extension that queries the corporate LDAP directory to get the list of all users.</p>
-
+</ul>
+<p>The following sections show how to create and deploy a REST API extension. As an example, they show a REST API extension that queries the corporate LDAP directory to get the list of all users.</p>
 <h2>Create a new REST API Extension</h2>
-
-<ol><li>In the <strong>Development</strong> menu, choose <strong>REST API Extension</strong> then <strong>New...</strong>.</li>
-
-A REST API should be resource oriented. Here the resource name could be LDAPUser.
-
+<ol>
+<li>In the <strong>Development</strong> menu, choose <strong>REST API Extension</strong> then <strong>New...</strong>.</li>
+</ol>
+<p>A REST API should be resource oriented. Here the resource name could be LDAPUser.</p>
+<ol start="2">
 <li>Enter a <strong>Display name</strong>, for example <em>LDAPUser REST API Extension</em>.</li>
 <li>Enter a <strong>Description</strong>, for example <em>Query the company LDAP directory to retrieve ldap users</em>.</li>
 <li>Enter a package name, use to set the artifact <strong>Group id</strong>, by example: com.company.rest.api</li>
 <li>Enter a <strong>Project name</strong>, for example <em>ldapUserRestAPIExension</em>, also used as <strong>Artifact id</strong></li>
 <li>Click <strong>Next</strong>.</li>
-<li>Enter the <strong>pathTemplate</strong> for this REST API extension, for example <em>ldap/users</em>. 
+<li>Enter the <strong>pathTemplate</strong> for this REST API extension, for example <em>ldap/users</em>.
 This will be the access point of the API, and follows this pattern: <code>{bonita_portal_context}/API/extension/ldap/users</code>.</li>
-<li>Define a <strong>Permission</strong> for the extension, for example <em>read_ldap_users</em>. 
-Each REST API extension should declare its own <a href="/rest-api-authorization.html">authorization permission</a>. Users require this permission to use the extension. /li&gt;
-</li><li>Click <strong>Next</strong></li>
+<li>Define a <strong>Permission</strong> for the extension, for example <em>read_ldap_users</em>.
+Each REST API extension should declare its own <a href="/rest-api-authorization.md">authorization permission</a>. Users require this permission to use the extension. /li&gt;</li>
+<li>Click <strong>Next</strong></li>
 <li>Add <strong>URL parameters</strong> that will be passed to the API. By default, <em>p</em> and <em>c</em> parameters are defined to enables paged result, it apllies well in our examples as we want to return a list of users.</li>
 <li>Click <strong>Create</strong>.</li>
-</ol><p>When the project is created, Bonita BPM Studio presents a developer interface. This gives access to the project resources, a console view, a problem overview, a JUnit view, and an outline.
+</ol>
+<p>When the project is created, Bonita BPM Studio presents a developer interface. This gives access to the project resources, a console view, a problem overview, a JUnit view, and an outline.
 It also opens two files: <code>Index.groovy</code> which is the RestAPIController and <code>page.properties</code> where the REST API extension is configured.
 Another file of interest is the <code>pom.xml</code> of your project, where you can add dependencies.</p>
-<p>Note: <code><scope>provided</scope></code> must be used for dependencies that are already available at runtime, such as Bonita BPM dependencies or common dependencies that are already in the classpath.</p>
-
+<p>Note: <code>provided</code> must be used for dependencies that are already available at runtime, such as Bonita BPM dependencies or common dependencies that are already in the classpath.</p>
 <p>A new REST API extension is generated with some initial content:</p>
-<ul><li><code>Index.groovy</code>: The RestAPIController with some generated code as an example of how to retrieve URL parameters and return responses.</li>
+<ul>
+<li><code>Index.groovy</code>: The RestAPIController with some generated code as an example of how to retrieve URL parameters and return responses.</li>
 <li><code>IndexTest.groovy</code>: The unit tests covering the generated code using <a href="http://spockframework.github.io/spock/docs/1.0/index.html">Spock framework</a>.</li>
 <li><code>page.properties</code>: The REST API extension configuration properties.</li>
 <li><code>configuration.properties</code>: An example of a configuration property file for the business logic.</li>
 <li><code>content.xml</code>: A maven assembly to package the REST API Extension for deployment.</li>
-</ul><h2>Write the code</h2>
-<ol><li>Right click the <code>IndexTest.groovy</code> file and click on <strong>REST API Extension</strong> &gt; <strong>Run JUnit Tests</strong>. The JUnit view displays the test results. All tests should pass.</li>
-    <li>Because the values of the parameters <em>p</em> and <em>c</em> are supposed to be integer values, update the generated content to match that (for example, replace &quot;value1&quot; by &quot;0&quot;)</li>
-    <li>Update <code>IndexTest.groovy</code> to add a new test to validate that the page parameter is an integer:
-    <code>
- def should_return_an_error_response_if_p_parameter_is_not_a_positive_integer() {
-		given: &quot;a request with p parmeter not being a positive integer&quot;
-		def index = new Index()
-		httpRequest.getParameter(&quot;p&quot;) &gt;&gt; &quot;aStringValue&quot;
-		// Other parameters return a valid value
-		httpRequest.getParameter(&quot;c&quot;) &gt;&gt; &quot;50&quot;
+</ul>
+<h2>Write the code</h2>
+<ol>
+<li>
+<p>Right click the <code>IndexTest.groovy</code> file and click on <strong>REST API Extension</strong> &gt; <strong>Run JUnit Tests</strong>. The JUnit view displays the test results. All tests should pass.</p>
+</li>
+<li>
+<p>Because the values of the parameters <em>p</em> and <em>c</em> are supposed to be integer values, update the generated content to match that (for example, replace &quot;value1&quot; by &quot;0&quot;)</p>
+</li>
+<li>
+<p>Update <code>IndexTest.groovy</code> to add a new test to validate that the page parameter is an integer:
+`
+def should_return_an_error_response_if_p_parameter_is_not_a_positive_integer() {
+	given: &quot;a request with p parmeter not being a positive integer&quot;
+	def index = new Index()
+	httpRequest.getParameter(&quot;p&quot;) &gt;&gt; &quot;aStringValue&quot;
+	// Other parameters return a valid value
+	httpRequest.getParameter(&quot;c&quot;) &gt;&gt; &quot;50&quot;</p>
+<pre><code>when: &quot;Invoking the REST API&quot;
+def apiResponse = index.doHandle(httpRequest, new RestApiResponseBuilder(), context)
 
-		when: &quot;Invoking the REST API&quot;
-		def apiResponse = index.doHandle(httpRequest, new RestApiResponseBuilder(), context)
-
-		then: &quot;A JSON response is returned with a HTTP Bad Request Status (400) and an error message in body&quot;
-		def jsonResponse = new JsonSlurper().parseText(apiResponse.response)
-		// Validate returned response
-		apiResponse.httpStatus == 400
-		jsonResponse.error == &quot;the parameter p is not a positive integer&quot;
-	}
-</code></li>
-<li>Re-run the tests. The test above should fail.</li>
-<li>Edit <code>Index.groovy</code> to make the test pass:
-    <code>
- @Override
-	RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
-		// To retrieve query parameters use the request.getParameter(..) method.
-		// Be careful, parameter values are always returned as String values
-
-		// Retrieve p parameter
-		def p = request.getParameter &quot;p&quot;
-		if (p == null) {
-			return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,&quot;&quot;&quot;{&quot;error&quot; : &quot;the parameter p is missing&quot;}&quot;&quot;&quot;)
-		}
-		def pageNumber;
-		try{
-			pageNumber = p as int
-			if(pageNumber 
-</code></li>
+then: &quot;A JSON response is returned with a HTTP Bad Request Status (400) and an error message in body&quot;
+def jsonResponse = new JsonSlurper().parseText(apiResponse.response)
+// Validate returned response
+apiResponse.httpStatus == 400
+jsonResponse.error == &quot;the parameter p is not a positive integer&quot;
+</code></pre>
+<p>}
+`</p>
+</li>
+<li>
+<p>Re-run the tests. The test above should fail.</p>
+</li>
+<li>
+<p>Edit <code>Index.groovy</code> to make the test pass:
+`
+@Override
+RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
+	// To retrieve query parameters use the request.getParameter(..) method.
+	// Be careful, parameter values are always returned as String values</p>
+<pre><code>// Retrieve p parameter
+def p = request.getParameter &quot;p&quot;
+if (p == null) {
+	return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,&quot;&quot;&quot;{&quot;error&quot; : &quot;the parameter p is missing&quot;}&quot;&quot;&quot;)
+}
+def pageNumber;
+try{
+	pageNumber = p as int
+	if(pageNumber 
+</code></pre>
+</li>
+</ol>
+<p>`</p>
+<ol start="6">
 <li>Re-run the tests. All tests should pass.</li>
 <li>Repeat this operation for the <em>c</em> parameter.</li>
 <li>Now you can add the business logic to query the LDAP directory.
-All configuration information (including security and connection parameters) can be stored in a the <code>configuration.properties</code> file. 
-The result of the query must be returned as a <a href="http://www.json.org/">JSON representation</a>. 
+All configuration information (including security and connection parameters) can be stored in a the <code>configuration.properties</code> file.
+The result of the query must be returned as a <a href="http://www.json.org/">JSON representation</a>.
 You can use <a href="http://docs.groovy-lang.org/latest/html/gapi/groovy/json/JsonBuilder.html">groovy.json.JsonBuilder</a> to transform a Java object into JSON.</li>
-<li>To return a paged result you may use <code>buildPagedResponse</code> method instead of <code>buildResponse</code></li>
-<code>
-    return buildPagedResponse(responseBuilder, new JsonBuilder(result).toPrettyString(), p as int, c as int, totalUsers)
-</code>
-Where <em>totalUsers</em> is the total number of users returned for the current query in the ldap (Should be retrieved with a count query).
-</ol><h2>Configure logging.properties</h2>
-<p>You may want to use the generated SLF4J LOGGER to log informations, warnings or errors relevant for error recovery.To Configure the log output, modify the logging.properties of the tomcat.
-</p>
-<ol><li>Open logging.properties file: %TOMCAT_FOLDER%/conf/logging.properties (if you are in a Studio environment, tomcat folder is located here be default: %STUDIO_DIR%/workspace/tomcat)</li>
-<li>Append the following lines at the end of the files:</li>
-<code>
-    #log rest api extension output in bonita.log file
-    # com.company.rest.api is an example of a package where the RestAPIController is. You must use your own package here.
-    com.company.rest.api.handlers = 5bonita.org.apache.juli.FileHandler
-    com.company.rest.api.level = INFO
-</code>
+<li>To return a paged result you may use <code>buildPagedResponse</code> method instead of <code>buildResponse</code>
+<code>return buildPagedResponse(responseBuilder, new JsonBuilder(result).toPrettyString(), p as int, c as int, totalUsers)</code>
+Where <em>totalUsers</em> is the total number of users returned for the current query in the ldap (Should be retrieved with a count query).</li>
+</ol>
+<h2>Configure logging.properties</h2>
+<p>You may want to use the generated SLF4J LOGGER to log informations, warnings or errors relevant for error recovery.To Configure the log output, modify the logging.properties of the tomcat.</p>
+<ol>
+<li>Open logging.properties file: %TOMCAT_FOLDER%/conf/logging.properties (if you are in a Studio environment, tomcat folder is located here be default: %STUDIO_DIR%/workspace/tomcat)</li>
+<li>Append the following lines at the end of the files:
+`
+#log rest api extension output in bonita.log file
+<h1>com.company.rest.api is an example of a package where the RestAPIController is. You must use your own package here.</h1>
+com.company.rest.api.handlers = 5bonita.org.apache.juli.FileHandler
+com.company.rest.api.level = INFO
+`</li>
 <li>Restart tomcat to apply changes. (In Studio,menu Server &gt; Restart Web server)</li>
-</ol><h2>Deploy the LDAP REST API extension</h2>
-<ol><li>In the <strong>Development</strong> menu, choose <strong>REST API Extension</strong> then <strong>Edit permissions mapping</strong>.</li>
-         <li>Save and close the file.</li>
-         <li>Append this line:
-<code>
-profile|User=[read_ldap_users]
-</code> 
+</ol>
+<h2>Deploy the LDAP REST API extension</h2>
+<ol>
+<li>In the <strong>Development</strong> menu, choose <strong>REST API Extension</strong> then <strong>Edit permissions mapping</strong>.</li>
+<li>Save and close the file.</li>
+<li>Append this line:
+<code>profile|User=[read_ldap_users]</code>
 This means that anyone logged in with the user profile is granted this permission.</li>
-         <li>Save and close the file.</li>
-    
-
+<li>Save and close the file.</li>
+</ol>
+<ol start="5">
 <li>In the <strong>Development</strong> menu, choose <strong>REST API Extension</strong> &gt; <strong>Deploy...</strong> and then deploy ldapUserRestAPIExension.</li>
 <li>In the coolbar, click the Portal icon. This opens the Bonita BPM Portal in your browser.</li>
-<li>In the Portal, change to the <b>Administrator</b> profile.</li>
-<li>Go to the <strong>Resources</strong> tab, and check that the LDAPUser REST API extension is in the list of REST API extension resources.</li> 
+<li>In the Portal, change to the <strong>Administrator</strong> profile.</li>
+<li>Go to the <strong>Resources</strong> tab, and check that the LDAPUser REST API extension is in the list of REST API extension resources.</li>
 <li>Open a new tab in the web browser and enter the following URL: <code>http://localhost:8080/bonita/API/extension/ldap/users?p=0&amp;c=100</code>. The JSON response body should be displayed.</li>
-</ol><p>The LDAP REST API extension can be used in forms and pages in the <b>UI Designer</b> using an <code>External API</code> variable.
-</p></div>
-	</body></html>
+</ol>
+<p>The LDAP REST API extension can be used in forms and pages in the <strong>UI Designer</strong> using an <code>External API</code> variable.</p>

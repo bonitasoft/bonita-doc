@@ -42,7 +42,6 @@
     "gulp-ng-constant": "^1.1.0",
     "gulp-protractor": "^1.0.0",
     "gulp-rename": "^1.2.2",
-    "gulp-replace": "0.5.4",
     "gulp-rimraf": "^0.2.0",
     "gulp-util": "^3.0.7",
     "html-loader": "^0.3.0",
@@ -71,7 +70,7 @@
     "webpack-dev-server": "^1.12.1"
   },
   "scripts": {
-    "html": "for i in $(ls app/md/*.md); do node_modules/.bin/markdown-it $i > \"app/html/${${i:7}%.md}.html\"; done;",
+    "html": "for i in $(ls ../md/*.md); do node_modules/.bin/markdown-it $i > \"app/html/${${i:6}%.md}.html\"; done;",
     "serve": "gulp serve",
     "build": "gulp build",
     "test": "ava"

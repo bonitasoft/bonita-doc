@@ -1,287 +1,225 @@
-<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Event handlers</title></head><body class="front">
-		<div id="content">
-	<h1>4.7.2 Event handlers</h1>
-    <p>An event handler is an extension to the engine that is configured to run when a specified event occurs. You can add event handlers for several purposes and you can configure which events you want to catch.
-    We strongly recommend that you add only appropriate handlers and carefully code the handler filters to handle only those events that you are interested in.</p>
-
-<dl><dt><a href="#add">Add an event handler</a></dt>
-    <dt><a href="#filter">Filter an event</a></dt>
-    <dt><a href="#register">Register an event handler</a></dt>
-    <dt><a href="#example">Example</a></dt>
-    <dd><a href="#registration">Registration</a></dd>
-    <dd><a href="#code">Event handler source code</a></dd>
-    <dt><a href="#list">Event list</a></dt>
-</dl><p>An event is a change to any object in the database (user, activity, processDefinition,... ). You can create an event handler to track any change to any object in the database and take the appropriate action. For example:</p>
-
-<ul><li>Catch PROCESSINSTANCE_CREATED to detect that a process instance has started, and notify the process supervisor.</li>
-    <li>Catch FLOWNODE_INSTANCE_CREATED to detect that a human task is available, and send email to all the users elligible to perform it.</li>
-    <li>Catch HIDDEN_TASK_CREATED to detect that a service task becomes available, and start an external system that is required to complete the task.</li>
-</ul><p>At the end of this page there is a <a href="#list">list of all the events</a>.</p>
-
-
-<h2 id="add">Add an event handler</h2>
-
-<p>An event handler is added to the system as a jar file and made available using a classloader. <br>
-(e.g. placing jar file under webapps/bonita/WEB-INF/lib/ folder for a tomcat bundle distribution)
-</p>
-
-<h2 id="filter">Filter an event</h2>
-
+<h1>4.7.2 Event handlers</h1>
+<p>An event handler is an extension to the engine that is configured to run when a specified event occurs. You can add event handlers for several purposes and you can configure which events you want to catch.
+We strongly recommend that you add only appropriate handlers and carefully code the handler filters to handle only those events that you are interested in.</p>
+<p><strong><a href="#add">Add an event handler</a></strong></p>
+<p><strong><a href="#register">Register an event handler</a></strong></p>
+<p><strong><a href="#example">Example</a></strong></p>
+<blockquote>
+<p><a href="#registration">Registration</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#code">Event handler source code</a></p>
+</blockquote>
+<p><strong><a href="#list">Event list</a></strong></p>
+<p>An event is a change to any object in the database (user, activity, processDefinition,... ). You can create an event handler to track any change to any object in the database and take the appropriate action. For example:</p>
+<ul>
+<li>Catch PROCESSINSTANCE_CREATED to detect that a process instance has started, and notify the process supervisor.</li>
+<li>Catch FLOWNODE_INSTANCE_CREATED to detect that a human task is available, and send email to all the users elligible to perform it.</li>
+<li>Catch HIDDEN_TASK_CREATED to detect that a service task becomes available, and start an external system that is required to complete the task.</li>
+</ul>
+<p>At the end of this page there is a <a href="#list">list of all the events</a>.</p>
+<h2>Add an event handler</h2>
+<p>An event handler is added to the system as a jar file and made available using a classloader.</p>
+<p>(e.g. placing jar file under /WEB-INF/lib folder of the web application)</p>
 <p>An event handler contains a filter, <code>isInterested</code>, which detects the relevant instances of the event.
-    The example below shows how to use the State Id of a flow node to filter for a particular state (in this case, failed).
-    Flownode State Ids are defined in the subclasses of <code>org.bonitasoft.engine.core.process.instance.api.states.FlowNodeState</code>.
-    There is no exhaustive list; the set of states is extensible without notice.</p>
-
-
-<code type="java">
-public boolean isInterested(SEvent event) {
-    boolean isInterested = false;
-
-    // Get the object associated with the event
-    Object eventObject = event.getObject();
-
-    // Check that event is related to a task
-    if (eventObject instanceof SFlowNodeInstance) {
-        SFlowNodeInstance flowNodeInstance = (SFlowNodeInstance) eventObject;
-
-        // Verify that state of the task is failed. See
-        // FailedActivityStateImpl
-        isInterested = (flowNodeInstance.getStateId() == 3);
-    }
-
-    return isInterested;
-}
-</code>
-
+The <a href="#code">example</a> below shows how to use the State Id of a flow node to filter for a particular state (in this case, failed).
+Flownode State Ids are defined in the subclasses of <code>org.bonitasoft.engine.core.process.instance.api.states.FlowNodeState</code>.
+There is no exhaustive list; the set of states is extensible without notice.</p>
 <p>Event handlers are recursive, that is, if an event handler itself modifies something and triggers an event, the relevant event handler is called. This means you might need to include loop detection in your event handler.</p>
-
-
-
-<h2 id="register">Register an event handler</h2>
-
+<h2>Register an event handler</h2>
 <p>An event handler is registered on an event by adding an entry to the appropriate map.
-    The list of handlers registered at platform level can be extended in the <code>BONITA_HOME/engine-server/conf/platform/bonita-platform-sp-custom.xml</code> file.
-    Theist of handlers registered at tenant level can be extended in the <code>BONITA_HOME/engine-server/conf/tenants/TENANT_ID/bonita-tenant-sp-custom.xml</code> file.
+The list of handlers registered at platform level can be extended in the <code>BONITA_HOME/engine-server/conf/platform/bonita-platform-sp-custom.xml</code> file.
+Theist of handlers registered at tenant level can be extended in the <code>BONITA_HOME/engine-server/conf/tenants/TENANT_ID/bonita-tenant-sp-custom.xml</code> file.</p>
+<p>Each entry in the map is a key-value pair, which specifies the event handler to be called for each event.
+The isInterested filter in the event handler detects the relevant instances of the event and calls the event handler.
+You cannot have more than one handler for a given event, but you can use the isInterested filter to specify different actions for different instances of the event.</p>
+<h2>Example</h2>
+<p>This example shows an event handler that detects changes in the state of activity instances. If an activity has moved into Failed state, the event handler calls <a href="/technical-logger-service.md#delayedretry">DelayedRetry</a>.</p>
+<h3>Registration</h3>
+<p><code>java.util.HashMap</code></p>
+<h3>Event handler source code</h3>
+<p>`
+package com.bonitasoft.handlers;</p>
+<p>import org.bonitasoft.engine.core.process.instance.model.SFlowNodeInstance;
+import org.bonitasoft.engine.events.model.SEvent;
+import org.bonitasoft.engine.events.model.SHandler;
+import org.bonitasoft.engine.events.model.SHandlerExecutionException;</p>
+<p>/**</p>
+<ul>
+<li>Handler that run when a task is failed. The handler will start a new</li>
+<li>thread that will try to run again the task with a delay.</li>
+<li></li>
+<li>@author Antoine Mottier</li>
+<li></li>
+</ul>
+<p>*/
+public class FailedTaskHandler implements SHandler {</p>
+<pre><code>/**
+ * Build the handler. 
+ * 
+ */
+public FailedTaskHandler() {
+}
 
-</p><p>Each entry in the map is a key-value pair, which specifies the event handler to be called for each event.
-    The isInterested filter in the event handler detects the relevant instances of the event and calls the event handler.
-    You cannot have more than one handler for a given event, but you can use the isInterested filter to specify different actions for different instances of the event.</p>
+public void execute(SEvent event) throws SHandlerExecutionException {
+	// Get the object (the task object) associted with the event
+	SFlowNodeInstance flowNodeInstance = (SFlowNodeInstance) event.getObject();
+	
+	// Configure and start a retry thread
+	DelayedRetry delayedRetry = new DelayedRetry();
+	delayedRetry.setTaskId(flowNodeInstance.getId());
+	delayedRetry.setTechnicalLog(technicalLog);
+	Thread delayedRetryThread = new Thread(delayedRetry, &quot;Retry task: &quot;
+			+ flowNodeInstance.getId());
+	delayedRetryThread.start();
+}
 
+/**
+ * Report if this handler should take care of the received event.
+ */
+public boolean isInterested(SEvent event) {
+	boolean isInterested = false;
 
-<h2 id="example">Example</h2>
+	// Get the object associated with the event
+	Object eventObject = event.getObject();
 
-<p>This example shows an event handler that detects changes in the state of activity instances. If an activity has moved into Failed state, the event handler calls <a href="/technical-logging.html#delayedretry">DelayedRetry</a>.</p>
+	// Check that event is related to a task
+	if (eventObject instanceof SFlowNodeInstance) {
+		SFlowNodeInstance flowNodeInstance = (SFlowNodeInstance) eventObject;	
+		
+		// Verify that state of the task is failed. See
+		// FailedActivityStateImpl
+		isInterested = (flowNodeInstance.getStateId() == 3);
+	}
 
-<ol><li><p>create a maven project for event handler jar</p>
-        <p>pom.xml :</p>
-    <code>
-        <?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"><modelversion>4.0.0</modelversion><groupid>org.bonitasoft.example</groupid><artifactid>eventHandlerExample</artifactid><version>1.0-SNAPSHOT</version><properties><bonita.version>7.2.0</bonita.version><project.build.sourceencoding>UTF-8</project.build.sourceencoding></properties><dependencies><dependency><groupid>org.bonitasoft.engine</groupid><artifactid>bonita-server</artifactid><version>${bonita.version}</version></dependency></dependencies><build><plugins><plugin><groupid>org.apache.maven.plugins</groupid><artifactid>maven-compiler-plugin</artifactid><configuration><source>1.7<target>1.7</target></configuration></plugin></plugins></build></project></code>
-
-
-    </li>
-
-    <li>
-
-    </li>
-</ol><h3 id="registration">Registration</h3>
-
-<code type="java">
-    <bean id="CustomHandler" class="com.bonitasoft.customHandlers.CustomHandler"><constructor-arg name="tenantId" value="${tenantId}"></constructor-arg></bean><bean id="eventHandlers" class="org.springframework.beans.factory.config.MapFactoryBean"><property name="targetMapClass"><value>java.util.HashMap</value></property><property name="sourceMap"><map><entry key="ACTIVITYINSTANCE_STATE_UPDATED" value-ref="CustomHandler"></entry><entry key="HUMAN_TASK_INSTANCE_ASSIGNEE_UPDATED" value-ref="CustomHandler"></entry><entry key="PROCESSINSTANCE_CREATED" value-ref="CustomHandler"></entry><entry key="PROCESSINSTANCE_UPDATED" value-ref="CustomHandler"></entry></map></property></bean></code>
-
-<h3 id="code">Event handler source code</h3>
-
-<code type="java">
-    package com.bonitasoft.handlers;
-
-    import org.bonitasoft.engine.core.process.instance.model.SFlowNodeInstance;
-    import org.bonitasoft.engine.events.model.SEvent;
-    import org.bonitasoft.engine.events.model.SHandler;
-    import org.bonitasoft.engine.events.model.SHandlerExecutionException;
-
-    /**
-    * Handler that run when a task is failed. The handler will start a new
-    * thread that will try to run again the task with a delay.
-    *
-    * @author Antoine Mottier
-    *
-    */
-    public class FailedTaskHandler implements SHandler<sevent> {
-
-    /**
-    * Build the handler.
-    *
-    */
-    public FailedTaskHandler() {
-    }
-
-    public void execute(SEvent event) throws SHandlerExecutionException {
-    // Get the object (the task object) associted with the event
-    SFlowNodeInstance flowNodeInstance = (SFlowNodeInstance) event.getObject();
-
-    // Configure and start a retry thread
-    DelayedRetry delayedRetry = new DelayedRetry();
-    delayedRetry.setTaskId(flowNodeInstance.getId());
-    delayedRetry.setTechnicalLog(technicalLog);
-    Thread delayedRetryThread = new Thread(delayedRetry, &quot;Retry task: &quot;
-    + flowNodeInstance.getId());
-    delayedRetryThread.start();
-    }
-
-    /**
-    * Report if this handler should take care of the received event.
-    */
-    public boolean isInterested(SEvent event) {
-    boolean isInterested = false;
-
-    // Get the object associated with the event
-    Object eventObject = event.getObject();
-
-    // Check that event is related to a task
-    if (eventObject instanceof SFlowNodeInstance) {
-    SFlowNodeInstance flowNodeInstance = (SFlowNodeInstance) eventObject;
-
-    // Verify that state of the task is failed. See
-    // FailedActivityStateImpl
-    isInterested = (flowNodeInstance.getStateId() == 3);
-    }
-
-    return isInterested;
-    }
-
-    }
-</sevent></code>
-
-<h2 id="list">Event list</h2>
-
+	return isInterested;
+}
+</code></pre>
+<p>}
+`</p>
+<h2>Event list</h2>
 <p>This is a snapshot of the events used in the Engine.</p>
-
-<table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><th valign="top" width="20%">Service</th>
-        <th valign="top" width="80%">Events</th>
-    </tr><tr><td valign="top"><p>ActivityInstanceServiceImpl</p></td>
-        <td valign="top">
-            <p>
-
-                ACTIVITYINSTANCE_CREATED,
-                HUMAN_TASK_INSTANCE_ASSIGNEE_UPDATED,
-                ACTIVITYINSTANCE_STATE_UPDATED,
-                ACTIVITY_INSTANCE_TOKEN_COUNT_UPDATED,
-                HIDDEN_TASK_CREATED,
-                HIDDEN_TASK_DELETED,
-                PENDINGACTIVITYMAPPING_CREATED,
-                PENDINGACTIVITYMAPPING_DELETED</p></td>
-    </tr><tr><td valign="top"><p>ActorMappingServiceImpl</p></td>
-        <td valign="top"><p>ACTOR_CREATED,
-            ACTOR_DELETED,
-            ACTOR_UPDATED,
-            ACTOR_MEMBER_CREATED,
-            ACTOR_MEMBER_DELETED</p></td>
-    </tr><tr><td valign="top"><p>CategoryServiceImpl</p></td>
-        <td valign="top"><p>CATEGORY_CREATED,
-            CATEGORY_DELETED,
-            CATEGORY_UPDATED</p></td>
-    </tr><tr><td valign="top"><p>CommandServiceImpl</p></td>
-        <td valign="top"><p>COMMAND_CREATED,
-            COMMAND_DELETED,
-            COMMAND_UPDATED</p></td>
-    </tr><tr><td valign="top"><p>SCommentServiceImpl</p></td>
-        <td valign="top"><p>COMMENT_CREATED,
-            COMMENT_DELETED</p></td>
-    </tr><tr><td valign="top"><p>ConnectorInstanceServiceImpl</p></td>
-        <td valign="top"><p>CONNECTOR_INSTANCE_CREATED,
-            CONNECTOR_INSTANCE_DELETED,
-            CONNECTOR_INSTANCE_STATE_UPDATED,
-            CONNECTOR_INSTANCE_UPDATED</p></td>
-    </tr><tr><td valign="top"><p>DependencyServiceImpl</p></td>
-        <td valign="top"><p>DEPENDENCY_CREATED,
-            DEPENDENCYMAPPING_CREATED,
-            DEPENDENCY_DELETED,
-            DEPENDENCYMAPPING_DELETED,
-            DEPENDENCY_UPDATED,
-            DEPENDENCYMAPPING_UPDATED</p></td>
-    </tr><tr><td valign="top"><p>DocumentMappingServiceImpl</p></td>
-        <td valign="top"><p>DOCUMENTMAPPING_CREATED,
-            DOCUMENTMAPPING_DELETED,
-            DOCUMENTMAPPING_UPDATED
-        </p></td>
-    </tr><tr><td valign="top"><p>SEventInstanceServiceImpl</p></td>
-        <td valign="top"><p>EVENT_INSTANCE_CREATED,
-            EVENT_TRIGGER_INSTANCE_CREATED,
-            EVENT_TRIGGER_INSTANCE_DELETED,
-            MESSAGE_INSTANCE_CREATED,
-            MESSAGE_INSTANCE_DELETED,
-            MESSAGE_INSTANCE_UPDATED</p></td>
-    </tr><tr><td valign="top"><p>ExternalIdentityMappingServiceImpl</p></td>
-        <td valign="top"><p>EXTERNAL_IDENTITY_MAPPING_CREATED,
-            EXTERNAL_IDENTITY_MAPPING_DELETED</p></td>
-    </tr><tr><td valign="top"><p>FlowNodeInstanceServiceImpl</p></td>
-        <td valign="top"><p>ARCHIVED_FLOWNODE_INSTANCE_DELETED,
-            FLOWNODE_INSTANCE_DELETED</p></td>
-    </tr><tr><td valign="top"><p>GatewayInstanceServiceImpl</p></td>
-        <td valign="top"><p>GATEWAYINSTANCE_CREATED,
-            GATEWAYINSTANCE_HITBYS_UPDATED,
-            GATEWAYINSTANCE_STATE_UPDATED</p></td>
-    </tr><tr><td valign="top"><p>IdentityServiceImpl</p></td>
-        <td valign="top"><p>GROUP_CREATED,
-            GROUP_DELETED,
-            GROUP_UPDATED,
-            METADATA_CREATED,
-            METADATA_DELETED,
-            METADATA_UPDATED,
-            METADATAVALUE_CREATED,
-            METADATAVALUE_DELETED,
-            METADATAVALUE_UPDATED,
-            ROLE_UPDATED,
-            ROLE_CREATED,
-            ROLE_DELETED,
-            USER_UPDATED,
-            USER_CREATED,
-            USER_DELETED,
-            USER_CONTACT_INFO_UPDATED,
-            USER_CONTACT_INFO_CREATED,
-            USER_CONTACT_INFO_DELETED,
-            USERMEMBERSHIP_UPDATED,
-            USERMEMBERSHIP_CREATED,
-            USERMEMBERSHIP_DELETED</p></td>
-    </tr><tr><td valign="top"><p>JobServiceImpl</p></td>
-        <td valign="top"><p>eventType_CREATED,
-            eventType_DELETED</p></td>
-    </tr><tr><td valign="top"><p>JobWrapper</p></td>
-        <td valign="top"><p>JOB_COMPLETED,
-            JOB_EXECUTING</p></td>
-    </tr><tr><td valign="top"><p>ProcessDefinitionServiceImpl</p></td>
-        <td valign="top"><p>PROCESSDEFINITION_CREATED,
-            PROCESSDEFINITION_DELETED,
-            PROCESSDEFINITION_DEPLOY_INFO_UPDATED,
-            PROCESSDEFINITION_IS_DISABLED_UPDATED,
-            PROCESSDEFINITION_IS_ENABLED_UPDATED,
-            PROCESSDEFINITION_IS_RESOLVED_UPDATED</p></td>
-    </tr><tr><td valign="top"><p>ProcessInstanceServiceImpl</p></td>
-        <td valign="top"><p>MIGRATION_PLAN_UPDATED,
-            PROCESS_INSTANCE_CATEGORY_STATE_UPDATED,
-            PROCESSINSTANCE_CREATED,
-            PROCESSINSTANCE_DELETED,
-            PROCESSINSTANCE_STATE_UPDATED,
-            PROCESSINSTANCE_UPDATED</p></td>
-    </tr><tr><td valign="top"><p>ProfileServiceImpl</p></td>
-        <td valign="top"><p>PROFILE_CREATED,
-            PROFILE_DELETED,
-            PROFILE_UPDATED,
-            ENTRY_PROFILE_CREATED,
-            ENTRY_PROFILE_DELETED,
-            ENTRY_PROFILE_UPDATED,
-            PROFILE_MEMBER_DELETED</p></td>
-    </tr><tr><td valign="top"><p>ReportingServiceImpl</p></td>
-        <td valign="top"><p>REPORT_CREATED,
-            REPORT_DELETED</p></td>
-    </tr><tr><td valign="top"><p>SupervisorMappingServiceImpl</p></td>
-        <td valign="top"><p>SUPERVISOR_CREATED,
-            SUPERVISOR_DELETED</p></td>
-    </tr><tr><td valign="top"><p>ThemeServiceImpl</p></td>
-        <td valign="top"><p>THEME_CREATED,
-            THEME_DELETED,
-            THEME_UPDATED</p></td>
-    </tr><tr><td valign="top"><p>TokenServiceImpl</p></td>
-        <td valign="top"><p>PROCESS_INSTANCE_TOKEN_COUNT_CREATED,
-            PROCESS_INSTANCE_TOKEN_COUNT_DELETED</p></td>
-    </tr></tbody></table></div>
-	</body></html>
+<p>Service
+Events</p>
+<p>ActivityInstanceServiceImpl</p>
+<p>ACTIVITYINSTANCE_CREATED,
+HUMAN_TASK_INSTANCE_ASSIGNEE_UPDATED,
+ACTIVITYINSTANCE_STATE_UPDATED,
+ACTIVITY_INSTANCE_TOKEN_COUNT_UPDATED,
+HIDDEN_TASK_CREATED,
+HIDDEN_TASK_DELETED,
+PENDINGACTIVITYMAPPING_CREATED,
+PENDINGACTIVITYMAPPING_DELETED</p>
+<p>ActorMappingServiceImpl</p>
+<p>ACTOR_CREATED,
+ACTOR_DELETED,
+ACTOR_UPDATED,
+ACTOR_MEMBER_CREATED,
+ACTOR_MEMBER_DELETED</p>
+<p>CategoryServiceImpl</p>
+<p>CATEGORY_CREATED,
+CATEGORY_DELETED,
+CATEGORY_UPDATED</p>
+<p>CommandServiceImpl</p>
+<p>COMMAND_CREATED,
+COMMAND_DELETED,
+COMMAND_UPDATED</p>
+<p>SCommentServiceImpl</p>
+<p>COMMENT_CREATED,
+COMMENT_DELETED</p>
+<p>ConnectorInstanceServiceImpl</p>
+<p>CONNECTOR_INSTANCE_CREATED,
+CONNECTOR_INSTANCE_DELETED,
+CONNECTOR_INSTANCE_STATE_UPDATED,
+CONNECTOR_INSTANCE_UPDATED</p>
+<p>DependencyServiceImpl</p>
+<p>DEPENDENCY_CREATED,
+DEPENDENCYMAPPING_CREATED,
+DEPENDENCY_DELETED,
+DEPENDENCYMAPPING_DELETED,
+DEPENDENCY_UPDATED,
+DEPENDENCYMAPPING_UPDATED</p>
+<p>DocumentMappingServiceImpl</p>
+<p>DOCUMENTMAPPING_CREATED,
+DOCUMENTMAPPING_DELETED,
+DOCUMENTMAPPING_UPDATED</p>
+<p>SEventInstanceServiceImpl</p>
+<p>EVENT_INSTANCE_CREATED,
+EVENT_TRIGGER_INSTANCE_CREATED,
+EVENT_TRIGGER_INSTANCE_DELETED,
+MESSAGE_INSTANCE_CREATED,
+MESSAGE_INSTANCE_DELETED,
+MESSAGE_INSTANCE_UPDATED</p>
+<p>ExternalIdentityMappingServiceImpl</p>
+<p>EXTERNAL_IDENTITY_MAPPING_CREATED,
+EXTERNAL_IDENTITY_MAPPING_DELETED</p>
+<p>FlowNodeInstanceServiceImpl</p>
+<p>ARCHIVED_FLOWNODE_INSTANCE_DELETED,
+FLOWNODE_INSTANCE_DELETED</p>
+<p>GatewayInstanceServiceImpl</p>
+<p>GATEWAYINSTANCE_CREATED,
+GATEWAYINSTANCE_HITBYS_UPDATED,
+GATEWAYINSTANCE_STATE_UPDATED</p>
+<p>IdentityServiceImpl</p>
+<p>GROUP_CREATED,
+GROUP_DELETED,
+GROUP_UPDATED,
+METADATA_CREATED,
+METADATA_DELETED,
+METADATA_UPDATED,
+METADATAVALUE_CREATED,
+METADATAVALUE_DELETED,
+METADATAVALUE_UPDATED,
+ROLE_UPDATED,
+ROLE_CREATED,
+ROLE_DELETED,
+USER_UPDATED,
+USER_CREATED,
+USER_DELETED,
+USER_CONTACT_INFO_UPDATED,
+USER_CONTACT_INFO_CREATED,
+USER_CONTACT_INFO_DELETED,
+USERMEMBERSHIP_UPDATED,
+USERMEMBERSHIP_CREATED,
+USERMEMBERSHIP_DELETED</p>
+<p>JobServiceImpl</p>
+<p>eventType_CREATED,
+eventType_DELETED</p>
+<p>JobWrapper</p>
+<p>JOB_COMPLETED,
+JOB_EXECUTING</p>
+<p>ProcessDefinitionServiceImpl</p>
+<p>PROCESSDEFINITION_CREATED,
+PROCESSDEFINITION_DELETED,
+PROCESSDEFINITION_DEPLOY_INFO_UPDATED,
+PROCESSDEFINITION_IS_DISABLED_UPDATED,
+PROCESSDEFINITION_IS_ENABLED_UPDATED,
+PROCESSDEFINITION_IS_RESOLVED_UPDATED</p>
+<p>ProcessInstanceServiceImpl</p>
+<p>MIGRATION_PLAN_UPDATED,
+PROCESS_INSTANCE_CATEGORY_STATE_UPDATED,
+PROCESSINSTANCE_CREATED,
+PROCESSINSTANCE_DELETED,
+PROCESSINSTANCE_STATE_UPDATED,
+PROCESSINSTANCE_UPDATED</p>
+<p>ProfileServiceImpl</p>
+<p>PROFILE_CREATED,
+PROFILE_DELETED,
+PROFILE_UPDATED,
+ENTRY_PROFILE_CREATED,
+ENTRY_PROFILE_DELETED,
+ENTRY_PROFILE_UPDATED,
+PROFILE_MEMBER_DELETED</p>
+<p>ReportingServiceImpl</p>
+<p>REPORT_CREATED,
+REPORT_DELETED</p>
+<p>SupervisorMappingServiceImpl</p>
+<p>SUPERVISOR_CREATED,
+SUPERVISOR_DELETED</p>
+<p>ThemeServiceImpl</p>
+<p>THEME_CREATED,
+THEME_DELETED,
+THEME_UPDATED</p>
+<p>TokenServiceImpl</p>
+<p>PROCESS_INSTANCE_TOKEN_COUNT_CREATED,
+PROCESS_INSTANCE_TOKEN_COUNT_DELETED</p>

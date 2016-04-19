@@ -1,194 +1,205 @@
-<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Processes</title></head><body class="front">
-		<div id="content">
-	<h1>3.3 Processes</h1>
-    <p>Logged on with the Administrator profile, you have rights to manage a process as follows:</p>
-<ul><li><a href="#installanapp">How to install a process</a></li>
-    <li><a href="#resolveanapp">How to resolve a process</a></li>
-    <li><a href="#enableanapp">How to enable a process</a></li>
-    <li><a href="#disableanapp">How to disable a process</a></li>
-    <li><a href="#deleteanapp">How to delete a process</a></li>
-    <li><a href="#createcat">How to create a category for a process</a></li>
-    <li><a href="#addcat">How to add a category to a process</a></li>
-    <li><a href="#entitymap">How to make a process available to a user via entity mapping</a></li>
-    <li><a href="#modpar">How to modify a parameter</a></li>
-    <li><a href="#conndef">How to edit connector definitions</a></li>
-    <li><a href="#formMapping">How to fix forms</a></li>
-    <li><a href="#formUpload">How to upload new form</a></li>
-    <li><a href="#editFormUpload">How to edit an existing form</a></li>
-    <li><a href="#editScriptContent">How to edit a script content</a></li>
-</ul><div id="installanapp"></div>
-
-    <h2>How to install a new process</h2>
-    <ol><li>Go to the BPM tab</li>
-        <li>Click <em><strong>Processes</strong></em></li>
-        <li>Click <em><strong>Install new process</strong></em></li>
-        <li>Click to browse to the .bar file to import</li>
-        <li>Click <em><strong>Install</strong></em></li>
-    </ol><p>The .bar file is ready to be resolved and enabled</p>
-    <div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong> if you try to install the same process twice, a message is displayed: &quot;Process [yourProcessName] in version [yourProcessVersion] already exists.&quot;</div>
-    <p>You can only install a .bar file that was exported from a Bonita BPM Studio of the same minor (7.x) version as your Bonita BPM Portal and Bonita BPM Engine. If you have a .bar file that was exported from an earlier version of Bonita BPM Studio (7.x-1), it will not work with Bonita BPM Engine. Export the process definition as a .bos file from your old Bonita BPM Studio, import in into the new Studio, then export it as a .bar. This is necessary for a .bar that has not been deployed. A process that was developed in an older version of Bonita BPM Studio and is already deployed is migrated automatically when you migrate your platform. However, for future maintenance of the process definition, you are recommended to update all your process bar files to the latest version each time you update your platform.
-    </p>
-    <p><a href="images/videos-6_0/install_an_app_in_bonita_portal.mp4" id="player" class="flowplayer"> Watch the Install a process video</a></p>
-    <p></p>
-    <div id="resolveanapp"></div>
-    <h2>How to resolve a process</h2>
-    <p>Resolving a process means completing the configuration in the Portal and making sure that all dependencies are met. A process has to be resolved before it can be enabled. </p>
-    <p>To resolve a process, you must complete the configuration of the actor mappings, parameters, forms, and connectors defined for the process. You can also configure other information such as Categories and Scripts, but this is not mandatory for resolving a process.</p>
-    <ul><li><strong>Actor mapping</strong>; Every actor in a process must be mapped to at least one user, group, role or membership.</li>
-        <li><strong>Parameters</strong>: Every parameter defined in a process must have a value.</li>
-        <li><strong>Connector definitions</strong>: Every connector definition in a process must have a corresponding Class name.</li>
-        <li><strong>Business Data Model</strong>: Every business data object defined in a process must have a corresponding model.</li>
-        <li><strong>Forms</strong>: Every form defined in a process must be mapped to a page or a URL.</li>
-    </ul><p>To resolve a process:</p>
-    <ol><li>Go to BPM tab.</li>
-        <li>Click <em><strong>Processes</strong></em>,</li>
-        <li>Click on a <em><strong>Process</strong></em>. The Configuration section of the right panel shows whether there are items to be resolved. </li>
-        <li>Click on <em><strong>More</strong></em>.</li>
-        <li>A summary of configuration problems is displayed below the process name in a well and warning icons are displayed in the left navigation list.</li>
-        <li>Modify your configuration for each element displayed.</li>
-    </ol><div id="enableanapp"></div>
-    <h2>How to enable a process</h2>
-    <ol><li>Go to the BPM menu tab</li>
-        <li>Click <em><strong>Processes</strong></em></li>
-        <li>Click <em><strong>Resolved filter</strong></em></li>
-        <li>Select the process</li>
-        <li>Click <em><strong>More</strong> button</em></li>
-        <li>Click <em><strong>Enable</strong></em></li>
-        <li>The activation state changes to &quot;enabled&quot;</li>
-        <li>The process disappears from the disabled filter and is now displayed in the enabled filter</li>
-    </ol><div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong> You can also select the processes you want to enable by checking the box in the Resolved list, then click <em><strong>ENABLE</strong></em> button in the bulk actions section
-    </div>
-    <div id="disableanapp"></div>
-    <h2>How to disable a process</h2>
-    <ol><li>Go to the BPM tab</li>
-        <li>Click <em><strong>Processes</strong></em></li>
-        <li>Click <em><strong>Enabled filter</strong></em></li>
-        <li>Select the process </li>
-        <li>Click <em><strong>Disable</strong></em></li>
-        <li>The activation state changes to &quot;disabled&quot;</li>
-        <li>The process disappears from enabled filter and is located in the disabled filter</li>
-    </ol><div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong> You can also disable a process in the more details view, by clicking <em><strong>Enabled</strong></em> toggle button.
-    </div>
-    <div id="deleteanapp"></div>
-    <h2>How to delete a process</h2>
-    <div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong>A process must be disabled before it can be deleted.</div>
-    <ol><li>Go to BPM menu tab</li>
-        <li>Click <em><strong>Processes</strong></em></li>
-        <li>Select the process to delete by checking the tickbox next to the process</li>
-        <li>Click <em><strong>Delete</strong></em></li>
-    </ol><p>You can also delete the process in the more details view of a disabled process by clicking <em><strong>DELETE</strong></em>, then click <em><strong>DELETE</strong></em> in the modal window</p>
-    <div id="createcat"></div>
-    <h2>How to create a category for a process</h2>
-    <ol><li>Go to BPM tab</li>
-        <li>Select a process in the list</li>
-        <li>Click <em><strong>More</strong></em></li>
-        <li>In General, click the pencil next to Categories label</li>
-        <li>In the opened modal, type a new category name then press <em><strong>Enter</strong></em> key</li>
-        <li>Click <em><strong>Save</strong></em></li>
-    </ol><p>After you created a category and added to the process, you can add other processes to the category.</p>
-    <p></p>
-    <div id="addcat"></div>
-    <h2>How to add a category to a process</h2>
-    <ol><li>Go to BPM tab</li>
-        <li>Select a process in the list</li>
-        <li>Click <em><strong>More</strong></em></li>
-        <li>In General, click the pencil next to Categories label</li>
-        <li>In the opened modal, type a new category name then press <em><strong>Enter</strong></em> key, or use arrow keys to browse among exisiting categories</li>
-        <li>Click <em><strong>Save</strong></em></li>
-    </ol><p></p>
-    <div id="entitymap"></div>
-    <h2>How to add an entity to an actor</h2>
-    <ol><li>Go to the BPM tab.</li>
-        <li>Click <em><strong>Processes</strong></em>.</li>
-        <li>Select a process in the list.</li>
-        <li>Click <em><strong>More</strong></em>.</li>
-        <li>Click <em><strong>Actors</strong></em> in the left navigation.</li>
-        <li>In the Actors section, click the <em><strong>+</strong></em> button in the user, group, role or membership column of the actor line.</li>
-        <li>In the opened popup, click on the dropdown list to select one or several actors. The list displays the first five elements, then a number is displayed representing the other selected entities.</li>
-        <li>Click <em><strong>APPLY</strong></em>.</li>
-    </ol><div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong> Notice that only the first 200  actors are displayed in the dropdown.</div>
-    
-    <h2>How to remove an entity from an actor</h2>
-    <ol><li>Go to the BPM tab.</li>
-        <li>Click <em><strong>Processes</strong></em>.</li>
-        <li>Select a process in the list.</li>
-        <li>Click <em><strong>More</strong></em>.</li>
-        <li>Click <em><strong>Actors</strong></em> in the left navigation.</li>
-        <li>In the Actors section, click the <em><strong>pencil</strong></em> button in the user, group, role or membership column of the actor line.</li>
-        <li>In the opened popup, there is a list of the actors already mapped.</li>
-        <li>Click the <em><strong>X</strong></em> button next to the actor, or click <em><strong>Remove all</strong></em>.</li>
-        <li>A list appears filled with the actors you can to remove. You can undo a removal by clicking <em><strong>X</strong></em> button next to the actor or by clicking <em><strong>Enable all</strong></em> </li>
-        <li>Click <em><strong>APPLY</strong></em>.</li>
-    </ol><h2>How to modify a parameter in the Administrator profile</h2>
-    <div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong> For Bonita BPM Performance and Efficiency editions only.</div>
-    <div id="modpar"></div>
-    <ol><li>Go to the BPM tab</li>
-        <li>Click <em><strong>Processes</strong></em></li>
-        <li>Select a process</li>
-        <li>Click <em><strong>MORE</strong></em></li>
-        <li>Click <em><strong>Parameters</strong></em> in the left navigation</li>
-        <li>In the <strong>Value</strong> column, click on the value you want to edit</li>
-        <li>A field appears</li>
-        <li>Click the <em><strong>Tick</strong></em> button to validate your change or <em><strong>X</strong></em> to dismiss your change.</li>
-    </ol><div id="conndef"></div>
-    <h2>How to edit a connector implementation</h2>
-    <div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong> For Bonita BPM Performance and Efficiency editions only.</div>
-    <ol><li>Go to the BPM tab</li>
-        <li>Click <em><strong>Processes</strong></em></li>
-        <li>Click <em><strong>More</strong></em> button</li>
-        <li>Click <em><strong>Connectors</strong></em></li>
-        <li>In the connector definitions table, in the actions column, click on the <em><strong>Pencil</strong></em></li>
-        <li>Browse to a .zip file containing the new connector implementation</li>
-        <li>Click <em><strong>Save</strong></em> to import the new implementation.</li>
-    </ol><h2 id="formMapping">How to fix forms</h2>
-    <div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong> For Bonita BPM Performance and Efficiency editions only.</div>
-    <ol><li>Go to the BPM tab.</li>
-        <li>Click <em><strong>Processes</strong></em>.</li>
-        <li>Click <em><strong>More</strong></em> button.</li>
-        <li>Click <em><strong>Forms</strong></em> in the left navigation.</li>
-        <li>The tables are displayed which list available forms. Click on a red link.</li>
-        <li>A field input appears.</li>
-        <li>Starting to type some text, and any matching names of installed forms will be proposed. If there is no match for the name you enter, it will be considered as a URL.</li>
-        <li>Click the <em><strong>Tick</strong></em> button to validate your change or <em><strong>X</strong></em> to dismiss your change.</li>
-    </ol><div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong> You can also upload a form in order to create a new mapping.</div>
-
-    <h2 id="formUpload">How to upload a new form</h2>
-    <div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong> For Bonita BPM Performance and Efficiency editions only.</div>
-    <ol><li>Go to the BPM tab.</li>
-        <li>Click <em><strong>Processes</strong></em>.</li>
-        <li>Click <em><strong>More</strong></em> button.</li>
-        <li>Click <em><strong>Forms</strong></em> in the left navigation.</li>
-        <li>Click <em><strong>Form list</strong></em> tab.</li>
-        <li>A list of form is displayed. These forms are only visible to the current process.</li>
-        <li>Click the <em><strong>plus</strong></em> button at the bottom of the list.</li>
-        <li>A file selector popup is displayed.</li>
-        <li>Browse to a .zip containing a form.</li>
-        <li>Click <em><strong>NEXT</strong></em>, then if your form requires some authorization, it will be displayed.</li>
-        <li>Click <em><strong>CONFIRM</strong></em>.</li>
-    </ol><h2 id="editFormUpload">How to edit an existing form</h2>
-    <div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong> For Bonita BPM Performance and Efficiency editions only.</div>
-    <ol><li>Go to the BPM tab.</li>
-        <li>Click <em><strong>Processes</strong></em>.</li>
-        <li>Click <em><strong>More</strong></em> button.</li>
-        <li>Click <em><strong>Forms</strong></em> in the left navigation.</li>
-        <li>Click <em><strong>Form list</strong></em> tab.</li>
-        <li>A list of forms is displayed. These forms are only visible to the current process.</li>
-        <li>Click the <em><strong>pencil</strong></em> button of a form line.</li>
-        <li>A file selector popup is displayed.</li>
-        <li>Browse to a .zip containing a form</li>
-        <li>Click <em><strong>NEXT</strong></em>, then if your form requires some authorization, it will be displayed.</li>
-        <li>Click <em><strong>CONFIRM</strong></em>.</li>
-    </ol><h2 id="editScriptContent">How to edit a script content</h2>
-    <div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong> For Bonita BPM Performance and Efficiency editions only.</div>
-    <ol><li>Go to the BPM tab</li>
-        <li>Click <em><strong>Processes</strong></em></li>
-        <li>Click <em><strong>More</strong></em> button</li>
-        <li>Click <em><strong>Scripts</strong></em> in the left navigation</li>
-        <li>A script content tree is displayed.</li>
-        <li>You can search for a script by typing text in the dedicated field</li>
-        <li>Click the <em><strong>pencil</strong></em> button next to a script name</li>
-        <li>A popup window is displayed</li>
-        <li>Edit your script content</li>
-        <li>Click <em><strong>SAVE</strong></em></li>
-    </ol></div>
-	</body></html>
+<h1>3.3 Processes</h1>
+<p>Logged on with the Administrator profile, you have rights to manage a process as follows:</p>
+<ul>
+<li><a href="#installanapp">How to install a process</a></li>
+<li><a href="#resolveanapp">How to resolve a process</a></li>
+<li><a href="#enableanapp">How to enable a process</a></li>
+<li><a href="#disableanapp">How to disable a process</a></li>
+<li><a href="#deleteanapp">How to delete a process</a></li>
+<li><a href="#createcat">How to create a category for a process</a></li>
+<li><a href="#addcat">How to add a category to a process</a></li>
+<li><a href="#entitymap">How to make a process available to a user via entity mapping</a></li>
+<li><a href="#modpar">How to modify a parameter</a></li>
+<li><a href="#conndef">How to edit connector definitions</a></li>
+<li><a href="#formMapping">How to fix forms</a></li>
+<li><a href="#formUpload">How to upload new form</a></li>
+<li><a href="#editFormUpload">How to edit an existing form</a></li>
+<li><a href="#editScriptContent">How to edit a script content</a></li>
+</ul>
+<h2>How to install a new process</h2>
+<ol>
+<li>Go to the BPM tab</li>
+<li>Click <em><strong>Processes</strong></em></li>
+<li>Click <em><strong>Install new process</strong></em></li>
+<li>Click to browse to the .bar file to import</li>
+<li>Click <em><strong>Install</strong></em></li>
+</ol>
+<p>The .bar file is ready to be resolved and enabled</p>
+<p><strong>Note:</strong> if you try to install the same process twice, a message is displayed: &quot;Process [yourProcessName] in version [yourProcessVersion] already exists.&quot;</p>
+<p>You can only install a .bar file that was exported from a Bonita BPM Studio of the same minor (7.x) version as your Bonita BPM Portal and Bonita BPM Engine. If you have a .bar file that was exported from an earlier version of Bonita BPM Studio (7.x.md), it will not work with Bonita BPM Engine. Export the process definition as a .bos file from your old Bonita BPM Studio, import in into the new Studio, then export it as a .bar. This is necessary for a .bar that has not been deployed. A process that was developed in an older version of Bonita BPM Studio and is already deployed is migrated automatically when you migrate your platform. However, for future maintenance of the process definition, you are recommended to update all your process bar files to the latest version each time you update your platform.</p>
+<p><a href="images/videos-6_0/install_an_app_in_bonita_portal.mp4">Watch the Install a process video</a></p>
+<h2>How to resolve a process</h2>
+<p>Resolving a process means completing the configuration in the Portal and making sure that all dependencies are met. A process has to be resolved before it can be enabled.</p>
+<p>To resolve a process, you must complete the configuration of the actor mappings, parameters, forms, and connectors defined for the process. You can also configure other information such as Categories and Scripts, but this is not mandatory for resolving a process.</p>
+<ul>
+<li><strong>Actor mapping</strong>; Every actor in a process must be mapped to at least one user, group, role or membership.</li>
+<li><strong>Parameters</strong>: Every parameter defined in a process must have a value.</li>
+<li><strong>Connector definitions</strong>: Every connector definition in a process must have a corresponding Class name.</li>
+<li><strong>Business Data Model</strong>: Every business data object defined in a process must have a corresponding model.</li>
+<li><strong>Forms</strong>: Every form defined in a process must be mapped to a page or a URL.</li>
+</ul>
+<p>To resolve a process:</p>
+<ol>
+<li>Go to BPM tab.</li>
+<li>Click <em><strong>Processes</strong></em>,</li>
+<li>Click on a <em><strong>Process</strong></em>. The Configuration section of the right panel shows whether there are items to be resolved.</li>
+<li>Click on <em><strong>More</strong></em>.</li>
+<li>A summary of configuration problems is displayed below the process name in a well and warning icons are displayed in the left navigation list.</li>
+<li>Modify your configuration for each element displayed.</li>
+</ol>
+<h2>How to enable a process</h2>
+<ol>
+<li>Go to the BPM menu tab</li>
+<li>Click <em><strong>Processes</strong></em></li>
+<li>Click <em><strong>Resolved filter</strong></em></li>
+<li>Select the process</li>
+<li>Click <em><strong>More</strong> button</em></li>
+<li>Click <em><strong>Enable</strong></em></li>
+<li>The activation state changes to &quot;enabled&quot;</li>
+<li>The process disappears from the disabled filter and is now displayed in the enabled filter</li>
+</ol>
+<p><strong>Note:</strong> You can also select the processes you want to enable by checking the box in the Resolved list, then click <em><strong>ENABLE</strong></em> button in the bulk actions section</p>
+<h2>How to disable a process</h2>
+<ol>
+<li>Go to the BPM tab</li>
+<li>Click <em><strong>Processes</strong></em></li>
+<li>Click <em><strong>Enabled filter</strong></em></li>
+<li>Select the process</li>
+<li>Click <em><strong>Disable</strong></em></li>
+<li>The activation state changes to &quot;disabled&quot;</li>
+<li>The process disappears from enabled filter and is located in the disabled filter</li>
+</ol>
+<p><strong>Note:</strong> You can also disable a process in the more details view, by clicking <em><strong>Enabled</strong></em> toggle button.</p>
+<h2>How to delete a process</h2>
+<p>**Note:**A process must be disabled before it can be deleted.</p>
+<ol>
+<li>Go to BPM menu tab</li>
+<li>Click <em><strong>Processes</strong></em></li>
+<li>Select the process to delete by checking the tickbox next to the process</li>
+<li>Click <em><strong>Delete</strong></em></li>
+</ol>
+<p>You can also delete the process in the more details view of a disabled process by clicking <em><strong>DELETE</strong></em>, then click <em><strong>DELETE</strong></em> in the modal window</p>
+<h2>How to create a category for a process</h2>
+<ol>
+<li>Go to BPM tab</li>
+<li>Select a process in the list</li>
+<li>Click <em><strong>More</strong></em></li>
+<li>In General, click the pencil next to Categories label</li>
+<li>In the opened modal, type a new category name then press <em><strong>Enter</strong></em> key</li>
+<li>Click <em><strong>Save</strong></em></li>
+</ol>
+<p>After you created a category and added to the process, you can add other processes to the category.</p>
+<h2>How to add a category to a process</h2>
+<ol>
+<li>Go to BPM tab</li>
+<li>Select a process in the list</li>
+<li>Click <em><strong>More</strong></em></li>
+<li>In General, click the pencil next to Categories label</li>
+<li>In the opened modal, type a new category name then press <em><strong>Enter</strong></em> key, or use arrow keys to browse among exisiting categories</li>
+<li>Click <em><strong>Save</strong></em></li>
+</ol>
+<h2>How to add an entity to an actor</h2>
+<ol>
+<li>Go to the BPM tab.</li>
+<li>Click <em><strong>Processes</strong></em>.</li>
+<li>Select a process in the list.</li>
+<li>Click <em><strong>More</strong></em>.</li>
+<li>Click <em><strong>Actors</strong></em> in the left navigation.</li>
+<li>In the Actors section, click the <em><strong>+</strong></em> button in the user, group, role or membership column of the actor line.</li>
+<li>In the opened popup, click on the dropdown list to select one or several actors. The list displays the first five elements, then a number is displayed representing the other selected entities.</li>
+<li>Click <em><strong>APPLY</strong></em>.</li>
+</ol>
+<p><strong>Note:</strong> Notice that only the first 200 actors are displayed in the dropdown.</p>
+<h2>How to remove an entity from an actor</h2>
+<ol>
+<li>Go to the BPM tab.</li>
+<li>Click <em><strong>Processes</strong></em>.</li>
+<li>Select a process in the list.</li>
+<li>Click <em><strong>More</strong></em>.</li>
+<li>Click <em><strong>Actors</strong></em> in the left navigation.</li>
+<li>In the Actors section, click the <em><strong>pencil</strong></em> button in the user, group, role or membership column of the actor line.</li>
+<li>In the opened popup, there is a list of the actors already mapped.</li>
+<li>Click the <em><strong>X</strong></em> button next to the actor, or click <em><strong>Remove all</strong></em>.</li>
+<li>A list appears filled with the actors you can to remove. You can undo a removal by clicking <em><strong>X</strong></em> button next to the actor or by clicking <em><strong>Enable all</strong></em></li>
+<li>Click <em><strong>APPLY</strong></em>.</li>
+</ol>
+<h2>How to modify a parameter in the Administrator profile</h2>
+<p><strong>Note:</strong> For Bonita BPM Performance and Efficiency editions only.</p>
+<ol>
+<li>Go to the BPM tab</li>
+<li>Click <em><strong>Processes</strong></em></li>
+<li>Select a process</li>
+<li>Click <em><strong>MORE</strong></em></li>
+<li>Click <em><strong>Parameters</strong></em> in the left navigation</li>
+<li>In the <strong>Value</strong> column, click on the value you want to edit</li>
+<li>A field appears</li>
+<li>Click the <em><strong>Tick</strong></em> button to validate your change or <em><strong>X</strong></em> to dismiss your change.</li>
+</ol>
+<h2>How to edit a connector implementation</h2>
+<p><strong>Note:</strong> For Bonita BPM Performance and Efficiency editions only.</p>
+<ol>
+<li>Go to the BPM tab</li>
+<li>Click <em><strong>Processes</strong></em></li>
+<li>Click <em><strong>More</strong></em> button</li>
+<li>Click <em><strong>Connectors</strong></em></li>
+<li>In the connector definitions table, in the actions column, click on the <em><strong>Pencil</strong></em></li>
+<li>Browse to a .zip file containing the new connector implementation</li>
+<li>Click <em><strong>Save</strong></em> to import the new implementation.</li>
+</ol>
+<h2>How to fix forms</h2>
+<p><strong>Note:</strong> For Bonita BPM Performance and Efficiency editions only.</p>
+<ol>
+<li>Go to the BPM tab.</li>
+<li>Click <em><strong>Processes</strong></em>.</li>
+<li>Click <em><strong>More</strong></em> button.</li>
+<li>Click <em><strong>Forms</strong></em> in the left navigation.</li>
+<li>The tables are displayed which list available forms. Click on a red link.</li>
+<li>A field input appears.</li>
+<li>Starting to type some text, and any matching names of installed forms will be proposed. If there is no match for the name you enter, it will be considered as a URL.</li>
+<li>Click the <em><strong>Tick</strong></em> button to validate your change or <em><strong>X</strong></em> to dismiss your change.</li>
+</ol>
+<p><strong>Note:</strong> You can also upload a form in order to create a new mapping.</p>
+<h2>How to upload a new form</h2>
+<p><strong>Note:</strong> For Bonita BPM Performance and Efficiency editions only.</p>
+<ol>
+<li>Go to the BPM tab.</li>
+<li>Click <em><strong>Processes</strong></em>.</li>
+<li>Click <em><strong>More</strong></em> button.</li>
+<li>Click <em><strong>Forms</strong></em> in the left navigation.</li>
+<li>Click <em><strong>Form list</strong></em> tab.</li>
+<li>A list of form is displayed. These forms are only visible to the current process.</li>
+<li>Click the <em><strong>plus</strong></em> button at the bottom of the list.</li>
+<li>A file selector popup is displayed.</li>
+<li>Browse to a .zip containing a form.</li>
+<li>Click <em><strong>NEXT</strong></em>, then if your form requires some authorization, it will be displayed.</li>
+<li>Click <em><strong>CONFIRM</strong></em>.</li>
+</ol>
+<h2>How to edit an existing form</h2>
+<p><strong>Note:</strong> For Bonita BPM Performance and Efficiency editions only.</p>
+<ol>
+<li>Go to the BPM tab.</li>
+<li>Click <em><strong>Processes</strong></em>.</li>
+<li>Click <em><strong>More</strong></em> button.</li>
+<li>Click <em><strong>Forms</strong></em> in the left navigation.</li>
+<li>Click <em><strong>Form list</strong></em> tab.</li>
+<li>A list of forms is displayed. These forms are only visible to the current process.</li>
+<li>Click the <em><strong>pencil</strong></em> button of a form line.</li>
+<li>A file selector popup is displayed.</li>
+<li>Browse to a .zip containing a form</li>
+<li>Click <em><strong>NEXT</strong></em>, then if your form requires some authorization, it will be displayed.</li>
+<li>Click <em><strong>CONFIRM</strong></em>.</li>
+</ol>
+<h2>How to edit a script content</h2>
+<p><strong>Note:</strong> For Bonita BPM Performance and Efficiency editions only.</p>
+<ol>
+<li>Go to the BPM tab</li>
+<li>Click <em><strong>Processes</strong></em></li>
+<li>Click <em><strong>More</strong></em> button</li>
+<li>Click <em><strong>Scripts</strong></em> in the left navigation</li>
+<li>A script content tree is displayed.</li>
+<li>You can search for a script by typing text in the dedicated field</li>
+<li>Click the <em><strong>pencil</strong></em> button next to a script name</li>
+<li>A popup window is displayed</li>
+<li>Edit your script content</li>
+<li>Click <em><strong>SAVE</strong></em></li>
+</ol>

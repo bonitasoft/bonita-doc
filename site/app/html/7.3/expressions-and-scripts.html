@@ -1,116 +1,85 @@
-<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Using expressions and scripts</title></head><body class="front">
-		<div id="content">
-	<h1>1.6.9 Using expressions and scripts</h1>
-    
-<a id="L103"></a>Expressions and scripts are used in Bonita BPM Studio for many purposes, including setting the initial or default value of a
-variable. An expression is a simple statement; a script is a sequence of expressions, and has a program-like structure. 
-
-
+<h1>1.6.9 Using expressions and scripts</h1>
+<p>Expressions and scripts are used in Bonita BPM Studio for many purposes, including setting the initial or default value of a
+variable. An expression is a simple statement; a script is a sequence of expressions, and has a program-like structure.</p>
 <p>This page explains the features of Bonita BPM Studio that enable you to use expressions and scripts.</p>
-
-<p><a href="#L142">Starting the expression editor</a><br><a href="#L101">Managing Groovy scripts</a><br><a href="#L99">Using variables in a script expression</a><br><a href="#logging">Log messages in a Groovy script</a></p>
-
-<p>Note that the expression editor cannot be used in the UI designer, which has a different concept model for <a href="/variables.html">data</a>.</p>
-
-<h2><a id="L142"></a>Starting the expression editor</h2>
-
+<p><a href="#L142">Starting the expression editor</a><br>
+<a href="#L101">Managing Groovy scripts</a><br>
+<a href="#L99">Using variables in a script expression</a><br>
+<a href="#logging">Log messages in a Groovy script</a></p>
+<p>Note that the expression editor cannot be used in the UI designer, which has a different concept model for <a href="/data">data</a>.</p>
+<h2>Starting the expression editor</h2>
 <p>The expression editor is used throughout Bonita BPM Studio to create and modify
 expressions or scripts.</p>
-
 <p>To start the expression editor, click the crayon icon next to the field
-where you want to enter an expression. </p>
-
+where you want to enter an expression.</p>
 <p>There are different types of expression:</p>
-<ul><li>Comparison: compares the value of a variable, parameter, or constant using the operators !, ==, !=, :, <: or="">=.</:></li>
+<ul>
+<li>Comparison: compares the value of a variable, parameter, or constant using the operators !, ==, !=, :, =.</li>
 <li>Constant: sets the expression to a constant (fixed) value.</li>
 <li>Parameter: sets the expression to the value of the parameter at the time the expression is evaluated.</li>
 <li>Script: the result of the script sets the value of the expression.</li>
 <li>Variable: sets the expression to the value of the variable at the time the expression is evaluated.</li>
-</ul><p>The types available differ depending on the context of the expression. For example, comparison expressions are available only for transitions.</p>
-
-
-
-<h2><a id="L101"></a>Managing Groovy scripts</h2>
-
+</ul>
+<p>The types available differ depending on the context of the expression. For example, comparison expressions are available only for transitions.</p>
+<h2>Managing Groovy scripts</h2>
 <p>You can create a Groovy function and store it in Bonita BPM Studio separate from
 the definition of a process. You can then use the function in any process
 definitions. This feature is available if you are using Bonita BPM Studio with the
 Application Developer profile.</p>
-
 <p>To create a function, choose <strong>Manage Groovy scripts...</strong> from
 the <strong>Development</strong> menu, and click
-<em><strong>Create...</strong></em>. Enter a name for the new function. </p>
-
+<em><strong>Create...</strong></em>. Enter a name for the new function.</p>
 <p>To edit the content of a function (or to create it), select the function name
 and click <strong><em>Open</em></strong>. This opens the expression editor.
-Enter the function details in the pop-up window. 
+Enter the function details in the pop-up window.
 For a function to be included in the Expression editor list of user-defined functions, it must be declared as static and it must have suitable visibility.
 To validate the function, click
 <em><strong>Evaluate</strong></em>. To save the function, click
-<em><strong>OK</strong></em>. </p>
-
-<p>Note that you can use this feature to save any Groovy 
+<em><strong>OK</strong></em>.</p>
+<p>Note that you can use this feature to save any Groovy
 script, not just a function. However, only a predefined script that defines a function
 can be used in an expression. You can declare a method in a Groovy script, but must not declare a class.</p>
-
-<p>In addition to any user-defined functions, there are a number of standard functions, in the Bonita, 
-Collection, Number, String, and Others categories. Click a function name to see a description in the 
+<p>In addition to any user-defined functions, there are a number of standard functions, in the Bonita,
+Collection, Number, String, and Others categories. Click a function name to see a description in the
 Documentation box of the Expression editor.</p>
-
 <p>To add a user-defined or standard function to an expression:</p>
-<ol><li>In the Expression editor, <strong>Expression type</strong> list, select <strong>Script</strong>.</li>
+<ol>
+<li>In the Expression editor, <strong>Expression type</strong> list, select <strong>Script</strong>.</li>
 <li>Enter your script, and position the cursor where you want to include the function.</li>
 <li>In the <strong>Categories</strong> list, select <strong>User defined</strong>. The function list will show the user-defined functions that
 are available.</li>
 <li>In the Function list, double-click the function you want to include in your expression. The function is inserted in the script
 at the point where the cursor was positioned.</li>
-</ol><p>At concatenation points in the script, the expression editor displays a popup with a list of possible terms. In the popup, you can toggle between Groovy terms and process variables. 
+</ol>
+<p>At concatenation points in the script, the expression editor displays a popup with a list of possible terms. In the popup, you can toggle between Groovy terms and process variables.
 For example, if you select activityInstanceId from the list of provided variables then type a period, the expression editor displays a list of terms available. This is known as <em>autocompletion</em>.</p>
-
-
-<h2><a id="L99"></a>Using variables in a script expression</h2>
-
+<h2>Using variables in a script expression</h2>
 <p>You can use a variable in an expression. When the expression is evaluated
 during process execution, the current value of the variable is used in the
 expression.</p>
-
 <h3>Process variables</h3>
-
 <p>When you define an expression in the context of a step, the expression can
-contain a variable that is defined at process level in the pool 
+contain a variable that is defined at process level in the pool
 containing the step. The expression cannot contain a variable that was defined
 for this step or in another step in the process. To add a
 process variable to an expression, select the variable from the <strong>Select
-a process variable...</strong> drop-down list. </p>
-
+a process variable...</strong> drop-down list.</p>
 <h3>Provided variables</h3>
-
 <p>You can also use a variable that is provided by the Bonita BPM Engine that is
 executing the process. For example, an expression can include the id of the
 user performing a task in the process. To add a provided variable to an
 expression, select the variable from the <strong>Select a provided
 variable...</strong> drop-down list.</p>
-
 <p>The provided variables are:</p>
-<ul><li>activityInstanceId: the identifier of the activity instance (not available for a process-level expression)</li>
+<ul>
+<li>activityInstanceId: the identifier of the activity instance (not available for a process-level expression)</li>
 <li>loggedUserId: the identifier of the user who is performing an activity at the time when the expression is evaluated</li>
 <li>processDefinitionId: the identifier of the process</li>
 <li>processInstanceId: the identifier of the process instance</li>
-<li>rootProcessInstanceId: for a called process or an event subprocess, the identifier of the root process (note that if there 
+<li>rootProcessInstanceId: for a called process or an event subprocess, the identifier of the root process (note that if there
 are multiple layers of called processes or subprocesses, this is the root of the hierarchy, not the parent called process or subprocesses)</li>
-</ul><p>The provided variables list also contains a special variable, apiAccessor. This enables you to construct API calls in a script using autocompletion. 
-For example, to get the number of overdue open tasks, choose <code>apiAccessor</code> from the list of provided variable, then add the <code>processAPI</code>, and then add <code>getNumberOfOverdueOpenTasks</code>.
-</p>
-
-
-
-
-<h2><a id="logging"></a>Log messages in a Groovy script</h2>
-
-<p>You can <a href="/logging.html#your_log"> add logging</a> to Groovy scripts or Java code that you develop.
-</p>
-
-
-
-</div>
-	</body></html>
+</ul>
+<p>The provided variables list also contains a special variable, apiAccessor. This enables you to construct API calls in a script using autocompletion.
+For example, to get the number of overdue open tasks, choose <code>apiAccessor</code> from the list of provided variable, then add the <code>processAPI</code>, and then add <code>getNumberOfOverdueOpenTasks</code>.</p>
+<h2>Log messages in a Groovy script</h2>
+<p>You can <a href="/logging-overview.md#your_log">add logging</a> to Groovy scripts or Java code that you develop.</p>

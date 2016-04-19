@@ -1,46 +1,44 @@
-<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Manage files using upload servlet and Rest API</title></head><body class="front">
-		<div id="content">
-	<h1>4.4.12 Manage files using upload servlet and Rest API</h1>
-    <p>In the Community, Teamwork, Efficiency, and Performance editions
-
-you can upload files by doing a multipart post request on any of the available servlets.
-It  returns the name of the temporary uploaded file.
-This file name can be used to link those files with any REST resource.</p><p>
-
-Available servlet list:
-
-</p><ul><li><code>/portal/fileUpload</code>, supports any type of file</li>
-	<li><code>/portal/processUpload</code>, supports only <code>.bar</code> files</li>
-	<li><code>/portal/organizationUpload</code>, supports only <code>.xml</code> files</li>
-	<li><code>/portal/actorsUpload</code>, supports only <code>.xml</code> files</li>
-	<li><code>/portal/imageUpload</code>, supports only <code>.png</code>, <code>.jpg</code>, <code>.gif</code>, <code>.jpeg</code>, <code>.bmp</code>, <code>.wbmp</code> or <code>.tga</code> files</li>
-	<li><code>/portal/connectorImplementation</code>, supports only <code>.zip</code> files (not available in Community edition)</li>
-	<li><code>/portal/pageUpload</code>, supports only <code>.zip</code> files (not available in Community edition)</li>
-	<li><code>/portal/reportUpload</code>, supports any type of file (not available in Community edition)</li>	
-	<li><code>/portal/resourceUpload</code>, supports only <code>.jar</code> files (not available in Community edition)</li>
-	<li><code>/portal/profilesUpload</code>, supports only <code>.xml</code> files (not available in Community edition)</li>
-	<li><code>/portal/applicationsUpload</code>, supports only <code>.xml</code> files (not available in Community edition)</li>
-</ul><h3>Example: link an icon to a new organisation group</h3>
-
-<ol><li>Upload an image by using a multipart post request on the image upload servlet, <code>http://localhost:8080/bonita/portal/imageUpload</code>.</li>
-    <li>The image is stored temporarily in var_bonita_home, in <code>/client/tenants/</code><em><code>tenantId</code></em><code>/tmp</code>.</li>
-    <li>The servlet returns the name of the temporary file.</li>
-    <li>When you create the new group, link this image to the group by specifying this temporary file name</li>
-</ol><h4>Example</h4>
-
-<table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td valign="top">Request url</td>
-				<td valign="top">/API/identity/group</td>
-			</tr><tr><td valign="top"><p>Request method</p></td>
-				<td valign="top"><p>POST</p></td>
-			</tr><tr><td valign="top"><p>Request payload</p></td>
-				<td valign="top"><pre><code>{
+<h1>4.4.12 Manage files using upload servlet and Rest API</h1>
+<p>In the Community, Teamwork, Efficiency, and Performance editions</p>
+<p>you can upload files by doing a multipart post request on any of the available servlets.
+It returns the name of the temporary uploaded file.
+This file name can be used to link those files with any REST resource.</p>
+<p>Available servlet list:</p>
+<ul>
+<li><code>/portal/fileUpload</code>, supports any type of file</li>
+<li><code>/portal/processUpload</code>, supports only <code>.bar</code> files</li>
+<li><code>/portal/organizationUpload</code>, supports only <code>.xml</code> files</li>
+<li><code>/portal/actorsUpload</code>, supports only <code>.xml</code> files</li>
+<li><code>/portal/imageUpload</code>, supports only <code>.png</code>, <code>.jpg</code>, <code>.gif</code>, <code>.jpeg</code>, <code>.bmp</code>, <code>.wbmp</code> or <code>.tga</code> files</li>
+<li><code>/portal/connectorImplementation</code>, supports only <code>.zip</code> files (not available in Community edition)</li>
+<li><code>/portal/pageUpload</code>, supports only <code>.zip</code> files (not available in Community edition)</li>
+<li><code>/portal/reportUpload</code>, supports any type of file (not available in Community edition)</li>
+<li><code>/portal/resourceUpload</code>, supports only <code>.jar</code> files (not available in Community edition)</li>
+<li><code>/portal/profilesUpload</code>, supports only <code>.xml</code> files (not available in Community edition)</li>
+<li><code>/portal/applicationsUpload</code>, supports only <code>.xml</code> files (not available in Community edition)</li>
+</ul>
+<h3>Example: link an icon to a new organisation group</h3>
+<ol>
+<li>Upload an image by using a multipart post request on the image upload servlet, <code>http://localhost:8080/bonita/portal/imageUpload</code>.</li>
+<li>The image is stored temporarily in var_bonita_home, in <code>/client/tenants/</code><em><code>tenantId</code></em><code>/tmp</code>.</li>
+<li>The servlet returns the name of the temporary file.</li>
+<li>When you create the new group, link this image to the group by specifying this temporary file name</li>
+</ol>
+<h4>Example</h4>
+<p>Request url
+/API/identity/group</p>
+<p>Request method</p>
+<p>POST</p>
+<p>Request payload</p>
+<pre><code>{
 &quot;icon&quot;:&quot;tmp_7501171996762091204.jpg&quot;,&quot;name&quot;:&quot;HR&quot;,
 &quot;displayName&quot;:&quot;Human Resources&quot;,
 &quot;parent_group_id&quot;:&quot;1&quot;,
 &quot;description&quot;:&quot;Human resources department&quot;
-}</code></pre></td>
-			</tr><tr><td valign="top"><p>Response payload</p></td>
-				<td valign="top"><pre><code>{
+}
+</code></pre>
+<p>Response payload</p>
+<pre><code>{
 &quot;id&quot;:&quot;14&quot;,
 &quot;creation_date&quot;:&quot;2014-12-02 16:19:28.925&quot;,
 &quot;created_by_user_id&quot;:&quot;4&quot;,
@@ -50,6 +48,4 @@ Available servlet list:
 &quot;path&quot;:&quot;/acme/HR&quot;,
 &quot;displayName&quot;:&quot;Human Resources&quot;,
 &quot;last_update_date&quot;:&quot;2014-12-02 16:19:28.925&quot;
-}</code></pre></td>
-			</tr></tbody></table></div>
-	</body></html>
+}</code></pre>

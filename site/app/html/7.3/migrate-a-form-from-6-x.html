@@ -1,17 +1,13 @@
-<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Migrate a form from 6.x</title></head><body class="front">
-		<div id="content">
-	<h1>1.7.2.12 Migrate a form from 6.x</h1>
-    <p>Although a form created with Bonita BPM 6.x will work with Bonita BPM 7.x, you are recommended to migrate  your 6.x forms and process definitions to take advantage of the new features. 
-There is no specific tooling to assist with migration, and you do not have to migrate all apsects of a process definition at the same time. 
+<h1>1.7.2.12 Migrate a form from 6.x</h1>
+<p>Although a form created with Bonita BPM 6.x will work with Bonita BPM 7.x, you are recommended to migrate your 6.x forms and process definitions to take advantage of the new features.
+There is no specific tooling to assist with migration, and you do not have to migrate all apsects of a process definition at the same time.
 You can take a staged approach, testing that your process continues to behave as expected after each change.</p>
-
 <p>The most efficient sequence for migrating a process and its forms to use the Bonita BPM 7.x features is as follows:</p>
-
-<ol><li>BDM: create your <a href="/define-and-deploy-the-bdm.html">business data model</a>. If you already have a BDM from 6.x, no changes are needed.</li>
-    <li>Business data: if you created a new BDM, populate your business data database with the data by importing it from where it was previously stored (process data ort external data). 
-    You can do this with a process that uses a connector to retrieve external data and an operation using the REST API to store the business objects.</li>
-    <li>Process: check that the process runs with the business data, and update it if necessary.</li>
-    <li>Contracts: define <a href="/contracts-and-contexts.html">contracts</a> for process instantiation and for each human task.</li>
-    <li>Forms: generate the forms from the contracts, then update them as needed.</li>
-</ol></div>
-	</body></html>
+<ol>
+<li>BDM: create your <a href="/business-data-model-856">business data model</a>. If you already have a BDM from 6.x, no changes are needed.</li>
+<li>Business data: if you created a new BDM, populate your business data database with the data by importing it from where it was previously stored (process data ort external data).
+You can do this with a process that uses a connector to retrieve external data and an operation using the REST API to store the business objects.</li>
+<li>Process: check that the process runs with the business data, and update it if necessary.</li>
+<li>Contracts: define <a href="/contracts.md">contracts</a> for process instantiation and for each human task.</li>
+<li>Forms: generate the forms from the contracts, then update them as needed.</li>
+</ol>
