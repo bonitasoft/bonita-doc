@@ -1,6 +1,6 @@
 {
   "defaultVersion": "7.3",
-  "supportedVersionList": [{"name": "7.5", "state": "75", "solrCore":"bonitabpm_7_5"}, {"name": "7.4", "state": "74", "solrCore":"bonitabpm_7_4"}, {"name": "7.3", "state": "73", "solrCore":"bonitabpm_7_3"}, {"name": "7.2", "url":"72"}, {"name": "7.1", "url":"71"}, {"name": "7.0", "url": "70"},{"name": "6.5", "url":"65"},{"name": "6.4", "url":"64"}, {"name": "6.3", "url":"63"}, {"name":"6.2", "url":"62"}, {"name": "6.1", "url": "61"}],
+  "supportedVersionList": [{"name": "7.3", "state": "73", "solrCore":"bonitabpm_7_3"}, {"name": "7.2", "url":"72"}, {"name": "7.1", "url":"71"}, {"name": "7.0", "url": "70"},{"name": "6.5", "url":"65"},{"name": "6.4", "url":"64"}, {"name": "6.3", "url":"63"}, {"name":"6.2", "url":"62"}, {"name": "6.1", "url": "61"}],
   "search": {
     "url": "http://localhost:8983/solr/",
     "purl": "http://www.red-doc.org/solr/",
