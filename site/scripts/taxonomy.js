@@ -38,7 +38,8 @@ function parse(node) {
     }
 }
 
-var html = fs.readFileSync(__dirname + '/../app/html/index.html').toString().replace(/\n/gi, '');
+//TODO !!
+var html = fs.readFileSync(__dirname + '/../app/html/summary.html').toString().replace(/\n/gi, '');
 var uls = xpath.select("/ul", new dom().parseFromString(html));  // get first ul of html doc
 var json = himalaya.parse(uls[0].toString());
 var taxonomy = json[0].children.map(parse);
