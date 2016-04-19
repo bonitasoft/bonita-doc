@@ -461,8 +461,18 @@ ORACLE_SID=...</code>
     <li>Execute the query in the Query Editor.</li>
     <li>To confirm successful execution of the script,  open the &quot;Object Explorer&quot; and go to: <strong>Master</strong> &gt; <strong>Programmability</strong> &gt; <strong>Extended Stored Procedures</strong>. 
     You should have 12 new procedures, each with a name starting with <code>dbo.xp.sqljdbc_xa_</code>.</li>
-    <li>Assign the new role &apos;SqlJDBCXAUser&apos; to the user who owns the Bonita BPM Engine database (<code>bonitadev</code> in our example.
-    To do this, execute the following command in the SQL editor: <code>USE master GO  CREATE USER &apos;bonitadev&apos;, &apos;bonitadev&apos; GO sp_addrolemember [SqlJDBCXAUser], &apos;bonitadev&apos;</code></li>
+    <li>Assign the new role &apos;SqlJDBCXAUser&apos; to the user who owns the Bonita BPM Engine database (<code>bonitadev</code> in our example). To do this, execute the following commands in SQL editor: <code>
+USE master;
+GO
+
+CREATE LOGIN bonitadev WITH PASSWORD = &apos;secret_password&apos;;
+GO
+
+CREATE USER bonitadev FOR LOGIN bonitadev;
+GO
+
+EXEC sp_addrolemember [SqlJDBCXAUser], &apos;bonitadev&apos;;
+GO</code></li>
     <li>In the Windows &quot;Start&quot; menu, select <strong>Administrative Tools</strong>-&gt; <strong>Services</strong>.</li>
     <li>In the &quot;Services&quot; window, make sure that the <strong>Distributed Transaction Coordinator</strong> service is set to start automatically. If it&apos;s not yet started, start it.</li>
     <li>Make sure that the other services it depends on, namely &quot;Remote Procedure Call&quot; and &quot;Security Accounts Manager&quot;, are also set to start automatically. </li>

@@ -23,9 +23,7 @@ explains how to handle data in a process, including specifying process- and task
   <li>A form variable is available only in the form, and is used to store data
     used in the form. You can also use form variables with connectors that are
     associated with the form.</li>
-</ul><p>See also:<br><a href="/define-a-variable.html">Data types and defining a variable</a><a><br></a><a href="/create-a-complex-data-type.html">Complex data types</a><br><a href="/data-handling-form">Data handling in a form</a><br><a href="/saving-data-from-a-widget-group.html">Saving data entered in a widget group</a></p>
-
-<div style="text-align: center;"><img src="images/images-6_0/variables_scope.png" alt="Scope of variables" title="Scope of variables"><div style="clear: both" class="caption"><span style="display: block;color: #BC071B;text-align: center;margin-top: 10px">Scope of variables</span></div></div>
+</ul><p>See also:<br><a href="/data-handling-overview.html">Data types and defining a variable</a><a><br></a><a href="/create-a-complex-data-type.html">Complex data types</a><br><a href="/product-bos-sp/data">Data handling in a form</a><br></p><div style="text-align: center;"><img src="images/images-6_0/variables_scope.png" alt="Scope of variables" title="Scope of variables"><div style="clear: both" class="caption"><span style="display: block;color: #BC071B;text-align: center;margin-top: 10px">Scope of variables</span></div></div>
 
 <p>Best practice:</p>
 <ul><li>Use XREFbusiness data for information that is shared between applications or processes.</li>
@@ -99,7 +97,7 @@ specify a default value or a list of available values.</p>
 long, double, text, Java object, XML schema (XSD) and option list. You can also
 define a variable as <em>multiple</em>, that is, an array or collection of
 values of the specified type.</p>
-<p>Note that since 6.3, Business data is now available. For a detailed explanation, see the <a href="/business-data-overview.html">Business Data overview</a>.</p>
+<p>Note that since 7.0, Business data is now available. For a detailed explanation, see the <a href="/define-and-deploy-the-bdm.html#boprocesses">Business Data overview</a>.</p>
 
 <p>You can also define additional <a href="/create-a-complex-data-type.html">complex
 data types</a> as Java objects or as XML objects.</p>
@@ -124,7 +122,7 @@ define a variable with one of these types:</p>
   <li>Go to the <strong>Details</strong> panel, <strong>General</strong> view, <strong>Data</strong> pane. A list of the variables
     already defined is displayed.</li>
   <li>Choose if you want to add Process data or Business data. Click <strong><em>Add...</em></strong>.
- Note: if you add Business data, only add it at the pool/lane level. See this tutorial as a guide for the next steps<a href="/tutorial-how-to-add-a-business-object-to-a-process.html"> How to add Business data to a process</a>.</li>
+ Note: if you add Business data, only add it at the pool/lane level. See this tutorial as a guide for the next steps<a href="/define-and-deploy-the-bdm.html#boprocesses"> How to add Business data to a process</a>.</li>
   
   <li>Specify a name for the variable. The name must be unique within the scope
     of the variable. For easier process maintenance, it is a good idea to make

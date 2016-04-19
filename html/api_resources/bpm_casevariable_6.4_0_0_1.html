@@ -1,0 +1,234 @@
+
+<h2>caseVariable </h2>
+
+<h3>Description</h3>
+<p>Search, count, find, or update case variable values. A case is an instance of a process.</p>
+
+
+<h3>Identifier</h3>
+
+<p>The ID of the case variable (a long value).</p>
+
+
+	
+<h3>Representation</h3>
+
+<pre>
+{
+&quot;description&quot;:&quot;<em>Detailed description of the case variable, as set in the definition at design-time</em>&quot;,
+&quot;name&quot;:&quot;<em>name of the variable in the case</em>&quot;,
+&quot;value&quot;:&quot;<em>the current value of the case variable</em>&quot;,
+&quot;case_id&quot;:&quot;<em>ID of the case this variable belongs to</em>&quot;,
+&quot;type&quot;:<em>the Java type of the variable</em>&quot;
+}
+</pre>
+
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+	<li>GET - Search for case variables from its case ID, or find a single case variable from case ID and variable name</li>
+	<li>PUT - Update a case variable value</li>
+</ul>
+
+
+<h3>Get a case variable</h3>
+<br>
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+    		<td valign="top">Request url</td>
+			<td valign="top">http://../API/bpm/caseVariable/[caseId]/[variableName]</td></tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>GET</p>
+			</td>
+		</tr>
+				<tr>
+			<td valign="top"><p>Request payload</p></td>
+			<td valign="top"><p>empty</p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Response payload</p></td>
+			<td valign="top"><p>A case variable representation</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Parameters</h4>
+
+<p>None</p>
+
+<h4>Response codes</h4>
+
+<p>500: if an exception occurs during the find.</p>
+
+<h4>Example</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+				<td valign="top">Request url</td>
+				<td valign="top"><method>GET |/API/bpm/caseVariable/1/myInvoiceAmount</method></td>
+			</tr>
+			<tr>
+				<td valign="top"><p>Request payload</p></td>
+				<td valign="top">empty</td>
+			</tr>
+			<tr>
+				<td valign="top"><p>Response payload</p></td>
+				<td valign="top">
+<pre><code>
+{				
+&quot;description&quot;:&quot;&quot;,
+&quot;name&quot;:&quot;myInvoiceAmount&quot;,
+&quot;value&quot;:&quot;14.2&quot;,
+&quot;case_id&quot;:&quot;1&quot;,
+&quot;type&quot;:&quot;java.lang.Float&quot;
+}
+</code></pre></td>
+			</tr>
+	</tbody>
+</table>
+
+<h3>Update a case variable</h3>
+
+<p></p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+    		<td valign="top">Request url</td>
+			<td valign="top">http://../API/bpm/caseVariable/[caseId]/[variableName]</td></tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>PUT</p>
+			</td>
+		</tr>
+				<tr>
+			<td valign="top"><p>Request payload</p></td>
+			<td valign="top"><p>{type:[javaTypeclassname],value:[newValue]}</p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Response payload</p></td>
+			<td valign="top"><p>empty</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>Warning: only following types are supported for <i>javaTypeclassname</i>: java.lang.String, java.lang.Integer, java.lang.Double, java.lang.Long, java.lang.Boolean, java.util.Date</p>
+
+<h4>Parameters</h4>
+
+<p>None</p>
+
+<h4>Response codes</h4>
+
+<p>200: Ok.</p>
+<p>500: if an exception occurs during the find.</p>
+
+<h4>Example</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+				<td valign="top">Request url</td>
+				<td valign="top"><method>GET |/API/bpm/caseVariable/1/myInvoiceAmount</method></td>
+			</tr>
+			<tr>
+				<td valign="top"><p>Request payload</p></td>
+				<td valign="top">{&quot;type&quot;:&quot;java.lang.Double&quot;, &quot;value&quot;: 22.98}</td>
+			</tr>
+			<tr>
+				<td valign="top"><p>Response payload</p></td>
+				<td valign="top">N/A</td>
+			</tr>
+	</tbody>
+</table>
+
+
+<h3>Search for a list of case variables</h3>
+<p></p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+    		<td valign="top">Request url</td>
+			<td valign="top">http://../API/bpm/caseVariable?p=[firstPageNumber]&amp;c=[pageSize]&amp;f=case_id%3d[caseId]</td></tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>GET</p>
+			</td>
+		</tr>
+				<tr>
+			<td valign="top"><p>Request payload</p></td>
+			<td valign="top"><p>empty</p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Response payload</p></td>
+			<td valign="top"><p>A representation of a list of case variables</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Parameters</h4>
+
+<p>
+<ul>
+	<li>standard search <b>p</b> parameter is required</li>
+	<li>standard search <b>c</b> parameter is required</li>
+	<li>f = case_id%3d[caseId] to indicate that you want to add a filter on &apos;case_id&apos; with value [caseId] (%3d is the URL-encoded &apos;=&apos; (equals) sign)</li>
+</ul>
+</p>
+
+<h4>Response codes</h4>
+
+<p>500: if an exception occurs during the find.</p>
+
+<h4>Example</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+				<td valign="top">Request url</td>
+				<td valign="top"><method>GET |/API/bpm/caseVariable?p=0&amp;c=10&amp;f=case_id%3d11754</method></td>
+			</tr>
+			<tr>
+				<td valign="top"><p>Request payload</p></td>
+				<td valign="top">empty</td>
+			</tr>
+			<tr>
+				<td valign="top"><p>Response payload</p></td>
+				<td valign="top"><pre><code>
+[
+{
+&quot;description&quot;:&quot;&quot;,
+&quot;name&quot;:&quot;myInvoiceAmount&quot;,
+&quot;value&quot;:&quot;14.2&quot;,
+&quot;case_id&quot;:&quot;11754&quot;,
+&quot;type&quot;:&quot;java.lang.Float&quot;
+}, 
+{
+&quot;description&quot;:&quot;invoice reference&quot;,
+&quot;name&quot;:&quot;myInvoiceReference&quot;,
+&quot;value&quot;:&quot;1FFL54184KOL&quot;,
+&quot;case_id&quot;:&quot;11754&quot;,
+&quot;type&quot;:&quot;java.lang.Long&quot;
+}
+]
+</code></pre></td>
+			</tr>
+	</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+

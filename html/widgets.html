@@ -158,7 +158,7 @@ You can use a variable to hold the resulting data after success or failure.</p>
 <p>Then bind the <strong>content</strong> to an array of JavaScript objects.</p>
 <p>Finally, provide a comma-separated list for the <strong>columns keys</strong> indicating the attribute to display in each column.</p>
 <p>To get the data from a selected row, bind <strong>selected row</strong> to a variable.</p>
-
+<p>Note: table widget only supports text values. HTML content passed in table data will not be rendered.</p>
 
 <h2 id="image-widget">Image widget</h2>
 <p>Use an image widget to display an image. The image widget is able to display images from local assets or an image from a URL:
@@ -179,9 +179,21 @@ The value of the <strong>Page size</strong> property controls how many rows are 
 <p>Alternatively, you can set the <strong>Data source</strong> to <em>Variable</em> and use a variable definition to point ot the table content. 
 Note that if you use a Variable datasource and an External API variable, the paging of the table content is not handled automatically.</p>
 
+<h3>Sort</h3>
+
+<p>The <em>Sortable columns</em> property enables to list the columns which allow a sorted search.
+Each element of this property has to match an element of the <em>Columns key</em> property to figure out which table column
+can be sorted upon.</p>
+
 <p>When a data table is displayed (including in the Preview), the user can click on a column heading to reorder the table rows by this column. 
 Some fields do not support sorting but still display the sort button which is a known limitation. 
 The ordering applies to the visible rows in the table, not to the entire table.</p>
+
+<p>The sort is backend when datasource is <b>Bonita API</b>. It is frontend, otherwise.</p>
+
+<p>Note: BDM APIs are not yet sortable. For other APIs, test in the preview or refer to the BonitaBPM documentation &apos;REST API&apos; pages.</p>
+
+<h3>Filter</h3>
 
 <p>You can provide a filter for users to update the displayed table to show only the rows that match the filter. To do this:</p>
 <ol><li>Add a widget to the page where the user will specify the filter. This can be an Input widget for free-form text, or a Select widget to choose from a preset list.</li>

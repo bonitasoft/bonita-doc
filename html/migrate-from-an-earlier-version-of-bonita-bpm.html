@@ -17,6 +17,11 @@ When you are ready to migrate from 6.5.4 to a 7.x.y version, make sure you migra
 To migrate from 6.5.4 to 7.1.1 or later there are two phases: first you upgrade to 7.0.0 then to the latest version. 
 You are recommended not to start 7.0.0 after you migrate to it, but to proceed immediately with the second phase of the migration.</div>
 
+<div class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign"></span> <strong>JRE requirements:</strong> 
+Version 7 only supports JRE version 7. If you comes from older versions of Bonita supporting JRE 6, you must also upgrade your JRE to version 7. For more info, see Support Guide and Supported Environment Matrix for Server.
+</div>
+
+
 
 <p>The script migrates your platform bonita_home and the database. You cannot <a href="/upgrade-from-community-to-a-subscription-edition.html">change edition</a> while migrating. If you are running a
 
@@ -77,6 +82,11 @@ You are recommended not to start 7.0.0 after you migrate to it, but to proceed i
     Then <a href="/managing-look-feel.html#import">import</a> your updated custom Look &amp; Feel into Bonita BPM Portal.</p>
 
 <p>The migration script supports MySQL, Postgres, Oracle, and MS SQLServer. There is no migration for h2 databases.</p>
+
+
+<div class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Important:</strong> 
+As any operations on a production system, a migration is not a zero risk operation. Therefore, it is strongly recommended to do a backup of your environment before starting the migration (see step 7 on procedure below). 
+</div>
 
 <p></p>
 
@@ -144,7 +154,11 @@ You are recommended not to start 7.0.0 after you migrate to it, but to proceed i
 
     </li><li>If you use a custom Look &amp; Feel, <a href="/managing-look-feel.html#export_current">export</a> it, and then <a href="/managing-look-feel.html#restore_default">restore the default Look &amp; Feel</a>.</li>
     <li>Stop the application server and database server.</li>
-    <li><a href="/back-up-bonita-bpm-platform.html">Back up your platform</a> and database in case of problems during migration.</li>
+    <li>
+     <span class="glyphicon glyphicon-warning-sign"></span> <strong>IMPORTANT:</strong>
+    <a href="/back-up-bonita-bpm-platform.html">Back up your platform</a> and database in case of problems during migration.
+        
+    </li>
 
     <li>Go to the directory containing the migration tool.</li>
     <li>Run the migration script:

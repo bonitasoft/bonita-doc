@@ -1,0 +1,271 @@
+<h2>flowNode</h2>
+
+<h3>Description</h3>
+<p>A flow node (gateway, event, or task) in an open instance of a process. </p>
+
+
+<h3>Identifier</h3>
+
+<p>The ID of the flowNode (a long).</p>
+	
+<h3>Representation</h3>
+<pre><code>
+{
+    &quot;id&quot;: &quot;<em>the flow node id (long)</em>&quot;,
+    &quot;displayDescription&quot;: &quot;<em>the human readable flow node description (string)</em>&quot;,
+    &quot;executedBySubstitute&quot;: &quot;<em>the id (long) of the user who really performed this flow node in case where a substitute did it, or 0 if the flow node was not performed by a substitute</em>&quot;,
+    &quot;caseId&quot;: &quot;<em>the case id (long) that is associated with this flow node</em>&quot;,
+    &quot;parentCaseId&quot;: &quot;<em>the parent case id (long) that is associated with this flow node&apos;s case</em>&quot;,
+    &quot;rootCaseId&quot;: &quot;<em>the root case initiator id (long) that is associated with this flow node&apos;s case</em>&quot;,
+    &quot;processId&quot;: &quot;<em>the process id (long) that is associated with this flow node</em>&quot;,&quot;
+    &quot;rootContainerId&quot;: &quot;<em>the root process id (long) of the root case that is associated with this flow node</em>&quot;,
+    &quot;state&quot;: &quot;<em>the current state of the flow node (string,  for example, ready, completed, failed)</em>&quot;,
+    &quot;type&quot;: &quot;<em>the flow node type (string)</em>&quot;,
+    &quot;assigned_id&quot;: &quot;<em>the user id (long) that this flow node is assigned to, or 0 if it is unassigned</em>&quot;,
+    &quot;assigned_date&quot;: &quot;<em>the date (&apos;yyyy-MM-dd HH:mm:ss.SSS&apos;) when the current flow node was assigned, for example &apos;2014-10-17 16:05:42.626&apos;</em>&quot;,
+    &quot;executedBy&quot;: &quot;<em>the id (long) of the user who executed the flow node, or 0 if the flow node has not been executed</em>&quot;,
+    &quot;priority&quot;: &quot;<em>the priority (string) of the current flow node</em>&quot;,
+    &quot;actorId&quot;: &quot;<em>the id (long) of the actor that can execute this flow node, null otherwise</em>&quot;,
+    &quot;description&quot;: &quot;<em>the flow node description (string)</em>&quot;,
+    &quot;name&quot;: &quot;<em>the flow node name (string)</em>&quot;,
+    &quot;reached_state_date&quot;: &quot;<em>the date (&apos;yyyy-MM-dd HH:mm:ss.SSS&apos;) when this flow node reached the current state, for example &apos;2014-10-17 16:05:42.626&apos;</em>&quot;,
+    &quot;displayName&quot;: &quot;<em>the display name (string) of this flow node</em>&quot;,
+    &quot;dueDate&quot;: &quot;<em>the date (&apos;yyyy-MM-dd HH:mm:ss.SSS&apos;) when this flow node is due, for example &apos;2014-10-17 16:05:42.626&apos;</em>&quot;,
+    &quot;last_update_date&quot;: &quot;<em>the date (&apos;yyyy-MM-dd HH:mm:ss.SSS&apos;) when this flow node was last updated, for example &apos;2014-10-17 16:05:42.626)</em>&quot;,
+    &quot;parentTaskId&quot; : &quot;<em>in the case of a subtask, the parent task id (long)</em>&quot;
+}
+</code>
+</pre>
+
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+	<li>GET - Read a flow node or search for a flow node</li>
+	<li>PUT - Replay a flow node (only in Performance edition)</li>
+</ul>
+
+<h3>Get a Flow Node</h3>
+
+<p>Retrieve the flow node information of the given id.</p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+    		<td valign="top">Request url</td>
+			<td valign="top">http://../API/bpm/flowNode/{id}</td></tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>GET</p>
+			</td>
+		</tr>
+				<tr>
+			<td valign="top"><p>Request payload</p></td>
+			<td valign="top"><p>empty</p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Response payload</p></td>
+			<td valign="top"><p>The JSON representation of the specified flownode</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Parameters</h4>
+
+<p>The following parameters are available:</p>
+
+<ul>
+<li>d:
+	<ul>
+			<li>processId</li>
+			<li>caseId</li>
+			<li>rootCaseId</li>
+			<li>parentCaseId</li>
+			<li>rootContainerId</li>
+			<li>executedBy</li>
+			<li>executedBySubstitute</li>
+			<li>actorId</li>
+			<li>assigned_id</li>
+			<li>parentTaskId</li>
+		</ul>
+		</li>
+
+</ul>
+
+
+
+
+<h4>Example</h4>
+
+<p>Get the details of flow node 77456.</p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+    		<td valign="top">Request url</td>
+			<td valign="top">http://../API/bpm/flowNode/77456</td></tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>GET</p>
+			</td>
+		</tr>
+				<tr>
+			<td valign="top"><p>Request payload</p></td>
+			<td valign="top"><p></p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Response payload</p></td>
+			<td valign="top"><pre><code>
+{
+	&quot;displayDescription&quot;: &quot;&quot;,
+	&quot;executedBySubstitute&quot;: &quot;0&quot;,
+	&quot;processId&quot;: &quot;7596769292810273901&quot;,
+	&quot;parentCaseId&quot;: &quot;1&quot;,
+	&quot;state&quot;: &quot;failed&quot;,
+	&quot;rootContainerId&quot;: &quot;1&quot;,
+	&quot;type&quot;: &quot;USER_TASK&quot;,
+	&quot;assigned_id&quot;: &quot;&quot;,
+	&quot;assigned_date&quot;: &quot;&quot;,
+	&quot;id&quot;: &quot;77456&quot;,
+	&quot;executedBy&quot;: &quot;0&quot;,
+	&quot;caseId&quot;: &quot;1&quot;,
+	&quot;priority&quot;: &quot;normal&quot;,
+	&quot;actorId&quot;: &quot;4&quot;,
+	&quot;description&quot;: &quot;&quot;,
+	&quot;name&quot;: &quot;Step1&quot;,
+	&quot;reached_state_date&quot;: &quot;2014-12-10 08:59:47.884&quot;,
+	&quot;rootCaseId&quot;: &quot;1&quot;,
+	&quot;displayName&quot;: &quot;Step1&quot;,
+	&quot;dueDate&quot;: &quot;2014-12-10 09:59:47.855&quot;,
+	&quot;last_update_date&quot;: &quot;2014-12-10 08:59:47.884&quot;
+}
+			</code></pre>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+<h3>Search among Flow Nodes</h3>
+
+<p>Search for flow nodes using given parameters. Flow nodes in states completed, cancelled, or aborted are not retrieved. The search returns an array of flow nodes.</p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+    		<td valign="top">Request url</td>
+			<td valign="top">http://../API/bpm/flowNode/?<em>search_options</em></td></tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>GET</p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Request payload</p></td>
+			<td valign="top"><p></p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Response payload</p></td>
+			<td valign="top"><p>An array of JSON representations of flow nodes</p></td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Parameters</h4>
+
+<p>The following parameters are available:</p>
+
+<ul>
+<li>o: 
+	<ul>
+		<li>name</li>
+		<li>displayName</li>
+		<li>state</li>
+		<li>processDefinitionId</li>
+		<li>parentProcessInstanceIdo</li>
+		<li>parentActivityInstanceId (if the retrieved flow nodes are activities, order by parent activity id)</li>
+		<li>rootProcessInstanceId</li>
+		<li>lastUpdateDate</li>
+	</ul>
+</li>
+<li>s: search on any field that can be used to order results</li>
+<li>f: 
+	<ul>
+		<li>name</li>
+		<li>state</li>
+		<li>processId</li>
+		<li>parentCaseId</li>
+		<li>rootCaseId</li>
+		<li>last_update_date</li>
+	</ul>
+</li>
+<li>d:
+	<ul>
+			<li>processId</li>
+			<li>caseId</li>
+			<li>rootCaseId</li>
+			<li>parentCaseId</li>
+			<li>rootContainerId</li>
+			<li>executedBy</li>
+			<li>executedBySubstitute</li>
+			<li>actorId</li>
+			<li>assigned_id</li>
+			<li>parentTaskId</li>
+		</ul>
+		</li>
+<li>The <a href="/rest-api-overview.html#standard_search_params">standard search parameters</a>.
+</li></ul>
+
+<h4>Example</h4>
+
+<p>Get all the active flow nodes named &quot;Escalate&quot;, ordering the results by state.</p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+    		<td valign="top">Request url</td>
+			<td valign="top">http://../API/bpm/flowNode/?p=0&amp;c=10&amp;f=name%3dEscalate&amp;o%3dstate</td></tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>GET</p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Request payload</p></td>
+			<td valign="top"><p>empty</p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Response payload</p></td>
+			<td valign="top"><p>An array of JSON representations of flow nodes</p></td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+<h3>Change a Flow Node state</h3>
+
+<p>Replay the flow node. (only in Performance edition)</p>
+
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+    		<td valign="top">Request url</td>
+			<td valign="top">http://../API/bpm/flowNode/{id}</td></tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>PUT</p>
+			</td>
+		</tr>
+				<tr>
+			<td valign="top"><p>Request payload</p></td>
+			<td valign="top"><p>{&quot;state&quot; : &quot;replay&quot;}</p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Response payload</p></td>
+			<td valign="top"><p>empty</p>
+			</td>
+		</tr>
+	</tbody>
+</table>

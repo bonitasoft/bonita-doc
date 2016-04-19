@@ -5,7 +5,7 @@
 
 <p>This tutorial explains how to create an application that includes a process. The application is created using the Bonita BPM Community edition, and uses features that are available in all editions. The example application is a business travel tool, and is similar to the simple travel request process that was used in the getting started tutorial for earlier versions of Bonita BPM:</p>
 
-<p>Note that example solution is vailable on <a href="https://github.com/Bonitasoft-Community/getting-started-turorial">GitHub repository</a>.</p>
+<p>Note that example solution is available on <a href="https://github.com/Bonitasoft-Community/getting-started-turorial">GitHub repository</a>.</p>
 
 <p><em>An employee opens the Travel Tool application to view their pending and approved travel requests. They create a new travel request. Then the request is sent to the employee&apos;s manager. 
 The manager reviews the request and approves or refuses it.</em>
@@ -173,7 +173,7 @@ The dummy data for the travel requests is in JSON. You need two JSON variables, 
 ]
 </code>
 
-<p>When you have defined this variable, select the table widget for the approved requests and set the value of the <b>Content</b> property to <code>myApprovedRequests_dummy</code> (remember to click on the &quot;bind&quot; icon).</p>
+<p>When you have defined this variable, select the table widget for the approved requests and set the value of the <b>Content</b> property to <code>myApprovedRequests</code> (remember to click on the &quot;bind&quot; icon).</p>
 
 
 <h3 id="review-improve">Review and improve the page</h3>
@@ -481,10 +481,10 @@ To have more space to update the page, you can hide the <strong>Variables</stron
 	<li>Make the Departure date widget narrower. To do this, select it and change the value of the <strong>Width</strong> property to 4 columns.</li>
 	<li>Move the Destination widget up to the top of the form (below the title).</li>
 	<li>Move the Number of nights and Hotel needed widgets to the same row as the Departure date, and reduce the widths. Note: when you add a widget to a row, it automatically takes all the remaining columns, so set the width after you move the widgets.</li>
-	<li>Clear the initial values for Departure date and Number of nights to show the placeholders at run time:
-	    <ol type="a"><li>In the <strong>Variables panel</strong> (at the bottom of the page), locate the row containing the <em>formInput</em> variable.</li>
+	<li>Clear the initial value for Number of nights to show the placeholder at run time:
+	    <ol type="a"><li>In the <strong>Variables</strong> panel (at the bottom of the page), locate the row containing the <em>formInput</em> variable.</li>
 	        <li>Click on the pencil icon located at the right side of this row.</li>
-	        <li>Change the values of the <em>departureDate</em> and <em>numberOfNights</em> attributes from <em>0</em> to <em>null</em>.</li>
+	        <li>Change the value of the <em>numberOfNights</em> attribute from <em>0</em> to <em>null</em>.</li>
 	        <li>Click on <strong>Save</strong>.</li>
 	    </ol></li>
 </ol><p>When you have finished, the preview of the form looks like this:</p>

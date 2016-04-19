@@ -1,29 +1,121 @@
 <?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Event handlers</title></head><body class="front">
 		<div id="content">
 	<h1>4.7.2 Event handlers</h1>
-    <p>An event handler is an extension to the engine that is configured to run when a specified event occurs. You can add event handlers for several purposes and you can configure which events you want to catch.
+    <p>An event handler is an extension to the engine that is configured to run when a specified event occurs.
+    You can add event handlers for several purposes and you can configure which events you want to catch.
     We strongly recommend that you add only appropriate handlers and carefully code the handler filters to handle only those events that you are interested in.</p>
 
-<dl><dt><a href="#add">Add an event handler</a></dt>
-    <dt><a href="#filter">Filter an event</a></dt>
-    <dt><a href="#register">Register an event handler</a></dt>
-    <dt><a href="#example">Example</a></dt>
-    <dd><a href="#registration">Registration</a></dd>
-    <dd><a href="#code">Event handler source code</a></dd>
-    <dt><a href="#list">Event list</a></dt>
-</dl><p>An event is a change to any object in the database (user, activity, processDefinition,... ). You can create an event handler to track any change to any object in the database and take the appropriate action. For example:</p>
+
+<p>An event is a change to any object in the database (user, activity, processDefinition,... ).
+    You can create an event handler to track any change to any object in the database and take the appropriate action. For example:</p>
 
 <ul><li>Catch PROCESSINSTANCE_CREATED to detect that a process instance has started, and notify the process supervisor.</li>
     <li>Catch FLOWNODE_INSTANCE_CREATED to detect that a human task is available, and send email to all the users elligible to perform it.</li>
     <li>Catch HIDDEN_TASK_CREATED to detect that a service task becomes available, and start an external system that is required to complete the task.</li>
 </ul><p>At the end of this page there is a <a href="#list">list of all the events</a>.</p>
 
+<dl><dt><a href="#example">Example: deploy an event handler</a>
 
-<h2 id="add">Add an event handler</h2>
+            </dt><dd><a href="#createProject">Create a maven project</a></dd>
+            <dd><a href="#createHandler">Create a handler class</a></dd>
+            <dd><a href="#deploy">Deploy</a></dd>
+            <dd><a href="#configure">Configure events</a></dd>
+            <dd><a href="#test">Test it</a></dd>
 
-<p>An event handler is added to the system as a jar file and made available using a classloader. <br>
-(e.g. placing jar file under webapps/bonita/WEB-INF/lib/ folder for a tomcat bundle distribution)
-</p>
+    
+    <dt><a href="#filter">Filter an event</a></dt>
+    <dt><a href="#list">Event list</a></dt>
+</dl><h2 id="example">Example: deploy an event handler</h2>
+
+<p>This example shows an event handler that detects changes in the state of activity instances. When executing, the event handler calls <a href="/technical-logging.html">technical logger service</a>.</p>
+
+
+    <h3 id="createProject">create a maven project for event handler jar</h3>
+        <p>pom.xml :</p>
+    <code type="xml">
+<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"><modelversion>4.0.0</modelversion><groupid>org.bonitasoft.example</groupid><artifactid>eventHandlerExample</artifactid><version>1.0-SNAPSHOT</version><properties><bonita.version>7.2.0</bonita.version><project.build.sourceencoding>UTF-8</project.build.sourceencoding></properties><dependencies><dependency><groupid>org.bonitasoft.engine</groupid><artifactid>bonita-server</artifactid><version>${bonita.version}</version></dependency></dependencies><build><plugins><plugin><groupid>org.apache.maven.plugins</groupid><artifactid>maven-compiler-plugin</artifactid><configuration><source>1.7<target>1.7</target></configuration></plugin></plugins></build></project></code>
+
+
+
+
+<h3 id="createHandler">Create event handler class:</h3>
+
+<p>Create a class that implements <code>SHandler<sevent></sevent></code>.</p>
+    <p>src/main/java/org/bonitasoft/example/EventHandlerExample.java:</p>
+    <code type="java">
+package org.bonitasoft.example;
+
+import java.util.UUID;
+
+import org.bonitasoft.engine.events.model.SEvent;
+import org.bonitasoft.engine.events.model.SHandler;
+import org.bonitasoft.engine.events.model.SHandlerExecutionException;
+import org.bonitasoft.engine.log.technical.TechnicalLogSeverity;
+import org.bonitasoft.engine.log.technical.TechnicalLoggerService;
+
+public class EventHandlerExample implements SHandler<sevent> {
+
+    private final TechnicalLoggerService technicalLoggerService;
+    private TechnicalLogSeverity technicalLogSeverity;
+
+    public EventHandlerExample(TechnicalLoggerService technicalLoggerService) {
+        this.technicalLoggerService = technicalLoggerService;
+
+        //set desired logging level
+        this.technicalLogSeverity = TechnicalLogSeverity.INFO;
+    }
+
+    public void execute(SEvent event) throws SHandlerExecutionException {
+        if (technicalLoggerService.isLoggable(this.getClass(), technicalLogSeverity)) {
+        technicalLoggerService.log(this.getClass(), technicalLogSeverity, &quot;ExampleHandler: executing event &quot; + event.getType());
+        }
+
+        // add your business logic here
+
+    }
+
+    public boolean isInterested(SEvent event) {
+        if (technicalLoggerService.isLoggable(this.getClass(), technicalLogSeverity)) {
+            technicalLoggerService.log(this.getClass(), technicalLogSeverity,
+            &quot;ExampleHandler - event &quot;
+            + event.getType()
+            + &quot; - asks if we are interested in handling this event instance&quot;;
+
+        }
+
+        // add your business logic here
+        // for this example purpose, assume we are always interested
+        return true;
+    }
+
+     public String getIdentifier() {
+        //ensure this handler is registered only once
+        return UUID.randomUUID().toString();
+    }
+}
+
+    </sevent></code>
+
+   <h3 id="deploy">Deploy jar</h3>
+
+    <p>build eventHandlerExample-1.0-SNAPSHOT.jar using <code>mvn clean install</code> maven command.</p>
+
+    <p>copy eventHandlerExample-1.0-SNAPSHOT.jar in webapps/bonita/WEB-INF/lib/ folder (for tomcat bundle)</p>
+
+<h3 id="configure">Register an event handler</h3>
+        <p>An event handler is registered on an event by adding an entry to the appropriate map. The list of handlers registered can be extended in the BONITA_HOME</p>
+
+<p>engine-server/conf/tenants/TENANT_ID/bonita-tenant-sp-custom.xml:</p>
+                <code type="xml">
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p" xsi:schemalocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"><!-- add event handler bean definition --><bean id="myEventHandlerExample" class="org.bonitasoft.example.EventHandlerExample"><!-- add logging service --><constructor-arg name="technicalLoggerService" ref="tenantTechnicalLoggerService"></constructor-arg></bean><bean id="eventHandlers" class="org.springframework.beans.factory.config.MapFactoryBean"><property name="targetMapClass"><value>java.util.HashMap</value></property><property name="sourceMap"><map><entry key="PROCESSINSTANCE_STATE_UPDATED" value-ref="myEventHandlerExample"></entry></map></property></bean></beans></code>
+
+<h3 id="test">Test it</h3>
+            <p>Restart web server and run a basic process and check bonita log file in folder tomcat/logs:</p>
+            <pre>
+INFOS: THREAD_ID=78 | HOSTNAME=gt | ExampleHandler: event PROCESSINSTANCE_STATE_UPDATED - asks if we are interested in handling this event instance
+...
+INFOS: THREAD_ID=78 | HOSTNAME=gt | ExampleHandler: executing event PROCESSINSTANCE_STATE_UPDATED
+            </pre>
 
 <h2 id="filter">Filter an event</h2>
 
@@ -56,100 +148,6 @@ public boolean isInterested(SEvent event) {
 <p>Event handlers are recursive, that is, if an event handler itself modifies something and triggers an event, the relevant event handler is called. This means you might need to include loop detection in your event handler.</p>
 
 
-
-<h2 id="register">Register an event handler</h2>
-
-<p>An event handler is registered on an event by adding an entry to the appropriate map.
-    The list of handlers registered at platform level can be extended in the <code>BONITA_HOME/engine-server/conf/platform/bonita-platform-sp-custom.xml</code> file.
-    Theist of handlers registered at tenant level can be extended in the <code>BONITA_HOME/engine-server/conf/tenants/TENANT_ID/bonita-tenant-sp-custom.xml</code> file.
-
-</p><p>Each entry in the map is a key-value pair, which specifies the event handler to be called for each event.
-    The isInterested filter in the event handler detects the relevant instances of the event and calls the event handler.
-    You cannot have more than one handler for a given event, but you can use the isInterested filter to specify different actions for different instances of the event.</p>
-
-
-<h2 id="example">Example</h2>
-
-<p>This example shows an event handler that detects changes in the state of activity instances. If an activity has moved into Failed state, the event handler calls <a href="/technical-logging.html#delayedretry">DelayedRetry</a>.</p>
-
-<ol><li><p>create a maven project for event handler jar</p>
-        <p>pom.xml :</p>
-    <code>
-        <?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"><modelversion>4.0.0</modelversion><groupid>org.bonitasoft.example</groupid><artifactid>eventHandlerExample</artifactid><version>1.0-SNAPSHOT</version><properties><bonita.version>7.2.0</bonita.version><project.build.sourceencoding>UTF-8</project.build.sourceencoding></properties><dependencies><dependency><groupid>org.bonitasoft.engine</groupid><artifactid>bonita-server</artifactid><version>${bonita.version}</version></dependency></dependencies><build><plugins><plugin><groupid>org.apache.maven.plugins</groupid><artifactid>maven-compiler-plugin</artifactid><configuration><source>1.7<target>1.7</target></configuration></plugin></plugins></build></project></code>
-
-
-    </li>
-
-    <li>
-
-    </li>
-</ol><h3 id="registration">Registration</h3>
-
-<code type="java">
-    <bean id="CustomHandler" class="com.bonitasoft.customHandlers.CustomHandler"><constructor-arg name="tenantId" value="${tenantId}"></constructor-arg></bean><bean id="eventHandlers" class="org.springframework.beans.factory.config.MapFactoryBean"><property name="targetMapClass"><value>java.util.HashMap</value></property><property name="sourceMap"><map><entry key="ACTIVITYINSTANCE_STATE_UPDATED" value-ref="CustomHandler"></entry><entry key="HUMAN_TASK_INSTANCE_ASSIGNEE_UPDATED" value-ref="CustomHandler"></entry><entry key="PROCESSINSTANCE_CREATED" value-ref="CustomHandler"></entry><entry key="PROCESSINSTANCE_UPDATED" value-ref="CustomHandler"></entry></map></property></bean></code>
-
-<h3 id="code">Event handler source code</h3>
-
-<code type="java">
-    package com.bonitasoft.handlers;
-
-    import org.bonitasoft.engine.core.process.instance.model.SFlowNodeInstance;
-    import org.bonitasoft.engine.events.model.SEvent;
-    import org.bonitasoft.engine.events.model.SHandler;
-    import org.bonitasoft.engine.events.model.SHandlerExecutionException;
-
-    /**
-    * Handler that run when a task is failed. The handler will start a new
-    * thread that will try to run again the task with a delay.
-    *
-    * @author Antoine Mottier
-    *
-    */
-    public class FailedTaskHandler implements SHandler<sevent> {
-
-    /**
-    * Build the handler.
-    *
-    */
-    public FailedTaskHandler() {
-    }
-
-    public void execute(SEvent event) throws SHandlerExecutionException {
-    // Get the object (the task object) associted with the event
-    SFlowNodeInstance flowNodeInstance = (SFlowNodeInstance) event.getObject();
-
-    // Configure and start a retry thread
-    DelayedRetry delayedRetry = new DelayedRetry();
-    delayedRetry.setTaskId(flowNodeInstance.getId());
-    delayedRetry.setTechnicalLog(technicalLog);
-    Thread delayedRetryThread = new Thread(delayedRetry, &quot;Retry task: &quot;
-    + flowNodeInstance.getId());
-    delayedRetryThread.start();
-    }
-
-    /**
-    * Report if this handler should take care of the received event.
-    */
-    public boolean isInterested(SEvent event) {
-    boolean isInterested = false;
-
-    // Get the object associated with the event
-    Object eventObject = event.getObject();
-
-    // Check that event is related to a task
-    if (eventObject instanceof SFlowNodeInstance) {
-    SFlowNodeInstance flowNodeInstance = (SFlowNodeInstance) eventObject;
-
-    // Verify that state of the task is failed. See
-    // FailedActivityStateImpl
-    isInterested = (flowNodeInstance.getStateId() == 3);
-    }
-
-    return isInterested;
-    }
-
-    }
-</sevent></code>
 
 <h2 id="list">Event list</h2>
 
