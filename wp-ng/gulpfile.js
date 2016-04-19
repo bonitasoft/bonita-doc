@@ -83,13 +83,18 @@ gulp.task('copy:json', () => {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('copy:images', () => {
+  gulp.src('app/images/**/*')
+    .pipe(gulp.dest('dist/images'));
+});
+
 gulp.task('copy:html', () => {
-  gulp.src('app/html/**/*')
-    .pipe(gulp.dest('dist/html'));
+  gulp.src('app/html/7.5/**/*')
+    .pipe(gulp.dest('dist/html/7.5'));
 });
 
 gulp.task('build', ['clean'], () => {
-  gulp.start(['package', 'copy:index', 'copy:html', 'copy:json']);
+  gulp.start(['package', 'copy:index', 'copy:html', 'copy:json', 'copy:images']);
 });
 
 gulp.task('serve', ['webpack-dev-server']);
