@@ -1,0 +1,210 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Bonita BPM Engine architecture</title></head><body class="front">
+		<div id="content">
+	<h1>4.7 Bonita BPM Engine architecture</h1>
+    <p>This page describes the Bonita BPM Engine. It includes information
+about <a href="#APIs">APIs</a>, <a href="#BPM_services">BPM services</a>, <a href="#Generic_services">generic services</a>, and <a href="#Packaging">packaging</a>.</p>
+
+<p>The Bonita BPM Engine is the runtime processor at the core of Bonita BPM.&#xA0; It
+executes processes, handling actions related to tasks, such as database access,
+and housekeeping actions such as logging. The Engine is composed of a number of
+services and APIs. The services are either BPM services or generic services.
+</p>
+<img src="images/images-6_0/dev_arch_engine_architecture_simple.png" alt="engine architecture diagram" title="Bonita BPM Engine architecture"><br><p>The Bonita BPM Engine component services are completely configurable using an XML
+file called <code>bonita-server.properties</code>, which is located in the server
+configuration folder <code>conf\bonita\server\default\conf\</code>. 
+This configuration file describes all the available services
+used by default. It is possible to change a service or replace it with a
+different implementation. In addition to the standard services, BonitaSoft will support 
+a system that uses any services we provide. Certain services are available only for the Performance, Efficiency, and Teamwork editions. The editions also
+includes contributions that enhance some services. There are also some internal
+services that are used within the Engine but are not described here.</p>
+
+<p>Services are served to the Engine using a ServiceAccessor. By default, this
+uses Spring to bind services and to retrieve services instances. The Spring
+configuration files are stored in <strong><i>BONITA_HOME</i></strong>, and can
+be modified to change the implementation of a service or to tailor it. </p>
+
+<p style="text-align: left;">The Engine can be installed on a Java Virtual
+Machine (JVM), in any web/JEE container, or can be used as a simple Java
+library.</p>
+
+<h2><a id="APIs"></a>APIs</h2>
+
+<p>This section contains a summary of the Bonita BPM Engine APIs. For details of the APIs, the methods and related objects, see the  
+<a href="/javadoc.html">Javadoc</a>.</p>
+
+
+<table border="2" style="width: 100%"><tbody><tr><td>Identity API</td>
+      <td>Manages information about an organization, that is, the set of users
+        who can act in processes. Handles creation, modification, and deletion
+        of organizations, groups, roles, memberships, and users.</td>
+    </tr><tr><td>Organization API</td>
+        <td>Import or export an organization.</td>
+    </tr><tr><td>Process API</td>
+      <td>Handles actions related to processes (deploy, enable, start, disable,
+        delete), executes activities, updates process data, search for a
+        retrieve process entities.</td>
+    </tr><tr><td>Login API</td>
+      <td>Logs in to the engine in a platform and creates a
+      session.</td>
+    </tr><tr><td>Monitoring API</td>
+      <td>Retrieves information about current activity, such as the number of
+        users logged in, or the number of processes currently being
+      executed.</td>
+    </tr><tr><td>Log API</td>
+      <td>provides access to business logs, for searching and to retrieve
+        information about current or archived processes.</td>
+    </tr><tr><td>Platform command API</td>
+      <td>Creates, starts, stops platform.</td>
+    </tr><tr><td>Document API</td>
+        <td>Manages documents that are attached to a process instance.</td>
+    </tr><tr><td>Theme API</td>
+        <td>Manages the Look &amp; Feel of the Bonita BPM Portal web and mobile interfaces and forms.</td>
+    </tr><tr><td>Tenant Management API</td>
+        <td>Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in Teamwork, Efficiency, and Performance editions.</td>
+    </tr></tbody></table><p>There is also a Web API, which is for internal use only, and a Command API,
+which is primarily for internal use.</p>
+
+<p></p>
+
+<h2><a id="BPM_services"></a>BPM services</h2>
+
+<p>BPM services are related to BPM activities.</p>
+  
+<h3>Actor mapping</h3>
+  <table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      
+  <td valign="top">Manage mapping between actors and users, roles, and        groups.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">&#xA0;- </td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.actor.mapping.impl.ActorMappingServiceImpl</span></td>   
+  </tr></tbody></table><h3>Category</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      
+  <td valign="top">Manage categories of processes. A category is a way to        classify processes. Categories are handled manually by administrators        
+  in Bonita BPM Portal and are visible to portal users.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">Command service</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.core.category.impl.CategoryServiceImpl</span>
+  </td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">Store categories with the persistence service</td>    </tr></tbody></table><h3>Connector</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      
+  <td valign="top">Execute a connector using the ConnectorDefinition: get        the connector from the file system, evaluate expressions of input        
+  parameters, instantiate/execute the connector and then execute output        operations.</td>    </tr><tr><td valign="top">Used by:</td>      
+  <td valign="top">Command service</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top">
+  <span class="tt">org.bonitasoft.engine.core.connector.impl.ConnectorServiceImpl</span></td>    </tr></tbody></table><h3>Expression resolver</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      
+  <td valign="top">Evaluate expressions and the associated dependencies.        The expression resolver default implementation take all expressions and        
+  dependencies, flattens them and orders them by type. It then evaluate        all expressions starting with expressions that are known to have no        
+  dependencies. All expressions that are evaluated at the same time have        the same context of evaluation.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">Any service that evaluates expressions</td>    </tr><tr><td valign="top">Implementation:</td>      
+  <td valign="top"><span class="tt">org.bonitasoft.engine.core.expression.control.api.impl.ExpressionResolverServiceImpl</span></td>    </tr></tbody></table><h3>Login</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      
+  <td valign="top">Log in to or out of the Engine.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">APIs</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.core.login.LoginServiceImpl</span></td>    </tr></tbody></table><h3>Platform login</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      
+  <td valign="top">Log in to or out of the Engine at the platform level.      </td>    </tr><tr><td valign="top">Used by:</td>      
+  
+  <td valign="top">APIs</td>    </tr><tr><td valign="top">Implementation:</td>      
+  <td valign="top"><span class="tt">org.bonitasoft.engine.core.platform.login.impl.PlatformLoginServiceImpl</span></td>    </tr></tbody></table><h3>Operation</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      
+  <td valign="top">Execute operations that update data. The Operation        service can use different types of update method. 
+  The default methods, called Operators, are ASSIGNMENT, JAVA_METHOD, and XPATH_UPDATE_QUERY.      </td>    </tr><tr><td valign="top">Used by:</td>      
+  <td valign="top">Engine service, APIs when updating data using an        operation </td>    </tr><tr><td valign="top">Implementation:</td>      
+  <td valign="top"><span class="tt">org.bonitasoft.engine.core.operation.impl.OperationServiceImpl</span></td>    </tr></tbody></table><h3>Parameter</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">For the Performance, Efficiency, and Teamwork editions, manage parameters of a process. Parameters are set for        
+  the scope of a process definition and are designed to be used as global        configuration of a process, for example, you could store the URL of a        
+  database you use in some connectors.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">Engine, APIs, ExpressionService (using the contributed        
+  evaluator) when reading and updating parameters</td>    </tr><tr><td valign="top">Implementation:</td>      
+  <td valign="top"><span class="tt">org.bonitasoft.engine.parameter.propertyfile.PropertyFileParameterService</span></td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">Relies on Java properties in a file to store and        retrieve parameters</td>    </tr></tbody></table><h3>Process comment</h3>
+  <table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Create, update, get, list, or delete comments attached        to a process instance.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">APIs</td>    </tr><tr><td valign="top">Implementation:</td>      
+  <td valign="top"><span class="tt">org.bonitasoft.engine.core.process.comment.api.impl.SCommentServiceImpl        </span></td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">Relies on persistence service to store comments</td>    </tr></tbody></table><h3>Process definition</h3>
+  <table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Handle process definition objects.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">Engine</td>    </tr><tr><td valign="top">Implementation:</td>      
+  <td valign="top"><span class="tt">org.bonitasoft.engine.core.process.definition.ProcessDefinitionServiceImpl</span></td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">Stores definition in file system and in cache using        XML</td>    </tr></tbody></table><h3>Engine</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Handles process execution.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">APIs when executing processes or activities</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top">the Engine itself</td>    </tr></tbody></table><h3>Process instance</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      
+  <td valign="top">Handle process instance objects.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">Engine</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.core.process.instance.impl.ProcessInstanceServiceImpl</span></td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">Relies on the persistence service to store objects</td>    </tr></tbody></table><h3>Supervisor mapping</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Define the mapping between a process definition and the        
+  user who supervises it.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">APIs</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.supervisor.mapping.impl.SupervisorMappingServiceImpl</span></td>    
+      
+  </tr></tbody></table><h3>User filter</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      
+  <td valign="top">Read and execute a userfilter that filters the set of        users eligible to carry out a pending task.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">Engine</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.core.filter.impl.UserFilterServiceImpl</span></td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">Uses the cache and read user filter of the file        system</td>    </tr></tbody></table><p></p>
+  
+  
+<h2><a id="Generic_services"></a>Generic services</h2>
+<p>Generic services&#xA0; perform actions that are not related to BPM but are required for successful process execution. No generic service has a dependency on a BPM service.</p>
+
+<h3>Archive</h3>
+<table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Store and retrieve objects that will no longer change.        
+For example, a process instance that is finished is archived using this        service.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">ProcessInstance service to store ArchivedProcessInstance        objects</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.archive.impl.ArchiveServiceImpl</span></td>    </tr></tbody></table><h3>Authentication</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      
+<td valign="top">Check user credentials using a map.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">Login service in Bonita BPM Teamwork, Efficiency, and        Performance editions</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.authentication.impl.GenericAuthenticationServiceImpl</span></td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">Uses the Identity service to check user credentials</td>    </tr></tbody></table><h3>Querieable logs</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Log information related to business actions. For        
+example, ?Activity &apos;step1&apos; was created with id = 12? or ?Connector        email-1.0.0 was successfully executed on activity 1547?. By default, log        
+information is stored in a database for easy query.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">Any service storing objects: ?deleted activity[..]?<br>       
+Scheduler service: ?Job executed [...]?&#xA0;&#xA0;&#xA0; </td>    </tr><tr><td valign="top">Implementations:</td>      
+<td valign="top"><span class="tt">org.bonitasoft.engine.services.impl.SyncBusinessLoggerServiceImpl</span>        
+(Community edition: insert logs directly in database)<br><span class="tt">org.bonitasoft.engine.log.api.impl.BatchBusinessLoggerImpl</span>        
+(Teamwork, Efficiency, and Performance editions: inserts all logs in        
+batch at the end of the transaction)</td>    </tr></tbody></table><h3>Tenant cache</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Store objects in the cache, and retrieve them. The        
+service handles different caches that can be configured separately. </td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">ProcessDefinition service, Connector service, Expression        
+service: put reusable definition objects in cache</td>    </tr><tr><td valign="top">Implementation:</td>      
+<td valign="top"><span class="tt">org.bonitasoft.engine.cache.ehcache.EhCacheCacheService</span></td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">Uses EhCache to cache objects</td>    </tr></tbody></table><h3>Platform cache</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Store objects in the cache, and retrieve them. The        
+service handles different caches that can be configured separately. </td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">ProcessDefinition service, Connector service, Expression        
+service: put reusable definition objects in cache</td>    </tr><tr><td valign="top">Implementation:</td>      
+<td valign="top"><span class="tt">org.bonitasoft.engine.cache.ehcache.PlatformEhCacheCacheService</span></td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">Uses EhCache to cache objects</td>    </tr></tbody></table><h3>ClassLoader</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">An abstraction layer of the classloader, making it easy        
+to change the classloader implementation at runtime. There is a        
+hierarchy of classloaders, with a platform classloader handling items        
+used by the whole platform, and a process classloader for items specify to a        
+process. Each classloader is identified by a type and an Id.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">Server APIs, to create and set the classloader at        
+platform level.<br>        Engine, to handle classloader of type process</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.classloader.ClassLoaderServiceImpl</span></td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">Relies on the dependency service to load the jar put in        
+dependencies for a specific classloader</td>    </tr></tbody></table><h3>Platform command</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Register and execute platform commands. Commands are        
+Java classes that can be executed by the engine using the API. Using        this service you can create your own code to be put server side and        call it from a client. </td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">API to execute platform-level commands</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.platform.command.impl.PlatformCommandServiceImpl</span></td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">Uses persistence service to store commands</td>    </tr></tbody></table><h3>Connector executor</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Execute a connector: take the instantiated Connector        
+object, set its parameters, and execute it.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">Connector service, to execute the instantiated        connector</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.connector.impl.ConnectorExecutorImpl</span></td>    </tr></tbody></table><h3>Data</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Handle DataSource objects, which describe how to        
+retrieve and store data on an internal or external system. The Engine        
+contains two default implementations: <span class="tt">org.bonitasoft.engine.data.instance.DataInstanceDataSourceImpl</span>,        
+which handles data stored in database, and <span class="tt">org.bonitasoft.engine.core.data.instance.impl.TransientDataInstanceDataSource</span>,        
+which handles data stored in memory.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">DataInstance service, to get the data source of a data        definition to get its value</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.data.DataServiceImpl</span></td>    </tr></tbody></table><h3>DataInstance</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Handle data instance objects. A data instance is a        
+variable that has a name, a type, and a value. This service also        handles expressions of type VARIABLE_TYPE. A VARIABLE_TYPE expression        
+references a data instance. When an expression is evaluated, the value        of the data instance is returned.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">Process API, Process executor, all services that access        data </td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.data.DataInstanceServiceImpl</span></td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">Uses the persistence service to store data instances</td>    </tr></tbody></table><h3>Dependency</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Declare Java dependencies on business objects. These        
+dependencies have a name and a content that is the JAR itself. For        example, a process that uses an email connector has a dependency on        
+javamail.jar that is declared at deployment.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">Engine, to declare process dependencies<br>       
+ClassloaderService, to retrieve dependencies of process</td>    </tr><tr><td valign="top">Implementation:</td>      
+<td valign="top"><span class="tt">org.bonitasoft.engine.dependency.impl.DependencyServiceImpl</span></td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">Dependency information is stored in database</td>    </tr></tbody></table><h3>Platform dependency</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Declare dependencies between entities that are related        
+to the platform, for example,&#xA0; platform commands declare platform        dependencies.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">Platform Command service, to declare dependency of        platform commands</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.dependency.impl.PlatformDependencyServiceImpl</span></td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">Dependency information is stored in database</td>    </tr></tbody></table><h3>Document</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Store content and properties of a document and map the document to an instance of a process.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">Engine APIs when retrieving documents. </td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.core.document.api.impl.DocumentServiceImpl</span></td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">The mapping of the document is not stored in the same table as the documetn itself.</td>    </tr></tbody></table><h3>Expression</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Evaluate an expression using the evaluator provided by        
+another service (but do not evaluate dependencies of the expression).        This service is extended by evaluators specific to the kind of       
+expression to be evaluated. For example, in the Performance, Efficiency, and Teamwork editions, the ParameterService        contributes an evaluator to evaluate expressions that reference a      
+parameter. To add a new kind of expression, contribute a class        
+implementing <span class="tt">org.bonitasoft.engine.expression.ExpressionExecutorStrategy</span>        to the <span class="tt">ExpressionExecutorStrategy</span>        class.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">ExpressionResolverService. to evaluate an expression and        its dependencies</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.expression.impl.ExpressionServiceImpl</span></td>    </tr></tbody></table><h3>Identity</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Handle information about elements of an organization        
+(users, groups, roles, memberships). </td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">ProcessExecutor, to resolve actor mappings.</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.identity.impl.IdentityServiceImpl</span></td>    </tr></tbody></table><h3>Incident</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top"> Service that reports incidents to an administrator. 
+An incident is an error that cannot be handled by the engine. The default implementation log is a file named &quot;Incidents.log&quot; inside the tenant folder.  </td>  </tr><tr><td valign="top">Used by:</td>      <td valign="top">Mainly by the work service.</td>  </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.incident.IncidentServiceImpl</span></td>    </tr></tbody></table><h3>Job</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top"> Handle and trace execution of internal jobs of the engine. 
+A job is an internal action that can be triggered once or several times. (e.g. Timers are implemented using jobs.)  </td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top"> Scheduler service. </td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.scheduler.impl.JobServiceImpl, </span></td>    </tr></tbody></table><h3>Lock</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Enable synchronization of code execution. The service        
+enables creation of shared locks and exclusive locks. If a shared lock        is taken out, other shared locks can also be taken out. If an exclusive        
+lock is taken out, it blocks execution until the lock is released.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">ProcessExecutor,&#xA0;for canceling a process or for merging        execution of branches</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.lock.impl.MemoryLockService</span></td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">Uses <span class="tt">java.util.concurrent.locks.ReentrantReadWriteLock</span>        
+objects that are in memory only</td>    </tr></tbody></table><h3>Monitoring</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Monitor Engine activity, such as active transactions,        
+active users, or JVM status.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">API</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.monitoring.impl.MonitoringServiceImpl</span></td>    </tr></tbody></table><h3>Tenant Monitoring</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top"> Provide metrics on a tenant. </td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">API</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">com.bonitasoft.engine.monitoring.impl.TenantMonitoringServiceImpl</span></td>    </tr></tbody></table><h3>Platform Monitoring</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top"> Provide metrics on a platform.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">API</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">com.bonitasoft.engine.monitoring.impl.PlatformMonitoringServiceImpl</span></td>    </tr></tbody></table><h3>Persistence</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Handle storage of objects in a persistent medium. There        
+are two services, bonita-persistence-read for reading objects and        bonita-persistence-api for reading and writing objects. The default      
+implementation stores objects in the database, but the service could be        implemented for any other type of persistent storage. The persistence 
+service gives a unique identifier to an object.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">All services reading persistent objects (such as     
+processInstanceService) use bonita-persistence-read. All services        creating or modifying objects use bonita-persistence-api. </td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top">Hibernate</td>    </tr></tbody></table><h3>Platform</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Handle creation, activation, and deletion of platform. 
+The platform is the foundation of the Engine: creating the        platform means creating database tables that are used by the Engine.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">-</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.platform.impl.PlatformServiceImpl</span></td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">Uses the persistence service to create platform.</td>    </tr></tbody></table><h3>Profile</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Handle profiles. A profile is an entity with a name,        
+description, and icon path that is associated with a user, group, role,        
+or membership. A profile entity is used by Bonita BPM Portal to determine a        
+user&apos;s profile (user, process manager, or administrator).</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">API, used by Bonita BPM Portal to modify user profiles.</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.profile.impl.ProfileServiceImpl</span> </td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">Uses persistence service to store privileges</td>    </tr></tbody></table><h3>Recorder</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      
+<td valign="top">A layer between the persistence service and all services       
+that need to store objects. It ensures that events are triggered and        
+that queriable log entries are written.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">All services storing objects. For example, the        
+ProcessInstanceService stores a ProcessInstanceObject using the        recorder</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.recorder.impl.RecorderImpl</span></td>    </tr></tbody></table><h3>Reporting</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td> <td valign="top"> Handle storage, retrieval, and update of reports. </td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">API</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">com.bonitasoft.engine.core.reporting.ReportingServiceImpl</span></td>    </tr></tbody></table><h3 id="scheduler">Scheduler</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Handle jobs and ensure that they are executed at the        
+required time. There are three kinds of trigger: OneShotTrigger to        
+execute a job once only at a given time, RepeatTrigger to execute a job        
+a finite number of times at a given interval, and CronTrigger to        
+execute a job according to a Unix-type structure.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">ProcessEngine, for timers and for launching the job that       
+matches a message event</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top">QuartzSchedulerService, org.bonitasoft.engine.scheduler.impl.SchedulerServiceImpl</td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">Relies on Quartz to launch jobs</td>    </tr></tbody></table><h3>Session</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Handle user sessions. A session is an object stored in        
+memory that contains several kinds of information about the client that        
+uses it, for example, userId, ClientIp, ExpirationDate.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">LoginService,SchedulerService,WorkService to create        sessions</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.session.impl.SessionServiceImpl</span></td>    </tr></tbody></table><h3>Platform session</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Handle platform sessions. These sessions are created        
+when something logs in to the platform.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">PlatformLoginService</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.platform.session.impl.PlatformSessionServiceImpl</span></td>    </tr></tbody></table><h3>Theme</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top"> Handle storage, retrieval, and update of portal themes.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top"> API. </td>    </tr><tr><td valign="top">Implementation:</td>      
+<td valign="top"><span class="tt">org.bonitasoft.engine.theme.impl.ThemeServiceImpl</span></td>    </tr></tbody></table><h3>Transaction</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Handles business transactions. A business transaction is        
+a high-level transaction that contains several technical transactions.        
+This service is compatible with JTA.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">Almost all services, including persistence service to       
+register technical transactions. </td>    </tr><tr><td valign="top">Implementation:</td>      
+<td valign="top"><span class="tt">org.bonitasoft.engine.transaction.TransactionServiceImpl</span></td>    </tr></tbody></table><h3>Technical logger</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">An abstraction layer used to access the logger        
+implementation. Clients of this service can log information using        different levels: TRACE, DEBUG, INFO, WARNING, ERROR.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">All services that log information in the technical        log.</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top">TechnicalLoggerSLF4JImpl</td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">Implementation based on SLF4J</td>    </tr></tbody></table><h3>Work</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Trigger work for immediate execution but asynchronously.        
+Unlike the scheduler service, which uses persistent storage, the Work       
+service stores data in memory for better performance. This means that       
+clients of the service must handle restart if a triggered work does not     
+complete. For example, if the JVM shuts down, when it restarts the       
+client must check for incomplete work and re-trigger it.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">ProcessExecutor, to trigger work to execute flow       
+elements one after another</td>    </tr><tr><td valign="top">Implementation:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.work.ExecutorWorkService</span></td>    </tr><tr><td valign="top">Notes:</td>      <td valign="top">Trigger launches work in a ThreadPool. For Community        
+Edition, work items are launched in sequence, each one in a new thread.        For Teamwork, Efficiency, and Performance Editions, work items are    
+triggered in multiple threads.</td>    </tr></tbody></table><h3>XML</h3><table border="2" cellpadding="2" cellspacing="2" width="100%"><tbody><tr><td valign="top">Description:</td>      <td valign="top">Parse and write XML files.</td>    </tr><tr><td valign="top">Used by:</td>      <td valign="top">BusinessArchiveBuilder, to read/write process       
+definitions<br>        ConnectorService, to read connector definition</td>    </tr><tr><td valign="top">Implementations:</td>      <td valign="top"><span class="tt">org.bonitasoft.engine.xml.parse.SAXParser</span>        (parse using sax)<br><span class="tt">org.bonitasoft.engine.xml.SAXValidator</span>        (validate using sax)<br><span class="tt">org.bonitasoft.engine.xml.DOMWriter</span>        (write using DOM)</td>    </tr></tbody></table><p></p>
+
+<h2><a id="Packaging"></a>Packaging</h2>The Engine is provided as three .jar files:<br><ul><li><span class="tt">bonita-common</span> contains code that is used by both the server and client sides of the application. 
+    For example, the API interface is accessed both on the server side, which contains the API implementations, and 
+    on the client side, which has a proxy on the API. It also contains objects such as BusinessArchive, which is the 
+    JavaObject representation of a .bar file.</li>  
+    <li><span class="tt">bonita-server</span> contains code used on by the server. For example, it contains service implementations, 
+    the services accessor, and API implementations. </li>  
+    <li><span class="tt">bonita-client</span> contains client-only code. For example, it contains the Accessor service for the APIs, 
+    which is not in the common or server packages to prevent the server code calling the client-side API accessor.</li>   
+</ul><p>In the Performance, Efficiency, and Teamwork editions, these jar files are <span class="tt">bonita-common-sp.jar</span>, <span class="tt">bonita-server-sp.jar</span>, and <span class="tt">bonita-client-sp.jar</span>.
+  
+</p><p> </p></div>
+	</body></html>

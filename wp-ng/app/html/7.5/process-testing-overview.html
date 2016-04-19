@@ -1,0 +1,25 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Process testing overview</title></head><body class="front">
+		<div id="content">
+	<h1>1.13 Process testing overview</h1>
+    <p>Bonita BPM Studio contains several features that you can use to verify your process while it is in development.</p>
+
+<p>You can validate a process diagram: choose <strong><em>Validate</em></strong> from the <strong><em>Diagram</em></strong> menu, 
+or go to the <strong>Details</strong> panel, <strong>Validation status</strong> tab and click <strong>Refresh</strong>. The <strong>Details</strong> panel contains a list
+    of warnings and errors indicating things to correct in the diagram. Click on a row in the list to highlight the relevant item in the diagram.
+</p>
+
+<p>You can test some process components individually:</p>
+<ul><li>Connectors: go to <strong><em>Test connector...</em></strong> in the <strong><em>Development</em></strong> menu.</li>
+<li>Expressions: use the <strong><em>Evaluate</em></strong> feature of the Expression editor.</li>
+</ul><p>You can run the process in debug mode, with the option to skip connector execution: click <strong><em>Debug</em></strong> in the Cool bar.</p>
+
+<p>You can run the process locally, launching it from Bonita BPM Studio without first deploying it to Bonita BPM Portal. 
+You must <a href="/configure-a-test-organization.html">create a test organization</a> 
+and <a href="/configuring-a-process.html">configure a process</a> before you can 
+<a href="/run-a-process-from-bonita-bpm-studio-for-testing.html">run a process from Bonita BPM Studio</a>.</p>
+
+<p>In addition to functional testing during development, we recommend that you monitor the system load. This will help evaluate the performance, so you can make your process efficient.</p>
+
+<p>When you have finished developing your process, we recommend that you perform a load test with the expected number of simultaneous users of the process, and a realistic rate of use of the process. 
+This will help you evaluate the size of platform (CPU, RAM, etc.) that you will need when the process goes into production.</p></div>
+	</body></html>

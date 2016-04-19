@@ -1,0 +1,45 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Manage the platform</title></head><body class="front">
+		<div id="content">
+	<h1>4.5.5.8 Manage the platform</h1>
+    <p><a id="top"></a>This example shows how to use the Bonita BPM Engine API to manage the platform.</p>
+
+<p>You can create the platform, initialize the platform, start the Engine, and stop the Engine.</p>
+
+<p>Before you can create the platform, you need to log in and get the platformAPI:</p>
+<code type="java">
+// Get platform login API using the PlatformAPIAccessor
+PlatformLoginAPI platformLoginAPI = PlatformAPIAccessor.getPlatformLoginAPI();
+// Log in to the platform
+PlatformSession platformSession = platformLoginAPI.login(&quot;platformAdmin&quot;, &quot;platform&quot;);
+
+// Get the platform API
+PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(platformSession);    
+</code>
+
+
+<p><strong>Create the platform</strong> by calling the <span class="tt">createPlatform</span> method. This will create the database structure and put the platform state into persistent storage.</p>
+<code type="java">
+// create the platform
+platformAPI.createPlatform();
+</code>
+<p>The next step is to <strong>initialize the platform</strong>, that is, create the default tenant and initialize the Bonita BPM Engine environment. 
+After this step the technical user will be able to connect to the engine and to create new users or <a href="/manage-an-organization.html#org">import the organization</a>. No users are created by 
+default and the default username/password for the technical user to connect to the Bonita BPM Engine are stored in the file <span class="tt">bonita-server.properties<span> that is in the <em>BONITA_HOME</em> directory.</span></span></p>
+<code type="java">
+// initialize the platform
+platformAPI.initializePlatform();
+</code>
+<p>Next, <strong>start the Engine</strong>. Starting the Engine on a node starts the Scheduler 
+service and restarts elements that were not finished by the Work service on the previous shutdown. The Bonita BPM Engine environment 
+is marked as activated.</p>
+<code type="java">
+// start the execution engine
+platformAPI.startNode();
+</code>
+<p>To <strong>stop the Bonita BPM Engine</strong>, call the <span class="tt">stopNode<span> method. Stopping the node stops the Scheduler service. The Bonita BPM Engine environment is marked as deactivated.</span></span></p>
+<code type="java">
+// stop the execution engine
+platformAPI.stopNode();
+</code>
+</div>
+	</body></html>

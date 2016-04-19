@@ -4,6 +4,12 @@ body {
     line-height: 1.42857143;
     font-size: 14px;
     color: #333;
+  a {
+    color: #035;
+    &:hover {
+      color: #D03;
+    }
+  }
 }
 
 .list-group {
@@ -20,4 +26,26 @@ body {
 }
 .content--noPaddingRight {
   padding-right: 0px;
+}
+.panel {
+   ul li {
+    border-bottom: solid 1px #ddd;
+    .leaf {
+      list-style: none;
+      list-style-image: none;
+    }
+  }
+  .panel-body {
+    padding: 0;
+  }
+  .panel-heading {
+    font-size: 24px;
+  }
+  .nav>li>a {
+    padding: 10px 15px;
+    &:hover {
+      text-decoration: none;
+      background-color: #eee;
+    }
+  }
 }

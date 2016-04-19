@@ -1,0 +1,112 @@
+<h2>tenant</h2>
+
+<h3>Description</h3>
+<p>Pause and resume tenant services in order to do maintenance on a tenant.</p>
+
+
+<h3>Identifier</h3>
+<p><em>unusedid</em>, the id is not used, the current tenant is always returned</p>
+
+
+<h3>Representation</h3>
+
+<pre>{
+&quot;paused&quot;:&quot;<em>true if the tenant is paused, false otherwise</em>&quot;,
+&quot;id&quot;:&quot;<em>id of the tenant</em>&quot;
+}</pre>
+
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+	<li>GET - get the current tenant</li>
+	<li>PUT - pause or resume the tenant</li>
+</ul>
+
+
+<h3>Get the current tenant</h3>
+
+<table border="1" cellpadding="1" cellspacing="1">
+	<tbody><tr>
+		<td valign="top">Request url</td>
+		<td valign="top">http://../API/system/tenant/unusedid</td></tr>
+	<tr>
+		<td valign="top"><p>Request method</p></td>
+		<td valign="top"><p>GET</p>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top"><p>Request payload</p></td>
+		<td valign="top"><p>empty</p>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top"><p>Response payload</p></td>
+		<td valign="top"><p>The tenant id with its status in JSON</p>
+		</td>
+	</tr>
+	</tbody>
+</table>
+
+<h4>Example</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+	<tbody>
+	<tr>
+		<td valign="top">Request url</td>
+		<td valign="top">GET|API/system/session/unusedid</td>
+	</tr>
+
+	<tr>
+		<td valign="top"><p>Response payload</p></td>
+		<td valign="top"><pre><code>{
+&quot;paused&quot;:&quot;false&quot;,
+&quot;id&quot;:&quot;1&quot;
+}</code></pre></td>
+	</tr>
+	</tbody>
+</table>
+
+
+<h3>Pause or resume the current tenant</h3>
+
+<table border="1" cellpadding="1" cellspacing="1">
+	<tbody><tr>
+		<td valign="top">Request url</td>
+		<td valign="top">http://../API/system/tenant/unusedid</td></tr>
+	<tr>
+		<td valign="top"><p>Request method</p></td>
+		<td valign="top"><p>PUT</p>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top"><p>Request payload</p></td>
+		<td valign="top"><p><pre><code>{
+&quot;paused&quot;:&quot;true&quot;} OR {&quot;paused&quot;:&quot;false&quot;
+}</code></pre></p>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top"><p>Response payload</p></td>
+		<td valign="top"><p>empty</p>
+		</td>
+	</tr>
+	</tbody>
+</table>
+
+<h4>Example</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+	<tbody>
+	<tr>
+		<td valign="top">Request url</td>
+		<td valign="top">GET|API/system/session/unusedid</td>
+	</tr>
+	<tr>
+		<td valign="top"><p>Request payload</p></td>
+		<td valign="top"><pre><code>{
+&quot;paused&quot;:&quot;true&quot;
+}</code></pre></td>
+	</tr>
+
+	</tbody>
+</table>

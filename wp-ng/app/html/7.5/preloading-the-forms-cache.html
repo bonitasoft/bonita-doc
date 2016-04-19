@@ -1,0 +1,57 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Preloading the forms cache</title></head><body class="front">
+		<div id="content">
+	<h1>4.10 Preloading the forms cache</h1>
+    <div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong> This information applies to legacy forms developed with Bonita BPM 6.x, or with the 6.x Application backward-compatibility features of Bonita BPM 7.0. 
+It is not necessary to preload forms developed with the UI designer.</div>
+
+<p>The first time a form is displayed, it is cached so that when it is displayed again it loads more quickly. This is the default behavior. However, you can speed up the first display of a form by preloading it into the forms cache.</p>
+
+<p>To preload the forms cache, use the formsCache service, which is accessed over HTTP.</p>
+
+<h2>formsCache service</h2>
+
+<h3>URL</h3>
+<code>portal/formsCache</code>
+
+<h3>Supported methods</h3>
+
+<table><tr><td>Method:</td>
+        <td>GET</td>
+    </tr><tr><td>URI:</td>
+        <td>formsCache</td>
+    </tr><tr><td>Parameters:</td>
+        <td>process=<em>processDefinitionID</em></td>
+    </tr><tr><td>Behavior:</td>
+        <td>Retrieve the list of the IDs of the forms contained in the forms definition file (forms.xml) of the specified process definition</td>
+    </tr><tr><td>Response:</td>
+        <td>The list of form IDs (for example [&quot;myProcess--1.0$entry&quot;,&quot;myProcess--1.0--firstActivity$entry&quot;])</td>
+    </tr><tr><td>Error response codes:</td>
+        <td>400 if the process parameter is missing, 404 if the process is not found</td>
+    </tr></table><p></p><p></p>
+
+<table><tr><td>Method:</td>
+        <td>PUT</td>
+    </tr><tr><td>URI:</td>
+        <td>formsCache/<em>processDefinitionID</em>/<em>formID</em> (for example: <code>formsCache/12875/myProcess--1.0$entry</code>)</td>
+    </tr><tr><td>Parameters:</td>
+        <td>none</td>
+    </tr><tr><td>Behavior:</td>
+        <td>Parse the XML fragment corresponding to the specified form and load the form object into the cache</td>
+    </tr><tr><td>Response:</td>
+        <td>none</td>
+    </tr><tr><td>Error response codes:</td>
+        <td>400 if the process ID or the form ID are missing, 404 if the process or the form are not found (200 if the form was found and cached)</td>
+    </tr></table><h2>Preloading the forms cache</h2>
+
+<p>First, send a GET request to retrieve the list of forms in a specified process. Then send a PUT request for each form to load it into the cache. 
+The PUT request can sometimes take several seconds to respond, depending on the complexity of the form.</p>
+
+<p>If you are using the Performance or Efficiency edition, you can create a custom page to preload the forms cache. For the Teamwork or Community edition, you need to create an application.</p>
+
+<h2>Forms cache configuration</h2>
+
+<p>The forms cache is implemented using EhCache. The cache configuration is defined in <code> BONITA_HOME/client/platform/conf/cache-config.xml</code>. 
+By default, when you restart the server, the cache is emptied, so forms would have to be loaded again. To keep the cached forms after a restart, set the <code>diskPersistent</code> property to <code>true</code>.</p>
+
+</div>
+	</body></html>

@@ -1,0 +1,19 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Alfresco</title></head><body class="front">
+		<div id="content">
+	<h1>1.8.2 Alfresco</h1>
+    <p>Bonita BPM Studio contains connectors for Alfresco 3.4 and Alfresco 4.2. For each version, there are the following connectors:</p>
+
+				<ul><li>Delete an item by ID (folder, file, etc)</li>
+					<li>Delete folder by path (delete a folder and its contents)</li>
+					<li>Create a folder by path</li>
+					<li>Upload a file to a destination folder</li>
+				</ul><p>Notes for using these connectors:</p>
+
+<ul><li><div class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign"></span><strong> Warning:</strong> 
+There is a conflict between libraries provided with the Alfresco connector and libraries provided by other connectors or the platform itself if you use a data of type Object. 
+When you configure a process that uses the Alfresco connector, you must <a href="/manage-jar-files.html">manage the jar files</a>.</div></li>
+<li>To delete a folder, it must be empty.</li>
+<li>In the path, all parameters have to be <a href="http://www.w3schools.com/tags/ref_urlencode.asp">URL Encoded</a>. Spaces are not allowed. For example: <code>/User Homes/user</code> has to be written <code>/User%20Homes/user</code>.
+</li>
+</ul></div>
+	</body></html>

@@ -1,11 +1,11 @@
 import _ from 'lodash';
 
 export default class HeaderController {
-  constructor(properties, $stateParams, $state, $http, $window, $uibModal) {
+  constructor(properties, $stateParams, $state, $http, $window, $uibModal, currentVersion) {
     'ngInject';
     this.supportedVersionList = properties.supportedVersionList.filter((item, index) => index < 4);
     this.unsupportedVersionList = properties.supportedVersionList.filter((item, index) => index >= 4);
-    this.selectedVersion = $stateParams.version || properties.defaultVersion;
+    this.selectedVersion = currentVersion;
     this.$state = $state;
     this.$stateParams = $stateParams;
     this.$http = $http;

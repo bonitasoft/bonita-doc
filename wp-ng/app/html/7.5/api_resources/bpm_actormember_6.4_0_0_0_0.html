@@ -1,0 +1,165 @@
+<h2>actorMember</h2>
+
+<h3>Description</h3>
+<p>An actor member represents the association between the organization and the actor af a process. In an organization we have four member_types = USER, GROUP, ROLE and MEMBERSHIP (role in a group). You can assign a actor to a user by specifying a role and or a group, or specific user. </p>
+
+
+<h3>Identifier</h3>
+<p>Simple, the ID of the object (a long value)</p>
+
+<h3>Parameters</h3>
+<p>None</p>
+	
+<h3>Representation</h3>
+<pre>{
+&quot;id&quot;:&quot;<em>actor member id</em>&quot;,
+&quot;actor_id&quot;:&quot;<em>id of the actor for this mapping</em>&quot;,
+&quot;role_id&quot;:&quot;<em>id of role, or -1 if the member type is not role</em>&quot;,
+&quot;group_id&quot;:&quot;<em>id of group, or -1 if the member type is not group</em>&quot;,
+&quot;user_id&quot;:&quot;<em>id of user, or -1 if the member type is not user</em>&quot;
+}</pre>
+
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+	<li>POST - Add a new actorMember</li>
+	<li>GET - Search actorMembers</li>
+	<li>DELETE - Remove an actorMember</li>
+</ul>
+
+<h3>Add a new actorMember</h3>
+
+<p>Use the POST method to create a new actorMember.</p>
+<p>Example 1: Add a member_type = USER to the actor with id = 2.</p>
+
+<table border="2">
+<tbody>
+<tr>
+<td>Method</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>URL</td>
+<td><code>http://localhost:8080/bonita/API/bpm/actorMember</code></td>
+</tr>
+<tr>
+<td>Payload</td>
+<td><pre><code>{
+&quot;actor_id&quot;:&quot;2&quot;,
+&quot;member_type&quot;:&quot;USER&quot;,
+&quot;user_id&quot;:&quot;101&quot;
+}</code></pre></td>
+</tr>
+<tr>
+<td>Response</td>
+<td><pre><code>{
+&quot;id&quot;:&quot;204&quot;,
+&quot;actor_id&quot;:&quot;2&quot;,
+&quot;role_id&quot;:&quot;-1&quot;,
+&quot;group_id&quot;:&quot;-1&quot;,
+&quot;user_id&quot;:&quot;101&quot;
+}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+<p>Example 2: Add a member_type = MEMBERSHIP to the actor with id = 2.</p>
+
+<table border="2">
+<tbody>
+<tr>
+<td>Method</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>URL</td>
+<td><code>http://localhost:8080/bonita/API/bpm/actorMember</code></td>
+</tr>
+<tr>
+<td>Payload</td>
+<td><pre><code>{
+&quot;actor_id&quot;:&quot;2&quot;,
+&quot;role_id&quot;:&quot;4&quot;,
+&quot;group_id&quot;:&quot;8&quot;
+}</code></pre></td>
+</tr>
+<tr>
+<td>Response</td>
+<td><pre><code>{
+&quot;id&quot;:&quot;206&quot;,
+&quot;actor_id&quot;:&quot;2&quot;,
+&quot;role_id&quot;:&quot;4&quot;,
+&quot;group_id&quot;:&quot;8&quot;,
+&quot;user_id&quot;:&quot;-1&quot;
+}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+<h3>Search actorMembers</h3>
+
+<p>Use a GET method with filters and search terms to search for actorMembers.</p> 
+<p>There is a mandatory filter on:</p>
+<ul>
+<li>actor_id For example, retrieve the actorMembers related to the specified actor_id. http://localhost:8080/bonita/API/bpm/actorMember?p=0&amp;c=10&amp;f=actor_id%3d1</li>
+</ul>
+<p>You can also filter also on: </p>
+<ul>
+<li>member_type=user|role|group|roleAndGroup retrieve only the actorMembers of type user. http://localhost:8080/bonita/API/bpm/actorMember?p=0&amp;c=10&amp;f=actor_id%3d1&amp;f=member_type%3duser</li>
+
+<li>user_id={user_id}: retrieve only the actorMembers related to the specified user_id. http://localhost:8080/bonita/API/bpm/actorMember?p=0&amp;c=10&amp;f=actor_id%3d1&amp;f=user_id%3d101</li>
+
+<li>role_id={role_id}: retrieve only the actorMembers related to the specified role_id. http://localhost:8080/bonita/API/bpm/actorMember?p=0&amp;c=10&amp;f=actor_id%3d1&amp;f=role_id%3d101</li>
+
+<li>group_id={group_id}: retrieve only the actorMembers related to the specified group_id. http://localhost:8080/bonita/API/bpm/actorMember?p=0&amp;c=10&amp;f=actor_id%3d1&amp;f=group_id%3d101</li>
+</ul>
+
+<h4>Description</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+    		<td valign="top">Request url</td>
+			<td valign="top">/API/bpm/actorMemberEntry?p={page}&amp;c={count}&amp;o={orders}&amp;f={filters}&amp;d={deploy}</td>
+			</tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>GET</p>
+		</td></tr>
+		<tr>
+			<td valign="top"><p>Request payload</p></td>
+			<td valign="top"><p>empty</p>
+		</td></tr>
+		<tr>
+			<td valign="top"><p>Response</p></td>
+			<td valign="top"><p>An array of actorMember objects</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h3>Delete an actorMember</h3>
+
+<p>Use the DELETE method to delete an existing actorMember.</p>
+
+<p>Example: Delete the actorMember with id = 206.</p>
+
+<table border="2">
+<tbody>
+<tr>
+<td>Method</td>
+<td>DELETE</td>
+</tr>
+<tr>
+<td>URL</td>
+<td><code>http://localhost:8080/bonita/API/bpm/actorMember/206</code></td>
+</tr>
+<tr>
+<td>Payload</td>
+<td>empty</td>
+</tr>
+<tr>
+<td>Response</td>
+<td>empty</td>
+</tr>
+</tbody>
+</table>

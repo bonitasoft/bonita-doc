@@ -1,10 +1,10 @@
 import _ from 'lodash';
 
 export default class NavigationCtrl {
-  constructor(taxonomy, $stateParams, properties, $state) {
+  constructor(taxonomy, $stateParams, properties, $state, currentVersion) {
     'ngInject';
     this.taxonomy = taxonomy;
-    this.version = $stateParams.version || properties.defaultVersion || '7.3';
+    this.version = currentVersion.name;
     this.$stateParams = $stateParams;
     this.$state = $state;
     if ($stateParams.page) {

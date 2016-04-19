@@ -1,0 +1,36 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Build a process for deployment</title></head><body class="front">
+		<div id="content">
+	<h1>1.14 Build a process for deployment</h1>
+    <a id="top"></a><p>When a process is ready for deployment, build an archive file in Bonita BPM Studio that can be installed in Bonita BPM Portal.
+You also need to initialize the organization information needed in Bonita BPM Portal.
+</p>
+
+<p><a href="#build_process">Build a process for deployment</a><br><a href="#export_org">Initialize the organization</a></p>
+
+<h2><a id="build_process"></a>Build a process for deployment</h2>
+
+<p>A process is deployed by installing a business archive (.bar) file in Bonita BPM Portal.
+To create the business archive:</p>
+
+<ol><li>Choose <strong>Build...</strong> from the <strong>Server</strong> menu.</li>
+<li>Select the process to be exported.</li>
+<li>Specify whether you want to export a configuration with the process. 
+Exporting a configuration will export all the information and other items that you configured, including connectors and dependencies.</li>
+<li>Specify the location where the .bar file will be created. The filename is determined by the process name and cannot be changed at this stage.</li>
+<li>Click <strong>Finish</strong>. The business archive is created.</li>
+</ol><p>You can now <a href="/processes.html#installanapp">install the process in Bonita BPM Portal</a>.</p>
+
+<p></p>
+
+<h2><a id="export_org"></a>Initialize the organization in Bonita BPM Portal</h2>
+
+<p>To prepare your production system (unless you are using a Subscription editions and the LDAP synchronizer), 
+you must create the organization that you need for all the processes that will be deployed, export it from Bonita BPM Studio,
+and import it into Bonita BPM Portal. </p>
+
+<p>To export the organization, go to the <strong>Organization</strong> menu and choose <strong>Export...</strong>. You
+can then <a href="/importexport-an-organization.html">import the organization into Bonita BPM Portal</a>. After the organization is imported into Bonita BPM Portal, 
+you can <a href="/group.html">manage the groups</a>, <a href="/role.html">roles</a>, and <a href="/manage-a-user.html">users</a> in the organization.</p>
+
+<p></p></div>
+	</body></html>

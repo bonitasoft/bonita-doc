@@ -1,0 +1,139 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Web service connector tutorial</title></head><body class="front">
+		<div id="content">
+	<h1>1.8.19.2 Web service connector tutorial</h1>
+    <p>Note: This example uses the 6.x Application legacy forms.</p>
+
+<p>This example process will use a Web Service connector to call a sample Web Service to display a weather report.</p>
+<div style="text-align: center;"><img src="images/images-6_0/webservice_diagram.png" alt="web service process diagram" width="" title="web service process diagram"><div style="clear: both" class="caption"><span style="display: block;color: #BC071B;text-align: center;margin-top: 10px">web service process diagram</span></div></div>
+
+<ol><li>Create the diagram (as shown in the example above)</li>
+    <li>Select the Pool &gt; Data and click on the <em><strong>Variables tab</strong></em> and add the following process variables:</li>
+     </ol><ul><li>city (text)</li>
+        <li>country (text)</li>
+        <li>weatherData (Java Object of type <code>java.util.Map</code>)</li>
+    </ul><li>Create a case start form for the Pool. Select the pool and go to the <strong>Details</strong> panel,  <strong>6.x Application</strong> tab, <strong>Pageflow</strong> pane, <strong>Forms</strong> tab and add the following widgets:
+    <ul><li>City (text field)</li>
+        <li>Country (text field)</li>
+        <li>Get weather forecast (submit button)</li>
+    </ul></li>
+<li>Set the : <strong>transition conditions on the gateway</strong></li>
+    <ul><li>Select the transition to <strong>Display Weather</strong> and check Default Flow</li>
+        <li>Select the transition to No Result Found and edit the condition by clicking on the Pencil icon</li>
+        <li>Select script in the edit window and enter the following Groovy to evaluate the condition: 
+   <code>return (weatherData==null)</code></li>
+        <li>set a name and click OK</li>
+    </ul><li>Select the <strong>Get weather</strong> service task</li>
+<ul><li>Add a WebService 1.2 connector to this task and configure it using the wizard.</li>
+</ul><li>In the <strong>Connection parameters</strong> window:
+<ul><li>For the Community edition, provide these settings:
+    <ul><li>Service NS: GlobalWeather</li>
+        <li>Service name: http://www.webserviceX.NET</li>
+    </ul></li>
+    <li>For the Teamwork, Efficiency, or Performance edition. provide these settings:
+        <ul><li>Enter the WDSL URL http://www.webservicex.net/globalweather.asmx?WSDL and click on the Introspect button, then leave the login info fields empty</li>
+            <li>Set the <code>Port: GlobalWheatherSoap12</code> and leave other parameters with default values</li>
+        </ul></li>
+</ul></li>
+
+<li>In the <strong>Request parameters</strong> window (for all editions), provide these settings:</li>
+<ul><li>SOAP action:  http://www.webserviceX.net/GetWeather</li>
+<li>Port name: GlobalWeatherSoap12</li>
+<li>End point address: http://www.webservicex.net/globalweather.asmx</li>
+<li>Binding: http://www.w3.org/2003/05/soap/bindings/HTTP/</li>
+<li>Envelope</li>
+    <code>
+    <?xml version="1.0" encoding="UTF-8"?><envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope"><body><getweather xmlns:tns="http://www.webserviceX.NET"><cityname>${city}</cityname><countryname>${country}</countryname></getweather></body>
+</envelope></code>
+    </ul><li>In the <strong>Response configuration</strong> window, check the <strong>Returns body</strong> checkbox to use the response body in the output operations.
+
+</li><li>In the <strong>Output operations</strong> window, edit the first output operation:</li>
+<ul><li>Select the weatherData variable as the connector output target</li>
+    <li>Click on the pencil icon to edit. Edit the expression of the data to be saved and enter the following Groovy script (the script parses the XML output of the Web Service):</li>
+<li>In Expression type, click on <strong>Script</strong></li>
+<li>The Script should be as follows:</li>
+<code>
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+
+// Clean response xml document
+responseDocumentBody.normalizeDocument();
+// Get result node
+NodeList resultList = responseDocumentBody.getElementsByTagName(&quot;GetWeatherResult&quot;);
+Element resultElement = (Element) resultList.item(0);
+String weatherDataAsXML = resultElement.getTextContent();
+
+// Check for empty result
+if (&quot;Data Not Found&quot;.equalsIgnoreCase(weatherDataAsXML))
+    return null;
+
+// Parse embedded XML of result
+DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+InputSource inputSource = new InputSource();
+inputSource.setCharacterStream(new StringReader(weatherDataAsXML));
+Document weatherDataDocument = documentBuilder.parse(inputSource);
+Node weatherNode = weatherDataDocument.getDocumentElement();
+
+// Save weather data
+Map<string> data = new HashMap<string>();
+NodeList childNodes = weatherNode.getChildNodes();
+for (int i=0; i<childnodes.getlength i="" node="" if="" node.element_node="" string="" key="node.getNodeName();" value="node.getTextContent();" data.put="" return="" data=""><ul><li>In <strong>Return type</strong> enter java.util.Map</li>
+</ul><li>Select the Display weather task and add a blank form (without any widget) by going into the Application &gt; Pageflow tab</li>
+    <li>In the form builder, drag and drop a table widget to create a table</li>
+    <li>Select the table widget, click on the Data tab</li>
+    <li>Click on <strong>Edit as an expression</strong>, then click on the pencil next to the first field (initial value)</li>
+<ul><li>Use the following Script:</li>
+</ul><code>
+import java.util.Map.Entry;
+List<list>&gt; table = new ArrayList<list>&gt;();
+Set<entry>&gt; weatherDataEntries = weatherData.entrySet();
+for (Entry<string> entry : weatherDataEntries)
+{
+List<string> row = new ArrayList<string>();
+row.add(entry.getKey());
+row.add(entry.getValue());
+table.add(row);
+}
+return table;
+</string></string></string></entry></list></list></code>
+<ul><li>In <strong>Return type</strong> enter: java.util.list</li>
+</ul><li>Create a submit button called <strong>Close</strong></li>
+    <li>Select the <strong>No result found task </strong>and add a blank form by going into the Application &gt; Pageflow tab</li>
+<ul><li>Add a message widget and sets its initial value to &#x201C;Sorry, no result found.&#x201D;</li>
+    <li>Add a submit button and name it &#x201C;Close&#x201D;</li>
+</ul><li>Once you have finished creating the diagram and configuring the tasks, the script and form fields, click <strong>Run</strong> to deploy and run the process in Bonita BPM Portal.</li>
+
+<li>In the first form, enter a country and a city e.g. France, Grenoble</li>
+<li>Click <em><strong>Get Weather Forecast</strong></em></li>
+<li>Click <em><strong>Display weather</strong></em></li>
+
+
+<h3>The Result</h3>
+<p>The result is a form displaying all the weather information retrieved, for Grenoble.</p>
+
+<p><strong>Weather forecast</strong></p>
+<table class="table"><tr><td>Status</td>
+	<td>Success</td>
+</tr><tr><td>Time</td>
+	<td>Jan 02, 2014 - 08:00 AM EST / 2014.01.02 1300 UTC</td>
+</tr><tr><td>RelativeHumidity</td>
+    <td>81%</td>
+</tr><tr><td>Temperature</td>
+    <td>51 F (11 C)</td>
+</tr><tr><td>Location</td>
+    <td>Grenoble / St. Geoirs, France (LFLS) 45-22N 005-20E 386M</td>
+</tr><tr><td>DewPoint</td>
+    <td>46 F (8 C)</td>
+</tr><tr><td>Visibility</td>
+    <td>greater than 7 mile(s):0</td>
+</tr><tr><td>Pressure</td>
+    <td>29.85 in. Hg (1011 hPa)</td>
+</tr><tr><td>Wind</td>
+    <td>from the SSW (200 degrees) at 8 MPH (7 KT) (direction variable):0</td>
+</tr></table></childnodes.getlength></string></string></code></ul></div>
+	</body></html>

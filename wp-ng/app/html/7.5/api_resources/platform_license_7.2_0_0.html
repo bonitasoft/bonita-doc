@@ -1,0 +1,102 @@
+<h2>license</h2>
+
+<h3>Description</h3>
+<p>Handle the license information. This requires a platform session. Log in using the
+    platformloginservice servlet.
+</p>
+
+<p>This Web REST API is available in Subscription editions only, since version 7.1.
+</p>
+
+
+<h3>Identifier</h3>
+<p>empty</p>
+
+
+<h3>Representation</h3>
+
+<pre>
+{
+  &quot;licenseStartDate&quot;: date with format &quot;yyyy-MM-dd&quot; - first day (included) of license file validity,
+  &quot;duration&quot;: integer - number of days for license file validity,
+  &quot;licenseExpirationDate&quot;: date with format &quot;yyyy-MM-dd&quot; - last day (included) of license file validity,
+  &quot;numberOfCPUCores&quot;: integer - number of CPUs
+  &quot;edition&quot;: name of the BonitaBPM edition enabled by the license
+  &quot;licenseMode&quot;: available mode enabled by the license
+  &quot;requestKey&quot;: request key to use to generate a new license on the customer portal
+
+  If you have a subscription that specifies case-counter licensing, additional fields are present:
+
+  &quot;subscriptionStartPeriod&quot;: date with format &quot;yyyy-MM-dd&quot; - first day (included) of current period for number of cases provisioned,
+  &quot;subscriptionEndPeriod&quot;: date with format &quot;yyyy-MM-dd&quot; - last day (included) of current period for number of cases provisioned,
+  &quot;caseCounterLimit&quot;: integer - number of cases provisioned for period between &quot;subscriptionStartPeriod&quot; and &quot;subscriptionEndPeriod&quot;,
+  &quot;caseCounter&quot;: integer - number of consumed cases for period between &quot;subscriptionStartPeriod&quot; and &quot;subscriptionEndPeriod&quot;
+}</pre>
+
+
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+    <li>GET - get subscription license information</li>
+</ul>
+
+
+<h3>Get subscription license information</h3>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody>
+    <tr>
+        <td valign="top">Request url</td>
+        <td valign="top">http://../API/platform/licence</td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Request method</p></td>
+        <td valign="top"><p>GET</p>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Request payload</p></td>
+        <td valign="top"><p>empty</p>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Response payload</p></td>
+        <td valign="top"><p>The license information in JSON</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Example: a case-counter license for the Performance edition</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody>
+    <tr>
+        <td valign="top">Request url</td>
+        <td valign="top">GET|../API/platform/license</td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Response payload</p></td>
+        <td valign="top">
+
+            <pre><code>{
+    &quot;licenseStartDate&quot;: &quot;2015-08-31&quot;,
+    &quot;duration&quot;: 30,
+    &quot;licenseExpirationDate&quot;: &quot;2015-09-30&quot;,
+    &quot;edition&quot;: &quot;Performance&quot;,
+    &quot;licenseMode&quot;: &quot;development&quot;,
+    &quot;requestKey&quot;: &quot;(WkrNiwnog4M+qGKUdl8D4yU6l2LyIlqNm3SEZJgenU/c=)&quot;, 
+    &quot;subscriptionStartPeriod&quot;: &quot;2015-08-30&quot;,
+    &quot;subscriptionEndPeriod&quot;: &quot;2016-08-29&quot;,
+    &quot;caseCounterLimit&quot;: 100000,
+    &quot;caseCounter&quot;: 0,
+    &quot;numberOfCPUCores&quot;: 4
+}</code></pre>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+

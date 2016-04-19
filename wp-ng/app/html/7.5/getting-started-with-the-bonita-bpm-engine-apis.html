@@ -1,0 +1,26 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Getting started with the Bonita BPM Engine APIs</title></head><body class="front">
+		<div id="content">
+	<h1>4.5 Getting started with the Bonita BPM Engine APIs</h1>
+    <p>Before you run a Bonita BPM application, <a href="/configuring-bonita-home-for-a-client.html">configure bonita_home</a> to specify how the application accesses the Bonita BPM Engine, and set the <code>bonita.home</code> system property.
+
+</p><p>All sequences of API calls start with logging in to create a session then using the AccessorUtil to retrieve the APIs that will be used in the application.</p>
+
+<p>The APIs are retrieved using an accessor. To retrieve the PlatformLoginAPI and the PlatformAPI, use the PlatformAPIAccessor. 
+After the platform has been created and initialized, use the TenantAPIAccessor to retrieve the other APIs. The TenantAPIAccessor is used even though there is a single tenant.
+
+</p><p>The following example shows how to retrieve the LoginAPI, then use it to log in and create a session, then retrieve for API for that session. 
+The platform has already been created and initialized and the Engine is started.
+</p>
+<code type="java">
+final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
+APISession session = loginAPI.login(userName, password);
+ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);
+</code>
+
+<p>When the application has finished processing, log out to delete the session:</p>
+
+<code type="java">
+loginAPI.logout(session);
+</code>
+</div>
+	</body></html>

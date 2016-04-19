@@ -1,0 +1,295 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Single sign-on with CAS</title></head><body class="front">
+		<div id="content">
+	<h1>2.4.3 Single sign-on with CAS</h1>
+    <p>This pages explains how to configure your Bonita BPM Platform system to use CAS to provide single sign-on (SSO). It assumes you already have a working CAS service. All Bonita BPM users must be registered in CAS.</p>
+
+<p>This information applies to a Bonita BPM platform deployed from a bundle, not to the Engine launched from Bonita BPM Studio.</p>
+
+<p>
+
+<a href="#conf_engine_jboss">Configure Bonita BPM Engine and JBoss for CAS</a><br><a href="#conf_engine_tomcat">Configure Bonita BPM Engine and Tomcat for CAS</a><br><a href="#conf_client">Configure Bonita client for CAS</a><br><a href="#logout_option">Configure logout behaviour</a><br><a href="#passwords">Manage passwords</a><br><a href="#ldap">LDAP synchronizer and CAS</a><br><!--<a href="#autologin">Autologin</a><br/>--><a href="#rest">Single sign-on with CAS using the REST API</a>
+
+
+</p>
+
+<p>CAS configuration is at tenant level. Each tenant can use a different CAS service.</p>
+
+<p>Note: On a system using CAS to manage logins, if a user who is not already logged in tries to access a page in the Portal by clicking on a URL link, they are re-directed to the login page. 
+After logging in, the requested page is not displayed automatically. The user must click the link again. </p>
+
+<h2 id="conf_engine_jboss">Configure Bonita BPM Engine and JBoss for CAS</h2>
+
+<p>The deploy bundle contains the files needed to use CAS with Bonita BPM platform and a JBoss 7 application server. They are contained in <code>cas-module.zip</code>. 
+You can use this zip file to configure CAS for a platform deployed from the JBoss bundle or from the deploy bundle. The <code>cas-module.zip</code> archive contains some jar files that are required. 
+It also contains a configuration file for the module, <code>module.xml</code>, which defines the jar files to be loaded from the module itself and the dependencies of the module. For example:</p>
+<code type="xml">
+<?xml version="1.0" encoding="UTF-8"?><module xmlns="urn:jboss:module:1.0" name="org.jasig.cas"><resources><resource-root path="cas-client-3.3.1.jar"></resource-root><resource-root path="slf4j-api-1.7.1.jar"></resource-root><resource-root path="slf4j-log4j12-1.7.1.jar"></resource-root><resource-root path="log4j-1.2.15.jar"></resource-root></resources><dependencies><system><paths><path name="org/xml/sax"></path><path name="org/xml/sax/helpers"></path><path name="javax/net/ssl"></path><path name="javax/xml/parsers"></path><path name="javax/security/auth/spi"></path><path name="javax/security/auth/login"></path><path name="javax/security/auth/callback"></path><path name="javax/security/auth"></path></paths></system></dependencies></module></code>
+
+<p>For a standard installation, it is not usually necessary to modify this file.</p>
+
+<p>To configure Bonita BPM Engine for CAS:</p>
+
+<ol><li>If you do not already have it, download the Subscription edition deploy zip from the customer portal.</li>
+
+<li>Add the CAS module. To do this, copy <code>cas-module.zip</code> to <code>JBOSS_HOME/modules</code> and unzip it to merge the CAS module with the existing modules.</li>
+
+<li>Make the CAS module global so that it can be used by any application. To do this, edit <code>JBOSS_HOME/standalone/configuration/standalone.xml</code> and change the definition of the <code>ee</code> subsystem to the following:</li>
+<code type="xml">
+ <subsystem xmlns="urn:jboss:domain:ee:1.0"><global-modules><module name="org.jasig.cas" slot="main"></module></global-modules></subsystem></code>
+
+<li>Edit <code>JBOSS_HOME/standalone/configuration/standalone.xml</code> and add the BonitaAuthentication module. 
+before the <code></code> tag, insert these lines (specifying the relevant IP addresses and port numbers):
+<code type="xml">
+<security-domain name="BonitaAuthentication-1"><authentication><login-module code="org.jasig.cas.client.jaas.CasLoginModule" flag="required"><module-option name="ticketValidatorClass" value="org.jasig.cas.client.validation.Cas20ServiceTicketValidator"></module-option><module-option name="casServerUrlPrefix" value="http://cas_ip_address:cas_port/cas"></module-option><module-option name="tolerance" value="20000"></module-option><module-option name="service" value="http://cas_ip_address:cas_port/bonita/loginservice"></module-option><module-option name="defaultRoles" value="admin,operator"></module-option><module-option name="roleAttributeNames" value="memberOf,eduPersonAffiliation"></module-option><module-option name="principalGroupName" value="CallerPrincipal"></module-option><module-option name="roleGroupName" value="Roles"></module-option><module-option name="cacheAssertions" value="true"></module-option><module-option name="cacheTimeout" value="480"></module-option></login-module></authentication></security-domain></code>
+
+<p>
+    Note: The security-domain name must be unique, BonitaAuthentication-1 in the above example.
+</p>
+
+</li><li>
+In the <code>CasLoginModule</code> configuration, check that the <code>principalGroupName</code> property is set to <code>CallerPrincipal</code>. This is required to retrieve the username from the Bonita application. 
+    Bonita BPM uses the CAS LoginModule in the JASIG implementation, so see the CAS LoginModule section of the <a href="https://wiki.jasig.org/display/CASC/JAAS+Integration">Jasig documentation</a> for more information.
+</li>
+
+<li>Update <code>bonita-tenant-sp-custom.properties</code>. If you edit this in <code>bonita-home/engine-server/conf/tenants/template/</code>, the settings will apply to all new tenants. 
+For an existing tenant, edit the properties file in <code>bonita-home/engine-server/conf/tenants/</code><em><code><tenant-id></tenant-id></code></em>. 
+
+<ol style="list-style-type: lower-alpha;"><li>Remove the comment flags from these lines:</li>
+
+<code type="java">
+authentication.service.ref.name=jaasAuthenticationService
+</code>
+
+<li>Specify the relevant IP address and port number.</li>
+
+<code type="java">
+authenticator.delegate=casAuthenticatorDelegate
+authentication.delegate.cas.server.url.prefix=http://ip_address:port
+authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservice
+</code>
+
+<li>Optionally, to enable a Java client application to access the engine using CAS authentication, uncomment this line:</li>
+
+</ol></li></ol><p></p>
+
+
+
+
+<h2 id="conf_engine_tomcat">Configure Bonita BPM Engine and Tomcat for CAS</h2>
+
+<ol><li>
+<p>The CAS implementation relies on JAAS, and is defined in the BonitaAuthentication module of the JAAS configuration file.
+Set the Java system property <code>java.security.auth.login.config</code> in the Tomcat startup script to point to the JAAS configuration file, <code>bonita-home/client/platform/conf/jaas.config</code>. 
+    For example, on Linux, edit <code>setenv.sh</code>, uncomment the line that defines <code>SECURITY_OPTS</code>, and 
+insert the variable <code>SECURITY_OPTS</code> in the line <code>CATALINA_OPTS=..</code>. 
+ </p>   
+
+<p>The <code>bonita-home/client/platform/conf/jaas.config</code> file contains the following (replace <code>ip_address:port</code> with the relevant IP addresses and port numbers, in two places): </p>
+<code type="java">
+BonitaAuthentication-1 {
+  org.jasig.cas.client.jaas.CasLoginModule required
+    ticketValidatorClass=&quot;org.jasig.cas.client.validation.Cas20ServiceTicketValidator&quot;
+    casServerUrlPrefix=&quot;http://ip_address:port/cas&quot;
+    tolerance=&quot;20000&quot;
+    service=&quot;http://ip_address:port/loginservice&quot;
+    defaultRoles=&quot;admin,operator&quot;
+    roleAttributeNames=&quot;memberOf,eduPersonAffiliation&quot;
+    principalGroupName=&quot;CallerPrincipal&quot;
+    roleGroupName=&quot;Roles&quot;
+    cacheAssertions=&quot;true&quot;
+    cacheTimeout=&quot;480&quot;;
+};
+</code>
+    
+
+<p>     
+The JAAS configuration file, <code>jaas.config</code>, is sorted by sets of authentication modules. 
+For Bonita BPM, each set matches a tenant configuration and the name is prefixed with <em>BonitaAuthentication-<code><tenant-id></tenant-id></code></em>. 
+Make sure there is a set of authentication modules for each tenant in your platform. 
+For each tenant, set the CAS service to point to the application login page and set <code>casServerUrlPrefix</code> to point to the CAS server.</p>
+<p>
+    Note: The module name must be unique, BonitaAuthentication-1 in the above example.
+</p>
+
+</li>
+
+<li> 
+In the <code>CasLoginModule</code> configuration, check that the <code>principalGroupName</code> property is set to <code>CallerPrincipal</code>. This is required to retrieve the username from the Bonita application. 
+    Bonita BPM uses the CAS LoginModule in the JASIG implementation, so see the CAS LoginModule section of the <a href="https://wiki.jasig.org/display/CASC/JAAS+Integration">Jasig documentation</a> for more information.
+</li>
+
+<li>Put the CAS client core jar (currently <code>cas-client-core-3.2.1.jar</code>) in the <code>/lib</code> folder.</li>
+
+<li>Put <code>commons-logging-1.1.jar</code> in the <code>/lib</code> folder.</li>
+
+
+<li>Update <code>bonita-tenant-sp-custom.properties</code>. If you edit this in <code>bonita-home/engine-server/conf/tenants/template/</code>, the settings will apply to all new tenants. 
+For an existing tenant, edit the properties file in <code>bonita-home/engine-server/conf/tenants/</code><em><code><tenant-id></tenant-id></code></em>. 
+
+<ol style="list-style-type: lower-alpha;"><li>Remove the comment flags from these lines:</li>
+
+<code type="java">
+authentication.service.ref.name=jaasAuthenticationService
+</code>
+
+
+<li>Optionally, to enable a Java client application to access the engine using CAS autentication, uncomment this line:</li>
+
+<code type="java">
+authenticator.delegate=casAuthenticatorDelegate
+authentication.delegate.cas.server.url.prefix=http://ip_address:port
+authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservice
+</code>
+<li>Specify the relevant IP address and port number.</li>
+</ol></li></ol><h3>Cluster considerations</h3> 
+
+<p>If you are configuring Bonita BPM and Tomcat in a cluster environment for CAS, there are some extra steps to do:</p>
+
+<ol><li>Copy <code>commons-logging-1.1.1.jar</code> from the <code>bonita.war</code> to <code>tomcat/lib</code>.</li>
+    <li>Remove the <code>WEB-INF/lib/commons-logging-1.1.1.jar</code> file from the <code>bonita.war</code>.</li>
+    <li>Remove the <code>tomcat/webapps/bonita/WEB-INF/lib/commons-logging-1.1.1.jar</code> file (if it is present).</li>
+</ol><p></p>
+
+<h2 id="conf_client">Configure Bonita client for CAS</h2>
+
+<ol><li>
+For each tenant, edit <code>authenticationManager-config.properties</code> to enable the CASRemoteAuthenticationManager and its properties. 
+If you edit this in <code>bonita-home/client/platform/tenant-template/conf/</code>, the settings will apply to all new tenants. 
+For an existing tenant, edit the properties file in <code>bonita-home/client/tenants/</code><em><code><tenant-id></tenant-id></code></em>. 
+The service URL in the properties file must be the same as that in the JAAS file. The <code>authenticationManager-config.properties</code> will have the following content (specify the relevant IP address and ports):
+
+<code type="xml">
+#auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.standard.StandardAuthenticationManagerImplExt
+#auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.oauth.OAuthAuthenticationManagerImplExt
+# OAuth.serviceProvider = LinkedIn
+# OAuth.consumerKey = ove2vcdjptar
+# OAuth.consumerSecret = vdaBrCmHvkgJoYz1
+# OAuth.callbackURL = http://ip_address:port/loginservice
+auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.jaas.cas.CASRemoteAuthenticationManagerImpl
+Cas.serverUrlPrefix = http://ip_address:port/cas
+Cas.bonitaServiceURL = http://ip_address:port/bonita/loginservice
+logout.link.hidden=true
+</code>
+
+</li><li>
+Make sure that the default tenant id is the same on both the client side and server side. 
+To do this, you can set the <code>platform.tenant.default.id</code> property in <code>bonita-home/client/platform/conf/platform-tenant-config.properties</code>.</li>
+        
+        </ol><p></p>
+
+<h2 id="logout_option">Configure logout behaviour</h2>
+
+<h3>Bonita BPM Portal</h3>
+<p>If you are using CAS, when users log out of Bonita BPM Portal, they log out of CAS. Therefore they are logged out of all applications that are using the CAS service. To avoid this, you can hide the logout option of the portal. 
+To do this, set the <code>logout.link.hidden=true</code> option in <code>authenticationManager-config.properties</code>.</p>
+
+<p>If this option is set, when  users navigate away from the Portal, they are still logged in to CAS.</p>
+
+<h3>Bonita BPM Engine</h3>
+    
+<p>By default, logging out from Bonita BPM Engine logs the user out of CAS. You can change this behavior by implementing your own Authentication Service.</p>
+
+<p></p>
+
+
+<h2 id="passwords">Manage passwords</h2>
+
+<p>When you are using CAS, the password for a user is managed in your CAS system. However, when you create a user in Bonita BPM Portal, specifying a password is mandatory. This password is ignored. </p>
+
+<p></p>
+
+
+<h2 id="ldap">LDAP synchronizer and CAS</h2>
+
+<p>If you are using an LDAP service and the <a href="/ldap-synchronizer.html">LDAP synchronizer</a> to manage your user data, you can continue to do this and use CAS. The LDAP synchronizer user must be registered in CAS. 
+Alternatively, the LDAP synchronizer could be run with the tenant technical user, because this bypasses the SSO login. </p>
+<p>We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your CAS server. </p>
+
+
+
+<p></p>
+
+
+<!--<h2 id="autologin">Autologin</h2>
+
+<p>The autologin feature, which enables a case to be started by an anonymous user, works by using a dummy user. This user is defined like a real Bonita BPM user. For autologin to work with CAS, the dummy user must also be defined in CAS.</p>
+
+<p></p>-->
+
+
+
+<!-- REST API -->
+
+<h2 id="rest">Single sign-on with CAS using the REST API</h2>
+
+<p>For detailed information about the procedure to install Restful access on your CAS SSO server, see the following links:</p>
+<a href="http://jasig.github.io/cas/4.1.x/index.html">CAS SSO RESTful API</a>
+
+<a href="/rest-api-overview.html">Bonita BPM REST API</a>
+<p>
+
+</p><div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><strong> Note:</strong> All calls issued to get the TGT or ST are made to the CAS SSO server.</div>
+
+
+<h3>Getting the Ticket Granting Ticket (TGT)</h3>
+<p>The Ticket Granting Ticket is an exposed resource. It has a unique URL.</p>
+
+
+<h4><strong>Request for a Ticket Granting Ticket Resource</strong></h4>
+<table border="1" cellpadding="2" cellspacing="2" width="100%" style="table-layout:fixed"><tr><td valign="top">Request URL</td>
+    <td valign="top"> <code>http://www.your_cas_server_url/cas/v1/tickets</code></td>
+ </tr><tr><td valign="top">Request Method</td>
+    <td valign="top">POST</td>
+ </tr><tr><td valign="top">Form Data</td>
+    <td valign="top">Username: walter.bates<br>Password: bpm<br></td>
+ </tr></table><h4><strong>Response for a Ticket Granting Ticket Resource</strong></h4>
+
+<table border="1" cellpadding="2" cellspacing="2" width="100%" style="table-layout:fixed"><tr></tr><tr><td valign="top"> Response</td>
+    <td valign="top"><p>201 created</p><p><code>Location: http://www.your_cas_server_url/cas/v1/tickets/{TGT}</code></p></td>
+    
+ </tr></table><p>Take the TGT response and paste it in the url of the ST request, below</p>
+
+
+
+<h3>Getting the Service Ticket (ST)</h3>
+
+
+<h4><strong>Request for a Service Ticket</strong></h4>
+
+<table border="1" cellpadding="2" cellspacing="2" width="100%" style="table-layout:fixed"><tr><td valign="top">Request URL</td>
+    <td valign="top"> <code>http://www.your_cas_server_url/cas/v1/tickets/{TGT}</code></td>
+ </tr><tr><td valign="top">Request Method</td>
+    <td valign="top">POST</td>
+ </tr><tr><td valign="top">Form Data</td>
+    <td valign="top">service={form encoded parameter for the service url}</td>
+ </tr></table><h4><strong>Response for a Service (ST)</strong></h4>
+
+<table border="1" cellpadding="2" cellspacing="2" width="100%" style="table-layout:fixed"><tr></tr><tr><td valign="top"> Response</td>
+    <td valign="top"><p>200 OK</p> <p>{ST}</p></td>
+    
+ </tr></table><p>Take the ST response and paste it in the url of the Bonita BPM Engine login request, below</p>
+
+<h3>Logging into Bonita BPM Engine with Rest API using the service ticket</h3>
+
+<p><strong>Authentication to Bonita BPM Engine</strong></p>
+
+<table border="1" cellpadding="2" cellspacing="2" width="100%" style="table-layout:fixed"><tr><td valign="top">Request URL</td>
+    <td valign="top"> <code>bonita_server_url/loginservice?ticket={ST} </code></td>
+ </tr><tr><td valign="top">Request Method</td>
+    <td valign="top">GET</td>
+ </tr><tr><td valign="top">Form Data</td>
+    <td valign="top">service={form encoded parameter for the service url}</td>
+ </tr></table><p>Limitation: The default AuthenticationFilter that manages CAS authentication applies only to the following pages: </p>
+<ul><li>/portal</li>
+    <li>/mobile/*</li>
+    <li>/portal.js/*</li>
+<li>/apps/*</li>
+<li>/services/*</li>
+</ul><p>If you require direct calls to the REST API to authenticate the user. you need to provide a custom Filter.</p>
+
+<h4><strong>Response for a Service (ST)</strong></h4>
+
+<table border="1" cellpadding="2" cellspacing="2" width="100%" style="table-layout:fixed"><tr></tr><tr><td valign="top"> Response</td>
+    <td valign="top">200 OK</td>
+ </tr></table></div>
+	</body></html>

@@ -1,0 +1,39 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>BDM Management in Bonita BPM Portal</title></head><body class="front">
+		<div id="content">
+	<h1>3.3.6 BDM Management in Bonita BPM Portal</h1>
+    <p>Processes using Business Objects with persisted data need to run with a Business Data Model deployed in the Bonita BPM Portal.
+Only one model can be deployed at a time in the Portal, so make sure it contains the Business object definition used in all processes that will run within this tenant.</p>
+
+<p>The Business objects must match the structure used by the deployed processes. Make sure that when modifying the Business Model, the process is modified accordingly.</p>
+
+<h2>How to import and activate a Business Data Model</h2>
+<ol><li>To import the Business Data Model created in Bonita BPM Studio, first <a href="/define-and-deploy-the-bdm.html#exportabdm"></a>export the Business Data Model from Bonita BPM Studio where it was designed.</li>
+    
+    <li>In the Bonita BPM Portal, log in as the technical user (default login &apos;install&apos;, default password &apos;install&apos;).</li>
+    <li>Go to the <strong>BPM Services</strong> menu.</li>
+    <li>Click on <strong>Pause</strong> to <a href="/pause-and-resume-bpm-services.html"></a>pause the tenant.</li> 
+    
+    <div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"> </span> <strong>Note:</strong> The deployment of a Business Data Model requires pausing the service during the operation, so that the update can be performed without affecting ongoing processes. </div>
+
+    <li>When the service is paused, go to the <strong>Business Data Model</strong> menu.</li>
+    <li>A page called <strong>Import and activate a new Business Data Model</strong> is displayed.</li>
+    <li>Choose the file containing the Business Data Model exported from the Bonita BPM Studio, and click on <em><strong>Activate</strong></em>.</li>
+    <li>A warning is displayed:</li>
+    
+    
+<div class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign"> </span> <strong>Warning:</strong> The Business Data Model will now be installed.
+    Please note that existing business database tables will be modified definitively. This action cannot be reversed. It is highly recommended to back up the database before proceeding.</div>
+    
+    <li>The Portal will load the file, retrieve the object definition and enable processes to use them at runtime. The portal will also create or update the database schema (set of tables, columns, indexes...)
+    in the business database, so as to store business objects appropriately when modified by processes. </li>
+    <li>The Business Data Model will now be installed.</li>
+        <li>Go to the <strong>BPM Services</strong> menu.</li>
+    <li>Click on <strong>Resume</strong> to <a href="/pause-and-resume-bpm-services.html#how_unpause"></a>resume tenant activity.</li>
+</ol><div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"> </span> <strong>Note:</strong> the database model is automatically updated. You should avoid changing the database schema manually as it may jeopardize the persistence of business objects and cause errors at process runtime.
+    It is recommended to perform a backup of the business database before deploying a business data model.
+    (If the deployment fails, check the engine logs to analyse the problem.)</div>
+
+
+
+</div>
+	</body></html>

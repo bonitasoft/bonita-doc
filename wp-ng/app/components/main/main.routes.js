@@ -33,10 +33,10 @@ export default /*@ngInject*/ function($stateProvider, $urlRouterProvider) {
       properties: /*@ngInject*/ $http => $http.get('/properties.json').then(response => response.data),
       taxonomy: /*@ngInject*/ $http => $http.get('/taxonomy.json').then(response => response.data),
       currentVersion: /*ngInject*/ (properties, $stateParams) => {
-        if($stateParams.version) {
-          return _.find(properties.supportedVersionList, version => version.name === $stateParams.version);
+        if ($stateParams.version) {
+          return _.find(properties.supportedVersionList, { name: $stateParams.version });
         } else {
-          return _.first(properties.supportedVersionList);
+          return _.head(properties.supportedVersionList);
         }
       }
     }
@@ -69,7 +69,7 @@ export default /*@ngInject*/ function($stateProvider, $urlRouterProvider) {
       }
     },
     resolve: {
-      searchResults: /*@ngInject*/ (searchService, $stateParams, properties) => searchService.search(properties, $stateParams.searchRequest, $stateParams.start, $stateParams.pageSize)
+      searchResults: /*@ngInject*/ (searchService, $stateParams, properties, currentVersion) => searchService.search(currentVersion.solrCore, properties, $stateParams.searchRequest, $stateParams.start, $stateParams.pageSize)
     }
   });
 }

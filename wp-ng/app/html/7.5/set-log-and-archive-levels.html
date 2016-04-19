@@ -1,0 +1,40 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Set log and archive levels</title></head><body class="front">
+		<div id="content">
+	<h1>2.4.2 Set log and archive levels</h1>
+    <p>There are three ways to record the information about a running process:</p>
+<ul><li><a href="#archive">Archive</a>: used by a business analyst or process administrator using Bonita BPM Portal, during the production phase, to trace the running of the process instances in their life cycle. Records who did what and when.</li>
+<li><a href="#techlog">Technical log</a>: used by an application developer for troubleshooting, debugging and process tuning.</li>
+<li><a href="#qlog">Queriable log</a>: used by a database administrator extracting information related to business actions that is stored in the internal database to be retrieved by a database request.</li>
+</ul><p>You can configure the information that is recorded in the archive and the logs.</p>
+
+<h2 id="archive">Archive</h2>
+<p>In the portal, after a process is executed, it can be viewed using the &#x201C;Archived&#x201D; filter.
+There you can find the information on the process instances (the cases). This information is also available using the Web REST API. 
+By default, all the information is archived but in the Performance edition this is <a href="/configurable-archive.html">configurable</a>.</p>
+
+<p>Recommended configuration (Performance only):</p>
+<ul><li>
+To keep all the user activity, set all the flowNode types to true.</li>
+<li>
+To maximize the overall performance of the system and reduce the disk space used by the database, set all the values to false. Completed tasks will not be visible.</li>
+</ul><p>Between these two extreme cases, you can <a href="/configurable-archive.html">customize archiving</a> to your exact need.</p>
+
+<h2 id="techlog">Technical log</h2>
+
+<p>The <a href="/technical-logging.html">technical logger service</a> is part of the Bonita BPM Engine. The default implementation is based on the framework Java Util Logging.</p>
+
+<p>You can <a href="/logging.html">configure the log level</a>. The log level can be set on several categories in the <code>logging.properties</code> file. Some categories are very specific to a particular issue. 
+For example:</p>
+<ul><li>If you have an issue related to the database access, it might be interesting to change the level of <code>org.hibernate.level</code> from the default, <code>WARNING</code>, to <code>FINE</code>.</li>
+    <li>When debugging cache issues, change the level of <code>net.sf.ehcache.level</code>.</li>
+    <li>For the process execution, the relevant properties are <code>org.bonitasoft.level</code> and (for Subscription editions) <code>com.bonitasoft.level</code>.</li>
+</ul><h2 id="qlog">Queriable log</h2>
+
+<p>You can use the <a href="/queriable-logging.html">queriable logger service</a> to log in a database the creation, deletion or update of bonita objects that are not related to a process (for instance users, groups, roles, profiles). 
+Items that can be <a href="#archive">archived</a> cannot be included in the queriable log.</p>
+
+<p>To configure what information you want to record in the quieriable log, modify the <code>bonita-tenant-sp-custom.properties</code> in <code><bonita_home>/engine-server/conf/tenants/tenant-template</bonita_home></code>.
+This file contains a map of available events. By default all are logged (the value is set to true). If you do want to log a particular event, set the value to false and restart the Bonita BPM Engine.</p>
+ 
+</div>
+	</body></html>

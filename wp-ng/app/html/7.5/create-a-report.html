@@ -1,0 +1,136 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Create a report</title></head><body class="front">
+		<div id="content">
+	<h1>1.10.4 Create a report</h1>
+    <p>The final step when setting up reporting is to create a report template using a Business Intelligence (BI) tool.</p>
+<p>You are free to choose any BI tool to do so, but if you want to display reports inside the Bonita BPM Portal you should design your reports using one of the following tools:
+</p><ul><li><a href="http://community.jaspersoft.com/project/ireport-designer" target="_blank">JasperReports iReport Designer</a> - Older stable tool in maintenance mode</li>
+	<li><a href="http://community.jaspersoft.com/project/jaspersoft-studio" target="_blank">Jaspersoft Studio</a> - Newer tool</li>
+</ul><h2>Bonita BPM integration guidelines and tips for Jasper reports</h2>
+<p>This documentation does not detail the use of Jaspersoft Studio but provides some guidelines for report integration in Bonita BPM Portal. 
+There are minor differences depending on which Japsersoft tool you are using, but these concern the user interface of the Japsersoft tools, not the Bonita BPM behavior.
+For details about the use of the Jaspersoft products, please refer to their documentation:</p>
+<ul><li><a href="http://community.jaspersoft.com/project/ireport-designer/resources" target="_blank">JasperReports iReport Designer documentation</a></li>
+	<li><a href="http://community.jaspersoft.com/project/jaspersoft-studio/resources" target="_blank">Jaspersoft Studio documentation</a></li>
+</ul><h3>Change the script language to Java</h3>
+<p>By default Jasper reports use Groovy as a script language. 
+However, Bonita BPM Portal does not provide Groovy dependencies to the report so you need to switch the report script language to Java.</p>
+
+<p>This is how to do this for iReport:</p>
+<ol><li>In the <strong>Report inspector</strong> tree located on the left-hand side, select the root element.</li>
+	<li>In the properties table located on the right-hand side, locate the <strong>Language</strong> property and change it to <strong>Java</strong>.</li>
+</ol><h3>Access Bonita BPM database</h3>
+<p>If you build a report that requires access to the Bonita BPM database, you need to add the Bonita BPM SQL Query Executor as a report dependency.
+All queries that fetch Bonita BPM Engine data must use this query executor.</p>
+
+<p>This is how to add the query executor as a report dependency in iReport:</p>
+<ol><li>Open the <strong>Tools</strong> menu and select <strong>Options</strong>.</li>
+    <li>Make sure the <strong>iReport</strong> header is selected.</li>
+	<li>Select the <strong>Query Executers</strong> tab.</li>
+    <li>Click on the <strong><em>Add</em></strong> button.</li>
+    <li>Fill the form using the following values:
+        <table border="1" style="margin:10px; width:700px;"><tr><td style="text-align:center; font-weight: bold;">Field</td><td style="text-align:center; font-weight: bold;">Value</td></tr><tr><td>Language</td><td>BONITASQL</td></tr><tr><td>Factory class</td><td>org.bonitasoft.JRBonitaJdbcQueryExecuterFactory</td></tr><tr><td>Fields Provider class (optional)</td><td>com.jaspersoft.ireport.designer.data.fieldsproviders.SQLFieldsProvider</td></tr></table></li>
+	<li>Click on <strong><em>OK</em></strong>.</li>
+	<li>Still in the <strong>Options</strong> window, select the <strong>Classpath</strong> tab.</li>
+	<li>Click on <strong><em>Add JAR</em></strong>.</li>
+    <li>Browse to your Bonita BPM Studio installation directory and navigate to <code>workspace/tomcat/webapps/bonita/WEB-INF/lib/</code>.</li>
+	<li>Select the <code>console-server-sp-X.Y.Z.jar</code> file, where <code>X.Y.Z</code> is the Bonita BPM version.</li>
+	<li>Click on <strong><em>Open</em></strong>.</li>
+</ol><h3>Add interactivity with Bonita BPM Portal to your report</h3>
+<p>When creating a report you may need to enable Bonita BPM Portal users to interact with it.
+Bonita BPM Portal integration of the Jasper report viewer makes interactivity possible by providing widgets that can control report parameters.
+Widgets are configured directly in the Jasper report as properties.</p>
+
+<p>Here is the sequence of events when an interactive Jasper report is displayed in Bonita BPM Portal:</p>
+<ol><li>Bonita BPM Portal reads the report properties and generates an HTML form containing the widgets.</li>
+	<li>The HTML code is injected as a report parameter by Bonita BPM Portal.</li>
+	<li>The report renders the HTML code using the parameter.</li>
+	<li>The end-user can then interact with the widgets and the report is automatically re-generated if a value changes.</li>
+</ol><p>To enable interactivity, the first thing to do is to prepare the HTML form rendering parameter and component.</p>
+<p>This is how to do this in iReport:</p>
+<ol><li>In the <strong>Report Inspector</strong> tree, right click on <strong>Parameters</strong> and select <strong>Add Parameter</strong>.</li>
+	<li>In the parameter properties, update the <strong>Name</strong> property to <code>BONITA_HTML_FORM</code>.</li>
+	<li>Drag and drop an <strong>HTML</strong> component from the <strong>Palette</strong> onto your report&apos;s <strong>Title</strong> section.</li>
+	<li>Select the <strong>HTML</strong> component that you have added.</li>
+	<li>In the component properties, set the <strong>HTML Content Exp.</strong> property to <code>$P{BONITA_HTML_FORM}</code>.</li>
+</ol><p>When the HTML form rendering parameter and component are ready, you need to set the report properties to configure the widgets that your report will integrate.</p>
+
+<p>All widgets share the following mandatory properties (<code>XXX</code> is replaced by a number used to identify the widget):</p>
+<table border="1" style="margin:10px; width:100%;"><tr><td style="text-align:center; font-weight:bold;">Property</td>
+		<td style="text-align:center; font-weight:bold;">Mandatory</td>
+		<td style="text-align:center; font-weight:bold;">Description</td>
+	</tr><tr><td>BONITA_FORM_<em>XXX</em>_ID</td>
+		<td>Yes</td>
+		<td>Base name of the report parameter that will be updated with the widget value.<br>
+			Special rules apply depending on the widget type (see next parameter):<br><ul><li>For a <strong>SELECT</strong> widget, the parameter name is the same as the base name.<br>
+					Example: if <code>BONITA_FORM_1_ID</code> is set to <code>p_country</code> then, the report parameter should be named <code>p_country</code>.</li>
+				<li>For a <strong>DATE</strong> widget, the value will be saved to a parameter with the <strong>_from</strong> suffix.<br>
+					Example: if <code>BONITA_FORM_2_ID</code> is set to <code>p_birthday</code>, then the report parameter should be named <code>p_birthday_from</code>.</li>
+				<li>For a <strong>DATE_RANGE</strong> widget, the values will be saved to two parameters: one with a <strong>_from</strong> suffix and one with a <strong>_to</strong> suffix.<br>
+					Example: if <code>BONITA_FORM_3_ID</code> is set to <code>p_period</code>, then the two report parameters should be named <code>p_period_from</code> and <code>p_period_to</code>.</li>
+				
+			</ul></td>
+	</tr><tr><td>BONITA_FORM_<em>XXX</em>_WIDGET</td>
+		<td>Yes</td>
+		<td>Widget type. Can be one of the following:
+			<ul><li><code>SELECT</code> for a drop down allowing a single selection</li>
+				<li><code>DATE</code> for a date picker</li>
+				<li><code>DATE_RANGE</code> for a date range picker with a start date and an end date</li>
+			</ul></td>
+	</tr><tr><td>BONITA_FORM_<em>XXX</em>_LABEL</td>
+		<td>Yes</td>
+		<td>Widget label</td>
+	</tr></table><p>The <strong>SELECT</strong> widget has the following extra properties:</p>
+<table border="1" style="margin:10px; width:100%;"><tr><td style="text-align:center; font-weight:bold;">Property</td>
+		<td style="text-align:center; font-weight:bold;">Mandatory</td>
+		<td style="text-align:center; font-weight:bold;">Description</td>
+	</tr><tr><td>BONITA_FORM_<em>XXX</em>_AVAILABLE_VALUES</td>
+		<td rowspan="2">Yes: one of these two properties is required</td>
+		<td>Static list of available values defined in a JSON format.<br>
+			Example: <code>[{&quot;id&quot;:&quot;FR&quot;,&quot;label&quot;:&quot;France&quot;}, {&quot;id&quot;:&quot;US&quot;,&quot;label&quot;:&quot;United States of America&quot;}, {&quot;id&quot;:&quot;ES&quot;,&quot;label&quot;:&quot;Spain&quot;}]</code>
+		</td>
+	</tr><tr><td>BONITA_FORM_<em>XXX</em>_QUERY</td>
+		<td>Query that dynamically retrieves the list of available values from the Bonita BPM database.</td>
+	</tr><tr><td>BONITA_FORM_<em>XXX</em>_HAS_ALL</td>
+		<td>No</td>
+		<td>Set this to <code>TRUE</code> if you wish to dynamically add an &quot;All&quot; item to the list of available values. Otherwise, ignore this property.</td>
+	</tr><tr><td>BONITA_FORM_<em>XXX</em>_HAS_ALL_VALUE</td>
+		<td>Only if the &quot;All&quot; item is active</td>
+		<td>Specifies the value returned when the &quot;All&quot; item is selected.</td>
+	</tr></table><p>The <strong>DATE</strong> and <strong>DATE_RANGE</strong> widgets have the following extra properties:</p>
+<table border="1" style="margin:10px; width:100%;"><tr><td style="text-align:center; font-weight:bold;">Property</td>
+		<td style="text-align:center; font-weight:bold;">Mandatory</td>
+		<td style="text-align:center; font-weight:bold;">Description</td>
+	</tr><tr></tr><tr><td>BONITA_FORM_<em>XXX</em>_INITIAL_VALUE</td>
+		<td rowspan="2">Yes:  one of these two properties is required</td>
+		<td>Static initial value defined in the ISO format.<br>
+		    Example: <code>2015-01-28</code></td>
+	</tr><tr><td>BONITA_FORM_<em>XXX</em>_QUERY</td>
+		<td>Query that dynamically retrieves the initial value from the Bonita BPM database.</td>
+	</tr></table><p>Create the report properties using iReport as following:</p>
+<ol><li>In the <strong>Report Inspector</strong> tree, right click on the report&#x2019;s name and select <strong>Properties</strong>.</li>
+	<li>In the <strong>More</strong> section, configure <strong>Properties</strong> by clicking on <strong>...</strong></li>
+	<li>Add the properties based on the widgets you need.</li>
+</ol><p>Here is an example of a report configuration containing a &quot;Period&quot; date range and a &quot;State&quot; select widget:</p>
+<img src="images/images-6_0/exampleswidgets.png" alt="Widget property example in iReport" style="width:50%;"><h3>Package a report for Bonita BPM Portal integration</h3>
+<p>In order to integrate a Jasper report in Bonita BPM Portal, you need to prepare a ZIP archive.</p>
+
+<p>The archive should  contain at least the compiled Jasper report (a file with a .jasper extension).</p>
+<p>If your report requires a connection to the reporting database, the archive must contain:</p>
+<ul><li>The JDBC driver jar file used to connect to the reporting database. Do not include this file in the archive if the driver is already deployed at server level.</li>
+	<li>A <i>connection.properties</i> text file that contains the reporting database connection settings:
+		<table border="1" style="margin:10px; width:500px;"><tr><td style="text-align:center; font-weight: bold;">Property</td><td style="text-align:center; font-weight: bold;">Description</td></tr><tr><td>dbUrl</td><td>JDBC Url to access the reporting database</td></tr><tr><td>dbDriverClassName</td><td>The JDBC driver&apos;s class name</td></tr><tr><td>dbUser</td><td>The login of the database user</td></tr><tr><td>dbPassword</td><td>The password of the database user</td></tr></table><p>For example, connecting to a local MySQL database named <em>BonitaReport</em> with a user <em>root</em> and password <em>root</em>:</p>
+<code>
+dbUrl=jdbc:mysql://localhost:3306/BonitaReport
+dbDriverClassName=com.mysql.jdbc.Driver
+dbUser=root
+dbPassword=root
+</code>
+	</li>
+</ul><p>If your report contains sub reports, these should be placed in a directory named <code>sub</code>.</p>
+<p>If your report uses a style sheet you may also provide a .jrtx file in the archive.</p>
+
+<p>Once you have packaged the Jasper report as a ZIP archive, you can <a href="/analytics.html#install">install it in the Bonita BPM Portal</a>.</p>
+
+
+</div>
+	</body></html>

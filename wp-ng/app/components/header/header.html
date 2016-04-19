@@ -17,7 +17,7 @@
         </a>
       </div>
       <ul class="nav navbar-nav">
-        <li ng-class="{active: version.name === headerCtrl.selectedVersion}" ng-repeat="version in headerCtrl.supportedVersionList">
+        <li ng-class="{active: version.name === headerCtrl.selectedVersion.name}" ng-repeat="version in headerCtrl.supportedVersionList">
           <a class="version" ui-sref="main.content({version: version.name})" ng-if="version.state">{{version.name}}</a>
           <a ng-click="headerCtrl.goToFormerDocumentationSite(version.url)" href=""class="version" ng-if="version.url">{{version.name}}</a>
         </li>

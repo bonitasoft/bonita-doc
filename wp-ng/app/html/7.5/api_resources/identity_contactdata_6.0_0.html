@@ -1,0 +1,233 @@
+<h2>professionalcontactdata and personalcontactdata</h2>
+
+<h3>Description</h3>
+<p>Additional information about a user (personal and professional). Both resources have the same attributes.</p>
+
+<h3>Identifier</h3>
+<p>The user ID (a long value).</p>
+	
+<h3>Representation</h3>
+<pre>{
+&quot;id&quot;:&quot;<em>user ID</em>&quot;,
+&quot;fax_number&quot;:&quot;<em>fax number</em>&quot;,
+&quot;building&quot;:&quot;<em>building</em>&quot;,
+&quot;phone_number&quot;:&quot;<em>phone number</em>&quot;,
+&quot;website&quot;:&quot;<em>website</em>&quot;,
+&quot;zipcode&quot;:&quot;<em>zipcode</em>&quot;,
+&quot;state&quot;:&quot;<em>state</em>&quot;,
+&quot;city&quot;:&quot;<em>city</em>&quot;,
+&quot;country&quot;:&quot;<em>country</em>&quot;,
+&quot;mobile_number&quot;:&quot;<em>mobile phone number</em>&quot;,
+&quot;address&quot;:&quot;<em>address</em>&quot;,
+&quot;room&quot;:&quot;<em>room</em>&quot;,
+&quot;email&quot;:&quot;<em>email</em>&quot;
+}</pre>
+
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+	<li>POST - Create a user&apos;s contact information</li>
+	<li>GET - Read a user&apos;s contact information</li>
+	<li>PUT - Update a user&apos;s contact information</li>
+</ul>
+
+<h3>Create contact information</h3>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+    			<td valign="top">Request url</td>
+			<td valign="top">http://../API/identity/professionalcontactdata (or personalcontactdata)</td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>POST</p></td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Request payload</p></td>
+			<td valign="top"><p>A partial representation of a user&apos;s contact information in JSON including the user ID (mandatory)</p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Response payload</p></td>
+			<td valign="top"><p>The full JSON representation of the user&apos;s contact information that was created</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Response codes</h4>
+
+<p>403 if contact information for this user already exists</p>
+
+<h4>Example</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody>
+	<tr>
+				<td valign="top">Request url</td>
+				<td valign="top">/API/identity/professionalcontactdata</td>
+			</tr>
+			<tr>
+				<td valign="top"><p>Request method</p></td>
+				<td valign="top"><p>POST</p></td>
+			</tr>
+			<tr>
+				<td valign="top"><p>Request payload</p></td>
+				<td valign="top"><pre><code>{
+&quot;id&quot;:&quot;4&quot;,
+&quot;fax_number&quot;:&quot;484-302-0766&quot;,
+&quot;building&quot;:&quot;70&quot;,
+&quot;phone_number&quot;:&quot;484-302-5766&quot;,
+&quot;zipcode&quot;:&quot;19108&quot;,
+&quot;state&quot;:&quot;PA&quot;,
+&quot;city&quot;:&quot;Philadelphia&quot;,
+&quot;country&quot;:&quot;United States&quot;,
+&quot;address&quot;:&quot;Renwick Drive&quot;,
+&quot;email&quot;:&quot;walter.bates@acme.com&quot;
+}</code></pre></td>
+			</tr>
+			<tr>
+				<td valign="top"><p>Response payload</p></td>
+				<td valign="top"><pre><code>{
+&quot;id&quot;:&quot;4&quot;,
+&quot;fax_number&quot;:&quot;484-302-0766&quot;,
+&quot;building&quot;:&quot;70&quot;,
+&quot;phone_number&quot;:&quot;484-302-5766&quot;,
+&quot;website&quot;:&quot;&quot;,
+&quot;zipcode&quot;:&quot;19108&quot;,
+&quot;state&quot;:&quot;PA&quot;,
+&quot;city&quot;:&quot;Philadelphia&quot;,
+&quot;country&quot;:&quot;United States&quot;,
+&quot;mobile_number&quot;:&quot;&quot;,
+&quot;address&quot;:&quot;Renwick Drive&quot;,
+&quot;email&quot;:&quot;walter.bates@acme.com&quot;,
+&quot;room&quot;:&quot;&quot;
+}</code></pre></td>
+			</tr>
+	</tbody>
+</table>
+
+<h3>Read a user&apos;s contact information</h3>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody>
+	<tr>
+    		<td valign="top">Request url</td>
+			<td valign="top">http://../API/identity/professionalcontactdata(or personalcontactdata)/&lt;user_id&gt;</td></tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>GET</p></td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Request payload</p></td>
+			<td valign="top">empty</td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Response payload</p></td>
+			<td valign="top"><p>A user&apos;s contact information in JSON</p></td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Response codes</h4>
+
+<p>404 if no user with this ID is found</p>
+
+<h4>Example</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+	<tbody>
+		<tr>
+			<td valign="top">Request url</td>
+			<td valign="top">/API/identity/professionalcontactdata/4</td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>GET</p></td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Response payload</p></td>
+			<td valign="top"><pre><code>{
+&quot;id&quot;:&quot;4&quot;,
+&quot;fax_number&quot;:&quot;484-302-0766&quot;,
+&quot;building&quot;:&quot;70&quot;,
+&quot;phone_number&quot;:&quot;484-302-5766&quot;,
+&quot;website&quot;:&quot;&quot;,
+&quot;zipcode&quot;:&quot;19108&quot;,
+&quot;state&quot;:&quot;PA&quot;,
+&quot;city&quot;:&quot;Philadelphia&quot;,
+&quot;country&quot;:&quot;United States&quot;,
+&quot;mobile_number&quot;:&quot;&quot;,
+&quot;address&quot;:&quot;Renwick Drive&quot;,
+&quot;email&quot;:&quot;walter.bates@acme.com&quot;,
+&quot;room&quot;:&quot;&quot;
+}</code></pre></td>
+		</tr>
+	</tbody>
+</table>
+
+<h3>Update a user&apos;s contact information</h3>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+    		<td valign="top">Request url</td>
+			<td valign="top">http://../API/identity/professionalcontactdata(or personalcontactdata)/&lt;user_id&gt;</td></tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>PUT</p></td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Request payload</p></td>
+			<td valign="top"><p>A partial representation of a user&apos;s contact information in JSON with at least the mandatory &quot;name&quot; attribute</p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Response payload</p></td>
+			<td valign="top">empty</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Response codes</h4>
+
+<p>404 if no user with this ID is found</p>
+
+<h4>Example</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody>
+	<tr>
+				<td valign="top">Request url</td>
+				<td valign="top">/API/identity/professionalcontactdata/4</td>
+			</tr>
+			<tr>
+				<td valign="top"><p>Request method</p></td>
+				<td valign="top"><p>PUT</p></td>
+			</tr>
+			<tr>
+				<td valign="top"><p>Request payload</p></td>
+				<td valign="top"><pre><code>{
+&quot;fax_number&quot;:&quot;484-302-0766&quot;,
+&quot;building&quot;:&quot;70&quot;,
+&quot;phone_number&quot;:&quot;484-302-5766&quot;,
+&quot;zipcode&quot;:&quot;19108&quot;,
+&quot;state&quot;:&quot;PA&quot;,
+&quot;city&quot;:&quot;Philadelphia&quot;,
+&quot;country&quot;:&quot;United States&quot;,
+&quot;address&quot;:&quot;Renwick Drive&quot;,
+&quot;email&quot;:&quot;walter.bates@acme.com&quot;
+}</code></pre></td>
+			</tr>
+
+	</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+

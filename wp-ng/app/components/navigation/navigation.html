@@ -1,5 +1,5 @@
 <div class="documentation-navigation">
-  <h2>Bonita BPM {{ navCtrl.version }}</h2>
+  <h2><a ui-sref="main.content" ui-sref-opts="{ reload: 'main.content', inherit: false, notify: true}">Bonita BPM {{ navCtrl.version }}</a></h2>
   <div ng-repeat="node in navCtrl.taxonomy">
     <ng-include src="'navigation/item.html'"></ng-include>
   </div>

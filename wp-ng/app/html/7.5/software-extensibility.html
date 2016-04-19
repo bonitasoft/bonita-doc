@@ -1,0 +1,177 @@
+<?xml encoding="UTF-8"><html lang="en-US"><head><meta charset="UTF-8"><title>Software extensibility</title></head><body class="front">
+		<div id="content">
+	<h1>4.2 Software extensibility</h1>
+    <p>Bonita BPM provides a rich set of features by default. These features are designed to meet the needs of most of your projects. 
+However, if a project has a need that was not anticipated and cannot be met by the default features, Bonita BPM has been designed to be extensible. 
+This page lists the extension points that are available.</p>
+
+<dl><dt><a href="#stable">Stable extension points</a></dt>
+<dd><a href="#connectors">Connectors</a></dd>
+<dd><a href="#actor_filters">Actor filters</a></dd> 
+<dd><a href="#apis">Engine API</a></dd>
+<dd><a href="#rest_apis">REST API</a></dd>
+<dd><a href="#custom-pages">Custom pages</a></dd>
+<dd><a href="#custom-pages">Custom widgets</a></dd>
+<dd><a href="#exchange-files">Import and export exchange files</a></dd>
+<dd><a href="#authentication">Authentication service</a></dd>
+<dd><a href="#event-handlers">Event handlers</a></dd> 
+<dd><a href="#builder">BonitaStudioBuilder</a></dd> 
+<dd><a href="#look-feel">Portal look &amp; feel</a></dd>
+<dd><a href="#language-pack">Portal language pack</a></dd>
+<dd><a href="#custom-datatypes">Custom data types</a></dd> 
+<dt><a href="#unstable">Unstable extension points</a></dt>
+<dt><a href="#backward_compatibility">Backward compatibility</a></dt>
+</dl><h2 id="stable">Stable extension points</h2>
+
+<p>The following elements are designed to be extension points of Bonita BPM. 
+These extension points are guaranteed to be stable across versions of Bonita BPM 6: Java interfaces and XML schema will be kept backward compatible so that your implementation will work even after a Bonita BPM version upgrade.</p>
+
+<h3 id="connectors">Connectors</h3>
+
+<p>In Community, Teamwork, Efficiency, and Performance editions</p>
+
+<p>Bonita BPM comes with more than 80 <a href="/connectivity.html">standard connectors</a> to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
+A new connector enables you to provide new connectivity capabilities for processes. 
+  To <a href="/connectors-overview.html">implement a new connector</a>, you need to provide some XML description files and a 
+  Java class respecting the <a href="/javadoc.html">Connector interface</a>. 
+  Connectors can be implemented directly from Bonita BPM Studio.</p>
+  
+<h3 id="actor_filters">Actor filters</h3> 
+<p>In Community, Teamwork, Efficiency, and Performance editions</p>
+
+<p>Bonita BPM comes with a set of <a href="/actor-filtering.html">standard actor filters</a> that can be used to reduce the list of candidates for process tasks.
+  A new actor filter enables you to provide new filtering capabilities to processes. To <a href="/creating-an-actor-filter.html">implement a new actor filter</a>,  
+  you need to provide some XML description files and a Java class respecting the <a href="/javadoc.html">UserFilter interface</a>. 
+  Actor filters can be implemented directly from Bonita BPM Studio.</p>
+
+
+  
+<h3 id="apis">Engine API</h3>
+<p>In Community, Teamwork, Efficiency, and Performance editions</p>
+ 
+ 
+<p>The <a href="/javadoc.html">Bonita BPM Engine APIs</a> enable you to:</p>
+<ul><li>start and stop the engine</li>
+<li>design, install, configure and interact with processes</li>
+<li>manage users</li>
+</ul><p>ProcessBuilder and Business Objects DAO are examples of APIs that can be leveraged in your development. They will remain stable in time.</p>
+    
+<h3 id="rest_apis">REST API</h3>
+
+<p>In Community, Teamwork, Efficiency, and Performance editions</p>
+
+<p>The <a href="/rest-api-overview.html">REST APIs</a> enable you to integrate your Bonita BPM processes into your application and execute operations on Bonita BPM objects including business objects. 
+Pages and forms created with the UI designer reply on the REST APIs to manage data.</p>
+
+<p>In addition to the standard APIs and resources, you can define <a href="/rest-api-extensions.html">REST API extensions</a>. 
+In the Bonita BPM subscription edition, Bonita BPM Studio contains <a href="/rest-api-extensions.html">tooling for creating, testing, and deploying REST API extensions</a>.</p>
+
+<h3 id="custom-pages">Custom pages</h3> 
+
+<p>In Community, Teamwork, Efficiency, and Performance editions</p>
+
+<p>A <a href="/pages.html">custom page</a> is a page that you can add into Bonita BPM Portal to form part of an application, customize information provided in default portal pages, or to add new features to the portal. 
+To implement a page, you need to provide HTML, CSS and Javascript resources respecting some packaging constraints. 
+You can create a page using the <a href="/ui-designer-overview.html">UI designer</a>, which automatically creates a well-formed page. 
+You can also use the legacy 6.x custom page construction methods.
+Note that although the  page framework provided in the product is stable, we cannot guarantee that all custom pages will work with future versions, because this depends on the details of how the page is implemented.</p>
+
+<h3 id="custom-widgets">Custom widgets</h3> 
+
+<p>In Community, Teamwork, Efficiency, and Performance editions</p>
+
+<p>If the standard UI designer <a href="/widgets.html">widgets</a> do not meet your needs, you can create a <a href="/custom-widgets.html">custom widget</a>. 
+You can then use your custom widget in pages, forms, and (for Subscription editions) fragments.</p>
+
+<h3 id="exchange-files">Import and export exchange files</h3>
+<p>In Community, Teamwork, Efficiency, and Performance editions</p>
+
+<p>Included in the <a href="/javadoc.html">Engine APIs</a> are methods to import and export various items. 
+These methods manipulate files with formats that are versioned. Newer versions of the file format are designed to be backward compatible with earlier versions. The following items have import and export API methods:
+</p><ul><li>organization (users, groups, roles)</li>
+<li>parameters</li>
+<li>custom pages</li>
+<li>connectors</li>
+</ul><h3 id="authentication">Authentication service</h3>
+<p>In Teamwork, Efficiency, and Performance editions</p>
+
+<p>From Bonita BPM 6.3, the Engine authentication service is considered to be an official extension point of the solution. It is now safe to provide your own implementation of this service to better fit the needs of your projects.
+    <a href="/user-authentication-overview.html">Default authentication implementations</a> are provided allow to check user credentials from the Bonita BPM database, LDAP or a CAS SSO server (using JAAS).
+    To implement an Authentication Service, provide a Java class respecting the Authentication Service interface.</p>
+	
+
+    
+<h3 id="event-handlers">Event handlers</h3> 
+<p>In Teamwork, Efficiency, and Performance editions</p>
+
+<p>An event handler is an extension to the engine that is configured to run when a specified event occurs. An event is a change to any object in the database.
+    To <a href="/event-handlers.html">implement an event handler</a>, you need to provide a Java class respecting the Handler interface.</p>
+
+<h3 id="builder">BonitaStudioBuilder</h3> 
+<p>In Teamwork, Efficiency, and Performance editions</p>
+
+<p>Bonita BPM includes a script, BonitaStudioBuilder (also known as the Workspace API), for building a bar file from a process in a repository. 
+This intended to be used for <a href="/automating-process-builds.html">automating process builds</a> in a continuous integration and testing environment.
+    You can use the BonitaStudioBuilder to build a bar file for processes stored in a repository. This script will be kept stable in time.</p>
+    
+<h3 id="look-feel">Portal look &amp; feel</h3>
+
+<p>In Teamwork, Efficiency, and Performance editions</p>
+ 
+<p>The Bonita BPM Portal Look &amp; Feel gives the ability to customize the appearance of the portal Web interface. As a Portal Administrator, you can import a new Look &amp; Feel (.zip archive). 
+To <a href="/creating-a-new-look-feel.html">create a new Look &amp; Feel</a>, provide CSS and resources files.</p>
+ 
+<h3 id="language-pack">Portal language pack</h3> 
+
+<p>Bonita BPM Portal comes with a number of language packs by default. You can also <a href="/languages.html">add languages</a>. 
+It is also possible to use this same mechanism to customize the portal terminology to your business environment. For example, an e-commerce business could change <em>Cases</em> to <em>Orders</em>.</p>
+ 
+
+<h3 id="custom-datatypes">Custom data types</h3> 
+  
+<p>A <a href="/create-a-complex-data-type.html">custom data type</a> is a Java object (.jar file) or an XML definition (.xsd file) of a data structure. 
+You can create a custom data type and use it to define a process variable if the standard data types are not suitable for your process. 
+Note that although the custom data type framework provided in the product is stable, we cannot guarantee that all custom data types will work with future versions, because this depends on the details of how the data type is implemented.</p>
+
+<h2 id="unstable">Unstable extension points</h2>
+
+<p>The following elements may be used as extension points but there is no guarantee of stability across versions. No changes are planned, but we reserve the right to change make incompatible changes in any future version.</p>
+
+<ul><li><strong>Portal URLs and Forms URLs</strong>. Some customer projects have used hard-coded or forged URLs to access specific pages of Bonita BPM Portal or forms, to fit in with specific technology or navigation constraints. 
+While such URLs have so far been quite stable, there is no guarantee that they will not change across Bonita BPM versions. 
+Recommendation: if your project relies on such URLs, make URL generation configurable so that you can easily change it if required after a Bonita BPM upgrade.</li>
+<li><strong>Forms HTML templates</strong>. It is possible to modify the HTML page template, HTML process template, or HTML portal template to customize the appearance and behavior of forms. 
+There is no guarantee that these templates will not change across Bonita BPM versions. 
+If a form uses some Javascript code based on an element in the HTML Document Object Model, the element may be moved, modified or removed in a future version so the Javascript will no longer work.</li>
+</ul><p>Only the elements listed on this page are intended to be used as extension points. For other elements, there is no guarantee of stability, and a high probability of changes across versions. 
+For example, the following should not be considered to be extension points:</p>
+
+<ul><li>
+<strong>Bonita Home</strong>. The structure, format, content and even the existence of bonita home can be re-considered at any time.</li>
+<li><strong>Engine Services</strong> (other than those listed in this page). The Engine is structured as an aggregation of several services. 
+This provides clear isolation of responsibility and eases maintenance. The interfaces, configuration files, and existence of services are not guaranteed across versions.</li>
+</ul><h2 id="backward_compatibility">Backward compatibility</h2>
+
+<p>In Bonita BPM 6.x and 7.x, we ensure backward compatibility of the following:</p>
+
+<ul><li>Engine API (except items marked as deprecated)</li>
+    <li>Web REST API  (except items marked as deprecated)</li>
+    <li>Authentication Service (from 6.3.0 onwards)</li>
+    <li>XML file format for the following:
+        <ul><li>event handlers</li>
+            <li>BonitaStudioBuilder (also known as the Workspace API)</li>
+            <li>actor filters</li>
+             <li>connectors</li>
+            <li>form validators</li>
+            <li>import and export exchange files</li>
+        </ul></li>
+</ul><p>We cannot ensure backward compatibility for the following:</p>
+
+<ul><li>Portal Look &amp; Feel definition structure</li>
+    <li>Custom Pages definition structure</li>
+    <li>Custom data types definition structure</li>
+    <li>URLs</li>
+    <li>Forms definition structure and HTML templates</li>
+    <li>bonita home folder structure and content</li>
+</ul></div>
+	</body></html>

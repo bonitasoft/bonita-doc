@@ -1,0 +1,101 @@
+<h2>caseInfo</h2>
+
+<h3>Description</h3>
+<p>Introduced in 6.5. Retrieves information about a case. It returns counters for each flow node in the case, showing the number of flow node instances that are in completed, ready, or failed state. If there are no flow node instances in a given state, no counter is returned for that state for the flow node.</p>
+
+
+<h3>Identifier</h3>
+<p>The ID of the case (a long value).</p>
+
+	
+<h3>Representation</h3>
+<p>
+<pre>{
+    &quot;id&quot;: &quot;<em>case identifier</em>&quot;,
+    &quot;flowNodeStatesCounters&quot;: {
+        &quot;<em>Flow Node name from Studio</em>&quot;: {
+            &quot;completed&quot;: &quot;<em>number of instance of the given Flow Node in completed state</em>&quot;,
+            &quot;ready&quot;: &quot;<em>number of instance of the given Flow Node in ready state</em>&quot;,
+            &quot;failed&quot;: &quot;<em>number of instance of the given Flow Node in failed state</em>&quot;,
+        }
+    }
+}</pre>
+
+</p>
+
+<h3>Methods</h3>
+<p>The method used for this resource is:</p>
+<ul>
+	<li>GET - Read a resource</li>
+</ul>
+
+<h3>Retrieve counters for case flow nodes</h3>
+
+<p>Retrieve information about the flow nodes of the case identified by the given ID.</p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+    		<td valign="top">Request url</td>
+			<td valign="top">http://../API/bpm/caseInfo/{id}</td></tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>GET</p>
+			</td>
+		</tr>
+				<tr>
+			<td valign="top"><p>Request payload</p></td>
+			<td valign="top"><p>empty</p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Response payload</p></td>
+			<td valign="top"><p>The JSON representation of the case information</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+<h4>Example</h4>
+
+<p>In this example, counters are returned for two flow nodes in the case, Step1 and Step3. For Step3, there are no flow nodes in ready state, so no counter is returned for this.</p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+				<td valign="top">Request url</td>
+				<td valign="top"><method> |/API/bpm/caseInfo/123</method></td>
+			</tr>
+			<tr>
+				<td valign="top"><p>Response payload</p></td>
+				<td valign="top"><pre><code>{
+    &quot;id&quot;: &quot;123&quot;,
+    &quot;flowNodeStatesCounters&quot;: {
+        &quot;Step1&quot;: {
+            &quot;completed&quot;: &quot;2&quot;,
+            &quot;ready&quot;: &quot;1&quot;,
+            &quot;executing&quot;: &quot;5&quot;
+        },
+        &quot;Step3&quot;: {
+            &quot;completed&quot;: &quot;10&quot;,
+            &quot;failed&quot;: &quot;2&quot;
+        }
+    }
+}</code></pre>
+			</td>
+			</tr>
+	</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
