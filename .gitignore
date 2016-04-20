@@ -4,3 +4,4 @@ _book
 **/dataimport.properties
 **/managed-schema
 **/*.bak
+**/*.pdf

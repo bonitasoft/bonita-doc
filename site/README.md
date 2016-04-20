@@ -43,12 +43,31 @@ It can be run with:
 
     scripts/taxonomy.js
 
+or
+  
+    npm run taxonomy
+
 ### Markdown to HTML 
 
 The `convertMd2Html.js` scripts reads all the markdown files from the root `md` folder and convert them to html to the matching version folder inside the `app/html` folder.  
 It can be run with:
 
     scripts/convertMd2Html.js
+
+or
+  
+    npm run html
+
+### Markdown to PDF 
+
+The `convertMd2Pdf.js` scripts reads all the markdown files from the `md` folderi of the given version and convert them to pdf to the matching version pdf file inside the `dist` folder.  
+It can be run with:
+
+    scripts/convertMd2Pdf.js -v 7.3
+
+or
+  
+    npm run pdf -- -v 7.3
 
 ## Development
 
