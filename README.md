@@ -1,3 +1,3 @@
 # bonita-doc
 
-download gitbook and do a `gitbook serve` in md folder
+[Download gitbook](https://github.com/GitbookIO/gitbook/blob/master/docs/setup.md) and do a `gitbook serve` in md folder
