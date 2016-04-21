@@ -4,7 +4,6 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var replace = require('gulp-replace');
 var rename = require('gulp-rename');
-var git = require('gulp-git');
 var ngConstant = require('gulp-ng-constant');
 var rm = require('gulp-rimraf');
 
