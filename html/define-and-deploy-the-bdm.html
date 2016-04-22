@@ -25,6 +25,7 @@
     <dd><a href="#ID">persistenceID</a></dd>
     <dd><a href="#initBDM_instantiation">Initialize BDM attributes from process instantiation contract inputs</a></dd>
     <dd><a href="#initBDM_task">Initialize BDM attributes from contract inputs in task operations</a></dd>
+     <dd><a href="#connectors"><b>Business Objects and connectors</b></a></dd>
 </dl><h2 id="bdmmodel">Business data model (BDM)</h2>
 
 <p>Your business data is the information that is shared between your processes and applications. It is defined as a set of business object in a business data model (BDM). There is one BDM that is used by all processes and applications in a tenant. When you define a process, you specify the business objects that are relevant to the process. When a process is instantiated (a case is started), the specified business objects are instantiated as required, becoming variables within the process instance.</p>
@@ -346,7 +347,18 @@ Then, you need to go back to the process variable list (<strong>Details</strong>
     Then, click on the <em><strong>pencil</strong></em> button to open the <em><strong>Edit Expression</strong></em> editor. Choose the <em><strong>Script</strong></em> expression type and enter the same code snippet than the one above to have a new BDM <i>com.company.model.LeaveRequest</i> instance set with the contract inputs.
 </p>
 
+<h3 id="connectors">Business Objects and connectors</h3>
 
+<p>You can use business data in a Java program by using the DAO. In particular, you can <em><strong>write</strong></em> business data to an external source using a custom connector. 
+Your custom connector must include the <code>bdm-client-pojo.jar</code> file as a dependency.</p>
+
+<p>In a connector, code is executed outside a transaction, so retrieving or updating business data by DAO is not supported. Manipulate the business data outside the connector, and use business objects as connector input or output:</p>
+
+<ul>
+    <li>For a <em><strong>read</strong></em>, retrieve the business object with an expression (for example, <code>employeeDAO.findByFirstNameAndLastName("William","Jobs")</code>. Then use the object as input to the connector.</li>
+    <li>For a <em><strong>create</strong></em> or <em><strong>update</strong></em>, return the new or updated business object as output of the connector.
+    Then use the business object (which is stored only in memory at this point) and the DAO to update the business object in the business database, persisting the change.</li>
+</ul>
 
 </div>
 	</body></html>
