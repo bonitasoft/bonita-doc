@@ -63,7 +63,7 @@ The message is logged if the constraint is not met. Make sure to provide a meani
 </ol><p>Check &apos;multiple&apos; to specify that the input is a list of its primary type (for example, a list of integers).</p>
 <p><b>Constraints</b></p>
 <p>A constraint is a Groovy expression that returns a Boolean. If the value is false, the constraint is not met, so the contract not fulfilled  and the system will not execute the instantiation or task.</p>
-<p><b>Note:</b> the constraint is limited to contract input and cannot reference external systems (such as connectors or databases).</p>
+<p><b>Note:</b> the constraint scope is limited to contract input and cannot reference external systems (such as connectors, databases or bonita APIs).</p>
 <p>When is the contract validated ?</p>
 <p>Whatever means is used to submit information to process or human task, the system will validate the contract. If the contract is  not satisfied, an exception is thrown and the process or human task is untouched. 
 Information can be submitted by Java API call, REST API call, Bonita BPM form, or an external system including a third-party form. 
