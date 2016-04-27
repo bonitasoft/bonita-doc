@@ -55,11 +55,7 @@ Copy your Subscription license file into `[TOMCAT_BUNDLE_DIR]`/platform-setup/li
     * change property **BDM_DB_OPTS** and change default **h2** value for the one corresponding to your database vendor (Bonita BPM database specific for Business Data feature)
 
 ## Edition specification
-If you are installing the Performance Subscription edition, 
-
-**/!\ update me !!!
-you need to edit `engine-server/conf/platform-init/bonita-platform-init-community-custom.properties` /!\\** 
-
+If you are installing the Performance **Subscription** edition, you need to edit `[TOMCAT_BUNDLE_DIR]/platform-setup/conf/bonita-platform-init-community.properties`
 and change the value of the `activeProfiles` key to `'community,performance'`. No change is needed for the Community, Teamwork, or Efficiency edition.
 
 
