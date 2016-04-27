@@ -20,7 +20,7 @@ export default /*@ngInject*/ function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
   $stateProvider.state('main', {
-    url: '/?version&page',
+    url: '/:version?&page',
     abstract: true,
     views: {
       '@': {
@@ -60,7 +60,7 @@ export default /*@ngInject*/ function($stateProvider, $urlRouterProvider) {
       }
     }
   }).state('main.content.search', {
-    url: 'search?searchRequest&start&pageSize',
+    url: '/search?searchRequest&start&pageSize',
     views: {
       'content@main': {
         templateUrl: '/components/search/search.html',

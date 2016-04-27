@@ -87,8 +87,8 @@ gulp.task('copy:images', () => {
 });
 
 gulp.task('copy:html', () => {
-  gulp.src('app/html/7.5/**/*')
-    .pipe(gulp.dest('dist/html/7.5'));
+  gulp.src('app/html/**/*')
+    .pipe(gulp.dest('dist/html/'));
 });
 
 gulp.task('build', ['clean'], () => {

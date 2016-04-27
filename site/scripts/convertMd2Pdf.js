@@ -9,9 +9,10 @@
   let winston = require('winston');
   let version = argv.v || argv._[0];
   if(!version) {
-    winston.warn('usage pdfConvertCommand [-v] versionFolder');
+    winston.warn('usage convert [-v] versionFolder');
     return;
   }
+  //TODO have image be converted
   let outfile = `dist/${version}.pdf`;
   let pdfConvertCommand = `pandoc ../md/${version}/*.md -t html5  -f markdown > ${outfile}`;
 
