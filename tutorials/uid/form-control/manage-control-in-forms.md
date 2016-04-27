@@ -5,10 +5,12 @@ Using a leave request management process example, you will learn how to take adv
 ## Prologue
 
 You will design a simple leave request management process using Bonita BPM 7 and beyond:
-First things first, draw the wireframe of the process. In Bonita BPM Studio, since the instantiation of a new leave request happens at pool level, add a simple validation task, rename the pool _Leave request management_, and rename the lane _manager_, as shown here: ![Simple process](leave request management process.png) [ je ne sais pas où stocker l'image ni si je l'appelle correctement ]
+First things first, draw the wireframe of the process. In Bonita BPM Studio, since the instantiation of a new leave request happens at pool level, add a simple validation task, rename the pool _Leave request management_, and rename the lane _manager_, as shown here: 
+
+![Simple process](leave request management process.png)
 
 Then, define a business object that will hold the leave requests data when the process instances are ongoing, and store it when the instances are archived:
-In Bonit BPM Studio menu, go to **Development** > **Business Data Model** > **Manage** option, and add a business object named _LeaveRequest_, with 4 attributes:
+In Bonita BPM Studio menu, go to **Development** > **Business Data Model** > **Manage** option, and add a business object named _LeaveRequest_, with 4 attributes:
 * _startDate_: first working day taken as vacation
 * _endDate_: last working day taken as vacation
 * _nbDays_: number of working days taken as vacation
@@ -26,8 +28,11 @@ Each entry of the contract is bound to a business object property:
 * _endDate_ as a **DATE**
 * _nbDays_ as an **INTEGER**
 * _type_ as **TEXT**
+
 ... as shown here:
+
 ![Leave Request - Instantiation contract](ContractSimple.png)
+
 You can also add constraints on the contract inputs in the **Constraints** tab.
 
 For more information about process, business data management and contract, check out [**Designing Efficient BPM Applications: A Process-Based Guide for Beginners**](http://shop.oreilly.com/product/0636920039402.do).
@@ -39,7 +44,9 @@ By default, this form contains a **form container** with 4 **widgets** matching 
 * a **date picker** widget for the end date
 * an **input** widget expecting a number for the number of days
 * an **input** widget expecting text for the type
+
 ... as shown here: 
+
 ![Generated form](GeneratedForm.png)
 
 You can check what it will look like once deployed by clicking on **Preview**, as shown here:
@@ -67,7 +74,7 @@ Now, to alert the user that an input is not valid with a red border around inval
 #### AngularJS $form
 
 Inside a form container, AngularJS provides a special variable called **$form**.  
-This variable holds the validation state of the inputs, selects and text areas of the current form container. 
+This variable holds the validation state of the inputs, selects and textareas of the current form container. 
 
 Here is an extract from the [AngularJS documentation site](https://docs.angularjs.org/guide/forms) that explains the purpose of this feature.
 
@@ -75,7 +82,7 @@ Here is an extract from the [AngularJS documentation site](https://docs.angularj
 >
 >Form and controls provide validation services, so that the user can be notified of invalid input before submitting a form. This provides a better user experience than server-side validation alone because the user gets instant feedback on how to correct the error.
 
-A control in AngularJS exposes properties for a given input, select or text area and associates it with a CSS class:
+A control in AngularJS exposes properties for a given input, select or textarea and associates it with a CSS class:
 - $dirty (CSS class _ng-dirty_): the control has been interacted with
 - $pristine (CSS class _ng-pristine_): the control hasn't been interacted with yet
 - $valid (CSS class _ng-valid_): the model is valid
@@ -155,10 +162,12 @@ To hide these fields when no error are detected, go to the **Hide** property of 
 
  * _!errorRequired || errorRequired.length === 0_
  * _!errorDate || errorDate.length === 0_
+
 ... as shown here:
+
 ![Leave Request - errorPanel - required - properties](errorPanelFragment-required-properties.png) ![Leave Request - errorPanel - date - properties](errorPanelFragment-date-properties.png)
 
-Then, to change the default style to the **p** html tag and have a little more margin, open the _validationStyle.css_ file and add the following:
+Then, to change the default style of the **p** html tag and have a little more margin, open the _validationStyle.css_ file and add the following:
 
     .text-danger p {
       margin: 1em;
@@ -203,7 +212,7 @@ Therefore, on those two fields, a user cannot submit wrong data.
 However, keep in mind that while client-side validation plays an important role in providing a good user experience, it can easily be circumvented and therefore can not be trusted. 
 Server-side validation is still necessary for a secure application.
 
-For this reason, we need to add some constraints to the contract, process side, one for each rule.
+For this reason, we need to add some constraints to the contract, process side, one for each rule.  
 Go back to the Studio, and at pool level, go to the **Execution** pane > **Contract** > **Constraints** tabs to define the constraints as shown here:
 
 ![Leave Request - Contract constraints](Constraints.png)
@@ -232,13 +241,13 @@ Let's add two more constraints to the leave request form :
 
 #### Number input value control
 
-To help the user fill out the form and tell her the number of days is valid according to the amount of days left, create a new variable _remainDays_. It will provide the number of days left for the leave type Annual leave.  
+To help the user to fill out the form and tell him/her the number of days is valid according to the amount of days left, create a new variable _remainDays_. It will provide the number of days left for the leave type Annual leave.  
 In real life, it should be of type **External API**.
 For the sake of this turotial, just make it a JSON variable to test our form.
 The value is:
 
     {
-      "RTT": 2,
+      "Personal leave": 2,
       "Annual leave": 12
     }
 
@@ -252,7 +261,7 @@ Change the inputs order to give the form a more more natural flow (type before n
 The form control of the number days input widget now exposes two new CSS classes for the validity of the input : **ng-invalid-min** and **ng-invalid-max**. 
 In the same way, the $error will hold the attributes **min** and **max** when value is below minimum value or above maximum value respectively.
 
-On the form, if you set a wrong input in the _number of days_ after setting the _type_ to **RTT**, it looks like this:
+On the form, if you set a wrong input in the _number of days_ after setting the _type_ to **Personal Leave**, it looks like this:
 
 ![Number of days Input widget - value control -preview](nbDays-value-control.png)
 
@@ -261,8 +270,8 @@ On the form, if you set a wrong input in the _number of days_ after setting the 
 Now assume that in the studio Business Data Model, a new _comment_ attribute has been added to the business object **LeaveRequest** with a matching contract input _comment_.
 This _comment_ must be filled when the leave type is _Other_. 
 
-To display this comment, add a **text area** widget to the right of the type widget.  
-To nly display the widget when the type _Other_ is selected, change the **Hidden** property of this text area to an expression (click **f(x)**) and set it to `formInput.leaveRequest.type !== 'Other'`   
+To display this comment, add a **textarea** widget to the right of the type widget.  
+To only display the widget when the type _Other_ is selected, change the **Hidden** property of this textarea to an expression (click **f(x)**) and set it to `formInput.leaveRequest.type !== 'Other'`   
 To make it required when it is displayed, change the **Required** property to an expression and set it to `formInput.leaveRequest.type === 'Other'` 
 
 In the **Label** property, type `Comment`  and in the **Value** property, type `formInput.leaveRequest.comment`, as shown here:.
@@ -271,7 +280,7 @@ In the **Label** property, type `Comment`  and in the **Value** property, type `
 
 To compell the user to enter a text that will be the right size, add some form control on this widget by setting values to _5_ to **Value min length** and _100_ to **Value max length**.
 
-The form control of the _comment_ text area  widget now exposes two new CSS classes for the validity of the input: **ng-invalid-minlength** and **ng-invalid-maxlength**.  
+The form control of the _comment_ textarea  widget now exposes two new CSS classes for the validity of the input: **ng-invalid-minlength** and **ng-invalid-maxlength**.  
 In the same way, the $error will hold the attribute **minlength** and **maxlength** when the text length is below minimum length or above maximum length respectively.
 
 Run your process and test your form with an incorrect comment size; it will look like this:
