@@ -71,20 +71,16 @@ Mandatory
 Description</p>
 <p>BONITA_FORM_<em>XXX</em>_ID
 Yes
-Base name of the report parameter that will be updated with the widget value.</p>
-<p>Special rules apply depending on the widget type (see next parameter):</p>
+Base name of the report parameter that will be updated with the widget value.<br>
+Special rules apply depending on the widget type (see next parameter):</p>
 <ul>
-<li>For a <strong>SELECT</strong> widget, the parameter name is the same as the base name.</li>
+<li>For a <strong>SELECT</strong> widget, the parameter name is the same as the base name.<br>
+Example: if <code>BONITA_FORM_1_ID</code> is set to <code>p_country</code> then, the report parameter should be named <code>p_country</code>.</li>
+<li>For a <strong>DATE</strong> widget, the value will be saved to a parameter with the <strong>_from</strong> suffix.<br>
+Example: if <code>BONITA_FORM_2_ID</code> is set to <code>p_birthday</code>, then the report parameter should be named <code>p_birthday_from</code>.</li>
+<li>For a <strong>DATE_RANGE</strong> widget, the values will be saved to two parameters: one with a <strong>_from</strong> suffix and one with a <strong>_to</strong> suffix.<br>
+Example: if <code>BONITA_FORM_3_ID</code> is set to <code>p_period</code>, then the two report parameters should be named <code>p_period_from</code> and <code>p_period_to</code>.</li>
 </ul>
-<p>Example: if <code>BONITA_FORM_1_ID</code> is set to <code>p_country</code> then, the report parameter should be named <code>p_country</code>.</p>
-<ul>
-<li>For a <strong>DATE</strong> widget, the value will be saved to a parameter with the <strong>_from</strong> suffix.</li>
-</ul>
-<p>Example: if <code>BONITA_FORM_2_ID</code> is set to <code>p_birthday</code>, then the report parameter should be named <code>p_birthday_from</code>.</p>
-<ul>
-<li>For a <strong>DATE_RANGE</strong> widget, the values will be saved to two parameters: one with a <strong>_from</strong> suffix and one with a <strong>_to</strong> suffix.</li>
-</ul>
-<p>Example: if <code>BONITA_FORM_3_ID</code> is set to <code>p_period</code>, then the two report parameters should be named <code>p_period_from</code> and <code>p_period_to</code>.</p>
 <p>BONITA_FORM_<em>XXX</em>_WIDGET
 Yes
 Widget type. Can be one of the following:</p>
@@ -102,8 +98,8 @@ Mandatory
 Description</p>
 <p>BONITA_FORM_<em>XXX</em>_AVAILABLE_VALUES
 Yes: one of these two properties is required
-Static list of available values defined in a JSON format.</p>
-<p>Example: <code>[{&quot;id&quot;:&quot;FR&quot;,&quot;label&quot;:&quot;France&quot;}, {&quot;id&quot;:&quot;US&quot;,&quot;label&quot;:&quot;United States of America&quot;}, {&quot;id&quot;:&quot;ES&quot;,&quot;label&quot;:&quot;Spain&quot;}]</code></p>
+Static list of available values defined in a JSON format.<br>
+Example: <code>[{&quot;id&quot;:&quot;FR&quot;,&quot;label&quot;:&quot;France&quot;}, {&quot;id&quot;:&quot;US&quot;,&quot;label&quot;:&quot;United States of America&quot;}, {&quot;id&quot;:&quot;ES&quot;,&quot;label&quot;:&quot;Spain&quot;}]</code></p>
 <p>BONITA_FORM_<em>XXX</em>_QUERY
 Query that dynamically retrieves the list of available values from the Bonita BPM database.</p>
 <p>BONITA_FORM_<em>XXX</em>_HAS_ALL
@@ -118,8 +114,8 @@ Mandatory
 Description</p>
 <p>BONITA_FORM_<em>XXX</em>_INITIAL_VALUE
 Yes: one of these two properties is required
-Static initial value defined in the ISO format.</p>
-<p>Example: <code>2015-01-28</code></p>
+Static initial value defined in the ISO format.<br>
+Example: <code>2015-01-28</code></p>
 <p>BONITA_FORM_<em>XXX</em>_QUERY
 Query that dynamically retrieves the initial value from the Bonita BPM database.</p>
 <p>Create the report properties using iReport as following:</p>
@@ -147,4 +143,4 @@ PropertyDescription</li>
 <code>dbUrl=jdbc:mysql://localhost:3306/BonitaReport dbDriverClassName=com.mysql.jdbc.Driver dbUser=root dbPassword=root</code></p>
 <p>If your report contains sub reports, these should be placed in a directory named <code>sub</code>.</p>
 <p>If your report uses a style sheet you may also provide a .jrtx file in the archive.</p>
-<p>Once you have packaged the Jasper report as a ZIP archive, you can <a href="/analytics.md#install">install it in the Bonita BPM Portal</a>.</p>
+<p>Once you have packaged the Jasper report as a ZIP archive, you can <a href="analytics.md#install">install it in the Bonita BPM Portal</a>.</p>

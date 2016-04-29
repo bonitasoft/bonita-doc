@@ -8,29 +8,29 @@ Typically, a lane contains all the tasks assigned to an actor.</p>
 <ul>
 <li>Name, description, and version number: This information identifies the pool. The name must be unique withing a repository. The pool version number is really the process version number. Update the version number when you make major changes to the process.
 There is no link between the pool version number and the diagram version number.</li>
-<li>Actors: An actor represents the user who will carry out tasks in the pool. <a href="/actors.md">Configure the actors</a> that participate in the process.
+<li>Actors: An actor represents the user who will carry out tasks in the pool. <a href="actors.md">Configure the actors</a> that participate in the process.
 An actor must be defined at pool level before it can be assigned to a lane or task.</li>
-<li>Data: A variable is a container for data used in the process. <a href="/specify-data-process">Create the variables</a> that will be used in your process.
+<li>Data: A variable is a container for data used in the process. <a href="specify-data-in-a-process-definition.md">Create the variables</a> that will be used in your process.
 You can also create variables at task or form level.</li>
-<li>Connectors: A connector links a process to an external information source. <a href="/connectivity-overview.md">Specify the connectors</a> used in the process.
+<li>Connectors: A connector links a process to an external information source. <a href="connectivity-overview.md">Specify the connectors</a> used in the process.
 You can also specify a connector at lane or task level, but if a connector is used more than once it is better to define it
 at pool level.</li>
 <li>Parameters: A parameter is like a variable but has a value that is fixed for a deployment of a process.
-<a href="/parameters.md">Define the parameters</a> of your process.</li>
-<li>Documents: You can attach <a href="/documents.md">documents</a> to a process. List the documents that attached to the process.</li>
-<li>Search: A search index is used in the Portal to find a specific instance of a process. <a href="/search-index.md">Specify the search indexes</a> associated with the process.</li>
+<a href="parameters.md">Define the parameters</a> of your process.</li>
+<li>Documents: You can attach <a href="documents.md">documents</a> to a process. List the documents that attached to the process.</li>
+<li>Search: A search index is used in the Portal to find a specific instance of a process. <a href="search-index.md">Specify the search indexes</a> associated with the process.</li>
 </ul>
 <p>The items configured for a lane supplement or override those defined for the pool. You only need to configure
 something at lane level if is not already defined at pool level, or if you want to override the definition. Note that nested lanes are not supported.
 For a lane, you can configure the following:</p>
 <ul>
 <li>Name and description</li>
-<li>Actors: From the actors defined for the pool, <a href="/actors.md">specify the actors</a> assigned to this lane.
-You can also <a href="/actors.md#Using_an_actor_filter">configure an actor filter</a> to make the actor assignment more specific.</li>
-<li>Data: <a href="/specify-data-process">Define the variables</a> needed in the lane. You can also define variables as task level.</li>
-<li>Connectors: <a href="/connectivity-overview.md">Specify the connectors</a> used in the lane. You can also specify a connector at task level,
+<li>Actors: From the actors defined for the pool, <a href="actors.md">specify the actors</a> assigned to this lane.
+You can also <a href="actors.md#Using_an_actor_filter">configure an actor filter</a> to make the actor assignment more specific.</li>
+<li>Data: <a href="specify-data-in-a-process-definition.md">Define the variables</a> needed in the lane. You can also define variables as task level.</li>
+<li>Connectors: <a href="connectivity-overview.md">Specify the connectors</a> used in the lane. You can also specify a connector at task level,
 but if a connector is used more than once it is better to define it at pool or lane level.</li>
-<li>Parameters (Performance, Efficiency, and Teamwork editions): <a href="/parameters.md">Define the parameters</a> of the lane.
+<li>Parameters (Performance, Efficiency, and Teamwork editions): <a href="parameters.md">Define the parameters</a> of the lane.
 A parameter is like a variable but has a value that is fixed for a deployment of a process.</li>
-<li>Documents: List the <a href="/documents.md">documents</a> that are attached to the process.</li>
+<li>Documents: List the <a href="documents.md">documents</a> that are attached to the process.</li>
 </ul>

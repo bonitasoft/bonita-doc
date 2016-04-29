@@ -1,4 +1,4 @@
-<h1>4.12.2 Automating builds</h1>
+<h1>4.12.1 Automating builds</h1>
 <p>Bonita BPM includes a Workspace API, which is a script, <code>BonitaStudioBuilder</code>, for building a bar file from a process and/or a zip file from a REST API extension in a repository.
 This intended for use in a continuous integration and testing environment.</p>
 <p>You can use the <code>BonitaStudioBuilder</code> to build a bar file for processes and Rest API extensions stored in a repository. It accesses the build features of Bonita BPM Studio in the background.
@@ -13,8 +13,8 @@ This is because the Bonita BPM Studio <code>workspace</code> directory should be
 </ul>
 <p>After Bonita BPM Studio is installed, the <code>BonitaStudioBuilder</code> scripts are in the <code>workspace_api_scripts</code> folder.
 There are scripts for Windows (<code>.bat</code>), Linux (<code>.sh</code>), and MacOS (<code>_Mac.sh</code>).</p>
-<p>Pass configuration information to the <code>BonitaStudioBuilder</code> script as system properties, using the following arguments:</p>
-<p>Argument
+<p>Pass configuration information to the <code>BonitaStudioBuilder</code> script as system properties, using the following arguments:
+Argument
 Purpose</p>
 <p><code>repoPath</code>
 The parent folder of the repository storing the process. Typically, this is the trunk folder. It can also be a folder in tags if you want to point to a restore point in the repository.
@@ -24,9 +24,9 @@ The folder where the generated bar and zip files will be stored.</p>
 <p><code>processes</code>
 The list of the processes in the repository for which bar files are required.
 For each process, specify the process identifier and, optionally, the version.
-If you do not specify the version, the latest version is used.</p>
-<p>Format: <em>process</em>,_version;<em>process</em>,<em>version</em>...</p>
-<p>Example: <code>-process=TravelRequest,1.5;Expenses;LeaveRequest,1.0</code>_</p>
+If you do not specify the version, the latest version is used.<br>
+Format: <em>process</em>,<em>version;<em>process</em>,<em>version</em>...<br>
+Example: <code>-process=TravelRequest,1.5;Expenses;LeaveRequest,1.0</code></em></p>
 <p><code>buildAllProcesses</code>
 If enabled, bar files are built for the latest version of each process in the repository.</p>
 <p><code>buildAllRestAPIExtensions</code>
@@ -37,8 +37,8 @@ If enabled, bar files are built for the latest version of each process in the re
 If enabled, you can point the <code>repoPath</code> argument to a repository of an older version than the version of the running Bonita BPM Studio.
 The processes in the older version repository will be automatically migrated to the current version.</p>
 <p><code>environment</code>
-The <a href="/environments.md">environment</a> with which the bar files will be built.
-The environment defines the <a href="/configuring-process-bonita-bpm-studio.md">process configuration</a>, including dependencies.
+The <a href="environments.md">environment</a> with which the bar files will be built.
+The environment defines the <a href="configuring-a-process.md">process configuration</a>, including dependencies.
 If you do not specify an environment, the exported bar file will not contain the dependencies.
 All the specified processes are built for the same environment.
 If you want to build for different environments, you need to run the script once for each environment.</p>
@@ -51,10 +51,10 @@ If you want to build for different environments, you need to run the script once
 </ol>
 <p>When the script runs, information is logged in <code>workspace/.metadata/.log</code>.</p>
 <h2>Deploying a process bar file</h2>
-<p>From the bar file, a process can be <a href="/processes.md">deployed manually using Bonita BPM Portal</a>.
-You can also <a href="/manage-process#deploy">deploy a process using the Engine API</a>.</p>
+<p>From the bar file, a process can be <a href="processes.md">deployed manually using Bonita BPM Portal</a>.
+You can also <a href="manage-a-process.md#deploy">deploy a process using the Engine API</a>.</p>
 <h2>Deploying a REST API extension file</h2>
-<p>From the zip file, a REST API extension can be <a href="/rest-api-extensions-866#install">deployed manually using Bonita BPM Portal</a>.
+<p>From the zip file, a REST API extension can be <a href="api-extensions.md#install">deployed manually using Bonita BPM Portal</a>.
 You can also deploy a REST API extension using the REST API.</p>
 <h2>Automate build of a specific REST API extension</h2>
 <p>A REST API extension is a maven project stored in a Studio repository. You can find them in the studio workspace: <code>workspace/yourRepositoryName/restAPIExtensions/yourRestAPIProject</code>. From there you can simply use maven cli or a CI job to build, test or packake your REST API Extension.</p>

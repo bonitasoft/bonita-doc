@@ -31,47 +31,33 @@ step must be carried out by the manager of the requesting user.</p>
 are related. You must define actors in the order pool, lane, step.</p>
 <p>To define actors for a process:</p>
 <ol>
-<li>
-<p>Define the actors for the pool:</p>
-</li>
-<li>
-<p>Select the  pool and go to the <strong>Details</strong> panel, <strong>General</strong>
+<li>Define the actors for the pool:</li>
+<li>Select the  pool and go to the <strong>Details</strong> panel, <strong>General</strong>
 tab, <strong>Actors</strong> pane. If you have already defined any actors, they
-are shown in the table.</p>
-</li>
-<li>
-<p>Click <strong><em>Add</em></strong>. A new row is added to the table, with a temporary
+are shown in the table.</li>
+<li>Click <strong><em>Add</em></strong>. A new row is added to the table, with a temporary
 name for the new actor (for example, Actor1). To change the
 name, select it and type the name you want to use. You can
-also add a description.</p>
-</li>
-<li>
-<p>Repeat step 2 to add all the actors required for the
+also add a description.</li>
+<li>Repeat step 2 to add all the actors required for the
 process. You can also remove an actor, by selecting it and
-clicking <strong><em>Remove</em></strong>.</p>
-</li>
-<li>
-<p>Select the actor that will be the initiator of the process
+clicking <strong><em>Remove</em></strong>.</li>
+<li>Select the actor that will be the initiator of the process
 cases, and click <strong><em>Set as initiator</em></strong>. If you
 do not define an initiator for the pool, the process cannot be started
-in Bonita BPM Portal. Instead, it will have to be started programmatically.</p>
-</li>
-<li>
-<p>For each lane, define the actor. You can either select an
+in Bonita BPM Portal. Instead, it will have to be started programmatically.</li>
+<li>For each lane, define the actor. You can either select an
 actor that was defined for the pool, by selecting the actor from
-the drop-down list, or you can use an <a href="#Using_an_actor_filter">actor filter</a>.</p>
-</li>
-<li>
-<p>For each step, define the actor. You can use the actor defined
+the drop-down list, or you can use an <a href="#Using_an_actor_filter">actor filter</a>.</li>
+<li>For each step, define the actor. You can use the actor defined
 for the lane, or specify an actor for the step. To specify an
 actor for the step, you can either select an actor that was
 defined for the pool, by selecting the actor from the drop-down
 list, or you can use an <a href="#Using_an_actor_filter">actor
-filter</a>.</p>
-</li>
+filter</a>.</li>
 </ol>
-<p>See <a href="/custom-user-information-bonita-bpm-studio.md">Custom user information in Bonita BPM Studio</a></p>
-<p>See <a href="/custom-user-information-bonita-bpm-portal.md">Custom user information in Bonita BPM Portal</a></p>
+<p>See <a href="custom-user-information-in-bonita-bpm-studio.md">Custom user information in Bonita BPM Studio</a></p>
+<p>See <a href="custom-user-information-in-bonita-bpm-portal.md">Custom user information in Bonita BPM Portal</a></p>
 <h2>Setting the initiator</h2>
 <p>The initiator is the user who starts a process instance. For a process that is started by a person, you must specify at least one actor to be the initiator. Any user who maps
 to this actor can then start a process instance. If a process is started automatically (for example on a schedule), it is not necessary to designate an initiator.</p>
@@ -86,11 +72,11 @@ Erase icon. Note that this does not remove the actor filter from
 the list of predefined actor filters, just from the process
 definition.</p>
 <p>For information about creating a new actor filter, see
-<a href="/creating-actor-filter.md">Creating an actor filter</a>.</p>
+<a href="creating-an-actor-filter.md">Creating an actor filter</a>.</p>
 <h2>Mapping an actor</h2>
 <p>Before a process can be tested, you must map the actors in the process to
 users in the organization. Before you can do this, you must
-<a href="/organization-management-bonita-bpm-studio.md">define
+<a href="organization-management-in-bonita-bpm-studio.md">define
 your organization Bonita BPM Studio</a> and upload it to Bonita BPM Portal.</p>
 <p>To map the process actors:</p>
 <ol>
@@ -107,7 +93,7 @@ Otherwise, you can configure the actor mappings in Bonita BPM Portal after the p
 <h2>Updating task assignment dynamically</h2>
 <p>The Bonita BPM Engine API contains a method to re-evaluate the assignment of a task by reapplying the actor mapping any actor filters.
 This means that if there are changes in your organization, you can update any active process instances to assign tasks to the correct people.
-This is known as <a href="/manage-users#get_eligible">dynamic task assignment</a>.</p>
+This is known as <a href="manage-users.md#get_eligible">dynamic task assignment</a>.</p>
 <h2>Export or import</h2>
 <p>actor mapping</p>
 <p>When you have mapped the actors for a process, you can export the

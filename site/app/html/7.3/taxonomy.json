@@ -1,6 +1,7 @@
 [
   {
     "name": "Application and Process Design",
+    "href": "application-and-process-design.html",
     "children": [
       {
         "name": "Bonita BPM overview",
@@ -8,6 +9,7 @@
       },
       {
         "name": "Application and process design overview",
+        "href": "application-and-process-design-overview.html",
         "children": [
           {
             "name": "Getting started tutorial",
@@ -45,9 +47,11 @@
       },
       {
         "name": "Process modeling",
+        "href": "process-modeling.html",
         "children": [
           {
             "name": "Diagrams",
+            "href": "diagrams.html",
             "children": [
               {
                 "name": "Diagram overview",
@@ -119,6 +123,7 @@
       },
       {
         "name": "Data",
+        "href": "data.html",
         "children": [
           {
             "name": "Data handling overview",
@@ -168,6 +173,7 @@
       },
       {
         "name": "Page and form development",
+        "href": "page-and-form-development.html",
         "children": [
           {
             "name": "Page and form development overview",
@@ -175,6 +181,7 @@
           },
           {
             "name": "Using the UI designer",
+            "href": "using-the-ui-designer.html",
             "children": [
               {
                 "name": "UI designer overview",
@@ -194,6 +201,7 @@
               },
               {
                 "name": "Widget use examples",
+                "href": "widget-use-examples.html",
                 "children": [
                   {
                     "name": "Repeat a container for a collection of data",
@@ -239,6 +247,7 @@
       },
       {
         "name": "Connectivity",
+        "href": "connectivity.html",
         "children": [
           {
             "name": "Connectivity overview",
@@ -254,6 +263,7 @@
           },
           {
             "name": "Database",
+            "href": "database.html",
             "children": [
               {
                 "name": "List of database connectors",
@@ -331,6 +341,7 @@
           },
           {
             "name": "Web service",
+            "href": "web-service.html",
             "children": [
               {
                 "name": "Web service connector overview",
@@ -346,6 +357,7 @@
       },
       {
         "name": "Organization",
+        "href": "organization.html",
         "children": [
           {
             "name": "Organization overview",
@@ -371,6 +383,7 @@
       },
       {
         "name": "Reporting",
+        "href": "reporting.html",
         "children": [
           {
             "name": "Reporting overview",
@@ -396,6 +409,7 @@
       },
       {
         "name": "Process configuration",
+        "href": "process-configuration.html",
         "children": [
           {
             "name": "Process configuration overview",
@@ -421,6 +435,7 @@
       },
       {
         "name": "Process testing",
+        "href": "process-testing.html",
         "children": [
           {
             "name": "Process testing overview",
@@ -452,6 +467,7 @@
   },
   {
     "name": "Installation",
+    "href": "installation.html",
     "children": [
       {
         "name": "Bonita BPM installation overview",
@@ -463,6 +479,7 @@
       },
       {
         "name": "Basic Bonita BPM platform installation",
+        "href": "basic-bonita-bpm-platform-installation.html",
         "children": [
           {
             "name": "Hardware and software requirements",
@@ -504,9 +521,11 @@
       },
       {
         "name": "Advanced Bonita BPM platform installation",
+        "href": "advanced-bonita-bpm-platform-installation.html",
         "children": [
           {
             "name": "Security and authentication",
+            "href": "security-and-authentication.html",
             "children": [
               {
                 "name": "User authentication overview",
@@ -564,6 +583,7 @@
           },
           {
             "name": "Bonita BPM in a cluster",
+            "href": "bonita-bpm-in-a-cluster.html",
             "children": [
               {
                 "name": "Overview of Bonita BPM in a cluster",
@@ -587,6 +607,7 @@
       },
       {
         "name": "Platform installation examples",
+        "href": "platform-installation-examples.html",
         "children": [
           {
             "name": "Red Hat + Oracle JVM + WebLogic + Oracle",
@@ -604,6 +625,7 @@
       },
       {
         "name": "Migration",
+        "href": "migration.html",
         "children": [
           {
             "name": "Migration overview",
@@ -623,9 +645,11 @@
   },
   {
     "name": "Bonita BPM Portal Administration",
+    "href": "bonita-bpm-portal-administration.html",
     "children": [
       {
         "name": "Bonita BPM Portal interface",
+        "href": "bonita-bpm-portal-interface.html",
         "children": [
           {
             "name": "Bonita BPM Portal interface overview",
@@ -651,6 +675,7 @@
       },
       {
         "name": "Process maintenance",
+        "href": "process-maintenance.html",
         "children": [
           {
             "name": "Processes",
@@ -684,6 +709,7 @@
       },
       {
         "name": "Resources",
+        "href": "resources.html",
         "children": [
           {
             "name": "Resource management",
@@ -717,6 +743,7 @@
       },
       {
         "name": "Organization in Bonita BPM Portal",
+        "href": "organization-in-bonita-bpm-portal.html",
         "children": [
           {
             "name": "Organization in Bonita BPM Portal overview",
@@ -724,6 +751,7 @@
           },
           {
             "name": "Organization maintenance",
+            "href": "organization-maintenance.html",
             "children": [
               {
                 "name": "Import/export an organization",
@@ -739,6 +767,7 @@
               },
               {
                 "name": "User",
+                "href": "user.html",
                 "children": [
                   {
                     "name": "Manage a user",
@@ -764,6 +793,7 @@
       },
       {
         "name": "User profiles",
+        "href": "user-profiles.html",
         "children": [
           {
             "name": "Profiles overview",
@@ -789,6 +819,7 @@
       },
       {
         "name": "Look &amp; Feel",
+        "href": "look-feel.html",
         "children": [
           {
             "name": "Managing Look &amp; Feel",
@@ -808,6 +839,7 @@
   },
   {
     "name": "Development",
+    "href": "development.html",
     "children": [
       {
         "name": "Development overview",
@@ -819,9 +851,11 @@
       },
       {
         "name": "Bonita BPM artifacts",
+        "href": "bonita-bpm-artifacts.html",
         "children": [
           {
             "name": "Connectors",
+            "href": "connectors.html",
             "children": [
               {
                 "name": "Connectors overview",
@@ -841,6 +875,7 @@
       },
       {
         "name": "REST API",
+        "href": "rest-api.html",
         "children": [
           {
             "name": "REST API overview",
@@ -894,6 +929,7 @@
       },
       {
         "name": "Engine API",
+        "href": "engine-api.html",
         "children": [
           {
             "name": "Getting started with the Bonita BPM Engine APIs",
@@ -913,6 +949,7 @@
           },
           {
             "name": "Examples",
+            "href": "examples.html",
             "children": [
               {
                 "name": "Manage a process",
@@ -964,6 +1001,7 @@
       },
       {
         "name": "Engine architecture",
+        "href": "engine-architecture.html",
         "children": [
           {
             "name": "Engine architecture overview",
@@ -971,6 +1009,7 @@
           },
           {
             "name": "Services",
+            "href": "services.html",
             "children": [
               {
                 "name": "Event handlers",
@@ -998,6 +1037,7 @@
       },
       {
         "name": "Living application",
+        "href": "living-application.html",
         "children": [
           {
             "name": "Customize living application layout",
@@ -1019,6 +1059,7 @@
       },
       {
         "name": "Continuous integration",
+        "href": "continuous-integration.html",
         "children": [
           {
             "name": "Automating process builds",

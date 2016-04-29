@@ -23,11 +23,9 @@ You cannot re-order operations after they are defined, so you need to define the
 <li><em>**Java method **</em> - the left BO is updated with the value from the right operand using an invoked Java method</li>
 <li><em><strong>instantiate with</strong></em> - at runtime, when the operator is called, the business data variable points to the selected BO instance if it uses a <em>Query expression type</em>.
 The BO instance must exist in the business data database; otherwise the operator throws an exception.
-The BO instance is not modified during the operation but from that point onward, any expression or operation in the process can reference this object instance to make changes.</li>
-</ul>
-<p>If it uses a <em>Script expression type</em>, you can use the contract inputs to fill in the BO attributes.
-Go to <a href="/business-data-model#initBDM_task">Initialize BDM attributes from contract inputs in task operations</a> for more information.</p>
-<ul>
+The BO instance is not modified during the operation but from that point onward, any expression or operation in the process can reference this object instance to make changes.<br>
+If it uses a <em>Script expression type</em>, you can use the contract inputs to fill in the BO attributes.
+Go to <a href="define-and-deploy-the-bdm.md#initBDM_task">Initialize BDM attributes from contract inputs in task operations</a> for more information.</li>
 <li><em><strong>isDeleted</strong></em> - an operator 'Is Deleted' can be called on a business data variable. The BO instance that the business data references is deleted from the database, at runtime, after the task is completed.
 The process designer should avoid calling other operations on the same business data variable within the same group of operations/actions.</li>
 </ul>

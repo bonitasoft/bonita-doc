@@ -22,8 +22,8 @@ The call of an External API variable is triggered every time the URL of the reso
 <p>External variables are used to fetch data from outside the page. This is typically
 a REST API.
 The call to the specified URL is done using an HTTP GET request. The result is stored in the page data model.
-You can parameterize the URL construction with other data using <code>{{variableName}}</code> syntax.</p>
-<p>You can retrieve information using the <a href="/product-bos-sp/web-rest-api.md">Bonita REST APIs</a>. Here are some examples:</p>
+You can parameterize the URL construction with other data using <code>{{variableName}}</code> syntax.
+You can retrieve information using the <a href="rest-api.md">Bonita REST APIs</a>. Here are some examples:</p>
 <ul>
 <li>Get the id of the current user: API URL:
 <code>../API/system/session/{{userId}}</code></li>
@@ -39,12 +39,12 @@ API URL: <code>../API/bpm/humanTask/{{taskId}}</code></p>
 <ul>
 <li></li>
 </ul>
-<p>Retrieve a <a href="/bdm-api.md">business object</a> associated with a process instance:
+<p>Retrieve a <a href="bdm-api.md">business object</a> associated with a process instance:
 API URL: <code>../API/bdm/businessDataReference/{{caseId}}/{{businessDataName}}</code></p>
 <ul>
 <li></li>
 </ul>
-<p>Retrieve business data using the reference in the <a href="/contracts-and-contexts.md#context">context</a> when building a form.
+<p>Retrieve business data using the reference in the <a href="contracts-and-contexts.md#context">context</a> when building a form.
 API URL: <code>../{{context.myBusinessData_ref.link}}</code></p>
 <h3>Expression variables</h3>
 <p>An expression is a JavaScript function. During the evaluation, the function can use the
@@ -54,7 +54,7 @@ API URL: <code>../{{context.myBusinessData_ref.link}}</code></p>
 page, expressions are reevaluated and the previous value is overwritten. Therefore you cannot bind the result
 of an expression to a user input.</p>
 <h2>Using a variable</h2>
-<p>A variable is used with a <a href="/widgets.md">widget</a>.
+<p>A variable is used with a <a href="widgets.md">widget</a>.
 There are many ways to use a variable in widget properties.
 In a property containing text or HTML to be displayed in a widget, you can use the syntax <em>{{variableName}}</em> in the content o make it dynamic the
 content. For example, you could display the users name in a welcome message.
@@ -64,20 +64,18 @@ value and retrieve the user input.</p>
 <p>A binding is dynamic, so every time the value of a variable changes, the whole data model is re-evaluated and the UI is updated.</p>
 <h2>Bonita BPM forms</h2>
 <p>One of the goals of the UI designer is to enable you to build forms for process instantiation and human tasks.
-The <a href="/contracts-and-contexts.md">context and contract</a> decouple the UI from the process. The UI designer
+The <a href="contracts-and-contexts.md">context and contract</a> decouple the UI from the process. The UI designer
 retrieves the context in which a human task form executes. When a form is submitted for process instantiation or for a human task, the UI designer
 sends data to fulfil the contract.</p>
 <p>When creating a form from Bonita BPM Studio, the UI designer generates the following variables:</p>
 <ul>
-<li>
-<p><em>formInput</em> is a JSON object.
+<li><em>formInput</em> is a JSON object.
 Its structure is defined by the contract inputs and the attributes are initialized with default values. It could be
 used to set initial values for form fields.
 You can set the values in formInput either by editing the default values with constants (useful for test and debug)
 or with values from an object in an external source that has the same model (such as with a BDM external API).
 You can also set the initial values of a form from some other source without using formInput. However, you will then
-have to edit formOutput manually.</p>
-</li>
+have to edit formOutput manually.</li>
 <li></li>
 </ul>
 <p><em>formOutput</em> is a JavaScript expression returning an object.

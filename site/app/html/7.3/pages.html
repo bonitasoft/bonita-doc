@@ -2,10 +2,7 @@
 <p>This page explains how to use a page resource (also called a custom page) to the Portal and make it available to users. Page resources are intended for use in applications. You can also use a page resource to customize the portal,
 for example:</p>
 <ul>
-<li></li>
-</ul>
-<p>Add a welcome page, with dashboards showing activity in Bonita BPM and related external applications.</p>
-<ul>
+<li>Add a welcome page, with dashboards showing activity in Bonita BPM and related external applications.</li>
 <li>Provide a process owner with a dashboard showing the activity of open cases of the process.</li>
 <li>Provide a busy user with a filtered view of the task list.</li>
 <li>Provide an administrator with a multi-attribute search facility.</li>
@@ -35,9 +32,9 @@ for example:</p>
 <blockquote>
 <p><a href="#theme-access">Theme access</a></p>
 </blockquote>
-<p>Pages are <a href="/resources-management">exported. imported, modified, and deleted</a> as resources in Bonita BPM Portal.</p>
+<p>Pages are <a href="resource-management.md">exported. imported, modified, and deleted</a> as resources in Bonita BPM Portal.</p>
 <h2>Custom page definition</h2>
-<p>A page resource has the general <a href="/resource-management#resource_definition">resource definition</a>.
+<p>A page resource has the general <a href="resource-management.md#resource_definition">resource definition</a>.
 If it contains an <code>Index.groovy</code> file, this must implement the <a href="#pageController">PageController interface</a>, optionally with libraries.
 If you create a custom page with the UI designer, it has the reequired structure and content automatically.</p>
 <p>A custom page is displayed inside an iframe to prevent conflicts between the portal resources (for example JS and CSS) and those used in the custom page.
@@ -65,7 +62,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse response, Page
 <li>Write simple HTML code</li>
 <li>Get session information, including the locale</li>
 <li>Get resources from the custom page definition</li>
-<li>Call the Engine Java APIs (in the Groovy example) or the Web REST APIs (in the HTML example)</li>
+<li>Call the Engine Java APIs (in the Groovy example) or the Web REST APIs (in the.md example)</li>
 <li>Write a clickable link to an external page</li>
 <li>Write a clickable link to a portal page</li>
 <li>Write locale-specific messages</li>
@@ -76,10 +73,10 @@ In practice, you will probably use a combination of Groovy and HTML to create yo
 <p>To view an example page, <a href="#publish">publish the page to a custom profile</a> so that you can view it in the portal. To view the source of an example, <a href="#export">export the custom page</a>.</p>
 <p>On the <a href="https://customer.bonitasoft.com/">Customer Portal</a>, there is also an example in the form of a seed project for creating custom pages using AngularJS and a customizable example task list page.</p>
 <h2>Using Bonita BPM Portal content</h2>
-<p>You can reuse pages from the Bonita BPM Portal in your custom pages. For example, in a page giving details of a case history, you could include the live case status diagram to show the current status. For example, for case 1 of process definition 8270554088248243867, include these lines in your custom page definition:</p>
-<p><code>def idProcess = &quot;8270554088248243867&quot;; def idCase = &quot;1&quot;; out.write(&quot;&quot;&quot;&quot;&quot;&quot;);</code></p>
-<p>This displays the case diagram exactly as it appears in the standard Bonita BPM Portal page. You can modify the view to hide the Portal <strong>Back</strong> button by adding <code>?diagramOnly</code> to the URL:</p>
-<p><code>out.write(&quot;&quot;&quot;&quot;&quot;&quot;);</code></p>
+<p>You can reuse pages from the Bonita BPM Portal in your custom pages. For example, in a page giving details of a case history, you could include the live case status diagram to show the current status. For example, for case 1 of process definition 8270554088248243867, include these lines in your custom page definition:
+<code>def idProcess = &quot;8270554088248243867&quot;; def idCase = &quot;1&quot;; out.write(&quot;&quot;&quot;&quot;&quot;&quot;);</code></p>
+<p>This displays the case diagram exactly as it appears in the standard Bonita BPM Portal page. You can modify the view to hide the Portal <strong>Back</strong> button by adding <code>?diagramOnly</code> to the URL:
+<code>out.write(&quot;&quot;&quot;&quot;&quot;&quot;);</code></p>
 <h3>Debugging a custom page in development</h3>
 <p>While you are developing a custom page, you can enable custom page debug mode for your portal. In debug mode, you can see changes to your custom page without importing a new zip archive.</p>
 <p>To enable custom page debug mode, edit <code>/client/tenants//conf/console-config.properties</code> and set <code>custom.page.debug</code> to <code>true</code>.</p>
@@ -103,8 +100,8 @@ However, this cannot be guaranteed for all future migrations.</p>
 <p>If you are not using Groovy you can directly access a resource by adding a link in <code>index.html</code>.</p>
 <p>For example: ``</p>
 <h3>API acces</h3>
-<p>If your page is viewed in a custom profile or in an application, you will have access facilities for <a href="/rest-api-overview.md">the portal API</a>.</p>
+<p>If your page is viewed in a custom profile or in an application, you will have access facilities for <a href="rest-api-overview.md">the portal API</a>.</p>
 <p>you will be abble to access the portal API using the following path: &quot;../API/{API name}/{resource name}&quot;</p>
 <h3>Theme access</h3>
-<p>If your page is viewed in an application, you will have access facilities for <a href="/applications.md#theme">the application theme</a>.</p>
+<p>If your page is viewed in an application, you will have access facilities for <a href="applications.md#theme">the application theme</a>.</p>
 <p>You can directly access a resource by adding the following link in <code>index.html</code>: ``</p>

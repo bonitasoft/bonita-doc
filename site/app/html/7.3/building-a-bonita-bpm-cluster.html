@@ -6,7 +6,7 @@ This enables you to check at each stage that your processes run correctly.</p>
 <h2>Install a node</h2>
 <p>A node that will be in a cluster is installed in exactly the same way as a standalone node.</p>
 <ol>
-<li>Follow the instructions to <a href="/ubuntu-openjdk-tomcat-postgresql.md">install the
+<li>Follow the instructions to <a href="ubuntu-openjdk-tomcat-postgresql.md">install the
 Tomcat bundle on Ubuntu</a>.</li>
 <li>In var_bonita_home, update <code>engine-server/conf/platform/bonita-platform-sp-custom.properties</code> and set the <code>bonita.cluster</code> property to <code>true</code>.</li>
 <li>In order to use cluster mode in environments where multicast is disabled (like main IaaS providers), you should switch to TcpIp mode, or AWS for Amazon Web Services cloud provider. This can be parametered in <code>/engine-server/conf/platform-sp-cluster-custom.properties.</code>Only one mode can be selected, so only one of the following properties must be set to true:</li>
@@ -27,8 +27,8 @@ Tomcat bundle on Ubuntu</a>.</li>
 <p>If your Bonita installation is behind a proxy (mainly in TcpIp or Aws discovery modes), you must declare its public address by adding the following property : <code>-Dhazelcast.local.publicAddress=*publicaddress*</code></p>
 <p>As part of the installation, you create a <code>bonita_home</code> directory.</p>
 <p>When the installation is complete, start Tomcat on the node. By default, this automatically starts Bonita BPM Engine. Then start the cluster in the load balancer.</p>
-<p>Check that the log file contains messages of the following form:</p>
-<p>`
+<p>Check that the log file contains messages of the following form:
+`
 Oct 22, 2013 5:07:07 PM com.hazelcast.cluster.ClusterService
 INFO: [10.0.5.2]:5701 [myBPMCluster]</p>
 <p>Members [1] {
@@ -49,8 +49,8 @@ INFO: Server startup in 30333 ms</p>
 <li>Start the Tomcat on the new node, which will start the Engine.</li>
 <li>Update the load balancer configuration to include the new node.</li>
 </ol>
-<p>The log file will contain messages of the following form:</p>
-<p>`
+<p>The log file will contain messages of the following form:
+`
 Oct 22, 2013 5:07:07 PM com.hazelcast.cluster.ClusterService
 INFO: [10.0.5.2]:5701 [bonita]</p>
 <p>Members [2] {

@@ -7,16 +7,16 @@
 <p>These two examples above return identical information. Both list and search can be used to return a specified number of results, sorted according to a specified criterion.</p>
 <p>The advantage of using list is that it is a single query, so has better performance. It is also simpler to code.</p>
 <p>The advantage of using search is that you can specify filters to get a more precise set of results, which can be more efficient. Several filters can be added. By default, an implicit AND clause is added when several filters are added. If the need is different,
-you can have an OR clause, of more complex clauses. See <a href="http://documentation.bonitasoft.com/javadoc/api/7.1/org/bonitasoft/engine/search/SearchOptionsBuilder.html">SearchOptionsBuilder methods</a> for filtering that matches your needs.</p>
-<p>The following example is a more precise search for archived activity instances, using a filter:</p>
-<p><code>SearchOptionsBuilder searchBuilder = new SearchOptionsBuilder(0, 100); // implicit AND clause between the following two filters: searchBuilder.filter(ArchivedActivityInstanceSearchDescriptor.ROOT_PROCESS_INSTANCE_ID, processInstance.getId()); searchBuilder.filter(ArchivedActivityInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getId()); searchBuilder.sort(ArchivedActivityInstanceSearchDescriptor.NAME, Order.ASC); SearchResult archActivitResult = TenantAPIAccessor.getProcessAPI(session).searchArchivedActivities(searchBuilder.done());</code></p>
-<p>Below is another example of a more complex search filtering.
+you can have an OR clause, of more complex clauses. See <a href="http://documentation.bonitasoft.com/javadoc/api/7.1/org/bonitasoft/engine/search/SearchOptionsBuilder.md">SearchOptionsBuilder methods</a> for filtering that matches your needs.<br>
+The following example is a more precise search for archived activity instances, using a filter:
+<code>SearchOptionsBuilder searchBuilder = new SearchOptionsBuilder(0, 100); // implicit AND clause between the following two filters: searchBuilder.filter(ArchivedActivityInstanceSearchDescriptor.ROOT_PROCESS_INSTANCE_ID, processInstance.getId()); searchBuilder.filter(ArchivedActivityInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getId()); searchBuilder.sort(ArchivedActivityInstanceSearchDescriptor.NAME, Order.ASC); SearchResult archActivitResult = TenantAPIAccessor.getProcessAPI(session).searchArchivedActivities(searchBuilder.done());</code>
+Below is another example of a more complex search filtering.
 <code>SearchOptionsBuilder sob = new SearchOptionsBuilder(0, 10); sob.filter(HumanTaskInstanceSearchDescriptor.PROCESS_INSTANCE_ID, myProcessInstance.getId()); sob.or(); sob.differentFrom(HumanTaskInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getId());</code></p>
 <h2>Word-based search</h2>
 <p>By default, search uses a &quot;starts by&quot; algorithm for searching, and finds matches where the search string occurs at the start of a phrase.
 If word-based search is enabled, you can search for a string that is preceded by white space or is at the start of the phrase.
-For example:</p>
-<p>Phrase in database
+For example:
+Phrase in database
 Search string
 Matches with &quot;starts with&quot;
 Matches with word-based search</p>
@@ -39,14 +39,10 @@ no</p>
 <p>Using word-based search has an impact on performance, so by default it is disabled. You can enable it for the platform or for a tenant. If you enable it, you can exclude any objects for which it is not useful.</p>
 <p>To configure word-based search, edit <em><code>bonita_home</code></em><code>bonita-platform-community-custom.properties</code> and make the following changes:</p>
 <ol>
-<li>
-<p>Change the value of <code>bonita.platform.persistence.platform.enableWordSearch</code> (for the platform) or
+<li>Change the value of <code>bonita.platform.persistence.platform.enableWordSearch</code> (for the platform) or
 <code>bonita.platform.persistence.tenant.enableWordSearch</code> (for a tenant) to <code>true</code> in the following line:
-<code></code></p>
-</li>
-<li>
-<p>For each object you be excluded from word-based search, add a mapping to the <code>wordSearchExclusionMappings</code> set. Each mapping has the following form:
-<code>org.bonitasoft.engine.identity.model.SUser</code></p>
-</li>
+<code></code></li>
+<li>For each object you be excluded from word-based search, add a mapping to the <code>wordSearchExclusionMappings</code> set. Each mapping has the following form:
+<code>org.bonitasoft.engine.identity.model.SUser</code></li>
 </ol>
 <p>When you restart the Engine, these settings are applied and word-based search comes into operation.</p>

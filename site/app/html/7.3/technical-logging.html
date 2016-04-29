@@ -2,7 +2,7 @@
 <p>This page describes the technical logger service.</p>
 <h2>Purpose</h2>
 <p>The purpose of this service is to provide an abstraction to the logging framework to all Bonita BPM Engine services, to facilitate debugging of other services.</p>
-<p>The logged messages are not intended to be accessible through the Engine API (see <a href="/queriable-logger-service.md">Queriable logger service</a>).</p>
+<p>The logged messages are not intended to be accessible through the Engine API (see <a href="queriable-logging.md">Queriable logger service</a>).</p>
 <h2>Usage</h2>
 <p>If you are creating a custom implementation of a service, you might be interested in using the technical logging
 service. Refer to the implementations of existing services for examples of technical logging service usage (for example the <a href="https://github.com/bonitasoft/bonita-engine/blob/master/services/bonita-authentication/bonita-authentication-api-impl/src/main/java/org/bonitasoft/engine/authentication/impl/AuthenticationServiceImpl.java">AuthenticationServiceImpl</a>).</p>
@@ -18,13 +18,13 @@ interface</a> for details.</p>
 <h2>Implementation details</h2>
 <p>The technical logger
 <a href="https://github.com/bonitasoft/bonita-engine/blob/master/services/bonita-log/bonita-log-technical-slf4j/src/main/java/org/bonitasoft/engine/log/technical/TechnicalLoggerSLF4JImpl.java">implementation</a>
-uses SLF4J version 1.6.1 to handle the log. SLF4J itself uses a back-end logging framework to write log messages. See the <a href="/logging.md">logging
+uses SLF4J version 1.6.1 to handle the log. SLF4J itself uses a back-end logging framework to write log messages. See the <a href="logging.md">logging
 overview</a> for more details.</p>
 <p>Logged messages are passed to SLF4J with appropriate logger information so the source of the message remains
 meaningful.</p>
 <h2>Example</h2>
-<p>The following example, <code>DelayedRetry</code>, shows how to write messages to the technical log. <code>DelayedRetry</code> can be called from an <a href="/event-handlers.md">event handler</a> that detects failed tasks.</p>
-<p>`
+<p>The following example, <code>DelayedRetry</code>, shows how to write messages to the technical log. <code>DelayedRetry</code> can be called from an <a href="event-handlers.md">event handler</a> that detects failed tasks.
+`
 package com.bonitasoft.handlers;</p>
 <p>import org.bonitasoft.engine.api.LoginAPI;
 import org.bonitasoft.engine.api.ProcessRuntimeAPI;

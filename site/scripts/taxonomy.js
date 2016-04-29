@@ -21,16 +21,14 @@
     if (node.tagName === 'ul' && node.children) {
       return node.children.map(parse);
     } else if (node.tagName === 'li') {
-      if (node.children && node.children[0].content) {
-        return {
-          name: node.children[0].content,
-          children: parse(node.children[1])
-        };
+      let result;
+      if (node.children && node.children[0] && node.children[0].tagName === 'a') {
+         result = parse(node.children[0]);
       }
-
-      if (node.children && node.children[0].tagName === 'a') {
-        return parse(node.children[0]);
+      if (node.children && node.children[1] && node.children[1].tagName === 'ul') {
+         result.children = parse(node.children[1]);
       }
+      return result;
     } else if (node.tagName === 'a') {
       return {
         name: node.children[0].content,
@@ -41,7 +39,6 @@
     }
   }
 
-  //TODO !!
   let rootDir = __dirname + '/../app/html/';
   fs.readdir(rootDir, (err, dirs) => {
     if (err) {
@@ -49,12 +46,12 @@
     }
     dirs.forEach(dir => {
       try {
-        fs.accessSync(rootDir + dir + '/SUMMARY.html');
+        fs.accessSync(rootDir + dir + '/all.html');
       } catch (e) {
-        winston.warn('error when trying to access', rootDir + dir + '/SUMMARY.html');
+        winston.warn('error when trying to access', rootDir + dir + '/all.html');
         return;
       }
-      var html = fs.readFileSync(rootDir + dir + '/SUMMARY.html').toString().replace(/\n/gi, '');
+      var html = fs.readFileSync(rootDir + dir + '/all.html').toString().replace(/\n/gi, '');
       var uls = xpath.select("/ul", new dom().parseFromString(html));  // get first ul of html doc
       var json = himalaya.parse(uls[0].toString());
       var taxonomy = json[0].children.map(parse);

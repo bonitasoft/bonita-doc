@@ -1,6 +1,6 @@
 <h1>1.7.2.3 Widgets</h1>
 <p>The UI designer is a tool for creating pages and forms for use in a BPM application.
-A form is mapped to process instantiation or to a human task and must fulfill a <a href="/contracts">contract</a>.
+A form is mapped to process instantiation or to a human task and must fulfill a <a href="contracts-and-contexts.md">contract</a>.
 A page is not mapped to any part of a process.
 There is real no difference between a page and a form, so the procedure for designing them is the same.
 Typically, a form has input fields and a submit button, though these can also be present in a page. This documentation uses the term <em>page</em> for both pages and forms, unless otherwise stated.</p>
@@ -60,7 +60,7 @@ Typically, a form has input fields and a submit button, though these can also be
 <h2>Page structure</h2>
 <p>A page consists of widgets that are arranged in containers and rows. The UI designer provides a set of default widgets that you can use to design a page.
 The default widgets are available from the palette panel, which is on the left side of the Page editor. A widget has properties that control how it appears and how it is used. There are some general properties that all widgets have, and some properties that are specific to the widget type.
-You can also create <a href="/custom-widgets.md">custom widgets</a>.</p>
+You can also create <a href="custom-widgets.md">custom widgets</a>.</p>
 <p>Each widget in the palette has a description. To show a widget description, just roll over the top right corner of the widget in the widget palette.</p>
 <p>A container is a widget that contains other widgets. You can have nested containers. A typical use for containers is to control the main layout of your page. For example, if you want to create a two-column layout, you will start your page by adding two containers on the same row, each one spanning six columns of the page. A page does not need to have a container, but it is useful.</p>
 <p>A row is a mechanism for aligning widgets across a page or a container. When you create a new, empty, page, it contains a row. If you add a container to the page, it contains a row.
@@ -68,7 +68,7 @@ A row occupies the whole width of the page or container it is inside, which is c
 <h2>Containers</h2>
 <p>A container widget is used to hold other widgets. By default, a container has one row, where you can drop component widgets. You can use containers to control the layout of a page.
 For example, you can create a two-column layout by placing two containers side by side in a row.
-You can also make the page layout dynamic by <a href="/repeat-container-collection-data-862">repeating a container to display a collection of data</a>.</p>
+You can also make the page layout dynamic by <a href="repeat-a-container-for-a-collection-of-data.md">repeating a container to display a collection of data</a>.</p>
 <h3>Adding a widget to a row</h3>
 <p>If the row has some space at the end, the widget will fill the remaining empty space in the row. If the row has no empty space, the dropped component will be automatically resized to fit a row width, creating a new row.</p>
 <h3>Adding a row</h3>
@@ -138,8 +138,8 @@ and a <strong>returned key</strong> so <strong>selected value</strong> will retu
 <h3>Checkbox widget</h3>
 <p>Use a checkbox widget to create a unique checkbox. The value property will be true or false, depending on the checked value of the checkbox.</p>
 <h3>Checklist widget</h3>
-<p>Use a checklist widget to create a set of checkboxes for the available values, from which the users picks any number of values. To define the <strong>available values</strong>, you can provide a comma-separated list for simple values (for example: red, green, blue), or bind to a variable that holds an array of values.</p>
-<p>If the values are JavaScript objects, you can also specify a <strong>displayed key</strong> that identifies the attribute to be used to label the checkboxes
+<p>Use a checklist widget to create a set of checkboxes for the available values, from which the users picks any number of values. To define the <strong>available values</strong>, you can provide a comma-separated list for simple values (for example: red, green, blue), or bind to a variable that holds an array of values.
+If the values are JavaScript objects, you can also specify a <strong>displayed key</strong> that identifies the attribute to be used to label the checkboxes
 and a <strong>returned key</strong> so <strong>selected value</strong> will return only a specific key rather that the whole corresponding object.</p>
 <p>The selected values are captured through the <strong>Selected values</strong> property.</p>
 <p><strong>Warning:</strong> Do not bind the <strong>Selected values</strong> property to a specific item from the available values collection because selected values will be updated each time you modify a checkbox. Do not bind the Selected values to the Available values collection, because this could lead to unexpected behaviors.</p>
@@ -156,6 +156,7 @@ You can use a variable to hold the resulting data after success or failure.</p>
 <p>Then bind the <strong>content</strong> to an array of JavaScript objects.</p>
 <p>Finally, provide a comma-separated list for the <strong>columns keys</strong> indicating the attribute to display in each column.</p>
 <p>To get the data from a selected row, bind <strong>selected row</strong> to a variable.</p>
+<p>Note: table widget only supports text values. HTML content passed in table data will not be rendered.</p>
 <h2>Image widget</h2>
 <p>Use an image widget to display an image. The image widget is able to display images from local assets or an image from a URL:</p>
 <ul>
@@ -168,14 +169,21 @@ You can use a variable to hold the resulting data after success or failure.</p>
 <p>An extended table widget that provides column sorting, filtering, and paging in addition to the standard table widget facilities.</p>
 <p>Set the <strong>Data source</strong> to <em>Bonita API</em> to populate the data table with records from a Bonita BPM REST API.
 Then enter a REST API URL in the <strong>URL</strong> property. Use the <strong>API request parameters</strong> property to pass additional parameters to the request.
-Supported parameters are described in the <a href="/rest-api-overview.md#standard_search_params">REST API Overview</a> and in the REST API documentation for the relevant resource.
+Supported parameters are described in the <a href="rest-api-overview.md#standard_search_params">REST API Overview</a> and in the REST API documentation for the relevant resource.
 You do not need to specify paging parameters (such as <code>?p=0&amp;c=10</code>), because the data table handles paging automatically when you use a Bonita API data source.
 The value of the <strong>Page size</strong> property controls how many rows are displayed in a table view, and automatically adds buttons to show subsequent pages of the table.</p>
 <p>Alternatively, you can set the <strong>Data source</strong> to <em>Variable</em> and use a variable definition to point ot the table content.
 Note that if you use a Variable datasource and an External API variable, the paging of the table content is not handled automatically.</p>
+<h3>Sort</h3>
+<p>The <em>Sortable columns</em> property enables to list the columns which allow a sorted search.
+Each element of this property has to match an element of the <em>Columns key</em> property to figure out which table column
+can be sorted upon.</p>
 <p>When a data table is displayed (including in the Preview), the user can click on a column heading to reorder the table rows by this column.
 Some fields do not support sorting but still display the sort button which is a known limitation.
 The ordering applies to the visible rows in the table, not to the entire table.</p>
+<p>The sort is backend when datasource is <strong>Bonita API</strong>. It is frontend, otherwise.</p>
+<p>Note: BDM APIs are not yet sortable. For other APIs, test in the preview or refer to the BonitaBPM documentation 'REST API' pages.</p>
+<h3>Filter</h3>
 <p>You can provide a filter for users to update the displayed table to show only the rows that match the filter. To do this:</p>
 <ol>
 <li>Add a widget to the page where the user will specify the filter. This can be an Input widget for free-form text, or a Select widget to choose from a preset list.</li>
@@ -190,16 +198,14 @@ The ordering applies to the visible rows in the table, not to the entire table.<
 For information, see the <a href="http://jtblin.github.io/angular-chart.js/">Angular chart documentation</a> or <a href="http://www.chartjs.org/docs/">Chart.js documentation</a>.</p>
 <p>The widget can display several styles of chart:</p>
 <ul>
-<li>
-<p>For a single set of data points:</p>
+<li>For a single set of data points:
 <ul>
 <li>Bar</li>
 <li>Line</li>
 <li>Radar</li>
 </ul>
 </li>
-<li>
-<p>For one or more sets of data points:</p>
+<li>For one or more sets of data points:
 <ul>
 <li>Pie</li>
 <li>Doughnut</li>

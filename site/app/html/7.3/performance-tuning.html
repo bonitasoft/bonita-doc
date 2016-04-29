@@ -67,15 +67,14 @@ You need to know how to install and configure Bonita BPM.</p>
 <blockquote>
 <p><a href="#cron">Cron jobs</a></p>
 </blockquote>
-<p>It is also possible to <a href="/configure-application-server-gzip-compression.md">use gzip compression</a> on your application server to improve performance.</p>
+<p>It is also possible to <a href="use-gzip-compression.md">use gzip compression</a> on your application server to improve performance.</p>
 <h2>Summary</h2>
 <p>This section is a summary of the key recommandations from the rest of the page. You can use it as a checklist of things to consider when tuning system performance.
 To understand these recommendations in detail, read the sections below.</p>
 <p>Two key definitions:</p>
 <ul>
-<li></li>
+<li>The maximum possible number of parallel threads that could be required at any given time is the sum of:</li>
 </ul>
-<p>The maximum possible number of parallel threads that could be required at any given time is the sum of:</p>
 <blockquote>
 <p>the number of workers</p>
 </blockquote>
@@ -117,7 +116,7 @@ To understand these recommendations in detail, read the sections below.</p>
 <li>Tuned the Bonita BPM Engine <a href="#cron">cron jobs</a> for your needs.</li>
 </ul>
 <h2>Engine access</h2>
-<p>This section deals with performance impact of your choice of <a href="/development-overview.md#L365">Engine access mode</a>.</p>
+<p>This section deals with performance impact of your choice of <a href="development-overview.md#L365">Engine access mode</a>.</p>
 <p>There are various ways to access the Engine APIs provided by Bonita BPM Engine. Choose the most suitable access mode for your deployment, requirements, and preferences.
 The access modes rely on different technologies and have different benefits and drawbacks. In this section, we will describe the performance characteristics of each mode.</p>
 <h3>Local access</h3>
@@ -143,15 +142,15 @@ This mode can be easily used inside a web container like Tomcat or Jetty.</p>
 It is implemented on the <code>org.apache.httpcomponents:httpmime:4.2.5</code> open source library.
 The connection manager used is <code>org.apache.http.impl.conn.PoolingClientConnectionManager</code>.
 Currently, there is no configuration for this pool though this might be added in the future.
-See the <a href="http://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.html">Apache documentation</a> for more information.</p>
+See the <a href="http://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.md">Apache documentation</a> for more information.</p>
 <p>Data sent is serialized using a Java library called XStream. This serialization also has a cost.</p>
 <h4>REST</h4>
-<p>This method of accessing the Bonita BPM capabilities is not yet integrated as an engine service but exists as a web application service accessed using the <a href="/rest-api-overview.md">Web REST API</a>.
+<p>This method of accessing the Bonita BPM capabilities is not yet integrated as an engine service but exists as a web application service accessed using the <a href="rest-api-overview.md">Web REST API</a>.
 No details are provided here as it is currently out of scope.
 In general, the constraints are almost the same as for the HTTP mode, but we do not provide any Java client for this access mode.</p>
 <h2>Concurrent execution</h2>
 <p>This section describes some aspects of engine configuration that have a performance impact if there is a high level of concurrent execution.
-Before you read this, make sure you are familiar with the engine <a href="/execution-sequence-states-and-transactions.md">execution sequence, states, and transactions</a>.</p>
+Before you read this, make sure you are familiar with the engine <a href="execution-sequence-states-and-transactions.md">execution sequence, states, and transactions</a>.</p>
 <p>There are two main entry points for load on the engine:</p>
 <ul>
 <li><strong>API calls</strong> coming from outside the engine</li>
@@ -167,25 +166,22 @@ The number of client threads is related to the number of parallel users.</p>
 <p>If you are running your own application, you have one thread if your applicaiton is not multi-threaded, or you have the number of threads you decided to create explicitly in the application or using your own threadpool.</p>
 <p>If you are running Bonita BPM Engine inside a container, the maximum number of client threads is defined by a parameter of the container. For example:</p>
 <ul>
-<li><strong>Apache Tomcat</strong> <code>maxThreads</code> set in <em><code>Tomcat_folder</code></em><code>/conf/server.xml</code>.</li>
+<li><strong>Apache Tomcat</strong> <code>maxThreads</code> set in <em><code>Tomcat_folder</code></em><code>/conf/server.xml</code>.<br>
+Default value 200.
+See the <a href="http://tomcat.apache.org/tomcat-7.0-doc/">Tomcat documentation</a> for information about the <code>maxThreads</code> parameter.</li>
+<li><strong>Red Hat JBoss</strong> <code>maxThreads</code> set in <em><code>JBoss_folder</code></em><code>/server/default/deploy/jbossweb.sar/server.xml</code>.<br>
+Default value 200.
+See the <a href="http://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch02.md">JBoss documentation</a> for information about the <code>maxThreads</code> parameter.</li>
 </ul>
-<p>Default value 200.
-See the <a href="http://tomcat.apache.org/tomcat-7.0-doc/">Tomcat documentation</a> for information about the <code>maxThreads</code> parameter.</p>
-<ul>
-<li><strong>Red Hat JBoss</strong> <code>maxThreads</code> set in <em><code>JBoss_folder</code></em><code>/server/default/deploy/jbossweb.sar/server.xml</code>.</li>
-</ul>
-<p>Default value 200.
-See the <a href="http://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch02.html">JBoss documentation</a> for information about the <code>maxThreads</code> parameter.</p>
 <h3>Work service</h3>
 <p>The work service is responsible for asynchronously processing execution of process instances. The work service has its own thread pool, which can be configured for each tenant.
 This is one of the key configurations to optimize, because even though there are many client threads, client threads are held only for a short time before being released, and then execution flow continues using work service threads.
 A thread from the pool of the work service is known as a worker.</p>
 <p>The work service is configured in <em><code>bonita home</code></em><code>/engine-server/conf/tenants/tenant-template/bonita-tenant-community-custom.properties</code> to have the same settings in each tenant,
-or in <em><code>bonita home</code></em><code>/engine-server/conf/tenants/</code><em><code>tenant-id</code></em><code>/bonita-tenant-community-custom.properties</code> to set values for a specific tenant.</p>
-<p><code>bonita.tenant.work.terminationTimeout=30 bonita.tenant.work.corePoolSize=25 bonita.tenant.work.maximumPoolSize=25 bonita.tenant.work.keepAliveTimeSeconds=60 bonita.tenant.work.queueCapacity=10000</code></p>
-<p>It is very similar to the constructor provided in the <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html#ThreadPoolExecutor(int,%20int,%20long,%20java.util.concurrent.TimeUnit,%20java.util.concurrent.BlockingQueue)">default JDK ThreadPoolExecutor</a>.
+or in <em><code>bonita home</code></em><code>/engine-server/conf/tenants/</code><em><code>tenant-id</code></em><code>/bonita-tenant-community-custom.properties</code> to set values for a specific tenant. <code>bonita.tenant.work.terminationTimeout=30 bonita.tenant.work.corePoolSize=25 bonita.tenant.work.maximumPoolSize=25 bonita.tenant.work.keepAliveTimeSeconds=60 bonita.tenant.work.queueCapacity=10000</code></p>
+<p>It is very similar to the constructor provided in the <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.md#ThreadPoolExecutor(int,%20int,%20long,%20java.util.concurrent.TimeUnit,%20java.util.concurrent.BlockingQueue)">default JDK ThreadPoolExecutor</a>.
 For a reminder of how the threadpool behaves, see the Queuing section of the
-<a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html">ThreadPoolExecutor documentation</a>.</p>
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.md">ThreadPoolExecutor documentation</a>.</p>
 <p>In the default Bonita BPM configuration, <code>corePoolSize</code> is equal to <code>maximumPoolSize</code> because we have observed that the default implementation
 of the threadpool executor allocates work to available threads using a round robin algorithm.
 Therefore, if the maximum is reached, the thread pool size is unlikely ever to reduce to <code>corePoolSize</code>, because work is always allocated to available threads.
@@ -208,10 +204,9 @@ This mapping between the configurations of the two threadpools depends on your p
 If you are unsure, our recommendation is to configure the two threadpools with the same values.</p>
 <p>The Connector service is configured in <code>cfg-bonita-connector-timedout.xml</code>:</p>
 <ul>
-<li></li>
+<li>Before creating a tenant:
+<em><code>bonita home</code></em><code>/engine-server/conf/tenants/tenant-template/bonita-tenant-community-custom.properties</code></li>
 </ul>
-<p>Before creating a tenant:
-<em><code>bonita home</code></em><code>/engine-server/conf/tenants/tenant-template/bonita-tenant-community-custom.properties</code></p>
 <p>and
 <em><code>bonita home</code></em><code>/engine-server/conf/tenants/tenant-template/bonita-tenant-sp-custom.properties</code></p>
 <ul>
@@ -219,8 +214,8 @@ If you are unsure, our recommendation is to configure the two threadpools with t
 <em><code>bonita home</code></em><code>/engine-server/conf/tenants/</code><em><code>tenant-id</code></em><code>/bonita-tenant-community-custom.properties</code></li>
 </ul>
 <p>and
-<em><code>bonita home</code></em><code>/engine-server/conf/tenants/</code><em><code>tenant-id</code></em><code>/bonita-tenant-sp-custom.properties</code></p>
-<p><code>Community: bonita.tenant.connector.queueCapacity=10 bonita.tenant.connector.corePoolSize=5 bonita.tenant.connector.maximumPoolSize=100 bonita.tenant.connector.keepAliveTimeSeconds=100 Subscription only: bonita.tenant.connector.timeout=300</code></p>
+<em><code>bonita home</code></em><code>/engine-server/conf/tenants/</code><em><code>tenant-id</code></em><code>/bonita-tenant-sp-custom.properties</code>
+<code>Community: bonita.tenant.connector.queueCapacity=10 bonita.tenant.connector.corePoolSize=5 bonita.tenant.connector.maximumPoolSize=100 bonita.tenant.connector.keepAliveTimeSeconds=100 Subscription only: bonita.tenant.connector.timeout=300</code></p>
 <p>For details of these parameters, see <a href="#work_service">Work service</a>.</p>
 <h3>Scheduler service</h3>
 <p>The Scheduler service is responsible for executing jobs.
@@ -250,18 +245,13 @@ The desired number of parallel processing threads is the sum of the number of wo
 <p>You need to configure the maximum pool size for datasources (the following paths are for bundle users):</p>
 <p>For Tomcat:</p>
 <ul>
-<li></li>
+<li>For bonitaSequenceManagerDS, edit <code>conf/Catalina/localhost/bonita.xml</code> and set <code>maxActive=”yourvalue”</code>.</li>
+<li>For bonitaDS, edit <code>conf/bitronix-resources.properties</code> and set <code>resource.ds1.maxPoolSize=”yourvalue”</code>.</li>
 </ul>
-<p>For bonitaSequenceManagerDS, edit <code>conf/Catalina/localhost/bonita.xml</code> and set <code>maxActive=”yourvalue”</code>.</p>
-<ul>
-<li></li>
-</ul>
-<p>For bonitaDS, edit <code>conf/bitronix-resources.properties</code> and set <code>resource.ds1.maxPoolSize=”yourvalue”</code>.</p>
 <p>For JBoss:</p>
 <ul>
-<li></li>
+<li>For both bonitaDS and bonitaSequenceManagerDS, edit <code>server/default/deploy/bonita-ds.xml</code> and set <code>yourvalue</code>.</li>
 </ul>
-<p>For both bonitaDS and bonitaSequenceManagerDS, edit <code>server/default/deploy/bonita-ds.xml</code> and set <code>yourvalue</code>.</p>
 <h2>Volume</h2>
 <p>This section deals with some aspects of engine configurations that have a performance impact in the case of high volume.</p>
 <h3>Sequence manager</h3>
@@ -287,25 +277,17 @@ To apply the configuration of those files, remove the '.notused' suffix.
 It is possible to modify the cache settings in those files for each kind of object.</p>
 <p>Before going into production, we encourage to finely tune the &quot;Level-2&quot; object cache in a pre-prod environment:</p>
 <ul>
-<li>
-<p>activate Hibernate cache statistics by setting at <strong>true</strong> the parameter <strong>hibernate.generate_statistics</strong> in file <strong>[bonita-home]/engine-server/cong/platform/bonita-platform-community-custom.properties</strong></p>
-</li>
-<li>
-<p>activate logs at INFO level:
-<code>&lt;logger name=&quot;org.bonitasoft.engine.persistence&quot; level=&quot;INFO&quot;/&gt; &lt;logger name=&quot;com.bonitasoft.engine.persistence&quot; level=&quot;INFO&quot;/&gt;</code></p>
-</li>
-<li>
-<p>run load tests to simulate a production environment</p>
-</li>
-<li>
-<p>analyse the &quot;2nd Level Cache Ratio&quot; log messages generated, combined with the &quot;soft-locked cache entry was expired&quot; <strong>warnings messages</strong> to change the configuration in file <strong>&lt;bonita-home&gt;/server/platform/conf/hibernate-cache-tenant.xml</strong>.
+<li>activate Hibernate cache statistics by setting at <strong>true</strong> the parameter <strong>hibernate.generate_statistics</strong> in file <strong>[bonita-home]/engine-server/cong/platform/bonita-platform-community-custom.properties</strong></li>
+<li>activate logs at INFO level:
+<code>&lt;logger name=&quot;org.bonitasoft.engine.persistence&quot; level=&quot;INFO&quot;/&gt; &lt;logger name=&quot;com.bonitasoft.engine.persistence&quot; level=&quot;INFO&quot;/&gt;</code></li>
+<li>run load tests to simulate a production environment</li>
+<li>analyse the &quot;2nd Level Cache Ratio&quot; log messages generated, combined with the &quot;soft-locked cache entry was expired&quot; <strong>warnings messages</strong> to change the configuration in file <strong>&lt;bonita-home&gt;/server/platform/conf/hibernate-cache-tenant.xml</strong>.
 For instance, if on entity <strong>org.bonitasoft.engine.core.document.model.impl.SDocumentImpl</strong>, the &quot;soft-locked cache entry was expired&quot; warnings message occurs, it means the size of the <strong>maxElementsInMemory</strong>
 parameter must be increased, provided it is a reasonable memory size and provided the &quot;2nd Level Cache Ratio&quot; is not low for this element. If the &quot;2nd Level Cache Ratio&quot; is low or even 0, it means the cache is never used to read several times the same entity,
-which means the <strong>timeToLiveSeconds</strong> parameter should be increased, or that the cache should be completely deactivated for this entity.</p>
-</li>
+which means the <strong>timeToLiveSeconds</strong> parameter should be increased, or that the cache should be completely deactivated for this entity.</li>
 </ul>
-<p>Below is an example of a &quot;soft-locked cache entry was expired&quot; warning message:</p>
-<p><code>WARNING: Cache org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl Key org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl#org.bonitasoft.engine.persistence.PersistentObjectId@25505ff Lockable : null A soft-locked cache entry was expired by the underlying Ehcache. If this happens regularly you should consider increasing the cache timeouts and/or capacity limits</code></p>
+<p>Below is an example of a &quot;soft-locked cache entry was expired&quot; warning message:
+<code>WARNING: Cache org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl Key org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl#org.bonitasoft.engine.persistence.PersistentObjectId@25505ff Lockable : null A soft-locked cache entry was expired by the underlying Ehcache. If this happens regularly you should consider increasing the cache timeouts and/or capacity limits</code></p>
 <h3>Application cache</h3>
 <p>Bonita BPM Engine uses an application cache to store specific objects. The default implementation of this service relies on EhCache. It is configured in these files:</p>
 <ul>
@@ -314,8 +296,8 @@ which means the <strong>timeToLiveSeconds</strong> parameter should be increased
 <li><em><code>bonita home</code></em><code>/engine-server/conf/platform/bonita-platform-sp-cluster-custom.properties</code></li>
 <li><em><code>bonita home</code></em><code>/engine-server/conf/tenants/tenant-template/bonita-tenant-sp-cluster-custom.properties</code></li>
 </ul>
-<p>The following cache configurations can be defined:</p>
-<p>Configuration
+<p>The following cache configurations can be defined:
+Configuration
 Purpose</p>
 <p>connectorCacheConfig
 stores connector implementations for a given connector definition</p>
@@ -339,7 +321,7 @@ used to store platform object, which contains general platform information such 
 stores process parameters</p>
 <h3>Java Virtual Machine</h3>
 <p>You can configure the JVM settings for the engine to tune performance.
-Check the <a href="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html">JVM documentation</a> for details of the available settings.</p>
+Check the <a href="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.md">JVM documentation</a> for details of the available settings.</p>
 <p>Notably, we recommend you to set the initial (<code>-Xms</code>) and maximum (<code>-Xmx</code>) heap sizes to the same value.
 This reduces the likelihood of the JVM garbage collector starting.
 While the garbage collector is running, it prevents creation of new objects, which slows down the application server.</p>
@@ -366,8 +348,8 @@ In most cases, the key things to consider are the <a href="#db">database</a>, <a
 memory or others depending on your database instance.</p>
 <p>In addition to this, make sure that your database instance is well configured.
 Most database software provides many options for tuning, and some of them are easy to set up.
-Others may be more difficult and present choices between robustness and performance, fast read or fast write, etc.</p>
-<p>Your database configuration must be correlated with the Bonita BPM Engine usage pattern.
+Others may be more difficult and present choices between robustness and performance, fast read or fast write, etc.
+Your database configuration must be correlated with the Bonita BPM Engine usage pattern.
 To find the right characteristic to optimize, one good starting point is to consider whether you are creating a lot of process instances
 (in which case optimize database writes) or you are executing a lot of read queries like <code>getTaskList</code> (in which case optimize database reads).</p>
 <h3>Transaction manager</h3>
@@ -378,7 +360,7 @@ Otherwise, you have to embed a transaction manager (for example, we embed Bitron
 For example, in <a href="https://github.com/bitronix/btm/wiki/JDBC-pools-configuration">Bitronix</a> you can configure some options for the transaction journal.</p>
 <h3>Logs</h3>
 <p>In general, increasing the log level is useful for debugging but has a performance cost.
-With this in mind, <a href="/set-log-and-archive-levels.md">define the log level for technical logs, queriable logs and archives</a>.</p>
+With this in mind, <a href="set-log-and-archive-levels.md">define the log level for technical logs, queriable logs and archives</a>.</p>
 <p>Remember that Bonita BPM Engine dependencies also have their own log and debug options that may impact strongly the system performance.
 Be sure to configure these appropriately.</p>
 <h2>Connector time tracker</h2>
@@ -387,13 +369,9 @@ This service can impact performance so is disabled by default.
 It is configured in <em><code>bonita_home</code></em> by editing <code>/engine-server/conf/tenants/tenant-template/bonita-tenant-community-custom.properties</code> and <code>/engine-server/conf/tenants/tenant-template/bonita-tenants-custom.xml</code>.
 To activate connector time tracking:</p>
 <ol>
-<li></li>
+<li>Change the value of <code>startFlushThread</code> from <code>false</code> to <code>true</code>.</li>
+<li>Uncomment 'flushEventListeners' and 'activatedRecords' beans.</li>
 </ol>
-<p>Change the value of <code>startFlushThread</code> from <code>false</code> to <code>true</code>.</p>
-<ol start="2">
-<li></li>
-</ol>
-<p>Uncomment 'flushEventListeners' and 'activatedRecords' beans.</p>
 <h2>Process design, event handlers, and cron jobs</h2>
 <h3>Process design</h3>
 <p>There are several things you can do during the process design to reduce performance overheads.
@@ -404,29 +382,25 @@ Consider carefully your usage of connectors, groovy scripts, XML and serializabl
 You can add event handlers for several purposes and you can configure which events you want to catch.
 We strongly recommend that you add only appropriate handlers and carefully code the handler filters to handle only those events that you are interested in.</p>
 <h3>Cron jobs</h3>
-<p>Bonita BPM Engine uses the <a href="/bonita-bpm-engine-architecture.md#scheduler">Scheduler service</a> to trigger jobs in a recurrent manner.</p>
+<p>Bonita BPM Engine uses the <a href="engine-architecture-overview.md#scheduler">Scheduler service</a> to trigger jobs in a recurrent manner.</p>
 <p>The Bonita BPM Scheduler service implementation uses the Quartz Scheduler.
 A cron job in Quartz can run at maximum every second (you cannot set a lower value than 1 second).
 Three cron jobs are defined:</p>
 <ul>
 <li>Event handling. This job processes BPMN2 messages. It runs every 5 seconds by default.
-If you want your process instances to react faster, you can reduce this value.</li>
-</ul>
-<p>Property name: <code>org.bonitasoft.engine.cron</code></p>
-<ul>
+If you want your process instances to react faster, you can reduce this value.<br>
+Property name: <code>org.bonitasoft.engine.cron</code></li>
 <li>Delete dirty objects. This job cleans objects that have been tagged as <em>dirty</em>.
 To increase performance, during process instance execution, Bonita BPM Engine tags some frequently used objects as <em>dirty</em> instead of deleting them.
 This is done like this to reduce contention on database.
-Those dirty objects have to be cleaned periodically and this is done by default every 5 minutes.</li>
-</ul>
-<p>Property name: <code>delete.job.frequency</code></p>
-<ul>
+Those dirty objects have to be cleaned periodically and this is done by default every 5 minutes.<br>
+Property name: <code>delete.job.frequency</code></li>
 <li>Delete invalid sessions. This job cleans Bonita BPM Engine sessions kept in memory.
 It iterates over engine sessions and removes any that are invalid. By default this is done every 2 hours.
 If you are creating a lot of new sessions in a short time, increase this frequency to avoid allocating too much memory to those
-invalid sessions and to avoid out-of-memory errors.</li>
+invalid sessions and to avoid out-of-memory errors.<br>
+Property name: <code>org.bonitasoft.engine.clean.invalid.sessions.cron</code></li>
 </ul>
-<p>Property name: <code>org.bonitasoft.engine.clean.invalid.sessions.cron</code></p>
 <p>These property values are configured in <em><code>bonita_home</code></em><code>/server/platform/conf/bonita-platform.properties</code> and are used to initialize the Quartz trigger tables the first time that the Engine starts.
 They are not read subsequently, so changing the values in <code>bonita-platform.properties</code> after the Engine has been started has no effect on Quartz.
 For value definition, and information about how to update the Quartz trigger tables, see the <a href="http://quartz-scheduler.org/documentation">Quartz documentation</a> about Cron Triggers.</p>

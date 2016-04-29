@@ -3,9 +3,9 @@
 <p><strong><a href="#intro">Workspaces and repositories</a></strong></p>
 <blockquote>
 <p><a href="#switch_workspace">Switch workspace</a></p>
+</blockquote>
 <blockquote>
 <p><a href="#create_local">Create a local repository</a></p>
-</blockquote>
 </blockquote>
 <p><strong><a href="#shared">Use a shared repository</a></strong></p>
 <blockquote>
@@ -59,22 +59,12 @@ or <strong><em>Cancel</em></strong> to continue in your current session.</li>
 The repository is created in your current workspace.</p>
 <p>To create a local repository:</p>
 <ol>
-<li>
-<p>Go to the <strong>Repository</strong> menu, choose <strong>Local</strong>, then choose <strong>Create new local repository</strong>.</p>
-</li>
-<li>
-<p>Specify a name for the new repository.</p>
-</li>
-<li>
-<p>Click <strong><em>OK</em></strong> .</p>
-</li>
-<li>
-<p>A status window shows the progress of the repository being built.
-When the repository has been successfully created, a message shows you are working with the new local repository.</p>
-</li>
-<li>
-<p>Click on <strong><em>OK</em></strong> to finish.</p>
-</li>
+<li>Go to the <strong>Repository</strong> menu, choose <strong>Local</strong>, then choose <strong>Create new local repository</strong>.</li>
+<li>Specify a name for the new repository.</li>
+<li>Click <strong><em>OK</em></strong> .</li>
+<li>A status window shows the progress of the repository being built.
+When the repository has been successfully created, a message shows you are working with the new local repository.</li>
+<li>Click on <strong><em>OK</em></strong> to finish.</li>
 </ol>
 <p>A new local repository is created. A new directory with the same name as the repository is added to your local workspace folder.</p>
 <p>In Bonita BPM Studio, you can see the new repository name shown at the top left, in the title bar.</p>
@@ -93,69 +83,29 @@ This includes applications and custom profiles. To share these artifacts, export
 <h3>Create a shared repository</h3>
 <p>There are two stages to creating a repository: connect to the SVN server, then specify the name of the new repository. Follow these steps:</p>
 <ol>
-<li>
-<p>In the <strong>Repository</strong> menu, choose <strong>Team</strong>.</p>
-</li>
-<li>
-<p>Click on <strong>Connect to the repository</strong>.</p>
-</li>
-<li>
-<p>In the Create a new connection window, enter the URL, username, and password in the appropriate fields.</p>
-</li>
-<li>
-<p>Click <strong><em>Next</em></strong> to connect to the remote SVN server.</p>
-</li>
-<li>
-<p>From time to time, depending on your system and network security setup, you may be asked to confirm security credentials.</p>
-</li>
-<li>
-<p>A popup displays a list of the existing Bonita repositories available on the SVN server.</p>
-</li>
-</ol>
-<ol start="7">
-<li>
-<p>Click on the button <strong><em>Create a new Bonita repository</em></strong>.</p>
-</li>
-<li>
-<p>In the window, Repository name, give the repository a name e.g &quot;my_new_repository&quot;.</p>
-</li>
-<li>
-<p>Click on <strong><em>OK</em></strong>.</p>
-</li>
+<li>In the <strong>Repository</strong> menu, choose <strong>Team</strong>.</li>
+<li>Click on <strong>Connect to the repository</strong>.</li>
+<li>In the Create a new connection window, enter the URL, username, and password in the appropriate fields.</li>
+<li>Click <strong><em>Next</em></strong> to connect to the remote SVN server.</li>
+<li>From time to time, depending on your system and network security setup, you may be asked to confirm security credentials.</li>
+<li>A popup displays a list of the existing Bonita repositories available on the SVN server.</li>
+<li>Click on the button <strong><em>Create a new Bonita repository</em></strong>.</li>
+<li>In the window, Repository name, give the repository a name e.g &quot;my_new_repository&quot;.</li>
+<li>Click on <strong><em>OK</em></strong>.</li>
 </ol>
 <p>The new repository is created locally and copied remotely to the SVN server. You can configure synchronization for this new shared repository.</p>
 <h3>Connect to a shared repository</h3>
 <p>To connect to a shared repository, follow these steps:</p>
 <ol>
-<li>
-<p>In the <strong>Repository</strong> menu, choose <strong>Team</strong>.</p>
-</li>
-<li>
-<p>Click on <strong>Connect to the repository</strong>.</p>
-</li>
-<li>
-<p>In the Create a new connection window, enter the URL, username, and password in the appropriate fields.</p>
-</li>
-<li>
-<p>Click on <strong><em>Next</em></strong> to connect to the remote SVN server.</p>
-</li>
-<li>
-<p>From time to time, depending on your system and network security setup, you may be asked to confirm security credentials.</p>
-</li>
-<li>
-<p>A popup displays a list of the existing Bonita repositories available on the SVN server.</p>
-</li>
-</ol>
-<ol start="7">
-<li>
-<p>Select the name of the repository, and click <strong><em>Connect</em></strong>.</p>
-</li>
-<li>
-<p>A message is displayed, showing that you are connected to the shared repository. You can see the name of repository at the top left, in the title bar.</p>
-</li>
-<li>
-<p>Click on <strong><em>OK</em></strong>.</p>
-</li>
+<li>In the <strong>Repository</strong> menu, choose <strong>Team</strong>.</li>
+<li>Click on <strong>Connect to the repository</strong>.</li>
+<li>In the Create a new connection window, enter the URL, username, and password in the appropriate fields.</li>
+<li>Click on <strong><em>Next</em></strong> to connect to the remote SVN server.</li>
+<li>From time to time, depending on your system and network security setup, you may be asked to confirm security credentials.</li>
+<li>A popup displays a list of the existing Bonita repositories available on the SVN server.</li>
+<li>Select the name of the repository, and click <strong><em>Connect</em></strong>.</li>
+<li>A message is displayed, showing that you are connected to the shared repository. You can see the name of repository at the top left, in the title bar.</li>
+<li>Click on <strong><em>OK</em></strong>.</li>
 </ol>
 <p>The first time you connect to a repository, you might get a security warning.
 Configure security for the connection according to your organization's security policy.</p>
@@ -163,10 +113,7 @@ Configure security for the connection according to your organization's security 
 <p>Before you change to a different repository, make sure you have saved your work.</p>
 <p>To change repository, follow these steps:</p>
 <ol>
-<li></li>
-</ol>
-<p>In the <strong>Repository</strong> menu, choose <strong>Change the repository</strong>.</p>
-<ol start="2">
+<li>In the <strong>Repository</strong> menu, choose <strong>Change the repository</strong>.</li>
 <li>A list of the available repositories is displayed. These are the local and shared repositories in your current workspace.</li>
 <li>Select the repository to switch to, and click <strong><em>OK</em></strong>.</li>
 <li>A confirmation message is displayed when you are working in the new location.

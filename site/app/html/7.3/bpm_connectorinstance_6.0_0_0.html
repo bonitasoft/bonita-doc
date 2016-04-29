@@ -1,0 +1,84 @@
+<h2>connectorInstance</h2>
+<h3>Description</h3>
+<p>Retrieve information about connector instances attached to a process or a flow node.</p>
+<h3>Representation</h3>
+<p>Returns a JSON array of connector details:</p>
+<pre><code>{
+&quot;containerType&quot;:&quot;_string_&quot;,
+&quot;connectorId&quot;:&quot;_string_&quot;,
+&quot;id&quot;:&quot;_number_&quot;,
+&quot;name&quot;:&quot;_string_&quot;,
+&quot;activationEvent&quot;:&quot;_string_&quot;,
+&quot;state&quot;:&quot;_string_&quot;,
+&quot;containerId&quot;:&quot;_number_&quot;,
+&quot;version&quot;:&quot;_string_&quot;
+}
+</code></pre>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>GET - returns a JSON array of connector details</li>
+</ul>
+<h3>Retrieve a list of connector instances attached to a process or a flow node</h3>
+<p>Request url
+http://../API/bpm/connectorInstance</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload</p>
+<p>empty</p>
+<p>Response payload</p>
+<p>A list of connector details</p>
+<h4>Parameters</h4>
+<ul>
+<li>f=containerId%3d_long_. The container ID of the process or flow node.</li>
+</ul>
+<h4>Example</h4>
+<h3>Retrieve information about connectors attached to a flow node</h3>
+<p>Get information about flow node with instanceId 15.
+Request url
+GET |/API/bpm/connectorInstance?p=0&amp;c=10&amp;f=containerId%3d15</p>
+<p>Request payload
+empty</p>
+<p>Response payload</p>
+<pre><code>[
+{
+	&quot;containerType&quot;:&quot;flowNode&quot;,
+    &quot;connectorId&quot;:&quot;scripting-groovy-script&quot;,
+    &quot;id&quot;:&quot;3&quot;,  
+&quot;name&quot;:&quot;hello world&quot;,
+    &quot;activationEvent&quot;:&quot;ON_FINISH&quot;,
+    &quot;state&quot;:&quot;TO_BE_EXECUTED&quot;,
+    &quot;containerId&quot;:&quot;15&quot;,
+    &quot;version&quot;:&quot;1.0.0&quot;
+},
+{
+	&quot;containerType&quot;:&quot;flowNode&quot;,
+    &quot;connectorId&quot;:&quot;webservice&quot;,
+    &quot;id&quot;:&quot;4&quot;,
+    &quot;name&quot;:&quot;webService&quot;,
+    &quot;activationEvent&quot;:&quot;ON_FINISH&quot;,
+    &quot;state&quot;:&quot;TO_BE_EXECUTED&quot;,
+    &quot;containerId&quot;:&quot;15&quot;,
+    &quot;version&quot;:&quot;1.0.0&quot;
+}
+]
+</code></pre>
+<h3>Retrieve information about connectors attached to a process instance</h3>
+<p>Get information about process instance with instanceId 4781948523999597477.
+Request url
+GET |/API/bpm/connectorInstance?p=0&amp;c=10&amp;f=id%3d4781948523999597477</p>
+<p>Request payload
+empty</p>
+<p>Response payload</p>
+<pre><code>[
+{
+&quot;containerType&quot;:&quot;process&quot;,
+&quot;connectorId&quot;:&quot;database-access&quot;,
+&quot;id&quot;:&quot;8&quot;,
+&quot;name&quot;:&quot;my connector&quot;,
+&quot;activationEvent&quot;:&quot;ON_FINISH&quot;,
+&quot;state&quot;:&quot;TO_BE_EXECUTED&quot;,
+&quot;containerId&quot;:&quot;4781948523999597477&quot;,
+&quot;version&quot;:&quot;1.0.0&quot;
+}
+]</code></pre>

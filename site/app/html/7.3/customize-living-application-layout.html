@@ -1,12 +1,12 @@
 <h1>4.8 Customize the existing living application Layout</h1>
-<p>Has it is explained in the <a href="/layouts">layouts</a> documentation, it is possible to customize the existing application layout using the UI designer.</p>
+<p>Has it is explained in the <a href="layouts.md">layouts</a> documentation, it is possible to customize the existing application layout using the UI designer.</p>
 <p>For example, you could:</p>
 <ul>
 <li>add a login box</li>
 <li>change the menu to add a side menu</li>
 <li>add a footer</li>
 </ul>
-<p>Prerequisites to custumize the existing living application layout:</p>
+<p>Prerequisites to customize the existing living application layout:</p>
 <ul>
 <li>Basic knowledge of Java script</li>
 <li>Basic knowledge of angular</li>
@@ -51,24 +51,18 @@ As an example, they show the steps to follows to convert the existing applicatio
 <p>into the UI designer:</p>
 <ol>
 <li>click on <strong>Living application menu</strong> widget to open the widget editor.</li>
-<li></li>
+<li>replace the template by using the following one:
+`</li>
 </ol>
-<p>replace the template by using the following one:
-`</p>
 <ul>
-<li>
-<pre><code>				{{menu.displayName}} 
-				{{menu.displayName}}
-</code></pre>
+<li>{{menu.displayName}}
+{{menu.displayName}}
 <ul>
-<li>
-<pre><code>					{{childMenu.displayName}}
-</code></pre>
-</li>
+<li>{{childMenu.displayName}}
+`</li>
 </ul>
 </li>
 </ul>
-<p>`</p>
 <ol start="3">
 <li>click on <strong>Save</strong>.</li>
 <li>Return to the UI designer home page.</li>

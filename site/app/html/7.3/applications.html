@@ -30,18 +30,18 @@ This means that you can rapidly adapt an application to your changing business n
 <h2>Application definition</h2>
 <p>An application is a collection of pages and processes that meets a business need. It contains some or all of the following:</p>
 <ul>
-<li><a href="pages">Pages</a>: the user interface components of the application. An application must contain at least one page.</li>
-<li><a href="/processes.md">Processes</a>: the logic execution components of the application. An application must contain at least one process. A process can contain <a href="/forms">forms</a>, which are the user interface of the process.</li>
-<li><a href="/rest-api-extensions">REST API extensions</a>: called from pages or forms to retrieve data to be presented to the user.</li>
-<li><a href="/layouts">Layout</a>: the frame in which application pages are displayed.</li>
-<li><a href="/theme-resources">Theme</a>: the appearance of application pages, including fonts and colors.</li>
+<li><a href="pages.md">Pages</a>: the user interface components of the application. An application must contain at least one page.</li>
+<li><a href="processes.md">Processes</a>: the logic execution components of the application. An application must contain at least one process. A process can contain <a href="forms.md">forms</a>, which are the user interface of the process.</li>
+<li><a href="rest-api-extensions.md">REST API extensions</a>: called from pages or forms to retrieve data to be presented to the user.</li>
+<li><a href="layouts.md">Layout</a>: the frame in which application pages are displayed.</li>
+<li><a href="themes.md">Theme</a>: the appearance of application pages, including fonts and colors.</li>
 </ul>
 <h2>Application prerequisites</h2>
 <p>An application requires the following to be available:</p>
 <ul>
-<li>The <a href="/bdm-management-bonita-bpm-portal.md">business data model</a> (BDM) must be deployed</li>
-<li>The <a href="/organization-portal-overview.md">organization</a> data must be deployed, so that application users can log in.</li>
-<li>The access <a href="/rest-api-authorization.md">authorizations</a> that grant users access to the application resources must be defined.</li>
+<li>The <a href="bdm-management-in-bonita-bpm-portal.md">business data model</a> (BDM) must be deployed</li>
+<li>The <a href="organization-in-bonita-bpm-portal-overview.md">organization</a> data must be deployed, so that application users can log in.</li>
+<li>The access <a href="rest-api-authorization.md">authorizations</a> that grant users access to the application resources must be defined.</li>
 </ul>
 <h2>Developing an application</h2>
 <p>When developing an application there are three independent factors to consider:</p>
@@ -60,15 +60,9 @@ There is a default application home page that you can adapt or replace.</p>
 <p>You can also create a custom profile to use for creating an application. This profile must have access to the Applications page to create the application.
 To test the application, the user currently logged in must have the profile defined in the application.</p>
 <ol>
-<li>
-<p>In the menu bar, click <strong>Applications</strong>. The Applications list page is displayed, showing the applications already defined.</p>
-</li>
-<li>
-<p>Click <strong><em>New</em></strong>. The <strong>Create an Application</strong> popup is displayed.</p>
-</li>
-<li>
-<p>In the popup, specify information about the application:</p>
-</li>
+<li>In the menu bar, click <strong>Applications</strong>. The Applications list page is displayed, showing the applications already defined.</li>
+<li>Click <strong><em>New</em></strong>. The <strong>Create an Application</strong> popup is displayed.</li>
+<li>In the popup, specify information about the application:</li>
 </ol>
 <ul>
 <li><strong>Display name</strong>: The user-friendly name that will be used in Bonita BPM Portal to identify the application.</li>
@@ -84,7 +78,7 @@ To test the application, the user currently logged in must have the profile defi
 However, at this stage the application contains only the default home page. You must specify the pages in the application, and then define the navigation.</p>
 <p><strong>Note:</strong> When you define the URL token for an application, you cannot use &quot;API&quot;,&quot;content&quot; or &quot;theme&quot; (case insensitive). Those words are reserved for internal use.</p>
 <h3>Specifying application layout (Subscription editions)</h3>
-<p>Each application is associated with a <a href="/layouts">layout</a> that defines the main frame of this application.</p>
+<p>Each application is associated with a <a href="layouts.md">layout</a> that defines the main frame of this application.</p>
 <p>To specify the application layout:</p>
 <ol>
 <li>In the menu bar, click <strong>Applications</strong>. The Applications list page is displayed.</li>
@@ -95,7 +89,7 @@ However, at this stage the application contains only the default home page. You 
 <li>Click on the validate button.</li>
 </ol>
 <h3>Specifying application theme (Subscription editions)</h3>
-<p>Each application is associated with a <a href="/theme-resources">theme</a> that defines the application appearance. All pages developed with the <a href="/ui-designer-overview">UI Designer</a> will automatically benefit of application theme.
+<p>Each application is associated with a <a href="themes.md">theme</a> that defines the application appearance. All pages developed with the <a href="ui-designer-overview.md">UI Designer</a> will automatically benefit of application theme.
 If you develop pages by yourself you need to include the following line in your source to get theme working ``.</p>
 <p>To specify the application theme:</p>
 <ol>
@@ -107,23 +101,15 @@ If you develop pages by yourself you need to include the following line in your 
 <li>Click on the validate button.</li>
 </ol>
 <h3>Specifying application pages</h3>
-<p>When you specify application pages, you create a mapping between the application and the <a href="/custom-pages.md">pages</a> it contains. The pages themselves must already exist.</p>
+<p>When you specify application pages, you create a mapping between the application and the <a href="pages.md">pages</a> it contains. The pages themselves must already exist.</p>
 <p>To specify the application pages:</p>
 <ol>
-<li>
-<p>In the menu bar, click <strong>Applications</strong>. The Applications list page is displayed.</p>
-</li>
-<li>
-<p>Click the edit icon (...) for the application you want to edit. The application details page is displayed.</p>
-</li>
-<li>
-<p>Go to the Pages zone. You can <strong>add a page</strong> by clicking <strong><em>Add</em></strong> and choosing a page from the popup list, and define the URL token for this page.
+<li>In the menu bar, click <strong>Applications</strong>. The Applications list page is displayed.</li>
+<li>Click the edit icon (...) for the application you want to edit. The application details page is displayed.</li>
+<li>Go to the Pages zone. You can <strong>add a page</strong> by clicking <strong><em>Add</em></strong> and choosing a page from the popup list, and define the URL token for this page.
 You can <strong>remove a page</strong> by clicking the trashcan icon for that page.
-The pages are listed in alphabetical order.</p>
-</li>
-<li>
-<p>Select the page that will be the application home page. The default home page is selected by default. To change this, click the Home icon on the row of the relevant page.</p>
-</li>
+The pages are listed in alphabetical order.</li>
+<li>Select the page that will be the application home page. The default home page is selected by default. To change this, click the Home icon on the row of the relevant page.</li>
 </ol>
 <p><strong>Note:</strong> When you define the URL token for a page, you cannot use &quot;API&quot;,&quot;content&quot; or &quot;theme&quot; (case insensitive). Those words are reserved for internal use.</p>
 <h3>Defining application navigation</h3>
@@ -135,14 +121,8 @@ At the top level, you can specify two types of item:</p>
 </ul>
 <p>To specify the application navigation:</p>
 <ol>
-<li>
-<p>In the menu bar, click <strong>Applications</strong>. The Applications list page is displayed.</p>
-</li>
-<li>
-<p>Click the edit icon (...) for the application you want to edit. The application details page is displayed.</p>
-</li>
-</ol>
-<ol start="3">
+<li>In the menu bar, click <strong>Applications</strong>. The Applications list page is displayed.</li>
+<li>Click the edit icon (...) for the application you want to edit. The application details page is displayed.</li>
 <li>Go to the Navigation zone. For example:</li>
 </ol>
 <p><img src="images/images-6_0/living_app_navigation.png" alt="Specifying application navigation"></p>
@@ -198,7 +178,7 @@ If you are setting up a new production environment by importing all the data, im
 <li>processes (including forms)</li>
 <li>applications</li>
 </ul>
-<p>You will also need to apply any <a href="/rest-api-authorization.md">custom authorization</a> definitions.</p>
+<p>You will also need to apply any <a href="rest-api-authorization.md">custom authorization</a> definitions.</p>
 <p>To import applications:</p>
 <ol>
 <li>Go to the <strong>Applications</strong> page. The list of applications is displayed.</li>
@@ -215,12 +195,8 @@ If the specified layout and/or theme is not present, the application is created 
 <p>There are two aspects to updating an application: changing the application definition and changing the resources.</p>
 <h3>Updating an application definition</h3>
 <ol>
-<li>
-<p>In the menu bar, click <strong>Applications</strong>. The Applications list page is displayed.</p>
-</li>
-<li>
-<p>Click the Edit icon (...) for the application you want to edit. The application details page is displayed. From this page, you can edit the application metadata, layout, theme, pages, and navigation.</p>
-</li>
+<li>In the menu bar, click <strong>Applications</strong>. The Applications list page is displayed.</li>
+<li>Click the Edit icon (...) for the application you want to edit. The application details page is displayed. From this page, you can edit the application metadata, layout, theme, pages, and navigation.</li>
 </ol>
 <ul>
 <li>To edit the metadata, click the Edit button. In the popup, modify the information about the application, then click <strong><em>Save</em></strong>.</li>
@@ -232,10 +208,10 @@ Note that if you remove a page, the related menu items are automatically removed
 You can reorder menus and menu items by dragging and dropping them.</li>
 </ul>
 <h3>Updating application resources</h3>
-<p>Some resources of an application can be updated live without needing to stop the processes or require users to log out of the application. <a href="/live-update">Live update</a> is primarily intended for rapid deployment of updates in a pre-production test environment. It can be used to deploy updates in a production environment, but in most production environments applications and their components are versioned, so a planned roll-out is more typical.</p>
+<p>Some resources of an application can be updated live without needing to stop the processes or require users to log out of the application. <a href="live-update.md">Live update</a> is primarily intended for rapid deployment of updates in a pre-production test environment. It can be used to deploy updates in a production environment, but in most production environments applications and their components are versioned, so a planned roll-out is more typical.</p>
 <p>You can use live update for the following resources:</p>
 <ul>
-<li><a href="/live-update#forms">Pages and forms</a></li>
-<li><a href="/live-update#parameters">Parameters</a></li>
-<li><a href="/live-update#connectors">Connectors</a></li>
+<li><a href="live-update.md#forms">Pages and forms</a></li>
+<li><a href="live-update.md#parameters">Parameters</a></li>
+<li><a href="live-update.md#connectors">Connectors</a></li>
 </ul>

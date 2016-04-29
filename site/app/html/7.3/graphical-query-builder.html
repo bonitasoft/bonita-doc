@@ -16,68 +16,38 @@ From the <strong>Query</strong> tab, you can go back to the graphical view by cl
 <h3>Create a select query</h3>
 <p>Use a select query to get information out of the database. To define a select query:</p>
 <ol>
-<li></li>
-</ol>
-<p>Specify the table, by clicking <strong><em>Add a table...</em></strong> and selecting the table from the list in the popup. The query builder shows the columns of the database table.</p>
-<ol start="2">
-<li>
-<p>Check the column or columns from which you want to retrieve the values.</p>
-</li>
-<li>
-<p>If you want to ignore duplicate values and retrieve only the distinct values, check the <strong>DISTINCT</strong> box.</p>
-</li>
-<li>
-<p>Optionally, set a condition on the values to be retrieved.
+<li>Specify the table, by clicking <strong><em>Add a table...</em></strong> and selecting the table from the list in the popup. The query builder shows the columns of the database table.</li>
+<li>Check the column or columns from which you want to retrieve the values.</li>
+<li>If you want to ignore duplicate values and retrieve only the distinct values, check the <strong>DISTINCT</strong> box.</li>
+<li>Optionally, set a condition on the values to be retrieved.
 If you do not set a condition, you will get all the values from the selected columns (with or without duplicates, depending on the DISTINCT setting).
-Setting a condition is a way of choosing the rows from which you want to get the value from the specified column.</p>
-</li>
+Setting a condition is a way of choosing the rows from which you want to get the value from the specified column.</li>
 </ol>
 <p>You can also specify groups to group the selected values, and group conditions to filter the results based on the value of a database element.</p>
 <h3>Create an update query</h3>
 <p>An update query modifies a value in the database. To define an update query:</p>
 <ol>
-<li>
-<p>Specify the table, by clicking <strong><em>Add a table...</em></strong> and selecting the table from the list in the popup. The query builder shows the columns of the database table.</p>
-</li>
-<li>
-<p>Check the column or columns where you want to update the values.</p>
-</li>
-<li>
-<p>Optionally, go to the <strong>Where</strong> tab and specify a condition to identify the specific row to be updated.</p>
-</li>
-<li>
-<p>Go to the <strong>Set</strong> tab and specify how the identified value is to be updated:</p>
-</li>
-<li>
-<p>In the left-hand list, select the item to be updated.</p>
-</li>
-<li>
-<p>Click the right-arrow to move it to the <strong>Update Column</strong> list.</p>
-</li>
-<li>
-<p>In the <strong>Expression</strong> column, specify the new value for the item.
+<li>Specify the table, by clicking <strong><em>Add a table...</em></strong> and selecting the table from the list in the popup. The query builder shows the columns of the database table.</li>
+<li>Check the column or columns where you want to update the values.</li>
+<li>Optionally, go to the <strong>Where</strong> tab and specify a condition to identify the specific row to be updated.</li>
+<li>Go to the <strong>Set</strong> tab and specify how the identified value is to be updated:</li>
+<li>In the left-hand list, select the item to be updated.</li>
+<li>Click the right-arrow to move it to the <strong>Update Column</strong> list.</li>
+<li>In the <strong>Expression</strong> column, specify the new value for the item.
 This can be a constant entered directly, the value of a field, or the value of a process variable.
-You can also specify DEFAULT to set the value to the default defined in the database.</p>
-</li>
+You can also specify DEFAULT to set the value to the default defined in the database.</li>
 </ol>
 <h3>Create an insert query</h3>
 <p>An insert query adds a new entry to the database. To define an insert query:</p>
 <ol>
-<li>
-<p>Specify the table, by clicking <strong><em>Add a table...</em></strong> and selecting the table from the list in the popup. The query builder shows the columns of the database table.</p>
-</li>
-<li>
-<p>Check the column or columns to include in the new entry. They are added to the <strong>Column</strong> column in the table. The default value, if one is defined, is shown in the <strong>Value</strong> column.
-In the <strong>Value</strong> column, specify the value to be added for each item. A value can be specified directly as a constant, or can be a process variable or a field value.</p>
-</li>
+<li>Specify the table, by clicking <strong><em>Add a table...</em></strong> and selecting the table from the list in the popup. The query builder shows the columns of the database table.</li>
+<li>Check the column or columns to include in the new entry. They are added to the <strong>Column</strong> column in the table. The default value, if one is defined, is shown in the <strong>Value</strong> column.
+In the <strong>Value</strong> column, specify the value to be added for each item. A value can be specified directly as a constant, or can be a process variable or a field value.</li>
 </ol>
 <h3>Create a Delete query</h3>
 <p>A delete query removes an entry from the database. To define a delete query:</p>
 <ol>
-<li></li>
-</ol>
-<p>Specify the table, by clicking <strong><em>Add a table...</em></strong> and selecting the table from the list in the popup. The query builder shows the columns of the database table.</p>
-<ol start="2">
+<li>Specify the table, by clicking <strong><em>Add a table...</em></strong> and selecting the table from the list in the popup. The query builder shows the columns of the database table.</li>
 <li>Specify a condition to identify the entry or entries to be deleted:</li>
 <li>In the <strong>Column</strong> column, specify the column name. This can be specified directly, or can be a field value or a variable.</li>
 <li>In the <strong>Operator</strong> column, choose the logical operator.</li>

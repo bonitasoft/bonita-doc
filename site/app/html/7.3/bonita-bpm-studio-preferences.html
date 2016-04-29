@@ -72,7 +72,7 @@ setting and use a different browser.</li>
 <h3>Other preferences</h3>
 <p>Advanced</p>
 <ul>
-<li>SVN connector: the SVN connector used if you are using a remote SVN <a href="/workspaces-and-repositories.md">&quot;repository</a>. Note: if you change this your local working copy might become unstable.
+<li>SVN connector: the SVN connector used if you are using a remote SVN <a href="workspaces-and-repositories.md">&quot;repository</a>. Note: if you change this your local working copy might become unstable.
 To avoid this, commit any outstanding changes before you modify the connector setting, and reinitialize your local working copy after the update.</li>
 </ul>
 <p>6.x legacy</p>
@@ -86,8 +86,7 @@ To avoid this, commit any outstanding changes before you modify the connector se
 <h2>Bonita BPM Studio embedded Tomcat configuration</h2>
 <h3>Default configuration</h3>
 <ul>
-<li>
-<p>Embedded Tomcat listens on the following ports:</p>
+<li>Embedded Tomcat listens on the following ports:
 <ul>
 <li>8080: HTTP. This value can be modified using Bonita BPM Studio preferences (see above).</li>
 <li>8006: shutdown.</li>
@@ -95,8 +94,7 @@ To avoid this, commit any outstanding changes before you modify the connector se
 <li>9091: embedded h2 database server.</li>
 </ul>
 </li>
-<li>
-<p>Bonita BPM Studio also uses the following port:</p>
+<li>Bonita BPM Studio also uses the following port:
 <ul>
 <li>6969: watchdog</li>
 </ul>
@@ -105,15 +103,9 @@ To avoid this, commit any outstanding changes before you modify the connector se
 <h3>Changing the configuration</h3>
 <p>You might need to edit the Tomcat configuration files for example to:</p>
 <ul>
-<li>
-<p><a href="/logging.md">Configure logging</a></p>
-</li>
-<li>
-<p>Change listening ports (shutdown, AJP, h2) to prevent conflicts</p>
-</li>
-<li>
-<p>Declare a datasource to connect to a business database</p>
-</li>
+<li><a href="logging.md">Configure logging</a></li>
+<li>Change listening ports (shutdown, AJP, h2) to prevent conflicts</li>
+<li>Declare a datasource to connect to a business database</li>
 </ul>
 <p>The Tomcat configuration files are located in the Bonita BPM Studio
 <code>workspace/tomcat/conf</code>

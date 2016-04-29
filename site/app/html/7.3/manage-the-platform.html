@@ -13,7 +13,7 @@ PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(platformSession);<b
 <p><strong>Create the platform</strong> by calling the createPlatform method. This will create the database structure and put the platform state into persistent storage.
 <code>// create the platform platformAPI.createPlatform();</code></p>
 <p>The next step is to <strong>initialize the platform</strong>, that is, create the default tenant and initialize the Bonita BPM Engine environment.
-After this step the technical user will be able to connect to the engine and to create new users or <a href="/manage-organization#org">import the organization</a>. No users are created by
+After this step the technical user will be able to connect to the engine and to create new users or <a href="manage-an-organization.md#org">import the organization</a>. No users are created by
 default and the default username/password for the technical user to connect to the Bonita BPM Engine are stored in the file bonita-server.properties that is in the <em>BONITA_HOME</em> directory.
 <code>// initialize the platform platformAPI.initializePlatform();</code></p>
 <p>Next, <strong>start the Engine</strong>. Starting the Engine on a node starts the Scheduler

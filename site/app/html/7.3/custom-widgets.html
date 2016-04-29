@@ -1,5 +1,5 @@
 <h1>1.7.2.7 Custom widgets</h1>
-<p>If the <a href="/widgets.md">standard widgets</a> do not meet your needs, you can create a custom widget to match exactly what you want to.
+<p>If the <a href="widgets.md">standard widgets</a> do not meet your needs, you can create a custom widget to match exactly what you want to.
 After creation, a custom widget is available in the palette for designing pages, forms or fragments.</p>
 <p><a href="#description">Description</a><br>
 <a href="#custom-widget-properties">Custom widget properties</a><br>
@@ -24,8 +24,8 @@ When you open the custom widget editor to create a new custom widget, a simple e
 <p>For now, you cannot implement custom widget containers.</p>
 <h2>Custom widget properties</h2>
 <p>Properties are variables that can be set in the properties panel when adding a custom widget to a page, form, or fragment.
-A property is constant, dynamic, a bidirectional bond, or an interpolation. You can chose between these treatments when you edit the <a href="/widget-properties#value-types">widget property</a>.</p>
-<p>Use properties when you want the person that uses your widget to customize widget appearance or behavior. In a custom widget, a property can be used either in the template or in the controller.</p>
+A property is constant, dynamic, a bidirectional bond, or an interpolation. You can chose between these treatments when you edit the <a href="widget-properties.md#value-types">widget property</a>.
+Use properties when you want the person that uses your widget to customize widget appearance or behavior. In a custom widget, a property can be used either in the template or in the controller.</p>
 <p>A property has a <em>name</em> which can be referenced in the controller or the template, a <em>label</em> which will be printed in the properties panel in an editor, a <em>default</em> value, and a type.
 There are several property types:</p>
 <ul>
@@ -43,7 +43,7 @@ To do so, download the library you want to use and add it to your custom widget 
 The downloaded library will specify a module to add to your application: add this module to the custom widget definition in the <strong>Required Angular modules</strong> field.</p>
 <p>Now you can use the imported library's directives in the custom widget templates and services in the controller by injecting them in function arguments (example: <code>function($scope, myImportedService)</code>).</p>
 <h2>Translation filter</h2>
-<p>The <a href="multi-language-pages">Multi-language pages</a> explains how to manage localization (l10) inside developped pages. During page loading, the l10n strings are loaded to the l10n mechanism.</p>
+<p>The <a href="multi-language-pages.md">Multi-language pages</a> explains how to manage localization (l10) inside developped pages. During page loading, the l10n strings are loaded to the l10n mechanism.</p>
 <p>You can use this mechanism in the Widgets to process content to translate. There are two ways to use the localization: either the <em>uiTranslate</em> angular filter or <em>ui-translate</em> directive:</p>
 <ul>
 <li>Use the <em>uiTranslate</em> filter in custom widgets for dynamic content to be translated</li>

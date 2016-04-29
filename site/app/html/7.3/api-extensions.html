@@ -1,6 +1,6 @@
 <h1>3.5.6 Rest API extensions</h1>
-<p>A REST API extension is a way to add extra REST resources using Bonita BPM. REST API extensions are <a href="/resources-management">exported. imported, modified, and deleted</a> as resources in Bonita BPM Portal.</p>
-<p>In the Bonita BPM subscription edition, Bonita BPM Studio contains <a href="/creating-rest-api-extension-865">tooling for creating, testing, and deploying REST API extensions</a>.
+<p>A REST API extension is a way to add extra REST resources using Bonita BPM. REST API extensions are <a href="resource-management.md">exported. imported, modified, and deleted</a> as resources in Bonita BPM Portal.</p>
+<p>In the Bonita BPM subscription edition, Bonita BPM Studio contains <a href="rest-api-extensions.md">tooling for creating, testing, and deploying REST API extensions</a>.
 This page contains information about creating and deploying a REST API manually, which is possible with all editions.</p>
 <ul>
 <li><a href="#install">Install a REST API extension</a></li>
@@ -8,8 +8,8 @@ This page contains information about creating and deploying a REST API manually,
 <li><a href="#example">REST API extension examples</a></li>
 </ul>
 <h2>Install a REST API extension</h2>
-<p>To install a REST API extension, you need to import it into Bonita BPM Portal.</p>
-<p>Follow the steps to <a href="/resource-management#import">import a resource</a>.</p>
+<p>To install a REST API extension, you need to import it into Bonita BPM Portal.
+Follow the steps to <a href="resource-management.md#import">import a resource</a>.</p>
 <p>REST API extensions use the same authorization mechanism as the standard Bonita BPM Web Rest APIs.
 When you import the extension, the information in <code>page.properties</code> is used to set the appropriate
 resource permission mappings in Bonita BPM.</p>
@@ -20,8 +20,8 @@ application server on all the cluster nodes.</p>
 <p>A page that uses REST API extensions must add the required resources in the page resource
 <code>page.properties</code> file.
 For example, if a page uses the demoHeaders, demoXml, and putResource API extensions, the
-<code>page.properties</code> must include this line:</p>
-<p><code>resources=[GET|extension/demoHeaders, POST|extension/demoXml,PUT|extension/putResource]</code></p>
+<code>page.properties</code> must include this line:
+<code>resources=[GET|extension/demoHeaders, POST|extension/demoXml,PUT|extension/putResource]</code></p>
 <p>Additional resources and related permissions are stored in user's session. A logout/login to the portal is required
 to get new permissions effective for user.</p>
 <h2>REST API extension examples</h2>

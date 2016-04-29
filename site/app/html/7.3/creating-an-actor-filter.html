@@ -2,7 +2,7 @@
 <p>An actor filter is implemented in Bonita BPM in two parts, the
 definition and the implementation. This enables you to change the
 implementation without changing the definition. Several implementations can be
-created for a single definition. See <a href="/actor-filtering">here </a>for a list of actor
+created for a single definition. See <a href="actor-filtering.md">here </a>for a list of actor
 filters provided with the product.</p>
 <p>An actor filter is a type of connector and is created in the same way, using the same schema files as
 for a connector. You can define a new actor filter definition or implementation in Bonita BPM Studio,
@@ -33,8 +33,8 @@ actor filter</li>
 definitions for header information identifying the actor filter (including the
 icon), for inputs and outputs, and for the wizard pages. The definition follows
 the schema defined in http://documentation.bonitasoft.com/ns/connector/definition/6.0/connector-definition-descriptor.xsd.
-The table below lists the items in the definition.</p>
-<p>Occurrence
+The table below lists the items in the definition.
+Occurrence
 Description</p>
 <p>id
 1
@@ -82,8 +82,8 @@ run successfully.</p>
 <p>The page and widget definitions are required for an actor filter that is
 used or configured from within Bonita BPM Studio.</p>
 <p>The following example is the XML definition for the <em>initiator
-manager</em> actor:</p>
-<p><code>initiator-manager1.0.0initiator-manager.png</code></p>
+manager</em> actor:
+<code>initiator-manager1.0.0initiator-manager.png</code></p>
 <p>In this example, there is one input, a Boolean that determines whether or
 not the task is automatically assigned to the user identified by the filter.
 There is one page in the configuration wizard, which contains one widget.</p>
@@ -108,8 +108,8 @@ When a Bonita BPM Studio user launches an actor filter configuration wizard, the
 wizard is displayed in the language currently configured for Bonita BPM Studio. If
 there is no properties file for this language, the default file is used.</p>
 <p>The following example is the English language properties file for the
-initiator manager actor filter:</p>
-<p><code>process.category = Process connectorDefinitionLabel = Initiator manager connectorDefinitionDescription = Manager of the initiator of the process config.pageTitle = Configuration config.pageDescription = Configuration of the process initiator-manager filter connexionConfigPage.pageDescription = Choose here if you want to automatically assign the task to this actor autoAssign.label = Assign task automatically autoAssign.description = The task will be claimed automatically by the resolved user</code></p>
+initiator manager actor filter:
+<code>process.category = Process connectorDefinitionLabel = Initiator manager connectorDefinitionDescription = Manager of the initiator of the process config.pageTitle = Configuration config.pageDescription = Configuration of the process initiator-manager filter connexionConfigPage.pageDescription = Choose here if you want to automatically assign the task to this actor autoAssign.label = Assign task automatically autoAssign.description = The task will be claimed automatically by the resolved user</code></p>
 <h2>Actor filter implementation</h2>
 <p>An actor filter implementation consists of an XML resource file and a Java
 class. You can create any number of implementations that correspond to a given definition.
@@ -123,11 +123,10 @@ However, in a process there is a one-to-one relationship between the actor filte
 </ul>
 <p>The resource file follows the schema defined in http://documentation.bonitasoft.com/ns/connector/definition/6.0/connector-implementation-descriptor.xsd .</p>
 <p>The following example is the resource file of an implementation of the
-initiator manager actor filter:</p>
-<p><code>initiator-manager1.0.0org.bonitasoft.userfilter.initiator.manager.ProcessinitiatorManagerUserFilterinitiator-manager-impl1.0.0bonita-userfilter-initiator-manager-impl-1.0.0-SNAPSHOT.jar</code></p>
+initiator manager actor filter:
+<code>initiator-manager1.0.0org.bonitasoft.userfilter.initiator.manager.ProcessinitiatorManagerUserFilterinitiator-manager-impl1.0.0bonita-userfilter-initiator-manager-impl-1.0.0-SNAPSHOT.jar</code></p>
 <h3>Actor filter implementation Java class</h3>
-<p>The Java class must implement the
-org.bonitasoft.engine.filter.AbstractUserFilterclass and use the Engine
+<p>The Java class must implement the org.bonitasoft.engine.filter.AbstractUserFilterclass and use the Engine
 ExecutionContext. The following methods must be implemented:</p>
 <ul>
 <li>validateInputParameters to
@@ -138,10 +137,9 @@ specified actor name</li>
 to assign the step to the user if filter returns one user</li>
 </ul>
 <p>For details of the APIs, the methods and related objects, see the
-<a href="/javadoc-71">Javadoc</a>.</p>
+<a href="javadoc.md">Javadoc</a>.</p>
 <h3>Actor filter example code</h3>
-<p>The following code is an example of the initiator manager actor filter.</p>
-<p>`
+<p>The following code is an example of the initiator manager actor filter. `
 public class ProcessinitiatorManagerUserFilter extends AbstractUserFilter {</p>
 <pre><code>@Override
 public void validateInputParameters() throws ConnectorValidationException {

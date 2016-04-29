@@ -19,8 +19,8 @@ password are sent to the Engine, it checks that the user exists in the current
 organization. If the user is not known, an error is thrown and processing
 stops.</p>
 <h2>APIs</h2>
-<p>Bonita BPM Engine has the following Java APIs:</p>
-<p>Identity API
+<p>Bonita BPM Engine has the following Java APIs:
+Identity API
 Manages information about an organization, that is, the set of users
 who can act in processes. Handles creation, modification, and deletion
 of organizations, groups, roles, memberships, and users.</p>
@@ -51,10 +51,10 @@ Used to pause service in a tenant for maintenance, to resume service, and to che
 <p>There is also a Web API, which is for internal use only, and a Command API,
 which is primarily for internal use.</p>
 <p>For details of the Engine APIs, the methods and related objects, see the
-<a href="/javadoc-71">Javadoc</a>.
+<a href="javadoc.md">Javadoc</a>.
 Note that the APIs are the same for the Teamwork, Efficiency, and Performance editions, but some features are only active if the appropriate license is installed.
 If you try to access a feature for which you do not have a license, a <em>Feature not active</em> error message is returned.</p>
-<p>There is also a high-level <a href="/rest-api-overview.md">Web REST API</a>, intended for customers developing portal applications.</p>
+<p>There is also a high-level <a href="rest-api-overview.md">Web REST API</a>, intended for customers developing portal applications.</p>
 <h2>API access</h2>
 <p>The Bonita BPM Engine APIs can be accessed locally or remotely, in the following
 modes:</p>
@@ -77,5 +77,5 @@ using the AccessorUtil to retrieve the APIs that will be used in the
 application.</p>
 <p>The following example shows how to retrieve the LoginAPI, then use it to log
 in and create a session, then retrieve for Process API for that session.
-The tenantAPIAccessor is used on all systems, even though there is only a single tenant.</p>
-<p><code>final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI(); APISession session = loginAPI.login(userName, password); ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);</code></p>
+The tenantAPIAccessor is used on all systems, even though there is only a single tenant.
+<code>final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI(); APISession session = loginAPI.login(userName, password); ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);</code></p>

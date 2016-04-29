@@ -1,0 +1,31 @@
+<h1>3.3.5 Pause and resume BPM services</h1>
+<p>For certain maintenance tasks that require a change to database tables or to information used by several processes (for example to update the business data model), it is necessary to pause your Bonita BPM service temporarily while it is updated. This is done by pausing the tenant.
+While a tenant is paused, only the technical user has access to Bonita BPM Portal.</p>
+<p><a href="#how_pause">Pause a tenant</a><br>
+<a href="#how_unpause">Resume a tenant</a></p>
+<p>When you pause a tenant, this has the following consequences:</p>
+<ul>
+<li>Only the technical user can log in to the Portal.</li>
+<li>Users who are currently logged in, including Administrator users, are automatically logged out.</li>
+<li>Users who are filling in forms when the service is paused will lose any information that has not been submitted.</li>
+<li>All processes are automatically paused.</li>
+</ul>
+<p>The following sections explain how to pause and resume service in a tenant using Bonita BPM Portal. You can also use the <a href="javadoc.md">Engine API</a> or the <a href="rest-api-overview.md">Web REST API</a>.</p>
+<h2>Pause a tenant</h2>
+<p>To pause a tenant:</p>
+<ol>
+<li>Log in to Bonita BPM Portal as the tenant technical user.</li>
+<li>Go to <strong>Configuration</strong> &gt; <strong>BPM services</strong></li>
+<li>Click the <strong><em>Pause</em></strong> button.</li>
+<li>In the popup, click <strong><em>Pause</em></strong> to confirmation that the tenant is to be paused.</li>
+<li>The tenant is immediately paused.</li>
+</ol>
+<h2>Resume a tenant</h2>
+<ol>
+<li>Log in to Bonita BPM Portal as the tenant technical user.</li>
+<li>Go to <strong>Configuration</strong> &gt; <strong>BPM services</strong></li>
+<li>Click the <strong><em>Resume</em></strong> button.</li>
+<li>In the popup, click <strong><em>Resume</em></strong> to confirm that you want the tenant to resume service.</li>
+<li>The tenant resumes activity.</li>
+</ol>
+<p>After the service is resumed, inform users that they can now log in to the Portal.</p>

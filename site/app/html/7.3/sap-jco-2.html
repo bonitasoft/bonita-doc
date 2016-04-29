@@ -74,20 +74,12 @@ If you already have an older <code>librfc32.dll</code> in the <code>{windows-dir
 <h2>How to configure the SAP JCo2 connector</h2>
 <p>Use the wizard to configure the connector. Note the following:</p>
 <ul>
-<li>
-<p>In the ****Function definition window, only the function name is required. Enter the name of the function e.g. GET_SYSTEM_NAME</p>
-</li>
-<li>
-<p>No parameters are needed in the <strong>Input parameters</strong> window.</p>
-</li>
-<li>
-<p>In the <strong>Output parameters</strong> window, the function name is displayed to confirm that the input is this function. Note:
-You can create a blank .html file on your C: drive, which will be filled with the output information from the SAP connector.</p>
-</li>
-<li>
-<p>In the <strong>Output results</strong> window, you can specify an expression, by clicking the pencil to open the Expression editor.
-Set the expression type to <strong>Script</strong>, and enter <code>outputResults.get(0)</code>. In the <strong>Return type</strong>, enter string.</p>
-</li>
+<li>In the ****Function definition window, only the function name is required. Enter the name of the function e.g. GET_SYSTEM_NAME</li>
+<li>No parameters are needed in the <strong>Input parameters</strong> window.</li>
+<li>In the <strong>Output parameters</strong> window, the function name is displayed to confirm that the input is this function. Note:
+You can create a blank .html file on your C: drive, which will be filled with the output information from the SAP connector.</li>
+<li>In the <strong>Output results</strong> window, you can specify an expression, by clicking the pencil to open the Expression editor.
+Set the expression type to <strong>Script</strong>, and enter <code>outputResults.get(0)</code>. In the <strong>Return type</strong>, enter string.</li>
 </ul>
 <h2>The result</h2>
 <p>The result will be shown in the Bonita BPM Portal as a value in a field and in the .html file as a table containing the value or values.</p>
@@ -95,16 +87,8 @@ Set the expression type to <strong>Script</strong>, and enter <code>outputResult
 <h2>Advanced features in Subscription Editions</h2>
 <p>In the Bonita BPM Teamwork, Efficiency, and Performance editions, the SAP wizard has advanced features: You do not need to know the names of the functions by heart, as the functions are suggested in a dropdown menu.</p>
 <ul>
-<li>
-<p>Filter functions by group: a dropdown list listing all the functions by group</p>
-</li>
-<li>
-<p>Function description: a dropdown list listing all the functions, with auto-complete (just type the first letter e.g. G to give a list of Get functions</p>
-</li>
-<li>
-<p>Function name: dropdown list</p>
-</li>
-<li>
-<p>Input parameters: click on a button More information to show a graphic display in the form of a table, of the chosen function</p>
-</li>
+<li>Filter functions by group: a dropdown list listing all the functions by group</li>
+<li>Function description: a dropdown list listing all the functions, with auto-complete (just type the first letter e.g. G to give a list of Get functions</li>
+<li>Function name: dropdown list</li>
+<li>Input parameters: click on a button More information to show a graphic display in the form of a table, of the chosen function</li>
 </ul>

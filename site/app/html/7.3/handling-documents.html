@@ -11,8 +11,8 @@ An external document is specified by URI. An internal document is specified by p
 <p><img src="images/images-6_0/documents_declarations.png" alt="Configure documents"></p>
 <p>Configure documents</p>
 <h2>Convert a file to a document</h2>
-<p>The following example shows how to convert the content of a document to a byte stream that can then be used to create or update the content of a document.</p>
-<p>`
+<p>The following example shows how to convert the content of a document to a byte stream that can then be used to create or update the content of a document.
+`
 /**</p>
 <ul>
 <li>
@@ -56,8 +56,8 @@ return null;
 </li>
 </ul>
 <h2>Create a case with a document</h2>
-<p>The following method, <code>createCaseWithDocument</code>, creates a case and attaches a document to it.</p>
-<p>`
+<p>The following method, <code>createCaseWithDocument</code>, creates a case and attaches a document to it.
+`
 public static void createCaseWithDocument(String processDefinitionName, String processVersion, Map variables, Map documents, ProcessAPI processAPI)
 throws ProcessDefinitionNotFoundException, InvalidExpressionException, ProcessActivationException, ProcessExecutionException {</p>
 <pre><code>long processDefinitionId = processAPI.getProcessDefinitionId(processDefinitionName, processVersion);
@@ -118,13 +118,13 @@ throws ProcessDefinitionNotFoundException, InvalidExpressionException, ProcessAc
 <p>`</p>
 <p>In this example, we construct two maps, one containing case data and one containing an invoice document and reference.
 The invoice documented is created by converting a local file to a byte stream using the <a href="#convert">loadFile</a> method defined above.
-The two maps are then used to create a case of the process using the <code>createCaseWithDocument</code> method defined above.</p>
-<p><code>// ---------- create a case with the value Map firstInvoice = new HashMap(); firstInvoice.put(&quot;emailAddress&quot;, &quot;jan.Fisher@bonitasoft.com&quot;); firstInvoice.put(&quot;invoiceId&quot;, Long.valueOf(45)); firstInvoice.put(&quot;dateOfInvoice&quot;, new Date()); Map firstInvoiceDocument = new HashMap(); firstInvoiceDocument.put(&quot;invoiceReference&quot;, &quot;http://documentation.bonitasoft.com&quot;); firstInvoiceDocument.put(&quot;invoiceLetter&quot;, loadFile(&quot;c:/tmp/firstinvoice.pdf&quot;)); createCaseWithDocument(&quot;IntegrateMyApplication&quot;, &quot;1.0&quot;, firstInvoice, firstInvoiceDocument, processAPI);</code></p>
+The two maps are then used to create a case of the process using the <code>createCaseWithDocument</code> method defined above.
+<code>// ---------- create a case with the value Map firstInvoice = new HashMap(); firstInvoice.put(&quot;emailAddress&quot;, &quot;jan.Fisher@bonitasoft.com&quot;); firstInvoice.put(&quot;invoiceId&quot;, Long.valueOf(45)); firstInvoice.put(&quot;dateOfInvoice&quot;, new Date()); Map firstInvoiceDocument = new HashMap(); firstInvoiceDocument.put(&quot;invoiceReference&quot;, &quot;http://documentation.bonitasoft.com&quot;); firstInvoiceDocument.put(&quot;invoiceLetter&quot;, loadFile(&quot;c:/tmp/firstinvoice.pdf&quot;)); createCaseWithDocument(&quot;IntegrateMyApplication&quot;, &quot;1.0&quot;, firstInvoice, firstInvoiceDocument, processAPI);</code></p>
 <h2>Attach a document to a case</h2>
 <p>To attach a document to a case, use the <code>attachDocument</code> method of the process API.
 This method is used to create a document and to update it: you update a document by replacing it is replaced with the new version.
-You can provide either a URL pointing to an external document or a byte stream, as shown in the example below:</p>
-<p>`
+You can provide either a URL pointing to an external document or a byte stream, as shown in the example below:
+`
 // update the document
 for (String documentName : documentsToUpdate.keySet()) {
 if (documentsToUpdate.get(documentName) instanceof String)

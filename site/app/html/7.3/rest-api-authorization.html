@@ -94,8 +94,8 @@ You can add this specific permission to <code>custom-permissions-mapping.propert
 <p>This means that in addition to the permissions given to him by the User profile, John.Smith can also manage the Portal Look &amp; Feel. It does not modify the permissions for any other user.</p>
 <p>If you do not use Bonita BPM Portal but still want to manage REST API authorizations, you can do this using the <code>custom-permissions-mapping.properties</code> file.
 To do this, create a custom profile and configure the relevant permissions.
-For example, you could create a profile called CustomProcessManager and assign the permissions needed to monitor and manage processes:</p>
-<p><code>profile|MyCustomProfile=[process_visualization, process_management, process_manager_management, custom_process_manager_permission]</code></p>
+For example, you could create a profile called CustomProcessManager and assign the permissions needed to monitor and manage processes:
+<code>profile|MyCustomProfile=[process_visualization, process_management, process_manager_management, custom_process_manager_permission]</code></p>
 <p>In this example, the <code>custom_process_manager_permission</code> must be defined in the <code>compound-permissions-mapping.properties</code> file.</p>
 <h2>Dynamic authorization checking</h2>
 <p>If the static authorization checks are not suitable for your applications, you can override the rules as you want using dynamic checks.
@@ -103,23 +103,30 @@ A user is then granted a permission only if the dynamic check authorizes it.
 A dynamic check is implemented as sequence of conditions, including a Groovy script.
 This enables you to tailor the permissions needed to access a resource using dynamic information related to processes.</p>
 <p>A dynamic authorization check for a resource is specified by a line in the <code>dynamic-permissions-checks.properties</code> file. The line specifies the checks to be made for a request type for a method.
-There can be several terms in the line. Checking stops when the system returns success, indicating that the user is authorized. For example:</p>
-<p><code>POST|bpm/case=[user|william.jobs, user|walter.bates, profile|Administrator, profile|User, check|CasePermissionRule]</code></p>
+There can be several terms in the line. Checking stops when the system returns success, indicating that the user is authorized. For example:
+<code>POST|bpm/case=[user|william.jobs, user|walter.bates, profile|Administrator, profile|User, check|CasePermissionRule]</code></p>
 <p>This specifies that a POST action can be done for a case resource if the user is william.jobs or walter.bates,
 or any user with the Administrator profile, or any user woth the User profile, or if the CasePermissionRule grants authorization.</p>
 <p>A <code>check</code> term indicates the name of a class to be called. The class must implement <code>org.bonitasoft.engine.api.permission.PermissionRule</code>.
 This example defines a dynamic check that is made whenever a user makes a GET request for the bpm/process resource. The script must be added to the <code>bonita-home\engine-server\work\tenants\[tenantId]\security-scripts</code> folder.
 The <code>security-scripts</code> folder contains some example scripts. If the script returns success, the user is authorized. If the script returns any other result (including an error), the user is not authorized.</p>
 <p>The <code>dynamic-permissions-checks.properties</code> file contains a placeholder line for each method and resource. For example:
-<code>## CasePermissionRule #GET|bpm/case=[profile|Administrator, check|CasePermissionRule] #POST|bpm/case=[profile|Administrator, check|CasePermissionRule] #DELETE|bpm/case=[profile|Administrator, check|CasePermissionRule] #GET|bpm/archivedCase=[profile|Administrator, check|CasePermissionRule]</code></p>
+`</p>
+<h2>CasePermissionRule</h2>
+<pre><code>#GET|bpm/case=[profile|Administrator, check|CasePermissionRule]
+#POST|bpm/case=[profile|Administrator, check|CasePermissionRule]
+#DELETE|bpm/case=[profile|Administrator, check|CasePermissionRule]
+#GET|bpm/archivedCase=[profile|Administrator, check|CasePermissionRule]
+</code></pre>
+<p>`</p>
 <p>To specify a dynamic check for a method and resource, uncomment the line and add the conditions.
 If you specify a condition that calls a Groovy script, add the script to the <code>bonita-home\engine-server\work\tenants\[tenantId]\security-scripts</code> folder.</p>
 <h3>Example dynamic check script</h3>
 <p>This script is an example of how to write a dynamic check. It checks two conditions, depending on the method called for a case.
 If the method is a POST, which would start a case of a process. the user can only start the case if they are eligible to start the process itself.
 If the user action triggers a GET, the user can view the case information only if they are involved in the case.
-The Engine API Java method <code>isInvolvedInProcessInstance</code> is used to check whether the user is involved. For an archived case, the only check possible is whether the user started the case.</p>
-<p>`
+The Engine API Java method <code>isInvolvedInProcessInstance</code> is used to check whether the user is involved. For an archived case, the only check possible is whether the user started the case.
+`
 import org.bonitasoft.engine.api.*
 import org.bonitasoft.engine.api.permission.APICallContext
 import org.bonitasoft.engine.api.permission.PermissionRule
@@ -190,7 +197,7 @@ If you update a file, the changes become active the next time the application se
 In your development environment, you can use the <a href="#debug">debug mode</a> to makes any changes to the configuration files
 and dynamic check scripts available immediately.</p>
 <h2>User login</h2>
-<p>When a user logs in, after the user is <a href="/user-authentication.md">authenticated</a>, a map of <code>LoggedUserPermissions</code> is created.
+<p>When a user logs in, after the user is <a href="user-authentication-overview.md">authenticated</a>, a map of <code>LoggedUserPermissions</code> is created.
 <code>LoggedUserPermissions</code> is a combination of the information from <code>compound-permissions-mapping.properties</code> and
 <code>CustomUserPermissionsMapping</code> that is relevant to the user.
 It takes into account all the profiles assigned to the user, not only the current profile, so when you change profile the map does not need to be recreated.</p>
@@ -201,13 +208,13 @@ needed to access the resource (or page), and checks the <code>LoggedUserPermissi
 If so, the user is authorized.
 Otherwise, access is refused.
 If access is not authorized, a message is written in the log so that the Administrator is aware that an unauthorized user has tried to gain access.
-Note that this level of logging is only available if you <a href="/logging.md">set the logging level</a> to <code>FINEST</code>.</p>
+Note that this level of logging is only available if you <a href="logging.md">set the logging level</a> to <code>FINEST</code>.</p>
 <h2>Authorizing access to a custom page</h2>
-<p>When a new <a href="/custom-pages.md">custom page</a> is added, the permissions defined in the page properties are added to the permissions configuration files and the cache.
+<p>When a new <a href="pages.md">custom page</a> is added, the permissions defined in the page properties are added to the permissions configuration files and the cache.
 It is not necessary to restart the applications server to activate security for the new custom page.
 Depending on the permissions that a user of the page already has, it might be necessary to log out and log in again to get access to the new custom page.</p>
 <h2>Authorization and custom profiles</h2>
-<p>When a new <a href="/custom-profiles.md">custom profile</a> is created, the permissions mappings are updated in the configuration files and in the cache.
+<p>When a new <a href="custom-profiles.md">custom profile</a> is created, the permissions mappings are updated in the configuration files and in the cache.
 It is not necessary to restart the application server to activate security for the new custom profile.</p>
 <h2>Activating and deactivating authorization</h2>
 <p><code>security-config.properties</code> contains a Boolean property that specifies whether authorization is activated. To activate authorization, set this property to <code>true</code>:
@@ -217,9 +224,8 @@ It is not necessary to restart the application server to activate security for t
 <p>If you activate authorization, you must also deactivate the HTTP API, so that is cannot be used to bypass the authorization settings.
 To do this, you can either filter the HTTP API in the Tomcat configuration (that is, accept only specific IP addresses), or you can
 deactivate the <code>HttpAPIServlet</code>. To deactivate the servlet, go to the <code>webapps/bonita/WEB-INF</code> folder of your web server,
-edit <code>web.xml</code> and comment out the following definitions:</p>
-<p>`</p>
-<p>`</p>
+edit <code>web.xml</code> and comment out the following definitions:
+<code></code></p>
 <h3>Running in debug mode</h3>
 <p>If debug mode is activated, whenever you update a configuration file or a dynamic check script, the changes take effect immediately.</p>
 <p>To activate debug mode, edit <code>security-config.properties</code> and set the value of the <code>security.rest.api.authorizations.check.debug</code> property to <code>true</code>, then restart the application server.</p>
@@ -229,17 +235,17 @@ edit <code>web.xml</code> and comment out the following definitions:</p>
 <p>If you have an existing custom page and want to activate authorization, you need to add permissions to the definition of the custom page.
 To add authorization to an existing custom page:</p>
 <ol>
-<li>Export the <a href="/custom-pages.md">custom page</a>.</li>
-<li>Update the page properties with <a href="/custom-pages.md#permissions">permissions</a>.</li>
+<li>Export the <a href="pages.md">custom page</a>.</li>
+<li>Update the page properties with <a href="pages.md#permissions">permissions</a>.</li>
 <li>Activate authorization, by editing <code>security-config.properties</code> and setting the value of the <code>security.rest.api.authorizations.check.enabled</code> property to <code>true</code>.</li>
 <li>Restart the application server.</li>
-<li>Import the <a href="/custom-pages.md">custom page</a>.</li>
+<li>Import the <a href="pages.md">custom page</a>.</li>
 </ol>
 <p>If you have an existing custom profile, the permissions relating to the profiles is automatically added to the permissions files, so you do not need to update the profile.
 However, if a custom profile use a custom page, you must update the custom page definition to add permissions before you activate authorization.</p>
 <h2>Permissions and resources</h2>
-<p>The table below shows the default permissions and the resources to which they grant access.</p>
-<p>Permission
+<p>The table below shows the default permissions and the resources to which they grant access.
+Permission
 Resources</p>
 <p>activity_visualization
 [GET|bpm/processResolutionProblem]</p>

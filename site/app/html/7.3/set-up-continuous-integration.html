@@ -1,4 +1,4 @@
-<h1>4.12.3 Set up continuous integration</h1>
+<h1>4.12.2 Set up continuous integration</h1>
 <p>This page explains how to set up a continuous integration environment for your Bonita BPM processes.</p>
 <p>With Continuous Integration (CI) your processes are continuously built and tested while you are designing them. Collaborating on process design can be enhanced with CI by
 ensuring the integrity of your processes along the development phase.</p>
@@ -16,35 +16,22 @@ ensuring the integrity of your processes along the development phase.</p>
 </ul>
 <p>Before you begin, you need the following components available for your CI environment:</p>
 <ul>
-<li></li>
-</ul>
-<p>Bonita BPM Studio Teamwork, Efficiency, or Performance edition:
-The automated process build feature is not available in the Community edition.</p>
-<ul>
+<li>Bonita BPM Studio Teamwork, Efficiency, or Performance edition:
+The automated process build feature is not available in the Community edition.</li>
 <li>A window manager:
 You need a window manager to use the Bonita BPM Studio process builder.</li>
-<li></li>
-</ul>
-<p>Java:
-You need Java 1.6 to be installed on the CI server and your development computer.</p>
-<ul>
-<li></li>
-</ul>
-<p>Maven:
+<li>Java:
+You need Java 7 or 8 to be installed on the CI server and your development computer.</li>
+<li>Maven:
 This guide provides example Maven-based projects for executing automated tests of your processes.
-Maven 3 is required on the CI server and the test development computer.</p>
-<ul>
-<li></li>
-</ul>
-<p>Subversion:
+Maven 3 is required on the CI server and the test development computer.</li>
+<li>Subversion:
 Bonita BPM Studio enables business analysts and developers to collaborate on process design using a shared Subversion (SVN) repository.
-This tutorial assumes that you have access to a Subversion server.</p>
-<ul>
-<li></li>
-</ul>
-<p>Jenkins:
+This tutorial assumes that you have access to a Subversion server.</li>
+<li>Jenkins:
 The <a href="http://jenkins-ci.org/">Jenkins CI</a> server is responsible for coordinating continuous build and test of your processes.
-This tutorial assumes that Jenkins is up and running with Maven and Subversion plugins.</p>
+This tutorial assumes that Jenkins is up and running with Maven and Subversion plugins.</li>
+</ul>
 <h2>Set up Bonita BPM Studio for CI</h2>
 <p>There are two stages to setting up Bonita BPM Studio for CI:</p>
 <ol>
@@ -62,16 +49,10 @@ This job will produce Business Archive (.bar) files ready for deployment.</p>
 </ol>
 <p>Bonita BPM Studio includes a BonitaStudioBuilder script for building processes in a CI environment. Install Bonita BPM Studio as follows:</p>
 <ol>
-<li></li>
-</ol>
-<p>Download the OS-independent package (zip) from the customer portal.
-For example use BonitaBPMSubscription-6.1.0.zip for version 6.1.0. You must have the same version of Bonita BPM Studio for the shared repository and the CI server.</p>
-<ol start="2">
-<li></li>
-</ol>
-<p>Extract the package to a permanent location on the CI server:
-<code>$&gt; unzip -d /path/to/BonitaBPMStudio BonitaBPMSubscription-6.1.0.zip</code></p>
-<ol start="3">
+<li>Download the OS-independent package (zip) from the customer portal.
+For example use BonitaBPMSubscription-6.1.0.zip for version 6.1.0. You must have the same version of Bonita BPM Studio for the shared repository and the CI server.</li>
+<li>Extract the package to a permanent location on the CI server:
+<code>$&gt; unzip -d /path/to/BonitaBPMStudio BonitaBPMSubscription-6.1.0.zip</code></li>
 <li>Install your license (a license must have been requested for CI server):
 <code>$&gt; cp license.lic /path/to/BonitaBPMStudio/BonitaBPMSubscription-6.1.0/lic_folder/</code></li>
 </ol>
@@ -87,16 +68,14 @@ Specify a job name for example &quot;BonitaBPM-BuildProcesses&quot;.</p>
 </ol>
 <p>Configure Jenkins job</p>
 <ol>
-<li>
-<p>Check out your process repository from Subversion. To do this, configure the &quot;Source Code Management&quot; section to retrieve (check out) your Subversion process shared repository.
-Specify the repository URL, and optionally your local repository. We recommend that you set teh check-out strategy to <em>Use 'svn update' as much as possible</em>.</p>
-</li>
+<li>Check out your process repository from Subversion. To do this, configure the &quot;Source Code Management&quot; section to retrieve (check out) your Subversion process shared repository.
+Specify the repository URL, and optionally your local repository. We recommend that you set teh check-out strategy to <em>Use 'svn update' as much as possible</em>.</li>
 <li></li>
 </ol>
 <p>Invoke BonitaStudioBuilder script</p>
 <p>Note: only one instance of BonitaStudioBuilder can be executed at a time on a computer.</p>
-<p>Add a build step of type &quot;Execute shell&quot; configured with the following content:</p>
-<p>`
+<p>Add a build step of type &quot;Execute shell&quot; configured with the following content:
+`
 #!/usr/bin/env sh</p>
 <p>echo &quot;##### Clean previously generated business archives&quot;
 rm -Rf $WORKSPACE/process-bars
@@ -111,7 +90,7 @@ cd /path/to/BonitaBPMStudio/..
 zip $WORKSPACE/process-bars.zip $WORKSPACE/process-bars/*
 `</p>
 <p>This sample script invokes BonitaStudioBuilder to build all processes from your process-repository using the CI environment.</p>
-<p>See the <a href="/automating-process-builds.md">BonitaStudioBuilder documentation</a> for information on script options.</p>
+<p>See the <a href="automating-process-builds.md">BonitaStudioBuilder documentation</a> for information on script options.</p>
 <ol start="3">
 <li></li>
 </ol>
@@ -119,8 +98,8 @@ zip $WORKSPACE/process-bars.zip $WORKSPACE/process-bars/*
 <p>One way to make the generated .bar files available to other Maven projects is to install them as Maven artifacts.
 The following example installs the processes artifact in the local Maven repository.</p>
 <p>The Maven artifact could also be deployed to a centralized Maven repository manager solution.
-To do so, add a second build step of type &quot;Invoke top-level Maven targets&quot; configured as follows:</p>
-<p>`
+To do so, add a second build step of type &quot;Invoke top-level Maven targets&quot; configured as follows:
+`
 Goals: install:install-file</p>
 <p>Properties:
 groupId=com.acme.bonita
@@ -149,30 +128,24 @@ It is also possible to use cargo to deploy the generated bar file into an applic
 <p>For this example we are using a Maven project to write our tests.</p>
 <ol>
 <li>In your IDE create a new Maven project and share it (for example using SVN or Git).</li>
-<li><a href="/configuring-bonita-home-client.md">Configure local access</a> to Bonita BPM Engine.</li>
-<li>As we want to test processes build with a Bonita BPM Subscription edition, you need to <a href="/create-your-first-project-engine-apis-and-maven.md#maven_dependencies">configure the required Maven artifacts</a>.</li>
-</ol>
-<p>You should also check that there is a valid license file in <code>${bonita.home.folder}/server/licenses</code>.</p>
-<ol start="4">
-<li>
-<p>We recommend that you write your test cases in the src/test/java folder of your project and put all related resources (Bar files, organization file...) in src/test/resources.</p>
-</li>
-<li>
-<p>Before installing your processes load the relevant organization (regarding your actor mapping). You may have to export your organization from a Bonita BPM Studio:
-Menu Organization &gt; Export, Select your Organization.</p>
-</li>
+<li><a href="configuring-bonita-home-for-a-client.md">Configure local access</a> to Bonita BPM Engine.</li>
+<li>As we want to test processes build with a Bonita BPM Subscription edition, you need to <a href="create-your-first-project-with-the-engine-apis-and-maven.md#maven_dependencies">configure the required Maven artifacts</a>.
+You should also check that there is a valid license file in <code>${bonita.home.folder}/server/licenses</code>.</li>
+<li>We recommend that you write your test cases in the src/test/java folder of your project and put all related resources (Bar files, organization file...) in src/test/resources.</li>
+<li>Before installing your processes load the relevant organization (regarding your actor mapping). You may have to export your organization from a Bonita BPM Studio:
+Menu Organization &gt; Export, Select your Organization.</li>
 </ol>
 <p>For example:
 <code>private void installOrganization(){ File organizationFile = new File(MyTestCase.class.getResource(&quot;/ACME.xml&quot;).getFile()); String organizationContent = getFileContent(organizationFile); getIdentityAPI().importOrganization(organizationContent); }</code></p>
 <ol start="6">
-<li>Then as a basic test, we try to deploy each generated processes. For example:</li>
-</ol>
-<p>`
+<li>Then as a basic test, we try to deploy each generated processes. For example:
+`
 @Test
 public void deploy() throws Exception{
 //Retrieve automatically generated bars as a Map
 Map bars = getBars();
-Assert.assertTrue(&quot;No bar found in resources&quot;,!bars.isEmpty());</p>
+Assert.assertTrue(&quot;No bar found in resources&quot;,!bars.isEmpty());</li>
+</ol>
 <p>//For each bar deploy and enable it
 for(Entry entry : bars.entrySet()){
 	BusinessArchive archive = BusinessArchiveFactory.readBusinessArchive(entry.getValue()) ;
@@ -189,24 +162,12 @@ for(Entry entry : bars.entrySet()){
 <p>Now configure a job to run this simple test case on your CI
 (these steps assume you have shared your generated processes as a Maven artifact, so you can use the maven-dependency plugin to retrieve the latest built processes):</p>
 <ol>
-<li>
-<p>Create a new freestyle job in Jenkins</p>
-</li>
-<li>
-<p>Configure the source code management to retrieve your Maven project.</p>
-</li>
-<li>
-<p>Add a build step</p>
-</li>
-<li>
-<p>Select &quot;Invoke top-level Maven targets&quot;</p>
-</li>
-<li>
-<p>Use following Goal: org.apache.maven.plugins:maven-dependency-plugin:2.7:get</p>
-</li>
-<li>
-<p>In properties, set the following:</p>
-</li>
+<li>Create a new freestyle job in Jenkins</li>
+<li>Configure the source code management to retrieve your Maven project.</li>
+<li>Add a build step</li>
+<li>Select &quot;Invoke top-level Maven targets&quot;</li>
+<li>Use following Goal: org.apache.maven.plugins:maven-dependency-plugin:2.7:get</li>
+<li>In properties, set the following:</li>
 </ol>
 <ul>
 <li>version=1.0.0-SNAPSHOT</li>

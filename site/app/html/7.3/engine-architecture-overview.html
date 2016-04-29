@@ -4,8 +4,8 @@ about <a href="#APIs">APIs</a>, <a href="#BPM_services">BPM services</a>, <a hre
 <p>The Bonita BPM Engine is the runtime processor at the core of Bonita BPM.  It
 executes processes, handling actions related to tasks, such as database access,
 and housekeeping actions such as logging. The Engine is composed of a number of
-services and APIs. The services are either BPM services or generic services.</p>
-<p><img src="images/images-6_0/dev_arch_engine_architecture_simple.png" alt="engine architecture diagram"></p>
+services and APIs. The services are either BPM services or generic services.
+<img src="images/images-6_0/dev_arch_engine_architecture_simple.png" alt="engine architecture diagram"></p>
 <p>The Bonita BPM Engine component services are completely configurable using an XML
 file called <code>bonita-server.properties</code>, which is located in the server
 configuration folder <code>conf\bonita\server\default\conf\</code>.
@@ -24,8 +24,8 @@ Machine (JVM), in any web/JEE container, or can be used as a simple Java
 library.</p>
 <h2>APIs</h2>
 <p>This section contains a summary of the Bonita BPM Engine APIs. For details of the APIs, the methods and related objects, see the
-<a href="/javadoc-71">Javadoc</a>.</p>
-<p>Identity API
+<a href="javadoc.md">Javadoc</a>.
+Identity API
 Manages information about an organization, that is, the set of users
 who can act in processes. Handles creation, modification, and deletion
 of organizations, groups, roles, memberships, and users.</p>
@@ -73,8 +73,7 @@ in Bonita BPM Portal and are visible to portal users.</p>
 parameters, instantiate/execute the connector and then execute output operations.</p>
 <p>Used by:
 Command service</p>
-<p>Implementation:
-org.bonitasoft.engine.core.connector.impl.ConnectorServiceImpl</p>
+<p>Implementation: org.bonitasoft.engine.core.connector.impl.ConnectorServiceImpl</p>
 <h3>Expression resolverDescription:</h3>
 <p>Evaluate expressions and the associated dependencies. The expression resolver default implementation take all expressions and
 dependencies, flattens them and orders them by type. It then evaluate all expressions starting with expressions that are known to have no
@@ -88,8 +87,8 @@ org.bonitasoft.engine.core.expression.control.api.impl.ExpressionResolverService
 <p>Implementation: org.bonitasoft.engine.core.login.LoginServiceImpl</p>
 <h3>Platform loginDescription:</h3>
 <p>Log in to or out of the Engine at the platform level.</p>
-<p>Used by:</p>
-<p>APIs</p>
+<p>Used by:
+APIs</p>
 <p>Implementation:
 org.bonitasoft.engine.core.platform.login.impl.PlatformLoginServiceImpl</p>
 <h3>OperationDescription:</h3>
@@ -151,8 +150,8 @@ For example, a process instance that is finished is archived using this service.
 <h3>Querieable logsDescription: Log information related to business actions. For</h3>
 <p>example, ?Activity 'step1' was created with id = 12? or ?Connector email-1.0.0 was successfully executed on activity 1547?. By default, log
 information is stored in a database for easy query.</p>
-<p>Used by: Any service storing objects: ?deleted activity[..]?</p>
-<p>Scheduler service: ?Job executed [...]?</p>
+<p>Used by: Any service storing objects: ?deleted activity[..]?<br>
+Scheduler service: ?Job executed [...]?</p>
 <p>Implementations:
 org.bonitasoft.engine.services.impl.SyncBusinessLoggerServiceImpl
 (Community edition: insert logs directly in database)<br>
@@ -209,8 +208,8 @@ references a data instance. When an expression is evaluated, the value of the da
 <h3>DependencyDescription: Declare Java dependencies on business objects. These</h3>
 <p>dependencies have a name and a content that is the JAR itself. For example, a process that uses an email connector has a dependency on
 javamail.jar that is declared at deployment.</p>
-<p>Used by: Engine, to declare process dependencies</p>
-<p>ClassloaderService, to retrieve dependencies of process</p>
+<p>Used by: Engine, to declare process dependencies<br>
+ClassloaderService, to retrieve dependencies of process</p>
 <p>Implementation:
 org.bonitasoft.engine.dependency.impl.DependencyServiceImpl</p>
 <p>Notes: Dependency information is stored in database</p>

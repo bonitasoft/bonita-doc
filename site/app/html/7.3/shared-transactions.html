@@ -7,10 +7,10 @@
 </ul>
 <p>If you are accessing the Engine in Local mode, you also have the option of using shared transactions, which means you can include Engine API calls in a transaction that is managed explicitly by a calling program.
 For example, in an application for approving and paying expenses, you could have a single transaction that includes the payment instruction sent to the bank and the process step that informs the user that expenses have been paid. If the bank does not complete the payment, the notification is not sent.</p>
-<p>A transaction managed by the caller has the following structure:</p>
-<p><code>startTransaction(); try { myBusinessLogic1(); callBonitaBPMEngine(); myBusinessLogic2(); commitTransaction(); } catch (Exception e) { rollbackTransaction(); }</code></p>
-<p>The example below shows how to wrap two Engine API calls in the same transaction. Each call updates the value of a variable, and the transaction guarantees that both values are updated or neither value is updated.</p>
-<p>`
+<p>A transaction managed by the caller has the following structure:
+<code>startTransaction(); try { myBusinessLogic1(); callBonitaBPMEngine(); myBusinessLogic2(); commitTransaction(); } catch (Exception e) { rollbackTransaction(); }</code></p>
+<p>The example below shows how to wrap two Engine API calls in the same transaction. Each call updates the value of a variable, and the transaction guarantees that both values are updated or neither value is updated.
+`
 long procId = processInstance.getId();
 try {
 txManager.begin();

@@ -14,7 +14,7 @@
 <p>Note: If you have processes that use CMIS connectors from previous versions, these connectors will no longer work. You need to update the configuration of each connector, including any scripts that construct the URLs used.</p>
 <h3>Alfresco specific configuration for document versioning</h3>
 <p>Document versioning is disabled by default in Alfresco.</p>
-<p>If you wish to use the &quot;Upload a new version&quot; connector to upload a new document version, you will have to enable document versioning following the <a href="http://docs.alfresco.com/community/concepts/versioning.html">official Alfresco documentation</a>.</p>
+<p>If you wish to use the &quot;Upload a new version&quot; connector to upload a new document version, you will have to enable document versioning following the <a href="http://docs.alfresco.com/community/concepts/versioning.md">official Alfresco documentation</a>.</p>
 <p>If this configuration is not set, new versions of documents will overwrite previous ones.</p>
 <h3>Example: How to upload a document</h3>
 <ol>
@@ -36,20 +36,11 @@
 <li>In the Server window, enter the information necessary to connect to the repository:</li>
 </ol>
 <ul>
-<li>
-<p>Username and password</p>
-</li>
-<li>
-<p>Repository name (for example <em>Main Repository</em>)</p>
-</li>
-<li>
-<p>Binding type: webservices (or atompub)</p>
-</li>
-<li>
-<p>The URL (server address) for the atompub binding if it is used</p>
-</li>
-<li>
-<p>If using webservices, there are four new URLs:</p>
+<li>Username and password</li>
+<li>Repository name (for example <em>Main Repository</em>)</li>
+<li>Binding type: webservices (or atompub)</li>
+<li>The URL (server address) for the atompub binding if it is used</li>
+<li>If using webservices, there are four new URLs:
 <ul>
 <li>RepositoryService, for example <em>https://localhost:12345/alfresco/cmis/RepositoryService?wsdl</em></li>
 <li>RepositoryService endpoint</li>
@@ -57,9 +48,7 @@
 <li>ObjectService endpoint</li>
 </ul>
 </li>
-<li>
-<p>Click <em><strong>Next</strong></em>.</p>
-</li>
+<li>Click <em><strong>Next</strong></em>.</li>
 </ul>
 <ol start="4">
 <li>In the Document window:</li>

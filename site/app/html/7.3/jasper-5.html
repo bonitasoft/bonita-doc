@@ -8,7 +8,7 @@
 <li>Import the pre-formatted .jrxml file into Bonita which will be used to create the graphic version of the data</li>
 <li>When the process is run, it will connect to the database in real time</li>
 <li>The request in the .jrxml report will be executed</li>
-<li>The data will be extracted, imported into Bonita via the connector, a report will be created and then saved in the chosen format (pdf, xml or html) and to the chosen folder.
+<li>The data will be extracted, imported into Bonita via the connector, a report will be created and then saved in the chosen format (pdf, xml or.md) and to the chosen folder.
 It can be displayed directly in the Portal.</li>
 </ol>
 <h2>How to create a report using the Jasper 5.0 connector</h2>
@@ -16,8 +16,8 @@ It can be displayed directly in the Portal.</li>
 <p><strong>Preparation</strong></p>
 <p>In MySQL, create a database with a table and information. In this example put <strong>address</strong> as the name of the table, for example.</p>
 <p><strong>Note:</strong> The <code>.jrxml</code> file is created by Jasper Studio, and contains the database and the table name. If the names are changed, the request in the <code>.jrxml</code> file will fail, the connector will not recognise the name and not connect.</p>
-<p>The structure of the table must be identical to the one below, but the names and cities can be anything you like:</p>
-<p>INTEGER
+<p>The structure of the table must be identical to the one below, but the names and cities can be anything you like:
+INTEGER
 VARCHAR
 VARCHAR
 VARCHAR
@@ -50,11 +50,11 @@ Fairfield</p>
 (1 human task called <em>beforeJasper</em>, one service task called <em>Jasper</em> and one human task called <em>afterJasper</em>), and lastly an <strong>end event</strong>.</li>
 </ol>
 <p><strong>Pool data</strong></p>
-<p>Select the pool and create 2 documents: a bonitadocument called input (.jxrml) and an output format for the document to be created (.pdf,.xml or.html).</p>
+<p>Select the pool and create 2 documents: a bonitadocument called input (.jxrml) and an output format for the document to be created (.pdf,.xml or.md).</p>
 <p>Go to the <strong>Details</strong> panel, <strong>Data</strong> tab, <strong>Documents</strong> panel, and click <strong><em>Add</em></strong>.
 In the popup, click <strong>From Bonita BPM</strong> &gt; <strong>Browse...</strong> &gt; <strong>Import...</strong> (example.jrxml) to import the Bonita document.</p>
-<p><strong>Document</strong></p>
-<p>Name
+<p><strong>Document</strong>
+Name
 Data type</p>
 <p>jrxmlDocName
 text</p>

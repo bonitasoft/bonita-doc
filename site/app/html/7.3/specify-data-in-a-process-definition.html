@@ -9,25 +9,18 @@ explains how to handle data in a process, including specifying process- and task
 <h2>Variable scope</h2>
 <p>You can define a variable at process, task, or form level:</p>
 <ul>
-<li>
-<p>A process variable is available throughout the life of a process. Process variables
-can be uses to store data for transition conditions, and identifiers for business data stored in an external database. They are typically items of data which affect the path of the process, or are used at several steps of the process, but which become redundant, once the process instance has completed.</p>
-</li>
-<li>
-<p>A task variable is available for the task and its outgoing transitions.
-It can be used to pass data to a connector in the same step. Activity variables are similar to Process variables, but exist only within the life of a process instance activity.</p>
-</li>
-<li>
-<p>A form variable is available only in the form, and is used to store data
+<li>A process variable is available throughout the life of a process. Process variables
+can be uses to store data for transition conditions, and identifiers for business data stored in an external database. They are typically items of data which affect the path of the process, or are used at several steps of the process, but which become redundant, once the process instance has completed.</li>
+<li>A task variable is available for the task and its outgoing transitions.
+It can be used to pass data to a connector in the same step. Activity variables are similar to Process variables, but exist only within the life of a process instance activity.</li>
+<li>A form variable is available only in the form, and is used to store data
 used in the form. You can also use form variables with connectors that are
-associated with the form.</p>
-</li>
+associated with the form.</li>
 </ul>
 <p>See also:<br>
-<a href="/define-variable.md">Data types and defining a variable</a><br>
-<a href="/complex-data-types">Complex data types</a><br>
-<a href="/data-handling-form">Data handling in a form</a><br>
-<a href="/saving-data-widget-group.md">Saving data entered in a widget group</a></p>
+<a href="data-handling-overview.md">Data types and defining a variable</a><br>
+<a href="create-a-complex-data-type.md">Complex data types</a><br>
+<a href="product-bos-sp/data">Data handling in a form</a></p>
 <p><img src="images/images-6_0/variables_scope.png" alt="Scope of variables"></p>
 <p>Scope of variables</p>
 <p>Best practice:</p>
@@ -42,7 +35,7 @@ only when required for the process flow.</li>
 large set of variables has an impact on performance.</li>
 </ul>
 <p>There are also a number of variables that are provided by default in a process, such as the id of the current user. They are available through the
-<a href="/using-expressions-and-scripts">expression editor</a>.</p>
+<a href="expressions-and-scripts.md">expression editor</a>.</p>
 <h2>Transient data</h2>
 <p>A variable can be transient or persistent. A transient variable is stored
 only in memory, saving database transactions. A persistent variable is stored
@@ -70,11 +63,11 @@ process, defined in a separate pool. It does not have direct access to the data 
 process. When you define a call activity, you can define mappings that make copies of the
 data in the calling process available in the subprocess.</p>
 <h2>External data</h2>
-<p>A process or application can use data that is stored in an external database and accessed using a <a href="/list-database-connectors">database connector</a>. For example, in a process for requesting annual leave, there could
+<p>A process or application can use data that is stored in an external database and accessed using a <a href="list-of-database-connectors.md">database connector</a>. For example, in a process for requesting annual leave, there could
 be a step that uses a connector to retrieve the number of days available for an employee and stores this in a transient variable. This variable is then
 compared with the number of days requested to see whether the employee is entitled to take the requested number of days. In a later step, another
 connector is used to update the number of available days after this request is approved, by subtracting the number of days requested.</p>
-<p>You can also use data stored in external information system components, such as a CRM document storage system. These systems are also accessed using a <a href="//connectivity-overview.md">connector</a>.</p>
+<p>You can also use data stored in external information system components, such as a CRM document storage system. These systems are also accessed using a <a href="connectivity-overview.md">connector</a>.</p>
 <h2>Define a variable</h2>
 <p>When you define a variable, you specify a name and the data type. Optionally, you can
 specify a default value or a list of available values.</p>
@@ -93,71 +86,45 @@ specify a default value or a list of available values.</p>
 long, double, text, Java object, XML schema (XSD) and option list. You can also
 define a variable as <em>multiple</em>, that is, an array or collection of
 values of the specified type.</p>
-<p>Note that since 6.3, Business data is now available. For a detailed explanation, see the <a href="/business-data-overview.md">Business Data overview</a>.</p>
-<p>You can also define additional <a href="/complex-data-types">complex
+<p>Note that since 7.0, Business data is now available. For a detailed explanation, see the <a href="define-and-deploy-the-bdm.md#boprocesses">Business Data overview</a>.</p>
+<p>You can also define additional <a href="create-a-complex-data-type.md">complex
 data types</a> as Java objects or as XML objects.</p>
 <h3>Variable naming</h3>
 <p>You are recommended to use meaningful names for variables
 This make process debugging and maintenance easier, particularly if more than one person is working on a process
 It can be useful to use a system of prefixes to identify the context in which a variable is used, or the task it is associated with.
 For example, you could label all transient data variables with the prefix trans_, or you could label variables defined on a task called getData with the prefix task_getData_.
-<a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html">Java language keywords</a> cannot be used as variable names.</p>
+<a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.md">Java language keywords</a> cannot be used as variable names.</p>
 <h3>Define a simple data type variable</h3>
 <p>The simple data types are Boolean, date, integer, long, double, and text. To
 define a variable with one of these types:</p>
 <ol>
-<li>
-<p>Open your process diagram in Bonita BPM Studio.</p>
-</li>
-<li>
-<p>Select the process pool or the step where you want the variable.</p>
-</li>
-<li>
-<p>Go to the <strong>Details</strong> panel, <strong>General</strong> view, <strong>Data</strong> pane. A list of the variables
-already defined is displayed.</p>
-</li>
-<li>
-<p>Choose if you want to add Process data or Business data. Click <strong><em>Add...</em></strong>.
-Note: if you add Business data, only add it at the pool/lane level. See this tutorial as a guide for the next steps<a href="/how-add-business-data-data-process">How to add Business data to a process</a>.</p>
-</li>
-<li>
-<p>Specify a name for the variable. The name must be unique within the scope
+<li>Open your process diagram in Bonita BPM Studio.</li>
+<li>Select the process pool or the step where you want the variable.</li>
+<li>Go to the <strong>Details</strong> panel, <strong>General</strong> view, <strong>Data</strong> pane. A list of the variables
+already defined is displayed.</li>
+<li>Choose if you want to add Process data or Business data. Click <strong><em>Add...</em></strong>.
+Note: if you add Business data, only add it at the pool/lane level. See this tutorial as a guide for the next steps<a href="define-and-deploy-the-bdm.md#boprocesses">How to add Business data to a process</a>.</li>
+<li>Specify a name for the variable. The name must be unique within the scope
 of the variable. For easier process maintenance, it is a good idea to make
 all variable names unique within the process, even though this is not
-strictly necessary for variables defined in a step.</p>
-</li>
-<li>
-<p>Optionally, add a description of the variable.</p>
-</li>
-<li>
-<p>Select the data type from the drop down list.</p>
-</li>
-<li>
-<p>If you are defining a date variable, you can pick an initial date.</p>
-</li>
-<li>
-<p>Optionally, set a default value. You can use the expression editor to set
-the value, or type directly in the field.</p>
-</li>
-<li>
-<p>To define the variable as multiple, check the box.</p>
-</li>
-<li>
-<p>To define the variable as transient, check the box. This option is not
-available for process-level variables.</p>
-</li>
-<li>
-<p>To automatically add a widget corresponding to this variable when you
-generate a form for this step, check the box.</p>
-</li>
-<li>
-<p>Save the definition: if you want to continue on and define another
-variable, click <strong><em>Create &amp; New</em></strong>, otherwise click <strong><em>Finish</em></strong>.</p>
-</li>
+strictly necessary for variables defined in a step.</li>
+<li>Optionally, add a description of the variable.</li>
+<li>Select the data type from the drop down list.</li>
+<li>If you are defining a date variable, you can pick an initial date.</li>
+<li>Optionally, set a default value. You can use the expression editor to set
+the value, or type directly in the field.</li>
+<li>To define the variable as multiple, check the box.</li>
+<li>To define the variable as transient, check the box. This option is not
+available for process-level variables.</li>
+<li>To automatically add a widget corresponding to this variable when you
+generate a form for this step, check the box.</li>
+<li>Save the definition: if you want to continue on and define another
+variable, click <strong><em>Create &amp; New</em></strong>, otherwise click <strong><em>Finish</em></strong>.</li>
 </ol>
 <h3>Define a Java object variable</h3>
 <p>You can define a variable whose data type is Java object. Before you define
-the variable, you must <a href="/complex-data-types">create the data type definition</a>.</p>
+the variable, you must <a href="create-a-complex-data-type.md">create the data type definition</a>.</p>
 <p>To add a Java object variable:</p>
 <ol>
 <li>Open your process diagram in Bonita BPM Studio.</li>
@@ -186,7 +153,7 @@ variable, click <strong><em>Create &amp; New</em></strong>, otherwise click <str
 definition to the application or process dependencies.</p>
 <h3>Define an XML variable</h3>
 <p>An XML variable has a data type that is defined by an XML schema file.
-Before you define the variable, you must <a href="/complex-data-types">create the XML schema</a> that contains
+Before you define the variable, you must <a href="create-a-complex-data-type.md">create the XML schema</a> that contains
 the data type definition. The data type definition is stored in an XML
 schema (XSD) file that belongs to a namespace.</p>
 <p>To add an XML variable:</p>

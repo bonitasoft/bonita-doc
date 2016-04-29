@@ -36,23 +36,22 @@ an instance of User and then use the createUser method with the User as paramete
 <h2>Add a user to a group</h2>
 <p>This example shows how to add a user to a group.</p>
 <p>The user, group, and role are already defined, and each one is specified by ID.
-Note that it is not possible to add a user without a role.</p>
-<p><code>final IdentityAPI identityAPI = new IdentityAccessor().getIdentityAPI(apiSession); UserMembership membership = identityAPI.addUserMembership(userId, groupId, roleId);</code></p>
+Note that it is not possible to add a user without a role.
+<code>final IdentityAPI identityAPI = new IdentityAccessor().getIdentityAPI(apiSession); UserMembership membership = identityAPI.addUserMembership(userId, groupId, roleId);</code></p>
 <h2>List the users in a group</h2>
 <p>This example shows how to get a list of users in a specified group in the organization.</p>
-<p>The group is specified by groupID. The search options specify that a maximum of 100 items are listed, starting with the first one.</p>
-<p><code>final IdentityAPI identityAPI = TenantAPIAccessor.getIdentityAPI(apiSession); final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100); builder.filter(UserSearchDescriptor.GROUP_ID, groupID); final SearchResult userResults = identityAPI(apiSession).searchUsers(builder.done());</code></p>
+<p>The group is specified by groupID. The search options specify that a maximum of 100 items are listed, starting with the first one.
+<code>final IdentityAPI identityAPI = TenantAPIAccessor.getIdentityAPI(apiSession); final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100); builder.filter(UserSearchDescriptor.GROUP_ID, groupID); final SearchResult userResults = identityAPI(apiSession).searchUsers(builder.done());</code></p>
 <h2>List the users with a specified role in a group</h2>
 <p>This example shows how to get a list of the users who have the specified role in the specified group in the organization.</p>
-<p>The group is specified by groupID. The role is specified by roleID. The search options specify that a maximum of 100 items are listed, starting with the first one.</p>
-<p><code>final IdentityAPI identityAPI = TenantAPIAccessor.getIdentityAPI(apiSession); final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100); builder.filter(UserSearchDescriptor.GROUP_ID, groupID); builder.filter(UserSearchDescriptor.ROLE_ID, roleID); final SearchResult userResults = identityAPI(apiSession).searchUsers(builder.done());</code></p>
+<p>The group is specified by groupID. The role is specified by roleID. The search options specify that a maximum of 100 items are listed, starting with the first one.
+<code>final IdentityAPI identityAPI = TenantAPIAccessor.getIdentityAPI(apiSession); final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100); builder.filter(UserSearchDescriptor.GROUP_ID, groupID); builder.filter(UserSearchDescriptor.ROLE_ID, roleID); final SearchResult userResults = identityAPI(apiSession).searchUsers(builder.done());</code></p>
 <h2>Get user contact data</h2>
 <p>You can use the <code>getUserWithProfessionalDetails</code> method to retrieve a user and their professional contact data for a user.</p>
-<p>This example shows how to get a user and the email address.</p>
-<p><code>// Get the professional email address of a user UserWithContactData proUser = getIdentityAPI().getUserWithProfessionalDetails(user.getId()); proUser.getContactData().getEmail();</code></p>
+<p>This example shows how to get a user and the email address.
+<code>// Get the professional email address of a user UserWithContactData proUser = getIdentityAPI().getUserWithProfessionalDetails(user.getId()); proUser.getContactData().getEmail();</code></p>
 <h2>Search for users</h2>
-<p>The following example is a client application that accesses the Engine in HTTP mode to search for 20 users and display their names and identifiers.</p>
-<p>`
+<p>The following example is a client application that accesses the Engine in HTTP mode to search for 20 users and display their names and identifiers. `
 package org.bonitasoft.example;</p>
 <p>import org.bonitasoft.engine.api.IdentityAPI;
 import org.bonitasoft.engine.api.LoginAPI;
@@ -102,8 +101,8 @@ The actor filter is applied when the task instance is created. This is known as 
 The actor filter is applied and a shorter list of users is returned (in this case, just superExpert).</p>
 <p>Dynamic task assignment using <code>getPossibleUsersOfPendingHumanTask</code> re-evaluates the actor mapping including any actor filters.
 It is useful if your organization changes after a process instance is started and you need to modify the list of users who can perform a task.</p>
-<p>Finally, it executes the task for the fist user on the list. This &quot;execute for&quot; feature is not available in the Community and Teamwork editions.</p>
-<p>`
+<p>Finally, it executes the task for the fist user on the list. This &quot;execute for&quot; feature is not available in the Community and Teamwork editions.
+`
 // Create a process definition containing a human task, step1
 // Step1 is performed by actor expert adjusted by an actor filter</p>
 <p>final ProcessDefinitionBuilder designProcessDefinition = new ProcessDefinitionBuilder().createNewInstance(&quot;assign&quot;, &quot;5.0&quot;);

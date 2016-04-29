@@ -16,37 +16,20 @@ reduced version of your organization that has the same structure but fewer users
 <p>You must load an organization into Bonita BPM Engine before running a process. There are two ways to to do this:</p>
 <ul>
 <li>Create the organization in Bonita BPM Studio, export it, and then import it into Bonita BPM Portal.</li>
-<li>If you have a Subscription edition, use the <a href="/ldap-synchronizer.md">LDAP synchronizer</a> to automatically load information from your LDAP directory into Bonita BPM Engine.</li>
+<li>If you have a Subscription edition, use the <a href="ldap-synchronizer.md">LDAP synchronizer</a> to automatically load information from your LDAP directory into Bonita BPM Engine.</li>
 </ul>
 <p>To specify an organization manually, you create the
 organization, create the group hierarchy, specify roles, and then add users and
 their memberships.</p>
 <ol>
-<li></li>
-</ol>
-<p>Start Bonita BPM Studio.</p>
-<ol start="2">
-<li>
-<p>Go to the Organization menu and select <strong>Manage....</strong></p>
-</li>
-<li>
-<p>Add a new organization:</p>
-</li>
-<li>
-<p>Click <strong><em>Add</em></strong>. A line will be added to the table of organizations, with a placeholder name such as Organization1.</p>
-</li>
-<li>
-<p>Change the placeholder name to the name of your organization, and add a description.</p>
-</li>
-<li>
-<p>Add groups to your organization:</p>
-</li>
-<li>
-<p>Select the name of your organization and click <strong><em>Next</em></strong>.</p>
-</li>
-<li>
-<p>Click <strong><em>Add</em></strong> to add a group. You can specify the following:</p>
-</li>
+<li>Start Bonita BPM Studio.</li>
+<li>Go to the Organization menu and select <strong>Manage....</strong></li>
+<li>Add a new organization:</li>
+<li>Click <strong><em>Add</em></strong>. A line will be added to the table of organizations, with a placeholder name such as Organization1.</li>
+<li>Change the placeholder name to the name of your organization, and add a description.</li>
+<li>Add groups to your organization:</li>
+<li>Select the name of your organization and click <strong><em>Next</em></strong>.</li>
+<li>Click <strong><em>Add</em></strong> to add a group. You can specify the following:</li>
 </ol>
 <pre><code>* the group Name, which is used internally by the Bonita BPM software
 * the Display name, which is the group name displayed in lists and wizards
@@ -71,8 +54,6 @@ information from your business organization into your Bonita BPM organization,
 but instead you should just create the roles that are useful in processes.</li>
 <li>When you have specified all the roles you
 require, click <strong><em>Next</em></strong>.</li>
-</ol>
-<ol start="6">
 <li>Add users to your organization.</li>
 <li>Click <strong><em>Add</em></strong>. A default username is added to the list of users.</li>
 <li>You can change the username, but the value must be in a format the Bonita BPM software can use: only unaccented alphanumeric characters are permitted plus a period (.).
@@ -82,8 +63,6 @@ One option is to use the personal part of the user's email address, that is, the
 <li>In the <strong>General</strong> tab, specify the Title, First name, Last name, and Job title of the user.</li>
 <li>In the <strong>Membership</strong> tab, specify the groups that the user belongs to, and what role they have in each group.</li>
 <li>You can also specify <strong>Personal contact</strong> and <strong>Professional contact</strong> information for the user.</li>
-</ol>
-<ol start="7">
 <li>Add all the users in your organization. When you have finished, click <strong><em>Finish</em></strong>.</li>
 </ol>
 <h2>Exporting and importing an organization</h2>
@@ -94,11 +73,11 @@ Choose <strong>Export...</strong> or <strong>Import...</strong> from the <strong
 <p>To prepare your production system (unless you are using the LDAP synchronizer),
 you must create the organization that you need for all the processes that will be deployed, export it from Bonita BPM Studio,
 and import it into Bonita BPM Portal. After the organization is imported into Bonita BPM Portal,
-you can <a href="/manage-group.md">manage groups</a>, <a href="/manage-role.md">roles</a>, and <a href="/manage-user.md">users</a> in the organization.</p>
+you can <a href="group.md">manage groups</a>, <a href="role.md">roles</a>, and <a href="manage-a-user.md">users</a> in the organization.</p>
 <h2>Modifying an organization</h2>
-<p>To modify an organization, choose <strong>Manage...</strong> from the Organization menu and use the same dialogs that you used to create the organization.</p>
-<p>To modify an item in an organization, select it in the item list and modify the information on the right-hand side of the list.</p>
-<p>To delete an item, select and it click <strong><em>Remove</em></strong>.</p>
+<p>To modify an organization, choose <strong>Manage...</strong> from the Organization menu and use the same dialogs that you used to create the organization.
+To modify an item in an organization, select it in the item list and modify the information on the right-hand side of the list.
+To delete an item, select and it click <strong><em>Remove</em></strong>.</p>
 <h2>Publishing an organization to Bonita BPM Portal</h2>
 <p>Publishing an organization means uploading the organization data to Bonita BPM Portal temporarily so that you can test your process.
 The organization that you publish overwrites one in Bonita BPM Portal.</p>

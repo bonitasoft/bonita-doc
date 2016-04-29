@@ -1,0 +1,130 @@
+<h2>page</h2>
+<h3>Description</h3>
+<p>Use the page resource to access custom pages.</p>
+<h3>Identifier</h3>
+<p>Simple, the ID of the object (a long value)</p>
+<h3>Parameters</h3>
+<p>None</p>
+<h3>Representation</h3>
+<pre><code>{
+&quot;id&quot;:&quot;_page_id_&quot;,
+&quot;creationDate&quot;:&quot;_date and time_&quot;,
+&quot;createdBy&quot;:&quot;_created_by_user_id_&quot;,
+&quot;isProvided&quot;:&quot;_true|false_&quot;,
+&quot;description&quot;:&quot;_description_&quot;,
+&quot;contentName&quot;:&quot;_custom_page_name_&quot;,
+&quot;displayName&quot;:&quot;_custom_page_display_name_&quot;,
+&quot;updatedBy&quot;:&quot;_updatedBy_user_id_&quot;,
+&quot;lastUpdateDate&quot;:&quot;_date_and_time_&quot;,
+&quot;urlToken&quot;:&quot;_custom_page_urlToken_&quot;
+}
+</code></pre>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>POST - Add a new custom page</li>
+<li>GET - Read or search a custom page</li>
+<li>PUT - Update a custom page</li>
+<li>DELETE - Remove a custom page</li>
+</ul>
+<h3>Retrieve a Custom Page</h3>
+<p>Use a GET method to retrieve information about a custom page.</p>
+<p>Example: Get the information about the custom page with id=1.
+Method
+GET</p>
+<p>URL
+<code>http://localhost:8080/bonita/API/portal/page/1</code></p>
+<p>Payload
+empty</p>
+<p>Response</p>
+<pre><code>{
+            &quot;id&quot;:&quot;1&quot;,
+            &quot;creationDate&quot;:&quot;2014-12-02 15:54:45.249&quot;,
+            &quot;createdBy&quot;:&quot;&quot;,
+            &quot;isProvided&quot;:&quot;true&quot;,
+            &quot;description&quot;:&quot;HTML and Javascript example of custom page source structure (in English).&quot;,
+            &quot;contentName&quot;:&quot;bonita-html-page-example.zip&quot;,
+            &quot;displayName&quot;:&quot;HTML example page&quot;,
+            &quot;updatedBy&quot;:&quot;-1&quot;,
+            &quot;lastUpdateDate&quot;:&quot;2014-12-02 15:54:45.249&quot;,
+            &quot;urlToken&quot;:&quot;custompage_htmlexample&quot;
+            }
+</code></pre>
+<h3>Add a new custom page</h3>
+<p>Use the POST method to create a new custom page. To add a new custom page, there are two steps:</p>
+<ol>
+<li>Upload the page content using the pageUpload servlet. This returns a temporary file name.</li>
+<li>Call this API with the temporary file name, as in the example below.</li>
+</ol>
+<p>Example: Add the custom page that was given the temporary name <code>tmp_2181700538398444744.zip</code>. The original name was <code>bonita-angular-dashboard.zip</code>.
+Method
+POST</p>
+<p>URL
+<code>http://localhost:8080/bonita/API/portal/page</code></p>
+<p>Payload</p>
+<pre><code>{
+            &quot;pageZip&quot;:&quot;tmp_113096560980259488.zip:bonita-angular-dashboard.zip&quot;
+            }
+</code></pre>
+<p>Response</p>
+<pre><code>{
+            &quot;id&quot;:&quot;103&quot;,
+            &quot;creationDate&quot;:&quot;2014-12-04 14:54:06.967&quot;,
+            &quot;createdBy&quot;:&quot;1&quot;,
+            &quot;isProvided&quot;:&quot;false&quot;,
+            &quot;description&quot;:&quot;AngularJS dashboard using ngBonita&quot;,
+            &quot;contentName&quot;:&quot;bonita-angular-dashboard.zip&quot;,
+            &quot;displayName&quot;:&quot;AngularJS dashboard&quot;,
+            &quot;updatedBy&quot;:&quot;1&quot;,
+            &quot;lastUpdateDate&quot;:&quot;2014-12-04 14:54:06.967&quot;,
+            &quot;urlToken&quot;:&quot;custompage_angulardashboard&quot;
+            }
+</code></pre>
+<h3>Update a custom page</h3>
+<p>Use the PUT method to update an existing custom page.
+To update a custom page, upload the new page content using the pageUpload servlet, which returns a temporary file name, and then call this API with the temporary file name.</p>
+<p>Example: Update the custom page with id = 103. The new uploaded file was given the temporary name <code>tmp_4338264789005487499.zip</code>. The original name was <code>new-bonita-angular-dashboard.zip</code>.
+Method
+PUT</p>
+<p>URL
+<code>http://localhost:8080/bonita/API/portal/page/103</code></p>
+<p>Payload</p>
+<pre><code>{
+            &quot;pageZip&quot;:&quot;tmp_4338264789005487499.zip:new-bonita-angular-dashboard.zip&quot;
+            }
+</code></pre>
+<p>Response
+empty</p>
+<h3>Search custom pages</h3>
+<p>Use a GET method with filters and search terms to search for custom pages.</p>
+<p>You can filter on:</p>
+<ul>
+<li>createdBy={user_id}: retrieve only the pages created by the specified user ID.
+For example, to retrieve the custom pages created by the user with id 1: <code>http://localhost:8080/bonita/API/portal/page?p=0&amp;c=10&amp;f=createdBy%3d1</code>.</li>
+<li>contentType={contentType}: retrieve only the resources of requested type. This filter is available since v7.0.
+For example, to retrieve the theme resources: <code>http://localhost:8080/bonita/API/portal/page?p=0&amp;c=10&amp;f=contentType%3Dtheme</code>.</li>
+</ul>
+<p>You can search on:</p>
+<ul>
+<li>displayName or description: search for custom pages with a displayName or description that starts with the specified string.
+For example, to find the pages with displayName starting with New: http://localhost:8080/bonita/API/portal/page?p=0&amp;c=10&amp;s=New
+Request url
+/API/portal/page?p={page}&amp;c={count}&amp;o={orders}&amp;f={filters}&amp;s={search}&amp;d={deploy}</li>
+</ul>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload</p>
+<p>empty</p>
+<p>Response</p>
+<p>An array of custom page objects</p>
+<h3>Delete a custom page</h3>
+<p>Use the DELETE method to delete an existing custom page</p>
+<p>Example: Delete a custom page with id = 103
+Method
+DELETE</p>
+<p>URL
+<code>http://localhost:8080/bonita/API/portal/page/103</code></p>
+<p>Payload
+empty</p>
+<p>Response
+empty</p>

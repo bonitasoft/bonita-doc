@@ -24,27 +24,19 @@
 As JBoss embeds Tomcat as a Servlet engine, these libraries are delivered both for Tomcat and JBoss.</p>
 <h2>Installation</h2>
 <ol>
-<li>
-<p>Download the deploy.zip file from the <a href="http://www.bonitasoft.com/how-we-do-it/downloads">Bonitasoft download page</a> for the Community edition
-or from the <a href="https://customer.bonitasoft.com/download/request">Customer Portal</a> for Subscription editions.</p>
-</li>
-<li>
-<p>Unzip the <code>deploy.zip</code> into a temporary folder.</p>
-</li>
-<li>
-<p>Install Bonita BPM in your Application Server, by merging the appropriate folder (e.g. <code>Jboss-7.1.1.Final</code> or <code>Tomcat-7.0.55</code>) from <code>BonitaBPMSubscription-6.x.y-deploy</code> folder
-into the existing root folder of your application server.</p>
-</li>
-<li>
-<p>If you do not want to use the h2 database, you need to specify the <a href="/database-configuration.md">database configuration</a>. The h2 database is not suitable for a production environment.</p>
-</li>
+<li>Download the deploy.zip file from the <a href="http://www.bonitasoft.com/how-we-do-it/downloads">Bonitasoft download page</a> for the Community edition
+or from the <a href="https://customer.bonitasoft.com/download/request">Customer Portal</a> for Subscription editions.</li>
+<li>Unzip the <code>deploy.zip</code> into a temporary folder.</li>
+<li>Install Bonita BPM in your Application Server, by merging the appropriate folder (e.g. <code>Jboss-7.1.1.Final</code> or <code>Tomcat-7.0.55</code>) from <code>BonitaBPMSubscription-6.x.y-deploy</code> folder
+into the existing root folder of your application server.</li>
+<li>If you do not want to use the h2 database, you need to specify the <a href="database-configuration.md">database configuration</a>. The h2 database is not suitable for a production environment.</li>
 </ol>
 <h2>License installation</h2>
-<p>If you are installing a Subscription edition, you need to <a href="/licenses.md">request a license</a>.</p>
+<p>If you are installing a Subscription edition, you need to <a href="licenses.md">request a license</a>.</p>
 <p>When you receive your license, copy the file to the <code>var_bh_code_replace/server/licenses</code> folder of your application server.</p>
 <h2>Edition specification</h2>
 <p>If you are installing the Performance Subscription edition,
 you need to edit <code>engine-server/conf/platform-init/bonita-platform-init-community-custom.properties</code>
 and change the value of the <code>activeProfiles</code> key to <code>'community,performance'</code>. No change is needed for the Community, Teamwork, or Efficiency edition.</p>
 <h2>Next steps</h2>
-<p>When you have finished installing the deploy bundle, <a href="/first-steps-after-setup.md">complete the setup</a> of your system by validating the installation, setting passwords, and creating the Administrator user.</p>
+<p>When you have finished installing the deploy bundle, <a href="first-steps-after-setup.md">complete the setup</a> of your system by validating the installation, setting passwords, and creating the Administrator user.</p>

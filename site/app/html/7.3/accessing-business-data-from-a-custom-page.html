@@ -3,14 +3,14 @@
 <p>This aim of this tutorial is to show how to benefit from the two technologies <strong>Custom pages</strong> and <strong>BDM</strong>.
 It will describe how to display a Business Data inside a Custom page.</p>
 <p><strong>Note:</strong> This information applies to custom pages created manually.
-If you <a href="/create-or-modify-page">create a page using the UI designer</a>, access business data using the <a href="/bdm-api.md">REST bdm API</a>.</p>
+If you <a href="create-or-modify-a-page.md">create a page using the UI designer</a>, access business data using the <a href="bdm-api.md">REST bdm API</a>.</p>
 <h2>Pre-requisites</h2>
 <p>Before getting to the main part of this tutorial, you will need to carry out the following steps:</p>
 <ol>
-<li>Create a <a href="/business-data-model">Business Data Management model</a> in Bonita BPM Studio.</li>
-<li>Export and deploy a <a href="/business-data-model">Business Data Management model</a>.</li>
-<li>Define a groovy custom page. See <a href="/custom-pages.md#examples">Custom pages</a>.</li>
-<li>Add a custom page to Bonita BPM Portal (as an Administrator). See <a href="/custom-profiles.md">Custom profiles</a> and <a href="/custom-pages.md">Custom pages</a>.</li>
+<li>Create a <a href="define-and-deploy-the-bdm.md">Business Data Management model</a> in Bonita BPM Studio.</li>
+<li>Export and deploy a <a href="define-and-deploy-the-bdm.md">Business Data Management model</a>.</li>
+<li>Define a groovy custom page. See <a href="pages.md#examples">Custom pages</a>.</li>
+<li>Add a custom page to Bonita BPM Portal (as an Administrator). See <a href="custom-profiles.md">Custom profiles</a> and <a href="pages.md">Custom pages</a>.</li>
 </ol>
 <h2>Main steps</h2>
 <p><a href="#import">Import the Business Data Model</a>
@@ -20,14 +20,10 @@ If you <a href="/create-or-modify-page">create a page using the UI designer</a>,
 <h3>Import the Business Data Management</h3>
 <p>The Custom Page needs to access the BDM through <strong>.jar files</strong> created by the Bonita BPM Studio during BDM development.</p>
 <ol>
-<li>
-<p>Extract the <code>client-bdm.zip</code> file located in the following directory:
-<code>engine-server/work/tenants//data-management-client</code></p>
-</li>
-<li>
-<p>Copy the <code>bdm-dao.jar</code> and <code>bdm-model.jar</code> files that you extracted from the zip into the **custom page directory **called <strong>lib</strong>.
-<code>bonita_home\client\tenants\1\work\pages\custompage_yourname\lib</code></p>
-</li>
+<li>Extract the <code>client-bdm.zip</code> file located in the following directory:
+<code>engine-server/work/tenants//data-management-client</code></li>
+<li>Copy the <code>bdm-dao.jar</code> and <code>bdm-model.jar</code> files that you extracted from the zip into the **custom page directory **called <strong>lib</strong>.
+<code>bonita_home\client\tenants\1\work\pages\custompage_yourname\lib</code></li>
 </ol>
 <p>Note: A new folder containing the custom page, was automatically created when the custom page was added.</p>
 <h3>Access the Business Data Model</h3>
@@ -39,10 +35,10 @@ If you <a href="/create-or-modify-page">create a page using the UI designer</a>,
 <p>Now in the body of the custom page, its's possible to use these classes and their methods:</p>
 <p>//Get the apiSession from the context
 <code>def apiSession=pageContext.getApiSession();</code></p>
-<p>//Create a DAO factory</p>
-<p><code>def BusinessObjectDAOFactory daoFactory = new BusinessObjectDAOFactory();</code></p>
-<p>//Use the factory to obtain a DAO object</p>
-<p><code>def LeaveRequestDAO dao = daoFactory.createDAO(apiSession, LeaveRequestDAO.class);</code></p>
+<p>//Create a DAO factory
+<code>def BusinessObjectDAOFactory daoFactory = new BusinessObjectDAOFactory();</code></p>
+<p>//Use the factory to obtain a DAO object
+<code>def LeaveRequestDAO dao = daoFactory.createDAO(apiSession, LeaveRequestDAO.class);</code></p>
 <p>//Use methods on DAO object to access data from the BDM. You can pass input values pre-calculated to the method
 <code>def List leaveRequestList = dao.find(0,10);</code></p>
 <h3>Display your data</h3>
@@ -50,16 +46,16 @@ If you <a href="/create-or-modify-page">create a page using the UI designer</a>,
 <code>DateFormat df = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</code></p>
 <p>Now that you got your Business Objects you can display them on your page.
 There are many ways to do that with standard .html, depending on your needs.</p>
-<p>For example you can use the method <code>out.println()</code> to print html in the page:</p>
-<p>`out.println('Leave Request ListStart Date End dateLeave Type</p>
-<p>');</p>
+<p>For example you can use the method <code>out.println()</code> to print html in the page:
+`out.println('');</p>
 <pre><code>		for(LeaveRequest leaveRequest: leaveRequestList){         
-			out.println(&quot;&quot; + df.format(leaveRequest.getStartDate())+&quot; &quot; + df.format(leaveRequest.getEndDate())+&quot; &quot; +leaveRequest.getLeaveType() + &quot;
+			out.println(&quot;&quot;); 
+		}
+		
+		out.println(&quot;Leave Request ListStart Date End dateLeave Type
 </code></pre>
-<p>&quot;);
-			}</p>
-<pre><code>		out.println(&quot;&quot;);`
-</code></pre>
+<p>&quot; + df.format(leaveRequest.getStartDate())+&quot; &quot; + df.format(leaveRequest.getEndDate())+&quot; &quot; +leaveRequest.getLeaveType() + &quot;</p>
+<p>&quot;);`</p>
 <h3>Notes</h3>
 <ol>
 <li>When you are developing your custom page, be aware that if you accidentally stop the Bonita BPM Studio, by default this will erase the tenant filesystem and database, so you'd lose your work.</li>
@@ -85,11 +81,7 @@ Then create a new groovy project and point to the custom page filesystem.</li>
 <code>out.println(&quot;&quot;);</code>
 <code>out.println(&quot;&quot;)</code></p>
 <ol start="4">
-<li>
-<p>The action of the form (actionUrl in the example) should point to the same url as the Custom page, i.e.
-<code>http://localhost:8090/bonita/portal/homepage?tenant=1#?_p=custompage_name&amp;_pf=4)</code></p>
-</li>
-<li>
-<p>By clicking on the submit button, the url will be called and the input parameters will be sent, so the next time the page will be loaded it will have this information.</p>
-</li>
+<li>The action of the form (actionUrl in the example) should point to the same url as the Custom page, i.e.
+<code>http://localhost:8090/bonita/portal/homepage?tenant=1#?_p=custompage_name&amp;_pf=4)</code></li>
+<li>By clicking on the submit button, the url will be called and the input parameters will be sent, so the next time the page will be loaded it will have this information.</li>
 </ol>

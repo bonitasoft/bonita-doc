@@ -52,24 +52,12 @@ the databases. In a terminal or console, type following commands:</p>
 <h3>Enable prepared transactions</h3>
 <p>Prepared transactions is disabled by default in PostgreSQL. You need to enable it:</p>
 <ul>
-<li>
-<p>Edit the <code>postgresql.conf</code> configuration file: <code>sudo nano /etc/postgresql/9.3/main/postgresql.conf</code></p>
-</li>
-<li>
-<p>Look for the line with <code>max_prepared_transactions</code> (line 117)</p>
-</li>
-<li>
-<p>Uncomment the line: remove <code>#</code> character</p>
-</li>
-<li>
-<p>Change the value from <code>zero</code> to <code>100</code></p>
-</li>
-<li>
-<p>Save modification and quit text editor</p>
-</li>
-<li>
-<p>Restart PostgreSQL server: <code>sudo service postgresql restart</code></p>
-</li>
+<li>Edit the <code>postgresql.conf</code> configuration file: <code>sudo nano /etc/postgresql/9.3/main/postgresql.conf</code></li>
+<li>Look for the line with <code>max_prepared_transactions</code> (line 117)</li>
+<li>Uncomment the line: remove <code>#</code> character</li>
+<li>Change the value from <code>zero</code> to <code>100</code></li>
+<li>Save modification and quit text editor</li>
+<li>Restart PostgreSQL server: <code>sudo service postgresql restart</code></li>
 </ul>
 <h2>Application Server</h2>
 <h3>Install Tomcat 7</h3>
@@ -92,33 +80,17 @@ the databases. In a terminal or console, type following commands:</p>
 (Subscription editions) or get the <a href="http://www.bonitasoft.com/how-we-do-it/downloads">Community edtion</a>. Instructions
 below will be given for Bonita Subscription Pack. You can easily adapt files and folder names to your edition.</p>
 <ul>
-<li>
-<p>Go to Bonitasoft <a href="https://customer.bonitasoft.com/">Customer Portal</a></p>
-</li>
-<li>
-<p>In <strong>Download</strong> menu, click on <em><strong>Request a download</strong></em></p>
-</li>
-<li>
-<p>Select your version and click on <em><strong>Access download page</strong></em> button</p>
-</li>
-<li>
-<p>On the download page, go to the <strong>Deploying Server Components</strong> section</p>
-</li>
-<li>
-<p>Click on <em><strong>Download BonitaBPMSubscription-x.y.z-deploy.zip</strong></em> link. If your server only has a terminal available
+<li>Go to Bonitasoft <a href="https://customer.bonitasoft.com/">Customer Portal</a></li>
+<li>In <strong>Download</strong> menu, click on <em><strong>Request a download</strong></em></li>
+<li>Select your version and click on <em><strong>Access download page</strong></em> button</li>
+<li>On the download page, go to the <strong>Deploying Server Components</strong> section</li>
+<li>Click on <em><strong>Download BonitaBPMSubscription-x.y.z-deploy.zip</strong></em> link. If your server only has a terminal available
 you can copy the link and use <code>wget</code> to download the file or use SSH with <code>scp</code> command to copy
-the file from another computer.</p>
-</li>
-<li>
-<p>Make sure that the <code>BonitaBPMSubscription-x.y.z-deploy.zip</code> is located in your home folder (e.g. <code>/home/osuser</code>).
-If you type <code>cd ~ &amp;&amp; ls</code> you should see the file listed.</p>
-</li>
-<li>
-<p>Make sure the <code>unzip</code> command is installed: <code>sudo aptitude install unzip</code></p>
-</li>
-<li>
-<p>Unzip the deploy bundle: <code>unzip -q BonitaBPMSubscription-x.y.z-deploy.zip</code></p>
-</li>
+the file from another computer.</li>
+<li>Make sure that the <code>BonitaBPMSubscription-x.y.z-deploy.zip</code> is located in your home folder (e.g. <code>/home/osuser</code>).
+If you type <code>cd ~ &amp;&amp; ls</code> you should see the file listed.</li>
+<li>Make sure the <code>unzip</code> command is installed: <code>sudo aptitude install unzip</code></li>
+<li>Unzip the deploy bundle: <code>unzip -q BonitaBPMSubscription-x.y.z-deploy.zip</code></li>
 </ul>
 <p>Finally, make sure that the user that runs the Tomcat server, is the owner of all Bonita &quot;home&quot; files:</p>
 <ul>
@@ -145,61 +117,30 @@ If you type <code>cd ~ &amp;&amp; ls</code> you should see the file listed.</p>
 <p>You need to configure the data source for Bonita BPM Engine.</p>
 <p>Warning: make sure you stop Tomcat before performing following operations: <code>sudo service tomcat7 stop</code></p>
 <ul>
-<li>
-<p>Create new folders in order to store Bitronix files: <code>sudo mkdir -p /opt/bonita/btm/conf &amp;&amp; sudo mkdir /opt/bonita/btm/work</code></p>
-</li>
-<li>
-<p>Set the ownership of the Bitronix folder: <code>sudo chown -R tomcat7:tomcat7 /opt/bonita/btm</code></p>
-</li>
-<li>
-<p>Copy the Bitronix configuration files to <code>/opt/bonita/btm/conf</code> folder: <code>sudo cp ~/BonitaBPMSubscription-6.4.0-deploy/Tomcat-7.0.55/conf/bitronix-* /opt/bonita/btm/conf/</code></p>
-</li>
-<li>
-<p>Edit <code>bitronix-resources.properties</code> file, comment (using <code>#</code>) h2 section, uncomment PostgreSQL example
+<li>Create new folders in order to store Bitronix files: <code>sudo mkdir -p /opt/bonita/btm/conf &amp;&amp; sudo mkdir /opt/bonita/btm/work</code></li>
+<li>Set the ownership of the Bitronix folder: <code>sudo chown -R tomcat7:tomcat7 /opt/bonita/btm</code></li>
+<li>Copy the Bitronix configuration files to <code>/opt/bonita/btm/conf</code> folder: <code>sudo cp ~/BonitaBPMSubscription-6.4.0-deploy/Tomcat-7.0.55/conf/bitronix-* /opt/bonita/btm/conf/</code></li>
+<li>Edit <code>bitronix-resources.properties</code> file, comment (using <code>#</code>) h2 section, uncomment PostgreSQL example
 and update the username, password and DB name (&quot;bonita&quot; in the URL property) to match your configuration (e.g.
-<code>bonita_db_user</code>, <code>bonita_db_password</code> and <code>bonita_db</code>): <code>sudo nano /opt/bonita/btm/conf/bitronix-resources.properties</code></p>
-</li>
-<li>
-<p>Also in <code>bitronix-resources.properties</code> update the section for <code>resource.ds2</code> (BDM data source) and set the value for the BDM data base (e.g. <code>bonita_db_user</code>, <code>bonita_db_password</code> and <code>bonita_bdm</code>)</p>
-</li>
-<li>
-<p>Save and quit: <code>CTRL+X, Y, ENTER</code></p>
-</li>
-<li>
-<p>Copy the <code>bonita.xml</code> file (Bonita web app context configuration): <code>sudo cp ~/BonitaBPMSubscription-6.4.0-deploy/Tomcat-7.0.55/conf/Catalina/localhost/bonita.xml /etc/tomcat7/Catalina/localhost/</code></p>
-</li>
-<li>
-<p>Edit the <code>bonita.xml</code> file by commenting the h2 datasource configuration (using ),
+<code>bonita_db_user</code>, <code>bonita_db_password</code> and <code>bonita_db</code>): <code>sudo nano /opt/bonita/btm/conf/bitronix-resources.properties</code></li>
+<li>Also in <code>bitronix-resources.properties</code> update the section for <code>resource.ds2</code> (BDM data source) and set the value for the BDM data base (e.g. <code>bonita_db_user</code>, <code>bonita_db_password</code> and <code>bonita_bdm</code>)</li>
+<li>Save and quit: <code>CTRL+X, Y, ENTER</code></li>
+<li>Copy the <code>bonita.xml</code> file (Bonita web app context configuration): <code>sudo cp ~/BonitaBPMSubscription-6.4.0-deploy/Tomcat-7.0.55/conf/Catalina/localhost/bonita.xml /etc/tomcat7/Catalina/localhost/</code></li>
+<li>Edit the <code>bonita.xml</code> file by commenting the h2 datasource configuration (using ),
 uncomment PostgreSQL example and update username, password and DB name (bonita in the URL property) to match your
-configuration (e.g. <code>bonita_db_user</code>, <code>bonita_db_password</code> and <code>bonita_db</code>): <code>sudo nano /etc/tomcat7/Catalina/localhost/bonita.xml</code></p>
-</li>
-<li>
-<p>Also in <code>bonita.xml</code> file update data base configuration for BDM to match your configuration (e.g. <code>bonita_db_user</code>, <code>bonita_db_password</code> and <code>bonita_bdm</code>)</p>
-</li>
-<li>
-<p>Save and quit: <code>CTRL+X, Y, ENTER</code></p>
-</li>
-<li>
-<p>Copy and overwrite <code>logging.properties</code> file: <code>sudo cp ~/BonitaBPMSubscription-6.4.0-deploy/Tomcat-7.0.55/conf/logging.properties /etc/tomcat7/logging.properties</code></p>
-</li>
-<li>
-<p>Copy and overwrite <code>context.xml</code> file: <code>sudo cp ~/BonitaBPMSubscription-6.4.0-deploy/Tomcat-7.0.55/conf/context.xml /etc/tomcat7/context.xml</code></p>
-</li>
-<li>
-<p>Copy and overwrite <code>server.xml</code> file: <code>sudo cp ~/BonitaBPMSubscription-6.4.0-deploy/Tomcat-7.0.55/conf/server.xml /etc/tomcat7/server.xml</code></p>
-</li>
-<li>
-<p>Edit <code>server.xml</code> (<code>sudo nano /etc/tomcat7/server.xml</code>) and comment out h2 listener line</p>
-</li>
-<li>
-<p>Fix ownership on the copied files: <code>sudo chown -R root:tomcat7 /etc/tomcat7</code></p>
-</li>
+configuration (e.g. <code>bonita_db_user</code>, <code>bonita_db_password</code> and <code>bonita_db</code>): <code>sudo nano /etc/tomcat7/Catalina/localhost/bonita.xml</code></li>
+<li>Also in <code>bonita.xml</code> file update data base configuration for BDM to match your configuration (e.g. <code>bonita_db_user</code>, <code>bonita_db_password</code> and <code>bonita_bdm</code>)</li>
+<li>Save and quit: <code>CTRL+X, Y, ENTER</code></li>
+<li>Copy and overwrite <code>logging.properties</code> file: <code>sudo cp ~/BonitaBPMSubscription-6.4.0-deploy/Tomcat-7.0.55/conf/logging.properties /etc/tomcat7/logging.properties</code></li>
+<li>Copy and overwrite <code>context.xml</code> file: <code>sudo cp ~/BonitaBPMSubscription-6.4.0-deploy/Tomcat-7.0.55/conf/context.xml /etc/tomcat7/context.xml</code></li>
+<li>Copy and overwrite <code>server.xml</code> file: <code>sudo cp ~/BonitaBPMSubscription-6.4.0-deploy/Tomcat-7.0.55/conf/server.xml /etc/tomcat7/server.xml</code></li>
+<li>Edit <code>server.xml</code> (<code>sudo nano /etc/tomcat7/server.xml</code>) and comment out h2 listener line</li>
+<li>Fix ownership on the copied files: <code>sudo chown -R root:tomcat7 /etc/tomcat7</code></li>
 </ul>
 <h3>License</h3>
 <p>If you run the Subscription Pack version, you will need a license:</p>
 <ul>
-<li>
-<p>Generate the key in order to get a license:</p>
+<li>Generate the key in order to get a license:
 <ul>
 <li>Change the current directory to license generation scripts folder: <code>cd ~/BonitaBPMSubscription-6.4.0-deploy/request_key_utils-6.4-006</code></li>
 <li>Make the license generation script executable: <code>chmod u+x generateRequestForAnyEnvironment.sh</code></li>
@@ -207,24 +148,12 @@ configuration (e.g. <code>bonita_db_user</code>, <code>bonita_db_password</code>
 <li>You will get a license key number that you can copy. Make sure that you keep the brackets. If the key is separated by a linebreak, remove it and put the key on a single line.</li>
 </ul>
 </li>
-<li>
-<p>Connect to Bonitasoft <a href="https://customer.bonitasoft.com/">Customer Portal</a></p>
-</li>
-<li>
-<p>Go to Licenses &gt; <strong>Request a license</strong></p>
-</li>
-<li>
-<p>Fill in the license request forms</p>
-</li>
-<li>
-<p>You should receive the license file by email</p>
-</li>
-<li>
-<p>Copy the license file to the Bonita &quot;home&quot; folder: <code>sudo cp BonitaBPMSubscription-6.1-Your_Name-ServerName-YYYYMMDD-YYYYMMDD.lic /opt/bonita/bonita_home-6.4.0/server/licenses/</code></p>
-</li>
-<li>
-<p>Change folders and files ownership: <code>sudo chown -R tomcat7:tomcat7 /opt/bonita</code></p>
-</li>
+<li>Connect to Bonitasoft <a href="https://customer.bonitasoft.com/">Customer Portal</a></li>
+<li>Go to Licenses &gt; <strong>Request a license</strong></li>
+<li>Fill in the license request forms</li>
+<li>You should receive the license file by email</li>
+<li>Copy the license file to the Bonita &quot;home&quot; folder: <code>sudo cp BonitaBPMSubscription-6.1-Your_Name-ServerName-YYYYMMDD-YYYYMMDD.lic /opt/bonita/bonita_home-6.4.0/server/licenses/</code></li>
+<li>Change folders and files ownership: <code>sudo chown -R tomcat7:tomcat7 /opt/bonita</code></li>
 </ul>
 <h3>Deployment</h3>
 <p>Deploy the Bonita web application:</p>
@@ -232,6 +161,6 @@ configuration (e.g. <code>bonita_db_user</code>, <code>bonita_db_password</code>
 <p>Take care to set the proper owner: <code>sudo chown tomcat7:tomcat7 /var/lib/tomcat7/webapps/bonita.war</code></p>
 <p>Start Tomcat: <code>sudo service tomcat7 start</code></p>
 <h3>First connection</h3>
-<p>You can access the Bonita BPM Portal using your web browser, just type the following URL <code>http://:8080/bonita</code> (your_server_hostname can be either an IP address or a name).</p>
-<p>You can log in using the tenant administrator login: <code>install</code> and password: <code>install</code>.</p>
-<p>The first step is to create at least one user and add it to &quot;administrator&quot; and &quot;user&quot; profiles.</p>
+<p>You can access the Bonita BPM Portal using your web browser, just type the following URL <code>http://:8080/bonita</code> (your_server_hostname can be either an IP address or a name).<br>
+You can log in using the tenant administrator login: <code>install</code> and password: <code>install</code>.<br>
+The first step is to create at least one user and add it to &quot;administrator&quot; and &quot;user&quot; profiles.</p>

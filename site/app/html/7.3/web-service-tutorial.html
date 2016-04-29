@@ -66,12 +66,8 @@
 <ul>
 <li>Enter the WDSL URL http://www.webservicex.net/globalweather.asmx?WSDL and click on the Introspect button, then leave the login info fields empty</li>
 <li>Set the <code>Port: GlobalWheatherSoap12</code> and leave other parameters with default values</li>
+<li>In the <strong>Request parameters</strong> window (for all editions), provide these settings:</li>
 </ul>
-</li>
-</ul>
-<ul>
-<li>
-<p>In the <strong>Request parameters</strong> window (for all editions), provide these settings:</p>
 </li>
 <li>
 <p>SOAP action: http://www.webserviceX.net/GetWeather</p>
@@ -89,12 +85,8 @@
 <p>Envelope
 <code>${city}${country}</code></p>
 <ul>
-<li>
-<p>In the <strong>Response configuration</strong> window, check the <strong>Returns body</strong> checkbox to use the response body in the output operations.</p>
-</li>
-<li>
-<p>In the <strong>Output operations</strong> window, edit the first output operation:</p>
-</li>
+<li>In the <strong>Response configuration</strong> window, check the <strong>Returns body</strong> checkbox to use the response body in the output operations.</li>
+<li>In the <strong>Output operations</strong> window, edit the first output operation:</li>
 </ul>
 </li>
 <li>
@@ -138,60 +130,36 @@ Map data = new HashMap();
 NodeList childNodes = weatherNode.getChildNodes();
 for (int i=0; i</p>
 <ul>
-<li>
-<p>In <strong>Return type</strong> enter java.util.Map</p>
-</li>
-<li>
-<p>Select the Display weather task and add a blank form (without any widget) by going into the Application &gt; Pageflow tab</p>
-</li>
-<li>
-<p>In the form builder, drag and drop a table widget to create a table</p>
-</li>
-<li>
-<p>Select the table widget, click on the Data tab</p>
-</li>
-<li>
-<p>Click on <strong>Edit as an expression</strong>, then click on the pencil next to the first field (initial value)</p>
+<li>In <strong>Return type</strong> enter java.util.Map</li>
+<li>Select the Display weather task and add a blank form (without any widget) by going into the Application &gt; Pageflow tab</li>
+<li>In the form builder, drag and drop a table widget to create a table</li>
+<li>Select the table widget, click on the Data tab</li>
+<li>Click on <strong>Edit as an expression</strong>, then click on the pencil next to the first field (initial value)
 <ul>
 <li>Use the following Script:
 <code>import java.util.Map.Entry; List&gt; table = new ArrayList&gt;(); Set&gt; weatherDataEntries = weatherData.entrySet(); for (Entry entry : weatherDataEntries) { List row = new ArrayList(); row.add(entry.getKey()); row.add(entry.getValue()); table.add(row); } return table;</code></li>
 <li>In <strong>Return type</strong> enter: java.util.list</li>
 </ul>
 </li>
-<li>
-<p>Create a submit button called <strong>Close</strong></p>
-</li>
-<li>
-<p>Select the **No result found task **and add a blank form by going into the Application &gt; Pageflow tab</p>
+<li>Create a submit button called <strong>Close</strong></li>
+<li>Select the **No result found task **and add a blank form by going into the Application &gt; Pageflow tab
 <ul>
-<li>
-<p>Add a message widget and sets its initial value to “Sorry, no result found.”</p>
-</li>
-<li>
-<p>Add a submit button and name it “Close”</p>
-</li>
+<li>Add a message widget and sets its initial value to “Sorry, no result found.”</li>
+<li>Add a submit button and name it “Close”</li>
 </ul>
 </li>
-<li>
-<p>Once you have finished creating the diagram and configuring the tasks, the script and form fields, click <strong>Run</strong> to deploy and run the process in Bonita BPM Portal.</p>
-</li>
-<li>
-<p>In the first form, enter a country and a city e.g. France, Grenoble</p>
-</li>
-<li>
-<p>Click <em><strong>Get Weather Forecast</strong></em></p>
-</li>
-<li>
-<p>Click <em><strong>Display weather</strong></em></p>
-</li>
+<li>Once you have finished creating the diagram and configuring the tasks, the script and form fields, click <strong>Run</strong> to deploy and run the process in Bonita BPM Portal.</li>
+<li>In the first form, enter a country and a city e.g. France, Grenoble</li>
+<li>Click <em><strong>Get Weather Forecast</strong></em></li>
+<li>Click <em><strong>Display weather</strong></em></li>
 </ul>
 <h3>The Result</h3>
 <p>The result is a form displaying all the weather information retrieved, for Grenoble.</p>
 <p><strong>Weather forecast</strong>
 Status
-	Success</p>
+Success</p>
 <p>Time
-	Jan 02, 2014 - 08:00 AM EST / 2014.01.02 1300 UTC</p>
+Jan 02, 2014 - 08:00 AM EST / 2014.01.02 1300 UTC</p>
 <p>RelativeHumidity
 81%</p>
 <p>Temperature

@@ -9,9 +9,9 @@
     <i class="fa fa-circle-o" aria-hidden="true"></i>
     <a href="" ng-click="navCtrl.goTo(node.href)">{{ node.name }}</a>
   </div>
-  <div ng-if="node.children && node.children.length" ng-click="node.isExpanded=!node.isExpanded">
-    <span class="glyphicon" ng-class="{'glyphicon-triangle-right': !node.isExpanded, 'glyphicon-triangle-bottom': node.isExpanded}"></span>
-    <a href="">{{ node.name }}</a>
+  <div ng-if="node.children && node.children.length">
+    <span ng-click="node.isExpanded=!node.isExpanded" class="glyphicon" ng-class="{'glyphicon-triangle-right': !node.isExpanded, 'glyphicon-triangle-bottom': node.isExpanded}"></span>
+    <a href="" ng-click="navCtrl.goTo(node.href)">{{ node.name }}</a>
   </div>
   <div class="tree-node" uib-collapse="!node.isExpanded">
     <div ng-repeat="node in node.children">

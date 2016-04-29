@@ -12,10 +12,10 @@ The layout was created using the UI designer, so you can export it and edit it w
 <li>change the menu to add a side menu</li>
 <li>add a footer</li>
 </ul>
-<p>Layouts are <a href="/resources-management">exported. imported, modified, and deleted</a> as resources in Bonita BPM Portal.</p>
+<p>Layouts are <a href="resource-management.md">exported. imported, modified, and deleted</a> as resources in Bonita BPM Portal.</p>
 <p><strong><a href="#layout_definition">Layout definition</a></strong></p>
-<p><strong><a href="/resource-management#permissions">Authorization permissions</a></strong></p>
-<p><strong><a href="/applications.md#layout">use a layout in an application</a></strong></p>
+<p><strong><a href="resource-management.md#permissions">Authorization permissions</a></strong></p>
+<p><strong><a href="applications.md#layout">use a layout in an application</a></strong></p>
 <p><strong><a href="#constraints">Constraints</a></strong></p>
 <p><strong><a href="#resources">Layout resources management</a></strong></p>
 <blockquote>
@@ -30,16 +30,13 @@ The layout was created using the UI designer, so you can export it and edit it w
 <h2>Layout definition</h2>
 <p>A layout is imported as a zip archive containing a page.properties file and a resources folder.</p>
 <ul>
-<li>The <code>page.properties</code> file contains the metadata for the layout (the name used in the URL, the display name, and a description). For example:</li>
-</ul>
-<p><code>name=custompage_layout displayName=Application layout page description=This is a layout page dedicated to new born living applications. It is created and editable using the UI designer. It allows to display an horizontal menu, and an iframe. The menu allows to target some pages and the iframe define the area to display those targeted pages. resources=[GET|living/application,GET|living/application-page,GET|living/application-menu] contentType=layout</code></p>
-<ul>
+<li>The <code>page.properties</code> file contains the metadata for the layout (the name used in the URL, the display name, and a description). For example: <code>name=custompage_layout displayName=Application layout page description=This is a layout page dedicated to new born living applications. It is created and editable using the UI designer. It allows to display an horizontal menu, and an iframe. The menu allows to target some pages and the iframe define the area to display those targeted pages. resources=[GET|living/application,GET|living/application-page,GET|living/application-menu] contentType=layout</code></li>
 <li></li>
 </ul>
 <p>The resources folder must contain an <code>Index.groovy</code> class or an <code>index.html</code> file and optionally can contain some additional resources.</p>
 <p>If you create a resource with the UI Designer, the exported zip automatically has the correct format (only the contentType will have to be changed to &quot;layout&quot;).</p>
 <p>In case of layout edition using the UI Designer, the contentType is conserved.
-<a href="/resource-management#export">Export the examples</a> to see how to structure your layout.</p>
+<a href="resource-management.md#export">Export the examples</a> to see how to structure your layout.</p>
 <h2>Constraints</h2>
 <p>A layout can only be use as the main container of an application. It cannot be used as a simple application page.</p>
 <h2>Layout resources management</h2>
@@ -47,8 +44,8 @@ The layout was created using the UI designer, so you can export it and edit it w
 <p>If you are not using Groovy, you can directly access a resource by adding a link in <code>index.html</code>.</p>
 <p>For example: ``</p>
 <h3>API acces</h3>
-<p>If your page is viewed in a custom profile or in an application, you will have access facilities for <a href="/rest-api-overview.md">the portal API</a>.</p>
+<p>If your page is viewed in a custom profile or in an application, you will have access facilities for <a href="rest-api-overview.md">the portal API</a>.</p>
 <p>you will be abble to access the portal API using the following path: &quot;../API/{API name}/{resource name}&quot;</p>
 <h3>Theme access</h3>
-<p>If your page is viewed in an application, you will have access facilities for <a href="/applications.md#theme">the application theme</a>.</p>
+<p>If your page is viewed in an application, you will have access facilities for <a href="applications.md#theme">the application theme</a>.</p>
 <p>You can directly access a resource by adding the following link in <code>index.html</code>: ``</p>

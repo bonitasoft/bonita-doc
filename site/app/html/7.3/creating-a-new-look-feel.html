@@ -1,13 +1,13 @@
-<h1>3.10.2 Creating a new Look</h1>
+<h1>3.10.2 Creating a new Look &amp; Feel</h1>
 <p>A Look &amp; Feel is defined in a set of files. You can set the Look &amp; Feel for the Bonita BPM Portal Web interface, an application, a custom page, or for the Bonita BPM Portal Mobile interface.</p>
 <p><a href="#web">Bonita BPM Portal Web default Look &amp; Feel</a><br>
 <a href="#mobile">Bonita BPM Portal Mobile default Look &amp; Feel</a><br>
 <a href="#migration">Recommendation: Form footers</a></p>
-<p>This page explains how to modify the Look &amp; Feel of Bonita BPM Portal and of forms in processes run from the Portal. You can also <a href="/specify-look-and-feel.md">specify the Look &amp; Feel of a web application in Bonita BPM Studio</a>.
+<p>This page explains how to modify the Look &amp; Feel of Bonita BPM Portal and of forms in processes run from the Portal. You can also <a href="specify-look-and-feel.md">specify the Look &amp; Feel of a web application in Bonita BPM Studio</a>.
 The definition in the Portal overrides the definition created in Studio.</p>
-<p>To create a new Look &amp; Feel in Bonita BPM Portal, <a href="/managing-look-feel.md#export_default">export the default Look &amp; Feel</a> and modify the relevant components.
+<p>To create a new Look &amp; Feel in Bonita BPM Portal, <a href="managing-look-feel.md#export_default">export the default Look &amp; Feel</a> and modify the relevant components.
 You can either edit the files directly, or you can use a plugin and update the Look &amp; Feel in a browser.
-When the new Look &amp; Feel is ready, <a href="/managing-look-feel.md#import">import and apply the new Look &amp; Feel</a>.</p>
+When the new Look &amp; Feel is ready, <a href="managing-look-feel.md#import">import and apply the new Look &amp; Feel</a>.</p>
 <p>There are two types of page in the Portal: pages developed with GWT, as in earlier versions, and new pages, such as the Case monitoring page, that have been developed using Angular.
 The two types of page have different mechanisms for defining Look &amp; Feel.
 This means that in some cases, you might need to specify a Look &amp; Feel element in two places to get a consistent look for your Portal and custom pages.</p>
@@ -15,18 +15,12 @@ This means that in some cases, you might need to specify a Look &amp; Feel eleme
 Any change you make to this file is automatically implemented in all the pages of the Portal or forms that do not use the Bootstrap Look &amp; Feel, so this is where we recommend that you make all changes, if possible.
 For example:</p>
 <ul>
-<li>
-<p>To change the color of the menu bar, edit <code>skin/skin.config.less</code> and update the setting of <code>@mainAccentColor</code> to replace the default red (#b20706;) with the hexadecimal code for your preferred color.
-As an example, this file contains a line that you can uncomment to set the color to blue.</p>
-</li>
-<li>
-<p>To change the font, edit <code>skin/skin.config.less</code> and update the setting of <code>@skinFont</code> to specify the font you want to use.</p>
-</li>
-<li>
-<p>To replace the BonitaSoft logo with your own logo, create a transparent .PNG file with your logo and put it in the <code>skin/images</code> directory.
+<li>To change the color of the menu bar, edit <code>skin/skin.config.less</code> and update the setting of <code>@mainAccentColor</code> to replace the default red (#b20706;) with the hexadecimal code for your preferred color.
+As an example, this file contains a line that you can uncomment to set the color to blue.</li>
+<li>To change the font, edit <code>skin/skin.config.less</code> and update the setting of <code>@skinFont</code> to specify the font you want to use.</li>
+<li>To replace the BonitaSoft logo with your own logo, create a transparent .PNG file with your logo and put it in the <code>skin/images</code> directory.
 Then edit <code>skin/skin.config.less</code>, and replace <code>logo.png</code> with your logo file. If your logo is not the same size as the default BonitaSoft logo, edit the <code>loginPage-logo-width:</code>
-and <code>loginPage-logo-height:</code> properties and specify the correct width and height.</p>
-</li>
+and <code>loginPage-logo-height:</code> properties and specify the correct width and height.</li>
 </ul>
 <p>For pages developed in Angular, the Look &amp; Feel is defined using <a href="http://getbootstrap.com/">Bootstrap</a>. To modify the Look &amp; Feel, update the skin definition in
 <code>skin\bootstrap\portal</code> for Portal pages or in <code>skin\bootstrap\applications</code> for applications.</p>
@@ -51,8 +45,7 @@ Description</p>
 HTML entry page for Bonita BPM Portal. If you want to add a custom JavaScript or custom CSS, modify this file and add it to the header.</p>
 <p>BonitaForm.html
 HTML entry page for forms in Bonita BPM Portal. If you want to add a custom JavaScript or custom CSS, modify this file and add it to the header.</p>
-<p>bonita_ie8.css
-Specific CSS content for Internet Explorer 8 support.</p>
+<p>bonita_ie8.css Specific CSS content for Internet Explorer 8 support.</p>
 <p>main.less
 Used to compile the LESS files into CSS. You must not rename this file, and we recommend that you do not change it.</p>
 <p>css
@@ -61,8 +54,7 @@ Directory containing default CSS files used by the process forms.</p>
 Default CSS for process forms.</p>
 <p>css/footer.css
 CSS for footers in process forms.</p>
-<p>images
-Directory of images. These images are the size needed for the standard layout.
+<p>images Directory of images. These images are the size needed for the standard layout.
 If you change the layout, you might need to adjust the images sizes.
 If you want to use an image that is a different size, you might need to modify the layout.</p>
 <p>init/reset.less
@@ -99,8 +91,8 @@ Directory containing CSS files.</p>
 JQuery Mobile default CSS.</p>
 <p>css/style.css
 JQuery Mobile default theme CSS.</p>
-<p>img</p>
-<p>Directory of images. These images are the size needed for the standard layout.
+<p>img
+Directory of images. These images are the size needed for the standard layout.
 If you change the layout, you might need to adjust the images sizes.
 If you want to use an image that is a different size, you might need to modify the layout.</p>
 <p>themes
@@ -112,8 +104,8 @@ Theme CSS.</p>
 <p>themes/bonitasoft.min.css
 Minified theme CSS.</p>
 <h2>Recommendation: Form footers</h2>
-<p>There are sometimes problems with the appearance of form footers after migration. If this is the case, update the <code>moredetails.less</code> file of the Look &amp; Feel to include the following definition:</p>
-<p>`
+<p>There are sometimes problems with the appearance of form footers after migration. If this is the case, update the <code>moredetails.less</code> file of the Look &amp; Feel to include the following definition:
+`
 #formframe, .forms-view, .forms-view .frame {
 height: 100%;
 width: 100%;

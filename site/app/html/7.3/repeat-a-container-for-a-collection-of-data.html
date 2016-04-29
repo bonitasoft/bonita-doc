@@ -49,9 +49,8 @@ Adding an element adds a repeat of the container content. Removing an element re
 <li><strong>Value to add</strong>: leave this empty because there is no specific structure to add</li>
 </ul>
 <ol start="2">
-<li></li>
+<li>In the container, add a button widget on the same line as the input widget labelled Fruit type, with the following properties:</li>
 </ol>
-<p>In the container, add a button widget on the same line as the input widget labelled Fruit type, with the following properties:</p>
 <ul>
 <li><strong>Label</strong>: <em>Remove this fruit</em></li>
 <li><strong>Alignment</strong>: <em>right</em></li>
@@ -77,21 +76,22 @@ This example uses a more complex array with a list of producing countries nested
 }
 </code></pre>
 <ol>
-<li>Create a new variable,<em>fruitsProducingCountries</em>, with the following value:</li>
+<li>
+<p>Create a new variable,<em>fruitsProducingCountries</em>, with the following value:</p>
+<p>[
+{
+&quot;fruit&quot;:&quot;banana&quot;,
+&quot;producingCountries&quot;:
+[&quot;India&quot;,&quot;China&quot;]
+},
+{
+&quot;fruit&quot;:&quot;apple&quot;,
+&quot;producingCountries&quot;:
+[&quot;China&quot;,&quot;USA&quot;]
+}
+]</p>
+</li>
 </ol>
-<pre><code>[
-  {
-   &quot;fruit&quot;:&quot;banana&quot;,
-   &quot;producingCountries&quot;:
-               [&quot;India&quot;,&quot;China&quot;]
-   },
-   {
-    &quot;fruit&quot;:&quot;apple&quot;,
-    &quot;producingCountries&quot;:
-                [&quot;China&quot;,&quot;USA&quot;]
-    }
-]
-</code></pre>
 <ol start="2">
 <li>Select the container and change the <strong>Repeat contents</strong> property so that it binds to <em>fruitsProducingCountries</em> instead of to <em>fruits</em>.</li>
 <li>Select the input widget that displays the fruit and change the <strong>Value</strong> property to bind to <em>$item.fruit</em>.</li>
@@ -115,15 +115,9 @@ The updated page displays the producing countries for each fruit. A user can ren
 <li><strong>Value to add</strong>: leave this empty because there is no specific structure to add</li>
 </ul>
 <ol start="2">
-<li>
-<p>Add a new Container widget inside the existing container below the <em>Add producing country</em> button.</p>
-</li>
-<li>
-<p>To repeat the content of this new container for the collection of producing countries associated with each fruit type, bind the <strong>Repeat contents</strong> property of this container to <em>$item.producingCountries</em>.</p>
-</li>
-<li>
-<p>Add an input widget in the new container to display the producing countries. Set the widget properties as follows:</p>
-</li>
+<li>Add a new Container widget inside the existing container below the <em>Add producing country</em> button.</li>
+<li>To repeat the content of this new container for the collection of producing countries associated with each fruit type, bind the <strong>Repeat contents</strong> property of this container to <em>$item.producingCountries</em>.</li>
+<li>Add an input widget in the new container to display the producing countries. Set the widget properties as follows:</li>
 </ol>
 <ul>
 <li><strong>Label</strong>: <em>Producing country</em></li>
@@ -131,9 +125,8 @@ The updated page displays the producing countries for each fruit. A user can ren
 <li><strong>Value</strong>: bind to <em>$item</em>, to specify the current item within the collection <em>producingCountries</em>.</li>
 </ul>
 <ol start="5">
-<li></li>
+<li>To enable the user to remove a producing country item, add a button widget in the container in the same row as the <em>Producing country</em> input widget. Configure the button widget properties as follows:</li>
 </ol>
-<p>To enable the user to remove a producing country item, add a button widget in the container in the same row as the <em>Producing country</em> input widget. Configure the button widget properties as follows:</p>
 <ul>
 <li><strong>Label</strong>: <em>Remove this producing country</em></li>
 <li><strong>Alignment</strong>: <em>righ</em></li>

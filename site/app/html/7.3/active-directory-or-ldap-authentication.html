@@ -15,8 +15,6 @@
 </li>
 </ul>
 </li>
-</ul>
-<ul>
 <li><a href="#configurationSteps">Configurations steps</a>
 <ul>
 <li><a href="#bonitaAuthService">Changing Bonita BPM authentication service</a></li>
@@ -28,32 +26,26 @@
 </li>
 </ul>
 </li>
-</ul>
-<ul>
 <li><a href="#examples">JAAS configuration files examples</a></li>
 <li><a href="#limitations">Known limitations</a></li>
 <li><a href="#troubleshooting">Troubleshooting</a></li>
 </ul>
 <p><strong>Important notes:</strong></p>
 <ul>
-<li>
-<p>This documentation applies to an existing and working Bonita BPM installation
-(see the <a href="/bonita-bpm-installation-overview.md">installation instructions</a>).</p>
-</li>
-<li>
-<p>In order to have functioning Active Directory/LDAP authentication, the user login (username) must exist
+<li>This documentation applies to an existing and working Bonita BPM installation
+(see the <a href="bonita-bpm-installation-overview.md">installation instructions</a>).</li>
+<li>In order to have functioning Active Directory/LDAP authentication, the user login (username) must exist
 both in the LDAP directory and in the Bonita BPM database (user password is checked against the LDAP server but user
 information is read from Bonita BPM database).<br>
-We recommend that you use the <a href="/ldap-synchronizer.md">LDAP
-synchronizer</a> to create Bonita BPM users in a Bonita BPM database.</p>
-</li>
+We recommend that you use the <a href="ldap-synchronizer.md">LDAP
+synchronizer</a> to create Bonita BPM users in a Bonita BPM database.</li>
 </ul>
 <h2>Overview</h2>
 <p>Bonita BPM can be configured to perform user authentication against an LDAP server such as Active Directory,
 Apache Directory Server, or OpenLDAP.</p>
 <p>This type of configuration relies on a specific implementation of the Bonita BPM Engine authentication service that delegates the actual
-user name and password verification to a <a href="http://docs.oracle.com/javase/7/docs/technotes/guides/security/jaas/JAASRefGuide.html">JAAS</a> service
-configured with an <a href="http://docs.oracle.com/javase/7/docs/jre/api/security/jaas/spec/com/sun/security/auth/module/LdapLoginModule.html">LDAP
+user name and password verification to a <a href="http://docs.oracle.com/javase/7/docs/technotes/guides/security/jaas/JAASRefGuide.md">JAAS</a> service
+configured with an <a href="http://docs.oracle.com/javase/7/docs/jre/api/security/jaas/spec/com/sun/security/auth/module/LdapLoginModule.md">LDAP
 specific Login Module</a>.</p>
 <h2>Before you start</h2>
 <p>In order to configure LDAP successfully, make sure you have the following information:</p>
@@ -70,21 +62,13 @@ DN is: <code>uid=john.smith,ou=people,dc=example,dc=com</code>.<br>
 If it's not possible to build the DN using the
 user name you will need the following extra information:
 <ul>
-<li>
-<p>The DN of the LDAP entry under which all users are located (e.g. <code>CN=Users,DC=MyDomain,DC=com</code>)</p>
-</li>
-<li>
-<p>The user entry objectClass (the most restrictive one). E.g. usually <code>user</code> on AD, <code>inetOrgPerson</code>
-or <code>organizationalPerson</code> for other LDAP servers.</p>
-</li>
-<li>
-<p>The user entry attribute used for authentication (e.g. <code>userPrincipalName</code> on AD, value: <code>john.smith@mydomain.com</code>
-or <code>uid</code> on other LDAP servers, value: <code>john.smith</code>)</p>
-</li>
+<li>The DN of the LDAP entry under which all users are located (e.g. <code>CN=Users,DC=MyDomain,DC=com</code>)</li>
+<li>The user entry objectClass (the most restrictive one). E.g. usually <code>user</code> on AD, <code>inetOrgPerson</code>
+or <code>organizationalPerson</code> for other LDAP servers.</li>
+<li>The user entry attribute used for authentication (e.g. <code>userPrincipalName</code> on AD, value: <code>john.smith@mydomain.com</code>
+or <code>uid</code> on other LDAP servers, value: <code>john.smith</code>)</li>
 </ul>
 </li>
-</ul>
-<ul>
 <li>Does the LDAP server allow anonymous search?</li>
 <li>Does the LDAP server allow search for all users that can possibly log in?</li>
 <li>If search can only be performed by a limited number of &quot;technical&quot; accounts you will need the user name and
@@ -105,21 +89,13 @@ This will be at least one of <code>authIdentity</code>, <code>userFilter</code>,
 Based on the information described in the &quot;Before you start&quot; section, you can identify which of the following cases
 applies:</p>
 <ul>
-<li>
-<p>If you can build the user DN by directly injecting the user name =&gt; set only the <code>authIdentity</code> attribute</p>
-</li>
-<li>
-<p>If you cannot build the DN and anonymous search is allowed =&gt; set only the <code>userFilter</code> attribute</p>
-</li>
-<li>
-<p>If you cannot build the DN and anonymous search is disallowed and authenticated users can search =&gt; set the <code>userFilter</code>
-and <code>authIdentity</code> attributes</p>
-</li>
-<li>
-<p>If you cannot build the DN and anonymous search is disallowed and authenticated users cannot search =&gt; set the <code>userFilter</code>,
+<li>If you can build the user DN by directly injecting the user name =&gt; set only the <code>authIdentity</code> attribute</li>
+<li>If you cannot build the DN and anonymous search is allowed =&gt; set only the <code>userFilter</code> attribute</li>
+<li>If you cannot build the DN and anonymous search is disallowed and authenticated users can search =&gt; set the <code>userFilter</code>
+and <code>authIdentity</code> attributes</li>
+<li>If you cannot build the DN and anonymous search is disallowed and authenticated users cannot search =&gt; set the <code>userFilter</code>,
 <code>authIdentity</code>, <code>tryFirstPass</code>, <code>java.naming.security.principal</code> and <code>java.naming.security.credentials</code>
-attributes</p>
-</li>
+attributes</li>
 </ul>
 <h3>Values for LdapLoginModule attributes</h3>
 <p>In this section we explain how to set <code>LdapLoginModule</code> attributes values.</p>
@@ -131,8 +107,8 @@ request can be for example:
 <code>(&amp;(objectClass=user)(userPrincipalName={USERNAME}@mydomain.com))</code>.
 Use an LDAP tool (such as Apache Directory Studio) to validate that the request returns the expected result if you
 replace {USERNAME} with an actual username.</p>
-<p><strong><code>authIdentity</code></strong> (only if needed): there are two cases:</p>
-<p>If you can build the user DN, set the attribute value with the user DN and
+<p><strong><code>authIdentity</code></strong> (only if needed): there are two cases:<br>
+If you can build the user DN, set the attribute value with the user DN and
 <code>{USERNAME}</code>
 tag. For example
 <code>uid={USERNAME},ou=users,dc=example,dc=com</code>
@@ -159,7 +135,7 @@ Note that <code>security-domain-name</code> is in fact the JAAS login context na
 <p>The following example is for a tenant with id 1:
 <code></code></p>
 <h4><strong>Tomcat</strong></h4>
-<p>On Tomcat, the JAAS configuration file follows the <a href="http://docs.oracle.com/javase/7/docs/api/javax/security/auth/login/Configuration.html">default JVM syntax</a>.
+<p>On Tomcat, the JAAS configuration file follows the <a href="http://docs.oracle.com/javase/7/docs/api/javax/security/auth/login/Configuration.md">default JVM syntax</a>.
 Here is an example of JAAS configuration file:<br>
 <code>BonitaAuthentication-1 { com.sun.security.auth.module.LdapLoginModule sufficient userProvider=&quot;ldap://localhost:389/ou=people,dc=example,dc=com&quot; authIdentity=&quot;uid={USERNAME},ou=people,dc=example,dc=com&quot; useSSL=false; };</code></p>
 <p>We recommend that you name your JAAS configuration file
@@ -175,12 +151,8 @@ do this, edit <code>bonita-tenant-sp-custom.properties</code>. If you edit this 
 For an existing tenant, edit the properties file in <code>bonita-home/engine-server/conf/tenants/</code><em>``</em>.</p>
 <p>You will need to perform following changes:</p>
 <ul>
-<li>
-<p>Comment out the <code>authenticationService</code> line</p>
-</li>
-<li>
-<p>Add this new line: <code>authentication.service.ref.name=jaasAuthenticationService</code></p>
-</li>
+<li>Comment out the <code>authenticationService</code> line</li>
+<li>Add this new line: <code>authentication.service.ref.name=jaasAuthenticationService</code></li>
 </ul>
 <h3>Configure JAAS</h3>
 <h4><strong>JBoss</strong></h4>
@@ -191,39 +163,19 @@ To do this for a system running Tomcat you need to edit the
 <code>setenv</code> script provided with Bonita BPM and located in <code>/bin</code> folder.</p>
 <h5>For Linux and Mac OS</h5>
 <ul>
-<li>
-<p>Edit this file: <code>/bin/setenv.sh</code></p>
-</li>
-<li>
-<p>Locate the line that starts: <code>#SECURITY_OPTS</code></p>
-</li>
-<li>
-<p>Uncomment this line, i.e. remove the # sign and set property value to: <code>%CATALINA_HOME%\conf\jaas.cfg</code>.</p>
-</li>
-<li>
-<p>Locate the line that starts: <code>CATALINA_OPTS=</code></p>
-</li>
-<li>
-<p>Add the tag <code>${SECURITY_OPTS}</code> after the tag <code>${BONITA_HOME}</code></p>
-</li>
+<li>Edit this file: <code>/bin/setenv.sh</code></li>
+<li>Locate the line that starts: <code>#SECURITY_OPTS</code></li>
+<li>Uncomment this line, i.e. remove the # sign and set property value to: <code>%CATALINA_HOME%\conf\jaas.cfg</code>.</li>
+<li>Locate the line that starts: <code>CATALINA_OPTS=</code></li>
+<li>Add the tag <code>${SECURITY_OPTS}</code> after the tag <code>${BONITA_HOME}</code></li>
 </ul>
 <h5>For Windows</h5>
 <ul>
-<li>
-<p>Edit this file: <code>/bin/setenv.bat</code></p>
-</li>
-<li>
-<p>Locate the line that starts: <code>rem set SECURITY_OPTS</code></p>
-</li>
-<li>
-<p>Uncomment it, i.e. remove &quot;rem&quot; keyword and set property value to: <code>${CATALINA_HOME}/conf/jaas.cfg</code></p>
-</li>
-<li>
-<p>Locate the line that starts: <code>set CATALINA_OPTS=</code></p>
-</li>
-<li>
-<p>Add the tag <code>%SECURITY_OPTS%</code> after the tag <code>%BONITA_HOME%</code></p>
-</li>
+<li>Edit this file: <code>/bin/setenv.bat</code></li>
+<li>Locate the line that starts: <code>rem set SECURITY_OPTS</code></li>
+<li>Uncomment it, i.e. remove &quot;rem&quot; keyword and set property value to: <code>${CATALINA_HOME}/conf/jaas.cfg</code></li>
+<li>Locate the line that starts: <code>set CATALINA_OPTS=</code></li>
+<li>Add the tag <code>%SECURITY_OPTS%</code> after the tag <code>%BONITA_HOME%</code></li>
 </ul>
 <h2>JAAS configuration files examples</h2>
 <p><strong>Note:</strong> Remember to remove the debug flag for production.</p>
@@ -244,21 +196,14 @@ To do this for a system running Tomcat you need to edit the
 <p>The Active Directory configuration has been tested in single domain configuration. If you a running with multiple domains
 it's likely that the user will have to type a username including domain name when logging in.</p>
 <h2>Troubleshooting</h2>
-<p>If necessary, you can enable JAAS debug mode by editing your configuration file and adding the following line:
-<code>debug=true</code></p>
+<p>If necessary, you can enable JAAS debug mode by editing your configuration file and adding the following line: <code>debug=true</code></p>
 <p>On Active Directory, a common error code is:
 <code>LDAP: error code 49 - 80090308: LdapErr: DSID-0C0903A9, comment: AcceptSecurityContext error, data 52e, v1db1</code>.
 This error code can have several root causes:</p>
 <ul>
-<li>
-<p>The user doesn't exist in AD: in the JAAS configuration, verify the user filter and validate it using a tool such as
-Apache Directory Studio.</p>
-</li>
-<li>
-<p>The username doesn't include the domain name: in the JAAS configuration, make sure that the <code>authIdentity</code> value
-includes the domain name.</p>
-</li>
-<li>
-<p>The user password provided is not correct.</p>
-</li>
+<li>The user doesn't exist in AD: in the JAAS configuration, verify the user filter and validate it using a tool such as
+Apache Directory Studio.</li>
+<li>The username doesn't include the domain name: in the JAAS configuration, make sure that the <code>authIdentity</code> value
+includes the domain name.</li>
+<li>The user password provided is not correct.</li>
 </ul>

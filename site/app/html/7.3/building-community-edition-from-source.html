@@ -2,7 +2,7 @@
 <p>This page explains how to build Bonita BPM Community Edition from the source files.</p>
 <p>You can download the sources of the Bonita BPM components from the <a href="https://github.com/bonitasoft">Bonitasoft source repository</a>.
 The source files are stored on GitHub. You are recommended to take a tagged version, so that you have a coherent set of sources.</p>
-<p>Bonita BPM Engine and Web components are compiled using <a href="http://maven.apache.org/index.html">Maven</a>. Each source directory contains a configuration file, <code>pom.xml</code>.
+<p>Bonita BPM Engine and Web components are compiled using <a href="http://maven.apache.org/index.md">Maven</a>. Each source directory contains a configuration file, <code>pom.xml</code>.
 If you make any changes to the source file structure, to add, remove, or replace a source, update the POM file accordingly.
 Bonita BPM Studio components are built using <a href="http://eclipse.org/tycho/">Tycho</a>, which is an overlay of Maven.</p>
 <p>To build the product, you need the following:</p>
@@ -17,8 +17,8 @@ Bonita BPM Studio components are built using <a href="http://eclipse.org/tycho/"
 </ul>
 <p>The following table shows how to build all the product components. Some components rely on components that are built earlier in the sequence, so the build order must be respected. This is table shows the components for 7.0.0.
 For later versions, replace &quot;7.0.0&quot; with the relevant version number. Some components, notably connectors have independent versioning so it is normal that some version numbers are different.</p>
-<p>Note: this is not a script. However, you could create a script suitable for your build environment using these commands.</p>
-<p>`
+<p>Note: this is not a script. However, you could create a script suitable for your build environment using these commands.
+`
 echo &quot;# Building project bonita-jboss-h2-mbean / tag 1.1.0&quot;
 git clone --branch 1.1.0 --single-branch git@github.com:bonitasoft/bonita-jboss-h2-mbean.git bonita-jboss-h2-mbean
 mvn clean install -DskipTests=true -f bonita-jboss-h2-mbean/pom.xml</p>
