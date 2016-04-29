@@ -1,0 +1,144 @@
+<h2>archivedCaseDocument</h2>
+<h3>Description</h3>
+<p>Use the archived case document resource to access previous document versions for active and archived cases</p>
+<h3>Identifier</h3>
+<p>The ID of the document (a long value).</p>
+<h3>Representation</h3>
+<pre><code>{
+&quot;id&quot;:&quot;_archivedDocumentId_&quot;, 
+&quot;creationDate&quot;:&quot;_date and time of the original document creation_&quot;, 
+&quot;author&quot;:&quot;_submittorUserId_&quot;, 
+&quot;index&quot;:&quot;_index in a list of documents. if -1 it represents a single document_&quot;, 
+&quot;contentMimetype&quot;:&quot;_MIMEtype_&quot;, 
+&quot;caseId&quot;:&quot;_caseId_&quot;, 
+&quot;contentStorageId&quot;:&quot;_storageId_&quot;, 
+&quot;isInternal&quot;:&quot;_true | false_&quot;, 
+&quot;description&quot;:&quot;_ description_&quot;, 
+&quot;name&quot;:&quot;_name_&quot;, 
+&quot;fileName&quot;:&quot;_filename_&quot;, 
+&quot;submittedBy&quot;:&quot;_submittorUserId_&quot;, 
+&quot;url&quot;:&quot;_urlForDownload_&quot;, 
+&quot;version&quot;:&quot;_version_&quot;, 
+&quot;sourceObjectId&quot;:&quot;_originalDocumentId_&quot;, 
+&quot;archivedDate&quot;:&quot;_date and time of the archived document creation_&quot;
+}
+</code></pre>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>GET - Read a resource</li>
+<li>DELETE - Remove the physical file related to the specified id but keep the mapping for audit purposes</li>
+</ul>
+<h3>Search for a document</h3>
+<p>You can use a single GET method to return all the documents that match the specified filters and <a href="rest-api-overview.md#standard_search_params">search parameters</a>.
+Request url
+http://../API/bpm/archivedCaseDocument?parameters</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload</p>
+<p>empty</p>
+<p>Response payload</p>
+<p>an archived document object for each matching document</p>
+<h4>Parameters</h4>
+<p>It is possible to filter on the following parameters: sourceObjectId, caseId, archivedCaseId, submittedBy, name, description.</p>
+<ul>
+<li>sourceObjectId=&quot;id&quot;: search for documents by specifying the original document id.
+This is useful if you know the id of a caseDocument and you wish to retrieve all its previous versions..</li>
+<li>caseId=&quot;id&quot;: search for documents with the specified open case id.</li>
+<li>archivedCaseId=&quot;id&quot;: search for documents with the specified archvied case id.</li>
+<li>submittedBy=&quot;id&quot;: search for documents that were submitted by the user with the specified identifier.</li>
+<li>name=&quot;string&quot;: search for documents with names that contain <em><code>string</code></em>.
+Depending on the setting for <a href="using-list-and-search-methods.md">word-based search</a>, the search returns documents with <em><code>string</code></em> at the start of the name or the start of a word in the name.</li>
+<li>description=&quot;string&quot;: search for documents with descriptions that contain <em><code>string</code></em>.
+Depending on the setting for <a href="using-list-and-search-methods.md">word-based search</a>, the search returns documents with <em><code>string</code></em> at the start of the description or the start of a word in the description.</li>
+</ul>
+<h4>Examples</h4>
+<p>Example 1: List all versions of a simple document (knowing its current version Id)
+Request url
+GET |/API/bpm/archivedCaseDocument?c=10&amp;p=0&amp;f=sourceObjectId=1</p>
+<p>Response payload
+`</p>
+<pre><code>[
+{
+   &quot;id&quot;:&quot;1&quot;,
+   &quot;creationDate&quot;:&quot;2014-10-09 16:39:52.472&quot;, 
+   &quot;author&quot;:&quot;1&quot;,
+   &quot;index&quot;:&quot;0&quot;,
+   &quot;contentMimetype&quot;:&quot;text/plain&quot;,
+   &quot;caseId&quot;:&quot;1&quot;,
+   &quot;contentStorageId&quot;:&quot;1&quot;,
+   &quot;isInternal&quot;:&quot;true&quot;,
+   &quot;description&quot;:&quot;&quot;,
+   &quot;name&quot;:&quot;myDoc&quot;,
+   &quot;fileName&quot;:&quot;test1.txt&quot;,
+   &quot;submittedBy&quot;:&quot;1&quot;,
+   &quot;url&quot;:&quot;documentDownload?fileName=test1.txt&amp;contentStorageId=1&quot;,
+   &quot;version&quot;:&quot;1&quot;,
+   &quot;sourceObjectId&quot;:&quot;1&quot;,
+   &quot;archivedDate&quot;:&quot;2014-10-09 17:39:52.473&quot;
+},
+{
+   &quot;id&quot;:&quot;2&quot;, 
+   &quot;creationDate&quot;:&quot;2014-10-09 16:39:52.473&quot;, 
+   &quot;author&quot;:&quot;1&quot;, 
+   &quot;index&quot;:&quot;1&quot;, 
+   &quot;contentMimetype&quot;:&quot;text/plain&quot;, 
+   &quot;caseId&quot;:&quot;1&quot;, 
+   &quot;contentStorageId&quot;:&quot;2&quot;, 
+   &quot;isInternal&quot;:&quot;true&quot;, 
+   &quot;description&quot;:&quot;&quot;, 
+   &quot;name&quot;:&quot;myDoc&quot;, 
+   &quot;fileName&quot;:&quot;test2.txt&quot;, 
+   &quot;submittedBy&quot;:&quot;1&quot;, 
+   &quot;url&quot;:&quot;documentDownload?fileName=test2.txt&amp;contentStorageId=2&quot;, 
+   &quot;version&quot;:&quot;2&quot;, 
+   &quot;sourceObjectId&quot;:&quot;1&quot;,
+   &quot;archivedDate&quot;:&quot;2014-10-09 18:39:52.473&quot;
+},
+{
+   &quot;id&quot;:&quot;3&quot;, 
+   &quot;creationDate&quot;:&quot;2014-10-09 16:39:52.473&quot;, 
+   &quot;author&quot;:&quot;1&quot;, 
+   &quot;index&quot;:&quot;2&quot;, 
+   &quot;contentMimetype&quot;:&quot;text/plain&quot;, 
+   &quot;caseId&quot;:&quot;1&quot;, 
+   &quot;contentStorageId&quot;:&quot;3&quot;, 
+   &quot;isInternal&quot;:&quot;true&quot;, 
+   &quot;description&quot;:&quot;&quot;, 
+   &quot;name&quot;:&quot;myDoc&quot;, 
+   &quot;fileName&quot;:&quot;test3.txt&quot;, 
+   &quot;submittedBy&quot;:&quot;1&quot;, 
+   &quot;url&quot;:&quot;documentDownload?fileName=test3.txt&amp;contentStorageId=3&quot;, 
+   &quot;version&quot;:&quot;3&quot;,
+   &quot;sourceObjectId&quot;:&quot;1&quot;, 
+   &quot;archivedDate&quot;:&quot;2014-10-09 19:39:52.473&quot; 
+}
+]
+</code></pre>
+<p>`</p>
+<p>Example 2: List all versions of a list of document (knowing its name)
+Request url
+GET |/API/bpm/archivedCaseDocument?c=10&amp;p=0&amp;f=name=MyDocList</p>
+<p>Response payload
+as previous example but for documents with name=MyDocList</p>
+<p>Example 3: List all versions of all documents of a given case (knowing its id)
+Request url
+GET |/API/bpm/archivedCaseDocument?c=10&amp;p=0&amp;f=caseId=1</p>
+<p>Response payload
+as previous example but for documents with caseId=1</p>
+<p>Example 4: List all versions of all document of an archived case (knowing its id)
+Request url
+GET |/API/bpm/archivedCaseDocument?c=10&amp;p=0&amp;f=archivedCaseId=1</p>
+<p>Response payload
+as previous example but for documents with archivedCaseId=1</p>
+<p>Example 5: Combine different filters, for example list all versions of a list declared in a case (knowing list name and case id)
+Request url
+GET |/API/bpm/archivedCaseDocument?c=10&amp;p=0&amp;f=caseId=1&amp;f=name=myDocList&amp;o=index ASC</p>
+<p>Response payload
+The list of documents of MyDocList which is delcared in the caseId=1</p>
+<h3>Delete a document content</h3>
+<p>Delete the document content with id 3
+Method
+DELETE</p>
+<p>URL
+<code>http://localhost:8080/bonita/API/bpm/archivedCaseDocument/3</code></p>

@@ -1,0 +1,35 @@
+<h1>1.7.2 UI designer overview</h1>
+<p>The UI designer is a graphical development environment for creating pages and forms for a Bonita BPM application. It is a web-based tool that is launched from Bonita BPM Studio.
+A page is defined in HTML extended by the AngularJS JavaScript framework.
+Use the UI designer to create and update pages for business applications, forms to start process instances or execute human tasks, and application layouts that apply to all pages of an application.</p>
+<ul>
+<li>Create pages directly in the var_uiDesigner.</li>
+<li>Start form design in Bonita BPM Studio from the appropriate <a href="contracts-and-contexts.md">contract</a>.</li>
+<li>Create <a href="layouts.md">layouts</a> by duplicating the default layout available in the Bonita BPM Portal resources and then updating it.</li>
+</ul>
+<p>You can import an existing page, form, or layout to edit, or duplicate existing ones.</p>
+<p><a href="#structure">Page structure</a><br>
+<a href="#integration">Integration with Bonita BPM</a><br>
+<a href="#profile">UI design user profile</a></p>
+<h2>Page structure</h2>
+<p>A page (including a form or a layout) is constructed from <a href="widgets.md">widgets</a>.
+Each widget corresponds to an item of information to be entered or displayed in a page.
+In the Performance, Efficiency, and Teamwork editions, you can also use <a href="fragments.md">fragments</a>, which are groups of widgets.
+There is a set of <a href="widgets.md">standard widgets</a>. If these do not meet your needs, you can define a <a href="custom-widgets.md">custom widget</a>.
+In the Subscription editions, you can create <a href="fragments.md">fragments</a> to reuse the same group of widgets with the same behavior in several pages or forms.</p>
+<p>There are also some structure widgets called containers, which you can use to structure a page. There are different types of container:</p>
+<ul>
+<li>A regular container is invisible to page users. It is useful during page development as a way to manipulate or configure multiple widgets or iterate over elements to display.</li>
+<li>A tab container is used to create tabs in a region of a page. The tabs are visible to page users, who can switch between tabs by clicking the tab name.</li>
+</ul>
+<p>To add a widget to a page, drag it from the palette on the left of the screen and drop it in the whiteboard. You can drop a widget in a container or directly on the whiteboard. It must be adjacent to another widget (or to the top of the page for the first widget). You cannot leave empty space between widgets. If you try to drop a widget that is not adjacent to another, the drop will fail.</p>
+<p>The behavior of a page is determined by the widget properties. Any property you configure for a container is applied to all widgets in the container unless you override it with a widget-specific value.</p>
+<p>The UI Designer generates standard HTML application code, based on AngularJS. Export pages if you want to further customize them in your favorite web development environment.</p>
+<h2>Integration with Bonita BPM Platform</h2>
+<p>To use a page in a business application, export it from the var_uiDesigner, import it as a portal resource, and from the relevant application, add it to the list of pages and then insert it in a navigation menu.</p>
+<p>To use a form in a process, map it in the Bonita BPM Studio to the relevant process or human task. It will be automatically packaged in the .bar archive ready to deploy in the Bonita BPM Portal.</p>
+<p>In the Subscription editions, you can <a href="live-update.md#forms">update a form in production</a>, by exporting a new version of the form from the var_uiDesigner, importing it into the relevant process in the portal,
+and then mapping it to the relevant task or process start event.</p>
+<p>To use a layout in a business application, export it from the var_uiDesigner, import it as a Bonita BPM Portal resource, and map it as the layout of the relevant application.</p>
+<h2>UI designer user profile</h2>
+<p>The UI designer is intended for web developers creating pages and forms that will be part of a BPMN application. It requires a good understanding of JavaScript and CSS. If you are a business analyst, you can use the UI designer to create the page structure and define basic behaviors. However, most properties of a page are defined using JavaScript.</p>

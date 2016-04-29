@@ -1,0 +1,197 @@
+<h2>archivedUserTask</h2>
+
+
+<h3>Description</h3>
+<p>An executable task that has been performed by a user or skipped and is archived.</p>
+
+
+<h3>Identifier</h3>
+<h3>Identifier</h3>
+<p>Simple, the ID of the object (a long value)</p>
+
+
+<h3>Parameters</h3>
+<p>None</p>
+	
+<h3>Representation</h3>
+
+<pre>{
+&quot;displayDescription&quot;:&quot;<em>the human readable task description (string)</em>&quot;, 
+&quot;executedBySubstitute&quot;:&quot;<em>the id (long) of the user who really performed this task in case where a substitute did it, or 0 if the task was not performed by a substitute</em>&quot;, 
+&quot;processId&quot;:&quot;<em>the process id (long) that is associated with this task</em>&quot;, 
+&quot;state&quot;:&quot;<em>the current state of the task (string, for example, ready, completed, failed)</em>&quot;, 
+&quot;rootContainerId&quot;:&quot;<em>the root process id (long) of the root case that is associated with this task</em>&quot;, 
+&quot;type&quot;:&quot;USER_TASK&quot;, 
+&quot;assigned_id&quot;:&quot;<em>the user id (long) that this task is assigned to, or 0 if it is unassigned</em>&quot;, 
+&quot;assigned_date&quot;:&quot;<em>the date (&apos;yyyy-MM-dd HH:mm:ss.SSS&apos;) when this task was assigned to the assigned user due, for example &apos;2014-10-17 16:05:42.626&apos;</em>&quot;, 
+&quot;id&quot;:&quot;<em>the task id (long)</em>&quot;, 
+&quot;executedBy&quot;:&quot;<em>the id (long) of the user who executed the task, or 0 if the task has not been executed</em>&quot;, 
+&quot;caseId&quot;:&quot;<em>the id (long) of the case</em>&quot;, 
+&quot;priority&quot;:&quot;<em>the priority (string) of the current task</em>&quot;, 
+&quot;actorId&quot;:&quot;<em>the id (long) of the actor that can execute this task, null otherwise</em>&quot;, 
+&quot;description&quot;:&quot;<em>the task description (string)</em>&quot;, 
+&quot;name&quot;:&quot;<em>the task name (string)</em>&quot;, 
+&quot;reached_state_date&quot;:&quot;<em>the date (&apos;yyyy-MM-dd HH:mm:ss.SSS&apos;) when this task reached the current state, for example &apos;2014-10-17 16:05:42.626&apos;</em>&quot;, 
+&quot;displayName&quot;:&quot;<em>the display name (string) of this task</em>&quot;, 
+&quot;archivedDate&quot;:&quot;<em>the date (&apos;yyyy-MM-dd HH:mm:ss.SSS&apos;) when this task was archived, for example &apos;2014-10-17 16:05:42.626&apos;</em>&quot;, 
+&quot;dueDate&quot;:&quot;<em>the date (&apos;yyyy-MM-dd HH:mm:ss.SSS&apos;) when this task is due, for example &apos;2014-10-17 16:05:42.626&apos;</em>&quot;, 
+&quot;last_update_date&quot;:&quot;<em>the date (&apos;yyyy-MM-dd HH:mm:ss.SSS&apos;) when this task was last updated, for example &apos;2014-10-17 16:05:42.626&apos;</em>&quot;
+} </pre>
+
+
+<h3>Methods</h3>
+
+<p>The methods used for this resource are:</p>
+<ul>
+	<li>GET - Retrieve an archivedUserTask, search for archivedUserTask objects</li>
+</ul>
+
+<h3>Actions</h3>
+<h4>Retrieve an archivedUserTask</h4>
+
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+    		<td valign="top">Request url</td>
+			<td valign="top">http://../API/bpm/archivedUserTask/<em>id</em></td></tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>GET</p>
+			</td>
+		</tr>
+				<tr>
+			<td valign="top"><p>Request payload</p></td>
+			<td valign="top"><p>empty</p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Response payload </p></td>
+			<td valign="top"><p>An archivedUserTask object</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Example</h4>
+<p>Get the archivedUserTask with id 240002.</p>
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+				<td valign="top">Request url</td>
+				<td valign="top">GET |/API/bpm/archivedUserTask/240002</td>
+			</tr>
+			<tr>
+				<td valign="top"><p>Response</p></td>
+				<td valign="top"><pre><code>{
+				&quot;displayDescription&quot;:&quot;&quot;,
+&quot;executedBySubstitute&quot;:&quot;0&quot;,
+&quot;processId&quot;:&quot;5826139717723008213&quot;,
+&quot;state&quot;:&quot;skipped&quot;,
+&quot;rootContainerId&quot;:&quot;1002&quot;,
+&quot;type&quot;:&quot;USER_TASK&quot;,
+&quot;assigned_id&quot;:&quot;2&quot;,
+&quot;id&quot;:&quot;240002&quot;,
+&quot;executedBy&quot;:&quot;0&quot;,
+&quot;caseId&quot;:&quot;1002&quot;,
+&quot;priority&quot;:&quot;normal&quot;,
+&quot;actorId&quot;:&quot;102&quot;,
+&quot;description&quot;:&quot;&quot;,
+&quot;name&quot;:&quot;Analyse case&quot;,
+&quot;reached_state_date&quot;:&quot;2014-09-09 17:21:51.946&quot;,
+&quot;displayName&quot;:&quot;Analyse case&quot;,
+&quot;archivedDate&quot;:&quot;2014-09-09 17:21:51.986&quot;,
+&quot;dueDate&quot;:&quot;2014-09-05 12:11:30.775&quot;,
+&quot;last_update_date&quot;:&quot;2014-09-09 17:21:51.946&quot;
+}</code></pre>
+			</td>
+			</tr>
+	</tbody>
+</table>
+
+<h4>Search for a archivedUserTask</h4>
+<p>Retrieve archivedHumanTask objects that match the specified filters. You can filter on:
+<ul>
+<li>assigned_id={user_id}: retrieve only the user tasks assigned to the specified ID. For example, retrieve the user tasks assigned to user with id 2: http://host:8080/bonita/API/bpm/archivedUserTask?p=0&amp;c=10&amp;f=assigned_id%3d2</li>
+<li>state=<skipped |="" completed="" failed="">:  retrieve only the archived user tasks with the specified state. For example, retrieve the skipped tasks: http://host:8080/bonita/API/bpm/archivedUserTask?p=0&amp;c=10&amp;f=state=skipped</skipped></li>
+<li>name=<archivedusertask_name>: retrieve only the user tasks with the specified name. For example, retrieve the user tasks with the name &quot;Analyse Case&quot;: http://host:8080/bonita/API/bpm/archivedUserTask?p=0&amp;c=10&amp;f=name=Analyse Case</archivedusertask_name></li>
+<li>displayName=<archivedusertask_name>: retrieve only the archived user tasks with the specified displayName. For example, retrieve the user tasks with the displayName &quot;Analyse Case&quot;: http://host:8080/bonita/API/bpm/archivedUserTask?p=0&amp;c=10&amp;f=displayName=Analyse Case</archivedusertask_name></li>
+</ul>
+
+</p><h4>Description</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+    		<td valign="top">Request url</td>
+			<td valign="top">/API/bpm/archivedUserTask?p={page}&amp;c={count}&amp;o={orders}&amp;f={filters}&amp;s={search}&amp;d={deploy}</td>
+			</tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>GET</p>
+		</td></tr>
+				<tr>
+			<td valign="top"><p>Request payload</p></td>
+			<td valign="top"><p>empty</p>
+		</td></tr>
+		<tr>
+			<td valign="top"><p>Response</p></td>
+			<td valign="top"><p>An array of archivedUserTask objects</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Example</h4>
+<p>Get the user tasks assigned to the user with id 2. The results are paged, with a maximum of 10 results returned in each page. The fist set of results are returned. In this example, two results are returned.
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+				<td valign="top">Request url</td>
+				<td valign="top">GET |http://host:8080/bonita/API/bpm/archivedUserTask?p=0&amp;c=10&amp;f=assigned_id%3d2</td>
+			</tr>
+			<tr>
+				<td valign="top"><p>Response</p></td>
+				<td valign="top"><pre><code>{
+&quot;displayDescription&quot;:&quot;Case analysis&quot;,
+&quot;executedBySubstitute&quot;:&quot;0&quot;,
+&quot;processId&quot;:&quot;5826139717723008213&quot;,
+&quot;state&quot;:&quot;failed&quot;,
+&quot;rootContainerId&quot;:&quot;1002&quot;,
+&quot;type&quot;:&quot;USER_TASK&quot;,
+&quot;assigned_id&quot;:&quot;2&quot;,
+&quot;assigned_date&quot;:&quot;2014-09-05 09:19:30.150&quot;,
+&quot;id&quot;:&quot;20004&quot;,
+&quot;executedBy&quot;:&quot;0&quot;,
+&quot;caseId&quot;:&quot;1002&quot;,
+&quot;priority&quot;:&quot;normal&quot;,
+&quot;actorId&quot;:&quot;102&quot;,
+&quot;description&quot;:&quot;&quot;,
+&quot;name&quot;:&quot;Analyse case&quot;,
+&quot;reached_state_date&quot;:&quot;2014-09-05 11:11:30.808&quot;,
+&quot;displayName&quot;:&quot;Analyse case&quot;,
+&quot;dueDate&quot;:&quot;2014-09-05 12:11:30.775&quot;,
+&quot;last_update_date&quot;:&quot;2014-09-05 11:11:30.808&quot;
+}
+{
+&quot;displayDescription&quot;:&quot;Validate case&quot;,
+&quot;executedBySubstitute&quot;:&quot;0&quot;,
+&quot;processId&quot;:&quot;5826139717723007999&quot;,
+&quot;state&quot;:&quot;skipped&quot;,
+&quot;rootContainerId&quot;:&quot;1010&quot;,
+&quot;type&quot;:&quot;USER_TASK&quot;,
+&quot;assigned_id&quot;:&quot;2&quot;,
+&quot;assigned_date&quot;:&quot;2014-09-06 10:29:30.766&quot;,
+&quot;id&quot;:&quot;20004&quot;,
+&quot;executedBy&quot;:&quot;0&quot;,
+&quot;caseId&quot;:&quot;1023&quot;,
+&quot;priority&quot;:&quot;normal&quot;,
+&quot;actorId&quot;:&quot;102&quot;,
+&quot;description&quot;:&quot;&quot;,
+&quot;name&quot;:&quot;Validate case&quot;,
+&quot;reached_state_date&quot;:&quot;2014-09-06 12:10:50.744&quot;,
+&quot;displayName&quot;:&quot;Validate case&quot;,
+&quot;dueDate&quot;:&quot;2014-09-06 12:11:30.775&quot;,
+&quot;last_update_date&quot;:&quot;2014-09-06 12:10:50.744&quot;
+}</code></pre>
+			</td>
+	</tr></tbody>
+</table>
+
+</p>

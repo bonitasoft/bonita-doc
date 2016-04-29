@@ -1,0 +1,188 @@
+<h2>Form mapping resource</h2>
+
+<h3>Description</h3>
+
+<p>This resource specifies the mapping of a form to a process or a task. The mapping indicates the technology used to create the form, in the &quot;target&quot; attribute. Possible values are:
+	<ul>
+		<li><code>URL</code> - an external URL</li>
+		<li><code>INTERNAL</code> - a custom page ID</li>
+		<li><code>LEGACY</code> - means that the old form application is used for old processes</li>
+		<li><code>UNDEFINED</code> - when the form is not present in the definition but is required</li>
+		<li><code>NONE</code> - when there is no form needed for the process instantiation or task execution</li>
+	</ul>
+</p>
+
+<p>Having any UNDEFINED mapping prevents the process from being resolved.</p>
+
+<h3>Identifier</h3>
+<p>The ID of the form mapping (a long value).</p>
+
+<h3>Representation</h3>
+<p><pre>
+{
+&quot;id&quot;: &quot;<em>the form mapping identifier (long)</em>&quot;,
+&quot;processDefinitionId&quot;: &quot;<em>the process identifier (long) related to this form mapping</em>&quot;,
+&quot;type&quot;: &quot;<em>the form mapping type (string) - possible value in [PROCESS_START, PROCESS_OVERVIEW, TASK]</em>&quot;,
+&quot;target&quot;: &quot;<em>the target (string) - possible value in [URL, INTERNAL, LEGACY, UNDEFINED, NONE]</em>&quot;,
+&quot;task&quot;: &quot;<em>the task name (string) when type is TASK - null otherwise</em>&quot;,
+&quot;pageId&quot;: &quot;<em>the custom page identifier (long) when type is INTERNAL - null otherwise</em>&quot;,
+&quot;pageMappingKey&quot;: &quot;<em>the page mapping key part (string) used to generate the form URL</em>&quot;,
+&quot;lastUpdateBy&quot;: &quot;<em>the identifier (long) of the user who last updated this form mapping - 0 if no update has been done yet</em>&quot;,
+&quot;lastUpdateDate&quot;: &quot;<em>the last update date in milliseconds (long) - null if no update has been done yet</em>&quot;,
+&quot;url&quot;: &quot;<em>the external URL (string) when type is URL - null otherwise</em>&quot;
+}
+</pre>
+</p>
+
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+	<li>GET - Search for a form mapping</li>
+	<li>PUT - Update a form mapping</li>
+</ul>
+
+<!-- add an Action section for each possible create, read, update, delete or search action on this resource-->
+
+<h3>Search a form mapping</h3>
+
+<p><!--Description paragraph--></p>
+
+<!--Reference table, should explain but not give examples -->
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody>
+    <tr>
+    	<td valign="top">Request URL</td>
+			<td valign="top">/API/form/mapping?p=0&amp;c=10</td>
+    </tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>GET</p></td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Response payload</p></td>
+			<td valign="top"><p>JSON representation of an array of form mappings</p></td>
+		</tr>
+	</tbody>
+</table>
+
+
+<h4>Parameters</h4>
+
+<p><a href="/rest-api-overview.html#standard_search_params">Standard search parameters</a> are available to search form mappings.</p>
+
+<p>The following filters can be applied while searching form mappings:</p>
+
+<ul>
+<li><code>f=processDefinitionId={long}</code> - get form mappings of a specific process definition</li>
+<li><code>f=type=PROCESS_START</code> - get the process start form mapping. Example: <code>http://localhost:8080/bonita/API/form/mapping?c=1&amp;p=0&amp;f=processDefinitionId=123456&amp;f=type=PROCESS_START</code></li>
+<li><code>f=type=PROCESS_OVERVIEW</code> - get the process overview form mapping. Example: <code>http://localhost:8080/bonita/API/form/mapping?c=10&amp;p=0&amp;f=processDefinitionId=123456&amp;f=type=PROCESS_OVERVIEW</code></li>
+<li><code>f=type=TASK</code> - get the task form mapping. Example: <code>http://localhost:8080/bonita/API/form/mapping?c=10&amp;p=0&amp;f=processDefinitionId=123456&amp;f=type=TASK</code></li>
+</ul>
+
+
+<h4>Response codes</h4>
+
+<p>200, 500</p>
+
+
+<h4>Example</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+				<td valign="top">Request URL</td>
+				<td valign="top">http://localhost:8080/bonita/API/form/mapping?p=0&amp;c=10&amp;f=processDefinitionId=7281286536417002543&amp;f=type=TASK</td>
+			</tr>
+      <tr>
+        <td valign="top"><p>Request method</p></td>
+        <td valign="top"><p>GET</p></td>
+      </tr>
+			<tr>
+				<td valign="top"><p>Response payload</p></td>
+				<td valign="top">
+<pre><code>
+[
+  {
+    &quot;id&quot;: 4,
+    &quot;processDefinitionId&quot;: 7281286536417002543,
+    &quot;type&quot;: &quot;TASK&quot;,
+    &quot;target&quot;: &quot;INTERNAL&quot;,
+    &quot;task&quot;: &quot;Give Feedback&quot;,
+    &quot;pageId&quot;: 101,
+    &quot;pageMappingKey&quot;: &quot;taskInstance/myProcess/1.0/Give Feedback&quot;
+    &quot;lastUpdatedBy&quot;: 4,
+    &quot;lastUpdateDate&quot;: 1425466666191,
+    &quot;url&quot;: null
+  },
+  {
+    &quot;id&quot;: 5,
+    &quot;processDefinitionId&quot;: 7281286536417002543,
+    &quot;type&quot;: &quot;TASK&quot;,
+    &quot;target&quot;: &quot;URL&quot;,
+    &quot;task&quot;: &quot;Validate Feedback&quot;,
+    &quot;pageId&quot;: null,
+    &quot;pageMappingKey&quot;: &quot;taskInstance/myProcess/1.0/Validate Feedback&quot;,
+    &quot;lastUpdatedBy&quot;: 4,
+    &quot;lastUpdateDate&quot;: 1425295012666,
+    &quot;url&quot;: &quot;http://customerportal.bonitasoft.com&quot;
+  }
+]
+</code></pre>
+				</td>
+			</tr>
+	</tbody>
+</table>
+
+
+<h3>Update a form mapping (Efficiency and Performance Editions)</h3>
+
+<p></p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+  <tbody>
+    <tr>
+      <td valign="top">Request URL</td>
+      <td valign="top">/API/form/mapping/{id}</td>
+    </tr>
+    <tr>
+      <td valign="top"><p>Request method</p></td>
+      <td valign="top"><p>PUT</p></td>
+    </tr>
+    <tr>
+      <td valign="top"><p>Request payload</p></td>
+      <td valign="top"><p>JSON representation of the form mapping attribute to update -
+      <code>{&quot;pageId&quot;: (long)}</code> or <code>{&quot;url&quot;: (string)}</code> or <code>{}</code> to set the mapping type to NONE</p></td>
+    </tr>
+    <tr>
+      <td valign="top"><p>Response payload</p></td>
+      <td valign="top"><p><em>empty</em></p></td>
+    </tr>
+	</tbody>
+</table>
+
+<h4>Response codes</h4>
+
+<p>204, 500</p>
+
+
+<h4>Example</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody>
+      <tr>
+				<td valign="top">Request URL</td>
+				<td valign="top">http://localhost:8080/bonita/API/form/mapping/6</td>
+			</tr>
+      <tr>
+        <td valign="top"><p>Request method</p></td>
+        <td valign="top"><p>PUT</p></td>
+      </tr>
+			<tr>
+				<td valign="top"><p>Request payload</p></td>
+				<td valign="top"><code>{&quot;url&quot;: &quot;http://myformapp.com/form&quot;}</code></td>
+			</tr>
+			<tr>
+				<td valign="top"><p>Response payload</p></td>
+				<td valign="top"><p><em>empty</em></p></td>
+			</tr>
+	</tbody>
+</table>

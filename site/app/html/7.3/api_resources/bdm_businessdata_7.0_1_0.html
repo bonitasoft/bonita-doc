@@ -1,0 +1,326 @@
+
+<html><head>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252"></head><body><h2>businessData</h2>
+
+<h3>Description</h3>
+
+<p>Retrieve business data value. Depending on the object attribute loading policy, the API returns either the full object in JSON
+    representation or the HATEOAS links to the object attributes.</p>
+
+
+<h3>Identifier</h3>
+
+<p>The fully qualified name (businessDataType) and the persistenceId of the business data (a long value).</p>
+
+<h3>Representation</h3>
+
+<p>Representation of object attributes with an <em>always load</em> policy:</p>
+
+<pre>{
+&quot;persistenceId&quot;: <em>number</em>,
+&quot;persistenceId_string&quot;: &quot;<em>number</em>&quot; (since 7.0.1),
+&quot;persistenceVersion&quot;: <em>number</em>,
+&quot;persistenceVersion_string&quot;: &quot;<em>number</em>&quot; (since 7.0.1),
+&quot;attributeName&quot;:<em>attributeType</em>
+...
+}</pre>
+
+<p>The string representation added in 7.0.1 for Long attributes is a workaround for the JavaScript integer spectrum issue.</p>
+
+<p>HATEOAS representation of object attribute with a <em>load when needed</em> policy:</p>
+<pre>&quot;links&quot;:[
+   {
+   &quot;rel&quot;:<em>string</em>
+   &quot;href&quot;:<em>uri</em>
+   }
+]</pre>
+
+
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+    <li>GET</li>
+</ul>
+
+<h3>Get the business data</h3>
+
+<p>Get the business data specified by its identifier.</p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody>
+    <tr>
+        <td valign="top">Request url</td>
+        <td valign="top">http://../API/bdm/businessData/{businessDataType}/{persistenceId}</td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Request method</p></td>
+        <td valign="top"><p>GET</p></td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Request payload</p></td>
+        <td valign="top"><p>empty</p></td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Response payload</p></td>
+        <td valign="top"><p>A business data (in JSON format)</p></td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Parameters</h4>
+
+<p>None</p>
+
+<h4>Response codes</h4>
+
+<p>500 - when business data identifier is not valid</p>
+
+
+<h4>Example with business data containing always loaded object attributes</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody>
+    <tr>
+        <td valign="top">Request url</td>
+        <td valign="top">GET |/API/bdm/businessData/com.company.model.Contract/1</td>
+    </tr>
+
+    <tr>
+        <td valign="top"><p>Response payload</p></td>
+        <td valign="top"><pre><code>{
+            &quot;persistenceId&quot;: 1,
+            &quot;persistenceId_string&quot;: &quot;1&quot;,
+            &quot;persistenceVersion&quot;: 0,
+            &quot;persistenceVersion_string&quot;: &quot;0&quot;,
+            &quot;contractName&quot;: &quot;contract for Netcom3&quot;,
+            &quot;terms&quot;: [
+            {
+            &quot;persistenceId&quot;: 1,
+            &quot;persistenceId_string&quot;: &quot;1&quot;,
+            &quot;persistenceVersion&quot;: 0,
+            &quot;persistenceVersion_string&quot;: &quot;0&quot;,
+            &quot;termName&quot;: &quot;term Name&quot;
+            },
+            {
+            &quot;persistenceId&quot;: 2,
+            &quot;persistenceId_string&quot;: &quot;2&quot;,
+            &quot;persistenceVersion&quot;: 0,
+            &quot;persistenceVersion_string&quot;: &quot;0&quot;,
+            &quot;termName&quot;: &quot;term Name&quot;
+            }
+            ],
+            &quot;client&quot;: {
+            &quot;persistenceId&quot;: 13,
+            &quot;persistenceId_string&quot;: &quot;13&quot;,
+            &quot;persistenceVersion&quot;: 0,
+            &quot;persistenceVersion_string&quot;: &quot;0&quot;,
+            &quot;clientName&quot;: &quot;client name&quot;,
+            &quot;description&quot;: &quot;n/a&quot;,
+            &quot;industry&quot;: [
+            {
+            &quot;persistenceId&quot;: 2,
+            &quot;persistenceId_string&quot;: &quot;2&quot;,
+            &quot;persistenceVersion&quot;: 0,
+            &quot;persistenceVersion_string&quot;: &quot;0&quot;,
+            &quot;industryName&quot;: &quot;Services&quot;
+            },
+            {
+            &quot;persistenceId&quot;: 3,
+            &quot;persistenceId_string&quot;: &quot;3&quot;,
+            &quot;persistenceVersion&quot;: 0,
+            &quot;persistenceVersion_string&quot;: &quot;0&quot;,
+            &quot;industryName&quot;: &quot;Software&quot;
+            }
+            ]
+            }
+            }</code></pre>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Example with business data containing loaded when needed object attributes</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody>
+    <tr>
+        <td valign="top">Request url</td>
+        <td valign="top">GET |API/bdm/businessData/com.company.model.Client/2</td>
+    </tr>
+
+    <tr>
+        <td valign="top"><p>Response payload</p></td>
+        <td valign="top"><pre><code>{
+            &quot;persistenceId&quot;: 2,
+            &quot;persistenceId_string&quot;: &quot;2&quot;,
+            &quot;persistenceVersion&quot;: 0,
+            &quot;persistenceVersion_string&quot;: &quot;0&quot;,
+            &quot;clientName&quot;: &quot;Affectiva&quot;,
+            &quot;description&quot;: &quot;n/a&quot;,
+            &quot;links&quot;: [
+            {
+            &quot;rel&quot;: &quot;industry&quot;,
+            &quot;href&quot;: &quot;/API/bdm/businessData/com.company.model.Client/2/industry&quot;
+            }
+            ]
+            }</code></pre>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<h3>Get the business data attribute of business data</h3>
+
+<p>Gets the business data attribute of business data according to its identifier and attribute name.</p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody>
+    <tr>
+        <td valign="top">Request url</td>
+        <td valign="top">http://../API/bdm/businessData/{businessDataType}/{persistenceId}/{attributeName}</td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Request method</p></td>
+        <td valign="top"><p>GET</p></td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Request payload</p></td>
+        <td valign="top"><p>empty</p></td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Response payload</p></td>
+        <td valign="top"><p>A business data (in JSON format)</p></td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Parameters</h4>
+
+<p>None</p>
+
+<h4>Response codes</h4>
+
+<p>500 - when business data identifier or attribute name is not valid</p>
+
+<h4>Example</h4>
+
+<h5>Example with business data object attribute</h5>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody>
+    <tr>
+        <td valign="top">Request url</td>
+        <td valign="top">GET |/API/bdm/businessData/com.company.model.Client/2/industry</td>
+    </tr>
+
+    <tr>
+        <td valign="top"><p>Response payload</p></td>
+        <td valign="top"><pre><code>{
+            &quot;persistenceId&quot;: 2,
+            &quot;persistenceId_string&quot;: &quot;2&quot;,
+            &quot;persistenceVersion&quot;: 0,
+            &quot;persistenceVersion_string&quot;: &quot;0&quot;,
+            &quot;industryName&quot;: &quot;Services&quot;
+            }</code></pre>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<h3>Get several business data</h3>
+
+<p>Get the business data specified by their identifiers.</p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody>
+    <tr>
+        <td valign="top">Request url</td>
+        <td valign="top">http://../API/bdm/businessData/{businessDataType}/findByIds?ids={persistenceId1},{persistenceId2},{persistenceId3},...</td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Request method</p></td>
+        <td valign="top"><p>GET</p></td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Request payload</p></td>
+        <td valign="top"><p>empty</p></td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Response payload</p></td>
+        <td valign="top"><p>An array of business data (in JSON format). It can be an empty array if no identifiers refer to existing data.</p></td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Parameters</h4>
+
+<p>ids - list of persistenceIds (comma separated)</p>
+
+
+<h4>Example with business data containing always loaded object attributes</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody>
+    <tr>
+        <td valign="top">Request url</td>
+        <td valign="top">GET |/API/bdm/businessData/com.company.model.Contract/findByIds?ids=1,83</td>
+    </tr>
+
+    <tr>
+        <td valign="top"><p>Response payload</p></td>
+        <td valign="top"><pre><code>[{
+            &quot;persistenceId&quot;: 1,
+            &quot;persistenceId_string&quot;: &quot;1&quot;,
+            &quot;persistenceVersion&quot;: 0,
+            &quot;persistenceVersion_string&quot;: &quot;0&quot;,
+            &quot;contractName&quot;: &quot;contract for Netcom3&quot;,
+            &quot;terms&quot;: [
+            {
+            &quot;persistenceId&quot;: 1,
+            &quot;persistenceId_string&quot;: &quot;1&quot;,
+            &quot;persistenceVersion&quot;: 0,
+            &quot;persistenceVersion_string&quot;: &quot;0&quot;,
+            &quot;termName&quot;: &quot;term Name&quot;
+            },
+            {
+            &quot;persistenceId&quot;: 2,
+            &quot;persistenceId_string&quot;: &quot;2&quot;,
+            &quot;persistenceVersion&quot;: 0,
+            &quot;persistenceVersion_string&quot;: &quot;0&quot;,
+            &quot;termName&quot;: &quot;term Name&quot;
+            }
+            ],
+            &quot;client&quot;: {
+            &quot;persistenceId&quot;: 13,
+            &quot;persistenceId_string&quot;: &quot;13&quot;,
+            &quot;persistenceVersion&quot;: 0,
+            &quot;persistenceVersion_string&quot;: &quot;0&quot;,
+            &quot;clientName&quot;: &quot;client name&quot;,
+            &quot;description&quot;: &quot;n/a&quot;,
+            &quot;industry&quot;: [
+            {
+            &quot;persistenceId&quot;: 2,
+            &quot;persistenceId_string&quot;: &quot;2&quot;,
+            &quot;persistenceVersion&quot;: 0,
+            &quot;persistenceVersion_string&quot;: &quot;0&quot;,
+            &quot;industryName&quot;: &quot;Services&quot;
+            },
+            {
+            &quot;persistenceId&quot;: 3,
+            &quot;persistenceId_string&quot;: &quot;3&quot;,
+            &quot;persistenceVersion&quot;: 0,
+            &quot;persistenceVersion_string&quot;: &quot;0&quot;,
+            &quot;industryName&quot;: &quot;Software&quot;
+            }
+            ]
+            }
+            }]</code></pre>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body></html>

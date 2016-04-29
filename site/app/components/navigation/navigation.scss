@@ -1,0 +1,28 @@
+.documentation-navigation {
+  height: calc(100vh - 95px);
+  overflow-y: auto;
+}
+
+.tree-node {
+  margin-left: 15px;
+}
+.documentation-navigation {
+  .glyphicon {
+    font-size: 0.8em;
+  }
+  a {
+    color: #035;
+    &:hover {
+      color: #D03;
+    }
+  }
+  .text-danger {
+    a, .fa.fa-circle-o {
+      color: #d03
+    }
+    font-weight: bold;
+  }
+  .fa.fa-circle-o {
+    font-size: 0.8em;
+  }
+}

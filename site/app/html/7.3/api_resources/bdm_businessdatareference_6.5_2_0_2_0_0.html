@@ -1,0 +1,201 @@
+
+
+<h2>businessDataReference</h2>
+
+<h3>Description</h3>
+<p>A business data reference is a link between the business data and the case. The reference can be either single or
+    multiple depending on the process.
+</p>
+
+<h3>Identifier</h3>
+
+<p>The reference name (a string value).</p>
+
+<h3>Representation</h3>
+
+<p>Single reference:</p>
+<pre>{
+&quot;name&quot;:&quot;<em>string</em>&quot;,
+&quot;type&quot;:&quot;<em>string</em>&quot;,
+&quot;storageId&quot;:<em>number</em>
+&quot;storageId_string&quot;:&quot;<em>number</em>&quot; (since 7.0.1)
+}</pre>
+
+<p>Multiple reference:</p>
+<pre>{
+&quot;name&quot;:&quot;<em>string</em>&quot;,
+&quot;type&quot;:&quot;<em>string</em>&quot;,
+&quot;storageIds&quot;:<em>[number]</em>
+&quot;storageIds&quot;:<em>[&quot;number&quot;]</em> (since 7.0.1)
+ }</pre>
+
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+    <li>GET</li>
+</ul>
+
+<h3>Get the named business data reference defined in the case</h3>
+
+<p>Get the named business data reference ({businessDataName} string) defined in the case ({caseId} long).</p>
+
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody>
+    <tr>
+        <td valign="top">Request url</td>
+        <td valign="top">http://../API/bdm/businessDataReference/{caseId}/{businessDataName}</td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Request method</p></td>
+        <td valign="top"><p>GET</p></td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Request payload</p></td>
+        <td valign="top"><p>empty</p></td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Response payload</p></td>
+        <td valign="top"><p>A business data reference (in JSON format)</p></td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Parameters</h4>
+
+<p>No parameter</p>
+
+<h4>Response codes</h4>
+
+<p>400 - when caseId is not a number (long)</p>
+
+<p>404 - when the businessDataName does not match an existing reference of the case or the caseId is not found</p>
+
+<h4>Example</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody>
+    <tr>
+        <td valign="top">Request url</td>
+        <td valign="top">GET |/API/bdm/businessDataReference/1/Contracts</td>
+    </tr>
+
+    <tr>
+        <td valign="top"><p>Response payload</p></td>
+        <td valign="top"><pre><code>{
+            &quot;name&quot;: &quot;contracts&quot;,
+            &quot;type&quot;: &quot;com.company.model.Contract&quot;,
+            &quot;storageIds&quot;: [
+            1,2,3,4,5,6,7
+            ]
+            },
+            &quot;storageIds_string&quot;: [
+            &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;
+            ]
+            }</code></pre>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<h3>Get the business data references defined in the case</h3>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody>
+    <tr>
+        <td valign="top">Request url</td>
+        <td valign="top">http://../API/bdm/businessDataReference?f=caseId={caseId}&amp;p={pageNumber}&amp;c={pageCount}</td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Request method</p></td>
+        <td valign="top"><p>GET</p></td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Request payload</p></td>
+        <td valign="top"><p>empty</p></td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Response payload</p></td>
+        <td valign="top"><p>An array of business data references (in JSON format)</p></td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Parameters</h4>
+
+<p>No parameter</p>
+
+<h4>Response codes</h4>
+
+<p>400 - when caseId or p or c is not a number (long)</p>
+
+<p>200 - when caseId is not found, an empty array is returned</p>
+
+<h4>Example</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody>
+    <tr>
+        <td valign="top">Request url</td>
+        <td valign="top">GET |/API/bdm/businessDataReference?f=caseId=1&amp;p=0&amp;c=10</td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Request payload</p></td>
+        <td valign="top">empty</td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Response payload</p></td>
+        <td valign="top"><pre><code>[
+            {
+            &quot;name&quot;: &quot;clients&quot;,
+            &quot;type&quot;: &quot;com.company.model.Client&quot;,
+            &quot;storageIds&quot;: [
+            25,
+            26,
+            33,
+            34,
+            35,
+            36
+            ],
+            &quot;storageIds_string&quot;: [
+            &quot;25&quot;,
+            &quot;26&quot;,
+            &quot;33&quot;,
+            &quot;34&quot;,
+            &quot;35&quot;,
+            &quot;36&quot;
+            ]
+            },
+            {
+            &quot;name&quot;: &quot;contracts&quot;,
+            &quot;type&quot;: &quot;com.company.model.Contract&quot;,
+            &quot;storageIds&quot;: [
+            1,
+            2,
+            3,
+            4,
+            11,
+            12
+            ],
+            &quot;storageIds_string&quot;: [
+            &quot;1&quot;,
+            &quot;2&quot;,
+            &quot;3&quot;,
+            &quot;4&quot;,
+            &quot;11&quot;,
+            &quot;12&quot;
+            ]
+            },
+            {
+            &quot;name&quot;: &quot;industry&quot;,
+            &quot;type&quot;: &quot;com.company.model.Industry&quot;,
+            &quot;storageId&quot;: 1
+            &quot;storageId_string&quot;: &quot;1&quot;
+            }
+            ]</code></pre>
+        </td>
+    </tr>
+    </tbody>
+</table>
+

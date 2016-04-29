@@ -1,0 +1,141 @@
+<h1>2.3.7 Bonita home</h1>
+<p>var_bonita_home is a folder which contains configuration, working, and temporary folders and files. This folder is used by Bonita BPM Engine, Bonita BPM Portal and the Bonita Client Library (Engine APIs client library packaged in bonita-client.jar).</p>
+<p>The location of the var_bonita_home folder depends on your installation.
+It is defined by a JVM system property called <code>bonita.home</code>.</p>
+<p><strong><a href="#download">Downloading var_bonita_home</a></strong></p>
+<p><strong><a href="#structure">Bonita home folder structure</a></strong></p>
+<p><strong><a href="#location">Bonita home location</a></strong></p>
+<blockquote>
+<p><a href="#studio">Bonita Studio</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#bundles">Bonita JBoss and Tomcat bundles</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#deploy">Deploy bundle</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#ldap">LDAP synchronizer</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#client">In your own client application</a></p>
+</blockquote>
+<h2>Downloading var_bonita_home</h2>
+<p>There are two var_bonita_homes: one for the Community edition and one for the Subscription editions.
+If you are using a Subscription edition, you can change from one edition to another by updating the value of the <code>activeProfiles</code> key in
+<code>engine-server/conf/platform-init/bonita-platform-init-community-custom.properties</code> before starting the platform.
+The value is a comma-separated list with no spaces.
+You must have a suitable license installed for the specified subscription editions.</p>
+<p><strong>Important:</strong> Performance edition users must add 'performance' to the default value so that the value is 'community,performance'.</p>
+<p>It is useful to store your var_bonita_home folder in a versioning or source code control system (such as Git), so that you have a record of the changes that you make.</p>
+<h2>var_bonita_home folder structure</h2>
+<p><strong>Note</strong>: the contents of the var_bonita_home folder depend on the Bonita BPM version and edition installed.</p>
+<ul>
+<li>
+<p><code>client</code>: files related to Bonita BPM Portal:</p>
+<ul>
+<li><code>platform</code>: files that impact Bonita BPM Portal, no matter which tenant is called. Also includes reference template files used for each new tenant.
+All files in this folder are used only for Bonita BPM Portal and will have no impact on the Bonita client library.
+<ul>
+<li><code>conf</code>: configuration files.
+<ul>
+<li><code>cache-config.xml</code>: forms object model cache configuration.</li>
+<li><code>jaas-standard.cfg</code>: example of JAAS configuration for JaasLoginManager.</li>
+<li><code>loginManager-config.properties</code> (Portal only): specify and configure the implementation of the Login Manager component.
+This component is used to verify the username and password provided by the user (see <a href="user-authentication-overview.md">User authentication overview</a> for more details).</li>
+<li><code>platform-tenant-config.properties</code>: used by Bonita BPM Portal to connect to the default tenant to retrieve its id.
+Then used to initialize the Portal tenant configuration based on a template (copy of <code>tenant-template</code> folder to tenants folder).</li>
+<li><code>security-config.properties</code>: configuration for <a href="csrf-security.md">Cross-Site Request Forgery</a> protection.</li>
+</ul>
+</li>
+<li><code>tenant-template</code>: template configuration files used for tenant creation.
+<ul>
+<li><code>conf</code>: configuration files:
+<ul>
+<li><code>compound-permissions-mapping.properties</code>: association between Bonita BPM Portal pages and the list of permissions required to visualize them.</li>
+<li><code>console-config.properties</code>: settings such as maximum permitted file size for files uploaded using Bonita BPM forms, or the flag for custom page debug mode.</li>
+<li><code>custom-permissions-mapping.properties</code>: custom configuration of users or profiles and associated privileges.</li>
+<li><code>dynamic-permissions-checks.properties</code>: configuration of dynamic security checks for REST API calls.</li>
+<li><code>forms-config.properties</code>: URL used for redirection to Bonita BPM Portal, configuration for forms including the default template name, and enable/disable auto form generation.</li>
+<li><code>loginManager-config.properties</code>: same as Login Manager configuration at platform level but overloaded for the tenant.</li>
+<li><code>resources-permissions-mapping.properties</code>: association between REST operations and the permissions required to perform them.</li>
+<li><code>security-config.properties</code>: used for the autologin feature (not currently supported).</li>
+</ul>
+</li>
+<li><code>work</code>: various files needed for the operation of Bonita BPM Portal.
+<ul>
+<li><code>icons</code>: Portal images.</li>
+<li><code>pages</code>:</li>
+<li><code>theme</code>: Portal look and feel definition. Also includes the default look and feel for forms.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>work</code>:
+<ul>
+<li><code>i18n</code>: defines Portal translations (at Platform level, shared by all tenants).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>tenants</code>: includes tenant-specific files (configuration, work and temporary).
+The files in this folder are used only by Bonita BPM Portal and have no impact on Bonita client. There is a sub-folder in this folder for each tenant. Sub-folder content is based on the <code>tenant-template</code> content.</li>
+</ul>
+</li>
+<li>
+<p><code>engine-client</code>: files related to Bonita Client Library.</p>
+<ul>
+<li><code>conf</code>: configuration of bonita-client library. This is where you can modify the client configuration.
+<ul>
+<li><code>bonita-client-custom.properties</code>: define how the Bonita client accesses the Bonita BPM Engine APIs. Three options are available: Java, HTTP or EJB. The file includes extra settings for HTTP and EJB (e.g. server address).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>server</code>:</p>
+<ul>
+<li><code>licenses</code>: contains license files. When you setup a server, you should put the license file here.</li>
+</ul>
+</li>
+<li>
+<p><code>engine-server</code>: contains all Bonita Server related files.</p>
+<ul>
+<li><code>conf</code>: folder containing the files that you can modify. The properties and services in this folder override the default configuration. This folder cannot be deleted.</li>
+<li><code>work</code>: folder containing the default configuration files. Do not modify them. The folder also serves as a storage location for some services. This folder cannot be deleted.</li>
+<li><code>temp</code>: folder containing the temporary files that services need. Subfolders of this folder can safely be deleted when the server is not running.</li>
+</ul>
+</li>
+</ul>
+<h2>var_bonita_home location</h2>
+<h3>Bonita BPM Studio</h3>
+<p>Bonita BPM Studio includes two copies of the var_bonita_home folder:</p>
+<ol>
+<li><code>BonitaBPM[edition-name]-x.y.z/workspace/bonita</code>:<br>
+Studio uses the Bonita client library to communicate with the Bonita BPM Engine (part of the Bonita BPM Platform embedded in Studio for testing).<br>
+This home define the Bonita client configuration.</li>
+<li><code>BonitaBPM[edition-name]-x.y.z/workspace/[repository-name]/bonita_home</code>:<br>
+This home is the configuration of the Bonita BPM Portal, client library and Engine of the Studio, that is, its embedded Bonita BPM Platform.</li>
+</ol>
+<h3>Bonita BPM JBoss and Tomcat bundles</h3>
+<p>In Tomcat and JBoss bundles, var_bonita_home is located at the root folder of the bundle.</p>
+<p>You might want to change location of var_bonita_home.</p>
+<p>In this case, you will need to update the value of the JVM system properties, so the path points to the new location.</p>
+<h3>Deploy bundle</h3>
+<p>The var_bonita_home folder provided in the deploy bundle can be used in various situations, such as:</p>
+<ul>
+<li>Installation &quot;from scratch&quot; of the Bonita BPM Platform</li>
+<li>LDAP synchronizer that use Bonita Client Library to communicate with Bonita BPM Engine (<a href="#ldap">see below</a>)</li>
+<li>Creation of an application that uses the Bonita Client Library (<a href="#client">see below</a>)</li>
+</ul>
+<p>If, for example, you have an uncompressed version of the deploy bundle called &quot;<strong>BonitaBPMCommunity-7.0.0-deploy</strong>&quot;, the var_bonita_home folder will be called &quot;<strong>bonita_home-7.0.0</strong>&quot;.</p>
+<h3>LDAP synchronizer</h3>
+<p>The LDAP synchronizer is in fact a Bonita client application.</p>
+<p>It relies on the Bonita client library and so requires a var_bonita_home folder.</p>
+<p>If you need to configure LDAP synchronizer, refer to <a href="ldap-synchronizer.md">LDAP synchronizer documentation</a>.</p>
+<h3>In your own client application</h3>
+<p>Your application will need a var_bonita_home folder.</p>
+<p>Because you are building a client application, you need only the <code>engine-client</code> folder, not the other folders.</p>
+<p>The other folders are useful only to Bonita BPM Portal, so they are not needed.</p>
+<p>In the <code>engine-client</code> folder, the <code>conf/bonita-client-custom.properties</code> file overrides the settings of the <code>work/bonita-client-community.properties</code> file.</p>
+<p>This <code>engine-client/conf/bonita-client-custom.properties</code> properties file defines how the Bonita client library connects to the Bonita BPM Engine.</p>

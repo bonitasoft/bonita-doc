@@ -1,0 +1,59 @@
+<h2>archivedConnectorInstance</h2>
+<h3>Description</h3>
+<p>Retrieve information about archived connector instances attached to an archived process or an archived flow
+node.</p>
+<h3>Representation</h3>
+<pre><code>{
+&quot;containerType&quot;:&quot;_the type (string) of the containing activity_&quot;,
+&quot;connectorId&quot;:&quot;_the connector id (string)_&quot;,
+&quot;id&quot;:&quot;_the identifier (long) of the connector instance_&quot;,
+&quot;name&quot;:&quot;_the name (string) of the connector_&quot;,
+&quot;activationEvent&quot;:&quot;_the name (string) of hte event that activsted the connector instance_&quot;,
+&quot;state&quot;:&quot;_the state (string) of the connector_&quot;,
+&quot;archivedDate&quot;: &quot;_the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this connecctor instance was archived, for example '2014-10-17 16:05:42.626'_&quot;,
+&quot;containerId&quot;:&quot;_the identifier (long) of the containing activity instance_&quot;,
+&quot;version&quot;:&quot;_the connector version (string)_&quot;
+}
+</code></pre>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>GET - returns a JSON array of archived connector details</li>
+</ul>
+<h3>Retrieve a list of archived connector instances</h3>
+<p>Request url
+http://../API/bpm/archivedConnectorInstance</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload</p>
+<p>empty</p>
+<p>Response payload</p>
+<p>A list of connector details</p>
+<h4>Example</h4>
+<p>Get information about archived instances sort by containerId DESC Request url
+GET |/API/bpm/archivedConnectorInstance?p=0&amp;c=10&amp;o=containerId+DESC</p>
+<p>Response payload</p>
+<pre><code>[
+{
+   &quot;containerType&quot;:&quot;flowNode&quot;, 
+   &quot;connectorId&quot;:&quot;scripting-groovy-script&quot;, 
+   &quot;id&quot;:&quot;15&quot;, 
+   &quot;name&quot;:&quot;connector1&quot;, 
+   &quot;activationEvent&quot;:&quot;ON_ENTER&quot;, 
+   &quot;state&quot;:&quot;DONE&quot;,
+   &quot;archivedDate&quot;:&quot;2014-12-01 16:39:19.041&quot;,
+   &quot;containerId&quot;:&quot;34&quot;
+   &quot;version&quot;:&quot;1.0.0&quot;
+},
+{
+   &quot;containerType&quot;:&quot;process&quot;,
+   &quot;connectorId&quot;:&quot;scripting-groovy-script&quot;,
+   &quot;id&quot;:&quot;16&quot;,
+   &quot;name&quot;:&quot;processConnector&quot;,
+   &quot;activationEvent&quot;:&quot;ON_FINISH&quot;,
+   &quot;state&quot;:&quot;DONE&quot;,
+   &quot;archivedDate&quot;:&quot;2014-12-01 16:39:19.097&quot;
+   &quot;containerId&quot;:&quot;33&quot;,
+   &quot;version&quot;:&quot;1.0.0&quot;
+}
+]</code></pre>

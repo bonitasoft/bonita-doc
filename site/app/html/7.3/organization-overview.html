@@ -1,0 +1,102 @@
+<h1>1.9 Organization overview</h1>
+<p>There are two stages to specifying who will perform a step
+in a process:</p>
+<ol>
+<li>When the process is designed, the designer
+designates an <em>actor</em> for the step. An
+actor is a placeholder that defines the theoretical user who will perform the
+step.</li>
+<li>Before a process is deployed, the actors are
+mapped to the real <em>users</em> in an
+organization.</li>
+</ol>
+<p>This page explains the concepts of actors and organizations in Bonita BPM.
+<a href="#Actors_and_users">Actors and users</a><br>
+<a href="#What_is_an_organization">What is an organization?</a><br>
+<a href="#Tools">Tools for managing an organization</a><br>
+<a href="#custuserinfo">Custom user information</a><br>
+<a href="#XMLSchema">Organization schema XSD file</a></p>
+<h2>Actors and users</h2>
+<p>When you define a process, you define who will carry out a
+step in the process by specifying an actor. For example, if a step can be done
+by any member of the HR team, you could call the actor <em>hr</em>, or if a step can only be done by the sales team manager in
+Europe, you could call the actor <em>sales_mgr_europe</em>.</p>
+<p>A user is a person who has a username and a password in a Bonita BPM organization, and can therefore perform steps in a process.
+Before you deploy a process, you need to <a href="actors.md#Mapping_an_actor">map the process actors</a>. This mapping defines who can carry out steps in the process.</p>
+<h2>What is an organization?</h2>
+<p>An organization is a collection of users, usually defined in
+a hierarchical structure that is aligned with the structure of the business
+entity that the users belong to.</p>
+<p>Within the organization, users belong to one or more groups.
+For each group a user belongs to, the user has a role. You can define roles as
+required. The combination of a group and a role for a user is called a
+membership. A user can have several
+memberships but each one must apply to a different group.</p>
+<p><img src="images/images-6_0/admin_org_MyCorp_structure.png" alt="The structure of MyCorp"></p>
+<p>The structure of MyCorp</p>
+<p>In this corporation, there is a hierarchical structure, with
+the following units:</p>
+<p>MyCorp<br>
+MyCorp/Administration<br>
+MyCorp/Administration/Purchasing<br>
+MyCorp/Administration/Order admin<br>
+MyCorp/HR<br>
+MyCorp/Production/Parts reception<br>
+MyCorp/Production/Manufacturing<br>
+MyCorp/Production/Delivery</p>
+<p>These hierarchical units can be used as groups within the
+Bonita BPM organization. In addition, you can create transverse groups that do
+not correspond to the hierarchical structure, or that also take account of some
+other factor, such as location. For example, suppose that MyCorp has two sites,
+one in the US that is corporate headquarters and production, and one in Europe
+that is just a production site. You could create two groups, MyCorp/US and
+MyCorp/Europe, each containing the users at the relevant site.</p>
+<p>A group can be
+created based on any set of criteria useful to a process. For example, if
+MyCorp is conducting trials of a new process to control just-in-time parts
+delivery from a supplier, you could create a group that contains the specific
+users involved in the trials. The figure below shows the groups in the MyCorp organization, seen in Bonita BPM Studio.</p>
+<p><img src="images/images-6_0/admin_org_mycorp_groups.png" alt="The groups of MyCorp"></p>
+<p>Organization goups in MyCorp</p>
+<p>All the users who participate in a process must be in the
+same Bonita BPM organization. For example, if you use a process to track order
+processing with a supplier, the supplier employees who perform steps in the
+process must be in the organization.</p>
+<h2>Tools for managing an organization</h2>
+<p>The Bonita BPM model for managing an organization assumes that you use the same organization information
+for other tools and that it is stored in an LDAP directory. Bonita BPM has three tools you can use to manage your organization
+information:</p>
+<ul>
+<li><a href="ldap-synchronizer.md">LDAP synchronizer</a> (in the Performance, Efficiency, and Teamwork editions of Bonita BPM), for
+keeping the Bonita BPM organization synchronized with your external LDAP directory. Synchronization is one-way, from LDAP to Bonita BPM. You can run the synchronizer once to
+load the organization then manage it within Bonita BPM Portal, or you can run the synchronizer on a schedule and manage the organization externally.</li>
+<li><strong>Bonita BPM Portal</strong>, for managing organization information in production within Bonita BPM. You can manage users, groups, and roles. You can also import or export the organization information.</li>
+<li><strong>Bonita BPM Studio</strong>, for creating your initial organization definition, which must be imported into Bonita BPM Portal prior to production,
+and for managing organization information while you test a process in development. Bonita BPM Studio contains an example organization, called ACME.
+This organization contains a small number of users,
+who belong to different groups with realistic roles. You can use this sample organization to test a process
+that you develop.
+You can modify the ACME organization and you can create other organizations.</li>
+</ul>
+<h2>Custom user information</h2>
+<p>Custom user information enables custom details to be added to a user in the Organization.</p>
+<h3>In Bonita BPM Studio:</h3>
+<p>Use the <strong>Custom</strong> tab in <strong>Organization users</strong> to add Custom information to a user.
+This <a href="custom-user-information-in-bonita-bpm-studio.md#howtoadd">custom information is defined in Bonita BPM Studio</a>,
+then applied to an actor filter, and when deployed in Bonita BPM Portal, enables the filtering of users mapped to tasks.</p>
+<p>The custom user information is saved in the Organization schema and published so it can be used in Bonita BPM Portal.</p>
+<p>The <strong>Users with Custom information</strong> actor filter is provided by default, and can be applied to an actor.
+It uses the custom information added to a user to map users to perform tasks in Bonita BPM Portal.
+When the process is deployed in Bonita BPM Portal in a production environment, the filter definition is static, so it cannot be changed.
+However, the value associated with a filter definition can be modified by a user with an admin profile.
+The organization will be modified on the remote server. This enables tasks to be re-assigned to users in processes that are already deployed,
+which is then used to filter users for tasks.</p>
+<p>See <a href="custom-user-information-in-bonita-bpm-studio.md">custom user information in Bonita BPM Studio</a> for setting the definition and values for the filter</p>
+<h3>In Bonita BPM Portal:</h3>
+<p>This custom information can only be seen and <a href="custom-user-information-in-bonita-bpm-portal.md">edited</a> by users who have the Administrator profile.</p>
+<p>Note that if the custom user information does not exist in Bonita BPM Studio, modifying its value for a user in Bonita BPM Portal will not make any difference to the filter, apart from creating an error.
+Synchronize the Organization between Bonita BPM Studio and Bonita BPM Portal first by publishing it so all values are up to date.</p>
+<h2>Organization schema XSD file</h2>
+<p>If you want to modify the organization by hand, it is important to respect the structure of the .xsd file.
+You can see the <a href="https://github.com/bonitasoft/bonita-engine/blob/master/bpm/bonita-core/bonita-process-engine/src/main/resources/bos-organization.xsd">standard Bonita BPM organization .xsd file</a> on Github,
+to view the xml structure and tags.</p>

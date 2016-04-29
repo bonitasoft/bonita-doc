@@ -1,0 +1,280 @@
+
+<h2>task</h2>
+
+<h3>Description</h3>
+<p>Manage process tasks</p>
+
+
+<h3>Identifier</h3>
+<p>The ID of the task (a long value).</p>
+
+	
+<h3>Representation</h3>
+
+<pre>{ 
+&quot;displayDescription&quot;:&quot;<em>the human readable task description (string)</em>&quot;, 
+&quot;executedBySubstitute&quot;:&quot;<em>the id (long) of the user who really performed this task in case where a substitute did it, or 0 if the task was not performed by a substitute</em>&quot;, 
+&quot;processId&quot;:&quot;<em>the process id (long) that is associated with this task</em>&quot;, 
+&quot;parentCaseId&quot;:&quot;<em>the parent case id (long) that is associated with this task&apos;s case</em>&quot;, 
+&quot;state&quot;:&quot;<em>the current state of the task (string, for example, ready, completed, failed)</em>&quot;, 
+&quot;rootContainerId&quot;:&quot;<em>the root process id (long) of the root case that is associated with this task</em>&quot;, 
+&quot;type&quot;:&quot;<em>the task type (string)</em>&quot;, 
+&quot;assigned_id&quot;:&quot;<em>the user id (long) that this task is assigned to, or 0 if it is unassigned</em>&quot;, 
+&quot;assigned_date&quot;:&quot;<em>date</em>&quot;, 
+&quot;id&quot;:&quot;<em>the task id (long)</em>&quot;, 
+&quot;executedBy&quot;:&quot;<em>the id (long) of the user who executed the task, or 0 if the task has not been executed</em>&quot;, 
+&quot;caseId&quot;:&quot;<em>the case id (long) that is associated with this task</em>&quot;, 
+&quot;rootCaseId&quot;:&quot;<em>the root case initiator id (long) that is associated with this task&apos;s case</em>&quot;, 
+&quot;parentCaseId&quot;:&quot;<em>the parent case id (long) that is associated with this task&apos;s case</em>&quot;, 
+&quot;priority&quot;:&quot;<em>the priority (string) of the current task</em>&quot;, 
+&quot;actorId&quot;:&quot;<em>the id (long) of the actor that can execute this task, null otherwise</em>&quot;, 
+&quot;description&quot;:&quot;<em>the task description (string)</em>&quot;, 
+&quot;name&quot;:&quot;<em>the task name (string)</em>&quot;, 
+&quot;reached_state_date&quot;:&quot;<em>the date (&apos;yyyy-MM-dd HH:mm:ss.SSS&apos;) when this task reached the current state, for example &apos;2014-10-17 16:05:42.626&apos;</em>&quot;, 
+&quot;displayName&quot;:&quot;<em>the display name (string) of this task</em>&quot;, 
+&quot;dueDate&quot;:&quot;<em>the date (&apos;yyyy-MM-dd HH:mm:ss.SSS&apos;) when this task is due, for example &apos;2014-10-17 16:05:42.626&apos;</em>&quot;, 
+&quot;last_update_date&quot;:&quot;<em>the date (&apos;yyyy-MM-dd HH:mm:ss.SSS&apos;) when this task was last updated, for example &apos;2014-10-17 16:05:42.626&apos;</em>&quot; 
+}</pre>
+
+<h3>Methods</h3>
+
+<p>The methods used for this resource are:</p>
+<ul>
+	<li>GET - Read a resource or search for a resource</li>
+	<li>PUT - Update a resource</li>
+</ul>
+
+
+
+<h3>Read a task</h3>
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+    		<td valign="top">Request url</td>
+			<td valign="top">http://../API/bpm/task/{taskId}</td></tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>GET</p>
+			</td>
+		</tr>
+        <tr>
+            <td valign="top"><p>Request payload</p></td>
+            <td valign="top"><p>empty</p>
+            </td>
+        </tr>
+		<tr>
+			<td valign="top"><p>Response payload</p></td>
+			<td valign="top"><p>JSON representation of a task</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Example</h4>
+<p>Get the task of id 10</p>
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+        <td valign="top">Request url</td>
+        <td valign="top">/API/bpm/task/10</td></tr>
+    <tr>
+        <td valign="top"><p>Request method</p></td>
+        <td valign="top"><p>GET</p>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Request payload</p></td>
+        <td valign="top"><p>empty</p>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Response payload</p></td>
+        <td valign="top"><pre><code>{ 
+&quot;displayDescription&quot;:&quot;&quot;, 
+&quot;executedBySubstitute&quot;:&quot;0&quot;, 
+&quot;processId&quot;:&quot;9132099022957910959&quot;, 
+&quot;parentCaseId&quot;:&quot;5&quot;, 
+&quot;state&quot;:&quot;ready&quot;, 
+&quot;rootContainerId&quot;:&quot;5&quot;, 
+&quot;type&quot;:&quot;USER_TASK&quot;, 
+&quot;assigned_id&quot;:&quot;4&quot;, 
+&quot;assigned_date&quot;:&quot;2014-12-01 16:22:54.685&quot;, 
+&quot;id&quot;:&quot;10&quot;, 
+&quot;executedBy&quot;:&quot;0&quot;, 
+&quot;caseId&quot;:&quot;5&quot;, 
+&quot;priority&quot;:&quot;normal&quot;, 
+&quot;actorId&quot;:&quot;6&quot;, 
+&quot;description&quot;:&quot;&quot;, 
+&quot;name&quot;:&quot;Step1&quot;, 
+&quot;reached_state_date&quot;:&quot;2014-12-01 16:22:50.814&quot;, 
+&quot;rootCaseId&quot;:&quot;5&quot;, 
+&quot;displayName&quot;:&quot;Step1&quot;, 
+&quot;dueDate&quot;:&quot;2014-12-01 17:22:50.809&quot;, 
+&quot;last_update_date&quot;:&quot;2014-12-01 16:22:50.814&quot; 
+}</code></pre>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+<h3>Update a task</h3>
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+        <td valign="top">Request url</td>
+        <td valign="top">http://../API/bpm/task/{taskId}</td></tr>
+    <tr>
+        <td valign="top"><p>Request method</p></td>
+        <td valign="top"><p>PUT</p>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Request payload</p></td>
+        <td valign="top"><p>Task fields to update (forbidden fields are : caseId, processId, name, executedBy, type, id, reached_state_date, last_update_date)</p>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Response payload</p></td>
+        <td valign="top"><p>empty</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Example</h4>
+<p>Update task state to completed</p>
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+        <td valign="top">Request url</td>
+        <td valign="top">/API/bpm/task/16</td></tr>
+    <tr>
+        <td valign="top"><p>Request method</p></td>
+        <td valign="top"><p>PUT</p>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Request payload</p></td>
+        <td valign="top"><p>{ &quot;state&quot;: &quot;completed&quot; }</p>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Response payload</p></td>
+        <td valign="top"><p>empty</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Search tasks</h3>
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+        <td valign="top">Request url</td>
+        <td valign="top">http://../API/bpm/task</td></tr>
+    <tr>
+        <td valign="top"><p>Request method</p></td>
+        <td valign="top"><p>GET</p>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Request payload</p></td>
+        <td valign="top"><p>empty</p>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Response payload</p></td>
+        <td valign="top"><p>JSON representation of an array of tasks</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Parameters</h4>
+
+<ul>
+<li>Accepted sort values (o={value}) : caseId, processId, state, type, supervisor_id, last_update_date</li>
+<li>Accepted filters (f={filter}=value) : caseId, processId, state, type, supervisor_id, last_update_date</li>
+<li>Accepted deployer (d={deployer}) : processId, caseId, rootContainerId, executedBy, executedBySubstitute</li>
+</ul>
+
+<h4>Example</h4>
+<p>Get ten first tasks for process id 8410739119827826184 order by state</p>
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+        <td valign="top">Request url</td>
+        <td valign="top">/API/bpm/task?c=10&amp;p=0&amp;f=processId=8410739119827826184&amp;o=state</td></tr>
+    <tr>
+        <td valign="top"><p>Request method</p></td>
+        <td valign="top"><p>GET</p>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Request payload</p></td>
+        <td valign="top"><p>empty</p>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top"><p>Response payload</p></td>
+        <td valign="top"><pre><code>[ 
+{ 
+&quot;displayDescription&quot;:&quot;&quot;, 
+&quot;executedBySubstitute&quot;:&quot;0&quot;, 
+&quot;processId&quot;:&quot;8410739119827826184&quot;, 
+&quot;parentCaseId&quot;:&quot;9&quot;, 
+&quot;state&quot;:&quot;ready&quot;, 
+&quot;rootContainerId&quot;:&quot;9&quot;, 
+&quot;type&quot;:&quot;USER_TASK&quot;, 
+&quot;assigned_id&quot;:&quot;&quot;, 
+&quot;assigned_date&quot;:&quot;&quot;, 
+&quot;id&quot;:&quot;18&quot;, 
+&quot;executedBy&quot;:&quot;0&quot;, 
+&quot;caseId&quot;:&quot;9&quot;, 
+&quot;priority&quot;:&quot;normal&quot;, 
+&quot;actorId&quot;:&quot;7&quot;, 
+&quot;description&quot;:&quot;&quot;, 
+&quot;name&quot;:&quot;Step1&quot;, 
+&quot;reached_state_date&quot;:&quot;2014-12-01 16:48:31.189&quot;, 
+&quot;rootCaseId&quot;:&quot;9&quot;, 
+&quot;displayName&quot;:&quot;Step1&quot;, 
+&quot;dueDate&quot;:&quot;2014-12-01 17:48:31.185&quot;, 
+&quot;last_update_date&quot;:&quot;2014-12-01 16:48:31.189&quot; 
+}, 
+{ 
+&quot;displayDescription&quot;:&quot;&quot;, 
+&quot;executedBySubstitute&quot;:&quot;0&quot;, 
+&quot;processId&quot;:&quot;8410739119827826184&quot;, 
+&quot;parentCaseId&quot;:&quot;10&quot;, 
+&quot;state&quot;:&quot;ready&quot;, 
+&quot;rootContainerId&quot;:&quot;10&quot;, 
+&quot;type&quot;:&quot;USER_TASK&quot;, 
+&quot;assigned_id&quot;:&quot;&quot;, 
+&quot;assigned_date&quot;:&quot;&quot;, 
+&quot;id&quot;:&quot;20&quot;, 
+&quot;executedBy&quot;:&quot;0&quot;, 
+&quot;caseId&quot;:&quot;10&quot;, 
+&quot;priority&quot;:&quot;normal&quot;, 
+&quot;actorId&quot;:&quot;7&quot;, 
+&quot;description&quot;:&quot;&quot;, 
+&quot;name&quot;:&quot;Step1&quot;, 
+&quot;reached_state_date&quot;:&quot;2014-12-01 16:48:37.666&quot;, 
+&quot;rootCaseId&quot;:&quot;10&quot;, 
+&quot;displayName&quot;:&quot;Step1&quot;, 
+&quot;dueDate&quot;:&quot;2014-12-01 17:48:37.662&quot;, 
+&quot;last_update_date&quot;:&quot;2014-12-01 16:48:37.666&quot; 
+} 
+]</code></pre>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+

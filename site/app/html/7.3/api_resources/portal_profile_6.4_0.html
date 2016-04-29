@@ -1,0 +1,199 @@
+<h2>profile</h2>
+
+<h3>Description</h3>
+<p>Use the profile resource to access profiles.</p>
+
+
+<h3>Identifier</h3>
+<p>Simple, the ID of the object (a long value)</p>
+
+<h3>Parameters</h3>
+<p>None</p>
+	
+<h3>Representation</h3>
+<pre>{
+&quot;id&quot;:&quot;<em>profile id</em>&quot;,
+&quot;creationDate&quot;:&quot;<em>date and time of profile creation</em>&quot;,
+&quot;icon&quot;:&quot;<em>icon used in the portal to represent the profile</em>&quot;,
+&quot;createdBy&quot;:&quot;<em>id of the uer who created the profile</em>&quot;,
+&quot;description&quot;:&quot;<em>a description of the profile</em>&quot;,
+&quot;name&quot;:&quot;<em>profile name</em>&quot;,
+&quot;is_default&quot;:&quot;<em>true | false </em>&quot;,
+&quot;lastUpdateDate&quot;:&quot;<em>date and time of the last update to the profile</em>&quot;,
+&quot;updatedBy&quot;:&quot;<em>the id of the user who last updated the profile</em>&quot;
+}</pre>
+
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+	<li>POST - Add a new profile</li>
+	<li>GET - Read or search a profile</li>
+	<li>PUT - Update a profile</li>
+	<li>DELETE - Remove a profile</li>
+</ul>
+
+<h3 id="upload_doc">Retrieve a Profile</h3>
+
+<p>Use a GET method to retrieve information about a profile.</p>
+
+<p>Example: Get the information about the profile with id=1.</p>
+
+<table border="2">
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>URL</td>
+<td><code>http://localhost:8080/bonita/API/portal/profile/1</code></td>
+</tr>
+<tr>
+<td>Payload</td>
+<td>empty</td>
+</tr>
+<tr>
+<td>Response</td>
+<td><pre><code>{
+&quot;id&quot;:&quot;1&quot;,
+&quot;creationDate&quot;:&quot;2014-12-02 15:54:44.395&quot;,
+&quot;icon&quot;:&quot;/profiles/profileUser.png&quot;,
+&quot;createdBy&quot;:&quot;-1&quot;,
+&quot;description&quot;:&quot;The user can view and perform tasks and can start a new case of a process.&quot;,
+&quot;name&quot;:&quot;User&quot;,
+&quot;is_default&quot;:&quot;true&quot;,
+&quot;lastUpdateDate&quot;:&quot;2014-12-04 11:05:14.490&quot;,
+&quot;updatedBy&quot;:&quot;1&quot;
+}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="upload_doc">Add a new profile</h3>
+
+<p>Use the POST method to create a new profile.</p>
+
+<table border="2">
+<tbody>
+<tr>
+<td>Method</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>URL</td>
+<td><code>http://localhost:8080/bonita/API/portal/profile</code></td>
+</tr>
+<tr>
+<td>Payload</td>
+<td><pre><code>{
+&quot;name&quot;:&quot;MyCustomProfile&quot;,&quot;description&quot;:&quot;This is my custom profile&quot;
+}</code></pre></td>
+</tr>
+<tr>
+<td>Response</td>
+<td><pre><code>{
+&quot;id&quot;:&quot;101&quot;,
+&quot;creationDate&quot;:&quot;2014-12-04 16:29:23.434&quot;,
+&quot;icon&quot;:&quot;/profiles/profileDefault.png&quot;,
+&quot;createdBy&quot;:&quot;1&quot;,
+&quot;description&quot;:&quot;This is my custom profile&quot;,
+&quot;name&quot;:&quot;MyCustomProfile&quot;,
+&quot;is_default&quot;:&quot;false&quot;,
+&quot;lastUpdateDate&quot;:&quot;2014-12-04 16:29:23.434&quot;,
+&quot;updatedBy&quot;:&quot;1&quot;
+}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="upload_doc">Update a profile</h3>
+
+<p>Use the PUT method to update an existing profile.</p>
+
+<p>Example: Update a profile with id = 101</p>
+
+<table border="2">
+<tbody>
+<tr>
+<td>Method</td>
+<td>PUT</td>
+</tr>
+<tr>
+<td>URL</td>
+<td><code>http://localhost:8080/bonita/API/portal/profile/101&gt;</code></td>
+</tr>
+<tr>
+<td>Payload</td>
+<td><pre><code>{
+&quot;id&quot;:&quot;101&quot;,&quot;name&quot;:&quot;MyUpdatedCustomProfile&quot;,&quot;description&quot;:&quot;This is my updated custom profile&quot;
+}</code></pre></td>
+</tr>
+<tr>
+<td>Response</td>
+<td>empty</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="upload_doc">Search profiles</h3>
+
+<p>Use a GET method with filters and search terms to search for profiles.</p> 
+<p>You can filter on:</p>
+<ul>
+<li>name={exact_profile_name}: retrieve only the profiles with the specified name. For example, retrieve the profile with name = Administrator: http://localhost:8080/bonita/API/portal/profile?p=0&amp;c=10&amp;f=name%3dAdministrator</li>
+</ul>
+
+<p>You can search on:</p>
+<ul>
+<li>name: search all profiles which name starts with the search string. For example, name starting with Adm: http://localhost:8080/bonita/API/portal/profile?p=0&amp;c=10&amp;s=Adm</li>
+</ul>
+
+<h4>Description</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+    		<td valign="top">Request url</td>
+			<td valign="top">/API/portal/profile?p={page}&amp;c={count}&amp;o={orders}&amp;f={filters}&amp;s={search}&amp;d={deploy}</td>
+			</tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>GET</p>
+		</td></tr>
+		<tr>
+			<td valign="top"><p>Request payload</p></td>
+			<td valign="top"><p>empty</p>
+		</td></tr>
+		<tr>
+			<td valign="top"><p>Response</p></td>
+			<td valign="top"><p>An array of profile objects</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h3 id="upload_doc">Delete a profile</h3>
+
+<p>Use the DELETE method to delete an existing profile</p>
+
+<p>Example: Delete a profile with id = 101</p>
+
+<table border="2">
+<tbody>
+<tr>
+<td>Method</td>
+<td>DELETE</td>
+</tr>
+<tr>
+<td>URL</td>
+<td><code>http://localhost:8080/bonita/API/portal/profile/101</code></td>
+</tr>
+<tr>
+<td>Payload</td>
+<td>empty</td>
+</tr>
+<tr>
+<td>Response</td>
+<td>empty</td>
+</tr>
+</tbody>
+</table>

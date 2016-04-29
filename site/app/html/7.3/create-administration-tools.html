@@ -1,0 +1,228 @@
+<h1>4.5.5.6 Create administration tools</h1>
+<p>This page contains an example of how to create tools to administer your Bonita BPM system.
+The example is developed using Maven, and is a Java program to list the failed tasks, wrapped in a script so that it can be executed in an environment with no window manager.</p>
+<p><a href="#getting_started">Getting started</a><br>
+<a href="#write_class">Write a class that lists failed tasks</a><br>
+<a href="#write_main">Create a main class</a><br>
+<a href="#package">Prepare packaging</a><br>
+<a href="#script">Wrap into a Shell script</a><br>
+<a href="#code">Complete code</a></p>
+<h2>Getting started</h2>
+<p>You need to be familiar with building a Maven project with Bonita BPM as a dependency.
+You also need to be familiar with using the Bonita BPM Engine APIs. If this is not the case, follow this <a href="getting-started-with-the-bonita-bpm-engine-apis.md">tutorial</a>.
+The <a href="development-overview.md#L373">development overview</a> contains a list of the APIs with a short description of each one.
+For details of the methods available in the Bonita BPM Engine APIs, see the <a href="javadoc.md">Javadoc</a>.</p>
+<p>This example uses the Bonita BPM Engine Java APIs but there is also a <a href="rest-api-overview.md">REST API</a>.</p>
+<p>In this example, the Maven project has the following settings:</p>
+<ul>
+<li>Group Id: org.mycompany.bonita</li>
+<li>Artifact Id: bonita-cli</li>
+</ul>
+<p>You must have a running Bonita BPM system. The simplest way to do this is to run a Bonita BPM Tomcat bundle locally.
+You also need a user: in this example the user has username <em>admin</em> and password <em>secret</em>.</p>
+<h2>Write a class that lists failed tasks</h2>
+<p>Bonita BPM provides a client to leverage the Java APIs. This is the easiest starting point for an application, so this is what we will use in the example.</p>
+<p>Set up your Maven project with a maven dependency to bonita-client. Then create a class to execute the business logic. In this example, the class is called <code>ListFailedTasksCmd</code>.
+It implements <code>Callable</code>, and calls methods to log in the API, then to execute the business logic, and finally to log out from the API.
+<code>public Void call() throws Exception { login(); try { printFailedTasks(); } finally { logout(); } }</code></p>
+<p>The business logic of this example gets a list of the failed tasks and prints them to standard output.
+The maximum number of failed activities to retrieve is provided by the class field <code>nbTodisplay</code>.
+The method <code>printFailedTasks</code> is doing the actual job of searching for activities whose state is FAILED.</p>
+<p>TIP: Like for any methods in the API listing elements, the <code>searchActivities</code> method takes paging information to limit the number of elements to retrieve.
+This prevents clients from retrieving too much data at the same time and filling up the whole memory.
+This is a common way to avoid users getting <code>OutOfMemory</code> errors. It is better to make several successive calls to the API than to retrieve too much data.
+`
+protected void printFailedTasks() throws BonitaHomeNotSetException,
+		ServerAPIException, UnknownAPITypeException, SearchException {</p>
+<p>ProcessRuntimeAPI taskAPI = (ProcessRuntimeAPI) TenantAPIAccessor.getProcessAPI(session);
+SearchOptions failedSearchOptions = new SearchOptionsBuilder(0,nbTodisplay)
+.filter(ActivityInstanceSearchDescriptor.STATE_NAME, ActivityStates.FAILED_STATE)
+.done();</p>
+<p>SearchResult failedTasks = taskAPI.searchActivities(failedSearchOptions);
+print(failedTasks);
+}
+`</p>
+<p>See the complete source code for this class is in <code>ListFailedTasksCmd.java</code>.</p>
+<h2>Create a main class</h2>
+<p>Let's create a <code>CLI.java</code> class that will be the entry point of our application. The CLI will simply delegate to our <code>ListFailedTasksCmd</code>
+the responsibility to fetch failed tasks and display them on the standard output. The CLI will take as input parameters the username, password and the maximum number of failed tasks to display.
+`
+public static void main(String[] args) {
+if(args.length != 3) {
+throw new IllegalArgumentException(&quot;Usage: you should provide &quot;);
+}</p>
+<p>try {
+new ListFailedTasksCmd(args[0], args[1], Integer.parseInt(args[2])).call();
+} catch (Exception e) {
+	   e.printStackTrace();
+}
+}
+`</p>
+<h2>Prepare packaging</h2>
+<p>As we have seen, the tool has several dependencies required to be executed. This means that our classes should be packaged along with these dependencies in a single bundle.
+To do this, build a zip with all the resources that the system will require to run the CLI.</p>
+<h3>Declare an Assembly</h3>
+<p>Create an <code>assembly.xml</code> file at the root to describe the final packaging. <code>zipfalse/src/main/resources**744/lib</code></p>
+<p>This assembly gathers all the dependencies into a <code>lib</code> folder along with all the content of the <code>src/main/resources</code> before zipping the whole collection.
+At the end we should get the following structure in a zip:
+<code>|-bonita/ |-lib/ |- bonita-cli.jar |-*.jar</code></p>
+<h3>Update the <code>pom.xml</code> file to call the assembly when building the project</h3>
+<p><code>bonita-cli-${project.version}${project.build.directory} ... ... org.apache.maven.pluginsmaven-assembly-plugingenerate-packagepackagesingletrue${zipName}assembly.xml …</code></p>
+<p>The maven-assembly-plugin enables us to generate the zip as described in assembly.xml file with the specified zipName, e.g. <code>Bonita-CLI-1.0.0</code>.</p>
+<h3>Make the <code>bonita-cli.jar</code> executable</h3>
+<p>In order to launch the expected class, <code>CLI.java</code>, edit the <code>pom.xml</code> and add the following lines. This will create a manifest during the build of the Maven project in the jar file which contains the main class.
+<code>... 		org.apache.maven.pluginsmaven-jar-plugin2.4trueorg.mycompany.bonita.cli.CLI*.bat*.sh ...</code></p>
+<h3>Build and test</h3>
+<p>Right click on the project, select Run As &gt; Maven Install. The output <code>Bonita-CLI-1.0.0.zip</code> is located in <code>/target</code>.
+Open a console, go to the target folder, and unzip <code>Bonita-CLI-1.0.0.zip</code>.
+Before executing make sure to configure the bonita client to point the bonita engine by editing <code>${bonita.home}/engine-client/conf/bonita-client-custom.properties</code>.
+For example:
+`</p>
+<h1>HTTP</h1>
+<p>org.bonitasoft.engine.api-type = HTTP
+server.url = http://localhost:8080
+application.name = bonita
+`</p>
+<p>To test our main class, execute the following command:</p>
+<ul>
+<li>
+<p>On Linux:<code>java -jar lib/*.jar admin secret 10 -Dbonita.home=\</code>pwd`/bonita
+`</p>
+</li>
+<li>
+<p>On Windows:<code>java -Dbonita.home=bonita -jar lib/bonita-cli-1.0.0.jar admin secret 10</code></p>
+</li>
+</ul>
+<p>These commands are cumbersome, so the next section explains how to create a script to hide the complexity.</p>
+<h2>Wrap in a Shell script</h2>
+<p>In the resources folder of your project, create a new file <code>bonita-cli.sh</code> or <code>bonita-cli.bat</code>:</p>
+<p><code>bonita-cli.sh</code>:
+<code>#!/bin/sh java -Dbonita.home=\</code>pwd`/bonita -jar lib/bonita-cli-<em>.jar $</em>
+`</p>
+<p><code>bonita-cli.bat</code>:
+<code>java -Dbonita.home=bonita -jar lib/bonita-cli-1.0.0.jar %*</code></p>
+<p>Build the whole project again. When the build completes, the zip file should contain the following structure:
+<img src="images/images-6_0/content-zip.png" alt="Zip file structure"></p>
+<p>Run the appropriate script:</p>
+<ul>
+<li>
+<p>On Linux:<code>./bonita-cli.sh admin secret 10</code></p>
+</li>
+<li>
+<p>On Windows:<code>bonita-cli.bat admin secret 10</code></p>
+</li>
+</ul>
+<p>Here is an example of output:
+<code>List of activities:(1 item(s) found) State On id Name failed 16:11 100 Review Git Pull Request from: N Chabanoles</code></p>
+<h2>Complete code example</h2>
+<p>`
+package org.mycompany.bonita.cli.cmd;</p>
+<p>import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.concurrent.Callable;</p>
+<p>import org.bonitasoft.engine.api.ProcessRuntimeAPI;
+import org.bonitasoft.engine.api.TenantAPIAccessor;
+import org.bonitasoft.engine.bpm.flownode.ActivityInstance;
+import org.bonitasoft.engine.bpm.flownode.ActivityInstanceSearchDescriptor;
+import org.bonitasoft.engine.bpm.flownode.ActivityStates;
+import org.bonitasoft.engine.exception.BonitaHomeNotSetException;
+import org.bonitasoft.engine.exception.SearchException;
+import org.bonitasoft.engine.exception.ServerAPIException;
+import org.bonitasoft.engine.exception.UnknownAPITypeException;
+import org.bonitasoft.engine.platform.LoginException;
+import org.bonitasoft.engine.search.SearchOptions;
+import org.bonitasoft.engine.search.SearchOptionsBuilder;
+import org.bonitasoft.engine.search.SearchResult;
+import org.bonitasoft.engine.session.APISession;</p>
+<p>/**</p>
+<ul>
+<li></li>
+</ul>
+<p>*/</p>
+<p>/**</p>
+<ul>
+<li>@author Nicolas Chabanoles</li>
+<li>@author Joachim Segala</li>
+<li></li>
+</ul>
+<p>*/
+public class ListFailedTasksCmd implements Callable {
+private static final String ROW_SEPARATOR = &quot;\n&quot;;
+	private static final String COL_SEPARATOR = &quot;\t&quot;;</p>
+<pre><code>private String userName;
+private String password;
+private APISession session;
+private int nbTodisplay;
+
+public ListFailedTasksCmd(String user, String pass, int nbTodisplay) {
+	userName = user;
+	password = pass;
+	this.nbTodisplay = nbTodisplay;
+}
+
+public Void call() throws Exception {
+	login();
+	try {
+		printFailedTasks();
+	} finally {
+		logout();
+	}
+	return null;
+}
+
+protected void printFailedTasks() throws BonitaHomeNotSetException,
+		ServerAPIException, UnknownAPITypeException, SearchException {
+	ProcessRuntimeAPI taskAPI = (ProcessRuntimeAPI) TenantAPIAccessor
+			.getProcessAPI(session);
+	SearchOptions failedSearchOptions = new SearchOptionsBuilder(0,
+			nbTodisplay).filter(
+			ActivityInstanceSearchDescriptor.STATE_NAME,
+			ActivityStates.FAILED_STATE).done();
+	SearchResult failedTasks = taskAPI
+			.searchActivities(failedSearchOptions);
+	print(failedTasks);
+}
+
+protected void print(SearchResult failedTasks) {
+	List activities = failedTasks.getResult();
+	StringBuffer line = new StringBuffer();
+	// Header
+	line.append(ROW_SEPARATOR).append(&quot;List of activities:&quot;)
+			.append(&quot;(&quot; + failedTasks.getCount() + &quot; item(s) found)&quot;)
+			.append(ROW_SEPARATOR);
+	line.append(COL_SEPARATOR).append(&quot;State&quot;).append(COL_SEPARATOR)
+			.append(&quot;On&quot;).append(COL_SEPARATOR).append(&quot;id&quot;)
+			.append(COL_SEPARATOR).append(&quot;Name&quot;);
+	line.append(ROW_SEPARATOR);
+	// Display in a table layout
+	for (ActivityInstance activityInstance : activities) {
+		line.append(COL_SEPARATOR);
+		line.append(activityInstance.getState()).append(COL_SEPARATOR);
+		line.append(
+				new SimpleDateFormat(&quot;HH:MM&quot;).format(activityInstance
+						.getReachedStateDate())).append(COL_SEPARATOR);
+		line.append(activityInstance.getId()).append(COL_SEPARATOR);
+		line.append(activityInstance.getName()).append(COL_SEPARATOR);
+		line.append(ROW_SEPARATOR);
+	}
+	System.out.println(line.toString());
+}
+
+private void logout() {
+	if (session != null) {
+		try {
+			TenantAPIAccessor.getLoginAPI().logout(session);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+protected void login() throws LoginException, BonitaHomeNotSetException,
+		ServerAPIException, UnknownAPITypeException {
+	this.session = TenantAPIAccessor.getLoginAPI()
+			.login(userName, password);
+}
+</code></pre>
+<p>}
+`</p>

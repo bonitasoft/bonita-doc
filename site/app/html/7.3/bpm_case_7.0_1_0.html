@@ -1,0 +1,418 @@
+<h2>case</h2>
+<h3>Description</h3>
+<p>Case is an instance of a process. When you start a process, it creates a case.</p>
+<h3>Identifier</h3>
+<p>ID of the Object: a long value</p>
+<h3>Representation</h3>
+<pre><code>{
+&quot;id&quot;:&quot;_the identifier of the case_&quot;,
+&quot;end_date&quot;:&quot;_the date set when the case is closed_&quot;,
+&quot;failedFlowNodes&quot;:&quot;_count of failed flow nodes if parameter n=failedFlowNodes is given_&quot;,
+&quot;startedBySubstitute&quot;:&quot;_the identifier of the substitute user (as Process manager or Administrator) who started the process. It can be also the substitute user if d=startedBySubstitute is given._&quot;,
+&quot;start&quot;:&quot;_the starting date of the case_&quot;,
+&quot;activeFlowNodes&quot;:&quot;_count of active flow nodes if parameter n=activeFlowNodes is given_&quot;,
+&quot;state&quot;:&quot;_state: an enum that represent the state of the case, it can be INITIALIZING, STARTED, SUSPENDED, CANCELLED, ABORTED, COMPLETING, COMPLETED, ERROR, ABORTING_&quot;,
+&quot;rootCaseId&quot;:&quot;_the identifier of the container of the case_&quot;,
+&quot;started_by&quot;:&quot;_the identifier of the user who started the case_&quot;,
+&quot;processDefinitionId&quot;:&quot;_the identifier of the process related of the case_&quot;,
+&quot;last_update_date&quot;:&quot;_the date of the last update done on the case_&quot;,
+&quot;searchIndex1Label&quot;:&quot;_the 1st search index label (from 6.5, in Subscription editions only)_&quot;,
+&quot;searchIndex2Label&quot;:&quot;_the 2nd search index label (from 6.5, in Subscription editions only)_&quot;,
+&quot;searchIndex3Label&quot;:&quot;_the 3rd search index label (from 6.5, in Subscription editions only)_&quot;,
+&quot;searchIndex4Label&quot;:&quot;_the 4th search index label (from 6.5, in Subscription editions only)_&quot;,
+&quot;searchIndex5Label&quot;:&quot;_the 5th search index label (from 6.5, in Subscription editions only)_&quot;,
+&quot;searchIndex1Value&quot;:&quot;_the 1st search index value (from 6.5, in Subscription editions only)_&quot;,
+&quot;searchIndex2Value&quot;:&quot;_the 2nd search index value (from 6.5, in Subscription editions only)_&quot;,
+&quot;searchIndex3Value&quot;:&quot;_the 3rd search index value (from 6.5, in Subscription editions only)_&quot;,
+&quot;searchIndex4Value&quot;:&quot;_the 4th search index value (from 6.5, in Subscription editions only)_&quot;,
+&quot;searchIndex5Value&quot;:&quot;_the 5th search index value (from 6.5, in Subscription editions only)_&quot;
+}
+</code></pre>
+<h3>Methods</h3>
+<ul>
+<li>POST - Create a case</li>
+<li>GET - Read a case or search for a case</li>
+<li>DELETE - Remove a case</li>
+</ul>
+<h3>Read a case</h3>
+<p>You can get a case by using its identifier. Request url
+http://../API/bpm/case/<em>id</em></p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload
+empty</p>
+<p>Response payload</p>
+<p>A JSON representation of the case</p>
+<h4>URL parameters</h4>
+<ul>
+<li>id: the identifier of the case.</li>
+<li>d: the list of attributes for which you want to perform a deploy, that is, retrieve the full object instead of just its ID.
+Available values: started_by, startedBySubstitute, processDefinitionId.</li>
+<li>n: count of related resources. Available values: activeFlowNodes, failedFlowNodes.</li>
+</ul>
+<h4>Example</h4>
+<p>Request url
+http://../API/bpm/case/1</p>
+<p>Response payload</p>
+<pre><code>{
+    &quot;id&quot;: &quot;1&quot;,
+    &quot;end_date&quot;: &quot;&quot;,
+    &quot;failedFlowNodes&quot;: &quot;9&quot;,
+    &quot;startedBySubstitute&quot;: {
+        &quot;last_connection&quot;: &quot;2014-12-01 10:46:03.750&quot;,
+        &quot;created_by_user_id&quot;: &quot;-1&quot;,
+        &quot;creation_date&quot;: &quot;2014-11-27 17:53:46.516&quot;,
+        &quot;id&quot;: &quot;4&quot;,
+        &quot;icon&quot;: &quot;/default/icon_user.png&quot;,
+        &quot;enabled&quot;: &quot;true&quot;,
+        &quot;title&quot;: &quot;Mr&quot;,
+        &quot;manager_id&quot;: &quot;3&quot;,
+        &quot;job_title&quot;: &quot;Human resources benefits&quot;,
+        &quot;userName&quot;: &quot;walter.bates&quot;,
+        &quot;lastname&quot;: &quot;Bates&quot;,
+        &quot;firstname&quot;: &quot;Walter&quot;,
+        &quot;password&quot;: &quot;&quot;,
+        &quot;last_update_date&quot;: &quot;2014-11-27 17:53:46.516&quot;
+    },
+    &quot;start&quot;: &quot;2014-11-27 17:55:00.906&quot;,
+    &quot;activeFlowNodes&quot;: &quot;9&quot;,
+    &quot;state&quot;: &quot;started&quot;,
+    &quot;rootCaseId&quot;: &quot;1&quot;,
+    &quot;started_by&quot;:{
+        &quot;last_connection&quot;: &quot;&quot;,
+        &quot;created_by_user_id&quot;: &quot;-1&quot;,
+        &quot;creation_date&quot;: &quot;2014-11-27 17:53:46.509&quot;,
+        &quot;id&quot;: &quot;3&quot;,
+        &quot;icon&quot;: &quot;/default/icon_user.png&quot;,
+        &quot;enabled&quot;: &quot;true&quot;,
+        &quot;title&quot;: &quot;Mrs&quot;,
+        &quot;manager_id&quot;: &quot;1&quot;,
+        &quot;job_title&quot;: &quot;Human resource manager&quot;,
+        &quot;userName&quot;: &quot;helen.kelly&quot;,
+        &quot;lastname&quot;: &quot;Kelly&quot;,
+        &quot;firstname&quot;: &quot;Helen&quot;,
+        &quot;password&quot;: &quot;&quot;,
+        &quot;last_update_date&quot;: &quot;2014-11-27 17:53:46.509&quot;
+    },
+    &quot;processDefinitionId&quot;:
+        &quot;id&quot;: &quot;5777042023671752656&quot;,
+        &quot;icon&quot;: &quot;&quot;,
+        &quot;displayDescription&quot;: &quot;&quot;,
+        &quot;deploymentDate&quot;: &quot;2014-11-27 17:54:37.774&quot;,
+        &quot;description&quot;: &quot;&quot;,
+        &quot;activationState&quot;: &quot;ENABLED&quot;,
+        &quot;name&quot;: &quot;Pool2&quot;,
+        &quot;deployedBy&quot;: &quot;4&quot;,
+        &quot;displayName&quot;: &quot;Pool 2&quot;,
+        &quot;actorinitiatorid&quot;: &quot;1&quot;,
+        &quot;last_update_date&quot;: &quot;2014-11-27 17:54:43.621&quot;,
+        &quot;configurationState&quot;: &quot;RESOLVED&quot;,
+        &quot;version&quot;: &quot;2.0&quot;
+    },
+    &quot;last_update_date&quot;: &quot;2014-11-27 17:55:00.906&quot;,
+    &quot;searchIndex1Label&quot;:&quot;mySearchIndex1Label&quot;,
+    &quot;searchIndex2Label&quot;:&quot;mySearchIndex2Label&quot;,
+    &quot;searchIndex3Label&quot;:&quot;mySearchIndex3Label&quot;,
+    &quot;searchIndex4Label&quot;:&quot;mySearchIndex4Label&quot;,
+    &quot;searchIndex5Label&quot;:&quot;mySearchIndex5Label&quot;,
+    &quot;searchIndex1Value&quot;:&quot;mySearchIndex1Value&quot;,
+    &quot;searchIndex2Value&quot;:&quot;mySearchIndex2Value&quot;,
+    &quot;searchIndex3Value&quot;:&quot;mySearchIndex3Value&quot;,
+    &quot;searchIndex4Value&quot;:&quot;mySearchIndex4Value&quot;,
+    &quot;searchIndex5Value&quot;:&quot;mySearchIndex5Value&quot;
+}
+</code></pre>
+<h3>Search for a case</h3>
+<h3>URL</h3>
+<p><em>http://localhost:8080/API/bpm/case?p=0&amp;c=10</em></p>
+<h3>URL parameters</h3>
+<ul>
+<li><em>Long</em> p: page index of the result</li>
+<li><em>String</em> f: filter of the search, beware you cannot use team_manager_id and supervisor_id at the same time</li>
+<li><em>String</em> o: the sort o</li>
+<li><em>Long</em> c: the number of result returned</li>
+<li><em>String</em> d: a string and a resource identifier associated to deploy a resource. available values (started_by, startedBySubstitute, processDefinitionId)
+Request URL
+http://../API/bpm/case/</li>
+</ul>
+<p>Request Method
+GET</p>
+<p>Response</p>
+<p>JSON representations of matching cases</p>
+<h4>URL parameters</h4>
+<ul>
+<li>p: start index of resultset</li>
+<li>d: the list of attributes for which you want to perform a deploy (that is, retrieve the full object instead of just its ID):
+<ul>
+<li>started_by</li>
+<li>startedBySubstitute</li>
+<li>processDefinitionId)</li>
+</ul>
+</li>
+<li>n: count of related resource. Available values: activeFlowNodes, failedFlowNodes</li>
+</ul>
+<h4>Response codes</h4>
+<p>200, 500</p>
+<h4>Example</h4>
+<p>Request URL
+http://../API/bpm/case/</p>
+<p>Request Method
+GET</p>
+<p>Response</p>
+<pre><code>[
+    {
+        &quot;id&quot;: &quot;1&quot;,
+        &quot;end_date&quot;: &quot;&quot;,
+        &quot;failedFlowNodes&quot;: &quot;9&quot;,
+        &quot;startedBySubstitute&quot;:{
+            &quot;last_connection&quot;: &quot;2014-12-01 10:46:03.750&quot;,
+            &quot;created_by_user_id&quot;: &quot;-1&quot;,
+            &quot;creation_date&quot;: &quot;2014-11-27 17:53:46.516&quot;,
+            &quot;id&quot;: &quot;4&quot;,
+            &quot;icon&quot;: &quot;/default/icon_user.png&quot;,
+            &quot;enabled&quot;: &quot;true&quot;,
+            &quot;title&quot;: &quot;Mr&quot;,
+            &quot;manager_id&quot;: &quot;3&quot;,
+            &quot;job_title&quot;: &quot;Human resources benefits&quot;,
+            &quot; userName&quot;: &quot;walter.bates&quot;,
+            &quot;lastname&quot;: &quot;Bates&quot;,
+            &quot;firstname&quot;: &quot;Walter&quot;,
+            &quot;password&quot;: &quot;&quot;,
+            &quot;last_update_date&quot;: &quot;2014-11-27 17:53:46.516&quot;
+        },
+        &quot;start&quot;: &quot;2014-11-27 17:55:00.906&quot;,
+        &quot;activeFlowNodes&quot;: &quot;9&quot;,
+        &quot;state&quot;: &quot;started&quot;,
+        &quot;rootCaseId&quot;: &quot;1&quot;,
+        &quot;started_by&quot;:{
+            &quot;last_connection&quot;: &quot;&quot;,
+            &quot;created_by_user_id&quot;: &quot;-1&quot;,
+            &quot;creation_date&quot;: &quot;2014-11-27 17:53:46.509&quot;,
+            &quot;id&quot;: &quot;3&quot;,
+            &quot;icon&quot;: &quot;/default/icon_user.png&quot;,
+            &quot;enabled&quot;: &quot;true&quot;,
+            &quot;title&quot;: &quot;Mrs&quot;,
+            &quot;manager_id&quot;: &quot;1&quot;,
+            &quot;job_title&quot;: &quot;Human resource manager&quot;,
+            &quot;userName&quot;: &quot;helen.kelly&quot;,
+            &quot;lastname&quot;: &quot;Kelly&quot;,
+            &quot;firstname&quot;: &quot;Helen&quot;,
+            &quot;password&quot;: &quot;&quot;,
+            &quot;last_update_date&quot;: &quot;2014-11-27 17:53:46.509&quot;
+        },
+        &quot;processDefinitionId&quot;:{
+            &quot;id&quot;: &quot;5777042023671752656&quot;,
+            &quot;icon&quot;: &quot;&quot;,
+            &quot;displayDescription&quot;: &quot;&quot;,
+            &quot;deploymentDate&quot;: &quot;2014-11-27 17:54:37.774&quot;,
+            &quot;description&quot;: &quot;&quot;,
+            &quot;activationState&quot;: &quot;ENABLED&quot;,
+            &quot;name&quot;: &quot;Pool2&quot;,
+            &quot;deployedBy&quot;: &quot;4&quot;,
+            &quot;displayName&quot;: &quot;Pool 2&quot;,
+            &quot;actorinitiatorid&quot;: &quot;1&quot;,
+            &quot;last_update_date&quot;: &quot;2014-11-27 17:54:43.621&quot;,
+            &quot;configurationState&quot;: &quot;RESOLVED&quot;,
+            &quot;version&quot;: &quot;2.0&quot;
+        },
+        &quot;last_update_date&quot;: &quot;2014-11-27 17:55:00.906&quot;,
+        &quot;searchIndex1Label&quot;:&quot;case1SearchIndex1Label&quot;,
+        &quot;searchIndex2Label&quot;:&quot;case1SearchIndex2Label&quot;,
+        &quot;searchIndex3Label&quot;:&quot;case1SearchIndex3Label&quot;,
+        &quot;searchIndex4Label&quot;:&quot;case1SearchIndex4Label&quot;,
+        &quot;searchIndex5Label&quot;:&quot;case1SearchIndex5Label&quot;,
+        &quot;searchIndex1Value&quot;:&quot;case1SearchIndex1Value&quot;,
+        &quot;searchIndex2Value&quot;:&quot;case1SearchIndex2Value&quot;,
+        &quot;searchIndex3Value&quot;:&quot;case1SearchIndex3Value&quot;,
+        &quot;searchIndex4Value&quot;:&quot;case1SearchIndex4Value&quot;,
+        &quot;searchIndex5Value&quot;:&quot;case1SearchIndex5Value&quot;
+    },
+    {
+        &quot;id&quot;: &quot;2&quot;,
+        &quot;end_date&quot;: &quot;&quot;,
+        &quot;failedFlowNodes&quot;: &quot;0&quot;,
+        &quot;startedBySubstitute&quot;:{
+            &quot;last_connection&quot;: &quot;2014-12-01 10:46:03.750&quot;,
+            &quot;created_by_user_id&quot;: &quot;-1&quot;,
+            &quot;creation_date&quot;: &quot;2014-11-27 17:53:46.516&quot;,
+            &quot;id&quot;: &quot;4&quot;,
+            &quot;icon&quot;: &quot;/default/icon_user.png&quot;,
+            &quot;enabled&quot;: &quot;true&quot;,
+            &quot;title&quot;: &quot;Mr&quot;,
+            &quot;manager_id&quot;: &quot;3&quot;,
+            &quot;job_title&quot;: &quot;Human resources benefits&quot;,
+            &quot;userName&quot;: &quot;walter.bates&quot;,
+            &quot;lastname&quot;: &quot;Bates&quot;,
+            &quot;firstname&quot;: &quot;Walter&quot;,
+            &quot;password&quot;: &quot;&quot;,
+            &quot;last_update_date&quot;: &quot;2014-11-27 17:53:46.516&quot;
+        },
+        &quot;start&quot;: &quot;2014-11-27 17:56:28.596&quot;,
+        &quot;activeFlowNodes&quot;: &quot;1&quot;,
+        &quot;state&quot;: &quot;started&quot;,
+        &quot;rootCaseId&quot;: &quot;2&quot;,
+        &quot;started_by&quot;:{
+            &quot;last_connection&quot;: &quot;&quot;,
+            &quot;created_by_user_id&quot;: &quot;-1&quot;,
+            &quot;creation_date&quot;: &quot;2014-11-27 17:53:46.509&quot;,
+            &quot;id&quot;: &quot;3&quot;,
+            &quot;icon&quot;: &quot;/default/icon_user.png&quot;,
+            &quot;enabled&quot;: &quot;true&quot;,
+            &quot;title&quot;: &quot;Mrs&quot;,
+            &quot;manager_id&quot;: &quot;1&quot;,
+            &quot;job_title&quot;: &quot;Human resource manager&quot;,
+            &quot;userName&quot;: &quot;helen.kelly&quot;,
+            &quot;lastname&quot;: &quot;Kelly&quot;,
+            &quot;firstname&quot;: &quot;Helen&quot;,
+            &quot;password&quot;: &quot;&quot;,
+            &quot;last_update_date&quot;: &quot;2014-11-27 17:53:46.509&quot;
+        },
+        &quot;processDefinitionId&quot;:{
+            &quot;id&quot;: &quot;4948193168427526005&quot;,
+            &quot;icon&quot;: &quot;&quot;,
+            &quot;displayDescription&quot;: &quot;&quot;,
+            &quot;deploymentDate&quot;: &quot;2014-11-27 17:56:10.920&quot;,
+            &quot;description&quot;: &quot;&quot;,
+            &quot;activationState&quot;: &quot;ENABLED&quot;,
+            &quot;name&quot;: &quot;ConnectorFailed&quot;,
+            &quot;deployedBy&quot;: &quot;4&quot;,
+            &quot;displayName&quot;: &quot;ConnectorFailed&quot;,
+            &quot;actorinitiatorid&quot;: &quot;2&quot;,
+            &quot;last_update_date&quot;: &quot;2014-11-27 17:56:12.470&quot;,
+            &quot;configurationState&quot;: &quot;RESOLVED&quot;,
+            &quot;version&quot;: &quot;1.0&quot;
+        },
+        &quot;last_update_date&quot;: &quot;2014-11-27 17:56:28.596&quot;,
+        &quot;searchIndex1Label&quot;:&quot;case2SearchIndex1Label&quot;,
+        &quot;searchIndex2Label&quot;:&quot;case2SearchIndex2Label&quot;,
+        &quot;searchIndex3Label&quot;:&quot;case2SearchIndex3Label&quot;,
+        &quot;searchIndex4Label&quot;:&quot;case2SearchIndex4Label&quot;,
+        &quot;searchIndex5Label&quot;:&quot;case2SearchIndex5Label&quot;,
+        &quot;searchIndex1Value&quot;:&quot;case2SearchIndex1Value&quot;,
+        &quot;searchIndex2Value&quot;:&quot;case2SearchIndex2Value&quot;,
+        &quot;searchIndex3Value&quot;:&quot;case2SearchIndex3Value&quot;,
+        &quot;searchIndex4Value&quot;:&quot;case2SearchIndex4Value&quot;,
+        &quot;searchIndex5Value&quot;:&quot;case2SearchIndex5Value&quot;
+    } 
+]
+</code></pre>
+<h3>Create a case</h3>
+<p>Request url
+http://../API/bpm/case</p>
+<p>Request method</p>
+<p>POST</p>
+<p>Request payload</p>
+<p>The process definition id, in JSON</p>
+<p>Response payload</p>
+<p>The JSON representation of a case resource</p>
+<h4>Response codes</h4>
+<p>200, 500</p>
+<h4>Example 1: Create a case without variables</h4>
+<p>Request url
+http://../API/bpm/case</p>
+<p>Request method</p>
+<p>POST</p>
+<p>Request payload</p>
+<pre><code>{
+&quot;processDefinitionId&quot;:&quot;5777042023671752656&quot;
+}
+</code></pre>
+<p>Response payload</p>
+<pre><code>{
+&quot;id&quot;: &quot;1001&quot;,
+&quot;end_date&quot;: &quot;&quot;,
+&quot;startedBySubstitute&quot;: &quot;4&quot;,
+&quot;start&quot;: &quot;2014-12-01 14:36:23.732&quot;,
+&quot;state&quot;: &quot;started&quot;,
+&quot;rootCaseId&quot;: &quot;1001&quot;,
+&quot;started_by&quot;: &quot;4&quot;,
+&quot;processDefinitionId&quot;: &quot;5777042023671752656&quot;,
+&quot;last_update_date&quot;: &quot;2014-12-01 14:36:23.732&quot;
+}
+</code></pre>
+<h4>Example 2: Create a case with variables</h4>
+<p>Request url
+http://../API/bpm/case</p>
+<p>Request method</p>
+<p>POST</p>
+<p>Request payload</p>
+<pre><code>{  
+   &quot;processDefinitionId&quot;:&quot;5777042023671752656&quot;,
+   &quot;variables&quot;:[  
+      {  
+         &quot;name&quot;:&quot;stringVariable&quot;,
+         &quot;value&quot;:&quot;aValue&quot;
+      },
+      {  
+         &quot;name&quot;:&quot;dateVariable&quot;,
+         &quot;value&quot;:349246800000
+      },
+      {  
+         &quot;name&quot;:&quot;numericVariable&quot;,
+         &quot;value&quot;:5
+      }
+   ]
+}
+</code></pre>
+<p>Response payload</p>
+<pre><code>{  
+   &quot;id&quot;:&quot;1&quot;,
+   &quot;end_date&quot;:&quot;&quot;,
+   &quot;startedBySubstitute&quot;: &quot;1&quot;,
+   &quot;start&quot;:&quot;2013-10-14 12:10:24.996&quot;,
+   &quot;state&quot;:&quot;started&quot;,
+   &quot;rootCaseId&quot;: &quot;1&quot;,
+   &quot;started_by&quot;:&quot;1&quot;,
+   &quot;processDefinitionId&quot;:&quot;5777042023671752656&quot;,
+   &quot;last_update_date&quot;:&quot;2013-10-14 12:10:24.996&quot;
+}
+</code></pre>
+<h3>Delete a case</h3>
+<p>Request url
+http://../API/bpm/case</p>
+<p>Request method</p>
+<p>DELETE</p>
+<p>Request payload</p>
+<p>The case id, in JSON</p>
+<p>Response payload
+empty</p>
+<h4>Response code</h4>
+<p>200</p>
+<h3>Retrieve the case context</h3>
+<p>Request url
+http://../API/bpm/case/<em>caseId</em>/context</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload</p>
+<p>empty</p>
+<p>Response payload</p>
+<p>A context object</p>
+<h4>Example</h4>
+<p>Get the context of the case with id 2.
+Request url
+GET |/API/bpm/case/2/context</p>
+<p>Response</p>
+<pre><code>{  
+   &quot;businessData_ref&quot;:{  
+      &quot;name&quot;:&quot;myBusinessDate&quot;,
+      &quot;type&quot;:&quot;com.company.model.BusinessObject1&quot;,
+      &quot;link&quot;:&quot;API/bdm/businessData/com.company.model.BusinessObject1/2&quot;,
+      &quot;storageId&quot;:2,
+      &quot;storageId_string&quot;:&quot;2&quot;
+   },
+   &quot;document1_ref&quot;:{  
+      &quot;id&quot;:1,
+      &quot;processInstanceId&quot;:3,
+      &quot;name&quot;:&quot;myDocument&quot;,
+      &quot;author&quot;:104,
+      &quot;creationDate&quot;:1434723950847,
+      &quot;fileName&quot;:&quot;TestCommunity-1.0.bos&quot;,
+      &quot;contentMimeType&quot;:null,
+      &quot;contentStorageId&quot;:&quot;1&quot;,
+      &quot;url&quot;:&quot;documentDownload?fileName=TestCommunity-1.0.bos&amp;contentStorageId=1&quot;,
+      &quot;description&quot;:&quot;&quot;,
+      &quot;version&quot;:&quot;1&quot;,
+      &quot;index&quot;:-1,
+      &quot;contentFileName&quot;:&quot;TestCommunity-1.0.bos&quot;
+   }
+}</code></pre>

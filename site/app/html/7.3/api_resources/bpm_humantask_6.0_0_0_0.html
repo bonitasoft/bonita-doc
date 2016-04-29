@@ -1,0 +1,257 @@
+<h2>humanTask</h2>
+
+
+<h3>Description</h3>
+<p>A Human task is Manual task or a User task. 
+A User task is a task that can be done by a user.
+A Manual task is a subtask of a user task, and is also done by a user. </p>
+
+
+<h3>Identifier</h3>
+<p>Simple, the ID of the object (a long value)</p>
+
+
+<h3>Parameters</h3>
+<p>None</p>
+	
+<h3>Representation</h3>
+
+<pre>{
+&quot;displayDescription&quot;:&quot;<em>description</em>&quot;,
+&quot;executedBySubstitute&quot;:&quot;<em>id of the user who executed the task for the assigned user</em>&quot;,
+&quot;processId&quot;:&quot;<em>id of the process</em>&quot;,
+&quot;state&quot;:&quot;<em>state</em>&quot;,
+&quot;rootContainerId&quot;:&quot;<em>id of the rootContainer</em>&quot;,
+&quot;type&quot;:&quot;USER_TASK | MANUAL_TASK&quot;,
+&quot;assigned_id&quot;:&quot;<em>id of the assigned user</em>&quot;,
+&quot;assigned_date&quot;:&quot;<em>date the task was assigned</em>&quot;,
+&quot;id&quot;:&quot;<em>id of the task</em>&quot;,
+&quot;sourceObjectId&quot;:&quot;for a manual task, the id of the parent human task&quot;,
+&quot;executedBy&quot;:&quot;<em>id of the user who executed the subtask</em>&quot;,
+&quot;caseId&quot;:&quot;<em>case id</em>&quot;,
+&quot;priority&quot;:&quot;normal&quot;,
+&quot;actorId&quot;:&quot;<em>id of the actor associated with the task</em>&quot;,
+&quot;description&quot;:&quot;<em>description</em>&quot;,
+&quot;name&quot;:&quot;<em>name</em>&quot;,
+&quot;reached_state_date&quot;:&quot;<em>date and time when the task reached the current state</em>&quot;,
+&quot;displayName&quot;:&quot;<em>task name displayed in the Portal</em>&quot;,
+&quot;dueDate&quot;:&quot;<em>date and time that the task is due</em>&quot;,
+&quot;last_update_date&quot;:&quot;<em>date and time when the task was last updated</em>&quot;
+}
+</pre>
+
+
+<h3>Methods</h3>
+
+<p>The methods used for this resource are:</p>
+<ul>
+
+	<li>GET - Read a resource</li>
+	<li>PUT - Update a resource</li>
+
+</ul>
+
+<h3>Actions</h3>
+<h4>Retrieve a humanTask</h4>
+
+<p>Description</p>
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+    		<td valign="top">Request url</td>
+			<td valign="top">http://../API/bpm/humanTask/<humantask_id></humantask_id></td></tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>GET</p>
+			</td>
+		</tr>
+				<tr>
+			<td valign="top"><p>Request payload</p></td>
+			<td valign="top"><p>empty</p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top"><p>Response payload</p></td>
+			<td valign="top"><p>A humanTask</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Example</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+				<td valign="top">Request url</td>
+				<td valign="top">GET |/API/bpm/humanTask/20004</td>
+			</tr>
+			<tr>
+				<td valign="top"><p>Response</p></td>
+				<td valign="top"><pre><code>{
+&quot;displayDescription&quot;:&quot;&quot;,
+&quot;executedBySubstitute&quot;:&quot;0&quot;,
+&quot;processId&quot;:&quot;5826139717723008213&quot;,
+&quot;state&quot;:&quot;ready&quot;,
+&quot;rootContainerId&quot;:&quot;1002&quot;,
+&quot;type&quot;:&quot;USER_TASK&quot;,
+&quot;assigned_id&quot;:&quot;&quot;,
+&quot;assigned_date&quot;:&quot;&quot;,
+&quot;id&quot;:&quot;20004&quot;,
+&quot;executedBy&quot;:&quot;0&quot;,
+&quot;caseId&quot;:&quot;1002&quot;,
+&quot;priority&quot;:&quot;normal&quot;,
+&quot;actorId&quot;:&quot;102&quot;,
+&quot;description&quot;:&quot;&quot;,
+&quot;name&quot;:&quot;Analyse case&quot;,
+&quot;reached_state_date&quot;:&quot;2014-09-05 11:11:30.808&quot;,
+&quot;displayName&quot;:&quot;Analyse case&quot;,
+&quot;dueDate&quot;:&quot;2014-09-05 12:11:30.775&quot;,
+&quot;last_update_date&quot;:&quot;2014-09-05 11:11:30.808&quot;
+}</code></pre>
+			</td>
+			</tr>
+	</tbody>
+</table>
+
+<h4>Search for a humanTask</h4>
+<p>Retrieve humanTask objects that match the specified filters. You can filter on:
+<ul>
+<li>assigned_id={user_id}: retrieve only the human tasks assigned to the specified ID. For example, retrieve the human tasks assigned to user with id 2: http://host:8080/bonita/API/bpm/humanTask?p=0&amp;c=10&amp;f=assigned_id%3d2</li>
+<li>state=<skipped |="" completed="" failed="">:  retrieve only the archived user tasks with the specified state. For example, retrieve the skipped tasks: http://host:8080/bonita/API/bpm/humanTask?p=0&amp;c=10&amp;f=state=skipped</skipped></li>
+<li>name=<humantask_name>: retrieve only the human tasks with the specified name. For example, retrieve the human tasks with the name &quot;Analyse Case&quot;: http://host:8080/bonita/API/bpm/humanTask?p=0&amp;c=10&amp;f=name=Analyse Case</humantask_name></li>
+<li>displayName=<humantask_name>: retrieve only the archived user tasks with the specified displayName. For example, retrieve the human tasks with the displayName &quot;Analyse Case&quot;: http://host:8080/bonita/API/bpm/humanTask?p=0&amp;c=10&amp;f=displayName=Analyse Case</humantask_name></li>
+</ul>
+
+</p><h4>Description</h4>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+    		<td valign="top">Request url</td>
+			<td valign="top">/API/bpm/humanTask?p={page}&amp;c={count}&amp;o={orders}&amp;f={filters}&amp;s={search}&amp;d={deploy}</td>
+			</tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>GET</p>
+		</td></tr>
+				<tr>
+			<td valign="top"><p>Request payload</p></td>
+			<td valign="top"><p>empty</p>
+		</td></tr>
+		<tr>
+			<td valign="top"><p>Response</p></td>
+			<td valign="top"><p>An array of humanTask objects</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Example</h4>
+<p>Get the human tasks that have been skipped. The results are paged using the <a href="/rest-api-overview.html#standard_search_params">standard search parameters</a>, with a maximum of 10 results returned in each page. The first set of results are returned. In this example, two results are returned.
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+				<td valign="top">Request url</td>
+				<td valign="top">GET |http://host:8080/bonita/API/bpm/humanTask?p=0&amp;c=10&amp;f=state=skipped</td>
+			</tr>
+			<tr>
+				<td valign="top"><p>Response</p></td>
+				<td valign="top"><pre><code>{
+&quot;displayDescription&quot;:&quot;Case analysis&quot;,
+&quot;executedBySubstitute&quot;:&quot;0&quot;,
+&quot;processId&quot;:&quot;5826139717723008213&quot;,
+&quot;state&quot;:&quot;skipped&quot;,
+&quot;rootContainerId&quot;:&quot;1002&quot;,
+&quot;type&quot;:&quot;USER_TASK&quot;,
+&quot;assigned_id&quot;:&quot;974&quot;,
+&quot;assigned_date&quot;:&quot;2014-09-05 09:19:30.150&quot;,
+&quot;id&quot;:&quot;20004&quot;,
+&quot;executedBy&quot;:&quot;0&quot;,
+&quot;caseId&quot;:&quot;1002&quot;,
+&quot;priority&quot;:&quot;normal&quot;,
+&quot;actorId&quot;:&quot;102&quot;,
+&quot;description&quot;:&quot;&quot;,
+&quot;name&quot;:&quot;Analyse case&quot;,
+&quot;reached_state_date&quot;:&quot;2014-09-05 11:11:30.808&quot;,
+&quot;displayName&quot;:&quot;Analyse case&quot;,
+&quot;dueDate&quot;:&quot;2014-09-05 12:11:30.775&quot;,
+&quot;last_update_date&quot;:&quot;2014-09-05 11:11:30.808&quot;
+}
+{
+&quot;displayDescription&quot;:&quot;Validate case&quot;,
+&quot;executedBySubstitute&quot;:&quot;0&quot;,
+&quot;processId&quot;:&quot;5826139717723007999&quot;,
+&quot;state&quot;:&quot;skipped&quot;,
+&quot;rootContainerId&quot;:&quot;1010&quot;,
+&quot;type&quot;:&quot;USER_TASK&quot;,
+&quot;assigned_id&quot;:&quot;971&quot;,
+&quot;assigned_date&quot;:&quot;2014-09-06 10:29:30.766&quot;,
+&quot;id&quot;:&quot;20004&quot;,
+&quot;executedBy&quot;:&quot;0&quot;,
+&quot;caseId&quot;:&quot;1023&quot;,
+&quot;priority&quot;:&quot;normal&quot;,
+&quot;actorId&quot;:&quot;102&quot;,
+&quot;description&quot;:&quot;&quot;,
+&quot;name&quot;:&quot;Validate case&quot;,
+&quot;reached_state_date&quot;:&quot;2014-09-06 12:10:50.744&quot;,
+&quot;displayName&quot;:&quot;Validate case&quot;,
+&quot;dueDate&quot;:&quot;2014-09-06 12:11:30.775&quot;,
+&quot;last_update_date&quot;:&quot;2014-09-06 12:10:50.744&quot;
+}</code></pre>
+			</td>
+	</tr></tbody>
+</table>
+
+
+
+
+</p><h3>Update a humanTask</h3>
+<h4>Description</h4>
+<p>Fields that can be updated are <code>assignedId</code> and <code>state</code>. Specify only those fields that you want to change.</p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+    		<td valign="top">Request url</td>
+			<td valign="top">/API/bpm/humanTask/[taskId]</td>
+			</tr>
+		<tr>
+			<td valign="top"><p>Request method</p></td>
+			<td valign="top"><p>PUT</p>
+		</td></tr>
+		<tr>
+			<td valign="top"><p>Request payload</p></td>
+			<td valign="top"><pre><code>{ 
+&quot;assigned_id&quot; : &quot;<em>new_user_id</em>&quot;, 
+&quot;state&quot;:&quot;<em>new_state</em>&quot;
+}</code></pre>
+			</td>
+		</tr>
+
+	</tbody>
+</table>
+
+<h4>Example</h4>
+<p>Skip the human task with id 20004.
+<table border="1" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+				<td valign="top">Request url</td>
+				<td valign="top">PUT |/API/bpm/humanTask/20004</td>
+			</tr>
+			<tr>
+				<td valign="top"><p>Request payload</p></td>
+				<td valign="top"><pre><code>{
+&quot;state&quot;:&quot;skipped&quot;
+}</code></pre>
+			</td>
+			</tr>
+
+</tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+</p>

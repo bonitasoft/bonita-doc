@@ -1,0 +1,137 @@
+<h2>professionalcontactdata and personalcontactdata</h2>
+<h3>Description</h3>
+<p>Additional information about a user (personal and professional). Both resources have the same attributes.</p>
+<h3>Identifier</h3>
+<p>The user ID (a long value).</p>
+<h3>Representation</h3>
+<pre><code>{
+&quot;id&quot;:&quot;_user ID_&quot;,
+&quot;fax_number&quot;:&quot;_fax number_&quot;,
+&quot;building&quot;:&quot;_building_&quot;,
+&quot;phone_number&quot;:&quot;_phone number_&quot;,
+&quot;website&quot;:&quot;_website_&quot;,
+&quot;zipcode&quot;:&quot;_zipcode_&quot;,
+&quot;state&quot;:&quot;_state_&quot;,
+&quot;city&quot;:&quot;_city_&quot;,
+&quot;country&quot;:&quot;_country_&quot;,
+&quot;mobile_number&quot;:&quot;_mobile phone number_&quot;,
+&quot;address&quot;:&quot;_address_&quot;,
+&quot;room&quot;:&quot;_room_&quot;,
+&quot;email&quot;:&quot;_email_&quot;
+}
+</code></pre>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>POST - Create a user's contact information</li>
+<li>GET - Read a user's contact information</li>
+<li>PUT - Update a user's contact information</li>
+</ul>
+<h3>Create contact information</h3>
+<p>Request url
+http://../API/identity/professionalcontactdata (or personalcontactdata)</p>
+<p>Request method</p>
+<p>POST</p>
+<p>Request payload</p>
+<p>A partial representation of a user's contact information in JSON including the user ID (mandatory)</p>
+<p>Response payload</p>
+<p>The full JSON representation of the user's contact information that was created</p>
+<h4>Response codes</h4>
+<p>403 if contact information for this user already exists</p>
+<h4>Example</h4>
+<p>Request url
+/API/identity/professionalcontactdata</p>
+<p>Request method</p>
+<p>POST</p>
+<p>Request payload</p>
+<pre><code>{
+&quot;id&quot;:&quot;4&quot;,
+&quot;fax_number&quot;:&quot;484-302-0766&quot;,
+&quot;building&quot;:&quot;70&quot;,
+&quot;phone_number&quot;:&quot;484-302-5766&quot;,
+&quot;zipcode&quot;:&quot;19108&quot;,
+&quot;state&quot;:&quot;PA&quot;,
+&quot;city&quot;:&quot;Philadelphia&quot;,
+&quot;country&quot;:&quot;United States&quot;,
+&quot;address&quot;:&quot;Renwick Drive&quot;,
+&quot;email&quot;:&quot;walter.bates@acme.com&quot;
+}
+</code></pre>
+<p>Response payload</p>
+<pre><code>{
+&quot;id&quot;:&quot;4&quot;,
+&quot;fax_number&quot;:&quot;484-302-0766&quot;,
+&quot;building&quot;:&quot;70&quot;,
+&quot;phone_number&quot;:&quot;484-302-5766&quot;,
+&quot;website&quot;:&quot;&quot;,
+&quot;zipcode&quot;:&quot;19108&quot;,
+&quot;state&quot;:&quot;PA&quot;,
+&quot;city&quot;:&quot;Philadelphia&quot;,
+&quot;country&quot;:&quot;United States&quot;,
+&quot;mobile_number&quot;:&quot;&quot;,
+&quot;address&quot;:&quot;Renwick Drive&quot;,
+&quot;email&quot;:&quot;walter.bates@acme.com&quot;,
+&quot;room&quot;:&quot;&quot;
+}
+</code></pre>
+<h3>Read a user's contact information</h3>
+<p>Request url
+http://../API/identity/professionalcontactdata(or personalcontactdata)/&lt;user_id&gt;</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload
+empty</p>
+<p>Response payload</p>
+<p>A user's contact information in JSON</p>
+<h4>Response codes</h4>
+<p>404 if no user with this ID is found</p>
+<h4>Example</h4>
+<p>Request url
+/API/identity/professionalcontactdata/4</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Response payload</p>
+<pre><code>{
+&quot;id&quot;:&quot;4&quot;,
+&quot;fax_number&quot;:&quot;484-302-0766&quot;,
+&quot;building&quot;:&quot;70&quot;,
+&quot;phone_number&quot;:&quot;484-302-5766&quot;,
+&quot;website&quot;:&quot;&quot;,
+&quot;zipcode&quot;:&quot;19108&quot;,
+&quot;state&quot;:&quot;PA&quot;,
+&quot;city&quot;:&quot;Philadelphia&quot;,
+&quot;country&quot;:&quot;United States&quot;,
+&quot;mobile_number&quot;:&quot;&quot;,
+&quot;address&quot;:&quot;Renwick Drive&quot;,
+&quot;email&quot;:&quot;walter.bates@acme.com&quot;,
+&quot;room&quot;:&quot;&quot;
+}
+</code></pre>
+<h3>Update a user's contact information</h3>
+<p>Request url
+http://../API/identity/professionalcontactdata(or personalcontactdata)/&lt;user_id&gt;</p>
+<p>Request method</p>
+<p>PUT</p>
+<p>Request payload</p>
+<p>A partial representation of a user's contact information in JSON with at least the mandatory &quot;name&quot; attribute</p>
+<p>Response payload
+empty</p>
+<h4>Response codes</h4>
+<p>404 if no user with this ID is found</p>
+<h4>Example</h4>
+<p>Request url
+/API/identity/professionalcontactdata/4</p>
+<p>Request method</p>
+<p>PUT</p>
+<p>Request payload</p>
+<pre><code>{
+&quot;fax_number&quot;:&quot;484-302-0766&quot;,
+&quot;building&quot;:&quot;70&quot;,
+&quot;phone_number&quot;:&quot;484-302-5766&quot;,
+&quot;zipcode&quot;:&quot;19108&quot;,
+&quot;state&quot;:&quot;PA&quot;,
+&quot;city&quot;:&quot;Philadelphia&quot;,
+&quot;country&quot;:&quot;United States&quot;,
+&quot;address&quot;:&quot;Renwick Drive&quot;,
+&quot;email&quot;:&quot;walter.bates@acme.com&quot;
+}</code></pre>

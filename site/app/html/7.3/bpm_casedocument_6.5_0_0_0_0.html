@@ -1,0 +1,365 @@
+<h2>caseDocument</h2>
+<h3>Description</h3>
+<p>Use the case document resource to access a document in an active case. For archived cases and previous document versions use archivedCaseDocument.</p>
+<p>Note: The REST methods for handling documents have been updated in var_product 6.4 and an item is deprecated:</p>
+<ul>
+<li><code>author</code> in the payload is deprecated: use <code>submittedBy</code></li>
+</ul>
+<h3>Identifier</h3>
+<p>The ID of the document (a long value).</p>
+<h3>Representation</h3>
+<pre><code>{
+&quot;id&quot;:&quot;_documentId_&quot;,
+&quot;creationDate&quot;:&quot;_date and time_&quot;,
+&quot;author&quot;:&quot;_submittorUserId_&quot;,
+&quot;index&quot;:&quot;_index in a list of documents, or -1 for a single document_&quot;,
+&quot;contentMimetype&quot;:&quot;_MIMEtype_&quot;,
+&quot;caseId&quot;:&quot;_caseId_&quot;, 
+&quot;contentStorageId&quot;:&quot;_storageId_&quot;, 
+&quot;isInternal&quot;:&quot;_true | false_&quot;, 
+&quot;description&quot;:&quot;_ description_&quot;, 
+&quot;name&quot;:&quot;_name_&quot;, 
+&quot;fileName&quot;:&quot;_filename_&quot;, 
+&quot;submittedBy&quot;:&quot;_submittorUserId_&quot;, 
+&quot;url&quot;:&quot;_urlForDownload_&quot;, 
+&quot;version&quot;:&quot;_version_&quot; 
+}
+</code></pre>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>POST - Create a resource</li>
+<li>GET - Read a resource</li>
+<li>PUT - Update a resource</li>
+<li>DELETE - Remove a resource</li>
+</ul>
+<h3>Add a document to a case</h3>
+<p>Use a POST method to add a document to a case. You can upload a document from the local file system or by URL. Specify the case id and the document name in the payload.
+The document description is optional: if you do not specify a description, the description in the response is empty. The response contains a version, which is managed automatically.
+You cannot currently retrieve a specific version of a document, only the most recent version. To retrieve earlier versions of a caseDocument, use the archivedCaseDocument resource.</p>
+<p>Example 1: Upload <code>doc.jpg</code> from the tenant temporary folder of the bonita home to case 1 with the display name &quot;Doc 1&quot; and renaming the file into &quot;document_1.jpg&quot;:
+Method
+POST</p>
+<p>URL
+<code>http://localhost:8080/bonita/API/bpm/caseDocument</code></p>
+<p>Payload</p>
+<pre><code>{
+&quot;caseId&quot;: &quot;1&quot;,
+&quot;file&quot;: &quot;doc.jpg&quot;,
+&quot;name&quot;: &quot;Doc 1&quot;,
+&quot;fileName&quot;: &quot;document_1.jpg&quot;,
+&quot;description&quot;: &quot;draft&quot;
+}
+</code></pre>
+<p>Response</p>
+<pre><code>{
+&quot;id&quot;:&quot;3&quot;,
+&quot;creationDate&quot;:&quot;2014-10-09 16:45:36.658&quot;,
+&quot;author&quot;:&quot;1&quot;,
+&quot;index&quot;:&quot;-1&quot;,
+&quot;contentMimetype&quot;:&quot;application/octet-stream&quot;,
+&quot;caseId&quot;:&quot;1&quot;,
+&quot;contentStorageId&quot;:&quot;4&quot;,
+&quot;isInternal&quot;:&quot;true&quot;,
+&quot;description&quot;:&quot;draft,
+&quot;name&quot;:&quot;Doc 1&quot;,
+&quot;fileName&quot;:&quot;document_1.jpg&quot;,
+&quot;submittedBy&quot;:&quot;1&quot;,
+&quot;url&quot;:&quot;documentDownload?fileName=document_1.jpg&amp;contentStorageId=4&quot;,
+&quot;version&quot;:&quot;1&quot;
+}
+</code></pre>
+<p>In this example, <code>isInternal</code> is set to <code>true</code> because the the document object contains the content directly.
+In Example 2, <code>isInternal</code> is set to <code>false</code> because the document is specified by URL so the document object contains a reference to the content, not the content itself.</p>
+<p>Example 2: Upload <code>train_receipt.png</code> from my cloud drive to case 1 with the name &quot;Train receipt&quot;:
+Method
+POST</p>
+<p>URL
+<code>http://localhost:8080/bonita/API/bpm/caseDocument</code></p>
+<p>Payload</p>
+<pre><code>{
+&quot;caseId&quot; : &quot;1&quot;,
+&quot;url&quot; : &quot;http://cloud.storage.com/sites/chris/expenses/july_2014/train_receipt.png&quot;,
+&quot;name&quot; : &quot;Train receipt&quot;
+}
+</code></pre>
+<p>Response</p>
+<pre><code>{
+&quot;id&quot;:&quot;4&quot;,
+&quot;creationDate&quot;:&quot;2014-10-09 16:45:36.658&quot;,
+&quot;author&quot;:&quot;1&quot;,
+&quot;index&quot;:&quot;-1&quot;,
+&quot;contentMimetype&quot;:&quot;image/png&quot;,
+&quot;caseId&quot;:&quot;1&quot;,
+&quot;contentStorageId&quot;:&quot;4&quot;,
+&quot;isInternal&quot;:&quot;false&quot;,
+&quot;description&quot;:&quot;draft,
+&quot;name&quot;:&quot;Train receipt&quot;,
+&quot;fileName&quot;:&quot;train_receipt.png&quot;,
+&quot;submittedBy&quot;:&quot;1&quot;,
+&quot;url&quot;:&quot;http://cloud.storage.com/sites/chris/expenses/july_2014/train_receipt.png&quot;,
+&quot;version&quot;:&quot;1&quot;
+}
+</code></pre>
+<h3>Get a document from a case</h3>
+<p>Use a GET method to get a document from a case. First you get the document information, then you download the content.
+To get the document information, specify the document id in the URL. The document id is created when you upload a document to a case. There is no payload.</p>
+<p>Get information about the document with id 3:
+Method
+GET</p>
+<p>URL
+<code>http://localhost:8080/bonita/API/bpm/caseDocument/3</code></p>
+<p>Response</p>
+<pre><code>{
+&quot;id&quot;:&quot;3&quot;,
+&quot;creationDate&quot;:&quot;2014-10-09 16:45:36.658&quot;,
+&quot;author&quot;:&quot;1&quot;,
+&quot;index&quot;:&quot;-1&quot;,
+&quot;contentMimetype&quot;:&quot;application/octet-stream&quot;,
+&quot;caseId&quot;:&quot;1&quot;,
+&quot;contentStorageId&quot;:&quot;4&quot;,
+&quot;isInternal&quot;:&quot;true&quot;,
+&quot;description&quot;:&quot;draft,
+&quot;name&quot;:&quot;Doc 1&quot;,
+&quot;fileName&quot;:&quot;doc.jpg&quot;,
+&quot;submittedBy&quot;:&quot;1&quot;,
+&quot;url&quot;:&quot;documentDownload?fileName=doc.jpg&amp;contentStorageId=4&quot;,
+&quot;version&quot;:&quot;1&quot;
+}
+</code></pre>
+<p>The response includes the &quot;url&quot; to use to download the content. Call the documentDownload servlet with this URL:
+<code>http://localhost:8080/bonita/portal/documentDownload?fileName=doc.jpg&amp;contentStorageId=4</code>.</p>
+<h3>Update a document in a case</h3>
+<p>You update a document in a case by uploading a new version of the document. Use a PUT method to update a document in a case.
+You can upload a document version from the local file system or by URL.
+The document name will be used in all the cases of the process, but the combination of case id and document name is unique.</p>
+<p>In the URL, you specify to supply the document id. This is included in the response when you first <a href="#upload_casedoc">add a document to a case</a>.</p>
+<p>The response to PUT methods is the same as for POST methods.</p>
+<p>Example 1: Update the document ExpensesPolicy in case 1 by uploading <code>Expense policy rev2.pdf</code> from the tenant temporary folder of the bonita home. The document id, 17 in this example, is specified in the URL. The description is optional. The filename allows to rename the file into &quot;revision2.pdf&quot; Method
+PUT</p>
+<p>URL
+<code>http://localhost:8080/bonita/API/bpm/caseDocument/17</code></p>
+<p>Payload</p>
+<pre><code>{
+&quot;file&quot; : &quot;Expense policy rev2.pdf&quot;,
+&quot;description&quot; : &quot;updated version of document&quot;
+&quot;fileName&quot;: &quot;revision2.pdf&quot;,
+}
+</code></pre>
+<p>Example 2: Update the document ExpensesPolicy in case 1 by uploading <code>Expense policy rev2.pdf</code> from my cloud drive. The document id is 17.
+Method
+PUT</p>
+<p>URL
+<code>http://localhost:8080/bonita/API/bpm/caseDocument/17</code></p>
+<p>Payload</p>
+<pre><code>{
+&quot;url&quot; : &quot;http://cloud.storage.com/sites/chris/expenses/july_2014/Expense policy rev2.pdf&quot;
+}
+</code></pre>
+<h3>Search for a document</h3>
+<p>You can use a single GET method to return all the documents that match the specified filters and <a href="rest-api-overview.md#standard_search_params">search parameters</a>.
+Request url
+http://../API/bpm/caseDocument?parameters</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload</p>
+<p>empty</p>
+<p>Response payload</p>
+<p>a document object for each matching document</p>
+<h4>Parameters</h4>
+<p>It is possible to filter on three parameters: submittedBy, name and description.</p>
+<ul>
+<li>submittedBy=&quot;id&quot;: search for documents that were submitted by the user with the specified identifier.</li>
+<li>name=&quot;string&quot;: search for documents with names that contain <em><code>string</code></em>.
+Depending on the setting for <a href="using-list-and-search-methods.md">word-based search</a>, the search returns documents with <em><code>string</code></em> at the start of the name or the start of a word in the name.</li>
+<li>description=&quot;string&quot;: search for documents with descriptions that contain <em><code>string</code></em>.
+Depending on the setting for <a href="using-list-and-search-methods.md">word-based search</a>, the search returns documents with <em><code>string</code></em> at the start of the description or the start of a word in the description.</li>
+</ul>
+<h4>Example with filter parameter</h4>
+<p>Find all documents with a document name equal to doc1:
+Request url
+GET |/API/bpm/caseDocument?p=0&amp;c=10&amp;f=name=doc1</p>
+<p>Response payload</p>
+<pre><code>{
+&quot;id&quot;:&quot;3&quot;,
+&quot;creationDate&quot;:&quot;2014-10-09 16:45:36.658&quot;,
+&quot;author&quot;:&quot;1&quot;,
+&quot;index&quot;:&quot;-1&quot;,
+&quot;contentMimetype&quot;:&quot;application/octet-stream&quot;,
+&quot;caseId&quot;:&quot;1&quot;,
+&quot;contentStorageId&quot;:&quot;4&quot;,
+&quot;isInternal&quot;:&quot;true&quot;,
+&quot;description&quot;:&quot;draft,
+&quot;name&quot;:&quot;doc1&quot;,
+&quot;fileName&quot;:&quot;doc.jpg&quot;,
+&quot;submittedBy&quot;:&quot;1&quot;,
+&quot;url&quot;:&quot;documentDownload?fileName=doc.jpg&amp;contentStorageId=4&quot;,
+&quot;version&quot;:&quot;1&quot;
+}
+</code></pre>
+<h4>Example with search parameter</h4>
+<p>Find all documents with with any of the searchable fields starting with &quot;doc&quot;. Two results are returned:
+Request url
+GET |/API/bpm/caseDocument?p=0&amp;c=10&amp;s=doc</p>
+<p>Response payload</p>
+<pre><code>{
+&quot;id&quot;:&quot;3&quot;,
+&quot;creationDate&quot;:&quot;2014-10-09 16:45:36.658&quot;,
+&quot;author&quot;:&quot;1&quot;,
+&quot;index&quot;:&quot;-1&quot;,
+&quot;contentMimetype&quot;:&quot;application/octet-stream&quot;,
+&quot;caseId&quot;:&quot;1&quot;,
+&quot;contentStorageId&quot;:&quot;4&quot;,
+&quot;isInternal&quot;:&quot;true&quot;,
+&quot;description&quot;:&quot;draft,
+&quot;name&quot;:&quot;doc1&quot;,
+&quot;fileName&quot;:&quot;doc.jpg&quot;,
+&quot;submittedBy&quot;:&quot;1&quot;,
+&quot;url&quot;:&quot;documentDownload?fileName=test.txt&amp;contentStorageId=1&quot;,
+&quot;version&quot;:&quot;1&quot;
+},
+ {
+&quot;id&quot;:&quot;4&quot;,
+&quot;creationDate&quot;:&quot;2014-10-09 16:45:36.658&quot;,
+&quot;author&quot;:&quot;1&quot;,
+&quot;index&quot;:&quot;-1&quot;,
+&quot;contentMimetype&quot;:&quot;image/png&quot;,
+&quot;caseId&quot;:&quot;1&quot;,
+&quot;contentStorageId&quot;:&quot;4&quot;
+&quot;isInternal&quot;:&quot;false&quot;,
+&quot;description&quot;:&quot;draft,
+&quot;name&quot;:&quot;doc2&quot;,
+&quot;fileName&quot;:&quot;train_receipt.png&quot;,
+&quot;submittedBy&quot;:&quot;1&quot;,
+&quot;url&quot;:&quot;http://cloud.storage.com/sites/chris/expenses/july_2014/train_receipt.png&quot;,
+&quot;version&quot;:&quot;1&quot;
+}
+</code></pre>
+<h3>Delete a document</h3>
+<p>Delete the document with id 3
+Method
+DELETE</p>
+<p>URL
+<code>http://localhost:8080/bonita/API/bpm/caseDocument/3</code></p>
+<p>Response
+empty</p>
+<h3>List of documents</h3>
+<p>A list of documents is represented by several documents having the same name (attribute &quot;name&quot;).
+It is possible to add/remove elements to a list using the same methods as for a for simple document.</p>
+<p>Example 1: Get the documents of the list <code>myDocList</code> of the case1, sorting the result by ascending index value
+Request url
+GET |/API/bpm/caseDocument?p=0&amp;c=10&amp;f=name=myDocList&amp;o=index ASC</p>
+<p>Response payload</p>
+<pre><code>[{ 
+&quot;id&quot;:&quot;1&quot;, 
+&quot;creationDate&quot;:&quot;2014-10-09 16:39:52.472&quot;, 
+&quot;author&quot;:&quot;1&quot;, 
+&quot;index&quot;:&quot;0&quot;, 
+&quot;contentMimetype&quot;:&quot;text/plain&quot;, 
+&quot;caseId&quot;:&quot;1&quot;, 
+&quot;contentStorageId&quot;:&quot;1&quot;, 
+&quot;isInternal&quot;:&quot;true&quot;, 
+&quot;description&quot;:&quot;&quot;, 
+&quot;name&quot;:&quot;myDocList&quot;, 
+&quot;fileName&quot;:&quot;test1.txt&quot;, 
+&quot;submittedBy&quot;:&quot;1&quot;, 
+&quot;url&quot;:&quot;documentDownload?fileName=test1.txt&amp;contentStorageId=1&quot;, 
+&quot;version&quot;:&quot;1&quot; 
+}, 
+{&quot;id&quot;:&quot;2&quot;, 
+&quot;creationDate&quot;:&quot;2014-10-09 16:39:52.473&quot;, 
+&quot;author&quot;:&quot;1&quot;, 
+&quot;index&quot;:&quot;1&quot;, 
+&quot;contentMimetype&quot;:&quot;text/plain&quot;, 
+&quot;caseId&quot;:&quot;1&quot;, 
+&quot;contentStorageId&quot;:&quot;2&quot;, 
+&quot;isInternal&quot;:&quot;true&quot;, 
+&quot;description&quot;:&quot;&quot;, 
+&quot;name&quot;:&quot;myDocList&quot;, 
+&quot;fileName&quot;:&quot;test2.txt&quot;, 
+&quot;submittedBy&quot;:&quot;1&quot;, 
+&quot;url&quot;:&quot;documentDownload?fileName=test2.txt&amp;contentStorageId=2&quot;, 
+&quot;version&quot;:&quot;1&quot; 
+}, 
+{&quot;id&quot;:&quot;3&quot;, 
+&quot;creationDate&quot;:&quot;2014-10-09 16:39:52.473&quot;, 
+&quot;author&quot;:&quot;1&quot;, 
+&quot;index&quot;:&quot;2&quot;, 
+&quot;contentMimetype&quot;:&quot;text/plain&quot;, 
+&quot;caseId&quot;:&quot;1&quot;, 
+&quot;contentStorageId&quot;:&quot;3&quot;, 
+&quot;isInternal&quot;:&quot;true&quot;, 
+&quot;description&quot;:&quot;&quot;, 
+&quot;name&quot;:&quot;myDocList&quot;, 
+&quot;fileName&quot;:&quot;test3.txt&quot;, 
+&quot;submittedBy&quot;:&quot;1&quot;, 
+&quot;url&quot;:&quot;documentDownload?fileName=test3.txt&amp;contentStorageId=3&quot;,
+&quot;version&quot;:&quot;1&quot;
+}]
+</code></pre>
+<p>Example 2: Add a new document to the list <code>myDocList</code>.
+The &quot;index&quot; attribute is not specified, so the document will be added at the end of the list.
+Request url
+POST |/API/bpm/caseDocument</p>
+<p>Request payload</p>
+<pre><code>{ 
+&quot;caseId&quot; : &quot;1&quot;, 
+&quot;file&quot; : &quot;doc.jpg&quot;, 
+&quot;name&quot; : &quot;myDocList&quot;, 
+&quot;description&quot; : &quot;this is an element of the list&quot; 
+}
+</code></pre>
+<p>Response payload</p>
+<pre><code>{
+&quot;id&quot;:&quot;4&quot;, 
+&quot;creationDate&quot;:&quot;2014-10-09 16:45:36.658&quot;, 
+&quot;author&quot;:&quot;1&quot;, 
+&quot;index&quot;:&quot;3&quot;, 
+&quot;contentMimetype&quot;:&quot;application/octet-stream&quot;, 
+&quot;caseId&quot;:&quot;1&quot;, 
+&quot;contentStorageId&quot;:&quot;4&quot;, 
+&quot;isInternal&quot;:&quot;true&quot;, 
+&quot;description&quot;:&quot;this is a simple doc&quot;, 
+&quot;name&quot;:&quot;myDocList&quot;, 
+&quot;fileName&quot;:&quot;doc.jpg&quot;, 
+&quot;submittedBy&quot;:&quot;1&quot;, 
+&quot;url&quot;:&quot;documentDownload?fileName=doc.jpg&amp;contentStorageId=4&quot;, 
+&quot;version&quot;:&quot;1&quot; 
+}
+</code></pre>
+<p>Note that this new document has got index=3.
+If you now rerun the request in Example 1, you will now get a list containing four documents with the new document as last element of the list.</p>
+<p>Example 3: Add a new document to the list <code>myDocList</code> at index 1.
+Request url
+POST |/API/bpm/caseDocument</p>
+<p>Request payload</p>
+<pre><code>{ 
+&quot;caseId&quot; : &quot;1&quot;, 
+&quot;file&quot; : &quot;doc.jpg&quot;, 
+&quot;name&quot; : &quot;myDocList&quot;, 
+&quot;description&quot; : &quot;this is an element of the list at index 1&quot;, 
+&quot;index&quot; : &quot;1&quot;
+}
+</code></pre>
+<p>Response payload</p>
+<pre><code>{
+&quot;id&quot;:&quot;5&quot;, 
+&quot;creationDate&quot;:&quot;2014-10-09 16:45:36.658&quot;, 
+&quot;author&quot;:&quot;1&quot;, 
+&quot;index&quot;:&quot;1&quot;, 
+&quot;contentMimetype&quot;:&quot;application/octet-stream&quot;, 
+&quot;caseId&quot;:&quot;1&quot;, 
+&quot;contentStorageId&quot;:&quot;4&quot;, 
+&quot;isInternal&quot;:&quot;true&quot;, 
+&quot;description&quot;:&quot;this is a simple doc&quot;, 
+&quot;name&quot;:&quot;myDocList&quot;, 
+&quot;fileName&quot;:&quot;doc.jpg&quot;, 
+&quot;submittedBy&quot;:&quot;1&quot;, 
+&quot;url&quot;:&quot;documentDownload?fileName=doc.jpg&amp;contentStorageId=4&quot;, 
+&quot;version&quot;:&quot;1&quot; 
+}
+</code></pre>
+<p>Note that this new document has index=1.
+If you now rerun the request in Example 1, you will see that the indexes of the documents in myDocList have been
+recalculated with respect to the newly added document index.</p>
+<p>Knowing the document Id of a document list, it is possible to update it (PUT) and remove it(DELETE) as for a simple document.</p>

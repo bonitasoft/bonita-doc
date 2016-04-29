@@ -1,0 +1,99 @@
+<h1>4.9 Logging</h1>
+<p>This page contains information about logging in Bonita BPM.</p>
+<p><a href="#bonita_log">How components produce log messages</a><br>
+<a href="#logging_conf">Logging configuration</a><br>
+<a href="#your_log">How to produce logs in your Bonita development</a><br>
+<a href="#log_content">View log content</a></p>
+<h2>How components produce log messages</h2>
+<p>The components of Bonita BPM have their own ways to produce logs, which are described below.</p>
+<h3>Bonita BPM Engine</h3>
+<p>All the Engine services call the <a href="technical-logging.md">technical logger service</a> in order to write log
+messages. There is no direct access to any logging framework such as log4j, JUL or SLF4J.</p>
+<h3>Bonita BPM Portal</h3>
+<p>The Portal uses the <a href="http://docs.oracle.com/javase/6/docs/api/java/util/logging/package-summary.md">Java
+Util Logging</a> (JUL) directly to log messages.</p>
+<h3>Bonita BPM Studio</h3>
+<p>The Studio uses a logging service provided by the Eclipse platform. Modification of the Studio logging configuration is not
+very common except for debugging the Studio itself.</p>
+<p>The Bonita BPM Studio provides direct access to the log written by the embedded Portal and Engine. You can access this log from the Bonita BPM Studio <strong>Help</strong>
+menu <strong>Show Engine log</strong> option.</p>
+<p>The UI designer log file is available in <em>BONITA_HOME</em>/tomcat/logs/ui-designer.log.</p>
+<h2>Logging configuration</h2>
+<h3>Bonita BPM Engine and Bonita BPM Portal</h3>
+<p>The <a href="technical-logging.md">technical logger service</a> uses SLF4J
+(version 1.6.1) to create the log. SLF4J is also used directly by Bonita dependencies such as Hibernate, Quartz
+and Ehcache.</p>
+<p>SLF4J is a facade for various logging frameworks, and a logging framework must be available as the back-end. By
+default, Bonita uses JUL (Java Util Logging) as a the back-end to SLF4J.
+This is defined by including the <code>slf4j-jdk14-1.6.1.jar</code> in the <code>bonita.war WEB-INF/lib</code> folder.</p>
+<p>By default in Bonita BPM Engine and Bonita BPM Portal, all logs are sent to the JUL framework. To configure what is
+logged and where it is stored, modify the JUL configuration. The method of configuring JUL depends on the application server you use:</p>
+<ul>
+<li>Apache Tomcat: edit the logging.properties file located in conf folder (see the <a href="http://tomcat.apache.org/tomcat-7.0-doc/logging.md">Apache Tomcat logging documentation</a>).</li>
+<li>JBoss Application Server: some documentation is available in the JBoss 7.0 <a href="https://docs.jboss.org/author/display/AS7/Logging+configuration">Admin guide</a>.</li>
+<li>Other application server: refer to your application server documentation on Java Util Logging
+configuration.</li>
+</ul>
+<p>For the Tomcat embedded in Bonita BPM Studio, the JUL configuration file is located in the Studio installation folder under
+<code>workspace/tomcat/conf</code>. After editing this file, restart Tomcat by going to the <strong>Server</strong> menu and selecting the <strong>Restart web server</strong> option.</p>
+<p>Here is an example of the JUL configuration for the logger used in the <a href="#your_log">example below</a>:
+`</p>
+<h1>Reuse Bonita log handler (file bonita.log) for org.mycompany.connector loggers</h1>
+<p>org.mycompany.connector.handlers = 5bonita.org.apache.juli.FileHandler</p>
+<h1>Set log level to &quot;finest&quot; for newly created connector</h1>
+<p>org.mycompany.connector.level = FINEST</p>
+<h1>Set log level to &quot;finest&quot; for Groovy script</h1>
+<p>org.bonitasoft.groovy.script.level = FINEST
+`</p>
+<h3>Bonita BPM Studio</h3>
+<p>To change the Bonita BPM Studio log level (usually to debug Studio), go to the Studio installation folder, configuration directory, and edit the
+<code>config.ini</code>
+file. You need to set the property
+<code>eclipse.log.level</code>
+to one of the following values: INFO, WARNING or ERROR.</p>
+<h2>How to include logging in your Bonita development</h2>
+<p>When you write Groovy scripts or Java code to be included in a process (for example, to create a new connector implementation), logging is
+usually required. The recommended option is to use <a href="http://www.slf4j.org/">SLF4J</a> in order to log
+messages. SLF4J is included in the Bonita dependencies so you can use it without adding extra
+dependencies. However, to get completion for SLF4J classes during development you need to add the
+slf4j-api jar file temporarily to your process dependencies (click <strong><em>Configure</em></strong> then choose <strong>Application dependencies</strong>).</p>
+<p>This is an example of how to log debug information in a Groovy script. Note that we recommend that you use a logger name that
+starts with &quot;org.bonitasoft&quot;, so that the default Bonita logging configuration is applied to your logger. Also, ending
+your logger name with a name similar to the Groovy script will be helpful to identify source of the message.
+<code>import org.slf4j.Logger; import org.slf4j.LoggerFactory; Logger logger = LoggerFactory.getLogger(&quot;org.bonitasoft.groovy.script.my_int_init_script&quot;); logger.debug(&quot;Set initial value of process variable using Groovy script&quot;); return Integer.valueOf(3 + 5);</code></p>
+<p>This is an example of how to use logging in a connector:
+`
+private static final Logger LOGGER = LoggerFactory.getLogger(SumImpl.class);</p>
+<p>@Override
+protected void executeBusinessLogic() throws ConnectorException {
+LOGGER.debug(&quot;Trying to sum {} and {}.&quot;, getIntegerA(), getIntegerB());
+int sum = getIntegerA() + getIntegerB();
+LOGGER.debug(&quot;The sum is: {}&quot;, sum);
+setSum(sum);
+}
+`</p>
+<h2>View log content</h2>
+<h3>Bonita BPM Studio</h3>
+<p>In Bonita BPM Studio you have access to two log files:</p>
+<ul>
+<li>The Studio log file includes information about Studio execution. Look at this file if you see
+incorrect behavior of the Studio. To view the file, go to the <strong>Help</strong> menu and choose <strong>Show Studio log</strong>.
+The file is
+located in the
+<code>workspace/.metadata</code>
+folder and is named
+<code>.log</code>.</li>
+<li>The Engine and Portal log file receives all log messages produced by the Bonita Platform embedded in the Studio. When you
+test your processes by running them from the Studio you will find valuable debugging information in this file.
+To view the file, go to the <strong>Help</strong> menu and choose <strong>Show Engine log</strong>.
+The file is located in
+<code>workspace/tomcat/log</code>
+and is named
+<code>bonita-yyyy-mm-dd.log</code>.</li>
+</ul>
+<h3>Bonita Platform</h3>
+<p>The log file location depends on your application server.
+For example, if you are running Tomcat, the log files will be located under the
+<code>logs</code>
+folder in
+<code>TOMCAT_HOME</code>.</p>

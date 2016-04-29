@@ -1,3 +1,7 @@
 _book
 **/node_modules
 **/*.swp
+**/dataimport.properties
+**/managed-schema
+**/*.bak
+**/*.pdf
