@@ -14,38 +14,51 @@
       throw err;
     }
     dirs.forEach(dir => {
-      fs.stat(pathToMd + dir, (err, stats) => {
-        if (err) {
-          throw err;
-        }
-        if (stats.isDirectory()) {
-          fs.readdir(pathToMd + dir, (err, fileNames) => {
-            if (err) {
-              throw err;
-            }
-            try {
-              fs.accessSync(pathToHtml + dir, fs.F_OK);
-            } catch (e) {
-              fs.mkdirSync(pathToHtml + dir);
-            }
-            
-            fileNames.filter(fileName => fileName.match(/\.md$/)).forEach(fileName => {
-              let md = new MarkdownIt(); 
-              fs.writeFile(pathToHtml + dir + '/' + fileName.replace(/\.md$/, '.html'), 
-                           md.render(
-                             fs.readFileSync(pathToMd + dir + '/' + fileName).toString()
-                           ),
-                           err => {
-                if (err) {
-                  throw err;
-                }
-                console.log(fileName + ' has been successfully converted');
-              });
-
-            });
-          });
-        }
-      });
+      convertDirectory(pathToMd, pathToHtml, dir);
     });
   });
+  function convertDirectory(mdPath, htmlPath, dir) {
+    console.log('converting ', mdPath, htmlPath, dir);
+    fs.stat(mdPath + dir, (err, stats) => {
+      if (err) {
+        throw err;
+      }
+      if (stats.isDirectory()) {
+        fs.readdir(mdPath + dir, (err, fileNames) => {
+          if (err) {
+            throw err;
+          }
+          try {
+            fs.accessSync(htmlPath + dir, fs.F_OK);
+          } catch (e) {
+            fs.mkdirSync(htmlPath + dir);
+          }
+          
+          fileNames.filter(fileName => fileName.match(/\.md$/)).forEach(fileName => {
+            let md = new MarkdownIt(); 
+            fs.writeFile(htmlPath + dir + '/' + fileName.replace(/\.md$/, '.html'), 
+               md.render(
+                 fs.readFileSync(mdPath + dir + '/' + fileName).toString()
+               ),
+               err => {
+                 if (err) {
+                   throw err;
+                 }
+                console.log(fileName + ' has been successfully converted');
+              });
+          });
+          fileNames.forEach(file => {
+            fs.stat(mdPath + dir + '/' + file, (err, stats) => {
+              if (err) {
+                throw err;
+              }
+              if (stats.isDirectory()) {
+                convertDirectory(mdPath + dir + '/', htmlPath + dir + '/', file);
+              }
+            });
+          });
+        });
+      }
+    });
+  }
 })();
