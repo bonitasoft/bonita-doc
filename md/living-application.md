@@ -1,3 +1,3 @@
 # Living application
 
-* [Customize living application layout](customize-living-application-layout.html)
+* [Customize living application layout](customize-living-application-layout.md)

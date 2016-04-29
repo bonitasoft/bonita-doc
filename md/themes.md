@@ -8,7 +8,7 @@ Each application can have its own theme.
 
 There are some examples of themes in the portal.
 
-A theme is [exported, imported, modified, and deleted](/resource-management.html) as a resource in Bonita BPM Portal. You specify the [theme for an application](/applications.html#theme) in Bonita BPM Portal.
+A theme is [exported, imported, modified, and deleted](/resource-management.md) as a resource in Bonita BPM Portal. You specify the [theme for an application](/applications.md#theme) in Bonita BPM Portal.
 
 **[Theme definition](#theme_definition)**
 

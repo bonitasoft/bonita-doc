@@ -38,7 +38,7 @@ Only the user profile is available.
 
 * How do I change the language of the mobile interface
 * You need to change the language in the Bonita BPM Portal first
-[see Languages](/languages.html)
+[see Languages](/languages.md)
 
 ### Navigation
 

@@ -12,8 +12,8 @@ The links in this page to the source code repository are to the 7.0.0 code, but 
 
 If you want to find out how to customize authentication refer to the dedicated documentation pages:
 
-* [LDAP server / Active Directory](/active-directory-or-ldap-authentication.html)
-* [CAS single sign-on (SSO)](/single-sign-on-with-cas.html)
+* [LDAP server / Active Directory](/active-directory-or-ldap-authentication.md)
+* [CAS single sign-on (SSO)](/single-sign-on-with-cas.md)
 
 ## Bonita BPM Portal authentication scenario
 
@@ -63,7 +63,7 @@ is [StandardAuthenticationManagerImpl](https://github.com/bonitasoft/bonita-web/
 implementation of this method does nothing (the subsequent engine login is enough to authenticate the user)
 11. The authentication is considered successful if no Exception is thrown by the `authenticate` method.
 12. [LoginManager](https://github.com/bonitasoft/bonita-web/blob/7.0.0/common/src/main/java/org/bonitasoft/console/common/server/login/LoginManager.java)
-will then call engine API [LoginAPI.login()](http://documentation.bonitasoft.com/javadoc/api/7.0/sp/common/org/bonitasoft/engine/api/LoginAPI.html#login(java.lang.String,%20java.lang.String))
+will then call engine API [LoginAPI.login()](http://documentation.bonitasoft.com/javadoc/api/7.0/sp/common/org/bonitasoft/engine/api/LoginAPI.md#login(java.lang.String,%20java.lang.String))
 13. At this point, operations are processed on Bonita Engine side. Engine (see [LoginAPIImpl](https://github.com/bonitasoft/bonita-engine/blob/7.0.0/bpm/bonita-core/bonita-process-engine/src/main/java/org/bonitasoft/engine/api/impl/LoginAPIImpl.java)
 class) verifies that the username and password are not empty. A verification is also done to validate that the tenant is enabled (use provided tenant id or default one if not provided). Then [LoginAPIImpl](https://github.com/bonitasoft/bonita-engine/blob/7.0.0/bpm/bonita-core/bonita-process-engine/src/main/java/org/bonitasoft/engine/api/impl/LoginAPIImpl.java)
 will call [LoginService](https://github.com/bonitasoft/bonita-engine/blob/7.0.0/bpm/bonita-core/bonita-login/bonita-login-api/src/main/java/org/bonitasoft/engine/core/login/LoginService.java)
@@ -88,7 +88,7 @@ that will add session information as HTTP session attribute.
 20. Call get back to [LoginServlet](https://github.com/bonitasoft/bonita-web/blob/7.0.0/server/src/main/java/org/bonitasoft/console/common/server/login/servlet/LoginServlet.java)
 that will redirect the user to the requested page.
 
-**Note:** If you [configure your Bonita BPM platform to use CAS](/single-sign-on-with-cas.html), the logical flow of authentication is the same as above. 
+**Note:** If you [configure your Bonita BPM platform to use CAS](/single-sign-on-with-cas.md), the logical flow of authentication is the same as above. 
 The difference is that at step 7 the CASRemoteLoginManager is used instead of the default loginManager and at step 12 the `JAASGenericAuthenticationServiceImpl` is called instead of the default authentication service, `AuthenticationServiceImpl`. 
 The `loginManager-config.properties` file for a tenant controls which login manager and authentication service (`cfg-bonita-authentication-impl.xml`) are used.
 

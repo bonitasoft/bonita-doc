@@ -76,7 +76,7 @@ Proxy
 ### Other preferences
 Advanced
 
-* SVN connector: the SVN connector used if you are using a remote SVN ["repository](/workspaces-and-repositories.html). Note: if you change this your local working copy might become unstable. 
+* SVN connector: the SVN connector used if you are using a remote SVN ["repository](/workspaces-and-repositories.md). Note: if you change this your local working copy might become unstable. 
 To avoid this, commit any outstanding changes before you modify the connector setting, and reinitialize your local working copy after the update. 
 
 6.x legacy
@@ -103,7 +103,7 @@ Eclipse
 
 You might need to edit the Tomcat configuration files for example to:
 
-* [Configure logging](/logging.html)
+* [Configure logging](/logging.md)
 * Change listening ports (shutdown, AJP, h2) to prevent conflicts
 * Declare a datasource to connect to a business database
 

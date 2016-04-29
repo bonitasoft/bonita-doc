@@ -8,7 +8,7 @@ The queriable logger service provides information about important events in the 
 information about 
 administration operations such as deployment of a new process definition, commands, reporting, actor mapping, Portal Look & Feel themes, and organization and user management.
 
-The Bonita BPM Engine stores information in the queriable log. The information in the log is accessible using the [LogAPI](/javadoc.html)
+The Bonita BPM Engine stores information in the queriable log. The information in the log is accessible using the [LogAPI](/javadoc.md)
 (Performance, Efficiency, and Teamwork editions only).
 
 The information available from the queriable log is primarily for the platform and process administrator. It is

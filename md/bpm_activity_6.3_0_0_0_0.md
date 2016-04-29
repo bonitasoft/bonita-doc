@@ -221,7 +221,7 @@ An array of JSON representations of activities
 
 For this resource, the available state search parameters for the GET verb are the same as for the flow nodes.
 
-The following [search parameters](/rest-api-overview.html#standard_search_params) are available:
+The following [search parameters](/rest-api-overview.md#standard_search_params) are available:
 
 * o: 
   * name
@@ -252,7 +252,7 @@ The following [search parameters](/rest-api-overview.html#standard_search_params
   * actorId
   * assigned\_id
   * parentTaskId
-* The [standard search parameters](/rest-api-overview.html#standard_search_params)
+* The [standard search parameters](/rest-api-overview.md#standard_search_params)
 
 #### Example
 

@@ -1,13 +1,13 @@
 # 1.5.2 Naming conventions
 
 Every element in a process definition has a name. The only rules about naming are that you cannot 
-use [Java language keywords](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html)
+use [Java language keywords](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.md)
 and that you cannot use the same name for more than one element within the same diagram. 
 For example, you cannot have two variables called `beanCounter` in a diagram, even if they are in different pools. 
 You could, however, have a variable called `beanCounter` and an actor called `beanCounter`.
 
 Note: Variables are not shared between Studio and UI Designer. Furthermore, in the UI Designer, variables are not shared between pages. 
-For information about to use variables in the UI Designer, go to [Variables](/variables.html).
+For information about to use variables in the UI Designer, go to [Variables](/variables.md).
 
 Even in a relatively simple process, the number of names quickly becomes large. Adopting a naming strategy improves the readability and maintainability of your processes, and makes it easier to reuse elements. We propose the following best practises.
 

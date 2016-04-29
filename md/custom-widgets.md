@@ -1,6 +1,6 @@
 # 1.7.2.7 Custom widgets
 
-If the [standard widgets](/widgets.html) do not meet your needs, you can create a custom widget to match exactly what you want to.
+If the [standard widgets](/widgets.md) do not meet your needs, you can create a custom widget to match exactly what you want to.
 After creation, a custom widget is available in the palette for designing pages, forms or fragments. 
 
 [Description](#description)  
@@ -32,7 +32,7 @@ For now, you cannot implement custom widget containers.
 ## Custom widget properties
 
 Properties are variables that can be set in the properties panel when adding a custom widget to a page, form, or fragment.
-A property is constant, dynamic, a bidirectional bond, or an interpolation. You can chose between these treatments when you edit the [widget property](/widget-properties.html#value-types).
+A property is constant, dynamic, a bidirectional bond, or an interpolation. You can chose between these treatments when you edit the [widget property](/widget-properties.md#value-types).
 Use properties when you want the person that uses your widget to customize widget appearance or behavior. In a custom widget, a property can be used either in the template or in the controller.
 
 A property has a _name_ which can be referenced in the controller or the template, a _label_ which will be printed in the properties panel in an editor, a _default_ value, and a type. 
@@ -57,7 +57,7 @@ Now you can use the imported library's directives in the custom widget templates
 
 ## Translation filter
 
-The [Multi-language pages](/multi-language-pages.html) explains how to manage localization (l10) inside developped pages. During page loading, the l10n strings are loaded to the l10n mechanism.
+The [Multi-language pages](/multi-language-pages.md) explains how to manage localization (l10) inside developped pages. During page loading, the l10n strings are loaded to the l10n mechanism.
 
 You can use this mechanism in the Widgets to process content to translate. There are two ways to use the localization: either the _uiTranslate_ angular filter or _ui-translate_ directive:
 

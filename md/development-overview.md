@@ -73,11 +73,11 @@ There is also a Web API, which is for internal use only, and a Command API,
 which is primarily for internal use.
 
 For details of the Engine APIs, the methods and related objects, see the 
-[Javadoc](/javadoc.html). 
+[Javadoc](/javadoc.md). 
 Note that the APIs are the same for the Teamwork, Efficiency, and Performance editions, but some features are only active if the appropriate license is installed. 
 If you try to access a feature for which you do not have a license, a _Feature not active_ error message is returned.
 
-There is also a high-level [Web REST API](/rest-api-overview.html), intended for customers developing portal applications.
+There is also a high-level [Web REST API](/rest-api-overview.md), intended for customers developing portal applications.
 
 ## API access
 

@@ -18,7 +18,7 @@ You are recommended not to start 7.0.0 after you migrate to it, but to proceed i
 **JRE requirements:**
 Version 7 only supports JRE version 7\. If you comes from older versions of Bonita supporting JRE 6, you must also upgrade your JRE to version 7\. For more info, see Support Guide and Supported Environment Matrix for Server.
 
-The script migrates your platform bonita\_home and the database. You cannot [change edition](/upgrade-from-community-to-a-subscription-edition.html) while migrating. If you are running a
+The script migrates your platform bonita\_home and the database. You cannot [change edition](/upgrade-from-community-to-a-subscription-edition.md) while migrating. If you are running a
 Bonita BPM Subscription Pack edition, you need a valid license for your target version.
 If you are upgrading to a new maintenance version and not changing the minor version number (for example, you are migrating from 6.3.0
 to 6.3.1), your current license remains valid after migration.
@@ -73,10 +73,10 @@ This applies to the following tables: `arch_process_instance`, `arch_connector_i
 
 There is no guarantee that the Look & Feel definition is compatible across maintenance versions.
 For example, in 6.2.2, `jquery+` was renamed `jqueryplus` in `BonitaConsole.html`, for compatibility with more application servers.
-If you are using a custom Look & Feel, [export](/managing-look-feel.html#export_current) it before migration.
-Then after the migration is complete, [export the default Look & Feel](/managing-look-feel.html#export_default) from the new version,
-modify your custom Look & Feel to be compatible with the new definition, and with the [recommendations for form footers](/creating-a-new-look-feel.html#migration).
-Then [import](/managing-look-feel.html#import) your updated custom Look & Feel into Bonita BPM Portal.
+If you are using a custom Look & Feel, [export](/managing-look-feel.md#export_current) it before migration.
+Then after the migration is complete, [export the default Look & Feel](/managing-look-feel.md#export_default) from the new version,
+modify your custom Look & Feel to be compatible with the new definition, and with the [recommendations for form footers](/creating-a-new-look-feel.md#migration).
+Then [import](/managing-look-feel.md#import) your updated custom Look & Feel into Bonita BPM Portal.
 
 The migration script supports MySQL, Postgres, Oracle, and MS SQLServer. There is no migration for h2 databases.
 
@@ -147,10 +147,10 @@ bpm
 
 Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
 `db.url=jdbc:mysql://localhost:3306/bonita_migration?allowMultiQueries=true`.
-5. If you use a custom Look & Feel, [export](/managing-look-feel.html#export_current) it, and then [restore the default Look & Feel](/managing-look-feel.html#restore_default).
+5. If you use a custom Look & Feel, [export](/managing-look-feel.md#export_current) it, and then [restore the default Look & Feel](/managing-look-feel.md#restore_default).
 6. Stop the application server and database server.
 7. **IMPORTANT:**
-[Back up your platform](/back-up-bonita-bpm-platform.html) and database in case of problems during migration.
+[Back up your platform](/back-up-bonita-bpm-platform.md) and database in case of problems during migration.
 8. Go to the directory containing the migration tool.
 9. Run the migration script:
   * For version 1.x of the migration tool, run `migration.sh` (or `migration.bat` for Windows).
@@ -173,17 +173,17 @@ The `bonita_home` and the database have been migrated.
 12. Configure the migrated `bonita-migration/bonita_home` for your system, by reapplying the configuration settings you had in `bonita_home` before migration
 (for example by updating `bonita-platform.properties` or services configuration files). 
 13. Unzip the target bundle version into a directory. In the steps below, this directory is called `bonita-target-version`.
-[Install the bundle](/bonita-bpm-installation-overview.html) and configure it but do not start it. 
+[Install the bundle](/bonita-bpm-installation-overview.md) and configure it but do not start it. 
 14. In your new `bonita-target-version` folder, delete the `bonita` folder. You will use the `bonita_home` that you have migrated instead.
 15. Set the bonita\_home system property to point to the migrated `bonita_home`.
-16. [Configure the bundle to use the migrated database](/database-configuration.html). Do not recreate the database.
+16. [Configure the bundle to use the migrated database](/database-configuration.md). Do not recreate the database.
 17. Make sure there is a valid license file in `bonita-target-version/bonita_home/server/licenses`.
   * If you have migrated from an earlier maintenance version of the same minor version, for example, from 6.3.0 to 6.3.1, your existing license is still valid and you do not need to do anything.
-  * If you have have migrated from an earlier minor version, for example from 6.0.4 to 6.2.1, you need to [request a new license](/licenses.html).
+  * If you have have migrated from an earlier minor version, for example from 6.0.4 to 6.2.1, you need to [request a new license](/licenses.md).
 Use the license request utility of the new version to create the license request key.
 18. Start the application server. Before you start Bonita BPM Portal, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal pages instead of the new version. 
 Log in to the Portal and verify that the migration has completed. 
-If you did not set the default Look & Feel before migration and you cannot log in, you need to [restore the default Look & Feel](/managing-look-feel.html#restore_default) using a REST client or the Engine API.
+If you did not set the default Look & Feel before migration and you cannot log in, you need to [restore the default Look & Feel](/managing-look-feel.md#restore_default) using a REST client or the Engine API.
 
 The migration is now complete. If you were using a custom Look & Feel before migration, test it on the new version before applying it to your migrated platform.
 

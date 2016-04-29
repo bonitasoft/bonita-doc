@@ -22,8 +22,8 @@ used in the form. You can also use form variables with connectors that are
 associated with the form.
 
 See also:  
-[Data types and defining a variable](/data-handling-overview.html)  
-[Complex data types](/create-a-complex-data-type.html)  
+[Data types and defining a variable](/data-handling-overview.md)  
+[Complex data types](/create-a-complex-data-type.md)  
 [Data handling in a form](/product-bos-sp/data)  
 
 ![Scope of variables](images/images-6_0/variables_scope.png)
@@ -42,7 +42,7 @@ only when required for the process flow.
 large set of variables has an impact on performance. 
 
 There are also a number of variables that are provided by default in a process, such as the id of the current user. They are available through the
-[expression editor](/expressions-and-scripts.html).
+[expression editor](/expressions-and-scripts.md).
 
 ## Transient data
 
@@ -77,12 +77,12 @@ data in the calling process available in the subprocess.
 
 ## External data
 
-A process or application can use data that is stored in an external database and accessed using a [database connector](/list-of-database-connectors.html). For example, in a process for requesting annual leave, there could
+A process or application can use data that is stored in an external database and accessed using a [database connector](/list-of-database-connectors.md). For example, in a process for requesting annual leave, there could
 be a step that uses a connector to retrieve the number of days available for an employee and stores this in a transient variable. This variable is then
 compared with the number of days requested to see whether the employee is entitled to take the requested number of days. In a later step, another
 connector is used to update the number of available days after this request is approved, by subtracting the number of days requested.
 
-You can also use data stored in external information system components, such as a CRM document storage system. These systems are also accessed using a [connector](/connectivity-overview.html).
+You can also use data stored in external information system components, such as a CRM document storage system. These systems are also accessed using a [connector](/connectivity-overview.md).
 
 ## Define a variable
 
@@ -105,10 +105,10 @@ long, double, text, Java object, XML schema (XSD) and option list. You can also
 define a variable as _multiple_, that is, an array or collection of
 values of the specified type.
 
-Note that since 7.0, Business data is now available. For a detailed explanation, see the [Business Data overview](/define-and-deploy-the-bdm.html#boprocesses).
+Note that since 7.0, Business data is now available. For a detailed explanation, see the [Business Data overview](/define-and-deploy-the-bdm.md#boprocesses).
 
 You can also define additional [complex
-data types](/create-a-complex-data-type.html) as Java objects or as XML objects.
+data types](/create-a-complex-data-type.md) as Java objects or as XML objects.
 
 ### Variable naming
 
@@ -116,7 +116,7 @@ You are recommended to use meaningful names for variables
 This make process debugging and maintenance easier, particularly if more than one person is working on a process
 It can be useful to use a system of prefixes to identify the context in which a variable is used, or the task it is associated with.
 For example, you could label all transient data variables with the prefix trans\_, or you could label variables defined on a task called getData with the prefix task\_getData\_. 
-[Java language keywords](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html) cannot be used as variable names.
+[Java language keywords](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.md) cannot be used as variable names.
 
 ### Define a simple data type variable
 
@@ -128,7 +128,7 @@ define a variable with one of these types:
 3. Go to the **Details** panel, **General** view, **Data** pane. A list of the variables
 already defined is displayed.
 4. Choose if you want to add Process data or Business data. Click **_Add..._**.
-Note: if you add Business data, only add it at the pool/lane level. See this tutorial as a guide for the next steps[How to add Business data to a process](/define-and-deploy-the-bdm.html#boprocesses).
+Note: if you add Business data, only add it at the pool/lane level. See this tutorial as a guide for the next steps[How to add Business data to a process](/define-and-deploy-the-bdm.md#boprocesses).
 5. Specify a name for the variable. The name must be unique within the scope
 of the variable. For easier process maintenance, it is a good idea to make
 all variable names unique within the process, even though this is not
@@ -149,7 +149,7 @@ variable, click **_Create & New_**, otherwise click **_Finish_**.
 ### Define a Java object variable
 
 You can define a variable whose data type is Java object. Before you define
-the variable, you must [create the data type definition](/create-a-complex-data-type.html).
+the variable, you must [create the data type definition](/create-a-complex-data-type.md).
 
 To add a Java object variable:
 
@@ -181,7 +181,7 @@ definition to the application or process dependencies.
 ### Define an XML variable
 
 An XML variable has a data type that is defined by an XML schema file.
-Before you define the variable, you must [create the XML schema](/create-a-complex-data-type.html) that contains
+Before you define the variable, you must [create the XML schema](/create-a-complex-data-type.md) that contains
 the data type definition. The data type definition is stored in an XML
 schema (XSD) file that belongs to a namespace.
 

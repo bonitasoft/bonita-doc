@@ -25,7 +25,7 @@ form**.
 After a page is created, you can update it in the **Page editor**. Update your page by dragging and dropping widgets from the palette to the whiteboard. Edit widget properties in
 the widget properties panel and create data and bind it to the widgets.
 
-In the Performance and Efficiency editions, you can optimize the page design for a given device type by configuring [device-specific values for the Width property](/widget-properties.html#widget-width) for widgets.
+In the Performance and Efficiency editions, you can optimize the page design for a given device type by configuring [device-specific values for the Width property](/widget-properties.md#widget-width) for widgets.
 Use the a device types bar in the Page editor to choose the target device type.
 ![Device type selection](images/images-6_0/pb-resolution.png)
 

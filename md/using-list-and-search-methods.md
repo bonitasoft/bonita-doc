@@ -19,7 +19,7 @@ These two examples above return identical information. Both list and search can 
 The advantage of using list is that it is a single query, so has better performance. It is also simpler to code. 
 
 The advantage of using search is that you can specify filters to get a more precise set of results, which can be more efficient. Several filters can be added. By default, an implicit AND clause is added when several filters are added. If the need is different,
-you can have an OR clause, of more complex clauses. See [SearchOptionsBuilder methods](http://documentation.bonitasoft.com/javadoc/api/7.1/org/bonitasoft/engine/search/SearchOptionsBuilder.html) for filtering that matches your needs.   
+you can have an OR clause, of more complex clauses. See [SearchOptionsBuilder methods](http://documentation.bonitasoft.com/javadoc/api/7.1/org/bonitasoft/engine/search/SearchOptionsBuilder.md) for filtering that matches your needs.   
 The following example is a more precise search for archived activity instances, using a filter:
 `
 SearchOptionsBuilder searchBuilder = new SearchOptionsBuilder(0, 100);

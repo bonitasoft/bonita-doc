@@ -60,7 +60,7 @@ This information applies primarily to the Performance edition, though some detai
 
 > [Cron jobs](#cron)
 
-It is also possible to [use gzip compression](/use-gzip-compression.html) on your application server to improve performance.
+It is also possible to [use gzip compression](/use-gzip-compression.md) on your application server to improve performance.
 
 ## Summary
 
@@ -106,7 +106,7 @@ Performance tuning checklist of best practises:
 
 ## Engine access
 
-This section deals with performance impact of your choice of [Engine access mode](/development-overview.html#L365).
+This section deals with performance impact of your choice of [Engine access mode](/development-overview.md#L365).
 
 There are various ways to access the Engine APIs provided by Bonita BPM Engine. Choose the most suitable access mode for your deployment, requirements, and preferences. 
 The access modes rely on different technologies and have different benefits and drawbacks. In this section, we will describe the performance characteristics of each mode.
@@ -144,20 +144,20 @@ The bonita-client library sends data over the network using the HTTP protocol.
 It is implemented on the `org.apache.httpcomponents:httpmime:4.2.5` open source library. 
 The connection manager used is `org.apache.http.impl.conn.PoolingClientConnectionManager`. 
 Currently, there is no configuration for this pool though this might be added in the future. 
-See the [Apache documentation](http://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.html) for more information.
+See the [Apache documentation](http://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.md) for more information.
 
 Data sent is serialized using a Java library called XStream. This serialization also has a cost.
 
 #### REST
 
-This method of accessing the Bonita BPM capabilities is not yet integrated as an engine service but exists as a web application service accessed using the [Web REST API](/rest-api-overview.html). 
+This method of accessing the Bonita BPM capabilities is not yet integrated as an engine service but exists as a web application service accessed using the [Web REST API](/rest-api-overview.md). 
 No details are provided here as it is currently out of scope. 
 In general, the constraints are almost the same as for the HTTP mode, but we do not provide any Java client for this access mode.
 
 ## Concurrent execution
 
 This section describes some aspects of engine configuration that have a performance impact if there is a high level of concurrent execution. 
-Before you read this, make sure you are familiar with the engine [execution sequence, states, and transactions](/execution-sequence-states-and-transactions.html).
+Before you read this, make sure you are familiar with the engine [execution sequence, states, and transactions](/execution-sequence-states-and-transactions.md).
 
 There are two main entry points for load on the engine:
 
@@ -183,7 +183,7 @@ Default value 200\.
 See the [Tomcat documentation](http://tomcat.apache.org/tomcat-7.0-doc/) for information about the `maxThreads` parameter.
 * **Red Hat JBoss** `maxThreads` set in _`JBoss_folder`_`/server/default/deploy/jbossweb.sar/server.xml`.   
 Default value 200\. 
-See the [JBoss documentation](http://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch02.html) for information about the `maxThreads` parameter.
+See the [JBoss documentation](http://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch02.md) for information about the `maxThreads` parameter.
 
 ### Work service
 
@@ -200,9 +200,9 @@ bonita.tenant.work.keepAliveTimeSeconds=60
 bonita.tenant.work.queueCapacity=10000
 `
 
-It is very similar to the constructor provided in the [default JDK ThreadPoolExecutor](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html#ThreadPoolExecutor(int,%20int,%20long,%20java.util.concurrent.TimeUnit,%20java.util.concurrent.BlockingQueue)).
+It is very similar to the constructor provided in the [default JDK ThreadPoolExecutor](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.md#ThreadPoolExecutor(int,%20int,%20long,%20java.util.concurrent.TimeUnit,%20java.util.concurrent.BlockingQueue)).
 For a reminder of how the threadpool behaves, see the Queuing section of the 
-[ThreadPoolExecutor documentation](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html).
+[ThreadPoolExecutor documentation](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.md).
 
 In the default Bonita BPM configuration, `corePoolSize` is equal to `maximumPoolSize` because we have observed that the default implementation 
 of the threadpool executor allocates work to available threads using a round robin algorithm. 
@@ -402,7 +402,7 @@ stores process parameters
 ### Java Virtual Machine
 
 You can configure the JVM settings for the engine to tune performance.
-Check the [JVM documentation](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html) for details of the available settings.
+Check the [JVM documentation](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.md) for details of the available settings.
 
 Notably, we recommend you to set the initial (`-Xms`) and maximum (`-Xmx`) heap sizes to the same value. 
 This reduces the likelihood of the JVM garbage collector starting. 
@@ -457,7 +457,7 @@ For example, in [Bitronix](https://github.com/bitronix/btm/wiki/JDBC-pools-confi
 ### Logs
 
 In general, increasing the log level is useful for debugging but has a performance cost. 
-With this in mind, [define the log level for technical logs, queriable logs and archives](/set-log-and-archive-levels.html).
+With this in mind, [define the log level for technical logs, queriable logs and archives](/set-log-and-archive-levels.md).
 
 Remember that Bonita BPM Engine dependencies also have their own log and debug options that may impact strongly the system performance. 
 Be sure to configure these appropriately.
@@ -488,7 +488,7 @@ We strongly recommend that you add only appropriate handlers and carefully code 
 
 ### Cron jobs
 
-Bonita BPM Engine uses the [Scheduler service](/engine-architecture-overview.html#scheduler) to trigger jobs in a recurrent manner.
+Bonita BPM Engine uses the [Scheduler service](/engine-architecture-overview.md#scheduler) to trigger jobs in a recurrent manner.
 
 The Bonita BPM Scheduler service implementation uses the Quartz Scheduler. 
 A cron job in Quartz can run at maximum every second (you cannot set a lower value than 1 second).

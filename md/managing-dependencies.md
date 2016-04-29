@@ -23,4 +23,4 @@ To specify the dependencies for a process, click **_Configure_** in the coolbar.
 If forms (or any client) manipulate objects programmatically, the dependencies must be in the client's classpath. 
 The classpath is initialized with the application dependencies specified in the Studio. The most common use case for application dependencies is custom datatypes.
 
-Note that certain libraries cannot be included in more than one classpath. To avoid this problem, we recommend that you always check for [duplicate libraries](/manage-jar-files.html#duplicate_libraries) when you configure a process.
+Note that certain libraries cannot be included in more than one classpath. To avoid this problem, we recommend that you always check for [duplicate libraries](/manage-jar-files.md#duplicate_libraries) when you configure a process.

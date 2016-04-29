@@ -22,7 +22,7 @@ platformAPI.createPlatform();
 `
 
 The next step is to **initialize the platform**, that is, create the default tenant and initialize the Bonita BPM Engine environment. 
-After this step the technical user will be able to connect to the engine and to create new users or [import the organization](/manage-an-organization.html#org). No users are created by 
+After this step the technical user will be able to connect to the engine and to create new users or [import the organization](/manage-an-organization.md#org). No users are created by 
 default and the default username/password for the technical user to connect to the Bonita BPM Engine are stored in the file bonita-server.properties that is in the _BONITA\_HOME_ directory.
 `
 // initialize the platform

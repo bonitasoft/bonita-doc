@@ -24,7 +24,7 @@ When these three stages are complete, you can start Tomcat to validate the insta
 **[First steps after installation](#postinstall)**
 
 There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft in the Tomcat bundle and in the Tomcat directories of the Deploy bundle) and the Microsoft SQL Server driver
-(refer to: [MSDN note](http://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html)).
+(refer to: [MSDN note](http://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.md)).
 Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the JBoss bundle provided by Bonitasoft.
 
 ## Download and unzip the Tomcat bundle
@@ -67,7 +67,7 @@ The Tomcat bundle is based on a standard Tomcat installation with the following 
 
 ## License installation
 
-If you are installing a Subscription edition, you need to [request a license](/licenses.html). 
+If you are installing a Subscription edition, you need to [request a license](/licenses.md). 
 
 Whe you receive your license, copy the file to the `/bonita/server/licenses` folder.
 
@@ -81,7 +81,7 @@ and change the value of the `activeProfiles` key to `'community,performance'`. N
 
 The Tomcat bundle is configured to use a h2 database by default. h2 is fine for a test platform, but for production, you are recommended to use one of the supported databases. 
 
-If you want to use another database you need to specify the [database configuration](/database-configuration.html). Make sure you do this before you start Tomcat.
+If you want to use another database you need to specify the [database configuration](/database-configuration.md). Make sure you do this before you start Tomcat.
 
 ## Start and shut down Tomcat
 
@@ -117,8 +117,8 @@ Tomcat can be shut down by executing the following command:
 * Linux: `/bin/shutdown.sh`
 
 If you see `checkThreadLocalMapForLeaks` errors, the probably indicates that Tomcat is shutting down before all work threads are completed. 
-You can [increase the work service termination timeout](/performance-tuning.html#work_service) to ensure that work is complete before shutdown. 
+You can [increase the work service termination timeout](/performance-tuning.md#work_service) to ensure that work is complete before shutdown. 
 
 ## First steps after installation
 
-Once you have got your Tomcat bundle up and running a [few extra steps](/first-steps-after-setup.html) are required in order to get a fully operational Bonita BPM platform.
+Once you have got your Tomcat bundle up and running a [few extra steps](/first-steps-after-setup.md) are required in order to get a fully operational Bonita BPM platform.

@@ -51,7 +51,7 @@ your business uses. The organization is stored in Bonita BPM Engine and can be m
 You can also create the organization in Bonita BPM Studio or by synchronizing with an external LDAP directory. 
 Typically, the organization corresponds to the hierarchy of teams within your business. 
 If your clients and suppliers have access to your processes, those users must also be included in the organization. 
-See the [Organization overview](/organization-overview.html) for details.
+See the [Organization overview](/organization-overview.md) for details.
 
 ## Connectors
 
@@ -61,7 +61,7 @@ provided, and you can create additional connectors if required. Separating the
 connector configuration and implementation from the process means it is easier 
 to update or replace the connector without having to modify the process. You can 
 also use the same connector in more than one process. 
-See the [Connectivity overview](/connectivity-overview.html) for details.
+See the [Connectivity overview](/connectivity-overview.md) for details.
 
 ## Actors
 
@@ -72,8 +72,8 @@ while the process is running. You can also use the same process definition with
 completely different sets of users, for example, if a service business sells a
 process to several clients. Making the connection between the actor definition
 and the set of users is called actor mapping. See 
-[Configure a test organization](/organization-management-in-bonita-bpm-studio.html)
-and [actors](/actors.html) for
+[Configure a test organization](/organization-management-in-bonita-bpm-studio.md)
+and [actors](/actors.md) for
 details.
 
 ## Environments and parameters
@@ -83,5 +83,5 @@ which a process will run. There are three standard environments, Local,
 Qualification, and Production. You can define additional environments that are
 useful when designing and deploying a process for your business. A parameter is
 a piece of information in a process that has a value specific to the
-environment. See [Environments](/environments.html)
-and [Parameters](/parameters.html) for more details.
+environment. See [Environments](/environments.md)
+and [Parameters](/parameters.md) for more details.

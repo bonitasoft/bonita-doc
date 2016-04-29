@@ -47,5 +47,5 @@ A popup reports the status of the import. It shows the number of profiles succes
 
 Notes:
 
-* A Process manager profile does not include the list of apps assigned to a given process manager. After the Process manager profile is imported, you need to [assign a process manager to an app](/process-manager.html#assign).
+* A Process manager profile does not include the list of apps assigned to a given process manager. After the Process manager profile is imported, you need to [assign a process manager to an app](/process-manager.md#assign).
 * The standard profiles defined in Bonita BPM have the flag _isDefault_ set to _True_ in the XML file. Do not change the setting of _isDefault_ for any profile, or you will get an error message on import.

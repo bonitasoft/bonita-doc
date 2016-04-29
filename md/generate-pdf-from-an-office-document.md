@@ -1,7 +1,7 @@
 # 1.8.10 Generate PDF from an Office document
 
 The Office document converter connector converts a document from `.odt` or `.docx` format to PDF.
-It can be used in conjunction with the [Insert data in a .docx/.odt template connector](/insert-data-in-a-docxodt-template.html).
+It can be used in conjunction with the [Insert data in a .docx/.odt template connector](/insert-data-in-a-docxodt-template.md).
 The generated document can then be sent by email or stored in an external information system using the relevant connector.
 
 For proper conversion, you must specify the character encoding that is used in the source document. On most Windows configurations, encoding **"windows-1252"** is used. 

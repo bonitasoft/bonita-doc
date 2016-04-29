@@ -126,13 +126,13 @@ For example, a file containing a scanned copy of a travel receipt does not need 
 ### Resource
 
 The Bonita BPM Studio Document Repository contains documents that have been imported from the file system. After a document is imported, it is called a resource. 
-When you [build a process bar file for deployment](/build-a-process-for-deployment.html), the resources used in the process are automatically included.
+When you [build a process bar file for deployment](/build-a-process-for-deployment.md), the resources used in the process are automatically included.
 A resource is available to all processes in an installation of Studio. 
 A resource cannot be updated directly in Studio, but is updated by uploading a new file. 
 Typically, resources are used for information that is stable and common to all instances of a process, or is used in several processes. 
 The resource is used to initialize the document object in the process instance. You cannot use a resource to update a document object. 
 
-When you [export a process in a bos file for import into another Studio](/import-and-export-a-process.html#export_for_exchange), you must select the resources that are used so that they are included.
+When you [export a process in a bos file for import into another Studio](/import-and-export-a-process.md#export_for_exchange), you must select the resources that are used so that they are included.
 
 The dialog for adding a resource to the document repository is inside the dialog for adding a resource to a process definition. However, you can add a resource without updating the process definition, as follows.
 
@@ -222,7 +222,7 @@ Set the default value of docId with the following code:
 apiAccessor.getProcessAPI().getLastDocument(processInstanceId, "mainDoc").getId();
 `
 4. In the called process, add a pool-level variable of type long (for example called docId).
-5. Define the [variable mapping in the call activity](/called-processes.html#data_mapping) so that docId in the call activity is mapped to docId in the called process. 
+5. Define the [variable mapping in the call activity](/called-processes.md#data_mapping) so that docId in the call activity is mapped to docId in the called process. 
 6. In the called process, as the first task add an automatic task that will get the mainDoc, create a DocumentValue object with the content of mainDoc, and use it to update the content of subDoc. 
 To do this, define an operation in the automatic task as follows:
   1. In the first field, select subDoc.
@@ -241,11 +241,11 @@ return docValue;
 
 After you have specified the documents in the process definition, you need to define how they are handled in the process tasks. 
 
-A document is represented in a form definition by the [upload widget](/widgets.html).
+A document is represented in a form definition by the [upload widget](/widgets.md).
 
 ## Connectors and documents
 
-During a process instance, you can use [connectors](/connectivity-overview.html) to manipulate documents. 
+During a process instance, you can use [connectors](/connectivity-overview.md) to manipulate documents. 
 In addition to the connectors that interact with content management systems (such as the Alfrecso and CMIS connectors), 
 some other connectors can also manipulate documents. For example:
 

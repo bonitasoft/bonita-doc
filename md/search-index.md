@@ -12,4 +12,4 @@ Technical note: A search index is translated by a database index in Bonita BPM E
 
 In addition, search indexes are now displayed in the case list and in the case more details view. In this way, you can use search indexes for adding dynamic and business information to your cases.
 
-See also [Define a search index](/define-a-search-index.html).
+See also [Define a search index](/define-a-search-index.md).

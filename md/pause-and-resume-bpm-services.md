@@ -13,7 +13,7 @@ When you pause a tenant, this has the following consequences:
 * Users who are filling in forms when the service is paused will lose any information that has not been submitted.
 * All processes are automatically paused.
 
-The following sections explain how to pause and resume service in a tenant using Bonita BPM Portal. You can also use the [Engine API](/javadoc.html) or the [Web REST API](/rest-api-overview.html).
+The following sections explain how to pause and resume service in a tenant using Bonita BPM Portal. You can also use the [Engine API](/javadoc.md) or the [Web REST API](/rest-api-overview.md).
 
 ## Pause a tenant
 

@@ -62,7 +62,7 @@ This feature is available with the Performance edition.
 
 Note: You will need to fix any parameter causing the failure, **BEFORE** clicking on Replay.
 
-See [Modify a parameter](/processes.html#modpar)
+See [Modify a parameter](/processes.md#modpar)
 
 ## How to view the failure stack-trace message on a failed task
 

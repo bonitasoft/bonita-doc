@@ -32,11 +32,11 @@ for example:
 
 > [Theme access](#theme-access)
 
-Pages are [exported. imported, modified, and deleted](/resource-management.html) as resources in Bonita BPM Portal. 
+Pages are [exported. imported, modified, and deleted](/resource-management.md) as resources in Bonita BPM Portal. 
 
 ## Custom page definition
 
-A page resource has the general [resource definition](/resource-management.html#resource_definition). 
+A page resource has the general [resource definition](/resource-management.md#resource_definition). 
 If it contains an `Index.groovy` file, this must implement the [PageController interface](#pageController), optionally with libraries. 
 If you create a custom page with the UI designer, it has the reequired structure and content automatically.
 
@@ -67,7 +67,7 @@ Two example custom pages are available in the portal. Both examples show how to:
 * Write simple HTML code
 * Get session information, including the locale
 * Get resources from the custom page definition
-* Call the Engine Java APIs (in the Groovy example) or the Web REST APIs (in the HTML example)
+* Call the Engine Java APIs (in the Groovy example) or the Web REST APIs (in the.md example)
 * Write a clickable link to an external page
 * Write a clickable link to a portal page
 * Write locale-specific messages
@@ -133,12 +133,12 @@ For example: ``
 
 ### API acces
 
-If your page is viewed in a custom profile or in an application, you will have access facilities for [the portal API](/rest-api-overview.html).
+If your page is viewed in a custom profile or in an application, you will have access facilities for [the portal API](/rest-api-overview.md).
 
 you will be abble to access the portal API using the following path: "../API/{API name}/{resource name}"
 
 ### Theme access
 
-If your page is viewed in an application, you will have access facilities for [the application theme](/applications.html#theme).
+If your page is viewed in an application, you will have access facilities for [the application theme](/applications.md#theme).
 
 You can directly access a resource by adding the following link in `index.html`: ``

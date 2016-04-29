@@ -6,8 +6,8 @@ and therefore to your business. A Bonita BPM cluster alone does not guarantee hi
 You must also ensure that the prerequisite infrastructure is highly available.
 
 See also:  
-[Building a Bonita BPM cluster](/building-a-bonita-bpm-cluster.html)  
-[Cluster administration](/cluster-administration.html)
+[Building a Bonita BPM cluster](/building-a-bonita-bpm-cluster.md)  
+[Cluster administration](/cluster-administration.md)
 
 ## Introduction
 
@@ -83,7 +83,7 @@ The Hibernate cache must be disabled.
 The load balancer must be configured to use sticky sessions (this is needed to manage sessions created when users log in to the Portal).
 
 There is no automated migration from a Bonita Open Solution 5.10 cluster to a Bonita BPM cluster, because the cluster models are completely different. 
-You can [migrate a process from 5.10](/migrate-a-process-from-bonita-open-solution-5x.html), but you need to build your Bonita BPM cluster from scratch.
+You can [migrate a process from 5.10](/migrate-a-process-from-bonita-open-solution-5x.md), but you need to build your Bonita BPM cluster from scratch.
 
 ### Active and passive nodes
 

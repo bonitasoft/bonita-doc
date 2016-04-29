@@ -1,8 +1,8 @@
 # Resources
 
-* [Resource management](resource-management.html)
-* [Pages](pages.html)
-* [Forms](forms.html)
-* [Layouts](layouts.html)
-* [Themes](themes.html)
-* [API extensions](api-extensions.html)
+* [Resource management](resource-management.md)
+* [Pages](pages.md)
+* [Forms](forms.md)
+* [Layouts](layouts.md)
+* [Themes](themes.md)
+* [API extensions](api-extensions.md)

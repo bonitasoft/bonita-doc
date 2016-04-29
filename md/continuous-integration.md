@@ -1,5 +1,5 @@
 # Continuous integration
 
-* [Automating process builds](automating-process-builds.html)
-* [Automating builds](automating-builds.html)
-* [Set up continuous integration](set-up-continuous-integration.html)
+* [Automating process builds](automating-process-builds.md)
+* [Automating builds](automating-builds.md)
+* [Set up continuous integration](set-up-continuous-integration.md)

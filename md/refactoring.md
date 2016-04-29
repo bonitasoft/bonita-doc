@@ -2,7 +2,7 @@
 
 Refactoring a process definition means changing the name of a process element without changing the external behaviour. Typically, this is done when a process definition is almost complete, 
 to improve readability and maintainability, 
-or to adopt a new set of [naming conventions](/naming-conventions.html). In Bonita BPM Studio, when you change the name of an element, the change is propagated to all the places that reference this element. 
+or to adopt a new set of [naming conventions](/naming-conventions.md). In Bonita BPM Studio, when you change the name of an element, the change is propagated to all the places that reference this element. 
 If the change is simple (for example, you rename a variable used in transitions), the change is made automatically. 
 If the change is more complex, such as renaming a variable used in a Groovy script, Bonita BPM Studio displays the update for you to validate before it is implemented.
 Refactoring is also used when you delete a process element. Expressions using the element directly will be cleared and expressions having dependency on it will clear the dependency and replace it by a blank placeholder in Groovy scripts.

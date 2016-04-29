@@ -10,7 +10,7 @@ The procedure below is an example, and not a reference:
 4. Import the pre-formatted .jrxml file into Bonita which will be used to create the graphic version of the data
 5. When the process is run, it will connect to the database in real time
 6. The request in the .jrxml report will be executed
-7. The data will be extracted, imported into Bonita via the connector, a report will be created and then saved in the chosen format (pdf, xml or html) and to the chosen folder. 
+7. The data will be extracted, imported into Bonita via the connector, a report will be created and then saved in the chosen format (pdf, xml or.md) and to the chosen folder. 
 It can be displayed directly in the Portal.
 
 ## How to create a report using the Jasper 5.0 connector
@@ -64,7 +64,7 @@ Use [Jasper Studio](http://community.jaspersoft.com/project/jaspersoft-studio) t
 
 **Pool data**
 
-Select the pool and create 2 documents: a bonitadocument called input (.jxrml) and an output format for the document to be created (.pdf,.xml or.html).
+Select the pool and create 2 documents: a bonitadocument called input (.jxrml) and an output format for the document to be created (.pdf,.xml or.md).
 
 Go to the **Details** panel, **Data** tab, **Documents** panel, and click **_Add_**. 
 In the popup, click **From Bonita BPM** \> **Browse...** \> **Import...** (example.jrxml) to import the Bonita document.

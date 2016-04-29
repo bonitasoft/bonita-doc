@@ -6,7 +6,7 @@ This page describes the technical logger service.
 
 The purpose of this service is to provide an abstraction to the logging framework to all Bonita BPM Engine services, to facilitate debugging of other services.
 
-The logged messages are not intended to be accessible through the Engine API (see [Queriable logger service](/queriable-logging.html)).
+The logged messages are not intended to be accessible through the Engine API (see [Queriable logger service](/queriable-logging.md)).
 
 ## Usage
 
@@ -28,14 +28,14 @@ interface](https://github.com/bonitasoft/bonita-engine/blob/master/services/boni
 The technical logger 
 [implementation](https://github.com/bonitasoft/bonita-engine/blob/master/services/bonita-log/bonita-log-technical-slf4j/src/main/java/org/bonitasoft/engine/log/technical/TechnicalLoggerSLF4JImpl.java)
 uses SLF4J version 1.6.1 to handle the log. SLF4J itself uses a back-end logging framework to write log messages. See the [logging
-overview](/logging.html) for more details.
+overview](/logging.md) for more details.
 
 Logged messages are passed to SLF4J with appropriate logger information so the source of the message remains
 meaningful.
 
 ## Example
 
-The following example, `DelayedRetry`, shows how to write messages to the technical log. `DelayedRetry` can be called from an [event handler](/event-handlers.html) that detects failed tasks.
+The following example, `DelayedRetry`, shows how to write messages to the technical log. `DelayedRetry` can be called from an [event handler](/event-handlers.md) that detects failed tasks.
 `
 package com.bonitasoft.handlers;
 

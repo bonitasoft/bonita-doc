@@ -31,7 +31,7 @@ library.
 ## APIs
 
 This section contains a summary of the Bonita BPM Engine APIs. For details of the APIs, the methods and related objects, see the 
-[Javadoc](/javadoc.html).
+[Javadoc](/javadoc.md).
 Identity API
 Manages information about an organization, that is, the set of users
 who can act in processes. Handles creation, modification, and deletion

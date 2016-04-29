@@ -6,12 +6,12 @@ A Look & Feel is defined in a set of files. You can set the Look & Feel for the 
 [Bonita BPM Portal Mobile default Look & Feel](#mobile)  
 [Recommendation: Form footers](#migration)
 
-This page explains how to modify the Look & Feel of Bonita BPM Portal and of forms in processes run from the Portal. You can also [specify the Look & Feel of a web application in Bonita BPM Studio](/specify-look-and-feel.html). 
+This page explains how to modify the Look & Feel of Bonita BPM Portal and of forms in processes run from the Portal. You can also [specify the Look & Feel of a web application in Bonita BPM Studio](/specify-look-and-feel.md). 
 The definition in the Portal overrides the definition created in Studio. 
 
-To create a new Look & Feel in Bonita BPM Portal, [export the default Look & Feel](/managing-look-feel.html#export_default) and modify the relevant components. 
+To create a new Look & Feel in Bonita BPM Portal, [export the default Look & Feel](/managing-look-feel.md#export_default) and modify the relevant components. 
 You can either edit the files directly, or you can use a plugin and update the Look & Feel in a browser. 
-When the new Look & Feel is ready, [import and apply the new Look & Feel](/managing-look-feel.html#import).
+When the new Look & Feel is ready, [import and apply the new Look & Feel](/managing-look-feel.md#import).
 
 There are two types of page in the Portal: pages developed with GWT, as in earlier versions, and new pages, such as the Case monitoring page, that have been developed using Angular. 
 The two types of page have different mechanisms for defining Look & Feel.

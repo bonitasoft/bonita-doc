@@ -35,7 +35,7 @@ The instructions below explain how to set up the Oracle Java 7 JDK using the Red
 ### Prerequisite
 
 First, you need to add **RHEL EUS Server Supplementary** to your system
-[subscriptions](https://access.redhat.com/site/documentation/en-US/Red_Hat_Subscription_Management/1/html/Subscription_Concepts_and_Workflows/index.html).
+[subscriptions](https://access.redhat.com/site/documentation/en-US/Red_Hat_Subscription_Management/1/html/Subscription_Concepts_and_Workflows/index.md).
 In fact Oracle Java is provided only in this subscription.
 
 To install Oracle Java JDK:
@@ -101,7 +101,7 @@ would be:
 ## Data source declaration
 
 Here we will configure data sources that are available at a global scope (all applications deployed). For all Bonita BPM Platform systems, you need two data sources, bonitaDS and bonitaSequenceManagerDS. 
-If you are using [business data](/define-and-deploy-the-bdm.html), you need two additional data sources, BusinessDataDS and NotManagedBizDataDS.
+If you are using [business data](/define-and-deploy-the-bdm.md), you need two additional data sources, BusinessDataDS and NotManagedBizDataDS.
 
 ### bonitaDS and BusinessDataDS
 
@@ -252,11 +252,11 @@ To create a user with the "administrator" profile:
 5. Click on the **_More_** button (in the top right corner).
 6. Under **Users mapping**, click on **_Add a user_**.
 7. Select your user and click on the **_Add_** button. Log out as the Technical user and log back in as the newly created user with administrative rights.
-8. Create [users with the standard profile](/manage-a-user.html).
+8. Create [users with the standard profile](/manage-a-user.md).
 9. You can add newly created users to the **User** (standard) profile or to a custom profile.
 
 #### Information
 
 If you already have a system that stores information about end users, you can use it to create user accounts in Bonita BPM. 
 
-If you use an LDAP or Active Directory system, you can use the [LDAP synchronizer](/ldap-synchronizer.html) to keep the Bonita BPM organization synchronized with it.
+If you use an LDAP or Active Directory system, you can use the [LDAP synchronizer](/ldap-synchronizer.md) to keep the Bonita BPM organization synchronized with it.

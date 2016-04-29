@@ -2,7 +2,7 @@
 
 To configure a process, open the process diagram, select the pool, and click **_Configure_** in the Cool bar.
 
-If you are using a Performance, Efficiency, or Teamwork edition of Bonita BPM, you can configure a process for an [environment](/environments.html): 
+If you are using a Performance, Efficiency, or Teamwork edition of Bonita BPM, you can configure a process for an [environment](/environments.md): 
 with the process diagram open and the pool selected, choose an environment from
 the Configuration menu in the Cool bar.
 
@@ -19,4 +19,4 @@ The following items can be configured:
 * Application dependencies
 * Run user
 
-After deployment, depending on the Bonita BPM edition that you are using, you can [update the process configuration in production](/live-update.html) for some aspects of the process.
+After deployment, depending on the Bonita BPM edition that you are using, you can [update the process configuration in production](/live-update.md) for some aspects of the process.

@@ -12,7 +12,7 @@ In most cases, a search index is a variable, either visible to users (like the c
 or it can be assigned a default 
 value in the definition. The value is initialized when the case is created.
 
-The search index value can be fixed for the lifetime of a case or it can be updated with an [operation](/operations.html) during the process instance lifetime. 
+The search index value can be fixed for the lifetime of a case or it can be updated with an [operation](/operations.md) during the process instance lifetime. 
 If you define a search index whose value is a variable (or an expression including a variable), the search index value is not automatically updated when the variable value changes. 
 You must use an operation to update the search index value at all points in the process definition where the variable value might change. 
 Note that you cannot update a search index in a form field operation, action, Groovy script or Connector.

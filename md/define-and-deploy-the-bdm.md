@@ -2,7 +2,7 @@
 
 The business data model is the definition of the business data that is shared by processes and process-based applications in a tenant.
 This page explains how to define the business data model and how to deploy it.
-After the model is defined, you can use it to [specify the business data used in a process](/specify-data-in-a-process-definition.html).
+After the model is defined, you can use it to [specify the business data used in a process](/specify-data-in-a-process-definition.md).
 
 **[Business data model (BDM)](#bdmmodel)**
 
@@ -69,7 +69,7 @@ The business data specified in the BDM is stored in a database. It requires two 
 During development, you can use the tools in the `h2-1.3.170.jar` in the workspace Tomcat library to view the business data in the h2 database.
 If you modify database content manually, there is risk of losing data and losing synchronization with business objects in a process instance. However, it can be useful to view the database for debugging processes. If you change the BDM during development, this can also cause problems in existing process definitions.
 
-When you are ready to go to production, you need to [configure a database and business data datasources for business data](/database-configuration-for-business-data.html) in your production environment.
+When you are ready to go to production, you need to [configure a database and business data datasources for business data](/database-configuration-for-business-data.md) in your production environment.
 
 ## BDM specification
 
@@ -90,7 +90,7 @@ A business object definition consists of the following:
 * A `persistenceId`, created automatically
 
 Business objects can be combined using [composition or aggregation](#compos) relationships. They are managed using standard create, read, update, delete actions.
-A business object can be read directly using the [Engine Java API](/javadoc.html) specifying the Java DAO, or using the [REST API](/bdm-api.html). To read a business object in a Groovy expression, use the DAO.
+A business object can be read directly using the [Engine Java API](/javadoc.md) specifying the Java DAO, or using the [REST API](/bdm-api.md). To read a business object in a Groovy expression, use the DAO.
 A business object can be updated only in a process, using an operation.
 
 ### Multiple
@@ -241,7 +241,7 @@ There are two ways to export a business data model: in a ZIP file for deployment
 
 To deploy the BDM, you export it as a ZIP file from Bonita BPM Studio and then import it into Bonita BPM Portal.
 
-**Warning:** Before deploying the business data model, you must [](/pause-and-resume-bpm-services.html)pause the service, so that the update can be performed without affecting ongoing processes. You are recommended to backup the database before deploying a new BDM.
+**Warning:** Before deploying the business data model, you must [](/pause-and-resume-bpm-services.md)pause the service, so that the update can be performed without affecting ongoing processes. You are recommended to backup the database before deploying a new BDM.
 
 Follow these steps:
 
@@ -286,7 +286,7 @@ Example contents of the `bom.xml` file:
 
 ## Business objects in processes
 
-When you design a process, you specify the variables to be used in the process. These can include variables that are instances of business objects defined in the BDM. You [define a business object variable](/specify-data-in-a-process-definition.html) in Bonita BPM Studio in a similar way to defining other process variables.
+When you design a process, you specify the variables to be used in the process. These can include variables that are instances of business objects defined in the BDM. You [define a business object variable](/specify-data-in-a-process-definition.md) in Bonita BPM Studio in a similar way to defining other process variables.
 
 ### persistenceID
 

@@ -71,7 +71,7 @@ Example:
 ## Task URL
 
 **Important:** A task is not automatically assigned to the user who accesses the task form.
-If a user is using Bonita BPM Portal, the assignment is automatic. However, if a user is accessing a form directly from an application, there must first be a [REST API call to assign the task to the user](/bpm-api.html#humantask).
+If a user is using Bonita BPM Portal, the assignment is automatic. However, if a user is accessing a form directly from an application, there must first be a [REST API call to assign the task to the user](/bpm-api.md#humantask).
 Otherwise, the user will not be able to execute the task.
 
 The following code samples show how to generate a link to a human task.
@@ -111,7 +111,7 @@ With the above format, the first task with the name "request approval" available
 
 ## Using autologin
 Bonita BPM 6.x URL syntax is supported in 7.x. Thus, 6.x autologin feature is supported in 7.0 version with 6.x URL syntax.
-Go to [Accessing Bonita BPM Portal and forms by URL 6.5 documentation](/bonita-bpm-portal-urls.html) for more information about this.
+Go to [Accessing Bonita BPM Portal and forms by URL 6.5 documentation](/bonita-bpm-portal-urls.md) for more information about this.
 
 ## URL parameter summary
 

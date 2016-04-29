@@ -14,4 +14,4 @@ when you first create it.
 
 Text annotations are useful to exchange information with other business analysts viewing or
 developing the process. They are also a useful way of storing information that might be required
-for process maintenance (similarly to comments in HTML source files).
+for process maintenance (similarly to comments in.md source files).

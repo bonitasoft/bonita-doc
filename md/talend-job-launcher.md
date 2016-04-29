@@ -22,7 +22,7 @@ To prepare the job in Talend Open Studio:
   * your job jar file, _`jobName_version`_`.jar`
 5. In Bonita BPM Studio, go to the **Development** menu, **Manage jars** option, and import the jar files listed above.
 
-When you [configure a process](/configuring-a-process.html) that uses this connector, you must add these jar files to the **Process dependencies**.
+When you [configure a process](/configuring-a-process.md) that uses this connector, you must add these jar files to the **Process dependencies**.
 
 To configure the Talend Job launcher connector, follow the steps in the wizard.
 

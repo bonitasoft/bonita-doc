@@ -21,12 +21,12 @@
 **Important notes:**
 
 * This documentation applies to an existing and working Bonita BPM installation
-(see the [installation instructions](/bonita-bpm-installation-overview.html)).
+(see the [installation instructions](/bonita-bpm-installation-overview.md)).
 * In order to have functioning Active Directory/LDAP authentication, the user login (username) must exist
 both in the LDAP directory and in the Bonita BPM database (user password is checked against the LDAP server but user
 information is read from Bonita BPM database).  
 We recommend that you use the [LDAP
-synchronizer](/ldap-synchronizer.html) to create Bonita BPM users in a Bonita BPM database.
+synchronizer](/ldap-synchronizer.md) to create Bonita BPM users in a Bonita BPM database.
 
 ## Overview
 
@@ -34,9 +34,9 @@ Bonita BPM can be configured to perform user authentication against an LDAP serv
 Apache Directory Server, or OpenLDAP.
 
 This type of configuration relies on a specific implementation of the Bonita BPM Engine authentication service that delegates the actual
-user name and password verification to a [JAAS](http://docs.oracle.com/javase/7/docs/technotes/guides/security/jaas/JAASRefGuide.html) service
+user name and password verification to a [JAAS](http://docs.oracle.com/javase/7/docs/technotes/guides/security/jaas/JAASRefGuide.md) service
 configured with an [LDAP
-specific Login Module](http://docs.oracle.com/javase/7/docs/jre/api/security/jaas/spec/com/sun/security/auth/module/LdapLoginModule.html).
+specific Login Module](http://docs.oracle.com/javase/7/docs/jre/api/security/jaas/spec/com/sun/security/auth/module/LdapLoginModule.md).
 
 ## Before you start
 
@@ -145,7 +145,7 @@ The following example is for a tenant with id 1:
 
 #### **Tomcat**
 
-On Tomcat, the JAAS configuration file follows the [default JVM syntax](http://docs.oracle.com/javase/7/docs/api/javax/security/auth/login/Configuration.html).
+On Tomcat, the JAAS configuration file follows the [default JVM syntax](http://docs.oracle.com/javase/7/docs/api/javax/security/auth/login/Configuration.md).
 Here is an example of JAAS configuration file:  
 `
 BonitaAuthentication-1 {

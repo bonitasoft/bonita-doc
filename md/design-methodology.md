@@ -120,7 +120,7 @@ in validation before testing the process.
 
 Bonita BPM Studio includes an environment for testing a process locally, before
 deployment. You can test the process without connectors by clicking **_Debug_**, test each connector
-independently using teh connector wizard **_Test_** button, then run the process by clicking **_Debug_** to test it with connectors. You need to [configure](/process-configuration-overview.html)
+independently using teh connector wizard **_Test_** button, then run the process by clicking **_Debug_** to test it with connectors. You need to [configure](/process-configuration-overview.md)
 the process before testing it locally.
 
 Bonita BPM Studio contains an example organization, ACME, which you can use for testing a
@@ -133,15 +133,15 @@ a limited number of users or cases.
 
 ## Deployment
 
-When testing is complete, the processes are ready to be deployed in Bonita BPM Portal and the application is ready to be put into production. You need to [configure](/process-configuration-overview.html) each process for
+When testing is complete, the processes are ready to be deployed in Bonita BPM Portal and the application is ready to be put into production. You need to [configure](/process-configuration-overview.md) each process for
 deployment before putting it into production.
 
 ## Specifying the organization
 
 Before you can run a process in production, you need to define your organization with entries for all process users,
 groups, and roles. You also need to map the process actors to the real people who will carry out process steps. 
-You can [manage your organization in Bonita BPM Portal](/organization-in-bonita-bpm-portal-overview.html) for a production system. 
-While you are in the testing phase, you can [manage the organization in Bonita BPM Studio](/organization-management-in-bonita-bpm-studio.html).
+You can [manage your organization in Bonita BPM Portal](/organization-in-bonita-bpm-portal-overview.md) for a production system. 
+While you are in the testing phase, you can [manage the organization in Bonita BPM Studio](/organization-management-in-bonita-bpm-studio.md).
 
 ## Monitoring and improvement
 

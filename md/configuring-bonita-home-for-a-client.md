@@ -1,6 +1,6 @@
 # 4.5.3 Configuring Bonita Home for a client
 
-This page explains how to set up a [Bonita home](/bonita-home.html) folder to configure properties for a client application. Every client application needs its own Bonita home.
+This page explains how to set up a [Bonita home](/bonita-home.md) folder to configure properties for a client application. Every client application needs its own Bonita home.
 
 The `bonita.home` system property points to the root directory for a client application of Bonita BPM. 
 The directory contains a `client` subdirectory, which contains a `conf` subdirectory. 

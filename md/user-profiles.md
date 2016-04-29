@@ -1,7 +1,7 @@
 # User profiles
 
-* [Profiles overview](profiles-overview.html)
-* [Administrator rights](administrator-rights.html)
-* [Process manager](process-manager.html)
-* [Custom profiles](custom-profiles.html)
-* [Deploying profiles with export and import](deploying-profiles-with-export-and-import.html)
+* [Profiles overview](profiles-overview.md)
+* [Administrator rights](administrator-rights.md)
+* [Process manager](process-manager.md)
+* [Custom profiles](custom-profiles.md)
+* [Deploying profiles with export and import](deploying-profiles-with-export-and-import.md)

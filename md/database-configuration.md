@@ -34,8 +34,8 @@ This provides a level of abstraction between the Engine and the RDBMS.
 Bonita BPM comes with a set of optimized initialization scripts for the [supported RDBMSs](https://customer.bonitasoft.com/support-policies).
 
 **Note:** This page explains database configuration for the Bonita BPM Engine database.
-If you are using [business data objects](/define-and-deploy-the-bdm.html), these are stored in a separate database.
-By default, the h2 database is used. For production we recommend that you [configure a different database for business data](/database-configuration-for-business-data.html).
+If you are using [business data objects](/define-and-deploy-the-bdm.md), these are stored in a separate database.
+By default, the h2 database is used. For production we recommend that you [configure a different database for business data](/database-configuration-for-business-data.md).
 
 ### Default h2 database
 
@@ -59,7 +59,7 @@ There are known issues with the management of XA transactions by MySQL engine an
 Thus, using MySQL database in a production environment is not recommended.
 
 There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft for the Tomcat bundle & inside Deploy bundle for Tomcat) and Microsoft SQL Server driver
-(refer to: [MSDN note](http://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html)).
+(refer to: [MSDN note](http://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.md)).
 Thus, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the JBoss bundle provided by Bonitasoft.
 
 **Warning:** Some RDBMSs require [specific configuration](#specific), which must be done before you complete your installation. 
@@ -85,10 +85,10 @@ Note: CREATE TABLE and CREATE INDEX are not required after first start.
 
 For creation of the database we recommend you refer to your RDBMS documentation:
 
-* [PostgreSQL](http://www.postgresql.org/docs/9.3/static/app-createdb.html)
+* [PostgreSQL](http://www.postgresql.org/docs/9.3/static/app-createdb.md)
 * [Oracle database](https://docs.oracle.com/cd/E11882_01/server.112/e25494/create.htm#ADMIN002)
 * [SQL Server](http://technet.microsoft.com/en-us/library/dd207005(v=sql.110).aspx)
-* [MySQL](http://dev.mysql.com/doc/refman/5.5/en/database-use.html)
+* [MySQL](http://dev.mysql.com/doc/refman/5.5/en/database-use.md)
 
 Your database must be configured to use the UTF-8 character set. You are recommended to configure the database to be case-insensitive so that searches in Bonita BPM Portal are case-insensitive.
 
@@ -137,10 +137,10 @@ Database vendor
 Download link
 
 PostgreSQL (use "Current Version")
-[download](http://jdbc.postgresql.org/download.html#current)
+[download](http://jdbc.postgresql.org/download.md#current)
 
 Oracle Database
-[download](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html)
+[download](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.md)
 
 Microsoft SQL Server
 [download](http://go.microsoft.com/fwlink/?LinkId=245496)
@@ -245,7 +245,7 @@ org.h2.Driver
 org.h2.jdbcx.JdbcDataSource
 
 The following sections show how to configuire the datasources for [JBoss](#ds_jboss) and [Tomcat](#ds_tomcat). 
-There is also an [example of how to configure datasources for Weblogic](/red-hat-oracle-jvm-weblogic-oracle.html#datasources).
+There is also an [example of how to configure datasources for Weblogic](/red-hat-oracle-jvm-weblogic-oracle.md#datasources).
 
 ### JBoss
 
@@ -257,7 +257,7 @@ This section explains how to configure the data sources if you are using JBoss:
 4. Modify the values for following settings to your configuration: server address, server port, database name, user name and password.
 
 **Note: ** for a first test, you might want to keep the h2 section related to Business Data Management (BDM) feature (driver and data sources configuration).
-You can update the [configuration related to BDM](/database-configuration-for-business-data.html) later.
+You can update the [configuration related to BDM](/database-configuration-for-business-data.md) later.
 
 ### Tomcat
 
@@ -292,7 +292,7 @@ The second data source run SQL queries outside any transaction. To configure it:
 ## Remove h2
 
 **Warning:** If you use the default configuration for business data (BDM), do not remove h2 yet. 
-First make sure that you have [configured Business Data](/database-configuration-for-business-data.html) to use your own RDBMS.
+First make sure that you have [configured Business Data](/database-configuration-for-business-data.md) to use your own RDBMS.
 
 Now that you are almost done with the switch from h2 to your chosen RDBMS, you can remove h2:
 
@@ -316,7 +316,7 @@ Configure the database to use UTF-8\.
 Edit `postgresql.conf` and set a non-zero value for `max_prepared_transactions`. 
 The default value, 0, disables prepared transactions, which is not recommended for Bonita BPM Engine. 
 The value should be at least as large as the value set for `max_connections` (default is typically 100). 
-See the [PostgreSQL documentation](http://www.postgresql.org/docs/9.3/static/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) for details.
+See the [PostgreSQL documentation](http://www.postgresql.org/docs/9.3/static/runtime-config-resource.md#GUC-MAX-PREPARED-TRANSACTIONS) for details.
 
 ### Oracle Database
 
@@ -475,7 +475,7 @@ Error: 1153 SQLSTATE: 08S01 (ER_NET_PACKET_TOO_LARGE) Message: Got a packet bigg
 You need to update the file `my.ini` (for Windows) or `my.cnf` (for Linux) to avoid the `ER_NET_PACKET_TOO_LARGE` problem.
 Look for `max_allowed_packet` settings and reduce the value.
 
-For more information, see the [MySQL website](http://dev.mysql.com/doc/refman/5.5/en/packet-too-large.html).
+For more information, see the [MySQL website](http://dev.mysql.com/doc/refman/5.5/en/packet-too-large.md).
 
 #### Surrogate characters not supported
 

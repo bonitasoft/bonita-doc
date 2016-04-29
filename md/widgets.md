@@ -1,7 +1,7 @@
 # 1.7.2.3 Widgets
 
 The UI designer is a tool for creating pages and forms for use in a BPM application. 
-A form is mapped to process instantiation or to a human task and must fulfill a [contract](/contracts-and-contexts.html). 
+A form is mapped to process instantiation or to a human task and must fulfill a [contract](/contracts-and-contexts.md). 
 A page is not mapped to any part of a process. 
 There is real no difference between a page and a form, so the procedure for designing them is the same. 
 Typically, a form has input fields and a submit button, though these can also be present in a page. This documentation uses the term _page_ for both pages and forms, unless otherwise stated.
@@ -56,7 +56,7 @@ Typically, a form has input fields and a submit button, though these can also be
 
 A page consists of widgets that are arranged in containers and rows. The UI designer provides a set of default widgets that you can use to design a page.
 The default widgets are available from the palette panel, which is on the left side of the Page editor. A widget has properties that control how it appears and how it is used. There are some general properties that all widgets have, and some properties that are specific to the widget type. 
-You can also create [custom widgets](/custom-widgets.html).
+You can also create [custom widgets](/custom-widgets.md).
 
 Each widget in the palette has a description. To show a widget description, just roll over the top right corner of the widget in the widget palette.
 
@@ -69,7 +69,7 @@ A row occupies the whole width of the page or container it is inside, which is c
 
 A container widget is used to hold other widgets. By default, a container has one row, where you can drop component widgets. You can use containers to control the layout of a page. 
 For example, you can create a two-column layout by placing two containers side by side in a row. 
-You can also make the page layout dynamic by [repeating a container to display a collection of data](/repeat-a-container-for-a-collection-of-data.html).
+You can also make the page layout dynamic by [repeating a container to display a collection of data](/repeat-a-container-for-a-collection-of-data.md).
 
 ### Adding a widget to a row
 
@@ -228,7 +228,7 @@ An extended table widget that provides column sorting, filtering, and paging in 
 
 Set the **Data source** to _Bonita API_ to populate the data table with records from a Bonita BPM REST API. 
 Then enter a REST API URL in the **URL** property. Use the **API request parameters** property to pass additional parameters to the request. 
-Supported parameters are described in the [REST API Overview](/rest-api-overview.html#standard_search_params) and in the REST API documentation for the relevant resource. 
+Supported parameters are described in the [REST API Overview](/rest-api-overview.md#standard_search_params) and in the REST API documentation for the relevant resource. 
 You do not need to specify paging parameters (such as `?p=0&c=10`), because the data table handles paging automatically when you use a Bonita API data source. 
 The value of the **Page size** property controls how many rows are displayed in a table view, and automatically adds buttons to show subsequent pages of the table.
 

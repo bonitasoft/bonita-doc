@@ -3,7 +3,7 @@
 An actor filter is implemented in Bonita BPM in two parts, the
 definition and the implementation. This enables you to change the
 implementation without changing the definition. Several implementations can be
-created for a single definition. See [here ](/actor-filtering.html)for a list of actor
+created for a single definition. See [here ](/actor-filtering.md)for a list of actor
 filters provided with the product.
 
 An actor filter is a type of connector and is created in the same way, using the same schema files as
@@ -180,7 +180,7 @@ specified actor name
 to assign the step to the user if filter returns one user
 
 For details of the APIs, the methods and related objects, see the 
-[Javadoc](/javadoc.html).
+[Javadoc](/javadoc.md).
 
 ### Actor filter example code
 

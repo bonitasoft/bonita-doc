@@ -29,7 +29,7 @@ External variables are used to fetch data from outside the page. This is typical
 a REST API.
 The call to the specified URL is done using an HTTP GET request. The result is stored in the page data model.
 You can parameterize the URL construction with other data using `{{variableName}}` syntax.
-You can retrieve information using the [Bonita REST APIs](/rest-api.html). Here are some examples:
+You can retrieve information using the [Bonita REST APIs](/rest-api.md). Here are some examples:
 
 * Get the id of the current user: API URL:
 `../API/system/session/{{userId}}`
@@ -41,10 +41,10 @@ This variable is evaluated every time the value of
 Retrieve the taskId:
 API URL: `../API/bpm/humanTask/{{taskId}}`
 * 
-Retrieve a [business object](/bdm-api.html) associated with a process instance:
+Retrieve a [business object](/bdm-api.md) associated with a process instance:
 API URL: `../API/bdm/businessDataReference/{{caseId}}/{{businessDataName}}`
 * 
-Retrieve business data using the reference in the [context](/contracts-and-contexts.html#context) when building a form.
+Retrieve business data using the reference in the [context](/contracts-and-contexts.md#context) when building a form.
 API URL: `../{{context.myBusinessData_ref.link}}`
 
 ### Expression variables
@@ -61,7 +61,7 @@ of an expression to a user input.
 
 ## Using a variable
 
-A variable is used with a [widget](/widgets.html).
+A variable is used with a [widget](/widgets.md).
 There are many ways to use a variable in widget properties.
 In a property containing text or HTML to be displayed in a widget, you can use the syntax _{{variableName}}_ in the content o make it dynamic the
 content. For example, you could display the users name in a welcome message.
@@ -74,7 +74,7 @@ A binding is dynamic, so every time the value of a variable changes, the whole d
 ## Bonita BPM forms
 
 One of the goals of the UI designer is to enable you to build forms for process instantiation and human tasks.
-The [context and contract](/contracts-and-contexts.html) decouple the UI from the process. The UI designer
+The [context and contract](/contracts-and-contexts.md) decouple the UI from the process. The UI designer
 retrieves the context in which a human task form executes. When a form is submitted for process instantiation or for a human task, the UI designer
 sends data to fulfil the contract.
 

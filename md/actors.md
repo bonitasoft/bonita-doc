@@ -62,9 +62,9 @@ defined for the pool, by selecting the actor from the drop-down
 list, or you can use an [actor
 filter](#Using_an_actor_filter).
 
-See [Custom user information in Bonita BPM Studio](/custom-user-information-in-bonita-bpm-studio.html)
+See [Custom user information in Bonita BPM Studio](/custom-user-information-in-bonita-bpm-studio.md)
 
-See [Custom user information in Bonita BPM Portal](/custom-user-information-in-bonita-bpm-portal.html)
+See [Custom user information in Bonita BPM Portal](/custom-user-information-in-bonita-bpm-portal.md)
 
 ## Setting the initiator
 
@@ -86,14 +86,14 @@ the list of predefined actor filters, just from the process
 definition.
 
 For information about creating a new actor filter, see
-[Creating an actor filter](/creating-an-actor-filter.html).
+[Creating an actor filter](/creating-an-actor-filter.md).
 
 ## Mapping an actor
 
 Before a process can be tested, you must map the actors in the process to
 users in the organization. Before you can do this, you must
 [define 
-your organization Bonita BPM Studio](/organization-management-in-bonita-bpm-studio.html) and upload it to Bonita BPM Portal.
+your organization Bonita BPM Studio](/organization-management-in-bonita-bpm-studio.md) and upload it to Bonita BPM Portal.
 
 To map the process actors:
 
@@ -112,7 +112,7 @@ Otherwise, you can configure the actor mappings in Bonita BPM Portal after the p
 
 The Bonita BPM Engine API contains a method to re-evaluate the assignment of a task by reapplying the actor mapping any actor filters. 
 This means that if there are changes in your organization, you can update any active process instances to assign tasks to the correct people.
-This is known as [dynamic task assignment](/manage-users.html#get_eligible).
+This is known as [dynamic task assignment](/manage-users.md#get_eligible).
 
 ## Export or import
 actor mapping
