@@ -89,7 +89,7 @@ replaced by
 the interpolated values. Specify a variable as a simple expression enclosed in double braces, using
 the
 same format as for a dynamic value field.
-```Example: I'm sorry, _{{ user.name | uppercase }}_. I'm afraid I can't do that.```
+```Example: I'm sorry, _{{ user.name | uppercase }}_. I'm afraid I can't do that.```
 
 
 
