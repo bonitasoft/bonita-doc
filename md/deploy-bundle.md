@@ -37,11 +37,11 @@ or from the [Customer Portal](https://customer.bonitasoft.com/download/request) 
 2. Unzip the `deploy.zip` into a temporary folder.
 3. Install Bonita BPM in your Application Server, by merging the appropriate folder (e.g. `Jboss-7.1.1.Final` or `Tomcat-7.0.55`) from `BonitaBPMSubscription-6.x.y-deploy` folder 
 into the existing root folder of your application server.
-4. If you do not want to use the h2 database, you need to specify the [database configuration](/database-configuration.md). The h2 database is not suitable for a production environment.
+4. If you do not want to use the h2 database, you need to specify the [database configuration](database-configuration.md). The h2 database is not suitable for a production environment.
 
 ## License installation
 
-If you are installing a Subscription edition, you need to [request a license](/licenses.md). 
+If you are installing a Subscription edition, you need to [request a license](licenses.md). 
 
 When you receive your license, copy the file to the `var_bh_code_replace/server/licenses` folder of your application server.
 
@@ -53,4 +53,4 @@ and change the value of the `activeProfiles` key to `'community,performance'`. N
 
 ## Next steps
 
-When you have finished installing the deploy bundle, [complete the setup](/first-steps-after-setup.md) of your system by validating the installation, setting passwords, and creating the Administrator user.
+When you have finished installing the deploy bundle, [complete the setup](first-steps-after-setup.md) of your system by validating the installation, setting passwords, and creating the Administrator user.

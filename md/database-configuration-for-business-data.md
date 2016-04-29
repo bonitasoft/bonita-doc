@@ -2,7 +2,7 @@
 
 ## Configuration overview
 
-If you are using [business data](/define-and-deploy-the-bdm.md), the business objects used in your processes are stored using a separate database, not in the main database that is used by the Bonita BPM Engine. 
+If you are using [business data](define-and-deploy-the-bdm.md), the business objects used in your processes are stored using a separate database, not in the main database that is used by the Bonita BPM Engine. 
 You need to configure the following:
 
 * A database created in a [supported RDBMS](https://customer.bonitasoft.com/support-policies)
@@ -64,7 +64,7 @@ The data sources for business data objects are independent of the Bonita BPM Eng
 If you have multiple tenants that use business data objects, you need to create a `BusinessDataDS` and a `NotManagedBizDataDS` for each tenant.
 
 The following sections show how to configuire the data sources for [JBoss](#ds_jboss) and [Tomcat](#ds_tomcat). 
-There is also an [example of how to configure data sources for Weblogic](/red-hat-oracle-jvm-weblogic-oracle.md#datasources).
+There is also an [example of how to configure data sources for Weblogic](red-hat-oracle-jvm-weblogic-oracle.md#datasources).
 
 ### Configuration for JBoss
 

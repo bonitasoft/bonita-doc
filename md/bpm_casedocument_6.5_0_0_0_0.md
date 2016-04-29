@@ -208,7 +208,7 @@ Payload
   
 ### Search for a document
 
-You can use a single GET method to return all the documents that match the specified filters and [search parameters](/rest-api-overview.md#standard_search_params).
+You can use a single GET method to return all the documents that match the specified filters and [search parameters](rest-api-overview.md#standard_search_params).
 Request url
 http://../API/bpm/caseDocument?parameters
 
@@ -230,9 +230,9 @@ It is possible to filter on three parameters: submittedBy, name and description.
 
 * submittedBy="id": search for documents that were submitted by the user with the specified identifier.
 * name="string": search for documents with names that contain _`string`_. 
-Depending on the setting for [word-based search](/using-list-and-search-methods.md), the search returns documents with _`string`_ at the start of the name or the start of a word in the name.
+Depending on the setting for [word-based search](using-list-and-search-methods.md), the search returns documents with _`string`_ at the start of the name or the start of a word in the name.
 * description="string": search for documents with descriptions that contain _`string`_. 
-Depending on the setting for [word-based search](/using-list-and-search-methods.md), the search returns documents with _`string`_ at the start of the description or the start of a word in the description.
+Depending on the setting for [word-based search](using-list-and-search-methods.md), the search returns documents with _`string`_ at the start of the description or the start of a word in the description.
 
 #### Example with filter parameter
 

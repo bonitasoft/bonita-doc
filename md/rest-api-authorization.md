@@ -259,7 +259,7 @@ and dynamic check scripts available immediately.
 
 ## User login
 
-When a user logs in, after the user is [authenticated](/user-authentication-overview.md), a map of `LoggedUserPermissions` is created.
+When a user logs in, after the user is [authenticated](user-authentication-overview.md), a map of `LoggedUserPermissions` is created.
 `LoggedUserPermissions` is a combination of the information from `compound-permissions-mapping.properties` and
 `CustomUserPermissionsMapping` that is relevant to the user.
 It takes into account all the profiles assigned to the user, not only the current profile, so when you change profile the map does not need to be recreated.
@@ -272,17 +272,17 @@ needed to access the resource (or page), and checks the `LoggedUserPermissions` 
 If so, the user is authorized.
 Otherwise, access is refused.
 If access is not authorized, a message is written in the log so that the Administrator is aware that an unauthorized user has tried to gain access.
-Note that this level of logging is only available if you [set the logging level](/logging.md) to `FINEST`.
+Note that this level of logging is only available if you [set the logging level](logging.md) to `FINEST`.
 
 ## Authorizing access to a custom page
 
-When a new [custom page](/pages.md) is added, the permissions defined in the page properties are added to the permissions configuration files and the cache.
+When a new [custom page](pages.md) is added, the permissions defined in the page properties are added to the permissions configuration files and the cache.
 It is not necessary to restart the applications server to activate security for the new custom page.
 Depending on the permissions that a user of the page already has, it might be necessary to log out and log in again to get access to the new custom page.
 
 ## Authorization and custom profiles
 
-When a new [custom profile](/custom-profiles.md) is created, the permissions mappings are updated in the configuration files and in the cache.
+When a new [custom profile](custom-profiles.md) is created, the permissions mappings are updated in the configuration files and in the cache.
 It is not necessary to restart the application server to activate security for the new custom profile.
 
 ## Activating and deactivating authorization
@@ -317,11 +317,11 @@ When you migrate from a version earlier than 6.4.0, authorization is configured 
 If you have an existing custom page and want to activate authorization, you need to add permissions to the definition of the custom page.
 To add authorization to an existing custom page:
 
-1. Export the [custom page](/pages.md).
-2. Update the page properties with [permissions](/pages.md#permissions).
+1. Export the [custom page](pages.md).
+2. Update the page properties with [permissions](pages.md#permissions).
 3. Activate authorization, by editing `security-config.properties` and setting the value of the `security.rest.api.authorizations.check.enabled` property to `true`.
 4. Restart the application server.
-5. Import the [custom page](/pages.md).
+5. Import the [custom page](pages.md).
 
 If you have an existing custom profile, the permissions relating to the profiles is automatically added to the permissions files, so you do not need to update the profile.
 However, if a custom profile use a custom page, you must update the custom page definition to add permissions before you activate authorization.

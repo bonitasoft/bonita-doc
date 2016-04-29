@@ -21,11 +21,11 @@ The **User profile** is responsible for performing the tasks for which they are 
 
 Each profile has access to a diferent set of drop down menus, containing filters and action buttons corresponding to their user rights.
 
-Note: A user with an admin profile has to be created by the technical user in order to manage the organization and other users. See [First steps after setup/Create an Administrator user](/first-steps-after-setup.md).
+Note: A user with an admin profile has to be created by the technical user in order to manage the organization and other users. See [First steps after setup/Create an Administrator user](first-steps-after-setup.md).
 
-See also [Profiles overview](/profiles-overview.md).
+See also [Profiles overview](profiles-overview.md).
 
-See also [Custom profiles](/custom-profiles.md).
+See also [Custom profiles](custom-profiles.md).
 
 Example of the Administrator interface
 

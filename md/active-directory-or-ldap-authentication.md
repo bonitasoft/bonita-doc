@@ -21,12 +21,12 @@
 **Important notes:**
 
 * This documentation applies to an existing and working Bonita BPM installation
-(see the [installation instructions](/bonita-bpm-installation-overview.md)).
+(see the [installation instructions](bonita-bpm-installation-overview.md)).
 * In order to have functioning Active Directory/LDAP authentication, the user login (username) must exist
 both in the LDAP directory and in the Bonita BPM database (user password is checked against the LDAP server but user
 information is read from Bonita BPM database).  
 We recommend that you use the [LDAP
-synchronizer](/ldap-synchronizer.md) to create Bonita BPM users in a Bonita BPM database.
+synchronizer](ldap-synchronizer.md) to create Bonita BPM users in a Bonita BPM database.
 
 ## Overview
 

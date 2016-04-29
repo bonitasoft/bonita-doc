@@ -33,7 +33,7 @@ This directory contains a sample configuration.
 
 Create a dedicated bonita.home for the LDAP Synchronizer, and set the API access mode used by the LDAP Synchronizer, by editing the bonita-client-custom.properties file. 
 The LDAP Synchronizer can use the HTTP, or EJB3 modes, but not local access. For more information about API access modes, 
-see the [Development overview](/development-overview.md).
+see the [Development overview](development-overview.md).
 
 There is a var\_bonita\_home directory in the deploy zip that can be used. Copy this directory into the LDAP synchronizer directory.
 
@@ -55,7 +55,7 @@ All configurations files can be found in the conf directory.
 **Note**: to use a special character in a properties file, use the Unicode equivalent. For example, for à use \\u00E0\. 
 You can use a tool such as [native2ascii](http://docs.oracle.com/javase/7/docs/technotes/tools/solaris/native2ascii.md) to convert any special characters in the configuration files to Unicode.
 
-You also need to [create a dedicated bonita.home](/configuring-bonita-home-for-a-client.md) for the LDAP Synchronizer.
+You also need to [create a dedicated bonita.home](configuring-bonita-home-for-a-client.md) for the LDAP Synchronizer.
 
 **Note:** This is not the same as the bonita.home used by the server. Every client needs its own bonita.home.
 
@@ -78,11 +78,11 @@ Password of the Bonita BPM account used for synchronization.
 install
 
 technicalUser
-This is the [username of the platform adminstrator](/first-steps-after-setup.md#reset_pw).
+This is the [username of the platform adminstrator](first-steps-after-setup.md#reset_pw).
 platformAdmin
 
 technicalPassword
-This is the [password of the platform adminstrator](/first-steps-after-setup.md#reset_pw).
+This is the [password of the platform adminstrator](first-steps-after-setup.md#reset_pw).
 platform
 
 ### ldap.properties
@@ -354,7 +354,7 @@ where `x.y.z` is the version of Bonita BPM you are running.
 ## Using the LDAP synchronizer in a non-default tenant
 
 **Installation:** The LDAP Synchronizer is installed on the platform as described above. 
-After installation, Check that the ["User" profile](/profiles-overview.md) is defined for the tenant. 
+After installation, Check that the ["User" profile](profiles-overview.md) is defined for the tenant. 
 The default tenant has a "User" profile by default, but it must be created manually when a tenant is created. 
 The LDAP synchronizer will fail if this profile is not defined.
 

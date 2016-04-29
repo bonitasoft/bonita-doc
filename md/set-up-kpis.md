@@ -97,6 +97,6 @@ This implementation option is preferred for performance and flexibility reasons:
 
 The disadvantage with this implementation option is that it requires basic SQL knowledge because you have to write insertion queries manually.
 
-To configure this option, use a [database connector](/database.md) to insert a row in the reporting database.
+To configure this option, use a [database connector](database.md) to insert a row in the reporting database.
 
 Use the datasource database connector with connection pooling for improved performance.

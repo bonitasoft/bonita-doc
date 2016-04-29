@@ -132,7 +132,7 @@ Each unit of work uses a non-blocking queued executor mechanism and is thus asyn
 As a consequence of the design, when an asynchronous work unit originates from an API call (which might be a result of a human action), then the call returns and ends the transaction.
 The work unit is then executed as soon as possible, asynchronously, in a separate transaction.
 For this reason, a task that is being initialized might not yet be ready for execution, but will be executable after a short wait while the transactions are managed.
-A client application therefore needs to poll regularly, or write an [event handler](/event-handlers.md), to check when the asynchronous work unit is finished.
+A client application therefore needs to poll regularly, or write an [event handler](event-handlers.md), to check when the asynchronous work unit is finished.
 
 ## Summary of state types
 

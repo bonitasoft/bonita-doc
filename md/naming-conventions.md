@@ -7,7 +7,7 @@ For example, you cannot have two variables called `beanCounter` in a diagram, ev
 You could, however, have a variable called `beanCounter` and an actor called `beanCounter`.
 
 Note: Variables are not shared between Studio and UI Designer. Furthermore, in the UI Designer, variables are not shared between pages. 
-For information about to use variables in the UI Designer, go to [Variables](/variables.md).
+For information about to use variables in the UI Designer, go to [Variables](variables.md).
 
 Even in a relatively simple process, the number of names quickly becomes large. Adopting a naming strategy improves the readability and maintainability of your processes, and makes it easier to reuse elements. We propose the following best practises.
 

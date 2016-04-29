@@ -32,7 +32,7 @@ You cannot re-order operations after they are defined, so you need to define the
 The BO instance must exist in the business data database; otherwise the operator throws an exception. 
 The BO instance is not modified during the operation but from that point onward, any expression or operation in the process can reference this object instance to make changes.  
 If it uses a _Script expression type_, you can use the contract inputs to fill in the BO attributes. 
-Go to [Initialize BDM attributes from contract inputs in task operations](/define-and-deploy-the-bdm.md#initBDM_task) for more information.
+Go to [Initialize BDM attributes from contract inputs in task operations](define-and-deploy-the-bdm.md#initBDM_task) for more information.
 * _**isDeleted**_ - an operator 'Is Deleted' can be called on a business data variable. The BO instance that the business data references is deleted from the database, at runtime, after the task is completed. 
 The process designer should avoid calling other operations on the same business data variable within the same group of operations/actions.
 

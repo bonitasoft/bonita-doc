@@ -4,11 +4,11 @@ This page explains how to add a resource to the Bonita BPM Portal and make it av
 
 It is typed and can be one of the following:
 
-* [Page](/pages.md)
-* [Form](/forms.md)
-* [Layout](/layouts.md)
-* [Theme](/themes.md)
-* [API extension](/rest-api-extensions.md)
+* [Page](pages.md)
+* [Form](forms.md)
+* [Layout](layouts.md)
+* [Theme](themes.md)
+* [API extension](rest-api-extensions.md)
 
 **[Resource definition](#resource_definition)**
 
@@ -46,7 +46,7 @@ If a resouce contains both `Index.groovy` and `index.html`, the Groovy class tak
 
 ## Authorization permissions for resources
 
-If you are using [REST API authorization](/rest-api-authorization.md) and your resource needs the Web REST API, 
+If you are using [REST API authorization](rest-api-authorization.md) and your resource needs the Web REST API, 
 you need to specify the permissions that a user needs to have in order to access those API. 
 These permissions are defined in the `page.properties` file. If your resources is a page written in Groovy and uses the Bonita BPM Engine Java APIs, you do not need to specify permissions.
 For each REST resource accessed in other resources, specify the authorization needed for each method used. 
@@ -85,9 +85,9 @@ To add a resource to the portal, import a zip archive that contains the [resourc
 3. In the Content field, specify the zip archive to be imported. Click in the field, then specify the location and filename in the popup.
 4. Click **_Add_**. The resource is added to the portal
 
-If you have specified a resource permission that is not defined in the [REST API authorization configuration](/rest-api-authorization.md) and REST API authorization is configured to be on, you will see an error message.
+If you have specified a resource permission that is not defined in the [REST API authorization configuration](rest-api-authorization.md) and REST API authorization is configured to be on, you will see an error message.
 
-After a resource is added to the portal, it can be used in an [application](/applications.md) or in[a custom profile](#custom-profiles-2).
+After a resource is added to the portal, it can be used in an [application](applications.md) or in[a custom profile](#custom-profiles-2).
 
 ## Modifying a resource
 

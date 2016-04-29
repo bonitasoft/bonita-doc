@@ -22,7 +22,7 @@ What customization can I do?
 8. Refresh the portal webpage.
 9. The new profile will appear in the Profiles menu.
 
-For deployment, it is also possible to [import a profile](/deploying-profiles-with-export-and-import.md) by importing an XML file containing the profile definition and mapping to organization and pages.
+For deployment, it is also possible to [import a profile](deploying-profiles-with-export-and-import.md) by importing an XML file containing the profile definition and mapping to organization and pages.
 
 ## Delete custom profile
 
@@ -65,7 +65,7 @@ A custom navigation bar can be created for each custom profile created.
 Here, you will see 3 columns: a check box, a display name and a description.
 5. Check the boxes to select the pages to include in the new menu.
 
-You can select from the Default pages that are provided with the standard portal and from [Custom pages](/pages.md).
+You can select from the Default pages that are provided with the standard portal and from [Custom pages](pages.md).
 6. Click _**Create**_ to confirm your choice of pages and create the menu.
 
 When you select the custom profile, the navigation bar will be applied to it.

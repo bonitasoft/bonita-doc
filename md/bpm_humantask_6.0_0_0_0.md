@@ -122,7 +122,7 @@ An array of humanTask objects
 
 #### Example
 
-Get the human tasks that have been skipped. The results are paged using the [standard search parameters](/rest-api-overview.md#standard_search_params), with a maximum of 10 results returned in each page. The first set of results are returned. In this example, two results are returned.
+Get the human tasks that have been skipped. The results are paged using the [standard search parameters](rest-api-overview.md#standard_search_params), with a maximum of 10 results returned in each page. The first set of results are returned. In this example, two results are returned.
 Request url
 GET |http://host:8080/bonita/API/bpm/humanTask?p=0&c=10&f=state=skipped
 

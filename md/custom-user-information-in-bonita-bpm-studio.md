@@ -106,7 +106,7 @@ Note that the filters will not work if users have changed values and not re-publ
 16. Add a value
 17. The name of the information and its value is displayed in the custom tab
 
-Note: this value can be changed by a user with the Admin profile in Bonita BPM Portal. See [How to edit Custom information for a single user](/custom-user-information-in-bonita-bpm-portal.md)
+Note: this value can be changed by a user with the Admin profile in Bonita BPM Portal. See [How to edit Custom information for a single user](custom-user-information-in-bonita-bpm-portal.md)
 
 If the value is changed in Bonita BPM Portal by the admin, and the filter value does not exist in the organization
 

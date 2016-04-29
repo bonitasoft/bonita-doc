@@ -60,7 +60,7 @@ To add and use this asset:
 ### Localization asset (Subscription editions only)
 
 The localization asset of a page is a local file called `localization.json` that contains the text presented in the page with translations into the languages that you want to support. 
-This enables you to create [multi-language pages](/multi-language-pages.md).
+This enables you to create [multi-language pages](multi-language-pages.md).
 
 A page cannot have more than one localization asset. When you upload a new `localization.json` asset file, it overwrites the existing one.
 

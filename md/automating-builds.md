@@ -49,8 +49,8 @@ If enabled, you can point the `repoPath` argument to a repository of an older ve
 The processes in the older version repository will be automatically migrated to the current version.
 
 `environment`
-The [environment](/environments.md) with which the bar files will be built. 
-The environment defines the [process configuration](/configuring-a-process.md), including dependencies. 
+The [environment](environments.md) with which the bar files will be built. 
+The environment defines the [process configuration](configuring-a-process.md), including dependencies. 
 If you do not specify an environment, the exported bar file will not contain the dependencies. 
 All the specified processes are built for the same environment. 
 If you want to build for different environments, you need to run the script once for each environment.
@@ -69,12 +69,12 @@ When the script runs, information is logged in `workspace/.metadata/.log`.
 
 ## Deploying a process bar file
 
-From the bar file, a process can be [deployed manually using Bonita BPM Portal](/processes.md). 
-You can also [deploy a process using the Engine API](/manage-a-process.md#deploy).
+From the bar file, a process can be [deployed manually using Bonita BPM Portal](processes.md). 
+You can also [deploy a process using the Engine API](manage-a-process.md#deploy).
 
 ## Deploying a REST API extension file
 
-From the zip file, a REST API extension can be [deployed manually using Bonita BPM Portal](/api-extensions.md#install). 
+From the zip file, a REST API extension can be [deployed manually using Bonita BPM Portal](api-extensions.md#install). 
 You can also deploy a REST API extension using the REST API.
 
 ## Automate build of a specific REST API extension

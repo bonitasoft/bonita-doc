@@ -12,7 +12,7 @@ Warning: It is possible to manage the lifecycle of a node using the API to conne
 A node that will be in a cluster is installed in exactly the same way as a standalone node. 
 
 1. Follow the instructions to [install the 
-Tomcat bundle on Ubuntu](/ubuntu-openjdk-tomcat-postgresql.md).
+Tomcat bundle on Ubuntu](ubuntu-openjdk-tomcat-postgresql.md).
 2. In var\_bonita\_home, update `engine-server/conf/platform/bonita-platform-sp-custom.properties` and set the `bonita.cluster` property to `true`.
 3. In order to use cluster mode in environments where multicast is disabled (like main IaaS providers), you should switch to TcpIp mode, or AWS for Amazon Web Services cloud provider. This can be parametered in `/engine-server/conf/platform-sp-cluster-custom.properties.`Only one mode can be selected, so only one of the following properties must be set to true: 
   * `bonita.platform.cluster.hazelcast.multicast.enabled` for multicast discovery, activated by default.

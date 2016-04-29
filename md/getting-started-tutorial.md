@@ -415,7 +415,7 @@ Manager review operations
 
 ### Specify actors
 
-The next stage is to define who carries out the steps in the process. This is done by assigning [actors](/actors.md). 
+The next stage is to define who carries out the steps in the process. This is done by assigning [actors](actors.md). 
 An actor is a placeholder for the person who will do a task. 
 When you configure a process, you make the connection between the actors defined in the process definition and the real-world people who will do process steps. 
 Bonita BPM Studio comes with a test organization, called ACME, which you can use for testing. In this example, we have two people, the employee who initiates the process, and the employee's manager.

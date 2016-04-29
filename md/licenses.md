@@ -12,7 +12,7 @@ Bonita BPM 7.1 introduces a new Bonita BPM Subscription Pack edition licensing m
 
 The **_License_** menu in Bonita BPM Portal displays information about the current license. This information is available to the platform administrator only.
 
-The [license for Bonita BPM Studio](/bonita-bpm-studio-installation.md#license) is installed using a wizard when you start the studio for the first time after installation (or after the previous license expires).
+The [license for Bonita BPM Studio](bonita-bpm-studio-installation.md#license) is installed using a wizard when you start the studio for the first time after installation (or after the previous license expires).
 
 ## Case-counter licensing
 
@@ -22,7 +22,7 @@ Each time a case starts, the case counter is increased by one.
 Case-counter licenses are available for development and for production. A development license must not be used for production, and typically has a lower case limit than a production license. 
 The maximum number of cases is defined in your commercial contract, in discussion with your sales person.
 
-As well as using Bonita BPM Portal, you can monitor the case counter using the [REST API](/platform-api.md#license). You can also check the expiration date of the license with the REST API.
+As well as using Bonita BPM Portal, you can monitor the case counter using the [REST API](platform-api.md#license). You can also check the expiration date of the license with the REST API.
 
 When the case counter reaches the limit set in the license, no more cases can be started. Active cases continue to completion.
 
@@ -35,7 +35,7 @@ A legacy license has an expiration date but no case limit.
 
 Shortly before the license expiration date, an email message is sent to the address where the previous license was sent.
 The exact number of days before the expiration this reminder message is sent depends on your subscription and is set 
-by the sales person you talk to, when purchasing the first license (so if you have a specific need, discuss it with them). You can also check the expiration date using the [REST API](/platform-api.md#license). This is useful if the email address previously used is no longer active, or if the recipient is not checking email (for example, during vacation).
+by the sales person you talk to, when purchasing the first license (so if you have a specific need, discuss it with them). You can also check the expiration date using the [REST API](platform-api.md#license). This is useful if the email address previously used is no longer active, or if the recipient is not checking email (for example, during vacation).
 
 A legacy license is limited to a preset number of CPU cores. A development license is limited to two CPU cores. 
 A production license can allow four CPU cores or more. If your server has more CPU cores than the number allocated to Bonita BPM execution in your license, you will need to limit the number of cores available to Bonita BPM Platform.
@@ -83,7 +83,7 @@ When you receive the license file (`.lic` file extension) copy it to the `server
 
 ## License renewal
 
-To renew your license, you need the request key, which you can get using the script, from the Bonita BPM Portal page, or by using the [REST API](/platform-api.md#license).
+To renew your license, you need the request key, which you can get using the script, from the Bonita BPM Portal page, or by using the [REST API](platform-api.md#license).
 
 For either type of license, if you are still within the Subscription period when you approach the license expiration date, request a new license that starts on the last day of your current license. 
 Put the license you receive in the license folder alongside the existing license. 

@@ -34,8 +34,8 @@ This provides a level of abstraction between the Engine and the RDBMS.
 Bonita BPM comes with a set of optimized initialization scripts for the [supported RDBMSs](https://customer.bonitasoft.com/support-policies).
 
 **Note:** This page explains database configuration for the Bonita BPM Engine database.
-If you are using [business data objects](/define-and-deploy-the-bdm.md), these are stored in a separate database.
-By default, the h2 database is used. For production we recommend that you [configure a different database for business data](/database-configuration-for-business-data.md).
+If you are using [business data objects](define-and-deploy-the-bdm.md), these are stored in a separate database.
+By default, the h2 database is used. For production we recommend that you [configure a different database for business data](database-configuration-for-business-data.md).
 
 ### Default h2 database
 
@@ -245,7 +245,7 @@ org.h2.Driver
 org.h2.jdbcx.JdbcDataSource
 
 The following sections show how to configuire the datasources for [JBoss](#ds_jboss) and [Tomcat](#ds_tomcat). 
-There is also an [example of how to configure datasources for Weblogic](/red-hat-oracle-jvm-weblogic-oracle.md#datasources).
+There is also an [example of how to configure datasources for Weblogic](red-hat-oracle-jvm-weblogic-oracle.md#datasources).
 
 ### JBoss
 
@@ -257,7 +257,7 @@ This section explains how to configure the data sources if you are using JBoss:
 4. Modify the values for following settings to your configuration: server address, server port, database name, user name and password.
 
 **Note: ** for a first test, you might want to keep the h2 section related to Business Data Management (BDM) feature (driver and data sources configuration).
-You can update the [configuration related to BDM](/database-configuration-for-business-data.md) later.
+You can update the [configuration related to BDM](database-configuration-for-business-data.md) later.
 
 ### Tomcat
 
@@ -292,7 +292,7 @@ The second data source run SQL queries outside any transaction. To configure it:
 ## Remove h2
 
 **Warning:** If you use the default configuration for business data (BDM), do not remove h2 yet. 
-First make sure that you have [configured Business Data](/database-configuration-for-business-data.md) to use your own RDBMS.
+First make sure that you have [configured Business Data](database-configuration-for-business-data.md) to use your own RDBMS.
 
 Now that you are almost done with the switch from h2 to your chosen RDBMS, you can remove h2:
 

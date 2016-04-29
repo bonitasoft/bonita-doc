@@ -33,19 +33,19 @@ This means that you can rapidly adapt an application to your changing business n
 
 An application is a collection of pages and processes that meets a business need. It contains some or all of the following:
 
-* [Pages](/pages.md): the user interface components of the application. An application must contain at least one page.
-* [Processes](/processes.md): the logic execution components of the application. An application must contain at least one process. A process can contain [forms](/forms.md), which are the user interface of the process.
-* [REST API extensions](/rest-api-extensions.md): called from pages or forms to retrieve data to be presented to the user.
-* [Layout](/layouts.md): the frame in which application pages are displayed.
-* [Theme](/themes.md): the appearance of application pages, including fonts and colors.
+* [Pages](pages.md): the user interface components of the application. An application must contain at least one page.
+* [Processes](processes.md): the logic execution components of the application. An application must contain at least one process. A process can contain [forms](forms.md), which are the user interface of the process.
+* [REST API extensions](rest-api-extensions.md): called from pages or forms to retrieve data to be presented to the user.
+* [Layout](layouts.md): the frame in which application pages are displayed.
+* [Theme](themes.md): the appearance of application pages, including fonts and colors.
 
 ## Application prerequisites
 
 An application requires the following to be available:
 
-* The [business data model](/bdm-management-in-bonita-bpm-portal.md) (BDM) must be deployed
-* The [organization](/organization-in-bonita-bpm-portal-overview.md) data must be deployed, so that application users can log in.
-* The access [authorizations](/rest-api-authorization.md) that grant users access to the application resources must be defined.
+* The [business data model](bdm-management-in-bonita-bpm-portal.md) (BDM) must be deployed
+* The [organization](organization-in-bonita-bpm-portal-overview.md) data must be deployed, so that application users can log in.
+* The access [authorizations](rest-api-authorization.md) that grant users access to the application resources must be defined.
 
 ## Developing an application
 
@@ -87,7 +87,7 @@ However, at this stage the application contains only the default home page. You 
 
 ### Specifying application layout (Subscription editions)
 
-Each application is associated with a [layout](/layouts.md) that defines the main frame of this application.
+Each application is associated with a [layout](layouts.md) that defines the main frame of this application.
 
 To specify the application layout:
 
@@ -100,7 +100,7 @@ To specify the application layout:
 
 ### Specifying application theme (Subscription editions)
 
-Each application is associated with a [theme](/themes.md) that defines the application appearance. All pages developed with the [UI Designer](/ui-designer-overview.md) will automatically benefit of application theme.
+Each application is associated with a [theme](themes.md) that defines the application appearance. All pages developed with the [UI Designer](ui-designer-overview.md) will automatically benefit of application theme.
 If you develop pages by yourself you need to include the following line in your source to get theme working ``.
 
 To specify the application theme:
@@ -114,7 +114,7 @@ To specify the application theme:
 
 ### Specifying application pages
 
-When you specify application pages, you create a mapping between the application and the [pages](/pages.md) it contains. The pages themselves must already exist.
+When you specify application pages, you create a mapping between the application and the [pages](pages.md) it contains. The pages themselves must already exist.
 
 To specify the application pages:
 
@@ -198,7 +198,7 @@ If you are setting up a new production environment by importing all the data, im
 * processes (including forms)
 * applications
 
-You will also need to apply any [custom authorization](/rest-api-authorization.md) definitions.
+You will also need to apply any [custom authorization](rest-api-authorization.md) definitions.
 
 To import applications:
 
@@ -231,10 +231,10 @@ You can reorder menus and menu items by dragging and dropping them.
 
 ### Updating application resources
 
-Some resources of an application can be updated live without needing to stop the processes or require users to log out of the application. [Live update](/live-update.md) is primarily intended for rapid deployment of updates in a pre-production test environment. It can be used to deploy updates in a production environment, but in most production environments applications and their components are versioned, so a planned roll-out is more typical.
+Some resources of an application can be updated live without needing to stop the processes or require users to log out of the application. [Live update](live-update.md) is primarily intended for rapid deployment of updates in a pre-production test environment. It can be used to deploy updates in a production environment, but in most production environments applications and their components are versioned, so a planned roll-out is more typical.
 
 You can use live update for the following resources:
 
-* [Pages and forms](/live-update.md#forms)
-* [Parameters](/live-update.md#parameters)
-* [Connectors](/live-update.md#connectors)
+* [Pages and forms](live-update.md#forms)
+* [Parameters](live-update.md#parameters)
+* [Connectors](live-update.md#connectors)

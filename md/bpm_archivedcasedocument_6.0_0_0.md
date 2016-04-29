@@ -39,7 +39,7 @@ The methods used for this resource are:
 
 ### Search for a document
 
-You can use a single GET method to return all the documents that match the specified filters and [search parameters](/rest-api-overview.md#standard_search_params).
+You can use a single GET method to return all the documents that match the specified filters and [search parameters](rest-api-overview.md#standard_search_params).
 Request url
 http://../API/bpm/archivedCaseDocument?parameters
 
@@ -65,9 +65,9 @@ This is useful if you know the id of a caseDocument and you wish to retrieve all
 * archivedCaseId="id": search for documents with the specified archvied case id.
 * submittedBy="id": search for documents that were submitted by the user with the specified identifier.
 * name="string": search for documents with names that contain _`string`_. 
-Depending on the setting for [word-based search](/using-list-and-search-methods.md), the search returns documents with _`string`_ at the start of the name or the start of a word in the name.
+Depending on the setting for [word-based search](using-list-and-search-methods.md), the search returns documents with _`string`_ at the start of the name or the start of a word in the name.
 * description="string": search for documents with descriptions that contain _`string`_. 
-Depending on the setting for [word-based search](/using-list-and-search-methods.md), the search returns documents with _`string`_ at the start of the description or the start of a word in the description.
+Depending on the setting for [word-based search](using-list-and-search-methods.md), the search returns documents with _`string`_ at the start of the description or the start of a word in the description.
 
 #### Examples
 

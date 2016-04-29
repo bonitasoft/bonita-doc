@@ -14,9 +14,9 @@ You can test some process components individually:
 You can run the process in debug mode, with the option to skip connector execution: click **_Debug_** in the Cool bar.
 
 You can run the process locally, launching it from Bonita BPM Studio without first deploying it to Bonita BPM Portal. 
-You must [create a test organization](/configure-a-test-organization.md)
-and [configure a process](/configuring-a-process.md) before you can 
-[run a process from Bonita BPM Studio](/run-a-process-from-bonita-bpm-studio-for-testing.md).
+You must [create a test organization](configure-a-test-organization.md)
+and [configure a process](configuring-a-process.md) before you can 
+[run a process from Bonita BPM Studio](run-a-process-from-bonita-bpm-studio-for-testing.md).
 
 In addition to functional testing during development, we recommend that you monitor the system load. This will help evaluate the performance, so you can make your process efficient.
 

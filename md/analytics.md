@@ -14,7 +14,7 @@ There are four reports available by default:
 * Task list - export in .pdf
 * Case history - export in .csv
 
-You can also [define](/reporting-overview.md) and [install a custom report](#install). For example, you could define a report to track purchase order progress.
+You can also [define](reporting-overview.md) and [install a custom report](#install). For example, you could define a report to track purchase order progress.
 
 ## Default reports
 

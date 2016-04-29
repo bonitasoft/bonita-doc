@@ -1,7 +1,7 @@
 # 4.3 Connectors overview
 
-A connector is an element in a process that accesses an external system to read or write information. If the [default connectors in Bonita BPM](/connectivity.md) are not suitable, you can implement your own connector. 
-In the Bonita BPM Performance, Efficiency, and Teamwork editions, you are recommended to use the [connector development toolkit](/connector-development-toolkit.md) to create new connectors.
+A connector is an element in a process that accesses an external system to read or write information. If the [default connectors in Bonita BPM](connectivity.md) are not suitable, you can implement your own connector. 
+In the Bonita BPM Performance, Efficiency, and Teamwork editions, you are recommended to use the [connector development toolkit](connector-development-toolkit.md) to create new connectors.
 Otherwise, you can define a new connector definition or implementation in Bonita BPM Studio,
 using the wizards started from the **Development** menu, **Connectors** submenu.
 
@@ -46,7 +46,7 @@ all outputs
 **Note:** All the connector outputs must be set in the implementation; otherwise, the connector execution will fail. The connector outputs must be serializable.
 
 For details of the APIs, the methods and related objects, see the 
-[Javadoc](/javadoc.md).
+[Javadoc](javadoc.md).
 
 ## Importing and exporting a connector into Bonita BPM Studio
 
@@ -82,4 +82,4 @@ connector has been specified in the configuration, when you build
 the process for deployment referencing the configuration, the
 connector code is included in the business archive.
 
-After deployment, if you are running the Performance edition, you can [update the connector implementation on a live system](/live-update.md#connectors).
+After deployment, if you are running the Performance edition, you can [update the connector implementation on a live system](live-update.md#connectors).

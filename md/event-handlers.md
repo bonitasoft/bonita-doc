@@ -32,7 +32,7 @@ At the end of this page there is a [list of all the events](#list).
 
 ## Example: deploy an event handler
 
-This example shows an event handler that detects changes in the state of activity instances. When executing, the event handler calls [technical logger service](/technical-logging.md).
+This example shows an event handler that detects changes in the state of activity instances. When executing, the event handler calls [technical logger service](technical-logging.md).
 
 ### create a maven project for event handler jar
 

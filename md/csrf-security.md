@@ -54,5 +54,5 @@ If you have developed an external portal using the rest API to communicate with 
 
 _Note:_ in the UI Designer preview page, calls to Bonita REST API will not work if CSRF security is activated (in the Studio's Tomcat). It is due to the fact that UI Designer and Bonita REST API are not in the same web application. 
 The `X-Bonita-API-Token` cookie is therefore not visible to the UI Designer.
-[User authentication overview](/user-authentication-overview.md)
+[User authentication overview](user-authentication-overview.md)
 [Read more about CSRF attacks](http://www.acunetix.com/what-are-csrf-attacks/)

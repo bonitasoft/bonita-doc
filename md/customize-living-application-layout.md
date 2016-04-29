@@ -1,6 +1,6 @@
 # 4.8 Customize the existing living application Layout
 
-Has it is explained in the [layouts](/layouts.md) documentation, it is possible to customize the existing application layout using the UI designer.
+Has it is explained in the [layouts](layouts.md) documentation, it is possible to customize the existing application layout using the UI designer.
 
 For example, you could:
 

@@ -16,10 +16,10 @@ elements
 
 Bonita BPM Studio is the development tool for the Business Analyst and Application Developer.
 
-You can [install Bonita BPM Studio](/bonita-bpm-installation-overview.md) on your computer, then create and test
+You can [install Bonita BPM Studio](bonita-bpm-installation-overview.md) on your computer, then create and test
 processes. Bonita BPM Studio contains a [Bonita BPM Platform](#bonitaplatform) (Tomcat, Bonita BPM Portal, Bonita BPM Engine, and an h2 database), suitable for testing a process that is in development.
 
-In Bonita BPM Studio, once the process is ready, you can then [build](/build-a-process-for-deployment.md) it and deploy it on your Bonita BPM production platform.
+In Bonita BPM Studio, once the process is ready, you can then [build](build-a-process-for-deployment.md) it and deploy it on your Bonita BPM production platform.
 
 To build your completed process into a process-based application, you use the UI designer to create the application pages, then use the Bonita BPM Portal application builder to construct the application.
 
@@ -27,11 +27,11 @@ To build your completed process into a process-based application, you use the UI
 
 Bonita BPM Engine is the execution engine of Bonita BPM.
 
-[Bonita BPM Portal](/bonita-bpm-portal-interface-overview.md) is the part of Bonita BPM that is visible to process users,
+[Bonita BPM Portal](bonita-bpm-portal-interface-overview.md) is the part of Bonita BPM that is visible to process users,
 who use it to view tasks and take actions. Bonita BPM Portal is also the tool used by the process administrator
-to [install, deploy and manage processes](/processes.md) and to [build applications](/applications.md).
+to [install, deploy and manage processes](processes.md) and to [build applications](applications.md).
 
-To install Bonita BPM Engine and Bonita BPM Portal, [install Bonita BPM Platform](/bonita-bpm-installation-overview.md).
+To install Bonita BPM Engine and Bonita BPM Portal, [install Bonita BPM Platform](bonita-bpm-installation-overview.md).
 
 ## Editions
 
@@ -41,7 +41,7 @@ Bonita BPM is provided in four different editions: Community, Teamwork, Efficien
 
 **I'm currently using Bonita BPM 6.x. Will 7.x be a big change?**
 
-Bonita BPM 7.x provides [new and improved features](/new-features.md), including the UI designer for creating application pages and forms. 
+Bonita BPM 7.x provides [new and improved features](new-features.md), including the UI designer for creating application pages and forms. 
 You will also find lots of familiar features, which continue to work as they did in 6.x.
 
 **Tell me about the documentation.**
@@ -54,27 +54,27 @@ and Development.
 **Tell me about using Bonita BPM.** 
 
 See [Lifecycle and
-profiles](/lifecycle-and-profiles.md).
+profiles](lifecycle-and-profiles.md).
 
 **Can I migrate an existing process into Bonita BPM 7.x?**
 
-You can [import a process](/import-and-export-a-process.md) from any earlier Bonita BPM release. 
-You can also [migrate a process from Bonita Open Solution 5.9 or 5.10](/migrate-a-process-from-bonita-open-solution-5x.md) to this release. 
-A 6.x process will continue to run unchanged in 7.x, but to take advantage of the new features, you will need to update the process and [migrate the forms](/migrate-a-form-from-6x.md).
+You can [import a process](import-and-export-a-process.md) from any earlier Bonita BPM release. 
+You can also [migrate a process from Bonita Open Solution 5.9 or 5.10](migrate-a-process-from-bonita-open-solution-5x.md) to this release. 
+A 6.x process will continue to run unchanged in 7.x, but to take advantage of the new features, you will need to update the process and [migrate the forms](migrate-a-form-from-6x.md).
 
 **Tell me about creating an application.** 
 
-An application is a collection of related processes, user interfaces, and shared data. See [design methodology](/design-methodology.md).
+An application is a collection of related processes, user interfaces, and shared data. See [design methodology](design-methodology.md).
 
 **Tell me about creating a process.** 
 
-A process can be included in an application or can be accessed through Bonita BPM Portal. See [design methodology](/design-methodology.md).
+A process can be included in an application or can be accessed through Bonita BPM Portal. See [design methodology](design-methodology.md).
 
 **Tell me about creating a diagram.**
 
-See [diagrams](/diagram-overview.md).
+See [diagrams](diagram-overview.md).
 
 **How can I get started?** 
 
 Download and install Bonita BPM 7.x: see the [installation
-instructions](/bonita-bpm-installation-overview.md).
+instructions](bonita-bpm-installation-overview.md).

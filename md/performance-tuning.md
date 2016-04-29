@@ -60,7 +60,7 @@ This information applies primarily to the Performance edition, though some detai
 
 > [Cron jobs](#cron)
 
-It is also possible to [use gzip compression](/use-gzip-compression.md) on your application server to improve performance.
+It is also possible to [use gzip compression](use-gzip-compression.md) on your application server to improve performance.
 
 ## Summary
 
@@ -106,7 +106,7 @@ Performance tuning checklist of best practises:
 
 ## Engine access
 
-This section deals with performance impact of your choice of [Engine access mode](/development-overview.md#L365).
+This section deals with performance impact of your choice of [Engine access mode](development-overview.md#L365).
 
 There are various ways to access the Engine APIs provided by Bonita BPM Engine. Choose the most suitable access mode for your deployment, requirements, and preferences. 
 The access modes rely on different technologies and have different benefits and drawbacks. In this section, we will describe the performance characteristics of each mode.
@@ -150,14 +150,14 @@ Data sent is serialized using a Java library called XStream. This serialization 
 
 #### REST
 
-This method of accessing the Bonita BPM capabilities is not yet integrated as an engine service but exists as a web application service accessed using the [Web REST API](/rest-api-overview.md). 
+This method of accessing the Bonita BPM capabilities is not yet integrated as an engine service but exists as a web application service accessed using the [Web REST API](rest-api-overview.md). 
 No details are provided here as it is currently out of scope. 
 In general, the constraints are almost the same as for the HTTP mode, but we do not provide any Java client for this access mode.
 
 ## Concurrent execution
 
 This section describes some aspects of engine configuration that have a performance impact if there is a high level of concurrent execution. 
-Before you read this, make sure you are familiar with the engine [execution sequence, states, and transactions](/execution-sequence-states-and-transactions.md).
+Before you read this, make sure you are familiar with the engine [execution sequence, states, and transactions](execution-sequence-states-and-transactions.md).
 
 There are two main entry points for load on the engine:
 
@@ -457,7 +457,7 @@ For example, in [Bitronix](https://github.com/bitronix/btm/wiki/JDBC-pools-confi
 ### Logs
 
 In general, increasing the log level is useful for debugging but has a performance cost. 
-With this in mind, [define the log level for technical logs, queriable logs and archives](/set-log-and-archive-levels.md).
+With this in mind, [define the log level for technical logs, queriable logs and archives](set-log-and-archive-levels.md).
 
 Remember that Bonita BPM Engine dependencies also have their own log and debug options that may impact strongly the system performance. 
 Be sure to configure these appropriately.
@@ -488,7 +488,7 @@ We strongly recommend that you add only appropriate handlers and carefully code 
 
 ### Cron jobs
 
-Bonita BPM Engine uses the [Scheduler service](/engine-architecture-overview.md#scheduler) to trigger jobs in a recurrent manner.
+Bonita BPM Engine uses the [Scheduler service](engine-architecture-overview.md#scheduler) to trigger jobs in a recurrent manner.
 
 The Bonita BPM Scheduler service implementation uses the Quartz Scheduler. 
 A cron job in Quartz can run at maximum every second (you cannot set a lower value than 1 second).

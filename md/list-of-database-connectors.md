@@ -4,7 +4,7 @@ This page lists the database connectors provided with Bonita BPM. For some conne
 
 If you are configuring a connector to a database that is the same type of database used by Bonita BPM Engine, you are recommended to use the same driver for both, to limit possible conflicts.
 
-To [configure a database connector](/database-connector-configuration.md), follow the instructions in the wizard.
+To [configure a database connector](database-connector-configuration.md), follow the instructions in the wizard.
 
 * Ingres 10.1
 * [MySQL 5.5](#mysql)

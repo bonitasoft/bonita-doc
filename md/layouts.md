@@ -17,13 +17,13 @@ For example, you could:
 * change the menu to add a side menu
 * add a footer
 
-Layouts are [exported. imported, modified, and deleted](/resource-management.md) as resources in Bonita BPM Portal. 
+Layouts are [exported. imported, modified, and deleted](resource-management.md) as resources in Bonita BPM Portal. 
 
 **[Layout definition](#layout_definition)**
 
-**[Authorization permissions](/resource-management.md#permissions)**
+**[Authorization permissions](resource-management.md#permissions)**
 
-**[use a layout in an application](/applications.md#layout)**
+**[use a layout in an application](applications.md#layout)**
 
 **[Constraints](#constraints)**
 
@@ -52,7 +52,7 @@ The resources folder must contain an `Index.groovy` class or an `index.html` fil
 If you create a resource with the UI Designer, the exported zip automatically has the correct format (only the contentType will have to be changed to "layout").
 
 In case of layout edition using the UI Designer, the contentType is conserved.
-[Export the examples](/resource-management.md#export) to see how to structure your layout.
+[Export the examples](resource-management.md#export) to see how to structure your layout.
 
 ## Constraints
 
@@ -68,12 +68,12 @@ For example: ``
 
 ### API acces
 
-If your page is viewed in a custom profile or in an application, you will have access facilities for [the portal API](/rest-api-overview.md).
+If your page is viewed in a custom profile or in an application, you will have access facilities for [the portal API](rest-api-overview.md).
 
 you will be abble to access the portal API using the following path: "../API/{API name}/{resource name}"
 
 ### Theme access
 
-If your page is viewed in an application, you will have access facilities for [the application theme](/applications.md#theme).
+If your page is viewed in an application, you will have access facilities for [the application theme](applications.md#theme).
 
 You can directly access a resource by adding the following link in `index.html`: ``

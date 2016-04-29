@@ -25,7 +25,7 @@ To remove a parameter, select it in the table of parameters and click **Remove**
 
 ## Configuring parameter values
 
-Parameter values are set in Bonita BPM Studio when the process is configured (see the [process configuration overview](/process-configuration-overview.md) for other details of how to configure a process).
+Parameter values are set in Bonita BPM Studio when the process is configured (see the [process configuration overview](process-configuration-overview.md) for other details of how to configure a process).
 
 To set a parameter value:
 
@@ -39,13 +39,13 @@ You can export the parameter values to a file by clicking **Export parameters as
 You can also set parameter values by importing a parameter.properties file. The values in the file are used to set the values of the corresponding parameters. 
 Note that importing a parameters.properties file does not create parameters in the process, just sets the values of those that exist if they are present in the file.
 
-When you build a process for deployment (see [Import and export a process](/import-and-export-a-process.md)), the .bar archive that is 
+When you build a process for deployment (see [Import and export a process](import-and-export-a-process.md)), the .bar archive that is 
 created also contains a parameters.properties file.
 
 You can edit a parameters.properties file to change the value of a parameter before importing it into Bonita BPM Studio or before deploying the .bar. 
 You can also edit the file after process deployment, but this is not recommended if the process is running. If you need to
-change a parameter value for a process that is in production, [update the process configuration in Bonita BPM Portal](/processes.md#modpar)).
+change a parameter value for a process that is in production, [update the process configuration in Bonita BPM Portal](processes.md#modpar)).
 
 ## Parameter usage in forms
 
-From 7.x, to use parameters in forms, you need to retrieve them using the [REST API.](/bpm-api.md#processparameter)
+From 7.x, to use parameters in forms, you need to retrieve them using the [REST API.](bpm-api.md#processparameter)

@@ -28,7 +28,7 @@ replayActivity(long activityInstanceId, `Map` connectorsToReset).
 In this example, an activity has failed because a connector failed to execute.
 
 The methods that are used to reset process items are in the ProcessManagementAPI, and the details are in the 
-[Javadoc](/javadoc.md). These methods
+[Javadoc](javadoc.md). These methods
 are accessed through the ProcessAPI, which extends the ProcessManagementAPI.
 
 First you need to log in, create the session, and get the ProcessAPI:

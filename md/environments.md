@@ -39,7 +39,7 @@ in an environment
 
 To configure a process for an environment, select the 
 environment from the **Configure** menu in the Cool bar. Then use 
-the configuration wizard to [configure the process](/configuring-a-process.md).
+the configuration wizard to [configure the process](configuring-a-process.md).
 
 ## Running a process in an 
 environment

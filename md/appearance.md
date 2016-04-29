@@ -1,13 +1,13 @@
 # 1.7.2.9 Appearance
 
 Page and form appearance is based on the Bootstrap v3.3.2 CSS framework. 
-To define the appearance of a page or form you can use an application [theme resource](/themes.md),
+To define the appearance of a page or form you can use an application [theme resource](themes.md),
 apply a Boostrap theme, 
 or manual add a custom CSS class that you implement.
 
 ## Apply an application resource theme
 
-By default, pages designed with UI designer are deployed in an [application](/applications.md)
+By default, pages designed with UI designer are deployed in an [application](applications.md)
 and use the theme chosen for the application.
 
 ## Apply a Boostrap CSS theme
@@ -15,7 +15,7 @@ and use the theme chosen for the application.
 Many Bootstrap CSS themes are available 
 (for example at [https://bootswatch.com/](https://bootswatch.com/)). 
 
-To apply a Bootstrap theme, download it and add it to your page or form as a [CSS asset](/assets.md). 
+To apply a Bootstrap theme, download it and add it to your page or form as a [CSS asset](assets.md). 
 To see the result, preview your page. 
 Applying a Bootstrap theme as a CSS asset will override the application theme.
 
@@ -27,6 +27,6 @@ The UI designer pages use the Bootstrap CSS, so the markup provided for widgets 
 You can add classes by using the _CSS classes_ property field available 
 for each widget in the whiteboard.
 
-Then, to customize the widget appearance, include a [CSS asset](/assets.md) in your page or form. 
+Then, to customize the widget appearance, include a [CSS asset](assets.md) in your page or form. 
 In this CSS file you can either override the Bootstrap CSS classes or implement the
 classes you specify in the _CSS classes_ property field.
