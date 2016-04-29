@@ -1076,5 +1076,15 @@
         ]
       }
     ]
+  },
+  {
+    "name": "Howtos",
+    "href": "howtos.html",
+    "children": [
+      {
+        "name": "Manage form control/validation",
+        "href": "howtos/manage-control-in-forms.html"
+      }
+    ]
   }
 ]
