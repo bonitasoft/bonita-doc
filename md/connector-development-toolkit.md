@@ -13,14 +13,10 @@
   * [List widget parameters](#typeList)
   * [Group widget parameters](#typeGroup)
 
-
 ## Overview
 
-
 The Connector Development Toolkit is a set of tools for implementing and testing Bonita BPM connectors independently of the Bonita BPM Studio.  
-
 A connector implemented with the toolkit can be used in Bonita BPM Studio or in Bonita BPM Portal just like any Bonita BPM connector.
-
 
 This toolkit uses industry-standard tools such as Java IDEs, dependency management tools (Maven), and unit testing frameworks (JUnit, Mockito and AssertJ). 
 It has the following benefits for connector developers:
@@ -47,7 +43,6 @@ To develop and test a Bonita BPM connector with the toolkit, you need the follow
 4. When the installer has finished, delete the temporary installation folder because you no longer not need.
 
 ## Creating a new connector definition
-
 
 1. Open a command window and navigate to the folder that will hold your connector definition.
 2. Prepare to run the following command (Windows users: remove the trailing slashes and edit the content to have everything on a single line):
@@ -79,8 +74,6 @@ version
 Maven project version and Bonita BPM connector definition version.
 
   
-
-
 3. Run the command. This generates a new folder named `artifactId` containing the connector definition project files, as follows:
 `
 /
@@ -90,7 +83,6 @@ Maven project version and Bonita BPM connector definition version.
         connector-icon.png
     pom.xml
 `
-
 4. Configure the `src/main/resources/connector_definition.xml` file to define the connector wizard pages with their inputs, widgets,and outputs 
 (see [Connector widget reference](#widgetTypeReference) for details).
 5. Optionally, change the icons for the connector and the connector category in the `src/main/resources` folder.
@@ -98,16 +90,12 @@ Maven project version and Bonita BPM connector definition version.
 ## Creating a new connector implementation
 
 A connector definition can hold multiple implementations so the steps described in this section can be repeated.  
-
 All implementations will be stored under the definition project folder.
-
 
 **Caution:** Connector implementations that are not located under the definition project folder will not compile.
 
-
 1. Open a command window and navigate to the folder that contains the connector definition project.
-2. 
-Prepare to run the following command (Windows users: remove the trailing slashes and edit the content to have everything on a single line):
+2. Prepare to run the following command (Windows users: remove the trailing slashes and edit the content to have everything on a single line):
 `
 mvn archetype:generate \
     -DinteractiveMode=false \
@@ -144,11 +132,8 @@ definitionVersion
 This should match the connector definition version.
 
   
-
 3. Run the command. This generates a new folder named `artifactId` containing the connector implementation project.
-
 4. 
-
 In the connector implementation project folder, run the following command :
 `
 mvn bonita-connector-definition:generate
@@ -159,14 +144,10 @@ This generates the connector abstract definition class based on the definition c
 /src/main/java//Abstract.java
 `
 
-
 **Note:**
 If you subsequently change the connector definition configuration, run this command again to apply your changes.  
-
 This will regenerate the abstract definition class, overwriting the previous version.
-
 5. 
-
 In the connector implementation project folder, run the following command :
 `
 mvn bonita-connector-implementation:generate
@@ -179,10 +160,8 @@ src/test/java//Tests.java
 `
 
 **Caution:** Do not run this command again at a later stage, because it resets your implementation and test classes.
-
 6. Complete your connector implementation and test classes.
 7. 
-
 When you are ready to package the connector, run this command in the implementation project folder:
 `
 mvn package
@@ -192,7 +171,6 @@ This will produce a connector zip file that can be imported in Bonita BPM Studio
 `
 /target/--dist.zip
 `
-
 
 ## Widget types and parameters
 
@@ -236,7 +214,6 @@ This is the same as the set of connector widgets available Bonita BPM Studio.
 A widget is configured by setting parameters. Some [mandatory parameters](#mandatory-common) and [optional parameters](#optional-common) are common to all types of widget. 
 There are also some specific widget properties for some types of widget, which are listed later in this page.
 
-
 ### Mandatory common widget parameters
 Parameter
 Description
@@ -273,12 +250,9 @@ n/a
 The following example is the configuration for a Text widget:
 `
 firstNameFirst name
-    Textjava.lang.StringtrueJohnYour first name`
-
-
+Textjava.lang.StringtrueJohnYour first name`
 
 ### RadioGroup widget parameters
-
 Parameter
 Mandatory
 Description
@@ -297,12 +271,9 @@ VERTICAL
 The following example is the configuration for a RadioGroup widget with three choices:
 `
 radioGroupRadioGroup widget
-	java.lang.StringRadioGroupChoice1Choice2Choice3VERTICAL`
-
-
+java.lang.StringRadioGroupChoice1Choice2Choice3VERTICAL`
 
 ### Select widget parameters
-
 Parameter
 Mandatory
 Description
@@ -314,18 +285,13 @@ List of values for the widget. Each value is specified in an "item" tag.
 n/a
 
 The following example is the configuration for a Select widget with three choices:
-
 `
 selectSelect widget
-	java.lang.StringSelectItem1Item2Item3`
-
-
+java.lang.StringSelectItem1Item2Item3`
 
 ### Array widget specific parameters
 
-
 All Array widget specific parameters are mandatory and must be placed under a single parent "arrayOptions" tag.
-
 Parameter
 Description
 
@@ -345,16 +311,11 @@ colsCaption
 List of captions for the column headers. Each caption is specified in a "colsCaption" tag.
 
 The following example is the configuration for an Array widget two columns and any number of rows:
-
-
 `
 arrayArray widget
-	java.util.ListArray2-1truefalseHeader 1Header 2`
-
-
+java.util.ListArray2-1truefalseHeader 1Header 2`
 
 ### List widget specific parameters
-
 Parameter
 Mandatory
 Description
@@ -366,18 +327,13 @@ Boolean flag that indicates whether the end user can select Bonita BPM documents
 false
 
 The following example is the configuration for a List widget:
-
 `
 listList widget
-	java.util.ListListtrue`
-
-
+java.util.ListListtrue`
 
 ### Group widget parameters
 
-
 **Note:** A Group widget does not support the common "javaType" parameter.
-
 Parameter
 Description
 
@@ -388,9 +344,8 @@ widgets
 Specifies the list of widgets contained in the group.
 
 The following example is the configuration for a Group widget that contains two other widgets:
-
 `
 credentialsGroupUser credentials
-	trueloginjava.lang.StringtrueTextLogin
-		passwordjava.lang.StringtruePasswordPassword
-		`
+trueloginjava.lang.StringtrueTextLogin
+passwordjava.lang.StringtruePasswordPassword
+`

@@ -1,9 +1,5 @@
 # 1.8.19 Web service connector overview
 
-
-
-
-
 ## Generic configuration
 
 1. Go to Web services in the connectors list. 
@@ -14,14 +10,10 @@
 
 To format your entries according to SOAP specifications, go to [SOAP!](http://www.w3.org/TR/soap12-part1/#intro)
 
-
-See a working example of a web service connector in this [tutorial](/web-service-connector-tutorial.md).
-
+See a working example of a web service connector in this [tutorial](/web-service-tutorial.html).
 
 Warning: this connector uses the StAX API. StAX libraries cannot be loaded in more than one classloader but must instead be placed in a single location where they can be called by all the items that use them. 
-When you configure a process that uses this connector, you must [manage the jar files](/manage-jar-files.md).
-
-
+When you configure a process that uses this connector, you must [manage the jar files](/manage-jar-files.html).
 
 ## Input
 Input type
@@ -75,7 +67,6 @@ String
 Binding
 Specify protocol and data format
 String
-
 
 ## Output
 Output type

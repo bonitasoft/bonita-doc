@@ -1,8 +1,6 @@
 # 1.8.7 Jasper 5.0
 
-
 A Jasper 5.0 connector is used for creating pre-formatted reports of data extracted from a database.
-
 
 The procedure below is an example, and not a reference:
 
@@ -23,13 +21,9 @@ This is an example only and not a reference.
 
 In MySQL, create a database with a table and information. In this example put **address** as the name of the table, for example.
 
-
-
-
 **Note:** The `.jrxml` file is created by Jasper Studio, and contains the database and the table name. If the names are changed, the request in the `.jrxml` file will fail, the connector will not recognise the name and not connect.
 
 The structure of the table must be identical to the one below, but the names and cities can be anything you like:
-
 INTEGER
 VARCHAR
 VARCHAR
@@ -62,8 +56,6 @@ Fairfield
 
 Use [Jasper Studio](http://community.jaspersoft.com/project/jaspersoft-studio) to connect to the external database to create a report in the compatible .jrxml format.
 
-
-
 **Diagram**
 
 1. Create a new diagram.
@@ -77,10 +69,7 @@ Select the pool and create 2 documents: a bonitadocument called input (.jxrml) a
 Go to the **Details** panel, **Data** tab, **Documents** panel, and click **_Add_**. 
 In the popup, click **From Bonita BPM** \> **Browse...** \> **Import...** (example.jrxml) to import the Bonita document.
 
-
-
 **Document**
-
 Name
 Data type
 
@@ -97,11 +86,8 @@ Now to configure the first task:
 
 Click on _**Run.**_ Bonita BPM Portal will be launched.
 
-
 ## Result
 
 A report is created, graphically representing the data from the database. 
-
-
 
 **Note:** The Jasper connector is only testable in Bonita BPM Studio if a JDBC driver is installed.

@@ -1,11 +1,6 @@
 # 1.8.15 SugarCRM (API v4)
 
-
-
-
 Sugar version API v4
-
-
 
 Available Sugar connectors are:
 

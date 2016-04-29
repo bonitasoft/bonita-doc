@@ -1,36 +1,27 @@
 # 1.6.9 Using expressions and scripts
-
 Expressions and scripts are used in Bonita BPM Studio for many purposes, including setting the initial or default value of a
 variable. An expression is a simple statement; a script is a sequence of expressions, and has a program-like structure. 
 
-
-
 This page explains the features of Bonita BPM Studio that enable you to use expressions and scripts.
-
 
 [Starting the expression editor](#L142)  
 [Managing Groovy scripts](#L101)  
 [Using variables in a script expression](#L99)  
 [Log messages in a Groovy script](#logging)
 
-
-Note that the expression editor cannot be used in the UI designer, which has a different concept model for [data](/data).
-
+Note that the expression editor cannot be used in the UI designer, which has a different concept model for [data](/variables.html).
 
 ## Starting the expression editor
-
 
 The expression editor is used throughout Bonita BPM Studio to create and modify
 expressions or scripts.
 
-
 To start the expression editor, click the crayon icon next to the field
 where you want to enter an expression. 
 
-
 There are different types of expression:
 
-* Comparison: compares the value of a variable, parameter, or constant using the operators !, ==, !=, :, =.
+* Comparison: compares the value of a variable, parameter, or constant using the operators !, ==, !=, :, <: or=""\>=.
 * Constant: sets the expression to a constant (fixed) value.
 * Parameter: sets the expression to the value of the parameter at the time the expression is evaluated.
 * Script: the result of the script sets the value of the expression.
@@ -38,22 +29,16 @@ There are different types of expression:
 
 The types available differ depending on the context of the expression. For example, comparison expressions are available only for transitions.
 
-
-
-
 ## Managing Groovy scripts
-
 
 You can create a Groovy function and store it in Bonita BPM Studio separate from
 the definition of a process. You can then use the function in any process
 definitions. This feature is available if you are using Bonita BPM Studio with the
 Application Developer profile.
 
-
 To create a function, choose **Manage Groovy scripts...** from
 the **Development** menu, and click
 _**Create...**_. Enter a name for the new function. 
-
 
 To edit the content of a function (or to create it), select the function name
 and click **_Open_**. This opens the expression editor.
@@ -63,16 +48,13 @@ To validate the function, click
 _**Evaluate**_. To save the function, click
 _**OK**_. 
 
-
 Note that you can use this feature to save any Groovy 
 script, not just a function. However, only a predefined script that defines a function
 can be used in an expression. You can declare a method in a Groovy script, but must not declare a class.
 
-
 In addition to any user-defined functions, there are a number of standard functions, in the Bonita, 
 Collection, Number, String, and Others categories. Click a function name to see a description in the 
 Documentation box of the Expression editor.
-
 
 To add a user-defined or standard function to an expression:
 
@@ -86,18 +68,13 @@ at the point where the cursor was positioned.
 At concatenation points in the script, the expression editor displays a popup with a list of possible terms. In the popup, you can toggle between Groovy terms and process variables. 
 For example, if you select activityInstanceId from the list of provided variables then type a period, the expression editor displays a list of terms available. This is known as _autocompletion_.
 
-
-
 ## Using variables in a script expression
-
 
 You can use a variable in an expression. When the expression is evaluated
 during process execution, the current value of the variable is used in the
 expression.
 
-
 ### Process variables
-
 
 When you define an expression in the context of a step, the expression can
 contain a variable that is defined at process level in the pool 
@@ -106,16 +83,13 @@ for this step or in another step in the process. To add a
 process variable to an expression, select the variable from the **Select
 a process variable...** drop-down list. 
 
-
 ### Provided variables
-
 
 You can also use a variable that is provided by the Bonita BPM Engine that is
 executing the process. For example, an expression can include the id of the
 user performing a task in the process. To add a provided variable to an
 expression, select the variable from the **Select a provided
 variable...** drop-down list.
-
 
 The provided variables are:
 
@@ -129,12 +103,6 @@ are multiple layers of called processes or subprocesses, this is the root of the
 The provided variables list also contains a special variable, apiAccessor. This enables you to construct API calls in a script using autocompletion. 
 For example, to get the number of overdue open tasks, choose `apiAccessor` from the list of provided variable, then add the `processAPI`, and then add `getNumberOfOverdueOpenTasks`.
 
-
-
-
-
-
 ## Log messages in a Groovy script
 
-
-You can [add logging](/logging-overview.md#your_log) to Groovy scripts or Java code that you develop.
+You can [add logging](/logging.html#your_log) to Groovy scripts or Java code that you develop.

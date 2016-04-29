@@ -2,16 +2,12 @@
 
 This connector will send an email message when activated. There is no output returned.
 
-
 **Note:** There is no way to set proxy server settings in this wizard. 
 If there is a Proxy server setup in the company, ask the IT department for the specific configuration.
-
-
 
 Use the wizard and the information below to configure the connector. 
 You can use the expression editor to specify an expression to provide the value, including scripts or variables. 
 The expression must return a value of the required type. To specify the message content, you can also use a rich text editor.
-
 
 **Connection information:**
 Input
@@ -29,14 +25,12 @@ Number
 Security \> SSL (not obligatory)
 Check the box if SSL security authorization is required
 
-
 Security \> STARTTLS (not obligatory)
 Check the box if STARTTLS security authorization is required
 
-
 Authentication \> Username
 User name for the host account
-String 
+String
 
 Authentication \> Password
 User password for the host account
@@ -44,7 +38,6 @@ String
 
   
 **Addressing information:**
-
 Input
 Description
 Type
@@ -59,25 +52,24 @@ String
 
 Other \> Reply to
 Email address to use when user tries to reply
-String 
+String
 
 Other \> CC
 Email address to use for a copy
-String 
+String
 
 Other \> BCC (hidden copy)
 Email address to use for a hidden copy
-String 
+String
 
 **Message content:**
-
 Input
 Description
 Type
 
 Subject
 Text
-String 
+String
 
 Message
 Message content, which can be specified with the expression editor or with a WYSIWYG editor
@@ -89,7 +81,6 @@ String
 
   
 **Character set and additional header information (optional):**
-
 Input
 Description
 Type

@@ -21,7 +21,6 @@ For details about the use of the Jaspersoft products, please refer to their docu
 By default Jasper reports use Groovy as a script language. 
 However, Bonita BPM Portal does not provide Groovy dependencies to the report so you need to switch the report script language to Java.
 
-
 This is how to do this for iReport:
 
 1. In the **Report inspector** tree located on the left-hand side, select the root element.
@@ -31,7 +30,6 @@ This is how to do this for iReport:
 
 If you build a report that requires access to the Bonita BPM database, you need to add the Bonita BPM SQL Query Executor as a report dependency.
 All queries that fetch Bonita BPM Engine data must use this query executor.
-
 
 This is how to add the query executor as a report dependency in iReport:
 
@@ -48,7 +46,6 @@ Factory classorg.bonitasoft.JRBonitaJdbcQueryExecuterFactory
 
 Fields Provider class (optional)com.jaspersoft.ireport.designer.data.fieldsproviders.SQLFieldsProvider
 
-
 6. Click on **_OK_**.
 7. Still in the **Options** window, select the **Classpath** tab.
 8. Click on **_Add JAR_**.
@@ -61,7 +58,6 @@ Fields Provider class (optional)com.jaspersoft.ireport.designer.data.fieldsprovi
 When creating a report you may need to enable Bonita BPM Portal users to interact with it.
 Bonita BPM Portal integration of the Jasper report viewer makes interactivity possible by providing widgets that can control report parameters.
 Widgets are configured directly in the Jasper report as properties.
-
 
 Here is the sequence of events when an interactive Jasper report is displayed in Bonita BPM Portal:
 
@@ -82,7 +78,6 @@ This is how to do this in iReport:
 
 When the HTML form rendering parameter and component are ready, you need to set the report properties to configure the widgets that your report will integrate.
 
-
 All widgets share the following mandatory properties (`XXX` is replaced by a number used to identify the widget):
 Property
 Mandatory
@@ -91,20 +86,14 @@ Description
 BONITA\_FORM\__XXX_\_ID
 Yes
 Base name of the report parameter that will be updated with the widget value.  
-
 Special rules apply depending on the widget type (see next parameter):  
 
 * For a **SELECT** widget, the parameter name is the same as the base name.  
-
 Example: if `BONITA_FORM_1_ID` is set to `p_country` then, the report parameter should be named `p_country`.
 * For a **DATE** widget, the value will be saved to a parameter with the **\_from** suffix.  
-
 Example: if `BONITA_FORM_2_ID` is set to `p_birthday`, then the report parameter should be named `p_birthday_from`.
 * For a **DATE\_RANGE** widget, the values will be saved to two parameters: one with a **\_from** suffix and one with a **\_to** suffix.  
-
 Example: if `BONITA_FORM_3_ID` is set to `p_period`, then the two report parameters should be named `p_period_from` and `p_period_to`.
-
-
 
 BONITA\_FORM\__XXX_\_WIDGET
 Yes
@@ -113,7 +102,6 @@ Widget type. Can be one of the following:
 * `SELECT` for a drop down allowing a single selection
 * `DATE` for a date picker
 * `DATE_RANGE` for a date range picker with a start date and an end date
-
 
 BONITA\_FORM\__XXX_\_LABEL
 Yes
@@ -127,9 +115,7 @@ Description
 BONITA\_FORM\__XXX_\_AVAILABLE\_VALUES
 Yes: one of these two properties is required
 Static list of available values defined in a JSON format.  
-
 Example: `[{"id":"FR","label":"France"}, {"id":"US","label":"United States of America"}, {"id":"ES","label":"Spain"}]`
-
 
 BONITA\_FORM\__XXX_\_QUERY
 Query that dynamically retrieves the list of available values from the Bonita BPM database.
@@ -150,7 +136,6 @@ Description
 BONITA\_FORM\__XXX_\_INITIAL\_VALUE
 Yes: one of these two properties is required
 Static initial value defined in the ISO format.  
-
 Example: `2015-01-28`
 
 BONITA\_FORM\__XXX_\_QUERY
@@ -168,7 +153,6 @@ Here is an example of a report configuration containing a "Period" date range an
 ### Package a report for Bonita BPM Portal integration
 
 In order to integrate a Jasper report in Bonita BPM Portal, you need to prepare a ZIP archive.
-
 
 The archive should contain at least the compiled Jasper report (a file with a .jasper extension).
 
@@ -194,10 +178,8 @@ dbUser=root
 dbPassword=root
 `
 
-
 If your report contains sub reports, these should be placed in a directory named `sub`.
 
 If your report uses a style sheet you may also provide a .jrtx file in the archive.
 
-
-Once you have packaged the Jasper report as a ZIP archive, you can [install it in the Bonita BPM Portal](/analytics.md#install).
+Once you have packaged the Jasper report as a ZIP archive, you can [install it in the Bonita BPM Portal](/analytics.html#install).

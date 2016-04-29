@@ -3,19 +3,16 @@
 An actor filter is implemented in Bonita BPM in two parts, the
 definition and the implementation. This enables you to change the
 implementation without changing the definition. Several implementations can be
-created for a single definition. See [here ](/actor-filtering)for a list of actor
+created for a single definition. See [here ](/actor-filtering.html)for a list of actor
 filters provided with the product.
-
 
 An actor filter is a type of connector and is created in the same way, using the same schema files as
 for a connector. You can define a new actor filter definition or implementation in Bonita BPM Studio,
 using the wizards started from the **Development** menu, **Actor filters** sub menu.
 You can also create a new actor filter definition or implementation externally, and import it into Bonita BPM Studio.
 
-
 This page explains how to create the actor filter definition and
 implementation and import it into Bonita BPM Studio. 
-
 
 [Actor filter definition](#Actor_filter_definition)  
 [Actor filter implementation](#Actor_filter_implementation)  
@@ -24,12 +21,7 @@ implementation and import it into Bonita BPM Studio.
 [Configuring and deploying a process with an actor filter
 ](#L571)
 
-
-
-
-
 ## Actor filter definition
-
 
 An actor filter definition controls the external interfaces of the actor
 filter, both those visible to users (the actor filter configuration wizard) and
@@ -43,18 +35,13 @@ actor filter
 
 The following sections explain the elements of the definition. You can also use Bonita BPM Studio to create the definition.
 
-
 ### Actor filter configuration wizard definition
-
 
 The XML file that defines the actor filter configuration wizard contains
 definitions for header information identifying the actor filter (including the
 icon), for inputs and outputs, and for the wizard pages. The definition follows
 the schema defined in http://documentation.bonitasoft.com/ns/connector/definition/6.0/connector-definition-descriptor.xsd.
 The table below lists the items in the definition.
-
-
-
 Occurrence
 Description
 
@@ -113,32 +100,25 @@ run successfully.
 The page and widget definitions are required for an actor filter that is
 used or configured from within Bonita BPM Studio. 
 
-
 The following example is the XML definition for the _initiator
 manager_ actor:
-
 `
 initiator-manager1.0.0initiator-manager.png`
-
 
 In this example, there is one input, a Boolean that determines whether or
 not the task is automatically assigned to the user identified by the filter.
 There is one page in the configuration wizard, which contains one widget.
 
-
 ### Language properties file
-
 
 The text displayed in a wizard is defined separately from the
 pages and widgets. This means that one actor filter definition can support
 multiple languages.
 
-
 For each language, there is a properties file that contains the category
 name, the actor filter name, the actor filter definition, the name and
 description of each wizard page, and the name and description of each input
 widget. 
-
 
 The default language properties file is called _actorfilter-id\_version_.properties,
 where _actorfilter-id_
@@ -153,10 +133,8 @@ When a Bonita BPM Studio user launches an actor filter configuration wizard, the
 wizard is displayed in the language currently configured for Bonita BPM Studio. If
 there is no properties file for this language, the default file is used. 
 
-
 The following example is the English language properties file for the
 initiator manager actor filter:
-
 `
 process.category = Process
 connectorDefinitionLabel = Initiator manager
@@ -168,20 +146,13 @@ autoAssign.label = Assign task automatically
 autoAssign.description = The task will be claimed automatically by the resolved user 
 `
 
-
-
-
-
 ## Actor filter implementation
-
 
 An actor filter implementation consists of an XML resource file and a Java
 class. You can create any number of implementations that correspond to a given definition. 
 However, in a process there is a one-to-one relationship between the actor filter definition and the actor filter implementation.
 
-
 ### Actor filter implementation resource file
-
 
 The resource file defines:
 
@@ -191,19 +162,14 @@ The resource file defines:
 
 The resource file follows the schema defined in http://documentation.bonitasoft.com/ns/connector/definition/6.0/connector-implementation-descriptor.xsd .
 
-
 The following example is the resource file of an implementation of the
 initiator manager actor filter:
-
 `
 initiator-manager1.0.0org.bonitasoft.userfilter.initiator.manager.ProcessinitiatorManagerUserFilterinitiator-manager-impl1.0.0bonita-userfilter-initiator-manager-impl-1.0.0-SNAPSHOT.jar`
 
-
 ### Actor filter implementation Java class
 
-
-The Java class must implement the 
-org.bonitasoft.engine.filter.AbstractUserFilterclass and use the Engine
+The Java class must implement the org.bonitasoft.engine.filter.AbstractUserFilterclass and use the Engine
 ExecutionContext. The following methods must be implemented:
 
 * validateInputParameters to
@@ -214,15 +180,11 @@ specified actor name
 to assign the step to the user if filter returns one user
 
 For details of the APIs, the methods and related objects, see the 
-[Javadoc](/javadoc-71).
-
+[Javadoc](/javadoc.html).
 
 ### Actor filter example code
 
-
-The following code is an example of the initiator manager actor filter. 
-
-`
+The following code is an example of the initiator manager actor filter. `
 public class ProcessinitiatorManagerUserFilter extends AbstractUserFilter {
 
     @Override
@@ -247,14 +209,9 @@ public class ProcessinitiatorManagerUserFilter extends AbstractUserFilter {
     }
 
 } 
-` 
-
-
-
-
+`
 
 ## Testing an actor filter
-
 
 There are three stages to testing an actor filter:
 
@@ -265,7 +222,6 @@ import into Bonita BPM Studio, using the following command:
 mvn clean install
 
 This creates a zip file.
-
 2. Import the actor filter into Bonita BPM Studio. From the
 **Development** menu, choose **Actor filters**,
 then choose **Import...**. Select the zip file to be
@@ -275,11 +231,7 @@ filter to a step. Configure the process and run it from Bonita BPM Studio.
 Check the Engine log (available through the **Help** menu) for
 any error messages caused by the actor filter.
 
-
-
-
 ## Importing an actor filter into Bonita BPM Studio
-
 
 1. Create a zip file that contains the files used by the definition and implementation.
 2. In Bonita BPM Studio, go to the **Development** menu, **Actor filters**, **Import actor filter...**.
@@ -287,17 +239,10 @@ any error messages caused by the actor filter.
 
 The imported actor filter is now available in the dialog for adding an actor filter.
 
-
 It is also possible to export an actor filter using options in the **Development** menu. The actor is exported as a .zip file, which you can import into another
 instance of Bonita BPM Studio.
 
-
-
-
-
-
 ## Configuring and deploying a process with an actor filter 
-
 
 When you configure a process that uses an actor filter in Bonita BPM Studio, you
 specify the definition and implementation. You must also specify any

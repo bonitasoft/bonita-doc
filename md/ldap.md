@@ -2,16 +2,13 @@
 
 The LDAP connector searches in an LDAP directory and returns a list.
 
-
 Configuring an LDAP connector with the wizard:
-
 
 1. In the **General** screen:
   * Enter a name and description for the connector. 
   * Specify whether the connector runs at the start or the end of the step.
   * Specify the behavior if the connector fails.
   * Click **_Next_**.
-
 2. Specify the LDAP server information:  
 Input
 Description
@@ -38,10 +35,7 @@ LDAP user password
 string
 
 Then click **_Next_**.
-
-
 3. Specify the search criteria:
-
 Input
 Description
 Type
@@ -82,7 +76,6 @@ Alias dereferencing
   * never: never dereference aliases
   * finding: dereference aliases only during name resolution
 select
-
 
 Then click **_Next_**.
 4. Specify the output operations. The connector returns a list object.

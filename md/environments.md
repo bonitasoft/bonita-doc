@@ -1,6 +1,5 @@
 # 1.12.2 Environments
 
-
 An environment is a set 
 of configuration definitions for a project. You can configure a process for 
 several environments. In this way, one process can run in several environments 
@@ -35,20 +34,12 @@ environment, and click _**OK**_. The new environment will
 appear in the  **Configure**, **Run**, and 
 **Debug** menus in the Cool bar.
 
-
-
-
-
 ## Configuring a process 
 in an environment
 
 To configure a process for an environment, select the 
 environment from the **Configure** menu in the Cool bar. Then use 
-the configuration wizard to [configure the process](/configuring-process-bonita-bpm-studio.md).
-
-
-
-
+the configuration wizard to [configure the process](/configuring-a-process.html).
 
 ## Running a process in an 
 environment
@@ -57,10 +48,6 @@ To run a process from Bonita BPM Studio in an
 environment, select the environment from the **Run** menu in the 
 Cool bar. The process will be launched using the information configured for the specified 
 environment.
-
-
-
-
 
 ## Debugging a process in 
 an environment

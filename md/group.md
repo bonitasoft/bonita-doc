@@ -1,8 +1,6 @@
 # 3.7.2.2 Manage a group
 
-
 Logged on with the Administrator profile, you have rights to manage the group as follows:
-
 
 ## How to create a group
 
@@ -17,8 +15,6 @@ Logged on with the Administrator profile, you have rights to manage the group as
 2. Check a box to select a group.
 3. Click _**Delete**_.
 4. In the popup window, click _**Delete**_.
-
-
 
 ## How to edit a group
 

@@ -2,12 +2,10 @@
 
 This page explains how to create and add a layout to the Bonita BPM Portal, and how to use it in an application.
 
-
 A layout is a page used to define the main frame of an application.
 
 It defines menu positioning, a footer, or any common content that could be displayed on every page of the application.
 Each application can have it own layout.
-
 
 There is an example of layout in the portal, containing a horizontal menu widget and an iframe widget. 
 The menu structure is defined in the application navigation. The application pages are displayed in the iframe.
@@ -19,14 +17,13 @@ For example, you could:
 * change the menu to add a side menu
 * add a footer
 
-Layouts are [exported. imported, modified, and deleted](/resources-management) as resources in Bonita BPM Portal. 
-
+Layouts are [exported. imported, modified, and deleted](/resource-management.html) as resources in Bonita BPM Portal. 
 
 **[Layout definition](#layout_definition)**
 
-**[Authorization permissions](/resource-management#permissions)**
+**[Authorization permissions](/resource-management.html#permissions)**
 
-**[use a layout in an application](/applications.md#layout)**
+**[use a layout in an application](/applications.html#layout)**
 
 **[Constraints](#constraints)**
 
@@ -34,52 +31,34 @@ Layouts are [exported. imported, modified, and deleted](/resources-management) a
 
 > [Layout resources](#layout-resources)
 
-
-
 > [API access](#api-access)
-
-
 
 > [Theme access](#theme-access)
 
-
-
 ## Layout definition
-
 
 A layout is imported as a zip archive containing a page.properties file and a resources folder.
 
-* The `page.properties` file contains the metadata for the layout (the name used in the URL, the display name, and a description). For example: 
-
-`
+* The `page.properties` file contains the metadata for the layout (the name used in the URL, the display name, and a description). For example: `
 name=custompage_layout
 displayName=Application layout page
 description=This is a layout page dedicated to new born living applications. It is created and editable using the UI designer. It allows to display an horizontal menu, and an iframe. The menu allows to target some pages and the iframe define the area to display those targeted pages.
 resources=[GET|living/application,GET|living/application-page,GET|living/application-menu]
 contentType=layout
 `
-
 * 
-
 The resources folder must contain an `Index.groovy` class or an `index.html` file and optionally can contain some additional resources.
-
-
 
 If you create a resource with the UI Designer, the exported zip automatically has the correct format (only the contentType will have to be changed to "layout").
 
 In case of layout edition using the UI Designer, the contentType is conserved.
-[Export the examples](/resource-management#export) to see how to structure your layout.
-
+[Export the examples](/resource-management.html#export) to see how to structure your layout.
 
 ## Constraints
 
-
 A layout can only be use as the main container of an application. It cannot be used as a simple application page.
 
-
-
 ## Layout resources management
-
 
 ### Layout resources 
 
@@ -87,16 +66,14 @@ If you are not using Groovy, you can directly access a resource by adding a link
 
 For example: ``
 
-
 ### API acces
 
-If your page is viewed in a custom profile or in an application, you will have access facilities for [the portal API](/rest-api-overview.md).
+If your page is viewed in a custom profile or in an application, you will have access facilities for [the portal API](/rest-api-overview.html).
 
 you will be abble to access the portal API using the following path: "../API/{API name}/{resource name}"
 
-
 ### Theme access
 
-If your page is viewed in an application, you will have access facilities for [the application theme](/applications.md#theme).
+If your page is viewed in an application, you will have access facilities for [the application theme](/applications.html#theme).
 
 You can directly access a resource by adding the following link in `index.html`: ``

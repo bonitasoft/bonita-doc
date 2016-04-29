@@ -2,14 +2,11 @@
 
 Using gzip compression in your application server can improve performance by reducing network load for some resources. This page describes how to activate gzip compression for a Bonita BPM Platform with Tomcat and with JBoss.
 
-
 [JBoss](#jboss)  
 [Tomcat](#tomcat)  
 [Check changes](#check)
 
-
 ## JBoss
-
 
 To activate compression for JBoss:
 
@@ -24,9 +21,7 @@ set "JAVA_OPTS=%JAVA_OPTS% -Dorg.apache.coyote.http11.Http11Protocol.COMPRESSION
 
 ## Tomcat
 
-
 To activate gzip compression for http requests, you need to modify the `server.xml` configuration. 
-
 
 Open `server.xml` and find the Connector configuration that you use. Edit the section to add following parameters:
 `
@@ -35,7 +30,6 @@ compressionMinSize="X"
 noCompressionUserAgents="Y"
 compressableMimeType="Z"
 `
-
 Property
 Description
 Example
@@ -56,36 +50,19 @@ compressableMimeType
 The MIME types of the resources to be compressed. We recommend that all text files be compressed.
 text/html,text/xml
 
-
-
-
-
-
 If you use the Tomcat bundle, the file to edit is `conf/server.xml`.
 If you use a different package, use the corresponding path; for example on Ubuntu the file is located in `/etc/tomcat7/server.xml`.
 
-
 Connector configuration:
-
 `
 `
-
-
-
-
-
-
 
 ## Check changes
 
-
 After you modify the file, restart your application server and test with the following `curl` command:
-
 `curl -I -H 'Accept-Encoding: gzip' http://`_`ip_address:port`_`/bonita/login.jsp`
 
-
 Check that the header returned contains the line `Content-Encoding: gzip`. For example, on a JBoss system the output will be similar to this:
-
 `
 HTTP/1.1 200 OK
 Server: Apache-Coyote/1.1

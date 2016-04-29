@@ -2,22 +2,17 @@
 
 Refactoring a process definition means changing the name of a process element without changing the external behaviour. Typically, this is done when a process definition is almost complete, 
 to improve readability and maintainability, 
-or to adopt a new set of [naming conventions](/naming-conventions). In Bonita BPM Studio, when you change the name of an element, the change is propagated to all the places that reference this element. 
+or to adopt a new set of [naming conventions](/naming-conventions.html). In Bonita BPM Studio, when you change the name of an element, the change is propagated to all the places that reference this element. 
 If the change is simple (for example, you rename a variable used in transitions), the change is made automatically. 
 If the change is more complex, such as renaming a variable used in a Groovy script, Bonita BPM Studio displays the update for you to validate before it is implemented.
 Refactoring is also used when you delete a process element. Expressions using the element directly will be cleared and expressions having dependency on it will clear the dependency and replace it by a blank placeholder in Groovy scripts.
-
-
 
 [Elements](#elements)  
 [Scope](#scope)  
 [Limitations](#limitations)  
 [Example](#example)
 
-
-
 ## Elements and scope
-
 
 Refactoring applies to the following types of element:
 
@@ -33,22 +28,15 @@ Refactoring applies to the following types of element:
 
 When you change the name of an element of one of these types, the name is changed throughout the process definition, including inside scripts and connector instance definitions.
 
-
 ## Scope
 
 The scope of refactoring is the process. If you rename one of the items above in a process, Bonita BPM Studio detects and updates all the places in the same process where it is used. 
 The refactoring does not extend outside the process.
 
-
-
 If your business process includes a call activity subprocess with mapped data, you need to modify the data mapping manually, checking both the parent process and the subprocess. 
 If you also plan to refactor the subprocess, you should refactor it first, before making any manual changes to data mapping. 
 
-
-
-
 ## Limitations
-
 
 Refactoring is not available for the following process definition elements:
 
@@ -59,7 +47,6 @@ Refactoring is not available for the following process definition elements:
 
 ## Example
 
-
 Suppose you have a process that loops to collect feedback on a new product feature, and has an process variable called _count_ that is used to count the number of people who complete the survey form. 
 The variable is used in the following places in the process definition:
 
@@ -69,7 +56,6 @@ The variable is used in the following places in the process definition:
 This report is sent using the email connector, and the script is part of the connector definition.
 
 For clarity, it would be better to have a more meaningful name for this variable, so you want to change the name from _count_ to _numberOfSurveyFormsReturned_.
-
 
 1. Select the pool and go to the **Details** panel, **General** pane, **Data** panel.
 2. In the list of process-level variables, select _count_ and click **_Edit_**.

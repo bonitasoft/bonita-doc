@@ -1,6 +1,5 @@
 # 3.2 Languages
 
-
 ## Languages available by default 
 
 * English (US)
@@ -12,16 +11,13 @@
 
 To change the language of the user interface, go to the top right corner, click on _**Settings**_/_**Language**_ and select a language from the list.
 
-
 ## How to change the language of the Bonita BPM Portal Mobile user interface
-
 
 1. Click on the _**Tools icon**_
 2. Click on _**Languages**_
 3. Select a new language from the dropdown list
 
 ## How to add a new language from the Community to Bonita BPM Portal
-
 
 1. Go to [Crowdin](http://translate.bonitasoft.org/) and click the **_Download_** icon to download the zip archive file containing the translations into all the available languages. 
 The archive is called `bonita-bpm-60.zip` even for Bonita BPM 7.x versions.
@@ -38,9 +34,6 @@ In a development environment where you are launching Bonita BPM Portal from Boni
 
 Note: do not compile .po files into .mo files, because they will not be used.
 
-
-
-
 ## Example: how to install the Russian language in a Subscription edition Portal
 
 1. Log in to [Crowdin](http://translate.bonitasoft.org/) and download the archive file `bonita-bpm-60.zip`.
@@ -50,12 +43,10 @@ Note: do not compile .po files into .mo files, because they will not be used.
   * `/bonita-web-sp/portal/mobile_ru_RU.po`
   * `/bonita-web-sp/portal/portal-js-sp_ru_RU.po`
   * `/bonita-web-sp/portal/portal-sp_ru_RU.po`
-
 3. Copying these files to the Portal localization folder, `bonita_home/client/platform/work/i18n/`.
 4. Restart your application server (or restart Bonita BPM Studio). 
 
 For the Community version, you only need the files from the `/bonita-web` folder, not those from `/bonita-web-sp`.
-
 
 ## How to translate Bonita BPM Portal to any other language
 
@@ -73,6 +64,5 @@ For the Community version, you only need the files from the `/bonita-web` folder
 #### A language is not listed
 
 * If the language you need is not listed, you can contact us on our [Community forum](http://community.bonitasoft.com/groups/community-tools/new-bug-tracker-and-traduction-tools-jira-and-crowdin).
-
 
 For more information about translations of Bonita BPM and how you can get involved, see the [Community translations site](http://community.bonitasoft.com/contribute/translate).

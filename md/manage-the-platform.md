@@ -2,9 +2,7 @@
 
 This example shows how to use the Bonita BPM Engine API to manage the platform.
 
-
 You can create the platform, initialize the platform, start the Engine, and stop the Engine.
-
 
 Before you can create the platform, you need to log in and get the platformAPI:
 `
@@ -17,8 +15,6 @@ PlatformSession platformSession = platformLoginAPI.login("platformAdmin", "platf
 PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(platformSession);    
 `
 
-
-
 **Create the platform** by calling the createPlatform method. This will create the database structure and put the platform state into persistent storage.
 `
 // create the platform
@@ -26,7 +22,7 @@ platformAPI.createPlatform();
 `
 
 The next step is to **initialize the platform**, that is, create the default tenant and initialize the Bonita BPM Engine environment. 
-After this step the technical user will be able to connect to the engine and to create new users or [import the organization](/manage-organization#org). No users are created by 
+After this step the technical user will be able to connect to the engine and to create new users or [import the organization](/manage-an-organization.html#org). No users are created by 
 default and the default username/password for the technical user to connect to the Bonita BPM Engine are stored in the file bonita-server.properties that is in the _BONITA\_HOME_ directory.
 `
 // initialize the platform

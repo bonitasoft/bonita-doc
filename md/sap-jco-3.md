@@ -3,11 +3,9 @@
 The SAP Java Connector is a toolkit that allows a Java application to communicate with any SAP system. It combines an easy to use API with unprecedented flexibility and performance. 
 The package supports both Java to SAP System and SAP System to Java calls. 
 
-
 ### Prerequisite
 
 You must have an SAP license and an SAP server to use the connector.
-
 
 ### JCo 3
 
@@ -23,11 +21,9 @@ You must have an SAP license and an SAP server to use the connector.
 
 To connect to an SAP system from Bonita BPM Studio, and have the correct graphic display, you must install the SAP .dll and .jar files onto your (Windows) machine. You must have an SAP User ID and password to enter the SAP Support Portal to download the files.
 
-
 Go here (you will need to login first) [SAP Service marketplace.](http://service.sap.com/connectors)
 
 JCo 3: `sapjco3-ntamd64-3.0.3`
-
 
 Contents of `sapjco-ntamd64-3.0.3.zip`
 
@@ -66,7 +62,6 @@ Contents of `sapjco-ntamd64-3.0.3.zip`
 18. Click _**Finish**_
 
 ## Advanced features in Subscription Editions
-
 
 In the Efficiency and Performance editions, the SAP wizard has advanced features: You do not need to know the names of the functions by heart, as the functions are suggested in a dropdown menu. 
 

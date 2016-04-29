@@ -5,21 +5,17 @@ dependencies are managed by managing the jar files that contain the required cod
 For example, if your process uses a connector, the relevant jar file must be referenced
 when you configure the process.
 
-
 The configuration dialog shows the jar files that are known to Bonita BPM Studio. To add 
 a jar file, choose **_Manage jars..._** from the **Development** menu. 
 The popup shows the jars that are known. To add a jar, click **_Import_** and 
 browse to the file to be imported. After the jar file is imported, it can be used in a process. 
 You can also access the **Manage jars...** dialog from the process configuration wizard.
 
-
 ## Duplicate libraries
-
 
 There is a problem at integration if you have several elements in your platform that use certain libraries that cannot be included in more than one classloader. 
 Typically, this occurs when a process contains data of type Java or multiple connectors (notably with the Webservice, Alfresco, and CMIS connectors). 
 For example, the Stax libraries, which are used in the Webservice and Alfresco connectors and for Java data cannot be loaded in more than one classloader.
-
 
 This problem is indicated by the following exceptions:
 
@@ -28,7 +24,6 @@ This problem is indicated by the following exceptions:
 * `java.lang.LinkageError: loader constraint violation: when resolving overridden method "org.apache.cxf.jaxb.attachment.JAXBAttachmentMarshaller.addMtomAttachment(Ljavax/activation/DataHandler;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;" the class loader (instance of org/bonitasoft/engine/classloader/BonitaClassLoader) of the current class, org/apache/cxf/jaxb/attachment/JAXBAttachmentMarshaller, and its superclass loader (instance of ), have different Class objects for the type shaller.addMtomAttachment(Ljavax/activation/DataHandler;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; used in the signature`
 
 We are aware of issues with the following jar files (`-n` is a version number):
-
 
 * `jsr181-api-n.MR1.jar` (for the Webservice connector, 6.3.3 and earlier) -- this is embedded in Java (since version 6) so should be removed from the dependencies of the connector
 * `xercesImpl-n.jar` (for the Alfresco connector, 6.3.3 and earlier) -- this is embedded in Java (since version 6) so should be removed from the dependencies of the connector

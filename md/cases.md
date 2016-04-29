@@ -6,10 +6,7 @@
 [Start a case for another user](#start_case_for)  
 [View status of cases](#case_status_table)
 
-
-
 Logged on with the Administrator or Process Manager profile, you have rights to manage a case as follows:
-
 
 ## Add a comment to a case
 
@@ -20,11 +17,9 @@ Logged on with the Administrator or Process Manager profile, you have rights to 
 
 ## Start a case for another user
 
-
 This feature is available with the Efficiency and Performance editions.
 
 To start a case for another user:
-
 
 1. Go to **BPM** \> **Processes**.
 2. Select the process and click **_Start for_**.
@@ -34,20 +29,14 @@ To start a case for another user:
 The case is started as though the specified user had started it. 
 For example, if a you start a case for user A and a subsequent task is to be done by the manager of the user, it is assigned to user A's manager, not to your manager.
 
-
 ## View status of cases
-
 
 To view the open or archived cases, go to **BPM** \> **Cases**. The case table is displayed, showing the open cases. 
 To switch between **Open cases** and **Archived cases** cases, use the tabs.
 
-
 In a row in the table, you can click a case id or the ellipsis icon to open the case details page, or click the process name to open the process details page. 
 
-
-
 You can change the view to see only the information that you need:
-
 
 * View the cases of a specified process, by selecting the process name, or name and version, from the dropdown lists.
 * Search indexes are also available as additional columns. In this way, you can use search indexes for adding business information to your cases. It is also possible to search on search indexes values.
@@ -62,10 +51,7 @@ You can then click on the arrow to reverse the sort order.
 
 These changes to the view are stored in your browser [Local Storage](https://en.wikipedia.org/wiki/Web_storage#Local_and_session_storage): If you navigate away from the page then go back, the view will be as you configured it. If you reload the page, or close and reopen the same browser, your stored changes will be reapplied. If you want to go back to the default view settings, clear your browser cache and local storage.
 
-
-
 From this table, you can delete a cases, or several cases. Select the cases you want to delete, and click **_Delete_**. Confirm in the popup that you want to delete the selected cases.
-
 
 if you are using the Performance, Efficiency, or Teamwork edition, you can also open a diagram of a case, by clicking on the picture icon for the case. 
 On the diagram, colored flags on the steps show the number of step instances in the possible states. Click **_Show key_** to see an explanation of the display. 

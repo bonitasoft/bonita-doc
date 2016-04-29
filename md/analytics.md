@@ -2,15 +2,10 @@
 
 A report presents the Administrator with data about the usage of cases and tasks in processes. 
 
-
-
 [Default reports](#default_reports)  
 [Install a custom report](#install)   
 [Export a report](#create)  
 [Manage Japanese PDF reports](#ja)
-
-
-
 
 There are four reports available by default:
 
@@ -19,13 +14,9 @@ There are four reports available by default:
 * Task list - export in .pdf
 * Case history - export in .csv
 
-You can also [define](/reporting-overview.md) and [install a custom report](#install). For example, you could define a report to track purchase order progress.
-
-
+You can also [define](/reporting-overview.html) and [install a custom report](#install). For example, you could define a report to track purchase order progress.
 
 ## Default reports
-
-
 
 ### Case average time
 
@@ -45,7 +36,6 @@ Choose a filter to display certain parameters:
 
 ### Task list time
 
-
 Choose a filter to display certain parameters:
 
 * Case average time: period, process
@@ -59,7 +49,6 @@ For Efficiency and Performance editions.
 This report lists human actions on cases. This enables you to analyse and standardize cases in processes.
 
 In the case history report, the format of the exported file is a .csv file. This enables the data to be sorted and filtered.
-
 
 #### Parameters
 
@@ -100,22 +89,18 @@ Note: what is not exported in the .csv report
 * Comments
 * Human actions performed on **Parameters and variables**
 
-## Install a custom report 
-
+## Install a custom report
 
 You can import a customized report into Bonita BPM Portal.
 
 Custom reports are created externally using [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio).
-
 
 ### Contents of a .report archive (.zip), used in Jasper
 
 The report archive (.zip) contains the Jasper file, a connection properties file and a .jar driver file.
 Optionally, a properties file can be added if the report is localized in different languages.
 
-
 ### Install a report created in the standard Jasper format.
-
 
 1. Go to **Analytics**.
 2. Click the _**Install**_ button in the top left corner of the screen.
@@ -127,13 +112,7 @@ Optionally, a properties file can be added if the report is localized in differe
 
 A report is displayed in Bonita BPM Portal containing your data.
 
-
-
-
-
-
 ## Export a report
-
 
 A report in the Bonita BPM Portal can be exported as a .pdf file.
 
@@ -145,7 +124,6 @@ A report in the Bonita BPM Portal can be exported as a .pdf file.
 6. Click _**OK**_.
 
 ## Manage Japanese PDF reports
-
 
 Japanese language support for reports is not provided by default. 
 In order to display the Japanese translations in the default PDF reports, you need to download the Japanese translation `my_report_ja_jp.properties` file from [Crowdin](http://translate.bonitasoft.org/). 

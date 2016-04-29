@@ -17,9 +17,6 @@ Logged on with the Administrator profile, you have rights to manage a process as
 * [How to edit an existing form](#editFormUpload)
 * [How to edit a script content](#editScriptContent)
 
-
-
-
 ## How to install a new process
 
 1. Go to the BPM tab
@@ -32,14 +29,9 @@ The .bar file is ready to be resolved and enabled
 
 **Note:** if you try to install the same process twice, a message is displayed: "Process \[yourProcessName\] in version \[yourProcessVersion\] already exists."
 
-You can only install a .bar file that was exported from a Bonita BPM Studio of the same minor (7.x) version as your Bonita BPM Portal and Bonita BPM Engine. If you have a .bar file that was exported from an earlier version of Bonita BPM Studio (7.x.md), it will not work with Bonita BPM Engine. Export the process definition as a .bos file from your old Bonita BPM Studio, import in into the new Studio, then export it as a .bar. This is necessary for a .bar that has not been deployed. A process that was developed in an older version of Bonita BPM Studio and is already deployed is migrated automatically when you migrate your platform. However, for future maintenance of the process definition, you are recommended to update all your process bar files to the latest version each time you update your platform.
-
+You can only install a .bar file that was exported from a Bonita BPM Studio of the same minor (7.x) version as your Bonita BPM Portal and Bonita BPM Engine. If you have a .bar file that was exported from an earlier version of Bonita BPM Studio (7.x-1), it will not work with Bonita BPM Engine. Export the process definition as a .bos file from your old Bonita BPM Studio, import in into the new Studio, then export it as a .bar. This is necessary for a .bar that has not been deployed. A process that was developed in an older version of Bonita BPM Studio and is already deployed is migrated automatically when you migrate your platform. However, for future maintenance of the process definition, you are recommended to update all your process bar files to the latest version each time you update your platform.
 
 [Watch the Install a process video](images/videos-6_0/install_an_app_in_bonita_portal.mp4)
-
-
-
-
 
 ## How to resolve a process
 
@@ -62,8 +54,6 @@ To resolve a process:
 5. A summary of configuration problems is displayed below the process name in a well and warning icons are displayed in the left navigation list.
 6. Modify your configuration for each element displayed.
 
-
-
 ## How to enable a process
 
 1. Go to the BPM menu tab
@@ -77,9 +67,6 @@ To resolve a process:
 
 **Note:** You can also select the processes you want to enable by checking the box in the Resolved list, then click _**ENABLE**_ button in the bulk actions section
 
-
-
-
 ## How to disable a process
 
 1. Go to the BPM tab
@@ -92,9 +79,6 @@ To resolve a process:
 
 **Note:** You can also disable a process in the more details view, by clicking _**Enabled**_ toggle button.
 
-
-
-
 ## How to delete a process
 
 **Note:**A process must be disabled before it can be deleted.
@@ -105,8 +89,6 @@ To resolve a process:
 4. Click _**Delete**_
 
 You can also delete the process in the more details view of a disabled process by clicking _**DELETE**_, then click _**DELETE**_ in the modal window
-
-
 
 ## How to create a category for a process
 
@@ -119,10 +101,6 @@ You can also delete the process in the more details view of a disabled process b
 
 After you created a category and added to the process, you can add other processes to the category.
 
-
-
-
-
 ## How to add a category to a process
 
 1. Go to BPM tab
@@ -131,10 +109,6 @@ After you created a category and added to the process, you can add other process
 4. In General, click the pencil next to Categories label
 5. In the opened modal, type a new category name then press _**Enter**_ key, or use arrow keys to browse among exisiting categories
 6. Click _**Save**_
-
-
-
-
 
 ## How to add an entity to an actor
 
@@ -148,7 +122,6 @@ After you created a category and added to the process, you can add other process
 8. Click _**APPLY**_.
 
 **Note:** Notice that only the first 200 actors are displayed in the dropdown.
-
 
 ## How to remove an entity from an actor
 
@@ -167,8 +140,6 @@ After you created a category and added to the process, you can add other process
 
 **Note:** For Bonita BPM Performance and Efficiency editions only.
 
-
-
 1. Go to the BPM tab
 2. Click _**Processes**_
 3. Select a process
@@ -177,8 +148,6 @@ After you created a category and added to the process, you can add other process
 6. In the **Value** column, click on the value you want to edit
 7. A field appears
 8. Click the _**Tick**_ button to validate your change or _**X**_ to dismiss your change.
-
-
 
 ## How to edit a connector implementation
 
@@ -206,7 +175,6 @@ After you created a category and added to the process, you can add other process
 8. Click the _**Tick**_ button to validate your change or _**X**_ to dismiss your change.
 
 **Note:** You can also upload a form in order to create a new mapping.
-
 
 ## How to upload a new form
 

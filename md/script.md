@@ -1,6 +1,5 @@
 # 1.8.14 Script connectors
 
-
 There are the following script connectors:
 
 * Groovy 1.8 which executes a Groovy 1.8 script.
@@ -9,7 +8,6 @@ There are the following script connectors:
 
 ## How to configure the system script connector
 
-
 Follow the steps in the wizard to configure the connector. For the **Parameters of the script**, enter this information:
 
 * In the first field, enter the script interpreter e.g. `/bin/sh`
@@ -17,7 +15,6 @@ Follow the steps in the wizard to configure the connector. For the **Parameters 
 * In the third field, enter the script e.g. `find /home/ -name "*.xml"`
 
 ## How to configure the Groovy script connector
-
 
 Follow the steps in the wizard to configure the connector. When you have entered the script, click
 _**Evaluate**_ to test the validity of the script. If the script is not valid, a popup window will display an error message.

@@ -2,13 +2,11 @@
 
 Note: This example uses the 6.x Application legacy forms.
 
-
 This example process will use a Web Service connector to call a sample Web Service to display a weather report.
 
 ![web service process diagram](images/images-6_0/webservice_diagram.png)
 
 web service process diagram
-
 
 1. Create the diagram (as shown in the example above)
 2. Select the Pool \> Data and click on the _**Variables tab**_ and add the following process variables:
@@ -21,7 +19,6 @@ web service process diagram
 * City (text field)
 * Country (text field)
 * Get weather forecast (submit button)
-
   * Set the : **transition conditions on the gateway**
 
 * Select the transition to **Display Weather** and check Default Flow
@@ -37,13 +34,9 @@ web service process diagram
 * For the Community edition, provide these settings:
   * Service NS: GlobalWeather
   * Service name: http://www.webserviceX.NET
-
 * For the Teamwork, Efficiency, or Performance edition. provide these settings:
   * Enter the WDSL URL http://www.webservicex.net/globalweather.asmx?WSDL and click on the Introspect button, then leave the login info fields empty
   * Set the `Port: GlobalWheatherSoap12` and leave other parameters with default values
-
-
-
   * In the **Request parameters** window (for all editions), provide these settings:
 
 * SOAP action: http://www.webserviceX.net/GetWeather
@@ -52,10 +45,9 @@ web service process diagram
 * Binding: http://www.w3.org/2003/05/soap/bindings/HTTP/
 * Envelope
 `
-    ${city}${country}
+${city}${country}
 `
   * In the **Response configuration** window, check the **Returns body** checkbox to use the response body in the output operations.
-
   * In the **Output operations** window, edit the first output operation:
 
 * Select the weatherData variable as the connector output target
@@ -96,11 +88,8 @@ NodeList childNodes = weatherNode.getChildNodes();
 for (int i=0; i
   * In **Return type** enter java.util.Map
 * Select the Display weather task and add a blank form (without any widget) by going into the Application > Pageflow tab
-    
 * In the form builder, drag and drop a table widget to create a table
-    
 * Select the table widget, click on the Data tab
-    
 * Click on **Edit as an expression**, then click on the pencil next to the first field (initial value)
   * Use the following Script:
 `
@@ -118,50 +107,44 @@ return table;
 `
   * In **Return type** enter: java.util.list
 * Create a submit button called **Close**
-    
 * Select the **No result found task **and add a blank form by going into the Application > Pageflow tab
   * Add a message widget and sets its initial value to “Sorry, no result found.”
-    
   * Add a submit button and name it “Close”
 * Once you have finished creating the diagram and configuring the tasks, the script and form fields, click **Run** to deploy and run the process in Bonita BPM Portal.
-
 * In the first form, enter a country and a city e.g. France, Grenoble
 * Click _**Get Weather Forecast**_
 * Click _**Display weather**_
-
-
 
 ### The Result
 
 The result is a form displaying all the weather information retrieved, for Grenoble.
 
-
 **Weather forecast**
 Status
-	Success
+Success
 
 Time
-	Jan 02, 2014 - 08:00 AM EST / 2014.01.02 1300 UTC
+Jan 02, 2014 - 08:00 AM EST / 2014.01.02 1300 UTC
 
 RelativeHumidity
-    81%
+81%
 
 Temperature
-    51 F (11 C)
+51 F (11 C)
 
 Location
-    Grenoble / St. Geoirs, France (LFLS) 45-22N 005-20E 386M
+Grenoble / St. Geoirs, France (LFLS) 45-22N 005-20E 386M
 
 DewPoint
-    46 F (8 C)
+46 F (8 C)
 
 Visibility
-    greater than 7 mile(s):0
+greater than 7 mile(s):0
 
 Pressure
-    29.85 in. Hg (1011 hPa)
+29.85 in. Hg (1011 hPa)
 
 Wind
-    from the SSW (200 degrees) at 8 MPH (7 KT) (direction variable):0
+from the SSW (200 degrees) at 8 MPH (7 KT) (direction variable):0
 
 `

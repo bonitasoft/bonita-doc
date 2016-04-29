@@ -3,17 +3,13 @@
 Before you put reporting in place, you need to create a dedicated reporting database.
 For performance reasons, it is a best practice to isolate reporting data from live data.
 
-
 This installation is performed manually outside of Bonita BPM.
 This documentation does not detail the installation procedure of such a database but provides some best practices.
-
-
 
 ## Best practices
 
 Start by identifying the KPIs you wish to track, then create the reporting database structure. 
 You need to create the appropriate tables and columns to store the reporting data.
-
 
 When creating your reporting database, follow these best practices to ensure quick read/write operations:
 

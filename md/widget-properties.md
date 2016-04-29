@@ -1,54 +1,33 @@
 # 1.7.2.4 Widget properties
 
-A page is constructed from [widgets](/widgets.md). The behavior of a widget is determined by the its properties. 
+A page is constructed from [widgets](/widgets.html). The behavior of a widget is determined by the its properties. 
 Any property you configure for a container is applied to all widgets in the container unless you override it with a widget-specific value.
-
 
 **[Specifying widget properties](#value-types)**
 
 > [Constant](#constant)
 
-
-
 > [Dynamic](#dynamic)
-
-
 
 > [Bidirectional bond](#bond)
 
-
-
 > [Interpolation](#interpolation)
-
-
 
 **[General widget properties](#general-widget-properties)**
 
 > [Width](#widget-width)
 
-
-
 > [CSS classes](#css-classes)
-
-
 
 > [Hidden](#is-displayed)
 
-
-
-
 **[Migrate a page from 7.0](#migrate)**
-
-
 
 ## Specifying a widget property
 
-
 To specify the properties of a widget, select the widget and go to the properties panel on the right of the whiteboard. A property value can be constant, dynamic, a bidirectional bond, or an interpolation.
 
-
 Note: In versions 7.0 and 7.0.1, a property value was specified as either a constant or an expression, but all values were in fact treated as dynamic. 
-
 
 ### Constant
 
@@ -79,7 +58,6 @@ Examples:
 Use a bidirectional field to specify a read-write binding between the
 property value and a variable.
 
-
 ### Interpolation - ![interpolation icon](images/images-6_0/UID-property-bond-interpolation.png)
 
 Use an interpolation field to enter text to display in the widget. The
@@ -89,20 +67,16 @@ replaced by
 the interpolated values. Specify a variable as a simple expression enclosed in double braces, using
 the
 same format as for a dynamic value field.
-```Example: I'm sorry, _{{ user.name | uppercase }}_. I'm afraid I can't do that.```
-
-
+Example: I'm sorry, _{{ user.name | uppercase }}_. I'm afraid I can't do that.
 
 ## General widget properties
 
 Some general properties are common to all widgets except containers.
 
-
 ### Width
 
 Specify the width of the widget relative to the container it is in, or to the page if it is not in a container. A widget can occupy one to 12 units.
 The actual widget widths are proportional, automatically adjusted for the device display.
-
 
 In the Performance and Efficiency editions, you can set a different value for the width property for each device type. Select the target device type in the top bar, then set the value of the Width property.
 ![Device type selection](images/images-6_0/pb-resolution.png)
@@ -111,8 +85,6 @@ Example: A form has three fields, First name, Last name, and Membership number.
 On a mobile ddevice, you want the fields to occupy the maxiumum width of the screen, each one of a separate line. 
 On a tablet device, you want the first name and last name to be on the same line but the membership number to be on the line below. 
 For laptop and desktop devices, you want all three fields to be in the same line. Set the width properties as follows:
-
-
 Moble
 Tablet
 Laptop
@@ -136,8 +108,6 @@ Membership number
 4
 4
 
-
-
 When you preview the form for each of the device types, you see the following:
 ![Device type selection](images/images-6_0/mobile.png)![Device type selection](images/images-6_0/tablet.png)![Device type selection](images/images-6_0/laptop.png)![Device type selection](images/images-6_0/desktop.png)
 
@@ -146,16 +116,12 @@ When you preview the form for each of the device types, you see the following:
 For each widget, you can associate one or more CSS classes (use a space-separated list for multiple classes). 
 By default, the [Bootstrap](http://getbootstrap.com/) CSS library is available so you can add any CSS class that it contains.
 
-
 ### Hidden
 
 This property controls whether the widget is hidden. Bind this property to a variable. 
 The value of the variable determines whether or not the widget is displayed. You can use this to control conditional display, for example when a widget becomes visible when the user enters a certain value in a form.
 
-
-
 ## Migrate a page from 7.0.0 and 7.0.1
-
 
 In Bonita BPM 7.0, property values were all dynamic. Pages and forms that were created with 7.0 and are already deployed will continue to work with 7.1\. 
 You should note that when you import a 7.0.0 or 7.0.1 page or form into 7.0.x later versions or the 7.1 Bonita BPM Studio or UI designer, widgets properties stay dynamic.

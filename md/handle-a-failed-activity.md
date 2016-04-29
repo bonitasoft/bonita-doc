@@ -2,7 +2,6 @@
 
 An activity (or task) can fail in Bonita BPM Engine for several reasons. Typical reasons include:
 
-
 * An input expression evaluation fails (for example because of invalid syntax, or incorrect values).
 * The condition in an output transition fails to evaluate properly.
 * A connector fails to execute because of remote system connection problem.
@@ -11,16 +10,12 @@ An activity (or task) can fail in Bonita BPM Engine for several reasons. Typical
 
 In these cases, the activity is considered to have failed, and its state is recorded as FAILED in the Bonita database.
 
-
 Note that if communication between the server and the database is interrupted, the activity failure cannot be recorded. In this case, 
 the state of the activity will be the state previously recorded.
 
-
 ## Possible actions on activity failure
 
-
 The Process Management API provides the following actions:
-
 
 * Reset the state of a failed connector, using `setConnectorInstanceState(long connectorInstanceId, ConnectorStateReset state)`.
 * Reset the states of a list connectors, using setConnectorInstanceState(final Map\> connectorsToReset).
@@ -28,43 +23,32 @@ The Process Management API provides the following actions:
 * Reset the states of a list of failed connectors and, in the same operation, retry the corresponding failed activity, using 
 replayActivity(long activityInstanceId, `Map` connectorsToReset).
 
-
-
-
 ## Code explained
-
 
 In this example, an activity has failed because a connector failed to execute.
 
-
 The methods that are used to reset process items are in the ProcessManagementAPI, and the details are in the 
-[Javadoc](/product-bos-sp/javadoc). These methods
+[Javadoc](/javadoc.html). These methods
 are accessed through the ProcessAPI, which extends the ProcessManagementAPI.
 
-
 First you need to log in, create the session, and get the ProcessAPI:
-
 `
-        final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
+final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
         final APISession session = loginAPI.login("USERNAME", "PASSWORD");
         final ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);
 `
 
-
 Then find the connector instance that failed:
-
 `
-        final SearchOptions searchOptions = new SearchOptionsBuilder(0, 1).filter(ConnectorInstancesSearchDescriptor.CONTAINER_ID, failedTaskId)
+final SearchOptions searchOptions = new SearchOptionsBuilder(0, 1).filter(ConnectorInstancesSearchDescriptor.CONTAINER_ID, failedTaskId)
                 .filter(ConnectorInstancesSearchDescriptor.STATE, ConnectorState.FAILED).done();
         final SearchResult searchResult = processAPI.searchConnectorInstances(searchOptions);
         final ConnectorInstance connectorInstance = searchResult.getResult().get(0);
 `
 
-
 Find the reason for the failure by searching the internal logs:
-
 `
-        // search why the connector failed:
+// search why the connector failed:
         final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
         builder.filter(LogSearchDescriptor.ACTION_SCOPE, failedTaskId);
         builder.searchTerm("Connector execution failure");
@@ -77,32 +61,21 @@ Find the reason for the failure by searching the internal logs:
         }
 `
 
-
 Then either reset the state of the connector instance and re-execute it, or skip the connector, as shown below:
-
 `
-        processAPI.setConnectorInstanceState(connectorInstance.getId(), ConnectorStateReset.SKIPPED);
+processAPI.setConnectorInstanceState(connectorInstance.getId(), ConnectorStateReset.SKIPPED);
 `
-
 Then try to execute the activity again:
-
 `
-        processAPI.retryTask(failedTaskId);
+processAPI.retryTask(failedTaskId);
 `
-
 
 Finally, log out:
-
 `
-            loginAPI.logout(session);
+loginAPI.logout(session);
 `
-
-
-
-
 
 ## Complete code
-
 `
 import org.bonitasoft.engine.api.LoginAPI;
 import org.bonitasoft.engine.bpm.connector.ConnectorInstance;

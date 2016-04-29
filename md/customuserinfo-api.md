@@ -1,1 +1,3 @@
-# 4.4.5 customuserinfo API
+# customuserinfo API
+
+* [customuserinfo](api_resources/customuserinfo_6.4_2_0.html)

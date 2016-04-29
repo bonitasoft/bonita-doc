@@ -1,10 +1,6 @@
 # 1.8.11 Salesforce connectors
 
-
-
 Salesforce version 24.0.0
-
-
 
 Available Salesforce connectors are:
 

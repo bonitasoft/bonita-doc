@@ -1,17 +1,11 @@
 # 1.5.4 Gateways
 
-
 Gateways are used to control how sequence flows interact as they
 converge and diverge within a process.
-
 
 There are three types of gateway available for process design in
 Bonita BPM Studio: [parallel (AND)](#parallel), [exclusive (XOR)](#exclusive), and [inclusive](#inclusive). These gateways
 behave in accordance with the BPMN2 specification.
-
-
-
-
 
 ## Parallel (AND) gateways
 
@@ -19,15 +13,9 @@ behave in accordance with the BPMN2 specification.
 
 Parallel (AND) gateway
 
-
 In a parallel (AND) gateway, all inputs must be received before the
 process can continue, and all outputs fire simultaneously. No
 condition can be put in the output.
-
-
-
-
-
 
 ## Exclusive (XOR) gateways
 
@@ -35,12 +23,10 @@ condition can be put in the output.
 
 Exclusive (XOR) gateway
 
-
 For an exclusive (XOR) gateway, the design must ensure that only one
 input will reach the gateway. Only one output fires. If there are
 several outputs defined, a condition is required to determine
 which one fires.
-
 
 ## Inclusive gateways
 

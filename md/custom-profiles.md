@@ -10,8 +10,6 @@ What customization can I do?
 * [Map a custom profile to a user, a group, a role or a membership](#map)
 * [Create a custom navigation bar for a custom profile with multiple menus and submenus](#nav)
 
-
-
 ## Create a custom profile
 
 1. In the Bonita BPM Portal, in the navigation bar, click the **Organization** menu.
@@ -24,37 +22,22 @@ What customization can I do?
 8. Refresh the portal webpage.
 9. The new profile will appear in the Profiles menu.
 
-For deployment, it is also possible to [import a profile](/deploying-profiles-export-and-import.md) by importing an XML file containing the profile definition and mapping to organization and pages.
-
-
-
-
-
-
+For deployment, it is also possible to [import a profile](/deploying-profiles-with-export-and-import.html) by importing an XML file containing the profile definition and mapping to organization and pages.
 
 ## Delete custom profile
 
-
 **Note:** You will need to check the box to make the delete button available.
 
-
 Select the profile to delete, and click the **delete button**.
-
-
-
-
-
 
 ## Edit a custom profile
 
 1. In the Bonita BPM Portal, in the navigation bar, click the **Organization** menu.
 2. Click **Profiles**.
 3. Click _**More**_.
-4. Click _**Edit**_. 
+4. Click _**Edit**_.
 5. Change the name or the description of the custom profile
 6. Click _**Save**_.
-
-
 
 ## Map a profile to users or groups, membership or role
 
@@ -67,11 +50,6 @@ Select the profile to delete, and click the **delete button**.
 7. Click _**Add**_.
 
 Do the same steps to map a group, role or membership.
-
-
-
-
-
 
 ## Create a custom navigation bar
 
@@ -87,13 +65,11 @@ A custom navigation bar can be created for each custom profile created.
 Here, you will see 3 columns: a check box, a display name and a description.
 5. Check the boxes to select the pages to include in the new menu.
 
-You can select from the Default pages that are provided with the standard portal and from [Custom pages](/custom-pages.md).
+You can select from the Default pages that are provided with the standard portal and from [Custom pages](/pages.html).
 6. Click _**Create**_ to confirm your choice of pages and create the menu.
 
 When you select the custom profile, the navigation bar will be applied to it.
 
 Note: Click _**Reset**_ to erase the navigation bar if required.
-
-
 
 When a user logs in with a profile, the page displayed is the first option in the first menu from the left.

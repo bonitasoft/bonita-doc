@@ -3,12 +3,10 @@
 This page describes the Bonita BPM Engine. It includes information
 about [APIs](#APIs), [BPM services](#BPM_services), [generic services](#Generic_services), and [packaging](#Packaging).
 
-
 The Bonita BPM Engine is the runtime processor at the core of Bonita BPM.  It
 executes processes, handling actions related to tasks, such as database access,
 and housekeeping actions such as logging. The Engine is composed of a number of
 services and APIs. The services are either BPM services or generic services.
-
 ![engine architecture diagram](images/images-6_0/dev_arch_engine_architecture_simple.png)  
 
 The Bonita BPM Engine component services are completely configurable using an XML
@@ -21,25 +19,19 @@ a system that uses any services we provide. Certain services are available only 
 includes contributions that enhance some services. There are also some internal
 services that are used within the Engine but are not described here.
 
-
 Services are served to the Engine using a ServiceAccessor. By default, this
 uses Spring to bind services and to retrieve services instances. The Spring
 configuration files are stored in **_BONITA\_HOME_**, and can
 be modified to change the implementation of a service or to tailor it. 
 
-
 The Engine can be installed on a Java Virtual
 Machine (JVM), in any web/JEE container, or can be used as a simple Java
 library.
 
-
 ## APIs
 
-
 This section contains a summary of the Bonita BPM Engine APIs. For details of the APIs, the methods and related objects, see the 
-[Javadoc](/javadoc-71).
-
-
+[Javadoc](/javadoc.html).
 Identity API
 Manages information about an organization, that is, the set of users
 who can act in processes. Handles creation, modification, and deletion
@@ -81,25 +73,19 @@ Used to pause service in a tenant for maintenance, to resume service, and to che
 There is also a Web API, which is for internal use only, and a Command API,
 which is primarily for internal use.
 
-
-
-
-
 ## BPM services
-
 
 BPM services are related to BPM activities.
 
-
 ### Actor mapping
-Description: 
+Description:
 Manage mapping between actors and users, roles, and groups. 
 
 Used by: - 
 
-Implementation: org.bonitasoft.engine.actor.mapping.impl.ActorMappingServiceImpl 
+Implementation: org.bonitasoft.engine.actor.mapping.impl.ActorMappingServiceImpl
 
-### CategoryDescription: 
+### CategoryDescription:
 Manage categories of processes. A category is a way to classify processes. Categories are handled manually by administrators 
 in Bonita BPM Portal and are visible to portal users. 
 
@@ -109,51 +95,49 @@ Implementation: org.bonitasoft.engine.core.category.impl.CategoryServiceImpl
 
 Notes: Store categories with the persistence service 
 
-### ConnectorDescription: 
+### ConnectorDescription:
 Execute a connector using the ConnectorDefinition: get the connector from the file system, evaluate expressions of input 
 parameters, instantiate/execute the connector and then execute output operations. 
 
-Used by: 
+Used by:
 Command service 
 
-Implementation: 
-org.bonitasoft.engine.core.connector.impl.ConnectorServiceImpl 
+Implementation: org.bonitasoft.engine.core.connector.impl.ConnectorServiceImpl 
 
-### Expression resolverDescription: 
+### Expression resolverDescription:
 Evaluate expressions and the associated dependencies. The expression resolver default implementation take all expressions and 
 dependencies, flattens them and orders them by type. It then evaluate all expressions starting with expressions that are known to have no 
 dependencies. All expressions that are evaluated at the same time have the same context of evaluation. 
 
 Used by: Any service that evaluates expressions 
 
-Implementation: 
+Implementation:
 org.bonitasoft.engine.core.expression.control.api.impl.ExpressionResolverServiceImpl 
 
-### LoginDescription: 
+### LoginDescription:
 Log in to or out of the Engine. 
 
 Used by: APIs 
 
 Implementation: org.bonitasoft.engine.core.login.LoginServiceImpl 
 
-### Platform loginDescription: 
+### Platform loginDescription:
 Log in to or out of the Engine at the platform level. 
 
-Used by: 
-
+Used by:
 APIs 
 
-Implementation: 
+Implementation:
 org.bonitasoft.engine.core.platform.login.impl.PlatformLoginServiceImpl 
 
-### OperationDescription: 
+### OperationDescription:
 Execute operations that update data. The Operation service can use different types of update method. 
 The default methods, called Operators, are ASSIGNMENT, JAVA\_METHOD, and XPATH\_UPDATE\_QUERY. 
 
-Used by: 
+Used by:
 Engine service, APIs when updating data using an operation 
 
-Implementation: 
+Implementation:
 org.bonitasoft.engine.core.operation.impl.OperationServiceImpl 
 
 ### ParameterDescription: For the Performance, Efficiency, and Teamwork editions, manage parameters of a process. Parameters are set for 
@@ -163,7 +147,7 @@ database you use in some connectors.
 Used by: Engine, APIs, ExpressionService (using the contributed 
 evaluator) when reading and updating parameters 
 
-Implementation: 
+Implementation:
 org.bonitasoft.engine.parameter.propertyfile.PropertyFileParameterService 
 
 Notes: Relies on Java properties in a file to store and retrieve parameters 
@@ -173,7 +157,7 @@ Description: Create, update, get, list, or delete comments attached to a process
 
 Used by: APIs 
 
-Implementation: 
+Implementation:
 org.bonitasoft.engine.core.process.comment.api.impl.SCommentServiceImpl 
 
 Notes: Relies on persistence service to store comments 
@@ -183,7 +167,7 @@ Description: Handle process definition objects.
 
 Used by: Engine 
 
-Implementation: 
+Implementation:
 org.bonitasoft.engine.core.process.definition.ProcessDefinitionServiceImpl 
 
 Notes: Stores definition in file system and in cache using XML 
@@ -194,7 +178,7 @@ Used by: APIs when executing processes or activities
 
 Implementation: the Engine itself 
 
-### Process instanceDescription: 
+### Process instanceDescription:
 Handle process instance objects. 
 
 Used by: Engine 
@@ -208,10 +192,9 @@ user who supervises it.
 
 Used by: APIs 
 
-Implementation: org.bonitasoft.engine.supervisor.mapping.impl.SupervisorMappingServiceImpl 
+Implementation: org.bonitasoft.engine.supervisor.mapping.impl.SupervisorMappingServiceImpl
 
-
-### User filterDescription: 
+### User filterDescription:
 Read and execute a userfilter that filters the set of users eligible to carry out a pending task. 
 
 Used by: Engine 
@@ -220,14 +203,9 @@ Implementation: org.bonitasoft.engine.core.filter.impl.UserFilterServiceImpl
 
 Notes: Uses the cache and read user filter of the file system 
 
-
-
-
-
 ## Generic services
 
 Generic services  perform actions that are not related to BPM but are required for successful process execution. No generic service has a dependency on a BPM service.
-
 
 ### Archive
 Description: Store and retrieve objects that will no longer change. 
@@ -237,7 +215,7 @@ Used by: ProcessInstance service to store ArchivedProcessInstance objects
 
 Implementation: org.bonitasoft.engine.archive.impl.ArchiveServiceImpl 
 
-### AuthenticationDescription: 
+### AuthenticationDescription:
 Check user credentials using a map. 
 
 Used by: Login service in Bonita BPM Teamwork, Efficiency, and Performance editions 
@@ -251,13 +229,12 @@ example, ?Activity 'step1' was created with id = 12? or ?Connector email-1.0.0 w
 information is stored in a database for easy query. 
 
 Used by: Any service storing objects: ?deleted activity\[..\]?  
-
 Scheduler service: ?Job executed \[...\]?    
 
-Implementations: 
-org.bonitasoft.engine.services.impl.SyncBusinessLoggerServiceImpl 
+Implementations:
+org.bonitasoft.engine.services.impl.SyncBusinessLoggerServiceImpl
 (Community edition: insert logs directly in database)  
-org.bonitasoft.engine.log.api.impl.BatchBusinessLoggerImpl 
+org.bonitasoft.engine.log.api.impl.BatchBusinessLoggerImpl
 (Teamwork, Efficiency, and Performance editions: inserts all logs in 
 batch at the end of the transaction) 
 
@@ -267,7 +244,7 @@ service handles different caches that can be configured separately.
 Used by: ProcessDefinition service, Connector service, Expression 
 service: put reusable definition objects in cache 
 
-Implementation: 
+Implementation:
 org.bonitasoft.engine.cache.ehcache.EhCacheCacheService 
 
 Notes: Uses EhCache to cache objects 
@@ -278,7 +255,7 @@ service handles different caches that can be configured separately.
 Used by: ProcessDefinition service, Connector service, Expression 
 service: put reusable definition objects in cache 
 
-Implementation: 
+Implementation:
 org.bonitasoft.engine.cache.ehcache.PlatformEhCacheCacheService 
 
 Notes: Uses EhCache to cache objects 
@@ -339,10 +316,9 @@ dependencies have a name and a content that is the JAR itself. For example, a pr
 javamail.jar that is declared at deployment. 
 
 Used by: Engine, to declare process dependencies  
-
 ClassloaderService, to retrieve dependencies of process 
 
-Implementation: 
+Implementation:
 org.bonitasoft.engine.dependency.impl.DependencyServiceImpl 
 
 Notes: Dependency information is stored in database 
@@ -403,7 +379,7 @@ Used by: ProcessExecutor, for canceling a process or for merging execution of br
 
 Implementation: org.bonitasoft.engine.lock.impl.MemoryLockService 
 
-Notes: Uses java.util.concurrent.locks.ReentrantReadWriteLock 
+Notes: Uses java.util.concurrent.locks.ReentrantReadWriteLock
 objects that are in memory only 
 
 ### MonitoringDescription: Monitor Engine activity, such as active transactions, 
@@ -455,7 +431,7 @@ Implementation: org.bonitasoft.engine.profile.impl.ProfileServiceImpl
 
 Notes: Uses persistence service to store privileges 
 
-### RecorderDescription: 
+### RecorderDescription:
 A layer between the persistence service and all services 
 that need to store objects. It ensures that events are triggered and 
 that queriable log entries are written. 
@@ -503,7 +479,7 @@ Implementation: org.bonitasoft.engine.platform.session.impl.PlatformSessionServi
 
 Used by: API. 
 
-Implementation: 
+Implementation:
 org.bonitasoft.engine.theme.impl.ThemeServiceImpl 
 
 ### TransactionDescription: Handles business transactions. A business transaction is 
@@ -513,7 +489,7 @@ This service is compatible with JTA.
 Used by: Almost all services, including persistence service to 
 register technical transactions. 
 
-Implementation: 
+Implementation:
 org.bonitasoft.engine.transaction.TransactionServiceImpl 
 
 ### Technical loggerDescription: An abstraction layer used to access the logger 
@@ -551,18 +527,15 @@ Implementations: org.bonitasoft.engine.xml.parse.SAXParser (parse using sax)
 org.bonitasoft.engine.xml.SAXValidator (validate using sax)  
 org.bonitasoft.engine.xml.DOMWriter (write using DOM) 
 
-
-
-
 ## PackagingThe Engine is provided as three .jar files:  
 
 * bonita-common contains code that is used by both the server and client sides of the application. 
 For example, the API interface is accessed both on the server side, which contains the API implementations, and 
 on the client side, which has a proxy on the API. It also contains objects such as BusinessArchive, which is the 
-JavaObject representation of a .bar file. 
+JavaObject representation of a .bar file.
 * bonita-server contains code used on by the server. For example, it contains service implementations, 
 the services accessor, and API implementations. 
 * bonita-client contains client-only code. For example, it contains the Accessor service for the APIs, 
-which is not in the common or server packages to prevent the server code calling the client-side API accessor. 
+which is not in the common or server packages to prevent the server code calling the client-side API accessor.
 
 In the Performance, Efficiency, and Teamwork editions, these jar files are bonita-common-sp.jar, bonita-server-sp.jar, and bonita-client-sp.jar.

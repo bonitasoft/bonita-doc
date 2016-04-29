@@ -2,12 +2,9 @@
 
 This page lists the database connectors provided with Bonita BPM. For some connectors there are special considerations, included in a section below.
 
-
 If you are configuring a connector to a database that is the same type of database used by Bonita BPM Engine, you are recommended to use the same driver for both, to limit possible conflicts.
 
-
-To [configure a database connector](/database-connector-configuration.md), follow the instructions in the wizard.
-
+To [configure a database connector](/database-connector-configuration.html), follow the instructions in the wizard.
 
 * Ingres 10.1
 * [MySQL 5.5](#mysql)
@@ -26,34 +23,21 @@ To [configure a database connector](/database-connector-configuration.md), follo
 
 ## MySQL 5.5
 
-
 It is not possible to execute more than one SELECT command in a single script.
 
-
-
-
-
 ## Teradata 14
-
 
 If you are using the `terajdbc4.jar`, you also need the `tdgssconfig.jar` file. 
 Import both `terajdbc4.jar` and `tdgssconfig.jar` into Bonita BPM Studio and add them to the connector configuration. 
 Specify `terajdbc4.jar` as the active driver. To test the connector, you must specify both files. When you configure the process, specify both files in the process dependencies.
 
-
-
-
-
 ## HSQL 2.2
 
 Allows only one connection per destination at a time
 
-
 ## Microsoft SQL Server 2008 or 2012
 
-
 **Language encoding**: MS SQL Server uses only one encoding at a time. To avoid errors when creating the database, please do the following when using alternative languages:
-
 
 Define the encoding:
 
@@ -70,26 +54,13 @@ Define the encoding:
 
 When you configure the connector, use this port number in the URL. For example: `jdbc:sqlserver://localhost:53165`.
 
-
-
-
-
-
-
 ## Sybase ASE 15
-
 
 Two driver jar files are available, and the Driver and URL values to specify in the configuration wizard depend on which jar you use:
 
-
 * For `jconn4.jar`:  
-
 Driver: `com.sybase.jdbc4.jdbc.SybDriver`  
-
 URL: `jdbc:sybase:Tds:`_`host:port/database`_
-
 * For `jtds-1.3.1.jar`:  
-
 Driver: `net.sourceforge.jtds.jdbc.Driver`  
-
 URL: `jdbc:jtds:sybase://`_`host:port/database`_

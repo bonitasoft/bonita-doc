@@ -2,17 +2,12 @@
 
 This page presents an overview of reporting with Bonita BPM.
 
-
 ## Terminology
 
 Reporting is the act of collecting and aggregating Key Performance Indicators (KPIs) to present them in reports.  
-
 KPIs are defined as a set of measures that are used to assess the operational success of a business process.
 
-
 Reporting is also know as Business Intelligence (BI) or Business Activity Monitoring (BAM).
-
-
 
 ## Reporting dependencies
 
@@ -27,9 +22,9 @@ Reporting is composed in several ordered steps.
 
 At design time:
 
-1. [Reporting database setup](/set-reporting-database.md)
-2. [KPI definition in Bonita BPM Studio](/set-kpis.md)
-3. [Report creation in the BI tool](/create-report.md)
+1. [Reporting database setup](/set-up-a-reporting-database.html)
+2. [KPI definition in Bonita BPM Studio](/set-up-kpis.html)
+3. [Report creation in the BI tool](/create-a-report.html)
 
 At execution time:
 

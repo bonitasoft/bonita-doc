@@ -6,9 +6,6 @@
 [Feature improvements in Bonita BPM Portal](#featureimprovportal)  
 [Feature improvements in Bonita BPM Engine](#featureimprovengine)  
 
-
-
-
 ## Packaging comparison
 Feature
 Bonita BPM 6.x
@@ -25,12 +22,9 @@ For each version, there are several packaging options. Each edition has a specif
 
 There is now a single var\_bonita\_home, simplifying download options and installation. The edition is set in a properties file. There are no other differences to packaging. 
 
-See the [Installation overview](/bonita-bpm-installation-overview.md).
-
-
+See the [Installation overview](/bonita-bpm-installation-overview.html).
 
 ## Concept comparison
-
 Feature
 Bonita BPM 6.x
 Bonita BPM 7.x
@@ -41,7 +35,7 @@ Not in 6.x
 
 A contract defines a clear separation between the process and the forms, making it possible to update the process user interface on the live system. 
 
-See [Contracts](/contracts-and-contexts.md).
+See [Contracts](/contracts-and-contexts.html).
 
 Live update
 
@@ -49,7 +43,7 @@ Not in 6.x
 
 A live update is a change that is applied to a process or application on the live system, without needing to pause the platform or take a process out of service.
 
-See [Live update](/live-update). 
+See [Live update](/live-update.html). 
 
 Form mapping
 
@@ -60,11 +54,11 @@ used. This separation between the process and the forms makes it possible to to 
 
 Business data
 
-A process or application can use business data managed by the Bonita BPM Platform. (Subscription editions only). 
+A process or application can use business data managed by the Bonita BPM Platform. (Subscription editions only).
 
 Now available in all editions.
 
-See [BDM](/business-data-model-856)
+See [BDM](/define-and-deploy-the-bdm.html)
 
 Actor mapping
 
@@ -72,13 +66,13 @@ Each actor in a process can be mapped to a Group, Role, Membership or User withi
 
 No change.
 
-See [Actor mapping](/actors.md#Mapping_an_actor) and [Actor filtering](/actor-filtering.md).
+See [Actor mapping](/actors.html#Mapping_an_actor) and [Actor filtering](/actor-filtering.html).
 
 Environments
 
 An Environment is a set of configuration information for a particular process. It contains the following information:
 
-* Actor Mapping 
+* Actor Mapping
 * Actor filters
 * Parameters
 * Connector implementations
@@ -88,7 +82,7 @@ By having these Environments set up in the Studio, the developer can export proc
 
 No change.
 
-See [Environments](/environments.md).
+See [Environments](/environments.html).
 
 Parameters
 
@@ -96,7 +90,7 @@ A Parameter is configuration information that can be attached to a process. Para
 
 Now available in all editions.
 
-See [Parameters](/parameters.md) and [Environments](/environments.md).
+See [Parameters](/parameters.html) and [Environments](/environments.html).
 
 Workspace API
 
@@ -108,12 +102,9 @@ The Workspace API is provided to generate `.bar` files from the command line, re
 
 No change. The Workspace API can export pages that are mapped to process instantiation, process overview, or to tasks. It cannot export application pages that are not elements of a process.
 
-See [Automating process builds](/automating-process-builds.md).
-
-
+See [Automating process builds](/automating-process-builds.html).
 
 ## Feature improvements in Bonita BPM Studio
-
 Feature
 Bonita BPM 6.x
 Bonita BPM 7.x
@@ -125,20 +116,20 @@ Not in 6.x
 A new development environment for creating sophisticated, data-driven pages and forms for process-based applications. 
 The UI designer is accessed through the Studio.
 
-See [live update](/live-update).
+See [live update](/live-update.html).
 
-The 6.x [form tooling](/6x-legacy-forms) is still supported, so that you can continue to run 6.x processes and to ease migration. 
+The 6.x [form tooling](/6x-legacy-forms.html) is still supported, so that you can continue to run 6.x processes and to ease migration. 
 
 Process migration
 
 A process exported from Bonita Open Solution 5.9 or 5.10 must be modified to run in Bonita BPM. When you import a process from 5.9 or 5.10 into Bonita BPM Studio, you see a report that guides you through the changes that are necessary.
 
-See [Migrate a process from Bonita Open Solution 5.9 or 5.10](/migrate-process-bonita-open-solution-5x.md).
+See [Migrate a process from Bonita Open Solution 5.9 or 5.10](/migrate-a-process-from-bonita-open-solution-5x.html).
 
 A process created in Bonita BPM 6.x will run in 7.x without any modification. 
 However, to take advantage of the new features in Bonita BPM 7.x, you need to add contracts and migrate the forms.
 
-See [Contracts](/contracts-and-contexts.md) and [Migrate a form from 6.x](/migrate-form-6x).
+See [Contracts](/contracts-and-contexts.html) and [Migrate a form from 6.x](/migrate-a-form-from-6x.html).
 
 Application theme and layout
 
@@ -146,7 +137,7 @@ Not in 6.x
 
 You can create custom layout and theme for a process-based application constructed from UI designer pages and forms.
 
-See [Appearance](/appearance).
+See [Appearance](/appearance.html).
 
 REST API extensions
 
@@ -154,7 +145,7 @@ Not in 6.x
 
 You can create custom REST API extensions, to supplement the standard REST API interfaces or to optimize REST API calls used UI designer pages and forms. 
 
-See [REST API extensions](/rest-api-extensions).
+See [REST API extensions](/rest-api-extensions.html).
 
 Improved UI
 
@@ -168,7 +159,7 @@ Easy variable definition for process data, using the expression editor to set th
 
 Easy variable definition for both business data and process data. 
 
-See [Business data model](/business-data-model-856) and [Process variables](/specify-data-process-definition).
+See [Business data model](/define-and-deploy-the-bdm.html) and [Process variables](/specify-data-in-a-process-definition.html).
 
 Expression Editor
 
@@ -178,7 +169,7 @@ Convenience Groovy functions are provided to help write scripts more quickly. Th
 
 No changes to the expression editor. It is not available from the UI designer.
 
-See [Using expressions and scripts](/using-expressions-and-scripts.md).
+See [Using expressions and scripts](/expressions-and-scripts.html).
 
 Validation 
 
@@ -186,7 +177,7 @@ The validation view shows all validation errors in the same location in the Stud
 
 The existence of mapped forms is verified, but the form definition is not validated for forms created with the UI designer.
 
-See [Process testing overview](/process-testing-overview.md).
+See [Process testing overview](/process-testing-overview.html).
 
 Iteration
 
@@ -194,14 +185,14 @@ Iteration can be by loop or by multi-instantiation. Multi-instantiation no longe
 
 No change.
 
-See [Iteration](/iteration.md).
+See [Iteration](/iteration.html).
 
 Connectors
 A number of standard connector are provided, and it is possible to create your own custom connectors.
 
 No change.
 
-See [Connectivity](/connectivity-overview.md).
+See [Connectivity](/connectivity-overview.html).
 
 Organization for testing
 
@@ -209,20 +200,17 @@ Several organizations can be defined in the Studio, for test purposes. The organ
 
 No change.
 
-See [Organization overview](/organization-overview.md).
+See [Organization overview](/organization-overview.html).
 
 Anonymous user
 
 You can define a process that has an unknown initiator.
 
-See [Start a process as an anonymous user](/actors.md).
+See [Start a process as an anonymous user](/actors.html).
 
 Not supported.
 
-
-
 ## Feature improvements in Bonita BPM Portal
-
 Feature
 Bonita BPM 6.x
 Bonita BPM 7.x
@@ -238,7 +226,6 @@ You can dynamically update the following configuration items:
 * Dependencies (Performance edition)
 * Actor filter replay by Java call (Performance edition).
 
-
 New live update feature expands the dynamic reconfiguration to other editions and to other items. The following items can be updated "live":
 
 * Groovy scripts (Efficiency and Performance editions)
@@ -249,14 +236,14 @@ New live update feature expands the dynamic reconfiguration to other editions an
 * Dependencies (all editions)
 * Actor filter replay by Java call (Performance edition)
 
-See [Live update](live-update).
+See [Live update](/live-update.html).
 
 User interface
 For users, a simple interface for starting cases and performing tasks. For administrators, an interface for managing processes and applications, and the organization, with views for monitoring process and case status.
 
 No change for users. For adminsitrators, the case process and case monitoring views have been improved, new live update features have been added, and the application editor has been improved.
 
-See [Bonita BPM Portal interface overview](/bonita-bpm-portal-interface-overview-855).
+See [Bonita BPM Portal interface overview](/bonita-bpm-portal-interface-overview.html).
 
 Task management
 
@@ -264,23 +251,23 @@ Users can choose how to manage tasks. They can perform one task after another in
 
 No change for users. An administrator or process manager (or a user with an appropriate custom profile) can see at a glance that status of all tasks in a case, and can perform a task for a user.
 
-See [Manage a task](/tasks.md).
+See [Manage a task](/tasks.html).
 
-Mobile web portal 
+Mobile web portal
 
 A specially designed mobile interface to Bonita BPM Portal enables users to carry out tasks from a browser on mobile devices.
 
 No change. 
 
-See [Mobile overview](/mobile-portal-overview.md).
+See [Mobile overview](/mobile-portal.html).
 
-Subtasks 
+Subtasks
 
 A Subtask is a part of a self-assigned existing task. A Subtask must be assigned to a specific person, by name. The assignee can be the creator.
 
 No change.
 
-See [Manage a subtask](/subtasks.md).
+See [Manage a subtask](/subtasks.html).
 
 Replay tasks and connectors in error
 
@@ -288,16 +275,14 @@ It is now possible for the administrator to replay a task or a connector that is
 
 No change.
 
-See [Process configuration overview](/process-configuration-overview.md) and [Mobile overview](/mobile-portal-overview.md).
+See [Process configuration overview](/process-configuration-overview.html) and [Mobile overview](/mobile-portal.html).
 
 Anonymous user
 
-You can now complete a task as an [anonymous user](/anonymous-user), that is, without being registered in the organization. 
+You can now complete a task as an [anonymous user](/anonymous-user.html), that is, without being registered in the organization. 
 For example, on an e-commerce site, a new user can browse stock and save items to a basket, then register with the site if they want to save their basket for later or to buy something.
 
 Not supported.
-
-
 
 ## Feature improvements in Bonita BPM Engine
 Feature
@@ -310,4 +295,4 @@ A separate var\_bonita\_home for each edition and for cluster.
 
 A common var\_bonita\_home used for all editions, simplifying download and installation. Improved structure for var\_bonita\_home/server that is easier to maintain and customize.
 
-See [Bonita Home](/bonita-home.md).
+See [Bonita Home](/bonita-home.html).

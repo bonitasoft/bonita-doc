@@ -3,26 +3,18 @@
 This page
 explains how to handle data in a process, including specifying process- and task-level data. For information about 
 
-
-
 [Variable scope](#L2422)  
 [Transient data](#transient)  
 [Subprocess data](#subprocess_data)
 [External data](#L2424)
 [Define a variable](#define_a_variable)
 
-
-
 ## Variable scope
-
 
 You can define a variable at process, task, or form level:
 
-
-
 * A process variable is available throughout the life of a process. Process variables
 can be uses to store data for transition conditions, and identifiers for business data stored in an external database. They are typically items of data which affect the path of the process, or are used at several steps of the process, but which become redundant, once the process instance has completed.
-
 * A task variable is available for the task and its outgoing transitions.
 It can be used to pass data to a connector in the same step. Activity variables are similar to Process variables, but exist only within the life of a process instance activity.
 * A form variable is available only in the form, and is used to store data
@@ -30,16 +22,13 @@ used in the form. You can also use form variables with connectors that are
 associated with the form.
 
 See also:  
-[Data types and defining a variable](/define-variable.md)  
-[Complex data types](/complex-data-types)  
-[Data handling in a form](/data-handling-form)  
-[Saving data entered in a widget group](/saving-data-widget-group.md)
-
+[Data types and defining a variable](/data-handling-overview.html)  
+[Complex data types](/create-a-complex-data-type.html)  
+[Data handling in a form](/product-bos-sp/data)  
 
 ![Scope of variables](images/images-6_0/variables_scope.png)
 
 Scope of variables
-
 
 Best practice:
 
@@ -53,25 +42,19 @@ only when required for the process flow.
 large set of variables has an impact on performance. 
 
 There are also a number of variables that are provided by default in a process, such as the id of the current user. They are available through the
-[expression editor](/using-expressions-and-scripts).
-
-
-
+[expression editor](/expressions-and-scripts.html).
 
 ## Transient data
-
 
 A variable can be transient or persistent. A transient variable is stored
 only in memory, saving database transactions. A persistent variable is stored
 in the Bonita BPM Engine database.
-
 
 it is possible to update the value of a transient variable in a task, but this is not recommended. The value of a transient variable in a task is not preserved when the app server restarts. 
 The value is reset to the initial value. 
 When deciding whether to use a transient or persistent variable, consider whether the the variable is used in an operation.
 In particular, if a operation script does several things, one of which is to update a transient variable and the app server restarts after the 
 script has run but before the end of the task, the transient variable is reset but the other changes made by the script survive the restart.
-
 
 * Task variables
 can be transient or persistent.
@@ -84,9 +67,7 @@ Best practice:
 
 If the value of a transient variable is updated, this triggers a warning message in the log. You can deactivate these warnings by editing `logging.properties` and uncommenting the relvant section of the file.
 
-
 ## Subprocess data
-
 
 An event subprocess has access to the data in the parent process. This includes parameters 
 and process-level variables. A subprocess called from a call activity is in fact an independent
@@ -94,27 +75,19 @@ process, defined in a separate pool. It does not have direct access to the data 
 process. When you define a call activity, you can define mappings that make copies of the 
 data in the calling process available in the subprocess.
 
-
-
-
 ## External data
 
-
-A process or application can use data that is stored in an external database and accessed using a [database connector](/list-database-connectors). For example, in a process for requesting annual leave, there could
+A process or application can use data that is stored in an external database and accessed using a [database connector](/list-of-database-connectors.html). For example, in a process for requesting annual leave, there could
 be a step that uses a connector to retrieve the number of days available for an employee and stores this in a transient variable. This variable is then
 compared with the number of days requested to see whether the employee is entitled to take the requested number of days. In a later step, another
 connector is used to update the number of available days after this request is approved, by subtracting the number of days requested.
 
-
-You can also use data stored in external information system components, such as a CRM document storage system. These systems are also accessed using a [connector](//connectivity-overview.md).
-
+You can also use data stored in external information system components, such as a CRM document storage system. These systems are also accessed using a [connector](/connectivity-overview.html).
 
 ## Define a variable
 
-
 When you define a variable, you specify a name and the data type. Optionally, you can 
 specify a default value or a list of available values.
-
 
 * [Data types](#data_types)
 * [Variable naming](#variable_naming)
@@ -127,24 +100,17 @@ specify a default value or a list of available values.
 
 ## Data types
 
-
 Bonita BPM has a number of predefined data types: Boolean, date, integer,
 long, double, text, Java object, XML schema (XSD) and option list. You can also
 define a variable as _multiple_, that is, an array or collection of
 values of the specified type.
 
-Note that since 6.3, Business data is now available. For a detailed explanation, see the [Business Data overview](/business-data-overview.md).
-
+Note that since 7.0, Business data is now available. For a detailed explanation, see the [Business Data overview](/define-and-deploy-the-bdm.html#boprocesses).
 
 You can also define additional [complex
-data types](/complex-data-types) as Java objects or as XML objects.
-
-
-
-
+data types](/create-a-complex-data-type.html) as Java objects or as XML objects.
 
 ### Variable naming
-
 
 You are recommended to use meaningful names for variables
 This make process debugging and maintenance easier, particularly if more than one person is working on a process
@@ -152,10 +118,7 @@ It can be useful to use a system of prefixes to identify the context in which a 
 For example, you could label all transient data variables with the prefix trans\_, or you could label variables defined on a task called getData with the prefix task\_getData\_. 
 [Java language keywords](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html) cannot be used as variable names.
 
-
-
 ### Define a simple data type variable
-
 
 The simple data types are Boolean, date, integer, long, double, and text. To
 define a variable with one of these types:
@@ -165,8 +128,7 @@ define a variable with one of these types:
 3. Go to the **Details** panel, **General** view, **Data** pane. A list of the variables
 already defined is displayed.
 4. Choose if you want to add Process data or Business data. Click **_Add..._**.
-Note: if you add Business data, only add it at the pool/lane level. See this tutorial as a guide for the next steps[How to add Business data to a process](/how-add-business-data-data-process).
-
+Note: if you add Business data, only add it at the pool/lane level. See this tutorial as a guide for the next steps[How to add Business data to a process](/define-and-deploy-the-bdm.html#boprocesses).
 5. Specify a name for the variable. The name must be unique within the scope
 of the variable. For easier process maintenance, it is a good idea to make
 all variable names unique within the process, even though this is not
@@ -186,10 +148,8 @@ variable, click **_Create & New_**, otherwise click **_Finish_**.
 
 ### Define a Java object variable
 
-
 You can define a variable whose data type is Java object. Before you define
-the variable, you must [create the data type definition](/complex-data-types).
-
+the variable, you must [create the data type definition](/create-a-complex-data-type.html).
 
 To add a Java object variable:
 
@@ -218,16 +178,12 @@ variable, click **_Create & New_**, otherwise click **_Finish_**.
 When you configure the process, add the JAR file that contains the data type
 definition to the application or process dependencies.
 
-
-
 ### Define an XML variable
 
-
 An XML variable has a data type that is defined by an XML schema file.
-Before you define the variable, you must [create the XML schema](/complex-data-types) that contains
+Before you define the variable, you must [create the XML schema](/create-a-complex-data-type.html) that contains
 the data type definition. The data type definition is stored in an XML
 schema (XSD) file that belongs to a namespace.
-
 
 To add an XML variable:
 
@@ -258,13 +214,11 @@ variable, click **_Create & New_**, otherwise click **_Finish_**.
 
 ### Define a variable as a list of options
 
-
 You can use a list of options when the value of a variable is one or more of
 a fixed set of possible values. If the possible values change frequently, or
 are related to business data, this method is not recommended. Instead, for
 business data, you should use a connector to retrieve the possible values from
 a database.
-
 
 To add a static list of options variable:
 
@@ -300,28 +254,20 @@ After a list of options has been defined, you can define another variable
 that uses the same list of options, by choosing the list name from the Data
 type menu.
 
-
 ### Define the default value
-
 
 You can specify a default value for a variable either by entering it
 directly, or by using the expression editor. To launch the expression editor,
 click the crayon icon beside the Default value field. 
 
-
 When a form widget related to the variable is displayed, the default value
 you defined is used as the initial value of the widget in the form.
 
-
-
-
 ### Define available values
-
 
 The set of available values for a checkbox, checkbox list, dropdown list,
 radio button set, select list, or suggestion box is set using either a
 connector or a list of options.
-
 
 If you do not want to define a set of available values but need to specify
 constraints on the value, you can use a validator.

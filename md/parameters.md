@@ -5,18 +5,13 @@ The value is set when you configure the process. For example,
 if you have a process for approving expense reports, you could define a parameter for the approver's email address that is set at deployment. 
 If you are using the Performance or Efficiency edition, the value can also be changed after deployment. 
 
-
 [Defining a process parameter](#defining_a_process_parameter)  
 [Configuring parameter values](#configuring_parameter_values)  
 [Parameter usage in forms](#parameter_usage_in_forms)
 
-
 ## Defining a process parameter
 
-
-
 You can define a parameter for a pool or for a lane. A parameter can be of type text, Boolean, integer, or double.
-
 
 To define a parameter:
 
@@ -26,18 +21,11 @@ To define a parameter:
 
 To modify a parameter (for example to change its type), click on the existing type on in the table of parameters and choose the new type from the drop-down list.
 
-
 To remove a parameter, select it in the table of parameters and click **Remove**.
-
-
-
-
 
 ## Configuring parameter values
 
-
-Parameter values are set in Bonita BPM Studio when the process is configured (see the [process configuration overview](/process-configuration-overview.md) for other details of how to configure a process).
-
+Parameter values are set in Bonita BPM Studio when the process is configured (see the [process configuration overview](/process-configuration-overview.html) for other details of how to configure a process).
 
 To set a parameter value:
 
@@ -51,18 +39,13 @@ You can export the parameter values to a file by clicking **Export parameters as
 You can also set parameter values by importing a parameter.properties file. The values in the file are used to set the values of the corresponding parameters. 
 Note that importing a parameters.properties file does not create parameters in the process, just sets the values of those that exist if they are present in the file.
 
-
-When you build a process for deployment (see [Import and export a process](/import-and-export-process.md)), the .bar archive that is 
+When you build a process for deployment (see [Import and export a process](/import-and-export-a-process.html)), the .bar archive that is 
 created also contains a parameters.properties file.
-
 
 You can edit a parameters.properties file to change the value of a parameter before importing it into Bonita BPM Studio or before deploying the .bar. 
 You can also edit the file after process deployment, but this is not recommended if the process is running. If you need to
-change a parameter value for a process that is in production, [update the process configuration in Bonita BPM Portal](/processes.md#modpar)).
-
-
+change a parameter value for a process that is in production, [update the process configuration in Bonita BPM Portal](/processes.html#modpar)).
 
 ## Parameter usage in forms
 
-
-From 7.x, to use parameters in forms, you need to retrieve them using the [REST API.](/bpm-api.md#processparameter)
+From 7.x, to use parameters in forms, you need to retrieve them using the [REST API.](/bpm-api.html#processparameter)

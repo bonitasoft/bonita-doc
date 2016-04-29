@@ -2,8 +2,6 @@
 
 In this page:
 
-
-
 [Create a new user](#create)  
 [Add a user to a group](#add_to_group)  
 [List the users in a group](#List_in_group)  
@@ -13,13 +11,9 @@ In this page:
 [Get the pending tasks for a user](#get_pending)  
 [Get possible users of a task and execute task for a user](#get_eligible)
 
-
 ## Create a new user
 
-
 This example shows you how to create a new user and assign the user to a profile. 
-
-
 
 **Create a new user** by calling the createUser method:
 `
@@ -27,7 +21,6 @@ This example shows you how to create a new user and assign the user to a profile
 final User user = identityAPI.createUser("john", "bpm");
 System.out.println("New user created: " + user);
 `
-
 
 Alternatively, you can create a more complex user object as follows:
 `
@@ -39,7 +32,6 @@ ContactDataCreator proContactDataCreator = new ContactDataCreator().setAddress("
 creator.setProfessionalContactData(proContactDataCreator);
 final User user2 = identityAPI.createUser(creator);
 `
-
 
 Now add the user to a Bonita BPM Portal profile. A user who does not have a profile cannot log in to Bonita BPM Portal.
 `
@@ -61,35 +53,25 @@ profileMemberCreator.setUserId( user.getId());
 orgProfileAPI.createProfileMember(profileMemberCreator);
 `
 
-
-
 To create a user with more complete information, use the UserBuilder to create 
 an instance of User and then use the createUser method with the User as parameter.
 
-
 ## Add a user to a group
-
 
 This example shows how to add a user to a group.
 
-
 The user, group, and role are already defined, and each one is specified by ID.
 Note that it is not possible to add a user without a role.
-
 `
 final IdentityAPI identityAPI = new IdentityAccessor().getIdentityAPI(apiSession);
 UserMembership membership = identityAPI.addUserMembership(userId, groupId, roleId);
 `
 
-
 ## List the users in a group
-
 
 This example shows how to get a list of users in a specified group in the organization.
 
-
 The group is specified by groupID. The search options specify that a maximum of 100 items are listed, starting with the first one.
-
 `
 final IdentityAPI identityAPI = TenantAPIAccessor.getIdentityAPI(apiSession);
 final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
@@ -97,15 +79,11 @@ builder.filter(UserSearchDescriptor.GROUP_ID, groupID);
 final SearchResult userResults = identityAPI(apiSession).searchUsers(builder.done());
 `
 
-
 ## List the users with a specified role in a group
-
 
 This example shows how to get a list of the users who have the specified role in the specified group in the organization.
 
-
 The group is specified by groupID. The role is specified by roleID. The search options specify that a maximum of 100 items are listed, starting with the first one.
-
 `
 final IdentityAPI identityAPI = TenantAPIAccessor.getIdentityAPI(apiSession);
 final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
@@ -114,28 +92,20 @@ builder.filter(UserSearchDescriptor.ROLE_ID, roleID);
 final SearchResult userResults = identityAPI(apiSession).searchUsers(builder.done());
 `
 
-
 ## Get user contact data
-
 
 You can use the `getUserWithProfessionalDetails` method to retrieve a user and their professional contact data for a user.
 
-
 This example shows how to get a user and the email address.
-
 `
 // Get the professional email address of a user
 UserWithContactData proUser = getIdentityAPI().getUserWithProfessionalDetails(user.getId());
 proUser.getContactData().getEmail();
 `
 
-
 ## Search for users
 
-
-The following example is a client application that accesses the Engine in HTTP mode to search for 20 users and display their names and identifiers. 
-
-`
+The following example is a client application that accesses the Engine in HTTP mode to search for 20 users and display their names and identifiers. `
 package org.bonitasoft.example;
 
 import org.bonitasoft.engine.api.IdentityAPI;
@@ -167,15 +137,11 @@ public class BonitaClientApplicationExample {
 }
 `
 
-
 ## Get the pending tasks for a user
-
 
 This example shows you how use the Bonita BPM Engine API to get the pending tasks for a user.
 
 It shows how to get the list of pending tasks, and then for each task, how to assign it to the user and execute it.
-
-
 
 To **get the pending tasks** for a given user, call the getPendingHumanTaskInstances method.
 In this example, the first page of the current logged user's tasks are retrieved ordered by priority. 
@@ -188,9 +154,7 @@ final List pendingTasks =
 System.out.println("Pending tasks for user " + session.getUserName() + ": " + pendingTasks);
 `
 
-
 Note that this does not return tasks that are already assigned to the user.
-
 
 Then loop through the list of tasks. For each task, **assign the task** to the user and **execute the task**:
 `
@@ -203,32 +167,24 @@ for (final HumanTaskInstance pendingTask : pendingTasks) {
 }
 `
 
-
 ## Get possible users of a task and execute task for a user
 
-
 This example shows how to get the list of users who are eligible to perform a task.
-
 
 First, it creates a simple process containing one human task, called "step1". 
 This task will be performed by a user who is mapped to the "expert" actor. An actor filter is applied to "step1", assigning the task specifically to the superExpert user.
 
-
 Next, it calls `getPossibleUsersOfHumanTask` to get the list of all users who are eligible to perform the step1 according to the process definition. 
 This will be a list of all the users who are mapped to the expert actor.
-
 
 Next, it calls `getPossibleUsersOfPendingHumanTask` to get the list of users who will perform a specific instance of step1, in the process instance. 
 The actor filter is applied when the task instance is created. This is known as **dynamic task assignment**. 
 The actor filter is applied and a shorter list of users is returned (in this case, just superExpert).
 
-
 Dynamic task assignment using `getPossibleUsersOfPendingHumanTask` re-evaluates the actor mapping including any actor filters. 
 It is useful if your organization changes after a process instance is started and you need to modify the list of users who can perform a task.
 
-
 Finally, it executes the task for the fist user on the list. This "execute for" feature is not available in the Community and Teamwork editions.
-
 `
 // Create a process definition containing a human task, step1
 // Step1 is performed by actor expert adjusted by an actor filter

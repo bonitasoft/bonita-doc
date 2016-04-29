@@ -2,21 +2,14 @@
 
 This page explains how to build Bonita BPM Community Edition from the source files.
 
-
 You can download the sources of the Bonita BPM components from the [Bonitasoft source repository](https://github.com/bonitasoft). 
 The source files are stored on GitHub. You are recommended to take a tagged version, so that you have a coherent set of sources. 
-
-
-
 
 Bonita BPM Engine and Web components are compiled using [Maven](http://maven.apache.org/index.html). Each source directory contains a configuration file, `pom.xml`. 
 If you make any changes to the source file structure, to add, remove, or replace a source, update the POM file accordingly. 
 Bonita BPM Studio components are built using [Tycho](http://eclipse.org/tycho/), which is an overlay of Maven.
 
-
-
 To build the product, you need the following:
-
 
 * Access to the internet
 * Git
@@ -26,13 +19,10 @@ To build the product, you need the following:
 * An available maven repository with `javax.jms:jms:jar 1.1`
 * Bitrock Install Builder 9.5.3 (optional: required only for building Bonita BPM Studio installers)
 
-
 The following table shows how to build all the product components. Some components rely on components that are built earlier in the sequence, so the build order must be respected. This is table shows the components for 7.0.0\. 
 For later versions, replace "7.0.0" with the relevant version number. Some components, notably connectors have independent versioning so it is normal that some version numbers are different.
   
 Note: this is not a script. However, you could create a script suitable for your build environment using these commands.
-
-
 `
 echo "# Building project bonita-jboss-h2-mbean / tag 1.1.0"
 git clone --branch 1.1.0 --single-branch git@github.com:bonitasoft/bonita-jboss-h2-mbean.git bonita-jboss-h2-mbean

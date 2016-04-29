@@ -1,0 +1,18 @@
+# Page and form development
+
+* [Page and form development overview](page-and-form-development-overview.html)
+* [Using the UI designer](using-the-ui-designer.html)
+  * [UI designer overview](ui-designer-overview.html)
+  * [Create or modify a page](create-or-modify-a-page.html)
+  * [Widgets](widgets.html)
+  * [Widget properties](widget-properties.html)
+  * [Widget use examples](widget-use-examples.html)
+    * [Repeat a container for a collection of data](repeat-a-container-for-a-collection-of-data.html)
+  * [Fragments](fragments.html)
+  * [Custom widgets](custom-widgets.html)
+  * [Variables](variables.html)
+  * [Appearance](appearance.html)
+  * [Assets](assets.html)
+  * [Multi-language pages](multi-language-pages.html)
+  * [Migrate a form from 6.x](migrate-a-form-from-6-x.html)
+* [6.x legacy forms](6-x-legacy-forms.html)

@@ -6,9 +6,7 @@ This page presents two implementation options for creating KPIs and integrating 
   * [Create a KPI Definition](#create_kpi_definition)
   * [Attach a KPI Definition to a task or a pool](#attach_kpi_definition)
   * [Configure the JDBC driver as a process dependency](#add_jdbc_driver)
-
 * [Create a KPI using a database connector](#using_connector)
-
 
 ## Create a KPI using the Bonita BPM Studio KPI feature
 
@@ -26,7 +24,6 @@ In order to use the KPI feature, you need to:
 2. Attach the KPI definition to a task or to a pool
 3. Configure the JDBC driver as a process dependency
 
-
 ### Create a KPI definition
 
 When creating a KPI definition, you must specify its database connection settings and its structure.
@@ -40,7 +37,6 @@ When creating a KPI definition, you must specify its database connection setting
 ![JDBC connection settings](images/images-6_0/createKPI_step4.png)
   4. Click on **_Test connection_** to validate your settings.
   5. Click on **_Next_**.
-
 3. Fill in the KPI Definition page
   1. Provide a name for the KPI definition. This is used as a reference for the Bonita BPM Studio developers.
   2. Click on the **_Fetch tables_** button to select the table to which you wish to attach this KPI. 
@@ -52,8 +48,6 @@ This pre-fills the KPI fields based on your database structure. Alternatively, y
     * whether the values should be surrounded with quotes in the SQL insertion query
 ![KPI fields](images/images-6_0/editKPI.png)
   5. Click on **_Create_**.
-
-
 
 ### Attach a KPI Definition to a task or a pool
 
@@ -76,14 +70,11 @@ Follow these instructions to attach a KPI:
   3. Pick a KPI insertion event relative to the object to which you are attaching the KPI (task or pool).
   4. Select an **Edition mode** for the insertion query. **Graphical mode** benefits from the mapping that you have provided in the KPI Definition,
 **Manual mode** will let you write an SQL query.
-
 8. Assuming that you have chosen the **Graphical mode** and clicked on **_Next_**, then configure the KPI field mapping.
 9. Add as many rows as there are KPI fields in your Definition. For each row:
   * Expand the drop-down menu and choose a KPI field from your Definition.
   * Specify its value with an expression (a constant, a parameter, or a variable).
-
 10. Click on **_Finish_**.
-
 
 ### Configure the JDBC driver as a process dependency
 
@@ -97,11 +88,7 @@ When your KPIs are attached to your process, add a JDBC driver dependency to you
 Your process is now ready to be deployed. 
 Reporting data will be generated in the reporting database each time the KPIs are triggered.
 
-
-
-
 ## Create a KPI using a database connector
-
 
 This implementation option is preferred for performance and flexibility reasons:
 
@@ -110,8 +97,6 @@ This implementation option is preferred for performance and flexibility reasons:
 
 The disadvantage with this implementation option is that it requires basic SQL knowledge because you have to write insertion queries manually.
 
-
-
-To configure this option, use a [database connector](/product-bos-sp/database) to insert a row in the reporting database.
+To configure this option, use a [database connector](/database.html) to insert a row in the reporting database.
 
 Use the datasource database connector with connection pooling for improved performance.

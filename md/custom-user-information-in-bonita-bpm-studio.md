@@ -1,9 +1,7 @@
 # 1.9.4 Custom user information in Bonita BPM Studio
 
 You can use custom user information to assign task to users based on information that is specific to your organization and not included in the standard organization definition. 
-You define the attributes that you want to store, and then add the values for the users. 
-
-[Example usecases](#usecase)
+You define the attributes that you want to store, and then add the values for the users. [Example usecases](#usecase)
 [List of users](#default)
 [Custom tab](#customtab)
 [User information management](#userinformanag)
@@ -14,13 +12,11 @@ You define the attributes that you want to store, and then add the values for th
 [How to add custom information to a user](#howtoadd)
 [How to set an actor filter for a user](#howtosetfilter)
 
-
 ### 
 
 Example usecases
 
 Some example use cases for custom information are to create a security badge with an individual value (number) for each user, an office skill for a user, a special professional activity, or geographical details. All these types of information are not displayed in standard information tabs.
-
 
 ## 
 
@@ -32,8 +28,6 @@ By default, in the Organization menu \> Manage organizations \> Organization use
 * Membership (Group/role)
 * Personal (Email, phone, website, address etc.)
 * Business card (Email, phone, website, address etc.)
-
-
 
 ### 
 
@@ -51,7 +45,6 @@ A link called **Manage custom information**, is displayed in the Custom tab, whi
 
 This information can be modified using the edit button.
 
-
 ## 
 
 User information management
@@ -59,8 +52,6 @@ User information management
 A tab called **User information management** displays a pane with both the default and custom information for a user.
 
 **Custom information** (editable) is displayed on the right hand side of the pane. Two buttons, **add** and **delete** allow the edition of custom information in the Custom pane.
-
-
 
 ## 
 
@@ -71,8 +62,6 @@ An actor filter category called **Organization** has been added. It contains an 
 The actor filter can be added to actor for a lane or a task (not a pool).
 
 A task is assigned to an actor. An actor is mapped to a list of users. This filter is applied to the set of users mapped to the actor. When the filter is applied, each user which has not added custom information (a value) to their user description (custom tab) will be filtered out. They will not be eligible to perform the task.
-
-
 
 ## 
 
@@ -86,14 +75,11 @@ This enables certain users to be mapped to a given task. When the process is run
 
 A link called **Manage custom information**, is displayed in the Custom tab, which links directly to the User information management tab.
 
-
 ## 
 
 Assign tasks automatically
 
 Check the checkbox to apply this feature. This feature is only applied when there is one user assigned to a task.
-
-
 
 ## 
 
@@ -106,7 +92,6 @@ How to add custom information to a user
 5. Note: there are 2 ways to access the edit menu for Custom information: in **List of users**, either click on the **Custom tab**, _**Manage user information**_, or
 click on the **User information management** tab
 6. In the **Custom information** pane on the right hand side of the window, the current click on _**Add**_
-
 7. This will put a default name **Information1** in the **Name column**
 8. Add a description (if needed). This will only appear in Bonita BPM Studio.
 9. Double click on the default name **Information1**, to modify it to your needs
@@ -121,11 +106,9 @@ Note that the filters will not work if users have changed values and not re-publ
 16. Add a value
 17. The name of the information and its value is displayed in the custom tab
 
-Note: this value can be changed by a user with the Admin profile in Bonita BPM Portal. See [How to edit Custom information for a single user](/custom-user-information-bonita-bpm-portal.md)
+Note: this value can be changed by a user with the Admin profile in Bonita BPM Portal. See [How to edit Custom information for a single user](/custom-user-information-in-bonita-bpm-portal.html)
 
 If the value is changed in Bonita BPM Portal by the admin, and the filter value does not exist in the organization
-
-
 
 ## 
 

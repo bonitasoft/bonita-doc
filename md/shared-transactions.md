@@ -9,9 +9,7 @@ There are three entry points to transactions in the Bonita BPM Engine:
 If you are accessing the Engine in Local mode, you also have the option of using shared transactions, which means you can include Engine API calls in a transaction that is managed explicitly by a calling program. 
 For example, in an application for approving and paying expenses, you could have a single transaction that includes the payment instruction sent to the bank and the process step that informs the user that expenses have been paid. If the bank does not complete the payment, the notification is not sent.
 
-
 A transaction managed by the caller has the following structure:
-
 `
 startTransaction();
 try {
@@ -24,10 +22,7 @@ try {
 }
 `
 
-
 The example below shows how to wrap two Engine API calls in the same transaction. Each call updates the value of a variable, and the transaction guarantees that both values are updated or neither value is updated.
-
-
 `
 long procId = processInstance.getId();
 try {
@@ -50,7 +45,6 @@ if (((Integer) processDataInstanceFoo.getValue()) != 3 && ((Integer) processData
 }
 txManager.commit();
 `
-
 
 It is also possible to manage your own transactions in the server side of the Engine using Commands. 
 The CommandAPI, which executes some custom code on the server side, enables you to execute code in several transactions if necessary.
@@ -77,7 +71,6 @@ SProcessInstance pi = userTransactionService.executeInTransaction(new Callable()
 	}
 });
 `
-
 
 Custom class:
 `
