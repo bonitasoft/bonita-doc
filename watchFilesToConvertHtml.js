@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 (() => {
   'use strict';
   
@@ -7,6 +9,8 @@
   let connect  = require('connect');
   let server = connect();
   let marked = require('marked');
+  let serveIndex = require('serve-index');
+
   marked.setOptions({
     renderer: new marked.Renderer(),
     gfm: true,
@@ -31,6 +35,7 @@
     }
   });
   server.use(serve(__dirname));
+  server.use(serveIndex('.'));
    
   server.listen(3000);
    
@@ -39,4 +44,6 @@
     exts: ['md', 'png', 'jpg', 'gif']
   });
   server.watch(__dirname + '/**/*.md');
+  console.log('open your favorite browser on http://localhost:3000/ and browse to the page you are editing');
+  console.log('press Ctrl+C to exit server');
 })();

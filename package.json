@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "watchFilesToConvertHtml.js"
   },
   "author": "Julien Reboul <julien.reboul@bonitasoft.com>",
   "devDependencies": {
     "connect": "^3.4.1",
     "livereload": "^0.4.1",
     "marked": "^0.3.5",
+    "serve-index": "^1.7.3",
     "serve-static": "^1.10.2"
   }
 }
