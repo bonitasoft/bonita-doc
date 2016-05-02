@@ -74,7 +74,7 @@
     "toHtml": "scripts/convertMd2Html.js",
     "taxonomy": "scripts/taxonomy.js",
     "serve": "gulp serve",
-    "build": "gulp build",
+    "build": "npm run toHtml && npm run taxonomy && gulp build",
     "test": "ava",
     "echo": "echo $1",
     "pdf": "scripts/convertMd2Pdf.js"

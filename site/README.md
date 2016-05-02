@@ -17,20 +17,37 @@ We should use a specific folder for each version inside the global images folder
 
 Search is done via calling Solr which must have indexed files before being called.
 
+## Directory structure
+
+### apache2-conf : Apache configuration
+
+It contains the apache2 configuration file that describes the virtual hosts and its properties
+
+### app
+
+It contains web resources (js, html, css,...)
+
+### scripts
+
+It contains the utility scripts to build the application
+
+### solr-conf : Solr
+
+It contains the Solr core instance configuration files for a Bonita BPM documentation index.  
+Each Solr core representing a Bonita BPM version must have these files.
+
+
 ## Installation
 
 First, install the dependencies
    
     npm install
 
-Then, to build it, run :
+Then run :
 
-    npm run build
+    npm run serve
 
-It will create a `dist` directory that contains all the files to be deployed to the production site.  
-The `properties.json` file needs to be edited to have the search working via solr parameters.
-
-For each product version, `index.html` is edited by hand and must be customized for each version.
+to launch the server and go to http://localhost:9001 to see it.
 
 ## Scripts
 
@@ -38,7 +55,7 @@ This folder contains utility scripts that convert simple md files to the html fi
 
 ### Taxonomy
 
-The `taxonomy.js` file converts the global SUMMARY.html file to a json file that holds the taxnonmy to be rendered inside the navigation pane of the site.  
+The `taxonomy.js` file converts the global all.html file to a json file that holds the taxonomy to be rendered inside the navigation pane of the site.  
 It can be run with:
 
     scripts/taxonomy.js
@@ -84,3 +101,16 @@ Launch development server via
 Launch tests via
 
     npm test
+
+
+## Release
+
+to release a new site version, run 
+
+    npm run build
+
+It will generate the html files from the root md folder for each version. Then, it calls the taxonomy generation for each version and finally create a `dist` directory that contains all the files to be deployed to the production site.  
+The `properties.json` file needs to be edited to have the search working via solr parameters.
+
+For each product version, `index.html` must be edited by hand and must be customized for each version.
+
