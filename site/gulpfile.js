@@ -81,8 +81,13 @@ gulp.task('copy:json', () => {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('dev:images', () => {
+  gulp.src('../md/images/**/*')
+    .pipe(gulp.dest('app/images'));
+});
+
 gulp.task('copy:images', () => {
-  gulp.src('app/images/**/*')
+  gulp.src('../md/images/**/*')
     .pipe(gulp.dest('dist/images'));
 });
 
@@ -95,4 +100,4 @@ gulp.task('build', ['clean'], () => {
   gulp.start(['package', 'copy:index', 'copy:html', 'copy:json', 'copy:images']);
 });
 
-gulp.task('serve', ['webpack-dev-server']);
+gulp.task('serve', ['dev:images', 'webpack-dev-server']);

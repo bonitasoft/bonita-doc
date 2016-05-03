@@ -1084,6 +1084,10 @@
       {
         "name": "Manage form control/validation",
         "href": "howtos/manage-control-in-forms.html"
+      },
+      {
+        "name": "Multiple references in business objects",
+        "href": "howtos/bo-multiple-refs-tutorial.html"
       }
     ]
   }

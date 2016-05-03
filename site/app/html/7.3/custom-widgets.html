@@ -50,7 +50,9 @@ The downloaded library will specify a module to add to your application: add thi
 <li>Use the <em>ui-translate</em> directive in custom widgets for static content to be translated</li>
 </ul>
 <h4>For instance, with a custom link widget :</h4>
-<p><code>&lt;div&gt; &lt;a title=&quot;{{ properties.title | uiTranslate }}&quot; ui-translate&gt;Submit&lt;/a&gt; &lt;/div&gt;</code></p>
+<p>`<div>
+<a title="{{ properties.title | uiTranslate }}" ui-translate>Submit</a></p>
+</div>`
 <p>The link text which is static is translated using the <em>ui-translate</em> directive. The link text title held inside the <em>properties.title</em> variable is translated using the <em>uiTranslate</em> filter.</p>
 <h2>Advanced example</h2>
 <p>This section explains how to use the <em>carousel</em> and <em>slide</em> directives from the <code>ui.bootstrap</code> library.</p>
