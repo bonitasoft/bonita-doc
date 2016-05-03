@@ -1,0 +1,164 @@
+<h1>Business Object multiple reference tutorial</h1>
+<h2>Introduction</h2>
+<p>This tutorial explains how to create, update or delete a multiple reference in a Business Object. The tutorial can be used with Bonita BPM Community edition, and uses features that are available in all editions. The example uses an expense report as business object.</p>
+<p><em>Design a task contract and associated operations to update a business object with a multiple reference.</em></p>
+<h2>Create the business object model</h2>
+<p>Create an <strong>Expense</strong> business object like below.</p>
+<img alt="Expense business object" src="../../images/bdm-tuto/bdm-expense.png" title="Expense business object" height="500px">
+<p>Then create <strong>ExpenseReport</strong> business object referencing multiple expenses by composition.</p>
+<img alt="Expense report business object" src="../../images/bdm-tuto/bdm-expense-report.png" title="Expense report business object" height="500px">
+<h2>Design the expense report process</h2>
+<ul>
+<li>Create a new  process</li>
+<li>Add a new <strong>report</strong> business variable of type ExpenseReport initialized with following groovy script</li>
+</ul>
+<pre><code class="language-groovy">	def aDummyExpense = expenseDAO.newInstance();
+	aDummyExpense.amount = 5
+	aDummyExpense.nature = &quot;A dummy expense&quot;
+	aDummyExpense.expenseDate = new Date()
+
+	def anotherDummyExpense = expenseDAO.newInstance();
+	anotherDummyExpense.amount = 55
+	anotherDummyExpense.nature = &quot;A another dummy expense&quot;
+	anotherDummyExpense.expenseDate = new Date()
+
+	def report = expenseReportDAO.newInstance()
+	report.expenses &lt;&lt; aDummyExpense
+	report.expenses &lt;&lt; anotherDummyExpense
+	return report
+</code></pre>
+<ul>
+<li>Rename <strong>Step1</strong> to <strong>Update expense report</strong></li>
+</ul>
+<h3>Design the task contract to update expenses</h3>
+<ul>
+<li>Select the <strong>Update expense report</strong> task</li>
+<li>Go to Execution &gt; Contract property tab</li>
+<li>Create a contract like below</li>
+</ul>
+<img alt="Contract" src="../../images/bdm-tuto/contract.png" title="Contract" width="1000px">
+<p><em>newExpenses</em> input is used to gather a list of new expenses to add to the report
+<em>expensesToDelete</em> input is used to gather a list of <em>Expense</em> id to delete
+<em>expensesToUpdate</em> input is used to gather a list of existing expenses to update in the report</p>
+<p>In the contract we use TEXT input type for persistenceId instead of numeric type to support the whole java.lang.Long range.
+JSON number type range does not extend to <em>java.lang.Long.MAX_VALUE</em>. A convertion to long will be applied in sciprts.</p>
+<h3>Add operations to update the business data</h3>
+<ul>
+<li>Go to Execution &gt; Operations property tab</li>
+<li>Add an operation</li>
+<li>Use the <strong>report</strong> business varaible as left operand.</li>
+<li>Change the operator and select <em>Use a java  method</em>, choose the <em>setExpenses</em> method.</li>
+<li>In the right operand use the following script to <strong>add</strong> new expenses in the report:</li>
+</ul>
+<pre><code class="language-groovy">	def result = []
+	result.addAll(report.getExpenses())
+	newExpenses.each{
+		def exp = expenseDAO.newInstance()
+		exp.amount = it.amount
+		exp.nature = it.nature
+		exp.expenseDate = it.expenseDate
+		result &lt;&lt; exp
+	}
+	return result
+</code></pre>
+<ul>
+<li>Add another operation</li>
+<li>Use the <strong>report</strong> business varaible as left operand.</li>
+<li>Change the operator and select <em>Use a java  method</em>, choose the <em>setExpenses</em> method.</li>
+<li>In the right operand use the following script to <strong>delete</strong> expenses from the report:</li>
+</ul>
+<pre><code class="language-groovy">	def result = []
+	result.addAll(report.getExpenses())
+	result.removeAll(result.findAll{expensesToDelete.contains(it.persistenceId.toString())})
+	return result
+</code></pre>
+<ul>
+<li>Add another operation</li>
+<li>Use the <strong>report</strong> business varaible as left operand.</li>
+<li>Change the operator and select <em>Use a java  method</em>, choose the <em>setExpenses</em> method.</li>
+<li>In the right operand use the following script to <strong>update</strong> expenses existing in the report:</li>
+</ul>
+<pre><code class="language-groovy">	import com.company.model.Expense;
+
+	def updatedExpenses = []
+	updatedExpenses.addAll(report.getExpenses())
+	expensesToUpdate.each{ exp -&gt;
+		def Expense expenseToUpdate = updatedExpenses.find{
+			it.persistenceId == exp.persistenceId.toLong()
+		}
+		if(expenseToUpdate){
+			expenseToUpdate.amount = exp.amount
+			expenseToUpdate.expenseDate = exp.expenseDate
+			expenseToUpdate.nature = exp.nature
+		}else{
+			throw new Exception(&quot;Expense with id $exp.persistenceId does not exists.&quot;)
+		}
+	}
+	return updatedExpenses
+</code></pre>
+<h2>Run the process</h2>
+<p>You may now run the process and validate the expected behavior using autogenerated forms.</p>
+<ul>
+<li>Click on Run</li>
+<li>Start the process instance form the autogenerated form</li>
+<li>In a web browser, you can check the content of your report calling the following Rest API:
+http://localhost:8080/bonita/API/bdm/businessData/com.company.model.ExpenseReport/1/expenses</li>
+</ul>
+<p>It should display this result according to the initialization of the report business variable.</p>
+<pre><code>[
+	{
+	&quot;persistenceId&quot;:1,
+	&quot;persistenceId_string&quot;:&quot;1&quot;,
+	&quot;persistenceVersion&quot;:0,
+	&quot;persistenceVersion_string&quot;:&quot;0&quot;,
+	&quot;amount&quot;:5.0,
+	&quot;amount_string&quot;:&quot;5.0&quot;,
+	&quot;nature&quot;:&quot;A dummy expense&quot;,
+	&quot;expenseDate&quot;:1461748727495
+	},
+	{
+	&quot;persistenceId&quot;:2,
+	&quot;persistenceId_string&quot;:&quot;2&quot;,
+	&quot;persistenceVersion&quot;:0,
+	&quot;persistenceVersion_string&quot;:&quot;0&quot;,
+	&quot;amount&quot;:55.0,
+	&quot;amount_string&quot;:&quot;55.0&quot;,
+	&quot;nature&quot;:&quot;A another dummy expense&quot;,
+	&quot;expenseDate&quot;:1461748727495
+	}
+]
+</code></pre>
+<ul>
+<li>Perform the Update expense report task like below</li>
+</ul>
+<img src="../../images/bdm-tuto/form1.png" height="500px">
+<img src="../../images/bdm-tuto/form-2.png" height="500px">
+<ul>
+<li>In a web browser, check the content of your report calling the following Rest API:
+http://localhost:8080/bonita/API/bdm/businessData/com.company.model.ExpenseReport/1/expenses</li>
+</ul>
+<p>It should display the following result:</p>
+<pre><code>[
+	{
+	&quot;persistenceId&quot;:1,
+	&quot;persistenceId_string&quot;:&quot;1&quot;,
+	&quot;persistenceVersion&quot;:1,
+	&quot;persistenceVersion_string&quot;:&quot;1&quot;,
+	&quot;amount&quot;:7.0,
+	&quot;amount_string&quot;:&quot;7.0&quot;,
+	&quot;nature&quot;:&quot;updated nature&quot;,
+	&quot;expenseDate&quot;:1461801600000
+	},
+	{
+	&quot;persistenceId&quot;:3,
+	&quot;persistenceId_string&quot;:&quot;3&quot;,
+	&quot;persistenceVersion&quot;:0,
+	&quot;persistenceVersion_string&quot;:&quot;0&quot;,
+	&quot;amount&quot;:10.0,&quot;amount_string&quot;:&quot;10.0&quot;,
+	&quot;nature&quot;:&quot;new expense&quot;,
+	&quot;expenseDate&quot;:1462406400000
+	}
+]
+</code></pre>
+<p>To conclude, when modifying a collection of Business objects in a script you must return new <em>java.util.List</em> instances and <strong>not</strong> the list returned by an accessor (<em>eg: report.getExpenses()</em>) as it will return an <em>Hibernate</em> specific implemetation not compliant with our business objects.
+Do not forget to use the persistence id (or another <strong>unique</strong> attribute of the object) in the contract if you need to access existing object (update or delete usecases).</p>

@@ -8,24 +8,13 @@
   let livereload = require('livereload');
   let connect  = require('connect');
   let server = connect();
-  let marked = require('marked');
+  let md = require('markdown-it')({ html: true });
   let serveIndex = require('serve-index');
 
-  marked.setOptions({
-    renderer: new marked.Renderer(),
-    gfm: true,
-    tables: true,
-    breaks: true,
-    pedantic: false,
-    sanitize: true,
-    smartLists: true,
-    smartypants: false
-  });
-   
   server.use((req, res, next) => {
     if(req.url.match(/.*\.md$/)) {
       res.writeHead(200, {}); 
-      let html = marked(fs.readFileSync(__dirname + req.url).toString());
+      let html = md.render(fs.readFileSync(__dirname + req.url).toString());
       html += `<script>
         document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
                          ':35729/livereload.js?snipver=1"></' + 'script>')</script>`;

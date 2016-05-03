@@ -42,15 +42,16 @@ First step would be to remove files and code related to REST API configuration a
 4. Remove the example of configuration usage in `Index.groovy` file (see comment starting with: "Here is an example of you can...").
 
 Now we can add our business logic. In `Index.groovy`, in `doHandle` method, locate the "Your code goes here" comment and add your code below (removing the existing `result` and `return` statement):
-`// Convert parameters from string to int
+```groovy
+// Convert parameters from string to int
 p = p as int
 c = c as int
 
-// Initialize the list to store users information
+// Initialize the list to store users information  
 def usersInformation = []
 
-// Get the list of user
-List<User> users = context.apiClient.identityAPI.getUsers(p*c, c, UserCriterion.FIRST_NAME_ASC)
+// Get the list of user  
+List&lt;User&gt; users = context.apiClient.identityAPI.getUsers(p*c, c, UserCriterion.FIRST_NAME_ASC)
 
 // Iterate over each user
 for (user in users) {
@@ -71,7 +72,8 @@ int startIndex = p*c
 int endIndex = p*c + users.size() - 1
 
 // Send the result as a JSON representation
-return buildPagedResponse(responseBuilder, new JsonBuilder(result).toPrettyString(), startIndex, endIndex, context.apiClient.identityAPI.numberOfUsers)`
+return buildPagedResponse(responseBuilder, new JsonBuilder(result).toPrettyString(), startIndex, endIndex, context.apiClient.identityAPI.numberOfUsers)
+```
 
 Make sure you are adding all missing imports (ctrl+alt+o).
 

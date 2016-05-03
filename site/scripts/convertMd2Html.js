@@ -37,7 +37,7 @@
     );
   }
   function convertFile(dir, fileName, htmlPath, mdPath) {
-    let md = new MarkdownIt(); 
+    let md = new MarkdownIt({ html: true }); 
     writeFilePromise(htmlPath + dir + '/' + fileName.replace(/\.md$/, '.html'), 
        md.render(
          fs.readFileSync(mdPath + dir + '/' + fileName).toString()
