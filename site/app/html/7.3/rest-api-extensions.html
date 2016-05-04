@@ -34,31 +34,38 @@ system (such as a database, web service, LDAP directory...). They also help to k
 <li>Remove the setup of configuration file mock. Edit <code>IndexTest.groovy</code>, go to <code>setup()</code> method and remove the line starting with <code>resourceProvider...</code>.</li>
 <li>Remove the example of configuration usage in <code>Index.groovy</code> file (see comment starting with: &quot;Here is an example of you can...&quot;).</li>
 </ol>
-<p>Now we can add our business logic. In <code>Index.groovy</code>, in <code>doHandle</code> method, locate the &quot;Your code goes here&quot; comment and add your code below (removing the existing <code>result</code> and <code>return</code> statement):
-`// Convert parameters from string to int
+<p>Now we can add our business logic. In <code>Index.groovy</code>, in <code>doHandle</code> method, locate the &quot;Your code goes here&quot; comment and add your code below (removing the existing <code>result</code> and <code>return</code> statement):</p>
+<pre><code class="language-groovy">// Convert parameters from string to int
 p = p as int
-c = c as int</p>
-<p>// Initialize the list to store users information
-def usersInformation = []</p>
-<p>// Get the list of user
-List<User> users = context.apiClient.identityAPI.getUsers(p*c, c, UserCriterion.FIRST_NAME_ASC)</p>
-<p>// Iterate over each user
+c = c as int
+
+// Initialize the list to store users information  
+def usersInformation = []
+
+// Get the list of user  
+List&amp;lt;User&amp;gt; users = context.apiClient.identityAPI.getUsers(p*c, c, UserCriterion.FIRST_NAME_ASC)
+
+// Iterate over each user
 for (user in users) {
 	// Get user extra information (including email address)
-	ContactData contactData = context.apiClient.identityAPI.getUserContactData(user.id, false)</p>
-<pre><code>// Create a map with current user first name, last name and email address
-def userInformation = [firstName: user.firstName, lastName: user.lastName, email: contactData.email]
+	ContactData contactData = context.apiClient.identityAPI.getUserContactData(user.id, false)
 
-// Add current user information to the global list
-usersInformation &lt;&lt; userInformation
+	// Create a map with current user first name, last name and email address
+	def userInformation = [firstName: user.firstName, lastName: user.lastName, email: contactData.email]
+
+	// Add current user information to the global list
+	usersInformation &lt;&lt; userInformation
+}
+
+// Prepare the result
+def result = [p: p, c: c, userInformation: usersInformation]
+
+int startIndex = p*c
+int endIndex = p*c + users.size() - 1
+
+// Send the result as a JSON representation
+return buildPagedResponse(responseBuilder, new JsonBuilder(result).toPrettyString(), startIndex, endIndex, context.apiClient.identityAPI.numberOfUsers)
 </code></pre>
-<p>}</p>
-<p>// Prepare the result
-def result = [p: p, c: c, userInformation: usersInformation]</p>
-<p>int startIndex = p<em>c
-int endIndex = p</em>c + users.size() - 1</p>
-<p>// Send the result as a JSON representation
-return buildPagedResponse(responseBuilder, new JsonBuilder(result).toPrettyString(), startIndex, endIndex, context.apiClient.identityAPI.numberOfUsers)`</p>
 <p>Make sure you are adding all missing imports (ctrl+alt+o).</p>
 <h3>Test source code</h3>
 <p>Now we need to update the test to verify the behavior of our REST API extension by editing <code>IndexTest.groovy</code>.</p>

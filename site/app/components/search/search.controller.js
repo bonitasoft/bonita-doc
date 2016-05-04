@@ -18,7 +18,8 @@ export default class SearchController {
     this.results.forEach(doc => {
       doc.summary = searchResults.highlighting[doc.name].content.join(' ... ');
       doc.page = doc.name.replace(/\.html$/g, '');
-      doc.title = this.findNameInTaxonomy(this.taxonomy, doc.name) || doc.page;
+      doc.path = this.findNameInTaxonomy(this.taxonomy, doc.name) || [];
+      doc.title = _.head(doc.path) || doc.page;
     });
     this.currentPage = (this.resultStartIndex / this.pageSize) + 1;
   }
@@ -27,11 +28,17 @@ export default class SearchController {
   }
   findNameInTaxonomy(taxonomy, href) {
     if (href && href === taxonomy.href) {
-      return taxonomy.name;
-    } else if (taxonomy.children) {
-      taxonomy.children.reduce((acc, curr) => {
-        return acc || this.findNameInTaxonomy(curr, href);
+      return [];
+    } else if (Array.isArray(taxonomy)) {
+      return taxonomy.reduce((acc, curr) => {
+        if (!acc) {
+          const result = this.findNameInTaxonomy(curr, href);
+          return result && result.unshift(curr.name) && result;
+        }
+        return acc;
       }, false);
+    } else if (taxonomy.children) {
+      return this.findNameInTaxonomy(taxonomy.children, href);
     }
   }
 }

@@ -18,7 +18,7 @@ export default class HeaderController {
     });
   }
   search(searchRequest) {
-    this.$state.go('main.content.search', {searchRequest: searchRequest, page: null, start: 0, pageSize: 10});
+    this.$state.go('main.content.search', {searchRequest: searchRequest, page: null, start: 0, pageSize: 10, version: this.selectedVersion.name}, {location: true});
   }
   goToFormerDocumentationSite(versionFragment) {
     this.modal.open({

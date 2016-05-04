@@ -17,7 +17,7 @@ import 'components/content/content.scss';
 import ContentCtrl from 'components/content/content-controller';
 
 export default /*@ngInject*/ function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/md/');
 
   $stateProvider.state('main', {
     url: '/:version?&page',
@@ -30,15 +30,11 @@ export default /*@ngInject*/ function($stateProvider, $urlRouterProvider) {
       },
     },
     resolve: {
-      properties: /*@ngInject*/ $http => $http.get('/properties.json').then(response => response.data),
-      taxonomy: /*@ngInject*/ ($http, currentVersion) => $http.get('/html/' + currentVersion.name + '/taxonomy.json').then(response => response.data),
-      currentVersion: /*ngInject*/ (properties, $stateParams) => {
-        if ($stateParams.version) {
-          return _.find(properties.supportedVersionList, { name: $stateParams.version });
-        } else {
-          return _.head(properties.supportedVersionList);
-        }
-      }
+      properties: /*@ngInject*/ $http => $http.get('/md/properties.json').then(response => response.data),
+      taxonomy: /*@ngInject*/ ($http, currentVersion) => $http.get('/md/html/' + currentVersion.name + '/taxonomy.json').then(response => response.data),
+      currentVersion: /*ngInject*/ (properties, $stateParams) => $stateParams.version &&
+                                      _.find(properties.supportedVersionList, { name: $stateParams.version }) ||
+                                        _.head(properties.supportedVersionList)
     }
   }).state('main.content', {
     url: '',

@@ -9,8 +9,9 @@ test.beforeEach('', t => {
   t.context.stateParams = {};
   t.context.currentVersion = {};
   t.context.searchResults = searchResults;
+  t.context.ctrl = new SearchController(t.context.searchResults, t.context.stateParams, t.context.state, t.context.currentVersion, t.context.taxonomy);
 });
 
-test(t => {
-  t.context.ctrl = new SearchController(t.context.searchResults, t.context.stateParams, t.context.state, t.context.currentVersion, t.context.taxonomy);
+test('findInTaxonomy', t => {
+  t.deepEqual(t.context.ctrl.findNameInTaxonomy(t.context.taxonomy, 'bonita-bpm-overview.html'), ['Application and Process Design', 'Bonita BPM overview']) ;
 });
