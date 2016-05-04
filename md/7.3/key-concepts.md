@@ -1,16 +1,7 @@
-# 1.2.2 Key concepts
+# Key concepts
 
 This page introduces some of the key concepts related to designing an application or 
 process with Bonita BPM, and the terminology used in Bonita BPM Studio.
-
-[Applications and processes](#application)  
-[Process definition](#process_definition)  
-[Business data](#business_data)  
-[Business Data Modelling](#business_data_mod)  
-[Organization](#organization)  
-[Connectors](#connectors)  
-[Actors](#actors)  
-[Environment and parameters](#environments_actors)
 
 ## Applications and processes
 
