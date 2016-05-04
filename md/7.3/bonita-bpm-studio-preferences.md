@@ -1,91 +1,40 @@
-# 1.3 Bonita BPM Studio preferences
+# Bonita BPM Studio and Tomcat preferences
 
 This page provides information about [Bonita BPM Studio preferences](#preferences) and the [Bonita BPM Studio embedded
 Tomcat configuration](#tomcat).
 
 ## Bonita BPM Studio preferences
 
-In Bonita BPM Studio you can set:
-
-* [General preferences](#general) that determine the appearance and behavior of Bonita BPM Studio
-* [Deployment preferences](#deployment) that are applied when you run a process from within
-Bonita BPM Studio
-* [Web preferences](#web) that are applied when a process that you run from within Bonita BPM Studio opens
-web pages, and when you open Bonita BPM Portal
-* [Other preferences](#other) related to the application development environment
-
 To configure Bonita BPM Studio preferences, click _**Preferences**_ in the Cool bar.
 
 ### General preferences
-User profile
 
-* For Performance, Efficiency, or Teamwork editions, customize the user interface for a user profile by
-showing or hiding features. To change your user profile, use the Profile menu in the Cool bar. You can also
-create your own custom profile by selecting which features you want to show.
-
-Database
-
-* Database clean-up: by default, the database (used by Bonita BPM Engine) is purged when Bonita BPM Studio exits, which is
-useful when you are testing processes. You can override this in order to preserve all data.
-* Organization load: by default, the default organization is loaded with Bonita BPM Studio starts. You can
-override this.
-
-Appearance
-
-* Coolbar size: Normal (default) or small.
-* Grid options for process diagrams. You can choose to use a grid positioning for all new process diagrams.
-
-Language
-
-* Bonita BPM Studio language
-* Web applications language: the language to use by default when loading process forms and Bonita BPM Portal.
-
-Java
-
-* The JRE (Java Runtime Environment) to used by default. JRE will be used when compiling and running Java
-code.
+| User profile  | For Performance, Efficiency, or Teamwork editions, customize the user interface for a user profile by
+showing or hiding features. To change your user profile, use the Profile menu in the Cool bar. You can also create your own custom profile by selecting which features you want to show  |
+| Database  | Database clean-up: by default, the database (used by Bonita BPM Engine) is purged when Bonita BPM Studio exits, which is
+useful when you are testing processes. You can override this in order to preserve all data. Organization load: by default, the default organization is loaded with Bonita BPM Studio starts. You can override this  | 
+| Appearance  | Coolbar size: Normal (default) or small. Grid options for process diagrams. You can choose to use a grid positioning for all new process diagrams  | 
+| Language  | Bonita BPM Studio language. | Web applications language: the language to use by default when loading process forms and Bonita BPM Portal  | 
+| Java  | The JRE (Java Runtime Environment) to used by default. JRE will be used when compiling and running Java code  |
 
 ### Deployment preferences
-Run mode
 
-* Validation: whether to validate the process before it runs. We recommend to keep this option enabled.
-* The default look & feel for application forms. Will be applied to any newly created process.
-
-Server settings
-
-* Port number: Studio embedded Tomcat HTTP listening port.
-* Log in: the username and password of the user who will be logged when Bonita BPM Portal or an application is
-started from Bonita BPM Studio. The password can be obscured.
-* The default look & feel for the Portal.
-
-Database connectors
-
-* Manage the JDBC drivers associated with database connectors. You should use that to include JDBC drivers
-for commercial DBMS (e.g. DB2).
+| Run mode  | Validation: whether to validate the process before it runs. We recommend to keep this option enabled. The default look & feel for application forms. Will be applied to any newly created process  | 
+| Server settings  | Port number: Studio embedded Tomcat HTTP listening port. Log in: the username and password of the user who will be logged when Bonita BPM Portal or an application is started from Bonita BPM Studio. The password can be obscured. The default look & feel for the Portal  | 
+| Database connectors  | Manage the JDBC drivers associated with database connectors. You should use that to include JDBC drivers
+for commercial DBMS (e.g. DB2)  |
 
 ### Web preferences
-Browser
 
-* Specify the web browser used when a web page is displayed. Note that some application might override this
-setting and use a different browser.
-
-Proxy
-
-* HTTP Proxy settings for web access.
+| Browser  | Specify the web browser used when a web page is displayed. Note that some application might override this
+setting and use a different browser  |
+| Proxy  | HTTP Proxy settings for web access  |
 
 ### Other preferences
-Advanced
 
-* SVN connector: the SVN connector used if you are using a remote SVN ["repository](workspaces-and-repositories.md). Note: if you change this your local working copy might become unstable. 
-To avoid this, commit any outstanding changes before you modify the connector setting, and reinitialize your local working copy after the update. 
-
-6.x legacy
-
-* Controls whether the 6.x legacy features are shown are hidden.
-
-Eclipse
-
-* Give access to all Eclipse settings (Bonita BPM Studio is based on Eclipse).
+| Advanced  | SVN connector: the SVN connector used if you are using a remote SVN ["repository](workspaces-and-repositories.md). Note: if you change this your local working copy might become unstable. To avoid this, commit any outstanding changes before you modify the connector setting, and reinitialize your local working copy after the update  |
+| 6.x legacy  | Controls whether the 6.x legacy features are shown are hidden  |
+| Eclipse  | Give access to all Eclipse settings (Bonita BPM Studio is based on Eclipse)  |
 
 ## Bonita BPM Studio embedded Tomcat configuration
 
