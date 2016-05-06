@@ -10,9 +10,7 @@ To configure a transition, select it in the process diagram and go to the Detail
 
 * The name and a description of the transition. The name is used to label the transition in the diagram.
 * The condition under which this transition is taken. There are three ways to specify this:
-  * An expression
-  * A decision table
-  * Declare it the default transition
+
 
 ## Condition expression
 
