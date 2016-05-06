@@ -1,20 +1,15 @@
-# 1.5.7 Iteration
+# Iteration
 
 Iteration means performing a task multiple times.
 
-You can start several instances of a task at the same time, 
-which is call multi-instantiation, or you can start another instance of a task when the previous one finished, which is called a loop.
-You can iterate a task or a call activity. If you have several tasks in sequence that need to be iterated, groups them into a subprocess
-and define the iteration on the call activity that calls the subprocess.
+You can start several instances of a task at the same time, which is call multi-instantiation, or you can start another instance of a task when the previous one finished, which is called a loop. You can iterate a task or a call activity. If you have several tasks in sequence that need to be iterated, groups them into a subprocess and define the iteration on the call activity that calls the subprocess.
 
 ### Multi-instantiation
 
-Use multi-instantiation if you want several instances of a task to be performed in parallel. For example, in a process for
-reviewing a document, you would issue the document to all reviewers at the same time, then collect all their feedback before moving to the next step.
+Use multi-instantiation if you want several instances of a task to be performed in parallel. For example, in a process for reviewing a document, you would issue the document to all reviewers at the same time, then collect all their feedback before moving to the next step.
 
-![Multi-instantiation](images/images-6_0/multi_inst.png)
-
-multi-instantiation
+  ![Multi-instantiation](images/images-6_0/multi_inst.png)
+  multi-instantiation
 
 To configure multi-instantiation, select the element in the diagram and go to the Details panel, General tab, Iteration pane. Specify the following:
 
@@ -28,8 +23,7 @@ To configure multi-instantiation, select the element in the diagram and go to th
 
 * The result data of each instance to be stored in the output list
 * The final list of appended results
-  * Specify the early completion condition. This is a Boolean that determines whether the iteration is complete. For example, if you have a maximum of 10 possible instances of a task and you require at least 8 to be completed, you could define a counter called completed\_instances and set the completion condition to true when completed\_instances reaches or exceeds 8\. 
-In this expression you have access to the following provided variables :
+5. Specify the early completion condition. This is a Boolean that determines whether the iteration is complete. For example, if you have a maximum of 10 possible instances of a task and you require at least 8 to be completed, you could define a counter called completed\_instances and set the completion condition to true when completed\_instances reaches or exceeds 8. In this expression you have access to the following provided variables :
 
 * `numberOfActiveInstances`: the number of instances that are currently active, that is, not yet finished (for a sequential multi-instance task, this will always be 1)
 * `numberOfTerminatedInstances`: the number of instances terminated, successfully or not
@@ -40,20 +34,15 @@ In this expression you have access to the following provided variables :
 
 Use a loop if you want a task to be performed several times, one after another, with no result data, until a condition is met. The condition can be a number of iterations, or can be set as an expression. The test for the condition can be done at the end of an iteration or at the start.
 
-![Looping with Test Before](images/images-6_0/loop_testBefore.png)
+  ![Looping with Test Before](images/images-6_0/loop_testBefore.png)
+  Looping with Test Before
 
-Looping with Test Before
-
-![Looping with Test After](images/images-6_0/loop_testAfter.png)
-
-Looping with Test After
+  ![Looping with Test After](images/images-6_0/loop_testAfter.png)
+  Looping with Test After
 
 To configure a loop, select the element in the diagram and go to the Details panel, General tab, Iteration pane. Specify the following:
 
 1. Select Standard loop.
 2. Specify whether the loop completion test is done before or after the task is performed.
 3. In the Loop while field, specify the condition for continuing to loop. Define the condition as an expression. Here may use a provided variable named `loopCounter`.
-4. In the Maximum loop field, specify the maximum number of times the loop is to be repeated. 
-If you know in advance the number of times the loop should be executed, you can set this
-in the Maximum loop field, and set a Loop while condition that is always true.
-This is optional, but we recommend that you set a limit to avoid infinite loops and errors if a process gets stuck.
+4. In the Maximum loop field, specify the maximum number of times the loop is to be repeated. If you know in advance the number of times the loop should be executed, you can set this in the Maximum loop field, and set a Loop while condition that is always true. This is optional, but we recommend that you set a limit to avoid infinite loops and errors if a process gets stuck.
