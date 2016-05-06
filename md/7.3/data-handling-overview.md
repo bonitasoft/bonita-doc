@@ -1,4 +1,4 @@
-# 1.6 Data handling overview
+# Data handling overview
 
 In a BPM-based application, use:
 
