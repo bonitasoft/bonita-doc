@@ -1,4 +1,4 @@
-# 1.5 Diagram overview
+# Diagram overview
 
 A diagram is the visual representation of a group of related processes. It contains one or more pools. 
 Each pool contains a process. One diagram can therefore contain several processes.
