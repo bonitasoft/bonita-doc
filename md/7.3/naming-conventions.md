@@ -1,4 +1,4 @@
-# 1.5.2 Naming conventions
+# Naming conventions
 
 Every element in a process definition has a name. The only rules about naming are that you cannot 
 use [Java language keywords](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.md)
@@ -31,28 +31,17 @@ For example: `leaveApproval_ManagerReview`, or `leaveApproval_RejectionFlow`.
 * For variables, differentiate between process data and task data. You could prefix all process data names with `p_` and all task data with `t_`, or you could append the name with `_in_p_ProcessName`
 or `in_t_TaskName`.
 * For variables and parameters, indicate the datatype in the name. This can be done implicitly, with terms like _is_ or _has_ (for Booleans), _date_, _price_, _number_, etc. For example:
-`p_hasRequestedReceipt` instead of `p_RecieptRequested`,
-`p_dateOfFirstLeaveDay` instead of `p_FirstLeaveDay`,
-`p_numberOfDaysRequested` instead of `p_DaysRequested`, or 
-`p_pricePerDayOfTraining` instead of `p_TrainingFee`.
+`p_hasRequestedReceipt` instead of `p_RecieptRequested`, `p_dateOfFirstLeaveDay` instead of `p_FirstLeaveDay`, `p_numberOfDaysRequested` instead of `p_DaysRequested`, or `p_pricePerDayOfTraining` instead of `p_TrainingFee`.
 You could also indicate the data type explicitly. For example, `p_int_numberOfDaysRequested` or `p_date_StartOfLeave`.
-* Name a connector instance with a descriptive name to indicate what it is doing, not just the connector type. 
-This is particularly important if a process uses the same connector at several points to handle different data. For example, in a process to update an employee's contact details, 
-you could use the PostgreSQL connector to get the existing data and to write the updated values, 
-so you could name the connector instances `posrgresqlGetEmployeeContactInfo` and `postgresqlUpdateEmployeeContactInfo`.
+* Name a connector instance with a descriptive name to indicate what it is doing, not just the connector type. This is particularly important if a process uses the same connector at several points to handle different data. For example, in a process to update an employee's contact details, you could use the PostgreSQL connector to get the existing data and to write the updated values, so you could name the connector instances `posrgresqlGetEmployeeContactInfo` and `postgresqlUpdateEmployeeContactInfo`.
 * Name an expression (such as a Groovy script) with a descriptive name that indicates the purpose. Use a name that is unique within the business process.
-* If you have a library of reusable elements (for example Groovy scripts, or data type definitions), give each element a name that is obvious and descriptive, for maximum reuse. 
-For example, `createOperationsListFromVariablesMap`, not `createOperations`.
-If you import a reusable element but modify it in a process, save it with a new name that is unique in the repository and identifies the process where it is used. 
-This avoids the risk of the amended element overwriting the standard one, which would cause problems for processes using the standard one.
+* If you have a library of reusable elements (for example Groovy scripts, or data type definitions), give each element a name that is obvious and descriptive, for maximum reuse. For example, `createOperationsListFromVariablesMap`, not `createOperations`.
+If you import a reusable element but modify it in a process, save it with a new name that is unique in the repository and identifies the process where it is used. This avoids the risk of the amended element overwriting the standard one, which would cause problems for processes using the standard one.
 
 **Note:** There are forbidden keywords which cannot be used in an application name, task name, or process name. 
 The forbidden keywords, which are not case sensitive, are: 
-
 * content
 * theme
 * api
 
-In addition to using a predictable naming scheme, you can improve the maintainability of a process by specifying a description for every element. 
-It is also possible to use text annotations on the diagram itself. However, a large number of text annotations can make a diagram difficult to read. 
-You are recommended to use a text annotation primarily for a temporary note, as a reminder to complete or correct something, or for communication between business analyst and application designer.
+In addition to using a predictable naming scheme, you can improve the maintainability of a process by specifying a description for every element. It is also possible to use text annotations on the diagram itself. However, a large number of text annotations can make a diagram difficult to read. You are recommended to use a text annotation primarily for a temporary note, as a reminder to complete or correct something, or for communication between business analyst and application designer.
