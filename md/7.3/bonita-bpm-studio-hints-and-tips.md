@@ -1,12 +1,6 @@
-# 1.4 Bonita BPM Studio hints and tips
+# Bonita BPM Studio hints and tips
 
 This page contains some information about smart ways to use Bonita BPM Studio.
-
-[Adding items to a diagram](#add)  
-[Using the tree view and search](#search)  
-[Changing the diagram name](#name)  
-[Changing the diagram appearance](#appearance)  
-[Open a recently modified diagram](#openrecent)
 
 ## Adding items to a diagram
 
