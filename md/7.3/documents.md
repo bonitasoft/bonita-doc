@@ -1,4 +1,4 @@
-# 1.6.6 Documents
+# Documents
 
 Many business processes require documents, or exist because of documents. For example:
 
@@ -9,17 +9,9 @@ Many business processes require documents, or exist because of documents. For ex
 Documents can also be attached to processes to provide supplementary information. For example, a travel expense claim process could have an attached document detailing the expense policy of the company. 
 Users have the option to download the document if required.
 
-[Document definition](#definition)  
-[Storing documents](#storing)  
-[Defining a document in a process definition](#process_add)  
-[Documents and called processes](#mapping)  
-[Specifying a document in a process form](#form)  
-[Connectors and documents](#connectors)
-
 ## Document definition
 
-A document is a self-contained structured set of information that is attached to a process instance. It is created and updated by a tool that is not part of the process. 
-It can have a lifecycle that begins before the process instance is created and continues after the process instance is completed and archived.
+A document is a self-contained structured set of information that is attached to a process instance. It is created and updated by a tool that is not part of the process. It can have a lifecycle that begins before the process instance is created and continues after the process instance is completed and archived.
 
 * **Create**: The lifecycle of a document begins before the process instance is created. A document is created in an external system. 
 * **Add to process instance**: When a process instance is created, the document instances defined for the process are initialized, in the form of document objects. 
@@ -41,25 +33,19 @@ If you do not specify the MIME type, the browser reads the beginning of the file
 
 ### Document lists
 
-A document list is a collection of related documents attached to a process. 
-Each component of the list is itself a document object, but it is not necessary to define each one separately. 
-The number of components in the list does not have to be fixed. 
-For example, a process to claim travel expenses includes a document list for the scanned copies of receipts. 
-When the process instance is created, the number of receipts is unknown and the receipts can be in any image format.
+A document list is a collection of related documents attached to a process. Each component of the list is itself a document object, but it is not necessary to define each one separately. The number of components in the list does not have to be fixed. For example, a process to claim travel expenses includes a document list for the scanned copies of receipts. When the process instance is created, the number of receipts is unknown and the receipts can be in any image format.
 
-In a process definition, you can specify multiple documents or document lists. 
-Use a document list if you have several documents that you need to handle as a set as well as individually. 
-Use multiple documents if you have documents that have independent lifecycles. 
-For example, a process to claim travel expenses could have a document list for expenses receipts and a document with the expenses policy.
+In a process definition, you can specify multiple documents or document lists. Use a document list if you have several documents that you need to handle as a set as well as individually. Use multiple documents if you have documents that have independent lifecycles. For example, a process to claim travel expenses could have a document list for expenses receipts and a document with the expenses policy.
 
-To initialize a document list, use a script that returns a list of DocumentValue objects. For example: `
+To initialize a document list, use a script that returns a list of DocumentValue objects. For example: 
+```
 import org.bonitasoft.engine.bpm.document.DocumentValue
 
 [
   new DocumentValue("http://url.to.my.cms.document"),//External
   new DocumentValue("exampleContentType".getBytes(), "text/plain", "example.txt")//Internal
 ]  
-`
+```
 
 To update a document list, you need to specify the whole list again using a script,. You cannot just add or replace one component of the list.
 
@@ -71,70 +57,41 @@ The decision about where to store a document is critical to your process definit
 * [File](#file)
 * [Resource](#resource)
 
-![Document lifecycle](images/images-6_0/document_lifecycle.png)
+  ![Document lifecycle](images/images-6_0/document_lifecycle.png)
 
-Document lifecycle
+   Document lifecycle
 
 The table below shows the possible interactions between each storage option and a process.
-Storage option
-Update process instance from storage
-Update storage from process instance
 
-CMS
-URL (in process definition or form widget), connector (in process definition)
-Connector (in process definition)
-
-File
-URL (in process definition or form), file (in process definition or form widget)
-File (in form widget)
-
-Resource
-Resource name (in process definition)
-Cannot update resource from process instance
+| Storage option  | Update process instance from storage  | Update storage from process instance  |
+| --------------- | ------------------------------------- | ------------------------------------- |
+| CMS  | URL (in process definition or form widget), connector (in process definition) | Connector (in process definition) |
+| File  | URL (in process definition or form), file (in process definition or form widget)  | File (in form widget)  |
+| Resource  | Resource name (in process definition)  | Cannot update resource from process instance  |
 
 For most use cases, we recommend storing documents in a CMS.
 
 ### CMS
 
-Typically, business documents are stored in an external system such as a CMS, and accessed by other applications in addition to Bonita BPM. 
-Bonita BPM is not iteself a CMS, and it is more efficient for performance to store documents in an external system and store only links in the process instance. 
-This is particularly true if you have many documents attached to a process instance.
+Typically, business documents are stored in an external system such as a CMS, and accessed by other applications in addition to Bonita BPM. Bonita BPM is not iteself a CMS, and it is more efficient for performance to store documents in an external system and store only links in the process instance. This is particularly true if you have many documents attached to a process instance.
 
-You can initialize a document object in a process instance by specifying a URL that identifies the document. 
-The document object stores a reference to the URL, not the content itself.
-The document can be updated in the process instance when the user specifies a URL in a form, or using a connector. 
-You can also use a connector to push an update to the CMS.
+You can initialize a document object in a process instance by specifying a URL that identifies the document. The document object stores a reference to the URL, not the content itself. The document can be updated in the process instance when the user specifies a URL in a form, or using a connector. You can also use a connector to push an update to the CMS.
 
-If the document is stored in a CMS, you need to consider the lifecycle of the content in the CMS when you are designing your process. 
-For example, the content might be updated by some other applications after you have initialized the document object in the process instance,
-so you need to be sure that the content that is referenced in the CMS is the relevant version. 
-If your process requires the latest version of the content, you should minimize the time between getting the content from the CMS and making it available in the process instance.
-Also, if your process updates a document and sends new content to the CMS, consider whether you need to handle multiple concurrent updates to the CMS. 
-This might be handled automatically by the CMS itself, or might need to be managed by the connector.
+If the document is stored in a CMS, you need to consider the lifecycle of the content in the CMS when you are designing your process. For example, the content might be updated by some other applications after you have initialized the document object in the process instance, so you need to be sure that the content that is referenced in the CMS is the relevant version. If your process requires the latest version of the content, you should minimize the time between getting the content from the CMS and making it available in the process instance. Also, if your process updates a document and sends new content to the CMS, consider whether you need to handle multiple concurrent updates to the CMS. This might be handled automatically by the CMS itself, or might need to be managed by the connector.
 
-For example, in a process to approve a document for publication, the document exists in an external file store or CMS before the process is instantiated. 
-At a step in the process, the document is approved for external publication, and a new revision of the file is created with a "Confidential" watermark removed. 
-This new revision is uploaded to the CMS by connector, and continues to exist after the process instance is completed and archived.
+For example, in a process to approve a document for publication, the document exists in an external file store or CMS before the process is instantiated. At a step in the process, the document is approved for external publication, and a new revision of the file is created with a "Confidential" watermark removed. This new revision is uploaded to the CMS by connector, and continues to exist after the process instance is completed and archived.
 
 ### File
 
-A document that is stored as a file can be used to initialize or update the document object in a process instance. 
-This is done when the user specifies the file in a form. 
-Typically, this is useful for information that does not have to be stored outside the process, where the file can be deleted after the document object is created. 
-For example, a file containing a scanned copy of a travel receipt does not need to be kept after the receipt object has been added to a travel expense claim process instance.
+A document that is stored as a file can be used to initialize or update the document object in a process instance. This is done when the user specifies the file in a form. Typically, this is useful for information that does not have to be stored outside the process, where the file can be deleted after the document object is created. For example, a file containing a scanned copy of a travel receipt does not need to be kept after the receipt object has been added to a travel expense claim process instance.
 
 ### Resource
 
-The Bonita BPM Studio Document Repository contains documents that have been imported from the file system. After a document is imported, it is called a resource. 
-When you [build a process bar file for deployment](build-a-process-for-deployment.md), the resources used in the process are automatically included.
-A resource is available to all processes in an installation of Studio. 
-A resource cannot be updated directly in Studio, but is updated by uploading a new file. 
-Typically, resources are used for information that is stable and common to all instances of a process, or is used in several processes. 
-The resource is used to initialize the document object in the process instance. You cannot use a resource to update a document object. 
+The Bonita BPM Studio Document Repository contains documents that have been imported from the file system. After a document is imported, it is called a resource. When you [build a process bar file for deployment](build-a-process-for-deployment.md), the resources used in the process are automatically included. A resource is available to all processes in an installation of Studio. A resource cannot be updated directly in Studio, but is updated by uploading a new file. Typically, resources are used for information that is stable and common to all instances of a process, or is used in several processes. The resource is used to initialize the document object in the process instance. You cannot use a resource to update a document object. 
 
 When you [export a process in a bos file for import into another Studio](import-and-export-a-process.md#export_for_exchange), you must select the resources that are used so that they are included.
 
-The dialog for adding a resource to the document repository is inside the dialog for adding a resource to a process definition. However, you can add a resource without updating the process definition, as follows.
+The dialog for adding a resource to the document repository is inside the dialog for adding a resource to a process definition. However, you can add a resource without updating the process definition, as follows:
 
 1. Open any process diagram and select the pool. This definition will not be updated.
 2. Go to the **Details** panel, **Data** tab, **Documents** pane.
@@ -149,11 +106,8 @@ When you deploy a process, the documents included in the bar file are stored in 
 
 ### Setting maximum document size
 
-By default, the maximum size of a document is 15Mb. 
-You can reduce or increase this in your production environment by modifying the value of the 
-`form.attachment.max.size` property in the `forms-config.properties` file of your tenant, and then restarting Bonita BPM. 
-The maximum document size cannot exceed the capacity of the database column. This value depends on your database.
-This setting applies to all processes in the tenant. 
+By default, the maximum size of a document is 15Mb. You can reduce or increase this in your production environment by modifying the value of the `form.attachment.max.size` property in the `forms-config.properties` file of your tenant, and then restarting Bonita BPM. 
+The maximum document size cannot exceed the capacity of the database column. This value depends on your database. This setting applies to all processes in the tenant. 
 
 ### Document versioning in a process instance
 
@@ -161,10 +115,7 @@ In a process instance, there is no specific versioning. When a document is updat
 
 ### Document archiving
 
-When a process element is archived the associated documents are also archived. 
-It is possible to delete the archived documents using the Engine API or REST API when they are no longer needed, to save space. You can delete an archived document from a live process instacne or from an archived process instance. 
-When you delete an archived document, only the content is deleted. 
-The metadata, such as the name, last updated date, and uploader, is kept so that it can be retrieved if needed for audit.
+When a process element is archived the associated documents are also archived. It is possible to delete the archived documents using the Engine API or REST API when they are no longer needed, to save space. You can delete an archived document from a live process instacne or from an archived process instance. When you delete an archived document, only the content is deleted. The metadata, such as the name, last updated date, and uploader, is kept so that it can be retrieved if needed for audit.
 
 ## Defining a document in a process definition
 
@@ -172,8 +123,7 @@ This section explains how to specify a document or document list in a process de
 
 ### Adding a document
 
-A document is added to a process definition at pool level. It is similar to defining a pool-level process variable. 
-You must define at pool level all the documents that will be used in the process.
+A document is added to a process definition at pool level. It is similar to defining a pool-level process variable. You must define at pool level all the documents that will be used in the process.
 
 To define a document in Bonita BPM Studio:
 
@@ -228,14 +178,14 @@ To do this, define an operation in the automatic task as follows:
   1. In the first field, select subDoc.
   2. Set the operator type to Set document.
   3. Open the expression editor for the second field and create a script expression with the following content:
-`
+```
 import org.bonitasoft.engine.bpm.document.Document;
 import org.bonitasoft.engine.bpm.document.DocumentValue;
  
 Document doc=apiAccessor.getProcessAPI().getDocument(sub_docId);
 DocumentValue docValue=new DocumentValue(apiAccessor.getProcessAPI().getDocumentContent(doc.getContentStorageId()), doc.getContentMimeType(), doc.getContentFileName());
 return docValue;
-`
+```
 
 ## Specifying a document in a process form
 
@@ -255,5 +205,4 @@ some other connectors can also manipulate documents. For example:
 Note that connectors handle single documents. If your process contains a document list, you can manipulate component documents using connectors.
 
 The standard connectors provided with Bonita BPM (CMIS, Alfresco, Jasper) take a document as input. They cannot handle document lists. 
-The email connector can handle a document list that specifies the attachments to be added to a message. The standard connectors do not provide a documentValue as output. 
-This means that you cannot use a connector to get a document. Instead, specify the URL of the document, as you would for initialization.
+The email connector can handle a document list that specifies the attachments to be added to a message. The standard connectors do not provide a documentValue as output. This means that you cannot use a connector to get a document. Instead, specify the URL of the document, as you would for initialization.
