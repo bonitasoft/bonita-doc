@@ -1,4 +1,4 @@
-# 1.5.2 Pools and lanes
+# Pools and lanes
 
 A pool is a container for a process in a diagram. 
 A lane is a division of a pool (think of swimlanes in a swimming pool). 
