@@ -38,7 +38,8 @@ A document list is a collection of related documents attached to a process. Each
 In a process definition, you can specify multiple documents or document lists. Use a document list if you have several documents that you need to handle as a set as well as individually. Use multiple documents if you have documents that have independent lifecycles. For example, a process to claim travel expenses could have a document list for expenses receipts and a document with the expenses policy.
 
 To initialize a document list, use a script that returns a list of DocumentValue objects. For example: 
-```
+
+```java
 import org.bonitasoft.engine.bpm.document.DocumentValue
 
 [
@@ -57,9 +58,7 @@ The decision about where to store a document is critical to your process definit
 * [File](#file)
 * [Resource](#resource)
 
-  ![Document lifecycle](images/images-6_0/document_lifecycle.png)
-
-   Document lifecycle
+  ![Document lifecycle](../images/images-6_0/document_lifecycle.png)
 
 The table below shows the possible interactions between each storage option and a process.
 
@@ -71,6 +70,8 @@ The table below shows the possible interactions between each storage option and 
 
 For most use cases, we recommend storing documents in a CMS.
 
+<a id="cms"/>
+
 ### CMS
 
 Typically, business documents are stored in an external system such as a CMS, and accessed by other applications in addition to Bonita BPM. Bonita BPM is not iteself a CMS, and it is more efficient for performance to store documents in an external system and store only links in the process instance. This is particularly true if you have many documents attached to a process instance.
@@ -81,15 +82,19 @@ If the document is stored in a CMS, you need to consider the lifecycle of the co
 
 For example, in a process to approve a document for publication, the document exists in an external file store or CMS before the process is instantiated. At a step in the process, the document is approved for external publication, and a new revision of the file is created with a "Confidential" watermark removed. This new revision is uploaded to the CMS by connector, and continues to exist after the process instance is completed and archived.
 
+<a id="file"/>
+
 ### File
 
 A document that is stored as a file can be used to initialize or update the document object in a process instance. This is done when the user specifies the file in a form. Typically, this is useful for information that does not have to be stored outside the process, where the file can be deleted after the document object is created. For example, a file containing a scanned copy of a travel receipt does not need to be kept after the receipt object has been added to a travel expense claim process instance.
+
+<a id="resource"/>
 
 ### Resource
 
 The Bonita BPM Studio Document Repository contains documents that have been imported from the file system. After a document is imported, it is called a resource. When you [build a process bar file for deployment](build-a-process-for-deployment.md), the resources used in the process are automatically included. A resource is available to all processes in an installation of Studio. A resource cannot be updated directly in Studio, but is updated by uploading a new file. Typically, resources are used for information that is stable and common to all instances of a process, or is used in several processes. The resource is used to initialize the document object in the process instance. You cannot use a resource to update a document object. 
 
-When you [export a process in a bos file for import into another Studio](import-and-export-a-process.md#export_for_exchange), you must select the resources that are used so that they are included.
+When you [export a process in a bos file for import into another Studio](import-and-export-a-process.md), you must select the resources that are used so that they are included.
 
 The dialog for adding a resource to the document repository is inside the dialog for adding a resource to a process definition. However, you can add a resource without updating the process definition, as follows:
 
@@ -172,13 +177,14 @@ Set the default value of docId with the following code:
 apiAccessor.getProcessAPI().getLastDocument(processInstanceId, "mainDoc").getId();
 `
 4. In the called process, add a pool-level variable of type long (for example called docId).
-5. Define the [variable mapping in the call activity](called-processes.md#data_mapping) so that docId in the call activity is mapped to docId in the called process. 
+5. Define the [variable mapping in the call activity](called-processes.md) so that docId in the call activity is mapped to docId in the called process. 
 6. In the called process, as the first task add an automatic task that will get the mainDoc, create a DocumentValue object with the content of mainDoc, and use it to update the content of subDoc. 
 To do this, define an operation in the automatic task as follows:
   1. In the first field, select subDoc.
   2. Set the operator type to Set document.
   3. Open the expression editor for the second field and create a script expression with the following content:
-```
+
+```java
 import org.bonitasoft.engine.bpm.document.Document;
 import org.bonitasoft.engine.bpm.document.DocumentValue;
  

@@ -1,4 +1,5 @@
 # Using expressions and scripts
+
 Expressions and scripts are used in Bonita BPM Studio for many purposes, including setting the initial or default value of a
 variable. An expression is a simple statement; a script is a sequence of expressions, and has a program-like structure. 
 
@@ -68,4 +69,4 @@ The provided variables list also contains a special variable, apiAccessor. This 
 
 ## Log messages in a Groovy script
 
-You can [add logging](logging.md#your_log) to Groovy scripts or Java code that you develop.
+You can [add logging](logging.md) to Groovy scripts or Java code that you develop.

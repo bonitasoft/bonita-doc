@@ -25,6 +25,8 @@ During development, you can use the tools in the `h2-1.3.170.jar` in the workspa
 
 When you are ready to go to production, you need to [configure a database and business data datasources for business data](database-configuration-for-business-data.md) in your production environment.
 
+<a id="bdm_spec"/>
+
 ## BDM specification
 
 A BDM is a structured hierarchy of business objects. It is identified by a package name.
@@ -64,7 +66,7 @@ You can specify a unique constraint for an attribute, to require that every valu
 
 ### Queries
 
-[JPQL](http://en.wikipedia.org/wiki/Java_Persistence_Query_Language) queries are used to get information about data objects stored in the database. A set of default queries is defined automatically for each object in the BDM. You can also create custom queries.
+[JPQL](https://en.wikipedia.org/wiki/Java_Persistence_Query_Language) queries are used to get information about data objects stored in the database. A set of default queries is defined automatically for each object in the BDM. You can also create custom queries.
 
 The default queries are `find` and `find_by` queries. There are three types:
 
@@ -91,6 +93,8 @@ When you view a business object in the Bonita BPM Studio business data model wiz
 Note: If you are using an Oracle database, do not define an index on a unique constraint attribute. The database creates indexes automatically for unique constraint attributes, so there are problems during execution if you also specify an index on a unique constraint attribute.
 
 In a production environment, indexes are built when a tenant starts or after a new BDM is deployed. In a development environment, indexes are built when Bonita BPM Studio starts and when the Studio BDM wizard is closed.
+
+<a id="compos"/>
 
 ### Composition and aggregation
 
@@ -123,6 +127,8 @@ There are two options for loading complex business objects, **lazy** or **eager*
 The list can be a multiple business data variable, a multivalued process variable, or any type of list. 
 
 You can use a list business object or variable to create multiple instances of a task. The MultiInstanceIterator reference created at task level uses each item of the list to create an instance of the task.
+
+<a id="define_bdm"/>
 
 ## Define the BDM
 
@@ -216,22 +222,22 @@ Warning: Bonita BPM Studio can contain only one business data model. When you im
 The BDM ZIP file contains a business object model file, `bom.xml`. You can open this file in a text editor to view the BDM definition.
 
 Example contents of the `bom.xml` file:
-```
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <businessObjectModel>
         <businessObjects>
             <businessObject qualifiedName="com.company.model.LeaveRequest">
                 <fields>
-                    <field name="startDate" type="DATE" nullable="false" length="255" collection="false"/>
-                    <field name="endDate" type="DATE" nullable="false" length="255" collection="false"/>
-                    <field name="returnDate" type="DATE" nullable="false" length="255" collection="false"/>
-                    <field name="daysOff" type="DOUBLE" nullable="false" length="255" collection="false"/>
-                    <field name="leaveType" type="STRING" nullable="false" length="255" collection="false"/>
-                    <field name="approved" type="BOOLEAN" nullable="true" length="255" collection="false"/>
+                    <field id="startDate" type="DATE" nullable="false" length="255" collection="false"/>
+                    <field id="endDate" type="DATE" nullable="false" length="255" collection="false"/>
+                    <field id="returnDate" type="DATE" nullable="false" length="255" collection="false"/>
+                    <field id="daysOff" type="DOUBLE" nullable="false" length="255" collection="false"/>
+                    <field id="leaveType" type="STRING" nullable="false" length="255" collection="false"/>
+                    <field id="approved" type="BOOLEAN" nullable="true" length="255" collection="false"/>
                 </fields>
                 <uniqueConstraints/>
                 <queries>
-                    <query name="query1" content="SELECT l.daysOff
+                    <query id="query1" content="SELECT l.daysOff
 FROM LeaveRequest l 
 WHERE 
 l.leaveType = 'Test'" returnType="java.lang.Double">
@@ -257,6 +263,8 @@ When you declare a persisted business object instance in a process, there are tw
 * as an existing instance: the data is loaded by identifying a business object instance that already exists (for example, a process designed to let employees modify unapproved leave requests will modify an existing instance of the Leave Request business object).
 
 After it is declared in the process, a business object instance can be adapted by reading or modifying its data attributes. The Engine will handle the persistence of the modification.
+
+<a id="initBDM"/>
 
 ### Initialize BDM attributes from process instantiation contract inputs
 
@@ -289,7 +297,7 @@ var leaveRequest = new com.company.model.LeaveRequest();
 
 ### Initialize BDM attributes from contract inputs in task operations
 
-In the case where a business object has to be initialized from task level inputs, you can set contract inputs from the **Add from data...** action like in [previous section](#initBDM_instantiation) and generate automatically operations by selectionning **Auto-generate the initialization script**. The operations will be generated for business data attributes you selected. You can manage it inside the **Details** panel, **Execution** tab, **Operations** pane. 
+In the case where a business object has to be initialized from task level inputs, you can set contract inputs from the **Add from data...** action like in [previous section](#initBDM) and generate automatically operations by selectionning **Auto-generate the initialization script**. The operations will be generated for business data attributes you selected. You can manage it inside the **Details** panel, **Execution** tab, **Operations** pane. 
 
 If you select **No, thanks. I'll manually define how to use the contract** or create inputs manually, you can go to operation pane and add a new operation using the _**Add**_ button.
 
