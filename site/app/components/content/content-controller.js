@@ -1,5 +1,10 @@
 import $ from 'jquery';
 import _ from 'lodash';
+import prismjs from 'prismjs';
+import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-java';
+import 'prismjs/components/prism-groovy';
+import 'prismjs/themes/prism.css';
 
 export default class ContentController {
   constructor($uiViewScroll, $stateParams, $state, currentVersion, variables, $scope) {
@@ -9,6 +14,10 @@ export default class ContentController {
     this.$state = $state;
     this.version = currentVersion.name;
     Object.assign($scope, variables);
+    this.prism = prismjs;
+  }
+  highlight() {
+    this.prism.highlightAll(false, _.noop);
   }
   goto($event) {
     if ($event.target.localName.match(/a/)) {
@@ -18,7 +27,6 @@ export default class ContentController {
         $event.preventDefault();
         return false;
       }
-      console.log($event.target.attributes.href);
       if ($event.target.attributes && $event.target.attributes.href && $event.target.attributes.href.value && !$event.target.attributes.href.value.match(/^http/)) {
         this.goToPage($event.target.attributes.href.value.replace(/.md/, ''));
         $event.preventDefault();

@@ -2,19 +2,16 @@
 <p>Gateways are used to control how sequence flows interact as they
 converge and diverge within a process.</p>
 <p>There are three types of gateway available for process design in
-Bonita BPM Studio: <a href="#parallel">parallel (AND)</a>, <a href="#exclusive">exclusive (XOR)</a>, and <a href="#inclusive">inclusive</a>. These gateways
+Bonita BPM Studio: parallel (AND), exclusive (XOR), and inclusive. These gateways
 behave in accordance with the BPMN2 specification.</p>
 <h2>Parallel (AND) gateways</h2>
-<p><img src="images/images-6_0/papde_pm_diag_gateways_parallel_gate.png" alt="Diagram of a parallel (AND) gateway">
-Parallel (AND) gateway</p>
+<p><img src="../images/images-6_0/papde_pm_diag_gateways_parallel_gate.png" alt="Diagram of a parallel (AND) gateway"></p>
 <p>In a parallel (AND) gateway, all inputs must be received before the process can continue, and all outputs fire simultaneously. No condition can be put in the output.</p>
 <h2>Exclusive (XOR) gateways</h2>
-<p><img src="images/images-6_0/papde_pm_diag_gateways_exclusive_gate.png" alt="Diagram of a exclusive (XOR) gateway">
-Exclusive (XOR) gateway</p>
+<p><img src="../images/images-6_0/papde_pm_diag_gateways_exclusive_gate.png" alt="Diagram of a exclusive (XOR) gateway"></p>
 <p>For an exclusive (XOR) gateway, the design must ensure that only one input will reach the gateway. Only one output fires. If there are
 several outputs defined, a condition is required to determine which one fires.</p>
 <h2>Inclusive gateways</h2>
-<p><img src="images/images-6_0/papde_pm_diag_gateways_inclusive_gate.png" alt="diagram of a inclusive gateway">
-Inclusive gateway</p>
+<p><img src="../images/images-6_0/papde_pm_diag_gateways_inclusive_gate.png" alt="diagram of a inclusive gateway"></p>
 <p>An inclusive gateway waits for the input from all active paths, and activates all outgoing transitions that have a condition that
 evaluates to true. If there is only one outgoing transition, no condition is needed and the transition is always activated. If there is more than one outgoing transition, every transition must either be the default or must have a condition.</p>

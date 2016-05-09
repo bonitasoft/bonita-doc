@@ -1,7 +1,7 @@
 <div class="documentation-content">
   <div ng-click="contentCtrl.goto($event)" toc-generator>
       <div class="documentation-page">
-          <ng-include src="contentCtrl.getPage()">
+          <ng-include src="contentCtrl.getPage()" onload="contentCtrl.highlight()">
           </ng-include>
       </div>
   </div>

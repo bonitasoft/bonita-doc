@@ -1,5 +1,5 @@
 <h1>Specify data in a process definition</h1>
-<p>This page explains how to handle data in a process, including specifying process- and task-level data.</p>
+<p>This page explains how to handle data in a process, including specifying process and task-level data.</p>
 <h2>Variable scope</h2>
 <p>You can define a variable at process, task, or form level:</p>
 <ul>
@@ -10,9 +10,8 @@
 <p>See also:<br>
 <a href="data-handling-overview.md">Data types and defining a variable</a><br>
 <a href="create-a-complex-data-type.md">Complex data types</a><br>
-<a href="product-bos-sp/data">Data handling in a form</a></p>
-<p><img src="images/images-6_0/variables_scope.png" alt="Scope of variables">
-Scope of variables</p>
+<a href="variables.md">Data handling in a form</a></p>
+<p><img src="../images/images-6_0/variables_scope.png" alt="Scope of variables"></p>
 <p>Best practice:</p>
 <ul>
 <li>Use XREFbusiness data for information that is shared between applications or processes.</li>
@@ -52,13 +51,16 @@ compared with the number of days requested to see whether the employee is entitl
 <li><a href="#define_initial_value">Define the default value</a></li>
 <li><a href="#define_available_values">Define the available values</a></li>
 </ul>
+<a id="data_types"/>
 <h2>Data types</h2>
 <p>Bonita BPM has a number of predefined data types: Boolean, date, integer, long, double, text, Java object, XML schema (XSD) and option list. You can also define a variable as <em>multiple</em>, that is, an array or collection of values of the specified type.</p>
-<p>Note that since 7.0, Business data is now available. For a detailed explanation, see the <a href="define-and-deploy-the-bdm.md#boprocesses">Business Data overview</a>.</p>
+<p>Note that since 7.0, Business data is now available. For a detailed explanation, see the <a href="define-and-deploy-the-bdm.md">Business Data overview</a>.</p>
 <p>You can also define additional <a href="create-a-complex-data-type.md">complex data types</a> as Java objects or as XML objects.</p>
+<a id="variable_naming"/>
 <h3>Variable naming</h3>
 <p>You are recommended to use meaningful names for variables. This make process debugging and maintenance easier, particularly if more than one person is working on a process. It can be useful to use a system of prefixes to identify the context in which a variable is used, or the task it is associated with. For example, you could label all transient data variables with the prefix trans_, or you could label variables defined on a task called getData with the prefix task_getData_.
-<a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.md">Java language keywords</a> cannot be used as variable names.</p>
+<a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html">Java language keywords</a> cannot be used as variable names.</p>
+<a id="define_simple_variable"/>
 <h3>Define a simple data type variable</h3>
 <p>The simple data types are Boolean, date, integer, long, double, and text. To define a variable with one of these types:</p>
 <ol>
@@ -66,7 +68,7 @@ compared with the number of days requested to see whether the employee is entitl
 <li>Select the process pool or the step where you want the variable.</li>
 <li>Go to the <strong>Details</strong> panel, <strong>General</strong> view, <strong>Data</strong> pane. A list of the variables already defined is displayed.</li>
 <li>Choose if you want to add Process data or Business data. Click <strong><em>Add...</em></strong>.
-Note: if you add Business data, only add it at the pool/lane level. See this tutorial as a guide for the next steps<a href="define-and-deploy-the-bdm.md#boprocesses">How to add Business data to a process</a>.</li>
+Note: if you add Business data, only add it at the pool/lane level. See this tutorial as a guide for the next steps<a href="define-and-deploy-the-bdm.md">How to add Business data to a process</a>.</li>
 <li>Specify a name for the variable. The name must be unique within the scope of the variable. For easier process maintenance, it is a good idea to make all variable names unique within the process, even though this is not strictly necessary for variables defined in a step.</li>
 <li>Optionally, add a description of the variable.</li>
 <li>Select the data type from the drop down list.</li>
@@ -77,6 +79,7 @@ Note: if you add Business data, only add it at the pool/lane level. See this tut
 <li>To automatically add a widget corresponding to this variable when you generate a form for this step, check the box.</li>
 <li>Save the definition: if you want to continue on and define another variable, click <strong><em>Create &amp; New</em></strong>, otherwise click <strong><em>Finish</em></strong>.</li>
 </ol>
+<a id="define_java_object"/>
 <h3>Define a Java object variable</h3>
 <p>You can define a variable whose data type is Java object. Before you define the variable, you must <a href="create-a-complex-data-type.md">create the data type definition</a>.</p>
 <p>To add a Java object variable:</p>
@@ -96,6 +99,7 @@ Note: if you add Business data, only add it at the pool/lane level. See this tut
 <li>Save the definition: if you want to continue on and define another variable, click <strong><em>Create &amp; New</em></strong>, otherwise click <strong><em>Finish</em></strong>.</li>
 </ol>
 <p>When you configure the process, add the JAR file that contains the data type definition to the application or process dependencies.</p>
+<a id="define_xml"/>
 <h3>Define an XML variable</h3>
 <p>An XML variable has a data type that is defined by an XML schema file.
 Before you define the variable, you must <a href="create-a-complex-data-type.md">create the XML schema</a> that contains
@@ -117,6 +121,7 @@ the data type definition. The data type definition is stored in an XML schema (X
 <li>To automatically add a widget corresponding to this variable when you generate a form for this step, check the box.</li>
 <li>Save the definition: if you want to continue on and define another variable, click <strong><em>Create &amp; New</em></strong>, otherwise click <strong><em>Finish</em></strong>.</li>
 </ol>
+<a id="define_list_of_options"/>
 <h3>Define a variable as a list of options</h3>
 <p>You can use a list of options when the value of a variable is one or more of a fixed set of possible values. If the possible values change frequently, or are related to business data, this method is not recommended. Instead, for business data, you should use a connector to retrieve the possible values from a database.</p>
 <p>To add a static list of options variable:</p>
@@ -138,9 +143,11 @@ the data type definition. The data type definition is stored in an XML schema (X
 <li>Save the definition: if you want to continue on and define another variable, click <strong><em>Create &amp; New</em></strong>, otherwise click <strong><em>Finish</em></strong>.</li>
 </ol>
 <p>After a list of options has been defined, you can define another variable that uses the same list of options, by choosing the list name from the Data type menu.</p>
+<a id="define_initial_value"/>
 <h3>Define the default value</h3>
 <p>You can specify a default value for a variable either by entering it directly, or by using the expression editor. To launch the expression editor, click the crayon icon beside the Default value field.</p>
 <p>When a form widget related to the variable is displayed, the default value you defined is used as the initial value of the widget in the form.</p>
+<a id="define_available_values"/>
 <h3>Define available values</h3>
 <p>The set of available values for a checkbox, checkbox list, dropdown list, radio button set, select list, or suggestion box is set using either a connector or a list of options.</p>
 <p>If you do not want to define a set of available values but need to specify constraints on the value, you can use a validator.</p>
