@@ -43,7 +43,7 @@
     * [Page and form development overview](page-and-form-development-overview.md)
     * [Using the UI designer](using-the-ui-designer.md)
       * [UI designer overview](ui-designer-overview.md)
-      * [Create or modify a page](create-or-modify-a-page.md)
+      * [Create or modify UI artifacts](create-or-modify-a-page.md)
       * [Widgets](widgets.md)
       * [Widget properties](widget-properties.md)
       * [Widget use examples](widget-use-examples.md)
