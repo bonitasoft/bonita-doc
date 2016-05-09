@@ -2,12 +2,13 @@ import $ from 'jquery';
 import _ from 'lodash';
 
 export default class ContentController {
-  constructor($uiViewScroll, $stateParams, $state, currentVersion) {
+  constructor($uiViewScroll, $stateParams, $state, currentVersion, variables, $scope) {
     'ngInject';
     this.$uiViewScroll = $uiViewScroll;
     this.$stateParams = $stateParams;
     this.$state = $state;
     this.version = currentVersion.name;
+    Object.assign($scope, variables);
   }
   goto($event) {
     if ($event.target.localName.match(/a/)) {

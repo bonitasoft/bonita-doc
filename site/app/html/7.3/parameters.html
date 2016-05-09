@@ -1,11 +1,6 @@
-<h1>1.6.4 Parameters</h1>
+<h1>Parameters</h1>
 <p>You can use a parameter to store a value that differs between deployments but is fixed for all cases of a deployed process.
-The value is set when you configure the process. For example,
-if you have a process for approving expense reports, you could define a parameter for the approver's email address that is set at deployment.
-If you are using the Performance or Efficiency edition, the value can also be changed after deployment.</p>
-<p><a href="#defining_a_process_parameter">Defining a process parameter</a><br>
-<a href="#configuring_parameter_values">Configuring parameter values</a><br>
-<a href="#parameter_usage_in_forms">Parameter usage in forms</a></p>
+The value is set when you configure the process. For example, if you have a process for approving expense reports, you could define a parameter for the approver's email address that is set at deployment. If you are using the Performance or Efficiency edition, the value can also be changed after deployment.</p>
 <h2>Defining a process parameter</h2>
 <p>You can define a parameter for a pool or for a lane. A parameter can be of type text, Boolean, integer, or double.</p>
 <p>To define a parameter:</p>
@@ -27,12 +22,9 @@ If you are using the Performance or Efficiency edition, the value can also be ch
 <li>When all the parameters values have been set, click <strong>Finish</strong>.</li>
 </ol>
 <p>You can export the parameter values to a file by clicking <strong>Export parameters as file...</strong>. The default file name is <em>process_name</em>_Parameters.properties.
-You can also set parameter values by importing a parameter.properties file. The values in the file are used to set the values of the corresponding parameters.
-Note that importing a parameters.properties file does not create parameters in the process, just sets the values of those that exist if they are present in the file.</p>
+You can also set parameter values by importing a parameter.properties file. The values in the file are used to set the values of the corresponding parameters. Note that importing a parameters.properties file does not create parameters in the process, just sets the values of those that exist if they are present in the file.</p>
 <p>When you build a process for deployment (see <a href="import-and-export-a-process.md">Import and export a process</a>), the .bar archive that is
 created also contains a parameters.properties file.</p>
-<p>You can edit a parameters.properties file to change the value of a parameter before importing it into Bonita BPM Studio or before deploying the .bar.
-You can also edit the file after process deployment, but this is not recommended if the process is running. If you need to
-change a parameter value for a process that is in production, <a href="processes.md#modpar">update the process configuration in Bonita BPM Portal</a>).</p>
+<p>You can edit a parameters.properties file to change the value of a parameter before importing it into Bonita BPM Studio or before deploying the .bar. You can also edit the file after process deployment, but this is not recommended if the process is running. If you need to change a parameter value for a process that is in production, <a href="processes.md#modpar">update the process configuration in Bonita BPM Portal</a>).</p>
 <h2>Parameter usage in forms</h2>
 <p>From 7.x, to use parameters in forms, you need to retrieve them using the <a href="bpm-api.md#processparameter">REST API.</a></p>
