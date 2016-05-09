@@ -1,26 +1,21 @@
-# 1.6.10 Operations
+# Operations
 
 An operation is an action that updates the value of a variable (using an expression) when a task is performed. You can specify any number of operations on a task. Operations are executed in the order they are listed.
 
-[Define operations at a task](#step_op)/\>
-[Operation types](#operation)
+## Define operations at task level
 
-## Define operations at a task
+An operation at task level updates the value of a variable defined for the task or at process level. You can also use an operation at a task to update the value of a search index.
 
-An operation at a task updates the value of a variable defined for the task or at process level. You can also use an operation at a task to update the value of a search index.
-
-To define an operation at a task:
+To define an operation at task level:
 
 1. Select the relevant task and go to the **Details** panel, **General** tab, **Operations** pane.
 2. Click **_Add_** to add an operation.
 3. From the drop-down list, choose the variable to be updated.
 4. Launch the Expression Editor, by clicking the crayon icon.
 5. Using the Expression Editor, enter the expression to define the new value of the variable. 
-If you define the expression with a script, you can use the current value of the 
-variable being updated in the script, so, for example, you can increment a counter. Make sure that the return type matches the type of the variable being updated.
+If you define the expression with a script, you can use the current value of the variable being updated in the script, so, for example, you can increment a counter. Make sure that the return type matches the type of the variable being updated.
 
-You can define a sequence of operations at a task. The operations are performed in the order in which they are listed, at the end of the task. 
-You cannot re-order operations after they are defined, so you need to define the operations in the order they are to be performed.
+You can define a sequence of operations at a task. The operations are performed in the order in which they are listed, at the end of the task. You cannot re-order operations after they are defined, so you need to define the operations in the order they are to be performed.
 
 ## Operation types
 
@@ -33,8 +28,7 @@ The BO instance must exist in the business data database; otherwise the operator
 The BO instance is not modified during the operation but from that point onward, any expression or operation in the process can reference this object instance to make changes.  
 If it uses a _Script expression type_, you can use the contract inputs to fill in the BO attributes. 
 Go to [Initialize BDM attributes from contract inputs in task operations](define-and-deploy-the-bdm.md#initBDM_task) for more information.
-* _**isDeleted**_ - an operator 'Is Deleted' can be called on a business data variable. The BO instance that the business data references is deleted from the database, at runtime, after the task is completed. 
-The process designer should avoid calling other operations on the same business data variable within the same group of operations/actions.
+* _**isDeleted**_ - an operator 'Is Deleted' can be called on a business data variable. The BO instance that the business data references is deleted from the database, at runtime, after the task is completed. The process designer should avoid calling other operations on the same business data variable within the same group of operations/actions.
 
 **Warning:** Operations on business objects can be done only at task level.
 
