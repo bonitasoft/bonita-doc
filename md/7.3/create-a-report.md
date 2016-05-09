@@ -148,7 +148,7 @@ Create the report properties using iReport as following:
 3. Add the properties based on the widgets you need.
 
 Here is an example of a report configuration containing a "Period" date range and a "State" select widget:
-![Widget property example in iReport](images/images-6_0/exampleswidgets.png)
+![Widget property example in iReport](../images/images-6_0/exampleswidgets.png)
 
 ### Package a report for Bonita BPM Portal integration
 
@@ -171,15 +171,15 @@ dbUserThe login of the database user
 dbPasswordThe password of the database user
 
 For example, connecting to a local MySQL database named _BonitaReport_ with a user _root_ and password _root_:
-`
+```
 dbUrl=jdbc:mysql://localhost:3306/BonitaReport
 dbDriverClassName=com.mysql.jdbc.Driver
 dbUser=root
 dbPassword=root
-`
+```
 
 If your report contains sub reports, these should be placed in a directory named `sub`.
 
 If your report uses a style sheet you may also provide a .jrtx file in the archive.
 
-Once you have packaged the Jasper report as a ZIP archive, you can [install it in the Bonita BPM Portal](analytics.md#install).
+Once you have packaged the Jasper report as a ZIP archive, you can [install it in the Bonita BPM Portal](analytics.md).

@@ -1,12 +1,6 @@
-# 1.10.3 Set up KPIs
+# Set up KPIs
 
 This page presents two implementation options for creating KPIs and integrating them to business processes:
-
-* [Create a KPI using the Bonita BPM Studio KPI feature](#using_kpi)
-  * [Create a KPI Definition](#create_kpi_definition)
-  * [Attach a KPI Definition to a task or a pool](#attach_kpi_definition)
-  * [Configure the JDBC driver as a process dependency](#add_jdbc_driver)
-* [Create a KPI using a database connector](#using_connector)
 
 ## Create a KPI using the Bonita BPM Studio KPI feature
 
@@ -31,10 +25,10 @@ When creating a KPI definition, you must specify its database connection setting
 1. In Bonita BPM Studio, open the **KPI** menu and select **Create KPI**.
 2. Fill in the database JDBC connection settings:
   1. Choose the _Driver template_ that matches your reporting database type:  
-![JDBC driver templates](images/images-6_0/generic_driver.png)
+![JDBC driver templates](../images/images-6_0/generic_driver.png)
   2. Click on the **_Apply template_** button. This pre-fills the _Driver class name_ and _JDBC URL_ fields.
   3. Update the configuration with your database name, user name, and password:  
-![JDBC connection settings](images/images-6_0/createKPI_step4.png)
+![JDBC connection settings](../images/images-6_0/createKPI_step4.png)
   4. Click on **_Test connection_** to validate your settings.
   5. Click on **_Next_**.
 3. Fill in the KPI Definition page
@@ -46,7 +40,7 @@ This pre-fills the KPI fields based on your database structure. Alternatively, y
     * the name (database column name)
     * the SQL type as defined in the database
     * whether the values should be surrounded with quotes in the SQL insertion query
-![KPI fields](images/images-6_0/editKPI.png)
+![KPI fields](../images/images-6_0/editKPI.png)
   5. Click on **_Create_**.
 
 ### Attach a KPI Definition to a task or a pool

@@ -44,7 +44,7 @@ The version of the job.
 string
 
 Job parameters
-The parameters to pass to the job. Specify these either as a table of key-value pairs or as a [Groovy expression](#expression_example).
+The parameters to pass to the job. Specify these either as a table of key-value pairs or as a Groovy expression.
 string
 
 Print buffer output
@@ -62,8 +62,22 @@ If you provide job parameters as an expression, the Groovy script must return a 
 * The element with index 1 is the parameter value (`java.lang.Object`).
 
 The following example Groovy script creates a list with two parameters, `nbline` and `name`, and their values:
-`
+
+```groovy
 import java.util.List;
 import java.util.ArrayList;
-List> listOfParameters = new ArrayList>();
-List`
+List<List<Object>> listOfParameters = new ArrayList<List<Object>>();
+List<Object> aParameter = null;
+
+aParameter = new ArrayList<Object>();
+aParameter.add("nbline");
+aParameter.add(10);
+listOfParameters.add(aParameter);
+
+aParameter = new ArrayList<Object>();
+aParameter.add("name");
+aParameter.add("renaudp");
+listOfParameters.add(aParameter);
+
+return listOfParameters;
+```

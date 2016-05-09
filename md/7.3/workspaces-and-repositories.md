@@ -1,34 +1,6 @@
-# 1.15 Workspaces and repositories
+# Workspaces and repositories
 
 This page explains how to use a shared repository so that several people can collaborate on process design.
-
-**[Workspaces and repositories](#intro)**
-
-> [Switch workspace](#switch_workspace)
-> 
-
-> [Create a local repository](#create_local)
-> 
-
-**[Use a shared repository](#shared)**
-
-> [Prerequisites](#prereq)
-
-> [Create a shared repository](#create_shared)
-
-> [Connect to a shared repository](#connect_shared)
-
-> [Change repository](#change_repo)
-
-> [Synchronize a shared repository](#sync)
-
-> [Manage locks on shared resources](#locks)
-
-> [Avoiding conflicts](#conflicts)
-
-> [Versioning and history](#history)
-
-> [Restore points](#restore_points)
 
 ## Workspaces and repositories
 

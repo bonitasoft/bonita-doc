@@ -1,12 +1,6 @@
-# 1.13.2 Configure a test organization
+# Configure a test organization
 
 This page describes how to set up a test organization in Bonita BPM Studio, for process testing. 
-[The ACME example organization](#The_acme_example_organization)  
-[Managing organizations](#Managing_organizations)  
-[Specifying an organization manually](#Specifying_an_organization_manually)  
-[Exporting and importing an organization](#Exporting_and_importing_an_organization)  
-[Modifying an organization](#Modifying_an_organization)  
-[Uploading an organization to Bonita BPM Portal](#Uploading_an_organization_to_bonita_studio)
 
 ## The ACME example organization
 

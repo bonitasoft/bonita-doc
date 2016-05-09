@@ -1,4 +1,4 @@
-# 1.12.2 Environments
+# Environments
 
 An environment is a set 
 of configuration definitions for a project. You can configure a process for 
@@ -15,15 +15,7 @@ The default environment is the one
 most recently selected in the Configure, Run, or Debug menus in the Cool 
 bar.
 
-[Defining a 
-custom environment](#define_custom)  
-[Configuring a process in an environment](#configure_environment)  
-[Running a 
-process in an environment](#run_environment)  
-[Debugging a process in an environment](#debug_environment)
-
-## Defining a custom 
-environment
+## Defining a custom environment
 
 To define a custom environment for a process, open 
 the process in Bonita BPM Studio Performance, Efficiency, or Teamwork edition and 
@@ -34,23 +26,20 @@ environment, and click _**OK**_. The new environment will
 appear in the  **Configure**, **Run**, and 
 **Debug** menus in the Cool bar.
 
-## Configuring a process 
-in an environment
+## Configuring a process in an environment
 
 To configure a process for an environment, select the 
 environment from the **Configure** menu in the Cool bar. Then use 
 the configuration wizard to [configure the process](configuring-a-process.md).
 
-## Running a process in an 
-environment
+## Running a process in an environment
 
 To run a process from Bonita BPM Studio in an 
 environment, select the environment from the **Run** menu in the 
 Cool bar. The process will be launched using the information configured for the specified 
 environment.
 
-## Debugging a process in 
-an environment
+## Debugging a process in an environment
 
 Use Debug in Bonita BPM Studio to disconnect any connectors 
 that you know cannot run successfully when you run the process in development or 

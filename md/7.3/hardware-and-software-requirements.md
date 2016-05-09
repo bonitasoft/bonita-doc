@@ -1,4 +1,4 @@
-# 2.3.1 Hardware and software requirements
+# Hardware and software requirements
 
 ## Hardware
 
@@ -137,7 +137,7 @@ Notes:
 2. **Warning (7.0.x only, fixed starting 7.1.0) :** There are known issues with the management of XA transactions by MySQL engine and driver: see MySQL bugs [17343](http://bugs.mysql.com/bug.php?id=17343) and [12161](http://bugs.mysql.com/bug.php?id=12161) for more details.
 Thus, using MySQL database in a production environment does not work and is not supported.
 3. **Warning:** There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft for the Tomcat bundle and inside the Deploy bundle for Tomcat) and Microsoft SQL Server driver
-(refer to: [MSDN note](http://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.md)).
+(refer to: [MSDN note](https://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html)).
 Therefore, using Bitronix as a Transaction Manager with SQL Server does not work and is not supported. To use SQL Server database requires that you use the JBoss bundle provided by Bonitasoft.
 4. Oracle Java SE Runtime Environment 8 u40 is supported if you use the web container Tomcat 7.0.55\.
 

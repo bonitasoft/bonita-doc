@@ -1,4 +1,4 @@
-# 1.8.6 Google calendar (API v3)
+# Google calendar (API v3)
 
 The Google Calendar connectors enable client applications to view and update calendar events by using Google Data API feeds. For details of the API, see the Google [Developer's Guide](https://developers.google.com/google-apps/calendar/).
 
@@ -10,10 +10,10 @@ Your business application, or set of processes, can create new Google calendar e
 * Delete event
 * Move event
 
-This page describes how to [create a Google Apps service account](#create_app) and get connection credentials, then how to [configure the calendar client in your domain](#domain). 
+This page describes how to create a Google Apps service account and get connection credentials, then how to configure the calendar client in your domain. 
 You only need to get one set of credentials, and configure the client once, and then you can configure any number of Google calendar connectors. 
 Use the connector wizard as usual to configure a Google Calendar connector. 
-For each connector, you need to provide the parameters specific to the connector actions, and you need to specify the [connection parameters](#config_connector).
+For each connector, you need to provide the parameters specific to the connector actions, and you need to specify the connection parameters.
 
 ## Create a service account
 

@@ -1,4 +1,4 @@
-# 3.7.2.5 Custom user information in Bonita BPM Portal
+# Custom user information in Bonita BPM Portal
 
 Custom user information defined in the Organization in Bonita BPM Studio is displayed in the Bonita BPM Portal in the **More** page for a user (only accessible under the Administrator profile).
 

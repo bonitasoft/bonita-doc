@@ -1,4 +1,4 @@
-# 1.9 Organization overview
+# Organization overview
 
 There are two stages to specifying who will perform a step
 in a process:
@@ -12,11 +12,6 @@ mapped to the real _users_ in an
 organization.
 
 This page explains the concepts of actors and organizations in Bonita BPM.
-[Actors and users](#Actors_and_users)  
-[What is an organization?](#What_is_an_organization)  
-[Tools for managing an organization](#Tools)  
-[Custom user information](#custuserinfo)  
-[Organization schema XSD file](#XMLSchema)
 
 ## Actors and users
 
@@ -40,9 +35,7 @@ required. The combination of a group and a role for a user is called a
 membership. A user can have several
 memberships but each one must apply to a different group.
 
-![The structure of MyCorp](images/images-6_0/admin_org_MyCorp_structure.png)
-
-The structure of MyCorp
+![The structure of MyCorp](../images/images-6_0/admin_org_MyCorp_structure.png)
 
 In this corporation, there is a hierarchical structure, with
 the following units:
@@ -70,9 +63,7 @@ MyCorp is conducting trials of a new process to control just-in-time parts
 delivery from a supplier, you could create a group that contains the specific
 users involved in the trials. The figure below shows the groups in the MyCorp organization, seen in Bonita BPM Studio.
 
-![The groups of MyCorp](images/images-6_0/admin_org_mycorp_groups.png)
-
-Organization goups in MyCorp
+![The groups of MyCorp](../images/images-6_0/admin_org_mycorp_groups.png)
 
 All the users who participate in a process must be in the
 same Bonita BPM organization. For example, if you use a process to track order

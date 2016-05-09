@@ -11,20 +11,8 @@ There are three stages to installing the Tomcat bundle:
 
 When these three stages are complete, you can start Tomcat to validate the installation. Then there are some post-installation setup tasks.
 
-**[Download and unzip the Tomcat bundle](#download_unzip)**
-
-**[License installation](#license)**
-
-**[Edition specification](#edition)**
-
-**[Database configuration](#db)**
-
-**[Start and shut down Tomcat](#start_stop)**
-
-**[First steps after installation](#postinstall)**
-
 There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft in the Tomcat bundle and in the Tomcat directories of the Deploy bundle) and the Microsoft SQL Server driver
-(refer to: [MSDN note](http://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.md)).
+(refer to: [MSDN note](https://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.md)).
 Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the JBoss bundle provided by Bonitasoft.
 
 ## Download and unzip the Tomcat bundle
@@ -33,7 +21,7 @@ Therefore, using Bitronix as a Transaction Manager with SQL Server is not recomm
 
 For the Community edition:
 
-* Go to the [Bonitasoft website](http://www.bonitasoft.com/how-we-do-it/downloads) and get the Bonita BPM Community edition Tomcat bundle.
+* Go to the [Bonitasoft website](http://www.bonitasoft.com/downloads) and get the Bonita BPM Community edition Tomcat bundle.
 
 For a Subscription edition:
 
@@ -117,7 +105,7 @@ Tomcat can be shut down by executing the following command:
 * Linux: `/bin/shutdown.sh`
 
 If you see `checkThreadLocalMapForLeaks` errors, the probably indicates that Tomcat is shutting down before all work threads are completed. 
-You can [increase the work service termination timeout](performance-tuning.md#work_service) to ensure that work is complete before shutdown. 
+You can [increase the work service termination timeout](performance-tuning.md) to ensure that work is complete before shutdown. 
 
 ## First steps after installation
 

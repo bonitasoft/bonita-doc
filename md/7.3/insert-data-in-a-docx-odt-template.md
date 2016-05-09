@@ -1,4 +1,4 @@
-# 1.8.5 Insert data in a .docx/.odt template
+# Insert data in a .docx/.odt template
 
 The **insert data in a .docx/.odt template connector** allows to fill a specified template file by inserting values coming from the current process instance, for example from a form attached to a human task.
 
@@ -40,20 +40,20 @@ For further information about the template design, [click here](https://code.goo
 
 ### Business Data model used in the example
 
-Here is a [template example](images/special_code/study-leave-template.docx) for Leave Request submission and approval.  
+Here is a [template example](../images/special_code/study-leave-template.docx) for Leave Request submission and approval.  
 This .docx file uses keys, most of which will be replaced by values from business variables created from the following **Business Data Model**:
 
-![](images/images-6_0/MyUser_Model_lazy.png)  
+![](../images/images-6_0/MyUser_Model_lazy.png)  
 
-![](images/images-6_0/Address_Model.png)  
+![](../images/images-6_0/Address_Model.png)  
 
-![](images/images-6_0/StudyLeave_Model.png)  
+![](../images/images-6_0/StudyLeave_Model.png)  
 
 ### Connector configuration
 
 The configuration is as follows:  
   
-![](images/images-6_0/document_templating_input_mappings.png)
+![](../images/images-6_0/document_templating_input_mappings.png)
 
 In this example, the key named `user` is mapped to the business variable `user`, the key named `leave` is mapped to the business variable `studyLeave`,
 and the key named `today` is mapped to a groovy script expression with the following content:
@@ -68,7 +68,8 @@ import java.text.SimpleDateFormat;
 * If the replacement value is null, then the field key will be rendered (eg. **${userAddress.line2}**). Use a "!" mark to render blank value, like **$!{userAddress.line2}** if userAddress.line2 may be null.
 
 And the output file mapping:  
-![](images/images-6_0/document_templating_outputs.png)  
+
+![](../images/images-6_0/document_templating_outputs.png)  
 
 In this business example, the requesting user enters personal information in a process form. In a subsequent step, the reviewing user adds Approval information. The entered values are then provided as inputs to the **insert data in a .docx/.odt template connector** to replace the keys.
 The generated output file is then stored in a document of the process.

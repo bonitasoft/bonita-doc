@@ -1,25 +1,4 @@
-# 2.3.5 Database configuration
-
-* [Database usage](#usage)
-  * [Introduction](#intro)
-  * [Default h2 database](#h2default)
-  * [Steps to switch to another RDBMS](#steps)
-* [Database creation](#dbcreation)
-* [Specify db vendor](#specdbvendor)
-* [Add the JDBC driver](#adddriver)
-  * [Download JDBC driver](#download)
-  * [Add JDBC driver to application server](#add_driver)
-    * [JBoss](#driver_jboss)
-    * [Tomcat](#driver_tomcat)
-* [Configure the datasource](#configdatasource)
-  * [JBoss](#ds_jboss)
-  * [Tomcat](#ds_tomcat)
-* [Remove h2](#removeh2)
-* [Specific database configuration](#specific)
-  * [PostgreSQL](#postgresqlspec)
-  * [Oracle Database](#oraclespec)
-  * [SQL Server](#mssqlspec)
-  * [MySQL](#mysqlspec)
+# Database configuration
 
 ## Database usage
 
@@ -59,10 +38,10 @@ There are known issues with the management of XA transactions by MySQL engine an
 Thus, using MySQL database in a production environment is not recommended.
 
 There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft for the Tomcat bundle & inside Deploy bundle for Tomcat) and Microsoft SQL Server driver
-(refer to: [MSDN note](http://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.md)).
+(refer to: [MSDN note](https://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html)).
 Thus, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the JBoss bundle provided by Bonitasoft.
 
-**Warning:** Some RDBMSs require [specific configuration](#specific), which must be done before you complete your installation. 
+**Warning:** Some RDBMSs require specific configuration, which must be done before you complete your installation. 
 If you do not complete the specific configuration for your RDBMS, your installation may fail.
 
 **Warning:** RDBMS configuration needs to be done before the first start of the application.
@@ -85,10 +64,10 @@ Note: CREATE TABLE and CREATE INDEX are not required after first start.
 
 For creation of the database we recommend you refer to your RDBMS documentation:
 
-* [PostgreSQL](http://www.postgresql.org/docs/9.3/static/app-createdb.md)
+* [PostgreSQL](http://www.postgresql.org/docs/9.3/static/app-createdb.html)
 * [Oracle database](https://docs.oracle.com/cd/E11882_01/server.112/e25494/create.htm#ADMIN002)
-* [SQL Server](http://technet.microsoft.com/en-us/library/dd207005(v=sql.110).aspx)
-* [MySQL](http://dev.mysql.com/doc/refman/5.5/en/database-use.md)
+* [SQL Server](https://technet.microsoft.com/en-us/library/dd207005(v=sql.110).aspx)
+* [MySQL](http://dev.mysql.com/doc/refman/5.5/en/database-use.html)
 
 Your database must be configured to use the UTF-8 character set. You are recommended to configure the database to be case-insensitive so that searches in Bonita BPM Portal are case-insensitive.
 
@@ -137,10 +116,10 @@ Database vendor
 Download link
 
 PostgreSQL (use "Current Version")
-[download](http://jdbc.postgresql.org/download.md#current)
+[download](https://jdbc.postgresql.org/download.html#current)
 
 Oracle Database
-[download](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.md)
+[download](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html)
 
 Microsoft SQL Server
 [download](http://go.microsoft.com/fwlink/?LinkId=245496)
@@ -172,19 +151,19 @@ Module description file
 
 PostgreSQL
 modules/org/postgresql/main
-[module.xml](images/special_code/postgresql/module.xml)
+[module.xml](../images/special_code/postgresql/module.xml)
 
 Oracle
 modules/com/oracle/main
-[module.xml](images/special_code/oracle/module.xml)
+[module.xml](../images/special_code/oracle/module.xml)
 
 SQL Server
 modules/com/sqlserver/main
-[module.xml](images/special_code/sqlserver/module.xml)
+[module.xml](../images/special_code/sqlserver/module.xml)
 
 MySQL
 modules/com/mysql/main
-[module.xml](images/special_code/mysql/module.xml)
+[module.xml](../images/special_code/mysql/module.xml)
 
   
 Put the driver jar file in the relevant `main` folder.
@@ -244,8 +223,8 @@ h2 (not for production)
 org.h2.Driver
 org.h2.jdbcx.JdbcDataSource
 
-The following sections show how to configuire the datasources for [JBoss](#ds_jboss) and [Tomcat](#ds_tomcat). 
-There is also an [example of how to configure datasources for Weblogic](red-hat-oracle-jvm-weblogic-oracle.md#datasources).
+The following sections show how to configuire the datasources for JBoss and Tomcat. 
+There is also an [example of how to configure datasources for Weblogic](red-hat-oracle-jvm-weblogic-oracle.md).
 
 ### JBoss
 
@@ -316,7 +295,7 @@ Configure the database to use UTF-8\.
 Edit `postgresql.conf` and set a non-zero value for `max_prepared_transactions`. 
 The default value, 0, disables prepared transactions, which is not recommended for Bonita BPM Engine. 
 The value should be at least as large as the value set for `max_connections` (default is typically 100). 
-See the [PostgreSQL documentation](http://www.postgresql.org/docs/9.3/static/runtime-config-resource.md#GUC-MAX-PREPARED-TRANSACTIONS) for details.
+See the [PostgreSQL documentation](https://www.postgresql.org/docs/9.3/static/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) for details.
 
 ### Oracle Database
 
@@ -415,11 +394,11 @@ SQL query \> `CREATE USER bonita IDENTIFIED BY bonita;
 
 To support XA transactions, SQL Server requires a specific configuration.
 
-You can refer to [MSDN](http://msdn.microsoft.com/en-us/library/aa342335(v=sql.110).aspx) for more information.
+You can refer to [MSDN](https://msdn.microsoft.com/en-us/library/aa342335(v=sql.110).aspx) for more information.
 
 Here is the list of steps to perform (as an example, the database name BONITA\_BPM is used):
 
-1. Make sure you have already downloaded and installed the [Microsoft SQL Server JDBC Driver 4.0](http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774).
+1. Make sure you have already downloaded and installed the [Microsoft SQL Server JDBC Driver 4.0](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774).
 2. Copy the `sqljdbc_xa.dll` from `%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc_4.0\enu\xa\x64\` (x64 for 64 bit version of Windows, x86 for 32 bit version of Windows) to `%SQLSERVER_INSTALL_ROO%\Instance_root\MSSQL10.MSSQLSERVER\MSSQL\Binn\.`
 3. Copy/paste the content of xa\_install.sql file (located in %JDBC\_DRIVER\_INSTALL\_ROOT%\\sqljdbc\_4.0\\enu\\xa) to SQL Server Management Studio's Query Editor.
 4. Execute the query in the Query Editor.
@@ -461,7 +440,7 @@ Run the script below to avoid deadlocks:
 
 `ALTER DATABASE BONITA_BPM SET MULTI_USER`
 
-See [MSDN](http://msdn.microsoft.com/en-us/library/ms175095(v=sql.110).aspx).
+See [MSDN](https://msdn.microsoft.com/en-us/library/ms175095(v=sql.110).aspx).
 
 ### MySQL
 
@@ -475,9 +454,9 @@ Error: 1153 SQLSTATE: 08S01 (ER_NET_PACKET_TOO_LARGE) Message: Got a packet bigg
 You need to update the file `my.ini` (for Windows) or `my.cnf` (for Linux) to avoid the `ER_NET_PACKET_TOO_LARGE` problem.
 Look for `max_allowed_packet` settings and reduce the value.
 
-For more information, see the [MySQL website](http://dev.mysql.com/doc/refman/5.5/en/packet-too-large.md).
+For more information, see the [MySQL website](http://dev.mysql.com/doc/refman/5.5/en/packet-too-large.html).
 
 #### Surrogate characters not supported
 
-MySQL does not support [surrogate characters](http://en.wikipedia.org/wiki/Universal_Character_Set_characters#Surrogates).
+MySQL does not support [surrogate characters](https://en.wikipedia.org/wiki/Universal_Character_Set_characters#Surrogates).
 If you want to use surrogate characters in your processes, you need to use another type of database.

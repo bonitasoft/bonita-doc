@@ -1,14 +1,4 @@
-# 1.11 Import and export a process
-
-This page explains how to:
-
-* [Import a process diagram into Bonita BPM Studio](#import)
-* [Export a process diagram as a BPMN 2.0 archive](#export)
-* [Export items from a Bonita BPM Studio repository to import into another Bonita BPM Studio](#export_for_exchange)
-* [Build a process for deployment](#build_for_deployment)
-* [Export a process diagram as an image](#export_image)
-
-You can also [Migrate a process diagram from Bonita Open Solution 5.x](migrate-a-process-from-bonita-open-solution-5x.md).
+# Import and export a process
 
 ## Import a process diagram into Bonita BPM Studio
 
@@ -61,7 +51,7 @@ This feature is available in the Performance, Efficiency, and Teamwork editions.
 * The Visio import format must be .vdx. The .vsd format is not supported in Bonita BPM Studio.
 * Only horizontal display is supported.
 * The vertical display will be converted and interpreted as a _mirror image_ of the process.
-* Visio supports all shapes defined in the BPMN 1.2 standard. See [here for more info about Visio compatibility](http://blogs.msdn.com/b/visio/archive/2009/12/03/bpmn-support-in-visio-2010.aspx).
+* Visio supports all shapes defined in the BPMN 1.2 standard. See [here for more info about Visio compatibility](https://blogs.msdn.microsoft.com/visio/2009/12/03/bpmn-support-in-visio-2010).
 
 #### Aris BPM 7.x (\*.xml)
 
@@ -76,7 +66,7 @@ The .xpdl format will only be compatible if it was created in Bonita 4.x. If the
 
 #### jBPM 3.2 (processdefinition.xml)
 
-jBPM uses the [BPMN 2.0 standard](http://www.jboss.org/jbpm).
+jBPM uses the [BPMN 2.0 standard](http://www.jboss.org/).
 
 ## Export a process diagram as a BPMN 2.0 archive
 

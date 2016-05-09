@@ -1,14 +1,6 @@
-# 2.2 Bonita BPM Studio installation
+# Bonita BPM Studio installation
 
 This page explains how to install Bonita BPM Studio for developing processes. There are installer wizards for Windows, Linux, and Mac systems, and an OS-independent archive that can be installed on any system.
-
-[Prerequisites](#prerequisites)  
-[Download Bonita BPM Studio](#download)  
-[Install using a wizard](#installer)  
-[Install using OS-independent archive](#all_os)  
-[Start Bonita BPM Studio](#start)  
-[License](#license)  
-[Troubleshooting](#troubleshooting)
 
 ## Prerequisites
 
@@ -17,17 +9,17 @@ Check the [Support Guide](https://customer.bonitasoft.com/support-policies) for 
 Before you download Bonita BPM Studio, make sure that you know whether you are using a using a 32 or 64-bit system, and that you have the appropriate Java version installed:
 
 * For Linux, to find out whether you are using a 32 or 64 bit Linux, run the following command: `getconf LONG_BIT`, which returns either 32 or 64\.
-* For Windows, see the [32 and 64 bit Windows FAQ](http://windows.microsoft.com/en-us/windows7/32-bit-and-64-bit-windows-frequently-asked-questions).
+* For Windows, see the [32 and 64 bit Windows FAQ](http://windows.microsoft.com/en-us/windows/32-bit-and-64-bit-windows).
 * For Mac, 32-bit Java is no longer supported, so there is no 32-bit version of Bonita BPM for Mac systems.
 
 Note for Mac users of OS X 10.7.5 and above: a new security feature called **Gatekeeper** prevents the installation of software that is not officially recognized by Apple.
-For more information and details of how to install Bonita BPM Studio on a system running Gatekeeper, see the [Apple support site](http://support.apple.com/kb/ht5290).
+For more information and details of how to install Bonita BPM Studio on a system running Gatekeeper, see the [Apple support site](https://support.apple.com/en-us/HT202491).
 
 ## Download Bonita BPM Studio
 
 For a Subscription edition of Bonita BPM Studio, go to the [Customer Portal](https://customer.bonitasoft.com/download/request) and request a download.
 
-For the Community edition of Bonita BPM Studio, go to the Bonitasoft website [downloads page](http://www.bonitasoft.com/how-we-do-it/downloads). 
+For the Community edition of Bonita BPM Studio, go to the Bonitasoft website [downloads page](http://www.bonitasoft.com/downloads). 
 On this page there are buttons to download the Studio installer for your current operating system and the _all in one_, OS-independent version. 
 To download the installer for a different operating system, select it from the drop-down menu beside the **Choose** button, and click **_Choose_**. 
 Then click the **_Download_** button.

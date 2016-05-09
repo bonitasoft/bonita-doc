@@ -1,4 +1,4 @@
-# 1.12.4 Manage Jar files
+# Manage Jar files
 
 A jar file is an archive container for Java code. Process and application 
 dependencies are managed by managing the jar files that contain the required code. 

@@ -1,4 +1,4 @@
-# 1.12 Process configuration overview
+# Process configuration overview
 
 There are two reasons for configuring a process:
 
@@ -11,6 +11,6 @@ preferences set as [Bonita BPM Studio preferences](bonita-bpm-studio-preferences
 
 Before you export a process for deployment, you need to set the initial configuration [using the configuration wizard](configuring-a-process.md). 
 This configuration is exported with the process if you check the Configuration option in the export dialog when you 
-[build a .bar archive](import-and-export-a-process.md#build_for_deployment). 
+[build a .bar archive](import-and-export-a-process.md). 
 If you are using the Performance edition, you can [update the configuration after deployment](processes.md). 
 For other editions, you can modify the actor mapping only.

@@ -1,16 +1,10 @@
-# 1.9.3 Organization management in Bonita BPM Studio
+# Organization management in Bonita BPM Studio
 
 In Bonita BPM, the organization is the set of users who performs tasks in your business processes.
 
 Within Bonita BPM Studio, more than one organization can be defined. This is useful if you are developing a process 
 that will be deployed in several different organizations. It is also useful for testing, because you can create a 
 reduced version of your organization that has the same structure but fewer users, saving time in managing your test environment.
-
-[The ACME example organization](#acme_example)  
-[Creating an organization](#create_org)  
-[Exporting and importing an organization](#export_import_org)  
-[Modifying an organization](#modify_org)  
-[Publishing an organization to Bonita BPM Portal](#publish_org)
 
 ## The ACME example organization
 

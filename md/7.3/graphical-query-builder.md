@@ -1,8 +1,6 @@
-# 1.8.4.3 Graphical query builder
+# Graphical query builder
 
 The graphical query builder helps you configure a database connector by showing you the structure of database content to help you construct the database query.
-
-It works the same way for all database connectors. There are two stages: first [connect to the database](#connect), then [build a query](#build).
 
 ## Connect to the database
 
@@ -17,7 +15,7 @@ When the database access information is configured, click **_Next_** to go to th
 
 ## Build a query
 
-With the graphical query builder you can construct a [select](#select), [update](#update), [insert](#insert), or [delete](#delete) query. 
+With the graphical query builder you can construct a select, update, insert, or delete query. 
 At any point, you can switch from the graphical query builder to entering the SQL query directly, by clicking on the **Query** tab. 
 From the **Query** tab, you can go back to the graphical view by clicking on the **Designer** tab.
 
