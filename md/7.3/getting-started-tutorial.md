@@ -1,7 +1,5 @@
 # Getting started tutorial
 
-## Introduction
-
 This tutorial explains how to create an application that includes a process. The application is created using the Bonita BPM Community edition, and uses features that are available in all editions. The example application is a business travel tool, and is similar to the simple travel request process that was used in the getting started tutorial for earlier versions of Bonita BPM.
 
 Note that example solution is available on [GitHub repository](https://github.com/Bonitasoft-Community/getting-started-turorial).
@@ -16,26 +14,6 @@ It gives instructions for using Bonita BPM Studio, the UI Designer, and Bonita B
 Use Bonita BPM Studio to define your process, including using the UI Designer to create pages and forms. Then use Bonita BPM Portal to build the application.
 
 This is the recommended sequence for creating an application, but generally application pages, data model and processes are defined in parallel and evolve as you go deeper in the application details:
-
-* [Design the application pages](#create-app-page)
-  * [Create travel tool home page](#create-user-page)
-  * [Add dummy data](#use-dummy-data)
-  * [Review and improve the page](#review-improve)
-* [Define the data model](#create-data-model)
-* [Create the process definition](#create-process-def)
-  * [Create the diagram](#create-diagram)
-  * [Define business variables](#define-variables)
-  * [Create contracts](#create-contracts)
-  * [Define business object initial values](#define-bo-initial-values)
-  * [Update business object with review data](#update-bo)
-  * [Specify actors](#specify-actors)
-  * [Run process with temporary forms](#test-process)
-* [Define the process forms](#create-forms)
-* [Run process](#run-process)
-* [Build the application](#create-app)
-  * [Update the application page](#update-variables)
-  * [Link button to process](#buttons)
-  * [Build application](#build-app)
 
 ## Design application pages
 
@@ -197,16 +175,16 @@ To define the business data model:
 3. Click on the temporary name, and change it to _TravelRequest_.
 4. Select the _TravelRequest_ business object type, and add its attributes. This table shows the attributes and their types:
 
- | Variable  | Data type | Mandatory |
- | --------- | --------- | -------- |
- | userId  | Long  | yes  |
- | departureDate  | Date  | yes  |
- | numberOfNights  | Integer  | yes  |
- | hotelNeeded  | Boolean  | yes  |
- | destination  | String  | yes  |
- | reason  | String  | yes  |
- | status  | String  | yes  |
- | refusalReason  | String  | no  |
+| Variable  | Data type | Mandatory |
+| --------- | --------- | -------- |
+| userId  | Long  | yes  |
+| departureDate  | Date  | yes  |
+| numberOfNights  | Integer  | yes  |
+| hotelNeeded  | Boolean  | yes  |
+| destination  | String  | yes  |
+| reason  | String  | yes  |
+| status  | String  | yes  |
+| refusalReason  | String  | no  |
 
  To add each attribute:
   1. In the **Attributes** tab, click **_Add_**. A temporary attribute name ("attribute1") is added to the Name column.
@@ -254,17 +232,15 @@ The other borders of the lane coincide with the pool border so are not visible.
 Then go to the **Details** panel, **General** tab, **Pool** pane, and click **_Edit..._** next to the **Name** field. Enter the new pool name, _Travel Request_, in the popup.
 When you have renamed the diagram and the pool, the diagram looks like this:
 
-  ![Diagram with names changed](images/images-6_0/7.0-getting-started-renamed-diagram.png)
-   Diagram with names changed
+  ![Diagram with names changed](../images/images-6_0/7.0-getting-started-renamed-diagram.png)
    
-6. Now add the tasks to the diagram. This process starts when an employee fills in a travel request form. You do not need to create a task for this because it is this action that triggers the process to start. This is known as process initiation. A [form for process initiation](#create-forms) is defined at the pool level.
+6. Now add the tasks to the diagram. This process starts when an employee fills in a travel request form. You do not need to create a task for this because it is this action that triggers the process to start. This is known as process initiation. A **form for process initiation** is defined at the pool level.
 7. Define what happens after the user submits a request form: the manager reviews the travel request and approves or refuses it. You can use the example task that was added to the diagram automatically. Click on the task name and change it to _Manager review_.
 8. In a future evolution of this process, the next task would be to send the travel request details to the admin team so they can handle the booking. For now, though we are just interested in getting the first part of the process working, so add an end after the review task. You can do this by dragging the end icon (red circle) from the palette to the whiteboard, and then connecting to the _Manager review_ task with a flow element.
 
 When you have finished, your diagram should look like this:
 
-![Completed diagram](images/images-6_0/7.0-getting-started-completed-diagram.png)
-Completed diagram
+![Completed diagram](../images/images-6_0/7.0-getting-started-completed-diagram.png)
 
 ### Define business variables
 
@@ -315,13 +291,13 @@ The first one will ensure that the departure date is in the future and the secon
 In the **Details** panel, **Contract** pane, **Inputs** tab click the arrow next to **travelRequestInput** to expand the list of attributes.
 For each attribute, add a **Description**. The description is displayed in the automatically generated form used for process testing, so include information that will help the user complete the form correctly, as follows:
 
- | Attribute  | Description |
- | ---------- | ----------- |
- | departureDate  | Specify the date that the travel starts  |
- | numberOfNights  | Enter the number of nights  |
- | hotelNeeded  | Specify if you need a hotel reservation  |
- | destination  | Enter the destination city  |
- | reason  | Explain the reason for this travel. Give the business justification  |
+| Attribute  | Description |
+| ---------- | ----------- |
+| departureDate  | Specify the date that the travel starts  |
+| numberOfNights  | Enter the number of nights  |
+| hotelNeeded  | Specify if you need a hotel reservation  |
+| destination  | Enter the destination city  |
+| reason  | Explain the reason for this travel. Give the business justification  |
  
 The process instantiation contract is now complete.
 
@@ -332,10 +308,10 @@ It also has a constraint: a _refusalReason_ must be specified if the manager ref
 2. Go to the **Details** panel, **Execution** tab, **Contract** pane.
 3. In the **Inputs** tab, click **_Add_** and specify the following attributes:
 
- | Name  | Type  | Multiple  | Description  |
- | ----- | ----- | --------- | ------------ |
- | status  | Text  | No  | Indicate whether you approve or refuse this request  |
- | refusalReason  | Text  | No  | If you refuse a request, you must give a reason  |
+| Name  | Type  | Multiple  | Description  |
+| ----- | ----- | --------- | ------------ |
+| status  | Text  | No  | Indicate whether you approve or refuse this request  |
+| refusalReason  | Text  | No  | If you refuse a request, you must give a reason  |
 
 4. Go to the **Constraints** tab and click **_Add_**. This adds a placeholder constraint.
 5. Click on the placeholder name and change it to _reasonRequired_.
@@ -372,8 +348,7 @@ Repeat these steps for to define the operation for _refusalReason_.
 
 When both of the operations are defined, the **Details** panel should look like this:
 
- ![Manager review operations](images/images-6_0/7.0-getting-started-operations.png)
-  Manager review operations
+ ![Manager review operations](../images/images-6_0/7.0-getting-started-operations.png)
 
 ### Specify actors
 
@@ -456,8 +431,7 @@ This will enable the Submit button only when the form content is valid.
 
 The form should now look like this in the page editor:
 
-  ![Process instantiation form](images/images-6_0/7.2-getting-started-inst-form-validation.png)
-   Process instantation form
+  ![Process instantiation form](../images/images-6_0/7.2-getting-started-inst-form-validation.png)
 
 Now that the form is functional, we are going to improve its appearance to make it more user-friendly:
 
@@ -473,8 +447,7 @@ Now that the form is functional, we are going to improve its appearance to make 
 
 When you have finished, the preview of the form looks like this:
 
-  ![Process instantiation form](images/images-6_0/7.2-getting-started-inst-form-rendering.png)
-   Process instantation form
+  ![Process instantiation form](../images/images-6_0/7.2-getting-started-inst-form-rendering.png)
 
 Now define the form for the _Manager review_ task. Start by automatically generating the form from the context, then add widgets to display the request details for the manager to review. Follow these steps:
 
@@ -489,10 +462,10 @@ Now define the form for the _Manager review_ task. Start by automatically genera
   5. Click **_Save_**.
 5. Add a variable to hold the different request status values:
 
- | Name  | Type | Value |
- | ----- | ---- | ----- |
- | statusValues  | JSON  | `[ {"label": "Approve request", "value": "approved"},{"label": "Refuse request", "value": "refused"}]`|
- |||
+| Name  | Type | Value |
+| ----- | ---- | ----- |
+| statusValues  | JSON  | `[ {"label": "Approve request", "value": "approved"},{"label": "Refuse request", "value": "refused"}]`|
+|||
 
 6. Edit the _formInput_ variable and set the value for the _status_ attribute to _"approved"_.
 7. Add a _Form container_ widget and move the 3 other widgets inside this container.
@@ -501,41 +474,40 @@ All of the other widgets you will add will also be placed inside the form contai
 Set the **Level** property to Level 4, so it is the same size as the title of the form for creating a request.
 9. Add read-only widgets to display the details of the travel request, using the following information:
 
- | Label  | Widget type  | Value binding  | Read-only  |
- | -----  | ------------ | -------------- | ---------- |
- | Destination  | Input  | request.destination  | yes  |
- | Departure date  | Input  | request.departureDate \| date  |yes  |
- | Number of nights  | Input  | request.numberOfNights  | yes  |
- | Hotel needed  | Checkbox  | request.hotelNeeded  | yes  |
- | Reason for travel  | Text area  | request.reason  | yes  |
+| Label  | Widget type  | Value binding  | Read-only  |
+| -----  | ------------ | -------------- | ---------- |
+| Destination  | Input  | request.destination  | yes  |
+| Departure date  | Input  | request.departureDate \| date  |yes  |
+| Number of nights  | Input  | request.numberOfNights  | yes  |
+| Hotel needed  | Checkbox  | request.hotelNeeded  | yes  |
+| Reason for travel  | Text area  | request.reason  | yes  |
 
 10. Remove the "Refusal reason" widget that was added automatically, we will replace it by something more user-friendly in the next step.
 11. Add a Text area widget with the following properties:
 
- | Property  | Value  |
- | --------- | ------ |
- | Hidden  | `formInput.status == 'approved'` (click on "bind" icon) |
- | Label  | Refusal reason  |
- | Value  | `formInput.refusalReason`  |
+| Property  | Value  |
+| --------- | ------ |
+| Hidden  | `formInput.status == 'approved'` (click on "bind" icon) |
+| Label  | Refusal reason  |
+| Value  | `formInput.refusalReason`  |
 
 The dynamic _Hidden_ property will hide the widget when the request status is set to 'approved'.
 Otherwise, the field will be marked as required and the form validation will prevent the user from refusing a request without a reason.
 12. Remove the Status widget that was added automatically.
 13. Add a Radio buttons widget with the following properties:
 
- | Property  | Value  |
- | --------- | ------ | 
- | Label  | Review decision  |
- | Available values (click on the binding icon next to the value) | statusValues  |
- | Displayed keys  | label  |
- | Returned keys  | value  |
- | Selected Value  | `formInput.status`  |
+| Property  | Value  |
+| --------- | ------ | 
+| Label  | Review decision  |
+| Available values (click on the binding icon next to the value) | statusValues  |
+| Displayed keys  | label  |
+| Returned keys  | value  |
+| Selected Value  | `formInput.status`  |
 
 14. Select the _Submit_ widget and bind its _Disabled_ property to `$form.$invalid`
 15. Preview the form to test the validation and rearrange the widgets until it looks like this in the editor:
 
-  ![Process instantiation form](images/images-6_0/7.2-getting-started-review-form.png)
-  Process instantation form
+  ![Process instantiation form](../images/images-6_0/7.2-getting-started-review-form.png)
 
 ## Run process
 
@@ -564,10 +536,10 @@ Create the following variables:
 
 Update (edit) the following variables:
 
- | Name  | Type  | Value  |
- |------ | ----- | ------ | 
- | myPendingRequests  | External API  | `../API/bdm/businessData/com.company.model.TravelRequest?q=findByUserIdAndStatus&p=0&c=10&f=userId={{session.user_id}}&f=status=pending`  |
- | myApprovedRequests  | External API  | `../API/bdm/businessData/com.company.model.TravelRequest?q=findByUserIdAndStatus&p=0&c=10&f=userId={{session.user_id}}&f=status=approved`  |
+| Name  | Type  | Value  |
+|------ | ----- | ------ | 
+| myPendingRequests  | External API  | `../API/bdm/businessData/com.company.model.TravelRequest?q=findByUserIdAndStatus&p=0&c=10&f=userId={{session.user_id}}&f=status=pending`  |
+| myApprovedRequests  | External API  | `../API/bdm/businessData/com.company.model.TravelRequest?q=findByUserIdAndStatus&p=0&c=10&f=userId={{session.user_id}}&f=status=approved`  |
 
 Now update the widgets to use the new variables:
 

@@ -5,7 +5,7 @@
 In Bonita BPM 6.x, two versions are available for download:
 1. the Bonita BPM Subscription Pack edition version for the Performance, Efficiency, and Teamwork editions
 2. and the Bonita BPM Community edition version for the Community edition 
-For each version, there are several packaging options. Each edition has a specific var\_bonita\_home that must be downloaded and installed | There is pnow a single var\_bonita\_home, simplifying download options and installation. The edition is set in a properties file. There are no other differences to packaging. 
+For each version, there are several packaging options. Each edition has a specific {{ var_bonita_home }} that must be downloaded and installed | There is pnow a single {{ var_bonita_home }}, simplifying download options and installation. The edition is set in a properties file. There are no other differences to packaging. 
 See the [Installation overview](bonita-bpm-installation-overview.md). 
 
 ## Concept comparison
@@ -25,8 +25,8 @@ See the [Installation overview](bonita-bpm-installation-overview.md).
 
 | Feature  | Bonita BPM 6.x  | Bonita BPM 7.x  |
 | -------- | --------------- | --------------- |
-| UI designer  | Not in 6.x  | A new development environment for creating sophisticated, data-driven pages and forms for process-based applications. The UI designer is accessed through the Studio. See [live update](live-update.md). The 6.x [form tooling](6x-legacy-forms.md) is still supported, so that you can continue to run 6.x processes and to ease migration  |
-| Process migration  | A process exported from Bonita Open Solution 5.9 or 5.10 must be modified to run in Bonita BPM. When you import a process from 5.9 or 5.10 into Bonita BPM Studio, you see a report that guides you through the changes that are necessary. See [Migrate a process from Bonita Open Solution 5.9 or 5.10](migrate-a-process-from-bonita-open-solution-5x.md)  | A process created in Bonita BPM 6.x will run in 7.x without any modification. However, to take advantage of the new features in Bonita BPM 7.x, you need to add contracts and migrate the forms. See [Contracts](contracts-and-contexts.md) and [Migrate a form from 6.x](migrate-a-form-from-6x.md)  |
+| UI designer  | Not in 6.x  | A new development environment for creating sophisticated, data-driven pages and forms for process-based applications. The UI designer is accessed through the Studio. See [live update](live-update.md). The 6.x [form tooling](6-x-legacy-forms.md) is still supported, so that you can continue to run 6.x processes and to ease migration  |
+| Process migration  | A process exported from Bonita Open Solution 5.9 or 5.10 must be modified to run in Bonita BPM. When you import a process from 5.9 or 5.10 into Bonita BPM Studio, you see a report that guides you through the changes that are necessary. See [Migrate a process from Bonita Open Solution 5.9 or 5.10](migrate-a-process-from-bonita-open-solution-5-x.md)  | A process created in Bonita BPM 6.x will run in 7.x without any modification. However, to take advantage of the new features in Bonita BPM 7.x, you need to add contracts and migrate the forms. See [Contracts](contracts-and-contexts.md) and [Migrate a form from 6.x](migrate-a-form-from-6-x.md)  |
 | Application theme and layout  | Not in 6.x  | You can create custom layout and theme for a process-based application constructed from UI designer pages and forms. See [Appearance](appearance.md)  |
 | REST API extensions  | Not in 6.x  | You can create custom REST API extensions, to supplement the standard REST API interfaces or to optimize REST API calls used UI designer pages and forms. See [REST API extensions](rest-api-extensions.md)  |
 | Improved UI  | Not in 6.x  | Improvements to the Details panel so that tab structure reflects typical worksflow  |
@@ -39,7 +39,6 @@ See the [Installation overview](bonita-bpm-installation-overview.md).
 | Anonymous user  | You can define a process that has an unknown initiator. See [Start a process as an anonymous user](actors.md)  | Not supported  |
 
 ## Feature improvements in Bonita BPM Portal
-
 | Feature  | Bonita BPM 6.x  | Bonita BPM 7.x  | 
 | -------- | --------------- | --------------- | 
 | Dynamic reconfiguration  | The process configuration is defined in Bonita BPM Studio. With the Performance Edition, you can modify the configuration in Bonita BPM Portal after the process is deployed. You can dynamically update the following configuration items: actor mapping (all editions), parameters (Performance edition), connector implementation (Performance edition), dependencies (Performance edition), actor filter replay by Java call (Performance edition) | New live update feature expands the dynamic reconfiguration to other editions and to other items. The following items can be updated "live": Groovy scripts (Efficiency and Performance editions), process forms (Efficiency and Performance editions), actor mapping (all editions), parameters (all editions), connector implementation (all editions), dependencies (all editions), actor filter replay by Java call (Performance edition). See [Live update](live-update.md)  |
@@ -48,9 +47,9 @@ See the [Installation overview](bonita-bpm-installation-overview.md).
 | Mobile web portal  | A specially designed mobile interface to Bonita BPM Portal enables users to carry out tasks from a browser on mobile devices  | No change. See [Mobile overview](mobile-portal.md)  |
 | Subtasks  | A Subtask is a part of a self-assigned existing task. A Subtask must be assigned to a specific person, by name. The assignee can be the creator  | No change. See [Manage a subtask](subtasks.md)  |
 | Replay tasks and connectors in error  | It is now possible for the administrator to replay a task or a connector that is in error. This enables a resolution of failed tasks and better service to end users. and connectors in error  | No change. See [Process configuration overview](process-configuration-overview.md) and [Mobile overview](mobile-portal.md)  |
-| Anonymous user  | You can now complete a task as an [anonymous user](anonymous-user.md), that is, without being registered in the organization. For example, on an e-commerce site, a new user can browse stock and save items to a basket, then register with the site if they want to save their basket for later or to buy something  | Not supported  |
+| Anonymous user  | You can now complete a task as an [anonymous user](http://documentation.bonitasoft.com/anonymous-user), that is, without being registered in the organization. For example, on an e-commerce site, a new user can browse stock and save items to a basket, then register with the site if they want to save their basket for later or to buy something  | Not supported  |
 
 ## Feature improvements in Bonita BPM Engine
 | Feature  | Bonita BPM 6.x  | Bonita BPM 7.x  |
 | -------- | --------------- | --------------- | 
-| var\_bonita\_home   | A separate var\_bonita\_home for each edition and for cluster  | A common var\_bonita\_home used for all editions, simplifying download and installation. Improved structure for var\_bonita\_home/server that is easier to maintain and customize. See [Bonita Home](bonita-home.md)  |
+| {{ var_bonita_home }}   | A separate {{ var_bonita_home }} for each edition and for cluster  | A common {{ var_bonita_home }} used for all editions, simplifying download and installation. Improved structure for {{ var_bonita_home }}/server that is easier to maintain and customize. See [Bonita Home](bonita-home.md)  |
