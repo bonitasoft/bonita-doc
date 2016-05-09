@@ -23,8 +23,8 @@ To define actors for a process:
 name, select it and type the name you want to use. You can also add a description.
   3. Repeat step 2 to add all the actors required for the process. You can also remove an actor, by selecting it and clicking **_Remove_**.
   4. Select the actor that will be the initiator of the process cases, and click **_Set as initiator_**. If you do not define an initiator for the pool, the process cannot be started in Bonita BPM Portal. Instead, it will have to be started programmatically.
-2. For each lane, define the actor. You can either select an actor that was defined for the pool, by selecting the actor from the drop-down list, or you can use an [actor filter](#Using_an_actor_filter).
-3. For each step, define the actor. You can use the actor defined for the lane, or specify an actor for the step. To specify an actor for the step, you can either select an actor that was defined for the pool, by selecting the actor from the drop-down list, or you can use an [actor filter](#Using_an_actor_filter).
+2. For each lane, define the actor. You can either select an actor that was defined for the pool, by selecting the actor from the drop-down list, or you can use an actor filter.
+3. For each step, define the actor. You can use the actor defined for the lane, or specify an actor for the step. To specify an actor for the step, you can either select an actor that was defined for the pool, by selecting the actor from the drop-down list, or you can use an actor filter.
 
 See [Custom user information in Bonita BPM Studio](custom-user-information-in-bonita-bpm-studio.md)
 
@@ -60,7 +60,7 @@ When you deploy a process, if you have the same organization definition in Bonit
 ## Updating task assignment dynamically
 
 The Bonita BPM Engine API contains a method to re-evaluate the assignment of a task by reapplying the actor mapping any actor filters. 
-This means that if there are changes in your organization, you can update any active process instances to assign tasks to the correct people. This is known as [dynamic task assignment](manage-users.md#get_eligible).
+This means that if there are changes in your organization, you can update any active process instances to assign tasks to the correct people. This is known as [dynamic task assignment](manage-users.md).
 
 ## Export or import actor mapping
 

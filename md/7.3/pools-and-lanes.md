@@ -29,7 +29,7 @@ For a lane, you can configure the following:
 
 * Name and description
 * Actors: From the actors defined for the pool, [specify the actors](actors.md) assigned to this lane. 
-You can also [configure an actor filter](actors.md#Using_an_actor_filter) to make the actor assignment more specific.
+You can also [configure an actor filter](actors.md) to make the actor assignment more specific.
 * Data: [Define the variables](specify-data-in-a-process-definition.md) needed in the lane. You can also define variables as task level.
 * Connectors: [Specify the connectors](connectivity-overview.md) used in the lane. You can also specify a connector at task level, 
 but if a connector is used more than once it is better to define it at pool or lane level.

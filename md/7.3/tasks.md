@@ -1,12 +1,6 @@
 # 3.3.3 Tasks
 
-Logged on with the Administrator or Process Manager profile, you have rights to manage a task as follows:
-[How to assign a task](#assign)
-[How to unassign a task](#unassign)
-[How to do a task for another user](#do_task_for)
-[How to skip a failed task](#skip)
-[How to replay a failed task](#replay)
-[How to view the failure stack-trace message on a failed task](#stack)
+Logged on with the Administrator or Process Manager profile, you have rights to manage a task as follows.
 
 ## How to assign a task
 
@@ -62,7 +56,7 @@ This feature is available with the Performance edition.
 
 Note: You will need to fix any parameter causing the failure, **BEFORE** clicking on Replay.
 
-See [Modify a parameter](processes.md#modpar)
+See [Modify a parameter](processes.md)
 
 ## How to view the failure stack-trace message on a failed task
 
@@ -74,20 +68,16 @@ In this case the Admin can check the failure on a connector:
 2. On the Failed page, in the section Technical details, this shows the Connector has failed.
 3. Click on **More**
 
-![failed](images/images-6_0/connector_failed.png)
+![failed](../images/images-6_0/connector_failed.png)
 
-failed
 4. There can be a list of connectors in different states. Here we can see the connector that has failed.
 
-![failed](images/images-6_0/connector_failed_details.png)
+![failed](../images/images-6_0/connector_failed_details.png)
 
-failed
 5. Click on the **Failed** link.
 6. A pop-up window **Failure details** displays the error message and the details of the message.
 
-![failed](images/images-6_0/connector_failed_stack.png)
-
-failed
+![failed](../images/images-6_0/connector_failed_stack.png)
 
 There are 2 solutions:
 

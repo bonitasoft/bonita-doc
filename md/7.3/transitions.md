@@ -20,7 +20,7 @@ Click the crayon icon to open the Expression editor. Select the expression type 
 
 For complex or multi-stage conditions, use a decision table. A decision table is a sequence of conditions, one condition in each row of the table. The rows are evaluated in order. Each condition is a comparison expression.
 
-  ![Comparison expressions in a decision table](images/images-6_0/papde__transitions_comparison_decision_table.png)
+  ![Comparison expressions in a decision table](../images/images-6_0/papde__transitions_comparison_decision_table.png)
   Comparison expressions in a decision table
 
 ## Default transition

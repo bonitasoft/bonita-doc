@@ -4,14 +4,13 @@ This page explains the lifecycle of creating an application or a process using B
 lifecycle, different people with different knowledge and skills play
 roles. These people are identified by profiles.
 
-  ![Lifecycle and profiles diagram](images/images-6_0/lifecycle-app.png)
+  ![Lifecycle and profiles diagram](../images/images-6_0/lifecycle-app.png)
   Lifecycle and profiles
 
-There are three major phases in the lifecycle: [application creation](#process_creation),
-[system creation](#system_creation), and [production](#production). This page introduces these three phases, and explains
-how the Bonita BPM components use [profiles](#components) to manage the features presented to users.
+There are three major phases in the lifecycle.This page introduces these three phases, and explains
+how the Bonita BPM components use components to manage the features presented to users.
 
-## Application creation
+## Application creation phase
 
 During this phase, the business analyst specifies the processes that are in the application and
 [creates the process diagrams](diagram-overview.md). The application developer takes the
@@ -26,7 +25,7 @@ creation.
 
 The application developer also creates the application pages. When the pages are complete, they are exported and deployed in Bonita BPM Portal. The application developer then builds the application, specifying the menus and navigation.
 
-## System creation
+## System creation phase
 
 During this phase, which typically runs in parallel with the end
 of the application creation phase, the platform administrator prepares
@@ -41,11 +40,11 @@ testing.
 
 When configuration is complete, the system is ready for application
 deployment. The administrator deploys the processes and the application pages, and updates the configuration as needed, including [mapping process
-actors](actors.md#Mapping_an_actor) to users in the organization.
+actors](actors.md) to users in the organization.
 
-## Production
+## Production phase
 
-To [deploy a process](processes.md#installanapp), you import it into Bonita BPM Portal and start it. After the process is started, process instances can be started. The details
+To [deploy a process](processes.md), you import it into Bonita BPM Portal and start it. After the process is started, process instances can be started. The details
 of how process instances are started depend on the process
 definition.
 
