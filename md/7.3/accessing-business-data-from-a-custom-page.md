@@ -61,17 +61,15 @@ Now that you got your Business Objects you can display them on your page.
 There are many ways to do that with standard .html, depending on your needs.
 
 For example you can use the method `out.println()`to print html in the page:
-```out.println('');
-			
-			for(LeaveRequest leaveRequest: leaveRequestList){         
-				out.println(""); 
-			}
-			
-			out.println("Leave Request ListStart Date End dateLeave Type
-
-" + df.format(leaveRequest.getStartDate())+" " + df.format(leaveRequest.getEndDate())+" " +leaveRequest.getLeaveType() + "
-
-");
+```groovy
+out.println(''); 
+for(LeaveRequest leaveRequest: leaveRequestList){         
+    out.println(""); 
+} 
+out.println("Leave Request ListStart Date End dateLeave Type " +
+    df.format(leaveRequest.getStartDate())+" " + 
+    df.format(leaveRequest.getEndDate())+" " +
+    leaveRequest.getLeaveType());
 ```
 
 ### Notes
