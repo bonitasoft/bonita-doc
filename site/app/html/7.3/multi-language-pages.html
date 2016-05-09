@@ -1,4 +1,4 @@
-<h1>1.7.2.11 Multi-language pages</h1>
+<h1>Multi-language pages</h1>
 <p>In the Bonita BPM Subscription editions, the UI designer includes a mechanism to add translations for page elements, to support multi-language pages.
 The text displayed in the preview and at runtime adapts to the locale or browser language automatically. The UI designer itself is displayed in the language of your Bonita BPM Studio.
 The Preview window is displayed in the language set for Bonita BPM Portal.</p>
@@ -16,24 +16,23 @@ The BOS_locale value is set by selecting a language in Bonita BPM Portal or in a
 If BOS_locale is not set or its value does not match a language code, the browser language is used.
 If neither the BOS_locole nor the browser language matches a language code in <code>localization.json</code>, the untranslated keys are displayed in the page.</p>
 <p>To use a localization asset, replace the default <code>localization.json</code> file with a file of the same format containing all the keys in the page and the translations into the target languages. The localisation asset is at page level.
-The format of file must be:
-`
-{
-&quot;ISO 639-1 code for language-A&quot;:
-{
-&quot;english key&quot;:&quot;translated key for language-A&quot;,
-&quot;english key2&quot;:&quot;translated key2 for language-A&quot;,
-...
-},
-&quot;ISO 639-1 code for language-B &quot;:
-{
-&quot;english key&quot;:&quot;translated key for language-B&quot;,
-&quot;english key2&quot;:&quot;translated key2 for language-B&quot;,</p>
-<pre><code> ...
+The format of file must be:</p>
+<pre><code class="language-json">{
+&quot;ISO 639-1 code for language-A&quot;: 
+  {
+    &quot;english key&quot;:&quot;translated key for language-A&quot;,
+    &quot;english key2&quot;:&quot;translated key2 for language-A&quot;,
+     ...
+   },
+&quot;ISO 639-1 code for language-B &quot;: 
+  {
+    &quot;english key&quot;:&quot;translated key for language-B&quot;,
+  &quot;english key2&quot;:&quot;translated key2 for language-B&quot;,
+
+     ...
+   }
+  ...
 </code></pre>
-<p>}
-...
-`</p>
 <p>The code that specifies a language in <code>localization.json</code> must be the same as the code in the <code>.po</code> files used to <a href="languages.md">add the language to the Portal</a>.</p>
 <h2>Tutorial: creating a multi-language page</h2>
 <p>This tutorial explains how to create a multi-language version of the Travel Tool application page from the <a href="getting-started-tutorial.md">getting started tutorial</a>, adding French and Russian text to the page.
@@ -50,8 +49,20 @@ It assumes that you have already created the Travel Tool page following the inst
 For this simple page, you could create the key list by hand from the text that is visible in the Page editor.
 However, to be sure that you identify all the items that need to be translated, export the page zip file, and edit the <code>page.json</code> file to retrieve all the text strings.
 In addition to the text strings, look for any date format strings and URLs that could contain a locale attribute.</p>
-<p>For the Travel Tool application page, this is the set of text strings to translate:
-<code>Travel Tool This page lists your pending and approved travel requests. My pending requests Departure date Number of nights Hotel needed Destination Reason Create new travel request My approved travel requests yes no</code></p>
+<p>For the Travel Tool application page, this is the set of text strings to translate:</p>
+<pre><code>Travel Tool
+This page lists your pending and approved travel requests.
+My pending requests
+Departure date
+Number of nights
+Hotel needed
+Destination
+Reason
+Create new travel request
+My approved travel requests
+yes
+no
+</code></pre>
 <p>These strings are the keys used to identify the text to display in each translation. Translate these strings into the languages that you want to support. For this tutorial, the additional languages are French and Russian.</p>
 <h3>Add languages to Bonita BPM Portal</h3>
 <p>Before you can view a page in a language, that language must be supported for Bonita BPM web applications.
@@ -61,8 +72,39 @@ Make sure that you add both the Community and Subscription files. Then restart y
 <h3>Add a localization asset to the page</h3>
 <p>Create a <code>localization.json</code> file in the format shown above, containing the French and Russian translations of the page text.
 The language identifier must match the language identifier in the <code>.po</code> files containing the Portal translations.
-Use an online Json checker to make sure there are no format errors in the file. The file will look something like this:
-<code>[[include:localization.json]]</code></p>
+Use an online Json checker to make sure there are no format errors in the file. The file will look something like this:</p>
+<pre><code class="language-json">{
+  &quot;ru_RU&quot;: {
+    &quot;Travel Tool&quot;: &quot;Путешествия Инструмент&quot;,
+    &quot;This page lists your pending and approved travel requests.&quot;: &quot;Эта страница содержит список ожидающие и одобренные запросы в поездке.&quot;,
+    &quot;My pending requests&quot;: &quot;Мои ожидающие запросы&quot;,
+    &quot;Departure date&quot;: &quot;Дата отбытия&quot;,
+    &quot;Number of nights&quot;: &quot;Количество ночей&quot;,
+    &quot;Hotel needed&quot;: &quot;Отель нужны&quot;,
+    &quot;Destination&quot;: &quot;Hазначения&quot;,
+    &quot;Reason&quot;: &quot;причина&quot;,
+    &quot;d/M/yyyy&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;Create new travel request&quot;: &quot;Создать новый запрос пути&quot;,
+    &quot;My approved travel requests&quot;: &quot;Мои запросы туристические утвержденные&quot;,
+    &quot;yes&quot;: &quot;Да&quot;,
+    &quot;no&quot;: &quot;Нет&quot;
+  },
+    &quot;fr-FR&quot;: {
+    &quot;Travel Tool&quot;: &quot;Gestionnaire de déplacements&quot;,
+    &quot;This page lists your pending and approved travel requests.&quot;: &quot;Cette page affiche la liste de vos demandes de déplacements en attente et de celles qui ont été approuvées.&quot;,
+    &quot;My pending requests&quot;: &quot;Mes demandes en attente&quot;,
+    &quot;Departure date&quot;: &quot;Date de départ&quot;,
+    &quot;Number of nights&quot;: &quot;Nombre de nuits&quot;,
+    &quot;Hotel needed&quot;: &quot;Besoin d'une réservation d'hôtel&quot;,
+    &quot;Destination&quot;: &quot;Destination&quot;,
+    &quot;Reason&quot;: &quot;Motif&quot;,
+    &quot;d/M/yyyy&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;Create new travel request&quot;: &quot;Créer une nouvelle demande de déplacement&quot;,
+    &quot;My approved travel requests&quot;: &quot;Mes demandes approuvées &quot;,
+    &quot;yes&quot;: &quot;oui&quot;,
+    &quot;no&quot;: &quot;non&quot;
+  }
+</code></pre>
 <p>You can <a href="images/special_code/localization.json">download a copy of this <code>localization.json</code> file</a> for testing.</p>
 <p>In the UI designer, import this file as an asset of the travel tool page. This will replace any existing <code>localization.json</code> file. Save the page.</p>
 <h3>Translate contents in custom widgets</h3>

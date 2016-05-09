@@ -1,13 +1,10 @@
-# 1.8.4.2 Database connector configuration
+# Database connector configuration
 
 There are two types of configuration for database connectors:
 
 * A JDBC connector is a point-to-point connection configured with information to access the database directly.
 * A datasource connector is a connection to a datasource that is an intermediate point between the user (the Bonita process) and the database. 
 The advantage of using a datasource is that it can use a connection pool. The details of how the datasource retrieves information and the database it uses are hidden from the connector.
-
-[How to configure a JDBC connector](#jdbc)  
-[How to configure a datasource connector](#datasource)
 
 ## How to configure a JDBC connector
 
@@ -30,7 +27,7 @@ The Graphical mode does not require scripting. Click _**Next**_.
 ## How to configure a datasource connector
 
 Before you can configure the datasource connector, you need to configure the datasource itself, which is done in the application server. 
-Follow the instructions in your application server documentation. [See here for an example using Tomcat with PostgreSQL.](http://tomcat.apache.org/tomcat-7.0-doc/jndi-datasource-examples-howto.md#PostgreSQL)
+Follow the instructions in your application server documentation. [See here for an example using Tomcat with PostgreSQL.](http://tomcat.apache.org/tomcat-7.0-doc/jndi-datasource-examples-howto.html#PostgreSQL)
 Configure the connections of the datasource to be created with auto commit set to true.
 Make sure that all elements using connections return them to the pool with auto commit still set to true.
 

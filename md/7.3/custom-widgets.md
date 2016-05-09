@@ -1,13 +1,7 @@
-# 1.7.2.7 Custom widgets
+# Custom widgets
 
 If the [standard widgets](widgets.md) do not meet your needs, you can create a custom widget to match exactly what you want to.
 After creation, a custom widget is available in the palette for designing pages, forms or fragments. 
-
-[Description](#description)  
-[Custom widget properties](#custom-widget-properties)  
-[Using an external AngularJS directive or service in a custom widget](#using-external-angularjs-directive-or-service-in-a-custom-widget)  
-[Translation filter](#custom-widget-translation)  
-[Advanced Example](#advanced-example)
 
 ## Description
 
@@ -32,7 +26,7 @@ For now, you cannot implement custom widget containers.
 ## Custom widget properties
 
 Properties are variables that can be set in the properties panel when adding a custom widget to a page, form, or fragment.
-A property is constant, dynamic, a bidirectional bond, or an interpolation. You can chose between these treatments when you edit the [widget property](widget-properties.md#value-types).
+A property is constant, dynamic, a bidirectional bond, or an interpolation. You can chose between these treatments when you edit the [widget property](widget-properties.md).
 Use properties when you want the person that uses your widget to customize widget appearance or behavior. In a custom widget, a property can be used either in the template or in the controller.
 
 A property has a _name_ which can be referenced in the controller or the template, a _label_ which will be printed in the properties panel in an editor, a _default_ value, and a type. 
@@ -76,7 +70,7 @@ The link text which is static is translated using the _ui-translate_ directive. 
 This section explains how to use the _carousel_ and _slide_ directives from the `ui.bootstrap` library.
 
 Following the [`ui.bootstrap` documentation](https://angular-ui.github.io/bootstrap/#/getting_started), 
-[download `ui-bootstrap-tpls.min.js`](https://angular-ui.github.io/bootstrap/#/carousel) and declare the module `ui.bootstrap` as a dependency of the application. 
+[download `ui-bootstrap-tpls.min.js`](https://angular-ui.github.io/bootstrap/) and declare the module `ui.bootstrap` as a dependency of the application. 
 Specifically, to use these directive in a custom widget, you need to:
 
 1. Download `ui-bootstrap-tpls.min.js`.

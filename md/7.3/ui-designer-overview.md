@@ -29,7 +29,7 @@ To use a page in a business application, export it from the {{var\_uiDesigner}},
 
 To use a form in a process, map it in the Bonita BPM Studio to the relevant process or human task. It will be automatically packaged in the .bar archive ready to deploy in the Bonita BPM Portal.
 
-In the Subscription editions, you can [update a form in production](live-update.md#forms), by exporting a new version of the form from the {{var\_uiDesigner}}, importing it into the relevant process in the portal, and then mapping it to the relevant task or process start event. 
+In the Subscription editions, you can [update a form in production](live-update.md), by exporting a new version of the form from the {{var\_uiDesigner}}, importing it into the relevant process in the portal, and then mapping it to the relevant task or process start event. 
 
 To use a layout in a business application, export it from the {{var\_uiDesigner}}, import it as a Bonita BPM Portal resource, and map it as the layout of the relevant application.
 

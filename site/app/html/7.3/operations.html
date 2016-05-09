@@ -21,7 +21,7 @@ If you define the expression with a script, you can use the current value of the
 The BO instance must exist in the business data database; otherwise the operator throws an exception.
 The BO instance is not modified during the operation but from that point onward, any expression or operation in the process can reference this object instance to make changes.<br>
 If it uses a <em>Script expression type</em>, you can use the contract inputs to fill in the BO attributes.
-Go to <a href="define-and-deploy-the-bdm.md#initBDM_task">Initialize BDM attributes from contract inputs in task operations</a> for more information.</li>
+Go to <a href="define-and-deploy-the-bdm.md">Initialize BDM attributes from contract inputs in task operations</a> for more information.</li>
 <li><em><strong>isDeleted</strong></em> - an operator 'Is Deleted' can be called on a business data variable. The BO instance that the business data references is deleted from the database, at runtime, after the task is completed. The process designer should avoid calling other operations on the same business data variable within the same group of operations/actions.</li>
 </ul>
 <p><strong>Warning:</strong> Operations on business objects can be done only at task level.</p>

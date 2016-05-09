@@ -1,4 +1,4 @@
-# 1.8.4 List of database connectors
+# List of database connectors
 
 This page lists the database connectors provided with Bonita BPM. For some connectors there are special considerations, included in a section below.
 
@@ -12,7 +12,7 @@ To [configure a database connector](database-connector-configuration.md), follow
 * Informix 11
 * DB2 9.7
 * [HSQL 2.2](#hsql)
-* [Microsoft SQL Server 2008 or 2012](#mssqlserver2008)
+* [Microsoft SQL Server 2008 or 2012](#mssql)
 * PostgreSQL 8.4 or 9.2
 * h2 1.3
 * Oracle 10G or 11G
@@ -21,9 +21,13 @@ To [configure a database connector](database-connector-configuration.md), follow
 * [Sybase ASE 15](#sysbase)
 * Datasource db query
 
-## MySQL 5.5
+<a id="mysql"/>
+
+#### MySQL 5.5
 
 It is not possible to execute more than one SELECT command in a single script.
+
+<a id="teradata"/>
 
 ## Teradata 14
 
@@ -31,11 +35,15 @@ If you are using the `terajdbc4.jar`, you also need the `tdgssconfig.jar` file.
 Import both `terajdbc4.jar` and `tdgssconfig.jar` into Bonita BPM Studio and add them to the connector configuration. 
 Specify `terajdbc4.jar` as the active driver. To test the connector, you must specify both files. When you configure the process, specify both files in the process dependencies.
 
-## HSQL 2.2
+<a id="hsql"/>
+
+#### HSQL 2.2
 
 Allows only one connection per destination at a time
 
-## Microsoft SQL Server 2008 or 2012
+<a id="mssql"/>
+
+#### Microsoft SQL Server 2008 or 2012
 
 **Language encoding**: MS SQL Server uses only one encoding at a time. To avoid errors when creating the database, please do the following when using alternative languages:
 
@@ -54,7 +62,9 @@ Define the encoding:
 
 When you configure the connector, use this port number in the URL. For example: `jdbc:sqlserver://localhost:53165`.
 
-## Sybase ASE 15
+<a id="sysbase"/>
+
+#### Sybase ASE 15
 
 Two driver jar files are available, and the Driver and URL values to specify in the configuration wizard depend on which jar you use:
 

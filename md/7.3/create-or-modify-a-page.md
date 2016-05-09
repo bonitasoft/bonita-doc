@@ -25,9 +25,9 @@ form**.
 After a page is created, you can update it in the **Page editor**. Update your page by dragging and dropping widgets from the palette to the whiteboard. Edit widget properties in
 the widget properties panel and create data and bind it to the widgets.
 
-In the Performance and Efficiency editions, you can optimize the page design for a given device type by configuring [device-specific values for the Width property](widget-properties.md#widget-width) for widgets.
+In the Performance and Efficiency editions, you can optimize the page design for a given device type by configuring [device-specific values for the Width property](widget-properties.md) for widgets.
 Use the a device types bar in the Page editor to choose the target device type.
-![Device type selection](images/images-6_0/pb-resolution.png)
+![Device type selection](../images/images-6_0/pb-resolution.png)
 
 ## Preview a page
 
@@ -42,7 +42,7 @@ The preview presents the page as it would be displayed on the selected type of d
 
 You can export a page to deploy it in Bonita BPM Portal as a custom page or to import it into another UI designer.
 
-To export a page, click the **_Export_** button ![Export button](images/images-6_0/pb-export.png) on the Page editor or the UI designer home page. A zip file is downloaded
+To export a page, click the **_Export_** button ![Export button](../images/images-6_0/pb-export.png) on the Page editor or the UI designer home page. A zip file is downloaded
 to your computer. It contains a Bonita BPM custom page, which also suitable for import into another UI designer.
 
 After export you can modify your page's code by directly editing the code located in _resources_ folder. Be aware that any modification you make to the code in this way will
@@ -50,7 +50,7 @@ be available when page is deployed in Bonita BPM Portal but not if you import th
 
 ## Import a page
 
-To import a page from another UI designer, go to the UI designer home page and click the **_Import_** button ![Import button](images/images-6_0/pb-import.png). When you
+To import a page from another UI designer, go to the UI designer home page and click the **_Import_** button ![Import button](../images/images-6_0/pb-import.png). When you
 import a page, its dependencies (such as custom widgets and fragments used by the page) are automatically be imported too.
 
 Warning: a custom page that has not been designed with the UI designer cannot be imported into the UI designer.

@@ -40,7 +40,7 @@ When you add a variable to a fragment, specify whether the variable will be expo
 * If a fragment variable is exposed, it can be bound to a variable of a page that embeds the fragment. 
 
 For example, take a fragment called "MyFragment". This fragment has two variables, one exposed (exposedVariable) and the other not (notExposedVariable). When you add this fragment to a page in the Page editor, you can bind the exposedVariable with a variable defined in by the page.
-![Exposing variables when adding a fragment to a page](images/images-6_0/fragment.png)
+![Exposing variables when adding a fragment to a page](../images/images-6_0/fragment.png)
 
 At runtime, when fragment and page variables are bound, data changes can be made in either the page or the fragment. 
 

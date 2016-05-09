@@ -1,4 +1,4 @@
-# 1.7.2.8 Variables
+# Variables
 
 **Variables** are a key concept of the UI designer. They define page behaviour, are used to
 fetch external resources, to manipulate and
@@ -44,7 +44,7 @@ API URL: `../API/bpm/humanTask/{{taskId}}`
 Retrieve a [business object](bdm-api.md) associated with a process instance:
 API URL: `../API/bdm/businessDataReference/{{caseId}}/{{businessDataName}}`
 * 
-Retrieve business data using the reference in the [context](contracts-and-contexts.md#context) when building a form.
+Retrieve business data using the reference in the [context](contracts-and-contexts.md) when building a form.
 API URL: `../{{context.myBusinessData_ref.link}}`
 
 ### Expression variables

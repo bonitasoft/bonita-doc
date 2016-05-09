@@ -14,7 +14,7 @@ Before getting to the main part of this tutorial, you will need to carry out the
 
 1. Create a [Business Data Management model](define-and-deploy-the-bdm.md) in Bonita BPM Studio.
 2. Export and deploy a [Business Data Management model](define-and-deploy-the-bdm.md).
-3. Define a groovy custom page. See [Custom pages](pages.md#examples).
+3. Define a groovy custom page. See [Custom pages](pages.md).
 4. Add a custom page to Bonita BPM Portal (as an Administrator). See [Custom profiles](custom-profiles.md) and [Custom pages](pages.md).
 
 ## Main steps

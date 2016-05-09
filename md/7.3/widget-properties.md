@@ -1,27 +1,7 @@
-# 1.7.2.4 Widget properties
+# Widget properties
 
 A page is constructed from [widgets](widgets.md). The behavior of a widget is determined by the its properties. 
 Any property you configure for a container is applied to all widgets in the container unless you override it with a widget-specific value.
-
-**[Specifying widget properties](#value-types)**
-
-> [Constant](#constant)
-
-> [Dynamic](#dynamic)
-
-> [Bidirectional bond](#bond)
-
-> [Interpolation](#interpolation)
-
-**[General widget properties](#general-widget-properties)**
-
-> [Width](#widget-width)
-
-> [CSS classes](#css-classes)
-
-> [Hidden](#is-displayed)
-
-**[Migrate a page from 7.0](#migrate)**
 
 ## Specifying a widget property
 
@@ -36,7 +16,7 @@ button
 set,
 drop-down list, or number selector (for the Width property). Select the required value.
 
-### Dynamic - ![Expression icon](images/images-6_0/UID-property-bond-expression.svg)
+### Dynamic - ![Expression icon](../images/images-6_0/UID-property-bond-expression.svg)
 
 Use a dynamic value field to specify a constant (the default) or an expression. Click the
 expression
@@ -53,12 +33,12 @@ Examples:
 * Define table headers as the value of a variable: _myArrayVariable_
 * Apply a filter to the value of a variable: _selectedUser | json_
 
-### Bidirectional bond - ![Dynamic icon](images/images-6_0/UID-property-bond-chain.png)
+### Bidirectional bond - ![Dynamic icon](../images/images-6_0/UID-property-bond-chain.png)
 
 Use a bidirectional field to specify a read-write binding between the
 property value and a variable.
 
-### Interpolation - ![interpolation icon](images/images-6_0/UID-property-bond-interpolation.png)
+### Interpolation - ![interpolation icon](../images/images-6_0/UID-property-bond-interpolation.png)
 
 Use an interpolation field to enter text to display in the widget. The
 text can include variables that
@@ -79,7 +59,8 @@ Specify the width of the widget relative to the container it is in, or to the pa
 The actual widget widths are proportional, automatically adjusted for the device display.
 
 In the Performance and Efficiency editions, you can set a different value for the width property for each device type. Select the target device type in the top bar, then set the value of the Width property.
-![Device type selection](images/images-6_0/pb-resolution.png)
+
+![Device type selection](../images/images-6_0/pb-resolution.png)
 
 Example: A form has three fields, First name, Last name, and Membership number. 
 On a mobile ddevice, you want the fields to occupy the maxiumum width of the screen, each one of a separate line. 
@@ -109,7 +90,14 @@ Membership number
 4
 
 When you preview the form for each of the device types, you see the following:
-![Device type selection](images/images-6_0/mobile.png)![Device type selection](images/images-6_0/tablet.png)![Device type selection](images/images-6_0/laptop.png)![Device type selection](images/images-6_0/desktop.png)
+
+![Device type selection](../images/images-6_0/mobile.png)
+
+![Device type selection](../images/images-6_0/tablet.png)
+
+![Device type selection](../images/images-6_0/laptop.png)
+
+![Device type selection](../images/images-6_0/desktop.png)
 
 ### CSS classes
 

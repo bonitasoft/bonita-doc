@@ -1,4 +1,4 @@
-# 1.7.2.5 Repeat a container for a collection of data
+# Repeat a container for a collection of data
 
 The content of a container can be included multiple times in a page, once for each element in a collection of data. The content is repeated as many times as necessary to display all the data in the collection.
 
@@ -7,14 +7,10 @@ A collection is an array of data referenced by a variable. The UI Designer provi
 * _$index_: the index of the current iteration of the collection (counting from zero)
 * _$item_: the element of the current iteration
 * _$collection_: the current collection (not available in releases earlier than 7.1.3)
-![Collection variables](images/images-6_0/UID_ContainerCollection.png)
+
+![Collection variables](../images/images-6_0/UID_ContainerCollection.png)
 
 The rest of this page contains some examples of how to repeat the content of a container over a collection.
-
-[Simple collection](#simple-repeat-contents)  
-[Modifiable simple collection](#simple-repeat-contents)  
-[Structured collection](#structured-repeat-contents)  
-[Nested collections](#structured-repeat-contents)
 
 Follow the examples in sequence, because each one builds on the previous example.
 
@@ -33,7 +29,8 @@ For this example, create a JSON variable called _fruits_ containing `["banana","
   * Set the **Label** property to _Fruit type_.
   * Set the **Label position** property to _Left_.
 4. Check the Preview, which should look something like this:
-![Simple collection repeated](images/images-6_0/UID_ContainerSimpleFruits.png)
+
+![Simple collection repeated](../images/images-6_0/UID_ContainerSimpleFruits.png)
 
 A user can modify the name of a fruit by typing in the input field.
 
@@ -59,7 +56,8 @@ Adding an element adds a repeat of the container content. Removing an element re
   * **Remove**: _Item_, to remove the current item related to this line
   * **Item to remove**: _$item_, to reference the current element
 3. Check the Preview, which should look something like this:
-![Simple collection repeated](images/images-6_0/UID_ContainerSimpleFruitsAddRemove.png)
+
+![Simple collection repeated](../images/images-6_0/UID_ContainerSimpleFruitsAddRemove.png)
 
 A user can now add a new fruit or remove a fruit, dynamically changing the collection.
 
@@ -128,6 +126,7 @@ if you specify the collection explicitly and subsequently change the collection 
   * **Remove**: _Item_, to remove the current item related to this line
   * **Item to remove**: _$item_, to specify the current element
 6. Check the Preview, which should look something like this:
-![Simple collection repeated](images/images-6_0/UID_ContainerStructuredFruitsAddRemove.png)
+
+![Simple collection repeated](../images/images-6_0/UID_ContainerStructuredFruitsAddRemove.png)
 
 You can rename, add, and remove fruits, and add or remove countries, dynamically changing the structure of your collection.

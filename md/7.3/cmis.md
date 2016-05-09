@@ -1,4 +1,4 @@
-# 1.8.3 CMIS
+# CMIS
 
 Content Management Interoperability Services (CMIS) is an open standard that allows different content management systems to inter-operate over the Internet.
 
@@ -21,7 +21,7 @@ Note: If you have processes that use CMIS connectors from previous versions, the
 
 Document versioning is disabled by default in Alfresco.
 
-If you wish to use the "Upload a new version" connector to upload a new document version, you will have to enable document versioning following the [official Alfresco documentation](http://docs.alfresco.com/community/concepts/versioning.md).
+If you wish to use the "Upload a new version" connector to upload a new document version, you will have to enable document versioning following the [official Alfresco documentation](http://docs.alfresco.com/community/concepts/versioning.html).
 
 If this configuration is not set, new versions of documents will overwrite previous ones.
 

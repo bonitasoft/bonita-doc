@@ -1,4 +1,4 @@
-# 1.8.1 Connectivity overview
+# Connectivity overview
 
 A connector is an element in a process that accesses an external system to read or write information. Bonita BPM contains a set of standard connectors. You can also create a custom connector using the [connector development toolkit](connector-development-toolkit.md).
 
@@ -6,7 +6,7 @@ A connector consists of a definition, implementation, and configuration.
 
 * The definition specified the external interfaces for input and output, including the configuration wizard.
 * The implementation is the Java code that acts on the inputs, interacts with the external system, and returns outputs to the process. There can be any number of implementations for a given definition.
-* The configuration is the specification of how the connector is used in a specific process or task, including the implementation to be used. The implementation is specified when you [configure the process](configuring-a-process.md). The other information is specified in the wizard when you [add the connector](#add).
+* The configuration is the specification of how the connector is used in a specific process or task, including the implementation to be used. The implementation is specified when you [configure the process](configuring-a-process.md). The other information is specified in the wizard when you add the connector.
 
 You can add a connector a pool or to a task, at the start (_connector in_) or at the end (_connector out_). 
 A pool connector in is executed when the process is instantiated. A pool connector out is executed when the process instance terminates, regardless of the reason for termination. If a process has more than one terminate end event or flow leading to the end of the process instance, make sure that it is always appropriate for the pool connector out to be executed. If it not, use task connectors instead.

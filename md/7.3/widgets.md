@@ -1,56 +1,10 @@
-# 1.7.2.3 Widgets
+# Widgets
 
 The UI designer is a tool for creating pages and forms for use in a BPM application. 
 A form is mapped to process instantiation or to a human task and must fulfill a [contract](contracts-and-contexts.md). 
 A page is not mapped to any part of a process. 
 There is real no difference between a page and a form, so the procedure for designing them is the same. 
 Typically, a form has input fields and a submit button, though these can also be present in a page. This documentation uses the term _page_ for both pages and forms, unless otherwise stated.
-
-**[Page structure](#page-structure)**
-
-**[Containers](#containers-widgets)**
-
-> [Adding a widget to a row](#adding-components-to-a-row)
-
-> [Adding a row](#adding-rows)
-
-> [Repeat content](#repeat-contents)
-
-> [Save as fragment](#save-as-fragment)
-
-> [Tab container widget](#tab-container-widget)
-
-> [Form container widget](#form-container-widget)
-
-**[Text widgets](#text-widget)**
-
-**[Input widgets](#input-widgets)**
-
-> [Text input widget](#input-widget)
-
-> [Select widget](#select-widget)
-
-> [Autocomplete widget](#autocomplete-widget)
-
-> [Datepicker widget](#datepicker-widget)
-
-> [Radio button widget](#radio-widget)
-
-> [Checklist widget](#checklist-widget)
-
-> [Checkbox widget](#checkbox-widget)
-
-> [Button widget](#button-widget)
-
-> [File upload widget](#upload-widget)
-
-**[Table widget](#table-widget)**
-
-**[Image widget](#image-widget)**
-
-**[Data table widget](#datatable-widget)**
-
-**[Chart widget](#chart-widget)**
 
 ## Page structure
 
@@ -82,18 +36,23 @@ According your needs, a container can have any number of rows.
 To add a widget in a new row, a container has two dropzones where you can drop a widget from the palette. These dropzones are situated at the top of the container and at the bottom of the container. When your mouse is over the upper or lower border of a widget in a row, the dropzone becomes visible, as shown in these examples: 
 
 Example 1: add a title widget in a new row above a paragraph widget:
-![drop at the top](images/images-6_0/create-row-top.png)
+
+![drop at the top](../images/images-6_0/create-row-top.png)
 
 Example 2: add a paragraph widget in a new row below a title widget:
-![drop at the bottom](images/images-6_0/create-row-bottom.png)
+
+![drop at the bottom](../images/images-6_0/create-row-bottom.png)
 
 When you drop a widget in one of these two zones, a new row is automatically created.
 
 The rows of a container are indicated by a thin pale grey rectangle on the left side within the container. A row is always the full width of the page. In this example, you can see a container with four rows.
-![A 4 row container](images/images-6_0/row-normal.png)
+
+![A 4 row container](../images/images-6_0/row-normal.png)
 
 To move or delete a row, position your mouse in the row, and the row toolbar is displayed.
-![row toolbar](images/images-6_0/row-over.png)
+
+![row toolbar](../images/images-6_0/row-over.png)
+
 Use the controls in the toolbar to move the row up or down, or to delete it. 
 
 ### Repeat content
@@ -228,7 +187,7 @@ An extended table widget that provides column sorting, filtering, and paging in 
 
 Set the **Data source** to _Bonita API_ to populate the data table with records from a Bonita BPM REST API. 
 Then enter a REST API URL in the **URL** property. Use the **API request parameters** property to pass additional parameters to the request. 
-Supported parameters are described in the [REST API Overview](rest-api-overview.md#standard_search_params) and in the REST API documentation for the relevant resource. 
+Supported parameters are described in the [REST API Overview](rest-api-overview.md) and in the REST API documentation for the relevant resource. 
 You do not need to specify paging parameters (such as `?p=0&c=10`), because the data table handles paging automatically when you use a Bonita API data source. 
 The value of the **Page size** property controls how many rows are displayed in a table view, and automatically adds buttons to show subsequent pages of the table.
 

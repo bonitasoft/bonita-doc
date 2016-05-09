@@ -1,17 +1,13 @@
-<h1>1.7.2.5 Repeat a container for a collection of data</h1>
+<h1>Repeat a container for a collection of data</h1>
 <p>The content of a container can be included multiple times in a page, once for each element in a collection of data. The content is repeated as many times as necessary to display all the data in the collection.</p>
 <p>A collection is an array of data referenced by a variable. The UI Designer provides some built-in variables that you can use to specify the collection or an element within it:</p>
 <ul>
 <li><em>$index</em>: the index of the current iteration of the collection (counting from zero)</li>
 <li><em>$item</em>: the element of the current iteration</li>
-<li><em>$collection</em>: the current collection (not available in releases earlier than 7.1.3)
-<img src="images/images-6_0/UID_ContainerCollection.png" alt="Collection variables"></li>
+<li><em>$collection</em>: the current collection (not available in releases earlier than 7.1.3)</li>
 </ul>
+<p><img src="../images/images-6_0/UID_ContainerCollection.png" alt="Collection variables"></p>
 <p>The rest of this page contains some examples of how to repeat the content of a container over a collection.</p>
-<p><a href="#simple-repeat-contents">Simple collection</a><br>
-<a href="#simple-repeat-contents">Modifiable simple collection</a><br>
-<a href="#structured-repeat-contents">Structured collection</a><br>
-<a href="#structured-repeat-contents">Nested collections</a></p>
 <p>Follow the examples in sequence, because each one builds on the previous example.</p>
 <h2>Simple collection</h2>
 <p>This section explains how display the elements from a simple collection in a repeatable container.</p>
@@ -29,9 +25,9 @@ For this example, create a JSON variable called <em>fruits</em> containing <code
 <li>Set the <strong>Label position</strong> property to <em>Left</em>.</li>
 </ul>
 <ol start="4">
-<li>Check the Preview, which should look something like this:
-<img src="images/images-6_0/UID_ContainerSimpleFruits.png" alt="Simple collection repeated"></li>
+<li>Check the Preview, which should look something like this:</li>
 </ol>
+<p><img src="../images/images-6_0/UID_ContainerSimpleFruits.png" alt="Simple collection repeated"></p>
 <p>A user can modify the name of a fruit by typing in the input field.</p>
 <h2>Modifiable simple collection</h2>
 <p>This section shows how to update the container that you defined in the previous section, to enable the user to add an element to a collection or to remove an element.
@@ -61,9 +57,9 @@ Adding an element adds a repeat of the container content. Removing an element re
 <li><strong>Item to remove</strong>: <em>$item</em>, to reference the current element</li>
 </ul>
 <ol start="3">
-<li>Check the Preview, which should look something like this:
-<img src="images/images-6_0/UID_ContainerSimpleFruitsAddRemove.png" alt="Simple collection repeated"></li>
+<li>Check the Preview, which should look something like this:</li>
 </ol>
+<p><img src="../images/images-6_0/UID_ContainerSimpleFruitsAddRemove.png" alt="Simple collection repeated"></p>
 <p>A user can now add a new fruit or remove a fruit, dynamically changing the collection.</p>
 <h2>Structured collection</h2>
 <p>This section explains how to update the container to display a structured collection using repeated content.
@@ -139,7 +135,7 @@ if you specify the collection explicitly and subsequently change the collection 
 <li><strong>Item to remove</strong>: <em>$item</em>, to specify the current element</li>
 </ul>
 <ol start="6">
-<li>Check the Preview, which should look something like this:
-<img src="images/images-6_0/UID_ContainerStructuredFruitsAddRemove.png" alt="Simple collection repeated"></li>
+<li>Check the Preview, which should look something like this:</li>
 </ol>
+<p><img src="../images/images-6_0/UID_ContainerStructuredFruitsAddRemove.png" alt="Simple collection repeated"></p>
 <p>You can rename, add, and remove fruits, and add or remove countries, dynamically changing the structure of your collection.</p>

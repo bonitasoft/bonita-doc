@@ -9,7 +9,7 @@ If you <a href="create-or-modify-a-page.md">create a page using the UI designer<
 <ol>
 <li>Create a <a href="define-and-deploy-the-bdm.md">Business Data Management model</a> in Bonita BPM Studio.</li>
 <li>Export and deploy a <a href="define-and-deploy-the-bdm.md">Business Data Management model</a>.</li>
-<li>Define a groovy custom page. See <a href="pages.md#examples">Custom pages</a>.</li>
+<li>Define a groovy custom page. See <a href="pages.md">Custom pages</a>.</li>
 <li>Add a custom page to Bonita BPM Portal (as an Administrator). See <a href="custom-profiles.md">Custom profiles</a> and <a href="pages.md">Custom pages</a>.</li>
 </ol>
 <h2>Main steps</h2>
@@ -42,16 +42,14 @@ If you <a href="create-or-modify-a-page.md">create a page using the UI designer<
 <p>Now that you got your Business Objects you can display them on your page.
 There are many ways to do that with standard .html, depending on your needs.</p>
 <p>For example you can use the method <code>out.println()</code>to print html in the page:</p>
-<pre><code class="language-out.println('');">			
-			for(LeaveRequest leaveRequest: leaveRequestList){         
-				out.println(&quot;&quot;); 
-			}
-			
-			out.println(&quot;Leave Request ListStart Date End dateLeave Type
-
-&quot; + df.format(leaveRequest.getStartDate())+&quot; &quot; + df.format(leaveRequest.getEndDate())+&quot; &quot; +leaveRequest.getLeaveType() + &quot;
-
-&quot;);
+<pre><code class="language-groovy">out.println(''); 
+for(LeaveRequest leaveRequest: leaveRequestList){         
+    out.println(&quot;&quot;); 
+} 
+out.println(&quot;Leave Request ListStart Date End dateLeave Type &quot; +
+    df.format(leaveRequest.getStartDate())+&quot; &quot; + 
+    df.format(leaveRequest.getEndDate())+&quot; &quot; +
+    leaveRequest.getLeaveType());
 </code></pre>
 <h3>Notes</h3>
 <ol>

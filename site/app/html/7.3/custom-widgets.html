@@ -1,11 +1,6 @@
-<h1>1.7.2.7 Custom widgets</h1>
+<h1>Custom widgets</h1>
 <p>If the <a href="widgets.md">standard widgets</a> do not meet your needs, you can create a custom widget to match exactly what you want to.
 After creation, a custom widget is available in the palette for designing pages, forms or fragments.</p>
-<p><a href="#description">Description</a><br>
-<a href="#custom-widget-properties">Custom widget properties</a><br>
-<a href="#using-external-angularjs-directive-or-service-in-a-custom-widget">Using an external AngularJS directive or service in a custom widget</a><br>
-<a href="#custom-widget-translation">Translation filter</a><br>
-<a href="#advanced-example">Advanced Example</a></p>
 <h2>Description</h2>
 <p>Custom widgets are composed of:</p>
 <ul>
@@ -24,7 +19,7 @@ When you open the custom widget editor to create a new custom widget, a simple e
 <p>For now, you cannot implement custom widget containers.</p>
 <h2>Custom widget properties</h2>
 <p>Properties are variables that can be set in the properties panel when adding a custom widget to a page, form, or fragment.
-A property is constant, dynamic, a bidirectional bond, or an interpolation. You can chose between these treatments when you edit the <a href="widget-properties.md#value-types">widget property</a>.
+A property is constant, dynamic, a bidirectional bond, or an interpolation. You can chose between these treatments when you edit the <a href="widget-properties.md">widget property</a>.
 Use properties when you want the person that uses your widget to customize widget appearance or behavior. In a custom widget, a property can be used either in the template or in the controller.</p>
 <p>A property has a <em>name</em> which can be referenced in the controller or the template, a <em>label</em> which will be printed in the properties panel in an editor, a <em>default</em> value, and a type.
 There are several property types:</p>
@@ -57,7 +52,7 @@ The downloaded library will specify a module to add to your application: add thi
 <h2>Advanced example</h2>
 <p>This section explains how to use the <em>carousel</em> and <em>slide</em> directives from the <code>ui.bootstrap</code> library.</p>
 <p>Following the <a href="https://angular-ui.github.io/bootstrap/#/getting_started"><code>ui.bootstrap</code> documentation</a>,
-<a href="https://angular-ui.github.io/bootstrap/#/carousel">download <code>ui-bootstrap-tpls.min.js</code></a> and declare the module <code>ui.bootstrap</code> as a dependency of the application.
+<a href="https://angular-ui.github.io/bootstrap/">download <code>ui-bootstrap-tpls.min.js</code></a> and declare the module <code>ui.bootstrap</code> as a dependency of the application.
 Specifically, to use these directive in a custom widget, you need to:</p>
 <ol>
 <li>Download <code>ui-bootstrap-tpls.min.js</code>.</li>

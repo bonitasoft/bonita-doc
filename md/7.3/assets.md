@@ -1,4 +1,4 @@
-# 1.7.2.10 Assets
+# Assets
 
 Assets enable you to add web resources to pages and forms. Available asset types are JavaScript, CSS, Image, and (in the Subscription editions) Localization. 
 Assets can be Local (file stored in the artifact) or External (URL). An external asset name must be a standard URL. A localization asset is always local.
@@ -12,12 +12,12 @@ Manage assets using the **Assets** tab at the foot of the whiteboard.
 Add CSS assets at page level and use them to edit the CSS classes property of any widget. The UI designer integrates the default Bootstrap style. 
 
 For example, you can create a file mycss.css with this content:
-`
+```css
 .myOwnStyle{
   background-color : #404853;
   color: #ffffff;
 }
-`
+```
 
 1. In the **Assets** panel, click **_Add a new asset_**.
 2. Select the type: **CSS**.
@@ -26,7 +26,9 @@ For example, you can create a file mycss.css with this content:
 5. Drag a widget text onto the whiteboard.
 6. Select this widget.
 7. In the property panel add your CSS class  
-![CSS asset](images/images-6_0/cssasset.png)
+
+![CSS asset](../images/images-6_0/cssasset.png)
+
 8. Click on the preview button. You will see white text on a gray background.
 
 ### Image assets
@@ -40,9 +42,11 @@ With a Javascript asset you can add a script. It will be loaded in the global sc
 
 For example, add a script `myscript.js` to display this welcome message:
 
-    function hi(name){
-      return 'Welcome ' + name + ' to the UI Designer';
-    }
+```javascript
+function hi(name){
+  return 'Welcome ' + name + ' to the UI Designer';
+}
+```
     
 
 To add and use this asset:
@@ -54,7 +58,9 @@ To add and use this asset:
 5. In the **Variables** panel, add a new String variable called "name".
 6. Create a JavaScript expression that calls the "hi" function. 
 7. Add an input widget linked to the "name" variable and a text widget linked to the hi variable.  
-![CSS asset](images/images-6_0/jsasset.png)
+
+![CSS asset](../images/images-6_0/jsasset.png)
+
 8. Click on the preview button. You will see a page containing the welcome message. The name will change when you change the value of the name variable. 
 
 ### Localization asset (Subscription editions only)
@@ -88,10 +94,10 @@ In a JavaScript asset, you can specify a dependency on an Angular module. First 
 _Note:_ Applies to 7.0.0 and 7.0.1\. From 7.0.2, use the _image widget_.
 
 In the custom widget editor, create a widget with two properties:
-`
+```json
 {name : "src", type : "text", "Default value" : "assets/img/assetname.png"}
 {name : "description", type : "text"}
-`
+```
 
 You do not need to define a controller but you must create an HTML template: `<img ng-src="{{properties.src}}" alt="{{properties.description}}">`
 
