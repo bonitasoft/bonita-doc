@@ -19,7 +19,7 @@ messages. There is no direct access to any logging framework such as log4j, JUL 
 ### Bonita BPM Portal
 
 The Portal uses the [Java
-Util Logging](http://docs.oracle.com/javase/6/docs/api/java/util/logging/package-summary.md) (JUL) directly to log messages.
+Util Logging](http://docs.oracle.com/javase/6/docs/api/java/util/logging/package-summary.html) (JUL) directly to log messages.
 
 ### Bonita BPM Studio
 
@@ -46,7 +46,7 @@ This is defined by including the `slf4j-jdk14-1.6.1.jar` in the `bonita.war WEB-
 By default in Bonita BPM Engine and Bonita BPM Portal, all logs are sent to the JUL framework. To configure what is
 logged and where it is stored, modify the JUL configuration. The method of configuring JUL depends on the application server you use:
 
-* Apache Tomcat: edit the logging.properties file located in conf folder (see the [Apache Tomcat logging documentation](http://tomcat.apache.org/tomcat-7.0-doc/logging.md)).
+* Apache Tomcat: edit the logging.properties file located in conf folder (see the [Apache Tomcat logging documentation](http://tomcat.apache.org/tomcat-7.0-doc/logging.html)).
 * JBoss Application Server: some documentation is available in the JBoss 7.0 [Admin guide](https://docs.jboss.org/author/display/AS7/Logging+configuration).
 * Other application server: refer to your application server documentation on Java Util Logging
 configuration.

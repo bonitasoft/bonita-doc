@@ -39,7 +39,7 @@ If you use the default HTTPS port number, 443, users do not need to specify the 
 ## JBoss with keystore
 
 This example shows how to configure SSL with a keystore for JBoss 5\. 
-For details of how to set up SSL with JBoss 7, see the [SSL Configuration HOW-TO](http://docs.jboss.org/jbossweb/7.0.x/ssl-howto.md) on the JBoss 7 web site.
+For details of how to set up SSL with JBoss 7, see the [SSL Configuration HOW-TO](http://docs.jboss.org/jbossweb/7.0.x/ssl-howto.html) on the JBoss 7 web site.
 
 1. Run the Java `keytool` to create a certificate and store it in the keystore. 
 (Note: if you are using Windows, you need to run keytool as administrator.)
@@ -130,7 +130,7 @@ reqadd X-Forwarded-Proto:\ https
 
 Note: Make sure that the regular expression set with `internalProxies` matches your IP addresses.
 
-As explained by the [RemoteIpValve documentation](https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/valves/RemoteIpValve.md): 
+As explained by the [RemoteIpValve documentation](https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html): 
 "This valve replaces the apparent client remote IP address and hostname for the request with the IP address list presented by a proxy or a load balancer via a request headers (e.g. "X-Forwarded-For"). 
 Another feature of this valve is to replace the apparent scheme (http/https) and server port with the scheme presented by a proxy or a load balancer via a request header (e.g. "X-Forwarded-Proto")."
 3. If you use the AccessLogValve, edit `conf/server.xml` and set `requestAttributesEnabled="true"`:

@@ -34,9 +34,9 @@ Bonita BPM can be configured to perform user authentication against an LDAP serv
 Apache Directory Server, or OpenLDAP.
 
 This type of configuration relies on a specific implementation of the Bonita BPM Engine authentication service that delegates the actual
-user name and password verification to a [JAAS](http://docs.oracle.com/javase/7/docs/technotes/guides/security/jaas/JAASRefGuide.md) service
+user name and password verification to a [JAAS](http://docs.oracle.com/javase/7/docs/technotes/guides/security/jaas/JAASRefGuide.html) service
 configured with an [LDAP
-specific Login Module](http://docs.oracle.com/javase/7/docs/jre/api/security/jaas/spec/com/sun/security/auth/module/LdapLoginModule.md).
+specific Login Module](http://docs.oracle.com/javase/7/docs/jre/api/security/jaas/spec/com/sun/security/auth/module/LdapLoginModule.html).
 
 ## Before you start
 
@@ -145,7 +145,7 @@ The following example is for a tenant with id 1:
 
 #### **Tomcat**
 
-On Tomcat, the JAAS configuration file follows the [default JVM syntax](http://docs.oracle.com/javase/7/docs/api/javax/security/auth/login/Configuration.md).
+On Tomcat, the JAAS configuration file follows the [default JVM syntax](http://docs.oracle.com/javase/7/docs/api/javax/security/auth/login/Configuration.html).
 Here is an example of JAAS configuration file:  
 `
 BonitaAuthentication-1 {

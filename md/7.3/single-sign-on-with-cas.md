@@ -159,7 +159,7 @@ We recommend that you use LDAP as your master source for information, synchroniz
 ## Single sign-on with CAS using the REST API
 
 For detailed information about the procedure to install Restful access on your CAS SSO server, see the following links:
-[CAS SSO RESTful API](http://jasig.github.io/cas/4.1.x/index.md)
+[CAS SSO RESTful API](http://jasig.github.io/cas/4.1.x/index.html)
 [Bonita BPM REST API](rest-api-overview.md)
 
 **Note:** All calls issued to get the TGT or ST are made to the CAS SSO server.

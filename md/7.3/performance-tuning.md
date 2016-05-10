@@ -91,7 +91,7 @@ The bonita-client library sends data over the network using the HTTP protocol.
 It is implemented on the `org.apache.httpcomponents:httpmime:4.2.5` open source library. 
 The connection manager used is `org.apache.http.impl.conn.PoolingClientConnectionManager`. 
 Currently, there is no configuration for this pool though this might be added in the future. 
-See the [Apache documentation](http://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.md) for more information.
+See the [Apache documentation](http://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.html) for more information.
 
 Data sent is serialized using a Java library called XStream. This serialization also has a cost.
 
@@ -130,7 +130,7 @@ Default value 200\.
 See the [Tomcat documentation](http://tomcat.apache.org/tomcat-7.0-doc/) for information about the `maxThreads` parameter.
 * **Red Hat JBoss** `maxThreads` set in _`JBoss_folder`_`/server/default/deploy/jbossweb.sar/server.xml`.   
 Default value 200\. 
-See the [JBoss documentation](http://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch02.md) for information about the `maxThreads` parameter.
+See the [JBoss documentation](http://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch02.html) for information about the `maxThreads` parameter.
 
 ### Work service
 
@@ -349,7 +349,7 @@ stores process parameters
 ### Java Virtual Machine
 
 You can configure the JVM settings for the engine to tune performance.
-Check the [JVM documentation](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.md) for details of the available settings.
+Check the [JVM documentation](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html) for details of the available settings.
 
 Notably, we recommend you to set the initial (`-Xms`) and maximum (`-Xmx`) heap sizes to the same value. 
 This reduces the likelihood of the JVM garbage collector starting. 

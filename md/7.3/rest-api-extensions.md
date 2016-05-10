@@ -9,7 +9,7 @@ Prerequisites for developing a REST API extension are:
 
 * Java/Groovy development expertise.
 * Basic knowledge of Maven.
-* **Access to [Maven central repository](http://central.maven.org/maven2)**. If your provider is restricting Internet access you may configure [proxy settings](https://maven.apache.org/guides/mini/guide-proxies.md) or create a [mirror repository](https://maven.apache.org/guides/mini/guide-mirror-settings.md).
+* **Access to [Maven central repository](http://central.maven.org/maven2)**. If your provider is restricting Internet access you may configure [proxy settings](https://maven.apache.org/guides/mini/guide-proxies.html) or create a [mirror repository](https://maven.apache.org/guides/mini/guide-mirror-settings.html).
 
 ## Example description
 
