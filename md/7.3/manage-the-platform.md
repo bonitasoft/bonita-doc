@@ -1,4 +1,4 @@
-# 4.5.5.8 Manage the platform
+# Manage the platform
 
 This example shows how to use the Bonita BPM Engine API to manage the platform.
 

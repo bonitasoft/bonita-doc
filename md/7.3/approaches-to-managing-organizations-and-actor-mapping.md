@@ -1,4 +1,4 @@
-# 1.9.2 Approaches to managing organizations and actor mapping
+# Approaches to managing organizations and actor mapping
 
 There are several possible approaches to managing the organization information required by Bonita BPM. The most appropriate approach for your organization depends on many factors, including the size and stability of your organization, the actors that are defined in the processes you are using, and whether you have a central repository for user data that is LDAP-compatible.
 

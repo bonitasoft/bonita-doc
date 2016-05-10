@@ -1,4 +1,4 @@
-# 1.2.3 New features
+# New features
 
 Below are the features/enhancements introduced in Bonita BPM 7.2.0
 

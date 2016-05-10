@@ -1,4 +1,4 @@
-# 1.8.14 Script connectors
+# Script connectors
 
 There are the following script connectors:
 

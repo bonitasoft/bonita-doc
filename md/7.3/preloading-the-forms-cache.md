@@ -1,4 +1,4 @@
-# 4.10 Preloading the forms cache
+# Preloading the forms cache
 
 **Note:** This information applies to legacy forms developed with Bonita BPM 6.x, or with the 6.x Application backward-compatibility features of Bonita BPM 7.0\. 
 It is not necessary to preload forms developed with the UI designer.

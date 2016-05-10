@@ -1,13 +1,8 @@
-# 3.10 Managing Look & Feel
+# Managing Look & Feel
 
 A Look & Feel defines the appearance of Bonita BPM Portal Web interface and Bonita BPM Portal Mobile interface.
 
 A Look & Feel is not used to specify Application layout and theme. To modify Application layout and theme, see [Specifying application layout](applications.md) and [Specifying application theme](applications.md) 
-
-[Import and apply a new Look & Feel](#import)  
-[Export the current Look & Feel](#export_current)  
-[Export the default Look & Feel](#export_default)  
-[Restore the default Look & Feel](#restore_default)
 
 ## Import and apply a new Look & Feel
 

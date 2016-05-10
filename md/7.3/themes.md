@@ -1,4 +1,4 @@
-# 3.5.5 Themes
+# Themes
 
 This page explains how to create a theme and add it to the Portal.
 
@@ -9,10 +9,6 @@ Each application can have its own theme.
 There are some examples of themes in the portal.
 
 A theme is [exported, imported, modified, and deleted](resource-management.md) as a resource in Bonita BPM Portal. You specify the [theme for an application](applications.md) in Bonita BPM Portal.
-
-**[Theme definition](#theme_definition)**
-
-**[Constraints](#constraints)**
 
 ## Theme definition
 

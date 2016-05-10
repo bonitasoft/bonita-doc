@@ -1,15 +1,8 @@
-# 4 Development overview
+# Development overview
 
 You can use the Bonita BPM Engine APIs to customize or add to the Bonita BPM
 software. Typical developments are adding a connector, adding an actor filter,
 and replacing or supplementing a service.
-
-In this page: 
-
-[Concepts](#L363)  
-[APIs](#L373)  
-[API access](#L365)  
-[Getting started](#L832)
 
 ## Concepts
 

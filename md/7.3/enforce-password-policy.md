@@ -1,4 +1,4 @@
-# 2.4.4 Enforce password policy
+# Enforce password policy
 
 ## Overview
 

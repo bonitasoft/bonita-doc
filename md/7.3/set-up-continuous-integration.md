@@ -1,14 +1,9 @@
-# 4.12.2 Set up continuous integration
+# Set up continuous integration
 
 This page explains how to set up a continuous integration environment for your Bonita BPM processes.
 
 With Continuous Integration (CI) your processes are continuously built and tested while you are designing them. Collaborating on process design can be enhanced with CI by 
 ensuring the integrity of your processes along the development phase. 
-
-[Prerequisites](#prereq)  
-[Set up a Bonita BPM Studio environment for CI](#env)  
-[Create a Jenkins job to build your processes automatically](#jenkins)  
-[Test your processes automatically](#test)
 
 You could use any integration server, but this page describes how to use Jenkins, as an example.
 

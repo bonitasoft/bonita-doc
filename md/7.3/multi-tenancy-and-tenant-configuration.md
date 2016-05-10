@@ -1,12 +1,6 @@
-# 2.4.9 Multi-tenancy and tenant configuration
+# Multi-tenancy and tenant configuration
 
 This page explains the architecture and configuration of a multi-tenant system using Bonita BPM.
-
-[Platform architecture](#archi)
-[Platform configuration](#plat)
-[Tenant creation](#tenconfig)
-[Tenant access](#mtAccess)
-[Pause and resume a tenant](#pauserestart)
 
 ## Platform architecture
 
@@ -44,7 +38,7 @@ If business objects will be deployed in the newly created tenant do not forget t
 
 The Java PlatformAPI creates the tenant by updating the database and creating the `bonita/server/tenants/*` files. 
 The following example code uses the Engine Java APIs to create a tenant called "myNewTenantName":
-`
+```java
 // Get platform login API using the PlatformAPIAccessor
 PlatformLoginAPI platformLoginAPI = PlatformAPIAccessor.getPlatformLoginAPI();
 // Log in to the platform
@@ -62,7 +56,7 @@ platformAPI.activateTenant(tenantId);
 
 // Log out of the platform
 platformLoginAPI.logout(platformSession);
-`
+```
 
 This creates the server-side configuration files in var\_bonita\_home, but it does not create the client part of the bonita\_home for the tenant, which are required for the Bonita BPM Portal to work. 
 You need to copy these files from the var\_bonita\_home client tenant template into the newly created tenant, and configure the settings (if you need specific settings):
@@ -95,7 +89,7 @@ http://localhost:8080/bonita/mobile/?tenant=2
 Use the [PlatformAPI](javadoc.md) to perform operations on tenants.
 
 Example: retrieving a tenant from its name and log into it
-`
+```java
 // Get platform login API using the PlatformAPIAccessor
 PlatformLoginAPI platformLoginAPI = PlatformAPIAccessor.getPlatformLoginAPI();
 // Log in to the platform
@@ -118,7 +112,7 @@ final APISession apiSession = loginAPI.login(tenant.getId(), "install", "install
 
 // Log out of the tenant
 loginAPI.logout(apiSession);
-`
+```
 
 ## Pause and resume a tenant
 
@@ -130,12 +124,12 @@ TenantAdministrationAPI contains the following methods related to pausing a tena
 * `TenantAdministrationAPI.resume(`) resume the tenant BPM service.
 
 For example, to resume the service in a tenant:
-`
+```java
 TenantAdministrationAPI tenantAdministrationAPI = TenantAPIAccessor.getTenantAdministrationAPI(apiSession);
 if (tenantAdministrationAPI.isPaused()) {
     tenantAdministrationAPI.resume();
 }
-`
+```
 
 While service is paused in a tenant, only the following methods are valid:
 

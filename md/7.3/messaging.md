@@ -1,4 +1,4 @@
-# 1.8.9 Messaging
+# Messaging
 
 This connector will send an email message when activated. There is no output returned.
 

@@ -1,4 +1,4 @@
-# 1.8.19 Web service connector overview
+# Web service connector overview
 
 ## Generic configuration
 

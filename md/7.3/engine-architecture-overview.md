@@ -1,7 +1,8 @@
-# 4.7 Bonita BPM Engine architecture
+# Bonita BPM Engine architecture
 
-This page describes the Bonita BPM Engine. It includes information
-about [APIs](#APIs), [BPM services](#BPM_services), [generic services](#Generic_services), and [packaging](#Packaging).
+This page describes the Bonita BPM Engine. 
+
+## Overview
 
 The Bonita BPM Engine is the runtime processor at the core of Bonita BPM.  It
 executes processes, handling actions related to tasks, such as database access,

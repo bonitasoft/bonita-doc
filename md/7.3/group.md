@@ -1,4 +1,4 @@
-# 3.7.2.2 Manage a group
+# Manage a group
 
 Logged on with the Administrator profile, you have rights to manage the group as follows:
 

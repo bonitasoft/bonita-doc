@@ -1,15 +1,4 @@
-# 4.5.5.4 Manage users
-
-In this page:
-
-[Create a new user](#create)  
-[Add a user to a group](#add_to_group)  
-[List the users in a group](#List_in_group)  
-[List the users with a specified role in a group](#list_with_rile_in_group)  
-[Get user contact data](#get_contact)  
-[Search for users](#search)  
-[Get the pending tasks for a user](#get_pending)  
-[Get possible users of a task and execute task for a user](#get_eligible)
+# Manage users
 
 ## Create a new user
 

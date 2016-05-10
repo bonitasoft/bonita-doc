@@ -1,4 +1,4 @@
-# 1.13.3 Run a process from Bonita BPM Studio for testing
+# Run a process from Bonita BPM Studio for testing
 
 When you run a process from Bonita BPM Studio it runs on the local Bonita BPM Engine and 
 launches a local Bonita BPM Portal. The process is not deployed, but behaves as it would 

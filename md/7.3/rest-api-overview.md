@@ -1,17 +1,6 @@
-# 4.4 REST API overview
+# REST API overview
 
 This page contains an overview of how to integrate an application with Bonita BPM using REST.
-
-[Overview](#overview)  
-[Authentication](#authentication)  
-[Execution](#execution)  
-[Log out](#log_out)  
-[API Extensions](#api_extensions)  
-[Create a resource](#create)  
-[Read a resource](#read)  
-[Update a resource](#update)  
-[Delete resources](#delete)  
-[Search for a resource](#standard_search_params)
 
 ## Overview
 

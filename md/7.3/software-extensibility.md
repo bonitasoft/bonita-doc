@@ -1,40 +1,8 @@
-# 4.2 Software extensibility
+# Software extensibility
 
 Bonita BPM provides a rich set of features by default. These features are designed to meet the needs of most of your projects. 
 However, if a project has a need that was not anticipated and cannot be met by the default features, Bonita BPM has been designed to be extensible. 
 This page lists the extension points that are available.
-
-**[Stable extension points](#stable)**
-
-> [Connectors](#connectors)
-
-> [Actor filters](#actor_filters)
-
-> [Engine API](#apis)
-
-> [REST API](#rest_apis)
-
-> [Custom pages](#custom-pages)
-
-> [Custom widgets](#custom-pages)
-
-> [Import and export exchange files](#exchange-files)
-
-> [Authentication service](#authentication)
-
-> [Event handlers](#event-handlers)
-
-> [BonitaStudioBuilder](#builder)
-
-> [Portal look & feel](#look-feel)
-
-> [Portal language pack](#language-pack)
-
-> [Custom data types](#custom-datatypes)
-
-**[Unstable extension points](#unstable)**
-
-**[Backward compatibility](#backward_compatibility)**
 
 ## Stable extension points
 

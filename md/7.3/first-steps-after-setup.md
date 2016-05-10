@@ -1,14 +1,6 @@
-# 2.3.9 First steps after setup
+# First steps after setup
 
 This page explains the post-installation setup tasks that you must carry out.
-
-**[Check the installation](#check)**
-
-**[Change the default credentials](#reset_pw)**
-
-**[Review security](#security)**
-
-**[Create a Bonita BPM Portal administrator](#create_admin)**
 
 ## Check the installation
 

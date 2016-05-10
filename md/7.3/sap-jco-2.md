@@ -1,4 +1,4 @@
-# 1.8.12 SAP JCo 2
+# SAP JCo 2
 
 The SAP Java Connector (SAP JCo 2) is a toolkit that allows a Java application to communicate with any SAP system. 
 It combines an easy to use API with unprecedented flexibility and performance. 

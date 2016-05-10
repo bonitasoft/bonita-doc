@@ -1,35 +1,31 @@
-# 2.4.6 Configure an application server with gzip compression
+# Configure an application server with gzip compression
 
 Using gzip compression in your application server can improve performance by reducing network load for some resources. This page describes how to activate gzip compression for a Bonita BPM Platform with Tomcat and with JBoss.
-
-[JBoss](#jboss)  
-[Tomcat](#tomcat)  
-[Check changes](#check)
 
 ## JBoss
 
 To activate compression for JBoss:
 
 * For Linux systems: edit `bin/standalone.conf` and uncomment this line:
-`
+```bash
 JAVA_OPTS="$JAVA_OPTS -Dorg.apache.coyote.http11.Http11Protocol.COMPRESSION=on" 
-        `
+```
 * For Windows systems: edit `bin/standalone.conf.bat` and uncomment this line:
-`
+```batch
 set "JAVA_OPTS=%JAVA_OPTS% -Dorg.apache.coyote.http11.Http11Protocol.COMPRESSION=on"
-        `
+```
 
 ## Tomcat
 
 To activate gzip compression for http requests, you need to modify the `server.xml` configuration. 
 
 Open `server.xml` and find the Connector configuration that you use. Edit the section to add following parameters:
-`
+```xml
 compression="on"
 compressionMinSize="X"
 noCompressionUserAgents="Y"
 compressableMimeType="Z"
-`
+```
 Property
 Description
 Example

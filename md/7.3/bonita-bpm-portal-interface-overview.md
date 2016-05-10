@@ -1,4 +1,4 @@
-# 3 Bonita BPM Portal interface overview
+# Bonita BPM Portal interface overview
 
 ### The User interface
 

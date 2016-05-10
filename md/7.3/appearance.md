@@ -1,4 +1,4 @@
-# 1.7.2.9 Appearance
+# Appearance
 
 Page and form appearance is based on the Bootstrap v3.3.2 CSS framework. 
 To define the appearance of a page or form you can use an application [theme resource](themes.md),

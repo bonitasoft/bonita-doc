@@ -1,4 +1,4 @@
-# 3.9.2 Administrator rights
+# Administrator rights
 
 ## Administrator rights
 

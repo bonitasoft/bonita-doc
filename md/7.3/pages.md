@@ -1,4 +1,4 @@
-# 3.5.2 Pages
+#  Pages
 
 This page explains how to use a page resource (also called a custom page) to the Portal and make it available to users. Page resources are intended for use in applications. You can also use a page resource to customize the portal, 
 for example:
@@ -9,28 +9,6 @@ for example:
 * Provide an administrator with a multi-attribute search facility.
 * Integrate a page from an external application.
 * Make a report available to users who do not have the Administrator profile.
-
-**[Custom page definition](#page_definition)**
-
-> [PageController interface](#pageController)
-
-> [Authorization permissions for custom pages](#permissions)
-
-**[Custom page examples](#examples)**
-
-**[Using Bonita BPM Portal content](#portal)**
-
-> [Debugging a custom page in development](#debug)
-
-**[Constraints](#constraints)**
-
-**[Page resources management](#resources)**
-
-> [Page resources](#page-resources)
-
-> [API access](#api-access)
-
-> [Theme access](#theme-access)
 
 Pages are [exported. imported, modified, and deleted](resource-management.md) as resources in Bonita BPM Portal. 
 

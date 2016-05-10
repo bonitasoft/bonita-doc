@@ -1,4 +1,4 @@
-# 3.3.7 BDM Management in Bonita BPM Portal
+# BDM Management in Bonita BPM Portal
 
 Processes using Business Objects with persisted data need to run with a Business Data Model deployed in the Bonita BPM Portal.
 Only one model can be deployed at a time in the Portal, so make sure it contains the Business object definition used in all processes that will run within this tenant.
@@ -24,7 +24,7 @@ Please note that existing business database tables will be modified definitively
 in the business database, so as to store business objects appropriately when modified by processes. 
 10. The Business Data Model will now be installed.
 11. Go to the **BPM Services** menu.
-12. Click on **Resume** to [resume](pause-and-resume-bpm-services.md) tenant activity.
+12. Click on **Resume** to [resource-management.![Alt text](/path/to/img.jpg "Optional title")](pause-and-resume-bpm-services.md) tenant activity.
 
 **Note:** the database model is automatically updated. You should avoid changing the database schema manually as it may jeopardize the persistence of business objects and cause errors at process runtime.
 It is recommended to perform a backup of the business database before deploying a business data model.

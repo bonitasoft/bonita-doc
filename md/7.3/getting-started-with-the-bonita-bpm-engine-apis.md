@@ -1,4 +1,4 @@
-# 4.5 Getting started with the Bonita BPM Engine APIs
+# Getting started with the Bonita BPM Engine APIs
 
 Before you run a Bonita BPM application, [configure bonita\_home](configuring-bonita-home-for-a-client.md) to specify how the application accesses the Bonita BPM Engine, and set the `bonita.home` system property.
 
@@ -9,13 +9,13 @@ After the platform has been created and initialized, use the TenantAPIAccessor t
 
 The following example shows how to retrieve the LoginAPI, then use it to log in and create a session, then retrieve for API for that session. 
 The platform has already been created and initialized and the Engine is started.
-`
+```java
 final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
 APISession session = loginAPI.login(userName, password);
 ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);
-`
+```
 
 When the application has finished processing, log out to delete the session:
-`
+```java
 loginAPI.logout(session);
-`
+```

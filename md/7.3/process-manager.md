@@ -1,18 +1,6 @@
-# 3.9.3 Process manager
+# Process manager
 
 The portal administrator can assign a Process manager to a process, to share responsibility for managing processes.
-
-[Process manager description](#description)  
-[Assign a Process manager to a process](#assign)  
-[List the processes I manage](#list_apps)  
-[Monitor the processes I manage](#monitoring)  
-[See a list of cases for a process](#see_cases)  
-[See a list of tasks for cases of process](#see_tasks)  
-[Assign a task](#assignATask)
-[Unassign a task](#unassignATask)
-[Skip a failed task](#skip)  
-[Start a case for another user](#start_case_for)  
-[Do a task for another user](#do_task_for)
 
 ## Process manager description
 

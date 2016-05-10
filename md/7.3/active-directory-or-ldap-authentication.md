@@ -1,22 +1,4 @@
-# 2.4.2 Active Directory or LDAP authentication
-
-* [Overview](#overview)
-* [Before you start](#before)
-* [Create a JAAS configuration file](#createJAAS)
-  * [Login context name](#loginContextName)
-  * [LdapLoginModule attributes you should set](#attributesToSet)
-  * [Values for LdapLoginModule attributes](#attributesValues)
-  * [Create / edit the configuration file for your application server](#jaasConfFile)
-    * [JBoss](#jaasConfFileJBoss)
-    * [Tomcat](#jaasConfFileTomcat)
-* [Configurations steps](#configurationSteps)
-  * [Changing Bonita BPM authentication service](#bonitaAuthService)
-  * [Configure JAAS](#configureJAAS)
-    * [JBoss](#jbossJaas)
-    * [Tomcat](#tomcatJaas)
-* [JAAS configuration files examples](#examples)
-* [Known limitations](#limitations)
-* [Troubleshooting](#troubleshooting)
+# Active Directory or LDAP authentication
 
 **Important notes:**
 

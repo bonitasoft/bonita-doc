@@ -1,4 +1,4 @@
-# 4.11 Building Bonita BPM from source files
+# Building Bonita BPM from source files
 
 This page explains how to build Bonita BPM Community Edition from the source files.
 
@@ -23,7 +23,7 @@ The following table shows how to build all the product components. Some componen
 For later versions, replace "7.0.0" with the relevant version number. Some components, notably connectors have independent versioning so it is normal that some version numbers are different.
   
 Note: this is not a script. However, you could create a script suitable for your build environment using these commands.
-`
+```bash
 echo "# Building project bonita-jboss-h2-mbean / tag 1.1.0"
 git clone --branch 1.1.0 --single-branch git@github.com:bonitasoft/bonita-jboss-h2-mbean.git bonita-jboss-h2-mbean
 mvn clean install -DskipTests=true -f bonita-jboss-h2-mbean/pom.xml
@@ -159,4 +159,4 @@ git clone --branch 1.23.1 --single-branch git@github.com:bonitasoft/bonita-migra
 mvn clean install -f bonita-migration/pom.xml -N
 mvn clean install -DskipTests=true -f bonita-migration/bonita-migration-distrib/pom.xml
 
-`
+```

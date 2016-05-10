@@ -1,12 +1,6 @@
-# 2.4.8.3 Cluster administration
+# Cluster administration
 
 This page explains how to manage a Bonita BPM cluster.
-
-[Backing up a cluster](#backup)  
-[Troubleshooting](#troubleshooting)  
-[Monitoring a process](#monitoring)  
-[Deploying a process in a Bonita BPM cluster](#deploy_process)  
-[Managing your organisation in a Bonita BPM cluster](#manage_org)  
 
 ## Backing up a cluster
 

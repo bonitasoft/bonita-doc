@@ -1,4 +1,4 @@
-# 3.2 Languages
+# Languages
 
 ## Languages available by default 
 

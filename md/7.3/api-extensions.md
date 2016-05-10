@@ -1,13 +1,9 @@
-# 3.5.6 Rest API extensions
+# Rest API extensions
 
 A REST API extension is a way to add extra REST resources using Bonita BPM. REST API extensions are [exported. imported, modified, and deleted](resource-management.md) as resources in Bonita BPM Portal. 
 
 In the Bonita BPM subscription edition, Bonita BPM Studio contains [tooling for creating, testing, and deploying REST API extensions](rest-api-extensions.md). 
 This page contains information about creating and deploying a REST API manually, which is possible with all editions.
-
-* [Install a REST API extension](#install)
-* [Usage](#usage)
-* [REST API extension examples](#example)
 
 ## Install a REST API extension
 

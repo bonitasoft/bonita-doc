@@ -1,4 +1,4 @@
-# 2.3.3 Tomcat bundle
+# Tomcat bundle
 
 The Tomcat bundle is a .zip archive that contains the Apache Tomcat JEE application server prepackaged along with Bonita BPM web application and Bonita configuration folder (known as var\_bonita\_home). 
 The Tomcat bundle is a regular .zip archive based on Tomcat zip distribution.

@@ -1,19 +1,10 @@
-# 2.4.5 Performance troubleshooting
+# Performance troubleshooting
 
 This page contains information about monitoring your Bonita BPM platform. 
 We recommend that you monitor your system regularly, so that if you suspect a performance degradation, you can repeat these checks and identify the potential problem areas by comparing the performance to the normal level. 
 
 When troubleshooting a performance problem, we recommend that you first check your system and network, and then check your Bonita BPM platform and configuration. Follow the order of the topics in this page. 
 This will help you identify problems that occur because the actual load on the system exceeds the expected load so the provisioning is not sufficient. They will also help you identify transient problems.
-
-[System](#system)  
-[Network](#network)  
-[JVM](#jvm)  
-[Database](#database)  
-[Bonita BPM Engine connections](#connections)  
-[Connectors](#connectors)  
-[Cron jobs](#cron)  
-[Performance tuning](#tuning)
 
 ## System
 

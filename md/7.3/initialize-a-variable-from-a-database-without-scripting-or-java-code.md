@@ -1,4 +1,4 @@
-# 1.8.4.4 Initialize a variable from a database without scripting or Java code
+# Initialize a variable from a database without scripting or Java code
 
 This page explains how to set the value of a variable using the output of a database connector without using scripts or Java code.
 

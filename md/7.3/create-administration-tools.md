@@ -1,14 +1,7 @@
-# 4.5.5.6 Create administration tools
+# Create administration tools
 
 This page contains an example of how to create tools to administer your Bonita BPM system. 
 The example is developed using Maven, and is a Java program to list the failed tasks, wrapped in a script so that it can be executed in an environment with no window manager.
-
-[Getting started](#getting_started)  
-[Write a class that lists failed tasks](#write_class)  
-[Create a main class](#write_main)  
-[Prepare packaging](#package)  
-[Wrap into a Shell script](#script)  
-[Complete code](#code)
 
 ## Getting started
 

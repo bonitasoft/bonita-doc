@@ -1,4 +1,4 @@
-# 4.7.2.2 Queriable logger service
+# Queriable logger service
 
 This page describes the queriable logger service.
 

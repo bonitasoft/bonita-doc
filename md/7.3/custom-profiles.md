@@ -1,14 +1,8 @@
-# 3.9.4 Custom profiles
+# Custom profiles
 
 In Bonita BPM Portal, you can customize profiles. To be able to do any customization of a profile, you must be using the **Administrator** profile or a custom profile with access to the profile management page.
 
 What customization can I do?
-
-* [Create a custom profile](#create)
-* [Delete a custom profile](#delete)
-* [Edit a custom profile](#edit)
-* [Map a custom profile to a user, a group, a role or a membership](#map)
-* [Create a custom navigation bar for a custom profile with multiple menus and submenus](#nav)
 
 ## Create a custom profile
 

@@ -1,4 +1,4 @@
-# 1 Bonita BPM overview
+# Bonita BPM overview
 
 Bonita BPM 7 is a powerful BPM-based application platform for building highly engaging, personalized, process-based business applications that adapt to your business changes in real time. 
 

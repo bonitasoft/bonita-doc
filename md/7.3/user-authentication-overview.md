@@ -1,9 +1,4 @@
-# 2.4 User authentication
-
-[Overview](#overview)  
-[Bonita BPM Portal authentication scenario](#user)  
-[Information about sessions](#moreinfo)  
-[How does the Bonita BPM Portal know if a user is authenticated](#isauthenticated)  
+# User authentication
 
 ## Overview
 

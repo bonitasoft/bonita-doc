@@ -1,4 +1,4 @@
-# 2.7.2 Migrate from an earlier version of Bonita BPM
+# Migrate from an earlier version of Bonita BPM
 
 This page explains how to migrate your platform to a newer version of Bonita BPM.
 
@@ -25,13 +25,6 @@ to 6.3.1), your current license remains valid after migration.
 
 ![Migration steps](images/images-6_0/migration_bigsteps.png)
 
-Migration steps
-
-[How it works](#how_it_works)  
-[Constraints](#constraints)  
-[Estimate time required](#time)  
-[Migrate your platform](#migrate)  
-[Migrate your cluster](#cluster)
 
 ## How it works
 

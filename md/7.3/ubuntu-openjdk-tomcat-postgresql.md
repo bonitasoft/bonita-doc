@@ -1,13 +1,7 @@
-# 2.5.2 Ubuntu + OpenJDK + Tomcat + PostgreSQL
+# Ubuntu + OpenJDK + Tomcat + PostgreSQL
 
 This page explains how to set up a Bonita BPM Platform in a specific environment. This environment
 includes the following set of components:
-
-* [Operating System: Ubuntu Server 14.04 LTS 64 bits](#os)
-* [Java Virtual Machine: OpenJDK 7](#jvm)
-* [Database: PostgreSQL 9.3](#db)
-* [Application Server: Apache Tomcat 7](#jee)
-* [Bonita BPM Platform](#bonita)
 
 ## Operating System
 

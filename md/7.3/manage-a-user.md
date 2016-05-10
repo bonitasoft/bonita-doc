@@ -1,12 +1,6 @@
-# 3.7.2.4 Manage a user
+# Manage a user
 
-Logged on with the Administrator profile, you have rights to manage users as follows:
-
-* [Create a user](#create_a_user)
-* [Edit a user](#edit_a_user)
-* [Add a membership to a user](#add_membership)
-* [Delete a membership of a user](#delete_membership)
-* [Edit user rights](#edit_user_rights)
+Logged on with the Administrator profile, you have rights to manage users as follows.
 
 ## How to create a user
 

@@ -1,4 +1,4 @@
-# 1.8.17 Talend TIS Job launcher connector
+# Talend TIS Job launcher connector
 
 The Talend TIS Job launcher connector enables you to launch a Talend Integration Suite (TIS) job.
 

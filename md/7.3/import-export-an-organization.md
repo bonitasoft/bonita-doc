@@ -1,4 +1,4 @@
-# 3.7.2 Import/export an organization
+# Import/export an organization
 
 Logged on with the Administrator profile, you have rights to import or export an organization.
 

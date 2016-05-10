@@ -1,11 +1,6 @@
-# 4.9 Logging
+# Logging
 
 This page contains information about logging in Bonita BPM.
-
-[How components produce log messages](#bonita_log)  
-[Logging configuration](#logging_conf)  
-[How to produce logs in your Bonita development](#your_log)  
-[View log content](#log_content)
 
 ## How components produce log messages
 

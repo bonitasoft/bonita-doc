@@ -1,4 +1,4 @@
-# 2.8 Upgrade from Community to Subscription edition
+# Upgrade from Community to Subscription edition
 
 Upgrading means moving from a Bonita BPM Community edition environment to any Bonita BPM Subscription 
 edition environment.
@@ -8,10 +8,7 @@ edition environment.
 * An upgrade can only be performed on a single Bonita BPM versions. You cannot migrate to a new version at the same time as you update edition.
 * After it is applied, an upgrade cannot be undone.
 
-An upgrade is performed in two phases:
-
-* [Bonita BPM Studio upgrade](#studio_upgrade)
-* [Bonita BPM platform upgrade](#platform_upgrade)
+An upgrade is performed in two phases.
 
 ## Bonita BPM Studio upgrade
 

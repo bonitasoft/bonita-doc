@@ -1,12 +1,6 @@
-# 3.7.2.3 Manage a role
+# Manage a role
 
 Logged on with the Administrator profile, you have rights to manage a role as follows:
-
-* [Create a role](#createarole)
-* [Assign a role to a user](#assignarole)
-* [Edit a role](#editarole)
-* [Delete a role](#deletearole)
-* [More information about a role](#moreinfo)
 
 ## Create a role
 

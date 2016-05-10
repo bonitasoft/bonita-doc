@@ -1,4 +1,4 @@
-# 1.8.7 Jasper 5.0
+# Jasper 5.0
 
 A Jasper 5.0 connector is used for creating pre-formatted reports of data extracted from a database.
 

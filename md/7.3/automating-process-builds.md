@@ -1,4 +1,4 @@
-# 4.12 Automating process builds
+# Automating process builds
 
 Bonita BPM includes a Workspace API, which is a script, `BonitaStudioBuilder`, for building a bar file from a process in a repository. 
 This intended for use in a continuous integration and testing environment. 

@@ -1,19 +1,7 @@
-# 2.4.7 SSL
+# SSL
 
 Configuring SSL for Bonita BPM is the same as configuring it for any other application. 
 No changes are necessary to forms or to process definitions, just configuration. This page contains examples of how to set up SSL for Bonita BPM. This enables you to use secure HTTP (HTTPS) to access the portal.
-
-**[Overview](#overview)**
-
-**Examples**
-
-> [JBoss with a keystore](#jboss_keystore)
-
-> [Tomcat with OpenSSL](#tomcat_openssl)
-
-> [Tomcat with a keystore](#tomcat_keystore)
-
-> [Tomcat and SSL Offloading](#tomcat_ssl_offloading)
 
 ## Overview
 

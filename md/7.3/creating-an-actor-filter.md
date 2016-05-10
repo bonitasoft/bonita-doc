@@ -1,4 +1,4 @@
-# 4.3.2 Creating an actor filter
+# Creating an actor filter
 
 An actor filter is implemented in Bonita BPM in two parts, the
 definition and the implementation. This enables you to change the
@@ -13,13 +13,6 @@ You can also create a new actor filter definition or implementation externally, 
 
 This page explains how to create the actor filter definition and
 implementation and import it into Bonita BPM Studio. 
-
-[Actor filter definition](#Actor_filter_definition)  
-[Actor filter implementation](#Actor_filter_implementation)  
-[Testing an actor filter](#Testing_an_actor_filter)  
-[Importing an actor filter into Bonita BPM Studio](#Importing_an_Actor_filter)  
-[Configuring and deploying a process with an actor filter
-](#L571)
 
 ## Actor filter definition
 
@@ -184,7 +177,8 @@ For details of the APIs, the methods and related objects, see the
 
 ### Actor filter example code
 
-The following code is an example of the initiator manager actor filter. `
+The following code is an example of the initiator manager actor filter. 
+```java
 public class ProcessinitiatorManagerUserFilter extends AbstractUserFilter {
 
     @Override
@@ -209,7 +203,7 @@ public class ProcessinitiatorManagerUserFilter extends AbstractUserFilter {
     }
 
 } 
-`
+```
 
 ## Testing an actor filter
 

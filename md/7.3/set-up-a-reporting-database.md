@@ -1,4 +1,4 @@
-# 1.10.2 Set up a reporting database
+# Set up a reporting database
 
 Before you put reporting in place, you need to create a dedicated reporting database.
 For performance reasons, it is a best practice to isolate reporting data from live data.

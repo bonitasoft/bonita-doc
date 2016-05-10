@@ -1,4 +1,4 @@
-# 3.3 Processes
+# Processes
 
 Logged on with the Administrator profile, you have rights to manage a process as follows.
 

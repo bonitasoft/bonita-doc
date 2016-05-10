@@ -1,13 +1,8 @@
-# 4.5.5.5 Handling documents
+# Handling documents
 
 This page shows an example of how to manipulate documents in a Bonita BPM process using the Java APIs. 
 
 A document is treated in a similar way to a variable in Bonita BPM Engine database. It is defined in Bonita BPM Studio or programmatically, and is stored in the Bonita BPM Engine database. Inside a process instance, a document is a byte stream.
-
-[Configure a process document](#configure)  
-[Convert a file to a document](#convert)  
-[Create a case with a document](#create_case)  
-[Attach a document to a case](#attach)
 
 ## Configure a process document
 
@@ -16,12 +11,10 @@ An external document is specified by URI. An internal document is specified by p
 
 ![Configure documents](images/images-6_0/documents_declarations.png)
 
-Configure documents
-
 ## Convert a file to a document
 
 The following example shows how to convert the content of a document to a byte stream that can then be used to create or update the content of a document.
-`
+```java
 /**
  * load the file give in parameters and return a byteArray or a null value
  * 
@@ -55,12 +48,12 @@ public static ByteArrayOutputStream loadFile(String fileName) {
 	}
 	return null;
 }
-`
+```
 
 ## Create a case with a document
 
 The following method, `createCaseWithDocument`, creates a case and attaches a document to it.
-`
+```java
 public static void createCaseWithDocument(String processDefinitionName, String processVersion, Map variables, Map documents, ProcessAPI processAPI)
     throws ProcessDefinitionNotFoundException, InvalidExpressionException, ProcessActivationException, ProcessExecutionException {
 
@@ -117,15 +110,13 @@ public static void createCaseWithDocument(String processDefinitionName, String p
                 
         // ----- start process instance -----
         processAPI.startProcess(processDefinitionId, listOperations, ListExpressionsContext);
-    }   
-    
-    
-`
+    }
+```
 
 In this example, we construct two maps, one containing case data and one containing an invoice document and reference. 
-The invoice documented is created by converting a local file to a byte stream using the [loadFile](#convert) method defined above. 
+The invoice documented is created by converting a local file to a byte stream using the `loadFile` method defined above. 
 The two maps are then used to create a case of the process using the `createCaseWithDocument` method defined above.
-`
+```java
 // ---------- create a case with the value
 Map firstInvoice = new HashMap();
 firstInvoice.put("emailAddress", "jan.Fisher@bonitasoft.com");
@@ -135,14 +126,14 @@ Map firstInvoiceDocument = new HashMap();
 firstInvoiceDocument.put("invoiceReference", "http://documentation.bonitasoft.com");
 firstInvoiceDocument.put("invoiceLetter", loadFile("c:/tmp/firstinvoice.pdf"));
 createCaseWithDocument("IntegrateMyApplication", "1.0", firstInvoice, firstInvoiceDocument, processAPI);
-`
+```
 
 ## Attach a document to a case
 
 To attach a document to a case, use the `attachDocument` method of the process API. 
 This method is used to create a document and to update it: you update a document by replacing it is replaced with the new version. 
 You can provide either a URL pointing to an external document or a byte stream, as shown in the example below:
-`
+```java
 // update the document
 for (String documentName : documentsToUpdate.keySet()) {
     if (documentsToUpdate.get(documentName) instanceof String)
@@ -153,4 +144,4 @@ for (String documentName : documentsToUpdate.keySet()) {
 	// document provided as byte stream
        processAPI.attachDocument(pendingTask.getId(), documentName, "TheFileName", "application/pdf", ((ByteArrayOutputStream) documentsToUpdate.get(documentName)).toByteArray());
     }
-`
+```

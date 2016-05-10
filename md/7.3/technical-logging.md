@@ -1,4 +1,4 @@
-# 4.7.2.3 Technical logger service
+# Technical logger service
 
 This page describes the technical logger service.
 

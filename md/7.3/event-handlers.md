@@ -1,4 +1,4 @@
-# 4.7.2 Event handlers
+# Event handlers
 
 An event handler is an extension to the engine that is configured to run when a specified event occurs.
 You can add event handlers for several purposes and you can configure which events you want to catch.
@@ -11,24 +11,7 @@ You can create an event handler to track any change to any object in the databas
 * Catch FLOWNODE\_INSTANCE\_CREATED to detect that a human task is available, and send email to all the users elligible to perform it.
 * Catch HIDDEN\_TASK\_CREATED to detect that a service task becomes available, and start an external system that is required to complete the task.
 
-At the end of this page there is a [list of all the events](#list).
-
-**[Example: deploy an event handler](#example)
-**
-> 
-> [Create a maven project](#createProject)
-
-> [Create a handler class](#createHandler)
-
-> [Deploy](#deploy)
-
-> [Configure events](#configure)
-
-> [Test it](#test)
-
-**[Filter an event](#filter)**
-
-**[Event list](#list)**
+At the end of this page there is a list of all the events.
 
 ## Example: deploy an event handler
 

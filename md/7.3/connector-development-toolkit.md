@@ -1,17 +1,4 @@
-# 4.3.2 Connector development toolkit
-
-* [Overview](#overview)
-* [Installation](#install)
-* [Creating a new connector definition](#creatingConnectorDef)
-* [Creating a new connector implementation](#creatingConnectorImpl)
-* [Widget types and parameters](#widgetTypeReference)
-  * [Mandatory common widget parameters](#mandatory-common)
-  * [Optional common widget parameters](#optional-common)
-  * [RadioGroup widget parameters](#typeRadioGroup)
-  * [Select widget parameters](#typeSelect)
-  * [Array widget parameters](#typeArray)
-  * [List widget parameters](#typeList)
-  * [Group widget parameters](#typeGroup)
+# Connector development toolkit
 
 ## Overview
 

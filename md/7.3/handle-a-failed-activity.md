@@ -1,4 +1,4 @@
-# 4.5.5.2 Handle a failed activity
+# Handle a failed activity
 
 An activity (or task) can fail in Bonita BPM Engine for several reasons. Typical reasons include:
 

@@ -1,16 +1,8 @@
-# 2.4.3 Single sign-on with CAS
+# Single sign-on with CAS
 
 This pages explains how to configure your Bonita BPM Platform system to use CAS to provide single sign-on (SSO). It assumes you already have a working CAS service. All Bonita BPM users must be registered in CAS.
 
 This information applies to a Bonita BPM platform deployed from a bundle, not to the Engine launched from Bonita BPM Studio.
-
-[Configure Bonita BPM Engine and JBoss for CAS](#conf_engine_jboss)  
-[Configure Bonita BPM Engine and Tomcat for CAS](#conf_engine_tomcat)  
-[Configure Bonita client for CAS](#conf_client)  
-[Configure logout behaviour](#logout_option)  
-[Manage passwords](#passwords)  
-[LDAP synchronizer and CAS](#ldap)  
-[Single sign-on with CAS using the REST API](#rest)
 
 CAS configuration is at tenant level. Each tenant can use a different CAS service.
 

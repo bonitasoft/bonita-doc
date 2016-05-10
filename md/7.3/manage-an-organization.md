@@ -1,13 +1,4 @@
-# 4.5.5.3 Manage an organization
-
-In this page:
-
-[Import an organization](#org)  
-[List the groups in an organization](#list_groups)  
-[Add a group](#add_group)  
-[Delete a group from the organization](#delete_group)  
-[Add a role](#add_role)  
-[Delete a role from the organization](#delete_role)
+# Manage an organization
 
 ## Import an organization
 

@@ -1,4 +1,4 @@
-# 4.8 Customize the existing living application Layout
+# Customize the existing living application Layout
 
 Has it is explained in the [layouts](layouts.md) documentation, it is possible to customize the existing application layout using the UI designer.
 
@@ -21,18 +21,6 @@ The following sections show how to import the existing application layout into t
 how to modify this layout
 and how to apply the customized layout to a living application.
 As an example, they show the steps to follows to convert the existing application top menu into a side menu.
-
-**[Export the default application layout](#export_layout)**
-
-**[Import the **Default layout** into the UI designer](#import_layout)**
-
-**[Edit the default layout using UI Designer](#edit_layout)**
-
-**[Export the **Side menu layout** on your file system](#export_side_menu_layout)**
-
-**[Import the **Side Menu Layout Page** into the portal](#import_side_menu_layout)**
-
-**[Configure your Living application to use the modified layout](#use_side_menu_layout)**
 
 ## Export the default application layout
 

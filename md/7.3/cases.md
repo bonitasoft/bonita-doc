@@ -1,10 +1,4 @@
-# 3.3.2 Cases
-
-[Start a case](#start_case)  
-[Add a comment to a case](#add_comment)  
-[See cases I have worked on as a user](#see_cases)  
-[Start a case for another user](#start_case_for)  
-[View status of cases](#case_status_table)
+# Cases
 
 Logged on with the Administrator or Process Manager profile, you have rights to manage a case as follows:
 

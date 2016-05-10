@@ -1,4 +1,4 @@
-# 3.5.4 Layouts
+# Layouts
 
 This page explains how to create and add a layout to the Bonita BPM Portal, and how to use it in an application.
 
@@ -18,22 +18,6 @@ For example, you could:
 * add a footer
 
 Layouts are [exported. imported, modified, and deleted](resource-management.md) as resources in Bonita BPM Portal. 
-
-**[Layout definition](#layout_definition)**
-
-**[Authorization permissions](resource-management.md)**
-
-**[use a layout in an application](applications.md)**
-
-**[Constraints](#constraints)**
-
-**[Layout resources management](#resources)**
-
-> [Layout resources](#layout-resources)
-
-> [API access](#api-access)
-
-> [Theme access](#theme-access)
 
 ## Layout definition
 

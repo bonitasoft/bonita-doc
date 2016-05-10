@@ -1,39 +1,9 @@
-# 2.4.5 REST API authorization
+# REST API authorization
 
 The Bonita BPM Portal, or any application that uses the Web REST API, enables user to access resources.
 The set of resources that a user can access is determined by default by the user's profile.
 This authorization mechanism ensures that users can only access the appropriate resources.
 This means, for example, that a user with only the User profile cannot perform actions intended for the Administrator.
-
-**[Summary](#summary)**
-
-**[Static authorization checking](#static)**
-
-> [Resources permissions mapping](#resource)
-
-> [Compound permissions mapping](#compound)
-
-> [Custom permissions mapping](#custom)
-
-**[Dynamic authorization checking](#dynamic)**
-
-> [Example dynamic check](#dyn-example)
-
-**[Initialization](#init)**
-
-**[User login](#login)**
-
-**[Runtime behavior](#runtime)**
-
-**[Authorizing access to a custom page](#custom_pages)**
-
-**[Authorization and custom profiles](#custom-profile)**
-
-**[Activating and deactivating authorization](#activate)**
-
-**[Migration](#migrate)**
-
-**[Permissions and resources](#permissions_table)**
 
 The authorization mechanism is a "white list" implementation.
 It has two phases,

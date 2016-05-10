@@ -1,26 +1,8 @@
-# 3.5 Resource management
+# Resource management
 
 This page explains how to add a resource to the Bonita BPM Portal and make it available to users. A resource is an artifact that extends the portal.
 
 It is typed and can be one of the following:
-
-* [Page](pages.md)
-* [Form](forms.md)
-* [Layout](layouts.md)
-* [Theme](themes.md)
-* [API extension](rest-api-extensions.md)
-
-**[Resource definition](#resource_definition)**
-
-**[Authorization permissions for resources](#permissions)**
-
-**[Exporting a resource](#export)**
-
-**[Importing a resource](#import)**
-
-**[Modifying a resource](#edit)**
-
-**[Deleting a resource](#delete)**
 
 ## Resource definition
 

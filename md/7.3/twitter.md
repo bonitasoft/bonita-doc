@@ -1,4 +1,4 @@
-# 1.8.18 Twitter
+# Twitter
 
 This page explains how to configure the Twitter connectors in Bonita BPM Studio.
 

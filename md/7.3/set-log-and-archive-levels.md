@@ -1,10 +1,10 @@
-# 2.4.2 Set log and archive levels
+# Set log and archive levels
 
 There are three ways to record the information about a running process:
 
-* [Archive](#archive): used by a business analyst or process administrator using Bonita BPM Portal, during the production phase, to trace the running of the process instances in their life cycle. Records who did what and when.
-* [Technical log](#techlog): used by an application developer for troubleshooting, debugging and process tuning.
-* [Queriable log](#qlog): used by a database administrator extracting information related to business actions that is stored in the internal database to be retrieved by a database request.
+* Archive: used by a business analyst or process administrator using Bonita BPM Portal, during the production phase, to trace the running of the process instances in their life cycle. Records who did what and when.
+* Technical log: used by an application developer for troubleshooting, debugging and process tuning.
+* Queriable log: used by a database administrator extracting information related to business actions that is stored in the internal database to be retrieved by a database request.
 
 You can configure the information that is recorded in the archive and the logs.
 

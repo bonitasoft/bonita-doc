@@ -1,4 +1,4 @@
-# 2.4.4 Performance tuning
+# Performance tuning
 
 This page contains information that you can use to tune the Bonita BPM Engine to get the best performance in your platform. 
 It assumes that you are familiar with Java threads, concurrent execution, XML, 

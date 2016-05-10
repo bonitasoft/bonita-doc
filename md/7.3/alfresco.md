@@ -1,4 +1,4 @@
-# 1.8.2 Alfresco
+# Alfresco
 
 Bonita BPM Studio contains connectors for Alfresco 3.4 and Alfresco 4.2\. For each version, there are the following connectors:
 

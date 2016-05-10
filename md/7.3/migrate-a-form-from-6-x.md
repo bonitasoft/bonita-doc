@@ -1,4 +1,4 @@
-# 1.7.2.12 Migrate a form from 6.x
+# Migrate a form from 6.x
 
 Although a form created with Bonita BPM 6.x will work with Bonita BPM 7.x, you are recommended to migrate your 6.x forms and process definitions to take advantage of the new features. 
 There is no specific tooling to assist with migration, and you do not have to migrate all apsects of a process definition at the same time. 

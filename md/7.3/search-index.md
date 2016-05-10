@@ -1,4 +1,4 @@
-# 3.11 Search index
+# Search index
 
 The search field in Bonita BPM Portal can be used to search for particular values in cases, filter them, and display the result.
 

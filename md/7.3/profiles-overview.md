@@ -1,4 +1,4 @@
-# 3.9 Profiles overview
+# Profiles overview
 
 A profile is a set of access rights given to a user. Users have to be given a certain profile in order to access applications, processes, cases or tasks.
 

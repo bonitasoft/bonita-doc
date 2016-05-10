@@ -1,18 +1,18 @@
-# 4.5.6 List and search
+# List and search
 
-The Bonita BPM Engine APIs contain several list and search methods. This page explains the difference between list and search, and explains how to configure [word-based search](#word_based_search).
+The Bonita BPM Engine APIs contain several list and search methods. This page explains the difference between list and search, and explains how to configure word-based search.
 
 The following example shows how to use a list method to see the archived activity instances:
-`
+```java
 List archivedActivityInstances = TenantAPIAccessor.getProcessAPI(session).getArchivedActivityInstances(instance.getId(), 0, 100, ActivityInstanceCriterion.NAME_ASC);
-`
+```
 
 The following example shows how to use a search method to see the archived activity instances.
-`
+```java
 SearchOptionsBuilder searchBuilder = new SearchOptionsBuilder(0, 100);
 searchBuilder.sort(ArchivedActivityInstanceSearchDescriptor.NAME, Order.ASC);
 SearchResult archActivitResult = TenantAPIAccessor.getProcessAPI(session).searchArchivedActivities(searchBuilder.done());
-`
+```
 
 These two examples above return identical information. Both list and search can be used to return a specified number of results, sorted according to a specified criterion.
 
@@ -21,21 +21,21 @@ The advantage of using list is that it is a single query, so has better performa
 The advantage of using search is that you can specify filters to get a more precise set of results, which can be more efficient. Several filters can be added. By default, an implicit AND clause is added when several filters are added. If the need is different,
 you can have an OR clause, of more complex clauses. See [SearchOptionsBuilder methods](http://documentation.bonitasoft.com/javadoc/api/7.1/org/bonitasoft/engine/search/SearchOptionsBuilder.html) for filtering that matches your needs.   
 The following example is a more precise search for archived activity instances, using a filter:
-`
+```java
 SearchOptionsBuilder searchBuilder = new SearchOptionsBuilder(0, 100);
 // implicit AND clause between the following two filters:
 searchBuilder.filter(ArchivedActivityInstanceSearchDescriptor.ROOT_PROCESS_INSTANCE_ID, processInstance.getId());
 searchBuilder.filter(ArchivedActivityInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getId());
 searchBuilder.sort(ArchivedActivityInstanceSearchDescriptor.NAME, Order.ASC);
 SearchResult archActivitResult = TenantAPIAccessor.getProcessAPI(session).searchArchivedActivities(searchBuilder.done());
-`
+```
 Below is another example of a more complex search filtering.
-`
+```java
 SearchOptionsBuilder sob = new SearchOptionsBuilder(0, 10);
 sob.filter(HumanTaskInstanceSearchDescriptor.PROCESS_INSTANCE_ID, myProcessInstance.getId());
 sob.or();
 sob.differentFrom(HumanTaskInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getId());
-`
+```
 
 ## Word-based search
 

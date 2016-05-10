@@ -1,8 +1,6 @@
-# 3.5.3 Forms
+# Forms
 
 This page explains how to add a form resource to the Portal and make it available to users. Form resources are intended for use in applications.
-
-**[Form definition](#form_definition)**
 
 Pages are [exported. imported, modified, and deleted](resource-management.md) as resources in Bonita BPM Portal. 
 

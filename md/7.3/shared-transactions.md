@@ -1,4 +1,4 @@
-# 4.7.4 Shared transactions
+# Shared transactions
 
 There are three entry points to transactions in the Bonita BPM Engine:
 
@@ -10,7 +10,7 @@ If you are accessing the Engine in Local mode, you also have the option of using
 For example, in an application for approving and paying expenses, you could have a single transaction that includes the payment instruction sent to the bank and the process step that informs the user that expenses have been paid. If the bank does not complete the payment, the notification is not sent.
 
 A transaction managed by the caller has the following structure:
-`
+```java
 startTransaction();
 try {
    myBusinessLogic1();
@@ -20,10 +20,10 @@ try {
 } catch (Exception e) {
    rollbackTransaction();
 }
-`
+```
 
 The example below shows how to wrap two Engine API calls in the same transaction. Each call updates the value of a variable, and the transaction guarantees that both values are updated or neither value is updated.
-`
+```java
 long procId = processInstance.getId();
 try {
    txManager.begin();
@@ -44,7 +44,7 @@ if (((Integer) processDataInstanceFoo.getValue()) != 3 && ((Integer) processData
    System.err.println("The values for the variables foo and bar should not have been changed.");
 }
 txManager.commit();
-`
+```
 
 It is also possible to manage your own transactions in the server side of the Engine using Commands. 
 The CommandAPI, which executes some custom code on the server side, enables you to execute code in several transactions if necessary.
@@ -61,7 +61,7 @@ Two implementation of the executeInTransaction method are provided:
 Below are examples of code that can be used in a user Command.
 
 Anonymous class:
-`
+```java
 final long processInstanceId = 1704;
 final SProcessInstanceServiceprocessInstanceService = serviceAccessor.getProcessInstanceService();
 SProcessInstance pi = userTransactionService.executeInTransaction(new Callable() {
@@ -70,10 +70,10 @@ SProcessInstance pi = userTransactionService.executeInTransaction(new Callable()
 		return processInstanceService.getProcessInstance(processInstanceId);
 	}
 });
-`
+```
 
 Custom class:
-`
+```java
 class MyCallable implements Callable {
 	private final ProcessInstanceService processInstanceService;
 	private long processInstanceId;
@@ -107,4 +107,4 @@ class MyCommand extends TenantCommand {
 		// Of course, MyCallable implementation is stateless, so it is reusable.
     }
 }
-`
+```

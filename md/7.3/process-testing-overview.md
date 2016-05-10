@@ -1,4 +1,4 @@
-# 1.13 Process testing overview
+# Process testing overview
 
 Bonita BPM Studio contains several features that you can use to verify your process while it is in development.
 

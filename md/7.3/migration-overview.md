@@ -1,17 +1,11 @@
-# 2.7 Migration overview
+# Migration overview
 
-There are several aspects to migrating to a new version of Bonita BPM: 
-
-* migrating your [platform](#platform) to the new version
-* migrating your [Bonita BPM Studio](#studio)
-* migrating your [process definitions](#procdef) to use the features of the new version
-
-## Platform
+## Migrating your platform to the new version
 
 You can automatically [migrate the platform from an earlier version of Bonita BPM](migrate-from-an-earlier-version-of-bonita-bpm.md). You cannot migrate your platform from a version earlier than 6.0.2\. 
 After migration, a process continues to run unchanged. You can modify the process definition later to take advantage of the new features in this version of Bonita BPM.
 
-## Bonita BPM Studio
+## Migrating your Bonita BPM Studio
 
 To migrate to a newer version of Bonita BPM Studio, install the new version using the [Studio installer wizard](bonita-bpm-studio-installation.md) for your operating system.
 If you want to keep the artifacts in your workspace, select the option to migrate your workspace. 
@@ -19,7 +13,7 @@ If you want to keep the artifacts in your workspace, select the option to migrat
 **Warning:** if you do not migrate your workspace, or if you use the OS-independent archive to install the new Bonita BPM Studio, 
 your workspace is not automatically migrated. In this case, you must manually export each item from the older Bonita BPM Studio and import it into the newer version. 
 
-## Process definitions
+## Migrating your process definitions
 
 A process definition created using Bonita BPM 6.x can be run on this version after the [platform migration](migrate-from-an-earlier-version-of-bonita-bpm.md). 
 However, you might choose to update the process definition to take advantage of new features. 

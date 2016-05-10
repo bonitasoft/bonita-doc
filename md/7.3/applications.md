@@ -1,33 +1,9 @@
-# 3.4 Applications
+# Applications
 
 With Bonita BPM you can build an application that exactly meets your needs and interacts with processes.
 Instead of the standard, generic, process-centered Bonita BPM Portal, you can create a business-centered web application that provides access to processes.
 You can modify the application whenever you want, and users will see the changes immediately.
 This means that you can rapidly adapt an application to your changing business needs or to react to user feedback. 
-
-**[Application definition](#definition)**
-
-**[Application prerequisites](#prereqs)**
-
-**[Developing an application](#develop)**
-
-**[Defining a new application](#new_app)**
-
-> [Specifying application layout (Subscription editions)](#layout)
-
-> [Specifying application theme (Subscription editions)](#theme)
-
-> [Specifying application pages](#pages)
-
-> [Defining application navigation](#nav)
-
-**[Deploying an application with export and import](#expo_imp)**
-
-**[Updating an application](#edit)**
-
-> [Updating an application definition](#update-app-def)
-
-> [Updating application resources](#update-app-resources)
 
 ## Application definition
 

@@ -1,4 +1,4 @@
-# 3.3 Log in and log out
+# Log in and log out
 
 This page tells you how to log in as a user with a profile and rights attached to that profile.
 

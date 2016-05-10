@@ -1,4 +1,4 @@
-# 3.7 Organization in Portal overview
+# Organization in Portal overview
 
 In Bonita BPM Portal, a user with the Administrator profile active can view all the parts of an organization including:
 

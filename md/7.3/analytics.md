@@ -1,11 +1,6 @@
-# 3.8 Analytics
+# Analytics
 
 A report presents the Administrator with data about the usage of cases and tasks in processes. 
-
-[Default reports](#default_reports)  
-[Install a custom report](#install)   
-[Export a report](#create)  
-[Manage Japanese PDF reports](#ja)
 
 There are four reports available by default:
 
@@ -88,6 +83,8 @@ Note: what is not exported in the .csv report
 
 * Comments
 * Human actions performed on **Parameters and variables**
+
+<a id="install"/>
 
 ## Install a custom report
 

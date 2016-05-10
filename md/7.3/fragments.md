@@ -1,4 +1,4 @@
-# 1.7.2.6 Fragments
+# Fragments
 
 A fragment is a piece of a page, composed of one or more widgets. It can be inserted in other pages. A fragment has its own widget configurations and data, but can also expose data to the pages that includes it.
 

@@ -1,16 +1,7 @@
-# 3.2 Mobile Portal overview
+# Mobile Portal overview
 
 The Mobile version of Bonita BPM Portal only displays functions available to the logged-in user only. Functions for other profiles are not available.
 
-* [Security login](#security)
-* [Do I need a special license?](#license)
-* [What deployment bundle do I need to access the mobile version?](#deploybundle)
-* [How do I access the mobile version?](#access)
-* [What menus are available?](#menus)
-* [Start a new case](#startnewcase)
-* [Profile](#profile)
-* [Mobile language](#lang)
-* [Navigation](#nav)
 
 ### Security login
 

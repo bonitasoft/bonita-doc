@@ -1,4 +1,4 @@
-# 3.3.4 Subtasks
+# Subtasks
 
 It is possible for a user to add a subtask to a task. Typically, you use a subtask to track an external or off-line activity that must be completed before you can complete a task.
 

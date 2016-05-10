@@ -11,18 +11,6 @@ There are three stages to installing the JBoss bundle:
 
 When these three stages are complete, you can start JBoss to validate the installation. Then there are some post-installation setup tasks.
 
-**[Download and unzip the JBoss bundle](#download_unzip)**
-
-**[License installation](#license)**
-
-**[Edition specification](#edition)**
-
-**[Database configuration](#db)**
-
-**[Start and shut down JBoss](#start_stop)**
-
-**[First steps after installation](#postinstall)**
-
 ## Download and unzip the JBoss bundle
 
 ### Download

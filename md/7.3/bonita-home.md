@@ -1,25 +1,9 @@
-# 2.3.7 Bonita home
+# Bonita home
 
 var\_bonita\_home is a folder which contains configuration, working, and temporary folders and files. This folder is used by Bonita BPM Engine, Bonita BPM Portal and the Bonita Client Library (Engine APIs client library packaged in bonita-client.jar).
 
 The location of the var\_bonita\_home folder depends on your installation.
 It is defined by a JVM system property called `bonita.home`.
-
-**[Downloading var\_bonita\_home](#download)**
-
-**[Bonita home folder structure](#structure)**
-
-**[Bonita home location](#location)**
-
-> [Bonita Studio](#studio)
-
-> [Bonita JBoss and Tomcat bundles](#bundles)
-
-> [Deploy bundle](#deploy)
-
-> [LDAP synchronizer](#ldap)
-
-> [In your own client application](#client)
 
 ## Downloading var\_bonita\_home
 

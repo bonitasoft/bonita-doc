@@ -1,4 +1,4 @@
-# 3.3.3 Tasks
+# Tasks
 
 Logged on with the Administrator or Process Manager profile, you have rights to manage a task as follows.
 

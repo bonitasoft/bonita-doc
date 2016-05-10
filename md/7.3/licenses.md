@@ -1,14 +1,6 @@
-# 2.3.8 Licenses
+# Licenses
 
 Bonita BPM 7.1 introduces a new Bonita BPM Subscription Pack edition licensing model: case-counter licensing. This page explains how to manage the license for your Bonita BPM platform, under the case-counter licensing model or using the legacy licensing model.
-
-**[Case-counter licensing](#case-counter)**
-
-**[Legacy licensing](#legacy)**
-
-**[License installation](#installation)**
-
-**[License renewal](#renewal)**
 
 The **_License_** menu in Bonita BPM Portal displays information about the current license. This information is available to the platform administrator only.
 

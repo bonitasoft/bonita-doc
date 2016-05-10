@@ -1,46 +1,4 @@
-# 4.5.5 Manage a process
-
-In this page:
-
-**[List the deployed processes](#list_deployed)**
-
-**[Enable a process and start an instance](#enable_start)**
-
-**[Set variables in a process instance](#set_variables)
-**
-> 
-> [Set string variables and start a process instance](#set_string_start)
-
-> [Set variables of any type and start a process instance](#set_start)
-
-> [Create a map of variables and values and start a process instance](#create_map)
-
-> [For a running process instance, set the value of a custom data type variable](#set_custom_variable)
-
-**[Execute a task](#execute_task)**
-
-**[List the processes I started](#list_i_started)**
-
-**[List the open instances of a process](#list_open)**
-
-**[Get the history for a case](#get_history)**
-
-**[Query archived process instances](#query_archived)**
-
-****
-
-**[Stop a process instance](#stop_instance)**
-
-**[Deploy a process](#deploy)
-**
-> 
-> [Deploy and enable a process from a bar file](#from_bar)
-
-> [Deploy and enable a process from the processDefinitionBuilder](#from_builder)
-
-**[Get the process design definition](#get_design)**
-
-**[Undeploy a process](#undeploy)**
+# Manage a process
 
 ## List the deployed processes
 

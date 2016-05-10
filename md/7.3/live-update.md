@@ -1,11 +1,6 @@
-# 3.6 Live update
+# Live update
 
 This page explains how to update live process definition information. You need to be logged in with the Administrator profile.
-
-[Parameters](#parameters)  
-[Connectors](#connectors)  
-[Forms](#forms)  
-[Scripts](#scripts)  
 
 ## Parameters
 

@@ -1,4 +1,4 @@
-# 1.10.4 Create a report
+# Create a report
 
 The final step when setting up reporting is to create a report template using a Business Intelligence (BI) tool.
 

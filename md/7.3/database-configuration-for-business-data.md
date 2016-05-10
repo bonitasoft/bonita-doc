@@ -1,4 +1,4 @@
-# 2.3.6 Database configuration for business data
+# Database configuration for business data
 
 ## Configuration overview
 

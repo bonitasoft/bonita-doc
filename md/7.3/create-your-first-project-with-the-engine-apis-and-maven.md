@@ -1,17 +1,7 @@
-# 4.5.2 Create your first project with the Engine APIs and Maven
+# Create your first project with the Engine APIs and Maven
 
 This page contains an example of to set up a Maven project to create a client that uses the Bonita BPM client APIs to communicate with the Bonita BPM Engine and run a process. 
 It assumes that you are a Java programmer familiar with using Maven.
-
-**[Bonita BPM Client APIs](#apis)**
-
-**[Maven dependencies](#maven_dependencies)**
-
-**[Bonita home](#bonita_home)**
-
-**[Log in](#login)**
-
-**[Example of a client program](#java_client_example)**
 
 ## Bonita BPM Client APIs
 

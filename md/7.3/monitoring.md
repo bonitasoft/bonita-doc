@@ -1,4 +1,4 @@
-# 3.3.6 Monitoring
+# Monitoring
 Monitoring gives information relative to a process.
 
 This is only available to the Administrator and Process Manager profile.

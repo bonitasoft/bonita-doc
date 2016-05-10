@@ -1,4 +1,4 @@
-# 4.7.3 Execution sequence, states, and transactions
+# Execution sequence, states, and transactions
 
 This page describes the sequence of actions performed when a process instance is created and when a step is performed by a user.
 
@@ -7,15 +7,6 @@ It shows the interactions between the Bonita BPM Portal and Bonita BPM Engine.
 In the sequences described in this page, some of the actions apply only to **Teamwork**, **Efficiency**, or **Performance** editions, and are marked SP only.
 
 For the **Community** edition, these actions are not relevant, but the order of the other actions is the same.
-
-[Process instantiation form interaction ](#process)  
-[Step initialization sequence](#step1)  
-[Step subimssion sequence](#step2)  
-[Flow node states and transitions](#flownode_states)  
-[Execution of a step](#execute_step)  
-[Example: User task](#example)  
-[Short transactions and asynchronism](#async)  
-[Summary of state types](#state_types)  
 
 ### Process instantiation form interaction 
 

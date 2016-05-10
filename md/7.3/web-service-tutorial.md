@@ -1,4 +1,4 @@
-# 1.8.19.2 Web service connector tutorial
+# Web service connector tutorial
 
 Note: This example uses the 6.x Application legacy forms.
 
