@@ -17,7 +17,7 @@ import 'components/content/content.scss';
 import ContentCtrl from 'components/content/content-controller';
 
 export default /*@ngInject*/ function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/md/');
+  $urlRouterProvider.otherwise('/bonitabpm/');
 
   $stateProvider.state('main', {
     url: '/:version?&page',
@@ -30,9 +30,9 @@ export default /*@ngInject*/ function($stateProvider, $urlRouterProvider) {
       },
     },
     resolve: {
-      properties: /*@ngInject*/ $http => $http.get('/md/properties.json').then(response => response.data),
-      taxonomy: /*@ngInject*/ ($http, currentVersion) => $http.get('/md/html/' + currentVersion.name + '/taxonomy.json').then(response => response.data),
-      variables: /*@ngInject*/ ($http, currentVersion) => $http.get('/md/html/' + currentVersion.name + '/variables.json').then(response => response.data),
+      properties: /*@ngInject*/ $http => $http.get('/bonitabpm/properties.json').then(response => response.data),
+      taxonomy: /*@ngInject*/ ($http, currentVersion) => $http.get('/bonitabpm/html/' + currentVersion.name + '/taxonomy.json').then(response => response.data),
+      variables: /*@ngInject*/ ($http, currentVersion) => $http.get('/bonitabpm/html/' + currentVersion.name + '/variables.json').then(response => response.data),
       currentVersion: /*ngInject*/ (properties, $stateParams) => $stateParams.version &&
                                       _.find(properties.supportedVersionList, { name: $stateParams.version }) ||
                                         _.head(properties.supportedVersionList)
