@@ -63,7 +63,7 @@ is [StandardAuthenticationManagerImpl](https://github.com/bonitasoft/bonita-web/
 implementation of this method does nothing (the subsequent engine login is enough to authenticate the user)
 11. The authentication is considered successful if no Exception is thrown by the `authenticate` method.
 12. [LoginManager](https://github.com/bonitasoft/bonita-web/blob/7.0.0/common/src/main/java/org/bonitasoft/console/common/server/login/LoginManager.java)
-will then call engine API [LoginAPI.login()](http://documentation.bonitasoft.com/javadoc/api/7.0/sp/common/org/bonitasoft/engine/api/LoginAPI.md#login(java.lang.String,%20java.lang.String))
+will then call engine API [LoginAPI.login()](http://documentation.bonitasoft.com/javadoc/api/7.0/sp/common/org/bonitasoft/engine/api/LoginAPI.html#login(java.lang.String,%20java.lang.String))
 13. At this point, operations are processed on Bonita Engine side. Engine (see [LoginAPIImpl](https://github.com/bonitasoft/bonita-engine/blob/7.0.0/bpm/bonita-core/bonita-process-engine/src/main/java/org/bonitasoft/engine/api/impl/LoginAPIImpl.java)
 class) verifies that the username and password are not empty. A verification is also done to validate that the tenant is enabled (use provided tenant id or default one if not provided). Then [LoginAPIImpl](https://github.com/bonitasoft/bonita-engine/blob/7.0.0/bpm/bonita-core/bonita-process-engine/src/main/java/org/bonitasoft/engine/api/impl/LoginAPIImpl.java)
 will call [LoginService](https://github.com/bonitasoft/bonita-engine/blob/7.0.0/bpm/bonita-core/bonita-login/bonita-login-api/src/main/java/org/bonitasoft/engine/core/login/LoginService.java)

@@ -94,7 +94,7 @@ Custom user information enables custom details to be added to a user in the Orga
 ### In Bonita BPM Studio:
 
 Use the **Custom** tab in **Organization users** to add Custom information to a user. 
-This [custom information is defined in Bonita BPM Studio](custom-user-information-in-bonita-bpm-studio.md#howtoadd),
+This [custom information is defined in Bonita BPM Studio](custom-user-information-in-bonita-bpm-studio.md),
 then applied to an actor filter, and when deployed in Bonita BPM Portal, enables the filtering of users mapped to tasks.
 
 The custom user information is saved in the Organization schema and published so it can be used in Bonita BPM Portal.

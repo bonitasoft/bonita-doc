@@ -1,4 +1,4 @@
-<h1>1.9.5 LDAP synchronizer</h1>
+<h1>LDAP synchronizer</h1>
 <p>The LDAP synchronizer is a service for synchronizing
 Bonita BPM and LDAP directory users and groups in a single direction, LDAP to Bonita BPM.</p>
 <p>The LDAP synchronization service keeps the Bonita BPM organization information synchronized with an external LDAP directory, by creating, updating, or removing
@@ -26,8 +26,8 @@ This directory contains a sample configuration.</p>
 The LDAP Synchronizer can use the HTTP, or EJB3 modes, but not local access. For more information about API access modes,
 see the <a href="development-overview.md">Development overview</a>.</p>
 <p>There is a var_bonita_home directory in the deploy zip that can be used. Copy this directory into the LDAP synchronizer directory.</p>
-<p>Customize the configuration for your system, by editing the <a href="#config_files">configuration files</a>.
-There are some additional considerations for <a href="#tenant">using the LDAP synchronizer in a non-default tenant</a>.</p>
+<p>Customize the configuration for your system, by editing the configuration files.
+There are some additional considerations for using the LDAP synchronizer in a non-default tenant.</p>
 <h2>Configuration files</h2>
 <p>There are five properties files:</p>
 <ul>
@@ -39,7 +39,7 @@ There are some additional considerations for <a href="#tenant">using the LDAP sy
 </ul>
 <p>All configurations files can be found in the conf directory.</p>
 <p><strong>Note</strong>: to use a special character in a properties file, use the Unicode equivalent. For example, for à use \u00E0.
-You can use a tool such as <a href="http://docs.oracle.com/javase/7/docs/technotes/tools/solaris/native2ascii.md">native2ascii</a> to convert any special characters in the configuration files to Unicode.</p>
+You can use a tool such as <a href="http://docs.oracle.com/javase/7/docs/technotes/tools/solaris/native2ascii.html">native2ascii</a> to convert any special characters in the configuration files to Unicode.</p>
 <p>You also need to <a href="configuring-bonita-home-for-a-client.md">create a dedicated bonita.home</a> for the LDAP Synchronizer.</p>
 <p><strong>Note:</strong> This is not the same as the bonita.home used by the server. Every client needs its own bonita.home.</p>
 <h3>bonita.properties</h3>
@@ -56,7 +56,7 @@ install</p>
 Password of the Bonita BPM account used for synchronization.
 install</p>
 <p>technicalUser
-This is the <a href="first-steps-after-setup.md#reset_pw">username of the platform adminstrator</a>.
+This is the <a href="first-steps-after-setup.md">username of the platform adminstrator</a>.
 platformAdmin</p>
 <p>technicalPassword
 This is the <a href="first-steps-after-setup.md#reset_pw">password of the platform adminstrator</a>.

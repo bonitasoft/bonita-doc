@@ -125,7 +125,7 @@ Query that dynamically retrieves the initial value from the Bonita BPM database.
 <li>Add the properties based on the widgets you need.</li>
 </ol>
 <p>Here is an example of a report configuration containing a &quot;Period&quot; date range and a &quot;State&quot; select widget:
-<img src="images/images-6_0/exampleswidgets.png" alt="Widget property example in iReport"></p>
+<img src="../images/images-6_0/exampleswidgets.png" alt="Widget property example in iReport"></p>
 <h3>Package a report for Bonita BPM Portal integration</h3>
 <p>In order to integrate a Jasper report in Bonita BPM Portal, you need to prepare a ZIP archive.</p>
 <p>The archive should contain at least the compiled Jasper report (a file with a .jasper extension).</p>
@@ -139,8 +139,12 @@ PropertyDescription</li>
 <p>dbDriverClassNameThe JDBC driver's class name</p>
 <p>dbUserThe login of the database user</p>
 <p>dbPasswordThe password of the database user</p>
-<p>For example, connecting to a local MySQL database named <em>BonitaReport</em> with a user <em>root</em> and password <em>root</em>:
-<code>dbUrl=jdbc:mysql://localhost:3306/BonitaReport dbDriverClassName=com.mysql.jdbc.Driver dbUser=root dbPassword=root</code></p>
+<p>For example, connecting to a local MySQL database named <em>BonitaReport</em> with a user <em>root</em> and password <em>root</em>:</p>
+<pre><code>dbUrl=jdbc:mysql://localhost:3306/BonitaReport
+dbDriverClassName=com.mysql.jdbc.Driver
+dbUser=root
+dbPassword=root
+</code></pre>
 <p>If your report contains sub reports, these should be placed in a directory named <code>sub</code>.</p>
 <p>If your report uses a style sheet you may also provide a .jrtx file in the archive.</p>
-<p>Once you have packaged the Jasper report as a ZIP archive, you can <a href="analytics.md#install">install it in the Bonita BPM Portal</a>.</p>
+<p>Once you have packaged the Jasper report as a ZIP archive, you can <a href="analytics.md">install it in the Bonita BPM Portal</a>.</p>

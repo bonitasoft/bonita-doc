@@ -37,7 +37,7 @@ string</p>
 The version of the job.
 string</p>
 <p>Job parameters
-The parameters to pass to the job. Specify these either as a table of key-value pairs or as a <a href="#expression_example">Groovy expression</a>.
+The parameters to pass to the job. Specify these either as a table of key-value pairs or as a Groovy expression.
 string</p>
 <p>Print buffer output
 Whether you want to automatically print the content of the buffer returned by the job. Specify this either by checking the box or as an expression.
@@ -49,5 +49,21 @@ Boolean</p>
 <li>The element with index 0 is the parameter name (<code>java.lang.String</code>).</li>
 <li>The element with index 1 is the parameter value (<code>java.lang.Object</code>).</li>
 </ul>
-<p>The following example Groovy script creates a list with two parameters, <code>nbline</code> and <code>name</code>, and their values:
-<code>import java.util.List; import java.util.ArrayList; List&gt; listOfParameters = new ArrayList&gt;(); List</code></p>
+<p>The following example Groovy script creates a list with two parameters, <code>nbline</code> and <code>name</code>, and their values:</p>
+<pre><code class="language-groovy">import java.util.List;
+import java.util.ArrayList;
+List&lt;List&lt;Object&gt;&gt; listOfParameters = new ArrayList&lt;List&lt;Object&gt;&gt;();
+List&lt;Object&gt; aParameter = null;
+
+aParameter = new ArrayList&lt;Object&gt;();
+aParameter.add(&quot;nbline&quot;);
+aParameter.add(10);
+listOfParameters.add(aParameter);
+
+aParameter = new ArrayList&lt;Object&gt;();
+aParameter.add(&quot;name&quot;);
+aParameter.add(&quot;renaudp&quot;);
+listOfParameters.add(aParameter);
+
+return listOfParameters;
+</code></pre>

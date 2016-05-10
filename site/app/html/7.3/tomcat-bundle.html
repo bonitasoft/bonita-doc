@@ -8,20 +8,14 @@ The Tomcat bundle is a regular .zip archive based on Tomcat zip distribution.</p
 <li>Configure the database.</li>
 </ol>
 <p>When these three stages are complete, you can start Tomcat to validate the installation. Then there are some post-installation setup tasks.</p>
-<p><strong><a href="#download_unzip">Download and unzip the Tomcat bundle</a></strong></p>
-<p><strong><a href="#license">License installation</a></strong></p>
-<p><strong><a href="#edition">Edition specification</a></strong></p>
-<p><strong><a href="#db">Database configuration</a></strong></p>
-<p><strong><a href="#start_stop">Start and shut down Tomcat</a></strong></p>
-<p><strong><a href="#postinstall">First steps after installation</a></strong></p>
 <p>There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft in the Tomcat bundle and in the Tomcat directories of the Deploy bundle) and the Microsoft SQL Server driver
-(refer to: <a href="http://msdn.microsoft.com/en-us/library/aa342335.aspx">MSDN note</a>, <a href="http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.md">Bitronix note</a>).
+(refer to: <a href="https://msdn.microsoft.com/en-us/library/aa342335.aspx">MSDN note</a>, <a href="http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.md">Bitronix note</a>).
 Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the JBoss bundle provided by Bonitasoft.</p>
 <h2>Download and unzip the Tomcat bundle</h2>
 <h3>Download</h3>
 <p>For the Community edition:</p>
 <ul>
-<li>Go to the <a href="http://www.bonitasoft.com/how-we-do-it/downloads">Bonitasoft website</a> and get the Bonita BPM Community edition Tomcat bundle.</li>
+<li>Go to the <a href="http://www.bonitasoft.com/downloads">Bonitasoft website</a> and get the Bonita BPM Community edition Tomcat bundle.</li>
 </ul>
 <p>For a Subscription edition:</p>
 <ul>
@@ -89,6 +83,6 @@ Do this this, you need to use a custom start script to to start Tomcat only with
 <li>Linux: <code>/bin/shutdown.sh</code></li>
 </ul>
 <p>If you see <code>checkThreadLocalMapForLeaks</code> errors, the probably indicates that Tomcat is shutting down before all work threads are completed.
-You can <a href="performance-tuning.md#work_service">increase the work service termination timeout</a> to ensure that work is complete before shutdown.</p>
+You can <a href="performance-tuning.md">increase the work service termination timeout</a> to ensure that work is complete before shutdown.</p>
 <h2>First steps after installation</h2>
 <p>Once you have got your Tomcat bundle up and running a <a href="first-steps-after-setup.md">few extra steps</a> are required in order to get a fully operational Bonita BPM platform.</p>
