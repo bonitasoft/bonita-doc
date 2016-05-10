@@ -10,7 +10,14 @@ You can import an existing page, form, or layout to edit, or duplicate existing 
 
 ## Page structure
 
-A page (but also a form or a layout) is constructed as a vertical arrangement of rows. A row is a mechanism for aligning widgets, from top left to bottom right. When you create a new, empty, page, it contains a row. A row occupies the whole width of the page, which is considered to be 12 units. The actual width is calculated when the page is displayed. In a row, you can add containers and [widgets](widgets.md). Each widget accounts for an item of information to be entered or displayed in a page. To add a widget to a page, drag it from the palette on the left of the screen and drop it into the whiteboard. It must be adjacent to another widget (or to the top of the page for the first widget). You cannot leave empty space between widgets. If you try to drop a widget that is not adjacent to another, the drop will fail. When the widget is dropped, you need to specify the widget width, up to a maximum of 12 units (default value). 
+A page (but also a form or a layout) is constructed as a vertical arrangement of rows. A row is a mechanism for aligning widgets, from top left to bottom right. When you create a new, empty, page, it contains a row. A row occupies the whole width of the page, which is considered to be 12 units. The actual width is calculated when the page is displayed. The rows are indicated by a thin pale grey rectangle on the left side of the whiteboard. 
+
+To move or delete a row, position your mouse in the row, and the row toolbar is displayed.
+![row toolbar](../images/images-6_0/row-over.png)
+
+Use the controls in the toolbar to move the row up or down, or to delete it. 
+
+In a row, you can add containers and [widgets](widgets.md). Each widget accounts for an item of information to be entered or displayed in a page. To add a widget to a page, drag it from the palette on the left of the screen and drop it into the whiteboard. It must be adjacent to another widget (or to the top of the page for the first widget). You cannot leave empty space between widgets. If you try to drop a widget that is not adjacent to another, the drop will fail. When the widget is dropped, you need to specify the widget width, up to a maximum of 12 units (default value). 
 
 There is a set of [standard widgets](widgets.md). If these do not meet your needs, you can define a [custom widget](custom-widgets.md).
 
@@ -18,7 +25,10 @@ There are also some structure widgets called containers, which you can use to st
 * The plain container is invisible to page users. It is useful during page development as a way to manipulate or configure multiple widgets or iterate over elements to display.
 * The tab container is used to create tabs in a region of a page. The tabs are visible to page users, who can switch between tabs by clicking the tab name.
 
-Once a container is added to the page, it contains a row. Therefore, widgets can be dropped in a container row or directly on a whiteboard row.
+Once a container is added to the page, it contains a row. Therefore, widgets can be dropped in a container row or directly on a whiteboard row. In this example, you can see a container with four rows.
+
+![A 4 row container](../images/images-6_0/row-normal.png)
+
 The behavior of a page is determined by the widget properties. Any property you configure for a container is applied to all widgets in the container unless you override it with a widget-specific value.
 
 In the Performance, Efficiency, and Teamwork editions, you can also use [fragments](fragments.md), which are groups of widgets. They allow to reuse the same group of widgets with the same behavior in several pages or forms.
