@@ -10,18 +10,20 @@ You can import an existing page, form, or layout to edit, or duplicate existing 
 
 ## Page structure
 
-A page (including a form or a layout) is constructed from [widgets](widgets.md). Each widget corresponds to an item of information to be entered or displayed in a page. In the Performance, Efficiency, and Teamwork editions, you can also use [fragments](fragments.md), which are groups of widgets. There is a set of [standard widgets](widgets.md). If these do not meet your needs, you can define a [custom widget](custom-widgets.md). In the Subscription editions, you can create [fragments](fragments.md) to reuse the same group of widgets with the same behavior in several pages or forms.
+A page (but also a form or a layout) is constructed as a vertical arrangement of rows. A row is a mechanism for aligning widgets, from top left to bottom right. When you create a new, empty, page, it contains a row. A row occupies the whole width of the page, which is considered to be 12 units. The actual width is calculated when the page is displayed. In a row, you can add containers and [widgets](widgets.md). Each widget accounts for an item of information to be entered or displayed in a page. To add a widget to a page, drag it from the palette on the left of the screen and drop it into the whiteboard. It must be adjacent to another widget (or to the top of the page for the first widget). You cannot leave empty space between widgets. If you try to drop a widget that is not adjacent to another, the drop will fail. When the widget is dropped, you need to specify the widget width, up to a maximum of 12 units (default value). 
+
+There is a set of [standard widgets](widgets.md). If these do not meet your needs, you can define a [custom widget](custom-widgets.md).
 
 There are also some structure widgets called containers, which you can use to structure a page. There are different types of container:
+* The plain container is invisible to page users. It is useful during page development as a way to manipulate or configure multiple widgets or iterate over elements to display.
+* The tab container is used to create tabs in a region of a page. The tabs are visible to page users, who can switch between tabs by clicking the tab name.
 
-* A regular container is invisible to page users. It is useful during page development as a way to manipulate or configure multiple widgets or iterate over elements to display.
-* A tab container is used to create tabs in a region of a page. The tabs are visible to page users, who can switch between tabs by clicking the tab name.
-
-To add a widget to a page, drag it from the palette on the left of the screen and drop it in the whiteboard. You can drop a widget in a container or directly on the whiteboard. It must be adjacent to another widget (or to the top of the page for the first widget). You cannot leave empty space between widgets. If you try to drop a widget that is not adjacent to another, the drop will fail.
-
+Once a container is added to the page, it contains a row. Therefore, widgets can be dropped in a container row or directly on a whiteboard row.
 The behavior of a page is determined by the widget properties. Any property you configure for a container is applied to all widgets in the container unless you override it with a widget-specific value.
 
-The UI Designer generates standard HTML application code, based on AngularJS. Export pages if you want to further customize them in your favorite web development environment. 
+In the Performance, Efficiency, and Teamwork editions, you can also use [fragments](fragments.md), which are groups of widgets. They allow to reuse the same group of widgets with the same behavior in several pages or forms.
+
+The UI Designer generates standard HTML application code, based on AngularJS. Export pages if you want to further customize them in your favorite web development environment. Note that once customized, you can not reimport them in the UI Designer.
 
 ## Integration with Bonita BPM Platform
 
