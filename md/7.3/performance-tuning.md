@@ -7,59 +7,6 @@ You need to know how to install and configure Bonita BPM.
 
 This information applies primarily to the Performance edition, though some details also apply to the Teamwork and Efficiency editions.
 
-**[Summary](#summary)**
-
-**[Engine access](#engine_access)**
-
-> [Local access](#local)
-
-> [Remote access](#remote)
-
-**[Concurrent execution](#concurrency)
-**
-> 
-> [Client threads](#client_threads)
-
-> [Work service](#work_service)
-
-> [Connector service](#connector_service)
-
-> [Scheduler service](#scheduler_service)
-
-> [Database connections](#db_connections)
-
-> [Datasources settings](#datasource_settings)
-
-**[Volume](#volume)**
-
-> [Sequence manager](#seq_mgr)
-
-> [Persistence cache](#pers_cache)
-
-> [Application cache](#app_cache)
-
-> [Java Virtual Machine](#jvm)
-
-**[Hardware and network](#hardware)**
-
-**[Database, transaction manager, and logs](#db_tm_logs)**
-
-> [Database](#db)
-
-> [Transaction manager](#tm)
-
-> [Logs](#logs)
-
-**[Connector time tracker](#timetracker)**
-
-**[Process design, event handlers, and cron jobs](#misc)**
-
-> [Process design](#process_design)
-
-> [Event handlers](#event_handlers)
-
-> [Cron jobs](#cron)
-
 It is also possible to [use gzip compression](use-gzip-compression.md) on your application server to improve performance.
 
 ## Summary
@@ -106,7 +53,7 @@ Performance tuning checklist of best practises:
 
 ## Engine access
 
-This section deals with performance impact of your choice of [Engine access mode](development-overview.md#L365).
+This section deals with performance impact of your choice of [Engine access mode](development-overview.md).
 
 There are various ways to access the Engine APIs provided by Bonita BPM Engine. Choose the most suitable access mode for your deployment, requirements, and preferences. 
 The access modes rely on different technologies and have different benefits and drawbacks. In this section, we will describe the performance characteristics of each mode.
@@ -200,9 +147,9 @@ bonita.tenant.work.keepAliveTimeSeconds=60
 bonita.tenant.work.queueCapacity=10000
 `
 
-It is very similar to the constructor provided in the [default JDK ThreadPoolExecutor](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.md#ThreadPoolExecutor(int,%20int,%20long,%20java.util.concurrent.TimeUnit,%20java.util.concurrent.BlockingQueue)).
+It is very similar to the constructor provided in the [default JDK ThreadPoolExecutor](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html#ThreadPoolExecutor(int,%20int,%20long,%20java.util.concurrent.TimeUnit,%20java.util.concurrent.BlockingQueue))).
 For a reminder of how the threadpool behaves, see the Queuing section of the 
-[ThreadPoolExecutor documentation](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.md).
+[ThreadPoolExecutor documentation](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html).
 
 In the default Bonita BPM configuration, `corePoolSize` is equal to `maximumPoolSize` because we have observed that the default implementation 
 of the threadpool executor allocates work to available threads using a round robin algorithm. 
@@ -488,7 +435,7 @@ We strongly recommend that you add only appropriate handlers and carefully code 
 
 ### Cron jobs
 
-Bonita BPM Engine uses the [Scheduler service](engine-architecture-overview.md#scheduler) to trigger jobs in a recurrent manner.
+Bonita BPM Engine uses the [Scheduler service](engine-architecture-overview.md) to trigger jobs in a recurrent manner.
 
 The Bonita BPM Scheduler service implementation uses the Quartz Scheduler. 
 A cron job in Quartz can run at maximum every second (you cannot set a lower value than 1 second).

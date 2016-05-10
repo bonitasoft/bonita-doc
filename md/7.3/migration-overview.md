@@ -13,7 +13,7 @@ After migration, a process continues to run unchanged. You can modify the proces
 
 ## Bonita BPM Studio
 
-To migrate to a newer version of Bonita BPM Studio, install the new version using the [Studio installer wizard](bonita-bpm-studio-installation.md#installer) for your operating system.
+To migrate to a newer version of Bonita BPM Studio, install the new version using the [Studio installer wizard](bonita-bpm-studio-installation.md) for your operating system.
 If you want to keep the artifacts in your workspace, select the option to migrate your workspace. 
 
 **Warning:** if you do not migrate your workspace, or if you use the OS-independent archive to install the new Bonita BPM Studio, 

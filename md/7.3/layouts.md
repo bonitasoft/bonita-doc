@@ -21,9 +21,9 @@ Layouts are [exported. imported, modified, and deleted](resource-management.md) 
 
 **[Layout definition](#layout_definition)**
 
-**[Authorization permissions](resource-management.md#permissions)**
+**[Authorization permissions](resource-management.md)**
 
-**[use a layout in an application](applications.md#layout)**
+**[use a layout in an application](applications.md)**
 
 **[Constraints](#constraints)**
 
@@ -52,7 +52,7 @@ The resources folder must contain an `Index.groovy` class or an `index.html` fil
 If you create a resource with the UI Designer, the exported zip automatically has the correct format (only the contentType will have to be changed to "layout").
 
 In case of layout edition using the UI Designer, the contentType is conserved.
-[Export the examples](resource-management.md#export) to see how to structure your layout.
+[Export the examples](resource-management.md) to see how to structure your layout.
 
 ## Constraints
 
@@ -74,6 +74,6 @@ you will be abble to access the portal API using the following path: "../API/{AP
 
 ### Theme access
 
-If your page is viewed in an application, you will have access facilities for [the application theme](applications.md#theme).
+If your page is viewed in an application, you will have access facilities for [the application theme](applications.md).
 
 You can directly access a resource by adding the following link in `index.html`: ``

@@ -21,7 +21,7 @@ by any member of the HR team, you could call the actor _hr_, or if a step can on
 Europe, you could call the actor _sales\_mgr\_europe_.
 
 A user is a person who has a username and a password in a Bonita BPM organization, and can therefore perform steps in a process. 
-Before you deploy a process, you need to [map the process actors](actors.md#Mapping_an_actor). This mapping defines who can carry out steps in the process. 
+Before you deploy a process, you need to [map the process actors](actors.md). This mapping defines who can carry out steps in the process. 
 
 ## What is an organization?
 

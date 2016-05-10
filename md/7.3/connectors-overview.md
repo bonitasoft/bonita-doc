@@ -82,4 +82,4 @@ connector has been specified in the configuration, when you build
 the process for deployment referencing the configuration, the
 connector code is included in the business archive.
 
-After deployment, if you are running the Performance edition, you can [update the connector implementation on a live system](live-update.md#connectors).
+After deployment, if you are running the Performance edition, you can [update the connector implementation on a live system](live-update.md).

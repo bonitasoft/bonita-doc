@@ -147,4 +147,4 @@ While service is paused in a tenant, only the following methods are valid:
 If you attempt an operation that is not permitted while a tenant is paused, a `TenantIsPausedException` is thrown.
 
 You can also pause and resume a tenant using the 
-[REST API](platform-api.md#tenant) or [Bonita BPM Portal](pause-and-resume-bpm-services.md).
+[REST API](platform-api.md) or [Bonita BPM Portal](pause-and-resume-bpm-services.md).

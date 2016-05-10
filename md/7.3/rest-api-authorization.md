@@ -318,7 +318,7 @@ If you have an existing custom page and want to activate authorization, you need
 To add authorization to an existing custom page:
 
 1. Export the [custom page](pages.md).
-2. Update the page properties with [permissions](pages.md#permissions).
+2. Update the page properties with [permissions](pages.md).
 3. Activate authorization, by editing `security-config.properties` and setting the value of the `security.rest.api.authorizations.check.enabled` property to `true`.
 4. Restart the application server.
 5. Import the [custom page](pages.md).

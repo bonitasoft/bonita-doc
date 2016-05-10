@@ -122,7 +122,7 @@ An array of archivedHumanTask objects in JSON
 
 #### Example
 
-Get the human tasks assigned to the user with id 2\. The specified [search parameters](rest-api-overview.md#standard_search_params) request paged results, starting from the firsst page, with a maximum of 10 results returned in each page. In this example, two results are returned.
+Get the human tasks assigned to the user with id 2\. The specified [search parameters](rest-api-overview.md) request paged results, starting from the firsst page, with a maximum of 10 results returned in each page. In this example, two results are returned.
 Request url
 GET |http://host:8080/bonita/API/bpm/archivedHumanTask?p=0&c=10&f=assigned\_id%3d2
 

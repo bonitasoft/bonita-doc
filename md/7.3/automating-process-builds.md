@@ -64,4 +64,4 @@ When the script runs, information is logged in `workspace/.metadata/.log`.
 ## Deploying a process bar file
 
 From the bar file, a process can be [deployed manually using Bonita BPM Portal](processes.md). 
-You can also [deploy a process using the Engine API](manage-a-process.md#deploy).
+You can also [deploy a process using the Engine API](manage-a-process.md).

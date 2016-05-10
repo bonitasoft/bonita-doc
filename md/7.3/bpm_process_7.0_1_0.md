@@ -2,7 +2,7 @@
 
 ### Description
 
-Manage a [process definition](key-concepts.md#process_definition) (not to be confused with a [case](#case), which is a process instance).
+Manage a [process definition](key-concepts.md) (not to be confused with a [case](#case), which is a process instance).
 
 ### Identifier
 
@@ -187,7 +187,7 @@ Matching processes in JSON
 
 #### Parameters
 
-* [Standard search parameters](web-rest-api-details.md#search) **p** and **c** must be specified
+* [Standard search parameters](web-rest-api-details.md) **p** and **c** must be specified
 * s: search on "name", "displayName" or "version"
 * o: can order by "name", "version", "deploymentDate", "deployedBy", "activationState", "configurationState", "processId", "displayName", "lastUpdateDate", "categoryId", "label"
 * f: can filter on "name", "version", "deploymentDate", "deployedBy", "activationState" with the value DISABLED or ENABLED, "configurationState" with the value UNRESOLVED, or RESOLVED, "processId", "displayName", "lastUpdateDate", "categoryId", "label", "supervisor\_id"

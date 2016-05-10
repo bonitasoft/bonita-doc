@@ -235,6 +235,6 @@ Some resources of an application can be updated live without needing to stop the
 
 You can use live update for the following resources:
 
-* [Pages and forms](live-update.md#forms)
-* [Parameters](live-update.md#parameters)
-* [Connectors](live-update.md#connectors)
+* [Pages and forms](live-update.md)
+* [Parameters](live-update.md)
+* [Connectors](live-update.md)

@@ -119,4 +119,4 @@ The following parameters are available:
   * actorId
   * assigned\_id
   * parentTaskId
-* The [standard search parameters](rest-api-overview.md#standard_search_params).
+* The [standard search parameters](rest-api-overview.md).

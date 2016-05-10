@@ -21,4 +21,4 @@ The Administrator has the right to:
 **Developer environment:** When you are testing a process locally by running it from Bonita BPM Studio, the default organization defined in the Studio is **automatically published** to the Bonita BPM Portal.
 
 **Production environment:** When you first launch Bonita BPM Portal in a Production environment, there is **no default organization**. 
-You must [create a user with the Administrator profile](first-steps-after-setup.md#create_admin). This user can than create and manage the organization.
+You must [create a user with the Administrator profile](first-steps-after-setup.md). This user can than create and manage the organization.

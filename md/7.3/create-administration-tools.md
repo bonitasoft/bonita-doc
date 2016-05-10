@@ -14,7 +14,7 @@ The example is developed using Maven, and is a Java program to list the failed t
 
 You need to be familiar with building a Maven project with Bonita BPM as a dependency. 
 You also need to be familiar with using the Bonita BPM Engine APIs. If this is not the case, follow this [tutorial](getting-started-with-the-bonita-bpm-engine-apis.md).
-The [development overview](development-overview.md#L373) contains a list of the APIs with a short description of each one.
+The [development overview](development-overview.md) contains a list of the APIs with a short description of each one.
 For details of the methods available in the Bonita BPM Engine APIs, see the [Javadoc](javadoc.md). 
 
 This example uses the Bonita BPM Engine Java APIs but there is also a [REST API](rest-api-overview.md).

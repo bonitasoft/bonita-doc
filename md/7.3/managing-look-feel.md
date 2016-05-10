@@ -2,7 +2,7 @@
 
 A Look & Feel defines the appearance of Bonita BPM Portal Web interface and Bonita BPM Portal Mobile interface.
 
-A Look & Feel is not used to specify Application layout and theme. To modify Application layout and theme, see [Specifying application layout](applications.md#layout) and [Specifying application theme](applications.md#theme) 
+A Look & Feel is not used to specify Application layout and theme. To modify Application layout and theme, see [Specifying application layout](applications.md) and [Specifying application theme](applications.md) 
 
 [Import and apply a new Look & Feel](#import)  
 [Export the current Look & Feel](#export_current)  
@@ -64,7 +64,7 @@ To restore the default Look & Feel:
 If you have a REST client in your browser (for example a plugin for Chrome or Firefox), you can restore the default Look & Feel using the Web REST API.
 This is useful if you have accidentally loaded a Look & Feel that contains errors and the **Restore** button is not usable. To restore the Look & Feel using a REST client:
 
-1. Use the REST client to [log in](rest-api-overview.md#authentication) as a registered user of the Engine.
+1. Use the REST client to [log in](rest-api-overview.md) as a registered user of the Engine.
 2. Create a PUT request of the form `http://localhost:8080/bonita/API/portal/theme/default`, specifying the relevant hostname and port number.
 3. In the request body, specify `{"type":"portal"}` to restore the web Look & Feel, or
 `{"type":"mobile"}` to restore the mobile Look & Feel.

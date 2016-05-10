@@ -45,7 +45,7 @@ If you need to change the Hibernate dialog for any reason, reset the vendor prop
 If you want to use a PostgreSQL database and it is already running, edit `postgresql.conf` and set a non-zero value for `max_prepared_transactions`. 
 The default value, 0, disables prepared transactions, which is not recommended for Bonita BPM Engine. 
 The value should be at least as large as the value set for `max_connections` (default is typically 100). 
-See the [PostgreSQL documentation](http://www.postgresql.org/docs/9.3/static/runtime-config-resource.md#GUC-MAX-PREPARED-TRANSACTIONS) for details.
+See the [PostgreSQL documentation](http://www.postgresql.org/docs/9.3/static/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) for details.
 
 For remaining configuration steps, you will need the following information:
 
@@ -64,7 +64,7 @@ The data sources for business data objects are independent of the Bonita BPM Eng
 If you have multiple tenants that use business data objects, you need to create a `BusinessDataDS` and a `NotManagedBizDataDS` for each tenant.
 
 The following sections show how to configuire the data sources for [JBoss](#ds_jboss) and [Tomcat](#ds_tomcat). 
-There is also an [example of how to configure data sources for Weblogic](red-hat-oracle-jvm-weblogic-oracle.md#datasources).
+There is also an [example of how to configure data sources for Weblogic](red-hat-oracle-jvm-weblogic-oracle.md).
 
 ### Configuration for JBoss
 

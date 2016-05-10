@@ -13,7 +13,7 @@ In this page:
 
 This example explains how to import an organization definition from an XML file into Bonita BPM Engine. 
 
-The structure of the XML file is defined in an [XSD file](organization-overview.md#XMLSchema). 
+The structure of the XML file is defined in an [XSD file](organization-overview.md). 
 To see an example of a well-formed XML file for an organization, export the ACME sample organization from Bonita BPM Studio.
 
 In the following example, the organization definition is stored in a file called `ACME.xml`, which is stored in `path`. The file content is converted to a string, and then imported.

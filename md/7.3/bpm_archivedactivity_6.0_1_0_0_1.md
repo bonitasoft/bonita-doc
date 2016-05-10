@@ -142,4 +142,4 @@ The following search parameters are available:
   * actorId: the actor that can execute this activity
   * assigned\_id: the user this activity is assigned to
   * parentTaskId: in the case of a subtask, the parent task
-* The [standard search parameters](rest-api-overview.md#standard_search_params).
+* The [standard search parameters](rest-api-overview.md).

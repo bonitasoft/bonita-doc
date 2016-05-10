@@ -208,7 +208,7 @@ Payload
   
 ### Search for a document
 
-You can use a single GET method to return all the documents that match the specified filters and [search parameters](rest-api-overview.md#standard_search_params).
+You can use a single GET method to return all the documents that match the specified filters and [search parameters](rest-api-overview.md).
 Request url
 http://../API/bpm/caseDocument?parameters
 

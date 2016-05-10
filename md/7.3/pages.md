@@ -36,7 +36,7 @@ Pages are [exported. imported, modified, and deleted](resource-management.md) as
 
 ## Custom page definition
 
-A page resource has the general [resource definition](resource-management.md#resource_definition). 
+A page resource has the general [resource definition](resource-management.md). 
 If it contains an `Index.groovy` file, this must implement the [PageController interface](#pageController), optionally with libraries. 
 If you create a custom page with the UI designer, it has the reequired structure and content automatically.
 
@@ -139,6 +139,6 @@ you will be abble to access the portal API using the following path: "../API/{AP
 
 ### Theme access
 
-If your page is viewed in an application, you will have access facilities for [the application theme](applications.md#theme).
+If your page is viewed in an application, you will have access facilities for [the application theme](applications.md).
 
 You can directly access a resource by adding the following link in `index.html`: ``

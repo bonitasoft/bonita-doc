@@ -31,7 +31,7 @@ Import the process bar file into Bonita BPM Portal on one of the nodes. Through 
 The process must be started on one node. Subsequently, instances can be created on all nodes.
 This means that all nodes have the possibility of running instances of tasks of all processes.
 
-You can also [deploy a process using the API](manage-a-process.md#deploy), exactly as you would in a standalone system.
+You can also [deploy a process using the API](manage-a-process.md), exactly as you would in a standalone system.
 
 ## Managing your organization in a cluster
 

@@ -10,7 +10,7 @@ Pages are [exported. imported, modified, and deleted](resource-management.md) as
 
 A form is a [page](pages.md) that belongs to a process. It could be a process instantiation form, a human task form, or an overview form. There are some extra things to consider when you are creating a form compared with an ordinary page, concerning how data is passed between the process instance and the form.
 
-A [context](contracts-and-contexts.md#context) is the set of data provided by the process instance or task instance to the form. 
+A [context](contracts-and-contexts.md) is the set of data provided by the process instance or task instance to the form. 
 There is no context for a process instantiation form.
 
 A [contract](contracts-and-contexts.md) is the definition of that data that the form returns to the process instance. There is no contract for an overview form.
@@ -25,4 +25,4 @@ The overview consists of three main sections:
 * List of documents: it shows the content of each document used by the case.
 * Timeline: it shows in chronological order information about all the actions that have been performed in the selected case.
 
-You can see how to manage the link between process and and form in the documenation about [live update](live-update.md#forms)
+You can see how to manage the link between process and and form in the documenation about [live update](live-update.md)

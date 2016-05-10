@@ -82,7 +82,7 @@ This is the [username of the platform adminstrator](first-steps-after-setup.md).
 platformAdmin
 
 technicalPassword
-This is the [password of the platform adminstrator](first-steps-after-setup.md#reset_pw).
+This is the [password of the platform adminstrator](first-steps-after-setup.md).
 platform
 
 ### ldap.properties

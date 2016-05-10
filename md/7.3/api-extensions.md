@@ -12,7 +12,7 @@ This page contains information about creating and deploying a REST API manually,
 ## Install a REST API extension
 
 To install a REST API extension, you need to import it into Bonita BPM Portal.
-Follow the steps to [import a resource](resource-management.md#import).
+Follow the steps to [import a resource](resource-management.md).
 
 REST API extensions use the same authorization mechanism as the standard Bonita BPM Web Rest APIs.
 When you import the extension, the information in `page.properties` is used to set the appropriate

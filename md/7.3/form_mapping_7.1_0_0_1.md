@@ -54,7 +54,7 @@ JSON representation of an array of form mappings
 
 #### Parameters
 
-[Standard search parameters](rest-api-overview.md#standard_search_params) are available to search form mappings.
+[Standard search parameters](rest-api-overview.md) are available to search form mappings.
 
 The following filters can be applied while searching form mappings:
 

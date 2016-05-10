@@ -73,10 +73,10 @@ This applies to the following tables: `arch_process_instance`, `arch_connector_i
 
 There is no guarantee that the Look & Feel definition is compatible across maintenance versions.
 For example, in 6.2.2, `jquery+` was renamed `jqueryplus` in `BonitaConsole.html`, for compatibility with more application servers.
-If you are using a custom Look & Feel, [export](managing-look-feel.md#export_current) it before migration.
-Then after the migration is complete, [export the default Look & Feel](managing-look-feel.md#export_default) from the new version,
-modify your custom Look & Feel to be compatible with the new definition, and with the [recommendations for form footers](creating-a-new-look-feel.md#migration).
-Then [import](managing-look-feel.md#import) your updated custom Look & Feel into Bonita BPM Portal.
+If you are using a custom Look & Feel, [export](managing-look-feel.md) it before migration.
+Then after the migration is complete, [export the default Look & Feel](managing-look-feel.md) from the new version,
+modify your custom Look & Feel to be compatible with the new definition, and with the [recommendations for form footers](creating-a-new-look-feel.md).
+Then [import](managing-look-feel.md) your updated custom Look & Feel into Bonita BPM Portal.
 
 The migration script supports MySQL, Postgres, Oracle, and MS SQLServer. There is no migration for h2 databases.
 
@@ -147,7 +147,7 @@ bpm
 
 Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
 `db.url=jdbc:mysql://localhost:3306/bonita_migration?allowMultiQueries=true`.
-5. If you use a custom Look & Feel, [export](managing-look-feel.md#export_current) it, and then [restore the default Look & Feel](managing-look-feel.md#restore_default).
+5. If you use a custom Look & Feel, [export](managing-look-feel.md) it, and then [restore the default Look & Feel](managing-look-feel.md).
 6. Stop the application server and database server.
 7. **IMPORTANT:**
 [Back up your platform](back-up-bonita-bpm-platform.md) and database in case of problems during migration.
@@ -183,7 +183,7 @@ The `bonita_home` and the database have been migrated.
 Use the license request utility of the new version to create the license request key.
 18. Start the application server. Before you start Bonita BPM Portal, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal pages instead of the new version. 
 Log in to the Portal and verify that the migration has completed. 
-If you did not set the default Look & Feel before migration and you cannot log in, you need to [restore the default Look & Feel](managing-look-feel.md#restore_default) using a REST client or the Engine API.
+If you did not set the default Look & Feel before migration and you cannot log in, you need to [restore the default Look & Feel](managing-look-feel.md) using a REST client or the Engine API.
 
 The migration is now complete. If you were using a custom Look & Feel before migration, test it on the new version before applying it to your migrated platform.
 

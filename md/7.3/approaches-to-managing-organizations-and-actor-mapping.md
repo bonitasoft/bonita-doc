@@ -9,7 +9,7 @@ The next three sections describe typical approaches, two using LDAP and one main
 
 ## Maintain organization in LDAP and map actors to groups
 
-If the groups within your organization are suitable for mapping to the actors in your processes, you can use these groups when [mapping actors](actors.md#Mapping_an_actor).
+If the groups within your organization are suitable for mapping to the actors in your processes, you can use these groups when [mapping actors](actors.md).
 
 If you are using the Bonita BPM Performance, Efficiency, or Teamwork edition, you can [define the actor mapping in Bonita BPM Portal](processes.md) after a process is deployed. 
 For the Community edition, you [specify the
@@ -17,12 +17,12 @@ actor mapping in Bonita BPM Studio](actors.md), so you need to [define the group
 
 ## Maintain organization in LDAP and map actors to roles or memberships
 
-If the groups within your organization are not suitable for mapping to actors in your processes, you can use roles or memberships when [mapping actors](actors.md#Mapping_an_actor). 
+If the groups within your organization are not suitable for mapping to actors in your processes, you can use roles or memberships when [mapping actors](actors.md). 
 A membership is a combination of a group and a role.
 
-If you are using the Bonita BPM Performance, Efficiency, or Teamwork edition, you can [define the actor mapping in Bonita BPM Portal](processes.md#importmap) after a process is deployed. 
+If you are using the Bonita BPM Performance, Efficiency, or Teamwork edition, you can [define the actor mapping in Bonita BPM Portal](processes.md) after a process is deployed. 
 For the Community edition, you [specify the
-actor mapping in Bonita BPM Studio](actors.md#Mapping_an_actor), so you need to [define the roles and memberships in Bonita BPM Studio](organization-management-in-bonita-bpm-studio.md). However, you only need to create the roles and memberships that are used in actor mappings.
+actor mapping in Bonita BPM Studio](actors.md), so you need to [define the roles and memberships in Bonita BPM Studio](organization-management-in-bonita-bpm-studio.md). However, you only need to create the roles and memberships that are used in actor mappings.
 
 In Bonita BPM Portal, [define the roles and memberships](role.md) used in the actor mappings, and [specify the roles of the users](manage-a-user.md). User roles are specified using a membership.
 
