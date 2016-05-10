@@ -4,7 +4,7 @@ This page explains the lifecycle of creating an application or a process using B
 lifecycle, different people with different knowledge and skills play
 roles. These people are identified by profiles.
 
-  ![Lifecycle and profiles diagram](../images/images-6_0/lifecycle-app.png)
+  ![Lifecycle and profiles diagram](images/images-6_0/lifecycle-app.png)
   Lifecycle and profiles
 
 There are three major phases in the lifecycle.This page introduces these three phases, and explains

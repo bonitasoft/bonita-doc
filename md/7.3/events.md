@@ -62,11 +62,11 @@ To define the deadline, select the non-interrupting boundary timer, go to the De
 
 ### Example: Using cron to specify a timer cycle
 
-  ![Example of defining a cycle with cron](../images/images-6_0/cron_timer_cycle.png)
+  ![Example of defining a cycle with cron](images/images-6_0/cron_timer_cycle.png)
 
 ### Example: Using a script to specify a time or date
 
-  ![Example of defining a date with a script in the expression editor](../images/images-6_0/exp_ed_date_example.png)
+  ![Example of defining a date with a script in the expression editor](images/images-6_0/exp_ed_date_example.png)
 
 ## Message events
 

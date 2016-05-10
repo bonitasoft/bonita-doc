@@ -27,7 +27,7 @@ For example, you can create a file mycss.css with this content:
 6. Select this widget.
 7. In the property panel add your CSS class  
 
-![CSS asset](../images/images-6_0/cssasset.png)
+![CSS asset](images/images-6_0/cssasset.png)
 
 8. Click on the preview button. You will see white text on a gray background.
 
@@ -59,7 +59,7 @@ To add and use this asset:
 6. Create a JavaScript expression that calls the "hi" function. 
 7. Add an input widget linked to the "name" variable and a text widget linked to the hi variable.  
 
-![CSS asset](../images/images-6_0/jsasset.png)
+![CSS asset](images/images-6_0/jsasset.png)
 
 8. Click on the preview button. You will see a page containing the welcome message. The name will change when you change the value of the name variable. 
 

@@ -68,16 +68,16 @@ In this case the Admin can check the failure on a connector:
 2. On the Failed page, in the section Technical details, this shows the Connector has failed.
 3. Click on **More**
 
-![failed](../images/images-6_0/connector_failed.png)
+![failed](images/images-6_0/connector_failed.png)
 
 4. There can be a list of connectors in different states. Here we can see the connector that has failed.
 
-![failed](../images/images-6_0/connector_failed_details.png)
+![failed](images/images-6_0/connector_failed_details.png)
 
 5. Click on the **Failed** link.
 6. A pop-up window **Failure details** displays the error message and the details of the message.
 
-![failed](../images/images-6_0/connector_failed_stack.png)
+![failed](images/images-6_0/connector_failed_stack.png)
 
 There are 2 solutions:
 

@@ -151,19 +151,19 @@ Module description file
 
 PostgreSQL
 modules/org/postgresql/main
-[module.xml](../images/special_code/postgresql/module.xml)
+[module.xml](images/special_code/postgresql/module.xml)
 
 Oracle
 modules/com/oracle/main
-[module.xml](../images/special_code/oracle/module.xml)
+[module.xml](images/special_code/oracle/module.xml)
 
 SQL Server
 modules/com/sqlserver/main
-[module.xml](../images/special_code/sqlserver/module.xml)
+[module.xml](images/special_code/sqlserver/module.xml)
 
 MySQL
 modules/com/mysql/main
-[module.xml](../images/special_code/mysql/module.xml)
+[module.xml](images/special_code/mysql/module.xml)
 
   
 Put the driver jar file in the relevant `main` folder.

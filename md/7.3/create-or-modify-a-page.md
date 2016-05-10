@@ -29,7 +29,7 @@ With the form type set to **UI Designer**, you can select a form from the dropdo
 After a page, layout, form, fragment is created, you can update it in the **Page editor**. Update your page, form or fragment by dragging and dropping widgets from the palette to the whiteboard. Edit widget properties in the widget properties panel, create data, and bind it to the widgets.
 
 In the Performance and Efficiency editions, you can optimize the page or form design for a given device type by configuring [device-specific values for the Width property](widget-properties.md) for widgets. Use the a device types bar in the Page editor to choose the target device type.
-![Device type selection](../images/images-6_0/pb-resolution.png)
+![Device type selection](images/images-6_0/pb-resolution.png)
 
 Custom widget is a special artifact that we will explain in a later chapter.
 
@@ -47,13 +47,13 @@ Custom widget is a special artifact that we will explain in a later chapter.
 You can export a page or a layout to deploy it in Bonita BPM Portal as a custom page.
 You can export any artifact to import it into another UI Designer.
 
-To export an artifact, click the **_Export_** button ![Export button](../images/images-6_0/pb-export.png) on the Page editor or the UI Designer home page. A zip file is downloaded to your computer. It contains a Bonita BPM custom page, which also suitable for import into another UI designer.
+To export an artifact, click the **_Export_** button ![Export button](images/images-6_0/pb-export.png) on the Page editor or the UI Designer home page. A zip file is downloaded to your computer. It contains a Bonita BPM custom page, which also suitable for import into another UI designer.
 
 After export you can modify your page or layout code by directly editing the code located in _resources_ folder. Be aware that such a modification to the code will work when the page or layout is deployed in Bonita BPM Portal but it may be broken if you import the page into another UI Designer.
 
 ## Import an artifact
 
-To import an artifact from another UI Designer, go to the UI Designer home page and click the **_Import_** button ![Import button](../images/images-6_0/pb-import.png). When you import a page, layout, form or fragment, its dependencies (such as custom widgets and fragments used) are automatically be imported too.
+To import an artifact from another UI Designer, go to the UI Designer home page and click the **_Import_** button ![Import button](images/images-6_0/pb-import.png). When you import a page, layout, form or fragment, its dependencies (such as custom widgets and fragments used) are automatically be imported too.
 
 Warning: an artifact that has not been designed with the UI Designer cannot be imported into the UI Designer.
 

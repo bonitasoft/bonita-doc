@@ -118,7 +118,7 @@ Use an online Json checker to make sure there are no format errors in the file. 
   }
 ```
 
-You can [download a copy of this `localization.json` file](../images/special_code/localization.json) for testing.
+You can [download a copy of this `localization.json` file](images/special_code/localization.json) for testing.
 
 In the UI designer, import this file as an asset of the travel tool page. This will replace any existing `localization.json` file. Save the page.
 
@@ -130,7 +130,7 @@ In the custom widget editor, use the the _uiTranslate_ filter or the _ui-transla
 
 Now preview the page in each language. To do this, you need to modify the language used for Bonita BPM web applications, which you do by setting the Portal language from the Portal Settings menu.
 
-![Multi-language page previews](../images/images-6_0/l10n-combined-previews.png)
+![Multi-language page previews](images/images-6_0/l10n-combined-previews.png)
 
 Check the translated versions of the page, and update the translated text if necessary. To update the translations, edit your `localization.json` file and then upload it again.
 Adjust the page layout if necessary to allow for language differences. Your multi-language page is now complete, ready to be included in an application and deployed.

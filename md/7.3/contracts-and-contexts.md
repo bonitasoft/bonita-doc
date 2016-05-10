@@ -24,14 +24,14 @@ Go to the **Details** panel, **Execution** tab, **Contract** pane. In the Inputs
 
 In the Leave Request Process example, the contract inputs and the constraints would be similar to the following:
 
-  ![](../images/images-6_0/contractDoc.PNG)
+  ![](images/images-6_0/contractDoc.PNG)
 
 
-  ![](../images/images-6_0/ConstraintsDoc.PNG)
+  ![](images/images-6_0/ConstraintsDoc.PNG)
 
 
 Stacktrace example in case of contract violation:
-  ![](../images/images-6_0/constraintError.PNG)
+  ![](images/images-6_0/constraintError.PNG)
 
 Supported input types:
 

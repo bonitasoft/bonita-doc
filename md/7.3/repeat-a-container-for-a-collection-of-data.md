@@ -8,7 +8,7 @@ A collection is an array of data referenced by a variable. The UI Designer provi
 * _$item_: the element of the current iteration
 * _$collection_: the current collection (not available in releases earlier than 7.1.3)
 
-![Collection variables](../images/images-6_0/UID_ContainerCollection.png)
+![Collection variables](images/images-6_0/UID_ContainerCollection.png)
 
 The rest of this page contains some examples of how to repeat the content of a container over a collection.
 
@@ -56,7 +56,7 @@ This section shows how to update the container that you defined in the previous 
 
 3. Check the Preview, which should look something like this:
 
-![Simple collection repeated](../images/images-6_0/UID_ContainerSimpleFruitsAddRemove.png)
+![Simple collection repeated](images/images-6_0/UID_ContainerSimpleFruitsAddRemove.png)
 
 A user can now add a new fruit or remove a fruit, dynamically changing the collection.
 
@@ -118,6 +118,6 @@ This section explains how to update the container configuration to handle a stru
   * **Item to remove**: _$item_, to specify the current element
 6. Check the Preview, which should look something like this:
 
-![Simple collection repeated](../images/images-6_0/UID_ContainerStructuredFruitsAddRemove.png)
+![Simple collection repeated](images/images-6_0/UID_ContainerStructuredFruitsAddRemove.png)
 
 You can rename, add, and remove fruits, and add or remove countries, dynamically changing the structure of your collection.

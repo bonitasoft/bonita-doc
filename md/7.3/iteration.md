@@ -8,7 +8,7 @@ You can start several instances of a task at the same time, which is call multi-
 
 Use multi-instantiation if you want several instances of a task to be performed in parallel. For example, in a process for reviewing a document, you would issue the document to all reviewers at the same time, then collect all their feedback before moving to the next step.
 
-  ![Multi-instantiation](../images/images-6_0/multi_inst.png)
+  ![Multi-instantiation](images/images-6_0/multi_inst.png)
 
 To configure multi-instantiation, select the element in the diagram and go to the Details panel, General tab, Iteration pane. Specify the following:
 
@@ -33,9 +33,9 @@ To configure multi-instantiation, select the element in the diagram and go to th
 
 Use a loop if you want a task to be performed several times, one after another, with no result data, until a condition is met. The condition can be a number of iterations, or can be set as an expression. The test for the condition can be done at the end of an iteration or at the start.
 
-  ![Looping with Test Before](../images/images-6_0/loop_testBefore.png)
+  ![Looping with Test Before](images/images-6_0/loop_testBefore.png)
 
-  ![Looping with Test After](../images/images-6_0/loop_testAfter.png)
+  ![Looping with Test After](images/images-6_0/loop_testAfter.png)
 
 To configure a loop, select the element in the diagram and go to the Details panel, General tab, Iteration pane. Specify the following:
 

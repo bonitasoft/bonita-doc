@@ -15,7 +15,7 @@ See also:
 [Complex data types](create-a-complex-data-type.md)  
 [Data handling in a form](variables.md)  
 
-  ![Scope of variables](../images/images-6_0/variables_scope.png)
+  ![Scope of variables](images/images-6_0/variables_scope.png)
 
 Best practice:
 

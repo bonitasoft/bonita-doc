@@ -35,7 +35,7 @@ required. The combination of a group and a role for a user is called a
 membership. A user can have several
 memberships but each one must apply to a different group.
 
-![The structure of MyCorp](../images/images-6_0/admin_org_MyCorp_structure.png)
+![The structure of MyCorp](images/images-6_0/admin_org_MyCorp_structure.png)
 
 In this corporation, there is a hierarchical structure, with
 the following units:
@@ -63,7 +63,7 @@ MyCorp is conducting trials of a new process to control just-in-time parts
 delivery from a supplier, you could create a group that contains the specific
 users involved in the trials. The figure below shows the groups in the MyCorp organization, seen in Bonita BPM Studio.
 
-![The groups of MyCorp](../images/images-6_0/admin_org_mycorp_groups.png)
+![The groups of MyCorp](images/images-6_0/admin_org_mycorp_groups.png)
 
 All the users who participate in a process must be in the
 same Bonita BPM organization. For example, if you use a process to track order

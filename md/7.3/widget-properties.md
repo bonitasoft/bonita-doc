@@ -12,7 +12,7 @@ Note: In versions 7.0 and 7.0.1, a property value was specified as either a cons
 
 A property that requires a constant value is presented in the Properties panel as a radio button set, drop-down list, or number selector (for the Width property). Select the required value.
 
-### Dynamic - ![Expression icon](../images/images-6_0/UID-property-bond-expression.svg)
+### Dynamic - ![Expression icon](images/images-6_0/UID-property-bond-expression.svg)
 
 Use a dynamic value field to specify a constant (the default) or an expression. Click the expression icon fx to switch from constant to expression. Click the constant icon X to switch from expression to constant. An expression can include a variable to make the property value dynamic, or can simply be the name of a variable. You can apply a filter to a variable value using a pipe. The binding to the
 variable is a read. If you want to write to the variable, use a bidirectional bond. 
@@ -23,11 +23,11 @@ Examples:
 * Define table headers as the value of a variable: _myArrayVariable_
 * Apply a filter to the value of a variable: _selectedUser | json_
 
-### Bidirectional bond - ![Dynamic icon](../images/images-6_0/UID-property-bond-chain.png)
+### Bidirectional bond - ![Dynamic icon](images/images-6_0/UID-property-bond-chain.png)
 
 Use a bidirectional field to specify a read-write binding between the property value and a variable.
 
-### Interpolation - ![interpolation icon](../images/images-6_0/UID-property-bond-interpolation.png)
+### Interpolation - ![interpolation icon](images/images-6_0/UID-property-bond-interpolation.png)
 
 Use an interpolation field to enter text to display in the widget. The text can include variables that are interpreted using AngularJS interpolation. When the page is displayed, the variables are replaced by the interpolated values. Specify a variable as a simple expression enclosed in double braces, using the same format as for a dynamic value field.
 Example: I'm sorry, _{{ user.name | uppercase }}_. I'm afraid I can't do that.
@@ -42,7 +42,7 @@ Specify the width of the widget relative to the container it is in, or to the pa
 
 In the Performance and Efficiency editions, you can set a different value for the width property for each device type. Select the target device type in the top bar, then set the value of the Width property.
 
-![Device type selection](../images/images-6_0/pb-resolution.png)
+![Device type selection](images/images-6_0/pb-resolution.png)
 
 Example: A form has three fields, First name, Last name, and Membership number. 
 On a mobile device, you want the fields to occupy the maxiumum width of the screen, each one of a separate line. 
@@ -57,13 +57,13 @@ For laptop and desktop devices, you want all three fields to be in the same line
 
 When you preview the form for each of the device types, you see the following:
 
-![Device type selection](../images/images-6_0/mobile.png)
+![Device type selection](images/images-6_0/mobile.png)
 
-![Device type selection](../images/images-6_0/tablet.png)
+![Device type selection](images/images-6_0/tablet.png)
 
-![Device type selection](../images/images-6_0/laptop.png)
+![Device type selection](images/images-6_0/laptop.png)
 
-![Device type selection](../images/images-6_0/desktop.png)
+![Device type selection](images/images-6_0/desktop.png)
 
 ### CSS classes
 

@@ -26,11 +26,11 @@ To add a widget in a new row, a container has two dropzones where you can drop a
 
 Example 1: add a title widget in a new row above a paragraph widget:
 
-![drop at the top](../images/images-6_0/create-row-top.png)
+![drop at the top](images/images-6_0/create-row-top.png)
 
 Example 2: add a paragraph widget in a new row below a title widget:
 
-![drop at the bottom](../images/images-6_0/create-row-bottom.png)
+![drop at the bottom](images/images-6_0/create-row-bottom.png)
 
 When you drop a widget in one of these two zones, a new row is automatically created.
 

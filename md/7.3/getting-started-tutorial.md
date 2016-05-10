@@ -232,7 +232,7 @@ The other borders of the lane coincide with the pool border so are not visible.
 Then go to the **Details** panel, **General** tab, **Pool** pane, and click **_Edit..._** next to the **Name** field. Enter the new pool name, _Travel Request_, in the popup.
 When you have renamed the diagram and the pool, the diagram looks like this:
 
-  ![Diagram with names changed](../images/images-6_0/7.0-getting-started-renamed-diagram.png)
+  ![Diagram with names changed](images/images-6_0/7.0-getting-started-renamed-diagram.png)
    
 6. Now add the tasks to the diagram. This process starts when an employee fills in a travel request form. You do not need to create a task for this because it is this action that triggers the process to start. This is known as process initiation. A **form for process initiation** is defined at the pool level.
 7. Define what happens after the user submits a request form: the manager reviews the travel request and approves or refuses it. You can use the example task that was added to the diagram automatically. Click on the task name and change it to _Manager review_.
@@ -240,7 +240,7 @@ When you have renamed the diagram and the pool, the diagram looks like this:
 
 When you have finished, your diagram should look like this:
 
-![Completed diagram](../images/images-6_0/7.0-getting-started-completed-diagram.png)
+![Completed diagram](images/images-6_0/7.0-getting-started-completed-diagram.png)
 
 ### Define business variables
 
@@ -348,7 +348,7 @@ Repeat these steps for to define the operation for _refusalReason_.
 
 When both of the operations are defined, the **Details** panel should look like this:
 
- ![Manager review operations](../images/images-6_0/7.0-getting-started-operations.png)
+ ![Manager review operations](images/images-6_0/7.0-getting-started-operations.png)
 
 ### Specify actors
 
@@ -431,7 +431,7 @@ This will enable the Submit button only when the form content is valid.
 
 The form should now look like this in the page editor:
 
-  ![Process instantiation form](../images/images-6_0/7.2-getting-started-inst-form-validation.png)
+  ![Process instantiation form](images/images-6_0/7.2-getting-started-inst-form-validation.png)
 
 Now that the form is functional, we are going to improve its appearance to make it more user-friendly:
 
@@ -447,7 +447,7 @@ Now that the form is functional, we are going to improve its appearance to make 
 
 When you have finished, the preview of the form looks like this:
 
-  ![Process instantiation form](../images/images-6_0/7.2-getting-started-inst-form-rendering.png)
+  ![Process instantiation form](images/images-6_0/7.2-getting-started-inst-form-rendering.png)
 
 Now define the form for the _Manager review_ task. Start by automatically generating the form from the context, then add widgets to display the request details for the manager to review. Follow these steps:
 
@@ -507,7 +507,7 @@ Otherwise, the field will be marked as required and the form validation will pre
 14. Select the _Submit_ widget and bind its _Disabled_ property to `$form.$invalid`
 15. Preview the form to test the validation and rearrange the widgets until it looks like this in the editor:
 
-  ![Process instantiation form](../images/images-6_0/7.2-getting-started-review-form.png)
+  ![Process instantiation form](images/images-6_0/7.2-getting-started-review-form.png)
 
 ## Run process
 

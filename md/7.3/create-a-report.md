@@ -148,7 +148,7 @@ Create the report properties using iReport as following:
 3. Add the properties based on the widgets you need.
 
 Here is an example of a report configuration containing a "Period" date range and a "State" select widget:
-![Widget property example in iReport](../images/images-6_0/exampleswidgets.png)
+![Widget property example in iReport](images/images-6_0/exampleswidgets.png)
 
 ### Package a report for Bonita BPM Portal integration
 

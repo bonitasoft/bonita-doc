@@ -13,7 +13,7 @@ You can import an existing page, form, or layout to edit, or duplicate existing 
 A page (but also a form or a layout) is constructed as a vertical arrangement of rows. A row is a mechanism for aligning widgets, from top left to bottom right. When you create a new, empty, page, it contains a row. A row occupies the whole width of the page, which is considered to be 12 units. The actual width is calculated when the page is displayed. The rows are indicated by a thin pale grey rectangle on the left side of the whiteboard. 
 
 To move or delete a row, position your mouse in the row, and the row toolbar is displayed.
-![row toolbar](../images/images-6_0/row-over.png)
+![row toolbar](images/images-6_0/row-over.png)
 
 Use the controls in the toolbar to move the row up or down, or to delete it. 
 
@@ -27,7 +27,7 @@ There are also some structure widgets called containers, which you can use to st
 
 Once a container is added to the page, it contains a row. Therefore, widgets can be dropped in a container row or directly on a whiteboard row. In this example, you can see a container with four rows.
 
-![A 4 row container](../images/images-6_0/row-normal.png)
+![A 4 row container](images/images-6_0/row-normal.png)
 
 The behavior of a page is determined by the widget properties. Any property you configure for a container is applied to all widgets in the container unless you override it with a widget-specific value.
 
