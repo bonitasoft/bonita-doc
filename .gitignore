@@ -5,3 +5,6 @@ _book
 **/managed-schema
 **/*.bak
 **/*.pdf
+site/app/html/**/*.html
+site/app/html/**/taxonomy.json
+site/app/html/**/!index!.html
