@@ -44,7 +44,9 @@ An JavaScript expression variable is a JavaScript function. During the evaluatio
 `var result = $data.expenses * 2;
     return result;`
 
-Every time something happens on the page, expressions are reevaluated and the previous value is overwritten. Therefore you cannot bind the resul tof an expression to a user input.
+An expression often relies on other variables as dependencies. When one of these variables changes, the expression is reevaluated and the previous value is overwritten. 
+For example, create a `login` expression variable: `return $data.firstname.toLowercase() + '-' + $data.lastname.toLowercase()`. Its dependencies are the two variables `firstname` and `lastname`. 
+Create two input widgets "First name" and "Last name" bound the two variables, and a text widget "Login" to display the result of the expression. When the user fills out the two input fields, the expression is updated. If the login value is manually edited before the user fills out the fields, then its value is overwritten.
 
 ## Using a variable
 
