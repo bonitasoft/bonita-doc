@@ -62,25 +62,3 @@ Then run
 A web server will be launched which convert the requested md file to the html version (currently without any style).  
 A livereload is also set up and allows any change to the `md` file to reload its html version in the browser.
 
-## Development
-
-The documentation site is located in the `site` folder. More information inside it.
-
-## Tree structure 
-
-### md
-
-It contains the documentation files in the markdown format. 
-
-### html
-
-html version of the md files, it is meant to disappear
-
-### site
-
-it contains the actual development files to create the documentation site
-
-## Release Process
-
-check the site folder [README.md](site/README.md) out.
-
