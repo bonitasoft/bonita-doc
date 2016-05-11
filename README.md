@@ -22,17 +22,17 @@ You can check its content once committed in the github site (simple view) or usi
 Currently, this page has no links that point to it, so would be able to find it unless you know the address.  
 You need to edit the taxonomy to be able to find it the taxonomy tree.
 
-The taxonomy is created from the `all.md` file in each site version.  
+The taxonomy is created from the `taxonomy.md` file in each site version.  
 In our case, we also want to add a _Howto_ section in the taxonomy tree, so we first create a new item inside the `all.md`. Then we create a entry point for our new tutorial inside the _Howto_ section:
 
     * [Howtos](howtos.md)
-      * [Manage form control/validation](howtos/manage-control-in-forms.md)
+      * [Manage form control/validation](manage-control-in-forms.md)
 
 _Note_: Each link must be relative to the versions it is into (for resources too).
 
 We need to create the _howtos.md_ to have the list of items of this section in a dedicated page:
 
-    * [Manage form control/validation](howtos/manage-control-in-forms.md)
+    * [Manage form control/validation](manage-control-in-forms.md)
 
 Now, starting from the visualization of the _all.md_ page, we can browse to the _manage-control-in-forms.md_ page.
 

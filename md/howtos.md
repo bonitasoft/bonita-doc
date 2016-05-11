@@ -1,2 +1,2 @@
-* [Manage form control/validation](howtos/manage-control-in-forms.md)
-* [Multiple references in business objects](howtos/bo-multiple-refs-tutorial.md)
+* [Manage form control/validation](manage-control-in-forms.md)
+* [Multiple references in business objects](bo-multiple-refs-tutorial.md)
