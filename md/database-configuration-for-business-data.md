@@ -20,25 +20,14 @@ In your RDBMS, make sure there is a user defined with privileges to create table
 
 Edit `bonita/engine-server/conf/tenants/`_`tenant-id`_`/bonita-tenant-community-custom.properties` for each tenant and set the `bdm.db.vendor` property to indicate the RDBMS vendor.
 The possible values for `bdm.db.vendor` are:
-Database vendor
-Property value
+| Database vendor | Property value |
+| --------------- | -------------- |
+| PostgreSQL | postgres |
+| Oracle database | oracle |
+| SQL Server | sqlserver |
+| MySQL | mysql |
+| h2 (default for testing, not for production) | h2 |
 
-PostgreSQL
-postgres
-
-Oracle database
-oracle
-
-SQL Server
-sqlserver
-
-MySQL
-mysql
-
-h2 (default for testing, not for production)
-h2
-
-  
 Setting the RDBMS vendor automatically configures the relevant Hibernate dialog. 
 If you need to change the Hibernate dialog for any reason, reset the vendor property for the tenant.
 
@@ -66,6 +55,8 @@ If you have multiple tenants that use business data objects, you need to create 
 The following sections show how to configuire the data sources for [JBoss](#ds_jboss) and [Tomcat](#ds_tomcat). 
 There is also an [example of how to configure data sources for Weblogic](red-hat-oracle-jvm-weblogic-oracle.md).
 
+<a id="db_jboss"/>
+
 ### Configuration for JBoss
 
 Edit the `/standalone/configuration/standalone.xml` configuration file and find the `BusinessDataDS` and `NotManagedBizDataDS` data sources definitions. 
@@ -90,6 +81,8 @@ See the RDBMS-specific examples to find the correct values for your RDBMS.
 
 **Note:** If you have multiple tenants that use business data objects, you need to declare separate data sources for each tenant. Make sure that the values of properties `jndi-name` and `pool-name` are unique. 
 Edit `bonita/engine-server/conf/tenants/`_`tenant-id`_`/bonita-tenant-community-custom.properties` file and set the tenant-specific JNDI data source name in `bdm.datasource.jndi.path` and `bdm.notmanageddatasource.jndi.path`.
+
+<a id="db_tomcat"/>
 
 ### Configuration for Tomcat
 

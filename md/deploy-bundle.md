@@ -20,7 +20,7 @@ As JBoss embeds Tomcat as a Servlet engine, these libraries are delivered both f
 
 ## Installation
 
-1. Download the deploy.zip file from the [Bonitasoft download page](http://www.bonitasoft.com/downloads) for the Community edition 
+1. Download the deploy.zip file from the [Bonitasoft download page](http://www.bonitasoft.com/downloads-v2) for the Community edition 
 or from the [Customer Portal](https://customer.bonitasoft.com/download/request) for Subscription editions.
 2. Unzip the `deploy.zip` into a temporary folder.
 3. Install Bonita BPM in your Application Server, by merging the appropriate folder (e.g. `Jboss-7.1.1.Final` or `Tomcat-7.0.55`) from `BonitaBPMSubscription-6.x.y-deploy` folder 
