@@ -30,7 +30,7 @@ Maven 3 is required on the CI server and the test development computer.
 Bonita BPM Studio enables business analysts and developers to collaborate on process design using a shared Subversion (SVN) repository.
 This tutorial assumes that you have access to a Subversion server.
 * Jenkins:
-The [Jenkins CI](http://jenkins-ci.org/) server is responsible for coordinating continuous build and test of your processes.
+The [Jenkins CI](https://jenkins.io/) server is responsible for coordinating continuous build and test of your processes.
 This tutorial assumes that Jenkins is up and running with Maven and Subversion plugins.
 
 ## Set up Bonita BPM Studio for CI

@@ -27,7 +27,7 @@ This zip file is a snapshot of the translation that are finished and are in prog
 4. Find the `.po` files for the language you want to add. Each `.po` file has a language indicator and a locale indicator. 
 For example, the files for the Russian language contain `ru_RU`. Extract the files with the language and locale that you want to add to the Portal.
 5. For a Subscription version of the Portal, you also need the files from `/bonita-web-sp/portal` for your chosen language and locale.
-6. Optionally, customize the translation by editing the `.po` files with a UTF-8 editor such as [Poedit](https://www.poedit.net/).
+6. Optionally, customize the translation by editing the `.po` files with a UTF-8 editor such as [Poedit](https://poedit.net/).
 7. Copy the `.po` files to `bonita_home/client/platform/work/i18n/`. 
 In a development environment where you are launching Bonita BPM Portal from Bonita BPM Studio, add the files to `/workspace/tomcat/bonita/client/platform/work/i18n` (the bonita\_home used by the Portal).
 8. Restart your application server (or restart Bonita BPM Studio). The next time Bonita BPM Portal starts, it will detect the new language and add it to the list in the **Settings** menu.

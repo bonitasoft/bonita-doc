@@ -12,11 +12,11 @@ _Design a task contract and associated operations to update a business object wi
 
 Create an **Expense** business object like below.
 
-<img alt="Expense business object" src="../../images/bdm-tuto/bdm-expense.png" title="Expense business object" height="500px">
+<img alt="Expense business object" src="images/bdm-tuto/bdm-expense.png" title="Expense business object" class="img-responsive">
 
 Then create **ExpenseReport** business object referencing multiple expenses by composition.
 
-<img alt="Expense report business object" src="../../images/bdm-tuto/bdm-expense-report.png" title="Expense report business object" height="500px">
+<img alt="Expense report business object" src="images/bdm-tuto/bdm-expense-report.png" title="Expense report business object" class="img-responsive">
 
 ## Design the expense report process
 
@@ -47,7 +47,7 @@ Then create **ExpenseReport** business object referencing multiple expenses by c
 * Go to Execution > Contract property tab
 * Create a contract like below
 
-<img alt="Contract" src="../../images/bdm-tuto/contract.png" title="Contract" width="1000px">
+<img alt="Contract" src="images/bdm-tuto/contract.png" title="Contract" class="img-responsive">
 
  _newExpenses_ input is used to gather a list of new expenses to add to the report
  _expensesToDelete_ input is used to gather a list of *Expense* id to delete
@@ -120,7 +120,7 @@ You may now run the process and validate the expected behavior using autogenerat
 http://localhost:8080/bonita/API/bdm/businessData/com.company.model.ExpenseReport/1/expenses
 
 It should display this result according to the initialization of the report business variable.
-```
+```json
 [
 	{
 	"persistenceId":1,
@@ -147,14 +147,14 @@ It should display this result according to the initialization of the report busi
 
 * Perform the Update expense report task like below
 
-<img src="../../images/bdm-tuto/form1.png" height="500px">
-<img src="../../images/bdm-tuto/form-2.png" height="500px">
+<img src="images/bdm-tuto/form1.png" classes="img-responsive">
+<img src="images/bdm-tuto/form-2.png" classes="img-responsive">
 
 * In a web browser, check the content of your report calling the following Rest API: 
 http://localhost:8080/bonita/API/bdm/businessData/com.company.model.ExpenseReport/1/expenses
 
 It should display the following result:
-```
+```json
 [
 	{
 	"persistenceId":1,

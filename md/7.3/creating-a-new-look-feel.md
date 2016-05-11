@@ -2,8 +2,7 @@
 
 A Look & Feel is defined in a set of files. You can set the Look & Feel for the Bonita BPM Portal Web interface, an application, a custom page, or for the Bonita BPM Portal Mobile interface. 
 
-This page explains how to modify the Look & Feel of Bonita BPM Portal and of forms in processes run from the Portal. You can also [specify the Look & Feel of a web application in Bonita BPM Studio](specify-look-and-feel.md). 
-The definition in the Portal overrides the definition created in Studio. 
+This page explains how to modify the Look & Feel of Bonita BPM Portal and of forms in processes run from the Portal.
 
 ## Introduction
 

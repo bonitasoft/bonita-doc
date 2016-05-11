@@ -7,7 +7,7 @@ Using a leave request management process example, you will learn how to take adv
 You will design a simple leave request management process using Bonita BPM 7 and beyond:
 First things first, draw the wireframe of the process. In Bonita BPM Studio, since the instantiation of a new leave request happens at pool level, add a simple validation task, rename the pool _Leave request management_, and rename the lane _manager_, as shown here: 
 
-![Simple process](../../images/leave request management process.png)
+![Simple process](images/leave request management process.png)
 
 Then, define a business object that will hold the leave requests data when the process instances are ongoing, and store it when the instances are archived:
 In Bonita BPM Studio menu, go to **Development** > **Business Data Model** > **Manage** option, and add a business object named _LeaveRequest_, with 4 attributes:
@@ -31,7 +31,7 @@ Each entry of the contract is bound to a business object property:
 
 ... as shown here:
 
-![Leave Request - Instantiation contract](../../images/ContractSimple.png)
+![Leave Request - Instantiation contract](images/ContractSimple.png)
 
 You can also add constraints on the contract inputs in the **Constraints** tab.
 
@@ -47,11 +47,11 @@ By default, this form contains a **form container** with 4 **widgets** matching 
 
 ... as shown here: 
 
-![Generated form](../../images/GeneratedForm.png)
+![Generated form](images/GeneratedForm.png)
 
 You can check what it will look like once deployed by clicking on **Preview**, as shown here:
 
-![Generated form preview](../../images/GeneratedForm-preview.png)
+![Generated form preview](images/GeneratedForm-preview.png)
 
 ## Basic contract validation and constraints
 You can notice that:
@@ -61,7 +61,7 @@ You can notice that:
 
 If one of the input constraints is invalid, an error message is displayed below the input field. In the example, the only input constraint is **required**, so an error message is displayed if you edit and reset a field, as shown here: 
 
-![Form is invalid](../../images/GeneratedForm-preview-error.png)
+![Form is invalid](images/GeneratedForm-preview-error.png)
 
 Once all fields have values, the form can be submitted, the contract validated by the process, and the new process instance can be started.
 
@@ -76,7 +76,7 @@ Now, to alert the user that an input is not valid with a red border around inval
 Inside a form container, AngularJS provides a special variable called **$form**.  
 This variable holds the validation state of the inputs, selects and textareas of the current form container. 
 
-Here is an extract from the [AngularJS documentation site](../../images/https://docs.angularjs.org/guide/forms) that explains the purpose of this feature.
+Here is an extract from the [AngularJS documentation site](https://docs.angularjs.org/guide/forms) that explains the purpose of this feature.
 
 >From an AngularJS point of view, a form is a collection of controls for the purpose of grouping related controls together.
 >
@@ -117,7 +117,7 @@ In the same way, to show the user which inputs are valid, edit the CSS file to a
     }
 In the UI Designer preview, the form looks like it is shown here:
 
-![Leave Request - filling form](../../images/preview-feedbackon-inputs.png)
+![Leave Request - filling form](images/preview-feedbackon-inputs.png)
 
 _Note_: The properties of the form controls also apply to the $form variable.  
 So in this case, the $form variable has the properties $invalid, $valid, $pristine and $dirty dependending on the value of each of its controls: if one of the controls has a property set to true then the $form matching property is set to true.
@@ -165,7 +165,7 @@ To hide these fields when no error are detected, go to the **Hide** property of 
 
 ... as shown here:
 
-![Leave Request - errorPanel - required - properties](../../images/errorPanelFragment-required-properties.png) ![Leave Request - errorPanel - date - properties](../../images/errorPanelFragment-date-properties.png)
+![Leave Request - errorPanel - required - properties](images/errorPanelFragment-required-properties.png) ![Leave Request - errorPanel - date - properties](images/errorPanelFragment-date-properties.png)
 
 Then, to change the default style of the **p** html tag and have a little more margin, open the _validationStyle.css_ file and add the following:
 
@@ -177,7 +177,7 @@ Go back to the home page, and then open the leave request form again.
 From the palette, add a **title** widget to the top of the form. In the **text** property, write _Leave request_.  
 In the palette on the left, select **Fragments**, and then drag and drop the fragment just created below the form title, as shown here (from the preview):
 
-![Leave request - filling invalid form with error panel](../../images/GeneratedForm-preview-summary-error.png)
+![Leave request - filling invalid form with error panel](images/GeneratedForm-preview-summary-error.png)
 
 ### Use a **select** widget for the leave type
 
@@ -215,7 +215,7 @@ Server-side validation is still necessary for a secure application.
 For this reason, we need to add some constraints to the contract, process side, one for each rule.  
 Go back to the Studio, and at pool level, go to the **Execution** pane > **Contract** > **Constraints** tabs to define the constraints as shown here:
 
-![Leave Request - Contract constraints](../../images/Constraints.png)
+![Leave Request - Contract constraints](images/Constraints.png)
 
 The server error response message on submit when one of the constraints fails has an _explanations_ attribute.  
 This attribute is an array of the error message of each constraint that has failed.
@@ -231,7 +231,7 @@ Inside this container, add a **text** widget. In its **CSS classes** property, t
 Now go back to the studio and run the process to test the form error messages on submit.  
 Setting a start date older than an end date will produce the following screen (given that other fields are set correctly):
 
-![Leave Request - error on instantiate process](../../images/InstantiationForm-errorOnSubmit.png)
+![Leave Request - error on instantiate process](images/InstantiationForm-errorOnSubmit.png)
 
 ### Use frontend validation
 
@@ -254,7 +254,7 @@ The value is:
 Then, on the **Number of days** input widget, set the **Min value** property to 0.5 and set the **Max value** property to `remaingDays[formInput.leaveRequest.type]`.  
 Doing this allows to validate the number of days value according to the leave type.
 
-![Number of days Input widget - value control](../../images/nbDays-widget-property.png)
+![Number of days Input widget - value control](images/nbDays-widget-property.png)
 
 Change the inputs order to give the form a more more natural flow (type before number of days).
 
@@ -263,7 +263,7 @@ In the same way, the $error will hold the attributes **min** and **max** when va
 
 On the form, if you set a wrong input in the _number of days_ after setting the _type_ to **Personal Leave**, it looks like this:
 
-![Number of days Input widget - value control -preview](../../images/nbDays-value-control.png)
+![Number of days Input widget - value control -preview](images/nbDays-value-control.png)
 
 #### Text input value control
 
@@ -276,7 +276,7 @@ To make it required when it is displayed, change the **Required** property to an
 
 In the **Label** property, type `Comment`  and in the **Value** property, type `formInput.leaveRequest.comment`, as shown here:.
 
-![Leave Request - Comment Widget properties](../../images/comment-widget-property.png)
+![Leave Request - Comment Widget properties](images/comment-widget-property.png)
 
 To compell the user to enter a text that will be the right size, add some form control on this widget by setting values to _5_ to **Value min length** and _100_ to **Value max length**.
 
@@ -285,4 +285,4 @@ In the same way, the $error will hold the attribute **minlength** and **maxlengt
 
 Run your process and test your form with an incorrect comment size; it will look like this:
 
-![Leave Request preview - Error on comment](../../images/GeneratedForm-preview-comment-error.png)
+![Leave Request preview - Error on comment](images/GeneratedForm-preview-comment-error.png)

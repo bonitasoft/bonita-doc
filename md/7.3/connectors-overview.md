@@ -43,6 +43,8 @@ all outputs
 For details of the APIs, the methods and related objects, see the 
 [Javadoc](javadoc.md).
 
+<a id="Importing_a_connector"/>
+
 ## Importing and exporting a connector into Bonita BPM Studio
 
 You can import a connector that was created using the connecctor development toolkit or that was exported from another Bonita BPM Studio. The connector is imported as a zip file.
