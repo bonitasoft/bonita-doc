@@ -12,8 +12,8 @@ In Bonita BPM Portal, a user with the Administrator profile active can view all 
 
 The Administrator has the right to:
 
-* [import an organization exported from Bonita BPM Studio](importexport-an-organization.md)
-* [export an organization from Bonita BPM Portal](importexport-an-organization.md)
+* [import an organization exported from Bonita BPM Studio](import-export-an-organization.md)
+* [export an organization from Bonita BPM Portal](import-export-an-organization.md)
 * [create and delete groups](group.md)
 * [create and delete roles](role.md)
 * [create and manage users](manage-a-user.md) and manage memberships

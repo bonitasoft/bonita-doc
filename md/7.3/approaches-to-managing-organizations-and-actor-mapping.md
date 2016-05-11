@@ -29,7 +29,7 @@ In Bonita BPM Portal, [define the roles and memberships](role.md) used in the ac
 ## Maintain organization manually
 
 For smaller organizations that do not use LDAP, or if you are using the Community edition, you can maintain your organization manually.
-Typically, you [manage an organization manually using Bonita BPM Studio](organization-management-in-bonita-bpm-studio.md), and then [import it into Bonita BPM Portal](importexport-an-organization.md). 
+Typically, you [manage an organization manually using Bonita BPM Studio](organization-management-in-bonita-bpm-studio.md), and then [import it into Bonita BPM Portal](import-export-an-organization.md). 
 This means that the organization management and actor mapping are carried out in the same tool, from a single set of data.
 
 Alternatively, you can initialize the organization in Bonita BPM Studio with just the elements needed for actor mapping. Then export this to Bonita BPM Portal and [manage the users in the Bonita BPM Portal](manage-a-user.md).

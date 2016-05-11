@@ -88,8 +88,8 @@ In this case, you will need to update the value of the JVM system properties, so
 The var\_bonita\_home folder provided in the deploy bundle can be used in various situations, such as:
 
 * Installation "from scratch" of the Bonita BPM Platform
-* LDAP synchronizer that use Bonita Client Library to communicate with Bonita BPM Engine ([see below](#ldap))
-* Creation of an application that uses the Bonita Client Library ([see below](#client))
+* LDAP synchronizer that use Bonita Client Library to communicate with Bonita BPM Engine (see _ldap synchronizer_ below)
+* Creation of an application that uses the Bonita Client Library (see _client application_ below)
 
 If, for example, you have an uncompressed version of the deploy bundle called "**BonitaBPMCommunity-7.0.0-deploy**", the var\_bonita\_home folder will be called "**bonita\_home-7.0.0**".
 

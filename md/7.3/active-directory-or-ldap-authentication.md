@@ -111,8 +111,7 @@ for AD and user the DN (same as above) for other LDAP servers.
 
 ### Create or edit the configuration file for your application server
 
-**Note:** all configuration files are case sensitive. You can find more examples in the [JAAS
-configuration files examples](#examples) section of this page.
+**Note:** all configuration files are case sensitive. You can find more examples in the [JAAS configuration files examples](#examples) section of this page.
 
 #### **JBoss**
 
@@ -186,6 +185,8 @@ To do this for a system running Tomcat you need to edit the
 * Locate the line that starts: `set CATALINA_OPTS=`
 * Add the tag `%SECURITY_OPTS%` after the tag `%BONITA_HOME%`
 
+<a id="examples"/>
+
 ## JAAS configuration files examples
 
 **Note:** Remember to remove the debug flag for production.
@@ -197,7 +198,7 @@ To do this for a system running Tomcat you need to edit the
 #### Search allowed for all users
 
 In this example, the user name is john.smith:
-`
+```
 BonitaAuthentication-1 {
     com.sun.security.auth.module.LdapLoginModule sufficient
     userProvider="ldap://localhost:389/CN=Users,DC=MyDomain,DC=com"
@@ -206,10 +207,10 @@ BonitaAuthentication-1 {
     debug=true
     useSSL=false;
     };
-`
+```
 
 In this example, the user name is john.smith@mydomain.com:
-`
+```
 BonitaAuthentication-1 {
     com.sun.security.auth.module.LdapLoginModule sufficient
     userProvider="ldap://localhost:389/CN=Users,DC=MyDomain,DC=com"
@@ -218,12 +219,12 @@ BonitaAuthentication-1 {
     debug=true
     useSSL=false;
     };
-`
+```
 
 #### Search allowed only for a technical users
 
 In this example, the user name is john.smith:
-`
+```
 BonitaAuthentication-1 {
     com.sun.security.auth.module.LdapLoginModule sufficient
     userProvider="ldap://localhost:389/CN=Users,DC=MyDomain,DC=com"
@@ -234,13 +235,13 @@ BonitaAuthentication-1 {
     debug=true
     useSSL=false;
     };
-`
+```
 
 ### Other LDAP servers
 
 #### Build the user DN using the user name
 
-`
+```
 BonitaAuthentication-1 {
         com.sun.security.auth.module.LdapLoginModule sufficient
         userProvider="ldap://localhost:389"
@@ -248,7 +249,7 @@ BonitaAuthentication-1 {
         debug=true
         useSSL=false;
         };
-    `
+```
 
 ## Known limitations
 
@@ -257,9 +258,10 @@ it's likely that the user will have to type a username including domain name whe
 
 ## Troubleshooting
 
-If necessary, you can enable JAAS debug mode by editing your configuration file and adding the following line: `
+If necessary, you can enable JAAS debug mode by editing your configuration file and adding the following line: 
+```
 debug=true
-`
+```
 
 On Active Directory, a common error code is:
 `LDAP: error code 49 - 80090308: LdapErr: DSID-0C0903A9, comment: AcceptSecurityContext error, data 52e, v1db1`.

@@ -19,7 +19,7 @@ For more information and details of how to install Bonita BPM Studio on a system
 
 For a Subscription edition of Bonita BPM Studio, go to the [Customer Portal](https://customer.bonitasoft.com/download/request) and request a download.
 
-For the Community edition of Bonita BPM Studio, go to the Bonitasoft website [downloads page](http://www.bonitasoft.com/downloads). 
+For the Community edition of Bonita BPM Studio, go to the Bonitasoft website [downloads page](http://www.bonitasoft.com/downloads-v2). 
 On this page there are buttons to download the Studio installer for your current operating system and the _all in one_, OS-independent version. 
 To download the installer for a different operating system, select it from the drop-down menu beside the **Choose** button, and click **_Choose_**. 
 Then click the **_Download_** button.

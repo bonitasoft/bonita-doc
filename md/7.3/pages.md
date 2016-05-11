@@ -15,14 +15,14 @@ Pages are [exported. imported, modified, and deleted](resource-management.md) as
 ## Custom page definition
 
 A page resource has the general [resource definition](resource-management.md). 
-If it contains an `Index.groovy` file, this must implement the [PageController interface](#pageController), optionally with libraries. 
+If it contains an `Index.groovy` file, this must implement the PageController interface optionally with libraries. 
 If you create a custom page with the UI designer, it has the reequired structure and content automatically.
 
 A custom page is displayed inside an iframe to prevent conflicts between the portal resources (for example JS and CSS) and those used in the custom page. 
 This also reduces the risk of migration issues, for example if a custom page uses the version of JQuery provided with Bonita BPM Portal and it is updated.
 
 ### PageController interface
-`
+```java
 public interface PageController {
 
 /**
@@ -35,7 +35,7 @@ public interface PageController {
 */
 public void doGet(HttpServletRequest request, HttpServletResponse response, PageResourceProvider pageResourceProvider, PageContext pageContext);
 }
-`
+```
 
 ## Custom page examples
 
@@ -54,23 +54,23 @@ Two example custom pages are available in the portal. Both examples show how to:
 **HTML example page** defines a custom page using only HTML. 
 In practice, you will probably use a combination of Groovy and HTML to create your custom pages.
 
-To view an example page, [publish the page to a custom profile](#publish) so that you can view it in the portal. To view the source of an example, [export the custom page](#export).
+To view an example page, publish the page to a custom profile so that you can view it in the portal. To view the source of an example, export the custom page.
 
 On the [Customer Portal](https://customer.bonitasoft.com/), there is also an example in the form of a seed project for creating custom pages using AngularJS and a customizable example task list page.
 
 ## Using Bonita BPM Portal content
 
 You can reuse pages from the Bonita BPM Portal in your custom pages. For example, in a page giving details of a case history, you could include the live case status diagram to show the current status. For example, for case 1 of process definition 8270554088248243867, include these lines in your custom page definition:
-`
+```groovy
 def idProcess = "8270554088248243867";
 def idCase = "1";
 out.write("""""");
-`
+```
 
 This displays the case diagram exactly as it appears in the standard Bonita BPM Portal page. You can modify the view to hide the Portal **Back** button by adding `?diagramOnly` to the URL:
-`
+```groovy
 out.write("""""");
-`
+```
 
 ### Debugging a custom page in development
 
@@ -85,7 +85,7 @@ To work on a page in debug mode:
 3. You can now update `Index.groovy` and the contents of the `lib` directory directly in `/client/tenants//work/pages/`.
 4. To view the page after you modify it, refresh the page in the browser.
 
-When you have finished developing the page, recreate the custom page zip archive, and then [modify the page](#edit) to import it. This makes your final version of the page permanently available.
+When you have finished developing the page, recreate the custom page zip archive, and then modify the page to import it. This makes your final version of the page permanently available.
 
 ## Constraints
 

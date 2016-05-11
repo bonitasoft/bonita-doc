@@ -17,7 +17,7 @@ When these three stages are complete, you can start JBoss to validate the instal
 
 For the Community edition:
 
-* Go to the [Bonitasoft website](http://www.bonitasoft.com/downloads) and get the Bonita BPM Community edition JBoss bundle.
+* Go to the [Bonitasoft website](http://www.bonitasoft.com/downloads-v2) and get the Bonita BPM Community edition JBoss bundle.
 
 For a Subscription edition:
 

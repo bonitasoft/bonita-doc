@@ -35,7 +35,7 @@ For example:
 ## Queriable log
 
 You can use the [queriable logger service](queriable-logging.md) to log in a database the creation, deletion or update of bonita objects that are not related to a process (for instance users, groups, roles, profiles). 
-Items that can be [archived](#archive) cannot be included in the queriable log.
+Items that can be archived cannot be included in the queriable log.
 
 To configure what information you want to record in the quieriable log, modify the `bonita-tenant-sp-custom.properties` in `/engine-server/conf/tenants/tenant-template`.
 This file contains a map of available events. By default all are logged (the value is set to true). If you do want to log a particular event, set the value to false and restart the Bonita BPM Engine.

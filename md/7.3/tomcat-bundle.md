@@ -21,7 +21,7 @@ Therefore, using Bitronix as a Transaction Manager with SQL Server is not recomm
 
 For the Community edition:
 
-* Go to the [Bonitasoft website](http://www.bonitasoft.com/downloads) and get the Bonita BPM Community edition Tomcat bundle.
+* Go to the [Bonitasoft website](http://www.bonitasoft.com/downloads-v2) and get the Bonita BPM Community edition Tomcat bundle.
 
 For a Subscription edition:
 

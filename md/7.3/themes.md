@@ -24,7 +24,7 @@ contentType=theme
 
 Any CSS, images or JavaScript files can be shared using a theme resource.
 
-[Export the examples](#export) to see how to structure a theme.
+Export the examples to see how to structure a theme.
 
 The default themes are based on the [bootswatch example](https://bootswatch.com/), so you can easily choose another existing theme and package it to define a new theme. 
 

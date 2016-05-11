@@ -61,6 +61,8 @@ However, at this stage the application contains only the default home page. You 
 
 **Note:** When you define the URL token for an application, you cannot use "API","content" or "theme" (case insensitive). Those words are reserved for internal use.
 
+<a id="layout"/>
+
 ### Specifying application layout (Subscription editions)
 
 Each application is associated with a [layout](layouts.md) that defines the main frame of this application.
@@ -73,6 +75,8 @@ To specify the application layout:
 4. Click in the name of the current layout.
 5. Choose the new layout from the drop down list. Layouts must be previously deployed.
 6. Click on the validate button.
+
+<a id="theme"/>
 
 ### Specifying application theme (Subscription editions)
 

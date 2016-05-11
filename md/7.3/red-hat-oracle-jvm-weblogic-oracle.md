@@ -35,7 +35,7 @@ The instructions below explain how to set up the Oracle Java 7 JDK using the Red
 ### Prerequisite
 
 First, you need to add **RHEL EUS Server Supplementary** to your system
-[subscriptions](https://access.redhat.com/site/documentation/en-US/Red_Hat_Subscription_Management/1/html/Subscription_Concepts_and_Workflows/index.html).
+[subscriptions](https://access.redhat.com/documentation/en-US/Red_Hat_Subscription_Management/1/html/Subscription_Concepts_and_Workflows/index.html).
 In fact Oracle Java is provided only in this subscription.
 
 To install Oracle Java JDK:

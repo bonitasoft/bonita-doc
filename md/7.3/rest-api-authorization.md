@@ -244,6 +244,8 @@ Otherwise, access is refused.
 If access is not authorized, a message is written in the log so that the Administrator is aware that an unauthorized user has tried to gain access.
 Note that this level of logging is only available if you [set the logging level](logging.md) to `FINEST`.
 
+<a id="custom_pages"/>
+
 ## Authorizing access to a custom page
 
 When a new [custom page](pages.md) is added, the permissions defined in the page properties are added to the permissions configuration files and the cache.
@@ -255,12 +257,14 @@ Depending on the permissions that a user of the page already has, it might be ne
 When a new [custom profile](custom-profiles.md) is created, the permissions mappings are updated in the configuration files and in the cache.
 It is not necessary to restart the application server to activate security for the new custom profile.
 
+<a id="activate"/>
+
 ## Activating and deactivating authorization
 
 `security-config.properties` contains a Boolean property that specifies whether authorization is activated. To activate authorization, set this property to `true`:
-`
+```
 security.rest.api.authorizations.check.enabled true
-`
+```
 
 To activate authorization, edit `security-config.properties` and set the value of the `security.rest.api.authorizations.check.enabled` property to `true`, then restart the application server.
 
@@ -273,6 +277,8 @@ edit `web.xml` and comment out the following definitions:
 `
 `
 
+<a id="debug"/>
+
 ### Running in debug mode
 
 If debug mode is activated, whenever you update a configuration file or a dynamic check script, the changes take effect immediately.
@@ -280,6 +286,8 @@ If debug mode is activated, whenever you update a configuration file or a dynami
 To activate debug mode, edit `security-config.properties` and set the value of the `security.rest.api.authorizations.check.debug` property to `true`, then restart the application server.
 
 To deactivate authorization, set the property to `false`, then restart the application server. Debug mode should be deactivated in production, so as not to impact performance.
+
+<a id="migrate"/>
 
 ### Migration
 When you migrate from a version earlier than 6.4.0, authorization is configured to be off (`security.rest.api.authorizations.check.enabled` is set to `false`).

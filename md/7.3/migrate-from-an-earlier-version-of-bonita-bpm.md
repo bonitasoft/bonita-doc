@@ -98,12 +98,14 @@ Target version:
 Time required:
 2.5 minutes
 
+<a id="migrate"/>
+
 ## Migrate your platform
 
 This section explains how to migrate a platform that uses one of the Bonita BPM bundles.
 
 1. Download the target version bundle and the migration tool for your Edition from the
-[BonitaSoft site](http://www.bonitasoft.com/how-we-do-it/downloads) for Bonita BPM Community edition
+[BonitaSoft site](http://www.bonitasoft.com/downloads-v2) for Bonita BPM Community edition
 or from the [Customer Portal](https://customer.bonitasoft.com/download/request) for Bonita BPM Subscription Pack editions.
 2. Unzip the migration tool zip file into a directory. In the steps below, this directory is called `bonita-migration`.
 3. Add the JDBC driver for your database type to `bonita-migration/lib`. This is the same driver as you have installed in

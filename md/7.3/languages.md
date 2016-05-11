@@ -27,7 +27,7 @@ This zip file is a snapshot of the translation that are finished and are in prog
 4. Find the `.po` files for the language you want to add. Each `.po` file has a language indicator and a locale indicator. 
 For example, the files for the Russian language contain `ru_RU`. Extract the files with the language and locale that you want to add to the Portal.
 5. For a Subscription version of the Portal, you also need the files from `/bonita-web-sp/portal` for your chosen language and locale.
-6. Optionally, customize the translation by editing the `.po` files with a UTF-8 editor such as [Poedit](http://www.poedit.net/).
+6. Optionally, customize the translation by editing the `.po` files with a UTF-8 editor such as [Poedit](https://www.poedit.net/).
 7. Copy the `.po` files to `bonita_home/client/platform/work/i18n/`. 
 In a development environment where you are launching Bonita BPM Portal from Bonita BPM Studio, add the files to `/workspace/tomcat/bonita/client/platform/work/i18n` (the bonita\_home used by the Portal).
 8. Restart your application server (or restart Bonita BPM Studio). The next time Bonita BPM Portal starts, it will detect the new language and add it to the list in the **Settings** menu.
@@ -50,9 +50,9 @@ For the Community version, you only need the files from the `/bonita-web` folder
 
 ## How to translate Bonita BPM Portal to any other language
 
-1. Go to [crowdin.com](http://crowdin.com).
+1. Go to [crowdin.com](https://crowdin.com).
 2. Create an account and join the project **Bonita BPM 6.0**. The same project is used for 6.x and 7.x translations.
-3. Once you have joined the [project](http://crowdin.com/project/bonita-bpm-60), there are 2 possible cases:
+3. Once you have joined the [project](https://crowdin.com/project/bonita-bpm-60), there are 2 possible cases:
 
 #### Complete an ongoing translation
 
@@ -63,6 +63,6 @@ For the Community version, you only need the files from the `/bonita-web` folder
 
 #### A language is not listed
 
-* If the language you need is not listed, you can contact us on our [Community forum](http://community.bonitasoft.com/groups/community-tools/new-bug-tracker-and-traduction-tools-jira-and-crowdin).
+* If the language you need is not listed, you can contact us on our [Community forum](http://legacy.community.bonitasoft.com/groups/community-tools/new-bug-tracker-and-traduction-tools-jira-and-crowdin).
 
 For more information about translations of Bonita BPM and how you can get involved, see the [Community translations site](http://community.bonitasoft.com/contribute/translate).

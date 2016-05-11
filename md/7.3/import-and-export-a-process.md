@@ -18,7 +18,7 @@ You can import diagrams that were exported from the following tools:
 * XPDL 1.0
 * jBPM 3.2
 
-You can also [migrate a process diagram from Bonita Open Solution 5.x](migrate-a-process-from-bonita-open-solution-5x.md).
+You can also [migrate a process diagram from Bonita Open Solution 5.x](migrate-a-process-from-bonita-open-solution-5-x.md).
 
 ### What is supported or compatible?
 
@@ -51,7 +51,7 @@ This feature is available in the Performance, Efficiency, and Teamwork editions.
 * The Visio import format must be .vdx. The .vsd format is not supported in Bonita BPM Studio.
 * Only horizontal display is supported.
 * The vertical display will be converted and interpreted as a _mirror image_ of the process.
-* Visio supports all shapes defined in the BPMN 1.2 standard. See [here for more info about Visio compatibility](https://blogs.msdn.microsoft.com/visio/2009/12/03/bpmn-support-in-visio-2010).
+* Visio supports all shapes defined in the BPMN 1.2 standard. See [here for more info about Visio compatibility](https://blogs.msdn.microsoft.com/visio/2009/12/03/bpmn-support-in-visio-2010/).
 
 #### Aris BPM 7.x (\*.xml)
 

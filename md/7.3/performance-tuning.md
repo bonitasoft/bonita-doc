@@ -51,6 +51,8 @@ Performance tuning checklist of best practises:
 * Add a reasonable number of well-developed [event handlers](#event_handlers).
 * Tuned the Bonita BPM Engine [cron jobs](#cron) for your needs.
 
+<a id="engine_access"/>
+
 ## Engine access
 
 This section deals with performance impact of your choice of [Engine access mode](development-overview.md).
@@ -58,10 +60,14 @@ This section deals with performance impact of your choice of [Engine access mode
 There are various ways to access the Engine APIs provided by Bonita BPM Engine. Choose the most suitable access mode for your deployment, requirements, and preferences. 
 The access modes rely on different technologies and have different benefits and drawbacks. In this section, we will describe the performance characteristics of each mode.
 
+<a id="local"/>
+
 ### Local access
 
 This is undoubtedly the fastest way to access this engine, because it means a direct Java call with nothing additional between client and server. 
 The deployment constraint is that the client of the engine must be located in the same JVM as the engine server.
+
+<a id="remote"/>
 
 ### Remote access
 
@@ -75,10 +81,14 @@ The engine server access mode is defined per client in the _`bonita home`_`/clie
 If you have a client located in the same JVM as your server, configure it to use the local access mode. 
 You can then configure other clients to use one of the remote modes but you do not penalize the client able to leverage the local access performance.
 
+<a id="ejb3"/>
+
 #### EJB3
 
 EJB3 access is serialized data using RMI protocol. 
 This protocol comes with a cost, and this cost is dependent of the implementation in the EJB container you are using.
+
+<a id="http"/>
 
 #### HTTP
 
@@ -94,6 +104,8 @@ Currently, there is no configuration for this pool though this might be added in
 See the [Apache documentation](http://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.html) for more information.
 
 Data sent is serialized using a Java library called XStream. This serialization also has a cost.
+
+<a id="rest"/>
 
 #### REST
 
@@ -116,6 +128,8 @@ This means that every thread that deals with process execution applies the follo
 do the minimum that makes sense in the current transaction to get to a stable state, and then continue in another transaction inside another thread. 
 The great benefit of this is that the caller is not locked while the engine processes something that might be long (such as a long sequence of tasks with connectors.).
 
+<a id="client_threads"/>
+
 ### Client Threads
 
 Client threads are responsible for a large part of the load generated inside the engine. 
@@ -131,6 +145,8 @@ See the [Tomcat documentation](http://tomcat.apache.org/tomcat-7.0-doc/) for inf
 * **Red Hat JBoss** `maxThreads` set in _`JBoss_folder`_`/server/default/deploy/jbossweb.sar/server.xml`.   
 Default value 200\. 
 See the [JBoss documentation](http://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch02.html) for information about the `maxThreads` parameter.
+
+<a id="work_service"/>
 
 ### Work service
 
@@ -169,6 +185,8 @@ Setting a high `queueCapacity` limit means that more work can be queued, but can
 It is essential to ensure that the queue never becomes full (`queueCapacity` is never reached). 
 If the queue becomes full, the application restarts in order to force the engine to generate all work from the database. This means that work is lost.
 
+<a id="connector_service"/>
+
 ### Connector service
 
 The connector service executes connectors. To improve tenant isolation (and to protect against denial-of-service attacks), 
@@ -201,6 +219,8 @@ bonita.tenant.connector.timeout=300
 
 For details of these parameters, see [Work service](#work_service).
 
+<a id="scheduler_service"/>
+
 ### Scheduler service
 
 The Scheduler service is responsible for executing jobs. 
@@ -215,6 +235,8 @@ You can configure:
 bonita.platform.scheduler.quartz.threadpool.size=5
 bonita.platform.scheduler.batchsize=1000
 `
+
+<a id="db_connections"/>
 
 ### Database connections
 
@@ -237,6 +259,8 @@ To make sure that this datasource is not a bottleneck, define the maximum number
 The desired number of parallel processing threads is the sum of the number of workers (see [Work service](#work_service)) plus a percentage of the number of scheduler threads 
 (see [Scheduler Service](#scheduler_service)) plus a percentage of the number of concurrently external API calls (see [Client threads](#client_threads)).
 
+<a id="datasource_settings"/>
+
 ### Datasources settings
 
 You need to configure the maximum pool size for datasources (the following paths are for bundle users):
@@ -250,9 +274,13 @@ For JBoss:
 
 * For both bonitaDS and bonitaSequenceManagerDS, edit `server/default/deploy/bonita-ds.xml` and set `yourvalue`.
 
+<a id="volume"/>
+
 ## Volume
 
 This section deals with some aspects of engine configurations that have a performance impact in the case of high volume.
+
+<a id="seq_mgr"/>
 
 ### Sequence manager
 
@@ -303,6 +331,8 @@ Lockable : null
 A soft-locked cache entry was expired by the underlying Ehcache. If this happens regularly you should consider increasing the cache timeouts and/or capacity limits   
 `
 
+<a id="app_cache"/>
+
 ### Application cache
 
 Bonita BPM Engine uses an application cache to store specific objects. The default implementation of this service relies on EhCache. It is configured in these files:
@@ -346,6 +376,8 @@ used to store platform object, which contains general platform information such 
 parameterCacheConfig
 stores process parameters
 
+<a id="jvm"/>
+
 ### Java Virtual Machine
 
 You can configure the JVM settings for the engine to tune performance.
@@ -354,6 +386,9 @@ Check the [JVM documentation](http://docs.oracle.com/javase/7/docs/technotes/too
 Notably, we recommend you to set the initial (`-Xms`) and maximum (`-Xmx`) heap sizes to the same value. 
 This reduces the likelihood of the JVM garbage collector starting. 
 While the garbage collector is running, it prevents creation of new objects, which slows down the application server.
+
+<a id="network"/>
+<a id="hardware"/>
 
 ## Hardware and network
 
@@ -378,6 +413,8 @@ Bonita BPM Engine relies on several other components that each have their own pe
 Some of them are key for the system and you should pay a lot of attention to them. 
 In most cases, the key things to consider are the [database](#db), [transaction manager](#tm), and [logs](#logs).
 
+<a id="db"/>
+
 ### Database
 
 Bonita BPM Engine uses the database heavily, so in consequence a slow database makes the engine slow.
@@ -392,6 +429,8 @@ Your database configuration must be correlated with the Bonita BPM Engine usage 
 To find the right characteristic to optimize, one good starting point is to consider whether you are creating a lot of process instances 
 (in which case optimize database writes) or you are executing a lot of read queries like `getTaskList` (in which case optimize database reads).
 
+<a id="tm"/>
+
 ### Transaction manager
 
 Bonita BPM Engine is natively compatible with the Java Transaction API. This means transaction management relies on a transaction manager. 
@@ -400,6 +439,8 @@ Otherwise, you have to embed a transaction manager (for example, we embed Bitron
 
 A transaction manager manages a transaction log and also frequently has notions of internal pooling. 
 For example, in [Bitronix](https://github.com/bitronix/btm/wiki/JDBC-pools-configuration) you can configure some options for the transaction journal. 
+
+<a id="logs"/>
 
 ### Logs
 
@@ -421,17 +462,23 @@ To activate connector time tracking:
 
 ## Process design, event handlers, and cron jobs
 
+<a id="process_design"/>
+
 ### Process design
 
 There are several things you can do during the process design to reduce performance overheads. 
 This is mostly related to reducing usage of extension points when possible. 
 Consider carefully your usage of connectors, groovy scripts, XML and serializable data.
 
+<a id="event_handlers"/>
+
 ### Event handlers
 
 Events handlers are extensions of the engine configuration. 
 You can add event handlers for several purposes and you can configure which events you want to catch. 
 We strongly recommend that you add only appropriate handlers and carefully code the handler filters to handle only those events that you are interested in.
+
+<a id="cron"/>
 
 ### Cron jobs
 
@@ -457,4 +504,4 @@ Property name: `org.bonitasoft.engine.clean.invalid.sessions.cron`
 
 These property values are configured in _`bonita_home`_`/server/platform/conf/bonita-platform.properties` and are used to initialize the Quartz trigger tables the first time that the Engine starts. 
 They are not read subsequently, so changing the values in `bonita-platform.properties` after the Engine has been started has no effect on Quartz. 
-For value definition, and information about how to update the Quartz trigger tables, see the [Quartz documentation](http://quartz-scheduler.org/documentation) about Cron Triggers.
+For value definition, and information about how to update the Quartz trigger tables, see the [Quartz documentation](http://www.quartz-scheduler.org/documentation/) about Cron Triggers.

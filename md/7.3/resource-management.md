@@ -35,7 +35,7 @@ For each REST resource accessed in other resources, specify the authorization ne
 You can find the relevant file in `bonita-home\client\tenants\[tenant-id]\conf\ResourcesPermissionsMapping`.
 
 The following example shows the permissions defined for a page that enables a user to view but not update organization information:
-`
+```
 #The name must start with 'custompage_'
 name=custompage_orgViewer
 displayName=Organization viewer
@@ -43,7 +43,7 @@ description=Organization viewer page. You cannot modify the organization from th
 resources=[GET|identity/user, GET|identity/personalcontactdata, GET|identity/professionalcontactdata, GET|identity/role, 
    GET|identity/group, GET|identity/membership, GET|customuserinfo/user, GET|customuserinfo/definition, GET|customuserinfo/value] 
 contentType=page  
-`
+```
 
 ## Exporting a resource
 
@@ -60,7 +60,7 @@ The zip archive is exported to the location you specified.
 
 ## Importing a resource
 
-To add a resource to the portal, import a zip archive that contains the [resource definition](#resource_definition).
+To add a resource to the portal, import a zip archive that contains the resource definition.
 
 1. As an Administrator, go to **Resources**. You will see the list of all resources, and a filter for each type of resource (Page, Forms, Layout, Theme and API extension).
 2. Click **_Add_**.
@@ -69,7 +69,7 @@ To add a resource to the portal, import a zip archive that contains the [resourc
 
 If you have specified a resource permission that is not defined in the [REST API authorization configuration](rest-api-authorization.md) and REST API authorization is configured to be on, you will see an error message.
 
-After a resource is added to the portal, it can be used in an [application](applications.md) or in[a custom profile](#custom-profiles-2).
+After a resource is added to the portal, it can be used in an [application](applications.md) or in a custom profile.
 
 ## Modifying a resource
 

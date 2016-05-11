@@ -24,5 +24,5 @@ Note: you cannot import a process definition `.bos` file into a version of Bonit
 that was used to create it.
 
 You can import a .bos file containing a process definiiton from a Bonita BPM 6.x or Bonita Open Solution 5.x. 
-The [guided migration](migrate-a-process-from-bonita-open-solution-5x.md) converts the 5.x process definition to use the legacy 6.x tooling so that the process can run on a Bonita BPM 7.x platform. 
+The [guided migration](migrate-a-process-from-bonita-open-solution-5-x.md) converts the 5.x process definition to use the legacy 6.x tooling so that the process can run on a Bonita BPM 7.x platform. 
 You can modify the process definition later to take advantage of the new features in this version of Bonita BPM.
