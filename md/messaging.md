@@ -10,85 +10,37 @@ You can use the expression editor to specify an expression to provide the value,
 The expression must return a value of the required type. To specify the message content, you can also use a rich text editor.
 
 **Connection information:**
-Input
-Description
-Type
 
-SMTP Host
-IP address or name of email server
-String
+| Input  | Description  | Type  | 
+| ------ | ------------ | ----- | 
+| SMTP Host  | IP address or name of email server  | String  |
+| SMTP Port  | Port defined for email system  | Number  |
+| Security \> SSL (not obligatory)  | Check the box if SSL security authorization is required  | |
+| Security \> STARTTLS (not obligatory)  | Check the box if STARTTLS security authorization is required  | | 
+| Authentication \> Username  | User name for the host account  | String  |
+| Authentication \> Password  | User password for the host account  | String  |
 
-SMTP Port
-Port defined for email system
-Number
-
-Security \> SSL (not obligatory)
-Check the box if SSL security authorization is required
-
-Security \> STARTTLS (not obligatory)
-Check the box if STARTTLS security authorization is required
-
-Authentication \> Username
-User name for the host account
-String
-
-Authentication \> Password
-User password for the host account
-String
-
-  
 **Addressing information:**
-Input
-Description
-Type
 
-From
-Sender email address
-String
-
-To
-Receiver email address
-String
-
-Other \> Reply to
-Email address to use when user tries to reply
-String
-
-Other \> CC
-Email address to use for a copy
-String
-
-Other \> BCC (hidden copy)
-Email address to use for a hidden copy
-String
+| Input  | Description  | Type  | 
+| ------ | ------------ | ----- |
+| From  | Sender email address  | String  |
+| To  | Receiver email address  | String  | 
+| Other \> Reply to  | Email address to use when user tries to reply  | String  | 
+| Other \> CC  | Email address to use for a copy  | String  | 
+| Other \> BCC (hidden copy)  | Email address to use for a hidden copy  | String  |
 
 **Message content:**
-Input
-Description
-Type
 
-Subject
-Text
-String
+| Input  | Description  | Type  | 
+| ------ | ------------ | ----- | 
+| Subject  | Text  | String  | 
+| Message  | Message content, which can be specified with the expression editor or with a WYSIWYG editor  | String  | 
+| Attachments  | Include email attachments defined as a variables or expressions  | String  |
 
-Message
-Message content, which can be specified with the expression editor or with a WYSIWYG editor
-String
-
-Attachments
-Include email attachments defined as a variables or expressions
-String
-
-  
 **Character set and additional header information (optional):**
-Input
-Description
-Type
 
-Character set
-Character set
-String
-
-Headers
-Add optional header information
-String
+| Input  | Description  | Type  |
+| ------ | ------------ | ----- |
+| Character set  | Character set  | String  |
+| Headers  | Add optional header information  | String  |
