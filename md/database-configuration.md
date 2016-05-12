@@ -45,8 +45,8 @@ Thus, using Bitronix as a Transaction Manager with SQL Server is not recommended
 If you do not complete the specific configuration for your RDBMS, your installation may fail.
 
 **Warning:** RDBMS configuration needs to be done before the first start of the application.
-This is because var\_bonita\_home and the database are initialized on first startup.
-Changing RDBMS configuration after first startup leads to incoherent data between var\_bonita\_home and the database.
+This is because {{ var\_bonita\_home }} and the database are initialized on first startup.
+Changing RDBMS configuration after first startup leads to incoherent data between {{ var\_bonita\_home }} and the database.
 
 ## Database creation
 
@@ -103,7 +103,7 @@ The way to define JVM system properties depends on your application server type:
 * For other application servers, refer to your application server documentation.
 
 An alternative to setting the JVM system property (`sysprop.bonita.db.vendor`) is to set `db.vendor` property value in the 
-`engine-server/conf/platform/bonita-platform-community-custom.properties` file of your var\_bonita\_home.
+`engine-server/conf/platform/bonita-platform-community-custom.properties` file of your {{ var\_bonita\_home }}.
 The default value of `db.vendor` indicates that the value of the JVM system property value must be used.
 If the property is not defined, the fallback value is h2: `db.vendor=${sysprop.bonita.db.vendor:h2}`
 

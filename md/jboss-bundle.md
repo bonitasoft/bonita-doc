@@ -1,6 +1,6 @@
 # JBoss bundle
 
-The JBoss bundle is a zip archive that contains the Red Hat JBoss JEE application server packaged with Bonita BPM web application and Bonita configuration folder (known as var\_bonita\_home). 
+The JBoss bundle is a zip archive that contains the Red Hat JBoss JEE application server packaged with Bonita BPM web application and Bonita configuration folder (known as {{ var\_bonita\_home }}). 
 The JBoss bundle is a regular zip archive based on the JBoss zip distribution.
 
 There are three stages to installing the JBoss bundle:

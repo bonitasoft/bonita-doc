@@ -41,13 +41,13 @@ The migration script migrates the following:
 * Engine database, including all data on active and archived process instances
 * Organization definition
 * Business data model, and the business data database
-* Runtime data in var\_bonita\_home
-* Configuration files in var\_bonita\_home, which are replaced with the default configuration files for the new version
+* Runtime data in {{ var\_bonita\_home }}
+* Configuration files in {{ var\_bonita\_home }}, which are replaced with the default configuration files for the new version
 * Log files from the previous version are not impacted by migration
 
 The following are not migrated automatically:
 
-* var\_bonita\_home customizations: Reapply your customizations manually after the migration script has finished.
+* {{ var\_bonita\_home }} customizations: Reapply your customizations manually after the migration script has finished.
 * Deployed process definitions: The process continue to run using the definition create in the previous version.
 * Process definition sources (`.bos` files): Migrate these by importing them into the new version of Bonita BPM Studio.
 * Custom connectors, actor filers, data types: These might continue to work in the new version, but should be tested.

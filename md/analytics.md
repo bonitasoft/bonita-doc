@@ -124,7 +124,7 @@ A report in the Bonita BPM Portal can be exported as a .pdf file.
 
 Japanese language support for reports is not provided by default. 
 In order to display the Japanese translations in the default PDF reports, you need to download the Japanese translation `my_report_ja_jp.properties` file from [Crowdin](http://translate.bonitasoft.org/). 
-If the tenant is deployed and your report has been displayed, open the directory of the report in the var\_bonita\_home folder
+If the tenant is deployed and your report has been displayed, open the directory of the report in the {{ var\_bonita\_home }} folder
 (`bonita/client/tenants/`_`yourTenantId`_`/work/reports/`_`yourReport`_). 
 Then add your "ja\_jp.properties" translation files to this directory. 
 If your report has never been displayed, go to your deployed war or ear \> `WEB-INF\classes` then edit your report zip file to add the Japanese properties file.

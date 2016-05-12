@@ -43,7 +43,7 @@ JSON representation of query result
 * q=queryName - the query name
 * p=0 - the page number
 * c=10 - the maximum number of results in the page
-* f=parameter=value - sets the parameter value according to business data query parameters defined in var\_studio
+* f=parameter=value - sets the parameter value according to business data query parameters defined in {{ var\_studio }}
 
 For a Boolean parameter, the accepted values are `true` or `false`.
 

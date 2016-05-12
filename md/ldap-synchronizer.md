@@ -35,7 +35,7 @@ Create a dedicated bonita.home for the LDAP Synchronizer, and set the API access
 The LDAP Synchronizer can use the HTTP, or EJB3 modes, but not local access. For more information about API access modes, 
 see the [Development overview](development-overview.md).
 
-There is a var\_bonita\_home directory in the deploy zip that can be used. Copy this directory into the LDAP synchronizer directory.
+There is a {{ var\_bonita\_home }} directory in the deploy zip that can be used. Copy this directory into the LDAP synchronizer directory.
 
 Customize the configuration for your system, by editing the configuration files. 
 There are some additional considerations for using the LDAP synchronizer in a non-default tenant.
@@ -67,7 +67,7 @@ Description
 Default
 
 bonita\_home
-The path to the var\_bonita\_home folder of the LDAP Synchronizer.
+The path to the {{ var\_bonita\_home }} folder of the LDAP Synchronizer.
 
 login
 The login to provide is a userName. 

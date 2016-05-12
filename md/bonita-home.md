@@ -1,13 +1,13 @@
 # Bonita home
 
-var\_bonita\_home is a folder which contains configuration, working, and temporary folders and files. This folder is used by Bonita BPM Engine, Bonita BPM Portal and the Bonita Client Library (Engine APIs client library packaged in bonita-client.jar).
+{{ var\_bonita\_home }} is a folder which contains configuration, working, and temporary folders and files. This folder is used by Bonita BPM Engine, Bonita BPM Portal and the Bonita Client Library (Engine APIs client library packaged in bonita-client.jar).
 
-The location of the var\_bonita\_home folder depends on your installation.
+The location of the {{ var\_bonita\_home }} folder depends on your installation.
 It is defined by a JVM system property called `bonita.home`.
 
-## Downloading var\_bonita\_home
+## Downloading {{ var\_bonita\_home }}
 
-There are two var\_bonita\_homes: one for the Community edition and one for the Subscription editions.
+There are two {{ var\_bonita\_home }}: one for the Community edition and one for the Subscription editions.
 If you are using a Subscription edition, you can change from one edition to another by updating the value of the `activeProfiles` key in 
 `engine-server/conf/platform-init/bonita-platform-init-community-custom.properties` before starting the platform.
 The value is a comma-separated list with no spaces. 
@@ -15,11 +15,11 @@ You must have a suitable license installed for the specified subscription editio
 
 **Important:** Performance edition users must add 'performance' to the default value so that the value is 'community,performance'.
 
-It is useful to store your var\_bonita\_home folder in a versioning or source code control system (such as Git), so that you have a record of the changes that you make.
+It is useful to store your {{ var\_bonita\_home }} folder in a versioning or source code control system (such as Git), so that you have a record of the changes that you make.
 
-## var\_bonita\_home folder structure
+## {{ var\_bonita\_home }} folder structure
 
-**Note**: the contents of the var\_bonita\_home folder depend on the Bonita BPM version and edition installed.
+**Note**: the contents of the {{ var\_bonita\_home }} folder depend on the Bonita BPM version and edition installed.
 
 * `client`: files related to Bonita BPM Portal:
   * `platform`: files that impact Bonita BPM Portal, no matter which tenant is called. Also includes reference template files used for each new tenant.
@@ -63,11 +63,11 @@ The files in this folder are used only by Bonita BPM Portal and have no impact o
   * `work`: folder containing the default configuration files. Do not modify them. The folder also serves as a storage location for some services. This folder cannot be deleted.
   * `temp`: folder containing the temporary files that services need. Subfolders of this folder can safely be deleted when the server is not running.
 
-## var\_bonita\_home location
+## {{ var\_bonita\_home }} location
 
 ### Bonita BPM Studio
 
-Bonita BPM Studio includes two copies of the var\_bonita\_home folder:
+Bonita BPM Studio includes two copies of the {{ var\_bonita\_home }} folder:
 
 1. `BonitaBPM[edition-name]-x.y.z/workspace/bonita`:  
 Studio uses the Bonita client library to communicate with the Bonita BPM Engine (part of the Bonita BPM Platform embedded in Studio for testing).  
@@ -77,33 +77,33 @@ This home is the configuration of the Bonita BPM Portal, client library and Engi
 
 ### Bonita BPM JBoss and Tomcat bundles
 
-In Tomcat and JBoss bundles, var\_bonita\_home is located at the root folder of the bundle.
+In Tomcat and JBoss bundles, {{ var\_bonita\_home }} is located at the root folder of the bundle.
 
-You might want to change location of var\_bonita\_home.
+You might want to change location of {{ var\_bonita\_home }}.
 
 In this case, you will need to update the value of the JVM system properties, so the path points to the new location.
 
 ### Deploy bundle
 
-The var\_bonita\_home folder provided in the deploy bundle can be used in various situations, such as:
+The {{ var\_bonita\_home }} folder provided in the deploy bundle can be used in various situations, such as:
 
 * Installation "from scratch" of the Bonita BPM Platform
 * LDAP synchronizer that use Bonita Client Library to communicate with Bonita BPM Engine (see _ldap synchronizer_ below)
 * Creation of an application that uses the Bonita Client Library (see _client application_ below)
 
-If, for example, you have an uncompressed version of the deploy bundle called "**BonitaBPMCommunity-7.0.0-deploy**", the var\_bonita\_home folder will be called "**bonita\_home-7.0.0**".
+If, for example, you have an uncompressed version of the deploy bundle called "**BonitaBPMCommunity-7.0.0-deploy**", the {{ var\_bonita\_home }} folder will be called "**bonita\_home-7.0.0**".
 
 ### LDAP synchronizer
 
 The LDAP synchronizer is in fact a Bonita client application.
 
-It relies on the Bonita client library and so requires a var\_bonita\_home folder.
+It relies on the Bonita client library and so requires a {{ var\_bonita\_home }} folder.
 
 If you need to configure LDAP synchronizer, refer to [LDAP synchronizer documentation](ldap-synchronizer.md).
 
 ### In your own client application
 
-Your application will need a var\_bonita\_home folder.
+Your application will need a {{ var\_bonita\_home }} folder.
 
 Because you are building a client application, you need only the `engine-client` folder, not the other folders.
 

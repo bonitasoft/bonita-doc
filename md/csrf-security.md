@@ -14,7 +14,7 @@ If the targeted end user is an administrator, the entire web application can be 
 
 ## How do I protect my application?
 
-A file called `security-config.properties` is located in the platform var\_bonita\_home (`/bonita/client/platform/conf`).
+A file called `security-config.properties` is located in the platform {{ var\_bonita\_home }} (`/bonita/client/platform/conf`).
 
 When CSRF protection is disabled, this file contains this line: 
 `

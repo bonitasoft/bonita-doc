@@ -31,7 +31,7 @@ into the existing root folder of your application server.
 
 If you are installing a Subscription edition, you need to [request a license](licenses.md). 
 
-When you receive your license, copy the file to the `var_bh_code_replace/server/licenses` folder of your application server.
+When you receive your license, copy the file to the `{{ var_bh_code_replace }}/server/licenses` folder of your application server.
 
 ## Edition specification
 
