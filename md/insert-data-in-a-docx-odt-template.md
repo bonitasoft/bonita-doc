@@ -57,12 +57,12 @@ The configuration is as follows:
 
 In this example, the key named `user` is mapped to the business variable `user`, the key named `leave` is mapped to the business variable `studyLeave`,
 and the key named `today` is mapped to a groovy script expression with the following content:
-`
-import java.text.SimpleDateFormat;
-        new SimpleDateFormat("yyyy/MM/dd").format(new Date())
-    `
-  
 
+```groovy
+        import java.text.SimpleDateFormat;
+        new SimpleDateFormat("yyyy/MM/dd").format(new Date())
+```
+  
 * If the keys are mapped with complex objects, pass the high level object to the mapping (eg. **'user'**). The connector will handle the sub-structure of this complex object (eg. **${user.firstName}**)
 * When using business variables, relations "loaded when needed" (lazy mode) are not loaded in a connector execution context. To use such relations, create new keys, like "userAddress" in the above example.
 * If the replacement value is null, then the field key will be rendered (eg. **${userAddress.line2}**). Use a "!" mark to render blank value, like **$!{userAddress.line2}** if userAddress.line2 may be null.
