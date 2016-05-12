@@ -27,31 +27,15 @@ When you [configure a process](configuring-a-process.md) that uses this connecto
 To configure the Talend Job launcher connector, follow the steps in the wizard.
 
 Specify the job as follows:
-Input
-Description
-Type
 
-Project name
-The name of the Talend project.
-string
+| Input  | Description  | Type  | 
+| ------ | ------------ | ----- | 
+| Project name  | The name of the Talend project  | string  | 
+| Job name  | The name of the job  | string  | 
+| Job version  | The version of the job  | string  |
+| Job parameters  | The parameters to pass to the job. Specify these either as a table of key-value pairs or as a Groovy expression  | string  | 
+| Print buffer output  | Whether you want to automatically print the content of the buffer returned by the job. Specify this either by checking the box or as an expression  | Boolean  | 
 
-Job name
-The name of the job.
-string
-
-Job version
-The version of the job.
-string
-
-Job parameters
-The parameters to pass to the job. Specify these either as a table of key-value pairs or as a Groovy expression.
-string
-
-Print buffer output
-Whether you want to automatically print the content of the buffer returned by the job. Specify this either by checking the box or as an expression.
-Boolean
-
-  
 When the connector runs in a process instance, it triggers the specified job in your Talend system, and retrieves the job output.
 
 ## Expression example
