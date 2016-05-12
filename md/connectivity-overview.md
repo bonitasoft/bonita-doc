@@ -1,18 +1,19 @@
 # Connectivity overview
 
-A connector is an element in a process that accesses an external system to read or write information. Bonita BPM contains a set of standard connectors. You can also create a custom connector using the [connector development toolkit](connector-development-toolkit.md).
+A connector is an element in a process that accesses an external system to read or write information. By extension, it also accounts for tools that modify data within a process like Office connectors that modify Bonita BPM documents.
 
-A connector consists of a definition, implementation, and configuration.
+Bonita BPM contains a set of standard connectors. You can also create custom connectors using the [connector development toolkit](connector-development-toolkit.md).
 
-* The definition specified the external interfaces for input and output, including the configuration wizard.
+A connector consists of a definition, an implementation, and a configuration.
+
+* The definition specifies the external interfaces for input and output, including the configuration wizard.
 * The implementation is the Java code that acts on the inputs, interacts with the external system, and returns outputs to the process. There can be any number of implementations for a given definition.
-* The configuration is the specification of how the connector is used in a specific process or task, including the implementation to be used. The implementation is specified when you [configure the process](configuring-a-process.md). The other information is specified in the wizard when you add the connector.
+* The configuration is the specification of how the connector is used in a specific process or task. The main part or connector configuration is done at pool and tasks levels, through a wizard. The choice of connector implementation though is done when you [configure the process](configuring-a-process.md).
 
-You can add a connector a pool or to a task, at the start (_connector in_) or at the end (_connector out_). 
-A pool connector in is executed when the process is instantiated. A pool connector out is executed when the process instance terminates, regardless of the reason for termination. If a process has more than one terminate end event or flow leading to the end of the process instance, make sure that it is always appropriate for the pool connector out to be executed. If it not, use task connectors instead.
+You can add a connector to a pool or a task, at the start (_connector in_) or at the end (_connector out_). 
+A pool connector _in_ is executed when the process is instantiated. A pool connector _out_ is executed when the process instance terminates, regardless of the reason for termination. If a process has more than one terminate end event or flow leading to the end of the process instance, make sure that it is always appropriate for the pool connector out to be executed. If it is not, use task connectors instead.
 
-A task connector in is executed before the task. This means it can be used to retrieve information that will be presented in a task form. 
-A task connector out is executed after the task and after any operations defined on the task. This means that information entered in a form by a user can be input to the connector.
+A task connector _in_ is executed before the task executes. This means it can be used to retrieve information that will be presented in a task form. A task connector _out_ is executed after the task has been executed and after any operation defined on the task. This means that information entered in a form by a user can be an input to the connector.
 
 ## Add a connector
 
@@ -20,7 +21,7 @@ To add a connector to a pool or task:
 
 1. Select the pool or task.
 2. Go to the **Details** panel, **Execution** tab.
-3. Go to the **Connectors in** panel or the **Connectors out** panel, depending on whether you want to add a connector at the start or the end of the pool or task.
+3. Go to the **Connectors in** or **Connectors out** panel, depending on whether you want to add a connector at the start or the end of the pool or task.
 4. Click **_Add_**.
 5. Choose the category.
 6. Choose the connector from the list.
@@ -28,8 +29,7 @@ To add a connector to a pool or task:
 
 ## Connectors and forms
 
-In Bonita BPM 6.x, you could add a connector to a form. This is no longer possible with forms created with the UI designer. To achieve the same result, create a [REST API extension](rest-api-extensions.md).
-There is an example showing how to execute SQL queries on a external database.
+In Bonita BPM 6.x, you could add a connector to a form. This is no longer possible with forms created with the UI Designer. To achieve the same result, create a [REST API extension](rest-api-extensions.md). There is an example showing how to execute SQL queries on a external database.
 
 ## Edit a connector
 
