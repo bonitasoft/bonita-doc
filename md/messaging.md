@@ -15,8 +15,8 @@ The expression must return a value of the required type. To specify the message 
 | ------ | ------------ | ----- | 
 | SMTP Host  | IP address or name of email server  | String  |
 | SMTP Port  | Port defined for email system  | Number  |
-| Security \> SSL (not obligatory)  | Check the box if SSL security authorization is required  | |
-| Security \> STARTTLS (not obligatory)  | Check the box if STARTTLS security authorization is required  | | 
+| Security \> SSL (not required)  | Check the box if SSL security authorization is required  | |
+| Security \> STARTTLS (not required)  | Check the box if STARTTLS security authorization is required  | | 
 | Authentication \> Username  | User name for the host account  | String  |
 | Authentication \> Password  | User password for the host account  | String  |
 
