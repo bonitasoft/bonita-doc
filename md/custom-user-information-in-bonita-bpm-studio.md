@@ -1,13 +1,13 @@
-# Custom user information in Bonita BPM Studio
+# Custom User Information in Bonita BPM Studio
 
 You can use custom user information to assign task to users based on information that is specific to your organization and not included in the standard organization definition. 
 You define the attributes that you want to store, and then add the values for the users.
 
 ## Value
 
-for example, you may want to create a security badge with an individual value (number) for each user, or an office skill for a user, a special professional activity, or geographical details. All these types of information are not displayed in standard information tabs but you may want to filter candidates to a human task thanks to those attributes.
+For example, you may want to create a security badge with an individual value (number) for each user, or an office skill for a user, a special professional activity, or geographical details. All these types of information are not displayed in standard information tabs but you may want to filter candidates to a human task thanks to those attributes.
 
-## Define Custom User information
+## Define custom user information
 
 In the Organization menu \> Manage organizations \> Organization users, the second tab **User information management** offers a summary of the default information and allows to create custom user information. Use "Add" to create your own, with a name and an optional description.
 
@@ -28,7 +28,7 @@ In the Organization menu \> Manage organizations \> Organization users, the seco
 
 If the value is changed in Bonita BPM Portal by the admin, and the filter value does not exist in the organization
 
-## Add Custom User Information values for each user
+## Add custom user information values for each user
 
 In the Organization menu \> Manage organizations \> Organization users, the first tab **List of users** shows detail information for each user on the right hand-side panel, spread over five tabs:
 
@@ -41,10 +41,9 @@ In the Organization menu \> Manage organizations \> Organization users, the firs
 To add custom user information values for a user, select a user in the **List of users**, click on the **_Custom_** tab, and enter the value for each relevant information. You also see a link **Manage custom information**, to go back and manage the list of custom user information. 
 Note: this value can be changed by a user with the Admin profile in the Bonita BPM Portal. See [How to edit Custom information for a single user](custom-user-information-in-bonita-bpm-portal.md)
 
-## Set an actor filter on Custom User Information
+## Set an actor filter on custom user information
 
-A task or a lane is linked to an actor. An actor is mapped to a list of users. An actor filter applies to the set of users mapped to the actor. 
-The actor filter configuration can be added to an actor at lane or human task level.
+A task or a lane is linked to an actor. An actor is mapped to a list of users. An actor filter applies to the set of users mapped to the actor. The actor filter configuration can be added to an actor at lane or human task level.
 
 When all relevant users have their Custom User Information set, you can add an actor filter:
 1. In a process diagram, select a lane or a task
@@ -62,4 +61,4 @@ When all relevant users have their Custom User Information set, you can add an a
 
 The filter is set for the actor and is displayed in the actor filter field. Users from the actor and with the relevant value for the custom information chosen will become candidates to perform the task, or all the tasks in the lane if you set it at lane level.
 
-Note that the filter will not work if you change values in the Organization but do not re-publish the Organization. This will throw a synchronization error.
+Note that the filter will not work if you change values in the organization but do not re-publish the organization. This will throw a synchronization error.
