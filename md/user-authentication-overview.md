@@ -13,6 +13,7 @@ If you want to find out how to customize authentication refer to the dedicated d
 ## Bonita BPM Portal authentication scenario
 
 To help understand how user authentication is performed, let's take a typical case where a user accesses the Bonita BPM Portal for the first time. This scenario is the default (no LDAP authentication, nor CAS).
+
 ![user authentication](images/images-6_0/user_auth_schema_70.png)
 
 1. In a web browser, the user types the URL of Bonita BPM Portal
