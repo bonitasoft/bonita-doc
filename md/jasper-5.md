@@ -10,49 +10,25 @@ The procedure below is an example, and not a reference:
 4. Import the pre-formatted .jrxml file into Bonita which will be used to create the graphic version of the data
 5. When the process is run, it will connect to the database in real time
 6. The request in the .jrxml report will be executed
-7. The data will be extracted, imported into Bonita via the connector, a report will be created and then saved in the chosen format (pdf, xml or.md) and to the chosen folder. 
-It can be displayed directly in the Portal.
+7. The data will be extracted, imported into Bonita via the connector, a report will be created and then saved in the chosen format (pdf, xml or.md) and to the chosen folder. It can be displayed directly in the Portal.
 
-## How to create a report using the Jasper 5.0 connector
+## Create a report using the Jasper 5.0 connector
 
-This is an example only and not a reference.
+This is an example only and not a generic reference.
 
 **Preparation**
 
-In MySQL, create a database with a table and information. In this example put **address** as the name of the table, for example.
+In MySQL, create a database with a table and information. In this example, put **address** as the name of the table, for example.
 
-**Note:** The `.jrxml` file is created by Jasper Studio, and contains the database and the table name. If the names are changed, the request in the `.jrxml` file will fail, the connector will not recognise the name and not connect.
+**Note:** The `.jrxml` file is created by Jasper Studio, and contains the database and the table name. If the names are changed, the request in the `.jrxml` file will fail, the connector will not recognize the name and not connect.
 
 The structure of the table must be identical to the one below, but the names and cities can be anything you like:
-INTEGER
-VARCHAR
-VARCHAR
-VARCHAR
-VARCHAR
-
-id
-Firstname
-Lastname
-Street
-City
-
-1
-Sherlock
-Holmes
-221b Baker street
-London
-
-2
-Bruce
-Wayne
-Wayne Manor
-Gotham
-
-2
-Indy
-Jones
-38 Adler avenue
-Fairfield
+| INTEGER  | VARCHAR  | VARCHAR  | VARCHAR  | VARCHAR  |
+| -------- | -------- | -------- | -------- | -------- |
+| id  | Firstname  | Lastname  | Street  | City  |
+| 1  | Sherlock | Holmes  | 221b Baker street  | London  |
+| 2  | Bruce  | Wayne  | Wayne Manor  | Gotham  |
+| 2  | Indy  | Jones  | 38 Adler avenue  | Fairfield  |
 
 Use [Jasper Studio](http://community.jaspersoft.com/project/jaspersoft-studio) to connect to the external database to create a report in the compatible .jrxml format.
 
@@ -70,11 +46,9 @@ Go to the **Details** panel, **Data** tab, **Documents** panel, and click **_Add
 In the popup, click **From Bonita BPM** \> **Browse...** \> **Import...** (example.jrxml) to import the Bonita document.
 
 **Document**
-Name
-Data type
-
-jrxmlDocName
-text
+| Name  | Data type  | 
+| ----- | ---------- |
+| jrxmlDocName  | text  |
 
 Now to configure the first task:
 
