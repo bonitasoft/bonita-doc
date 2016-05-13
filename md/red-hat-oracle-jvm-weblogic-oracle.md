@@ -1,4 +1,4 @@
-# Install Red Hat + Oracle JVM + WebLogic + Oracle
+# Red Hat + Oracle JVM + WebLogic + Oracle
 
 ## Overview
 
