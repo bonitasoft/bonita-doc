@@ -6,7 +6,7 @@
   * [Connectors](connectors.md)
     * [Connectors overview](connectors-overview.md)
     * [Connector development toolkit](connector-development-toolkit.md)
-  * [Creating an actor filter](creating-an-actor-filter.md)
+  * [Create an actor filter](creating-an-actor-filter.md)
 * [REST API](rest-api.md)
   * [REST API overview](rest-api-overview.md)
   * [application API](application-api.md)
