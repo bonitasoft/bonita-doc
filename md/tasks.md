@@ -79,7 +79,7 @@ In this case the Admin can check the failure on a connector:
 
 ![failed](images/images-6_0/connector_failed_stack.png)
 
-There are 2 solutions:
+There are 2 options:
 
 * Either click the **Skip** button, to skip over the task where the connector failed. This will make the Failed message disappear on the Connector, and display Resolved instead.
 * Fix the problem then click **Replay**.
