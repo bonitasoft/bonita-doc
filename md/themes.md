@@ -14,12 +14,14 @@ A theme is [exported, imported, modified, and deleted](resource-management.md) a
 
 A theme is imported as a zip archive containing a `page.properties` file and a `resources` folder.
 
-* The `page.properties` file contains the metadata for the theme (the name used in the URL, the display name, and a description). For example: `
+* The `page.properties` file contains the metadata for the theme (the name used in the URL, the display name, and a description). For example: 
+```properties
 name=custompage_defaulttheme
 displayName=Default theme
 description=Application theme based on Bootstrap "Simplex" theme (see http://bootswatch.com/simplex/)
 contentType=theme
-`
+```
+
 * The `resources` folder must contain at least an `index.html` file and a CSS file named `theme.css`. The index file must be present in the zip but is ignored, so can be empty.
 
 Any CSS, images or JavaScript files can be shared using a theme resource.
