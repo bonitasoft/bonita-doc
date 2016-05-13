@@ -1,4 +1,4 @@
-# Upgrade from Community to Subscription edition
+# Community to Subscription upgrade
 
 Upgrading means moving from a Bonita BPM Community edition environment to any Bonita BPM Subscription 
 edition environment.
@@ -50,10 +50,10 @@ backup files for the this folder from the Community edition. This will transfer 
 `/engine-server/work/platform/bonita_journal.db.h2.db`  
 `/engine-server/work/platform/business_data.db.h2.db`
 10. If the Community edition platform was not running on a H2 database:
-  1. From your Subscription edition installation, delete these files:  
-`/engine-server/work/platform/bonita_journal.db.h2.db`  
-`/engine-server/work/platform/business_data.db.h2.db`
-  2. Configure your Subscription edition platform to use your Community edition database.
+    1. From your Subscription edition installation, delete these files:  
+   `/engine-server/work/platform/bonita_journal.db.h2.db`  
+   `/engine-server/work/platform/business_data.db.h2.db`
+   2. Configure your Subscription edition platform to use your Community edition database.
 11. Start the Subscription edition platform.
 12. Log in to the Bonita BPM Portal with your administration or personal account (it should have been imported during the upgrade).
 13. Validate that the dialog displayed from the top right "Settings / About" menu indicates the correct Subscription edition.
