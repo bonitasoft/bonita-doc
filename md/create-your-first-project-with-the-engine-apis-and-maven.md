@@ -1,7 +1,6 @@
 # Create your first project with the Engine APIs and Maven
 
-This page contains an example of to set up a Maven project to create a client that uses the Bonita BPM client APIs to communicate with the Bonita BPM Engine and run a process. 
-It assumes that you are a Java programmer familiar with using Maven.
+This page contains an example of to set up a Maven project to create a client that uses the Bonita BPM client APIs to communicate with the Bonita BPM Engine and run a process. It assumes that you are a Java programmer familiar with using Maven.
 
 ## Bonita BPM Client APIs
 
@@ -13,10 +12,20 @@ In this example, we use the following APIs:
 
 ## Maven dependencies
 
-In order to use the client APIs, you need to add a dependency to the `bonita-client` artifact in your Maven `pom.xml` file: `
-7.0.0
-...
-org.bonitasoft.enginebonita-client${bonita.bpm.version}`
+In order to use the client APIs, you need to add a dependency to the `bonita-client` artifact in your Maven `pom.xml` file: 
+```xml
+<properties>
+   <bonita.bpm.version>7.0.0</bonita.bpm.version>
+   ...
+</properties>
+ 
+<!-- Bonita BPM Engine -->
+<dependency>
+    <groupId>org.bonitasoft.engine</groupId>
+    <artifactId>bonita-client</artifactId>
+    <version>${bonita.bpm.version}</version>
+</dependency>
+```
 
 ## Bonita home
 
@@ -27,8 +36,8 @@ the Bonita BPM Engine, which is configured in bonita.bpm.version (here 7.0.0).
 ## Log in
 
 The first action of the client must be to log in. This example shows how to log in when accessing the server over HTTP:
-`
-Map settings = new HashMap();
+```java
+Map<String, String> settings = new HashMap<String, String>();
 settings.put("server.url", "http://localhost:8080");
 settings.put("application.name", "bonita");
 APITypeManager.setAPITypeAndParams(ApiAccessType.HTTP, settings);
@@ -36,7 +45,7 @@ APITypeManager.setAPITypeAndParams(ApiAccessType.HTTP, settings);
 LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
 // log in to the tenant to create a session
 APISession apiSession = loginAPI.login(username, password);
-`
+```
 
 ## Example of a client program
 
@@ -51,7 +60,7 @@ The user can choose one of the following actions:
 * execute a task
 
 The program displays a menu presented by the `getMenutTextContent` method:
-`
+```java
 private static String getMenutTextContent() {
    StringBuilder stb = new StringBuilder("\nChoose the action to be executed:\n");
    stb.append("0 - exit\n");
@@ -64,10 +73,10 @@ private static String getMenutTextContent() {
    String message = stb.toString();
    return message;
    }
-`
+```
 
 These choices are interpreted by the following code:
-`
+```java
 private static void executeActions(ProcessDefinition processDefinition) 
     throws IOException, BonitaException {
     String message = getMenutTextContent();
@@ -95,22 +104,20 @@ private static void executeActions(ProcessDefinition processDefinition)
         }
     } while (!"0".equals(choice));
 }
-`
+```
 
 ### Start a process
-`
+```bash
 private static void startProcess(ProcessDefinition processDefinition) {
     ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(apiSession);
     ProcessInstance processInstance = processAPI.startProcess(processDefinition.getId());
 }
-`
+```
 
 ### List open process instances
 
-All Bonita BPM Engine API methods that deal with collections are paged to avoid having too many entries in memory. 
-For these methods, if you want to retrieve all results you need handle this page by page. 
-This the case with the searchProcessInstances method used here to retrieve open process instances. In the example, each page will contain up to 5 (PAGE\_SIZE) elements:
-`
+All Bonita BPM Engine API methods that deal with collections are paged to avoid having too many entries in memory. For these methods, if you want to retrieve all results you need to handle this page by page. This the case with the searchProcessInstances method used here to retrieve open process instances. In the example, each page will contain up to 5 (PAGE\_SIZE) elements:
+```java
 private static void listOpenedProcessInstances() {
     // the result will be retrieved by pages of PAGE_SIZE size
     int startIndex = 0;
@@ -127,8 +134,8 @@ private static void listOpenedProcessInstances() {
         page++;
     } while (result.getResult().size() == PAGE_SIZE);
 }
-`
-`
+```
+```java
 private static SearchResult getOpenProcessInstancePage(APISession apiSession, int startIndex) throws BonitaException {
     // create a new SeachOptions with given start index and PAGE_SIZE as max number of elements
     SearchOptionsBuilder optionsBuilder = new SearchOptionsBuilder(startIndex, PAGE_SIZE);
@@ -138,12 +145,12 @@ private static SearchResult getOpenProcessInstancePage(APISession apiSession, in
     ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(apiSession);
     return processAPI.searchProcessInstances(optionsBuilder.done());
 }
-`
+```
 
 ### List archived process instances
 
 In order to retrieve all archived process instances you also need to iterate page by page:
-`
+```java
 private static void listArchivedProcessInstances() {
     // the result will be retrieved by pages of PAGE_SIZE size
     int startIndex = 0;
@@ -160,8 +167,8 @@ private static void listArchivedProcessInstances() {
         page++;
     } while (result.getResult().size() == PAGE_SIZE);
 }
-`
-`
+```
+```java
 private static SearchResult getArchivedProcessInstancePage(APISession apiSession, int startIndex) throws BonitaException {
     // create a new SeachOptions with given start index and PAGE_SIZE as max number of elements
     SearchOptionsBuilder optionsBuilder = new SearchOptionsBuilder(startIndex, PAGE_SIZE);
@@ -172,12 +179,12 @@ private static SearchResult getArchivedProcessInstancePage(APISession apiSession
     ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(apiSession);
     return processAPI.searchArchivedProcessInstances(optionsBuilder.done());
 }
-`
+```
 
 ### List pending tasks
 
 To get the pending tasks for the logged user, you use the method getPendingHumanTaskInstances.
-`
+```java
 private static void listPendingTasks() {
     ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(apiSession);
     // the result will be retrieved by pages of PAGE_SIZE size
@@ -195,15 +202,15 @@ private static void listPendingTasks() {
         page++;
     } while (pendingTasks.size() == PAGE_SIZE);
 }
-`
+```
 
 ### Execute a task
 
-Before a user can execute a task, the task needs to be assigned to the user. The assignUserTask method assigns the task to the user. The executeFlowNode method executes the task.
-`
+Before a user can execute a task, the task needs to be assigned to the user. The assignUserTask method assigns the task to the user. The _executeFlowNode_ method executes the task.
+```java
 private static void executeATask() {
     processAPI.assignUserTask(taskToExecute.getId(), session.getUserId());
 
     processAPI.executeFlowNode(taskToExecute.getId());
 }
-`
+```
