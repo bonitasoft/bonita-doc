@@ -10,21 +10,22 @@ A resource is a zip archive, and must contains a `page.properties` file, a resou
 
 * The `page.properties` file contains the metadata for the page.
 
-For example: `
+For example: 
+```
 name=custompage_layout
 displayName=Application layout page
 description=This is a layout page dedicated to new born living applications. It is created and editable using the UI designer. It allows to display an horizontal menu, and an iframe. The menu allows to target some pages and the iframe define the area to display those targeted pages.
 resources=[GET|living/application,GET|living/application-page,GET|living/application-menu]
 contentType=layout
-`
-* 
-The `resources` directory contains all the public files of your resource (for example `index.md`, images, Javascript files, CSS files). 
+```
+
+* The `resources` directory contains all the public files of your resource (for example `index.md`, images, Javascript files, CSS files). 
 
 * The zip archive must contain at least one of the following index files:
-  * An `index.html` file in the `resources` directory
-  * An `Index.groovy` class at the root of the archive with, optionally, libraries
+   * An `index.html` file in the `resources` directory
+   * An `Index.groovy` class at the root of the archive with, optionally, libraries
 
-If a resouce contains both `Index.groovy` and `index.html`, the Groovy class takes precedence.
+If a resource contains both `Index.groovy` and `index.html`, the Groovy class takes precedence.
 
 ## Authorization permissions for resources
 
@@ -45,7 +46,7 @@ resources=[GET|identity/user, GET|identity/personalcontactdata, GET|identity/pro
 contentType=page  
 ```
 
-## Exporting a resource
+## Export a resource
 
 You can export a resource from the portal. The page is exported as a zip archive.
 
@@ -58,7 +59,7 @@ To export a resource:
 
 The zip archive is exported to the location you specified.
 
-## Importing a resource
+## Import a resource
 
 To add a resource to the portal, import a zip archive that contains the resource definition.
 
@@ -71,7 +72,7 @@ If you have specified a resource permission that is not defined in the [REST API
 
 After a resource is added to the portal, it can be used in an [application](applications.md) or in a custom profile.
 
-## Modifying a resource
+## Modify a resource
 
 To modify a resource in the portal, you upload a zip archive containing the new version.
 
@@ -83,7 +84,7 @@ To modify a resource in the portal, you upload a zip archive containing the new 
 
 The resource is updated.
 
-## Deleting a Resource
+## Delete a Resource
 
 To delete a resource:
 
@@ -93,5 +94,4 @@ To delete a resource:
 
 The selected resource is deleted.
 
-Note: Either all the selected resources are deleted, or no resources are deleted.
-If you have selected a page, a layout or a theme that are used in an application or in a custom profile, you will see an error message listing these resources and the applications where they are used. In the case, none of the pages you selected is deleted.
+Note: Either all the selected resources are deleted, or no resources are deleted. If you have selected a page, a layout or a theme that are used in an application or in a custom profile, you will see an error message listing these resources and the applications where they are used. In the case, none of the pages you selected is deleted.
