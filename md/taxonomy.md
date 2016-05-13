@@ -147,7 +147,7 @@
   * [Migration](migration.md)
     * [Migration overview](migration-overview.md)
     * [Migrate from an earlier version of Bonita BPM](migrate-from-an-earlier-version-of-bonita-bpm.md)
-  * [Upgrade from Community to a Subscription edition](upgrade-from-community-to-a-subscription-edition.md)
+  * [Community to Subscription upgrade](upgrade-from-community-to-a-subscription-edition.md)
 * [Bonita BPM Portal Administration](bonita-bpm-portal-administration.md)
   * [Bonita BPM Portal interface](bonita-bpm-portal-interface.md)
     * [Bonita BPM Portal interface overview](bonita-bpm-portal-interface-overview.md)
