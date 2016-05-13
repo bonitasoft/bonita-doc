@@ -6,130 +6,43 @@
 processes (number of processes instances, number of current users, operations and complexity...).
 
 Hardware required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Portal)
-Type
-Minimum
-Recommended
-
-Processors
-4 CPU cores
-4 CPU cores or more
-
-Memory (RAM)
-4 GB
-8 GB or more
-
-Disk space
-10 GB
-30 GB or more, depending on usage
+| Type | Minimum | Recommended |
+|:-|:-|:-|
+| Processors | 4 CPU cores | 4 CPU cores or more |
+| Memory (RAM) | 4 GB | 8 GB or more |
+| Disk space | 10 GB | 30 GB or more, depending on usage |
 
 ## Software
 
 Software required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Portal).
-7.0.x
-7.1.x
-7.2.x
-
-**Operating system**
-
-Windows Server 2012 R2 64 bits
-✔
-✔
-✔
-
-Red Hat Enterprise Linux 6.5 64 bits
-✔
-✔
-✔
-
-Ubuntu 14.04 LTS 64 bits
-✔
-✔
-✔
-
-**Java Virtual Machine**
-
-Oracle Java SE Runtime Environment 7 u67
-✔
-✔
-✔
-
-Oracle Java SE Runtime Environment 8 u40 (see note 4)
-✔
-✔
-✔
-
-OpenJDK 7u65
-✔
-✔
-✔
-
-**Application Server**
-
-Tomcat 7.0.67
-✔
-✔
-✔
-
-JBoss AS 7.1.1 ✔
-✔
-✔
-
-Weblogic server 12c (12.1.\*) ✔
-✔
-✔
-
-**Database**
-
-MySQL 5.5.27 (see notes 1 and 2)
-✔
-✔
-✔
-
-PostgreSQL 9.3 ✔
-✔
-✔
-
-SQL Server 2012 R2 (see note 3)
-✔
-✔
-✔
-
-Oracle 11gR2 (11.2.0.x)
-✔
-✔
-✔
-
-Oracle 12c (12.1.0.x.y)
-✔
-
-**Browser**
-
-Internet Explorer 9.x and newer
-✔
-✔
-✔
-
-Firefox (2 last versions)
-✔
-✔
-✔
-
-Chrome (2 last versions)
-✔
-✔
-✔
-
-**Mobile**
-
-iOS 7.1 -- Safari -- Approved on Apple iPhone 5
-✔
-✔
-✔
-
-Android 4.4 -- Chrome -- Approved on Nexus 5
-✔
-✔
-✔
+| | 7.0.x & 7.1.x | 7.2.x & 7.3.x 
+|:-|-|-
+| **Operating system** |
+| Windows Server 2012 R2 64 bits | ✔ | ✔ |
+| Red Hat Enterprise Linux 6.5 64 bits | ✔ | ✔ | 
+| Ubuntu 14.04 LTS 64 bits | ✔ | ✔ | 
+| **Java Virtual Machine** | 
+| Oracle Java SE Runtime Environment 7 u67 | ✔ | ✔ |
+| Oracle Java SE Runtime Environment 8 u40 (see note 4) | ✔ | ✔ | 
+| OpenJDK 7u65 | ✔ | ✔ | 
+| **Application Server** |
+| Tomcat 7.0.55 | ✔ |  |
+| Tomcat 7.0.67 |  | ✔ |
+| JBoss AS 7.1.1  |✔ | ✔ |
+| Weblogic server 12c (12.1.\*) | ✔ | ✔ |
+| **Database** |
+| MySQL 5.5.27 (see notes 1 and 2) | ✔ | ✔ |
+| PostgreSQL 9.3  |✔ | ✔ |
+| SQL Server 2012 R2 (see note 3) | ✔ | ✔ |
+| Oracle 11gR2 (11.2.0.x) | ✔ | ✔ |
+| Oracle 12c (12.1.0.x.y) | | ✔ |
+| **Browser** |
+| Internet Explorer 9.x and newer | ✔ | ✔ |
+| Firefox (2 last versions) | ✔ | ✔ |
+| Chrome (2 last versions) | ✔ | ✔ |
+| **Mobile** |
+| iOS 7.1 -- Safari -- Approved on Apple iPhone 5 | ✔ | ✔ |
+| Android 4.4 -- Chrome -- Approved on Nexus 5 | ✔ | ✔ |
 
 Notes:
 
