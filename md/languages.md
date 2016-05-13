@@ -38,11 +38,11 @@ Note: do not compile .po files into .mo files, because they will not be used.
 
 1. Log in to [Crowdin](http://translate.bonitasoft.org/) and download the archive file `bonita-bpm-60.zip`.
 2. Unzip the `bonita-bpm-60.zip` file to a folder, and go to the `/master` folder. Find the following files:
-  * `/bonita-web/portal/portal_ru_RU.po`
-  * `/bonita-web/portal/portal-js_ru_RU.po`
-  * `/bonita-web-sp/portal/mobile_ru_RU.po`
-  * `/bonita-web-sp/portal/portal-js-sp_ru_RU.po`
-  * `/bonita-web-sp/portal/portal-sp_ru_RU.po`
+   * `/bonita-web/portal/portal_ru_RU.po`
+   * `/bonita-web/portal/portal-js_ru_RU.po`
+   * `/bonita-web-sp/portal/mobile_ru_RU.po`
+   * `/bonita-web-sp/portal/portal-js-sp_ru_RU.po`
+   * `/bonita-web-sp/portal/portal-sp_ru_RU.po`
 3. Copying these files to the Portal localization folder, `bonita_home/client/platform/work/i18n/`.
 4. Restart your application server (or restart Bonita BPM Studio). 
 
