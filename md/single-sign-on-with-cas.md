@@ -87,7 +87,7 @@ For an existing tenant, edit the properties file in `bonita-home/engine-server/c
    1. Remove the comment flags from these lines:
 `authentication.service.ref.name=jaasAuthenticationService`
    2. Specify the relevant IP address and port number.
-```java
+```
 authenticator.delegate=casAuthenticatorDelegate
 authentication.delegate.cas.server.url.prefix=http://ip_address:port
 authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservice
@@ -100,7 +100,7 @@ authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservi
 1. The CAS implementation relies on JAAS, and is defined in the BonitaAuthentication module of the JAAS configuration file. Set the Java system property `java.security.auth.login.config` in the Tomcat startup script to point to the JAAS configuration file, `bonita-home/client/platform/conf/jaas.config`. For example, on Linux, edit `setenv.sh`, uncomment the line that defines `SECURITY_OPTS`, and insert the variable `SECURITY_OPTS` in the line `CATALINA_OPTS=..`. 
 
 The `bonita-home/client/platform/conf/jaas.config` file contains the following (replace `ip_address:port` with the relevant IP addresses and port numbers, in two places): 
-```java
+```
 BonitaAuthentication-1 {
   org.jasig.cas.client.jaas.CasLoginModule required
     ticketValidatorClass="org.jasig.cas.client.validation.Cas20ServiceTicketValidator"
@@ -127,7 +127,7 @@ For an existing tenant, edit the properties file in `bonita-home/engine-server/c
    1. Remove the comment flags from these lines:
 `authentication.service.ref.name=jaasAuthenticationService`
    2. Optionally, to enable a Java client application to access the engine using CAS autentication, uncomment this line:
-```java
+```
 authenticator.delegate=casAuthenticatorDelegate
 authentication.delegate.cas.server.url.prefix=http://ip_address:port
 authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservice
@@ -149,7 +149,7 @@ If you edit this in `bonita-home/client/platform/tenant-template/conf/`, the set
 For an existing tenant, edit the properties file in `bonita-home/client/tenants/`_``_. 
 The service URL in the properties file must be the same as that in the JAAS file. The `authenticationManager-config.properties` will have the following content (specify the relevant IP address and ports):
 
-```java
+```
 #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.standard.StandardAuthenticationManagerImplExt
 #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.oauth.OAuthAuthenticationManagerImplExt
 # OAuth.serviceProvider = LinkedIn
