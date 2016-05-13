@@ -5,4 +5,4 @@
 * [Forms](forms.md)
 * [Layouts](layouts.md)
 * [Themes](themes.md)
-* [API extensions](api-extensions.md)
+* [REST API extensions](api-extensions.md)
