@@ -123,7 +123,6 @@ To specify the application navigation:
 
 ![Specifying application navigation](images/images-6_0/living_app_navigation.png)
 
-Specifying application navigation
 4. Specify the menu structure. At the top level, you can define one-page menus that point directly to pages (like Home in the illustration), or multi-page menus (like Holidays).
 If you define a multi-page menu, you can add menu items (like Trekking and Safari).
   * To add a top-level one-page menu, click **_Add_**, then in the popup, click **_One-page menu_**, specify the name for the menu, select the page, and click **_Add_**.
