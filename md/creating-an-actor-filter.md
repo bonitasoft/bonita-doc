@@ -1,40 +1,25 @@
-# Creating an actor filter
+# Create an actor filter
 
-An actor filter is implemented in Bonita BPM in two parts, the
-definition and the implementation. This enables you to change the
-implementation without changing the definition. Several implementations can be
-created for a single definition. See [here ](actor-filtering.md)for a list of actor
-filters provided with the product.
+An actor filter is implemented in Bonita BPM in two parts, the definition and the implementation. This enables you to change the
+implementation without changing the definition. Several implementations can be created for a single definition. See [here ](actor-filtering.md)for a list of actor filters provided with the product.
 
-An actor filter is a type of connector and is created in the same way, using the same schema files as
-for a connector. You can define a new actor filter definition or implementation in Bonita BPM Studio,
-using the wizards started from the **Development** menu, **Actor filters** sub menu.
-You can also create a new actor filter definition or implementation externally, and import it into Bonita BPM Studio.
+An actor filter is a type of connector and is created in the same way, using the same schema files as for a connector. You can define a new actor filter definition or implementation in Bonita BPM Studio, using the wizards started from the **Development** menu, **Actor filters** sub menu. You can also create a new actor filter definition or implementation externally, and import it into Bonita BPM Studio.
 
-This page explains how to create the actor filter definition and
-implementation and import it into Bonita BPM Studio. 
+This page explains how to create the actor filter definition and implementation and import it into Bonita BPM Studio. 
 
 ## Actor filter definition
 
-An actor filter definition controls the external interfaces of the actor
-filter, both those visible to users (the actor filter configuration wizard) and
-those visible to the Bonita BPM Engine (the inputs and outputs). The actor filter
-definition consists of the following files:
+An actor filter definition controls the external interfaces of the actor filter, both those visible to users (the actor filter configuration wizard) and those visible to the Bonita BPM Engine (the inputs and outputs). The actor filter definition consists of the following files:
 
 * An XML file that defines the configuration wizard
-* A file containing the image that is used as an icon to represent the
-actor filter
+* A file containing the image that is used as an icon to represent the actor filter
 * A properties file for each language that the wizard supports
 
 The following sections explain the elements of the definition. You can also use Bonita BPM Studio to create the definition.
 
 ### Actor filter configuration wizard definition
 
-The XML file that defines the actor filter configuration wizard contains
-definitions for header information identifying the actor filter (including the
-icon), for inputs and outputs, and for the wizard pages. The definition follows
-the schema defined in http://documentation.bonitasoft.com/ns/connector/definition/6.0/connector-definition-descriptor.xsd.
-The table below lists the items in the definition.
+The XML file that defines the actor filter configuration wizard contains definitions for header information identifying the actor filter (including the icon), for inputs and outputs, and for the wizard pages. The definition follows the schema defined in http://documentation.bonitasoft.com/ns/connector/definition/6.0/connector-definition-descriptor.xsd. The table below lists the items in the definition:
 Occurrence
 Description
 
@@ -90,45 +75,38 @@ jarDependency
 A dependency that must be satisfied for the wizard to
 run successfully.
 
-The page and widget definitions are required for an actor filter that is
-used or configured from within Bonita BPM Studio. 
+The page and widget definitions are required for an actor filter that is used or configured from within Bonita BPM Studio. 
 
-The following example is the XML definition for the _initiator
-manager_ actor:
-`
-initiator-manager1.0.0initiator-manager.png`
+The following example is the XML definition for the _initiator manager_ actor filter:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<definition:ConnectorDefinition xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+     <id>initiator-manager</id>
+     <version>1.0.0</version>
+     <icon>initiator-manager.png</icon>
 
-In this example, there is one input, a Boolean that determines whether or
-not the task is automatically assigned to the user identified by the filter.
-There is one page in the configuration wizard, which contains one widget.
+         <category id="process" icon="process.gif" ></category>
+
+         <input name="autoAssign" type="java.lang.Boolean" mandatory="false" defaultValue="true" />
+
+         <page id="config">
+                <widget id="autoAssign" inputName="autoAssign" xsi:type="definition:Checkbox" ></widget>
+        </page>
+</definition:ConnectorDefinition>
+```
+
+In this example, there is one input, a Boolean that determines whether or not the task is automatically assigned to the user identified by the filter. There is one page in the configuration wizard, which contains one widget.
 
 ### Language properties file
 
-The text displayed in a wizard is defined separately from the
-pages and widgets. This means that one actor filter definition can support
-multiple languages.
+The text displayed in a wizard is defined separately from the pages and widgets. This means that one actor filter definition can support multiple languages.
 
-For each language, there is a properties file that contains the category
-name, the actor filter name, the actor filter definition, the name and
-description of each wizard page, and the name and description of each input
-widget. 
+For each language, there is a properties file that contains the category name, the actor filter name, the actor filter definition, the name and description of each wizard page, and the name and description of each input widget. 
 
-The default language properties file is called _actorfilter-id\_version_.properties,
-where _actorfilter-id_
-is the actor filter identifier and _version_ is the actor
-filter version. You can provide additional properties files to support other
-languages. These files must be called _actorfilter-id\_lang\_version_.properties,
-where _lang_
-identifies the language of the properties file. The language must be supported
-by Bonita BPM Studio. For example, the French properties file for the initiator
-manager shown above is called initiator-manager-1.0.0\_fr.properties.
-When a Bonita BPM Studio user launches an actor filter configuration wizard, the
-wizard is displayed in the language currently configured for Bonita BPM Studio. If
-there is no properties file for this language, the default file is used. 
+The default language properties file is called _actorfilter-id\_version_.properties, where _actorfilter-id_ is the actor filter identifier and _version_ is the actor filter version. You can provide additional properties files to support other languages. These files must be called _actorfilter-id\_lang\_version_.properties, where _lang_ identifies the language of the properties file. The language must be supported by Bonita BPM Studio. For example, the French properties file for the initiator manager shown above is called initiator-manager-1.0.0\_fr.properties. When a Bonita BPM Studio user launches an actor filter configuration wizard, the wizard is displayed in the language currently configured for Bonita BPM Studio. If there is no properties file for this language, the default file is used. 
 
-The following example is the English language properties file for the
-initiator manager actor filter:
-`
+The following example is the English language properties file for the _initiator manager_ actor filter:
+```properties
 process.category = Process
 connectorDefinitionLabel = Initiator manager
 connectorDefinitionDescription = Manager of the initiator of the process
@@ -137,7 +115,7 @@ config.pageDescription = Configuration of the process initiator-manager filter
 connexionConfigPage.pageDescription = Choose here if you want to automatically assign the task to this actor
 autoAssign.label = Assign task automatically
 autoAssign.description = The task will be claimed automatically by the resolved user 
-`
+```
 
 ## Actor filter implementation
 
@@ -157,23 +135,32 @@ The resource file follows the schema defined in http://documentation.bonitasoft.
 
 The following example is the resource file of an implementation of the
 initiator manager actor filter:
-`
-initiator-manager1.0.0org.bonitasoft.userfilter.initiator.manager.ProcessinitiatorManagerUserFilterinitiator-manager-impl1.0.0bonita-userfilter-initiator-manager-impl-1.0.0-SNAPSHOT.jar`
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+         <definitionId>initiator-manager</definitionId>
+         <definitionVersion>1.0.0</definitionVersion>
+         <implementationClassname>org.bonitasoft.userfilter.initiator.manager.ProcessinitiatorManagerUserFilter</implementationClassname>
+         <implementationId>initiator-manager-impl</implementationId>
+         <implementationVersion>1.0.0</implementationVersion>
+
+         <jarDependencies>
+             <jarDependency>bonita-userfilter-initiator-manager-impl-1.0.0-SNAPSHOT.jar</jarDependency>
+        </jarDependencies>
+
+</implementation:connectorImplementation>
+```
 
 ### Actor filter implementation Java class
 
-The Java class must implement the org.bonitasoft.engine.filter.AbstractUserFilterclass and use the Engine
-ExecutionContext. The following methods must be implemented:
+The Java class must implement the org.bonitasoft.engine.filter.AbstractUserFilterclass and use the Engine ExecutionContext. The following methods must be implemented:
+* validateInputParameters to check that the configuration of the actor filter is well defined
+* filter to get a list of identifiers of all the users that correspond to a specified actor name
+* shouldAutoAssignTaskIfSingleResult to assign the step to the user if filter returns one user
 
-* validateInputParameters to
-check that the configuration of the actor filter is well defined
-* filter to get a list of identifiers of all the users that correspond to a
-specified actor name
-* shouldAutoAssignTaskIfSingleResult
-to assign the step to the user if filter returns one user
-
-For details of the APIs, the methods and related objects, see the 
-[Javadoc](javadoc.md).
+For details of the APIs, the methods and related objects, see the [Javadoc](javadoc.md).
 
 ### Actor filter example code
 
