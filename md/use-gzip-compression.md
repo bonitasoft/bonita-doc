@@ -20,6 +20,7 @@ set "JAVA_OPTS=%JAVA_OPTS% -Dorg.apache.coyote.http11.Http11Protocol.COMPRESSION
 To activate gzip compression for http requests, you need to modify the `server.xml` configuration. 
 
 Open `server.xml` and find the Connector configuration that you use. Edit the section to add following parameters:
+
 ```xml
 compression="on"
 compressionMinSize="X"
@@ -50,8 +51,17 @@ If you use the Tomcat bundle, the file to edit is `conf/server.xml`.
 If you use a different package, use the corresponding path; for example on Ubuntu the file is located in `/etc/tomcat7/server.xml`.
 
 Connector configuration:
-`
-`
+```xml
+<Connector port="8080" protocol="HTTP/1.1"
+   connectionTimeout="20000"
+   redirectPort="8443"
+   maxPostSize="-1"
+   URIEncoding="UTF-8"
+   compression="on"
+   compressionMinSize="2048"
+   noCompressionUserAgents="gozilla, traviata"
+   compressableMimeType="text/html,text/xml,text/plain,text/javascript,text/css"></Connector>
+```
 
 ## Check changes
 
@@ -59,7 +69,7 @@ After you modify the file, restart your application server and test with the fol
 `curl -I -H 'Accept-Encoding: gzip' http://`_`ip_address:port`_`/bonita/login.jsp`
 
 Check that the header returned contains the line `Content-Encoding: gzip`. For example, on a JBoss system the output will be similar to this:
-`
+```
 HTTP/1.1 200 OK
 Server: Apache-Coyote/1.1
 Expires: 0
@@ -73,4 +83,4 @@ Content-Type: text/html;charset=UTF-8
 Transfer-Encoding: chunked
 Content-Encoding: gzip
 Vary: Accept-Encoding
-`
+```
