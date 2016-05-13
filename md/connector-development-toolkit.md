@@ -72,8 +72,7 @@ Maven project version and Bonita BPM connector definition version.
     pom.xml
 ```
 
-4. Configure the `src/main/resources/connector_definition.xml` file to define the connector wizard pages with their inputs, widgets,and outputs 
-(see [Connector widget reference](#widgetTypeReference) for details).
+4. Configure the `src/main/resources/connector_definition.xml` file to define the connector wizard pages with their inputs, widgets,and outputs (see [Connector widget reference](#widgetTypeReference) for details).
 5. Optionally, change the icons for the connector and the connector category in the `src/main/resources` folder.
 
 ## Creating a new connector implementation
@@ -121,28 +120,19 @@ This generates the connector abstract definition class based on the definition c
 **Note:**
 If you subsequently change the connector definition configuration, run this command again to apply your changes.  
 This will regenerate the abstract definition class, overwriting the previous version.
-5.  In the connector implementation project folder, run the following command :
-`
-mvn bonita-connector-implementation:generate
-`
+5.  In the connector implementation project folder, run the following command : `mvn bonita-connector-implementation:generate`
 
-This generates a stub of the connector implementation and test classes:
-`
-src/main/java/.java
-src/test/java/Tests.java
-`
+This generates a stub of the connector implementation and test classes: 
+```
+src/main/java/<groupId>/<artifactId>.java
+src/test/java/<groupId>/<artifactId>Tests.java
+```
+*Caution:** Do not run this command again at a later stage, because it resets your implementation and test classes.
 
-**Caution:** Do not run this command again at a later stage, because it resets your implementation and test classes.
 6. Complete your connector implementation and test classes.
-7.  When you are ready to package the connector, run this command in the implementation project folder:
-`
-mvn package
-`
+7.  When you are ready to package the connector, run this command in the implementation project folder: `mvn package`
 
-This will produce a connector zip file that can be imported in Bonita BPM Studio:
-`
-/target/--dist.zip
-`
+This will produce a connector zip file that can be imported in Bonita BPM Studio: `/target/<artifactId>-<version>-dist.zip`
 
 <a id="widgetTypeReference"/>
 
@@ -162,7 +152,7 @@ The following widget types are supported in connectors:
 | List | List in which user can add/remove elements |
 | Group | Collapsile zone that contains one or more widgets |
   
-This is the same as the set of connector widgets available Bonita BPM Studio.
+This is the same as the set of connector widgets available in Bonita BPM Studio.
 
 A widget is configured by setting parameters. Some [mandatory parameters](#mandatory-common) and [optional parameters](#optional-common) are common to all types of widget. 
 There are also some specific widget properties for some types of widget, which are listed later in this page.
