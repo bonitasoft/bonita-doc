@@ -1,25 +1,18 @@
 # Development overview
 
-You can use the Bonita BPM Engine APIs to customize or add to the Bonita BPM
-software. Typical developments are adding a connector, adding an actor filter,
-and replacing or supplementing a service.
+You can use the Bonita BPM Engine APIs to customize or add to the Bonita BPM software. Typical developments are adding a connector, adding an actor filter, and replacing or supplementing a service.
 
 ## Concepts
 
 ### Session
 
-This version of Bonita BPM introduces the concept of a _session_. A
-session is the context in which processing occurs, and is created when a user
-logs in to the Engine. 
+This version of Bonita BPM introduces the concept of a _session_. A session is the context in which processing occurs, and is created when a user logs in to the Engine. 
 
 The APIs remain available for the duration of a session. 
 
 ### User validation
 
-This version of Bonita BPM introduces user validation: when a user name and
-password are sent to the Engine, it checks that the user exists in the current
-organization. If the user is not known, an error is thrown and processing
-stops.
+This version of Bonita BPM introduces user validation: when a user name and password are sent to the Engine, it checks that the user exists in the current organization. If the user is not known, an error is thrown and processing stops.
 
 ## APIs
 
@@ -74,8 +67,7 @@ There is also a high-level [Web REST API](rest-api-overview.md), intended for cu
 
 ## API access
 
-The Bonita BPM Engine APIs can be accessed locally or remotely, in the following
-modes:
+The Bonita BPM Engine APIs can be accessed locally or remotely, in the following modes:
 
 * Local: the client accesses the server directly in local mode
 * EJB3: the client accesses a remote server using EJB3 mode
@@ -83,27 +75,17 @@ modes:
 
 ![Diagram of API access options](images/images-6_0/dev_overview_api_access.png)
 
-APi access methods
-
-The mode you use must be specified in the bonita-client-custom.properties file. By
-default, the access mode is local. This can be used when the client and engine
-are using the same JVM. The file contains commented out configurations for
-remote access modes. To change the mode, simply comment out the configuration
-for local and uncomment the relevant remote configuration.
+The mode you use must be specified in the bonita-client-custom.properties file. By default, the access mode is local. This can be used when the client and engine are using the same JVM. The file contains commented out configurations for remote access modes. To change the mode, simply comment out the configuration for local and uncomment the relevant remote configuration.
 
 There is a slight overhead in using the remote access methods, so you are recommended to use local access whenever it is possible.
 
 ## Getting started
 
-All sequences of API calls start with logging in to create a session then
-using the AccessorUtil to retrieve the APIs that will be used in the
-application.
+All sequences of API calls start with logging in to create a session then using the AccessorUtil to retrieve the APIs that will be used in the application.
 
-The following example shows how to retrieve the LoginAPI, then use it to log
-in and create a session, then retrieve for Process API for that session. 
-The tenantAPIAccessor is used on all systems, even though there is only a single tenant.
-`
+The following example shows how to retrieve the LoginAPI, then use it to log in and create a session, then retrieve for Process API for that session. The tenantAPIAccessor is used on all systems, even though there is only a single tenant.
+```java
 final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
 APISession session = loginAPI.login(userName, password);
 ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);
-`
+```
