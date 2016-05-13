@@ -141,7 +141,7 @@
       * [Cluster administration](cluster-administration.md)
     * [Multi-tenancy and tenant configuration](multi-tenancy-and-tenant-configuration.md)
   * [Platform installation examples](platform-installation-examples.md)
-    * [Install Red Hat + Oracle JVM + WebLogic + Oracle](red-hat-oracle-jvm-weblogic-oracle.md)
+    * [Red Hat + Oracle JVM + WebLogic + Oracle](red-hat-oracle-jvm-weblogic-oracle.md)
     * [Ubuntu + OpenJDK + Tomcat + PostgreSQL](ubuntu-openjdk-tomcat-postgresql.md)
   * [Back up Bonita BPM Platform](back-up-bonita-bpm-platform.md)
   * [Migration](migration.md)
