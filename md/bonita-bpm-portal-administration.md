@@ -20,7 +20,7 @@
   * [Forms](forms.md)
   * [Layouts](layouts.md)
   * [Themes](themes.md)
-  * [API extensions](api-extensions.md)
+  * [REST API extensions](api-extensions.md)
 * [Live update](live-update.md)
 * [Organization in Bonita BPM Portal](organization-in-bonita-bpm-portal.md)
   * [Organization in Bonita BPM Portal overview](organization-in-bonita-bpm-portal-overview.md)
