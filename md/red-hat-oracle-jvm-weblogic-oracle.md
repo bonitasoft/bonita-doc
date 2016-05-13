@@ -1,4 +1,4 @@
-# How to install Red Hat + Oracle JVM + WebLogic + Oracle
+# Install Red Hat + Oracle JVM + WebLogic + Oracle
 
 ## Overview
 
@@ -54,10 +54,12 @@ To check that Java is correctly set up:
 
 1. Go to **Applications / System Tools / Terminal**. 
 2. In the terminal window, type `java -version`. You should get something like:
-`java version "1.7.0_15"
+```
+java version "1.7.0_15"
 Java(TM) SE Runtime Environment (build 1.7.0_15-b03)
 Java HotSpot(TM) 64-Bit
-Server VM (build 23.7-b01, mixed mode)`
+Server VM (build 23.7-b01, mixed mode)
+```
 
 ## Database
 
@@ -68,40 +70,33 @@ Follow the standard Oracle Database installation.
 ### Create a database user
 
 1. Execute the following command to create the user:
-`
+```
 CREATE USER bonita_db_user IDENTIFIED BY bonita_db_password
 GRANT connect, resource TO bonita_db_user IDENTIFIED BY bonita_db_password
-`
+```
 2. Now you will need to perform some specific configuration required by Bonita BPM.
 (Usage of transaction (XADataSource) requires extra privileges for the Oracle user used by Bonita BPM). 
 3. Grant the appropriate privileges to your user with the following operations:
-`
+```
 GRANT select ON sys.dba_pending_transactions TO bonita_db_user
 GRANT select ON sys.pending_trans$ TO bonita_db_user
 GRANT select ON sys.dba_2pc_pending TO bonita_db_user
 GRANT execute ON sys.dbms_system TO    bonita_db_user
-`
+```
 
 ## JEE Application Server
 
 ### Setup
 
-1. To set up WebLogic, you need to know the location of the **Java home folder**. If you set up the Red Hat package of
-Oracle JDK 7 64 bits, the Java home folder will be:
+1. To set up WebLogic, you need to know the location of the **Java home folder**. If you set up the Red Hat package of Oracle JDK 7 64 bits, the Java home folder will be:
 `/usr/lib/jvm/java-1.7.0-oracle-1.7.0.15.x86_64`.
-2. You just need to follow a standard installation of WebLogic. The Bonita BPM platform doesn't have any specific
-needs.
-3. Once the installation of WebLogic is completed, you will need to create a new domain. Make sure you remember the user name
-and password, as you will need both later on in the installation guidelines.
-4. At this point you should be able to start WebLogic server and log in to the web administration console. The default address
-would be:
-`http://localhost:7001/console`
-.
+2. You just need to follow a standard installation of WebLogic. The Bonita BPM platform doesn't have any specific needs.
+3. Once the installation of WebLogic is completed, you will need to create a new domain. Make sure you remember the user name and password, as you will need both later on in the installation guidelines.
+4. At this point you should be able to start WebLogic server and log in to the web administration console. The default address would be: `http://localhost:7001/console`.
 
 ## Data source declaration
 
-Here we will configure data sources that are available at a global scope (all applications deployed). For all Bonita BPM Platform systems, you need two data sources, bonitaDS and bonitaSequenceManagerDS. 
-If you are using [business data](define-and-deploy-the-bdm.md), you need two additional data sources, BusinessDataDS and NotManagedBizDataDS.
+Here we will configure data sources that are available at a global scope (all applications deployed). For all Bonita BPM Platform systems, you need two data sources, bonitaDS and bonitaSequenceManagerDS. If you are using [business data](define-and-deploy-the-bdm.md), you need two additional data sources, BusinessDataDS and NotManagedBizDataDS.
 
 ### bonitaDS and BusinessDataDS
 
@@ -181,18 +176,14 @@ will be referred as ``.
   * bdm.datasource.jndi.path=BusinessDataDS
   * bdm.notmanageddatasource.jndi.path=NotManagedBizDataDS
   * bdm.hibernate.transaction.jta\_platform=org.hibernate.service.jta.platform.internal.WeblogicJtaPlatform
-
-For each new tenant created, the structure will be as shown above.
+   For each new tenant created, the structure will be as shown above.
 7. Configure JVM system properties:
-  * Edit `/user_projects/domains//bin/startWebLogic.sh` and set: `
-JAVA_OPTIONS="${SAVE_JAVA_OPTIONS} -Dbonita.home="
-`
+  * Edit `/user_projects/domains//bin/startWebLogic.sh` and set: `JAVA_OPTIONS="${SAVE_JAVA_OPTIONS} -Dbonita.home="`
 8. Add the license file to your ``folder
 9. Add SLF4J libraries (API and JDK back-end located in `/Tomcat-6.0.37/lib`) to bonita.war file to `WEB_INF/lib/`
 (located in: `/Tomcat-6.0.37/webapps`).
 
-**Note:**To add a file to a WAR you can use a tool such as 7-zip or
-command line: `jar uf bonita.war WEB-INF/lib/slf4j-api-1.6.1.jar`.
+   **Note:**To add a file to a WAR you can use a tool such as 7-zip or command line: `jar uf bonita.war WEB-INF/lib/slf4j-api-1.6.1.jar`.
 10. Check that the weblogic.xml descriptor is present in `bonita.war/WEB-INF` folder of the war.
 11. Deploy Bonita war file, as follows:
   * Connect to WebLogic administration console.
@@ -211,7 +202,7 @@ command line: `jar uf bonita.war WEB-INF/lib/slf4j-api-1.6.1.jar`.
 1. To verify that the installation was successful and the database is correctly configured, connect to Bonita BPM Portal.
 2. In the URL field of your web browser, enter the host address, for example `http://localhost:7001/bonita">http://localhost:7001/bonita`.
 
-**Note:** If the Bonita BPM Portal login page is not displayed, [empty your browser cache](http://www.wikihow.com/Clear-Your-Browser's-Cache) and then reload the page.
+   **Note:** If the Bonita BPM Portal login page is not displayed, [empty your browser cache](http://www.wikihow.com/Clear-Your-Browser's-Cache) and then reload the page.
 
 At this stage no organization information is loaded: only the technical user account exists.
 
@@ -226,9 +217,7 @@ The default values for login and password are:
 * Login = install
 * Password = install
 
-The login and password are read from the 
-`/engine-server/conf/tenants//bonita-tenant-community-custom.properties
-`file.
+The login and password are read from the `/engine-server/conf/tenants//bonita-tenant-community-custom.properties` file.
 
 These settings are also located in client side configuration file `client/platform/conf/platform-tenant-config.properties`.
 
