@@ -1,4 +1,4 @@
-# Rest API extensions
+# REST API extensions
 
 A REST API extension is a way to add extra REST resources using Bonita BPM. REST API extensions are [exported. imported, modified, and deleted](resource-management.md) as resources in Bonita BPM Portal. 
 
@@ -21,21 +21,15 @@ application server on all the cluster nodes.
 
 A REST API extension must be deployed before any page or form resource using it is deployed.
 
-A page that uses REST API extensions must add the required resources in the page resource
-`page.properties` file.
-For example, if a page uses the demoHeaders, demoXml, and putResource API extensions, the
-`page.properties` must include this line:
-`
-resources=[GET|extension/demoHeaders, POST|extension/demoXml,PUT|extension/putResource]
-`
+A page that uses REST API extensions must add the required resources in the page resource `page.properties` file.
+For example, if a page uses the demoHeaders, demoXml, and putResource API extensions, the `page.properties` must include this line:
+`resources=[GET|extension/demoHeaders, POST|extension/demoXml,PUT|extension/putResource]`
 
-Additional resources and related permissions are stored in user's session. A logout/login to the portal is required
-to get new permissions effective for user.
+Additional resources and related permissions are stored in user's session. A logout/login to the portal is required to get new permissions effective for user.
 
 ## REST API extension examples
 
-A REST API extension example resource and API extension viewer page are provided in administrator portal. They are
-located in administrator portal.
+A REST API extension example resource and API extension viewer page are provided in administrator portal. They are located in administrator portal.
 
 REST API extension examples show how to:
 
