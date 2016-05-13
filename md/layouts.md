@@ -23,15 +23,15 @@ Layouts are [exported. imported, modified, and deleted](resource-management.md) 
 
 A layout is imported as a zip archive containing a page.properties file and a resources folder.
 
-* The `page.properties` file contains the metadata for the layout (the name used in the URL, the display name, and a description). For example: `
+* The `page.properties` file contains the metadata for the layout (the name used in the URL, the display name, and a description). For example: 
+```
 name=custompage_layout
 displayName=Application layout page
 description=This is a layout page dedicated to new born living applications. It is created and editable using the UI designer. It allows to display an horizontal menu, and an iframe. The menu allows to target some pages and the iframe define the area to display those targeted pages.
 resources=[GET|living/application,GET|living/application-page,GET|living/application-menu]
 contentType=layout
-`
-* 
-The resources folder must contain an `Index.groovy` class or an `index.html` file and optionally can contain some additional resources.
+```
+* The resources folder must contain an `Index.groovy` class or an `index.html` file and optionally can contain some additional resources.
 
 If you create a resource with the UI Designer, the exported zip automatically has the correct format (only the contentType will have to be changed to "layout").
 
@@ -48,7 +48,7 @@ A layout can only be use as the main container of an application. It cannot be u
 
 If you are not using Groovy, you can directly access a resource by adding a link in `index.html`.
 
-For example: ``
+For example: `<link href="css/file.css" rel="stylesheet" />`
 
 ### API acces
 
@@ -60,4 +60,4 @@ you will be abble to access the portal API using the following path: "../API/{AP
 
 If your page is viewed in an application, you will have access facilities for [the application theme](applications.md).
 
-You can directly access a resource by adding the following link in `index.html`: ``
+You can directly access a resource by adding the following link in `index.html`: `<link href="../theme/theme.css" rel="stylesheet" />`
