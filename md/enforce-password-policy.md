@@ -36,20 +36,28 @@ Here are the steps to add a custom password validator:
 
 1. Open Maven, and create a new Maven Project. This will create a pom.xml
 2. Add a new dependency in your pom.xml to get toolkit-view (x.y.z is the Bonita BPM version number).
-`
-org.bonitasoft.web.toolkittoolkit-viewx.y.z`
+```xml
+<dependencies>
+      <dependency>
+          <groupId>org.bonitasoft.web.toolkit</groupId>
+          <artifactId>toolkit-view</artifactId>
+          <version>x.y.z</version>
+      </dependency>
+  </dependencies>`
+```
+
 3. Create your class, eg. `PasswordLengthValidator` with a name for the package, eg. `org.bonitasoft.ext.password.validator`.
-`package org.bonitasoft.ext.password.validator;
+
+```java
+package org.bonitasoft.ext.password.validator;
 
 import static org.bonitasoft.web.toolkit.client.common.i18n.AbstractI18n._;
 
 import org.bonitasoft.web.toolkit.client.common.i18n.AbstractI18n;
 import org.bonitasoft.web.toolkit.client.common.i18n.AbstractI18n.LOCALE;
 import org.bonitasoft.web.toolkit.client.data.item.attribute.validator.AbstractStringValidator;
-
-
 /**
- * @author Paul AMAR
+ * @author John Doe
  */
 public class PasswordLengthValidator extends AbstractStringValidator {
 
@@ -60,32 +68,27 @@ public class PasswordLengthValidator extends AbstractStringValidator {
 
         // Check number of length
         int minimalLength = 10;
-        if (password.length() 
-    
-4. Then, you can build your project. In command-line and type `
-mvn package`
-5. Go in the `
-target/ folder` and you have your JAR archive, eg. `
-password-validator-0.0.1-SNAPSHOT.jar`
-6. Take a bundle and start it once. This will extract the `
-bonita.war.`
-7. Start it by typing: `
-cd bin`then 
-    `./catalina.sh run
-    `
-8. Copy your JAR archive in the folder `
-webapps/bonita/WEB-INF/lib`
-9. Modify all `
-security-config.properties` files to add your new password validator. e.g. 
-`
+        if (password.length() < minimalLength) {
+                addError(_("Password is not long enough", Locale));
+        }
+    }
+}
+```
+
+4. Then, you can build your project. In command-line and type `mvn package`
+5. Go in the `target/ folder` and you have your JAR archive, eg. `password-validator-0.0.1-SNAPSHOT.jar`
+6. Take a bundle and start it once. This will extract the `bonita.war.`
+7. Start it by typing: `cd bin`then `./catalina.sh run`
+8. Copy your JAR archive in the folder `webapps/bonita/WEB-INF/lib`
+9. Modify all `security-config.properties` files to add your new password validator. e.g. 
+```
 # content of the file
-security.password.validator org.bonitasoft.ext.password.validator.PasswordLengthValidator`
+security.password.validator org.bonitasoft.ext.password.validator.PasswordLengthValidator
+```
+
 10. Start your bundle again
-`cd bin
-`and then `
-./catalina.sh run`
-11. Create a new user and check that your password policy has been set. `
+`cd bin` and then `./catalina.sh run`
+11. Create a new user and check that your password policy has been set. 
+To check that the validation is correct, you can type a password to force an error. An exception will be displayed listing all the non-filled criteria.
 
-To check that the validation is correct, you can type a password to force an error. An exception will be displayed listing all the criterion non-respected.
-
-If the password respects the criterion in the new password policy, no exception error message will be displayed.
+If the password complies with the criteria in the new password policy, no exception error message will be displayed.
