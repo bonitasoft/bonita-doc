@@ -1,6 +1,6 @@
-# Building a Bonita BPM cluster
+# Build a Bonita BPM cluster
 
-The recommended procedure for building a cluster is to start with a single node cluster and then add other nodes to the cluster. 
+The recommended procedure to build a cluster is to start with a single node cluster and then add other nodes to the cluster. 
 This enables you to check at each stage that your processes run correctly.
 
 This page assumes you are creating a cluster of separate physical nodes, for high availability.
@@ -21,14 +21,10 @@ Tomcat bundle on Ubuntu](ubuntu-openjdk-tomcat-postgresql.md).
 4. In your `setenv.sh` file (Linux) or `setenv.bat` file (Windows), extend the `DB_OPTS` setting to specify a cluster name, as shown in the following examples:
 
 Linux or Mac OS:
-`
-DB_OPTS="-Dsysprop.bonita.db.vendor=postgresql -Dbonita.cluster.group.name=myBPMCluster"
-`
+`DB_OPTS="-Dsysprop.bonita.db.vendor=postgresql -Dbonita.cluster.group.name=myBPMCluster"`
 
 Windows:
-`
-set DB_OPTS="-Dsysprop.bonita.db.vendor=postgresql" "-Dbonita.cluster.group.name=myBPMCluster"
-`
+`set DB_OPTS="-Dsysprop.bonita.db.vendor=postgresql" "-Dbonita.cluster.group.name=myBPMCluster"`
 
 By default, the cluster name is _bonita_. The cluster name is used in the discovery process when you add a node to the cluster. If you only have one cluster in your network, you can use the default name.
 
@@ -39,7 +35,7 @@ As part of the installation, you create a `bonita_home` directory.
 When the installation is complete, start Tomcat on the node. By default, this automatically starts Bonita BPM Engine. Then start the cluster in the load balancer.
 
 Check that the log file contains messages of the following form:
-`
+```
 Oct 22, 2013 5:07:07 PM com.hazelcast.cluster.ClusterService
 INFO: [10.0.5.2]:5701 [myBPMCluster]
 
@@ -51,9 +47,7 @@ Members [1] {
 
 Oct 22, 2013 5:07:28 PM org.apache.catalina.startup.Catalina start
 INFO: Server startup in 30333 ms
-
-`
-
+```
 Then deploy a basic process and check that it runs correctly, to validate the installation.
 
 ## Add a node to a cluster
@@ -68,7 +62,7 @@ You can add a new node to a cluster without interrupting service on the existing
 6. Update the load balancer configuration to include the new node.
 
 The log file will contain messages of the following form:
-`
+```
 Oct 22, 2013 5:07:07 PM com.hazelcast.cluster.ClusterService
 INFO: [10.0.5.2]:5701 [bonita]
 
@@ -83,8 +77,7 @@ Oct 22, 2013 5:07:28 PM org.apache.coyote.http11.Http11Protocol start
 INFO: Starting Coyote HTTP/1.1 on http-7280
 Oct 22, 2013 5:07:28 PM org.apache.catalina.startup.Catalina start
 INFO: Server startup in 30333 ms
-
-`
+```
 
 In the log, you can see how many nodes are in the cluster, and their IP addresses and port number. This node that has been started is indicated by `this`. The new node is now available to perform work as directed by the load balancer.
 
