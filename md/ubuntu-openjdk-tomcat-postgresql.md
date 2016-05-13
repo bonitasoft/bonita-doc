@@ -22,10 +22,11 @@ To install the OpenJDK JVM you need to install the `openjdk-7-jre-headless` pack
 
 To check that Java is correctly setup in a console/terminal, type: `java -version`.
 You should get a similar message to the one below:  
-`
+```
 java version "1.7.0_65"
 OpenJDK Runtime Environment (IcedTea 2.5.3) (7u71-2.5.3-1ubuntu0.14.04.1)
 OpenJDK 64-Bit Server VM (build 24.65-b04, mixed mode)`
+```
 
 ## Database
 
