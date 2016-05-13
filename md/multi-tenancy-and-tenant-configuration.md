@@ -12,10 +12,12 @@ Artifacts are deployed at tenant level, so a tenant has its own organization (us
 Data within a tenant is completely isolated. A tenant cannot access data from any other tenant. A user logged in to a tenant cannot access any other tenant.
 
 After the installation of any Bonita BPM version (Community or Subscription), a single default tenant is created and ready for use.
+
 ![default](images/images-6_0/default_tenant_setup.png)  
 
 If you are using the Performance edition, you can create additional tenants, using the Platform API or the REST API.
 These tenants are configured with a single database. This illustration shows a platform with three tenants.
+
 ![multi-tenancy](images/images-6_0/v6tenant.png)
 
 ## Platform configuration
