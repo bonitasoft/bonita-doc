@@ -137,7 +137,7 @@
     * [Two main types of deployment](two-main-types-of-deployment.md)
     * [Bonita BPM in a cluster](bonita-bpm-in-a-cluster.md)
       * [Overview of Bonita BPM in a cluster](overview-of-bonita-bpm-in-a-cluster.md)
-      * [Building a Bonita BPM cluster](building-a-bonita-bpm-cluster.md)
+      * [Build a Bonita BPM cluster](building-a-bonita-bpm-cluster.md)
       * [Cluster administration](cluster-administration.md)
     * [Multi-tenancy and tenant configuration](multi-tenancy-and-tenant-configuration.md)
   * [Platform installation examples](platform-installation-examples.md)
