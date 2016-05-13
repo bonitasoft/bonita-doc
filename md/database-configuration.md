@@ -77,24 +77,13 @@ Bonita BPM Engine needs to know which type of RDBMS you are using.
 This is defined by setting the `sysprop.bonita.db.vendor` JVM system property value.
 
 The possible values for `sysprop.bonita.db.vendor` / `db.vendor` are:
-Database vendor
-Property value
-
-PostgreSQL
-postgres
-
-Oracle database
-oracle
-
-SQL Server
-sqlserver
-
-MySQL
-mysql
-
-h2 (default for testing, not for production)
-h2
-
+| Database vendor | Property value| 
+|:-|:-|
+| PostgreSQL | postgres| 
+| Oracle database | oracle| 
+| SQL Server | sqlserver| 
+| MySQL | mysql| 
+| h2 (default for testing, not for production) | h2| 
   
 The way to define JVM system properties depends on your application server type:
 
@@ -112,21 +101,12 @@ If the property is not defined, the fallback value is h2: `db.vendor=${sysprop.b
 ### Download JDBC driver
 
 First, you need to download the JDBC driver for your database system. Use links below to download the driver.
-Database vendor
-Download link
-
-PostgreSQL (use "Current Version")
-[download](https://jdbc.postgresql.org/download.html#current)
-
-Oracle Database
-[download](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html)
-
-Microsoft SQL Server
-[download](http://go.microsoft.com/fwlink/?LinkId=245496)
-
-MySQL
-[download](http://dev.mysql.com/downloads/connector/j/)
-
+| Database vendor | Download link| 
+|:-|:-|
+| PostgreSQL (use "Current Version") | [download](https://jdbc.postgresql.org/download.html#current)| 
+| Oracle Database | [download](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html)| 
+| Microsoft SQL Server | [download](http://go.microsoft.com/fwlink/?LinkId=245496)| 
+| MySQL | [download](http://dev.mysql.com/downloads/connector/j/)| 
   
 Note that if you run on Linux, the JDBC driver might also be available in the distribution packages repository. On Ubuntu
 and Debian you can, for example, install the `libpostgresql-jdbc-java` package to get the PostgreSQL JDBC Driver (install in `/usr/share/java`).
@@ -145,27 +125,13 @@ Refer to the table below to identify the folders to create.
 The last folder is named `main` for all JDBC drivers.
 * Add the JDBC driver jar file to the `main` folder.
 * Create a module description file `module.xml` in `main` folder.
-Database vendor
-Module folders
-Module description file
+| Database vendor | Module folders | Module description file |
+|:-|:-|:-|
+| PostgreSQL | modules/org/postgresql/main | [module.xml](images/special_code/postgresql/module.xml) |
+| Oracle | modules/com/oracle/main | [module.xml](images/special_code/oracle/module.xml) |
+| SQL Server | modules/com/sqlserver/main | [module.xml](images/special_code/sqlserver/module.xml) |
+| MySQL | modules/com/mysql/main | [module.xml](images/special_code/mysql/module.xml) |
 
-PostgreSQL
-modules/org/postgresql/main
-[module.xml](images/special_code/postgresql/module.xml)
-
-Oracle
-modules/com/oracle/main
-[module.xml](images/special_code/oracle/module.xml)
-
-SQL Server
-modules/com/sqlserver/main
-[module.xml](images/special_code/sqlserver/module.xml)
-
-MySQL
-modules/com/mysql/main
-[module.xml](images/special_code/mysql/module.xml)
-
-  
 Put the driver jar file in the relevant `main` folder.
 
 In the same folder as the driver, add the module description file, `module.xml`.
@@ -197,29 +163,14 @@ Bonita BPM Engine requires the configuration of two data sources. The data sourc
 * Password to connect to the database
 * JDBC Driver fully qualified class name (see table below)
 * XADataSource fully qualified class name (see table below)
-Database vendor
-Driver class name
-XADataSource class name
 
-PostgreSQL
-org.postgresql.Driver
-org.postgresql.xa.PGXADataSource
-
-Oracle Database
-oracle.jdbc.driver.OracleDriver
-oracle.jdbc.xa.client.OracleXADataSource
-
-Microsoft SQL Server
-com.microsoft.sqlserver.jdbc.SQLServerDriver
-com.microsoft.sqlserver.jdbc.SQLServerXADataSource
-
-MySQL
-com.mysql.jdbc.Driver
-com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
-
-h2 (not for production)
-org.h2.Driver
-org.h2.jdbcx.JdbcDataSource
+| Database vendor | Driver class name | XADataSource class name |
+|:-|:-|:-|
+| PostgreSQL | org.postgresql.Driver | org.postgresql.xa.PGXADataSource |
+| Oracle Database | oracle.jdbc.driver.OracleDriver | oracle.jdbc.xa.client.OracleXADataSource |
+| Microsoft SQL Server | com.microsoft.sqlserver.jdbc.SQLServerDriver | com.microsoft.sqlserver.jdbc.SQLServerXADataSource |
+| MySQL | com.mysql.jdbc.Driver | com.mysql.jdbc.jdbc2.optional.MysqlXADataSource |
+| h2 (not for production) | org.h2.Driver | org.h2.jdbcx.JdbcDataSource |
 
 The following sections show how to configuire the datasources for JBoss and Tomcat. 
 There is also an [example of how to configure datasources for Weblogic](red-hat-oracle-jvm-weblogic-oracle.md).
@@ -307,61 +258,60 @@ It is assumed in the procedure that:
 * An 'Oracle' OS user is already created
 * A database already exists
 * The environment is already set:
-```
-ORACLE_HOME=/u01/app/oracle/product/11.2.0/dbhome_1
-ORACLE_SID=...
-```
+  ```
+  ORACLE_HOME=/u01/app/oracle/product/11.2.0/dbhome_1
+  ORACLE_SID=...
+  ```
 
 1. Connect to the database as the System Administrator.
 
-SQL query \> `oracle@ubuntu:~$ sqlplus / as sysdba`
+   SQL query \> 
+   ```sql
+   oracle@ubuntu:~$ sqlplus / as sysdba
+   ```
 
-2. Check that the following components exist and are valid:
-SQL query \> `select comp_name, version, status from dba_registry;`
+2. Check that the following components exist and are valid:  
+   SQL query \>  
+   ```sql
+   select comp_name, version, status from dba_registry;
+   ```
 
-Comp\_name
-Version
-Status
-
-Oracle Database Catalog Views
-11.2.0.1.0
-VALID
-
-Oracle Database Packages and Types
-11.2.0.1.0
-VALID
-
-JServer JAVA Virtual Machine
-11.2.0.1.0
-VALID
-
-Oracle XDK
-11.2.0.1.0
-VALID
-
-Oracle Database Java Packages
-11.2.0.1.0
-VALID
+   | Comp\_name | Version | Status |
+   |:-|:-|:-|
+   | Oracle Database Catalog Views | 11.2.0.1.0 | VALID |
+   | Oracle Database Packages and Types | 11.2.0.1.0 | VALID |
+   | JServer JAVA Virtual Machine | 11.2.0.1.0 | VALID |
+   | Oracle XDK | 11.2.0.1.0 | VALID |
+   | Oracle Database Java Packages | 11.2.0.1.0 | VALID |
 
 3. Add XA elements:
 
-SQL query \> `@/u01/app/oracle/product/11.2.0/dbhome_1/javavm/install/initxa.sql`
-This only needs to be done once, after the installation of Oracle.
+   SQL query \> 
+   ```sql
+   @/u01/app/oracle/product/11.2.0/dbhome_1/javavm/install/initxa.sql
+   ```
+   This only needs to be done once, after the installation of Oracle.
 
 4. Create the database user to be used by the Bonita BPM Engine and grant the required rights:
 
-SQL query \> `@/u01/app/oracle/product/11.2.0/dbhome_1/rdbms/admin/xaview.sql`
-The following queries must be done for each new user: i.e. one user = one database schema.
+   SQL query \> 
+   ```sql
+   @/u01/app/oracle/product/11.2.0/dbhome_1/rdbms/admin/xaview.sql
+   ```
+   The following queries must be done for each new user: i.e. one user = one database schema.
 
-SQL query \> `CREATE USER bonita IDENTIFIED BY bonita;`
-`GRANT connect, resource TO bonita IDENTIFIED BY bonita;`
-`GRANT select ON sys.dba_pending_transactions TO bonita;`
-`GRANT select ON sys.pending_trans$ TO bonita;`
-`GRANT select ON sys.dba_2pc_pending TO bonita;`
-`GRANT execute ON sys.dbms_system TO bonita;`
-`GRANT select ON sys.v$xatrans$ TO bonita;`
-`GRANT execute ON sys.dbms_xa TO bonita;`
-`GRANT FORCE ANY TRANSACTION TO bonita;`
+   SQL query \> 
+   ```sql
+   CREATE USER bonita IDENTIFIED BY bonita;
+   GRANT connect, resource TO bonita IDENTIFIED BY bonita;
+   GRANT select ON sys.dba_pending_transactions TO bonita;
+   GRANT select ON sys.pending_trans$ TO bonita;
+   GRANT select ON sys.dba_2pc_pending TO bonita;
+   GRANT execute ON sys.dbms_system TO bonita;
+   GRANT select ON sys.v$xatrans$ TO bonita;
+   GRANT execute ON sys.dbms_xa TO bonita;
+   GRANT FORCE ANY TRANSACTION TO bonita;
+   ```
 
 ### SQL Server
 
@@ -377,19 +327,20 @@ Here is the list of steps to perform (as an example, the database name BONITA\_B
 2. Copy the `sqljdbc_xa.dll` from `%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc_4.0\enu\xa\x64\` (x64 for 64 bit version of Windows, x86 for 32 bit version of Windows) to `%SQLSERVER_INSTALL_ROO%\Instance_root\MSSQL10.MSSQLSERVER\MSSQL\Binn\.`
 3. Copy/paste the content of xa\_install.sql file (located in %JDBC\_DRIVER\_INSTALL\_ROOT%\\sqljdbc\_4.0\\enu\\xa) to SQL Server Management Studio's Query Editor.
 4. Execute the query in the Query Editor.
-5. To confirm successful execution of the script, open the "Object Explorer" and go to: **Master** \> **Programmability** \> **Extended Stored Procedures**. 
-You should have 12 new procedures, each with a name starting with `dbo.xp.sqljdbc_xa_`.
+5. To confirm successful execution of the script, open the "Object Explorer" and go to: **Master** \> **Programmability** \> **Extended Stored Procedures**.   
+   You should have 12 new procedures, each with a name starting with `dbo.xp.sqljdbc_xa_`.
 6. Assign the new role 'SqlJDBCXAUser' to the user who owns the Bonita BPM Engine database (`bonitadev` in our example). To do this, execute the following commands in SQL editor: 
-```sql
-USE master;
-GO
-CREATE LOGIN bonitadev WITH PASSWORD = 'secret_password';
-GO
-CREATE USER bonitadev FOR LOGIN bonitadev;
-GO
-EXEC sp_addrolemember [SqlJDBCXAUser], 'bonitadev';
-GO
-```
+   ```sql
+   USE master;
+   GO
+   CREATE LOGIN bonitadev WITH PASSWORD = 'secret_password';
+   GO
+   CREATE USER bonitadev FOR LOGIN bonitadev;
+   GO
+   EXEC sp_addrolemember [SqlJDBCXAUser], 'bonitadev';
+   GO
+   ```
+
 7. In the Windows "Start" menu, select **Administrative Tools**-\> **Services**.
 8. In the "Services" window, make sure that the **Distributed Transaction Coordinator** service is set to start automatically. If it's not yet started, start it.
 9. Make sure that the other services it depends on, namely "Remote Procedure Call" and "Security Accounts Manager", are also set to start automatically. 
@@ -406,13 +357,12 @@ GO
 
 Run the script below to avoid deadlocks:
 
-`ALTER DATABASE BONITA_BPM SET SINGLE_USER WITH ROLLBACK IMMEDIATE`
-
-`ALTER DATABASE BONITA_BPM SET ALLOW_SNAPSHOT_ISOLATION ON`
-
-`ALTER DATABASE BONITA_BPM SET READ_COMMITTED_SNAPSHOT ON`
-
-`ALTER DATABASE BONITA_BPM SET MULTI_USER`
+```sql
+ALTER DATABASE BONITA_BPM SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+ALTER DATABASE BONITA_BPM SET ALLOW_SNAPSHOT_ISOLATION ON
+ALTER DATABASE BONITA_BPM SET READ_COMMITTED_SNAPSHOT ON
+ALTER DATABASE BONITA_BPM SET MULTI_USER
+```
 
 See [MSDN](https://msdn.microsoft.com/en-us/library/ms175095(v=sql.110).aspx).
 
@@ -422,7 +372,9 @@ See [MSDN](https://msdn.microsoft.com/en-us/library/ms175095(v=sql.110).aspx).
 
 MySQL defines a maximum packet size on the server side. The default value for this settings are appropriate for most standard use cases.
 However, you need to increase the packet size if you see the following error: 
-`Error: 1153 SQLSTATE: 08S01 (ER_NET_PACKET_TOO_LARGE) Message: Got a packet bigger than 'max_allowed_packet' bytes`
+```
+Error: 1153 SQLSTATE: 08S01 (ER_NET_PACKET_TOO_LARGE) Message: Got a packet bigger than 'max_allowed_packet' bytes
+```
 
 You need to update the file `my.ini` (for Windows) or `my.cnf` (for Linux) to avoid the `ER_NET_PACKET_TOO_LARGE` problem.
 Look for `max_allowed_packet` settings and reduce the value.
