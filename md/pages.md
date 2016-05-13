@@ -58,18 +58,18 @@ To view an example page, publish the page to a custom profile so that you can vi
 
 On the [Customer Portal](https://customer.bonitasoft.com/), there is also an example in the form of a seed project for creating custom pages using AngularJS and a customizable example task list page.
 
-## Using Bonita BPM Portal content
+## Reuse Bonita BPM Portal content
 
-You can reuse pages from the Bonita BPM Portal in your custom pages. For example, in a page giving details of a case history, you could include the live case status diagram to show the current status. For example, for case 1 of process definition 8270554088248243867, include these lines in your custom page definition:
+You can reuse pages from the Bonita BPM Portal in your custom pages. For example, in a page that gives details of a case history, you could include the live case status diagram to show the current status. For example, for case 1 of process definition 8270554088248243867, include these lines in your custom page definition:
 ```groovy
 def idProcess = "8270554088248243867";
 def idCase = "1";
-out.write("""""");
+out.write("""<iframe src=../portal.js/#/admin/monitoring/${idProcess}-${idCase}" style="width:100%; height:100%"></iframe>""");
 ```
 
 This displays the case diagram exactly as it appears in the standard Bonita BPM Portal page. You can modify the view to hide the Portal **Back** button by adding `?diagramOnly` to the URL:
 ```groovy
-out.write("""""");
+out.write("""<iframe src=../portal.js/#/admin/monitoring/${idProcess}-${idCase}?diagramOnly}" style="width:100%; height:100%"></iframe>""");
 ```
 
 ### Debugging a custom page in development
@@ -99,15 +99,13 @@ However, this cannot be guaranteed for all future migrations.
 
 Custom page resources can be accessed by a `PageResourceProvider`.
 
-The `bonita.css` can be retrieved using `pageResourceProvider.getBonitaThemeCSSURL()
-`
+The `bonita.css` can be retrieved using `pageResourceProvider.getBonitaThemeCSSURL()`
 
-Other `css/js` resources can be retrieved using `pageResourceProvider.getResourceURL("")
-`
+Other `css/js` resources can be retrieved using `pageResourceProvider.getResourceURL("")`
 
 If you are not using Groovy you can directly access a resource by adding a link in `index.html`.
 
-For example: ``
+For example: `<link href="css/file.css" rel="stylesheet" />`
 
 ### API acces
 
@@ -119,4 +117,4 @@ you will be abble to access the portal API using the following path: "../API/{AP
 
 If your page is viewed in an application, you will have access facilities for [the application theme](applications.md).
 
-You can directly access a resource by adding the following link in `index.html`: ``
+You can directly access a resource by adding the following link in `index.html`: `<link href="../theme/theme.css" rel="stylesheet" />`
