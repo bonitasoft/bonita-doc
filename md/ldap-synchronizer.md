@@ -62,74 +62,35 @@ You also need to [create a dedicated bonita.home](configuring-bonita-home-for-a-
 ### bonita.properties
 
 This file defines the connection settings and specifies the account used for user synchronization (requires administration privileges).
-Item
-Description
-Default
 
-bonita\_home
-The path to the {{ var\_bonita\_home }} folder of the LDAP Synchronizer.
-
-login
-The login to provide is a userName. 
-install
-
-password
-Password of the Bonita BPM account used for synchronization.
-install
-
-technicalUser
-This is the [username of the platform adminstrator](first-steps-after-setup.md).
-platformAdmin
-
-technicalPassword
-This is the [password of the platform adminstrator](first-steps-after-setup.md).
-platform
+| Item | Description | Default |
+|:-----|:------------|:--------|
+| bonita\_home | The path to the {{ var\_bonita\_home }} folder of the LDAP Synchronizer. |  |
+| login | The login to provide is a userName.  | install |
+| password | Password of the Bonita BPM account used for synchronization. | install |
+| technicalUser | This is the [username of the platform adminstrator](first-steps-after-setup.md). | platformAdmin |
+| technicalPassword | This is the [password of the platform adminstrator](first-steps-after-setup.md). | platform |
 
 ### ldap.properties
 
 This file defines the LDAP connection settings and specifies the account used for user browsing.
-Item
-Description
-Default
-
-host\_url
-LDAP server URL
-ldap://localhost:389
-
-auth\_type
-LDAP authentication type (supported values: none, simple or strong)
-simple
-
-principal\_dn
-distinguished name (DN) of the user account used for browsing through the LDAP users
-cn=Directory Manager
-
-principal\_password
-password of the LDAP ?browser account
-root
-
-directory\_user\_type
-type of the user object ("user" for an Active Directory, "person" for an LDAP)
-person
+| Item | Description | Default |
+|:-----|:------------|:--------|
+| host\_url | LDAP server URL | ldap://localhost:389 |
+| auth\_type | LDAP authentication type (supported values: none, simple or strong) | simple |
+| principal\_dn | distinguished name (DN) of the user account used for browsing through the LDAP users | cn=Directory Manager |
+| principal\_password | password of the LDAP ?browser account | root |
+| directory\_user\_type | type of the user object ("user" for an Active Directory, "person" for an LDAP) | person |
 
 ### logger.properties
 
 This file provides the settings for the logger. Default settings should be fine for most uses.
-Item
-Description
-Default
 
-log\_dir\_path
-directory path where the log files will be stored. The log files are named on the following template: _`log_file_date_prefix`_`_LDAP-BOS_Synchronizer.log`
-logs/
-
-log\_file\_date\_prefix
-date format used for prefixing the log file name
-yyyy=MM=dd
-
-log\_level
-level of reporting of the logger (relevant values are INFO for production use, FINE for debug use)
-INFO
+| Item | Description | Default |
+|:-----|:------------|:--------|
+| log\_dir\_path | directory path where the log files will be stored. The log files are named on the following template: _`log_file_date_prefix`_`_LDAP-BOS_Synchronizer.log` | logs/ |
+| log\_file\_date\_prefix | date format used for prefixing the log file name | yyyy=MM=dd |
+| log\_level | level of reporting of the logger (relevant values are INFO for production use, FINE for debug use) | INFO |
 
 The date format in log file names follows the syntax of the Java SimpleDateFormat class. 
 This is useful to control the number of log file create as the logger will append information to an existing log file if the file name already exists. 
@@ -145,66 +106,20 @@ The only mandatory property is user\_name, which is the key defined for matching
 An LDAP property may be used several times in the configuration file but each Bonita property should be defined only once. Unused properties should be commented out.
 
 These are the supported Bonita BPM user properties:
-General information
-Professional information
-Personal information
+| General information | Professional information | Personal information |
+|:-----|:------------|:--------|
+|user\_name  <br/> first\_name  <br/> last\_name  <br/> title  <br/> job\_title  <br/> manager |  pro\_email  <br/> pro\_phone  <br/> pro\_mobile  <br/> pro\_fax  <br/> pro\_website  <br/> pro\_room  <br/> pro\_building  <br/> pro\_address  <br/> pro\_city  <br/> pro\_zip\_code  <br/> pro\_state  <br/> pro\_country | perso\_email  <br/> perso\_phone  <br/> perso\_mobile  <br/> perso\_fax  <br/> perso\_website  <br/> perso\_room  <br/> perso\_building  <br/> perso\_address  <br/> perso\_city  <br/> perso\_zip\_code  <br/> perso\_state  <br/> perso\_country | 
 
-user\_name  
-first\_name  
-last\_name  
-title  
-job\_title  
-manager
-pro\_email  
-pro\_phone  
-pro\_mobile  
-pro\_fax  
-pro\_website  
-pro\_room  
-pro\_building  
-pro\_address  
-pro\_city  
-pro\_zip\_code  
-pro\_state  
-pro\_country
-perso\_email  
-perso\_phone  
-perso\_mobile  
-perso\_fax  
-perso\_website  
-perso\_room  
-perso\_building  
-perso\_address  
-perso\_city  
-perso\_zip\_code  
-perso\_state  
-perso\_country
-
-  
 The following items are configured by default:
-Item
-Default
-
-user\_name
-uid
-
-last\_name
-sn
-
-title
-title
-
-pro\_email
-mail
-
-pro\_phone
-telephoneNumber
-
-pro\_mobile
-mobile
-
-perso\_phone
-homePhone
+| Item | Default |
+|:-----|:--------|
+| user\_name | uid |
+| last\_name | sn |
+| title | title |
+| pro\_email | mail |
+| pro\_phone | telephoneNumber |
+| pro\_mobile | mobile |
+| perso\_phone | homePhone |
 
 ### sync.properties
 
@@ -241,14 +156,14 @@ A watched directory is defined by an id that is declared in the "?ldap\_watched\
 This id provides access to the object properties with this syntax: object\_id.property.
 
 Here are the available object properties:
-ldap\_search\_dn
-DN of the LDAP watched directory that will be used to get the list of the LDAP users.
-
-ldap\_search\_filter
-LDAP user search filter (mandatory attribute, but can be a wide filter such as "cn=\*").
+| | |
+|:-----|:--------|
+| ldap\_search\_dn | DN of the LDAP watched directory that will be used to get the list of the LDAP users. |
+| ldap\_search\_filter | LDAP user search filter (mandatory attribute, but can be a wide filter such as "cn=\*"). |
 
 Example of a watched directory declaration:
-`
+
+```
 # Declare a list of LDAP watched directories
 ldap_watched_directories = dir1,dir2
 
@@ -259,7 +174,7 @@ dir1.ldap_search_filter =   cn=*
 # Specify dir2 settings
 dir2.ldap_search_dn =   ou=OtherPeople,dc=example,dc=com
 dir2.ldap_search_filter =   cn=*
-`
+```
 
 #### LDAP Group object properties syntax
 
@@ -290,7 +205,8 @@ optional Boolean attribute (true by default) that defines whether group members 
 
   
 Example of group declarations:
-`
+
+```
 # List of groups to synchronize
 ldap_groups = group1, group2
 
@@ -302,21 +218,17 @@ group1.forced_bonita_group_name  =  forced group1
 # sync the group with specified dn but not the users inside this group
 group2.ldap_group_dn  =  cn=group2,ou=groups,dc=bonita,dc=com
 group2.force_add_non_existing_users  =  false
-`
+```
 
 In combination or as an alternative, groups can be declared using the result of an LDAP search that is defined in the configuration file with the following properties :
-ldap\_group\_search\_dn
-DN of the LDAP watched directory that will be used to get the list of the LDAP groups.
-
-ldap\_group\_search\_filter
-LDAP group search filter (mandatory attribute, but can be a wide filter such as "cn=\*").
-
-force\_add\_non\_existing\_users
-optional boolean attribute (true by default) that defines whether group members that are not present in Bonita BPM should be imported (if false, these users are ignored).
-
+| | |
+|:-----|:--------|
+| ldap\_group\_search\_dn | DN of the LDAP watched directory that will be used to get the list of the LDAP groups. |
+| ldap\_group\_search\_filter | LDAP group search filter (mandatory attribute, but can be a wide filter such as "cn=\*"). |
+| force\_add\_non\_existing\_users | optional boolean attribute (true by default) that defines whether group members that are not present in Bonita BPM should be imported (if false, these users are ignored). |
   
 Example of group searches:
-`
+```
 #Specify search of groups
 ldap_search_filter_groups  =  search1,search2
 
@@ -331,7 +243,7 @@ search1.ldap_group_search_filter  =  cn=A_*
 search2.ldap_group_search_dn  =  ou=people,dc=bonita,dc=com
 search2.ldap_group_search_filter  =  cn=B_*
 search2.force_add_non_existing_users  =  false
-`
+```
 
 ## Running the synchronizer
 
