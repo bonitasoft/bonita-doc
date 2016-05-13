@@ -17,20 +17,14 @@ To understand these recommendations in detail, read the sections below.
 Two key definitions:
 
 * The maximum possible number of parallel threads that could be required at any given time is the sum of:
-
-> the number of workers 
-
-> the number of scheduler threads
-
-> the number of external API calls
+     * the number of workers 
+     * the number of scheduler threads
+     * the number of external API calls
 
 * The processing capacity is the desired number of parallel threads, and is the sum of:
-
-> the number of workers 
-
-> a percentage of the number of concurrent scheduler threads
-
-> a percentage of the number of concurrent external API calls
+     * the number of workers
+     * a percentage of the number of concurrent scheduler threads
+     * a percentage of the number of concurrent external API calls
 
 Performance tuning checklist of best practises:
 
@@ -155,13 +149,14 @@ This is one of the key configurations to optimize, because even though there are
 A thread from the pool of the work service is known as a worker.
 
 The work service is configured in _`bonita home`_`/engine-server/conf/tenants/tenant-template/bonita-tenant-community-custom.properties` to have the same settings in each tenant, 
-or in _`bonita home`_`/engine-server/conf/tenants/`_`tenant-id`_`/bonita-tenant-community-custom.properties` to set values for a specific tenant. `
+or in _`bonita home`_`/engine-server/conf/tenants/`_`tenant-id`_`/bonita-tenant-community-custom.properties` to set values for a specific tenant. 
+```
 bonita.tenant.work.terminationTimeout=30
 bonita.tenant.work.corePoolSize=25
 bonita.tenant.work.maximumPoolSize=25
 bonita.tenant.work.keepAliveTimeSeconds=60
 bonita.tenant.work.queueCapacity=10000
-`
+```
 
 It is very similar to the constructor provided in the [default JDK ThreadPoolExecutor](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html#ThreadPoolExecutor(int,%20int,%20long,%20java.util.concurrent.TimeUnit,%20java.util.concurrent.BlockingQueue))).
 For a reminder of how the threadpool behaves, see the Queuing section of the 
@@ -198,16 +193,10 @@ If you are unsure, our recommendation is to configure the two threadpools with t
 The Connector service is configured in `cfg-bonita-connector-timedout.xml`:
 
 * Before creating a tenant:
-_`bonita home`_`/engine-server/conf/tenants/tenant-template/bonita-tenant-community-custom.properties`
-  
-and
-_`bonita home`_`/engine-server/conf/tenants/tenant-template/bonita-tenant-sp-custom.properties`
+_`bonita home`_`/engine-server/conf/tenants/tenant-template/bonita-tenant-community-custom.properties` and _`bonita home`_`/engine-server/conf/tenants/tenant-template/bonita-tenant-sp-custom.properties`
 * For each tenant:
-_`bonita home`_`/engine-server/conf/tenants/`_`tenant-id`_`/bonita-tenant-community-custom.properties`
-  
-and
-_`bonita home`_`/engine-server/conf/tenants/`_`tenant-id`_`/bonita-tenant-sp-custom.properties`
-`
+_`bonita home`_`/engine-server/conf/tenants/`_`tenant-id`_`/bonita-tenant-community-custom.properties` and _`bonita home`_`/engine-server/conf/tenants/`_`tenant-id`_`/bonita-tenant-sp-custom.properties`
+```
 Community:
 bonita.tenant.connector.queueCapacity=10
 bonita.tenant.connector.corePoolSize=5
@@ -215,8 +204,7 @@ bonita.tenant.connector.maximumPoolSize=100
 bonita.tenant.connector.keepAliveTimeSeconds=100
 Subscription only:
 bonita.tenant.connector.timeout=300
-`
-
+```
 For details of these parameters, see [Work service](#work_service).
 
 <a id="scheduler_service"/>
@@ -231,10 +219,10 @@ The Bonita BPM Engine Scheduler service uses the Quartz Scheduler. Quartz takes 
 The Scheduler service configuration is in
 _`bonita home`_`/engine-server/conf/platform/bonita-platform-community-custom.properties`.
 You can configure:
-`
+```
 bonita.platform.scheduler.quartz.threadpool.size=5
 bonita.platform.scheduler.batchsize=1000
-`
+```
 
 <a id="db_connections"/>
 
@@ -316,8 +304,10 @@ Before going into production, we encourage to finely tune the "Level-2" object c
 
 * activate Hibernate cache statistics by setting at **true** the parameter **hibernate.generate\_statistics** in file **\[bonita-home\]/engine-server/cong/platform/bonita-platform-community-custom.properties**
 * activate logs at INFO level:
-`<logger name="org.bonitasoft.engine.persistence" level="INFO"/>
-<logger name="com.bonitasoft.engine.persistence" level="INFO"/>`
+```
+<logger name="org.bonitasoft.engine.persistence" level="INFO"/>
+<logger name="com.bonitasoft.engine.persistence" level="INFO"/>
+```
 * run load tests to simulate a production environment
 * analyse the "2nd Level Cache Ratio" log messages generated, combined with the "soft-locked cache entry was expired" **warnings messages** to change the configuration in file **<bonita-home\>/server/platform/conf/hibernate-cache-tenant.xml**.
 For instance, if on entity **org.bonitasoft.engine.core.document.model.impl.SDocumentImpl**, the "soft-locked cache entry was expired" warnings message occurs, it means the size of the **maxElementsInMemory**
@@ -325,11 +315,11 @@ parameter must be increased, provided it is a reasonable memory size and provide
 which means the **timeToLiveSeconds** parameter should be increased, or that the cache should be completely deactivated for this entity.
 
 Below is an example of a "soft-locked cache entry was expired" warning message:
-`
+```
 WARNING: Cache org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl Key org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl#org.bonitasoft.engine.persistence.PersistentObjectId@25505ff 
 Lockable : null
 A soft-locked cache entry was expired by the underlying Ehcache. If this happens regularly you should consider increasing the cache timeouts and/or capacity limits   
-`
+```
 
 <a id="app_cache"/>
 
