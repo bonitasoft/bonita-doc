@@ -202,59 +202,47 @@ For detailed information about the procedure to install Restful access on your C
 The Ticket Granting Ticket is an exposed resource. It has a unique URL.
 
 #### **Request for a Ticket Granting Ticket Resource**
-Request URL
-`http://www.your_cas_server_url/cas/v1/tickets`
-
-Request Method
-POST
-
-Form Data
-Username: walter.bates  
-Password: bpm  
+| | |
+|:-|:-|
+| Request URL | `http://www.your_cas_server_url/cas/v1/tickets` |
+| Request Method | POST |
+| Form Data | Username: walter.bates  <br/> Password: bpm |
 
 #### **Response for a Ticket Granting Ticket Resource**
 
-Response
-
-201 created
-
-`Location: http://www.your_cas_server_url/cas/v1/tickets/{TGT}`
+| | |
+|:-|:-|
+| Response |201 created <br/> <br/>`Location: http://www.your_cas_server_url/cas/v1/tickets/{TGT}` |
 
 Take the TGT response and paste it in the url of the ST request, below
 
 ### Getting the Service Ticket (ST)
 
 #### **Request for a Service Ticket**
-Request URL
-`http://www.your_cas_server_url/cas/v1/tickets/{TGT}`
 
-Request Method
-POST
-
-Form Data
-service={form encoded parameter for the service url}
+| | |
+|:-|:-|
+| Request URL | `http://www.your_cas_server_url/cas/v1/tickets/{TGT}`| 
+| Request Method | POST| 
+| Form Data | service={form encoded parameter for the service url}| 
 
 #### **Response for a Service (ST)**
 
-Response
-
-200 OK 
-
-{ST}
+| | |
+|:-|:-|
+| Response |200 OK <br/> <br/> {ST}|
 
 Take the ST response and paste it in the url of the Bonita BPM Engine login request, below
 
 ### Logging into Bonita BPM Engine with Rest API using the service ticket
 
 **Authentication to Bonita BPM Engine**
-Request URL
-`bonita_server_url/loginservice?ticket={ST} `
 
-Request Method
-GET
-
-Form Data
-service={form encoded parameter for the service url}
+| | |
+|:-|:-|
+| Request URL | `bonita_server_url/loginservice?ticket={ST} `| 
+| Request Method | GET| 
+| Form Data | service={form encoded parameter for the service url}| 
 
 Limitation: The default AuthenticationFilter that manages CAS authentication applies only to the following pages: 
 
@@ -268,5 +256,6 @@ If you require direct calls to the REST API to authenticate the user. you need t
 
 #### **Response for a Service (ST)**
 
-Response
-200 OK
+| | |
+|:-|:-|
+| Response | 200 OK|
