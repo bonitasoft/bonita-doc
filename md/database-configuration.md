@@ -307,9 +307,10 @@ It is assumed in the procedure that:
 * An 'Oracle' OS user is already created
 * A database already exists
 * The environment is already set:
-`
+```
 ORACLE_HOME=/u01/app/oracle/product/11.2.0/dbhome_1
-ORACLE_SID=...`
+ORACLE_SID=...
+```
 
 1. Connect to the database as the System Administrator.
 
