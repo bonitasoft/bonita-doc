@@ -10,8 +10,6 @@ Access to the Web REST API depends on [REST API authorization](rest-api-authoriz
 
 ![diagram of architecture of a REST client integrated with Bonita BPM](images/images-6_0/rest_overview.png)
 
-Bonita BPM REST architecture
-
 ## Phases of operation
 
 There are three phases of operation for an application that is integrated with Bonita BPM through the Web REST API: authentication, execution, and logout.
