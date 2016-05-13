@@ -1,40 +1,34 @@
-# Bonita BPM Portal interface overview
+# Bonita BPM Portal overview
 
-### The User interface
+Most of the Bonita BPM Portal pages are divided into 3 main panes: left, middle and right.
 
-The User interface is divided into 3 main columns: left, middle and right.
+The left pane is for filters, the middle one for lists and the right one for more details about the selected item.
 
-The left column is for filters, the middle column for bulk actions and right column for actions and more details about the selected item.
-
-### Default profiles
+## Default profiles
 
 There are three default profiles available in the Portal: **User**, **Administrator**, and (in the Efficiency and Performance editions) **Process manager**. 
 
-The **Administrator profile** is responsible for the administration of the Portal and particularly for the management of the Processes, the organization, the reports, the custom profiles and the Look & Feel. 
+The **Administrator** is responsible for the administration of the Portal at tenant level, and particularly for the management of the processes, the organization, the reports, the custom profiles and the Look & Feel. 
 (See example of the Administrator interface).
 
-The **Process manager profile** shares responsibility for management of Processes that are assigned.
+The **Process Manager** shares process management responsibilities with the Administrator for the processes he has been declared as the Process Manager.
 
-The **User profile** is responsible for performing the tasks for which they are a candidate and also for starting new cases of the Processes to which they have access.(See example of the User interface).
+The **User** is responsible of performing the tasks for which she is a candidate and also for starting new cases of the processes to which they have access.(See example of the User interface).
 
 ### Access to menus
 
 Each profile has access to a diferent set of drop down menus, containing filters and action buttons corresponding to their user rights.
 
-Note: A user with an admin profile has to be created by the technical user in order to manage the organization and other users. See [First steps after setup/Create an Administrator user](first-steps-after-setup.md).
+Note: The tenant administrator, logged as the Technical user, needs to map the Administrator profile with individuals in the company (or groups, or roles) to let the Administrator(s) manage the rest of the organization and other users. See [First steps after setup/Create an Administrator user](first-steps-after-setup.md).
 
 See also [Profiles overview](profiles-overview.md).
 
 See also [Custom profiles](custom-profiles.md).
 
-Example of the Administrator interface
+Example of the Administrator profile interface
 
-![Portal admin interface](images/images-6_0/admin_view7.1.png)
+![Administrator profile](images/images-6_0/admin_view7.1.png)
 
-Portal Admin interface
+Example of the User profile interface
 
-Example of the User interface
-
-![Portal user interface](images/images-6_0/user_view7.x.png)
-
-Portal user interface
+![User interface](images/images-6_0/user_view7.x.png)
