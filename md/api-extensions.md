@@ -31,6 +31,13 @@ Additional resources and related permissions are stored in user's session. A log
 
 A REST API extension example resource and API extension viewer page are provided in administrator portal. They are located in administrator portal.
 
+To use the examples, define a mapping for `demoPermission`.
+
+* Edit `$BONITA_HOME/client/tenants/1/conf/custom-permissions-mapping.properties`.
+* Add the following line: `profile|User=[demoPermission]`.
+* Restart Tomcat bundle
+
+
 REST API extension examples show how to:
 
 * Customize response with additional header, cookie and response code
