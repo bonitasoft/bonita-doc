@@ -18,65 +18,58 @@ the state of the activity will be the state previously recorded.
 The Process Management API provides the following actions:
 
 * Reset the state of a failed connector, using `setConnectorInstanceState(long connectorInstanceId, ConnectorStateReset state)`.
-* Reset the states of a list connectors, using setConnectorInstanceState(final Map\> connectorsToReset).
+* Reset the states of a list connectors, using setConnectorInstanceState(final Map<> connectorsToReset).
 * Retry a failed activity, using replayActivity(long activityInstanceId).
 * Reset the states of a list of failed connectors and, in the same operation, retry the corresponding failed activity, using 
-replayActivity(long activityInstanceId, `Map` connectorsToReset).
+replayActivity(long activityInstanceId, `Map<Long` connectorsToReset>connectorsToReset).
 
 ## Code explained
 
 In this example, an activity has failed because a connector failed to execute.
 
 The methods that are used to reset process items are in the ProcessManagementAPI, and the details are in the 
-[Javadoc](javadoc.md). These methods
-are accessed through the ProcessAPI, which extends the ProcessManagementAPI.
+[Javadoc](javadoc.md). These methods are accessed through the ProcessAPI, which extends the ProcessManagementAPI.
 
 First you need to log in, create the session, and get the ProcessAPI:
-`
+```java
 final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
         final APISession session = loginAPI.login("USERNAME", "PASSWORD");
         final ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);
-`
+```
 
 Then find the connector instance that failed:
-`
+```java
 final SearchOptions searchOptions = new SearchOptionsBuilder(0, 1).filter(ConnectorInstancesSearchDescriptor.CONTAINER_ID, failedTaskId)
                 .filter(ConnectorInstancesSearchDescriptor.STATE, ConnectorState.FAILED).done();
-        final SearchResult searchResult = processAPI.searchConnectorInstances(searchOptions);
+        final SearchResult<ConnectorInstance> searchResult = processAPI.searchConnectorInstances(searchOptions);
         final ConnectorInstance connectorInstance = searchResult.getResult().get(0);
-`
+```
 
 Find the reason for the failure by searching the internal logs:
-`
+
+```
 // search why the connector failed:
         final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
         builder.filter(LogSearchDescriptor.ACTION_SCOPE, failedTaskId);
         builder.searchTerm("Connector execution failure");
         builder.sort(LogSearchDescriptor.ACTION_TYPE, Order.ASC);
         final LogAPI logAPI = TenantAPIAccessor.getLogAPI(session);
-        final SearchResult searchedLogs = logAPI.searchLogs(builder.done());
+        final SearchResult<Log> searchedLogs = logAPI.searchLogs(builder.done());
         for (Log log : searchedLogs.getResult()) {
             // Print the failed connecor reason message:
             System.out.println(log.getMessage());
         }
-`
+```
 
 Then either reset the state of the connector instance and re-execute it, or skip the connector, as shown below:
-`
-processAPI.setConnectorInstanceState(connectorInstance.getId(), ConnectorStateReset.SKIPPED);
-`
-Then try to execute the activity again:
-`
-processAPI.retryTask(failedTaskId);
-`
+`processAPI.setConnectorInstanceState(connectorInstance.getId(), ConnectorStateReset.SKIPPED);`
 
-Finally, log out:
-`
-loginAPI.logout(session);
-`
+Then try to execute the activity again: `processAPI.retryTask(failedTaskId);`
+
+Finally, log out: `loginAPI.logout(session);`
 
 ## Complete code
-`
+```java
 import org.bonitasoft.engine.api.LoginAPI;
 import org.bonitasoft.engine.bpm.connector.ConnectorInstance;
 import org.bonitasoft.engine.bpm.connector.ConnectorInstancesSearchDescriptor;
@@ -109,7 +102,7 @@ public class SkipConnectorAndReplayActivity {
         // retrieve the failed connector:
         final SearchOptions searchOptions = new SearchOptionsBuilder(0, 1).filter(ConnectorInstancesSearchDescriptor.CONTAINER_ID, failedTaskId)
                 .filter(ConnectorInstancesSearchDescriptor.STATE, ConnectorState.FAILED).done();
-        final SearchResult searchResult = processAPI.searchConnectorInstances(searchOptions);
+        final SearchResult<ConnectorInstance> searchResult = processAPI.searchConnectorInstances(searchOptions);
         final ConnectorInstance connectorInstance = searchResult.getResult().get(0);
 
         // search why the connector failed:
@@ -118,7 +111,7 @@ public class SkipConnectorAndReplayActivity {
         builder.searchTerm("Connector execution failure");
         builder.sort(LogSearchDescriptor.ACTION_TYPE, Order.ASC);
         final LogAPI logAPI = TenantAPIAccessor.getLogAPI(session);
-        final SearchResult searchedLogs = logAPI.searchLogs(builder.done());
+        final SearchResult<Log> searchedLogs = logAPI.searchLogs(builder.done());
         for (Log log : searchedLogs.getResult()) {
             // Print the failed connecor reason message:
             System.out.println(log.getMessage());
@@ -134,4 +127,4 @@ public class SkipConnectorAndReplayActivity {
         loginAPI.logout(session);
     }
 }
-`
+```
