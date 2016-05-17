@@ -15,7 +15,7 @@ Hardware required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Port
 ## Software
 
 Software required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Portal).
-| | 7.0.x & 7.1.x | 7.2.x & 7.3.x 
+| | 7.0.x <br/> 7.1.x | 7.2.x <br/> 7.3.x 
 |:-|-|-
 | **Operating system** |
 | Windows Server 2012 R2 64 bits | ✔ | ✔ |

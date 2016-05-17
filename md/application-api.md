@@ -1,6 +1,12 @@
 # application API
 
-* [application](api_resources/living_application_6.4_0_0_0_0.md)
+* [application-layout](application-layout_0.md)
+* [application-theme](application-theme_0.md)
+* [application-menu](living_application-menu_6.4_2_0_1_0.md)
+* [application-page](living_application-page_6.4_1_0_0.md)
+
+## Application
+
 ## Living application
 
 ### Description
@@ -79,46 +85,134 @@ The methods used for this resource are:
 ### Get an application
 
 * **URL:**  
-  /API/living/application/:applicationId
-* **Method:**</td><td>GET</td><td>empty</td><td>The full JSON representation of the application that was created with id="applicationId"</td></tr>
-<tr><td>`../API/living/application/305`</td><td>`GET` </td><td> </td><td>
-<pre><code class="language-json">
-{
-  "id":"305",
-  "creationDate":"1411548289900",
-  "iconPath":"",
-  "createdBy":"1",
-  "profileId":"2",
-  "description":"My application description",
-  "token":"myapp",
-  "state":"DEACTIVATED",
-  "displayName":"My app",
-  "updatedBy":"1",
-  "lastUpdateDate":"1411548289900",
-  "version":"1.0",
-  "homePageId":"-1"
-}
-</code></pre></td></tr>
-</tbody></table>
-
+  `/API/living/application/:applicationId`
+* **Method:**  
+  GET
+* **Success Response**
+  * **Code**: 200
+  * **Payload** 
+  The full JSON representation of the application that was created with id="applicationId"
+    ```json
+    {
+      "id":"305",
+      "creationDate":"1411548289900",
+      "iconPath":"",
+      "createdBy":"1",
+      "profileId":"2",
+      "description":"My application description",
+      "token":"myapp",
+      "state":"DEACTIVATED",
+      "displayName":"My app",
+      "updatedBy":"1",
+      "lastUpdateDate":"1411548289900",
+      "version":"1.0",
+      "homePageId":"-1"
+    }
+    ```
 ### Delete an application
 
-* **URL**
-
-`/API/living/application/:applicationId`
-
-* **Method:**
-
-`DELETE`
-
+* **URL**  
+  `/API/living/application/:applicationId`
+* **Method:**  
+  `DELETE`
 * **Success Response**
   * **Code:** 200
 
-* [application-layout](api_resources/application-layout_0.md)
-* [application-theme](api_resources/application-theme_0.md)
-* [application-menu](api_resources/living_application-menu_6.4_2_0_1_0.md)
-* [application-page](api_resources/living_application-page_6.4_1_0_0.md)
+### Update an Application
+
+You can update the following parameters:
+
+* token
+* displayName
+* version
+* profileId
+* description
+
+* **URL**  
+  `/API/living/application/:applicationId`
+* **Method**  
+  `PUT`
+* **Data Params**  
+  A partial representation of an application with parameters to update
+  ```json
+  {
+    "version":"2.0",
+    "profileId":"3",
+    "token":"myappToUpDate",
+    "displayName":"My app To Up Date",
+    "description":"My application description To Up Date"
+  }
+  ```
+* **Success Response**
+  * **Code**: 200
+
+### Search for an application
+
+* **URL**  
+  `/API/living/application?p={page}&c={count}&o={order}&s={query}&f={filter\_name}={filter\_value}&d={field\_to\_deploy}`
+  **Example**: /API/living/application?f=token%3dmyapp&d=createdBy
+* **Method**  
+  `GET`
+* **URL Params**  
+  **Required**
+  * c: number of result per page to retrieve
+  * p: page number to retrieve
+
+  **Optional**:
+  * o: can order on "id","creationDate", "createdBy", "profileId", "token", "displayName", "updatedBy", "lastUpdateDate", "version" 
+  * s: can search on "token", "displayName", "version" 
+  * f: can filter on "token", "displayName", "version", "profileId", "creationDate", "createdBy", "updatedBy" , "lastUpdateDate"
+  * d: can directly access the details by of the "createdBy" or "updatedBy" user, or of the "profileId"
+
+* **Success Response**
+  * **Code**: 
+  * **Payload**:
 
 
-<ng-include src="'html/' + productVersion + '/application-layout_0.md'" onload="contentCtrl.highlight()"/>
+Response payload
 
+A JSON array of application
+
+#### Parameters
+
+#### Example
+Request url
+
+Request method
+
+GET
+
+Response payload
+
+    [
+    {"id":"305",
+    "creationDate":"1411548289900",
+    "iconPath":"",
+    "createdBy":
+    	{
+    	"last_connection":"2014-09-24 14:57:26.146",
+    	"created_by_user_id":"-1",
+    	"creation_date":"2014-09-15 17:25:22.678",
+    	"id":"1",
+    	"icon":"/default/icon_user.png",
+    	"enabled":"true",
+    	"title":"",
+    	"manager_id":"0",
+    	"job_title":"",
+    	"userName":"user1",
+    	"lastname":"user1",
+    	"firstname":"user1",
+    	"password":"",
+    	"last_update_date":"2014-09-15 17:25:22.678"
+    	},
+    "profileId":"2",
+    "description":"My application description",
+    "token":"myapp",
+    "state":"DEACTIVATED",
+    "displayName":"My app",
+    "updatedBy":"1",
+    "lastUpdateDate":"1411548289900",
+    "version":"1.0",
+    "homePageId":"-1"
+    }
+    ]

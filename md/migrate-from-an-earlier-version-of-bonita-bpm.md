@@ -82,21 +82,12 @@ The platform must be shut down during migration.
 The time required depends on several factors including the database volume, the number of versions between the source version and the
 target version, and the system configuration,
 so it is not possible to be precise about the time that will be required. However, the following example can be used as a guide:
-Database entries:
-data: 22541  
-flownode: 22482  
-process: 7493  
-connector: 7486  
-document: 7476
-
-Source version:
-6.0.2
-
-Target version:
-6.3.0
-
-Time required:
-2.5 minutes
+| | |
+|:-|:-|
+| Database entries: | data: 22541  <br/>flownode: 22482 <br/> process: 7493 <br/> connector: 7486 <br/> document: 7476|
+| Source version: | 6.0.2| 
+| Target version: | 6.3.0| 
+| Time required: | 2.5 minutes| 
 
 <a id="migrate"/>
 
@@ -112,33 +103,15 @@ or from the [Customer Portal](https://customer.bonitasoft.com/download/request) 
 your web server `lib` directory.
 4. Configure the database properties needed by the migration script, by editing `bonita-migration/Config.properties`.
 Specify the following information:
-Property
-Description
-Example
 
-bonita.home
-The location of the existing bonita\_home.
-`/opt/BPMN/bonita` (Linux) or `C:\\BPMN\\bonita` (Windows)
-
-db.vendor
-The database vendor
-postgres
-
-db.driverClass
-The driver used to access the database
-org.postgresql.Driver
-
-db.url
-The location of the Bonita BPM Engine database
-`jdbc:postgresql://localhost:5432/bonita_migration`
-
-db.user
-The username used to authenticate to the database
-bonita
-
-db.password
-The password used to authenticate to the database
-bpm
+| Property | Description | Example |
+|:-|:-|:-|
+| bonita.home | The location of the existing bonita\_home. | `/opt/BPMN/bonita` (Linux) or `C:\\BPMN\\bonita` (Windows) |
+| db.vendor | The database vendor | postgres |
+| db.driverClass | The driver used to access the database | org.postgresql.Driver |
+| db.url | The location of the Bonita BPM Engine database | `jdbc:postgresql://localhost:5432/bonita_migration` |
+| db.user | The username used to authenticate to the database | bonita |
+| db.password | The password used to authenticate to the database | bpm |
 
 Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
 `db.url=jdbc:mysql://localhost:3306/bonita_migration?allowMultiQueries=true`.
@@ -150,11 +123,11 @@ Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. For exam
 9. Run the migration script:
   * For version 1.x of the migration tool, run `migration.sh` (or `migration.bat` for Windows).
   * For version 2.x of the migration tool, go to the `bin` directory and run the migration script for your edition and operating system:
-Community edition
-`bonita-migration-distrib` (Linux) or `bonita-migration-distrib.bat` (Windows)
 
-Subscription editions
-`bonita-migration-distrib-sp` (Linux) or `bonita-migration-distrib-sp.bat` (Windows)
+| | |
+|:-|:-|
+| Community edition | `bonita-migration-distrib` (Linux) or `bonita-migration-distrib.bat` (Windows)| 
+| Subscription editions | `bonita-migration-distrib-sp` (Linux) or `bonita-migration-distrib-sp.bat` (Windows)| 
 
 10. The script detects the current version of Bonita BPM, and displays a list of the versions that you can migrate to. Specify the
 version you require.

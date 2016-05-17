@@ -11,15 +11,15 @@ After logging in, the requested page is not displayed automatically. The user mu
 
 ## Configure Bonita BPM Engine and JBoss for CAS
 
-The deploy bundle contains the files needed to use CAS with Bonita BPM platform and a JBoss 7 application server. They are contained in `cas-module.zip`. 
-You can use this zip file to configure CAS for a platform deployed from the JBoss bundle or from the deploy bundle. The `cas-module.zip` archive contains some jar files that are required. 
+The deploy bundle contains the files needed to use CAS with Bonita BPM platform and a JBoss 7 application server. They are contained in `cas-3.3.1-jbossas7-module`. 
+You can use this folder to configure CAS for a platform deployed from the JBoss bundle or from the deploy bundle. The `cas-3.3.1-jbossas7-module` folder contains some jar files that are required. 
 It also contains a configuration file for the module, `module.xml`, which defines the jar files to be loaded from the module itself and the dependencies of the module. For example:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <module xmlns="urn:jboss:module:1.0" name="org.jasig.cas">
     <resources>
-        <resource-root path="cas-client-3.3.1.jar" />
+        <resource-root path="cas-client-core-3.3.1.jar" />
         <resource-root path="slf4j-api-1.7.1.jar" />
         <resource-root path="slf4j-log4j12-1.7.1.jar" />
         <resource-root path="log4j-1.2.15.jar" />
@@ -46,7 +46,7 @@ For a standard installation, it is not usually necessary to modify this file.
 To configure Bonita BPM Engine for CAS:
 
 1. If you do not already have it, download the Subscription edition deploy zip from the customer portal.
-2. Add the CAS module. To do this, copy `cas-module.zip` to `JBOSS_HOME/modules` and unzip it to merge the CAS module with the existing modules.
+2. Add the CAS module. To do this, copy cas-3.3.1-jbossas7-module/org to JBOSS_HOME/modules to merge the CAS module with the existing modules.
 3. Make the CAS module global so that it can be used by any application. To do this, edit `JBOSS_HOME/standalone/configuration/standalone.xml` and change the definition of the `ee` subsystem to the following:
 
 ```xml
