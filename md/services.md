@@ -1,5 +1,5 @@
 # Services
 
 * [Event handlers](event-handlers.md)
-* [Queriable Logging](queriable-logging.md)
-* [Technical Logging](technical-logging.md)
+* [Queriable logger](queriable-logging.md)
+* [Technical logger](technical-logging.md)
