@@ -13,5 +13,5 @@
   * [Create administration tools](create-administration-tools.md)
   * [Restore default Look & Feel](restore-default-look-feel.md)
   * [Manage the platform](manage-the-platform.md)
-* [Using list and search methods](using-list-and-search-methods.md)
+* [List and search methods](using-list-and-search-methods.md)
 * [Log in with CAS](log-in-with-cas.md)
