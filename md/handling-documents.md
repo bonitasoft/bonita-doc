@@ -61,10 +61,10 @@ public static void createCaseWithDocument(String processDefinitionName, String p
                 
                 
         // ----- create list of operations -----                
-        List listOperations = new ArrayList();
+        List<Operations> listOperations = new ArrayList<Operation>();
                 
         // variables
-        Map ListExpressionsContext = new HashMap();
+        Map<String, Serializable> ListExpressionsContext = new HashMap<String, Serializable>();
 
         for (String variableName : variables.keySet()) {
 
@@ -118,11 +118,11 @@ The invoice documented is created by converting a local file to a byte stream us
 The two maps are then used to create a case of the process using the `createCaseWithDocument` method defined above.
 ```java
 // ---------- create a case with the value
-Map firstInvoice = new HashMap();
+Map<String, Object> firstInvoice = new HashMap<String, Object>();
 firstInvoice.put("emailAddress", "jan.Fisher@bonitasoft.com");
 firstInvoice.put("invoiceId", Long.valueOf(45));
 firstInvoice.put("dateOfInvoice", new Date());
-Map firstInvoiceDocument = new HashMap();
+Map<String, Object> firstInvoiceDocument = new HashMap<String, Object>();
 firstInvoiceDocument.put("invoiceReference", "http://documentation.bonitasoft.com");
 firstInvoiceDocument.put("invoiceLetter", loadFile("c:/tmp/firstinvoice.pdf"));
 createCaseWithDocument("IntegrateMyApplication", "1.0", firstInvoice, firstInvoiceDocument, processAPI);
