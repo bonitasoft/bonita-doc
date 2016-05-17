@@ -1,4 +1,4 @@
-# Accessing Bonita BPM Portal and forms by URL
+# Bonita BPM Portal and forms URLs
 
 This page explains how to use a URL to access Bonita BPM Portal or the form for a specific task. In these URLs, the process names, versions and the task names must be URL encoded.
 
