@@ -1,4 +1,4 @@
-# Technical logger service
+# Technical logger
 
 This page describes the technical logger service.
 
@@ -36,7 +36,7 @@ meaningful.
 ## Example
 
 The following example, `DelayedRetry`, shows how to write messages to the technical log. `DelayedRetry` can be called from an [event handler](event-handlers.md) that detects failed tasks.
-`
+```groovy
 package com.bonitasoft.handlers;
 
 import org.bonitasoft.engine.api.LoginAPI;
@@ -109,4 +109,4 @@ public class DelayedRetry implements Runnable {
     }
 
 }
-`
+```
