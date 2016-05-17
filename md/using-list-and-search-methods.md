@@ -1,17 +1,17 @@
-# List and search
+# List and search methods
 
 The Bonita BPM Engine APIs contain several list and search methods. This page explains the difference between list and search, and explains how to configure word-based search.
 
 The following example shows how to use a list method to see the archived activity instances:
 ```java
-List archivedActivityInstances = TenantAPIAccessor.getProcessAPI(session).getArchivedActivityInstances(instance.getId(), 0, 100, ActivityInstanceCriterion.NAME_ASC);
+List<ArchivedActivityInstance> archivedActivityInstances = TenantAPIAccessor.getProcessAPI(session).getArchivedActivityInstances(instance.getId(), 0, 100, ActivityInstanceCriterion.NAME_ASC);
 ```
 
 The following example shows how to use a search method to see the archived activity instances.
 ```java
 SearchOptionsBuilder searchBuilder = new SearchOptionsBuilder(0, 100);
 searchBuilder.sort(ArchivedActivityInstanceSearchDescriptor.NAME, Order.ASC);
-SearchResult archActivitResult = TenantAPIAccessor.getProcessAPI(session).searchArchivedActivities(searchBuilder.done());
+SearchResult<ArchivedActivityInstance> archActivitResult = TenantAPIAccessor.getProcessAPI(session).searchArchivedActivities(searchBuilder.done());
 ```
 
 These two examples above return identical information. Both list and search can be used to return a specified number of results, sorted according to a specified criterion.
@@ -27,14 +27,14 @@ SearchOptionsBuilder searchBuilder = new SearchOptionsBuilder(0, 100);
 searchBuilder.filter(ArchivedActivityInstanceSearchDescriptor.ROOT_PROCESS_INSTANCE_ID, processInstance.getId());
 searchBuilder.filter(ArchivedActivityInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getId());
 searchBuilder.sort(ArchivedActivityInstanceSearchDescriptor.NAME, Order.ASC);
-SearchResult archActivitResult = TenantAPIAccessor.getProcessAPI(session).searchArchivedActivities(searchBuilder.done());
+SearchResult<ArchivedActivityInstance> archActivitResult = TenantAPIAccessor.getProcessAPI(session).searchArchivedActivities(searchBuilder.done());
 ```
 Below is another example of a more complex search filtering.
 ```java
 SearchOptionsBuilder sob = new SearchOptionsBuilder(0, 10);
 sob.filter(HumanTaskInstanceSearchDescriptor.PROCESS_INSTANCE_ID, myProcessInstance.getId());
 sob.or();
-sob.differentFrom(HumanTaskInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getId());
+sob.differentFrom</b>(HumanTaskInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getId());
 ```
 
 ## Word-based search
@@ -74,10 +74,7 @@ To configure word-based search, edit _`bonita_home`_`bonita-platform-community-c
 
 1. Change the value of `bonita.platform.persistence.platform.enableWordSearch` (for the platform) or 
 `bonita.platform.persistence.tenant.enableWordSearch` (for a tenant) to `true` in the following line:
-`
-`
-2. For each object you be excluded from word-based search, add a mapping to the `wordSearchExclusionMappings` set. Each mapping has the following form:
-`
-org.bonitasoft.engine.identity.model.SUser`
+`<constructor-arg name="enableWordSearch" value="false" />`
+2. For each object you be excluded from word-based search, add a mapping to the `wordSearchExclusionMappings` set. Each mapping has the following form:`<value>org.bonitasoft.engine.identity.model.SUser</value>'
 
 When you restart the Engine, these settings are applied and word-based search comes into operation.
