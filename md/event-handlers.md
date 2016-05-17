@@ -21,14 +21,48 @@ This example shows an event handler that detects changes in the state of activit
 
 pom.xml :
 `
-4.0.0org.bonitasoft.exampleeventHandlerExample1.0-SNAPSHOT7.2.0UTF-8org.bonitasoft.enginebonita-server${bonita.version}org.apache.maven.pluginsmaven-compiler-plugin1.71.7`
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.bonitasoft.example</groupId>
+    <artifactId>eventHandlerExample</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+        <bonita.version>7.2.0</bonita.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.bonitasoft.engine</groupId>
+            <artifactId>bonita-server</artifactId>
+            <version>${bonita.version}</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>`
 
 ### Create event handler class:
 
-Create a class that implements `SHandler`.
+Create a class that implements `SHandler<SEvent>`.
 
 src/main/java/org/bonitasoft/example/EventHandlerExample.java:
-`
+```java
 package org.bonitasoft.example;
 
 import java.util.UUID;
@@ -39,7 +73,7 @@ import org.bonitasoft.engine.events.model.SHandlerExecutionException;
 import org.bonitasoft.engine.log.technical.TechnicalLogSeverity;
 import org.bonitasoft.engine.log.technical.TechnicalLoggerService;
 
-public class EventHandlerExample implements SHandler {
+public class EventHandlerExample implements SHandler<SEvent> {
 
     private final TechnicalLoggerService technicalLoggerService;
     private TechnicalLogSeverity technicalLogSeverity;
@@ -79,22 +113,39 @@ public class EventHandlerExample implements SHandler {
         return UUID.randomUUID().toString();
     }
 }
-
-    `
+```
 
 ### Deploy jar
 
-build eventHandlerExample-1.0-SNAPSHOT.jar using `mvn clean install` maven command.
-
-copy eventHandlerExample-1.0-SNAPSHOT.jar in webapps/bonita/WEB-INF/lib/ folder (for tomcat bundle)
+* Build eventHandlerExample-1.0-SNAPSHOT.jar using `mvn clean install` maven command.
+* Copy eventHandlerExample-1.0-SNAPSHOT.jar in webapps/bonita/WEB-INF/lib/ folder (for tomcat bundle)
 
 ### Register an event handler
 
-An event handler is registered on an event by adding an entry to the appropriate map. The list of handlers registered can be extended in the BONITA\_HOME
+An event handler is registered on an event by adding an entry to the appropriate map. The list of handlers registered can be extended in the BONITA\_HOME engine-server/conf/tenants/TENANT\_ID/bonita-tenant-sp-custom.xml:
+```xml
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-engine-server/conf/tenants/TENANT\_ID/bonita-tenant-sp-custom.xml:
-`
-java.util.HashMap`
+    <!-- add event handler bean definition -->
+    <bean id="myEventHandlerExample" class="org.bonitasoft.example.EventHandlerExample">
+        <!-- add logging service -->
+        <constructor-arg name="technicalLoggerService" ref="tenantTechnicalLoggerService" />
+    </bean>
+
+    <bean id="eventHandlers" class="org.springframework.beans.factory.config.MapFactoryBean">
+        <property name="targetMapClass">
+            <value>java.util.HashMap</value>
+        </property>
+        <property name="sourceMap">
+            <map>
+                <entry key="PROCESSINSTANCE_STATE_UPDATED" value-ref="myEventHandlerExample"/>
+            </map>
+        </property>
+    </bean>
+
+</beans>
+```
 
 ### Test it
 
@@ -103,7 +154,7 @@ Restart web server and run a basic process and check bonita log file in folder t
     INFOS: THREAD_ID=78 | HOSTNAME=gt | ExampleHandler: event PROCESSINSTANCE_STATE_UPDATED - asks if we are interested in handling this event instance
     ...
     INFOS: THREAD_ID=78 | HOSTNAME=gt | ExampleHandler: executing event PROCESSINSTANCE_STATE_UPDATED
-                
+
 
 ## Filter an event
 
@@ -111,7 +162,7 @@ An event handler contains a filter, `isInterested`, which detects the relevant i
 The example below shows how to use the State Id of a flow node to filter for a particular state (in this case, failed).
 Flownode State Ids are defined in the subclasses of `org.bonitasoft.engine.core.process.instance.api.states.FlowNodeState`.
 There is no exhaustive list; the set of states is extensible without notice.
-`
+```groovy
 public boolean isInterested(SEvent event) {
     boolean isInterested = false;
 
@@ -129,7 +180,7 @@ public boolean isInterested(SEvent event) {
 
     return isInterested;
 }
-`
+```
 
 Event handlers are recursive, that is, if an event handler itself modifies something and triggers an event, the relevant event handler is called. This means you might need to include loop detection in your event handler.
 
