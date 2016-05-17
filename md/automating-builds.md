@@ -60,22 +60,21 @@ To run the script:
 1. Check out the project to a directory in the Studio path.
 2. Delete the content of the `workspace` directory in your Bonita BPM Studio installation.
 3. Run the script. For example:
-`
+```bash
 ./BonitaStudioBuilder.sh -repoPath=/home/myBonitaRepoCheckedOut
 -outputFolder=/home/bonita/myArtefacts -buildAll -migrate 
--environment=Qualification`
+-environment=Qualification
+```
 
 When the script runs, information is logged in `workspace/.metadata/.log`.
 
 ## Deploying a process bar file
 
-From the bar file, a process can be [deployed manually using Bonita BPM Portal](processes.md). 
-You can also [deploy a process using the Engine API](manage-a-process.md).
+From the bar file, a process can be [deployed manually using Bonita BPM Portal](processes.md). You can also [deploy a process using the Engine API](manage-a-process.md).
 
 ## Deploying a REST API extension file
 
-From the zip file, a REST API extension can be [deployed manually using Bonita BPM Portal](api-extensions.md). 
-You can also deploy a REST API extension using the REST API.
+From the zip file, a REST API extension can be [deployed manually using Bonita BPM Portal](api-extensions.md). You can also deploy a REST API extension using the REST API.
 
 ## Automate build of a specific REST API extension
 
