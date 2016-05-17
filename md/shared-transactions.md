@@ -51,7 +51,7 @@ The CommandAPI, which executes some custom code on the server side, enables you 
 To do this, it provides access to the UserTransactionService exposing the following methods:
 
 * `registerBonitaSynchronization(BonitaTransactionSynchronization txSync)`
-* `executeInTransaction(Callable callable)`
+* `executeInTransaction(Callable<T> callable)`
 
 Two implementation of the executeInTransaction method are provided:
 
@@ -64,7 +64,7 @@ Anonymous class:
 ```java
 final long processInstanceId = 1704;
 final SProcessInstanceServiceprocessInstanceService = serviceAccessor.getProcessInstanceService();
-SProcessInstance pi = userTransactionService.executeInTransaction(new Callable() {
+SProcessInstance pi = userTransactionService.executeInTransaction(new Callable<SProcessInstance>() {
 	@Override
 	public SProcessInstance call() throws Exception {
 		return processInstanceService.getProcessInstance(processInstanceId);
@@ -74,7 +74,7 @@ SProcessInstance pi = userTransactionService.executeInTransaction(new Callable()
 
 Custom class:
 ```java
-class MyCallable implements Callable {
+class MyCallable implements Callable<SProcessInstance> {
 	private final ProcessInstanceService processInstanceService;
 	private long processInstanceId;
 
@@ -92,7 +92,7 @@ class MyCallable implements Callable {
 
 class MyCommand extends TenantCommand {
 	@Override
-    public Serializable execute(final Map parameters, final TenantServiceAccessor serviceAccessor) {
+    public Serializable execute(final Map<String, Serializable> parameters, final TenantServiceAccessor serviceAccessor) {
 		SProcessInstanceService processInstanceService = serviceAccessor.getProcessInstanceService();
 		MyCallable callable = new MyCallable(processInstanceService);
 		SProcessInstance processInstance;
