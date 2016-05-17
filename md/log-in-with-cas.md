@@ -4,7 +4,7 @@ Depending on your underlying authentication service, you may need to provide oth
 The following example can be used if you are [using Bonita BPM with CAS](single-sign-on-with-cas.md):
 ```java
 final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
-final Map credentials = new HashMap();
+final Map<String, Serializable> credentials = new HashMap<String, Serializable>();
 credentials.put(AuthenticationConstants.CAS_TICKET, ticket);
 APISession session = loginAPI.login(credentials);
 ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);
