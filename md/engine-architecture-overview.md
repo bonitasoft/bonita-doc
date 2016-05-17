@@ -4,30 +4,16 @@ This page describes the Bonita BPM Engine.
 
 ## Overview
 
-The Bonita BPM Engine is the runtime processor at the core of Bonita BPM.  It
-executes processes, handling actions related to tasks, such as database access,
-and housekeeping actions such as logging. The Engine is composed of a number of
-services and APIs. The services are either BPM services or generic services.
+The Bonita BPM Engine is the runtime processor at the core of Bonita BPM.  It executes processes, handling actions related to tasks, such as database access, and housekeeping actions such as logging. The Engine is composed of a number of services and APIs. The services are either BPM services or generic services.
+
 ![engine architecture diagram](images/images-6_0/dev_arch_engine_architecture_simple.png)  
 
-The Bonita BPM Engine component services are completely configurable using an XML
-file called `bonita-server.properties`, which is located in the server
-configuration folder `conf\bonita\server\default\conf\`. 
-This configuration file describes all the available services
-used by default. It is possible to change a service or replace it with a
-different implementation. In addition to the standard services, BonitaSoft will support 
-a system that uses any services we provide. Certain services are available only for the Performance, Efficiency, and Teamwork editions. The editions also
-includes contributions that enhance some services. There are also some internal
+The Bonita BPM Engine component services are completely configurable using an XML file called `bonita-server.properties`, which is located in the server configuration folder `conf\bonita\server\default\conf\`. This configuration file describes all the available services used by default. It is possible to change a service or replace it with a different implementation. In addition to the standard services, BonitaSoft will support a system that uses any services we provide. Certain services are available only for the Performance, Efficiency, and Teamwork editions. The editions also includes contributions that enhance some services. There are also some internal
 services that are used within the Engine but are not described here.
 
-Services are served to the Engine using a ServiceAccessor. By default, this
-uses Spring to bind services and to retrieve services instances. The Spring
-configuration files are stored in **_BONITA\_HOME_**, and can
-be modified to change the implementation of a service or to tailor it. 
+Services are served to the Engine using a ServiceAccessor. By default, this uses Spring to bind services and to retrieve services instances. The Spring configuration files are stored in **_BONITA\_HOME_**, and can be modified to change the implementation of a service or to tailor it. 
 
-The Engine can be installed on a Java Virtual
-Machine (JVM), in any web/JEE container, or can be used as a simple Java
-library.
+The Engine can be installed on a Java Virtual Machine (JVM), in any web/JEE container, or can be used as a simple Java library.
 
 ## APIs
 
@@ -71,8 +57,7 @@ Manages the Look & Feel of the Bonita BPM Portal web and mobile interfaces and f
 Tenant Management API
 Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in Teamwork, Efficiency, and Performance editions.
 
-There is also a Web API, which is for internal use only, and a Command API,
-which is primarily for internal use.
+There is also a Web API, which is for internal use only, and a Command API, which is primarily for internal use.
 
 ## BPM services
 
