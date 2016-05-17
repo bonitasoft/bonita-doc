@@ -31,14 +31,14 @@ The methods that are used to reset process items are in the ProcessManagementAPI
 [Javadoc](javadoc.md). These methods are accessed through the ProcessAPI, which extends the ProcessManagementAPI.
 
 First you need to log in, create the session, and get the ProcessAPI:
-```java
+```groovy
 final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
         final APISession session = loginAPI.login("USERNAME", "PASSWORD");
         final ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);
 ```
 
 Then find the connector instance that failed:
-```java
+```groovy
 final SearchOptions searchOptions = new SearchOptionsBuilder(0, 1).filter(ConnectorInstancesSearchDescriptor.CONTAINER_ID, failedTaskId)
                 .filter(ConnectorInstancesSearchDescriptor.STATE, ConnectorState.FAILED).done();
         final SearchResult<ConnectorInstance> searchResult = processAPI.searchConnectorInstances(searchOptions);
@@ -47,7 +47,7 @@ final SearchOptions searchOptions = new SearchOptionsBuilder(0, 1).filter(Connec
 
 Find the reason for the failure by searching the internal logs:
 
-```
+```groovy
 // search why the connector failed:
         final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
         builder.filter(LogSearchDescriptor.ACTION_SCOPE, failedTaskId);
@@ -69,7 +69,7 @@ Then try to execute the activity again: `processAPI.retryTask(failedTaskId);`
 Finally, log out: `loginAPI.logout(session);`
 
 ## Complete code
-```java
+```groovy
 import org.bonitasoft.engine.api.LoginAPI;
 import org.bonitasoft.engine.bpm.connector.ConnectorInstance;
 import org.bonitasoft.engine.bpm.connector.ConnectorInstancesSearchDescriptor;
