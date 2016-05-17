@@ -20,8 +20,7 @@ This example shows an event handler that detects changes in the state of activit
 ### create a maven project for event handler jar
 
 pom.xml :
-`
-<?xml version="1.0" encoding="UTF-8"?>
+```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -55,7 +54,8 @@ pom.xml :
         </plugins>
     </build>
 
-</project>`
+</project>
+```
 
 ### Create event handler class:
 
