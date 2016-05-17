@@ -19,19 +19,11 @@ There are three phases of operation for an application that is integrated with B
 Calls to the Web REST API require you to first log in as a user registered in the Engine database.
 
 To log in, use the following request:
-Request URL
-`http://host:port/bonita/loginservice`
-
-Request Method
-POST
-
-Form Data
-username: a username  
-password: a password  
-redirect: true or false  
-redirectURL: the URL of the page to be displayed after login  
-tenant: the tenant to log in to (optional for Teamwork, Efficiency, and Performance editions, not supported for the Community edition)
-
+| | |
+|:-|:-|
+| Request URL | `http://host:port/bonita/loginservice`| 
+| Request Method | POST| 
+| Form Data | username: a username<br/>password: a password <br/>redirect: true or false<br/>redirectURL: the URL of the page to be displayed after login <br/>tenant: the tenant to log in to (optional for Teamwork, Efficiency, and Performance editions, not supported for the Community edition)| 
   
 This call generates a cookie, which must be set on each subsequent call. If the Web REST is being used in an application running in a web browser, this is handled automatically by the browser. 
 
@@ -53,14 +45,11 @@ The engine will then continue the execution of the workflow as designed.
 When processing is complete, you must log out.
 
 To log out, use the following request:
-Request URL
-`http://host:port/bonita/logoutservice`
-
-Request Method
-GET
-
-Form Data
-redirect: true or false
+| | |
+|:-|:-|
+| Request URL | `http://host:port/bonita/logoutservice`| 
+| Request Method | GET| 
+| Form Data | redirect: true or false| 
 
 Setting the redirect parameter to false indicates that the service should not redirect to the login page after logging out.
 
@@ -70,29 +59,20 @@ You can create [Rest API Extensions](rest-api-extensions.md) to extend the Rest 
 It is possible for an extension to interact with the engine (via the API) or with any other external service (for example a database, a directory, or a web service).
 
 ## Create a resource
-Request URL
-`http://.../API/{API_name}/{resource_name}/  `
-
-Request Method
-POST 
-
-Request Payload
-an item in JSON
-
-Response
-the same item in JSON, containing the values provided in the posted item, completed with default values and identifiers provided by Bonita BPM Engine.
-
+| | |
+|:-|:-|
+| Request URL | `http://.../API/{API_name}/{resource_name}/  `| 
+| Request Method | POST| 
+| Request Payload | an item in JSON| 
+| Response | the same item in JSON, containing the values provided in the posted item, completed with default values and identifiers provided by Bonita BPM Engine.|  
 ## Read a resource
 
 Example: ``
-Request URL
-`http://.../API/{API_name}/{resource_name}/{id} `
-
-Request Method
-GET
-
-Response
-an item in JSON
+| | |
+|:-|:-|
+| Request URL | `http://.../API/{API_name}/{resource_name}/{id} `| 
+| Request Method | GET| 
+| Response | an item in JSON| 
 
 Example
 `http://.../API/identity/user/5 `
@@ -100,30 +80,22 @@ Example
 ### With compound identifier
 
 The order of the identifier parts for each resource type is given in the table above.
-Request URL
-`http://.../API/{API_name}/{resource_name}/{id_part1}/{id_part2} `
-
-Request Method
-GET 
-
-Response
-an item in JSON
+| | |
+|:-|:-|
+| Request URL | `http://.../API/{API_name}/{resource_name}/{id_part1}/{id_part2} `| 
+| Request Method | GET| 
+| Response | an item in JSON| 
 
 Example
 `>http://.../API/identity/membership/5/12/24 `
 
 ## Update a resource
-Request URL
-`http://.../API/{API_name}/{resource_name}/{id} `
-
-Request Method
-PUT 
-
-Request Payload
-a map in JSON containing the new values for the attributes you want to change.
-
-Response
-the corresponding item in JSON with new values where you requested a modification
+| | |
+|:-|:-|
+| Request URL | `http://.../API/{API_name}/{resource_name}/{id} `| 
+| Request Method | PUT| 
+| Request Payload | a map in JSON containing the new values for the attributes you want to change.|  
+| Response | the corresponding item in JSON with new values where you requested a modification| 
 
 Example
 `http://.../API/identity/user/5`
@@ -131,17 +103,12 @@ Example
 ### With compound identifier:
 
 Response: the corresponding item in JSON with new values where you requested a modification.
-Request URL
-`http://.../API/{API_name}/{resource_name}/{id_part1}/{id_part2} `
-
-Request Method
-PUT 
-
-Request Payload
-` a map in JSON containing the new values for the attributes you want to change `
-
-Response
-` the corresponding item in JSON with new values where you requested a modification`
+| | |
+|:-|:-|
+| Request URL | `http://.../API/{API_name}/{resource_name}/{id_part1}/{id_part2} `| 
+| Request Method | PUT| 
+| Request Payload | ` a map in JSON containing the new values for the attributes you want to change `| 
+| Response | ` the corresponding item in JSON with new values where you requested a modification`| 
 
 Example
 `http://.../API/identity/membership/5/12/24 `
@@ -149,17 +116,12 @@ Example
 ## Delete resources
 
 Use the DELETE request to remove multiple resources.
-Request URL
-`http://.../API/{API_name}/{resource_name}/ `
-
-Request Method
-DELETE 
-
-Request Payload
-A list of identifiers in JSON, for example `["id1","id2","id3"]`. Compound identifiers are separated by '/' characters.
-
-Response
-`empty `
+| | |
+|:-|:-|
+| Request URL | `http://.../API/{API_name}/{resource_name}/ `| 
+| Request Method | DELETE| 
+| Request Payload | A list of identifiers in JSON, for example `["id1","id2","id3"]`. Compound identifiers are separated by '/' characters.|  
+| Response | `empty `| 
 
 Example
 `http://.../API/identity/membership/ `
@@ -173,14 +135,11 @@ If you are searching for business data using a custom query, there must be a [co
 For business data default queries, the count query is defined automatically.
 
 The available filters are the attributes of the item plus some specific filters defined by each item.
-Request URL
-`http://.../API/{API_name}/{resource_name}?p={page}&c={count}&o={order}&s={query}&f={filter_name}={filter_value}&f=... `
-
-Request Method
-GET 
-
-Response
-an array of items in JSON
+| | |
+|:-|:-|
+| Request URL | `http://.../API/{API_name}/{resource_name}?p={page}&c={count}&o={order}&s={query}&f={filter_name}={filter_value}&f=... `| 
+| Request Method | GET| 
+| Response | an array of items in JSON| 
 
 Example
 `http://.../API/identity/user?p=0&c=10&o=firstname&s=test&f[]=manager_id:3`
@@ -190,14 +149,14 @@ For a GET method that retrieves more than one instance of a resource, you can sp
 * p: index of the page to display
 * c: maximum number of elements to retrieve
 * o: order of presentation of values in response: must be either attributeName ASC or attributeName DESC. The final order parameter value must be URL encoded. 
-The order attributeNames are the same as those you get in the object representation returned in the response.
+  The order attributeNames are the same as those you get in the object representation returned in the response.
 * f: list of filters, specified as attributeName=attributeValue. To filter on more than one attribute, specify an f parameters for each attribute. The final filter parameter value must be URL encoded. 
-The attributes you can filter on are specific to the resource.
+  The attributes you can filter on are specific to the resource.
 * s: search on name or search indexes. The matching policy depends on the configuration of [word-based search](using-list-and-search-methods.md). 
-For example, if word-based search is enabled, `s=Valid` returns matches containing the string "valid" at the start of any word in the attribute value word, 
-such as "Valid address", "Not a valid address", and "Validated request" but not "Invalid request".
-If word-based search is disabled, `s=Valid` returns matches containing the string "valid" at the start of the attribute value, such as "Valid address" or "Validated request" but not "Not a valid address" or "Invalid request".
+  For example, if word-based search is enabled, `s=Valid` returns matches containing the string "valid" at the start of any word in the attribute value word, 
+  such as "Valid address", "Not a valid address", and "Validated request" but not "Invalid request".
+  If word-based search is disabled, `s=Valid` returns matches containing the string "valid" at the start of the attribute value, such as "Valid address" or "Validated request" but not "Not a valid address" or "Invalid request".
 * d: the list of attributes for which you want to make an extended request (called a deploy) and retrieve attributes of a linked resource. 
-This means that instead of retrieving the ID or a parent or referenced resource, you can retrieve the full object. 
-For example, when you retrieve a task, you can also retrieve the process definition attributes in addition to the process definition ID that is already part of the task resource. 
-The supported deploy values for a task include its process (d=processId).
+  This means that instead of retrieving the ID or a parent or referenced resource, you can retrieve the full object. 
+  For example, when you retrieve a task, you can also retrieve the process definition attributes in addition to the process definition ID that is already part of the task resource. 
+  The supported deploy values for a task include its process (d=processId).

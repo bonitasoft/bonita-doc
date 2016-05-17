@@ -46,21 +46,11 @@ mvn archetype:generate \
 ```
 
 Before running the command, update the following parameter values:
-Parameter
-Description
-
-archetypeVersion
-This must match the version of the toolkit.
-
-groupId
-Maven project group id.
-
-artifactId
-Maven project artifact id and Bonita BPM connector definition id.
-
-version
-Maven project version and Bonita BPM connector definition version.
-
+| Parameter | Description| 
+| archetypeVersion | This must match the version of the toolkit.|  
+| groupId | Maven project group id.|  
+| artifactId | Maven project artifact id and Bonita BPM connector definition id.|  
+| version | Maven project version and Bonita BPM connector definition version.|  
   
 3. Run the command. This generates a new folder named `artifactId` containing the connector definition project files, as follows:
 ```

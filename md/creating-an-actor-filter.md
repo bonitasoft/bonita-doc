@@ -20,60 +20,16 @@ The following sections explain the elements of the definition. You can also use 
 ### Actor filter configuration wizard definition
 
 The XML file that defines the actor filter configuration wizard contains definitions for header information identifying the actor filter (including the icon), for inputs and outputs, and for the wizard pages. The definition follows the schema defined in http://documentation.bonitasoft.com/ns/connector/definition/6.0/connector-definition-descriptor.xsd. The table below lists the items in the definition:
-Occurrence
-Description
-
-id
-1
-The identifier of the actor filter definition. Used
-internally, not displayed in the wizard or in Bonita BPM Studio. Must be
-unique.
-
-version
-1
-The version of the actor filter definition. Must be
-unique for the actor filter identifier.
-
-icon
-0 or 1
-The name of a file containing the icon image.
-
-category
-1
-The category to which the actor filter belongs. In
-Bonita BPM Studio, actor filters are grouped by category. Optionally, the
-category can have an icon image.
-
-input
-0 or more
-Input data passed to the actor filter. Each input has a
-unique name and a Java type. Optionally, it can be defined as
-mandatory. Optionally, a default value can be set.
-
-output
-0 or more
-Output data passed to the process from the actor filter.
-Each output has a unique name and a Java type.
-
-page
-0 or more
-A page in the wizard. A page must have a unique id. A
-page consists of one or more widgets. A page is constructed by
-displaying the widgets in the order in which the definitions appear in
-the file.
-
-widget
-1 or more per page
-An element within a page, corresponding to an input. A
-widget must have a unique id, an input name, and a type. The following
-types of widget are available: text, password, text area, check box,
-radio button group, select (drop-down list), array, group, script
-editor, and list.
-
-jarDependency
-0 or more
-A dependency that must be satisfied for the wizard to
-run successfully.
+| | Occurrence | Description|
+| id | 1 | The identifier of the actor filter definition. Used internally, not displayed in the wizard or in Bonita BPM Studio. Must be unique. |
+| version | 1 | The version of the actor filter definition. Must be unique for the actor filter identifier. |
+| icon | 0 or 1 | The name of a file containing the icon image. |
+| category | 1 | The category to which the actor filter belongs. In Bonita BPM Studio, actor filters are grouped by category. Optionally, the category can have an icon image. |
+| input | 0 or more | Input data passed to the actor filter. Each input has a unique name and a Java type. Optionally, it can be defined as mandatory. Optionally, a default value can be set. |
+| output | 0 or more | Output data passed to the process from the actor filter.  Each output has a unique name and a Java type. |
+| page | 0 or more | A page in the wizard. A page must have a unique id. A page consists of one or more widgets. A page is constructed by displaying the widgets in the order in which the definitions appear in the file. |
+| widget | 1 or more per page | An element within a page, corresponding to an input. A widget must have a unique id, an input name, and a type. The following types of widget are available: text, password, text area, check box, radio button group, select (drop-down list), array, group, script editor, and list. |
+| jarDependency | 0 or more | A dependency that must be satisfied for the wizard to run successfully. |
 
 The page and widget definitions are required for an actor filter that is used or configured from within Bonita BPM Studio. 
 

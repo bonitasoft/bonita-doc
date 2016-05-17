@@ -42,31 +42,12 @@ sob.differentFrom</b>(HumanTaskInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getI
 By default, search uses a "starts by" algorithm for searching, and finds matches where the search string occurs at the start of a phrase. 
 If word-based search is enabled, you can search for a string that is preceded by white space or is at the start of the phrase. 
 For example:
-Phrase in database
-Search string
-Matches with "starts with"
-Matches with word-based search
-
-Hello Charles
-charles
-no
-yes
-
-Hello Charles
-he
-yes
-yes
-
-Hello Charles
-carl
-no
-no
-
-Hello\_Charles
-ch
-no
-no
-
+| Phrase in database | Search string | Matches with "starts with" | Matches with word-based search |
+|:-|:-|:-|:-|
+| Hello Charles | charles | no | yes |
+| Hello Charles | he | yes | yes |
+| Hello Charles | carl | no | no |
+| Hello\_Charles | ch | no | no |
   
 Using word-based search has an impact on performance, so by default it is disabled. You can enable it for the platform or for a tenant. If you enable it, you can exclude any objects for which it is not useful.
 
