@@ -84,18 +84,9 @@ In the first diagram, the task contains connectors.
 
 ![Diagram of the states and transactions when a user task with connectors is executed](images/images-6_0/user_task_execution_with_connector.png)
 
-User task execution with connectors
-  
-  
-
 In the second diagram, there are no connectors in the task.
-  
 
 ![Diagram of the states and transactions when a user task with connectors is executed](images/images-6_0/user_task_execution_without_connector.png)
-
-User task execution with connectors
-  
-  
 
 As you can see in these illustrations, there is a non-negligible cost when adding some connectors to an activity: if there is no connector to execute then the state executes in one transaction, but if there is a connector to execute in the state this requires at least three transactions:
 
