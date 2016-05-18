@@ -59,24 +59,24 @@ There is also an [example of how to configure data sources for Weblogic](red-hat
 
 ### Configuration for JBoss
 
-Edit the `/standalone/configuration/standalone.xml` configuration file and find the `BusinessDataDS` and `NotManagedBizDataDS` data sources definitions. 
+Edit the `<JBOSS_HOME>/standalone/configuration/standalone.xml` configuration file and find the `BusinessDataDS` and `NotManagedBizDataDS` data sources definitions. 
 The configuration file contains examples for each of the supported RDBMSs to guide you. Edit the following settings:
 
 * For `BusinessDataDS`, update the values of the following settings:
-  * ``: the driver to be used to access your database. See the RDBMS-specific examples in the configuration file.
-  * ``: combination of serverName + portNumber + databaseName. See the examples in the configuration file.
-  * ``: RDBMS user name.
-  * ``: RDBMS user password.
-  * ``: `SELECT 1 FROM dual` for Oracle, `SELECT 1` for any other supported RDBMS.
-  * ``: must be lower than your RDBMS connection timeout.
-* For ``, update the values of the following settings:
-  * ``: the driver to be used to access your database. See the RDBMS-specific examples in the configuration file.
-  * ``: combination of serverName + portNumber + databaseName. See the examples in the configuration file.
-  * ``: RDBMS user name.
-  * ``: RDBMS user password.
-  * ``: `SELECT 1 FROM dual` for Oracle, `SELECT 1` for any other supported RDBMS.
-  * ``: must be lower than your RDBMS connection timeout.
-* In the `` declaration, specify the `` and `` for the driver you specify in the data source definitions. 
+  * <driver>: the driver to be used to access your database. See the RDBMS-specific examples in the configuration file.
+  * <xa-datasource-property name="URL">: combination of serverName + portNumber + databaseName. See the examples in the configuration file.
+  * <xa-datasource-property name="User">: RDBMS user name.
+  * <xa-datasource-property name="Password">: RDBMS user password.
+  * <check-valid-connection-sql>: SELECT 1 FROM dual for Oracle, SELECT 1 for any other supported RDBMS.
+  * <background-validation-millis>: must be lower than your RDBMS connection timeout.
+* For `<no-tx-datasource>`, update the values of the following settings:
+  * <driver>: the driver to be used to access your database. See the RDBMS-specific examples in the configuration file.
+  * <connection-url>: combination of serverName + portNumber + databaseName. See the examples in the configuration file.
+  * <user-name>: RDBMS user name.
+  * <password>: RDBMS user password.
+  * <check-valid-connection-sql>: SELECT 1 FROM dual for Oracle, SELECT 1 for any other supported RDBMS.
+  * <background-validation-millis>: must be lower than your RDBMS connection timeout.
+* In the `<drivers>` declaration, specify the `<xa-datasource-class>` and `<datasource-class>` for the driver you specify in the data source definitions. 
 See the RDBMS-specific examples to find the correct values for your RDBMS.
 
 **Note:** If you have multiple tenants that use business data objects, you need to declare separate data sources for each tenant. Make sure that the values of properties `jndi-name` and `pool-name` are unique. 
@@ -89,7 +89,7 @@ Edit `bonita/engine-server/conf/tenants/`_`tenant-id`_`/bonita-tenant-community-
 If you are using Tomcat, you need to configure one data source directly in Tomcat and one in Bitronix.
 **Tomcat configuration**
 
-Edit the `/conf/Catalina/localhost/bonita.xml` configuration file and find the data source named `NotManagedBizDataDS`. The configuration file contains examples of settings to guide you. Edit the following settings and set the values appropriate for your RDBMS and database configuration:
+Edit the `<TOMCAT_HOME>/conf/Catalina/localhost/bonita.xml` configuration file and find the data source named `NotManagedBizDataDS`. The configuration file contains examples of settings to guide you. Edit the following settings and set the values appropriate for your RDBMS and database configuration:
 
 * `validationQuery`: `SELECT 1 FROM dual` for Oracle, `SELECT 1` for any other supported RDBMS.
 * `validationInterval`: must be lower than your RDBMS connection timeout.
@@ -101,9 +101,10 @@ Edit the `/conf/Catalina/localhost/bonita.xml` configuration file and find the d
 **Note:**
 If you have multiple tenants that use business data objects, copy the blocks `BusinessDataDS` and `NotManagedBizDataDS` for each tenant, and rename them with a unique name (for example `BusinessDataDS_`_`tenant-id`_ and `NotManagedBizDataDS_`_`tenant-id`_). 
 Edit `bonita/engine-server/conf/tenants/`_`tenant-id`_`/bonita-tenant-community-custom.properties` file and set the tenant-specific JNDI data source name in `bdm.datasource.jndi.path` and `bdm.notmanageddatasource.jndi.path`.
+
 **Bitronix configuration**
 
-Edit the `/conf/bitronix-resources.properties` configuration file and find the parameters starting with `resource.ds2`. The configuration file contains examples of settings to guide you. Edit the following settings and set the values appropriate for your RDBMS and database configuration:
+Edit the `<TOMCAT_HOME>/conf/bitronix-resources.properties` configuration file and find the parameters starting with `resource.ds2`. The configuration file contains examples of settings to guide you. Edit the following settings and set the values appropriate for your RDBMS and database configuration:
 
 * `resource.ds2.className`: JDBC driver full class name. See the examples to find the relevant value for your RDBMS.
 * `resource.ds2.driverProperties.user`: RDBMS user name.
