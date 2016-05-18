@@ -24,4 +24,4 @@
 * [Twitter](twitter.md)
 * [Web service](web-service.md)
   * [Web service connector overview](web-service-connector-overview.md)
-  * [Web service tutorial](web-service-tutorial.md)
+  * [Web service connector tutorial](web-service-tutorial.md)
