@@ -82,7 +82,7 @@
   * [Twitter](twitter.md)
   * [Web service](web-service.md)
     * [Web service connector overview](web-service-connector-overview.md)
-    * [Web service tutorial](web-service-tutorial.md)
+    * [Web service connector tutorial](web-service-tutorial.md)
 * [Organization](organization.md)
   * [Organization overview](organization-overview.md)
   * [Approaches to managing organizations and actor mapping](approaches-to-managing-organizations-and-actor-mapping.md)
