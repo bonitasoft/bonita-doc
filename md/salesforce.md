@@ -1,4 +1,4 @@
-# Salesforce connectors
+# Salesforce
 
 Salesforce version 24.0.0
 
