@@ -77,7 +77,7 @@
     * [Script](script.md)
     * [Sugar CRM](sugar-crm.md)
     * [Talend Job launcher](talend-job-launcher.md)
-    * [Talend TIS job launcher](talend-tis-job-launcher.md)
+    * [Talend TIS Job launcher](talend-tis-job-launcher.md)
     * [Twitter](twitter.md)
     * [Web service](web-service.md)
       * [Web service connector overview](web-service-connector-overview.md)
