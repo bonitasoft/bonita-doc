@@ -1,4 +1,4 @@
-# Talend Job launcher connector
+# Talend Job launcher
 
 The Talend Job launcher connector enables you to launch a Talend job that uses the Talend open source software.
 
