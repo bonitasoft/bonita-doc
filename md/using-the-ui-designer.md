@@ -1,4 +1,4 @@
-# UI designer
+# UI Designer
 
 * [UI Designer overview](ui-designer-overview.md)
 * [Create or modify pages and forms](create-or-modify-a-page.md)
