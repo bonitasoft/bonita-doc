@@ -29,7 +29,7 @@ For a Subscription edition:
 
 ### Unzip
 
-The fully qualified folder path (including the BonitaBPM-x.y.z-Tomcat-7.0.55 folder) to the folder where you unzip the Tomcat bundle is referred to as ``. We recommend the following locations: 
+The fully qualified folder path (including the BonitaBPM-x.y.z-Tomcat-7.0.55 folder) to the folder where you unzip the Tomcat bundle is referred to as `_<TOMCAT_HOME>_`. We recommend the following locations: 
 
 * Windows: `C:\BonitaBPM`. If you want to unzip the bundle to another folder, avoid spaces in the folder name. 
 * Linux: in `/opt/BonitaBPM`. Make sure that Linux user account used to execute Tomcat is the owner of the folders and files.
@@ -57,7 +57,7 @@ The Tomcat bundle is based on a standard Tomcat installation with the following 
 
 If you are installing a Subscription edition, you need to [request a license](licenses.md). 
 
-Whe you receive your license, copy the file to the `/bonita/server/licenses` folder.
+Whe you receive your license, copy the file to the `<TOMCAT_HOME>/bonita/server/licenses` folder.
 
 ## Edition specification
 
@@ -77,8 +77,8 @@ If you want to use another database you need to specify the [database configurat
 
 Tomcat can be started by executing the following commands:
 
-* Windows: `\bin\startup.bat`
-* Linux: `/bin/startup.sh`
+* Windows: `<TOMCAT_HOME>\bin\startup.bat`
+* Linux: `<TOMCAT_HOME>/bin/startup.sh`
 
 ### Custom start-up script
 
@@ -101,8 +101,8 @@ Do this this, you need to use a custom start script to to start Tomcat only with
 
 Tomcat can be shut down by executing the following command:
 
-* Windows: `\bin\shutdown`
-* Linux: `/bin/shutdown.sh`
+* Windows: `<TOMCAT_HOME>\bin\shutdown`
+* Linux: `<TOMCAT_HOME>/bin/shutdown.sh`
 
 If you see `checkThreadLocalMapForLeaks` errors, the probably indicates that Tomcat is shutting down before all work threads are completed. 
 You can [increase the work service termination timeout](performance-tuning.md) to ensure that work is complete before shutdown. 
