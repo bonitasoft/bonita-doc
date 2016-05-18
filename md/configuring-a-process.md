@@ -1,4 +1,4 @@
-# Configuring a process in Bonita BPM Studio
+# Configure a process in Bonita BPM Studio
 
 To configure a process, open the process diagram, select the pool, and click **_Configure_** in the Cool bar.
 
