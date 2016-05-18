@@ -1,4 +1,4 @@
-# Bonita BPM Engine architecture
+# Bonita BPM Engine architecture overview
 
 This page describes the Bonita BPM Engine. 
 
