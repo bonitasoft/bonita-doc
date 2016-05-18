@@ -4,4 +4,4 @@
 * [Administrator rights](administrator-rights.md)
 * [Process manager](process-manager.md)
 * [Custom profiles](custom-profiles.md)
-* [Deploying profiles with export and import](deploying-profiles-with-export-and-import.md)
+* [Deploy profiles with export and import](deploying-profiles-with-export-and-import.md)
