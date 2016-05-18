@@ -1,11 +1,7 @@
 
+# How to install a Bonita BPM Tomcat Bundle (subscription)
 
-Platform installation and default configuration - Sequence flow
----
 ![alt text](images/BonitaBPM_platform_first_initialization.png "BonitaBPM Platform First Initialization")
-
-Scenario 2 - On premise: how to install a Bonita BPM Tomcat Bundle (subscription)
----
 
 
 ## Download and unzip the Tomcat bundle
@@ -29,11 +25,13 @@ The fully qualified folder path (including the BonitaBPM-x.y.z-Tomcat-7.0.67 fol
 
 ## License installation
 If you are installing a Subscription edition, you need to [request a license](/licenses.md). 
-Copy your Subscription license file into `[TOMCAT_BUNDLE_DIR]`/platform-setup/licenses/
+Copy your Subscription license file into `[TOMCAT_BUNDLE_DIR]`/setup/platform_conf/licenses/
 
-## configuration
+## Configuration
 
-* edit file `[TOMCAT_BUNDLE_DIR]`/conf/ **server.xml** and remove the following line to deactivate embedded H2 database:
+If you just want to try BonitaBPM platform with the embedded H2 database (not for production), you can skip this entire paragraph.
+
+* edit file `[TOMCAT_BUNDLE_DIR]`/conf/ **server.xml** and remove (or comment out) the following line to deactivate embedded H2 database:
 
 ```
 <Listener className="org.bonitasoft.tomcat.H2Listener" tcpPort="9091" baseDir="${org.bonitasoft.h2.database.dir}" start="true" />
@@ -55,15 +53,27 @@ Copy your Subscription license file into `[TOMCAT_BUNDLE_DIR]`/platform-setup/li
     * change property **BDM_DB_OPTS** and change default **h2** value for the one corresponding to your database vendor (Bonita BPM database specific for Business Data feature)
 
 ## Edition specification
-If you are installing the Performance **Subscription** edition, you need to edit `[TOMCAT_BUNDLE_DIR]/platform-setup/conf/bonita-platform-init-community.properties`
+If you are installing the Performance **Subscription** edition, you need to edit `[TOMCAT_BUNDLE_DIR]/setup/platform_conf/initial/platform_init_engine/bonita-platform-init-community.properties`
 and change the value of the `activeProfiles` key to `'community,performance'`. No change is needed for the Community, Teamwork, or Efficiency edition.
 
 
-Platform configuration update - Sequence flow
----
+## Start Bonita BPM Platform
+* run `[TOMCAT_BUNDLE_DIR]`/bonita-start.sh
+
+
+
+# How to update a Bonita BPM Tomcat Bundle configuration (subscription)
+
 ![alt text](images/BonitaBPM_platform_update.png "BonitaBPM Platform configuration update")
 
-
+* stop Tomcat bundle: run `[TOMCAT_BUNDLE_DIR]`/bin/shutdown.sh
+* go into Bonita BPM platform setup folder: cd `[TOMCAT_BUNDLE_DIR]`/setup
+* retrieve current configuration: ./setup.sh [db_vendor] pull
+* current configuration is extracted from the database in folder `[TOMCAT_BUNDLE_DIR]`/setup/platform_conf/current and contains sub-folder containing various configuration files
+* modify the required configuration file refering to [TO_BE_UPDATE](database-configuration.md)
+* optionally update your license file in `[TOMCAT_BUNDLE_DIR]`/setup/platform_conf/licenses
+* apply the changes to the database by running: ./setup.sh [db_vendor] push
+* restart tomcat: `[TOMCAT_BUNDLE_DIR]`/bonita-start.sh
 
 
 
