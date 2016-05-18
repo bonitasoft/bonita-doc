@@ -1,4 +1,4 @@
-# 1.10 Reporting overview
+# Reporting overview
 
 This page presents an overview of reporting with Bonita BPM.
 
