@@ -1,11 +1,11 @@
-# Create or modify UI artifacts
+# Create or modify pages and forms
 
 The {{ var\_uiDesigner }} is a powerful application for designing Bonita BPM custom pages, layouts, forms, custom widgets and fragments.
 Custom pages are used in Bonita BPM Portal custom profiles or in custom BPM applications.
 Forms are used to instantiate a process or to execute a human task.
 The UI Designer runs in a browser. Launching it from Bonita BPM Studio starts a web server and opens your default browser.
 
-## Starting the UI designer
+## Starting the UI Designer
 
 ### From Bonita BPM Studio menu bar
 
@@ -47,7 +47,7 @@ Custom widget is a special artifact that we will explain in a later chapter.
 You can export a page or a layout to deploy it in Bonita BPM Portal as a custom page.
 You can export any artifact to import it into another UI Designer.
 
-To export an artifact, click the **_Export_** button ![Export button](images/images-6_0/pb-export.png) on the Page editor or the UI Designer home page. A zip file is downloaded to your computer. It contains a Bonita BPM custom page, which also suitable for import into another UI designer.
+To export an artifact, click the **_Export_** button ![Export button](images/images-6_0/pb-export.png) on the Page editor or the UI Designer home page. A zip file is downloaded to your computer. It contains a Bonita BPM custom page, which also suitable for import into another UI Designer.
 
 After export you can modify your page or layout code by directly editing the code located in _resources_ folder. Be aware that such a modification to the code will work when the page or layout is deployed in Bonita BPM Portal but it may be broken if you import the page into another UI Designer.
 
