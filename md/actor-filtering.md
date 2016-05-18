@@ -1,4 +1,4 @@
-# Actor filtering
+# Actor filters
 
 An actor filter refines the list of users who can perform a task, by filtering the list of users mapped to the actor.
 
