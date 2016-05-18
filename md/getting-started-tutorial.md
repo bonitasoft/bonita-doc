@@ -279,9 +279,7 @@ The first one will ensure that the departure date is in the future and the secon
 1. Still in the **Contract** pane, switch to the **Constraints** tab and click **_Add_**. This adds a placeholder constraint.
 2. Click on the placeholder name and change it to _departureInFuture_.
 3. Click in the **Expression** field, then click on the icon that appears at the right of the field. This opens a popup where you can enter the constraint expression.
-4. Define the constraint with this script:
-`new Date().getTime() 
-	`
+4. Define the constraint with this script:`new Date().getTime() <travelRequestInput.departureDate.getTime()`
 5. In the **Error message** column, add this text: `Departure date must be in the future.`
 6. Add a second constraint as following:
   * Name: `zeroOrMoreNights`
