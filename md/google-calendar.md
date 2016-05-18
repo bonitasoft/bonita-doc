@@ -1,4 +1,4 @@
-# Google calendar (API v3)
+# Google Calendar (API v3)
 
 The Google Calendar connectors enable client applications to view and update calendar events by using Google Data API feeds. For details of the API, see the Google [Developer's Guide](https://developers.google.com/google-apps/calendar/).
 
