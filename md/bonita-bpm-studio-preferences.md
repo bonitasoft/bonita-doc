@@ -1,4 +1,4 @@
-# Bonita BPM Studio and Tomcat preferences
+# Bonita BPM Studio preferences
 
 This page provides information about Bonita BPM Studio preferences and the Bonita BPM Studio embedded Tomcat configuration.
 
