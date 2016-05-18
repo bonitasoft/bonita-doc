@@ -15,5 +15,5 @@
 * [Generate process documentation](generate-process-documentation.md)
 * [Refactoring](refactoring.md)
 * [Actors](actors.md)
-* [Actor filtering](actor-filtering.md)
+* [Actor filters](actor-filtering.md)
 * [Iteration](iteration.md)
