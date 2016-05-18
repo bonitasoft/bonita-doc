@@ -88,10 +88,10 @@ This example process will use a Web Service connector to call a sample Web Servi
     Node weatherNode = weatherDataDocument.getDocumentElement();
 
     // Save weather data
-    Map data = new HashMap();
+    Map<String,String> data = new HashMap<String,String>();
     NodeList childNodes = weatherNode.getChildNodes();
     for (int i=0; i<childNodes.getLength(); i++)
-    {
+   {
         Node node = childNodes.item(i);
         if (node.getNodeType() == Node.ELEMENT_NODE)
         {
@@ -110,12 +110,11 @@ This example process will use a Web Service connector to call a sample Web Servi
     * Use the following Script:
 
 ```groovy
-import java.util.Map.Entry;
-List> table = new ArrayList>();
-Set> weatherDataEntries = weatherData.entrySet();
-for (Entry entry : weatherDataEntries)
+List<List<String>> table = new ArrayList<List<String>>();
+Set<Entry<String,String>> weatherDataEntries = weatherData.entrySet();
+for (Entry<String,String> entry : weatherDataEntries)
 {
-List row = new ArrayList();
+List<String> row = new ArrayList<String>();
 row.add(entry.getKey());
 row.add(entry.getValue());
 table.add(row);
