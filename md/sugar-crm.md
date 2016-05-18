@@ -1,6 +1,6 @@
-# SugarCRM (API v4)
+# SugarCRM 
 
-Sugar version API v4
+SugarCRM version API v4
 
 Available Sugar connectors are:
 
