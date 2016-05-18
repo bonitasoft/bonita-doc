@@ -1,8 +1,8 @@
 # Page and form development
 
 * [Page and form development overview](page-and-form-development-overview.md)
-* [Using the UI designer](using-the-ui-designer.md)
-  * [UI designer overview](ui-designer-overview.md)
+* [UI Designer](using-the-ui-designer.md)
+  * [UI Designer overview](ui-designer-overview.md)
   * [Create or modify a page](create-or-modify-a-page.md)
   * [Widgets](widgets.md)
   * [Widget properties](widget-properties.md)
