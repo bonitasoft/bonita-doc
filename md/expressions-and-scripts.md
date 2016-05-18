@@ -15,7 +15,7 @@ To start the expression editor, click the crayon icon next to the field where yo
 
 There are different types of expression:
 
-* Comparison: compares the value of a variable, parameter, or constant using the operators !, ==, !=, :, <: or=""\>=.
+* Comparison: compares the value of a variable, parameter, or constant using the operators !, ==, !=, <, >:, <:= or >=.
 * Constant: sets the expression to a constant (fixed) value.
 * Parameter: sets the expression to the value of the parameter at the time the expression is evaluated.
 * Script: the result of the script sets the value of the expression.
