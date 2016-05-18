@@ -1,4 +1,4 @@
-# Accessing business data from a custom page
+# Access business data from a custom page
 
 ## Overview
 
