@@ -74,38 +74,39 @@ Create a `localization.json` file in the format shown above, containing the fren
 The language identifier must match the language identifier in the `.po` files containing the Portal translations.
 Use an online Json checker to make sure there are no format errors in the file. The file will look something like this:
 
-```json
-{
-  "ru_RU": {
-    "Travel Tool": "Путешествия Инструмент",
-    "This page lists your pending and approved travel requests.": "Эта страница содержит список ожидающие и одобренные запросы в поездке.",
-    "My pending requests": "Мои ожидающие запросы",
-    "Departure date": "Дата отбытия",
-    "Number of nights": "Количество ночей",
-    "Hotel needed": "Отель нужны",
-    "Destination": "Hазначения",
-    "Reason": "причина",
-    "d/M/yyyy": "dd/MM/yyyy",
-    "Create new travel request": "Создать новый запрос пути",
-    "My approved travel requests": "Мои запросы туристические утвержденные",
-    "yes": "Да",
-    "no": "Нет"
-  },
-    "fr-FR": {
-    "Travel Tool": "Gestionnaire de déplacements",
-    "This page lists your pending and approved travel requests.": "Cette page affiche la liste de vos demandes de déplacements en attente et de celles qui ont été approuvées.",
-    "My pending requests": "Mes demandes en attente",
-    "Departure date": "Date de départ",
-    "Number of nights": "Nombre de nuits",
-    "Hotel needed": "Besoin d'une réservation d'hôtel",
-    "Destination": "Destination",
-    "Reason": "Motif",
-    "d/M/yyyy": "dd/MM/yyyy",
-    "Create new travel request": "Créer une nouvelle demande de déplacement",
-    "My approved travel requests": "Mes demandes approuvées ",
-    "yes": "oui",
-    "no": "non"
-  }
+```html
+<p>﻿{<br />
+        "ru_RU": {<br />
+                "Travel Tool": "Путешествия Инструмент",<br />
+                "This page lists your pending and approved travel requests.": "Эта страница содержит список ожидающие и одобренные запросы в поездке.",<br />
+                "My pending requests": "Мои ожидающие запросы",<br />
+                "Departure date": "Дата отбытия",<br />
+                "Number of nights": "Количество ночей",<br />
+                "Hotel needed": "Отель нужны",<br />
+                "Destination": "Hазначения",<br />
+                "Reason": "причина",<br />
+                "d/M/yyyy": "dd/MM/yyyy",<br />
+                "Create new travel request": "Создать новый запрос пути",<br />
+                "My approved travel requests": "Мои запросы туристические утвержденные",<br />
+                "yes": "Да",<br />
+                "no": "Нет"<br />
+        },<br />
+                "fr-FR": {<br />
+                "Travel Tool": "Gestionnaire de déplacements",<br />
+                "This page lists your pending and approved travel requests.": "Cette page affiche la liste de vos demandes de déplacements en attente et de celles qui ont été approuvées.",<br />
+                "My pending requests": "Mes demandes en attente",<br />
+                "Departure date": "Date de départ",<br />
+                "Number of nights": "Nombre de nuits",<br />
+                "Hotel needed": "Besoin d'une réservation d'hôtel",<br />
+                "Destination": "Destination",<br />
+                "Reason": "Motif",<br />
+                "d/M/yyyy": "dd/MM/yyyy",<br />
+                "Create new travel request": "Créer une nouvelle demande de déplacement",<br />
+                "My approved travel requests": "Mes demandes approuvées ",<br />
+                "yes": "oui",<br />
+                "no": "non"<br />
+        }<br />
+}</p>
 ```
 
 You can [download a copy of this `localization.json` file](images/special_code/localization.json) for testing.
