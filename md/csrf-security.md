@@ -1,4 +1,4 @@
-# CSRF
+# CSRF security
 
 This page explains how to secure your application against Cross-Site Request Forgery (CSRF) attacks.
 
