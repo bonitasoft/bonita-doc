@@ -1,4 +1,4 @@
-# LDAP connector
+# LDAP
 
 The LDAP connector searches in an LDAP directory and returns a list.
 
