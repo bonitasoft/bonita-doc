@@ -104,30 +104,30 @@ your web server `lib` directory.
 4. Configure the database properties needed by the migration script, by editing `bonita-migration/Config.properties`.
 Specify the following information:
 
-| Property | Description | Example |
-|:-|:-|:-|
-| bonita.home | The location of the existing bonita\_home. | `/opt/BPMN/bonita` (Linux) or `C:\\BPMN\\bonita` (Windows) |
-| db.vendor | The database vendor | postgres |
-| db.driverClass | The driver used to access the database | org.postgresql.Driver |
-| db.url | The location of the Bonita BPM Engine database | `jdbc:postgresql://localhost:5432/bonita_migration` |
-| db.user | The username used to authenticate to the database | bonita |
-| db.password | The password used to authenticate to the database | bpm |
+   | Property | Description | Example |
+   |:-|:-|:-|
+   | bonita.home | The location of the existing bonita\_home. | `/opt/BPMN/bonita` (Linux) or `C:\\BPMN\\bonita` (Windows) |
+   | db.vendor | The database vendor | postgres |
+   | db.driverClass | The driver used to access the database | org.postgresql.Driver |
+   | db.url | The location of the Bonita BPM Engine database | `jdbc:postgresql://localhost:5432/bonita_migration` |
+   | db.user | The username used to authenticate to the database | bonita |
+   | db.password | The password used to authenticate to the database | bpm |
 
-Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
-`db.url=jdbc:mysql://localhost:3306/bonita_migration?allowMultiQueries=true`.
+   Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
+   `db.url=jdbc:mysql://localhost:3306/bonita_migration?allowMultiQueries=true`.
 5. If you use a custom Look & Feel, [export](managing-look-feel.md) it, and then [restore the default Look & Feel](managing-look-feel.md).
 6. Stop the application server and database server.
 7. **IMPORTANT:**
 [Back up your platform](back-up-bonita-bpm-platform.md) and database in case of problems during migration.
 8. Go to the directory containing the migration tool.
 9. Run the migration script:
-  * For version 1.x of the migration tool, run `migration.sh` (or `migration.bat` for Windows).
-  * For version 2.x of the migration tool, go to the `bin` directory and run the migration script for your edition and operating system:
+   * For version 1.x of the migration tool, run `migration.sh` (or `migration.bat` for Windows).
+   * For version 2.x of the migration tool, go to the `bin` directory and run the migration script for your edition and operating system:
 
-| | |
-|:-|:-|
-| Community edition | `bonita-migration-distrib` (Linux) or `bonita-migration-distrib.bat` (Windows)| 
-| Subscription editions | `bonita-migration-distrib-sp` (Linux) or `bonita-migration-distrib-sp.bat` (Windows)| 
+     | | |
+     |:-|:-|
+     | Community edition | `bonita-migration-distrib` (Linux) or `bonita-migration-distrib.bat` (Windows)| 
+     | Subscription editions | `bonita-migration-distrib-sp` (Linux) or `bonita-migration-distrib-sp.bat` (Windows)| 
 
 10. The script detects the current version of Bonita BPM, and displays a list of the versions that you can migrate to. Specify the
 version you require.
@@ -146,8 +146,8 @@ The `bonita_home` and the database have been migrated.
 15. Set the bonita\_home system property to point to the migrated `bonita_home`.
 16. [Configure the bundle to use the migrated database](database-configuration.md). Do not recreate the database.
 17. Make sure there is a valid license file in `bonita-target-version/bonita_home/server/licenses`.
-  * If you have migrated from an earlier maintenance version of the same minor version, for example, from 6.3.0 to 6.3.1, your existing license is still valid and you do not need to do anything.
-  * If you have have migrated from an earlier minor version, for example from 6.0.4 to 6.2.1, you need to [request a new license](licenses.md).
+    * If you have migrated from an earlier maintenance version of the same minor version, for example, from 6.3.0 to 6.3.1, your existing license is still valid and you do not need to do anything.
+    * If you have have migrated from an earlier minor version, for example from 6.0.4 to 6.2.1, you need to [request a new license](licenses.md).
 Use the license request utility of the new version to create the license request key.
 18. Start the application server. Before you start Bonita BPM Portal, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal pages instead of the new version. 
 Log in to the Portal and verify that the migration has completed. 

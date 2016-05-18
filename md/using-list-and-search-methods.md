@@ -4,7 +4,8 @@ The Bonita BPM Engine APIs contain several list and search methods. This page ex
 
 The following example shows how to use a list method to see the archived activity instances:
 ```java
-List<ArchivedActivityInstance> archivedActivityInstances = TenantAPIAccessor.getProcessAPI(session).getArchivedActivityInstances(instance.getId(), 0, 100, ActivityInstanceCriterion.NAME_ASC);
+List<ArchivedActivityInstance> archivedActivityInstances = 
+    TenantAPIAccessor.getProcessAPI(session).getArchivedActivityInstances(instance.getId(), 0, 100, ActivityInstanceCriterion.NAME_ASC);
 ```
 
 The following example shows how to use a search method to see the archived activity instances.
@@ -53,9 +54,13 @@ Using word-based search has an impact on performance, so by default it is disabl
 
 To configure word-based search, edit _`bonita_home`_`bonita-platform-community-custom.properties` and make the following changes: 
 
-1. Change the value of `bonita.platform.persistence.platform.enableWordSearch` (for the platform) or 
-`bonita.platform.persistence.tenant.enableWordSearch` (for a tenant) to `true` in the following line:
-`<constructor-arg name="enableWordSearch" value="false" />`
-2. For each object you be excluded from word-based search, add a mapping to the `wordSearchExclusionMappings` set. Each mapping has the following form:`<value>org.bonitasoft.engine.identity.model.SUser</value>'
+1. Change the value of `bonita.platform.persistence.platform.enableWordSearch` (for the platform) or `bonita.platform.persistence.tenant.enableWordSearch` (for a tenant) to `true` in the following line:
+   ```xml
+   <constructor-arg name="enableWordSearch" value="false" />
+   ```
+2. For each object you be excluded from word-based search, add a mapping to the `wordSearchExclusionMappings` set. Each mapping has the following form:
+   ```xml
+   <value>org.bonitasoft.engine.identity.model.SUser</value>
+   ```
 
 When you restart the Engine, these settings are applied and word-based search comes into operation.

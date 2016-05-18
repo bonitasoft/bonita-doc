@@ -74,8 +74,7 @@ Example: ``
 | Request Method | GET| 
 | Response | an item in JSON| 
 
-Example
-`http://.../API/identity/user/5 `
+Example `http://.../API/identity/user/5 `
 
 ### With compound identifier
 
@@ -86,8 +85,7 @@ The order of the identifier parts for each resource type is given in the table a
 | Request Method | GET| 
 | Response | an item in JSON| 
 
-Example
-`>http://.../API/identity/membership/5/12/24 `
+Example `http://.../API/identity/membership/5/12/24 `
 
 ## Update a resource
 | | |
@@ -97,8 +95,7 @@ Example
 | Request Payload | a map in JSON containing the new values for the attributes you want to change.|  
 | Response | the corresponding item in JSON with new values where you requested a modification| 
 
-Example
-`http://.../API/identity/user/5`
+Example `http://.../API/identity/user/5`
 
 ### With compound identifier:
 

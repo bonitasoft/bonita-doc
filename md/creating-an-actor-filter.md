@@ -21,6 +21,7 @@ The following sections explain the elements of the definition. You can also use 
 
 The XML file that defines the actor filter configuration wizard contains definitions for header information identifying the actor filter (including the icon), for inputs and outputs, and for the wizard pages. The definition follows the schema defined in http://documentation.bonitasoft.com/ns/connector/definition/6.0/connector-definition-descriptor.xsd. The table below lists the items in the definition:
 | | Occurrence | Description|
+|:-|:-|:-|
 | id | 1 | The identifier of the actor filter definition. Used internally, not displayed in the wizard or in Bonita BPM Studio. Must be unique. |
 | version | 1 | The version of the actor filter definition. Must be unique for the actor filter identifier. |
 | icon | 0 or 1 | The name of a file containing the icon image. |

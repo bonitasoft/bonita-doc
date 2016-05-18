@@ -333,38 +333,18 @@ Bonita BPM Engine uses an application cache to store specific objects. The defau
 * _`bonita home`_`/engine-server/conf/tenants/tenant-template/bonita-tenant-sp-cluster-custom.properties`
 
 The following cache configurations can be defined:
-Configuration
-Purpose
-
-connectorCacheConfig
-stores connector implementations for a given connector definition
-
-processDefCacheConfig
-stores process definition objects
-
-userFilterCacheConfig
-stores user filter implementations for a given user filter definition
-
-migrationPlanCacheConfig
-not yet used
-
-breakpointCacheConfig
-not yet used
-
-groovyScriptCacheConfig
-stores compiled versions of Groovy scripts
-
-synchroServiceCacheConfig
-used by the benchmark test infrastructure (and has no meaning outside of it)
-
-transientDataCacheConfig
-stores transient data
-
-platformCacheConfig
-used to store platform object, which contains general platform information such as the version, or start date
-
-parameterCacheConfig
-stores process parameters
+| Configuration | Purpose| 
+|:-|:-|
+| connectorCacheConfig | stores connector implementations for a given connector definition| 
+| processDefCacheConfig | stores process definition objects| 
+| userFilterCacheConfig | stores user filter implementations for a given user filter definition| 
+| migrationPlanCacheConfig | not yet used| 
+| breakpointCacheConfig | not yet used| 
+| groovyScriptCacheConfig | stores compiled versions of Groovy scripts| 
+| synchroServiceCacheConfig | used by the benchmark test infrastructure (and has no meaning outside of it)| 
+| transientDataCacheConfig | stores transient data| 
+| platformCacheConfig | used to store platform object, which contains general platform information such as the version, or start date| 
+| parameterCacheConfig | stores process parameters| 
 
 <a id="jvm"/>
 

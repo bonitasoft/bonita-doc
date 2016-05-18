@@ -46,7 +46,9 @@ mvn archetype:generate \
 ```
 
 Before running the command, update the following parameter values:
+
 | Parameter | Description| 
+|:-|:-|
 | archetypeVersion | This must match the version of the toolkit.|  
 | groupId | Maven project group id.|  
 | artifactId | Maven project artifact id and Bonita BPM connector definition id.|  
@@ -129,6 +131,7 @@ This will produce a connector zip file that can be imported in Bonita BPM Studio
 ## Widget types and parameters
 
 The following widget types are supported in connectors:
+
 | Widget | Description |
 | ------ | ----------- |
 | Text | Text field |
@@ -182,6 +185,7 @@ The following example is the configuration for a Text widget:
 ```
 
 ### RadioGroup widget parameters
+
 | Parameter | Mandatory | Description | Default value |
 | --------- | ----------- | ------------- | --------- |
 | choices | yes | List of values for the radio button group. Each value is specified in a "choice" tag. | n/a |
@@ -204,7 +208,9 @@ The following example is the configuration for a RadioGroup widget with three ch
 ```
 
 ### Select widget parameters
+
 | Parameter | Mandatory | Description | Default value |
+|:-|:-|:-|:-|
 | items | yes | List of values for the widget. Each value is specified in an "item" tag. | n/a |
 
 The following example is the configuration for a Select widget with three choices:
@@ -255,6 +261,7 @@ The following example is the configuration for an Array widget two columns and a
 ```
 
 ### List widget specific parameters
+
 | Parameter | Mandatory | Description | Default value |
 | --------- | ----------- | ------------- | --------- |
 | showDocuments | no | Boolean flag that indicates whether the end user can select Bonita BPM documents in the list of values. | false |
@@ -273,6 +280,7 @@ The following example is the configuration for a List widget:
 ### Group widget parameters
 
 **Note:** A Group widget does not support the common "javaType" parameter.
+
 | Parameter | Description |
 | --------- | ----------- |
 | collapsed | Boolean flag that indicates whether the group is collapsed by default. |
