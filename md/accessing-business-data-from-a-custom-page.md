@@ -23,7 +23,7 @@ Before getting to the main part of this tutorial, you will need to carry out the
 
 The Custom Page needs to access the BDM through **.jar files** created by the Bonita BPM Studio during BDM development.
 
-1. Extract the `client-bdm.zip` file located in the following directory: `engine-server/work/tenants//data-management-client`
+1. Extract the `client-bdm.zip` file located in the following directory: `engine-server/work/tenants/<tenant id>/data-management-client`
 2. Copy the `bdm-dao.jar` and `bdm-model.jar` files that you extracted from the zip into the **custom page directory **called **lib**.
 `bonita_home\client\tenants\1\work\pages\custompage_yourname\lib`
 
@@ -50,7 +50,7 @@ Now in the body of the custom page, its's possible to use these classes and thei
 `def LeaveRequestDAO dao = daoFactory.createDAO(apiSession, LeaveRequestDAO.class);`
 
 //Use methods on DAO object to access data from the BDM. You can pass input values pre-calculated to the method
-`def List leaveRequestList = dao.find(0,10);`
+`def List<LeaveRequest> leaveRequestList = dao.find(0,10);`
 
 ### Display your data
 
@@ -62,14 +62,13 @@ There are many ways to do that with standard .html, depending on your needs.
 
 For example you can use the method `out.println()`to print html in the page:
 ```groovy
-out.println(''); 
-for(LeaveRequest leaveRequest: leaveRequestList){         
-    out.println(""); 
-} 
-out.println("Leave Request ListStart Date End dateLeave Type " +
-    df.format(leaveRequest.getStartDate())+" " + 
-    df.format(leaveRequest.getEndDate())+" " +
-    leaveRequest.getLeaveType());
+out.println('<table class="gridtable"><caption>Leave Request List</caption><tr><th>Start Date </th><th>End date</th><th>Leave Type</th></tr>');
+                        
+                        for(LeaveRequest leaveRequest: leaveRequestList){         
+                                out.println("<tr><td>" + df.format(leaveRequest.getStartDate())+" </td><td> " + df.format(leaveRequest.getEndDate())+" </td><td> " +leaveRequest.getLeaveType() + "</td></tr>"); 
+                        }
+                        
+                        out.println("</table>");
 ```
 
 ### Notes
@@ -79,22 +78,15 @@ A good idea is to prevent database deletion on the Bonita BPM Studio, Go to Pref
 
 2. If the custom page is not trivial, it's often a good idea to use a groovy IDE to develop it, so it's possible to use auto completion, syntax check and colored text features. For example if you use Eclipse, you can install the Groovy plugin. Then create a new groovy project and point to the custom page filesystem.
 
-Additionally, you need to configure the build path adding these bonita jars:
-`Bonita-client-sp-6.x.jar`
-
-and
-`console-server-6.x.jar`
-
-And these data models:
-`bdm-dao.jar`
-`bdm-model.jar`
+Additionally, you need to configure the build path adding these bonita jars: `Bonita-client-sp-6.x.jar` and `console-server-6.x.jar`
+And these data models: `bdm-dao.jar` and `bdm-model.jar`
 
 3. A frequent use case is to refresh the content of the page, re-submitting the queries towards the DAO, via a submit button for example.
 
 To do that, one approach is to create a form with a submit button inside, as in the following examples:
-`out.println("");`
-`out.println("");`
-`out.println("")`
+`out.println("<form name='myform' id='myform' action="+actionUrl+">");`
+`out.println("<input type='text' id='name'></input>");`
+`out.println("<button id='myButton'>Submit</button></form>")`
 
 4. The action of the form (actionUrl in the example) should point to the same url as the Custom page, i.e.
 `http://localhost:8090/bonita/portal/homepage?tenant=1#?_p=custompage_name&_pf=4)`
