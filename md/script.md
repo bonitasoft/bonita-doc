@@ -1,6 +1,6 @@
-# Script connectors
+# Script 
 
-There are the following script connectors:
+These are the following script connectors:
 
 * Groovy 1.8 which executes a Groovy 1.8 script.
 * Groovy 1.8 (deprecated), which is provided for backward compatibility only so that you can continue to run processes with this connector. Do not use this for new connector instances.
