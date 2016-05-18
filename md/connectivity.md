@@ -9,7 +9,7 @@
   * [Graphical query builder](graphical-query-builder.md)
   * [Initialize a variable from a database without scripting or Java code](initialize-a-variable-from-a-database-without-scripting-or-java-code.md)
 * [Insert data in a .docx/.odt template](insert-data-in-a-docx-odt-template.md)
-* [Google calendar](google-calendar.md)
+* [Google Calendar](google-calendar.md)
 * [Jasper 5](jasper-5.md)
 * [LDAP](ldap.md)
 * [Messaging](messaging.md)
