@@ -1,4 +1,4 @@
-# Using expressions and scripts
+# Expressions and scripts
 
 Expressions and scripts are used in Bonita BPM Studio for many purposes, including setting the initial or default value of a
 variable. An expression is a simple statement; a script is a sequence of expressions, and has a program-like structure. 
