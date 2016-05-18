@@ -10,4 +10,4 @@
 * [Define a search index](define-a-search-index.md)
 * [Expressions and scripts](expressions-and-scripts.md)
 * [Operations](operations.md)
-* [Accessing business data from a custom page](accessing-business-data-from-a-custom-page.md)
+* [Access business data from a custom page](accessing-business-data-from-a-custom-page.md)
