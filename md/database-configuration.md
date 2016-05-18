@@ -120,7 +120,7 @@ The way to install the JDBC driver depends on the application server:
 JBoss 7 manages JDBC drivers as modules, so to add a new JDBC driver, complete these steps:
 (see [JBoss documentation](https://developer.jboss.org/wiki/DataSourceConfigurationInAS7#jive_content_id_Installing_a_JDBC_driver_as_a_module) for full reference):
 
-* Create a folder structure under `/modules` folder.
+* Create a folder structure under `<JBOSS_HOME>/modules` folder.
 Refer to the table below to identify the folders to create.
 The last folder is named `main` for all JDBC drivers.
 * Add the JDBC driver jar file to the `main` folder.
@@ -179,7 +179,7 @@ There is also an [example of how to configure datasources for Weblogic](red-hat-
 
 This section explains how to configure the data sources if you are using JBoss:
 
-1. Open the file `/standalone/configuration/standalone.xml`.
+1. Open the file `<JBOSS_HOME>/standalone/configuration/standalone.xml`.
 2. Comment out the default definition for h2\.
 3. Uncomment the settings matching your RDBMS vendor.
 4. Modify the values for following settings to your configuration: server address, server port, database name, user name and password.
@@ -194,7 +194,7 @@ in the standard Tomcat context configuration file.
 
 #### JTA data source (managed by Bitronix)
 
-1. Open `/conf/bitronix-resources.properties` file.
+1. Open `<TOMCAT_HOME>/conf/bitronix-resources.properties` file.
 2. Remove or comment out the lines regarding the h2 database.
 3. Uncomment the line matching your RDBMS.
 4. Update the value for each of the following settings:
@@ -209,7 +209,7 @@ in the standard Tomcat context configuration file.
 
 The second data source run SQL queries outside any transaction. To configure it:
 
-1. Open `/conf/Catalina/localhost/bonita.xml` file.
+1. Open `<TOMCAT_HOME>/conf/Catalina/localhost/bonita.xml` file.
 2. Remove or comment out the lines regarding h2 database.
 3. Uncomment the line matching your RDBMS.
 4. Update following attributes value:
@@ -229,7 +229,7 @@ Now that you are almost done with the switch from h2 to your chosen RDBMS, you c
    * Remove the configuration for h2 from `<JBOSS_HOME>/standalone/configuration/standalone.xml`.
    * Make sure that `sysprop.bonita.db.vendor` property in `<JBOSS_HOME>/standalone/configuration/standalone.xml` is not set to h2\.
 * For Tomcat
-   * Remove h2 jar files (`bonita-jboss-h2-mbean-1.0.0.jar`, `bonita-tomcat-h2-listener-1.0.1.jar`, `h2-1.3.170.jar`). Files are located in: `/lib` or in `/lib/bonita`.
+   * Remove h2 jar files (`bonita-jboss-h2-mbean-1.0.0.jar`, `bonita-tomcat-h2-listener-1.0.1.jar`, `h2-1.3.170.jar`). Files are located in: `<TOMCAT_HOME>/lib` or in `<TOMCAT_HOME>/lib/bonita`.
    * Remove the h2 listener, so that h2 is not started automatically: comment out the h2 listener in the `/conf/server.xml` file.
  * Check that h2 is no longer set in JVM system property value. Also, for extra security, you can remove it from `bonita-platform.properties` file and replace it with the value for your chosen RDBMS.
 
