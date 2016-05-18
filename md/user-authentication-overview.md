@@ -1,6 +1,4 @@
-# User authentication
-
-## Overview
+# User authentication overview
 
 This page describes how user authentication is achieved in Bonita BPM (running with default configuration). 
 The links in this page to the source code repository are to the 7.0.0 code, but ther are only minor differences for 7.1.0 and the maintenance releases.
