@@ -25,7 +25,7 @@ For a Subscription edition:
 
 ### Unzip
 
-The folder where you unzip the Jboss bundle is known as _``_. We recommend the following locations: 
+The folder where you unzip the Jboss bundle is known as _`<JBOSS_HOME>`_. We recommend the following locations: 
 
 * Windows: `C:\BonitaBPM`. If you want to unzip the bundle to another folder, do not use spaces in the folder name. 
 * Linux: in `/opt/BonitaBPM`. Make sure that Linux user account used to execute JBoss is the owner of the folders and files.
@@ -34,7 +34,7 @@ The folder where you unzip the Jboss bundle is known as _``_. We recommend the f
 
 If you are installing a Subscription edition, you need to [request a license](licenses.md).
 
-When you receive your license, copy the file to the `/bonita/server/licenses` folder.
+When you receive your license, copy the file to the `<JBOSS_HOME>/bonita/server/licenses` folder.
 
 ## Edition specification
 
@@ -54,8 +54,8 @@ If you want to use another database you need to specify the [database configurat
 
 JBoss can be started by executing the following script:
 
-* Windows `\bin\standalone.bat`
-* Linux `/bin/standalone.sh`
+* Windows `<JBOSS_HOME>\bin\standalone.bat`
+* Linux `<JBOSS_HOME>/bin/standalone.sh`
 
 ### Custom start-up script
 
