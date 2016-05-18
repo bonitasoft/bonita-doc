@@ -1,6 +1,6 @@
-# Using the UI designer
+# UI designer
 
-* [UI designer overview](ui-designer-overview.md)
+* [UI Designer overview](ui-designer-overview.md)
 * [Create or modify a page](create-or-modify-a-page.md)
 * [Widgets](widgets.md)
 * [Widget properties](widget-properties.md)
