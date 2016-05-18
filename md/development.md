@@ -48,7 +48,7 @@
 * [Living application](living-application.md)
   * [Customize living application layout](customize-living-application-layout.md)
 * [Logs](logging.md)
-* [Preloading the forms cache](preloading-the-forms-cache.md)
+* [Preload the forms cache](preloading-the-forms-cache.md)
 * [Build Community Edition from source files](building-community-edition-from-source.md)
 * [Continuous integration](continuous-integration.md)
   * [Automate process builds](automating-process-builds.md)
