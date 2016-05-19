@@ -2,21 +2,21 @@
 
 Logged on with the Administrator or Process Manager profile, you have rights to manage a task as follows.
 
-## How to assign a task
+## Assign a task
 
-A task can be assigned and reassigned if necessary to another user
+A task can be assigned and reassigned if necessary to another user.
 
 1. Go to **BPM** \> **Tasks**
 2. Click on a **task in the list of tasks**
 3. Click _**Assign**_
 
-## How to unassign a task
+## Unassign a task
 
 1. Go to **BPM** \> **Tasks**
 2. Click on a **task in the list of tasks**
 3. Click _**Unassign**_
 
-## How to do a task for another user
+## Do a task for another user
 
 With the Efficiency and Performance editions, an Administrator can do a task for another user. This is useful for unblocking a case if the assigned user cannot perform a task.
 
@@ -27,7 +27,7 @@ With the Efficiency and Performance editions, an Administrator can do a task for
 
 The task is done as though the selected user has done it.
 
-## How to skip a failed task
+## Skip a failed task
 
 If a failed task does not impact subsequent task in a process, the Administrator can skip it. This means that the task does not have to be done successfully for the following steps to become available.
 
@@ -40,7 +40,7 @@ If a failed task does not impact subsequent task in a process, the Administrator
 
 The task is moved from Failed to Done.
 
-## How to replay a failed task
+## Replay a failed task
 
 This feature is available with the Performance edition.
 
@@ -58,7 +58,7 @@ Note: You will need to fix any parameter causing the failure, **BEFORE** clickin
 
 See [Modify a parameter](processes.md)
 
-## How to view the failure stack-trace message on a failed task
+## View the failure stack-trace message on a failed task
 
 Normally, a user will start a case of a process. The case might not start as expected. This is a called a faliure.
 
