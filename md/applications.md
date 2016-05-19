@@ -81,7 +81,7 @@ To specify the application layout:
 ### Specifying application theme (Subscription editions)
 
 Each application is associated with a [theme](themes.md) that defines the application appearance. All pages developed with the [UI Designer](ui-designer-overview.md) will automatically benefit of application theme.
-If you develop pages by yourself you need to include the following line in your source to get theme working ``.
+If you develop pages by yourself you need to include the following line in your source to get theme working `<link rel="stylesheet" href="../theme/theme.css">`.
 
 To specify the application theme:
 
