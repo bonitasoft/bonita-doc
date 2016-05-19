@@ -49,24 +49,17 @@ These files are located in `bonita-home\client\tenants\[tenantId]\conf\` for eac
 The `resources-permissions-mapping.properties` file defines the mapping of REST resources to simple permissions.
 This which tells you what permission is needed to access a given resource. 
 
-For example:
-`
-GET|identity/user=[organization_visualization,organization_management]
-`
+For example: `GET|identity/user=[organization_visualization,organization_management]`
 
 This specifies that a user with the organization\_visualization, or organization\_managment permissions can see information about users.
 
 By default, this file contains a mapping of each Bonita BPM resources to at least one simple permission.
 You can modify the file to add your own mappings.
-For example:
-`
-GET|identity/user/3=[organization_managment]
-`
+For example: `GET|identity/user/3=[organization_managment]`
 
 This specifies that information about the user with id 3 can only be seen by users with the Organization\_managment permission.
 
-If there are conflicts between permissions, the more restrictive definition overrides the more general. You can see this in the example above,
-where the specific permission for user 3 overrides the general permission for seeing user information.
+If there are conflicts between permissions, the more restrictive definition overrides the more general. You can see this in the example above, where the specific permission for user 3 overrides the general permission for seeing user information.
 
 ### Compound permissions mapping
 
@@ -74,10 +67,7 @@ The `compound-permissions-mapping.properties` file defines sets of simple permis
 You can use a compound permission as "shorthand" for a list of simple permissions.
 By default, the file contains a compound permission that corresponds to each page of the Bonita BPM Portal, including [custom pages](#custom_pages).
 
-For example:
-`
-userlistingadmin=[profile_visualization, process_comment, organization_visualization, tenant_platform_visualization, organization_management]
-`
+For example: `userlistingadmin=[profile_visualization, process_comment, organization_visualization, tenant_platform_visualization, organization_management]`
 
 This specifies the permissions that are needed for the Bonita BPM Portal Administrator page that lists all the users in the tenant.
 
@@ -91,26 +81,17 @@ The `custom-permissions-mapping.properties` file contains custom rules that supp
 By default, this file is empty, because the compound permissions definitions automatically manage the permissions needed for default and custom profiles, and for default and custom pages.
 
 If you want to override the default behavior, you can add a rule to this file. You can add a simple or compound permission to a profile.
-For example, to give users with the User profile the ability to manage the Bonita BPM Portal look & feel:
-`
-profile|User=[look_and_feel]
-`
+For example, to give users with the User profile the ability to manage the Bonita BPM Portal look & feel: `profile|User=[look_and_feel]`
 
 You can also assign a permission to a specific user. This is useful if you want to give a named user access to a resource that is not accessible through the user's profiles.
 For example, if the user John.Smith is assigned the User profile, he does not have permission to manage the portal Look & Feel.
-You can add this specific permission to `custom-permissions-mapping.properties` by adding this line:
-`
-user|John.Smith=[look_and_feel]
-`
+You can add this specific permission to `custom-permissions-mapping.properties` by adding this line: `user|John.Smith=[look_and_feel]`
 
 This means that in addition to the permissions given to him by the User profile, John.Smith can also manage the Portal Look & Feel. It does not modify the permissions for any other user.
 
 If you do not use Bonita BPM Portal but still want to manage REST API authorizations, you can do this using the `custom-permissions-mapping.properties` file.
 To do this, create a custom profile and configure the relevant permissions.
-For example, you could create a profile called CustomProcessManager and assign the permissions needed to monitor and manage processes:
-`
-profile|MyCustomProfile=[process_visualization, process_management, process_manager_management, custom_process_manager_permission]
-`
+For example, you could create a profile called CustomProcessManager and assign the permissions needed to monitor and manage processes: `profile|MyCustomProfile=[process_visualization, process_management, process_manager_management, custom_process_manager_permission]`
 
 In this example, the `custom_process_manager_permission` must be defined in the `compound-permissions-mapping.properties` file.
 
@@ -122,10 +103,7 @@ A dynamic check is implemented as sequence of conditions, including a Groovy scr
 This enables you to tailor the permissions needed to access a resource using dynamic information related to processes.
 
 A dynamic authorization check for a resource is specified by a line in the `dynamic-permissions-checks.properties` file. The line specifies the checks to be made for a request type for a method.
-There can be several terms in the line. Checking stops when the system returns success, indicating that the user is authorized. For example:
-`
-POST|bpm/case=[user|william.jobs, user|walter.bates, profile|Administrator, profile|User, check|CasePermissionRule]
-`
+There can be several terms in the line. Checking stops when the system returns success, indicating that the user is authorized. For example: `POST|bpm/case=[user|william.jobs, user|walter.bates, profile|Administrator, profile|User, check|CasePermissionRule]`
 
 This specifies that a POST action can be done for a case resource if the user is william.jobs or walter.bates,
 or any user with the Administrator profile, or any user woth the User profile, or if the CasePermissionRule grants authorization.
@@ -135,13 +113,13 @@ This example defines a dynamic check that is made whenever a user makes a GET re
 The `security-scripts` folder contains some example scripts. If the script returns success, the user is authorized. If the script returns any other result (including an error), the user is not authorized.
 
 The `dynamic-permissions-checks.properties` file contains a placeholder line for each method and resource. For example:
-`
+```properties
 ## CasePermissionRule
     #GET|bpm/case=[profile|Administrator, check|CasePermissionRule]
     #POST|bpm/case=[profile|Administrator, check|CasePermissionRule]
     #DELETE|bpm/case=[profile|Administrator, check|CasePermissionRule]
     #GET|bpm/archivedCase=[profile|Administrator, check|CasePermissionRule]
-`
+```
 
 To specify a dynamic check for a method and resource, uncomment the line and add the conditions.
 If you specify a condition that calls a Groovy script, add the script to the `bonita-home\engine-server\work\tenants\[tenantId]\security-scripts` folder.
@@ -152,7 +130,7 @@ This script is an example of how to write a dynamic check. It checks two conditi
 If the method is a POST, which would start a case of a process. the user can only start the case if they are eligible to start the process itself.
 If the user action triggers a GET, the user can view the case information only if they are involved in the case.
 The Engine API Java method `isInvolvedInProcessInstance` is used to check whether the user is involved. For an archived case, the only check possible is whether the user started the case.
-`
+```groovy
 import org.bonitasoft.engine.api.*
     import org.bonitasoft.engine.api.permission.APICallContext
     import org.bonitasoft.engine.api.permission.PermissionRule
@@ -181,7 +159,15 @@ import org.bonitasoft.engine.api.*
     private boolean checkPostMethod(APICallContext apiCallContext, APIAccessor apiAccessor, long currentUserId, Logger logger) {
     def body = apiCallContext.getBodyAsJSON()
     def processDefinitionId = body.optLong("processDefinitionId")
-    if (processDefinitionId  listUsers = processAPI.searchUsersWhoCanStartProcessDefinition(processDefinitionId, searchOptionBuilder.done());
+    if (processDefinitionId <= 0) {
+    return false;
+    }
+    def processAPI = apiAccessor.getProcessAPI()
+    def identityAPI = apiAccessor.getIdentityAPI()
+    User user = identityAPI.getUser(currentUserId);
+    SearchOptionsBuilder searchOptionBuilder = new SearchOptionsBuilder(0, 10);
+    searchOptionBuilder.filter(UserSearchDescriptor.USER_NAME, user.getUserName());
+    SearchResult<User> listUsers = processAPI.searchUsersWhoCanStartProcessDefinition(processDefinitionId, searchOptionBuilder.done());
     logger.debug("RuleCase : nb Result [" + listUsers.getCount() + "] ?");
     def canStart = listUsers.getCount() == 1
     logger.debug("RuleCase : User allowed to start? " + canStart)
@@ -216,9 +202,7 @@ import org.bonitasoft.engine.api.*
     return false;
     }
     }
-
-
-`
+```
 
 ## Initialization
 
@@ -261,10 +245,7 @@ It is not necessary to restart the application server to activate security for t
 
 ## Activating and deactivating authorization
 
-`security-config.properties` contains a Boolean property that specifies whether authorization is activated. To activate authorization, set this property to `true`:
-```
-security.rest.api.authorizations.check.enabled true
-```
+`security-config.properties` contains a Boolean property that specifies whether authorization is activated. To activate authorization, set this property to `true`: `security.rest.api.authorizations.check.enabled true`
 
 To activate authorization, edit `security-config.properties` and set the value of the `security.rest.api.authorizations.check.enabled` property to `true`, then restart the application server.
 
@@ -274,8 +255,23 @@ If you activate authorization, you must also deactivate the HTTP API, so that is
 To do this, you can either filter the HTTP API in the Tomcat configuration (that is, accept only specific IP addresses), or you can
 deactivate the `HttpAPIServlet`. To deactivate the servlet, go to the `webapps/bonita/WEB-INF` folder of your web server,
 edit `web.xml` and comment out the following definitions:
-`
-`
+```xml
+ <!-- For engine HTTP API -->
+    <!--
+    <servlet>
+        <servlet-name>HttpAPIServlet</servlet-name>
+        <servlet-class>org.bonitasoft.engine.api.internal.servlet.HttpAPIServlet</servlet-class>
+    </servlet>
+    -->
+
+
+    <!--
+     <servlet-mapping>
+         <servlet-name>HttpAPIServlet</servlet-name>
+         <url-pattern>/serverAPI/*</url-pattern>
+     </servlet-mapping>
+     -->
+```
 
 <a id="debug"/>
 
