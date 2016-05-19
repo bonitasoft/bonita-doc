@@ -426,171 +426,108 @@ The methods used for this resource are:
 * DELETE - Remove an application page
 
 ### Create an application page
-Request url
-http://../API/living/application-page
 
-Request method
-
-POST
-
-Request payload
-
-A partial representation of an application page in JSON
-
-Response payload
-
-The full JSON representation of the application page that was created
-
-#### Example
-Request url
-http://../API/living/application-page
-
-Request method
-
-POST
-
-Request payload
-
-    {
+* **URL**  
+  `http://../API/living/application-page`  
+* **Method**  
+  `POST`
+* **Request Payload**  
+  A partial representation of an application page in JSON
+  ```json
+  {
     "pageId":"2",
     "token":"myPage",
     "applicationId":"1"
-    }
-
-Response payload
-
+  }
+  ```
+* **Success Response**  
+  * **Code**: 200
+  * **Payload**:  
+  The full JSON representation of the application page that was created
+    ```json
     {
-    "id":"3",
-    "token":"myPage",
-    "pageId":"2",
-    "applicationId":"1"
+      "id":"3",
+      "token":"myPage",
+      "pageId":"2",
+      "applicationId":"1"
     }
+    ```
 
 ### Get an application page
-Request url
-http://../API/living/application-page/{applicationPageId}
 
-Request method
-
-GET
-
-Request payload
-
-empty
-
-Response payload
-
-The full JSON representation of the application page that was created with id="applicationPageId"
-
-#### Example
-Request url
-http://../API/living/application-page/3
-
-Request method
-
-GET
-
-Response payload
-
-    {
+* **URL**  
+  `http://../API/living/application-page/:applicationPageId`  
+* **Method**  
+  `GET`
+* **Request Payload**  
+  The full JSON representation of the application page that was created with id="applicationPageId"
+  ```json
+  {
     "id":"3",
     "token":"myPage",
     "pageId":"2",
     "applicationId":"1"
-    }
+  }
+  ```
+* **Success Response**  
+  * **Code**: 200
 
 ### Delete an application page
-Request url
-http://../API/living/application-page/{applicationPageId}
 
-Request method
-
-DELETE
-
-Request payload
-
-empty
-
-Response payload
-
-empty
-
-#### Example
-Request url
-http://../API/living/application-page/3
-
-Request method
-
-DELETE
+* **URL**  
+  `http://../API/living/application-page/{applicationPageId}`  
+* **Method**  
+  `DELETE`
 
 ### Search for an application page
-Request url
-http://../API/living/application-page?p={page}&c={count}&o={order}&s={query}&f={filter\_name}={filter\_value}&d={field\_to\_deploy}
 
-Request method
+* **URL**  
+  `http://../API/living/application-page?p={page}&c={count}&o={order}&s={query}&f={filter\_name}={filter\_value}&d={field\_to\_deploy}`  
+  _Example_: `http://../API/living/application-page?p=0&c=2&d=pageId&f=applicationId%3d1`
+* **Method**  
+  `GET`
+* **Data Params**  
+  * o: can order on "id", "token", "applicationId", "pageId"
+  * s: search on "token" 
+  * f: can filter on "id", "token", "applicationId", "pageId"
+  * d: can deploy the "applicationId", "pageId"
+* **Success Response**  
+  * **Code**: 200
+  * **Payload**:  
+    A JSON array of application page  
+    ```json
+    [{
+      "id":"5",
+      "token":"groovyPage",
+      "pageId": {
+        "id":"2",
+        "creationDate":"2014-11-18 14:38:56.700",
+        "createdBy":"",
+        "isProvided":"true",
+        "description":"Groovy class example of custom page source structure (in English).",
+        "contentName":"bonita-groovy-page-example.zip",
+        "displayName":"Groovy example page",
+        "updatedBy":"-1",
+        "lastUpdateDate":"2014-11-18 14:38:56.700",
+        "urlToken":"custompage_groovyexample"
+      },
+      "applicationId":"1"
+    }, {
+      "id":"1",
+      "token":"home",
+      "pageId": {
+        "id":"3",
+        "creationDate":"2014-11-18 14:38:56.717",
+        "createdBy":"",
+        "isProvided":"true",
+        "description":"This is a home page dedicated to new born living applications",
+        "contentName":"bonita-home-page.zip",
+        "displayName":"Application home page",
+        "updatedBy":"-1",
+        "lastUpdateDate":"2014-11-18 14:38:56.717",
+        "urlToken":"custompage_home"
+      },
+      "applicationId":"1"
+    }]
+    ```
 
-GET
-
-Request payload
-
-empty
-
-Response payload
-
-A JSON array of application page
-
-#### Parameters
-
-* o: can order on "id", "token", "applicationId", "pageId"
-* s: search on "token" 
-* f: can filter on "id", "token", "applicationId", "pageId"
-* d: can deploy the "applicationId", "pageId"
-
-#### Example
-Request url
-http://../API/living/application-page?p=0&c=2&d=pageId&f=applicationId%3d1
-
-Request method
-
-GET
-
-Response payload
-
-    [
-    {
-    	"id":"5",
-    	"token":"groovyPage",
-    	"pageId":
-    	{
-    		"id":"2",
-    		"creationDate":"2014-11-18 14:38:56.700",
-    		"createdBy":"",
-    		"isProvided":"true",
-    		"description":"Groovy class example of custom page source structure (in English).",
-    		"contentName":"bonita-groovy-page-example.zip",
-    		"displayName":"Groovy example page",
-    		"updatedBy":"-1",
-    		"lastUpdateDate":"2014-11-18 14:38:56.700",
-    		"urlToken":"custompage_groovyexample"
-    	},
-    	"applicationId":"1"
-    },
-    {
-    	"id":"1",
-    	"token":"home",
-    	"pageId":
-    	{
-    		"id":"3",
-    		"creationDate":"2014-11-18 14:38:56.717",
-    		"createdBy":"",
-    		"isProvided":"true",
-    		"description":"This is a home page dedicated to new born living applications",
-    		"contentName":"bonita-home-page.zip",
-    		"displayName":"Application home page",
-    		"updatedBy":"-1",
-    		"lastUpdateDate":"2014-11-18 14:38:56.717",
-    		"urlToken":"custompage_home"
-    	},
-    	"applicationId":"1"
-    }
-    ]
