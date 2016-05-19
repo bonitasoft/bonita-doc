@@ -37,7 +37,7 @@ This section explains how to put together all the LDAP server information you ha
 
 ### Login context name
 
-The JAAS configuration can include one or several login contexts. The Bonita BPM login context must be named `BonitaAuthentication-`<TENANT_ID> (where <TENANT_ID> is your tenant id).
+The JAAS configuration can include one or several login contexts. The Bonita BPM login context must be named `BonitaAuthentication-<TENANT_ID>` (where <TENANT_ID> is your tenant id).
 
 ### LdapLoginModule attributes to set
 
