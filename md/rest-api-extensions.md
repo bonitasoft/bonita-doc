@@ -1,4 +1,4 @@
-# Creating a REST API extension
+# Create a REST API extension
 
 REST API extensions provide a solution for integration between forms/pages and third party systems (including Bonita BPM Engine). They can be used to query [business data](define-and-deploy-the-bdm.md), Bonita BPM Engine APIs, or an external information
 system (such as a database, web service, LDAP directory...). They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
