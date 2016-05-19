@@ -37,7 +37,7 @@ This section explains how to put together all the LDAP server information you ha
 
 ### Login context name
 
-The JAAS configuration can include one or several login contexts. The Bonita BPM login context must be named `BonitaAuthentication-<TENANT_ID>` (where <TENANT_ID> is your tenant id).
+The JAAS configuration can include one or several login contexts. The Bonita BPM login context must be named `BonitaAuthentication-<TENANT_ID>` (where `<TENANT_ID>` is your tenant id).
 
 ### LdapLoginModule attributes to set
 
@@ -55,7 +55,7 @@ Based on the information described in the "Before you start" section, you can id
 
 In this section we explain how to set `LdapLoginModule` attributes values.
 
-**`userProvider`**: set this to ldap://<ldap server address>:<ldap server port>/<DN of the LDAP entry under which all users are located>.
+**`userProvider`**: set this to `ldap://<ldap server address>:<ldap server port>/<DN of the LDAP entry under which all users are located>`.
 
 For example: `ldap://localhost:389/CN=Users,DC=MyDomain,DC=com`
 
