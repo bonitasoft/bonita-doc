@@ -66,7 +66,6 @@ def idProcess = "8270554088248243867";
 def idCase = "1";
 out.write("""<iframe src=../portal.js/#/admin/monitoring/${idProcess}-${idCase}" style="width:100%; height:100%"></iframe>""");
 ```
-
 This displays the case diagram exactly as it appears in the standard Bonita BPM Portal page. You can modify the view to hide the Portal **Back** button by adding `?diagramOnly` to the URL:
 ```groovy
 out.write("""<iframe src=../portal.js/#/admin/monitoring/${idProcess}-${idCase}?diagramOnly}" style="width:100%; height:100%"></iframe>""");
@@ -76,13 +75,13 @@ out.write("""<iframe src=../portal.js/#/admin/monitoring/${idProcess}-${idCase}?
 
 While you are developing a custom page, you can enable custom page debug mode for your portal. In debug mode, you can see changes to your custom page without importing a new zip archive.
 
-To enable custom page debug mode, edit ` /client/tenants//conf/console-config.properties` and set `custom.page.debug` to `true`.
+To enable custom page debug mode, edit `<BONITA_HOME>/client/tenants/<tenant ID>/conf/console-config.properties` and set `custom.page.debug` to `true`.
 
 To work on a page in debug mode:
 
-1. Import your custom page zip archive into the portal. This creates a directory `/client/tenants//work/pages/`.
+1. Import your custom page zip archive into the portal. This creates a directory `<BONITA_HOME>/client/tenants/<tenant ID>/work/pages/<your custom page>`.
 2. Publish the page to a profile, then log out and log in as a user having this profile.
-3. You can now update `Index.groovy` and the contents of the `lib` directory directly in `/client/tenants//work/pages/`.
+3. You can now update `Index.groovy` and the contents of the `lib` directory directly in `<BONITA_HOME>/client/tenants/<tenant ID>/work/pages/<your custom page>`.
 4. To view the page after you modify it, refresh the page in the browser.
 
 When you have finished developing the page, recreate the custom page zip archive, and then modify the page to import it. This makes your final version of the page permanently available.
@@ -101,7 +100,7 @@ Custom page resources can be accessed by a `PageResourceProvider`.
 
 The `bonita.css` can be retrieved using `pageResourceProvider.getBonitaThemeCSSURL()`
 
-Other `css/js` resources can be retrieved using `pageResourceProvider.getResourceURL("")`
+Other `css/js` resources can be retrieved using `pageResourceProvider.getResourceURL("<path in the custom page resources folder>")`
 
 If you are not using Groovy you can directly access a resource by adding a link in `index.html`.
 
