@@ -13,8 +13,8 @@ A node that will be in a cluster is installed in exactly the same way as a stand
 
 1. Follow the instructions to [install the 
 Tomcat bundle on Ubuntu](ubuntu-openjdk-tomcat-postgresql.md).
-2. In {{ var\_bonita\_home }}, update `engine-server/conf/platform/bonita-platform-sp-custom.properties` and set the `bonita.cluster` property to `true`.
-3. In order to use cluster mode in environments where multicast is disabled (like main IaaS providers), you should switch to TcpIp mode, or AWS for Amazon Web Services cloud provider. This can be parametered in `/engine-server/conf/platform-sp-cluster-custom.properties.`Only one mode can be selected, so only one of the following properties must be set to true: 
+2. In {{ setup_folder }}, update `platform_conf/initial/platform_engine/bonita-platform-sp-custom.properties` and set the `bonita.cluster` property to `true`.
+3. In order to use cluster mode in environments where multicast is disabled (like main IaaS providers), you should switch to TcpIp mode, or AWS for Amazon Web Services cloud provider. This can be parametered in `/platform_conf/initial/platform_engine/platform-sp-cluster-custom.properties.`Only one mode can be selected, so only one of the following properties must be set to true: 
   * `bonita.platform.cluster.hazelcast.multicast.enabled` for multicast discovery, activated by default.
   * `bonita.platform.cluster.hazelcast.tcpip.enabled` for fixed adresses discovery. All possible members should be then precised separated by commas, in `bonita.platform.cluster.hazelcast.tcpip.members` property.
   * `bonita.platform.cluster.hazelcast.aws.enabled` for Amazon Web Services discovery. General informations on access key, region, security groups etc. should then be provided as properties. 
@@ -30,24 +30,22 @@ By default, the cluster name is _bonita_. The cluster name is used in the discov
 
 If your Bonita installation is behind a proxy (mainly in TcpIp or Aws discovery modes), you must declare its public address by adding the following property : `-Dhazelcast.local.publicAddress=*publicaddress*`
 
-As part of the installation, you create a `bonita_home` directory.
-
 When the installation is complete, start Tomcat on the node. By default, this automatically starts Bonita BPM Engine. Then start the cluster in the load balancer.
 
 Check that the log file contains messages of the following form:
+
 ```
-Oct 22, 2013 5:07:07 PM com.hazelcast.cluster.ClusterService
+March 22, 2016 5:07:07 PM com.hazelcast.cluster.ClusterService
 INFO: [10.0.5.2]:5701 [myBPMCluster]
 
 Members [1] {
         Member [10.0.5.2]:5701 this
 }
-
 [...]
-
-Oct 22, 2013 5:07:28 PM org.apache.catalina.startup.Catalina start
+March 22, 2016 5:09:18 PM org.apache.catalina.startup.Catalina start
 INFO: Server startup in 30333 ms
 ```
+
 Then deploy a basic process and check that it runs correctly, to validate the installation.
 
 ## Add a node to a cluster
@@ -55,27 +53,26 @@ Then deploy a basic process and check that it runs correctly, to validate the in
 You can add a new node to a cluster without interrupting service on the existing nodes.
 
 1. Install the node with the same platform as the other nodes.
-2. Configure the new node to access the shared `bonita_home` and the database.
-3. In {{ var\_bonita\_home }}, update `engine-server/conf/platform/bonita-platform-sp-custom.properties` and set the `bonita.cluster` property to `true`.
-4. Add the license for the node into the `bonita_home/server/licenses` directory.
+2. Configure the new node to access the same database.
+3. In {{ platform_setup }}, there is no need to change the configuration, as the first node already published the shared configuration in the database.
+4. Copy license files for all your nodes in the cluster, into the `{{ platform_setup }}/platform_conf/licenses` directory
 5. Start the Tomcat on the new node, which will start the Engine.
 6. Update the load balancer configuration to include the new node.
 
 The log file will contain messages of the following form:
+
 ```
-Oct 22, 2013 5:07:07 PM com.hazelcast.cluster.ClusterService
+March 22, 2016 5:12:53 PM com.hazelcast.cluster.ClusterService
 INFO: [10.0.5.2]:5701 [bonita]
 
 Members [2] {
         Member [10.0.5.2]:5701 this
         Member [10.0.5.3]:5701
 }
-
 [...]
-
-Oct 22, 2013 5:07:28 PM org.apache.coyote.http11.Http11Protocol start
+March 22, 2016 5:12:28 PM org.apache.coyote.http11.Http11Protocol start
 INFO: Starting Coyote HTTP/1.1 on http-7280
-Oct 22, 2013 5:07:28 PM org.apache.catalina.startup.Catalina start
+March 22, 2016 5:12:28 PM org.apache.catalina.startup.Catalina start
 INFO: Server startup in 30333 ms
 ```
 
@@ -97,12 +94,12 @@ The node is now removed from the cluster.
 
 To dismantle a cluster:
 
-1. Disable processes in the shared `bonita_home`.
+1. Disable processes.
 2. Allow current activity instances to complete.
 3. When each node has finished executing, stop it.
 4. When all nodes have been stopped, update the load balancer to remove the cluster.
 
-The individual nodes can now be used as standalone Bonita BPM systems, though some changes to the configuration might be required in `bonita_home`. 
+The individual nodes can now be used as standalone Bonita BPM systems, though some changes to the configuration might be required. See  [How to update a Bonita BPM Tomcat Bundle configuration](BonitaBPM_platform_setup.md) for more details on updating the configuration.
 
 ## Managing the cluster with Hazelcast
 
@@ -112,4 +109,5 @@ Note that a Bonita BPM cluster uses multicast for discovery by default. You can 
 If you are using multicast, you must ensure that your production environment is insulated from any test environment that might also contain cluster nodes. 
 
 It is possible to have more than one cluster on the same network. In this case, you must configure the cluster names to be sure that it is clear which cluster a node belongs to. 
-You can configure the cluster name through Hazelcast or by updating `bonita-platform.properties` in `bonita_home`.
+You can configure the cluster name through Hazelcast or by updating `platform_conf/initial/platform_engine/bonita-platform-sp-cluster-custom.properties` in `{{ platform_setup }}`.
+See  [How to update a Bonita BPM Tomcat Bundle configuration](BonitaBPM_platform_setup.md) for more details on updating the configuration.
