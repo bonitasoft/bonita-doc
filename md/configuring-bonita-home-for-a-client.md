@@ -13,11 +13,11 @@ such as the Bonita BPM Portal, you risk breaking existing applications.
 
 The following is an example of `${bonita.home}/client/conf/bonita-client.properties` for an application 
 called myClientAppExample that is using a Bonita BPM Engine that is running with Tomcat:
-`
+```properties
 application.name=myClientAppExample
 org.bonitasoft.engine.api-type=HTTP
 server.url=http://localhost:8080
-`
+```
 
 The properties set in this example are the name of the application (`myClientAppExample`), the URL of the server including 
 the port number (`http://localhost:8080`), and the type of server access (`HTTP`).
@@ -25,7 +25,7 @@ the port number (`http://localhost:8080`), and the type of server access (`HTTP`
 The Bonita BPM bundles are delivered with a `bonita-client.properties` file configured for use by a Bonita BPM Portal 
 that is accessing the server locally. This file also contains template definitions for other access modes. You can take a 
 copy of this file and use it as a template. The properties required vary depending on the access type that is used.
-`
+```properties
 ###template file
 # LOCAL
 org.bonitasoft.engine.api-type = LOCAL
@@ -45,7 +45,7 @@ org.bonitasoft.engine.api-type = LOCAL
 #java.naming.factory.initial = org.jnp.interfaces.NamingContextFactory
 #java.naming.provider.url = jnp://localhost:1099
 #org.bonitasoft.engine.ejb.naming.reference=serverAPI
-`
+```
 
 The client applicaton classpath must include any jar files referenced in the `bonita-client.properties` file.
 
@@ -57,7 +57,7 @@ In the JBoss administration console, [create a user account](https://docs.jboss.
 
 **Add a properties file**, `jboss-ejb-client.properties`, to the client classpath. This file is in the `$JBOSS_HOME/bin/client` folder. 
 It contains information needed to make the remote connection, including the username and password of the user you created in the JBoss console, as shown below:
-`
+```properties
 endpoint.name=client-endpoint
 remote.connectionprovider.create.options.org.xnio.Options.SSL_ENABLED=false
 remote.connections=default
@@ -67,11 +67,17 @@ remote.connection.default.port = 4447
 remote.connection.default.connect.options.org.xnio.Options.SASL_POLICY_NOANONYMOUS=false
 remote.connection.default.username 
 remote.connection.default.password 
-`
+```
 
 Add the following **Maven dependency**:
-`
-org.jboss.asjboss-as-ejb-client-bom7.1.1.Finalpom`
+```
+<dependency>
+        <groupId>org.jboss.as</groupId>
+        <artifactId>jboss-as-ejb-client-bom</artifactId>
+        <version>7.1.1.Final</version>
+        <type>pom</type>
+</dependency>  
+```
 
 **Update the JBoss configuration file**, `standalone.xml`: 
 
