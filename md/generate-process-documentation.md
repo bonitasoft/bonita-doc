@@ -30,12 +30,12 @@ In the optional settings in the pop-up window, you can choose to:
 * change the colour of headings
 * display your logo
 
-## How to generate process documentation
+## Generate process documentation
 
 1. Go to the Menu bar \> Process.
 2. In the dropdown menu, click on _**Generate documentation**_.
 
-A popup window will be displayed where you can configure a number of parameters for the exported file.
+A popup window will be displayed where you can configure a number of parameters for the exported file.  
 In the optional settings in the pop-up window, you can choose to:
 
 * export the report in .pdf, .doc, .html, .rtf, or .ppt format
