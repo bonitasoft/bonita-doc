@@ -107,7 +107,7 @@ Before running the command, update the following parameter values:
 mvn bonita-connector-definition:generate
 ```
 
-This generates the connector abstract definition class based on the definition configuration: ` /src/main/java//Abstract.java ` 
+This generates the connector abstract definition class based on the definition configuration: `<artifactId>/src/main/java/<groupId>/Abstract<ConnectorDefinitionArtifactId>.java` 
 
 **Note:**
 If you subsequently change the connector definition configuration, run this command again to apply your changes.  
