@@ -42,12 +42,12 @@ Bonita BPM is provided in four different editions: Community, Teamwork, Efficien
 
 **I'm currently using Bonita BPM 6.x. Will 7.x be a big change?**
 
-Bonita BPM 7.x provides new and improved features, including the [UI Designer](ui-designer-overview.md) for creating application pages and forms, as well as [contracts and context](contracts-and-contexts.md) to create a clear split between the process logic, the data, and the user views. 
+Bonita BPM 7.x provides new and improved features, including the [UI Designer](ui-designer-overview.md) for creating application pages and forms, as well as [contracts and context](contracts-and-contexts.md) to create a clear split between the process logic, the data, and the user views.   
 You will also find lots of familiar features, which continue to work as they did in 6.x.
 
 **Tell me about the documentation.**
 
-We're continually updating the documentation. 
+We're continually updating the documentation.   
 There are four main information categories: Application and process design, Installation, Portal administration, and Development. 
 
 **Tell me about using Bonita BPM.** 
