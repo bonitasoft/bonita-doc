@@ -1,6 +1,8 @@
 # Migrate a process from Bonita Open Solution 5.x
 
-A process exported from Bonita Open Solution 5.x must be modified to run in Bonita BPM because of the modifications and new features. Bonita BPM provides a guided migration for importing a process from 5.9 or 5.10 to the Bonita BPM legacy 6.x concepts and tooling. You can then modify the process definition to take advantage of the new features in the latest version of Bonita BPM.
+A process exported from Bonita Open Solution 5.x must be modified to run in Bonita BPM because of the modifications and new features.  
+Bonita BPM provides a guided migration for importing a process from 5.9 or 5.10 to the Bonita BPM legacy 6.x concepts and tooling.  
+You can then modify the process definition to take advantage of the new features in the latest version of Bonita BPM.  
 To migrate a process from a version of Bonita Open Solution earlier than 5.9, you must first upgrade it to 5.9\.
 
 When you import a process from Bonita Open Solution 5.9 or 5.10, Bonita BPM automatically modifies the process where possible, and provides a report indicating the items that need to be checked or that must be modified manually. You can use this report to track the status of the modifications required as you complete them.
@@ -14,7 +16,7 @@ To migrate a process from Bonita Open Solution 5.9 or 5.10:
 5. Click **_Finish_**. The process is imported and Bonita BPM Studio displays an Import status report. This report lists the status of each item in the process definition.
 6. Select an item to see what migration action has been done, or to see what manual action is required.
 
-When an item has been completely migrated, either automatically or after review or manual action, check the box in the Reviewed column. You can use this column to track what remaining migration is required.
+When an item has been completely migrated, either automatically or after review or manual action, check the box in the Reviewed column.   You can use this column to track what remaining migration is required.
 
 At any stage during migration, you can close the report and move out of migration mode. Note, however, that when you have closed the report you cannot reopen it. To close the report,click on **_Exit import mode_**.
 
