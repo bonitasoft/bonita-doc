@@ -1,6 +1,6 @@
 # Create your first project with the Engine APIs and Maven
 
-This page contains an example of to set up a Maven project to create a client that uses the Bonita BPM client APIs to communicate with the Bonita BPM Engine and run a process. It assumes that you are a Java programmer familiar with using Maven.
+This page contains an example that explains how to set up Maven project to create a client that uses the Bonita BPM client APIs to communicate with the Bonita BPM Engine and run a process. It assumes that you are a Java programmer familiar with using Maven.
 
 ## Bonita BPM Client APIs
 
@@ -29,8 +29,7 @@ In order to use the client APIs, you need to add a dependency to the `bonita-cli
 
 ## Bonita home
 
-In order to execute this client example you need to set the Java system property `bonita.home`, for example `-Dbonita.home=`, 
-and [configure a {{ var\_bonita\_home }} for the client](configuring-bonita-home-for-a-client.md). The bonita home used must have the same version as
+In order to execute this client example you need to set the Java system property `bonita.home`, for example `-Dbonita.home=<path to bonita home>`, and [configure a {{ var\_bonita\_home }} for the client](configuring-bonita-home-for-a-client.md). The bonita home used must have the same version as
 the Bonita BPM Engine, which is configured in bonita.bpm.version (here 7.0.0). 
 
 ## Log in
@@ -122,7 +121,7 @@ private static void listOpenedProcessInstances() {
     // the result will be retrieved by pages of PAGE_SIZE size
     int startIndex = 0;
     int page = 1;
-    SearchResult result = null;
+    SearchResult<ProcessInstance> result = null;
     do {
         // get the current page of open process instances
         result = getOpenProcessInstancePage(session, startIndex);
@@ -136,7 +135,7 @@ private static void listOpenedProcessInstances() {
 }
 ```
 ```java
-private static SearchResult getOpenProcessInstancePage(APISession apiSession, int startIndex) throws BonitaException {
+private static SearchResult<ProcessInstance> getOpenProcessInstancePage(APISession apiSession, int startIndex) throws BonitaException {
     // create a new SeachOptions with given start index and PAGE_SIZE as max number of elements
     SearchOptionsBuilder optionsBuilder = new SearchOptionsBuilder(startIndex, PAGE_SIZE);
     // sort the result by the process instance id in ascending order
@@ -155,7 +154,7 @@ private static void listArchivedProcessInstances() {
     // the result will be retrieved by pages of PAGE_SIZE size
     int startIndex = 0;
     int page = 1;
-    SearchResult result = null;
+    SearchResult<ArchivedProcessInstance> result = null;
     do {
         // get the current page of opened process instances
         result = getArchivedProcessInstancePage(session, startIndex);
@@ -169,7 +168,7 @@ private static void listArchivedProcessInstances() {
 }
 ```
 ```java
-private static SearchResult getArchivedProcessInstancePage(APISession apiSession, int startIndex) throws BonitaException {
+private static SearchResult<ArchivedPorcessInstance> getArchivedProcessInstancePage(APISession apiSession, int startIndex) throws BonitaException {
     // create a new SeachOptions with given start index and PAGE_SIZE as max number of elements
     SearchOptionsBuilder optionsBuilder = new SearchOptionsBuilder(startIndex, PAGE_SIZE);
     // when process instances are archived the original process instance id is supplied by SOURCE_OBJECT_ID,
@@ -190,7 +189,7 @@ private static void listPendingTasks() {
     // the result will be retrieved by pages of PAGE_SIZE size
     int startIndex = 0;
     int page = 1;
-    List pendingTasks = null;
+    List<HumanTaskInstance> pendingTasks = null;
     do {
         // get the current page
         pendingTasks = processAPI.getPendingHumanTaskInstances(session.getUserId(), startIndex, PAGE_SIZE, ActivityInstanceCriterion.LAST_UPDATE_ASC);
