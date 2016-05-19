@@ -54,7 +54,7 @@ public static ByteArrayOutputStream loadFile(String fileName) {
 
 The following method, `createCaseWithDocument`, creates a case and attaches a document to it.
 ```java
-public static void createCaseWithDocument(String processDefinitionName, String processVersion, Map variables, Map documents, ProcessAPI processAPI)
+public static void createCaseWithDocument(String processDefinitionName, String processVersion, Map<String, Object> variables, Map<String, Object> documents, ProcessAPI processAPI)
     throws ProcessDefinitionNotFoundException, InvalidExpressionException, ProcessActivationException, ProcessExecutionException {
 
     long processDefinitionId = processAPI.getProcessDefinitionId(processDefinitionName, processVersion);
