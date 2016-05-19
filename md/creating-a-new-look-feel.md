@@ -1,4 +1,4 @@
-# Creating a new Look & Feel
+# Create a new Look & Feel
 
 A Look & Feel is defined in a set of files. You can set the Look & Feel for the Bonita BPM Portal Web interface, an application, a custom page, or for the Bonita BPM Portal Mobile interface. 
 
@@ -102,7 +102,7 @@ The entry point that identifies the files to be compiled to create the Bootstrap
 
 skin/skin.config.less
 The main LESS file that defines the appearance.
-Change this file to modify the appearance of Bonita BPM Portal web ``. You only need to modify the other LESS files if you want to change the behaviour of the pages.
+Change this file to modify the appearance of Bonita BPM Portal web `<not mobile>`. You only need to modify the other LESS files if you want to change the behaviour of the pages.
 
 tools
 Contains special files required for compatibility with Internet Explorer. 
