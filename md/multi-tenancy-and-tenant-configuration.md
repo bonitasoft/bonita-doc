@@ -22,11 +22,11 @@ These tenants are configured with a single database. This illustration shows a p
 
 ## Platform configuration
 
-The platform is the part of the system that is common to all tenants. The platforms and tenant configurations are defined in [``](bonita-home.md).
+The platform is the part of the system that is common to all tenants. The platforms and tenant configurations are defined in [`<BONITA_HOME>`](bonita-home.md).
 
 The platform configuration directory is located here: `engine-server/conf/platform`.
 
-There is a separate configuration directory for each tenant, located here: `engine-server/conf/tenants/`. 
+There is a separate configuration directory for each tenant, located here: `engine-server/conf/tenants/<tenant_id>`. 
 There is also a default tenant configuration, located here: `engine-server/conf/tenants/template`.
 
 ## Tenant creation
@@ -40,7 +40,7 @@ If business objects will be deployed in the newly created tenant do not forget t
 
 The Java PlatformAPI creates the tenant by updating the database and creating the `bonita/server/tenants/*` files. 
 The following example code uses the Engine Java APIs to create a tenant called "myNewTenantName":
-```java
+```groovy
 // Get platform login API using the PlatformAPIAccessor
 PlatformLoginAPI platformLoginAPI = PlatformAPIAccessor.getPlatformLoginAPI();
 // Log in to the platform
