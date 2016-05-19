@@ -1,0 +1,35 @@
+<h1>Application Layout API</h1>
+<h3>Description</h3>
+<p>This API is available in Subscription editions only</p>
+<p>Manage applications layout. This enables you to modify your application layout.</p>
+<h3>Identifier</h3>
+<p>The ID of the application (a long value).</p>
+<h3>Representation</h3>
+<pre><code>{
+&quot;layoutId&quot;:&quot;id of layout resource&quot;
+}
+</code></pre>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>PUT - Update an application layout</li>
+</ul>
+<h3>Update an application layout</h3>
+<p>Request url
+http://../API/living/application/{applicationId}</p>
+<p>Request method</p>
+<p>PUT</p>
+<p>Request payload</p>
+<p>A partial representation of an layout resource in JSON</p>
+<p>Response payload</p>
+<p>empty</p>
+<h4>Example</h4>
+<p>Request url
+http://../API/living/application/305</p>
+<p>Request method</p>
+<p>PUT</p>
+<p>Request payload</p>
+<pre><code>{&quot;layoutId&quot;:&quot;2&quot;}
+</code></pre>
+<p>Response payload
+empty</p>

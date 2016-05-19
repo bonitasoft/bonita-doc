@@ -1,0 +1,187 @@
+<h1>SSL</h1>
+<p>Configuring SSL for Bonita BPM is the same as configuring it for any other application.
+No changes are necessary to forms or to process definitions, just configuration. This page contains examples of how to set up SSL for Bonita BPM. This enables you to use secure HTTP (HTTPS) to access the portal.</p>
+<h2>Overview</h2>
+<p>If you are using an HTTP load balancer, configure it to handle SSL connections. Otherwise, configure it in the application server.</p>
+<p>To configure your system to use SSL:</p>
+<ol>
+<li>Create a certificate for your system.</li>
+<li>Update your application server configuration to enable SSL.</li>
+<li>Update the Bonita web application to add the security definition.</li>
+</ol>
+<p>The details of each step depend on your application server and SSL implementation. See your application server documentation for details.</p>
+<p>There are some examples below. In these examples:</p>
+<ul>
+<li>We use the default application server SSL port number, 8443, for connections. If you use this port number, it needs to be specified in the URL by users.
+If you use the default HTTPS port number, 443, users do not need to specify the port in the URL.</li>
+<li>You must ensure that the SSL connector is configured with the parameter <code>URIEncoding=&quot;UTF-8&quot;</code>.</li>
+<li>When the configuration is complete, the web application is only available through HTTPS. For other configuration, allowing both HTTP and HTTPS access, see your application server or SSL service documentation.</li>
+<li>The operating system is Ubuntu.</li>
+<li>The starting point is a bundle that has been installed and configured but not started.</li>
+</ul>
+<h2>JBoss with keystore</h2>
+<p>This example shows how to configure SSL with a keystore for JBoss 5.
+For details of how to set up SSL with JBoss 7, see the <a href="http://docs.jboss.org/jbossweb/7.0.x/ssl-howto.html">SSL Configuration HOW-TO</a> on the JBoss 7 web site.</p>
+<ol>
+<li>Run the Java <code>keytool</code> to create a certificate and store it in the keystore. (Note: if you are using Windows, you need to run keytool as administrator.)
+<code>keytool -genkey -alias tomcat -keyalg RSA -keystore conf/ssl/keystore</code></li>
+<li>Answer the questions that <code>keytool</code> asks. When asked for your first name and last name, provide the hostname of your system.</li>
+<li>Edit <code>server/default/deploy/jbossweb.sar/server.xml</code> and include the following configuration for the Connector:</li>
+</ol>
+<pre><code class="language-xml">&lt;Connector port=&quot;8443&quot; 
+protocol=&quot;HTTP/1.1&quot; 
+SSLEnabled=&quot;true&quot;
+maxThreads=&quot;150&quot; 
+scheme=&quot;https&quot; 
+secure=&quot;true&quot;
+SSLVerifyClient=&quot;optional&quot; 
+SSLProtocol=&quot;TLSv1&quot;
+URIEncoding=&quot;UTF-8&quot;
+keyAlias=&quot;&lt;HOST&gt;&quot;
+keystoreFile=&quot;&lt;JRE_HOME&gt;/lib/security/cacerts&quot;
+keystorePass=&quot;&lt;PASSWORD&gt;&quot; 
+truststoreFile=&quot;&lt;JRE_HOME&gt;/lib/security/cacerts&quot;
+truststorePass=&quot;&lt;PASSWORD&gt;&quot;
+/&gt;
+</code></pre>
+<ol start="4">
+<li>Go to <code>/server/default/deploy</code>.</li>
+<li>Unzip the <code>bonita-all-in-one-</code><em><code>VERSION</code></em><code>.ear</code> EAR file.</li>
+<li>At the root, open the <code>bonita.war</code> WAR file.</li>
+<li>Edit <code>/WEB-INF/web.xml</code> and add the following security definition:</li>
+</ol>
+<pre><code class="language-xml">&lt;web-app&gt;
+   ...
+   &lt;security-constraint&gt;
+      &lt;web-resource-collection&gt;
+         &lt;web-resource-name&gt;Bonita Portal Secure URLs&lt;/web-resource-name&gt;
+         &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+      &lt;/web-resource-collection&gt;
+      &lt;user-data-constraint&gt;
+         &lt;transport-guarantee&gt;CONFIDENTIAL&lt;/transport-guarantee&gt;
+      &lt;/user-data-constraint&gt;
+   &lt;/security-constraint&gt;
+&lt;/web-app&gt;
+</code></pre>
+<ol start="8">
+<li>Rezip the WAR file, then rezip the EAR.</li>
+<li>Start JBoss: <code>./bin/run.sh</code></li>
+<li>Check that everything is correctly configured, by opening <code>https://127.0.0.1:8443/bonita</code> in your browser. Your browser should warn you about the certificate used to perform the HTTPS connection. You can safely add this certificate to the exceptions allowed.</li>
+</ol>
+<h2>Tomcat with APR and OpenSSL</h2>
+<p>This example show how to configure SSL with APR and OpenSSL for a Bonita BPM using Tomcat.</p>
+<ol>
+<li>Go to the <code>TOMCAT_HOME/conf</code> directory and create a directory called <code>ssl</code> to store certificate files.</li>
+<li>Create the self-signed certificate and its private key using <code>openssl</code>:<br>
+<code>openssl req -new -x509 -days 365 -nodes -out conf/ssl/test.bonitasoft.net.pem -keyout conf/ssl/test.bonitasoft.net.key</code></li>
+<li>Provide the information about your system that <code>openssl</code> requires.</li>
+<li>Edit <code>conf/server.xml</code> and add the following definition for the Connector:</li>
+</ol>
+<pre><code class="language-xml">&lt;Connector port=&quot;8443&quot; 
+protocol=&quot;HTTP/1.1&quot; 
+SSLEnabled=&quot;true&quot;
+maxThreads=&quot;150&quot; 
+scheme=&quot;https&quot; 
+secure=&quot;true&quot;
+URIEncoding=&quot;UTF-8&quot;
+SSLCertificateFile=&quot;$ {catalina.base}/conf/ssl/test.bonitasoft.net.pem&quot;
+SSLCertificateKeyFile=&quot;${catalina.base}
+/conf/ssl/test.bonitasoft.net.key&quot;
+SSLVerifyClient=&quot;optional&quot; 
+SSLProtocol=&quot;TLSv1&quot;&gt;&lt;/Connector&gt;
+</code></pre>
+<ol start="5">
+<li>Install the Tomcat native library, which contains APR: <code>sudo apt-get install libtcnative-1</code></li>
+<li>Edit <code>TOMCAT_HOME/webapps/bonita/WEB-INF/web.xml</code> and add the following security definition:</li>
+</ol>
+<pre><code class="language-xml">&lt;web-app&gt;
+   ...
+   &lt;security-constraint&gt;
+      &lt;web-resource-collection&gt;
+         &lt;web-resource-name&gt;Bonita Portal Secure URLs&lt;/web-resource-name&gt;
+         &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+      &lt;/web-resource-collection&gt;
+      &lt;user-data-constraint&gt;
+         &lt;transport-guarantee&gt;CONFIDENTIAL&lt;/transport-guarantee&gt;
+      &lt;/user-data-constraint&gt;
+   &lt;/security-constraint&gt;
+&lt;/web-app&gt;
+</code></pre>
+<ol start="7">
+<li>Start Tomcat: <code>./bin/startup.sh</code></li>
+<li>Check that everything is correctly configured, by opening <code>https://127.0.0.1:8443/bonita</code> in your browser. Your browser should warn you about the self-signed certificate used to perform the HTTPS connection. You can safely add this self-signed certificate to the exceptions allowed.</li>
+</ol>
+<h2>Tomcat with a keystore</h2>
+<p>This example shows how to configure SSL with a keystore for Bonita BPM on Tomcat.</p>
+<ol>
+<li>Run the Java <code>keytool</code> to create a certificate and store it in the keystore.
+(Note: if you are using Windows, you need to run <code>keytool</code> as administrator.)
+<code>keytool -genkey -alias tomcat -keyalg RSA -keystore conf/ssl/keystore</code></li>
+<li>Answer the questions that <code>keytool</code> asks. When asked for your first name and last name, provide the hostname of your system.</li>
+<li>Edit <code>conf/server.xml</code> and include the following configuration for the Connector:</li>
+</ol>
+<pre><code class="language-xml">&lt;Connector port=&quot;8443&quot;
+protocol=&quot;org.apache.coyote.http11.Http11NioProtocol&quot; 
+SSLEnabled=&quot;true&quot;
+maxThreads=&quot;150&quot; 
+scheme=&quot;https&quot; 
+secure=&quot;true&quot;
+URIEncoding=&quot;UTF-8&quot;
+keystoreFile=&quot;$ {catalina.base}/conf/ssl/keystore&quot; 
+keystorePass=&quot;password!&quot;
+SSLVerifyClient=&quot;optional&quot; 
+SSLProtocol=&quot;TLSv1&quot;&gt;&lt;/Connector&gt;
+</code></pre>
+<ol start="4">
+<li>Edit <code>TOMCAT_HOME/webapps/bonita/WEB-INF/web.xml</code> and add the following security definition:</li>
+</ol>
+<pre><code class="language-xml">&lt;web-app&gt;
+   ...
+   &lt;security-constraint&gt;
+      &lt;web-resource-collection&gt;
+         &lt;web-resource-name&gt;Bonita Portal Secure URLs&lt;/web-resource-name&gt;
+         &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+      &lt;/web-resource-collection&gt;
+      &lt;user-data-constraint&gt;
+         &lt;transport-guarantee&gt;CONFIDENTIAL&lt;/transport-guarantee&gt;
+      &lt;/user-data-constraint&gt;
+   &lt;/security-constraint&gt;
+&lt;/web-app&gt;
+</code></pre>
+<ol start="5">
+<li>Start Tomcat: <code>./bin/startup.sh</code></li>
+<li>Check that everything is correctly configured, by opening <code>https://127.0.0.1:8443/bonita</code> in your browser. Your browser should warn you about the certificate used to perform the HTTPS connection. You can safely add this certificate to the exceptions allowed.</li>
+</ol>
+<h2>Tomcat and SSL Offloading</h2>
+<p>This example shows you how to configure SSL if you run Tomcat behind a load balancer that features in SSL Accelerator or Offloading (sometimes called SSL Termination).</p>
+<ol>
+<li>Make sure that your load balancer adds <code>X-Forwarded-Proto</code> and <code>X-Forwarded-For</code> headers.
+If you use HAProxy you can add following lines into your <a href="http://www.haproxy.org/download/1.5/doc/configuration.txt">HAProxy configuration</a> :</li>
+</ol>
+<pre><code>option forwardfor
+reqadd X-Forwarded-Proto:\ https
+</code></pre>
+<ol start="2">
+<li>Edit <code>conf/server.xml</code> and include the <code>RemoteIpValve</code> configuration for the host:</li>
+</ol>
+<pre><code class="language-xml">&lt;Host name=&quot;localhost&quot;  appBase=&quot;webapps&quot; unpackWARs=&quot;true&quot; autoDeploy=&quot;true&quot;&gt;
+
+&lt;Valve
+ className=&quot;org.apache.catalina.valves.RemoteIpValve&quot;
+ internalProxies=&quot;172\.31\.\d{1,3}\.\d{1,3}&quot;
+ remoteIpHeader=&quot;X-Forwarded-For&quot;
+ protocolHeader=&quot;X-Forwarded-Proto&quot;
+ /&gt;
+</code></pre>
+<p>Note: Make sure that the regular expression set with <code>internalProxies</code> matches your IP addresses.</p>
+<p>As explained by the <a href="https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html">RemoteIpValve documentation</a>:
+&quot;This valve replaces the apparent client remote IP address and hostname for the request with the IP address list presented by a proxy or a load balancer via a request headers (e.g. &quot;X-Forwarded-For&quot;).
+Another feature of this valve is to replace the apparent scheme (http/https) and server port with the scheme presented by a proxy or a load balancer via a request header (e.g. &quot;X-Forwarded-Proto&quot;).&quot;</p>
+<ol start="3">
+<li>If you use the AccessLogValve, edit <code>conf/server.xml</code> and set <code>requestAttributesEnabled=&quot;true&quot;</code>:</li>
+</ol>
+<pre><code class="language-xml">&lt;Valve className=&quot;org.apache.catalina.valves.AccessLogValve&quot; directory=&quot;logs&quot;
+              prefix=&quot;localhost_access_log.&quot; suffix=&quot;.txt&quot; requestAttributesEnabled=&quot;true&quot;
+              pattern=&quot;%a %{X-Forwarded-Proto}i %l %u %t &quot;%r&quot; %s %b&quot; /&gt;
+</code></pre>
+<p>If you omit this, %a will log your load balancer's IP address and not the client's IP address.</p>

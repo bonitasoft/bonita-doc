@@ -1,0 +1,45 @@
+<h2>processConnectorDependency</h2>
+<h3>Description</h3>
+<p>Use the processConnectorDependency resource to access connector dependencies.</p>
+<h3>Identifier</h3>
+<p>The object itself</p>
+<h3>Parameters</h3>
+<p>None</p>
+<h3>Representation</h3>
+<pre><code>{
+&quot;connector_version&quot;:&quot;_connector version_&quot;,
+&quot;connector_process_id&quot;:&quot;_process id_&gt;&quot;,
+&quot;filename&quot;:&quot;_filename representing the connector_&gt;&quot;,
+&quot;connector_name&quot;:&quot;_connector name_&gt;&quot;
+}
+</code></pre>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>GET - Search for connector dependencies</li>
+</ul>
+<h3>Search for connector dependencies</h3>
+<p>Use a GET method with filters to search for connector dependencies.</p>
+<p>Mandatory filters: connector_process_id, connector_name, connector_version</p>
+<p>Example: Get connector dependencies of the email connector (version 1.0.0) of the process with id = 4971555129176049183
+Method
+GET</p>
+<p>URL
+<code>http://localhost:8080/bonita/API/bpm/processConnectorDependency?c=10&amp;p=0&amp;f=connector_process_id=4971555129176049183&amp;f=connector_name=email&amp;f=connector_version=1.0.0</code></p>
+<p>Payload
+empty</p>
+<p>Response</p>
+<pre><code>[
+{
+&quot;connector_version&quot;:&quot;1.0.0&quot;,
+&quot;connector_process_id&quot;:&quot;4971555129176049183&quot;,
+&quot;filename&quot;:&quot;bonita-connector-email-impl-1.0.12.jar&quot;,
+&quot;connector_name&quot;:&quot;email&quot;
+},
+{
+&quot;connector_version&quot;:&quot;1.0.0&quot;,
+&quot;connector_process_id&quot;:&quot;4971555129176049183&quot;,
+&quot;filename&quot;:&quot;mail-1.4.5.jar&quot;,
+&quot;connector_name&quot;:&quot;email&quot;
+}
+]</code></pre>

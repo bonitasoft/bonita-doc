@@ -1,0 +1,949 @@
+<h1>Application API</h1>
+<h2>Application</h2>
+<h2>Living application</h2>
+<h3>Description</h3>
+<p>Manage applications. This enables you to build to build a consistent functional applicative environment for users to interact with business processes and business data from one place.</p>
+<h3>Identifier</h3>
+<p>The ID of the application (a long value).</p>
+<h3>Representation</h3>
+<pre><code class="language-json">{
+  &quot;id&quot;:&quot;id of the application&quot;,
+  &quot;token&quot;:&quot;token of the application used to build the application URL&quot;,
+  &quot;displayName&quot;:&quot;display name of the application&quot;,
+  &quot;version&quot;:&quot;version of the application&quot;,
+  &quot;description&quot;:&quot;description of the application&quot;,
+  &quot;profileId&quot;:&quot;profile authorized to access this application&quot;,
+  &quot;creationDate&quot;:&quot;creation date of the application&quot;,
+  &quot;createdBy&quot;:&quot;user that created the application&quot;,
+  &quot;updatedBy&quot;:&quot;user that that updated the application&quot;,
+  &quot;lastUpdateDate&quot;:&quot;last update date of the application&quot;},
+  &quot;homePageId&quot;:&quot;id of the application page used as the home page&quot;
+}
+</code></pre>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>POST - Create an application</li>
+<li>GET - Get the application information</li>
+<li>PUT - Update an application</li>
+<li>DELETE - Remove an application</li>
+</ul>
+<h3>Create an application</h3>
+<ul>
+<li><strong>URL:</strong><br>
+<code>/API/living/application</code></li>
+<li><strong>Method</strong><br>
+<code>POST</code></li>
+<li><strong>Data params</strong>:<br>
+A partial representation of an application in JSON<pre><code class="language-json">{
+  &quot;version&quot;:&quot;1.0&quot;,
+  &quot;profileId&quot;:&quot;2&quot;,
+  &quot;token&quot;:&quot;myapp&quot;,
+  &quot;displayName&quot;:&quot;My app&quot;,
+  &quot;description&quot;:&quot;My application description&quot;
+}
+</code></pre>
+</li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code:</strong> 200</li>
+<li><strong>Payload</strong>:<br>
+The full JSON representation of the application that was created<pre><code class="language-json">{
+  &quot;id&quot;:&quot;305&quot;,
+  &quot;creationDate&quot;:&quot;1411548289900&quot;,
+  &quot;iconPath&quot;:&quot;&quot;,
+  &quot;createdBy&quot;:&quot;1&quot;,
+  &quot;profileId&quot;:&quot;2&quot;,
+  &quot;description&quot;:&quot;My application description&quot;,
+  &quot;token&quot;:&quot;myapp&quot;,
+  &quot;state&quot;:&quot;DEACTIVATED&quot;,
+  &quot;displayName&quot;:&quot;My app&quot;,
+  &quot;updatedBy&quot;:&quot;1&quot;,
+  &quot;lastUpdateDate&quot;:&quot;1411548289900&quot;,
+  &quot;version&quot;:&quot;1.0&quot;,
+  &quot;homePageId&quot;:&quot;-1&quot;
+}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3>Get an application</h3>
+<ul>
+<li><strong>URL:</strong><br>
+<code>/API/living/application/:applicationId</code></li>
+<li><strong>Method:</strong><br>
+GET</li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>
+The full JSON representation of the application that was created with id=&quot;applicationId&quot;<pre><code class="language-json">{
+  &quot;id&quot;:&quot;305&quot;,
+  &quot;creationDate&quot;:&quot;1411548289900&quot;,
+  &quot;iconPath&quot;:&quot;&quot;,
+  &quot;createdBy&quot;:&quot;1&quot;,
+  &quot;profileId&quot;:&quot;2&quot;,
+  &quot;description&quot;:&quot;My application description&quot;,
+  &quot;token&quot;:&quot;myapp&quot;,
+  &quot;state&quot;:&quot;DEACTIVATED&quot;,
+  &quot;displayName&quot;:&quot;My app&quot;,
+  &quot;updatedBy&quot;:&quot;1&quot;,
+  &quot;lastUpdateDate&quot;:&quot;1411548289900&quot;,
+  &quot;version&quot;:&quot;1.0&quot;,
+  &quot;homePageId&quot;:&quot;-1&quot;
+}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3>Delete an application</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>/API/living/application/:applicationId</code></li>
+<li><strong>Method:</strong><br>
+<code>DELETE</code></li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code:</strong> 200</li>
+</ul>
+</li>
+</ul>
+<h3>Update an Application</h3>
+<p>You can update the following parameters:</p>
+<ul>
+<li>
+<p>token</p>
+</li>
+<li>
+<p>displayName</p>
+</li>
+<li>
+<p>version</p>
+</li>
+<li>
+<p>profileId</p>
+</li>
+<li>
+<p>description</p>
+</li>
+<li>
+<p><strong>URL</strong><br>
+<code>/API/living/application/:applicationId</code></p>
+</li>
+<li>
+<p><strong>Method</strong><br>
+<code>PUT</code></p>
+</li>
+<li>
+<p><strong>Request Payload</strong><br>
+A partial representation of an application with parameters to update</p>
+<pre><code class="language-json">{
+  &quot;version&quot;:&quot;2.0&quot;,
+  &quot;profileId&quot;:&quot;3&quot;,
+  &quot;token&quot;:&quot;myappToUpDate&quot;,
+  &quot;displayName&quot;:&quot;My app To Up Date&quot;,
+  &quot;description&quot;:&quot;My application description To Up Date&quot;
+}
+</code></pre>
+</li>
+<li>
+<p><strong>Success Response</strong></p>
+<ul>
+<li><strong>Code</strong>: 200</li>
+</ul>
+</li>
+</ul>
+<h3>Search for an application</h3>
+<ul>
+<li><strong>URL</strong><br>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+<code>/API/living/application?p={page}&amp;c={count}&amp;o={order}&amp;s={query}&amp;f={filter\_name}={filter\_value}&amp;d={field\_to\_deploy}</code>
+=======
+<code>/API/living/application</code></li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>5e55a3e23f7d9b155ff4c2791d09ae8460859312
+<em>Example</em>: /API/living/application?f=token%3dmyapp&amp;d=createdBy</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li>
+<p><strong>Method</strong><br>
+<code>GET</code></p>
+</li>
+<li>
+<p><strong>URL Params</strong><br>
+<a href="rest-api-overview.md#resource_search">Standard search parameters</a> are available to search form mappings.<br>
+<strong>Required</strong></p>
+<ul>
+<li>c: number of result per page to retrieve</li>
+<li>p: page number to retrieve</li>
+</ul>
+<p><strong>Optional</strong>:</p>
+<ul>
+<li>o: can order on &quot;id&quot;,&quot;creationDate&quot;, &quot;createdBy&quot;, &quot;profileId&quot;, &quot;token&quot;, &quot;displayName&quot;, &quot;updatedBy&quot;, &quot;lastUpdateDate&quot;, &quot;version&quot;</li>
+<li>s: can search on &quot;token&quot;, &quot;displayName&quot;, &quot;version&quot;</li>
+<li>f: can filter on &quot;token&quot;, &quot;displayName&quot;, &quot;version&quot;, &quot;profileId&quot;, &quot;creationDate&quot;, &quot;createdBy&quot;, &quot;updatedBy&quot; , &quot;lastUpdateDate&quot; with the format <code>f={filter\_name}={filter\_value}</code></li>
+<li>d: can directly access the details by of the &quot;createdBy&quot; or &quot;updatedBy&quot; user, or of the &quot;profileId&quot;</li>
+</ul>
+</li>
+<li>
+<p><strong>Success Response</strong></p>
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:
+A JSON array of application<pre><code class="language-json">[{
+  &quot;id&quot;:&quot;305&quot;,
+  &quot;creationDate&quot;:&quot;1411548289900&quot;,
+  &quot;iconPath&quot;:&quot;&quot;,
+  &quot;createdBy&quot;: {
+    &quot;last_connection&quot;:&quot;2014-09-24 14:57:26.146&quot;,
+    &quot;created_by_user_id&quot;:&quot;-1&quot;,
+    &quot;creation_date&quot;:&quot;2014-09-15 17:25:22.678&quot;,
+    &quot;id&quot;:&quot;1&quot;,
+    &quot;icon&quot;:&quot;/default/icon_user.png&quot;,
+    &quot;enabled&quot;:&quot;true&quot;,
+    &quot;title&quot;:&quot;&quot;,
+    &quot;manager_id&quot;:&quot;0&quot;,
+    &quot;job_title&quot;:&quot;&quot;,
+    &quot;userName&quot;:&quot;user1&quot;,
+    &quot;lastname&quot;:&quot;user1&quot;,
+    &quot;firstname&quot;:&quot;user1&quot;,
+    &quot;password&quot;:&quot;&quot;,
+    &quot;last_update_date&quot;:&quot;2014-09-15 17:25:22.678&quot;
+  },
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h1>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+&quot;profileId&quot;:&quot;2&quot;,</h1>
+<pre><code>  &quot;profileId&quot;:&quot;2&quot;,
+</code></pre>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>5e55a3e23f7d9b155ff4c2791d09ae8460859312
+&quot;description&quot;:&quot;My application description&quot;,
+&quot;token&quot;:&quot;myapp&quot;,
+&quot;state&quot;:&quot;DEACTIVATED&quot;,
+&quot;displayName&quot;:&quot;My app&quot;,
+&quot;updatedBy&quot;:&quot;1&quot;,
+&quot;lastUpdateDate&quot;:&quot;1411548289900&quot;,
+&quot;version&quot;:&quot;1.0&quot;,
+&quot;homePageId&quot;:&quot;-1&quot;
+}]
+```</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2>Application Theme</h2>
+<h3>Description</h3>
+<p>This API is available in Subscription editions only</p>
+<p>Manage applications theme. This enables you to modify your application theme.</p>
+<h3>Identifier</h3>
+<p>The ID of the application (a long value).</p>
+<h3>Representation</h3>
+<pre><code class="language-json">{
+  &quot;themeId&quot;:&quot;id of theme resource&quot;
+}
+</code></pre>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>PUT - Update an application theme
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</li>
+</ul>
+<h3>Update an application theme</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>/API/living/application/:applicationId</code></li>
+<li><strong>Method</strong><br>
+<code>PUT</code></li>
+<li><strong>Request Payload</strong><br>
+A partial representation of an theme resource in JSON<br>
+<em>Example</em>:<pre><code class="language-json">{&quot;themeId&quot;:&quot;2&quot;}
+</code></pre>
+</li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+</ul>
+</li>
+</ul>
+<h2>Application Menu</h2>
+<p>=======</p>
+<h3>Update an application theme</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>/API/living/application/:applicationId</code></li>
+<li><strong>Method</strong><br>
+<code>PUT</code></li>
+<li><strong>Request Payload</strong><br>
+A partial representation of an theme resource in JSON<br>
+<em>Example</em>:<pre><code class="language-json">{&quot;themeId&quot;:&quot;2&quot;}
+</code></pre>
+</li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+</ul>
+</li>
+</ul>
+<h2>Application Menu</h2>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>5e55a3e23f7d9b155ff4c2791d09ae8460859312</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3>Description</h3>
+<p>Manage the set of menus in an application. This set of menus enables a user to navigate to the application pages.</p>
+<p>There are two types of menu item:</p>
+<ul>
+<li>A top-level item appears in the navigation bar of the application. A top-level item can be clickable, leading to a page, or can be a parent for a menu of clickable items.</li>
+<li>A child menu item becomes visible in a menu when the parent is selected. A child menu item is clickable and leads to a page.</li>
+</ul>
+<p>Each menu item has an index that defines the position in the menu. For a top-level menu item, this is the position in the the navigation bar counting from the left. For a child menu item, this is the position in the menu counting from the top.</p>
+<h3>Identifier</h3>
+<p>The ID of the application menu item (a long value).</p>
+<h3>Representation</h3>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<pre><code>{
+&quot;id&quot;:&quot;_id of the application menu item_&quot;,
+&quot;parentMenuId&quot;:&quot;_id of the parent menu of this menu item, or -1 for a top-level item_&quot;,
+&quot;applicationPageId&quot;:&quot;_id of the application page targeted by this menu item, or -1 if there is no targeted page (that is, the item is a parent menu)_&quot;,
+&quot;applicationId&quot;:&quot;_id of the application related to this menu item_&quot;,
+&quot;menuIndex&quot;:&quot;_index of the menu item_&quot;,
+&quot;displayName&quot;:&quot;_label to display for this menu in the application navigation bar or menu_&quot;
+}
+</code></pre>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>POST - Create a menu item</li>
+<li>GET - Read a menu item or search for a menu item</li>
+<li>PUT - Update a menu item</li>
+<li>DELETE - Remove a menu item</li>
+</ul>
+<h3>Create an application menu item</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>http://../API/living/application-menu</code></li>
+<li><strong>Method</strong><br>
+POST</li>
+<li><strong>Data Params</strong></li>
+<li><strong>Request Payload</strong><br>
+A partial representation of an application menu in JSON<pre><code class="language-json">{
+  &quot;displayName&quot;:&quot;menuLabel&quot;,
+  &quot;applicationId&quot;:1,
+  &quot;applicationPageId&quot;:5,
+  &quot;menuIndex&quot;:1,
+  &quot;parentMenuId&quot;:&quot;-1&quot;
+}
+</code></pre>
+</li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:<br>
+The full JSON representation of the created application menu item</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;id&quot;:&quot;1&quot;,
+  &quot;displayName&quot;:&quot;menuLabel&quot;,
+  &quot;applicationId&quot;:&quot;1&quot;,
+  &quot;applicationPageId&quot;:&quot;5&quot;,
+  &quot;menuIndex&quot;:&quot;1&quot;,
+  &quot;parentMenuId&quot;:&quot;-1&quot;
+}
+</code></pre>
+</li>
+</ul>
+<h3>Get an application menu item</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>http://../API/living/application-menu/:applicationMenuId</code><br>
+<em>Example</em>: <code>http://../API/living/application-menu/1</code></li>
+<li><strong>Method</strong><br>
+<code>GET</code></li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:
+The full JSON representation of the application menu with id=&quot;applicationMenuId&quot;<pre><code class="language-json">{
+  &quot;id&quot;:&quot;1&quot;,
+  &quot;displayName&quot;:&quot;menuLabel&quot;,
+  &quot;applicationId&quot;:&quot;1&quot;,
+  &quot;applicationPageId&quot;:&quot;5&quot;,
+  &quot;menuIndex&quot;:&quot;1&quot;,
+  &quot;parentMenuId&quot;:&quot;-1&quot;
+}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3>Delete an application menu item</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>http://../API/living/application-menu/:applicationMenuId</code></li>
+<li><strong>Method</strong><br>
+<code>DELETE</code></li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+</ul>
+</li>
+</ul>
+<h3>Update an application menu item</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>http://../API/living/application-menu/:applicationMenuId</code><br>
+<em>Example</em>: <code>http://../API/living/application-menu/1</code></li>
+<li><strong>Method</strong><br>
+<code>PUT</code></li>
+<li><strong>Request Payload</strong><br>
+A partial representation of an application menu with parameters to update.<br>
+<em>Available parameters to update</em>:
+<ul>
+<li>displayName</li>
+<li>applicationPageId</li>
+<li>menuIndex</li>
+<li>parentMenuId</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;displayName&quot;:&quot;updatedMenuLabel&quot;,
+  &quot;applicationPageId&quot;:&quot;6&quot;,
+  &quot;menuIndex&quot;:&quot;2&quot;
+}
+</code></pre>
+</li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+</ul>
+</li>
+</ul>
+<h3>Search the application menu items</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>http://../API/living/application-menu?p={page}&amp;c={count}&amp;o={order}&amp;s={query}&amp;f={filter\_name}={filter\_value}&amp;d={field\_to\_deploy}</code><br>
+<em>Example</em>: <code>http://../API/living/application-menu?p=0&amp;c=2&amp;f=applicationId%3d1</code></li>
+<li><strong>Method</strong><br>
+<code>GET</code></li>
+<li><strong>Data Params</strong>
+<ul>
+<li>o: can order on &quot;id&quot;, &quot;displayName&quot;, &quot;applicationId&quot;, &quot;applicationPageId&quot;, &quot;index&quot;, &quot;parentId&quot;</li>
+<li>s: search on &quot;displayName&quot;</li>
+<li>f: can filter on &quot;id&quot;, &quot;displayName&quot;, &quot;applicationId&quot;, &quot;applicationPageId&quot;, &quot;index&quot;, &quot;parentId&quot;</li>
+<li>d: can deploy on &quot;applicationPageId&quot;</li>
+</ul>
+</li>
+<li><strong>Success Response</strong><br>
+A JSON array of application menu
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:<pre><code class="language-json">[{
+  &quot;id&quot;:&quot;1&quot;,
+  &quot;parentMenuId&quot;:&quot;-1&quot;,
+  &quot;applicationPageId&quot;:&quot;5&quot;,
+  &quot;applicationId&quot;:&quot;1&quot;,
+  &quot;menuIndex&quot;:&quot;1&quot;,
+  &quot;displayName&quot;:&quot;menu1&quot;
+}, {
+  &quot;id&quot;:&quot;2&quot;,
+  &quot;parentMenuId&quot;:&quot;-1&quot;,
+  &quot;applicationPageId&quot;:&quot;1&quot;,
+  &quot;applicationId&quot;:&quot;1&quot;,
+  &quot;menuIndex&quot;:&quot;2&quot;,
+  &quot;displayName&quot;:&quot;menu2&quot;
+}]
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Application Page</h2>
+<h3>Description</h3>
+<p>An application page is a custom page that has been associated with an application. Use this resource to manage application pages and define the paths used to access them. This list of pages will be used to build the application menus.</p>
+<h3>Identifier</h3>
+<p>The ID of the application page (a long value).</p>
+<h3>Representation</h3>
+<pre><code>{
+&quot;id&quot;:&quot;_id of the application page_&quot;,
+&quot;token&quot;:&quot;_token use to access the page using a URL : ../appName/pageToken/_&quot;,
+&quot;applicationId&quot;:&quot;_id of the application related to this page_&quot;,
+&quot;pageId&quot;:&quot;_id of the custom page to display_&quot;
+}
+</code></pre>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>POST - Create an application page</li>
+<li>GET - Read an application page or search for an application page</li>
+<li>DELETE - Remove an application page</li>
+</ul>
+<h3>Create an application page</h3>
+<p>Request url
+http://../API/living/application-page</p>
+<p>Request method</p>
+<p>POST</p>
+<p>Request payload</p>
+<p>A partial representation of an application page in JSON</p>
+<p>Response payload</p>
+<p>The full JSON representation of the application page that was created</p>
+<h4>Example</h4>
+<p>Request url
+http://../API/living/application-page</p>
+<p>Request method</p>
+<p>POST</p>
+<p>Request payload</p>
+<pre><code>{
+&quot;pageId&quot;:&quot;2&quot;,
+&quot;token&quot;:&quot;myPage&quot;,
+&quot;applicationId&quot;:&quot;1&quot;
+}
+</code></pre>
+<p>Response payload</p>
+<pre><code>{
+&quot;id&quot;:&quot;3&quot;,
+&quot;token&quot;:&quot;myPage&quot;,
+&quot;pageId&quot;:&quot;2&quot;,
+&quot;applicationId&quot;:&quot;1&quot;
+}
+</code></pre>
+<h3>Get an application page</h3>
+<p>Request url
+http://../API/living/application-page/{applicationPageId}</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload</p>
+<p>empty</p>
+<p>Response payload</p>
+<p>The full JSON representation of the application page that was created with id=&quot;applicationPageId&quot;</p>
+<h4>Example</h4>
+<p>Request url
+http://../API/living/application-page/3</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Response payload</p>
+<pre><code>{
+&quot;id&quot;:&quot;3&quot;,
+&quot;token&quot;:&quot;myPage&quot;,
+&quot;pageId&quot;:&quot;2&quot;,
+&quot;applicationId&quot;:&quot;1&quot;
+}
+</code></pre>
+<h3>Delete an application page</h3>
+<p>Request url
+http://../API/living/application-page/{applicationPageId}</p>
+<p>Request method</p>
+<p>DELETE</p>
+<p>Request payload</p>
+<p>empty</p>
+<p>Response payload</p>
+<p>empty</p>
+<h4>Example</h4>
+<p>Request url
+http://../API/living/application-page/3</p>
+<p>Request method</p>
+<p>DELETE</p>
+<h3>Search for an application page</h3>
+<p>Request url
+http://../API/living/application-page?p={page}&amp;c={count}&amp;o={order}&amp;s={query}&amp;f={filter_name}={filter_value}&amp;d={field_to_deploy}</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload</p>
+<p>empty</p>
+<p>Response payload</p>
+<p>A JSON array of application page</p>
+<h4>Parameters</h4>
+<ul>
+<li>o: can order on &quot;id&quot;, &quot;token&quot;, &quot;applicationId&quot;, &quot;pageId&quot;</li>
+<li>s: search on &quot;token&quot;</li>
+<li>f: can filter on &quot;id&quot;, &quot;token&quot;, &quot;applicationId&quot;, &quot;pageId&quot;</li>
+<li>d: can deploy the &quot;applicationId&quot;, &quot;pageId&quot;</li>
+</ul>
+<h4>Example</h4>
+<p>Request url
+http://../API/living/application-page?p=0&amp;c=2&amp;d=pageId&amp;f=applicationId%3d1</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Response payload</p>
+<pre><code>[
+{
+	&quot;id&quot;:&quot;5&quot;,
+	&quot;token&quot;:&quot;groovyPage&quot;,
+	&quot;pageId&quot;:
+	{
+		&quot;id&quot;:&quot;2&quot;,
+		&quot;creationDate&quot;:&quot;2014-11-18 14:38:56.700&quot;,
+		&quot;createdBy&quot;:&quot;&quot;,
+		&quot;isProvided&quot;:&quot;true&quot;,
+		&quot;description&quot;:&quot;Groovy class example of custom page source structure (in English).&quot;,
+		&quot;contentName&quot;:&quot;bonita-groovy-page-example.zip&quot;,
+		&quot;displayName&quot;:&quot;Groovy example page&quot;,
+		&quot;updatedBy&quot;:&quot;-1&quot;,
+		&quot;lastUpdateDate&quot;:&quot;2014-11-18 14:38:56.700&quot;,
+		&quot;urlToken&quot;:&quot;custompage_groovyexample&quot;
+	},
+	&quot;applicationId&quot;:&quot;1&quot;
+},
+{
+	&quot;id&quot;:&quot;1&quot;,
+	&quot;token&quot;:&quot;home&quot;,
+	&quot;pageId&quot;:
+	{
+		&quot;id&quot;:&quot;3&quot;,
+		&quot;creationDate&quot;:&quot;2014-11-18 14:38:56.717&quot;,
+		&quot;createdBy&quot;:&quot;&quot;,
+		&quot;isProvided&quot;:&quot;true&quot;,
+		&quot;description&quot;:&quot;This is a home page dedicated to new born living applications&quot;,
+		&quot;contentName&quot;:&quot;bonita-home-page.zip&quot;,
+		&quot;displayName&quot;:&quot;Application home page&quot;,
+		&quot;updatedBy&quot;:&quot;-1&quot;,
+		&quot;lastUpdateDate&quot;:&quot;2014-11-18 14:38:56.717&quot;,
+		&quot;urlToken&quot;:&quot;custompage_home&quot;
+	},
+	&quot;applicationId&quot;:&quot;1&quot;
+</code></pre>
+<p>=======</p>
+<pre><code class="language-json">{
+  &quot;id&quot;:&quot;_id of the application menu item_&quot;,
+  &quot;parentMenuId&quot;:&quot;_id of the parent menu of this menu item, or -1 for a top-level item_&quot;,
+  &quot;applicationPageId&quot;:&quot;_id of the application page targeted by this menu item, or -1 if there is no targeted page (that is, the item is a parent menu)_&quot;,
+  &quot;applicationId&quot;:&quot;_id of the application related to this menu item_&quot;,
+  &quot;menuIndex&quot;:&quot;_index of the menu item_&quot;,
+  &quot;displayName&quot;:&quot;_label to display for this menu in the application navigation bar or menu_&quot;
+}
+</code></pre>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>POST - Create a menu item</li>
+<li>GET - Read a menu item or search for a menu item</li>
+<li>PUT - Update a menu item</li>
+<li>DELETE - Remove a menu item</li>
+</ul>
+<h3>Create an application menu item</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>http://../API/living/application-menu</code></li>
+<li><strong>Method</strong><br>
+POST</li>
+<li><strong>Request Payload</strong><br>
+A partial representation of an application menu in JSON<pre><code class="language-json">{
+  &quot;displayName&quot;:&quot;menuLabel&quot;,
+  &quot;applicationId&quot;:1,
+  &quot;applicationPageId&quot;:5,
+  &quot;menuIndex&quot;:1,
+  &quot;parentMenuId&quot;:&quot;-1&quot;
+}
+</code></pre>
+</li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:<br>
+The full JSON representation of the created application menu item</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;id&quot;:&quot;1&quot;,
+  &quot;displayName&quot;:&quot;menuLabel&quot;,
+  &quot;applicationId&quot;:&quot;1&quot;,
+  &quot;applicationPageId&quot;:&quot;5&quot;,
+  &quot;menuIndex&quot;:&quot;1&quot;,
+  &quot;parentMenuId&quot;:&quot;-1&quot;
+}
+</code></pre>
+</li>
+</ul>
+<h3>Get an application menu item</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>http://../API/living/application-menu/:applicationMenuId</code><br>
+<em>Example</em>: <code>http://../API/living/application-menu/1</code></li>
+<li><strong>Method</strong><br>
+<code>GET</code></li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:
+The full JSON representation of the application menu with id=&quot;applicationMenuId&quot;<pre><code class="language-json">{
+  &quot;id&quot;:&quot;1&quot;,
+  &quot;displayName&quot;:&quot;menuLabel&quot;,
+  &quot;applicationId&quot;:&quot;1&quot;,
+  &quot;applicationPageId&quot;:&quot;5&quot;,
+  &quot;menuIndex&quot;:&quot;1&quot;,
+  &quot;parentMenuId&quot;:&quot;-1&quot;
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>5e55a3e23f7d9b155ff4c2791d09ae8460859312
+}
+```</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3>Delete an application menu item</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>http://../API/living/application-menu/:applicationMenuId</code></li>
+<li><strong>Method</strong><br>
+<code>DELETE</code></li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+</ul>
+</li>
+</ul>
+<h3>Update an application menu item</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>http://../API/living/application-menu/:applicationMenuId</code><br>
+<em>Example</em>: <code>http://../API/living/application-menu/1</code></li>
+<li><strong>Method</strong><br>
+<code>PUT</code></li>
+<li><strong>Request Payload</strong><br>
+A partial representation of an application menu with parameters to update.<br>
+<em>Available parameters to update</em>:
+<ul>
+<li>displayName</li>
+<li>applicationPageId</li>
+<li>menuIndex</li>
+<li>parentMenuId</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;displayName&quot;:&quot;updatedMenuLabel&quot;,
+  &quot;applicationPageId&quot;:&quot;6&quot;,
+  &quot;menuIndex&quot;:&quot;2&quot;
+}
+</code></pre>
+</li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+</ul>
+</li>
+</ul>
+<h3>Search the application menu items</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>http://../API/living/application-menu</code><br>
+<em>Example</em>: <code>http://../API/living/application-menu?p=0&amp;c=2&amp;f=applicationId%3d1</code></li>
+<li><strong>Method</strong><br>
+<code>GET</code></li>
+<li><strong>Data Params</strong><br>
+<a href="rest-api-overview.md#resource_search">Standard search parameters</a> are available to search form mappings.
+<ul>
+<li>c: number of result per page</li>
+<li>p: page number</li>
+<li>o: can order on &quot;id&quot;, &quot;displayName&quot;, &quot;applicationId&quot;, &quot;applicationPageId&quot;, &quot;index&quot;, &quot;parentId&quot;</li>
+<li>s: search on &quot;displayName&quot;</li>
+<li>f: can filter on &quot;id&quot;, &quot;displayName&quot;, &quot;applicationId&quot;, &quot;applicationPageId&quot;, &quot;index&quot;, &quot;parentId&quot; with the format <code>f={filter\_name}={filter\_value}</code></li>
+<li>d: can deploy on &quot;applicationPageId&quot;</li>
+</ul>
+</li>
+<li><strong>Success Response</strong><br>
+A JSON array of application menu
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:<pre><code class="language-json">[{
+  &quot;id&quot;:&quot;1&quot;,
+  &quot;parentMenuId&quot;:&quot;-1&quot;,
+  &quot;applicationPageId&quot;:&quot;5&quot;,
+  &quot;applicationId&quot;:&quot;1&quot;,
+  &quot;menuIndex&quot;:&quot;1&quot;,
+  &quot;displayName&quot;:&quot;menu1&quot;
+}, {
+  &quot;id&quot;:&quot;2&quot;,
+  &quot;parentMenuId&quot;:&quot;-1&quot;,
+  &quot;applicationPageId&quot;:&quot;1&quot;,
+  &quot;applicationId&quot;:&quot;1&quot;,
+  &quot;menuIndex&quot;:&quot;2&quot;,
+  &quot;displayName&quot;:&quot;menu2&quot;
+}]
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Application Page</h2>
+<h3>Description</h3>
+<p>An application page is a custom page that has been associated with an application. Use this resource to manage application pages and define the paths used to access them. This list of pages will be used to build the application menus.</p>
+<h3>Identifier</h3>
+<p>The ID of the application page (a long value).</p>
+<h3>Representation</h3>
+<pre><code class="language-json">{
+  &quot;id&quot;:&quot;_id of the application page_&quot;,
+  &quot;token&quot;:&quot;_token use to access the page using a URL : ../appName/pageToken/_&quot;,
+  &quot;applicationId&quot;:&quot;_id of the application related to this page_&quot;,
+  &quot;pageId&quot;:&quot;_id of the custom page to display_&quot;
+}
+</code></pre>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>POST - Create an application page</li>
+<li>GET - Read an application page or search for an application page</li>
+<li>DELETE - Remove an application page</li>
+</ul>
+<h3>Create an application page</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>http://../API/living/application-page</code></li>
+<li><strong>Method</strong><br>
+<code>POST</code></li>
+<li><strong>Request Payload</strong><br>
+A partial representation of an application page in JSON<pre><code class="language-json">{
+  &quot;pageId&quot;:&quot;2&quot;,
+  &quot;token&quot;:&quot;myPage&quot;,
+  &quot;applicationId&quot;:&quot;1&quot;
+}
+</code></pre>
+</li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:<br>
+The full JSON representation of the application page that was created<pre><code class="language-json">{
+  &quot;id&quot;:&quot;3&quot;,
+  &quot;token&quot;:&quot;myPage&quot;,
+  &quot;pageId&quot;:&quot;2&quot;,
+  &quot;applicationId&quot;:&quot;1&quot;
+}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3>Get an application page</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>http://../API/living/application-page/:applicationPageId</code></li>
+<li><strong>Method</strong><br>
+<code>GET</code></li>
+<li><strong>Request Payload</strong><br>
+The full JSON representation of the application page that was created with id=&quot;applicationPageId&quot;<pre><code class="language-json">{
+  &quot;id&quot;:&quot;3&quot;,
+  &quot;token&quot;:&quot;myPage&quot;,
+  &quot;pageId&quot;:&quot;2&quot;,
+  &quot;applicationId&quot;:&quot;1&quot;
+}
+</code></pre>
+</li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+</ul>
+</li>
+</ul>
+<h3>Delete an application page</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>http://../API/living/application-page/{applicationPageId}</code></li>
+<li><strong>Method</strong><br>
+<code>DELETE</code></li>
+</ul>
+<h3>Search for an application page</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>http://../API/living/application-page</code><br>
+<em>Example</em>: <code>http://../API/living/application-page?p=0&amp;c=2&amp;d=pageId&amp;f=applicationId%3d1</code></li>
+<li><strong>Method</strong><br>
+<code>GET</code></li>
+<li><strong>Data Params</strong>
+<ul>
+<li>o: can order on &quot;id&quot;, &quot;token&quot;, &quot;applicationId&quot;, &quot;pageId&quot;</li>
+<li>s: search on &quot;token&quot;</li>
+<li>f: can filter on &quot;id&quot;, &quot;token&quot;, &quot;applicationId&quot;, &quot;pageId&quot; with the format <code>f={filter\_name}={filter\_value}</code></li>
+<li>d: can deploy the &quot;applicationId&quot;, &quot;pageId&quot;</li>
+</ul>
+</li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:<br>
+A JSON array of application page<pre><code class="language-json">[{
+  &quot;id&quot;:&quot;5&quot;,
+  &quot;token&quot;:&quot;groovyPage&quot;,
+  &quot;pageId&quot;: {
+    &quot;id&quot;:&quot;2&quot;,
+    &quot;creationDate&quot;:&quot;2014-11-18 14:38:56.700&quot;,
+    &quot;createdBy&quot;:&quot;&quot;,
+    &quot;isProvided&quot;:&quot;true&quot;,
+    &quot;description&quot;:&quot;Groovy class example of custom page source structure (in English).&quot;,
+    &quot;contentName&quot;:&quot;bonita-groovy-page-example.zip&quot;,
+    &quot;displayName&quot;:&quot;Groovy example page&quot;,
+    &quot;updatedBy&quot;:&quot;-1&quot;,
+    &quot;lastUpdateDate&quot;:&quot;2014-11-18 14:38:56.700&quot;,
+    &quot;urlToken&quot;:&quot;custompage_groovyexample&quot;
+  },
+  &quot;applicationId&quot;:&quot;1&quot;
+}, {
+  &quot;id&quot;:&quot;1&quot;,
+  &quot;token&quot;:&quot;home&quot;,
+  &quot;pageId&quot;: {
+    &quot;id&quot;:&quot;3&quot;,
+    &quot;creationDate&quot;:&quot;2014-11-18 14:38:56.717&quot;,
+    &quot;createdBy&quot;:&quot;&quot;,
+    &quot;isProvided&quot;:&quot;true&quot;,
+    &quot;description&quot;:&quot;This is a home page dedicated to new born living applications&quot;,
+    &quot;contentName&quot;:&quot;bonita-home-page.zip&quot;,
+    &quot;displayName&quot;:&quot;Application home page&quot;,
+    &quot;updatedBy&quot;:&quot;-1&quot;,
+    &quot;lastUpdateDate&quot;:&quot;2014-11-18 14:38:56.717&quot;,
+    &quot;urlToken&quot;:&quot;custompage_home&quot;
+  },
+  &quot;applicationId&quot;:&quot;1&quot;
+}]
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>

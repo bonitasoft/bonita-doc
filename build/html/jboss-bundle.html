@@ -1,0 +1,59 @@
+<h1>JBoss bundle</h1>
+<p>The JBoss bundle is a zip archive that contains the Red Hat JBoss JEE application server packaged with Bonita BPM web application and Bonita configuration folder (known as {{ var_bonita_home }}).
+The JBoss bundle is a regular zip archive based on the JBoss zip distribution.</p>
+<p>There are three stages to installing the JBoss bundle:</p>
+<ol>
+<li>Download the distribution and unpack the files.</li>
+<li>Get and install a license. This is not necessary if you are installing the Community edition.</li>
+<li>Configure the database.</li>
+</ol>
+<p>When these three stages are complete, you can start JBoss to validate the installation. Then there are some post-installation setup tasks.</p>
+<h2>Download and unzip the JBoss bundle</h2>
+<h3>Download</h3>
+<p>For the Community edition:</p>
+<ul>
+<li>Go to the <a href="http://www.bonitasoft.com/downloads-v2">Bonitasoft website</a> and get the Bonita BPM Community edition JBoss bundle.</li>
+</ul>
+<p>For a Subscription edition:</p>
+<ul>
+<li>Go to the <a href="https://customer.bonitasoft.com/download/request">Customer Portal</a> and download the Bonita BPM Subscription Pack edition JBoss bundle.</li>
+</ul>
+<h3>Unzip</h3>
+<p>The folder where you unzip the Jboss bundle is known as <em><code>&lt;JBOSS_HOME&gt;</code></em>. We recommend the following locations:</p>
+<ul>
+<li>Windows: <code>C:\BonitaBPM</code>. If you want to unzip the bundle to another folder, do not use spaces in the folder name.</li>
+<li>Linux: in <code>/opt/BonitaBPM</code>. Make sure that Linux user account used to execute JBoss is the owner of the folders and files.</li>
+</ul>
+<h2>License installation</h2>
+<p>If you are installing a Subscription edition, you need to <a href="licenses.md">request a license</a>.</p>
+<p>When you receive your license, copy the file to the <code>&lt;JBOSS_HOME&gt;/bonita/server/licenses</code> folder.</p>
+<h2>Edition specification</h2>
+<p>If you are installing the Performance Subscription edition,
+you need to edit <code>engine-server/conf/platform-init/bonita-platform-init-community-custom.properties</code>
+and change the value of the <code>activeProfiles</code> key to <code>'community,performance'</code>. No change is needed for the Community, Teamwork, or Efficiency edition.</p>
+<h2>Database configuration</h2>
+<p>The JBoss bundle is configured to use an h2 database by default. h2 is suitable for a test platform, but for production, you are recommended to use one of the supported databases.</p>
+<p>If you want to use another database you need to specify the <a href="database-configuration.md">database configuration</a>. Make sure you do this before you start JBoss.</p>
+<h2>Start and shut down JBoss</h2>
+<h3>JBoss start script</h3>
+<p>JBoss can be started by executing the following script:</p>
+<ul>
+<li>Windows <code>&lt;JBOSS_HOME&gt;\bin\standalone.bat</code></li>
+<li>Linux <code>&lt;JBOSS_HOME&gt;/bin/standalone.sh</code></li>
+</ul>
+<h3>Custom start-up script</h3>
+<p>If you have a Subscription edition license covering fewer CPU cores than are available on your server, you must limit the number of CPUs available to JBoss.</p>
+<p>To do so, create a custom startup script to start JBoss only with the number of cores allowed by your license (e.g. 2 for development license).</p>
+<p>For example:</p>
+<ul>
+<li>For Windows: <code>start /AFFINITY 3 standalone.bat</code> 3 is the affinity mask (expressed as a hexadecimal number).</li>
+<li>For Linux: <code>taskset -c 0,1 standalone.sh</code> 0,1 indicate CPU cores to use.</li>
+</ul>
+<h3>Shutdown</h3>
+<p>JBoss can be shut down by running the following script:</p>
+<ul>
+<li>Windows <code>&lt;JBOSS_HOME&gt;\bin\jboss-cli.bat --connect --command=:shutdown</code></li>
+<li>Linux <code>&lt;JBOSS_HOME&gt;/bin/jboss-cli.sh --connect --command=:shutdown</code></li>
+</ul>
+<h2>First steps after installation</h2>
+<p>Once you have your JBoss bundle up and running, complete these <a href="first-steps-after-setup.md">first steps</a> to get a fully operational Bonita BPM platform.</p>

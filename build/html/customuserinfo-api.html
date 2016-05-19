@@ -1,0 +1,142 @@
+<h1>Customuserinfo API</h1>
+<h2>Description</h2>
+<p>Use the customuserinfo API for managing custom user definitions. Three resources are used: customuserinfo/definition, customuserinfo/value, and customuserinfo/user.</p>
+<h3>Identifier</h3>
+<p>Simple, the ID of the object (a long value)</p>
+<h3>Parameters</h3>
+<p>None</p>
+<h3>Representation of customuserinfo/definition</h3>
+<pre><code class="language-json">{
+  &quot;id&quot;:&quot;_id of definition_&quot;,
+  &quot;description&quot;:&quot;_definition description_&quot;,
+  &quot;name&quot;:&quot;_definition name_&quot;
+}
+</code></pre>
+<h3>Representation of customuserinfo/value</h3>
+<pre><code class="language-json">{
+  &quot;userId&quot;:&quot;_id of user_&quot;,
+  &quot;value&quot;:&quot;_content of the value_&quot;,
+  &quot;definitionId&quot;:&quot;_id of definition_&quot;
+}
+</code></pre>
+<h3>Representation of customuserinfo/user</h3>
+<pre><code class="language-json">{
+  &quot;userId&quot;:&quot;_id of user_&quot;,
+  &quot;value&quot;:&quot;_content of the value_&quot;,
+  &quot;definitionId&quot;:{
+    &quot;id&quot; : &quot;_id of definition_&quot;,
+    &quot;description&quot; : &quot;_definition description_&quot;,
+    &quot;name&quot; : &quot;_definition name_&quot;
+  }
+}
+</code></pre>
+<h2>Methods</h2>
+<p>The methods used for these resources are:</p>
+<ul>
+<li>GET</li>
+<li>POST</li>
+<li>PUT</li>
+<li>DELETE</li>
+</ul>
+<h3>Add a new definition</h3>
+<p>Use the method POST to add a new definition.</p>
+<ul>
+<li><strong>URL</strong><br>
+<code>http://localhost:8080/bonita/API/customuserinfo/definition</code><br>
+<em>Example</em>: Add a definition called <code>skill</code>.</li>
+<li><strong>Method</strong><br>
+<code>POST</code></li>
+<li><strong>Data Params</strong></li>
+<li><strong>Request Payload</strong><br>
+JSON representation of definition, without id<pre><code class="language-json">{
+  &quot;name&quot;: &quot;skill&quot;,
+  &quot;description&quot;: &quot;code slayer&quot;
+}
+</code></pre>
+</li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:<br>
+JSON representation of complete definition including generated id<pre><code class="language-json">{
+  &quot;id&quot;:&quot;101&quot;,
+  &quot;description&quot;:&quot;code slayer&quot;,
+  &quot;name&quot;:&quot;skill&quot;
+}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3>Delete a definition</h3>
+<p>Use the DELETE method to delete an existing definition.</p>
+<ul>
+<li><strong>URL</strong><br>
+<code>http://localhost:8080/bonita/API/customuserinfo/definition/</code></li>
+<li><strong>Method</strong><br>
+<code>DELETE</code></li>
+</ul>
+<h3>Associate definitions to users</h3>
+<p>Use a PUT method to associate users with custom information.</p>
+<ul>
+<li><strong>URL</strong><br>
+<code>http://localhost:8080/bonita/API/customuserinfo/value/:userId/:definitionId</code><br>
+<em>Example</em>: Associate the user with id = 1 with the definition with id = 2. <code>http://localhost:8080/bonita/API/customuserinfo/value/1/2</code></li>
+<li><strong>Method</strong><br>
+<code>PUT</code></li>
+<li><strong>Request Payload</strong><pre><code class="language-json">{
+  &quot;value&quot;:&quot;customUserInfoValue&quot;
+}
+</code></pre>
+</li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+</ul>
+</li>
+</ul>
+<h3>List the custom user information</h3>
+<p>Use a GET method to search for definitions.</p>
+<p>There are no filters, and no search terms. All the definitions are returned.</p>
+<ul>
+<li><strong>URL</strong><br>
+<code>/API/customuserinfo/definitions</code></li>
+<li><strong>Method</strong><br>
+<code>GET</code></li>
+<li><strong>Data Params</strong>
+<ul>
+<li>c: number of result per page</li>
+<li>p: page number</li>
+</ul>
+</li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:<br>
+An array of definition objects</li>
+</ul>
+</li>
+</ul>
+<h3>Search custom user info</h3>
+<p>Use a GET method to search for custom user information.</p>
+<ul>
+<li><strong>URL</strong><br>
+<code>/API/customuserinfo/user</code><br>
+<em>Example</em>: http://localhost:8080/bonita/API/customuserinfo/user?c=10&amp;p=0&amp;f=userId=1</li>
+<li><strong>Method</strong><br>
+<code>GET</code></li>
+<li><strong>Data Params</strong> (Required)
+<ul>
+<li>c: number of result per page</li>
+<li>p: page number</li>
+<li>f : filter to apply on results with the format <code>f={filter\_name}={filter\_value}</code><br>
+<em>Example</em>: <code>f=userId=id</code></li>
+</ul>
+</li>
+<li><strong>Success Response</strong><br>
+An array of customuserinfo/user objects
+<ul>
+<li><strong>Code</strong>: 200</li>
+</ul>
+</li>
+</ul>

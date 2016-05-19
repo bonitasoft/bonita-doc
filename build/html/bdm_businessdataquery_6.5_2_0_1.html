@@ -1,0 +1,67 @@
+<h2>businessDataQuery</h2>
+<h3>Description</h3>
+<p>The business data query REST API resource is used to call a default or custom business data query.
+It is available from version 6.5.</p>
+<h3>Identifier</h3>
+<p>../API/bdm/businessData/<em>businessDataType</em>?q=<em>queryName</em></p>
+<h3>Representation</h3>
+<p>A JSON representation of the query result.</p>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>GET - Call a named query</li>
+</ul>
+<h3>Call a business data named query</h3>
+<p>The query can be either a default or a custom query.
+Request url
+http://../API/bdm/businessData/<em>businessDataType</em>?q=<em>queryName</em>&amp;p=0&amp;c=10&amp;f=param=value</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload</p>
+<p>empty</p>
+<p>Response payload</p>
+<p>JSON representation of query result</p>
+<h4>Parameters</h4>
+<ul>
+<li>businessDataType - the fully-qualified business data type name</li>
+<li>q=queryName - the query name</li>
+<li>p=0 - the page number</li>
+<li>c=10 - the maximum number of results in the page</li>
+<li>f=parameter=value - sets the parameter value according to business data query parameters defined in {{ var_studio }}</li>
+</ul>
+<p>For a Boolean parameter, the accepted values are <code>true</code> or <code>false</code>.</p>
+<p>By default, for a Date parameter can use the following formats:</p>
+<ul>
+<li>yyyy-MM-dd</li>
+<li>HH:mm:ss</li>
+<li>yyyy-MM-dd HH:mm:ss</li>
+<li>yyyy-MM-dd'T'HH:mm:ss</li>
+<li>yyyy-MM-dd'T'HH:mm:ss.SSS</li>
+</ul>
+<h4>Example</h4>
+<p>Call the findEmployeeByFirstNameAndLastName query
+Request url
+GET
+|/API/bdm/businessData/com.company.model.Employee?q=findEmployeeByFirstNameAndLastName&amp;p=0&amp;c=10&amp;f=firstName=John&amp;f=lastName=Doe</p>
+<p>Request payload
+empty</p>
+<p>Response payload</p>
+<pre><code>[
+    {
+    &quot;persistenceId&quot;: 1,
+    &quot;persistenceId_string&quot;: &quot;1&quot;,
+    &quot;persistenceVersion&quot;: 0,
+    &quot;persistenceVersion_string&quot;: &quot;0&quot;,
+    &quot;firstName&quot;: &quot;John&quot;,
+    &quot;lastName&quot;: &quot;Doe&quot;,
+    &quot;phoneNumbers&quot;: [&quot;123456789&quot;],
+    &quot;addresses&quot;: [{}],
+    &quot;links&quot;:
+        [
+            {
+            &quot;rel&quot;: &quot;address&quot;,
+            &quot;href&quot;: &quot;/businessdata/com.company.model.Employee/1/address&quot;
+            }
+        ]
+    }
+]</code></pre>

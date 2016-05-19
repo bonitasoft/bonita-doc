@@ -1,0 +1,45 @@
+<h1>Automate process builds</h1>
+<p>Bonita BPM includes a Workspace API, which is a script, <code>BonitaStudioBuilder</code>, to build a bar file from a process in a repository.
+The goal is to use it in a continuous integration and testing environment.</p>
+<p>You can use the <code>BonitaStudioBuilder</code> to build a bar file for processes stored in a repository. It accesses the build features of Bonita BPM Studio in the background.<br>
+Bonita BPM Studio must be installed but must not be running. You must to use a dedicated Bonita BPM Studio for continuous integration.
+This is because the Bonita BPM Studio <code>workspace</code> directory should be removed before running the <code>BonitaStudioBuilder</code> script.
+(For continuous integration, it is best practice to clean the files before and after a build.)</p>
+<p>To use <code>BonitaStudioBuilder</code>, you need the following:</p>
+<ul>
+<li>Bonita BPM Studio (the same version as the Bonita BPM repository). This must be a dedicated Bonita BPM Studio and repository used only for your <code>BonitaStudioBuilder</code>, because the tool removes the content of the repository.</li>
+<li>A window manager</li>
+<li>Java 1.6</li>
+</ul>
+<p>After Bonita BPM Studio is installed, the <code>BonitaStudioBuilder</code> scripts are in the <code>workspace_api_scripts</code> folder.
+There are scripts for Windows (<code>.bat</code>), Linux (<code>.sh</code>), and MacOS (<code>_Mac.sh</code>).</p>
+<p>Pass configuration information to the <code>BonitaStudioBuilder</code> script as system properties, using the following arguments: Argument, Purpose.</p>
+<p><code>repoPath</code><br>
+The parent folder of the repository storing the process. Typically, this is the trunk folder. It can also be a folder in tags if you want to point to a restore point in the repository.
+You cannot use a remote repository folder. A process to be built must be manually checked out before running the script.</p>
+<p><code>outputFolder</code><br>
+The folder where the generated bar files will be stored.</p>
+<p><code>processes</code><br>
+The list of the processes in the repository for which bar files are required. For each process, specify the process identifier and, optionally, the version. If you do not specify the version, the latest version is used.<br>
+Format: <em>process</em>,<em>version;<em>process</em>,<em>version</em>...<br>
+Example: <code>-process=TravelRequest,1.5;Expenses;LeaveRequest,1.0</code></em></p>
+<p><code>buildAll</code><br>
+If enabled, bar files are built for the latest version of each process in the repository.</p>
+<p><code>migrate</code><br>
+If enabled, you can point the <code>repoPath</code> argument to a repository of an older version than the version of the running Bonita BPM Studio. The processes in the older version repository will be automatically migrated to the current version.</p>
+<p><code>environment</code><br>
+The <a href="environments.md">environment</a> with which the bar files will be built. The environment defines the <a href="configuring-a-process.md">process configuration</a>, including dependencies. If you do not specify an environment, the exported bar file will not contain the dependencies. All the specified processes are built for the same environment. If you want to build for different environments, you need to run the script once for each environment.</p>
+<p>To run the script:</p>
+<ol>
+<li>Check out the project to a directory in the Studio path.</li>
+<li>Delete the content of the <code>workspace</code> directory in your Bonita BPM Studio installation.</li>
+<li>Run the script. For example:</li>
+</ol>
+<pre><code class="language-bash">./BonitaStudioBuilder.sh -repoPath=/home/myBonitaRepoCheckedOut
+-outputFolder=/home/bonita/myBARs -buildAll -migrate 
+-environment=Qualification
+</code></pre>
+<p>When the script runs, information is logged in <code>workspace/.metadata/.log</code>.</p>
+<h2>Deploying a process bar file</h2>
+<p>From the bar file, a process can be <a href="processes.md">deployed manually using Bonita BPM Portal</a>.
+You can also <a href="manage-a-process.md">deploy a process using the Engine API</a>.</p>

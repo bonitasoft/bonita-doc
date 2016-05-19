@@ -1,0 +1,42 @@
+<h1>Bonita BPM overview</h1>
+<p>Bonita BPM 7 is a powerful BPM-based application platform for building highly engaging, personalized, process-based business applications to get things done, take full advantage of BPM, and adapt to business changes in real time.</p>
+<p>Bonita BPM has two parts: the development environment, Bonita BPM Studio, and the runtime environment, Bonita BPM Platform.</p>
+<h2>Bonita BPM Studio</h2>
+<p>Bonita BPM Studio is a graphical environment for creating processes, applications, data models, and users views (pages and forms). It contains three major design tools:</p>
+<ul>
+<li>the whiteboard, for drawing a process flow diagram and defining the detail of steps, transitions, decision points and other process elements</li>
+<li>the Development menu, to extend the Studio capabilities and create your data models</li>
+<li>the UI Designer, which is used to create application pages and process forms</li>
+</ul>
+<p>Bonita BPM Studio is the development tool for the Business Analyst and Application Developer. Back-end java developers work in Bonita BPM Studio and collaborate with front-end developers working in the UI Designer.</p>
+<p>You can <a href="bonita-bpm-installation-overview.md">install Bonita BPM Studio</a> on your computer, then create and test processes, create data models, applications and application views (pages and forms).</p>
+<p>Bonita BPM Studio contains a <strong>Bonita BPM Platform</strong> (Tomcat, UI Designer, Bonita BPM Portal, Bonita BPM Engine, and an h2 database), suitable for testing an application that is in development. When you run a process, it is automatically deployed onto the development platform.</p>
+<p>Process forms, used to complete the human tasks, are created in the UI Designer, and use the data models created in the Studio.</p>
+<p>Users can use Bonita BPM Portal (<em>User</em> profile) to view and complete the process tasks for all processes. You can also build personalized process-based applications. To do so, use the UI Designer to create application pages that display business data from the data models, link the pages to processes thanks to action buttons, then use the Bonita BPM Portal application builder to construct the application piece by piece.</p>
+<h2>Bonita BPM Platform</h2>
+<p><a href="bonita-bpm-engine-architecture">Bonita BPM Engine</a> is the execution engine of Bonita BPM.</p>
+<p>As mentioned before, <a href="bonita-bpm-portal-interface-overview.md">Bonita BPM Portal</a> is the part of Bonita BPM that is visible to process users, who use it to view tasks and take actions thanks to a generic task list for all processes they are involved in.</p>
+<p>But Bonita BPM Portal is also the tool used by the tenant administrator to <a href="processes.md">install, deploy and manage processes</a> and to <a href="applications.md">build applications</a>. We use tenant here in the case the platform would be made of several tenants.</p>
+<p>To install Bonita BPM Engine and Bonita BPM Portal in a qualification or production environment, <a href="bonita-bpm-installation-overview.md">install Bonita BPM Platform</a>.</p>
+<p>In Bonita BPM Studio, once a process is ready, you can <a href="build-a-process-for-deployment.md">build</a> it and deploy it on your Bonita BPM qualification or production platform.</p>
+<h2>Editions</h2>
+<p>Bonita BPM is provided in four different editions: Community, Teamwork, Efficiency, Performance.</p>
+<h2>Getting started</h2>
+<p><strong>I'm currently using Bonita BPM 6.x. Will 7.x be a big change?</strong></p>
+<p>Bonita BPM 7.x provides new and improved features, including the <a href="ui-designer-overview.md">UI Designer</a> for creating application pages and forms, as well as <a href="contracts-and-contexts.md">contracts and context</a> to create a clear split between the process logic, the data, and the user views.
+You will also find lots of familiar features, which continue to work as they did in 6.x.</p>
+<p><strong>Tell me about the documentation.</strong></p>
+<p>We're continually updating the documentation.
+There are four main information categories: Application and process design, Installation, Portal administration, and Development.</p>
+<p><strong>Tell me about using Bonita BPM.</strong></p>
+<p>See <a href="lifecycle-and-profiles.md">Lifecycle and profiles</a>.</p>
+<p><strong>Can I migrate an existing process into Bonita BPM 7.x?</strong></p>
+<p>You can <a href="import-and-export-a-process.md">import a process</a> from any earlier Bonita BPM release. You can also <a href="migrate-a-process-from-bonita-open-solution-5-x.md">migrate a process from Bonita Open Solution 5.9 or 5.10</a> to this release. A 6.x process will continue to run unchanged in 7.x, but to take advantage of the new features, you will need to update the process and <a href="migrate-a-form-from-6-x.md">migrate the forms</a>.</p>
+<p><strong>Tell me about creating an application.</strong></p>
+<p>An application is a collection of related processes, user interfaces, and shared data. See <a href="design-methodology.md">design methodology</a>.</p>
+<p><strong>Tell me about creating a process.</strong></p>
+<p>A process can be included in an application or can be accessed through Bonita BPM Portal. See <a href="design-methodology.md">design methodology</a>.</p>
+<p><strong>Tell me about creating a diagram.</strong></p>
+<p>See <a href="diagram-overview.md">diagrams</a>.</p>
+<p><strong>How can I get started?</strong></p>
+<p>Download and install Bonita BPM 7.x: see the <a href="bonita-bpm-installation-overview.md">installation instructions</a>.</p>

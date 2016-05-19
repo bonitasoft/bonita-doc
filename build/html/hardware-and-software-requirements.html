@@ -1,0 +1,195 @@
+<h1>Hardware and software requirements</h1>
+<h2>Hardware</h2>
+<p>**** The hardware recommended for Bonita BPM Platform is strongly dependent on your environment and
+processes (number of processes instances, number of current users, operations and complexity...).</p>
+<p>Hardware required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Portal)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Minimum</th>
+<th style="text-align:left">Recommended</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Processors</td>
+<td style="text-align:left">4 CPU cores</td>
+<td style="text-align:left">4 CPU cores or more</td>
+</tr>
+<tr>
+<td style="text-align:left">Memory (RAM)</td>
+<td style="text-align:left">4 GB</td>
+<td style="text-align:left">8 GB or more</td>
+</tr>
+<tr>
+<td style="text-align:left">Disk space</td>
+<td style="text-align:left">10 GB</td>
+<td style="text-align:left">30 GB or more, depending on usage</td>
+</tr>
+</tbody>
+</table>
+<h2>Software</h2>
+<p>Software required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Portal).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th>7.0.x <br/> 7.1.x</th>
+<th>7.2.x <br/> 7.3.x</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Operating system</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">Windows Server 2012 R2 64 bits</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td style="text-align:left">Red Hat Enterprise Linux 6.5 64 bits</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td style="text-align:left">Ubuntu 14.04 LTS 64 bits</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Java Virtual Machine</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">Oracle Java SE Runtime Environment 7 u67</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td style="text-align:left">Oracle Java SE Runtime Environment 8 u40 (see note 4)</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td style="text-align:left">OpenJDK 7u65</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Application Server</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">Tomcat 7.0.55</td>
+<td>✔</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">Tomcat 7.0.67</td>
+<td></td>
+<td>✔</td>
+</tr>
+<tr>
+<td style="text-align:left">JBoss AS 7.1.1</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td style="text-align:left">Weblogic server 12c (12.1.*)</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Database</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">MySQL 5.5.27 (see notes 1 and 2)</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td style="text-align:left">PostgreSQL 9.3</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td style="text-align:left">SQL Server 2012 R2 (see note 3)</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td style="text-align:left">Oracle 11gR2 (11.2.0.x)</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td style="text-align:left">Oracle 12c (12.1.0.x.y)</td>
+<td></td>
+<td>✔</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Browser</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">Internet Explorer 9.x and newer</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td style="text-align:left">Firefox (2 last versions)</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td style="text-align:left">Chrome (2 last versions)</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Mobile</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">iOS 7.1 -- Safari -- Approved on Apple iPhone 5</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td style="text-align:left">Android 4.4 -- Chrome -- Approved on Nexus 5</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+</tbody>
+</table>
+<p>Notes:</p>
+<ol>
+<li>MySQL must be configured with innoDB storage engine.</li>
+<li><strong>Warning (7.0.x only, fixed starting 7.1.0) :</strong> There are known issues with the management of XA transactions by MySQL engine and driver: see MySQL bugs <a href="http://bugs.mysql.com/bug.php?id=17343">17343</a> and <a href="http://bugs.mysql.com/bug.php?id=12161">12161</a> for more details.
+Thus, using MySQL database in a production environment does not work and is not supported.</li>
+<li><strong>Warning:</strong> There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft for the Tomcat bundle and inside the Deploy bundle for Tomcat) and Microsoft SQL Server driver
+(refer to: <a href="https://msdn.microsoft.com/en-us/library/aa342335.aspx">MSDN note</a>, <a href="http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html">Bitronix note</a>).
+Therefore, using Bitronix as a Transaction Manager with SQL Server does not work and is not supported. To use SQL Server database requires that you use the JBoss bundle provided by Bonitasoft.</li>
+<li>Oracle Java SE Runtime Environment 8 u40 is supported if you use the web container Tomcat 7.0.55.</li>
+</ol>
+<p>Your database must be configured to use the UTF-8 character set.</p>
+<p>If you report a problem in a stack containing elements not listed in the table above, the problem will be investigated on the nearest equaivalent stack of supported components.</p>
+<h3>Example stack</h3>
+<ul>
+<li>Ubuntu 14.04 LTS 64 bits</li>
+<li>OpenJDK 7</li>
+<li>Tomcat 7.0.67</li>
+<li>PostgreSQL 9.3</li>
+<li>Firefox</li>
+<li>Mobile:iOS 7.1 Safari (approved on iPhone 5)</li>
+</ul>

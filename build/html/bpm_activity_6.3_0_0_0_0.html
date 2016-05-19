@@ -1,0 +1,212 @@
+<h2>activity</h2>
+<h3>Description</h3>
+<p>Use this resource to retrieve activities (human or service tasks), call activities, and subprocesses currently running on the platform. It enables you to perform maintenance tasks like skipping or replaying a failed task and modifying variables.</p>
+<h3>Identifier</h3>
+<p>The ID of the activity (a long value).</p>
+<h3>Representation</h3>
+<pre><code>{
+&quot;id&quot;: &quot;_the activity id (long)_&quot;,
+&quot;displayDescription&quot;: &quot;_the human readable activity description (string)_&quot;,
+&quot;executedBySubstitute&quot;: &quot;_the id (long) of the user who really performed this activity in case where a substitute did it, or 0 if the activity was not performed by a substitute_&quot;,
+&quot;caseId&quot;: &quot;_the case id (long) that is associated with this activity_&quot;, 
+&quot;parentCaseId&quot;: &quot;_the parent case id (long) that is associated with this activity's case_&quot;,
+&quot;rootCaseId&quot;: &quot;_the root case initiator id (long) that is associated with this activity's case_&quot;,
+&quot;processId&quot;: &quot;_the process id (long) that is associated with this activity_&quot;,
+&quot;rootContainerId&quot;: &quot;_the root process id (long) of the root case that is associated with this activity_&quot;,
+&quot;state&quot;: &quot;_the current state of the activity (string,  for example, ready, completed, failed)_&quot;,
+&quot;type&quot;: &quot;_the activity type (string)_&quot;,
+&quot;assigned_id&quot;: &quot;_the user id (long) that this activity is assigned to, or 0 if it is unassigned_&quot;
+&quot;assigned_date&quot;: &quot;_the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current activity was assigned, for example '2014-10-17 16:05:42.626'_&quot;,
+&quot;executedBy&quot;: &quot;_the id (long) of the user who executed the activity, or 0 if the activity has not been executed_&quot;,
+&quot;priority&quot;: &quot;_the priority (string) of the current activity_&quot;,
+&quot;actorId&quot;: &quot;_the id (long) of the actor that can execute this activity, null otherwise_&quot;,
+&quot;description&quot;: &quot;_the activity description (string)_&quot;,
+&quot;name&quot;: &quot;_the activity name (string)_&quot;,
+&quot;reached_state_date&quot;: &quot;_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this activity reached the current state, for example '2014-10-17 16:05:42.626'_&quot;
+&quot;displayName&quot;: &quot;_the display name (string) of this activity_&quot;,
+&quot;dueDate&quot;: &quot;_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this activity is due, for example '2014-10-17 16:05:42.626'_&quot;,
+&quot;last_update_date&quot;: &quot;_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this activity was last updated, for example '2014-10-17 16:05:42.626)_&quot;,
+&quot;parentTaskId&quot;: &quot;_in the case of a subtask, the parent task id (long)_&quot;
+}
+</code></pre>
+<h4>States:</h4>
+<ul>
+<li>failed</li>
+<li>initializing</li>
+<li>ready</li>
+<li>executing</li>
+<li>completing</li>
+<li>completed</li>
+<li>waiting</li>
+<li>skipped</li>
+<li>cancelled</li>
+<li>aborted</li>
+<li>cancelling subtasks</li>
+</ul>
+<h4>Types:</h4>
+<ul>
+<li>AUTOMATIC_TASK</li>
+<li>HUMAN_TASK</li>
+<li>USER_TASK&quot;</li>
+<li>MANUAL_TASK</li>
+<li>LOOP_ACTIVITY</li>
+<li>MULTI_INSTANCE_ACTIVITY</li>
+<li>SUB_PROCESS</li>
+</ul>
+<h4>Priorities:</h4>
+<ul>
+<li>highest</li>
+<li>above_normal</li>
+<li>normal</li>
+<li>under_normal</li>
+<li>lowest</li>
+</ul>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>GET - Read an activity or search for an activity</li>
+<li>PUT - Update an activity</li>
+</ul>
+<h3>Update activity variables</h3>
+<p>Note: if there is no data with the specified name in the activity, the update will be applied to the process data if a variable with the specified name exists.
+Request url
+http://../API/bpm/activity/&lt;id&gt;</p>
+<p>Request method</p>
+<p>PUT</p>
+<p>Request payload</p>
+<p>{ &quot;variables&quot;: &quot;[{\&quot;name\&quot;:\&quot;foo\&quot;,\&quot;value\&quot;:\&quot;bar\&quot;}]&quot; }</p>
+<p>Response payload</p>
+<p>empty</p>
+<h3>Update activity variables and execute a task</h3>
+<p>Note: if the task definition includes a connector that is executed on finish and updates the value of a variable, the value set by the REST API call is overwritten.
+Request url
+http://../API/bpm/activity/&lt;id&gt;</p>
+<p>Request method</p>
+<p>PUT</p>
+<p>Request payload</p>
+<p>{ &quot;state&quot;: &quot;completed&quot;, &quot;variables&quot;: &quot;[{\&quot;name\&quot;:\&quot;foo\&quot;,\&quot;value\&quot;:\&quot;bar\&quot;}]&quot; }</p>
+<p>Response payload</p>
+<p>empty</p>
+<h3>Skip activity</h3>
+<p>Request url
+http://../API/bpm/activity/&lt;id&gt;</p>
+<p>Request method</p>
+<p>PUT</p>
+<p>Request payload</p>
+<p>{ &quot;state&quot;: &quot;skipped&quot; }</p>
+<p>Response payload</p>
+<p>empty</p>
+<h3>Replay activity</h3>
+<p>Make this call after all failed connectors have been reset. (only in Performance edition)
+Request url
+http://../API/bpm/activity/&lt;id&gt;</p>
+<p>Request method</p>
+<p>PUT</p>
+<p>Request payload</p>
+<p>{ &quot;state&quot;: &quot;replay&quot; }</p>
+<p>Response payload</p>
+<p>empty</p>
+<h3>Get an activity</h3>
+<p>Retrieve the activity information for the given id.
+Request url
+http://../API/bpm/flowNode/{id}</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload</p>
+<p>empty</p>
+<p>Response payload</p>
+<p>The JSON representation of the specified activity</p>
+<h4>Example</h4>
+<p>Get the details of activity 77456.
+Request url
+http://../API/bpm/activity/77456</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Response payload</p>
+<pre><code>{
+    &quot;displayDescription&quot;: &quot;validate expense request&quot;,
+    &quot;executedBySubstitute&quot;: &quot;0&quot;,
+    &quot;caseId&quot;: &quot;76539&quot;,
+    &quot;parentCaseId&quot;: &quot;68743&quot;,
+    &quot;rootCaseId&quot;: &quot;65879&quot;,
+    &quot;processId&quot;: &quot;7012&quot;,&quot;
+    &quot;rootContainerId&quot;: &quot;7000&quot;,
+    &quot;state&quot;: &quot;completed&quot;,
+    &quot;type&quot;: &quot;_the activity type as a string_&quot;,
+    &quot;assigned_id&quot;: &quot;304&quot;,
+    &quot;assigned_date&quot;: &quot;'2014-10-17 16:05:42.626'&quot;,
+    &quot;id&quot;: &quot;809764&quot;,
+    &quot;executedBy&quot;: &quot;0&quot;,
+    &quot;priority&quot;: &quot;_the priority of the current activity as a string_&quot;,
+    &quot;actorId&quot;: &quot;50&quot;,
+    &quot;description&quot;: &quot;In this step, a manager reviews and validates an expense request.&quot;,
+    &quot;name&quot;: &quot;Validate&quot;,
+    &quot;reached_state_date&quot;: &quot;'2014-10-18 10:37:05.643'&quot;,
+    &quot;displayName&quot;: &quot;Validate expense request&quot;,
+    &quot;dueDate&quot;: &quot;'2014-10-21 16:05:42.626'&quot;,
+    &quot;last_update_date&quot;: &quot;'2014-10-18 10:37:05.643'&quot;
+}
+</code></pre>
+<h3>Search among activities</h3>
+<p>Search for flow activities using given parameters. Activities in states completed, cancelled, or aborted are not retrieved. The search returns an array of activities.
+Request url
+http://../API/bpm/activity?<em>search_options</em></p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload</p>
+<p>Response payload</p>
+<p>An array of JSON representations of activities</p>
+<h4>Parameters</h4>
+<p>For this resource, the available state search parameters for the GET verb are the same as for the flow nodes.</p>
+<p>The following <a href="rest-api-overview.md">search parameters</a> are available:</p>
+<ul>
+<li>o:
+<ul>
+<li>name</li>
+<li>displayName</li>
+<li>state</li>
+<li>processDefinitionId</li>
+<li>parentProcessInstanceIdo</li>
+<li>parentActivityInstanceId (order by parent activity id)</li>
+<li>rootProcessInstanceId</li>
+<li>lastUpdateDate</li>
+</ul>
+</li>
+<li>s: search on any field that can be used to order results</li>
+<li>f:
+<ul>
+<li>name</li>
+<li>state</li>
+<li>processId</li>
+<li>parentCaseId</li>
+<li>rootCaseId</li>
+<li>last_update_date</li>
+<li>supervisor_id (only in Efficiency and Performance editions)</li>
+</ul>
+</li>
+<li>d:
+<ul>
+<li>processId</li>
+<li>caseId</li>
+<li>rootCaseId</li>
+<li>parentCaseId</li>
+<li>rootContainerId</li>
+<li>executedBy</li>
+<li>executedBySubstitute (only in Efficiency and Performance editions)</li>
+<li>actorId</li>
+<li>assigned_id</li>
+<li>parentTaskId</li>
+</ul>
+</li>
+<li>The <a href="rest-api-overview.md">standard search parameters</a></li>
+</ul>
+<h4>Example</h4>
+<p>Get all the active activities named &quot;Escalate&quot;, ordering the results by state.
+Request url
+http://../API/bpm/activity?p=0&amp;c=10&amp;f=name%3dEscalate&amp;o%3dstate%20ASC</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload</p>
+<p>empty</p>
+<p>Response payload</p>
+<p>An array of JSON representations of activities</p>

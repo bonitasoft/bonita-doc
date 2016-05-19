@@ -1,0 +1,170 @@
+<h2>application-menu</h2>
+<h3>Description</h3>
+<p>Manage the set of menus in an application. This set of menus enables a user to navigate to the application pages.</p>
+<p>There are two types of menu item:</p>
+<ul>
+<li>A top-level item appears in the navigation bar of the application. A top-level item can be clickable, leading to a page, or can be a parent for a menu of clickable items.</li>
+<li>A child menu item becomes visible in a menu when the parent is selected. A child menu item is clickable and leads to a page.</li>
+</ul>
+<p>Each menu item has an index that defines the position in the menu. For a top-level menu item, this is the position in the the navigation bar counting from the left. For a child menu item, this is the position in the menu counting from the top.</p>
+<h3>Identifier</h3>
+<p>The ID of the application menu item (a long value).</p>
+<h3>Representation</h3>
+<pre><code>{
+&quot;id&quot;:&quot;_id of the application menu item_&quot;,
+&quot;parentMenuId&quot;:&quot;_id of the parent menu of this menu item, or -1 for a top-level item_&quot;,
+&quot;applicationPageId&quot;:&quot;_id of the application page targeted by this menu item, or -1 if there is no targeted page (that is, the item is a parent menu)_&quot;,
+&quot;applicationId&quot;:&quot;_id of the application related to this menu item_&quot;,
+&quot;menuIndex&quot;:&quot;_index of the menu item_&quot;,
+&quot;displayName&quot;:&quot;_label to display for this menu in the application navigation bar or menu_&quot;
+}
+</code></pre>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>POST - Create a menu item</li>
+<li>GET - Read a menu item or search for a menu item</li>
+<li>PUT - Update a menu item</li>
+<li>DELETE - Remove a menu item</li>
+</ul>
+<h3>Create an application menu item</h3>
+<p>Request url
+http://../API/living/application-menu</p>
+<p>Request method</p>
+<p>POST</p>
+<p>Request payload</p>
+<p>A partial representation of an application menu in JSON</p>
+<p>Response payload</p>
+<p>The full JSON representation of the created application menu item</p>
+<h4>Example</h4>
+<p>Request url
+http://../API/living/application-menu</p>
+<p>Request method</p>
+<p>POST</p>
+<p>Request payload</p>
+<pre><code>{
+&quot;displayName&quot;:&quot;menuLabel&quot;,
+&quot;applicationId&quot;:1,
+&quot;applicationPageId&quot;:5,
+&quot;menuIndex&quot;:1,
+&quot;parentMenuId&quot;:&quot;-1&quot;
+}
+</code></pre>
+<p>Response payload</p>
+<pre><code>{
+&quot;id&quot;:&quot;1&quot;,
+&quot;displayName&quot;:&quot;menuLabel&quot;,
+&quot;applicationId&quot;:&quot;1&quot;,
+&quot;applicationPageId&quot;:&quot;5&quot;,
+&quot;menuIndex&quot;:&quot;1&quot;,
+&quot;parentMenuId&quot;:&quot;-1&quot;
+}
+</code></pre>
+<h3>Get an application menu item</h3>
+<p>Request url
+http://../API/living/application-menu/{applicationMenuId}</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload</p>
+<p>empty</p>
+<p>Response payload</p>
+<p>The full JSON representation of the application menu with id=&quot;applicationMenuId&quot;</p>
+<h4>Example</h4>
+<p>Request url
+http://../API/living/application-menu/1</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Response payload</p>
+<pre><code>{
+&quot;id&quot;:&quot;1&quot;,
+&quot;displayName&quot;:&quot;menuLabel&quot;,
+&quot;applicationId&quot;:&quot;1&quot;,
+&quot;applicationPageId&quot;:&quot;5&quot;,
+&quot;menuIndex&quot;:&quot;1&quot;,
+&quot;parentMenuId&quot;:&quot;-1&quot;
+}
+</code></pre>
+<h3>Delete an application menu item</h3>
+<p>Request url
+http://../API/living/application-menu/{applicationMenuId}</p>
+<p>Request method</p>
+<p>DELETE</p>
+<p>Request payload</p>
+<p>empty</p>
+<p>Response payload</p>
+<p>empty</p>
+<h4>Example</h4>
+<p>Request url
+|/API/living/application-menu/1</p>
+<p>Request method</p>
+<p>DELETE</p>
+<h3>Update an application menu item</h3>
+<p>Request url
+http://../API/living/application-menu/{applicationMenuId}</p>
+<p>Request method</p>
+<p>PUT</p>
+<p>Request payload</p>
+<p>A partial representation of an application menu with parameters to update</p>
+<p>Response payload</p>
+<p>empty</p>
+<h4>Parameters to update</h4>
+<ul>
+<li>displayName</li>
+<li>applicationPageId</li>
+<li>menuIndex</li>
+<li>parentMenuId</li>
+</ul>
+<h4>Example</h4>
+<p>Request url
+http://../API/living/application-menu/1</p>
+<p>Request method</p>
+<p>PUT</p>
+<p>Request payload</p>
+<pre><code>{
+&quot;displayName&quot;:&quot;updatedMenuLabel&quot;,
+&quot;applicationPageId&quot;:&quot;6&quot;,
+&quot;menuIndex&quot;:&quot;2&quot;
+}
+</code></pre>
+<p>Response payload
+empty</p>
+<h3>Search the application menu items</h3>
+<p>Request url
+http://../API/living/application-menu?p={page}&amp;c={count}&amp;o={order}&amp;s={query}&amp;f={filter_name}={filter_value}&amp;d={field_to_deploy}</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload</p>
+<p>empty</p>
+<p>Response payload</p>
+<p>A JSON array of application menu</p>
+<h4>Parameters</h4>
+<ul>
+<li>o: can order on &quot;id&quot;, &quot;displayName&quot;, &quot;applicationId&quot;, &quot;applicationPageId&quot;, &quot;index&quot;, &quot;parentId&quot;</li>
+<li>s: search on &quot;displayName&quot;</li>
+<li>f: can filter on &quot;id&quot;, &quot;displayName&quot;, &quot;applicationId&quot;, &quot;applicationPageId&quot;, &quot;index&quot;, &quot;parentId&quot;</li>
+<li>d: can deploy on &quot;applicationPageId&quot;</li>
+</ul>
+<h4>Example</h4>
+<p>Request url
+http://../API/living/application-menu?p=0&amp;c=2&amp;f=applicationId%3d1</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Response payload</p>
+<pre><code>[
+{
+	&quot;id&quot;:&quot;1&quot;,
+	&quot;parentMenuId&quot;:&quot;-1&quot;,
+	&quot;applicationPageId&quot;:&quot;5&quot;,
+	&quot;applicationId&quot;:&quot;1&quot;,
+	&quot;menuIndex&quot;:&quot;1&quot;,
+	&quot;displayName&quot;:&quot;menu1&quot;
+},
+{
+	&quot;id&quot;:&quot;2&quot;,
+	&quot;parentMenuId&quot;:&quot;-1&quot;,
+	&quot;applicationPageId&quot;:&quot;1&quot;,
+	&quot;applicationId&quot;:&quot;1&quot;,
+	&quot;menuIndex&quot;:&quot;2&quot;,
+	&quot;displayName&quot;:&quot;menu2&quot;
+}
+]</code></pre>

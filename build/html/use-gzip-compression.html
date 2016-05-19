@@ -1,0 +1,82 @@
+<h1>Use gzip compression</h1>
+<p>Using gzip compression in your application server can improve performance by reducing network load for some resources. This page describes how to activate gzip compression for a Bonita BPM Platform with Tomcat and with JBoss.</p>
+<h2>JBoss</h2>
+<p>To activate compression for JBoss:</p>
+<ul>
+<li>For Linux systems: edit <code>bin/standalone.conf</code> and uncomment this line:<pre><code class="language-bash">JAVA_OPTS=&quot;$JAVA_OPTS -Dorg.apache.coyote.http11.Http11Protocol.COMPRESSION=on&quot; 
+</code></pre>
+</li>
+<li>For Windows systems: edit <code>bin/standalone.conf.bat</code> and uncomment this line:<pre><code class="language-batch">set &quot;JAVA_OPTS=%JAVA_OPTS% -Dorg.apache.coyote.http11.Http11Protocol.COMPRESSION=on&quot;
+</code></pre>
+</li>
+</ul>
+<h2>Tomcat</h2>
+<p>To activate gzip compression for http requests, you need to modify the <code>server.xml</code> configuration.</p>
+<p>Open <code>server.xml</code> and find the Connector configuration that you use. Edit the section to add following parameters:</p>
+<pre><code class="language-xml">compression=&quot;on&quot;
+compressionMinSize=&quot;X&quot;
+noCompressionUserAgents=&quot;Y&quot;
+compressableMimeType=&quot;Z&quot;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">compression</td>
+<td style="text-align:left">Activates or deactivates gzip compression.</td>
+<td style="text-align:left">on</td>
+</tr>
+<tr>
+<td style="text-align:left">compressionMinSize</td>
+<td style="text-align:left">The minimum size of resources to be compressed. It is not useful to compress resources that are already small.</td>
+<td style="text-align:left">2048</td>
+</tr>
+<tr>
+<td style="text-align:left">noCompressionUserAgents</td>
+<td style="text-align:left">The User Agents for which compressions is not to be used. Some older browseers do not support compression.</td>
+<td style="text-align:left">gozilla, traviata</td>
+</tr>
+<tr>
+<td style="text-align:left">compressableMimeType</td>
+<td style="text-align:left">The MIME types of the resources to be compressed. We recommend that all text files be compressed.</td>
+<td style="text-align:left">text/html,text/xml</td>
+</tr>
+</tbody>
+</table>
+<p>If you use the Tomcat bundle, the file to edit is <code>conf/server.xml</code>.
+If you use a different package, use the corresponding path; for example on Ubuntu the file is located in <code>/etc/tomcat7/server.xml</code>.</p>
+<p>Connector configuration:</p>
+<pre><code class="language-xml">&lt;Connector port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot;
+   connectionTimeout=&quot;20000&quot;
+   redirectPort=&quot;8443&quot;
+   maxPostSize=&quot;-1&quot;
+   URIEncoding=&quot;UTF-8&quot;
+   compression=&quot;on&quot;
+   compressionMinSize=&quot;2048&quot;
+   noCompressionUserAgents=&quot;gozilla, traviata&quot;
+   compressableMimeType=&quot;text/html,text/xml,text/plain,text/javascript,text/css&quot;&gt;&lt;/Connector&gt;
+</code></pre>
+<h2>Check changes</h2>
+<p>After you modify the file, restart your application server and test with the following <code>curl</code> command:
+<code>curl -I -H 'Accept-Encoding: gzip' http://</code><em><code>ip_address:port</code></em><code>/bonita/login.jsp</code></p>
+<p>Check that the header returned contains the line <code>Content-Encoding: gzip</code>. For example, on a JBoss system the output will be similar to this:</p>
+<pre><code>HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Expires: 0
+Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+Pragma: no-cache
+X-XSS-Protection: 1; mode=block
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+X-Powered-By: JSP/2.2
+Content-Type: text/html;charset=UTF-8
+Transfer-Encoding: chunked
+Content-Encoding: gzip
+Vary: Accept-Encoding
+</code></pre>

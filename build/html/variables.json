@@ -1,0 +1,21 @@
+{
+  "companyName": "Bonitasoft",
+  "editionName": "",
+  "productName": "Bonita Open Solution",
+  "productVersion": "7.3",
+  "var_bh_code_replace": "<bonita.home>",
+  "var_bonita_home": "Bonita Home",
+  "var_comm": "Bonita BPM Community edition",
+  "var_engine": "Bonita BPM Engine",
+  "var_latestMaintVersion": "6.3.6",
+  "var_latestMinorVersion": "6.3",
+  "var_platform": "BPM Platform",
+  "var_portal": "Bonita BPM Portal",
+  "var_product": "Bonita BPM",
+  "var_sp": "Bonita BPM Subscription edition",
+  "var_studio": "Bonita BPM Studio",
+  "var_support_guide": "https://customer.bonitasoft.com/support-policies",
+  "var_tcVersion6.3": "6.0.37",
+  "var_tcVersion6.4": "7.0.55",
+  "var_uiDesigner": "Bonita BPM UI designer"
+}

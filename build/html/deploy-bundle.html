@@ -1,0 +1,36 @@
+<h1>Deploy bundle</h1>
+<h2>What is the purpose of the Bonita BPM Deploy bundle?</h2>
+<ul>
+<li>The Bonita BPM Deploy bundle is used if you have <strong>already installed a JEE Application Server</strong>.</li>
+<li>The Bonita BPM Deploy bundle is a way of setting up a Bonita BPM Platform. You'll be able to get a setup quite similar to JBoss or Tomcat bundle.</li>
+<li>It's also used to package other tools such as the LDAP synchronizer.</li>
+</ul>
+<h2>Deploy bundle content</h2>
+<ul>
+<li><code>BonitaBPMSubscription-</code><em><code>version</code></em><code>-LDAP-Synchronizer</code>: the LDAP Synchronizer (Subscription editions only).</li>
+<li><code>Jboss-</code><em><code>version</code></em>: a folder/file structure to be merged with an existing setup of JBoss in order to install Bonita BPM Portal and Bonita BPM Engine.</li>
+<li><code>License</code>: license files that apply to Bonita components.</li>
+<li><code>Request_key_utils-6.0</code>: include script files to generate license request keys.</li>
+<li><code>Tomcat-</code><em><code>version</code></em>: a folder/file structure to be merged with an existing setup of Apache Tomcat, in order to install Bonita BPM Portal and Bonita BPM Engine.</li>
+<li><code>README.TXT</code>: contains the detailed contents and structure of the <code>deploy.zip</code>.</li>
+</ul>
+<p>Note: the JBoss directory contains Tomcat <code>.jar</code> files which refer to <code>bonita-tomcat-h2-listener-</code><em><code>version</code></em>.jar and <code>bonita-tomcat-valve-</code><em><code>version</code></em>.jar.
+As JBoss embeds Tomcat as a Servlet engine, these libraries are delivered both for Tomcat and JBoss.</p>
+<h2>Installation</h2>
+<ol>
+<li>Download the deploy.zip file from the <a href="http://www.bonitasoft.com/downloads-v2">Bonitasoft download page</a> for the Community edition
+or from the <a href="https://customer.bonitasoft.com/download/request">Customer Portal</a> for Subscription editions.</li>
+<li>Unzip the <code>deploy.zip</code> into a temporary folder.</li>
+<li>Install Bonita BPM in your Application Server, by merging the appropriate folder (e.g. <code>Jboss-7.1.1.Final</code> or <code>Tomcat-7.0.55</code>) from <code>BonitaBPMSubscription-6.x.y-deploy</code> folder
+into the existing root folder of your application server.</li>
+<li>If you do not want to use the h2 database, you need to specify the <a href="database-configuration.md">database configuration</a>. The h2 database is not suitable for a production environment.</li>
+</ol>
+<h2>License installation</h2>
+<p>If you are installing a Subscription edition, you need to <a href="licenses.md">request a license</a>.</p>
+<p>When you receive your license, copy the file to the <code>{{ var_bh_code_replace }}/server/licenses</code> folder of your application server.</p>
+<h2>Edition specification</h2>
+<p>If you are installing the Performance Subscription edition,
+you need to edit <code>engine-server/conf/platform-init/bonita-platform-init-community-custom.properties</code>
+and change the value of the <code>activeProfiles</code> key to <code>'community,performance'</code>. No change is needed for the Community, Teamwork, or Efficiency edition.</p>
+<h2>Next steps</h2>
+<p>When you have finished installing the deploy bundle, <a href="first-steps-after-setup.md">complete the setup</a> of your system by validating the installation, setting passwords, and creating the Administrator user.</p>

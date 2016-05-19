@@ -1,0 +1,458 @@
+<h1>Database configuration</h1>
+<h2>Database usage</h2>
+<h3>Introduction</h3>
+<p>The Bonita BPM Engine uses an RDBMS (Relational DataBase Management System) to store information about deployed process
+definitions, process configurations, history of process execution, users, etc.
+One database schema is required by Bonita BPM Engine to store all information.</p>
+<p>The Bonita BPM Engine connects to the database is done through the Hibernate library (version 4.2).
+This provides a level of abstraction between the Engine and the RDBMS.
+Bonita BPM comes with a set of optimized initialization scripts for the <a href="https://customer.bonitasoft.com/support-policies">supported RDBMSs</a>.</p>
+<p><strong>Note:</strong> This page explains database configuration for the Bonita BPM Engine database.
+If you are using <a href="define-and-deploy-the-bdm.md">business data objects</a>, these are stored in a separate database.
+By default, the h2 database is used. For production we recommend that you <a href="database-configuration-for-business-data.md">configure a different database for business data</a>.</p>
+<h3>Default h2 database</h3>
+<p>Bonita BPM Studio, the JBoss bundle, the Tomcat bundle, and the deploy bundle come by default with an h2 RDBMS included in the package. The database is automatically created at first startup.</p>
+<p>h2 is suitable for testing only.
+For production purposes, you must modify the configuration to use another RDBMS.</p>
+<h3>Steps to switch to another RDBMS</h3>
+<p>In order to configure Bonita BPM to work with your RDBMS, you need to perform the following steps:</p>
+<ul>
+<li>Create the database</li>
+<li>Specify the database vendor</li>
+<li>Add the JDBC driver</li>
+<li>Configure data source</li>
+<li>Remove h2</li>
+<li>Configure RDBMS-specific settings</li>
+</ul>
+<p>There are known issues with the management of XA transactions by MySQL engine and driver: see MySQL bugs <a href="http://bugs.mysql.com/bug.php?id=17343">17343</a> and <a href="http://bugs.mysql.com/bug.php?id=12161">12161</a> for more details.
+Thus, using MySQL database in a production environment is not recommended.</p>
+<p>There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft for the Tomcat bundle &amp; inside Deploy bundle for Tomcat) and Microsoft SQL Server driver
+(refer to: <a href="https://msdn.microsoft.com/en-us/library/aa342335.aspx">MSDN note</a>, <a href="http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html">Bitronix note</a>).
+Thus, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the JBoss bundle provided by Bonitasoft.</p>
+<p><strong>Warning:</strong> Some RDBMSs require specific configuration, which must be done before you complete your installation.
+If you do not complete the specific configuration for your RDBMS, your installation may fail.</p>
+<p><strong>Warning:</strong> RDBMS configuration needs to be done before the first start of the application.
+This is because {{ var_bonita_home }} and the database are initialized on first startup.
+Changing RDBMS configuration after first startup leads to incoherent data between {{ var_bonita_home }} and the database.</p>
+<h2>Database creation</h2>
+<p>The first step in configuring Bonita with your RDBMS is to create a new database (i.e. a new schema).</p>
+<p>To do this, you need a RDBMS user account that has sufficient privileges (i.e. privileges to create new schema).</p>
+<p>Also, note that the owner of the new schema must have following privileges:</p>
+<ul>
+<li>CREATE TABLE</li>
+<li>CREATE INDEX</li>
+<li>SELECT, INSERT, UPDATE, DELETE on created TABLE</li>
+</ul>
+<p>Note: CREATE TABLE and CREATE INDEX are not required after first start.</p>
+<p>For creation of the database we recommend you refer to your RDBMS documentation:</p>
+<ul>
+<li><a href="http://www.postgresql.org/docs/9.3/static/app-createdb.html">PostgreSQL</a></li>
+<li><a href="https://docs.oracle.com/cd/E11882_01/server.112/e25494/create.htm#ADMIN002">Oracle database</a></li>
+<li><a href="https://technet.microsoft.com/en-us/library/dd207005(v=sql.110).aspx">SQL Server</a></li>
+<li><a href="http://dev.mysql.com/doc/refman/5.5/en/database-use.html">MySQL</a></li>
+</ul>
+<p>Your database must be configured to use the UTF-8 character set. You are recommended to configure the database to be case-insensitive so that searches in Bonita BPM Portal are case-insensitive.</p>
+<h2>Specify the database vendor</h2>
+<p>Bonita BPM Engine needs to know which type of RDBMS you are using.
+This is defined by setting the <code>sysprop.bonita.db.vendor</code> JVM system property value.</p>
+<p>The possible values for <code>sysprop.bonita.db.vendor</code> / <code>db.vendor</code> are:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Database vendor</th>
+<th style="text-align:left">Property value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">PostgreSQL</td>
+<td style="text-align:left">postgres</td>
+</tr>
+<tr>
+<td style="text-align:left">Oracle database</td>
+<td style="text-align:left">oracle</td>
+</tr>
+<tr>
+<td style="text-align:left">SQL Server</td>
+<td style="text-align:left">sqlserver</td>
+</tr>
+<tr>
+<td style="text-align:left">MySQL</td>
+<td style="text-align:left">mysql</td>
+</tr>
+<tr>
+<td style="text-align:left">h2 (default for testing, not for production)</td>
+<td style="text-align:left">h2</td>
+</tr>
+</tbody>
+</table>
+<p>The way to define JVM system properties depends on your application server type:</p>
+<ul>
+<li>JBoss: edit <code>&lt;JBOSS_HOME&gt;/standalone/configuration/standalone.xml</code> and set the value of <code>sysprop.bonita.db.vendor</code> (look for <code>&lt;system-properties&gt;</code> tag).</li>
+<li>Tomcat: edit <code>setenv.sh</code> (for Linux) or <code>setenv.bat</code> (for Windows) and change the value of <code>sysprop.bonita.db.vendor</code> on the line starting by <code>DB_OPTS</code>.</li>
+<li>For other application servers, refer to your application server documentation.</li>
+</ul>
+<p>An alternative to setting the JVM system property (<code>sysprop.bonita.db.vendor</code>) is to set <code>db.vendor</code> property value in the
+<code>engine-server/conf/platform/bonita-platform-community-custom.properties</code> file of your {{ var_bonita_home }}.
+The default value of <code>db.vendor</code> indicates that the value of the JVM system property value must be used.
+If the property is not defined, the fallback value is h2: <code>db.vendor=${sysprop.bonita.db.vendor:h2}</code></p>
+<h2>Add the JDBC driver</h2>
+<h3>Download JDBC driver</h3>
+<p>First, you need to download the JDBC driver for your database system. Use links below to download the driver.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Database vendor</th>
+<th style="text-align:left">Download link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">PostgreSQL (use &quot;Current Version&quot;)</td>
+<td style="text-align:left"><a href="https://jdbc.postgresql.org/download.html#current">download</a></td>
+</tr>
+<tr>
+<td style="text-align:left">Oracle Database</td>
+<td style="text-align:left"><a href="http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html">download</a></td>
+</tr>
+<tr>
+<td style="text-align:left">Microsoft SQL Server</td>
+<td style="text-align:left"><a href="http://go.microsoft.com/fwlink/?LinkId=245496">download</a></td>
+</tr>
+<tr>
+<td style="text-align:left">MySQL</td>
+<td style="text-align:left"><a href="http://dev.mysql.com/downloads/connector/j/">download</a></td>
+</tr>
+</tbody>
+</table>
+<p>Note that if you run on Linux, the JDBC driver might also be available in the distribution packages repository. On Ubuntu
+and Debian you can, for example, install the <code>libpostgresql-jdbc-java</code> package to get the PostgreSQL JDBC Driver (install in <code>/usr/share/java</code>).</p>
+<h3>Add JDBC driver to application server</h3>
+<p>The way to install the JDBC driver depends on the application server:</p>
+<h4>JBoss 7</h4>
+<p>JBoss 7 manages JDBC drivers as modules, so to add a new JDBC driver, complete these steps:
+(see <a href="https://developer.jboss.org/wiki/DataSourceConfigurationInAS7#jive_content_id_Installing_a_JDBC_driver_as_a_module">JBoss documentation</a> for full reference):</p>
+<ul>
+<li>Create a folder structure under <code>&lt;JBOSS_HOME&gt;/modules</code> folder.
+Refer to the table below to identify the folders to create.
+The last folder is named <code>main</code> for all JDBC drivers.</li>
+<li>Add the JDBC driver jar file to the <code>main</code> folder.</li>
+<li>Create a module description file <code>module.xml</code> in <code>main</code> folder.
+| Database vendor | Module folders | Module description file |
+|:-|:-|:-|
+| PostgreSQL | modules/org/postgresql/main | <a href="images/special_code/postgresql/module.xml">module.xml</a> |
+| Oracle | modules/com/oracle/main | <a href="images/special_code/oracle/module.xml">module.xml</a> |
+| SQL Server | modules/com/sqlserver/main | <a href="images/special_code/sqlserver/module.xml">module.xml</a> |
+| MySQL | modules/com/mysql/main | <a href="images/special_code/mysql/module.xml">module.xml</a> |</li>
+</ul>
+<p>Put the driver jar file in the relevant <code>main</code> folder.</p>
+<p>In the same folder as the driver, add the module description file, <code>module.xml</code>.
+This file describes the dependencies the module has and the content it exports.
+It must describe the driver jar and the JVM packages that JBoss 7 does not provide automatically.
+The exact details of what must be included depend of the driver jar.
+**Caution: **you might need to edit the <code>module.xml</code> in order to match exactly the JDBC driver jar file name.</p>
+<p>Note: by default, when JBoss starts, it removes any comments from <code>standalone/configuration/standalone.xml</code> and formats the file.
+If you need to retrieve the previous version of this file, go to <code>standalone/configuration/standalone_xml_history</code>.</p>
+<h4>Tomcat 7</h4>
+<p>For Tomcat, simply add the JDBC driver jar file in the appropriate folder:</p>
+<ul>
+<li>Bonita BPM Tomcat bundle: in the bundle folder add the driver to the <code>lib/bonita</code> folder.</li>
+<li>Bonita BPM deploy bundle: in the Tomcat folder add the driver to the <code>lib</code> folder.</li>
+<li>Ubuntu/Debian package: add the driver to <code>/usr/share/tomcat7/lib</code>.</li>
+<li>Windows as a service: add the driver to <code>C:\Program Files\Apache Software Foundation\Tomcat 7.0\lib</code></li>
+</ul>
+<h2>Configure the data source</h2>
+<p>Bonita BPM Engine requires the configuration of two data sources. The data source declaration defines how to connect to the RDBMS. The following information is required to configure the data sources:</p>
+<ul>
+<li>Address of the RDBMS server</li>
+<li>Port number of the RDBMS server</li>
+<li>Database (schema) name</li>
+<li>User name to connect to the database</li>
+<li>Password to connect to the database</li>
+<li>JDBC Driver fully qualified class name (see table below)</li>
+<li>XADataSource fully qualified class name (see table below)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Database vendor</th>
+<th style="text-align:left">Driver class name</th>
+<th style="text-align:left">XADataSource class name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">PostgreSQL</td>
+<td style="text-align:left">org.postgresql.Driver</td>
+<td style="text-align:left">org.postgresql.xa.PGXADataSource</td>
+</tr>
+<tr>
+<td style="text-align:left">Oracle Database</td>
+<td style="text-align:left">oracle.jdbc.driver.OracleDriver</td>
+<td style="text-align:left">oracle.jdbc.xa.client.OracleXADataSource</td>
+</tr>
+<tr>
+<td style="text-align:left">Microsoft SQL Server</td>
+<td style="text-align:left">com.microsoft.sqlserver.jdbc.SQLServerDriver</td>
+<td style="text-align:left">com.microsoft.sqlserver.jdbc.SQLServerXADataSource</td>
+</tr>
+<tr>
+<td style="text-align:left">MySQL</td>
+<td style="text-align:left">com.mysql.jdbc.Driver</td>
+<td style="text-align:left">com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</td>
+</tr>
+<tr>
+<td style="text-align:left">h2 (not for production)</td>
+<td style="text-align:left">org.h2.Driver</td>
+<td style="text-align:left">org.h2.jdbcx.JdbcDataSource</td>
+</tr>
+</tbody>
+</table>
+<p>The following sections show how to configuire the datasources for JBoss and Tomcat.
+There is also an <a href="red-hat-oracle-jvm-weblogic-oracle.md">example of how to configure datasources for Weblogic</a>.</p>
+<h3>JBoss</h3>
+<p>This section explains how to configure the data sources if you are using JBoss:</p>
+<ol>
+<li>Open the file <code>&lt;JBOSS_HOME&gt;/standalone/configuration/standalone.xml</code>.</li>
+<li>Comment out the default definition for h2.</li>
+<li>Uncomment the settings matching your RDBMS vendor.</li>
+<li>Modify the values for following settings to your configuration: server address, server port, database name, user name and password.</li>
+</ol>
+<p>**Note: ** for a first test, you might want to keep the h2 section related to Business Data Management (BDM) feature (driver and data sources configuration).
+You can update the <a href="database-configuration-for-business-data.md">configuration related to BDM</a> later.</p>
+<h3>Tomcat</h3>
+<p>Configuration of data source for Tomcat is in two parts: because Tomcat doesn't support JTA natively, one data source will be configured in the Bitronix configuration file and the other data source will be configured
+in the standard Tomcat context configuration file.</p>
+<h4>JTA data source (managed by Bitronix)</h4>
+<ol>
+<li>Open <code>&lt;TOMCAT_HOME&gt;/conf/bitronix-resources.properties</code> file.</li>
+<li>Remove or comment out the lines regarding the h2 database.</li>
+<li>Uncomment the line matching your RDBMS.</li>
+<li>Update the value for each of the following settings:
+<ul>
+<li>For <code>resource.ds1.driverProperties.user</code>, put your RDBMS user name.</li>
+<li>For <code>resource.ds1.driverProperties.password</code>, put your RDBMS password.</li>
+<li>For <code>resource.ds1.driverProperties.serverName</code>, put the address (IP or hostname) of your RDBMS server.</li>
+<li>For <code>resource.ds1.driverProperties.portNumber</code>, put the port of your RDBMS server.</li>
+<li>For <code>resource.ds1.driverProperties.databaseName</code>, put the database name.</li>
+</ul>
+</li>
+<li>Save and close the file.</li>
+</ol>
+<h4>Non-transactional data source</h4>
+<p>The second data source run SQL queries outside any transaction. To configure it:</p>
+<ol>
+<li>Open <code>&lt;TOMCAT_HOME&gt;/conf/Catalina/localhost/bonita.xml</code> file.</li>
+<li>Remove or comment out the lines regarding h2 database.</li>
+<li>Uncomment the line matching your RDBMS.</li>
+<li>Update following attributes value:
+<ul>
+<li><code>username</code>: your RDBMS user name.</li>
+<li><code>password</code>: your RDBMS password.</li>
+<li><code>url</code>: the URL, including the RDBMS server address, RDBMS server port and database (schema) name.</li>
+</ul>
+</li>
+</ol>
+<h2>Remove h2</h2>
+<p><strong>Warning:</strong> If you use the default configuration for business data (BDM), do not remove h2 yet.
+First make sure that you have <a href="database-configuration-for-business-data.md">configured Business Data</a> to use your own RDBMS.</p>
+<p>Now that you are almost done with the switch from h2 to your chosen RDBMS, you can remove h2:</p>
+<ul>
+<li>For JBoss
+<ul>
+<li>Delete the <code>$JBOSS_HOME/standalone/deployments/h2.sar</code> folder.</li>
+<li>Remove the configuration for h2 from <code>&lt;JBOSS_HOME&gt;/standalone/configuration/standalone.xml</code>.</li>
+<li>Make sure that <code>sysprop.bonita.db.vendor</code> property in <code>&lt;JBOSS_HOME&gt;/standalone/configuration/standalone.xml</code> is not set to h2.</li>
+</ul>
+</li>
+<li>For Tomcat
+<ul>
+<li>Remove h2 jar files (<code>bonita-jboss-h2-mbean-1.0.0.jar</code>, <code>bonita-tomcat-h2-listener-1.0.1.jar</code>, <code>h2-1.3.170.jar</code>). Files are located in: <code>&lt;TOMCAT_HOME&gt;/lib</code> or in <code>&lt;TOMCAT_HOME&gt;/lib/bonita</code>.</li>
+<li>Remove the h2 listener, so that h2 is not started automatically: comment out the h2 listener in the <code>/conf/server.xml</code> file.</li>
+</ul>
+</li>
+<li>Check that h2 is no longer set in JVM system property value. Also, for extra security, you can remove it from <code>bonita-platform.properties</code> file and replace it with the value for your chosen RDBMS.</li>
+</ul>
+<h2>Specific database configuration</h2>
+<h3>PostgreSQL</h3>
+<p>Configure the database to use UTF-8.</p>
+<p>Edit <code>postgresql.conf</code> and set a non-zero value for <code>max_prepared_transactions</code>. The default value, 0, disables prepared transactions, which is not recommended for Bonita BPM Engine. The value should be at least as large as the value set for <code>max_connections</code> (default is typically 100). See the <a href="https://www.postgresql.org/docs/9.3/static/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS">PostgreSQL documentation</a> for details.</p>
+<h3>Oracle Database</h3>
+<p>Make sure your database is configured to use the AL32UTF8 character set.
+If your database already exists, see the Oracle documentation for details of how to <a href="http://docs.oracle.com/cd/E11882_01/server.112/e10729/ch11charsetmig.htm#NLSPG011">migrate the character set</a>.</p>
+<p>Bonita BPM Engine uses datasources that handle global transactions that span resources (XADataSource), so the Oracle user used by Bonita BPM Engine, requires some specific privileges, and there are also specific settings for XA activation.</p>
+<h4><strong>Important information for a successful connection</strong></h4>
+<p>The procedure below is used to create the settings to enable the Bonita BPM Engine to connect to the Oracle database.</p>
+<p>It is assumed in the procedure that:</p>
+<ul>
+<li>Oracle product is already installed and running</li>
+<li>An 'Oracle' OS user is already created</li>
+<li>A database already exists</li>
+<li>The environment is already set:<pre><code>ORACLE_HOME=/u01/app/oracle/product/11.2.0/dbhome_1
+ORACLE_SID=...
+</code></pre>
+</li>
+</ul>
+<ol>
+<li>
+<p>Connect to the database as the System Administrator.</p>
+<p>SQL query &gt;</p>
+<pre><code class="language-sql">oracle@ubuntu:~$ sqlplus / as sysdba
+</code></pre>
+</li>
+<li>
+<p>Check that the following components exist and are valid:<br>
+SQL query &gt;</p>
+<pre><code class="language-sql">select comp_name, version, status from dba_registry;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Comp_name</th>
+<th style="text-align:left">Version</th>
+<th style="text-align:left">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Oracle Database Catalog Views</td>
+<td style="text-align:left">11.2.0.1.0</td>
+<td style="text-align:left">VALID</td>
+</tr>
+<tr>
+<td style="text-align:left">Oracle Database Packages and Types</td>
+<td style="text-align:left">11.2.0.1.0</td>
+<td style="text-align:left">VALID</td>
+</tr>
+<tr>
+<td style="text-align:left">JServer JAVA Virtual Machine</td>
+<td style="text-align:left">11.2.0.1.0</td>
+<td style="text-align:left">VALID</td>
+</tr>
+<tr>
+<td style="text-align:left">Oracle XDK</td>
+<td style="text-align:left">11.2.0.1.0</td>
+<td style="text-align:left">VALID</td>
+</tr>
+<tr>
+<td style="text-align:left">Oracle Database Java Packages</td>
+<td style="text-align:left">11.2.0.1.0</td>
+<td style="text-align:left">VALID</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Add XA elements:</p>
+<p>SQL query &gt;</p>
+<pre><code class="language-sql">@/u01/app/oracle/product/11.2.0/dbhome_1/javavm/install/initxa.sql
+</code></pre>
+<p>This only needs to be done once, after the installation of Oracle.</p>
+</li>
+<li>
+<p>Create the database user to be used by the Bonita BPM Engine and grant the required rights:</p>
+<p>SQL query &gt;</p>
+<pre><code class="language-sql">@/u01/app/oracle/product/11.2.0/dbhome_1/rdbms/admin/xaview.sql
+</code></pre>
+<p>The following queries must be done for each new user: i.e. one user = one database schema.</p>
+<p>SQL query &gt;</p>
+<pre><code class="language-sql">CREATE USER bonita IDENTIFIED BY bonita;
+GRANT connect, resource TO bonita IDENTIFIED BY bonita;
+GRANT select ON sys.dba_pending_transactions TO bonita;
+GRANT select ON sys.pending_trans$ TO bonita;
+GRANT select ON sys.dba_2pc_pending TO bonita;
+GRANT execute ON sys.dbms_system TO bonita;
+GRANT select ON sys.v$xatrans$ TO bonita;
+GRANT execute ON sys.dbms_xa TO bonita;
+GRANT FORCE ANY TRANSACTION TO bonita;
+</code></pre>
+</li>
+</ol>
+<h3>SQL Server</h3>
+<h4>XA Transactions</h4>
+<p>To support XA transactions, SQL Server requires a specific configuration.</p>
+<p>You can refer to <a href="https://msdn.microsoft.com/en-us/library/aa342335(v=sql.110).aspx">MSDN</a> for more information.</p>
+<p>Here is the list of steps to perform (as an example, the database name BONITA_BPM is used):</p>
+<ol>
+<li>
+<p>Make sure you have already downloaded and installed the <a href="https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&amp;id=11774">Microsoft SQL Server JDBC Driver 4.0</a>.</p>
+</li>
+<li>
+<p>Copy the <code>sqljdbc_xa.dll</code> from <code>%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc_4.0\enu\xa\x64\</code> (x64 for 64 bit version of Windows, x86 for 32 bit version of Windows) to <code>%SQLSERVER_INSTALL_ROO%\Instance_root\MSSQL10.MSSQLSERVER\MSSQL\Binn\.</code></p>
+</li>
+<li>
+<p>Copy/paste the content of xa_install.sql file (located in %JDBC_DRIVER_INSTALL_ROOT%\sqljdbc_4.0\enu\xa) to SQL Server Management Studio's Query Editor.</p>
+</li>
+<li>
+<p>Execute the query in the Query Editor.</p>
+</li>
+<li>
+<p>To confirm successful execution of the script, open the &quot;Object Explorer&quot; and go to: <strong>Master</strong> &gt; <strong>Programmability</strong> &gt; <strong>Extended Stored Procedures</strong>.<br>
+You should have 12 new procedures, each with a name starting with <code>dbo.xp.sqljdbc_xa_</code>.</p>
+</li>
+<li>
+<p>Assign the new role 'SqlJDBCXAUser' to the user who owns the Bonita BPM Engine database (<code>bonitadev</code> in our example). To do this, execute the following commands in SQL editor:</p>
+<pre><code class="language-sql">USE master;
+GO
+CREATE LOGIN bonitadev WITH PASSWORD = 'secret_password';
+GO
+CREATE USER bonitadev FOR LOGIN bonitadev;
+GO
+EXEC sp_addrolemember [SqlJDBCXAUser], 'bonitadev';
+GO
+</code></pre>
+</li>
+<li>
+<p>In the Windows &quot;Start&quot; menu, select <strong>Administrative Tools</strong>-&gt; <strong>Services</strong>.</p>
+</li>
+<li>
+<p>In the &quot;Services&quot; window, make sure that the <strong>Distributed Transaction Coordinator</strong> service is set to start automatically. If it's not yet started, start it.</p>
+</li>
+<li>
+<p>Make sure that the other services it depends on, namely &quot;Remote Procedure Call&quot; and &quot;Security Accounts Manager&quot;, are also set to start automatically.</p>
+</li>
+<li>
+<p>Run the <code>dcomcnfg</code> command, or go to the &quot;Start&quot; menu, then Administrative Tools &gt; Component Services.</p>
+</li>
+<li>
+<p>In the left navigation pane, navigate to <strong>Component Services</strong> &gt; <strong>Computers</strong> &gt; <strong>My Computer</strong> &gt; <strong>Distributed Transaction Coordinator</strong>.</p>
+</li>
+<li>
+<p>Select and right-click on <em><strong>Local DTC</strong></em> and then <em><strong>Properties</strong></em>.</p>
+</li>
+<li>
+<p>Click on <em><strong>Security</strong></em> tab. Ensure that the checkbox for <strong>Enable XA Transactions</strong> is checked.</p>
+</li>
+<li>
+<p>Click <em><strong>Apply</strong></em>, then click <em><strong>OK</strong></em></p>
+</li>
+<li>
+<p>Then stop and restart SQLServer.</p>
+</li>
+<li>
+<p>Create the BONITA_BPM database: <code>CREATE DATABASE BONITA_BPM GO</code>.</p>
+</li>
+<li>
+<p>Set <code>bonitadev</code> as owner of BONITA_BPM database (use, for example, 'Microsoft SQL Management Studio')</p>
+</li>
+</ol>
+<h4>Recommended configuration for lock management</h4>
+<p>Run the script below to avoid deadlocks:</p>
+<pre><code class="language-sql">ALTER DATABASE BONITA_BPM SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+ALTER DATABASE BONITA_BPM SET ALLOW_SNAPSHOT_ISOLATION ON
+ALTER DATABASE BONITA_BPM SET READ_COMMITTED_SNAPSHOT ON
+ALTER DATABASE BONITA_BPM SET MULTI_USER
+</code></pre>
+<p>See <a href="https://msdn.microsoft.com/en-us/library/ms175095(v=sql.110).aspx">MSDN</a>.</p>
+<h3>MySQL</h3>
+<h4>Maximum packet size</h4>
+<p>MySQL defines a maximum packet size on the server side. The default value for this settings are appropriate for most standard use cases.
+However, you need to increase the packet size if you see the following error:</p>
+<pre><code>Error: 1153 SQLSTATE: 08S01 (ER_NET_PACKET_TOO_LARGE) Message: Got a packet bigger than 'max_allowed_packet' bytes
+</code></pre>
+<p>You need to update the file <code>my.ini</code> (for Windows) or <code>my.cnf</code> (for Linux) to avoid the <code>ER_NET_PACKET_TOO_LARGE</code> problem.
+Look for <code>max_allowed_packet</code> settings and reduce the value.</p>
+<p>For more information, see the <a href="http://dev.mysql.com/doc/refman/5.5/en/packet-too-large.html">MySQL website</a>.</p>
+<h4>Surrogate characters not supported</h4>
+<p>MySQL does not support <a href="https://en.wikipedia.org/wiki/Universal_Character_Set_characters#Surrogates">surrogate characters</a>.
+If you want to use surrogate characters in your processes, you need to use another type of database.</p>

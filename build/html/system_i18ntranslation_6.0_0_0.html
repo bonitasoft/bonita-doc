@@ -1,0 +1,41 @@
+<h2>i18ntranslation</h2>
+<h3>Description</h3>
+<p>Get the translations for the specified locale.</p>
+<h3>Identifier</h3>
+<p>None, can only search on this resource</p>
+<h3>Representation</h3>
+<pre><code>{
+&quot;value&quot;:&quot;_the translation_&quot;,
+&quot;key&quot;:&quot;_the key of the translation_&quot;
+}
+</code></pre>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>GET - the translations for the specified locale</li>
+</ul>
+<h3>List available translations</h3>
+<p>Returns all translations of the product. If a locale is specified in the filter, that translation for that locale are returned. if no locale is specified, the translations in English are returned.
+Request url
+http://../API/system/i18ntranslation</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload</p>
+<p>empty</p>
+<p>Response payload</p>
+<p>The list of translations as JSON</p>
+<h4>Example</h4>
+<p>get the translations in German.
+Request url
+GET|API/system/i18ntranslation?p=0&amp;c=2&amp;f=locale%3dde</p>
+<p>Response payload</p>
+<pre><code>[
+	{
+		&quot;value&quot;:&quot; Um dies zu tun, gehen Sie zu %entitymappingprofilelink%.&quot;,
+		&quot;key&quot;:&quot; To do so, go to %entitymappingprofilelink%.&quot;
+	},
+	{
+		&quot;value&quot;:&quot; Um dies zu tun, gehen Sie zu %profilelink%.&quot;,
+		&quot;key&quot;:&quot; To do so, go to %profilelink%.&quot;
+	}
+]</code></pre>

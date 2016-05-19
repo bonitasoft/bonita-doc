@@ -1,0 +1,84 @@
+<h1>Development overview</h1>
+<p>You can use the Bonita BPM Engine APIs to customize or add to the Bonita BPM software. Typical developments are adding a connector, adding an actor filter, and replacing or supplementing a service.</p>
+<h2>Concepts</h2>
+<h3>Session</h3>
+<p>This version of Bonita BPM introduces the concept of a <em>session</em>. A session is the context in which processing occurs, and is created when a user logs in to the Engine.</p>
+<p>The APIs remain available for the duration of a session.</p>
+<h3>User validation</h3>
+<p>This version of Bonita BPM introduces user validation: when a user name and password are sent to the Engine, it checks that the user exists in the current organization. If the user is not known, an error is thrown and processing stops.</p>
+<h2>APIs</h2>
+<p>Bonita BPM Engine has the following Java APIs:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Identity API</td>
+<td style="text-align:left">Manages information about an organization, that is, the set of users who can act in processes. Handles creation, modification, and deletion of organizations, groups, roles, memberships, and users.</td>
+</tr>
+<tr>
+<td style="text-align:left">Organization API</td>
+<td style="text-align:left">Import or export an organization.</td>
+</tr>
+<tr>
+<td style="text-align:left">Process API</td>
+<td style="text-align:left">Handles actions related to processes (deploy, enable, start, disable, delete), executes activities, updates process data, search for a retrieve process entities.</td>
+</tr>
+<tr>
+<td style="text-align:left">Login API</td>
+<td style="text-align:left">Logs in to the engine in a platform and creates a session.</td>
+</tr>
+<tr>
+<td style="text-align:left">Monitoring API</td>
+<td style="text-align:left">Retrieves information about current activity, such as the number of users logged in, or the number of processes currently being executed.</td>
+</tr>
+<tr>
+<td style="text-align:left">Log API</td>
+<td style="text-align:left">provides access to business logs, for searching and to retrieve information about current or archived processes.</td>
+</tr>
+<tr>
+<td style="text-align:left">Platform command API</td>
+<td style="text-align:left">Creates, starts, stops platform.</td>
+</tr>
+<tr>
+<td style="text-align:left">Document API</td>
+<td style="text-align:left">Manages documents that are attached to a process instance.</td>
+</tr>
+<tr>
+<td style="text-align:left">Theme API</td>
+<td style="text-align:left">Manages the Look &amp; Feel of the Bonita BPM Portal web and mobile interfaces and forms.</td>
+</tr>
+<tr>
+<td style="text-align:left">Tenant Management API</td>
+<td style="text-align:left">Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in Teamwork, Efficiency, and Performance editions.</td>
+</tr>
+</tbody>
+</table>
+<p>There is also a Web API, which is for internal use only, and a Command API,
+which is primarily for internal use.</p>
+<p>For details of the Engine APIs, the methods and related objects, see the
+<a href="javadoc.md">Javadoc</a>.
+Note that the APIs are the same for the Teamwork, Efficiency, and Performance editions, but some features are only active if the appropriate license is installed.
+If you try to access a feature for which you do not have a license, a <em>Feature not active</em> error message is returned.</p>
+<p>There is also a high-level <a href="rest-api-overview.md">Web REST API</a>, intended for customers developing portal applications.</p>
+<h2>API access</h2>
+<p>The Bonita BPM Engine APIs can be accessed locally or remotely, in the following modes:</p>
+<ul>
+<li>Local: the client accesses the server directly in local mode</li>
+<li>EJB3: the client accesses a remote server using EJB3 mode</li>
+<li>HTTP: the client accesses a remote server via HTTP</li>
+</ul>
+<p><img src="images/7.3/images-6_0/dev_overview_api_access.png" alt="Diagram of API access options"></p>
+<p>The mode you use must be specified in the bonita-client-custom.properties file. By default, the access mode is local. This can be used when the client and engine are using the same JVM. The file contains commented out configurations for remote access modes. To change the mode, simply comment out the configuration for local and uncomment the relevant remote configuration.</p>
+<p>There is a slight overhead in using the remote access methods, so you are recommended to use local access whenever it is possible.</p>
+<h2>Getting started</h2>
+<p>All sequences of API calls start with logging in to create a session then using the AccessorUtil to retrieve the APIs that will be used in the application.</p>
+<p>The following example shows how to retrieve the LoginAPI, then use it to log in and create a session, then retrieve for Process API for that session. The tenantAPIAccessor is used on all systems, even though there is only a single tenant.</p>
+<pre><code class="language-java">final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
+APISession session = loginAPI.login(userName, password);
+ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);
+</code></pre>

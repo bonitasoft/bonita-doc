@@ -1,0 +1,113 @@
+<h1>Execution sequence, states, and transactions</h1>
+<p>This page describes the sequence of actions performed when a process instance is created and when a step is performed by a user.</p>
+<p>It shows the interactions between the Bonita BPM Portal and Bonita BPM Engine.</p>
+<p>In the sequences described in this page, some of the actions apply only to <strong>Teamwork</strong>, <strong>Efficiency</strong>, or <strong>Performance</strong> editions, and are marked SP only.</p>
+<p>For the <strong>Community</strong> edition, these actions are not relevant, but the order of the other actions is the same.</p>
+<h3>Process instantiation form interaction</h3>
+<h3>Initialization</h3>
+<ol>
+<li>The Portal displays the form to the user.</li>
+<li>The user enters data in the form.</li>
+<li>The button of the form having the <strong>Start process</strong> action in the <strong>UI designer</strong> send a POST request with the form data to start the process.</li>
+<li>The submitted data are validated against the <strong>process instantiation contract</strong>.</li>
+<li>If the contract is valid the process instance is created and input values are persisted in database.</li>
+<li>Process data instances are created and initialized in the order of declaration using</li>
+</ol>
+<ul>
+<li>An <strong>operation</strong> declared on the process that saves its value to the process data</li>
+<li>The <strong>initial value expression</strong> if no operation is declared</li>
+<li><strong>null</strong> if no expression or operation is defined</li>
+</ul>
+<ol start="7">
+<li><strong>SP only</strong> The Engine creates and initializes search indexes.</li>
+<li>The Engine creates and initializes business data.</li>
+<li>The Engine initializes process instance Documents with default value coming from the definition or with submitted files.</li>
+<li>Operations (that does not initialize data) are executed.</li>
+<li>Completing the instantiation The Engine instantiates and executes the &quot;on enter&quot; connectors (evaluate input expression, execute, evaluate output operation). This an asynchronous operation. Execution duration of a connector is limited to a maximum of 5 minutes by default.</li>
+<li>The process is instantiated, the API call finish and the Engine executes the process flow asynchronously.</li>
+</ol>
+<h2>Step action sequence</h2>
+<p>For a process step, the sequence of actions is as follows:</p>
+<ol>
+<li>The Engine initializes step variables with their default values.</li>
+<li>The Engine executes actor filters.</li>
+<li>The Engine launches connectors on step enter.</li>
+<li>The Engine evaluates the Step dynamic name and description.</li>
+<li>They will be evaluated only once.</li>
+</ol>
+<p>The user task is now in <strong>ready</strong> state and is waiting for a user to submit it.</p>
+<h2>Step submission sequence</h2>
+<ol>
+<li>The Portal displays the form to the user.</li>
+<li>The user enters data in the form.</li>
+<li>The button of the form having the <strong>Submit task</strong> action in the <strong>UI designer</strong> send a POST request with the form data to start the step.</li>
+<li>The submitted data are validated against the <strong>step contract</strong>.</li>
+<li>If the contract is valid input values are persisted in database and the execution continue, in the other case an exception is thrown and the step stay in the same state.</li>
+<li>The Engine executes the Operations defined for the step.</li>
+<li>The Engine launches connectors on step finish.</li>
+<li>The Engine processes the Description after step completion.</li>
+<li>The step is complete.</li>
+</ol>
+<h2>Flow node states and transitions</h2>
+<p>A state is either stable or terminal:</p>
+<ul>
+<li>stable: the flow node is not yet finished, but paused as it waits for input, typically from the user. The transaction is committed.</li>
+<li>terminal: This is the last state of the flow node. A flow node in this state is considered to be finished and we trigger the asynchronous execution of the following elements of the process.</li>
+</ul>
+<p>Each state has a specific behaviour and is bounded by a transaction.
+A flow node is defined by a set of states.</p>
+<h3>Execution of a step</h3>
+<ol>
+<li>Get the current state of the step.</li>
+<li>Execute the state's behavior.</li>
+<li>Find the next state of the flow node and set it as the current state.</li>
+<li>If the state is stable, the transaction is committed, and the API call is returned.</li>
+<li>If the state is terminal, the transaction is committed, the Engine triggers the asynchronous execution of the followings elements of the process and the API call is returned.</li>
+<li>If the state is neither stable nor terminal, the transition to the next state is scheduled asynchronously.</li>
+</ol>
+<p>If there is a connector to execute in the state's behavior, then the transaction is committed and the connector is executed. The flow node stays in the current state while the connector is executed.
+When execution of the last connector is completed, the state's behaviour is completed. If you are using a Bonita BPM Subscription Pack edition, a timeout can be set for connector execution.</p>
+<h3>Example: User task</h3>
+<p>The diagrams below show the transactions and states when a user task is executed.
+The vertical line represents the condition necessary to execute the current state.
+The first state is initializing: it is automatically executed and the flow node goes to next state (Ready) but is executed only after an API call.</p>
+<p>In the first diagram, the task contains connectors.</p>
+<p><img src="images/7.3/images-6_0/user_task_execution_with_connector.png" alt="Diagram of the states and transactions when a user task with connectors is executed"></p>
+<p>In the second diagram, there are no connectors in the task.</p>
+<p><img src="images/7.3/images-6_0/user_task_execution_without_connector.png" alt="Diagram of the states and transactions when a user task with connectors is executed"></p>
+<p>As you can see in these illustrations, there is a non-negligible cost when adding some connectors to an activity: if there is no connector to execute then the state executes in one transaction, but if there is a connector to execute in the state this requires at least three transactions:</p>
+<ul>
+<li>The first transaction is committed just before the execution of the connectors. There is one transaction for this whatever the number of connectors.</li>
+<li>The connectors are not transactionnal. Nevertheless, a transaction is needed to save the output data of the connector execution. There will be a transaction for each connector that is executed.</li>
+<li>The last connection is used to continue to execute the current state's behavior, and to set the state to the next reachable one (but not execute it).</li>
+</ul>
+<p>The diagram below shows the states in execution of a user task.</p>
+<p><img src="images/7.3/images-6_0/user_task_details.png" alt="Diagram of the details of user task execution"></p>
+<p>User task details</p>
+<ol>
+<li>The Engine commits the transaction and then submits a work to execute the connectors asynchronously. The connectors are executed outside any transaction and thus are not a problem for the data integrity if the execution takes too long.</li>
+<li>As soon as there is a free slot in the WorkService, it executes the work, which is in fact the connector execution.</li>
+<li>When a connector execution is finished, if there are other connectors, they are executed in the same way. If there are no other connectors, the Engine continues to execute the state's behavior by triggering a new work.</li>
+<li>When the Engine executes a state's behavior, it updates the display name, and then sets the activity to the state &quot;Ready&quot;. As this is a stable state, the Engine commits the transaction and stops.</li>
+<li>The state &quot;Ready&quot; will then be executed through an API call.</li>
+</ol>
+<h2>Short transactions and asynchronism</h2>
+<p>Transactions in the Engine are as small as possible, and each transaction is committed as soon as possible.
+Each unit of work uses a non-blocking queued executor mechanism and is thus asynchronous. There is a dedicated queue for asynchronous executions. (Connector execution is handled in a separate execution queue.)</p>
+<p>As a consequence of the design, when an asynchronous work unit originates from an API call (which might be a result of a human action), then the call returns and ends the transaction.
+The work unit is then executed as soon as possible, asynchronously, in a separate transaction.
+For this reason, a task that is being initialized might not yet be ready for execution, but will be executable after a short wait while the transactions are managed.
+A client application therefore needs to poll regularly, or write an <a href="event-handlers.md">event handler</a>, to check when the asynchronous work unit is finished.</p>
+<h2>Summary of state types</h2>
+<ul>
+<li><strong>Initializing</strong> indicates that an activity is being initialized.</li>
+<li><strong>Ready</strong> indicates that a human tasks and manual tasks has been initialized but is not yet being executed.</li>
+<li><strong>Waiting</strong> indicates that a RECEIVE_TASK, BOUNDARY_EVENT or INTERMEDIATE_CATCH_EVENT activities is waiting for some external trigger.</li>
+<li><strong>Executing</strong> indicates that an activity is being executed.</li>
+<li><strong>Failed</strong> indicates that a task has failed because of a problem in execution, for example because of an exception that was not anticipated, a connector that fails, or bad expression design).</li>
+<li><strong>Skipped</strong> indicates that a task that failed because of connector execution failure is being skipped instead of re-executed. Skipping a task skips the execution of any connectors not already executed and proceeds to task completion.</li>
+<li><strong>Cancelled</strong> indicates that an activity is cancelled by a user.</li>
+<li><strong>Aborting</strong> indicates that an activity is cancelled by the system. For example, an interrupting event sub-process can trigger ABORTS for all other active paths.</li>
+<li><strong>Completed</strong> indicates an activity that is complete.</li>
+<li><strong>Error</strong> - not currently used.</li>
+</ul>

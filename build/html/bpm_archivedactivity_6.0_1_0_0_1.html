@@ -1,0 +1,129 @@
+<h2>archivedActivity</h2>
+<h3>Description</h3>
+<p>Use this resource to retrieve finished activities (human or service tasks), call activities, and subprocesses.</p>
+<p>For this resource, the available state search parameters for the GET verb are the same as for the archived flow nodes.</p>
+<h3>Identifier</h3>
+<p>The ID of the archived activity (a long value). This is different from the ID of the activity before it was archived.</p>
+<h3>Representation</h3>
+<pre><code>{
+&quot;id&quot;: &quot;_the activity id (long)_&quot;,
+&quot;sourceObjectId&quot;: &quot;_the original id of the activity before it was archived_&quot;,
+&quot;displayDescription&quot;: &quot;_the human readable activity description (string)_&quot;,
+&quot;executedBySubstitute&quot;: &quot;_the id (long) of the user who really performed this activity in case where a substitute did it, or 0 if the activity was not performed by a substitute_&quot;,
+&quot;caseId&quot;: &quot;_the case id (long) that is associated with this activity_&quot;,
+&quot;parentCaseId&quot;: &quot;_the parent case id (long) that is associated with this activity's case_&quot;,
+&quot;rootCaseId&quot;: &quot;_the root case initiator id (long) that is associated with this activity's case_&quot;,
+&quot;processId&quot;: &quot;_the process id (long) that is associated with this activity_&quot;,
+&quot;rootContainerId&quot;: &quot;_the root process id (long) of the root case that is associated with this activity_&quot;,
+&quot;state&quot;: &quot;_the current state of the activity (string,  for example, ready, completed, failed)_&quot;,
+&quot;type&quot;: &quot;_the activity type (string)_&quot;,
+&quot;assigned_id&quot;: &quot;_the user id (long) that this activity is assigned to, or 0 if it is unassigned_&quot;,
+&quot;assigned_date&quot;: &quot;_the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current activity was assigned, for example '2014-10-17 16:05:42.626'_&quot;,
+&quot;executedBy&quot;: &quot;_the id (long) of the user who executed the activity, or 0 if the activity has not been executed_&quot;,
+&quot;priority&quot;: &quot;_the priority (string) of the current activity_&quot;,
+&quot;actorId&quot;: &quot;_the id (long) of the actor that can execute this activity, null otherwise_&quot;,
+&quot;description&quot;: &quot;_the activity description (string)_&quot;,
+&quot;name&quot;: &quot;_the activity name (string)_&quot;,
+&quot;reached_state_date&quot;: &quot;_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this activity reached the current state, for example '2014-10-17 16:05:42.626'_&quot;,
+&quot;displayName&quot;: &quot;_the display name (string) of this activity_&quot;,
+&quot;dueDate&quot;: &quot;_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this activity is due, for example '2014-10-17 16:05:42.626'_&quot;,
+&quot;archivedDate&quot;: &quot;_the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this activity was archived, for example '2014-10-17 16:05:42.626'_&quot;,
+&quot;last_update_date&quot;: &quot;_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this activity was last updated, for example '2014-10-17 16:05:42.626)_&quot;,
+&quot;parentTaskId&quot;: &quot;_in the case of a subtask, the parent task id (long)_&quot;
+}
+</code></pre>
+<h4>States:</h4>
+<ul>
+<li>failed</li>
+<li>initializing</li>
+<li>ready</li>
+<li>executing</li>
+<li>completing</li>
+<li>completed</li>
+<li>waiting</li>
+<li>skipped</li>
+<li>cancelled</li>
+<li>aborted</li>
+<li>cancelling subtasks</li>
+</ul>
+<h4>Types:</h4>
+<ul>
+<li>AUTOMATIC_TASK</li>
+<li>HUMAN_TASK</li>
+<li>USER_TASK</li>
+<li>MANUAL_TASK</li>
+<li>CALL_ACTIVITY</li>
+<li>LOOP_ACTIVITY</li>
+<li>MULTI_INSTANCE_ACTIVITY</li>
+<li>SUB_PROCESS</li>
+</ul>
+<h4>Priorities:</h4>
+<ul>
+<li>highest</li>
+<li>above_normal</li>
+<li>normal</li>
+<li>under_normal</li>
+<li>lowest</li>
+</ul>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>GET - Read a resource or search for an archived activity</li>
+</ul>
+<h3>Get an archived activity</h3>
+<p>Retrieve the activity information for the given id.
+Request url
+http://../API/bpm/archivedActivity/{id}</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload</p>
+<p>empty</p>
+<p>Response payload</p>
+<p>The JSON representation of the specified activity</p>
+<h3>Search among archived activities</h3>
+<p>Search for archived activities using given parameters. Only archived activities in a final state are retrieved (completed, cancelled, aborted). It returns an array of archived activities.
+Request url
+http://../API/bpm/archivedActivity</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload</p>
+<p>empty</p>
+<p>Response payload</p>
+<p>An array of JSON representations of the specified activities</p>
+<h4>Parameters</h4>
+<p>The following search parameters are available:</p>
+<ul>
+<li>o:
+<ul>
+<li>name : the name of this activity</li>
+<li>displayName : the display name of this activity</li>
+<li>state : the current state of the activity</li>
+<li>type : the activity type</li>
+<li>isTerminal : say whether or not the activity is in a terminal state</li>
+<li>processId : the process this activity is associated to</li>
+<li>caseId : the case initiator this activity is associated to</li>
+<li>reached_state_date : the date when this activity arrived in this state</li>
+</ul>
+</li>
+<li>f:
+<ul>
+<li>supervisor_id: retrieve the information the process manager associated to this id has access to (only in Efficiency and Performance edition)</li>
+<li>f: same as the sort order fields</li>
+</ul>
+</li>
+<li>d:
+<ul>
+<li>processId: the id of the process that is associated with the activity</li>
+<li>caseId: the id of the case that is associated with the activity</li>
+<li>rootCaseId: the root case that is associated with this activity's case</li>
+<li>parentCaseId: the parent case that is associated with this activity's case</li>
+<li>rootContainerId: the root process of the root case that is associated with this activity</li>
+<li>executedBy: the user who executed the activity</li>
+<li>executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency and Performance editions)</li>
+<li>actorId: the actor that can execute this activity</li>
+<li>assigned_id: the user this activity is assigned to</li>
+<li>parentTaskId: in the case of a subtask, the parent task</li>
+</ul>
+</li>
+<li>The <a href="rest-api-overview.md">standard search parameters</a>.</li>
+</ul>

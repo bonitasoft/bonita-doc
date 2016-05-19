@@ -1,0 +1,40 @@
+<h2>connectorFailure</h2>
+<h3>Description</h3>
+<p>Error message and stackTrace recorded when a connector fails during a process execution. Performance edition only.</p>
+<h3>Identifier</h3>
+<p>The ID of the connector failure (a long value).</p>
+<h3>Representation</h3>
+<pre><code>{
+&quot;errorMessage&quot;:&quot;_the message of the connector failure_&quot;,
+&quot;connectorInstanceId&quot;:&quot;_the ID of the connector instance (see connectorInstance resource documentation)_&quot;,
+&quot;errorStackTrace&quot;:&quot;_the stack trace of the error_&quot;
+}
+</code></pre>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>GET - Read a connector failure</li>
+</ul>
+<h3>Read a connector failure</h3>
+<p>Retrieve the information regarding the failure of the connector execution.
+Request url
+http://../API/bpm/connectorFailure/&lt;connectorFailure_id&gt;</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload
+empty</p>
+<p>Response payload</p>
+<p>A connectorFailure resource as JSON</p>
+<h4>Example</h4>
+<p>Request url
+/API/bpm/connectorFailure/5</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload
+empty</p>
+<p>Response payload</p>
+<pre><code>{
+&quot;errorMessage&quot;:&quot;Error while executing the groovy script&quot;,
+&quot;connectorInstanceId&quot;:&quot;5&quot;,
+&quot;errorStackTrace&quot;:&quot;org.bonitasoft.engine.core.connector.exception.SConnectorException: PROCESS_DEFINITION_ID=8030057793979348308 | PROCESS_NAME=Pool1 | PROCESS_VERSION=1.0 | PROCESS_INSTANCE_ID=5 | ROOT_PROCESS_INSTANCE_ID=5 | FLOW_NODE_DEFINITION_ID=-6089366458284481881 | FLOW_NODE_INSTANCE_ID=12 | FLOW_NODE_NAME=Étape1 | CONNECTOR_DEFINITION_IMPLEMENTATION_CLASS_NAME=expression execution connector | CONNECTOR_INSTANCE_ID=5 | org.bonitasoft.engine.connector.exception.SConnectorException: java.util.concurrent.ExecutionException: java.lang.Exception: Error while executing the groovy script\n\tat org.bonitasoft.engine.core.connector.impl.ConnectorServiceImpl.executeConnectorInClassloader(ConnectorServiceImpl.java:332)&quot;
+}</code></pre>

@@ -1,0 +1,73 @@
+<h1>Tasks</h1>
+<p>Logged on with the Administrator or Process Manager profile, you have rights to manage a task as follows.</p>
+<h2>How to assign a task</h2>
+<p>A task can be assigned and reassigned if necessary to another user</p>
+<ol>
+<li>Go to <strong>BPM</strong> &gt; <strong>Tasks</strong></li>
+<li>Click on a <strong>task in the list of tasks</strong></li>
+<li>Click <em><strong>Assign</strong></em></li>
+</ol>
+<h2>How to unassign a task</h2>
+<ol>
+<li>Go to <strong>BPM</strong> &gt; <strong>Tasks</strong></li>
+<li>Click on a <strong>task in the list of tasks</strong></li>
+<li>Click <em><strong>Unassign</strong></em></li>
+</ol>
+<h2>How to do a task for another user</h2>
+<p>With the Efficiency and Performance editions, an Administrator can do a task for another user. This is useful for unblocking a case if the assigned user cannot perform a task.</p>
+<ol>
+<li>Go to <strong>BPM</strong> &gt; <strong>Tasks</strong> and view the list of pending Human tasks.</li>
+<li>Select the relevant task in the list and click <strong>Do for</strong>.</li>
+<li>In the popup, a list of users elligible to do the task is displayed.</li>
+<li>Select the user for whom you want to do the task, and click <strong><em>Do it</em></strong>.</li>
+</ol>
+<p>The task is done as though the selected user has done it.</p>
+<h2>How to skip a failed task</h2>
+<p>If a failed task does not impact subsequent task in a process, the Administrator can skip it. This means that the task does not have to be done successfully for the following steps to become available.</p>
+<ol>
+<li>Go to <strong>BPM</strong> &gt; <strong>Tasks</strong>.</li>
+<li>Go to <strong>Failed</strong>.</li>
+<li>Click on a Task.</li>
+<li>Click <em><strong>More</strong></em>.</li>
+<li>In <strong>Technical details</strong>, the reason for the failure is displayed</li>
+<li>Click <em><strong>Skip</strong></em>.</li>
+</ol>
+<p>The task is moved from Failed to Done.</p>
+<h2>How to replay a failed task</h2>
+<p>This feature is available with the Performance edition.</p>
+<ol>
+<li>Go to <strong>BPM</strong> &gt; <strong>Tasks</strong>.</li>
+<li>Go to <strong>Failed</strong>.</li>
+<li>Click on a <em><strong>Task</strong></em></li>
+<li>In <strong>technical details</strong>, the details of the failure are displayed</li>
+<li>Correct the reason for the error e.g. Connector parameters.</li>
+<li>Click <em><strong>More</strong></em>.</li>
+<li>Click <em><strong>Replay</strong></em>.</li>
+<li>In the popup window **Replay task **, tick the task which failed.</li>
+<li>Click <em><strong>Replay</strong></em>.</li>
+</ol>
+<p>Note: You will need to fix any parameter causing the failure, <strong>BEFORE</strong> clicking on Replay.</p>
+<p>See <a href="processes.md">Modify a parameter</a></p>
+<h2>How to view the failure stack-trace message on a failed task</h2>
+<p>Normally, a user will start a case of a process. The case might not start as expected. This is a called a faliure.</p>
+<p>In this case the Admin can check the failure on a connector:</p>
+<ol>
+<li>Logged in as Admin, go to <strong>BPM</strong> &gt; <strong>Tasks</strong> &gt; <strong>Failed</strong></li>
+<li>On the Failed page, in the section Technical details, this shows the Connector has failed.</li>
+<li>Click on <strong>More</strong></li>
+</ol>
+<p><img src="images/7.3/images-6_0/connector_failed.png" alt="failed"></p>
+<ol start="4">
+<li>There can be a list of connectors in different states. Here we can see the connector that has failed.</li>
+</ol>
+<p><img src="images/7.3/images-6_0/connector_failed_details.png" alt="failed"></p>
+<ol start="5">
+<li>Click on the <strong>Failed</strong> link.</li>
+<li>A pop-up window <strong>Failure details</strong> displays the error message and the details of the message.</li>
+</ol>
+<p><img src="images/7.3/images-6_0/connector_failed_stack.png" alt="failed"></p>
+<p>There are 2 options:</p>
+<ul>
+<li>Either click the <strong>Skip</strong> button, to skip over the task where the connector failed. This will make the Failed message disappear on the Connector, and display Resolved instead.</li>
+<li>Fix the problem then click <strong>Replay</strong>.</li>
+</ul>

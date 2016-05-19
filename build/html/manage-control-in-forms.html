@@ -1,0 +1,224 @@
+<h1>Using forms in UI Designer</h1>
+<p>Using a leave request management process example, you will learn how to take advantage of forms in the UI Designer and how to add validation for the data to submit.</p>
+<h2>Prologue</h2>
+<p>You will design a simple leave request management process using Bonita BPM 7 and beyond:
+First things first, draw the wireframe of the process. In Bonita BPM Studio, since the instantiation of a new leave request happens at pool level, add a simple validation task, rename the pool <em>Leave request management</em>, and rename the lane <em>manager</em>, as shown here:</p>
+<p>![Simple process](images/leave request management process.png)</p>
+<p>Then, define a business object that will hold the leave requests data when the process instances are ongoing, and store it when the instances are archived:
+In Bonita BPM Studio menu, go to <strong>Development</strong> &gt; <strong>Business Data Model</strong> &gt; <strong>Manage</strong> option, and add a business object named <em>LeaveRequest</em>, with 4 attributes:</p>
+<ul>
+<li><em>startDate</em>: first working day taken as vacation</li>
+<li><em>endDate</em>: last working day taken as vacation</li>
+<li><em>nbDays</em>: number of working days taken as vacation</li>
+<li><em>type</em>: leave type (annual leave, anticipated leave,...)</li>
+</ul>
+<p>To allow this business object to be instantiated in each process instance, create a business variable in the process:
+At pool level, in the <strong>Data</strong> panel, define a <strong>business variable</strong> named <em>leaveRequest</em>. For <strong>business object</strong>, choose <strong>LeaveRequest</strong>.</p>
+<p>Then, to make sure the process gets the information it needs to start a new instance, create a contract:
+In the <strong>Execution</strong> pane &gt; <strong>Contract</strong> tab, click the <strong>Add from data...</strong> button to generate the contract input from an existing business variable. Choose the <strong>Business variable</strong> option, and the <strong>leaveRequest</strong> variable.
+A complex contract input is created, mapped on the <em>leaveRequest</em> business variable.</p>
+<p>Each entry of the contract is bound to a business object property:</p>
+<ul>
+<li><em>startDate</em> as a <strong>DATE</strong></li>
+<li><em>endDate</em> as a <strong>DATE</strong></li>
+<li><em>nbDays</em> as an <strong>INTEGER</strong></li>
+<li><em>type</em> as <strong>TEXT</strong></li>
+</ul>
+<p>... as shown here:</p>
+<p><img src="images/7.3/ContractSimple.png" alt="Leave Request - Instantiation contract"></p>
+<p>You can also add constraints on the contract inputs in the <strong>Constraints</strong> tab.</p>
+<p>For more information about process, business data management and contract, check out <a href="http://shop.oreilly.com/product/0636920039402.do"><strong>Designing Efficient BPM Applications: A Process-Based Guide for Beginners</strong></a>.</p>
+<p>To generate an instantiation form that complies with the contract (where the user will start a new request), go to the <strong>Instantiation Form</strong> tab, and click on the pen icon. This will take you to an open form in the UI Designer.
+By default, this form contains a <strong>form container</strong> with 4 <strong>widgets</strong> matching the contract:</p>
+<ul>
+<li>a <strong>date picker</strong> widget for the start date</li>
+<li>a <strong>date picker</strong> widget for the end date</li>
+<li>an <strong>input</strong> widget expecting a number for the number of days</li>
+<li>an <strong>input</strong> widget expecting text for the type</li>
+</ul>
+<p>... as shown here:</p>
+<p><img src="images/7.3/GeneratedForm.png" alt="Generated form"></p>
+<p>You can check what it will look like once deployed by clicking on <strong>Preview</strong>, as shown here:</p>
+<p><img src="images/7.3/GeneratedForm-preview.png" alt="Generated form preview"></p>
+<h2>Basic contract validation and constraints</h2>
+<p>You can notice that:</p>
+<ul>
+<li>Every field label is followed with a red star showing that those fields are required (by the contract).</li>
+<li>The <strong>Submit</strong> button is disabled until all fields marked as required are filled.</li>
+</ul>
+<p>If one of the input constraints is invalid, an error message is displayed below the input field. In the example, the only input constraint is <strong>required</strong>, so an error message is displayed if you edit and reset a field, as shown here:</p>
+<p><img src="images/7.3/GeneratedForm-preview-error.png" alt="Form is invalid"></p>
+<p>Once all fields have values, the form can be submitted, the contract validated by the process, and the new process instance can be started.</p>
+<h2>Advanced contract validation and constraints</h2>
+<h3>More visible information of invalid inputs</h3>
+<p>Now, to alert the user that an input is not valid with a red border around invalid inputs, you must use the AngularJS <strong>form control properties</strong>.</p>
+<h4>AngularJS $form</h4>
+<p>Inside a form container, AngularJS provides a special variable called <strong>$form</strong>.<br>
+This variable holds the validation state of the inputs, selects and textareas of the current form container.</p>
+<p>Here is an extract from the <a href="https://docs.angularjs.org/guide/forms">AngularJS documentation site</a> that explains the purpose of this feature.</p>
+<blockquote>
+<p>From an AngularJS point of view, a form is a collection of controls for the purpose of grouping related controls together.</p>
+<p>Form and controls provide validation services, so that the user can be notified of invalid input before submitting a form. This provides a better user experience than server-side validation alone because the user gets instant feedback on how to correct the error.</p>
+</blockquote>
+<p>A control in AngularJS exposes properties for a given input, select or textarea and associates it with a CSS class:</p>
+<ul>
+<li>$dirty (CSS class <em>ng-dirty</em>): the control has been interacted with</li>
+<li>$pristine (CSS class <em>ng-pristine</em>): the control hasn't been interacted with yet</li>
+<li>$valid (CSS class <em>ng-valid</em>): the model is valid</li>
+<li>$invalid (CSS class <em>ng-invalid</em>): the model is invalid</li>
+</ul>
+<p><em>Note</em>: In this example, we will only focus on these properties. More properties and information about form control is available on <a href="https://docs.angularjs.org/guide/forms">AngularJS form guide</a>.</p>
+<p>AngularJS sets these different CSS classes on HTML input elements depending on their states.</p>
+<h4>Using AngularJS form control CSS classes</h4>
+<p><em>Note</em>: A dedicated tutorial about <a href="tuto-de-camille-CSS.html">CSS assets in the UI Designer</a> is available and we recommand to read it before you go further in this tutorial.</p>
+<p>So, to alert users about the invalidity of inputs they just edited, you need to use <em>ng-invalid</em> and <em>ng-dirty</em> classes on those elements:<br>
+In your favorite editor, create a <em>validationStyle.css</em> file containing the class below:</p>
+<pre><code>.ng-invalid.ng-dirty {
+   border-color: red;
+   outline: 0;
+   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(233,175,102,.6);
+   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(233,175,102,.6);
+}
+</code></pre>
+<p>Using only the <em>ng-invalid</em> class makes red border appear even before the user enters a value for the input and that is annoying.
+Then, in the form <strong>Assets</strong> panel at the bottom, click <strong>Add</strong> and add the CSS file.
+In the same way, to show the user which inputs are valid, edit the CSS file to add:</p>
+<pre><code>.ng-valid {
+   border-color: green;
+   outline: 0;
+   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 4px rgba(102,233,102,.6);
+   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 4px rgba(102,233,102,.6);
+</code></pre>
+<p>}
+In the UI Designer preview, the form looks like it is shown here:</p>
+<p><img src="images/7.3/preview-feedbackon-inputs.png" alt="Leave Request - filling form"></p>
+<p><em>Note</em>: The properties of the form controls also apply to the $form variable.<br>
+So in this case, the $form variable has the properties $invalid, $valid, $pristine and $dirty dependending on the value of each of its controls: if one of the controls has a property set to true then the $form matching property is set to true.
+Therefore, the HTML form element has the associated ng-pristine, ng-dirty, ng-valid and ng-invalid classes set whether the $form properties are true or false.<br>
+Since the HTML form element has no border, the CSS classes added have no impact on it.</p>
+<h3>Error summary panel <em>(SP only)</em></h3>
+<p>For debug purposes, you can add a panel at the top of the form to list all errors in the form:
+From the UI Designer home page, create a <strong>fragment</strong>. Set <em>errorPanel</em> as the fragment name. In the <strong>Variable</strong> panel at the bottom, create one variable, of type <strong>exposed: yes</strong>, called <em>errors</em>. Create two other variables, of type <strong>exposed: no</strong>:</p>
+<ul>
+<li>errorRequired: it allows to tell if in the form, some required data are missing.</li>
+<li>errorDate: it allows to tell if in the form, some dates are invalid.</li>
+</ul>
+<p>These two variables are instantiated with JavaScript expressions using $form.$error.
+Therefore, for <strong>Type</strong>, select <strong>JavaScript expression</strong>.
+For <em>errorRequired</em> , enter the following <strong>Value</strong>:</p>
+<pre><code>return ($data.errors.required || []).filter(function(field){
+    return field.$dirty;
+  }).map(function(field){
+    return field.$name;
+  });
+</code></pre>
+<p>And for <em>errorDate</em>, enter:</p>
+<pre><code>return ($data.errors.date || []).map(function(field){
+    return field.$name;
+  });
+</code></pre>
+<p>The <em>errorRequired</em> is a bit different from <em>errorDate</em> because when the form is empty, the user doesn't need to be reminded that some fields are empty. This is why it contains a filter to only display the errors on dirty fields (i.e. which have been edited).</p>
+<p>These two variables will contain the list of invalid widget names.
+Currently, these widget names are not usable directly because they are automatically generated.
+Therefore, from the palette on the left, drag and drop two <strong>text</strong> widgets in this fragment whiteboard, with the following text:</p>
+<ul>
+<li>Some required data is missing.</li>
+<li>Some dates are invalid.</li>
+</ul>
+<p>To put the text and the background in red, add the bootstrap's <em>text-danger</em> and <em>bg-danger</em> CSS classes in the <strong>CSS classes</strong> property for both widgets.
+To hide these fields when no error are detected, go to the <strong>Hide</strong> property of each widget, click on <strong>f(x)</strong> to make them evaluated as expressions, and add respectively:</p>
+<ul>
+<li><em>!errorRequired || errorRequired.length === 0</em></li>
+<li><em>!errorDate || errorDate.length === 0</em></li>
+</ul>
+<p>... as shown here:</p>
+<p><img src="images/7.3/errorPanelFragment-required-properties.png" alt="Leave Request - errorPanel - required - properties"> <img src="images/7.3/errorPanelFragment-date-properties.png" alt="Leave Request - errorPanel - date - properties"></p>
+<p>Then, to change the default style of the <strong>p</strong> html tag and have a little more margin, open the <em>validationStyle.css</em> file and add the following:</p>
+<pre><code>.text-danger p {
+  margin: 1em;
+}
+</code></pre>
+<p>Go back to the home page, and then open the leave request form again.
+From the palette, add a <strong>title</strong> widget to the top of the form. In the <strong>text</strong> property, write <em>Leave request</em>.<br>
+In the palette on the left, select <strong>Fragments</strong>, and then drag and drop the fragment just created below the form title, as shown here (from the preview):</p>
+<p><img src="images/7.3/GeneratedForm-preview-summary-error.png" alt="Leave request - filling invalid form with error panel"></p>
+<h3>Use a <strong>select</strong> widget for the leave type</h3>
+<p>The user usually selects one option of leave type and does not type free text. A predefined list of such values could be:</p>
+<ul>
+<li>Annual leave</li>
+<li>Anticipated annual leave</li>
+<li>Unpaid</li>
+<li>Other</li>
+</ul>
+<p>To implement such a list, remove the generated input widget for <strong>type</strong> and add a <strong>select</strong> widget with the following properties:</p>
+<ul>
+<li>Label: <em>Type</em></li>
+<li>Required: <em>yes</em></li>
+<li>Placeholder: <em>type</em></li>
+<li>Available values: <em>Annual leave, Anticipated annual leave, Unpaid, Other</em></li>
+<li>Value: <em>formOutput.typeContract</em></li>
+</ul>
+<h2>Custom validation</h2>
+<h3>Use contract response for server side validation</h3>
+<p>At this stage, you have added some simple control over the different inputs. You will now learn about more advanced validation checks. For example, let's express those three rules:</p>
+<ul>
+<li>The start date must be earlier or the same than the end date</li>
+<li>The number of days must be greater than zero</li>
+<li>The leave type must be one of Annual leave, Anticipated annual leave, Unpaid, or Other.</li>
+</ul>
+<p>For the second requirement, you have already set a control on the input
+For the last requirement: you have already changed the widget type from <strong>input</strong> to <strong>select</strong>.<br>
+Therefore, on those two fields, a user cannot submit wrong data.</p>
+<p>However, keep in mind that while client-side validation plays an important role in providing a good user experience, it can easily be circumvented and therefore can not be trusted.
+Server-side validation is still necessary for a secure application.</p>
+<p>For this reason, we need to add some constraints to the contract, process side, one for each rule.<br>
+Go back to the Studio, and at pool level, go to the <strong>Execution</strong> pane &gt; <strong>Contract</strong> &gt; <strong>Constraints</strong> tabs to define the constraints as shown here:</p>
+<p><img src="images/7.3/Constraints.png" alt="Leave Request - Contract constraints"></p>
+<p>The server error response message on submit when one of the constraints fails has an <em>explanations</em> attribute.<br>
+This attribute is an array of the error message of each constraint that has failed.</p>
+<p>On the UI Designer side, you need to catch the error response message on submit:
+Go to the form <strong>Variable</strong> panel, and create a new variable called <em>instantiationErrorResponse</em>.
+Then select the Submit button and in its <strong>Failed response value</strong> property, type <em>instantiationErrorResponse</em>.</p>
+<p>Now you need to display each error message in red in the form. To do so, you need to create an iteration on the explanations messages.
+From the palette, drag and drop a <strong>Container</strong> just below the form title. In its <strong>Collection</strong> property, type <em>instantiationErrorResponse.explanations</em> .<br>
+Inside this container, add a <strong>text</strong> widget. In its <strong>CSS classes</strong> property, type <em>text-danger</em> and <em>bg-danger</em> and in its <strong>text</strong> property, type <em>{{$item}}</em>.</p>
+<p>Now go back to the studio and run the process to test the form error messages on submit.<br>
+Setting a start date older than an end date will produce the following screen (given that other fields are set correctly):</p>
+<p><img src="images/7.3/InstantiationForm-errorOnSubmit.png" alt="Leave Request - error on instantiate process"></p>
+<h3>Use frontend validation</h3>
+<p>Let's add two more constraints to the leave request form :</p>
+<ul>
+<li><em>nbDays</em> must be more than 0 and less than a value retrieved externally (number of days the user has left)</li>
+<li><em>type</em> with value Other displays a <em>comment</em> field limited to 100 characters (the Human Resources officer needs to know what type of leave this is)</li>
+</ul>
+<h4>Number input value control</h4>
+<p>To help the user to fill out the form and tell him/her the number of days is valid according to the amount of days left, create a new variable <em>remainDays</em>. It will provide the number of days left for the leave type Annual leave.<br>
+In real life, it should be of type <strong>External API</strong>.
+For the sake of this turotial, just make it a JSON variable to test our form.
+The value is:</p>
+<pre><code>{
+  &quot;Personal leave&quot;: 2,
+  &quot;Annual leave&quot;: 12
+}
+</code></pre>
+<p>Then, on the <strong>Number of days</strong> input widget, set the <strong>Min value</strong> property to 0.5 and set the <strong>Max value</strong> property to <code>remaingDays[formInput.leaveRequest.type]</code>.<br>
+Doing this allows to validate the number of days value according to the leave type.</p>
+<p><img src="images/7.3/nbDays-widget-property.png" alt="Number of days Input widget - value control"></p>
+<p>Change the inputs order to give the form a more more natural flow (type before number of days).</p>
+<p>The form control of the number days input widget now exposes two new CSS classes for the validity of the input : <strong>ng-invalid-min</strong> and <strong>ng-invalid-max</strong>.
+In the same way, the $error will hold the attributes <strong>min</strong> and <strong>max</strong> when value is below minimum value or above maximum value respectively.</p>
+<p>On the form, if you set a wrong input in the <em>number of days</em> after setting the <em>type</em> to <strong>Personal Leave</strong>, it looks like this:</p>
+<p><img src="images/7.3/nbDays-value-control.png" alt="Number of days Input widget - value control -preview"></p>
+<h4>Text input value control</h4>
+<p>Now assume that in the studio Business Data Model, a new <em>comment</em> attribute has been added to the business object <strong>LeaveRequest</strong> with a matching contract input <em>comment</em>.
+This <em>comment</em> must be filled when the leave type is <em>Other</em>.</p>
+<p>To display this comment, add a <strong>textarea</strong> widget to the right of the type widget.<br>
+To only display the widget when the type <em>Other</em> is selected, change the <strong>Hidden</strong> property of this textarea to an expression (click <strong>f(x)</strong>) and set it to <code>formInput.leaveRequest.type !== 'Other'</code><br>
+To make it required when it is displayed, change the <strong>Required</strong> property to an expression and set it to <code>formInput.leaveRequest.type === 'Other'</code></p>
+<p>In the <strong>Label</strong> property, type <code>Comment</code>  and in the <strong>Value</strong> property, type <code>formInput.leaveRequest.comment</code>, as shown here:.</p>
+<p><img src="images/7.3/comment-widget-property.png" alt="Leave Request - Comment Widget properties"></p>
+<p>To compell the user to enter a text that will be the right size, add some form control on this widget by setting values to <em>5</em> to <strong>Value min length</strong> and <em>100</em> to <strong>Value max length</strong>.</p>
+<p>The form control of the <em>comment</em> textarea  widget now exposes two new CSS classes for the validity of the input: <strong>ng-invalid-minlength</strong> and <strong>ng-invalid-maxlength</strong>.<br>
+In the same way, the $error will hold the attribute <strong>minlength</strong> and <strong>maxlength</strong> when the text length is below minimum length or above maximum length respectively.</p>
+<p>Run your process and test your form with an incorrect comment size; it will look like this:</p>
+<p><img src="images/7.3/GeneratedForm-preview-comment-error.png" alt="Leave Request preview - Error on comment"></p>

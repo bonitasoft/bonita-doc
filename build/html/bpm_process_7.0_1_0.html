@@ -1,0 +1,270 @@
+<h2>process</h2>
+<h3>Description</h3>
+<p>Manage a <a href="key-concepts.md">process definition</a> (not to be confused with a <a href="#case">case</a>, which is a process instance).</p>
+<h3>Identifier</h3>
+<p>The ID of the process definition (a long value).</p>
+<h3>Representation</h3>
+<pre><code>{
+&quot;id&quot;:&quot;_the identifier of the process definition (long)_&quot;,
+&quot;icon&quot;:&quot;_icon path (string)_&quot;,
+&quot;displayDescription&quot;:&quot;_the human readable activity description (string)_&quot;,
+&quot;deploymentDate&quot;:&quot;_the date when the process definition was deployed (date)_&quot;,
+&quot;description&quot;:&quot;_the process description (string)_&quot;,
+&quot;activationState&quot;:&quot;_the state of the process definition (ENABLED or DISABLED)_&quot;,
+&quot;name&quot;:&quot;_the process name (string)_&quot;,
+&quot;deployedBy&quot;:&quot;_the id of the user who deployed the process (integer)_&quot;,
+&quot;displayName&quot;:&quot;_the human readbale process description (string)_&quot;,
+&quot;actorinitiatorid&quot;:&quot;_the id of the actor that can initiate cases of the process_&quot;,
+&quot;last_update_date&quot;:&quot;_the date when the process definition was last updated (date)_&quot;,
+&quot;configurationState&quot;:&quot;_the configuration state of the process (UNRESOLVED or RESOLVED)_&quot;,
+&quot;version&quot;:&quot;_the version of the process (string)_&quot;
+}
+</code></pre>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>POST - Create a process</li>
+<li>GET - Read a process or search for a process</li>
+<li>PUT - Update a process</li>
+</ul>
+<h3>Create a process</h3>
+<p>A process resource is created using the content of a <code>.bar</code> file that has previously been <a href="manage-files-using-upload-servlet-and-rest-api.md">uploaded</a>, using the <code>processUpload</code> servlet <code>http://.../bonita/portal/processUpload</code>,
+to get the process archive path.
+Request url
+API/bpm/process</p>
+<p>Request method</p>
+<p>POST</p>
+<p>Request payload</p>
+<p>{&quot;fileupload&quot;: &quot;the process archive path.&quot;}</p>
+<p>Response</p>
+<p>A process, in JSON</p>
+<h4>Example</h4>
+<p>Request url
+POST |/API/bpm/process</p>
+<p>Request payload</p>
+<pre><code>{
+&quot;fileupload&quot;: &quot;D:\bonita-studio\BonitaBPMSubscription-6.6.4\workspace\tomcat\bonita\client\tenants\1\tmp\tmp_4431838172282406107.bar&quot;
+}
+</code></pre>
+<p>Response payload</p>
+<pre><code>{
+&quot;id&quot;:&quot;8216934689697197160&quot;,&quot;icon&quot;:&quot;&quot;,&quot;displayDescription&quot;:&quot;&quot;,
+&quot;deploymentDate&quot;:&quot;2015-01-02, 15:04:30.527&quot;
+&quot;description&quot;:&quot;&quot;,
+&quot;activationState&quot;:&quot;DISABLED&quot;,
+&quot;name&quot;:&quot;Pool&quot;,&quot;deployedBy&quot;:&quot;4&quot;,
+&quot;displayName&quot;:&quot;Pool&quot;,
+&quot;actorinitiatorid&quot;:&quot;3&quot;, 
+&quot;last_update_date&quot;:&quot;2015-01-02 5:04:30.587&quot;,
+&quot;configurationState&quot;:&quot;RESOLVED&quot;,&quot;version&quot;:&quot;1.0&quot;
+}
+</code></pre>
+<h3>Read a process</h3>
+<p>Read a process definition
+Request url
+/API/bpm/process/{processId}</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload</p>
+<p>empty</p>
+<p>Response payload</p>
+<p>A process in JSON</p>
+<h4>Example</h4>
+<p>Request url
+GET |/API/bpm/process/1</p>
+<p>Response payload</p>
+<pre><code>{
+&quot;id&quot;:&quot;1&quot;,
+&quot;icon&quot;:&quot;/default/process.png&quot;,
+&quot;displayDescription&quot;:&quot;process description&quot;,
+&quot;deploymentDate&quot;:&quot;2015-01-02 14:21:18.421&quot;,
+&quot;description&quot;:&quot;another process description&quot;,
+&quot;activationState&quot;:&quot;ENABLED&quot;,
+&quot;name&quot;:&quot;Pool1&quot;,
+&quot;deployedBy&quot;:&quot;2&quot;,
+&quot;displayName&quot;:&quot;Pool1&quot;,
+&quot;actorinitiatorid&quot;:&quot;2&quot;,
+&quot;last_update_date&quot;:&quot;2015-01-02 14:21:18.529&quot;,
+&quot;configurationState&quot;:&quot;RESOLVED&quot;,
+&quot;version&quot;:&quot;1.0&quot;
+}
+</code></pre>
+<h3>Update a process</h3>
+<p>You can update the following fields of a process definition:</p>
+<ul>
+<li>displayDescription</li>
+<li>displayName</li>
+<li>activationState (to toggle between the possible values, DISABLED and ENABLED)
+Request url
+/API/bpm/process/<em>processId</em></li>
+</ul>
+<p>Request method</p>
+<p>PUT</p>
+<p>Request payload</p>
+<p>The fields to be updated, in JSON</p>
+<p>Response payload</p>
+<p>A process in JSON</p>
+<h4>Example</h4>
+<p>Request url
+PUT |/API/bpm/process/17</p>
+<p>Request payload</p>
+<pre><code>{
+&quot;displayName&quot;:&quot;Leave booking process&quot;
+}
+</code></pre>
+<p>Response payload</p>
+<pre><code>{
+&quot;id&quot;:&quot;1&quot;,
+&quot;icon&quot;:&quot;/default/process.png&quot;,
+&quot;displayDescription&quot;:&quot;process description&quot;,
+&quot;deploymentDate&quot;:&quot;2015-01-02 14:21:18.421&quot;,
+&quot;description&quot;:&quot;another process description&quot;,
+&quot;activationState&quot;:&quot;ENABLED&quot;,
+&quot;name&quot;:&quot;Pool1&quot;,
+&quot;deployedBy&quot;:&quot;2&quot;,
+&quot;displayName&quot;:&quot;Leave booking process&quot;,
+&quot;actorinitiatorid&quot;:&quot;2&quot;,
+&quot;last_update_date&quot;:&quot;2015-02-23 14:29:02.249&quot;,
+&quot;configurationState&quot;:&quot;RESOLVED&quot;,
+&quot;version&quot;:&quot;1.0&quot;
+}
+</code></pre>
+<h3>Search for a process</h3>
+<p>Search for processes that match the search criteria.
+Request url
+http://../API/bpm/process?<em>parameters</em></p>
+<p>Request method</p>
+<p>GET</p>
+<p>Request payload</p>
+<p>empty</p>
+<p>Response payload</p>
+<p>Matching processes in JSON</p>
+<h4>Parameters</h4>
+<ul>
+<li><a href="web-rest-api-details.md">Standard search parameters</a> <strong>p</strong> and <strong>c</strong> must be specified</li>
+<li>s: search on &quot;name&quot;, &quot;displayName&quot; or &quot;version&quot;</li>
+<li>o: can order by &quot;name&quot;, &quot;version&quot;, &quot;deploymentDate&quot;, &quot;deployedBy&quot;, &quot;activationState&quot;, &quot;configurationState&quot;, &quot;processId&quot;, &quot;displayName&quot;, &quot;lastUpdateDate&quot;, &quot;categoryId&quot;, &quot;label&quot;</li>
+<li>f: can filter on &quot;name&quot;, &quot;version&quot;, &quot;deploymentDate&quot;, &quot;deployedBy&quot;, &quot;activationState&quot; with the value DISABLED or ENABLED, &quot;configurationState&quot; with the value UNRESOLVED, or RESOLVED, &quot;processId&quot;, &quot;displayName&quot;, &quot;lastUpdateDate&quot;, &quot;categoryId&quot;, &quot;label&quot;, &quot;supervisor_id&quot;</li>
+<li>d: can deploy on &quot;deployedBy&quot;</li>
+</ul>
+<h3>Retrieve the design for a process</h3>
+<p>Process design can be retrived client side.
+Request url
+/API/bpm/process/<em>processId</em>/design</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Response payload</p>
+<p>The process design object. The JSON returned is a representation of the <a href="javadoc.md">DesignProcessDefinition</a> instance of the given process id.</p>
+<h3>Retrieve the instantiation contract for a process</h3>
+<p>Process instantiation contract elements can be retrived client side.
+Request url
+/API/bpm/process/<em>processId</em>/contract</p>
+<p>Request method</p>
+<p>GET</p>
+<p>Response payload</p>
+<p>The task contract elements</p>
+<h4>Example</h4>
+<p>Retrieve the instantiation contract for the process with id 8902137890939378455.
+Request url
+GET |/API/bpm/process/8902137890939378455/contract</p>
+<p>Response</p>
+<pre><code>{  
+   &quot;constraints&quot;:[  
+      {  
+         &quot;name&quot;:&quot;ticket_account&quot;,
+         &quot;expression&quot;:&quot;ticket_account!=null &amp;&amp; !ticket_account.toString().isEmpty()&quot;,
+         &quot;explanation&quot;:&quot;input ticket_account is mandatory&quot;,
+         &quot;inputNames&quot;:[  
+            &quot;ticket_account&quot;
+         ],
+         &quot;constraintType&quot;:&quot;MANDATORY&quot;
+      },
+      {  
+         &quot;name&quot;:&quot;ticket_description&quot;,
+         &quot;expression&quot;:&quot;ticket_description!=null &amp;&amp; !ticket_description.toString().isEmpty()&quot;,
+         &quot;explanation&quot;:&quot;input ticket_description is mandatory&quot;,
+         &quot;inputNames&quot;:[  
+            &quot;ticket_description&quot;
+         ],
+         &quot;constraintType&quot;:&quot;MANDATORY&quot;
+      },
+      {  
+         &quot;name&quot;:&quot;ticket_subject&quot;,
+         &quot;expression&quot;:&quot;ticket_subject!=null &amp;&amp; !ticket_subject.toString().isEmpty()&quot;,
+         &quot;explanation&quot;:&quot;input ticket_subject is mandatory&quot;,
+         &quot;inputNames&quot;:[  
+            &quot;ticket_subject&quot;
+         ],
+         &quot;constraintType&quot;:&quot;MANDATORY&quot;
+      }
+   ],
+   &quot;inputs&quot;:[  
+      {  
+         &quot;description&quot;:null,
+         &quot;name&quot;:&quot;ticket_account&quot;,
+         &quot;multiple&quot;:false,
+         &quot;type&quot;:&quot;TEXT&quot;
+         &quot;inputs&quot;:[]
+      },
+      {  
+         &quot;description&quot;:null,
+         &quot;name&quot;:&quot;ticket_description&quot;,
+         &quot;multiple&quot;:false,
+         &quot;type&quot;:&quot;TEXT&quot;
+         &quot;inputs&quot;:[]
+      },
+      {  
+         &quot;description&quot;:null,
+         &quot;name&quot;:&quot;ticket_subject&quot;,
+         &quot;multiple&quot;:false,
+         &quot;type&quot;:&quot;TEXT&quot;
+         &quot;inputs&quot;:[]
+      }
+   ]
+}
+</code></pre>
+<h3>Start a process using an instantiation contract</h3>
+<p>Request url
+/API/bpm/process/<em>processId</em>/instantiation</p>
+<p>Request method</p>
+<p>POST</p>
+<p>Request payload</p>
+<p>Contract element values</p>
+<p>Response payload</p>
+<p>the created case ID 201 OK or a contract violation explanation in case of a 400 Bad request</p>
+<h4>Example 1</h4>
+<p>Start the process with id 8902137890939378455 providing correct contract values
+Request url
+POST |/API/bpm/process/8902137890939378455/instantiation</p>
+<p>Request payload</p>
+<pre><code>{  
+   &quot;ticket_account&quot;:&quot;CustomerA&quot;,
+   &quot;ticket_description&quot;:&quot;issue description&quot;,
+   &quot;ticket_subject&quot;:&quot;Issue 1&quot;
+}
+</code></pre>
+<p>Response</p>
+<pre><code>{
+&quot;caseId&quot;:&quot;125713789879465465&quot;
+}
+</code></pre>
+<h4>Example 2</h4>
+<p>Start the process with id 8902137890939378455 providing incorrect contract values
+Request url
+POST |/API/bpm/process/8902137890939378455/instantiation</p>
+<p>Request payload</p>
+<pre><code>{  
+   &quot;wrongElement&quot;:&quot;This is not the right contract element&quot;
+}
+</code></pre>
+<p>Response</p>
+<pre><code>400 Bad request
+{  
+   &quot;exception&quot;:&quot;class org.bonitasoft.engine.bpm.contract.ContractViolationException&quot;,
+   &quot;message&quot;:&quot;USERNAME=walter.bates | Contract is not valid: &quot;,
+   &quot;explanations&quot;:[  
+      &quot;Expected input [ticket_account] is missing&quot;,
+      &quot;Expected input [ticket_description] is missing&quot;,
+      &quot;Expected input [ticket_subject] is missing&quot;
+   ]
+}</code></pre>
