@@ -51,7 +51,7 @@ c = c as int
 def usersInformation = []
 
 // Get the list of user  
-List&lt;User&gt; users = context.apiClient.identityAPI.getUsers(p*c, c, UserCriterion.FIRST_NAME_ASC)
+List<User> users = context.apiClient.identityAPI.getUsers(p*c, c, UserCriterion.FIRST_NAME_ASC)
 
 // Iterate over each user
 for (user in users) {
