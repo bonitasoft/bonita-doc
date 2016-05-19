@@ -42,17 +42,16 @@ To upgrade a Bonita BPM platform from Community edition to a Subscription editio
 4. Start the Bonita BPM Subscription platform for the first time (this will initialize the platform data).
 5. Log in to the Bonita BPM Portal as the technical user (default login and password: install) to make sure that your installation is functional.
 6. Shut down the server.
-7. Reset the Bonita BPM Portal menus by deleting this file:
-`/engine-server/work/tenants/1/profiles.md5`
-8. Overwrite the `/engine-server/work/tenants/1/processes` folder of your Subscription edition installation with your 
+7. Reset the Bonita BPM Portal menus by deleting this file: `<bonita_home>/engine-server/work/tenants/1/profiles.md5`
+8. Overwrite the `<bonita_home>/engine-server/work/tenants/1/processes` folder of your Subscription edition installation with your 
 backup files for the this folder from the Community edition. This will transfer your process definitions. 
 9. If the Community edition platform was running on a H2 database, use the files from your Community edition back to overwrite the following files of your Subscription edition installation:  
-`/engine-server/work/platform/bonita_journal.db.h2.db`  
-`/engine-server/work/platform/business_data.db.h2.db`
+`<bonita_home>/engine-server/work/platform/bonita_journal.db.h2.db`  
+`<bonita_home>/engine-server/work/platform/business_data.db.h2.db`
 10. If the Community edition platform was not running on a H2 database:
     1. From your Subscription edition installation, delete these files:  
-   `/engine-server/work/platform/bonita_journal.db.h2.db`  
-   `/engine-server/work/platform/business_data.db.h2.db`
+   `<bonita_home>/engine-server/work/platform/bonita_journal.db.h2.db`  
+   `<bonita_home>/engine-server/work/platform/business_data.db.h2.db`
    2. Configure your Subscription edition platform to use your Community edition database.
 11. Start the Subscription edition platform.
 12. Log in to the Bonita BPM Portal with your administration or personal account (it should have been imported during the upgrade).
