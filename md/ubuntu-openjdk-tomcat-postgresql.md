@@ -183,6 +183,6 @@ Start Tomcat: `sudo service tomcat7 start`
 
 ### First connection
 
-You can access the Bonita BPM Portal using your web browser, just type the following URL `http://:8080/bonita` (your\_server\_hostname can be either an IP address or a name).  
+You can access the Bonita BPM Portal using your web browser, just type the following URL `http://<your_server_hostname>:8080/bonita` (your\_server\_hostname can be either an IP address or a name).  
 You can log in using the tenant administrator login: `install` and password: `install`.  
 The first step is to create at least one user and add it to "administrator" and "user" profiles.
