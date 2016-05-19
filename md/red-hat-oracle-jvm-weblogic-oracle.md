@@ -153,35 +153,34 @@ Follow this procedure to configure the bonitaSequenceManagerDS datasource, and (
 14. Select **AdminServer** to associate your datasource with the default server.
 15. Click **_Finish_**.
 
-## Bonita BPM platform
+## Bonita BPM Platform
 
 1. Download the deploy.zip file from the [Bonitasoft site](http://www.bonitasoft.com/downloads-v2) for the Community edition 
 or from the [Customer Portal](https://customer.bonitasoft.com/download/request) for Subscription editions.
-2. Unzip the deploy bundle. The path to the unzipped deploy bundle will be referred to as ``
+2. Unzip the deploy bundle. The path to the unzipped deploy bundle will be referred to as `<DEPLOY_HOME>`
 3. Create a new folder to store Bonita "home" folder. For the Community or Subscription edition, copy bonita "home" folder from deploy bundle folder
-(`/bonita_home-x.y.z`) (where `x.y.z` is the version number) to the newly created folder. 
-The full path including `bonita_home-x.y.z`
-will be referred as ``.
-4. Edit `/engine-server/conf/platform/bonita-platform-community-custom.properties` and update the following properties:
+(`<DEPLOY_HOME>/bonita_home-x.y.z`) (where x.y.z is the version number) to the newly created folder. The full, path including bonita_home-x.y.z will be referred as `<BONITA_HOME>`.
+4. Edit `<BONITA_HOME>/engine-server/conf/platform/bonita-platform-community-custom.properties` and update the following properties:
   * database.journal.datasource.name=bonitaDS
   * database.sequence.manager.datasource.name=bonitaSequenceManagerDS
   * hibernate.transaction.jta\_platform = org.hibernate.service.jta.platform.internal.WeblogicJtaPlatform
   * db.vendor=oracle
   * transaction.manager=java:comp/UserTransaction
   * userTransaction=java:comp/UserTransaction
-5. Edit `/engine-server/conf/tenants/template/bonita-tenant-sp-custom.properties` and update the following property:
+5. Edit `<BONITA_HOME>/engine-server/conf/tenants/template/bonita-tenant-sp-custom.properties` and update the following property:
   * database.journal.datasource.name=bonitaDS
-6. Edit `/engine-server/conf/tenants/tenant-template/bonita-tenant-community-custom.properties` and update the following properties:
+6. Edit `<BONITA_HOME>/engine-server/conf/tenants/tenant-template/bonita-tenant-community-custom.properties` and update the following properties:
   * bdm.db.vendor=oracle
   * bdm.datasource.jndi.path=BusinessDataDS
   * bdm.notmanageddatasource.jndi.path=NotManagedBizDataDS
   * bdm.hibernate.transaction.jta\_platform=org.hibernate.service.jta.platform.internal.WeblogicJtaPlatform
    For each new tenant created, the structure will be as shown above.
 7. Configure JVM system properties:
-  * Edit `/user_projects/domains//bin/startWebLogic.sh` and set: `JAVA_OPTIONS="${SAVE_JAVA_OPTIONS} -Dbonita.home="`
-8. Add the license file to your ``folder
-9. Add SLF4J libraries (API and JDK back-end located in `/Tomcat-6.0.37/lib`) to bonita.war file to `WEB_INF/lib/`
-(located in: `/Tomcat-6.0.37/webapps`).
+  * Edit `<WEBLOGIC_HOME>/user_projects/domains/<DOMAIN_NAME>/bin/startWebLogic.sh` and set:
+   `JAVA_OPTIONS="${SAVE_JAVA_OPTIONS} -Dbonita.home=<BONITA_HOME>"`
+8. Add the license file to your `<BONITA_HOME>` folder
+9. Add SLF4J libraries (API and JDK back-end located in `<DEPLOY_HOME>/Tomcat-6.0.37/lib`) to bonita.war file to `WEB_INF/lib/`
+(located in: `<DEPLOY_HOME>/Tomcat-6.0.37/webapps`).
 
    **Note:**To add a file to a WAR you can use a tool such as 7-zip or command line: `jar uf bonita.war WEB-INF/lib/slf4j-api-1.6.1.jar`.
 10. Check that the weblogic.xml descriptor is present in `bonita.war/WEB-INF` folder of the war.
@@ -217,7 +216,7 @@ The default values for login and password are:
 * Login = install
 * Password = install
 
-The login and password are read from the `/engine-server/conf/tenants//bonita-tenant-community-custom.properties` file.
+The login and password are read from the `<BONITA_HOME>/engine-server/conf/tenants/<tenant_id>/bonita-tenant-community-custom.properties` file.
 
 These settings are also located in client side configuration file `client/platform/conf/platform-tenant-config.properties`.
 
@@ -225,7 +224,7 @@ These settings are also located in client side configuration file `client/platfo
 
 To modify the default Technical user/password, update the following files with the same values:
 
-* `engine-server/conf/tenants//bonita-tenant-community-custom.properties`
+* `engine-server/conf/tenants/<tenant_id>/bonita-tenant-community-custom.properties`
 * `client/platform/conf/platform-tenant-config.properties`
 
 ## Create an Administrator user
