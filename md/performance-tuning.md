@@ -260,7 +260,7 @@ For Tomcat:
 
 For JBoss:
 
-* For both bonitaDS and bonitaSequenceManagerDS, edit `server/default/deploy/bonita-ds.xml` and set `yourvalue`.
+* For both bonitaDS and bonitaSequenceManagerDS, edit `server/default/deploy/bonita-ds.xml` and set `<max-pool-size>yourvalue</max-pool-size>`.
 
 <a id="volume"/>
 
