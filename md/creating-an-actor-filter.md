@@ -122,7 +122,7 @@ For details of the APIs, the methods and related objects, see the [Javadoc](java
 ### Actor filter example code
 
 The following code is an example of the initiator manager actor filter. 
-```java
+```groovy
 public class ProcessinitiatorManagerUserFilter extends AbstractUserFilter {
 
     @Override
@@ -130,7 +130,7 @@ public class ProcessinitiatorManagerUserFilter extends AbstractUserFilter {
     }
 
     @Override
-    public List filter(final String actorName) throws UserFilterException {
+    public List<Long> filter(final String actorName) throws UserFilterException {
         try {
               final long processInstanceId = getExecutionContext().getParentProcessInstanceId();
               long processInitiator = getAPIAccessor().getProcessAPI().getProcessInstance(processInstanceId).getStartedBy();
