@@ -136,10 +136,6 @@ Request url
   _Example_: `/API/bdm/businessData/com.company.model.Client/2/industry`
 * **Method**  
   `GET`
-* **Data Params**  
-* **Request Payload**  
-  ```json
-  ```
 * **Success Response**  
   A business data (in JSON format)
   * **Code**: 200
@@ -168,9 +164,6 @@ Get the business data specified by their identifiers.
   `GET`
 * **Data Params**  
   * ids - list of persistenceIds (comma separated)
-* **Request Payload**  
-  ```json
-  ```
 * **Success Response**  
   An array of business data (in JSON format). It can be an empty array if no identifiers refer to existing data.
   * **Code**: 200

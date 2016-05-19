@@ -127,7 +127,7 @@ You can update the following parameters:
   `/API/living/application/:applicationId`
 * **Method**  
   `PUT`
-* **Data Params**  
+* **Request Payload**  
   A partial representation of an application with parameters to update
   ```json
   {
@@ -144,11 +144,12 @@ You can update the following parameters:
 ### Search for an application
 
 * **URL**  
-  `/API/living/application?p={page}&c={count}&o={order}&s={query}&f={filter\_name}={filter\_value}&d={field\_to\_deploy}`
+  `/API/living/application`
   _Example_: /API/living/application?f=token%3dmyapp&d=createdBy
 * **Method**  
   `GET`
 * **URL Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available to search form mappings.  
   **Required**
   * c: number of result per page to retrieve
   * p: page number to retrieve
@@ -156,7 +157,7 @@ You can update the following parameters:
   **Optional**:
   * o: can order on "id","creationDate", "createdBy", "profileId", "token", "displayName", "updatedBy", "lastUpdateDate", "version" 
   * s: can search on "token", "displayName", "version" 
-  * f: can filter on "token", "displayName", "version", "profileId", "creationDate", "createdBy", "updatedBy" , "lastUpdateDate"
+  * f: can filter on "token", "displayName", "version", "profileId", "creationDate", "createdBy", "updatedBy" , "lastUpdateDate" with the format `f={filter\_name}={filter\_value}`
   * d: can directly access the details by of the "createdBy" or "updatedBy" user, or of the "profileId"
 
 * **Success Response**
@@ -281,7 +282,6 @@ The methods used for this resource are:
   `http://../API/living/application-menu`
 * **Method**  
   POST
-* **Data Params**  
 * **Request Payload**  
   A partial representation of an application menu in JSON
   ```json
@@ -366,14 +366,17 @@ The methods used for this resource are:
 ### Search the application menu items
 
 * **URL**  
-  `http://../API/living/application-menu?p={page}&c={count}&o={order}&s={query}&f={filter\_name}={filter\_value}&d={field\_to\_deploy}`  
+  `http://../API/living/application-menu`  
   _Example_: `http://../API/living/application-menu?p=0&c=2&f=applicationId%3d1`
 * **Method**  
   `GET`
 * **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available to search form mappings.
+  * c: number of result per page
+  * p: page number
   * o: can order on "id", "displayName", "applicationId", "applicationPageId", "index", "parentId"
   * s: search on "displayName" 
-  * f: can filter on "id", "displayName", "applicationId", "applicationPageId", "index", "parentId"
+  * f: can filter on "id", "displayName", "applicationId", "applicationPageId", "index", "parentId" with the format `f={filter\_name}={filter\_value}`
   * d: can deploy on "applicationPageId"
 * **Success Response**  
   A JSON array of application menu
@@ -482,14 +485,14 @@ The methods used for this resource are:
 ### Search for an application page
 
 * **URL**  
-  `http://../API/living/application-page?p={page}&c={count}&o={order}&s={query}&f={filter\_name}={filter\_value}&d={field\_to\_deploy}`  
+  `http://../API/living/application-page`  
   _Example_: `http://../API/living/application-page?p=0&c=2&d=pageId&f=applicationId%3d1`
 * **Method**  
   `GET`
 * **Data Params**  
   * o: can order on "id", "token", "applicationId", "pageId"
   * s: search on "token" 
-  * f: can filter on "id", "token", "applicationId", "pageId"
+  * f: can filter on "id", "token", "applicationId", "pageId" with the format `f={filter\_name}={filter\_value}`
   * d: can deploy the "applicationId", "pageId"
 * **Success Response**  
   * **Code**: 200

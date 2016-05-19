@@ -123,6 +123,8 @@ Use the DELETE request to remove multiple resources.
 Example
 `http://.../API/identity/membership/ `
 
+<a name="resource_search"/>
+
 ## Search for a resource
 
 The required object is specified with a set of filters in the request URL. The URL parameters must be URL-encoded.
@@ -139,7 +141,7 @@ The available filters are the attributes of the item plus some specific filters 
 | Response | an array of items in JSON| 
 
 Example
-`http://.../API/identity/user?p=0&c=10&o=firstname&s=test&f[]=manager_id:3`
+`http://.../API/identity/user?p=0&c=10&o=firstname&s=test&f=manager_id=3`
 
 For a GET method that retrieves more than one instance of a resource, you can specify the following request parameters:
 
