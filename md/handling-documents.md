@@ -1,4 +1,4 @@
-# Handling documents
+# Handle documents
 
 This page shows an example of how to manipulate documents in a Bonita BPM process using the Java APIs. 
 
