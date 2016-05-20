@@ -10,7 +10,7 @@ You are recommended to use the [UI designer](ui-designer-overview.md) to create 
 
 You can also use external forms referenced by URL. If an external URL is being used, the information submitted to the Engine by the form must fulfill the contract. You can store external forms wherever you want as long as they are accessible by URL. 
 
-For certain cases, you can specify that there is no form. This is required for a process that is instantiated programmatically (by a call activity or by an API call from an application, for example), or for a process or a task that does not have any contract input.
+For certain cases, you can specify that there is no form. This is required for a process that is instantiated programmatically (by a call activity or by an API call from an application, for example), or for a process or a task that does not have any contract input.  
 A human task with no form and no contract represents a manual task, completed outside Bonita BPM. The user will indicate in the application or Portal that the manual task is complete. A process or a human task with a contract but no form expects the information needed to fulfill the contract to be provided programmatically.
 
 For backward compatibility, so that processes created in Bonita BPM 6.x can continue to be used and maintained, the [6.x legacy form builder](6-x-legacy-forms.md) and associated tooling are still supported. You are recommended to [migrate 6.x forms to the UI designer](migrate-a-form-from-6-x.md) so that you can take advantage of the new features in Bonita BPM 7.x. 
