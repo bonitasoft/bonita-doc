@@ -2,11 +2,11 @@
 
 This connector will send an email message when activated. There is no output returned.
 
-**Note:** There is no way to set proxy server settings in this wizard. 
+**Note:** There is no way to set proxy server settings in this wizard.  
 If there is a Proxy server setup in the company, ask the IT department for the specific configuration.
 
-Use the wizard and the information below to configure the connector. 
-You can use the expression editor to specify an expression to provide the value, including scripts or variables. 
+Use the wizard and the information below to configure the connector.  
+You can use the expression editor to specify an expression to provide the value, including scripts or variables.   
 The expression must return a value of the required type. To specify the message content, you can also use a rich text editor.
 
 **Connection information:**
