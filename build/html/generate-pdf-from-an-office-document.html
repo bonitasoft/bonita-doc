@@ -1,9 +1,9 @@
 <h1>Generate PDF from an Office document</h1>
-<p>The Office document converter connector converts a document from <code>.odt</code> or <code>.docx</code> format to PDF.
-It can be used in conjunction with the <a href="insert-data-in-a-docx-odt-template.md">Insert data in a .docx/.odt template connector</a>.
+<p>The Office document converter connector converts a document from <code>.odt</code> or <code>.docx</code> format to PDF.<br>
+It can be used in conjunction with the <a href="insert-data-in-a-docx-odt-template.md">Insert data in a .docx/.odt template connector</a>.<br>
 The generated document can then be sent by email or stored in an external information system using the relevant connector.</p>
-<p>For proper conversion, you must specify the character encoding that is used in the source document. On most Windows configurations, encoding <strong>&quot;windows-1252&quot;</strong> is used.
-UTF-8 is assumed if you do not specify the encoding (that is, if the field is left blank in the connector configuration wizard).
+<p>For proper conversion, you must specify the character encoding that is used in the source document. On most Windows configurations, encoding <strong>&quot;windows-1252&quot;</strong> is used.<br>
+UTF-8 is assumed if you do not specify the encoding (that is, if the field is left blank in the connector configuration wizard).<br>
 <strong>Warning:</strong> As an example when using special characters like '€' with an invalid encoding will generate a PDF without those characters.</p>
 <h2>Known limitations</h2>
 <p><strong>Warning:</strong> there is known issue when adding an image in a docx using drag'n'drop instead of a copy/paste. The image is not render properly when converted into PDF.</p>
@@ -23,6 +23,6 @@ UTF-8 is assumed if you do not specify the encoding (that is, if the field is le
 <li>Image positioning</li>
 <li>Drawing shapes</li>
 <li>Alignment of some text elements</li>
-<li>HTML convertion generates a single html file. For that matter, linked resources (like images, ...) are not supported. If you have images, use PDF conversion instead.
+<li>HTML convertion generates a single html file. For that matter, linked resources (like images, ...) are not supported. If you have images, use PDF conversion instead.<br>
 This connector is build upon <strong>XdocReport</strong> third party library, for more information check their Wiki at <a href="https://github.com/opensagres/xdocreport/wiki">https://github.com/opensagres/xdocreport/wiki</a></li>
 </ul>

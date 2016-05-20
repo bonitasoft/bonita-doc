@@ -1,11 +1,11 @@
 <h1>Insert data in a .docx/.odt template</h1>
 <p>The <strong>insert data in a .docx/.odt template connector</strong> allows to fill a specified template file by inserting values coming from the current process instance, for example from a form attached to a human task.</p>
-<p>The template is a LibreOffice/OpenOffice <code>.odt</code> file or a Microsoft Word<code>.docx</code> file with special placeholders called <code>keys</code>.
+<p>The template is a LibreOffice/OpenOffice <code>.odt</code> file or a Microsoft Word<code>.docx</code> file with special placeholders called <code>keys</code>.<br>
 A key is a replaceable element in the template that is identified with a dollar sign and surrounded by braces, (eg. ${element}), following the <a href="https://velocity.apache.org/engine/releases/velocity-1.7/user-guide.html">Velocity Template Language</a>.</p>
 <p>To configure the connector for a task, add a connector (in or out) to the task, choose the &quot;Office&quot; category, and select &quot;insert data in a .dox/odt template&quot;.</p>
-<p>In the connector configuration, the keys are mapped to variables from the process or from any other data source.
-At some point in the process instance, the template file must be set as the content of a document created at pool level.
-When the connector runs, it creates a file based on the template and inserts the current values of the relevant variables into the appropriate placeholders (keys) in the file.
+<p>In the connector configuration, the keys are mapped to variables from the process or from any other data source.<br>
+At some point in the process instance, the template file must be set as the content of a document created at pool level.<br>
+When the connector runs, it creates a file based on the template and inserts the current values of the relevant variables into the appropriate placeholders (keys) in the file.<br>
 The generated file can replace the template in the same document or be stored in another document of the process. A common usage is to send the document by email or store it in an external information system using another connector.</p>
 <h2>How to insert <code>keys</code> in a template file</h2>
 <h3>Using Word (docx) - Tested versions are <strong>Microsoft Word 2007/2010</strong>, may work on later versions</h3>
@@ -25,7 +25,7 @@ The generated file can replace the template in the same document or be stored in
 <li>Insert &gt; Fields &gt; More fields...</li>
 <li>Go to Variables tab, select UserField and use a template (see Velocity templating language) as value (eg: ${name}, ${user.Name}...etc)</li>
 <li>Choose Text format</li>
-<li>Click Insert
+<li>Click Insert<br>
 For further information about the template design, <a href="https://code.google.com/p/xdocreport/wiki/DesignReport">click here</a>
 <strong>Warning:</strong> there is a known issue when adding an image in a .docx using drag'n'drop instead of a copy/paste. The image is not rendered properly if you convert the generated file into PDF.</li>
 </ul>
@@ -39,8 +39,7 @@ This .docx file uses keys, most of which will be replaced by values from busines
 <h3>Connector configuration</h3>
 <p>The configuration is as follows:</p>
 <p><img src="images/7.3/images-6_0/document_templating_input_mappings.png" alt=""></p>
-<p>In this example, the key named <code>user</code> is mapped to the business variable <code>user</code>, the key named <code>leave</code> is mapped to the business variable <code>studyLeave</code>,
-and the key named <code>today</code> is mapped to a groovy script expression with the following content:</p>
+<p>In this example, the key named <code>user</code> is mapped to the business variable <code>user</code>, the key named <code>leave</code> is mapped to the business variable <code>studyLeave</code>, and the key named <code>today</code> is mapped to a groovy script expression with the following content:</p>
 <pre><code class="language-groovy">        import java.text.SimpleDateFormat;
         new SimpleDateFormat(&quot;yyyy/MM/dd&quot;).format(new Date())
 </code></pre>
@@ -51,9 +50,9 @@ and the key named <code>today</code> is mapped to a groovy script expression wit
 </ul>
 <p>And the output file mapping:</p>
 <p><img src="images/7.3/images-6_0/document_templating_outputs.png" alt=""></p>
-<p>In this business example, the requesting user enters personal information in a process form. In a subsequent step, the reviewing user adds Approval information. The entered values are then provided as inputs to the <strong>insert data in a .docx/.odt template connector</strong> to replace the keys.
-The generated output file is then stored in a document of the process.
-This connector is built upon <strong>XdocReport</strong> third party library, for more information check their Wiki at <a href="https://github.com/opensagres/xdocreport/wiki">https://github.com/opensagres/xdocreport/wiki</a>
+<p>In this business example, the requesting user enters personal information in a process form. In a subsequent step, the reviewing user adds Approval information. The entered values are then provided as inputs to the <strong>insert data in a .docx/.odt template connector</strong> to replace the keys.<br>
+The generated output file is then stored in a document of the process.<br>
+This connector is built upon <strong>XdocReport</strong> third party library, for more information check their Wiki at <a href="https://github.com/opensagres/xdocreport/wiki">https://github.com/opensagres/xdocreport/wiki</a><br>
 You will find out advanced report design documentation:</p>
 <ul>
 <li><a href="https://github.com/opensagres/xdocreport/wiki/DocxReportingJavaMainListFieldAdvancedTable">Loop for keys in table rows</a></li>

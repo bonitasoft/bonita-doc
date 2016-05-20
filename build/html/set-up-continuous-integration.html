@@ -128,12 +128,12 @@ getIdentityAPI().importOrganization(organizationContent);
 </ol>
 <pre><code class="language-groovy">@Test
 public void deploy() throws Exception{
-//Retrieve automatically generated bars as a Map
-Map bars = getBars();
+//Retrieve automatically generated bars as a Map&lt;filename, fileContent&gt;
+Map&lt;String, InputStream&gt; bars = getBars();
     Assert.assertTrue(&quot;No bar found in resources&quot;,!bars.isEmpty());
 
 //For each bar deploy and enable it
-for(Entry entry : bars.entrySet()){
+for(Entry&lt;String, InputStream&gt; entry : bars.entrySet()){
 	BusinessArchive archive = BusinessArchiveFactory.readBusinessArchive(entry.getValue()) ;
 		final String entryKey = entry.getKey();
 	ProcessDefinition def = getProcessAPI().deploy(archive);

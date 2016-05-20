@@ -4,7 +4,7 @@
 <p>The search options specify that the list is sorted by deployment date, the maximum number of results to list is 100, and the list starts with the first results (that is, the processes that were deployed first).</p>
 <pre><code class="language-java">final ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(apiSession);
 final SearchOptions searchOptions = new SearchOptionsBuilder(0, 100).sort(ProcessDeploymentInfoSearchDescriptor.DEPLOYMENT_DATE, Order.DESC).done();
-final SearchResult deploymentInfoResults = processAPI.searchProcessDeploymentInfos(searchOptions);
+final SearchResult&lt;ProcessDeploymentInfo&gt; deploymentInfoResults = processAPI.searchProcessDeploymentInfos(searchOptions);
 </code></pre>
 <h2>Enable a process and start an instance</h2>
 <p>After a process is deployed it must be enabled.</p>
@@ -32,7 +32,7 @@ System.out.println(&quot;A new process instance was started with id: &quot; + pr
         processAPI = TenantAPIAccessor.getProcessAPI(apiSession);
         long processDefinitionId = processAPI.getProcessDefinitionId(processDefinitionName, processVersion);
         
-        List listOperations = new ArrayList();
+        List&lt;Operation&gt; listOperations = new ArrayList&lt;Operation&gt;();
         for (String variableName : variables.keySet()) {
             if (variables.get(variableName) == null)
 continue;
@@ -58,14 +58,14 @@ private Operation buildAssignOperation(final String dataInstanceName,
 </code></pre>
 <h3>Set variables of any type and start a process instance</h3>
 <p>In this example, <code>createCase</code> takes the process definition name, the process version, a map of variable names and objects, and the session identifier. The <code>startProcess</code> method, which creates the process instance, takes a list of operations, not a map of variables, so the map must be converted into a list of operations that will set the values of the variables in the process instance. For each variable in turn, the example builds an expression that assigns the value to the variable to the object supplied in the map, specifying the data type by identifying the class of the object. These expressions are concatenated into a list of operations, which is used to initialize the variables when the process instance is created.</p>
-<pre><code class="language-java">public void createCase(String processDefinitionName, String processVersion, Map variables, ProcessAPI processAPI) {
+<pre><code class="language-java">public void createCase(String processDefinitionName, String processVersion, Map&lt;String, Object&gt; variables, ProcessAPI processAPI) {
 
     try {
 
             long processDefinitionId = processAPI.getProcessDefinitionId(processDefinitionName, processVersion);
             // ----- create list of operations -----
-            List listOperations = new ArrayList();
-            Map listVariablesSerializable = new HashMap();
+            List&lt;Operation&gt; listOperations = new ArrayList&lt;Operation&gt;();
+            Map&lt;String, Serializable&gt; listVariablesSerializable = new HashMap&lt;String, Serializable&gt;();
 
             for (String variableName : variables.keySet()) {
 
@@ -136,7 +136,7 @@ processAPI.executeFlowNode(activityInstanceID);
 <pre><code class="language-java">final ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(apiSession);
 final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
 builder.filter(ProcessInstanceSearchDescriptor.STARTED_BY, apiSession().getUserId());
-final SearchResult processInstanceResults = processAPI.searchOpenProcessInstances(builder.done());
+final SearchResult&lt;ProcessInstance&gt; processInstanceResults = processAPI.searchOpenProcessInstances(builder.done());
 </code></pre>
 <h2>List the open instances of a process</h2>
 <p>This example shows you how to list the open instances of a specified process.</p>
@@ -144,7 +144,7 @@ final SearchResult processInstanceResults = processAPI.searchOpenProcessInstance
 <pre><code>final ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(apiSession);
 final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
 builder.filter(ProcessInstanceSearchDescriptor.PROCESS_DEFINITION_ID, processDefinitionID);
-final SearchResult processInstanceResults = processAPI.searchOpenProcessInstances(builder.done());
+final SearchResult&lt;ProcessInstance&gt; processInstanceResults = processAPI.searchOpenProcessInstances(builder.done());
 </code></pre>
 <h2>Get the history for a case</h2>
 <p>This example shows how to get the history for a case.</p>
@@ -158,7 +158,7 @@ final ArchivedProcessInstance archivedProcessInstance = processAPI.getArchivedPr
 <pre><code class="language-java">final ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(apiSession);
 final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
 builder.filter(ArchivedProcessInstancesSearchDescriptor., );
-final SearchResult archivedProcessInstanceResults = processAPI.searchArchivedProcessInstances(builder.done());
+final SearchResult&lt;ArchivedProcessInstance&gt; archivedProcessInstanceResults = processAPI.searchArchivedProcessInstances(builder.done());
 </code></pre>
 <h2>Stop a process instance</h2>
 <p>This example shows how to stop (or cancel) an active process instance.</p>
@@ -188,7 +188,7 @@ System.out.println(&quot;A new process was deployed with id: &quot; + processDef
 </code></pre>
 <p>Once the process is deployed, it's necessary to <strong>map the actors</strong> defined in the process to existing users in the database before enabling the process. In this example, the actor defined in the process will be mapped to the current logged in user, whose id is available in the session (attention, this user cannot be the technical user):</p>
 <pre><code class="language-java">// map the actor &quot;delivery&quot; to the current logged in user
-final List actors = processAPI.getActors(processDefinition.getId(), 0, 1, ActorCriterion.NAME_ASC);
+final List&lt;ActorInstance&gt; actors = processAPI.getActors(processDefinition.getId(), 0, 1, ActorCriterion.NAME_ASC);
 processAPI.addUserToActor(actors.get(0).getId(), session.getUserId());
 </code></pre>
 <p>At this point, the process is deployed but not enabled. This means that no instances of this process can be started. To <strong>enable the process</strong>, call the method enableProcess:</p>

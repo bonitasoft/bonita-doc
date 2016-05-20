@@ -1,4 +1,4 @@
-<h1>Handling documents</h1>
+<h1>Handle documents</h1>
 <p>This page shows an example of how to manipulate documents in a Bonita BPM process using the Java APIs.</p>
 <p>A document is treated in a similar way to a variable in Bonita BPM Engine database. It is defined in Bonita BPM Studio or programmatically, and is stored in the Bonita BPM Engine database. Inside a process instance, a document is a byte stream.</p>
 <h2>Configure a process document</h2>
@@ -43,7 +43,7 @@ public static ByteArrayOutputStream loadFile(String fileName) {
 </code></pre>
 <h2>Create a case with a document</h2>
 <p>The following method, <code>createCaseWithDocument</code>, creates a case and attaches a document to it.</p>
-<pre><code class="language-java">public static void createCaseWithDocument(String processDefinitionName, String processVersion, Map variables, Map documents, ProcessAPI processAPI)
+<pre><code class="language-java">public static void createCaseWithDocument(String processDefinitionName, String processVersion, Map&lt;String, Object&gt; variables, Map&lt;String, Object&gt; documents, ProcessAPI processAPI)
     throws ProcessDefinitionNotFoundException, InvalidExpressionException, ProcessActivationException, ProcessExecutionException {
 
     long processDefinitionId = processAPI.getProcessDefinitionId(processDefinitionName, processVersion);

@@ -1,6 +1,6 @@
 <h1>Access business data from a custom page</h1>
 <h2>Overview</h2>
-<p>The aim of this tutorial is to show how to benefit from the two technologies <strong>Custom pages</strong> and <strong>BDM</strong>.
+<p>The aim of this tutorial is to show how to benefit from the two technologies <strong>Custom pages</strong> and <strong>BDM</strong>.<br>
 It will describe how to display Business Data inside a Custom page.</p>
 <p><strong>Note:</strong> This information applies to custom pages created manually.
 If you <a href="create-or-modify-a-page.md">create a page using the UI designer</a>, access business data using the <a href="bdm-api.md">REST BDM API</a>.</p>
@@ -53,11 +53,12 @@ There are many ways to do that with standard .html, depending on your needs.</p>
 <h3>Notes</h3>
 <ol>
 <li>
-<p>When you are developing your custom page, be aware that if you accidentally stop the Bonita BPM Studio, by default this will erase the tenant filesystem and database, so you'd lose your work.
+<p>When you are developing your custom page, be aware that if you accidentally stop the Bonita BPM Studio, by default this will erase the tenant filesystem and database, so you'd lose your work.<br>
 A good idea is to prevent database deletion on the Bonita BPM Studio, Go to Preferences &gt; database and uncheck clean database on exit.</p>
 </li>
 <li>
-<p>If the custom page is not trivial, it's often a good idea to use a groovy IDE to develop it, so it's possible to use auto completion, syntax check and colored text features. For example if you use Eclipse, you can install the Groovy plugin. Then create a new groovy project and point to the custom page filesystem.</p>
+<p>If the custom page is not trivial, it's often a good idea to use a groovy IDE to develop it, so it's possible to use auto completion, syntax check and colored text features.<br>
+For example if you use Eclipse, you can install the Groovy plugin. Then create a new groovy project and point to the custom page filesystem.</p>
 </li>
 </ol>
 <p>Additionally, you need to configure the build path adding these bonita jars: <code>Bonita-client-sp-6.x.jar</code> and <code>console-server-6.x.jar</code>

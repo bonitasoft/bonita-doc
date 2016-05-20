@@ -571,167 +571,376 @@ The methods used for this resource are:
       "last_update_date":"2014-12-01 15:17:24.736"
     }
     ```
-Request url
-http://..
-
-Request method
-
-GET
-
-Request payload
-empty
-
-Response payload
-
-
-#### Response codes
-
-404 if no role with this ID is found
-
-#### Example
-Request url
-/API/identity/role/1
-
-Request method
-
-GET
-
-Response payload
-
+* **Error Response**
+  * **Code**: 404 if no role with this ID is found
 
 ### Search for a role
-Request url
-http://../API/identity/role
 
-Request method
+* **URL**  
+  `/API/identity/role`  
+  _Example_: `/API/identity/role?p=0&c=100&o=displayName ASC`
+* **Method**  
+  `GET`
+* **Data Params**  
+  It is possible to filter on the following attributes
+  * `name=<role\_name\>`
+  * `displayName=<role\_displayName\>`
 
-GET
-
-Request payload
-empty
-
-Response payload
-
-A list of roles in JSON
-
-#### Parameters
-
-It is possible to filter on the following attributes
-
-* name=<role\_name\>
-* displayName=<role\_displayName\>
-
-It is possible to order by the value of the following attributes
-
-* id (o=id ASC ou o=id DESC)
-* name (o=name ASC ou o=name DESC)
-* displayName (o=displayName ASC ou o=displayName DESC)
-
-#### Example
-Request url
-/API/identity/role?p=0&c=100&o=displayName ASC
-
-Request method
-
-GET
-
-Response payload
-
+  It is possible to order by the value of the following attributes
+  * id: `o=id ASC` or `o=id DESC`
+  * name: `o=name ASC` or `o=name DESC`
+  * displayName: `o=displayName ASC` or `o=displayName DESC`
+* **Success Response**  
+  A list of roles in JSON
+  * **Code**: 200
+  * **Payload**:  
+    ```json
     [
-    {
-    "creation_date":"2014-12-01 18:51:54.791",
-    "created_by_user_id":"4",
-    "id":"4",
-    "icon":"",
-    "description":"manager of the department",
-    "name":"manager",
-    "displayName":"department manager",
-    "last_update_date":"2014-12-01 18:51:54.791"
-    },
-    {
-    "creation_date":"2014-12-01 15:17:24.736",
-    "created_by_user_id":"-1",
-    "id":"1",
-    "icon":"",
-    "description":"",
-    "name":"member",
-    "displayName":"Member",
-    "last_update_date":"2014-12-01 15:17:24.736"
-    }
+      {
+        "creation_date":"2014-12-01 18:51:54.791",
+        "created_by_user_id":"4",
+        "id":"4",
+        "icon":"",
+        "description":"manager of the department",
+        "name":"manager",
+        "displayName":"department manager",
+        "last_update_date":"2014-12-01 18:51:54.791"
+      },
+      {
+        "creation_date":"2014-12-01 15:17:24.736",
+        "created_by_user_id":"-1",
+        "id":"1",
+        "icon":"",
+        "description":"",
+        "name":"member",
+        "displayName":"Member",
+        "last_update_date":"2014-12-01 15:17:24.736"
+      }
     ]
+    ```
 
 ### Update a role
-Request url
-http://../API/identity/role/<role\_id\>
 
-Request method
-
-PUT
-
-Request payload
-
-A partial representation of a role in JSON with at least the mandatory "name" attribute
-
-Response payload
-
-The full JSON representation of the role that was updated
-
-#### Response codes
-
-403 if a role with the same name already exists  
-404 if no role with this ID is found
-
-#### Example
-Request url
-/API/identity/role/4
-
-Request method
-
-PUT
-
-Request payload
-
-    {
+* **URL**  
+  `/API/identity/role/:roleId`  
+* **Method**  
+  `PUT`
+* **Request Payload**  
+  A partial representation of a role in JSON with at least the mandatory "name" attribute
+  ```json
+  {
     "name":"Manager",
     "displayName":"Department manager"
-    }
-
-Response payload
-
+  }
+  ```
+* **Success Response**  
+  The full JSON representation of the role that was updated
+  * **Code**: 200
+  * **Payload**:  
+    ```json
     {
-    "creation_date":"2014-12-01 18:51:54.791",
-    "created_by_user_id":"4",
-    "id":"4",
-    "icon":"",
-    "description":"manager of the department",
-    "name":"Manager",
-    "displayName":"Department manager",
-    "last_update_date":"2014-12-01 18:59:59.361"
+      "creation_date":"2014-12-01 18:51:54.791",
+      "created_by_user_id":"4",
+      "id":"4",
+      "icon":"",
+      "description":"manager of the department",
+      "name":"Manager",
+      "displayName":"Department manager",
+      "last_update_date":"2014-12-01 18:59:59.361"
     }
+    ```
+* **Error Response**
+  * **Code**: 
+    403 : if a role with the same name already exists  
+    404 : if no role with this ID is found
 
 ### Delete a role
-Request url
-http://../API/identity/role/<role\_id\>
 
-Request method
+* **URL**  
+  `/API/identity/role/:roleId`  
+* **Method**  
+  `DELETE`
+* **Success Response**  
+  * **Code**: 200
+* **Error Response**
+  * **Code**: 404 if no role with this ID is found
 
-DELETE
+## User
 
-Request payload
-empty
+### Description
 
-Response payload
-empty
+Used to manage information about users.
 
-#### Response codes
+### Identifier
 
-404 if no role with this ID is found
+`/API/identity/user`
 
-#### Example
-Request url
-/API/identity/role/4
+### Representation
 
-Request method
+Returns a JSON representation of user details. The "manager\_id" and "professional\_data" are omitted unless they are
+requested in the payload.
 
-DELETE
-* [user](api_resources/identity_user_6.0_0_0_1.md)
+```json
+{
+  "last_connection":"_date_",
+  "created_by_user_id":"_number_",
+  "creation_date":"_date_",
+  "id":"_number_",
+  "icon":"_string_",
+  "enabled":"true | false",
+  "title":"_string_",
+  "professional_data": {
+    "fax_number":"_string_",
+    "building":"_string_",
+    "phone_number":"_string_",
+    "website":"_string_",
+    "zipcode":"_string_",
+    "state":"_string_",
+    "city":"_string_",
+    "country":"_string_",
+    "id":"_number_",
+    "mobile_number":"_string_",
+    "address":"_string_",
+    "email":"_string_",
+    "room":"_string_"
+  },
+  "manager_id":{
+    "last_connection":"_date_",
+    "created_by_user_id":"_number_",
+    "creation_date":"_date_",
+    "id":"_number_",
+    "icon":"_string_",
+    "enabled":"true | false",
+    "title":"_string_",
+    "manager_id":"_number_",
+    "job_title":"_string_",
+    "userName":"_string_",
+    "lastname":"_string_",
+    "firstname":"_string_",
+    "password":"",
+    "last_update_date":"_date_"
+  },
+  "job_title":"_string_",
+  "userName":"_string_",
+  "lastname":"_string_",
+  "firstname":"_string_",
+  "password":"",
+  "last_update_date":"_date_"
+}
+```
+
+`{"user\_id":_long_, "task\_id":_long_}`
+
+### Methods
+
+The methods used for this resource are:
+
+* POST - Create a user
+* GET - Read a user details or search for a group of users
+* PUT - Update a user
+* DELETE - Remove a user
+
+### Create a user
+
+* **URL**  
+  `/API/identity/user`  
+* **Method**  
+  `POST`
+* **Request Payload**  
+A partial representation of a user in JSON
+  ```json
+  {
+    "userName":"New.User",
+    "password":"bpm",
+    "password_confirm":"bpm",
+    "icon":"",
+    "firstname":"New",
+    "lastname":"User",
+    "title":"Mr",
+    "job_title":"Human resources benefits",
+    "manager_id":"3"
+  }
+  ```
+* **Success Response**  
+  The full JSON representation of the user that was created  
+  After creation, the user is in inactive state.
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "last_connection":"",
+      "created_by_user_id":"4",
+      "creation_date":"2014-12-09 17:43:28.291",
+      "id":"101",
+      "icon":"/default/icon_user.png",
+      "enabled":"false",
+      "title":"Mr",
+      "manager_id":"3",
+      "job_title":"Human resources benefits",
+      "userName":"New.User",
+      "lastname":"New",
+      "firstname":"User",
+      "password":"",
+      "last_update_date":"2014-12-09 17:43:28.291"
+    }
+    ```
+
+### Read a user details
+
+* **URL**  
+  `/API/identity/user/:userId`  
+  _Example_:  
+  Get details of a specified user including professional and manager information
+  `/API/identity/user/21?d=professional\_data&d=manager\_id`
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  * d=professional\_data - include professionnal data in response
+  * d=manager\_id - include details of user's manager in response
+* **Success Response**  
+  The full JSON representation of the user
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "last_connection":"",
+      "created_by_user_id":"-1",
+      "creation_date":"2014-12-01 10:39:55.177",
+      "id":"21",
+      "icon":"/default/icon_user.png",
+      "enabled":"true",
+      "title":"Mrs",
+      "professional_data":{
+        "fax_number":"484-302-0430",
+        "building":"70",
+        "phone_number":"484-302-5430",
+        "website":"",
+        "zipcode":"19108",
+        "state":"PA",
+        "city":"Philadelphia",
+        "country":"United States",
+        "id":"21",
+        "mobile_number":"",
+        "address":"Renwick Drive",
+        "email":"giovanna.almeida@acme.com",
+        "room":""
+      },
+      "manager_id":{
+        "last_connection":"",
+        "created_by_user_id":"-1",
+        "creation_date":"2014-12-01 10:39:55.136",
+        "id":"17",
+        "icon":"/default/icon_user.png",
+        "enabled":"true",
+        "title":"Mrs",
+        "manager_id":"1",
+        "job_title":"Vice President of Sales",
+        "userName":"daniela.angelo",
+        "lastname":"Angelo",
+        "firstname":"Daniela",
+        "password":"",
+        "last_update_date":"2014-12-01 10:39:55.136"
+      },
+      "job_title":"Account manager",
+      "userName":"giovanna.almeida",
+      "lastname":"Almeida",
+      "firstname":"Giovanna",
+      "password":"",
+      "last_update_date":"2014-12-01 10:39:55.177"
+    }
+    ```
+
+### Search for a group of users
+
+* **URL**  
+  `/API/identity/user`  
+  _Example_:  
+  Search for users with names that contain "will", filter to keep only enabled users, and order the result by last name.
+  `/API/identity/user?p=0&c=10&o=lastname%20ASC&s=will&f=enabled%3dtrue`
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  * d=professional\_data - include professionnal data in response
+  * d=manager\_id - include details of user's manager in response
+* **Success Response**  
+  A JSON array of users
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    [
+      {
+        "last_connection":"2014-12-09 14:52:06.092",
+        "created_by_user_id":"-1",
+        "creation_date":"2014-12-08 17:16:40.984",
+        "id":"1","icon":"/default/icon_user.png",
+        "enabled":"true",
+        "title":"Mr",
+        "manager_id":"0",
+        "job_title":"Chief Executive Officer",
+        "userName":"william.jobs",
+        "lastname":"Jobs",
+        "firstname":"William",
+        "password":"",
+        "last_update_date":"2014-12-08 17:16:40.984"
+      },
+      {
+        "last_connection":"",
+        "created_by_user_id":"-1",
+        "creation_date":"2014-12-08 17:16:41.030",
+        "id":"5",
+        "icon":"/default/icon_user.png",
+        "enabled":"true",
+        "title":"Mr",
+        "manager_id":"1",
+        "job_title":"Chief Financial Officer",
+        "userName":"zachary.williamson",
+        "lastname":"Williamson",
+        "firstname":"Zachary",
+        "password":"",
+        "last_update_date":"2014-12-08 17:16:41.030"
+      }
+    ]
+    ```
+
+### Update a user
+
+* **URL**  
+  `API/identity/user/_userId_`  
+* **Method**  
+  `PUT`
+* **Request Payload**  
+  A JSON representation of the user, with the new information.  
+  _Example_:  
+  Update user details including professional and manager information: `/API/identity/user/4` 
+  ```json
+  {
+    "id"="4",
+    "userName":"walter.bates",
+    "password":"bpm",
+    "password_confirm":"bpm",
+    "icon":"",
+    "firstname":"Walter",
+    "lastname":"Bates",
+    "title":"Mr",
+    "job_title":"Human resources benefits",
+    "manager_id":"3"
+  }
+  ```
+  Deactivate the user identified by id 9 : `/API/identity/user/9` 
+  ```json
+  {"enabled":"false"}
+  ```
+* **Success Response**  
+  * **Code**: 200
+
+### Remove a user
+
+* **URL**  
+  `/API/identity/user/:userId`  
+* **Method**  
+  `DELETE`
+* **Success Response**  
+  * **Code**: 200
+

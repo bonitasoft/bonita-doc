@@ -1,11 +1,11 @@
 <h1>Multi-language pages</h1>
-<p>In the Bonita BPM Subscription editions, the UI Designer includes a mechanism to add translations for page, layout and forms elements, to support multi-language applications.
-The text displayed in the preview and at runtime adapts to the locale or browser language automatically. The UI Designer itself, that speaks to developers, not end-users, is displayed in the language of your Bonita BPM Studio.
+<p>In the Bonita BPM Subscription editions, the UI Designer includes a mechanism to add translations for page, layout and forms elements, to support multi-language applications.<br>
+The text displayed in the preview and at runtime adapts to the locale or browser language automatically. The UI Designer itself, that speaks to developers, not end-users, is displayed in the language of your Bonita BPM Studio.<br>
 The Preview window is displayed in the language set for Bonita BPM Portal, since it speaks to the end-users.</p>
 <p>You can translate all text strings displayed on a page, layout or form: the labels, the placeholders, the available values of a list, and the date format of the Date Picker widget. You can also translate fragments and custom widgets strings that the page, layout or form embeds.</p>
 <h2>How it works</h2>
-<p>Each page has a <a href="assets.md">localization asset</a> that contains the keys and the translations for all strings and all languages that the page supports, one section by language.
-The asset is a file, <code>localization.json</code>. Each language is identified by the ISO 639 language attribute (for example, fr-FR, es-ES). Open the default <code>localization.json</code> asset to see how this file must be formatted, and to update it with the needed strings and translations.
+<p>Each page has a <a href="assets.md">localization asset</a> that contains the keys and the translations for all strings and all languages that the page supports, one section by language.<br>
+The asset is a file, <code>localization.json</code>. Each language is identified by the ISO 639 language attribute (for example, fr-FR, es-ES). Open the default <code>localization.json</code> asset to see how this file must be formatted, and to update it with the needed strings and translations.<br>
 To use a localization asset, replace the default <code>localization.json</code> file with an updated <code>localization.json</code> file of the same format containing all the keys as well as the translations into the target languages. The format of file must be:</p>
 <pre><code class="language-json">{
 &quot;ISO 639-1 code for language-A&quot;: 
@@ -30,7 +30,7 @@ To use a localization asset, replace the default <code>localization.json</code> 
 <p>This tutorial explains how to create a multi-language version of the Travel Tool application page from the <a href="getting-started-tutorial.md">getting started tutorial</a>, adding french and russian text to the page, initially developped in US-english. It assumes that you have already created the Travel Tool page following the instructions in the <a href="getting-started-tutorial.md">getting started tutorial</a>.
 French is supported by default in Bonita BPM, along with US-english and Spanish. Russian is not.</p>
 <h3>Translate the text</h3>
-<p>The first step is to create a list of all the english text strings used in the page. These strings are the keys for translation. For this simple page, you could create the key list by hand from the text that is visible in the Page editor.
+<p>The first step is to create a list of all the english text strings used in the page. These strings are the keys for translation. For this simple page, you could create the key list by hand from the text that is visible in the Page editor.<br>
 However, to be sure that you identify all the items that need to be translated, export the page zip file, and edit the <code>page.json</code> file to retrieve all the text strings. In addition to the text strings, look for any date format strings and URLs that could contain a locale attribute.</p>
 <p>For the Travel Tool application page, this is the set of text strings to translate:</p>
 <pre><code>Travel Tool
@@ -50,8 +50,8 @@ no
 <h3>Add languages to Bonita BPM Portal</h3>
 <p>Before you can view a page in a language, that language must be supported for Bonita BPM web applications. French is one of the default languages supported, so you just need to add support for Russian. To do this, <a href="languages.md">add Russian from the Community translations to your Bonita BPM Portal</a>. Make sure that you add both the Community and Subscription files. Then restart your Bonita BPM Studio, start the Portal, and change the language to Russian to check that it is available.</p>
 <h3>Add a localization asset to the page</h3>
-<p>Create a <code>localization.json</code> file in the format shown above, containing the french and russian translations of the page text.
-The language identifier must match the language identifier in the <code>.po</code> files containing the Portal translations.
+<p>Create a <code>localization.json</code> file in the format shown above, containing the french and russian translations of the page text.<br>
+The language identifier must match the language identifier in the <code>.po</code> files containing the Portal translations.<br>
 Use an online Json checker to make sure there are no format errors in the file. The file will look something like this:</p>
 <pre><code class="language-html">&lt;p&gt;﻿{&lt;br /&gt;
         &quot;ru_RU&quot;: {&lt;br /&gt;
@@ -89,7 +89,7 @@ Use an online Json checker to make sure there are no format errors in the file. 
 <p>You can <a href="images/special_code/localization.json">download a copy of this <code>localization.json</code> file</a> for testing.</p>
 <p>In the UI Designer, import this file as an asset of the travel tool page. This will replace any existing <code>localization.json</code> file. Save the page.</p>
 <h3>Translate contents in custom widgets</h3>
-<p>In the custom widget editor, use the the <em>uiTranslate</em> filter or the <em>ui-translate</em> directive to indicate the content to translate. Then add the strings to the localization.json file of each page, layout and forms using it. See <a href="custom-widgets.md">Custom widgets section</a> for more information.</p>
+<p>In the custom widget editor, use the the <em>uiTranslate</em> filter or the <em>ui-translate</em> directive to indicate the content to translate.   Then add the strings to the localization.json file of each page, layout and forms using it. See <a href="custom-widgets.md">Custom widgets section</a> for more information.</p>
 <h3>Translate content in fragments (Subscription editions)</h3>
 <p>The strings to translate in a fragment must be added to the localization.json file of each page, layout or form using the fragment.</p>
 <h3>Preview the page</h3>
@@ -100,7 +100,7 @@ Use an online Json checker to make sure there are no format errors in the file. 
 <p>To put a multi-language page into production in an application, follow the same steps as for a single-language page: <a href="resource-management.md">upload the page to the Portal</a> and then <a href="applications.md">add it to the application</a>. You can follow the steps for <a href="getting-started-tutorial.md">building the application</a> from the getting started tutorial.</p>
 <p>After deployment, an application user will see the page in the language configured for their Bonita BPM web applications. A user can set this by selecting the language in the Bonita BPM Portal. If the selected language is not supported by the page localization.json file, the untranslated keys are displayed.</p>
 <h2>Sharing translations</h2>
-<p>Depending on the applications and processes you have, there could be some strings that are common to many pages or forms.
-If this is the case, consider using a single <code>localization.json</code> for all pages.
-You still need to attach it as an asset to each page or form, but it could make your translation process more efficient by avoiding duplication.
+<p>Depending on the applications and processes you have, there could be some strings that are common to many pages or forms.<br>
+If this is the case, consider using a single <code>localization.json</code> for all pages.<br>
+You still need to attach it as an asset to each page or form, but it could make your translation process more efficient by avoiding duplication.<br>
 Alternatively, your translation management tools might provide a mechanism for sharing the translations required for various pages and forms, which would enable you to extract the keys and translations required for a page or form and construct the .json file.</p>
