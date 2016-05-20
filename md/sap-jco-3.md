@@ -1,6 +1,6 @@
 # SAP JCo3
 
-The SAP Java Connector is a toolkit that allows a Java application to communicate with any SAP system. It combines an easy to use API with unprecedented flexibility and performance. 
+The SAP Java Connector is a toolkit that allows a Java application to communicate with any SAP system. It combines an easy to use API with unprecedented flexibility and performance.   
 The package supports both Java to SAP System and SAP System to Java calls. 
 
 ### Prerequisite
@@ -37,7 +37,7 @@ Contents of `sapjco-ntamd64-3.0.3.zip`
 
 1. Extract the contents of the .zip file into a temporary directory, for example: `C:\temp\sapijco3`.
 2. Read the installation page provided with the sapjco distribution and follow the instructions.
-3. Put the `sapjco3.jar` file in the shared libraries directory of Bonita BPM, so that the jar is in the classloader used by the Bonita BPM Engine's.
+3. Put the `sapjco3.jar` file in the shared libraries directory of Bonita BPM, so that the jar is in the classloader used by the Bonita BPM Engine.
 4. Put the native `sapjco.dll` or `.so` libraries in the java library path or the system path.
 
 ### How to import the SAP JCo3 library and make a request using an example function using the graphic display
