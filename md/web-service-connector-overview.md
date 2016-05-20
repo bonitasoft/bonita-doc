@@ -12,7 +12,7 @@ To format your entries according to SOAP specifications, go to [SOAP!](http://ww
 
 See a working example of a web service connector in this [tutorial](web-service-tutorial.md).
 
-Warning: this connector uses the StAX API. StAX libraries cannot be loaded in more than one classloader but must instead be placed in a single location where they can be called by all the items that use them. 
+Warning: this connector uses the StAX API. StAX libraries cannot be loaded in more than one classloader but must instead be placed in a single location where they can be called by all the items that use them.  
 When you configure a process that uses this connector, you must [manage the jar files](manage-jar-files.md).
 
 ## Input
