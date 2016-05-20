@@ -29,7 +29,7 @@ Use a bidirectional field to specify a read-write binding between the property v
 
 ### Interpolation - ![interpolation icon](images/images-6_0/UID-property-bond-interpolation.png)
 
-Use an interpolation field to enter text to display in the widget. The text can include variables that are interpreted using AngularJS interpolation. When the page is displayed, the variables are replaced by the interpolated values. Specify a variable as a simple expression enclosed in double braces, using the same format as for a dynamic value field.
+Use an interpolation field to enter text to display in the widget. The text can include variables that are interpreted using AngularJS interpolation. When the page is displayed, the variables are replaced by the interpolated values. Specify a variable as a simple expression enclosed in double braces, using the same format as for a dynamic value field.  
 Example: I'm sorry, _{{ user.name | uppercase }}_. I'm afraid I can't do that.
 
 ## General widget properties
@@ -44,9 +44,9 @@ In the Performance and Efficiency editions, you can set a different value for th
 
 ![Device type selection](images/images-6_0/pb-resolution.png)
 
-Example: A form has three fields, First name, Last name, and Membership number. 
-On a mobile device, you want the fields to occupy the maxiumum width of the screen, each one of a separate line. 
-On a tablet device, you want the first name and last name to be on the same line but the membership number to be on the line below. 
+Example: A form has three fields, First name, Last name, and Membership number.   
+On a mobile device, you want the fields to occupy the maxiumum width of the screen, each one of a separate line.   
+On a tablet device, you want the first name and last name to be on the same line but the membership number to be on the line below.   
 For laptop and desktop devices, you want all three fields to be in the same line. Set the width properties as follows:
 
 | | Mobile  | Tablet  | Laptop  | Desktop  |
@@ -67,7 +67,7 @@ When you preview the form for each of the device types, you see the following:
 
 ### CSS classes
 
-For each widget, you can associate one or more CSS classes (use a space-separated list for multiple classes). 
+For each widget, you can associate one or more CSS classes (use a space-separated list for multiple classes).   
 By default, the [Bootstrap](http://getbootstrap.com/) CSS library is available so you can add any CSS class that it contains.
 
 ### Hidden
