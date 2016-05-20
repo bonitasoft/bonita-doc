@@ -1,6 +1,7 @@
 # Operations
 
-An operation is an action that updates the value of a variable (using an expression) when a task is performed. You can specify any number of operations on a task. Operations are executed in the order they are listed.
+An operation is an action that updates the value of a variable (using an expression) when a task is performed.   
+You can specify any number of operations on a task. Operations are executed in the order they are listed.
 
 ## Define operations at task level
 
@@ -23,11 +24,11 @@ You can define a sequence of operations at a task. The operations are performed 
 
 * _**takes value of**_ - the value of the right operand variable is used to update the value of the left operand (the BO) using the "=" operator
 * _**Java method **_ - the left BO is updated with the value from the right operand using an invoked Java method
-* _**instantiate with**_ - at runtime, when the operator is called, the business data variable points to the selected BO instance if it uses a _Query expression type_. 
-The BO instance must exist in the business data database; otherwise the operator throws an exception. 
-The BO instance is not modified during the operation but from that point onward, any expression or operation in the process can reference this object instance to make changes.  
-If it uses a _Script expression type_, you can use the contract inputs to fill in the BO attributes. 
-Go to [Initialize BDM attributes from contract inputs in task operations](define-and-deploy-the-bdm.md) for more information.
+* _**instantiate with**_ - at runtime, when the operator is called, the business data variable points to the selected BO instance if it uses a _Query expression type_.  
+The BO instance must exist in the business data database; otherwise the operator throws an exception.   
+The BO instance is not modified during the operation but from that point onward, any expression or operation in the process can reference this object instance to make changes.    
+If it uses a _Script expression type_, you can use the contract inputs to fill in the BO attributes.   
+Go to [Initialize BDM attributes from contract inputs in task operations](define-and-deploy-the-bdm.md) for more information.  
 * _**isDeleted**_ - an operator 'Is Deleted' can be called on a business data variable. The BO instance that the business data references is deleted from the database, at runtime, after the task is completed. The process designer should avoid calling other operations on the same business data variable within the same group of operations/actions.
 
 **Warning:** Operations on business objects can be done only at task level.
