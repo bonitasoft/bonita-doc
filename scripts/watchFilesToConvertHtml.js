@@ -24,7 +24,7 @@
     }
   });
   server.use(serve(__dirname + '/../'));
-  server.use(serveIndex('..'));
+  server.use(serveIndex('.'));
    
   server.listen(3000);
    

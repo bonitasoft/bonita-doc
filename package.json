@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "watch": "scripts/watchFilesToConvertHtml.js"
+    "watch": "scripts/watchFilesToConvertHtml.js",
+    "build": "scripts/convertMdToHtml.js"
   },
   "author": "Julien Reboul <julien.reboul@bonitasoft.com>",
   "devDependencies": {
