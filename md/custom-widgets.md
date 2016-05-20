@@ -1,6 +1,6 @@
 # Custom widgets
 
-If the [standard widgets](widgets.md) do not meet your needs, you can create a custom widget to match exactly what you want to achieve.
+If the [standard widgets](widgets.md) do not meet your needs, you can create a custom widget to match exactly what you want to achieve.  
 After creation, a custom widget is available in the palette to design pages, application layouts, forms or fragments. 
 
 ## Description
@@ -14,7 +14,7 @@ Custom widgets are composed of:
 * Some assets if the widget uses external JavaScript libraries, CSS definitions, or images
 * AngularJS modules declaration if the widget uses services or directives that are not built in to the AngularJS framework
 
-Custom widget implementation is based on the AngularJS framework.
+Custom widget implementation is based on the AngularJS framework.  
 When you open the custom widget editor to create a new custom widget, a simple example is displayed to show the basic uses of these concepts.
 
 For more information, see the AngularJS guide on [templates](https://docs.angularjs.org/guide/templates) and [controllers](https://docs.angularjs.org/guide/controller).
@@ -23,7 +23,7 @@ For now, the definition of custom containers is not yet available in the product
 
 ## Custom widget properties
 
-Properties are variables that can be set in the properties panel when adding a custom widget to a page, layout, form, or fragment.
+Properties are variables that can be set in the properties panel when adding a custom widget to a page, layout, form, or fragment.  
 A property is constant, dynamic, a bidirectional bond, or an interpolation. You can chose between these treatments when you edit the [widget property](widget-properties.md). Use properties when you want the front-end developer using the widget to customize widget appearance or behavior. In a custom widget, a property can be used either in the template or in the controller.
 
 A property has a _name_ which can be referenced in the controller or the template, a _label_ which will be printed in the properties panel in an editor, a _default_ value, and a type. There are several property types:
