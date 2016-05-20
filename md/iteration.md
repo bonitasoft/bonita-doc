@@ -29,7 +29,7 @@ To configure multi-instantiation, select the element in the diagram and go to th
 * `numberOfCompletedInstances`: the number of instances terminated successfully
 * `numberOfInstances`: the total number of instances
 
-### Looping
+### Loops
 
 Use a loop if you want a task to be performed several times, one after another, with no result data, until a condition is met. The condition can be a number of iterations, or can be set as an expression. The test for the condition can be done at the end of an iteration or at the start.
 
