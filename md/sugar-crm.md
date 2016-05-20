@@ -4,13 +4,13 @@ SugarCRM version API v4
 
 Available Sugar connectors are:
 
-* Create Object - Create a Sugar CRM object using API v4
-* Delete Object - Delete a Sugar CRM object using API v4
-* Delete Several Objects - Delete several Sugar CRM objects by their ids using API v4
-* Query Objects - Execute a query on Sugar CRM
-* Retrieve Object - Retrieve an object from Sugar CRM using API v4
-* Retrieve Several Objects - Retrieve several objects from a Sugar CRM server using API v4
-* Update an Object - Update a Sugar CRM object using API v4
+* Create Object - Create a SugarCRM object using API v4
+* Delete Object - Delete a SugarCRM object using API v4
+* Delete Several Objects - Delete several SugarCRM objects by their ids using API v4
+* Query Objects - Execute a query on SugarCRM
+* Retrieve Object - Retrieve an object from SugarCRM using API v4
+* Retrieve Several Objects - Retrieve several objects from a SugarCRM server using API v4
+* Update an Object - Update a SugarCRM object using API v4
 
 Parameters are:
 
