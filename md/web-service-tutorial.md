@@ -5,7 +5,6 @@ Note: This example uses the 6.x Application legacy forms.
 This example process will use a Web Service connector to call a sample Web Service to display a weather report.
 
 ![web service process diagram](images/images-6_0/webservice_diagram.png)
- web service process diagram
 
 1. Create the diagram (as shown in the example above)
 2. Select the Pool \> Data and click on the _**Variables tab**_ and add the following process variables:
