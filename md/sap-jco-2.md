@@ -1,7 +1,7 @@
 # SAP JCo 2
 
-The SAP Java Connector (SAP JCo 2) is a toolkit that allows a Java application to communicate with any SAP system. 
-It combines an easy to use API with unprecedented flexibility and performance. 
+The SAP Java Connector (SAP JCo 2) is a toolkit that allows a Java application to communicate with any SAP system.  
+It combines an easy to use API with unprecedented flexibility and performance.  
 The package supports both Java to SAP System as well as SAP System to Java calls.
 
 * The SAP Jco2 connector can be used to call a SAP function (BAPI, RFC or ZBAPI)
@@ -18,7 +18,7 @@ You must have an SAP license and an SAP server to use the connector.
 
 ## Download and install the SAP connector.zip files 
 
-To connect to an SAP system from Bonita BPM Studio, and have the correct graphic display, you must install the SAP `.dll` and `.jar` files onto your (Windows) machine. 
+To connect to an SAP system from Bonita BPM Studio, and have the correct graphic display, you must install the SAP `.dll` and `.jar` files onto your (Windows) machine.  
 You must have a SAP User ID and password to enter the SAP Support Portal to download the files. Go to the [SAP Service marketplace](http://service.sap.com/connectors) (you will need to log in first with an account login and password).
 
 JCo2: `sapjco-ntamd64-2.1.9` 
