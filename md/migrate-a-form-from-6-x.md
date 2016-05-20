@@ -1,13 +1,13 @@
 # Migrate a form from 6.x
 
-Although a form created with Bonita BPM 6.x will work with Bonita BPM 7.x, you are recommended to migrate your 6.x forms and process definitions to take advantage of the new features, namely live update of a form. 
-There is no specific tooling to assist with migration, and you do not have to migrate all apsects of a process definition at the same time. 
+Although a form created with Bonita BPM 6.x will work with Bonita BPM 7.x, you are recommended to migrate your 6.x forms and process definitions to take advantage of the new features, namely live update of a form.   
+There is no specific tooling to assist with migration, and you do not have to migrate all apsects of a process definition at the same time.  
 You can take a staged approach, testing that your process continues to behave as expected after each change.
 
 The most efficient sequence for migrating a process and its forms to benefit from Bonita BPM 7.x features is as follows:
 
 1. BDM: create your [business data model](define-and-deploy-the-bdm.md). If you already have a BDM from 6.x, no change is needed.
-2. Business data: if you have created a new BDM, populate your business data database by importing it from where it was previously stored (process data or external data). 
+2. Business data: if you have created a new BDM, populate your business data database by importing it from where it was previously stored (process data or external data).  
 You can do so with a process that uses a connector to retrieve external data and an operation using the REST API to store the business objects.
 3. Process: check that the process runs with the business data, and update it if necessary.
 4. Contracts: define [contracts](contracts-and-contexts.md) based on your business data, for process instantiation and for each human task.
