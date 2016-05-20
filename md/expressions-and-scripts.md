@@ -1,7 +1,7 @@
 # Expressions and scripts
 
-Expressions and scripts are used in Bonita BPM Studio for many purposes, including setting the initial or default value of a
-variable. An expression is a simple statement; a script is a sequence of expressions, and has a program-like structure. 
+Expressions and scripts are used in Bonita BPM Studio for many purposes, including setting the initial or default value of a variable.  
+An expression is a simple statement; a script is a sequence of expressions, and has a program-like structure. 
 
 This page explains the features of Bonita BPM Studio that enable you to use expressions and scripts.
 
@@ -9,8 +9,7 @@ Note that the expression editor cannot be used in the UI Designer, which has a d
 
 ## Starting the expression editor
 
-The expression editor is used throughout Bonita BPM Studio to create and modify expressions or scripts.
-
+The expression editor is used throughout Bonita BPM Studio to create and modify expressions or scripts.  
 To start the expression editor, click the crayon icon next to the field where you want to enter an expression. 
 
 There are different types of expression:
@@ -29,7 +28,7 @@ You can create a Groovy function and store it in Bonita BPM Studio separate from
 
 To create a function, choose **Manage Groovy scripts...** from the **Development** menu, and click _**Create...**_. Enter a name for the new function. 
 
-To edit the content of a function (or to create it), select the function name and click **_Open_**. This opens the expression editor.
+To edit the content of a function (or to create it), select the function name and click **_Open_**. This opens the expression editor.  
 Enter the function details in the pop-up window. For a function to be included in the Expression editor list of user-defined functions, it must be declared as static and it must have suitable visibility. To validate the function, click _**Evaluate**_. To save the function, click _**OK**_. 
 
 Note that you can use this feature to save any Groovy script, not just a function. However, only a predefined script that defines a function can be used in an expression. You can declare a method in a Groovy script, but must not declare a class.
