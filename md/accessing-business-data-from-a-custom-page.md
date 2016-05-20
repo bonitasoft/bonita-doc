@@ -2,7 +2,7 @@
 
 ## Overview
 
-The aim of this tutorial is to show how to benefit from the two technologies **Custom pages** and **BDM**.
+The aim of this tutorial is to show how to benefit from the two technologies **Custom pages** and **BDM**.  
 It will describe how to display Business Data inside a Custom page.
 
 **Note:** This information applies to custom pages created manually. 
@@ -73,10 +73,11 @@ out.println('<table class="gridtable"><caption>Leave Request List</caption><tr><
 
 ### Notes
 
-1. When you are developing your custom page, be aware that if you accidentally stop the Bonita BPM Studio, by default this will erase the tenant filesystem and database, so you'd lose your work.
+1. When you are developing your custom page, be aware that if you accidentally stop the Bonita BPM Studio, by default this will erase the tenant filesystem and database, so you'd lose your work.  
 A good idea is to prevent database deletion on the Bonita BPM Studio, Go to Preferences \> database and uncheck clean database on exit.
 
-2. If the custom page is not trivial, it's often a good idea to use a groovy IDE to develop it, so it's possible to use auto completion, syntax check and colored text features. For example if you use Eclipse, you can install the Groovy plugin. Then create a new groovy project and point to the custom page filesystem.
+2. If the custom page is not trivial, it's often a good idea to use a groovy IDE to develop it, so it's possible to use auto completion, syntax check and colored text features.  
+For example if you use Eclipse, you can install the Groovy plugin. Then create a new groovy project and point to the custom page filesystem.
 
 Additionally, you need to configure the build path adding these bonita jars: `Bonita-client-sp-6.x.jar` and `console-server-6.x.jar`
 And these data models: `bdm-dao.jar` and `bdm-model.jar`
