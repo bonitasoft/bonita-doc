@@ -18,7 +18,7 @@
 * [SAP Jco 2](sap-jco-2.md)
 * [SAP Jco 3](sap-jco-3.md)
 * [Script](script.md)
-* [Sugar CRM](sugar-crm.md)
+* [SugarCRM](sugar-crm.md)
 * [Talend Job launcher](talend-job-launcher.md)
 * [Talend TIS Job launcher](talend-tis-job-launcher.md)
 * [Twitter](twitter.md)
