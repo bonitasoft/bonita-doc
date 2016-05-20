@@ -1,8 +1,8 @@
 # Create or modify pages and forms
 
-The {{ var\_uiDesigner }} is a powerful application for designing Bonita BPM custom pages, layouts, forms, custom widgets and fragments.
-Custom pages are used in Bonita BPM Portal custom profiles or in custom BPM applications.
-Forms are used to instantiate a process or to execute a human task.
+The {{ var\_uiDesigner }} is a powerful application for designing Bonita BPM custom pages, layouts, forms, custom widgets and fragments.  
+Custom pages are used in Bonita BPM Portal custom profiles or in custom BPM applications.  
+Forms are used to instantiate a process or to execute a human task.  
 The UI Designer runs in a browser. Launching it from Bonita BPM Studio starts a web server and opens your default browser.
 
 ## Starting the UI Designer
@@ -20,8 +20,8 @@ Select a human task or a pool, go to the **Details** panel, **Execution** tab. T
 
 With the form type set to **UI Designer**, you can select a form from the dropdown list and click the pencil icon to edit it, or you can choose **Create a new form**. This is the way to go to create forms as the Studio will auto-generate a form based on the process instantiation or task execution [contract](contracts-and-contexts.md).
 
-You can also create a customized **overview form**, to display a summary of the case to the users, either in a case details page, or in the tasklist, to give some context to the task to do.
-To do so, go to the pool **Details** panel, **Execution** tab, and click **_Overview page**.
+You can also create a customized **overview form**, to display a summary of the case to the users, either in a case details page, or in the tasklist, to give some context to the task to do.  
+To do so, go to the pool **Details** panel, **Execution** tab, and click **_Overview page**.  
 With the form type set to **UI Designer**, you can select a form from the dropdown list and click the pencil icon to edit it, or you can choose **Create a new form**. 
 
 ## Design a page, layout, form, or fragment 
@@ -37,14 +37,14 @@ Custom widget is a special artifact that we will explain in a later chapter.
 
 You can preview page, form and fragment rendering by clicking the **_Preview_** button. Another browser window opens with the artifact as it will be displayed after deployment. If you update the page, form or fragment, the preview is automatically refreshed when you save (not available for Internet Explorer 9).
 
-In the Performance and Efficiency editions, you can use the a device types bar on the preview screen to choose the target device type.
+In the Performance and Efficiency editions, you can use the a device types bar on the preview screen to choose the target device type.  
 The preview displays the artifact as it would be displayed on the selected type of device.
 
 Custom widget is a special artifact that we will explain in a later chapter.
 
 ## Export an artifact
 
-You can export a page or a layout to deploy it in Bonita BPM Portal as a custom page.
+You can export a page or a layout to deploy it in Bonita BPM Portal as a custom page.  
 You can export any artifact to import it into another UI Designer.
 
 To export an artifact, click the **_Export_** button ![Export button](images/images-6_0/pb-export.png) on the Page editor or the UI Designer home page. A zip file is downloaded to your computer. It contains a Bonita BPM custom page, which also suitable for import into another UI Designer.
