@@ -2,7 +2,7 @@
 
 In a BPM-based application, use:
 
-* [Business variables](define-and-deploy-the-bdm.md) for information that
+* [Business variables](define-and-deploy-the-bdm.md) for information that:
   * is mostly used by Bonita BPM
   * has meaning after a process instance is archived
   * is used at several places in the process
@@ -16,6 +16,7 @@ In a BPM-based application, use:
   * can be read by the process to orientate its flow
   * can be used at several places in the process
   * is private to the process, not used elsewhere in the application
+ 
 * External databases, with [connectors](connectivity-overview.md) and [custom data types](create-a-complex-data-type.md), for information that
   * is used by multiple applications besides Bonita BPM
 
