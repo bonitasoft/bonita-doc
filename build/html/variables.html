@@ -1,6 +1,5 @@
 <h1>Variables</h1>
-<p><strong>Variables</strong> is a key concept of the UI Designer. They define page, layout, form, and fragment behavior, they are used to
-fetch external resources, to manipulate and process information, and much more. It is important to understand how to define and use variables in those artifacts, and how the data contained in the variables works when combined with widget properties. Unless otherwise stated, we will use &quot;page&quot; as the generic for page, layout, form, and fragment.</p>
+<p><strong>Variables</strong> is a key concept of the UI Designer. They define page, layout, form, and fragment behavior, they are used to fetch external resources, to manipulate and process information, and much more. It is important to understand how to define and use variables in those artifacts, and how the data contained in the variables works when combined with widget properties. Unless otherwise stated, we will use &quot;page&quot; as the generic for page, layout, form, and fragment.</p>
 <p>There are several types of variables:</p>
 <ul>
 <li>Static
@@ -24,29 +23,31 @@ fetch external resources, to manipulate and process information, and much more. 
 <p>External API variables are used to fetch data from outside the page. This is typically a REST API. The call to the specified URL is done using an HTTP GET request. The result is stored in the page data model. You can parameterize the URL construction with other data using <code>{{variableName}}</code> syntax. You can retrieve information using the <a href="rest-api.md">Bonita REST APIs</a>.</p>
 <p>Here are some examples:</p>
 <ul>
-<li>Get the id of the current user - API URL:
+<li>Get the id of the current user - API URL:<br>
 <code>../API/system/session/{{userId}}</code></li>
 </ul>
 <p>This variable is evaluated every time the value of <code>userId</code> changes. Also, if <code>userId</code> is not yet defined then the call is not triggered.</p>
 <ul>
 <li>
-<p>Retrieve the taskId:
+<p>Retrieve the taskId:<br>
 API URL: <code>../API/bpm/humanTask/{{taskId}}</code></p>
 </li>
 <li>
-<p>Retrieve a <a href="bdm-api.md">business object</a> associated with a process instance:
+<p>Retrieve a <a href="bdm-api.md">business object</a> associated with a process instance:<br>
 API URL: <code>../API/bdm/businessDataReference/{{caseId}}/{{businessDataName}}</code></p>
 </li>
 <li>
-<p>Retrieve business data using the reference in the <a href="contracts-and-contexts.md">context</a> when building a form.
+<p>Retrieve business data using the reference in the <a href="contracts-and-contexts.md">context</a> when building a form:<br>
 API URL: <code>../{{context.myBusinessData_ref.link}}</code></p>
 </li>
 </ul>
 <h3>JavaScript expression</h3>
-<p>An JavaScript expression variable is a JavaScript function. During the evaluation, the function can use the <strong>$data</strong> variable, which provides access to the page data model. For example:
-<code>var result = $data.expenses * 2; return result;</code></p>
-<p>An expression often relies on other variables as dependencies. When one of these variables changes, the expression is reevaluated and the previous value is overwritten.
-For example, create a <code>login</code> expression variable: <code>return $data.firstname.toLowercase() + '-' + $data.lastname.toLowercase()</code>. Its dependencies are the two variables <code>firstname</code> and <code>lastname</code>.
+<p>An JavaScript expression variable is a JavaScript function. During the evaluation, the function can use the <strong>$data</strong> variable, which provides access to the page data model. For example:</p>
+<pre><code class="language-javascript">var result = $data.expenses * 2;
+    return result;
+</code></pre>
+<p>An expression often relies on other variables as dependencies. When one of these variables changes, the expression is reevaluated and the previous value is overwritten.<br>
+For example, create a <code>login</code> expression variable: <code>return $data.firstname.toLowercase() + '-' + $data.lastname.toLowercase()</code>. Its dependencies are the two variables <code>firstname</code> and <code>lastname</code>.<br>
 Create two input widgets &quot;First name&quot; and &quot;Last name&quot; bound the two variables, and a text widget &quot;Login&quot; to display the result of the expression. When the user fills out the two input fields, the expression is updated. If the login value is manually edited before the user fills out the fields, then its value is overwritten.</p>
 <h2>Using a variable</h2>
 <p>A variable is used with a <a href="widgets.md">widget</a>. There are many ways to use a variable in widget properties:</p>

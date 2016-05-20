@@ -6,23 +6,23 @@
 <p>User profile
 For Performance, Efficiency, or Teamwork editions, customize the user interface for a user profile by showing or hiding features. To change your user profile, use the Profile menu in the Cool bar. You can also create your own custom profile by selecting which features you want to show</p>
 <p>Database
-Database clean-up: by default, the database (used by Bonita BPM Engine) is purged when Bonita BPM Studio exits, which is useful when you are testing processes. You can override this in order to preserve all data.
+Database clean-up: by default, the database (used by Bonita BPM Engine) is purged when Bonita BPM Studio exits, which is useful when you are testing processes. You can override this in order to preserve all data.<br>
 Organization load: by default, the default organization is loaded with Bonita BPM Studio starts. You can override this.</p>
 <p>Appearance
-Coolbar size: Normal (default) or small.
+Coolbar size: Normal (default) or small.<br>
 Grid options for process diagrams. You can choose to use a grid positioning for all new process diagrams</p>
 <p>Language
-Bonita BPM Studio language.
+Bonita BPM Studio language.<br>
 Web applications language: the language to use by default when loading process forms and Bonita BPM Portal</p>
 <p>Java
-The JRE (Java Runtime Environment) to used by default. JRE will be used when compiling and running Java code  |</p>
+The JRE (Java Runtime Environment) to used by default. JRE will be used when compiling and running Java code</p>
 <h3>Deployment preferences</h3>
 <p>Run mode
-Validation: whether to validate the process before it runs. We recommend to keep this option enabled.
+Validation: whether to validate the process before it runs. We recommend to keep this option enabled.<br>
 The default look &amp; feel for application forms. Will be applied to any newly created process.</p>
 <p>Server settings
-Port number: Studio embedded Tomcat HTTP listening port.
-Log in: the username and password of the user who will be logged when Bonita BPM Portal or an application is started from Bonita BPM Studio. The password can be obscured.
+Port number: Studio embedded Tomcat HTTP listening port.<br>
+Log in: the username and password of the user who will be logged when Bonita BPM Portal or an application is started from Bonita BPM Studio. The password can be obscured.<br>
 The default look &amp; feel for the Portal</p>
 <p>Database connectors<br>
 Manage the JDBC drivers associated with database connectors. You should use that to include JDBC drivers for commercial DBMS (e.g. DB2)</p>
@@ -62,15 +62,9 @@ Give access to all Eclipse settings (Bonita BPM Studio is based on Eclipse)</p>
 <li>Change listening ports (shutdown, AJP, h2) to prevent conflicts</li>
 <li>Declare a datasource to connect to a business database</li>
 </ul>
-<p>The Tomcat configuration files are located in the Bonita BPM Studio
-<code>workspace/tomcat/conf</code>
-folder.</p>
+<p>The Tomcat configuration files are located in the Bonita BPM Studio <code>workspace/tomcat/conf</code> folder.</p>
 <ul>
-<li>To change a port number, edit
-<code>server.xml</code>.</li>
-<li>To add a data source, edit
-<code>context.xml</code>
-or
-<code>workspace/tomcat/conf/Catalina/localhost/bonita.xml</code>.</li>
+<li>To change a port number, edit <code>server.xml</code>.</li>
+<li>To add a data source, edit <code>context.xml</code> or <code>workspace/tomcat/conf/Catalina/localhost/bonita.xml</code>.</li>
 </ul>
 <p>For more details, see the <a href="http://tomcat.apache.org/tomcat-7.0-doc/">Tomcat documentation</a>.</p>

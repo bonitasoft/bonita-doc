@@ -597,123 +597,404 @@ A role in JSON
 </li>
 </ul>
 </li>
-</ul>
-<p>Request url
-http://..</p>
-<p>Request method</p>
-<p>GET</p>
-<p>Request payload
-empty</p>
-<p>Response payload</p>
-<h4>Response codes</h4>
-<p>404 if no role with this ID is found</p>
-<h4>Example</h4>
-<p>Request url
-/API/identity/role/1</p>
-<p>Request method</p>
-<p>GET</p>
-<p>Response payload</p>
-<h3>Search for a role</h3>
-<p>Request url
-http://../API/identity/role</p>
-<p>Request method</p>
-<p>GET</p>
-<p>Request payload
-empty</p>
-<p>Response payload</p>
-<p>A list of roles in JSON</p>
-<h4>Parameters</h4>
-<p>It is possible to filter on the following attributes</p>
+<li><strong>Error Response</strong>
 <ul>
-<li>name=&lt;role_name&gt;</li>
-<li>displayName=&lt;role_displayName&gt;</li>
+<li><strong>Code</strong>: 404 if no role with this ID is found</li>
+</ul>
+</li>
+</ul>
+<h3>Search for a role</h3>
+<ul>
+<li>
+<p><strong>URL</strong><br>
+<code>/API/identity/role</code><br>
+<em>Example</em>: <code>/API/identity/role?p=0&amp;c=100&amp;o=displayName ASC</code></p>
+</li>
+<li>
+<p><strong>Method</strong><br>
+<code>GET</code></p>
+</li>
+<li>
+<p><strong>Data Params</strong><br>
+It is possible to filter on the following attributes</p>
+<ul>
+<li><code>name=&lt;role\_name\&gt;</code></li>
+<li><code>displayName=&lt;role\_displayName\&gt;</code></li>
 </ul>
 <p>It is possible to order by the value of the following attributes</p>
 <ul>
-<li>id (o=id ASC ou o=id DESC)</li>
-<li>name (o=name ASC ou o=name DESC)</li>
-<li>displayName (o=displayName ASC ou o=displayName DESC)</li>
+<li>id: <code>o=id ASC</code> or <code>o=id DESC</code></li>
+<li>name: <code>o=name ASC</code> or <code>o=name DESC</code></li>
+<li>displayName: <code>o=displayName ASC</code> or <code>o=displayName DESC</code></li>
 </ul>
-<h4>Example</h4>
-<p>Request url
-/API/identity/role?p=0&amp;c=100&amp;o=displayName ASC</p>
-<p>Request method</p>
-<p>GET</p>
-<p>Response payload</p>
-<pre><code>[
-{
-&quot;creation_date&quot;:&quot;2014-12-01 18:51:54.791&quot;,
-&quot;created_by_user_id&quot;:&quot;4&quot;,
-&quot;id&quot;:&quot;4&quot;,
-&quot;icon&quot;:&quot;&quot;,
-&quot;description&quot;:&quot;manager of the department&quot;,
-&quot;name&quot;:&quot;manager&quot;,
-&quot;displayName&quot;:&quot;department manager&quot;,
-&quot;last_update_date&quot;:&quot;2014-12-01 18:51:54.791&quot;
-},
-{
-&quot;creation_date&quot;:&quot;2014-12-01 15:17:24.736&quot;,
-&quot;created_by_user_id&quot;:&quot;-1&quot;,
-&quot;id&quot;:&quot;1&quot;,
-&quot;icon&quot;:&quot;&quot;,
-&quot;description&quot;:&quot;&quot;,
-&quot;name&quot;:&quot;member&quot;,
-&quot;displayName&quot;:&quot;Member&quot;,
-&quot;last_update_date&quot;:&quot;2014-12-01 15:17:24.736&quot;
-}
+</li>
+<li>
+<p><strong>Success Response</strong><br>
+A list of roles in JSON</p>
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:<pre><code class="language-json">[
+  {
+    &quot;creation_date&quot;:&quot;2014-12-01 18:51:54.791&quot;,
+    &quot;created_by_user_id&quot;:&quot;4&quot;,
+    &quot;id&quot;:&quot;4&quot;,
+    &quot;icon&quot;:&quot;&quot;,
+    &quot;description&quot;:&quot;manager of the department&quot;,
+    &quot;name&quot;:&quot;manager&quot;,
+    &quot;displayName&quot;:&quot;department manager&quot;,
+    &quot;last_update_date&quot;:&quot;2014-12-01 18:51:54.791&quot;
+  },
+  {
+    &quot;creation_date&quot;:&quot;2014-12-01 15:17:24.736&quot;,
+    &quot;created_by_user_id&quot;:&quot;-1&quot;,
+    &quot;id&quot;:&quot;1&quot;,
+    &quot;icon&quot;:&quot;&quot;,
+    &quot;description&quot;:&quot;&quot;,
+    &quot;name&quot;:&quot;member&quot;,
+    &quot;displayName&quot;:&quot;Member&quot;,
+    &quot;last_update_date&quot;:&quot;2014-12-01 15:17:24.736&quot;
+  }
 ]
 </code></pre>
+</li>
+</ul>
+</li>
+</ul>
 <h3>Update a role</h3>
-<p>Request url
-http://../API/identity/role/&lt;role_id&gt;</p>
-<p>Request method</p>
-<p>PUT</p>
-<p>Request payload</p>
-<p>A partial representation of a role in JSON with at least the mandatory &quot;name&quot; attribute</p>
-<p>Response payload</p>
-<p>The full JSON representation of the role that was updated</p>
-<h4>Response codes</h4>
-<p>403 if a role with the same name already exists<br>
-404 if no role with this ID is found</p>
-<h4>Example</h4>
-<p>Request url
-/API/identity/role/4</p>
-<p>Request method</p>
-<p>PUT</p>
-<p>Request payload</p>
-<pre><code>{
-&quot;name&quot;:&quot;Manager&quot;,
-&quot;displayName&quot;:&quot;Department manager&quot;
-}
-</code></pre>
-<p>Response payload</p>
-<pre><code>{
-&quot;creation_date&quot;:&quot;2014-12-01 18:51:54.791&quot;,
-&quot;created_by_user_id&quot;:&quot;4&quot;,
-&quot;id&quot;:&quot;4&quot;,
-&quot;icon&quot;:&quot;&quot;,
-&quot;description&quot;:&quot;manager of the department&quot;,
-&quot;name&quot;:&quot;Manager&quot;,
-&quot;displayName&quot;:&quot;Department manager&quot;,
-&quot;last_update_date&quot;:&quot;2014-12-01 18:59:59.361&quot;
-}
-</code></pre>
-<h3>Delete a role</h3>
-<p>Request url
-http://../API/identity/role/&lt;role_id&gt;</p>
-<p>Request method</p>
-<p>DELETE</p>
-<p>Request payload
-empty</p>
-<p>Response payload
-empty</p>
-<h4>Response codes</h4>
-<p>404 if no role with this ID is found</p>
-<h4>Example</h4>
-<p>Request url
-/API/identity/role/4</p>
-<p>Request method</p>
-<p>DELETE</p>
 <ul>
-<li><a href="api_resources/identity_user_6.0_0_0_1.md">user</a></li>
+<li><strong>URL</strong><br>
+<code>/API/identity/role/:roleId</code></li>
+<li><strong>Method</strong><br>
+<code>PUT</code></li>
+<li><strong>Request Payload</strong><br>
+A partial representation of a role in JSON with at least the mandatory &quot;name&quot; attribute<pre><code class="language-json">{
+  &quot;name&quot;:&quot;Manager&quot;,
+  &quot;displayName&quot;:&quot;Department manager&quot;
+}
+</code></pre>
+</li>
+<li><strong>Success Response</strong><br>
+The full JSON representation of the role that was updated
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:<pre><code class="language-json">{
+  &quot;creation_date&quot;:&quot;2014-12-01 18:51:54.791&quot;,
+  &quot;created_by_user_id&quot;:&quot;4&quot;,
+  &quot;id&quot;:&quot;4&quot;,
+  &quot;icon&quot;:&quot;&quot;,
+  &quot;description&quot;:&quot;manager of the department&quot;,
+  &quot;name&quot;:&quot;Manager&quot;,
+  &quot;displayName&quot;:&quot;Department manager&quot;,
+  &quot;last_update_date&quot;:&quot;2014-12-01 18:59:59.361&quot;
+}
+</code></pre>
+</li>
+</ul>
+</li>
+<li><strong>Error Response</strong>
+<ul>
+<li><strong>Code</strong>:
+403 : if a role with the same name already exists<br>
+404 : if no role with this ID is found</li>
+</ul>
+</li>
+</ul>
+<h3>Delete a role</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>/API/identity/role/:roleId</code></li>
+<li><strong>Method</strong><br>
+<code>DELETE</code></li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+</ul>
+</li>
+<li><strong>Error Response</strong>
+<ul>
+<li><strong>Code</strong>: 404 if no role with this ID is found</li>
+</ul>
+</li>
+</ul>
+<h2>User</h2>
+<h3>Description</h3>
+<p>Used to manage information about users.</p>
+<h3>Identifier</h3>
+<p><code>/API/identity/user</code></p>
+<h3>Representation</h3>
+<p>Returns a JSON representation of user details. The &quot;manager_id&quot; and &quot;professional_data&quot; are omitted unless they are
+requested in the payload.</p>
+<pre><code class="language-json">{
+  &quot;last_connection&quot;:&quot;_date_&quot;,
+  &quot;created_by_user_id&quot;:&quot;_number_&quot;,
+  &quot;creation_date&quot;:&quot;_date_&quot;,
+  &quot;id&quot;:&quot;_number_&quot;,
+  &quot;icon&quot;:&quot;_string_&quot;,
+  &quot;enabled&quot;:&quot;true | false&quot;,
+  &quot;title&quot;:&quot;_string_&quot;,
+  &quot;professional_data&quot;: {
+    &quot;fax_number&quot;:&quot;_string_&quot;,
+    &quot;building&quot;:&quot;_string_&quot;,
+    &quot;phone_number&quot;:&quot;_string_&quot;,
+    &quot;website&quot;:&quot;_string_&quot;,
+    &quot;zipcode&quot;:&quot;_string_&quot;,
+    &quot;state&quot;:&quot;_string_&quot;,
+    &quot;city&quot;:&quot;_string_&quot;,
+    &quot;country&quot;:&quot;_string_&quot;,
+    &quot;id&quot;:&quot;_number_&quot;,
+    &quot;mobile_number&quot;:&quot;_string_&quot;,
+    &quot;address&quot;:&quot;_string_&quot;,
+    &quot;email&quot;:&quot;_string_&quot;,
+    &quot;room&quot;:&quot;_string_&quot;
+  },
+  &quot;manager_id&quot;:{
+    &quot;last_connection&quot;:&quot;_date_&quot;,
+    &quot;created_by_user_id&quot;:&quot;_number_&quot;,
+    &quot;creation_date&quot;:&quot;_date_&quot;,
+    &quot;id&quot;:&quot;_number_&quot;,
+    &quot;icon&quot;:&quot;_string_&quot;,
+    &quot;enabled&quot;:&quot;true | false&quot;,
+    &quot;title&quot;:&quot;_string_&quot;,
+    &quot;manager_id&quot;:&quot;_number_&quot;,
+    &quot;job_title&quot;:&quot;_string_&quot;,
+    &quot;userName&quot;:&quot;_string_&quot;,
+    &quot;lastname&quot;:&quot;_string_&quot;,
+    &quot;firstname&quot;:&quot;_string_&quot;,
+    &quot;password&quot;:&quot;&quot;,
+    &quot;last_update_date&quot;:&quot;_date_&quot;
+  },
+  &quot;job_title&quot;:&quot;_string_&quot;,
+  &quot;userName&quot;:&quot;_string_&quot;,
+  &quot;lastname&quot;:&quot;_string_&quot;,
+  &quot;firstname&quot;:&quot;_string_&quot;,
+  &quot;password&quot;:&quot;&quot;,
+  &quot;last_update_date&quot;:&quot;_date_&quot;
+}
+</code></pre>
+<p><code>{&quot;user\_id&quot;:_long_, &quot;task\_id&quot;:_long_}</code></p>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>POST - Create a user</li>
+<li>GET - Read a user details or search for a group of users</li>
+<li>PUT - Update a user</li>
+<li>DELETE - Remove a user</li>
+</ul>
+<h3>Create a user</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>/API/identity/user</code></li>
+<li><strong>Method</strong><br>
+<code>POST</code></li>
+<li><strong>Request Payload</strong><br>
+A partial representation of a user in JSON<pre><code class="language-json">{
+  &quot;userName&quot;:&quot;New.User&quot;,
+  &quot;password&quot;:&quot;bpm&quot;,
+  &quot;password_confirm&quot;:&quot;bpm&quot;,
+  &quot;icon&quot;:&quot;&quot;,
+  &quot;firstname&quot;:&quot;New&quot;,
+  &quot;lastname&quot;:&quot;User&quot;,
+  &quot;title&quot;:&quot;Mr&quot;,
+  &quot;job_title&quot;:&quot;Human resources benefits&quot;,
+  &quot;manager_id&quot;:&quot;3&quot;
+}
+</code></pre>
+</li>
+<li><strong>Success Response</strong><br>
+The full JSON representation of the user that was created<br>
+After creation, the user is in inactive state.
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:<pre><code class="language-json">{
+  &quot;last_connection&quot;:&quot;&quot;,
+  &quot;created_by_user_id&quot;:&quot;4&quot;,
+  &quot;creation_date&quot;:&quot;2014-12-09 17:43:28.291&quot;,
+  &quot;id&quot;:&quot;101&quot;,
+  &quot;icon&quot;:&quot;/default/icon_user.png&quot;,
+  &quot;enabled&quot;:&quot;false&quot;,
+  &quot;title&quot;:&quot;Mr&quot;,
+  &quot;manager_id&quot;:&quot;3&quot;,
+  &quot;job_title&quot;:&quot;Human resources benefits&quot;,
+  &quot;userName&quot;:&quot;New.User&quot;,
+  &quot;lastname&quot;:&quot;New&quot;,
+  &quot;firstname&quot;:&quot;User&quot;,
+  &quot;password&quot;:&quot;&quot;,
+  &quot;last_update_date&quot;:&quot;2014-12-09 17:43:28.291&quot;
+}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3>Read a user details</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>/API/identity/user/:userId</code><br>
+<em>Example</em>:<br>
+Get details of a specified user including professional and manager information
+<code>/API/identity/user/21?d=professional\_data&amp;d=manager\_id</code></li>
+<li><strong>Method</strong><br>
+<code>GET</code></li>
+<li><strong>Data Params</strong><br>
+<a href="rest-api-overview.md#resource_search">Standard search parameters</a> are available.
+<ul>
+<li>d=professional_data - include professionnal data in response</li>
+<li>d=manager_id - include details of user's manager in response</li>
+</ul>
+</li>
+<li><strong>Success Response</strong><br>
+The full JSON representation of the user
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:<pre><code class="language-json">{
+  &quot;last_connection&quot;:&quot;&quot;,
+  &quot;created_by_user_id&quot;:&quot;-1&quot;,
+  &quot;creation_date&quot;:&quot;2014-12-01 10:39:55.177&quot;,
+  &quot;id&quot;:&quot;21&quot;,
+  &quot;icon&quot;:&quot;/default/icon_user.png&quot;,
+  &quot;enabled&quot;:&quot;true&quot;,
+  &quot;title&quot;:&quot;Mrs&quot;,
+  &quot;professional_data&quot;:{
+    &quot;fax_number&quot;:&quot;484-302-0430&quot;,
+    &quot;building&quot;:&quot;70&quot;,
+    &quot;phone_number&quot;:&quot;484-302-5430&quot;,
+    &quot;website&quot;:&quot;&quot;,
+    &quot;zipcode&quot;:&quot;19108&quot;,
+    &quot;state&quot;:&quot;PA&quot;,
+    &quot;city&quot;:&quot;Philadelphia&quot;,
+    &quot;country&quot;:&quot;United States&quot;,
+    &quot;id&quot;:&quot;21&quot;,
+    &quot;mobile_number&quot;:&quot;&quot;,
+    &quot;address&quot;:&quot;Renwick Drive&quot;,
+    &quot;email&quot;:&quot;giovanna.almeida@acme.com&quot;,
+    &quot;room&quot;:&quot;&quot;
+  },
+  &quot;manager_id&quot;:{
+    &quot;last_connection&quot;:&quot;&quot;,
+    &quot;created_by_user_id&quot;:&quot;-1&quot;,
+    &quot;creation_date&quot;:&quot;2014-12-01 10:39:55.136&quot;,
+    &quot;id&quot;:&quot;17&quot;,
+    &quot;icon&quot;:&quot;/default/icon_user.png&quot;,
+    &quot;enabled&quot;:&quot;true&quot;,
+    &quot;title&quot;:&quot;Mrs&quot;,
+    &quot;manager_id&quot;:&quot;1&quot;,
+    &quot;job_title&quot;:&quot;Vice President of Sales&quot;,
+    &quot;userName&quot;:&quot;daniela.angelo&quot;,
+    &quot;lastname&quot;:&quot;Angelo&quot;,
+    &quot;firstname&quot;:&quot;Daniela&quot;,
+    &quot;password&quot;:&quot;&quot;,
+    &quot;last_update_date&quot;:&quot;2014-12-01 10:39:55.136&quot;
+  },
+  &quot;job_title&quot;:&quot;Account manager&quot;,
+  &quot;userName&quot;:&quot;giovanna.almeida&quot;,
+  &quot;lastname&quot;:&quot;Almeida&quot;,
+  &quot;firstname&quot;:&quot;Giovanna&quot;,
+  &quot;password&quot;:&quot;&quot;,
+  &quot;last_update_date&quot;:&quot;2014-12-01 10:39:55.177&quot;
+}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3>Search for a group of users</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>/API/identity/user</code><br>
+<em>Example</em>:<br>
+Search for users with names that contain &quot;will&quot;, filter to keep only enabled users, and order the result by last name.
+<code>/API/identity/user?p=0&amp;c=10&amp;o=lastname%20ASC&amp;s=will&amp;f=enabled%3dtrue</code></li>
+<li><strong>Method</strong><br>
+<code>GET</code></li>
+<li><strong>Data Params</strong><br>
+<a href="rest-api-overview.md#resource_search">Standard search parameters</a> are available.
+<ul>
+<li>d=professional_data - include professionnal data in response</li>
+<li>d=manager_id - include details of user's manager in response</li>
+</ul>
+</li>
+<li><strong>Success Response</strong><br>
+A JSON array of users
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:<pre><code class="language-json">[
+  {
+    &quot;last_connection&quot;:&quot;2014-12-09 14:52:06.092&quot;,
+    &quot;created_by_user_id&quot;:&quot;-1&quot;,
+    &quot;creation_date&quot;:&quot;2014-12-08 17:16:40.984&quot;,
+    &quot;id&quot;:&quot;1&quot;,&quot;icon&quot;:&quot;/default/icon_user.png&quot;,
+    &quot;enabled&quot;:&quot;true&quot;,
+    &quot;title&quot;:&quot;Mr&quot;,
+    &quot;manager_id&quot;:&quot;0&quot;,
+    &quot;job_title&quot;:&quot;Chief Executive Officer&quot;,
+    &quot;userName&quot;:&quot;william.jobs&quot;,
+    &quot;lastname&quot;:&quot;Jobs&quot;,
+    &quot;firstname&quot;:&quot;William&quot;,
+    &quot;password&quot;:&quot;&quot;,
+    &quot;last_update_date&quot;:&quot;2014-12-08 17:16:40.984&quot;
+  },
+  {
+    &quot;last_connection&quot;:&quot;&quot;,
+    &quot;created_by_user_id&quot;:&quot;-1&quot;,
+    &quot;creation_date&quot;:&quot;2014-12-08 17:16:41.030&quot;,
+    &quot;id&quot;:&quot;5&quot;,
+    &quot;icon&quot;:&quot;/default/icon_user.png&quot;,
+    &quot;enabled&quot;:&quot;true&quot;,
+    &quot;title&quot;:&quot;Mr&quot;,
+    &quot;manager_id&quot;:&quot;1&quot;,
+    &quot;job_title&quot;:&quot;Chief Financial Officer&quot;,
+    &quot;userName&quot;:&quot;zachary.williamson&quot;,
+    &quot;lastname&quot;:&quot;Williamson&quot;,
+    &quot;firstname&quot;:&quot;Zachary&quot;,
+    &quot;password&quot;:&quot;&quot;,
+    &quot;last_update_date&quot;:&quot;2014-12-08 17:16:41.030&quot;
+  }
+]
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3>Update a user</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>API/identity/user/_userId_</code></li>
+<li><strong>Method</strong><br>
+<code>PUT</code></li>
+<li><strong>Request Payload</strong><br>
+A JSON representation of the user, with the new information.<br>
+<em>Example</em>:<br>
+Update user details including professional and manager information: <code>/API/identity/user/4</code><pre><code class="language-json">{
+  &quot;id&quot;=&quot;4&quot;,
+  &quot;userName&quot;:&quot;walter.bates&quot;,
+  &quot;password&quot;:&quot;bpm&quot;,
+  &quot;password_confirm&quot;:&quot;bpm&quot;,
+  &quot;icon&quot;:&quot;&quot;,
+  &quot;firstname&quot;:&quot;Walter&quot;,
+  &quot;lastname&quot;:&quot;Bates&quot;,
+  &quot;title&quot;:&quot;Mr&quot;,
+  &quot;job_title&quot;:&quot;Human resources benefits&quot;,
+  &quot;manager_id&quot;:&quot;3&quot;
+}
+</code></pre>
+Deactivate the user identified by id 9 : <code>/API/identity/user/9</code><pre><code class="language-json">{&quot;enabled&quot;:&quot;false&quot;}
+</code></pre>
+</li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+</ul>
+</li>
+</ul>
+<h3>Remove a user</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>/API/identity/user/:userId</code></li>
+<li><strong>Method</strong><br>
+<code>DELETE</code></li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+</ul>
+</li>
 </ul>

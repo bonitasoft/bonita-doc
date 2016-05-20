@@ -1,6 +1,5 @@
 <h1>Design methodology</h1>
-<p>This page presents a summary of the phases in creating a process-based application using
-Bonita BPM:</p>
+<p>This page presents a summary of the phases in creating a process-based application using Bonita BPM:</p>
 <h2>Setting objectives</h2>
 <p>Objectives are a vital part of any project to implement or improve a business application or process. If you set measurable objectives, you can set performance indicators in a process to monitor how well it meets objectives.</p>
 <p>Objectives can be qualitative or quantitative, and should cover the expected lifecycle of the process. For example, if you want to create an automated process to replace an existing process that uses paper forms, you could define objectives for how long it takes to fill out a form in the initial roll-out period, and after 6 months when users have become familiar with the new system. You could also define an objective for the savings achieved by no longer storing paper documents, or quality objectives that the process must
@@ -9,7 +8,7 @@ meet before deployment.</p>
 <h2>Defining application scope</h2>
 <p>Defining the application scope means defining the people who use it and their usage patterns, the information concerned, the level of security needed, and connections to external systems.</p>
 <ul>
-<li>Application or process: Is the process completely automatic with no human users? Does the process interact with other processes that have human users?
+<li>Application or process: Is the process completely automatic with no human users? Does the process interact with other processes that have human users?<br>
 If there is no human interaction, there is no need to create an application.</li>
 <li>People: Who owns the application? Who owns the processes in the application? Who uses the application and processes? Who are the key
 users? Who just needs to know the application exists? When and how is it used? Is it used frequently, on a schedule, in emergencies? Is
@@ -22,17 +21,14 @@ it used by just one person or by many people at the same time?</li>
 <p>Using Bonita BPM Studio, you can quickly sketch out the process flow, and create a diagram of the starting points, main steps, branches, decision points, and end points. Do this for each process in the application. At this stage, get agreement from the process owner and the key users before going further.</p>
 <p>Things to think about:</p>
 <ul>
-<li>Most business processes have a single start and a single end, but it is
-possible to have multiple starts and ends.</li>
-<li>If there are activities that happen in parallel, use symmetric gates to
-map out the beginning and end of the parallel phases of the process.</li>
+<li>Most business processes have a single start and a single end, but it is possible to have multiple starts and ends.</li>
+<li>If there are activities that happen in parallel, use symmetric gates to map out the beginning and end of the parallel phases of the process.</li>
 </ul>
-<p>There is no requirement to create a diagram for an application, because it is not executable in the same way as a process.
-However, you should create a specification so that you can get agreement from the application owner and key users. One option is to use the Bonita BPM Studio to create a diagram showing the usage patterns.
+<p>There is no requirement to create a diagram for an application, because it is not executable in the same way as a process.<br>
+However, you should create a specification so that you can get agreement from the application owner and key users. One option is to use the Bonita BPM Studio to create a diagram showing the usage patterns.<br>
 This diagram would not be executable, and should not be exported as a /bar file, nor deployed.</p>
 <h2>Defining the process details</h2>
-<p>In the development phase of each process in an application, there are several aspects to
-define:</p>
+<p>In the development phase of each process in an application, there are several aspects to define:</p>
 <ul>
 <li>Data. Define the inputs and outputs of each step. Define the data model, sourcing and storage, and data types.</li>
 <li>Step details. Make sure each step is the correct type, and has a descriptive name.</li>
@@ -45,7 +41,7 @@ define:</p>
 </ul>
 <h2>Designing the application</h2>
 <p>When the application definition and process definitions are complete, you will have defined what interaction users have with application pages and with each process task. Create the pages and forms needed.</p>
-<p>Use the Bonita BPM Studio UI designer to create pages and forms by manipulating widgets.
+<p>Use the Bonita BPM Studio UI designer to create pages and forms by manipulating widgets.<br>
 You can add, remove, and reorder widgets, and you can change the appearance of a form.</p>
 <h2>Testing</h2>
 <p>Test each process individually before testing the application as a whole.</p>
@@ -57,8 +53,8 @@ indicates any errors or omissions in the definition. Correct any errors flagged 
 <h2>Deployment</h2>
 <p>When testing is complete, the processes are ready to be deployed in Bonita BPM Portal and the application is ready to be put into production. You need to <a href="process-configuration-overview.md">configure</a> each process for deployment before putting it into production.</p>
 <h2>Specifying the organization</h2>
-<p>Before you can run a process in production, you need to define your organization with entries for all process users, groups, and roles. You also need to map the process actors to the real people who will carry out process steps.
-You can <a href="organization-in-bonita-bpm-portal-overview.md">manage your organization in Bonita BPM Portal</a> for a production system.
+<p>Before you can run a process in production, you need to define your organization with entries for all process users, groups, and roles. You also need to map the process actors to the real people who will carry out process steps.<br>
+You can <a href="organization-in-bonita-bpm-portal-overview.md">manage your organization in Bonita BPM Portal</a> for a production system.<br>
 While you are in the testing phase, you can <a href="organization-management-in-bonita-bpm-studio.md">manage the organization in Bonita BPM Studio</a>.</p>
 <h2>Monitoring and improvement</h2>
 <p>After deployment, you can monitor usage and collect key performance indicators, to assess how well the process is meeting the objectives you defined.</p>
