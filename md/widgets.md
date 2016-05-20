@@ -1,6 +1,6 @@
 # Widgets
 
-The UI Designer is a tool for creating pages and forms to use in a BPM application. 
+The UI Designer is a tool for creating pages and forms to use in a BPM application.   
 A form is mapped to process instantiation or to a human task and must fulfill a [contract](contracts-and-contexts.md). To gather the inputs that will be sent to the contract, it embeds input fields and a submit button. A page is not mapped to any part of a process, it displays business information and gives access to forms or action buttons that send information to the process. Besides this, there is no difference between a page and a form, so the procedure for designing them is the same. This documentation uses the term _page_ for both pages and forms, unless otherwise stated.
 
 ## Page structure
@@ -11,7 +11,7 @@ Each widget in the palette has a description. To show a widget description, just
 
 ## Containers
 
-A container is a widget that contains other widgets. You can create nested containers. A typical use for containers is to control the main layout of your page. For example, if you want to create a two-column layout, you will start your page by adding two containers on the same row, each one spanning six columns of the page. A page does not need to have a container, but it is useful.
+A container is a widget that contains other widgets. You can create nested containers. A typical use for containers is to control the main layout of your page. For example, if you want to create a two-column layout, you will start your page by adding two containers on the same row, each one spanning six columns of the page. A page does not need to have a container, but it is useful.  
 By default, a container contains one row, where you can drop component widgets or containers. You can also make the page layout dynamic by [repeating a container to display a collection of data](repeat-a-container-for-a-collection-of-data.md).
 
 ### Adding a widget to a row
@@ -36,7 +36,8 @@ When you drop a widget in one of these two zones, a new row is automatically cre
 
 ### Repeat content
 
-A container can repeat the content dynamically. This is useful if you need to repeat a set of components for each element in a data collection. Bind the **Repeat content** property to an array variable. To specify the current element of the collection, use `$item`. This is useful if you want to display some property of the current element.
+A container can repeat the content dynamically. This is useful if you need to repeat a set of components for each element in a data collection. Bind the **Repeat content** property to an array variable. To specify the current element of the collection, use `$item`.  
+This is useful if you want to display some property of the current element.
 
 ### Save as fragment
 
@@ -44,12 +45,12 @@ If you are using the Performance, Efficiency, or Teamwork edition, you can save 
 
 ### Tab container widget
 
-Use the **tab container** to structure a page using tabs. To edit a tab name, select the corresponding tab to display its properties.
+Use the **tab container** to structure a page using tabs. To edit a tab name, select the corresponding tab to display its properties.  
 Each tab is a container widget.
 
 ### Form container widget
 
-Use the **form container** to enable form validation for input widgets. The form container also exposes a local **$form** which is the AngularJS form object associated to the form container. In the Bonita BPM Studio, if you define a contract for the task or process and click on the UI Designer icon, the generated form already contains a form container to embed default input widgets to collect the information that need to be passed to the contract to be verified. You can then define the validation you need on the input.
+Use the **form container** to enable form validation for input widgets. The form container also exposes a local **$form** which is the AngularJS form object associated to the form container. In the Bonita BPM Studio, if you define a contract for the task or process and click on the UI Designer icon, the generated form already contains a form container to embed default input widgets to collect the information that need to be passed to the contract to be verified. You can then define the validation you need on the input.  
 For example, you can bind the button's disabled property to _$form.$invalid_ to prevent user from clicking the button, until the form inputs are valid.
 
 ## Input widgets
@@ -75,8 +76,8 @@ Use the input widget on a form or page. There are four types of input:
 
 ### Text area and rich text area widgets
 
-Use the text area input widgets on a form or page to collect large text.
-The rich text area allows the user to format and style their input, add images, links, and so on.
+Use the text area input widgets on a form or page to collect large text.  
+The rich text area allows the user to format and style their input, add images, links, and so on.  
 You can customize the toolbar for the end-users by selecting options among the available values of the toolbar properties.
 
 ### Autocomplete widget
@@ -85,8 +86,8 @@ Use an autocomplete widget to offer the user a list of possible values based on 
 
 ### Select widget
 
-Use a select widget to offer the user a drop-down list of values. The user selects the required value.
-The **available values** property is used to populate the list of available values. Alternatively for simple data, you can provide a comma-separated list of values (for example, red, green, blue).
+Use a select widget to offer the user a drop-down list of values. The user selects the required value.  
+The **available values** property is used to populate the list of available values. Alternatively for simple data, you can provide a comma-separated list of values (for example, red, green, blue).  
 You can also use data binding and specify a variable to populate the list of available values. In this case, specify a label key, which identifies the attribute to be displayed in the widget.
 
 ### Checkbox widget
@@ -95,9 +96,8 @@ Use a checkbox widget to create a unique checkbox. The value property will be tr
 
 ### Checklist widget
 
-Use a checklist widget to create a set of checkboxes for the available values, from which the users picks any number of values. To define the **available values**, you can provide a comma-separated list for simple values (for example: red, green, blue), or bind to a variable that holds an array of values.
-If the values are JavaScript objects, you can also specify a **displayed key** that identifies the attribute to be used to label the checkboxes 
-and a **returned key** so **selected value** will return only a specific key rather that the whole corresponding object.
+Use a checklist widget to create a set of checkboxes for the available values, from which the users picks any number of values. To define the **available values**, you can provide a comma-separated list for simple values (for example: red, green, blue), or bind to a variable that holds an array of values.  
+If the values are JavaScript objects, you can also specify a **displayed key** that identifies the attribute to be used to label the checkboxes and a **returned key** so **selected value** will return only a specific key rather that the whole corresponding object.
 
 The selected values are captured through the **Selected values** property.
 
@@ -105,10 +105,9 @@ The selected values are captured through the **Selected values** property.
 
 ### Radio buttons widget
 
-Use a radio button widget to create a set of radio buttons for the available values, from which the user picks one value. 
-To define the **available values**, you can provide a comma-separated list for simple values (for example: red, green, blue), or bind to a variable that holds an array of values.
-If the values are JavaScript objects, you can also specify a **displayed key** that identifies the attribute to be used to label the radio buttons
-and a **returned key** so **selected value** will return only a specific key rather that the whole corresponding object.
+Use a radio button widget to create a set of radio buttons for the available values, from which the user picks one value.   
+To define the **available values**, you can provide a comma-separated list for simple values (for example: red, green, blue), or bind to a variable that holds an array of values.  
+If the values are JavaScript objects, you can also specify a **displayed key** that identifies the attribute to be used to label the radio buttons and a **returned key** so **selected value** will return only a specific key rather that the whole corresponding object.
 
 The selected value should be bound to a variable that will hold the data for the chosen radio button.
 
@@ -126,7 +125,7 @@ Use an upload widget to perform a file upload (POST) on the specified **URL**. D
 
 ### Button widget
 
-Use a button widget to enable to user to trigger an action. The button can perform a `PUT`, `POST`, `GET` (from 7.1.3), or `DELETE` (from 7.1.3) request and send data to a given URL. 
+Use a button widget to enable to user to trigger an action. The button can perform a `PUT`, `POST`, `GET` (from 7.1.3), or `DELETE` (from 7.1.3) request and send data to a given URL.  
 You can use a variable to hold the resulting data after success or failure.
 
 For pages that are displayed in a task or process context, the button widget can be used to submit a form, completing the human task or starting a process instance. For form submission, you need to define only the data to send. The URL is extracted from the context.
@@ -146,12 +145,9 @@ Use a display widget for information that the user can read on a page. This incl
 
 ## Table widget
 
-Use a table widget to display data in a table. In order to display the data, first define the **headers** property with a comma-separated list of column headings.
-
-Then bind the **content** to an array of JavaScript objects.
-
-Finally, provide a comma-separated list for the **columns keys** indicating the attribute to display in each column.
-
+Use a table widget to display data in a table. In order to display the data, first define the **headers** property with a comma-separated list of column headings.  
+Then bind the **content** to an array of JavaScript objects.  
+Finally, provide a comma-separated list for the **columns keys** indicating the attribute to display in each column.  
 To get the data from a selected row, bind **selected row** to a variable.
 
 Note: table widget only supports text values. HTML content passed in table data will not be rendered.
@@ -160,23 +156,22 @@ Note: table widget only supports text values. HTML content passed in table data 
 
 An extended table widget that provides column sorting, filtering, and paging in addition to the standard table widget facilities.
 
-Set the **Data source** to _Bonita API_ to populate the data table with records from a Bonita BPM REST API. 
-Then enter a REST API URL in the **URL** property. Use the **API request parameters** property to pass additional parameters to the request. 
-Supported parameters are described in the [REST API Overview](rest-api-overview.md) and in the REST API documentation for the relevant resource. 
-You do not need to specify paging parameters (such as `?p=0&c=10`), because the data table handles paging automatically when you use a Bonita API data source. 
-The value of the **Page size** property controls how many rows are displayed in a table view, and automatically adds buttons to show subsequent pages of the table.
+Set the **Data source** to _Bonita API_ to populate the data table with records from a Bonita BPM REST API.   
+Then enter a REST API URL in the **URL** property. Use the **API request parameters** property to pass additional parameters to the request.  
+Supported parameters are described in the [REST API Overview](rest-api-overview.md) and in the REST API documentation for the relevant resource.  
+You do not need to specify paging parameters (such as `?p=0&c=10`), because the data table handles paging automatically when you use a Bonita API data source.  
+The value of the **Page size** property controls how many rows are displayed in a table view, and automatically adds buttons to show subsequent pages of the table.  
 
-Alternatively, you can set the **Data source** to _Variable_ and use a variable definition to point ot the table content. 
+Alternatively, you can set the **Data source** to _Variable_ and use a variable definition to point ot the table content.   
 Note that if you use a Variable datasource and an External API variable, the paging of the table content is not handled automatically.
 
 ### Sort
 
-The _Sortable columns_ property enables to list the columns which allow a sorted search.
-Each element of this property has to match an element of the _Columns key_ property to figure out which table column
-can be sorted upon.
+The _Sortable columns_ property enables to list the columns which allow a sorted search.  
+Each element of this property has to match an element of the _Columns key_ property to figure out which table column can be sorted upon.
 
-When a data table is displayed (including in the Preview), the user can click on a column heading to reorder the table rows by this column. 
-Some fields do not support sorting but still display the sort button which is a known limitation. 
+When a data table is displayed (including in the Preview), the user can click on a column heading to reorder the table rows by this column.  
+Some fields do not support sorting but still display the sort button which is a known limitation.   
 The ordering applies to the visible rows in the table, not to the entire table.
 
 The sort is backend when datasource is **Bonita API**. It is frontend, otherwise.
@@ -201,14 +196,13 @@ Note: it is only possible to filter on attributes that are searchable in the RES
 Use an image widget to display an image. The image widget is able to display images from local assets or an image from a URL:
 
 * To use an image asset in the image widget, set the **Source type** property to _Asset_, and then enter the image name in the **Asset name** input field.
-* 
-To use an online image in the image widget, set the **Source type** property to _URL_, and then enter the image URL in the **URL** input field.
+* To use an online image in the image widget, set the **Source type** property to _URL_, and then enter the image URL in the **URL** input field.
 
 _**Note**_: Applies from _7.0.2_
 
 ## Chart widget (Subscription editions)
 
-Use the chart widget to create a graphical display of data to ease understanding. This widget is based on angular-chart-0.8.1, which is based on Chart.js.
+Use the chart widget to create a graphical display of data to ease understanding. This widget is based on angular-chart-0.8.1, which is based on Chart.js.  
 For information, see the [Angular chart documentation](http://jtblin.github.io/angular-chart.js/) or [Chart.js documentation](http://www.chartjs.org/docs/).
 
 The widget can display several styles of chart:
@@ -222,11 +216,10 @@ The widget can display several styles of chart:
   * Doughnut
   * Polar area
 
-Provide each set of data for display in a JSON array, containing numeicral values.
-You can enter a single array directly in the Value property, or bind it to any variable that provides an array.
-For a multiple set chart, bind it to any variable that provides an array of arrays, all sets having have the same length.
-The list of values in the **Labels** property must be have same length as an associated set.
+Provide each set of data for display in a JSON array, containing numeicral values.  
+You can enter a single array directly in the Value property, or bind it to any variable that provides an array.  
+For a multiple set chart, bind it to any variable that provides an array of arrays, all sets having have the same length.  
+The list of values in the **Labels** property must be have same length as an associated set.  
 
-Charts can be customized more deeply using the **Advanced options** property. To specify advanced options, bind this property to a JSON variable that specifies the options.
-Options are specific to each chart type and are listed in the [Chart.js documentation](http://www.chartjs.org/docs/) in the _Chart options_ section for each chart style 
-(for example, there are spacing [options for bar charts](http://www.chartjs.org/docs/#bar-chart-chart-options)).
+Charts can be customized more deeply using the **Advanced options** property. To specify advanced options, bind this property to a JSON variable that specifies the options.  
+Options are specific to each chart type and are listed in the [Chart.js documentation](http://www.chartjs.org/docs/) in the _Chart options_ section for each chart style (for example, there are spacing [options for bar charts](http://www.chartjs.org/docs/#bar-chart-chart-options)).
