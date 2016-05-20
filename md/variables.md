@@ -1,7 +1,6 @@
 # Variables
 
-**Variables** is a key concept of the UI Designer. They define page, layout, form, and fragment behavior, they are used to
-fetch external resources, to manipulate and process information, and much more. It is important to understand how to define and use variables in those artifacts, and how the data contained in the variables works when combined with widget properties. Unless otherwise stated, we will use "page" as the generic for page, layout, form, and fragment.
+**Variables** is a key concept of the UI Designer. They define page, layout, form, and fragment behavior, they are used to fetch external resources, to manipulate and process information, and much more. It is important to understand how to define and use variables in those artifacts, and how the data contained in the variables works when combined with widget properties. Unless otherwise stated, we will use "page" as the generic for page, layout, form, and fragment.
 
 There are several types of variables:
 * Static
@@ -24,28 +23,30 @@ External API variables are used to fetch data from outside the page. This is typ
 
 Here are some examples:
 
-* Get the id of the current user - API URL:
+* Get the id of the current user - API URL:  
 `../API/system/session/{{userId}}`
 
 This variable is evaluated every time the value of `userId` changes. Also, if `userId` is not yet defined then the call is not triggered.
 
-* Retrieve the taskId:
+* Retrieve the taskId:  
 API URL: `../API/bpm/humanTask/{{taskId}}`
 
-* Retrieve a [business object](bdm-api.md) associated with a process instance:
+* Retrieve a [business object](bdm-api.md) associated with a process instance:  
 API URL: `../API/bdm/businessDataReference/{{caseId}}/{{businessDataName}}`
 
-* Retrieve business data using the reference in the [context](contracts-and-contexts.md) when building a form.
+* Retrieve business data using the reference in the [context](contracts-and-contexts.md) when building a form:  
 API URL: `../{{context.myBusinessData_ref.link}}`
 
 ### JavaScript expression
 
-An JavaScript expression variable is a JavaScript function. During the evaluation, the function can use the **$data** variable, which provides access to the page data model. For example:
-`var result = $data.expenses * 2;
-    return result;`
+An JavaScript expression variable is a JavaScript function. During the evaluation, the function can use the **$data** variable, which provides access to the page data model. For example:  
+```javascript
+var result = $data.expenses * 2;
+    return result;
+```
 
-An expression often relies on other variables as dependencies. When one of these variables changes, the expression is reevaluated and the previous value is overwritten. 
-For example, create a `login` expression variable: `return $data.firstname.toLowercase() + '-' + $data.lastname.toLowercase()`. Its dependencies are the two variables `firstname` and `lastname`. 
+An expression often relies on other variables as dependencies. When one of these variables changes, the expression is reevaluated and the previous value is overwritten.   
+For example, create a `login` expression variable: `return $data.firstname.toLowercase() + '-' + $data.lastname.toLowercase()`. Its dependencies are the two variables `firstname` and `lastname`.   
 Create two input widgets "First name" and "Last name" bound the two variables, and a text widget "Login" to display the result of the expression. When the user fills out the two input fields, the expression is updated. If the login value is manually edited before the user fills out the fields, then its value is overwritten.
 
 ## Using a variable
