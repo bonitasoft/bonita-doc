@@ -1,6 +1,6 @@
 # Custom User Information in Bonita BPM Studio
 
-You can use custom user information to assign task to users based on information that is specific to your organization and not included in the standard organization definition. 
+You can use custom user information to assign task to users based on information that is specific to your organization and not included in the standard organization definition.   
 You define the attributes that you want to store, and then add the values for the users.
 
 ## Value
@@ -38,7 +38,7 @@ In the Organization menu \> Manage organizations \> Organization users, the firs
 * Business card (Email, phone, website, address etc.)
 * Custom 
 
-To add custom user information values for a user, select a user in the **List of users**, click on the **_Custom_** tab, and enter the value for each relevant information. You also see a link **Manage custom information**, to go back and manage the list of custom user information. 
+To add custom user information values for a user, select a user in the **List of users**, click on the **_Custom_** tab, and enter the value for each relevant information. You also see a link **Manage custom information**, to go back and manage the list of custom user information.   
 Note: this value can be changed by a user with the Admin profile in the Bonita BPM Portal. See [How to edit Custom information for a single user](custom-user-information-in-bonita-bpm-portal.md)
 
 ## Set an actor filter on custom user information
