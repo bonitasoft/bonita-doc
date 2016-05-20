@@ -6,7 +6,7 @@ Many business processes require documents, or exist because of documents. For ex
 * A process for considering candidates for a position includes CVs and a job description.
 * A process for approving a document for publication includes the document itself and a quality checklist.
 
-Documents can also be attached to processes to provide supplementary information. For example, a travel expense claim process could have an attached document detailing the expense policy of the company. 
+Documents can also be attached to processes to provide supplementary information. For example, a travel expense claim process could have an attached document detailing the expense policy of the company.   
 Users have the option to download the document if required.
 
 ## Document definition
@@ -16,18 +16,16 @@ A document is a self-contained structured set of information that is attached to
 * **Create**: The lifecycle of a document begins before the process instance is created. A document is created in an external system. 
 * **Add to process instance**: When a process instance is created, the document instances defined for the process are initialized, in the form of document objects. 
 At this point, the documents have the content specified in the document definition (which might be no content).
-* **Update in process instance**: A document in a process instance is updated by an automatic action in the process definition or following information specified by a user in a form.
-Updating a document creates a new object.
+* **Update in process instance**: A document in a process instance is updated by an automatic action in the process definition or following information specified by a user in a form. Updating a document creates a new object.
 * **Delete from process instance**: A document object can be deleted from an active process instance but not from an archived process instance. 
 
 A document in a process instance is a Java object. When you update a document in a process instance, you create a new object. A document has the following:
 
 * **Name**: the name of the document, defined in the process definition
 * **Description**: a description of the document, defined in the process definition (optional)
-* **Content**: the content of the document, set from a file or URL. The initial content source is specified in the process definition. 
+* **Content**: the content of the document, set from a file or URL. The initial content source is specified in the process definition.   
 The content does not have to be initialized when the process instance is created. The content can be initialized or updated in a process task by the system or as a result of user action.
-* **MIME type**: the type of content of the document. This is defined for the initial content in the process definition. A browser (or your computer) uses the MIME type to select the best application to use to display the document content. 
-If you do not specify the MIME type, the browser reads the beginning of the file to discover the MIME type. 
+* **MIME type**: the type of content of the document. This is defined for the initial content in the process definition. A browser (or your computer) uses the MIME type to select the best application to use to display the document content. If you do not specify the MIME type, the browser reads the beginning of the file to discover the MIME type. 
 * **Submitter**: the name of the user who uploaded the content.
 * **Creation date**: the date and time when the content was uploaded.
 
@@ -78,7 +76,8 @@ Typically, business documents are stored in an external system such as a CMS, an
 
 You can initialize a document object in a process instance by specifying a URL that identifies the document. The document object stores a reference to the URL, not the content itself. The document can be updated in the process instance when the user specifies a URL in a form, or using a connector. You can also use a connector to push an update to the CMS.
 
-If the document is stored in a CMS, you need to consider the lifecycle of the content in the CMS when you are designing your process. For example, the content might be updated by some other applications after you have initialized the document object in the process instance, so you need to be sure that the content that is referenced in the CMS is the relevant version. If your process requires the latest version of the content, you should minimize the time between getting the content from the CMS and making it available in the process instance. Also, if your process updates a document and sends new content to the CMS, consider whether you need to handle multiple concurrent updates to the CMS. This might be handled automatically by the CMS itself, or might need to be managed by the connector.
+If the document is stored in a CMS, you need to consider the lifecycle of the content in the CMS when you are designing your process.  
+For example, the content might be updated by some other applications after you have initialized the document object in the process instance, so you need to be sure that the content that is referenced in the CMS is the relevant version. If your process requires the latest version of the content, you should minimize the time between getting the content from the CMS and making it available in the process instance. Also, if your process updates a document and sends new content to the CMS, consider whether you need to handle multiple concurrent updates to the CMS. This might be handled automatically by the CMS itself, or might need to be managed by the connector.
 
 For example, in a process to approve a document for publication, the document exists in an external file store or CMS before the process is instantiated. At a step in the process, the document is approved for external publication, and a new revision of the file is created with a "Confidential" watermark removed. This new revision is uploaded to the CMS by connector, and continues to exist after the process instance is completed and archived.
 
@@ -96,7 +95,7 @@ The Bonita BPM Studio Document Repository contains documents that have been impo
 
 When you [export a process in a bos file for import into another Studio](import-and-export-a-process.md), you must select the resources that are used so that they are included.
 
-The dialog for adding a resource to the document repository is inside the dialog for adding a resource to a process definition. However, you can add a resource without updating the process definition, as follows:
+The dialog for adding a resource to the document repository is inside the dialog for adding a resource to a process definition.   However, you can add a resource without updating the process definition, as follows:
 
 1. Open any process diagram and select the pool. This definition will not be updated.
 2. Go to the **Details** panel, **Data** tab, **Documents** pane.
@@ -111,7 +110,7 @@ When you deploy a process, the documents included in the bar file are stored in 
 
 ### Setting maximum document size
 
-By default, the maximum size of a document is 15Mb. You can reduce or increase this in your production environment by modifying the value of the `form.attachment.max.size` property in the `forms-config.properties` file of your tenant, and then restarting Bonita BPM. 
+By default, the maximum size of a document is 15Mb. You can reduce or increase this in your production environment by modifying the value of the `form.attachment.max.size` property in the `forms-config.properties` file of your tenant, and then restarting Bonita BPM.  
 The maximum document size cannot exceed the capacity of the database column. This value depends on your database. This setting applies to all processes in the tenant. 
 
 ### Document versioning in a process instance
@@ -120,7 +119,7 @@ In a process instance, there is no specific versioning. When a document is updat
 
 ### Document archiving
 
-When a process element is archived the associated documents are also archived. It is possible to delete the archived documents using the Engine API or REST API when they are no longer needed, to save space. You can delete an archived document from a live process instacne or from an archived process instance. When you delete an archived document, only the content is deleted. The metadata, such as the name, last updated date, and uploader, is kept so that it can be retrieved if needed for audit.
+When a process element is archived the associated documents are also archived. It is possible to delete the archived documents using the Engine API or REST API when they are no longer needed, to save space. You can delete an archived document from a live process instance or from an archived process instance. When you delete an archived document, only the content is deleted. The metadata, such as the name, last updated date, and uploader, is kept so that it can be retrieved if needed for audit.
 
 ## Defining a document in a process definition
 
@@ -173,9 +172,7 @@ To map a document when using a call activity:
 2. Define a document in the called process, for example "subDoc".
 3. In the call activity of the main process, add a task variable of type long (for example called "docId") that will contain the id of the instance of mainDoc. 
 Set the default value of docId with the following code:
-`
-apiAccessor.getProcessAPI().getLastDocument(processInstanceId, "mainDoc").getId();
-`
+`apiAccessor.getProcessAPI().getLastDocument(processInstanceId, "mainDoc").getId();`
 4. In the called process, add a pool-level variable of type long (for example called docId).
 5. Define the [variable mapping in the call activity](called-processes.md) so that docId in the call activity is mapped to docId in the called process. 
 6. In the called process, as the first task add an automatic task that will get the mainDoc, create a DocumentValue object with the content of mainDoc, and use it to update the content of subDoc. 
@@ -201,14 +198,13 @@ A document is represented in a form definition by the [upload widget](widgets.md
 
 ## Connectors and documents
 
-During a process instance, you can use [connectors](connectivity-overview.md) to manipulate documents. 
-In addition to the connectors that interact with content management systems (such as the Alfrecso and CMIS connectors), 
-some other connectors can also manipulate documents. For example:
+During a process instance, you can use [connectors](connectivity-overview.md) to manipulate documents.   
+In addition to the connectors that interact with content management systems (such as the Alfrecso and CMIS connectors), some other connectors can also manipulate documents. For example:
 
 * A task that uses the Email connector to send a message can attach a document to the message.
 * A task that uses the Google Calendar connector to create a calendar event can attach a document as content.
 
 Note that connectors handle single documents. If your process contains a document list, you can manipulate component documents using connectors.
 
-The standard connectors provided with Bonita BPM (CMIS, Alfresco, Jasper) take a document as input. They cannot handle document lists. 
+The standard connectors provided with Bonita BPM (CMIS, Alfresco, Jasper) take a document as input. They cannot handle document lists.   
 The email connector can handle a document list that specifies the attachments to be added to a message. The standard connectors do not provide a documentValue as output. This means that you cannot use a connector to get a document. Instead, specify the URL of the document, as you would for initialization.
