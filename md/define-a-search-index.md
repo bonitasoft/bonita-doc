@@ -1,6 +1,7 @@
 # Define a search key
 
-A search key is data that is attached to a process and is used to distinguish between cases of the process in Bonita BPM Portal. You can define up to five search keys for a process.
+A search key is data that is attached to a process and is used to distinguish between cases of the process in Bonita BPM Portal.  
+You can define up to five search keys for a process.
 
 For example, in a process handling insurance claims, you could define the claim number that is automatically assigned from a database to be a search key, so that you can search in Bonita BPM Portal and find the case associated with a given claim. The value of this search key would be fixed for the entire lifetime of a case. You could also define a claimState search key that is updated at certain milestones while the claim is being handled, and could be used to find all your cases that are in a given state.
 
@@ -16,4 +17,5 @@ To configure a search key:
 4. In the Value column, open the expression editor by clicking the expression editor.
 5. Define the search key value using an expression.
 
-In Performance and Efficiency editions, search keys are displayed in the Bonita BPM Portal case list and in the case more details view. In this way, you can use search keys for adding business information to your cases. You can search on search keys typing the value of a search key in the Search field. For example, if you have a process called _Issue E111_ that uses the applicant social security number as a search key, you can type the number of an applicant into the search field and see the status of the tasks in the case.
+In Performance and Efficiency editions, search keys are displayed in the Bonita BPM Portal case list and in the case more details view.  
+In this way, you can use search keys for adding business information to your cases. You can search on search keys typing the value of a search key in the Search field. For example, if you have a process called _Issue E111_ that uses the applicant social security number as a search key, you can type the number of an applicant into the search field and see the status of the tasks in the case.
