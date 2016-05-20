@@ -33,8 +33,8 @@ It is not possible to execute more than one SELECT command in a single script.
 
 ## Teradata 14
 
-If you are using the `terajdbc4.jar`, you also need the `tdgssconfig.jar` file. 
-Import both `terajdbc4.jar` and `tdgssconfig.jar` into Bonita BPM Studio and add them to the connector configuration. 
+If you are using the `terajdbc4.jar`, you also need the `tdgssconfig.jar` file.  
+Import both `terajdbc4.jar` and `tdgssconfig.jar` into Bonita BPM Studio and add them to the connector configuration.  
 Specify `terajdbc4.jar` as the active driver. To test the connector, you must specify both files. When you configure the process, specify both files in the process dependencies.
 
 <a id="hsql"/>
