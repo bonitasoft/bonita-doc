@@ -2,8 +2,7 @@
 
 The Talend TIS Job launcher connector enables you to launch a Talend Integration Suite (TIS) job.
 
-For example, if you are using Talend Integration Suite (TIS) to provide an integrated view of data from many data sources and a process updates one of those data sources, 
-you could trigger a job to update the view.
+For example, if you are using Talend Integration Suite (TIS) to provide an integrated view of data from many data sources and a process updates one of those data sources, you could trigger a job to update the view.
 
 The job is defined in TIS and specified by the id that was set when the job is created.
 
