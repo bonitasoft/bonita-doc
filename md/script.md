@@ -16,5 +16,4 @@ Follow the steps in the wizard to configure the connector. For the **Parameters 
 
 ## How to configure the Groovy script connector
 
-Follow the steps in the wizard to configure the connector. When you have entered the script, click
-_**Evaluate**_ to test the validity of the script. If the script is not valid, a popup window will display an error message.
+Follow the steps in the wizard to configure the connector. When you have entered the script, click _**Evaluate**_ to test the validity of the script. If the script is not valid, a popup window will display an error message.
