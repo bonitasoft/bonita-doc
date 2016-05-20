@@ -29,7 +29,7 @@ If your business process includes a call activity subprocess with mapped data, y
 Refactoring is not available for the following process definition elements:
 
 * 7.x pages do not reflect modifications of business data, documents and contract inputs.
-* "List of options" elements are not managed by refactoring. If you rename n option, you need to manually update any widgets that use this option as initial value.
+* "List of options" elements are not managed by refactoring. If you rename an option, you need to manually update any widgets that use this option as initial value.
 * Refactoring cannot be used to modify the type of an element, It is limited to renaming.
 * Expression dependencies are not recomputed in the Groovy script comparison editor. This means that you need to manually go back to each expression dependency and uncheck/check the "automatic dependency resolution" if you added a new element in the Groovy script comparison editor.
 
