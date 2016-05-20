@@ -2,7 +2,7 @@
 
 Assets enable you to add web resources to pages, layouts and forms. We will use "page" to refer to those three artifacts. 
 
-Available asset types are JavaScript, CSS, image, and (in the Subscription editions) Localization. 
+Available asset types are JavaScript, CSS, image, and (in the Subscription editions) Localization.   
 Assets can be Local (file stored in the artifact) or External (URL). A localization asset is always local and its name is always "Localization.json". An external asset name must be a standard URL.
 
 ## Assets in the page editor
@@ -11,8 +11,7 @@ Manage assets using the **Assets** tab in the bottom panel of the whiteboard.
 
 ### JavaScript assets
 
-With a Javascript asset you can add a script. It will be loaded in the global scope and you can use it in data. 
-
+With a Javascript asset you can add a script. It will be loaded in the global scope and you can use it in data.  
 For example, add a script `myscript.js` to display this welcome message:
 
 ```javascript
@@ -104,7 +103,7 @@ You can now use this custom widget in any page, by adding an image asset and cha
 
 ### Asset list
 
-In a custom widget, you can use the arrows to reorder assets, view local assets, edit external assets, and delete an asset. 
+In a custom widget, you can use the arrows to reorder assets, view local assets, edit external assets, and delete an asset.  
 You can also indicate whether an asset is active. To avoid dependency clashes with multiple version of assets, make sure only one version of an asset is active in a page.
 
 At runtime, assets of a custom widget are loaded in the order defined.
