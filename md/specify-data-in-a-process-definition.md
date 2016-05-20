@@ -1,5 +1,6 @@
 # Specify data in a process definition
 
+By data, we mean variables and documents.
 This page explains how to handle data in a process, including specifying process and task-level data.
 
 ## Variable scope
@@ -132,9 +133,9 @@ When you configure the process, add the JAR file that contains the data type def
 
 ### Define an XML variable
 
-An XML variable has a data type that is defined by an XML schema file.
-Before you define the variable, you must [create the XML schema](create-a-complex-data-type.md) that contains
-the data type definition. The data type definition is stored in an XML schema (XSD) file that belongs to a namespace.
+An XML variable has a data type that is defined by an XML schema file.   
+Before you define the variable, you must [create the XML schema](create-a-complex-data-type.md) that contains the data type definition.  
+The data type definition is stored in an XML schema (XSD) file that belongs to a namespace.
 
 To add an XML variable:
 
