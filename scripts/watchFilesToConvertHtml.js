@@ -14,7 +14,7 @@
   server.use((req, res, next) => {
     if(req.url.match(/.*\.md$/)) {
       res.writeHead(200, {'Content-type': 'text/html'}); 
-      let html = md.render(fs.readFileSync(__dirname + req.url).toString());
+      let html = md.render(fs.readFileSync(__dirname + '/..' + req.url).toString());
       html += `<script>
         document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
                          ':35729/livereload.js?snipver=1"></' + 'script>')</script>`;
@@ -23,8 +23,8 @@
       next();
     }
   });
-  server.use(serve(__dirname));
-  server.use(serveIndex('.'));
+  server.use(serve(__dirname + '/../'));
+  server.use(serveIndex('..'));
    
   server.listen(3000);
    
@@ -32,7 +32,7 @@
   server = livereload.createServer({
     exts: ['md', 'png', 'jpg', 'gif']
   });
-  server.watch(__dirname + '/**/*.md');
+  server.watch(__dirname + '/../**/*.md');
   console.log('open your favorite browser on http://localhost:3000/ and browse to the page you are editing');
   console.log('press Ctrl+C to exit server');
 })();
