@@ -2,13 +2,11 @@
 
 The Talend Job launcher connector enables you to launch a Talend job that uses the Talend open source software.
 
-For example, you could initialize a process variable by running a job that retrieves information from a Talend data repository, 
-or you could use process data to update a data repository by passing it as a job parameter.
+For example, you could initialize a process variable by running a job that retrieves information from a Talend data repository, or you could use process data to update a data repository by passing it as a job parameter.
 
 The job is defined in Talend Open Studio and is referenced by the project name, job name, and job version set when the job is created.
 
-The connector returns a buffer containing the output of the job, in a Java object. You can configure the connector to print the buffer automatically, 
-or you can set the value of a variable with the buffer content.
+The connector returns a buffer containing the output of the job, in a Java object. You can configure the connector to print the buffer automatically, or you can set the value of a variable with the buffer content.
 
 To prepare the job in Talend Open Studio:
 
