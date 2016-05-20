@@ -68,7 +68,7 @@
     * [Initialize a variable from a database without scripting or Java code](initialize-a-variable-from-a-database-without-scripting-or-java-code.md)
   * [Insert data in a .docx/.odt template](insert-data-in-a-docx-odt-template.md)
   * [Google Calendar](google-calendar.md)
-  * [Jasper 5.0](jasper-5.md)
+  * [Jasper](jasper-5.md)
   * [LDAP](ldap.md)
   * [Messaging](messaging.md)
   * [Generate PDF from an Office document](generate-pdf-from-an-office-document.md)
