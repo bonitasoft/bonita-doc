@@ -185,12 +185,415 @@ A partial representation of a user's contact information in JSON with at least t
 <li><strong>Method</strong><br>
 <code>POST</code></li>
 <li><strong>Data Params</strong></li>
-<li><strong>Request Payload</strong><pre><code class="language-json"></code></pre>
+<li><strong>Request Payload</strong><br>
+A partial representation of a group in JSON with at least the mandatory &quot;name&quot; attribute<pre><code class="language-json">{
+  &quot;icon&quot;:&quot;&quot;,&quot;name&quot;:&quot;HR&quot;,
+  &quot;displayName&quot;:&quot;Human Resources&quot;,
+  &quot;parent_group_id&quot;:&quot;1&quot;,
+  &quot;description&quot;:&quot;Human resources department&quot;
+}
+</code></pre>
 </li>
-<li><strong>Success Response</strong>
+<li><strong>Success Response</strong><br>
+The full JSON representation of the group that was created
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:<pre><code class="language-json">{
+  &quot;id&quot;:&quot;14&quot;,
+  &quot;creation_date&quot;:&quot;2014-12-02 16:19:28.925&quot;,
+  &quot;created_by_user_id&quot;:&quot;4&quot;,
+  &quot;icon&quot;:&quot;&quot;,&quot;parent_path&quot;:&quot;/acme&quot;
+  ,&quot;description&quot;:&quot;Human resources department&quot;,
+  &quot;name&quot;:&quot;HR&quot;,
+  &quot;path&quot;:&quot;/acme/HR&quot;,
+  &quot;displayName&quot;:&quot;Human Resources&quot;,
+  &quot;last_update_date&quot;:&quot;2014-12-02 16:19:28.925&quot;
+}
+</code></pre>
+</li>
+</ul>
+</li>
+<li><strong>Error Response</strong>
+<ul>
+<li><strong>Code</strong>: 403 if a group with the same name and parent already exists</li>
+</ul>
+</li>
+</ul>
+<h3>Read a group</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>/API/identity/group/:groupId</code></li>
+<li><strong>Method</strong><br>
+<code>GET</code></li>
+<li><strong>Success Response</strong><br>
+A group in JSON
 <ul>
 <li><strong>Code</strong>:</li>
-<li><strong>Payload</strong>:<pre><code class="language-json"></code></pre>
+<li><strong>Payload</strong>:<pre><code class="language-json">{
+  &quot;id&quot;:&quot;14&quot;,
+  &quot;creation_date&quot;:&quot;2014-12-02 16:19:28.925&quot;,
+  &quot;created_by_user_id&quot;:&quot;4&quot;,
+  &quot;icon&quot;:&quot;&quot;,&quot;parent_path&quot;:&quot;/acme&quot;,
+  &quot;description&quot;:&quot;Human resources department&quot;,
+  &quot;name&quot;:&quot;HR&quot;,
+  &quot;path&quot;:&quot;/acme/HR&quot;,
+  &quot;displayName&quot;:&quot;Human Resources&quot;,
+  &quot;last_update_date&quot;:&quot;2014-12-02 16:19:28.925&quot;
+}
+</code></pre>
+</li>
+</ul>
+</li>
+<li><strong>Error Response</strong>
+<ul>
+<li><strong>Code</strong>: 404 if no group with this ID is found</li>
+</ul>
+</li>
+</ul>
+<h3>Search for a group</h3>
+<ul>
+<li>
+<p><strong>URL</strong><br>
+<code>/API/identity/group</code><br>
+<em>Example</em>: <code>/API/identity/group?p=0&amp;c=100&amp;f=parent\_path%3d/acme&amp;d=parent\_group\_id&amp;o=name%20ASC</code></p>
+</li>
+<li>
+<p><strong>Method</strong><br>
+<code>GET</code></p>
+</li>
+<li>
+<p><strong>Data Params</strong><br>
+<a href="rest-api-overview.md#resource_search">Standard search parameters</a> are available to search form mappings.<br>
+It is possible to filter on the following attributes:</p>
+<ul>
+<li><code>name=&lt;group\_name\&gt;</code></li>
+<li><code>displayName=&lt;group\_displayName\&gt;</code></li>
+<li><code>parent\_path=&lt;path\_of\_parent\_group\&gt;</code></li>
+</ul>
+<p>It is possible to order by the value of the following attributes:</p>
+<ul>
+<li><code>o=id ASC</code> ou <code>o=id DESC</code>)</li>
+<li><code>o=name ASC</code> ou <code>o=name DESC</code></li>
+<li><code>o=displayName ASC</code> ou <code>o=displayName DESC</code></li>
+</ul>
+<p>It is also possible to retrieve the parent group ID.</p>
+<ul>
+<li><code>d=&lt;parent\_group\_id&gt;</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Success Response</strong><br>
+A list of groups in JSON</p>
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:<pre><code class="language-json">[
+  {
+    &quot;id&quot;:&quot;3&quot;,
+    &quot;creation_date&quot;:&quot;2014-12-02 11:33:48.501&quot;,
+    &quot;created_by_user_id&quot;:&quot;-1&quot;,
+    &quot;icon&quot;:&quot;&quot;,
+    &quot;parent_path&quot;:&quot;/acme&quot;,
+    &quot;description&quot;:&quot;This group represents the finance department of the ACME organization&quot;,
+    &quot;name&quot;:&quot;finance&quot;,
+    &quot;path&quot;:&quot;/acme/finance&quot;,
+    &quot;parent_group_id&quot;:&quot;1&quot;,
+    &quot;displayName&quot;:&quot;Finance&quot;,
+    &quot;last_update_date&quot;:&quot;2014-12-02 11:33:48.501&quot;
+  }, {
+    &quot;id&quot;:&quot;14&quot;,
+    &quot;creation_date&quot;:&quot;2014-12-02 16:19:28.925&quot;,
+    &quot;created_by_user_id&quot;:&quot;4&quot;,
+    &quot;icon&quot;:&quot;&quot;,
+    &quot;parent_path&quot;:&quot;/acme&quot;,
+    &quot;description&quot;:&quot;Human resources department&quot;,
+    &quot;name&quot;:&quot;HR&quot;,
+    &quot;path&quot;:&quot;/acme/HR&quot;,
+    &quot;parent_group_id&quot;:&quot;1&quot;,
+    &quot;displayName&quot;:&quot;Human Resources&quot;,
+    &quot;last_update_date&quot;:&quot;2014-12-02 16:19:28.925&quot;
+  }
+]
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3>Update a group</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>/API/identity/group/:groupId</code></li>
+<li><strong>Method</strong><br>
+<code>PUT</code></li>
+<li><strong>Request Payload</strong><br>
+A partial representation of a group in JSON with at least the mandatory &quot;name&quot; attribute<pre><code class="language-json">{
+  &quot;name&quot;:&quot;HR&quot;,
+  &quot;displayName&quot;:&quot;Humman resources&quot;
+}
+</code></pre>
+</li>
+<li><strong>Success Response</strong><br>
+The full JSON representation of the group that was updated
+<ul>
+<li><strong>Code</strong>:</li>
+<li><strong>Payload</strong>:<pre><code class="language-json">{
+  &quot;id&quot;:&quot;14&quot;,
+  &quot;creation_date&quot;:&quot;2014-12-02 16:19:28.925&quot;,
+  &quot;created_by_user_id&quot;:&quot;4&quot;,
+  &quot;icon&quot;:&quot;&quot;,
+  &quot;parent_path&quot;:&quot;/acme&quot;,
+  &quot;description&quot;:&quot;Human resources department&quot;,
+  &quot;name&quot;:&quot;HR&quot;,
+  &quot;path&quot;:&quot;/acme/HR&quot;,
+  &quot;displayName&quot;:&quot;Human resources&quot;,
+  &quot;last_update_date&quot;:&quot;2014-12-03 17:18:27.542&quot;
+}
+</code></pre>
+</li>
+</ul>
+</li>
+<li><strong>Error Response</strong>
+<ul>
+<li><strong>Code</strong>:
+403 if another group with the same name and parent already exists<br>
+404 if no group with this ID is found</li>
+</ul>
+</li>
+</ul>
+<h3>Delete a group</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>/API/identity/group/:groupId</code></li>
+<li><strong>Method</strong><br>
+<code>DELETE</code></li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+</ul>
+</li>
+<li><strong>Error Response</strong>
+<ul>
+<li><strong>Code</strong>: 404 if no group with this ID is found</li>
+</ul>
+</li>
+</ul>
+<h2>Membership</h2>
+<h3>Description</h3>
+<p>Manage membership of users. There is a membership when a user belongs to a group and a role. Use this resource to add, search, and delete memberships.</p>
+<h3>Identifier</h3>
+<p>A compound identifier constructed from user_id/group_id/role_id where each id is a long value.</p>
+<h3>Representation</h3>
+<pre><code class="language-json">    {
+    &quot;assigned_date&quot;:&quot;_creation date (format: &quot;2014-12-31 15:17:24.736&quot;)_&quot;,
+    &quot;role_id&quot;:&quot;_id of the role of this membership_&quot;,
+    &quot;assigned_by_user_id&quot;:&quot;_id of the user who created the membership (-1 if the role was created by the tenant admin or by an organisation import)_&quot;,
+    &quot;group_id&quot;:&quot;_id of the group of this membership_&quot;,
+    &quot;user_id&quot;:&quot;_id of the user in this membership_&quot;
+    }
+</code></pre>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>POST - Create a membership</li>
+<li>GET - Search for memberships of a user</li>
+<li>DELETE - Remove a membership</li>
+<li>DELETE - Remove a membership</li>
+</ul>
+<h3>Create a membership</h3>
+<p>This action creates (assigns) a membership to a user.</p>
+<ul>
+<li><strong>URL</strong><br>
+<code>/API/identity/membership</code></li>
+<li><strong>Method</strong><br>
+<code>POST</code></li>
+<li><strong>Request Payload</strong><br>
+A partial representation of a membership object with the mandatory &quot;user_id&quot;, &quot;group_id&quot; and &quot;role_id&quot; attributes<pre><code class="language-json">{
+  &quot;user_id&quot;:&quot;4&quot;,
+  &quot;group_id&quot;:&quot;5&quot;,
+  &quot;role_id&quot;:&quot;1&quot;
+}
+</code></pre>
+</li>
+<li><strong>Success Response</strong><br>
+The full JSON representation of the membership that was created
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:<pre><code class="language-json">{
+  &quot;assigned_date&quot;:&quot;2014-12-02 17:57:09.315&quot;,
+  &quot;role_id&quot;:&quot;1&quot;,
+  &quot;assigned_by_user_id&quot;:&quot;-1&quot;,
+  &quot;group_id&quot;:&quot;5&quot;,
+  &quot;user_id&quot;:&quot;4&quot;
+}
+</code></pre>
+</li>
+</ul>
+</li>
+<li><strong>Error Response</strong>
+<ul>
+<li><strong>Code</strong>: 403 if a membership already exists</li>
+</ul>
+</li>
+</ul>
+<h3>Search memberships of a user</h3>
+<p>This action search memberships of a user.</p>
+<ul>
+<li>
+<p><strong>URL</strong><br>
+<code>/API/identity/membership</code></p>
+</li>
+<li>
+<p><strong>Method</strong><br>
+<code>GET</code></p>
+</li>
+<li>
+<p><strong>Data Params</strong><br>
+<a href="rest-api-overview.md#resource_search">Standard search parameters</a> are available.<br>
+<strong>Required</strong></p>
+<ul>
+<li>filter is mandatory: user_id=&lt;id of the user&gt;</li>
+</ul>
+<p>It is possible to use the deploy option to retrieve the value of elements specified by an attribute value. For example, if you specify <code>d=group_id</code>, the result will contain the group details in place of the group id.</p>
+<ul>
+<li>group <code>d=group\_id</code></li>
+<li>role <code>d=role\_id</code></li>
+<li>user <code>d=user\_id</code></li>
+<li>user that created the membership <code>d=assigned\_by\_user\_id</code></li>
+</ul>
+<p>It is possible to order by the value of the following attributes:</p>
+<ul>
+<li><code>o=ROLE\_NAME\_ASC</code> or <code>o=ROLE\_NAME\_DESC</code></li>
+<li><code>o=GROUP\_NAME\_ASC</code> ASC ru <code>o=GROUP\_NAME\_DESC</code></li>
+<li><code>o=ASSIGNED\_DATE\_ASC</code> or <code>o=ASSIGNED\_DATE\_DESC</code></li>
+</ul>
+<p><em>Example</em>: Get the memberships for the user with id 125, and return the role details associated with each membership: <code>/API/identity/membership?p=0&amp;c=10&amp;f=user\_id%3d125&amp;d=role\_id</code></p>
+</li>
+<li>
+<p><strong>Success Response</strong></p>
+<ul>
+<li><strong>Code</strong>:</li>
+<li><strong>Payload</strong>:<pre><code class="language-json">[{
+  &quot;assigned_date&quot;:&quot;2014-12-02 17:57:09.315&quot;,
+  &quot;role_id&quot;:
+  {
+    &quot;creation_date&quot;:&quot;2014-12-01 18:51:54.791&quot;,
+    &quot;created_by_user_id&quot;:&quot;4&quot;,
+    &quot;id&quot;:&quot;4&quot;,
+    &quot;icon&quot;:&quot;&quot;,
+    &quot;description&quot;:&quot;manager of the department&quot;,
+    &quot;name&quot;:&quot;manager&quot;,
+    &quot;displayName&quot;:&quot;department manager&quot;,
+    &quot;last_update_date&quot;:&quot;2014-12-01 18:51:54.791&quot;
+  },
+  &quot;assigned_by_user_id&quot;:&quot;12&quot;,
+  &quot;group_id&quot;:&quot;5&quot;,
+  &quot;user_id&quot;:&quot;125&quot;
+}]
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3>Delete a membership</h3>
+<p>Delete a membership of a user using the group id and role id.</p>
+<ul>
+<li><strong>URL</strong><br>
+<code>/API/identity/membership/:userId/:groupId/:roleId</code></li>
+<li><strong>Method</strong><br>
+<code>DELETE</code></li>
+<li><strong>Success Response</strong>
+<ul>
+<li><strong>Code</strong>: 200</li>
+</ul>
+</li>
+</ul>
+<h2>role</h2>
+<h3>Description</h3>
+<p>The role of a user in a group</p>
+<h3>Identifier</h3>
+<p>The ID of the role (a long value).</p>
+<h3>Representation</h3>
+<pre><code class="language-json">    {
+      &quot;id&quot;:&quot;_role ID_&quot;,
+      &quot;name&quot;:&quot;_display name_&quot;,
+      &quot;displayName&quot;:&quot;_name_&quot;,
+      &quot;description&quot;:&quot;_description_&quot;,
+      &quot;creation_date&quot;:&quot;_creation date (format: &quot;2014-12-31 15:17:24.736&quot;)_&quot;,
+      &quot;created_by_user_id&quot;:&quot;_Id of the user who created the role (-1 if the role was created by the tenant admin or by an organisation import)_&quot;,
+      &quot;last_update_date&quot;:&quot;_last update date (format: &quot;2014-12-31 15:17:24.736&quot;)_&quot;,
+      &quot;icon&quot;:&quot;_icon path_&quot;
+    }
+</code></pre>
+<h3>Methods</h3>
+<p>The methods used for this resource are:</p>
+<ul>
+<li>POST - Create a role</li>
+<li>GET - Read a role or search for a role</li>
+<li>PUT - Update a role</li>
+<li>DELETE - Remove a role</li>
+</ul>
+<h3>Create a role</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>/API/identity/role</code></li>
+<li><strong>Method</strong><br>
+<code>POST</code></li>
+<li><strong>Request Payload</strong><br>
+A partial representation of a role in JSON with at least the mandatory &quot;name&quot; attribute<pre><code class="language-json">{
+  &quot;icon&quot;:&quot;&quot;,
+  &quot;name&quot;:&quot;manager&quot;,
+  &quot;displayName&quot;:&quot;department manager&quot;,
+  &quot;description&quot;:&quot;manager of the department&quot;
+}
+</code></pre>
+</li>
+<li><strong>Success Response</strong><br>
+The full JSON representation of the role that was created
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:<pre><code class="language-json">{
+  &quot;creation_date&quot;:&quot;2014-12-01 18:51:54.791&quot;,
+  &quot;created_by_user_id&quot;:&quot;4&quot;,
+  &quot;id&quot;:&quot;4&quot;,
+  &quot;icon&quot;:&quot;&quot;,
+  &quot;description&quot;:&quot;manager of the department&quot;,
+  &quot;name&quot;:&quot;manager&quot;,
+  &quot;displayName&quot;:&quot;department manager&quot;,
+  &quot;last_update_date&quot;:&quot;2014-12-01 18:51:54.791&quot;
+}
+</code></pre>
+</li>
+</ul>
+</li>
+<li><strong>Error Response</strong>
+<ul>
+<li><strong>Code</strong>: 403 if a role with the same name already exists</li>
+</ul>
+</li>
+</ul>
+<h3>Read a role</h3>
+<ul>
+<li><strong>URL</strong><br>
+<code>/API/identity/role/:roleId</code></li>
+<li><strong>Method</strong><br>
+<code>GET</code></li>
+<li><strong>Data Params</strong></li>
+<li><strong>Request Payload</strong><pre><code class="language-json"></code></pre>
+</li>
+<li><strong>Success Response</strong><br>
+A role in JSON
+<ul>
+<li><strong>Code</strong>: 200</li>
+<li><strong>Payload</strong>:<pre><code class="language-json">{
+  &quot;creation_date&quot;:&quot;2014-12-01 15:17:24.736&quot;,
+  &quot;created_by_user_id&quot;:&quot;-1&quot;,
+  &quot;id&quot;:&quot;1&quot;,
+  &quot;icon&quot;:&quot;&quot;,
+  &quot;description&quot;:&quot;&quot;,
+  &quot;name&quot;:&quot;member&quot;,
+  &quot;displayName&quot;:&quot;Member&quot;,
+  &quot;last_update_date&quot;:&quot;2014-12-01 15:17:24.736&quot;
+}
+</code></pre>
 </li>
 </ul>
 </li>
@@ -198,184 +601,119 @@ A partial representation of a user's contact information in JSON with at least t
 <p>Request url
 http://..</p>
 <p>Request method</p>
-<p>POST</p>
-<p>Request payload</p>
-<p>A partial representation of a group in JSON with at least the mandatory &quot;name&quot; attribute</p>
+<p>GET</p>
+<p>Request payload
+empty</p>
 <p>Response payload</p>
-<p>The full JSON representation of the group that was created</p>
 <h4>Response codes</h4>
-<p>403 if a group with the same name and parent already exists</p>
+<p>404 if no role with this ID is found</p>
 <h4>Example</h4>
 <p>Request url
-/API/identity/group</p>
-<p>Request method</p>
-<p>POST</p>
-<p>Request payload</p>
-<pre><code>{
-&quot;icon&quot;:&quot;&quot;,&quot;name&quot;:&quot;HR&quot;,
-&quot;displayName&quot;:&quot;Human Resources&quot;,
-&quot;parent_group_id&quot;:&quot;1&quot;,
-&quot;description&quot;:&quot;Human resources department&quot;
-}
-</code></pre>
-<p>Response payload</p>
-<pre><code>{
-&quot;id&quot;:&quot;14&quot;,
-&quot;creation_date&quot;:&quot;2014-12-02 16:19:28.925&quot;,
-&quot;created_by_user_id&quot;:&quot;4&quot;,
-&quot;icon&quot;:&quot;&quot;,&quot;parent_path&quot;:&quot;/acme&quot;
-,&quot;description&quot;:&quot;Human resources department&quot;,
-&quot;name&quot;:&quot;HR&quot;,
-&quot;path&quot;:&quot;/acme/HR&quot;,
-&quot;displayName&quot;:&quot;Human Resources&quot;,
-&quot;last_update_date&quot;:&quot;2014-12-02 16:19:28.925&quot;
-}
-</code></pre>
-<h3>Read a group</h3>
-<p>Request url
-http://../API/identity/group/&lt;group_id&gt;</p>
-<p>Request method</p>
-<p>GET</p>
-<p>Request payload</p>
-<p>empty</p>
-<p>Response payload</p>
-<p>A group in JSON</p>
-<h4>Response codes</h4>
-<p>404 if no group with this ID is found</p>
-<h4>Example</h4>
-<p>Request url
-/API/identity/group/14</p>
+/API/identity/role/1</p>
 <p>Request method</p>
 <p>GET</p>
 <p>Response payload</p>
-<pre><code>{
-&quot;id&quot;:&quot;14&quot;,
-&quot;creation_date&quot;:&quot;2014-12-02 16:19:28.925&quot;,
-&quot;created_by_user_id&quot;:&quot;4&quot;,
-&quot;icon&quot;:&quot;&quot;,&quot;parent_path&quot;:&quot;/acme&quot;,
-&quot;description&quot;:&quot;Human resources department&quot;,
-&quot;name&quot;:&quot;HR&quot;,
-&quot;path&quot;:&quot;/acme/HR&quot;,
-&quot;displayName&quot;:&quot;Human Resources&quot;,
-&quot;last_update_date&quot;:&quot;2014-12-02 16:19:28.925&quot;
-}
-</code></pre>
-<h3>Search for a group</h3>
+<h3>Search for a role</h3>
 <p>Request url
-http://../API/identity/group</p>
+http://../API/identity/role</p>
 <p>Request method</p>
 <p>GET</p>
-<p>Request payload</p>
-<p>empty</p>
+<p>Request payload
+empty</p>
 <p>Response payload</p>
-<p>A list of groups in JSON</p>
+<p>A list of roles in JSON</p>
 <h4>Parameters</h4>
-<p>It is possible to filter on the following attributes:</p>
+<p>It is possible to filter on the following attributes</p>
 <ul>
-<li>name=&lt;group_name&gt;</li>
-<li>displayName=&lt;group_displayName&gt;</li>
-<li>parent_path=&lt;path_of_parent_group&gt;</li>
+<li>name=&lt;role_name&gt;</li>
+<li>displayName=&lt;role_displayName&gt;</li>
 </ul>
-<p>It is possible to order by the value of the following attributes:</p>
+<p>It is possible to order by the value of the following attributes</p>
 <ul>
 <li>id (o=id ASC ou o=id DESC)</li>
 <li>name (o=name ASC ou o=name DESC)</li>
 <li>displayName (o=displayName ASC ou o=displayName DESC)</li>
 </ul>
-<p>It is also possible to retrieve the parent group ID.</p>
-<ul>
-<li>d=parent_group_id</li>
-</ul>
 <h4>Example</h4>
 <p>Request url
-/API/identity/group?p=0&amp;c=100&amp;f=parent_path%3d/acme&amp;d=parent_group_id&amp;o=name%20ASC</p>
+/API/identity/role?p=0&amp;c=100&amp;o=displayName ASC</p>
 <p>Request method</p>
 <p>GET</p>
 <p>Response payload</p>
 <pre><code>[
 {
-&quot;id&quot;:&quot;3&quot;,
-&quot;creation_date&quot;:&quot;2014-12-02 11:33:48.501&quot;,
-&quot;created_by_user_id&quot;:&quot;-1&quot;,
+&quot;creation_date&quot;:&quot;2014-12-01 18:51:54.791&quot;,
+&quot;created_by_user_id&quot;:&quot;4&quot;,
+&quot;id&quot;:&quot;4&quot;,
 &quot;icon&quot;:&quot;&quot;,
-&quot;parent_path&quot;:&quot;/acme&quot;,
-&quot;description&quot;:&quot;This group represents the finance department of the ACME organization&quot;,
-&quot;name&quot;:&quot;finance&quot;,
-&quot;path&quot;:&quot;/acme/finance&quot;,
-&quot;parent_group_id&quot;:&quot;1&quot;,
-&quot;displayName&quot;:&quot;Finance&quot;,
-&quot;last_update_date&quot;:&quot;2014-12-02 11:33:48.501&quot;
+&quot;description&quot;:&quot;manager of the department&quot;,
+&quot;name&quot;:&quot;manager&quot;,
+&quot;displayName&quot;:&quot;department manager&quot;,
+&quot;last_update_date&quot;:&quot;2014-12-01 18:51:54.791&quot;
 },
 {
-&quot;id&quot;:&quot;14&quot;,
-&quot;creation_date&quot;:&quot;2014-12-02 16:19:28.925&quot;,
-&quot;created_by_user_id&quot;:&quot;4&quot;,
+&quot;creation_date&quot;:&quot;2014-12-01 15:17:24.736&quot;,
+&quot;created_by_user_id&quot;:&quot;-1&quot;,
+&quot;id&quot;:&quot;1&quot;,
 &quot;icon&quot;:&quot;&quot;,
-&quot;parent_path&quot;:&quot;/acme&quot;,
-&quot;description&quot;:&quot;Human resources department&quot;,
-&quot;name&quot;:&quot;HR&quot;,
-&quot;path&quot;:&quot;/acme/HR&quot;,
-&quot;parent_group_id&quot;:&quot;1&quot;,
-&quot;displayName&quot;:&quot;Human Resources&quot;,
-&quot;last_update_date&quot;:&quot;2014-12-02 16:19:28.925&quot;
+&quot;description&quot;:&quot;&quot;,
+&quot;name&quot;:&quot;member&quot;,
+&quot;displayName&quot;:&quot;Member&quot;,
+&quot;last_update_date&quot;:&quot;2014-12-01 15:17:24.736&quot;
 }
 ]
 </code></pre>
-<h3>Update a group</h3>
+<h3>Update a role</h3>
 <p>Request url
-http://../API/identity/group/&lt;group_id&gt;</p>
+http://../API/identity/role/&lt;role_id&gt;</p>
 <p>Request method</p>
 <p>PUT</p>
 <p>Request payload</p>
-<p>A partial representation of a group in JSON with at least the mandatory &quot;name&quot; attribute</p>
+<p>A partial representation of a role in JSON with at least the mandatory &quot;name&quot; attribute</p>
 <p>Response payload</p>
-<p>The full JSON representation of the group that was updated</p>
+<p>The full JSON representation of the role that was updated</p>
 <h4>Response codes</h4>
-<p>403 if another group with the same name and parent already exists<br>
-404 if no group with this ID is found</p>
+<p>403 if a role with the same name already exists<br>
+404 if no role with this ID is found</p>
 <h4>Example</h4>
 <p>Request url
-/API/identity/group/14</p>
+/API/identity/role/4</p>
 <p>Request method</p>
 <p>PUT</p>
 <p>Request payload</p>
 <pre><code>{
-&quot;name&quot;:&quot;HR&quot;,
-&quot;displayName&quot;:&quot;Humman resources&quot;
+&quot;name&quot;:&quot;Manager&quot;,
+&quot;displayName&quot;:&quot;Department manager&quot;
 }
 </code></pre>
 <p>Response payload</p>
 <pre><code>{
-&quot;id&quot;:&quot;14&quot;,
-&quot;creation_date&quot;:&quot;2014-12-02 16:19:28.925&quot;,
+&quot;creation_date&quot;:&quot;2014-12-01 18:51:54.791&quot;,
 &quot;created_by_user_id&quot;:&quot;4&quot;,
+&quot;id&quot;:&quot;4&quot;,
 &quot;icon&quot;:&quot;&quot;,
-&quot;parent_path&quot;:&quot;/acme&quot;,
-&quot;description&quot;:&quot;Human resources department&quot;,
-&quot;name&quot;:&quot;HR&quot;,
-&quot;path&quot;:&quot;/acme/HR&quot;,
-&quot;displayName&quot;:&quot;Human resources&quot;,
-&quot;last_update_date&quot;:&quot;2014-12-03 17:18:27.542&quot;
+&quot;description&quot;:&quot;manager of the department&quot;,
+&quot;name&quot;:&quot;Manager&quot;,
+&quot;displayName&quot;:&quot;Department manager&quot;,
+&quot;last_update_date&quot;:&quot;2014-12-01 18:59:59.361&quot;
 }
 </code></pre>
-<h3>Delete a group</h3>
+<h3>Delete a role</h3>
 <p>Request url
-http://../API/identity/group/&lt;group_id&gt;</p>
+http://../API/identity/role/&lt;role_id&gt;</p>
 <p>Request method</p>
 <p>DELETE</p>
-<p>Request payload</p>
-<p>empty</p>
-<p>Response payload</p>
-<p>empty</p>
+<p>Request payload
+empty</p>
+<p>Response payload
+empty</p>
 <h4>Response codes</h4>
-<p>404 if no group with this ID is found</p>
+<p>404 if no role with this ID is found</p>
 <h4>Example</h4>
 <p>Request url
-/API/identity/group/14</p>
+/API/identity/role/4</p>
 <p>Request method</p>
 <p>DELETE</p>
 <ul>
-<li><a href="api_resources/identity_membership_6.0_0.md">membership</a></li>
-<li><a href="api_resources/identity_role_6.0_0.md">role</a></li>
 <li><a href="api_resources/identity_user_6.0_0_0_1.md">user</a></li>
 </ul>

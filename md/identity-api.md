@@ -196,86 +196,401 @@ The methods used for this resource are:
   `POST`
 * **Data Params**  
 * **Request Payload**  
+  A partial representation of a group in JSON with at least the mandatory "name" attribute
   ```json
+  {
+    "icon":"","name":"HR",
+    "displayName":"Human Resources",
+    "parent_group_id":"1",
+    "description":"Human resources department"
+  }
   ```
+* **Success Response**  
+  The full JSON representation of the group that was created
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "id":"14",
+      "creation_date":"2014-12-02 16:19:28.925",
+      "created_by_user_id":"4",
+      "icon":"","parent_path":"/acme"
+      ,"description":"Human resources department",
+      "name":"HR",
+      "path":"/acme/HR",
+      "displayName":"Human Resources",
+      "last_update_date":"2014-12-02 16:19:28.925"
+    }
+    ```
+* **Error Response**
+  * **Code**: 403 if a group with the same name and parent already exists
+
+### Read a group
+
+* **URL**  
+  `/API/identity/group/:groupId`  
+* **Method**  
+  `GET`
+* **Success Response**  
+  A group in JSON
+  * **Code**: 
+  * **Payload**:  
+    ```json
+    {
+      "id":"14",
+      "creation_date":"2014-12-02 16:19:28.925",
+      "created_by_user_id":"4",
+      "icon":"","parent_path":"/acme",
+      "description":"Human resources department",
+      "name":"HR",
+      "path":"/acme/HR",
+      "displayName":"Human Resources",
+      "last_update_date":"2014-12-02 16:19:28.925"
+    }
+    ```
+* **Error Response**
+  * **Code**: 404 if no group with this ID is found
+
+### Search for a group
+
+* **URL**  
+  `/API/identity/group`  
+  _Example_: `/API/identity/group?p=0&c=100&f=parent\_path%3d/acme&d=parent\_group\_id&o=name%20ASC`
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available to search form mappings.  
+  It is possible to filter on the following attributes:
+  * `name=<group\_name\>`
+  * `displayName=<group\_displayName\>`
+  * `parent\_path=<path\_of\_parent\_group\>`
+
+  It is possible to order by the value of the following attributes:
+  * `o=id ASC` ou `o=id DESC`)
+  * `o=name ASC` ou `o=name DESC`
+  * `o=displayName ASC` ou `o=displayName DESC`
+
+  It is also possible to retrieve the parent group ID.
+  * `d=<parent\_group\_id>`
+* **Success Response**  
+  A list of groups in JSON
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    [
+      {
+        "id":"3",
+        "creation_date":"2014-12-02 11:33:48.501",
+        "created_by_user_id":"-1",
+        "icon":"",
+        "parent_path":"/acme",
+        "description":"This group represents the finance department of the ACME organization",
+        "name":"finance",
+        "path":"/acme/finance",
+        "parent_group_id":"1",
+        "displayName":"Finance",
+        "last_update_date":"2014-12-02 11:33:48.501"
+      }, {
+        "id":"14",
+        "creation_date":"2014-12-02 16:19:28.925",
+        "created_by_user_id":"4",
+        "icon":"",
+        "parent_path":"/acme",
+        "description":"Human resources department",
+        "name":"HR",
+        "path":"/acme/HR",
+        "parent_group_id":"1",
+        "displayName":"Human Resources",
+        "last_update_date":"2014-12-02 16:19:28.925"
+      }
+    ]
+    ```
+
+### Update a group
+
+* **URL**  
+  `/API/identity/group/:groupId`  
+* **Method**  
+  `PUT`
+* **Request Payload**  
+  A partial representation of a group in JSON with at least the mandatory "name" attribute
+  ```json
+  {
+    "name":"HR",
+    "displayName":"Humman resources"
+  }
+  ```
+* **Success Response**  
+  The full JSON representation of the group that was updated
+  * **Code**: 
+  * **Payload**:  
+    ```json
+    {
+      "id":"14",
+      "creation_date":"2014-12-02 16:19:28.925",
+      "created_by_user_id":"4",
+      "icon":"",
+      "parent_path":"/acme",
+      "description":"Human resources department",
+      "name":"HR",
+      "path":"/acme/HR",
+      "displayName":"Human resources",
+      "last_update_date":"2014-12-03 17:18:27.542"
+    }
+    ```
+* **Error Response**
+  * **Code**: 
+    403 if another group with the same name and parent already exists  
+    404 if no group with this ID is found
+
+### Delete a group
+
+* **URL**  
+  `/API/identity/group/:groupId`  
+* **Method**  
+  `DELETE`
+* **Success Response**  
+  * **Code**: 200
+* **Error Response**
+  * **Code**: 404 if no group with this ID is found
+
+## Membership
+
+### Description
+
+Manage membership of users. There is a membership when a user belongs to a group and a role. Use this resource to add, search, and delete memberships.
+
+### Identifier
+
+A compound identifier constructed from user\_id/group\_id/role\_id where each id is a long value.
+
+### Representation
+
+```json
+    {
+    "assigned_date":"_creation date (format: "2014-12-31 15:17:24.736")_",
+    "role_id":"_id of the role of this membership_",
+    "assigned_by_user_id":"_id of the user who created the membership (-1 if the role was created by the tenant admin or by an organisation import)_",
+    "group_id":"_id of the group of this membership_",
+    "user_id":"_id of the user in this membership_"
+    }
+```
+
+### Methods
+
+The methods used for this resource are:
+
+* POST - Create a membership
+* GET - Search for memberships of a user
+* DELETE - Remove a membership
+* DELETE - Remove a membership
+
+### Create a membership
+
+This action creates (assigns) a membership to a user.
+
+* **URL**  
+  `/API/identity/membership`  
+* **Method**  
+  `POST`
+* **Request Payload**  
+  A partial representation of a membership object with the mandatory "user\_id", "group\_id" and "role\_id" attributes
+  ```json
+  {
+    "user_id":"4",
+    "group_id":"5",
+    "role_id":"1"
+  }
+  ```
+* **Success Response**  
+  The full JSON representation of the membership that was created
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "assigned_date":"2014-12-02 17:57:09.315",
+      "role_id":"1",
+      "assigned_by_user_id":"-1",
+      "group_id":"5",
+      "user_id":"4"
+    }
+    ```
+* **Error Response**
+  * **Code**: 403 if a membership already exists
+
+### Search memberships of a user
+
+This action search memberships of a user.
+
+* **URL**  
+  `/API/identity/membership`  
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  **Required** 
+  * filter is mandatory: user\_id=<id of the user\>
+
+  It is possible to use the deploy option to retrieve the value of elements specified by an attribute value. For example, if you specify `d=group_id`, the result will contain the group details in place of the group id.
+  * group `d=group\_id`
+  * role `d=role\_id`
+  * user `d=user\_id`
+  * user that created the membership `d=assigned\_by\_user\_id`
+
+  It is possible to order by the value of the following attributes:
+  * `o=ROLE\_NAME\_ASC` or `o=ROLE\_NAME\_DESC`
+  * `o=GROUP\_NAME\_ASC` ASC ru `o=GROUP\_NAME\_DESC`
+  * `o=ASSIGNED\_DATE\_ASC` or `o=ASSIGNED\_DATE\_DESC`
+
+  _Example_: Get the memberships for the user with id 125, and return the role details associated with each membership: `/API/identity/membership?p=0&c=10&f=user\_id%3d125&d=role\_id`
 * **Success Response**  
   * **Code**: 
   * **Payload**:  
     ```json
+    [{
+      "assigned_date":"2014-12-02 17:57:09.315",
+      "role_id":
+      {
+        "creation_date":"2014-12-01 18:51:54.791",
+        "created_by_user_id":"4",
+        "id":"4",
+        "icon":"",
+        "description":"manager of the department",
+        "name":"manager",
+        "displayName":"department manager",
+        "last_update_date":"2014-12-01 18:51:54.791"
+      },
+      "assigned_by_user_id":"12",
+      "group_id":"5",
+      "user_id":"125"
+    }]
+    ```
+
+### Delete a membership
+
+Delete a membership of a user using the group id and role id.
+
+* **URL**  
+  `/API/identity/membership/:userId/:groupId/:roleId`  
+* **Method**  
+  `DELETE`
+* **Success Response**  
+  * **Code**: 200
+
+## role
+
+### Description
+
+The role of a user in a group
+
+### Identifier
+
+The ID of the role (a long value).
+
+### Representation
+```json
+    {
+      "id":"_role ID_",
+      "name":"_display name_",
+      "displayName":"_name_",
+      "description":"_description_",
+      "creation_date":"_creation date (format: "2014-12-31 15:17:24.736")_",
+      "created_by_user_id":"_Id of the user who created the role (-1 if the role was created by the tenant admin or by an organisation import)_",
+      "last_update_date":"_last update date (format: "2014-12-31 15:17:24.736")_",
+      "icon":"_icon path_"
+    }
+```
+
+### Methods
+
+The methods used for this resource are:
+
+* POST - Create a role
+* GET - Read a role or search for a role
+* PUT - Update a role
+* DELETE - Remove a role
+
+### Create a role
+
+* **URL**  
+  `/API/identity/role`  
+* **Method**  
+  `POST`
+* **Request Payload**  
+  A partial representation of a role in JSON with at least the mandatory "name" attribute
+  ```json
+  {
+    "icon":"",
+    "name":"manager",
+    "displayName":"department manager",
+    "description":"manager of the department"
+  }
+  ```
+* **Success Response**  
+  The full JSON representation of the role that was created
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "creation_date":"2014-12-01 18:51:54.791",
+      "created_by_user_id":"4",
+      "id":"4",
+      "icon":"",
+      "description":"manager of the department",
+      "name":"manager",
+      "displayName":"department manager",
+      "last_update_date":"2014-12-01 18:51:54.791"
+    }
+    ```
+* **Error Response**
+  * **Code**: 403 if a role with the same name already exists
+
+### Read a role
+
+* **URL**  
+  `/API/identity/role/:roleId`  
+* **Method**  
+  `GET`
+* **Data Params**  
+* **Request Payload**  
+  ```json
+  ```
+* **Success Response**  
+  A role in JSON
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "creation_date":"2014-12-01 15:17:24.736",
+      "created_by_user_id":"-1",
+      "id":"1",
+      "icon":"",
+      "description":"",
+      "name":"member",
+      "displayName":"Member",
+      "last_update_date":"2014-12-01 15:17:24.736"
+    }
     ```
 Request url
 http://..
 
 Request method
 
-POST
-
-Request payload
-
-A partial representation of a group in JSON with at least the mandatory "name" attribute
-
-Response payload
-
-The full JSON representation of the group that was created
-
-#### Response codes
-
-403 if a group with the same name and parent already exists
-
-#### Example
-Request url
-/API/identity/group
-
-Request method
-
-POST
-
-Request payload
-
-    {
-    "icon":"","name":"HR",
-    "displayName":"Human Resources",
-    "parent_group_id":"1",
-    "description":"Human resources department"
-    }
-
-Response payload
-
-    {
-    "id":"14",
-    "creation_date":"2014-12-02 16:19:28.925",
-    "created_by_user_id":"4",
-    "icon":"","parent_path":"/acme"
-    ,"description":"Human resources department",
-    "name":"HR",
-    "path":"/acme/HR",
-    "displayName":"Human Resources",
-    "last_update_date":"2014-12-02 16:19:28.925"
-    }
-
-### Read a group
-Request url
-http://../API/identity/group/<group\_id\>
-
-Request method
-
 GET
 
 Request payload
-
 empty
 
 Response payload
 
-A group in JSON
 
 #### Response codes
 
-404 if no group with this ID is found
+404 if no role with this ID is found
 
 #### Example
 Request url
-/API/identity/group/14
+/API/identity/role/1
 
 Request method
 
@@ -283,55 +598,38 @@ GET
 
 Response payload
 
-    {
-    "id":"14",
-    "creation_date":"2014-12-02 16:19:28.925",
-    "created_by_user_id":"4",
-    "icon":"","parent_path":"/acme",
-    "description":"Human resources department",
-    "name":"HR",
-    "path":"/acme/HR",
-    "displayName":"Human Resources",
-    "last_update_date":"2014-12-02 16:19:28.925"
-    }
 
-### Search for a group
+### Search for a role
 Request url
-http://../API/identity/group
+http://../API/identity/role
 
 Request method
 
 GET
 
 Request payload
-
 empty
 
 Response payload
 
-A list of groups in JSON
+A list of roles in JSON
 
 #### Parameters
 
-It is possible to filter on the following attributes:
+It is possible to filter on the following attributes
 
-* name=<group\_name\>
-* displayName=<group\_displayName\>
-* parent\_path=<path\_of\_parent\_group\>
+* name=<role\_name\>
+* displayName=<role\_displayName\>
 
-It is possible to order by the value of the following attributes:
+It is possible to order by the value of the following attributes
 
 * id (o=id ASC ou o=id DESC)
 * name (o=name ASC ou o=name DESC)
 * displayName (o=displayName ASC ou o=displayName DESC)
 
-It is also possible to retrieve the parent group ID.
-
-* d=parent\_group\_id
-
 #### Example
 Request url
-/API/identity/group?p=0&c=100&f=parent\_path%3d/acme&d=parent\_group\_id&o=name%20ASC
+/API/identity/role?p=0&c=100&o=displayName ASC
 
 Request method
 
@@ -341,36 +639,30 @@ Response payload
 
     [
     {
-    "id":"3",
-    "creation_date":"2014-12-02 11:33:48.501",
-    "created_by_user_id":"-1",
+    "creation_date":"2014-12-01 18:51:54.791",
+    "created_by_user_id":"4",
+    "id":"4",
     "icon":"",
-    "parent_path":"/acme",
-    "description":"This group represents the finance department of the ACME organization",
-    "name":"finance",
-    "path":"/acme/finance",
-    "parent_group_id":"1",
-    "displayName":"Finance",
-    "last_update_date":"2014-12-02 11:33:48.501"
+    "description":"manager of the department",
+    "name":"manager",
+    "displayName":"department manager",
+    "last_update_date":"2014-12-01 18:51:54.791"
     },
     {
-    "id":"14",
-    "creation_date":"2014-12-02 16:19:28.925",
-    "created_by_user_id":"4",
+    "creation_date":"2014-12-01 15:17:24.736",
+    "created_by_user_id":"-1",
+    "id":"1",
     "icon":"",
-    "parent_path":"/acme",
-    "description":"Human resources department",
-    "name":"HR",
-    "path":"/acme/HR",
-    "parent_group_id":"1",
-    "displayName":"Human Resources",
-    "last_update_date":"2014-12-02 16:19:28.925"
+    "description":"",
+    "name":"member",
+    "displayName":"Member",
+    "last_update_date":"2014-12-01 15:17:24.736"
     }
     ]
 
-### Update a group
+### Update a role
 Request url
-http://../API/identity/group/<group\_id\>
+http://../API/identity/role/<role\_id\>
 
 Request method
 
@@ -378,20 +670,20 @@ PUT
 
 Request payload
 
-A partial representation of a group in JSON with at least the mandatory "name" attribute
+A partial representation of a role in JSON with at least the mandatory "name" attribute
 
 Response payload
 
-The full JSON representation of the group that was updated
+The full JSON representation of the role that was updated
 
 #### Response codes
 
-403 if another group with the same name and parent already exists  
-404 if no group with this ID is found
+403 if a role with the same name already exists  
+404 if no role with this ID is found
 
 #### Example
 Request url
-/API/identity/group/14
+/API/identity/role/4
 
 Request method
 
@@ -400,52 +692,46 @@ PUT
 Request payload
 
     {
-    "name":"HR",
-    "displayName":"Humman resources"
+    "name":"Manager",
+    "displayName":"Department manager"
     }
 
 Response payload
 
     {
-    "id":"14",
-    "creation_date":"2014-12-02 16:19:28.925",
+    "creation_date":"2014-12-01 18:51:54.791",
     "created_by_user_id":"4",
+    "id":"4",
     "icon":"",
-    "parent_path":"/acme",
-    "description":"Human resources department",
-    "name":"HR",
-    "path":"/acme/HR",
-    "displayName":"Human resources",
-    "last_update_date":"2014-12-03 17:18:27.542"
+    "description":"manager of the department",
+    "name":"Manager",
+    "displayName":"Department manager",
+    "last_update_date":"2014-12-01 18:59:59.361"
     }
 
-### Delete a group
+### Delete a role
 Request url
-http://../API/identity/group/<group\_id\>
+http://../API/identity/role/<role\_id\>
 
 Request method
 
 DELETE
 
 Request payload
-
 empty
 
 Response payload
-
 empty
 
 #### Response codes
 
-404 if no group with this ID is found
+404 if no role with this ID is found
 
 #### Example
 Request url
-/API/identity/group/14
+/API/identity/role/4
 
 Request method
 
 DELETE
-* [membership](api_resources/identity_membership_6.0_0.md)
-* [role](api_resources/identity_role_6.0_0.md)
 * [user](api_resources/identity_user_6.0_0_0_1.md)

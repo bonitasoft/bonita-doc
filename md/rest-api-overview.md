@@ -147,9 +147,9 @@ For a GET method that retrieves more than one instance of a resource, you can sp
 
 * p: index of the page to display
 * c: maximum number of elements to retrieve
-* o: order of presentation of values in response: must be either attributeName ASC or attributeName DESC. The final order parameter value must be URL encoded. 
+* o: order of presentation of values in response: must be either `attributeName ASC` or `attributeName DESC`. The final order parameter value must be URL encoded. 
   The order attributeNames are the same as those you get in the object representation returned in the response.
-* f: list of filters, specified as attributeName=attributeValue. To filter on more than one attribute, specify an f parameters for each attribute. The final filter parameter value must be URL encoded. 
+* f: list of filters, specified as `attributeName=attributeValue`. To filter on more than one attribute, specify an f parameters for each attribute. The final filter parameter value must be URL encoded. 
   The attributes you can filter on are specific to the resource.
 * s: search on name or search indexes. The matching policy depends on the configuration of [word-based search](using-list-and-search-methods.md). 
   For example, if word-based search is enabled, `s=Valid` returns matches containing the string "valid" at the start of any word in the attribute value word, 
