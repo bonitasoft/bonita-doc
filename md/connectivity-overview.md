@@ -10,7 +10,7 @@ A connector consists of a definition, an implementation, and a configuration.
 * The implementation is the Java code that acts on the inputs, interacts with the external system, and returns outputs to the process. There can be any number of implementations for a given definition.
 * The configuration is the specification of how the connector is used in a specific process or task. The main part or connector configuration is done at pool and tasks levels, through a wizard. The choice of connector implementation though is done when you [configure the process](configuring-a-process.md).
 
-You can add a connector to a pool or a task, at the start (_connector in_) or at the end (_connector out_). 
+You can add a connector to a pool or a task, at the start (_connector in_) or at the end (_connector out_).  
 A pool connector _in_ is executed when the process is instantiated. A pool connector _out_ is executed when the process instance terminates, regardless of the reason for termination. If a process has more than one terminate end event or flow leading to the end of the process instance, make sure that it is always appropriate for the pool connector out to be executed. If it is not, use task connectors instead.
 
 A task connector _in_ is executed before the task executes. This means it can be used to retrieve information that will be presented in a task form. A task connector _out_ is executed after the task has been executed and after any operation defined on the task. This means that information entered in a form by a user can be an input to the connector.
