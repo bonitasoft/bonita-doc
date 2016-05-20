@@ -5,10 +5,9 @@ This page explains how to set the value of a variable using the output of a data
 You can initialize single valued items and multivalued items. The connector automatically populates the data structure of the variable.
 
 Before you configure the database connector, define the pool-level variable to be initialized. If you do not define the variable first, 
-you can define it from inside the wizard but only at the level when the connector is defined. This means that if you define the connector on a service task, 
-which is recommended, the variable is only available in that service task.
+you can define it from inside the wizard but only at the level when the connector is defined. This means that if you define the connector on a service task, which is recommended, the variable is only available in that service task.
 
-To configure the database connector to initialize the variable, add the connector as usual and follow the steps in the wizard until you get to the Output operations definition screen. 
+To configure the database connector to initialize the variable, add the connector as usual and follow the steps in the wizard until you get to the Output operations definition screen.  
 Then complete the following instructions:
 
 1. In the Output operations definition screen, check Graphical mode, then specify the structure of the output result that corresponds to the data you specified in the query builder:
