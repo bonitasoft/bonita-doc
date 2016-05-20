@@ -19,9 +19,9 @@ Representation of object attributes with an _always load_ policy:
 ```json
 {
   "persistenceId": _number_,
-  "persistenceId_string": "_number_" (since 7.0.1),
+  "persistenceId_string": "_number_" 
   "persistenceVersion": _number_,
-  "persistenceVersion_string": "_number_" (since 7.0.1),
+  "persistenceVersion_string": "_number_"
   "attributeName":_attributeType_
   ...
 }
@@ -242,7 +242,10 @@ The query can be either a default or a custom query.
 
 * **URL**  
   `http://../API/bdm/businessData/_businessDataType_?q=_queryName_&p=0&c=10&f=param=value`  
-  _Example_: Call the findEmployeeByFirstNameAndLastName query : `/API/bdm/businessData/com.company.model.Employee?q=findEmployeeByFirstNameAndLastName&p=0&c=10&f=firstName=John&f=lastName=Doe`
+  _Example_: Call the findEmployeeByFirstNameAndLastName query : 
+  ```
+  /API/bdm/businessData/com.company.model.Employee?q=findEmployeeByFirstNameAndLastName&p=0&c=10&f=firstName=John&f=lastName=Doe
+  ```
 * **Method**  
   `GET`
 * **Data parameters**:
@@ -305,7 +308,7 @@ Single reference:
   "name":"_string_",
   "type":"_string_",
   "storageId":_number_
-  "storageId_string":"_number_" (since 7.0.1)
+  "storageId_string":"number"
 }
 ```
 
@@ -315,8 +318,8 @@ Multiple reference:
 {
   "name":"_string_",
   "type":"_string_",
-  "storageIds":_[number]_
-  "storageIds":_["number"]_ (since 7.0.1)
+  "storageIds":[number]
+  "storageIds_string":["number"]
 }
 ```
 
