@@ -19,18 +19,19 @@ To change the language of the user interface, go to the top right corner, click 
 
 ## How to add a new language from the Community to Bonita BPM Portal
 
-1. Go to [Crowdin](http://translate.bonitasoft.org/) and click the **_Download_** icon to download the zip archive file containing the translations into all the available languages. 
+1. Go to [Crowdin](http://translate.bonitasoft.org/) and click the **_Download_** icon to download the zip archive file containing the translations into all the available languages.
 The archive is called `bonita-bpm-60.zip` even for Bonita BPM 7.x versions.
 This zip file is a snapshot of the translation that are finished and are in progress. The steps in this section assume you are adding a validated translation. You can also add a translation that is in progress. However, the results can be unpredictable, so you should do this only if you are sure of the translation status (perhaps if you are the translator). 
 2. Go to the `master` folder, which contains the translations that are complete and validated.
-3. Go to the `/bonita-web/portal` folder. 
-4. Find the `.po` files for the language you want to add. Each `.po` file has a language indicator and a locale indicator. 
+3. Go to the `/bonita-web/portal` folder.
+4. Find the `.po` files for the language you want to add. Each `.po` file has a language indicator and a locale indicator.
 For example, the files for the Russian language contain `ru_RU`. Extract the files with the language and locale that you want to add to the Portal.
 5. For a Subscription version of the Portal, you also need the files from `/bonita-web-sp/portal` for your chosen language and locale.
 6. Optionally, customize the translation by editing the `.po` files with a UTF-8 editor such as [Poedit](https://poedit.net/).
-7. Copy the `.po` files to `bonita_home/client/platform/work/i18n/`. 
-In a development environment where you are launching Bonita BPM Portal from Bonita BPM Studio, add the files to `/workspace/tomcat/bonita/client/platform/work/i18n` (the bonita\_home used by the Portal).
-8. Restart your application server (or restart Bonita BPM Studio). The next time Bonita BPM Portal starts, it will detect the new language and add it to the list in the **Settings** menu.
+7. Copy the `.po` files to a new folder of your choice, preferably in a sub-folder inside your bundle. Eg. `[TOMCAT_INSTALL_FOLDER]/my_custom_i18n/`.
+    In a development environment where you are launching Bonita BPM Portal from Bonita BPM Studio, add the files to `/workspace/tomcat/i18n/`
+8. Set a new property "org.bonitasoft.i18n.folder" in your Unix file **setEnv.sh** or Windows file **setEnv.bat** (in Tomcat server), or Unix file **standalone.conf** or Windows file **standalone.conf.bat** (in JBoss server)
+9. Restart your application server (or restart Bonita BPM Studio). The next time Bonita BPM Portal starts, it will detect the new language and add it to the list in the **Settings** menu.
 
 Note: do not compile .po files into .mo files, because they will not be used.
 
@@ -43,8 +44,10 @@ Note: do not compile .po files into .mo files, because they will not be used.
    * `/bonita-web-sp/portal/mobile_ru_RU.po`
    * `/bonita-web-sp/portal/portal-js-sp_ru_RU.po`
    * `/bonita-web-sp/portal/portal-sp_ru_RU.po`
-3. Copying these files to the Portal localization folder, `bonita_home/client/platform/work/i18n/`.
-4. Restart your application server (or restart Bonita BPM Studio). 
+3. Copying these files to the Portal localization folder, `[TOMCAT_INSTALL_FOLDER]/my_custom_i18n/`
+4. Edit `[TOMCAT_INSTALL_FOLDER]/bin/`**setEnv.sh**` (in Tomcat under Unix) and append the modify the existing line starting with **CATALINA_OPTS=...** \
+   CATALINA_OPTS=-Dorg.bonitasoft.i18n.folder=${CATALINA_HOME}/my_custom_i18n
+5. Restart your application server (or restart Bonita BPM Studio). 
 
 For the Community version, you only need the files from the `/bonita-web` folder, not those from `/bonita-web-sp`.
 
