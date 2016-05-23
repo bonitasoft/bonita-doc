@@ -5,17 +5,43 @@ It is using markdown to create documentation content.
 
 ## Contribute
 
+### Syntax
+
+Current conversion to html is done with `markdown-it` with the [Github-flavored Markdown](https://help.github.com/categories/writing-on-github/). Checkout [the cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#blockquotes) for more information.
+
+#### Fontawesome
+
+The markdown-it-fontawesome plugin has been activated and you can use fontawesome icon with their name surrounded by colon: `:fa-flag:` that will produce 
+```html
+<i class="fa fa-flag"></i>
+```
+
+#### Bootstrap Alert
+
+In order to reproduce bootstrap alerts that were present in former documentation site, we introduced the **markdown-it-container**.
+It allows to recreate a `div` block with custom classes.
+
+We added 3 types of container :
+* alert alert-danger
+* alert alert-warning
+* alert alert-info
+
+To use them create a block surrounded with 3 colons:
+::: alert alert-danger
+Beware of this important thing !
+:::
+
 ### Process
 
 #### Update existing file
 
 In this case, a simple edit of the md file in the appropriate branch (one per version) is enough, the building process will do the rest.  
-For instance, to edit the **actors.html** page in the 7.3 version, switch to 7.3 branch and edit the `md/actors.md` file.
+For instance, to edit the **actors.html** page in the 7.3 version, checkout the **versions/7.3** branch and edit the `md/actors.md` file.
 
 #### Adding new pages
 
 Select the version you want this page to be available in and create the md file in the appropriate folder.  
-Example: to add a new tutorial about the _form control in the UI Designer_ in 7.3, I create a new folder named `tutorials` in the `md/7.3`.
+Example: to add a new tutorial about the _form control in the UI Designer_ in 7.3, checkout the **version/7.3** and open the _md_ folder.
 
 You can check its content once committed in the github site (simple view) or using the web server (advanced view).
 
