@@ -1,6 +1,8 @@
 <h1>REST API extensions</h1>
 <p>REST API extensions provide a solution for integration between forms/pages and third party systems (including Bonita BPM Engine). They can be used to query <a href="define-and-deploy-the-bdm.md">business data</a>, Bonita BPM Engine APIs, or an external information
 system (such as a database, web service, LDAP directory...). They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).</p>
+<!---<p>This page provide a tutorial to create a REST API extension using Subscription edition tooling. If you are running Community edition checkout the dedicated <a href="">documentation page</a>.</p>--->
+<!---<p>If you need more details about REST API extension checkout the <a href="">documentation reference page</a>.</p>--->
 <h2>Prerequisites</h2>
 <p>Prerequisites for developing a REST API extension are:</p>
 <ul>
@@ -69,42 +71,55 @@ return buildPagedResponse(responseBuilder, new JsonBuilder(result).toPrettyStrin
 <p>Make sure you are adding all missing imports (CTRL+SHIFT+o).</p>
 <h3>Test source code</h3>
 <p>Now we need to update the test to verify the behavior of our REST API extension by editing <code>IndexTest.groovy</code>.</p>
-<p>First step is to define some mocks for our externals dependencies such as Engine Identity API. Add the following mocks declaration after the existing ones:
-<code>def apiClient = Mock(APIClient) def identityAPI = Mock(IdentityAPI) def april = Mock(User) def william = Mock(User) def walter = Mock(User) def contactData = Mock(ContactData)</code></p>
-<p>Now we need to define the generic behavior of our mocks. <code>setup()</code> method should have the following content:
-`context.apiClient &gt;&gt; apiClient
-apiClient.identityAPI &gt;&gt; identityAPI</p>
-<p>identityAPI.getUsers(0, 2, _) &gt;&gt; [april, william]
+<p>First step is to define some mocks for our externals dependencies such as Engine Identity API. Add the following mocks declaration after the existing ones:</p>
+<pre><code class="language-groovy">def apiClient = Mock(APIClient)
+def identityAPI = Mock(IdentityAPI)
+def april = Mock(User)
+def william = Mock(User)
+def walter = Mock(User)
+def contactData = Mock(ContactData)
+</code></pre>
+<p>Now we need to define the generic behavior of our mocks. <code>setup()</code> method should have the following content:</p>
+<pre><code class="language-groovy">context.apiClient &gt;&gt; apiClient
+apiClient.identityAPI &gt;&gt; identityAPI
+
+identityAPI.getUsers(0, 2, _) &gt;&gt; [april, william]
 identityAPI.getUsers(1, 2, _) &gt;&gt; [william, walter]
-identityAPI.getUsers(2, 2, _) &gt;&gt; [walter]</p>
-<p>april.firstName &gt;&gt; &quot;April&quot;
+identityAPI.getUsers(2, 2, _) &gt;&gt; [walter]
+
+april.firstName &gt;&gt; &quot;April&quot;
 april.lastName &gt;&gt; &quot;Sanchez&quot;
 william.firstName &gt;&gt; &quot;William&quot;
 william.lastName &gt;&gt; &quot;Jobs&quot;
 walter.firstName &gt;&gt; &quot;Walter&quot;
-walter.lastName &gt;&gt; &quot;Bates&quot;</p>
-<p>identityAPI.getUserContactData(*_) &gt;&gt; contactData
-contactData.email &gt;&gt; &quot;test@email&quot;`</p>
-<p>Now you can define a test method. Replace existing test <code>should_return_a_json_representation_as_result</code> method with the following one:
-`def should_return_a_json_representation_as_result() {
-given: &quot;a RestAPIController&quot;
-def index = new Index()
-// Simulate a request with a value for each parameter
-httpRequest.getParameter(&quot;p&quot;) &gt;&gt; &quot;0&quot;
-httpRequest.getParameter(&quot;c&quot;) &gt;&gt; &quot;2&quot;</p>
-<p>when: &quot;Invoking the REST API&quot;
-def apiResponse = index.doHandle(httpRequest, new RestApiResponseBuilder(), context)</p>
-<p>then: &quot;A JSON representation is returned in response body&quot;
-def jsonResponse = new JsonSlurper().parseText(apiResponse.response)
-// Validate returned response
-apiResponse.httpStatus == 200
-jsonResponse.p == 0
-jsonResponse.c == 2
-jsonResponse.userInformation.equals([
-[firstName:&quot;April&quot;, lastName: &quot;Sanchez&quot;, email: &quot;test@email&quot;],
-[firstName:&quot;William&quot;, lastName: &quot;Jobs&quot;, email: &quot;test@email&quot;]
-]);
-}`</p>
+walter.lastName &gt;&gt; &quot;Bates&quot;
+
+identityAPI.getUserContactData(*_) &gt;&gt; contactData
+contactData.email &gt;&gt; &quot;test@email&quot;
+</code></pre>
+<p>Now you can define a test method. Replace existing test <code>should_return_a_json_representation_as_result</code> method with the following one:</p>
+<pre><code class="language-groovy">def should_return_a_json_representation_as_result() {
+  given: &quot;a RestAPIController&quot;
+  def index = new Index()
+  // Simulate a request with a value for each parameter
+  httpRequest.getParameter(&quot;p&quot;) &gt;&gt; &quot;0&quot;
+  httpRequest.getParameter(&quot;c&quot;) &gt;&gt; &quot;2&quot;
+
+  when: &quot;Invoking the REST API&quot;
+  def apiResponse = index.doHandle(httpRequest, new RestApiResponseBuilder(), context)
+
+  then: &quot;A JSON representation is returned in response body&quot;
+  def jsonResponse = new JsonSlurper().parseText(apiResponse.response)
+  // Validate returned response
+  apiResponse.httpStatus == 200
+  jsonResponse.p == 0
+  jsonResponse.c == 2
+  jsonResponse.userInformation.equals([
+    [firstName:&quot;April&quot;, lastName: &quot;Sanchez&quot;, email: &quot;test@email&quot;],
+    [firstName:&quot;William&quot;, lastName: &quot;Jobs&quot;, email: &quot;test@email&quot;]
+  ]);
+}
+</code></pre>
 <p>You should now be able to run your unit test. Right click the <code>IndexTest.groovy</code> file and click on <strong>REST API Extension</strong> &gt; <strong>Run JUnit Test</strong>. The JUnit view displays the test results. All tests should pass.</p>
 <h2>Build, deploy and test the REST API extension</h2>
 <p>Studio let you build and deploy the REST API extension in the embedded test environment.</p>
@@ -119,8 +134,8 @@ jsonResponse.userInformation.equals([
 <ol>
 <li>In the <strong>Development</strong> menu, choose <strong>REST API Extension</strong> &gt; <strong>Deploy...</strong></li>
 <li>Select the userInformationRestAPIExension REST API extension.</li>
-<li>Click on Deploy button.</li>
-<li>In the coolbar, click the Portal icon. This opens the Bonita BPM Portal in your browser.</li>
+<li>Click on <strong>Deploy</strong> button.</li>
+<li>In the coolbar, click the <strong>Portal</strong> icon. This opens the Bonita BPM Portal in your browser.</li>
 <li>In the Portal, change to the <strong>Administrator</strong> profile.</li>
 <li>Go to the <strong>Resources</strong> tab, and check that the User information REST API extension is in the list of REST API extension resources.</li>
 </ol>
@@ -130,4 +145,6 @@ jsonResponse.userInformation.equals([
 <li>Enter the following URL: <code>http://localhost:8080/bonita/API/extension/userInformation?p=0&amp;c=10</code>.</li>
 <li>The JSON response body should be displayed.</li>
 </ol>
-<p>The LDAP REST API extension can be used in forms and pages in the <strong>UI Designer</strong> using an <code>External API</code> variable.</p>
+<p>The REST API extension can be used in forms and pages in the <strong>UI Designer</strong> using an <code>External API</code> variable.</p>
+<h2>Example ready to use</h2>
+<p>You can download the <a href="https://github.com/Bonitasoft-Community/rest-api-user-information">REST API extension described in the tutorial above</a> or check <a href="http://community.bonitasoft.com/project/data-source-rest-api-extension">data source REST API extension</a> as a reference.</p>

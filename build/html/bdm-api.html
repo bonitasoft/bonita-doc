@@ -9,9 +9,9 @@
 <p>Representation of object attributes with an <em>always load</em> policy:</p>
 <pre><code class="language-json">{
   &quot;persistenceId&quot;: _number_,
-  &quot;persistenceId_string&quot;: &quot;_number_&quot; (since 7.0.1),
+  &quot;persistenceId_string&quot;: &quot;_number_&quot; 
   &quot;persistenceVersion&quot;: _number_,
-  &quot;persistenceVersion_string&quot;: &quot;_number_&quot; (since 7.0.1),
+  &quot;persistenceVersion_string&quot;: &quot;_number_&quot;
   &quot;attributeName&quot;:_attributeType_
   ...
 }
@@ -227,7 +227,9 @@ It is available from version 6.5.</p>
 <li>
 <p><strong>URL</strong><br>
 <code>http://../API/bdm/businessData/_businessDataType_?q=_queryName_&amp;p=0&amp;c=10&amp;f=param=value</code><br>
-<em>Example</em>: Call the findEmployeeByFirstNameAndLastName query : <code>/API/bdm/businessData/com.company.model.Employee?q=findEmployeeByFirstNameAndLastName&amp;p=0&amp;c=10&amp;f=firstName=John&amp;f=lastName=Doe</code></p>
+<em>Example</em>: Call the findEmployeeByFirstNameAndLastName query :</p>
+<pre><code>/API/bdm/businessData/com.company.model.Employee?q=findEmployeeByFirstNameAndLastName&amp;p=0&amp;c=10&amp;f=firstName=John&amp;f=lastName=Doe
+</code></pre>
 </li>
 <li>
 <p><strong>Method</strong><br>
@@ -291,15 +293,15 @@ multiple depending on the process.</p>
   &quot;name&quot;:&quot;_string_&quot;,
   &quot;type&quot;:&quot;_string_&quot;,
   &quot;storageId&quot;:_number_
-  &quot;storageId_string&quot;:&quot;_number_&quot; (since 7.0.1)
+  &quot;storageId_string&quot;:&quot;number&quot;
 }
 </code></pre>
 <p>Multiple reference:</p>
 <pre><code class="language-json">{
   &quot;name&quot;:&quot;_string_&quot;,
   &quot;type&quot;:&quot;_string_&quot;,
-  &quot;storageIds&quot;:_[number]_
-  &quot;storageIds&quot;:_[&quot;number&quot;]_ (since 7.0.1)
+  &quot;storageIds&quot;:[number]
+  &quot;storageIds_string&quot;:[&quot;number&quot;]
 }
 </code></pre>
 <h3>Methods</h3>
