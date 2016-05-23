@@ -3,6 +3,11 @@
 REST API extensions provide a solution for integration between forms/pages and third party systems (including Bonita BPM Engine). They can be used to query [business data](define-and-deploy-the-bdm.md), Bonita BPM Engine APIs, or an external information
 system (such as a database, web service, LDAP directory...). They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
 
+<!---<p>This page provide a tutorial to create a REST API extension using Subscription edition tooling. If you are running Community edition checkout the dedicated <a href="">documentation page</a>.</p>--->
+
+<!---<p>If you need more details about REST API extension checkout the <a href="">documentation reference page</a>.</p>--->
+
+
 ## Prerequisites
 
 Prerequisites for developing a REST API extension are:
@@ -18,17 +23,17 @@ The following sections show how to create a REST API extension. As an example, w
 ## Generate a new REST API extension skeleton
 
 1. In the **Development** menu, choose **REST API Extension** then **New...**.
-2. Enter a **Name**, for example _User informations REST API Extension_.
-3. Enter a **Description**, for example _Query Bonita BPM Engine to retrieve user informations_.
-4. Enter a package name, use to set the artifact **Group id**, for example: _com.company.rest.api_
-5. Enter a **Project name**, for example _userInformationRestAPIExension_
-6. Click **Next**.
-7. Enter the **pathTemplate** for this REST API extension, for example _userInformation_. This will be the access point of the API, and follows this pattern: `{bonita_portal_context}/API/extension/userInformation`.
-8. As this REST API extension does not access business data you can safely uncheck "Add BDM dependencies" check box.
-9. Define a **Permission** for the extension (replace the default one), for example _read\_user\_information_.
-10. Click **Next**
-11. This screen defines **URL parameters** that will be passed to the API. By default, _p_ and _c_ parameters are defined to enables paged result, it applies well in our examples as we want to return a list of users.
-12. Click **Create**.
+1. Enter a **Name**, for example _User informations REST API Extension_.
+1. Enter a **Description**, for example _Query Bonita BPM Engine to retrieve user informations_.
+1. Enter a package name, use to set the artifact **Group id**, for example: _com.company.rest.api_
+1. Enter a **Project name**, for example _userInformationRestAPIExension_
+1. Click **Next**.
+1. Enter the **pathTemplate** for this REST API extension, for example _userInformation_. This will be the access point of the API, and follows this pattern: `{bonita_portal_context}/API/extension/userInformation`.
+1. As this REST API extension does not access business data you can safely uncheck "Add BDM dependencies" check box.
+1. Define a **Permission** for the extension (replace the default one), for example _read\_user\_information_.
+1. Click **Next**
+1. This screen defines **URL parameters** that will be passed to the API. By default, _p_ and _c_ parameters are defined to enables paged result, it applies well in our examples as we want to return a list of users.
+1. Click **Create**.
 
 ## Write the code
 
@@ -82,15 +87,18 @@ Make sure you are adding all missing imports (CTRL+SHIFT+o).
 Now we need to update the test to verify the behavior of our REST API extension by editing `IndexTest.groovy`.
 
 First step is to define some mocks for our externals dependencies such as Engine Identity API. Add the following mocks declaration after the existing ones:
-`def apiClient = Mock(APIClient)
+```groovy
+def apiClient = Mock(APIClient)
 def identityAPI = Mock(IdentityAPI)
 def april = Mock(User)
 def william = Mock(User)
 def walter = Mock(User)
-def contactData = Mock(ContactData)`
+def contactData = Mock(ContactData)
+```
 
 Now we need to define the generic behavior of our mocks. `setup()` method should have the following content:
-`context.apiClient >> apiClient
+```groovy
+context.apiClient >> apiClient
 apiClient.identityAPI >> identityAPI
 
 identityAPI.getUsers(0, 2, _) >> [april, william]
@@ -105,10 +113,12 @@ walter.firstName >> "Walter"
 walter.lastName >> "Bates"
 
 identityAPI.getUserContactData(*_) >> contactData
-contactData.email >> "test@email"`
+contactData.email >> "test@email"
+```
 
 Now you can define a test method. Replace existing test `should_return_a_json_representation_as_result` method with the following one:
-`def should_return_a_json_representation_as_result() {
+```groovy
+def should_return_a_json_representation_as_result() {
   given: "a RestAPIController"
   def index = new Index()
   // Simulate a request with a value for each parameter
@@ -128,7 +138,8 @@ Now you can define a test method. Replace existing test `should_return_a_json_re
     [firstName:"April", lastName: "Sanchez", email: "test@email"],
     [firstName:"William", lastName: "Jobs", email: "test@email"]
   ]);
-}`
+}
+```
 
 You should now be able to run your unit test. Right click the `IndexTest.groovy` file and click on **REST API Extension** \> **Run JUnit Test**. The JUnit view displays the test results. All tests should pass.
 
@@ -139,23 +150,27 @@ Studio let you build and deploy the REST API extension in the embedded test envi
 First step is to configure security mapping for your extension in Studio embedded test environment:
 
 1. In the **Development** menu, choose **REST API Extension** then **Edit permissions mapping**.
-2. Append this line at the end of the file:
+1. Append this line at the end of the file:
 `profile|User=[read_user_information]` This means that anyone logged in with the user profile is granted this permission.
-3. Save and close the file.
+1. Save and close the file.
 
 Now you can actually build and deploy the extension:
 
 1. In the **Development** menu, choose **REST API Extension** \> **Deploy...**
-2. Select the userInformationRestAPIExension REST API extension.
-3. Click on Deploy button.
-4. In the coolbar, click the Portal icon. This opens the Bonita BPM Portal in your browser.
-5. In the Portal, change to the **Administrator** profile.
-6. Go to the **Resources** tab, and check that the User information REST API extension is in the list of REST API extension resources.
+1. Select the userInformationRestAPIExension REST API extension.
+1. Click on **Deploy** button.
+1. In the coolbar, click the **Portal** icon. This opens the Bonita BPM Portal in your browser.
+1. In the Portal, change to the **Administrator** profile.
+1. Go to the **Resources** tab, and check that the User information REST API extension is in the list of REST API extension resources.
 
 Now you finally test your REST API extension:
 
 1. Open a new tab in the web browser
-2. Enter the following URL: `http://localhost:8080/bonita/API/extension/userInformation?p=0&c=10`.
-3. The JSON response body should be displayed.
+1. Enter the following URL: `http://localhost:8080/bonita/API/extension/userInformation?p=0&c=10`.
+1. The JSON response body should be displayed.
 
-The LDAP REST API extension can be used in forms and pages in the **UI Designer** using an `External API` variable.
+The REST API extension can be used in forms and pages in the **UI Designer** using an `External API` variable.
+
+## Example ready to use
+
+You can download the [REST API extension described in the tutorial above](https://github.com/Bonitasoft-Community/rest-api-user-information) or check [data source REST API extension](http://community.bonitasoft.com/project/data-source-rest-api-extension) as a reference.

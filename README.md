@@ -1,7 +1,7 @@
 # Bonita BPM documentation resources
 
 This repository contains the new Bonita BPM documentation site & tools.  
-It is using markdown to create documentation content. 
+It is using markdown to create documentation content.
 
 ## Contribute
 
@@ -38,7 +38,13 @@ Now, starting from the visualization of the _taxonomy.md_ page, we can browse to
 
 #### Resources (Images)
 
-All images must be placed in the **md/images** folder, whatever the version is. It is due to the fact that the application site resolve images from the root folder. 
+All images must be placed in the **md/images** folder, whatever the version is. It is due to the fact that the application site resolve images from the root folder.
+
+#### Table of content
+
+A table of content is automatically added on each page. It will be place right before the first h2 title.
+
+Automatically generated ToC includes links to h2 and h3 titles.
 
 ### Simple view
 
@@ -51,14 +57,13 @@ A more industrialized process is possible.
 The project uses JavaScripts scripts to manage and deploy content.   
 Therefore, you must first install your favourite `node` version to be able to build the project (`nvm` is the best place to start).
 
-Then run in the root folder: 
+Then run in the root folder:
 
     npm install
 
-Then run 
+Then run
 
     npm run watch
 
 A web server will be launched which convert the requested md file to the html version (currently without any style).  
 A livereload is also set up and allows any change to the `md` file to reload its html version in the browser.
-
