@@ -1,21 +1,27 @@
 # REST API extensions
 
-A REST API extension is a way to add extra REST resources using Bonita BPM. REST API extensions are [exported. imported, modified, and deleted](resource-management.md) as resources in Bonita BPM Portal. 
+A REST API extension is a way to add extra REST resources using Bonita BPM. REST API extensions are [exported, imported, updated, and deleted](resource-management.md) as resources in Bonita BPM Portal.
 
-In the Bonita BPM subscription edition, Bonita BPM Studio contains [tooling for creating, testing, and deploying REST API extensions](rest-api-extensions.md). 
-This page contains information about creating and deploying a REST API manually, which is possible with all editions.
+If you want to learn how to create REST API extension, refer to the documentation page about Bonita BPM Studio [tooling for creating and testing REST API extensions](rest-api-extensions.md) (for Bonita BPM subscription edition).
 
-## Install a REST API extension
+Page below contains information about deploying a REST API manually, which is possible with all editions.
 
-To install a REST API extension, you need to import it into Bonita BPM Portal.
-Follow the steps to [import a resource](resource-management.md).
+## Deploy a REST API extension
 
-REST API extensions use the same authorization mechanism as the standard Bonita BPM Web Rest APIs.
-When you import the extension, the information in `page.properties` is used to set the appropriate
-resource permission mappings in Bonita BPM.
+You need to deploy the REST API zip archive using Bonita BPM Portal:
 
-Note: If you are running Bonita BPM in a cluster, after you import a REST API extension, you must restart the
-application server on all the cluster nodes. 
+1. Connect to the Bonita BPM Portal and switch to "administrator" view.
+1. Go to Resources. You will see the list of all resources, and a filter for each type of resource (Pages, Forms, Layouts, Themes and API extensions).
+1. Click Add button (top left).
+1. Click in the Archive field, then select the REST API extension zip file.
+1. Click Next.
+1. Click Confirm. The resource is added to the portal
+
+REST API extensions use the same authorization mechanism as the standard Bonita BPM REST APIs. When you import the extension, the information in `page.properties` is used to set the appropriate resource permission mappings in Bonita BPM (see [REST API authorization](rest-api-authorization.md) for information about REST API security configuration).
+
+**Note**: It is also possible to deploy a REST API extension using [REST portal API / "page" resource](api_resources/page_6.4_1.md).
+
+**Warning**: If you are running Bonita BPM in a cluster, after you import a REST API extension, you must restart the application server on all the cluster nodes.
 
 ## Usage
 
@@ -23,7 +29,9 @@ A REST API extension must be deployed before any page or form resource using it 
 
 A page that uses REST API extensions must add the required resources in the page resource `page.properties` file.
 For example, if a page uses the demoHeaders, demoXml, and putResource API extensions, the `page.properties` must include this line:
-`resources=[GET|extension/demoHeaders, POST|extension/demoXml,PUT|extension/putResource]`
+```groovy
+resources=[GET|extension/demoHeaders, POST|extension/demoXml,PUT|extension/putResource]
+```
 
 Additional resources and related permissions are stored in user's session. A logout/login to the portal is required to get new permissions effective for user.
 
@@ -47,5 +55,4 @@ REST API extension examples show how to:
 * Return an XML content with specific media type and character set
 * Call to external SOAP webservice (requires internet connexion)
 
-A REST API extension example with SQL dataSource is available on [Bonitasoft Community Github
-repository](https://github.com/Bonitasoft-Community/rest-api-sql-data-source). This example show how to execute SQL queries on a external database.
+Another REST API extension example with SQL data source is available on [Bonitasoft Community](http://community.bonitasoft.com/project/data-source-rest-api-extension). This example show how to execute SQL queries on a external database.

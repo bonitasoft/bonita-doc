@@ -2,13 +2,15 @@
 
 This tutorial explains how to create an application that includes a process. The application is created using the Bonita BPM Community edition, and uses features that are available in all editions. The example application is a business travel tool, and is similar to the simple travel request process that was used in the getting started tutorial for earlier versions of Bonita BPM.
 
+**Important:** these instructions are also available as a [video](http://www.bonitasoft.com/resources/videos/getting-started-tutorial). The complete solution is available on [GitHub](https://github.com/Bonitasoft-Community/getting-started-turorial).
+
 Note that example solution is available on [GitHub repository](https://github.com/Bonitasoft-Community/getting-started-turorial).
 
-Here is the use-case: _An employee opens the Travel Tool application to view their pending and approved travel requests. They create a new travel request. Then the request is sent to the employee's manager. 
-The manager reviews the request and approves or refuses it._
+Here is the use-case: *An employee opens the Travel Tool application to view their pending and approved travel requests. They create a new travel request. Then the request is sent to the employee's manager.
+The manager reviews the request and approves or refuses it.*
 In a real travel management application, there would be several process steps after approval: estimating costs, possibly getting a second level of approval if the cost passes a certain threshold, submitting an expenses claim after the travel, reviewing the expenses claim, escalating anything out of policy, and authorizing payment. However, for this tutorial you will consider only the first part of the process, where a travel request is submitted and then reviewed.
 
-This tutorial assumes that you are a developer using Bonita BPM for the first time. 
+This tutorial assumes that you are a developer using Bonita BPM for the first time.
 It gives instructions for using Bonita BPM Studio, the UI Designer, and Bonita BPM Portal. It assumes you are familiar with JavaScript, JSON and REST APIs.
 
 Use Bonita BPM Studio to define your process, including using the UI Designer to create pages and forms. Then use Bonita BPM Portal to build the application.
@@ -30,7 +32,7 @@ There are also some forms that are associated with the travel management process
 
 The easiest way to create these forms is from the process definition, so that is what you will do later in the tutorial.
 
-The following sections explain how to create the application page and then populate it with dummy data. At any stage, you can click **_Preview_** and see a preview of the layout of the page as it will appear to users. 
+The following sections explain how to create the application page and then populate it with dummy data. At any stage, you can click **_Preview_** and see a preview of the layout of the page as it will appear to users.
 Remember to click **_Save_** to save your work frequently.
 
 ### Create travel tool home page
@@ -73,14 +75,14 @@ First create a variable containing the data, and then bind the variable to the w
 In the application, the real data will be business data retrieved by a REST API call.   
 The dummy data for the travel requests is in JSON. You need two JSON variables, `myPendingRequests` and `myApprovedRequests`.
 
-To create **myPendingRequests**: 
+To create **myPendingRequests**:
 
 1. In the **Variables** panel (at the bottom of the page), click **_Create a new variable_**.  
 2. Enter the variable name, **myPendingRequests**.
 3. Select the JSON type.
 4. Enter this value:
 
-```
+```json
 [
     {
         "userId": 3,
@@ -122,7 +124,7 @@ To create **myPendingRequests**:
 
 Now follow the same steps to create `myApprovedRequests` with the following content:
 
-```
+```json
 [
     {
         "userId": 3,
@@ -219,21 +221,21 @@ AND t.refusalReason = :refusalReason
 The first stage is to create the new diagram, which you do using Bonita BPM Studio. While you are working on a diagram, save your work from time to time, by clicking the **_Save_** icon in the coolbar (at the top of the screen) or typing `Ctrl+S`.   
 Create the diagram as follows:
 
-1. Click **_New diagram_** on the Bonita BPM Studio Welcome page. This creates an almost empty diagram for you to start updating: 
+1. Click **_New diagram_** on the Bonita BPM Studio Welcome page. This creates an almost empty diagram for you to start updating:
   * The large rectangle with a name at the left is the **pool**.
-  * Inside the pool there is a **lane**, which is also a rectangle. You can see the border of the lane at the left side, beside the pool name. 
+  * Inside the pool there is a **lane**, which is also a rectangle. You can see the border of the lane at the left side, beside the pool name.
 The other borders of the lane coincide with the pool border so are not visible.
   * The green circle in the lane is a **start event**.
   * The blue box in the lane is a **human task**.
 2. The first thing to do is to give the diagram a more descriptive name. Click on the diagram outside the pool, then go to the **Details** panel. This is the area on the bottom-right of the screen.
 3. In the **General** tab, **Diagram** pane, click **_Edit..._** next to the **Name** field.
 4. Enter the new diagram name, _Simple Travel Request_, in the popup and click **_OK_**. You can see in the tab at the top of the whiteboard that the diagram name has changed.
-5. Now give the Pool a more descriptive name. Select the pool by clicking in the space between the pool border and the lane border at the left side of the diagram. 
+5. Now give the Pool a more descriptive name. Select the pool by clicking in the space between the pool border and the lane border at the left side of the diagram.
 Then go to the **Details** panel, **General** tab, **Pool** pane, and click **_Edit..._** next to the **Name** field. Enter the new pool name, _Travel Request_, in the popup.
 When you have renamed the diagram and the pool, the diagram looks like this:
 
   ![Diagram with names changed](images/images-6_0/7.0-getting-started-renamed-diagram.png)
-   
+
 6. Now add the tasks to the diagram. This process starts when an employee fills in a travel request form. You do not need to create a task for this because it is this action that triggers the process to start. This is known as process initiation. A **form for process initiation** is defined at the pool level.
 7. Define what happens after the user submits a request form: the manager reviews the travel request and approves or refuses it. You can use the example task that was added to the diagram automatically. Click on the task name and change it to _Manager review_.
 8. In a future evolution of this process, the next task would be to send the travel request details to the admin team so they can handle the booking. For now, though we are just interested in getting the first part of the process working, so add an end after the review task. You can do this by dragging the end icon (red circle) from the palette to the whiteboard, and then connecting to the _Manager review_ task with a flow element.
@@ -259,7 +261,7 @@ The attributes of _travelRequest_ are the information that is used in the proces
 
 ### Create contracts
 
-A contract is the specification of what a form must return to the process instance. Define a contract for process instantiation, and for each human task. 
+A contract is the specification of what a form must return to the process instance. Define a contract for process instantiation, and for each human task.
 
 The contract does not need to include information that is sent from the process instance to the form. This is included in the context, which is the set of information passed to the form. You cannot configure the context.
 
@@ -296,7 +298,7 @@ For each attribute, add a **Description**. The description is displayed in the a
 | hotelNeeded  | Specify if you need a hotel reservation  |
 | destination  | Enter the destination city  |
 | reason  | Explain the reason for this travel. Give the business justification  |
- 
+
 The process instantiation contract is now complete.
 
 The contract for the _Manager review_ task only has two inputs, _status_ and _refusalReason_, so you can create it directly instead of from data.  
@@ -495,7 +497,7 @@ Otherwise, the field will be marked as required and the form validation will pre
 13. Add a Radio buttons widget with the following properties:
 
 | Property  | Value  |
-| --------- | ------ | 
+| --------- | ------ |
 | Label  | Review decision  |
 | Available values (click on the binding icon next to the value) | statusValues  |
 | Displayed keys  | label  |
@@ -535,7 +537,7 @@ Create the following variables:
 Update (edit) the following variables:
 
 | Name  | Type  | Value  |
-|------ | ----- | ------ | 
+|------ | ----- | ------ |
 | myPendingRequests  | External API  | `../API/bdm/businessData/com.company.model.TravelRequest?q=findByUserIdAndStatus&p=0&c=10&f=userId={{session.user_id}}&f=status=pending`  |
 | myApprovedRequests  | External API  | `../API/bdm/businessData/com.company.model.TravelRequest?q=findByUserIdAndStatus&p=0&c=10&f=userId={{session.user_id}}&f=status=approved`  |
 
@@ -548,7 +550,7 @@ Now update the widgets to use the new variables:
 
 When the user clicks the button on the Travel Tool page for creating a travel request, the application displays the form for creating a request.  
 This is the instantiation form for the Travel Request process.  
-To configure this, select the button and set the target URL property to `"/bonita/portal/resource/process/Travel%20Request/1.0/content/?id="+processDef[0].id`. 
+To configure this, select the button and set the target URL property to `"/bonita/portal/resource/process/Travel%20Request/1.0/content/?id="+processDef[0].id`.
 
 After the user submits the form, the Tasks view of Bonita BPM Portal is displayed.
 
