@@ -13,7 +13,9 @@ If you are using a Subscription edition, you can change from one edition to anot
 The value is a comma-separated list with no spaces. 
 You must have a suitable license installed for the specified subscription editions.
 
-**Important:** Performance edition users must add 'performance' to the default value so that the value is 'community,performance'.
+::: alert alert-danger
+:fa-exclamation-circle: **Important:** Performance edition users must add 'performance' to the default value so that the value is 'community,performance'.
+:::
 
 It is useful to store your {{ var\_bonita\_home }} folder in a versioning or source code control system (such as Git), so that you have a record of the changes that you make.
 

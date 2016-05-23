@@ -10,14 +10,10 @@ Use the page resource to access custom pages.
 
 Simple, the ID of the object (a long value)
 
-### Parameters
-
-None
-
 ### Representation
 
 ```json
-    {
+{
     "id":"_page_id_",
     "creationDate":"_date and time_",
     "createdBy":"_created_by_user_id_",
@@ -28,7 +24,7 @@ None
     "updatedBy":"_updatedBy_user_id_",
     "lastUpdateDate":"_date_and_time_",
     "urlToken":"_custom_page_urlToken_"
-    }
+}
 ```
 
 ### Methods
@@ -129,7 +125,6 @@ Use a GET method with filters and search terms to search for custom pages.
 
 * **URL**  
   `/API/portal/page?p={page}&c={count}&o={orders}&f={filters}&s={search}&d={deploy}`  
-  _Example_: ``
 * **Method**  
   `GET`
 * **Data Params**  
@@ -168,10 +163,6 @@ Use the profile resource to access profiles.
 ### Identifier
 
 Simple, the ID of the object (a long value)
-
-### Parameters
-
-None
 
 ### Representation
 
@@ -285,10 +276,10 @@ Use a GET method with filters and search terms to search for profiles.
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   You can filter on:
-  * `name={exact\_profile\_name}`: retrieve only the profiles with the specified name. For example, retrieve the profile with name = Administrator: http://localhost:8080/bonita/API/portal/profile?p=0&c=10&f=name%3dAdministrator
+  * `name={exact_profile_name}`: retrieve only the profiles with the specified name. For example, retrieve the profile with `name=Administrator`: `/API/portal/profile?p=0&c=10&f=name%3dAdministrator`
 
   You can search on:
-  * name: search all profiles which name starts with the search string. For example, name starting with Adm: `http://localhost:8080/bonita/API/portal/profile?p=0&c=10&s=Adm`
+  * name: search all profiles which name starts with the search string. For example, name starting with Adm: `/API/portal/profile?p=0&c=10&s=Adm`
 * **Success Response**  
   * **Code**: 200
   * **Payload**:  
@@ -299,7 +290,7 @@ Use a GET method with filters and search terms to search for profiles.
 Use the DELETE method to delete an existing profile
 
 * **URL**  
-  `API/portal/profile/`  
+  `/API/portal/profile/`  
 * **Method**  
   `DELETE`
 * **Success Response**  
@@ -315,25 +306,21 @@ A profileEntry represents the association between pages and profiles. A profile 
 
 Simple, the ID of the object (a long value)
 
-### Parameters
-
-None
-
 ### Representation
 
 ```json
-    {
-      "id":"_profileEntry id_",
-      "icon":"_icon used in the portal to represent a profileEntry_",
-      "index":"_position in a menu_",
-      "profile_id":"_id of the profile that contains this profileEntry_",
-      "page":"_pageToken (menu name or menu item name) used in a portal menu to identify the page associated with the profileEntry_",
-      "description":"_description_",
-      "name":"_name of the profileEntry_",
-      "type":"_link (if menu item) | folder (if menu)_",
-      "isCustom":"_ true | false _",
-      "parent_id":"_id or parent profileEntry if in a folder_"
-    }
+{
+  "id":"_profileEntry id_",
+  "icon":"_icon used in the portal to represent a profileEntry_",
+  "index":"_position in a menu_",
+  "profile_id":"_id of the profile that contains this profileEntry_",
+  "page":"_pageToken (menu name or menu item name) used in a portal menu to identify the page associated with the profileEntry_",
+  "description":"_description_",
+  "name":"_name of the profileEntry_",
+  "type":"_link (if menu item) | folder (if menu)_",
+  "isCustom":"_ true | false _",
+  "parent_id":"_id or parent profileEntry if in a folder_"
+}
 ```
 
 ### Methods
@@ -491,5 +478,181 @@ Use the DELETE method to delete an existing profileEntry
 * **Success Response**  
   * **Code**: 200
 
-* [profileMember](api_resources/portal_profilemember_6.4_0.md)
-* [theme](api_resources/portal_theme_6.4_0.md)
+## ProfileMember
+
+### Description
+
+A profileMember represents the association between the organization and profiles. In an organization we have three member\_types = USER, GROUP and ROLE. You can assign a profile to a user by specifying a role, group, or specific user. 
+
+### Identifier
+
+Simple, the ID of the object (a long value)
+
+### Representation
+
+```json
+{
+  "id":"_profileMemberid_",
+  "profile_id":"_id of the profile for this mapping_",
+  "role_id":"_id of role, or -1 if the member type is not role_",
+  "group_id":"_id of group, or -1 if the member type is not group_",
+  "user_id":"_id of user, or -1 if the member type is not user_"
+}
+```
+
+### Methods
+
+The methods used for this resource are:
+
+* POST - Add a new profileMember
+* GET - Search a profileMember
+* DELETE - Remove a profileMember
+
+### Add a new profileMember
+
+Use the POST method to create a new profileMember.
+
+* **URL**  
+  `API/portal/profileMember`  
+* **Method**  
+  `POST`
+* **Request Payload**  
+  Example 1: Add a member\_type = USER to the profile with id = 2\.
+  ```json
+  {
+    "profile_id":"2",
+    "member_type":"USER",
+    "user_id":"101"
+  }
+  ```
+  Example 2: Add a member\_type = GROUP to the profile with id = 2\.
+  ```json
+  {
+    "profile_id":"2",
+    "member_type":"GROUP",
+    "group_id":"8"
+  }
+  ```
+* **Success Response**  
+  * **Code**: 200
+  * **Payload**:  
+    Example 1 response ;
+    ```json
+    {
+      "id":"204",
+      "profile_id":"2",
+      "role_id":"-1",
+      "group_id":"-1",
+      "user_id":"101"
+    }
+    ```
+    Example 2 response ;
+    ```json
+    {
+      "id":"206",
+      "profile_id":"2",
+      "role_id":"-1",
+      "group_id":"8",
+      "user_id":"-1"
+    }
+    ```
+
+### Search profileMembers
+
+Use a GET method with filters and search terms to search for profileMembers.
+
+* **URL**  
+  `/API/portal/profileMemberEntry?p={page}&c={count}&o={orders}&f={filters}&d={deploy}`  
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  There is a mandatory filter on:
+  * `member\_type=`. For example, retrieve the profileMembers of type user: `/API/portal/profileMember?p=0&c=10&f=member\_type%3duser`
+
+  You can also filter also on: 
+  * `profile\_id={profile\_id}`: retrieve only the profileMembers related to the specified profile\_id. `/API/portal/profileMember?p=0&c=10&f=member\_type%3duser&f=profile\_id%3d1`
+  * `user\_id={user\_id}`: retrieve only the profileMembers related to the specified user\_id. `API/portal/profileMember?p=0&c=10&f=member\_type%3duser&f=profile\_id%3d1&f=user\_id%3d101`
+  * `role\_id={role\_id}`: retrieve only the profileMembers related to the specified role\_id. `API/portal/profileMember?p=0&c=10&f=member\_type%3drole&f=profile\_id%3d1&f=role\_id%3d101`
+  * `group\_id={group\_id}`: retrieve only the profileMembers related to the specified group\_id. `API/portal/profileMember?p=0&c=10&f=member\_type%3dgroup&f=profile\_id%3d1&f=group\_id%3d101`
+* **Success Response**  
+  An array of profileMember objects
+  * **Code**: 200
+
+### Delete a profileMember
+
+Use the DELETE method to delete an existing profileMember.
+
+* **URL**  
+  `/API/portal/profileMember/:profileMemberId`  
+* **Method**  
+  `DELETE`
+* **Success Response**  
+  * **Code**: 200
+
+## Theme
+
+### Description
+
+Use the theme resource for managing the portal and mobile app theme (look & feel).
+
+### Identifier
+
+Simple, the ID of the object (a long value)
+
+### Methods
+
+The methods used for this resource are:
+
+* POST - Change the theme
+* PUT - Restore the default theme
+
+### Change a theme
+
+Use the method POST for applying a new theme. Two types are permitted: `portal` and `mobile`.
+
+* **URL**  
+  `/API/portal/theme`  
+* **Method**  
+  `POST`
+* **Request Payload**  
+  Example 1: Change the portal theme by applying the definition in an already uploaded zip file.
+  ```json
+  {
+    "type":"portal",
+    "zipFilePathportal":"tmp_1939634566964075173.zip"
+  }
+  ```
+  Example 2: Change the mobile app theme by applying the definition in an already uploaded zip file.
+  ```json
+  {
+    "type":"mobile",
+    "zipFilePathmobile":"tmp_5691887787551776477.zip"
+  }
+  ```
+* **Success Response**  
+  * **Code**: 200
+
+### Restore a default theme
+
+Use the method PUT method for restoring the default theme. Two types are permitted: `portal` and `mobile`
+
+* **URL**  
+  `/API/portal/theme/unusedId`  
+* **Method**  
+  `PUT`
+* **Request Payload**  
+  Example 1: Restore the default portal theme.
+  ```json
+  {
+    "type":"portal"
+  }
+  ```
+  Example 2: Restore the default mobile theme.
+  ```json
+  {
+    "type":"mobile"
+  }
+  ```
+* **Success Response**  
+  * **Code**: 200
