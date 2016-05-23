@@ -9,8 +9,8 @@ It is using markdown to create documentation content.
 
 #### Update existing file
 
-In this case, a simple edit of the md file in the appropriate version is enough, the building process will do the rest.  
-For instance, to edit the **actors.html** page in the 7.3 version, edit the `md/7.3/actors.md` file.
+In this case, a simple edit of the md file in the appropriate branch (one per version) is enough, the building process will do the rest.  
+For instance, to edit the **actors.html** page in the 7.3 version, switch to 7.3 branch and edit the `md/actors.md` file.
 
 #### Adding new pages
 
