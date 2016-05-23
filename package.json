@@ -13,6 +13,8 @@
     "es6-promise": "3.2.1",
     "livereload": "^0.4.1",
     "markdown-it": "6.0.2",
+    "markdown-it-container": "2.0.0",
+    "markdown-it-fontawesome": "0.2.0",
     "serve-index": "^1.7.3",
     "serve-static": "^1.10.2",
     "winston": "2.2.0",

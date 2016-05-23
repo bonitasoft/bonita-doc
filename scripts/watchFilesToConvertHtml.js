@@ -3,13 +3,20 @@
 (() => {
   'use strict';
   
-  let serve = require('serve-static');
-  let fs = require('fs');
+  const serve = require('serve-static');
+  const fs = require('fs');
   let livereload = require('livereload');
-  let connect  = require('connect');
+  const connect  = require('connect');
   let server = connect();
-  let md = require('markdown-it')({ html: true });
-  let serveIndex = require('serve-index');
+  const fa = require('markdown-it-fontawesome');
+  const container = require('markdown-it-container');
+  const containerOptions = level => ({validate: params => params.trim().match(new RegExp('alert\\s+alert-' + level))});
+  const md  = require('markdown-it')({ html: true })
+    .use(fa)
+    .use(container, 'alert alert-warning', containerOptions('warning'))
+    .use(container, 'alert alert-danger', containerOptions('danger'))
+    .use(container, 'alert alert-info', containerOptions('info'));
+  const serveIndex = require('serve-index');
 
   server.use((req, res, next) => {
     if(req.url.match(/.*\.md$/)) {
@@ -32,7 +39,7 @@
   server = livereload.createServer({
     exts: ['md', 'png', 'jpg', 'gif']
   });
-  server.watch(__dirname + '/../**/*.md');
-  console.log('open your favorite browser on http://localhost:3000/ and browse to the page you are editing');
+  server.watch('md/**/*.md');
+  console.log(`open your favorite browser on http://localhost:3000/ and browse to the page you are editing, changes from the md folder will automatically reload the page`);
   console.log('press Ctrl+C to exit server');
 })();
