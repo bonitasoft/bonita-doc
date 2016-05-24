@@ -15,6 +15,7 @@ A page (but also a form or a layout) is constructed as a vertical arrangement of
 A row is a mechanism for aligning widgets, from top left to bottom right. When you create a new, empty, page, it contains a row. A row occupies the whole width of the page, which is considered to be 12 units. The actual width is calculated when the page is displayed. The rows are indicated by a thin pale grey rectangle on the left side of the whiteboard. 
 
 To move or delete a row, position your mouse in the row, and the row toolbar is displayed.
+
 ![row toolbar](images/images-6_0/row-over.png)
 
 Use the controls in the toolbar to move the row up or down, or to delete it. 
