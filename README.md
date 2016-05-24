@@ -27,9 +27,11 @@ We added 3 types of container :
 * alert alert-info
 
 To use them create a block surrounded with 3 colons:
+```
 ::: alert alert-danger
 Beware of this important thing !
 :::
+```
 
 ### Process
 
