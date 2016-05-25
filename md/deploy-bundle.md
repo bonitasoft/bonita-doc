@@ -31,12 +31,12 @@ into the existing root folder of your application server.
 
 If you are installing a Subscription edition, you need to [request a license](licenses.md). 
 
-When you receive your license, copy the file to the `{{ var_bh_code_replace }}/server/licenses` folder of your application server.
+When you receive your license, copy the file to the `setup/platform_conf/licenses` folder of your application server.
 
 ## Edition specification
 
 If you are installing the Performance Subscription edition, 
-you need to edit `engine-server/conf/platform-init/bonita-platform-init-community-custom.properties`
+you need to edit [`bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md)
 and change the value of the `activeProfiles` key to `'community,performance'`. No change is needed for the Community, Teamwork, or Efficiency edition.
 
 ## Next steps
