@@ -33,7 +33,7 @@ This page explains how to update live process definition information. You need t
 
 ### How to add/edit a form or a page of a process in Administrator view
 
-**Note:** This feature is only available for Bonita BPM Performance and Efficiency editions. 
+**Note:** For Bonita BPM Performance and Efficiency editions. 
 
 1. Go to Process management
 2. Select a process and click on the _**More...**_
@@ -46,7 +46,7 @@ This page explains how to update live process definition information. You need t
 
 ### How to update the form/page mapping of a task, process overview or process instantiation in Administrator view
 
-**Note:** This feature is only available for Bonita BPM Performance and Efficiency editions.
+**Note:** For Bonita BPM Performance and Efficiency editions.
 
 1. Go to Process management
 2. Select a process and click on the _**More...**_
@@ -59,7 +59,7 @@ This page explains how to update live process definition information. You need t
 
 ### How to edit a script of a process in Administrator view
 
-**Note:** This feature is only available for Bonita BPM Performance and Efficiency editions.
+**Note:** For Bonita BPM Performance and Efficiency editions.
 
 1. Go to Process management
 2. Select a process and click on the _**More...**_
