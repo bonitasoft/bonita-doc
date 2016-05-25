@@ -71,7 +71,7 @@ All remote access modes share a set of common benefits and constraints. There is
 If your client is not located on the same machine than your server JVM, the [network](#hardware) becomes an additional potential source of performance reductions to monitor.
 
 Tip: In some deployments, it is possible to benefit from the best of both local and remote modes. 
-The engine server access mode is defined per client in the _`bonita home`_`/client` folder and does not need to be the same for all clients.
+The engine server access mode is defined per client and does not need to be the same for all clients.
 If you have a client located in the same JVM as your server, configure it to use the local access mode. 
 You can then configure other clients to use one of the remote modes but you do not penalize the client able to leverage the local access performance.
 
@@ -148,8 +148,7 @@ The work service is responsible for asynchronously processing execution of proce
 This is one of the key configurations to optimize, because even though there are many client threads, client threads are held only for a short time before being released, and then execution flow continues using work service threads. 
 A thread from the pool of the work service is known as a worker.
 
-The work service is configured in _`bonita home`_`/engine-server/conf/tenants/tenant-template/bonita-tenant-community-custom.properties` to have the same settings in each tenant, 
-or in _`bonita home`_`/engine-server/conf/tenants/`_`tenant-id`_`/bonita-tenant-community-custom.properties` to set values for a specific tenant. 
+The work service is configured in [`bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md).
 ```
 bonita.tenant.work.terminationTimeout=30
 bonita.tenant.work.corePoolSize=25
@@ -190,12 +189,8 @@ The configuration of the threadpool of this service must be correlated to the co
 This mapping between the configurations of the two threadpools depends on your processes. If you have processes that use a lot of connectors, then you need as many connector threads as work threads. 
 If you are unsure, our recommendation is to configure the two threadpools with the same values.
 
-The Connector service is configured in `cfg-bonita-connector-timedout.xml`:
+The Connector service is configured in `cfg-bonita-connector-timedout.xml`, `bonita-tenant-community-custom.properties` and `bonita-tenant-sp-custom.properties` (cf [platform setup](BonitaBPM_platform_setup))
 
-* Before creating a tenant:
-_`bonita home`_`/engine-server/conf/tenants/tenant-template/bonita-tenant-community-custom.properties` and _`bonita home`_`/engine-server/conf/tenants/tenant-template/bonita-tenant-sp-custom.properties`
-* For each tenant:
-_`bonita home`_`/engine-server/conf/tenants/`_`tenant-id`_`/bonita-tenant-community-custom.properties` and _`bonita home`_`/engine-server/conf/tenants/`_`tenant-id`_`/bonita-tenant-sp-custom.properties`
 ```
 Community:
 bonita.tenant.connector.queueCapacity=10
@@ -216,8 +211,7 @@ A job is executed inside a thread of the scheduler service.
 There are various kinds of jobs, some resulting from internal requirements such as API session cleaning, or batch deletion of a table row, and some related to process design such as BPMN2 events. 
 The Bonita BPM Engine Scheduler service uses the Quartz Scheduler. Quartz takes the size of the threadpool as an input parameter. Quartz uses threads to execute jobs concurrently.
 
-The Scheduler service configuration is in
-_`bonita home`_`/engine-server/conf/platform/bonita-platform-community-custom.properties`.
+The Scheduler service configuration is in `bonita-platform-community-custom.properties`.
 You can configure:
 ```
 bonita.platform.scheduler.quartz.threadpool.size=5
@@ -285,8 +279,7 @@ does not have a specific range defined. If you want to tune these values, you ha
 For example, if you have an average of 20 steps in your process, then it would be reasonable to set the ActivityInstance range size 
 to be 20 times bigger than the ProcessInstance range.
 
-The sequence manager configuration is in
-_`bonita home`_`/engine-server/conf/platform/bonita-platform-community-custom.properties`.
+The sequence manager configuration is in `bonita-platform-community-custom.properties`.
 
 The sequence manager has its own database connection. 
 This should be appropriately sized for the number of times the sequence manager will 
@@ -296,20 +289,20 @@ query the database, which is a consequence of the range size values. See [Databa
 
 For the Teamwork, Efficiency, and Performance editions, Bonita BPM Engine has a cache providing a persistence layer using Hibernate caching. 
 
-EhCache configuration for this persistence layer is defined in a file named `bonita-platform-hibernate-cache.xml.notused` and `bonita-tenant-hibernate-cache.xml.notused` in ` engine-server/conf/platform/`.
+EhCache configuration for this persistence layer is defined in a file named `bonita-platform-hibernate-cache.xml.notused` and `bonita-tenant-hibernate-cache.xml.notused`.
 To apply the configuration of those files, remove the '.notused' suffix.
 It is possible to modify the cache settings in those files for each kind of object.
 
 Before going into production, we encourage to finely tune the "Level-2" object cache in a pre-prod environment:
 
-* activate Hibernate cache statistics by setting at **true** the parameter **hibernate.generate\_statistics** in file **\[bonita-home\]/engine-server/cong/platform/bonita-platform-community-custom.properties**
+* activate Hibernate cache statistics by setting at **true** the parameter **hibernate.generate\_statistics** in file **bonita-platform-community-custom.properties**
 * activate logs at INFO level:
 ```
 <logger name="org.bonitasoft.engine.persistence" level="INFO"/>
 <logger name="com.bonitasoft.engine.persistence" level="INFO"/>
 ```
 * run load tests to simulate a production environment
-* analyse the "2nd Level Cache Ratio" log messages generated, combined with the "soft-locked cache entry was expired" **warnings messages** to change the configuration in file **<bonita-home\>/server/platform/conf/hibernate-cache-tenant.xml**.
+* analyse the "2nd Level Cache Ratio" log messages generated, combined with the "soft-locked cache entry was expired" **warnings messages** to change the configuration in file **hibernate-cache-tenant.xml**.
 For instance, if on entity **org.bonitasoft.engine.core.document.model.impl.SDocumentImpl**, the "soft-locked cache entry was expired" warnings message occurs, it means the size of the **maxElementsInMemory**
 parameter must be increased, provided it is a reasonable memory size and provided the "2nd Level Cache Ratio" is not low for this element. If the "2nd Level Cache Ratio" is low or even 0, it means the cache is never used to read several times the same entity,
 which means the **timeToLiveSeconds** parameter should be increased, or that the cache should be completely deactivated for this entity.
@@ -327,10 +320,10 @@ A soft-locked cache entry was expired by the underlying Ehcache. If this happens
 
 Bonita BPM Engine uses an application cache to store specific objects. The default implementation of this service relies on EhCache. It is configured in these files:
 
-* _`bonita home`_`/engine-server/conf/platform/bonita-platform-community-custom.properties`
-* _`bonita home`_`/engine-server/conf/tenants/tenant-template/bonita-tenant-community-custom.properties`
-* _`bonita home`_`/engine-server/conf/platform/bonita-platform-sp-cluster-custom.properties`
-* _`bonita home`_`/engine-server/conf/tenants/tenant-template/bonita-tenant-sp-cluster-custom.properties`
+* `bonita-platform-community-custom.properties`
+* `bonita-tenant-community-custom.properties`
+* `bonita-platform-sp-cluster-custom.properties`
+* `bonita-tenant-sp-cluster-custom.properties`
 
 The following cache configurations can be defined:
 | Configuration | Purpose| 
@@ -424,7 +417,7 @@ Be sure to configure these appropriately.
 
 It is now possible to track the duration of actions in a connector using a new time tracker. The tracker service tracks several connector lifecycle operations, and produces a CSV file. 
 This service can impact performance so is disabled by default. 
-It is configured in _`bonita_home`_ by editing `/engine-server/conf/tenants/tenant-template/bonita-tenant-community-custom.properties` and `/engine-server/conf/tenants/tenant-template/bonita-tenants-custom.xml`.
+It is configured by editing `bonita-tenant-community-custom.properties` and `bonita-tenants-custom.xml`.
 To activate connector time tracking: 
 
 1. Change the value of `startFlushThread` from `false` to `true`.
@@ -472,6 +465,6 @@ If you are creating a lot of new sessions in a short time, increase this frequen
 invalid sessions and to avoid out-of-memory errors.  
 Property name: `org.bonitasoft.engine.clean.invalid.sessions.cron`
 
-These property values are configured in _`bonita_home`_`/server/platform/conf/bonita-platform.properties` and are used to initialize the Quartz trigger tables the first time that the Engine starts. 
+These property values are configured in `bonita-platform.properties` and are used to initialize the Quartz trigger tables the first time that the Engine starts. 
 They are not read subsequently, so changing the values in `bonita-platform.properties` after the Engine has been started has no effect on Quartz. 
 For value definition, and information about how to update the Quartz trigger tables, see the [Quartz documentation](http://www.quartz-scheduler.org/documentation/) about Cron Triggers.
