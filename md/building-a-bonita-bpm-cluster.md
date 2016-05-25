@@ -13,8 +13,8 @@ A node that will be in a cluster is installed in exactly the same way as a stand
 
 1. Follow the instructions to [install the 
 Tomcat bundle on Ubuntu](ubuntu-openjdk-tomcat-postgresql.md).
-2. In {{ var\_bonita\_home }}, update `engine-server/conf/platform/bonita-platform-sp-custom.properties` and set the `bonita.cluster` property to `true`.
-3. In order to use cluster mode in environments where multicast is disabled (like main IaaS providers), you should switch to TcpIp mode, or AWS for Amazon Web Services cloud provider. This can be parametered in `/engine-server/conf/platform-sp-cluster-custom.properties.`Only one mode can be selected, so only one of the following properties must be set to true: 
+2. Update [`bonita-platform-sp-custom.properties`](BonitaBPM_platform_setup.md) and set the `bonita.cluster` property to `true`.
+3. In order to use cluster mode in environments where multicast is disabled (like main IaaS providers), you should switch to TcpIp mode, or AWS for Amazon Web Services cloud provider. This can be parametered in [`platform-sp-cluster-custom.properties`](BonitaBPM_platform_setup.md).Only one mode can be selected, so only one of the following properties must be set to true: 
   * `bonita.platform.cluster.hazelcast.multicast.enabled` for multicast discovery, activated by default.
   * `bonita.platform.cluster.hazelcast.tcpip.enabled` for fixed adresses discovery. All possible members should be then precised separated by commas, in `bonita.platform.cluster.hazelcast.tcpip.members` property.
   * `bonita.platform.cluster.hazelcast.aws.enabled` for Amazon Web Services discovery. General informations on access key, region, security groups etc. should then be provided as properties. 
@@ -56,8 +56,8 @@ You can add a new node to a cluster without interrupting service on the existing
 
 1. Install the node with the same platform as the other nodes.
 2. Configure the new node to access the shared `bonita_home` and the database.
-3. In {{ var\_bonita\_home }}, update `engine-server/conf/platform/bonita-platform-sp-custom.properties` and set the `bonita.cluster` property to `true`.
-4. Add the license for the node into the `bonita_home/server/licenses` directory.
+3. Update `bonita-platform-sp-custom.properties` and set the `bonita.cluster` property to `true`.
+4. Add the license for the node into the `setup/platform_conf/licenses` directory.
 5. Start the Tomcat on the new node, which will start the Engine.
 6. Update the load balancer configuration to include the new node.
 
@@ -97,12 +97,12 @@ The node is now removed from the cluster.
 
 To dismantle a cluster:
 
-1. Disable processes in the shared `bonita_home`.
+1. Disable processes.
 2. Allow current activity instances to complete.
 3. When each node has finished executing, stop it.
 4. When all nodes have been stopped, update the load balancer to remove the cluster.
 
-The individual nodes can now be used as standalone Bonita BPM systems, though some changes to the configuration might be required in `bonita_home`. 
+The individual nodes can now be used as standalone Bonita BPM systems, although some changes to the configuration might be required. 
 
 ## Managing the cluster with Hazelcast
 
