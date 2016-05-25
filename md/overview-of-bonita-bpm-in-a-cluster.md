@@ -51,7 +51,6 @@ Prerequisite infrastructure:
 
 * A highly available load balancer
 * A highly available network, with all nodes able to see all other nodes
-* `bonita_home` NFS mounted and available with read-write access from all nodes
 * A highly available database accessible from all nodes
 
 ![Cluster structure diagram](images/images-6_0/cluster_structure.png)
@@ -62,8 +61,6 @@ Definitions:
 
 * **Load balancer**: an HTTP load balancer manages the allocation of work to nodes in the cluster. 
 No load balancer is provided with Bonita BPM, so you can choose the most appropriate for your system. For a production system with a high load, a hardware load balancer is recommended.
-* **`bonita_home`**: `bonita_home` is the configuration directory for a Bonita BPM client. It is where properties files and process definitions are stored. 
-In a cluster, there is a single shared `bonita_home` directory that is NFS mounted with simultaneous read access from all nodes.
 * **Node**: a JVM running a Tomcat application server, Bonita BPM Engine, and Bonita BPM Portal. For high availability, separate physical nodes are required.
 * **Engine database**: a single database used by all the Bonita BPM Engines in the cluster. It is the equivalent of the local database in a non-cluster configuration. 
 The database needs to be highly available and to handle multiple simultaneous accesses. 
@@ -87,7 +84,6 @@ You can [migrate a process from 5.10](migrate-a-process-from-bonita-open-solutio
 
 ### Active and passive nodes
 
-An active node is installed with Bonita BPM and accesses the shared `bonita_home`. It is allocated work by the load balancer. 
 If an active node fails or is stopped, the load balancer redirects work to the remaining active nodes. This keeps the downtime to a minimum, but increases the load on the active nodes. 
 
 A passive node is installed with exactly the same software and has the same configuration as an active node, but the application server and Bonita BPM Engine are not started.
