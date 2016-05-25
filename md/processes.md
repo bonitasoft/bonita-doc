@@ -95,8 +95,8 @@ After you created a category and added to the process, you can add other process
 5. In the opened modal, type a new category name then press _**Enter**_ key, or use arrow keys to browse among exisiting categories
 6. Click _**Save**_
 
-## How to add an entity to an actor
-
+## How to make start a process available for more users
+You need to map more organization entities to the actor labelled _initiator_ in the process definition. To do so:
 1. Go to the BPM tab.
 2. Click _**Processes**_.
 3. Select a process in the list.
@@ -123,7 +123,7 @@ After you created a category and added to the process, you can add other process
 
 ## How to modify a parameter in the Administrator profile
 
-**Note:** For Bonita BPM Performance and Efficiency editions only.
+**Note:** In versions 7.0.x, this feature is only available for Bonita BPM Performance edition. Starting from version 7.1.0, this feature is available for Bonita BPM Performance and Efficiency editions. 
 
 1. Go to the BPM tab
 2. Click _**Processes**_
@@ -136,7 +136,7 @@ After you created a category and added to the process, you can add other process
 
 ## How to edit a connector implementation
 
-**Note:** For Bonita BPM Performance and Efficiency editions only.
+**Note:** In versions 7.0.x, this feature is only available for Bonita BPM Performance edition. Starting from version 7.1.0, this feature is available for Bonita BPM Performance and Efficiency editions. 
 
 1. Go to the BPM tab
 2. Click _**Processes**_

@@ -4,7 +4,9 @@ This page explains how to update live process definition information. You need t
 
 ## Parameters
 
-### How to modify a parameter in Administrator view
+### How to modify a parameter in Administrator view  
+
+**Note:** In versions 7.0.x, this feature is only available for Bonita BPM Performance edition. Starting from version 7.1.0, this feature is available for Bonita BPM Performance and Efficiency editions. 
 
 1. Go to Process management
 2. Select a process and click on the _**More...**_
@@ -16,7 +18,9 @@ This page explains how to update live process definition information. You need t
 
 ## Connectors
 
-### How to edit connector implementation in Administrator view
+### How to edit connector implementation in Administrator view  
+
+**Note:** In versions 7.0.x, this feature is only available for Bonita BPM Performance edition. Starting from version 7.1.0, this feature is available for Bonita BPM Performance and Efficiency editions. 
 
 1. Go to Process management
 2. Select a process and click on the _**More...**_
@@ -29,6 +33,8 @@ This page explains how to update live process definition information. You need t
 
 ### How to add/edit a form or a page of a process in Administrator view
 
+**Note:** For Bonita BPM Performance and Efficiency editions. 
+
 1. Go to Process management
 2. Select a process and click on the _**More...**_
 3. Select Forms on the left side menu
@@ -40,6 +46,8 @@ This page explains how to update live process definition information. You need t
 
 ### How to update the form/page mapping of a task, process overview or process instantiation in Administrator view
 
+**Note:** For Bonita BPM Performance and Efficiency editions.
+
 1. Go to Process management
 2. Select a process and click on the _**More...**_
 3. Select Forms on the left side menu
@@ -50,6 +58,8 @@ This page explains how to update live process definition information. You need t
 ## Scripts
 
 ### How to edit a script of a process in Administrator view
+
+**Note:** For Bonita BPM Performance and Efficiency editions.
 
 1. Go to Process management
 2. Select a process and click on the _**More...**_
