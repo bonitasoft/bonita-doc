@@ -73,7 +73,9 @@
 <p>Example:<br>
 <code>http://localhost:8080/bonita/portal/form/processInstance/8</code></p>
 <h2>Task URL</h2>
-<p><strong>Important:</strong> A task is not automatically assigned to the user who accesses the task form. If a user is using Bonita BPM Portal, the assignment is automatic. However, if a user is accessing a form directly from an application, there must first be a <a href="bpm-api.md">REST API call to assign the task to the user</a>. Otherwise, the user will not be able to execute the task.</p>
+<div class="alert alert-danger">
+<p><i class="fa fa-exclamation-triangle"></i> <strong>Important:</strong> A task is not automatically assigned to the user who accesses the task form. If a user is using Bonita BPM Portal, the assignment is automatic. However, if a user is accessing a form directly from an application, there must first be a <a href="bpm-api.md">REST API call to assign the task to the user</a>. Otherwise, the user will not be able to execute the task.</p>
+</div>
 <p>The following code samples show how to generate a link to a human task.</p>
 <h3>Complete URL</h3>
 <p>This sample shows how to construct the complete URL. Prefer the short format for backward compatibility.</p>

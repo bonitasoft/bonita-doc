@@ -68,7 +68,7 @@ int endIndex = p*c + users.size() - 1
 // Send the result as a JSON representation
 return buildPagedResponse(responseBuilder, new JsonBuilder(result).toPrettyString(), startIndex, endIndex, context.apiClient.identityAPI.numberOfUsers)
 </code></pre>
-<p>Make sure you are adding all missing imports (CTRL+SHIFT+o).</p>
+<p>Make sure you are adding all missing imports (default shortcut CTRL+SHIFT+o).</p>
 <h3>Test source code</h3>
 <p>Now we need to update the test to verify the behavior of our REST API extension by editing <code>IndexTest.groovy</code>.</p>
 <p>First step is to define some mocks for our externals dependencies such as Engine Identity API. Add the following mocks declaration after the existing ones:</p>

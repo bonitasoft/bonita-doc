@@ -23,17 +23,21 @@ This zip file is a snapshot of the translation that are finished and are in prog
 <li>Go to the <code>/bonita-web/portal</code> folder.</li>
 <li>Find the <code>.po</code> files for the language you want to add. Each <code>.po</code> file has a language indicator and a locale indicator.
 For example, the files for the Russian language contain <code>ru_RU</code>. Extract the files with the language and locale that you want to add to the Portal.</li>
-<li>For a Subscription version of the Portal, you also need the files from <code>/bonita-web-sp/portal</code> for your chosen language and locale.</li>
+<li>For the Community edition, you only need the files from the <code>/bonita-web/portal</code> folder. For a Subscription edition of the Portal, you also need the files from <code>/bonita-web-sp/portal</code> for your chosen language and locale.</li>
 <li>Optionally, customize the translation by editing the <code>.po</code> files with a UTF-8 editor such as <a href="https://poedit.net/">Poedit</a>.</li>
-<li>Copy the <code>.po</code> files to <code>bonita_home/client/platform/work/i18n/</code>.
-In a development environment where you are launching Bonita BPM Portal from Bonita BPM Studio, add the files to <code>/workspace/tomcat/bonita/client/platform/work/i18n</code> (the bonita_home used by the Portal).</li>
+<li>Copy the <code>.po</code> files to a new folder of your choice, preferably in a sub-folder inside your bundle. Eg. <code>[TOMCAT_INSTALL_FOLDER]/my_custom_i18n/</code>.
+In a development environment where you are launching Bonita BPM Portal from Bonita BPM Studio, add the files to <code>/workspace/tomcat/i18n/</code></li>
+<li>Set a new property &quot;org.bonitasoft.i18n.folder&quot; in your Unix file <strong>setEnv.sh</strong> or Windows file <strong>setEnv.bat</strong> (in Tomcat server), or Unix file <strong>standalone.conf</strong> or Windows file <strong>standalone.conf.bat</strong> (in JBoss server)</li>
 <li>Restart your application server (or restart Bonita BPM Studio). The next time Bonita BPM Portal starts, it will detect the new language and add it to the list in the <strong>Settings</strong> menu.</li>
 </ol>
 <p>Note: do not compile .po files into .mo files, because they will not be used.</p>
-<h2>Example: how to install the Russian language in a Subscription edition Portal</h2>
+<h2>Example: how to install the Russian language in a Tomcat Subscription bundle</h2>
 <ol>
-<li>Log in to <a href="http://translate.bonitasoft.org/">Crowdin</a> and download the archive file <code>bonita-bpm-60.zip</code>.</li>
-<li>Unzip the <code>bonita-bpm-60.zip</code> file to a folder, and go to the <code>/master</code> folder. Find the following files:
+<li>
+<p>Log in to <a href="http://translate.bonitasoft.org/">Crowdin</a> and download the archive file <code>bonita-bpm-60.zip</code>.</p>
+</li>
+<li>
+<p>Unzip the <code>bonita-bpm-60.zip</code> file to a folder, and go to the <code>/master</code> folder. Find the following files:</p>
 <ul>
 <li><code>/bonita-web/portal/portal_ru_RU.po</code></li>
 <li><code>/bonita-web/portal/portal-js_ru_RU.po</code></li>
@@ -42,10 +46,17 @@ In a development environment where you are launching Bonita BPM Portal from Boni
 <li><code>/bonita-web-sp/portal/portal-sp_ru_RU.po</code></li>
 </ul>
 </li>
-<li>Copying these files to the Portal localization folder, <code>bonita_home/client/platform/work/i18n/</code>.</li>
-<li>Restart your application server (or restart Bonita BPM Studio).</li>
+<li>
+<p>Copying these files to the Portal localization folder, <code>[TOMCAT_INSTALL_FOLDER]/my_custom_i18n/</code></p>
+</li>
+<li>
+<p>Edit <code>[TOMCAT_INSTALL_FOLDER]/bin/setEnv.sh</code> (under Unix) or <code>[TOMCAT_INSTALL_FOLDER]\bin\setEnv.bat</code> (under Windows) and append the modify the existing line starting with <strong>CATALINA_OPTS=...</strong> :</p>
+<p>CATALINA_OPTS=-Dorg.bonitasoft.i18n.folder=${CATALINA_HOME}/my_custom_i18n</p>
+</li>
+<li>
+<p>Restart Tomcat server</p>
+</li>
 </ol>
-<p>For the Community version, you only need the files from the <code>/bonita-web</code> folder, not those from <code>/bonita-web-sp</code>.</p>
 <h2>How to translate Bonita BPM Portal to any other language</h2>
 <ol>
 <li>Go to <a href="https://crowdin.com">crowdin.com</a>.</li>
