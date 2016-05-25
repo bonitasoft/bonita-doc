@@ -23,5 +23,5 @@ In general we recommended that you set all attributes to **true **or all to **fa
 * To archive a sub-process activity each time it changes state, set `org.bonitasoft.engine.core.process.instance.model.SSubProcessActivityInstance` to true. 
 * To archive a connector instance each time it changes state, set `org.bonitasoft.engine.core.process.instance.model.SConnectorInstance` to true. 
 
-To configure the archiving strategy, edit the file `bonita-tenant-sp-custom.properties` in the Bonita BPM Engine's `bonita_home` and specify the items that you want archived. 
+To configure the archiving strategy, edit the file [`bonita-tenant-sp-custom.properties`](BonitaBPM_platform_setup.md) and specify the items that you want archived. 
 By default, the archiving strategy is that everything is archived, so the value for each type of information is set to `true`. Change this setting to `false` for the items that you do not want to archive.
