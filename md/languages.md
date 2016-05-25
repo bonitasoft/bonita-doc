@@ -28,8 +28,8 @@ This zip file is a snapshot of the translation that are finished and are in prog
 For example, the files for the Russian language contain `ru_RU`. Extract the files with the language and locale that you want to add to the Portal.
 5. For a Subscription version of the Portal, you also need the files from `/bonita-web-sp/portal` for your chosen language and locale.
 6. Optionally, customize the translation by editing the `.po` files with a UTF-8 editor such as [Poedit](https://poedit.net/).
-7. Copy the `.po` files to `bonita_home/client/platform/work/i18n/`. 
-In a development environment where you are launching Bonita BPM Portal from Bonita BPM Studio, add the files to `/workspace/tomcat/bonita/client/platform/work/i18n` (the bonita\_home used by the Portal).
+7. Copy the `.po` files to `tomcat_home/webapps/bonita/WEB-INF/classes/i18n/`. 
+In a development environment where you are launching Bonita BPM Portal from Bonita BPM Studio, add the files to `/workspace/tomcat/webapps/bonita/WEB-INF/classes/i18n/`.
 8. Restart your application server (or restart Bonita BPM Studio). The next time Bonita BPM Portal starts, it will detect the new language and add it to the list in the **Settings** menu.
 
 Note: do not compile .po files into .mo files, because they will not be used.
@@ -43,7 +43,7 @@ Note: do not compile .po files into .mo files, because they will not be used.
    * `/bonita-web-sp/portal/mobile_ru_RU.po`
    * `/bonita-web-sp/portal/portal-js-sp_ru_RU.po`
    * `/bonita-web-sp/portal/portal-sp_ru_RU.po`
-3. Copying these files to the Portal localization folder, `bonita_home/client/platform/work/i18n/`.
+3. Copying these files to the Portal localization folder, `tomcat_home/webapps/bonita/WEB-INF/classes/i18n/`.
 4. Restart your application server (or restart Bonita BPM Studio). 
 
 For the Community version, you only need the files from the `/bonita-web` folder, not those from `/bonita-web-sp`.
