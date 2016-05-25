@@ -6,6 +6,5 @@
 * [Deploy bundle](deploy-bundle.md)
 * [Database configuration](database-configuration.md)
 * [Database configuration for business data](database-configuration-for-business-data.md)
-* [Bonita Home](bonita-home.md)
 * [Licenses](licenses.md)
 * [First steps after setup](first-steps-after-setup.md)
