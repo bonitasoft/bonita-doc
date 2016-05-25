@@ -18,7 +18,7 @@ As a security precaution, we **strongly recommend** that before you start your a
 
 ### Platform administrator
 
-The username and password for the platform administrator are defined in {{ var\_bonita\_home }} in the file `/engine-server/conf/platform/bonita-platform-community-custom.properties`, by the following properties:
+The username and password for the platform administrator are defined in the file [`bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md), by the following properties:
 
 * `platformAdminUsername` defines the username (default `platformAdmin`)
 * `platformAdminPassword` defines the password (default `platform`)
@@ -29,19 +29,15 @@ This password is used for platform-level administration tasks, such as creating 
 
 Each tenant has an administrator, with a tenant-specific username and password. The tenant administrator is also known as the tenant technical user.
 
-When the platform is created, default values for the tenant administrator username and password are defined in {{ var\_bonita\_home }} in the file 
-`engine-server/conf/tenants/template/bonita-tenant-community-custom.properties`, by the following properties:
+When the platform is created, default values for the tenant administrator username and password are defined in the file [`bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md), by the following properties:
 
 * `userName` defines the username (default `install`)
 * `userPassword` defines the password (default `install`)
 
 When you create a tenant, the tenant administrator is created with the default username and password, unless you specify new values. 
-Change these tenant-specific credentials for an existing tenant by updating the `userName` and `userPassword` properties in 
-`engine-server/conf/tenants/`_`tenant_id`_`/bonita-tenant-community-custom.properties`, 
-where _`tenant_id`_ is the id number of the tenant (`1` for the default tenant).
+Change these tenant-specific credentials for an existing tenant by updating the `userName` and `userPassword` properties in `bonita-tenant-community-custom.properties`.
 
-For the default tenant, the tenant administrator username and password must also be defined in {{ var\_bh\_code\_replace }}`/client/platform/conf/platform-tenant-config.properties`, 
-with exactly the same values that you set in `engine-server/conf/tenants/`_`default_tenant_id`_`/bonita-tenant-community-custom.properties`. 
+For the default tenant, the tenant administrator username and password must also be defined in file [`platform-tenant-config.properties`](BonitaBPM_platform_setup.md), with exactly the same values that you set in `bonita-tenant-community-custom.properties`. 
 At platform creation, this file contains the default username and password for the default tenant. 
 
 ## Review security
