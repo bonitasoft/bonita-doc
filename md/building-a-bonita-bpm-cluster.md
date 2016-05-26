@@ -1,5 +1,9 @@
 # Build a Bonita BPM cluster
 
+::: alert alert-info
+**Note:** For Performance edition only.
+:::
+
 The recommended procedure to build a cluster is to start with a single node cluster and then add other nodes to the cluster. 
 This enables you to check at each stage that your processes run correctly.
 
