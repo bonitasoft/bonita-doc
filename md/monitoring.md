@@ -1,4 +1,9 @@
 # Monitoring
+
+::: alert alert-info
+**Note:** For Performance and Efficiency editions only.
+:::
+
 Monitoring gives information relative to a process.
 
 This is only available to the Administrator and Process Manager profile.
