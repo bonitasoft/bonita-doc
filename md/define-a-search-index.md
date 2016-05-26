@@ -1,5 +1,9 @@
 # Define a search key
 
+::: alert alert-info
+**Note:** For Bonita BPM Performance and Efficiency editions only.
+:::
+
 A search key is data that is attached to a process and is used to distinguish between cases of the process in Bonita BPM Portal.  
 You can define up to five search keys for a process.
 
