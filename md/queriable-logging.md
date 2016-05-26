@@ -1,5 +1,9 @@
 # Queriable logger
 
+::: alert alert-info
+**Note:** For Performance, Efficiency, and Teamwork editions only.
+:::
+
 This page describes the queriable logger service.
 
 ## Purpose
