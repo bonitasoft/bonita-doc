@@ -1,5 +1,9 @@
 # SAP JCo3
 
+::: alert alert-info
+**Note:** For Performance and Efficiency editions only.
+:::
+
 The SAP Java Connector is a toolkit that allows a Java application to communicate with any SAP system. It combines an easy to use API with unprecedented flexibility and performance.   
 The package supports both Java to SAP System and SAP System to Java calls. 
 
