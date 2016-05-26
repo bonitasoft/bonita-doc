@@ -1,5 +1,9 @@
 # Multi-tenancy and tenant configuration
 
+::: alert alert-info
+**Note:** For Performance edition only.
+:::
+
 This page explains the architecture and configuration of a multi-tenant system using Bonita BPM.
 
 ## Platform architecture
