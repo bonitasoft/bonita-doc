@@ -1,6 +1,16 @@
 # Getting started with the Bonita BPM Engine APIs
 
-Before you run a Bonita BPM application, [configure bonita\_home](configuring-bonita-home-for-a-client.md) to specify how the application accesses the Bonita BPM Engine, and set the `bonita.home` system property.
+Before you run a Bonita BPM application, configure how the application (client) accesses the Bonita BPM Engine (server). For a HTTP access it can be done using following code:
+
+```java
+ final Map<String, String> parameters = new HashMap<>();
+ if(HTTP.equals(apiType)){
+   parameters.put("server.url", "http://localhost:8080");
+   //application name is the name of context, default is bonita
+   parameters.put("application.name", "bonita");
+ }
+ APITypeManager.setAPITypeAndParams(ApiAccessType.valueOf(apiType), parameters);
+```
 
 All sequences of API calls start with logging in to create a session then using the AccessorUtil to retrieve the APIs that will be used in the application.
 
