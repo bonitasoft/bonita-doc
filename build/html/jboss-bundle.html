@@ -1,5 +1,5 @@
 <h1>JBoss bundle</h1>
-<p>The JBoss bundle is a zip archive that contains the Red Hat JBoss JEE application server packaged with Bonita BPM web application and Bonita configuration folder (known as {{ var_bonita_home }}).
+<p>The JBoss bundle is a zip archive that contains the Red Hat JBoss JEE application server packaged with Bonita BPM web application and <a href="BonitaBPM_platform_setup.md">Bonita configuration folder</a>.
 The JBoss bundle is a regular zip archive based on the JBoss zip distribution.</p>
 <p>There are three stages to installing the JBoss bundle:</p>
 <ol>
@@ -26,10 +26,10 @@ The JBoss bundle is a regular zip archive based on the JBoss zip distribution.</
 </ul>
 <h2>License installation</h2>
 <p>If you are installing a Subscription edition, you need to <a href="licenses.md">request a license</a>.</p>
-<p>When you receive your license, copy the file to the <code>&lt;JBOSS_HOME&gt;/bonita/server/licenses</code> folder.</p>
+<p>When you receive your license, copy the file to the <code>&lt;JBOSS_HOME&gt;/setup/platform_conf/licenses/</code> folder.</p>
 <h2>Edition specification</h2>
 <p>If you are installing the Performance Subscription edition,
-you need to edit <code>engine-server/conf/platform-init/bonita-platform-init-community-custom.properties</code>
+you need to edit <a href="BonitaBPM_platform_setup.md"><code>bonita-platform-init-community-custom.properties</code></a>
 and change the value of the <code>activeProfiles</code> key to <code>'community,performance'</code>. No change is needed for the Community, Teamwork, or Efficiency edition.</p>
 <h2>Database configuration</h2>
 <p>The JBoss bundle is configured to use an h2 database by default. h2 is suitable for a test platform, but for production, you are recommended to use one of the supported databases.</p>

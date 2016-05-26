@@ -24,7 +24,12 @@ A pool connector <em>in</em> is executed when the process is instantiated. A poo
 <h2>Connectors and forms</h2>
 <p>In Bonita BPM 6.x, you could add a connector to a form. This is no longer possible with forms created with the UI Designer. To achieve the same result, create a <a href="rest-api-extensions.md">REST API extension</a>. There is an example showing how to execute SQL queries on a external database.</p>
 <h2>Edit a connector</h2>
-<p>To change the implementation of a connector for a process, update the <a href="configuring-a-process.md">process configuration</a>.</p>
+<p>To change the implementation of a connector for a process, update the <a href="configuring-a-process.md">process configuration</a>.<br>
+The implementation can also be changed after deployment:</p>
+<ul>
+<li>In versions 7.0.x, if you are using the Performance edition</li>
+<li>In versions 7.1.0 and above, if you are using the Performance or Efficiency edition</li>
+</ul>
 <p>To change connector configuration for a pool or task, use the connector wizard:</p>
 <ol>
 <li>Select the pool or task.</li>

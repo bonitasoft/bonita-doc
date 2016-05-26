@@ -3,10 +3,10 @@
 <p>In Bonita BPM 6.x, two versions are available for download:</p>
 <ol>
 <li>the Bonita BPM Subscription Pack edition version for the Performance, Efficiency, and Teamwork editions</li>
-<li>and the Bonita BPM Community edition version for the Community edition
-For each version, there are several packaging options. Each edition has a specific {{ var_bonita_home }} that must be downloaded and installed | There is pnow a single {{ var_bonita_home }}, simplifying download options and installation. The edition is set in a properties file. There are no other differences to packaging.
-See the <a href="bonita-bpm-installation-overview.md">Installation overview</a>.</li>
+<li>and the Bonita BPM Community edition version for the Community edition</li>
 </ol>
+<p>For each version, there are several packaging options.
+See the <a href="bonita-bpm-installation-overview.md">Installation overview</a>.</p>
 <h2>Concept comparison</h2>
 <table>
 <thead>
@@ -184,14 +184,16 @@ See the <a href="bonita-bpm-installation-overview.md">Installation overview</a>.
 <tr>
 <th>Feature</th>
 <th>Bonita BPM 6.x</th>
-<th>Bonita BPM 7.x</th>
+<th>Bonita BPM 7.0/1/2</th>
+<th>Bonita BPM 7.3</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>{{ var_bonita_home }}</td>
-<td>A separate {{ var_bonita_home }} for each edition and for cluster</td>
-<td>A common {{ var_bonita_home }} used for all editions, simplifying download and installation. Improved structure for {{ var_bonita_home }}/server that is easier to maintain and customize. See <a href="bonita-home.md">Bonita Home</a></td>
+<td>bonita_home</td>
+<td>A separate bonita_home for each edition and for cluster</td>
+<td>A common  bonita_home used for all editions, simplifying download and installation. Improved structure for bonita_home/server that is easier to maintain and customize. See <a href="bonita-home.md">Bonita Home</a></td>
+<td>No more bonita_home. See  <a href="BonitaBPM_platform_setup.md">platform setup</a></td>
 </tr>
 </tbody>
 </table>

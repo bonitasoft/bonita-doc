@@ -91,7 +91,7 @@ Here is an example of JAAS configuration file:</p>
 <h2>Configuration steps</h2>
 <h3>Changing Bonita BPM authentication service</h3>
 <p>The default Bonita BPM installation comes with an authentication service implementation based on the Bonita BPM Engine database. In
-order to activate Active Directory/LDAP authentication the service implementation needs to be changed. To do this, edit <code>bonita-tenant-sp-custom.properties</code>. If you edit this in <code>bonita-home/engine-server/conf/tenants/template/</code>, the settings will apply to all new tenants. For an existing tenant, edit the properties file in <code>bonita-home/engine-server/conf/tenants/_&lt;tenant-id&gt;_</code>.</p>
+order to activate Active Directory/LDAP authentication the service implementation needs to be changed. To do this, edit <a href="BonitaBPM_platform_setup.md"><code>bonita-tenant-sp-custom.properties</code></a>.</p>
 <p>You will need to perform following changes:</p>
 <ul>
 <li>Comment out the <code>authenticationService</code> line</li>
@@ -108,7 +108,7 @@ order to activate Active Directory/LDAP authentication the service implementatio
 <li>Locate the line that starts: <code>#SECURITY_OPTS</code></li>
 <li>Uncomment this line, i.e. remove the # sign and set property value to: <code>%CATALINA_HOME%\conf\jaas.cfg</code>.</li>
 <li>Locate the line that starts: <code>CATALINA_OPTS=</code></li>
-<li>Add the tag <code>${SECURITY_OPTS}</code> after the tag <code>${BONITA_HOME}</code></li>
+<li>Add the tag <code>${SECURITY_OPTS}</code> after the tag <code>${PLATFORM_SETUP}</code></li>
 </ul>
 <h5>For Windows</h5>
 <ul>
@@ -116,7 +116,7 @@ order to activate Active Directory/LDAP authentication the service implementatio
 <li>Locate the line that starts: <code>rem set SECURITY_OPTS</code></li>
 <li>Uncomment it, i.e. remove &quot;rem&quot; keyword and set property value to: <code>${CATALINA_HOME}/conf/jaas.cfg</code></li>
 <li>Locate the line that starts: <code>set CATALINA_OPTS=</code></li>
-<li>Add the tag <code>%SECURITY_OPTS%</code> after the tag <code>%BONITA_HOME%</code></li>
+<li>Add the tag <code>%SECURITY_OPTS%</code> after the tag <code>%PLATFORM_SETUP%</code></li>
 </ul>
 <a id="examples"/>
 <h2>JAAS configuration files examples</h2>

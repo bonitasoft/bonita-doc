@@ -8,8 +8,7 @@
 <p>The Portal uses the <a href="http://docs.oracle.com/javase/6/docs/api/java/util/logging/package-summary.html">Java Util Logging</a> (JUL) directly to log messages.</p>
 <h3>Bonita BPM Studio</h3>
 <p>The Studio uses a logging service provided by the Eclipse platform. Modification of the Studio logging configuration is not very common except for debugging the Studio itself.</p>
-<p>The Bonita BPM Studio provides direct access to the log written by the embedded Portal and Engine. You can access this log from the Bonita BPM Studio <strong>Help</strong> menu <strong>Show Engine log</strong> option.</p>
-<p>The UI Designer log file is available in <em>BONITA_HOME</em>/tomcat/logs/ui-designer.log.</p>
+<p>The Bonita BPM Studio provides direct access to the log written by the embedded Portal and Engine. You can access this log from the Bonita BPM Studio <strong>Help</strong> menu <strong>Show Engine log</strong> option (<strong>Engine log</strong> also contains UI designer logs).</p>
 <h2>Logging configuration</h2>
 <h3>Bonita BPM Engine and Bonita BPM Portal</h3>
 <p>The <a href="technical-logging.md">technical logger service</a> uses SLF4J (version 1.6.1) to create the log. SLF4J is also used directly by Bonita dependencies such as Hibernate, Quartz and Ehcache.</p>

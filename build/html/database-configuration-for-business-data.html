@@ -11,7 +11,7 @@ You need to configure the following:</p>
 <p>In your RDBMS, create a database to be used to store business object. Do not reuse the Bonita BPM Engine database.</p>
 <p>Configure the database to use the UTF-8 character set.</p>
 <p>In your RDBMS, make sure there is a user defined with privileges to create tables and query them.</p>
-<p>Edit <code>bonita/engine-server/conf/tenants/</code><em><code>tenant-id</code></em><code>/bonita-tenant-community-custom.properties</code> for each tenant and set the <code>bdm.db.vendor</code> property to indicate the RDBMS vendor.
+<p>Edit <a href="BonitaBPM_platform_setup.md"><code>bonita-tenant-community-custom.properties</code></a> for each tenant and set the <code>bdm.db.vendor</code> property to indicate the RDBMS vendor.
 The possible values for <code>bdm.db.vendor</code> are:</p>
 <table>
 <thead>
@@ -93,7 +93,7 @@ The configuration file contains examples for each of the supported RDBMSs to gui
 See the RDBMS-specific examples to find the correct values for your RDBMS.</li>
 </ul>
 <p><strong>Note:</strong> If you have multiple tenants that use business data objects, you need to declare separate data sources for each tenant. Make sure that the values of properties <code>jndi-name</code> and <code>pool-name</code> are unique.
-Edit <code>bonita/engine-server/conf/tenants/</code><em><code>tenant-id</code></em><code>/bonita-tenant-community-custom.properties</code> file and set the tenant-specific JNDI data source name in <code>bdm.datasource.jndi.path</code> and <code>bdm.notmanageddatasource.jndi.path</code>.</p>
+Edit <a href="BonitaBPM_platform_setup.md"><code>bonita-tenant-community-custom.properties</code></a> file and set the tenant-specific JNDI data source name in <code>bdm.datasource.jndi.path</code> and <code>bdm.notmanageddatasource.jndi.path</code>.</p>
 <a id="db_tomcat"/>
 <h3>Configuration for Tomcat</h3>
 <p>If you are using Tomcat, you need to configure one data source directly in Tomcat and one in Bitronix.
@@ -109,7 +109,7 @@ Edit <code>bonita/engine-server/conf/tenants/</code><em><code>tenant-id</code></
 </ul>
 <p><strong>Note:</strong>
 If you have multiple tenants that use business data objects, copy the blocks <code>BusinessDataDS</code> and <code>NotManagedBizDataDS</code> for each tenant, and rename them with a unique name (for example <code>BusinessDataDS_</code><em><code>tenant-id</code></em> and <code>NotManagedBizDataDS_</code><em><code>tenant-id</code></em>).
-Edit <code>bonita/engine-server/conf/tenants/</code><em><code>tenant-id</code></em><code>/bonita-tenant-community-custom.properties</code> file and set the tenant-specific JNDI data source name in <code>bdm.datasource.jndi.path</code> and <code>bdm.notmanageddatasource.jndi.path</code>.</p>
+Edit <a href="BonitaBPM_platform_setup.md"><code>bonita-tenant-community-custom.properties</code></a> file and set the tenant-specific JNDI data source name in <code>bdm.datasource.jndi.path</code> and <code>bdm.notmanageddatasource.jndi.path</code>.</p>
 <p><strong>Bitronix configuration</strong></p>
 <p>Edit the <code>&lt;TOMCAT_HOME&gt;/conf/bitronix-resources.properties</code> configuration file and find the parameters starting with <code>resource.ds2</code>. The configuration file contains examples of settings to guide you. Edit the following settings and set the values appropriate for your RDBMS and database configuration:</p>
 <ul>

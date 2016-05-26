@@ -35,7 +35,6 @@ This means that any transaction that is not yet committed is lost, including any
 <ul>
 <li>A highly available load balancer</li>
 <li>A highly available network, with all nodes able to see all other nodes</li>
-<li><code>bonita_home</code> NFS mounted and available with read-write access from all nodes</li>
 <li>A highly available database accessible from all nodes</li>
 </ul>
 <p><img src="images/7.3/images-6_0/cluster_structure.png" alt="Cluster structure diagram"></p>
@@ -44,8 +43,6 @@ This means that any transaction that is not yet committed is lost, including any
 <ul>
 <li><strong>Load balancer</strong>: an HTTP load balancer manages the allocation of work to nodes in the cluster.
 No load balancer is provided with Bonita BPM, so you can choose the most appropriate for your system. For a production system with a high load, a hardware load balancer is recommended.</li>
-<li><strong><code>bonita_home</code></strong>: <code>bonita_home</code> is the configuration directory for a Bonita BPM client. It is where properties files and process definitions are stored.
-In a cluster, there is a single shared <code>bonita_home</code> directory that is NFS mounted with simultaneous read access from all nodes.</li>
 <li><strong>Node</strong>: a JVM running a Tomcat application server, Bonita BPM Engine, and Bonita BPM Portal. For high availability, separate physical nodes are required.</li>
 <li><strong>Engine database</strong>: a single database used by all the Bonita BPM Engines in the cluster. It is the equivalent of the local database in a non-cluster configuration.
 The database needs to be highly available and to handle multiple simultaneous accesses.</li>
@@ -62,8 +59,7 @@ Even if your process users do not use Bonita BPM Portal, it is still present in 
 <p>There is no automated migration from a Bonita Open Solution 5.10 cluster to a Bonita BPM cluster, because the cluster models are completely different.
 You can <a href="migrate-a-process-from-bonita-open-solution-5-x.md">migrate a process from 5.10</a>, but you need to build your Bonita BPM cluster from scratch.</p>
 <h3>Active and passive nodes</h3>
-<p>An active node is installed with Bonita BPM and accesses the shared <code>bonita_home</code>. It is allocated work by the load balancer.
-If an active node fails or is stopped, the load balancer redirects work to the remaining active nodes. This keeps the downtime to a minimum, but increases the load on the active nodes.</p>
+<p>If an active node fails or is stopped, the load balancer redirects work to the remaining active nodes. This keeps the downtime to a minimum, but increases the load on the active nodes.</p>
 <p>A passive node is installed with exactly the same software and has the same configuration as an active node, but the application server and Bonita BPM Engine are not started.
 A passive node is a &quot;cold standby&quot;.
 It does not consume computing resources.

@@ -58,12 +58,12 @@ out.write(&quot;&quot;&quot;&lt;iframe src=../portal.js/#/admin/monitoring/${idP
 </code></pre>
 <h3>Debugging a custom page in development</h3>
 <p>While you are developing a custom page, you can enable custom page debug mode for your portal. In debug mode, you can see changes to your custom page without importing a new zip archive.</p>
-<p>To enable custom page debug mode, edit <code>&lt;BONITA_HOME&gt;/client/tenants/&lt;tenant ID&gt;/conf/console-config.properties</code> and set <code>custom.page.debug</code> to <code>true</code>.</p>
+<p>To enable custom page debug mode, edit <a href="BonitaBPM_platform_setup.md"><code>console-config.properties</code></a> and set <code>custom.page.debug</code> to <code>true</code>.</p>
 <p>To work on a page in debug mode:</p>
 <ol>
-<li>Import your custom page zip archive into the portal. This creates a directory <code>&lt;BONITA_HOME&gt;/client/tenants/&lt;tenant ID&gt;/work/pages/&lt;your custom page&gt;</code>.</li>
+<li>Import your custom page zip archive into the portal. This creates a directory <code>&lt;java.io.tmpdir&gt;/bonita_portal_*/tenants/tenant_id/pages/&lt;your custom page&gt;</code>.</li>
 <li>Publish the page to a profile, then log out and log in as a user having this profile.</li>
-<li>You can now update <code>Index.groovy</code> and the contents of the <code>lib</code> directory directly in <code>&lt;BONITA_HOME&gt;/client/tenants/&lt;tenant ID&gt;/work/pages/&lt;your custom page&gt;</code>.</li>
+<li>You can now update <code>Index.groovy</code> and the contents of the <code>lib</code> directory directly in <code>&lt;java.io.tmpdir&gt;/bonita_portal_*/tenants/tenant_id/pages/&lt;your custom page&gt;</code>.</li>
 <li>To view the page after you modify it, refresh the page in the browser.</li>
 </ol>
 <p>When you have finished developing the page, recreate the custom page zip archive, and then modify the page to import it. This makes your final version of the page permanently available.</p>

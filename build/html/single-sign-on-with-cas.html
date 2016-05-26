@@ -70,8 +70,7 @@ before the <code>&lt;security-domains&gt;</code> tag, insert these lines (specif
 <ol start="5">
 <li>In the <code>CasLoginModule</code> configuration, check that the <code>principalGroupName</code> property is set to <code>CallerPrincipal</code>. This is required to retrieve the username from the Bonita application.
 Bonita BPM uses the CAS LoginModule in the JASIG implementation, so see the CAS LoginModule section of the <a href="https://wiki.jasig.org/display/CASC/JAAS+Integration">Jasig documentation</a> for more information.</li>
-<li>Update <code>bonita-tenant-sp-custom.properties</code>. If you edit this in <code>bonita-home/engine-server/conf/tenants/template/</code>, the settings will apply to all new tenants.
-For an existing tenant, edit the properties file in <code>bonita-home/engine-server/conf/tenants/``_&lt;tenant-id&gt;_</code>.
+<li>Update <a href="BonitaBPM_platform_setup.md"><code>bonita-tenant-sp-custom.properties</code></a>.
 <ol>
 <li>Remove the comment flags from these lines:
 <code>authentication.service.ref.name=jaasAuthenticationService</code></li>
@@ -88,9 +87,9 @@ authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservi
 </ol>
 <h2>Configure Bonita BPM Engine and Tomcat for CAS</h2>
 <ol>
-<li>The CAS implementation relies on JAAS, and is defined in the BonitaAuthentication module of the JAAS configuration file. Set the Java system property <code>java.security.auth.login.config</code> in the Tomcat startup script to point to the JAAS configuration file, <code>bonita-home/client/platform/conf/jaas.config</code>. For example, on Linux, edit <code>setenv.sh</code>, uncomment the line that defines <code>SECURITY_OPTS</code>, and insert the variable <code>SECURITY_OPTS</code> in the line <code>CATALINA_OPTS=..</code>.</li>
+<li>The CAS implementation relies on JAAS, and is defined in the BonitaAuthentication module of the JAAS configuration file. Set the Java system property <code>java.security.auth.login.config</code> in the Tomcat startup script to point to the JAAS configuration file, <a href="BonitaBPM_platform_setup.md"><code>jaas.config</code></a>. For example, on Linux, edit <code>setenv.sh</code>, uncomment the line that defines <code>SECURITY_OPTS</code>, and insert the variable <code>SECURITY_OPTS</code> in the line <code>CATALINA_OPTS=..</code>.</li>
 </ol>
-<p>The <code>bonita-home/client/platform/conf/jaas.config</code> file contains the following (replace <code>ip_address:port</code> with the relevant IP addresses and port numbers, in two places):</p>
+<p>The <code>jaas.config</code> file contains the following (replace <code>ip_address:port</code> with the relevant IP addresses and port numbers, in two places):</p>
 <pre><code>BonitaAuthentication-1 {
   org.jasig.cas.client.jaas.CasLoginModule required
     ticketValidatorClass=&quot;org.jasig.cas.client.validation.Cas20ServiceTicketValidator&quot;
@@ -111,8 +110,7 @@ authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservi
 <li>In the <code>CasLoginModule</code> configuration, check that the <code>principalGroupName</code> property is set to <code>CallerPrincipal</code>. This is required to retrieve the username from the Bonita application.Bonita BPM uses the CAS LoginModule in the JASIG implementation, so see the CAS LoginModule section of the <a href="https://wiki.jasig.org/display/CASC/JAAS+Integration">Jasig documentation</a> for more information.</li>
 <li>Put the CAS client core jar (currently <code>cas-client-core-3.2.1.jar</code>) in the <code>/lib</code> folder.</li>
 <li>Put <code>commons-logging-1.1.jar</code> in the <code>/lib</code> folder.</li>
-<li>Update <code>bonita-tenant-sp-custom.properties</code>. If you edit this in <code>bonita-home/engine-server/conf/tenants/template/</code>, the settings will apply to all new tenants.
-For an existing tenant, edit the properties file in <code>bonita-home/engine-server/conf/tenants/``_&lt;tenant-id&gt;_</code>.
+<li>Update <code>bonita-tenant-sp-custom.properties</code>.
 <ol>
 <li>Remove the comment flags from these lines:
 <code>authentication.service.ref.name=jaasAuthenticationService</code></li>
@@ -137,8 +135,6 @@ authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservi
 <h2>Configure Bonita client for CAS</h2>
 <ol>
 <li>For each tenant, edit <code>authenticationManager-config.properties</code> to enable the CASRemoteAuthenticationManager and its properties.
-If you edit this in <code>bonita-home/client/platform/tenant-template/conf/</code>, the settings will apply to all new tenants.
-For an existing tenant, edit the properties file in <code>bonita-home/client/tenants/``_&lt;tenant-id&gt;_</code>.
 The service URL in the properties file must be the same as that in the JAAS file. The <code>authenticationManager-config.properties</code> will have the following content (specify the relevant IP address and ports):</li>
 </ol>
 <pre><code>#auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.standard.StandardAuthenticationManagerImplExt
@@ -154,7 +150,7 @@ logout.link.hidden=true
 </code></pre>
 <ol start="2">
 <li>Make sure that the default tenant id is the same on both the client side and server side.
-To do this, you can set the <code>platform.tenant.default.id</code> property in <code>bonita-home/client/platform/conf/platform-tenant-config.properties</code>.</li>
+To do this, you can set the <code>platform.tenant.default.id</code> property in <code>platform-tenant-config.properties</code>.</li>
 </ol>
 <h2>Configure logout behaviour</h2>
 <h3>Bonita BPM Portal</h3>

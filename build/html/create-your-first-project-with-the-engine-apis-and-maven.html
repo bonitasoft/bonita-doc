@@ -21,8 +21,8 @@
     &lt;version&gt;${bonita.bpm.version}&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre>
-<h2>Bonita home</h2>
-<p>In order to execute this client example you need to set the Java system property <code>bonita.home</code>, for example <code>-Dbonita.home=&lt;path to bonita home&gt;</code>, and <a href="configuring-bonita-home-for-a-client.md">configure a {{ var_bonita_home }} for the client</a>. The bonita home used must have the same version as
+<h2><s>Bonita home</s> (deprecated, use the <a href="http://documentation.bonitasoft.com/javadoc/api/7.2/org/bonitasoft/engine/util/APITypeManager.html">APITypeManager</a> instead)</h2>
+<p>In order to execute this client example you need to set the Java system property <code>bonita.home</code>, for example <code>-Dbonita.home=&lt;path to bonita home&gt;</code>, and <a href="configuring-bonita-home-for-a-client.md">configure a bonita_home for the client</a>. The bonita home used must have the same version as
 the Bonita BPM Engine, which is configured in bonita.bpm.version (here 7.0.0).</p>
 <h2>Log in</h2>
 <p>The first action of the client must be to log in. This example shows how to log in when accessing the server over HTTP:</p>

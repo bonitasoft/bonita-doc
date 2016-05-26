@@ -1,5 +1,13 @@
 <h1>Getting started with the Bonita BPM Engine APIs</h1>
-<p>Before you run a Bonita BPM application, <a href="configuring-bonita-home-for-a-client.md">configure bonita_home</a> to specify how the application accesses the Bonita BPM Engine, and set the <code>bonita.home</code> system property.</p>
+<p>Before you run a Bonita BPM application, configure how the application (client) accesses the Bonita BPM Engine (server). For a HTTP access it can be done using following code:</p>
+<pre><code class="language-java"> final Map&lt;String, String&gt; parameters = new HashMap&lt;&gt;();
+ if(HTTP.equals(apiType)){
+   parameters.put(&quot;server.url&quot;, &quot;http://localhost:8080&quot;);
+   //application name is the name of context, default is bonita
+   parameters.put(&quot;application.name&quot;, &quot;bonita&quot;);
+ }
+ APITypeManager.setAPITypeAndParams(ApiAccessType.valueOf(apiType), parameters);
+</code></pre>
 <p>All sequences of API calls start with logging in to create a session then using the AccessorUtil to retrieve the APIs that will be used in the application.</p>
 <p>The APIs are retrieved using an accessor. To retrieve the PlatformLoginAPI and the PlatformAPI, use the PlatformAPIAccessor.
 After the platform has been created and initialized, use the TenantAPIAccessor to retrieve the other APIs. The TenantAPIAccessor is used even though there is a single tenant.</p>

@@ -31,9 +31,6 @@ Thus, using MySQL database in a production environment is not recommended.</p>
 Thus, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the JBoss bundle provided by Bonitasoft.</p>
 <p><strong>Warning:</strong> Some RDBMSs require specific configuration, which must be done before you complete your installation.
 If you do not complete the specific configuration for your RDBMS, your installation may fail.</p>
-<p><strong>Warning:</strong> RDBMS configuration needs to be done before the first start of the application.
-This is because {{ var_bonita_home }} and the database are initialized on first startup.
-Changing RDBMS configuration after first startup leads to incoherent data between {{ var_bonita_home }} and the database.</p>
 <h2>Database creation</h2>
 <p>The first step in configuring Bonita with your RDBMS is to create a new database (i.e. a new schema).</p>
 <p>To do this, you need a RDBMS user account that has sufficient privileges (i.e. privileges to create new schema).</p>
@@ -93,7 +90,7 @@ This is defined by setting the <code>sysprop.bonita.db.vendor</code> JVM system 
 <li>For other application servers, refer to your application server documentation.</li>
 </ul>
 <p>An alternative to setting the JVM system property (<code>sysprop.bonita.db.vendor</code>) is to set <code>db.vendor</code> property value in the
-<code>engine-server/conf/platform/bonita-platform-community-custom.properties</code> file of your {{ var_bonita_home }}.
+<a href="BonitaBPM_platform_setup.md"><code>bonita-platform-community-custom.properties</code></a> file.
 The default value of <code>db.vendor</code> indicates that the value of the JVM system property value must be used.
 If the property is not defined, the fallback value is h2: <code>db.vendor=${sysprop.bonita.db.vendor:h2}</code></p>
 <h2>Add the JDBC driver</h2>
