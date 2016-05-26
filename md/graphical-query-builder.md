@@ -1,5 +1,9 @@
 # Graphical query builder
 
+::: alert alert-info
+**Note:** For Performance, Efficiency, and Teamwork editions only.
+:::
+
 The graphical query builder helps you configure a database connector by showing you the structure of database content to help you construct the database query.
 
 ## Connect to the database
