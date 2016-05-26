@@ -1,5 +1,9 @@
 # Set up continuous integration
 
+::: alert alert-info
+**Note:** For Performance, Efficiency, and Teamwork editions only.
+:::
+
 This page explains how to set up a continuous integration environment for your Bonita BPM processes.
 
 With Continuous Integration (CI) your processes are continuously built and tested while you are designing them. Collaborating on process design can be enhanced with CI by ensuring the integrity of your processes along the development phase. 
