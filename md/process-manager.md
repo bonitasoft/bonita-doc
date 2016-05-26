@@ -1,5 +1,9 @@
 # Process manager
 
+::: alert alert-info
+**Note:** For Performance and Efficiency editions only.
+:::
+
 The portal administrator can assign a Process manager to a process, to share responsibility for managing processes.
 
 ## Process manager description
