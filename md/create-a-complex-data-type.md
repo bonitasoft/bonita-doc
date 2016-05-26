@@ -1,4 +1,8 @@
-# Create a complex data type
+# Complex data types
+
+::: alert alert-info
+**Note:** For Bonita BPM Performance, Efficiency, and Teamwork editions only.
+:::
 
 If the standard data types are not suitable for a variable in your process, you can create a new custom complex data type. It is useful for example to reference data from an external database.
 
