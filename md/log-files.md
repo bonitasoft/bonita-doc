@@ -1,5 +1,9 @@
 # Log files
 
+::: alert alert-info
+**Note:** For Performance, Efficiency, and Teamwork editions only.
+:::
+
 During development, the Studio log file and UI designer log file contain messages about development activities, including any errors. 
 When you run a process for testing, messages are written to the Engine log file.
 
