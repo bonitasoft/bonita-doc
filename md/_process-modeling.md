@@ -1,6 +1,6 @@
 # Process modeling
 
-* [Diagrams](diagrams.md)
+* [Diagrams](_diagrams.md)
   * [Diagram overview](diagram-overview.md)
   * [Pools and lanes](pools-and-lanes.md)
   * [Tasks](tasks.md)

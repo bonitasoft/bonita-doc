@@ -1,6 +1,6 @@
 # Connectors overview
 
-A connector is an element in a process that accesses an external system to read or write information. If the [default connectors in Bonita BPM](connectivity.md) are not suitable, you can implement your own connector. 
+A connector is an element in a process that accesses an external system to read or write information. If the [default connectors in Bonita BPM](_connectivity.md) are not suitable, you can implement your own connector. 
 In the Bonita BPM Performance, Efficiency, and Teamwork editions, you are recommended to use the [connector development toolkit](connector-development-toolkit.md) to create new connectors.
 Otherwise, you can define a new connector definition or implementation in Bonita BPM Studio,
 using the wizards started from the **Development** menu, **Connectors** submenu.

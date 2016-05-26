@@ -37,7 +37,7 @@ To upgrade a Bonita BPM platform from Community edition to a Subscription editio
 
 1. [Backup your Bonita BPM platform and databases](back-up-bonita-bpm-platform.md).
 2. Make sure that the platform is shut down.
-3. [Install a new Bonita BPM platform](basic-bonita-bpm-platform-installation.md) Subscription edition with an H2 database. 
+3. [Install a new Bonita BPM platform](_basic-bonita-bpm-platform-installation.md) Subscription edition with an H2 database. 
 (The database is only used temporarily).
 4. Start the Bonita BPM Subscription platform for the first time (this will initialize the platform data).
 5. Log in to the Bonita BPM Portal as the technical user (default login and password: install) to make sure that your installation is functional.

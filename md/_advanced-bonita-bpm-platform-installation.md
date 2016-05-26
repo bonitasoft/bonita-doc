@@ -1,6 +1,6 @@
 # Advanced Bonita BPM platform installation
 
-* [Security and authentication](security-and-authentication.md)
+* [Security and authentication](_security-and-authentication.md)
   * [User authentication overview](user-authentication-overview.md)
   * [Active directory or LDAP authentication](active-directory-or-ldap-authentication.md)
   * [Single sign-on with CAS](single-sign-on-with-cas.md)
@@ -14,7 +14,7 @@
 * [Performance troubleshooting](performance-troubleshooting.md)
 * [Use gzip compression](use-gzip-compression.md)
 * [Two main types of deployment](two-main-types-of-deployment.md)
-* [Bonita BPM in a cluster](bonita-bpm-in-a-cluster.md)
+* [Bonita BPM in a cluster](_bonita-bpm-in-a-cluster.md)
   * [Overview of Bonita BPM in a cluster](overview-of-bonita-bpm-in-a-cluster.md)
   * [Build a Bonita BPM cluster](building-a-bonita-bpm-cluster.md)
   * [Cluster administration](cluster-administration.md)

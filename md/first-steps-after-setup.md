@@ -43,7 +43,7 @@ At platform creation, this file contains the default username and password for t
 ## Review security
 
 There are a number of ways you can improve the security of your platform. 
-Review the [REST API authorization](rest-api-authorization.md) and the other features relating to [security and authentication](security-and-authentication.md) that are available in Bonita BPM and in your operating system, and update your platform as required for your production environment. 
+Review the [REST API authorization](rest-api-authorization.md) and the other features relating to [security and authentication](_security-and-authentication.md) that are available in Bonita BPM and in your operating system, and update your platform as required for your production environment. 
 For example, most environments require a [password policy](enforce-password-policy.md).
 
 ## Create a Bonita BPM Portal administrator

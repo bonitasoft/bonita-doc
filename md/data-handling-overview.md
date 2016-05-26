@@ -32,5 +32,5 @@ An application page accesses business data using the [bdm REST API](bdm-api.md).
 
 The data that is passed from a form to a process is defined using a [contract](contracts-and-contexts.md). Define a contract for process instantiation and for each human task. 
 These contracts are part of the process definition. 
-A form has access to business data and documents using the [context](contracts-and-contexts.md) and the [REST API](rest-api.md). 
+A form has access to business data and documents using the [context](contracts-and-contexts.md) and the [REST API](_rest-api.md). 
 A form also contains form [variables](variables.md), which have no meaning outside the form.

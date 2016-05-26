@@ -1,12 +1,12 @@
 # Page and form development
 
 * [Page and form development overview](page-and-form-development-overview.md)
-* [UI Designer](using-the-ui-designer.md)
+* [UI Designer](_using-the-ui-designer.md)
   * [UI Designer overview](ui-designer-overview.md)
   * [Create or modify pages and forms](create-or-modify-a-page.md)
   * [Widgets](widgets.md)
   * [Widget properties](widget-properties.md)
-  * [Widget use examples](widget-use-examples.md)
+  * [Widget use examples](_widget-use-examples.md)
     * [Repeat a container for a collection of data](repeat-a-container-for-a-collection-of-data.md)
   * [Fragments](fragments.md)
   * [Custom widgets](custom-widgets.md)

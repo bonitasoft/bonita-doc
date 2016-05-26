@@ -19,7 +19,7 @@ Expression, external API and URL parameter variables are dynamic. They are evalu
 
 ### External API
 
-External API variables are used to fetch data from outside the page. This is typically a REST API. The call to the specified URL is done using an HTTP GET request. The result is stored in the page data model. You can parameterize the URL construction with other data using `{{variableName}}` syntax. You can retrieve information using the [Bonita REST APIs](rest-api.md). 
+External API variables are used to fetch data from outside the page. This is typically a REST API. The call to the specified URL is done using an HTTP GET request. The result is stored in the page data model. You can parameterize the URL construction with other data using `{{variableName}}` syntax. You can retrieve information using the [Bonita REST APIs](_rest-api.md). 
 
 Here are some examples:
 

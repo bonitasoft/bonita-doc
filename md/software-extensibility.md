@@ -13,7 +13,7 @@ These extension points are guaranteed to be stable across versions of Bonita BPM
 
 In Community, Teamwork, Efficiency, and Performance editions
 
-Bonita BPM comes with more than 80 [standard connectors](connectivity.md) to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
+Bonita BPM comes with more than 80 [standard connectors](_connectivity.md) to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
 A new connector enables you to provide new connectivity capabilities for processes. 
 To [implement a new connector](connectors-overview.md), you need to provide some XML description files and a 
 Java class respecting the [Connector interface](javadoc.md). 
