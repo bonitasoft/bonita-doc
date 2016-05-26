@@ -1,5 +1,9 @@
 # Set up KPIs
 
+::: alert alert-info
+**Note:** For Performance, Efficiency, and Teamwork editions only.
+:::
+
 This page presents two implementation options for creating KPIs and integrating them to business processes:
 
 ## Create a KPI using the Bonita BPM Studio KPI feature
