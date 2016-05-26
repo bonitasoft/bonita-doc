@@ -1,5 +1,7 @@
 # Configuring Bonita Home for a client
 
+##Deprecated, use the programmatic way instead, see [APITypeManager](http://documentation.bonitasoft.com/javadoc/api/7.2/org/bonitasoft/engine/util/APITypeManager.html).
+
 This page explains how to set up a [Bonita home](bonita-home.md) folder to configure properties for a client application. Every client application needs its own Bonita home.
 
 The `bonita.home` system property points to the root directory for a client application of Bonita BPM. 

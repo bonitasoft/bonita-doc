@@ -134,7 +134,6 @@ If a form uses some Javascript code based on an element in the HTML Document Obj
 Only the elements listed on this page are intended to be used as extension points. For other elements, there is no guarantee of stability, and a high probability of changes across versions. 
 For example, the following should not be considered to be extension points:
 
-* **Bonita Home**. The structure, format, content and even the existence of bonita home can be re-considered at any time.
 * **Engine Services** (other than those listed in this page). The Engine is structured as an aggregation of several services. 
 This provides clear isolation of responsibility and eases maintenance. The interfaces, configuration files, and existence of services are not guaranteed across versions.
 
@@ -160,4 +159,4 @@ We cannot ensure backward compatibility for the following:
 * Custom data types definition structure
 * URLs
 * Forms definition structure and HTML templates
-* bonita home folder structure and content
+* bonita home folder structure and content (removed since 7.3)

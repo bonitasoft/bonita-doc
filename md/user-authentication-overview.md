@@ -49,8 +49,7 @@ information.
 calls `login` method of [LoginManager](https://github.com/bonitasoft/bonita-web/blob/7.0.0/server/src/main/java/org/bonitasoft/console/common/server/login/LoginManager.java)
 9. [LoginManager](https://github.com/bonitasoft/bonita-web/blob/7.0.0/common/src/main/java/org/bonitasoft/console/common/server/login/LoginManager.java)
 searches for an [AuthenticationManager](https://github.com/bonitasoft/bonita-web/blob/7.0.0/common/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java)
-implementation based on configuration file for current tenant (see `authenticationManager-config.properties`
-in `bonita.home` under `client/tenants/[tenantid]/conf`). The default [AuthenticationManager](https://github.com/bonitasoft/bonita-web/blob/7.0.0/common/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java)
+implementation based on configuration file for current tenant ([`authenticationManager-config.properties`](BonitaBPM_platform_setup.md)). The default [AuthenticationManager](https://github.com/bonitasoft/bonita-web/blob/7.0.0/common/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java)
 is [StandardAuthenticationManagerImpl](https://github.com/bonitasoft/bonita-web/blob/7.0.0/common/src/main/java/org/bonitasoft/console/common/server/auth/impl/standard/StandardAuthenticationManagerImpl.java).
 10. `authenticate` method is called on the [AuthenticationManager](https://github.com/bonitasoft/bonita-web/blob/7.0.0/common/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java).
 `authenticate` method of [StandardAuthenticationManagerImpl](https://github.com/bonitasoft/bonita-web/blob/7.0.0/common/src/main/java/org/bonitasoft/console/common/server/auth/impl/standard/StandardAuthenticationManagerImpl.java)

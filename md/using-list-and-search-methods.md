@@ -52,7 +52,7 @@ For example:
   
 Using word-based search has an impact on performance, so by default it is disabled. You can enable it for the platform or for a tenant. If you enable it, you can exclude any objects for which it is not useful.
 
-To configure word-based search, edit _`bonita_home`_`bonita-platform-community-custom.properties` and make the following changes: 
+To configure word-based search, edit  [`bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md) and make the following changes: 
 
 1. Change the value of `bonita.platform.persistence.platform.enableWordSearch` (for the platform) or `bonita.platform.persistence.tenant.enableWordSearch` (for a tenant) to `true` in the following line:
    ```xml

@@ -24,7 +24,7 @@ It is fast because the Bonita BPM Portal and the Bonita BPM Engine run on the sa
 
 ## Bonita BPM Engine on a remote application server
 
-Even if the `bonita.war` comes with an embedded Bonita BPM Engine, you can choose **not** to use it, by configuring `bonita-client.properties` in `BONITA_HOME`.
+Even if the `bonita.war` comes with an embedded Bonita BPM Engine, you can choose **not** to use it, by configuring [`bonita-client.properties`](BonitaBPM_platform_setup.md).
 
 ### Accessible through HTTP
 

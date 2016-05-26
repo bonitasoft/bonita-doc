@@ -1,6 +1,6 @@
 # Tomcat bundle
 
-The Tomcat bundle is a .zip archive that contains the Apache Tomcat JEE application server prepackaged along with Bonita BPM web application and Bonita configuration folder (known as {{ var\_bonita\_home }}). 
+The Tomcat bundle is a .zip archive that contains the Apache Tomcat JEE application server prepackaged along with Bonita BPM web application and [Bonita configuration folder](BonitaBPM_platform_setup.md). 
 The Tomcat bundle is a regular .zip archive based on Tomcat zip distribution.
 
 There are three stages to installing the Tomcat bundle:
@@ -42,7 +42,7 @@ The Tomcat bundle is based on a standard Tomcat installation with the following 
 
 * `bin/setenv.bat`: script to configure JVM system properties for Windows.
 * `bin/setenv.sh`: script to configure JVM system properties for Linux.
-* `bonita`: {{ var\_bonita\_home }} folder (standard, or edition-specific).
+* `setup`: [configuration folder](BonitaBPM_platform_setup.md).
 * `conf/Catalina/localhost/bonita.xml`: Tomcat context configuration for Bonita web application. Define data sources used by Bonita Engine.
 * `conf/bitronix-*.properties`: configuration files for Bitronix
 * `catalina.properties`: modified to include lib/bonita folder to Tomcat classpath.
@@ -57,12 +57,12 @@ The Tomcat bundle is based on a standard Tomcat installation with the following 
 
 If you are installing a Subscription edition, you need to [request a license](licenses.md). 
 
-Whe you receive your license, copy the file to the `<TOMCAT_HOME>/bonita/server/licenses` folder.
+Whe you receive your license, copy the file to the `<TOMCAT_HOME>/setup/platform_conf/licenses` folder.
 
 ## Edition specification
 
 If you are installing the Performance Subscription edition, 
-you need to edit `engine-server/conf/platform-init/bonita-platform-init-community-custom.properties`
+you need to edit [`bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md)
 and change the value of the `activeProfiles` key to `'community,performance'`. No change is needed for the Community, Teamwork, or Efficiency edition.
 
 ## Database configuration

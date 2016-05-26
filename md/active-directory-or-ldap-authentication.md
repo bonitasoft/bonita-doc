@@ -120,7 +120,7 @@ We recommend that you name your JAAS configuration file `jaas.cfg` and that you 
 ### Changing Bonita BPM authentication service
 
 The default Bonita BPM installation comes with an authentication service implementation based on the Bonita BPM Engine database. In
-order to activate Active Directory/LDAP authentication the service implementation needs to be changed. To do this, edit `bonita-tenant-sp-custom.properties`. If you edit this in `bonita-home/engine-server/conf/tenants/template/`, the settings will apply to all new tenants. For an existing tenant, edit the properties file in `bonita-home/engine-server/conf/tenants/_<tenant-id>_`.
+order to activate Active Directory/LDAP authentication the service implementation needs to be changed. To do this, edit [`bonita-tenant-sp-custom.properties`](BonitaBPM_platform_setup.md).
 
 You will need to perform following changes:
 
@@ -143,7 +143,7 @@ To define the JAAS configuration file location you need to set a JVM property, `
 * Locate the line that starts: `#SECURITY_OPTS`
 * Uncomment this line, i.e. remove the \# sign and set property value to: `%CATALINA_HOME%\conf\jaas.cfg`.
 * Locate the line that starts: `CATALINA_OPTS=`
-* Add the tag `${SECURITY_OPTS} ` after the tag `${BONITA_HOME}`
+* Add the tag `${SECURITY_OPTS} ` after the tag `${PLATFORM_SETUP}`
 
 ##### For Windows
 
@@ -151,7 +151,7 @@ To define the JAAS configuration file location you need to set a JVM property, `
 * Locate the line that starts: `rem set SECURITY_OPTS`
 * Uncomment it, i.e. remove "rem" keyword and set property value to: `${CATALINA_HOME}/conf/jaas.cfg`
 * Locate the line that starts: `set CATALINA_OPTS=`
-* Add the tag `%SECURITY_OPTS%` after the tag `%BONITA_HOME%`
+* Add the tag `%SECURITY_OPTS%` after the tag `%PLATFORM_SETUP%`
 
 <a id="examples"/>
 

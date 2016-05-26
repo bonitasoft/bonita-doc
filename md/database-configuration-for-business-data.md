@@ -18,7 +18,7 @@ Configure the database to use the UTF-8 character set.
 
 In your RDBMS, make sure there is a user defined with privileges to create tables and query them.
 
-Edit `bonita/engine-server/conf/tenants/`_`tenant-id`_`/bonita-tenant-community-custom.properties` for each tenant and set the `bdm.db.vendor` property to indicate the RDBMS vendor.
+Edit [`bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md) for each tenant and set the `bdm.db.vendor` property to indicate the RDBMS vendor.
 The possible values for `bdm.db.vendor` are:
 | Database vendor | Property value |
 | --------------- | -------------- |
@@ -80,7 +80,7 @@ The configuration file contains examples for each of the supported RDBMSs to gui
 See the RDBMS-specific examples to find the correct values for your RDBMS.
 
 **Note:** If you have multiple tenants that use business data objects, you need to declare separate data sources for each tenant. Make sure that the values of properties `jndi-name` and `pool-name` are unique. 
-Edit `bonita/engine-server/conf/tenants/`_`tenant-id`_`/bonita-tenant-community-custom.properties` file and set the tenant-specific JNDI data source name in `bdm.datasource.jndi.path` and `bdm.notmanageddatasource.jndi.path`.
+Edit [`bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md) file and set the tenant-specific JNDI data source name in `bdm.datasource.jndi.path` and `bdm.notmanageddatasource.jndi.path`.
 
 <a id="db_tomcat"/>
 
@@ -100,7 +100,7 @@ Edit the `<TOMCAT_HOME>/conf/Catalina/localhost/bonita.xml` configuration file a
 
 **Note:**
 If you have multiple tenants that use business data objects, copy the blocks `BusinessDataDS` and `NotManagedBizDataDS` for each tenant, and rename them with a unique name (for example `BusinessDataDS_`_`tenant-id`_ and `NotManagedBizDataDS_`_`tenant-id`_). 
-Edit `bonita/engine-server/conf/tenants/`_`tenant-id`_`/bonita-tenant-community-custom.properties` file and set the tenant-specific JNDI data source name in `bdm.datasource.jndi.path` and `bdm.notmanageddatasource.jndi.path`.
+Edit [`bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md) file and set the tenant-specific JNDI data source name in `bdm.datasource.jndi.path` and `bdm.notmanageddatasource.jndi.path`.
 
 **Bitronix configuration**
 

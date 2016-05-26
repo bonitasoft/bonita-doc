@@ -3,9 +3,11 @@
 ## Packaging comparison
 
 In Bonita BPM 6.x, two versions are available for download:
+
 1. the Bonita BPM Subscription Pack edition version for the Performance, Efficiency, and Teamwork editions
 2. and the Bonita BPM Community edition version for the Community edition 
-For each version, there are several packaging options. Each edition has a specific {{ var_bonita_home }} that must be downloaded and installed | There is pnow a single {{ var_bonita_home }}, simplifying download options and installation. The edition is set in a properties file. There are no other differences to packaging. 
+
+For each version, there are several packaging options.
 See the [Installation overview](bonita-bpm-installation-overview.md). 
 
 ## Concept comparison
@@ -50,6 +52,6 @@ See the [Installation overview](bonita-bpm-installation-overview.md).
 | Anonymous user  | You can now complete a task as an [anonymous user](http://documentation.bonitasoft.com/anonymous-user), that is, without being registered in the organization. For example, on an e-commerce site, a new user can browse stock and save items to a basket, then register with the site if they want to save their basket for later or to buy something  | Not supported  |
 
 ## Feature improvements in Bonita BPM Engine
-| Feature  | Bonita BPM 6.x  | Bonita BPM 7.x  |
-| -------- | --------------- | --------------- | 
-| {{ var_bonita_home }}   | A separate {{ var_bonita_home }} for each edition and for cluster  | A common {{ var_bonita_home }} used for all editions, simplifying download and installation. Improved structure for {{ var_bonita_home }}/server that is easier to maintain and customize. See [Bonita Home](bonita-home.md)  |
+| Feature  | Bonita BPM 6.x  | Bonita BPM 7.0/1/2  | Bonita BPM 7.3 | 
+| -------- | --------------- | ------------------- | -------------- | 
+| bonita_home  | A separate bonita_home for each edition and for cluster  | A common  bonita_home used for all editions, simplifying download and installation. Improved structure for bonita_home/server that is easier to maintain and customize. See [Bonita Home](bonita-home.md)  | No more bonita_home. See  [platform setup](BonitaBPM_platform_setup.md) 

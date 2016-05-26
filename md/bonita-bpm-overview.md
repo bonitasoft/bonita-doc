@@ -28,7 +28,7 @@ Users can use Bonita BPM Portal (_User_ profile) to view and complete the proces
 
 As mentioned before, [Bonita BPM Portal](bonita-bpm-portal-interface-overview.md) is the part of Bonita BPM that is visible to process users, who use it to view tasks and take actions thanks to a generic task list for all processes they are involved in.
 
-But Bonita BPM Portal is also the tool used by the tenant administrator to [install, deploy and manage processes](processes.md) and to [build applications](applications.md). We use tenant here in the case the platform would be made of several tenants.
+But Bonita BPM Portal is also the tool used by the tenant administrator to [install, deploy and manage processes](processes.md) and to [build applications](applications.md). We use the word "tenant" here, in case the platform would be made of [several tenants](multi-tenancy-and-tenant-configuration.md).
 
 To install Bonita BPM Engine and Bonita BPM Portal in a qualification or production environment, [install Bonita BPM Platform](bonita-bpm-installation-overview.md).
 

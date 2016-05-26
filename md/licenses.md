@@ -71,7 +71,7 @@ If the key is separated by a line break, remove it and put the key on a single l
 
 ### Install the license
 
-When you receive the license file (`.lic` file extension) copy it to the `server/licenses` folder located inside Bonita home.
+When you receive the license file (`.lic` file extension) copy it to the `setup/platform_conf/licenses` folder.
 
 ## License renewal
 

@@ -14,12 +14,10 @@ There are three options:
   * at least 2 lower case characters
   * at least 3 digits
 
-To apply this policy to an existing tenant, edit `/bonita/client/platform/tenant/tenants/`_`tenant-id`_`/conf/security-config.properties `
-and change `DefaultPasswordValidator` to `RobustnessPasswordValidator`. 
-To apply this change to all tenants that you subsequently create, make the same change in `/bonita/client/platform/tenant-template/conf/security-config.properties`. 
+To apply this policy edit [`security-config.properties`](BonitaBPM_platform_setup.md) and change `DefaultPasswordValidator` to `RobustnessPasswordValidator`.
 * Create a custom password policy by following the tutorial below.
 
-## How to create a custom passord policy
+## How to create a custom password policy
 
 This will enable the System administrator to create a custom class and define the characteristics for a particular password policy.
 It will be applied to all users.

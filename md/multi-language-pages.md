@@ -130,6 +130,8 @@ Now preview the page in each language. To do this, you need to modify the langua
 
 Check the translated versions of the page, and update the translated text if necessary. To update the translations, edit your `localization.json` file and then upload it again. Adjust the page layout if necessary to allow for language differences. Your multi-language page is now complete, ready to be included in an application and deployed.
 
+**Note:** Always update the localization.json file as an asset and then export your page or form from the UI Designer to make it an available resource. If you edit the localization.json file in the file system and zip the page or form from there, the updated translations will not be taken into account. 
+
 ### Deploy
 
 To put a multi-language page into production in an application, follow the same steps as for a single-language page: [upload the page to the Portal](resource-management.md) and then [add it to the application](applications.md). You can follow the steps for [building the application](getting-started-tutorial.md) from the getting started tutorial.

@@ -18,9 +18,7 @@ The Portal uses the [Java Util Logging](http://docs.oracle.com/javase/6/docs/api
 
 The Studio uses a logging service provided by the Eclipse platform. Modification of the Studio logging configuration is not very common except for debugging the Studio itself.
 
-The Bonita BPM Studio provides direct access to the log written by the embedded Portal and Engine. You can access this log from the Bonita BPM Studio **Help** menu **Show Engine log** option.
-
-The UI Designer log file is available in _BONITA\_HOME_/tomcat/logs/ui-designer.log.
+The Bonita BPM Studio provides direct access to the log written by the embedded Portal and Engine. You can access this log from the Bonita BPM Studio **Help** menu **Show Engine log** option (**Engine log** also contains UI designer logs).
 
 ## Logging configuration
 
