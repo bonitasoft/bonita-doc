@@ -1,5 +1,9 @@
 # Overview of Bonita BPM in a cluster
 
+::: alert alert-info
+**Note:** For Performance edition only.
+:::
+
 You can use Bonita BPM in a cluster configuration to provide increased availability: more than one node runs Bonita BPM Engine, 
 so if a node becomes unavailable, the remaining nodes in the cluster can take over, minimizing the interruption to the service 
 and therefore to your business. A Bonita BPM cluster alone does not guarantee high availability. 
