@@ -1,5 +1,9 @@
 # Reporting overview
 
+::: alert alert-info
+**Note:** For Performance, Efficiency, and Teamwork editions only.
+:::
+
 This page presents an overview of reporting with Bonita BPM.
 
 ## Terminology
