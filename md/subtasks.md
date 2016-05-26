@@ -1,12 +1,9 @@
 # Subtasks
 
-It is possible for a user to add a subtask to a task. Typically, you use a subtask to track an external or off-line activity that must be completed before you can complete a task.
+In Bonita BPM 6.x and up to Bonita BPM 7.2.x, for Performance and Efficiency editions only, it was possible for a user to add a subtask to a task, for example to track an external or off-line activity that needed to be completed before the task itself could be completed.
+Starting from Bonita BPM 7.3.0, creating subtasks is no longer possible.
 
-To define a subtask:
+However, if a process instance has been started in a Bonita BPM 7.2.x version or earlier, if a user has created subtasks, and if the Bonita BPM Platform has been migrated to 7.3.0 or a later version while the case was open, then the subtasks will still be visible to the users assigned to the subtasks, and they will still be able to complete them. 
 
-1. Go to **Tasks**.
-2. Click **To do**.
-3. Select a task.
-4. Click _**Add subtask**_.
-5. Assign the subtask to a user.
-6. Click _**Add**_. The subtask is displayed in the To do filter.
+To know more about how to define a subtask in previous versions, please refer to [7.2 documentation].
+
