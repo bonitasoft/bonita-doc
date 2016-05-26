@@ -1,8 +1,0 @@
-<h1>Restore the default Look &amp; Feel</h1>
-<p>Normally, the Look &amp; Feel for Bonita BPM Portal and for process forms is <a href="managing-look-feel.md">managed using Bonita BPM Portal</a>. However, it is also possible to restore the default Look &amp; Feel using the Bonita BPM Engine API.
-This provides an &quot;escape&quot; in case a Look &amp; Feel that contains errors that make the Bonita BPM Portal unusable is applied.</p>
-<p>The default and active Look &amp; Feels are stored in the Bonita BPM Engine database. The Look &amp; Feel is managed by the <code>ThemeAPI</code>.</p>
-<p>To restore the default Look &amp; Feel with the API, use the <code>getDefault</code> method to get the default Look &amp; Feel from the Engine database,
-then call <code>updateTheme</code> to load it into the portal.</p>
-<p>For example:
-<code>getThemeAPI().restoreDefaultTheme(ThemeType.PORTAL);</code></p>
