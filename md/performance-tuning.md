@@ -1,7 +1,7 @@
 # Performance tuning
 
 ::: alert alert-info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Performance edition only.
 :::
 
 This page contains information that you can use to tune the Bonita BPM Engine to get the best performance in your platform.  
