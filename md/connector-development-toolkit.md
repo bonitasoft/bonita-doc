@@ -1,5 +1,9 @@
 # Connector development toolkit
 
+::: alert alert-info
+**Note:** For Performance, Efficiency, and Teamwork editions only.
+:::
+
 ## Overview
 
 The Connector Development Toolkit is a set of tools for implementing and testing Bonita BPM connectors independently of the Bonita BPM Studio.  
