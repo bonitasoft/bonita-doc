@@ -1,5 +1,9 @@
 # Environments
 
+::: alert alert-info
+**Note:** For Performance, Efficiency, and Teamwork editions only.
+:::
+
 An environment is a set of configuration definitions for a project. You can configure a process for several environments. In this way, one process can run in several environments without any modification, because the information that is specific to an environment is set at configuration. In the Performance, Efficiency, and Teamwork editions, Bonita BPM Studio proposes three environments, Local,  Production, and Qualification. You can also define custom environments.
 
 You can configure, run, and debug a process in a specific environment.
