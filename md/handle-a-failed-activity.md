@@ -1,5 +1,9 @@
 # Handle a failed activity
 
+::: alert alert-info
+**Note:** For Performance edition only.
+:::
+
 An activity (or task) can fail in Bonita BPM Engine for several reasons. Typical reasons include:
 
 * An input expression evaluation fails (for example because of invalid syntax, or incorrect values).
