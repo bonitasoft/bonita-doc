@@ -1,17 +1,21 @@
 # Workspaces and repositories
 
+::: alert alert-info
+**Note:** For Performance, Efficiency, and Teamwork editions only.
+:::
+
 This page explains how to use a shared repository so that several people can collaborate on process design.
 
 ## Workspaces and repositories
 
 A workspace is a directory where Bonita BPM Studio stores working files related to process design. When you install Bonita BPM Studio, a workspace is created automatically. 
 
-A local repository is a directory within your workspace. 
+A local repository is a directory within your workspace.  
 You can use local repositories to organize your work efficiently, for example by separating processes that do not interact.
 
-A team repository is a shared repository on a Subversion (SVN) server that is used by the team collaborating on developing a process. 
-A shared repository has typical code management features: locks, synchronization, versioning. 
-Your workspace contains your local copy of the shared repository, which is synchronized with the shared repository on the SVN server.
+A team repository is a shared repository on a Subversion (SVN) server that is used by the team collaborating on developing a process.  
+A shared repository has typical code management features: locks, synchronization, versioning.  
+Your workspace contains your local copy of the shared repository, which is synchronized with the shared repository on the SVN server.  
 Note that the values of the process configurations (such as parameters) will not be synchronized on the remote SVN, to allow each Studio to have its own configuration.
 
 ### Switch workspace
@@ -24,12 +28,11 @@ To use a different workspace:
 2. A popup shows the path of the workspace you are currently using.
 3. In the popup, specify the path of the workspace you want to use. If the new workspace does not exist, you are asked whether you want to create it.
 4. Click **_OK_**.
-5. The workspace switch is applied the next time Bonita BPM Studio starts. Click **_OK_** in the popup to restart Studio, 
-or **_Cancel_** to continue in your current session.
+5. The workspace switch is applied the next time Bonita BPM Studio starts. Click **_OK_** in the popup to restart Studio, or **_Cancel_** to continue in your current session.
 
 ### Create a local repository
 
-You can create a local repository in your local workspace.
+You can create a local repository in your local workspace.  
 The repository is created in your current workspace.
 
 To create a local repository:
@@ -37,8 +40,8 @@ To create a local repository:
 1. Go to the **Repository** menu, choose **Local**, then choose **Create new local repository**.
 2. Specify a name for the new repository.
 3. Click **_OK_** .
-4. A status window shows the progress of the repository being built. 
-When the repository has been successfully created, a message shows you are working with the new local repository.
+4. A status window shows the progress of the repository being built.  
+   When the repository has been successfully created, a message shows you are working with the new local repository.
 5. Click on **_OK_** to finish.
 
 A new local repository is created. A new directory with the same name as the repository is added to your local workspace folder.
@@ -47,18 +50,18 @@ In Bonita BPM Studio, you can see the new repository name shown at the top left,
 
 ## Use a shared repository
 
-A shared repository is a repository on an SVN server. It can be accessed by members of the team working on a process definition. 
-It is protected by username and password. Only directories in the SVN 'trunk' can be used as Bonita repositories.
+A shared repository is a repository on an SVN server. It can be accessed by members of the team working on a process definition.  
+It is protected by username and password. Only directories in the SVN 'trunk' can be used as Bonita repositories.  
 The repository created remotely is then copied to your default local workspace and synchronized.
 
-A shared Bonita BPM development repository contains the artifacts developed in Bonita BPM Studio and the UI designer. For the UI designer artifacts, there is no locking, merging, or conflict management.
+A shared Bonita BPM development repository contains the artifacts developed in Bonita BPM Studio and the UI Designer. For the UI Designer artifacts, there is no locking, merging, or conflict management.
 
-**Caution:** Items defined in Bonita BPM Portal are not stored in the shared repository. 
+**Caution:** Items defined in Bonita BPM Portal are not stored in the shared repository.  
 This includes applications and custom profiles. To share these artifacts, export them into an external repository such as Git. 
 
 ### Prerequisites
 
-* A central SVN server accessible by the process designers, accessible by URL, and protected by login and password.
+* A central SVN server accessible by the process designers, accessible by URL, and protected by login and password.  
 * The same version of Bonita BPM must be used by all users of the shared repository.
 
 ### Create a shared repository
@@ -91,7 +94,7 @@ To connect to a shared repository, follow these steps:
 8. A message is displayed, showing that you are connected to the shared repository. You can see the name of repository at the top left, in the title bar.
 9. Click on **_OK_**.
 
-The first time you connect to a repository, you might get a security warning. 
+The first time you connect to a repository, you might get a security warning.  
 Configure security for the connection according to your organization's security policy.
 
 ### Change repository
@@ -110,24 +113,23 @@ If the list does not contain the name of the repository you want to use, check t
 
 ### Synchronize a shared repository
 
-Synchronizing a shared repository means merging the changes you have made in your local copy into the central repository on the server, 
-and updating your local copy with the result.
+Synchronizing a shared repository means merging the changes you have made in your local copy into the central repository on the server, and updating your local copy with the result.  
 There are three modes for synchronizing:
 
 * Recommended: Use manual synchronization for all repositories: With this mode, no automatic synchronization is done in either direction. This is the default behavior.
 You launch synchronization manually, by going to the **Repository** menu, choosing **Team** then **Commit artifacts**. There is also a keyboard shortcut: **_Ctrl+Alt+C_**.
 * Use automatic synchronization for all repositories: With this mode, every time you make a change, it is saved in both your local copy and the central repository. 
-Changes made to the central repository are sent immediately to your local copy. 
-You can only use this mode if you have a continuous network connection to the system hosting the SVN server. There is a significant network performance cost for using automatic synchronization. This option is not recommended.
+   Changes made to the central repository are sent immediately to your local copy.   
+   You can only use this mode if you have a continuous network connection to the system hosting the SVN server. There is a significant network performance cost for using automatic synchronization. This option is not recommended.
 * Define synchronization mode repository by repository: With this mode, you define whether synchronization is manual or automatic for each repository.
 
 ### Manage locks on shared resources
 
-This information applies to artifacts created in Bonita BPM Studio but not those created in the UI designer.
+This information applies to artifacts created in Bonita BPM Studio but not those created in the UI Designer.
 
-Bonita BPM Studio automatically locks an artifact (process or shared resource) when you open it for editing. You can also lock an artifact manually. 
-If you try to open an artifact that is locked by another user, a popup tells you that the artifact is logged and gives the SVN username of the person who owns the lock. 
-You can choose to open the artifact in read-only mode, which means you cannot make any changes. 
+Bonita BPM Studio automatically locks an artifact (process or shared resource) when you open it for editing. You can also lock an artifact manually.   
+If you try to open an artifact that is locked by another user, a popup tells you that the artifact is logged and gives the SVN username of the person who owns the lock.   
+You can choose to open the artifact in read-only mode, which means you cannot make any changes.  
 It is also possible to unlock a locked artifact and lock it yourself, but this is not generally recommended except as a last resort if the owner of the lock cannot be contacted to release the lock.
 
 You can choose to open an artifact in read-only mode, even if it is not locked by another user. If an artifact you are viewing in read-only mode is locked, there is a lock icon in the name tab at the top of the whiteboard.
@@ -139,9 +141,8 @@ To manually lock or unlock an artifact:
 3. Select the artifact to lock or unlock, and then click the **_Lock_** or **_Unlock_** button.
 4. Click **_OK_**.
 
-To check the lock status of an artifact, go to the **Diagram** menu and choose **Open**, 
-or click **_Open_** in the coolbar. 
-In the popup, artifacts that you have locked are marked with a green padlock, and artifacts that another user has locked are marked with a red padlock and the user's SVN username. 
+To check the lock status of an artifact, go to the **Diagram** menu and choose **Open**, or click **_Open_** in the coolbar.   
+In the popup, artifacts that you have locked are marked with a green padlock, and artifacts that another user has locked are marked with a red padlock and the user's SVN username.  
 From the popup, you can:
 
 * Open a process that you have locked (marked with a green padlock) or that is not locked (no padlock).
@@ -150,14 +151,14 @@ From the popup, you can:
 
 ### Avoiding conflicts
 
-A conflict occurs when two or more users update the same process in a repository and the updates are not compatible. 
-If you are using a shared repository, Bonita BPM Studio automatically locks a Studio artifact when a user opens it for edit. (Note: UI desinger artifacts are not locked.)
-This means that only one user at a time can update the artifact, avoiding the possibility of conflicts. The only risk of conflicts is if a user takes over a lock from another user who has not committed their changes. 
+A conflict occurs when two or more users update the same process in a repository and the updates are not compatible.  
+If you are using a shared repository, Bonita BPM Studio automatically locks a Studio artifact when a user opens it for edit. (Note: UI Designer artifacts are not locked.)  
+This means that only one user at a time can update the artifact, avoiding the possibility of conflicts. The only risk of conflicts is if a user takes over a lock from another user who has not committed their changes.   
 For this reason, you are not recommended to unlock artifacts that are locked by another user.
 
-It is also good practise to commit your changes regularly, to keep your local working copy synchronized with the central repository. 
-To commit your changes, go to the **Repository** menu, choose **Team**, and then choose **Commit artifacts**. 
-When you commit your changes, you have the option to release the lock so that another user can edit the artifact. By default, your lock is maintained. 
+It is also good practise to commit your changes regularly, to keep your local working copy synchronized with the central repository.   
+To commit your changes, go to the **Repository** menu, choose **Team**, and then choose **Commit artifacts**.   
+When you commit your changes, you have the option to release the lock so that another user can edit the artifact. By default, your lock is maintained.  
 If you want to release the lock, uncheck the **Keep locks** box in the Commit dialog.
 
 ### Versioning and history
@@ -171,14 +172,13 @@ To view the history for an artifact:
 3. The revision history for the selected artifact is displayed in the right-hand column. 
 This shows all the changes that have been made, and the author of each change.
 
-To revert to an older version, click on that version in the revision history, then click on **_Revert to this version_** in the popup.
+To revert to an older version, click on that version in the revision history, then click on **_Revert to this version_** in the popup.  
 The selected version will be restored.
 
 ### Restore points
 
-A restore point is a marker in a repository that you can use to restore your repository back to an earlier state. 
-The difference between a restore point and a version in the revision history is that a restore point applies to the whole repository but a 
-version applies to a single artifact.
+A restore point is a marker in a repository that you can use to restore your repository back to an earlier state.  
+The difference between a restore point and a version in the revision history is that a restore point applies to the whole repository but a version applies to a single artifact.
 
 To create a restore point:
 
