@@ -1,5 +1,9 @@
 # Multi-language pages
 
+::: alert alert-info
+**Note:** For Performance, Efficiency, and Teamwork editions only.
+:::
+
 In the Bonita BPM Subscription editions, the UI Designer includes a mechanism to add translations for page, layout and forms elements, to support multi-language applications.  
 The text displayed in the preview and at runtime adapts to the locale or browser language automatically. The UI Designer itself, that speaks to developers, not end-users, is displayed in the language of your Bonita BPM Studio.  
 The Preview window is displayed in the language set for Bonita BPM Portal, since it speaks to the end-users.
