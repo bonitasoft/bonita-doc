@@ -1,5 +1,9 @@
 # Fragments
 
+::: alert alert-info
+**Note:** For Bonita BPM Performance, Efficiency, and Teamwork editions only.
+:::
+
 A fragment is a piece of a page, form or layout, composed of one or more widgets and/or containers. It can be inserted in other pages.  
 A fragment has its own widget configurations and data, but can also expose data to the pages that include it.
 
