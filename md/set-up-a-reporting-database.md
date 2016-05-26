@@ -1,5 +1,9 @@
 # Set up a reporting database
 
+::: alert alert-info
+**Note:** For Performance, Efficiency, and Teamwork editions only.
+:::
+
 Before you put reporting in place, you need to create a dedicated reporting database.
 For performance reasons, it is a best practice to isolate reporting data from live data.
 
