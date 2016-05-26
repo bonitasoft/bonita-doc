@@ -1,5 +1,9 @@
 # Enforce password policy
 
+::: alert alert-info
+**Note:** For Performance, Efficiency, and Teamwork editions only.
+:::
+
 ## Overview
 
 By default, no password policy is set for users of Bonita BPM. It is therefore highly recommended to set a policy to protect your data.
