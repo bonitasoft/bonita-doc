@@ -1,7 +1,7 @@
 # Generate process documentation
 
 ::: alert alert-info
-**Note**: For Bonita BPM Performance, Efficiency, and Teamwork editions only.
+**Note:** For Bonita BPM Performance, Efficiency, and Teamwork editions only.
 :::
 
 ## Overview
