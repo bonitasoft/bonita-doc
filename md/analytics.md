@@ -1,5 +1,9 @@
 # Analytics
 
+::: alert alert-info
+**Note:** For Performance, Efficiency, and Teamwork editions only.
+:::
+
 A report presents the Administrator with data about the usage of cases and tasks in processes. 
 
 There are four reports available by default:
