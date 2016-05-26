@@ -35,7 +35,7 @@
   * [Parameters](parameters.md)
   * [Contracts and contexts](contracts-and-contexts.md)
   * [Documents](documents.md)
-  * [Create a complex data type](create-a-complex-data-type.md)
+  * [Complex data types](create-a-complex-data-type.md)
   * [Define a search key](define-a-search-index.md)
   * [Expressions and scripts](expressions-and-scripts.md)
   * [Operations](operations.md)
