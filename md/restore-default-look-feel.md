@@ -1,5 +1,9 @@
 # Restore the default Look & Feel
 
+::: alert alert-info
+**Note:** For Performance, Efficiency, and Teamwork editions only.
+:::
+
 Normally, the Look & Feel for Bonita BPM Portal and for process forms is [managed using Bonita BPM Portal](managing-look-feel.md). However, it is also possible to restore the default Look & Feel using the Bonita BPM Engine API. 
 This provides an "escape" in case a Look & Feel that contains errors that make the Bonita BPM Portal unusable is applied.
 
