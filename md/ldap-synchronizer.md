@@ -1,5 +1,9 @@
 # LDAP synchronizer
 
+::: alert alert-info
+**Note:** For Performance, Efficiency, and Teamwork editions only.
+:::
+
 The LDAP synchronizer is a service for synchronizing 
 Bonita BPM and LDAP directory users and groups in a single direction, LDAP to Bonita BPM. 
 
