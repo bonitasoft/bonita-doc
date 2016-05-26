@@ -1,5 +1,9 @@
 # Cluster administration
 
+::: alert alert-info
+**Note:** For Performance edition only.
+:::
+
 This page explains how to manage a Bonita BPM cluster.
 
 ## Backing up a cluster
