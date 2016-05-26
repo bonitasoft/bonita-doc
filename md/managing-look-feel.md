@@ -1,4 +1,8 @@
-# Managing Look & Feel
+# Manage Look & Feel
+
+::: alert alert-info
+**Note:** For Performance, Efficiency, and Teamwork editions only.
+:::
 
 A Look & Feel defines the appearance of Bonita BPM Portal Web interface and Bonita BPM Portal Mobile interface.
 
