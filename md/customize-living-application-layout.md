@@ -1,5 +1,9 @@
 # Customize living application layout
 
+::: alert alert-info
+**Note:** For Performance, Efficiency, and Teamwork editions only.
+:::
+
 Has it is explained in the [layouts](layouts.md) documentation, it is possible to customize the existing application layout using the UI Designer.
 
 For example, you could:
