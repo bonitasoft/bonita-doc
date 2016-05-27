@@ -31,7 +31,7 @@
     * [User](_user.md)
       * [Manage a user](manage-a-user.md)
       * [Deactivate a user](deactivate-a-user.md)
-    * [Custom user information in Bonita BPM Portal](custom-user-information-in-bonita-bpm-portal.md)
+    * [Custom User Information in Bonita BPM Portal](custom-user-information-in-bonita-bpm-portal.md)
 * [Analytics](analytics.md)
 * [User profiles](_user-profiles.md)
   * [Profiles overview](profiles-overview.md)
