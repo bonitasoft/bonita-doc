@@ -148,33 +148,33 @@ To modify a new or existing object:
 1. Select the object in the **List of Business Objects**. The details are displayed on the right-hand side of the popup.
 2. Enter a description for the object. This is optional, but recommended for maintenance and for communicating with other developers using the same BDM.
 3. In the **Attributes** tab, specify the attributes of the object. For each attribute:
-  1. Specify a name. This must be unique within the object.
-  2. Specify the type, by clicking on the exiting type and choosing the new type from the drop-down list.
-  3. If the attribute is multi-valued, check the box in the **Multiple** column.
-  4. If the attribute is mandatory, check the box in the **Mandatory** column.
-  5. If the attribute is of type String, set the attribute length in the field below the attribute list.
+   1. Specify a name. This must be unique within the object.
+   2. Specify the type, by clicking on the exiting type and choosing the new type from the drop-down list.
+   3. If the attribute is multi-valued, check the box in the **Multiple** column.
+   4. If the attribute is mandatory, check the box in the **Mandatory** column.
+   5. If the attribute is of type String, set the attribute length in the field below the attribute list.
 4. In the **Unique constraints** tab, specify the attributes and sets of attributes that have a uniqueness constraint.
-  1. Click **_Add_** to add a constraint. The constraint is added to the list with a temporary name.
-  2. Click the name of the new constraint to select it, and specify the name you want to use by typing over the temporary name.
-  3. Click in the **Attribute** column of the constraint, and click the icon at the right end of the file to open the **Select attributes** popup.
-  4. In the popup, check the boxes to select the combination of attributes that must be unique. You can specify a single attribute or a set.
-  5. Click **_OK_** to close the popup. The attributes are shown in the constraints list.
+   1. Click **_Add_** to add a constraint. The constraint is added to the list with a temporary name.
+   2. Click the name of the new constraint to select it, and specify the name you want to use by typing over the temporary name.
+   3. Click in the **Attribute** column of the constraint, and click the icon at the right end of the file to open the **Select attributes** popup.
+   4. In the popup, check the boxes to select the combination of attributes that must be unique. You can specify a single attribute or a set.
+   5. Click **_OK_** to close the popup. The attributes are shown in the constraints list.
 5. In the **Queries** tab, you can view the default queries and manage custom queries. To add a custom query:
-  1. Click the **Custom** radio button.
-  2. Click **_Add_** to add a constraint. The query is added to the list with a temporary name.
-  3. Click the name of the new query to select it, and specify the name you want to use by typing over the temporary name.
-  4. Click in the **Query** column, and click the icon at the right end of the file to open the **Create query** popup.
-  5. In the popup, specify the query in JPQL. All the parameters used in the query must be specified in the list.
-  6. Select the result type from the drop-down list.
-  7. Click **_OK_** to close the popup. The query is saved.
+   1. Click the **Custom** radio button.
+   2. Click **_Add_** to add a constraint. The query is added to the list with a temporary name.
+   3. Click the name of the new query to select it, and specify the name you want to use by typing over the temporary name.
+   4. Click in the **Query** column, and click the icon at the right end of the file to open the **Create query** popup.
+   5. In the popup, specify the query in JPQL. All the parameters used in the query must be specified in the list.
+   6. Select the result type from the drop-down list.
+   7. Click **_OK_** to close the popup. The query is saved.
 6. In the **Indexes** tab, specify the indexes for the object.
-  1. Click **_Add_** to add an index. The index is added to the list with a temporary name.
-  2. Click the name of the new index to select it, and specify the name you want to use by typing over the temporary name.
-  3. Click in the **Attribute** column of the index, and click the icon at the right end of the file to open the **Select attributes** popup.
-  4. In the popup, specify the attributes that you want indexed. To specify an attribute to index, select the attribute in the **Available attributes** list and click **_Add_**. 
-  5. Use the **_Add_**, **_Remove_**, **_Up_** and **_Down_** buttons to specify the index attributes in order.
+   1. Click **_Add_** to add an index. The index is added to the list with a temporary name.
+   2. Click the name of the new index to select it, and specify the name you want to use by typing over the temporary name.
+   3. Click in the **Attribute** column of the index, and click the icon at the right end of the file to open the **Select attributes** popup.
+   4. In the popup, specify the attributes that you want indexed. To specify an attribute to index, select the attribute in the **Available attributes** list and click **_Add_**. 
+   5. Use the **_Add_**, **_Remove_**, **_Up_** and **_Down_** buttons to specify the index attributes in order.
 7. Click **_OK_** to close the popup. The index is saved.
-  * Click **_Finish_** to save the business data model, which saves all the objects and create BDM database structure. A confirmation dialog will ask to optionally reset BDM database. Reset database is required when changes impact the mandatory or multiple setting for an attribute, a unique constraint, or when a non primitive attribute type is modified.
+8. * Click **_Finish_** to save the business data model, which saves all the objects and create BDM database structure. A confirmation dialog will ask to optionally reset BDM database. Reset database is required when changes impact the mandatory or multiple setting for an attribute, a unique constraint, or when a non primitive attribute type is modified.
 
 ## Export the BDM
 
