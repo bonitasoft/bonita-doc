@@ -17,9 +17,9 @@ To configure a search key:
 
 1. In a process diagram, select a pool.
 2. Go to the **Details panel**, **General** tab, **Search** pane.
-3. In the Label column, enter a label for the search key. You can use the expression editor to specify the label, but as it is a constant, you can just type the label into the field. The label is used to identify the search key in Bonita BPM Studio and in Bonita BPM Engine. 
-4. In the Value column, open the expression editor by clicking the expression editor.
+3. In the **Label** column, enter a label for the search key. You can use the expression editor to specify the label, but as it is a constant, you can just type the label into the field. The label is used to identify the search key in Bonita BPM Studio and in Bonita BPM Engine. 
+4. In the **Value** column, open the expression editor by clicking the pencil icon.
 5. Define the search key value using an expression.
 
 In Performance and Efficiency editions, search keys are displayed in the Bonita BPM Portal case list and in the case more details view.  
-In this way, you can use search keys for adding business information to your cases. You can search on search keys typing the value of a search key in the Search field. For example, if you have a process called _Issue E111_ that uses the applicant social security number as a search key, you can type the number of an applicant into the search field and see the status of the tasks in the case.
+In this way, you can use search keys for adding business information to your cases. You can search on search keys typing the value of a search key in the **Search** field. For example, if you have a process called _Issue E111_ that uses the applicant social security number as a search key, you can type the number of an applicant into the search field and see the status of the tasks in the case.
