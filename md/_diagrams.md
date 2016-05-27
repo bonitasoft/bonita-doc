@@ -2,7 +2,7 @@
 
 * [Diagram overview](diagram-overview.md)
 * [Pools and lanes](pools-and-lanes.md)
-* [Tasks](tasks.md)
+* [Tasks](diagram-tasks.md)
 * [Gateways](gateways.md)
 * [Transitions](transitions.md)
 * [Events](events.md)
