@@ -17,32 +17,40 @@ The result is a process that can be deployed to Bonita BPM Portal.
 
 ## Business data
 
-A business application exists to support a business goal, either a specific goal related to your business, such as parts reordering in a manufacturing plant, or a generic goal, such as improving efficiency through an automated expense reporting system. The key data in any application or process is business data. Because this data is probably used by more than one process, Bonita BPM can access it in an external data source, so you do not need to copy or duplicate the data. Some processes also manipulate data that is only useful within the process itself; Bonita BPM stores this in its local database or in memory.
+A business application exists to support a business goal, either a specific goal related to your business, such as parts reordering in a manufacturing plant, or a generic goal, such as improving efficiency through an automated expense reporting system.  
+The key data in any application or process is business data. Because this data is probably used by more than one process, it needs to be stored at a global level, with two options:
+   - If business data is not used by other applications than Bonita BPM,  you can store it in Bonita BPM Business Data database, that provides fast access and easy exchange between process and User Interfaces.
+   - If it is global company data, Bonita BPM can access it in your data source, so you do not need to copy or duplicate the data.  
+Some processes also manipulate data that is only useful within the process itself. In this case, Bonita BPM stores it in its local database or in memory.
 
 ## Business Data Modelling
 
 Bonita BPM supports modelling and persistence of business objects that applications and processes interact with.   
 Such data can either be automatically stored in a database dedicated to business data, or can reside in existing information system databases, in which case the interaction is by connector.
 
-## Organization
-
-Your organization is the set of all the users who play a part in all the applications and processes that your business uses. The organization is stored in Bonita BPM Engine and can be managed in Bonita BPM Portal.  
-You can also create the organization in Bonita BPM Studio or by synchronizing with an external LDAP directory.   
-Typically, the organization corresponds to the hierarchy of teams within your business.  
-If your clients and suppliers have access to your processes, those users must also be included in the organization.  
-See the [Organization overview](organization-overview.md) for details.
-
 ## Connectors
 
-A connector is a link between a process and an external information system such as a database or information service. A number of standard connectors are provided, and you can create additional connectors if required. Separating the connector configuration and implementation from the process means it is easier to update or replace the connector without having to modify the process. You can 
-also use the same connector in more than one process.  
+A connector is a link between a process and an external information system such as a database or information service. A number of standard connectors are provided, and you can create additional connectors if required.   
+Separating the connector configuration and implementation from the process means it is easier to update or replace the connector without having to modify the process. You can use the same connector in more than one process.  
 See the [Connectivity overview](connectivity-overview.md) for details.
+
+## Organization
+
+Your organization is the set of all the users who play a part in all the applications and processes that your business uses. The organization is stored in Bonita BPM Engine and can be managed in Bonita BPM Portal.   
+Typically, the organization corresponds to the hierarchy of teams within your business.  
+If your clients and suppliers have access to your processes, those users must also be included in the organization.   
+You can also feed Bonita BPM Portal by synchronizing with an external LDAP directory.   
+During process modelling, you need to create a draft organization in Bonita BPM Studio with the main entities (groups, roles) to map it to process actors.  
+See the [Organization overview](organization-overview.md) for details.
 
 ## Actors
 
-An actor is a placeholder specified in the process definition for the users. Using an actor instead of specifying real people directly makes the process definition more flexible: when the list of users changes, you change only the process configuration, which can be done while the process is running. You can also use the same process definition with completely different sets of users, for example, if a service business sells a process to several clients. Making the connection between the actor definition and the set of users is called actor mapping. See [Configure a test organization](organization-management-in-bonita-bpm-studio.md) and [actors](actors.md) for
-details.
+An actor is a placeholder specified in the process definition for the users. Using an actor instead of specifying real people directly makes the process definition more flexible: when the list of users changes, you change only the process configuration, which can be done while the process is running. You can also use the same process definition with completely different sets of users, for example, if a service business sells a process to several clients.   
+Making the connection between the actor definition and the set of users is called actor mapping.  
+See [Configure a test organization](organization-management-in-bonita-bpm-studio.md) and [actors](actors.md) for details.
 
 ## Environments and parameters
 
-An environment (available in the Bonita BPM Performance, Efficiency, and Teamwork editions) is the context in which a process will run. There are three standard environments, Local, Qualification, and Production. You can define additional environments that are useful when designing and deploying a process for your business. A parameter is a piece of information in a process that has a value specific to the environment. See [Environments](environments.md) and [Parameters](parameters.md) for more details.
+An environment (available in the Bonita BPM Performance, Efficiency, and Teamwork editions) is the context in which a process will run.  
+There are three standard environments: Local, Qualification, and Production. You can define additional environments that are useful when designing and deploying a process for your business.  
+A parameter is a piece of information in a process that has a value specific to the environment. See [Environments](environments.md) and [Parameters](parameters.md) for more details.
