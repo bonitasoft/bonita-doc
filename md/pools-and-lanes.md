@@ -18,6 +18,7 @@ For a pool, you can configure the following:
 * Search: A search index is used in the Portal to find a specific instance of a process. [Specify the search indexes](search-index.md) associated with the process.
 
 The items configured for a lane supplement or override those defined for the pool. You only need to configure something at lane level if is not already defined at pool level, or if you want to override the definition. Note that nested lanes are not supported.  
+
 For a lane, you can configure the following:
 
 * Name and description
