@@ -19,7 +19,7 @@ Data in a called process is defined in the same way as for any process. In addit
 
 You can define a called process in the same way as you define a process. You can also extract a called process from a process diagram.
 
-### Defining a called process
+### Define a called process
 
 There are two parts to defining a called process: defining the called process, and defining the call activity. It is easier to define the call activity if the called process already exists, but not essential.
 
@@ -36,6 +36,6 @@ It is recommended to set a contract up on the called process. This way, you can 
 You can use **Auto map** to automatically map data from the called process to the parent process for a pair variables that have the same name in the parent and called process variables.  
 You can also specify the mapping of variables of called process variable to parent process variable explicitly.
 
-### Extracting a called process
+### Extract a called process
 
 You can also extract a called process from a process. To do this, open the process diagram, click on the marquee tool in the **BPMN elements** menu, then select the part of the process that you want to extract. There selected part of the process must have a single entry point and a single exit. Then right click on the selected part, and choose Extract called process from the menu. The selected part of process is extracted and put into a new pool, inserted in the diagram below the current pool. The extracted items are replaced in the original diagram by a call activity. The data in the parent process and called process is mapped automatically.
