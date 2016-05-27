@@ -22,31 +22,31 @@ You can define a sequence of operations at a task. The operations are performed 
 
 ### Business object (BO)
 
-* _**takes value of**_ - the value of the right operand variable is used to update the value of the left operand (the BO) using the "=" operator
-* _**Java method **_ - the left BO is updated with the value from the right operand using an invoked Java method
-* _**instantiate with**_ - at runtime, when the operator is called, the business data variable points to the selected BO instance if it uses a _Query expression type_.  
-The BO instance must exist in the business data database; otherwise the operator throws an exception.   
-The BO instance is not modified during the operation but from that point onward, any expression or operation in the process can reference this object instance to make changes.    
-If it uses a _Script expression type_, you can use the contract inputs to fill in the BO attributes.   
-Go to [Initialize BDM attributes from contract inputs in task operations](define-and-deploy-the-bdm.md) for more information.  
-* _**isDeleted**_ - an operator 'Is Deleted' can be called on a business data variable. The BO instance that the business data references is deleted from the database, at runtime, after the task is completed. The process designer should avoid calling other operations on the same business data variable within the same group of operations/actions.
+* _**takes value of**_ : the value of the right operand variable is used to update the value of the left operand (the BO) using the "=" operator
+* _**Java method**_: the left BO is updated with the value from the right operand using an invoked Java method
+* _**instantiate with**_: at runtime, when the operator is called, the business data variable points to the selected BO instance if it uses a _Query expression type_.  
+   The BO instance must exist in the business data database; otherwise the operator throws an exception.   
+   The BO instance is not modified during the operation but from that point onward, any expression or operation in the process can reference this object instance to make changes.    
+   If it uses a _Script expression type_, you can use the contract inputs to fill in the BO attributes.   
+   Go to [Initialize BDM attributes from contract inputs in task operations](define-and-deploy-the-bdm.md) for more information.  
+* _**isDeleted**_: an operator 'Is Deleted' can be called on a business data variable. The BO instance that the business data references is deleted from the database, at runtime, after the task is completed. The process designer should avoid calling other operations on the same business data variable within the same group of operations/actions.
 
 **Warning:** Operations on business objects can be done only at task level.
 
 ### Simple data and List of options
 
-* _**takes value of**_ - the value of the right operand variable is used to update the value of the left operand using the "=" operator
+* _**takes value of**_: the value of the right operand variable is used to update the value of the left operand using the "=" operator
 
 ### Java Object
 
-* _**takes value of**_ - the value of the right operand variable is used to update the value of the left operand using the "=" operator
-* _**Java method **_ - the left object is updated with the value from the right operand using an invoked Java method
+* _**takes value of**_: the value of the right operand variable is used to update the value of the left operand using the "=" operator
+* _**Java method**_: the left object is updated with the value from the right operand using an invoked Java method
 
 ### XML Object
 
-* _**takes value of**_ - the value of the right operand variable is used to update the value of the left operand using the "=" operator
-* _**XPath update **_ - the left object is updated with the value from the right operand using an XPath expression
+* _**takes value of**_: the value of the right operand variable is used to update the value of the left operand using the "=" operator
+* _**XPath update **_: the left object is updated with the value from the right operand using an XPath expression
 
 ### Document
 
-* _**set document**_ - the value of the right operand document is used to create a new version of the document
+* _**set document**_: the value of the right operand document is used to create a new version of the document
