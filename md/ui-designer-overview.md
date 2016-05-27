@@ -1,7 +1,7 @@
 # UI Designer overview
 
 The UI Designer is a graphical development environment for creating pages and forms for a Bonita BPM application. It is a web-based tool that is launched from Bonita BPM Studio.  
-A page is defined in HTML extended by the AngularJS JavaScript framework. Use the UI designer to create and update pages for business applications, forms to start process instances or execute human tasks, and application layouts that apply to all pages of an application.
+A page is defined in HTML extended by the AngularJS JavaScript framework. Use the UI Designer to create and update pages for business applications, forms to start process instances or execute human tasks, and application layouts that apply to all pages of an application.
 
 * Create pages directly in the {{var\_uiDesigner}}.
 * Start form design in Bonita BPM Studio from the appropriate [contract](contracts-and-contexts.md).
@@ -27,8 +27,9 @@ When the widget is dropped, you need to specify the widget width, up to a maximu
 
 There is a set of [standard widgets](widgets.md). If these do not meet your needs, you can define a [custom widget](custom-widgets.md).
 
-There are also some structure widgets called containers, which you can use to structure a page.  
-There are different types of container:
+There are also some structure widgets called containers, which you can use to structure a page. 
+
+There are different types of containers:
 * The plain container is invisible to page users. It is useful during page development as a way to manipulate or configure multiple widgets or iterate over elements to display.
 * The tab container is used to create tabs in a region of a page. The tabs are visible to page users, who can switch between tabs by clicking the tab name.
 
@@ -52,7 +53,7 @@ In the Subscription editions, you can [update a form in production](live-update.
 
 To use a layout in a business application, export it from the {{var\_uiDesigner}}, import it as a Bonita BPM Portal resource, and map it as the layout of the relevant application.
 
-## UI Designer user profile
+## UI Designer target users' needed skills
 
-The UI Designer is intended for web developers creating pages and forms that will be part of a BPMN application. It requires a good understanding of JavaScript and CSS.  
+The UI Designer is intended for web developers creating pages and forms that will be part of a BPM application. It requires a good understanding of JavaScript and CSS.  
 If you are a business analyst, you can use the UI Designer to create the page structure and define basic behaviors. However, most properties of a page are defined using JavaScript.
