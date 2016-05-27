@@ -7,22 +7,22 @@ This page explains the features of Bonita BPM Studio that enable you to use expr
 
 Note that the expression editor cannot be used in the UI Designer, which has a different concept model for [data](variables.md).
 
-## Starting the expression editor
+## Start the expression editor
 
 The expression editor is used throughout Bonita BPM Studio to create and modify expressions or scripts.  
 To start the expression editor, click the crayon icon next to the field where you want to enter an expression. 
 
 There are different types of expression:
 
-* Comparison: compares the value of a variable, parameter, or constant using the operators !, ==, !=, <, >:, <:= or >=.
-* Constant: sets the expression to a constant (fixed) value.
-* Parameter: sets the expression to the value of the parameter at the time the expression is evaluated.
-* Script: the result of the script sets the value of the expression.
-* Variable: sets the expression to the value of the variable at the time the expression is evaluated.
+* _Comparison_: compares the value of a variable, parameter, or constant using the operators !, ==, !=, <, >:, <:= or >=.
+* _Constant_: sets the expression to a constant (fixed) value.
+* _Parameter_: sets the expression to the value of the parameter at the time the expression is evaluated.
+* _Script_: the result of the script sets the value of the expression.
+* _Variable_: sets the expression to the value of the variable at the time the expression is evaluated.
 
 The types available differ depending on the context of the expression. For example, comparison expressions are available only for transitions.
 
-## Managing Groovy scripts
+## Manage Groovy scripts
 
 You can create a Groovy function and store it in Bonita BPM Studio separate from the definition of a process. You can then use the function in any process definitions. This feature is available if you are using Bonita BPM Studio with the Application Developer profile.
 
@@ -33,18 +33,18 @@ Enter the function details in the pop-up window. For a function to be included i
 
 Note that you can use this feature to save any Groovy script, not just a function. However, only a predefined script that defines a function can be used in an expression. You can declare a method in a Groovy script, but must not declare a class.
 
-In addition to any user-defined functions, there are a number of standard functions, in the Bonita, Collection, Number, String, and Others categories. Click a function name to see a description in the Documentation box of the Expression editor.
+In addition to any user-defined functions, there are a number of standard functions, in the **Bonita**, **Collection**, **Number**, **String**, and **Others** categories. Click a function name to see a description in the **Documentation** box of the Expression editor.
 
 To add a user-defined or standard function to an expression:
 
 1. In the Expression editor, **Expression type** list, select **Script**.
 2. Enter your script, and position the cursor where you want to include the function.
 3. In the **Categories** list, select **User defined**. The function list will show the user-defined functions that are available.
-4. In the Function list, double-click the function you want to include in your expression. The function is inserted in the script at the point where the cursor was positioned.
+4. In the **Function** list, double-click the function you want to include in your expression. The function is inserted in the script at the point where the cursor was positioned.
 
-At concatenation points in the script, the expression editor displays a popup with a list of possible terms. In the popup, you can toggle between Groovy terms and process variables. For example, if you select activityInstanceId from the list of provided variables then type a period, the expression editor displays a list of terms available. This is known as _autocompletion_.
+At concatenation points in the script, the expression editor displays a popup with a list of possible terms. In the popup, you can toggle between Groovy terms and process variables. For example, if you select `activityInstanceId` from the list of provided variables then type a period, the expression editor displays a list of terms available. This is known as _autocompletion_.
 
-## Using variables in a script expression
+## Use variables in a script expression
 
 You can use a variable in an expression. When the expression is evaluated during process execution, the current value of the variable is used in the expression.
 
@@ -54,15 +54,15 @@ When you define an expression in the context of a step, the expression can conta
 
 ### Provided variables
 
-You can also use a variable that is provided by the Bonita BPM Engine that is executing the process. For example, an expression can include the id of the user performing a task in the process. To add a provided variable to an expression, select the variable from the **Select a provided variable...** drop-down list.
+You can also use a variable that is provided by Bonita BPM Engine that is executing the process. For example, an expression can include the id of the user performing a task in the process. To add a provided variable to an expression, select the variable from the **Select a provided variable...** drop-down list.
 
 The provided variables are:
 
-* activityInstanceId: the identifier of the activity instance (not available for a process-level expression)
-* loggedUserId: the identifier of the user who is performing an activity at the time when the expression is evaluated
-* processDefinitionId: the identifier of the process
-* processInstanceId: the identifier of the process instance
-* rootProcessInstanceId: for a called process or an event subprocess, the identifier of the root process (note that if there are multiple layers of called processes or subprocesses, this is the root of the hierarchy, not the parent called process or subprocesses)
+* `activityInstanceId`: the identifier of the activity instance (not available for a process-level expression)
+* `loggedUserId`: the identifier of the user who is performing an activity at the time when the expression is evaluated
+* `processDefinitionId`: the identifier of the process
+* `processInstanceId`: the identifier of the process instance
+* `rootProcessInstanceId`: for a called process or an event subprocess, the identifier of the root process (note that if there are multiple layers of called processes or subprocesses, this is the root of the hierarchy, not the parent called process or subprocesses)
 
 The provided variables list also contains a special variable, apiAccessor. This enables you to construct API calls in a script using autocompletion. For example, to get the number of overdue open tasks, choose `apiAccessor` from the list of provided variable, then add the `processAPI`, and then add `getNumberOfOverdueOpenTasks`.
 
