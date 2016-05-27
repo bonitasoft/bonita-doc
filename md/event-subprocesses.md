@@ -2,9 +2,9 @@
 
 A event subprocess is embedded within the parent process, used to handle exceptions. It can be started with a timer event, a signal, or an error event from the parent process, or with a signal or message event from another pool. When the event subprocess starts, the parent process is aborted. If the parent process is a called process, flow returns to its parent process, which continues to execute in parallel with the event subprocess. An event subprocess has access to all the process variables of the parent process in which it is embedded. No data mapping is required.
 
-### Defining an event subprocess
+### Define an event subprocess
 
-To create an event subprocess:
+To define an event subprocess:
 
 1. Select the event subprocess icon in the **BPMN elements** menu and drag it into the process pool (in the same lane as part of the process or in a separate lane).
 2. Configure the name of the event subprocess. 
