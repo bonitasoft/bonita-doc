@@ -82,74 +82,72 @@ To create **myPendingRequests**:
 3. Select the JSON type.
 4. Enter this value:
 
-```json
-[
-    {
-        "userId": 3,
-        "destination": "Grenoble",
-        "departureDate": "2016-02-09",
-        "numberOfNights": 1,
-        "hotelNeeded": true,
-        "reason": "Bonita BPM 7.2 launch",
-        "status": "pending",
-        "refusalReason": ""
-    },
-    {
-        "userId": 3,
-        "departureDate": "2016-10-09",
-        "numberOfNights": 3,
-        "hotelNeeded": false,
-        "destination": "Paris",
-        "reason": "Open source conference",
-        "status": "pending",
-        "refusalReason": ""
-    },
-    {
-        "userId": 3,
-        "departureDate": "2016-07-07",
-        "numberOfNights": 4,
-        "hotelNeeded": false,
-        "destination": "San Francisco",
-        "reason": "BPAD training",
-        "status": "pending",
-        "refusalReason": ""
-    }
-]
-```
+  ```json
+  [
+      {
+          "userId": 3,
+          "destination": "Grenoble",
+          "departureDate": "2016-02-09",
+          "numberOfNights": 1,
+          "hotelNeeded": true,
+          "reason": "Bonita BPM 7.2 launch",
+          "status": "pending",
+          "refusalReason": ""
+      },
+      {
+          "userId": 3,
+          "departureDate": "2016-10-09",
+          "numberOfNights": 3,
+          "hotelNeeded": false,
+          "destination": "Paris",
+          "reason": "Open source conference",
+          "status": "pending",
+          "refusalReason": ""
+      },
+      {
+          "userId": 3,
+          "departureDate": "2016-07-07",
+          "numberOfNights": 4,
+          "hotelNeeded": false,
+          "destination": "San Francisco",
+          "reason": "BPAD training",
+          "status": "pending",
+          "refusalReason": ""
+      }
+  ]
+  ```
 
 5. Click **_Save_**.
 6. Select the table widget for the pending requests.
 7. In the **Content** property, click the link icon at the right ("fx"), then click in the box and choose `myPendingRequests` from the list of variables (start typing the variable name to get auto-completion).
-8. Click **_Preview_** to see the page with data for pending requests.
+8. Click **_Preview_** to see the page with data for pending requests.  
+  Now follow the same steps to create `myApprovedRequests` with the following content:
+  ```json
+  [
+      {
+          "userId": 3,
+          "destination": "Tokyo",
+          "departureDate": "2016-10-10",
+          "numberOfNights": 5,
+          "hotelNeeded": true,
+          "reason": "BPM for HR conference",
+          "status": "approved",
+          "refusalReason": ""
+      },
+      {
+          "userId": 3,
+          "departureDate": "2015-12-11",
+          "numberOfNights": 3,
+          "hotelNeeded": false,
+          "destination": "San Francisco",
+          "reason": "Meetings with team",
+          "status": "approved",
+          "refusalReason": ""
+      }
+  ]
+  ```
 
-Now follow the same steps to create `myApprovedRequests` with the following content:
-
-```json
-[
-    {
-        "userId": 3,
-        "destination": "Tokyo",
-        "departureDate": "2016-10-10",
-        "numberOfNights": 5,
-        "hotelNeeded": true,
-        "reason": "BPM for HR conference",
-        "status": "approved",
-        "refusalReason": ""
-    },
-    {
-        "userId": 3,
-        "departureDate": "2015-12-11",
-        "numberOfNights": 3,
-        "hotelNeeded": false,
-        "destination": "San Francisco",
-        "reason": "Meetings with team",
-        "status": "approved",
-        "refusalReason": ""
-    }
-]
-```
-
-When you have defined this variable, select the table widget for the approved requests and set the value of the **Content** property to `myApprovedRequests` (remember to click on the "bind" icon).
+ When you have defined this variable, select the table widget for the approved requests and set the value of the **Content** property to `myApprovedRequests` (remember to click on the "bind" icon).
 
 ### Review and improve the page
 
@@ -177,41 +175,41 @@ To define the business data model:
 3. Click on the temporary name, and change it to _TravelRequest_.
 4. Select the _TravelRequest_ business object type, and add its attributes. This table shows the attributes and their types:
 
-| Variable  | Data type | Mandatory |
-| --------- | --------- | -------- |
-| userId  | Long  | yes  |
-| departureDate  | Date  | yes  |
-| numberOfNights  | Integer  | yes  |
-| hotelNeeded  | Boolean  | yes  |
-| destination  | String  | yes  |
-| reason  | String  | yes  |
-| status  | String  | yes  |
-| refusalReason  | String  | no  |
+  | Variable  | Data type | Mandatory |
+  | --------- | --------- | -------- |
+  | userId  | Long  | yes  |
+  | departureDate  | Date  | yes  |
+  | numberOfNights  | Integer  | yes  |
+  | hotelNeeded  | Boolean  | yes  |
+  | destination  | String  | yes  |
+  | reason  | String  | yes  |
+  | status  | String  | yes  |
+  | refusalReason  | String  | no  |
 
- To add each attribute:
-  1. In the **Attributes** tab, click **_Add_**. A temporary attribute name ("attribute1") is added to the Name column.
-  2. Change the temporary name to the attribute name.
-  3. Select the type from the drop-down list. To display the list, click at the right end of the **Type** column.
-  4. There are no **Multiple** attributes in this object, so you can ignore this column.
-  5. In the **Mandatory** column, check the box for the attributes that are mandatory.
+  To add each attribute:
+   1. In the **Attributes** tab, click **_Add_**. A temporary attribute name ("attribute1") is added to the Name column.
+   2. Change the temporary name to the attribute name.
+   3. Select the type from the drop-down list. To display the list, click at the right end of the **Type** column.
+   4. There are no **Multiple** attributes in this object, so you can ignore this column.
+   5. In the **Mandatory** column, check the box for the attributes that are mandatory.
 5. Add a custom query that you will use to search for data using both the userId and the status:
-  1. In the **Queries** tab, select **Custom**.
-  2. Click **_Add_**. A temporary query name ("query1") is added to the **Name** column.
-  3. Change the temporary name to `findByUserIdAndStatus`.
-  4. Click in the query column, and then click the edit icon at the right. This opens a popup with a proposed custom query that uses all the attributes.
-  5. In the **JPQL Query** field, remove these lines:
+   1. In the **Queries** tab, select **Custom**.
+   2. Click **_Add_**. A temporary query name ("query1") is added to the **Name** column.
+   3. Change the temporary name to `findByUserIdAndStatus`.
+   4. Click in the query column, and then click the edit icon at the right. This opens a popup with a proposed custom query that uses all the attributes.
+   5. In the **JPQL Query** field, remove these lines:
 
-```
-AND t.departureDate = :departureDate
-AND t.numberOfNights = :numberOfNights
-AND t.hotelNeeded = :hotelNeeded
-AND t.destination = :destination
-AND t.reason = :reason
-AND t.refusalReason = :refusalReason
-```
+   ```
+   AND t.departureDate = :departureDate
+   AND t.numberOfNights = :numberOfNights
+   AND t.hotelNeeded = :hotelNeeded
+   AND t.destination = :destination
+   AND t.reason = :reason
+   AND t.refusalReason = :refusalReason
+   ```
 
-  6. In the Parameters list, delete all the attributes except _userId_ and _status_.
-  7. Click **_OK_** to save the query.
+   6. In the Parameters list, delete all the attributes except _userId_ and _status_.
+   7. Click **_OK_** to save the query.
 6. Click **_Finish_** to save the business data model.
 
 ## Create the process definition
@@ -364,10 +362,10 @@ The default settings mean that any employee in the organization can start a case
 2. Next, select the _Manager review_ step and define who can do this. This step will be done by the manager of the person who initiated the request.  
 All the managers are also employees, and the employee actor is defined for the lane, so check the button for **Use the actor defined in the lane**.  
 3. To make sure that the review task is sent to the right manager, use an actor filter:
-  1. Click the actor filter **_Set..._** button.
-  2. Open up the list of process actor filters.
-  3. Select **Initiator manager**. This means that the review task is to be done by the manager of the person who submitted the request that initiated the process. Click **_Next_**
-  4. Specify a name for the actor filter definition, _requestersManager_, and click **_Finish_**.
+   1. Click the actor filter **_Set..._** button.
+   2. Open up the list of process actor filters.
+   3. Select **Initiator manager**. This means that the review task is to be done by the manager of the person who submitted the request that initiated the process. Click **_Next_**
+   4. Specify a name for the actor filter definition, _requestersManager_, and click **_Finish_**.
 
 The process is now defined. The next section shows you how to configure and run it to verify that the process definition is correct before you define forms and create the application.
 
@@ -440,10 +438,10 @@ Now that the form is functional, we are going to improve its appearance to make 
 3. Move the Destination widget up to the top of the form (below the title).
 4. Move the Number of nights and Hotel needed widgets to the same row as the Departure date, and reduce the widths. Note: when you add a widget to a row, it automatically takes all the remaining columns, so set the width after you move the widgets.
 5. Clear the initial value for Number of nights to show the placeholder at run time:
-  1. In the **Variables** panel (at the bottom of the page), locate the row containing the _formInput_ variable.
-  2. Click on the pencil icon located at the right side of this row.
-  3. Change the value of the _numberOfNights_ attribute from _0_ to _null_.
-  4. Click on **Save**.
+   1. In the **Variables** panel (at the bottom of the page), locate the row containing the _formInput_ variable.
+   2. Click on the pencil icon located at the right side of this row.
+   3. Change the value of the _numberOfNights_ attribute from _0_ to _null_.
+   4. Click on **Save**.
 
 When you have finished, the preview of the form looks like this:
 
@@ -455,11 +453,11 @@ Now define the form for the _Manager review_ task. Start by automatically genera
 2. At the top-right of the **Details** panel, click the UI Designer icon. This generates a form and opens it in the UI Designer.
 3. Change the form name to _reviewTravelRequest_.
 4. Add a variable to get the information that the user enters in the request form. To do this:
-  1. In the **Variables** tab, click **_Create a new variable_**.
-  2. Specify the name, _request_.
-  3. Set the **Type** to **External API**.
-  4. Set the value to `../{{context.travelRequest_ref.link}}`.
-  5. Click **_Save_**.
+   1. In the **Variables** tab, click **_Create a new variable_**.
+   2. Specify the name, _request_.
+   3. Set the **Type** to **External API**.
+   4. Set the value to `../{{context.travelRequest_ref.link}}`.
+   5. Click **_Save_**.
 5. Add a variable to hold the different request status values:
 
 | Name  | Type | Value |
@@ -491,8 +489,8 @@ Set the **Level** property to Level 4, so it is the same size as the title of th
 | Label  | Refusal reason  |
 | Value  | `formInput.refusalReason`  |
 
-The dynamic _Hidden_ property will hide the widget when the request status is set to 'approved'.
-Otherwise, the field will be marked as required and the form validation will prevent the user from refusing a request without a reason.
+  The dynamic _Hidden_ property will hide the widget when the request status is set to 'approved'.
+  Otherwise, the field will be marked as required and the form validation will prevent the user from refusing a request without a reason.
 12. Remove the Status widget that was added automatically.
 13. Add a Radio buttons widget with the following properties:
 
