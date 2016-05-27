@@ -61,9 +61,11 @@ To define the deadline, select the non-interrupting boundary timer, go to the De
 
 ### Example: Using cron to specify a timer cycle
 
+
   ![Example of defining a cycle with cron](images/images-6_0/cron_timer_cycle.png)
 
 ### Example: Using a script to specify a time or date
+
 
   ![Example of defining a date with a script in the expression editor](images/images-6_0/exp_ed_date_example.png)
 
@@ -105,8 +107,8 @@ A message can be sent by a throw message event or an end message event.
 To configure a catch message event, select it in the diagram, go to the Details panel, General tab, and specify the following:
 
 1. In the General pane:
-  1. Specify the event name. This name is used when configuring a throw message event to identify the target of the message.
-  2. Specify the name of the catch message. This is the name of the message that is configured in the throw message event.
+     1. Specify the event name. This name is used when configuring a throw message event to identify the target of the message.
+     2. Specify the name of the catch message. This is the name of the message that is configured in the throw message event.
 2. In the Message content pane, specify how to handle the content of the message. If the message content is based on variables in the sending process and you have variables with the same name in the receiving process, you can click **_Auto-fill_** to indicate that the values of the variables in the receiving process are to be set to the values in the message. Otherwise, you can define a set of mapping rules.
 3. Specify the correlation checks required. If the correlation keys for the message are already defined, click **_Auto-fill_** to add them to the table.
 You can modify these correlation keys, or define others.
@@ -118,8 +120,8 @@ Use a start message event to start a process when a specified message is receive
 To configure a start message event, select it in the diagram, go to the Details panel, General tab, and specify the following:
 
 1. In the General pane:
-  1. Specify the event name. This name is used when configuring a throw message event to identify the target of the message.  
-  2. Specify the name of the catch message. This is the name of the message that is configured in the throw message event.  
+     1. Specify the event name. This name is used when configuring a throw message event to identify the target of the message.  
+     2. Specify the name of the catch message. This is the name of the message that is configured in the throw message event.  
 2. In the Message content pane, specify how to handle the content of the message. If the message content is based on variables in the sending process and you have variables with the same name in the receiving process, you can click **_Auto-fill_** to indicate that the values of the variables in the receiving process are to be set to the values in the message. Otherwise, you can define a set of mapping rules.
 3. If you are configuring a start message event in an event subprocess, specify the correlation checks required. If the correlation keys for the message are already defined, click **_Auto-fill_** to add them to the table.  
 You can modify these correlation keys, or define others.
