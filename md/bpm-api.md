@@ -166,17 +166,17 @@ Retrieve the activity information for the given id.
       "state": "completed",
       "type": "the activity type as a string",
       "assigned_id": "304",
-      "assigned_date": "'2014-10-17 16:05:42.626'",
+      "assigned_date": "2014-10-17 16:05:42.626",
       "id": "809764",
       "executedBy": "0",
       "priority": "the priority of the current activity as a string",
       "actorId": "50",
       "description": "In this step, a manager reviews and validates an expense request.",
       "name": "Validate",
-      "reached_state_date": "'2014-10-18 10:37:05.643'",
+      "reached_state_date": "2014-10-18 10:37:05.643",
       "displayName": "Validate expense request",
-      "dueDate": "'2014-10-21 16:05:42.626'",
-      "last_update_date": "'2014-10-18 10:37:05.643'"
+      "dueDate": "2014-10-21 16:05:42.626",
+      "last_update_date": "2014-10-18 10:37:05.643"
     }
     ```
 
@@ -528,8 +528,344 @@ Fields that can be updated are `assignedId` and `state`. Specify only those fiel
     }
     ```
 
-* [manualTask](api_resources/bpm_manualtask_6.0_0_0_1.md)
-* [task](api_resources/bpm_task_6.0_0_0.md)
+### ManualTask
+
+#### Description
+
+Use the manualTask resource to access process subtasks. For archived subtasks use archivedManualTask.
+
+#### Identifier
+
+Simple, the ID of the object (a long value)
+
+#### Representation
+```json
+{
+  "displayDescription":"_description_", 
+  "executedBySubstitute":"_id of the user who executed the task for the assigned user_", 
+  "processId":"_id of the process_", 
+  "state":"_state_", 
+  "rootContainerId":"_id of the rootContainer_", 
+  "type":"MANUAL_TASK", 
+  "assigned_id":"_id of the assigned user_", 
+  "assigned_date":"_date the subtask was assigned_", 
+  "id":"_id of the humanTask that the subtask belongs to_", 
+  "executedBy":"_id of the user who executed the subtask_", 
+  "caseId":"_case id_", 
+  "priority":"normal", 
+  "actorId":"_id of the actor associated with the task_", 
+  "description":"_description_", 
+  "name":"_name_", 
+  "reached_state_date":"_date and time when the subtask reached the current state_", 
+  "rootCaseId" : "_id case_",  
+  "displayName":"_subtask name displayed in the Portal_", 
+  "parentTaskId":"_id of the parentTask that the subtask is associated with_", 
+  "dueDate":"_date and time that the subtask is due_", 
+  "last_update_date":"_date and time when the subtask was last updated_"
+}
+
+#### Methods
+
+The methods used for this resource are:
+
+* POST - Add a new subtask
+* GET - Read or search a subtask
+* PUT - Execute the subtask
+
+#### Add a new subtask
+
+Use a POST method to create a new subtask. A subtask is attached to a parent task and it needs to be immediately assigned to a user.
+
+Example: 
+* **URL**  
+  `/API/bpm/manualTask``  
+* **Method**  
+  `POST`
+* **Request Payload**  
+  _Example_: Add a new subtask to the parent task with id 1\. The subtask has displayName "My subtask" , is assigned to user 1, and contains other important information.
+  ```json
+  {
+    "parentTaskId":"40001", 
+    "state":"ready", 
+    "name":"My subtask", 
+    "description":"This is my subtask", 
+    "priority":"above_normal", 
+    "dueDate":"2014-12-25 00:00:00.000", 
+    "assigned_id":"1" 
+  }
+  ```
+* **Success Response**  
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    { 
+      "displayDescription":"This is my subtask", 
+      "executedBySubstitute":"1", 
+      "processId":"8367255255370237633", 
+      "parentCaseId":"1", 
+      "state":"ready", 
+      "rootContainerId":"1", 
+      "type":"MANUAL_TASK", 
+      "assigned_id":"1", 
+      "assigned_date":"2014-12-01 17:39:53.784", 
+      "id":"40006", 
+      "executedBy":"1", 
+      "caseId":"1", 
+      "priority":"above_normal", 
+      "actorId":"1", 
+      "description":"This is my subtask", 
+      "name":"My subtask", 
+      "reached_state_date":"2014-12-01 17:39:53.784", 
+      "rootCaseId":"1", 
+      "displayName":"My subtask", 
+      "parentTaskId":"40001", 
+      "dueDate":"2014-12-25 00:00:00.000", 
+      "last_update_date":"2014-12-01 17:39:53.784" 
+    }
+    ```
+
+#### Execute a subtask
+
+Use a PUT method to execute a subtask. Executing a subtask basically means changing its state to completed and providing an executedBy value.
+
+* **URL**  
+  `/API/bpm/manualTask``  
+* **Method**  
+  `PUT`
+* **Request Payload**  
+  ```json
+  { 
+    "state":"completed", 
+    "executedBy":"1" 
+  }
+  ```
+* **Success Response**  
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    { 
+      "displayDescription":"This is my subtask", 
+      "executedBySubstitute":"1", 
+      "processId":"8367255255370237633", 
+      "parentCaseId":"1", 
+      "state":"ready", 
+      "rootContainerId":"1", 
+      "type":"MANUAL_TASK", 
+      "assigned_id":"1", 
+      "assigned_date":"2014-12-01 17:39:53.784", 
+      "id":"40006", 
+      "executedBy":"1", 
+      "caseId":"1", 
+      "priority":"above_normal", 
+      "actorId":"1", 
+      "description":"This is my subtask", 
+      "name":"My subtask", 
+      "reached_state_date":"2014-12-01 17:39:53.784", 
+      "rootCaseId":"1", 
+      "displayName":"My subtask", 
+      "parentTaskId":"40001", 
+      "dueDate":"2014-12-25 00:00:00.000", 
+      "last_update_date":"2014-12-01 17:39:53.784" 
+    }
+    ```
+
+#### Retrieve a subtask
+
+Use a GET method to retrieve information about a subtask.
+
+* **URL**  
+  `/API/bpm/manualTask/:manualTaskId``  
+* **Method**  
+  `GET`
+* **Success Response**  
+  * **Code**: 200
+
+#### Search subtasks
+
+Use a GET method with filters and search terms to search for subtasks.
+
+* **URL**  
+  `/API/bpm/manualTask`  
+* **Method**  
+  ``
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  You can filter on:
+
+  * `assigned\_id={user\_id}`: retrieve only the manual tasks assigned to the specified user. For example, retrieve the manual tasks assigned to user with id 1: `/API/bpm/manualTask?p=0&c=10&f=assigned_id%3d1`.
+  * `state=skipped | ready | completed | failed` : retrieve only the manual tasks with the specified state. For example, retrieve the ready tasks: `/API/bpm/manualTask?p=0&c=10&f=state%3dready`.
+  * `caseId={case\_id}`: retrieve only the manual tasks created in the specified case. For example, retrieve the manual tasks for the case\_id 2: `/API/bpm/manualTask?p=0&c=10&f=caseId%3d2`.
+  * `parentTaskId={parentTask\_id}`: retrieve only the manual tasks for a specific parentTask. For example, retrieve the manual tasks for the parentTask\_id 40001: `/API/bpm/manualTask?p=0&c=10&f=parentTaskId%3d40001`.
+
+  You can search on:
+
+  * name: search all manual tasks with a name that starts with the search string. For example, search for all manual tasks that have a name that starts with MySubTask: `/API/bpm/manualTask?p=0&c=10&s=MySubTask`.
+* **Success Response**  
+  An array of manualTask objects
+  * **Code**: 200
+
+## Task
+
+#### Description
+
+Manage process tasks
+
+#### Identifier
+
+The ID of the task (a long value).
+
+#### Representation
+```json
+{ 
+  "displayDescription":"_the human readable task description (string)_", 
+  "executedBySubstitute":"_the id (long) of the user who really performed this task in case where a substitute did it, or 0 if the task was not performed by a substitute_", 
+  "processId":"_the process id (long) that is associated with this task_", 
+  "parentCaseId":"_the parent case id (long) that is associated with this task's case_", 
+  "state":"_the current state of the task (string, for example, ready, completed, failed)_", 
+  "rootContainerId":"_the root process id (long) of the root case that is associated with this task_", 
+  "type":"_the task type (string)_", 
+  "assigned_id":"_the user id (long) that this task is assigned to, or 0 if it is unassigned_", 
+  "assigned_date":"_date_", 
+  "id":"_the task id (long)_", 
+  "executedBy":"_the id (long) of the user who executed the task, or 0 if the task has not been executed_", 
+  "caseId":"_the case id (long) that is associated with this task_", 
+  "rootCaseId":"_the root case initiator id (long) that is associated with this task's case_", 
+  "parentCaseId":"_the parent case id (long) that is associated with this task's case_", 
+  "priority":"_the priority (string) of the current task_", 
+  "actorId":"_the id (long) of the actor that can execute this task, null otherwise_", 
+  "description":"_the task description (string)_", 
+  "name":"_the task name (string)_", 
+  "reached_state_date":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task reached the current state, for example '2014-10-17 16:05:42.626'_", 
+  "displayName":"_the display name (string) of this task_", 
+  "dueDate":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task is due, for example '2014-10-17 16:05:42.626'_", 
+  "last_update_date":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was last updated, for example '2014-10-17 16:05:42.626'_" 
+}
+
+#### Methods
+
+The methods used for this resource are:
+
+* GET - Read a resource or search for a resource
+* PUT - Update a resource
+
+#### Read a task
+
+* **URL**  
+  `/API/bpm/task/:taskId`  
+* **Method**  
+  `GET`
+* **Success Response**  
+  * **Code**: 200
+  * **Payload**:  
+    JSON representation of a task
+    ```json
+    { 
+      "displayDescription":"", 
+      "executedBySubstitute":"0", 
+      "processId":"9132099022957910959", 
+      "parentCaseId":"5", 
+      "state":"ready", 
+      "rootContainerId":"5", 
+      "type":"USER_TASK", 
+      "assigned_id":"4", 
+      "assigned_date":"2014-12-01 16:22:54.685", 
+      "id":"10", 
+      "executedBy":"0", 
+      "caseId":"5", 
+      "priority":"normal", 
+      "actorId":"6", 
+      "description":"", 
+      "name":"Step1", 
+      "reached_state_date":"2014-12-01 16:22:50.814", 
+      "rootCaseId":"5", 
+      "displayName":"Step1", 
+      "dueDate":"2014-12-01 17:22:50.809", 
+      "last_update_date":"2014-12-01 16:22:50.814" 
+    }
+    ```
+
+#### Update a task
+
+* **URL**  
+  `/API/bpm/task/:taskId`  
+* **Method**  
+  `PUT`
+* **Request Payload**  
+  Task fields to update (forbidden fields are : caseId, processId, name, executedBy, type, id, reached\_state\_date, last\_update\_date)
+  ```json
+  { "state": "completed" }
+  ```
+* **Success Response**  
+  * **Code**: 
+  * **Payload**:  
+    ```json
+    ```
+
+#### Search tasks
+
+* **URL**  
+  `/API/bpm/task`  
+  _Example_: Get ten first tasks for process id 8410739119827826184 order by state `/API/bpm/task?c=10&p=0&f=processId=8410739119827826184&o=state`
+* **Method**  
+  `GET`
+* **Data Params**  
+  * Accepted sort values (o={value}) : caseId, processId, state, type, supervisor\_id, last\_update\_date
+  * Accepted filters (f={filter}=value) : caseId, processId, state, type, supervisor\_id, last\_update\_date
+  * Accepted deployer (d={deployer}) : processId, caseId, rootContainerId, executedBy, executedBySubstitute
+* **Success Response**  
+  * **Code**: 200
+  * **Payload**:  
+    JSON representation of an array of tasks
+    ```json
+    [ 
+      { 
+        "displayDescription":"", 
+        "executedBySubstitute":"0", 
+        "processId":"8410739119827826184", 
+        "parentCaseId":"9", 
+        "state":"ready", 
+        "rootContainerId":"9", 
+        "type":"USER_TASK", 
+        "assigned_id":"", 
+        "assigned_date":"", 
+        "id":"18", 
+        "executedBy":"0", 
+        "caseId":"9", 
+        "priority":"normal", 
+        "actorId":"7", 
+        "description":"", 
+        "name":"Step1", 
+        "reached_state_date":"2014-12-01 16:48:31.189", 
+        "rootCaseId":"9", 
+        "displayName":"Step1", 
+        "dueDate":"2014-12-01 17:48:31.185", 
+        "last_update_date":"2014-12-01 16:48:31.189" 
+      }, { 
+        "displayDescription":"", 
+        "executedBySubstitute":"0", 
+        "processId":"8410739119827826184", 
+        "parentCaseId":"10", 
+        "state":"ready", 
+        "rootContainerId":"10", 
+        "type":"USER_TASK", 
+        "assigned_id":"", 
+        "assigned_date":"", 
+        "id":"20", 
+        "executedBy":"0", 
+        "caseId":"10", 
+        "priority":"normal", 
+        "actorId":"7", 
+        "description":"", 
+        "name":"Step1", 
+        "reached_state_date":"2014-12-01 16:48:37.666", 
+        "rootCaseId":"10", 
+        "displayName":"Step1", 
+        "dueDate":"2014-12-01 17:48:37.662", 
+        "last_update_date":"2014-12-01 16:48:37.666" 
+      } 
+    ]
+    ```
+
 * [userTaskActions](api_resources/bpm_usertask_6.0_1_2_0_0_0.md)
 * [archivedHumanTask](api_resources/bpm_archivedhumantask_6.0_2_0_0_0.md)
 * [archivedManualTask](api_resources/bpm_archivedmanualtask_6.0_0_0_0_0.md)
