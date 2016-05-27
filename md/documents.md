@@ -48,7 +48,7 @@ import org.bonitasoft.engine.bpm.document.DocumentValue
 
 To update a document list, you need to specify the whole list again using a script,. You cannot just add or replace one component of the list.
 
-## Storing documents
+## Documents storage
 
 The decision about where to store a document is critical to your process definition. There are three options:
 
@@ -108,7 +108,7 @@ The dialog for adding a resource to the document repository is inside the dialog
 
 When you deploy a process, the documents included in the bar file are stored in the local Bonita BPM database. They are used to initialize document objects when a process instance is created or when a form is initialized.
 
-### Setting maximum document size
+### Document maximum size setting
 
 By default, the maximum size of a document is 15Mb. You can reduce or increase this in your production environment by modifying the value of the `form.attachment.max.size` property in the `forms-config.properties` file of your tenant, and then restarting Bonita BPM.  
 The maximum document size cannot exceed the capacity of the database column. This value depends on your database. This setting applies to all processes in the tenant. 
@@ -117,15 +117,15 @@ The maximum document size cannot exceed the capacity of the database column. Thi
 
 In a process instance, there is no specific versioning. When a document is updated, a new object is created. These objects are archived with the associated activity instance, and can be retrieved using Bonita BPM Engine API.
 
-### Document archiving
+### Document archives
 
 When a process element is archived the associated documents are also archived. It is possible to delete the archived documents using the Engine API or REST API when they are no longer needed, to save space. You can delete an archived document from a live process instance or from an archived process instance. When you delete an archived document, only the content is deleted. The metadata, such as the name, last updated date, and uploader, is kept so that it can be retrieved if needed for audit.
 
-## Defining a document in a process definition
+## Define a document in a process definition
 
 This section explains how to specify a document or document list in a process definition.
 
-### Adding a document
+### Add a document
 
 A document is added to a process definition at pool level. It is similar to defining a pool-level process variable. You must define at pool level all the documents that will be used in the process.
 
@@ -143,12 +143,12 @@ To define a document in Bonita BPM Studio:
     * Choose **From contract** if the document content is to be retrieved from the contract input.
     * Choose **From local file** if the document content is to be retrieved from a resource.
     * Choose **From an external system** if the document content is to be retrieved from an external system by URL
-For a document list, initial content is defined using a script. The script must return a `java.util.List`.
+   For a document list, initial content is defined using a script. The script must return a `java.util.List`.
   * Optionally, for a local file, you can specify the media type of the content, by setting the MIME type of the document. 
-If you want to specify the MIME type, click **Manage MIME type...**, and then specify the MIME type in the field that is displayed.
-5. When you have provided all the information for the document, click either **_Finish & Add_** to define another document or **_Finish_** if you have no more documents to define for this pool.
+5. If you want to specify the MIME type, click **Manage MIME type...**, and then specify the MIME type in the field that is displayed.
+6. When you have provided all the information for the document, click either **_Finish & Add_** to define another document or **_Finish_** if you have no more documents to define for this pool.
 
-### Editing a document in the process definition
+### Edit a document in the process definition
 
 1. In your process diagram, select the pool.
 2. Go to the **Details** panel, **Data** tab, **Documents** pane. The list of documents defined for the pool is displayed.
@@ -156,7 +156,7 @@ If you want to specify the MIME type, click **Manage MIME type...**, and then sp
 4. Update the document information in the popup.
 5. Click **_OK_** to save your changes.
 
-### Removing a document from a process definition
+### Remove a document from a process definition
 
 1. In your process diagram, select the pool.
 2. Go to the **Details** panel, **Data** tab, **Documents** pane. The list of documents defined for the pool is displayed.
@@ -168,31 +168,30 @@ A document is defined in a pool. You can map documents to other pools similarly 
 
 To map a document when using a call activity:
 
-1. Define a document in the main process, for example "mainDoc".
-2. Define a document in the called process, for example "subDoc".
-3. In the call activity of the main process, add a task variable of type long (for example called "docId") that will contain the id of the instance of mainDoc. 
-Set the default value of docId with the following code:
-`apiAccessor.getProcessAPI().getLastDocument(processInstanceId, "mainDoc").getId();`
-4. In the called process, add a pool-level variable of type long (for example called docId).
-5. Define the [variable mapping in the call activity](called-processes.md) so that docId in the call activity is mapped to docId in the called process. 
-6. In the called process, as the first task add an automatic task that will get the mainDoc, create a DocumentValue object with the content of mainDoc, and use it to update the content of subDoc. 
+1. Define a document in the main process, for example "mainDoc".  
+2. Define a document in the called process, for example "subDoc".  
+3. In the call activity of the main process, add a task variable of type long (for example called "docId") that will contain the id of the instance of mainDoc.   
+   Set the default value of docId with the following code: `apiAccessor.getProcessAPI().getLastDocument(processInstanceId, "mainDoc").getId();`
+4. In the called process, add a pool-level variable of type long (for example called docId).  
+5. Define the [variable mapping in the call activity](called-processes.md) so that docId in the call activity is mapped to docId in the called process.  
+6. In the called process, as the first task add an automatic task that will get the mainDoc, create a DocumentValue object with the content of mainDoc, and use it to update the content of subDoc.  
 To do this, define an operation in the automatic task as follows:
-  1. In the first field, select subDoc.
-  2. Set the operator type to Set document.
-  3. Open the expression editor for the second field and create a script expression with the following content:
+     1. In the first field, select subDoc.
+     2. Set the operator type to Set document.
+     3. Open the expression editor for the second field and create a script expression with the following content:
 
-```java
-import org.bonitasoft.engine.bpm.document.Document;
-import org.bonitasoft.engine.bpm.document.DocumentValue;
+       ```java
+       import org.bonitasoft.engine.bpm.document.Document;
+       import org.bonitasoft.engine.bpm.document.DocumentValue;
  
-Document doc=apiAccessor.getProcessAPI().getDocument(sub_docId);
-DocumentValue docValue=new DocumentValue(apiAccessor.getProcessAPI().getDocumentContent(doc.getContentStorageId()), doc.getContentMimeType(), doc.getContentFileName());
-return docValue;
-```
+       Document doc=apiAccessor.getProcessAPI().getDocument(sub_docId);
+       DocumentValue docValue=new DocumentValue(apiAccessor.getProcessAPI().getDocumentContent(doc.getContentStorageId()), doc.getContentMimeType(), doc.getContentFileName());
+       return docValue;
+       ```
 
-## Specifying a document in a process form
+## Specify a document in a process form
 
-After you have specified the documents in the process definition, you need to define how they are handled in the process tasks. 
+When you have specified the documents in the process definition, you need to define how they are handled in the process tasks. 
 
 A document is represented in a form definition by the [upload widget](widgets.md).
 
@@ -201,8 +200,8 @@ A document is represented in a form definition by the [upload widget](widgets.md
 During a process instance, you can use [connectors](connectivity-overview.md) to manipulate documents.   
 In addition to the connectors that interact with content management systems (such as the Alfrecso and CMIS connectors), some other connectors can also manipulate documents. For example:
 
-* A task that uses the Email connector to send a message can attach a document to the message.
-* A task that uses the Google Calendar connector to create a calendar event can attach a document as content.
+   * A task that uses the Email connector to send a message can attach a document to the message.
+   * A task that uses the Google Calendar connector to create a calendar event can attach a document as content.
 
 Note that connectors handle single documents. If your process contains a document list, you can manipulate component documents using connectors.
 
