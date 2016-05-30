@@ -2,7 +2,7 @@
 
 ## Activities and Tasks
 
-#### Activity
+### Activity
 
 #### Description
 
@@ -866,11 +866,757 @@ The methods used for this resource are:
     ]
     ```
 
-* [userTaskActions](api_resources/bpm_usertask_6.0_1_2_0_0_0.md)
-* [archivedHumanTask](api_resources/bpm_archivedhumantask_6.0_2_0_0_0.md)
-* [archivedManualTask](api_resources/bpm_archivedmanualtask_6.0_0_0_0_0.md)
-* [archivedTask](api_resources/bpm_archivedtask_6.0_0_0_1.md)
-* [archivedUserTask](api_resources/bpm_archivedusertask_6.0_0_0.md)
+### UserTask
+
+#### Description
+
+An executable task that is performed by a user.
+
+#### Identifier
+
+Simple, the ID of the object (a long value)
+
+#### Representation
+
+```json
+{
+  "displayDescription":"_the human readable task description (string)_", 
+  "executedBySubstitute":"_the id (long) of the user who really performed this task in case where a substitute did it, or 0 if the task was not performed by a substitute_", 
+  "processId":"_the process id (long) that is associated with this task_", 
+  "state":"_the current state of the task (string, for example, ready, completed, failed)_", 
+  "rootContainerId":"_the root process id (long) of the root case that is associated with this task_", 
+  "type":"USER_TASK", 
+  "assigned_id":"_the user id (long) that this task is assigned to, or 0 if it is unassigned_", 
+  "assigned_date":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was assigned to the assigned user due, for example '2014-10-17 16:05:42.626'_", 
+  "id":"_the task id (long)_", 
+  "executedBy":"_the id (long) of the user who executed the task, or 0 if the task has not been executed_", 
+  "caseId":"_the id (long) of the case_", 
+  "priority":"_the priority (string) of the current task_", 
+  "actorId":"_the id (long) of the actor that can execute this task, null otherwise_", 
+  "description":"_the task description (string)_", 
+  "name":"_the task name (string)_", 
+  "reached_state_date":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task reached the current state, for example '2014-10-17 16:05:42.626'_", 
+  "displayName":"_the display name (string) of this task_", 
+  "dueDate":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task is due, for example '2014-10-17 16:05:42.626'_", 
+  "last_update_date":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was last updated, for example '2014-10-17 16:05:42.626'_"
+} 
+```
+
+#### Methods
+
+The methods used for this resource are:
+
+* GET - Retrieve a userTask, search for userTask objects
+* POST - Execute a task with contract
+* PUT - Update a userTask
+
+### Actions
+
+### Retrieve a userTask
+
+* **URL**  
+  `/API/bpm/userTask/:userTaskId`  
+* **Method**  
+  `GET`
+* **Success Response**  
+  A userTask object
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "displayDescription":"",
+      "executedBySubstitute":"0",
+      "processId":"5826139717723008213",
+      "state":"ready",
+      "rootContainerId":"1002",
+      "type":"USER_TASK",
+      "assigned_id":"",
+      "assigned_date":"",
+      "id":"20004",
+      "executedBy":"0",
+      "caseId":"1002",
+      "priority":"normal",
+      "actorId":"102",
+      "description":"",
+      "name":"Analyse case",
+      "reached_state_date":"2014-09-05 11:11:30.808",
+      "displayName":"Analyse case",
+      "dueDate":"2014-09-05 12:11:30.775",
+      "last_update_date":"2014-09-05 11:11:30.808"
+    }
+    ```
+
+#### Update a userTask
+
+Fields that can be updated are `assignedId` and `state`. The only value that can be set for the state is "skipped". You only need to specify the fields that are to be updated.
+
+* **URL**  
+  `/API/bpm/userTask/:userTaskId`  
+* **Method**  
+  `PUT`
+* **Request Payload**  
+  ```json
+  {
+    "assigned_id" : "id of new user",
+    "state":"skipped"
+  }
+  ```
+* **Success Response**  
+  * **Code**: 200
+
+#### Retrieve the task contract
+
+Task contract elements can be retrived client side.
+
+* **URL**  
+  `/API/bpm/userTask/:userTaskId/contract`  
+* **Method**  
+  `GET`
+* **Success Response**  
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {  
+      "constraints":[  
+        {  
+          "name":"ticket_comment",
+          "expression":"ticket_comment!=null && !ticket_comment.toString().isEmpty()",
+          "explanation":"input ticket_comment is mandatory",
+          "inputNames":[  
+            "ticket_comment"
+            ],
+          "constraintType":"MANDATORY"
+        }
+      ],
+      "inputs":[  
+        {  
+           "description":null,
+           "name":"ticket_comment",
+           "multiple":false,
+           "type":"TEXT"
+           "inputs":[]
+        }
+      ]
+    }
+    ```
+
+#### Execute a task with contract
+
+In order to execute a task, the task contract values have to be provided.
+
+* **URL**  
+  `/API/bpm/userTask/:userTaskId/execution`  
+* **Method**  
+  `POST`
+* **Request Payload**  
+  A JSON object matching task contract.
+  Execute a task providing correct contract values.
+  ```json
+  {  
+    "ticket_comment":"This is a comment"
+  }
+  ```
+* **Success Response**  
+  * **Code**: 204
+* **Error Response**
+  * **Code**: 400 contract violation explanation
+  * **Response Payload**
+    ```json
+    {  
+      "exception":"class org.bonitasoft.engine.bpm.contract.ContractViolationException",
+      "message":"USERNAME=walter.bates | Contract is not valid: ",
+      "explanations":[  
+        "Expected input [ticket_comment] is missing"
+      ]
+    }
+    ```
+
+#### Retrieve the userTask context
+
+* **URL**  
+  `/API/bpm/userTask/:userTaskId/context`  
+  _Example_: ``
+* **Method**  
+  `GET`
+* **Success Response**  
+  A context object
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {  
+      "businessData_ref":{  
+        "name":"myBusinessDate",
+        "type":"com.company.model.BusinessObject1",
+        "link":"API/bdm/businessData/com.company.model.BusinessObject1/2",
+        "storageId":2,
+        "storageId_string":"2"
+      },
+      "document1_ref":{  
+        "id":1,
+        "processInstanceId":3,
+        "name":"myDocument",
+        "author":104,
+        "creationDate":1434723950847,
+        "fileName":"TestCommunity-1.0.bos",
+        "contentMimeType":null,
+        "contentStorageId":"1",
+        "url":"documentDownload?fileName=TestCommunity-1.0.bos&contentStorageId=1",
+        "description":"",
+        "version":"1",
+        "index":-1,
+        "contentFileName":"TestCommunity-1.0.bos"
+      }
+    }
+    ```
+
+### ArchivedHumanTask
+
+#### Description
+
+An Archived Human task is a User task or Manual task that has been archived. 
+
+#### Identifier
+
+Simple, the ID of the object (a long value)
+
+#### Representation
+
+```json
+{ 
+  "displayDescription": "_the human readable task description (string)_", 
+  "executedBySubstitute": "_the id (long) of the user who really performed this task in case where a substitute did it, or 0 if the task was not performed by a substitute_", 
+  "processId": "_the process id (long) that is associated with this task_", 
+  "state": "_the current state of the task (string,  for example, ready, completed, failed)_", 
+  "rootContainerId": "_the root process id (long) of the root case that is associated with this task_", 
+  "type": "_the task type (USER_TASK | MANUAL_TASK)_", 
+  "assigned_id": "_the user id (long) that this task is assigned to, or 0 if it is unassigned_", 
+  "assigned_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current task was assigned, for example '2014-10-17 16:05:42.626'_", 
+  "id": "_the task id (long)_", 
+  "sourceObjectId":"_id (long) of the original humanTask before archiving_",
+  "executedBy": "_the id (long) of the user who executed the task, or 0 if the task has not been executed_",
+  "caseId":"_id of case_",
+  "priority": "_the priority (string) of the task_", 
+  "actorId": "_the id (long) of the actor that can execute this task, null otherwise_", 
+  "description": "_the task description (string)_", 
+  "name": "_the task name (string)_", 
+  "reached_state_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task reached the current state, for example '2014-10-17 16:05:42.626'_", 
+  "displayName": "_the display name (string) of this task_", 
+  "dueDate": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task is due, for example '2014-10-17 16:05:42.626'_", 
+  "last_update_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was last updated, for example '2014-10-17 16:05:42.626'_"
+}
+```
+
+#### Methods
+
+The methods used for this resource are:
+
+* GET - Read a resource
+
+#### Actions
+
+##### Retrieve an archivedHumanTask
+
+* **URL**  
+  `/API/bpm/archivedHumanTask/:archivedHumanTaskId`
+* **Method**  
+  `GET`
+* **Success Response**  
+  The JSON representation of an archivedHumanTask
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "displayDescription":"",
+      "executedBySubstitute":"0",
+      "processId":"5826139717723008213",
+      "state":"skipped",
+      "rootContainerId":"1002",
+      "type":"USER_TASK",
+      "assigned_id":"2",
+      "id":"240002",
+      "executedBy":"0",
+      "sourceObjectId":"20004",
+      "caseId":"1002",
+      "priority":"normal",
+      "actorId":"102",
+      "description":"",
+      "name":"Analyse case",
+      "reached_state_date":"2014-09-09 17:21:51.946",
+      "displayName":"Analyse case",
+      "archivedDate":"2014-09-09 17:21:51.986",
+      "dueDate":"2014-09-05 12:11:30.775",
+      "last_update_date":"2014-09-09 17:21:51.946"
+    }
+    ```
+
+##### Search for a archivedHumanTask
+
+Retrieve archivedHumanTask objects that match the specified filters. 
+
+* **URL**  
+  `/API/bpm/archivedHumanTask`  
+  _Example_: Get the human tasks assigned to the user with id 2. `/API/bpm/archivedHumanTask?p=0&c=10&f=assigned_id%3d2`
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  You can filter on:
+  * `assigned\_id={user\_id}`: retrieve only the human tasks assigned to the specified ID. For example, retrieve the human tasks assigned to user with id 2: `/API/bpm/archivedHumanTask?p=0&c=10&f=assigned\_id%3d2`
+  * `state=`: retrieve only the archived user tasks with the specified state. For example, retrieve the skipped tasks: `/API/bpm/archivedHumanTask?p=0&c=10&f=state=skipped`
+  * `name=`: retrieve only the human tasks with the specified name. For example, retrieve the human tasks with the name "Analyse Case": `/API/bpm/archivedHumanTask?p=0&c=10&f=name=Analyse Case`
+  * `displayName=`: retrieve only the archived user tasks with the specified displayName. For example, retrieve the human tasks with the displayName "Analyse Case": `/API/bpm/archivedHumanTask?p=0&c=10&f=displayName=Analyse Case`
+* **Success Response**  
+  An array of archivedHumanTask objects in JSON
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    [
+      {
+        "displayDescription":"Case analysis",
+        "executedBySubstitute":"0",
+        "processId":"5826139717723008213",
+        "state":"failed",
+        "rootContainerId":"1002",
+        "type":"USER_TASK",
+        "assigned_id":"2",
+        "assigned_date":"2014-09-05 09:19:30.150",
+        "id":"20004",
+        "executedBy":"0",
+        "caseId":"1002",
+        "priority":"normal",
+        "actorId":"102",
+        "description":"",
+        "name":"Analyse case",
+        "reached_state_date":"2014-09-05 11:11:30.808",
+        "displayName":"Analyse case",
+        "dueDate":"2014-09-05 12:11:30.775",
+        "last_update_date":"2014-09-05 11:11:30.808"
+      },
+      {
+        "displayDescription":"Validate case",
+        "executedBySubstitute":"0",
+        "processId":"5826139717723007999",
+        "state":"skipped",
+        "rootContainerId":"1010",
+        "type":"USER_TASK",
+        "assigned_id":"2",
+        "assigned_date":"2014-09-06 10:29:30.766",
+        "id":"20004",
+        "executedBy":"0",
+        "caseId":"1023",
+        "priority":"normal",
+        "actorId":"102",
+        "description":"",
+        "name":"Validate case",
+        "reached_state_date":"2014-09-06 12:10:50.744",
+        "displayName":"Validate case",
+        "dueDate":"2014-09-06 12:11:30.775",
+        "last_update_date":"2014-09-06 12:10:50.744"
+      }
+    ]
+    ```
+
+### ArchivedManualTask
+
+#### Description
+
+Use the archivedManualTask resource to access archived process subtasks.
+
+#### Identifier
+
+Simple, the ID of the object (a long value)
+
+#### Representation
+```json
+{ 
+  "displayDescription": "_the human readable subtask description (string)_", 
+  "executedBySubstitute": "_the id (long) of the user who really performed this subtask in case where a substitute did it, or 0 if the subtask was not performed by a substitute_", 
+  "processId": "_the process id (long) that is associated with this subtask_", 
+  "state": "_the current state of the subtask (string,  for example, ready, completed, failed)_", 
+  "rootContainerId": "_the root process id (long) of the root case that is associated with this subtask_", 
+  "type": "MANUAL_TASK", 
+  "assigned_id": "_the user id (long) that this subtask is assigned to, or 0 if it is unassigned_", 
+  "id": "_the subtask id (long)_", 
+  "sourceObjectId":"_id (long) of the original manualTask before archiving_", 
+  "executedBy": "_the id (long) of the user who executed the task, or 0 if the task has not been executed_",
+  "caseId":"_id (long) of the case that is associated with this subtask_", 
+  "priority":"normal", 
+  "actorId": "_the id (long) of the actor that can execute this subtask, null otherwise_", 
+  "description": "_the subtask description (string)_", 
+  "name": "_the subtask name (string)_", 
+  "reached_state_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this subtask reached the current state, for example '2014-10-17 16:05:42.626'_", 
+  "archivedDate": "_the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this subtask was archived, for example '2014-10-17 16:05:42.626'_",
+  "rootCaseId": "_the root case initiator id (long) that is associated with this subtask's case_", 
+  "displayName": "_the display name (string) of this subtask_", 
+  "parentTaskId":"_id (long) of the parentTask that the subtask is associated with_", 
+  "dueDate": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this subtask is due, for example '2014-10-17 16:05:42.626'_", 
+  "last_update_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this subtask was last updated, for example '2014-10-17 16:05:42.626')_"
+ }
+```
+
+#### Methods
+
+The methods used for this resource are:
+
+* GET - Read or search an archived subtask
+
+#### Retrieve a subtask
+
+Use a GET method to retrieve information about a subtask.
+
+* **URL**  
+  `/API/bpm/archivedManualTask/:archivedHumanTaskId`  
+* **Method**  
+  `GET`
+* **Success Response**  
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "displayDescription":"this is a test",
+      "executedBySubstitute":"1",
+      "processId":"8367255255370237633",
+      "parentCaseId":"1",
+      "state":"completed",
+      "rootContainerId":"1",
+      "type":"MANUAL_TASK",
+      "assigned_id":"1",
+      "id":"160007",
+      "sourceObjectId":"40003",
+      "executedBy":"1",
+      "caseId":"1",
+      "priority":"highest",
+      "actorId":"1",
+      "description":"this is a test",
+      "name":"myTest",
+      "reached_state_date":"2014-12-01 17:20:47.200",
+      "rootCaseId":"1",
+      "archivedDate":"2014-12-01 17:20:47.217",
+      "displayName":"myTest",
+      "parentTaskId":"40001",
+      "dueDate":"2014-12-17 00:00:00.000",
+      "last_update_date":"2014-12-01 17:20:47.200"
+    }
+    ```
+
+#### Search subtasks
+
+Use a GET method with filters and search terms to search for subtasks.
+
+* **URL**  
+  `/API/bpm/archivedManualTask`  
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  You can filter on:
+  * `assigned\_id={user\_id}`: retrieve only the manual tasks assigned to the specified user. For example, retrieve the manual tasks assigned to user with id 1: `/API/bpm/archivedManualTask?p=0&c=10&f=assigned_id%3d10`
+  * `state=skipped` | completed | failed : retrieve only the manual tasks with the specified state. For example, retrieve the ready tasks: `/API/bpm/archivedManualTask?p=0&c=10&f=state%3dready`
+  * `caseId={case\_id}`: retrieve only the manual tasks created in the specified case. For example, retrieve the manual tasks for the case\_id 2: `/API/bpm/archivedManualTask?p=0&c=10&f=caseId%3d2`
+  * `parentTaskId={parentTask\_id}`: retrieve only the manual tasks for a specific parentTask\_id. For example, retrieve the manual tasks for the parentTask\_id 40001: `/API/bpm/archivedManualTask?p=0&c=10&f=parentTaskId%3d40001`
+
+  You can search on:
+  * `name`: search all manual tasks with a name that starts with the search string. For example, search for all manual tasks that have a name that starts with MySubTask: `/API/bpm/archivedManualTask?p=0&c=10&s=MySubTask`
+* **Success Response**  
+  An array of manualTask objects
+  * **Code**: 200
+
+### ArchivedTask
+
+#### Description
+
+Get informations about archived tasks
+
+#### Identifier
+
+The ID of the archived task (a long value).
+
+#### Representation
+```json
+{ 
+  "displayDescription": "_the human readable task description (string)_", 
+  "executedBySubstitute": "_the id (long) of the user who really performed this task in case where a substitute did it, or 0 if the task was not performed by a substitute_", 
+  "processId": "_the process id (long) that is associated with this task_", 
+  "parentCaseId": "_the parent case id (long) that is associated with this task's case_", 
+  "state": "_the current state of the task (string,  for example, ready, completed, failed)_", 
+  "rootContainerId": "_the root process id (long) of the root case that is associated with this task_", 
+  "type": "_the task type (string)_", 
+  "assigned_id": "_the user id (long) that this task is assigned to, or 0 if it is unassigned_", 
+  "id": "_the task id (long)_",  
+  "executedBy": "_the id (long) of the user who executed the task, or 0 if the task has not been executed_",
+  "sourceObjectId": "_the original id of the task before it was archived_",
+  "caseId": "_the case id (long) that is associated with this task_", 
+  "priority": "_the priority (string) of the current task_", 
+  "actorId": "_the id (long) of the actor that can execute this task, null otherwise_", 
+  "description": "_the task description (string)_", 
+  "name": "_the task name (string)_", 
+  "reached_state_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task reached the current state, for example '2014-10-17 16:05:42.626'_", 
+  "rootCaseId": "_the root case initiator id (long) that is associated with this task's case_", 
+  "displayName": "_the display name (string) of this task_", 
+  "archivedDate": "_the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this task was archived, for example '2014-10-17 16:05:42.626'_",
+  "dueDate": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task is due, for example '2014-10-17 16:05:42.626'_", 
+  "last_update_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was last updated, for example '2014-10-17 16:05:42.626)_", 
+}
+```
+
+#### Methods
+
+The methods used for this resource are:
+
+* GET - Read a resource or search for a resource
+
+#### Read an archived task
+
+* **URL**  
+  `/API/bpm/archivedTask/:taskId`  
+* **Method**  
+  `GET`
+* **Success Response**  
+  JSON representation of an archived task
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "displayDescription":"",
+      "executedBySubstitute":"4",
+      "processId":"9132099022957910959",
+      "parentCaseId":"5",
+      "state":"completed",
+      "rootContainerId":"5",
+      "type":"USER_TASK",
+      "assigned_id":"4",
+      "id":"9",
+      "sourceObjectId":"10",
+      "executedBy":"4",
+      "caseId":"5",
+      "priority":"normal",
+      "actorId":"6",
+      "description":"",
+      "name":"Step1",
+      "reached_state_date":"2014-12-01 16:24:32.457",
+      "rootCaseId":"5",
+      "archivedDate":"2014-12-01 16:24:32.460",
+      "displayName":"Step1",
+      "dueDate":"2014-12-01 17:22:50.809",
+      "last_update_date":"2014-12-01 16:24:32.457"
+    }
+    ```
+
+#### Search archived tasks
+
+* **URL**  
+  `/API/bpm/archivedTask`  
+  _Example_: Search ten first archived task of process 8410739119827826184 order by name: `/API/bpm/archivedTask?c=10&p=0&f=processId=8410739119827826184&o=name`
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+
+  * Accepted sort values `o={value}` : caseId, name, displayName, processId, state, type, archivedDate, reached\_state\_date, assigned\_id
+  * Accepted filters `f={filter}=value` : caseId, name, displayName, processId, state, type, archivedDate, reached\_state\_date, assigned\_id, isTerminal
+  * Accepted deployer `d={deployer}` : processId, caseId, rootContainerId, executedBy, executedBySubstitute
+* **Success Response**  
+  JSON representation of an array of archived tasks
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    [
+      {
+        "displayDescription":"",
+        "executedBySubstitute":"4",
+        "processId":"8410739119827826184",
+        "parentCaseId":"6",
+        "state":"completed",
+        "rootContainerId":"6",
+        "type":"USER_TASK",
+        "assigned_id":"4",
+        "id":"12",
+        "sourceObjectId":"12",
+        "executedBy":"4",
+        "caseId":"6",
+        "priority":"normal",
+        "actorId":"7",
+        "description":"",
+        "name":"Step1",
+        "reached_state_date":"2014-12-01 16:31:46.961",
+        "rootCaseId":"6",
+        "archivedDate":"2014-12-01 16:31:46.965",
+        "displayName":"Step1",
+        "dueDate":"2014-12-01 17:31:42.563",
+        "last_update_date":"2014-12-01 16:31:46.961"
+      },
+      {
+        "displayDescription":"",
+        "executedBySubstitute":"4",
+        "processId":"8410739119827826184",
+        "parentCaseId":"7",
+        "state":"completed",
+        "rootContainerId":"7",
+        "type":"USER_TASK",
+        "assigned_id":"4",
+        "id":"15",
+        "sourceObjectId":"14",
+        "executedBy":"4",
+        "caseId":"7",
+        "priority":"normal",
+        "actorId":"7",
+        "description":"",
+        "name":"Step1",
+        "reached_state_date":"2014-12-01 16:32:13.232",
+        "rootCaseId":"7",
+        "archivedDate":"2014-12-01 16:32:13.235",
+        "displayName":"Step1",
+        "dueDate":"2014-12-01 17:32:07.918",
+        "last_update_date":"2014-12-01 16:32:13.232"
+      }
+    ]
+    ```
+
+### ArchivedUserTask
+
+#### Description
+
+An executable task that has been performed by a user or skipped and is archived.
+
+#### Identifier
+
+Simple, the ID of the object (a long value)
+
+#### Representation
+```json
+{
+  "displayDescription":"_the human readable task description (string)_", 
+  "executedBySubstitute":"_the id (long) of the user who really performed this task in case where a substitute did it, or 0 if the task was not performed by a substitute_", 
+  "processId":"_the process id (long) that is associated with this task_", 
+  "state":"_the current state of the task (string, for example, ready, completed, failed)_", 
+  "rootContainerId":"_the root process id (long) of the root case that is associated with this task_", 
+  "type":"USER_TASK", 
+  "assigned_id":"_the user id (long) that this task is assigned to, or 0 if it is unassigned_", 
+  "assigned_date":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was assigned to the assigned user due, for example '2014-10-17 16:05:42.626'_", 
+  "id":"_the task id (long)_", 
+  "executedBy":"_the id (long) of the user who executed the task, or 0 if the task has not been executed_", 
+  "caseId":"_the id (long) of the case_", 
+  "priority":"_the priority (string) of the current task_", 
+  "actorId":"_the id (long) of the actor that can execute this task, null otherwise_", 
+  "description":"_the task description (string)_", 
+  "name":"_the task name (string)_", 
+  "reached_state_date":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task reached the current state, for example '2014-10-17 16:05:42.626'_", 
+  "displayName":"_the display name (string) of this task_", 
+  "archivedDate":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was archived, for example '2014-10-17 16:05:42.626'_", 
+  "dueDate":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task is due, for example '2014-10-17 16:05:42.626'_", 
+  "last_update_date":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was last updated, for example '2014-10-17 16:05:42.626'_"
+} 
+```
+
+#### Methods
+
+The methods used for this resource are:
+
+* GET - Retrieve an archivedUserTask, search for archivedUserTask objects
+
+#### Actions
+
+##### Retrieve an archivedUserTask
+
+* **URL**  
+  `API/bpm/archivedUserTask/:id`  
+* **Method**  
+  `GET`
+* **Success Response**  
+  An archivedUserTask object
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "displayDescription":"",
+      "executedBySubstitute":"0",
+      "processId":"5826139717723008213",
+      "state":"skipped",
+      "rootContainerId":"1002",
+      "type":"USER_TASK",
+      "assigned_id":"2",
+      "id":"240002",
+      "executedBy":"0",
+      "caseId":"1002",
+      "priority":"normal",
+      "actorId":"102",
+      "description":"",
+      "name":"Analyse case",
+      "reached_state_date":"2014-09-09 17:21:51.946",
+      "displayName":"Analyse case",
+      "archivedDate":"2014-09-09 17:21:51.986",
+      "dueDate":"2014-09-05 12:11:30.775",
+      "last_update_date":"2014-09-09 17:21:51.946"
+    }
+    ```
+
+##### Search for a archivedUserTask
+
+Retrieve archivedHumanTask objects that match the specified filters. 
+
+* **URL**  
+  `/API/bpm/archivedUserTask`  
+  _Example_: Get the user tasks assigned to the user with id 2:`/API/bpm/archivedUserTask?p=0&c=10&f=assigned\_id%3d2`
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+
+  You can filter on:
+  * `assigned\_id={user\_id}`: retrieve only the user tasks assigned to the specified ID. For example, retrieve the user tasks assigned to user with id 2: `/API/bpm/archivedUserTask?p=0&c=10&f=assigned\_id%3d2`
+  * `state=`: retrieve only the archived user tasks with the specified state. For example, retrieve the skipped tasks: `/API/bpm/archivedUserTask?p=0&c=10&f=state=skipped`
+  * `name=`: retrieve only the user tasks with the specified name. For example, retrieve the user tasks with the name "Analyse Case": `/API/bpm/archivedUserTask?p=0&c=10&f=name=Analyse Case`
+  * `displayName=`: retrieve only the archived user tasks with the specified displayName. For example, retrieve the user tasks with the displayName "Analyse Case": `/API/bpm/archivedUserTask?p=0&c=10&f=displayName=Analyse Case`
+
+* **Success Response**  
+  An array of archivedUserTask objects
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    [
+      {
+        "displayDescription":"Case analysis",
+        "executedBySubstitute":"0",
+        "processId":"5826139717723008213",
+        "state":"failed",
+        "rootContainerId":"1002",
+        "type":"USER_TASK",
+        "assigned_id":"2",
+        "assigned_date":"2014-09-05 09:19:30.150",
+        "id":"20004",
+        "executedBy":"0",
+        "caseId":"1002",
+        "priority":"normal",
+        "actorId":"102",
+        "description":"",
+        "name":"Analyse case",
+        "reached_state_date":"2014-09-05 11:11:30.808",
+        "displayName":"Analyse case",
+        "dueDate":"2014-09-05 12:11:30.775",
+        "last_update_date":"2014-09-05 11:11:30.808"
+      }, {
+        "displayDescription":"Validate case",
+        "executedBySubstitute":"0",
+        "processId":"5826139717723007999",
+        "state":"skipped",
+        "rootContainerId":"1010",
+        "type":"USER_TASK",
+        "assigned_id":"2",
+        "assigned_date":"2014-09-06 10:29:30.766",
+        "id":"20004",
+        "executedBy":"0",
+        "caseId":"1023",
+        "priority":"normal",
+        "actorId":"102",
+        "description":"",
+        "name":"Validate case",
+        "reached_state_date":"2014-09-06 12:10:50.744",
+        "displayName":"Validate case",
+        "dueDate":"2014-09-06 12:11:30.775",
+        "last_update_date":"2014-09-06 12:10:50.744"
+      }
+    ]
+    ```
 
 ## Data
 * [activityVariable](api_resources/bpm_activityvariable_6.0_0_0_0_0.md)
