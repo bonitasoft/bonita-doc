@@ -115,7 +115,7 @@ It is also possible to use cargo to deploy the generated bar file into an applic
 For this example we are using a Maven project to write our tests.
 
 1. In your IDE create a new Maven project and share it (for example using SVN or Git).
-2. [Configure local access](configuring-bonita-home-for-a-client.md) to Bonita BPM Engine.
+2. [Configure local access](configure-client-of-bonita-bpm-engine.md) to Bonita BPM Engine.
 3. As we want to test processes build with a Bonita BPM Subscription edition, you need to [configure the required Maven artifacts](create-your-first-project-with-the-engine-apis-and-maven.md). 
 You should also check that there is a valid license file in `${bonita.client.home}/` and the System property `bonita.client.home` set to this folder path.
 4. We recommend that you write your test cases in the src/test/java folder of your project and put all related resources (Bar files, organization file...) in src/test/resources.
