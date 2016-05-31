@@ -303,101 +303,48 @@ However, if a custom profile use a custom page, you must update the custom page 
 ## Permissions and resources
 
 The table below shows the default permissions and the resources to which they grant access.
-Permission
-Resources
-
-activity\_visualization
-\[GET|bpm/processResolutionProblem\]
-
-application\_management
-\[POST|living/application, PUT|living/application, DELETE|living/application, POST|living/application-page, PUT|living/application-page, DELETE|living/application-page, POST|living/application-menu, PUT|living/application-menu, DELETE|living/application-menu\]
-
-application\_visualization\[GET|living/application, GET|living/application-page, GET|living/application-menu\]
-
-bdm\_management\[POST|tenant/bdm\]
-
-bdm\_visualization\[GET|bdm/businessData, GET|bdm/businessDataReference\]
-
-bpm\_monitoring\_management\[POST|monitoring/report, DELETE|monitoring/report\]
-
-bpm\_monitoring\_visualization\[GET|monitoring/report\]
-
-case\_delete\[DELETE|bpm/case, DELETE|bpm/archivedCase\]
-
-case\_management\[POST|bpm/case, PUT|bpm/caseVariable, PUT|bpm/caseDocument, POST|bpm/caseDocument, DELETE|bpm/caseDocument, DELETE|bpm/archivedCaseDocument\]
-
-case\_start\[PUT|bpm/process, POST|bpm/case\]
-
-case\_start\_for\[PUT|bpm/process\]
-
-case\_visualization\[GET|bpm/case, GET|bpm/archivedCase, GET|bpm/caseVariable, GET|bpm/caseDocument, GET|bpm/archviedCaseDocument\]
-
-command\_management\[POST|bpm/command, PUT|bpm/command, DELETE|bpm/command\]
-
-command\_visualization\[GET|bpm/command\]
-
-connector\_management\[PUT|bpm/process, PUT|bpm/processConnector, PUT|bpm/connectorInstance\]
-
-connector\_visualization\[GET|bpm/process, GET|bpm/processConnector, GET|bpm/processConnectorDependency, GET|bpm/connectorInstance, GET|bpm/archivedConnectorInstance, GET|bpm/connectorFailure\]
-
-demo\_permission (since 7.0.0)
-\[GET|extension/demo/getExample,
-GET|extension/demo/headerExample,
-GET|extension/demo/logExample,
-GET|extension/demo/soapExample,
-GET|extension/demo/xmlExample,
-POST|extension/demo/postExample\]
-
-document\_management\[PUT|bpm/caseDocument, POST|bpm/caseDocument, DELETE|bpm/caseDocument, PUT|bpm/archivedCaseDocument, POST|bpm/archivedCaseDocument, DELETE|bpm/archivedCaseDocument, POST|bpm/document, PUT|bpm/document, DELETE|bpm/document\]
-
-document\_visualization\[GET|bpm/caseDocument, GET|bpm/document, GET|bpm/archiveddocument, GET|bpm/archivedCaseDocument\]
-
-flownode\_management\[PUT|bpm/flowNode, PUT|bpm/activity, PUT|bpm/task, PUT|bpm/timerEventTrigger\]
-"
-
-flownode\_visualization\[GET|bpm/processResolutionProblem, GET|bpm/flowNode, GET|bpm/activity, GET|bpm/task, GET|bpm/activityVariable, GET|bpm/archivedFlowNode, GET|bpm/archivedActivity, GET|bpm/archivedTask, GET|bpm/timerEventTrigger\]
-
-license\[GET|system/license\]
-
-look\_and\_feel\[POST|portal/theme, PUT|portal/theme, POST|userXP/theme, PUT|userXP/theme\]
-
-organization\_management\[POST|identity/user, PUT|identity/user, DELETE|identity/user, POST|identity/personalcontactdata, PUT|identity/personalcontactdata, POST|identity/professionalcontactdata, PUT|identity/professionalcontactdata, POST|identity/role, PUT|identity/role, DELETE|identity/role, POST|identity/group, PUT|identity/group, DELETE|identity/group, POST|identity/membership, PUT|identity/membership, DELETE|identity/membership, POST|customuserinfo/definition, DELETE|customuserinfo/definition, PUT|customuserinfo/value\]
-
-organization\_visualization\[GET|identity/user, GET|identity/personalcontactdata, GET|identity/professionalcontactdata, GET|identity/role, GET|identity/group, GET|identity/membership, GET|customuserinfo/user, GET|customuserinfo/definition, GET|customuserinfo/value\]
-
-platform\_management (since 7.1.0)
-\[GET|platform/license\]
-
-process\_actor\_mapping\_management\[PUT|bpm/process\]
-
-process\_actor\_mapping\_visualization\[GET|bpm/process\]
-
-process\_categories\[GET|bpm/process, PUT|bpm/process, POST|bpm/processCategory, DELETE|bpm/processCategory, GET|bpm/category, POST|bpm/category, PUT|bpm/category, DELETE|bpm/category\]
-
-process\_comment\[GET|bpm/comment, POST|bpm/comment, GET|bpm/archivedComment\]
-
-process\_deploy\[POST|bpm/process, DELETE|bpm/process\]
-
-process\_management\[PUT|bpm/process, GET|bpm/processConnector, PUT|bpm/processConnector, GET|bpm/processConnectorDependency, POST|bpm/processCategory, DELETE|bpm/processCategory, GET|bpm/processParameter, PUT|bpm/processParameter, POST|bpm/actorMember, PUT|bpm/actorMember, DELETE|bpm/actorMember\]
-
-process\_manager\_management\[POST|bpm/processSupervisor, DELETE|bpm/processSupervisor, POST|bpm/actorMember, PUT|bpm/actorMember, DELETE|bpm/actorMember\]
-
-process\_manager\_visualization\[GET|bpm/processSupervisor, GET|bpm/actorMember\]
-
-process\_visualization\[GET|bpm/process, GET|bpm/actor, GET|bpm/actorMember, GET|bpm/diagram\]
-
-profile\_management\[POST|portal/profile, PUT|portal/profile, DELETE|portal/profile, POST|portal/page, PUT|portal/page, DELETE|portal/page, POST|portal/profileEntry, PUT|portal/profileEntry, DELETE|portal/profileEntry, POST|userXP/profile, PUT|userXP/profile, DELETE|userXP/profile, POST|userXP/profileEntry, PUT|userXP/profileEntry, DELETE|userXP/profileEntry\]
-
-profile\_visualization\[GET|portal/profile, GET|portal/bonitaPage, GET|portal/page, GET|portal/profileEntry, GET|userXP/profile, GET|userXP/profileEntry, GET|userXP/bonitaPage\]
-
-profile\_member\_visualization\[GET|portal/profileMember, GET|userXP/profileMember\]
-
-profile\_member\_management\[POST|portal/profileMember, DELETE|portal/profileMember, POST|userXP/profileMember, DELETE|userXP/profileMember\]
-
-task\_management\[PUT|bpm/humanTask, PUT|bpm/userTask, POST|bpm/hiddenUserTask, DELETE|bpm/hiddenUserTask, POST|bpm/manualTask, PUT|bpm/manualTask\]
-
-task\_visualization\[GET|bpm/humanTask, GET|bpm/userTask, GET|bpm/hiddenUserTask, GET|bpm/manualTask, GET|bpm/archivedHumanTask, GET|bpm/archivedUserTask, GET|bpm/archivedManualTask\]
-
-tenant\_platform\_management\[PUT|system/tenant, POST|platform/platform, PUT|platform/platform, DELETE|platform/platform, POST|platform/tenant, PUT|platform/tenant, DELETE|platform/tenant\]
-
-tenant\_platform\_visualization\[GET|system/session, GET|system/log, GET|system/tenant, GET|system/feature, GET|system/monitoring, GET|system/i18nlocale, GET|system/i18ntranslation, GET|platform/platform, GET|platform/jvmDynamic, GET|platform/jvmStatic, GET|platform/systemProperty, GET|platform/tenant \]
+| Permission | Resources|
+|:-|:-|
+| activity\_visualization | \[GET|bpm/processResolutionProblem\]| 
+| application\_management | \[POST|living/application, PUT|living/application, DELETE|living/application, POST|living/application-page, PUT|living/application-page, DELETE|living/application-page, POST|living/application-menu, PUT|living/application-menu, DELETE|living/application-menu\]| 
+| application\_visualization | \[GET\|living/application, GET\|living/application-page, GET\|living/application-menu\]| 
+| bdm\_management | \[POST\|tenant/bdm\]| 
+| bdm\_visualization | \[GET\|bdm/businessData, GET\|bdm/businessDataReference\]| 
+| bpm\_monitoring\_management | \[POST\|monitoring/report, DELETE\|monitoring/report\]| 
+| bpm\_monitoring\_visualization | \[GET\|monitoring/report\]| 
+| case\_delete | \[DELETE\|bpm/case, DELETE\|bpm/archivedCase\]| 
+| case\_management | \[POST\|bpm/case, PUT\|bpm/caseVariable, PUT\|bpm/caseDocument, POST\|bpm/caseDocument, DELETE\|bpm/caseDocument, DELETE\|bpm/archivedCaseDocument\]| 
+| case\_start | \[PUT\|bpm/process, POST\|bpm/case\]| 
+| case\_start\_for | \[PUT\|bpm/process\]| 
+| case\_visualization | \[GET\|bpm/case, GET\|bpm/archivedCase, GET\|bpm/caseVariable, GET\|bpm/caseDocument, GET\|bpm/archviedCaseDocument\]| 
+| command\_management | \[POST\|bpm/command, PUT\|bpm/command, DELETE\|bpm/command\]| 
+| command\_visualization | \[GET\|bpm/command\]| 
+| connector\_management | \[PUT\|bpm/process, PUT\|bpm/processConnector, PUT\|bpm/connectorInstance\]| 
+| connector\_visualization | \[GET\|bpm/process, GET\|bpm/processConnector, GET\|bpm/processConnectorDependency, GET\|bpm/connectorInstance, GET\|bpm/archivedConnectorInstance, GET\|bpm/connectorFailure\]| 
+| demo\_permission (since 7.0.0) | \[GET\|extension/demo/getExample, GET\|extension/demo/headerExample, GET\|extension/demo/logExample, GET\|extension/demo/soapExample, GET\|extension/demo/xmlExample, POST\|extension/demo/postExample\]| 
+| document\_management | \[PUT\|bpm/caseDocument, POST\|bpm/caseDocument, DELETE\|bpm/caseDocument, PUT\|bpm/archivedCaseDocument, POST\|bpm/archivedCaseDocument, DELETE\|bpm/archivedCaseDocument, POST\|bpm/document, PUT\|bpm/document, DELETE\|bpm/document\]| 
+| document\_visualization | \[GET\|bpm/caseDocument, GET\|bpm/document, GET\|bpm/archiveddocument, GET\|bpm/archivedCaseDocument\]| 
+| flownode\_management | \[PUT\|bpm/flowNode, PUT\|bpm/activity, PUT\|bpm/task, PUT\|bpm/timerEventTrigger\]| 
+| flownode\_visualization | \[GET\|bpm/processResolutionProblem, GET\|bpm/flowNode, GET\|bpm/activity, GET\|bpm/task, GET\|bpm/activityVariable, GET\|bpm/archivedFlowNode, GET\|bpm/archivedActivity, GET\|bpm/archivedTask, GET\|bpm/timerEventTrigger\]| 
+| license | \[GET\|system/license\]| 
+| look\_and\_feel | \[POST\|portal/theme, PUT\|portal/theme, POST\|userXP/theme, PUT\|userXP/theme\]| 
+| organization\_management | \[POST\|identity/user, PUT\|identity/user, DELETE\|identity/user, POST\|identity/personalcontactdata, PUT\|identity/personalcontactdata, POST\|identity/professionalcontactdata, PUT\|identity/professionalcontactdata, POST\|identity/role, PUT\|identity/role, DELETE\|identity/role, POST\|identity/group, PUT\|identity/group, DELETE\|identity/group, POST\|identity/membership, PUT\|identity/membership, DELETE\|identity/membership, POST\|customuserinfo/definition, DELETE\|customuserinfo/definition, PUT\|customuserinfo/value\]| 
+| organization\_visualization | \[GET\|identity/user, GET\|identity/personalcontactdata, GET\|identity/professionalcontactdata, GET\|identity/role, GET\|identity/group, GET\|identity/membership, GET\|customuserinfo/user, GET\|customuserinfo/definition, GET\|customuserinfo/value\]| 
+| platform\_management (since 7.1.0) | \[GET\|platform/license\]| 
+| process\_actor\_mapping\_management | \[PUT\|bpm/process\]| 
+| process\_actor\_mapping\_visualization | \[GET\|bpm/process\]| 
+| process\_categories | \[GET\|bpm/process, PUT\|bpm/process, POST\|bpm/processCategory, DELETE\|bpm/processCategory, GET\|bpm/category, POST\|bpm/category, PUT\|bpm/category, DELETE\|bpm/category\]| 
+| process\_comment | \[GET\|bpm/comment, POST\|bpm/comment, GET\|bpm/archivedComment\]| 
+| process\_deploy | \[POST\|bpm/process, DELETE\|bpm/process\]| 
+| process\_management | \[PUT\|bpm/process, GET\|bpm/processConnector, PUT\|bpm/processConnector, GET\|bpm/processConnectorDependency, POST\|bpm/processCategory, DELETE\|bpm/processCategory, GET\|bpm/processParameter, PUT\|bpm/processParameter, POST\|bpm/actorMember, PUT\|bpm/actorMember, DELETE\|bpm/actorMember\]| 
+| process\_manager\_management | \[POST\|bpm/processSupervisor, DELETE\|bpm/processSupervisor, POST\|bpm/actorMember, PUT\|bpm/actorMember, DELETE\|bpm/actorMember\]| 
+| process\_manager\_visualization | \[GET\|bpm/processSupervisor, GET\|bpm/actorMember\]| 
+| process\_visualization | \[GET\|bpm/process, GET\|bpm/actor, GET\|bpm/actorMember, GET\|bpm/diagram\]| 
+| profile\_management | \[POST\|portal/profile, PUT\|portal/profile, DELETE\|portal/profile, POST\|portal/page, PUT\|portal/page, DELETE\|portal/page, POST\|portal/profileEntry, PUT\|portal/profileEntry, DELETE\|portal/profileEntry, POST\|userXP/profile, PUT\|userXP/profile, DELETE\|userXP/profile, POST\|userXP/profileEntry, PUT\|userXP/profileEntry, DELETE\|userXP/profileEntry\]| 
+| profile\_visualization | \[GET\|portal/profile, GET\|portal/bonitaPage, GET\|portal/page, GET\|portal/profileEntry, GET\|userXP/profile, GET\|userXP/profileEntry, GET\|userXP/bonitaPage\]| 
+| profile\_member\_visualization | \[GET\|portal/profileMember, GET\|userXP/profileMember\]| 
+| profile\_member\_management | \[POST\|portal/profileMember, DELETE\|portal/profileMember, POST\|userXP/profileMember, DELETE\|userXP/profileMember\]| 
+| task\_management | \[PUT\|bpm/humanTask, PUT\|bpm/userTask, POST\|bpm/hiddenUserTask, DELETE\|bpm/hiddenUserTask, POST\|bpm/manualTask, PUT\|bpm/manualTask\]| 
+| task\_visualization | \[GET\|bpm/humanTask, GET\|bpm/userTask, GET\|bpm/hiddenUserTask, GET\|bpm/manualTask, GET\|bpm/archivedHumanTask, GET\|bpm/archivedUserTask, GET\|bpm/archivedManualTask\]| 
+| tenant\_platform\_management | \[PUT\|system/tenant, POST\|platform/platform, PUT\|platform/platform, DELETE\|platform/platform, POST\|platform/tenant, PUT\|platform/tenant, DELETE\|platform/tenant\]| 
+| tenant\_platform\_visualization | \[GET\|system/session, GET\|system/log, GET\|system/tenant, GET\|system/feature, GET\|system/monitoring, GET\|system/i18nlocale, GET\|system/i18ntranslation, GET\|platform/platform, GET\|platform/jvmDynamic, GET\|platform/jvmStatic, GET\|platform/systemProperty, GET\|platform/tenant \]
