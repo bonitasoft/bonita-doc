@@ -85,10 +85,10 @@ A tenant is identified by an id, which is used to log in and to retrieve the ten
 In order to access Bonita BPM Portal desktop and mobile application, add the parameter `tenant=TENANT_ID` (where TENANT\_ID is the tenant identifier) in the URL before you login.
 
 Example for Bonita BPM Portal desktop version and tenant 2:  
-http://localhost:8080/bonita/login.jsp?tenant=2
+`http://localhost:8080/bonita/login.jsp?tenant=2`
 
 Example for Bonita BPM Portal mobile version and tenant 2:  
-http://localhost:8080/bonita/mobile/?tenant=2
+`http://localhost:8080/bonita/mobile/?tenant=2`
 
 ### Bonita APIs
 
