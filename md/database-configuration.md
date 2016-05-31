@@ -321,6 +321,12 @@ It is assumed in the procedure that:
 
 ### SQL Server
 
+::: warning
+There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft in the Tomcat bundle and in the Tomcat directories of the Deploy bundle) and the Microsoft SQL Server driver
+(refer to: [MSDN note](https://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html)).
+Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the JBoss bundle provided by Bonitasoft.
+:::
+
 #### XA Transactions
 
 To support XA transactions, SQL Server requires a specific configuration.

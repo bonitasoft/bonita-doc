@@ -32,7 +32,7 @@ As mentioned before, [Bonita BPM Portal](bonita-bpm-portal-interface-overview.md
 
 But Bonita BPM Portal is also the tool used by the tenant administrator to [install, deploy and manage processes](processes.md) and to [build applications](applications.md). We use the word "tenant" here, in case the platform would be made of [several tenants](multi-tenancy-and-tenant-configuration.md).
 
-To install Bonita BPM Engine and Bonita BPM Portal in a qualification or production environment, [install Bonita BPM Platform](bonita-bpm-installation-overview.md).
+To install Bonita BPM Engine and Bonita BPM Portal in a qualification or production environment, [install Bonita BPM Platform](bonita-bpm-installation-overview.md#platform).
 
 In Bonita BPM Studio, once a process is ready, you can [build](build-a-process-for-deployment.md) it and deploy it on your Bonita BPM qualification or production platform. 
 
