@@ -740,7 +740,7 @@ The ID of the task (a long value).
   "dueDate":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task is due, for example '2014-10-17 16:05:42.626'_", 
   "last_update_date":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was last updated, for example '2014-10-17 16:05:42.626'_" 
 }
-
+```
 #### Methods
 
 The methods used for this resource are:
@@ -809,9 +809,9 @@ The methods used for this resource are:
 * **Method**  
   `GET`
 * **Data Params**  
-  * Accepted sort values (o={value}) : caseId, processId, state, type, supervisor\_id, last\_update\_date
-  * Accepted filters (f={filter}=value) : caseId, processId, state, type, supervisor\_id, last\_update\_date
-  * Accepted deployer (d={deployer}) : processId, caseId, rootContainerId, executedBy, executedBySubstitute
+  * Accepted sort values (`o={value}`) : caseId, processId, state, type, supervisor\_id, last\_update\_date
+  * Accepted filters (`f={filter}=value`) : caseId, processId, state, type, supervisor\_id, last\_update\_date
+  * Accepted deployer (`d={deployer}`) : processId, caseId, rootContainerId, executedBy, executedBySubstitute
 * **Success Response**  
   * **Code**: 200
   * **Payload**:  
@@ -1035,7 +1035,6 @@ In order to execute a task, the task contract values have to be provided.
 
 * **URL**  
   `/API/bpm/userTask/:userTaskId/context`  
-  _Example_: ``
 * **Method**  
   `GET`
 * **Success Response**  
@@ -1161,7 +1160,7 @@ Retrieve archivedHumanTask objects that match the specified filters.
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   You can filter on:
-  * `assigned\_id={user\_id}`: retrieve only the human tasks assigned to the specified ID. For example, retrieve the human tasks assigned to user with id 2: `/API/bpm/archivedHumanTask?p=0&c=10&f=assigned\_id%3d2`
+  * `assigned_id={user_id}`: retrieve only the human tasks assigned to the specified ID. For example, retrieve the human tasks assigned to user with id 2: `/API/bpm/archivedHumanTask?p=0&c=10&f=assigned_id%3d2`
   * `state=`: retrieve only the archived user tasks with the specified state. For example, retrieve the skipped tasks: `/API/bpm/archivedHumanTask?p=0&c=10&f=state=skipped`
   * `name=`: retrieve only the human tasks with the specified name. For example, retrieve the human tasks with the name "Analyse Case": `/API/bpm/archivedHumanTask?p=0&c=10&f=name=Analyse Case`
   * `displayName=`: retrieve only the archived user tasks with the specified displayName. For example, retrieve the human tasks with the displayName "Analyse Case": `/API/bpm/archivedHumanTask?p=0&c=10&f=displayName=Analyse Case`
@@ -1310,10 +1309,10 @@ Use a GET method with filters and search terms to search for subtasks.
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   You can filter on:
-  * `assigned\_id={user\_id}`: retrieve only the manual tasks assigned to the specified user. For example, retrieve the manual tasks assigned to user with id 1: `/API/bpm/archivedManualTask?p=0&c=10&f=assigned_id%3d10`
+  * `assigned_id={user_id}`: retrieve only the manual tasks assigned to the specified user. For example, retrieve the manual tasks assigned to user with id 1: `/API/bpm/archivedManualTask?p=0&c=10&f=assigned_id%3d10`
   * `state=skipped` | completed | failed : retrieve only the manual tasks with the specified state. For example, retrieve the ready tasks: `/API/bpm/archivedManualTask?p=0&c=10&f=state%3dready`
-  * `caseId={case\_id}`: retrieve only the manual tasks created in the specified case. For example, retrieve the manual tasks for the case\_id 2: `/API/bpm/archivedManualTask?p=0&c=10&f=caseId%3d2`
-  * `parentTaskId={parentTask\_id}`: retrieve only the manual tasks for a specific parentTask\_id. For example, retrieve the manual tasks for the parentTask\_id 40001: `/API/bpm/archivedManualTask?p=0&c=10&f=parentTaskId%3d40001`
+  * `caseId={case_id}`: retrieve only the manual tasks created in the specified case. For example, retrieve the manual tasks for the case\_id 2: `/API/bpm/archivedManualTask?p=0&c=10&f=caseId%3d2`
+  * `parentTaskId={parentTask_id}`: retrieve only the manual tasks for a specific parentTask\_id. For example, retrieve the manual tasks for the parentTask\_id 40001: `/API/bpm/archivedManualTask?p=0&c=10&f=parentTaskId%3d40001`
 
   You can search on:
   * `name`: search all manual tasks with a name that starts with the search string. For example, search for all manual tasks that have a name that starts with MySubTask: `/API/bpm/archivedManualTask?p=0&c=10&s=MySubTask`
@@ -1556,14 +1555,14 @@ Retrieve archivedHumanTask objects that match the specified filters.
 
 * **URL**  
   `/API/bpm/archivedUserTask`  
-  _Example_: Get the user tasks assigned to the user with id 2:`/API/bpm/archivedUserTask?p=0&c=10&f=assigned\_id%3d2`
+  _Example_: Get the user tasks assigned to the user with id 2:`/API/bpm/archivedUserTask?p=0&c=10&f=assigned_id%3d2`
 * **Method**  
   `GET`
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
 
   You can filter on:
-  * `assigned\_id={user\_id}`: retrieve only the user tasks assigned to the specified ID. For example, retrieve the user tasks assigned to user with id 2: `/API/bpm/archivedUserTask?p=0&c=10&f=assigned\_id%3d2`
+  * `assigned_id={user_id}`: retrieve only the user tasks assigned to the specified ID. For example, retrieve the user tasks assigned to user with id 2: `/API/bpm/archivedUserTask?p=0&c=10&f=assigned_id%3d2`
   * `state=`: retrieve only the archived user tasks with the specified state. For example, retrieve the skipped tasks: `/API/bpm/archivedUserTask?p=0&c=10&f=state=skipped`
   * `name=`: retrieve only the user tasks with the specified name. For example, retrieve the user tasks with the name "Analyse Case": `/API/bpm/archivedUserTask?p=0&c=10&f=name=Analyse Case`
   * `displayName=`: retrieve only the archived user tasks with the specified displayName. For example, retrieve the user tasks with the displayName "Analyse Case": `/API/bpm/archivedUserTask?p=0&c=10&f=displayName=Analyse Case`
@@ -1619,10 +1618,436 @@ Retrieve archivedHumanTask objects that match the specified filters.
     ```
 
 ## Data
-* [activityVariable](api_resources/bpm_activityvariable_6.0_0_0_0_0.md)
-* [caseVariable ](api_resources/bpm_casevariable_6.4_0_0_1.md)
-* [document](api_resources/bpm_document_7.1.md)
-* [caseDocument](api_resources/bpm_casedocument_6.5_0_0_0_0.md)
+
+### ActivityVariable
+
+#### Description
+
+This resource enables you to retrieve the value of a specific variable name for a specific case (or process instance). Only persistent variables are concerned by this resource, not transient variables.
+
+#### Identifier
+
+The ID of the activity variable (a long value).
+
+#### Representation
+
+```json
+{ 
+  "tenantId": "_The ID of the tenant where the current user is logged in (technical information)_",
+  "tenantId_string": "_number (since 7.0.1)_",
+  "id":_The identifier of the variable_",
+  "id_string":"_number (since 7.0.1)_",
+  "name": "_The name of the activity variable_",
+  "description": "_The description of the variable, if any_",
+  "transientData": "FALSE" _Always false (boolean)_",
+  "className": "_The fully qualified class name of the variable type_",
+  "containerId": "_The ID of the activity containing this variable (same as the one passed as parameter) if the variable is defined at activity level, or ID of the process instance if the variable is defined on the process_",
+  "containerId_string": _"number" (since 7.0.1)_,
+  "containerType": "ACTIVITY_INSTANCE" | "PROCESS_INSTANCE" _depending on whether the variable is defined at activity or process level._",
+  "value": "_the value of this variable. The format of the value depends on the type of the variable_" 
+}
+ ```   
+
+The string representation added in 7.0.1 for Long attributes is a workaround for the JavaScript integer spectrum issue.
+
+#### Methods
+
+The methods available for this resource are:
+
+* GET - Read an existing non-finished activity instance variable
+
+#### Retrieving a activity instance variable
+
+* **URL**  
+  `/API/bpm/activityVariable/:activityId/:variableName`  
+  * activity\_id: the identifier of the activity from which to retrieve the variable
+  * variable\_name: the name of the variable to retrieve  
+  _Example_: `API/bpm/activityVariable/20004/RequestValidationData`
+* **Method**  
+  `GET`
+* **Success Response**  
+  A JSON representation of the retrieved activity variable
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "tenantId":0,
+      "tenantId_string":"0",
+      "id":5010,
+      "id_string":"5010",
+      "name":"RequestValidationData",
+      "description":null,
+      "transientData":false,
+      "className":"java.lang.String",
+      "containerId":20004,
+      "containerId_string":"20004",
+      "containerType":"ACTIVITY_INSTANCE",
+      "value":"Confirmed"
+    }
+    ```
+    
+### CaseVariable 
+
+#### Description
+
+Search, count, find, or update case variable values. A case is an instance of a process.
+
+#### Identifier
+
+The ID of the case variable (a long value).
+
+#### Representation
+
+```json
+    {
+    "description":"_Detailed description of the case variable, as set in the definition at design-time_",
+    "name":"_name of the variable in the case_",
+    "value":"_the current value of the case variable_",
+    "case_id":"_ID of the case this variable belongs to_",
+    "type":_the Java type of the variable_"
+    }
+```
+
+#### Methods
+
+The methods used for this resource are:
+
+* GET - Search for case variables from its case ID, or find a single case variable from case ID and variable name
+* PUT - Update a case variable value
+
+#### Get a case variable
+  
+* **URL**  
+  `/API/bpm/caseVariable/:caseId/:variableName`  
+* **Method**  
+  `GET`
+* **Success Response**  
+  A case variable representation
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {				
+      "description":"",
+      "name":"myInvoiceAmount",
+      "value":"14.2",
+      "case_id":"1",
+      "type":"java.lang.Float"
+    }
+    ```
+
+#### Update a case variable
+
+Warning: only following types are supported for _javaTypeclassname_: java.lang.String, java.lang.Integer, java.lang.Double, java.lang.Long, java.lang.Boolean, java.util.Date
+
+* **URL**  
+  `/API/bpm/caseVariable/:caseId/:variableName`  
+* **Method**  
+  `PUT`
+* **Request Payload**  
+  ```json
+  {
+    type: "javaTypeclassname",
+    value: "newValue"
+  }
+  ```
+* **Success Response**  
+  * **Code**: 200
+
+#### Search for a list of case variables
+
+* **URL**  
+  `/API/bpm/caseVariable`  
+  _Example_: `/API/bpm/caseVariable?p=0&c=10&f=case\_id%3d11754`
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  `f = case_id%3d[caseId]` to indicate that you want to add a filter on 'case\_id' with value \[caseId\] (%3d is the URL-encoded '=' (equals) sign)
+* **Success Response**  
+  A representation of a list of case variables
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    [
+      {
+        "description":"",
+        "name":"myInvoiceAmount",
+        "value":"14.2",
+        "case_id":"11754",
+        "type":"java.lang.Float"
+      }, 
+      {
+        "description":"invoice reference",
+        "name":"myInvoiceReference",
+        "value":"1FFL54184KOL",
+        "case_id":"11754",
+        "type":"java.lang.Long"
+      }
+    ]
+    ```
+    
+### Document
+
+#### Description
+
+Use the document resource to access a document in an active case. 
+
+::: alert alert-warning
+**:fa-exclamation-triangle: Caution:** This resource is deprecated and may be removed in a future release. Instead, use caseDocument or archivedCaseDocument.
+:::
+
+## CaseDocument
+
+#### Description
+
+Use the case document resource to access a document in an active case. For archived cases and previous document versions use archivedCaseDocument.
+
+::: alert alert-info
+**Note**: The REST methods for handling documents have been updated in {{ var\_product }} 6.4 and the following item is deprecated:
+
+* `author` in the payload is deprecated: use `submittedBy`
+:::
+
+#### Identifier
+
+The ID of the document (a long value).
+
+#### Representation
+
+```json
+{
+  "id":"_documentId_",
+  "creationDate":"_date and time_",
+  "author":"_submittorUserId_",
+  "index":"_index in a list of documents, or -1 for a single document_",
+  "contentMimetype":"_MIMEtype_",
+  "caseId":"_caseId_", 
+  "contentStorageId":"_storageId_", 
+  "isInternal":"_true | false_", 
+  "description":"_ description_", 
+  "name":"_name_", 
+  "fileName":"_filename_", 
+  "submittedBy":"_submittorUserId_", 
+  "url":"_urlForDownload_", 
+  "version":"_version_" 
+}
+```
+
+#### Methods
+
+The methods used for this resource are:
+
+* POST - Create a resource
+* GET - Read a resource
+* PUT - Update a resource
+* DELETE - Remove a resource
+
+<a name="upload_casedoc"/>
+#### Add a document to a case
+
+Use a POST method to add a document to a case. You can upload a document from the local file system or by URL. Specify the case id and the document name in the payload. 
+The document description is optional: if you do not specify a description, the description in the response is empty. The response contains a version, which is managed automatically.
+You cannot currently retrieve a specific version of a document, only the most recent version. To retrieve earlier versions of a caseDocument, use the archivedCaseDocument resource.
+
+* **URL**  
+  `/API/bpm/caseDocument`  
+* **Method**  
+  `POST`
+* **Request Payload**  
+  _Example 1_: Upload `doc.jpg` from the tenant temporary folder of the bonita home to case 1 with the display name "Doc 1" and renaming the file into "document\_1.jpg":
+  ```json
+  {
+    "caseId": "1",
+    "file": "doc.jpg",
+    "name": "Doc 1",
+    "fileName": "document_1.jpg",
+    "description": "draft"
+  }
+  ```
+  _Example 2_: Upload `train_receipt.png` from my cloud drive to case 1 with the name "Train receipt":
+  ```json
+  {
+    "caseId" : "1",
+    "url" : "http://cloud.storage.com/sites/chris/expenses/july_2014/train_receipt.png",
+    "name" : "Train receipt"
+  }
+  ```
+* **Success Response**  
+  * **Code**: 200
+  * **Payload**:  
+    _Example 1_:  
+    In this example, `isInternal` is set to `true` because the the document object contains the content directly.  
+    ```json
+    {
+      "id":"3",
+      "creationDate":"2014-10-09 16:45:36.658",
+      "author":"1",
+      "index":"-1",
+      "contentMimetype":"application/octet-stream",
+      "caseId":"1",
+      "contentStorageId":"4",
+      "isInternal":"true",
+      "description":"draft,
+      "name":"Doc 1",
+      "fileName":"document_1.jpg",
+      "submittedBy":"1",
+      "url":"documentDownload?fileName=document_1.jpg&contentStorageId=4",
+      "version":"1"
+    }
+    ```
+    _Example 2_:  
+    In this example, `isInternal` is set to `false` because the document is specified by URL so the document object contains a reference to the content, not the content itself.  
+    ```json
+    {
+      "id":"4",
+      "creationDate":"2014-10-09 16:45:36.658",
+      "author":"1",
+      "index":"-1",
+      "contentMimetype":"image/png",
+      "caseId":"1",
+      "contentStorageId":"4",
+      "isInternal":"false",
+      "description":"draft,
+      "name":"Train receipt",
+      "fileName":"train_receipt.png",
+      "submittedBy":"1",
+      "url":"http://cloud.storage.com/sites/chris/expenses/july_2014/train_receipt.png",
+      "version":"1"
+    }
+    ```
+
+#### Get a document from a case
+
+Use a GET method to get a document from a case. First you get the document information, then you download the content. 
+To get the document information, specify the document id in the URL. The document id is created when you upload a document to a case. There is no payload.
+
+* **URL**  
+  `/API/bpm/caseDocument/:documentId``  
+* **Method**  
+  `GET`
+* **Success Response**  
+  The response includes the "url" to use to download the content. Call the documentDownload servlet with this URL: 
+  `/portal/documentDownload?fileName=doc.jpg&contentStorageId=4`.
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "id":"3",
+      "creationDate":"2014-10-09 16:45:36.658",
+      "author":"1",
+      "index":"-1",
+      "contentMimetype":"application/octet-stream",
+      "caseId":"1",
+      "contentStorageId":"4",
+      "isInternal":"true",
+      "description":"draft,
+      "name":"Doc 1",
+      "fileName":"doc.jpg",
+      "submittedBy":"1",
+      "url":"documentDownload?fileName=doc.jpg&contentStorageId=4",
+      "version":"1"
+    }
+    ```
+
+#### Update a document in a case
+
+You update a document in a case by uploading a new version of the document using a PUT method. 
+You can upload a document version from the local file system or by URL. 
+The document name will be used in all the cases of the process, but the combination of case id and document name is unique.
+
+In the URL, you specify to supply the document id. This is included in the response when you first [add a document to a case](#upload_casedoc).
+
+The response to PUT methods is the same as for POST methods.
+
+* **URL**  
+  `/API/bpm/caseDocument/:documentId`
+* **Method**  
+  `PUT`
+* **Data Params**  
+* **Request Payload**  
+  Example 1: Update the document ExpensesPolicy in case 1 by uploading `Expense policy rev2.pdf` from the tenant temporary folder of the bonita home. The document id, 17 in this example, is specified in the URL. The description is optional. The filename allows to rename the file into "revision2.pdf" Method
+  ```json
+  {
+    "file" : "Expense policy rev2.pdf",
+    "description" : "updated version of document"
+    "fileName": "revision2.pdf",
+  }
+  ```
+  Example 2: Update the document ExpensesPolicy in case 1 by uploading `Expense policy rev2.pdf` from my cloud drive. The document id is 17\.
+  ```json
+  {
+    "url" : "http://cloud.storage.com/sites/chris/expenses/july_2014/Expense policy rev2.pdf"
+  }
+  ```
+* **Success Response**  
+  * **Code**: 200
+ 
+#### Search for a document
+
+* **URL**  
+  `/API/bpm/caseDocument`  
+  _Example_:   
+  Find all documents with a document name equal to doc1: `/API/bpm/caseDocument?p=0&c=10&f=name=doc1`  
+  Find all documents with with any of the searchable fields starting with "doc". `/API/bpm/caseDocument?p=0&c=10&s=doc`
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  It is possible to filter on three parameters: submittedBy, name and description.
+  * `submittedBy="id"`: search for documents that were submitted by the user with the specified identifier.
+  * `name="string"`: search for documents with names that contain _string_. 
+    Depending on the setting for [word-based search](using-list-and-search-methods.md), the search returns documents with _string_ at the start of the name or the start of a word in the name.
+  * `description="string"`: search for documents with descriptions that contain _string_. 
+    Depending on the setting for [word-based search](using-list-and-search-methods.md), the search returns documents with _string_ at the start of the description or the start of a word in the description.
+* **Success Response**  
+  A document object for each matching document
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    [
+      {
+        "id":"3",
+        "creationDate":"2014-10-09 16:45:36.658",
+        "author":"1",
+        "index":"-1",
+        "contentMimetype":"application/octet-stream",
+        "caseId":"1",
+        "contentStorageId":"4",
+        "isInternal":"true",
+        "description":"draft,
+        "name":"doc1",
+        "fileName":"doc.jpg",
+        "submittedBy":"1",
+        "url":"documentDownload?fileName=test.txt&contentStorageId=1",
+        "version":"1"
+      }, {
+        "id":"4",
+        "creationDate":"2014-10-09 16:45:36.658",
+        "author":"1",
+        "index":"-1",
+        "contentMimetype":"image/png",
+        "caseId":"1",
+        "contentStorageId":"4"
+        "isInternal":"false",
+        "description":"draft,
+        "name":"doc2",
+        "fileName":"train_receipt.png",
+        "submittedBy":"1",
+        "url":"http://cloud.storage.com/sites/chris/expenses/july_2014/train_receipt.png",
+        "version":"1"
+      }
+    ]
+    ```
+
+#### Delete a document
+
+* **URL**  
+  `/API/bpm/caseDocument/:documentId`  
+* **Method**  
+  `DELETE`
+* **Success Response**  
+  * **Code**: 200
+
 * [archivedCaseDocument](api_resources/bpm_archivedcasedocument_6.0_0_0.md)
 
 ## Actors
