@@ -35,7 +35,7 @@ A timer event can also contain conditions that trigger actions using connectors.
 
 ### Start timer
 
-Use a start timer to launch a process on a repeating schedule (cycle), at a fixed date and time, or after a specified delay (duration). 
+Use a start timer to launch a process on a repeating schedule (cycle), at a fixed date and time, or after a specified delay (duration).  
 To set the schedule, select the start timer event, go to the Details panel, General tab, General pane, and click **_Edit..._** to set the timer conditions.  
 If you define a condition based on a duration, the countdown to the process start begins when the process is enabled.
 
