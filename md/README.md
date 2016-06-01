@@ -1,6 +1,6 @@
 # Documentation content
 
-Each folder represent a product version.
+This folder represents a product version.
 
 Remember that Markdown is just a helpful set of shortcuts to author HTML. So If you encouter any limitation in your markdown editing versus HTML edition, you can embed HTML into your markdown.
 
