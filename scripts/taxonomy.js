@@ -31,7 +31,7 @@
       return result;
     } else if (node.tagName === 'a') {
       return {
-        name: node.children[0].content,
+        name: node.children[0].content.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>'),
         href: node.attributes.href.replace(/\.md$/g, '.html')
       };
     } else {

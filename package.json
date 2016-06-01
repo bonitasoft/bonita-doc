@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "watch": "scripts/watchFilesToConvertHtml.js",
+    "taxonomy": "scripts/taxonomy.js",
     "build": "scripts/convertMdToHtml.js"
   },
   "author": "Julien Reboul <julien.reboul@bonitasoft.com>",
