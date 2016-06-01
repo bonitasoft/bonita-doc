@@ -1,6 +1,6 @@
 # Generate PDF from an Office document
 
-::: alert alert-info
+::: info
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 

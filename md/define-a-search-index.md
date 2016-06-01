@@ -1,6 +1,6 @@
 # Define a search key
 
-::: alert alert-info
+::: info
 **Note:** For Bonita BPM Performance and Efficiency editions only.
 :::
 

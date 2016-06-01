@@ -1,6 +1,6 @@
 # Monitoring
 
-::: alert alert-info
+::: info
 **Note:** For Performance and Efficiency editions only.
 :::
 

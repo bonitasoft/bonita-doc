@@ -11,26 +11,52 @@ Current conversion to html is done with `markdown-it` with the [Github-flavored 
 
 #### Fontawesome
 
-The markdown-it-fontawesome plugin has been activated and you can use fontawesome icon with their name surrounded by colon: `:fa-flag:` that will produce 
+The markdown-it-fontawesome plugin has been activated and you can use [fontawesome](http://fontawesome.io/icons/) icon with their name surrounded by colon: `:fa-flag:` that will produce 
 ```html
 <i class="fa fa-flag"></i>
 ```
 
 #### Bootstrap Alert
 
-In order to reproduce bootstrap alerts that were present in former documentation site, we introduced the **markdown-it-container**.
+In order to reproduce [bootstrap alerts](http://getbootstrap.com/components/#alerts) that were present in former documentation site, we introduced the **markdown-it-alerts**.
 It allows to recreate a `div` block with custom classes.
 
-We added 3 types of container :
-* alert alert-danger
-* alert alert-warning
-* alert alert-info
+We added 5 types of container :
+* danger
+* warning
+* info
+* primary
+* success
 
 To use them create a block surrounded with 3 colons:
 ```
-::: alert alert-danger
+::: danger
 Beware of this important thing !
 :::
+```
+#### Decorate
+
+if you want to decorate the md elements with html attributes like classes or title, we added the [**markdown-it-decorator**](https://www.npmjs.com/package/markdown-it-decorate) to do so.  
+Using `<!--{}-->` pattern at the end of a block will convert the content of `{}` to html attributes. Use CSS notation to decorate with classes :
+```
+This is some text.
+<!--{.center}-->
+```
+will be converted to
+```html
+<p class='center'>This is some text.</p>
+```
+
+#### Smart arrows
+
+We added the use of the [**markdown-it-smart-arrows**](https://www.npmjs.com/package/markdown-it-smartarrows) plugin to convert arrows to html entities :
+```
+--> →
+<-- ←
+<--> ↔
+==> ⇒
+<== ⇐
+<==> ⇔
 ```
 
 ### Process

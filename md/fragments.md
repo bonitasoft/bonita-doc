@@ -1,6 +1,6 @@
 # Fragments
 
-::: alert alert-info
+::: info
 **Note:** For Bonita BPM Performance, Efficiency, and Teamwork editions only.
 :::
 

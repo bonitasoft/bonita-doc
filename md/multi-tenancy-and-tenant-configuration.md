@@ -1,6 +1,6 @@
 # Multi-tenancy and tenant configuration
 
-::: alert alert-info
+::: info
 **Note:** For Performance edition only.
 :::
 
