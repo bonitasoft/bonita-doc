@@ -31,4 +31,4 @@ Example of the Administrator profile interface
 
 Example of the User profile interface
 
-![User interface](images/images-6_0/user_view7.x.png)<!--{.img-responsive}-->
+![User interface](images/user_tasklist.png)<!--{.img-responsive}-->
