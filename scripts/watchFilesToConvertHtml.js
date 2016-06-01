@@ -9,13 +9,14 @@
   const connect  = require('connect');
   let server = connect();
   const fa = require('markdown-it-fontawesome');
-  const container = require('markdown-it-container');
-  const containerOptions = level => ({validate: params => params.trim().match(new RegExp('alert\\s+alert-' + level))});
+  const smartArrows = require('markdown-it-smartarrows');
+  const decorate = require('markdown-it-decorate');
+  const alerts = require('markdown-it-alerts');
   const md  = require('markdown-it')({ html: true })
     .use(fa)
-    .use(container, 'alert alert-warning', containerOptions('warning'))
-    .use(container, 'alert alert-danger', containerOptions('danger'))
-    .use(container, 'alert alert-info', containerOptions('info'));
+    .use(decorate)
+    .use(smartArrows)
+    .use(alerts);
   const serveIndex = require('serve-index');
 
   server.use((req, res, next) => {

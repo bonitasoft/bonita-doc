@@ -1,6 +1,6 @@
 # Build a Bonita BPM cluster
 
-::: alert alert-info
+::: info
 **Note:** For Performance edition only.
 :::
 

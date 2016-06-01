@@ -1,6 +1,6 @@
 # Manage Look & Feel
 
-::: alert alert-info
+::: info
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 

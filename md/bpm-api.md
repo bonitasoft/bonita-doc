@@ -1792,7 +1792,7 @@ Warning: only following types are supported for _javaTypeclassname_: java.lang.S
 
 Use the document resource to access a document in an active case. 
 
-::: alert alert-warning
+::: warning
 **:fa-exclamation-triangle: Caution:** This resource is deprecated and may be removed in a future release. Instead, use caseDocument or archivedCaseDocument.
 :::
 
@@ -1802,7 +1802,7 @@ Use the document resource to access a document in an active case.
 
 Use the case document resource to access a document in an active case. For archived cases and previous document versions use archivedCaseDocument.
 
-::: alert alert-info
+::: info
 **Note**: The REST methods for handling documents have been updated in {{ var\_product }} 6.4 and the following item is deprecated:
 
 * `author` in the payload is deprecated: use `submittedBy`

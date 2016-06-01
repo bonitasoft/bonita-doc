@@ -1,6 +1,6 @@
 # Overview of Bonita BPM in a cluster
 
-::: alert alert-info
+::: info
 **Note:** For Performance edition only.
 :::
 

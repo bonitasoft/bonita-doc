@@ -1,6 +1,6 @@
 # Performance tuning
 
-::: alert alert-info
+::: info
 **Note:** For Performance edition only.
 :::
 

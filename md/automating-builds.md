@@ -1,6 +1,6 @@
 # Automating builds
 
-::: alert alert-info
+::: info
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 

@@ -1,6 +1,6 @@
 # Deploy profiles with export and import
 
-::: alert alert-info
+::: info
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 

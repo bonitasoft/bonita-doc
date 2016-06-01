@@ -98,7 +98,7 @@ Example:
 
 ## Task URL
 
-::: alert alert-danger
+::: danger
 :fa-exclamation-triangle: **Important:** A task is not automatically assigned to the user who accesses the task form. If a user is using Bonita BPM Portal, the assignment is automatic. However, if a user is accessing a form directly from an application, there must first be a [REST API call to assign the task to the user](bpm-api.md). Otherwise, the user will not be able to execute the task.
 :::
 

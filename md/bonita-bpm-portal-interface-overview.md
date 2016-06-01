@@ -27,8 +27,8 @@ See also [Custom profiles](custom-profiles.md).
 
 Example of the Administrator profile interface
 
-![Administrator profile](images/images-6_0/admin_view7.1.png)
+![Administrator profile](images/images-6_0/admin_view7.1.png)<!--{.img-responsive}-->
 
 Example of the User profile interface
 
-![User interface](images/images-6_0/user_view7.x.png)
+![User interface](images/images-6_0/user_view7.x.png)<!--{.img-responsive}-->
