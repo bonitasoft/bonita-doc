@@ -246,6 +246,6 @@
     * [Automate builds](automating-builds.md)
     * [Set up continuous integration](set-up-continuous-integration.md)
 * [Howtos](_howtos.md)
-  * [Manage form control/validation](manage-control-in-forms.md)
+  * [Form control/validation in the UI Designer](manage-control-in-forms.md)
   * [Multiple references in business objects](bo-multiple-refs-tutorial.md)
 
