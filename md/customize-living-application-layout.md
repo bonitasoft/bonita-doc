@@ -1,4 +1,4 @@
-# Customize living application layout
+# Customize a living application layout
 
 ::: info
 **Note:** For Performance, Efficiency, and Teamwork editions only.
@@ -6,44 +6,48 @@
 
 ## Overview
 
-Has it is explained in the [layouts](layouts.md) documentation, it is possible to customize the existing application layout using the UI Designer.
+As explained in the [layouts](layouts.md) documentation page, it is possible to customize the existing application layout with the UI Designer.
 
 For example, you could:
 
-* add a login box
-* change the menu to add a side menu
-* add a footer
+* Add a login box
+* Change the menu to add a side menu
+* Add a footer
 
-Prerequisites to customize the existing living application layout:
+Prerequisites to customize the default living application layout:
 
 * Basic knowledge of Java script
-* Basic knowledge of angular
-* Basic knowledge of bootstrap
-* Basic knowledge of UI designer
-* Have an existing Living application to test the modified layout
-* Use a subscription version of bonita
+* Basic knowledge of AngularJS
+* Basic knowledge of Bootstrap
+* Basic knowledge of the UI Designer
+* An existing living application (to test the modified layout)
 
-The following sections show how to import the existing application layout into the UI Designer, how to modify this layout and how to apply the customized layout to a living application. As an example, they show the steps to follows to convert the existing application top menu into a side menu.
+The following example shows how to convert the default top menu of an application into a side menu.  
+The example sections show how to:
+* Export the default application layout from the Bonita BPM Portal
+* Import the default application layout into the UI Designer
+* Modify this layout 
+* Apply the customized layout onto a living application. 
 
-## Export the default application layout
+ ## Export the default application layout from Bonita BPM Portal
 
-1. Open Bonita BPM portal, and login with a user having administration profile.
-2. Click on the menu **Resources**.
+1. Open Bonita BPM Portal, and log in with username and password of someone mapped to the Administrator profile.
+2. Click on the **Resources** menu.
 3. Select the filter **Layouts**.
 4. Select the element **Default layout**.
-5. Click on **Export** and save this **Default layout** on your filesystem.
+5. Click on **Export** and save this **Default layout** on your file system.
 
-## Import the default layout into the UI Designer
+## Import the default application layout into the UI Designer
 
-To facilitate the modifications, the **default layout** is built using UI Designer. Then you just have to import it into the UI Designer to make modifications.
+To facilitate the modifications, the **default layout** is built using the UI Designer. Then you just have to import it into the UI Designer to make changes.
 
 1. Open the UI Designer.
-2. Click on **Import** button.
-3. Retrive the **Default layout** to import.
+2. Click on the **Import** button.
+3. Retrieve the **Default layout** to import.
 
 ## Edit the default layout using the UI Designer
 
-When you import the **Default layout** into UI Designer, you can see that it generates three artefacts:
+When you import the **Default layout** into the UI Designer, you can see that it generates three artefacts:
 
 1. **Living application layout page**.
 2. **Living application IFrame** widget to display the application page.
@@ -86,16 +90,16 @@ Into the UI Designer:
 
 ## Export the Side menu layout on your file system
 
-Once your modifications are done, save the new layout using a new name and then export it.
+Once your changes are made, save the new layout using a new name and then export it.
 
-1. Rename into **SideMenuLayout**.
+1. Rename it into **SideMenuLayout**.
 2. Click on **Save**.
-3. Click on **Export** button.
+3. Click on the **Export** button.
 
 ## Import the **Side Menu Layout** into the portal
 
-1. Open bonita portal, and login with a user having administration profile.
-2. Click on the menu **Resources**.
+1. Open the Bonita BPM Portal, and again log in with username and password of someone mapped to the Administrator profile.
+2. Click on the **Resources** menu.
 3. Click on **Add**.
 4. Add the new **Side Menu Layout Page**.
 5. Click **Next**.
@@ -103,11 +107,11 @@ Once your modifications are done, save the new layout using a new name and then 
 
 ## Configure your living application to use the modified layout
 
-1. Click on the portal menu **Applications**.
+1. Click on the **Applications** menu.
 2. Click on the edit action **...** of your living application.
 3. In the **Look & Feel** section, click on the layout link
 4. Select the **Side Menu layout**
 5. Click on the validation button 
 6. In the application details section, click on the URL link to navigate to your living application.
 7. See your new application layout with a side menu.
-8. Feel free to add a lots of new improvements to create the layout that fits your needs.
+8. Feel free to add lots of new improvements to create the layout that fits your needs.
