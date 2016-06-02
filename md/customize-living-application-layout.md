@@ -4,6 +4,8 @@
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 
+## Overview
+
 Has it is explained in the [layouts](layouts.md) documentation, it is possible to customize the existing application layout using the UI Designer.
 
 For example, you could:
@@ -31,7 +33,7 @@ The following sections show how to import the existing application layout into t
 4. Select the element **Default layout**.
 5. Click on **Export** and save this **Default layout** on your filesystem.
 
-## Import the **Default layout** into the UI Designer
+## Import the default layout into the UI Designer
 
 To facilitate the modifications, the **default layout** is built using UI Designer. Then you just have to import it into the UI Designer to make modifications.
 
@@ -39,7 +41,7 @@ To facilitate the modifications, the **default layout** is built using UI Design
 2. Click on **Import** button.
 3. Retrive the **Default layout** to import.
 
-## Edit the default layout using UI Designer
+## Edit the default layout using the UI Designer
 
 When you import the **Default layout** into UI Designer, you can see that it generates three artefacts:
 
@@ -49,10 +51,10 @@ When you import the **Default layout** into UI Designer, you can see that it gen
 
 So we propose here to convert the **Living application menu** into a side menu.
 
-into the UI Designer:
+Into the UI Designer:
 
-1. click on **Living application menu** widget to open the widget editor.
-2. replace the template by using the following one:
+1. Click on **Living application menu** widget to open the widget editor.
+2. Replace the template by using the following one:
 ```html
 <div class="container" style="height:100%">
         <div class="row">
@@ -74,17 +76,17 @@ into the UI Designer:
         </div>  
 </div>
 ```
-3. click on **Save**.
+3. Click on **Save**.
 4. Return to the UI Designer home page.
 5. Click on **Living application layout page**.
 6. Drag and drop the existing **living application Menu** on the left side of the **living application IFrame**.
 7. Resize the **living Application Menu** by setting the width to 2\.
 8. Resize the **living Application IFrame** by setting the width to 10\.
-9. click on **Save**.
+9. Click on **Save**.
 
-## Export the **Side menu layout** on your filesystem
+## Export the Side menu layout on your file system
 
-Once your modifications are finished, you have to save the new layout using a new name and then export it.
+Once your modifications are done, save the new layout using a new name and then export it.
 
 1. Rename into **SideMenuLayout**.
 2. Click on **Save**.
@@ -108,4 +110,4 @@ Once your modifications are finished, you have to save the new layout using a ne
 5. Click on the validation button 
 6. In the application details section, click on the URL link to navigate to your living application.
 7. See your new application layout with a side menu.
-8. Feel free to add a lots of new improvements to obtain the layout that fits your needs.
+8. Feel free to add a lots of new improvements to create the layout that fits your needs.
