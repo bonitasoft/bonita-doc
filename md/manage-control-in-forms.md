@@ -1,4 +1,4 @@
-# Using forms in UI Designer
+# Implement form control/validation in the UI Designer
 
 Using a leave request management process example, you will learn how to take advantage of forms in the UI Designer and how to add validation for the data to submit.
 
