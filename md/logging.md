@@ -51,7 +51,7 @@ org.bonitasoft.groovy.script.level = FINEST
 
 To change the Bonita BPM Studio log level (usually to debug Studio), go to the Studio installation folder, configuration directory, and edit the `config.ini` file. You need to set the property `eclipse.log.level` to one of the following values: INFO, WARNING or ERROR.
 
-## How to include logging in your Bonita development
+## How to include logging in your development on Bonita BPM
 
 When you write Groovy scripts or Java code to be included in a process (for example, to create a new connector implementation), logging is usually required. The recommended option is to use [SLF4J](http://www.slf4j.org/) in order to log messages. SLF4J is included in the Bonita dependencies so you can use it without adding extra dependencies. However, to get completion for SLF4J classes during development you need to add the slf4j-api jar file temporarily to your process dependencies (click **_Configure_** then choose **Application dependencies**).
 
