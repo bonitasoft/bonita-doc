@@ -1,4 +1,4 @@
-# Logging
+# Logs
 
 This page contains information about logging in Bonita BPM.
 
