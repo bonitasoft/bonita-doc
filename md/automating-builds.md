@@ -1,11 +1,13 @@
-# Automating builds
+# Automate builds
 
 ::: info
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 
+## Overview
+
 Bonita BPM includes a Workspace API, which is a script, `BonitaStudioBuilder`, for building a bar file from a process and/or a zip file from a REST API extension in a repository. 
-This intended for use in a continuous integration and testing environment. 
+This is intended for a use in a continuous integration and testing environment. 
 
 You can use the `BonitaStudioBuilder` to build a bar file for processes and Rest API extensions stored in a repository. It accesses the build features of Bonita BPM Studio in the background. 
 Bonita BPM Studio must be installed but must not be running. You must to use a dedicated Bonita BPM Studio for continuous integration.
