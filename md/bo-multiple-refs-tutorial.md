@@ -1,4 +1,4 @@
-# Business Object multiple reference tutorial
+# Multiple references in Business Objects
 
 ## Introduction
 
