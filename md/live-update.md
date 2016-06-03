@@ -8,7 +8,7 @@ This page explains how to update live process definition information. You need t
 
 ## Parameters
 
-### How to modify a parameter in Administrator view  
+#### How to modify a parameter in Administrator view  
 
 **Note:** In versions 7.0.x, this feature is only available for Bonita BPM Performance edition. Starting from version 7.1.0, this feature is available for Bonita BPM Performance and Efficiency editions. 
 
@@ -22,7 +22,7 @@ This page explains how to update live process definition information. You need t
 
 ## Connectors
 
-### How to edit connector implementation in Administrator view  
+#### How to edit connector implementation in Administrator view  
 
 **Note:** In versions 7.0.x, this feature is only available for Bonita BPM Performance edition. Starting from version 7.1.0, this feature is available for Bonita BPM Performance and Efficiency editions. 
 
@@ -35,7 +35,7 @@ This page explains how to update live process definition information. You need t
 
 ## Forms
 
-### How to add/edit a form or a page of a process in Administrator view
+#### How to add/edit a form or a page of a process in Administrator view
 
 **Note:** For Bonita BPM Performance and Efficiency editions. 
 
@@ -48,7 +48,7 @@ This page explains how to update live process definition information. You need t
 7. Click on _**Next**_ to check the permissions associated with the uploaded page/form.
 8. Click on _**Confirm**_ to import the new page/form.
 
-### How to update the form/page mapping of a task, process overview or process instantiation in Administrator view
+#### How to update the form/page mapping of a task, process overview or process instantiation in Administrator view
 
 **Note:** For Bonita BPM Performance and Efficiency editions.
 
@@ -61,7 +61,7 @@ This page explains how to update live process definition information. You need t
 
 ## Scripts
 
-### How to edit a script of a process in Administrator view
+#### How to edit a script of a process in Administrator view
 
 **Note:** For Bonita BPM Performance and Efficiency editions.
 
