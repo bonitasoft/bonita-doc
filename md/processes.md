@@ -2,7 +2,7 @@
 
 Logged on with the Administrator profile, you have rights to manage a process as follows.
 
-## How to install a new process
+## Install a new process
 
 1. Go to the BPM tab
 2. Click _**Processes**_
@@ -18,7 +18,7 @@ You can only install a .bar file that was exported from a Bonita BPM Studio of t
 
 [Watch the Install a process video](images/videos-6_0/install_an_app_in_bonita_portal.mp4)
 
-## How to resolve a process
+## Resolve a process
 
 Resolving a process means completing the configuration in the Portal and making sure that all dependencies are met. A process has to be resolved before it can be enabled. 
 
@@ -39,7 +39,7 @@ To resolve a process:
 5. A summary of configuration problems is displayed below the process name in a well and warning icons are displayed in the left navigation list.
 6. Modify your configuration for each element displayed.
 
-## How to enable a process
+## Enable a process
 
 1. Go to the BPM menu tab
 2. Click _**Processes**_
@@ -52,7 +52,7 @@ To resolve a process:
 
 **Note:** You can also select the processes you want to enable by checking the box in the Resolved list, then click _**ENABLE**_ button in the bulk actions section
 
-## How to disable a process
+## Disable a process
 
 1. Go to the BPM tab
 2. Click _**Processes**_
@@ -64,7 +64,7 @@ To resolve a process:
 
 **Note:** You can also disable a process in the more details view, by clicking _**Enabled**_ toggle button.
 
-## How to delete a process
+## Delete a process
 
 **Note:**A process must be disabled before it can be deleted.
 
@@ -75,7 +75,7 @@ To resolve a process:
 
 You can also delete the process in the more details view of a disabled process by clicking _**DELETE**_, then click _**DELETE**_ in the modal window
 
-## How to create a category for a process
+## Create a category for a process
 
 1. Go to BPM tab
 2. Select a process in the list
@@ -86,7 +86,7 @@ You can also delete the process in the more details view of a disabled process b
 
 After you created a category and added to the process, you can add other processes to the category.
 
-## How to add a category to a process
+## Add a category to a process
 
 1. Go to BPM tab
 2. Select a process in the list
@@ -95,7 +95,7 @@ After you created a category and added to the process, you can add other process
 5. In the opened modal, type a new category name then press _**Enter**_ key, or use arrow keys to browse among exisiting categories
 6. Click _**Save**_
 
-## How to make start a process available for more users
+## Make start a process available for more users
 You need to map more organization entities to the actor labelled _initiator_ in the process definition. To do so:
 1. Go to the BPM tab.
 2. Click _**Processes**_.
@@ -108,7 +108,7 @@ You need to map more organization entities to the actor labelled _initiator_ in 
 
 **Note:** Notice that only the first 200 actors are displayed in the dropdown.
 
-## How to remove an entity from an actor
+## Remove an entity from an actor
 
 1. Go to the BPM tab.
 2. Click _**Processes**_.
@@ -121,7 +121,7 @@ You need to map more organization entities to the actor labelled _initiator_ in 
 9. A list appears filled with the actors you can to remove. You can undo a removal by clicking _**X**_ button next to the actor or by clicking _**Enable all**_ 
 10. Click _**APPLY**_.
 
-## How to modify a parameter in the Administrator profile
+## Modify a parameter in the Administrator profile
 
 **Note:** In versions 7.0.x, this feature is only available for Bonita BPM Performance edition. Starting from version 7.1.0, this feature is available for Bonita BPM Performance and Efficiency editions. 
 
@@ -134,7 +134,7 @@ You need to map more organization entities to the actor labelled _initiator_ in 
 7. A field appears
 8. Click the _**Tick**_ button to validate your change or _**X**_ to dismiss your change.
 
-## How to edit a connector implementation
+## Edit a connector implementation
 
 **Note:** In versions 7.0.x, this feature is only available for Bonita BPM Performance edition. Starting from version 7.1.0, this feature is available for Bonita BPM Performance and Efficiency editions. 
 
@@ -146,7 +146,7 @@ You need to map more organization entities to the actor labelled _initiator_ in 
 6. Browse to a .zip file containing the new connector implementation
 7. Click _**Save**_ to import the new implementation.
 
-## How to fix forms
+## Fix forms
 
 **Note:** For Bonita BPM Performance and Efficiency editions only.
 
@@ -161,7 +161,7 @@ You need to map more organization entities to the actor labelled _initiator_ in 
 
 **Note:** You can also upload a form in order to create a new mapping.
 
-## How to upload a new form
+## Upload a new form
 
 **Note:** For Bonita BPM Performance and Efficiency editions only.
 
@@ -177,7 +177,7 @@ You need to map more organization entities to the actor labelled _initiator_ in 
 10. Click _**NEXT**_, then if your form requires some authorization, it will be displayed.
 11. Click _**CONFIRM**_.
 
-## How to edit an existing form
+## Edit an existing form
 
 **Note:** For Bonita BPM Performance and Efficiency editions only.
 
@@ -193,7 +193,7 @@ You need to map more organization entities to the actor labelled _initiator_ in 
 10. Click _**NEXT**_, then if your form requires some authorization, it will be displayed.
 11. Click _**CONFIRM**_.
 
-## How to edit a script content
+## Edit a script content
 
 **Note:** For Bonita BPM Performance and Efficiency editions only.
 
