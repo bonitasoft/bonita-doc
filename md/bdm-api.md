@@ -4,15 +4,15 @@ Access to the bdm REST API depends on the [REST API authorization](rest-api-auth
 
 ## BusinessData
 
-### Description
+#### Description
 
 Retrieve business data value. Depending on the object attribute loading policy, the API returns either the full object in JSON representation or the HATEOAS links to the object attributes.
 
-### Identifier
+#### Identifier
 
 The fully qualified name (businessDataType) and the persistenceId of the business data (a long value).
 
-### Representation
+#### Representation
 
 Representation of object attributes with an _always load_ policy:
 
@@ -39,13 +39,13 @@ HATEOAS representation of object attribute with a _load when needed_ policy:
 ]
 ```
 
-### Methods
+#### Methods
 
 The methods used for this resource are:
 
 * GET
 
-### Get the business data
+#### Get the business data
 
 Get the business data specified by its identifier.
 
@@ -126,7 +126,7 @@ Get the business data specified by its identifier.
 
 
 
-### Get the business data attribute of business data
+#### Get the business data attribute of business data
 
 Gets the business data attribute of business data according to its identifier and attribute name.
 Request url
@@ -153,7 +153,7 @@ Request url
   When business data identifier or attribute name is not valid  
   * **Code**: 500
 
-### Get several business data
+#### Get several business data
 
 Get the business data specified by their identifiers.
 
@@ -217,26 +217,26 @@ Get the business data specified by their identifiers.
 
 ## BusinessDataQuery
 
-### Description
+#### Description
 
 The business data query REST API resource is used to call a default or custom business data query.
 It is available from version 6.5\.
 
-### Identifier
+#### Identifier
 
 ../API/bdm/businessData/_businessDataType_?q=_queryName_
 
-### Representation
+#### Representation
 
 A JSON representation of the query result.
 
-### Methods
+#### Methods
 
 The methods used for this resource are:
 
 * GET - Call a named query
 
-### Call a business data named query
+#### Call a business data named query
 
 The query can be either a default or a custom query.
 
@@ -290,16 +290,16 @@ The query can be either a default or a custom query.
 
 ## BusinessDataReference
 
-### Description
+#### Description
 
 A business data reference is a link between the business data and the case. The reference can be either single or
 multiple depending on the process.
 
-### Identifier
+#### Identifier
 
 The reference name (a string value).
 
-### Representation
+#### Representation
 
 Single reference:
 
@@ -323,13 +323,13 @@ Multiple reference:
 }
 ```
 
-### Methods
+#### Methods
 
 The methods used for this resource are:
 
 * GET
 
-### Get the named business data reference defined in the case
+#### Get the named business data reference defined in the case
 
 Get the named business data reference ({businessDataName} string) defined in the case ({caseId} long).
 * **URL**  
@@ -358,7 +358,7 @@ Get the named business data reference ({businessDataName} string) defined in the
     400 - when caseId is not a number (long)  
     404 - when the businessDataName does not match an existing reference of the case or the caseId is not found
 
-### Get the business data references defined in the case
+#### Get the business data references defined in the case
 
 * **URL**  
   `/API/bdm/businessDataReference?f=caseId={caseId}&p={pageNumber}&c={pageCount}`  
