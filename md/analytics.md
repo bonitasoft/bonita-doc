@@ -17,7 +17,7 @@ You can also [define](reporting-overview.md) and [install a custom report](#inst
 
 ## Default reports
 
-### Case average time
+#### Case average time
 
 Choose a filter to display certain parameters:
 
@@ -25,7 +25,7 @@ Choose a filter to display certain parameters:
 * Case list: period, state (all, archived, opened), processes (all)
 * Task list: period, state (all, archived failed, opened)
 
-### Case list
+#### Case list
 
 Choose a filter to display certain parameters:
 
@@ -33,7 +33,7 @@ Choose a filter to display certain parameters:
 * Case list: period, state (all, archived, opened), process (all)
 * Task list: period, state (all, archived failed, opened)
 
-### Task list time
+#### Task list time
 
 Choose a filter to display certain parameters:
 
@@ -41,7 +41,7 @@ Choose a filter to display certain parameters:
 * Case list: period, state (all, archived, opened), process (all)
 * Task list: period, state (all, archived failed, opened)
 
-### Case history
+#### Case history
 
 For Efficiency and Performance editions.
 
@@ -49,7 +49,7 @@ This report lists human actions on cases. This enables you to analyse and standa
 
 In the case history report, the format of the exported file is a .csv file. This enables the data to be sorted and filtered.
 
-#### Parameters
+##### Parameters
 
 In the report, the **query** parameters are displayed in the **Parameters** section:
 
@@ -60,7 +60,7 @@ If a selection is made in the **Process combo box**, the following combo box is 
 
 * Case ID list named "Cases" \> Select "All" or a specific case ID. This is only available when a process is selected
 
-#### Generated export display
+##### Generated export display
 
 The generated .csv export contains the following in order of display:
 
@@ -96,12 +96,12 @@ You can import a customized report into Bonita BPM Portal.
 
 Custom reports are created externally using [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio).
 
-### Contents of a .report archive (.zip), used in Jasper
+#### Contents of a .report archive (.zip), used in Jasper
 
 The report archive (.zip) contains the Jasper file, a connection properties file and a .jar driver file.
 Optionally, a properties file can be added if the report is localized in different languages.
 
-### Install a report created in the standard Jasper format.
+#### Install a report created in the standard Jasper format.
 
 1. Go to **Analytics**.
 2. Click the _**Install**_ button in the top left corner of the screen.
@@ -109,7 +109,7 @@ Optionally, a properties file can be added if the report is localized in differe
 4. Select to your Jasper file (.zip) on your disk drive.
 5. Click _**Install**_.
 
-### Result
+#### Result
 
 A report is displayed in Bonita BPM Portal containing your data.
 
