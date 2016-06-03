@@ -35,7 +35,7 @@ System.out.println("A new process instance was started with id: " + processInsta
 
 This section contains some examples of how to set the values of some variables using a list of operations when starting an instance of a process and in a running process instance.
 
-### Set string variables and start a process instance
+#### Set string variables and start a process instance
 
 In this example, `createInstance` takes the process definition name, the process version, a map of text variables and their values, and the session identifier. The `startProcess` method, which creates the process instance, takes a list of operations, not a map of variables, so the map must be converted into a list of operations that will set the values of the variables in the process instance. The example calls `buildAssignOperation` for each variable in turn, to build an operation that will assign the value to the variable when the process instance is created. Each operation is built as an assignment expression.
 ```java
@@ -73,7 +73,7 @@ private Operation buildAssignOperation(final String dataInstanceName,
     return operation;}
 ```
 
-### Set variables of any type and start a process instance
+#### Set variables of any type and start a process instance
 
 In this example, `createCase` takes the process definition name, the process version, a map of variable names and objects, and the session identifier. The `startProcess` method, which creates the process instance, takes a list of operations, not a map of variables, so the map must be converted into a list of operations that will set the values of the variables in the process instance. For each variable in turn, the example builds an expression that assigns the value to the variable to the object supplied in the map, specifying the data type by identifying the class of the object. These expressions are concatenated into a list of operations, which is used to initialize the variables when the process instance is created.
 ```java
@@ -111,7 +111,7 @@ public void createCase(String processDefinitionName, String processVersion, Map<
 }
 ```
 
-### Create a map of variables and values and start a process instance
+#### Create a map of variables and values and start a process instance
 
 Version 6.1 of Bonita BPM introduces a new method for starting a case of process and setting the variables. 
 
@@ -128,7 +128,7 @@ public void instantiateProcess(String processDefinitionName, String processVersi
 }
 ```
 
-### For a running process instance, set the value of a custom data type variable
+#### For a running process instance, set the value of a custom data type variable
 
 To update the value of a variable with a custom data type, you need to call a Groovy script expression that returns the new value of the variable, as shown in the example below:
 ```groovy
@@ -225,7 +225,7 @@ This example will show how to use the Bonita BPM Engine API to deploy and enable
 
 The process can be in a business archive (`.bar`) file or can be built using the `processDefinitionBuilder`.
 
-### Deploy and enable a process from a bar file
+#### Deploy and enable a process from a bar file
 
 First create a business archive from the bar file. In this example, the bar file is `/deploy/travelRequest`. 
 The process is deployed and enabled in a single step.
@@ -240,7 +240,7 @@ Now **deploy and enable the process**:
 final ProcessDefinition processDefinition = getProcessAPI().deployAndEnableProcess(businessArchive);
 ```
 
-### Deploy and enable a process from the processDefinitionBuilder
+#### Deploy and enable a process from the processDefinitionBuilder
 
 In this example, there are three steps: deploy the process, map the actor, and enable the process.
 
