@@ -47,15 +47,15 @@ All example scripts given on this page are compatible with Unix-like operating s
 1. Prepare Bonita BPM Studio on the CI server
 
 Bonita BPM Studio includes a BonitaStudioBuilder script for building processes in a CI environment. Install Bonita BPM Studio as follows:
-  1. Download the OS-independent package (zip) from the customer portal. For example use BonitaBPMSubscription-6.1.0.zip for version 6.1.0\. You must have the same version of Bonita BPM Studio for the shared repository and the CI server.
-  2. Extract the package to a permanent location on the CI server: 
+         1. Download the OS-independent package (zip) from the customer portal. For example use BonitaBPMSubscription-6.1.0.zip for version 6.1.0\. You must have the same version of Bonita BPM Studio for the shared repository and the CI server.
+         2. Extract the package to a permanent location on the CI server: 
   `$> unzip -d /path/to/BonitaBPMStudio BonitaBPMSubscription-6.1.0.zip`
-  3. Install your license (a license must have been requested for CI server): 
+         3. Install your license (a license must have been requested for CI server): 
   `$> cp license.lic /path/to/BonitaBPMStudio/BonitaBPMSubscription-6.1.0/lic_folder/`
 
 You are recommended to install a window manager on the CI server in order to have process diagram screenshots generated along with business archives.
-2. Create Jenkins job
-In Jenkins, create a new job of type "Build a free-style software project". Specify a job name for example "BonitaBPM-BuildProcesses".
+2. Create Jenkins job  
+         In Jenkins, create a new job of type "Build a free-style software project". Specify a job name for example "BonitaBPM-BuildProcesses".
 
 3. Configure Jenkins job
          1. Check out your process repository from Subversion. To do this, configure the "Source Code Management" section to retrieve (check out) your Subversion process shared repository. Specify the repository URL, and optionally your local repository. We recommend that you set teh check-out strategy to _Use 'svn update' as much as possible_.
@@ -93,6 +93,7 @@ In Jenkins, create a new job of type "Build a free-style software project". Spec
 
          The Maven artifact could also be deployed to a centralized Maven repository manager solution.
          To do so, add a second build step of type "Invoke top-level Maven targets" configured as follows:
+         
          ```bash
          Goals: install:install-file
          Properties:
@@ -102,12 +103,13 @@ In Jenkins, create a new job of type "Build a free-style software project". Spec
          packaging=zip
          file=$WORKSPACE/process-bars.zip
          ```
+         
          4. Archive generated artifact in Jenkins
-         You can archive the job artifact (generated processes package) in Jenkins.
-         To do so, add a post-build action of type "Archive the artifacts" and choose to archive the "process-bars.zip" package.
-         As a result, the generated business archives will be made available for download from Jenkins interface.
-  * Run the Jenkins job
-    Run the "BonitaBPM-BuildProcesses" Jenkins job. When it is finished, the Maven artifact `com.acme.bonita:process-bars:1.0.0-SNAPSHOT` in installed in the local Maven repository of the CI server. The generated processes package is also available as a job build artifact in Jenkins.
+         You can archive the job artifact (generated processes package) in Jenkins.  
+         To do so, add a post-build action of type "Archive the artifacts" and choose to archive the "process-bars.zip" package.  
+         As a result, the generated business archives will be made available for download from Jenkins interface.  
+4. Run the Jenkins job
+  Run the "BonitaBPM-BuildProcesses" Jenkins job. When it is finished, the Maven artifact `com.acme.bonita:process-bars:1.0.0-SNAPSHOT` in installed in the local Maven repository of the CI server. The generated processes package is also available as a job build artifact in Jenkins.
 
 ## Test your processes automatically
 
