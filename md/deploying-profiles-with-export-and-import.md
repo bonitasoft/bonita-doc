@@ -4,6 +4,8 @@
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 
+## Overview
+
 Deploying a profile means exporting it from one portal and importing it into another. This is useful when you have finished testing profiles and custom pages in a limited environment and are ready to go to production.
 
 When you export a profile, it includes the following:
