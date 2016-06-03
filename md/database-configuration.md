@@ -73,13 +73,14 @@ Bonita BPM Engine needs to know which type of RDBMS you are using.
 This is defined by setting the `sysprop.bonita.db.vendor` JVM system property value.
 
 The possible values for `sysprop.bonita.db.vendor` / `db.vendor` are:
-| Database vendor | Property value| 
-|:-|:-|
-| PostgreSQL | postgres| 
-| Oracle database | oracle| 
-| SQL Server | sqlserver| 
-| MySQL | mysql| 
-| h2 (default for testing, not for production) | h2| 
+
+| Database vendor | Property value |  
+| :- | :- |  
+| PostgreSQL | postgres | 
+| Oracle database | oracle | 
+| SQL Server | sqlserver | 
+| MySQL | mysql | 
+| h2 (default for testing, not for production) | h2 | 
   
 The way to define JVM system properties depends on your application server type:
 
@@ -97,12 +98,13 @@ If the property is not defined, the fallback value is h2: `db.vendor=${sysprop.b
 ### Download JDBC driver
 
 First, you need to download the JDBC driver for your database system. Use links below to download the driver.
-| Database vendor | Download link| 
-|:-|:-|
-| PostgreSQL (use "Current Version") | [download](https://jdbc.postgresql.org/download.html#current)| 
-| Oracle Database | [download](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html)| 
-| Microsoft SQL Server | [download](http://go.microsoft.com/fwlink/?LinkId=245496)| 
-| MySQL | [download](http://dev.mysql.com/downloads/connector/j/)| 
+
+| Database vendor | Download link | 
+| :- | :- |
+| PostgreSQL (use "Current Version") | [download](https://jdbc.postgresql.org/download.html#current) | 
+| Oracle Database | [download](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html) | 
+| Microsoft SQL Server | [download](http://go.microsoft.com/fwlink/?LinkId=245496) | 
+| MySQL | [download](http://dev.mysql.com/downloads/connector/j/) | 
   
 Note that if you run on Linux, the JDBC driver might also be available in the distribution packages repository. On Ubuntu
 and Debian you can, for example, install the `libpostgresql-jdbc-java` package to get the PostgreSQL JDBC Driver (install in `/usr/share/java`).
@@ -121,8 +123,9 @@ Refer to the table below to identify the folders to create.
 The last folder is named `main` for all JDBC drivers.
 * Add the JDBC driver jar file to the `main` folder.
 * Create a module description file `module.xml` in `main` folder.
+
 | Database vendor | Module folders | Module description file |
-|:-|:-|:-|
+| :- | :- | :- |
 | PostgreSQL | modules/org/postgresql/main | [module.xml](images/special_code/postgresql/module.xml) |
 | Oracle | modules/com/oracle/main | [module.xml](images/special_code/oracle/module.xml) |
 | SQL Server | modules/com/sqlserver/main | [module.xml](images/special_code/sqlserver/module.xml) |
