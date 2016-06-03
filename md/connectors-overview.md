@@ -41,7 +41,7 @@ all outputs
 **Note:** All the connector outputs must be set in the implementation; otherwise, the connector execution will fail. The connector outputs must be serializable.
 
 For details of the APIs, the methods and related objects, see the 
-[Javadoc](javadoc.md).
+[Javadoc](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html).
 
 <a id="Importing_a_connector"/>
 

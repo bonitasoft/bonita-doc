@@ -117,7 +117,7 @@ The Java class must implement the org.bonitasoft.engine.filter.AbstractUserFilte
 * filter to get a list of identifiers of all the users that correspond to a specified actor name
 * shouldAutoAssignTaskIfSingleResult to assign the step to the user if filter returns one user
 
-For details of the APIs, the methods and related objects, see the [Javadoc](javadoc.md).
+For details of the APIs, the methods and related objects, see the [Javadoc](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html).
 
 ### Actor filter example code
 
