@@ -2,15 +2,15 @@
 
 ## Page
 
-### Description
+#### Description
 
 Use the page resource to access custom pages.
 
-### Identifier
+#### Identifier
 
 Simple, the ID of the object (a long value)
 
-### Representation
+#### Representation
 
 ```json
 {
@@ -27,7 +27,7 @@ Simple, the ID of the object (a long value)
 }
 ```
 
-### Methods
+#### Methods
 
 The methods used for this resource are:
 
@@ -36,7 +36,7 @@ The methods used for this resource are:
 * PUT - Update a custom page
 * DELETE - Remove a custom page
 
-### Retrieve a Custom Page
+#### Retrieve a Custom Page
 
 Use a GET method to retrieve information about a custom page.
 
@@ -62,7 +62,7 @@ Use a GET method to retrieve information about a custom page.
     }
     ```
 
-### Add a new custom page
+#### Add a new custom page
 
 Use the POST method to create a new custom page. To add a new custom page, there are two steps:
 
@@ -99,7 +99,7 @@ Use the POST method to create a new custom page. To add a new custom page, there
     }
     ```
 
-### Update a custom page
+#### Update a custom page
 
 Use the PUT method to update an existing custom page.
 To update a custom page, upload the new page content using the pageUpload servlet, which returns a temporary file name, and then call this API with the temporary file name.
@@ -119,7 +119,7 @@ To update a custom page, upload the new page content using the pageUpload servle
 * **Success Response**  
   * **Code**: 200
 
-### Search custom pages
+#### Search custom pages
 
 Use a GET method with filters and search terms to search for custom pages.
 
@@ -143,7 +143,7 @@ Use a GET method with filters and search terms to search for custom pages.
   An array of custom page objects
   * **Code**: 200
 
-### Delete a custom page
+#### Delete a custom page
 
 Use the DELETE method to delete an existing custom page
 
@@ -156,15 +156,15 @@ Use the DELETE method to delete an existing custom page
 
 ## Profile
 
-### Description
+#### Description
 
 Use the profile resource to access profiles.
 
-### Identifier
+#### Identifier
 
 Simple, the ID of the object (a long value)
 
-### Representation
+#### Representation
 
 ```json
     {
@@ -180,7 +180,7 @@ Simple, the ID of the object (a long value)
     }
 ```
 
-### Methods
+#### Methods
 
 The methods used for this resource are:
 
@@ -189,7 +189,7 @@ The methods used for this resource are:
 * PUT - Update a profile
 * DELETE - Remove a profile
 
-### Retrieve a Profile
+#### Retrieve a Profile
 
 Use a GET method to retrieve information about a profile.
 
@@ -214,7 +214,7 @@ Use a GET method to retrieve information about a profile.
     }
     ```
 
-### Add a new profile
+#### Add a new profile
 
 Use the POST method to create a new profile.
 
@@ -246,7 +246,7 @@ Use the POST method to create a new profile.
     }
     ```
 
-### Update a profile
+#### Update a profile
 
 Use the PUT method to update an existing profile.
 
@@ -265,7 +265,7 @@ Use the PUT method to update an existing profile.
 * **Success Response**  
   * **Code**: 200
 
-### Search profiles
+#### Search profiles
 
 Use a GET method with filters and search terms to search for profiles.
 
@@ -285,7 +285,7 @@ Use a GET method with filters and search terms to search for profiles.
   * **Payload**:  
   An array of profile objects
 
-### Delete a profile
+#### Delete a profile
 
 Use the DELETE method to delete an existing profile
 
@@ -298,15 +298,15 @@ Use the DELETE method to delete an existing profile
 
 ## ProfileEntry
 
-### Description
+#### Description
 
 A profileEntry represents the association between pages and profiles. A profile is associated with a set of profileEntry items. This defines the pages that a user with this profile can access, and the menu structure that the user sees.
 
-### Identifier
+#### Identifier
 
 Simple, the ID of the object (a long value)
 
-### Representation
+#### Representation
 
 ```json
 {
@@ -323,7 +323,7 @@ Simple, the ID of the object (a long value)
 }
 ```
 
-### Methods
+#### Methods
 
 The methods used for this resource are:
 
@@ -332,7 +332,7 @@ The methods used for this resource are:
 * PUT - Update a profileEntry
 * DELETE - Remove a profileEntry
 
-### Retrieve a profileEntry
+#### Retrieve a profileEntry
 
 Use a GET method to retrieve information about a profileEntry
 
@@ -358,7 +358,7 @@ Use a GET method to retrieve information about a profileEntry
     }
     ```
 
-### Add a new profileEntry
+#### Add a new profileEntry
 
 Use the POST method to create a new profileEntry.
 
@@ -427,7 +427,7 @@ Use the POST method to create a new profileEntry.
     }
     ```
 
-### Update a profileEntry
+#### Update a profileEntry
 
 Use the PUT method to update an existing profileEntry.
 
@@ -444,7 +444,7 @@ Use the PUT method to update an existing profileEntry.
 * **Success Response**  
   * **Code**: 200
 
-### Search profileEntry items
+#### Search profileEntry items
 
 Use a GET method with filters and search terms to search for profileEntry items.
 
@@ -467,7 +467,7 @@ Use a GET method with filters and search terms to search for profileEntry items.
   * **Code**: 200
   * **Payload**:  
 
-### Delete a profileEntry
+#### Delete a profileEntry
 
 Use the DELETE method to delete an existing profileEntry
 
@@ -480,15 +480,15 @@ Use the DELETE method to delete an existing profileEntry
 
 ## ProfileMember
 
-### Description
+#### Description
 
 A profileMember represents the association between the organization and profiles. In an organization we have three member\_types = USER, GROUP and ROLE. You can assign a profile to a user by specifying a role, group, or specific user. 
 
-### Identifier
+#### Identifier
 
 Simple, the ID of the object (a long value)
 
-### Representation
+#### Representation
 
 ```json
 {
@@ -500,7 +500,7 @@ Simple, the ID of the object (a long value)
 }
 ```
 
-### Methods
+#### Methods
 
 The methods used for this resource are:
 
@@ -508,7 +508,7 @@ The methods used for this resource are:
 * GET - Search a profileMember
 * DELETE - Remove a profileMember
 
-### Add a new profileMember
+#### Add a new profileMember
 
 Use the POST method to create a new profileMember.
 
@@ -557,7 +557,7 @@ Use the POST method to create a new profileMember.
     }
     ```
 
-### Search profileMembers
+#### Search profileMembers
 
 Use a GET method with filters and search terms to search for profileMembers.
 
@@ -579,7 +579,7 @@ Use a GET method with filters and search terms to search for profileMembers.
   An array of profileMember objects
   * **Code**: 200
 
-### Delete a profileMember
+#### Delete a profileMember
 
 Use the DELETE method to delete an existing profileMember.
 
@@ -592,22 +592,22 @@ Use the DELETE method to delete an existing profileMember.
 
 ## Theme
 
-### Description
+#### Description
 
 Use the theme resource for managing the portal and mobile app theme (look & feel).
 
-### Identifier
+#### Identifier
 
 Simple, the ID of the object (a long value)
 
-### Methods
+#### Methods
 
 The methods used for this resource are:
 
 * POST - Change the theme
 * PUT - Restore the default theme
 
-### Change a theme
+#### Change a theme
 
 Use the method POST for applying a new theme. Two types are permitted: `portal` and `mobile`.
 
@@ -633,7 +633,7 @@ Use the method POST for applying a new theme. Two types are permitted: `portal` 
 * **Success Response**  
   * **Code**: 200
 
-### Restore a default theme
+#### Restore a default theme
 
 Use the method PUT method for restoring the default theme. Two types are permitted: `portal` and `mobile`
 
