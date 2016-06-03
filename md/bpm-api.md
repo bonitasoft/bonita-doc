@@ -1803,7 +1803,7 @@ Use the document resource to access a document in an active case.
 Use the case document resource to access a document in an active case. For archived cases and previous document versions use archivedCaseDocument.
 
 ::: info
-**Note**: The REST methods for handling documents have been updated in {{ var\_product }} 6.4 and the following item is deprecated:
+**Note**: The REST methods for handling documents have been updated in Bonita BPM 6.4 and the following item is deprecated:
 
 * `author` in the payload is deprecated: use `submittedBy`
 :::

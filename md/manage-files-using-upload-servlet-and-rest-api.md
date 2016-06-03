@@ -22,7 +22,7 @@ Available servlet list:
 ### Example: link an icon to a new organisation group
 
 1. Upload an image by using a multipart post request on the image upload servlet, `http://localhost:8080/bonita/portal/imageUpload`.
-2. The image is stored temporarily in {{ var\_bonita\_home }}, in `/client/tenants/`_`tenantId`_`/tmp`.
+2. The image is stored temporarily in Bonita Home, in `/client/tenants/`_`tenantId`_`/tmp`.
 3. The servlet returns the name of the temporary file.
 4. When you create the new group, link this image to the group by specifying this temporary file name
 

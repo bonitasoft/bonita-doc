@@ -40,5 +40,5 @@ If you are using the Performance or Efficiency edition, you can create a custom 
 
 ## Forms cache configuration
 
-The forms cache is implemented using EhCache. The cache configuration is defined in `BONITA_HOME/client/platform/conf/cache-config.xml`. 
+The forms cache is implemented using EhCache. The cache configuration is defined in `$BONITA_HOME/client/platform/conf/cache-config.xml`. 
 By default, when you restart the server, the cache is emptied, so forms would have to be loaded again. To keep the cached forms after a restart, set the `diskPersistent` property to `true`.

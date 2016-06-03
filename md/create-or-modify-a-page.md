@@ -1,6 +1,6 @@
 # Create or modify pages and forms
 
-The {{ var\_uiDesigner }} is a powerful application for designing Bonita BPM custom pages, layouts, forms, custom widgets and fragments.  
+The Bonita BPM UI designer is a powerful application for designing Bonita BPM custom pages, layouts, forms, custom widgets and fragments.  
 Custom pages are used in Bonita BPM Portal custom profiles or in custom BPM applications.  
 Forms are used to instantiate a process or to execute a human task.  
 The UI Designer runs in a browser. Launching it from Bonita BPM Studio starts a web server and opens your default browser.

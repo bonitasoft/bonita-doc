@@ -94,6 +94,12 @@ Now, starting from the visualization of the _taxonomy.md_ page, we can browse to
 
 All images must be placed in the **md/images** folder, whatever the version is. It is due to the fact that the application site resolve images from the root folder.
 
+#### Variables
+
+During markdown to HTML conversion, some predefined variables located in the [variables.json file](scripts/variables.json) are replaced.
+
+Currently, only the `varVersion` exists and match the current documentation version.
+
 #### Table of content
 
 A table of content is automatically added on each page. It will be place right before the first h2 title.

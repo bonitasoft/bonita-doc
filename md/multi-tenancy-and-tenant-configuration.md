@@ -26,7 +26,7 @@ These tenants are configured with a single database. This illustration shows a p
 
 ## Platform configuration
 
-The platform is the part of the system that is common to all tenants. The platforms and tenant configurations are defined in [`<BONITA_HOME>`](bonita-home.md).
+The platform is the part of the system that is common to all tenants. The platforms and tenant configurations are defined in [`$BONITA_HOME`](bonita-home.md).
 
 The platform configuration directory is located here: `engine-server/conf/platform`.
 
@@ -64,12 +64,12 @@ platformAPI.activateTenant(tenantId);
 platformLoginAPI.logout(platformSession);
 ```
 
-This creates the server-side configuration files in {{ var\_bonita\_home }}, but it does not create the client part of the bonita\_home for the tenant, which are required for the Bonita BPM Portal to work. 
-You need to copy these files from the {{ var\_bonita\_home }} client tenant template into the newly created tenant, and configure the settings (if you need specific settings):
+This creates the server-side configuration files in Bonita Home, but it does not create the client part of the bonita\_home for the tenant, which are required for the Bonita BPM Portal to work. 
+You need to copy these files from the Bonita Home client tenant template into the newly created tenant, and configure the settings (if you need specific settings):
 
-* Create a directory nammed with the identifier of the newly created tenant in `{{ var_bonita_home }}/client/tenants/`
-* Copy all the content from `{{ var_bonita_home }}/client/platform/tenant-template/` into `{{ var_bonita_home }}/client/tenants/TENANT_ID` (where TENANT\_ID is the tenant identifier)
-* If you need specific settings (for example for authentication), you can configure your tenant in `{{ var_bonita_home }}/client/tenants/TENANT_ID/conf`
+* Create a directory nammed with the identifier of the newly created tenant in `$BONITA_HOME/client/tenants/`
+* Copy all the content from `$BONITA_HOME/client/platform/tenant-template/` into `$BONITA_HOME/client/tenants/TENANT_ID` (where TENANT\_ID is the tenant identifier)
+* If you need specific settings (for example for authentication), you can configure your tenant in `$BONITA_HOME/client/tenants/TENANT_ID/conf`
 
 ### REST API
 
