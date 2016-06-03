@@ -44,7 +44,7 @@ You cannot remove permissions in a configuration file, so you must ensure that t
 These files are located in `bonita-home\client\tenants\[tenantId]\conf\` for each tenant and in
 `bonita-home\client\tenants\tenant-template\conf\`.
 
-### Resources permissions mapping
+#### Resources permissions mapping
 
 The `resources-permissions-mapping.properties` file defines the mapping of REST resources to simple permissions.
 This which tells you what permission is needed to access a given resource. 
@@ -61,7 +61,7 @@ This specifies that information about the user with id 3 can only be seen by use
 
 If there are conflicts between permissions, the more restrictive definition overrides the more general. You can see this in the example above, where the specific permission for user 3 overrides the general permission for seeing user information.
 
-### Compound permissions mapping
+#### Compound permissions mapping
 
 The `compound-permissions-mapping.properties` file defines sets of simple permissions that are grouped together into a compound permission.
 You can use a compound permission as "shorthand" for a list of simple permissions.
@@ -75,7 +75,7 @@ By default, there is a compound permission defined for each page in the standard
 There is one line for each custom page. These lines are added automatically when you install the custom page in the portal.
 You can also update the file manually to add custom compound configurations.
 
-### Custom permissions mapping
+#### Custom permissions mapping
 
 The `custom-permissions-mapping.properties` file contains custom rules that supplement the resource permissions and compound permissions.
 By default, this file is empty, because the compound permissions definitions automatically manage the permissions needed for default and custom profiles, and for default and custom pages.
@@ -124,7 +124,7 @@ The `dynamic-permissions-checks.properties` file contains a placeholder line for
 To specify a dynamic check for a method and resource, uncomment the line and add the conditions.
 If you specify a condition that calls a Groovy script, add the script to the `bonita-home\engine-server\work\tenants\[tenantId]\security-scripts` folder.
 
-### Example dynamic check script
+#### Example dynamic check script
 
 This script is an example of how to write a dynamic check. It checks two conditions, depending on the method called for a case.
 If the method is a POST, which would start a case of a process. the user can only start the case if they are eligible to start the process itself.
@@ -275,7 +275,7 @@ edit `web.xml` and comment out the following definitions:
 
 <a id="debug"/>
 
-### Running in debug mode
+#### Running in debug mode
 
 If debug mode is activated, whenever you update a configuration file or a dynamic check script, the changes take effect immediately.
 
@@ -285,7 +285,7 @@ To deactivate authorization, set the property to `false`, then restart the appli
 
 <a id="migrate"/>
 
-### Migration
+#### Migration
 When you migrate from a version earlier than 6.4.0, authorization is configured to be off (`security.rest.api.authorizations.check.enabled` is set to `false`).
 
 If you have an existing custom page and want to activate authorization, you need to add permissions to the definition of the custom page.
