@@ -1,4 +1,4 @@
-# Configuring Bonita Home for a client
+# Configure Bonita Home for a client
 
 ##Deprecated, use the programmatic way instead, see [APITypeManager](http://documentation.bonitasoft.com/javadoc/api/7.2/org/bonitasoft/engine/util/APITypeManager.html).
 
