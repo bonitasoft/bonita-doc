@@ -2,15 +2,15 @@
 
 ## Platform
 
-### Description
+#### Description
 
 Handle the platform. This requires a platform session. Log in using the platformloginservice servlet.
 
-### Identifier
+#### Identifier
 
 _unusedid_, the id is not used because there is only one platform
 
-### Representation
+#### Representation
 ```json
 {
   "createdBy":"_the user name of the platform administrator_",
@@ -21,7 +21,7 @@ _unusedid_, the id is not used because there is only one platform
   "version":"_the current version of the platform_"
 }
 ```
-### Methods
+#### Methods
 
 The methods used for this resource are:
 
@@ -30,7 +30,7 @@ The methods used for this resource are:
 * PUT - start or stop the platform
 * DELETE - destroy the platform
 
-### Get the platform
+#### Get the platform
 
 * **URL**  
   `/API/platform/platform/unusedid`  
@@ -51,7 +51,7 @@ The methods used for this resource are:
     }
     ```
 
-### Start or stop the platform
+#### Start or stop the platform
 
 Start or stop the current node, that is, start or stop all services of the current JVM.
 
@@ -77,15 +77,15 @@ Start or stop the current node, that is, start or stop all services of the curre
 
 ## Tenant
 
-### Description
+#### Description
 
 Handle the tenants (Performance edition only). This requires a platform session. Log in using the platformloginservice servlet.
 
-### Identifier
+#### Identifier
 
 The id of the tenant
 
-### Representation
+#### Representation
 ```json
 {
   "id":"_id of the tenant_",
@@ -97,7 +97,7 @@ The id of the tenant
 }
 ```
 
-### Methods
+#### Methods
 
 The methods used for this resource are:
 
@@ -106,7 +106,7 @@ The methods used for this resource are:
 * PUT - update the tenant and activate or deactivate it
 * DELETE - delete a tenant
 
-### Get a tenant
+#### Get a tenant
 
 * **URL**  
   `/API/platform/tenant/:id`  
@@ -129,7 +129,7 @@ The methods used for this resource are:
     }
     ```
 
-### Create a tenant
+#### Create a tenant
 
 Create a new tenant on the platform.
 
@@ -164,7 +164,7 @@ Create a new tenant on the platform.
     }
     ```
 
-### Update a tenant
+#### Update a tenant
 
 Attributes of the tenant can be changed, and it can be activated or deactivated at the same time.
 
@@ -197,7 +197,7 @@ Attributes of the tenant can be changed, and it can be activated or deactivated 
     }
     ```
 
-### Delete a tenant
+#### Delete a tenant
 
 A tenant can only be deleted if it is in DEACTIVATED state.
 
@@ -210,18 +210,18 @@ A tenant can only be deleted if it is in DEACTIVATED state.
 
 ## License
 
-### Description
+#### Description
 
 Handle the license information. This requires a platform session. Log in using the
 platformloginservice servlet.
 
 This Web REST API is available in Subscription editions only, since version 7.1\.
 
-### Identifier
+#### Identifier
 
 empty
 
-### Representation
+#### Representation
 
 ```json
 {
@@ -242,13 +242,13 @@ empty
 }
 ```
 
-### Methods
+#### Methods
 
 The methods used for this resource are:
 
 * GET - get subscription license information
 
-### Get subscription license information
+#### Get subscription license information
 
 * **URL**  
   `/API/platform/licence`  
