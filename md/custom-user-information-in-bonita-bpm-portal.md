@@ -1,5 +1,7 @@
 # Custom User Information in Bonita BPM Portal
 
+## Overview
+
 Custom User Information defined in the Organization in Bonita BPM Studio is displayed in the Bonita BPM Portal in the **More** page for a user (only accessible under the Administrator profile).
 
 The **Users with custom information** filter in Bonita BPM Studio uses this custom information to map which users can perform tasks in the Bonita BPM Portal.
