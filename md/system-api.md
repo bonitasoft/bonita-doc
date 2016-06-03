@@ -2,11 +2,11 @@
 
 ## i18nlocale
 
-### Description
+#### Description
 
 List the available locales.
 
-### Representation
+#### Representation
 ```json
 {
   "name":"_Name of the language_",
@@ -14,13 +14,13 @@ List the available locales.
 }
 ```
 
-### Methods
+#### Methods
 
 The methods used for this resource are:
 
 * GET - list available locales
 
-### List available locales
+#### List available locales
 
 * **URL**  
   `/API/system/i18nlocale`  
@@ -51,11 +51,11 @@ The methods used for this resource are:
 
 ## i18ntranslation
 
-### Description
+#### Description
 
 Get the translations for the specified locale.
 
-### Representation
+#### Representation
 
 ```json
 {
@@ -64,13 +64,13 @@ Get the translations for the specified locale.
 }
 ```
 
-### Methods
+#### Methods
 
 The methods used for this resource are:
 
 * GET - the translations for the specified locale
 
-### List available translations
+#### List available translations
 
 Returns all translations of the product. If a locale is specified in the filter, that translation for that locale are returned. if no locale is specified, the translations in English are returned.
 
@@ -99,15 +99,15 @@ Returns all translations of the product. If a locale is specified in the filter,
 
 ## Session
 
-### Description
+#### Description
 
 Get the current session.
 
-### Identifier
+#### Identifier
 
 _unusedid_, the id is not used, the current session is always returned
 
-### Representation
+#### Representation
 
 ```json
 {
@@ -120,13 +120,13 @@ _unusedid_, the id is not used, the current session is always returned
 }
 ```
 
-### Methods
+#### Methods
 
 The methods used for this resource are:
 
 * GET - get the current session
 
-### Get the current session
+#### Get the current session
 
 * **URL**  
   `/API/system/session/unusedid`  
@@ -149,15 +149,15 @@ The methods used for this resource are:
 
 ## Tenant
 
-### Description
+#### Description
 
 Pause and resume tenant services in order to do maintenance on a tenant.
 
-### Identifier
+#### Identifier
 
 _unusedid_, the id is not used, the current tenant is always returned
 
-### Representation
+#### Representation
 ```json
 {
   "paused":"_true if the tenant is paused, false otherwise_",
@@ -165,14 +165,14 @@ _unusedid_, the id is not used, the current tenant is always returned
 }
 ```
 
-### Methods
+#### Methods
 
 The methods used for this resource are:
 
 * GET - get the current tenant
 * PUT - pause or resume the tenant
 
-### Get the current tenant
+#### Get the current tenant
 * **URL**  
   `/API/system/tenant/unusedid`  
 * **Method**  
@@ -188,7 +188,7 @@ The methods used for this resource are:
     }
     ```
 
-### Pause or resume the current tenant
+#### Pause or resume the current tenant
 
 * **URL**  
   `/API/system/tenant/unusedid`  
