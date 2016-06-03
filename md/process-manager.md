@@ -32,7 +32,7 @@ For the processes they manage, a process manager can:
 There are two stages to assigning a Process manager to a process: assign the Process manager profile to an entity, then map the process to the entity. 
 You can assign the PM profile and map a process to a user, groups, role, or membership entity.
 
-### Assign the Process manager profile to a user
+#### Assign the Process manager profile to a user
 
 To assign the Process manager profile to a user:
 
@@ -47,7 +47,7 @@ To assign the Process manager profile to a user:
 
 You can also assign a profile to a group, role, or membership.
 
-### Assign a process to a Process manager
+#### Assign a process to a Process manager
 
 To assign a process to a user who has the Process manager profile:
 
