@@ -55,7 +55,7 @@ If you want to use another database you need to specify the [database configurat
 JBoss can be started by executing the following script:
 
 * Windows `<JBOSS_HOME>\bonita-start.bat`
-* Linux `<JBOSS_HOME>/.sh`
+* Linux `<JBOSS_HOME>/bonita-start.sh`
 
 ### Custom start-up script
 
