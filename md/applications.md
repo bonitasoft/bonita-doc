@@ -63,7 +63,7 @@ However, at this stage the application contains only the default home page. You 
 
 <a id="layout"/>
 
-### Specifying application layout (Subscription editions)
+#### Specifying application layout (Subscription editions)
 
 Each application is associated with a [layout](layouts.md) that defines the main frame of this application.
 
@@ -78,7 +78,7 @@ To specify the application layout:
 
 <a id="theme"/>
 
-### Specifying application theme (Subscription editions)
+#### Specifying application theme (Subscription editions)
 
 Each application is associated with a [theme](themes.md) that defines the application appearance. All pages developed with the [UI Designer](ui-designer-overview.md) will automatically benefit of application theme.
 If you develop pages by yourself you need to include the following line in your source to get theme working `<link rel="stylesheet" href="../theme/theme.css">`.
@@ -92,7 +92,7 @@ To specify the application theme:
 5. Choose the new theme from the drop down list. Themes must be previously deployed. By default, there are six Bootstrap based themes.
 6. Click on the validate button.
 
-### Specifying application pages
+#### Specifying application pages
 
 When you specify application pages, you create a mapping between the application and the [pages](pages.md) it contains. The pages themselves must already exist.
 
@@ -107,7 +107,7 @@ The pages are listed in alphabetical order.
 
 **Note:** When you define the URL token for a page, you cannot use "API","content" or "theme" (case insensitive). Those words are reserved for internal use.
 
-### Defining application navigation
+#### Defining application navigation
 
 When you specify the navigation, you define the menu names and structure, and the pages that menu items point to. The menu hierarchy is limited to two levels, for usability.
 At the top level, you can specify two types of item:
@@ -152,7 +152,7 @@ When you export an application, it includes the following:
 
 It does not include the pages, layout, or theme themselves, the business data model, the profile definition, the processes, the organization, or the authorization settings. These must all be deployed separately.
 
-### Export applications
+#### Export applications
 
 To export an application:
 
@@ -162,7 +162,7 @@ To export an application:
 
 An XML file, `Application_Data.xml`, is exported.
 
-### Import applications
+#### Import applications
 
 When you import an application, you import the mapping of the application to pages. For the import to be successful, any pages, layout and theme must already be loaded.
 If you are setting up a new production environment by importing all the data, import it in the following order:
@@ -196,7 +196,7 @@ If the specified layout and/or theme is not present, the application is created 
 
 There are two aspects to updating an application: changing the application definition and changing the resources. 
 
-### Updating an application definition
+#### Updating an application definition
 
 1. In the menu bar, click **Applications**. The Applications list page is displayed.
 2. Click the Edit icon (...) for the application you want to edit. The application details page is displayed. From this page, you can edit the application metadata, layout, theme, pages, and navigation.
@@ -208,7 +208,7 @@ Note that if you remove a page, the related menu items are automatically removed
   * To edit the navigation, go to the Navigation zone. You can add a menu or menu item by clicking **_Add_**. You can remove a menu or menu item by clicking the trashcan icon for that page.
 You can reorder menus and menu items by dragging and dropping them.
 
-### Updating application resources
+#### Updating application resources
 
 Some resources of an application can be updated live without needing to stop the processes or require users to log out of the application. [Live update](live-update.md) is primarily intended for rapid deployment of updates in a pre-production test environment. It can be used to deploy updates in a production environment, but in most production environments applications and their components are versioned, so a planned roll-out is more typical.
 
