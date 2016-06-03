@@ -1,5 +1,7 @@
 # Migrate from an earlier version of Bonita BPM
 
+## Overview
+
 This page explains how to migrate your platform to a newer version of Bonita BPM.
 
 You can migrate your platform using the `migration` script. This script can migrate from Bonita BPM 6.0.2 or later to any
