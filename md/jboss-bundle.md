@@ -46,7 +46,7 @@ and change the value of the `activeProfiles` key to `'community,performance'`. N
 
 The JBoss bundle is configured to use an h2 database by default. h2 is suitable for a test platform, but for production, you are recommended to use one of the supported databases.
 
-If you want to use another database you need to specify the [database configuration](database-configuration.md). Make sure you do this before you start JBoss.
+If you want to use another database you need to specify the [database configuration](database-configuration.md) and the [business data database configuration](database-configuration-for-business-data.md). Make sure you do this before you start JBoss.
 
 ## Start and shut down JBoss
 
@@ -54,8 +54,8 @@ If you want to use another database you need to specify the [database configurat
 
 JBoss can be started by executing the following script:
 
-* Windows `<JBOSS_HOME>\bin\standalone.bat`
-* Linux `<JBOSS_HOME>/bin/standalone.sh`
+* Windows `<JBOSS_HOME>\bonita-start.bat`
+* Linux `<JBOSS_HOME>/.sh`
 
 ### Custom start-up script
 
