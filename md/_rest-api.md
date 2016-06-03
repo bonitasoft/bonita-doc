@@ -11,4 +11,4 @@
 * [portal API](portal-api.md)
 * [system API](system-api.md)
 * [REST API extensions](rest-api-extensions.md)
-* [Manage files using upload servlet and Rest API](manage-files-using-upload-servlet-and-rest-api.md)
+* [Manage files using upload servlet and REST API](manage-files-using-upload-servlet-and-rest-api.md)
