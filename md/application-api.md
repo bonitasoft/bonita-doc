@@ -4,15 +4,15 @@
 
 ## Living application
 
-### Description
+#### Description
 
 Manage applications. This enables you to build to build a consistent functional applicative environment for users to interact with business processes and business data from one place.
 
-### Identifier
+#### Identifier
 
 The ID of the application (a long value).
 
-### Representation
+#### Representation
 ```json
 {
   "id":"id of the application",
@@ -29,7 +29,7 @@ The ID of the application (a long value).
 }
 ```
 
-### Methods
+#### Methods
 
 The methods used for this resource are:
 
@@ -38,7 +38,7 @@ The methods used for this resource are:
 * PUT - Update an application
 * DELETE - Remove an application
 
-### Create an application
+#### Create an application
 
 * **URL:**  
   `/API/living/application`  
@@ -77,7 +77,7 @@ The methods used for this resource are:
     }
     ```
 
-### Get an application
+#### Get an application
 
 * **URL:**  
   `/API/living/application/:applicationId`
@@ -104,7 +104,7 @@ The methods used for this resource are:
       "homePageId":"-1"
     }
     ```
-### Delete an application
+#### Delete an application
 
 * **URL**  
   `/API/living/application/:applicationId`
@@ -113,7 +113,7 @@ The methods used for this resource are:
 * **Success Response**
   * **Code:** 200
 
-### Update an Application
+#### Update an Application
 
 You can update the following parameters:
 
@@ -141,7 +141,7 @@ You can update the following parameters:
 * **Success Response**
   * **Code**: 200
 
-### Search for an application
+#### Search for an application
 
 * **URL**  
   `/API/living/application`
@@ -198,17 +198,17 @@ You can update the following parameters:
     ```
 ## Application Theme
 
-### Description
+#### Description
 
 This API is available in Subscription editions only
 
 Manage applications theme. This enables you to modify your application theme.
 
-### Identifier
+#### Identifier
 
 The ID of the application (a long value).
 
-### Representation
+#### Representation
 
 ```json
 {
@@ -216,13 +216,13 @@ The ID of the application (a long value).
 }
 ```   
 
-### Methods
+#### Methods
 
 The methods used for this resource are:
 
 * PUT - Update an application theme
 
-### Update an application theme
+#### Update an application theme
 
 * **URL**  
   `/API/living/application/:applicationId`  
@@ -239,7 +239,7 @@ The methods used for this resource are:
 
 ## Application Menu
 
-### Description
+#### Description
 
 Manage the set of menus in an application. This set of menus enables a user to navigate to the application pages.
 
@@ -250,11 +250,11 @@ There are two types of menu item:
 
 Each menu item has an index that defines the position in the menu. For a top-level menu item, this is the position in the the navigation bar counting from the left. For a child menu item, this is the position in the menu counting from the top.
 
-### Identifier
+#### Identifier
 
 The ID of the application menu item (a long value).
 
-### Representation
+#### Representation
 
 ```json
 {
@@ -267,7 +267,7 @@ The ID of the application menu item (a long value).
 }
 ```
 
-### Methods
+#### Methods
 
 The methods used for this resource are:
 
@@ -276,7 +276,7 @@ The methods used for this resource are:
 * PUT - Update a menu item
 * DELETE - Remove a menu item
 
-### Create an application menu item
+#### Create an application menu item
 
 * **URL**  
   `http://../API/living/application-menu`
@@ -308,7 +308,7 @@ The methods used for this resource are:
   }
   ```
 
-### Get an application menu item
+#### Get an application menu item
 
 * **URL**  
   `http://../API/living/application-menu/:applicationMenuId`  
@@ -330,7 +330,7 @@ The methods used for this resource are:
     }
     ```
 
-### Delete an application menu item
+#### Delete an application menu item
 
 * **URL**  
   `http://../API/living/application-menu/:applicationMenuId`
@@ -339,7 +339,7 @@ The methods used for this resource are:
 * **Success Response**  
   * **Code**: 200
 
-### Update an application menu item
+#### Update an application menu item
 
 * **URL**  
   `http://../API/living/application-menu/:applicationMenuId`  
@@ -363,7 +363,7 @@ The methods used for this resource are:
 * **Success Response**  
   * **Code**: 200
 
-### Search the application menu items
+#### Search the application menu items
 
 * **URL**  
   `http://../API/living/application-menu`  
@@ -402,15 +402,15 @@ The methods used for this resource are:
 
 ## Application Page
 
-### Description
+#### Description
 
 An application page is a custom page that has been associated with an application. Use this resource to manage application pages and define the paths used to access them. This list of pages will be used to build the application menus.
 
-### Identifier
+#### Identifier
 
 The ID of the application page (a long value).
 
-### Representation
+#### Representation
 
 ```json
 {
@@ -420,7 +420,7 @@ The ID of the application page (a long value).
   "pageId":"_id of the custom page to display_"
 }
 ```
-### Methods
+#### Methods
 
 The methods used for this resource are:
 
@@ -428,7 +428,7 @@ The methods used for this resource are:
 * GET - Read an application page or search for an application page
 * DELETE - Remove an application page
 
-### Create an application page
+#### Create an application page
 
 * **URL**  
   `http://../API/living/application-page`  
@@ -456,7 +456,7 @@ The methods used for this resource are:
     }
     ```
 
-### Get an application page
+#### Get an application page
 
 * **URL**  
   `http://../API/living/application-page/:applicationPageId`  
@@ -475,14 +475,14 @@ The methods used for this resource are:
 * **Success Response**  
   * **Code**: 200
 
-### Delete an application page
+#### Delete an application page
 
 * **URL**  
   `http://../API/living/application-page/{applicationPageId}`  
 * **Method**  
   `DELETE`
 
-### Search for an application page
+#### Search for an application page
 
 * **URL**  
   `http://../API/living/application-page`  
