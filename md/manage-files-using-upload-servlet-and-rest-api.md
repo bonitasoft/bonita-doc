@@ -1,4 +1,4 @@
-# Manage files using upload servlet and Rest API
+# Manage files using upload servlet and REST API
 
 In the Community, Teamwork, Efficiency, and Performance editions
 you can upload files by doing a multipart post request on any of the available servlets.
