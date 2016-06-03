@@ -20,8 +20,9 @@ In your RDBMS, make sure there is a user defined with privileges to create table
 
 Edit [`bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md) for each tenant and set the `bdm.db.vendor` property to indicate the RDBMS vendor.
 The possible values for `bdm.db.vendor` are:
+
 | Database vendor | Property value |
-| --------------- | -------------- |
+| :- | :- |
 | PostgreSQL | postgres |
 | Oracle database | oracle |
 | SQL Server | sqlserver |
