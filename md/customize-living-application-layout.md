@@ -4,7 +4,7 @@
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 
-## Overview
+ ## Overview
 
 As explained in the [layouts](layouts.md) documentation page, it is possible to customize the existing application layout with the UI Designer.
 
