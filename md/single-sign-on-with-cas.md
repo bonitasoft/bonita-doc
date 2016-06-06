@@ -136,7 +136,7 @@ authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservi
 ```
    3. Specify the relevant IP address and port number.
 
-### Cluster considerations
+#### Cluster considerations
 
 If you are configuring Bonita BPM and Tomcat in a cluster environment for CAS, there are some extra steps to do:
 
@@ -144,7 +144,7 @@ If you are configuring Bonita BPM and Tomcat in a cluster environment for CAS, t
 2. Remove the `WEB-INF/lib/commons-logging-1.1.1.jar` file from the `bonita.war`.
 3. Remove the `tomcat/webapps/bonita/WEB-INF/lib/commons-logging-1.1.1.jar` file (if it is present).
 
-## Configure Bonita client for CAS
+#### Configure Bonita client for CAS
 
 1. For each tenant, edit `authenticationManager-config.properties` to enable the CASRemoteAuthenticationManager and its properties.
 The service URL in the properties file must be the same as that in the JAAS file. The `authenticationManager-config.properties` will have the following content (specify the relevant IP address and ports):
@@ -167,14 +167,14 @@ To do this, you can set the `platform.tenant.default.id` property in `platform-t
 
 ## Configure logout behaviour
 
-### Bonita BPM Portal
+#### Bonita BPM Portal
 
 If you are using CAS, when users log out of Bonita BPM Portal, they log out of CAS. Therefore they are logged out of all applications that are using the CAS service. To avoid this, you can hide the logout option of the portal. 
 To do this, set the `logout.link.hidden=true` option in `authenticationManager-config.properties`.
 
 If this option is set, when users navigate away from the Portal, they are still logged in to CAS.
 
-### Bonita BPM Engine
+#### Bonita BPM Engine
 
 By default, logging out from Bonita BPM Engine logs the user out of CAS. You can change this behavior by implementing your own Authentication Service.
 
@@ -197,18 +197,18 @@ For detailed information about the procedure to install Restful access on your C
 
 **Note:** All calls issued to get the TGT or ST are made to the CAS SSO server.
 
-### Getting the Ticket Granting Ticket (TGT)
+#### Getting the Ticket Granting Ticket (TGT)
 
 The Ticket Granting Ticket is an exposed resource. It has a unique URL.
 
-#### **Request for a Ticket Granting Ticket Resource**
+##### **Request for a Ticket Granting Ticket Resource**
 | | |
 |:-|:-|
 | Request URL | `http://www.your_cas_server_url/cas/v1/tickets` |
 | Request Method | POST |
 | Form Data | Username: walter.bates  <br/> Password: bpm |
 
-#### **Response for a Ticket Granting Ticket Resource**
+##### **Response for a Ticket Granting Ticket Resource**
 
 | | |
 |:-|:-|
@@ -216,9 +216,9 @@ The Ticket Granting Ticket is an exposed resource. It has a unique URL.
 
 Take the TGT response and paste it in the url of the ST request, below
 
-### Getting the Service Ticket (ST)
+#### Getting the Service Ticket (ST)
 
-#### **Request for a Service Ticket**
+##### **Request for a Service Ticket**
 
 | | |
 |:-|:-|
@@ -226,7 +226,7 @@ Take the TGT response and paste it in the url of the ST request, below
 | Request Method | POST| 
 | Form Data | service={form encoded parameter for the service url}| 
 
-#### **Response for a Service (ST)**
+##### **Response for a Service (ST)**
 
 | | |
 |:-|:-|
@@ -234,7 +234,7 @@ Take the TGT response and paste it in the url of the ST request, below
 
 Take the ST response and paste it in the url of the Bonita BPM Engine login request, below
 
-### Logging into Bonita BPM Engine with Rest API using the service ticket
+#### Logging into Bonita BPM Engine with Rest API using the service ticket
 
 **Authentication to Bonita BPM Engine**
 
@@ -254,7 +254,7 @@ Limitation: The default AuthenticationFilter that manages CAS authentication app
 
 If you require direct calls to the REST API to authenticate the user. you need to provide a custom Filter.
 
-#### **Response for a Service (ST)**
+##### **Response for a Service (ST)**
 
 | | |
 |:-|:-|
