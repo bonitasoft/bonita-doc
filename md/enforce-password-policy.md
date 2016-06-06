@@ -26,7 +26,7 @@ To apply this policy edit [`security-config.properties`](BonitaBPM_platform_setu
 This will enable the System administrator to create a custom class and define the characteristics for a particular password policy.
 It will be applied to all users.
 
-### Prerequisites
+#### Prerequisites
 
 You should have Maven installed to create a project.
 
