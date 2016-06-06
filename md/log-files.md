@@ -8,7 +8,7 @@ During development, the Studio log file and UI designer log file contain message
 When you run a process for testing, messages are written to the Engine log file.
 
 From the Bonita BPM Studio Help menu you can access the Studio log file 
-and the Engine log file. The UI designer log file is available in `$/tomcat/logs/ui-designer.log`, but it is not accessible from the Studio Help menu. 
+and the Engine log file. The UI designer log file is available in `$BONITA_HOME/tomcat/logs/ui-designer.log`, but it is not accessible from the Studio Help menu. 
 
 See the [Logging overview](logging.md) for details of how logging is implemented in Bonita BPM and how to add logging to Groovy scripts or Java code that you add to a process
 
@@ -30,7 +30,7 @@ For Bonita BPM Studio, you can set the level of logging. Edit the `config.ini` i
 When you run a process locally from Bonita BPM Studio for testing, you can access the Engine log file by choosing **Bonita BPM Engine log** from the **Help** menu. 
 The logging level for Engine when it is started from Studio is always `INFO`. 
 
-On a deployed system, you can configure the log level and you can access the log files directly, in `$/tomcat/logs`. 
+On a deployed system, you can configure the log level and you can access the log files directly, in `$BONITA_HOME/tomcat/logs`. 
 Each file name includes the date when the file was created. There are several log files:
 
 * _bonita.date_.log is the Bonita BPM Engine log file.
