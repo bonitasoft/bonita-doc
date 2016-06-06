@@ -4,7 +4,7 @@ This page explains how to add a form resource to the Portal and make it availabl
 
 Pages are [exported. imported, modified, and deleted](resource-management.md) as resources in Bonita BPM Portal. 
 
-## Form definition
+Form definition <!--{.h2}-->
 
 A form is a [page](pages.md) that belongs to a process. It could be a process instantiation form, a human task form, or an overview form. There are some extra things to consider when you are creating a form compared with an ordinary page, concerning how data is passed between the process instance and the form.
 

@@ -8,7 +8,7 @@ The search field in Bonita BPM Portal can be used to search for particular value
 
 Note: the search in Bonita BPM Portal is dependent on the search keys configured in Bonita BPM Studio. If nothing has been entered as a value for the task during the design of the process, then no results come up.
 
-## How to get results from the search in Bonita BPM Portal
+How to get results from the search in Bonita BPM Portal <!--{.h2}-->
 
 Only cases which have been given values will be filtered.
 

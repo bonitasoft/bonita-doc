@@ -6,12 +6,7 @@ For the Bonita BPM Subscription Pack editions, Performance, Efficiency, and Team
 
 For the Bonita BPM Community edition, no license is needed.
 
-## Bonita BPM Studio and Bonita BPM Platform
-
-* [Bonita BPM Studio](bonita-bpm-overview.md) is the tool for business analysts and developers to design processes.
-* [Bonita BPM Platform](bonita-bpm-overview.md) is the server part of the solution.
-
-### Bonita BPM Studio
+Bonita BPM Studio <!--{.h2}-->
 
 Bonita BPM Studio has an embedded test platform that includes an Apache Tomcat application server, an h2 database and the Bonita web application (that itself includes Bonita BPM Engine).
 
@@ -22,10 +17,13 @@ Used to install Bonita BPM Studio (using a wizard) on your computer. No configur
 * The [OS independant](bonita-bpm-studio-installation.md) package. Used to manually set up Bonita BPM Studio. 
 The package contains the individual launchers in one .zip file, and creates the same installation environment as the installers.
 
-### Bonita BPM Platform
+Bonita BPM Platform <!--{.h2}-->
 
-**Note:** If you have **already installed ** a Community edition or a Subscription edition, 
+::: info
+**:fa-info-circle: Note:** If you have **already installed** a Community edition or a Subscription edition, 
 and want to migrate to the latest version version, follow the instructions to [migrate your platform](migrate-from-an-earlier-version-of-bonita-bpm.md).
+:::
+
 
 You have two options to install a Bonita BPM Platform:
 

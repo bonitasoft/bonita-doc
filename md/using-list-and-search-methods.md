@@ -38,7 +38,7 @@ sob.or();
 sob.differentFrom</b>(HumanTaskInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getId());
 ```
 
-## Word-based search
+Word-based search <!--{.h2}-->
 
 By default, search uses a "starts by" algorithm for searching, and finds matches where the search string occurs at the start of a phrase. 
 If word-based search is enabled, you can search for a string that is preceded by white space or is at the start of the phrase. 

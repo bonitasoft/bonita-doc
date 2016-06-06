@@ -22,6 +22,8 @@ Process forms, used to complete the human tasks, are created in the UI Designer,
 
 Users can use Bonita BPM Portal (_User_ profile) to view and complete the process tasks for all processes. You can also build personalized process-based applications. To do so, use the UI Designer to create application pages that display business data from the data models, link the pages to processes thanks to action buttons, then use the Bonita BPM Portal application builder to construct the application piece by piece.
 
+<a id="platform"/>
+
 ## Bonita BPM Platform
 
 [Bonita BPM Engine](bonita-bpm-engine-architecture) is the execution engine of Bonita BPM.

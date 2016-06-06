@@ -12,8 +12,11 @@ For proper conversion, you must specify the character encoding that is used in t
 UTF-8 is assumed if you do not specify the encoding (that is, if the field is left blank in the connector configuration wizard).  
 **Warning:** As an example when using special characters like '€' with an invalid encoding will generate a PDF without those characters.
 
-## Known limitations
-**Warning:** there is known issue when adding an image in a docx using drag'n'drop instead of a copy/paste. The image is not render properly when converted into PDF.
+Known limitations <!--{.h2}-->
+
+::: warning
+**:fa-exclamation-triangle: Warning:** there is known issue when adding an image in a docx using drag'n'drop instead of a copy/paste. The image is not render properly when converted into PDF.
+:::
 
 Rendering issues (In the worst case the text will not be visible in the generated PDF, in the best case it can be visible but not exactly as in the office document):
 

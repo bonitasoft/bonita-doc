@@ -11,7 +11,7 @@ The popup shows the jars that are known. To add a jar, click **_Import_** and
 browse to the file to be imported. After the jar file is imported, it can be used in a process. 
 You can also access the **Manage jars...** dialog from the process configuration wizard.
 
-## Duplicate libraries
+Duplicate libraries <!--{.h2}-->
 
 There is a problem at integration if you have several elements in your platform that use certain libraries that cannot be included in more than one classloader. 
 Typically, this occurs when a process contains data of type Java or multiple connectors (notably with the Webservice, Alfresco, and CMIS connectors). 
@@ -21,7 +21,7 @@ This problem is indicated by the following exceptions:
 
 * A `ClassCastException` for `com.ctc.wstx.stax.WstxInputFactory` or `com.ctc.wstx.stax.WstxOutputFactory`
 * A null pointer exception in `BaseRequestEntity`
-* `java.lang.LinkageError: loader constraint violation: when resolving overridden method "org.apache.cxf.jaxb.attachment.JAXBAttachmentMarshaller.addMtomAttachment(Ljavax/activation/DataHandler;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;" the class loader (instance of org/bonitasoft/engine/classloader/BonitaClassLoader) of the current class, org/apache/cxf/jaxb/attachment/JAXBAttachmentMarshaller, and its superclass loader (instance of ), have different Class objects for the type shaller.addMtomAttachment(Ljavax/activation/DataHandler;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; used in the signature`
+* `java.lang.LinkageError` loader constraint violation: when resolving overridden method `org.apache.cxf.jaxb.attachment.JAXBAttachmentMarshaller.addMtomAttachment(Ljavax/activation/DataHandler;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;` the class loader (instance of _org/bonitasoft/engine/classloader/BonitaClassLoader_) of the current class, _org/apache/cxf/jaxb/attachment/JAXBAttachmentMarshaller_, and its superclass loader (instance of _\<bootloader\>_), have different Class objects for the type `shaller.addMtomAttachment(Ljavax/activation/DataHandler;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;` used in the signature.
 
 We are aware of issues with the following jar files (`-n` is a version number):
 

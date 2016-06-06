@@ -31,7 +31,7 @@ It is not possible to execute more than one SELECT command in a single script.
 
 <a id="teradata"/>
 
-## Teradata 14
+#### Teradata 14
 
 If you are using the `terajdbc4.jar`, you also need the `tdgssconfig.jar` file.  
 Import both `terajdbc4.jar` and `tdgssconfig.jar` into Bonita BPM Studio and add them to the connector configuration.  

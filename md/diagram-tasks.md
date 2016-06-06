@@ -45,7 +45,7 @@ To create a new task, select the relevant icon from the **BPMN elements** menu o
 menu of the preceding element in the diagram, and drop it on the whiteboard. You can change the task type
 of an task in the diagram.
 
-## Setting the task name seen in the Portal
+Setting the task name seen in the Portal <!--{.h2}-->
 
 When you define a task in Bonita BPM Studio, by default the task name and description in Bonita BPM Portal are the same as the task name and description on the diagram. 
 You can override this by setting the _Display name_, _Display description_, and _Description after completion_ in the Details panel, General tab, Portal pane.

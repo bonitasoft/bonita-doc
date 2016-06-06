@@ -142,7 +142,6 @@ These two variables are instantiated with JavaScript expressions using $form.$er
 Therefore, for **Type**, select **JavaScript expression**.
 For _errorRequired_ , enter the following **Value**:
 
-:call <SNR>151_apply_user_input_next('i')
 ```javascript
 return ($data.errors.required || []).filter(function(field){
     return field.$dirty;
@@ -153,7 +152,6 @@ return ($data.errors.required || []).filter(function(field){
 
 And for _errorDate_, enter:
 
-:call <SNR>151_apply_user_input_next('i')
 ```javascript
 return ($data.errors.date || []).map(function(field){
     return field.$name;
@@ -260,7 +258,6 @@ In real life, it should be of type **External API**.
 For the sake of this turotial, just make it a JSON variable to test our form.
 The value is:
 
-:call <SNR>151_apply_user_input_next('i')
 ```javascript
 {
   "Personal leave": 2,

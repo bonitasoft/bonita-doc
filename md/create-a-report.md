@@ -42,11 +42,11 @@ This is how to add the query executor as a report dependency in iReport:
 3. Select the **Query Executers** tab.
 4. Click on the **_Add_** button.
 5. Fill the form using the following values:
-FieldValue
 
-LanguageBONITASQL
-
-Factory classorg.bonitasoft.JRBonitaJdbcQueryExecuterFactory
+   | Field | Value| 
+   |:-|:-|
+   | Language | BONITASQL| 
+   | Factory class | org.bonitasoft.JRBonitaJdbcQueryExecuterFactory| 
 
 Fields Provider class (optional)com.jaspersoft.ireport.designer.data.fieldsproviders.SQLFieldsProvider
 
@@ -83,66 +83,97 @@ This is how to do this in iReport:
 When the HTML form rendering parameter and component are ready, you need to set the report properties to configure the widgets that your report will integrate.
 
 All widgets share the following mandatory properties (`XXX` is replaced by a number used to identify the widget):
-Property
-Mandatory
-Description
-
-BONITA\_FORM\__XXX_\_ID
-Yes
-Base name of the report parameter that will be updated with the widget value.  
-Special rules apply depending on the widget type (see next parameter):  
-
-* For a **SELECT** widget, the parameter name is the same as the base name.  
-Example: if `BONITA_FORM_1_ID` is set to `p_country` then, the report parameter should be named `p_country`.
-* For a **DATE** widget, the value will be saved to a parameter with the **\_from** suffix.  
-Example: if `BONITA_FORM_2_ID` is set to `p_birthday`, then the report parameter should be named `p_birthday_from`.
-* For a **DATE\_RANGE** widget, the values will be saved to two parameters: one with a **\_from** suffix and one with a **\_to** suffix.  
-Example: if `BONITA_FORM_3_ID` is set to `p_period`, then the two report parameters should be named `p_period_from` and `p_period_to`.
-
-BONITA\_FORM\__XXX_\_WIDGET
-Yes
-Widget type. Can be one of the following:
-
-* `SELECT` for a drop down allowing a single selection
-* `DATE` for a date picker
-* `DATE_RANGE` for a date range picker with a start date and an end date
-
-BONITA\_FORM\__XXX_\_LABEL
-Yes
-Widget label
+<table>
+        <tbody><tr>
+                <td>Property</td>
+                <td>Mandatory</td>
+                <td>Description</td>
+        </tr>
+        <tr>
+                <td>BONITA_FORM_<em>XXX</em>_ID</td>
+                <td>Yes</td>
+                <td>Base name of the report parameter that will be updated with the widget value.<br>
+                        Special rules apply depending on the widget type (see next parameter):<br>
+                        <ul>
+                                <li>For a <strong>SELECT</strong> widget, the parameter name is the same as the base name.<br>
+                                        Example: if <span><code>BONITA_FORM_1_ID</code></span> is set to <span><code>p_country</code></span> then, the report parameter should be named <span><code>p_country</code></span>.</li>
+                                <li>For a <strong>DATE</strong> widget, the value will be saved to a parameter with the <strong>_from</strong> suffix.<br>
+                                        Example: if <span><code>BONITA_FORM_2_ID</code></span> is set to <span><code>p_birthday</code></span>, then the report parameter should be named <span><code>p_birthday_from</code></span>.</li>
+                                <li>For a <strong>DATE_RANGE</strong> widget, the values will be saved to two parameters: one with a <strong>_from</strong> suffix and one with a <strong>_to</strong> suffix.<br>
+                                        Example: if <span><code>BONITA_FORM_3_ID</code></span> is set to <span><code>p_period</code></span>, then the two report parameters should be named <span><code>p_period_from</code></span> and <span><code>p_period_to</code></span>.</li>
+                        </ul>
+                </td>
+        </tr>
+        <tr>
+                <td>BONITA_FORM_<em>XXX</em>_WIDGET</td>
+                <td>Yes</td>
+                <td>Widget type. Can be one of the following:
+                        <ul>
+                                <li><span><code>SELECT</code></span> for a drop down allowing a single selection</li>
+                                <li><span><code>DATE</code></span> for a date picker</li>
+                                <li><span><code>DATE_RANGE</code></span> for a date range picker with a start date and an end date</li>
+                        </ul>
+                </td>
+        </tr>
+        <tr>
+                <td>BONITA_FORM_<em>XXX</em>_LABEL</td>
+                <td>Yes</td>
+                <td>Widget label</td>
+        </tr>
+</tbody></table>
 
 The **SELECT** widget has the following extra properties:
-Property
-Mandatory
-Description
+<table>
+  <tbody><tr>
+    <td>Property</td>
+    <td>Mandatory</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>BONITA_FORM_<em>XXX</em>_AVAILABLE_VALUES</td>
+    <td rowspan="2" style="vertical-align: middle;">Yes: one of these two properties is required</td>
+    <td>Static list of available values defined in a JSON format.<br>
+      Example: <span><code>[{"id":"FR","label":"France"}, {"id":"US","label":"United States of America"}, {"id":"ES","label":"Spain"}]</code></span>
+    </td>
+  </tr>
+  <tr>
+    <td>BONITA_FORM_<em>XXX</em>_QUERY</td>
+    <td>Query that dynamically retrieves the list of available values from the Bonita BPM database.</td>
+  </tr>
+  <tr>
+    <td>BONITA_FORM_<em>XXX</em>_HAS_ALL</td>
+    <td>No</td>
+    <td>Set this to <span><code>TRUE</code></span> if you wish to dynamically add an "All" item to the list of available values. Otherwise, ignore this property.</td>
+  </tr>
+  <tr>
+    <td>BONITA_FORM_<em>XXX</em>_HAS_ALL_VALUE</td>
+    <td>Only if the "All" item is active</td>
+    <td>Specifies the value returned when the "All" item is selected.</td>
+  </tr>
+</tbody></table>
 
-BONITA\_FORM\__XXX_\_AVAILABLE\_VALUES
-Yes: one of these two properties is required
-Static list of available values defined in a JSON format.  
-Example: `[{"id":"FR","label":"France"}, {"id":"US","label":"United States of America"}, {"id":"ES","label":"Spain"}]`
-
-BONITA\_FORM\__XXX_\_QUERY
-Query that dynamically retrieves the list of available values from the Bonita BPM database.
-
-BONITA\_FORM\__XXX_\_HAS\_ALL
-No
-Set this to `TRUE` if you wish to dynamically add an "All" item to the list of available values. Otherwise, ignore this property.
-
-BONITA\_FORM\__XXX_\_HAS\_ALL\_VALUE
-Only if the "All" item is active
 Specifies the value returned when the "All" item is selected.
 
 The **DATE** and **DATE\_RANGE** widgets have the following extra properties:
-Property
-Mandatory
-Description
+<table>
+  <tbody><tr>
+    <td>Property</td>
+    <td>Mandatory</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+  </tr><tr>
+    <td>BONITA_FORM_<em>XXX</em>_INITIAL_VALUE</td>
+    <td rowspan="2" style="vertical-align: middle;">Yes:  one of these two properties is required</td>
+    <td>Static initial value defined in the ISO format.<br>
+        Example: <span><code>2015-01-28</code></span></td>
+  </tr>
+  <tr>
+    <td>BONITA_FORM_<em>XXX</em>_QUERY</td>
+    <td>Query that dynamically retrieves the initial value from the Bonita BPM database.</td>
+  </tr>
+</tbody></table>
 
-BONITA\_FORM\__XXX_\_INITIAL\_VALUE
-Yes: one of these two properties is required
-Static initial value defined in the ISO format.  
-Example: `2015-01-28`
-
-BONITA\_FORM\__XXX_\_QUERY
 Query that dynamically retrieves the initial value from the Bonita BPM database.
 
 Create the report properties using iReport as following:
@@ -164,15 +195,13 @@ If your report requires a connection to the reporting database, the archive must
 
 * The JDBC driver jar file used to connect to the reporting database. Do not include this file in the archive if the driver is already deployed at server level.
 * A _connection.properties_ text file that contains the reporting database connection settings:
-PropertyDescription
 
-dbUrlJDBC Url to access the reporting database
-
-dbDriverClassNameThe JDBC driver's class name
-
-dbUserThe login of the database user
-
-dbPasswordThe password of the database user
+  | Property | Description| 
+  |:-|:-|
+  | dbUrl | JDBC Url to access the reporting database| 
+  | dbDriverClassName | The JDBC driver's class name| 
+  | dbUser | The login of the database user| 
+  | dbPassword | The password of the database user| 
 
 For example, connecting to a local MySQL database named _BonitaReport_ with a user _root_ and password _root_:
 ```

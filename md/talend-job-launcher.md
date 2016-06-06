@@ -36,7 +36,7 @@ Specify the job as follows:
 
 When the connector runs in a process instance, it triggers the specified job in your Talend system, and retrieves the job output.
 
-## Expression example
+Expression example <!--{.h2}-->
 
 If you provide job parameters as an expression, the Groovy script must return a `java.util.List>` object, where the second List contains only two elements, the parameter name and value:
 

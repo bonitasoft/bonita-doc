@@ -1,7 +1,5 @@
 # Administrator rights
 
-## Administrator rights
-
 A user with Administration rights has the maximum rights to manage activity on Bonita BPM Portal.
 
 * [Manage user rights](profiles-overview.md)

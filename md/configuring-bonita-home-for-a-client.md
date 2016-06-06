@@ -1,6 +1,6 @@
 # Configure Bonita Home for a client
 
-##Deprecated, use the programmatic way instead, see [APITypeManager](http://documentation.bonitasoft.com/javadoc/api/7.2/org/bonitasoft/engine/util/APITypeManager.html).
+## Deprecated, use the programmatic way instead, see [APITypeManager](http://documentation.bonitasoft.com/javadoc/api/7.2/org/bonitasoft/engine/util/APITypeManager.html).
 
 This page explains how to set up a [Bonita home](bonita-home.md) folder to configure properties for a client application. Every client application needs its own Bonita home.
 
@@ -15,6 +15,7 @@ such as the Bonita BPM Portal, you risk breaking existing applications.
 
 The following is an example of `${bonita.home}/client/conf/bonita-client.properties` for an application 
 called myClientAppExample that is using a Bonita BPM Engine that is running with Tomcat:
+
 ```properties
 application.name=myClientAppExample
 org.bonitasoft.engine.api-type=HTTP
@@ -27,6 +28,7 @@ the port number (`http://localhost:8080`), and the type of server access (`HTTP`
 The Bonita BPM bundles are delivered with a `bonita-client.properties` file configured for use by a Bonita BPM Portal 
 that is accessing the server locally. This file also contains template definitions for other access modes. You can take a 
 copy of this file and use it as a template. The properties required vary depending on the access type that is used.
+
 ```properties
 ###template file
 # LOCAL
@@ -59,6 +61,7 @@ In the JBoss administration console, [create a user account](https://docs.jboss.
 
 **Add a properties file**, `jboss-ejb-client.properties`, to the client classpath. This file is in the `$JBOSS_HOME/bin/client` folder. 
 It contains information needed to make the remote connection, including the username and password of the user you created in the JBoss console, as shown below:
+
 ```properties
 endpoint.name=client-endpoint
 remote.connectionprovider.create.options.org.xnio.Options.SSL_ENABLED=false
@@ -72,6 +75,7 @@ remote.connection.default.password
 ```
 
 Add the following **Maven dependency**:
+
 ```
 <dependency>
         <groupId>org.jboss.as</groupId>
