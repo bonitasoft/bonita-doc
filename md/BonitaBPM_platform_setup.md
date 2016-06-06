@@ -40,7 +40,9 @@ It gets the current configuration of Bonita BPM Platform and saves it in the `pl
 It pushes the configuration from the `platform_conf/current` folder into the database of an already initialized Bonita BPM Platform
 
 
-### Configuration
+<a id="configure_tool" />
+
+## Configure the Platform setup tool
 
 Before running it, the tool must be configured to point to the database of the Bonita BPM Platform.
 
