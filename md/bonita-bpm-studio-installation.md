@@ -30,6 +30,7 @@ When the download is complete, you have one of the following new files:
 Community edition  
 - 32 bit:  `BonitaBPMCommunity-x.y.z-x86.run`
 - 64 bit: `BonitaBPMCommunity-x.y.z-x86_64.run`  
+
 Subscription editions   
 - 32 bit: `BonitaBPMSubscription-x.y.z-x86.run`
 - 64 bit: `BonitaBPMSubscription-x.y.z-x86_64.run`
@@ -38,6 +39,7 @@ Subscription editions
 Community edition  
 - 32 bit: `BonitaBPMCommunity-x..zy-x86.exe`
 - 64 bit: `BonitaBPMCommunity-x.y.z-x86_64.exe`  
+
 Subscription editions  
 - 32 bits: `BonitaBPMSubscription-x..zy-x86.exe`
 - 64 bits: `BonitaBPMSubscription-x.y.z-x86_64.exe`
@@ -46,6 +48,7 @@ Subscription editions
 Community edition  
 - 32 bit: `Not provided`
 - 64 bit: `BonitaBPMCommunity-x.y.z-x86_64.dmg`  
+
 Subscription editions  
 - 32 bit: `Not provided`
 - 64 bit: `BonitaBPMSubscription-x.y.z-x86_64.dmg`
@@ -53,6 +56,7 @@ Subscription editions
 **All**  
 Community edition  
 - `BonitaBPMCommunity-x.y.z.zip`  
+
 Subscription editions  
 - `BonitaBPMSubscription-x.y.z.zip`
 
@@ -78,6 +82,7 @@ To start Bonita BPM Studio, go to the directory where you installed it, and run 
 Community edition  
 - 32-bit: `BonitaBPMCommunity-linux`
 - 64-bit: `BonitaBPMCommunity64-linux`  
+
 Subscription editions  
 - 32-bit: `BonitaBPMSubscription-linux`
 - 64-bit: `BonitaBPMSubscription64-linux`
@@ -85,7 +90,8 @@ Subscription editions
 **Windows**  
 Community edition  
 - 32-bit: `BonitaBPMCommunity.exe`
-- 64-bit: `BonitaBPMCommunity64.exe`  
+- 64-bit: `BonitaBPMCommunity64.exe`
+
 Subscription editions  
 - 32-bit: `BonitaBPMSubscription.exe`
 - 64-bit: `BonitaBPMSubscription64.exe`
@@ -93,7 +99,8 @@ Subscription editions
 **Mac**   
 Community edition  
 - 32-bit: `Not provided`
-- 64-bit: `BonitaBPMCommunity64.app`  
+- 64-bit: `BonitaBPMCommunity64.app`
+
 Subscription editions  
 - 32-bit: `Not provided`
 - 64-bit: `BonitaBPMSubscription64.app`
