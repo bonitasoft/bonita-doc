@@ -89,18 +89,18 @@ Edit the `<JBOSS_HOME>/standalone/configuration/standalone.xml` file to specify 
 Add the Bonita BPM login context using the JBoss specific syntax just before the `</security-domains>` tag. Note that `security-domain-name` is in fact the JAAS login context name (e.g. Bonita BPM).
 
 The following example is for a tenant with id 1:
-```groovy
- <security-domain name="BonitaAuthentication-1">
-            <authentication>
-                <login-module code="com.sun.security.auth.module.LdapLoginModule" flag="required">
-                    <module-option name="userProvider" value="ldap://localhost:389/ou=all%20people,dc=example,dc=com"/>
-                    <module-option name="userFilter" value="(&amp;(objectClass=user)(userPrincipalName={USERNAME}@myExampleDomain.com))"/>
-                    <module-option name="authIdentity" value="{USERNAME}@myExampleDomain.com"/>
-                    <module-option name="useSSL" value="false"/>
-                    <module-option name="debug" value="true"/>
-                </login-module>
-            </authentication>
-        </security-domain>
+```xml
+<security-domain name="BonitaAuthentication-1">
+    <authentication>
+        <login-module code="com.sun.security.auth.module.LdapLoginModule" flag="required">
+            <module-option name="userProvider" value="ldap://localhost:389/ou=all%20people,dc=example,dc=com"/>
+            <module-option name="userFilter" value="(&amp;(objectClass=user)(userPrincipalName={USERNAME}@myExampleDomain.com))"/>
+            <module-option name="authIdentity" value="{USERNAME}@myExampleDomain.com"/>
+            <module-option name="useSSL" value="false"/>
+            <module-option name="debug" value="true"/>
+        </login-module>
+    </authentication>
+</security-domain>
 ```
 
 ##### **Tomcat**
@@ -109,11 +109,11 @@ On Tomcat, the JAAS configuration file follows the [default JVM syntax](http://d
 Here is an example of JAAS configuration file:  
 ```
 BonitaAuthentication-1 {
-        com.sun.security.auth.module.LdapLoginModule sufficient
-        userProvider="ldap://localhost:389/ou=people,dc=example,dc=com"
-        authIdentity="uid={USERNAME},ou=people,dc=example,dc=com"
-        useSSL=false;
-        };
+  com.sun.security.auth.module.LdapLoginModule sufficient
+  userProvider="ldap://localhost:389/ou=people,dc=example,dc=com"
+  authIdentity="uid={USERNAME},ou=people,dc=example,dc=com"
+  useSSL=false;
+};
  ```
 
 We recommend that you name your JAAS configuration file `jaas.cfg` and that you add the file under `<TOMCAT_HOME>/conf` folder.
@@ -171,25 +171,25 @@ To define the JAAS configuration file location you need to set a JVM property, `
 In this example, the user name is john.smith:
 ```
 BonitaAuthentication-1 {
-    com.sun.security.auth.module.LdapLoginModule sufficient
-    userProvider="ldap://localhost:389/CN=Users,DC=MyDomain,DC=com"
-    userFilter="(&(objectClass=user)(userPrincipalName={USERNAME}@mydomain.com))"
-    authIdentity="{USERNAME}@mydomain.com"
-    debug=true
-    useSSL=false;
-    };
+  com.sun.security.auth.module.LdapLoginModule sufficient
+  userProvider="ldap://localhost:389/CN=Users,DC=MyDomain,DC=com"
+  userFilter="(&(objectClass=user)(userPrincipalName={USERNAME}@mydomain.com))"
+  authIdentity="{USERNAME}@mydomain.com"
+  debug=true
+  useSSL=false;
+};
 ```
 
 In this example, the user name is john.smith@mydomain.com:
 ```
 BonitaAuthentication-1 {
-    com.sun.security.auth.module.LdapLoginModule sufficient
-    userProvider="ldap://localhost:389/CN=Users,DC=MyDomain,DC=com"
-    userFilter="(&(objectClass=user)(userPrincipalName={USERNAME}))"
-    authIdentity="{USERNAME}"
-    debug=true
-    useSSL=false;
-    };
+  com.sun.security.auth.module.LdapLoginModule sufficient
+  userProvider="ldap://localhost:389/CN=Users,DC=MyDomain,DC=com"
+  userFilter="(&(objectClass=user)(userPrincipalName={USERNAME}))"
+  authIdentity="{USERNAME}"
+  debug=true
+  useSSL=false;
+};
 ```
 
 ##### Search allowed only for a technical users
@@ -197,15 +197,15 @@ BonitaAuthentication-1 {
 In this example, the user name is john.smith:
 ```
 BonitaAuthentication-1 {
-    com.sun.security.auth.module.LdapLoginModule sufficient
-    userProvider="ldap://localhost:389/CN=Users,DC=MyDomain,DC=com"
-    userFilter="(&(objectClass=user)(userPrincipalName={USERNAME}@mydomain.com))"
-    tryFirstPass=true
-    java.naming.security.principal="technical.user@mydomain.com"
-    java.naming.security.credentials="technical_user_password"
-    debug=true
-    useSSL=false;
-    };
+  com.sun.security.auth.module.LdapLoginModule sufficient
+  userProvider="ldap://localhost:389/CN=Users,DC=MyDomain,DC=com"
+  userFilter="(&(objectClass=user)(userPrincipalName={USERNAME}@mydomain.com))"
+  tryFirstPass=true
+  java.naming.security.principal="technical.user@mydomain.com"
+  java.naming.security.credentials="technical_user_password"
+  debug=true
+  useSSL=false;
+};
 ```
 
 #### Other LDAP servers
@@ -214,12 +214,12 @@ BonitaAuthentication-1 {
 
 ```
 BonitaAuthentication-1 {
-        com.sun.security.auth.module.LdapLoginModule sufficient
-        userProvider="ldap://localhost:389"
-        authIdentity="uid={USERNAME},ou=grenoble,dc=example,dc=com"
-        debug=true
-        useSSL=false;
-        };
+  com.sun.security.auth.module.LdapLoginModule sufficient
+  userProvider="ldap://localhost:389"
+  authIdentity="uid={USERNAME},ou=grenoble,dc=example,dc=com"
+  debug=true
+  useSSL=false;
+};
 ```
 
 ## Known limitations

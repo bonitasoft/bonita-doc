@@ -7,7 +7,7 @@ Using a leave request management process example, you will learn how to take adv
 You will design a simple leave request management process using Bonita BPM 7 and beyond:
 First things first, draw the wireframe of the process. In Bonita BPM Studio, since the instantiation of a new leave request happens at pool level, add a simple validation task, rename the pool _Leave request management_, and rename the lane _manager_, as shown here: 
 
-![Simple process](images/leave request management process.png)
+![Simple process](images/leave_request_management_process.png)
 
 Then, define a business object that will hold the leave requests data when the process instances are ongoing, and store it when the instances are archived:
 In Bonita BPM Studio menu, go to **Development** > **Business Data Model** > **Manage** option, and add a business object named _LeaveRequest_, with 4 attributes:
@@ -99,22 +99,28 @@ _Note_: A dedicated tutorial about [CSS assets in the UI Designer](tuto-de-camil
 So, to alert users about the invalidity of inputs they just edited, you need to use _ng-invalid_ and _ng-dirty_ classes on those elements:  
 In your favorite editor, create a _validationStyle.css_ file containing the class below:
 
-    .ng-invalid.ng-dirty {
-       border-color: red;
-       outline: 0;
-       -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(233,175,102,.6);
-       box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(233,175,102,.6);
-    }
+```css
+.ng-invalid.ng-dirty {
+   border-color: red;
+   outline: 0;
+   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(233,175,102,.6);
+   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(233,175,102,.6);
+}
+```
+
 Using only the _ng-invalid_ class makes red border appear even before the user enters a value for the input and that is annoying.
 Then, in the form **Assets** panel at the bottom, click **Add** and add the CSS file.
 In the same way, to show the user which inputs are valid, edit the CSS file to add:
 
-    .ng-valid {
-       border-color: green;
-       outline: 0;
-       -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 4px rgba(102,233,102,.6);
-       box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 4px rgba(102,233,102,.6);
-    }
+```css
+.ng-valid {
+   border-color: green;
+   outline: 0;
+   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 4px rgba(102,233,102,.6);
+   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 4px rgba(102,233,102,.6);
+ }
+```
+
 In the UI Designer preview, the form looks like it is shown here:
 
 ![Leave Request - filling form](images/preview-feedbackon-inputs.png)
@@ -136,17 +142,23 @@ These two variables are instantiated with JavaScript expressions using $form.$er
 Therefore, for **Type**, select **JavaScript expression**.
 For _errorRequired_ , enter the following **Value**:
 
-    return ($data.errors.required || []).filter(function(field){
-        return field.$dirty;
-      }).map(function(field){
-        return field.$name;
-      });
+:call <SNR>151_apply_user_input_next('i')
+```javascript
+return ($data.errors.required || []).filter(function(field){
+    return field.$dirty;
+  }).map(function(field){
+    return field.$name;
+  });
+```
 
 And for _errorDate_, enter:
 
-    return ($data.errors.date || []).map(function(field){
-        return field.$name;
-      });
+:call <SNR>151_apply_user_input_next('i')
+```javascript
+return ($data.errors.date || []).map(function(field){
+    return field.$name;
+  });
+```
 
 The _errorRequired_ is a bit different from _errorDate_ because when the form is empty, the user doesn't need to be reminded that some fields are empty. This is why it contains a filter to only display the errors on dirty fields (i.e. which have been edited).
 
@@ -169,9 +181,11 @@ To hide these fields when no error are detected, go to the **Hide** property of 
 
 Then, to change the default style of the **p** html tag and have a little more margin, open the _validationStyle.css_ file and add the following:
 
-    .text-danger p {
-      margin: 1em;
-    }
+```css
+.text-danger p {
+  margin: 1em;
+}
+```
 
 Go back to the home page, and then open the leave request form again.
 From the palette, add a **title** widget to the top of the form. In the **text** property, write _Leave request_.  
@@ -246,10 +260,13 @@ In real life, it should be of type **External API**.
 For the sake of this turotial, just make it a JSON variable to test our form.
 The value is:
 
-    {
-      "Personal leave": 2,
-      "Annual leave": 12
-    }
+:call <SNR>151_apply_user_input_next('i')
+```javascript
+{
+  "Personal leave": 2,
+  "Annual leave": 12
+}
+```
 
 Then, on the **Number of days** input widget, set the **Min value** property to 0.5 and set the **Max value** property to `remaingDays[formInput.leaveRequest.type]`.  
 Doing this allows to validate the number of days value according to the leave type.
