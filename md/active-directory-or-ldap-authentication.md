@@ -38,11 +38,11 @@ or `uid` on other LDAP servers, value: `john.smith`)
 
 This section explains how to put together all the LDAP server information you have to create or edit a JAAS configuration file compatible with your JEE application server.
 
-### Login context name
+#### Login context name
 
 The JAAS configuration can include one or several login contexts. The Bonita BPM login context must be named `BonitaAuthentication-<TENANT_ID>` (where `<TENANT_ID>` is your tenant id).
 
-### LdapLoginModule attributes to set
+#### LdapLoginModule attributes to set
 
 It's important to identify which `LdapLoginModule` attributes you need to set.
 This will be at least one of `authIdentity`, `userFilter`, `tryFirstPass`, `java.naming.security.principal` or `java.naming.security.credentials`.
@@ -54,7 +54,7 @@ Based on the information described in the "Before you start" section, you can id
 * If you cannot build the DN and anonymous search is disallowed and authenticated users cannot search =\> set the `userFilter`,
 `authIdentity`, `tryFirstPass`, `java.naming.security.principal` and `java.naming.security.credentials` attributes
 
-### Values for LdapLoginModule attributes
+#### Values for LdapLoginModule attributes
 
 In this section we explain how to set `LdapLoginModule` attributes values.
 
@@ -78,11 +78,11 @@ If you use a `userFilter` and users are allowed to search, set the value with `{
 **`java.naming.security.credentials`**  
 (only if needed): specify the password of a user that can perform searches on the server.
 
-### Create or edit the configuration file for your application server
+#### Create or edit the configuration file for your application server
 
 **Note:** all configuration files are case sensitive. You can find more examples in the [JAAS configuration files examples](#examples) section of this page.
 
-#### **JBoss**
+##### **JBoss**
 
 Edit the `<JBOSS_HOME>/standalone/configuration/standalone.xml` file to specify the configuration. Use HTML encoding for any strings in the configuration (for example, a space character is written as %20).
 
@@ -103,7 +103,7 @@ The following example is for a tenant with id 1:
         </security-domain>
 ```
 
-#### **Tomcat**
+##### **Tomcat**
 
 On Tomcat, the JAAS configuration file follows the [default JVM syntax](http://docs.oracle.com/javase/7/docs/api/javax/security/auth/login/Configuration.html).  
 Here is an example of JAAS configuration file:  
@@ -120,7 +120,7 @@ We recommend that you name your JAAS configuration file `jaas.cfg` and that you 
 
 ## Configuration steps
 
-### Changing Bonita BPM authentication service
+#### Changing Bonita BPM authentication service
 
 The default Bonita BPM installation comes with an authentication service implementation based on the Bonita BPM Engine database. In
 order to activate Active Directory/LDAP authentication the service implementation needs to be changed. To do this, edit [`bonita-tenant-sp-custom.properties`](BonitaBPM_platform_setup.md).
@@ -130,17 +130,17 @@ You will need to perform following changes:
 * Comment out the `authenticationService` line
 * Add this new line: `authentication.service.ref.name=jaasAuthenticationService`
 
-### Configure JAAS
+#### Configure JAAS
 
-#### **JBoss**
+##### **JBoss**
 
 As the JAAS configuration in JBoss is already done in a file that already exists, no further configuration is necessary.
 
-#### **Tomcat**
+##### **Tomcat**
 
 To define the JAAS configuration file location you need to set a JVM property, `java.security.auth.login.config`. To do this for a system running Tomcat you need to edit the `setenv` script provided with Bonita BPM and located in `<TOMCAT_HOME>/bin` folder.
 
-##### For Linux and Mac OS
+###### For Linux and Mac OS
 
 * Edit this file: `<TOMCAT_HOME>/bin/setenv.sh`
 * Locate the line that starts: `#SECURITY_OPTS`
@@ -148,7 +148,7 @@ To define the JAAS configuration file location you need to set a JVM property, `
 * Locate the line that starts: `CATALINA_OPTS=`
 * Add the tag `${SECURITY_OPTS} ` after the tag `${PLATFORM_SETUP}`
 
-##### For Windows
+###### For Windows
 
 * Edit this file: `<TOMCAT_HOME>/bin/setenv.bat`
 * Locate the line that starts: `rem set SECURITY_OPTS`
@@ -164,9 +164,9 @@ To define the JAAS configuration file location you need to set a JVM property, `
 
 **Note:** These examples use the JAAS standard syntax (as used by Tomcat). They can easily be adapted to the JBoss XML syntax.
 
-### Active Directory
+#### Active Directory
 
-#### Search allowed for all users
+##### Search allowed for all users
 
 In this example, the user name is john.smith:
 ```
@@ -192,7 +192,7 @@ BonitaAuthentication-1 {
     };
 ```
 
-#### Search allowed only for a technical users
+##### Search allowed only for a technical users
 
 In this example, the user name is john.smith:
 ```
@@ -208,9 +208,9 @@ BonitaAuthentication-1 {
     };
 ```
 
-### Other LDAP servers
+#### Other LDAP servers
 
-#### Build the user DN using the user name
+##### Build the user DN using the user name
 
 ```
 BonitaAuthentication-1 {
