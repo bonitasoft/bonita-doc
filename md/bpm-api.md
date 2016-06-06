@@ -2288,10 +2288,495 @@ Fields that can be upated are "displayName" and "description"
 * **Success Response**  
   * **Code**: 20
 
-* [actorMember](api_resources/bpm_actormember_6.4_0_0_0_0.md)
+### ActorMember
+
+#### Description
+
+An actor member represents the association between the organization and the actor af a process. In an organization we have four member\_types = USER, GROUP, ROLE and MEMBERSHIP (role in a group). You can assign a actor to a user by specifying a role and or a group, or specific user. 
+
+#### Identifier
+
+Simple, the ID of the object (a long value)
+
+#### Representation
+```json
+{
+  "id":"_actor member id_",
+  "actor_id":"_id of the actor for this mapping_",
+  "role_id":"_id of role, or -1 if the member type is not role_",
+  "group_id":"_id of group, or -1 if the member type is not group_",
+  "user_id":"_id of user, or -1 if the member type is not user_"
+}
+```
+#### Methods
+
+The methods used for this resource are:
+
+* POST - Add a new actorMember
+* GET - Search actorMembers
+* DELETE - Remove an actorMember
+
+#### Add a new actorMember
+
+Use the POST method to create a new actorMember.
+
+* **URL**  
+  `/API/bpm/actorMember`  
+* **Method**  
+  `POST`
+* **Request Payload**  
+  Add a member\_type = USER to the actor with id = 2\.
+  ```json
+  {
+    "actor_id":"2",
+    "member_type":"USER",
+    "user_id":"101"
+  }
+  ```
+  Add a member\_type = MEMBERSHIP to the actor with id = 2\.
+  ```json
+  {
+    "id":"204",
+    "actor_id":"2",
+    "role_id":"-1",
+    "group_id":"-1",
+    "user_id":"101"
+  }
+  ```
+* **Success Response**  
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "id":"206",
+      "actor_id":"2",
+      "role_id":"4",
+      "group_id":"8",
+      "user_id":"-1"
+    }
+    ```
+
+#### Search actorMembers
+
+Use a GET method with filters and search terms to search for actorMembers.
+
+* **URL**  
+  `/API/bpm/actorMemberEntry`  
+  _Example_: ``
+* **Method**  
+  ``
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  There is a mandatory filter on:
+
+  * `actor\_id` For example, retrieve the actorMembers related to the specified actor\_id. http://localhost:8080/bonita/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1
+
+  You can also filter also on: 
+
+  * `member\_type=user|role|group|roleAndGroup` retrieve only the actorMembers of type user. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=member\_type%3duser`
+  * `user\_id=:userId}`: retrieve only the actorMembers related to the specified user\_id. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=user\_id%3d101`
+  * `role\_id=:roleId`: retrieve only the actorMembers related to the specified role\_id. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=role\_id%3d101`
+  * `group\_id=:groupId`: retrieve only the actorMembers related to the specified group\_id. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=group\_id%3d101`
+* **Success Response**  
+  An array of actorMember objects
+  * **Code**: 200
+
+#### Delete an actorMember
+
+Use the DELETE method to delete an existing actorMember.
+
+* **URL**  
+  `/API/bpm/actorMember/:id`  
+* **Method**  
+  `DELETE`
+* **Success Response**  
+  * **Code**: 200
 
 ## Cases (Process Instances)
-* [case](api_resources/bpm_case_7.0_1_0.md)
+
+### Case
+
+#### Description
+
+Case is an instance of a process. When you start a process, it creates a case.
+
+#### Identifier
+
+ID of the Object: a long value
+
+#### Representation
+```json
+{
+  "id":"_the identifier of the case_",
+  "end_date":"_the date set when the case is closed_",
+  "failedFlowNodes":"_count of failed flow nodes if parameter n=failedFlowNodes is given_",
+  "startedBySubstitute":"_the identifier of the substitute user (as Process manager or Administrator) who started the process. It can be also the substitute user if d=startedBySubstitute is given._",
+  "start":"_the starting date of the case_",
+  "activeFlowNodes":"_count of active flow nodes if parameter n=activeFlowNodes is given_",
+  "state":"_state: an enum that represent the state of the case, it can be INITIALIZING, STARTED, SUSPENDED, CANCELLED, ABORTED, COMPLETING, COMPLETED, ERROR, ABORTING_",
+  "rootCaseId":"_the identifier of the container of the case_",
+  "started_by":"_the identifier of the user who started the case_",
+  "processDefinitionId":"_the identifier of the process related of the case_",
+  "last_update_date":"_the date of the last update done on the case_",
+  "searchIndex1Label":"_the 1st search index label (from 6.5, in Subscription editions only)_",
+  "searchIndex2Label":"_the 2nd search index label (from 6.5, in Subscription editions only)_",
+  "searchIndex3Label":"_the 3rd search index label (from 6.5, in Subscription editions only)_",
+  "searchIndex4Label":"_the 4th search index label (from 6.5, in Subscription editions only)_",
+  "searchIndex5Label":"_the 5th search index label (from 6.5, in Subscription editions only)_",
+  "searchIndex1Value":"_the 1st search index value (from 6.5, in Subscription editions only)_",
+  "searchIndex2Value":"_the 2nd search index value (from 6.5, in Subscription editions only)_",
+  "searchIndex3Value":"_the 3rd search index value (from 6.5, in Subscription editions only)_",
+  "searchIndex4Value":"_the 4th search index value (from 6.5, in Subscription editions only)_",
+  "searchIndex5Value":"_the 5th search index value (from 6.5, in Subscription editions only)_"
+}
+```
+#### Methods
+
+* POST - Create a case
+* GET - Read a case or search for a case
+* DELETE - Remove a case
+
+#### Read a case
+
+You can get a case by using its identifier. Request url
+
+* **URL**  
+  `/API/bpm/case/:id`  
+* **Method**  
+  `GET`
+* **Data Params**  
+  * d: the list of attributes for which you want to perform a deploy, that is, retrieve the full object instead of just its ID.
+  Available values: started\_by, startedBySubstitute, processDefinitionId.
+  * n: count of related resources. Available values: activeFlowNodes, failedFlowNodes.
+* **Success Response**  
+  A JSON representation of the case
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "id": "1",
+      "end_date": "",
+      "failedFlowNodes": "9",
+      "startedBySubstitute": {
+        "last_connection": "2014-12-01 10:46:03.750",
+        "created_by_user_id": "-1",
+        "creation_date": "2014-11-27 17:53:46.516",
+        "id": "4",
+        "icon": "/default/icon_user.png",
+        "enabled": "true",
+        "title": "Mr",
+        "manager_id": "3",
+        "job_title": "Human resources benefits",
+        "userName": "walter.bates",
+        "lastname": "Bates",
+        "firstname": "Walter",
+        "password": "",
+        "last_update_date": "2014-11-27 17:53:46.516"
+      },
+      "start": "2014-11-27 17:55:00.906",
+      "activeFlowNodes": "9",
+      "state": "started",
+      "rootCaseId": "1",
+      "started_by":{
+        "last_connection": "",
+        "created_by_user_id": "-1",
+        "creation_date": "2014-11-27 17:53:46.509",
+        "id": "3",
+        "icon": "/default/icon_user.png",
+        "enabled": "true",
+        "title": "Mrs",
+        "manager_id": "1",
+        "job_title": "Human resource manager",
+        "userName": "helen.kelly",
+        "lastname": "Kelly",
+        "firstname": "Helen",
+        "password": "",
+        "last_update_date": "2014-11-27 17:53:46.509"
+      },
+      "processDefinitionId": {
+        "id": "5777042023671752656",
+        "icon": "",
+        "displayDescription": "",
+        "deploymentDate": "2014-11-27 17:54:37.774",
+        "description": "",
+        "activationState": "ENABLED",
+        "name": "Pool2",
+        "deployedBy": "4",
+        "displayName": "Pool 2",
+        "actorinitiatorid": "1",
+        "last_update_date": "2014-11-27 17:54:43.621",
+        "configurationState": "RESOLVED",
+        "version": "2.0"
+      },
+      "last_update_date": "2014-11-27 17:55:00.906",
+      "searchIndex1Label":"mySearchIndex1Label",
+      "searchIndex2Label":"mySearchIndex2Label",
+      "searchIndex3Label":"mySearchIndex3Label",
+      "searchIndex4Label":"mySearchIndex4Label",
+      "searchIndex5Label":"mySearchIndex5Label",
+      "searchIndex1Value":"mySearchIndex1Value",
+      "searchIndex2Value":"mySearchIndex2Value",
+      "searchIndex3Value":"mySearchIndex3Value",
+      "searchIndex4Value":"mySearchIndex4Value",
+      "searchIndex5Value":"mySearchIndex5Value"
+    }
+    ```
+
+#### Search for a case
+
+* **URL**  
+  `/API/bpm/case`  
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  * f: filter of the search, beware you cannot use team\_manager\_id and supervisor\_id at the same time
+  * d: a string and a resource identifier associated to deploy a resource. available values (`started_by`, `startedBySubstitute`, `processDefinitionId`)
+  * n: count of related resource. Available values: `activeFlowNodes`, `failedFlowNodes`
+* **Request Payload**  
+  ```json
+  ```
+* **Success Response**  
+  JSON representations of matching cases
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    [
+      {
+        "id": "1",
+        "end_date": "",
+        "failedFlowNodes": "9",
+        "startedBySubstitute":{
+          "last_connection": "2014-12-01 10:46:03.750",
+          "created_by_user_id": "-1",
+          "creation_date": "2014-11-27 17:53:46.516",
+          "id": "4",
+          "icon": "/default/icon_user.png",
+          "enabled": "true",
+          "title": "Mr",
+          "manager_id": "3",
+          "job_title": "Human resources benefits",
+          " userName": "walter.bates",
+          "lastname": "Bates",
+          "firstname": "Walter",
+          "password": "",
+          "last_update_date": "2014-11-27 17:53:46.516"
+        },
+        "start": "2014-11-27 17:55:00.906",
+        "activeFlowNodes": "9",
+        "state": "started",
+        "rootCaseId": "1",
+        "started_by":{
+          "last_connection": "",
+          "created_by_user_id": "-1",
+          "creation_date": "2014-11-27 17:53:46.509",
+          "id": "3",
+          "icon": "/default/icon_user.png",
+          "enabled": "true",
+          "title": "Mrs",
+          "manager_id": "1",
+          "job_title": "Human resource manager",
+          "userName": "helen.kelly",
+          "lastname": "Kelly",
+          "firstname": "Helen",
+          "password": "",
+          "last_update_date": "2014-11-27 17:53:46.509"
+        },
+        "processDefinitionId":{
+          "id": "5777042023671752656",
+          "icon": "",
+          "displayDescription": "",
+          "deploymentDate": "2014-11-27 17:54:37.774",
+          "description": "",
+          "activationState": "ENABLED",
+          "name": "Pool2",
+          "deployedBy": "4",
+          "displayName": "Pool 2",
+          "actorinitiatorid": "1",
+          "last_update_date": "2014-11-27 17:54:43.621",
+          "configurationState": "RESOLVED",
+          "version": "2.0"
+        },
+        "last_update_date": "2014-11-27 17:55:00.906",
+        "searchIndex1Label":"case1SearchIndex1Label",
+        "searchIndex2Label":"case1SearchIndex2Label",
+        "searchIndex3Label":"case1SearchIndex3Label",
+        "searchIndex4Label":"case1SearchIndex4Label",
+        "searchIndex5Label":"case1SearchIndex5Label",
+        "searchIndex1Value":"case1SearchIndex1Value",
+        "searchIndex2Value":"case1SearchIndex2Value",
+        "searchIndex3Value":"case1SearchIndex3Value",
+        "searchIndex4Value":"case1SearchIndex4Value",
+        "searchIndex5Value":"case1SearchIndex5Value"
+      },
+      {
+        "id": "2",
+        "end_date": "",
+        "failedFlowNodes": "0",
+        "startedBySubstitute":{
+          "last_connection": "2014-12-01 10:46:03.750",
+          "created_by_user_id": "-1",
+          "creation_date": "2014-11-27 17:53:46.516",
+          "id": "4",
+          "icon": "/default/icon_user.png",
+          "enabled": "true",
+          "title": "Mr",
+          "manager_id": "3",
+          "job_title": "Human resources benefits",
+          "userName": "walter.bates",
+          "lastname": "Bates",
+          "firstname": "Walter",
+          "password": "",
+          "last_update_date": "2014-11-27 17:53:46.516"
+        },
+        "start": "2014-11-27 17:56:28.596",
+        "activeFlowNodes": "1",
+        "state": "started",
+        "rootCaseId": "2",
+        "started_by":{
+          "last_connection": "",
+          "created_by_user_id": "-1",
+          "creation_date": "2014-11-27 17:53:46.509",
+          "id": "3",
+          "icon": "/default/icon_user.png",
+          "enabled": "true",
+          "title": "Mrs",
+          "manager_id": "1",
+          "job_title": "Human resource manager",
+          "userName": "helen.kelly",
+          "lastname": "Kelly",
+          "firstname": "Helen",
+          "password": "",
+          "last_update_date": "2014-11-27 17:53:46.509"
+        },
+        "processDefinitionId":{
+          "id": "4948193168427526005",
+          "icon": "",
+          "displayDescription": "",
+          "deploymentDate": "2014-11-27 17:56:10.920",
+          "description": "",
+          "activationState": "ENABLED",
+          "name": "ConnectorFailed",
+          "deployedBy": "4",
+          "displayName": "ConnectorFailed",
+          "actorinitiatorid": "2",
+          "last_update_date": "2014-11-27 17:56:12.470",
+          "configurationState": "RESOLVED",
+          "version": "1.0"
+        },
+        "last_update_date": "2014-11-27 17:56:28.596",
+        "searchIndex1Label":"case2SearchIndex1Label",
+        "searchIndex2Label":"case2SearchIndex2Label",
+        "searchIndex3Label":"case2SearchIndex3Label",
+        "searchIndex4Label":"case2SearchIndex4Label",
+        "searchIndex5Label":"case2SearchIndex5Label",
+        "searchIndex1Value":"case2SearchIndex1Value",
+        "searchIndex2Value":"case2SearchIndex2Value",
+        "searchIndex3Value":"case2SearchIndex3Value",
+        "searchIndex4Value":"case2SearchIndex4Value",
+        "searchIndex5Value":"case2SearchIndex5Value"
+      } 
+    ]
+    ```
+
+#### Create a case
+
+* **URL**  
+  `/API/bpm/case`  
+* **Method**  
+  `POST`
+* **Request Payload**  
+  The process definition id, in JSON
+
+  Create a case without variables
+  ```json
+  {
+    "processDefinitionId":"5777042023671752656"
+  }
+  ```
+  Create a case with variables
+  ```json
+  {  
+    "processDefinitionId":"5777042023671752656",
+    "variables":[  
+      {  
+        "name":"stringVariable",
+        "value":"aValue"
+      },
+      {  
+        "name":"dateVariable",
+        "value":349246800000
+      },
+      {  
+        "name":"numericVariable",
+        "value":5
+      }
+    ]
+  }
+  ```
+* **Success Response**  
+  The JSON representation of a case resource
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "id": "1001",
+      "end_date": "",
+      "startedBySubstitute": "4",
+      "start": "2014-12-01 14:36:23.732",
+      "state": "started",
+      "rootCaseId": "1001",
+      "started_by": "4",
+      "processDefinitionId": "5777042023671752656",
+      "last_update_date": "2014-12-01 14:36:23.732"
+    }
+    ```
+
+#### Delete a case
+
+* **URL**  
+  `/API/bpm/case`  
+* **Method**  
+  `DELETE`
+* **Success Response**  
+  * **Code**: 200
+
+#### Retrieve the case context
+
+* **URL**  
+  `/API/bpm/case/:caseId/context`  
+* **Method**  
+  `GET`
+* **Success Response**  
+  A context object
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {  
+      "businessData_ref":{  
+        "name":"myBusinessDate",
+        "type":"com.company.model.BusinessObject1",
+        "link":"API/bdm/businessData/com.company.model.BusinessObject1/2",
+        "storageId":2,
+        "storageId_string":"2"
+      },
+      "document1_ref":{  
+        "id":1,
+        "processInstanceId":3,
+        "name":"myDocument",
+        "author":104,
+        "creationDate":1434723950847,
+        "fileName":"TestCommunity-1.0.bos",
+        "contentMimeType":null,
+        "contentStorageId":"1",
+        "url":"documentDownload?fileName=TestCommunity-1.0.bos&contentStorageId=1",
+        "description":"",
+        "version":"1",
+        "index":-1,
+        "contentFileName":"TestCommunity-1.0.bos"
+      }
+    }
+    ```
 * [archivedCase](api_resources/bpm_archivedcase_7.0_0.md)
 * [caseInfo](api_resources/bpm_caseinfo_6.5_0_0_0.md)
 
