@@ -17,15 +17,15 @@ A user is granted set of permissions. These permissions define the set of resour
 
 ## Summary
 
-For a new Bonita BPM installation, authorization is activated by default. If you want to use it, all you need to do is [deactivate the HTTP API](#activate),
-and you will have a standard authorization configuration:
+For a new Bonita BPM installation, a basic set of authorization checks is activated by default but you might also want to [deactivate the HTTP API](#activate).
+Here are the key points of the authorizations configuration :
 
-* The default static checks create an authorization framework that exactly matches the standard Bonita BPM Portal features and profiles.
+* The static checks (activated by default on a fresh installation) create an authorization layer that exactly matches the standard Bonita BPM Portal features and profiles.
 If you are using the standard Portal, you do not need to configure anything.
 * If you want to add extra authorization restrictions based on business rules, turn on the dynamic checks that you want.
 The configuration file defines standard rules for the most frequent cases, so all you need to do is uncomment the rules you want to apply.
-* If you add a custom page, include a resources=\[ list \] in your page.properties to specify who has access.
-* If the previous points do not meet your security needs, you can still manually customize the feature as much as you want.
+* If you add a custom page, include a resources=\[ list \] in your page.properties to specify which resources your custom page requires the users to have access to.
+* If the previous points do not meet your security needs, you can still manually customize the configuration and rules as much as you want.
 
 If you have migrated your platform from a version of Bonita BPM earlier than 6.4.0, migration is deactivated by default.
 You need to [add authorization to your custom pages](#migrate) before you activate authorization.
@@ -41,8 +41,7 @@ The static phase uses a set of configuration files:
 These files grant permissions to sets of users based on profile or user name.
 You cannot remove permissions in a configuration file, so you must ensure that the default definitions grant the minimum permissions that you want to give to any user.
 
-These files are located in `bonita-home\client\tenants\[tenantId]\conf\` for each tenant and in
-`bonita-home\client\tenants\tenant-template\conf\`.
+The default versions of these files are located in `setup/platform_conf/initial/tenant_template_portal`. In order to change the configuration on an installation whose platform has already been initialized, use the [plaform setup tool](BonitaBPM_platform_setup.md) to retrieve the current configuration and update the files in `setup/platform_conf/current/tenants/[tenantId]/tenant_portal`. Then use the tool again to save your changes into to the database.
 
 #### Resources permissions mapping
 
@@ -109,8 +108,8 @@ This specifies that a POST action can be done for a case resource if the user is
 or any user with the Administrator profile, or any user woth the User profile, or if the CasePermissionRule grants authorization.
 
 A `check` term indicates the name of a class to be called. The class must implement `org.bonitasoft.engine.api.permission.PermissionRule`.
-This example defines a dynamic check that is made whenever a user makes a GET request for the bpm/process resource. The script must be added to the `bonita-home\engine-server\work\tenants\[tenantId]\security-scripts` folder.
-The `security-scripts` folder contains some example scripts. If the script returns success, the user is authorized. If the script returns any other result (including an error), the user is not authorized.
+This example defines a dynamic check that is made whenever a user makes a GET request for the bpm/process resource. The script must be added to the `setup/platform_conf/current/tenant_template_security_scripts` folder before the platform initialization or using the [plaform setup tool](BonitaBPM_platform_setup.md) to retrieve the current configuration, to the folder `setup/platform_conf/current/tenants/[tenantId]/tenant_security_scripts` (then you need to use the tool again to save the changes into the database).
+The `tenant_security_scripts` folder contains some example scripts. If the script returns `true`, the user is authorized. If the script returns `false` or any other result (including an error), the user is not authorized.
 
 The `dynamic-permissions-checks.properties` file contains a placeholder line for each method and resource. For example:
 ```properties
@@ -122,7 +121,7 @@ The `dynamic-permissions-checks.properties` file contains a placeholder line for
 ```
 
 To specify a dynamic check for a method and resource, uncomment the line and add the conditions.
-If you specify a condition that calls a Groovy script, add the script to the `bonita-home\engine-server\work\tenants\[tenantId]\security-scripts` folder.
+If you specify a condition that calls a Groovy script, add the script to the `tenant_security_scripts` folder. Then use the [plaform setup tool](BonitaBPM_platform_setup.md) to save the changes.
 
 #### Example dynamic check script
 
@@ -147,7 +146,7 @@ import org.bonitasoft.engine.api.*
 
     @Override
     public boolean check(APISession apiSession, APICallContext apiCallContext, APIAccessor apiAccessor, Logger logger) {
-    long currentUserId = apiSession.getUserId();
+    long currentUserId = apiSession.getUserId()
     if ("GET".equals(apiCallContext.getMethod())) {
     return checkGetMethod(apiCallContext, apiAccessor, currentUserId, logger)
     } else if ("POST".equals(apiCallContext.getMethod())) {
@@ -164,11 +163,11 @@ import org.bonitasoft.engine.api.*
     }
     def processAPI = apiAccessor.getProcessAPI()
     def identityAPI = apiAccessor.getIdentityAPI()
-    User user = identityAPI.getUser(currentUserId);
-    SearchOptionsBuilder searchOptionBuilder = new SearchOptionsBuilder(0, 10);
-    searchOptionBuilder.filter(UserSearchDescriptor.USER_NAME, user.getUserName());
-    SearchResult<User> listUsers = processAPI.searchUsersWhoCanStartProcessDefinition(processDefinitionId, searchOptionBuilder.done());
-    logger.debug("RuleCase : nb Result [" + listUsers.getCount() + "] ?");
+    User user = identityAPI.getUser(currentUserId)
+    SearchOptionsBuilder searchOptionBuilder = new SearchOptionsBuilder(0, 10)
+    searchOptionBuilder.filter(UserSearchDescriptor.USER_NAME, user.getUserName())
+    SearchResult<User> listUsers = processAPI.searchUsersWhoCanStartProcessDefinition(processDefinitionId, searchOptionBuilder.done())
+    logger.debug("RuleCase : nb Result [" + listUsers.getCount() + "] ?")
     def canStart = listUsers.getCount() == 1
     logger.debug("RuleCase : User allowed to start? " + canStart)
     return canStart
@@ -199,7 +198,7 @@ import org.bonitasoft.engine.api.*
     return true
     }
     }
-    return false;
+    return false
     }
     }
 ```
@@ -305,8 +304,8 @@ However, if a custom profile use a custom page, you must update the custom page 
 The table below shows the default permissions and the resources to which they grant access.
 | Permission | Resources|
 |:-|:-|
-| activity\_visualization | \[GET|bpm/processResolutionProblem\]| 
-| application\_management | \[POST|living/application, PUT|living/application, DELETE|living/application, POST|living/application-page, PUT|living/application-page, DELETE|living/application-page, POST|living/application-menu, PUT|living/application-menu, DELETE|living/application-menu\]| 
+| activity\_visualization | \[GET\|bpm/processResolutionProblem\]| 
+| application\_management | \[POST\|living/application, PUT\|living/application, DELETE\|living/application, POST\|living/application-page, PUT\|living/application-page, DELETE\|living/application-page, POST\|living/application-menu, PUT\|living/application-menu, DELETE\|living/application-menu\]| 
 | application\_visualization | \[GET\|living/application, GET\|living/application-page, GET\|living/application-menu\]| 
 | bdm\_management | \[POST\|tenant/bdm\]| 
 | bdm\_visualization | \[GET\|bdm/businessData, GET\|bdm/businessDataReference\]| 
