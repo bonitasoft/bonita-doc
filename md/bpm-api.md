@@ -1792,7 +1792,7 @@ Warning: only following types are supported for _javaTypeclassname_: java.lang.S
 
 Use the document resource to access a document in an active case. 
 
-::: warning
+::: alert alert-warning
 **:fa-exclamation-triangle: Caution:** This resource is deprecated and may be removed in a future release. Instead, use caseDocument or archivedCaseDocument.
 :::
 
@@ -1802,8 +1802,8 @@ Use the document resource to access a document in an active case.
 
 Use the case document resource to access a document in an active case. For archived cases and previous document versions use archivedCaseDocument.
 
-::: info
-**Note**: The REST methods for handling documents have been updated in Bonita BPM 6.4 and the following item is deprecated:
+::: alert alert-info
+**Note**: The REST methods for handling documents have been updated in {{ var\_product }} 6.4 and the following item is deprecated:
 
 * `author` in the payload is deprecated: use `submittedBy`
 :::
@@ -2048,10 +2048,246 @@ The response to PUT methods is the same as for POST methods.
 * **Success Response**  
   * **Code**: 200
 
-* [archivedCaseDocument](api_resources/bpm_archivedcasedocument_6.0_0_0.md)
+### ArchivedCaseDocument
+
+#### Description
+
+Use the archived case document resource to access previous document versions for active and archived cases
+
+#### Identifier
+
+The ID of the document (a long value).
+
+#### Representation
+
+```json
+{
+  "id":"_archivedDocumentId_", 
+  "creationDate":"_date and time of the original document creation_", 
+  "author":"_submittorUserId_", 
+  "index":"_index in a list of documents. if -1 it represents a single document_", 
+  "contentMimetype":"_MIMEtype_", 
+  "caseId":"_caseId_", 
+  "contentStorageId":"_storageId_", 
+  "isInternal":"_true | false_", 
+  "description":"_ description_", 
+  "name":"_name_", 
+  "fileName":"_filename_", 
+  "submittedBy":"_submittorUserId_", 
+  "url":"_urlForDownload_", 
+  "version":"_version_", 
+  "sourceObjectId":"_originalDocumentId_", 
+  "archivedDate":"_date and time of the archived document creation_"
+}
+```   
+
+#### Methods
+
+The methods used for this resource are:
+
+* GET - Read a resource
+* DELETE - Remove the physical file related to the specified id but keep the mapping for audit purposes
+
+#### Search for a document
+
+You can use a single GET method to return all the documents that match the specified filters.
+
+* **URL**  
+  `/API/bpm/archivedCaseDocument`  
+  _Examples_
+  * List all versions of a simple document (knowing its current version Id) `/API/bpm/archivedCaseDocument?c=10&p=0&f=sourceObjectId=1` 
+  * List all versions of a list of document (knowing its name) `/API/bpm/archivedCaseDocument?c=10&p=0&f=name=MyDocList`
+  * List all versions of all documents of the case of id `1`: `/API/bpm/archivedCaseDocument?c=10&p=0&f=caseId=1`
+  * List all versions of all document of the archived case of id `1` `/API/bpm/archivedCaseDocument?c=10&p=0&f=archivedCaseId=1`
+  * Combine different filters, for example list all versions of a list declared in a case (knowing list name and case id) `/API/bpm/archivedCaseDocument?c=10&p=0&f=caseId=1&f=name=myDocList&o=index ASC`
+
+Response payload
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  It is possible to filter on the following parameters: sourceObjectId, caseId, archivedCaseId, submittedBy, name, description.
+
+  * `sourceObjectId="id"`: search for documents by specifying the original document id. 
+    This is useful if you know the id of a caseDocument and you wish to retrieve all its previous versions..
+  * `caseId="id"`: search for documents with the specified open case id.
+  * `archivedCaseId="id"`: search for documents with the specified archvied case id.
+  * `submittedBy="id"`: search for documents that were submitted by the user with the specified identifier.
+  * `name="string"`: search for documents with names that contain _string_. 
+    Depending on the setting for [word-based search](using-list-and-search-methods.md), the search returns documents with _string_ at the start of the name or the start of a word in the name.
+  * `description="string"`: search for documents with descriptions that contain _string_. 
+    Depending on the setting for [word-based search](using-list-and-search-methods.md), the search returns documents with _string_ at the start of the description or the start of a word in the description.
+* **Success Response**  
+  An archived document object for each matching document
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    [{
+       "id":"1",
+       "creationDate":"2014-10-09 16:39:52.472", 
+       "author":"1",
+       "index":"0",
+       "contentMimetype":"text/plain",
+       "caseId":"1",
+       "contentStorageId":"1",
+       "isInternal":"true",
+       "description":"",
+       "name":"myDoc",
+       "fileName":"test1.txt",
+       "submittedBy":"1",
+       "url":"documentDownload?fileName=test1.txt&contentStorageId=1",
+       "version":"1",
+       "sourceObjectId":"1",
+       "archivedDate":"2014-10-09 17:39:52.473"
+    }, {
+       "id":"2", 
+       "creationDate":"2014-10-09 16:39:52.473", 
+       "author":"1", 
+       "index":"1", 
+       "contentMimetype":"text/plain", 
+       "caseId":"1", 
+       "contentStorageId":"2", 
+       "isInternal":"true", 
+       "description":"", 
+       "name":"myDoc", 
+       "fileName":"test2.txt", 
+       "submittedBy":"1", 
+       "url":"documentDownload?fileName=test2.txt&contentStorageId=2", 
+       "version":"2", 
+       "sourceObjectId":"1",
+       "archivedDate":"2014-10-09 18:39:52.473"
+    }, {
+       "id":"3", 
+       "creationDate":"2014-10-09 16:39:52.473", 
+       "author":"1", 
+       "index":"2", 
+       "contentMimetype":"text/plain", 
+       "caseId":"1", 
+       "contentStorageId":"3", 
+       "isInternal":"true", 
+       "description":"", 
+       "name":"myDoc", 
+       "fileName":"test3.txt", 
+       "submittedBy":"1", 
+       "url":"documentDownload?fileName=test3.txt&contentStorageId=3", 
+       "version":"3",
+       "sourceObjectId":"1", 
+       "archivedDate":"2014-10-09 19:39:52.473" 
+    }]
+    ```
+
+#### Delete a document content
+
+Delete the document content with id 3
+* **URL**  
+  `/API/bpm/archivedCaseDocument/:archivedCaseId``  
+* **Method**  
+  `DELETE`
 
 ## Actors
-* [actor](api_resources/bpm_actor_6.4_1_0_0_1.md)
+
+### Actor
+
+#### Description
+
+Manage process actors.
+
+#### Identifier
+
+Simple, the ID of the object (a long value)
+
+#### Representation
+
+```json
+{
+  "id":"_actor id_",
+  "process_id":"_process definition id_",
+  "description":"_a description of the actor_",
+  "name":"_name of the actor (as specified on human tasks and for the initiator of the process)_",
+  "displayName":"_the display name of the actor_",
+}
+```
+
+#### Methods
+
+The methods used for this resource are:
+
+* GET - Read or search an actor
+* PUT - Update an actor
+
+#### Read an actor
+
+Use a GET method to retrieve information about an actor.
+
+* **URL**  
+  `/API/bpm/actor/:actorId`  
+  _Example_: Get the information about the actor with id=1\: `/API/bpm/actor/1`  
+* **Method**  
+  `GET`
+* **Success Response**  
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "id":"1",
+      "process_id":"4717422838168315799",
+      "description":"",
+      "name":"employee",
+      "displayName":"Employee actor"
+    }
+    ```
+
+#### Search actors for a given process id
+
+Use a GET method to search actors for a given process id.
+
+* **URL**  
+  `/API/bpm/actor`  
+  _Example_: Count the actor members of actors of the process with id 4758765 `/API/bpm/actor?p=0&c=10&f=process_id=4758765&n=users&n=group&n=roles&n=memberships`
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+* **Success Response**  
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    [
+      {
+        "id":"1",
+        "process_id":"4758765",
+        "description":"",
+        "name":"employee",
+        "displayName":"Employee actor"
+      }, {
+        "id":"2",
+        "process_id":"4758765",
+        "description":"",
+        "name":"customer",
+        "displayName":"Customer actor"
+      }
+    ]
+    ```
+
+#### Update an actor
+
+Use the PUT method to update an actor.
+Fields that can be upated are "displayName" and "description"
+
+* **URL**  
+  `/API/bpm/actor/:actorId`  
+* **Method**  
+  `PUT`
+* **Request Payload**  
+  ```json
+  {
+    "displayName": "new display name",
+    "description": "new description"
+  }
+  ```
+* **Success Response**  
+  * **Code**: 20
+
 * [actorMember](api_resources/bpm_actormember_6.4_0_0_0_0.md)
 
 ## Cases (Process Instances)

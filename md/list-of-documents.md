@@ -68,7 +68,7 @@ Response payload :
 ## Add a new document
 
 To add a new document to the list `myDocList` at the end of the list, do a POST call without specifying the _index_ attribute in the request payload.
-Request URL:
+
 |Method | Path + Query|
 |:-|:-|
 | POST |`/API/bpm/caseDocument` |
@@ -106,47 +106,52 @@ Response payload
 ```
     
 
-Note that this new document has got index=3\. 
+_Note_: that this new document has got index=3\. 
 If you now rerun the first GET request, you will now get a list containing four documents with the new document as last element of the list.
 
-Example 3: Add a new document to the list `myDocList` at index 1\.
-Request url
-POST |/API/bpm/caseDocument
+## Add a new document to the list at a given index
+
+To add a new document to the list `myDocList` at index 1\, do a POST call specifying the _index_ attribute in the request payload.
+
+|Method | Path + Query|
+|:-|:-|
+| POST |`/API/bpm/caseDocument` |
 
 Request payload
 
-    
-    { 
-    "caseId" : "1", 
-    "file" : "doc.jpg", 
-    "name" : "myDocList", 
-    "description" : "this is an element of the list at index 1", 
-    "index" : "1"
-    }
-    
+```json 
+{ 
+  "caseId" : "1", 
+  "file" : "doc.jpg", 
+  "name" : "myDocList", 
+  "description" : "this is an element of the list at index 1", 
+  "index" : "1"
+}
+```
 
 Response payload
 
-    
-    {
-    "id":"5", 
-    "creationDate":"2014-10-09 16:45:36.658", 
-    "author":"1", 
-    "index":"1", 
-    "contentMimetype":"application/octet-stream", 
-    "caseId":"1", 
-    "contentStorageId":"4", 
-    "isInternal":"true", 
-    "description":"this is a simple doc", 
-    "name":"myDocList", 
-    "fileName":"doc.jpg", 
-    "submittedBy":"1", 
-    "url":"documentDownload?fileName=doc.jpg&contentStorageId=4", 
-    "version":"1" 
-    }
-    
+```json 
+{
+  "id":"5", 
+  "creationDate":"2014-10-09 16:45:36.658", 
+  "author":"1", 
+  "index":"1", 
+  "contentMimetype":"application/octet-stream", 
+  "caseId":"1", 
+  "contentStorageId":"4", 
+  "isInternal":"true", 
+  "description":"this is a simple doc", 
+  "name":"myDocList", 
+  "fileName":"doc.jpg", 
+  "submittedBy":"1", 
+  "url":"documentDownload?fileName=doc.jpg&contentStorageId=4", 
+  "version":"1" 
+}
+```
 
-Note that this new document has index=1\. 
+_Note_: that this new document has index=1\. 
+
 If you now rerun the request in Example 1, you will see that the indexes of the documents in myDocList have been 
 recalculated with respect to the newly added document index.
 
