@@ -2777,8 +2777,250 @@ You can get a case by using its identifier. Request url
       }
     }
     ```
-* [archivedCase](api_resources/bpm_archivedcase_7.0_0.md)
-* [caseInfo](api_resources/bpm_caseinfo_6.5_0_0_0.md)
+### ArchivedCase
+
+#### Description
+
+A completed instance of a process. 
+
+#### Identifier
+
+The ID of the archived case (a long value).
+
+#### Representation
+```json
+{
+  "id":"_the identifier of the archived case_",
+  "end_date":"_the date set when the case was archived_",
+  "startedBySubstitute":"_the id of the user_",  
+  
+  "sourceObjectId":"_the id of the case before it was archived_"
+  "start":"_the stard date of the initial case_", 
+  "state":"_the state of the archived case_", 
+  "rootCaseId":"_the id of the case before it was archived_", 
+  "started_by":"_id of the user who start the case_", 
+  "archivedDate":"_the date set when the case was archived_", 
+  "processDefinitionId":"_the id of the process related to this archived case_", 
+  "last_update_date":"_the date of the last update done on the case_",
+  "searchIndex1Label":"_the 1st search index label (from 6.5, in Subscription editions only)_",
+  "searchIndex2Label":"_the 2nd search index label (from 6.5, in Subscription editions only)_",
+  "searchIndex3Label":"_the 3rd search index label (from 6.5, in Subscription editions only)_",
+  "searchIndex4Label":"_the 4th search index label (from 6.5, in Subscription editions only)_",
+  "searchIndex5Label":"_the 5th search index label (from 6.5, in Subscription editions only)_",
+  "searchIndex1Value":"_the 1st search index value (from 6.5, in Subscription editions only)_",
+  "searchIndex2Value":"_the 2nd search index value (from 6.5, in Subscription editions only)_",
+  "searchIndex3Value":"_the 3rd search index value (from 6.5, in Subscription editions only)_",
+  "searchIndex4Value":"_the 4th search index value (from 6.5, in Subscription editions only)_",
+  "searchIndex5Value":"_the 5th search index value (from 6.5, in Subscription editions only)_"
+}
+```   
+
+#### Methods
+
+The methods used for this resource are:
+
+* GET - Read a resource or search for a resource
+* DELETE - Remove a resource
+
+#### Read an archived case
+
+You can get an archived case by using its identifier. An archive case is linked to a case with the key. 
+
+* **URL**  
+  `/API/bpm/archivedCase/:archivedCaseId`  
+* **Method**  
+  `GET`
+* **Success Response**  
+  A JSON representation of the archived case resource
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "id": "9",
+      "end_date": "2014-10-22 10:57:00.299",
+      "startedBySubstitute": "4",
+      "sourceObjectId": "3",
+      "start": "2014-10-22 10:56:53.415",
+      "state": "completed",
+      "rootCaseId": "3",
+      "started_by": "4",
+      "archivedDate": "2014-10-22 10:57:00.299",
+      "processDefinitionId": "6054482369194211518",
+      "last_update_date": "2014-10-22 10:57:00.299"
+      "searchIndex1Label":"case9SearchIndex1Label",
+      "searchIndex2Label":"case9SearchIndex2Label",
+      "searchIndex3Label":"case9SearchIndex3Label",
+      "searchIndex4Label":"case9SearchIndex4Label",
+      "searchIndex5Label":"case9SearchIndex5Label",
+      "searchIndex1Value":"case9SearchIndex1Value",
+      "searchIndex2Value":"case9SearchIndex2Value",
+      "searchIndex3Value":"case9SearchIndex3Value",
+      "searchIndex4Value":"case9SearchIndex4Value",
+      "searchIndex5Value":"case9SearchIndex5Value"
+    }
+    ```
+
+#### Search archived cases
+
+You can search cases.
+
+* **URL**  
+  `/API/bpm/archivedCase`  
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+* **Success Response**  
+  A JSON representation of an array of archived case resources
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    [
+      {
+        "id": "3002",
+        "end_date": "2014-10-22 15:21:10.129",
+        "startedBySubstitute": "4",
+        "sourceObjectId": "6",
+        "start": "2014-10-22 11:47:28.859",
+        "state": "completed",
+        "rootCaseId": "6",
+        "started_by": "4",
+        "archivedDate": "2014-10-22 15:21:10.129",
+        "processDefinitionId": {
+          "id": "5652578116304089592",
+          "icon": "",
+          "displayDescription": "",
+          "deploymentDate": "2014-10-22 11:42:26.644",
+          "description": "",
+          "activationState": "ENABLED",
+          "name": "données",
+          "deployedBy": "4",
+          "displayName": "données",
+          "actorinitiatorid": "4",
+          "last_update_date": "2014-10-22 11:42:45.672",
+          "configurationState": "RESOLVED",
+          "version": "2.0"
+        },
+        "last_update_date": "2014-10-22 15:21:10.129",
+        "searchIndex1Label":"case6SearchIndex1Label",
+        "searchIndex2Label":"case6SearchIndex2Label",
+        "searchIndex3Label":"case6SearchIndex3Label",
+        "searchIndex4Label":"case6SearchIndex4Label",
+        "searchIndex5Label":"case6SearchIndex5Label",
+        "searchIndex1Value":"case6SearchIndex1Value",
+        "searchIndex2Value":"case6SearchIndex2Value",
+        "searchIndex3Value":"case6SearchIndex3Value",
+        "searchIndex4Value":"case6SearchIndex4Value",
+        "searchIndex5Value":"case6SearchIndex5Value"
+      }, {
+        "id": "9",
+        "end_date": "2014-10-22 10:57:00.299",
+        "startedBySubstitute": "4",
+        "sourceObjectId": "3",
+        "start": "2014-10-22 10:56:53.415",
+        "state": "completed",
+        "rootCaseId": "3",
+        "started_by": "4",
+        "archivedDate": "2014-10-22 10:57:00.299",
+        "processDefinitionId": {
+          "id": "6054482369194211518",
+          "icon": "",
+          "displayDescription": "",
+          "deploymentDate": "2014-10-22 10:55:24.219",
+          "description": "",
+          "activationState": "ENABLED",
+          "name": "PoolTestEntry",
+          "deployedBy": "4",
+          "displayName": "PoolTestEntry",
+          "actorinitiatorid": "1",
+          "last_update_date": "2014-10-22 10:55:31.178",
+          "configurationState": "RESOLVED",
+          "version": "1.0"
+        },
+        "last_update_date": "2014-10-22 10:57:00.299",
+        "searchIndex1Label":"case9SearchIndex1Label",
+        "searchIndex2Label":"case9SearchIndex2Label",
+        "searchIndex3Label":"case9SearchIndex3Label",
+        "searchIndex4Label":"case9SearchIndex4Label",
+        "searchIndex5Label":"case9SearchIndex5Label",
+        "searchIndex1Value":"case9SearchIndex1Value",
+        "searchIndex2Value":"case9SearchIndex2Value",
+        "searchIndex3Value":"case9SearchIndex3Value",
+        "searchIndex4Value":"case9SearchIndex4Value",
+        "searchIndex5Value":"case9SearchIndex5Value"
+      }
+    ]
+    ```
+
+#### Remove an archived case
+
+You can delete an archived case by using its identifier. An archived case is linked to a case with the key. 
+
+* **URL**  
+  `/API/bpm/archivedCase/:archivedCaseId`  
+* **Method**  
+  `DELETE`
+* **Success Response**  
+  * **Code**: 200
+
+### CaseInfo
+
+#### Description
+
+Retrieves information about a case. It returns counters for each flow node in the case, showing the number of flow node instances that are in completed, ready, or failed state. If there are no flow node instances in a given state, no counter is returned for that state for the flow node.
+
+#### Identifier
+
+The ID of the case (a long value).
+
+#### Representation
+```json
+{
+  "id": "_case identifier_",
+  "flowNodeStatesCounters": {
+    "_Flow Node name from Studio_": {
+      "completed": "_number of instance of the given Flow Node in completed state_",
+      "ready": "_number of instance of the given Flow Node in ready state_",
+      "failed": "_number of instance of the given Flow Node in failed state_",
+    }
+  }
+}
+```
+#### Methods
+
+The method used for this resource is:
+
+* GET - Read a resource
+
+#### Retrieve counters for case flow nodes
+
+Retrieve information about the flow nodes of the case identified by the given ID.
+
+* **URL**  
+  `/API/bpm/caseInfo/:id`  
+* **Method**  
+  `GET`
+* **Success Response**  
+  The JSON representation of the case information
+  * **Code**: 200
+  * **Payload**:  
+    In this example, counters are returned for two flow nodes in the case, Step1 and Step3\. For Step3, there are no flow nodes in ready state, so no counter is returned for this.
+    ```json
+    {
+      "id": "123",
+      "flowNodeStatesCounters": {
+        "Step1": {
+          "completed": "2",
+          "ready": "1",
+          "executing": "5"
+        },
+        "Step3": {
+          "completed": "10",
+          "failed": "2"
+        }
+      }
+    }
+    ```
 
 ## Process
 * [process](api_resources/bpm_process_7.0_1_0.md)
