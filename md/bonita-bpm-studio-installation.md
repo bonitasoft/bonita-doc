@@ -25,36 +25,36 @@ To download the installer for a different operating system, select it from the d
 Then click the **_Download_** button.
 
 When the download is complete, you have one of the following new files:
-Operating system
+
+**Linux**
 Community edition
+- 32 bit:  `BonitaBPMCommunity-x.y.z-x86.run`
+- 64 bit: `BonitaBPMCommunity-x.y.z-x86_64.run`
 Subscription editions
+- 32 bit: `BonitaBPMSubscription-x.y.z-x86.run`
+- 64 bit: `BonitaBPMSubscription-x.y.z-x86_64.run`
 
-32-bit
-64-bit
-32-bit
-64-bit
+**Windows**
+Community edition
+- 32 bit: `BonitaBPMCommunity-x..zy-x86.exe`
+- 64 bit: `BonitaBPMCommunity-x.y.z-x86_64.exe`
+Subscription editions
+- 32 bits: `BonitaBPMSubscription-x..zy-x86.exe`
+- 64 bits: `BonitaBPMSubscription-x.y.z-x86_64.exe`
 
-Linux
-`BonitaBPMCommunity-x.y.z-x86.run`
-`BonitaBPMCommunity-x.y.z-x86_64.run`
-`BonitaBPMSubscription-x.y.z-x86.run`
-`BonitaBPMSubscription-x.y.z-x86_64.run`
+**Mac**
+Community edition
+- 32 bit: `Not provided`
+- 64 bit: `BonitaBPMCommunity-x.y.z-x86_64.dmg`
+Subscription editions
+- 32 bit: `Not provided`
+- 64 bit: `BonitaBPMSubscription-x.y.z-x86_64.dmg`
 
-Windows
-`BonitaBPMCommunity-x..zy-x86.exe`
-`BonitaBPMCommunity-x.y.z-x86_64.exe`
-`BonitaBPMSubscription-x..zy-x86.exe`
-`BonitaBPMSubscription-x.y.z-x86_64.exe`
-
-Mac
-`Not provided`
-`BonitaBPMCommunity-x.y.z-x86_64.dmg`
-`Not provided`
-`BonitaBPMSubscription-x.y.z-x86_64.dmg`
-
-All
-`BonitaBPMCommunity-x.y.z.zip`
-`BonitaBPMSubscription-x.y.z.zip`
+**All**
+Community edition
+- `BonitaBPMCommunity-x.y.z.zip`
+Subscription editions
+- `BonitaBPMSubscription-x.y.z.zip`
 
 ## Install using a wizard
 
@@ -73,32 +73,30 @@ To install Bonita BPM Studio using the zip archive, unzip the downloaded .zip fi
 ## Start Bonita BPM Studio
 
 To start Bonita BPM Studio, go to the directory where you installed it, and run the launcher for your operating system:
-Operating system
+
+**Linux**
 Community edition
+- 32-bit: `BonitaBPMCommunity-linux`
+- 64-bit: `BonitaBPMCommunity64-linux`
 Subscription editions
+- 32-bit: `BonitaBPMSubscription-linux`
+- 64-bit: `BonitaBPMSubscription64-linux`
 
-32-bit
-64-bit
-32-bit
-64-bit
+**Windows**
+Community edition
+- 32-bit: `BonitaBPMCommunity.exe`
+- 64-bit: `BonitaBPMCommunity64.exe`
+Subscription editions
+- 32-bit: `BonitaBPMSubscription.exe`
+- 64-bit: `BonitaBPMSubscription64.exe`
 
-Linux
-`BonitaBPMCommunity-linux`
-`BonitaBPMCommunity64-linux`
-`BonitaBPMSubscription-linux`
-`BonitaBPMSubscription64-linux`
-
-Windows
-`BonitaBPMCommunity.exe`
-`BonitaBPMCommunity64.exe`
-`BonitaBPMSubscription.exe`
-`BonitaBPMSubscription64.exe`
-
-Mac
-`Not provided`
-`BonitaBPMCommunity64.app`
-`Not provided`
-`BonitaBPMSubscription64.app`
+**Mac**
+Community edition
+- 32-bit: `Not provided`
+- 64-bit: `BonitaBPMCommunity64.app`
+Subscription editions
+- 32-bit: `Not provided`
+- 64-bit: `BonitaBPMSubscription64.app`
 
 ## License
 
@@ -130,7 +128,8 @@ There is a separate log file for the UI Designer, `<studio_folder>/workspace/tom
 After installation, you might see an `OutOfMemory` error in Bonita BPM Studio.
 This error sometimes occurs when importing a large process definition.
 The log messages are similar to the following:
-`
+
+````logs
 !ENTRY org.bonitasoft.studio.importer 4 0 2014-04-25 09:43:49.467
 !ERROR Import has failed for file Autorisation Engagement Depenses-2.0.bos
 
@@ -140,7 +139,7 @@ The log messages are similar to the following:
 java.lang.reflect.InvocationTargetException
 ...
 Caused by: java.lang.OutOfMemoryError: GC overhead limit exceeded
-`
+```
 
 To fix this issue, you need to increase the memory allocated to the JVM that runs the Bonita BPM Studio.
 
