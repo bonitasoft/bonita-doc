@@ -47,7 +47,7 @@ Use a POST method to add a document to a case. You can upload a document from th
 The document description is optional: if you do not specify a description, the description in the response is empty. The response contains a version, which is managed automatically.
 You cannot currently retrieve a specific version of a document, only the most recent version. To retrieve earlier versions of a caseDocument, use the archivedCaseDocument resource.
 
-Example 1: Upload `doc.jpg` from the tenant temporary folder of the bonita home to case 1 with the display name "Doc 1" and renaming the file into "document\_1.jpg":
+Example 1: Upload `doc.jpg` from the tenant temporary upload folder to case 1 with the display name "Doc 1" and renaming the file into "document\_1.jpg":
 Method
 POST
 
@@ -174,7 +174,7 @@ In the URL, you specify to supply the document id. This is included in the respo
 
 The response to PUT methods is the same as for POST methods.
 
-Example 1: Update the document ExpensesPolicy in case 1 by uploading `Expense policy rev2.pdf` from the tenant temporary folder of the bonita home. The document id, 17 in this example, is specified in the URL. The description is optional. The filename allows to rename the file into "revision2.pdf" Method
+Example 1: Update the document ExpensesPolicy in case 1 by uploading `Expense policy rev2.pdf` from the tenant temporary upload folder. The document id, 17 in this example, is specified in the URL. The description is optional. The filename allows to rename the file into "revision2.pdf" Method
 PUT
 
 URL

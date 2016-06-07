@@ -1854,7 +1854,7 @@ You cannot currently retrieve a specific version of a document, only the most re
 * **Method**  
   `POST`
 * **Request Payload**  
-  _Example 1_: Upload `doc.jpg` from the tenant temporary folder of the bonita home to case 1 with the display name "Doc 1" and renaming the file into "document\_1.jpg":
+  _Example 1_: Upload `doc.jpg` from the tenant temporary upload folder to case 1 with the display name "Doc 1" and renaming the file into "document\_1.jpg":
   ```json
   {
     "caseId": "1",
@@ -1965,7 +1965,7 @@ The response to PUT methods is the same as for POST methods.
   `PUT`
 * **Data Params**  
 * **Request Payload**  
-  Example 1: Update the document ExpensesPolicy in case 1 by uploading `Expense policy rev2.pdf` from the tenant temporary folder of the bonita home. The document id, 17 in this example, is specified in the URL. The description is optional. The filename allows to rename the file into "revision2.pdf" Method
+  Example 1: Update the document ExpensesPolicy in case 1 by uploading `Expense policy rev2.pdf` from the tenant temporary upload folder. The document id, 17 in this example, is specified in the URL. The description is optional. The filename allows to rename the file into "revision2.pdf" Method
   ```json
   {
     "file" : "Expense policy rev2.pdf",
