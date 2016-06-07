@@ -15,28 +15,28 @@ The ID of the activity (a long value).
 #### Representation
 ```json
 {
-  "id": "_the activity id (long)_",
-  "displayDescription": "_the human readable activity description (string)_",
-  "executedBySubstitute": "_the id (long) of the user who really performed this activity in case where a substitute did it, or 0 if the activity was not performed by a substitute_",
-  "caseId": "_the case id (long) that is associated with this activity_", 
-  "parentCaseId": "_the parent case id (long) that is associated with this activity's case_",
-  "rootCaseId": "_the root case initiator id (long) that is associated with this activity's case_",
-  "processId": "_the process id (long) that is associated with this activity_",
-  "rootContainerId": "_the root process id (long) of the root case that is associated with this activity_",
-  "state": "_the current state of the activity (string,  for example, ready, completed, failed)_",
-  "type": "_the activity type (string)_",
-  "assigned_id": "_the user id (long) that this activity is assigned to, or 0 if it is unassigned_"
-  "assigned_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current activity was assigned, for example '2014-10-17 16:05:42.626'_",
-  "executedBy": "_the id (long) of the user who executed the activity, or 0 if the activity has not been executed_",
-  "priority": "_the priority (string) of the current activity_",
-  "actorId": "_the id (long) of the actor that can execute this activity, null otherwise_",
-  "description": "_the activity description (string)_",
-  "name": "_the activity name (string)_",
-  "reached_state_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this activity reached the current state, for example '2014-10-17 16:05:42.626'_"
-  "displayName": "_the display name (string) of this activity_",
-  "dueDate": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this activity is due, for example '2014-10-17 16:05:42.626'_",
-  "last_update_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this activity was last updated, for example '2014-10-17 16:05:42.626)_",
-  "parentTaskId": "_in the case of a subtask, the parent task id (long)_"
+  "id": "the activity id (long)",
+  "displayDescription": "the human readable activity description (string)",
+  "executedBySubstitute": "the id (long) of the user who really performed this activity in case where a substitute did it, or 0 if the activity was not performed by a substitute",
+  "caseId": "the case id (long) that is associated with this activity", 
+  "parentCaseId": "the parent case id (long) that is associated with this activity's case",
+  "rootCaseId": "the root case initiator id (long) that is associated with this activity's case",
+  "processId": "the process id (long) that is associated with this activity",
+  "rootContainerId": "the root process id (long) of the root case that is associated with this activity",
+  "state": "the current state of the activity (string,  for example, ready, completed, failed)",
+  "type": "the activity type (string)",
+  "assigned_id": "the user id (long) that this activity is assigned to, or 0 if it is unassigned"
+  "assigned_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current activity was assigned, for example '2014-10-17 16:05:42.626'",
+  "executedBy": "the id (long) of the user who executed the activity, or 0 if the activity has not been executed",
+  "priority": "the priority (string) of the current activity",
+  "actorId": "the id (long) of the actor that can execute this activity, null otherwise",
+  "description": "the activity description (string)",
+  "name": "the activity name (string)",
+  "reached_state_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this activity reached the current state, for example '2014-10-17 16:05:42.626'"
+  "displayName": "the display name (string) of this activity",
+  "dueDate": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this activity is due, for example '2014-10-17 16:05:42.626'",
+  "last_update_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this activity was last updated, for example '2014-10-17 16:05:42.626)",
+  "parentTaskId": "in the case of a subtask, the parent task id (long)"
 }
 ```
 
@@ -239,30 +239,30 @@ The ID of the archived activity (a long value). This is different from the ID of
 #### Representation
 ```json
 {
-  "id": "_the activity id (long)_",
-  "sourceObjectId": "_the original id of the activity before it was archived_",
-  "displayDescription": "_the human readable activity description (string)_",
-  "executedBySubstitute": "_the id (long) of the user who really performed this activity in case where a substitute did it, or 0 if the activity was not performed by a substitute_",
-  "caseId": "_the case id (long) that is associated with this activity_",
-  "parentCaseId": "_the parent case id (long) that is associated with this activity's case_",
-  "rootCaseId": "_the root case initiator id (long) that is associated with this activity's case_",
-  "processId": "_the process id (long) that is associated with this activity_",
-  "rootContainerId": "_the root process id (long) of the root case that is associated with this activity_",
-  "state": "_the current state of the activity (string,  for example, ready, completed, failed)_",
-  "type": "_the activity type (string)_",
-  "assigned_id": "_the user id (long) that this activity is assigned to, or 0 if it is unassigned_",
-  "assigned_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current activity was assigned, for example '2014-10-17 16:05:42.626'_",
-  "executedBy": "_the id (long) of the user who executed the activity, or 0 if the activity has not been executed_",
-  "priority": "_the priority (string) of the current activity_",
-  "actorId": "_the id (long) of the actor that can execute this activity, null otherwise_",
-  "description": "_the activity description (string)_",
-  "name": "_the activity name (string)_",
-  "reached_state_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this activity reached the current state, for example '2014-10-17 16:05:42.626'_",
-  "displayName": "_the display name (string) of this activity_",
-  "dueDate": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this activity is due, for example '2014-10-17 16:05:42.626'_",
-  "archivedDate": "_the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this activity was archived, for example '2014-10-17 16:05:42.626'_",
-  "last_update_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this activity was last updated, for example '2014-10-17 16:05:42.626)_",
-  "parentTaskId": "_in the case of a subtask, the parent task id (long)_"
+  "id": "the activity id (long)",
+  "sourceObjectId": "the original id of the activity before it was archived",
+  "displayDescription": "the human readable activity description (string)",
+  "executedBySubstitute": "the id (long) of the user who really performed this activity in case where a substitute did it, or 0 if the activity was not performed by a substitute",
+  "caseId": "the case id (long) that is associated with this activity",
+  "parentCaseId": "the parent case id (long) that is associated with this activity's case",
+  "rootCaseId": "the root case initiator id (long) that is associated with this activity's case",
+  "processId": "the process id (long) that is associated with this activity",
+  "rootContainerId": "the root process id (long) of the root case that is associated with this activity",
+  "state": "the current state of the activity (string,  for example, ready, completed, failed)",
+  "type": "the activity type (string)",
+  "assigned_id": "the user id (long) that this activity is assigned to, or 0 if it is unassigned",
+  "assigned_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current activity was assigned, for example '2014-10-17 16:05:42.626'",
+  "executedBy": "the id (long) of the user who executed the activity, or 0 if the activity has not been executed",
+  "priority": "the priority (string) of the current activity",
+  "actorId": "the id (long) of the actor that can execute this activity, null otherwise",
+  "description": "the activity description (string)",
+  "name": "the activity name (string)",
+  "reached_state_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this activity reached the current state, for example '2014-10-17 16:05:42.626'",
+  "displayName": "the display name (string) of this activity",
+  "dueDate": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this activity is due, for example '2014-10-17 16:05:42.626'",
+  "archivedDate": "the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this activity was archived, for example '2014-10-17 16:05:42.626'",
+  "last_update_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this activity was last updated, for example '2014-10-17 16:05:42.626)",
+  "parentTaskId": "in the case of a subtask, the parent task id (long)"
 }
 ```   
 
@@ -369,26 +369,26 @@ Simple, the ID of the object (a long value)
 #### Representation
 ```json
 {
-  "displayDescription":"_description_",
-  "executedBySubstitute":"_id of the user who executed the task for the assigned user_",
-  "processId":"_id of the process_",
-  "state":"_state_",
-  "rootContainerId":"_id of the rootContainer_",
+  "displayDescription":"description",
+  "executedBySubstitute":"id of the user who executed the task for the assigned user",
+  "processId":"id of the process",
+  "state":"state",
+  "rootContainerId":"id of the rootContainer",
   "type":"USER_TASK | MANUAL_TASK",
-  "assigned_id":"_id of the assigned user_",
-  "assigned_date":"_date the task was assigned_",
-  "id":"_id of the task_",
+  "assigned_id":"id of the assigned user",
+  "assigned_date":"date the task was assigned",
+  "id":"id of the task",
   "sourceObjectId":"for a manual task, the id of the parent human task",
-  "executedBy":"_id of the user who executed the subtask_",
-  "caseId":"_case id_",
+  "executedBy":"id of the user who executed the subtask",
+  "caseId":"case id",
   "priority":"normal",
-  "actorId":"_id of the actor associated with the task_",
-  "description":"_description_",
-  "name":"_name_",
-  "reached_state_date":"_date and time when the task reached the current state_",
-  "displayName":"_task name displayed in the Portal_",
-  "dueDate":"_date and time that the task is due_",
-  "last_update_date":"_date and time when the task was last updated_"
+  "actorId":"id of the actor associated with the task",
+  "description":"description",
+  "name":"name",
+  "reached_state_date":"date and time when the task reached the current state",
+  "displayName":"task name displayed in the Portal",
+  "dueDate":"date and time that the task is due",
+  "last_update_date":"date and time when the task was last updated"
 }
 ```
 
@@ -541,27 +541,27 @@ Simple, the ID of the object (a long value)
 #### Representation
 ```json
 {
-  "displayDescription":"_description_", 
-  "executedBySubstitute":"_id of the user who executed the task for the assigned user_", 
-  "processId":"_id of the process_", 
-  "state":"_state_", 
-  "rootContainerId":"_id of the rootContainer_", 
+  "displayDescription":"description", 
+  "executedBySubstitute":"id of the user who executed the task for the assigned user", 
+  "processId":"id of the process", 
+  "state":"state", 
+  "rootContainerId":"id of the rootContainer", 
   "type":"MANUAL_TASK", 
-  "assigned_id":"_id of the assigned user_", 
-  "assigned_date":"_date the subtask was assigned_", 
-  "id":"_id of the humanTask that the subtask belongs to_", 
-  "executedBy":"_id of the user who executed the subtask_", 
-  "caseId":"_case id_", 
+  "assigned_id":"id of the assigned user", 
+  "assigned_date":"date the subtask was assigned", 
+  "id":"id of the humanTask that the subtask belongs to", 
+  "executedBy":"id of the user who executed the subtask", 
+  "caseId":"case id", 
   "priority":"normal", 
-  "actorId":"_id of the actor associated with the task_", 
-  "description":"_description_", 
-  "name":"_name_", 
-  "reached_state_date":"_date and time when the subtask reached the current state_", 
-  "rootCaseId" : "_id case_",  
-  "displayName":"_subtask name displayed in the Portal_", 
-  "parentTaskId":"_id of the parentTask that the subtask is associated with_", 
-  "dueDate":"_date and time that the subtask is due_", 
-  "last_update_date":"_date and time when the subtask was last updated_"
+  "actorId":"id of the actor associated with the task", 
+  "description":"description", 
+  "name":"name", 
+  "reached_state_date":"date and time when the subtask reached the current state", 
+  "rootCaseId" : "id case",  
+  "displayName":"subtask name displayed in the Portal", 
+  "parentTaskId":"id of the parentTask that the subtask is associated with", 
+  "dueDate":"date and time that the subtask is due", 
+  "last_update_date":"date and time when the subtask was last updated"
 }
 
 #### Methods
@@ -717,28 +717,28 @@ The ID of the task (a long value).
 #### Representation
 ```json
 { 
-  "displayDescription":"_the human readable task description (string)_", 
-  "executedBySubstitute":"_the id (long) of the user who really performed this task in case where a substitute did it, or 0 if the task was not performed by a substitute_", 
-  "processId":"_the process id (long) that is associated with this task_", 
-  "parentCaseId":"_the parent case id (long) that is associated with this task's case_", 
-  "state":"_the current state of the task (string, for example, ready, completed, failed)_", 
-  "rootContainerId":"_the root process id (long) of the root case that is associated with this task_", 
-  "type":"_the task type (string)_", 
-  "assigned_id":"_the user id (long) that this task is assigned to, or 0 if it is unassigned_", 
-  "assigned_date":"_date_", 
-  "id":"_the task id (long)_", 
-  "executedBy":"_the id (long) of the user who executed the task, or 0 if the task has not been executed_", 
-  "caseId":"_the case id (long) that is associated with this task_", 
-  "rootCaseId":"_the root case initiator id (long) that is associated with this task's case_", 
-  "parentCaseId":"_the parent case id (long) that is associated with this task's case_", 
-  "priority":"_the priority (string) of the current task_", 
-  "actorId":"_the id (long) of the actor that can execute this task, null otherwise_", 
-  "description":"_the task description (string)_", 
-  "name":"_the task name (string)_", 
-  "reached_state_date":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task reached the current state, for example '2014-10-17 16:05:42.626'_", 
-  "displayName":"_the display name (string) of this task_", 
-  "dueDate":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task is due, for example '2014-10-17 16:05:42.626'_", 
-  "last_update_date":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was last updated, for example '2014-10-17 16:05:42.626'_" 
+  "displayDescription":"the human readable task description (string)", 
+  "executedBySubstitute":"the id (long) of the user who really performed this task in case where a substitute did it, or 0 if the task was not performed by a substitute", 
+  "processId":"the process id (long) that is associated with this task", 
+  "parentCaseId":"the parent case id (long) that is associated with this task's case", 
+  "state":"the current state of the task (string, for example, ready, completed, failed)", 
+  "rootContainerId":"the root process id (long) of the root case that is associated with this task", 
+  "type":"the task type (string)", 
+  "assigned_id":"the user id (long) that this task is assigned to, or 0 if it is unassigned", 
+  "assigned_date":"date", 
+  "id":"the task id (long)", 
+  "executedBy":"the id (long) of the user who executed the task, or 0 if the task has not been executed", 
+  "caseId":"the case id (long) that is associated with this task", 
+  "rootCaseId":"the root case initiator id (long) that is associated with this task's case", 
+  "parentCaseId":"the parent case id (long) that is associated with this task's case", 
+  "priority":"the priority (string) of the current task", 
+  "actorId":"the id (long) of the actor that can execute this task, null otherwise", 
+  "description":"the task description (string)", 
+  "name":"the task name (string)", 
+  "reached_state_date":"the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task reached the current state, for example '2014-10-17 16:05:42.626'", 
+  "displayName":"the display name (string) of this task", 
+  "dueDate":"the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task is due, for example '2014-10-17 16:05:42.626'", 
+  "last_update_date":"the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was last updated, for example '2014-10-17 16:05:42.626'" 
 }
 ```
 #### Methods
@@ -880,25 +880,25 @@ Simple, the ID of the object (a long value)
 
 ```json
 {
-  "displayDescription":"_the human readable task description (string)_", 
-  "executedBySubstitute":"_the id (long) of the user who really performed this task in case where a substitute did it, or 0 if the task was not performed by a substitute_", 
-  "processId":"_the process id (long) that is associated with this task_", 
-  "state":"_the current state of the task (string, for example, ready, completed, failed)_", 
-  "rootContainerId":"_the root process id (long) of the root case that is associated with this task_", 
+  "displayDescription":"the human readable task description (string)", 
+  "executedBySubstitute":"the id (long) of the user who really performed this task in case where a substitute did it, or 0 if the task was not performed by a substitute", 
+  "processId":"the process id (long) that is associated with this task", 
+  "state":"the current state of the task (string, for example, ready, completed, failed)", 
+  "rootContainerId":"the root process id (long) of the root case that is associated with this task", 
   "type":"USER_TASK", 
-  "assigned_id":"_the user id (long) that this task is assigned to, or 0 if it is unassigned_", 
-  "assigned_date":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was assigned to the assigned user due, for example '2014-10-17 16:05:42.626'_", 
-  "id":"_the task id (long)_", 
-  "executedBy":"_the id (long) of the user who executed the task, or 0 if the task has not been executed_", 
-  "caseId":"_the id (long) of the case_", 
-  "priority":"_the priority (string) of the current task_", 
-  "actorId":"_the id (long) of the actor that can execute this task, null otherwise_", 
-  "description":"_the task description (string)_", 
-  "name":"_the task name (string)_", 
-  "reached_state_date":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task reached the current state, for example '2014-10-17 16:05:42.626'_", 
-  "displayName":"_the display name (string) of this task_", 
-  "dueDate":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task is due, for example '2014-10-17 16:05:42.626'_", 
-  "last_update_date":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was last updated, for example '2014-10-17 16:05:42.626'_"
+  "assigned_id":"the user id (long) that this task is assigned to, or 0 if it is unassigned", 
+  "assigned_date":"the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was assigned to the assigned user due, for example '2014-10-17 16:05:42.626'", 
+  "id":"the task id (long)", 
+  "executedBy":"the id (long) of the user who executed the task, or 0 if the task has not been executed", 
+  "caseId":"the id (long) of the case", 
+  "priority":"the priority (string) of the current task", 
+  "actorId":"the id (long) of the actor that can execute this task, null otherwise", 
+  "description":"the task description (string)", 
+  "name":"the task name (string)", 
+  "reached_state_date":"the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task reached the current state, for example '2014-10-17 16:05:42.626'", 
+  "displayName":"the display name (string) of this task", 
+  "dueDate":"the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task is due, for example '2014-10-17 16:05:42.626'", 
+  "last_update_date":"the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was last updated, for example '2014-10-17 16:05:42.626'"
 } 
 ```
 
@@ -1082,26 +1082,26 @@ Simple, the ID of the object (a long value)
 
 ```json
 { 
-  "displayDescription": "_the human readable task description (string)_", 
-  "executedBySubstitute": "_the id (long) of the user who really performed this task in case where a substitute did it, or 0 if the task was not performed by a substitute_", 
-  "processId": "_the process id (long) that is associated with this task_", 
-  "state": "_the current state of the task (string,  for example, ready, completed, failed)_", 
-  "rootContainerId": "_the root process id (long) of the root case that is associated with this task_", 
-  "type": "_the task type (USER_TASK | MANUAL_TASK)_", 
-  "assigned_id": "_the user id (long) that this task is assigned to, or 0 if it is unassigned_", 
-  "assigned_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current task was assigned, for example '2014-10-17 16:05:42.626'_", 
-  "id": "_the task id (long)_", 
-  "sourceObjectId":"_id (long) of the original humanTask before archiving_",
-  "executedBy": "_the id (long) of the user who executed the task, or 0 if the task has not been executed_",
-  "caseId":"_id of case_",
-  "priority": "_the priority (string) of the task_", 
-  "actorId": "_the id (long) of the actor that can execute this task, null otherwise_", 
-  "description": "_the task description (string)_", 
-  "name": "_the task name (string)_", 
-  "reached_state_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task reached the current state, for example '2014-10-17 16:05:42.626'_", 
-  "displayName": "_the display name (string) of this task_", 
-  "dueDate": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task is due, for example '2014-10-17 16:05:42.626'_", 
-  "last_update_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was last updated, for example '2014-10-17 16:05:42.626'_"
+  "displayDescription": "the human readable task description (string)", 
+  "executedBySubstitute": "the id (long) of the user who really performed this task in case where a substitute did it, or 0 if the task was not performed by a substitute", 
+  "processId": "the process id (long) that is associated with this task", 
+  "state": "the current state of the task (string,  for example, ready, completed, failed)", 
+  "rootContainerId": "the root process id (long) of the root case that is associated with this task", 
+  "type": "the task type (USER_TASK | MANUAL_TASK)", 
+  "assigned_id": "the user id (long) that this task is assigned to, or 0 if it is unassigned", 
+  "assigned_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current task was assigned, for example '2014-10-17 16:05:42.626'", 
+  "id": "the task id (long)", 
+  "sourceObjectId":"id (long) of the original humanTask before archiving",
+  "executedBy": "the id (long) of the user who executed the task, or 0 if the task has not been executed",
+  "caseId":"id of case",
+  "priority": "the priority (string) of the task", 
+  "actorId": "the id (long) of the actor that can execute this task, null otherwise", 
+  "description": "the task description (string)", 
+  "name": "the task name (string)", 
+  "reached_state_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task reached the current state, for example '2014-10-17 16:05:42.626'", 
+  "displayName": "the display name (string) of this task", 
+  "dueDate": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task is due, for example '2014-10-17 16:05:42.626'", 
+  "last_update_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was last updated, for example '2014-10-17 16:05:42.626'"
 }
 ```
 
@@ -1228,28 +1228,28 @@ Simple, the ID of the object (a long value)
 #### Representation
 ```json
 { 
-  "displayDescription": "_the human readable subtask description (string)_", 
-  "executedBySubstitute": "_the id (long) of the user who really performed this subtask in case where a substitute did it, or 0 if the subtask was not performed by a substitute_", 
-  "processId": "_the process id (long) that is associated with this subtask_", 
-  "state": "_the current state of the subtask (string,  for example, ready, completed, failed)_", 
-  "rootContainerId": "_the root process id (long) of the root case that is associated with this subtask_", 
+  "displayDescription": "the human readable subtask description (string)", 
+  "executedBySubstitute": "the id (long) of the user who really performed this subtask in case where a substitute did it, or 0 if the subtask was not performed by a substitute", 
+  "processId": "the process id (long) that is associated with this subtask", 
+  "state": "the current state of the subtask (string,  for example, ready, completed, failed)", 
+  "rootContainerId": "the root process id (long) of the root case that is associated with this subtask", 
   "type": "MANUAL_TASK", 
-  "assigned_id": "_the user id (long) that this subtask is assigned to, or 0 if it is unassigned_", 
-  "id": "_the subtask id (long)_", 
-  "sourceObjectId":"_id (long) of the original manualTask before archiving_", 
-  "executedBy": "_the id (long) of the user who executed the task, or 0 if the task has not been executed_",
-  "caseId":"_id (long) of the case that is associated with this subtask_", 
+  "assigned_id": "the user id (long) that this subtask is assigned to, or 0 if it is unassigned", 
+  "id": "the subtask id (long)", 
+  "sourceObjectId":"id (long) of the original manualTask before archiving", 
+  "executedBy": "the id (long) of the user who executed the task, or 0 if the task has not been executed",
+  "caseId":"id (long) of the case that is associated with this subtask", 
   "priority":"normal", 
-  "actorId": "_the id (long) of the actor that can execute this subtask, null otherwise_", 
-  "description": "_the subtask description (string)_", 
-  "name": "_the subtask name (string)_", 
-  "reached_state_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this subtask reached the current state, for example '2014-10-17 16:05:42.626'_", 
-  "archivedDate": "_the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this subtask was archived, for example '2014-10-17 16:05:42.626'_",
-  "rootCaseId": "_the root case initiator id (long) that is associated with this subtask's case_", 
-  "displayName": "_the display name (string) of this subtask_", 
-  "parentTaskId":"_id (long) of the parentTask that the subtask is associated with_", 
-  "dueDate": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this subtask is due, for example '2014-10-17 16:05:42.626'_", 
-  "last_update_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this subtask was last updated, for example '2014-10-17 16:05:42.626')_"
+  "actorId": "the id (long) of the actor that can execute this subtask, null otherwise", 
+  "description": "the subtask description (string)", 
+  "name": "the subtask name (string)", 
+  "reached_state_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this subtask reached the current state, for example '2014-10-17 16:05:42.626'", 
+  "archivedDate": "the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this subtask was archived, for example '2014-10-17 16:05:42.626'",
+  "rootCaseId": "the root case initiator id (long) that is associated with this subtask's case", 
+  "displayName": "the display name (string) of this subtask", 
+  "parentTaskId":"id (long) of the parentTask that the subtask is associated with", 
+  "dueDate": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this subtask is due, for example '2014-10-17 16:05:42.626'", 
+  "last_update_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this subtask was last updated, for example '2014-10-17 16:05:42.626')"
  }
 ```
 
@@ -1333,28 +1333,28 @@ The ID of the archived task (a long value).
 #### Representation
 ```json
 { 
-  "displayDescription": "_the human readable task description (string)_", 
-  "executedBySubstitute": "_the id (long) of the user who really performed this task in case where a substitute did it, or 0 if the task was not performed by a substitute_", 
-  "processId": "_the process id (long) that is associated with this task_", 
-  "parentCaseId": "_the parent case id (long) that is associated with this task's case_", 
-  "state": "_the current state of the task (string,  for example, ready, completed, failed)_", 
-  "rootContainerId": "_the root process id (long) of the root case that is associated with this task_", 
-  "type": "_the task type (string)_", 
-  "assigned_id": "_the user id (long) that this task is assigned to, or 0 if it is unassigned_", 
-  "id": "_the task id (long)_",  
-  "executedBy": "_the id (long) of the user who executed the task, or 0 if the task has not been executed_",
-  "sourceObjectId": "_the original id of the task before it was archived_",
-  "caseId": "_the case id (long) that is associated with this task_", 
-  "priority": "_the priority (string) of the current task_", 
-  "actorId": "_the id (long) of the actor that can execute this task, null otherwise_", 
-  "description": "_the task description (string)_", 
-  "name": "_the task name (string)_", 
-  "reached_state_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task reached the current state, for example '2014-10-17 16:05:42.626'_", 
-  "rootCaseId": "_the root case initiator id (long) that is associated with this task's case_", 
-  "displayName": "_the display name (string) of this task_", 
-  "archivedDate": "_the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this task was archived, for example '2014-10-17 16:05:42.626'_",
-  "dueDate": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task is due, for example '2014-10-17 16:05:42.626'_", 
-  "last_update_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was last updated, for example '2014-10-17 16:05:42.626)_", 
+  "displayDescription": "the human readable task description (string)", 
+  "executedBySubstitute": "the id (long) of the user who really performed this task in case where a substitute did it, or 0 if the task was not performed by a substitute", 
+  "processId": "the process id (long) that is associated with this task", 
+  "parentCaseId": "the parent case id (long) that is associated with this task's case", 
+  "state": "the current state of the task (string,  for example, ready, completed, failed)", 
+  "rootContainerId": "the root process id (long) of the root case that is associated with this task", 
+  "type": "the task type (string)", 
+  "assigned_id": "the user id (long) that this task is assigned to, or 0 if it is unassigned", 
+  "id": "the task id (long)",  
+  "executedBy": "the id (long) of the user who executed the task, or 0 if the task has not been executed",
+  "sourceObjectId": "the original id of the task before it was archived",
+  "caseId": "the case id (long) that is associated with this task", 
+  "priority": "the priority (string) of the current task", 
+  "actorId": "the id (long) of the actor that can execute this task, null otherwise", 
+  "description": "the task description (string)", 
+  "name": "the task name (string)", 
+  "reached_state_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task reached the current state, for example '2014-10-17 16:05:42.626'", 
+  "rootCaseId": "the root case initiator id (long) that is associated with this task's case", 
+  "displayName": "the display name (string) of this task", 
+  "archivedDate": "the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this task was archived, for example '2014-10-17 16:05:42.626'",
+  "dueDate": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task is due, for example '2014-10-17 16:05:42.626'", 
+  "last_update_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was last updated, for example '2014-10-17 16:05:42.626)", 
 }
 ```
 
@@ -1484,26 +1484,26 @@ Simple, the ID of the object (a long value)
 #### Representation
 ```json
 {
-  "displayDescription":"_the human readable task description (string)_", 
-  "executedBySubstitute":"_the id (long) of the user who really performed this task in case where a substitute did it, or 0 if the task was not performed by a substitute_", 
-  "processId":"_the process id (long) that is associated with this task_", 
-  "state":"_the current state of the task (string, for example, ready, completed, failed)_", 
-  "rootContainerId":"_the root process id (long) of the root case that is associated with this task_", 
+  "displayDescription":"the human readable task description (string)", 
+  "executedBySubstitute":"the id (long) of the user who really performed this task in case where a substitute did it, or 0 if the task was not performed by a substitute", 
+  "processId":"the process id (long) that is associated with this task", 
+  "state":"the current state of the task (string, for example, ready, completed, failed)", 
+  "rootContainerId":"the root process id (long) of the root case that is associated with this task", 
   "type":"USER_TASK", 
-  "assigned_id":"_the user id (long) that this task is assigned to, or 0 if it is unassigned_", 
-  "assigned_date":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was assigned to the assigned user due, for example '2014-10-17 16:05:42.626'_", 
-  "id":"_the task id (long)_", 
-  "executedBy":"_the id (long) of the user who executed the task, or 0 if the task has not been executed_", 
-  "caseId":"_the id (long) of the case_", 
-  "priority":"_the priority (string) of the current task_", 
-  "actorId":"_the id (long) of the actor that can execute this task, null otherwise_", 
-  "description":"_the task description (string)_", 
-  "name":"_the task name (string)_", 
-  "reached_state_date":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task reached the current state, for example '2014-10-17 16:05:42.626'_", 
-  "displayName":"_the display name (string) of this task_", 
-  "archivedDate":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was archived, for example '2014-10-17 16:05:42.626'_", 
-  "dueDate":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task is due, for example '2014-10-17 16:05:42.626'_", 
-  "last_update_date":"_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was last updated, for example '2014-10-17 16:05:42.626'_"
+  "assigned_id":"the user id (long) that this task is assigned to, or 0 if it is unassigned", 
+  "assigned_date":"the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was assigned to the assigned user due, for example '2014-10-17 16:05:42.626'", 
+  "id":"the task id (long)", 
+  "executedBy":"the id (long) of the user who executed the task, or 0 if the task has not been executed", 
+  "caseId":"the id (long) of the case", 
+  "priority":"the priority (string) of the current task", 
+  "actorId":"the id (long) of the actor that can execute this task, null otherwise", 
+  "description":"the task description (string)", 
+  "name":"the task name (string)", 
+  "reached_state_date":"the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task reached the current state, for example '2014-10-17 16:05:42.626'", 
+  "displayName":"the display name (string) of this task", 
+  "archivedDate":"the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was archived, for example '2014-10-17 16:05:42.626'", 
+  "dueDate":"the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task is due, for example '2014-10-17 16:05:42.626'", 
+  "last_update_date":"the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was last updated, for example '2014-10-17 16:05:42.626'"
 } 
 ```
 
@@ -1633,18 +1633,18 @@ The ID of the activity variable (a long value).
 
 ```json
 { 
-  "tenantId": "_The ID of the tenant where the current user is logged in (technical information)_",
-  "tenantId_string": "_number (since 7.0.1)_",
-  "id":_The identifier of the variable_",
-  "id_string":"_number (since 7.0.1)_",
-  "name": "_The name of the activity variable_",
-  "description": "_The description of the variable, if any_",
-  "transientData": "FALSE" _Always false (boolean)_",
-  "className": "_The fully qualified class name of the variable type_",
-  "containerId": "_The ID of the activity containing this variable (same as the one passed as parameter) if the variable is defined at activity level, or ID of the process instance if the variable is defined on the process_",
-  "containerId_string": _"number" (since 7.0.1)_,
-  "containerType": "ACTIVITY_INSTANCE" | "PROCESS_INSTANCE" _depending on whether the variable is defined at activity or process level._",
-  "value": "_the value of this variable. The format of the value depends on the type of the variable_" 
+  "tenantId": "The ID of the tenant where the current user is logged in (technical information)",
+  "tenantId_string": "number (since 7.0.1)",
+  "id":_The identifier of the variable",
+  "id_string":"number (since 7.0.1)",
+  "name": "The name of the activity variable",
+  "description": "The description of the variable, if any",
+  "transientData": "FALSE",  //Always false (boolean)
+  "className": "The fully qualified class name of the variable type",
+  "containerId": "The ID of the activity containing this variable (same as the one passed as parameter) if the variable is defined at activity level, or ID of the process instance if the variable is defined on the process",
+  "containerId_string": "number" (since 7.0.1)_,
+  "containerType": "ACTIVITY_INSTANCE" | "PROCESS_INSTANCE" _depending on whether the variable is defined at activity or process level.",
+  "value": "the value of this variable. The format of the value depends on the type of the variable" 
 }
  ```   
 
@@ -1699,13 +1699,13 @@ The ID of the case variable (a long value).
 #### Representation
 
 ```json
-    {
-    "description":"_Detailed description of the case variable, as set in the definition at design-time_",
-    "name":"_name of the variable in the case_",
-    "value":"_the current value of the case variable_",
-    "case_id":"_ID of the case this variable belongs to_",
-    "type":_the Java type of the variable_"
-    }
+{
+  "description":"Detailed description of the case variable, as set in the definition at design-time",
+  "name":"name of the variable in the case",
+  "value":"the current value of the case variable",
+  "case_id":"ID of the case this variable belongs to",
+  "type":_the Java type of the variable"
+}
 ```
 
 #### Methods
@@ -1816,20 +1816,20 @@ The ID of the document (a long value).
 
 ```json
 {
-  "id":"_documentId_",
-  "creationDate":"_date and time_",
-  "author":"_submittorUserId_",
-  "index":"_index in a list of documents, or -1 for a single document_",
-  "contentMimetype":"_MIMEtype_",
-  "caseId":"_caseId_", 
-  "contentStorageId":"_storageId_", 
-  "isInternal":"_true | false_", 
-  "description":"_ description_", 
-  "name":"_name_", 
-  "fileName":"_filename_", 
-  "submittedBy":"_submittorUserId_", 
-  "url":"_urlForDownload_", 
-  "version":"_version_" 
+  "id":"documentId",
+  "creationDate":"date and time",
+  "author":"submittorUserId",
+  "index":"index in a list of documents, or -1 for a single document",
+  "contentMimetype":"MIMEtype",
+  "caseId":"caseId", 
+  "contentStorageId":"storageId", 
+  "isInternal":"true | false", 
+  "description":" description", 
+  "name":"name", 
+  "fileName":"filename", 
+  "submittedBy":"submittorUserId", 
+  "url":"urlForDownload", 
+  "version":"version" 
 }
 ```
 
@@ -2062,22 +2062,22 @@ The ID of the document (a long value).
 
 ```json
 {
-  "id":"_archivedDocumentId_", 
-  "creationDate":"_date and time of the original document creation_", 
-  "author":"_submittorUserId_", 
-  "index":"_index in a list of documents. if -1 it represents a single document_", 
-  "contentMimetype":"_MIMEtype_", 
-  "caseId":"_caseId_", 
-  "contentStorageId":"_storageId_", 
-  "isInternal":"_true | false_", 
-  "description":"_ description_", 
-  "name":"_name_", 
-  "fileName":"_filename_", 
-  "submittedBy":"_submittorUserId_", 
-  "url":"_urlForDownload_", 
-  "version":"_version_", 
-  "sourceObjectId":"_originalDocumentId_", 
-  "archivedDate":"_date and time of the archived document creation_"
+  "id":"archivedDocumentId", 
+  "creationDate":"date and time of the original document creation", 
+  "author":"submittorUserId", 
+  "index":"index in a list of documents. if -1 it represents a single document", 
+  "contentMimetype":"MIMEtype", 
+  "caseId":"caseId", 
+  "contentStorageId":"storageId", 
+  "isInternal":"true | false", 
+  "description":" description", 
+  "name":"name", 
+  "fileName":"filename", 
+  "submittedBy":"submittorUserId", 
+  "url":"urlForDownload", 
+  "version":"version", 
+  "sourceObjectId":"originalDocumentId", 
+  "archivedDate":"date and time of the archived document creation"
 }
 ```   
 
@@ -2200,11 +2200,11 @@ Simple, the ID of the object (a long value)
 
 ```json
 {
-  "id":"_actor id_",
-  "process_id":"_process definition id_",
-  "description":"_a description of the actor_",
-  "name":"_name of the actor (as specified on human tasks and for the initiator of the process)_",
-  "displayName":"_the display name of the actor_",
+  "id":"actor id",
+  "process_id":"process definition id",
+  "description":"a description of the actor",
+  "name":"name of the actor (as specified on human tasks and for the initiator of the process)",
+  "displayName":"the display name of the actor",
 }
 ```
 
@@ -2301,11 +2301,11 @@ Simple, the ID of the object (a long value)
 #### Representation
 ```json
 {
-  "id":"_actor member id_",
-  "actor_id":"_id of the actor for this mapping_",
-  "role_id":"_id of role, or -1 if the member type is not role_",
-  "group_id":"_id of group, or -1 if the member type is not group_",
-  "user_id":"_id of user, or -1 if the member type is not user_"
+  "id":"actor member id",
+  "actor_id":"id of the actor for this mapping",
+  "role_id":"id of role, or -1 if the member type is not role",
+  "group_id":"id of group, or -1 if the member type is not group",
+  "user_id":"id of user, or -1 if the member type is not user"
 }
 ```
 #### Methods
@@ -2407,27 +2407,27 @@ ID of the Object: a long value
 #### Representation
 ```json
 {
-  "id":"_the identifier of the case_",
-  "end_date":"_the date set when the case is closed_",
-  "failedFlowNodes":"_count of failed flow nodes if parameter n=failedFlowNodes is given_",
-  "startedBySubstitute":"_the identifier of the substitute user (as Process manager or Administrator) who started the process. It can be also the substitute user if d=startedBySubstitute is given._",
-  "start":"_the starting date of the case_",
-  "activeFlowNodes":"_count of active flow nodes if parameter n=activeFlowNodes is given_",
-  "state":"_state: an enum that represent the state of the case, it can be INITIALIZING, STARTED, SUSPENDED, CANCELLED, ABORTED, COMPLETING, COMPLETED, ERROR, ABORTING_",
-  "rootCaseId":"_the identifier of the container of the case_",
-  "started_by":"_the identifier of the user who started the case_",
-  "processDefinitionId":"_the identifier of the process related of the case_",
-  "last_update_date":"_the date of the last update done on the case_",
-  "searchIndex1Label":"_the 1st search index label (from 6.5, in Subscription editions only)_",
-  "searchIndex2Label":"_the 2nd search index label (from 6.5, in Subscription editions only)_",
-  "searchIndex3Label":"_the 3rd search index label (from 6.5, in Subscription editions only)_",
-  "searchIndex4Label":"_the 4th search index label (from 6.5, in Subscription editions only)_",
-  "searchIndex5Label":"_the 5th search index label (from 6.5, in Subscription editions only)_",
-  "searchIndex1Value":"_the 1st search index value (from 6.5, in Subscription editions only)_",
-  "searchIndex2Value":"_the 2nd search index value (from 6.5, in Subscription editions only)_",
-  "searchIndex3Value":"_the 3rd search index value (from 6.5, in Subscription editions only)_",
-  "searchIndex4Value":"_the 4th search index value (from 6.5, in Subscription editions only)_",
-  "searchIndex5Value":"_the 5th search index value (from 6.5, in Subscription editions only)_"
+  "id":"the identifier of the case",
+  "end_date":"the date set when the case is closed",
+  "failedFlowNodes":"count of failed flow nodes if parameter n=failedFlowNodes is given",
+  "startedBySubstitute":"the identifier of the substitute user (as Process manager or Administrator) who started the process. It can be also the substitute user if d=startedBySubstitute is given.",
+  "start":"the starting date of the case",
+  "activeFlowNodes":"count of active flow nodes if parameter n=activeFlowNodes is given",
+  "state":"state: an enum that represent the state of the case, it can be INITIALIZING, STARTED, SUSPENDED, CANCELLED, ABORTED, COMPLETING, COMPLETED, ERROR, ABORTING",
+  "rootCaseId":"the identifier of the container of the case",
+  "started_by":"the identifier of the user who started the case",
+  "processDefinitionId":"the identifier of the process related of the case",
+  "last_update_date":"the date of the last update done on the case",
+  "searchIndex1Label":"the 1st search index label (from 6.5, in Subscription editions only)",
+  "searchIndex2Label":"the 2nd search index label (from 6.5, in Subscription editions only)",
+  "searchIndex3Label":"the 3rd search index label (from 6.5, in Subscription editions only)",
+  "searchIndex4Label":"the 4th search index label (from 6.5, in Subscription editions only)",
+  "searchIndex5Label":"the 5th search index label (from 6.5, in Subscription editions only)",
+  "searchIndex1Value":"the 1st search index value (from 6.5, in Subscription editions only)",
+  "searchIndex2Value":"the 2nd search index value (from 6.5, in Subscription editions only)",
+  "searchIndex3Value":"the 3rd search index value (from 6.5, in Subscription editions only)",
+  "searchIndex4Value":"the 4th search index value (from 6.5, in Subscription editions only)",
+  "searchIndex5Value":"the 5th search index value (from 6.5, in Subscription editions only)"
 }
 ```
 #### Methods
@@ -2790,28 +2790,28 @@ The ID of the archived case (a long value).
 #### Representation
 ```json
 {
-  "id":"_the identifier of the archived case_",
-  "end_date":"_the date set when the case was archived_",
-  "startedBySubstitute":"_the id of the user_",  
+  "id":"the identifier of the archived case",
+  "end_date":"the date set when the case was archived",
+  "startedBySubstitute":"the id of the user",  
   
-  "sourceObjectId":"_the id of the case before it was archived_"
-  "start":"_the stard date of the initial case_", 
-  "state":"_the state of the archived case_", 
-  "rootCaseId":"_the id of the case before it was archived_", 
-  "started_by":"_id of the user who start the case_", 
-  "archivedDate":"_the date set when the case was archived_", 
-  "processDefinitionId":"_the id of the process related to this archived case_", 
-  "last_update_date":"_the date of the last update done on the case_",
-  "searchIndex1Label":"_the 1st search index label (from 6.5, in Subscription editions only)_",
-  "searchIndex2Label":"_the 2nd search index label (from 6.5, in Subscription editions only)_",
-  "searchIndex3Label":"_the 3rd search index label (from 6.5, in Subscription editions only)_",
-  "searchIndex4Label":"_the 4th search index label (from 6.5, in Subscription editions only)_",
-  "searchIndex5Label":"_the 5th search index label (from 6.5, in Subscription editions only)_",
-  "searchIndex1Value":"_the 1st search index value (from 6.5, in Subscription editions only)_",
-  "searchIndex2Value":"_the 2nd search index value (from 6.5, in Subscription editions only)_",
-  "searchIndex3Value":"_the 3rd search index value (from 6.5, in Subscription editions only)_",
-  "searchIndex4Value":"_the 4th search index value (from 6.5, in Subscription editions only)_",
-  "searchIndex5Value":"_the 5th search index value (from 6.5, in Subscription editions only)_"
+  "sourceObjectId":"the id of the case before it was archived"
+  "start":"the stard date of the initial case", 
+  "state":"the state of the archived case", 
+  "rootCaseId":"the id of the case before it was archived", 
+  "started_by":"id of the user who start the case", 
+  "archivedDate":"the date set when the case was archived", 
+  "processDefinitionId":"the id of the process related to this archived case", 
+  "last_update_date":"the date of the last update done on the case",
+  "searchIndex1Label":"the 1st search index label (from 6.5, in Subscription editions only)",
+  "searchIndex2Label":"the 2nd search index label (from 6.5, in Subscription editions only)",
+  "searchIndex3Label":"the 3rd search index label (from 6.5, in Subscription editions only)",
+  "searchIndex4Label":"the 4th search index label (from 6.5, in Subscription editions only)",
+  "searchIndex5Label":"the 5th search index label (from 6.5, in Subscription editions only)",
+  "searchIndex1Value":"the 1st search index value (from 6.5, in Subscription editions only)",
+  "searchIndex2Value":"the 2nd search index value (from 6.5, in Subscription editions only)",
+  "searchIndex3Value":"the 3rd search index value (from 6.5, in Subscription editions only)",
+  "searchIndex4Value":"the 4th search index value (from 6.5, in Subscription editions only)",
+  "searchIndex5Value":"the 5th search index value (from 6.5, in Subscription editions only)"
 }
 ```   
 
@@ -2976,12 +2976,12 @@ The ID of the case (a long value).
 #### Representation
 ```json
 {
-  "id": "_case identifier_",
+  "id": "case identifier",
   "flowNodeStatesCounters": {
-    "_Flow Node name from Studio_": {
-      "completed": "_number of instance of the given Flow Node in completed state_",
-      "ready": "_number of instance of the given Flow Node in ready state_",
-      "failed": "_number of instance of the given Flow Node in failed state_",
+    "Flow Node name from Studio": {
+      "completed": "number of instance of the given Flow Node in completed state",
+      "ready": "number of instance of the given Flow Node in ready state",
+      "failed": "number of instance of the given Flow Node in failed state",
     }
   }
 }
@@ -3037,19 +3037,19 @@ The ID of the process definition (a long value).
 #### Representation
 ```json
 {
-  "id":"_the identifier of the process definition (long)_",
-  "icon":"_icon path (string)_",
-  "displayDescription":"_the human readable activity description (string)_",
-  "deploymentDate":"_the date when the process definition was deployed (date)_",
-  "description":"_the process description (string)_",
-  "activationState":"_the state of the process definition (ENABLED or DISABLED)_",
-  "name":"_the process name (string)_",
-  "deployedBy":"_the id of the user who deployed the process (integer)_",
-  "displayName":"_the human readbale process description (string)_",
-  "actorinitiatorid":"_the id of the actor that can initiate cases of the process_",
-  "last_update_date":"_the date when the process definition was last updated (date)_",
-  "configurationState":"_the configuration state of the process (UNRESOLVED or RESOLVED)_",
-  "version":"_the version of the process (string)_"
+  "id":"the identifier of the process definition (long)",
+  "icon":"icon path (string)",
+  "displayDescription":"the human readable activity description (string)",
+  "deploymentDate":"the date when the process definition was deployed (date)",
+  "description":"the process description (string)",
+  "activationState":"the state of the process definition (ENABLED or DISABLED)",
+  "name":"the process name (string)",
+  "deployedBy":"the id of the user who deployed the process (integer)",
+  "displayName":"the human readbale process description (string)",
+  "actorinitiatorid":"the id of the actor that can initiate cases of the process",
+  "last_update_date":"the date when the process definition was last updated (date)",
+  "configurationState":"the configuration state of the process (UNRESOLVED or RESOLVED)",
+  "version":"the version of the process (string)"
 }
 ```
 
@@ -3344,13 +3344,13 @@ A compound identifier constructed from process\_id/name where process\_id is a l
 #### Representation
 ```json
 {
-  "process_id":"_the identifier of the process definition_",
-  "process_name":"_the name of the related process_", 
-  "description":"_the description of the parameter_", 
-  "name":"_the name of the parameter_", 
-  "value":"_the value of the parameter_", 
-  "process_version":"_the version of the process_", 
-  "type":"_the type of the parameter_" 
+  "process_id":"the identifier of the process definition",
+  "process_name":"the name of the related process", 
+  "description":"the description of the parameter", 
+  "name":"the name of the parameter", 
+  "value":"the value of the parameter", 
+  "process_version":"the version of the process", 
+  "type":"the type of the parameter" 
 }
 ```
 
@@ -3444,9 +3444,9 @@ This resource represents a problem in a process that needs to be resolved for th
 #### Representation
 ```json
 {
-  "message":"_resolution problem_",
-  "resource_id":"_id of the unresolved resource_",
-  "target_type":"_the type of the unresolved resource (parameter, actor, or connector)_"
+  "message":"resolution problem",
+  "resource_id":"id of the unresolved resource",
+  "target_type":"the type of the unresolved resource (parameter, actor, or connector)"
 }
 ```
 
@@ -3506,10 +3506,10 @@ The object itself
 #### Representation
 ```json
 {
-  "connector_version":"_connector version_",
-  "connector_process_id":"_process id_>",
-  "filename":"_filename representing the connector_>",
-  "connector_name":"_connector name_>"
+  "connector_version":"<connector version>",
+  "connector_process_id":"<process id>",
+  "filename":"<filename representing the connector>",
+  "connector_name":"<connector name>"
 }
 ```
 
@@ -3563,9 +3563,9 @@ The ID of the connector failure (a long value).
 #### Representation
 ```json
 {
-  "errorMessage":"_the message of the connector failure_",
-  "connectorInstanceId":"_the ID of the connector instance (see connectorInstance resource documentation)_",
-  "errorStackTrace":"_the stack trace of the error_"
+  "errorMessage":"the message of the connector failure",
+  "connectorInstanceId":"the ID of the connector instance (see connectorInstance resource documentation)",
+  "errorStackTrace":"the stack trace of the error"
 }
 ```
     
@@ -3607,14 +3607,14 @@ Retrieve information about connector instances attached to a process or a flow n
 Returns a JSON array of connector details:
 ```json
 {
-  "containerType":"_string_",
-  "connectorId":"_string_",
-  "id":"_number_",
-  "name":"_string_",
-  "activationEvent":"_string_",
-  "state":"_string_",
-  "containerId":"_number_",
-  "version":"_string_"
+  "containerType":"string",
+  "connectorId":"string",
+  "id":"number",
+  "name":"string",
+  "activationEvent":"string",
+  "state":"string",
+  "containerId":"number",
+  "version":"string"
 }
 ```
 
@@ -3691,15 +3691,15 @@ node.
 #### Representation
 ```json
 {
-  "containerType":"_the type (string) of the containing activity_",
-  "connectorId":"_the connector id (string)_",
-  "id":"_the identifier (long) of the connector instance_",
-  "name":"_the name (string) of the connector_",
-  "activationEvent":"_the name (string) of hte event that activsted the connector instance_",
-  "state":"_the state (string) of the connector_",
-  "archivedDate": "_the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this connecctor instance was archived, for example '2014-10-17 16:05:42.626'_",
-  "containerId":"_the identifier (long) of the containing activity instance_",
-  "version":"_the connector version (string)_"
+  "containerType":"the type (string) of the containing activity",
+  "connectorId":"the connector id (string)",
+  "id":"the identifier (long) of the connector instance",
+  "name":"the name (string) of the connector",
+  "activationEvent":"the name (string) of hte event that activsted the connector instance",
+  "state":"the state (string) of the connector",
+  "archivedDate": "the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this connecctor instance was archived, for example '2014-10-17 16:05:42.626'",
+  "containerId":"the identifier (long) of the containing activity instance",
+  "version":"the connector version (string)"
 }
 ```
     
@@ -3766,28 +3766,28 @@ The ID of the flowNode (a long).
 
  ```   json
 {
-  "id": "_the flow node id (long)_",
-  "displayDescription": "_the human readable flow node description (string)_",
-  "executedBySubstitute": "_the id (long) of the user who really performed this flow node in case where a substitute did it, or 0 if the flow node was not performed by a substitute_",
-  "caseId": "_the case id (long) that is associated with this flow node_",
-  "parentCaseId": "_the parent case id (long) that is associated with this flow node's case_",
-  "rootCaseId": "_the root case initiator id (long) that is associated with this flow node's case_",
-  "processId": "_the process id (long) that is associated with this flow node_","
-  "rootContainerId": "_the root process id (long) of the root case that is associated with this flow node_",
-  "state": "_the current state of the flow node (string,  for example, ready, completed, failed)_",
-  "type": "_the flow node type (string)_",
-  "assigned_id": "_the user id (long) that this flow node is assigned to, or 0 if it is unassigned_",
-  "assigned_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current flow node was assigned, for example '2014-10-17 16:05:42.626'_",
-  "executedBy": "_the id (long) of the user who executed the flow node, or 0 if the flow node has not been executed_",
-  "priority": "_the priority (string) of the current flow node_",
-  "actorId": "_the id (long) of the actor that can execute this flow node, null otherwise_",
-  "description": "_the flow node description (string)_",
-  "name": "_the flow node name (string)_",
-  "reached_state_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flow node reached the current state, for example '2014-10-17 16:05:42.626'_",
-  "displayName": "_the display name (string) of this flow node_",
-  "dueDate": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flow node is due, for example '2014-10-17 16:05:42.626'_",
-  "last_update_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flow node was last updated, for example '2014-10-17 16:05:42.626)_",
-  "parentTaskId" : "_in the case of a subtask, the parent task id (long)_"
+  "id": "the flow node id (long)",
+  "displayDescription": "the human readable flow node description (string)",
+  "executedBySubstitute": "the id (long) of the user who really performed this flow node in case where a substitute did it, or 0 if the flow node was not performed by a substitute",
+  "caseId": "the case id (long) that is associated with this flow node",
+  "parentCaseId": "the parent case id (long) that is associated with this flow node's case",
+  "rootCaseId": "the root case initiator id (long) that is associated with this flow node's case",
+  "processId": "the process id (long) that is associated with this flow node","
+  "rootContainerId": "the root process id (long) of the root case that is associated with this flow node",
+  "state": "the current state of the flow node (string,  for example, ready, completed, failed)",
+  "type": "the flow node type (string)",
+  "assigned_id": "the user id (long) that this flow node is assigned to, or 0 if it is unassigned",
+  "assigned_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current flow node was assigned, for example '2014-10-17 16:05:42.626'",
+  "executedBy": "the id (long) of the user who executed the flow node, or 0 if the flow node has not been executed",
+  "priority": "the priority (string) of the current flow node",
+  "actorId": "the id (long) of the actor that can execute this flow node, null otherwise",
+  "description": "the flow node description (string)",
+  "name": "the flow node name (string)",
+  "reached_state_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flow node reached the current state, for example '2014-10-17 16:05:42.626'",
+  "displayName": "the display name (string) of this flow node",
+  "dueDate": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flow node is due, for example '2014-10-17 16:05:42.626'",
+  "last_update_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flow node was last updated, for example '2014-10-17 16:05:42.626)",
+  "parentTaskId" : "in the case of a subtask, the parent task id (long)"
 }
 ```
     
@@ -3926,30 +3926,30 @@ The ID of the flowNode (a long).
 #### Representation
 ```json
 {
-  "id": "_the flowNode id (long)_",  
-  "sourceObjectId": "_the original id of the flowNode before it was archived_",
-  "displayDescription": "_the human readable flowNode description (string)_", 
-  "executedBySubstitute": "_the id (long) of the user who really performed this flowNode in case where a substitute did it, or 0 if the flowNode was not performed by a substitute_", 
-  "caseId": "_the case id (long) that is associated with this flowNode_", 
-  "parentCaseId": "_the parent case id (long) that is associated with this flowNode's case_", 
-  "rootCaseId": "_the root case initiator id (long) that is associated with this flowNode's case_", 
-  "processId": "_the process id (long) that is associated with this flowNode_", 
-  "rootContainerId": "_the root process id (long) of the root case that is associated with this flowNode_", 
-  "state": "_the current state of the flowNode (string,  for example, ready, completed, failed)_", 
-  "type": "_the flowNode type (string)_", 
-  "assigned_id": "_the user id (long) that this flowNode is assigned to, or 0 if it is unassigned_", 
-  "assigned_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current flowNode was assigned, for example '2014-10-17 16:05:42.626'_", 
-  "executedBy": "_the id (long) of the user who executed the flowNode, or 0 if the flowNode has not been executed_",
-  "priority": "_the priority (string) of the current flowNode_", 
-  "actorId": "_the id (long) of the actor that can execute this flowNode, null otherwise_", 
-  "description": "_the flowNode description (string)_", 
-  "name": "_the flowNode name (string)_", 
-  "reached_state_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flowNode reached the current state, for example '2014-10-17 16:05:42.626'_", 
-  "displayName": "_the display name (string) of this flowNode_", 
-  "dueDate": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flowNode is due, for example '2014-10-17 16:05:42.626'_", 
-  "archivedDate": "_the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this flowNode was archived, for example '2014-10-17 16:05:42.626'_",
-  "last_update_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flowNode was last updated, for example '2014-10-17 16:05:42.626)_", 
-  "parentTaskId": "_in the case of a subtask, the parent task id (long)_" 
+  "id": "the flowNode id (long)",  
+  "sourceObjectId": "the original id of the flowNode before it was archived",
+  "displayDescription": "the human readable flowNode description (string)", 
+  "executedBySubstitute": "the id (long) of the user who really performed this flowNode in case where a substitute did it, or 0 if the flowNode was not performed by a substitute", 
+  "caseId": "the case id (long) that is associated with this flowNode", 
+  "parentCaseId": "the parent case id (long) that is associated with this flowNode's case", 
+  "rootCaseId": "the root case initiator id (long) that is associated with this flowNode's case", 
+  "processId": "the process id (long) that is associated with this flowNode", 
+  "rootContainerId": "the root process id (long) of the root case that is associated with this flowNode", 
+  "state": "the current state of the flowNode (string,  for example, ready, completed, failed)", 
+  "type": "the flowNode type (string)", 
+  "assigned_id": "the user id (long) that this flowNode is assigned to, or 0 if it is unassigned", 
+  "assigned_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current flowNode was assigned, for example '2014-10-17 16:05:42.626'", 
+  "executedBy": "the id (long) of the user who executed the flowNode, or 0 if the flowNode has not been executed",
+  "priority": "the priority (string) of the current flowNode", 
+  "actorId": "the id (long) of the actor that can execute this flowNode, null otherwise", 
+  "description": "the flowNode description (string)", 
+  "name": "the flowNode name (string)", 
+  "reached_state_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flowNode reached the current state, for example '2014-10-17 16:05:42.626'", 
+  "displayName": "the display name (string) of this flowNode", 
+  "dueDate": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flowNode is due, for example '2014-10-17 16:05:42.626'", 
+  "archivedDate": "the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this flowNode was archived, for example '2014-10-17 16:05:42.626'",
+  "last_update_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flowNode was last updated, for example '2014-10-17 16:05:42.626)", 
+  "parentTaskId": "in the case of a subtask, the parent task id (long)" 
 }
 ```
     
@@ -4037,12 +4037,12 @@ The ID of the timer event trigger (a long value), retrieved through search (GET 
 #### Representation
 ```json
 {
-  "id": _the ID of the timer returned_,
-  "id_string": _"number" (since 7.0.1)_,
-  "eventInstanceId": _the ID of the event instance to which this trigger is related_,
-  "eventInstanceId_string": _"number" (since 7.0.1)_,
-  "executionDate": _the long value of the next execution date (number of milliseconds from January 1st, 1970 00:00:00)_,
-  "eventInstanceName": _the name of the event instance to which this trigger is related_
+  "id": "the ID of the timer returned",
+  "id_string": "number" (since 7.0.1)_,
+  "eventInstanceId": "the ID of the event instance to which this trigger is related",
+  "eventInstanceId_string": "number" (since 7.0.1),
+  "executionDate": "the long value of the next execution date (number of milliseconds from January 1st, 1970 00:00:00)",
+  "eventInstanceName": "the name of the event instance to which this trigger is related"
 }
 ```
 
