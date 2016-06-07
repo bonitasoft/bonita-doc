@@ -12,7 +12,7 @@
 
   const readdirPromise = denodeify(fs.readdir);
   //TODO have image be converted
-  let outfile = `Bonita-BPM-documentation.pdf`;
+  let outfile = `build/Bonita-BPM-documentation.pdf`;
   let mdDocs = ["md/taxonomy.md"];
    
   readdirPromise('md').then(fileNames => {

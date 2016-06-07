@@ -58,8 +58,25 @@ We added the use of the [**markdown-it-smart-arrows**](https://www.npmjs.com/pac
 <== ⇐
 <==> ⇔
 ```
-
 ### Process
+
+#### Build project
+
+The project contains several task to generate the documentation
+
+##### HTML
+
+use `npm run build` to have the html files generated to `build/html`.  
+It reads the version to generate from the command line arguments via the `-v` option or if left blank, reading the _varVersion_ attribute from the `variables.json` file. 
+
+##### Taxonomy
+
+Once the html has been generated, the taxonomy json file can be generated from the `build/html/taxonomy.html` file.  
+use the `npm run taxonomy` to do so.
+
+##### PDF
+
+The PDF file gathering all the markdown content can be generated using the `npm run pdf` command.
 
 #### Update existing file
 

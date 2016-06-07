@@ -5,7 +5,8 @@
   "scripts": {
     "watch": "scripts/watchFilesToConvertHtml.js",
     "taxonomy": "scripts/taxonomy.js",
-    "build": "scripts/convertMdToHtml.js"
+    "build": "scripts/convertMdToHtml.js",
+    "pdf": "scripts/convert2PDF.js"
   },
   "author": "Julien Reboul <julien.reboul@bonitasoft.com>",
   "devDependencies": {
