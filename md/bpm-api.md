@@ -3023,10 +3023,473 @@ Retrieve information about the flow nodes of the case identified by the given ID
     ```
 
 ## Process
-* [process](api_resources/bpm_process_7.0_1_0.md)
-* [diagram](api_resources/bpm_diagram_6.4_0_0_0_0.md)
-* [processParameter](api_resources/bpm_processparameter_6.0_0_0_0.md)
-* [processResolutionProblem](api_resources/bpm_processresolutionproblem_6.0_1_0_0.md)
+
+### Process
+
+#### Description
+
+Manage a [process definition](key-concepts.md) (not to be confused with a [case](#case), which is a process instance).
+
+#### Identifier
+
+The ID of the process definition (a long value).
+
+#### Representation
+```json
+{
+  "id":"_the identifier of the process definition (long)_",
+  "icon":"_icon path (string)_",
+  "displayDescription":"_the human readable activity description (string)_",
+  "deploymentDate":"_the date when the process definition was deployed (date)_",
+  "description":"_the process description (string)_",
+  "activationState":"_the state of the process definition (ENABLED or DISABLED)_",
+  "name":"_the process name (string)_",
+  "deployedBy":"_the id of the user who deployed the process (integer)_",
+  "displayName":"_the human readbale process description (string)_",
+  "actorinitiatorid":"_the id of the actor that can initiate cases of the process_",
+  "last_update_date":"_the date when the process definition was last updated (date)_",
+  "configurationState":"_the configuration state of the process (UNRESOLVED or RESOLVED)_",
+  "version":"_the version of the process (string)_"
+}
+```
+
+#### Methods
+
+The methods used for this resource are:
+
+* POST - Create a process
+* GET - Read a process or search for a process
+* PUT - Update a process
+
+#### Create a process
+
+A process resource is created using the content of a `.bar` file that has previously been [uploaded](manage-files-using-upload-servlet-and-rest-api.md), using the `processUpload` servlet `http://.../bonita/portal/processUpload`,
+to get the process archive path.
+
+* **URL**  
+  `/API/bpm/process`  
+* **Method**  
+  `POST`
+* **Request Payload**  
+  ```javascript
+  {
+    "fileupload": "D:\bonita-studio\BonitaBPMSubscription-6.6.4\workspace\tomcat\bonita\client\tenants\1\tmp\tmp_4431838172282406107.bar" // the process archive path
+  }
+  ```
+* **Success Response**  
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "id":"8216934689697197160","icon":"","displayDescription":"",
+      "deploymentDate":"2015-01-02, 15:04:30.527"
+      "description":"",
+      "activationState":"DISABLED",
+      "name":"Pool","deployedBy":"4",
+      "displayName":"Pool",
+      "actorinitiatorid":"3", 
+      "last_update_date":"2015-01-02 5:04:30.587",
+      "configurationState":"RESOLVED","version":"1.0"
+    }
+    ```
+
+#### Read a process
+
+Read a process definition
+
+* **URL**  
+  `/API/bpm/process/:processId`  
+* **Method**  
+  `GET`
+* **Success Response**  
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "id":"1",
+      "icon":"/default/process.png",
+      "displayDescription":"process description",
+      "deploymentDate":"2015-01-02 14:21:18.421",
+      "description":"another process description",
+      "activationState":"ENABLED",
+      "name":"Pool1",
+      "deployedBy":"2",
+      "displayName":"Pool1",
+      "actorinitiatorid":"2",
+      "last_update_date":"2015-01-02 14:21:18.529",
+      "configurationState":"RESOLVED",
+      "version":"1.0"
+    }
+    ```
+
+#### Update a process
+
+You can update the following fields of a process definition:
+
+* displayDescription
+* displayName
+* activationState (to toggle between the possible values, DISABLED and ENABLED)
+
+* **URL**  
+  `/API/bpm/process/:processId`  
+* **Method**  
+  `PUT`
+* **Request Payload**  
+  The fields to be updated, in JSON
+  ```json
+  {
+    "displayName":"Leave booking process"
+  }
+  ```
+* **Success Response**  
+  A process in JSON
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "id":"1",
+      "icon":"/default/process.png",
+      "displayDescription":"process description",
+      "deploymentDate":"2015-01-02 14:21:18.421",
+      "description":"another process description",
+      "activationState":"ENABLED",
+      "name":"Pool1",
+      "deployedBy":"2",
+      "displayName":"Leave booking process",
+      "actorinitiatorid":"2",
+      "last_update_date":"2015-02-23 14:29:02.249",
+      "configurationState":"RESOLVED",
+      "version":"1.0"
+    }
+    ```
+
+#### Search for a process
+
+Search for processes that match the search criteria.
+
+* **URL**  
+  `/API/bpm/process`  
+  _Example_:
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  * s: search on "name", "displayName" or "version"
+  * o: can order by "name", "version", "deploymentDate", "deployedBy", "activationState", "configurationState", "processId", "displayName", "lastUpdateDate", "categoryId", "label"
+  * f: can filter on "name", "version", "deploymentDate", "deployedBy", "activationState" with the value DISABLED or ENABLED, "configurationState" with the value UNRESOLVED, or RESOLVED, "processId", "displayName", "lastUpdateDate", "categoryId", "label", "supervisor\_id"
+  * d: can deploy on "deployedBy" 
+* **Success Response**  
+  A JSON representation of the matched processes.
+  * **Code**: 200
+
+#### Retrieve the design for a process
+
+Process design can be retrived client side.
+
+* **URL**  
+  `/API/bpm/process/:processId/design`  
+* **Method**  
+  `GET`
+* **Success Response**  
+  The process design object. The JSON returned is a representation of the [DesignProcessDefinition](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html) instance of the given process id.
+  * **Code**: 200
+
+#### Retrieve the instantiation contract for a process
+
+Process instantiation contract elements can be retrived client side.
+
+* **URL**  
+  `/API/bpm/process/:processId/contract`  
+* **Method**  
+  `GET`
+* **Success Response**  
+  The task contract elements
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {  
+      "constraints":[  
+        {  
+          "name":"ticket_account",
+          "expression":"ticket_account!=null && !ticket_account.toString().isEmpty()",
+          "explanation":"input ticket_account is mandatory",
+          "inputNames":[  
+            "ticket_account"
+          ],
+          "constraintType":"MANDATORY"
+        },
+        {  
+          "name":"ticket_description",
+          "expression":"ticket_description!=null && !ticket_description.toString().isEmpty()",
+          "explanation":"input ticket_description is mandatory",
+          "inputNames":[  
+            "ticket_description"
+          ],
+          "constraintType":"MANDATORY"
+        },
+        {  
+          "name":"ticket_subject",
+          "expression":"ticket_subject!=null && !ticket_subject.toString().isEmpty()",
+          "explanation":"input ticket_subject is mandatory",
+          "inputNames":[  
+            "ticket_subject"
+          ],
+          "constraintType":"MANDATORY"
+        }
+      ],
+      "inputs":[  
+        {  
+          "description":null,
+          "name":"ticket_account",
+          "multiple":false,
+          "type":"TEXT"
+          "inputs":[]
+        },
+        {  
+          "description":null,
+          "name":"ticket_description",
+          "multiple":false,
+          "type":"TEXT"
+          "inputs":[]
+        },
+        {  
+          "description":null,
+          "name":"ticket_subject",
+          "multiple":false,
+          "type":"TEXT"
+          "inputs":[]
+        }
+      ]
+    }
+    ```
+
+#### Start a process using an instantiation contract
+
+* **URL**  
+  `/API/bpm/process/:processId/instantiation`  
+* **Method**  
+  `GET`
+* **Request Payload**  
+  Contract element values
+  ```json
+  {  
+    "ticket_account":"CustomerA",
+    "ticket_description":"issue description",
+    "ticket_subject":"Issue 1"
+  }
+  ```
+* **Success Response**  
+  The created case ID 201 OK or a contract violation explanation in case of a 400 Bad request
+  * **Code**: 201
+  * **Payload**:  
+    ```json
+    {
+    "caseId":"125713789879465465"
+    }
+    ```
+* **Error Response**
+  * **Code**: 400
+  * **Payload**:
+    ```json
+    {  
+      "exception":"class org.bonitasoft.engine.bpm.contract.ContractViolationException",
+      "message":"USERNAME=walter.bates | Contract is not valid: ",
+      "explanations":[  
+        "Expected input [ticket_account] is missing",
+        "Expected input [ticket_description] is missing",
+        "Expected input [ticket_subject] is missing"
+      ]
+    }
+    ```
+### Diagram
+
+#### Description
+
+Use the diagram resource to access the process diagram xml representation. This is necessary for drawing the diagram.
+
+#### Identifier
+
+Simple, the ID of the process for which you want download the diagram
+
+#### Representation
+
+The XML encoding of the diagram.
+
+#### Methods
+
+The methods used for this resource are:
+
+* GET - Retrieve the XML definition of the diagram
+
+#### Retrieve a process diagram xml file 
+
+* **URL**  
+  `/API/bpm/diagram/:processId`  
+* **Method**  
+  `GET`
+* **Success Response**  
+  Raw XML file containing the diagram definition
+  * **Code**: 200
+
+### ProcessParameter
+
+#### Description
+
+A process parameter is a variable attached to process. The parameter value is set at deployment, and applies to all cases of the process. This feature is available in Performance, Efficiency, and Teamwork editions. 
+
+#### Identifier
+
+A compound identifier constructed from process\_id/name where process\_id is a long value and name is the name of the process parameter.
+
+#### Representation
+```json
+{
+  "process_id":"_the identifier of the process definition_",
+  "process_name":"_the name of the related process_", 
+  "description":"_the description of the parameter_", 
+  "name":"_the name of the parameter_", 
+  "value":"_the value of the parameter_", 
+  "process_version":"_the version of the process_", 
+  "type":"_the type of the parameter_" 
+}
+```
+
+#### Methods
+
+The methods used for this resource are:
+
+* GET - Read a resource or search for a resource
+* PUT - Update a resource
+
+#### Read a processParameter
+
+You can read a process parameter using its compound id (process\_id/name) 
+
+* **URL**  
+  `/API/bpm/processParameter/:processId/:name`  
+* **Method**  
+  `GET`
+* **Request Payload**  
+  ```json
+  ```
+* **Success Response**  
+  Process parameter resource
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "process_id": "4880205209556178729",
+      "process_name": "myProcessName",
+      "description": "myProcessDescription",
+      "name": "myParameterName",
+      "value": "myParameterValue",
+      "process_version": "1.0",
+      "type": "java.lang.String"
+    }
+    ```
+
+#### Search for a processParameter
+
+When you search for a processParameter, do not provide the process\_version or process\_name. They are needed only when you read a processParameter.
+
+* **URL**  
+  `/API/bpm/processParameter`  
+  _Example_: `/API/bpm/processParameter?p=0&c=10&o=name%20ASC&f=process\_id%3d4880205209556178729`
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+* **Success Response**  
+  A array of process parameters
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    [
+      {
+        "process_id": "4880205209556178729",
+        "process_name": "",
+        "description": "",
+        "name": "d",
+        "value": "n",
+        "process_version": "",
+        "type": "java.lang.String"
+      }
+    ]
+    ```
+
+#### Update a processParameter
+
+You can update only a process parameter value using the API. If you specify values for other fields in the update request, they are ignored.
+
+* **URL**  
+  `/API/bpm/processParameter/:processId/:name`  
+* **Method**  
+  `PUT`
+* **Request Payload**  
+  A process parameter resource
+  ```json
+  {
+    "value":"myNewValue"
+  }
+  ```
+* **Success Response**  
+  * **Code**: 200
+
+### ProcessResolutionProblem
+
+#### Description
+
+This resource represents a problem in a process that needs to be resolved for the process to run. It can be an actor, a connector implementation, or a parameter (in the Performance, Efficiency, or Teamwork edition).
+
+#### Representation
+```json
+{
+  "message":"_resolution problem_",
+  "resource_id":"_id of the unresolved resource_",
+  "target_type":"_the type of the unresolved resource (parameter, actor, or connector)_"
+}
+```
+
+#### Methods
+
+The methods used for this resource are:
+
+* GET - search for process resolution problems
+
+#### Search for process resolution problems
+
+This is the only method supported by this resource. It should be used to list the problems that need to be solved before a process can be used.
+
+
+* **URL**  
+  `/API/bpm/processResolutionProblem`  
+  _Example_: `/API/bpm/processResolutionProblem?p=0&c=100&f=process\_id%3d8802838415753448432`
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  Filtering on the process definition ID is mandatory.
+
+  * `f=process_id=<process_definition_id>`: this filter is used to indicate the target process
+* **Success Response**  
+  A list of process resolution problems in JSON or an empty response body if there is no problem for the process
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    [
+      {
+        "message":"Actor 'Employee actor' does not contain any members",
+        "resource_id":"3","target_type":"actor"
+      },
+      {
+        "message":"Parameter 'username' is not set.",
+        "resource_id":"",
+        "target_type":"parameter"
+      }
+    ]
+    ```
+* **Error Response**
+  * **Code**: 404 if the process does not exist
 
 ## Connectors
 * [processConnectorDependency](api_resources/bpm_processconnectordependency_6.0_0_0_0.md)
