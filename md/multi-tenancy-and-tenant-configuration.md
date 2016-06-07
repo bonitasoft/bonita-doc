@@ -92,7 +92,7 @@ http://localhost:8080/bonita/mobile/?tenant=2
 
 ### Bonita APIs
 
-Use the [PlatformAPI](javadoc.md) to perform operations on tenants.
+Use the [PlatformAPI](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html) to perform operations on tenants.
 
 Example: retrieving a tenant from its name and log into it
 ```java

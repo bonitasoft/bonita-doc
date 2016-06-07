@@ -16,7 +16,7 @@ In Community, Teamwork, Efficiency, and Performance editions
 Bonita BPM comes with more than 80 [standard connectors](_connectivity.md) to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
 A new connector enables you to provide new connectivity capabilities for processes. 
 To [implement a new connector](connectors-overview.md), you need to provide some XML description files and a 
-Java class respecting the [Connector interface](javadoc.md). 
+Java class respecting the [Connector interface](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html). 
 Connectors can be implemented directly from Bonita BPM Studio.
 
 ### Actor filters
@@ -25,14 +25,14 @@ In Community, Teamwork, Efficiency, and Performance editions
 
 Bonita BPM comes with a set of [standard actor filters](actor-filtering.md) that can be used to reduce the list of candidates for process tasks.
 A new actor filter enables you to provide new filtering capabilities to processes. To [implement a new actor filter](creating-an-actor-filter.md), 
-you need to provide some XML description files and a Java class respecting the [UserFilter interface](javadoc.md). 
+you need to provide some XML description files and a Java class respecting the [UserFilter interface](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html). 
 Actor filters can be implemented directly from Bonita BPM Studio.
 
 ### Engine API
 
 In Community, Teamwork, Efficiency, and Performance editions
 
-The [Bonita BPM Engine APIs](javadoc.md) enable you to:
+The [Bonita BPM Engine APIs](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html) enable you to:
 
 * start and stop the engine
 * design, install, configure and interact with processes
@@ -71,7 +71,7 @@ You can then use your custom widget in pages, forms, and (for Subscription editi
 
 In Community, Teamwork, Efficiency, and Performance editions
 
-Included in the [Engine APIs](javadoc.md) are methods to import and export various items. 
+Included in the [Engine APIs](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html) are methods to import and export various items. 
 These methods manipulate files with formats that are versioned. Newer versions of the file format are designed to be backward compatible with earlier versions. The following items have import and export API methods:
 
 * organization (users, groups, roles)

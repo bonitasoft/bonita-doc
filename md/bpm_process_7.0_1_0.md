@@ -205,7 +205,7 @@ GET
 
 Response payload
 
-The process design object. The JSON returned is a representation of the [DesignProcessDefinition](javadoc.md) instance of the given process id.
+The process design object. The JSON returned is a representation of the [DesignProcessDefinition](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html) instance of the given process id.
 
 ### Retrieve the instantiation contract for a process
 

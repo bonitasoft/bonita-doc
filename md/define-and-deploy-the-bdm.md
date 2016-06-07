@@ -45,7 +45,7 @@ A business object definition consists of the following:
 * Indexes for some attributes (optional)
 * A `persistenceId`, created automatically
 
-Business objects can be combined using [composition or aggregation](#compos) relationships. They are managed using standard create, read, update, delete actions. A business object can be read directly using the [Engine Java API](javadoc.md) specifying the Java DAO, or using the [REST API](bdm-api.md). To read a business object in a Groovy expression, use the DAO. A business object can be updated only in a process, using an operation.
+Business objects can be combined using [composition or aggregation](#compos) relationships. They are managed using standard create, read, update, delete actions. A business object can be read directly using the [Engine Java API](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html) specifying the Java DAO, or using the [REST API](bdm-api.md). To read a business object in a Groovy expression, use the DAO. A business object can be updated only in a process, using an operation.
 
 ### Multiple
 

@@ -23,7 +23,7 @@ Many tools exist in every operating system for system monitoring. For example:
 
 These tools can be used in conjunction with monitoring systems such as like Nagios or Zabbix.
 
-Bonita BPM also provides a [PlatformMonitoringAPI](javadoc.md) that you can use to obtain some of this information. 
+Bonita BPM also provides a [PlatformMonitoringAPI](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html) that you can use to obtain some of this information. 
 
 ## Network
 
@@ -43,7 +43,7 @@ A large number of deadlocks, or memory heap starvation may indicate a performanc
 Follow the [JVM performance tuning recommendations](performance-tuning.md) and increase provisioning to get the optimum performance.
 
 Many OpenSource and proprietary tools exist for JVM monitoring. 
-These parameters can be obtained through monitoring system like Nagios or Zabbix. You can also retrieve them using the [PlatformMonitoringAPI](javadoc.md).
+These parameters can be obtained through monitoring system like Nagios or Zabbix. You can also retrieve them using the [PlatformMonitoringAPI](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html).
 
 ## Database
 
@@ -57,7 +57,7 @@ All databases provide information to monitor the following:
 If actual usage reaches the limit of available capacity, this can indicate a performance issue.
 
 These values can be monitored through a monitoring system like Nagios or Zabbix. 
-You can also get the number of active transaction using the [MonitoringAPI](javadoc.md).
+You can also get the number of active transaction using the [MonitoringAPI](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html).
 
 ## Bonita BPM Engine connections
 
