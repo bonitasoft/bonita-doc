@@ -1,19 +1,15 @@
 # JBoss bundle
 
+You will find here steps needed to install and configure a JBoss bundle.
+
 The JBoss bundle is a zip archive that contains the Red Hat JBoss JEE application server packaged with Bonita BPM web application and [Bonita configuration folder](BonitaBPM_platform_setup.md). 
 The JBoss bundle is a regular zip archive based on the JBoss zip distribution.
 
-There are three stages to installing the JBoss bundle:
+## Installation of the JBoss bundle
 
-1. Download the distribution and unpack the files.
-2. Get and install a license. This is not necessary if you are installing the Community edition.
-3. Configure the database.
+### Download and unzip the JBoss bundle
 
-When these three stages are complete, you can start JBoss to validate the installation. Then there are some post-installation setup tasks.
-
-## Download and unzip the JBoss bundle
-
-### Download
+#### Download
 
 For the Community edition:
 
@@ -23,41 +19,87 @@ For a Subscription edition:
 
 * Go to the [Customer Portal](https://customer.bonitasoft.com/download/request) and download the Bonita BPM Subscription Pack edition JBoss bundle.
 
-### Unzip
+#### Unzip
 
 The folder where you unzip the Jboss bundle is known as _`<JBOSS_HOME>`_. We recommend the following locations: 
 
 * Windows: `C:\BonitaBPM`. If you want to unzip the bundle to another folder, do not use spaces in the folder name. 
 * Linux: in `/opt/BonitaBPM`. Make sure that Linux user account used to execute JBoss is the owner of the folders and files.
 
-## License installation
+#### Content of the JBoss bundle
+
+The JBoss bundle is based on a standard JBoss installation with the following additions:
+
+* `bin/standalone.conf`: script to configure JVM system properties.
+* `bonita-start.bat`: script to start the bundle on Linux.
+* `bonita-start.sh`: script to start the bundle on Linux.
+* `setup`: Contains configuration/database scripts of the Bonita BPM platform and the tool to update it. See [platform setup tool](BonitaBPM_platform_setup.md).
+* `standalone/configuration/standalone.xml`: JBoss context configuration for Bonita web application. Define data sources used by Bonita Engine.
+* `lib/bonita`: extra libraries needed by Bonita. The following libraries are included: Bitronix JTA Transaction Manager, h2, SLF4J (required by Bitronix).
+* `request_key_utils`: script to generate license request keys (Subscription editions only).
+* `standalone/deployments/h2.sar`: Application that run the h2 server.
+* `standalone/deployments/bonita-all-in-one-[version].ear`: The Bonita web application and EJB3 API.
+
+<a id="license" />
+
+### Get and install a license
+
+::: info
+This is not necessary if you are installing the Community edition.
+:::
 
 If you are installing a Subscription edition, you need to [request a license](licenses.md).
 
-When you receive your license, copy the file to the `<JBOSS_HOME>/setup/platform_conf/licenses/` folder.
+Whe you receive your license, copy the file to the `<JBOSS_HOME>/setup/platform_conf/licenses` folder before starting the bundle.
+If the bundle was already started please refer to
 
-## Edition specification
+#### Edition specification
 
-If you are installing the Performance Subscription edition, 
-you need to edit [`bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md)
+If you are installing the Performance Subscription edition,
+you need to edit [`setup/platform_conf/initial/bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md)
 and change the value of the `activeProfiles` key to `'community,performance'`. No change is needed for the Community, Teamwork, or Efficiency edition.
 
-## Database configuration
 
-The JBoss bundle is configured to use an h2 database by default. h2 is suitable for a test platform, but for production, you are recommended to use one of the supported databases.
+<a id="configuration" />
 
-If you want to use another database you need to specify the [database configuration](database-configuration.md) and the [business data database configuration](database-configuration-for-business-data.md). Make sure you do this before you start JBoss.
+### Configure the bundle
 
-## Start and shut down JBoss
+The configuration of the BonitaBPM Platform is stored in database in the `CONFIGURATION` table. It can be created and updated using the [platform setup tool](BonitaBPM_platform_setup.md) embedded in this bundle.
 
-### JBoss start script
+#### Configure the JBoss server datasources
+
+If you just want to try BonitaBPM platform with the embedded H2 database (not for production), you can skip this entire paragraph.
+
+1. Update the datasource configuration in `standalone/configuration/standalone.xml` by uncommenting and commenting relevant parts
+2. Update the `<property name="sysprop.bonita.db.vendor" value="h2" />` in `standalone/configuration/standalone.xml` with your dbvendor
+3. Remove the `standalone/deployments/h2.sar` file
+4. add the JDBC driver as decribed [here](database-configuration.md#jdbc_driver)
+
+#### Configure Bonita BPM Platform
+
+The initial configuration that will be put in database is located in the folder `setup/platform_conf/initial`, Please refer to the [platform setup tool](BonitaBPM_platform_setup.md) for more details.
+
+You will at least need to update the `setup/database.properties` with the connection information to your database if it is not h2.
+
+
+### Configure the database
+
+The JBoss bundle is configured to use a h2 database by default. h2 is fine for a test platform, but for production, you are recommended to use one of the supported databases.
+
+If you want to use another database you need to specify the [database configuration](database-configuration.md). Make sure you do this before you start Tomcat.
+
+<a id="start" />
+
+### Start and shut down JBoss
+
+#### JBoss start script
 
 JBoss can be started by executing the following script:
 
 * Windows `<JBOSS_HOME>\bonita-start.bat`
 * Linux `<JBOSS_HOME>/bonita-start.sh`
 
-### Custom start-up script
+#### Custom start-up script
 
 If you have a Subscription edition license covering fewer CPU cores than are available on your server, you must limit the number of CPUs available to JBoss.
 
@@ -88,7 +130,7 @@ As an example, if hexadecimal parameter is equal to 6. The corresponding binary 
 * For Linux: `taskset -c 0,1 bonita-start.sh` 
     * Change the last line of the file to `taskset -c 0,1 bonita-start.bat 0,1` (where 0,1 indicate that you will only use 2 CPU, the CPU0 and the CPU1. This list may contain multiple items, separated by comma, and ranges. For example, 0,5,7,9-11) 
 
-### Shutdown
+#### Shutdown
 
 JBoss can be shut down by running the following script:
 
