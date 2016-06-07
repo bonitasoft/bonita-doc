@@ -2,8 +2,10 @@
 
 ## Hardware
 
-**** The hardware recommended for Bonita BPM Platform is strongly dependent on your environment and
+::: info
+**Note:** The hardware recommended for Bonita BPM Platform is strongly dependent on your environment and
 processes (number of processes instances, number of current users, operations and complexity...).
+:::
 
 Hardware required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Portal)
 | Type | Minimum | Recommended |
