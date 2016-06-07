@@ -18,7 +18,11 @@ The generated file can replace the template in the same document or be stored in
 
 ## How to insert `keys` in a template file
 
-### Using Word (docx) - Tested versions are **Microsoft Word 2007/2010**, may work on later versions
+### Using Word (docx)
+
+::: info
+**Note:** Tested versions are **Microsoft Word 2007/2010**. This connector may work with later versions.
+:::
 
 #### Create a `field`
 
@@ -40,9 +44,11 @@ The generated file can replace the template in the same document or be stored in
 For further information about the template design, [click here](https://code.google.com/p/xdocreport/wiki/DesignReport)
 **Warning:** there is a known issue when adding an image in a .docx using drag'n'drop instead of a copy/paste. The image is not rendered properly if you convert the generated file into PDF.
 
-## Example of template using key values taken from a business variable
+## Example
 
-### Business Data model used in the example
+This example uses key values taken from a business variable.
+
+### Business Data Model
 
 Here is a [template example](images/special_code/study-leave-template.docx) for Leave Request submission and approval.   
 This .docx file uses keys, most of which will be replaced by values from business variables created from the following **Business Data Model**:
@@ -56,7 +62,7 @@ This .docx file uses keys, most of which will be replaced by values from busines
 ### Connector configuration
 
 The configuration is as follows:  
-  
+
 ![](images/images-6_0/document_templating_input_mappings.png)
 
 In this example, the key named `user` is mapped to the business variable `user`, the key named `leave` is mapped to the business variable `studyLeave`, and the key named `today` is mapped to a groovy script expression with the following content:
@@ -65,7 +71,7 @@ In this example, the key named `user` is mapped to the business variable `user`,
         import java.text.SimpleDateFormat;
         new SimpleDateFormat("yyyy/MM/dd").format(new Date())
 ```
-  
+
 * If the keys are mapped with complex objects, pass the high level object to the mapping (eg. **'user'**). The connector will handle the sub-structure of this complex object (eg. **${user.firstName}**)
 * When using business variables, relations "loaded when needed" (lazy mode) are not loaded in a connector execution context. To use such relations, create new keys, like "userAddress" in the above example.
 * If the replacement value is null, then the field key will be rendered (eg. **${userAddress.line2}**). Use a "!" mark to render blank value, like **$!{userAddress.line2}** if userAddress.line2 may be null.

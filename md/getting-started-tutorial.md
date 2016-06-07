@@ -35,7 +35,7 @@ The easiest way to create these forms is from the process definition, so that is
 The following sections explain how to create the application page and then populate it with dummy data. At any stage, you can click **_Preview_** and see a preview of the layout of the page as it will appear to users.
 Remember to click **_Save_** to save your work frequently.
 
-### Create travel tool home page
+#### Create travel tool home page
 
 In Bonita BPM Studio, start the UI Designer by clicking the icon in the coolbar. This opens the UI Designer in your browser, at the home page.
 
@@ -68,7 +68,7 @@ Change the arrangement of the widgets in the whiteboard using drag and drop and 
 
 Remember to click the topmost **_Save_** button, or type `Ctrl+S` to save your work.
 
-### Add dummy data
+#### Add dummy data
 
 Now use some dummy data to see how the tables will look when there is data.   
 First create a variable containing the data, and then bind the variable to the widget **Value** property.   
@@ -149,7 +149,7 @@ To create **myPendingRequests**:
 
  When you have defined this variable, select the table widget for the approved requests and set the value of the **Content** property to `myApprovedRequests` (remember to click on the "bind" icon).
 
-### Review and improve the page
+#### Review and improve the page
 
 You now have a prototype of the _TravelTool_ page with dummy data. View the prototype, and adjust the arrangement of the widgets until you are happy with the appearance of the page.   
 You can drag and drop widgets to reorder them, and you can change properties including **Width** and **Alignment**. For example, to improve this page, you could make the following changes:
@@ -214,7 +214,7 @@ To define the business data model:
 
 ## Create the process definition
 
-### Create the diagram
+#### Create the diagram
 
 The first stage is to create the new diagram, which you do using Bonita BPM Studio. While you are working on a diagram, save your work from time to time, by clicking the **_Save_** icon in the coolbar (at the top of the screen) or typing `Ctrl+S`.   
 Create the diagram as follows:
@@ -242,7 +242,7 @@ When you have finished, your diagram should look like this:
 
 ![Completed diagram](images/images-6_0/7.0-getting-started-completed-diagram.png)
 
-### Define business variables
+#### Define business variables
 
 You have already defined the data model, but now you need to specify how the model is applied to this process.  
 Define a _travelRequest_ business variable, which is an instance of the _TravelRequest_ object type. Follow these steps:
@@ -257,7 +257,7 @@ Define a _travelRequest_ business variable, which is an instance of the _TravelR
 
 The attributes of _travelRequest_ are the information that is used in the process. There are no other variables to define.
 
-### Create contracts
+#### Create contracts
 
 A contract is the specification of what a form must return to the process instance. Define a contract for process instantiation, and for each human task.
 
@@ -318,7 +318,7 @@ It also has a constraint: a _refusalReason_ must be specified if the manager ref
 `status=="approved" || (status=="refused" && !"".equals(refusalReason))`
 8. In the **Error message** column, add this text: `If you refuse a request, you must give a reason.`
 
-### Define business object initial values
+#### Define business object initial values
 
 Now that the contract is defined, you can configure the initial value of _travelRequest_, as follows:
 
@@ -332,7 +332,7 @@ travelRequestVar.status = "pending"`
 5. Click **_OK_** to save the expression.
 6. Click **_OK_** again to save the updated object definition.
 
-### Update business object with review data
+#### Update business object with review data
 
 You need to define operations to update the business object with the values entered for _status_ and _refusalReason_ in the _Manager review_ form.  
 Select the _Manager review_ task, and go to the **Details** panel, **Execution** tab, **Operations** pane. First define the operation for _status_, as follows:
@@ -348,7 +348,7 @@ When both of the operations are defined, the **Details** panel should look like 
 
  ![Manager review operations](images/images-6_0/7.0-getting-started-operations.png)
 
-### Specify actors
+#### Specify actors
 
 The next stage is to define who carries out the steps in the process. This is done by assigning [actors](actors.md).   
 An actor is a placeholder for the person who will do a task.   
@@ -369,7 +369,7 @@ All the managers are also employees, and the employee actor is defined for the l
 
 The process is now defined. The next section shows you how to configure and run it to verify that the process definition is correct before you define forms and create the application.
 
-### Run process with temporary forms
+#### Run process with temporary forms
 
 You can run a process that is in development before you create forms, by using temporary forms that are created automatically.  
 This section explains how to configure the process and run it from Bonita BPM Studio.
@@ -523,7 +523,7 @@ This section explains how to build the application from the pages and process th
 1. In the UI Designer, update the application page to use business data instead of the dummy JSON data and to specify the connection between the page and the process.
 2. In Bonita BPM Portal, create the application.
 
-### Update the application page
+#### Update the application page
 
 Create the following variables:
 
@@ -544,7 +544,7 @@ Now update the widgets to use the new variables:
 1. Select the username widget at the top of the page, and update the **Text** to this value: `{{session.user_name}}`.
 2. For both pending and approved requests, set the **Column keys** to `departureDate | date, numberOfNights, hotelNeeded, destination, reason`, to set the date format.
 
-### Link button to process
+#### Link button to process
 
 When the user clicks the button on the Travel Tool page for creating a travel request, the application displays the form for creating a request.  
 This is the instantiation form for the Travel Request process.  
@@ -552,7 +552,7 @@ To configure this, select the button and set the target URL property to `"/bonit
 
 After the user submits the form, the Tasks view of Bonita BPM Portal is displayed.
 
-### Build application
+#### Build application
 
 To build the Travel Tool application, you need to export the page from the UI Designer, deploy the process, and then create the application in Bonita BPM Portal.
 

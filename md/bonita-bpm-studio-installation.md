@@ -12,16 +12,16 @@ Before you download Bonita BPM Studio, make sure that you know whether you are u
 * For Windows, see the [32 and 64 bit Windows FAQ](http://windows.microsoft.com/en-us/windows/32-bit-and-64-bit-windows).
 * For Mac, 32-bit Java is no longer supported, so there is no 32-bit version of Bonita BPM for Mac systems.
 
-Note for Mac users of OS X 10.7.5 and above: a new security feature called **Gatekeeper** prevents the installation of software that is not officially recognized by Apple.
+Note for Mac users of OS X 10.7.5 and above: a new security feature called **Gatekeeper** prevents the installation of software that is not officially recognized by Apple.  
 For more information and details of how to install Bonita BPM Studio on a system running Gatekeeper, see the [Apple support site](https://support.apple.com/en-us/HT202491).
 
 ## Download Bonita BPM Studio
 
 For a Subscription edition of Bonita BPM Studio, go to the [Customer Portal](https://customer.bonitasoft.com/download/request) and request a download.
 
-For the Community edition of Bonita BPM Studio, go to the Bonitasoft website [downloads page](http://www.bonitasoft.com/downloads-v2). 
-On this page there are buttons to download the Studio installer for your current operating system and the _all in one_, OS-independent version. 
-To download the installer for a different operating system, select it from the drop-down menu beside the **Choose** button, and click **_Choose_**. 
+For the Community edition of Bonita BPM Studio, go to the Bonitasoft website [downloads page](http://www.bonitasoft.com/downloads-v2).  
+On this page there are buttons to download the Studio installer for your current operating system and the _all in one_, OS-independent version.  
+To download the installer for a different operating system, select it from the drop-down menu beside the **Choose** button, and click **_Choose_**.  
 Then click the **_Download_** button.
 
 When the download is complete, you have one of the following new files:
@@ -41,8 +41,8 @@ Community edition
 - 64 bit: `BonitaBPMCommunity-x.y.z-x86_64.exe`  
 
 Subscription editions  
-- 32 bits: `BonitaBPMSubscription-x..zy-x86.exe`
-- 64 bits: `BonitaBPMSubscription-x.y.z-x86_64.exe`
+- 32 bit: `BonitaBPMSubscription-x..zy-x86.exe`
+- 64 bit: `BonitaBPMSubscription-x.y.z-x86_64.exe`
 
 **Mac**  
 Community edition  
@@ -66,8 +66,8 @@ To run the installer wizard for Linux, Windows, or Mac, double-click the downloa
 
 Then follow the installation wizard through to the end of the installation procedure.
 
-The installer import workspace feature applies only to local repositories. 
-If you have shared repositories in your workspace, you will need to reconnect to these manually, and possibly migrate the processes to your new version of Bonita BPM Studio. 
+The installer import workspace feature applies only to local repositories.  
+If you have shared repositories in your workspace, you will need to reconnect to these manually, and possibly migrate the processes to your new version of Bonita BPM Studio.  
 The default workspace is automatically initialized at the end of the installation.
 
 ## Install using OS-independent archive
@@ -119,38 +119,36 @@ When you launch Bonita BPM Studio for the first time, you need to install a lice
 
 ## Troubleshooting
 
-### Log files
+#### Log files
 
 In case of trouble when running Bonita BPM Studio, you might want to take a look at log files.
 
 Studio log file can be displayed from Bonita BPM Studio in "Help" -\> "Show Bonita BPM Studio log" menu.
 
-If Studio fails to start, you can open the log file manually. File is named `.log` and is located in `<studio_folder>/workspace/.metadata` folder.
+If Studio fails to start, you can open the log file manually. File is named `.log` and is located in `<studio_folder>/workspace/.metadata` folder.   
 Note that folder might be hidden and file might not be displayed if you choose to hide file extensions in your file manager.
 
 There is a separate log file for the UI Designer, `<studio_folder>/workspace/tomcat/logs/ui-designer.log`.
 
-### OutOfMemory error in Bonita BPM Studio
+#### OutOfMemory error in Bonita BPM Studio
 
-After installation, you might see an `OutOfMemory` error in Bonita BPM Studio.
-This error sometimes occurs when importing a large process definition.
+After installation, you might see an `OutOfMemory` error in Bonita BPM Studio.  
+This error sometimes occurs when importing a large process definition.  
 The log messages are similar to the following:
 
-```
+```log
 !ENTRY org.bonitasoft.studio.importer 4 0 2014-04-25 09:43:49.467
 !ERROR Import has failed for file Autorisation Engagement Depenses-2.0.bos
 
 !ENTRY org.bonitasoft.studio.importer 4 0 2014-04-25 09:43:49.470
-!ERROR 
+!ERROR
 !STACK 0
 java.lang.reflect.InvocationTargetException
-...
 Caused by: java.lang.OutOfMemoryError: GC overhead limit exceeded
 ```
 
-To fix this issue, you need to increase the memory allocated to the JVM that runs the Bonita BPM Studio.
+To fix this issue, you need to increase the memory allocated to the JVM that runs Bonita BPM Studio.
 
-Edit the `*.ini` file that corresponds to the executable you use to launch the Studio 
-(e.g. `BonitaBPMSubscription64.ini` if you run on Windows 64bits) and modify this line: `-Xmx512m` to `-Xmx1024m` (or higher).
+Edit the `*.ini` file that corresponds to the executable you use to launch the Studio (e.g. `BonitaBPMSubscription64.ini` if you run on Windows 64bits) and modify this line: `-Xmx512m` to `-Xmx1024m` (or higher).
 
 Then restart Bonita BPM Studio.

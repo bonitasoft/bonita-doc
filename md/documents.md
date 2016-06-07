@@ -13,11 +13,11 @@ Users have the option to download the document if required.
 
 A document is a self-contained structured set of information that is attached to a process instance. It is created and updated by a tool that is not part of the process. It can have a lifecycle that begins before the process instance is created and continues after the process instance is completed and archived.
 
-* **Create**: The lifecycle of a document begins before the process instance is created. A document is created in an external system. 
-* **Add to process instance**: When a process instance is created, the document instances defined for the process are initialized, in the form of document objects. 
+* **Create**: The lifecycle of a document begins before the process instance is created. A document is created in an external system.
+* **Add to process instance**: When a process instance is created, the document instances defined for the process are initialized, in the form of document objects.
 At this point, the documents have the content specified in the document definition (which might be no content).
 * **Update in process instance**: A document in a process instance is updated by an automatic action in the process definition or following information specified by a user in a form. Updating a document creates a new object.
-* **Delete from process instance**: A document object can be deleted from an active process instance but not from an archived process instance. 
+* **Delete from process instance**: A document object can be deleted from an active process instance but not from an archived process instance.
 
 A document in a process instance is a Java object. When you update a document in a process instance, you create a new object. A document has the following:
 
@@ -25,17 +25,17 @@ A document in a process instance is a Java object. When you update a document in
 * **Description**: a description of the document, defined in the process definition (optional)
 * **Content**: the content of the document, set from a file or URL. The initial content source is specified in the process definition.   
 The content does not have to be initialized when the process instance is created. The content can be initialized or updated in a process task by the system or as a result of user action.
-* **MIME type**: the type of content of the document. This is defined for the initial content in the process definition. A browser (or your computer) uses the MIME type to select the best application to use to display the document content. If you do not specify the MIME type, the browser reads the beginning of the file to discover the MIME type. 
+* **MIME type**: the type of content of the document. This is defined for the initial content in the process definition. A browser (or your computer) uses the MIME type to select the best application to use to display the document content. If you do not specify the MIME type, the browser reads the beginning of the file to discover the MIME type.
 * **Submitter**: the name of the user who uploaded the content.
 * **Creation date**: the date and time when the content was uploaded.
 
-### Document lists
+#### Document lists
 
 A document list is a collection of related documents attached to a process. Each component of the list is itself a document object, but it is not necessary to define each one separately. The number of components in the list does not have to be fixed. For example, a process to claim travel expenses includes a document list for the scanned copies of receipts. When the process instance is created, the number of receipts is unknown and the receipts can be in any image format.
 
 In a process definition, you can specify multiple documents or document lists. Use a document list if you have several documents that you need to handle as a set as well as individually. Use multiple documents if you have documents that have independent lifecycles. For example, a process to claim travel expenses could have a document list for expenses receipts and a document with the expenses policy.
 
-To initialize a document list, use a script that returns a list of DocumentValue objects. For example: 
+To initialize a document list, use a script that returns a list of DocumentValue objects. For example:
 
 ```java
 import org.bonitasoft.engine.bpm.document.DocumentValue
@@ -70,7 +70,7 @@ For most use cases, we recommend storing documents in a CMS.
 
 <a id="cms"/>
 
-### CMS
+#### CMS
 
 Typically, business documents are stored in an external system such as a CMS, and accessed by other applications in addition to Bonita BPM. Bonita BPM is not iteself a CMS, and it is more efficient for performance to store documents in an external system and store only links in the process instance. This is particularly true if you have many documents attached to a process instance.
 
@@ -83,15 +83,15 @@ For example, in a process to approve a document for publication, the document ex
 
 <a id="file"/>
 
-### File
+#### File
 
 A document that is stored as a file can be used to initialize or update the document object in a process instance. This is done when the user specifies the file in a form. Typically, this is useful for information that does not have to be stored outside the process, where the file can be deleted after the document object is created. For example, a file containing a scanned copy of a travel receipt does not need to be kept after the receipt object has been added to a travel expense claim process instance.
 
 <a id="resource"/>
 
-### Resource
+#### Resource
 
-The Bonita BPM Studio Document Repository contains documents that have been imported from the file system. After a document is imported, it is called a resource. When you [build a process bar file for deployment](build-a-process-for-deployment.md), the resources used in the process are automatically included. A resource is available to all processes in an installation of Studio. A resource cannot be updated directly in Studio, but is updated by uploading a new file. Typically, resources are used for information that is stable and common to all instances of a process, or is used in several processes. The resource is used to initialize the document object in the process instance. You cannot use a resource to update a document object. 
+The Bonita BPM Studio Document Repository contains documents that have been imported from the file system. After a document is imported, it is called a resource. When you [build a process bar file for deployment](build-a-process-for-deployment.md), the resources used in the process are automatically included. A resource is available to all processes in an installation of Studio. A resource cannot be updated directly in Studio, but is updated by uploading a new file. Typically, resources are used for information that is stable and common to all instances of a process, or is used in several processes. The resource is used to initialize the document object in the process instance. You cannot use a resource to update a document object.
 
 When you [export a process in a bos file for import into another Studio](import-and-export-a-process.md), you must select the resources that are used so that they are included.
 
@@ -99,7 +99,7 @@ The dialog for adding a resource to the document repository is inside the dialog
 
 1. Open any process diagram and select the pool. This definition will not be updated.
 2. Go to the **Details** panel, **Data** tab, **Documents** pane.
-3. Select any document, and check **From local file**. If there are no documents defined for the process, click **_Add_** and specify a name for the document. 
+3. Select any document, and check **From local file**. If there are no documents defined for the process, click **_Add_** and specify a name for the document.
 4. Click **_Browse..._**. A popup shows the list of resources in the repository.
 5. Click **_Import..._**. A file selector popup is displayed.
 6. Select the file that you want to import. The filename is added to the list of resources.
@@ -108,16 +108,16 @@ The dialog for adding a resource to the document repository is inside the dialog
 
 When you deploy a process, the documents included in the bar file are stored in the local Bonita BPM database. They are used to initialize document objects when a process instance is created or when a form is initialized.
 
-### Document maximum size setting
+#### Document maximum size setting
 
 By default, the maximum size of a document is 15Mb. You can reduce or increase this in your production environment by modifying the value of the `form.attachment.max.size` property in the `forms-config.properties` file of your tenant, and then restarting Bonita BPM.  
-The maximum document size cannot exceed the capacity of the database column. This value depends on your database. This setting applies to all processes in the tenant. 
+The maximum document size cannot exceed the capacity of the database column. This value depends on your database. This setting applies to all processes in the tenant.
 
-### Document versioning in a process instance
+#### Document versioning in a process instance
 
 In a process instance, there is no specific versioning. When a document is updated, a new object is created. These objects are archived with the associated activity instance, and can be retrieved using Bonita BPM Engine API.
 
-### Document archives
+#### Document archives
 
 When a process element is archived the associated documents are also archived. It is possible to delete the archived documents using the Engine API or REST API when they are no longer needed, to save space. You can delete an archived document from a live process instance or from an archived process instance. When you delete an archived document, only the content is deleted. The metadata, such as the name, last updated date, and uploader, is kept so that it can be retrieved if needed for audit.
 
@@ -125,7 +125,7 @@ When a process element is archived the associated documents are also archived. I
 
 This section explains how to specify a document or document list in a process definition.
 
-### Add a document
+#### Add a document
 
 A document is added to a process definition at pool level. It is similar to defining a pool-level process variable. You must define at pool level all the documents that will be used in the process.
 
@@ -135,20 +135,20 @@ To define a document in Bonita BPM Studio:
 2. Go to the **Details** panel, **Data** tab, **Documents** pane.
 3. Click **_Add_**. A popup for defining a document is displayed.
 4. In the popup, specify the following:
-  * The **name** of the document, used to identify it in the Studio. This must be a valid Java identifier. 
+  * The **name** of the document, used to identify it in the Studio. This must be a valid Java identifier.
   * A **description** of the document. This is optional, but we recommend that you add a description stating the document purpose in the process, for collaboration and maintenance.
-  * Whether the document is **single** or **multiple**. Specify **multiple** to define a document list. 
+  * Whether the document is **single** or **multiple**. Specify **multiple** to define a document list.
   * The source of the **initial content** of the document. For a document, there are the following options:
-    * Choose **None** if there is no initial content for the document when the process instance is created. 
+    * Choose **None** if there is no initial content for the document when the process instance is created.
     * Choose **From contract** if the document content is to be retrieved from the contract input.
     * Choose **From local file** if the document content is to be retrieved from a resource.
     * Choose **From an external system** if the document content is to be retrieved from an external system by URL
    For a document list, initial content is defined using a script. The script must return a `java.util.List`.
-  * Optionally, for a local file, you can specify the media type of the content, by setting the MIME type of the document. 
+  * Optionally, for a local file, you can specify the media type of the content, by setting the MIME type of the document.
 5. If you want to specify the MIME type, click **Manage MIME type...**, and then specify the MIME type in the field that is displayed.
 6. When you have provided all the information for the document, click either **_Finish & Add_** to define another document or **_Finish_** if you have no more documents to define for this pool.
 
-### Edit a document in the process definition
+#### Edit a document in the process definition
 
 1. In your process diagram, select the pool.
 2. Go to the **Details** panel, **Data** tab, **Documents** pane. The list of documents defined for the pool is displayed.
@@ -156,7 +156,7 @@ To define a document in Bonita BPM Studio:
 4. Update the document information in the popup.
 5. Click **_OK_** to save your changes.
 
-### Remove a document from a process definition
+#### Remove a document from a process definition
 
 1. In your process diagram, select the pool.
 2. Go to the **Details** panel, **Data** tab, **Documents** pane. The list of documents defined for the pool is displayed.
@@ -183,7 +183,7 @@ To do this, define an operation in the automatic task as follows:
        ```java
        import org.bonitasoft.engine.bpm.document.Document;
        import org.bonitasoft.engine.bpm.document.DocumentValue;
- 
+
        Document doc=apiAccessor.getProcessAPI().getDocument(sub_docId);
        DocumentValue docValue=new DocumentValue(apiAccessor.getProcessAPI().getDocumentContent(doc.getContentStorageId()), doc.getContentMimeType(), doc.getContentFileName());
        return docValue;
@@ -191,7 +191,7 @@ To do this, define an operation in the automatic task as follows:
 
 ## Specify a document in a process form
 
-When you have specified the documents in the process definition, you need to define how they are handled in the process tasks. 
+When you have specified the documents in the process definition, you need to define how they are handled in the process tasks.
 
 A document is represented in a form definition by the [upload widget](widgets.md).
 

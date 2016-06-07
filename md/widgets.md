@@ -20,9 +20,9 @@ If the row has some space at the end, the widget will fill the remaining empty s
 
 ### Adding a row
 
-According your needs, a container can have any number of rows. 
+According your needs, a container can have any number of rows.
 
-To add a widget in a new row, a container has two dropzones where you can drop a widget from the palette. These dropzones are located at the top of the container and at the bottom of the container. When your mouse hovers the upper or lower border of a widget in a row, the dropzone becomes visible, as shown in these examples: 
+To add a widget in a new row, a container has two dropzones where you can drop a widget from the palette. These dropzones are located at the top of the container and at the bottom of the container. When your mouse hovers the upper or lower border of a widget in a row, the dropzone becomes visible, as shown in these examples:
 
 Example 1: add a title widget in a new row above a paragraph widget:
 
@@ -143,7 +143,7 @@ Use a display widget for information that the user can read on a page. This incl
 * Title, for headings. You can set the level from 1 to 6\.
 * Text, for chunks of text. Text supports basic HTML tags such a paragraph, list or image...
 
-## Table widget
+### Table widget
 
 Use a table widget to display data in a table. In order to display the data, first define the **headers** property with a comma-separated list of column headings.  
 Then bind the **content** to an array of JavaScript objects.  
@@ -152,7 +152,7 @@ To get the data from a selected row, bind **selected row** to a variable.
 
 Note: table widget only supports text values. HTML content passed in table data will not be rendered.
 
-## Data table widget (Subscription editions)
+### Data table widget (Subscription editions)
 
 An extended table widget that provides column sorting, filtering, and paging in addition to the standard table widget facilities.
 
@@ -165,7 +165,7 @@ The value of the **Page size** property controls how many rows are displayed in 
 Alternatively, you can set the **Data source** to _Variable_ and use a variable definition to point ot the table content.   
 Note that if you use a Variable datasource and an External API variable, the paging of the table content is not handled automatically.
 
-### Sort
+#### Sort
 
 The _Sortable columns_ property enables to list the columns which allow a sorted search.  
 Each element of this property has to match an element of the _Columns key_ property to figure out which table column can be sorted upon.
@@ -178,7 +178,7 @@ The sort is backend when datasource is **Bonita API**. It is frontend, otherwise
 
 Note: BDM APIs are not yet sortable. For other APIs, test in the preview or refer to the BonitaBPM documentation 'REST API' pages.
 
-### Filter
+#### Filter
 
 You can provide a filter for users to update the displayed table to show only the rows that match the filter. To do this:
 
@@ -191,7 +191,7 @@ When the table is displayed, each time the user updates the filter, the table di
 
 Note: it is only possible to filter on attributes that are searchable in the REST resource definition. To search on an attribute of a business object, make sure that the BDM contains the necessary queries.
 
-## Image widget
+### Image widget
 
 Use an image widget to display an image. The image widget is able to display images from local assets or an image from a URL:
 
@@ -200,7 +200,7 @@ Use an image widget to display an image. The image widget is able to display ima
 
 _**Note**_: Applies from _7.0.2_
 
-## Chart widget (Subscription editions)
+### Chart widget (Subscription editions)
 
 Use the chart widget to create a graphical display of data to ease understanding. This widget is based on angular-chart-0.8.1, which is based on Chart.js.  
 For information, see the [Angular chart documentation](http://jtblin.github.io/angular-chart.js/) or [Chart.js documentation](http://www.chartjs.org/docs/).

@@ -1,10 +1,12 @@
 # Contracts and contexts
 
+## Overview
+
 The notion of contract is available at two levels: process instantiation and human task execution. A contract is composed of inputs and constraints. Inputs are pieces of information that must be provided to the process or the human task. The constraints are applied to the input to check that the values of the inputs are valid.
 
 As an example, a Leave Request Process could declare the following contract:
 
-* Inputs: 
+* Inputs:
   * Start Date
   * End Date
   * Leave type
@@ -41,7 +43,7 @@ Supported input types:
 4. **decimal:** a decimal value (e.g. 5.128)
 5. **file:** a document
 6. **integer:** a numeric value (e.g. 4)
-7. **text:** a string 
+7. **text:** a string
 
 Check **_multiple_** to specify that the input is a list of its primary type (for example, a list of integers).
 
@@ -53,13 +55,13 @@ A constraint is a Groovy expression that returns a Boolean. If the value is fals
 
 When is the contract validated ?
 
-Whatever means is used to submit information to process or human task, the system will validate the contract. If the contract is not satisfied, an exception is thrown and the process or human task is untouched. Information can be submitted by Java API call, REST API call, Bonita BPM form, or an external system including a third-party form. 
+Whatever means is used to submit information to process or human task, the system will validate the contract. If the contract is not satisfied, an exception is thrown and the process or human task is untouched. Information can be submitted by Java API call, REST API call, Bonita BPM form, or an external system including a third-party form.
 
 **Best practice:** Define the contract prior to creating your forms. This will save you time during development phase as auto-generated forms enable you to submit information and validate that your contract definition is stable. After the contract is defined, you can go to UI Designer using top-right pencil icon of the Details panel. It will generate a form with the appropriate widget for each contract input to enable the user to provide the expected value.
 
 ## Context
 
-To display contextual information of the task or the process instance in a form, you can leverage the business data and document references made publicly available through the context. The notion of context is available at two levels : process instance and human task. The context is a list of references to the business data and documents manipulated by the process instance during its execution. 
+To display contextual information of the task or the process instance in a form, you can leverage the business data and document references made publicly available through the context. The notion of context is available at two levels : process instance and human task. The context is a list of references to the business data and documents manipulated by the process instance during its execution.
 Currently, context is the same for a human task and its process instance. All the business data and documents defined are public.
 
 Limitation : there is currently no way to customize which business data or document are public.

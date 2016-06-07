@@ -1,5 +1,7 @@
 # Google Calendar
 
+## Overview
+
 The Google Calendar (API v3) connectors enable client applications to view and update calendar events by using Google Data API feeds. For details of the API, see the Google [Developer's Guide](https://developers.google.com/google-apps/calendar/).
 
 Your business application, or set of processes, can create new Google calendar events, can edit, move, or delete existing events, and can query for events that match particular criteria. The connectors available are as follows:
@@ -22,10 +24,10 @@ The Google Calendar connectors use a service account, which calls the Google API
 2. Create the client Id that is used to identify your application when accessing the Google APIs:
   1. In the left-hand menu, select **APIs & auth** then **Credentials**. The credentials page is displayed.
   2. Click **_Create New Client ID_**.
-  3. In the popup list of Application types, select **Service Account**. Then click **_Create Client ID_**. The Google console generates the Client Id and a private key, which is stored in a file with the extension `.p12`. 
+  3. In the popup list of Application types, select **Service Account**. Then click **_Create Client ID_**. The Google console generates the Client Id and a private key, which is stored in a file with the extension `.p12`.
   4. Copy the `.p12` file to a place where the connectors can use it. If your project name contains spaces, the filename will contains spaces. Rename the file to remove the spaces. Make a note the full path to this file because it is an input parameter, _p12key_, of the connectors.
   5. Make a note of the **CLIENT ID**, which is needed for configuring your Google domain to authorize the client.
-  6. Make a note of the **EMAIL ADDRESS**, which is an input parameter, _Service account ID_, required when you configure connection parameters for a connector. 
+  6. Make a note of the **EMAIL ADDRESS**, which is an input parameter, _Service account ID_, required when you configure connection parameters for a connector.
 3. Make sure that the Calendar APis are enabled for your project:
   1. In the left-hand menu, select **APIs & auth** then **APIs**. The APIs page is displayed.
   2. Select the Calendar API row.
@@ -50,7 +52,7 @@ The configuration in your domain is now complete. You can now configure Google C
 When you add a Google Calendar connector to a process diagram, you need to specify connection parameters in the wizard. The table below explains what to specify:
 
 | Parameter name  | Required information  |
-| --------------- | --------------------- | 
+| --------------- | --------------------- |
 | Application name  | A unique name that identifies the calling application in the Google reporting and statistics  |
 | Calendar ID  | The email address that identifies the calendar that the created event will belong to. Typically, this will be a process or business variable  |
 | Service Account ID  | The email address of the Google client, which you noted earlier from the Credentials page  |
