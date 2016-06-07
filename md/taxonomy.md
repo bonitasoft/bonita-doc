@@ -215,7 +215,7 @@
   * [Engine API](_engine-api.md)
     * [Get started with the Bonita BPM Engine APIs](getting-started-with-the-bonita-bpm-engine-apis.md)
     * [Create your first project with the Engine APIs and Maven](create-your-first-project-with-the-engine-apis-and-maven.md)
-    * [Configure Bonita Home for a client](configuring-bonita-home-for-a-client.md)
+    * [Configure client of Bonita BPM Engine](configure-client-of-bonita-bpm-engine.md)
     * [Javadoc](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html)
     * [Examples](_examples.md)
       * [Manage a process](manage-a-process.md)

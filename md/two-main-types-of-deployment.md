@@ -24,7 +24,15 @@ It is fast because the Bonita BPM Portal and the Bonita BPM Engine run on the sa
 
 ## Bonita BPM Engine on a remote application server
 
-Even if the `bonita.war` comes with an embedded Bonita BPM Engine, you can choose **not** to use it, by configuring [`bonita-client.properties`](BonitaBPM_platform_setup.md).
+Even if the `bonita.war` comes with an embedded Bonita BPM Engine, you can choose **not** to use it.
+
+In this deployment you must configure the JVM containing the client Bonita BPM Portal to use the remote connection to the engine. To do so see [configuring the connection to a remote engine](configure-client-of-bonita-bpm-engine.md#client_config).
+
+::: info
+Don't forget to set in this JVM the following properties:
+ * `org.bonitasoft.platform.username` must be set with the username of the platform admin
+ * `org.bonitasoft.platform.password` must be set with the password of the platform admin
+:::
 
 ### Accessible through HTTP
 
