@@ -5,7 +5,7 @@
 This example shows you how to create a new user and assign the user to a profile. 
 
 **Create a new user** by calling the createUser method:
-````groovy
+```groovy
 // create new user, with username john and password bpm
 final User user = identityAPI.createUser("john", "bpm");
 System.out.println("New user created: " + user);

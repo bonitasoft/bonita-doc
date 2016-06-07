@@ -19,6 +19,7 @@
     "markdown-it-decorate": "1.2.1",
     "markdown-it-fontawesome": "0.2.0",
     "markdown-it-smartarrows": "1.0.1",
+    "markdown-pdf": "7.0.0",
     "serve-index": "^1.7.3",
     "serve-static": "^1.10.2",
     "winston": "2.2.0",

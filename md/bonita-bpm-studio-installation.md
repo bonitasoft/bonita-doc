@@ -136,7 +136,7 @@ After installation, you might see an `OutOfMemory` error in Bonita BPM Studio.
 This error sometimes occurs when importing a large process definition.
 The log messages are similar to the following:
 
-````logs
+```
 !ENTRY org.bonitasoft.studio.importer 4 0 2014-04-25 09:43:49.467
 !ERROR Import has failed for file Autorisation Engagement Depenses-2.0.bos
 

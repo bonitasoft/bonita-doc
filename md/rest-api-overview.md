@@ -67,7 +67,6 @@ It is possible for an extension to interact with the engine (via the API) or wit
 | Response | the same item in JSON, containing the values provided in the posted item, completed with default values and identifiers provided by Bonita BPM Engine.|  
 ## Read a resource
 
-Example: ``
 | | |
 |:-|:-|
 | Request URL | `http://.../API/{API_name}/{resource_name}/{id} `| 
@@ -79,6 +78,7 @@ Example `http://.../API/identity/user/5 `
 ### With compound identifier
 
 The order of the identifier parts for each resource type is given in the table above.
+
 | | |
 |:-|:-|
 | Request URL | `http://.../API/{API_name}/{resource_name}/{id_part1}/{id_part2} `| 
