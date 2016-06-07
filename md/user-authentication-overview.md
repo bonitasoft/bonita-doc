@@ -33,7 +33,8 @@ If an `apiSession` attribute exists, this means a user is already authenticated.
 **Note:** Information about the original page the user tried to reach is included in a URL parameter named `redirectURL`.
 The login page URL is determined by the [AuthenticationManager](https://github.com/bonitasoft/bonita-web/blob/7.0.0/common/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java)
 implementation. The implementation to use for the current tenant is configured in a file `authenticationManager-config.properties`
-(located in `bonita.home` under `client/tenants/[tenantid]/conf`). The default [AuthenticationManager](https://github.com/bonitasoft/bonita-web/blob/7.0.0/common/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java)
+(located in `setup/platform_conf/initial/tenant_template_portal` or `setup/platform_conf/current/tenants/[tenantid]/tenant_portal` and updatable using the [platform setup tool](BonitaBPM_platform_setup.md)).
+The default [AuthenticationManager](https://github.com/bonitasoft/bonita-web/blob/7.0.0/common/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java)
 is [StandardAuthenticationManagerImpl](https://github.com/bonitasoft/bonita-web/blob/7.0.0/common/src/main/java/org/bonitasoft/console/common/server/auth/impl/standard/StandardAuthenticationManagerImpl.java).
 Its behavior is to redirect to the `login.jsp` page embedded in the webapp.
 Supporting different implementations enables authentication on an external application (useful for SSO deployement for example).
