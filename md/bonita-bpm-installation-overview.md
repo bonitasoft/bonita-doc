@@ -2,7 +2,7 @@
 
 Bonita BPM exists in several [editions](http://www.bonitasoft.com/products#versions): Performance, Efficiency, Teamwork, and Community.
 
-For the Bonita BPM Subscription editions: Performance, Efficiency, and Teamwork, you need to [install a license](licenses.md). The license depends on the edition, the deployment environment, the number of cases purchased or the number of cores. 
+For the Bonita BPM Subscription editions: Performance, Efficiency, and Teamwork, you need to [install a license](licenses.md) during the installation procedure. This license depends on the edition, the deployment environment, the number of cases purchased or the number of cores. 
 
 For the Bonita BPM Community edition, no license is needed.
 
