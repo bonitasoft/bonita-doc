@@ -3492,10 +3492,263 @@ This is the only method supported by this resource. It should be used to list th
   * **Code**: 404 if the process does not exist
 
 ## Connectors
-* [processConnectorDependency](api_resources/bpm_processconnectordependency_6.0_0_0_0.md)
-* [connectorFailure](api_resources/bpm_connectorfailure_6.1_1_0_0.md)
-* [connectorInstance](api_resources/bpm_connectorinstance_6.0_0_0.md)
-* [archivedConnectorInstance](api_resources/bpm_archivedconnectorinstance_6.0_0_0.md)
+
+### ProcessConnectorDependency
+
+#### Description
+
+Use the processConnectorDependency resource to access connector dependencies.
+
+#### Identifier
+
+The object itself
+
+#### Representation
+```json
+{
+  "connector_version":"_connector version_",
+  "connector_process_id":"_process id_>",
+  "filename":"_filename representing the connector_>",
+  "connector_name":"_connector name_>"
+}
+```
+
+#### Methods
+
+The methods used for this resource are:
+
+* GET - Search for connector dependencies
+
+#### Search for connector dependencies
+
+Use a GET method with filters to search for connector dependencies.
+
+* **URL**  
+  `/API/bpm/processConnectorDependency`  
+  _Example_: Get connector dependencies of the email connector (version 1.0.0) of the process with id = 4971555129176049183: `/API/bpm/processConnectorDependency?c=10&p=0&f=connector_process_id=4971555129176049183&f=connector_name=email&f=connector_version=1.0.0`
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  Mandatory filters: connector\_process\_id, connector\_name, connector\_version
+* **Success Response**  
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    [
+      {
+        "connector_version":"1.0.0",
+        "connector_process_id":"4971555129176049183",
+        "filename":"bonita-connector-email-impl-1.0.12.jar",
+        "connector_name":"email"
+      }, {
+        "connector_version":"1.0.0",
+        "connector_process_id":"4971555129176049183",
+        "filename":"mail-1.4.5.jar",
+        "connector_name":"email"
+      }
+    ]
+    ```
+
+### ConnectorFailure
+
+#### Description
+
+Error message and stackTrace recorded when a connector fails during a process execution. Performance edition only.
+
+#### Identifier
+
+The ID of the connector failure (a long value).
+
+#### Representation
+```json
+{
+  "errorMessage":"_the message of the connector failure_",
+  "connectorInstanceId":"_the ID of the connector instance (see connectorInstance resource documentation)_",
+  "errorStackTrace":"_the stack trace of the error_"
+}
+```
+    
+
+#### Methods
+
+The methods used for this resource are:
+
+* GET - Read a connector failure
+
+#### Read a connector failure
+
+Retrieve the information regarding the failure of the connector execution.
+
+* **URL**  
+  `/API/bpm/connectorFailure/:connectorFailureId`  
+* **Method**  
+  `GET`
+* **Success Response**  
+  A connectorFailure resource as JSON
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "errorMessage":"Error while executing the groovy script",
+      "connectorInstanceId":"5",
+      "errorStackTrace":"org.bonitasoft.engine.core.connector.exception.SConnectorException: PROCESS_DEFINITION_ID=8030057793979348308 | PROCESS_NAME=Pool1 | PROCESS_VERSION=1.0 | PROCESS_INSTANCE_ID=5 | ROOT_PROCESS_INSTANCE_ID=5 | FLOW_NODE_DEFINITION_ID=-6089366458284481881 | FLOW_NODE_INSTANCE_ID=12 | FLOW_NODE_NAME=Étape1 | CONNECTOR_DEFINITION_IMPLEMENTATION_CLASS_NAME=expression execution connector | CONNECTOR_INSTANCE_ID=5 | org.bonitasoft.engine.connector.exception.SConnectorException: java.util.concurrent.ExecutionException: java.lang.Exception: Error while executing the groovy script\n\tat org.bonitasoft.engine.core.connector.impl.ConnectorServiceImpl.executeConnectorInClassloader(ConnectorServiceImpl.java:332)"
+    }
+    ```
+    
+### ConnectorInstance
+
+#### Description
+
+Retrieve information about connector instances attached to a process or a flow node.
+
+#### Representation
+
+Returns a JSON array of connector details:
+```json
+{
+  "containerType":"_string_",
+  "connectorId":"_string_",
+  "id":"_number_",
+  "name":"_string_",
+  "activationEvent":"_string_",
+  "state":"_string_",
+  "containerId":"_number_",
+  "version":"_string_"
+}
+```
+
+#### Methods
+
+The methods used for this resource are:
+
+* GET - returns a JSON array of connector details
+
+#### Retrieve a list of connector instances attached to a process or a flow node
+
+* **URL**  
+  `/API/bpm/connectorInstance`  
+  _Example_: 
+   * Get information about flow node with instanceId 15 :`/API/bpm/connectorInstance?p=0&c=10&f=containerId%3d15`
+   * Get information about process instance with instanceId 4781948523999597477: `/API/bpm/connectorInstance?p=0&c=10&f=id%3d4781948523999597477`
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  * `f=containerId%3d{id}`. The container ID of the process or flow node.
+* **Success Response**  
+  A list of connector details
+  * **Code**: 200
+  * **Payload**:  
+    Retrieve information about connectors attached to a flow node
+    ```json
+    [
+      {
+        "containerType":"flowNode",
+        "connectorId":"scripting-groovy-script",
+        "id":"3",  
+        "name":"hello world",
+        "activationEvent":"ON_FINISH",
+        "state":"TO_BE_EXECUTED",
+        "containerId":"15",
+        "version":"1.0.0"
+      },
+      {
+        "containerType":"flowNode",
+        "connectorId":"webservice",
+        "id":"4",
+        "name":"webService",
+        "activationEvent":"ON_FINISH",
+        "state":"TO_BE_EXECUTED",
+        "containerId":"15",
+        "version":"1.0.0"
+      }
+    ]
+    ```
+    Retrieve information about connectors attached to a process instance
+    ```json
+    [
+      {
+        "containerType":"process",
+        "connectorId":"database-access",
+        "id":"8",
+        "name":"my connector",
+        "activationEvent":"ON_FINISH",
+        "state":"TO_BE_EXECUTED",
+        "containerId":"4781948523999597477",
+        "version":"1.0.0"
+      }
+    ]
+    ```
+    
+### ArchivedConnectorInstance
+
+#### Description
+
+Retrieve information about archived connector instances attached to an archived process or an archived flow
+node.
+
+#### Representation
+```json
+{
+  "containerType":"_the type (string) of the containing activity_",
+  "connectorId":"_the connector id (string)_",
+  "id":"_the identifier (long) of the connector instance_",
+  "name":"_the name (string) of the connector_",
+  "activationEvent":"_the name (string) of hte event that activsted the connector instance_",
+  "state":"_the state (string) of the connector_",
+  "archivedDate": "_the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this connecctor instance was archived, for example '2014-10-17 16:05:42.626'_",
+  "containerId":"_the identifier (long) of the containing activity instance_",
+  "version":"_the connector version (string)_"
+}
+```
+    
+
+#### Methods
+
+The methods used for this resource are:
+
+* GET - returns a JSON array of archived connector details
+
+#### Retrieve a list of archived connector instances
+
+* **URL**  
+  `/API/bpm/archivedConnectorInstance`  
+  _Example_: Get information about archived instances sort by containerId DESC Request url: `/API/bpm/archivedConnectorInstance?p=0&c=10&o=containerId+DESC`
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+* **Success Response**  
+  A list of connector details
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    [
+      {
+        "containerType":"flowNode", 
+        "connectorId":"scripting-groovy-script", 
+        "id":"15", 
+        "name":"connector1", 
+        "activationEvent":"ON_ENTER", 
+        "state":"DONE",
+        "archivedDate":"2014-12-01 16:39:19.041",
+        "containerId":"34"
+        "version":"1.0.0"
+      },
+      {
+        "containerType":"process",
+        "connectorId":"scripting-groovy-script",
+        "id":"16",
+        "name":"processConnector",
+        "activationEvent":"ON_FINISH",
+        "state":"DONE",
+        "archivedDate":"2014-12-01 16:39:19.097"
+        "containerId":"33",
+        "version":"1.0.0"
+      }
+    ]
+    ```
 
 ## Flow Nodes
 * [flowNode](api_resources/bpm_flownode_6.0_0_0_0_2.md)
