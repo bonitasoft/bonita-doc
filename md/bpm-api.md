@@ -3751,6 +3751,357 @@ The methods used for this resource are:
     ```
 
 ## Flow Nodes
-* [flowNode](api_resources/bpm_flownode_6.0_0_0_0_2.md)
-* [archivedFlowNode](api_resources/bpm_archivedflownode_6.0_0_1.md)
-* [timerEventTrigger](api_resources/bpm_timereventtrigger_6.4_0_0_0_0.md)
+
+### Flow Node
+
+#### Description
+
+A flow node (gateway, event, or task) in an open instance of a process. 
+
+#### Identifier
+
+The ID of the flowNode (a long).
+
+#### Representation
+
+ ```   json
+{
+  "id": "_the flow node id (long)_",
+  "displayDescription": "_the human readable flow node description (string)_",
+  "executedBySubstitute": "_the id (long) of the user who really performed this flow node in case where a substitute did it, or 0 if the flow node was not performed by a substitute_",
+  "caseId": "_the case id (long) that is associated with this flow node_",
+  "parentCaseId": "_the parent case id (long) that is associated with this flow node's case_",
+  "rootCaseId": "_the root case initiator id (long) that is associated with this flow node's case_",
+  "processId": "_the process id (long) that is associated with this flow node_","
+  "rootContainerId": "_the root process id (long) of the root case that is associated with this flow node_",
+  "state": "_the current state of the flow node (string,  for example, ready, completed, failed)_",
+  "type": "_the flow node type (string)_",
+  "assigned_id": "_the user id (long) that this flow node is assigned to, or 0 if it is unassigned_",
+  "assigned_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current flow node was assigned, for example '2014-10-17 16:05:42.626'_",
+  "executedBy": "_the id (long) of the user who executed the flow node, or 0 if the flow node has not been executed_",
+  "priority": "_the priority (string) of the current flow node_",
+  "actorId": "_the id (long) of the actor that can execute this flow node, null otherwise_",
+  "description": "_the flow node description (string)_",
+  "name": "_the flow node name (string)_",
+  "reached_state_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flow node reached the current state, for example '2014-10-17 16:05:42.626'_",
+  "displayName": "_the display name (string) of this flow node_",
+  "dueDate": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flow node is due, for example '2014-10-17 16:05:42.626'_",
+  "last_update_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flow node was last updated, for example '2014-10-17 16:05:42.626)_",
+  "parentTaskId" : "_in the case of a subtask, the parent task id (long)_"
+}
+```
+    
+    
+
+#### Methods
+
+The methods used for this resource are:
+
+* GET - Read a flow node or search for a flow node
+* PUT - Replay a flow node (only in Performance edition)
+
+#### Get a Flow Node
+
+Retrieve the flow node information of the given id.
+
+* **URL**  
+  `/API/bpm/flowNode/:id`  
+* **Method**  
+  `GET`
+* **Data Params**  
+  The following parameters for deploy are available:
+  * d:
+    * `processId`
+    * `caseId`
+    * `rootCaseId`
+    * `parentCaseId`
+    * `rootContainerId`
+    * `executedBy`
+    * `executedBySubstitute`
+    * `actorId`
+    * `assigned_id`
+    * `parentTaskId`
+* **Success Response**  
+  The JSON representation of the specified flownode
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "displayDescription": "",
+      "executedBySubstitute": "0",
+      "processId": "7596769292810273901",
+      "parentCaseId": "1",
+      "state": "failed",
+      "rootContainerId": "1",
+      "type": "USER_TASK",
+      "assigned_id": "",
+      "assigned_date": "",
+      "id": "77456",
+      "executedBy": "0",
+      "caseId": "1",
+      "priority": "normal",
+      "actorId": "4",
+      "description": "",
+      "name": "Step1",
+      "reached_state_date": "2014-12-10 08:59:47.884",
+      "rootCaseId": "1",
+      "displayName": "Step1",
+      "dueDate": "2014-12-10 09:59:47.855",
+      "last_update_date": "2014-12-10 08:59:47.884"
+    }
+    ```
+
+#### Search among Flow Nodes
+
+Search for flow nodes using given parameters. Flow nodes in states completed, cancelled, or aborted are not retrieved. The search returns an array of flow nodes.
+
+* **URL**  
+  `/API/bpm/flowNode`  
+  _Example_: Get all the active flow nodes named "Escalate", ordering the results by state: `/API/bpm/flowNode/?p=0&c=10&f=name%3dEscalate&o%3dstate`
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  The following parameters are available:
+
+  * o: 
+    * name
+    * displayName
+    * state
+    * processDefinitionId
+    * parentProcessInstanceIdo
+    * parentActivityInstanceId (if the retrieved flow nodes are activities, order by parent activity id)
+    * rootProcessInstanceId
+    * lastUpdateDate
+  * s: search on any field that can be used to order results
+  * f: 
+    * name
+    * state
+    * processId
+    * parentCaseId
+    * rootCaseId
+    * last\_update\_date
+  * d:
+    * processId
+    * caseId
+    * rootCaseId
+    * parentCaseId
+    * rootContainerId
+    * executedBy
+    * executedBySubstitute
+    * actorId
+    * assigned\_id
+    * parentTaskId
+* **Success Response**  
+  An array of JSON representations of flow nodes
+  * **Code**: 200
+
+#### Change a Flow Node state
+
+Replay the flow node. (only in Performance edition)
+
+* **URL**  
+  `/API/bpm/flowNode/:id`  
+* **Method**  
+  `PUT`
+* **Request Payload**  
+  ```json
+  {
+    "state" : "replay"
+  }
+  ```
+* **Success Response**  
+  * **Code**: 200
+
+### ArchivedFlowNode
+
+#### Description
+
+A flow node (gateway or event or task) in an archived instance of a process.
+
+#### Identifier
+
+The ID of the flowNode (a long).
+
+#### Representation
+```json
+{
+  "id": "_the flowNode id (long)_",  
+  "sourceObjectId": "_the original id of the flowNode before it was archived_",
+  "displayDescription": "_the human readable flowNode description (string)_", 
+  "executedBySubstitute": "_the id (long) of the user who really performed this flowNode in case where a substitute did it, or 0 if the flowNode was not performed by a substitute_", 
+  "caseId": "_the case id (long) that is associated with this flowNode_", 
+  "parentCaseId": "_the parent case id (long) that is associated with this flowNode's case_", 
+  "rootCaseId": "_the root case initiator id (long) that is associated with this flowNode's case_", 
+  "processId": "_the process id (long) that is associated with this flowNode_", 
+  "rootContainerId": "_the root process id (long) of the root case that is associated with this flowNode_", 
+  "state": "_the current state of the flowNode (string,  for example, ready, completed, failed)_", 
+  "type": "_the flowNode type (string)_", 
+  "assigned_id": "_the user id (long) that this flowNode is assigned to, or 0 if it is unassigned_", 
+  "assigned_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current flowNode was assigned, for example '2014-10-17 16:05:42.626'_", 
+  "executedBy": "_the id (long) of the user who executed the flowNode, or 0 if the flowNode has not been executed_",
+  "priority": "_the priority (string) of the current flowNode_", 
+  "actorId": "_the id (long) of the actor that can execute this flowNode, null otherwise_", 
+  "description": "_the flowNode description (string)_", 
+  "name": "_the flowNode name (string)_", 
+  "reached_state_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flowNode reached the current state, for example '2014-10-17 16:05:42.626'_", 
+  "displayName": "_the display name (string) of this flowNode_", 
+  "dueDate": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flowNode is due, for example '2014-10-17 16:05:42.626'_", 
+  "archivedDate": "_the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this flowNode was archived, for example '2014-10-17 16:05:42.626'_",
+  "last_update_date": "_the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flowNode was last updated, for example '2014-10-17 16:05:42.626)_", 
+  "parentTaskId": "_in the case of a subtask, the parent task id (long)_" 
+}
+```
+    
+#### Methods
+
+The methods used for this resource are:
+
+* GET - Read a flow node or search for a flow node
+
+#### Get a Flow Node
+
+Retrieve the flow node information of the given id.
+
+* **URL**  
+  `/API/bpm/archivedFlowNode/:id`  
+* **Method**  
+  `GET`
+* **Success Response**  
+  The JSON representation of the specified flownode
+  * **Code**: 200
+
+#### Search among flow nodes
+
+Search for flow nodes using given parameters. Flow nodes in state completed, cancelled, aborted are not retrieved. It returns an array of flow nodes.
+
+* **URL**  
+  ``  
+  _Example_:
+* **Method**  
+  ``
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  The following parameters are available:
+
+  * o: 
+    * name
+    * displayName
+    * state
+    * type
+    * isTerminal
+    * processId
+    * caseId
+    * archiveDate
+  * s: search on any field that can be used to order results
+  * f: 
+    * name
+    * displayName
+    * state
+    * stateId
+    * kind
+    * terminal
+    * processDefinitionId
+    * parentProcessInstanceId
+    * rootProcessInstanceId
+    * parentActivityInstanceId
+    * archivedDate
+    * reachedStateDate
+    * sourceObjectId
+  * d:
+    * processId
+    * caseId
+    * rootCaseId
+    * parentCaseId
+    * rootContainerId
+    * executedBy
+    * executedBySubstitute
+    * actorId
+    * assigned\_id
+    * parentTaskId
+* **Success Response**  
+  The JSON representation of the specified flownode
+  * **Code**: 200
+
+### TimerEventTrigger
+
+#### Description
+
+Use this resource to search for BPM timer event triggers. 
+The result enables you to to update the date and time at which the trigger should next execute.
+
+#### Identifier
+
+The ID of the timer event trigger (a long value), retrieved through search (GET method).
+
+#### Representation
+```json
+{
+  "id": _the ID of the timer returned_,
+  "id_string": _"number" (since 7.0.1)_,
+  "eventInstanceId": _the ID of the event instance to which this trigger is related_,
+  "eventInstanceId_string": _"number" (since 7.0.1)_,
+  "executionDate": _the long value of the next execution date (number of milliseconds from January 1st, 1970 00:00:00)_,
+  "eventInstanceName": _the name of the event instance to which this trigger is related_
+}
+```
+
+The string representation added in 7.0.1 for Long attributes is a workaround for the JavaScript integer spectrum issue.
+
+#### Methods
+
+The methods used for this resource are:
+
+* GET - Search for timer event triggers related to a case, with optional search options
+* PUT - Update a timer event trigger next execution date
+
+#### Search for timer event triggers related to a case
+
+Search for BPM timer event triggers.
+
+* **URL**  
+  `/API/bpm/timerEventTrigger`  
+  _Example_: `/API/bpm/timerEventTrigger?caseId=4025&p=0&c=10&`
+* **Method**  
+  `GET`
+* **Data Params**  
+  * `caseId`: ID of the case (Process instance)
+* **Success Response**  
+  A JSON representation of a list of timer event triggers, as described above
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    [
+      {
+        "id":4015,
+        "id_string":"4015",
+        "eventInstanceId":2,
+        "eventInstanceId_string":"2",
+        "executionDate":1413980484194,
+        "eventInstanceName":"Minuterie1"
+      }
+    ]
+    ```
+
+#### Update a timer event trigger next execution date
+
+Specify the next execution date of a timer event trigger.
+
+* **URL**  
+  `/API/bpm/timerEventTrigger/:timerEventTriggerID`  
+* **Method**  
+  `PUT`
+* **Request Payload**  
+  A JSON representation of a long value with attribute name "executionDate"
+  ```json
+  {
+    "executionDate": 1433980484194
+  }
+  ```
+* **Success Response**  
+  The actual long value corresponding to the next execution date of the timer event trigger, as a long value
+  * **Code**: 200
+  * **Payload**:  
+    ```
+    1433980484194
+    ```
