@@ -56,7 +56,7 @@ This database will affect only the platform setup tool, not the Tomcat or JBoss 
 
 <a id="init_platform_conf" />
 
-## Initialize Bonita BPM Platform
+## Initialize Bonita BPM Platform with the Platform setup tool
 
 You can initialize Bonita BPM Platform manually on an empty database using this tool.
 
