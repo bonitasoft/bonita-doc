@@ -175,7 +175,7 @@ Attributes of the tenant can be changed, and it can be activated or deactivated 
 * **Request Payload**  
   Attributes to change as JSON
   ```json
-  { 
+  {
     "description":"modified description for the tenant",
     "state":"DEACTIVATED"
   }
@@ -207,6 +207,8 @@ A tenant can only be deleted if it is in DEACTIVATED state.
   `DELETE`
 * **Success Response**  
   * **Code**: 200
+
+<a id="license"/>
 
 ## License
 
@@ -265,7 +267,7 @@ The methods used for this resource are:
       "licenseExpirationDate": "2015-09-30",
       "edition": "Performance",
       "licenseMode": "development",
-      "requestKey": "(WkrNiwnog4M+qGKUdl8D4yU6l2LyIlqNm3SEZJgenU/c=)", 
+      "requestKey": "(WkrNiwnog4M+qGKUdl8D4yU6l2LyIlqNm3SEZJgenU/c=)",
       "subscriptionStartPeriod": "2015-08-30",
       "subscriptionEndPeriod": "2016-08-29",
       "caseCounterLimit": 100000,
