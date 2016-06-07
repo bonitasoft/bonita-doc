@@ -30,30 +30,28 @@ while benefiting from the Subscription edition features.
 
 The upgrade procedure is quite simple and only requires a limited service downtime (less than an hour for basic configurations).
 
-**Warning:**
+::: warning
 A Bonita BPM platform upgrade can only be performed on the same database type.
+:::
 
 To upgrade a Bonita BPM platform from Community edition to a Subscription edition, follow these steps:
 
 1. [Backup your Bonita BPM platform and databases](back-up-bonita-bpm-platform.md).
 2. Make sure that the platform is shut down.
-3. [Install a new Bonita BPM platform](_basic-bonita-bpm-platform-installation.md) Subscription edition with an H2 database. 
-(The database is only used temporarily).
-4. Start the Bonita BPM Subscription platform for the first time (this will initialize the platform data).
-5. Log in to the Bonita BPM Portal as the technical user (default login and password: install) to make sure that your installation is functional.
-6. Shut down the server.
-7. Reset the Bonita BPM Portal menus by deleting this file: `<bonita_home>/engine-server/work/tenants/1/profiles.md5`
-8. Overwrite the `<bonita_home>/engine-server/work/tenants/1/processes` folder of your Subscription edition installation with your 
-backup files for the this folder from the Community edition. This will transfer your process definitions. 
-9. If the Community edition platform was running on a H2 database, use the files from your Community edition back to overwrite the following files of your Subscription edition installation:  
-`<bonita_home>/engine-server/work/platform/bonita_journal.db.h2.db`  
-`<bonita_home>/engine-server/work/platform/business_data.db.h2.db`
-10. If the Community edition platform was not running on a H2 database:
-    1. From your Subscription edition installation, delete these files:  
-   `<bonita_home>/engine-server/work/platform/bonita_journal.db.h2.db`  
-   `<bonita_home>/engine-server/work/platform/business_data.db.h2.db`
-   2. Configure your Subscription edition platform to use your Community edition database.
-11. Start the Subscription edition platform.
-12. Log in to the Bonita BPM Portal with your administration or personal account (it should have been imported during the upgrade).
-13. Validate that the dialog displayed from the top right "Settings / About" menu indicates the correct Subscription edition.
-14. Validate that your platform data is properly upgraded. This is the end of the upgrade procedure.
+3. Download the [Deploy bundle](deploy-bundle.md).
+4. Update the configuration using the Platform setup tool included.
+    1. Configure the [Platform setup tool](BonitaBPM_platform_setup#configure_tool) to use your database.
+    2. Copy the content of `platform_conf/initial` in a directory named e.g. `sp_conf`.
+    3. Run `setup.sh pull` or `setup.sh pull` to get your current configuration in `platform_conf/current`.
+    4. Reapply the customizations made in the current configuration to the configuration in the `sp_conf`.
+    5. Delete the content of the folder `platform_conf/current`.
+    6. Put the content of the folder `sp_conf` in `platform_conf/current`.
+    7. Set the edition in the `sp_conf` configuration folder, see [here](tomcat-bundle.md#edition_specification).
+    7. Put your license in `platform_conf/licenses`
+    8. Run `setup.sh push` or `setup.sh push` to push this configuration in database.
+5. Replace the community bonita.war with the subscription version of bonita.war. You can find it in the Deploy bundle.
+    * on Tomcat simply delete the `webapps/bonita.war` and the `webapps/bonita` and copy the new war here.
+    * on JBoss delete `standalone/deployments/bonita-all-in-one-<VERSION>.ear` and the file having the same name with `.deployed`, then copy the new ear in the same place.
+6. Start you platform again.
+7. Validate that the dialog displayed from the top right "Settings / About" menu indicates the correct Subscription edition.
+8. Validate that your platform data is properly upgraded. This is the end of the upgrade procedure.
