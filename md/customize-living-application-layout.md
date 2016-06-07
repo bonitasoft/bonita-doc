@@ -4,6 +4,10 @@
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 
+::: warning
+Since 7.3 we made some changes on the default layout. You will have to remove `layout.css` from the page asset to make the following instructions relevant.
+:::
+
  ## Overview
 
 As explained in the [layouts](layouts.md) documentation page, it is possible to customize the existing application layout with the UI Designer.
