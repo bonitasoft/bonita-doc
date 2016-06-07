@@ -27,10 +27,11 @@ In order to use the client APIs, you need to add a dependency to the `bonita-cli
 </dependency>
 ```
 
-## ~~Bonita home~~ (deprecated, use the [APITypeManager](http://documentation.bonitasoft.com/javadoc/api/7.2/org/bonitasoft/engine/util/APITypeManager.html) instead)
+## Configure the connection to the Bonita BPM Platform
 
-In order to execute this client example you need to set the Java system property `bonita.home`, for example `-Dbonita.home=<path to bonita home>`, and [configure a bonita_home for the client](configuring-bonita-home-for-a-client.md). The bonita home used must have the same version as
-the Bonita BPM Engine, which is configured in bonita.bpm.version (here 7.0.0). 
+ You must configure the connection to the Engine (i.e. Bonita BPM Platform) for your project. To do so you can use System properties or programmatic configuration.
+
+ Take a look at [how to configure a client](configure-client-of-bonita-bpm-engine.md)
 
 ## Log in
 
