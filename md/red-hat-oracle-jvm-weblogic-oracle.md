@@ -1,7 +1,7 @@
 # Red Hat + Oracle JVM + WebLogic + Oracle
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+For Performance, Efficiency, and Teamwork editions only.
 :::
 
 ##Not yet documented for Bonita BPM 7.3.

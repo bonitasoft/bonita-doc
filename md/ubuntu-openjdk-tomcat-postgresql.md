@@ -117,7 +117,6 @@ To define JVM system properties, you need to use a new file named `setenv.sh`:
 * Copy the file from deploy bundle to Tomcat `bin` folder: `sudo cp ~/BonitaBPMSubscription-6.4.0-deploy/Tomcat-7.0.55/bin/setenv.sh /usr/share/tomcat7/bin/`
 * Make the file executable: `sudo chmod +x /usr/share/tomcat7/bin/setenv.sh`
 * Edit `setenv.sh` file: `sudo nano /usr/share/tomcat7/bin/setenv.sh`
-* Change `bonita.home` value from `${CATALINA_HOME}/bonita` to `/opt/bonita/bonita_home-6.4.0`
 * Change `sysprop.bonita.db.vendor` from `h2` to `postgres`
 * Change `btm.root` from `${CATALINA_HOME}` to `/opt/bonita/btm`
 * Change `bitronix.tm.configuration` from `${CATALINA_HOME}/conf/bitronix-config.properties` to `/opt/bonita/btm/conf/bitronix-config.properties`
