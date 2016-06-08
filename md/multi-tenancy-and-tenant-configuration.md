@@ -26,12 +26,17 @@ These tenants are configured with a single database. This illustration shows a p
 
 ## Platform configuration
 
-The platform is the part of the system that is common to all tenants. The platforms and tenant configurations are defined in [`$BONITA_HOME`](bonita-home.md).
+The platform is the part of the system that is common to all tenants.
 
-The platform configuration directory is located here: `engine-server/conf/platform`.
+Before the platform has been initialized, its configuration can be customized in `setup/platform_conf/initial`. However, in order to modify the configuration on an installation whose platform has already been initialized, you need to use the [plaform setup tool](BonitaBPM_platform_setup.md) to retrieve the current configuration and update the files in `setup/platform_conf/current/`. Then use the tool again to save your changes into to the database.
 
-There is a separate configuration directory for each tenant, located here: `engine-server/conf/tenants/<tenant_id>`. 
-There is also a default tenant configuration, located here: `engine-server/conf/tenants/template`.
+The engine platform configuration directory is located here: `platform_engine`.
+The portal platform configuration directory is located here: `platform_portal`.
+
+There is a separate engine configuration directory for each tenant, located here: `tenants/<tenant_id>/tenant_engine`.
+There is a separate portal configuration directory for each tenant, located here: `tenants/<tenant_id>/tenant_portal`. 
+There is also a default tenant engine configuration directory, located here: `tenant_template_engine`.
+There is also a default tenant portal configuration directory, located here: `tenant_template_portal`.
 
 ## Tenant creation
 
@@ -42,7 +47,7 @@ If business objects will be deployed in the newly created tenant do not forget t
 
 ### Java PlatformAPI
 
-The Java PlatformAPI creates the tenant by updating the database and creating the `bonita/server/tenants/*` files. 
+The Java PlatformAPI creates the tenant by updating the database and creating configuration based on the tenant template files (in database too). 
 The following example code uses the Engine Java APIs to create a tenant called "myNewTenantName":
 ```groovy
 // Get platform login API using the PlatformAPIAccessor
@@ -64,17 +69,9 @@ platformAPI.activateTenant(tenantId);
 platformLoginAPI.logout(platformSession);
 ```
 
-This creates the server-side configuration files in Bonita Home, but it does not create the client part of the bonita\_home for the tenant, which are required for the Bonita BPM Portal to work. 
-You need to copy these files from the Bonita Home client tenant template into the newly created tenant, and configure the settings (if you need specific settings):
-
-* Create a directory nammed with the identifier of the newly created tenant in `$BONITA_HOME/client/tenants/`
-* Copy all the content from `$BONITA_HOME/client/platform/tenant-template/` into `$BONITA_HOME/client/tenants/TENANT_ID` (where TENANT\_ID is the tenant identifier)
-* If you need specific settings (for example for authentication), you can configure your tenant in `$BONITA_HOME/client/tenants/TENANT_ID/conf`
-
 ### REST API
 
-The [platform REST API](platform-api.md) calls the Java PlatformAPI to create the tenant. 
-It also creates the web elements that are required for the Bonita BPM Portal to work with multitenancy, notably the `bonita/client/tenants/*` files. You do not need to copy any files manually.
+The [platform REST API](platform-api.md) calls the Java PlatformAPI to create the tenant.
 
 ## Tenant access
 
