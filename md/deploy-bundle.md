@@ -1,9 +1,5 @@
 # Deploy bundle
 
-::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
-:::
-
 ## What is the purpose of the Bonita BPM Deploy bundle?
 
 * The Bonita BPM Deploy bundle is used if you have **already installed a JEE Application Server**.
