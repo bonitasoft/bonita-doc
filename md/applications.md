@@ -1,5 +1,11 @@
 # Applications
 
+::: warning
+ Since 7.3 we made some changes on the default layout. 
+ Those changes live in the `layout.css` page asset and allow us to better handle the content layout of the page displayed. 
+ Another consequence is that it removes a margin which was automatically added at the top of each pages.
+:::
+
 With Bonita BPM you can build an application that exactly meets your needs and interacts with processes.
 Instead of the standard, generic, process-centered Bonita BPM Portal, you can create a business-centered web application that provides access to processes.
 You can modify the application whenever you want, and users will see the changes immediately.
