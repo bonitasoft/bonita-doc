@@ -88,6 +88,8 @@ and change the value of the `activeProfiles` key to `'community,performance'`. N
 
 The configuration of the BonitaBPM Platform is stored in database in the `CONFIGURATION` table. It can be created and updated using the [platform setup tool](BonitaBPM_platform_setup.md) embedded in this bundle.
 
+<a id="datasources_configuration" />
+
 #### Configure the Tomcat server datasources
 
 If you just want to try BonitaBPM platform with the embedded H2 database (not for production), you can skip this entire paragraph.

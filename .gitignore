@@ -10,3 +10,4 @@ site/app/html/**/taxonomy.json
 site/app/html/**/!index!.html
 .idea/
 *.iml
+*.orig

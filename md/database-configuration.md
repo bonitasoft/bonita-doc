@@ -44,6 +44,8 @@ Thus, using Bitronix as a Transaction Manager with SQL Server is not recommended
 **Warning:** Some RDBMSs require specific configuration, which must be done before you complete your installation. 
 If you do not complete the specific configuration for your RDBMS, your installation may fail.
 
+<a id="database_creation" />
+
 ## Database creation
 
 The first step in configuring Bonita with your RDBMS is to create a new database (i.e. a new schema).
