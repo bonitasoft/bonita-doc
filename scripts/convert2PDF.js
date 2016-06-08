@@ -7,6 +7,7 @@
 
   const denodeify = require('denodeify');
   const fs = require('fs');
+  const rx = require('rx');
   const winston = require('winston');
   const through = require('through');
   const markdownpdf = require('markdown-pdf');
@@ -24,16 +25,18 @@
    }
 
   const readdirPromise = denodeify(fs.readdir);
-  //TODO have image be converted
   let outfile = `Bonita-BPM-documentation.pdf`;
-  let mdDocs = ['build/html/multi-language-pages.html'];//'build/html/taxonomy.html'];
+
   const flattenedTaxo = flattenTaxonomy(taxonomy);
-  winston.info(flattenedTaxo);
   let htmlFile = '';  
 
-  flattenedTaxo.forEach(fileName => htmlFile += fs.readFileSync('build/html/'+fileName).toString());
+  
+    //
 
-  html5pdf({template:'htmlbootstrap', preProcessHtml: preProcessHtml}).from(htmlFile).to('build/'+outfile, function () {
+  rx.Observable.from(flattenedTaxo.filter(fileName => !fileName.match(/^https?:\/\//))).bufferWithCount(10).subscribe(
+    htmlFiles => htmlFiles.forEach(fileName => htmlFile += fs.readFileSync('build/html/'+fileName).toString()) 
+  );
+  html5pdf({template:'htmlbootstrap', preProcessHtml: preProcessHtml}).from.string(htmlFile).to('build/'+outfile, function () {
     console.log("Done");
   });
 
@@ -48,12 +51,6 @@
       return acc;
     }, []);
   }
-
-  readdirPromise('md').then(fileNames => {
-//    [].push.apply(mdDocs, fileNames.filter(fileName => fileName !== 'taxonomy.md').filter(fileName => !fileName.match(/^_/)).filter(fileName => fileName.match(/md$/)).map(fileName => 'md/' + fileName));
- //   markdownpdf().concat.from(mdDocs).to(outfile, () => winston.info('documentation successfully generated to ' + outfile));
-    
-  }).then();
   
   function preProcessHtml() {
     return through(function (data) {
