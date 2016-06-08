@@ -130,7 +130,9 @@ Recommendation: if your project relies on such URLs, make URL generation configu
 * **Forms HTML templates**. It is possible to modify the HTML page template, HTML process template, or HTML portal template to customize the appearance and behavior of forms. 
 There is no guarantee that these templates will not change across Bonita BPM versions. 
 If a form uses some Javascript code based on an element in the HTML Document Object Model, the element may be moved, modified or removed in a future version so the Javascript will no longer work.
-
+* **Authorization Rule Mapping**. It is possible to modify authorization rules mapping applied to start a process, display process overview or execute a task. 
+You can customize this mapping by defining your own bean and override property. See [Authorization Rule Mapping](custom-authorization-rule-mapping.md)   
+ 
 Only the elements listed on this page are intended to be used as extension points. For other elements, there is no guarantee of stability, and a high probability of changes across versions. 
 For example, the following should not be considered to be extension points:
 
