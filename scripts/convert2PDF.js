@@ -25,19 +25,26 @@
    }
 
   const readdirPromise = denodeify(fs.readdir);
-  let outfile = `Bonita-BPM-documentation.pdf`;
+  let outfile = `Bonita-BPM-documentation`;
 
   const flattenedTaxo = flattenTaxonomy(taxonomy);
-  let htmlFile = '';  
+  let htmlFile = '', countPDF = 0, countHtml = 0;  
 
-  
-    //
-
-  rx.Observable.from(flattenedTaxo.filter(fileName => !fileName.match(/^https?:\/\//))).bufferWithCount(10).subscribe(
-    htmlFiles => htmlFiles.forEach(fileName => htmlFile += fs.readFileSync('build/html/'+fileName).toString()) 
-  );
-  html5pdf({template:'htmlbootstrap', preProcessHtml: preProcessHtml}).from.string(htmlFile).to('build/'+outfile, function () {
-    console.log("Done");
+  rx.Observable.from(flattenedTaxo.filter(fileName => !fileName.match(/^https?:\/\//))).bufferWithCount(3).select(
+    htmlFiles => htmlFiles.reduce((acc, fileName) => acc + fs.readFileSync('build/html/'+fileName).toString(), '') 
+  ).select(html => {
+    let htmlTempFile = 'build/'+outfile+(countHtml++)+'.html';
+    fs.writeFileSync(htmlTempFile, html);
+    return htmlTempFile; 
+  }).subscribe(htmlFile => {
+    winston.info(htmlFile);
+    html5pdf({
+      template:'htmlbootstrap', 
+      preProcessHtml: preProcessHtml,
+      cssPath: __dirname + '/pdf.css'
+    }).from(htmlFile).to('build/'+outfile+(countPDF++)+'.pdf', function () {
+      console.log("Done");
+    });
   });
 
 
