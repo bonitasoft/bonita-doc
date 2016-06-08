@@ -63,7 +63,7 @@ To do so, refer to the [Tomcat](tomcat-bundle.md) and [JBoss](jboss-bundle.md) b
 You can initialize Bonita BPM Platform manually on an empty database using the *Platform setup tool*.
 
 ::: info
-Remember that in the [Tomcat](Tomcat-bundle.md) and [JBoss](jboss-bundle.md) bundles, this is done automatically.
+Remember that in the [Tomcat](tomcat-bundle.md) and [JBoss](jboss-bundle.md) bundles, this is done automatically.
 :::
 
 To do so, proceed as follows:
