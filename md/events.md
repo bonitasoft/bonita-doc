@@ -1,6 +1,6 @@
 # Events
 
-##  Ovreview
+##  Overview
 
 An event is something that happens during the execution of a process and has an impact on the flow.  
 An event alters the sequence or timing of activities in a process.  
