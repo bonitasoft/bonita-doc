@@ -51,17 +51,18 @@ This means that any transaction that is not yet committed is lost, including any
 
 Assumptions: We assume that Ubuntu Linux is used as the operating system for Bonita BPM nodes in a production system. The application server used is Tomcat.
 
-Prerequisite infrastructure:
+### Prerequisite infrastructure:
 
 * A highly available load balancer
 * A highly available network, with all nodes able to see all other nodes
 * A highly available database accessible from all nodes
 
+
+### Cluster structure diagram
+
 ![Cluster structure diagram](images/images-6_0/cluster_structure.png)
 
-Cluster structure
-
-Definitions:
+### Definitions:
 
 * **Load balancer**: an HTTP load balancer manages the allocation of work to nodes in the cluster. 
 No load balancer is provided with Bonita BPM, so you can choose the most appropriate for your system. For a production system with a high load, a hardware load balancer is recommended.
@@ -113,7 +114,6 @@ There are some drawbacks to the basic Bonita BPM in a cluster configuration, but
 
 * Only active-active modes is supported. There is no mechanism for starting a new node if a cluster node goes out of service. This could be provided by a third-party application.
 * There is no integrated load balancer, so the client application selects the node on which to make a API call. You should use an external load balancer. For high volume, a hardware load balancer is recommended.
-* The bonita.home directory must be shared by NFS, so to maintain high availability, you should use an HA NFS service. (before 7.3)
 * All the nodes must use the same database, so the database itself must be highly available.
 
 ### Comparison with 5.x
