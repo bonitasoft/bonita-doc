@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --max-old-space-size=8192
 
 (() => {
   'use strict';
@@ -12,6 +12,7 @@
   const through = require('through');
   const markdownpdf = require('markdown-pdf');
   const html5pdf = require("html5-to-pdf");
+  const PDFMerge = require('pdf-merge');
   const argv = require('yargs').argv;
   const variables = require('./variables.json');
   const taxonomy = require('../build/html/taxonomy.json');
@@ -28,25 +29,37 @@
   let outfile = `Bonita-BPM-documentation`;
 
   const flattenedTaxo = flattenTaxonomy(taxonomy);
-  let htmlFile = '', countPDF = 0, countHtml = 0;  
+  let htmlFile = '', count = 0;  
 
-  rx.Observable.from(flattenedTaxo.filter(fileName => !fileName.match(/^https?:\/\//))).bufferWithCount(3).select(
-    htmlFiles => htmlFiles.reduce((acc, fileName) => acc + fs.readFileSync('build/html/'+fileName).toString(), '') 
-  ).select(html => {
-    let htmlTempFile = 'build/'+outfile+(countHtml++)+'.html';
-    fs.writeFileSync(htmlTempFile, html);
-    return htmlTempFile; 
-  }).subscribe(htmlFile => {
-    winston.info(htmlFile);
+  rx.Observable.from(flattenedTaxo.filter(fileName => !fileName.match(/^https?:\/\//)))
+  .select(html => {
+    return 'build/html/' + html; 
+  }).bufferWithCount(3).toArray().subscribe(filesArray => {
+    convertLastFilesToPDF(filesArray.reverse());
+  });
+  function convertLastFilesToPDF(filesArray) {
+    const files = filesArray.pop();
+    winston.info(count, files);
     html5pdf({
       template:'htmlbootstrap', 
       preProcessHtml: preProcessHtml,
       cssPath: __dirname + '/pdf.css'
-    }).from(htmlFile).to('build/'+outfile+(countPDF++)+'.pdf', function () {
-      console.log("Done");
+    }).concat.from(files).to(`build/${outfile}-${count++}.pdf`, function () {
+      if(filesArray.length === 0) {
+        console.log("Done generating PDF");
+        mergePDF();
+      } else {
+        convertLastFilesToPDF(filesArray);
+      }
     });
-  });
+  }
 
+  function mergePDF() {
+    readdirPromise('build')
+      .then(files => files.filter(name => name.match(/\.pdf$/)).map(name => 'build/' + name))
+      .then(files => new PDFMerge(files).asNewFile(`build/${outfile}.pdf`).promise())
+      .then(result => winston.info('done')).catch(error => winston.error(error));
+  }
 
   function flattenTaxonomy(node) {
     return node.reduce((acc, curr) => {

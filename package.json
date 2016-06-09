@@ -7,7 +7,7 @@
     "taxonomy": "scripts/taxonomy.js",
     "build": "scripts/convertMdToHtml.js",
     "buildPdf": "npm run build && npm run taxonomy && npm run pdf",
-    "pdf": "scripts/convert2PDF.js"
+    "pdf": "node --max-old-space-size=8192 scripts/convert2PDF.js"
   },
   "author": "Julien Reboul <julien.reboul@bonitasoft.com>",
   "devDependencies": {
@@ -23,6 +23,7 @@
     "markdown-it-fontawesome": "0.2.0",
     "markdown-it-smartarrows": "1.0.1",
     "markdown-pdf": "7.0.0",
+    "pdf-merge": "0.0.4",
     "rx": "4.1.0",
     "serve-index": "^1.7.3",
     "serve-static": "^1.10.2",
