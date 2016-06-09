@@ -33,12 +33,12 @@ The JBoss bundle is based on a standard JBoss installation with the following ad
 * `bin/standalone.conf`: script to configure JVM system properties.
 * `bonita-start.bat`: script to start the bundle on Linux.
 * `bonita-start.sh`: script to start the bundle on Linux.
-* `setup`: Contains configuration/database scripts of Bonita BPM Platform and the tool to update it. See [platform setup tool](BonitaBPM_platform_setup.md).
+* `setup`: contains configuration/database scripts of Bonita BPM Platform and the tool to update it. See [*Platform setup tool*](BonitaBPM_platform_setup.md).
 * `standalone/configuration/standalone.xml`: JBoss context configuration for Bonita BPM Portal. It defines data sources used by Bonita BPM Engine.
 * `lib/bonita`: extra libraries needed by Bonita BPM. The following libraries are included: Bitronix JTA Transaction Manager, h2, SLF4J (required by Bitronix).
 * `request_key_utils`: script to generate license request keys (Subscription editions only).
-* `standalone/deployments/h2.sar`: Application that runs the h2 server.
-* `standalone/deployments/bonita-all-in-one-[version].ear`: Bonita BPM Portal and EJB3 API.
+* `standalone/deployments/h2.sar`: application that runs the h2 server.
+* `standalone/deployments/bonita-all-in-one-[version].ear`: Bonita BPM Portal (web application) and EJB3 API.
 
 ### Get and install a license
 
@@ -65,21 +65,24 @@ No change is needed for the Community, Teamwork, or Efficiency editions.
 
 The configuration of Bonita BPM Platform is stored in the database, in the `CONFIGURATION` table. It can be created and updated using the [*Platform setup tool*](BonitaBPM_platform_setup.md) embedded in this bundle.
 
+<a id="database" />
 #### Configure the JBoss server datasources
 
-If you just want to try Bonita BPM Platform with the embedded h2 database (only for development phase), you can skip this entire paragraph.
-For production, you are recommended to use one of the supported databases.
+If you just want to try Bonita BPM Platform with the embedded h2 database (only for the development phase of your project), you can skip this entire paragraph.  
+For production, you are recommended to use one of the supported databases, with the following steps:
 
 1. Update the datasource configuration in `standalone/configuration/standalone.xml` by uncommenting and commenting relevant parts
-2. Update the `<property name="sysprop.bonita.db.vendor" value="h2" />` in `standalone/configuration/standalone.xml` with your dbvendor
+2. Update the `<property name="sysprop.bonita.db.vendor" value="h2" />` in `standalone/configuration/standalone.xml` with your database vendor
 3. Remove the `standalone/deployments/h2.sar` file
-4. Add the JDBC driver as decribed in the [database configuration](database-configuration.md#jdbc_driver) page.
+4. Add the JDBC driver as decribed in the [database configuration](database-configuration.md#jdbc_driver) page
+
+Make sure you do this before you start the JBoss server.
 
 #### Configure Bonita BPM Platform
 
-The initial configuration that will be put in database is located in the folder `setup/platform_conf/initial`. Please refer to the [*Platform setup tool*](BonitaBPM_platform_setup.md) for more details.
+The initial configuration that will be put in the database is located in the folder `setup/platform_conf/initial`. Please refer to the [*Platform setup tool*](BonitaBPM_platform_setup.md) for more details.
 
-You will at least need to update the `setup/database.properties` with the connection information to your database if it is not h2.
+You will at least need to update the `setup/database.properties` file with the connection information to your database if it is not h2.
 
 <a id="start" />
 
