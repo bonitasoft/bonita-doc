@@ -52,7 +52,7 @@ Also, note that the owner of the new schema must have following privileges:
 * CREATE INDEX
 * SELECT, INSERT, UPDATE, DELETE on created TABLE
 
-**Note:ù** CREATE TABLE and CREATE INDEX are not required after first start.
+**Note:** CREATE TABLE and CREATE INDEX are not required after first start.
 
 To create the database, we recommend you refer to your RDBMS documentation:
 
@@ -176,7 +176,7 @@ Bonita BPM Engine requires the configuration of two data sources. The data sourc
 | MySQL | com.mysql.jdbc.Driver | com.mysql.jdbc.jdbc2.optional.MysqlXADataSource |
 | h2 (not for production) | org.h2.Driver | org.h2.jdbcx.JdbcDataSource |
 
-The following sections show how to configuire the datasources for JBoss and Tomcat.
+The following sections show how to configure the datasources for JBoss and Tomcat.
 There is also an [example of how to configure datasources for Weblogic](red-hat-oracle-jvm-weblogic-oracle.md).
 
 #### JBoss
