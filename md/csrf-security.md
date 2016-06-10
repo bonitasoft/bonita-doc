@@ -14,7 +14,8 @@ If the targeted end user is an administrator, the entire web application can be 
 
 ## How do I protect my application?
 
-A file called `security-config.properties` is located in the platform Bonita Home (`/bonita/client/platform/conf`).
+The activation of the CSRF protection can be done in the file `security-config.properties` for the whole platform.
+The default version of this file is located in `setup/platform_conf/initial/platform_portal`. In order to change the configuration on an installation whose platform has already been initialized, use the [plaform setup tool](BonitaBPM_platform_setup.md) to retrieve the current configuration and update the file in `setup/platform_conf/current/platform_portal`. Then use the tool again to save your changes into to the database.
 
 When CSRF protection is disabled, this file contains this line: 
 `
