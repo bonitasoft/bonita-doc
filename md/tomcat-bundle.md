@@ -30,13 +30,13 @@ For a Subscription edition:
 
 #### Unzip
 
-The fully qualified folder path (including the BonitaBPM-x.y.z-Tomcat-7.0.55 folder) to the folder where you unzip the Tomcat bundle is referred to as `_<TOMCAT_HOME>_`. We recommend the following locations: 
+The fully qualified folder path (including the BonitaBPM-x.y.z-Tomcat-7.0.55 folder) to the folder where you unzip the Tomcat bundle is referred to as `_<TOMCAT_HOME>_`. We recommend the following locations:
 
-* Windows: `C:\BonitaBPM`. If you want to unzip the bundle to another folder, avoid spaces in the folder name. 
+* Windows: `C:\BonitaBPM`. If you want to unzip the bundle to another folder, avoid spaces in the folder name.
 * Linux: in `/opt/BonitaBPM`. Make sure that Linux user account used to execute Tomcat is the owner of the folders and files.
 
 ::: warning
-Do not leave any blank spaces in the path to the directory containing the Tomcat installation.
+Do not leave any blank space in the path to the directory containing the Tomcat installation.
 :::
 
 #### Content of the Tomcat bundle
@@ -69,7 +69,7 @@ The Tomcat bundle is based on a standard Tomcat installation with the following 
 This is not necessary if you are installing the Community edition.
 :::
 
-If you are installing a Subscription edition, you need to [request a license](licenses.md). 
+If you are installing a Subscription edition, you need to [request a license](licenses.md).
 
 Whe you receive your license, copy the file to the `<TOMCAT_HOME>/setup/platform_conf/licenses` folder before starting the bundle.
 If the bundle was already started please refer to
@@ -77,7 +77,7 @@ If the bundle was already started please refer to
 
 #### Edition specification
 
-If you are installing the Performance Subscription edition, 
+If you are installing the Performance Subscription edition,
 you need to edit [`setup/platform_conf/initial/bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md)
 and change the value of the `activeProfiles` key to `'community,performance'`. No change is needed for the Community, Teamwork, or Efficiency edition.
 
@@ -87,8 +87,6 @@ and change the value of the `activeProfiles` key to `'community,performance'`. N
 ### Configure the bundle
 
 The configuration of the BonitaBPM Platform is stored in database in the `CONFIGURATION` table. It can be created and updated using the [platform setup tool](BonitaBPM_platform_setup.md) embedded in this bundle.
-
-<a id="datasources_configuration" />
 
 #### Configure the Tomcat server datasources
 
@@ -127,7 +125,7 @@ You will at least need to update the `setup/database.properties` with the connec
 
 ### Configure the database
 
-The Tomcat bundle is configured to use a h2 database by default. h2 is fine for a test platform, but for production, you are recommended to use one of the supported databases. 
+The Tomcat bundle is configured to use a h2 database by default. h2 is fine for a test platform, but for production, you are recommended to use one of the supported databases.
 
 If you want to use another database you need to specify the [database configuration](database-configuration.md). Make sure you do this before you start Tomcat.
 
@@ -147,7 +145,7 @@ If you use directly the tomcat startup script and not this bonita-start script f
 
 #### Custom start-up script
 
-If you have a Subscription Pack license covering fewer CPU cores that are available on your server, you need to limit number of CPUs available to Tomcat. 
+If you have a Subscription Pack license covering fewer CPU cores that are available on your server, you need to limit number of CPUs available to Tomcat.
 Do this this, you need to use a custom start script to to start Tomcat only with the number of cores allowed by the license (e.g. 2 cores for a development license).
 
 * For Windows:
@@ -165,8 +163,8 @@ Tomcat can be shut down by executing the following command:
 * Windows: `<TOMCAT_HOME>\bonita-stop.bat`
 * Linux: `<TOMCAT_HOME>/bonita-stop.sh`
 
-If you see `checkThreadLocalMapForLeaks` errors, the probably indicates that Tomcat is shutting down before all work threads are completed. 
-You can [increase the work service termination timeout](performance-tuning.md) to ensure that work is complete before shutdown. 
+If you see `checkThreadLocalMapForLeaks` errors, the probably indicates that Tomcat is shutting down before all work threads are completed.
+You can [increase the work service termination timeout](performance-tuning.md) to ensure that work is complete before shutdown.
 
 <a id="post-install" />
 
@@ -181,4 +179,3 @@ To update the configuration after the first run please take a look at the [platf
 
 ### How to update the license
 To update the licenses after the first run please take a look at the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
-
