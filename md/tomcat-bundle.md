@@ -253,6 +253,3 @@ Once you have got your Tomcat bundle up and running a [few extra steps](first-st
 
 ### How to update the configuration
 To update the configuration after the first run please take a look at the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
-
-### How to update the license
-To update the licenses after the first run please take a look at the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
