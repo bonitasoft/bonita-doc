@@ -36,7 +36,7 @@ The fully qualified folder path (including the BonitaBPM-x.y.z-Tomcat-7.0.55 fol
 * Linux: in `/opt/BonitaBPM`. Make sure that Linux user account used to execute Tomcat is the owner of the folders and files.
 
 ::: warning
-Do not leave any blank spaces in the path to the directory containing the Tomcat installation.
+Do not leave any blank space in the path to the directory containing the Tomcat installation.
 :::
 
 #### Content of the Tomcat bundle
