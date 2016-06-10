@@ -39,19 +39,20 @@ To upgrade a Bonita BPM platform from Community edition to a Subscription editio
 1. [Backup your Bonita BPM platform and databases](back-up-bonita-bpm-platform.md).
 2. Make sure that the platform is shut down.
 3. Download the [Deploy bundle](deploy-bundle.md).
-4. Update the configuration using the Platform setup tool included.
+4. Update the configuration using the Platform setup tool included:
     1. Configure the [Platform setup tool](BonitaBPM_platform_setup#configure_tool) to use your database.
     2. Copy the content of `platform_conf/initial` in a directory named e.g. `sp_conf`.
-    3. Run `setup.sh pull` or `setup.sh pull` to get your current configuration in `platform_conf/current`.
+    3. Run `setup.sh pull` or `setup.bat pull` to get your current configuration in `platform_conf/current`.
     4. Reapply the customizations made in the current configuration to the configuration in the `sp_conf`.
     5. Delete the content of the folder `platform_conf/current`.
     6. Put the content of the folder `sp_conf` in `platform_conf/current`.
     7. Set the edition in the `sp_conf` configuration folder, see [here](tomcat-bundle.md#edition_specification).
-    7. Put your license in `platform_conf/licenses`
-    8. Run `setup.sh push` or `setup.sh push` to push this configuration in database.
+    7. [Put your license](licenses.md) in `platform_conf/licenses`.
+    8. Run `setup.sh push` or `setup.bat push` to push this configuration in database.
 5. Replace the community bonita.war with the subscription version of bonita.war. You can find it in the Deploy bundle.
-    * on Tomcat simply delete the `webapps/bonita.war` and the `webapps/bonita` and copy the new war here.
+    * on Tomcat simply delete the `webapps/bonita.war` file and the `webapps/bonita` folder and copy the new war here.
     * on JBoss delete `standalone/deployments/bonita-all-in-one-<VERSION>.ear` and the file having the same name with `.deployed`, then copy the new ear in the same place.
 6. Start you platform again.
-7. Validate that the dialog displayed from the top right "Settings / About" menu indicates the correct Subscription edition.
-8. Validate that your platform data is properly upgraded. This is the end of the upgrade procedure.
+
+The Upgrade is now finished, you can verify that you are now running a subscription edition in the portal user interface, the dialog displayed from the top right "Settings / About" menu should indicates the correct Subscription edition.
+
