@@ -43,12 +43,12 @@ The JBoss bundle is based on a standard JBoss installation with the following ad
 
 ::: info
 **Note:** Starting from Bonita BPM 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database than the Bonita BPM Engine data, namely in the `CONFIGURATION` table.  
-To initialize and update this database, a [*Platform setup tool*](BonitaBPM_platform_setup.md) is provided and embedded in Bonita BPM bundles.
+To initialize and update this configuration, a [*Platform setup tool*](BonitaBPM_platform_setup.md) is provided and embedded in Bonita BPM bundles. 
 It will be launched automatically when you start the JBoss bundle to initialize the database.  
 :::
 
-So your bundle also contains:
-`setup`: contains Bonita BPM Platform database (for configuration and engine data), and the tool to update it.
+So your bundle also contains:  
+`setup`: database management for Bonita BPM Platform configuration and Bonita BPM Engine data, and a tool to update the configuration.
 
 <a id="configuration" />
 
@@ -63,17 +63,15 @@ For production, you are recommended to use one of the supported databases, with 
 
 Make sure your database is created before you start the configuration and make sure you do this before you start the JBoss server.
 
-The first step is to configure the database used by the [*Platform setup tool*](BonitaBPM_platform_setup.md).
+The first step is to configure the database used by the [*Platform setup tool*](BonitaBPM_platform_setup.md) to initialize the configuration.
 
 To do so, go to `<JBOSS_HOME>/` and update the `setup/database.properties` files with the connection information of the  database.  
-
-The initial configuration will be stored in the `setup/platform_conf/initial` folder.
 
 <a id="database" />
 
 #### Configure the JBoss server datasources
 
-After configuring the datasource to let the Platform setup tool initiate the database, you need to configure the datasource on the server. Follow those steps:
+After configuring the datasource to let the Platform setup tool intialize the configuration, you need to configure this datasource on the server. Follow those steps:
 
 1. Update the datasource configuration in `standalone/configuration/standalone.xml` by uncommenting and commenting relevant parts
 2. Update the `<property name="sysprop.bonita.db.vendor" value="h2" />` in `standalone/configuration/standalone.xml` with your database vendor
