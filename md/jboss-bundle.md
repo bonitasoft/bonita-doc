@@ -9,6 +9,8 @@ The JBoss bundle is a regular zip archive based on the JBoss zip distribution.
 
 ### Download and unzip the JBoss bundle
 
+<a id="download" />
+
 #### Download
 
 For the Community edition:
@@ -48,13 +50,14 @@ It will be launched automatically when you start the JBoss bundle to initialize 
 So your bundle also contains:
 `setup`: contains Bonita BPM Platform database (for configuration and engine data), and the tool to update it.
 
+<a id="configuration" />
 
 ### Configure the JBoss bundle
 
 #### Configure Bonita BPM Platform datasource
 
 ::: info
-If you just want to try Bonita BPM Platform with the embedded h2 database (only for development phase of your project), you can skip this entire paragraph.  
+If you just want to try Bonita BPM Platform with the embedded h2 database (only for development phase of your project), you can skip the next two paragraphs.  
 For production, you are recommended to use one of the supported databases, with the following steps.
 :::
 
@@ -62,18 +65,16 @@ Make sure your database is created before you start the configuration and make s
 
 The first step is to configure the database used by the [*Platform setup tool*](BonitaBPM_platform_setup.md).
 
-To do so, go to `<JBOSS_HOME>/`  and update the `setup/database.properties` files with the connection information of the  database.  
+To do so, go to `<JBOSS_HOME>/` and update the `setup/database.properties` files with the connection information of the  database.  
+
+The initial configuration will be stored in the `setup/platform_conf/initial` folder.
 
 <a id="database" />
 
 #### Configure the JBoss server datasources
 
-::: info
-If you just want to try Bonita BPM Platform with the embedded h2 database (only for development phase of your project), you can skip this entire paragraph.  
-For production, you are recommended to use one of the supported databases, with the following steps.
-:::
+After configuring the datasource to let the Platform setup tool initiate the database, you need to configure the datasource on the server. Follow those steps:
 
-Follow those steps:
 1. Update the datasource configuration in `standalone/configuration/standalone.xml` by uncommenting and commenting relevant parts
 2. Update the `<property name="sysprop.bonita.db.vendor" value="h2" />` in `standalone/configuration/standalone.xml` with your database vendor
 3. Remove the `standalone/deployments/h2.sar` file
@@ -99,9 +100,6 @@ If this is a license update, use [the *Platform setup tool*](BonitaBPM_platform_
 
 If you are installing the Performance Subscription edition, you need to edit [`setup/platform_conf/initial/bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md) and change the value of the `activeProfiles` key to `'community,performance'`.  
 No change is needed for the Community, Teamwork, or Efficiency editions.
-
-<a id="configuration" />
-
 
 <a id="start" />
 
