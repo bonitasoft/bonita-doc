@@ -87,7 +87,7 @@ To do so, go to `<TOMCAT_HOME>/` and update the `setup/database.properties` file
 
 The initial configuration will be stored in the `setup/platform_conf/initial` folder.
 
-<a id="database" />
+<a id="datasources_configuration" />
 
 #### Configure the Tomcat server datasource(s)
 
