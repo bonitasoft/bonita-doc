@@ -15,17 +15,12 @@ The Spring configuration files are present in the classpath but beans can be add
 These files are all suffixed with -custom.xml and contain Spring bean declaration examples.
 Theses files can be retrieved and updated using the [platform setup tool](BonitaBPM_platform_setup.md).
 
-Folder `setup/platform_conf/platform_engine` contains global configuration files:
+Folder  `setup/platform_conf/[initial|current]/tenant_template_engine` contains tenant-level template configuration files used when creating a new tenant (Subscription edition):
 
-* `bonita-platform-community-custom.properties` : contains as comments all the available properties that can be override at platform level.
-* `bonita-platform-custom.xml` : XML file can be modified to add any Spring bean you need to add/override at platform level.
+* `bonita-tenant-community-custom.properties` : contains as comments all the available properties that can be overridden at tenant level.
+* `bonita-tenants-custom.xml`: XML file can be modified to add any Spring bean you need to add/override at tenant level.
 
-Folder  `setup/platform_conf/tenant_template_engine` contains tenant level template configuration files used when creating a new tenant (Subscription edition):
-
-* `bonita-tenant-community-custom.properties` : contains as comments all the available properties that can be override at tenant level.
-* `bonita-tenant-custom.xml`: XML file can be modified to add any Spring bean you need to add/override at tenant level.
-
-Folder  `setup/platform_conf/tenants/TENANT_ID/tenant_engine` contains same files use for an already existing tenant.
+Folder  `setup/platform_conf/current/tenants/TENANT_ID/tenant_engine` contains same files use for an already existing tenant.
 
 The Engine can be installed on a Java Virtual Machine (JVM), in any web/JEE container, or can be used as a simple Java library.
 
