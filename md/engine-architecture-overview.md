@@ -20,7 +20,7 @@ Folder  `setup/platform_conf/[initial|current]/tenant_template_engine` contains 
 * `bonita-tenant-community-custom.properties` : contains as comments all the available properties that can be overridden at tenant level.
 * `bonita-tenants-custom.xml`: XML file can be modified to add any Spring bean you need to add/override at tenant level.
 
-Folder  `setup/platform_conf/current/tenants/TENANT_ID/tenant_engine` contains same files use for an already existing tenant.
+Folder  `setup/platform_conf/current/tenants/[TENANT_ID]/tenant_engine` where `[TENANT_ID]` is your tenant id (e.g. `1`). Contains same files use for an already existing tenant.
 
 The Engine can be installed on a Java Virtual Machine (JVM), in any web/JEE container, or can be used as a simple Java library.
 
