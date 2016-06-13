@@ -80,7 +80,7 @@ If the bundle was already started please refer to
 #### Edition specification
 
 If you are installing the Performance Subscription edition, 
-you need to edit [`setup/platform_conf/initial/bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md)
+you need to edit [`setup/platform_conf/initial/platform_init_engine/bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md)
 and change the value of the `activeProfiles` key to `'community,performance'`. No change is needed for the Community, Teamwork, or Efficiency edition.
 
 
