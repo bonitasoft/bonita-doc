@@ -75,6 +75,8 @@ Whe you receive your license, copy the file to the `<TOMCAT_HOME>/setup/platform
 If the bundle was already started please refer to
 
 
+<a id="edition_specification" />
+
 #### Edition specification
 
 If you are installing the Performance Subscription edition, 
