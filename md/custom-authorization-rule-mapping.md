@@ -7,7 +7,7 @@ This tutorial explains how to customize authorization rule mapping.
 Authorization rule is a java bean that must implement `getId` and `isAllowed` methods.
 
 Authorization Rule Mapping is a set of rules used to allow connected user to access [page and form](page-and-form-development-overview.md). An empty list grants access to user. A non empty list allows access if all rules return true to their `isAllowed` method. Those rules grant or not access to the connected user for:
-  * use a page or for mto start a process
+  * use a page or form to start a process
   * display process overview
   * use a page or form to execute a task
 
