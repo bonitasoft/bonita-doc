@@ -85,15 +85,15 @@ The first step is to configure the database used by the [*Platform setup tool*](
 
 To do so, go to `<TOMCAT_HOME>/` and update the `setup/database.properties` files with the connection information of the database.
 
-The initial configuration will be stored in the `setup/platform_conf/initial` folder.
+The initial configuration that will be pushed to the database is located in the `setup/platform_conf/initial` folder.
 
 <a id="datasources_configuration" />
 
-#### Configure the Tomcat server datasource(s)
+#### Configure the Tomcat server datasources
 
-After configuring the datasource to let the Platform setup tool initialize the configuration, you need to configure this datasource on the server.
+After configuring the datasource to let the Platform setup tool initialize and store the configuration, you need to configure this datasource on the server.
 
-If you use the [Business Data Model feature](define-and-deploy-the-bdm.md), you can store the business data in the same database than platform configuration and engine data, or you can configure a dedicated datasource.
+If you use the [Business Data Model feature](define-and-deploy-the-bdm.md), you can store the business data in the same database than platform configuration and engine data, or you can configure a dedicated database.
 
 Follow those steps:
 
