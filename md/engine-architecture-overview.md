@@ -11,8 +11,10 @@ The Bonita BPM Engine is the runtime processor at the core of Bonita BPM.  It ex
 The Bonita BPM Engine component services are completely configurable using an XML file called `bonita-server.properties`, which is located in the server configuration folder `conf\bonita\server\default\conf\`. This configuration file describes all the available services used by default. It is possible to change a service or replace it with a different implementation. In addition to the standard services, BonitaSoft will support a system that uses any services we provide. Certain services are available only for the Performance, Efficiency, and Teamwork editions. The editions also includes contributions that enhance some services. There are also some internal
 services that are used within the Engine but are not described here.
 
-Services are served to the Engine using a ServiceAccessor. By default, this uses Spring to bind services and to retrieve services instances.
-The Spring configuration files are present in the classpath but beans can be added or overridden using configuration files stored in database under the **CONFIGURATION**  table. Theses files can be retrieved and updated using the [platform setup tool](BonitaBPM_platform_setup.md).
+Services are provided to the Engine using a ServiceAccessor. By default, this uses Spring to bind services and to retrieve service instances.
+The Spring configuration files are present in the classpath but beans can be added or overridden using configuration files stored in database under the **CONFIGURATION**  table.
+These files are all suffixed with -custom.xml and contain Spring bean declaration examples.
+Theses files can be retrieved and updated using the [platform setup tool](BonitaBPM_platform_setup.md).
 
 The Engine can be installed on a Java Virtual Machine (JVM), in any web/JEE container, or can be used as a simple Java library.
 
