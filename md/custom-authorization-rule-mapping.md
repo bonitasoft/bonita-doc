@@ -2,13 +2,26 @@
 
 ## Introduction
 
-This tutorial explains how to customize authorization rule mapping. The tutorial can be used with Bonita BPM Community edition, and uses features that are available in all editions.
+This tutorial explains how to customize authorization rule mapping.
+
+Authorization rule is a java bean that must implement `getId` and `isAllowed` methods.
+
+Authorization Rule Mapping is a set of rules used to allow connected user to access [page and form](page-and-form-development-overview.md). An empty list grants access to user. A non empty list allows access if all rules return true to their `isAllowed` method. Those rules grant or not access to the connected user for:
+  * use a page or for mto start a process
+  * display process overview
+  * use a page or form to execute a task
+
+The tutorial can be used with Bonita BPM Community edition, and uses features that are available in all editions.
 
 ::: warning
-The following elements may be used as extension points but there is no guarantee of stability across versions. No changes are planned, but we reserve the right to change make incompatible changes in any future version. 
+The following elements may be used as extension points but could be subject to change across versions. No changes are planned, but we reserve the right to change make incompatible changes in any future version.
 :::
 
-## Create custom authorization rule java project
+## Create and deploy custom authorization rule
+
+### Create custom authorization rule java project
+
+In this example, Custom authorization rule is a maven-based java project that need a `maven` dependency on `bonita-server` maven artifact.
 
 * `pom.xml`
 
@@ -92,7 +105,6 @@ public class CustomRule extends AuthorizationRuleWithParameters implements Autho
 
 ```
 
-
 * create CustomAuthorizationRuleMapping class that implements `org.bonitasoft.engine.core.form.AuthorizationRuleMapping`
 
 ```java
@@ -129,7 +141,7 @@ public class CustomAuthorizationRuleMapping implements AuthorizationRuleMapping 
 mvn clean install
 ```
 
-## Configure engine with new rules
+### Configure engine with new rules
 
 * copy jar into `webapps/bonita/WEB-INF/lib/` folder (for default tomcat bundle)
 
@@ -139,7 +151,7 @@ mvn clean install
  ./setup/setup.sh pull  
 ```
 
-* register customRule bean in `platform_conf/current/tenants/TENANT_ID/tenant_engine/bonita-tenant-custom.xml`
+* add customRule bean registration in `platform_conf/current/tenants/TENANT_ID/tenant_engine/bonita-tenant-custom.xml`
 
 ```xml
  <bean id="customRule" class="org.bonitasoft.example.authorization.CustomRule">
@@ -150,14 +162,14 @@ mvn clean install
  
 ```
 
-* register customAuthorizationRuleMapping bean in `platform_conf/current/tenants/TENANT_ID/tenant_engine/bonita-tenant-custom.xml`
+* add customAuthorizationRuleMapping bean registration in `platform_conf/current/tenants/TENANT_ID/tenant_engine/bonita-tenant-custom.xml`
 
 ```xml
  <bean id="customAuthorizationRuleMapping"
           class="org.bonitasoft.example.authorization.CustomAuthorizationRuleMapping"/>
 ```
 
-* register in `platform_conf/current/tenants/TENANT_ID/tenant_engine/bonita-tenant-community-custom.properties`
+* uncomment to declare customAuthorizationRuleMapping in `platform_conf/current/tenants/TENANT_ID/tenant_engine/bonita-tenant-community-custom.properties`
 
 ```
 bonita.tenant.authorization.rule.mapping=customAuthorizationRuleMapping
