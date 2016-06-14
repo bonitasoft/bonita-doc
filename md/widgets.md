@@ -111,6 +111,8 @@ If the values are JavaScript objects, you can also specify a **displayed key** t
 
 The selected value should be bound to a variable that will hold the data for the chosen radio button.
 
+<a id="date-picker"/>
+
 ### Date picker widget
 
 Use a datepicker widget to display a calendar from which the user can select a date. You can configure the displayed **date format** using a pattern, using `yyyy` for year, `MM` for Month, `dd` for day, `mm` for minutes.
