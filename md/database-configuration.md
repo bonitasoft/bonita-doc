@@ -149,8 +149,7 @@ In the same folder as the driver, add the module description file, `module.xml`.
 This file describes the dependencies the module has and the content it exports.
 It must describe the driver jar and the JVM packages that JBoss 7 does not provide automatically.
 The exact details of what must be included depend of the driver jar. 
-
-**Warning:** you might need to edit the `module.xml` in order to match exactly the JDBC driver jar file name.
+**Warning:** You might need to edit the `module.xml` in order to match exactly the JDBC driver jar file name.
 
 ::: info
 **Note:** By default, when JBoss starts, it removes any comments from `standalone/configuration/standalone.xml` and formats the file.
@@ -391,9 +390,7 @@ See [MSDN](https://msdn.microsoft.com/en-us/library/ms175095(v=sql.110).aspx).
 
 MySQL defines a maximum packet size on the server side. The default value for this settings are appropriate for most standard use cases.
 However, you need to increase the packet size if you see the following error: 
-```
-Error: 1153 SQLSTATE: 08S01 (ER_NET_PACKET_TOO_LARGE) Message: Got a packet bigger than 'max_allowed_packet' bytes
-```
+`Error: 1153 SQLSTATE: 08S01 (ER_NET_PACKET_TOO_LARGE) Message: Got a packet bigger than 'max_allowed_packet' bytes`
 
 You need to update the file `my.ini` (for Windows) or `my.cnf` (for Linux) to avoid the `ER_NET_PACKET_TOO_LARGE` problem.
 Look for `max_allowed_packet` settings and reduce the value.
