@@ -2,7 +2,7 @@
 
 You will find here steps needed to install and configure a JBoss bundle.
 
-The JBoss bundle is a zip archive that contains the Red Hat JBoss JEE application server packaged with Bonita BPM Portal and [Bonita configuration folder](BonitaBPM_platform_setup.md).  
+The JBoss bundle is a zip archive that contains the Red Hat JBoss JEE application server packaged with Bonita BPM Portal and [Bonita configuration folder](BonitaBPM_platform_setup.md#platform_setup_tool).  
 The JBoss bundle is a regular zip archive based on the JBoss zip distribution.
 
 ## Installation of the JBoss bundle
