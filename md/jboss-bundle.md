@@ -148,6 +148,8 @@ JBoss can be shut down by running the following script:
 * Windows `<JBOSS_HOME>\bin\jboss-cli.bat --connect --command=:shutdown`
 * Linux `<JBOSS_HOME>/bin/jboss-cli.sh --connect --command=:shutdown`
 
+You can also press Ctrl + C.
+
 ## First steps after installation
 
 Once you have your JBoss bundle up and running, complete these [first steps](first-steps-after-setup.md) to get Bonita BPM Platform fully operational.
