@@ -33,12 +33,12 @@ The folder where you unzip the Jboss bundle is known as _`<JBOSS_HOME>`_. We rec
 The JBoss bundle is based on a standard JBoss installation with the following additions:
 
 * `bin/standalone.conf`: script to configure JVM system properties.
-* `bonita-start.bat`: script to start the bundle on Linux.
+* `bonita-start.bat`: script to start the bundle on Windows.
 * `bonita-start.sh`: script to start the bundle on Linux.
 * `standalone/configuration/standalone.xml`: JBoss context configuration for Bonita BPM Portal. It defines data sources used by Bonita BPM Engine.
 * `lib/bonita`: extra libraries needed by Bonita BPM. The following libraries are included: Bitronix JTA Transaction Manager, h2, SLF4J (required by Bitronix).
 * `request_key_utils`: script to generate license request keys (Subscription editions only).
-* `standalone/deployments/h2.sar`: application that runs the h2 server.
+* `standalone/deployments/h2.sar`: application that runs the h2 server. (h2 is the default embedded database, not for production)
 * `standalone/deployments/bonita-all-in-one-[version].ear`: Bonita BPM Portal (web application) and EJB3 API.
 
 ::: info
@@ -54,12 +54,12 @@ So your bundle also contains:
 
 ### Configure the JBoss bundle
 
-#### Configure Bonita BPM Platform datasource
-
 ::: info
 If you just want to try Bonita BPM Platform with the embedded h2 database (only for development phase of your project), you can skip the next two paragraphs.  
 For production, you are recommended to use one of the supported databases, with the following steps.
 :::
+
+#### Configure Bonita BPM Platform datasource
 
 Make sure your database is created before you start the configuration and make sure you do this before you start the JBoss server.
 
