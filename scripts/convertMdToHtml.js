@@ -60,7 +60,10 @@
   }
 
   function replaceVariables(content) {
-    Object.keys(variables).forEach(key => content = content.replace('${' + key + '}', variables[key]));
+    Object.keys(variables).forEach(function(key) {
+      var re = new RegExp('\\${' + key + '}','g');
+      content = content.replace(re, variables[key]);
+    });
     return content;
   }
 })();
