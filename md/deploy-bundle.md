@@ -13,7 +13,7 @@
 * `License`: license files that apply to Bonita components.
 * `Request_key_utils-6.0`: include script files to generate license request keys.
 * `Tomcat-`_`version`_: a folder/file structure to be merged with an existing setup of Apache Tomcat, in order to install Bonita BPM Portal and Bonita BPM Engine.
-<a name="platform_setup_tool" />
+<a id="platform_setup_tool" />
 * `platform-setup`: a command-line tool that creates the Bonita BPM platform before it can be run. It creates the Bonita BPM platform internal database, and stores the runtime configuration.
 It is useful to update the configuration, locally or from a remote computer.
 * `README.TXT`: contains the detailed contents and structure of the `deploy.zip`.

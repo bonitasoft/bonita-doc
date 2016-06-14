@@ -123,7 +123,7 @@ Use the DELETE request to remove multiple resources.
 Example
 `http://.../API/identity/membership/ `
 
-<a name="resource_search"/>
+<a id="resource_search"/>
 
 ## Search for a resource
 

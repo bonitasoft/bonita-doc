@@ -1842,7 +1842,7 @@ The methods used for this resource are:
 * PUT - Update a resource
 * DELETE - Remove a resource
 
-<a name="upload_casedoc"/>
+<a id="upload_casedoc"/>
 #### Add a document to a case
 
 Use a POST method to add a document to a case. You can upload a document from the local file system or by URL. Specify the case id and the document name in the payload. 
