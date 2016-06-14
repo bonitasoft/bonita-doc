@@ -115,11 +115,14 @@ The selected value should be bound to a variable that will hold the data for the
 
 ### Date picker widget
 
-Use a datepicker widget to display a calendar from which the user can select a date. You can configure the displayed **date format** using a pattern, using `yyyy` for year, `MM` for Month, `dd` for day, `mm` for minutes.
+Use a datepicker widget to display a calendar from which the user can select a date or set a date manually. You can configure the displayed **date format** using a pattern, using `yyyy` for year, `MM` for Month, `dd` for day, `mm` for minutes.  
+Use the `Today` button to select automatically and quickly the current day.
 
 You can force the timezone to 0 using the relevant property.
 
 For more information about supported formats, read the Angular documentation for [date filter](https://docs.angularjs.org/api/ng/filter/date).
+
+In the _Subscription Edition_,  the calendar can be localized with the usual localization mechanism (localization.json file).  
 
 ### File upload widget
 
@@ -225,3 +228,24 @@ The list of values in the **Labels** property must be have same length as an ass
 
 Charts can be customized more deeply using the **Advanced options** property. To specify advanced options, bind this property to a JSON variable that specifies the options.  
 Options are specific to each chart type and are listed in the [Chart.js documentation](http://www.chartjs.org/docs/) in the _Chart options_ section for each chart style (for example, there are spacing [options for bar charts](http://www.chartjs.org/docs/#bar-chart-chart-options)).
+
+<a id="file-viewer"/>
+
+## File viewer widget (Subscription editions)
+
+Use the file viewer widget to preview or download a file or a process document in any UI Designer artifact (page or form for instance). 
+You can display a document in a modal dialog box or directly in a page.  
+
+The previewable documents are limited to documents supported by the end user browser (by default pdf and images on usual browsers). Documents that are not previewable are prompted to be downloaded.
+
+<a id="rich-text-area"/>
+
+## Rich Text Area widget (Subscription editions)
+
+Use the rich text area widget to edit HTML formatted text in any UI Designer artifact (page or form for instance).
+
+You can add rich text area inputs for end users to create text to be exported in HTML format for integration on emails, etc.  
+It can be prefilled with an HTML template.
+
+A options toolbar exposed to end users can be customized and localized with the usual [localization mechanism](multi-language-pages.md) (localization.json file).
+

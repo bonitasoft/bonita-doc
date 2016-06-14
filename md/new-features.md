@@ -47,13 +47,13 @@ The users can now:
 
 New widgets in UI Designer for Subscription edition:
 
-#### File viewer
+#### [File viewer](widgets#file-viewer)
 
 It adds the capability to preview or download a file or a process document in a page or a form. 
   * With this new widget, you can display a document in a modal dialog box or directly in the page.  
   * The documents displayable are limited to the document supported by the end user browser (by default pdf and images on usual browsers). Documents that are not displayable are prompted to be downloaded.
 
-#### Rich Text Area 
+#### [Rich Text Area](widgets#rich-text-area)
 
 It adds the capability to edit formatted text from a page or a form.
   * With this new widget, you can add rich text area for end users to create text to be exported in HTML format for integration on emails, etc.  
@@ -78,7 +78,7 @@ Many improvements to existing features:
 
 * Capability to edit and set manually the dates with a format validation (works within a Form Container)
 * Capability to add a "Today" button to select automatically and quickly the current day.
-* Subscription Edition: Calendar can be localized with the usual localization mechanism (localization.json file).  
+* Subscription Edition: Calendar can be localized with the usual [localization mechanism](multi-language-pages.md) (localization.json file).  
 
 ### Other minor changes
 
