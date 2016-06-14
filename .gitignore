@@ -6,7 +6,6 @@ _book
 **/*.bak
 **/*.pdf
 build/html/*
-build/html/!index!.html
 .idea/
 *.iml
 *.orig
