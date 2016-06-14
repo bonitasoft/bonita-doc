@@ -8,13 +8,19 @@ The Bonita BPM Engine is the runtime processor at the core of Bonita BPM.  It ex
 
 ![engine architecture diagram](images/images-6_0/dev_arch_engine_architecture_simple.png)  
 
-The Bonita BPM Engine component services are completely configurable using an XML file called `bonita-server.properties`, which is located in the server configuration folder `conf\bonita\server\default\conf\`. This configuration file describes all the available services used by default. It is possible to change a service or replace it with a different implementation. In addition to the standard services, BonitaSoft will support a system that uses any services we provide. Certain services are available only for the Performance, Efficiency, and Teamwork editions. The editions also includes contributions that enhance some services. There are also some internal
-services that are used within the Engine but are not described here.
+The Bonita BPM Engine component services are completely configurable using the [plaform setup tool](BonitaBPM_platform_setup.md) to retrieve the current configuration and update it.
 
 Services are provided to the Engine using a ServiceAccessor. By default, this uses Spring to bind services and to retrieve service instances.
 The Spring configuration files are present in the classpath but beans can be added or overridden using configuration files stored in database under the **CONFIGURATION**  table.
 These files are all suffixed with -custom.xml and contain Spring bean declaration examples.
 Theses files can be retrieved and updated using the [platform setup tool](BonitaBPM_platform_setup.md).
+
+Folder  `setup/platform_conf/[initial|current]/tenant_template_engine` contains tenant-level template configuration files used when creating a new tenant (Subscription edition):
+
+* `bonita-tenant-community-custom.properties` : contains as comments all the available properties that can be overridden at tenant level.
+* `bonita-tenants-custom.xml`: XML file can be modified to add any Spring bean you need to add/override at tenant level.
+
+Folder  `setup/platform_conf/current/tenants/[TENANT_ID]/tenant_engine` where `[TENANT_ID]` is your tenant id (e.g. `1`). Contains same files use for an already existing tenant.
 
 The Engine can be installed on a Java Virtual Machine (JVM), in any web/JEE container, or can be used as a simple Java library.
 
