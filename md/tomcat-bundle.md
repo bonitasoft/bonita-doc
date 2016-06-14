@@ -114,7 +114,6 @@ Follow those steps:
     1. For the configuration and engine data, change the **DB_OPTS** property and change the default **h2** value for the one corresponding to your database vendor
     2. If you use the Business Data Model feature, change the **BDM_DB_OPTS** property and change the default **h2** value for the one corresponding to your database vendor
 
-<a id="database" />
 
 ### Get and install a license
 
