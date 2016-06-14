@@ -164,5 +164,3 @@ This is done by editing file `database.properties`
 
 ### How to update the license
 To update the licenses after the first run please take a look at the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
-
-To update the configuration after the first run use the [*Platform setup tool*](BonitaBPM_platform_setup.md#update_platform_conf).
