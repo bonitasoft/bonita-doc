@@ -188,3 +188,16 @@ It is possible to have more than one cluster on the same network. In this case, 
 You can configure the cluster name through Hazelcast or by updating `bonita-platform-sp-custom.properties` located in the `platform_engine` folder of the configuration, use the [platform setup tool](BonitaBPM_platform_setup.md#configuration_files) to update it.
 
 
+## FAQ
+**Q**: I regularly get this warning message when 2 or more nodes are started in cluster:
+```log
+2016-06-13 11:41:22.783 +0200 WARNING: org.bonitasoft.engine.scheduler.impl.BonitaJobStoreCMT This scheduler instance (...) is still active but was recovered by another instance in the cluster.  This may cause inconsistent behavior.
+```
+**Symptom**:
+The clocks of the servers are not synchronized.
+
+**Resolution**:
+The system time of all cluster nodes must be maintained in synchronization with time servers.
+It is a good idea to have also the db server system time synchronized too.
+Synchronize the system time of all nodes and restart application servers.
+
