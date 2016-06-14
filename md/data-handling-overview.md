@@ -34,3 +34,4 @@ The data that is passed from a form to a process is defined using a [contract](c
 These contracts are part of the process definition. 
 A form has access to business data and documents using the [context](contracts-and-contexts.md) and the [REST API](_rest-api.md). 
 A form also contains form [variables](variables.md), which have no meaning outside the form.
+TEST RAPHAEL:-)
