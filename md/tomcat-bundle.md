@@ -2,7 +2,7 @@
 
 You will find here steps needed to install and configure a Tomcat bundle.
 
-The Tomcat bundle is a .zip archive that contains the Apache Tomcat JEE application server prepackaged along with Bonita BPM Portal and [Bonita configuration folder](BonitaBPM_platform_setup.md).
+The Tomcat bundle is a .zip archive that contains the Apache Tomcat JEE application server prepackaged along with Bonita BPM Portal and [Bonita configuration folder](BonitaBPM_platform_setup.md#platform_setup_tool).
 The Tomcat bundle is a regular .zip archive based on Tomcat zip distribution.
 
 
@@ -45,9 +45,9 @@ The Tomcat bundle is based on a standard Tomcat installation with the following 
 
 * `bin/setenv.bat`: script to configure JVM system properties for Windows.
 * `bin/setenv.sh`: script to configure JVM system properties for Linux.
-* `bonita-start.bat`: script to start the bundle on Linux.
+* `bonita-start.bat`: script to start the bundle on Windows.
 * `bonita-start.sh`: script to start the bundle on Linux.
-* `bonita-stop.bat`: script to stop the bundle on Linux.
+* `bonita-stop.bat`: script to stop the bundle on Windows.
 * `bonita-stop.sh`: script to stop the bundle on Linux.
 * `conf/Catalina/localhost/bonita.xml`: Tomcat context configuration for Bonita web application. Define data sources used by Bonita Engine.
 * `conf/bitronix-*.properties`: configuration files for Bitronix
@@ -72,12 +72,12 @@ So your bundle also contains:
 
 ### Configure the Tomcat bundle
 
-#### Configure Bonita BPM Platform datasource
-
 ::: info
 If you just want to try Bonita BPM Platform with the embedded h2 database (only for development phase of your project), you can skip the next two paragraphs.
 For production, you are recommended to use one of the supported databases, with the following steps.
 :::
+
+#### Configure Bonita BPM Platform datasource
 
 Make sure your database is created before you start the configuration and make sure you do this before you start the Tomcat server.
 
