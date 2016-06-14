@@ -307,10 +307,12 @@ Then, click on the _**pencil**_ button to open the _**Edit Expression**_ editor.
 
 ### Business Objects and connectors
 
-You can use business data in a Java program by using the DAO. In particular, you can _**write**_ business data to an external source using a custom connector. Your custom connector must include the `bdm-client-pojo.jar` file as a dependency.
+You can use business data in a Java program by using the DAO. DAO gives _**read**_ access to business objects.
 
-In a connector, code is executed outside a transaction, so retrieving or updating business data by DAO is not supported. Manipulate the business data outside the connector, and use business objects as connector input or output:
+Warning: In a connector, code is executed outside a transaction, so retrieving or updating business data by DAO is not supported.
+
+You can however manipulate the business object outside the connector, and use business objects as connector input or output:
 
 * For a _**read**_, retrieve the business object with an expression (for example, `employeeDAO.findByFirstNameAndLastName("William","Jobs")`. Then use the object as input to the connector.
 * For a _**create**_ or _**update**_, return the new or updated business object as output of the connector.
-Then use the business object (which is stored only in memory at this point) and the DAO to update the business object in the business database, persisting the change.
+Then use the business object (which is stored only in memory at this point) in an **operation** to update the business object in the business database, persisting the change.
