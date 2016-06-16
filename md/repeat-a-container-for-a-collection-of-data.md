@@ -1,5 +1,7 @@
 # Repeat a container for a collection of data
 
+## Overview
+
 The content of a container can be included multiple times in a page, once for each element in a collection of data. The content is repeated as many times as necessary to display all the data in the collection.
 
 A collection is an array of data referenced by a variable. The UI Designer provides some built-in variables that you can use to specify the collection or an element within it:
@@ -18,7 +20,7 @@ Follow the examples in sequence, because each one builds on the previous example
 
 This section explains how display the elements from a simple collection in a repeatable container.
 
-In this example, the collection of data is a list of fruits. You want to display this list in a table and enables users to modify the name of a fruit. To create the table in a page: 
+In this example, the collection of data is a list of fruits. You want to display this list in a table and enables users to modify the name of a fruit. To create the table in a page:
 
 1. In a UI designer page, create a variable to specify the collection, which must be an array. In a typical application, a collection is defined by a JavaScript or External API variable, but for easy page development, you can use a fixed JSON array. For this example, create a JSON variable called _fruits_ containing `["banana","apple","pineapple","cherry"]`.
 2. Add a container widget to your page and bind the variable _fruits_ to the **Repeat contents** property.
@@ -71,7 +73,7 @@ This section explains how to update the container to display a structured collec
  }
  ```
 
-1. Create a new variable, _fruitsProducingCountries_, with the following value: 
+1. Create a new variable, _fruitsProducingCountries_, with the following value:
 ```json
 [
     {
@@ -102,8 +104,8 @@ This section explains how to update the container configuration to handle a stru
   * **Collection**: _$item.producingCountries_, to specify the element of the data structure to which the element is added
   * **Add**: _Last_, to add the new item is added at the end of the collection
   * **Value to add**: leave this empty because there is no specific structure to add
-2. Add a new container widget inside the existing container below the _Add producing country_ button. 
-3. To repeat the content of this new container for the collection of producing countries associated with each fruit type, bind the **Repeat contents** property of this container to _$item.producingCountries_. 
+2. Add a new container widget inside the existing container below the _Add producing country_ button.
+3. To repeat the content of this new container for the collection of producing countries associated with each fruit type, bind the **Repeat contents** property of this container to _$item.producingCountries_.
 4. Add an input widget in the new container to display the producing countries. Set the widget properties as follows:
   * **Label**: _Producing country_
   * **Label position**: _left_

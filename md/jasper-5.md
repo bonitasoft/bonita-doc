@@ -1,10 +1,12 @@
 # Jasper
 
+## Overview
+
 A Jasper 5.0 connector is used for creating pre-formatted reports of data extracted from a database.
 
 The procedure below is an example, and not a reference:
 
-1. Using MySQL or PostGreSQL, create a database and a table called e.g. `address` containing data 
+1. Using MySQL or PostGreSQL, create a database and a table called e.g. `address` containing data
 2. Use Jasper Studio to connect to the database and create a pre-formatted report in a special .jrxml format
 3. Setup the diagram in Bonita Studio by adding a Jasper connector to a task and the variables and the form variables
 4. Import the pre-formatted .jrxml file into Bonita which will be used to create the graphic version of the data
@@ -35,18 +37,18 @@ Use [Jasper Studio](http://community.jaspersoft.com/project/jaspersoft-studio) t
 **Diagram**
 
 1. Create a new diagram.
-2. Create a **start event**, then **3 tasks**: 
+2. Create a **start event**, then **3 tasks**:
 (1 human task called _beforeJasper_, one service task called _Jasper_ and one human task called _afterJasper_), and lastly an **end event**.
 
 **Pool data**
 
 Select the pool and create 2 documents: a bonitadocument called input (.jxrml) and an output format for the document to be created (.pdf,.xml or.md).
 
-Go to the **Details** panel, **Data** tab, **Documents** panel, and click **_Add_**. 
+Go to the **Details** panel, **Data** tab, **Documents** panel, and click **_Add_**.
 In the popup, click **From Bonita BPM** \> **Browse...** \> **Import...** (example.jrxml) to import the Bonita document.
 
 **Document**
-| Name  | Data type  | 
+| Name  | Data type  |
 | ----- | ---------- |
 | jrxmlDocName  | text  |
 
@@ -62,6 +64,6 @@ Click on _**Run.**_ Bonita BPM Portal will be launched.
 
 ## Result
 
-A report is created, graphically representing the data from the database. 
+A report is created, graphically representing the data from the database.
 
 **Note:** The Jasper connector is only testable in Bonita BPM Studio if a JDBC driver is installed.

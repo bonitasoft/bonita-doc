@@ -1,8 +1,10 @@
 # CMIS
 
+## Overview
+
 Content Management Interoperability Services (CMIS) is an open standard that allows different content management systems to inter-operate over the Internet.
 
-CMIS provides a common data model covering typed files and folders with generic properties that can be set or read. There is a set of services for adding and retrieving documents ('objects'). There may be an access control system, a checkout and version control facility, and the ability to define generic relations. 
+CMIS provides a common data model covering typed files and folders with generic properties that can be set or read. There is a set of services for adding and retrieving documents ('objects'). There may be an access control system, a checkout and version control facility, and the ability to define generic relations.
 
 Two protocol bindings are defined, one using WSDL and SOAP and another using REST, using the AtomPub convention. The model is based on common architectures of document management systems.
 
@@ -17,7 +19,7 @@ Bonita BPM Studio contains the following CMIS connectors:
 
 Note: If you have processes that use CMIS connectors from previous versions, these connectors will no longer work. You need to update the configuration of each connector, including any scripts that construct the URLs used.
 
-### Alfresco specific configuration for document versioning
+## Alfresco specific configuration for document versioning
 
 Document versioning is disabled by default in Alfresco.
 
@@ -25,7 +27,7 @@ If you wish to use the "Upload a new version" connector to upload a new document
 
 If this configuration is not set, new versions of documents will overwrite previous ones.
 
-### Example: How to upload a document
+## Example: How to upload a document
 
 1. In the Connector list window:
   * Select the CMS/CMIS connector category.
@@ -54,7 +56,7 @@ If this configuration is not set, new versions of documents will overwrite previ
   * You can store the returned `document_id` in a variable.
   * Click _**Finish**_.
 
-### Example: Creating a folder on Alfresco
+## Example: Creating a folder on Alfresco
 
 This example presents the creation of a folder on a local installation of Alfresco 5.0 with a CMIS connector configured with AtomPub.
 
