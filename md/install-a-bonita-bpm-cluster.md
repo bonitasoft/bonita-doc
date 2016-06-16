@@ -21,7 +21,9 @@ In this part we will create a cluster from scratch. We will initialize the datab
 In this step you will create and initialize the database for the Bonita BPM Platform cluster using the [platform setup tool](BonitaBPM_platform_setup.md).
 When done you will have a database with all tables created and with a table `CONFIGURATION` containing all configuration required for the cluster to start.
 
-* Ensure that you meet the [requirements](hardware-and-software-requirements.md) and that you [have a database installed and configured](database-configuration.md#database_creation).
+* Ensure that you meet the [requirements](hardware-and-software-requirements.md) 
+* Ensure that you [have a database installed and configured for the platform](database-configuration.md#database_creation).
+* In case you use [Business data](define-and-deploy-the-bdm), ensure that you [have a database installed and configured for the Business Data](database-configuration-for-business-data.md).
 * Download the Bonita BPM [Deploy bundle](deploy-bundle.md) and unzip it at some place of your choice.
 ::: info
 The platform setup tool is also present in the Tomcat or JBoss bundle under the `setup` directory.
