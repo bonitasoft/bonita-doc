@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "watch": "scripts/watchFilesToConvertHtml.js",
-    "taxonomy": "scripts/taxonomy.js",
-    "build": "scripts/convertMdToHtml.js",
+    "watch": "node ./scripts/watchFilesToConvertHtml.js",
+    "taxonomy": "node ./scripts/taxonomy.js",
+    "build": "node ./scripts/convertMdToHtml.js",
     "buildPdf": "npm run build && npm run taxonomy && npm run pdf",
     "pdf": "node --max-old-space-size=8192 scripts/convert2PDF.js"
   },
