@@ -34,7 +34,7 @@ The following sections show how to create a REST API extension. As an example, w
 1. Click **Next**.
 1. Enter the **pathTemplate** for this REST API extension, for example _userInformation_. This will be the access point of the API, and follows this pattern: `{bonita_portal_context}/API/extension/userInformation`.
 1. As this REST API extension does not access business data you can safely uncheck "Add BDM dependencies" check box.
-1. Define a **Permission** for the extension (replace the default one), for example _read\_user\_information_.
+1. Define a **Permission** name for the extension (replace the default one), for example _read\_user\_information_. This is the name of the permission the users should have to be granted access to the extension (see [REST API extensions usage](api-extensions.md#usage)
 1. Click **Next**
 1. This screen defines **URL parameters** that will be passed to the API. By default, _p_ and _c_ parameters are defined to enables paged result, it applies well in our examples as we want to return a list of users.
 1. Click **Create**.

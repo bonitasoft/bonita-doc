@@ -68,11 +68,13 @@ By default, the file contains a compound permission that corresponds to each pag
 
 For example: `userlistingadmin=[profile_visualization, process_comment, organization_visualization, tenant_platform_visualization, organization_management]`
 
-This specifies the permissions that are needed for the Bonita BPM Portal Administrator page that lists all the users in the tenant.
+This specifies the REST API permissions that are granted with the Bonita BPM Portal Administrator page that lists all the users in the tenant.
 
-By default, there is a compound permission defined for each page in the standard Bonita BPM Portal.
-There is one line for each custom page. These lines are added automatically when you install the custom page in the portal.
-You can also update the file manually to add custom compound configurations.
+By default, there is a compound permission defined for each page in the standard Bonita BPM Portal and there is also one for each provided custom page.
+
+When you install a custom page in the portal, if the page declares its resources properly, then it will add a line in this file. Then all the users being able to access this page (because it is part of a custom profile or Living Application they have access to) will also be automatically granted the necessary permissions to call the required REST API resources.
+
+<a id="custom-permissions-mapping"/>
 
 #### Custom permissions mapping
 
@@ -131,76 +133,75 @@ If the user action triggers a GET, the user can view the case information only i
 The Engine API Java method `isInvolvedInProcessInstance` is used to check whether the user is involved. For an archived case, the only check possible is whether the user started the case.
 ```groovy
 import org.bonitasoft.engine.api.*
-    import org.bonitasoft.engine.api.permission.APICallContext
-    import org.bonitasoft.engine.api.permission.PermissionRule
-    import org.bonitasoft.engine.bpm.process.ArchivedProcessInstanceNotFoundException
-    import org.bonitasoft.engine.identity.User
-    import org.bonitasoft.engine.identity.UserSearchDescriptor
-    import org.bonitasoft.engine.search.SearchOptionsBuilder
-    import org.bonitasoft.engine.search.SearchResult
-    import org.bonitasoft.engine.session.APISession
-    import org.json.JSONObject
+import org.bonitasoft.engine.api.permission.APICallContext
+import org.bonitasoft.engine.api.permission.PermissionRule
+import org.bonitasoft.engine.bpm.process.ArchivedProcessInstanceNotFoundException
+import org.bonitasoft.engine.identity.User
+import org.bonitasoft.engine.identity.UserSearchDescriptor
+import org.bonitasoft.engine.search.SearchOptionsBuilder
+import org.bonitasoft.engine.search.SearchResult
+import org.bonitasoft.engine.session.APISession
+import org.json.JSONObject
 
-    class CasePermissionRule implements PermissionRule {
-
+class CasePermissionRule implements PermissionRule {
 
     @Override
     public boolean check(APISession apiSession, APICallContext apiCallContext, APIAccessor apiAccessor, Logger logger) {
-    long currentUserId = apiSession.getUserId()
-    if ("GET".equals(apiCallContext.getMethod())) {
-    return checkGetMethod(apiCallContext, apiAccessor, currentUserId, logger)
-    } else if ("POST".equals(apiCallContext.getMethod())) {
-    return checkPostMethod(apiCallContext, apiAccessor, currentUserId, logger)
-    }
-    return false
+        long currentUserId = apiSession.getUserId()
+        if ("GET".equals(apiCallContext.getMethod())) {
+            return checkGetMethod(apiCallContext, apiAccessor, currentUserId, logger)
+        } else if ("POST".equals(apiCallContext.getMethod())) {
+            return checkPostMethod(apiCallContext, apiAccessor, currentUserId, logger)
+        }
+        return false
     }
 
     private boolean checkPostMethod(APICallContext apiCallContext, APIAccessor apiAccessor, long currentUserId, Logger logger) {
-    def body = apiCallContext.getBodyAsJSON()
-    def processDefinitionId = body.optLong("processDefinitionId")
-    if (processDefinitionId <= 0) {
-    return false;
-    }
-    def processAPI = apiAccessor.getProcessAPI()
-    def identityAPI = apiAccessor.getIdentityAPI()
-    User user = identityAPI.getUser(currentUserId)
-    SearchOptionsBuilder searchOptionBuilder = new SearchOptionsBuilder(0, 10)
-    searchOptionBuilder.filter(UserSearchDescriptor.USER_NAME, user.getUserName())
-    SearchResult<User> listUsers = processAPI.searchUsersWhoCanStartProcessDefinition(processDefinitionId, searchOptionBuilder.done())
-    logger.debug("RuleCase : nb Result [" + listUsers.getCount() + "] ?")
-    def canStart = listUsers.getCount() == 1
-    logger.debug("RuleCase : User allowed to start? " + canStart)
-    return canStart
+        def body = apiCallContext.getBodyAsJSON()
+        def processDefinitionId = body.optLong("processDefinitionId")
+        if (processDefinitionId <= 0) {
+            return false;
+        }
+        def processAPI = apiAccessor.getProcessAPI()
+        def identityAPI = apiAccessor.getIdentityAPI()
+        User user = identityAPI.getUser(currentUserId)
+        SearchOptionsBuilder searchOptionBuilder = new SearchOptionsBuilder(0, 10)
+        searchOptionBuilder.filter(UserSearchDescriptor.USER_NAME, user.getUserName())
+        SearchResult<User> listUsers = processAPI.searchUsersWhoCanStartProcessDefinition(processDefinitionId, searchOptionBuilder.done())
+        logger.debug("RuleCase : nb Result [" + listUsers.getCount() + "] ?")
+        def canStart = listUsers.getCount() == 1
+        logger.debug("RuleCase : User allowed to start? " + canStart)
+        return canStart
     }
 
     private boolean checkGetMethod(APICallContext apiCallContext, APIAccessor apiAccessor, long currentUserId, Logger logger) {
-    def processAPI = apiAccessor.getProcessAPI()
-    def filters = apiCallContext.getFilters()
-    if (apiCallContext.getResourceId() != null) {
-    def processInstanceId = Long.valueOf(apiCallContext.getResourceId())
-    if(apiCallContext.getResourceName().startsWith("archived")){
-    //no way to check that the we were involved in an archived case, can just show started by
-    try{
-    return processAPI.getArchivedProcessInstance(processInstanceId).getStartedBy() == currentUserId
-    }catch(ArchivedProcessInstanceNotFoundException e){
-    logger.debug("archived process not found, "+e.getMessage())
-    return false
+        def processAPI = apiAccessor.getProcessAPI()
+        def filters = apiCallContext.getFilters()
+        if (apiCallContext.getResourceId() != null) {
+            def processInstanceId = Long.valueOf(apiCallContext.getResourceId())
+            if (apiCallContext.getResourceName().startsWith("archived")) {
+                //no way to check that the were involved in an archived case, can just show started by
+                try {
+                    return processAPI.getArchivedProcessInstance(processInstanceId).getStartedBy() == currentUserId
+                } catch(ArchivedProcessInstanceNotFoundException e) {
+                    logger.debug("archived process not found, "+e.getMessage())
+                    return false
+                }
+            } else {
+                def isInvolved = processAPI.isInvolvedInProcessInstance(currentUserId, processInstanceId)
+                logger.debug("RuleCase : allowed because get on process that user is involved in")
+                return isInvolved
+            }
+        } else {
+            def stringUserId = String.valueOf(currentUserId)
+            if (stringUserId.equals(filters.get("started_by")) || stringUserId.equals(filters.get("user_id")) || stringUserId.equals(filters.get("supervisor_id"))) {
+                logger.debug("RuleCase : allowed because searching filters contains user id")
+                return true
+            }
+        }
+        return false
     }
-    }else{
-    def isInvolved = processAPI.isInvolvedInProcessInstance(currentUserId, processInstanceId)
-    logger.debug("RuleCase : allowed because get on process that user is involved in")
-    return isInvolved
-    }
-    } else {
-    def stringUserId = String.valueOf(currentUserId)
-    if (stringUserId.equals(filters.get("started_by")) || stringUserId.equals(filters.get("user_id")) || stringUserId.equals(filters.get("supervisor_id"))) {
-    logger.debug("RuleCase : allowed because searching filters contains user id")
-    return true
-    }
-    }
-    return false
-    }
-    }
+}
 ```
 
 ## Initialization
@@ -240,6 +241,15 @@ Depending on the permissions that a user of the page already has, it might be ne
 When a new [custom profile](custom-profiles.md) is created, the permissions mappings are updated in the configuration files and in the cache.
 It is not necessary to restart the application server to activate security for the new custom profile.
 
+## Granting permissions to a given resource
+
+If you only develop custom pages and you declare the resources they use properly, you should never have to create custom permissions.
+However, you may need to do so if you need to manually grant permissions to a given REST API resource (so that it can be called programatically for example). In order to do that, you need to:
+1. Look into the file `resources-permissions-mapping.properties` for the permissions that grant access to the resource.
+For example, in order to perform a GET on `bpm/task`, I can see that I need the permisssion `flownode_visualization` (syntaxe: `GET|bpm/task=[flownode_visualization]`)
+2. Edit the file `custom-permissions-mapping.properties` to give the permission `flownode_visualization` to the required profiles or users.
+For example, to add the permission to the user walter.bates (username), add the following line : `user|walter.bates=[flownode_visualization]`
+
 <a id="activate"/>
 
 ## Activating and deactivating authorization
@@ -255,7 +265,7 @@ To do this, you can either filter the HTTP API in the Tomcat configuration (that
 deactivate the `HttpAPIServlet`. To deactivate the servlet, go to the `webapps/bonita/WEB-INF` folder of your web server,
 edit `web.xml` and comment out the following definitions:
 ```xml
- <!-- For engine HTTP API -->
+    <!-- For engine HTTP API -->
     <!--
     <servlet>
         <servlet-name>HttpAPIServlet</servlet-name>
