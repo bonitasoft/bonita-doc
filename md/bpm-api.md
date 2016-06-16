@@ -446,9 +446,9 @@ Retrieve humanTask objects that match the specified filters.
   `GET`
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
-  You can filter on:
-
-  * `assigned\_id={user\_id}`: retrieve only the human tasks assigned to the specified ID. For example, retrieve the human tasks assigned to user with id 2: `/API/bpm/humanTask?p=0&c=10&f=assigned\_id%3d2`
+  You can also use the [flow node data params](#flownode-search-data-params).  
+  For instance, you can filter on:
+  * `assigned_id={user_id}`: retrieve only the human tasks assigned to the specified ID. For example, retrieve the human tasks assigned to user with id 2: `/API/bpm/humanTask?p=0&c=10&f=assigned\_id%3d2`
   * `state=`: retrieve only the archived user tasks with the specified state. For example, retrieve the skipped tasks: `/API/bpm/humanTask?p=0&c=10&f=state=skipped`
   * `name=`: retrieve only the human tasks with the specified name. For example, retrieve the human tasks with the name "Analyse Case": `/API/bpm/humanTask?p=0&c=10&f=name=Analyse Case`
   * `displayName=`: retrieve only the archived user tasks with the specified displayName. For example, retrieve the human tasks with the displayName "Analyse Case": `/API/bpm/humanTask?p=0&c=10&f=displayName=Analyse Case`
@@ -692,10 +692,10 @@ Use a GET method with filters and search terms to search for subtasks.
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   You can filter on:
 
-  * `assigned\_id={user\_id}`: retrieve only the manual tasks assigned to the specified user. For example, retrieve the manual tasks assigned to user with id 1: `/API/bpm/manualTask?p=0&c=10&f=assigned_id%3d1`.
+  * `assigned\_id={user_id}`: retrieve only the manual tasks assigned to the specified user. For example, retrieve the manual tasks assigned to user with id 1: `/API/bpm/manualTask?p=0&c=10&f=assigned_id%3d1`.
   * `state=skipped | ready | completed | failed` : retrieve only the manual tasks with the specified state. For example, retrieve the ready tasks: `/API/bpm/manualTask?p=0&c=10&f=state%3dready`.
-  * `caseId={case\_id}`: retrieve only the manual tasks created in the specified case. For example, retrieve the manual tasks for the case\_id 2: `/API/bpm/manualTask?p=0&c=10&f=caseId%3d2`.
-  * `parentTaskId={parentTask\_id}`: retrieve only the manual tasks for a specific parentTask. For example, retrieve the manual tasks for the parentTask\_id 40001: `/API/bpm/manualTask?p=0&c=10&f=parentTaskId%3d40001`.
+  * `caseId={case_id}`: retrieve only the manual tasks created in the specified case. For example, retrieve the manual tasks for the case\_id 2: `/API/bpm/manualTask?p=0&c=10&f=caseId%3d2`.
+  * `parentTaskId={parentTask_id}`: retrieve only the manual tasks for a specific parentTask. For example, retrieve the manual tasks for the parentTask\_id 40001: `/API/bpm/manualTask?p=0&c=10&f=parentTaskId%3d40001`.
 
   You can search on:
 
@@ -3860,10 +3860,10 @@ Search for flow nodes using given parameters. Flow nodes in states completed, ca
   _Example_: Get all the active flow nodes named "Escalate", ordering the results by state: `/API/bpm/flowNode/?p=0&c=10&f=name%3dEscalate&o%3dstate`
 * **Method**  
   `GET`
+  <a id="flownode-search-data-params"/>
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   The following parameters are available:
-
   * o: 
     * name
     * displayName
