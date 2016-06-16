@@ -25,7 +25,7 @@ When the case counter reaches the limit set in the license, no more cases can be
 If a user tries to submit an instantiation form after the case counter maximum limit is reached, the form is not submitted and an error message is displayed to her.  
 **Note:** If the process still uses legacy, 6.x, forms, there is no error message.
 
-## Legacy, CPU core-based, licensing
+## Legacy licensing (based on number of CPU cores)
 
 A legacy license has an expiration date but no case limit.
 
@@ -79,7 +79,7 @@ When you receive the license file (`.lic` file extension), [update it](BonitaBPM
 
 ## License renewal scheduling
 
-For either type of license, if you are still within the Subscription period when you approach the license expiration date, request a new license that starts on the last day of your current license.  
+Whether your license is based on case-counter or based on number of CPU cores, if you are still within the Subscription period when you approach the license expiration date, request a new license that starts on the last day of your current license.  
 Put the license you receive in the license folder alongside the existing license.  
 When you reach the "changeover" date for the licenses, Bonita BPM Engine switches automatically from the expired license to the valid one.
 **Note:** We recommend to regularly remove license files of expired licenses from the server.
