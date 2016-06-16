@@ -34,29 +34,26 @@ APITypeManager.setAPITypeAndParams(ApiAccessType.HTTP, parameters)
 ### Configure Client using System properties
 You can set the system property `org.bonitasoft.engine.api-type` to `HTTP`, `EJB3` or `LOCAL`.
  * `HTTP`:
-
-   The `HTTP` connection mode will connect the client to the engine using the http protocol. This is the most common way to connect to engine remotly.
-
+   The `HTTP` connection mode will connect the client to the engine using the http protocol. This is the most common way to connect to engine remotly.  
    When using `HTTP` mode, you must set the following system properties
    * `org.bonitasoft.engine.api-type.server.url`
-
       It is the url of the server, e.g. for a engine on the same host it can be `http://localhost:8080`
    * `org.bonitasoft.engine.api-type.application.name`
 
       It is the the of the web aplication on wich the engine HTTP API is deployed, e.g. `bonita`
  * `EJB3`
-
-   The `EJB3` connection mode will connect the client to the engine using EJBs.
-
+   The `EJB3` connection mode will connect the client to the engine using EJBs.  
    You will need to specify at least `org.bonitasoft.engine.ejb.naming.reference` that is the name use to lookup the ServerAPI
-
  * `LOCAL`
-
     This is the default connection mode, it connects to the server in the same JVM (not remote). If nothing is set this mode will be used.
 
-### Configure client using Bonita Home client (*legacy, not recommended*)
+### Configure client using Bonita Home client 
 
-This is a legacy wawy to configure the connection to the remote engine.
+::: danger
+Deprecated, use the programmatic way instead, see [APITypeManager](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/util/APITypeManager.html).
+:::
+
+This is a legacy way to configure the connection to the remote engine.
 
 In this case you have to create a folder containing a `engine-client` directory and a `conf` subdirectory.
 This last subdirectory must contain a file named `bonita-client-custom.properties` having as content configuration of the engine client (see below).
@@ -95,10 +92,10 @@ By default [Tomcat](tomcat-bundle.md) and [JBoss](jboss-bundle.md) bundles along
 It is configured in the `web.xml` file of the web application like this:
 
 ```xml
-    <servlet>
-        <servlet-name>HttpAPIServlet</servlet-name>
-        <servlet-class>org.bonitasoft.engine.api.internal.servlet.HttpAPIServlet</servlet-class>
-    </servlet>
+<servlet>
+    <servlet-name>HttpAPIServlet</servlet-name>
+    <servlet-class>org.bonitasoft.engine.api.internal.servlet.HttpAPIServlet</servlet-class>
+</servlet>
 ```
 
 ::: warning
@@ -109,26 +106,15 @@ This HTTP access  is not secured, it should not be exposed outside a trusted are
 
 By default the [JBoss bundle](jboss-bundle.md) is configured to accept connection for EJB3.
 
-For an EJB3 connection to work on a custom deployment on JBoss 7, there are some additional configuration steps.
+For an EJB3 client connection to work with JBoss 7, there are some additional configuration steps.
 
-In the JBoss administration console, [create a user account](https://docs.jboss.org/author/display/AS71/Admin+Guide#AdminGuide-adduser.sh) to be used for remote connections.
+If the client is not located on the same host than the JBoss server, you need to create a Application user in the JBoss administration console.  
+So open the JBoss administration console and [create a user account](https://docs.jboss.org/author/display/AS71/Admin+Guide#AdminGuide-adduser.sh) to be used for remote connections (for example, username _bonita_ and password _bpm_).  
 
-**Add a properties file**, `jboss-ejb-client.properties`, to the client classpath. This file is in the `$JBOSS_HOME/bin/client` folder. 
-It contains information needed to make the remote connection, including the username and password of the user you created in the JBoss console, as shown below:
-```properties
-endpoint.name=client-endpoint
-remote.connectionprovider.create.options.org.xnio.Options.SSL_ENABLED=false
-remote.connections=default
- 
-remote.connection.default.host=myhostname
-remote.connection.default.port = 4447
-remote.connection.default.connect.options.org.xnio.Options.SASL_POLICY_NOANONYMOUS=false
-remote.connection.default.username 
-remote.connection.default.password 
-```
+Your Java client needs to have the JBoss client classes in the classpath for it to communicate correctly with the server.  
+If you use Maven to manage your dependencies, add the following dependency in your pom.xml :
 
-Add the following **Maven dependency**:
-```
+```xml
 <dependency>
         <groupId>org.jboss.as</groupId>
         <artifactId>jboss-as-ejb-client-bom</artifactId>
@@ -137,8 +123,59 @@ Add the following **Maven dependency**:
 </dependency>  
 ```
 
-**Update the JBoss configuration file**, `standalone.xml`: 
+The same kind of configuration is possible if you use some other dependency management tool like gradle or ivy.  
+If you do not use any management tool, you have to include the _jboss-client.jar_ to your classpath. It is available in the JBoss bundle in the $JBOSS_HOME/bin/client folder.
 
-* In the `interfaces` section, modify the IP address so that the Bonita BPM Engine is visible to the network.
+*Create a property file* named `jboss-ejb-client.properties`, to the client classpath.  
+It contains information needed to make the remote connection, including the username and password of the user you created in the JBoss console, as shown below:
+
+```
+endpoint.name=client-endpoint
+remote.connectionprovider.create.options.org.xnio.Options.SSL_ENABLED=false
+remote.connections=default
+ 
+remote.connection.default.host=myhostname
+remote.connection.default.port = 4447
+remote.connection.default.connect.options.org.xnio.Options.SASL_POLICY_NOANONYMOUS=false
+remote.connection.default.username=bonita
+remote.connection.default.password=bpm
+```
+
+Update the `bonita-client.properties` file configured in the `${bonita.home}/client/conf` folder for the bonita client to connect to the server with the appropriate API type.
+
+```
+# Remote: EJB3
+org.bonitasoft.engine.api-type = EJB3
+# JBoss AS 7
+java.naming.factory.url.pkgs = org.jboss.ejb.client.naming
+#default EJB reference name
+org.bonitasoft.engine.ejb.naming.reference=ejb:bonita-ear/bonita-ejb/serverAPIBean!org.bonitasoft.engine.api.internal.ServerAPI
+```
+
+If it is not already done for the JBoss server to accept remote connections, update the JBoss configuration file, standalone.xml:
+* In the interfaces section, modify the IP address so that the Bonita BPM Engine is visible to the network.
 * Specify that port 4447 comes from the remoting socket-binding.
 
+## Troubleshooting
+
+If the following stacktrace appears in your client console :
+```
+IllegalStateException
+Sep 29, 2015 3:46:16 PM org.jboss.ejb.client.EJBClient <clinit>
+INFO: JBoss EJB Client version 1.0.5.Final
+Exception in thread "main" java.lang.IllegalStateException: No EJB receiver available for handling [appName:bonita-ear,modulename:bonita-ejb,distinctname:] combination for invocation context org.jboss.ejb.client.EJBClientInvocationContext@24e6d224
+        at org.jboss.ejb.client.EJBClientContext.requireEJBReceiver(EJBClientContext.java:584)
+        at org.jboss.ejb.client.ReceiverInterceptor.handleInvocation(ReceiverInterceptor.java:119)
+        at org.jboss.ejb.client.EJBClientInvocationContext.sendRequest(EJBClientInvocationContext.java:181)
+        at org.jboss.ejb.client.EJBInvocationHandler.doInvoke(EJBInvocationHandler.java:136)
+        at org.jboss.ejb.client.EJBInvocationHandler.doInvoke(EJBInvocationHandler.java:121)
+        at org.jboss.ejb.client.EJBInvocationHandler.invoke(EJBInvocationHandler.java:104)
+        at com.sun.proxy.$Proxy0.invokeMethod(Unknown Source)
+        at org.bonitasoft.engine.api.EJB3ServerAPI.invokeMethod(EJB3ServerAPI.java:68)
+        at org.bonitasoft.engine.api.impl.ClientInterceptor.invoke(ClientInterceptor.java:86)
+        at com.sun.proxy.$Proxy1.login(Unknown Source)
+        at org.support.bonitasoft.example.CountInstances.login(CountInstances.java:127)
+        at org.support.bonitasoft.example.CountInstances.main(CountInstances.java:90)
+```
+
+It means that the `jboss-ejb-client.properties` has not been found in the classpath or that it has not been configured correctly.
