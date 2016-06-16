@@ -32,8 +32,12 @@ For a Subscription edition:
 
 The fully qualified folder path (including the BonitaBPM-x.y.z-Tomcat-7.0.67 folder) to the folder where you unzip the Tomcat bundle is referred to as `_<TOMCAT_HOME>_`. We recommend the following locations:
 
-* Windows: `C:\BonitaBPM`. If you want to unzip the bundle to another folder, do not leave blank spaces in the path to the directory, nor in the folder name.
+* Windows: `C:\BonitaBPM`. 
 * Linux: in `/opt/BonitaBPM`. Make sure that Linux user account used to execute Tomcat is the owner of the folders and files.
+
+::: info
+Whatever location you choose, do not leave blank spaces in the path to the directory, nor in the folder name.
+:::
 
 #### Content of the Tomcat bundle
 
