@@ -24,12 +24,16 @@ platformAPI.createPlatform();
 ```
 
 The next step is to **initialize the platform**, that is, create the default tenant and initialize Bonita BPM Engine environment. 
-After this step, the technical user will be able to connect to the engine and create new users or [import the organization](manage-an-organization.md). No users are created by default and the default username/password for the technical user to connect to Bonita BPM Engine are stored in the file bonita-server.properties that is in the _BONITA\_HOME_ directory.
+After this step, the technical user will be able to connect to the engine and create new users or [import the organization](manage-an-organization.md).
 
 ```bash
 // initialize the platform
 platformAPI.initializePlatform();
 ```
+
+No users are created by default and the default username/password for the technical user to connect to Bonita BPM Engine can be retrieved in the file `setup/platform_conf/current/tenants/[tenant_id]/tenant_engine/bonita-tenant-community-custom.properties` using the [plaform setup tool](BonitaBPM_platform_setup.md) (`[tenant_id]` being the default tenant ID, that is to say `1` when using the default configuration on a fresh installation).
+
+Once you retrieved the default configuration using the [plaform setup tool](BonitaBPM_platform_setup.md), you can change this username/password by editing the file `bonita-tenant-community-custom.properties` and use the tool again to [push the configuration to database](BonitaBPM_platform_setup.md#update_platform_conf).
 
 Next, **start Bonita BPM engine**. Starting the engine on a node starts the Scheduler service and restarts elements that were not finished by the Work service on the previous shutdown. Bonita BPM Engine environment is marked as activated.
 
