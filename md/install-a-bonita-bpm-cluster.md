@@ -31,6 +31,11 @@ The platform setup tool is also present in the Tomcat or JBoss bundle under the 
     * In `platform_init_engine/bonita-platform-init-community-custom.properties` uncomment and update the value of `activeProfiles` property from **`community`** to **`community,performance`**.
     * In `platform_engine/bonita-platform-sp-custom.properties`
         * uncomment and set the **`bonita.cluster`** property to `true`.
+        * <a id="disable-hibernate-cache"/>In order to keep consistency between nodes, the Hibernate cache must be disabled.  
+          Uncoment and change the line  
+          `#bonita.platform.persistence.use_second_level_cache=true`  
+          to  
+          `bonita.platform.persistence.use_second_level_cache=false`
     * In `platform_engine/bonita-platform-sp-cluster-custom.properties`
         * uncomment and set the **`bonita.cluster.name`** property to a name of your own, e.g. `myBPMCluster`, **This name must be unique on the local network if you are using *multicast***
         * set one of `bonita.platform.cluster.hazelcast.multicast.enabled`, `bonita.platform.cluster.hazelcast.tcpip.enabled` and `bonita.platform.cluster.hazelcast.aws.enabled` to true
@@ -55,8 +60,8 @@ If later you need to change the configuration of the node discovery or add new l
 this property should be added in the `[TOMCAT_DIRECTORY]/bin/setenv.sh` or `[TOMCAT_DIRECTORY]/bin/setenv.bat`
 
 4. When the installation is complete, start Tomcat on the node. This starts Bonita BPM Platform:
-```
-    ./bonita-start.sh
+```bash
+./bonita-start.sh
 ```
 5. Then start the cluster in the load balancer.
 
