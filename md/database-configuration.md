@@ -72,6 +72,8 @@ This is defined by setting the `sysprop.bonita.db.vendor` JVM system property va
 
 The possible values for `sysprop.bonita.db.vendor` / `db.vendor` are:
 
+<div class="row"><div class="col-md-6 col-md-offset-1">
+
 | Database vendor | Property value |  
 | :- | :- |  
 | PostgreSQL | postgres |
@@ -79,6 +81,11 @@ The possible values for `sysprop.bonita.db.vendor` / `db.vendor` are:
 | SQL Server | sqlserver |
 | MySQL | mysql |
 | h2 (default for testing, not for production) | h2 |
+
+</div></div>
+
+As example, if you want to use postgres, the line will be:
+`db.vendor= postgres`
 
 The way to define JVM system properties depends on your application server type:
 

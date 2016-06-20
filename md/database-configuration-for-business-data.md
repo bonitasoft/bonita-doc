@@ -21,6 +21,8 @@ In your RDBMS, make sure there is a user defined with privileges to create table
 Edit [`bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md) for each tenant and set the `bdm.db.vendor` property to indicate the RDBMS vendor.
 The possible values for `bdm.db.vendor` are:
 
+<div class="row"><div class="col-md-6 col-md-offset-1">
+
 | Database vendor | Property value |
 | :- | :- |
 | PostgreSQL | postgres |
@@ -28,6 +30,11 @@ The possible values for `bdm.db.vendor` are:
 | SQL Server | sqlserver |
 | MySQL | mysql |
 | h2 (default for testing, not for production) | h2 |
+
+</div></div>
+
+As example, if you want to use postgres, the line will be:
+`bdm.db.vendor= postgres`
 
 Setting the RDBMS vendor automatically configures the relevant Hibernate dialog. 
 If you need to change the Hibernate dialog for any reason, reset the vendor property for the tenant.
