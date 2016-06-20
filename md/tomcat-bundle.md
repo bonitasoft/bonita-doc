@@ -62,11 +62,11 @@ The Tomcat bundle is based on a standard Tomcat installation with the following 
 ::: info
 **Note:** Starting from Bonita BPM 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database than the Bonita BPM Engine data, namely in the `CONFIGURATION` table.
 To initialize and update this configuration, a [*Platform setup tool*](BonitaBPM_platform_setup.md) is provided and embedded in Bonita BPM bundles.
-It will be launched automatically when you start the Tomcat bundle to initialize the database.
 :::
 
 So your bundle also contains:
-`setup`: database management for Bonita BPM Platform configuration and Bonita BPM Engine data, and a tool to update the configuration.
+
+* `setup`: database management for Bonita BPM Platform configuration and Bonita BPM Engine data, and a tool to update the configuration.
 
 
 ### Get and install a license
@@ -96,25 +96,15 @@ If you are installing the Performance Subscription edition, you need to edit [`s
 ### Configure the Tomcat bundle
 
 ::: info
-If you just want to try Bonita BPM Platform with the embedded h2 database (only for development phase of your project), you can skip the next two paragraphs.
+If you just want to try Bonita BPM Platform with the embedded h2 database (only for development phase of your project), you can skip the next paragraph.
 For production, you are recommended to use one of the supported databases, with the following steps.
 :::
-
-#### Configure Bonita BPM Platform datasource
-
-Make sure your database is created before you start the configuration and make sure you do this before you start the Tomcat server.
-
-The first step is to configure the database used by the [*Platform setup tool*](BonitaBPM_platform_setup.md) to initialize the configuration.
-
-To do so, go to `<TOMCAT_HOME>/` and update the `setup/database.properties` files with the connection information of the database.
-
-The initial configuration that will be pushed to the database is located in the `setup/platform_conf/initial` folder.
 
 <a id="datasources_configuration" />
 
 #### Configure the Tomcat server datasources
 
-After configuring the datasource to let the Platform setup tool initialize and store the configuration, you need to configure this datasource on the server.
+Make sure your database is created before you start configuring the Tomcat datasources and make sure you do so before you start the Tomcat server.
 
 If you use the [Business Data Model (BDM) feature](define-and-deploy-the-bdm.md), you can store the business data in the same database than platform configuration and engine data, or you can configure a dedicated database.
 
@@ -122,7 +112,7 @@ Follow those steps:
 
 1. Edit file `[TOMCAT_HOME]`/conf/ **server.xml** and remove (or comment out) the following line to deactivate embedded h2 database:
   `<Listener className="org.bonitasoft.tomcat.H2Listener" tcpPort="9091" baseDir="${org.bonitasoft.h2.database.dir}" start="true" />`
-2. Drop your database vendor-specific drivers in `[TOMCAT_HOME]`/lib/bonita (you can copy the provided open-source drivers: PostgreSQL, MySQL)from `[TOMCAT_HOME]/setup/lib`
+2. Drop your database vendor-specific drivers in `[TOMCAT_HOME]`/lib/bonita (you can copy the provided open-source drivers: PostgreSQL, MySQL) from `[TOMCAT_HOME]/setup/lib`
 3. Edit file `[TOMCAT_HOME]`/conf/ **bitronix-resources.properties**
     1. Comment the default embedded h2 database configuration (preceding the lines with a #)
     2. Uncomment the configuration for your database vendor (PostgreSQL, Oracle, SQL Server, or MySQL)
@@ -148,9 +138,6 @@ Tomcat can be started by executing the following commands:
 
 * Windows: `<TOMCAT_HOME>\bonita-start.bat`
 * Linux: `<TOMCAT_HOME>/bonita-start.bat`
-
-This command execute the [setup script](BonitaBPM_platform_setup.md) then start the tomcat.
-If you use directly the tomcat startup script and not this bonita-start script for the first time, the BonitaBPM platform will start using default configuration.
 
 #### Custom start-up script
 
@@ -202,3 +189,8 @@ Once you have got your Tomcat bundle up and running a [few extra steps](first-st
 
 ### How to update the configuration
 To update the configuration after the first run please take a look at the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
+
+::: info
+**Keep in mind** that [platform setup tool](BonitaBPM_platform_setup.md#configure_tool) is independent from Tomcat Bundle and thus needs to be configured by itself to point to the right database.
+This is done by editing file `database.properties`
+:::

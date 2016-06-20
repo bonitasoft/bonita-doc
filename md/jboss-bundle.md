@@ -98,3 +98,11 @@ JBoss can be shut down by running the following script:
 ## First steps after installation
 
 Once you have your JBoss bundle up and running, complete these [first steps](first-steps-after-setup.md) to get a fully operational Bonita BPM platform.
+
+### How to update the configuration
+To update the configuration after the first run please take a look at the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
+
+::: info
+**Keep in mind** that [platform setup tool](BonitaBPM_platform_setup.md#configure_tool) is independent from Jboss Bundle and thus needs to be configured by itself to point to the right database.
+This is done by editing file `database.properties`
+:::
