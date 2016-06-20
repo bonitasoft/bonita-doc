@@ -12,6 +12,10 @@ In this section you will learn what the Platform setup tool is and how to use it
 The *Platform setup tool* handles the creation of the database schema and the configuration of Bonita BPM Platform.  
 It is located in the [deploy bundle](deploy-bundle.md) and in both [Tomcat](tomcat-bundle.md) and [JBoss](jboss-bundle.md) bundles.
 
+::: info
+In Tomcat and JBoss bundles you can find the tool in the `setup` folder
+:::
+
 
 ### Structure
 
