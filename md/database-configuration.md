@@ -98,13 +98,6 @@ An alternative to setting the JVM system property (`sysprop.bonita.db.vendor`) i
 The default value of `db.vendor` indicates that the value of the JVM system property value must be used.  
 If the property is not defined, the fallback value is h2: `db.vendor=${sysprop.bonita.db.vendor:h2}`
 
-Then configure database for platform-setup:
-
-* JBoss: edit `<JBOSS_HOME>/setup/database.properties`
-* Tomcat: edit `<TOMCAT_HOME>/setup/database.properties`
-
-Edit the following properties: `db.vendor`,`db.server.name`,`db.server.port`,`db.database.name`, `db.user`,`db.password`
-
 ## Add the JDBC driver
 
 #### Download JDBC driver
