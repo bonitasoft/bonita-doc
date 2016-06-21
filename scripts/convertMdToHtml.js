@@ -54,6 +54,7 @@
 
   function convertFile(fileName, htmlPath, mdPath) {
     writeFilePromise(htmlPath + '/' + fileName.replace(/\.md$/, '.html'),
+      '<!-- Generated on ' + new Date() + ' -->\n' +
       md.render(
         replaceVariables(fs.readFileSync(mdPath + '/' + fileName).toString())
       ).replace(/src="images\//g, `src="images/${version}/`)).then(() => console.log(fileName + ' has been successfully converted'));
