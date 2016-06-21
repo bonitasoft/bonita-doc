@@ -23,6 +23,7 @@
   const readdirPromise = denodeify(fs.readdir);
   const writeFilePromise = denodeify(fs.writeFile);
   const accessPromise = denodeify(fs.access);
+  const mkdirpPromise = denodeify(mkdirp);
   const fa = require('markdown-it-fontawesome');
   const smartArrows = require('markdown-it-smartarrows');
   const decorate = require('markdown-it-decorate');
@@ -43,12 +44,9 @@
   convertDirectory(pathToMd, pathToHtml);
 
   function convertDirectory(mdPath, htmlPath) {
-    console.log('converting ', mdPath, htmlPath);
+    winston.info('converting', mdPath, 'to', htmlPath, 'for version', version);
     accessPromise(htmlPath, fs.F_OK)
-      .catch(e => {
-        console.log(e);
-        mkdirp.sync(htmlPath);
-      })
+      .catch(e => winston.error(e) || mkdirpPromise(htmlPath))
       .then(() => readdirPromise(mdPath)
         .then(fileNames => fileNames.filter(fileName => fileName.match(/\.md$/)).forEach(fileName => convertFile(fileName, htmlPath, mdPath)))
       );
