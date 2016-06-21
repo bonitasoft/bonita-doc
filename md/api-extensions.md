@@ -17,29 +17,40 @@ You need to deploy the REST API zip archive using Bonita BPM Portal:
 1. Click Next.
 1. Click Confirm. The resource is added to the portal
 
-REST API extensions use the same authorization mechanism as the standard Bonita BPM REST APIs. When you import the extension, the information in `page.properties` is used to set the appropriate resource permission mappings in Bonita BPM (see [REST API authorization](rest-api-authorization.md) for information about REST API security configuration).
+REST API extensions use the same authorization mechanism as the standard Bonita BPM REST APIs. When you import the extension, the information in `page.properties` is used to create the appropriate resource permission mappings in Bonita BPM (see [REST API authorization](rest-api-authorization.md) for information about REST API security configuration).
 
-**Note**: It is also possible to deploy a REST API extension using [REST portal API / "page" resource](api_resources/page_6.4_1.md).
+::: info
+**Note**: It is also possible to deploy a REST API extension using [REST portal API / "page" resource](page_6.4_1.md).
+:::
 
+::: warning
 **Warning**: If you are running Bonita BPM in a cluster, after you import a REST API extension, you must restart the application server on all the cluster nodes.
+:::
+
+<a id="usage"/>
 
 ## Usage
 
 A REST API extension must be deployed before any page or form resource using it is deployed.
 
 A page that uses REST API extensions must add the required resources in the page resource `page.properties` file.
-For example, if a page uses the demoHeaders, demoXml, and putResource API extensions, the `page.properties` must include this line:
-```groovy
-resources=[GET|extension/demoHeaders, POST|extension/demoXml,PUT|extension/putResource]
+For example, if a page uses the demoHeaders, demoXml, and putResource API extensions, its `page.properties` must include this line:
 ```
+resources=[GET|extension/demoHeaders,POST|extension/demoXml,PUT|extension/putResource]
+```
+If the pages declare its resources correctly, then every user being able to access this page (because it is part of a custom profile or Living Application they have access to) will also be automatically granted the necessary permissions to call the REST API extention. This works the same way as with the other resources of the REST API.  
+However, if you need to grant access to this API extention to some users regardless of the pages they have access to, then you need to add [custom permissions](rest-api-authorization.md#custom-permissions-mapping) for these users.  
+In order to do so, edit `custom-permissions-mapping.properties` to give the permissions (value of the property `apiExtension.permissions`) declared in the page.properties of the REST API extension to the required profiles or users.
 
-Additional resources and related permissions are stored in user's session. A logout/login to the portal is required to get new permissions effective for user.
+::: info
+**Note**: REST API permissions are stored in the user's session and new permissions will only be effective for a user the next time he logs in to the portal.
+:::
 
 ## REST API extension examples
 
 A REST API extension example resource and API extension viewer page are provided in administrator portal. They are located in administrator portal.
 
-To use the examples, define a mapping for `demoPermission`.
+To use the examples, define a [custom permissions](rest-api-authorization.md#custom-permissions-mapping) mapping for `demoPermission`:
 
 * Edit `$BONITA_HOME/client/tenants/1/conf/custom-permissions-mapping.properties`.
 * Add the following line: `profile|User=[demoPermission]`.
