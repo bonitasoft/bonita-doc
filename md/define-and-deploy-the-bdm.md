@@ -309,9 +309,9 @@ Then, click on the _**pencil**_ button to open the _**Edit Expression**_ editor.
 
 You can use business data in a Java program by using the DAO. DAO gives _**read**_ access to business objects.
 
-<aside class="warning">
-Warning: In a connector, code is executed outside a transaction, so retrieving or updating business data by DAO is not supported.
-</aside>
+::: warning
+** :fa-exclamation-triangle: Warning**: In a connector, code is executed outside a transaction, so retrieving or updating business data by DAO is not supported.
+:::
 
 You can however manipulate the business object outside the connector, and use business objects as connector input or output:
 
