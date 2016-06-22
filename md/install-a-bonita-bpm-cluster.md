@@ -34,7 +34,7 @@ The platform setup tool is also present in the Tomcat or JBoss bundle under the 
     * In `platform_engine/bonita-platform-sp-custom.properties`
         * uncomment and set the **`bonita.cluster`** property to `true`.
         * <a id="disable-hibernate-cache"/>In order to keep consistency between nodes, the Hibernate cache must be disabled.  
-          Uncoment and change the line  
+          Uncomment and change the line  
           `#bonita.platform.persistence.use_second_level_cache=true`  
           to  
           `bonita.platform.persistence.use_second_level_cache=false`

@@ -80,7 +80,7 @@ The nodes must all be in the same datacenter, to keep latency of updates to shar
 
 All nodes must run the same software configuration (same versions on Bonita BPM and application server). 
 
-The [Hibernate cache must be disabled](overview-of-bonita-bpm-in-a-cluster.md#disable-hibernate-cache).
+The [Hibernate cache must be disabled](install-a-bonita-bpm-cluster.md#disable-hibernate-cache).
 
 The load balancer must be configured to use sticky sessions (this is needed to manage sessions created when users log in to the Portal).
 
