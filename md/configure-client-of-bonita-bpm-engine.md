@@ -76,10 +76,6 @@ org.bonitasoft.engine.api-type = LOCAL
 #java.naming.factory.url.pkgs = org.jboss.ejb.client.naming
 #default EJB reference name
 #org.bonitasoft.engine.ejb.naming.reference=ejb:bonita-ear/bonita-ejb/serverAPIBean!org.bonitasoft.engine.api.internal.ServerAPI
-# JBoss 5
-#java.naming.factory.initial = org.jnp.interfaces.NamingContextFactory
-#java.naming.provider.url = jnp://localhost:1099
-#org.bonitasoft.engine.ejb.naming.reference=serverAPI
 ```
 
 
