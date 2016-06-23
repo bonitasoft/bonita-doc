@@ -2636,9 +2636,6 @@ You can get a case by using its identifier. Request url
   * f: filter of the search, beware you cannot use team\_manager\_id and supervisor\_id at the same time
   * n: count of related resource. Available values: `activeFlowNodes`, `failedFlowNodes`
   * d: extend resource response parameters of [this resource](#case-deploy) are available.
-* **Request Payload**  
-  ```json
-  ```
 * **Success Response**  
   JSON representations of matching cases
   * **Code**: 200
@@ -3135,6 +3132,132 @@ Retrieve information about the flow nodes of the case identified by the given ID
     }
     ```
 
+### CaseComment
+
+#### Description
+
+Retrieves information about a case comment.
+
+#### Representation
+```json
+{
+  "id": "1",
+  "content": "the comment content",
+  "tenantId": "the id of the tenant the comment is associated to",
+  "processInstanceId": "the process instance(case) the comment is associated to",
+  "postDate": "the comment creation date",
+  "userId": "the user that created the comment"
+}
+```
+#### Methods
+
+The method used for this resource is:
+
+* GET - Search for comments
+* POST - Add a comment
+
+#### Response object extension (deploy query parameter)
+
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * `userId`
+
+::: info
+Note: if the `userId` is not provided as a deploy parameter, the `userId` property of a comment is filled with the system user :
+```json
+{
+  "icon": "/default/icon_user.png",
+  "userName": "System"
+}
+```
+:::
+
+#### Create a comment
+
+* **URL**  
+  `/API/bpm/comment`  
+* **Method**  
+  `POST`
+* **Request Payload**  
+  The process instance (case) id and the comment content, in JSON
+
+  ```json
+  {
+    "processInstanceId":"5777042023671752656",
+    "content": "The case has been started"
+  }
+  ```
+* **Success Response**  
+  The JSON representation of a case comment
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "content": "test",
+      "tenantId": "1",
+      "id": "20005",
+      "processInstanceId": "1",
+      "postDate": "2016-06-16 14:51:33.053",
+      "userId": "30"
+    }
+    ```
+
+#### Search for comments
+
+* **URL**  
+  `/API/bpm/case`  
+  _Example_: `/API/bpm/comment?p=0&c=10&o=postDate%20DESC&f=processInstanceId%3d1&d=userId`
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  * o: you can sort on the `postDate`
+  * f: filter of the search. Available filters are : 
+    * `supervisor_id`
+    * `user_id`
+    * `processInstanceId`
+    You cannot use `supervisor_id` and `user_id` filter at the same time.
+* **Success Response**  
+  JSON representations of matching comments
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    [
+      {
+        "content": "Need to review the last inputs of this case",
+        "tenantId": "1",
+        "id": "20005",
+        "processInstanceId": "1",
+        "postDate": "2016-06-16 14:51:33.053",
+        "userId": {
+          "last_connection": "2016-06-16 14:49:37.067",
+          "created_by_user_id": "-1",
+          "creation_date": "2016-06-15 11:37:22.709",
+          "id": "30",
+          "icon": "/default/icon_user.png",
+          "enabled": "true",
+          "title": "Mr",
+          "manager_id": "0",
+          "job_title": "Chief Executive Officer",
+          "userName": "william.jobs",
+          "lastname": "Jobs",
+          "firstname": "William",
+          "password": "",
+          "last_update_date": "2016-06-15 11:37:22.709"
+        }
+      }, {
+        "content": "The task \"Etape1\" is now assigned to walter.bates",
+        "tenantId": "1",
+        "id": "20003",
+        "processInstanceId": "1",
+        "postDate": "2016-06-15 12:36:18.541",
+        "userId": {
+          "icon": "/default/icon_user.png",
+          "userName": "System"
+        }
+      }
+    ]
+    ```
+
 ## Process
 
 ### Process
@@ -3158,7 +3281,7 @@ The ID of the process definition (a long value).
   "activationState":"the state of the process definition (ENABLED or DISABLED)",
   "name":"the process name (string)",
   "deployedBy":"the id of the user who deployed the process (integer)",
-  "displayName":"the human readbale process description (string)",
+  "displayName":"the human readable process description (string)",
   "actorinitiatorid":"the id of the actor that can initiate cases of the process",
   "last_update_date":"the date when the process definition was last updated (date)",
   "configurationState":"the configuration state of the process (UNRESOLVED or RESOLVED)",
