@@ -13,7 +13,7 @@ For example, if you are migrating from 6.5.3 to 7.1.0, you must migrate from 6.5
 
 ::: warning
 :fa-exclamation-triangle: **Caution:**
-You should always migrate to a latest version of a major version. Because maintenance version of a previous major version might contain bug fixes made after the release of subsequent major or minor release.
+You should always migrate to the latest version of a major version. Usually, maintenance version might contain bug fixes made after the release of subsequent major or minor release.
 
 For example, the 6.5.4 release contains fixes to certain bugs that were found in early 7.x.y versions, up to 7.1.0.
 When you are ready to migrate from 6.5.4 to a 7.x.y version, make sure you migrate to at least 7.1.1 to be sure that these fixes are present in your new version after migration. 
@@ -30,7 +30,9 @@ If you are upgrading to a new maintenance version and not changing the minor ver
 to 6.3.1), your current license remains valid after migration.
 
 ::: info
-Starting from version 7.3 there is no more bonita home. This means that you do not need to configure the bundle to use the bonita home for an installation migrated in 7.3
+Starting from version 7.3 there is no more bonita home folder. This means that, your installation does not have custom changes, you do not need to configure the bundle to use the bonita home for an installation migrated in 7.3.
+
+If you have customized your configuration, you will have to use the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf) to send your customized configuration files to the database where configuration files are stored from 7.3.
 :::
 
 ![Migration steps](images/images-6_0/migration_bigsteps.png)
@@ -56,7 +58,7 @@ The migration script migrates the following:
 
 The following are not migrated automatically:
 
-* Configuration of the platform: Before 7.3 in the Bonita Home and after 7.3 in database. Reapply your customizations manually after the migration script has finished.
+* Configuration of the platform: Before 7.3 in the Bonita Home and after 7.3 in database. Reapply your customizations manually after the migration script has finished (using [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf) if migrated to 7.3.0+).
 * Deployed process definitions: The process continue to run using the definition create in the previous version.
 * Process definition sources (`.bos` files): Migrate these by importing them into the new version of Bonita BPM Studio.
 * Custom connectors, actor filers, data types: These might continue to work in the new version, but should be tested.
@@ -83,10 +85,13 @@ Then [import](managing-look-feel.md) your updated custom Look & Feel into Bonita
 The migration script supports MySQL, Postgres, Oracle, and MS SQLServer. There is no migration for h2 databases.
 
 ::: warning
-**Important:**
+**Important:**  
+The migration operation resets the BonitaBPM configuration files to default version for new settings to be applied (from the _$BONITA_HOME_ folder in <7.3.0 version or inside database in >=7.3.0). 
+Therefore, you must do a [backup of your configuration files](BonitaBPM_platform_setup.md#update_platform_conf) before starting the migration.  
+You will need to merge custom properties and configurations to the migrated environment.
 
-As any operations on a production system, a migration is not a zero risk operation.
-Therefore you must do a backup of your environment before starting the migration (see step 7 on procedure below).
+Furthermore, from the database point of view, as any operations on a production system, a migration is not a zero risk operation.   
+Therefore, it is strongly recommended to do a [backup of your database](back-up-bonita-bpm-platform.md) before starting the migration.
 :::
 ## Estimate time required
 
@@ -165,6 +170,15 @@ The `bonita_home` and the database have been migrated.
 14. *Only before 7.3.0* In your new `bonita-target-version` folder, delete the `bonita` folder. You will use the `bonita_home` that you have migrated instead.
 15. *Only before 7.3.0* Set the bonita_home system property to point to the migrated `bonita_home`.
 16. [Configure the bundle to use the migrated database](database-configuration.md). Do not recreate the database.
+16. <a id="compound-permission-migration"/> In the case where deployed resources have required dedicated [authorizations to use the REST API](resource-management.md#permissions), these authorizations are not automatically migrated.  
+    Some manual operation have to be done on the `client/tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties` file that is either located in the _$BONITA\_HOME_ folder if version <7.3.0 or in the extracted `platform_conf/current` folder in version >=7.3.0 (see [for more information](BonitaBPM_platform_setup.md#update_platform_conf) ). 
+    You need to merge file versions, the previous one and the migrated one.
+        
+    For example, The [REST API Extension](rest-api-extensions.md) _CI Users REST API_ has been deployed and the `client/tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties` has been automatically updated with the permissions of this resource (a new line has been added in the file):
+    ```
+    custompage_ciuserRestExtension=[profile_visualization, tenant_platform_visualization, organization_visualization]
+    ```  
+    You need to copy the line of each resource permission to the migrated `client/tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties` file.
 17. Configure License:
     Make sure there is a valid license file
     * If you have migrated from an earlier maintenance version of the same minor version, for example, from 6.3.0 to 6.3.1, your existing license is still valid and you do not need to do anything.
