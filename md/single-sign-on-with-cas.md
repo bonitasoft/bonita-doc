@@ -100,9 +100,12 @@ authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservi
 
 ## Configure Bonita BPM Engine and Tomcat for CAS
 
-1. The CAS implementation relies on JAAS, and is defined in the BonitaAuthentication module of the JAAS configuration file. Set the Java system property `java.security.auth.login.config` in the Tomcat startup script to point to the JAAS configuration file, [`jaas.config`](BonitaBPM_platform_setup.md). For example, on Linux, edit `setenv.sh`, uncomment the line that defines `SECURITY_OPTS`, and insert the variable `SECURITY_OPTS` in the line `CATALINA_OPTS=..`. 
+1. The CAS implementation relies on JAAS, and is defined in the BonitaAuthentication module of the JAAS configuration file.  
+Set the Java system property `java.security.auth.login.config` in the Tomcat startup script to point to the JAAS configuration file, [`jaas-standard.cfg`](BonitaBPM_platform_setup.md). 
 
-The `jaas.config` file contains the following (replace `ip_address:port` with the relevant IP addresses and port numbers, in two places): 
+For example, on Linux, edit `setenv.sh`, uncomment the line that defines `SECURITY_OPTS`, and insert the variable `SECURITY_OPTS` in the line `CATALINA_OPTS=..`. 
+
+The `jaas-standard.cfg` file contains the following (replace `ip_address:port` with the relevant IP addresses and port numbers, in two places): 
 ```
 BonitaAuthentication-1 {
   org.jasig.cas.client.jaas.CasLoginModule required
@@ -118,6 +121,9 @@ BonitaAuthentication-1 {
     cacheTimeout="480";
 };
 ```
+::: warning
+**Warning**: module names must be unique. Therefore remove the unecessary ones
+:::
 
 The JAAS configuration file, `jaas.config`, is sorted by sets of authentication modules. For Bonita BPM, each set matches a tenant configuration and the name is prefixed with _BonitaAuthentication-`<tenant-id>`_. Make sure there is a set of authentication modules for each tenant in your platform. For each tenant, set the CAS service to point to the application login page and set `casServerUrlPrefix` to point to the CAS server.
 
