@@ -41,7 +41,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse response, Page
 
 If you are using [REST API authorization](rest-api-authorization.md) and your custom page is an HTML page using the Web REST API, 
 you need to specify the permissions that a user needs to have in order access the resources in the custom page. 
-These permissions are defined in the `page.properties` file. If your custom page is written in Groovy and uses the var_engine Java APIs, you do not need to specify permissions.
+These permissions are defined in the `page.properties` file. If your custom page is written in Groovy and uses the BonitaBPM Engine Java APIs, you do not need to specify permissions.
 
 For each REST resource accessed in the page, specify the authorization needed for each method used. 
 You can find the relevant resources in [`resources-permissions-mapping.properties`](BonitaBPM_platform_setup.md).
@@ -53,8 +53,7 @@ The following example shows the permissions defined for a custom page that enabl
 name=custompage_orgViewer
 displayName=Organization viewer
 description=Organization viewer page. You cannot modify the organization from this page.
-resources=[GET|identity/user, GET|identity/personalcontactdata, GET|identity/professionalcontactdata, GET|identity/role, 
-   GET|identity/group, GET|identity/membership, GET|customuserinfo/user, GET|customuserinfo/definition, GET|customuserinfo/value] 
+resources=[GET|identity/user, GET|identity/personalcontactdata, GET|identity/professionalcontactdata, GET|identity/role, GET|identity/group, GET|identity/membership, GET|customuserinfo/user, GET|customuserinfo/definition, GET|customuserinfo/value] 
 ```
 
 

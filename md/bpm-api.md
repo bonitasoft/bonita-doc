@@ -79,6 +79,22 @@ The methods used for this resource are:
 * GET - Read an activity or search for an activity
 * PUT - Update an activity
 
+<a id="activity-deploy"/>
+
+#### Response object extension (deploy query parameter)
+
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * processId
+  * caseId
+  * rootCaseId
+  * parentCaseId
+  * rootContainerId
+  * executedBy
+  * executedBySubstitute (only in Efficiency and Performance editions)
+  * actorId
+  * assigned\_id
+  * parentTaskId
+
 #### Update activity variables
 
 Note: if there is no data with the specified name in the activity, the update will be applied to the process data if a variable with the specified name exists.
@@ -97,7 +113,10 @@ Note: if there is no data with the specified name in the activity, the update wi
 
 #### Update activity variables and execute a task
 
+::: info
 Note: if the task definition includes a connector that is executed on finish and updates the value of a variable, the value set by the REST API call is overwritten.
+:::
+
 * **URL**  
   `/API/bpm/activity/:id`  
 * **Method**  
@@ -209,17 +228,7 @@ Search for flow activities using given parameters. Activities in states complete
     * rootCaseId
     * last\_update\_date
     * supervisor\_id (only in Efficiency and Performance editions)
-  * d: 
-    * processId
-    * caseId
-    * rootCaseId
-    * parentCaseId
-    * rootContainerId
-    * executedBy
-    * executedBySubstitute (only in Efficiency and Performance editions)
-    * actorId
-    * assigned\_id
-    * parentTaskId
+  * d: extend resource response parameters of [this resource](#activity-deploy) are available.
 * **Success Response**  
   An array of JSON representations of activities
   * **Code**: 200
@@ -305,6 +314,22 @@ The methods used for this resource are:
 
 * GET - Read a resource or search for an archived activity
 
+<a id="archived-activity-deploy"/>
+
+#### Response object extension (deploy query parameter)
+
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * processId: the id of the process that is associated with the activity 
+  * caseId: the id of the case that is associated with the activity
+  * rootCaseId: the root case that is associated with this activity's case
+  * parentCaseId: the parent case that is associated with this activity's case
+  * rootContainerId: the root process of the root case that is associated with this activity
+  * executedBy: the user who executed the activity
+  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency and Performance editions)
+  * actorId: the actor that can execute this activity
+  * assigned\_id: the user this activity is assigned to
+  * parentTaskId: in the case of a subtask, the parent task
+
 #### Get an archived activity
 
 Retrieve the activity information for the given id.
@@ -322,7 +347,6 @@ Retrieve the activity information for the given id.
 Search for archived activities using given parameters. Only archived activities in a final state are retrieved (completed, cancelled, aborted). It returns an array of archived activities.
 * **URL**  
   `/API/bpm/archivedActivity`  
-  _Example_: ``
 * **Method**  
   `GET`
 * **Data Params**  
@@ -339,17 +363,7 @@ Search for archived activities using given parameters. Only archived activities 
   * f: 
     * supervisor\_id: retrieve the information the process manager associated to this id has access to (only in Efficiency and Performance edition)
     * f: same as the sort order fields
-  * d: 
-    * processId: the id of the process that is associated with the activity 
-    * caseId: the id of the case that is associated with the activity
-    * rootCaseId: the root case that is associated with this activity's case
-    * parentCaseId: the parent case that is associated with this activity's case
-    * rootContainerId: the root process of the root case that is associated with this activity
-    * executedBy: the user who executed the activity
-    * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency and Performance editions)
-    * actorId: the actor that can execute this activity
-    * assigned\_id: the user this activity is assigned to
-    * parentTaskId: in the case of a subtask, the parent task
+  * d: extend resource response parameters of [this resource](#archived-activity-deploy) are available.
 * **Success Response**  
   An array of JSON representations of the specified activities
   * **Code**: 200
@@ -398,6 +412,23 @@ The methods used for this resource are:
 
 * GET - Read a resource
 * PUT - Update a resource
+
+<a id="manual-task-deploy"/>
+
+#### Response object extension (deploy query parameter)
+
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * processId: the id of the process that is associated with the activity 
+  * caseId: the id of the case that is associated with the activity
+  * rootCaseId: the root case that is associated with this activity's case
+  * parentCaseId: the parent case that is associated with this activity's case
+  * rootContainerId: the root process of the root case that is associated with this activity
+  * executedBy: the user who executed the activity
+  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency and Performance editions)
+  * actorId: the actor that can execute this activity
+  * assigned\_id: the user this activity is assigned to
+  * parentTaskId: in the case of a subtask, the parent task
+
 
 #### Actions
 
@@ -452,6 +483,7 @@ Retrieve humanTask objects that match the specified filters.
   * `state=`: retrieve only the archived user tasks with the specified state. For example, retrieve the skipped tasks: `/API/bpm/humanTask?p=0&c=10&f=state=skipped`
   * `name=`: retrieve only the human tasks with the specified name. For example, retrieve the human tasks with the name "Analyse Case": `/API/bpm/humanTask?p=0&c=10&f=name=Analyse Case`
   * `displayName=`: retrieve only the archived user tasks with the specified displayName. For example, retrieve the human tasks with the displayName "Analyse Case": `/API/bpm/humanTask?p=0&c=10&f=displayName=Analyse Case`
+  * d: extend resource response parameters of [this resource](#human-task-deploy) are available.
 * **Success Response**  
   * **Code**: 200
   * **Payload**:  
@@ -691,14 +723,12 @@ Use a GET method with filters and search terms to search for subtasks.
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   You can filter on:
-
   * `assigned\_id={user_id}`: retrieve only the manual tasks assigned to the specified user. For example, retrieve the manual tasks assigned to user with id 1: `/API/bpm/manualTask?p=0&c=10&f=assigned_id%3d1`.
   * `state=skipped | ready | completed | failed` : retrieve only the manual tasks with the specified state. For example, retrieve the ready tasks: `/API/bpm/manualTask?p=0&c=10&f=state%3dready`.
   * `caseId={case_id}`: retrieve only the manual tasks created in the specified case. For example, retrieve the manual tasks for the case\_id 2: `/API/bpm/manualTask?p=0&c=10&f=caseId%3d2`.
   * `parentTaskId={parentTask_id}`: retrieve only the manual tasks for a specific parentTask. For example, retrieve the manual tasks for the parentTask\_id 40001: `/API/bpm/manualTask?p=0&c=10&f=parentTaskId%3d40001`.
 
   You can search on:
-
   * name: search all manual tasks with a name that starts with the search string. For example, search for all manual tasks that have a name that starts with MySubTask: `/API/bpm/manualTask?p=0&c=10&s=MySubTask`.
 * **Success Response**  
   An array of manualTask objects
@@ -747,6 +777,22 @@ The methods used for this resource are:
 
 * GET - Read a resource or search for a resource
 * PUT - Update a resource
+
+<a id="task-deploy"/>
+
+#### Response object extension (deploy query parameter)
+
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * processId: the id of the process that is associated with the activity 
+  * caseId: the id of the case that is associated with the activity
+  * rootCaseId: the root case that is associated with this activity's case
+  * parentCaseId: the parent case that is associated with this activity's case
+  * rootContainerId: the root process of the root case that is associated with this activity
+  * executedBy: the user who executed the activity
+  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency and Performance editions)
+  * actorId: the actor that can execute this activity
+  * assigned\_id: the user this activity is assigned to
+  * parentTaskId: in the case of a subtask, the parent task
 
 #### Read a task
 
@@ -811,7 +857,7 @@ The methods used for this resource are:
 * **Data Params**  
   * Accepted sort values (`o={value}`) : caseId, processId, state, type, supervisor\_id, last\_update\_date
   * Accepted filters (`f={filter}=value`) : caseId, processId, state, type, supervisor\_id, last\_update\_date
-  * Accepted deployer (`d={deployer}`) : processId, caseId, rootContainerId, executedBy, executedBySubstitute
+  * d: extend resource response parameters of [this resource](#task-deploy) are available.
 * **Success Response**  
   * **Code**: 200
   * **Payload**:  
@@ -909,6 +955,22 @@ The methods used for this resource are:
 * GET - Retrieve a userTask, search for userTask objects
 * POST - Execute a task with contract
 * PUT - Update a userTask
+
+<a id="user-task-deploy"/>
+
+#### Response object extension (deploy query parameter)
+
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * processId: the id of the process that is associated with the activity 
+  * caseId: the id of the case that is associated with the activity
+  * rootCaseId: the root case that is associated with this activity's case
+  * parentCaseId: the parent case that is associated with this activity's case
+  * rootContainerId: the root process of the root case that is associated with this activity
+  * executedBy: the user who executed the activity
+  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency and Performance editions)
+  * actorId: the actor that can execute this activity
+  * assigned\_id: the user this activity is assigned to
+  * parentTaskId: in the case of a subtask, the parent task
 
 ### Actions
 
@@ -1364,6 +1426,22 @@ The methods used for this resource are:
 
 * GET - Read a resource or search for a resource
 
+<a id="archived-task-deploy"/>
+
+#### Response object extension (deploy query parameter)
+
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * processId: the id of the process that is associated with the activity 
+  * caseId: the id of the case that is associated with the activity
+  * rootCaseId: the root case that is associated with this activity's case
+  * parentCaseId: the parent case that is associated with this activity's case
+  * rootContainerId: the root process of the root case that is associated with this activity
+  * executedBy: the user who executed the activity
+  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency and Performance editions)
+  * actorId: the actor that can execute this activity
+  * assigned\_id: the user this activity is assigned to
+  * parentTaskId: in the case of a subtask, the parent task
+
 #### Read an archived task
 
 * **URL**  
@@ -1413,7 +1491,7 @@ The methods used for this resource are:
 
   * Accepted sort values `o={value}` : caseId, name, displayName, processId, state, type, archivedDate, reached\_state\_date, assigned\_id
   * Accepted filters `f={filter}=value` : caseId, name, displayName, processId, state, type, archivedDate, reached\_state\_date, assigned\_id, isTerminal
-  * Accepted deployer `d={deployer}` : processId, caseId, rootContainerId, executedBy, executedBySubstitute
+  * d: extend resource response parameters of [this resource](#archived-task-deploy) are available.
 * **Success Response**  
   JSON representation of an array of archived tasks
   * **Code**: 200
@@ -1513,6 +1591,22 @@ The methods used for this resource are:
 
 * GET - Retrieve an archivedUserTask, search for archivedUserTask objects
 
+<a id="archived-user-task-deploy"/>
+
+#### Response object extension (deploy query parameter)
+
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * processId: the id of the process that is associated with the activity 
+  * caseId: the id of the case that is associated with the activity
+  * rootCaseId: the root case that is associated with this activity's case
+  * parentCaseId: the parent case that is associated with this activity's case
+  * rootContainerId: the root process of the root case that is associated with this activity
+  * executedBy: the user who executed the activity
+  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency and Performance editions)
+  * actorId: the actor that can execute this activity
+  * assigned\_id: the user this activity is assigned to
+  * parentTaskId: in the case of a subtask, the parent task
+
 #### Actions
 
 ##### Retrieve an archivedUserTask
@@ -1566,6 +1660,8 @@ Retrieve archivedHumanTask objects that match the specified filters.
   * `state=`: retrieve only the archived user tasks with the specified state. For example, retrieve the skipped tasks: `/API/bpm/archivedUserTask?p=0&c=10&f=state=skipped`
   * `name=`: retrieve only the user tasks with the specified name. For example, retrieve the user tasks with the name "Analyse Case": `/API/bpm/archivedUserTask?p=0&c=10&f=name=Analyse Case`
   * `displayName=`: retrieve only the archived user tasks with the specified displayName. For example, retrieve the user tasks with the displayName "Analyse Case": `/API/bpm/archivedUserTask?p=0&c=10&f=displayName=Analyse Case`
+  
+  * d: extend resource response parameters of [this resource](#archived-user-deploy) are available.
 
 * **Success Response**  
   An array of archivedUserTask objects
@@ -1803,8 +1899,6 @@ Use the document resource to access a document in an active case.
 Use the case document resource to access a document in an active case. For archived cases and previous document versions use archivedCaseDocument.
 
 ::: alert alert-info
-**Note**: The REST methods for handling documents have been updated in {{ var\_product }} 6.4 and the following item is deprecated:
-
 * `author` in the payload is deprecated: use `submittedBy`
 :::
 
@@ -2436,6 +2530,15 @@ ID of the Object: a long value
 * GET - Read a case or search for a case
 * DELETE - Remove a case
 
+<a id="case-deploy"/>
+
+#### Response object extension (deploy query parameter)
+
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * `started_by`
+  * `startedBySubstitute`
+  * `processDefinitionId`
+
 #### Read a case
 
 You can get a case by using its identifier. Request url
@@ -2445,7 +2548,7 @@ You can get a case by using its identifier. Request url
 * **Method**  
   `GET`
 * **Data Params**  
-  * d: the list of attributes for which you want to perform a deploy, that is, retrieve the full object instead of just its ID.
+  * d: extend resource response parameters of [this resource](#case-deploy) are available.
   Available values: started\_by, startedBySubstitute, processDefinitionId.
   * n: count of related resources. Available values: activeFlowNodes, failedFlowNodes.
 * **Success Response**  
@@ -2531,8 +2634,8 @@ You can get a case by using its identifier. Request url
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   * f: filter of the search, beware you cannot use team\_manager\_id and supervisor\_id at the same time
-  * d: a string and a resource identifier associated to deploy a resource. available values (`started_by`, `startedBySubstitute`, `processDefinitionId`)
   * n: count of related resource. Available values: `activeFlowNodes`, `failedFlowNodes`
+  * d: extend resource response parameters of [this resource](#case-deploy) are available.
 * **Request Payload**  
   ```json
   ```
@@ -2822,6 +2925,15 @@ The methods used for this resource are:
 * GET - Read a resource or search for a resource
 * DELETE - Remove a resource
 
+<a id="archived-case-deploy"/>
+
+#### Response object extension (deploy query parameter)
+
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * `started_by`
+  * `startedBySubstitute`
+  * `processDefinitionId`
+
 #### Read an archived case
 
 You can get an archived case by using its identifier. An archive case is linked to a case with the key. 
@@ -2870,6 +2982,7 @@ You can search cases.
   `GET`
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  * d: extend resource response parameters of [this resource](#archived-case-deploy) are available.
 * **Success Response**  
   A JSON representation of an array of archived case resources
   * **Code**: 200
@@ -3061,6 +3174,13 @@ The methods used for this resource are:
 * GET - Read a process or search for a process
 * PUT - Update a process
 
+<a id="process-deploy"/>
+
+#### Response object extension (deploy query parameter)
+
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * `deployedBy`
+
 #### Create a process
 
 A process resource is created using the content of a `.bar` file that has previously been [uploaded](manage-files-using-upload-servlet-and-rest-api.md), using the `processUpload` servlet `http://.../bonita/portal/processUpload`,
@@ -3177,7 +3297,7 @@ Search for processes that match the search criteria.
   * s: search on "name", "displayName" or "version"
   * o: can order by "name", "version", "deploymentDate", "deployedBy", "activationState", "configurationState", "processId", "displayName", "lastUpdateDate", "categoryId", "label"
   * f: can filter on "name", "version", "deploymentDate", "deployedBy", "activationState" with the value DISABLED or ENABLED, "configurationState" with the value UNRESOLVED, or RESOLVED, "processId", "displayName", "lastUpdateDate", "categoryId", "label", "supervisor\_id"
-  * d: can deploy on "deployedBy" 
+  * d: extend resource response parameters of [this resource](#process-deploy) are available.
 * **Success Response**  
   A JSON representation of the matched processes.
   * **Code**: 200
@@ -3790,8 +3910,6 @@ The ID of the flowNode (a long).
   "parentTaskId" : "in the case of a subtask, the parent task id (long)"
 }
 ```
-    
-    
 
 #### Methods
 
@@ -3799,6 +3917,22 @@ The methods used for this resource are:
 
 * GET - Read a flow node or search for a flow node
 * PUT - Replay a flow node (only in Performance edition)
+
+<a id="flownode-deploy"/>
+
+#### Response object extension (deploy query parameter)
+
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * processId: the id of the process that is associated with the activity 
+  * caseId: the id of the case that is associated with the activity
+  * rootCaseId: the root case that is associated with this activity's case
+  * parentCaseId: the parent case that is associated with this activity's case
+  * rootContainerId: the root process of the root case that is associated with this activity
+  * executedBy: the user who executed the activity
+  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency and Performance editions)
+  * actorId: the actor that can execute this activity
+  * assigned\_id: the user this activity is assigned to
+  * parentTaskId: in the case of a subtask, the parent task
 
 #### Get a Flow Node
 
@@ -3809,18 +3943,7 @@ Retrieve the flow node information of the given id.
 * **Method**  
   `GET`
 * **Data Params**  
-  The following parameters for deploy are available:
-  * d:
-    * `processId`
-    * `caseId`
-    * `rootCaseId`
-    * `parentCaseId`
-    * `rootContainerId`
-    * `executedBy`
-    * `executedBySubstitute`
-    * `actorId`
-    * `assigned_id`
-    * `parentTaskId`
+  The deploy query parameter can be used.
 * **Success Response**  
   The JSON representation of the specified flownode
   * **Code**: 200
@@ -3869,7 +3992,7 @@ Search for flow nodes using given parameters. Flow nodes in states completed, ca
     * displayName
     * state
     * processDefinitionId
-    * parentProcessInstanceIdo
+    * parentProcessInstanceId
     * parentActivityInstanceId (if the retrieved flow nodes are activities, order by parent activity id)
     * rootProcessInstanceId
     * lastUpdateDate
@@ -3881,17 +4004,7 @@ Search for flow nodes using given parameters. Flow nodes in states completed, ca
     * parentCaseId
     * rootCaseId
     * last\_update\_date
-  * d:
-    * processId
-    * caseId
-    * rootCaseId
-    * parentCaseId
-    * rootContainerId
-    * executedBy
-    * executedBySubstitute
-    * actorId
-    * assigned\_id
-    * parentTaskId
+  * d: extend resource response parameters of [this resource](#flownode-deploy) are available.
 * **Success Response**  
   An array of JSON representations of flow nodes
   * **Code**: 200
@@ -3959,6 +4072,23 @@ The methods used for this resource are:
 
 * GET - Read a flow node or search for a flow node
 
+<a id="archived-flow-node-deploy"/>
+
+#### Response object extension (deploy query parameter)
+
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * processId: the id of the process that is associated with the activity 
+  * caseId: the id of the case that is associated with the activity
+  * rootCaseId: the root case that is associated with this activity's case
+  * parentCaseId: the parent case that is associated with this activity's case
+  * rootContainerId: the root process of the root case that is associated with this activity
+  * executedBy: the user who executed the activity
+  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency and Performance editions)
+  * actorId: the actor that can execute this activity
+  * assigned\_id: the user this activity is assigned to
+  * parentTaskId: in the case of a subtask, the parent task
+
+
 #### Get a Flow Node
 
 Retrieve the flow node information of the given id.
@@ -3976,10 +4106,9 @@ Retrieve the flow node information of the given id.
 Search for flow nodes using given parameters. Flow nodes in state completed, cancelled, aborted are not retrieved. It returns an array of flow nodes.
 
 * **URL**  
-  ``  
-  _Example_:
+  `/API/bpm/archivedFlowNode`  
 * **Method**  
-  ``
+  `GET`
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   The following parameters are available:
@@ -4008,17 +4137,7 @@ Search for flow nodes using given parameters. Flow nodes in state completed, can
     * archivedDate
     * reachedStateDate
     * sourceObjectId
-  * d:
-    * processId
-    * caseId
-    * rootCaseId
-    * parentCaseId
-    * rootContainerId
-    * executedBy
-    * executedBySubstitute
-    * actorId
-    * assigned\_id
-    * parentTaskId
+  * d: extend resource response parameters of [this resource](#archived-flow-node-deploy) are available.
 * **Success Response**  
   The JSON representation of the specified flownode
   * **Code**: 200
