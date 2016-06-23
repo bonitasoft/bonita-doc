@@ -125,7 +125,7 @@ BonitaAuthentication-1 {
 **Warning**: module names must be unique. Therefore remove the unecessary ones
 :::
 
-The JAAS configuration file, `jaas.config`, is sorted by sets of authentication modules. For Bonita BPM, each set matches a tenant configuration and the name is prefixed with _BonitaAuthentication-`<tenant-id>`_. Make sure there is a set of authentication modules for each tenant in your platform. For each tenant, set the CAS service to point to the application login page and set `casServerUrlPrefix` to point to the CAS server.
+The JAAS configuration file, `jaas-standard.cfg`, is sorted by sets of authentication modules. For Bonita BPM, each set matches a tenant configuration and the name is prefixed with _BonitaAuthentication-`<tenant-id>`_. Make sure there is a set of authentication modules for each tenant in your platform. For each tenant, set the CAS service to point to the application login page and set `casServerUrlPrefix` to point to the CAS server.
 
 Note: The module name must be unique, BonitaAuthentication-1 in the above example.
 2. In the `CasLoginModule` configuration, check that the `principalGroupName` property is set to `CallerPrincipal`. This is required to retrieve the username from the Bonita application.Bonita BPM uses the CAS LoginModule in the JASIG implementation, so see the CAS LoginModule section of the [Jasig documentation](https://wiki.jasig.org/display/CASC/JAAS+Integration) for more information.
