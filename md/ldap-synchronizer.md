@@ -37,7 +37,7 @@ This directory contains a sample configuration.
 
 Create a dedicated bonita.home for the LDAP Synchronizer, and set the API access mode used by the LDAP Synchronizer, by editing the bonita-client-custom.properties file. 
 The LDAP Synchronizer can use the HTTP, or EJB3 modes, but not local access. For more information about API access modes, 
-see the [Development overview](development-overview.md).
+see the [Engine API overview](engine-api-overview.md).
 
 There is a Bonita Home directory in the deploy zip that can be used. Copy this directory into the LDAP synchronizer directory.
 

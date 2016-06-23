@@ -1,6 +1,5 @@
 # Development
 
-* [Development overview](development-overview.md)
 * [Software extensibility](software-extensibility.md)
 * [Bonita BPM artifacts](_bonita-bpm-artifacts.md)
   * [Connectors](_connectors.md)
@@ -21,7 +20,7 @@
   * [REST API extensions](rest-api-extensions.md)
   * [Manage files using upload servlet and REST API](manage-files-using-upload-servlet-and-rest-api.md)
 * [Engine API](_engine-api.md)
-  * [Get started with the Bonita BPM Engine APIs](getting-started-with-the-bonita-bpm-engine-apis.md)
+  * [Engine API overview](engine-api-overview.md)
   * [Create your first project with the Engine APIs and Maven](create-your-first-project-with-the-engine-apis-and-maven.md)
   * [Configure client of Bonita BPM Engine](configure-client-of-bonita-bpm-engine.md)
   * [Javadoc](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html)
