@@ -88,4 +88,32 @@ In Bonita BPM Studio you have access to two log files:
 
 ### Bonita Platform
 
-The log file location depends on your application server. For example, if you are running Tomcat, the log files will be located under the `logs` folder in `TOMCAT_HOME`.
+The log file location depends on your application server. 
+
+#### Packages
+
+Logs are configured via the class package names and the main packages are `org.bonitasoft` and `com.bonitasoft` for subscription edition.  
+Change these packages value to change the BonitaBPM global log level.
+
+#### Tomcat
+
+On a Tomcat bundle, you can configure the log level and you can access the log files directly, in `$TOMCAT_HOME/logs`. 
+Each file name includes the date when the file was created. There are several log files:
+
+* _bonita.date_.log is the Bonita BPM log file.
+* _catalina.date_.log is the log file for the Tomcat application server used by Bonita BPM Studio.
+* _host-manager.date_.log, _localhost.date_.log, and _manager.date_.log are internal Tomcat log files.
+
+#### JBoss
+
+On a JBoss bundle, logs can be configured in the `$JBOSS_HOME/standalone/configuration/standalone.xml` in the `urn:jboss:domain:logging:1.1` _domain_ of the **subsystem** tag.
+
+Edit the **logger** tags which category matches BonitaBPM main package: change the **level** _name_ attribute of each **logger** section you want to change the log level.
+
+Log files are located in the `log` folder of the launched configuration.  
+Usually, the standalone configuration is run so the log files are located in the `$JBOSS_HOME/standalone/log` folder.
+
+* _boot.log_ : contains JBoss boot logs.
+* _server.**date**.log_: is the global log file of the JBoss server.
+* _bonita.**date**.log_: is Bonita BPM log file.
+
