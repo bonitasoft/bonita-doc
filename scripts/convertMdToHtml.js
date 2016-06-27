@@ -56,7 +56,9 @@
     writeFilePromise(htmlPath + '/' + fileName.replace(/\.md$/, '.html'),
       md.render(
         replaceVariables(fs.readFileSync(mdPath + '/' + fileName).toString())
-      ).replace(/src="images\//g, `src="images/${version}/`)).then(() => console.log(fileName + ' has been successfully converted'));
+      ).replace(/src="images\//g, `src="images/${version}/`)
+      + '<!-- Generated on ' + new Date() + ' -->'
+    ).then(() => console.log(fileName + ' has been successfully converted'));
   }
 
   function replaceVariables(content) {
