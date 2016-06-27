@@ -106,3 +106,14 @@ Note that the *Platform Setup tool* does not need the Bonita BPM Server to be ru
 ::: warning
 Keep in mind that the folder **`platform_conf/initial`** is not used anymore once the platform has been initialized for the first time. To update your configuration, only the **`platform_conf/current`** folder is taken into account.
 :::
+
+## Troubleshooting
+
+**Question**: When I run Platform setup tool on a running Bundle or running Studio on H2 database, I get an exception: `locked by an other process`
+
+**Solution**: Stop Bundle or Studio before running Platform setup tool, as H2 tends to lock the database files when running.
+
+
+**Question**: Platform setup tool does not run with error `Cannot determine database vendor (valid values are h2, postgres, sqlserver, oracle, mysql).`
+
+**Solution**: Edit file `database.properties` and ensure there is a valid `db.vendor` value. Ensure the line is not commented.
