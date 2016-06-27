@@ -109,11 +109,20 @@ Keep in mind that the folder **`platform_conf/initial`** is not used anymore onc
 
 ## Troubleshooting
 
-**Question**: When I run Platform setup tool on a running Bundle or running Studio on H2 database, I get an exception: `locked by an other process`
+---
+
+**Problem**: When I run Platform setup tool, I get the exception: `locked by an other process`
+
+**Possible cause**: The Platform setup tool tries to access the same database (H2) as a running Bonita BPM Bundle or Bonita BPM Studio.
 
 **Solution**: Stop Bundle or Studio before running Platform setup tool, as H2 tends to lock the database files when running.
 
+---
 
-**Question**: Platform setup tool does not run with error `Cannot determine database vendor (valid values are h2, postgres, sqlserver, oracle, mysql).`
+**Problem**: When I run Platform setup tool, I get the exception `Cannot determine database vendor (valid values are h2, postgres, sqlserver, oracle, mysql).`
 
-**Solution**: Edit file `database.properties` and ensure there is a valid `db.vendor` value. Ensure the line is not commented.
+**Possible cause**: property `db.vendor` is not found when reading file `database.properties`
+
+**Solution**: Edit file `database.properties` and ensure there is a valid `db.vendor` value. Also ensure the line is not commented (no # at the beginning of the line)
+
+---
