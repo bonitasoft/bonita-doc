@@ -62,7 +62,7 @@
       var filename = xpath.select1('/li/a/@href', li).value.replace(/^\?page=/, '').replace(/$/, '.html');
       var content = '<h1>' + xpath.select('string(/li/a)', li) + '</h1>';
       content += xpath.select('/li/ul', li).toString();
-      //console.log(['', filename, content].join('\n'));
+      content += '\n<!-- Generated on ' + new Date() + ' -->';
       fs.writeFileSync(rootDir + filename, content);
       console.log('Generated ' + filename);
     }
