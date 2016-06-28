@@ -1,6 +1,6 @@
-# Manage a role
+# Manage roles
 
-Logged on with the Administrator profile, you have rights to manage a role as follows:
+Logged on with the Administrator profile, you have rights to manage roles as follows:
 
 ## Create a role
 

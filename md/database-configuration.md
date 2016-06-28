@@ -1,4 +1,4 @@
-# Database configuration
+# Database configuration for engine data
 
 ## Database usage
 
@@ -56,7 +56,7 @@ To do so, you need a RDBMS user account that has sufficient privileges (i.e. pri
 
 Also, note that the owner of the new schema must have following privileges:
 
-* CREATE TABLE 
+* CREATE TABLE
 * CREATE INDEX
 * SELECT, INSERT, UPDATE, DELETE on created TABLE
 
@@ -82,12 +82,12 @@ The possible values for `sysprop.bonita.db.vendor` / `db.vendor` are:
 
 | Database vendor | Property value |  
 | :- | :- |  
-| PostgreSQL | postgres | 
-| Oracle database | oracle | 
-| SQL Server | sqlserver | 
-| MySQL | mysql | 
-| h2 (default for testing, not for production) | h2 | 
-  
+| PostgreSQL | postgres |
+| Oracle database | oracle |
+| SQL Server | sqlserver |
+| MySQL | mysql |
+| h2 (default for testing, not for production) | h2 |
+
 </div></div>
 
 As example, if you want to use postgres, the line will be:
@@ -99,7 +99,7 @@ The way to define JVM system properties depends on your application server type:
 * Tomcat: edit `setenv.sh` (for Linux) or `setenv.bat` (for Windows) and change the value of `sysprop.bonita.db.vendor` on the line starting by `DB_OPTS`.
 * For other application servers, refer to your application server documentation.
 
-An alternative to setting the JVM system property (`sysprop.bonita.db.vendor`) is to set `db.vendor` property value in the 
+An alternative to setting the JVM system property (`sysprop.bonita.db.vendor`) is to set `db.vendor` property value in the
 [`bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md) file.
 The default value of `db.vendor` indicates that the value of the JVM system property value must be used.
 If the property is not defined, the fallback value is h2: `db.vendor=${sysprop.bonita.db.vendor:h2}`
@@ -110,13 +110,13 @@ If the property is not defined, the fallback value is h2: `db.vendor=${sysprop.b
 
 First, you need to download the JDBC driver for your database system. Use the links below to download the driver.
 
-| Database vendor | Download link | 
+| Database vendor | Download link |
 | :- | :- |
-| PostgreSQL (use "Current Version") | [download](https://jdbc.postgresql.org/download.html#current) | 
-| Oracle Database | [download](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html) | 
-| Microsoft SQL Server | [download](http://go.microsoft.com/fwlink/?LinkId=245496) | 
-| MySQL | [download](http://dev.mysql.com/downloads/connector/j/) | 
-  
+| PostgreSQL (use "Current Version") | [download](https://jdbc.postgresql.org/download.html#current) |
+| Oracle Database | [download](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html) |
+| Microsoft SQL Server | [download](http://go.microsoft.com/fwlink/?LinkId=245496) |
+| MySQL | [download](http://dev.mysql.com/downloads/connector/j/) |
+
 **Note:** If you run on Linux, the JDBC driver might also be available in the distribution packages repository. On Ubuntu and Debian, you can, for example, install the `libpostgresql-jdbc-java` package to get the PostgreSQL JDBC Driver (install in `/usr/share/java`).
 
 <a id="jdbc_driver"/>
@@ -148,7 +148,7 @@ Put the driver jar file in the relevant `main` folder.
 In the same folder as the driver, add the module description file, `module.xml`.
 This file describes the dependencies the module has and the content it exports.
 It must describe the driver jar and the JVM packages that JBoss 7 does not provide automatically.
-The exact details of what must be included depend of the driver jar. 
+The exact details of what must be included depend of the driver jar.
 **Warning:** You might need to edit the `module.xml` in order to match exactly the JDBC driver jar file name.
 
 ::: info  
@@ -231,7 +231,7 @@ The second data source run SQL queries outside any transaction. To configure it:
 
 ## Remove h2
 
-**Warning:** If you use the default configuration for business data (BDM), do not remove h2 yet. 
+**Warning:** If you use the default configuration for business data (BDM), do not remove h2 yet.
 First make sure that you have [configured Business Data](database-configuration-for-business-data.md) to use your own RDBMS.
 
 Now that you are almost done with the switch from h2 to your chosen RDBMS, you can remove h2:
@@ -255,7 +255,7 @@ Edit `postgresql.conf` and set a non-zero value for `max_prepared_transactions`.
 
 ### Oracle Database
 
-Make sure your database is configured to use the AL32UTF8 character set. 
+Make sure your database is configured to use the AL32UTF8 character set.
 If your database already exists, see the Oracle documentation for details of how to [migrate the character set](http://docs.oracle.com/cd/E11882_01/server.112/e10729/ch11charsetmig.htm#NLSPG011).
 
 Bonita BPM Engine uses datasources that handle global transactions that span resources (XADataSource), so the Oracle user used by Bonita BPM Engine, requires some specific privileges, and there are also specific settings for XA activation.
@@ -277,7 +277,7 @@ It is assumed in the procedure that:
 
 1. Connect to the database as the System Administrator.
 
-   SQL query \> 
+   SQL query \>
    ```sql
    oracle@ubuntu:~$ sqlplus / as sysdba
    ```
@@ -298,7 +298,7 @@ It is assumed in the procedure that:
 
 3. Add XA elements:
 
-   SQL query \> 
+   SQL query \>
    ```sql
    @/u01/app/oracle/product/11.2.0/dbhome_1/javavm/install/initxa.sql
    ```
@@ -306,13 +306,13 @@ It is assumed in the procedure that:
 
 4. Create the database user to be used by the Bonita BPM Engine and grant the required rights:
 
-   SQL query \> 
+   SQL query \>
    ```sql
    @/u01/app/oracle/product/11.2.0/dbhome_1/rdbms/admin/xaview.sql
    ```
    The following queries must be done for each new user: i.e. one user = one database schema.
 
-   SQL query \> 
+   SQL query \>
    ```sql
    CREATE USER bonita IDENTIFIED BY bonita;
    GRANT connect, resource TO bonita IDENTIFIED BY bonita;
@@ -347,7 +347,7 @@ Here is the list of steps to perform (as an example, the database name BONITA\_B
 4. Execute the query in the Query Editor.
 5. To confirm successful execution of the script, open the "Object Explorer" and go to: **Master** \> **Programmability** \> **Extended Stored Procedures**.   
    You should have 12 new procedures, each with a name starting with `dbo.xp.sqljdbc_xa_`.
-6. Assign the new role 'SqlJDBCXAUser' to the user who owns the Bonita BPM Engine database (`bonitadev` in our example). To do this, execute the following commands in SQL editor: 
+6. Assign the new role 'SqlJDBCXAUser' to the user who owns the Bonita BPM Engine database (`bonitadev` in our example). To do this, execute the following commands in SQL editor:
    ```sql
    USE master;
    GO
@@ -361,7 +361,7 @@ Here is the list of steps to perform (as an example, the database name BONITA\_B
 
 7. In the Windows "Start" menu, select **Administrative Tools**-\> **Services**.
 8. In the "Services" window, make sure that the **Distributed Transaction Coordinator** service is set to start automatically. If it's not yet started, start it.
-9. Make sure that the other services it depends on, namely "Remote Procedure Call" and "Security Accounts Manager", are also set to start automatically. 
+9. Make sure that the other services it depends on, namely "Remote Procedure Call" and "Security Accounts Manager", are also set to start automatically.
 10. Run the `dcomcnfg` command, or go to the "Start" menu, then Administrative Tools \> Component Services.
 11. In the left navigation pane, navigate to **Component Services** \> **Computers** \> **My Computer** \> **Distributed Transaction Coordinator**.
 12. Select and right-click on _**Local DTC**_ and then _**Properties**_.
@@ -389,7 +389,7 @@ See [MSDN](https://msdn.microsoft.com/en-us/library/ms175095(v=sql.110).aspx).
 ##### Maximum packet size
 
 MySQL defines a maximum packet size on the server side. The default value for this settings are appropriate for most standard use cases.
-However, you need to increase the packet size if you see the following error: 
+However, you need to increase the packet size if you see the following error:
 `Error: 1153 SQLSTATE: 08S01 (ER_NET_PACKET_TOO_LARGE) Message: Got a packet bigger than 'max_allowed_packet' bytes`
 
 You need to update the file `my.ini` (for Windows) or `my.cnf` (for Linux) to avoid the `ER_NET_PACKET_TOO_LARGE` problem.

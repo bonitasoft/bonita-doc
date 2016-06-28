@@ -1,4 +1,4 @@
-# Mobile Portal overview
+# Mobile Portal
 
 The mobile version of Bonita BPM Portal only displays functions available to the logged-in user only. Functions for other profiles are not available.
 
@@ -16,7 +16,7 @@ Bonita BPM Subscription Pack edition
 
 ## How do I access it?
 
-Add `/mobile` after Bonita BPM in the URL 
+Add `/mobile` after Bonita BPM in the URL
 
 For example: [http://localhost:8080/bonita/mobile](http://localhost:8080/bonita/mobile)
 

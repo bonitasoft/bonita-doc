@@ -1,6 +1,6 @@
 # Configure connection to Bonita BPM Engine
 
-If you want your application to use the engine API of a remote engine. Your application (the *client*) must be configured to connect to the engine (the *server*)
+If you want your application to use the engine API of a remote engine, your application (the *client*) must be configured to connect to the engine (the *server*)
 
 The engine (the *server*) must also be configured to accept the connection.
 
@@ -47,7 +47,7 @@ You can set the system property `org.bonitasoft.engine.api-type` to `HTTP`, `EJB
  * `LOCAL`
     This is the default connection mode, it connects to the server in the same JVM (not remote). If nothing is set this mode will be used.
 
-### Configure client using Bonita Home client 
+### Configure client using Bonita Home client
 
 ::: danger
 Deprecated, use the programmatic way instead, see [APITypeManager](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/util/APITypeManager.html).
@@ -129,7 +129,7 @@ It contains information needed to make the remote connection, including the user
 endpoint.name=client-endpoint
 remote.connectionprovider.create.options.org.xnio.Options.SSL_ENABLED=false
 remote.connections=default
- 
+
 remote.connection.default.host=myhostname
 remote.connection.default.port = 4447
 remote.connection.default.connect.options.org.xnio.Options.SASL_POLICY_NOANONYMOUS=false

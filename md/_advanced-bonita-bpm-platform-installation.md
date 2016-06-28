@@ -1,4 +1,4 @@
-# Advanced Bonita BPM platform installation
+# Advanced Bonita BPM Platform installation
 
 * [Security and authentication](_security-and-authentication.md)
   * [User authentication overview](user-authentication-overview.md)

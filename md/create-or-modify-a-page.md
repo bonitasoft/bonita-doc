@@ -1,6 +1,6 @@
-# Create or modify pages and forms
+# Create or modify UI artifacts
 
-The Bonita BPM UI designer is a powerful application for designing Bonita BPM custom pages, layouts, forms, custom widgets and fragments.  
+The UI Designer is a powerful application to design Bonita BPM custom pages, layouts, forms, custom widgets and fragments.  
 Custom pages are used in Bonita BPM Portal custom profiles or in custom BPM applications.  
 Forms are used to instantiate a process or to execute a human task.  
 The UI Designer runs in a browser. Launching it from Bonita BPM Studio starts a web server and opens your default browser.
@@ -22,9 +22,9 @@ With the form type set to **UI Designer**, you can select a form from the dropdo
 
 You can also create a customized **overview form**, to display a summary of the case to the users, either in a case details page, or in the tasklist, to give some context to the task to do.  
 To do so, go to the pool **Details** panel, **Execution** tab, and click **_Overview page**.  
-With the form type set to **UI Designer**, you can select a form from the dropdown list and click the pencil icon to edit it, or you can choose **Create a new form**. 
+With the form type set to **UI Designer**, you can select a form from the dropdown list and click the pencil icon to edit it, or you can choose **Create a new form**.
 
-## Design a page, layout, form, or fragment 
+## Design a page, layout, form, or fragment
 
 After a page, layout, form, fragment is created, you can update it in the **Page editor**. Update your page, form or fragment by dragging and dropping widgets from the palette to the whiteboard. Edit widget properties in the widget properties panel, create data, and bind it to the widgets.
 

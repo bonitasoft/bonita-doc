@@ -1,4 +1,4 @@
-# Customize a living application layout
+# Customize living application layout
 
 ::: info
 **Note:** For Performance, Efficiency, and Teamwork editions only.
@@ -30,8 +30,8 @@ The following example shows how to convert the default top menu of an applicatio
 The example sections show how to:
 * Export the default application layout from the Bonita BPM Portal
 * Import the default application layout into the UI Designer
-* Modify this layout 
-* Apply the customized layout onto a living application. 
+* Modify this layout
+* Apply the customized layout onto a living application.
 
  ## Export the default application layout from Bonita BPM Portal
 
@@ -67,7 +67,7 @@ Into the UI Designer:
 <div class="container" style="height:100%">
         <div class="row">
                 <div id="leftCol">
-                        <div class="well"> 
+                        <div class="well">
                                 <ul class="nav nav-stacked" id="sidebar">
                                         <li ng-class="{active:ctrl.pageToken===menu.applicationPageId.token}" ng-repeat="menu in ctrl.filterChildren(-1)" dropdown>
                                                 <a ng-if="!ctrl.isParentMenu(menu)" ng-href="../{{menu.applicationPageId.token}}/" ng-click="ctrl.reload()" >{{menu.displayName}}</a>            
@@ -115,7 +115,7 @@ Once your changes are made, save the new layout using a new name and then export
 2. Click on the edit action **...** of your living application.
 3. In the **Look & Feel** section, click on the layout link
 4. Select the **Side Menu layout**
-5. Click on the validation button 
+5. Click on the validation button
 6. In the application details section, click on the URL link to navigate to your living application.
 7. See your new application layout with a side menu.
 8. Feel free to add lots of new improvements to create the layout that fits your needs.
