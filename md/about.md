@@ -1,4 +1,4 @@
-# About the Portal
+# About Bonita BPM Portal
 
 To see the version of the Bonita BPM platform installed on a system:
 

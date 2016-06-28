@@ -1,4 +1,4 @@
-# Installation of a Bonita BPM cluster
+# Install a Bonita BPM cluster
 
 ::: info
 **Note:** The cluster feature is a Subscription feature for **Performance** edition only.
@@ -21,7 +21,7 @@ In this part we will create a cluster from scratch. We will initialize the datab
 In this step you will create and initialize the database for the Bonita BPM Platform cluster using the [platform setup tool](BonitaBPM_platform_setup.md).
 When done you will have a database with all tables created and with a table `CONFIGURATION` containing all configuration required for the cluster to start.
 
-* Ensure that you meet the [requirements](hardware-and-software-requirements.md) 
+* Ensure that you meet the [requirements](hardware-and-software-requirements.md)
 * Ensure that you [have a database installed and configured for the platform](database-configuration.md#database_creation).
 * In case you use [Business data](define-and-deploy-the-bdm), ensure that you [have a database installed and configured for the Business Data](database-configuration-for-business-data.md).
 * Download the Bonita BPM [Deploy bundle](deploy-bundle.md) and unzip it at some place of your choice.
@@ -191,7 +191,7 @@ Note that a Bonita BPM cluster uses multicast for discovery by default. You can 
 If you are using multicast, you must ensure that your production environment is insulated from any test environment that might also contain cluster nodes.
 This is to ensure the nodes do not discover each other on the network, if they are not supposed to run inside the same cluster.
 
-It is possible to have more than one cluster on the same network. In this case, you must configure the cluster names to be sure that it is clear which node belongs to which cluster. 
+It is possible to have more than one cluster on the same network. In this case, you must configure the cluster names to be sure that it is clear which node belongs to which cluster.
 You can configure the cluster name through Hazelcast or by updating `bonita-platform-sp-custom.properties` located in the `platform_engine` folder of the configuration, use the [platform setup tool](BonitaBPM_platform_setup.md#configuration_files) to update it.
 
 
@@ -207,4 +207,3 @@ The clocks of the servers are not synchronized.
 The system time of all cluster nodes must be maintained in synchronization with time servers.
 It is a good idea to have also the db server system time synchronized too.
 Synchronize the system time of all nodes and restart application servers.
-

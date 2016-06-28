@@ -1,17 +1,17 @@
-# API GLossary
+# API glossary
 
 ## Definition
 
 **Definition**: in Bonita BPM Studio you create definition of processes. A definition of a process includes name, version, definition of actors name...  
 A process definition includes definition of tasks.  
-The definition of tasks includes connectors, contract inputs declaration (for user task)... 
+The definition of tasks includes connectors, contract inputs declaration (for user task)...
 
 **Instance** : when you start a process (using Portal or API) what actually happen is a creation of a new process instance based on the selected process definition.  
-Starting a process instance will actually start a new instance of the start event and usually start a new instance of the first task. 
+Starting a process instance will actually start a new instance of the start event and usually start a new instance of the first task.
 
 ::: info
 **Note**: if a process loops on a task, multiple instances of a same task definition will be created.
-::: 
+:::
 
 **Case**: A case is a process instance.
 
@@ -23,7 +23,7 @@ Starting a process instance will actually start a new instance of the start even
 * **rootProcessInstanceId (rootCaseId for REST)**: the id of the top parent process instance. Parents exist for event sub-processes and when instance was created using a call activity. If there is no parent it is his own id.
 * **endDate**: the date on which the process instance is marked as _completed_.
   ::: info
-  **Note**: the _completed_ state is a transitionnary state. Right after a process instance is _completed_, it is archived. 
+  **Note**: the _completed_ state is a transitionnary state. Right after a process instance is _completed_, it is archived.
   :::
 
 ## FlowNodeInstance (REST: flowNode)
@@ -52,5 +52,3 @@ Use to represent an instance of a none start event, user task, call activity, mu
 For a complete description of the different elements, check out the following pages:
 * on the engine side, the [Javadoc](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html) page
 * on the web site, the [REST API page](_rest-api.md) page
-
-

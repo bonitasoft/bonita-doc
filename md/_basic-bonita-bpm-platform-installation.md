@@ -1,4 +1,4 @@
-# Basic Bonita BPM platform installation
+# Basic Bonita BPM Platform installation
 
 * [Hardware and software requirements](hardware-and-software-requirements.md)
 * [Tomcat bundle](tomcat-bundle.md)

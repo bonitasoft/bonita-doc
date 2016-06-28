@@ -1,6 +1,6 @@
-# Manage a group
+# Manage groups
 
-Logged on with the Administrator profile, you have rights to manage the group as follows:
+Logged on with the Administrator profile, you have rights to manage groups as follows:
 
 ## How to create a group
 
