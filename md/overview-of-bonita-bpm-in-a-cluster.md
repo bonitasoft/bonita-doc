@@ -10,7 +10,7 @@ and therefore to your business. A Bonita BPM cluster alone does not guarantee hi
 You must also ensure that the prerequisite infrastructure is highly available.
 
 See also:  
-[Building a Bonita BPM cluster](building-a-bonita-bpm-cluster.md)  
+[Install a Bonita BPM cluster](install-a-bonita-bpm-cluster.md)  
 [Cluster administration](cluster-administration.md)
 
 ## Introduction
