@@ -39,7 +39,6 @@
   * [Define a search key](define-a-search-index.md)
   * [Expressions and scripts](expressions-and-scripts.md)
   * [Operations](operations.md)
-  * [Access business data from a custom page](accessing-business-data-from-a-custom-page.md)
 * [Page and form development](_page-and-form-development.md)
   * [Page and form development overview](page-and-form-development-overview.md)
   * [UI Designer](_using-the-ui-designer.md)
