@@ -11,6 +11,7 @@
   let dom = require('xmldom').DOMParser;
   let fs = require('fs');
   let winston = require('winston');
+  let queryString = require('query-string');
 
   function format(string) {
     return string.split(' ').join('-').toLowerCase();
@@ -32,7 +33,8 @@
     } else if (node.tagName === 'a') {
       return {
         name: node.children[0].content.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>'),
-        href: node.attributes.href.replace(/\.md$/g, '.html')
+        href: node.attributes.href.replace(/\.md$/g, '.html'),
+        page: queryString.parse(node.attributes.href).page
       };
     } else {
       return node;
