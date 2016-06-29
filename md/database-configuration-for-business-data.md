@@ -8,12 +8,12 @@ You need to configure the following:
 * A database created in a [supported RDBMS](https://customer.bonitasoft.com/support-policies)
 * JNDI data sources to access the database
 
-::: primary
-Some configuration file detailed below are located under `setup` folder. See [Bonita BPM plaform setup tool](BonitaBPM_platform_setup) for more information about platform configuration.
+::: info
+Some configuration file detailed below are located under `setup` folder. See [Bonita BPM plaform setup tool](BonitaBPM_platform_setup.md) for more information about platform configuration.
 :::
 
-::: primary
-Configuration is done per tenant. If you have multiple tenants to configure, you need to apply instructions below individually to each tenant.
+::: info
+Configuration is done per tenant. If you have multiple tenants to configure, you need to apply instructions below individually for each tenant.
 :::
 
 ## Database creation
