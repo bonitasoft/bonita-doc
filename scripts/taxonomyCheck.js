@@ -61,8 +61,8 @@
     return f.match(/^.*\.md$/) && excludes.indexOf(f) == -1;
   });
   for (var i in mds) {
-    var name = mds[i];
-    if (json.filter(function(a) { return a.attributes.href == name; }).length < 1) {
+    var name = mds[i].replace(/\.md$/, '');
+    if (json.filter(function(a) { return a.attributes.href.replace(/\?page=/, '') == name; }).length < 1) {
       console.log('Not found in taxonomy: ' + name);
     }
   }
