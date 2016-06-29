@@ -9,8 +9,11 @@
   let himalaya = require('himalaya');
   let xpath = require('xpath');
   let dom = require('xmldom').DOMParser;
-  let fs = require('fs');
+  const denodeify = require('denodeify');
+  const fs = require('fs');
+  const writeFilePromise = denodeify(fs.writeFile);
   let queryString = require('query-string');
+  let stripIndents = require('common-tags').stripIndents;
 
   function format(string) {
     return string.split(' ').join('-').toLowerCase();
@@ -56,15 +59,14 @@
     console.log('Generated taxonomy.json');
 
     // Generate sub taxonomy HTML pages from root taxonomy.html page
-    var lis = xpath.select('//li[ul]', new dom().parseFromString(html));
-    for (var i in lis) {
-      var li = new dom().parseFromString(lis[i].toString());
-      var filename = xpath.select1('/li/a/@href', li).value.replace(/^\?page=/, '').replace(/$/, '.html');
-      var content = '<h1>' + xpath.select('string(/li/a)', li) + '</h1>';
-      content += xpath.select('/li/ul', li).toString();
-      content += '\n<!-- Generated on ' + new Date() + ' -->';
-      fs.writeFileSync(rootDir + filename, content);
-      console.log('Generated ' + filename);
-    }
+    xpath.select('//li[ul]', new dom().parseFromString(html)).forEach(li => {
+      li = new dom().parseFromString(li.toString());
+      var filename = queryString.parse(xpath.select1('/li/a/@href', li).value).page + '.html';
+      var content = 
+        stripIndents`<h1>${xpath.select('string(/li/a)', li)}</h1>
+        ${xpath.select('/li/ul', li).toString()}
+        <!-- Generated on ${new Date()} -->`;
+      writeFilePromise(rootDir + filename, content).then(() => console.log('Generated ' + filename));
+    });
   });
 })();
