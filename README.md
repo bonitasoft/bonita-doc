@@ -25,7 +25,6 @@ We added 5 types of container :
 * danger
 * warning
 * info
-* primary
 * success
 
 To use them create a block surrounded with 3 colons:
