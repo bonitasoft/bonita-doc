@@ -8,7 +8,13 @@ You need to configure the following:
 * A database created in a [supported RDBMS](https://customer.bonitasoft.com/support-policies)
 * JNDI data sources to access the database
 
-Note that configuration is done per tenant. If you have multiple tenants to configure, you need to apply instructions below individually to each tenant.
+::: info
+Some configuration file detailed below are located under `setup` folder. See [Bonita BPM plaform setup tool](BonitaBPM_platform_setup.md) for more information about platform configuration.
+:::
+
+::: info
+Configuration is done per tenant. If you have multiple tenants to configure, you need to apply instructions below individually for each tenant.
+:::
 
 ## Database creation
 
@@ -34,7 +40,7 @@ The possible values for `bdm.db.vendor` are:
 </div></div>
 
 As example, if you want to use postgres, the line will be:
-`bdm.db.vendor= postgres`
+`bdm.db.vendor=postgres`
 
 Setting the RDBMS vendor automatically configures the relevant Hibernate dialog. 
 If you need to change the Hibernate dialog for any reason, reset the vendor property for the tenant.
@@ -57,9 +63,9 @@ For remaining configuration steps, you will need the following information:
 For business data objects, you need to configure two data sources: `BusinessDataDS` and `NotManagedBizDataDS`. Two data sources are required because some RDBMS do not support use of transactions for table creation.
 The data sources for business data objects are independent of the Bonita BPM Engine data sources (`bonitaDS` and `bonitaSequenceManagerDS`).
 
-**Note:**
+::: info
 If you have multiple tenants that use business data objects, you need to create a `BusinessDataDS` and a `NotManagedBizDataDS` for each tenant.
-
+:::
 The following sections show how to configuire the data sources for [JBoss](#ds_jboss) and [Tomcat](#ds_tomcat). 
 There is also an [example of how to configure data sources for Weblogic](red-hat-oracle-jvm-weblogic-oracle.md).
 
@@ -87,7 +93,9 @@ The configuration file contains examples for each of the supported RDBMSs to gui
 * In the `<drivers>` declaration, specify the `<xa-datasource-class>` and `<datasource-class>` for the driver you specify in the data source definitions. 
 See the RDBMS-specific examples to find the correct values for your RDBMS.
 
-**Note:** If you have multiple tenants that use business data objects, you need to declare separate data sources for each tenant. Make sure that the values of properties `jndi-name` and `pool-name` are unique. 
+::: info
+If you have multiple tenants that use business data objects, you need to declare separate data sources for each tenant. Make sure that the values of properties `jndi-name` and `pool-name` are unique.
+:::
 Edit [`bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md) file and set the tenant-specific JNDI data source name in `bdm.datasource.jndi.path` and `bdm.notmanageddatasource.jndi.path`.
 
 <a id="db_tomcat"/>
@@ -106,9 +114,10 @@ Edit the `<TOMCAT_HOME>/conf/Catalina/localhost/bonita.xml` configuration file a
 * `driverClassName`: JDBC driver full class name. See the examples to find the value for your RDBMS.
 * `url`: combination of serverName + portNumber + databaseName. See the examples in the configuration file.
 
-**Note:**
+::: info
 If you have multiple tenants that use business data objects, copy the blocks `BusinessDataDS` and `NotManagedBizDataDS` for each tenant, and rename them with a unique name (for example `BusinessDataDS_`_`tenant-id`_ and `NotManagedBizDataDS_`_`tenant-id`_). 
 Edit [`bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md) file and set the tenant-specific JNDI data source name in `bdm.datasource.jndi.path` and `bdm.notmanageddatasource.jndi.path`.
+:::
 
 **Bitronix configuration**
 
@@ -122,6 +131,7 @@ Edit the `<TOMCAT_HOME>/conf/bitronix-resources.properties` configuration file a
 * `resource.ds2.driverProperties.databaseName`: database name.
 * `resource.ds2.driverProperties.URL`: can optionally be used instead of serverName + portNumber + databaseName.
 
-**Note:**
+::: info
 If you have multiple tenants that use business data objects, copy this block of properties for each tenant, and replace `ds2` in the property names with a unique value for each tenant (for example ds3). 
 Also make sure that `resource.ds?.uniqueName` is actually a unique name and update the value for `uniqueName` parameter accordingly in `bonita.xml` file.
+:::

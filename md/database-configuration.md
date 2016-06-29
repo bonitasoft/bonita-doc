@@ -9,9 +9,15 @@ One database schema is required by Bonita BPM Engine to store all information.
 
 Bonita BPM Engine connection to the database is done through the Hibernate library (version 4.2).  
 This provides a level of abstraction between the engine and the RDBMS.  
-Bonita BPM comes with a set of optimized initialization scripts for the [supported RDBMSs](https://customer.bonitasoft.com/support-policies).b
+Bonita BPM comes with a set of optimized initialization scripts for the [supported RDBMSs](https://customer.bonitasoft.com/support-policies).
 
-**Note:** This page explains database configuration for Bonita BPM Engine data. If you are also using [business data objects](define-and-deploy-the-bdm.md), these can be stored in a separate database. By default, Bonita BPM comes with an h2 database. For production purposes, we recommend that you [configure a different database for business data](database-configuration-for-business-data.md).
+::: info
+Some configuration file detailed below are located under `setup` folder. See [Bonita BPM platform setup tool](BonitaBPM_platform_setup.md) for more information about platform configuration.
+:::
+
+::: info
+This page explains database configuration for Bonita BPM Engine data. If you are also using [business data objects](define-and-deploy-the-bdm.md), these can be stored in a separate database. By default, Bonita BPM comes with an h2 database. For production purposes, we recommend that you [configure a different database for business data](database-configuration-for-business-data.md).
+:::
 
 #### Default h2 database
 
@@ -60,7 +66,9 @@ Also, note that the owner of the new schema must have following privileges:
 * CREATE INDEX
 * SELECT, INSERT, UPDATE, DELETE on created TABLE
 
-**Note:** CREATE TABLE and CREATE INDEX are not required after first start.
+:::info
+CREATE TABLE and CREATE INDEX are not required after first start in normal use. If the same SQL user is used with [migration tool](migrate-from-an-earlier-version-of-bonita-bpm.md), then this user needs this grants.
+:::
 
 To create the database, we recommend you refer to your RDBMS documentation:
 
