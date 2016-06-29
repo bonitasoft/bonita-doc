@@ -252,3 +252,4 @@
   * [Manage a list of documents](list-of-documents.md)
   * [Multiple references in Business Objects](bo-multiple-refs-tutorial.md)
   * [Authorization Rule Mapping](custom-authorization-rule-mapping.md)
+  * [Create a modal window using CSS](uid-modal-tutorial.md)
