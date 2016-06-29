@@ -33,11 +33,15 @@
       }
       return result;
     } else if (node.tagName === 'a') {
-      return {
-        name: node.children[0].content.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>'),
-        href: node.attributes.href.replace(/\.md$/g, '.html'),
-        page: queryString.parse(node.attributes.href).page
+      let result = {
+        name: node.children[0].content.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
       };
+      if (node.attributes.href.match(/^http:\/\//)) {
+        result.href = node.attributes.href;
+      } else {
+        result.page = queryString.parse(node.attributes.href).page;
+      }
+      return result;
     } else {
       return node;
     }
@@ -55,7 +59,7 @@
     var uls = xpath.select("/ul", new dom().parseFromString(html));  // get first ul of html doc
     var json = himalaya.parse(uls[0].toString());
     var taxonomy = json[0].children.map(parse);
-    fs.writeFileSync(rootDir + '/taxonomy.json', JSON.stringify(taxonomy, null, 2));
+    fs.writeFileSync(rootDir + '/taxonomy.json', JSON.stringify(taxonomy));
     console.log('Generated taxonomy.json');
 
     // Generate sub taxonomy HTML pages from root taxonomy.html page
