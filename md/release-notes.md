@@ -1,4 +1,4 @@
-# New features
+# Release notes
 
 Below are the changes introduced in Bonita BPM 7.3.0
 

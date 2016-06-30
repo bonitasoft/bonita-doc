@@ -10,11 +10,11 @@ Click on the **links** below to find useful information quickly, or [browse the 
 <div class="panel-body">
 <div class="menu-block-wrapper menu-block-5 menu-name-menu-what-s-new parent-mlid-0 menu-level-1">
 
-* [New features in Bonita BPM {{ contentCtrl.version }}](new-features.md)    <!--{li:.first .leaf}-->
+* [Release notes {{ contentCtrl.version }}](release-notes.md)    <!--{li:.first .leaf}-->
 * [Bonita home removal for easier configuration](BonitaBPM_platform_setup.md)    <!--{li:.leaf}-->
-* [User task list redesign for better efficiency](new-features.md#user-task)<!--{li:.leaf}-->
-* [New UI Designer widgets: File viewer and Rich text area](new-features.md#new-widgets)<!--{li:.leaf}-->
-* [UI Designer usability improvements](new-features.md#usability-improvements)<!--{li:.last .leaf}-->
+* [User task list redesign for better efficiency](release-notes.md#user-task)<!--{li:.leaf}-->
+* [New UI Designer widgets: File viewer and Rich text area](release-notes.md#new-widgets)<!--{li:.leaf}-->
+* [UI Designer usability improvements](release-notes.md#usability-improvements)<!--{li:.last .leaf}-->
 <!--{ul:.menu .nav}-->
 
 </div>
