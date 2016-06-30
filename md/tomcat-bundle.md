@@ -166,7 +166,7 @@ As an example, if hexadecimal parameter is equal to 6. The corresponding binary 
 
 * For Linux:
     * Copy the file `bonita-start.sh` to a file called `mystartup.sh`.
-    * Change the last line of the file to `taskset -c 0,1 bonita-start.bat 0,1` (where 0,1 indicate that you will only use 2 CPU, the CPU0 and the CPU1. This list may contain multiple items, separated by comma, and ranges. For example, 0,5,7,9-11)
+    * Change the last line of the file to `taskset -c 0,1 bonita-start.sh 0,1` (where 0,1 indicate that you will only use 2 CPU, the CPU0 and the CPU1. This list may contain multiple items, separated by comma, and ranges. For example, 0,5,7,9-11)
 
 #### Shut down Tomcat
 
