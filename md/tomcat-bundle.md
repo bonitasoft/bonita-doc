@@ -137,7 +137,7 @@ Follow those steps:
 Tomcat can be started by executing the following commands:
 
 * Windows: `<TOMCAT_HOME>\bonita-start.bat`
-* Linux: `<TOMCAT_HOME>/bonita-start.bat`
+* Linux: `<TOMCAT_HOME>/bonita-start.sh`
 
 #### Custom start-up script
 
