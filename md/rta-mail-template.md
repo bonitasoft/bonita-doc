@@ -15,22 +15,22 @@ The process consists of a :
 * a service task which sends the out of office mail message to the mail server
 * an end event
 
-The process will look like this: 
+The process will look like this:
 
 ![Out of office message process](images/rta-mail/rta-mail-template-ooomprocess.png) <!--{.img-responsive}-->
 
 Conditions are set on the transition out of the _Check Email content_ task allowing to know which path to use.
 
-We create a **Business Data Model** to hold the user informations : 
+We create a **Business Data Model** to hold the user informations :
 * _startDate_: leave date start as a **DATE**
 * _endDate_: leave date end as a **DATE**
-* _title_: the mail title
-* _body_: the mail body
+* _title_: the mail title as a **STRING**
+* _body_: the mail body as a **STRING** with a _length_ of 2048
 
 ![Out of office message business model](images/rta-mail/rta-mail-template-ooom-bdm.png) <!--{.img-responsive}-->
 
 A business object variable will be created at pool level, named **outOfOfficeMessage**. It will to be initialized via a Groovy script with the mail template of the out of office message.  
-The template will be filled with the initiator information and its manager contact: 
+The template will be filled with the initiator information and its manager contact:
 
 ```groovy
 import org.bonitasoft.engine.identity.ContactData;
@@ -85,9 +85,9 @@ And the operation pane will look like this:
 
 #### Out transistion
 
-This task has two possible transition : 
+This task has two possible transition :
 * the transition to the _Send test email_ is condition if the local variable **test** is true
-* the transition to the _Send test email_ is condition if the local variable **test** is true
+* the transition to the _Send Message to Mail Server_ is condition if the **default flow**
 
 ### Send test email service task
 
@@ -114,9 +114,9 @@ Once this task is completed, a new _Check email content_ human task is available
 Here, the out of office mail message has been validated and the way the mail server handle the out of office mail configuration for a given user depends on the mail server provider and will not be detailed here.  
 It will use a connector that will send the appropriate information via an external API.
 
-# Form
+# Form for 'Check Email content' task
 
-In the **Execution > Form** pane, use the pencil :fa-pencil: icon to generate a default form from the contract.  
+On 'Check Email content' task, in the **Execution > Form** pane, use the pencil :fa-pencil: icon to generate a default form from the contract.  
 It will look like this:
 
 ![Out of office message - Check email content - form](images/rta-mail/rta-mail-template-ooom-check-mail-initial-form.png) <!--{.img-responsive}-->
@@ -130,7 +130,7 @@ For a better usability, we can  :
   * create a _nextStepChoice_ JSON variable defining the different choices :
     ```json
     [
-        {"name": "Receive an test email in my mailbox", "value": true},
+        {"name": "Receive a test email in my mailbox", "value": true},
         {"name": "Send mail message to mail server", "value": false}
     ]
     ```
@@ -171,8 +171,8 @@ Add a **Rich text area** widget below the _title_ **input** widget:
 * set the value to `formInput.outOfOfficeMessageInput.body` (the same as the _body_ **input** widget)
 * set the _Label_ property to `Body`
 * set the _Required_ property to `yes`
-* set the _Style toolbar_ property to `p, ul, ol` 
-* set the _Miscellaneous toolbar_ property to `html, insertImage, insertLink, undo, redo, clear` 
+* set the _Style toolbar_ property to `p, ul, ol`
+* set the _Miscellaneous toolbar_ property to `html, insertImage, insertLink, undo, redo, clear`
 
 Click on preview. And the form will look like:
 
