@@ -32,10 +32,10 @@ pom.xml :
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.bonitasoft.example</groupId>
-    <artifactId>eventHandlerExample</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>event-handler-example</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <properties>
-        <bonita.version>7.2.0</bonita.version>
+        <bonita.version>7.3.0</bonita.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -83,16 +83,16 @@ public class EventHandlerExample implements SHandler<SEvent> {
     private final TechnicalLoggerService technicalLoggerService;
     private TechnicalLogSeverity technicalLogSeverity;
 
-    public EventHandlerExample(TechnicalLoggerService technicalLoggerService) {
+    public EventHandlerExample(TechnicalLoggerService technicalLoggerService, String loggerSeverity) {
         this.technicalLoggerService = technicalLoggerService;
 
         //set desired logging level
-        this.technicalLogSeverity = TechnicalLogSeverity.INFO;
+        this.technicalLogSeverity = TechnicalLogSeverity.valueOf(loggerSeverity);
     }
 
     public void execute(SEvent event) throws SHandlerExecutionException {
         if (technicalLoggerService.isLoggable(this.getClass(), technicalLogSeverity)) {
-        technicalLoggerService.log(this.getClass(), technicalLogSeverity, "ExampleHandler: executing event " + event.getType());
+            technicalLoggerService.log(this.getClass(), technicalLogSeverity, "ExampleHandler: executing event " + event.getType());
         }
 
         // add your business logic here
@@ -102,10 +102,9 @@ public class EventHandlerExample implements SHandler<SEvent> {
     public boolean isInterested(SEvent event) {
         if (technicalLoggerService.isLoggable(this.getClass(), technicalLogSeverity)) {
             technicalLoggerService.log(this.getClass(), technicalLogSeverity,
-            "ExampleHandler - event "
-            + event.getType()
-            + " - asks if we are interested in handling this event instance";
-
+                    "ExampleHandler - event "
+                            + event.getType()
+                            + " - asks if we are interested in handling this event instance");
         }
 
         // add your business logic here
@@ -113,7 +112,7 @@ public class EventHandlerExample implements SHandler<SEvent> {
         return true;
     }
 
-     public String getIdentifier() {
+    public String getIdentifier() {
         //ensure this handler is registered only once
         return UUID.randomUUID().toString();
     }
@@ -122,8 +121,8 @@ public class EventHandlerExample implements SHandler<SEvent> {
 
 ### Deploy jar
 
-* Build eventHandlerExample-1.0-SNAPSHOT.jar using `mvn clean install` maven command.
-* Copy eventHandlerExample-1.0-SNAPSHOT.jar in webapps/bonita/WEB-INF/lib/ folder (for tomcat bundle)
+* Build event-handle-example-1.0-SNAPSHOT.jar using `mvn clean install` maven command.
+* Copy event-handle-example-1.0-SNAPSHOT.jar in webapps/bonita/WEB-INF/lib/ folder (for tomcat bundle)
 
 ### Register an event handler
 
@@ -136,6 +135,7 @@ An event handler is registered on an event by adding an entry to the appropriate
     <bean id="myEventHandlerExample" class="org.bonitasoft.example.EventHandlerExample">
         <!-- add logging service -->
         <constructor-arg name="technicalLoggerService" ref="tenantTechnicalLoggerService" />
+        <constructor-arg name="loggerSeverity" value="WARNING"/>
     </bean>
 
     <bean id="eventHandlers" class="org.springframework.beans.factory.config.MapFactoryBean">
@@ -150,6 +150,7 @@ An event handler is registered on an event by adding an entry to the appropriate
     </bean>
 
 </beans>
+
 ```
 
 ### Test it
@@ -208,12 +209,11 @@ This is a snapshot of the events used in the Engine.
 | FlowNodeInstanceServiceImpl | ARCHIVED\_FLOWNODE\_INSTANCE\_DELETED, FLOWNODE\_INSTANCE\_DELETED| 
 | GatewayInstanceServiceImpl | GATEWAYINSTANCE\_CREATED, GATEWAYINSTANCE\_HITBYS\_UPDATED, GATEWAYINSTANCE\_STATE\_UPDATED| 
 | IdentityServiceImpl | GROUP\_CREATED, GROUP\_DELETED, GROUP\_UPDATED, METADATA\_CREATED, METADATA\_DELETED, METADATA\_UPDATED, METADATAVALUE\_CREATED, METADATAVALUE\_DELETED, METADATAVALUE\_UPDATED, ROLE\_UPDATED, ROLE\_CREATED, ROLE\_DELETED, USER\_UPDATED, USER\_CREATED, USER\_DELETED, USER\_CONTACT\_INFO\_UPDATED, USER\_CONTACT\_INFO\_CREATED, USER\_CONTACT\_INFO\_DELETED, USERMEMBERSHIP\_UPDATED, USERMEMBERSHIP\_CREATED, USERMEMBERSHIP\_DELETED| 
-| JobServiceImpl | eventType\_CREATED, eventType\_DELETED| 
+| JobServiceImpl | JOB_DESCRIPTOR\_CREATED, JOB_DESCRIPTOR\_DELETED, JOB_PARAMETER\_CREATED, JOB_PARAMETER\_DELETED, JOB_LOG\_CREATED, JOB_LOG\_DELETED|
 | JobWrapper | JOB\_COMPLETED, JOB\_EXECUTING| 
 | ProcessDefinitionServiceImpl | PROCESSDEFINITION\_CREATED, PROCESSDEFINITION\_DELETED, PROCESSDEFINITION\_DEPLOY\_INFO\_UPDATED, PROCESSDEFINITION\_IS\_DISABLED\_UPDATED, PROCESSDEFINITION\_IS\_ENABLED\_UPDATED, PROCESSDEFINITION\_IS\_RESOLVED\_UPDATED| 
-| ProcessInstanceServiceImpl | MIGRATION\_PLAN\_UPDATED, PROCESS\_INSTANCE\_CATEGORY\_STATE\_UPDATED, PROCESSINSTANCE\_CREATED, PROCESSINSTANCE\_DELETED, PROCESSINSTANCE\_STATE\_UPDATED, PROCESSINSTANCE\_UPDATED| 
+| ProcessInstanceServiceImpl | PROCESS\_INSTANCE\_CATEGORY\_STATE\_UPDATED, PROCESSINSTANCE\_CREATED, PROCESSINSTANCE\_DELETED, PROCESSINSTANCE\_STATE\_UPDATED, PROCESSINSTANCE\_UPDATED|
 | ProfileServiceImpl | PROFILE\_CREATED, PROFILE\_DELETED, PROFILE\_UPDATED, ENTRY\_PROFILE\_CREATED, ENTRY\_PROFILE\_DELETED, ENTRY\_PROFILE\_UPDATED, PROFILE\_MEMBER\_DELETED| 
 | ReportingServiceImpl | REPORT\_CREATED, REPORT\_DELETED| 
 | SupervisorMappingServiceImpl | SUPERVISOR\_CREATED, SUPERVISOR\_DELETED| 
 | ThemeServiceImpl | THEME\_CREATED, THEME\_DELETED, THEME\_UPDATED| 
-| TokenServiceImpl  |PROCESS\_INSTANCE\_TOKEN\_COUNT\_CREATED, PROCESS\_INSTANCE\_TOKEN\_COUNT\_DELETED| 
