@@ -42,7 +42,7 @@ The JBoss bundle is based on a standard JBoss installation with the following ad
 * `standalone/deployments/bonita-all-in-one-[version].ear`: Bonita BPM Portal (web application) and EJB3 API.
 
 ::: info
-**Note:** Starting from Bonita BPM 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database than the Bonita BPM Engine data, namely in the `CONFIGURATION` table.  
+**Note:** Starting from Bonita BPM 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database as the Bonita BPM Engine data, namely in the `CONFIGURATION` table.  
 To initialize and update this configuration, a [*Platform setup tool*](BonitaBPM_platform_setup.md) is provided and embedded in Bonita BPM bundles. 
 It will be launched automatically when you start the JBoss bundle to initialize the database.  
 :::

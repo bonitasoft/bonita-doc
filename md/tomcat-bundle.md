@@ -60,7 +60,7 @@ The Tomcat bundle is based on a standard Tomcat installation with the following 
 * `webapps/bonita.war`: the Bonita web application.
 
 ::: info
-**Note:** Starting from Bonita BPM 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database than the Bonita BPM Engine data, namely in the `CONFIGURATION` table.
+**Note:** Starting from Bonita BPM 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database as the Bonita BPM Engine data, namely in the `CONFIGURATION` table.
 To initialize and update this configuration, a [*Platform setup tool*](BonitaBPM_platform_setup.md) is provided and embedded in Bonita BPM bundles.
 :::
 
@@ -106,7 +106,7 @@ For production, you are recommended to use one of the supported databases, with 
 
 Make sure your database is created before you start configuring the Tomcat datasources and make sure you do so before you start the Tomcat server.
 
-If you use the [Business Data Model (BDM) feature](define-and-deploy-the-bdm.md), you can store the business data in the same database than platform configuration and engine data, or you can configure a dedicated database.
+If you use the [Business Data Model (BDM) feature](define-and-deploy-the-bdm.md), you can store the business data in the same database as platform configuration and engine data, or you can configure a dedicated database.
 
 Follow those steps:
 
@@ -122,7 +122,7 @@ Follow those steps:
     1. Comment the default embedded H2 database configuration (with `<!--` and `-->` around the lines to comment)
     2. Uncomment the configuration for your database vendor (PostgreSQL, Oracle, SQL Server, or MySQL)
     3. Change the default values for your database configuration to point to an existing database instance and valid credentials
-  Warning: this must be done for 2 different datasources in the file: **bonitaSequenceManagerDS** (for engine and configuration data, same base than **resource.ds1.**) and **NotManagedBizDataDS** (for BDM data, same base than **resource.ds2.**)
+  Warning: this must be done for 2 different datasources in the file: **bonitaSequenceManagerDS** (for engine and configuration data, same base as **resource.ds1.**) and **NotManagedBizDataDS** (for BDM data, same base as **resource.ds2.**)
 5. Edit file sentenv.sh (Unix system) or setenv.bat (Windows system)
     1. For engine and configuration data, change the **DB_OPTS** property and change the default **h2** value for the one corresponding to your database vendor 
     2. For BDM data, change the **BDM_DB_OPTS** property and change the default **h2** value for the one corresponding to your database vendor 
