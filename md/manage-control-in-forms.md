@@ -4,7 +4,7 @@ Using a leave request management process example, you will learn how to take adv
 
 ## Prologue
 
-You will design a simple leave request management process using Bonita BPM 7 and beyond:
+You will design a simple leave request management process using Bonita BPM 7 and beyond:  
 First things first, draw the wireframe of the process. In Bonita BPM Studio, since the instantiation of a new leave request happens at pool level, add a simple validation task, rename the pool _Leave request management_, and rename the lane _manager_, as shown here: 
 
 ![Simple process](images/leave_request_management_process.png)

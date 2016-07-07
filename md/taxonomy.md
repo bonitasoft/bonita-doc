@@ -253,3 +253,4 @@
   * [Multiple references in Business Objects](bo-multiple-refs-tutorial.md)
   * [Authorization Rule Mapping](custom-authorization-rule-mapping.md)
   * [Create a modal window using CSS](uid-modal-tutorial.md)
+  * [RichTextArea widget mail template](rta-mail-template.md)
