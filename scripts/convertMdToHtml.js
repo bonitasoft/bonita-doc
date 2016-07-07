@@ -38,10 +38,15 @@
     .use(mdInline, 'navigation_in_site', 'link_open', (tokens, idx) => {
       const hrefIndex = tokens[idx].attrIndex('href');
       if (hrefIndex >= 0 && !tokens[idx].attrs[hrefIndex][1].match(/^http/)) {
-        const pageAndHash = tokens[idx].attrs[hrefIndex][1].split('#', 2);
-        const page = pageAndHash[0].replace(/\.md$/, ''); 
-        tokens[idx].attrPush([ 'ng-click', 'contentCtrl.goTo($event, \'' + page + '\'' + ((pageAndHash[1]) ? ', \'' + pageAndHash[1] + '\'' : '') + ')' ]);
-        tokens[idx].attrs[hrefIndex][1] = '?' + queryString.stringify({page, hash: pageAndHash[1]});
+        if (hrefIndex >= 0 && tokens[idx].attrs[hrefIndex][1].match(/^images\//)) {
+          tokens[idx].attrs[hrefIndex][1] = tokens[idx].attrs[hrefIndex][1].replace(/^images\//gi, `images/${version}/`);
+          tokens[idx].attrPush([ 'target', '_blank' ]);
+        } else {
+          const pageAndHash = tokens[idx].attrs[hrefIndex][1].split('#', 2);
+          const page = pageAndHash[0].replace(/\.md$/, '');
+          tokens[idx].attrPush([ 'ng-click', 'contentCtrl.goTo($event, \'' + page + '\'' + ((pageAndHash[1]) ? ', \'' + pageAndHash[1] + '\'' : '') + ')' ]);
+          tokens[idx].attrs[hrefIndex][1] = '?' + queryString.stringify({page, hash: pageAndHash[1]});
+        }
       }
     })
     .use(mdInline, 'site_compatible_images', 'image', (tokens, idx) => {
