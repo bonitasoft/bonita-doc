@@ -106,7 +106,7 @@ For production, you are recommended to use one of the supported databases, with 
 
 Make sure your database is created before you start configuring the Tomcat datasources and make sure you do so before you start the Tomcat server.
 
-If you use the [Business Data Model (BDM) feature](define-and-deploy-the-bdm.md), you can store the business data in the same database as platform configuration and engine data, or you can configure a dedicated database.
+If you use the [Business Data Model (BDM) feature](define-and-deploy-the-bdm.md), we recommend that you configure a dedicated database.
 
 Follow those steps:
 
