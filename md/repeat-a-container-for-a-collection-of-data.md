@@ -30,7 +30,7 @@ In this example, the collection of data is a list of fruits. You want to display
   * Set the **Label position** property to _Left_.
 4. Check the Preview, which should look something like this:
 
-<img alt="Simple collection repeated" src="images/images-6_0/UID_ContainerSimpleFruits.png" class="img-responsive"/>
+![Simple collection repeated](images/images-6_0/UID_ContainerSimpleFruits.png)<!--{.img-responsive}-->
 
 A user can modify the name of a fruit by typing in the input field.
 
