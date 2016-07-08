@@ -45,7 +45,7 @@ The platform setup tool is also present in the Tomcat or JBoss bundle under the 
         for more information on this take a look at the [Hazelcast Documentation](http://docs.hazelcast.org/docs/3.4/manual/html-single/index.html#discovering-cluster-members).
 * Copy licenses of all your nodes in `platform_conf/licenses`
 * run the `setup.sh init` or `setup.bat init` as described in the [platform setup tool page](BonitaBPM_platform_setup.md#init_platform_conf).
-* At the end of the script, you should see the following line: "Initial configuration (and license) files successfully pushed to database"
+* At the end of the script, you should see the following line: "Initial configuration files successfully pushed to database"
 * This creates the database tables needed by Bonita BPM platform, stores the configuration into this database, and stores the licence files for all your cluster nodes
 into the database.
 
