@@ -51,103 +51,45 @@ do not upload any malicious or vulnerable code. If you wish to learn more about 
 The tables below show the directories and the most important files that are present in the Look & Feel definition.
 
 ## Bonita BPM Portal Web default Look & Feel
-Component
-Description
-
-BonitaConsole.html
-HTML entry page for Bonita BPM Portal. If you want to add a custom JavaScript or custom CSS, modify this file and add it to the header.
-
-BonitaForm.html
-HTML entry page for forms in Bonita BPM Portal. If you want to add a custom JavaScript or custom CSS, modify this file and add it to the header.
-
-bonita\_ie8.css Specific CSS content for Internet Explorer 8 support.
-
-main.less
-Used to compile the LESS files into CSS. You must not rename this file, and we recommend that you do not change it.
-
-css
-Directory containing default CSS files used by the process forms.
-
-css/bonita\_forms.css
-Default CSS for process forms.
-
-css/footer.css
-CSS for footers in process forms.
-
-images Directory of images. These images are the size needed for the standard layout. 
-If you change the layout, you might need to adjust the images sizes. 
-If you want to use an image that is a different size, you might need to modify the layout.
-
-init/reset.less
-For browser compatibility, do not change.
-
-PIE.htc
-Functions required for some CSS features to work in Internet Explorer.
-
-scripts
-Directory of scripts, including JQuery scripts. 
-
-skin
-Contains LESS files and directories for fonts and images used in the skin.
-
-skin/bootstrap/applications
-Customizations to Bootstrap for applications.
-Change these files to modify the appearance of application pages.
-
-skin/bootstrap/applications/main.less
-The entry point that identifies the files to be compiled to create the Bootstrap Look & Feel for applications.
-
-skin/bootstrap/portal
-Customizations to Bootstrap for the Portal.
-Change these files to modify the appearance of Portal pages.
-
-skin/bootstrap/portal/main.less
-The entry point that identifies the files to be compiled to create the Bootstrap Look & Feel for Portal pages developed with Angular.
-
-skin/skin.config.less
-The main LESS file that defines the appearance.
-Change this file to modify the appearance of Bonita BPM Portal web `<not mobile>`. You only need to modify the other LESS files if you want to change the behaviour of the pages.
-
-tools
-Contains special files required for compatibility with Internet Explorer. 
-
-VERSION
-Contains the version flag. Do not update or delete this file. 
+| Component | Description | 
+| ------ | ------ |
+| BonitaConsole.html | HTML entry page for Bonita BPM Portal. If you want to add a custom JavaScript or custom CSS, modify this file and add it to the header. | 
+| BonitaForm.html | HTML entry page for forms in Bonita BPM Portal. If you want to add a custom JavaScript or custom CSS, modify this file and add it to the header. | 
+| bonita\_ie8.css | Specific CSS content for Internet Explorer 8 support. | 
+| main.less | Used to compile the LESS files into CSS. You must not rename this file, and we recommend that you do not change it. | 
+| css | Directory containing default CSS files used by the process forms. | 
+| css/bonita\_forms.css | Default CSS for process forms. | 
+| css/footer.css | CSS for footers in process forms. | 
+| images | Directory of images. These images are the size needed for the standard layout. <br/> If you change the layout, you might need to adjust the images sizes.<br/> If you want to use an image that is a different size, you might need to modify the layout. | 
+| init/reset.less | For browser compatibility, do not change. | 
+| PIE.htc | Functions required for some CSS features to work in Internet Explorer. | 
+| scripts | Directory of scripts, including JQuery scripts.  | 
+| skin | Contains LESS files and directories for fonts and images used in the skin. | 
+| skin/bootstrap/applications | Customizations to Bootstrap for applications.<br>  Change these files to modify the appearance of application pages. | 
+| skin/bootstrap/applications/main.less | The entry point that identifies the files to be compiled to create the Bootstrap Look & Feel for applications. | 
+| skin/bootstrap/portal | Customizations to Bootstrap for the Portal.<br/> Change these files to modify the appearance of Portal pages. | 
+| skin/bootstrap/portal/main.less | The entry point that identifies the files to be compiled to create the Bootstrap Look & Feel for Portal pages developed with Angular. | 
+| skin/skin.config.less | The main LESS file that defines the appearance.<br> Change this file to modify the appearance of Bonita BPM Portal web `<not mobile>`. You only need to modify the other LESS files if you want to change the behaviour of the pages. | 
+| tools | Contains special files required for compatibility with Internet Explorer.  | 
+| VERSION | Contains the version flag. Do not update or delete this file.  | 
 
 ## Bonita BPM Portal Mobile default Look & Feel
-Component
-Description
 
-css
-Directory containing CSS files.
-
-css/jquery.mobile.structure-1.2.0.min.css
-JQuery Mobile default CSS.
-
-css/style.css
-JQuery Mobile default theme CSS.
-
-img
-Directory of images. These images are the size needed for the standard layout. 
-If you change the layout, you might need to adjust the images sizes. 
-If you want to use an image that is a different size, you might need to modify the layout.
-
-themes
-Directory containing CSS files overriding the JQuery files (theme for Bonita mobile).
-
-themes/images
-Directory of images used in the themes.
-
-themes/bonitasoft.css
-Theme CSS.
-
-themes/bonitasoft.min.css
-Minified theme CSS.
+| Component | Description |
+| ------ | ------ |
+| css | Directory containing CSS files. | 
+| css/jquery.mobile.structure-1.2.0.min.css | JQuery Mobile default CSS. | 
+| css/style.css | JQuery Mobile default theme CSS. | 
+| img | Directory of images. These images are the size needed for the standard layout. <br> If you change the layout, you might need to adjust the images sizes. <br> If you want to use an image that is a different size, you might need to modify the layout. | 
+| themes | Directory containing CSS files overriding the JQuery files (theme for Bonita mobile). | 
+| themes/images | Directory of images used in the themes. | 
+| themes/bonitasoft.css | Theme CSS. | 
+| themes/bonitasoft.min.css | Minified theme CSS. | 
 
 ## Recommendation: Form footers
 
 There are sometimes problems with the appearance of form footers after migration. If this is the case, update the `moredetails.less` file of the Look & Feel to include the following definition:
-`
+```css
 #formframe, .forms-view, .forms-view .frame {
   height: 100%;
   width: 100%;
@@ -169,6 +111,6 @@ There are sometimes problems with the appearance of form footers after migration
   display: block !important;
   overflow: hidden;
 }
-`
+```
 
 With this definition, the form footer is displayed instead of the Portal footer, and the form's iframe is now contained in a table row. This is recommended for easier maintenance and to avoid issues at future migrations.
