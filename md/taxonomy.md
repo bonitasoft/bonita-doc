@@ -150,6 +150,7 @@
 * [Bonita BPM Portal Administration](_bonita-bpm-portal-administration.md)
   * [Bonita BPM Portal interface](_bonita-bpm-portal-interface.md)
     * [Bonita BPM Portal overview](bonita-bpm-portal-interface-overview.md)
+    * [User task list](user-task-list.md)
     * [Languages](languages.md)
     * [Log in and log out](log-in-and-log-out.md)
     * [About Bonita BPM Portal](about.md)
@@ -254,3 +255,4 @@
   * [Map authorization rules](custom-authorization-rule-mapping.md)
   * [Create a modal window using CSS](uid-modal-tutorial.md)
   * [Use the rich textarea widget in a mail template](rta-mail-template.md)
+  * [Optimize the user task list](optimize-user-tasklist.md)

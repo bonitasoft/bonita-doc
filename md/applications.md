@@ -1,15 +1,15 @@
 # Applications
 
 ::: warning
- Since 7.3 we made some changes on the default layout. 
- Those changes live in the `layout.css` page asset and allow us to better handle the content layout of the page displayed. 
+ Since 7.3, some changes have been made on the default layout.
+ Those changes live in the `layout.css` page asset and allow us to better handle the content layout of the page displayed.
  Another consequence is that it removes a margin which was automatically added at the top of each pages.
 :::
 
 With Bonita BPM you can build an application that exactly meets your needs and interacts with processes.
 Instead of the standard, generic, process-centered Bonita BPM Portal, you can create a business-centered web application that provides access to processes.
 You can modify the application whenever you want, and users will see the changes immediately.
-This means that you can rapidly adapt an application to your changing business needs or to react to user feedback. 
+This means that you can rapidly adapt an application to your changing business needs or to react to user feedback.
 
 ## Application definition
 
@@ -132,7 +132,7 @@ To specify the application navigation:
 4. Specify the menu structure. At the top level, you can define one-page menus that point directly to pages (like Home in the illustration), or multi-page menus (like Holidays).
 If you define a multi-page menu, you can add menu items (like Trekking and Safari).
   * To add a top-level one-page menu, click **_Add_**, then in the popup, click **_One-page menu_**, specify the name for the menu, select the page, and click **_Add_**.
-  * To add a top-level multi-page menu, click **_Add_**, then in the popup, click **_Multi-page menu_**, specify the name for the menu, and click **_Add_**. 
+  * To add a top-level multi-page menu, click **_Add_**, then in the popup, click **_Multi-page menu_**, specify the name for the menu, and click **_Add_**.
   * To add an item to a multi-page menu, click the plus icon beside the menu name, specify the name for the menu item, choose the page from the popup, and click **_Add_**.
   * To delete a menu or menu item, click the trashcan icon. If you delete a menu that has children, the child entries are automatically deleted from the navigation.
   * To reorder menu items, drag and drop them.
@@ -200,7 +200,7 @@ If the specified layout and/or theme is not present, the application is created 
 
 ## Updating an application
 
-There are two aspects to updating an application: changing the application definition and changing the resources. 
+There are two aspects to updating an application: changing the application definition and changing the resources.
 
 #### Updating an application definition
 

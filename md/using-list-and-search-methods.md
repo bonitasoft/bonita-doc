@@ -4,7 +4,7 @@ The Bonita BPM Engine APIs contain several list and search methods. This page ex
 
 The following example shows how to use a list method to see the archived activity instances:
 ```java
-List<ArchivedActivityInstance> archivedActivityInstances = 
+List<ArchivedActivityInstance> archivedActivityInstances =
     TenantAPIAccessor.getProcessAPI(session).getArchivedActivityInstances(instance.getId(), 0, 100, ActivityInstanceCriterion.NAME_ASC);
 ```
 
@@ -17,7 +17,7 @@ SearchResult<ArchivedActivityInstance> archActivitResult = TenantAPIAccessor.get
 
 These two examples above return identical information. Both list and search can be used to return a specified number of results, sorted according to a specified criterion.
 
-The advantage of using list is that it is a single query, so has better performance. It is also simpler to code. 
+The advantage of using list is that it is a single query, so has better performance. It is also simpler to code.
 
 The advantage of using search is that you can specify filters to get a more precise set of results, which can be more efficient. Several filters can be added. By default, an implicit AND clause is added when several filters are added. If the need is different,
 you can have an OR clause, of more complex clauses. See [SearchOptionsBuilder methods](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/search/SearchOptionsBuilder.html) for filtering that matches your needs.   
@@ -38,10 +38,12 @@ sob.or();
 sob.differentFrom</b>(HumanTaskInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getId());
 ```
 
+<a id="word_based_search" />
+
 Word-based search <!--{.h2}-->
 
-By default, search uses a "starts by" algorithm for searching, and finds matches where the search string occurs at the start of a phrase. 
-If word-based search is enabled, you can search for a string that is preceded by white space or is at the start of the phrase. 
+By default, search uses a "starts by" algorithm for searching, and finds matches where the search string occurs at the start of a phrase.
+If word-based search is enabled, you can search for a string that is preceded by white space or is at the start of the phrase.
 For example:
 | Phrase in database | Search string | Matches with "starts with" | Matches with word-based search |
 |:-|:-|:-|:-|
@@ -49,10 +51,10 @@ For example:
 | Hello Charles | he | yes | yes |
 | Hello Charles | carl | no | no |
 | Hello\_Charles | ch | no | no |
-  
+
 Using word-based search has an impact on performance, so by default it is disabled. You can enable it for the platform or for a tenant. If you enable it, you can exclude any objects for which it is not useful.
 
-To configure word-based search, edit  [`bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md) and make the following changes: 
+To configure word-based search, edit  [`bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md) and make the following changes:
 
 1. Change the value of `bonita.platform.persistence.platform.enableWordSearch` (for the platform) or `bonita.platform.persistence.tenant.enableWordSearch` (for a tenant) to `true` in the following line:
    ```xml
