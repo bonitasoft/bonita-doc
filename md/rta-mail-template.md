@@ -1,4 +1,4 @@
-# Use the RichTextArea widget to write mail with a HTML template
+# How to use the rich textarea widget in a mail template
 
 Using a leave request management process example, you will learn how to use a mail template in a form.
 

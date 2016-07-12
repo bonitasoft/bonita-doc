@@ -1,4 +1,4 @@
-# Authorization Rule Mapping
+# How to map authorization rules
 
 ## Introduction
 
