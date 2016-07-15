@@ -11,14 +11,14 @@ There are three default profiles available in the Portal: **User**, **Administra
 The **Administrator** is responsible for the administration of the Portal at tenant level, and particularly for the management of the processes, the organization, the reports, the custom profiles and the Look & Feel.
 
 Example of the Administrator profile interface
-![Administrator profile](images/images-6_0/admin_view7.1.png)<!--{.img-responsive}-->
+![](images/images-6_0/admin_view7.1.png)<!--{.img-responsive}-->
 
 The **Process Manager** shares process management responsibilities with the Administrator for the processes he has been declared as the Process Manager.
 
 The **User** is responsible of performing the tasks for which she is a candidate and also for starting new cases of the processes to which she has access.
 
 Example of the User profile interface
-![User interface](images/user_tasklist.png)<!--{.img-responsive}-->
+![](images/user_tasklist.png)<!--{.img-responsive}-->
 
 To know more about the use and optimization of the task list, go to [User task list](user-task-list.md).
 
