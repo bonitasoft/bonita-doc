@@ -18,7 +18,7 @@ First, create a new diagram.
 Then model the process in the first pool: since the instantiation of a new leave request happens at pool level, just rename the default _human task_ into "Request validation", and add a _terminate end_ event that you can rename "Happy end".
 Rename the pool into "leave request management", and the lane into "Manager", as shown here:
 
-![Simple process](images/leave_request_management_process.png)
+![](images/leave_request_management_process.png)
 
 Then, define a business object that will hold the leave requests data when the process instances are ongoing, and store it when the instances are archived: In Bonita BPM Studio menu, go to Development > Business Data Model > Manage option, and add a business object named _LeaveRequest_, with 2 attributes (for the example):
 
@@ -44,7 +44,7 @@ Then, to make sure the process gets the information it needs to start a new inst
 In the **Execution** pane > **Contract** tab, a complex contract input is created, mapped on the **leaveRequest** business variable.
 Each entry of the contract is bound to a business variable attribute, as shown here:
 
-![Leave Request - Instantiation contract](images/ContractSimple.png)
+![](images/ContractSimple.png)
 
 A script is also automatically generated, that writes contract inputs values in default business data attributes when the process is instantiated.
 
