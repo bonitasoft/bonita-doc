@@ -9,6 +9,19 @@ It is using markdown to create documentation content.
 
 Current conversion to html is done with `markdown-it` with the [Github-flavored Markdown](https://help.github.com/categories/writing-on-github/). Checkout [the cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#blockquotes) for more information.
 
+#### Add images 
+![optionalImageCaption](mandatoryImageFileName.ext).
+
+So far, we don't use the caption, so we leave the square brackets empty.
+
+#### Anchors
+
+In the page to navigate to, add the following: 
+`<a id="section-Name" />`
+
+In the page to navigate from, use the following:
+`[textToDescribeTheLink](pageName.md#section-Name)`
+
 #### Fontawesome
 
 The markdown-it-fontawesome plugin has been activated and you can use [fontawesome](http://fontawesome.io/icons/) icon with their name surrounded by colon: `:fa-flag:` that will produce 
