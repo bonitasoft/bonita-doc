@@ -32,7 +32,7 @@ For a Subscription edition:
 
 The fully qualified folder path (including the BonitaBPM-x.y.z-Tomcat-7.0.67 folder) to the folder where you unzip the Tomcat bundle is referred to as `<TOMCAT_HOME>`. We recommend the following locations:
 
-* Windows: `C:\BonitaBPM`. 
+* Windows: `C:\BonitaBPM`.
 * Linux: in `/opt/BonitaBPM`. Make sure that Linux user account used to execute Tomcat is the owner of the folders and files.
 
 ::: warning  
@@ -125,8 +125,8 @@ Follow those steps:
     3. Change the default values for your database configuration to point to an existing database instance and valid credentials
   Warning: this must be done for 2 different datasources in the file: **bonitaSequenceManagerDS** (for engine and configuration data, same base as **resource.ds1.**) and **NotManagedBizDataDS** (for BDM data, same base as **resource.ds2.**)
 5. Edit file sentenv.sh (Unix system) or setenv.bat (Windows system)
-    1. For engine and configuration data, change the **DB_OPTS** property and change the default **h2** value for the one corresponding to your database vendor 
-    2. For BDM data, change the **BDM_DB_OPTS** property and change the default **h2** value for the one corresponding to your database vendor 
+    1. For engine and configuration data, change the **DB_OPTS** property and change the default **h2** value for the one corresponding to your database vendor
+    2. For BDM data, change the **BDM_DB_OPTS** property and change the default **h2** value for the one corresponding to your database vendor
 
 
 <a id="start" />

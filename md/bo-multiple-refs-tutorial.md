@@ -48,7 +48,7 @@ Then create **ExpenseReport** business object referencing multiple expenses by c
 * Go to Execution > Contract property tab
 * Create a contract like below
 
-![Contract](images/bdm-tuto/contract.png "Contract")<!--{.img-responsive}-->
+![Contract](images/bdm-tuto/contract.pngManage )<!--{.img-responsive}-->
 
  _newExpenses_ input is used to gather a list of new expenses to add to the report
  _expensesToDelete_ input is used to gather a list of *Expense* id to delete
