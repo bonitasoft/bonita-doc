@@ -6,15 +6,16 @@ This tutorial explains how to customize authorization rule mapping.
 
 Authorization rule is a java bean that must implement `getId` and `isAllowed` methods.
 
-Authorization Rule Mapping is a set of rules used to allow connected user to access [page and form](page-and-form-development-overview.md). An empty list grants access to user. A non empty list allows access if all rules return true to their `isAllowed` method. Those rules grant or not access to the connected user for:
+Authorization Rule Mapping is a set of rules used to allow connected user to access [page and form](page-and-form-development-overview.md). An empty list grants access to user. A non empty list allows access if all rules return true to their `isAllowed` method.  
+Those rules grant or not access to the connected user for:
   * use a page or form to start a process
-  * display process overview
   * use a page or form to execute a task
+  * display the case overview page
 
 The tutorial can be used with Bonita BPM Community edition, and uses features that are available in all editions.
 
 ::: warning
-The following elements may be used as extension points but could be subject to change across versions. No changes are planned, but we reserve the right to change make incompatible changes in any future version.
+The following elements may be used as extension points but could be subject to change across versions. No changes are planned, but we reserve the right to  make incompatible changes in any future version.
 :::
 
 ## Create and deploy custom authorization rule
@@ -159,7 +160,7 @@ mvn clean install
     <constructor-arg name="sessionService" ref="sessionService" />
     <constructor-arg name="sessionAccessor" ref="sessionAccessor" />
  </bean>         
- 
+
 ```
 
 * add customAuthorizationRuleMapping bean registration in `platform_conf/current/tenants/TENANT_ID/tenant_engine/bonita-tenant-custom.xml`
@@ -188,4 +189,3 @@ bonita.tenant.authorization.rule.mapping=customAuthorizationRuleMapping
 ./bonita-stop.sh
 ./bonita-start.sh
 ```
-

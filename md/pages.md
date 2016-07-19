@@ -68,7 +68,8 @@ displayName=Organization viewer
 description=Organization viewer page. You cannot modify the organization from this page.
 resources=[GET|identity/user, GET|identity/personalcontactdata, GET|identity/professionalcontactdata, GET|identity/role, GET|identity/group, GET|identity/membership, GET|customuserinfo/user, GET|customuserinfo/definition, GET|customuserinfo/value] 
 ```
-
+You can also customize authorization rule mapping to decide if the user logged in can view a page or not.  
+To do so, go to [How to map authorization rules](custom-authorization-rule-mapping.md).
 
 ## Custom page examples
 

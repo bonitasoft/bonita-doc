@@ -46,7 +46,8 @@ import org.bonitasoft.engine.bpm.document.DocumentValue
 ]  
 ```
 
-To update a document list, you need to specify the whole list again using a script,. You cannot just add or replace one component of the list.
+To update a document list, you need to specify the whole list again using a script. You cannot just add or replace one component of the list.
+To know more about list of documents, go to [Manage a list of documents](list-of-documents.md).
 
 ## Documents storage
 

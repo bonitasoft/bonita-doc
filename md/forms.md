@@ -13,6 +13,9 @@ There is no context for a process instantiation form.
 
 A [contract](contracts-and-contexts.md) is the definition of that data that the form returns to the process instance.
 
+You can also customize authorization rule mapping for each form to decide whether the user logged in can view a form or not.   
+To do so, go to [How to map authorization rules](custom-authorization-rule-mapping.md).
+
 By default, auto-generated forms are provided for process instantiation and human task execution, based on the contract. They are a useful tool for testing and debugging your application.
 
-You can see how to manage the mapping between process and forms in the documentation about [live update](live-update.md)
+You can see how to manage the mapping between process and forms at run time in the documentation about [live update](live-update.md).
