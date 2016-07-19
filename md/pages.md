@@ -1,27 +1,41 @@
 #  Pages
 
-This page explains how to use a page resource (also called a custom page) to the Portal and make it available to users. Page resources are intended for use in applications. You can also use a page resource to customize the portal, 
-for example:
+## Overview
 
-* Add a welcome page, with dashboards showing activity in Bonita BPM and related external applications.
-* Provide a process owner with a dashboard showing the activity of open cases of the process.
-* Provide a busy user with a filtered view of the task list.
-* Provide an administrator with a multi-attribute search facility.
+A page is a UI artifact used to display information and provide means for navigation and actions to end users.
+
+Bonita BPM Portal comes with a set of default pages for each default profile.  
+Those default pages can be used while creating a [custom profile](custom-profiles.md). They cannot be exported and customized, nor used in BPM applications created with Bonita BPM.
+
+There is one exception though: the [user task list](user-task-list.md) can be exported and customized to fit your company's needs, and then be used in a custom profile or BPM application.  
+
+To extend the range of pages made available to users, you can create [custom pages](pages.md#custom-pages), to be used in BPM applications or in custom profiles.
+
+<a id="custom_pages" />
+
+## Custom pages
+Here are some use cases that need the development of a custom page:
+
 * Integrate a page from an external application.
+* Add a welcome page, with dashboards showing activity in Bonita BPM and related external applications.
+* Provide an administrator with a multi-attribute search facility.
+* Provide a process owner with a dashboard showing the activity of open cases of the process.
+* Provide a user with a list of business objects with status and actions.
 * Make a report available to users who do not have the Administrator profile.
 
-Pages are [exported. imported, modified, and deleted](resource-management.md) as resources in Bonita BPM Portal. 
+Pages are [exported. imported, modified, and deleted](resource-management.md) as resources in Bonita BPM Portal (administrator profile).
 
 ## Custom page definition
 
 A page resource has the general [resource definition](resource-management.md). 
 If it contains an `Index.groovy` file, this must implement the PageController interface optionally with libraries. 
-If you create a custom page with the UI designer, it has the reequired structure and content automatically.
+If you create a custom page with the UI Designer, it has the required structure and content automatically.
 
 A custom page is displayed inside an iframe to prevent conflicts between the portal resources (for example JS and CSS) and those used in the custom page. 
 This also reduces the risk of migration issues, for example if a custom page uses the version of JQuery provided with Bonita BPM Portal and it is updated.
 
 ### PageController interface
+
 ```java
 public interface PageController {
 
@@ -39,9 +53,8 @@ public void doGet(HttpServletRequest request, HttpServletResponse response, Page
 
 ### Authorization permissions for custom pages
 
-If you are using [REST API authorization](rest-api-authorization.md) and your custom page is an HTML page using the Web REST API, 
-you need to specify the permissions that a user needs to have in order access the resources in the custom page. 
-These permissions are defined in the `page.properties` file. If your custom page is written in Groovy and uses the BonitaBPM Engine Java APIs, you do not need to specify permissions.
+If you are using [REST API authorization](rest-api-authorization.md) and your custom page is an HTML page using the Web REST API, you need to specify the permissions that a user needs to have in order to access the resources in the custom page.  
+These permissions are defined in the `page.properties` file. If your custom page is written in Groovy and uses the Bonita BPM Engine Java APIs, you do not need to specify permissions.
 
 For each REST resource accessed in the page, specify the authorization needed for each method used. 
 You can find the relevant resources in [`resources-permissions-mapping.properties`](BonitaBPM_platform_setup.md).
@@ -59,7 +72,7 @@ resources=[GET|identity/user, GET|identity/personalcontactdata, GET|identity/pro
 
 ## Custom page examples
 
-Two example custom pages are available in the portal. Both examples show how to:
+Two custom page examples are available in Bonita BPM Portal. Both examples show how to:
 
 * Get the Bonita CSS
 * Write simple HTML code
@@ -72,11 +85,16 @@ Two example custom pages are available in the portal. Both examples show how to:
 
 **Groovy example page** defines a custom page using Groovy. 
 **HTML example page** defines a custom page using only HTML. 
+
 In practice, you will probably use a combination of Groovy and HTML to create your custom pages.
 
 To view an example page, publish the page to a [custom profile](custom-profiles.md) or an [application](applications.md) so that you can view it in the portal. To view the source of an example, [export the custom page](resource-management.md#export).
 
-On the [Customer Portal](https://customer.bonitasoft.com/), there is also an example in the form of a seed project for creating custom pages using AngularJS and a customizable example task list page.
+## Other provided pages
+
+Starting with Bonita BPM 7.3.0, Bonita BPM Portal resources also include:
+  - The [user task list](user-task-list.md). For previous versions of Bonita BPM, this task list is available on the [Customer Portal](https://customer.bonitasoft.com/).
+  - A default [case overview page](case-overview-page.md) to customize.
 
 ## Reuse Bonita BPM Portal content
 

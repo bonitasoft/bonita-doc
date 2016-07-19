@@ -24,7 +24,7 @@ A contract specifies the pieces of information the process requires to be starte
 In Bonita BPM Studio select the pool to create the process instantiation contract, or select a human task to create a task contract.
 Go to the **Details** panel, **Execution** tab, **Contract** pane. In the Inputs tab, declare each expected input and its type. You have two options: declare the input manually or from a business variable using the **Add from data** option. Defining an input based on a variable saves you time, and is the preferred option if the aim of the input is to initialize (or update) the business variable. In addition, using **Add from data** on a task contract automatically generates [operations](operations.md) to update the selected business variables with the task inputs. In the Constraints tab, declare expressions that check the validity of the value of each input. A constraint has a name, a content, and a error message. The message is logged if the constraint is not met. Make sure to provide a meaningful name and message to help process users understand why the system rejected the order to start the process or execute a task.
 
-In the Leave Request Process example, the contract inputs and the constraints would be similar to the following:
+In the Leave Request process example, the contract inputs and the constraints would be similar to the following:
 
   ![](images/images-6_0/contractDoc.PNG)
 
@@ -51,7 +51,8 @@ Check **_multiple_** to specify that the input is a list of its primary type (fo
 
 A constraint is a Groovy expression that returns a Boolean. If the value is false, the constraint is not met, so the contract not fulfilled and the system will not execute the instantiation or task.
 
-**Note:** the constraint scope is limited to contract input and cannot reference external systems (such as connectors, databases or bonita APIs).
+**Note:** The constraint scope is limited to contract input and cannot reference external systems (such as connectors, databases or bonita APIs).
+**Note:** To know more about how to implement advanced form validation, go to [How to control / validate forms in the UI Designer](manage-control-in-forms.md).
 
 When is the contract validated ?
 

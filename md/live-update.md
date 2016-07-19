@@ -10,7 +10,7 @@ This page explains how to update live process definition information. You need t
 
 #### How to modify a parameter in Administrator view  
 
-**Note:** In versions 7.0.x, this feature is only available for Bonita BPM Performance edition. Starting from version 7.1.0, this feature is available for Bonita BPM Performance and Efficiency editions. 
+**Note:** In versions 7.0.x, this feature is only available for Bonita BPM Performance edition. Starting from version 7.1.0, this feature is available for Bonita BPM Performance and Efficiency editions.
 
 1. Go to Process management
 2. Select a process and click on the _**More...**_
@@ -24,7 +24,7 @@ This page explains how to update live process definition information. You need t
 
 #### How to edit connector implementation in Administrator view  
 
-**Note:** In versions 7.0.x, this feature is only available for Bonita BPM Performance edition. Starting from version 7.1.0, this feature is available for Bonita BPM Performance and Efficiency editions. 
+**Note:** In versions 7.0.x, this feature is only available for Bonita BPM Performance edition. Starting from version 7.1.0, this feature is available for Bonita BPM Performance and Efficiency editions.
 
 1. Go to Process management
 2. Select a process and click on the _**More...**_
@@ -37,12 +37,14 @@ This page explains how to update live process definition information. You need t
 
 #### How to add/edit a form or a page of a process in Administrator view
 
-**Note:** For Bonita BPM Performance and Efficiency editions. 
+**Note:** For Bonita BPM Performance and Efficiency editions.
 
 1. Go to Process management
 2. Select a process and click on the _**More...**_
 3. Select Forms on the left side menu
-4. Select Form List tab
+4. Select the **Form List** tab
+<!-- See BS-15603 to rename it into List -->
+
 5. In the table, in the actions column, click on the _**pencil button**_ or the _**plus sign button**_
 6. Browse to a .zip file containing the new page/form
 7. Click on _**Next**_ to check the permissions associated with the uploaded page/form.
@@ -54,7 +56,8 @@ This page explains how to update live process definition information. You need t
 
 1. Go to Process management
 2. Select a process and click on the _**More...**_
-3. Select Forms on the left side menu
+3. Select **Forms** on the left side menu
+<!-- see BS-15603 to rename it into User Interface -->
 4. In the table, click on the current mapping name of the task you want to update
 5. Enter the name of the already uploaded page/form or a URL that will handle the task submission
 6. Click _**✔**_ button to save it
