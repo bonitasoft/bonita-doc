@@ -70,6 +70,13 @@ We added the use of the [**markdown-it-smart-arrows**](https://www.npmjs.com/pac
 <== ⇐
 <==> ⇔
 ```
+### Quick note on "howtos"
+
+When you create howtos, make sure that:
+  - In the taxonomy, their titles start with verbs, so it finishes the sentence "how to...", like "Manage multiple references in Business Objects".
+  - In the file itself, the title includes the "how to" phrase, like "How to manage multiple references in Business Objects".
+  - You reference the how to page in other descriptive pages of the existing taxonomy, to optimize its discoverability.
+
 ### Process
 
 #### Build project
