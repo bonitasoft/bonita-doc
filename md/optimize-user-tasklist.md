@@ -68,7 +68,7 @@ As a good practice, we advise to display static information that defines the tas
 4. Select the **Script** expression type and create the script. Make sure the result of your script will not exceed 255 characters.
 
 ```groovy
-[Vincent's input: "Leave validation:" requestorName: startDate - endDate ]
+return "Leave validation: ${leaveRequest.requestorName}: ${leaveRequest.startDate.format('yyyy-M-d')} - ${leaveRequest.endDate.format('yyyy-M-d')}".toString()
 ```
 Click **OK**.
 Then address the status, a dynamic information, in "Display description":
@@ -76,7 +76,7 @@ Then address the status, a dynamic information, in "Display description":
 6. Select the **Script** expression type, and create the script. Make sure the result of your script will not exceed 255 characters.
 
 ```groovy
-[Vincent's input to display the status ]
+return "A leave request has been ${leaveRequest.status}".toString()
 ```
 Click **OK**
 To display the new status once the request is approved, in the **Done tasks** field, use "Display description after completion":
@@ -84,7 +84,10 @@ To display the new status once the request is approved, in the **Done tasks** fi
 8. Select the **Script** expression type, and create the script. Make sure the result of your script will not exceed 255 characters.
 
 ```groovy
-[Vincent's input to display the status "approved" ]
+import com.bonitasoft.engine.api.APIAccessor;
+
+def executedBy = BonitaUsers.getUser(apiAccessor, apiAccessor.processAPI.getHumanTaskInstance(activityInstanceId).executedBy);
+return "The leave request has been ${leaveRequest.status} by ${executedBy.firstName} ${executedBy.lastName}".toString()
 ```
 Click **OK**
 
