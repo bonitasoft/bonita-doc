@@ -39,7 +39,11 @@ Then, to make sure the process gets the information it needs to start a new inst
 4. Unselect **status** as this is not an information that the process needs to instantiate
 5. Click **Preview**
 6. In the script, add `leaveRequestVar.status == "submitted"` to set the default value of the request once the request (instantiation form) is submitted
-7. Also add `leaveRequest.Var.requestorName = [Vincent's input to gather this value from whoever started the case]`
+7. Also initialise `requestorName`
+```groovy
+def initiator = BonitaUsers.getProcessInstanceInitiator(apiAccessor,processInstanceId);
+leaveRequestVar.requestorName = "$initiator.firstName $initiator.lastName"
+```
 8. Click "Finish", "OK", and "OK"
 In the **Execution** pane > **Contract** tab, a complex contract input is created, mapped on the **leaveRequest** business variable.
 Each entry of the contract is bound to a business variable attribute, as shown here:
