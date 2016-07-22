@@ -1,42 +1,38 @@
-# How to optimize the user task list
+# How to create unique task names in the user task list
 
 :::info
 **Note**: This howto applies to the legacy task list -Bonita BPM 6.0 to 6.5.x versions- as well as the [new task list - from Bonita BPM 7.3 and above](user-task-list.md).
 :::
 
-Goal: Leverage Studio and task list configuration to optimize user comfort and efficiency: 
-- Make each task unique by inserting case information in task name and task description.
-- Switch search option from "starts by" applied to the string as a whole to "word-based" search ("starts by" for each word in the string).
+Goal: Leverage Bonita BPM Studio to optimize user comfort and efficiency by inserting case information in task name and task description.  
+During process modeling, a task is given a generic definition in the process definition, so its name is generic, such as "Request validation". This is useful for development.  
+Within a process instance (case), this task name must be contextualized with business information specific to the case so that, in the user task list, users effciently pick the right task to do. 
 
-During process modeling, a task is given a generic definition in the process definition, so its name is generic, such as "Contract validation". This is useful for development.  
-Within a process instance (case), this task name must be contextualized with business information specific to the case so that, in the user task list, all tasks don't look the same. This allows users to efficiently identify and pick the right task in the list.
-
-## Create the process example
-
-This howto uses the same process example than in [How to control and validate forms in the UI Designer](manage-control-in-forms.md): a leave request management process.
+## Pre-requisites: create the process example
 
 ### Pool 
 
 First, create a new diagram. Then model the process in the first pool: 
-1. Rename the pool into "leave request management"
-2. Rename the lane into "Manager"
-3. Rename the start event into "New request request"
-3. Since the instantiation of a new case (new leave request submission) happens at pool level, just rename the default _human task_ into "Request validation"
-4. Add a _terminate end event_ that you can rename "Happy end".  
+1. Rename the diagram into "Request management" by clicking in the blanck space around the pool
+2. Rename the pool into "Leave request management"
+3. Rename the lane into "Manager"
+4. Rename the start event into "New leave request"
+5. Since the submission of a new leave request happens at pool level (process instantiation), no need for a **Submit request** task ; just rename the default _human task_ into "Validate request"
+6. Add a _terminate end event_ that you can rename "Happy end"  
 
 The pool is shown here:
 
-![Process](images/leave_request_management_process.png)
+![Process](images/leave_request_management_process_tasklist.png)
 
 ### Data model
 
-Then, define a business object that will hold the leave requests data when the process instances are ongoing, and store it when the instances are archived: 
-1. Go to the Development > Business Data Model > Manage option menu
+Then, define a business object that will hold the leave requests data: 
+1. Go to the **Development** > **Business Data Model** > **Manage** menu option
 2. Add a business object named _LeaveRequest_, with 4 attributes:
-_startDate_: first working day taken as vacation, as a DATE, set it as mandatory
-_endDate_: last working day taken as vacation, as a DATE, set it as mandatory
-_requesterName_: employee who submits the leave request, as a STRING
-_status_: whether the task is "submitted" or "approved", as a STRING
+  - _startDate_: as a DATE. Set it as mandatory
+  - _endDate_: as a DATE, Set it as mandatory
+  - _requesterName_: employee who submits the leave request, as a STRING
+  - _status_: whether the task is "submitted" or "approved", as a STRING
 3. Click **Finish**
 
 ### Variables 
@@ -53,13 +49,13 @@ To make sure the process gets the information it needs to start a new instance, 
 2. Choose the **Business variable** option, and then the **leaveRequest** variable
 3. Click **Next**
 4. Unselect **requesterName** and **status** as the process doesn't need this information from the form to instantiate  
-   Business data attributes mapped to a contract input are automatically instantiated thanks to a script generated along with the contract inputs themselves
+   The default values of business data attributes mapped to contract inputs are automatically set thanks to a script generated along with the contract inputs themselves.  
 5. Click **Preview** to view this script, and then **Finish**, **OK** and **OK**
 6. In the **Execution** pane > **Contract** tab, a complex contract input is created, mapped to the selected attributes of the **leaveRequest** business variable, as shown here:
 
 ![Contract](images/contract_for_tasklist.png)  
 
-To manually set the default value of the attributes _status_ and _requesterName_ when the leave request is submitted, edit the script:
+Whe nthe leave request is submitted, _status_ and _requesterName_ must default values must be set. To do so, edit the script:
  
 1. Go back to the **Data** pane, **Pool variables** tab, **Business variables** table
 2. Click on **leaveRequest** and on the **Edit...** button
@@ -76,25 +72,28 @@ To manually set the default value of the attributes _status_ and _requesterName_
 The Studio generates a form based on the contract requirements, for test purposes only. 
 This is the form used in this howto, to save some time.
 
-### "Request validation" task 
+### "Validate request" task 
 
 For the sake of this howto, do not specify any contract of form on the task, but just create an operation to switch the request status from "submitted" to "validated" when the task is completed. 
-1. Go to the **Execution** pane > **Operations** tab
-2. Click on **Add**
-3. In the left operand, select _leaveRequest_
-4. As operator, select **Use a Java method** and then **setStatus(String) - void**
-5. Click **OK**
-6. In the right operand, write _approved_
+1. Click on task "Validate request"
+2. Go to the **Execution** pane > **Operations** tab
+3. Click on **Add**
+4. In the left operand, select _leaveRequest_
+5. As operator, select **Use a Java method** and then **setStatus(String) - void**
+6. Click **OK**
+7. In the right operand, write _approved_
 
 The operation is shown here:
 
 ![Operation on status](images/operation_on_status.png)
 
+There you go. The process is ready. So how can you set a unique name for tasks, to be displayed in the user task list?
+
 ## Configure the display options
 
 For each case (request), the task should display the requester's name, the request start date, end date, and status. After the task is submitted, the status will change and the task can also display the validator's name.  
 
-As a good practice, we advise to display static information that defines the task in the **Display name** field, and dynamic information that appear, disappear or changes over the life of the case in the **Display description** and **Description after completion** fields. Therefore: 
+As a good practice, we advise to display static information that defines the task in the **Display name** field, and dynamic information that appears, disappears or changes over the life of the case in the **Display description** and **Description after completion** fields. Therefore: 
 - Start date, end date, and requester's name will be managed in the task name
 - Status and validator's name will be managed in the description
 
@@ -108,10 +107,10 @@ The task display name will be made of the requester's first name, last name, and
 1. Next to the **Display name** field, click the **pencil** icon to display the expression editor.
 2. Select the **Script** expression
 3. Give it a name: **Validation display name**
-4. Type the script. Make sure the result of your script will not exceed 255 characters.
+4. Type the script. 
 
 ```groovy
-return "Leave validation for ${leaveRequest.requesterName}: ${leaveRequest.startDate.format('yyyy-M-d')} - ${leaveRequest.endDate.format('yyyy-M-d')}".toString()
+return "Leave validation for ${leaveRequest.requesterName}: ${leaveRequest.startDate.format('yyyy-M-d')} / ${leaveRequest.endDate.format('yyyy-M-d')}".toString()
 ```
 
 5. Click **OK**.
@@ -122,7 +121,7 @@ As a dynamic information, status is addressed here:
 1. Next to the **Display description** field, click the **pencil** icon to display the expression editor.
 2. Select the **Script** expression type
 3. Give it a name: **Validation display description**
-4. Type the script. Make sure the result of your script will not exceed 255 characters.
+4. Type the script. 
 
 ```groovy
 return "A leave request has been ${leaveRequest.status}".toString()
@@ -132,11 +131,11 @@ return "A leave request has been ${leaveRequest.status}".toString()
 
 ### Description after completion
 
-To display the new status once the request is approved as well as the validator's name in the **Done tasks** field:
+The status of the request when it's validated as well as the validator's name are displayed in the **Done tasks** filter of the user task list. To define it:
 1. Next to the **Description after completion** field, click the **pencil** icon to display the expression editor.
 2. Select the **Script** expression type
 3. Give it a name: **Validation desc after completion**
-4. Type the script. Again, make sure the result of your script will not exceed 255 characters.
+4. Type the script.
 
 ```groovy
 import com.bonitasoft.engine.api.APIAccessor;
@@ -147,27 +146,24 @@ return "The leave request has been ${leaveRequest.status} by ${executedBy.firstN
 
 5. Click **OK**
 
+When reusing these features for your own projects, make sure that the result of your scripts do not exceed 255 characters.
+
 ## View it in the task list
 
 1. Save the diagram
 2. Run the pool
 3. Fill out the default instantiation form with two dates
-4. Click on **Start**
+4. Click on **Start**  
+
 Once you are sent to the task list, you can see that the task name is contextualized.  
 It is computed once, when the task becomes ready. 
 
-:::info
-**Note:** The following set of instructions only applies to the task list in Bonita BPM 7.3.0 and above. In earlier versions, the **Description** field is displayed by default.
-:::
-
+**Note:** The following set of instructions only applies to the task list in Bonita BPM 7.3.0 and above. In earlier versions, the **Description** field is displayed by default.  
 To display the **Description** column and view the _submitted_ status:
 1. Click on the **settings wheel** icon on the top right of the list
 2. Select **Description**
 3. Click outside the settings box
 The table settings have changed to display the **Description** column. It will be stored in the local storage of the browser
-4. Click on the **Done tasks** filter
-5. Configure your list to display the **Description** field
-6. Come back to the **To do** filter. 
 
 You can see the description field, showing the status: "submitted".
 1. Perform the task.
@@ -180,6 +176,7 @@ Unlike the "technical" name and description of a task in the Studio, which are u
 
 ## Search a task name based on word-based search
 
+Another feature you can use to improve end users efficicency and satisfaction is _word-based search_:  
 To allow users to efficiently search by task name, you can configure the search option: from _starts by_ (the beginning of the whole task name string), you can switch to _word-based search_ (the beginning of every word in the task name).
 
 To do so, go to [word-based search](using-list-and-search-methods.md#word_based_search).
