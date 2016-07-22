@@ -181,7 +181,7 @@ Unlike the "technical" name and description of a task in the Studio, which are u
 
 ## Search a task name based on word-based search
 
-Another feature you can use to improve end users efficicency and satisfaction is _word-based search_:  
+Another feature you can use to improve end users efficiency and satisfaction is _word-based search_:  
 To allow users to efficiently search by task name, you can configure the search option: from _starts by_ (the beginning of the whole task name string), you can switch to _word-based search_ (the beginning of every word in the task name).
 
 To do so, go to [word-based search](using-list-and-search-methods.md#word_based_search).
