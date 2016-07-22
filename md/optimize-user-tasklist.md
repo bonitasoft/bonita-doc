@@ -1,4 +1,4 @@
-# How to create unique task names in the user task list
+# How to create unique task names for the user task list
 
 :::info
 **Note**: This howto applies to the legacy task list -Bonita BPM 6.0 to 6.5.x versions- as well as the [new task list - from Bonita BPM 7.3 and above](user-task-list.md).
