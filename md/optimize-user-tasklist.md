@@ -55,7 +55,7 @@ To make sure the process gets the information it needs to start a new instance, 
 
 ![Contract](images/contract_for_tasklist.png)  
 
-Whe nthe leave request is submitted, _status_ and _requesterName_ must default values must be set. To do so, edit the script:
+When the leave request is submitted, _status_ and _requesterName_ must default values must be set. To do so, edit the script:
  
 1. Go back to the **Data** pane, **Pool variables** tab, **Business variables** table
 2. Click on **leaveRequest** and on the **Edit...** button
