@@ -22,7 +22,7 @@ First, create a new diagram. Then model the process in the first pool:
 
 The pool is shown here:
 
-![Process](images/leave_request_management_process_tasklist.png)
+![Process](images/leave_request_management_process_tasklist.png)<!--{.img-responsive .img-thumbnail}-->
 
 ### Data model
 
@@ -53,7 +53,7 @@ To make sure the process gets the information it needs to start a new instance, 
 5. Click **Preview** to view this script, and then **Finish**, **OK** and **OK**
 6. In the **Execution** pane > **Contract** tab, a complex contract input is created, mapped to the selected attributes of the **leaveRequest** business variable, as shown here:
 
-![Contract](images/contract_for_tasklist.png)  
+![Contract](images/contract_for_tasklist.png)<!--{.img-responsive .img-thumbnail}-->
 
 When the leave request is submitted, _status_ and _requesterName_ must default values must be set. To do so, edit the script:
  
@@ -85,7 +85,7 @@ For the sake of this howto, do not specify any contract of form on the task, but
 
 The operation is shown here:
 
-![Operation on status](images/operation_on_status.png)
+![Operation on status](images/operation_on_status.png)<!--{.img-responsive .img-thumbnail}-->
 
 There you go. The process is ready. So how can you set a unique name for tasks, to be displayed in the user task list?
 
@@ -167,13 +167,13 @@ The table settings have changed to display the **Description** column. It will b
 
 You can see the description field, showing the status: "submitted", as shown here:
 
-![display task name and description](images/display_task_name_and_description.png) 
+![display task name and description](images/display_task_name_and_description.png)<!--{.img-responsive .img-thumbnail}-->
 
 1. Perform the task.
 2. Go to the **Done tasks** filter
 The **Description** column now shows the description after completion, with an edited status as well as the name of who performed the task, as shown here :
 
-![description after completion](images/description_after_completion.png) 
+![description after completion](images/description_after_completion.png)<!--{.img-responsive .img-thumbnail}-->
 
 If you don't use the description after completion field, the **Description** column will still show the "display description" information.
 
