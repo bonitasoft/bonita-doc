@@ -167,13 +167,13 @@ The table settings have changed to display the **Description** column. It will b
 
 You can see the description field, showing the status: "submitted", as shown here:
 
-![display task name and descrption](display_task_name_and_description.png) 
+![display task name and description](images/display_task_name_and_description.png) 
 
 1. Perform the task.
 2. Go to the **Done tasks** filter
 The **Description** column now shows the description after completion, with an edited status as well as the name of who performed the task, as shown here :
 
-![description after completion](description_after_completion.png) 
+![description after completion](images/description_after_completion.png) 
 
 If you don't use the description after completion field, the **Description** column will still show the "display description" information.
 
