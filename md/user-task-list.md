@@ -27,7 +27,7 @@ This list also leverages two legacy features (prior to Bonita BPM 7.3.0):
 - Dynamic task display name, for efficient task identification (insert case information in task name)
 - Word-based search, for efficient task name search (search for any word in the task name)
 
-To know more about how to use both features, go to [Optimize the user task list](optimize-user-tasklist.md).
+To know more about how to use both features, go to [How to create unique task names for user task list](optimize-user-tasklist.md).
 
 The task list also contains a **Done tasks** filter, for the user to check if the task has been completed properly.
 
