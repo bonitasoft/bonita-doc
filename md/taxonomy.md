@@ -255,4 +255,4 @@
   * [Map authorization rules](custom-authorization-rule-mapping.md)
   * [Create a modal window using CSS](uid-modal-tutorial.md)
   * [Use the rich textarea widget in a mail template](rta-mail-template.md)
-  * [Optimize the user task list](optimize-user-tasklist.md)
+  * [Create unique task names for the user task list](optimize-user-tasklist.md)
