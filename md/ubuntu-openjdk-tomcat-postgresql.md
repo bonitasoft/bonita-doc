@@ -108,6 +108,7 @@ If you type `cd ~ && ls` you should see the file listed.
 
 Finally, make sure that the user that runs the Tomcat server, is the owner of all Bonita "home" files:
 
+* Create a folder for Bonita specific configuration and runtime info: `sudo mkdir /opt/bonita`
 * Change folders and files ownership: `sudo chown -R tomcat7:tomcat7 /opt/bonita`
 
 ### JVM system variables
@@ -120,6 +121,7 @@ To define JVM system properties, you need to use a new file named `setenv.sh`:
 * Change `sysprop.bonita.db.vendor` from `h2` to `postgres`
 * Change `btm.root` from `${CATALINA_HOME}` to `/opt/bonita/btm`
 * Change `bitronix.tm.configuration` from `${CATALINA_HOME}/conf/bitronix-config.properties` to `/opt/bonita/btm/conf/bitronix-config.properties`
+* Change `org.bonitasoft.platform.setup.folder` from `${CATALINA_HOME}/setup` to `/opt/bonita/setup`
 
 ### Add extra libraries to Tomcat
 
@@ -153,6 +155,33 @@ configuration (e.g. `bonita_db_user`, `bonita_db_password` and `bonita_db`): `su
 * Copy and overwrite `server.xml` file: `sudo cp ~/BonitaBPMSubscription-6.4.0-deploy/Tomcat-7.0.55/conf/server.xml /etc/tomcat7/server.xml`
 * Edit `server.xml` (`sudo nano /etc/tomcat7/server.xml`) and comment out h2 listener line
 * Fix ownership on the copied files: `sudo chown -R root:tomcat7 /etc/tomcat7`
+* Copy the folder `platform_setup`: `sudo cp -R ~/BonitaBPMSubscription-7.3.0-deploy/platform_setup /opt/bonita/` and rename it: `sudo mv /opt/bonita/platform_setup /opt/bonita/setup`
+* Fix ownership on the copied files: `sudo chown -R tomcat7:tomcat7 /opt/bonita/setup`
+
+### Fix service tomcat7 issue
+* Edit the tomcat7 script: `sudo nano /etc/init.d/tomcat7` and the following lines before TOMCAT_SH variable definition (line 154):
+```
+if [ -r "$CATALINA_BASE/bin/setenv.sh" ]; then
+  . "$CATALINA_BASE/bin/setenv.sh"
+elif [ -r "$CATALINA_HOME/bin/setenv.sh" ]; then
+  . "$CATALINA_HOME/bin/setenv.sh"
+fi
+```
+* Edit the tomcat7 script: `sudo nano /etc/init.d/tomcat7` and modify the variable TOMCAT_SH to add the CATALINA_OPTS transfer. The code should looks like that:
+```
+# Define the command to run Tomcat's catalina.sh as a daemon
+# set -a tells sh to export assigned variables to spawned shells.
+TOMCAT_SH="set -a; JAVA_HOME=\"$JAVA_HOME\"; source \"$DEFAULT\"; \
+        CATALINA_HOME=\"$CATALINA_HOME\"; \
+        CATALINA_BASE=\"$CATALINA_BASE\"; \
+        JAVA_OPTS=\"$JAVA_OPTS\"; \
+        CATALINA_OPTS=\"$CATALINA_OPTS\"; \
+        CATALINA_PID=\"$CATALINA_PID\"; \
+        CATALINA_TMPDIR=\"$CATALINA_TMPDIR\"; \
+        LANG=\"$LANG\"; JSSE_HOME=\"$JSSE_HOME\"; \
+        cd \"$CATALINA_BASE\"; \
+        \"$CATALINA_SH\" $@"
+```
 
 ### License
 
