@@ -33,5 +33,4 @@ The task list also contains a **Done tasks** filter, for the user to check if th
 
 ::: info
 **Note:** Subtask creation has not been implemented in the task list. However, subtasks created in open cases that were started in a previous Bonita BPM version are still available to their assignees when cases are migrated to Bonita BPM 7.3.
-If your team needs the subtasks feature back in the task list, give us [product feedback](http://www.bonitasoft.com/contact-us).
 :::
