@@ -1,13 +1,15 @@
 # Allow CORS in Tomcat bundle
 
-When you call the REST API from another source than the original Tomcat where Bonita is installed,
-you will face Cross-Origin Resource Sharing (CORS) issues. For instance you may see in your browser a message such as:
+If you try to call the REST API from a page hosted on another domain than the one of the tomcat bundle,
+you will face some issues due to the 'same-origin policy' enforced by web browsers.
+For instance you may see in your browser a message such as:
 
 >Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at XXX.
 >This can be fixed by moving the resource to the same domain or enabling CORS.
 
-By configuring CORS filter on the bonitasoft tomcat bundle, you will be able to access the Bonita REST API from a page
- deploy on a different machine than the one where your bonita war is deployed.
+By configuring the CORS filter on the tomcat bundle, you will be able to access the Bonita REST API from a page
+ hosted on a different domain from the one of the tomcat bundle.
+
 
 ## Tomcat configuration
 
@@ -21,9 +23,26 @@ Edit the web.xml of the bonita.war to add the CORS filter:
     <param-name>cors.allowed.origins</param-name>
     <param-value>*</param-value>
   </init-param>
+
   <init-param>
     <param-name>cors.allowed.methods</param-name>
    <param-value>GET, HEAD, POST, PUT, DELETE, OPTIONS</param-value>
+  </init-param>
+
+  <!-- List of the response headers other than simple response headers that the browser should expose to
+    the author of the cross-domain request through the XMLHttpRequest.getResponseHeader() method.
+    The CORS filter supplies this information through the Access-Control-Expose-Headers header. -->
+  <init-param>
+      <param-name>cors.exposed.headers</param-name>
+      <param-value>Access-Control-Allow-Origin,Access-Control-Allow-Credentials,X-Bonita-API-Token</param-value>
+  </init-param>
+
+  <!-- The names of the supported author request headers. These are advertised through the Access-Control-Allow-Headers header.
+    The CORS Filter implements this by simply echoing the requested value back to the browser.
+  -->
+  <init-param>
+      <param-name>cors.allowed.headers</param-name>
+      <param-value>Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,X-Bonita-API-Token</param-value>
   </init-param>
 
 </filter>
@@ -43,13 +62,15 @@ for more information:
 ## HTML Example test page
 
 here is an example of html page that:
-- login on the loginservice, for a remote bonita application,
+- logs in using the loginservice,
 - get the current session, via the REST api system/session
 - edit a user using the REST api identity/user
 
-_**Important Note 1:** this example works on a bundle where the CSRF is activated. As the header "X-Bonita-API-Token" is set with the "session apiToken"._
+This page can be hosted on a different domain, and thanks to the CORS filter, the requests will be successfully processed.
 
-_**Important Note 2:** to use this page you will need to replace the BONITA_ACCESS_URL by you own bonita URL._
+_**Important Note 1:** this example works on a bundle where the CSRF security filter is activated. As the header "X-Bonita-API-Token" is set with the "session apiToken"._
+
+_**Important Note 2:** to use this page you will need to replace the BONITA_ACCESS_URL by your own tomcat bundle URL._
 
 ```html
 
