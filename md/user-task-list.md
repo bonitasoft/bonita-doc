@@ -10,18 +10,18 @@ Here are the values of the user task list:
 - Default Master/Detail design pattern, to view list and form in the same screen
 - _Panel expand_ feature, to display wide forms in a large modal window
 
-![](images/tasklist-elements.png)
-![](images/tasklist-popup.png)
+![](images/tasklist-elements.png)<!--{.img-responsive .img-thumbnail}-->
+![](images/tasklist-popup.png)<!--{.img-responsive .img-thumbnail}-->
 
 - List settings: number of tasks in a page, choice of columns, columns ordering
 - Easy access to case information, one tab away from the form. This case information is the case overview page, that the development team can customize
 - Easy access to case comments, also one tab away from the form or case information
 
-![](images/tasklist-settings-and-tabs.png)
+![](images/tasklist-settings-and-tabs.png)<!--{.img-responsive .img-thumbnail}-->
 
 - Alternate "full width" list, with task information displayed in a large modal window
 
-![](images/tasklist-fullpage.png)
+![](images/tasklist-fullpage.png)<!--{.img-responsive .img-thumbnail}-->
 
 This list also leverages two legacy features (prior to Bonita BPM 7.3.0):
 - Dynamic task display name, for efficient task identification (insert case information in task name)
