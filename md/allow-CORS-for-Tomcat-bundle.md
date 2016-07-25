@@ -61,14 +61,14 @@ for more information:
 
 ## HTML Example test page
 
-here is an example of html page that:
+Here is an example of html page that:
 - logs in using the loginservice,
-- get the current session, via the REST api system/session
-- edit a user using the REST api identity/user
+- get the current session, via the REST api resource system/session
+- edit a user using the REST api resource identity/user
 
 This page can be hosted on a different domain, and thanks to the CORS filter, the requests will be successfully processed.
 
-_**Important Note 1:** this example works on a bundle where the CSRF security filter is activated. As the header "X-Bonita-API-Token" is set with the "session apiToken"._
+_**Important Note 1:** this example works on a bundle where the [CSRF security filter is activated](csrf-security). As the header "X-Bonita-API-Token" is set with the "session apiToken"._
 
 _**Important Note 2:** to use this page you will need to replace the BONITA_ACCESS_URL by your own tomcat bundle URL._
 
@@ -89,49 +89,51 @@ _**Important Note 2:** to use this page you will need to replace the BONITA_ACCE
      password: "bpm",
      redirect: false
    };
-
    $.ajax({
-             url: "http://BONITA_ACCESS_URL/bonita/loginservice",
-             type: "POST",
-             data: formData,
+     url: "http://192.168.1.55:16936/bonita/loginservice",
+     type: "POST",
+     data: formData,
+     xhrFields: {withCredentials: true},
+     success: function(data, textStatus, jqXHR) {
+           $.ajax({
+             url: "http://192.168.1.55:16936/bonita/API/system/session/1",
+             type: "GET",
              xhrFields: {withCredentials: true},
              success: function(data, textStatus, jqXHR) {
-                          $.ajax({
-                                     url: "http://BONITA_ACCESS_URL/bonita/API/system/session/1",
-                                     type: "GET",
-                                     xhrFields: {withCredentials: true},
-                                     success: function(data, textStatus, jqXHR) {
-                                                   console.log('success updating user info');
-                                                   var apiToken = jqXHR.getResponseHeader('X-Bonita-API-Token');
-                                                   console.log('X-Bonita-API-Token: ' + apiToken);
-                                                   var formData = {"title":"Mr","manager_id":"0","job_title":"Chief Executive Officer","lastname":"Jobs","firstname":"Will"};
-                                                   $.ajax({
-                                                            url: "http://BONITA_ACCESS_URL/bonita/API/identity/user/1",
-                                                            type: "PUT",
-                                                            contentType: "application/json",
-                                                            headers: {'X-Bonita-API-Token': apiToken},
-                                                            data: JSON.stringify(formData),
-                                                            xhrFields: {withCredentials: true},
-                                                            success: function(data, textStatus, jqXHR) {
-                                                                        console.log('success get user info');
-                                                                        console.log(data);
-                                                            },
-                                                            error: function(jqXHR, textStatus, errorThrown) {
-                                                                        console.log('error updating user info');
-                                                            }
-                                                   });
-                                     },
-                                     error: function(jqXHR, textStatus, errorThrown) {
-                                           console.log('error user session');
-                                     }
-                          });
+                   console.log('success getting session');
+                   var apiToken = jqXHR.getResponseHeader('X-Bonita-API-Token');
+                   console.log('X-Bonita-API-Token: ' + apiToken);
+                   var formData = {"title":"Mr","manager_id":"0","job_title":"Chief Executive Officer","lastname":"Jobs","firstname":"Will"};
+                   $.ajax({
+                         url: "http://192.168.1.55:16936/bonita/API/identity/user/1",
+                         type: "PUT",
+                         contentType: "application/json",
+                         /*passing the X-Bonita-API-Token for the CSRF security filter*/
+                         headers: {'X-Bonita-API-Token': apiToken},
+                         data: JSON.stringify(formData),
+                         xhrFields: {withCredentials: true},
+                         success: function(data, textStatus, jqXHR) {
+                           console.log('success updating user info');
+                           console.log(data);
+                         },
+                         error: function(jqXHR, textStatus, errorThrown) {
+                           console.log('error updating user info');
+                         }
+                   });
              },
              error: function(jqXHR, textStatus, errorThrown) {
-                        console.log('error login');
+               console.log('error getting session');
              }
+           });
+     },
+     error: function(jqXHR, textStatus, errorThrown) {
+       console.log('error login');
+     }
    });
  </script>
 </body>
 </html>
+
+
 ```
 
