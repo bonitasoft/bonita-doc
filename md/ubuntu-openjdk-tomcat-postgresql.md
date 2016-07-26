@@ -115,7 +115,7 @@ Finally, make sure that the user that runs the Tomcat server, is the owner of al
 
 To define JVM system properties, you need to use a new file named `setenv.sh`:
 
-* Copy the file from deploy bundle to Tomcat `bin` folder: `sudo cp ~/BonitaBPMSubscription-6.4.0-deploy/Tomcat-7.0.55/bin/setenv.sh /usr/share/tomcat7/bin/`
+* Copy the file from deploy bundle to Tomcat `bin` folder: `sudo cp ~/BonitaBPMSubscription-x.y.z-deploy/Tomcat-7.0.55/bin/setenv.sh /usr/share/tomcat7/bin/`
 * Make the file executable: `sudo chmod +x /usr/share/tomcat7/bin/setenv.sh`
 * Edit `setenv.sh` file: `sudo nano /usr/share/tomcat7/bin/setenv.sh`
 * Change `sysprop.bonita.db.vendor` from `h2` to `postgres`
@@ -127,7 +127,7 @@ To define JVM system properties, you need to use a new file named `setenv.sh`:
 
 Bonita needs extra libraries such as Bitronix, in order to run on Tomcat:
 
-* Change to the Deploy bundle Tomcat lib folder: `cd ~/BonitaBPMSubscription-6.4.0-deploy/Tomcat-7.0.55/lib`
+* Change to the Deploy bundle Tomcat lib folder: `cd ~/BonitaBPMSubscription-x.y.z-deploy/Tomcat-7.0.55/lib`
 * Copy the libraries (.jar files) from the Deploy bundle to your Tomcat folder: `sudo cp bonita-tomcat-valve-7.0.55.jar btm-2.1.3.jar btm-tomcat55-lifecycle-2.1.3.jar jta-1.1.jar slf4j-api-1.6.1.jar slf4j-jdk14-1.6.1.jar /usr/share/tomcat7/lib/`
 
 ### Configure Bonita to use PostgreSQL
@@ -138,24 +138,24 @@ Warning: make sure you stop Tomcat before performing following operations: `sudo
 
 * Create new folders in order to store Bitronix files: `sudo mkdir -p /opt/bonita/btm/conf && sudo mkdir /opt/bonita/btm/work`
 * Set the ownership of the Bitronix folder: `sudo chown -R tomcat7:tomcat7 /opt/bonita/btm`
-* Copy the Bitronix configuration files to `/opt/bonita/btm/conf` folder: `sudo cp ~/BonitaBPMSubscription-6.4.0-deploy/Tomcat-7.0.55/conf/bitronix-* /opt/bonita/btm/conf/`
+* Copy the Bitronix configuration files to `/opt/bonita/btm/conf` folder: `sudo cp ~/BonitaBPMSubscription-x.y.z-deploy/Tomcat-7.0.55/conf/bitronix-* /opt/bonita/btm/conf/`
 * Edit `bitronix-resources.properties` file, comment (using `#`) h2 section, uncomment PostgreSQL example
 and update the username, password and DB name ("bonita" in the URL property) to match your configuration (e.g.
 `bonita_db_user`, `bonita_db_password` and `bonita_db`): `sudo nano /opt/bonita/btm/conf/bitronix-resources.properties`
 * Also in `bitronix-resources.properties` update the section for `resource.ds2` (BDM data source) and set the value for the BDM data base (e.g. `bonita_db_user`, `bonita_db_password` and `bonita_bdm`)
 * Save and quit: `CTRL+X, Y, ENTER`
-* Copy the `bonita.xml` file (Bonita web app context configuration): `sudo cp ~/BonitaBPMSubscription-6.4.0-deploy/Tomcat-7.0.55/conf/Catalina/localhost/bonita.xml /etc/tomcat7/Catalina/localhost/`
+* Copy the `bonita.xml` file (Bonita web app context configuration): `sudo cp ~/BonitaBPMSubscription-x.y.z-deploy/Tomcat-7.0.55/conf/Catalina/localhost/bonita.xml /etc/tomcat7/Catalina/localhost/`
 * Edit the `bonita.xml` file by commenting the h2 datasource configuration (using ),
 uncomment PostgreSQL example and update username, password and DB name (bonita in the URL property) to match your
 configuration (e.g. `bonita_db_user`, `bonita_db_password` and `bonita_db`): `sudo nano /etc/tomcat7/Catalina/localhost/bonita.xml`
 * Also in `bonita.xml` file update data base configuration for BDM to match your configuration (e.g. `bonita_db_user`, `bonita_db_password` and `bonita_bdm`)
 * Save and quit: `CTRL+X, Y, ENTER`
-* Copy and overwrite `logging.properties` file: `sudo cp ~/BonitaBPMSubscription-6.4.0-deploy/Tomcat-7.0.55/conf/logging.properties /etc/tomcat7/logging.properties`
-* Copy and overwrite `context.xml` file: `sudo cp ~/BonitaBPMSubscription-6.4.0-deploy/Tomcat-7.0.55/conf/context.xml /etc/tomcat7/context.xml`
-* Copy and overwrite `server.xml` file: `sudo cp ~/BonitaBPMSubscription-6.4.0-deploy/Tomcat-7.0.55/conf/server.xml /etc/tomcat7/server.xml`
+* Copy and overwrite `logging.properties` file: `sudo cp ~/BonitaBPMSubscription-x.y.z-deploy/Tomcat-7.0.55/conf/logging.properties /etc/tomcat7/logging.properties`
+* Copy and overwrite `context.xml` file: `sudo cp ~/BonitaBPMSubscription-x.y.z-deploy/Tomcat-7.0.55/conf/context.xml /etc/tomcat7/context.xml`
+* Copy and overwrite `server.xml` file: `sudo cp ~/BonitaBPMSubscription-x.y.z-deploy/Tomcat-7.0.55/conf/server.xml /etc/tomcat7/server.xml`
 * Edit `server.xml` (`sudo nano /etc/tomcat7/server.xml`) and comment out h2 listener line
 * Fix ownership on the copied files: `sudo chown -R root:tomcat7 /etc/tomcat7`
-* Copy the folder `platform_setup`: `sudo cp -R ~/BonitaBPMSubscription-7.3.0-deploy/platform_setup /opt/bonita/` and rename it: `sudo mv /opt/bonita/platform_setup /opt/bonita/setup`
+* Copy the folder `platform_setup`: `sudo cp -R ~/BonitaBPMSubscription-x.y.z-deploy/platform_setup /opt/bonita/` and rename it: `sudo mv /opt/bonita/platform_setup /opt/bonita/setup`
 * Fix ownership on the copied files: `sudo chown -R tomcat7:tomcat7 /opt/bonita/setup`
 
 ### Fix service tomcat7 issue
@@ -188,7 +188,7 @@ TOMCAT_SH="set -a; JAVA_HOME=\"$JAVA_HOME\"; source \"$DEFAULT\"; \
 If you run the Subscription Pack version, you will need a license:
 
 * Generate the key in order to get a license:
-  * Change the current directory to license generation scripts folder: `cd ~/BonitaBPMSubscription-6.4.0-deploy/request_key_utils-6.4-006`
+  * Change the current directory to license generation scripts folder: `cd ~/BonitaBPMSubscription-x.y.z-deploy/request_key_utils-6.4-006`
   * Make the license generation script executable: `chmod u+x generateRequestForAnyEnvironment.sh`
   * Run the script, type the number of CPU cores to use: `./generateRequestForAnyEnvironment.sh`
   * You will get a license key number that you can copy. Make sure that you keep the brackets. If the key is separated by a linebreak, remove it and put the key on a single line.
@@ -203,7 +203,7 @@ If you run the Subscription Pack version, you will need a license:
 
 Deploy the Bonita web application:
 
-Copy `bonita.war` to Tomcat `webapps` folder: `sudo cp ~/BonitaBPMSubscription-6.4.0-deploy/Tomcat-7.0.55/webapps/bonita.war /var/lib/tomcat7/webapps/`
+Copy `bonita.war` to Tomcat `webapps` folder: `sudo cp ~/BonitaBPMSubscription-x.y.z-deploy/Tomcat-7.0.55/webapps/bonita.war /var/lib/tomcat7/webapps/`
 
 Take care to set the proper owner: `sudo chown tomcat7:tomcat7 /var/lib/tomcat7/webapps/bonita.war`
 
