@@ -9,15 +9,17 @@ In a BPM-based application, use:
   * is read by a process to orientate its flow
   * is shared across several process instances
   * is displayed in an application page
-* Task-level [process variables](specify-data-in-a-process-definition.md) for 
+
+* Task-level [process variables](specify-data-in-a-process-definition.md) for:
   * intermediate computation results (for example a connector result to be used as input of the next connector)
   * information that is private to the process, not used elsewhere in the application
-* Pool-level [process variables](specify-data-in-a-process-definition.md) for information that
+
+* Pool-level [process variables](specify-data-in-a-process-definition.md) for information that:
   * can be read by the process to orientate its flow
   * can be used at several places in the process
   * is private to the process, not used elsewhere in the application
- 
-* External databases, with [connectors](connectivity-overview.md) and [custom data types](create-a-complex-data-type.md), for information that
+
+* External databases, with [connectors](connectivity-overview.md) and [custom data types](create-a-complex-data-type.md), for information that:
   * is used by multiple applications besides Bonita BPM
 
 Key benefits of using business data:
