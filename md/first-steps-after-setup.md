@@ -37,8 +37,10 @@ When the platform is created, default values for the tenant administrator userna
 When you create a tenant, the tenant administrator is created with the default username and password, unless you specify new values. 
 Change these tenant-specific credentials for an existing tenant by updating the `userName` and `userPassword` properties in `bonita-tenant-community-custom.properties`.
 
+::: warning
 For the default tenant, the tenant administrator username and password must also be defined in file [`platform-tenant-config.properties`](BonitaBPM_platform_setup.md), with exactly the same values that you set in `bonita-tenant-community-custom.properties`. 
 At platform creation, this file contains the default username and password for the default tenant. 
+:::
 
 ## Review security
 
