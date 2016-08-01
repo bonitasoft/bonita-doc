@@ -9,31 +9,31 @@ This page consists of three main sections:
 * List of documents: it shows the content of each document used by the case, in real time too.
 * Timeline: it shows in chronological order information about all the actions that have been performed in the selected case.
 
-It is used in the user task list, as the 3rd tab of the details pane on the right.
+It is used in the user task list, as the 3rd tab of the details pane on the right.  
 And for all profiles, it is also available by navigating from the case list page: on a given case row, click on the "eye" icon.
 
 :::info
 **Note:** We strongly recommend to change the _case overview_ page before going into production, to adapt its content to the users' needs.
 :::
 
-## Create a _case overview_ page
+To customize the default case overview page, log into Bonita BPM Portal as an Administrator, then go to the **Resources** menu > **Pages** section.  
 
 To create your own, you can use the UI Designer following two different flows:
  - The first time you create a _case overview_ page:
    - Go to Bonita BPM Studio and select the pool
    - Go to the **Execution** tab, **Overview page** pane
-   - Make sure the "UI Designer" option is selected
-   - Click on the pencil icon right by the input field.
-   This will open the UI Designer and automatically map the overview page to the pool.
-
+   - Make sure the _UI Designer_ option is selected
+   - Click on the pencil icon right by the input field  
+     This will open the UI Designer and automatically map the overview page to the pool.
  - When the page is created and you want to map it to other pools:
    - In the diagram, select the pool
    - Go to the **Execution** tab, **Overview page** pane
    - Click on the drop down menu arrow
-   - Select the page name
-   This will create the mapping between the _case overview_ page to the pool.
+   - Select the page name  
+     This will create the mapping between the overview page to the pool.
 
 As it is linked to the process, the _case overview_ page designed using UI Designer, belongs to the .bar file (unlike other pages).
+<!-- The following text is written below the field of the "External URL" option. Does this apply to overview page? "The processInstanceID is provided in the query string. It is the value of the parameter `id` that is added to the external URL when redirecting. Other REST API resources are available for filling in the page with values, notably a "context" (API/bpm/case/<processInstanceId>/context and API/bpm/archivedCase/<archiveProcessInstanceID>/context) including business data and document references." -->
 
 But you can also use your favorite editor and build your own _case overview_ page.
 In this case, when your page is ready:
