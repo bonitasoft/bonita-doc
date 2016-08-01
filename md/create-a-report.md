@@ -185,6 +185,21 @@ Create the report properties using iReport as following:
 Here is an example of a report configuration containing a "Period" date range and a "State" select widget:
 ![Widget property example in iReport](images/images-6_0/exampleswidgets.png)
 
+### Add style to HTML rendered report
+If you want to apply some style to your components in HTML rendered reports, you need to add a CSS class to them
+and implement style using CSS in [Bonita portal look'n'feel](managing-look-feel.md). Indeed, changing most of appearance properties of a component will have
+no effect in HTML rendered report since we believe that styles must be applied via CSS in a HTML file. This allow us to have a consistency between reports
+and Bonita Portal's look'n'feel.
+
+To add a CSS class to a component proceed as follow:
+- Edit component properties and add a _Properties expressions_.
+- Set _Properties expressions_'s name to _net.sf.jasperreports.export.html.class_
+- Set _Properties expressions_'s value to the wanted CSS class.
+- Implement in Bonita Portal's look'n'feel the expected style for this CSS class.
+
+Alternatively, you can also change the HTML tag name of a component by adding a _Properties expressions_ named  _net.sf.jasperreports.export.html.tag_
+(example: _name:_ net.sf.jasperreports.export.html.tag _value:_ h1)
+
 ### Package a report for Bonita BPM Portal integration
 
 In order to integrate a Jasper report in Bonita BPM Portal, you need to prepare a ZIP archive.
