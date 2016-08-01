@@ -74,7 +74,7 @@ Two example custom pages are available in the portal. Both examples show how to:
 **HTML example page** defines a custom page using only HTML. 
 In practice, you will probably use a combination of Groovy and HTML to create your custom pages.
 
-To view an example page, publish the page to a custom profile so that you can view it in the portal. To view the source of an example, export the custom page.
+To view an example page, publish the page to a [custom profile](custom-profiles.md) or an [application](applications.md) so that you can view it in the portal. To view the source of an example, [export the custom page](resource-management.md#export).
 
 On the [Customer Portal](https://customer.bonitasoft.com/), there is also an example in the form of a seed project for creating custom pages using AngularJS and a customizable example task list page.
 
