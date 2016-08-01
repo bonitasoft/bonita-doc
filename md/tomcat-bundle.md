@@ -1,4 +1,4 @@
-# Tomcat bundle
+# Tomcat bundle installation
 
 You will find here steps needed to install and configure a Tomcat bundle.
 
@@ -6,7 +6,7 @@ The Tomcat bundle is a .zip archive that contains the Apache Tomcat JEE applicat
 The Tomcat bundle is a regular .zip archive based on Tomcat zip distribution.
 
 
-::: warning
+::: warning  
 There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft in the Tomcat bundle and in the Tomcat directories of the Deploy bundle) and the Microsoft SQL Server driver
 (refer to: [MSDN note](https://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html)).
 Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the JBoss bundle provided by Bonitasoft.
@@ -35,7 +35,7 @@ The fully qualified folder path (including the BonitaBPM-x.y.z-Tomcat-7.0.67 fol
 * Windows: `C:\BonitaBPM`. 
 * Linux: in `/opt/BonitaBPM`. Make sure that Linux user account used to execute Tomcat is the owner of the folders and files.
 
-::: warning
+::: warning  
 Whatever location you choose, do not leave blank spaces in the path to the directory, nor in the folder name.
 :::
 
@@ -106,7 +106,8 @@ For production, you are recommended to use one of the supported databases, with 
 
 Make sure your database is created before you start configuring the Tomcat datasources and make sure you do so before you start the Tomcat server.
 
-If you use the [Business Data Model (BDM) feature](define-and-deploy-the-bdm.md), we recommend that you configure a dedicated database.
+If you use the [Business Data Model (BDM) feature](define-and-deploy-the-bdm.md), we recommend that you configure a dedicated database.  
+You can also find more details on database configuration in the [dedicated page](database-configuration.md).
 
 Follow those steps:
 
