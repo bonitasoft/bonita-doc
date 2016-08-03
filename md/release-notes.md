@@ -93,6 +93,20 @@ Many improvements to existing features:
 
 # Bug fixes
 
+Below are the fixes available in Bonita BPM 7.3.1
+
+* BS-15244 Error 500 and NPE are generated when a cluster is started with FINEST log level
+* BS-15358 Exception thrown when starting server in cluster mode
+* BS-15407 Deploy a bar file with a file without content in Oracle11g doesnt work
+* BS-15487 Error "The script is null" while testing Groovy connector
+* BS-15511 Live update broken: "Violation of UNIQUE KEY constraint" message is generated when changing connector implementation with dependency
+* BS-15526 Process Manager profile can't delete case
+* BS-15536 Refine an existing Resource Permission Mapping fails
+* BS-15548 Studio does not validate (50 char max) contract input name length after click
+* BS-15572 ProcessPermissionRule.groovy prevents a process manager to update a groovy expression
+* BS-15588 Portal un-extracted strings for translation
+* BS-15632 Preview of initialisation script is empty when creating a contract from a data 
+
 Below are the fixes available in Bonita BPM 7.3.0
 
 * [BS-8234] - Current Tenant information is lost on session timeout 
