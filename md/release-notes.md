@@ -1,6 +1,6 @@
 # Release notes
 
-Below are the changes introduced in Bonita BPM 7.3.0
+Below are the changes introduced in Bonita BPM 7.3.
 
 ## Features & Enhancements
 
@@ -91,7 +91,7 @@ Many improvements to existing features:
 * Default applications layout is not compatible with new task list custom page
 * Having executed a task in a subprocess, I cannot see the overview of the root process instance
 
-# Bug fixes
+## Bug fixes
 
 Below are the fixes available in Bonita BPM 7.3.1
 
