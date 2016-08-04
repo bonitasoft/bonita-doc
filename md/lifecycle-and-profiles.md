@@ -8,7 +8,7 @@ There are three major phases in the lifecycle.This page introduces these three p
 
 ## Application creation phase
 
-During this phase, the business analyst specifies the processes that are in the application and [creates the process diagrams](diagram-overview.md). The application developer takes the specification of each process and creates a running process, adding forms, scripts or Java code if required. Each process is tested and debugged. It can also be evaluated using simulations. When a process is complete, it is exported ready for deployment. 
+During this phase, the business analyst specifies the processes that are in the application and [creates the process diagrams](diagram-overview.md). The application developer takes the specification of each process and creates a running process, adding forms, scripts or Java code if required. Each process is tested and debugged. When a process is complete, it is exported ready for deployment. 
 
 This phase needs only the Bonita BPM Studio component of Bonita BPM. See the [Bonita BPM Studio installation overview](bonita-bpm-studio-installation.md) for details of how to install Bonita BPM Studio for process creation.
 
