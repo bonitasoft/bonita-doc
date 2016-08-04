@@ -105,10 +105,6 @@ echo "# Building project bonita-connector-webservice / tag 1.0.12"
 git clone --branch 1.0.12 --single-branch git@github.com:bonitasoft/bonita-connector-webservice.git bonita-connector-webservice
 mvn clean install -DskipTests=true -f bonita-connector-webservice/pom.xml
 
-echo "# Building project bonita-simulation / tag bos-simulation-6.1.0"
-git clone --branch bos-simulation-6.1.0 --single-branch git@github.com:bonitasoft/bonita-simulation.git bonita-simulation
-mvn clean install -DskipTests=true -f bonita-simulation/pom.xml
-
 echo "# Building project bonita-theme-builder / tag 6.1.0"
 git clone --branch 6.1.0 --single-branch git@github.com:bonitasoft/bonita-theme-builder.git bonita-theme-builder
 mvn clean install -DskipTests=true -f bonita-theme-builder/pom.xml
@@ -143,13 +139,7 @@ mvn clean install -DskipTests=true -f image-overlay-plugin/pom.xml
 
 echo "# Building project bonita-studio / tag bos-studio-7.0.0-201506160900"
 git clone --branch bos-studio-7.0.0-201506160900 --single-branch git@github.com:bonitasoft/bonita-studio.git bonita-studio
-mvn clean install -DskipTests=true -f bonita-studio/platform/pom.xml -Pmirrored -Dp2MirrorUrl=http://update-site.bonitasoft.com/p2/7.0/
-mvn clean install -DskipTests=true -f bonita-studio/patched-plugins/pom.xml
-mvn clean install -DskipTests=true -f bonita-studio/tests-dependencies/pom.xml
-mvn clean tycho-eclipserun:eclipse-run -Dtycho.mode=maven -DskipTests=true -Dp2MirrorUrl=http://update-site.bonitasoft.com/p2/7.0/ -Pgenerate -f bonita-studio/bundles/plugins/org.bonitasoft.studio-models/pom.xml
-mvn clean install -DskipTests=true -f bonita-studio/bundles/pom.xml
-mvn clean install -DskipTests=true -f bonita-studio/translations/pom.xml
-mvn clean install -DskipTests=true -f bonita-studio/all-in-one/pom.xml -Dp2MirrorUrl=http://update-site.bonitasoft.com/p2/7.0/
+mvn clean install -DskipTests=true -f bonita-studio/pom.xml -Pmirrored,generate -Dp2MirrorUrl=http://update-site.bonitasoft.com/p2/7.2/
 
 echo "# Building project bonita-migration / tag 1.23.1"
 git clone --branch 1.23.1 --single-branch git@github.com:bonitasoft/bonita-migration.git bonita-migration
