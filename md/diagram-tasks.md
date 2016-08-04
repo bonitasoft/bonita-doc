@@ -35,7 +35,6 @@ The items configured for a task depend on the task type, as shown in the followi
 | Data entry forms (6.x legacy) | Details panel, Application tab, Pageflow pane | Human |
 | Confirmation forms (6.x legacy) | Details panel, Application tab, Confirmation pane | Human |
 | Appearance in diagram | Details panel, Appearance tab, color & font pane | All |
-| Simulation behavior | Details panel, Simulation tab, General, Data, and Resources panes | All |
 | Subprocess to execute | Details panel, General tab, General pane | Call activity |
 | Message content handling | Details panel, General tab, Message content pane | Receive |
 | Messages | Details panel, General tab, Messages pane | Send |
