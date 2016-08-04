@@ -1,6 +1,6 @@
 # Release notes
 
-Below are the changes introduced in Bonita BPM 7.3.0
+Below are the changes introduced in Bonita BPM 7.3
 
 ## Features & Enhancements
 
@@ -91,9 +91,9 @@ Many improvements to existing features:
 * Default applications layout is not compatible with new task list custom page
 * Having executed a task in a subprocess, I cannot see the overview of the root process instance
 
-# Bug fixes
+## Bug fixes
 
-Below are the fixes available in Bonita BPM 7.3.1
+#### Fixes in Bonita BPM 7.3.1
 
 * BS-15244 Error 500 and NPE are generated when a cluster is started with FINEST log level
 * BS-15358 Exception thrown when starting server in cluster mode
@@ -107,7 +107,7 @@ Below are the fixes available in Bonita BPM 7.3.1
 * BS-15588 Portal un-extracted strings for translation
 * BS-15632 Preview of initialisation script is empty when creating a contract from a data 
 
-Below are the fixes available in Bonita BPM 7.3.0
+#### Fixes in Bonita BPM 7.3.0
 
 * [BS-8234] - Current Tenant information is lost on session timeout 
 * [BS-12240] - Sequential multi-instantiation with empty list unexpectedly create one instance
