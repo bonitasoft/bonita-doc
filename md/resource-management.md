@@ -46,6 +46,8 @@ resources=[GET|identity/user, GET|identity/personalcontactdata, GET|identity/pro
 contentType=page  
 ```
 
+<a id="export"/>
+
 ## Export a resource
 
 You can export a resource from the portal. The page is exported as a zip archive.
