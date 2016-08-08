@@ -36,7 +36,7 @@ If you use 6.x forms, you can configure a process to be started by an anonymous 
 a new user can browse stock and save items to a cart, then register with the site if they want to save
 their cart for later or to buy something. This is known as supporting anonymous users. Anonymous users are always process initiators.
 
-To support anonymous users in a process report to the [6.x documentation page](../actors-859#Allowing anonymous users).
+To support anonymous users in a process report to the [6.x documentation page](/actors-859#Allowing%20anonymous%20users).
 
 ## Set the initiator
 
