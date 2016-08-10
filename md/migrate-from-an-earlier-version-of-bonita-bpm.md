@@ -170,16 +170,15 @@ The `bonita_home` and the database have been migrated.
 14. *Only before 7.3.0* In your new `bonita-target-version` folder, delete the `bonita` folder. You will use the `bonita_home` that you have migrated instead.
 15. *Only before 7.3.0* Set the bonita_home system property to point to the migrated `bonita_home`.
 16. [Configure the bundle to use the migrated database](database-configuration.md). Do not recreate the database.
-16. <a id="compound-permission-migration"/> In the case where deployed resources have required dedicated [authorizations to use the REST API](resource-management.md#permissions), these authorizations are not automatically migrated.  
-    Some manual operation have to be done on the `client/tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties` file that is either located in the _$BONITA\_HOME_ folder if version <7.3.0 or in the extracted `platform_conf/current` folder in version >=7.3.0 (see [for more information](BonitaBPM_platform_setup.md#update_platform_conf) ). 
-    You need to merge file versions, the previous one and the migrated one.
-        
-    For example, The [REST API Extension](rest-api-extensions.md) _CI Users REST API_ has been deployed and the `client/tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties` has been automatically updated with the permissions of this resource (a new line has been added in the file):
-    ```
-    custompage_ciuserRestExtension=[profile_visualization, tenant_platform_visualization, organization_visualization]
-    ```  
-    You need to copy the line of each resource permission to the migrated `client/tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties` file.
-17. Configure License:
+17. <a id="compound-permission-migration" /> In the case where deployed resources have required dedicated [authorizations to use the REST API](resource-management.md#permissions), these authorizations are not automatically migrated.  
+    Some manual operation have to be done on files that are  located in the _$BONITA\_HOME_ folder if version <7.3.0 or in the extracted `platform_conf/current` folder in version >=7.3.0 (see [for more information](BonitaBPM_platform_setup.md#update_platform_conf) ). You need to merge file versions, the previous one and the migrated one.
+    
+    *`client/tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties` : contains list of permissions used for each resources 
+    *`client/tenants/[TENANT_ID]/conf/resources-permissions-mapping.properties` : contains permissions for REST API extensions
+    *`client/tenants/[TENANT_ID]/conf/custom-permissions-mapping.properties` : contains custom permissions for users and profiles  
+    *`client/tenants/[TENANT_ID]/conf/dynamic-permissions-checks.properties` : used if dynamic check on permissions is enabled
+               
+18. Configure License:
     Make sure there is a valid license file
     * If you have migrated from an earlier maintenance version of the same minor version, for example, from 6.3.0 to 6.3.1, your existing license is still valid and you do not need to do anything.
     * If you have have migrated from an earlier minor version, for example from 6.0.4 to 6.2.1, you need to [request a new license](licenses.md).
@@ -187,7 +186,7 @@ The `bonita_home` and the database have been migrated.
         Put your new license in `/bonita_home/server/licenses`.
         * *After 7.3.0*:
         Put your new license in database as described in [this guide](BonitaBPM_platform_setup.md#update_platform_conf).
-18. Start the application server. Before you start Bonita BPM Portal, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal pages instead of the new version. 
+19. Start the application server. Before you start Bonita BPM Portal, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal pages instead of the new version. 
 Log in to the Portal and verify that the migration has completed. 
 If you did not set the default Look & Feel before migration and you cannot log in, you need to [restore the default Look & Feel](managing-look-feel.md) using a REST client or the Engine API.
 
