@@ -164,7 +164,7 @@ When reusing these features for your own projects, make sure that the result of 
 ## View it in the task list
 
 1. Save the diagram
-2. Run the pool
+2. Run the pool. The default loggued user is Walter Bates
 3. Fill out the default instantiation form with two dates
 4. Click on **Start**  
 
@@ -172,6 +172,7 @@ Once you are sent to the task list, you can see that the task name is contextual
 It is computed once, when the task becomes ready. 
 
 **Note:** The following set of instructions only applies to the task list in Bonita BPM 7.3.0 and above. In earlier versions, the **Description** field is displayed by default.  
+
 To display the **Description** column and view the _submitted_ status:
 1. Click on the **settings wheel** icon on the top right of the list
 2. Select **Description**
@@ -182,8 +183,11 @@ You can see the description field, showing the status: "submitted", as shown her
 
 ![display task name and description](images/display_task_name_and_description.png)<!--{.img-responsive .img-thumbnail}-->
 
-1. Perform the task.
-2. Go to the **Done tasks** filter
+1. Logout
+2. Login with helen.kelly / bpm credentials (as if Helen Kelly is Walter Bates' manager)
+3. Perform the task
+4. Go to the **Done tasks** filter
+
 The **Description** column now shows the description after completion, with an edited status as well as the name of who performed the task, as shown here :
 
 ![description after completion](images/description_after_completion.png)<!--{.img-responsive .img-thumbnail}-->
