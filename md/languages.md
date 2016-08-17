@@ -22,7 +22,7 @@ To change the language of the user interface, go to the top right corner, click 
 1. Go to [Crowdin](http://translate.bonitasoft.org/) and click the **_Download_** icon to download the zip archive file containing the translations into all the available languages.
 The archive is called `bonita-bpm-60.zip` even for Bonita BPM 7.x versions.
 This zip file is a snapshot of the translation that are finished and are in progress. The steps in this section assume you are adding a validated translation. You can also add a translation that is in progress. However, the results can be unpredictable, so you should do this only if you are sure of the translation status (perhaps if you are the translator). 
-2. Go to the `master` folder, which contains the translations that are complete and validated.
+2. Go to the `master` folder.
 3. Go to the `/bonita-web/portal` folder.
 4. Find the `.po` files for the language you want to add. Each `.po` file has a language indicator and a locale indicator.
 For example, the files for the Russian language contain `ru_RU`. Extract the files with the language and locale that you want to add to the Portal.
