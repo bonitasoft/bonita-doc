@@ -35,11 +35,15 @@ The tool supports LDAP groups of the following classes:
 To install the synchronizer, unzip the provided deploy.zip file and configure the files located under the conf directory. 
 This directory contains a sample configuration.
 
-Create a dedicated bonita.home for the LDAP Synchronizer, and set the API access mode used by the LDAP Synchronizer, by editing the bonita-client-custom.properties file. 
+Set the API access mode used by the LDAP Synchronizer, by editing the `<LDAP_SYNCHRONIZER>\BonitaBPMSubscription-7.3.x-LDAP-Synchronizer.(bat or sh)` file. 
+
+Add between `java` and `-classpath`:
+```
+-Dorg.bonitasoft.engine.api-type=HTTP -Dorg.bonitasoft.engine.api-type.server.url=http://localhost:8080 -Dorg.bonitasoft.engine.api-type.application.name=bonita
+```
+
 The LDAP Synchronizer can use the HTTP, or EJB3 modes, but not local access. For more information about API access modes, 
 see the [Engine API overview](engine-api-overview.md).
-
-There is a Bonita Home directory in the deploy zip that can be used. Copy this directory into the LDAP synchronizer directory.
 
 Customize the configuration for your system, by editing the configuration files. 
 There are some additional considerations for using the LDAP synchronizer in a non-default tenant.
