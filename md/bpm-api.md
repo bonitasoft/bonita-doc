@@ -3531,7 +3531,7 @@ Process instantiation contract elements can be retrived client side.
 * **URL**  
   `/API/bpm/process/:processId/instantiation`  
 * **Method**  
-  `GET`
+  `POST`
 * **Request Payload**  
   Contract element values
   ```json
