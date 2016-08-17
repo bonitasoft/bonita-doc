@@ -123,7 +123,7 @@ The task display name will be made of the requester's first name, last name, and
 4. Type the script. 
 
 ```groovy
-return "Leave validation for ${leaveRequest.requesterName}: ${leaveRequest.startDate.format('yyyy-M-d')} / ${leaveRequest.endDate.format('yyyy-M-d')}".toString()
+return "Validate leave: ${leaveRequest.requesterName}: ${leaveRequest.startDate.format('yyyy-M-d')} / ${leaveRequest.endDate.format('yyyy-M-d')}".toString()
 ```
 
 5. Click **OK**.
@@ -137,7 +137,7 @@ As a dynamic information, status is addressed here:
 4. Type the script. 
 
 ```groovy
-return "A leave request has been ${leaveRequest.status}".toString()
+return "${leaveRequest.status}".toString()
 ```
 
 5. Click **OK**.
@@ -154,7 +154,7 @@ The status of the request when it's validated as well as the validator's name ar
 import com.bonitasoft.engine.api.APIAccessor;
 
 def executedBy = BonitaUsers.getUser(apiAccessor, apiAccessor.processAPI.getHumanTaskInstance(activityInstanceId).executedBy);
-return "The leave request has been ${leaveRequest.status} by ${executedBy.firstName} ${executedBy.lastName}".toString()
+return "${leaveRequest.status} by ${executedBy.firstName} ${executedBy.lastName}".toString()
 ```
 
 5. Click **OK**
