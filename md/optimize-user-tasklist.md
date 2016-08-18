@@ -55,7 +55,7 @@ To make sure the process gets the information it needs to start a new instance, 
 
 ![Contract](images/contract_for_tasklist.png)<!--{.img-responsive .img-thumbnail}-->
 
-In actual BPM projects, we recommend you also add a description to each contract input. It will be used as input field caption for end-users in the auto-generated form, if you decide to use such forms up to the User Acceptance Test phase of your project.  
+In actual BPM projects, we recommend you to also add a description to each contract input. It will be used as input field caption for end-users in the auto-generated form, if you decide to use such forms up to the User Acceptance Test phase of your project.  
 
 When the leave request is submitted, _status_ and _requesterName_ must default values must be set. To do so, edit the script:
  
@@ -67,16 +67,16 @@ When the leave request is submitted, _status_ and _requesterName_ must default v
    def initiator = BonitaUsers.getProcessInstanceInitiator(apiAccessor,processInstanceId);
    leaveRequestVar.requesterName = "$initiator.firstName $initiator.lastName"
    ```
-so it becomes: 
-    ```groovy
-    def leaveRequestVar = new com.company.model.LeaveRequest()
-    leaveRequestVar.startDate = leaveRequestInput.startDate
-    leaveRequestVar.endDate = leaveRequestInput.endDate
-    leaveRequestVar.status = "submitted"
-    def initiator = BonitaUsers.getProcessInstanceInitiator(apiAccessor,processInstanceId);
-    leaveRequestVar.requesterName = "$initiator.firstName $initiator.lastName"
-    return leaveRequestVar
-    ```
+   so it becomes: 
+   ```groovy
+   def leaveRequestVar = new com.company.model.LeaveRequest()
+   leaveRequestVar.startDate = leaveRequestInput.startDate
+   leaveRequestVar.endDate = leaveRequestInput.endDate
+   leaveRequestVar.status = "submitted"
+   def initiator = BonitaUsers.getProcessInstanceInitiator(apiAccessor,processInstanceId);
+   leaveRequestVar.requesterName = "$initiator.firstName $initiator.lastName"
+   return leaveRequestVar
+   ```
 
 5. Click **OK**, and **OK**.
 
