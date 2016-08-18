@@ -6,7 +6,7 @@ Pages are [exported. imported, modified, and deleted](resource-management.md) as
 
 Form definition <!--{.h2}-->
 
-A form is a UI artifact used in the context of a process to gather inputs from somebody (company employee or external actor). It can be a process instantiation form or a human task form. There are some extra things to consider when creating a form compared to a page, concerning how data is passed between the process instance and the form.
+A form is a UI artifact used in the context of a process to gather inputs from a user (company employee or external actor). It can be a process instantiation form or a human task form. There are some extra things to consider when creating a form compared to a page, concerning how data is passed between the process instance and the form.
 
 A [context](contracts-and-contexts.md) is the set of data provided by the process instance or task instance to the form.
 There is no context for a process instantiation form.
