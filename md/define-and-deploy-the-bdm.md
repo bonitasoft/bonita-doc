@@ -58,6 +58,8 @@ To support handling of multiple instances of a business objects:
 3. Set the list of business object instances in an operation using `takes value of` with a right operand that consists of a list of existing (possibly modified) and new business object instances.
 4. Delete all instances from a list of business object instances with an `Is Deleted` operation.
 
+To know more on the management of multiple references in business objects, go to [How to manage multiple references in business objects](bo-multiple-refs-tutorial.md).
+
 #### Unique constraint
 
 An SQL UNIQUE constraint is a single field or a combination of fields that uniquely defines an entry in a database. A unique constraint on a single field means that every entry has a different value for this field. A unique constraint for a combination of fields means that this combination is unique, even though some of the component field values might be common or null.

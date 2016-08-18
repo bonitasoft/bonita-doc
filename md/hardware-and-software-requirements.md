@@ -1,4 +1,4 @@
-# Hardware and software requirements
+# Bonita BPM installation: Hardware and software requirements
 
 ## Hardware
 
@@ -17,16 +17,16 @@ Hardware required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Port
 ## Software
 
 Software required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Portal).
-| | 7.0.x <br/> 7.1.x | 7.2.x <br/> 7.3.x 
+| | 7.0.x <br/> 7.1.x | 7.2.x <br/> 7.3.x
 |:-|-|-
 | **Operating system** |
 | Windows Server 2012 R2 64 bits | ✔ | ✔ |
-| Red Hat Enterprise Linux 6.5 64 bits | ✔ | ✔ | 
-| Ubuntu 14.04 LTS 64 bits | ✔ | ✔ | 
-| **Java Virtual Machine** | 
+| Red Hat Enterprise Linux 6.5 64 bits | ✔ | ✔ |
+| Ubuntu 14.04 LTS 64 bits | ✔ | ✔ |
+| **Java Virtual Machine** |
 | Oracle Java SE Runtime Environment 7 u67 | ✔ | ✔ |
-| Oracle Java SE Runtime Environment 8 u40 (see note 4) | ✔ | ✔ | 
-| OpenJDK 7u65 | ✔ | ✔ | 
+| Oracle Java SE Runtime Environment 8 u40 (see note 4) | ✔ | ✔ |
+| OpenJDK 7u65 | ✔ | ✔ |
 | **Application Server** |
 | Tomcat 7.0.55 | ✔ |  |
 | Tomcat 7.0.67 |  | ✔ |

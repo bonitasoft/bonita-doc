@@ -1,4 +1,4 @@
-# JBoss bundle
+# JBoss bundle installation
 
 You will find here steps needed to install and configure a JBoss bundle.
 
@@ -23,9 +23,9 @@ For a Subscription edition:
 
 #### Unzip
 
-The folder where you unzip the Jboss bundle is known as _`<JBOSS_HOME>`_. We recommend the following locations: 
+The folder where you unzip the Jboss bundle is known as _`<JBOSS_HOME>`_. We recommend the following locations:
 
-* Windows: `C:\BonitaBPM`. If you want to unzip the bundle to another folder, do not use spaces in the folder name. 
+* Windows: `C:\BonitaBPM`. If you want to unzip the bundle to another folder, do not use spaces in the folder name.
 * Linux: in `/opt/BonitaBPM`. Make sure that Linux user account used to execute JBoss is the owner of the folders and files.
 
 #### Content of the JBoss bundle
@@ -43,7 +43,7 @@ The JBoss bundle is based on a standard JBoss installation with the following ad
 
 ::: info
 **Note:** Starting from Bonita BPM 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database as the Bonita BPM Engine data, namely in the `CONFIGURATION` table.  
-To initialize and update this configuration, a [*Platform setup tool*](BonitaBPM_platform_setup.md) is provided and embedded in Bonita BPM bundles. 
+To initialize and update this configuration, a [*Platform setup tool*](BonitaBPM_platform_setup.md) is provided and embedded in Bonita BPM bundles.
 It will be launched automatically when you start the JBoss bundle to initialize the database.  
 :::
 
@@ -116,7 +116,7 @@ If you have a Subscription edition license covering fewer CPU cores than are ava
 
 To do so, create a custom startup script to start JBoss only with the number of cores allowed by your license (e.g. 2 for development license).
 
-For example: 
+For example:
 
 * For Windows: `start /AFFINITY 3 bonita-start.bat` (where 3 is the affinity mask expressed as a hexadecimal number)
 
@@ -138,8 +138,8 @@ As an example, if hexadecimal parameter is equal to 6. The corresponding binary 
 
 
 
-* For Linux: `taskset -c 0,1 bonita-start.sh` 
-    * Change the last line of the file to `taskset -c 0,1 bonita-start.sh 0,1` (where 0,1 indicate that you will only use 2 CPU, the CPU0 and the CPU1. This list may contain multiple items, separated by comma, and ranges. For example, 0,5,7,9-11) 
+* For Linux: `taskset -c 0,1 bonita-start.sh`
+    * Change the last line of the file to `taskset -c 0,1 bonita-start.sh 0,1` (where 0,1 indicate that you will only use 2 CPU, the CPU0 and the CPU1. This list may contain multiple items, separated by comma, and ranges. For example, 0,5,7,9-11)
 
 #### Shutdown
 

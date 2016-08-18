@@ -12,22 +12,22 @@ You can import an existing page, form, or layout to edit, or duplicate existing 
 ## Page structure
 
 A page (but also a form or a layout) is constructed as a vertical arrangement of rows.  
-A row is a mechanism for aligning widgets, from top left to bottom right. When you create a new, empty, page, it contains a row. A row occupies the whole width of the page, which is considered to be 12 units. The actual width is calculated when the page is displayed. The rows are indicated by a thin pale grey rectangle on the left side of the whiteboard. 
+A row is a mechanism for aligning widgets, from top left to bottom right. When you create a new, empty, page, it contains a row. A row occupies the whole width of the page, which is considered to be 12 units. The actual width is calculated when the page is displayed. The rows are indicated by a thin pale grey rectangle on the left side of the whiteboard.
 
 To move or delete a row, position your mouse in the row, and the row toolbar is displayed.
 
 ![row toolbar](images/images-6_0/row-over.png)
 
-Use the controls in the toolbar to move the row up or down, or to delete it. 
+Use the controls in the toolbar to move the row up or down, or to delete it.
 
 In a row, you can add containers and [widgets](widgets.md).  
 Each widget accounts for an item of information to be entered or displayed in a page. To add a widget to a page, drag it from the palette on the left of the screen and drop it into the whiteboard. It must be adjacent to another widget (or to the top of the page for the first widget).  
 You cannot leave empty space between widgets. If you try to drop a widget that is not adjacent to another, the drop will fail.  
-When the widget is dropped, you need to specify the widget width, up to a maximum of 12 units (default value). 
+When the widget is dropped, you need to specify the widget width, up to a maximum of 12 units (default value).
 
 There is a set of [standard widgets](widgets.md). If these do not meet your needs, you can define a [custom widget](custom-widgets.md).
 
-There are also some structure widgets called containers, which you can use to structure a page. 
+There are also some structure widgets called containers, which you can use to structure a page.
 
 There are different types of containers:
 * The plain container is invisible to page users. It is useful during page development as a way to manipulate or configure multiple widgets or iterate over elements to display.
@@ -45,11 +45,11 @@ The UI Designer generates standard HTML application code, based on AngularJS. Ex
 
 ## Integration with Bonita BPM Platform
 
-To use a page in a business application, export it from the Bonita BPM UI designer, import it as a portal resource, and from the relevant application, add it to the list of pages and then insert it in a navigation menu.
+To use a page in a business application, export it from the UI Designer, import it as a portal resource, and from the relevant application, add it to the list of pages and then insert it in a navigation menu.
 
 To use a form in a process, map it in the Bonita BPM Studio to the relevant process or human task. It will be automatically packaged in the .bar archive ready to deploy in the Bonita BPM Portal.
 
-In the Subscription editions, you can [update a form in production](live-update.md), by exporting a new version of the form from the Bonita BPM UI designer, importing it into the relevant process in the portal, and then mapping it to the relevant task or process start event. 
+In the Subscription editions, you can [update a form in production](live-update.md), by exporting a new version of the form from the Bonita BPM UI designer, importing it into the relevant process in the portal, and then mapping it to the relevant task or process start event.
 
 To use a layout in a business application, export it from the Bonita BPM UI designer, import it as a Bonita BPM Portal resource, and map it as the layout of the relevant application.
 
