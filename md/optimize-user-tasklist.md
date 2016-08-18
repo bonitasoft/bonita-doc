@@ -63,20 +63,20 @@ When the leave request is submitted, _status_ and _requesterName_ must default v
 2. Click on **leaveRequest** and on the **Edit...** button
 3. Close to the **Default value** field, click on the pencil icon
 4. In the script, add: `leaveRequestVar.status = "submitted"`, and  
-``` groovy
+   ``` groovy
+   def initiator = BonitaUsers.getProcessInstanceInitiator(apiAccessor,processInstanceId);
+   leaveRequestVar.requesterName = "$initiator.firstName $initiator.lastName"
+   ```
+so it becomes: 
+    ```groovy
+    def leaveRequestVar = new com.company.model.LeaveRequest()
+    leaveRequestVar.startDate = leaveRequestInput.startDate
+    leaveRequestVar.endDate = leaveRequestInput.endDate
+    leaveRequestVar.status = "submitted"
     def initiator = BonitaUsers.getProcessInstanceInitiator(apiAccessor,processInstanceId);
     leaveRequestVar.requesterName = "$initiator.firstName $initiator.lastName"
-```
-so it becomes: 
-```groovy
-def leaveRequestVar = new com.company.model.LeaveRequest()
-leaveRequestVar.startDate = leaveRequestInput.startDate
-leaveRequestVar.endDate = leaveRequestInput.endDate
-leaveRequestVar.status = "submitted"
-def initiator = BonitaUsers.getProcessInstanceInitiator(apiAccessor,processInstanceId);
-leaveRequestVar.requesterName = "$initiator.firstName $initiator.lastName"
-return leaveRequestVar
-```
+    return leaveRequestVar
+    ```
 
 5. Click **OK**, and **OK**.
 
@@ -122,9 +122,9 @@ The task display name will be made of the requester's first name, last name, and
 3. Give it a name: **buildValidateRequestDisplayName()**
 4. Type the script. 
 
-```groovy
-return "Validate leave: ${leaveRequest.requesterName}: ${leaveRequest.startDate.format('yyyy-M-d')} / ${leaveRequest.endDate.format('yyyy-M-d')}".toString()
-```
+    ```groovy
+    return "Validate leave: ${leaveRequest.requesterName}: ${leaveRequest.startDate.format('yyyy-M-d')} / ${leaveRequest.endDate.format('yyyy-M-d')}".toString()
+    ```
 
 5. Click **OK**.
 
@@ -136,9 +136,9 @@ As a dynamic information, status is addressed here:
 3. Give it a name: **buildValidateRequestDisplayDescription()**
 4. Type the script. 
 
-```groovy
-return "${leaveRequest.status}".toString()
-```
+    ```groovy
+    return "${leaveRequest.status}".toString()
+    ```
 
 5. Click **OK**.
 
@@ -150,12 +150,12 @@ The status of the request when it's validated as well as the validator's name ar
 3. Give it a name: **buildValidateRequestDescAfterCompletion()**
 4. Type the script.
 
-```groovy
-import com.bonitasoft.engine.api.APIAccessor;
-
-def executedBy = BonitaUsers.getUser(apiAccessor, apiAccessor.processAPI.getHumanTaskInstance(activityInstanceId).executedBy);
-return "${leaveRequest.status} by ${executedBy.firstName} ${executedBy.lastName}".toString()
-```
+    ```groovy
+    import com.bonitasoft.engine.api.APIAccessor;
+    
+    def executedBy = BonitaUsers.getUser(apiAccessor, apiAccessor.processAPI.getHumanTaskInstance(activityInstanceId).executedBy);
+    return "${leaveRequest.status} by ${executedBy.firstName} ${executedBy.lastName}".toString()
+    ```
 
 5. Click **OK**
 
