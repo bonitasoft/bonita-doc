@@ -127,6 +127,7 @@
       * [Enforce password policy](enforce-password-policy.md)
       * [REST API authorization](rest-api-authorization.md)
       * [CSRF security](csrf-security.md)
+      * [Enable CORS in Tomcat bundle](enable-cors-in-tomcat-bundle.md)
       * [SSL](ssl.md)
     * [Set log and archive levels](set-log-and-archive-levels.md)
     * [Configurable Archive](configurable-archive.md)
