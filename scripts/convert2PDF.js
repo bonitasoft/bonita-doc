@@ -31,9 +31,9 @@
   const flattenedTaxo = flattenTaxonomy(taxonomy);
   let htmlFile = '', count = 0;  
 
-  rx.Observable.from(flattenedTaxo.filter(fileName => !fileName.match(/^https?:\/\//)))
+  rx.Observable.from(flattenedTaxo.filter(fileName => fileName && !fileName.match(/^https?:\/\//)))
   .select(html => {
-    return 'build/html/' + html; 
+    return 'build/html/' + html + '.html'; 
   }).bufferWithCount(3).toArray().subscribe(filesArray => {
     convertLastFilesToPDF(filesArray.reverse());
   });
@@ -66,7 +66,7 @@
       if (curr.children) {
         [].push.apply(acc, flattenTaxonomy(curr.children));
       } else {
-        acc.push(curr.href);
+        acc.push(curr.page);
       }
       return acc;
     }, []);
