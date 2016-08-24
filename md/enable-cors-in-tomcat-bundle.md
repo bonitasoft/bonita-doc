@@ -1,4 +1,4 @@
-# Allow CORS in Tomcat bundle
+# Enable CORS in Tomcat bundle
 
 If you try to call the REST API from a page hosted on another domain than the one of the tomcat bundle,
 you will face some issues due to the 'same-origin policy' enforced by web browsers.
