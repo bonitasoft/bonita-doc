@@ -20,7 +20,7 @@ Select a human task or a pool, go to the **Details** panel, **Execution** tab. T
 
 With the form type set to **UI Designer**, you can select a form from the dropdown list and click the pencil icon to edit it, or you can choose **Create a new form**. This is the way to go to create forms as the Studio will auto-generate a form based on the process instantiation or task execution [contract](contracts-and-contexts.md).
 
-You can also create a customized **overview form**, to display a summary of the case to the users, either in a case details page, or in the tasklist, to give some context to the task to do.  
+You can also create a customized **overview form**, to display a summary of the case to the users, either in a case details page, or in the task list, to give some context to the task to do.  
 To do so, go to the pool **Details** panel, **Execution** tab, and click **_Overview page**.  
 With the form type set to **UI Designer**, you can select a form from the dropdown list and click the pencil icon to edit it, or you can choose **Create a new form**.
 
@@ -28,10 +28,10 @@ With the form type set to **UI Designer**, you can select a form from the dropdo
 
 After a page, layout, form, fragment is created, you can update it in the **Page editor**. Update your page, form or fragment by dragging and dropping widgets from the palette to the whiteboard. Edit widget properties in the widget properties panel, create data, and bind it to the widgets.
 
-In the Performance and Efficiency editions, you can optimize the page or form design for a given device type by configuring [device-specific values for the Width property](widget-properties.md) for widgets. Use the a device types bar in the Page editor to choose the target device type.
+In the Performance and Efficiency editions, you can optimize the page or form design for a given device type by configuring [device-specific values for the Width property](widget-properties.md) for widgets. Use the device types bar in the Page editor to choose the target device type.
 ![Device type selection](images/images-6_0/pb-resolution.png)
 
-Custom widget is a special artifact that we will explain in a later chapter.
+Custom widget is a special artifact that is explained [in a later chapter](custom-widgets.md).
 
 ## Preview a page, layout, form, or fragment
 
@@ -39,8 +39,6 @@ You can preview page, form and fragment rendering by clicking the **_Preview_** 
 
 In the Performance and Efficiency editions, you can use the a device types bar on the preview screen to choose the target device type.  
 The preview displays the artifact as it would be displayed on the selected type of device.
-
-Custom widget is a special artifact that we will explain in a later chapter.
 
 ## Export an artifact
 
