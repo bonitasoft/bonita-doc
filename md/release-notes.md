@@ -93,7 +93,30 @@ Many improvements to existing features:
 
 ## Bug fixes
 
-#### Fixes in Bonita BPM 7.3.1
+#### Fixes in Bonita BPM 7.3.2 (released on September 1st, 2016)
+
+* BS-12240 	Sequential multi-instantiation with empty list unexpectedly create one instance
+* BS-13575 	java.lang.Error thrown at connector execution blocks the process instance and is not logged
+* BS-13652 	Unique index in ref_biz_data_inst contains nullable fields
+* BS-14100 	Live Update - Does not work if the replacing connector has the same class name
+* BS-14732 	IndexOutOfBoundsException while storing results of multi-instantiation
+* BS-14825 	'sourceObjectId' is unknown for the entity searched using SearchArchivedConnectorInstanceDescriptor
+* BS-14831 	REST API Search ActivityType failure when used in a complex query
+* BS-15051 	Japanese Document fileName corrupted when attached in email connector
+* BS-15361 	NoClassDefFoundError not catched from executeBusinessLogic()
+* BS-15390 	URL parameter variables are not updated when the URL changes
+* BS-15421 	Exception generated when changing the connector implementation
+* BS-15435 	Step's variable not found in groovy binding for the Early completion condition of a Sequential multi-instantiation of a human task iteration
+* BS-15505 	The first added widget disappears when dragging it below other widgets
+* BS-15511 	Live update broken: "Violation of UNIQUE KEY constraint" message is generated when changing connector implementation with dependency
+* BS-15569 	Unable to start process containing task with same name but different case
+* BS-15573 	No page to explain how to install a custom page + link broken
+* BS-15624 	WAR + EAR contains useless jars
+* BS-15629 	Uninstaller does not remove Desktop launch icon
+* BS-15654 	Problem in group organization management from studio
+* BS-15679 	Update of connector implementation does not work with single and same jar dependency 
+
+#### Fixes in Bonita BPM 7.3.1 (released on August 4th, 2016)
 
 * BS-15244 Error 500 and NPE are generated when a cluster is started with FINEST log level
 * BS-15358 Exception thrown when starting server in cluster mode
@@ -107,7 +130,7 @@ Many improvements to existing features:
 * BS-15588 Portal un-extracted strings for translation
 * BS-15632 Preview of initialisation script is empty when creating a contract from a data 
 
-#### Fixes in Bonita BPM 7.3.0
+#### Fixes in Bonita BPM 7.3.0 (released on July 19th, 2016)
 
 * [BS-8234] - Current Tenant information is lost on session timeout 
 * [BS-12240] - Sequential multi-instantiation with empty list unexpectedly create one instance
