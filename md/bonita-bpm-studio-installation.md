@@ -4,31 +4,37 @@ This page explains how to install Bonita BPM Studio for developing processes. Th
 
 ## Prerequisites
 
-Check the [Support Guide](https://customer.bonitasoft.com/support-policies) for details of prerequisite hardware and software.
+Check the [hardware and software requirements](hardware-and-software-requirements.md).
 
 Before you download Bonita BPM Studio, make sure that you know whether you are using a using a 32 or 64-bit system, and that you have the appropriate Java version installed:
 
-* For Linux, to find out whether you are using a 32 or 64 bit Linux, run the following command: `getconf LONG_BIT`, which returns either 32 or 64\.
+* For Linux, to find out whether you are using a 32 or 64 bit Linux, run the following command: `getconf LONG_BIT`, which returns either 32 or 64.
 * For Windows, see the [32 and 64 bit Windows FAQ](http://windows.microsoft.com/en-us/windows/32-bit-and-64-bit-windows).
 * For Mac, 32-bit Java is no longer supported, so there is no 32-bit version of Bonita BPM for Mac systems.
 
-Note for Mac users of OS X 10.7.5 and above: a new security feature called **Gatekeeper** prevents the installation of software that is not officially recognized by Apple.  
+::: danger
+Both Windows and Mac have default security settings that will prevent execution of Bonita BPM. See below for further details about what you can do to bypass those security protections
+:::
+
+**Note for users of OS X 10.7.5 and above**: a new security feature called **Gatekeeper** prevents the installation of software that is not officially recognized by Apple.  
 For more information and details of how to install Bonita BPM Studio on a system running Gatekeeper, see the [Apple support site](https://support.apple.com/en-us/HT202491).
+
+**Not for users of Windows 10**: the security feature called **SmartScreen** prevents execution of Bonita BPM Studio installer.  When you get the "Windows protect your PC" pop up window, click on "More info" link and click on "Run anyway" button.
 
 ## Download Bonita BPM Studio
 
 For a Subscription edition of Bonita BPM Studio, go to the [Customer Portal](https://customer.bonitasoft.com/download/request) and request a download.
 
-For the Community edition of Bonita BPM Studio, go to the Bonitasoft website [downloads page](http://www.bonitasoft.com/downloads-v2).  
+For the Community edition of Bonita BPM Studio, go to the Bonitasoft website [downloads page](http://www.bonitasoft.com/downloads-v2). On the download page you will get a download button based on your operating system auto-detection. If you want to download a different version (e.g. switch from 32 to 64-bit version), click on the **Customize you download** link.
 On this page there are buttons to download the Studio installer for your current operating system and the _all in one_, OS-independent version.  
-To download the installer for a different operating system, select it from the drop-down menu beside the **Choose** button, and click **_Choose_**.  
+To download the installer for a different operating system, select it from the **Operating system** section.  
 Then click the **_Download_** button.
 
 When the download is complete, you have one of the following new files:
 
 **Linux**  
 Community edition  
-- 32 bit:  `BonitaBPMCommunity-x.y.z-x86.run`
+- 32 bit: `BonitaBPMCommunity-x.y.z-x86.run`
 - 64 bit: `BonitaBPMCommunity-x.y.z-x86_64.run`  
 
 Subscription editions   
@@ -66,7 +72,7 @@ To run the installer wizard for Linux, Windows, or Mac, double-click the downloa
 
 Then follow the installation wizard through to the end of the installation procedure.
 
-The installer import workspace feature applies only to local repositories.  
+For subscription editions: the installer import workspace feature applies only to local repositories.  
 If you have shared repositories in your workspace, you will need to reconnect to these manually, and possibly migrate the processes to your new version of Bonita BPM Studio.  
 The default workspace is automatically initialized at the end of the installation.
 
@@ -149,6 +155,6 @@ Caused by: java.lang.OutOfMemoryError: GC overhead limit exceeded
 
 To fix this issue, you need to increase the memory allocated to the JVM that runs Bonita BPM Studio.
 
-Edit the `*.ini` file that corresponds to the executable you use to launch the Studio (e.g. `BonitaBPMSubscription64.ini` if you run on Windows 64bits) and modify this line: `-Xmx512m` to `-Xmx1024m` (or higher).
+Edit the `*.ini` file that corresponds to the executable you use to launch the Studio (e.g. `BonitaBPMSubscription64.ini` if you run BonitaBPMSubscription64.exe) and modify this line: `-Xmx512m` to `-Xmx1024m` (or higher).
 
 Then restart Bonita BPM Studio.
