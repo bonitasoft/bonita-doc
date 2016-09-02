@@ -171,8 +171,11 @@ Next, it calls `getPossibleUsersOfPendingHumanTask` to get the list of users who
 The actor filter is applied when the task instance is created. This is known as **dynamic task assignment**. 
 The actor filter is applied and a shorter list of users is returned (in this case, just superExpert).
 
-Dynamic task assignment using `getPossibleUsersOfPendingHumanTask` re-evaluates the actor mapping including any actor filters. 
-It is useful if your organization changes after a process instance is started and you need to modify the list of users who can perform a task.
+Dynamic task assignment using `getPossibleUsersOfPendingHumanTask` re-evaluates the actor mapping.
+It is useful if your organization changes after a process instance is started and you need to modify the list of users who can perform a task
+
+If there is any Actor Filter specified for the given task, dynamic task assignment does not have any effect.  
+In such case, there is another [method](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#updateActorsOfUserTask(long)) that can be used as a separate call.
 
 Finally, it executes the task for the fist user on the list. This "execute for" feature is not available in the Community and Teamwork editions.
 ```groovy
