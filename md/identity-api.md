@@ -916,10 +916,13 @@ A partial representation of a user in JSON
 
 ### Remove a user
 
+::: warning 
+Use this method with caution: some artifacts like applications, cases or users may present display problems in the Bonita BPM Portal if the referenced user was deleted.  
+Note that you can disable a user instead of deleting it. To do so, use the `UPDATE` method and set the attribute 'enabled' to false
+:::
 * **URL**  
   `/API/identity/user/:userId`  
 * **Method**  
   `DELETE`
 * **Success Response**  
   * **Code**: 200
-
