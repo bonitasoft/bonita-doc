@@ -30,7 +30,7 @@ For example, the files for the Russian language contain `ru_RU`. Extract the fil
 6. Optionally, customize the translation by editing the `.po` files with a UTF-8 editor such as [Poedit](https://poedit.net/).
 7. Copy the `.po` files to a new folder of your choice, preferably in a sub-folder inside your bundle. Eg. `[TOMCAT_INSTALL_FOLDER]/my_custom_i18n/`.
     In a development environment where you are launching Bonita BPM Portal from Bonita BPM Studio, add the files to `/workspace/tomcat/i18n/`
-8. Set a new property "org.bonitasoft.i18n.folder" in your Unix file **setEnv.sh** or Windows file **setEnv.bat** (in Tomcat server), or Unix file **standalone.conf** or Windows file **standalone.conf.bat** (in JBoss server)
+8. Set a new property "org.bonitasoft.i18n.folder" in your Unix file **setEnv.sh** or Windows file **setEnv.bat** (in Tomcat server), or Unix file **standalone.conf** or Windows file **standalone.conf.bat** (in Wildfly server)
 9. Restart your application server (or restart Bonita BPM Studio). The next time Bonita BPM Portal starts, it will detect the new language and add it to the list in the **Settings** menu.
 
 Note: do not compile .po files into .mo files, because they will not be used.
