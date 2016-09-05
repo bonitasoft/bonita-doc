@@ -72,7 +72,7 @@ org.bonitasoft.engine.api-type = LOCAL
 
 # Remote: EJB3
 #org.bonitasoft.engine.api-type = EJB3
-# JBoss AS 7
+# Wildfly 9
 #java.naming.factory.url.pkgs = org.jboss.ejb.client.naming
 #default EJB reference name
 #org.bonitasoft.engine.ejb.naming.reference=ejb:bonita-ear/bonita-ejb/serverAPIBean!org.bonitasoft.engine.api.internal.ServerAPI
@@ -83,7 +83,7 @@ org.bonitasoft.engine.api-type = LOCAL
 
 ### Server configuration to accept HTTP Connection
 
-By default [Tomcat](tomcat-bundle.md) and [JBoss](jboss-bundle.md) bundles along with the `bonita.war` from the [deploy bundle](deploy-bundle.md) are configured to accept connection for HTTP connections.
+By default [Tomcat](tomcat-bundle.md) and [Wildfly](wildfly-bundle.md) bundles along with the `bonita.war` from the [deploy bundle](deploy-bundle.md) are configured to accept connection for HTTP connections.
 
 It is configured in the `web.xml` file of the web application like this:
 
@@ -100,30 +100,30 @@ This HTTP access  is not secured, it should not be exposed outside a trusted are
 
 ### Server configuration to accept EJB3 connection
 
-By default the [JBoss bundle](jboss-bundle.md) is configured to accept connection for EJB3.
+By default the [Wildfly bundle](wildfly-bundle.md) is configured to accept connection for EJB3.
 
-For an EJB3 client connection to work with JBoss 7, there are some additional configuration steps.
+For an EJB3 client connection to work with Wildfly 9, there are some additional configuration steps.
 
-If the client is not located on the same host than the JBoss server, you need to create a Application user in the JBoss administration console.  
-So open the JBoss administration console and [create a user account](https://docs.jboss.org/author/display/AS71/Admin+Guide#AdminGuide-adduser.sh) to be used for remote connections (for example, username _bonita_ and password _bpm_).  
+If the client is not located on the same host than the Wildfly server, you need to create a Application user in the Wildfly administration console.  
+So open the Wildfly administration console and [create a user account](https://docs.jboss.org/author/display/WFLY9/add-user+utility) to be used for remote connections (for example, username _bonita_ and password _bpm_).  
 
-Your Java client needs to have the JBoss client classes in the classpath for it to communicate correctly with the server.  
+Your Java client needs to have the Wildfly client classes in the classpath for it to communicate correctly with the server.  
 If you use Maven to manage your dependencies, add the following dependency in your pom.xml :
 
 ```xml
 <dependency>
-        <groupId>org.jboss.as</groupId>
-        <artifactId>jboss-as-ejb-client-bom</artifactId>
-        <version>7.1.1.Final</version>
-        <type>pom</type>
-</dependency>  
+    <groupId>org.wildfly</groupId>
+    <artifactId>wildfly-ejb-client-bom</artifactId>
+    <version>9.0.2.Final</version>
+    <type>pom</type>
+</dependency>
 ```
 
 The same kind of configuration is possible if you use some other dependency management tool like gradle or ivy.  
-If you do not use any management tool, you have to include the _jboss-client.jar_ to your classpath. It is available in the JBoss bundle in the $JBOSS_HOME/bin/client folder.
+If you do not use any management tool, you have to include the _jboss-client.jar_ to your classpath. It is available in the Wildfly bundle in the $WILDFLY_HOME/bin/client folder.
 
 *Create a property file* named `jboss-ejb-client.properties`, to the client classpath.  
-It contains information needed to make the remote connection, including the username and password of the user you created in the JBoss console, as shown below:
+It contains information needed to make the remote connection, including the username and password of the user you created in the Wildfly console, as shown below:
 
 ```
 endpoint.name=client-endpoint
@@ -131,7 +131,7 @@ remote.connectionprovider.create.options.org.xnio.Options.SSL_ENABLED=false
 remote.connections=default
 
 remote.connection.default.host=myhostname
-remote.connection.default.port = 4447
+remote.connection.default.port = 8080
 remote.connection.default.connect.options.org.xnio.Options.SASL_POLICY_NOANONYMOUS=false
 remote.connection.default.username=bonita
 remote.connection.default.password=bpm
@@ -142,13 +142,13 @@ Update the `bonita-client.properties` file configured in the `${bonita.home}/cli
 ```
 # Remote: EJB3
 org.bonitasoft.engine.api-type = EJB3
-# JBoss AS 7
+# Wildfly 9
 java.naming.factory.url.pkgs = org.jboss.ejb.client.naming
 #default EJB reference name
 org.bonitasoft.engine.ejb.naming.reference=ejb:bonita-ear/bonita-ejb/serverAPIBean!org.bonitasoft.engine.api.internal.ServerAPI
 ```
 
-If it is not already done for the JBoss server to accept remote connections, update the JBoss configuration file, standalone.xml:
+If it is not already done for the Wildfly server to accept remote connections, update the Wildfly configuration file, standalone.xml:
 * In the interfaces section, modify the IP address so that the Bonita BPM Engine is visible to the network.
 * Specify that port 4447 comes from the remoting socket-binding.
 
