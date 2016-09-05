@@ -82,11 +82,11 @@ If you use a `userFilter` and users are allowed to search, set the value with `{
 
 **Note:** all configuration files are case sensitive. You can find more examples in the [JAAS configuration files examples](#examples) section of this page.
 
-##### **JBoss**
+##### **Wildfly**
 
-Edit the `<JBOSS_HOME>/standalone/configuration/standalone.xml` file to specify the configuration. Use HTML encoding for any strings in the configuration (for example, a space character is written as %20).
+Edit the `<WILDFLY_HOME>/standalone/configuration/standalone.xml` file to specify the configuration. Use HTML encoding for any strings in the configuration (for example, a space character is written as %20).
 
-Add the Bonita BPM login context using the JBoss specific syntax just before the `</security-domains>` tag. Note that `security-domain-name` is in fact the JAAS login context name (e.g. Bonita BPM).
+Add the Bonita BPM login context using the Wildfly specific syntax just before the `</security-domains>` tag. Note that `security-domain-name` is in fact the JAAS login context name (e.g. Bonita BPM).
 
 The following example is for a tenant with id 1:
 ```xml
@@ -132,9 +132,9 @@ You will need to perform following changes:
 
 #### Configure JAAS
 
-##### **JBoss**
+##### **Wildfly**
 
-As the JAAS configuration in JBoss is already done in a file that already exists, no further configuration is necessary.
+As the JAAS configuration in Wildfly is already done in a file that already exists, no further configuration is necessary.
 
 ##### **Tomcat**
 
@@ -162,7 +162,7 @@ To define the JAAS configuration file location you need to set a JVM property, `
 
 **Note:** Remember to remove the debug flag for production.
 
-**Note:** These examples use the JAAS standard syntax (as used by Tomcat). They can easily be adapted to the JBoss XML syntax.
+**Note:** These examples use the JAAS standard syntax (as used by Tomcat). They can easily be adapted to the Wildfly XML syntax.
 
 #### Active Directory
 
