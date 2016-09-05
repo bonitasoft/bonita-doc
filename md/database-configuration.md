@@ -249,7 +249,8 @@ Now that you are almost done with the switch from h2 to your chosen RDBMS, you c
    * Remove the configuration for h2 from `<JBOSS_HOME>/standalone/configuration/standalone.xml`.
    * Make sure that `sysprop.bonita.db.vendor` property in `<JBOSS_HOME>/standalone/configuration/standalone.xml` is not set to h2\.
 * For Tomcat
-   * Remove h2 jar files (`bonita-jboss-h2-mbean-1.0.0.jar`, `h2-1.3.170.jar`). Files are located in: `<TOMCAT_HOME>/lib` or in `<TOMCAT_HOME>/lib/bonita`.
+   * Remove h2 jar files (`bonita-jboss-h2-mbean-1.0.0.jar`, `bonita-tomcat-h2-listener-1.0.1.jar`, `h2-1.3.170.jar`). Files are located in: `<TOMCAT_HOME>/lib` or in `<TOMCAT_HOME>/lib/bonita`.
+   * Remove the h2 listener, so that h2 is not started automatically: comment out the h2 listener in the `/conf/server.xml` file.
  * Check that h2 is no longer set in JVM system property value. Also, for extra security, you can remove it from `bonita-platform.properties` file and replace it with the value for your chosen RDBMS.
 
 ## Specific database configuration

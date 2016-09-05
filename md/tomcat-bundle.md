@@ -111,18 +111,20 @@ You can also find more details on database configuration in the [dedicated page]
 
 Follow those steps:
 
-1. Drop your database vendor-specific drivers in `[TOMCAT_HOME]`/lib/bonita (you can copy the provided open-source drivers: PostgreSQL, MySQL) from `[TOMCAT_HOME]/setup/lib`
-2. Edit file `[TOMCAT_HOME]`/conf/ **bitronix-resources.properties**
+1. Edit file `[TOMCAT_HOME]`/conf/ **server.xml** and remove (or comment out) the following line to deactivate embedded h2 database:
+  `<Listener className="org.bonitasoft.tomcat.H2Listener" tcpPort="9091" baseDir="${org.bonitasoft.h2.database.dir}" start="true" />`
+2. Drop your database vendor-specific drivers in `[TOMCAT_HOME]`/lib/bonita (you can copy the provided open-source drivers: PostgreSQL, MySQL) from `[TOMCAT_HOME]/setup/lib`
+3. Edit file `[TOMCAT_HOME]`/conf/ **bitronix-resources.properties**
     1. Comment the default embedded h2 database configuration (preceding the lines with a #)
     2. Uncomment the configuration for your database vendor (PostgreSQL, Oracle, SQL Server, or MySQL)
     3. Change the default values for your database configuration to point to an existing database instance and valid credentials
   Warning: this must be done for 2 different datasources in the file: **resource.ds1.** (for engine and configuration data) and **resource.ds2.** (for BDM data, optional but handy to configure in case some day you need to use it)
-3. Edit file `[TOMCAT_HOME]`/conf/Catalina/localhost/ **bonita.xml**
+4. Edit file `[TOMCAT_HOME]`/conf/Catalina/localhost/ **bonita.xml**
     1. Comment the default embedded H2 database configuration (with `<!--` and `-->` around the lines to comment)
     2. Uncomment the configuration for your database vendor (PostgreSQL, Oracle, SQL Server, or MySQL)
     3. Change the default values for your database configuration to point to an existing database instance and valid credentials
   Warning: this must be done for 2 different datasources in the file: **bonitaSequenceManagerDS** (for engine and configuration data, same base as **resource.ds1.**) and **NotManagedBizDataDS** (for BDM data, same base as **resource.ds2.**)
-4. Edit file sentenv.sh (Unix system) or setenv.bat (Windows system)
+5. Edit file sentenv.sh (Unix system) or setenv.bat (Windows system)
     1. For engine and configuration data, change the **DB_OPTS** property and change the default **h2** value for the one corresponding to your database vendor 
     2. For BDM data, change the **BDM_DB_OPTS** property and change the default **h2** value for the one corresponding to your database vendor 
 
