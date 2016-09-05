@@ -112,7 +112,7 @@
   * [Basic Bonita BPM Platform installation](_basic-bonita-bpm-platform-installation.md)
     * [Hardware and software requirements](hardware-and-software-requirements.md)
     * [Tomcat bundle](tomcat-bundle.md)
-    * [JBoss bundle](jboss-bundle.md)
+    * [Wildfly bundle](wildfly-bundle.md)
     * [Deploy bundle](deploy-bundle.md)
     * [Platform configuration](BonitaBPM_platform_setup.md)
     * [Database configuration for engine data](database-configuration.md)
