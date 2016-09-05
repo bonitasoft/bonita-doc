@@ -71,7 +71,7 @@ The license file will be sent to you by email.
 ## Install the license
 
 When you receive the license file (`.lic` file extension):
-- If this is the first time you start the bundle, copy the file to the`<TOMCAT_HOME>/setup/platform_conf/licenses` folder or `<JBOSS_HOME>/setup/platform_conf/licenses/` folder before starting the bundle.
+- If this is the first time you start the bundle, copy the file to the`<TOMCAT_HOME>/setup/platform_conf/licenses` folder or `<WILDFLY_HOME>/setup/platform_conf/licenses/` folder before starting the bundle.
 - If the bundle has already been started, [you need to use the Platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf).
 
 ## License renewal scheduling
