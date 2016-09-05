@@ -13,13 +13,13 @@ CAS configuration is at tenant level. Each tenant can use a different CAS servic
 Note: On a system using CAS to manage logins, if a user who is not already logged in tries to access a page in the Portal by clicking on a URL link, they are re-directed to the login page. 
 After logging in, the requested page is not displayed automatically. The user must click the link again. 
 
-## Configure Bonita BPM Engine and JBoss for CAS
+## Configure Bonita BPM Engine and Wildfly for CAS
 
-The deploy bundle contains the files needed to use CAS with Bonita BPM platform and a JBoss 7 application server.  
-They are contained in `cas-3.3.1-jbossas7-module`. 
+The deploy bundle contains the files needed to use CAS with Bonita BPM platform and a Wildfly 9 application server.  
+They are contained in `cas-3.3.1-module`. 
 
-You can use this folder to configure CAS for a platform deployed from the JBoss bundle or from the deploy bundle.  
-The `cas-3.3.1-jbossas7-module` folder contains some jar files that are required. 
+You can use this folder to configure CAS for a platform deployed from the Wildfly bundle or from the deploy bundle.  
+The `cas-3.3.1-module` folder contains some jar files that are required. 
 
 It also contains a configuration file for the module, `module.xml`, which defines the jar files to be loaded from the module itself and the dependencies of the module. For example:
 
@@ -54,8 +54,8 @@ For a standard installation, it is not necessary to modify this file.
 To configure Bonita BPM Engine for CAS:
 
 1. If you do not already have it, download the Subscription edition deploy zip from the customer portal.
-2. Add the CAS module. To do this, copy cas-3.3.1-jbossas7-module/org to JBOSS_HOME/modules to merge the CAS module with the existing modules.
-3. Make the CAS module global so that it can be used by any application. To do this, edit `JBOSS_HOME/standalone/configuration/standalone.xml` and change the definition of the `ee` subsystem to the following:
+2. Add the CAS module. To do this, copy cas-3.3.1-module/org to WILDFLY_HOME/modules to merge the CAS module with the existing modules.
+3. Make the CAS module global so that it can be used by any application. To do this, edit `WILDFLY_HOME/standalone/configuration/standalone.xml` and change the definition of the `ee` subsystem to the following:
 
 ```xml
  <subsystem xmlns="urn:jboss:domain:ee:1.0">
@@ -65,7 +65,7 @@ To configure Bonita BPM Engine for CAS:
 </subsystem>
 ```
 
-4. Edit `JBOSS_HOME/standalone/configuration/standalone.xml` and add the BonitaAuthentication module. 
+4. Edit `WILDFLY_HOME/standalone/configuration/standalone.xml` and add the BonitaAuthentication module. 
 before the `<security-domains>` tag, insert these lines (specifying the relevant IP addresses and port numbers):
 
 ```xml

@@ -1,10 +1,10 @@
 # Use gzip compression
 
-Using gzip compression in your application server can improve performance by reducing network load for some resources. This page describes how to activate gzip compression for a Bonita BPM Platform with Tomcat and with JBoss.
+Using gzip compression in your application server can improve performance by reducing network load for some resources. This page describes how to activate gzip compression for a Bonita BPM Platform with Tomcat and with Wildfly.
 
-## JBoss
+## Wildfly
 
-To activate compression for JBoss:
+To activate compression for Wildfly:
 
 * For Linux systems: edit `bin/standalone.conf` and uncomment this line:
   ```bash
@@ -55,7 +55,7 @@ Connector configuration:
 After you modify the file, restart your application server and test with the following `curl` command:
 `curl -I -H 'Accept-Encoding: gzip' http://`_`ip_address:port`_`/bonita/login.jsp`
 
-Check that the header returned contains the line `Content-Encoding: gzip`. For example, on a JBoss system the output will be similar to this:
+Check that the header returned contains the line `Content-Encoding: gzip`. For example, on a Wildfly system the output will be similar to this:
 ```
 HTTP/1.1 200 OK
 Server: Apache-Coyote/1.1
