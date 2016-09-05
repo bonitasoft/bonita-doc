@@ -24,53 +24,9 @@ If you use the default HTTPS port number, 443, users do not need to specify the 
 * The operating system is Ubuntu.
 * The starting point is a bundle that has been installed and configured but not started.
 
-## JBoss with keystore
+## Wildfly with keystore
 
-This example shows how to configure SSL with a keystore for JBoss 5\. 
-For details of how to set up SSL with JBoss 7, see the [SSL Configuration HOW-TO](http://docs.jboss.org/jbossweb/7.0.x/ssl-howto.html) on the JBoss 7 web site.
-
-1. Run the Java `keytool` to create a certificate and store it in the keystore. (Note: if you are using Windows, you need to run keytool as administrator.)
-`keytool -genkey -alias tomcat -keyalg RSA -keystore conf/ssl/keystore`
-2. Answer the questions that `keytool` asks. When asked for your first name and last name, provide the hostname of your system. 
-3. Edit `server/default/deploy/jbossweb.sar/server.xml` and include the following configuration for the Connector:
-```xml
-<Connector port="8443" 
-protocol="HTTP/1.1" 
-SSLEnabled="true"
-maxThreads="150" 
-scheme="https" 
-secure="true"
-SSLVerifyClient="optional" 
-SSLProtocol="TLSv1"
-URIEncoding="UTF-8"
-keyAlias="<HOST>"
-keystoreFile="<JRE_HOME>/lib/security/cacerts"
-keystorePass="<PASSWORD>" 
-truststoreFile="<JRE_HOME>/lib/security/cacerts"
-truststorePass="<PASSWORD>"
-/>
-```
-4. Go to `/server/default/deploy`.
-5. Unzip the `bonita-all-in-one-`_`VERSION`_`.ear` EAR file.
-6. At the root, open the `bonita.war` WAR file.
-7. Edit `/WEB-INF/web.xml` and add the following security definition:
-```xml
-<web-app>
-   ...
-   <security-constraint>
-      <web-resource-collection>
-         <web-resource-name>Bonita Portal Secure URLs</web-resource-name>
-         <url-pattern>/*</url-pattern>
-      </web-resource-collection>
-      <user-data-constraint>
-         <transport-guarantee>CONFIDENTIAL</transport-guarantee>
-      </user-data-constraint>
-   </security-constraint>
-</web-app>
-```
-8. Rezip the WAR file, then rezip the EAR.
-9. Start JBoss: `./bin/run.sh`
-10. Check that everything is correctly configured, by opening `https://127.0.0.1:8443/bonita` in your browser. Your browser should warn you about the certificate used to perform the HTTPS connection. You can safely add this certificate to the exceptions allowed.
+For details of how to set up SSL with Wildfly 9, see the [SSL Configuration](https://docs.jboss.org/author/display/WFLY9/Admin+Guide#AdminGuide-EnableSSL) on the Wildfly 9 web site.
 
 ## Tomcat with APR and OpenSSL
 

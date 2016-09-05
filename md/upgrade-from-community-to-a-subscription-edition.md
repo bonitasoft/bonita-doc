@@ -51,7 +51,7 @@ To upgrade a Bonita BPM platform from Community edition to a Subscription editio
     8. Run `setup.sh push` or `setup.bat push` to push this configuration in database.
 5. Replace the community bonita.war with the subscription version of bonita.war. You can find it in the Deploy bundle.
     * on Tomcat simply delete the `webapps/bonita.war` file and the `webapps/bonita` folder and copy the new war here.
-    * on JBoss delete `standalone/deployments/bonita-all-in-one-<VERSION>.ear` and the file having the same name with `.deployed`, then copy the new ear in the same place.
+    * on Wildfly delete `standalone/deployments/bonita-all-in-one-<VERSION>.ear` and the file having the same name with `.deployed`, then copy the new ear in the same place.
 6. Start you platform again.
 
 The Upgrade is now finished, you can verify that you are now running a subscription edition in the portal user interface, the dialog displayed from the top right "Settings / About" menu should indicates the correct Subscription edition.

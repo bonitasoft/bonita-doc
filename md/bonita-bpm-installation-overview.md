@@ -28,7 +28,7 @@ Bonita BPM Platform can be installed in several ways:
 * If you want to migrate an existing installation to the latest version follow the [migration guide](migrate-from-an-earlier-version-of-bonita-bpm.md).
 * If you want to do a fresh install, get one of our prepackaged bundles that include an Application Server
     * [Tomcat + Bonita BPM](tomcat-bundle.md)
-    * [JBoss + Bonita BPM](jboss-bundle.md)
+    * [Wildfly + Bonita BPM](wildfly-bundle.md)
 * If you want to do a custom installation, use the [Deploy bundle](deploy-bundle.md).
 
 
