@@ -5,7 +5,7 @@
 :::
 
 Goal: Leverage Bonita BPM Studio to optimize user comfort and efficiency by inserting case information in task name and task description.  
-During process modeling, a task is given a generic definition in the process definition, so its name is generic, such as "Request validation". This is useful for development.  
+During process modeling, a task is given a generic definition in the process definition, so its name is generic, such as "Validate request". This is useful for development.  
 Within a process instance (case), this task name must be contextualized with business information specific to the case so that, in the user task list, users effciently pick the right task to do. 
 
 ## Pre-requisites: create the process example
@@ -28,17 +28,17 @@ The pool is shown here:
 
 Then, define a business object that will hold the leave requests data: 
 1. Go to the **Development** > **Business Data Model** > **Manage** menu option
-2. Add a business object named _LeaveRequest_, with 4 attributes:
+2. Add a business object named _LeaveRequest_ (with an upper case "L"), with 4 attributes:
   - _startDate_: as a DATE. Set it as mandatory
   - _endDate_: as a DATE, Set it as mandatory
   - _requesterName_: employee who submits the leave request, as a STRING
-  - _status_: whether the task is "submitted" or "approved", as a STRING
+  - _status_: whether the request is "submitted" or "approved", as a STRING
 3. Click **Finish**
 
 ### Variables 
 
 To allow this business object to be instantiated with each process instance, create a business variable at pool level:
-1. In the **Data** pane of the pool, **Pool variables** tab, **Business variables** table, **Add** a business variable named _leaveRequest_
+1. In the **Data** pane of the pool, **Pool variables** tab, **Business variables** table, **Add** a business variable named _leaveRequest_ (with a lower case "l").
 2. For **Business object**, choose **LeaveRequest** (the default value if you only have one object)
 3. Click **Finish**
 
@@ -50,10 +50,12 @@ To make sure the process gets the information it needs to start a new instance, 
 3. Click **Next**
 4. Unselect **requesterName** and **status** as the process doesn't need this information from the form to instantiate  
    The default values of business data attributes mapped to contract inputs are automatically set thanks to a script generated along with the contract inputs themselves.  
-5. Click **Preview** to view this script, and then **Finish**, **OK** and **OK**
+5. Click **Finish**, carefully read the warnings, and press **OK** and **OK**.
 6. In the **Execution** pane > **Contract** tab, a complex contract input is created, mapped to the selected attributes of the **leaveRequest** business variable, as shown here:
 
 ![Contract](images/contract_for_tasklist.png)<!--{.img-responsive .img-thumbnail}-->
+
+In actual BPM projects, we recommend you to also add a description to each contract input. It will be used as input field caption for end-users in the auto-generated form, if you decide to use such forms up to the User Acceptance Test phase of your project.  
 
 When the leave request is submitted, _status_ and _requesterName_ must default values must be set. To do so, edit the script:
  
@@ -61,11 +63,22 @@ When the leave request is submitted, _status_ and _requesterName_ must default v
 2. Click on **leaveRequest** and on the **Edit...** button
 3. Close to the **Default value** field, click on the pencil icon
 4. In the script, add: `leaveRequestVar.status = "submitted"`, and  
-``` groovy
-    def initiator = BonitaUsers.getProcessInstanceInitiator(apiAccessor,processInstanceId);
-    leaveRequestVar.requesterName = "$initiator.firstName $initiator.lastName"
-```
-5. Click **OK** and **OK**
+   ``` groovy
+   def initiator = BonitaUsers.getProcessInstanceInitiator(apiAccessor,processInstanceId);
+   leaveRequestVar.requesterName = "$initiator.firstName $initiator.lastName"
+   ```
+   so it becomes: 
+   ```groovy
+   def leaveRequestVar = new com.company.model.LeaveRequest()
+   leaveRequestVar.startDate = leaveRequestInput.startDate
+   leaveRequestVar.endDate = leaveRequestInput.endDate
+   leaveRequestVar.status = "submitted"
+   def initiator = BonitaUsers.getProcessInstanceInitiator(apiAccessor,processInstanceId);
+   leaveRequestVar.requesterName = "$initiator.firstName $initiator.lastName"
+   return leaveRequestVar
+   ```
+
+5. Click **OK**, and **OK**.
 
 ### Instantiation form
 
@@ -98,7 +111,7 @@ As a good practice, we advise to display static information that defines the tas
 - Status and validator's name will be managed in the description
 
 To configure the display options:
-1. Select the **Request validation** task
+1. Select the **Validate request** task
 2. Go to **General** pane > **Portal** tab.
 
 ### Display name
@@ -106,12 +119,12 @@ To configure the display options:
 The task display name will be made of the requester's first name, last name, and the leave start date and end date.
 1. Next to the **Display name** field, click the **pencil** icon to display the expression editor.
 2. Select the **Script** expression
-3. Give it a name: **Validation display name**
+3. Give it a name: **buildValidateRequestDisplayName()**
 4. Type the script. 
 
-```groovy
-return "Leave validation for ${leaveRequest.requesterName}: ${leaveRequest.startDate.format('yyyy-M-d')} / ${leaveRequest.endDate.format('yyyy-M-d')}".toString()
-```
+    ```groovy
+    return "Validate leave: ${leaveRequest.requesterName}: ${leaveRequest.startDate.format('yyyy-M-d')} / ${leaveRequest.endDate.format('yyyy-M-d')}".toString()
+    ```
 
 5. Click **OK**.
 
@@ -120,12 +133,12 @@ return "Leave validation for ${leaveRequest.requesterName}: ${leaveRequest.start
 As a dynamic information, status is addressed here:
 1. Next to the **Display description** field, click the **pencil** icon to display the expression editor.
 2. Select the **Script** expression type
-3. Give it a name: **Validation display description**
+3. Give it a name: **buildValidateRequestDisplayDescription()**
 4. Type the script. 
 
-```groovy
-return "A leave request has been ${leaveRequest.status}".toString()
-```
+    ```groovy
+    return "${leaveRequest.status}".toString()
+    ```
 
 5. Click **OK**.
 
@@ -134,15 +147,15 @@ return "A leave request has been ${leaveRequest.status}".toString()
 The status of the request when it's validated as well as the validator's name are displayed in the **Done tasks** filter of the user task list. To define it:
 1. Next to the **Description after completion** field, click the **pencil** icon to display the expression editor.
 2. Select the **Script** expression type
-3. Give it a name: **Validation desc after completion**
+3. Give it a name: **buildValidateRequestDescAfterCompletion()**
 4. Type the script.
 
-```groovy
-import com.bonitasoft.engine.api.APIAccessor;
-
-def executedBy = BonitaUsers.getUser(apiAccessor, apiAccessor.processAPI.getHumanTaskInstance(activityInstanceId).executedBy);
-return "The leave request has been ${leaveRequest.status} by ${executedBy.firstName} ${executedBy.lastName}".toString()
-```
+    ```groovy
+    import com.bonitasoft.engine.api.APIAccessor;
+    
+    def executedBy = BonitaUsers.getUser(apiAccessor, apiAccessor.processAPI.getHumanTaskInstance(activityInstanceId).executedBy);
+    return "${leaveRequest.status} by ${executedBy.firstName} ${executedBy.lastName}".toString()
+    ```
 
 5. Click **OK**
 
@@ -151,7 +164,7 @@ When reusing these features for your own projects, make sure that the result of 
 ## View it in the task list
 
 1. Save the diagram
-2. Run the pool
+2. Run the pool. The default loggued user is Walter Bates
 3. Fill out the default instantiation form with two dates
 4. Click on **Start**  
 
@@ -159,6 +172,7 @@ Once you are sent to the task list, you can see that the task name is contextual
 It is computed once, when the task becomes ready. 
 
 **Note:** The following set of instructions only applies to the task list in Bonita BPM 7.3.0 and above. In earlier versions, the **Description** field is displayed by default.  
+
 To display the **Description** column and view the _submitted_ status:
 1. Click on the **settings wheel** icon on the top right of the list
 2. Select **Description**
@@ -169,8 +183,11 @@ You can see the description field, showing the status: "submitted", as shown her
 
 ![display task name and description](images/display_task_name_and_description.png)<!--{.img-responsive .img-thumbnail}-->
 
-1. Perform the task.
-2. Go to the **Done tasks** filter
+1. Logout
+2. Login with helen.kelly / bpm credentials (as if Helen Kelly is Walter Bates' manager)
+3. Perform the task
+4. Go to the **Done tasks** filter
+
 The **Description** column now shows the description after completion, with an edited status as well as the name of who performed the task, as shown here :
 
 ![description after completion](images/description_after_completion.png)<!--{.img-responsive .img-thumbnail}-->
