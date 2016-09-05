@@ -51,7 +51,6 @@ The migration script migrates the following:
 * Engine server
 * Engine database, including all data on active and archived process instances
 * Organization definition
-* Business data model, and the business data database
 * Runtime data in Bonita Home, *until 7.3*
 * Configuration files in Bonita Home, which are replaced with the default configuration files for the new version
 * Log files from the previous version are not impacted by migration
@@ -61,6 +60,7 @@ The following are not migrated automatically:
 * Configuration of the platform: Before 7.3 in the Bonita Home and after 7.3 in database. Reapply your customizations manually after the migration script has finished (using [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf) if migrated to 7.3.0+).
 * Deployed process definitions: The process continue to run using the definition create in the previous version.
 * Process definition sources (`.bos` files): Migrate these by importing them into the new version of Bonita BPM Studio.
+* Business data model, and the business data database: if the migration path include version `7.0.0` or `7.2.0`, the Business data model must be redeployed after migration, using [Define and deploy the BDM](define-and-deploy-the-bdm) ). Otherwise, no action is required.
 * Custom connectors, actor filers, data types: These might continue to work in the new version, but should be tested.
 * Custom pages: These might continue to work in the new version, but should be tested.
 * Reports: These might continue to work in the new version, but should be tested.
