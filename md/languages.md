@@ -44,8 +44,8 @@ Instructions below explain how to add support for a language to Bonita BPM Porta
 1. Declare a new JVM property "org.bonitasoft.i18n.folder" and set the value to the full path to `i18n` folder:
     * For Tomcat on Windows edit **setenv.bat**
     * For Tomcat on Linux edit **setenv.sh**
-    * For JBoss on Windows edit **standalone.conf.bat**
-    * For JBoss on Linux edit **standalone.conf**
+    * For WildFly on Windows edit **standalone.conf.bat**
+    * For WildFly on Linux edit **standalone.conf**
 1. Restart your application server (or restart Bonita BPM Studio). The next time Bonita BPM Portal starts, it will detect the new language and add it to the list in the **Settings** menu.
 
 ## Translate Bonita BPM Portal

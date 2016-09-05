@@ -26,7 +26,7 @@ When done you will have a database with all tables created and with a table `CON
 * In case you use [Business data](define-and-deploy-the-bdm), ensure that you [have a database installed and configured for the Business Data](database-configuration-for-business-data.md).
 * Download the Bonita BPM [Deploy bundle](deploy-bundle.md) and unzip it at some place of your choice.
 ::: info
-The platform setup tool is also present in the Tomcat or JBoss bundle under the `setup` directory.
+The platform setup tool is also present in the Tomcat or Wildfly bundle under the `setup` directory.
 :::
 * Configure it as described in the [platform setup tool page](BonitaBPM_platform_setup.md#configure_tool)
 * Update configuration files that are in the `platform_conf/initial` folder of the platform setup tool.
@@ -125,7 +125,7 @@ Some properties of the Bonita BPM Platform needs to be changed in order to make 
 
 * Download the Bonita BPM [Deploy bundle](deploy-bundle.md) and unzip it at some place of your choice.
 ::: info
-The platform setup tool is also present in the Tomcat or JBoss bundle under the `setup` directory.
+The platform setup tool is also present in the Tomcat or Wildfly bundle under the `setup` directory.
 :::
 * Configure it as described in the [platform setup tool page](BonitaBPM_platform_setup.md)
 * Run the `setup.sh pull` or `setup.bat pull`. This will retrieve the configuration of your platform under `platform_conf/current` folder.
