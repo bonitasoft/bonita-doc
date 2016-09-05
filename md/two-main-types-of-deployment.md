@@ -1,6 +1,6 @@
 # Two main types of deployment
 
-**Note: **It is highly recommended to use the provided Tomcat or JBoss bundles or the artifacts `bonita.war` and `bonita.ear` provided in the deploy bundle, in order to carry out these deployments successfully.
+**Note: **It is highly recommended to use the provided Tomcat or Wildfly bundles or the artifacts `bonita.war` and `bonita.ear` provided in the deploy bundle, in order to carry out these deployments successfully.
 
 There are two main types of deployment.
 
@@ -56,8 +56,8 @@ But you can still use the pre packaged Tomcat bundles or the `bonita.war` webapp
 
 With this third type of deployment, the engine is accessed by the Bonita BPM Portal (and possibly other applications) through the EJB.
 The Portal is deployed on one application server and the engine on another one.
-However, you can still use the pre packaged Tomcat bundle for the Bonita BPM Portal and the pre-packaged JBoss Bundle for the Bonita BPM Engine.
-In this case, you will need to add the JBoss client libraries to the classpath of the Bonita BPM Portal webapp. 
+However, you can still use the pre packaged Tomcat bundle for the Bonita BPM Portal and the pre-packaged Wildfly Bundle for the Bonita BPM Engine.
+In this case, you will need to add the Wildfly client libraries to the classpath of the Bonita BPM Portal webapp. 
 You can also use the bonita.war webapp provided in the deploy zip on the portal application server and use the bonita.ear application on the engine application server. 
 On one of the application servers, only the portal part will be used and on the other one, only the engine server. 
 Access to the Bonita BPM Portal can be deactivated by server or app configuration, if necessary.

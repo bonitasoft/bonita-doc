@@ -10,10 +10,10 @@ In this section you will learn what the Platform setup tool is and how to use it
 ## Platform setup tool overview
 
 The *Platform setup tool* handles the creation of the database schema and the configuration of Bonita BPM Platform.  
-It is located in the [deploy bundle](deploy-bundle.md) and in both [Tomcat](tomcat-bundle.md) and [JBoss](jboss-bundle.md) bundles.
+It is located in the [deploy bundle](deploy-bundle.md) and in both [Tomcat](tomcat-bundle.md) and [Wildfly](wildfly-bundle.md) bundles.
 
 ::: info
-In Tomcat and JBoss bundles you can find the tool in the `setup` folder
+In Tomcat and Wildfly bundles you can find the tool in the `setup` folder
 :::
 
 
@@ -56,8 +56,8 @@ Set the right db vendor by commenting and uncommenting properties inside this fi
 If you are using an Oracle or Microsoft SQL Server database, you will need to add the related JDBC driver in the `lib` folder.
 
 ::: warning
-This database configuration is only for the Platform setup tool. You still need to configure the database for your Tomcat or JBoss bundle.   
-To do so, refer to the [Tomcat](tomcat-bundle.md) and [JBoss](jboss-bundle.md) bundles pages.
+This database configuration is only for the Platform setup tool. You still need to configure the database for your Tomcat or Wildfly bundle.   
+To do so, refer to the [Tomcat](tomcat-bundle.md) and [Wildfly](wildfly-bundle.md) bundles pages.
 :::
 
 
@@ -69,7 +69,7 @@ To do so, refer to the [Tomcat](tomcat-bundle.md) and [JBoss](jboss-bundle.md) b
 You can initialize Bonita BPM Platform manually on an empty database using the *Platform setup tool*.
 
 ::: info
-Remember that in the [Tomcat](tomcat-bundle.md) and [JBoss](jboss-bundle.md) bundles, this is done automatically.
+Remember that in the [Tomcat](tomcat-bundle.md) and [Wildfly](wildfly-bundle.md) bundles, this is done automatically.
 :::
 
 To do so, proceed as follows:
