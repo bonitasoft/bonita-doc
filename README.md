@@ -36,15 +36,15 @@ A livereload is also set up and allows any change to the `md` files to reload it
 
 In this case, a simple edit of the _.md_ file in the appropriate branch (one per version) is enough, the build process will do the rest.
 
-<u>Example</u>: To edit the **actors.html** page in the 7.3 version, checkout the **versions/7.3** branch and edit the `md/actors.md` file.
+<u>Example</u>: To edit the **actors.html** page in the 7.3 version, checkout the **7.3** branch and edit the `md/actors.md` file.
 
 ### Add new pages
 
 #### Create new pages
 
-Checkout the version you want this page to be available in and create the _.md_ file in the **md** folder. The **master** branch contains documentation applicable to the latest version of Bonita BPM.
+Checkout the version you want this page to be available in and create the _.md_ file in the **md** folder.
 
-<u>Example</u>: To add a new _Manage form control/validation_ tutorial in 7.3, checkout the **versions/7.3** branch and create a new _manage-control-in-forms.md_ file in the **md** folder.
+<u>Example</u>: To add a new _Manage form control/validation_ tutorial in 7.3, checkout the **7.3** branch and create a new _manage-control-in-forms.md_ file in the **md** folder.
 
 You can check its content once committed on the GitHub site (_Simple view_) or using the web server (_Advanced view_).
 
