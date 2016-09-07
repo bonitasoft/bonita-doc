@@ -2801,6 +2801,10 @@ You can get a case by using its identifier. Request url
 
 #### Create a case
 
+::: info
+**Note**: Use the [Start a process using an instantiation contract](#start-process-with-contract) to create a case with contract inputs
+:::
+
 * **URL**  
   `/API/bpm/case`  
 * **Method**  
@@ -3224,7 +3228,7 @@ Note: if the `userId` is not provided as a deploy parameter, the `userId` proper
 #### Search for comments
 
 * **URL**  
-  `/API/bpm/case`  
+  `/API/bpm/comment`  
   _Example_: `/API/bpm/comment?p=0&c=10&o=postDate%20DESC&f=processInstanceId%3d1&d=userId`
 * **Method**  
   `GET`
@@ -3525,6 +3529,7 @@ Process instantiation contract elements can be retrived client side.
       ]
     }
     ```
+<a id="start-process-with-contract"/>
 
 #### Start a process using an instantiation contract
 
