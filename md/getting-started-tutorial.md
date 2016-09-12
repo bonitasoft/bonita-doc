@@ -175,16 +175,16 @@ To define the business data model:
 3. Click on the temporary name, and change it to _TravelRequest_.
 4. Select the _TravelRequest_ business object type, and add its attributes. This table shows the attributes and their types:
 
-  | Variable  | Data type | Mandatory |
-  | --------- | --------- | -------- |
-  | userId  | Long  | yes  |
-  | departureDate  | Date  | yes  |
-  | numberOfNights  | Integer  | yes  |
-  | hotelNeeded  | Boolean  | yes  |
-  | destination  | String  | yes  |
-  | reason  | String  | yes  |
-  | status  | String  | yes  |
-  | refusalReason  | String  | no  |
+| Variable  | Data type | Mandatory |
+| --------- | --------- | -------- |
+| userId  | Long  | yes  |
+| departureDate  | Date  | yes  |
+| numberOfNights  | Integer  | yes  |
+| hotelNeeded  | Boolean  | yes  |
+| destination  | String  | yes  |
+| reason  | String  | yes  |
+| status  | String  | yes  |
+| refusalReason  | String  | no  |
 
   To add each attribute:
    1. In the **Attributes** tab, click **_Add_**. A temporary attribute name ("attribute1") is added to the Name column.
