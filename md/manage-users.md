@@ -23,7 +23,7 @@ final User user2 = identityAPI.createUser(creator);
 ```
 
 Now add the user to a Bonita BPM Portal profile. A user who does not have a profile cannot log in to Bonita BPM Portal.
-```
+```groovy
 // reference the user in the profile User
 // the user must be now registered in one profile. Let's choose the profile user
 org.bonitasoft.engine.api.ProfileAPI orgProfileAPI = apiAccessor.getProfileAPI();
@@ -136,7 +136,7 @@ It shows how to get the list of pending tasks, and then for each task, how to as
 To **get the pending tasks** for a given user, call the getPendingHumanTaskInstances method.
 In this example, the first page of the current logged user's tasks are retrieved ordered by priority. 
 Each page contains up to 20 tasks.
-```
+```groovy
 // get the pending tasks for the current logged in user
 final List<HumanTaskInstance> pendingTasks = 
        processAPI.getPendingHumanTaskInstances(session.getUserId(), 
@@ -147,7 +147,7 @@ System.out.println("Pending tasks for user " + session.getUserName() + ": " + pe
 Note that this does not return tasks that are already assigned to the user.
 
 Then loop through the list of tasks. For each task, **assign the task** to the user and **execute the task**:
-```
+```groovy
 // assign and execute pending tasks
 for (final HumanTaskInstance pendingTask : pendingTasks) {
     // assign the task to the user
@@ -171,8 +171,11 @@ Next, it calls `getPossibleUsersOfPendingHumanTask` to get the list of users who
 The actor filter is applied when the task instance is created. This is known as **dynamic task assignment**. 
 The actor filter is applied and a shorter list of users is returned (in this case, just superExpert).
 
-Dynamic task assignment using `getPossibleUsersOfPendingHumanTask` re-evaluates the actor mapping including any actor filters. 
-It is useful if your organization changes after a process instance is started and you need to modify the list of users who can perform a task.
+Dynamic task assignment using `getPossibleUsersOfPendingHumanTask` re-evaluates the actor mapping.
+It is useful if your organization changes after a process instance is started and you need to modify the list of users who can perform a task
+
+If there is any Actor Filter specified for the given task, dynamic task assignment does not have any effect.  
+In such case, there is another [method](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#updateActorsOfUserTask(long)) that can be used as a separate call to force the re-execution of the actor filter and thus update the list of possible users.
 
 Finally, it executes the task for the fist user on the list. This "execute for" feature is not available in the Community and Teamwork editions.
 ```groovy
