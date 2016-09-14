@@ -93,7 +93,7 @@ If this is a license update, use [the *Platform setup tool*](BonitaBPM_platform_
 
 ### Edition specification
 
-If you are installing the Performance Subscription edition, you need to edit [`setup/platform_conf/initial/bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md) and change the value of the `activeProfiles` key to `'community,performance'`.  
+If you are installing the Performance Subscription edition, you need to edit [`setup/platform_conf/initial/platform_init_engine/bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md) and change the value of the `activeProfiles` key to `'community,performance'`.
 No change is needed for the Community, Teamwork, or Efficiency editions.
 
 <a id="start" />
