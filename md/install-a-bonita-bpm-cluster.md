@@ -33,10 +33,10 @@ The platform setup tool is also present in the Tomcat or Wildfly bundle under th
     * In `platform_init_engine/bonita-platform-init-community-custom.properties` uncomment and update the value of `activeProfiles` property from **`community`** to **`community,performance`**.
     * In `platform_engine/bonita-platform-sp-custom.properties`
         * uncomment and set the **`bonita.cluster`** property to `true`.
-        * <a id="disable-hibernate-cache"/>In order to keep consistency between nodes, the Hibernate cache must be disabled.  
-          Uncomment and change the line  
-          `#bonita.platform.persistence.use_second_level_cache=true`  
-          to  
+        * <a id="disable-hibernate-cache"/>In order to keep consistency between nodes, the Hibernate cache must be disabled.
+          Uncomment and change the line
+          `#bonita.platform.persistence.use_second_level_cache=true`
+          to
           `bonita.platform.persistence.use_second_level_cache=false`
     * In `platform_engine/bonita-platform-sp-cluster-custom.properties`
         * uncomment and set the **`bonita.cluster.name`** property to a name of your own, e.g. `myBPMCluster`, **This name must be unique on the local network if you are using *multicast***

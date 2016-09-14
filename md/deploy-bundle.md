@@ -25,7 +25,7 @@ or from the [Customer Portal](https://customer.bonitasoft.com/download/request) 
 2. Unzip the `deploy.zip` into a temporary folder.
 3. Install Bonita BPM in your Application Server, by merging the appropriate folder (e.g. `Wildfly-9.0.2.Final` or `Tomcat-7.0.55`) from `BonitaBPMSubscription-6.x.y-deploy` folder 
 into the existing root folder of your application server.
-4. If you do not want to use the h2 database, you need to specify the [database configuration](database-configuration.md). The h2 database is not suitable for a production environment.
+4. Just follow the few [Tomcat bundle steps](tomcat-bundle.md#configuration) or [Wildfly bundle steps](wildfly-bundle.md#configuration)
 
 ## License installation
 

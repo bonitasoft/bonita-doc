@@ -2,7 +2,7 @@
 
 You will find here steps needed to install and configure a Wildfly bundle.
 
-The Wildfly bundle is a zip archive that contains the Red Hat Wildfly JEE application server packaged with Bonita BPM Portal and [ready to use with Bonita BPM](BonitaBPM_platform_setup.md#platform_setup_tool).  
+The Wildfly bundle is a zip archive that contains the Red Hat Wildfly JEE application server packaged with Bonita BPM Portal and [ready to use with Bonita BPM](BonitaBPM_platform_setup.md#platform_setup_tool).
 The Wildfly bundle is a regular zip archive based on the Wildfly zip distribution.
 
 ## Installation of the Wildfly bundle
@@ -40,40 +40,13 @@ The Wildfly bundle is based on a standard Wildfly installation with the followin
 * `standalone/deployments/bonita-all-in-one-[version].ear`: Bonita BPM Portal (web application) and EJB3 API.
 
 ::: info
-**Note:** Starting from Bonita BPM 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database as the Bonita BPM Engine data, namely in the `CONFIGURATION` table.  
+**Note:** Starting from Bonita BPM 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database as the Bonita BPM Engine data, namely in the `CONFIGURATION` table.
 To initialize and update this configuration, a [*Platform setup tool*](BonitaBPM_platform_setup.md) is provided and embedded in Bonita BPM bundles. 
-It will be launched automatically when you start the Wildfly bundle to initialize the database.  
+It will be launched automatically when you start the Wildfly bundle to initialize the database.
 :::
 
-So your bundle also contains:  
+So your bundle also contains:
 `setup`: database management for Bonita BPM Platform configuration and Bonita BPM Engine data, and a tool to update the configuration.
-
-<a id="configuration" />
-
-### Configure the Wildfly bundle
-
-::: info
-If you just want to try Bonita BPM Platform with the embedded h2 database (only for development phase of your project), you can skip the next two paragraphs.  
-For production, you are recommended to use one of the supported databases, with the following steps.
-:::
-
-#### Configure Bonita BPM Platform datasource
-
-Make sure your database is created before you start the configuration and make sure you do this before you start the Wildfly server.
-
-The first step is to configure the database used by the [*Platform setup tool*](BonitaBPM_platform_setup.md) to initialize the configuration.
-
-To do so, go to `<WILDFLY_HOME>/` and update the `setup/database.properties` files with the connection information of the  database.  
-
-<a id="database" />
-
-#### Configure the Wildfly server datasources
-
-After configuring the datasource to let the Platform setup tool intialize the configuration, you need to configure this datasource on the server. Follow those steps:
-
-1. Update the datasource configuration in `standalone/configuration/standalone.xml` by uncommenting and commenting relevant parts
-2. Update the `<property name="sysprop.bonita.db.vendor" value="h2" />` in `standalone/configuration/standalone.xml` with your database vendor
-3. Add the JDBC driver as decribed in the [database configuration](database-configuration.md#jdbc_driver) page
 
 
 ### Get and install a license
@@ -95,6 +68,40 @@ If this is a license update, use [the *Platform setup tool*](BonitaBPM_platform_
 
 If you are installing the Performance Subscription edition, you need to edit [`setup/platform_conf/initial/platform_init_engine/bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md) and change the value of the `activeProfiles` key to `'community,performance'`.
 No change is needed for the Community, Teamwork, or Efficiency editions.
+
+
+<a id="configuration" />
+
+### Configure the Wildfly bundle
+
+::: info
+If you just want to try Bonita BPM Platform with the embedded h2 database (only for development phase of your project), you can skip this paragraph.
+For production, you are recommended to use one of the supported databases, with the following steps.
+:::
+
+Make sure your database is created before you start the configuration and make sure you do this before you start the Wildfly server.
+
+1. Edit file `[WILDFLY_HOME]`/setup/**database.properties** and modify the properties to suit your databases (Bonita BPM internal database & Business Data database).
+2. If you use **Microsoft SQL Server** or **Oracle database**, copy your database drivers in `[WILDFLY_HOME]`/setup/lib folder. (Open-source drivers for H2, MySQL and PostgreSQL are already shipped in the tool)
+3. Run `[WILDFLY_HOME]`/**bonita-start.sh** (Unix system) or `[WILDFLY_HOME]`\ **bonita-start.bat** (Windows system) to run Bonita BPM Wildfly bundle.
+
+::: info
+What is the **bonita-start.sh** script doing?
+
+The **bonita-start** script does the following:
+
+1. Runs the **`setup init`** command:
+    1. initializes the Bonita BPM internal database (the one you defined in file `setup/database.properties`): creates the tables that Bonita BPM uses internally + stores the configuration in database.
+    2. install the license files (Subscription editions only) in the database.
+2. Runs the **`setup configure`** command:
+    The Setup Configure command auto-configures the Wildfly environment to access the right databases:
+    1. It updates the file `[WILDFLY_HOME]`/standalone/configuration/**standalone.xml** with the database values you set in file `database.properties` for **Bonita BPM internal database** & **Business Data database**
+    2. It creates the file(s) `[WILDFLY_HOME]`/modules/**/main/**modules.xml** that Wildfly needs, according to your database settings
+    3. It copies your database drivers into `[WILDFLY_HOME]`/modules/**/**main**/ folders
+3. Starts the Wildfly bundle
+
+Advanced users: if you need to finely tune your Wildfly bundle, see [Bundle auto-configuration](BonitaBPM_platform_setup.md#run_bundle_configure) for advanced usage of the configure command):
+:::
 
 <a id="start" />
 

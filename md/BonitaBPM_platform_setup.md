@@ -9,7 +9,7 @@ In this section you will learn what the Platform setup tool is and how to use it
 
 ## Platform setup tool overview
 
-The *Platform setup tool* handles the creation of the database schema and the configuration of Bonita BPM Platform.  
+The *Platform setup tool* handles the creation of the database schema and the configuration of Bonita BPM Platform.
 It is located in the [deploy bundle](deploy-bundle.md) and in both [Tomcat](tomcat-bundle.md) and [Wildfly](wildfly-bundle.md) bundles.
 
 ::: info
@@ -31,17 +31,24 @@ It is composed of the following items:
 
 ### Functions
 
-This tool has 3 functions:
+This tool has 4 functions:
 
 * Initialize the database:`init`
-It creates the database schema and pushes the initial configuration in the database.   
+
+It creates the database schema and pushes the initial configuration in the database.
 This initial configuration is taken from the `platform_conf/initial` folder.
 
 * Retrieve current configuration: `pull`
+
 It gets the current configuration of Bonita BPM Platform and saves it in the `platform_conf/current` folder.  
 
 * Update current configuration: `push`
+
 It pushes the configuration from the `platform_conf/current` folder into the database of an already initialized Bonita BPM Platform
+
+* Configure a Bonita BPM Tomcat / Wildfly bundle: `configure`
+
+If run from inside a Bonita BPM bundle, it auto-configures the Application Server environment, preventing the need to configure all Tomcat / Wildfly configuration files manually.
 
 
 <a id="configure_tool" />
@@ -50,14 +57,14 @@ It pushes the configuration from the `platform_conf/current` folder into the dat
 
 Before running it, the tool must be configured to point to the database of the Bonita BPM Platform.
 
-To do so, after you have created the database, modify the tool `database.properties` file:  
+To do so, after you have created the database, modify the tool `database.properties` file:
 Set the right db vendor by commenting and uncommenting properties inside this file and change connection url, user credentials, database name and so on.
 
-If you are using an Oracle or Microsoft SQL Server database, you will need to add the related JDBC driver in the `lib` folder.
+If you are using an Oracle or Microsoft SQL Server database, you will need to add the related JDBC driver in the `lib` folder. For open-source drivers (PostgreSQL, MySQL, and H2), they are already shipped with the tool.
 
 ::: warning
-This database configuration is only for the Platform setup tool. You still need to configure the database for your Tomcat or Wildfly bundle.   
-To do so, refer to the [Tomcat](tomcat-bundle.md) and [Wildfly](wildfly-bundle.md) bundles pages.
+If you are inside a Tomcat or Wildfly bundle, you have probably already configured file `database.properties` during setup phase, as described in
+[Tomcat bundle](tomcat-bundle.md#configuration) and [Wildfly bundle](wildfly-bundle.md#configuration).
 :::
 
 
@@ -102,9 +109,44 @@ If you want to modify the configuration of an already initialized Bonita BPM Pla
 Note that the *Platform Setup tool* does not need the Bonita BPM Server to be running for the configuration to be updated. However, the server needs to be restarted for the changes to take effect.
 :::
 
-
 ::: warning
 Keep in mind that the folder **`platform_conf/initial`** is not used anymore once the platform has been initialized for the first time. To update your configuration, only the **`platform_conf/current`** folder is taken into account.
+:::
+
+
+<a id="run_bundle_configure" />
+
+## Run the Bonita BPM bundle auto-configuration (Tomcat 7 / Wildfly 9)
+
+::: info
+Remember that in the [Tomcat](tomcat-bundle.md) and [Wildfly](wildfly-bundle.md) bundles, this is done automatically.
+:::
+
+1. Update the file `database.properties` with the database properties matching your environment (db vendor name, server name, server port, connection username and password)
+2. **Oracle and SQL Server only**: add your JDBC drivers in `setup/lib` folder (PostgreSQL, MySQL, and H2 drivers are already shipped with the tool)
+3. From the tool folder, run `./setup.sh configure` (Unix/Mac) or `setup.bat configure` (Windows).
+
+
+::: info
+Instead of modifying the `database.properties` file, you can set the required database values through the command line (with Java-like system properties).
+If these latter are defined, they have prevalence on the values defined in the `database.properties` file.
+
+eg. for Unix command line:
+```shell
+./setup.sh configure -Ddb.vendor=postgres -Ddb.server.name=localhost -Ddb.server.port=5432 -Ddb.database.name=bonita \
+-Ddb.user=bonita -Ddb.password=bpm -Dbdm.db.vendor=postgres -Dbdm.db.server.name=localhost -Dbdm.db.server.port=5432 \
+-Dbdm.db.database.name=business_data -Dbdm.db.user=bonita -Dbdm.db.password=bpm
+```
+
+eg. for Windows command line:
+```shell
+setup.bat configure "-Ddb.vendor=postgres" "-Ddb.server.name=localhost" "-Ddb.server.port=5432" "-Ddb.database.name=bonita" "-Ddb.user=bonita" "-Ddb.password=bpm"
+```
+:::
+
+::: warning
+Due to Windows Batch limitations, only 8 parameters are supported.
+If you need to pass more than 8 parameters, please use file `database.properties` instead.
 :::
 
 ## Troubleshooting
