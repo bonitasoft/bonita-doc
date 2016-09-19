@@ -43,6 +43,9 @@ It gets the current configuration of Bonita BPM Platform and saves it in the `pl
 * Update current configuration: `push`
 It pushes the configuration from the `platform_conf/current` folder into the database of an already initialized Bonita BPM Platform
 
+* Configure a Bonita BPM Tomcat bundle: `configure`
+If run from inside a Bonita BPM Tomcat bundle, it auto-configures the environment, preventing the need to configure all Tomcat configuration files manually.
+
 
 <a id="configure_tool" />
 
@@ -105,6 +108,32 @@ Note that the *Platform Setup tool* does not need the Bonita BPM Server to be ru
 
 ::: warning
 Keep in mind that the folder **`platform_conf/initial`** is not used anymore once the platform has been initialized for the first time. To update your configuration, only the **`platform_conf/current`** folder is taken into account.
+:::
+
+<a id="run_tomcat_configure" />
+
+## Run the Bonita BPM Tomcat bundle auto-configuration
+
+1. Update the file `database.properties` with the database properties matching your environment (db vendor name, server name, server port, connection username and password)
+2. **Oracle and SQL Server only**: add your JDBC drivers in `setup/lib` folder (PostgreSQL, MySQL, and H2 drivers are already shipped with the tool)
+3. From the tool folder, run `./setup.sh configure` (Unix/Mac) or `setup.bat configure` (Windows).
+
+
+::: info
+Instead of modifying the `database.properties` file, you can set the required database values through the command line (with Java-like system properties).
+If these latter are defined, they have prevalence on the values defined in the `database.properties` file.
+
+eg. for Unix command line:
+```shell
+./setup.sh configure -Ddb.vendor=postgres -Ddb.server.name=localhost -Ddb.server.port=5432 -Ddb.database.name=bonita \
+-Ddb.user=bonita -Ddb.password=bpm -Dbdm.db.vendor=postgres -Dbdm.db.server.name=localhost -Dbdm.db.server.port=5432 \
+-Dbdm.db.database.name=business_data -Dbdm.db.user=bonita -Dbdm.db.password=bpm
+```
+:::
+
+::: warning
+Windows version of script (`setup.bat`) also accepts setting values through command line, but due to Windows Batch limitations, only 8 parameters are supported.
+If you need to pass more than 8 parameters, please use file `database.properties` instead.
 :::
 
 ## Troubleshooting
