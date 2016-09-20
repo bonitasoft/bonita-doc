@@ -4,11 +4,11 @@
 
 #### Introduction
 
-The Bonita BPM Engine uses an RDBMS (Relational DataBase Management System) to store information about deployed process definitions, process configurations, history of process execution, users, etc.  
+The Bonita BPM Engine uses an RDBMS (Relational DataBase Management System) to store information about deployed process definitions, process configurations, history of process execution, users, etc.
 One database schema is required by Bonita BPM Engine to store all information.
 
-Bonita BPM Engine connection to the database is done through the Hibernate library (version 4.2).  
-This provides a level of abstraction between the engine and the RDBMS.  
+Bonita BPM Engine connection to the database is done through the Hibernate library (version 4.2).
+This provides a level of abstraction between the engine and the RDBMS.
 Bonita BPM comes with a set of optimized initialization scripts for the [supported RDBMSs](https://customer.bonitasoft.com/support-policies).
 
 ::: info
@@ -48,7 +48,7 @@ Therefore, using Bitronix as a Transaction Manager with SQL Server is not recomm
 :::
 
 ::: warning
-Some RDBMSs require a specific configuration, which must be done before you complete your installation.  
+Some RDBMSs require a specific configuration, which must be done before you complete your installation.
 If you do not complete the specific configuration for your RDBMS, your installation may fail.
 :::
 
@@ -81,15 +81,15 @@ Your database must be configured to use the UTF-8 character set. You are recomme
 
 ## Specify the database vendor
 
-Bonita BPM Engine needs to know which type of RDBMS you use.  
+Bonita BPM Engine needs to know which type of RDBMS you use.
 This is defined by setting the `sysprop.bonita.db.vendor` JVM system property value.
 
 The possible values for `sysprop.bonita.db.vendor` / `db.vendor` are:
 
 <div class="row"><div class="col-md-6 col-md-offset-1">
 
-| Database vendor | Property value |  
-| :- | :- |  
+| Database vendor | Property value |
+| :- | :- |
 | PostgreSQL | postgres |
 | Oracle database | oracle |
 | SQL Server | sqlserver |
@@ -99,7 +99,7 @@ The possible values for `sysprop.bonita.db.vendor` / `db.vendor` are:
 </div></div>
 
 As example, if you want to use postgres, the line will be:
-`db.vendor= postgres`
+`db.vendor=postgres`
 
 The way to define JVM system properties depends on your application server type:
 
@@ -139,7 +139,7 @@ Wildfly 9 manages JDBC drivers as modules, so to add a new JDBC driver, complete
 (see [Wildfly documentation](https://docs.jboss.org/author/display/WFLY9/DataSource+configuration) for full reference):
 
 * Create a folder structure under `<WILDFLY_HOME>/modules` folder.
-  Refer to the table below to identify the folders to create.  
+  Refer to the table below to identify the folders to create.
   The last folder is named `main` for all JDBC drivers.
 * Add the JDBC driver jar file to the `main` folder.
 * Create a module description file `module.xml` in `main` folder.
@@ -288,7 +288,7 @@ It is assumed in the procedure that:
    oracle@ubuntu:~$ sqlplus / as sysdba
    ```
 
-2. Check that the following components exist and are valid:  
+2. Check that the following components exist and are valid:
    SQL query \>  
    ```sql
    select comp_name, version, status from dba_registry;
@@ -351,7 +351,7 @@ Here is the list of steps to perform (as an example, the database name BONITA\_B
 2. Copy the `sqljdbc_xa.dll` from `%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc_4.0\enu\xa\x64\` (x64 for 64 bit version of Windows, x86 for 32 bit version of Windows) to `%SQLSERVER_INSTALL_ROO%\Instance_root\MSSQL10.MSSQLSERVER\MSSQL\Binn\.`
 3. Copy/paste the content of xa\_install.sql file (located in %JDBC\_DRIVER\_INSTALL\_ROOT%\\sqljdbc\_4.0\\enu\\xa) to SQL Server Management Studio's Query Editor.
 4. Execute the query in the Query Editor.
-5. To confirm successful execution of the script, open the "Object Explorer" and go to: **Master** \> **Programmability** \> **Extended Stored Procedures**.   
+5. To confirm successful execution of the script, open the "Object Explorer" and go to: **Master** \> **Programmability** \> **Extended Stored Procedures**.
    You should have 12 new procedures, each with a name starting with `dbo.xp.sqljdbc_xa_`.
 6. Assign the new role 'SqlJDBCXAUser' to the user who owns the Bonita BPM Engine database (`bonitadev` in our example). To do this, execute the following commands in SQL editor:
    ```sql

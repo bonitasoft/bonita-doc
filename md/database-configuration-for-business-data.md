@@ -16,6 +16,8 @@ Some configuration file detailed below are located under `setup` folder. See [Bo
 Configuration is done per tenant. If you have multiple tenants to configure, you need to apply instructions below individually for each tenant.
 :::
 
+<a id="database_creation" />
+
 ## Database creation
 
 In your RDBMS, create a database to be used to store business object. Do not reuse the Bonita BPM Engine database.
