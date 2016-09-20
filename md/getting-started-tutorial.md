@@ -175,16 +175,16 @@ To define the business data model:
 3. Click on the temporary name, and change it to _TravelRequest_.
 4. Select the _TravelRequest_ business object type, and add its attributes. This table shows the attributes and their types:
 
-  | Variable  | Data type | Mandatory |
-  | --------- | --------- | -------- |
-  | userId  | Long  | yes  |
-  | departureDate  | Date  | yes  |
-  | numberOfNights  | Integer  | yes  |
-  | hotelNeeded  | Boolean  | yes  |
-  | destination  | String  | yes  |
-  | reason  | String  | yes  |
-  | status  | String  | yes  |
-  | refusalReason  | String  | no  |
+   | Variable  | Data type | Mandatory |
+   | --------- | --------- | -------- |
+   | userId  | Long  | yes  |
+   | departureDate  | Date  | yes  |
+   | numberOfNights  | Integer  | yes  |
+   | hotelNeeded  | Boolean  | yes  |
+   | destination  | String  | yes  |
+   | reason  | String  | yes  |
+   | status  | String  | yes  |
+   | refusalReason  | String  | no  |
 
   To add each attribute:
    1. In the **Attributes** tab, click **_Add_**. A temporary attribute name ("attribute1") is added to the Name column.
@@ -306,10 +306,10 @@ It also has a constraint: a _refusalReason_ must be specified if the manager ref
 2. Go to the **Details** panel, **Execution** tab, **Contract** pane.
 3. In the **Inputs** tab, click **_Add_** and specify the following attributes:
 
-| Name  | Type  | Multiple  | Description  |
-| ----- | ----- | --------- | ------------ |
-| status  | Text  | No  | Indicate whether you approve or refuse this request  |
-| refusalReason  | Text  | No  | If you refuse a request, you must give a reason  |
+   | Name  | Type  | Multiple  | Description  |
+   | ----- | ----- | --------- | ------------ |
+   | status  | Text  | No  | Indicate whether you approve or refuse this request  |
+   | refusalReason  | Text  | No  | If you refuse a request, you must give a reason  |
 
 4. Go to the **Constraints** tab and click **_Add_**. This adds a placeholder constraint.
 5. Click on the placeholder name and change it to _reasonRequired_.
@@ -460,10 +460,9 @@ Now define the form for the _Manager review_ task. Start by automatically genera
    5. Click **_Save_**.
 5. Add a variable to hold the different request status values:
 
-| Name  | Type | Value |
-| ----- | ---- | ----- |
-| statusValues  | JSON  | `[ {"label": "Approve request", "value": "approved"},{"label": "Refuse request", "value": "refused"}]`|
-|||
+   | Name  | Type | Value |
+   | ----- | ---- | ----- |
+   | statusValues  | JSON  | `[ {"label": "Approve request", "value": "approved"},{"label": "Refuse request", "value": "refused"}]`|
 
 6. Edit the _formInput_ variable and set the value for the _status_ attribute to _"approved"_.
 7. Add a _Form container_ widget and move the 3 other widgets inside this container.  
@@ -472,35 +471,35 @@ All of the other widgets you will add will also be placed inside the form contai
 Set the **Level** property to Level 4, so it is the same size as the title of the form for creating a request.
 9. Add read-only widgets to display the details of the travel request, using the following information:
 
-| Label  | Widget type  | Value binding  | Read-only  |
-| -----  | ------------ | -------------- | ---------- |
-| Destination  | Input  | request.destination  | yes  |
-| Departure date  | Input  | request.departureDate \| date  |yes  |
-| Number of nights  | Input  | request.numberOfNights  | yes  |
-| Hotel needed  | Checkbox  | request.hotelNeeded  | yes  |
-| Reason for travel  | Text area  | request.reason  | yes  |
+   | Label  | Widget type  | Value binding  | Read-only  |
+   | -----  | ------------ | -------------- | ---------- |
+   | Destination  | Input  | request.destination  | yes  |
+   | Departure date  | Input  | request.departureDate \| date  |yes  |
+   | Number of nights  | Input  | request.numberOfNights  | yes  |
+   | Hotel needed  | Checkbox  | request.hotelNeeded  | yes  |
+   | Reason for travel  | Text area  | request.reason  | yes  |
 
 10. Remove the "Refusal reason" widget that was added automatically, we will replace it by something more user-friendly in the next step.
 11. Add a Text area widget with the following properties:
 
-| Property  | Value  |
-| --------- | ------ |
-| Hidden  | `formInput.status == 'approved'` (click on "bind" icon) |
-| Label  | Refusal reason  |
-| Value  | `formInput.refusalReason`  |
+   | Property  | Value  |
+   | --------- | ------ |
+   | Hidden  | `formInput.status == 'approved'` (click on "bind" icon) |
+   | Label  | Refusal reason  |
+   | Value  | `formInput.refusalReason`  |
 
   The dynamic _Hidden_ property will hide the widget when the request status is set to 'approved'.
   Otherwise, the field will be marked as required and the form validation will prevent the user from refusing a request without a reason.
 12. Remove the Status widget that was added automatically.
 13. Add a Radio buttons widget with the following properties:
 
-| Property  | Value  |
-| --------- | ------ |
-| Label  | Review decision  |
-| Available values (click on the binding icon next to the value) | statusValues  |
-| Displayed keys  | label  |
-| Returned keys  | value  |
-| Selected Value  | `formInput.status`  |
+   | Property  | Value  |
+   | --------- | ------ |
+   | Label  | Review decision  |
+   | Available values (click on the binding icon next to the value) | statusValues  |
+   | Displayed keys  | label  |
+   | Returned keys  | value  |
+   | Selected Value  | `formInput.status`  |
 
 14. Select the _Submit_ widget and bind its _Disabled_ property to `$form.$invalid`
 15. Preview the form to test the validation and rearrange the widgets until it looks like this in the editor:
