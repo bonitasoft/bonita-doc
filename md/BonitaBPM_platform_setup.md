@@ -60,7 +60,7 @@ Before running it, the tool must be configured to point to the database of the B
 To do so, after you have created the database, modify the tool `database.properties` file:
 Set the right db vendor by commenting and uncommenting properties inside this file and change connection url, user credentials, database name and so on.
 
-If you are using an Oracle or Microsoft SQL Server database, you will need to add the related JDBC driver in the `lib` folder. (H2, MySQL and PostgreSQL drivers are already shipped in the tool).
+If you are using an Oracle or Microsoft SQL Server database, add the related JDBC driver in the `lib` folder. (H2, MySQL and PostgreSQL drivers are already shipped in the tool).
 
 ::: warning
 If you are inside a Tomcat or Wildfly bundle, you have probably already configured file `database.properties` during setup phase, as described in
@@ -122,8 +122,6 @@ Keep in mind that the folder **`platform_conf/initial`** is not used anymore onc
 Remember that in the [Tomcat](tomcat-bundle.md) and [Wildfly](wildfly-bundle.md) bundles, this is done automatically when calling `bonita-start.sh / .bat`
 :::
 
-/!\ TODO: document the TEMPLATES mechanism /!\
-
 1. Update the file `database.properties` with the database properties matching your environment (db vendor name, server name, server port, connection username and password)
 2. **Oracle and SQL Server only**: add your JDBC drivers in `setup/lib` folder (PostgreSQL, MySQL, and H2 drivers are already shipped with the tool)
 3. From the tool folder, run `./setup.sh configure` (Unix/Mac) or `setup.bat configure` (Windows).
@@ -151,6 +149,21 @@ Due to Windows Batch limitations, only 8 parameters are supported.
 If you need to pass more than 8 parameters, please use file `database.properties` instead.
 :::
 
+::: info
+You do not need to configure Tomcat / Wildfly configuration files directly anymore. This tool does it for you.
+If you decide to do it anyway, the tool will overwrite your custom values (after storing a restore backup in `tomcat-backups` or `wildfly-backups`).
+If you need to finely tune the configuration, modify the following template files, as they serve as a basis for configuration:
+
+For Tomcat:
+* tomcat-templates/bitronix-resources.properties
+* tomcat-templates/bonita.xml
+* tomcat-templates/setenv.sh
+* tomcat-templates/setenv.bat
+
+For Wildfly:
+* wildfly-templates/standalone.xml
+:::
+
 ## Troubleshooting
 
 ---
@@ -159,6 +172,6 @@ If you need to pass more than 8 parameters, please use file `database.properties
 
 **Possible cause**: property `db.vendor` is not found when reading file `database.properties`
 
-**Solution**: Edit file `database.properties` and ensure there is a valid `db.vendor` value. Also ensure the line is not commented (no # at the beginning of the line)
+**Solution**: Edit file `database.properties` and ensure there is a valid `db.vendor` value. Also ensure the line is not commented (no `#` at the beginning of the line)
 
 ---
