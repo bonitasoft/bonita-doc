@@ -8,7 +8,7 @@ Click on the **links** below to find useful information quickly, or [browse the 
 <div class="panel panel-default">
 <div class="panel-heading">Highlights</div>
 <div class="panel-body">
-<div class="menu-block-wrapper menu-block-5 menu-name-menu-what-s-new parent-mlid-0 menu-level-1">
+<div class="menu-block-wrapper">
 
 * [Release notes {{ contentCtrl.version }}](release-notes.md)    <!--{li:.first .leaf}-->
 * [Bonita home removal for easier configuration](release-notes.md#bonita-home-removal)    <!--{li:.leaf}-->
@@ -25,9 +25,9 @@ Click on the **links** below to find useful information quickly, or [browse the 
 <div class="panel panel-default">
 <div class="panel-heading">Getting started</div>
 <div class="panel-body">
-<div class="menu-block-wrapper menu-block-6 menu-name-menu-getting-started parent-mlid-0 menu-level-1">
+<div class="menu-block-wrapper">
 
-* [Getting started tutorial](getting-started-tutorial.md)<!--{li:.first .leaf .menu-mlid-1289}-->
+* [Getting started tutorial](getting-started-tutorial.md)<!--{li:.first .leaf}-->
 * [Process diagram overview](diagram-overview.md)<!--{li:.leaf}-->
 * [Key concepts](key-concepts.md)<!--{li:.leaf}-->
 * [UI designer overview](ui-designer-overview.md)<!--{li:.leaf}-->
@@ -41,17 +41,19 @@ Click on the **links** below to find useful information quickly, or [browse the 
 </div>
 </div>
 <div class="col-md-4">
-  <div class="panel panel-default">
-    <div class="panel-heading">Resources</div>
-    <div class="panel-body">
-      <div class="menu-block-wrapper menu-block-4 menu-name-menu-quicklinks parent-mlid-0 menu-level-1">
-        <ul class="menu nav">
-          <li class="first leaf menu-mlid-723"><a href="http://www.bonitasoft.com/how-we-do-it/downloads" title="">Download Bonita BPM software</a></li>
-          <li class="leaf"><a href="http://www.bpmn.org/ " title="BPMN information from the Object Management Group">BPMN standard</a></li>
-          <li class="leaf"><a href="http://www.bonitasoft.com/for-you-to-read/bpm-library/ultimate-guide-bpmn" title="">"The Ultimate Guide to BPMN2"</a></li>
-          <li class="leaf"><a href="http://www.bonitasoft.com/for-you-to-read/bpm-library/best-practices-continuous-integration-bonita-bpm" title="">"Best Practices for Continuous Integration with Bonita BPM"</a></li>
-          <li class="last leaf"><a href="http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html" title="">Javadoc</a></li>
-      </ul></div>
-    </div>
-  </div>
+<div class="panel panel-default">
+<div class="panel-heading">Resources</div>
+<div class="panel-body">
+<div class="menu-block-wrapper menu-name-menu-quicklinks">
+
+* [Download Bonita BPM software](http://www.bonitasoft.com/how-we-do-it/downloads)<!--{li:.first .leaf}-->
+* [BPMN standar](http://www.bpmn.org/)<!--{li:.leaf}-->
+* [The Ultimate Guide to BPMN2](http://www.bonitasoft.com/for-you-to-read/bpm-library/ultimate-guide-bpmn)<!--{li:.leaf}-->
+* [Best Practices for Continuous Integration with Bonita BPM](http://www.bonitasoft.com/for-you-to-read/bpm-library/best-practices-continuous-integration-bonita-bpm)<!--{li:.leaf}-->
+* [Javadoc](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html)<!--{li:.leaf .last}-->
+<!--{ul:.menu .nav}-->
+
+</div>
+</div>
+</div>
 </div>

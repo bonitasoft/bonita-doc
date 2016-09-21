@@ -48,6 +48,9 @@
           tokens[idx].attrs[hrefIndex][1] = '?' + queryString.stringify({page, hash: pageAndHash[1]});
         }
       }
+      if (hrefIndex >= 0 && tokens[idx].attrs[hrefIndex][1].match(/^http:\/\/documentation.bonitasoft.com\//)) {
+        tokens[idx].attrPush([ 'target', '_self' ]);
+      }
     })
     .use(mdInline, 'site_compatible_images', 'image', (tokens, idx) => {
       const srcIndex = tokens[idx].attrIndex('src');
