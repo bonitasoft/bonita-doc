@@ -250,10 +250,13 @@
     * [Automate builds](automating-builds.md)
     * [Set up continuous integration](set-up-continuous-integration.md)
 * [Howtos](_howtos.md)
+  * [Create a modal window using CSS](uid-modal-tutorial.md)
+  * [Create an overview page using UI Designer](uid-case-overview-tutorial.md)
+  * [Create unique task names for the user task list](optimize-user-tasklist.md)
   * [Control and validate forms in the UI Designer](manage-control-in-forms.md)
   * [Manage a list of documents](list-of-documents.md)
   * [Manage multiple references in Business Objects](bo-multiple-refs-tutorial.md)
   * [Map authorization rules](custom-authorization-rule-mapping.md)
-  * [Create a modal window using CSS](uid-modal-tutorial.md)
   * [Use the rich textarea widget in a mail template](rta-mail-template.md)
-  * [Create unique task names for the user task list](optimize-user-tasklist.md)
+
+
