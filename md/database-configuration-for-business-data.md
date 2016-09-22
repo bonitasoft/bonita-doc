@@ -68,12 +68,12 @@ The data sources for business data objects are independent of the Bonita BPM Eng
 ::: info
 If you have multiple tenants that use business data objects, you need to create a `BusinessDataDS` and a `NotManagedBizDataDS` for each tenant.
 :::
-The following sections show how to configure the data sources for [Wildfly](#ds_wildfly) and [Tomcat](#ds_tomcat). 
+The following sections show how to configure the data sources for [WildFly](#ds_wildfly) and [Tomcat](#ds_tomcat).
 There is also an [example of how to configure data sources for Weblogic](red-hat-oracle-jvm-weblogic-oracle.md).
 
 <a id="ds_wildfly"/>
 
-### Configuration for Wildfly
+### Configuration for WildFly
 
 Edit the `<WILDFLY_HOME>/standalone/configuration/standalone.xml` configuration file and find the `BusinessDataDS` and `NotManagedBizDataDS` data sources definitions. 
 The configuration file contains examples for each of the supported RDBMSs to guide you. Edit the following settings:

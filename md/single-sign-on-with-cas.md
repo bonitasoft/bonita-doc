@@ -13,12 +13,12 @@ CAS configuration is at tenant level. Each tenant can use a different CAS servic
 Note: On a system using CAS to manage logins, if a user who is not already logged in tries to access a page in the Portal by clicking on a URL link, they are re-directed to the login page. 
 After logging in, the requested page is not displayed automatically. The user must click the link again. 
 
-## Configure Bonita BPM Engine and Wildfly for CAS
+## Configure Bonita BPM Engine and WildFly for CAS
 
-The deploy bundle contains the files needed to use CAS with Bonita BPM platform and a Wildfly 9 application server.  
+The deploy bundle contains the files needed to use CAS with Bonita BPM platform and a WildFly 9 application server.
 They are contained in `cas-3.3.1-module`. 
 
-You can use this folder to configure CAS for a platform deployed from the Wildfly bundle or from the deploy bundle.  
+You can use this folder to configure CAS for a platform deployed from the WildFly bundle or from the deploy bundle.
 The `cas-3.3.1-module` folder contains some jar files that are required. 
 
 It also contains a configuration file for the module, `module.xml`, which defines the jar files to be loaded from the module itself and the dependencies of the module. For example:

@@ -10,10 +10,10 @@ In this section you will learn what the Platform setup tool is and how to use it
 ## Platform setup tool overview
 
 The *Platform setup tool* handles the creation of the database schema and the configuration of Bonita BPM Platform.
-It is located in the [deploy bundle](deploy-bundle.md) and in both [Tomcat](tomcat-bundle.md) and [Wildfly](wildfly-bundle.md) bundles.
+It is located in the [deploy bundle](deploy-bundle.md) and in both [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles.
 
 ::: info
-In Tomcat and Wildfly bundles you can find the tool in the `setup` folder
+In Tomcat and WildFly bundles you can find the tool in the `setup` folder
 :::
 
 
@@ -46,9 +46,9 @@ This tool has 4 functions:
 
   It pushes the configuration from the `platform_conf/current` folder into the database of an already initialized Bonita BPM Platform
 
-* Configure a Bonita BPM Tomcat / Wildfly bundle: `configure`
+* Configure a Bonita BPM Tomcat / WildFly bundle: `configure`
 
-  If run from inside a Bonita BPM bundle, it configures the Application Server environment, preventing the need to configure all Tomcat / Wildfly configuration files manually.
+  If run from inside a Bonita BPM bundle, it configures the Application Server environment, preventing the need to configure all Tomcat / WildFly configuration files manually.
 
 
 <a id="configure_tool" />
@@ -63,8 +63,8 @@ Set the right db vendor by commenting and uncommenting properties inside this fi
 If you are using an Oracle or Microsoft SQL Server database, add the related JDBC driver in the `lib` folder. (H2, MySQL and PostgreSQL drivers are already shipped in the tool).
 
 ::: warning
-If you are inside a Tomcat or Wildfly bundle, you have probably already configured file `database.properties` during setup phase, as described in
-[Tomcat bundle](tomcat-bundle.md#configuration) and [Wildfly bundle](wildfly-bundle.md#configuration).
+If you are inside a Tomcat or WildFly bundle, you have probably already configured file `database.properties` during setup phase, as described in
+[Tomcat bundle](tomcat-bundle.md#configuration) and [WildFly bundle](wildfly-bundle.md#configuration).
 :::
 
 
@@ -76,7 +76,7 @@ If you are inside a Tomcat or Wildfly bundle, you have probably already configur
 You can initialize Bonita BPM Platform manually on an empty database using the *Platform setup tool*.
 
 ::: info
-Remember that in the [Tomcat](tomcat-bundle.md) and [Wildfly](wildfly-bundle.md) bundles, this is done automatically when calling `bonita-start.sh / .bat`
+Remember that in the [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles, this is done automatically when calling `bonita-start.sh / .bat`
 :::
 
 To do so, proceed as follows:
@@ -116,10 +116,10 @@ Keep in mind that the folder **`platform_conf/initial`** is not used anymore onc
 
 <a id="run_bundle_configure" />
 
-## Run the Bonita BPM bundle configuration (Tomcat 7 / Wildfly 9)
+## Run the Bonita BPM bundle configuration (Tomcat 7 / WildFly 9)
 
 ::: info
-Remember that in the [Tomcat](tomcat-bundle.md) and [Wildfly](wildfly-bundle.md) bundles, this is done automatically when calling `bonita-start.sh / .bat`
+Remember that in the [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles, this is done automatically when calling `bonita-start.sh / .bat`
 :::
 
 1. Update the file `database.properties` with the database properties matching your environment (db vendor name, server name, server port, connection username and password)
@@ -150,7 +150,7 @@ If you need to pass more than 8 parameters, please use file `database.properties
 :::
 
 ::: info
-You do not need to configure Tomcat / Wildfly configuration files directly anymore. This tool does it for you.
+You do not need to configure Tomcat / WildFly configuration files directly anymore. This tool does it for you.
 If you decide to do it anyway, the tool will overwrite your custom values (after storing a restore backup in `tomcat-backups` or `wildfly-backups`).
 If you need to finely tune the configuration, modify the following template files, as they serve as a basis for configuration:
 
@@ -160,7 +160,7 @@ For Tomcat:
 * tomcat-templates/setenv.sh
 * tomcat-templates/setenv.bat
 
-For Wildfly:
+For WildFly:
 * wildfly-templates/standalone.xml
 :::
 

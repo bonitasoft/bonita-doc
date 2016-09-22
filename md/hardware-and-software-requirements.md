@@ -31,7 +31,7 @@ Software required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Port
 | Tomcat 7.0.55 | ✔ |  | |
 | Tomcat 7.0.67 |  | ✔ | ✔ |
 | JBoss AS 7.1.1  |✔ | ✔ | |
-| Wildfly 9.0.2  | | | ✔ |
+| WildFly 9.0.2  | | | ✔ |
 | Weblogic server 12c (12.1.\*) | ✔ | ✔ | ✔ |
 | **Database** |
 | MySQL 5.5.27 (see notes 1 and 2) | ✔ | ✔ | ✔ |
@@ -54,7 +54,7 @@ Notes:
 Thus, using MySQL database in a production environment does not work and is not supported.
 3. **Warning:** There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft for the Tomcat bundle and inside the Deploy bundle for Tomcat) and Microsoft SQL Server driver
 (refer to: [MSDN note](https://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html)).
-Therefore, using Bitronix as a Transaction Manager with SQL Server does not work and is not supported. To use SQL Server database requires that you use the JBoss or Wildfly bundle provided by Bonitasoft.
+Therefore, using Bitronix as a Transaction Manager with SQL Server does not work and is not supported. To use SQL Server database requires that you use the JBoss or WildFly bundle provided by Bonitasoft.
 4. Oracle Java SE Runtime Environment 8 u40 is supported if you use the web container Tomcat 7.0.55\.
 
 Your database must be configured to use the UTF-8 character set.

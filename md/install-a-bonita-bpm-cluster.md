@@ -24,7 +24,7 @@ When done you will have a database with all tables created and with a table `CON
 * Ensure that you meet the [requirements](hardware-and-software-requirements.md)
 * Ensure that you [have a database created](database-configuration.md#database_creation).
 * In case you use [Business data](define-and-deploy-the-bdm.md), ensure that you [have a database created for the Business Data](database-configuration-for-business-data.md#database_creation).
-* Download a Bonita BPM [Tomcat bundle](tomcat-bundle.md) or a Bonita BPM [Wildfly bundle](wildfly-bundle.md), and unzip it at some place of your choice.
+* Download a Bonita BPM [Tomcat bundle](tomcat-bundle.md) or a Bonita BPM [WildFly bundle](wildfly-bundle.md), and unzip it at some place of your choice.
 * Edit file **`setup/database.properties`** and modify the properties to suit your databases (Bonita BPM internal database & Business Data database)
 * Update configuration files that are in the `platform_conf/initial` folder of the platform setup tool.
     * In `platform_init_engine/bonita-platform-init-community-custom.properties` uncomment and update the value of `activeProfiles` property from **`community`** to **`community,performance`**.
@@ -52,7 +52,7 @@ If later you need to change the configuration of the node discovery or add new l
 ### Install a first node
 
 * Run `setup.sh configure` or `setup.bat configure` as described in the [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to have your
-Tomcat / Wildfly bundle configured to point to the right database.
+Tomcat / WildFly bundle configured to point to the right database.
 2. Delete the entire content of the `[TOMCAT_DIRECTORY]/setup` folder.
 3. If your Bonita installation is behind a proxy (mainly in TcpIp or Aws discovery modes), you must declare its public address by adding the following property : `-Dhazelcast.local.publicAddress=*publicaddress*`,
 this property should be added in the `[TOMCAT_DIRECTORY]/bin/setenv.sh` or `[TOMCAT_DIRECTORY]/bin/setenv.bat`
@@ -84,7 +84,7 @@ Then deploy a basic process and check that it runs correctly, to validate the in
 
 You can add a new node to a cluster without interrupting service on the existing nodes.
 
-1. Copy the entire Tomcat / Wildfly directory to another machine.
+1. Copy the entire Tomcat / WildFly directory to another machine.
 2. If Hazelcast Node discovery is configured with TCP, update the configuration in database using the [platform setup tool page](BonitaBPM_platform_setup.md).
 3. Start the Tomcat on the new node, running `./bonita-start.sh` script
 4. Update the load balancer configuration to include the new node.
@@ -120,7 +120,7 @@ Some properties of the Bonita BPM Platform needs to be changed in order to make 
 
 * Download the Bonita BPM [Deploy bundle](deploy-bundle.md) and unzip it at some place of your choice.
 ::: info
-The platform setup tool is also present in the Tomcat or Wildfly bundle under the `setup` directory.
+The platform setup tool is also present in the Tomcat or WildFly bundle under the `setup` directory.
 :::
 * Configure it as described in the [platform setup tool page](BonitaBPM_platform_setup.md)
 * Run the `setup.sh pull` or `setup.bat pull`. This will retrieve the configuration of your platform under `platform_conf/current` folder.

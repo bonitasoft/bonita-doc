@@ -21,7 +21,7 @@ This page explains database configuration for Bonita BPM Engine data. If you are
 
 #### Default h2 database
 
-Bonita BPM Studio, the Wildfly bundle, the Tomcat bundle, and the deploy bundle come by default with an h2 RDBMS included in the package. The database is automatically created at first startup.
+Bonita BPM Studio, the WildFly bundle, the Tomcat bundle, and the deploy bundle come by default with an h2 RDBMS included in the package. The database is automatically created at first startup.
 
 h2 is only suitable for testing purposes.
 For production purposes, you must modify the configuration to use another RDBMS.
@@ -44,7 +44,7 @@ Therefore, using MySQL database in a production environment is not recommended.
 
 ::: warning
 There is also a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft for the Tomcat bundle & inside Deploy bundle for Tomcat) and Microsoft SQL Server driver (refer to: [MSDN note](https://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html)).
-Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the Wildfly bundle provided by Bonitasoft.
+Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the WildFly bundle provided by Bonitasoft.
 :::
 
 ::: warning
@@ -103,7 +103,7 @@ As example, if you want to use postgres, the line will be:
 
 The way to define JVM system properties depends on your application server type:
 
-* Wildfly: edit `<WILDFLY_HOME>/standalone/configuration/standalone.xml` and set the value of `sysprop.bonita.db.vendor` (look for `<system-properties>` tag).
+* WildFly: edit `<WILDFLY_HOME>/standalone/configuration/standalone.xml` and set the value of `sysprop.bonita.db.vendor` (look for `<system-properties>` tag).
 * Tomcat: edit `setenv.sh` (for Linux) or `setenv.bat` (for Windows) and change the value of `sysprop.bonita.db.vendor` on the line starting by `DB_OPTS`.
 * For other application servers, refer to your application server documentation.
 
@@ -133,10 +133,10 @@ First, you need to download the JDBC driver for your database system. Use the li
 
 The way to install the JDBC driver depends on the application server:
 
-##### Wildfly 9
+##### WildFly 9
 
-Wildfly 9 manages JDBC drivers as modules, so to add a new JDBC driver, complete these steps:
-(see [Wildfly documentation](https://docs.jboss.org/author/display/WFLY9/DataSource+configuration) for full reference):
+WildFly 9 manages JDBC drivers as modules, so to add a new JDBC driver, complete these steps:
+(see [WildFly documentation](https://docs.jboss.org/author/display/WFLY9/DataSource+configuration) for full reference):
 
 * Create a folder structure under `<WILDFLY_HOME>/modules` folder.
   Refer to the table below to identify the folders to create.
@@ -155,12 +155,12 @@ Put the driver jar file in the relevant `main` folder.
 
 In the same folder as the driver, add the module description file, `module.xml`.
 This file describes the dependencies the module has and the content it exports.
-It must describe the driver jar and the JVM packages that Wildfly 9 does not provide automatically.
+It must describe the driver jar and the JVM packages that WildFly 9 does not provide automatically.
 The exact details of what must be included depend of the driver jar.
 **Warning:** You might need to edit the `module.xml` in order to match exactly the JDBC driver jar file name.
 
 ::: info  
-**Note:** By default, when Wildfly, it removes any comments from `standalone/configuration/standalone.xml` and formats the file.
+**Note:** By default, when WildFly, it removes any comments from `standalone/configuration/standalone.xml` and formats the file.
 If you need to retrieve the previous version of this file, go to `standalone/configuration/standalone_xml_history`.
 :::
 
@@ -193,12 +193,12 @@ Bonita BPM Engine requires the configuration of two data sources. The data sourc
 | MySQL | com.mysql.jdbc.Driver | com.mysql.jdbc.jdbc2.optional.MysqlXADataSource |
 | h2 (not for production) | org.h2.Driver | org.h2.jdbcx.JdbcDataSource |
 
-The following sections show how to configure the datasources for Wildfly and Tomcat.
+The following sections show how to configure the datasources for WildFly and Tomcat.
 There is also an [example of how to configure datasources for Weblogic](red-hat-oracle-jvm-weblogic-oracle.md).
 
-#### Wildfly
+#### WildFly
 
-This section explains how to configure the data sources if you are using Wildfly:
+This section explains how to configure the data sources if you are using WildFly:
 
 1. Open the file `<WILDFLY_HOME>/standalone/configuration/standalone.xml`.
 2. Comment out the default definition for h2\.
@@ -244,7 +244,7 @@ First make sure that you have [configured Business Data](database-configuration-
 
 Now that you are almost done with the switch from h2 to your chosen RDBMS, you can remove h2:
 
-* For Wildfly
+* For WildFly
   * Remove the configuration for h2 from `<WILDFLY_HOME>/standalone/configuration/standalone.xml`.
   * Make sure that `sysprop.bonita.db.vendor` property in `<WILDFLY_HOME>/standalone/configuration/standalone.xml` is not set to h2\.
 * For Tomcat
@@ -336,7 +336,7 @@ It is assumed in the procedure that:
 ::: warning
 There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft in the Tomcat bundle and in the Tomcat directories of the Deploy bundle) and the Microsoft SQL Server driver
 (refer to: [MSDN note](https://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html)).
-Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the Wildfly bundle provided by Bonitasoft.
+Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the WildFly bundle provided by Bonitasoft.
 :::
 
 ##### XA Transactions
