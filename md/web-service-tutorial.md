@@ -49,7 +49,7 @@ This example process will use a Web Service connector to call a sample Web Servi
        </tns:GetWeather>
      </env:Body>
     </env:Envelope>
-    ```
+```
 
   * In the **Response configuration** window, check the **Returns body** checkbox to use the response body in the output operations.
   * In the **Output operations** window, edit the first output operation:
@@ -58,7 +58,7 @@ This example process will use a Web Service connector to call a sample Web Servi
     * In Expression type, click on **Script**
     * The script should be as follows:
 
-    ```groovy
+```groovy
     import javax.xml.parsers.DocumentBuilder;
     import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -90,7 +90,7 @@ This example process will use a Web Service connector to call a sample Web Servi
     Map<String,String> data = new HashMap<String,String>();
     NodeList childNodes = weatherNode.getChildNodes();
     for (int i=0; i<childNodes.getLength(); i++)
-   {
+    {
         Node node = childNodes.item(i);
         if (node.getNodeType() == Node.ELEMENT_NODE)
         {
@@ -98,7 +98,7 @@ This example process will use a Web Service connector to call a sample Web Servi
                 String value = node.getTextContent();
                 data.put(key, value);
         }
-    }
+   }
    return data;
 ```
    * In **Return type** enter `java.util.Map` 
@@ -113,10 +113,10 @@ List<List<String>> table = new ArrayList<List<String>>();
 Set<Entry<String,String>> weatherDataEntries = weatherData.entrySet();
 for (Entry<String,String> entry : weatherDataEntries)
 {
-List<String> row = new ArrayList<String>();
-row.add(entry.getKey());
-row.add(entry.getValue());
-table.add(row);
+    List<String> row = new ArrayList<String>();
+    row.add(entry.getKey());
+    row.add(entry.getValue());
+    table.add(row);
 }
 return table;
 ```
