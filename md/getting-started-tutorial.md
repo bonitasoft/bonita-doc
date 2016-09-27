@@ -482,24 +482,24 @@ Set the **Level** property to Level 4, so it is the same size as the title of th
 10. Remove the "Refusal reason" widget that was added automatically, we will replace it by something more user-friendly in the next step.
 11. Add a Text area widget with the following properties:
 
-   | Property  | Value  |
-   | --------- | ------ |
-   | Hidden  | `formInput.status == 'approved'` (click on "bind" icon) |
-   | Label  | Refusal reason  |
-   | Value  | `formInput.refusalReason`  |
+    | Property  | Value  |
+    | --------- | ------ |
+    | Hidden  | `formInput.status == 'approved'` (click on "bind" icon) |
+    | Label  | Refusal reason  |
+    | Value  | `formInput.refusalReason`  |
 
-  The dynamic _Hidden_ property will hide the widget when the request status is set to 'approved'.
-  Otherwise, the field will be marked as required and the form validation will prevent the user from refusing a request without a reason.
+    The dynamic _Hidden_ property will hide the widget when the request status is set to 'approved'.
+    Otherwise, the field will be marked as required and the form validation will prevent the user from refusing a request without a reason.
 12. Remove the Status widget that was added automatically.
 13. Add a Radio buttons widget with the following properties:
 
-   | Property  | Value  |
-   | --------- | ------ |
-   | Label  | Review decision  |
-   | Available values (click on the binding icon next to the value) | statusValues  |
-   | Displayed keys  | label  |
-   | Returned keys  | value  |
-   | Selected Value  | `formInput.status`  |
+    | Property  | Value  |
+    | --------- | ------ |
+    | Label  | Review decision  |
+    | Available values (click on the binding icon next to the value) | statusValues  |
+    | Displayed keys  | label  |
+    | Returned keys  | value  |
+    | Selected Value  | `formInput.status`  |
 
 14. Select the _Submit_ widget and bind its _Disabled_ property to `$form.$invalid`
 15. Preview the form to test the validation and rearrange the widgets until it looks like this in the editor:
