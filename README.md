@@ -24,7 +24,7 @@ Then run in the root folder:
 
 Then run
 
-    npm run watch
+    npm start
 
 A web server will be launched locally. It converts md files to html (currently without any style).
 A livereload is also set up and allows any change to the `md` files to reload its html version in the browser.
