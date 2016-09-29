@@ -76,7 +76,7 @@ To define the deadline, select the non-interrupting boundary timer, go to the De
 A message is used to send information from one process to another and as a synchronization point. A message can contain data.   
 A message is a point-to-point communication, that is, it is sent to a specified task in a specified pool, where the recipient is
 configured to receive the message. It is also possible to use signals for communication between processes: a signal is broadcast so can have many recipients and does not contain data.  
-A message that is sent has always one recipient. To ensure that the messages are sent between the correct process instances, and to verify the validity of the message, you can use key-based correlation (available in Subscription editions).
+A message that is sent has always one recipient. To ensure that the messages are sent between the correct process instances, and to verify the validity of the message, you can use key-based correlation.
 
 Reminder: As an alternative to a message, you can use a gateway as a synchronization point in your process. There is a performance advantage to using a gateway in place of a message and called processes.   
 To replace messages with gateways, you need to restructure your process diagram.
