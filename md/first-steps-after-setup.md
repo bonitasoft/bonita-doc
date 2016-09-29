@@ -8,7 +8,7 @@ To verify that the installation was successful and the database is correctly con
 
 In the URL field of your web browser, enter the local host address, e.g. `http://localhost:8080/bonita`.
 
-**Note:** If the Bonita BPM Portal login page is not displayed, [empty your browser cache](http://www.wikihow.com/Clear-Your-Browser's-Cache) and then reload the page.
+**Note:** If the Bonita BPM Portal login page is not displayed, [empty your browser cache](http://www.wikihow.com/Clear-Your-Browser's-Cache) and [cookies](http://www.wikihow.com/Clear-Your-Browser%27s-Cookies) and then reload the page.
 
 At this stage no organization information is loaded: only the technical user account exists.
 
