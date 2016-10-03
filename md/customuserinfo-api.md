@@ -119,7 +119,7 @@ Use a GET method to search for definitions.
 There are no filters, and no search terms. All the definitions are returned.
 
 * **URL**  
-  `/API/customuserinfo/definitions`  
+  `/API/customuserinfo/definition`  
 * **Method**  
   `GET`
 * **Data Params**  
