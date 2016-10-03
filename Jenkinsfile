@@ -53,14 +53,15 @@ echo "Done."
     stage 'Archive'
     archive '**/doc-html*.tar.gz'
     
-    stage 'Push to preprod'
-    if (isVersionSupported(branch_name, env.GLOBAL_PREPROD_VERSIONS)) {
-        build job: 'push-content-preprod', parameters: [[$class: 'StringParameterValue', name: 'ARE_YOU_SURE', value: 'Yes']]
-    }
-    
-    stage 'Push to prod'
-    if (isVersionSupported(branch_name, env.GLOBAL_PROD_VERSIONS)) {
-        build job: 'push-content-prod', parameters: [[$class: 'StringParameterValue', name: 'ARE_YOU_SURE', value: 'Yes']]
-    }
+    stage 'Deploy'
+    parallel preprod: {
+        if (isVersionSupported(branch_name, env.GLOBAL_PREPROD_VERSIONS)) {
+            build job: 'push-content-preprod', parameters: [[$class: 'StringParameterValue', name: 'ARE_YOU_SURE', value: 'Yes']]
+        }
+    }, prod: {
+        if (isVersionSupported(branch_name, env.GLOBAL_PROD_VERSIONS)) {
+            build job: 'push-content-prod', parameters: [[$class: 'StringParameterValue', name: 'ARE_YOU_SURE', value: 'Yes']]
+        }
+    },
+    failFast: false
 }
-
