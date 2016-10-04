@@ -15,7 +15,14 @@ To build the product, you need the following:
 * NodeJS
 
 ::: info
-We provide build script for Linux only. Therefore it is recommended to use Linux. If you don't have Linux you can either use a virtual machine or port the build script to Mac or Windows.
+We provide build script for Linux only. Therefore it is recommended to use Linux. If you don't have Linux you can either use a virtual machine or port the build script to Mac.
+:::
+
+<!---
+BS-8375
+--->
+::: warning
+Note that you can run Bonita BPM on Windows but you cannot build Bonita BPM on Windows (known limitation).
 :::
 
 # Building Bonita BPM
