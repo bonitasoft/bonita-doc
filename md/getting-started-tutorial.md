@@ -327,8 +327,10 @@ Now that the contract is defined, you can configure the initial value of _travel
 3. Click the pencil icon beside the **Default value** field. This opens the expression editor.
 4. An _initTravelRequest()_ script was automatically generated to initialize our data with the contract. We will complete this script by setting up the _userId_ and _status_ attributes.  
 Insert the following code after the first line:
-`travelRequestVar.userId = BonitaUsers.getProcessInstanceInitiator(apiAccessor, processInstanceId).id
-travelRequestVar.status = "pending"`
+```groovy
+travelRequestVar.userId = BonitaUsers.getProcessInstanceInitiator(apiAccessor, processInstanceId).id
+travelRequestVar.status = "pending"
+```
 5. Click **_OK_** to save the expression.
 6. Click **_OK_** again to save the updated object definition.
 
