@@ -327,10 +327,8 @@ Now that the contract is defined, you can configure the initial value of _travel
 3. Click the pencil icon beside the **Default value** field. This opens the expression editor.
 4. An _initTravelRequest()_ script was automatically generated to initialize our data with the contract. We will complete this script by setting up the _userId_ and _status_ attributes.  
 Insert the following code after the first line:
-```groovy
-travelRequestVar.userId = BonitaUsers.getProcessInstanceInitiator(apiAccessor, processInstanceId).id
-travelRequestVar.status = "pending"
-```
+```travelRequestVar.userId = BonitaUsers.getProcessInstanceInitiator(apiAccessor, processInstanceId).id
+travelRequestVar.status = "pending"```
 5. Click **_OK_** to save the expression.
 6. Click **_OK_** again to save the updated object definition.
 
@@ -484,24 +482,24 @@ Set the **Level** property to Level 4, so it is the same size as the title of th
 10. Remove the "Refusal reason" widget that was added automatically, we will replace it by something more user-friendly in the next step.
 11. Add a Text area widget with the following properties:
 
-   | Property  | Value  |
-   | --------- | ------ |
-   | Hidden  | `formInput.status == 'approved'` (click on "bind" icon) |
-   | Label  | Refusal reason  |
-   | Value  | `formInput.refusalReason`  |
+    | Property  | Value  |
+    | --------- | ------ |
+    | Hidden  | `formInput.status == 'approved'` (click on "bind" icon) |
+    | Label  | Refusal reason  |
+    | Value  | `formInput.refusalReason`  |
 
-  The dynamic _Hidden_ property will hide the widget when the request status is set to 'approved'.
-  Otherwise, the field will be marked as required and the form validation will prevent the user from refusing a request without a reason.
+    The dynamic _Hidden_ property will hide the widget when the request status is set to 'approved'.
+    Otherwise, the field will be marked as required and the form validation will prevent the user from refusing a request without a reason.
 12. Remove the Status widget that was added automatically.
 13. Add a Radio buttons widget with the following properties:
 
-   | Property  | Value  |
-   | --------- | ------ |
-   | Label  | Review decision  |
-   | Available values (click on the binding icon next to the value) | statusValues  |
-   | Displayed keys  | label  |
-   | Returned keys  | value  |
-   | Selected Value  | `formInput.status`  |
+    | Property  | Value  |
+    | --------- | ------ |
+    | Label  | Review decision  |
+    | Available values (click on the binding icon next to the value) | statusValues  |
+    | Displayed keys  | label  |
+    | Returned keys  | value  |
+    | Selected Value  | `formInput.status`  |
 
 14. Select the _Submit_ widget and bind its _Disabled_ property to `$form.$invalid`
 15. Preview the form to test the validation and rearrange the widgets until it looks like this in the editor:

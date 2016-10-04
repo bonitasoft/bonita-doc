@@ -83,7 +83,7 @@ The configuration file contains examples for each of the supported RDBMSs to gui
   * <xa-datasource-property name="Password">: RDBMS user password.
   * <check-valid-connection-sql>: SELECT 1 FROM dual for Oracle, SELECT 1 for any other supported RDBMS.
   * <background-validation-millis>: must be lower than your RDBMS connection timeout.
-* For `<no-tx-datasource>`, update the values of the following settings:
+* For `NotManagedBizDataDS`, update the values of the following settings:
   * <driver>: the driver to be used to access your database. See the RDBMS-specific examples in the configuration file.
   * <connection-url>: combination of serverName + portNumber + databaseName. See the examples in the configuration file.
   * <user-name>: RDBMS user name.
