@@ -66,7 +66,7 @@ To configure Bonita BPM Engine for CAS:
 ```
 
 4. Edit `JBOSS_HOME/standalone/configuration/standalone.xml` and add the BonitaAuthentication module. 
-before the `<security-domains>` tag, insert these lines (specifying the relevant IP addresses and port numbers):
+Right after the opening `<security-domains>` tag, insert these lines (specifying the relevant IP addresses and port numbers):
 
 ```xml
 <security-domain name="BonitaAuthentication-1">
