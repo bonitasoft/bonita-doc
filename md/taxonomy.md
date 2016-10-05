@@ -257,3 +257,4 @@
   * [Create a modal window using CSS](uid-modal-tutorial.md)
   * [Use the rich textarea widget in a mail template](rta-mail-template.md)
   * [Create unique task names for the user task list](optimize-user-tasklist.md)
+  * [Debug a custom page](howto-debugcustompage.md)
