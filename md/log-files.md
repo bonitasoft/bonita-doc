@@ -4,7 +4,7 @@
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 
-During development, the Studio log file contain messages about development activities, including any errors.
+During development, the Studio log file contains messages about development activities, including any errors.
 When you run a process for testing, messages are written to the Engine log file.
 
 From the Bonita BPM Studio Help menu you can access the Studio log file 
