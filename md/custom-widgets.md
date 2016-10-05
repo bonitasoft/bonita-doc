@@ -51,9 +51,11 @@ You can use this mechanism in your custom widgets to process content to translat
 * Use the _ui-translate_ directive in custom widgets for static content to be translated
 
 #### For instance, with a custom link widget :
-```<div>
+```
+<div>
     <a title="{{ properties.title | uiTranslate }}" ui-translate>Submit</a>
-</div>```
+</div>
+```
 
 The link text which is static is translated using the _ui-translate_ directive. The link text title held inside the _properties.title_ variable is translated using the _uiTranslate_ filter.
 
