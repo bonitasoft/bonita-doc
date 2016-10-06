@@ -1,4 +1,4 @@
-# Manage a list of documents
+# How to manage a list of documents
 
 A list of documents is represented by several documents having the same name (attribute "name"). 
 It is possible to add/remove elements to a list using the same methods as for a simple document.

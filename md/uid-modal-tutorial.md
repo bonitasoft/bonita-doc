@@ -1,4 +1,4 @@
-# Create a modal window using CSS
+# How to create a modal window using CSS
 
 A nice aspect of the UI designer is the way it takes advantage of the WEB technologies letting you put the style of your page where it belong.  
 In a CSS file. 
