@@ -251,7 +251,7 @@
     * [Set up continuous integration](set-up-continuous-integration.md)
 * [Howtos](_howtos.md)
   * [Create a modal window using CSS](uid-modal-tutorial.md)
-  * [Create an overview page using UI Designer](uid-case-overview-tutorial.md)
+  * [Create a case overview page using UI Designer](uid-case-overview-tutorial.md)
   * [Create unique task names for the user task list](optimize-user-tasklist.md)
   * [Control and validate forms in the UI Designer](manage-control-in-forms.md)
   * [Manage a list of documents](list-of-documents.md)
