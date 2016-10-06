@@ -5,9 +5,11 @@ The following is a set of guidelines for contributing to Bonita BPM documentatio
 
 ## Pull requests
 
-Each minor version of Bonita BPM has its own Git branch to manage its related documentation. (Minor version means X.Y, for example 7.3 or 7.4).
-
+Each minor version of Bonita BPM has its own Git branch to manage its related documentation. (Minor version means X.Y, for example 7.3 or 7.4).  
 For instance, the **7.3** branch is where you have to open pull requests when your contribution applies to all 7.3 versions of Bonita BPM.
+
+A branch should be name in kebab case prefixes by the type of the feature the branch has bcreated for (fix, chore, howto,...).  
+For instance, for a branch fixing a typo in the User REST API, its name should be `fix/user-delete-rest-api-typo`.
 
 If your contribution applies to multiple minor versions of Bonita BPM, then open a pull request on the lowest applicable version branch. Then add all applicable minor versions in your pull request comment and we will do the rest :-)
 
@@ -17,6 +19,28 @@ My awesome contribution to Bonita BPM documentation.
 Versions: 7.3, 7.4
 ```
 
+Ideally, a pull request, at first, should contain a single commit containing the changes you want to suggest. Other commits may be added after reviews.
+Having a single commit allows github to use the commit title as pull request name.
+
+The commit message format should be the following :
+```
+# Commit title / format: <type>(<scope>): <subject> 
+# type in (feat, fix, style, howto, tr, ...)
+ 
+ 
+# Explain why this change is being made
+ 
+ 
+# Provide links to any relevant tickets, articles or other resources
+```
+
+For instance, when adding an warning alert inside the User DELETE REST API method
+```
+fix(api): add alert on the User REST API DELETE action
+
+Allows users to be warned about the consequences to DELETE a user
+instead of deactivating it.
+```
 
 ## How to update an existing page?
 
@@ -57,11 +81,21 @@ During markdown to HTML conversion, some predefined variables located in the [va
 For instance, the `varVersion` variable matches the current documentation version.
 To reference this variable, use the `${varVersion}` notation in _.md_ files.
 
+#### Markdown titles
+
+In markdown, lines starting with `#` are converted to `<hx>` tags where _x_ is the number of `#` : 
+* use `#` for `h1` tag
+* use `##` for `h2` tag
+* use `###` for `h3` tag
+* etc... up to `h6`
+
+Checkout [the markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#blockquotes) for more information.
+
 ### Table of content
 
-A table of content (ToC) is automatically added on each page. It will be placed right before the first `h2` title.
+A table of content (ToC) is automatically generated on each page from `##` and `###` titles (converted as `h2` and `h3` html tags).  
 
-Automatically generated ToC includes links to `h2` and `h3` titles.
+It will be placed right before the first `h2` title.  
 
 ### Quick note on "howtos"
 
@@ -69,15 +103,16 @@ When you create **howtos** make sure that:
   - In the taxonomy, their titles start with verbs, so it finishes the sentence "how to...", like "Manage multiple references in Business Objects".
   - In the file itself, the title includes the "how to" phrase, like "How to manage multiple references in Business Objects".
   - You reference the how to page in other descriptive pages of the existing taxonomy, to optimize its discoverability.
+  - the Howtos are a step by step guide to manage a use case. This use case should be described briefly as an introduction (following the page title but without its own title) for the user to understand the goal of the howto.
+
+## Markdown syntax
+
+Current conversion to html is done with `markdown-it` with the [Github-flavored Markdown](https://help.github.com/categories/writing-on-github/). Checkout [the cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#blockquotes) for more information.
 
 ## How to add images?
 
 All images must be added to the **md/images** folder.
 
-
-## Markdown syntax
-
-Current conversion to html is done with `markdown-it` with the [Github-flavored Markdown](https://help.github.com/categories/writing-on-github/). Checkout [the cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#blockquotes) for more information.
 
 ### Images
 
@@ -116,10 +151,10 @@ In order to reproduce [Bootstrap alerts](http://getbootstrap.com/components/#ale
 It allows to recreate a `div` block with custom classes.
 
 We added 5 types of container :
-* danger
-* warning
-* info
-* success
+* danger : used to highlight error prone use cases
+* warning : used to alert the user of aftermath
+* info : used to highlight short relevant information
+* success : used to validate good pratices
 
 To use them create a block surrounded with 3 colons.
 
@@ -127,9 +162,12 @@ To use them create a block surrounded with 3 colons.
 
 ```
 ::: danger
-Beware of this important thing !
+Both Windows and Mac have default security settings that will prevent execution of Bonita BPM. See below for further details about what you can do to bypass those security protections
 :::
 ```
+will be rendered as :
+
+![danger alert example](md/images/danger-alert-example.jpg)
 
 ### Decorate
 
