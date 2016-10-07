@@ -115,6 +115,7 @@ Many improvements to existing features:
 * BS-15535	engine do not start if no licenses in platform_conf folder even if platform already initialized
 * BS-15486	Wrong archived case ID retrieved from URL parameter in overview page for archived case
 * BS-15485	Rest API Extensions broken after migration - Error 403
+* BS-15356	IE9: Select widget with dynamic list does not show all the values in the list.
 
 #### Fixes in Bonita BPM 7.3.2 (released on September 1st, 2016)
 
