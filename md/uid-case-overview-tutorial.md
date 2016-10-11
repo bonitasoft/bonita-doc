@@ -1,4 +1,4 @@
-# Create a case overview using UI Designer
+# Create a case overview using the UI Designer
 
 If you need to modify our default case overview or build your own case overview page, you will have to manage the display of
 both Cases and Archived cases.  
@@ -7,7 +7,7 @@ Let's get started by creating a new page in the UI Designer.
 
 ## Manage a 'caseId' url parameter
 
-Create a new page in UI Designer.  
+Create a new page in the UI Designer.  
 This page will be used to display the case details related to a specific `caseId`.  
 We will get this `caseId` using the page URL.  
 So just add a new variable with:  
@@ -55,7 +55,7 @@ Then we will just need to display a message to say "The case {{caseId}} does not
 
 ## Display case details
 
-Since we are able to define the state of the case, it is easy to display case details using UI Designer.    
+Since we are able to define the state of the case, it is easy to display case details using the UI Designer.    
 Maybe we need to display different information for open cases or for Archived cases.  
 Then we can create tow different containers that will be conditionally shown.  
 
