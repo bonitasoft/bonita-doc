@@ -8,7 +8,7 @@ The following is a set of guidelines for contributing to Bonita BPM documentatio
 Each minor version of Bonita BPM has its own Git branch to manage its related documentation. (Minor version means X.Y, for example 7.3 or 7.4).  
 For instance, the **7.3** branch is where you have to open pull requests when your contribution applies to all 7.3 versions of Bonita BPM.
 
-A branch should be name in kebab case prefixes by the type of the feature the branch has bcreated for (fix, chore, howto,...).  
+A branch should be name in kebab case prefixed by the type of the feature the branch has been created for (feat, fix, style, tr, chore, howto,...).  
 For instance, for a branch fixing a typo in the User REST API, its name should be `fix/user-delete-rest-api-typo`.
 
 If your contribution applies to multiple minor versions of Bonita BPM, then open a pull request on the lowest applicable version branch. Then add all applicable minor versions in your pull request comment and we will do the rest :-)
@@ -20,7 +20,7 @@ Versions: 7.3, 7.4
 ```
 
 Ideally, a pull request, at first, should contain a single commit containing the changes you want to suggest. Other commits may be added after reviews.
-Having a single commit allows github to use the commit title as pull request name.
+Having a single commit allows GitHub to use the commit title as pull request name.
 
 The commit message format should be the following :
 ```
@@ -89,7 +89,7 @@ In markdown, lines starting with `#` are converted to `<hx>` tags where _x_ is t
 * use `###` for `h3` tag
 * etc... up to `h6`
 
-Checkout [the markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#blockquotes) for more information.
+Checkout [the markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) for more information.
 
 ### Table of content
 
@@ -103,11 +103,11 @@ When you create **howtos** make sure that:
   - In the taxonomy, their titles start with verbs, so it finishes the sentence "how to...", like "Manage multiple references in Business Objects".
   - In the file itself, the title includes the "how to" phrase, like "How to manage multiple references in Business Objects".
   - You reference the how to page in other descriptive pages of the existing taxonomy, to optimize its discoverability.
-  - the Howtos are a step by step guide to manage a use case. This use case should be described briefly as an introduction (following the page title but without its own title) for the user to understand the goal of the howto.
+  - Howtos are a step by step guide to manage a use case. This use case should be described briefly as an introduction (following the page title but without its own title) for the user to understand the goal of the howto.
 
 ## Markdown syntax
 
-Current conversion to html is done with `markdown-it` with the [Github-flavored Markdown](https://help.github.com/categories/writing-on-github/). Checkout [the cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#blockquotes) for more information.
+Current conversion to html is done with `markdown-it` with the [Github-flavored Markdown](https://help.github.com/categories/writing-on-github/). Checkout [the cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) for more information.
 
 ## How to add images?
 
@@ -151,10 +151,10 @@ In order to reproduce [Bootstrap alerts](http://getbootstrap.com/components/#ale
 It allows to recreate a `div` block with custom classes.
 
 We added 5 types of container :
-* danger : used to highlight error prone use cases
-* warning : used to alert the user of aftermath
-* info : used to highlight short relevant information
-* success : used to validate good pratices
+* danger: used to highlight error prone use cases
+* warning: used to alert the user of aftermath
+* info: used to highlight short relevant information
+* success: used to validate good pratices
 
 To use them create a block surrounded with 3 colons.
 
