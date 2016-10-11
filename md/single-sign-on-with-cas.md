@@ -215,6 +215,7 @@ Alternatively, the LDAP synchronizer could be run with the tenant technical user
 We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your CAS server. 
 
 <a id="cas-rest-api"/>
+
 ## Single sign-on with CAS using the REST API
 
 For detailed information about the procedure to install Restful access on your CAS SSO server, see the following links:

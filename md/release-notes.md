@@ -93,6 +93,30 @@ Many improvements to existing features:
 
 ## Bug fixes
 
+#### Fixes in Bonita BPM 7.3.3 (released on October 7th, 2016)
+
+* BS-15920	"Thank you" page does not open at the end of installer execution on Windows
+* BS-15904	Studio does not use embedded JRE on Mac OS X 10.11.1
+* BS-15888	Cannot run process when Actor mapping defined with Group starting with the same string
+* BS-15875	Data table: Runtime page and Preview reloads when user click to order a column
+* BS-15831	push enter when an input is selected do a bad submit of the form
+* BS-15816	User/group/role avatar does not refresh when updated
+* BS-15806	Fail to compile bonita-web
+* BS-15802	Placeholder font style is too close from input style
+* BS-15793	Cannot Select element when using the search of user/role/group/membership in the Process Manager and Actors mappings
+* BS-15792	Impossible to remove user/role/group/membership one by one from the Process Manager mapping
+* BS-15791	Process manager Mapping only shows 5 elements
+* BS-15783	Impossible to edit the list of member/role/group/membership in the Process Manager mapping
+* BS-15774	Error when editing group or role in Portal
+* BS-15759	Portal - Can't switch to profile "Process manager" in Internet Explorer 11
+* BS-15752	Instantiation form submit: Impossible to retrieve the process definition id value from the URL
+* BS-15743	Classloader remove when the first node of a cluster is shutdown
+* BS-15713	Fileviewer widget does not use the right id to preview document
+* BS-15535	engine do not start if no licenses in platform_conf folder even if platform already initialized
+* BS-15486	Wrong archived case ID retrieved from URL parameter in overview page for archived case
+* BS-15485	Rest API Extensions broken after migration - Error 403
+* BS-15356	IE9: Select widget with dynamic list does not show all the values in the list.
+
 #### Fixes in Bonita BPM 7.3.2 (released on September 1st, 2016)
 
 * BS-12240 	Sequential multi-instantiation with empty list unexpectedly create one instance

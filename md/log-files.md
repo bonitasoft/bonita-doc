@@ -4,11 +4,11 @@
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 
-During development, the Studio log file and UI designer log file contain messages about development activities, including any errors. 
+During development, the Studio log file contains messages about development activities, including any errors.
 When you run a process for testing, messages are written to the Engine log file.
 
 From the Bonita BPM Studio Help menu you can access the Studio log file 
-and the Engine log file. The UI designer log file is available in `$BONITA_HOME/tomcat/logs/ui-designer.log`, but it is not accessible from the Studio Help menu. 
+and the Engine log file.
 
 See the [Logging overview](logging.md) for details of how logging is implemented in Bonita BPM and how to add logging to Groovy scripts or Java code that you add to a process
 

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "watch": "node ./scripts/watchFilesToConvertHtml.js",
+    "start": "node ./scripts/watchFilesToConvertHtml.js",
     "taxonomy": "node ./scripts/taxonomy.js",
     "build": "node ./scripts/convertMdToHtml.js",
     "buildPdf": "npm run build && npm run taxonomy && npm run pdf",
