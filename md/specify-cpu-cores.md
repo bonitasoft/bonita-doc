@@ -1,6 +1,6 @@
 # Custom Tomcat / WildFly start-up script
 
-If you have a Subscription edition license covering fewer CPU cores than are available on your server, you must limit the number of CPUs available.
+If you have a Subscription edition license covering fewer CPU cores than those available on your server, you must limit the number of CPUs available.
 
 To do so, create a custom startup script to start Tomcat / WildFly only with the number of cores allowed by your license (e.g. 2 for development license).
 

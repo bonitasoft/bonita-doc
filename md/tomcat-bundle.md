@@ -66,7 +66,8 @@ To initialize and update this configuration, a [*Platform setup tool*](BonitaBPM
 
 So your bundle also contains:
 
-* `setup`: a tool to manage Bonita BPM Platform configuration, stored in database instead of filesystem. Also ships a tool to centralize all the required Tomcat bundle configuration. 
+* `setup`: a tool to manage Bonita BPM Platform configuration, stored in database.  
+  Also ships a tool to centralize all the required Tomcat bundle configuration. 
 
 
 ### Get and install a license (Subscription editions only)
@@ -171,7 +172,7 @@ Tomcat can be started by executing the following script:
 
 #### Specifying the number of available CPU cores
 
-If you have a Subscription edition license covering fewer CPU cores than are available on your server, you must limit the number of CPUs available.
+If you have a Subscription edition license covering fewer CPU cores than those available on your server, you must limit the number of CPUs available.
 
 To do so, please [create a custom Tomcat start-up script](specify-cpu-cores.md)
 
@@ -195,12 +196,15 @@ You can [increase the work service termination timeout](performance-tuning.md) t
 Once you have your Tomcat bundle up and running, complete these [few extra steps](first-steps-after-setup.md) to get Bonita BPM Platform fully operational.
 
 ### How to update the configuration
+
 To update the configuration after the first run please take a look at the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
 
 ::: info
-File `database.properties` is the only entry point to configure the [Tomcat environment](BonitaBPM_platform_setup.md#run_bundle_configure)
-and the [Bonita BPM Platform configuration](BonitaBPM_platform_setup.md#configure_tool)
+File `database.properties` is the entry point to configure the [Tomcat environment](BonitaBPM_platform_setup.md#run_bundle_configure)
+and the [Bonita BPM Platform configuration](BonitaBPM_platform_setup.md#configure_tool).
+Use command line arguments to specify database properties directly from the command line. Use `./setup.sh --help` on Linux or `setup.bat --help` on Windows to have a list of available options.
 :::
 
 ### How to update the license
+
 To update the licenses after the first run please take a look at the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)

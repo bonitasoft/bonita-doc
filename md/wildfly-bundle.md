@@ -32,12 +32,14 @@ The folder where you unzip the WildFly bundle is known as _`<WILDFLY_HOME>`_. We
 
 The WildFly bundle is based on a standard WildFly installation with the following additions:
 
-* `bin/standalone.conf`: script to configure JVM system properties.
+* `bin/standalone.conf`: script to configure JVM system properties on Linux systems.
+* `bin/standalone.conf.bat`: script to configure JVM system properties on Windows systems.
 * `bonita-start.bat`: script to start the bundle on Windows.
 * `bonita-start.sh`: script to start the bundle on Linux.
 * `standalone/configuration/standalone.xml`: WildFly context configuration for Bonita BPM Portal. It defines data sources used by Bonita BPM Engine.
 * `request_key_utils`: script to generate license request keys (Subscription editions only).
 * `standalone/deployments/bonita-all-in-one-[version].ear`: Bonita BPM Portal (web application) and EJB3 API.
+* `modules/system/layers/base/sun/jdk/main/module.xml`: list of base jdk module necessary for WildFly and Bonita to execute.
 
 ::: info
 **Note:** Starting from Bonita BPM 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database as the Bonita BPM Engine data, namely in the `CONFIGURATION` table.
@@ -96,8 +98,7 @@ At platform creation, this file contains the default username and password for t
 
 ### Specify the Subscription edition
 
-If you are installing the Performance Subscription edition, edit [`setup/platform_conf/initial/platform_init_engine/bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md) by uncommenting the line and change the value of the `activeProfiles` key to `'community,performance'`.
-
+For **Performance** Subscription edition, edit [`setup/platform_conf/initial/platform_init_engine/bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md) by uncommenting the line and change the value of the `activeProfiles` key to `'community,performance'`.
 
 <a id="configuration" />
 
@@ -129,7 +130,7 @@ The **bonita-start** script does the following:
     3. It copies your database drivers into `[WILDFLY_HOME]`/modules/**/**main**/ folders
 3. Starts the WildFly bundle
 
-Advanced users: if you need to finely tune your WildFly bundle, see [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) for advanced usage of the `configure` command):
+Advanced users: check out [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to finely tune your WildFly bundle, using templates.
 :::
 
 <a id="start" />

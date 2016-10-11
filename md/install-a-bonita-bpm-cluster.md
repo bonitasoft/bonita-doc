@@ -30,10 +30,10 @@ When done you will have a database with all tables created and with a table `CON
     * In `platform_init_engine/bonita-platform-init-community-custom.properties` uncomment and update the value of `activeProfiles` property from **`community`** to **`community,performance`**.
     * In `platform_engine/bonita-platform-sp-custom.properties`
         * uncomment and set the **`bonita.cluster`** property to `true`.
-        * <a id="disable-hibernate-cache"/>In order to keep consistency between nodes, the Hibernate cache must be disabled.
-          Uncomment and change the line
-          `#bonita.platform.persistence.use_second_level_cache=true`
-          to
+        * <a id="disable-hibernate-cache"/>In order to keep consistency between nodes, the Hibernate cache must be disabled.  
+          Uncomment and change the line  
+          `#bonita.platform.persistence.use_second_level_cache=true`  
+          to  
           `bonita.platform.persistence.use_second_level_cache=false`
     * In `platform_engine/bonita-platform-sp-cluster-custom.properties`
         * uncomment and set the **`bonita.cluster.name`** property to a name of your own, e.g. `myBPMCluster`, **This name must be unique on the local network if you are using *multicast***
@@ -51,16 +51,13 @@ If later you need to change the configuration of the node discovery or add new l
 
 ### Install a first node
 
-* Run `setup.sh configure` or `setup.bat configure` as described in the [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to have your
-Tomcat / WildFly bundle configured to point to the right database.
+1 Run `setup.sh configure` or `setup.bat configure` as described in the [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to have your Tomcat / WildFly bundle configured to point to the right database.
 2. Delete the entire content of the `[TOMCAT_DIRECTORY]/setup` folder.
-3. If your Bonita installation is behind a proxy (mainly in TcpIp or Aws discovery modes), you must declare its public address by adding the following property : `-Dhazelcast.local.publicAddress=*publicaddress*`,
-this property should be added in the `[TOMCAT_DIRECTORY]/bin/setenv.sh` or `[TOMCAT_DIRECTORY]/bin/setenv.bat`
-
+3. If your Bonita installation is behind a proxy (mainly in TcpIp or Aws discovery modes), you must declare its public address by adding the following property : `-Dhazelcast.local.publicAddress=*publicaddress*`, this property should be added in the `[TOMCAT_DIRECTORY]/bin/setenv.sh` or `[TOMCAT_DIRECTORY]/bin/setenv.bat`
 4. When the installation is complete, start Tomcat on the node. This starts Bonita BPM Platform:
-```bash
-./bonita-start.sh
-```
+   ```bash
+   ./bonita-start.sh
+   ```
 5. Then start the cluster in the load balancer.
 
 Check that the log file contains messages of the following form:

@@ -63,7 +63,7 @@ Set the right db vendor by commenting and uncommenting properties inside this fi
 If you are using an Oracle or Microsoft SQL Server database, add the related JDBC driver in the `lib` folder. (H2, MySQL and PostgreSQL drivers are already shipped in the tool).
 
 ::: warning
-If you are inside a Tomcat or WildFly bundle, you have probably already configured file `database.properties` during setup phase, as described in
+If you are using a Tomcat or WildFly bundle, you have probably already configured file `database.properties` during setup phase, as described in
 [Tomcat bundle](tomcat-bundle.md#configuration) and [WildFly bundle](wildfly-bundle.md#configuration).
 :::
 
@@ -119,7 +119,7 @@ Keep in mind that the folder **`platform_conf/initial`** is not used anymore onc
 ## Run the Bonita BPM bundle configuration (Tomcat 7 / WildFly 9)
 
 ::: info
-Remember that in the [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles, this is done automatically when calling `bonita-start.sh / .bat`
+In the [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles, configuration is done automatically when calling `bonita-start.sh / .bat`
 :::
 
 1. Update the file `database.properties` with the database properties matching your environment (db vendor name, server name, server port, connection username and password)
@@ -146,7 +146,7 @@ setup.bat configure "-Ddb.vendor=postgres" "-Ddb.server.name=localhost" "-Ddb.se
 
 ::: warning
 Due to Windows Batch limitations, only 8 parameters are supported.
-If you need to pass more than 8 parameters, please use file `database.properties` instead.
+If you need to pass more than 8 parameters, use file `database.properties` instead.
 :::
 
 ::: info
