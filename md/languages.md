@@ -33,7 +33,7 @@ We are currently updating the translation process. Among other things this updat
 Instructions below assume that the language you want to add is already available in the community translation project. If translation is not available see [Translate Bonita BPM Portal](#Translate-Bonita-BPM-Portal) for instruction about how to collaborate to a new or ongoing translation.
 :::
 
-Instructions below explain how to add support for a language to Bonita BPM Portal. Steps below involve using content created by Bonitasoft community and therefor not officially supported.
+Instructions below explain how to add support for a language to Bonita BPM Portal. Steps below involve using content created by Bonitasoft community and therefore not officially supported.
 
 1. Go to [Bonita BPM translation project](http://translate.bonitasoft.org/)
 1. Click the **_Download_** icon to download the zip archive file containing the translations into all the available languages. The archive is called `bonita-bpm-60.zip` even for Bonita BPM 7 versions.
