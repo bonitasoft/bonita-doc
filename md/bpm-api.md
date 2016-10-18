@@ -481,6 +481,19 @@ Retrieve humanTask objects that match the specified filters.
   `GET`
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  
+  * o: only parameters available in HumanTaskInstanceSearchDescriptor.java and in the result are accepted: 
+	* assignee_id
+	* diplayname
+	* dueDate
+	* name
+	* priority
+	* processid
+	* id
+	* reached_state_date
+	* state
+	
+	
   You can also use the [flow node data params](#flownode-search-data-params).  
   For instance, you can filter on:
   * `assigned_id={user_id}`: retrieve only the human tasks assigned to the specified ID. For example, retrieve the human tasks assigned to user with id 2: `/API/bpm/humanTask?p=0&c=10&f=assigned\_id%3d2`
