@@ -9,7 +9,7 @@ In this section you will learn what the Platform setup tool is and how to use it
 
 ## Platform setup tool overview
 
-The *Platform setup tool* handles the creation of the database schema and the configuration of Bonita BPM Platform.
+The *Platform setup tool* handles the creation of the database schema and the configuration of Bonita BPM Platform.  
 It is located in the [deploy bundle](deploy-bundle.md) and in both [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles.
 
 ::: info
@@ -57,7 +57,7 @@ This tool has 4 functions:
 
 Before running it, the tool must be configured to point to the database of the Bonita BPM Platform.
 
-To do so, after you have created the database, modify the tool `database.properties` file:
+To do so, after you have created the database, modify the tool `database.properties` file:  
 Set the right db vendor by commenting and uncommenting properties inside this file and change connection url, user credentials, database name and so on.
 
 If you are using an Oracle or Microsoft SQL Server database, add the related JDBC driver in the `lib` folder. (H2, MySQL and PostgreSQL drivers are already shipped in the tool).

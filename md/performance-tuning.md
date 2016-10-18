@@ -138,7 +138,7 @@ If you are running Bonita BPM Engine inside a container, the maximum number of c
 * **Apache Tomcat** `maxThreads` set in _`Tomcat_folder`_`/conf/server.xml`.    
      Default value 200\. 
      See the [Tomcat documentation](http://tomcat.apache.org/tomcat-7.0-doc/) for information about the `maxThreads` parameter.
-* **Red Hat WildFly** : add the attributes `io-threads="10"` and `task-max-threads="200"` in the _default_ *worker* element in the io subdomain in `<WILDFLY_HOME>/standalone/configuration/standalone.xml`.
+* **Red Hat WildFly** : add the attributes `io-threads="10"` and `task-max-threads="200"` in the _default_ *worker* element in the io subdomain in `<WILDFLY_HOME>/standalone/configuration/standalone.xml`.  
      The WildFly administrator guide lacks some information about advanced worker configuration. Undertow (WildFly web service handler) relies on the [XNIO API](http://docs.jboss.org/xnio/3.0/api/org/xnio/Options.html) for creating Worker threads. See [IO Worker configuration for Undertow](https://developer.jboss.org/thread/241230?start=0&tstart=0) for information about worker configuration.
 
 <a id="work_service"/>

@@ -130,7 +130,7 @@ For production, you are recommended to use one of the supported databases, with 
 
 Make sure your database is created before you start configuring the Tomcat datasources and make sure you do so before you start the Tomcat server.
 
-If you use the [Business Data Model (BDM) feature](define-and-deploy-the-bdm.md), we recommend that you configure a dedicated database.
+If you use the [Business Data Model (BDM) feature](define-and-deploy-the-bdm.md), we recommend that you configure a dedicated database.  
 You can also find more details on database configuration in the [dedicated page](database-configuration.md).
 
 1. Edit file `[TOMCAT_HOME]`/setup/**database.properties** and modify the properties to suit your databases (Bonita BPM internal database & Business Data database)

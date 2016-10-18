@@ -81,15 +81,15 @@ Your database must be configured to use the UTF-8 character set. You are recomme
 
 ## Specify the database vendor
 
-Bonita BPM Engine needs to know which type of RDBMS you use.
+Bonita BPM Engine needs to know which type of RDBMS you use.  
 This is defined by setting the `sysprop.bonita.db.vendor` JVM system property value.
 
 The possible values for `sysprop.bonita.db.vendor` / `db.vendor` are:
 
 <div class="row"><div class="col-md-6 col-md-offset-1">
 
-| Database vendor | Property value |
-| :- | :- |
+| Database vendor | Property value |  
+| :- | :- |  
 | PostgreSQL | postgres |
 | Oracle database | oracle |
 | SQL Server | sqlserver |

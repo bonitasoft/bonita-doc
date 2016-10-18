@@ -24,7 +24,7 @@ Create a user with the "administrator" profile:
 
 Note: do not create a user or an administrator with the same login and password as the technical users (platform and tenant)
 
-1. Log in to Bonita BPM Portal as the technical user.
+1. Log in to Bonita BPM Portal as the technical user.  
 **Note:** If your system is using single sign-on with CAS, you need to log in with the following URL: `http://`_`hostname:port`_`/bonita/login.jsp?redirectUrl=portal/homepage`.
 2. Create a user with the standard profile.
 3. Go to **Organization** \> **Profiles**. Select "Administrator" profile.
