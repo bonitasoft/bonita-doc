@@ -253,7 +253,7 @@ The methods used for this resource are:
 #### Get subscription license information
 
 * **URL**  
-  `/API/platform/licence`  
+  `/API/platform/license`  
 * **Method**  
   `GET`
 * **Success Response**  
