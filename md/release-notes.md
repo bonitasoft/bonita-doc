@@ -86,7 +86,8 @@ Many improvements to existing features:
 
 ## Limitations and known issues
 
-* MacOS environment: the new version of MacOS El Capitan 10.11.4 (March 2016) has introduced new security rules that block the launch of Bonita BPM Studio. You must temporarily remove security on App launching in System Preferences→Security & Confidentiality.
+* MacOS Sierra (10.12): Bonita BPM Studio installed using zip package failed during launch. Bonita BPM can successfully be installed on macOS Sierra using the dmg package
+* MacOS environment: starting from MacOS El Capitan 10.11.4 (March 2016), new security rules block the launch of Bonita BPM Studio. You must temporarily remove security on App launching in System Preferences→Security & Confidentiality.
 * 6.x legacy forms: There might be some graphical issues (CSS) when displaying 6.x forms in the right panel of the new user tasklist. Use preferably the expended mode (full page list + popup for the form) or modify the portal look & feel in order to add a min-width to the from container in BonitaForm.html 
 * Default applications layout is not compatible with new task list custom page
 * Having executed a task in a subprocess, I cannot see the overview of the root process instance
