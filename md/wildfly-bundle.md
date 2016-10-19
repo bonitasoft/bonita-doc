@@ -25,8 +25,12 @@ For a Subscription edition:
 
 The folder where you unzip the WildFly bundle is known as _`<WILDFLY_HOME>`_. We recommend the following locations:
 
-* Windows: `C:\BonitaBPM`. If you want to unzip the bundle to another folder, do not use spaces in the folder name. 
+* Windows: `C:\BonitaBPM`.
 * Linux: in `/opt/BonitaBPM`. Make sure that Linux user account used to execute WildFly is the owner of the folders and files.
+
+::: warning
+Whatever location you choose, **do not** leave blank spaces in the path to the directory, nor in the folder name.
+:::
 
 #### Content of the WildFly bundle
 
@@ -107,7 +111,7 @@ If you just want to try Bonita BPM Platform with the embedded h2 database (only 
 For production, you are recommended to use one of the supported databases, with the following steps.
 :::
 
-1. Make sure your database is created.
+1. Make sure your databases is created.
 2. Edit file `[WILDFLY_HOME]`/setup/**database.properties** and modify the properties to suit your databases (Bonita BPM internal database & Business Data database)
 3. If you use **Microsoft SQL Server** or **Oracle database**, copy your database drivers in `[WILDFLY_HOME]`/setup/lib folder. (H2, MySQL and PostgreSQL drivers are already shipped in the tool)
 4. Run `[WILDFLY_HOME]`/**bonita-start.sh** (Unix system) or `[WILDFLY_HOME]`\ **bonita-start.bat** (Windows system) to run Bonita BPM WildFly bundle (see [WildFly start script](#wildfly_start))

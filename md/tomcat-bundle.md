@@ -1,4 +1,4 @@
-# Tomcat bundle installation
+# Tomcat bundle
 
 You will find here steps needed to install and configure a Tomcat bundle.
 
@@ -32,11 +32,11 @@ For a Subscription edition:
 
 The fully qualified folder path (including the BonitaBPM-x.y.z-Tomcat-7.0.67 folder) to the folder where you unzip the Tomcat bundle is referred to as `<TOMCAT_HOME>`. We recommend the following locations:
 
-* Windows: `C:\BonitaBPM`. 
+* Windows: `C:\BonitaBPM`.
 * Linux: in `/opt/BonitaBPM`. Make sure that Linux user account used to execute Tomcat is the owner of the folders and files.
 
 ::: warning
-Whatever location you choose, do not leave blank spaces in the path to the directory, nor in the folder name.
+Whatever location you choose, **do not** leave blank spaces in the path to the directory, nor in the folder name.
 :::
 
 #### Content of the Tomcat bundle
@@ -113,8 +113,7 @@ At platform creation, this file contains the default username and password for t
 
 ### Specify the Subscription edition
 
-If you are installing the Performance Subscription edition, edit [`setup/platform_conf/initial/platform_init_engine/bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md) by uncommenting the line and change the value of the `activeProfiles` key to `'community,performance'`.
-
+For **Performance** Subscription edition, edit [`setup/platform_conf/initial/platform_init_engine/bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md) by uncommenting the line and change the value of the `activeProfiles` key to `'community,performance'`.
 
 <a id="configuration" />
 
@@ -125,14 +124,10 @@ If you just want to try Bonita BPM Platform with the embedded h2 database (only 
 For production, you are recommended to use one of the supported databases, with the following steps.
 :::
 
-Make sure your database is created before you start configuring the Tomcat datasources and make sure you do so before you start the Tomcat server.
-
-If you use the [Business Data Model (BDM) feature](define-and-deploy-the-bdm.md), we recommend that you configure a dedicated database.  
-You can also find more details on database configuration in the [dedicated page](database-configuration.md).
-
-1. Edit file `[TOMCAT_HOME]`/setup/**database.properties** and modify the properties to suit your databases (Bonita BPM internal database & Business Data database)
-2. If you use **Microsoft SQL Server** or **Oracle database**, copy your database drivers in `[TOMCAT_HOME]`/setup/lib folder. (H2, MySQL and PostgreSQL drivers are already shipped in the tool)
-3. Run `[TOMCAT_HOME]`/**bonita-start.sh** (Unix system) or `[TOMCAT_HOME]`\ **bonita-start.bat** (Windows system) to run Bonita BPM Tomcat bundle (see [Tomcat start script](#tomcat_start))
+1. Make sure your databases is created.
+2. Edit file `[TOMCAT_HOME]`/setup/**database.properties** and modify the properties to suit your databases (Bonita BPM internal database & Business Data database)
+3. If you use **Microsoft SQL Server** or **Oracle database**, copy your database drivers in `[TOMCAT_HOME]`/setup/lib folder. (H2, MySQL and PostgreSQL drivers are already shipped in the tool)
+4. Run `[TOMCAT_HOME]`/**bonita-start.sh** (Unix system) or `[TOMCAT_HOME]`\ **bonita-start.bat** (Windows system) to run Bonita BPM Tomcat bundle (see [Tomcat start script](#tomcat_start))
 
 
 ::: info
