@@ -1,15 +1,15 @@
-# Tomcat bundle installation
+# Tomcat bundle
 
 You will find here steps needed to install and configure a Tomcat bundle.
 
-The Tomcat bundle is a .zip archive that contains the Apache Tomcat JEE application server prepackaged along with Bonita BPM Portal and [Bonita configuration folder](BonitaBPM_platform_setup.md#platform_setup_tool).
+The Tomcat bundle is a .zip archive that contains the Apache Tomcat Java EE application server prepackaged along with Bonita BPM and [Bonita platform setup tool](BonitaBPM_platform_setup.md#platform_setup_tool).
 The Tomcat bundle is a regular .zip archive based on Tomcat zip distribution.
 
 
-::: warning  
-There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft in the Tomcat bundle and in the Tomcat directories of the Deploy bundle) and the Microsoft SQL Server driver
+::: warning
+There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft in the Tomcat bundle) and the Microsoft SQL Server JDBC driver
 (refer to: [MSDN note](https://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html)).
-Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the Wildfly bundle provided by Bonitasoft.
+Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the [WildFly bundle](wildfly-bundle.md) provided by Bonitasoft.
 :::
 
 ## Installation of the Tomcat bundle
@@ -32,11 +32,11 @@ For a Subscription edition:
 
 The fully qualified folder path (including the BonitaBPM-x.y.z-Tomcat-7.0.67 folder) to the folder where you unzip the Tomcat bundle is referred to as `<TOMCAT_HOME>`. We recommend the following locations:
 
-* Windows: `C:\BonitaBPM`. 
+* Windows: `C:\BonitaBPM`.
 * Linux: in `/opt/BonitaBPM`. Make sure that Linux user account used to execute Tomcat is the owner of the folders and files.
 
-::: warning  
-Whatever location you choose, do not leave blank spaces in the path to the directory, nor in the folder name.
+::: warning
+Whatever location you choose, **do not** leave blank spaces in the path to the directory, nor in the folder name.
 :::
 
 #### Content of the Tomcat bundle
@@ -58,24 +58,18 @@ The Tomcat bundle is based on a standard Tomcat installation with the following 
 * `lib/bonita`: extra libraries needed by Bonita. The following libraries are included: Bitronix JTA Transaction Manager, h2, SLF4J (required by Bitronix).
 * `request_key_utils`: folder containing script to generate license request keys (Subscription editions only).
 * `webapps/bonita.war`: the Bonita web application.
+* `setup/`: a tool to manage Bonita BPM Platform configuration, stored in database instead of filesystem. Also ships a tool to centralize all the required Tomcat bundle configuration.
 
 ::: info
 **Note:** Starting from Bonita BPM 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database as the Bonita BPM Engine data, namely in the `CONFIGURATION` table.
 To initialize and update this configuration, a [*Platform setup tool*](BonitaBPM_platform_setup.md) is provided and embedded in Bonita BPM bundles.
 :::
 
-So your bundle also contains:
-
-* `setup`: database management for Bonita BPM Platform configuration and Bonita BPM Engine data, and a tool to update the configuration.
 
 
-### Get and install a license
+### Get and install a license (Subscription editions only)
 
-::: info
-This is not necessary if you are installing the Community edition.
-:::
-
-If you are installing a Subscription edition, you need to [request a license](licenses.md).
+First, [request a license](licenses.md).
 
 <a id="license" />
 
@@ -84,12 +78,42 @@ If this is your first installation, copy the file to the `<TOMCAT_HOME>/setup/pl
 If this is a license update, use [the *Platform setup tool*](BonitaBPM_platform_setup.md#update_platform_conf).
 
 
+### Change the default credentials (optional, recommended for production)
+
+As a security precaution, we **strongly recommend** that before you start your application server, you change the default username and password used for the platform administrator and for the default tenant administrator.
+
+#### Platform administrator
+
+The username and password for the platform administrator are defined in the file [`platform_engine/bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md), by the following properties:
+
+* `platformAdminUsername` defines the username (default `platformAdmin`)
+* `platformAdminPassword` defines the password (default `platform`)
+
+This password is used for platform-level administration tasks, such as creating a tenant.
+
+#### Tenant administrator
+
+Each tenant has an administrator, with a tenant-specific username and password. The tenant administrator is also known as the tenant technical user.
+
+When the platform is created, default values for the tenant administrator username and password are defined in the file [`tenant_template_engine/bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md), by the following properties:
+
+* `userName` defines the username (default `install`)
+* `userPassword` defines the password (default `install`)
+
+When you create a tenant, the tenant administrator is created with the default username and password, unless you specify new values. 
+Change these tenant-specific credentials for an existing tenant by updating the `userName` and `userPassword` properties in `bonita-tenant-community-custom.properties`.
+
+::: warning
+For the default tenant, the tenant administrator username and password must also be defined in file [`platform_portal/platform-tenant-config.properties`](BonitaBPM_platform_setup.md), with exactly the same values that you set in `bonita-tenant-community-custom.properties`.
+At platform creation, this file contains the default username and password for the default tenant. 
+:::
+
+
 <a id="edition_specification" />
 
-### Edition specification
+### Specify the Subscription edition
 
-If you are installing the Performance Subscription edition, you need to edit [`setup/platform_conf/initial/platform_init_engine/bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md) by uncommenting the line and changing the value of the `activeProfiles` key to `'community,performance'`. No change is needed for the Community, Teamwork, or Efficiency edition.
-
+For **Performance** Subscription edition, edit [`setup/platform_conf/initial/platform_init_engine/bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md) by uncommenting the line and change the value of the `activeProfiles` key to `'community,performance'`.
 
 <a id="configuration" />
 
@@ -100,76 +124,53 @@ If you just want to try Bonita BPM Platform with the embedded h2 database (only 
 For production, you are recommended to use one of the supported databases, with the following steps.
 :::
 
-<a id="datasources_configuration" />
+1. Make sure your databases is created.
+2. Edit file `[TOMCAT_HOME]`/setup/**database.properties** and modify the properties to suit your databases (Bonita BPM internal database & Business Data database)
+3. If you use **Microsoft SQL Server** or **Oracle database**, copy your database drivers in `[TOMCAT_HOME]`/setup/lib folder. (H2, MySQL and PostgreSQL drivers are already shipped in the tool)
+4. Run `[TOMCAT_HOME]`/**bonita-start.sh** (Unix system) or `[TOMCAT_HOME]`\ **bonita-start.bat** (Windows system) to run Bonita BPM Tomcat bundle (see [Tomcat start script](#tomcat_start))
 
-#### Configure the Tomcat server datasources
 
-Make sure your database is created before you start configuring the Tomcat datasources and make sure you do so before you start the Tomcat server.
+::: info
+What is the **bonita-start.sh** script doing?
 
-If you use the [Business Data Model (BDM) feature](define-and-deploy-the-bdm.md), we recommend that you configure a dedicated database.  
-You can also find more details on database configuration in the [dedicated page](database-configuration.md).
+The **bonita-start** script does the following:
 
-Follow those steps:
+1. Runs the **`setup init`** command:
+    1. initializes the Bonita BPM internal database (the one you defined in file `setup/database.properties`): creates the tables that Bonita BPM uses internally + stores the configuration in database.
+    2. install the license files (Subscription editions only) in the database.
+2. Runs the **`setup configure`** command:
+    The Setup Configure command configures the Tomcat environment to access the right databases:
+    1. It updates the files sentenv.sh (Unix system) and setenv.bat (Windows system) to set the database vendor values for **Bonita BPM internal database** & **Business Data database**
+    2. It updates the file `[TOMCAT_HOME]`/conf/ **bitronix-resources.properties** with the values you set in file `database.properties`
+    3. It updates the file `[TOMCAT_HOME]`/conf/Catalina/localhost/ **bonita.xml** with the values you set in file `database.properties`
+    4. It copies your database vendor-specific drivers from `[TOMCAT_HOME]/setup/lib` to `[TOMCAT_HOME]/lib/bonita`
+3. Starts the Tomcat bundle
 
-1. Drop your database vendor-specific drivers in `[TOMCAT_HOME]`/lib/bonita (you can copy the provided open-source drivers: PostgreSQL, MySQL) from `[TOMCAT_HOME]/setup/lib`
-2. Edit file `[TOMCAT_HOME]`/conf/ **bitronix-resources.properties**
-    1. Comment the default embedded h2 database configuration (preceding the lines with a #)
-    2. Uncomment the configuration for your database vendor (PostgreSQL, Oracle, SQL Server, or MySQL)
-    3. Change the default values for your database configuration to point to an existing database instance and valid credentials
-  Warning: this must be done for 2 different datasources in the file: **resource.ds1.** (for engine and configuration data) and **resource.ds2.** (for BDM data, optional but handy to configure in case some day you need to use it)
-3. Edit file `[TOMCAT_HOME]`/conf/Catalina/localhost/ **bonita.xml**
-    1. Comment the default embedded H2 database configuration (with `<!--` and `-->` around the lines to comment)
-    2. Uncomment the configuration for your database vendor (PostgreSQL, Oracle, SQL Server, or MySQL)
-    3. Change the default values for your database configuration to point to an existing database instance and valid credentials
-  Warning: this must be done for 2 different datasources in the file: **bonitaSequenceManagerDS** (for engine and configuration data, same base as **resource.ds1.**) and **NotManagedBizDataDS** (for BDM data, same base as **resource.ds2.**)
-4. Edit file sentenv.sh (Unix system) or setenv.bat (Windows system)
-    1. For engine and configuration data, change the **DB_OPTS** property and change the default **h2** value for the one corresponding to your database vendor 
-    2. For BDM data, change the **BDM_DB_OPTS** property and change the default **h2** value for the one corresponding to your database vendor 
-
+Advanced users: check out [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to finely tune your Tomcat bundle, using templates.
+:::
 
 <a id="start" />
 
-### Start and shut down Tomcat
+### Starting and shutting down Tomcat
+
+<a id="tomcat_start" />
 
 #### Tomcat start script
 
-Tomcat can be started by executing the following commands:
+Tomcat can be started by executing the following script:
 
 * Windows: `<TOMCAT_HOME>\bonita-start.bat`
 * Linux: `<TOMCAT_HOME>/bonita-start.sh`
 
-#### Custom start-up script
+#### Specifying the number of available CPU cores
 
-If you have a Subscription Pack license covering fewer CPU cores that are available on your server, you need to limit number of CPUs available to Tomcat.
-Do this this, you need to use a custom start script to to start Tomcat only with the number of cores allowed by the license (e.g. 2 cores for a development license).
+If you have a Subscription edition license covering fewer CPU cores than those available on your server, you must limit the number of CPUs available.
 
-* For Windows:
-    * Copy the file `bonita-start.bat` to a file called `mystartup.bat`.
-    * Change the last line of the file to `start /AFFINITY 3 bonita-start.bat` (where 3 is the affinity mask expressed as a hexadecimal number)
+To do so, please [create a custom Tomcat start-up script](specify-cpu-cores.md)
 
-This table explains the relation between the hexadecimal parameter of the command and the physical CPUs you targeted.
-As an example, if hexadecimal parameter is equal to 6. The corresponding binary number is 0110, that means you will only target the CPU 2 and CPU 3.
+#### Tomcat stop script
 
-<div class="row"><div class="col-md-6 col-md-offset-2">
-
-|     Hexadecimal number conversion to CPU selection            |     CPU number 4     |     CPU number 3     |     CPU number 2     |     CPU number 1     |
-|---------------------------------------------------------------|----------------------|----------------------|----------------------|----------------------|
-|0<sub>hex</sub> 	= 	0<sub>oct</sub>  = 	0<sub>cpu</sub>     | 0                    | 0                    | 0                    | 0                    |
-|1<sub>hex</sub> 	= 	1<sub>oct</sub>  = 	1<sub>cpu</sub>     | 0                    | 0                    | 0                    | 1 <!--{.bg-danger}-->|
-|2<sub>hex</sub> 	= 	1<sub>oct</sub>  = 	1<sub>cpu</sub>     | 0                    | 0                    | 1 <!--{.bg-danger}-->| 0                    |
-|3<sub>hex</sub> 	= 	3<sub>oct</sub>  = 	2<sub>cpu</sub>     | 0                    | 0                    | 1 <!--{.bg-danger}-->| 1 <!--{.bg-danger}-->|
-|7<sub>hex</sub> 	= 	7<sub>oct</sub>  = 	3<sub>cpu</sub>     | 0                    | 1 <!--{.bg-danger}-->| 1 <!--{.bg-danger}-->| 1 <!--{.bg-danger}-->|
-|F<sub>hex</sub> 	= 	17<sub>oct</sub> = 	4<sub>cpu</sub>     | 1 <!--{.bg-danger}-->| 1 <!--{.bg-danger}-->| 1 <!--{.bg-danger}-->| 1 <!--{.bg-danger}-->|
-
-</div></div>
-
-* For Linux:
-    * Copy the file `bonita-start.sh` to a file called `mystartup.sh`.
-    * Change the last line of the file to `taskset -c 0,1 bonita-start.sh 0,1` (where 0,1 indicate that you will only use 2 CPU, the CPU0 and the CPU1. This list may contain multiple items, separated by comma, and ranges. For example, 0,5,7,9-11)
-
-#### Shut down Tomcat
-
-Tomcat can be shut down by executing the following command:
+Tomcat can be shut down by executing the following script:
 
 * Windows: `<TOMCAT_HOME>\bonita-stop.bat`
 
@@ -184,12 +185,18 @@ You can [increase the work service termination timeout](performance-tuning.md) t
 
 ### First steps after installation
 
-Once you have got your Tomcat bundle up and running a [few extra steps](first-steps-after-setup.md) are required in order to get a fully operational Bonita BPM platform.
+Once you have your Tomcat bundle up and running, complete these [few extra steps](first-steps-after-setup.md) to get Bonita BPM Platform fully operational.
 
 ### How to update the configuration
+
 To update the configuration after the first run please take a look at the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
 
 ::: info
-**Keep in mind** that [platform setup tool](BonitaBPM_platform_setup.md#configure_tool) is independent from Tomcat Bundle and thus needs to be configured by itself to point to the right database.
-This is done by editing file `database.properties`
+File `database.properties` is the entry point to configure the [Tomcat environment](BonitaBPM_platform_setup.md#run_bundle_configure)
+and the [Bonita BPM Platform configuration](BonitaBPM_platform_setup.md#configure_tool).
+Use command line arguments to specify database properties directly from the command line. Use `./setup.sh --help` on Linux or `setup.bat --help` on Windows to have a list of available options.
 :::
+
+### How to update the license
+
+To update the licenses after the first run please take a look at the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
