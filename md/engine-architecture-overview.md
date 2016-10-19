@@ -22,7 +22,7 @@ Folder  `setup/platform_conf/[initial|current]/tenant_template_engine` contains 
 
 Folder  `setup/platform_conf/current/tenants/[TENANT_ID]/tenant_engine` where `[TENANT_ID]` is your tenant id (e.g. `1`). Contains same files use for an already existing tenant.
 
-The Engine can be installed on a Java Virtual Machine (JVM), in any web/JEE container, or can be used as a simple Java library.
+The Engine can be installed on a Java Virtual Machine (JVM), in any web/Java EE container, or can be used as a simple Java library.
 
 ## APIs
 
