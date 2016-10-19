@@ -105,7 +105,7 @@ If you want to modify the configuration of an already initialized Bonita BPM Pla
 7. Start Bonita BPM Platform.
 
 
-::: info
+::: warning
 Note that the *Platform Setup tool* does not need the Bonita BPM Server to be running for the configuration to be updated. However, the server needs to be restarted for the changes to take effect.
 :::
 

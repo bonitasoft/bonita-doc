@@ -2,14 +2,14 @@
 
 You will find here steps needed to install and configure a Tomcat bundle.
 
-The Tomcat bundle is a .zip archive that contains the Apache Tomcat JEE application server prepackaged along with Bonita BPM Portal and [Bonita configuration folder](BonitaBPM_platform_setup.md#platform_setup_tool).
+The Tomcat bundle is a .zip archive that contains the Apache Tomcat Java EE application server prepackaged along with Bonita BPM and [Bonita platform setup tool](BonitaBPM_platform_setup.md#platform_setup_tool).
 The Tomcat bundle is a regular .zip archive based on Tomcat zip distribution.
 
 
 ::: warning
-There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft in the Tomcat bundle and in the Tomcat directories of the Deploy bundle) and the Microsoft SQL Server driver
+There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft in the Tomcat bundle) and the Microsoft SQL Server JDBC driver
 (refer to: [MSDN note](https://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html)).
-Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the WildFly bundle provided by Bonitasoft.
+Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the [WildFly bundle](wildfly-bundle.md) provided by Bonitasoft.
 :::
 
 ## Installation of the Tomcat bundle
@@ -58,16 +58,13 @@ The Tomcat bundle is based on a standard Tomcat installation with the following 
 * `lib/bonita`: extra libraries needed by Bonita. The following libraries are included: Bitronix JTA Transaction Manager, h2, SLF4J (required by Bitronix).
 * `request_key_utils`: folder containing script to generate license request keys (Subscription editions only).
 * `webapps/bonita.war`: the Bonita web application.
+* `setup/`: a tool to manage Bonita BPM Platform configuration, stored in database instead of filesystem. Also ships a tool to centralize all the required Tomcat bundle configuration.
 
 ::: info
 **Note:** Starting from Bonita BPM 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database as the Bonita BPM Engine data, namely in the `CONFIGURATION` table.
 To initialize and update this configuration, a [*Platform setup tool*](BonitaBPM_platform_setup.md) is provided and embedded in Bonita BPM bundles.
 :::
 
-So your bundle also contains:
-
-* `setup`: a tool to manage Bonita BPM Platform configuration, stored in database.  
-  Also ships a tool to centralize all the required Tomcat bundle configuration. 
 
 
 ### Get and install a license (Subscription editions only)

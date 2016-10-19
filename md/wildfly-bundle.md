@@ -2,7 +2,7 @@
 
 You will find here steps needed to install and configure a WildFly bundle.
 
-The WildFly bundle is a zip archive that contains the Red Hat WildFly JEE application server packaged with Bonita BPM Portal and [ready to use with Bonita BPM](BonitaBPM_platform_setup.md#platform_setup_tool).
+The WildFly bundle is a zip archive that contains the Red Hat WildFly Java EE application server packaged with Bonita BPM and [Bonita platform setup tool](BonitaBPM_platform_setup.md#platform_setup_tool).
 The WildFly bundle is a regular zip archive based on the WildFly zip distribution.
 
 ## Installation of the WildFly bundle
@@ -40,6 +40,7 @@ The WildFly bundle is based on a standard WildFly installation with the followin
 * `request_key_utils`: script to generate license request keys (Subscription editions only).
 * `standalone/deployments/bonita-all-in-one-[version].ear`: Bonita BPM Portal (web application) and EJB3 API.
 * `modules/system/layers/base/sun/jdk/main/module.xml`: list of base jdk module necessary for WildFly and Bonita to execute.
+* `setup/`: a tool to manage Bonita BPM Platform configuration, stored in database instead of filesystem. Also ships a tool to centralize all the required WildFly bundle configuration.
 
 ::: info
 **Note:** Starting from Bonita BPM 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database as the Bonita BPM Engine data, namely in the `CONFIGURATION` table.  
@@ -47,9 +48,6 @@ To initialize and update this configuration, a [*Platform setup tool*](BonitaBPM
 It will be launched automatically when you start the WildFly bundle to initialize the database.
 :::
 
-So your bundle also contains:
-
-* `setup`: a tool to manage Bonita BPM Platform configuration, stored in database instead of filesystem. Also ships a tool to centralize all the required WildFly bundle configuration.
 
 
 ### Get and install a license (Subscription editions only)

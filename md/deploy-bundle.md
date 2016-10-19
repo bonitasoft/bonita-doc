@@ -2,7 +2,7 @@
 
 ## What is the purpose of the Bonita BPM Deploy bundle?
 
-* The Bonita BPM Deploy bundle is used if you have **already installed a JEE Application Server**.
+* The Bonita BPM Deploy bundle is used if you have **already installed a Java EE Application Server**.
 * The Bonita BPM Deploy bundle is a way of setting up a Bonita BPM Platform. You'll be able to get a setup quite similar to WildFly or Tomcat bundle.
 * It's also used to package other tools such as the LDAP synchronizer.
 
