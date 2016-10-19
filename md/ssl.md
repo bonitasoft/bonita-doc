@@ -24,9 +24,9 @@ If you use the default HTTPS port number, 443, users do not need to specify the 
 * The operating system is Ubuntu.
 * The starting point is a bundle that has been installed and configured but not started.
 
-## Wildfly with keystore
+## WildFly with keystore
 
-For details of how to set up SSL with Wildfly 9, see the [SSL Configuration](https://docs.jboss.org/author/display/WFLY9/Admin+Guide#AdminGuide-EnableSSL) on the Wildfly 9 web site.
+For details of how to set up SSL with WildFly 9, see the [SSL Configuration](https://docs.jboss.org/author/display/WFLY9/Admin+Guide#AdminGuide-EnableSSL) on the WildFly 9 web site.
 
 ## Tomcat with APR and OpenSSL
 
