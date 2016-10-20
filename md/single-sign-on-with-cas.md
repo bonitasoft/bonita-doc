@@ -218,9 +218,25 @@ We recommend that you use LDAP as your master source for information, synchroniz
 
 ## Single sign-on with CAS using the REST API
 
+CAS is a browser oriented protocol (based on http automatic redirection, cookies, forms, etc...), therefore, we have securized browser oriented resources only. This is why only a subset of pages are handle to be automatically SSO CAS verified but not all the web application.
+
+The default AuthenticationFilter that manages CAS authentication applies only to the following pages: 
+
+* /portal
+* /mobile/\*
+* /portal.js/\*
+* /apps/\*
+* /services/\*
+
+REST API are not some of them but if a http session already exists thanks to cookies, REST API can be used.
+
+The recommended way to authenticate on Bonita BPM portal to use the REST API is to use the CAS server REST API.  
+It allows to retrieve authentication tickets to authenticate to Bonita BPM Portal.
+
 For detailed information about the procedure to install Restful access on your CAS SSO server, see the following links:
-[CAS SSO RESTful API](http://apereo.github.io/cas/4.2.x/index.html)
-[Bonita BPM REST API](rest-api-overview.md)
+
+* [CAS SSO RESTful API](http://apereo.github.io/cas/4.2.x/index.html)
+* [Bonita BPM REST API](rest-api-overview.md)
 
 ::: info
 **Note:** All calls issued to get the TGT or ST are made to the CAS SSO server.
@@ -273,18 +289,15 @@ Take the ST response and paste it in the url of the Bonita BPM Engine login requ
 | Request Method | GET| 
 | Form Data | service={form encoded parameter for the service url}| 
 
-Limitation: The default AuthenticationFilter that manages CAS authentication applies only to the following pages: 
-
-* /portal
-* /mobile/\*
-* /portal.js/\*
-* /apps/\*
-* /services/\*
-
-If you require direct calls to the REST API to authenticate the user. you need to provide a custom Filter.
 
 ##### **Response for a Service (ST)**
 
 | | |
 |:-|:-|
 | Response | 200 OK|
+
+You are now logged in onto Bonita BPM Portal and REST API calls will succeed.
+
+::: warning
+Cookies must be enabled in REST client side for authentication to persist across REST API calls.
+:::
