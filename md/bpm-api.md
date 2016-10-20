@@ -482,16 +482,16 @@ Retrieve humanTask objects that match the specified filters.
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   
-  * o: only parameters available in HumanTaskInstanceSearchDescriptor.java and in the result are accepted: 
-	* assignee_id
-	* diplayname
-	* dueDate
-	* name
-	* priority
-	* processid
-	* id
-	* reached_state_date
-	* state
+  * o: only fields available in [HumanTaskInstanceSearchDescriptor] (http://documentation.bonitasoft.com/javadoc/api/7.3/org/bonitasoft/engine/bpm/flownode/HumanTaskInstanceSearchDescriptor.html) and in the result are accepted: 
+    * case_id
+    * root_case_id
+    * parent_case_id
+    * process_id
+    * state
+    * type    	
+    * assignee_user_id
+    * priority
+
 	
 	
   You can also use the [flow node data params](#flownode-search-data-params).  
