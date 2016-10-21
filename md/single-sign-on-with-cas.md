@@ -218,7 +218,7 @@ We recommend that you use LDAP as your master source for information, synchroniz
 
 ## Single sign-on with CAS using the REST API
 
-CAS is a browser oriented protocol (based on http automatic redirection, cookies, forms, etc...), therefore, we have securized browser oriented resources only. This is why only a subset of pages are handle to be automatically SSO CAS verified but not all the web application.
+CAS is a browser-oriented protocol (based on http automatic redirection, cookies, forms, etc...), therefore, we only have securized browser-oriented resources. This is why only a subset of pages are handled to be automatically SSO CAS-verified but not the whole web application.
 
 The default AuthenticationFilter that manages CAS authentication applies only to the following pages: 
 
@@ -228,9 +228,9 @@ The default AuthenticationFilter that manages CAS authentication applies only to
 * /apps/\*
 * /services/\*
 
-REST API are not some of them but if a http session already exists thanks to cookies, REST API can be used.
+REST API are not part of them, but if an http session already exists thanks to cookies, REST API can be used.
 
-The recommended way to authenticate on Bonita BPM portal to use the REST API is to use the CAS server REST API.  
+The recommended way to authenticate to Bonita BPM Portal to use the REST API is to use the CAS server REST API.  
 It allows to retrieve authentication tickets to authenticate to Bonita BPM Portal.
 
 For detailed information about the procedure to install Restful access on your CAS SSO server, see the following links:
@@ -296,7 +296,7 @@ Take the ST response and paste it in the url of the Bonita BPM Engine login requ
 |:-|:-|
 | Response | 200 OK|
 
-You are now logged in onto Bonita BPM Portal and REST API calls will succeed.
+You are now logged into Bonita BPM Portal and REST API calls will succeed.
 
 ::: warning
 Cookies must be enabled in REST client side for authentication to persist across REST API calls.
