@@ -1,4 +1,4 @@
-# Create a case overview using the UI Designer
+# How to create a case overview using the UI Designer
 
 If you need to modify our default case overview or build your own case overview page, you will have to manage the display of
 both Cases and Archived cases.  
