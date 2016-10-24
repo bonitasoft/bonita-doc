@@ -1,10 +1,12 @@
 # portal API
 
+<a id="page"></a>
+
 ## Page
 
 #### Description
 
-Use the page resource to access custom pages.
+Use the page resource to access custom pages, UI Designer pages, layouts or forms and REST API extensions.
 
 #### Identifier
 
