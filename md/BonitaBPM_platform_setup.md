@@ -116,7 +116,7 @@ Keep in mind that the folder **`platform_conf/initial`** is not used anymore onc
 
 <a id="run_bundle_configure" />
 
-## Run the Bonita BPM bundle configuration (Tomcat 7 / WildFly 9)
+## Run the Bonita BPM bundle configuration (Tomcat 7 / WildFly 10)
 
 ::: info
 In the [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles, configuration is done automatically when calling `bonita-start.sh / .bat`

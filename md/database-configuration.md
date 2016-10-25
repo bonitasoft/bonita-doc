@@ -133,9 +133,9 @@ First, you need to download the JDBC driver for your database system. Use the li
 
 The way to install the JDBC driver depends on the application server:
 
-##### WildFly 9
+##### WildFly 10
 
-WildFly 9 manages JDBC drivers as modules, so to add a new JDBC driver, complete these steps:
+WildFly 10 manages JDBC drivers as modules, so to add a new JDBC driver, complete these steps:
 (see [WildFly documentation](https://docs.jboss.org/author/display/WFLY9/DataSource+configuration) for full reference):
 
 * Create a folder structure under `<WILDFLY_HOME>/modules` folder.  
@@ -155,7 +155,7 @@ Put the driver jar file in the relevant `main` folder.
 
 In the same folder as the driver, add the module description file, `module.xml`.
 This file describes the dependencies the module has and the content it exports.
-It must describe the driver jar and the JVM packages that WildFly 9 does not provide automatically.
+It must describe the driver jar and the JVM packages that WildFly 10 does not provide automatically.
 The exact details of what must be included depend of the driver jar.
 **Warning:** You might need to edit the `module.xml` in order to match exactly the JDBC driver jar file name.
 

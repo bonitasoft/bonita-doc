@@ -15,7 +15,7 @@ After logging in, the requested page is not displayed automatically. The user mu
 
 ## Configure Bonita BPM Engine and WildFly for CAS
 
-The deploy bundle contains the files needed to use CAS with Bonita BPM platform and a WildFly 9 application server.  
+The deploy bundle contains the files needed to use CAS with Bonita BPM platform and a WildFly 10 application server.  
 They are contained in `cas-3.3.1-module`. 
 
 You can use this folder to configure CAS for a platform deployed from the WildFly bundle or from the deploy bundle.  
