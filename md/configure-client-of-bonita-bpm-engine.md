@@ -105,7 +105,7 @@ By default the [WildFly bundle](wildfly-bundle.md) is configured to accept conne
 For an EJB3 client connection to work with WildFly 10, there are some additional configuration steps.
 
 If the client is not located on the same host than the WildFly server, you need to create a Application user in the WildFly administration console.  
-So open the WildFly administration console and [create a user account](https://docs.jboss.org/author/display/WFLY9/add-user+utility) to be used for remote connections (for example, username _bonita_ and password _bpm_).  
+So open the WildFly administration console and [create a user account](https://docs.jboss.org/author/display/WFLY10/add-user+utility) to be used for remote connections (for example, username _bonita_ and password _bpm_).  
 
 Your Java client needs to have the WildFly client classes in the classpath for it to communicate correctly with the server.  
 If you use Maven to manage your dependencies, add the following dependency in your pom.xml :

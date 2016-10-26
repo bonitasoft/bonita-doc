@@ -136,7 +136,7 @@ The way to install the JDBC driver depends on the application server:
 ##### WildFly 10
 
 WildFly 10 manages JDBC drivers as modules, so to add a new JDBC driver, complete these steps:
-(see [WildFly documentation](https://docs.jboss.org/author/display/WFLY9/DataSource+configuration) for full reference):
+(see [WildFly documentation](https://docs.jboss.org/author/display/WFLY10/DataSource+configuration) for full reference):
 
 * Create a folder structure under `<WILDFLY_HOME>/modules` folder.  
   Refer to the table below to identify the folders to create.  
