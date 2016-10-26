@@ -16,7 +16,7 @@ Pages are [exported. imported, modified, and deleted](resource-management.md) as
 
 A page resource has the general [resource definition](resource-management.md). 
 If it contains an `Index.groovy` file, this must implement the PageController interface optionally with libraries. 
-If you create a custom page with the UI designer, it has the reequired structure and content automatically.
+If you create a custom page with the UI designer, it has the required structure and content automatically.
 
 A custom page is displayed inside an iframe to prevent conflicts between the portal resources (for example JS and CSS) and those used in the custom page. 
 This also reduces the risk of migration issues, for example if a custom page uses the version of JQuery provided with Bonita BPM Portal and it is updated.

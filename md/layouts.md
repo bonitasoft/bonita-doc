@@ -60,7 +60,7 @@ For example: `<link href="css/file.css" rel="stylesheet" />`
 
 If your page is viewed in a custom profile or in an application, you will have access facilities for [the portal API](rest-api-overview.md).
 
-you will be abble to access the portal API using the following path: "../API/{API name}/{resource name}"
+you will be able to access the portal API using the following path: "../API/{API name}/{resource name}"
 
 ### Theme access
 
