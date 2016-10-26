@@ -31,7 +31,7 @@ Software required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Port
 | Tomcat 7.0.55 | ✔ |  | |
 | Tomcat 7.0.67 |  | ✔ | ✔ |
 | JBoss AS 7.1.1  |✔ | ✔ | |
-| WildFly 9.0.2  | | | ✔ |
+| WildFly 10.1.0  | | | ✔ |
 | Weblogic server 12c (12.1.\*) | ✔ | ✔ | ✔ |
 | **Database** |
 | MySQL 5.5.27 (see notes 1 and 2) | ✔ | ✔ | ✔ |
