@@ -26,7 +26,7 @@ If you use the default HTTPS port number, 443, users do not need to specify the 
 
 ## WildFly with keystore
 
-For details of how to set up SSL with WildFly 9, see the [SSL Configuration](https://docs.jboss.org/author/display/WFLY9/Admin+Guide#AdminGuide-EnableSSL) on the WildFly 9 web site.
+For details of how to set up SSL with WildFly 10, see the [SSL Configuration](https://docs.jboss.org/author/display/WFLY10/Admin+Guide#AdminGuide-EnableSSL) on the WildFly 10 web site.
 
 ## Tomcat with APR and OpenSSL
 
