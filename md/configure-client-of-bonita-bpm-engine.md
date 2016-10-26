@@ -72,7 +72,7 @@ org.bonitasoft.engine.api-type = LOCAL
 
 # Remote: EJB3
 #org.bonitasoft.engine.api-type = EJB3
-# WildFly 9
+# WildFly 10
 #java.naming.factory.url.pkgs = org.jboss.ejb.client.naming
 #default EJB reference name
 #org.bonitasoft.engine.ejb.naming.reference=ejb:bonita-ear/bonita-ejb/serverAPIBean!org.bonitasoft.engine.api.internal.ServerAPI
@@ -102,10 +102,10 @@ This HTTP access  is not secured, it should not be exposed outside a trusted are
 
 By default the [WildFly bundle](wildfly-bundle.md) is configured to accept connection for EJB3.
 
-For an EJB3 client connection to work with WildFly 9, there are some additional configuration steps.
+For an EJB3 client connection to work with WildFly 10, there are some additional configuration steps.
 
 If the client is not located on the same host than the WildFly server, you need to create a Application user in the WildFly administration console.  
-So open the WildFly administration console and [create a user account](https://docs.jboss.org/author/display/WFLY9/add-user+utility) to be used for remote connections (for example, username _bonita_ and password _bpm_).  
+So open the WildFly administration console and [create a user account](https://docs.jboss.org/author/display/WFLY10/add-user+utility) to be used for remote connections (for example, username _bonita_ and password _bpm_).  
 
 Your Java client needs to have the WildFly client classes in the classpath for it to communicate correctly with the server.  
 If you use Maven to manage your dependencies, add the following dependency in your pom.xml :
@@ -114,7 +114,7 @@ If you use Maven to manage your dependencies, add the following dependency in yo
 <dependency>
     <groupId>org.wildfly</groupId>
     <artifactId>wildfly-ejb-client-bom</artifactId>
-    <version>9.0.2.Final</version>
+    <version>10.1.0.Final</version>
     <type>pom</type>
 </dependency>
 ```
@@ -142,7 +142,7 @@ Update the `bonita-client.properties` file configured in the `${bonita.home}/cli
 ```
 # Remote: EJB3
 org.bonitasoft.engine.api-type = EJB3
-# WildFly 9
+# WildFly 10
 java.naming.factory.url.pkgs = org.jboss.ejb.client.naming
 #default EJB reference name
 org.bonitasoft.engine.ejb.naming.reference=ejb:bonita-ear/bonita-ejb/serverAPIBean!org.bonitasoft.engine.api.internal.ServerAPI
