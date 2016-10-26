@@ -31,7 +31,7 @@ SLF4J is a facade for various logging frameworks, and a logging framework must b
 By default in Bonita BPM Engine and Bonita BPM Portal, all logs are sent to the JUL framework. To configure what is logged and where it is stored, modify the JUL configuration. The method of configuring JUL depends on the application server you use:
 
 * Apache Tomcat: edit the logging.properties file located in conf folder (see the [Apache Tomcat logging documentation](http://tomcat.apache.org/tomcat-7.0-doc/logging.html)).
-* WildFly Application Server: some documentation is available in the WildFly 9.0 [Admin guide](https://docs.jboss.org/author/display/WFLY9/Logging+Configuration).
+* WildFly Application Server: some documentation is available in the WildFly 10 [Admin guide](https://docs.jboss.org/author/display/WFLY10/Logging+Configuration).
 * Other application server: refer to your application server documentation on Java Util Logging configuration.
 
 For the Tomcat embedded in Bonita BPM Studio, the JUL configuration file is located in the Studio installation folder under
