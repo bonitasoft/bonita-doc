@@ -23,7 +23,7 @@ It is useful to update the configuration, locally or from a remote computer.
 1. Download the deploy.zip file from the [Bonitasoft download page](http://www.bonitasoft.com/downloads-v2) for the Community edition 
 or from the [Customer Portal](https://customer.bonitasoft.com/download/request) for Subscription editions.
 2. Unzip the `deploy.zip` into a temporary folder.
-3. Install Bonita BPM in your Application Server, by merging the appropriate folder (e.g. `Wildfly-9.0.2.Final` or `Tomcat-7.0.67`) from `BonitaBPMSubscription-x.y.z-deploy` folder
+3. Install Bonita BPM in your Application Server, by merging the appropriate folder (e.g. `Wildfly-10.1.0.Final` or `Tomcat-7.0.67`) from `BonitaBPMSubscription-x.y.z-deploy` folder
 into the existing root folder of your application server.
 4. Follow the [Tomcat bundle steps](tomcat-bundle.md#configuration) or [WildFly bundle steps](wildfly-bundle.md#configuration)
 
