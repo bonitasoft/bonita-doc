@@ -136,4 +136,4 @@ you will be abble to access the portal API using the following path: "../API/{AP
 
 If your page is viewed in an application, you will have access facilities for [the application theme](applications.md).
 
-You can directly access a resource by adding the following link in `index.html`: `<link href="../theme/theme.css" rel="stylesheet" />`
+The `Theme.css` is directly accessible by adding the following link in `index.html`: `<link href="../theme/theme.css" rel="stylesheet" />`
