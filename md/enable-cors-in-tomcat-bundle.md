@@ -70,7 +70,7 @@ This page can be hosted on a different domain, and thanks to the CORS filter, th
 
 _**Important Note 1:** this example works on a bundle where the [CSRF security filter is activated](csrf-security). As the header "X-Bonita-API-Token" is set with the "session apiToken"._
 
-_**Important Note 2:** to use this page you will need to replace the BONITA_ACCESS_URL by your own tomcat bundle URL._
+_**Important Note 2:** to use this page you will need to replace the `BONITA_ACCESS_URL` by your own tomcat bundle URL._
 
 ```html
 
@@ -90,13 +90,13 @@ _**Important Note 2:** to use this page you will need to replace the BONITA_ACCE
      redirect: false
    };
    $.ajax({
-     url: "http://192.168.1.55:16936/bonita/loginservice",
+     url: "BONITA_ACCESS_URL/bonita/loginservice",
      type: "POST",
      data: formData,
      xhrFields: {withCredentials: true},
      success: function(data, textStatus, jqXHR) {
            $.ajax({
-             url: "http://192.168.1.55:16936/bonita/API/system/session/1",
+             url: "BONITA_ACCESS_URL/bonita/API/system/session/1",
              type: "GET",
              xhrFields: {withCredentials: true},
              success: function(data, textStatus, jqXHR) {
@@ -105,7 +105,7 @@ _**Important Note 2:** to use this page you will need to replace the BONITA_ACCE
                    console.log('X-Bonita-API-Token: ' + apiToken);
                    var formData = {"title":"Mr","manager_id":"0","job_title":"Chief Executive Officer","lastname":"Jobs","firstname":"Will"};
                    $.ajax({
-                         url: "http://192.168.1.55:16936/bonita/API/identity/user/1",
+                         url: "BONITA_ACCESS_URL/bonita/API/identity/user/1",
                          type: "PUT",
                          contentType: "application/json",
                          /*passing the X-Bonita-API-Token for the CSRF security filter*/
