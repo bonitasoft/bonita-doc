@@ -56,7 +56,7 @@ If later you need to change the configuration of the node discovery or add new l
 3. If your Bonita installation is behind a proxy (mainly in TcpIp or Aws discovery modes), you must declare its public address by adding the following property : `-Dhazelcast.local.publicAddress=*publicaddress*`, this property should be added in the `[TOMCAT_DIRECTORY]/bin/setenv.sh` or `[TOMCAT_DIRECTORY]/bin/setenv.bat`
 4. When the installation is complete, start Tomcat on the node. This starts Bonita BPM Platform:
    ```bash
-   ./bonita-start.sh
+   ./start-bonita.sh
    ```
 5. Then start the cluster in the load balancer.
 
@@ -83,7 +83,7 @@ You can add a new node to a cluster without interrupting service on the existing
 
 1. Copy the entire Tomcat / WildFly directory to another machine.
 2. If Hazelcast Node discovery is configured with TCP, update the configuration in database using the [platform setup tool page](BonitaBPM_platform_setup.md).
-3. Start the Tomcat on the new node, running `./bonita-start.sh` script
+3. Start the Tomcat on the new node, running `./start-bonita.sh` script
 4. Update the load balancer configuration to include the new node.
 
 The log file will contain messages of the following form:
@@ -144,7 +144,7 @@ To add more nodes, configure them like the first one. You can also refer to the 
 
 ### Stop a node
 
-Simply run `./bonita-stop.sh` script.
+Simply run `./stop-bonita.sh` script.
 
 ### Remove a node from a cluster
 
@@ -153,7 +153,7 @@ This section explains how to perform a planned shutdown and remove a node from t
 1. Update the load balancer configuration so that no further work is directed to the node. All work that is already in progress on the node that will be shutdown
    will continue until completion. Do not remove the node completely, because the load balancer needs to be informed when current work is finished.
 2. Allow current activity instances to complete.
-3. Stop the Tomcat server: run `./bonita-stop.sh`
+3. Stop the Tomcat server: run `./stop-bonita.sh`
 4. Update the load balancer to remove the node from the cluster.
 
 The node is now removed from the cluster.
