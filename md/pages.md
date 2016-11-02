@@ -1,6 +1,6 @@
 #  Pages
 
-This page explains how to use a page resource (also called a custom page) to the Portal and make it available to users. Page resources are intended for use in applications. You can also use a page resource to customize the portal, 
+This page explains how to use a page resource (also called a custom page) to the Bonita BPM Portal and make it available to users. Page resources are intended for use in applications. You can also use a page resource to customize the portal, 
 for example:
 
 * Add a welcome page, with dashboards showing activity in Bonita BPM and related external applications.
@@ -16,7 +16,7 @@ Pages are [exported. imported, modified, and deleted](resource-management.md) as
 
 A page resource has the general [resource definition](resource-management.md). 
 If it contains an `Index.groovy` file, this must implement the PageController interface optionally with libraries. 
-If you create a custom page with the UI designer, it has the required structure and content automatically.
+If you create a custom page with the UI Designer, it has the required structure and content automatically.
 
 A custom page is displayed inside an iframe to prevent conflicts between the portal resources (for example JS and CSS) and those used in the custom page. 
 This also reduces the risk of migration issues, for example if a custom page uses the version of JQuery provided with Bonita BPM Portal and it is updated.
@@ -59,7 +59,7 @@ resources=[GET|identity/user, GET|identity/personalcontactdata, GET|identity/pro
 
 ## Custom page examples
 
-Two example custom pages are available in the portal. Both examples show how to:
+Two example custom pages are available in the Bonita BPM Portal. Both examples show how to:
 
 * Get the Bonita CSS
 * Write simple HTML code
@@ -108,7 +108,7 @@ When you have finished developing the page, recreate the custom page zip archive
 
 ## Constraints
 
-A custom page is displayed in an iframe in the portal, so is isolated from changes to the portal. 
+A custom page is displayed in an iframe in the Bonita BPM Portal, so is isolated from changes to the portal. 
 When you migrate to a newer version of Bonita BPM, your custom page definition should still be valid. 
 However, this cannot be guaranteed for all future migrations.
 
