@@ -48,7 +48,7 @@ The WildFly bundle is based on a standard WildFly installation with the followin
 
 
 ::: info
-**Note:** For Bonita BPM 7.3.0 and earlier versions, Bonita BPM Platform configuration, including the license file, is stored in the same database as the Bonita BPM Engine data, namely in the `CONFIGURATION` table.  
+**Note:** Beginning with version 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database as the Bonita BPM Engine data, namely in the `CONFIGURATION` table.  
 To initialize and update this configuration, a [*Platform setup tool*](BonitaBPM_platform_setup.md) is provided and embedded in Bonita BPM bundles. 
 It will be launched automatically when you start the WildFly bundle to initialize the database.
 :::
@@ -115,7 +115,7 @@ For production, you are recommended to use one of the supported databases, with 
 1. Make sure your databases is created.
 2. Edit file `<WILDFLY_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita BPM internal database & Business Data database)
 3. If you use **Microsoft SQL Server** or **Oracle database**, copy your database drivers in `<WILDFLY_HOME>/setup/lib` folder. (H2, MySQL and PostgreSQL drivers are already shipped in the tool)
-4. Run `<WILDFLY_HOME>/start-bonita.sh (Unix system)` or `<WILDFLY_HOME>/start-bonita.bat` (Windows system) to run Bonita BPM WildFly bundle (see [WildFly start script](#wildfly_start))
+4. Run `<WILDFLY_HOME>/start-bonita.sh (Unix system)` or `<WILDFLY_HOME>\start-bonita.bat` (Windows system) to run Bonita BPM WildFly bundle (see [WildFly start script](#wildfly_start))
 
 
 ::: info

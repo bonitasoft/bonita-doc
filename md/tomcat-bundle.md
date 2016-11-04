@@ -61,7 +61,7 @@ The Tomcat bundle is based on a standard Tomcat installation with the following 
 * `stop-bonita.sh`: script to stop the bundle on Linux.
 
 ::: info
-**Note:** For Bonita BPM 7.3.0 and earlier versions, Bonita BPM Platform configuration, including the license file, is stored in the same database as the Bonita BPM Engine data, namely in the `CONFIGURATION` table.
+**Note:** Beginning with version 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database as the Bonita BPM Engine data, namely in the `CONFIGURATION` table.
 To initialize and update this configuration, a [*Platform setup tool*](BonitaBPM_platform_setup.md) is provided and embedded in Bonita BPM bundles.
 :::
 
@@ -126,7 +126,7 @@ For production, you are recommended to use one of the supported databases, with 
 1. Make sure your databases is created.
 2. Edit file `<TOMCAT_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita BPM internal database & Business Data database)
 3. If you use **Microsoft SQL Server** or **Oracle database**, copy your database drivers in `<TOMCAT_HOME>/setup/lib/` folder. (H2, MySQL and PostgreSQL drivers are already shipped in the tool)
-4. Run `<TOMCAT_HOME>/setup/start-bonita.sh` (Unix system) or `<TOMCAT_HOME>/setup/start-bonita.bat` (Windows system) to run Bonita BPM Tomcat bundle (see [Tomcat start script](#tomcat_start))
+4. Run `<TOMCAT_HOME>/setup/start-bonita.sh` (Unix system) or `<TOMCAT_HOME>\setup\start-bonita.bat` (Windows system) to run Bonita BPM Tomcat bundle (see [Tomcat start script](#tomcat_start))
 
 
 ::: info
@@ -193,7 +193,7 @@ To update the configuration after the first run please take a look at the [platf
 ::: info
 File `database.properties` is the entry point to configure the [Tomcat environment](BonitaBPM_platform_setup.md#run_bundle_configure)
 and the [Bonita BPM Platform configuration](BonitaBPM_platform_setup.md#configure_tool).
-Use command line arguments to specify database properties directly from the command line. Use `<TOMCAT_HOME>/setup/setup.sh --help` on Linux or `<TOMCAT_HOME>/setup/setup.bat --help` on Windows to have a list of available options.
+Use command line arguments to specify database properties directly from the command line. Use `<TOMCAT_HOME>/setup/setup.sh --help` on Linux or `<TOMCAT_HOME>\setup\setup.bat --help` on Windows to have a list of available options.
 :::
 
 ### How to update the license
