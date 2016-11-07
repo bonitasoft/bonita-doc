@@ -11,10 +11,14 @@ Click on the **links** below to find useful information quickly, or [browse the 
 <div class="menu-block-wrapper">
 
 * [Release notes ${varVersion}](release-notes.md)    <!--{li:.first .leaf}-->
-* [Bonita home removal for easier configuration](release-notes.md#bonita-home-removal)    <!--{li:.leaf}-->
-* [User task list redesign for better efficiency](release-notes.md#user-task)<!--{li:.leaf}-->
-* [New UI Designer widgets: File viewer and Rich text area](release-notes.md#new-widgets)<!--{li:.leaf}-->
-* [UI Designer usability improvements](release-notes.md#usability-improvements)<!--{li:.last .leaf}-->
+* [BDM usability improvements](release-notes.md#bdm-usability-improvements)    <!--{li:.leaf}-->
+* [UI Designer usability improvements](release-notes.md#uid-usability-improvements)<!--{li:.last .leaf}-->
+* [Task & Case Management](release-notes.md#task-and-case)<!--{li:.leaf}-->
+* [Bonita BPM Studio](release-notes.md#bpm-studio)<!--{li:.leaf}-->
+* [CSRF security mechanism is now enabled by default](release-notes.md#csrf-security)<!--{li:.leaf}-->
+* [Simplify platform installation](release-notes.md#platform-installation)<!--{li:.leaf}-->
+* [Support of Wildfly 10.1.0 application server](release-notes.md#technology-updates)<!--{li:.leaf}-->
+
 <!--{ul:.menu .nav}-->
 
 </div>
