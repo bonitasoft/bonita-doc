@@ -36,18 +36,19 @@ Whatever location you choose, **do not** leave blank spaces in the path to the d
 
 The WildFly bundle is based on a standard WildFly installation with the following additions:
 
-* `bin/standalone.conf`: script to configure JVM system properties on Linux systems.
-* `bin/standalone.conf.bat`: script to configure JVM system properties on Windows systems.
-* `bonita-start.bat`: script to start the bundle on Windows.
-* `bonita-start.sh`: script to start the bundle on Linux.
-* `standalone/configuration/standalone.xml`: WildFly context configuration for Bonita BPM Portal. It defines data sources used by Bonita BPM Engine.
-* `request_key_utils`: script to generate license request keys (Subscription editions only).
-* `standalone/deployments/bonita-all-in-one-[version].ear`: Bonita BPM Portal (web application) and EJB3 API.
-* `modules/system/layers/base/sun/jdk/main/module.xml`: list of base jdk module necessary for WildFly and Bonita to execute.
+* `server/bin/standalone.conf`: script to configure JVM system properties on Linux systems.
+* `server/bin/standalone.conf.bat`: script to configure JVM system properties on Windows systems.
+* `server/modules/system/layers/base/sun/jdk/main/module.xml`: list of base jdk module necessary for WildFly and Bonita to execute.
+* `server/request_key_utils`: script to generate license request keys (Subscription editions only).
+* `server/standalone/configuration/standalone.xml`: WildFly context configuration for Bonita BPM Portal. It defines data sources used by Bonita BPM Engine.
+* `server/standalone/deployments/bonita-all-in-one-[version].ear`: Bonita BPM Portal (web application) and EJB3 API.
 * `setup/`: a tool to manage Bonita BPM Platform configuration, stored in database instead of filesystem. Also ships a tool to centralize all the required WildFly bundle configuration.
+* `start-bonita.bat`: script to start the bundle on Windows.
+* `start-bonita.sh`: script to start the bundle on Linux.
+
 
 ::: info
-**Note:** Starting from Bonita BPM 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database as the Bonita BPM Engine data, namely in the `CONFIGURATION` table.  
+**Note:** Beginning with version 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database as the Bonita BPM Engine data, namely in the `CONFIGURATION` table.  
 To initialize and update this configuration, a [*Platform setup tool*](BonitaBPM_platform_setup.md) is provided and embedded in Bonita BPM bundles. 
 It will be launched automatically when you start the WildFly bundle to initialize the database.
 :::
@@ -71,7 +72,7 @@ As a security precaution, we **strongly recommend** that before you start your a
 
 #### Platform administrator
 
-The username and password for the platform administrator are defined in the file [`platform_engine/bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md), by the following properties:
+The username and password for the platform administrator are defined in the file [`<WILDFLY_HOME>/setup/platform_conf/initial/platform_engine/bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md), by the following properties:
 
 * `platformAdminUsername` defines the username (default `platformAdmin`)
 * `platformAdminPassword` defines the password (default `platform`)
@@ -82,7 +83,7 @@ This password is used for platform-level administration tasks, such as creating 
 
 Each tenant has an administrator, with a tenant-specific username and password. The tenant administrator is also known as the tenant technical user.
 
-When the platform is created, default values for the tenant administrator username and password are defined in the file [`tenant_template_engine/bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md), by the following properties:
+When the platform is created, default values for the tenant administrator username and password are defined in the file [`<WILDFLY_HOME>/setup/platform_conf/initial/tenant_template_engine/bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md), by the following properties:
 
 * `userName` defines the username (default `install`)
 * `userPassword` defines the password (default `install`)
@@ -91,7 +92,7 @@ When you create a tenant, the tenant administrator is created with the default u
 Change these tenant-specific credentials for an existing tenant by updating the `userName` and `userPassword` properties in `bonita-tenant-community-custom.properties`.
 
 ::: warning
-For the default tenant, the tenant administrator username and password must also be defined in file [`platform_portal/platform-tenant-config.properties`](BonitaBPM_platform_setup.md), with exactly the same values that you set in `bonita-tenant-community-custom.properties`.
+For the default tenant, the tenant administrator username and password must also be defined in file [`<WILDFLY_HOME>/setup/platform_conf/initial/platform_portal/platform-tenant-config.properties`](BonitaBPM_platform_setup.md), with exactly the same values that you set in `bonita-tenant-community-custom.properties`.
 At platform creation, this file contains the default username and password for the default tenant. 
 :::
 
@@ -100,7 +101,7 @@ At platform creation, this file contains the default username and password for t
 
 ### Specify the Subscription edition
 
-For **Performance** Subscription edition, edit [`setup/platform_conf/initial/platform_init_engine/bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md) by uncommenting the line and change the value of the `activeProfiles` key to `'community,performance'`.
+For **Performance** Subscription edition, edit [`<WILDFLY_HOME>/setup/platform_conf/initial/platform_init_engine/bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md) by uncommenting the line and change the value of the `activeProfiles` key to `'community,performance'`.
 
 <a id="configuration" />
 
@@ -112,24 +113,24 @@ For production, you are recommended to use one of the supported databases, with 
 :::
 
 1. Make sure your databases is created.
-2. Edit file `[WILDFLY_HOME]`/setup/**database.properties** and modify the properties to suit your databases (Bonita BPM internal database & Business Data database)
-3. If you use **Microsoft SQL Server** or **Oracle database**, copy your database drivers in `[WILDFLY_HOME]`/setup/lib folder. (H2, MySQL and PostgreSQL drivers are already shipped in the tool)
-4. Run `[WILDFLY_HOME]`/**bonita-start.sh** (Unix system) or `[WILDFLY_HOME]`\ **bonita-start.bat** (Windows system) to run Bonita BPM WildFly bundle (see [WildFly start script](#wildfly_start))
+2. Edit file `<WILDFLY_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita BPM internal database & Business Data database)
+3. If you use **Microsoft SQL Server** or **Oracle database**, copy your database drivers in `<WILDFLY_HOME>/setup/lib` folder. (H2, MySQL and PostgreSQL drivers are already shipped in the tool)
+4. Run `<WILDFLY_HOME>/start-bonita.sh (Unix system)` or `<WILDFLY_HOME>\start-bonita.bat` (Windows system) to run Bonita BPM WildFly bundle (see [WildFly start script](#wildfly_start))
 
 
 ::: info
-What is the **bonita-start.sh** script doing?
+What is the **start-bonita.sh** script doing?
 
-The **bonita-start** script does the following:
+The **start-bonita** script does the following:
 
 1. Runs the **`setup init`** command:
-    1. initializes the Bonita BPM internal database (the one you defined in file `setup/database.properties`): creates the tables that Bonita BPM uses internally + stores the configuration in database.
+    1. initializes the Bonita BPM internal database (the one you defined in file `<WILDFLY_HOME>/setup/database.properties`): creates the tables that Bonita BPM uses internally + stores the configuration in database.
     2. install the license files (Subscription editions only) in the database.
 2. Runs the **`setup configure`** command:
     The Setup Configure command configures the WildFly environment to access the right databases:
-    1. It updates the file `[WILDFLY_HOME]`/standalone/configuration/**standalone.xml** with the database values you set in file `database.properties` for **Bonita BPM internal database** & **Business Data database**
-    2. It creates the file(s) `[WILDFLY_HOME]`/modules/**/main/**modules.xml** that WildFly needs, according to your database settings
-    3. It copies your database drivers into `[WILDFLY_HOME]`/modules/**/**main**/ folders
+    1. It updates the file `<WILDFLY_HOME>/standalone/configuration/standalone.xml` with the database values you set in file `database.properties` for **Bonita BPM internal database** & **Business Data database**
+    2. It creates the file(s) `<WILDFLY_HOME>/modules/**/main/modules.xml` that WildFly needs, according to your database settings
+    3. It copies your database drivers into `<WILDFLY_HOME>/modules/**/main/` folders
 3. Starts the WildFly bundle
 
 Advanced users: check out [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to finely tune your WildFly bundle, using templates.
@@ -145,8 +146,8 @@ Advanced users: check out [Bundle configuration](BonitaBPM_platform_setup.md#run
 
 WildFly can be started by executing the following script:
 
-* Windows `<WILDFLY_HOME>\bonita-start.bat`
-* Linux `<WILDFLY_HOME>/bonita-start.sh`
+* Windows `<WILDFLY_HOME>\start-bonita.bat`
+* Linux `<WILDFLY_HOME>/start-bonita.sh`
 
 #### Specifying the number of available CPU cores
 
@@ -158,8 +159,8 @@ To do so, please [create a custom WildFly start-up script](specify-cpu-cores.md)
 
 WildFly can be shut down by executing the following script:
 
-* Windows `<WILDFLY_HOME>\bin\jboss-cli.bat --connect --command=:shutdown`
-* Linux `<WILDFLY_HOME>/bin/jboss-cli.sh --connect --command=:shutdown`
+* Windows `<WILDFLY_HOME>\server\bin\jboss-cli.bat --connect --command=:shutdown`
+* Linux `<WILDFLY_HOME>/server/bin/jboss-cli.sh --connect --command=:shutdown`
 
 You can also press Ctrl + C.
 

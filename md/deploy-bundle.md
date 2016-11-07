@@ -8,15 +8,16 @@
 
 ## Deploy bundle content
 
-* `BonitaBPMSubscription-`_`version`_`-LDAP-Synchronizer`: the LDAP Synchronizer (Subscription editions only).
-* `Wildfly-`_`version`_: a folder/file structure to be merged with an existing setup of WildFly in order to install Bonita BPM Portal and Bonita BPM Engine.
-* `License`: license files that apply to Bonita components.
-* `Request_key_utils-6.0`: include script files to generate license request keys.
 * `Tomcat-`_`version`_: a folder/file structure to be merged with an existing setup of Apache Tomcat, in order to install Bonita BPM Portal and Bonita BPM Engine.
+* `Wildfly-`_`version`_: a folder/file structure to be merged with an existing setup of WildFly in order to install Bonita BPM Portal and Bonita BPM Engine.
 <a id="platform_setup_tool" />
-* `platform-setup`: a command-line tool that creates the Bonita BPM platform before it can be run. It creates the Bonita BPM platform internal database, and stores the runtime configuration.
+* `setup`: a command-line tool that creates the Bonita BPM platform before it can be run. It creates the Bonita BPM platform internal database, and stores the runtime configuration.
 It is useful to update the configuration, locally or from a remote computer.
-* `README.TXT`: contains the detailed contents and structure of the `deploy.zip`.
+* `Request_key_utils-`_`key_utils.version`_: include script files to generate license request keys.
+* `LDAP-Synchronizer-`_`LDAPSync.version`_: LDAP synchronizer to synchronize your organization in Bonita with your LDAP
+* `cas-`_`cas.version`_`-module`: Module files and description to enable CAS dependency to bonita EAR.
+* `License`: license files that apply to Bonita components.
+* `README.TXT`: See this file for more details about the `deploy.zip` contents and structure. 
 
 ## Installation
 
