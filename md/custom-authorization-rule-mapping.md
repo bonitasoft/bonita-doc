@@ -185,7 +185,7 @@ bonita.tenant.authorization.rule.mapping=customAuthorizationRuleMapping
 * restart server
 
 ```
-./bonita-stop.sh
-./bonita-start.sh
+./stop-bonita.sh
+./start-bonita.sh
 ```
 
