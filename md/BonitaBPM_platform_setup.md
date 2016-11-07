@@ -25,9 +25,10 @@ It is composed of the following items:
     * `current/`: will contain configuration files after a `pull` from the database is made.
     * `licenses/`: (Subscriptions only) ==> must contain the license file to allow Bonita BPM Platform to start without error.
     * `sql/`: SQL scripts that are used to create the Bonita BPM database tables
+* `database.properties`: contains properties to connect to the database on which the configuration is managed.
 * `setup.sh`: Unix / Mac script to run.
 * `setup.bat`: Windows script to run.
-* `database.properties`: contains properties to connect to the database on which the configuration is managed.
+
 
 ### Functions
 
@@ -76,7 +77,7 @@ If you are using a Tomcat or WildFly bundle, you have probably already configure
 You can initialize Bonita BPM Platform manually on an empty database using the *Platform setup tool*.
 
 ::: info
-Remember that in the [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles, this is done automatically when calling `bonita-start.sh / .bat`
+Remember that in the [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles, this is done automatically when calling `start-bonita.sh / .bat`
 :::
 
 To do so, proceed as follows:
@@ -119,7 +120,7 @@ Keep in mind that the folder **`platform_conf/initial`** is not used anymore onc
 ## Run the Bonita BPM bundle configuration (Tomcat 7 / WildFly 10)
 
 ::: info
-In the [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles, configuration is done automatically when calling `bonita-start.sh / .bat`
+In the [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles, configuration is done automatically when calling `start-bonita.sh / .bat`
 :::
 
 1. Update the file `database.properties` with the database properties matching your environment (db vendor name, server name, server port, connection username and password)
