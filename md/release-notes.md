@@ -1,13 +1,18 @@
 # Release notes
 
-Below are the changes introduced in Bonita BPM 7.4
+Bonita BPM 7.4 Beta includes a set of user-based product enhancements, bug fixes related to Bonita BPM Engine, 
+a new REST connector and important technology updates.
 
 ## user-based product enhancements
+
+<a id="bdm-usability-improvements"/>
 
 ### BDM
 * .xml is now the storage format in the Studio repository making it possible using any VCS to handle a diff of 2 different revisions of the same BDM
 * in the Studio, a new menu gives access to the H2 console to visualize and browse business data
-* when importing a .bos file in the Studio it is possible to select another repository in order to manage resources from multiple projects (SP)
+* when importing a .bos file in the Studio it is possible to select another repository in order to manage resources from multiple projects `(SP)`
+
+<a id="uid-usability-improvements"/>
 
 ### UI Designer
 * URL parameter variable is updated when URL changes
@@ -15,6 +20,7 @@ Below are the changes introduced in Bonita BPM 7.4
 * possibility to order and filter variables
 * reload open preview window instead of opening a new one
 
+<a id="task-and-case"/>
 
 ### Task & Case Management
 * possibility to use an expression to compute the estimated task due date
@@ -22,29 +28,35 @@ Below are the changes introduced in Bonita BPM 7.4
 * possibility to retrieve a task based on its cased ID
 * possibility to list all open tasks related to a task
 
-New widgets in UI Designer for Subscription edition:
+<a id="bpm-studio"/>
 
 ### Bonita BPM Studio
 * when importing a .bos file, 3 options are now available:
-** import it in the current repository,
-** import in another existing repository,
-** create a new repository
+    * import it in the current repository,
+    * import in another existing repository,
+    * create a new repository
 * possibility to define a process contract input with the type long. Sending long values is the way to send IDs via call activity
-* process simulation capability available in the Studio has been removed from the product (removed)
+* process simulation capability available in the Studio has been removed from the product `(removed)`
 
 ### Connectivity
-* new REST connector to make REST calls from any service task and connect to a third-party system (new)
+* new REST connector to make REST calls from any service task and connect to a third-party system `(new)`
 * improved CMIS connector including support of multiple documents (list & upload)
+
+<a id="csrf-security"/>
 
 ### Security
 * CSRF security mechanism is now enabled by default when installing Bonita BPM
 
+<a id="platform-installation"/>
+
 ### Platform installation
 * As a system administrator I can configure all required data sources (process engine + BDM) in one place
 
+<a id="technology-updates"/>
+
 ## Technology updates
-### support of Wildfly 10.1.0 application server replacing Jboss AS 7.1.1
-### clustering: upgrade to Hazelcast 3.6.3 (SP)
+* support of Wildfly 10.1.0 application server replacing Jboss AS 7.1.1
+* clustering: upgrade to Hazelcast 3.6.3 `(SP)`
 
 ## Limitations and known issues
 
