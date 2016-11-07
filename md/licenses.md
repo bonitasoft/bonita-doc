@@ -40,10 +40,10 @@ A production license can allow four CPU cores or more. If your server has more C
 Below you can find some examples to limit execution of standalone Tomcat setup to 2 CPU cores:
 
 For Windows:   
-`start /AFFINITY 3 bonita-start.bat` where 3 is the affinity mask (expressed as a hexadecimal number). 1 -\> 1 CPU core, 3 -\> 2 CPU cores, 7 -\> 3 CPU cores, 15 -\> 4 CPU cores...
+`start /AFFINITY 3 start-bonita.bat` where 3 is the affinity mask (expressed as a hexadecimal number). 1 -\> 1 CPU core, 3 -\> 2 CPU cores, 7 -\> 3 CPU cores, 15 -\> 4 CPU cores...
 
 For Linux:   
-`#!/bin/sh taskset -c 0,1 bonita-start.sh `  where 0,1 indicates CPU cores to use. You can set a list of CPU cores to use or a range. E.g.: 0,1,2,3 or 0-3
+`#!/bin/sh taskset -c 0,1 start-bonita.sh `  where 0,1 indicates CPU cores to use. You can set a list of CPU cores to use or a range. E.g.: 0,1,2,3 or 0-3
 
 ## Get a new license
 

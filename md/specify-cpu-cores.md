@@ -6,7 +6,7 @@ To do so, create a custom startup script to start Tomcat / WildFly only with the
 
 For example:
 
-* For Windows: `start /AFFINITY 3 bonita-start.bat` (where 3 is the affinity mask expressed as a hexadecimal number)
+* For Windows: `start /AFFINITY 3 start-bonita.bat` (where 3 is the affinity mask expressed as a hexadecimal number)
 
 This table explains the relation between the hexadecimal parameter of the command and the physical CPUs you targeted.
 As an example, if hexadecimal parameter is equal to 6. The corresponding binary number is 0110, that means you will only target the CPU 2 and CPU 3.
@@ -26,5 +26,5 @@ As an example, if hexadecimal parameter is equal to 6. The corresponding binary 
 
 
 
-* For Linux: `taskset -c 0,1 bonita-start.sh` 
-    * Change the last line of the file to `taskset -c 0,1 bonita-start.sh 0,1` (where 0,1 indicate that you will only use 2 CPU, the CPU0 and the CPU1. This list may contain multiple items, separated by comma, and ranges. For example, 0,5,7,9-11)
+* For Linux: `taskset -c 0,1 start-bonita.sh` 
+    * Change the last line of the file to `taskset -c 0,1 start-bonita.sh 0,1` (where 0,1 indicate that you will only use 2 CPU, the CPU0 and the CPU1. This list may contain multiple items, separated by comma, and ranges. For example, 0,5,7,9-11)
