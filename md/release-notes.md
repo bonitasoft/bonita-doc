@@ -42,7 +42,7 @@ New widgets in UI Designer for Subscription edition:
 ### Platform installation
 * As a system administrator I can configure all required data sources (process engine + BDM) in one place
 
-## user-based product enhancements
+## Technology updates
 ### support of Wildfly 10.1.0 application server replacing Jboss AS 7.1.1
 ### clustering: upgrade to Hazelcast 3.6.3 (SP)
 
