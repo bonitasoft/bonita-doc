@@ -268,7 +268,7 @@ If your database already exists, see the Oracle documentation for details of how
 
 Bonita BPM Engine uses datasources that handle global transactions that span resources (XADataSource), so the Oracle user used by Bonita BPM Engine, requires some specific privileges, and there are also specific settings for XA activation.
 
-##### **Important information for a successful connection**
+#### **Important information for a successful connection**
 
 The procedure below is used to create the settings to enable the Bonita BPM Engine to connect to the Oracle database.
 
@@ -333,7 +333,7 @@ It is assumed in the procedure that:
    GRANT FORCE ANY TRANSACTION TO bonita;
    ```
 
-#### SQL Server
+### SQL Server
 
 ::: warning
 There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft in the Tomcat bundle and in the Tomcat directories of the Deploy bundle) and the Microsoft SQL Server driver
@@ -341,7 +341,7 @@ There is a known issue between Bitronix (the Transaction Manager shipped by Boni
 Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the JBoss bundle provided by Bonitasoft.
 :::
 
-##### XA Transactions
+#### XA Transactions
 
 To support XA transactions, SQL Server requires a specific configuration.
 
@@ -379,7 +379,7 @@ Here is the list of steps to perform (as an example, the database name BONITA\_B
 16. Create the BONITA\_BPM database: `CREATE DATABASE BONITA_BPM GO`.
 17. Set `bonitadev` as owner of BONITA\_BPM database (use, for example, 'Microsoft SQL Management Studio')
 
-##### Recommended configuration for lock management
+#### Recommended configuration for lock management
 
 Run the script below to avoid deadlocks:
 
@@ -392,9 +392,9 @@ ALTER DATABASE BONITA_BPM SET MULTI_USER
 
 See [MSDN](https://msdn.microsoft.com/en-us/library/ms175095(v=sql.110).aspx).
 
-#### MySQL
+### MySQL
 
-##### Maximum packet size
+#### Maximum packet size
 
 MySQL defines a maximum packet size on the server side. The default value for this settings are appropriate for most standard use cases.
 However, you need to increase the packet size if you see the following error:
@@ -405,7 +405,7 @@ Look for `max_allowed_packet` settings and reduce the value.
 
 For more information, see the [MySQL website](http://dev.mysql.com/doc/refman/5.5/en/packet-too-large.html).
 
-##### Surrogate characters not supported
+#### Surrogate characters not supported
 
 MySQL does not support [surrogate characters](https://en.wikipedia.org/wiki/Universal_Character_Set_characters#Surrogates).
 If you want to use surrogate characters in your processes, you need to use another type of database.
