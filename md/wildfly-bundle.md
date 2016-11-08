@@ -112,9 +112,9 @@ If you just want to try Bonita BPM Platform with the embedded h2 database (only 
 For production, you are recommended to use one of the supported databases, with the following steps.
 :::
 
-1. Make sure your databases is created.
+1. Make sure [your databases are created](database-configuration.md#database_creation) and [configured](database-configuration.md#specific_database_configuration).
 2. Edit file `<WILDFLY_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita BPM internal database & Business Data database)
-3. If you use **Microsoft SQL Server** or **Oracle database**, copy your database drivers in `<WILDFLY_HOME>/setup/lib` folder. (H2, MySQL and PostgreSQL drivers are already shipped in the tool)
+3. If you use **Microsoft SQL Server** or **Oracle** database, copy your database drivers in `<WILDFLY_HOME>/setup/lib` folder. (H2, MySQL and PostgreSQL drivers are already shipped in the tool)
 4. Run `<WILDFLY_HOME>/start-bonita.sh (Unix system)` or `<WILDFLY_HOME>\start-bonita.bat` (Windows system) to run Bonita BPM WildFly bundle (see [WildFly start script](#wildfly_start))
 
 
@@ -128,9 +128,9 @@ The **start-bonita** script does the following:
     2. install the license files (Subscription editions only) in the database.
 2. Runs the **`setup configure`** command:
     The Setup Configure command configures the WildFly environment to access the right databases:
-    1. It updates the file `<WILDFLY_HOME>/standalone/configuration/standalone.xml` with the database values you set in file `database.properties` for **Bonita BPM internal database** & **Business Data database**
-    2. It creates the file(s) `<WILDFLY_HOME>/modules/**/main/modules.xml` that WildFly needs, according to your database settings
-    3. It copies your database drivers into `<WILDFLY_HOME>/modules/**/main/` folders
+    1. It updates the file `<WILDFLY_HOME>/server/standalone/configuration/standalone.xml` with the database values you set in file `database.properties` for **Bonita BPM internal database** & **Business Data database**
+    2. It creates the file(s) `<WILDFLY_HOME>/server/modules/**/main/modules.xml` that WildFly needs, according to your database settings
+    3. It copies your database drivers into `<WILDFLY_HOME>/server/modules/**/main/` folders
 3. Starts the WildFly bundle
 
 Advanced users: check out [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to finely tune your WildFly bundle, using templates.
@@ -192,5 +192,17 @@ To update the licenses after the first run please take a look at the [platform s
 
 **Solution**: Increase the WildFly application deployment timeout in file `standalone.xml` in folder `setup/wildlfy-templates`. Look for `'<deployment-scanner ... deployment-timeout="600" ...'`
 and change it to a higher value (in seconds).
+
+---
+
+**Issue**:  
+My **Microsoft SQL Server** or **Oracle** database drivers do not seem to be taken into account when I put them in `<WILDFLY_HOME>/setup/lib` folder.
+
+**Potential cause**:  
+Driver file must respect some naming convention.
+
+**Solution**:  
+For Microsoft SQL Server, rename it so that the name contains at least the word `sqlserver` or `sqljdbc` (case insensitive)  
+For Oracle, rename it so that the name contains at least the word `oracle` or `ojdbc` (case insensitive)
 
 ---
