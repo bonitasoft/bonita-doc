@@ -14,7 +14,7 @@ So just add a new variable with:
 ```
 - Name = caseId
 - Type = URL parameter
-- URL parameter name = caseId
+- URL parameter name = id
 ```
 
 ## Is there an existing open case for our `caseId`
@@ -25,7 +25,7 @@ So we will create a new variable:
 ```
 - Name = openCase
 - Type = External API
-- API URL = ../API/bpm/case/{{caseId}}
+- API URL = ../API/bpm/case/{{caseId}}?d=started_by&d=processDefinitionId
 ```
 
 If the case is open,  
