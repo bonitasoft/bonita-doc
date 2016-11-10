@@ -107,9 +107,9 @@ To work on a page in debug mode:
 `<java.io.tmpdir>` for Tomcat platform is `<TOMCAT_HOME>/temp/`
 :::
 
-1. Import your custom page zip archive into the portal. This creates a directory `<java.io.tmpdir>/temp/bonita_portal_*/tenants/tenant_id/pages/custompage_<your custom page>`.
+1. Import your custom page zip archive into the portal. This creates a directory `<java.io.tmpdir>/bonita_portal_*/tenants/tenant_id/pages/custompage_<your custom page>`.
 2. Publish the page to a profile, then log out and log in as a user having this profile.
-3. You can now update `Index.groovy` and the contents of the `lib` directory directly in `<java.io.tmpdir>/temp/bonita_portal_*/tenants/tenant_id/pages/custompage_<your custom page>`.
+3. You can now update `Index.groovy` and the contents of the `lib` directory directly in `<java.io.tmpdir>/bonita_portal_*/tenants/tenant_id/pages/custompage_<your custom page>`.
 4. To view the page after you modify it, refresh the page in the browser.
 
 When you have finished developing the page, recreate the custom page zip archive, and then modify the page to import it. This makes your final version of the page permanently available.
