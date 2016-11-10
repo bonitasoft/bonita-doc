@@ -54,6 +54,8 @@ To resolve a process:
 
 ## Disable a process
 
+Disable a process can block the creation of new cases, this does not impact existing cases and the use for call activities.
+
 1. Go to the BPM tab
 2. Click _**Processes**_
 3. Click _**Enabled filter**_
