@@ -251,8 +251,6 @@ Now that you are almost done with the switch from h2 to your chosen RDBMS, you c
   * Remove h2 jar files (`h2-1.3.170.jar`). Files are located in: `<TOMCAT_HOME>/lib` or in `<TOMCAT_HOME>/lib/bonita`.
   * Check that h2 is no longer set in JVM system property value. Also, for extra security, you can remove it from `bonita-platform.properties` file and replace it with the value for your chosen RDBMS.
 
-<a id="specific_database_configuration" />
-
 ## Specific database configuration
 
 ### PostgreSQL
