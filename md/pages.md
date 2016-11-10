@@ -59,7 +59,7 @@ resources=[GET|identity/user, GET|identity/personalcontactdata, GET|identity/pro
 
 ## Custom page examples
 
-Two example custom pages are available in the Bonita BPM Portal. Both examples show how to:
+Two custom page examples are available in the Bonita BPM Portal. Both examples show how to:
 
 * Get the Bonita CSS
 * Write simple HTML code

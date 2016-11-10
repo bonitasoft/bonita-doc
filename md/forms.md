@@ -33,7 +33,9 @@ The `Theme.css` is directly accessible by adding the following link in `index.ht
 This link is already inserted in the forms you design with the UI Designer.
 
 ::: info 
-Theme is loaded via the `app` URL parameter. The living application layout inject this `app` URL parameter in the targeted page/form URL.
+The `app` URL parameter is used to retrieve the current application related Theme.      
+The living application layout inject this `app` URL parameter in the targeted page/form URL, and the value is the application token.                
+If you create your own navigation link, you will need to include this `app` URL parameter in the forged form URL, in order to be able to benefit from the application theme. 
 :::
 
 ::: info
