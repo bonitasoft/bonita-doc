@@ -1850,6 +1850,9 @@ The methods used for this resource are:
       "type":"java.lang.Float"
     }
     ```
+* **Limitations**
+  It is not compatible to render Complexe Data Type variable
+  
 
 #### Update a case variable
 
