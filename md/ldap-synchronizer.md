@@ -65,15 +65,13 @@ You can use a tool such as [native2ascii](http://docs.oracle.com/javase/7/docs/t
 
 You also need to [configure connection on Bonita BPM Engine](configure-client-of-bonita-bpm-engine.md) for the LDAP Synchronizer.
 
-**Note:** This is not the same as the bonita.home used by the server. Every client needs its own bonita.home.
-
 ### bonita.properties
 
 This file defines the connection settings and specifies the account used for user synchronization (requires administration privileges).
 
 | Item | Description | Default |
 |:-----|:------------|:--------|
-| bonita\_home | The path to the Bonita Home folder of the LDAP Synchronizer. |  |
+| bonita\_home | The path to the Bonita Home folder of the LDAP Synchronizer. (deprecated) |  |
 | login | The login to provide is a userName.  | install |
 | password | Password of the Bonita BPM account used for synchronization. | install |
 | technicalUser | This is the [username of the platform adminstrator](first-steps-after-setup.md). | platformAdmin |
