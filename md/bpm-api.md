@@ -1850,7 +1850,7 @@ The methods used for this resource are:
       "type":"java.lang.Float"
     }
     ```
-::: warning _Limitations_  It is not compatible to render no primitif Java variable :::
+::: warning **Limitations** When using a Java Object variable,  `value` field contains the `toString()` value of the object, you may implement a `toString()` on your Java Object that serialized the object into a json string ( eg:  [Jackson ObjectMapper](http://wiki.fasterxml.com/JacksonInFiveMinutes) ) :::  
   
 
 #### Update a case variable
