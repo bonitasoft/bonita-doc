@@ -26,8 +26,8 @@ Here is an example of programmatic configuration to an engine
 
 ```java
 HashMap<String,String> parameters= new HashMap<>();
-parameters.put("org.bonitasoft.engine.api-type.server.url","http://myserver.com:8080");
-parameters.put("org.bonitasoft.engine.api-type.application.name","bonita-application");
+parameters.put("server.url","http://myserver.com:8080");
+parameters.put("application.name","bonita-application");
 APITypeManager.setAPITypeAndParams(ApiAccessType.HTTP, parameters)
 ```
 
@@ -36,9 +36,9 @@ You can set the system property `org.bonitasoft.engine.api-type` to `HTTP`, `EJB
  * `HTTP`:
    The `HTTP` connection mode will connect the client to the engine using the http protocol. This is the most common way to connect to engine remotly.  
    When using `HTTP` mode, you must set the following system properties
-   * `org.bonitasoft.engine.api-type.server.url`
+   * `server.url`
       It is the url of the server, e.g. for a engine on the same host it can be `http://localhost:8080`
-   * `org.bonitasoft.engine.api-type.application.name`
+   * `application.name`
 
       It is the the of the web aplication on wich the engine HTTP API is deployed, e.g. `bonita`
  * `EJB3`
