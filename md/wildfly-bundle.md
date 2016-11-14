@@ -180,3 +180,17 @@ File `database.properties` is the only entry point to configure the WildFly envi
 
 ### How to update the license
 To update the licenses after the first run please take a look at the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
+
+
+## Troubleshooting
+
+---
+
+**Issue**: When I restart the WildFly bundle, the Bonita BPM application starts and then stops with message `WFLYSRV0009: Undeployed "bonita-all-in-one-...`
+
+**Potential cause**: There are too many BPM elements to restart.
+
+**Solution**: Increase the WildFly application deployment timeout in file `standalone.xml` in folder `setup/wildlfy-templates`. Look for `'<deployment-scanner ... deployment-timeout="600" ...'`
+and change it to a higher value (in seconds).
+
+---
