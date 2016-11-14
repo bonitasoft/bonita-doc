@@ -134,8 +134,6 @@ Studio log file can be displayed from Bonita BPM Studio in "Help" -\> "Show Boni
 If Studio fails to start, you can open the log file manually. File is named `.log` and is located in `<studio_folder>/workspace/.metadata` folder.   
 Note that folder might be hidden and file might not be displayed if you choose to hide file extensions in your file manager.
 
-There is a separate log file for the UI Designer, `<studio_folder>/workspace/tomcat/logs/ui-designer.log`.
-
 #### OutOfMemory error in Bonita BPM Studio
 
 After installation, you might see an `OutOfMemory` error in Bonita BPM Studio.  
