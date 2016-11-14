@@ -169,9 +169,9 @@ For WildFly:
 
 ---
 
-**Problem**: When I run Platform setup tool, I get the exception `Cannot determine database vendor (valid values are h2, postgres, sqlserver, oracle, mysql).`
+**Issue**: When I run Platform setup tool, I get the exception `Cannot determine database vendor (valid values are h2, postgres, sqlserver, oracle, mysql).`
 
-**Possible cause**: property `db.vendor` is not found when reading file `database.properties`
+**Potential cause**: property `db.vendor` is not found when reading file `database.properties`
 
 **Solution**: Edit file `database.properties` and ensure there is a valid `db.vendor` value. Also ensure the line is not commented (no `#` at the beginning of the line)
 
