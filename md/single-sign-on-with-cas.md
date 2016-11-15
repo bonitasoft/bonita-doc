@@ -136,8 +136,9 @@ Bonita BPM uses the CAS LoginModule in the JASIG implementation, so see the CAS 
 2. In the `CasLoginModule` configuration, check that the `principalGroupName` property is set to `CallerPrincipal`.  
    This is required to retrieve the username from the Bonita application.  
    Bonita BPM uses the CAS LoginModule in the JASIG implementation, so see the CAS LoginModule section of the [Jasig documentation](https://wiki.jasig.org/display/CASC/JAAS+Integration) for more information.
-3. Put the CAS client core jar (currently `cas-client-core-3.2.1.jar`) in the `/lib` folder.
-4. Update `bonita-tenant-sp-custom.properties` from `setup/platform_conf/initial/tenant_template_engine/` if platform has not been initialized yet or `setup/platform_conf/current/tenants/[TENANT_ID]/tenant_engine/` and `setup/platform_conf/current/tenant_template_engine/`.
+3. Copy `cas-client-core-3.3.1.jar` from `BonitaBPMSubscription-7.3.x-deploy` into the `/lib` directory.
+4. Copy `commons-logging-1.1.1.jar` from `BonitaBPMSubscription-7.3.x-deploy` into the `/lib` directory.
+5. Update `bonita-tenant-sp-custom.properties` from `setup/platform_conf/initial/tenant_template_engine/` if platform has not been initialized yet or `setup/platform_conf/current/tenants/[TENANT_ID]/tenant_engine/` and `setup/platform_conf/current/tenant_template_engine/`.
    1. Remove the comment flags from these lines:
       `authentication.service.ref.name=jaasAuthenticationService`
    2. **Optionally**, to enable anonymous user to access a process, uncomment this lines:
