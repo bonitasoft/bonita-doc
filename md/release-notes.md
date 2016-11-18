@@ -24,9 +24,9 @@ a new REST connector and important technology updates.
 
 ### Task & Case Management
 * possibility to use an expression to compute the estimated task due date
-* possibility to re-order the list of task & connector operations
+* possibility to re-order the list of task & connector operations in the Studio
 * possibility to retrieve a task based on its cased ID
-* possibility to list all open tasks related to a task
+* possibility to list all open tasks related to a case
 
 <a id="bpm-studio"/>
 
