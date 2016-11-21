@@ -20,7 +20,7 @@ You need to deploy the REST API zip archive using Bonita BPM Portal:
 REST API extensions use the same authorization mechanism as the standard Bonita BPM REST APIs. When you import the extension, the information in `page.properties` is used to create the appropriate resource permission mappings in Bonita BPM (see [REST API authorization](rest-api-authorization.md) for information about REST API security configuration).
 
 ::: info
-**Note**: It is also possible to deploy a REST API extension using [REST portal API / "page" resource](page_6.4_1.md).
+**Note**: It is also possible to deploy a REST API extension using [REST portal API / "page" resource](portal-api.md#page).
 :::
 
 ::: warning

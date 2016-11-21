@@ -1,4 +1,4 @@
-# Create a case overview using the UI Designer
+# How to create a case overview using the UI Designer
 
 If you need to modify our default case overview or build your own case overview page, you will have to manage the display of
 both Cases and Archived cases.  
@@ -11,9 +11,10 @@ Create a new page in the UI Designer.
 This page will be used to display the case details related to a specific `caseId`.  
 We will get this `caseId` using the page URL.  
 So just add a new variable with:  
-```css
+```
 - Name = caseId
 - Type = URL parameter
+- URL parameter name = id
 ```
 
 ## Is there an existing open case for our `caseId`
@@ -21,10 +22,10 @@ So just add a new variable with:
 To know if there is an open case for our `caseId`,  
 we need to get the case using a `Get` request on the API `bpm/case`.  
 So we will create a new variable:  
-```css
+```
 - Name = openCase
 - Type = External API
-- API URL = ../API/bpm/case/{{caseId}}
+- API URL = ../API/bpm/case/{{caseId}}?d=started_by&d=processDefinitionId
 ```
 
 If the case is open,  
@@ -36,7 +37,7 @@ Else the object `openCase` will be undefined due to `404 error`.
 To know if there is an archived case for our `caseId`,  
 we need to get the case using a `Get` request on the API `bpm/archivedCase` filtered on `sourceObjectId={{caseId}}`.  
 So we will create a new variable:  
-```css
+```
 - Name = archivedCase
 - Type = External API
 - API URL = ../API/bpm/archivedCase?c=1&d=started_by&d=processDefinitionId&f=sourceObjectId%3D{{caseId}}&p=0
@@ -60,14 +61,14 @@ Maybe we need to display different information for open cases or for Archived ca
 Then we can create tow different containers that will be conditionally shown.  
 
 Open case details will be shown if `openCase` is defined:  
-```css
+```
 Bind the property 'hidden' of the container  with
 value= !openCase
 ```
 
 
 Archived case details will be shown if `archivedCase` is not empty:    
-```css
+```
 Bind the property 'hidden' of the container  with
 value= ((!archivedCase) || (archivedCase.length==0))
 ```
