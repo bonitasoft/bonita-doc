@@ -48,7 +48,8 @@ The WildFly bundle is based on a standard WildFly installation with the followin
 
 ::: info
 **Note:** Beginning with version 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database as the Bonita BPM Engine data, namely in the `CONFIGURATION` table.  
-The initialization of this configuration happens during start-bonita.bat (for Windows) or start.bonita.sh (for Linux) execution. To update this configuration, use the [*Platform setup tool*](BonitaBPM_platform_setup.md) embedded in Bonita BPM bundles.  
+The initialization of this configuration happens during start-bonita.bat (for Windows) or start.bonita.sh (for Linux) execution.  
+Once initialized, to update this configuration, use the [*Platform setup tool*](BonitaBPM_platform_setup.md) embedded in Bonita BPM bundles.  
 :::
 
 ### Get and install a license (Subscription editions only)
@@ -169,8 +170,6 @@ WildFly can be shut down by executing the following script:
 * Linux `<WILDFLY_HOME>/server/bin/jboss-cli.sh --connect --command=:shutdown`
 
 You can also press Ctrl + C.
-
-<a id="post-install" />
 
 ## After installation
 

@@ -62,8 +62,8 @@ The Tomcat bundle is based on a standard Tomcat installation with the following 
 
 ::: info
 **Note:** Beginning with version 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database as the Bonita BPM Engine data, namely in the `CONFIGURATION` table.
-The initialization of this configuration happens during `start-bonita.bat` (for Windows) or `start.bonita.sh` (for Linux) execution.
-To update this configuration, use the [*Platform setup tool*](BonitaBPM_platform_setup.md) embedded in Bonita BPM bundles.
+The initialization of this configuration happens during `start-bonita.bat` (for Windows) or `start.bonita.sh` (for Linux) execution.  
+Once initialized, to update this configuration, use the [*Platform setup tool*](BonitaBPM_platform_setup.md) embedded in Bonita BPM bundles.
 :::
 
 ### Get and install a license (Subscription editions only)
@@ -184,8 +184,6 @@ Tomcat can be shut down by executing the following script:
 **Troubleshooting:**
 If you see `checkThreadLocalMapForLeaks` errors, they probably indicate that Tomcat is shutting down before all work threads are completed.
 You can [increase the work service termination timeout](performance-tuning.md) to ensure that work is complete before shutdown.
-
-<a id="post-install" />
 
 ## After installation
 

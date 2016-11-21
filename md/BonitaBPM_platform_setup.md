@@ -13,7 +13,8 @@ Use the setup tool to update the configuration of Bonita BPM Platform, update th
 
 ## Platform setup tool overview
 
-The *Platform setup tool* handles the creation of the database schema and the configuration of Bonita BPM Platform.  
+The *Platform setup tool* handles the creation of the database schema and the configuration of Bonita BPM Platform.
+It also allows to configure a Tomcat or a WildFly bundle without the need for a fully manual configuration.  
 It is located in the [deploy bundle](deploy-bundle.md) and in both [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles.
 
 ::: info
@@ -68,7 +69,7 @@ A `setup pull`action must be performed before et `setup push`action to avoid dat
 Before running it, the tool must be configured to point to the database of the Bonita BPM Platform.
 
 To do so, after you have created the database and customized it so it works with Bonita BPM, modify the tool `database.properties` file:  
-Set the right db vendor by commenting and uncommenting properties inside this file and change connection url, user credentials, database name and so on.
+Set the right db vendor and change connection url, user credentials, database name and so on.
 
 If you are using an Oracle or Microsoft SQL Server database, add the related JDBC driver in the `lib` folder. 
 
@@ -81,7 +82,7 @@ If you are using a Tomcat or WildFly bundle, you have probably already configure
 
 <a id="init_platform_conf" />
 
-## Initialize Bonita BPM Platform
+## Initialize Bonita BPM Platform (`init` command)
 
 You can initialize Bonita BPM Platform manually on an empty database using the *Platform setup tool*.
 
@@ -102,7 +103,7 @@ That's it! You can now run Bonita BPM Platform on this database.
 
 <a id="run_bundle_configure" />
 
-## Configure the server (Tomcat 7 / WildFly 10)
+## Configure the server (Tomcat 7 / WildFly 10) (`configure` command)
 
 ::: info
 In the [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles, configuration is done automatically when calling `start-bonita.sh / .bat`
@@ -136,8 +137,8 @@ If you need to pass more than 8 parameters, use file `database.properties` inste
 :::
 
 ::: info
-You do not need to configure Tomcat / WildFly files directly anymore. This tool does it for you.
-If you decide to do it anyway, the tool will overwrite your custom values (after storing a restore backup in `tomcat-backups` or `wildfly-backups`).
+You do not need to configure Tomcat / WildFly files directly anymore. The command `setup configure` does it for you.
+If you decide to do it anyway, the tool will overwrite your custom values (after storing a restore backup into folder `tomcat-backups` or `wildfly-backups`).
 If you need to finely tune the configuration, modify the following template files, as they serve as a basis for configuration:
 
 For Tomcat:
@@ -153,17 +154,17 @@ For WildFly:
 
 <a id="update_platform_conf" />
 
-## Update Bonita BPM Platform configuration or licenses
+## Update Bonita BPM Platform configuration or licenses  (`pull` and `push` commands)
 
 If you want to modify the configuration or update a license in an already initialized Bonita BPM Platform, you must use the *Platform setup tool* as follows:
 
    1. Stop Bonita BPM Platform (optional)
    2. If not already done, update the `database.properties` of the *Platform setup tool* to point to the database used by Bonita BPM Platform.
-   3. Run `setup.sh pull` or `setup.bat pull` from the tool. It will get the current configuration and put it in the `platform_conf/current` folder.
+   3. Run `setup.sh pull` or `setup.bat pull` from the tool. It will extract the current configuration from database and put it in the `platform_conf/current` folder.
    4. Modify the configuration files inside the `platform_conf/current` folder according to your needs.
-   5. If you are updating your license file, put it inside `platform_conf/licenses`, along with the existing ones. If some retrieved license files are not valid anymore, you can remove them, to delete them from the database when pushed.
-   6. Run `setup.sh push` or `setup.bat push` from the tool.
-   7. Start Bonita BPM Platform.
+   5. (Subscriptions only) If you are updating your license file, put it inside `platform_conf/licenses`, along with the existing ones. If some retrieved license files are not valid anymore, you can remove them, to delete them from the database when pushed.
+   6. Run `setup.sh push` or `setup.bat push` from the tool to update the configuration in the database.
+   7. (Re-)Start Bonita BPM Platform.
 
 
 ::: warning
