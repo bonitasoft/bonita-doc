@@ -130,6 +130,23 @@ The platform setup tool is also present in the Tomcat or WildFly bundle under th
         * set one of `bonita.platform.cluster.hazelcast.multicast.enabled`, `bonita.platform.cluster.hazelcast.tcpip.enabled` and `bonita.platform.cluster.hazelcast.aws.enabled` to true
         uncomment the # properties and set only one them to `true`, set the others to `false` depending on how you want your nodes to discover each others,
         for more information on this take a look at the [Hazelcast Documentation](http://docs.hazelcast.org/docs/3.4/manual/html-single/index.html#discovering-cluster-members).
+* Change quartz scheduler name in database: required when Bonita BPM version is `7.3.1` or lower, otherwise this step is managed by migration tool.
+    * disable foreign keys on tables `qrtz_cron_triggers`, `qrtz_simple_triggers`, `qrtz_simprop_triggers` and `qrtz_triggers`
+    * execute following SQL update:
+    ```sql
+    UPDATE QRTZ_LOCKS SET SCHED_NAME = 'BonitaClusteredScheduler';
+    UPDATE QRTZ_CRON_TRIGGERS SET SCHED_NAME = 'BonitaClusteredScheduler';
+    UPDATE QRTZ_SIMPLE_TRIGGERS SET SCHED_NAME = 'BonitaClusteredScheduler';
+    UPDATE QRTZ_JOB_DETAILS SET SCHED_NAME = 'BonitaClusteredScheduler';
+    UPDATE QRTZ_FIRED_TRIGGERS SET SCHED_NAME = 'BonitaClusteredScheduler';
+    UPDATE QRTZ_TRIGGERS SET SCHED_NAME = 'BonitaClusteredScheduler';
+    UPDATE QRTZ_SCHEDULER_STATE SET SCHED_NAME = 'BonitaClusteredScheduler';
+    UPDATE QRTZ_SIMPROP_TRIGGERS SET SCHED_NAME = 'BonitaClusteredScheduler';
+    UPDATE QRTZ_CALENDARS SET SCHED_NAME = 'BonitaClusteredScheduler';
+    UPDATE QRTZ_BLOB_TRIGGERS SET SCHED_NAME = 'BonitaClusteredScheduler';
+    UPDATE QRTZ_PAUSED_TRIGGER_GRPS SET SCHED_NAME = 'BonitaClusteredScheduler';
+    ```
+    * enable foreign keys on tables `qrtz_cron_triggers`, `qrtz_simple_triggers`, `qrtz_simprop_triggers` and `qrtz_triggers`
 * Copy licenses of all your nodes in `platform_conf/licenses`
 * Run the `setup.sh push` or `setup.bat push`. This will update in database the configuration of your platform.
 
