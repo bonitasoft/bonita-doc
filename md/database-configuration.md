@@ -401,7 +401,7 @@ However, you need to increase the packet size if you see the following error:
 `Error: 1153 SQLSTATE: 08S01 (ER_NET_PACKET_TOO_LARGE) Message: Got a packet bigger than 'max_allowed_packet' bytes`
 
 You need to update the file `my.ini` (for Windows) or `my.cnf` (for Linux) to avoid the `ER_NET_PACKET_TOO_LARGE` problem.
-Look for `max_allowed_packet` settings and reduce the value.
+Look for `max_allowed_packet` settings and increase the value.
 
 For more information, see the [MySQL website](http://dev.mysql.com/doc/refman/5.5/en/packet-too-large.html).
 
