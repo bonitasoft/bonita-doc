@@ -1,26 +1,24 @@
 
 # Platform configuration
 
-In this section you will learn what the Platform setup tool is and how to use it to initialize and configure the Bonita BPM Platform.
+In this section you will learn what the Platform setup tool is and how to use it to configure the Bonita BPM Platform, manage your licenses (for Subscription users), and for special use cases, initialize the bundle.
 
 :::info
 **Note:** First thing to know is that for all basic installation and start scenarios, you don't need to use the setup tool. 
-Run `start-bonita.bat`(for Windows) or `sart-bonita.sh` (for Unix) to initialize, configure and start the bundle.
-Use the setup tool to update the configuration of Bonita BPM Platform, update the license file, or manage advanced installation and start scenarios.
+We made it easy for you by creating `start-bonita.bat`(for Windows) or `sart-bonita.sh` (for Unix), a script that initializes, configures and starts the bundle, using the Platform setup tool.
 :::
 
 <a id="platform_setup_tool" />
 
-## Platform setup tool overview
+## Platform setup tool overview and use
 
-The *Platform setup tool* handles the creation of the database schema and the configuration of Bonita BPM Platform.
-It also allows to configure a Tomcat or a WildFly bundle without the need for a fully manual configuration.  
-It is located in the [deploy bundle](deploy-bundle.md) and in both [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles.
+The *Platform setup tool* handles:
+  - The creation of the database tables
+  - The configuration of the Tomcat or WildFly bundle with this database without the need for a fully manual configuration
+  - The management of Bonita BPM Platform configuration (stored in the database) 
+  - The management of licenses (also stored in the database)
 
-::: info
-In Tomcat and WildFly bundles, you can find the tool in the `setup` folder
-:::
-
+It is located in both [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles, and also in the [deploy bundle](deploy-bundle.md). In Tomcat and WildFly bundles, you can find the tool in the `setup` folder.
 
 ### Structure
 
@@ -28,7 +26,7 @@ It is composed of the following items:
 * `platform_conf/`
     * `initial/`: contains the default configuration of Bonita BPM Platform, that can be customized and will be pushed when the database is created.
     * `current/`: contains configuration files after a `pull` from the database is made.
-    * `licenses/`: (Subscriptions only) ==> must contain the license file to allow Bonita BPM Platform to start without error.
+    * `licenses/`: (Subscriptions only) contains the license file to allow Bonita BPM Platform to start without error.
     * `sql/`: SQL scripts used to create Bonita BPM database tables
 * `database.properties`: contains properties to connect to the database on which the configuration is managed.
 * `setup.sh`: Unix / Mac script to run.
@@ -37,82 +35,72 @@ It is composed of the following items:
 
 ### Functions
 
-This tool has 4 functions:
-
-* Initializes the database: `init`
-
-  It creates the database schema and pushes the initial configuration in the database.
-  This initial configuration is taken from the `platform_conf/initial` folder.
-
-* Configures a Bonita BPM Tomcat / WildFly bundle: `configure`
-
-  If run from inside a Bonita BPM bundle, it configures the Application Server environment, preventing the need to configure all Tomcat / WildFly configuration files manually.
-  
-**Note:** those first two actions are performed automatically when you run `start-bonita` script.
-
-* Retrieves current configuration: `pull`
-
-  It gets the current configuration of Bonita BPM Platform in the database and saves it in the `platform_conf/current` folder.  
-
-* Updates current configuration: `push`
-
-  It pushes the modified configuration from the `platform_conf/current` folder into the database of an already initialized Bonita BPM Platform
-
-**Note:** Those two actions must be used to update the configuration of Bonita BPM Platform and update the license file.
-A `setup pull`action must be performed before et `setup push`action to avoid database inconsistency.
-
-
-<a id="configure_tool" />
-
-## Configure the Platform setup tool
-
-Before running it, the tool must be configured to point to the database of the Bonita BPM Platform.
-
-To do so, after you have created the database and customized it so it works with Bonita BPM, modify the tool `database.properties` file:  
-Set the right db vendor and change connection url, user credentials, database name and so on.
-
-If you are using an Oracle or Microsoft SQL Server database, add the related JDBC driver in the `lib` folder. 
-
-::: warning
-If you are using a Tomcat or WildFly bundle, you have probably already configured file `database.properties` during the installation phase, as described in
-[Tomcat bundle](tomcat-bundle.md#configuration) and [WildFly bundle](wildfly-bundle.md#configuration).
-:::
-
-
+The script `setup`comes with 4 options:
 
 <a id="init_platform_conf" />
 
-## Initialize Bonita BPM Platform (`init` command)
+* `init`, to initialize the database
 
-You can initialize Bonita BPM Platform manually on an empty database using the *Platform setup tool*.
+  It creates the database tables and pushes the initial configuration in the database.  
+  This initial configuration is taken from the `platform_conf/initial` folder.  
+  It is run by the global script `start_bonita`, but you can also insert it in your own scripts.
 
-::: info
-Remember that in the [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles, this is done automatically when calling `start-bonita.sh / .bat`
-:::
+<a id="config_platform_conf" />
 
-To do so, proceed as follows:
-
-   1. Create a new empty database.
-   2. Configure the *Platform setup tool* as explained above.
-   3. From the tool, run `setup.sh init` (Unix/Mac) or `setup.bat init` (Windows).
-
-This last step will connect to the database pointed to in `database.properties`, create the tables required for the platform to run, push all configuration from the `platform_conf/initial` folder and push the licenses from the licenses folder.
-
-That's it! You can now run Bonita BPM Platform on this database.
-
-
-<a id="run_bundle_configure" />
-
-## Configure the server (Tomcat 7 / WildFly 10) (`configure` command)
+* `configure`, to configure the server of a Bonita BPM Tomcat / WildFly bundle on the database: 
+  If run from inside a Bonita BPM bundle, it configures the Application Server environment, so you don't need to configure all Tomcat / WildFly basic configuration files manually.  
+  It is run by the global script `start-bonita`, but you can also insert it in your own scripts.
 
 ::: info
-In the [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles, configuration is done automatically when calling `start-bonita.sh / .bat`
+You do not need to configure Tomcat / WildFly files directly anymore. The command `setup configure` does it for you.
+If you decide to do it anyway, the tool will overwrite your custom values (after storing a restore backup into folder `tomcat-backups` or `wildfly-backups`).
+If you need to finely tune the configuration, modify the following template files, as they serve as a basis for configuration:
+
+For Tomcat:
+* tomcat-templates/bitronix-resources.properties
+* tomcat-templates/bonita.xml
+* tomcat-templates/setenv.sh
+* tomcat-templates/setenv.bat
+
+For WildFly:
+* wildfly-templates/standalone.xml
 :::
 
-1. Update the file `database.properties` with the database properties matching your environment (db vendor name, server name, server port, connection username and password)
-2. **Oracle and SQL Server only**: add your JDBC drivers in `setup/lib` folder.
-3. From the setup folder, run `./setup.sh configure` (Unix/Mac) or `setup.bat configure` (Windows).
+<a id="update_platform_conf" />
 
+* `pull`, to retrieve the current configuration 
+
+  It gets the current configuration of Bonita BPM Platform from the database and saves it locally in the `platform_conf/current` folder.  
+  **Note:** You must pull the configuration from the database every time you need to update your license file or edit the configuration of Bonita BPM Platform. Since some information is inserted by the platform itself in the database, this prevents database inconsistency.
+
+* `push`, to update the configuration of Bonita BPM Platform, and update your license
+
+  It gets the platform configuration you have edited locally in the folder `platform_conf/current` folder and pushes it to the database.  
+  To make the platform take your changes into account, you must (re-)start Bonita BPM Platform.
+
+::: warning
+Note that the *Platform Setup tool* does not need Bonita BPM Server to be running for the configuration to be updated. However, the server needs to be restarted for the changes to be taken into account.
+:::
+
+::: info
+Keep in mind that the folder **`platform_conf/initial`** is not used anymore once the platform has been initialized for the first time. To update your configuration, only the **`platform_conf/current`** folder is taken into account.
+:::
+
+<a id="configure_tool" />
+
+## Pre-requisites
+
+Before running it, make sure the setup tool is configured to point to the database of the Bonita BPM Platform.  
+
+::: info
+**Note:** If you are using a [Tomcat bundle](tomcat-bundle.md#configuration) or a [WildFly bundle](wildfly-bundle.md#configuration), those steps may already be done.
+:::
+
+Here is how to do so:
+   1. Create the database
+   2. Customize it so it works with Bonita BPM
+   3. Modify the tool `database.properties` file: Set the right db vendor and change connection url, user credentials, database name and so on.
+   4. If you are using an Oracle or Microsoft SQL Server database, add the related JDBC driver in the `lib` folder. 
 
 ::: info
 Instead of modifying the `database.properties` file, you can set the required database values through the command line (with Java-like system properties).
@@ -134,45 +122,6 @@ setup.bat configure "-Ddb.vendor=postgres" "-Ddb.server.name=localhost" "-Ddb.se
 ::: warning
 For Windows users: Due to Windows Batch limitations, only 8 parameters are supported.
 If you need to pass more than 8 parameters, use file `database.properties` instead.
-:::
-
-::: info
-You do not need to configure Tomcat / WildFly files directly anymore. The command `setup configure` does it for you.
-If you decide to do it anyway, the tool will overwrite your custom values (after storing a restore backup into folder `tomcat-backups` or `wildfly-backups`).
-If you need to finely tune the configuration, modify the following template files, as they serve as a basis for configuration:
-
-For Tomcat:
-* tomcat-templates/bitronix-resources.properties
-* tomcat-templates/bonita.xml
-* tomcat-templates/setenv.sh
-* tomcat-templates/setenv.bat
-
-For WildFly:
-* wildfly-templates/standalone.xml
-:::
-
-
-<a id="update_platform_conf" />
-
-## Update Bonita BPM Platform configuration or licenses  (`pull` and `push` commands)
-
-If you want to modify the configuration or update a license in an already initialized Bonita BPM Platform, you must use the *Platform setup tool* as follows:
-
-   1. Stop Bonita BPM Platform (optional)
-   2. If not already done, update the `database.properties` of the *Platform setup tool* to point to the database used by Bonita BPM Platform.
-   3. Run `setup.sh pull` or `setup.bat pull` from the tool. It will extract the current configuration from database and put it in the `platform_conf/current` folder.
-   4. Modify the configuration files inside the `platform_conf/current` folder according to your needs.
-   5. (Subscriptions only) If you are updating your license file, put it inside `platform_conf/licenses`, along with the existing ones. If some retrieved license files are not valid anymore, you can remove them, to delete them from the database when pushed.
-   6. Run `setup.sh push` or `setup.bat push` from the tool to update the configuration in the database.
-   7. (Re-)Start Bonita BPM Platform.
-
-
-::: warning
-Note that the *Platform Setup tool* does not need Bonita BPM Server to be running for the configuration to be updated. However, the server needs to be restarted for the changes to be taken into account.
-:::
-
-::: warning
-Keep in mind that the folder **`platform_conf/initial`** is not used anymore once the platform has been initialized for the first time. To update your configuration, only the **`platform_conf/current`** folder is taken into account.
 :::
 
 
