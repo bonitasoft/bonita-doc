@@ -74,13 +74,13 @@ If this is the first time you generate a license, you need to generate a request
 #### Generate the request key
 
 On the server where you installed Bonita BPM Platform:
-    1. Go to the request_key_utils folder
-    2. Run the `generateRequestKey.bat` script (for Windows) or the `generateRequestKey.sh` script (for Linux)
+1. Go to the request_key_utils folder
+2. Run the `generateRequestKey.bat` script (for Windows) or the `generateRequestKey.sh` script (for Linux)
     
 #### Request the new license
 
-   3. Copy your request key and go to the Customer Portal license request page.
-   4. Fill in the details in the form, copy the request key in the _Request Key_ field, and submit.
+1. Copy your request key and go to the Customer Portal license request page.
+2. Fill in the details in the form, copy the request key in the _Request Key_ field, and submit.
       Note: keep the brackets () in the key; if the key is separated by a line break, remove it and put the key on a single line.
 
 The license file will be sent to you by email.
