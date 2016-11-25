@@ -115,8 +115,7 @@
     * [WildFly bundle](wildfly-bundle.md)
     * [Deploy bundle](deploy-bundle.md)
     * [Platform configuration](BonitaBPM_platform_setup.md)
-    * [Database configuration for engine data](database-configuration.md)
-    * [Database configuration for business data](database-configuration-for-business-data.md)
+    * [Database creation and customization to work with Bonita BPM](database-configuration.md)
     * [First steps after setup](first-steps-after-setup.md)
     * [Licenses](licenses.md)
   * [Advanced Bonita BPM Platform installation](_advanced-bonita-bpm-platform-installation.md)
@@ -258,5 +257,3 @@
   * [Manage multiple references in Business Objects](bo-multiple-refs-tutorial.md)
   * [Map authorization rules](custom-authorization-rule-mapping.md)
   * [Use the rich textarea widget in a mail template](rta-mail-template.md)
-
-
