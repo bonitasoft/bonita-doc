@@ -46,18 +46,30 @@ The WildFly bundle is based on a standard WildFly installation with the followin
 * `start-bonita.bat`: script to start the bundle on Windows.
 * `start-bonita.sh`: script to start the bundle on Linux.
 
-
 ::: info
 **Note:** Beginning with version 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database as the Bonita BPM Engine data, namely in the `CONFIGURATION` table.  
-To initialize and update this configuration, a [*Platform setup tool*](BonitaBPM_platform_setup.md) is provided and embedded in Bonita BPM bundles. 
-It will be launched automatically when you start the WildFly bundle to initialize the database.
+The initialization of this configuration happens during start-bonita.bat (for Windows) or start.bonita.sh (for Linux) execution.  
+Once initialized, to update this configuration, use the [*Platform setup tool*](BonitaBPM_platform_setup.md) embedded in Bonita BPM bundles.  
 :::
-
-
 
 ### Get and install a license (Subscription editions only)
 
-First, [request a license](licenses.md).
+First, request a license.
+If this is the first time you generate a license, you need to generate a request key.
+
+#### Generate the request key
+
+On the server where you installed Bonita BPM Platform:
+1. Go to the request_key_utils folder
+2. Run the `generateRequestKey.bat` script (for Windows) or the `generateRequestKey.sh` script (for Linux)
+    
+#### Request the new license
+
+1. Copy your request key and go to the Customer Portal license request page.
+2. Fill in the details in the form, copy the request key in the _Request Key_ field, and submit.  
+   Note: keep the brackets () in the key; if the key is separated by a line break, remove it and put the key on a single line.
+
+The license file will be sent to you by email.
 
 <a id="license" />
 
@@ -108,32 +120,29 @@ For **Performance** Subscription edition, edit [`<WILDFLY_HOME>/setup/platform_c
 ### Configure the WildFly bundle
 
 ::: info
-If you just want to try Bonita BPM Platform with the embedded h2 database (only for development phase of your project), you can skip this paragraph.
+If you just want to try Bonita BPM Platform with the embedded H2 database (only for development and testing phases of your project), you can skip this paragraph.
 For production, you are recommended to use one of the supported databases, with the following steps.
 :::
 
-1. Make sure your databases is created.
+1. Make sure [your databases are created](database-configuration.md#database_creation) and [customized to work with Bonita BPM](database-configuration.md#specific_database_configuration).
 2. Edit file `<WILDFLY_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita BPM internal database & Business Data database)
-3. If you use **Microsoft SQL Server** or **Oracle database**, copy your database drivers in `<WILDFLY_HOME>/setup/lib` folder. (H2, MySQL and PostgreSQL drivers are already shipped in the tool)
-4. Run `<WILDFLY_HOME>/start-bonita.sh (Unix system)` or `<WILDFLY_HOME>\start-bonita.bat` (Windows system) to run Bonita BPM WildFly bundle (see [WildFly start script](#wildfly_start))
-
+3. If you use **Microsoft SQL Server** or **Oracle** database, copy your database drivers in `<WILDFLY_HOME>/setup/lib` folder. 
+4. Run `<WILDFLY_HOME>\start-bonita.bat` (Windows system) or `<WILDFLY_HOME>/start-bonita.sh (Unix system)` to run Bonita BPM WildFly bundle (see [WildFly start script](#wildfly_start))
 
 ::: info
-What is the **start-bonita.sh** script doing?
-
 The **start-bonita** script does the following:
 
 1. Runs the **`setup init`** command:
-    1. initializes the Bonita BPM internal database (the one you defined in file `<WILDFLY_HOME>/setup/database.properties`): creates the tables that Bonita BPM uses internally + stores the configuration in database.
+    1. initializes the Bonita BPM internal database (the one you have defined in file `<WILDFLY_HOME>/setup/database.properties`): creates the tables that Bonita BPM uses internally + stores the configuration in database.
     2. install the license files (Subscription editions only) in the database.
 2. Runs the **`setup configure`** command:
     The Setup Configure command configures the WildFly environment to access the right databases:
-    1. It updates the file `<WILDFLY_HOME>/standalone/configuration/standalone.xml` with the database values you set in file `database.properties` for **Bonita BPM internal database** & **Business Data database**
-    2. It creates the file(s) `<WILDFLY_HOME>/modules/**/main/modules.xml` that WildFly needs, according to your database settings
-    3. It copies your database drivers into `<WILDFLY_HOME>/modules/**/main/` folders
+    1. updates the file `<WILDFLY_HOME>/server/standalone/configuration/standalone.xml` with the values you set in file `database.properties` for **Bonita BPM internal database** & **Business Data database**
+    2. creates the file(s) `<WILDFLY_HOME>/server/modules/**/main/modules.xml` that WildFly needs, according to your database settings
+    3. copies your database vendor-specific drivers into `<WILDFLY_HOME>/server/modules/**/main/` folders
 3. Starts the WildFly bundle
 
-Advanced users: check out [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to finely tune your WildFly bundle, using templates.
+For advanced server configuration needs: check out [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to finely tune your WildFly bundle, using templates used by Bonita BPM.
 :::
 
 <a id="start" />
@@ -149,11 +158,9 @@ WildFly can be started by executing the following script:
 * Windows `<WILDFLY_HOME>\start-bonita.bat`
 * Linux `<WILDFLY_HOME>/start-bonita.sh`
 
-#### Specifying the number of available CPU cores
+If your Subscription edition license covers fewer CPU cores than are available on your server, you must limit the number of CPUs available in the start script.
 
-If you have a Subscription edition license covering fewer CPU cores than are available on your server, you must limit the number of CPUs available.
-
-To do so, please [create a custom WildFly start-up script](specify-cpu-cores.md)
+To do so, [create a custom WildFly start-up script](specify-cpu-cores.md)
 
 #### WildFly stop script
 
@@ -164,13 +171,13 @@ WildFly can be shut down by executing the following script:
 
 You can also press Ctrl + C.
 
+## After installation
 
-
-## First steps after installation
+### First steps after installation
 
 Once you have your WildFly bundle up and running, complete these [first steps](first-steps-after-setup.md) to get Bonita BPM Platform fully operational.
 
-### How to update the configuration
+### Configuration update
 To update the configuration after the first run please take a look at the [*Platform setup tool*](BonitaBPM_platform_setup.md#update_platform_conf)
 
 ::: info
@@ -178,9 +185,8 @@ File `database.properties` is the only entry point to configure the WildFly envi
 [Bonita BPM Platform configuration](BonitaBPM_platform_setup.md#configure_tool)
 :::
 
-### How to update the license
-To update the licenses after the first run please take a look at the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
-
+### License update
+To update the licenses after the first run, take a look at the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
 
 ## Troubleshooting
 
@@ -192,5 +198,17 @@ To update the licenses after the first run please take a look at the [platform s
 
 **Solution**: Increase the WildFly application deployment timeout in file `standalone.xml` in folder `setup/wildlfy-templates`. Look for `'<deployment-scanner ... deployment-timeout="600" ...'`
 and change it to a higher value (in seconds).
+
+---
+
+**Issue**:  
+My **Microsoft SQL Server** or **Oracle** database drivers do not seem to be taken into account when I put them in `<WILDFLY_HOME>/setup/lib` folder.
+
+**Potential cause**:  
+Driver file must respect some naming convention.
+
+**Solution**:  
+For Microsoft SQL Server, rename it so that the name contains at least the word `sqlserver` or `sqljdbc` (case insensitive)  
+For Oracle, rename it so that the name contains at least the word `oracle` or `ojdbc` (case insensitive)
 
 ---
