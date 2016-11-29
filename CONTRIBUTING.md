@@ -133,6 +133,10 @@ In the page to navigate from, use the following:
 
     [textToDescribeTheLink](pageName.md#section-Name)
 
+If anchor is in the same page , use the following:
+
+    [textToDescribeTheLink](#section-Name)
+
 ### Font Awesome
 
 The markdown-it-fontawesome plugin has been activated and you can use [Font Awesome](http://fontawesome.io/icons/) icons with their name surrounded by colons.
