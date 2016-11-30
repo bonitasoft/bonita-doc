@@ -142,7 +142,7 @@ Supported values: list of LDAP watched directory object identifiers separated by
 The syntax for watched directory object properties is detailed in the next section.
 * bonita\_nosync\_users: specifies the list of users who should not be synchronized.  
 Supported values: user names separated by commas.
-* bonita\_user\_role: specified the profile assigned to Bonita users.  
+* bonita\_user\_role: specifies the role assigned to Bonita users.  
 Default value: user
 * bonita\_deactivate\_users: optional parameter that specifies whether the tool should deactivate Bonita BPM users who are not present in LDAP. 
 When bonita\_deactivate\_users is set to true, a Bonita BPM user who is not present in LDAP is deactivated. The user are not removed from Bonita BPM, but they cannot start process instances or do tasks.
