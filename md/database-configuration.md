@@ -6,8 +6,8 @@ Bonita BPM uses an RDBMS (Relational DataBase Management System) for the followi
  - One database schema is required by Bonita BPM Engine to store information about deployed process definitions, process configurations, history of process execution, users, as well as Bonita BPM Platform configuration information. 
 - We recommend that you configure a different database schema if your project uses [business data](define-and-deploy-the-bdm.md).
 
-Bonita BPM supports MySQL, PostgreSQL, SQL Server, and Oracle RDBMSs.  
-For Subscription users, you can find the updated list of RDBMSs versions supported in the [Customer Portal supported RDBMSs](https://customer.bonitasoft.com/support-policies/2219).
+Bonita BPM supports MySQL, PostgreSQL, SQL Server, and Oracle RDBMSs.
+You can find the list of RDBMSs versions supported on the [supported database list](hardware-and-software-requirements.md) page.
 
 ## Default H2 database
 
@@ -57,7 +57,7 @@ Also, note that the owner of the new schemas must own the following privileges:
 * SELECT, INSERT, UPDATE, DELETE on created TABLE
 
 :::info
-CREATE TABLE and CREATE INDEX are not required after first start in normal use.  
+CREATE TABLE and CREATE INDEX privileges are not required after first start in normal use.  
 If the same SQL user is used with the [migration tool](migrate-from-an-earlier-version-of-bonita-bpm.md), then this user needs such grants.
 :::
 
@@ -79,7 +79,7 @@ Also, you are recommended to configure the database(s) to be case-insensitive so
 
 Configure the database to use UTF-8\.
 
-Edit `postgresql.conf` and set a non-zero value for `max_prepared_transactions`. The default value, 0, disables prepared transactions, which is not recommended for Bonita BPM Engine.  
+Edit `postgresql.conf` and set a non-zero value for `max_prepared_transactions`. The default value, 0, disables prepared transactions, which is not compatible with Bonita BPM Engine.  
 The value should be at least as large as the value set for `max_connections` (default is typically 100).  
 See the [PostgreSQL documentation](https://www.postgresql.org/docs/9.3/static/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) for details.
 
