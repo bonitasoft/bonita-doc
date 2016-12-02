@@ -1850,8 +1850,6 @@ The methods used for this resource are:
       "type":"java.lang.Float"
     }
     ```
-::: warning **Limitations** When using a Java Object variable,  `value` field contains the `toString()` value of the object, you may implement a `toString()` on your Java Object that serialized the object into a json string ( eg:  [Jackson ObjectMapper](http://wiki.fasterxml.com/JacksonInFiveMinutes) ) :::  
-  
 
 #### Update a case variable
 
@@ -2803,9 +2801,7 @@ You can get a case by using its identifier. Request url
 
 #### Create a case
 
-::: info
-**Note**: Use the [Start a process using an instantiation contract](#start-process-with-contract) to create a case with contract inputs
-:::
+This way of creating a case using this method will only work for processes in which no contract is defined. To instantiate a process with a contract, check the process instantiation resource documentation.
 
 * **URL**  
   `/API/bpm/case`  
@@ -3230,7 +3226,7 @@ Note: if the `userId` is not provided as a deploy parameter, the `userId` proper
 #### Search for comments
 
 * **URL**  
-  `/API/bpm/comment`  
+  `/API/bpm/case`  
   _Example_: `/API/bpm/comment?p=0&c=10&o=postDate%20DESC&f=processInstanceId%3d1&d=userId`
 * **Method**  
   `GET`
@@ -3531,7 +3527,6 @@ Process instantiation contract elements can be retrived client side.
       ]
     }
     ```
-<a id="start-process-with-contract"/>
 
 #### Start a process using an instantiation contract
 
