@@ -2810,13 +2810,13 @@ This way of creating a case using this method will only work for processes in wh
 * **Request Payload**  
   The process definition id, in JSON
 
-  Create a case without variables
+##### Create a case without variables
   ```json
   {
     "processDefinitionId":"5777042023671752656"
   }
   ```
-  Create a case with variables
+##### Create a case with variables
 
 ::: danger
 :fa-exclamation-triangle: **Warning:** The attribute "variables" on the request payload is used to initialize the process variables (not BDM variables).
@@ -3291,7 +3291,7 @@ Note: if the `userId` is not provided as a deploy parameter, the `userId` proper
 
 #### Description
  
-Deploy and manage [process definitions](key-concepts.md) In addition, you can instantiate a process, which will create a new process instance ([case](#case)).
+Deploy and manage [process definitions](key-concepts.md) In addition, you can instantiate a process, which will create a new process instance ([case](bmp-api.md#case)).
 
 #### Identifier
 
@@ -3539,7 +3539,7 @@ Process instantiation contract elements can be retrived client side.
 
 ##### Start a process using an instantiation contract
 
-This method will create a new process instance ([case](#case))
+This method will create a new process instance ([case](bpm-api.md#case))
 
 * **URL**  
   `/API/bpm/process/:processId/instantiation`  
