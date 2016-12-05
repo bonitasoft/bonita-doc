@@ -3294,7 +3294,7 @@ Note: if the `userId` is not provided as a deploy parameter, the `userId` proper
 
 #### Description
  
-Deploy and manage [process definitions](key-concepts.md) In addition, you can instantiate a process, which will create a new process instance ([case](bmp-api.md#case)).
+Deploy and manage [process definitions](key-concepts.md) In addition, you can instantiate a process, which will create a new process instance ([case](#case)).
 
 #### Identifier
 
@@ -3542,7 +3542,7 @@ Process instantiation contract elements can be retrived client side.
 
 ##### Start a process using an instantiation contract
 
-This method will create a new process instance ([case](bpm-api.md#case))
+This method will create a new process instance ([case](#case))
 
 * **URL**  
   `/API/bpm/process/:processId/instantiation`  
