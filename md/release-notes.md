@@ -88,7 +88,7 @@ a new REST connector and important technology updates.
 * BS-15449  Unique index or primary key violation: "UC_CD_SCOPE_NAME_INDEX_9 ON CONTRACT_DATA"
 * BS-15471  Custom widget bond not updated when already in the page
 * BS-15484  The manager is set to System when overriding an existing user at organization import
-* BS-15489 Invalid process-design.xml: installed process may break after migration
+* BS-15489  Process-design.xml may not be valid against XSD after migration
 * BS-15500  Portal error popup contains a stack trace of an exception
 * BS-15501  REST request retrieves a JSON containing an error and a stack trace
 * BS-15550  Cannot start process in the mobile app if Skip Form is selected
