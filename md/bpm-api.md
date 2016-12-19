@@ -26,12 +26,12 @@ The ID of the activity (a long value).
   "last_update_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this activity was last updated, for example '2014-10-17 16:05:42.626)",
   "dueDate": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this activity is due, for example '2014-10-17 16:05:42.626'",
   "priority": "the priority (string) of the current activity",
-
+  
   "processId": "the process definition id (long) of the case which define this activity",
   "parentCaseId": "the immediate containing case id (long, a.k.a process instance id)",
   "rootCaseId": "the top/root case id (long, a.k.a process instance id). In the case of an event sub process, parentCaseId will the id of the case called while rootCaseId will be the one from the caller case",
   "rootContainerId": "same as rootCaseId",
-
+  
   "executedBy": "the id (long) of the user who performed this activity. The activity has to be a human task otherwise its value will be 0",
   "executedBySubstitute": "the id (long) of the user who did actually performed the activity in the case of has been done in the name of someone else. Value is 0 otherwise",
   "actorId": "the id (long) of the actor that can execute this activity, null otherwise",
@@ -83,7 +83,7 @@ The methods used for this resource are:
 
 #### Response object extension (deploy query parameter)
 
-The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with :
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
   * processId
   * caseId
   * rootCaseId
@@ -123,9 +123,9 @@ Note: if the task definition includes a connector that is executed on finish and
   `PUT`
 * **Request Payload**  
   ```json
-  {
-    "state": "completed",
-    "variables": "[{\"name\":\"foo\",\"value\":\"bar\"}]"
+  { 
+    "state": "completed", 
+    "variables": "[{\"name\":\"foo\",\"value\":\"bar\"}]" 
   }
   ```
 * **Success Response**  
@@ -164,7 +164,7 @@ Make this call after all failed connectors have been reset. (only in Performance
 #### Get an activity
 
 Retrieve the activity information for the given id.
-
+ 
 * **URL**  
   `/API/bpm/activity/:id`  
 * **Method**  
@@ -210,7 +210,7 @@ Search for flow activities using given parameters. Activities in states complete
 * **Data Params**  
   For this resource, the available state search parameters for the GET verb are the same as for the flow nodes.  
   The following [search parameters](rest-api-overview.md) are available:
-  * o:
+  * o: 
     * name
     * displayName
     * state
@@ -220,7 +220,7 @@ Search for flow activities using given parameters. Activities in states complete
     * rootProcessInstanceId
     * lastUpdateDate
   * s: search on any field that can be used to order results
-  * f:
+  * f: 
     * name
     * state
     * processId
@@ -259,12 +259,12 @@ The ID of the archived activity (a long value). This is different from the ID of
   "last_update_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this archived activity was last updated, for example '2014-10-17 16:05:42.626)",
   "dueDate": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this archived activity is due, for example '2014-10-17 16:05:42.626'",
   "priority": "the priority (string) of the current archived activity",
-
+  
   "processId": "the process definition id (long) of the case which define this archived activity",
   "parentCaseId": "the immediate containing case id (long, a.k.a process instance id)",
   "rootCaseId": "the top/root case id (long, a.k.a process instance id). In the case of an event sub process, parentCaseId will the id of the case called while rootCaseId will be the one from the caller case",
   "rootContainerId": "same as rootCaseId",
-
+  
   "executedBy": "the id (long) of the user who performed this archived activity. The archived activity has to be a human task otherwise its value will be 0",
   "executedBySubstitute": "the id (long) of the user who did actually performed the archived activity in the case of has been done in the name of someone else. Value is 0 otherwise",
   "actorId": "the id (long) of the actor that can execute this archived activity, null otherwise",
@@ -319,8 +319,8 @@ The methods used for this resource are:
 
 #### Response object extension (deploy query parameter)
 
-The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with :
-  * processId: the id of the process that is associated with the activity
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * processId: the id of the process that is associated with the activity 
   * caseId: the id of the case that is associated with the activity
   * rootCaseId: the root case that is associated with this activity's case
   * parentCaseId: the parent case that is associated with this activity's case
@@ -352,7 +352,7 @@ Search for archived activities using given parameters. Only archived activities 
   `GET`
 * **Data Params**  
   The following [search parameters](rest-api-overview.md) are available:
-  * o:
+  * o: 
     * name : the name of this activity
     * displayName : the display name of this activity
     * state : the current state of the activity
@@ -361,7 +361,7 @@ Search for archived activities using given parameters. Only archived activities 
     * processId : the process this activity is associated to
     * caseId : the case initiator this activity is associated to
     * reached\_state\_date : the date when this activity arrived in this state
-  * f:
+  * f: 
     * supervisor\_id: retrieve the information the process manager associated to this id has access to (only in Efficiency and Performance edition)
     * f: same as the sort order fields
   * d: extend resource response parameters of [this resource](#archived-activity-deploy) are available.
@@ -373,9 +373,9 @@ Search for archived activities using given parameters. Only archived activities 
 
 #### Description
 
-A Human task is Manual task or a User task.
+A Human task is Manual task or a User task. 
 A User task is a task that can be done by a user.
-A Manual task is a subtask of a user task, and is also done by a user.
+A Manual task is a subtask of a user task, and is also done by a user. 
 
 #### Identifier
 
@@ -396,12 +396,12 @@ Simple, the ID of the object (a long value)
   "last_update_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was last updated, for example '2014-10-17 16:05:42.626)",
   "dueDate": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task is due, for example '2014-10-17 16:05:42.626'",
   "priority": "the priority (string) of the current task",
-
+  
   "processId": "the process definition id (long) of the case which define this task",
   "parentCaseId": "the immediate containing case id (long, a.k.a process instance id)",
   "rootCaseId": "the top/root case id (long, a.k.a process instance id). In the case of an event sub process, parentCaseId will the id of the case called while rootCaseId will be the one from the caller case",
   "rootContainerId": "same as rootCaseId",
-
+  
   "executedBy": "the id (long) of the user who performed this task. The task has to be a human task otherwise its value will be 0",
   "executedBySubstitute": "the id (long) of the user who did actually performed the task in the case of has been done in the name of someone else. Value is 0 otherwise",
   "actorId": "the id (long) of the actor that can execute this task, null otherwise",
@@ -421,8 +421,8 @@ The methods used for this resource are:
 
 #### Response object extension (deploy query parameter)
 
-The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with :
-  * processId: the id of the process that is associated with the activity
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * processId: the id of the process that is associated with the activity 
   * caseId: the id of the case that is associated with the activity
   * rootCaseId: the root case that is associated with this activity's case
   * parentCaseId: the parent case that is associated with this activity's case
@@ -550,8 +550,8 @@ Fields that can be updated are `assignedId` and `state`. Specify only those fiel
   `PUT`
 * **Request Payload**  
   ```json
-  {
-    "assigned_id" : "new_user_id",
+  { 
+    "assigned_id" : "new_user_id", 
     "state": "new_state"
   }
   ``
@@ -588,12 +588,12 @@ Simple, the ID of the object (a long value)
   "last_update_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was last updated, for example '2014-10-17 16:05:42.626)",
   "dueDate": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task is due, for example '2014-10-17 16:05:42.626'",
   "priority": "the priority (string) of the current task",
-
+  
   "processId": "the process definition id (long) of the case which define this task",
   "parentCaseId": "the immediate containing case id (long, a.k.a process instance id)",
   "rootCaseId": "the top/root case id (long, a.k.a process instance id). In the case of an event sub process, parentCaseId will the id of the case called while rootCaseId will be the one from the caller case",
   "rootContainerId": "same as rootCaseId",
-
+  
   "executedBy": "the id (long) of the user who performed this task. The task has to be a human task otherwise its value will be 0",
   "executedBySubstitute": "the id (long) of the user who did actually performed the task in the case of has been done in the name of someone else. Value is 0 otherwise",
   "actorId": "the id (long) of the actor that can execute this task, null otherwise",
@@ -613,7 +613,7 @@ The methods used for this resource are:
 
 Use a POST method to create a new subtask. A subtask is attached to a parent task and it needs to be immediately assigned to a user.
 
-Example:
+Example: 
 * **URL**  
   `/API/bpm/manualTask``  
 * **Method**  
@@ -622,42 +622,42 @@ Example:
   _Example_: Add a new subtask to the parent task with id 1\. The subtask has displayName "My subtask" , is assigned to user 1, and contains other important information.
   ```json
   {
-    "parentTaskId":"40001",
-    "state":"ready",
-    "name":"My subtask",
-    "description":"This is my subtask",
-    "priority":"above_normal",
-    "dueDate":"2014-12-25 00:00:00.000",
-    "assigned_id":"1"
+    "parentTaskId":"40001", 
+    "state":"ready", 
+    "name":"My subtask", 
+    "description":"This is my subtask", 
+    "priority":"above_normal", 
+    "dueDate":"2014-12-25 00:00:00.000", 
+    "assigned_id":"1" 
   }
   ```
 * **Success Response**  
   * **Code**: 200
   * **Payload**:  
     ```json
-    {
-      "displayDescription":"This is my subtask",
-      "executedBySubstitute":"1",
-      "processId":"8367255255370237633",
-      "parentCaseId":"1",
-      "state":"ready",
-      "rootContainerId":"1",
-      "type":"MANUAL_TASK",
-      "assigned_id":"1",
-      "assigned_date":"2014-12-01 17:39:53.784",
-      "id":"40006",
-      "executedBy":"1",
-      "caseId":"1",
-      "priority":"above_normal",
-      "actorId":"1",
-      "description":"This is my subtask",
-      "name":"My subtask",
-      "reached_state_date":"2014-12-01 17:39:53.784",
-      "rootCaseId":"1",
-      "displayName":"My subtask",
-      "parentTaskId":"40001",
-      "dueDate":"2014-12-25 00:00:00.000",
-      "last_update_date":"2014-12-01 17:39:53.784"
+    { 
+      "displayDescription":"This is my subtask", 
+      "executedBySubstitute":"1", 
+      "processId":"8367255255370237633", 
+      "parentCaseId":"1", 
+      "state":"ready", 
+      "rootContainerId":"1", 
+      "type":"MANUAL_TASK", 
+      "assigned_id":"1", 
+      "assigned_date":"2014-12-01 17:39:53.784", 
+      "id":"40006", 
+      "executedBy":"1", 
+      "caseId":"1", 
+      "priority":"above_normal", 
+      "actorId":"1", 
+      "description":"This is my subtask", 
+      "name":"My subtask", 
+      "reached_state_date":"2014-12-01 17:39:53.784", 
+      "rootCaseId":"1", 
+      "displayName":"My subtask", 
+      "parentTaskId":"40001", 
+      "dueDate":"2014-12-25 00:00:00.000", 
+      "last_update_date":"2014-12-01 17:39:53.784" 
     }
     ```
 
@@ -671,38 +671,38 @@ Use a PUT method to execute a subtask. Executing a subtask basically means chang
   `PUT`
 * **Request Payload**  
   ```json
-  {
-    "state":"completed",
-    "executedBy":"1"
+  { 
+    "state":"completed", 
+    "executedBy":"1" 
   }
   ```
 * **Success Response**  
   * **Code**: 200
   * **Payload**:  
     ```json
-    {
-      "displayDescription":"This is my subtask",
-      "executedBySubstitute":"1",
-      "processId":"8367255255370237633",
-      "parentCaseId":"1",
-      "state":"ready",
-      "rootContainerId":"1",
-      "type":"MANUAL_TASK",
-      "assigned_id":"1",
-      "assigned_date":"2014-12-01 17:39:53.784",
-      "id":"40006",
-      "executedBy":"1",
-      "caseId":"1",
-      "priority":"above_normal",
-      "actorId":"1",
-      "description":"This is my subtask",
-      "name":"My subtask",
-      "reached_state_date":"2014-12-01 17:39:53.784",
-      "rootCaseId":"1",
-      "displayName":"My subtask",
-      "parentTaskId":"40001",
-      "dueDate":"2014-12-25 00:00:00.000",
-      "last_update_date":"2014-12-01 17:39:53.784"
+    { 
+      "displayDescription":"This is my subtask", 
+      "executedBySubstitute":"1", 
+      "processId":"8367255255370237633", 
+      "parentCaseId":"1", 
+      "state":"ready", 
+      "rootContainerId":"1", 
+      "type":"MANUAL_TASK", 
+      "assigned_id":"1", 
+      "assigned_date":"2014-12-01 17:39:53.784", 
+      "id":"40006", 
+      "executedBy":"1", 
+      "caseId":"1", 
+      "priority":"above_normal", 
+      "actorId":"1", 
+      "description":"This is my subtask", 
+      "name":"My subtask", 
+      "reached_state_date":"2014-12-01 17:39:53.784", 
+      "rootCaseId":"1", 
+      "displayName":"My subtask", 
+      "parentTaskId":"40001", 
+      "dueDate":"2014-12-25 00:00:00.000", 
+      "last_update_date":"2014-12-01 17:39:53.784" 
     }
     ```
 
@@ -751,7 +751,7 @@ The ID of the task (a long value).
 
 #### Representation
 ```json
-{
+{ 
   "id": "the task id (long)",
   "type": "the task type (string)",
   "name": "the task technical name (string)",
@@ -763,12 +763,12 @@ The ID of the task (a long value).
   "last_update_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was last updated, for example '2014-10-17 16:05:42.626)",
   "dueDate": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task is due, for example '2014-10-17 16:05:42.626'",
   "priority": "the priority (string) of the current task",
-
+  
   "processId": "the process definition id (long) of the case which define this task",
   "parentCaseId": "the immediate containing case id (long, a.k.a process instance id)",
   "rootCaseId": "the top/root case id (long, a.k.a process instance id). In the case of an event sub process, parentCaseId will the id of the case called while rootCaseId will be the one from the caller case",
   "rootContainerId": "same as rootCaseId",
-
+  
   "executedBy": "the id (long) of the user who performed this task. The task has to be a human task otherwise its value will be 0",
   "executedBySubstitute": "the id (long) of the user who did actually performed the task in the case of has been done in the name of someone else. Value is 0 otherwise",
   "actorId": "the id (long) of the actor that can execute this task, null otherwise",
@@ -787,8 +787,8 @@ The methods used for this resource are:
 
 #### Response object extension (deploy query parameter)
 
-The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with :
-  * processId: the id of the process that is associated with the activity
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * processId: the id of the process that is associated with the activity 
   * caseId: the id of the case that is associated with the activity
   * rootCaseId: the root case that is associated with this activity's case
   * parentCaseId: the parent case that is associated with this activity's case
@@ -810,28 +810,28 @@ The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-re
   * **Payload**:  
     JSON representation of a task
     ```json
-    {
-      "displayDescription":"",
-      "executedBySubstitute":"0",
-      "processId":"9132099022957910959",
-      "parentCaseId":"5",
-      "state":"ready",
-      "rootContainerId":"5",
-      "type":"USER_TASK",
-      "assigned_id":"4",
-      "assigned_date":"2014-12-01 16:22:54.685",
-      "id":"10",
-      "executedBy":"0",
-      "caseId":"5",
-      "priority":"normal",
-      "actorId":"6",
-      "description":"",
-      "name":"Step1",
-      "reached_state_date":"2014-12-01 16:22:50.814",
-      "rootCaseId":"5",
-      "displayName":"Step1",
-      "dueDate":"2014-12-01 17:22:50.809",
-      "last_update_date":"2014-12-01 16:22:50.814"
+    { 
+      "displayDescription":"", 
+      "executedBySubstitute":"0", 
+      "processId":"9132099022957910959", 
+      "parentCaseId":"5", 
+      "state":"ready", 
+      "rootContainerId":"5", 
+      "type":"USER_TASK", 
+      "assigned_id":"4", 
+      "assigned_date":"2014-12-01 16:22:54.685", 
+      "id":"10", 
+      "executedBy":"0", 
+      "caseId":"5", 
+      "priority":"normal", 
+      "actorId":"6", 
+      "description":"", 
+      "name":"Step1", 
+      "reached_state_date":"2014-12-01 16:22:50.814", 
+      "rootCaseId":"5", 
+      "displayName":"Step1", 
+      "dueDate":"2014-12-01 17:22:50.809", 
+      "last_update_date":"2014-12-01 16:22:50.814" 
     }
     ```
 
@@ -847,7 +847,7 @@ The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-re
   { "state": "completed" }
   ```
 * **Success Response**  
-  * **Code**:
+  * **Code**: 
   * **Payload**:  
     ```json
     ```
@@ -868,52 +868,52 @@ The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-re
   * **Payload**:  
     JSON representation of an array of tasks
     ```json
-    [
-      {
-        "displayDescription":"",
-        "executedBySubstitute":"0",
-        "processId":"8410739119827826184",
-        "parentCaseId":"9",
-        "state":"ready",
-        "rootContainerId":"9",
-        "type":"USER_TASK",
-        "assigned_id":"",
-        "assigned_date":"",
-        "id":"18",
-        "executedBy":"0",
-        "caseId":"9",
-        "priority":"normal",
-        "actorId":"7",
-        "description":"",
-        "name":"Step1",
-        "reached_state_date":"2014-12-01 16:48:31.189",
-        "rootCaseId":"9",
-        "displayName":"Step1",
-        "dueDate":"2014-12-01 17:48:31.185",
-        "last_update_date":"2014-12-01 16:48:31.189"
-      }, {
-        "displayDescription":"",
-        "executedBySubstitute":"0",
-        "processId":"8410739119827826184",
-        "parentCaseId":"10",
-        "state":"ready",
-        "rootContainerId":"10",
-        "type":"USER_TASK",
-        "assigned_id":"",
-        "assigned_date":"",
-        "id":"20",
-        "executedBy":"0",
-        "caseId":"10",
-        "priority":"normal",
-        "actorId":"7",
-        "description":"",
-        "name":"Step1",
-        "reached_state_date":"2014-12-01 16:48:37.666",
-        "rootCaseId":"10",
-        "displayName":"Step1",
-        "dueDate":"2014-12-01 17:48:37.662",
-        "last_update_date":"2014-12-01 16:48:37.666"
-      }
+    [ 
+      { 
+        "displayDescription":"", 
+        "executedBySubstitute":"0", 
+        "processId":"8410739119827826184", 
+        "parentCaseId":"9", 
+        "state":"ready", 
+        "rootContainerId":"9", 
+        "type":"USER_TASK", 
+        "assigned_id":"", 
+        "assigned_date":"", 
+        "id":"18", 
+        "executedBy":"0", 
+        "caseId":"9", 
+        "priority":"normal", 
+        "actorId":"7", 
+        "description":"", 
+        "name":"Step1", 
+        "reached_state_date":"2014-12-01 16:48:31.189", 
+        "rootCaseId":"9", 
+        "displayName":"Step1", 
+        "dueDate":"2014-12-01 17:48:31.185", 
+        "last_update_date":"2014-12-01 16:48:31.189" 
+      }, { 
+        "displayDescription":"", 
+        "executedBySubstitute":"0", 
+        "processId":"8410739119827826184", 
+        "parentCaseId":"10", 
+        "state":"ready", 
+        "rootContainerId":"10", 
+        "type":"USER_TASK", 
+        "assigned_id":"", 
+        "assigned_date":"", 
+        "id":"20", 
+        "executedBy":"0", 
+        "caseId":"10", 
+        "priority":"normal", 
+        "actorId":"7", 
+        "description":"", 
+        "name":"Step1", 
+        "reached_state_date":"2014-12-01 16:48:37.666", 
+        "rootCaseId":"10", 
+        "displayName":"Step1", 
+        "dueDate":"2014-12-01 17:48:37.662", 
+        "last_update_date":"2014-12-01 16:48:37.666" 
+      } 
     ]
     ```
 
@@ -942,18 +942,18 @@ Simple, the ID of the object (a long value)
   "last_update_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was last updated, for example '2014-10-17 16:05:42.626)",
   "dueDate": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task is due, for example '2014-10-17 16:05:42.626'",
   "priority": "the priority (string) of the current task",
-
+  
   "processId": "the process definition id (long) of the case which define this task",
   "parentCaseId": "the immediate containing case id (long, a.k.a process instance id)",
   "rootCaseId": "the top/root case id (long, a.k.a process instance id). In the case of an event sub process, parentCaseId will the id of the case called while rootCaseId will be the one from the caller case",
   "rootContainerId": "same as rootCaseId",
-
+  
   "executedBy": "the id (long) of the user who performed this task. The task has to be a human task otherwise its value will be 0",
   "executedBySubstitute": "the id (long) of the user who did actually performed the task in the case of has been done in the name of someone else. Value is 0 otherwise",
   "actorId": "the id (long) of the actor that can execute this task, null otherwise",
   "assigned_id": "the user id (long) that this task is assigned to, or 0 if it is unassigned",
   "assigned_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current task was assigned, for example '2014-10-17 16:05:42.626'"
-}
+} 
 ```
 
 #### Methods
@@ -968,8 +968,8 @@ The methods used for this resource are:
 
 #### Response object extension (deploy query parameter)
 
-The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with :
-  * processId: the id of the process that is associated with the activity
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * processId: the id of the process that is associated with the activity 
   * caseId: the id of the case that is associated with the activity
   * rootCaseId: the root case that is associated with this activity's case
   * parentCaseId: the parent case that is associated with this activity's case
@@ -1142,7 +1142,7 @@ In order to execute a task, the task contract values have to be provided.
 
 #### Description
 
-An Archived Human task is a User task or Manual task that has been archived.
+An Archived Human task is a User task or Manual task that has been archived. 
 
 #### Identifier
 
@@ -1151,7 +1151,7 @@ Simple, the ID of the object (a long value)
 #### Representation
 
 ```json
-{
+{ 
   "id": "the activity id (long)",
   "type": "the activity type (string): USER_TASK | MANUAL_TASK",
   "name": "the activity technical name (string)",
@@ -1165,12 +1165,12 @@ Simple, the ID of the object (a long value)
   "priority": "the priority (string) of the current activity",
   "sourceObjectId":"id (long) of the original humanTask before archiving",
   "archivedDate": "the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this humanTask was archived, for example '2014-10-17 16:05:42.626'",
-
+  
   "processId": "the process definition id (long) of the case which define this activity",
   "parentCaseId": "the immediate containing case id (long, a.k.a process instance id)",
   "rootCaseId": "the top/root case id (long, a.k.a process instance id). In the case of an event sub process, parentCaseId will the id of the case called while rootCaseId will be the one from the caller case",
   "rootContainerId": "same as rootCaseId",
-
+  
   "executedBy": "the id (long) of the user who performed this activity. The activity has to be a human task otherwise its value will be 0",
   "executedBySubstitute": "the id (long) of the user who did actually performed the activity in the case of has been done in the name of someone else. Value is 0 otherwise",
   "actorId": "the id (long) of the actor that can execute this activity, null otherwise",
@@ -1224,7 +1224,7 @@ The methods used for this resource are:
 
 ##### Search for a archivedHumanTask
 
-Retrieve archivedHumanTask objects that match the specified filters.
+Retrieve archivedHumanTask objects that match the specified filters. 
 
 * **URL**  
   `/API/bpm/archivedHumanTask`  
@@ -1301,7 +1301,7 @@ Simple, the ID of the object (a long value)
 
 #### Representation
 ```json
-{
+{ 
   "id": "the archived manual task id (long)",
   "type": "the archived manual task type (string): MANUAL_TASK",
   "name": "the archived manual task technical name (string)",
@@ -1313,14 +1313,14 @@ Simple, the ID of the object (a long value)
   "last_update_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this archived manual task was last updated, for example '2014-10-17 16:05:42.626)",
   "dueDate": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this archived manual task is due, for example '2014-10-17 16:05:42.626'",
   "priority": "the priority (string) of the current archived manual task",
-  "sourceObjectId":"id (long) of the original manualTask before archiving",
+  "sourceObjectId":"id (long) of the original manualTask before archiving", 
   "archivedDate": "the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this subtask was archived, for example '2014-10-17 16:05:42.626'",
-
+  
   "processId": "the process definition id (long) of the case which define this archived manual task",
   "parentCaseId": "the immediate containing case id (long, a.k.a process instance id)",
   "rootCaseId": "the top/root case id (long, a.k.a process instance id). In the case of an event sub process, parentCaseId will the id of the case called while rootCaseId will be the one from the caller case",
   "rootContainerId": "same as rootCaseId",
-
+  
   "executedBy": "the id (long) of the user who performed this archived manual task. The archived manual task has to be a human task otherwise its value will be 0",
   "executedBySubstitute": "the id (long) of the user who did actually performed the archived manual task in the case of has been done in the name of someone else. Value is 0 otherwise",
   "actorId": "the id (long) of the actor that can execute this archived manual task, null otherwise",
@@ -1409,7 +1409,7 @@ The ID of the archived task (a long value).
 
 #### Representation
 ```json
-{
+{ 
   "id": "the archived task id (long)",
   "type": "the archived task type (string)",
   "name": "the archived task technical name (string)",
@@ -1423,12 +1423,12 @@ The ID of the archived task (a long value).
   "priority": "the priority (string) of the current archived task",
   "sourceObjectId": "the original id of the task before it was archived",
   "archivedDate": "the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this task was archived, for example '2014-10-17 16:05:42.626'",
-
+  
   "processId": "the process definition id (long) of the case which define this archived task",
   "parentCaseId": "the immediate containing case id (long, a.k.a process instance id)",
   "rootCaseId": "the top/root case id (long, a.k.a process instance id). In the case of an event sub process, parentCaseId will the id of the case called while rootCaseId will be the one from the caller case",
   "rootContainerId": "same as rootCaseId",
-
+  
   "executedBy": "the id (long) of the user who performed this archived task. The archived task has to be a human task otherwise its value will be 0",
   "executedBySubstitute": "the id (long) of the user who did actually performed the archived task in the case of has been done in the name of someone else. Value is 0 otherwise",
   "actorId": "the id (long) of the actor that can execute this archived task, null otherwise",
@@ -1447,8 +1447,8 @@ The methods used for this resource are:
 
 #### Response object extension (deploy query parameter)
 
-The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with :
-  * processId: the id of the process that is associated with the activity
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * processId: the id of the process that is associated with the activity 
   * caseId: the id of the case that is associated with the activity
   * rootCaseId: the root case that is associated with this activity's case
   * parentCaseId: the parent case that is associated with this activity's case
@@ -1590,19 +1590,19 @@ Simple, the ID of the object (a long value)
   "last_update_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this user task was last updated, for example '2014-10-17 16:05:42.626)",
   "dueDate": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this user task is due, for example '2014-10-17 16:05:42.626'",
   "priority": "the priority (string) of the current user task",
-  "archivedDate":"the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was archived, for example '2014-10-17 16:05:42.626'",
-
+  "archivedDate":"the date ('yyyy-MM-dd HH:mm:ss.SSS') when this task was archived, for example '2014-10-17 16:05:42.626'", 
+  
   "processId": "the process definition id (long) of the case which define this user task",
   "parentCaseId": "the immediate containing case id (long, a.k.a process instance id)",
   "rootCaseId": "the top/root case id (long, a.k.a process instance id). In the case of an event sub process, parentCaseId will the id of the case called while rootCaseId will be the one from the caller case",
   "rootContainerId": "same as rootCaseId",
-
+  
   "executedBy": "the id (long) of the user who performed this user task. The user task has to be a human task otherwise its value will be 0",
   "executedBySubstitute": "the id (long) of the user who did actually performed the user task in the case of has been done in the name of someone else. Value is 0 otherwise",
   "actorId": "the id (long) of the actor that can execute this user task, null otherwise",
   "assigned_id": "the user id (long) that this user task is assigned to, or 0 if it is unassigned",
   "assigned_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current user task was assigned, for example '2014-10-17 16:05:42.626'"
-}
+} 
 ```
 
 #### Methods
@@ -1615,8 +1615,8 @@ The methods used for this resource are:
 
 #### Response object extension (deploy query parameter)
 
-The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with :
-  * processId: the id of the process that is associated with the activity
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * processId: the id of the process that is associated with the activity 
   * caseId: the id of the case that is associated with the activity
   * rootCaseId: the root case that is associated with this activity's case
   * parentCaseId: the parent case that is associated with this activity's case
@@ -1665,7 +1665,7 @@ The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-re
 
 ##### Search for a archivedUserTask
 
-Retrieve archivedHumanTask objects that match the specified filters.
+Retrieve archivedHumanTask objects that match the specified filters. 
 
 * **URL**  
   `/API/bpm/archivedUserTask`  
@@ -1680,7 +1680,7 @@ Retrieve archivedHumanTask objects that match the specified filters.
   * `state=`: retrieve only the archived user tasks with the specified state. For example, retrieve the skipped tasks: `/API/bpm/archivedUserTask?p=0&c=10&f=state=skipped`
   * `name=`: retrieve only the user tasks with the specified name. For example, retrieve the user tasks with the name "Analyse Case": `/API/bpm/archivedUserTask?p=0&c=10&f=name=Analyse Case`
   * `displayName=`: retrieve only the archived user tasks with the specified displayName. For example, retrieve the user tasks with the displayName "Analyse Case": `/API/bpm/archivedUserTask?p=0&c=10&f=displayName=Analyse Case`
-
+  
   * d: extend resource response parameters of [this resource](#archived-user-deploy) are available.
 
 * **Success Response**  
@@ -1748,7 +1748,7 @@ The ID of the activity variable (a long value).
 #### Representation
 
 ```json
-{
+{ 
   "tenantId": "The ID of the tenant where the current user is logged in (technical information)",
   "tenantId_string": "number (since 7.0.1)",
   "id":_The identifier of the variable",
@@ -1760,7 +1760,7 @@ The ID of the activity variable (a long value).
   "containerId": "The ID of the activity containing this variable (same as the one passed as parameter) if the variable is defined at activity level, or ID of the process instance if the variable is defined on the process",
   "containerId_string": "number" (since 7.0.1)_,
   "containerType": "ACTIVITY_INSTANCE" | "PROCESS_INSTANCE" _depending on whether the variable is defined at activity or process level.",
-  "value": "the value of this variable. The format of the value depends on the type of the variable"
+  "value": "the value of this variable. The format of the value depends on the type of the variable" 
 }
  ```   
 
@@ -1801,8 +1801,8 @@ The methods available for this resource are:
       "value":"Confirmed"
     }
     ```
-
-### CaseVariable
+    
+### CaseVariable 
 
 #### Description
 
@@ -1832,7 +1832,7 @@ The methods used for this resource are:
 * PUT - Update a case variable value
 
 #### Get a case variable
-
+  
 * **URL**  
   `/API/bpm/caseVariable/:caseId/:variableName`  
 * **Method**  
@@ -1851,7 +1851,7 @@ The methods used for this resource are:
     }
     ```
 ::: warning **Limitations** When using a Java Object variable,  `value` field contains the `toString()` value of the object, you may implement a `toString()` on your Java Object that serialized the object into a json string ( eg:  [Jackson ObjectMapper](http://wiki.fasterxml.com/JacksonInFiveMinutes) ) :::  
-
+  
 
 #### Update a case variable
 
@@ -1893,7 +1893,7 @@ Warning: only following types are supported for _javaTypeclassname_: java.lang.S
         "value":"14.2",
         "case_id":"11754",
         "type":"java.lang.Float"
-      },
+      }, 
       {
         "description":"invoice reference",
         "name":"myInvoiceReference",
@@ -1903,12 +1903,12 @@ Warning: only following types are supported for _javaTypeclassname_: java.lang.S
       }
     ]
     ```
-
+    
 ### Document
 
 #### Description
 
-Use the document resource to access a document in an active case.
+Use the document resource to access a document in an active case. 
 
 ::: alert alert-warning
 **:fa-exclamation-triangle: Caution:** This resource is deprecated and may be removed in a future release. Instead, use caseDocument or archivedCaseDocument.
@@ -1937,15 +1937,15 @@ The ID of the document (a long value).
   "author":"submittorUserId",
   "index":"index in a list of documents, or -1 for a single document",
   "contentMimetype":"MIMEtype",
-  "caseId":"caseId",
-  "contentStorageId":"storageId",
-  "isInternal":"true | false",
-  "description":" description",
-  "name":"name",
-  "fileName":"filename",
-  "submittedBy":"submittorUserId",
-  "url":"urlForDownload",
-  "version":"version"
+  "caseId":"caseId", 
+  "contentStorageId":"storageId", 
+  "isInternal":"true | false", 
+  "description":" description", 
+  "name":"name", 
+  "fileName":"filename", 
+  "submittedBy":"submittorUserId", 
+  "url":"urlForDownload", 
+  "version":"version" 
 }
 ```
 
@@ -1961,7 +1961,7 @@ The methods used for this resource are:
 <a id="upload_casedoc"/>
 #### Add a document to a case
 
-Use a POST method to add a document to a case. You can upload a document from the local file system or by URL. Specify the case id and the document name in the payload.
+Use a POST method to add a document to a case. You can upload a document from the local file system or by URL. Specify the case id and the document name in the payload. 
 The document description is optional: if you do not specify a description, the description in the response is empty. The response contains a version, which is managed automatically.
 You cannot currently retrieve a specific version of a document, only the most recent version. To retrieve earlier versions of a caseDocument, use the archivedCaseDocument resource.
 
@@ -2034,7 +2034,7 @@ You cannot currently retrieve a specific version of a document, only the most re
 
 #### Get a document from a case
 
-Use a GET method to get a document from a case. First you get the document information, then you download the content.
+Use a GET method to get a document from a case. First you get the document information, then you download the content. 
 To get the document information, specify the document id in the URL. The document id is created when you upload a document to a case. There is no payload.
 
 * **URL**  
@@ -2042,7 +2042,7 @@ To get the document information, specify the document id in the URL. The documen
 * **Method**  
   `GET`
 * **Success Response**  
-  The response includes the "url" to use to download the content. Call the documentDownload servlet with this URL:
+  The response includes the "url" to use to download the content. Call the documentDownload servlet with this URL: 
   `/portal/documentDownload?fileName=doc.jpg&contentStorageId=4`.
   * **Code**: 200
   * **Payload**:  
@@ -2067,8 +2067,8 @@ To get the document information, specify the document id in the URL. The documen
 
 #### Update a document in a case
 
-You update a document in a case by uploading a new version of the document using a PUT method.
-You can upload a document version from the local file system or by URL.
+You update a document in a case by uploading a new version of the document using a PUT method. 
+You can upload a document version from the local file system or by URL. 
 The document name will be used in all the cases of the process, but the combination of case id and document name is unique.
 
 In the URL, you specify to supply the document id. This is included in the response when you first [add a document to a case](#upload_casedoc).
@@ -2097,7 +2097,7 @@ The response to PUT methods is the same as for POST methods.
   ```
 * **Success Response**  
   * **Code**: 200
-
+ 
 #### Search for a document
 
 * **URL**  
@@ -2111,9 +2111,9 @@ The response to PUT methods is the same as for POST methods.
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   It is possible to filter on three parameters: submittedBy, name and description.
   * `submittedBy="id"`: search for documents that were submitted by the user with the specified identifier.
-  * `name="string"`: search for documents with names that contain _string_.
+  * `name="string"`: search for documents with names that contain _string_. 
     Depending on the setting for [word-based search](using-list-and-search-methods.md), the search returns documents with _string_ at the start of the name or the start of a word in the name.
-  * `description="string"`: search for documents with descriptions that contain _string_.
+  * `description="string"`: search for documents with descriptions that contain _string_. 
     Depending on the setting for [word-based search](using-list-and-search-methods.md), the search returns documents with _string_ at the start of the description or the start of a word in the description.
 * **Success Response**  
   A document object for each matching document
@@ -2178,21 +2178,21 @@ The ID of the document (a long value).
 
 ```json
 {
-  "id":"archivedDocumentId",
-  "creationDate":"date and time of the original document creation",
-  "author":"submittorUserId",
-  "index":"index in a list of documents. if -1 it represents a single document",
-  "contentMimetype":"MIMEtype",
-  "caseId":"caseId",
-  "contentStorageId":"storageId",
-  "isInternal":"true | false",
-  "description":" description",
-  "name":"name",
-  "fileName":"filename",
-  "submittedBy":"submittorUserId",
-  "url":"urlForDownload",
-  "version":"version",
-  "sourceObjectId":"originalDocumentId",
+  "id":"archivedDocumentId", 
+  "creationDate":"date and time of the original document creation", 
+  "author":"submittorUserId", 
+  "index":"index in a list of documents. if -1 it represents a single document", 
+  "contentMimetype":"MIMEtype", 
+  "caseId":"caseId", 
+  "contentStorageId":"storageId", 
+  "isInternal":"true | false", 
+  "description":" description", 
+  "name":"name", 
+  "fileName":"filename", 
+  "submittedBy":"submittorUserId", 
+  "url":"urlForDownload", 
+  "version":"version", 
+  "sourceObjectId":"originalDocumentId", 
   "archivedDate":"date and time of the archived document creation"
 }
 ```   
@@ -2211,7 +2211,7 @@ You can use a single GET method to return all the documents that match the speci
 * **URL**  
   `/API/bpm/archivedCaseDocument`  
   _Examples_
-  * List all versions of a simple document (knowing its current version Id) `/API/bpm/archivedCaseDocument?c=10&p=0&f=sourceObjectId=1`
+  * List all versions of a simple document (knowing its current version Id) `/API/bpm/archivedCaseDocument?c=10&p=0&f=sourceObjectId=1` 
   * List all versions of a list of document (knowing its name) `/API/bpm/archivedCaseDocument?c=10&p=0&f=name=MyDocList`
   * List all versions of all documents of the case of id `1`: `/API/bpm/archivedCaseDocument?c=10&p=0&f=caseId=1`
   * List all versions of all document of the archived case of id `1` `/API/bpm/archivedCaseDocument?c=10&p=0&f=archivedCaseId=1`
@@ -2224,14 +2224,14 @@ Response payload
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   It is possible to filter on the following parameters: sourceObjectId, caseId, archivedCaseId, submittedBy, name, description.
 
-  * `sourceObjectId="id"`: search for documents by specifying the original document id.
+  * `sourceObjectId="id"`: search for documents by specifying the original document id. 
     This is useful if you know the id of a caseDocument and you wish to retrieve all its previous versions..
   * `caseId="id"`: search for documents with the specified open case id.
   * `archivedCaseId="id"`: search for documents with the specified archvied case id.
   * `submittedBy="id"`: search for documents that were submitted by the user with the specified identifier.
-  * `name="string"`: search for documents with names that contain _string_.
+  * `name="string"`: search for documents with names that contain _string_. 
     Depending on the setting for [word-based search](using-list-and-search-methods.md), the search returns documents with _string_ at the start of the name or the start of a word in the name.
-  * `description="string"`: search for documents with descriptions that contain _string_.
+  * `description="string"`: search for documents with descriptions that contain _string_. 
     Depending on the setting for [word-based search](using-list-and-search-methods.md), the search returns documents with _string_ at the start of the description or the start of a word in the description.
 * **Success Response**  
   An archived document object for each matching document
@@ -2240,7 +2240,7 @@ Response payload
     ```json
     [{
        "id":"1",
-       "creationDate":"2014-10-09 16:39:52.472",
+       "creationDate":"2014-10-09 16:39:52.472", 
        "author":"1",
        "index":"0",
        "contentMimetype":"text/plain",
@@ -2256,39 +2256,39 @@ Response payload
        "sourceObjectId":"1",
        "archivedDate":"2014-10-09 17:39:52.473"
     }, {
-       "id":"2",
-       "creationDate":"2014-10-09 16:39:52.473",
-       "author":"1",
-       "index":"1",
-       "contentMimetype":"text/plain",
-       "caseId":"1",
-       "contentStorageId":"2",
-       "isInternal":"true",
-       "description":"",
-       "name":"myDoc",
-       "fileName":"test2.txt",
-       "submittedBy":"1",
-       "url":"documentDownload?fileName=test2.txt&contentStorageId=2",
-       "version":"2",
+       "id":"2", 
+       "creationDate":"2014-10-09 16:39:52.473", 
+       "author":"1", 
+       "index":"1", 
+       "contentMimetype":"text/plain", 
+       "caseId":"1", 
+       "contentStorageId":"2", 
+       "isInternal":"true", 
+       "description":"", 
+       "name":"myDoc", 
+       "fileName":"test2.txt", 
+       "submittedBy":"1", 
+       "url":"documentDownload?fileName=test2.txt&contentStorageId=2", 
+       "version":"2", 
        "sourceObjectId":"1",
        "archivedDate":"2014-10-09 18:39:52.473"
     }, {
-       "id":"3",
-       "creationDate":"2014-10-09 16:39:52.473",
-       "author":"1",
-       "index":"2",
-       "contentMimetype":"text/plain",
-       "caseId":"1",
-       "contentStorageId":"3",
-       "isInternal":"true",
-       "description":"",
-       "name":"myDoc",
-       "fileName":"test3.txt",
-       "submittedBy":"1",
-       "url":"documentDownload?fileName=test3.txt&contentStorageId=3",
+       "id":"3", 
+       "creationDate":"2014-10-09 16:39:52.473", 
+       "author":"1", 
+       "index":"2", 
+       "contentMimetype":"text/plain", 
+       "caseId":"1", 
+       "contentStorageId":"3", 
+       "isInternal":"true", 
+       "description":"", 
+       "name":"myDoc", 
+       "fileName":"test3.txt", 
+       "submittedBy":"1", 
+       "url":"documentDownload?fileName=test3.txt&contentStorageId=3", 
        "version":"3",
-       "sourceObjectId":"1",
-       "archivedDate":"2014-10-09 19:39:52.473"
+       "sourceObjectId":"1", 
+       "archivedDate":"2014-10-09 19:39:52.473" 
     }]
     ```
 
@@ -2408,7 +2408,7 @@ Fields that can be upated are "displayName" and "description"
 
 #### Description
 
-An actor member represents the association between the organization and the actor af a process. In an organization we have four member\_types = USER, GROUP, ROLE and MEMBERSHIP (role in a group). You can assign a actor to a user by specifying a role and or a group, or specific user.
+An actor member represents the association between the organization and the actor af a process. In an organization we have four member\_types = USER, GROUP, ROLE and MEMBERSHIP (role in a group). You can assign a actor to a user by specifying a role and or a group, or specific user. 
 
 #### Identifier
 
@@ -2487,7 +2487,7 @@ Use a GET method with filters and search terms to search for actorMembers.
 
   * `actor\_id` For example, retrieve the actorMembers related to the specified actor\_id. http://localhost:8080/bonita/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1
 
-  You can also filter also on:
+  You can also filter also on: 
 
   * `member\_type=user|role|group|roleAndGroup` retrieve only the actorMembers of type user. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=member\_type%3duser`
   * `user\_id=:userId}`: retrieve only the actorMembers related to the specified user\_id. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=user\_id%3d101`
@@ -2556,7 +2556,7 @@ ID of the Object: a long value
 
 #### Response object extension (deploy query parameter)
 
-The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with :
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
   * `started_by`
   * `startedBySubstitute`
   * `processDefinitionId`
@@ -2797,7 +2797,7 @@ You can get a case by using its identifier. Request url
         "searchIndex3Value":"case2SearchIndex3Value",
         "searchIndex4Value":"case2SearchIndex4Value",
         "searchIndex5Value":"case2SearchIndex5Value"
-      }
+      } 
     ]
     ```
 
@@ -2907,7 +2907,7 @@ You can get a case by using its identifier. Request url
 
 #### Description
 
-A completed instance of a process.
+A completed instance of a process. 
 
 #### Identifier
 
@@ -2919,14 +2919,14 @@ The ID of the archived case (a long value).
   "id":"the identifier of the archived case",
   "end_date":"the date set when the case was archived",
   "startedBySubstitute":"the id of the user",  
-
+  
   "sourceObjectId":"the id of the case before it was archived"
-  "start":"the stard date of the initial case",
-  "state":"the state of the archived case",
-  "rootCaseId":"the id of the case before it was archived",
-  "started_by":"id of the user who start the case",
-  "archivedDate":"the date set when the case was archived",
-  "processDefinitionId":"the id of the process related to this archived case",
+  "start":"the stard date of the initial case", 
+  "state":"the state of the archived case", 
+  "rootCaseId":"the id of the case before it was archived", 
+  "started_by":"id of the user who start the case", 
+  "archivedDate":"the date set when the case was archived", 
+  "processDefinitionId":"the id of the process related to this archived case", 
   "last_update_date":"the date of the last update done on the case",
   "searchIndex1Label":"the 1st search index label (from 6.5, in Subscription editions only)",
   "searchIndex2Label":"the 2nd search index label (from 6.5, in Subscription editions only)",
@@ -2952,14 +2952,14 @@ The methods used for this resource are:
 
 #### Response object extension (deploy query parameter)
 
-The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with :
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
   * `started_by`
   * `startedBySubstitute`
   * `processDefinitionId`
 
 #### Read an archived case
 
-You can get an archived case by using its identifier. An archive case is linked to a case with the key.
+You can get an archived case by using its identifier. An archive case is linked to a case with the key. 
 
 * **URL**  
   `/API/bpm/archivedCase/:archivedCaseId`  
@@ -3090,7 +3090,7 @@ You can search cases.
 
 #### Remove an archived case
 
-You can delete an archived case by using its identifier. An archived case is linked to a case with the key.
+You can delete an archived case by using its identifier. An archived case is linked to a case with the key. 
 
 * **URL**  
   `/API/bpm/archivedCase/:archivedCaseId`  
@@ -3184,7 +3184,7 @@ The method used for this resource is:
 
 #### Response object extension (deploy query parameter)
 
-The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with :
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
   * `userId`
 
 ::: info
@@ -3237,7 +3237,7 @@ Note: if the `userId` is not provided as a deploy parameter, the `userId` proper
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   * o: you can sort on the `postDate`
-  * f: filter of the search. Available filters are :
+  * f: filter of the search. Available filters are : 
     * `supervisor_id`
     * `user_id`
     * `processInstanceId`
@@ -3327,7 +3327,7 @@ The methods used for this resource are:
 
 #### Response object extension (deploy query parameter)
 
-The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with :
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
   * `deployedBy`
 
 #### Create a process
@@ -3356,7 +3356,7 @@ to get the process archive path.
       "activationState":"DISABLED",
       "name":"Pool","deployedBy":"4",
       "displayName":"Pool",
-      "actorinitiatorid":"3",
+      "actorinitiatorid":"3", 
       "last_update_date":"2015-01-02 5:04:30.587",
       "configurationState":"RESOLVED","version":"1.0"
     }
@@ -3591,7 +3591,7 @@ The methods used for this resource are:
 
 * GET - Retrieve the XML definition of the diagram
 
-#### Retrieve a process diagram xml file
+#### Retrieve a process diagram xml file 
 
 * **URL**  
   `/API/bpm/diagram/:processId`  
@@ -3605,7 +3605,7 @@ The methods used for this resource are:
 
 #### Description
 
-A process parameter is a variable attached to process. The parameter value is set at deployment, and applies to all cases of the process. This feature is available in Performance, Efficiency, and Teamwork editions.
+A process parameter is a variable attached to process. The parameter value is set at deployment, and applies to all cases of the process. This feature is available in Performance, Efficiency, and Teamwork editions. 
 
 #### Identifier
 
@@ -3615,12 +3615,12 @@ A compound identifier constructed from process\_id/name where process\_id is a l
 ```json
 {
   "process_id":"the identifier of the process definition",
-  "process_name":"the name of the related process",
-  "description":"the description of the parameter",
-  "name":"the name of the parameter",
-  "value":"the value of the parameter",
-  "process_version":"the version of the process",
-  "type":"the type of the parameter"
+  "process_name":"the name of the related process", 
+  "description":"the description of the parameter", 
+  "name":"the name of the parameter", 
+  "value":"the value of the parameter", 
+  "process_version":"the version of the process", 
+  "type":"the type of the parameter" 
 }
 ```
 
@@ -3633,7 +3633,7 @@ The methods used for this resource are:
 
 #### Read a processParameter
 
-You can read a process parameter using its compound id (process\_id/name)
+You can read a process parameter using its compound id (process\_id/name) 
 
 * **URL**  
   `/API/bpm/processParameter/:processId/:name`  
@@ -3838,7 +3838,7 @@ The ID of the connector failure (a long value).
   "errorStackTrace":"the stack trace of the error"
 }
 ```
-
+    
 
 #### Methods
 
@@ -3865,7 +3865,7 @@ Retrieve the information regarding the failure of the connector execution.
       "errorStackTrace":"org.bonitasoft.engine.core.connector.exception.SConnectorException: PROCESS_DEFINITION_ID=8030057793979348308 | PROCESS_NAME=Pool1 | PROCESS_VERSION=1.0 | PROCESS_INSTANCE_ID=5 | ROOT_PROCESS_INSTANCE_ID=5 | FLOW_NODE_DEFINITION_ID=-6089366458284481881 | FLOW_NODE_INSTANCE_ID=12 | FLOW_NODE_NAME=Étape1 | CONNECTOR_DEFINITION_IMPLEMENTATION_CLASS_NAME=expression execution connector | CONNECTOR_INSTANCE_ID=5 | org.bonitasoft.engine.connector.exception.SConnectorException: java.util.concurrent.ExecutionException: java.lang.Exception: Error while executing the groovy script\n\tat org.bonitasoft.engine.core.connector.impl.ConnectorServiceImpl.executeConnectorInClassloader(ConnectorServiceImpl.java:332)"
     }
     ```
-
+    
 ### ConnectorInstance
 
 #### Description
@@ -3898,9 +3898,9 @@ The methods used for this resource are:
 
 * **URL**  
   `/API/bpm/connectorInstance`  
-  _Example_:
-   * Get information about connectors attached to a flow node with instanceId 15 :`/API/bpm/connectorInstance?p=0&c=10&f=containerId%3d15`
-   * Get information about connectors attached to a process instance with instanceId 4781948523999597477: `/API/bpm/connectorInstance?p=0&c=10&f=containerId%3d4781948523999597477`
+  _Example_: 
+   * Get information about flow node with instanceId 15 :`/API/bpm/connectorInstance?p=0&c=10&f=containerId%3d15`
+   * Get information about process instance with instanceId 4781948523999597477: `/API/bpm/connectorInstance?p=0&c=10&f=id%3d4781948523999597477`
 * **Method**  
   `GET`
 * **Data Params**  
@@ -3950,7 +3950,7 @@ The methods used for this resource are:
       }
     ]
     ```
-
+    
 ### ArchivedConnectorInstance
 
 #### Description
@@ -3972,7 +3972,7 @@ node.
   "version":"the connector version (string)"
 }
 ```
-
+    
 
 #### Methods
 
@@ -3996,11 +3996,11 @@ The methods used for this resource are:
     ```json
     [
       {
-        "containerType":"flowNode",
-        "connectorId":"scripting-groovy-script",
-        "id":"15",
-        "name":"connector1",
-        "activationEvent":"ON_ENTER",
+        "containerType":"flowNode", 
+        "connectorId":"scripting-groovy-script", 
+        "id":"15", 
+        "name":"connector1", 
+        "activationEvent":"ON_ENTER", 
         "state":"DONE",
         "archivedDate":"2014-12-01 16:39:19.041",
         "containerId":"34"
@@ -4026,7 +4026,7 @@ The methods used for this resource are:
 
 #### Description
 
-A flow node (gateway, event, or task) in an open instance of a process.
+A flow node (gateway, event, or task) in an open instance of a process. 
 
 #### Identifier
 
@@ -4072,8 +4072,8 @@ The methods used for this resource are:
 
 #### Response object extension (deploy query parameter)
 
-The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with :
-  * processId: the id of the process that is associated with the activity
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * processId: the id of the process that is associated with the activity 
   * caseId: the id of the case that is associated with the activity
   * rootCaseId: the root case that is associated with this activity's case
   * parentCaseId: the parent case that is associated with this activity's case
@@ -4137,7 +4137,7 @@ Search for flow nodes using given parameters. Flow nodes in states completed, ca
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   The following parameters are available:
-  * o:
+  * o: 
     * name
     * displayName
     * state
@@ -4147,7 +4147,7 @@ Search for flow nodes using given parameters. Flow nodes in states completed, ca
     * rootProcessInstanceId
     * lastUpdateDate
   * s: search on any field that can be used to order results
-  * f:
+  * f: 
     * name
     * state
     * processId
@@ -4191,31 +4191,31 @@ The ID of the flowNode (a long).
 {
   "id": "the flowNode id (long)",  
   "sourceObjectId": "the original id of the flowNode before it was archived",
-  "displayDescription": "the human readable flowNode description (string)",
-  "executedBySubstitute": "the id (long) of the user who really performed this flowNode in case where a substitute did it, or 0 if the flowNode was not performed by a substitute",
-  "caseId": "the case id (long) that is associated with this flowNode",
-  "parentCaseId": "the parent case id (long) that is associated with this flowNode's case",
-  "rootCaseId": "the root case initiator id (long) that is associated with this flowNode's case",
-  "processId": "the process id (long) that is associated with this flowNode",
-  "rootContainerId": "the root process id (long) of the root case that is associated with this flowNode",
-  "state": "the current state of the flowNode (string,  for example, ready, completed, failed)",
-  "type": "the flowNode type (string)",
-  "assigned_id": "the user id (long) that this flowNode is assigned to, or 0 if it is unassigned",
-  "assigned_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current flowNode was assigned, for example '2014-10-17 16:05:42.626'",
+  "displayDescription": "the human readable flowNode description (string)", 
+  "executedBySubstitute": "the id (long) of the user who really performed this flowNode in case where a substitute did it, or 0 if the flowNode was not performed by a substitute", 
+  "caseId": "the case id (long) that is associated with this flowNode", 
+  "parentCaseId": "the parent case id (long) that is associated with this flowNode's case", 
+  "rootCaseId": "the root case initiator id (long) that is associated with this flowNode's case", 
+  "processId": "the process id (long) that is associated with this flowNode", 
+  "rootContainerId": "the root process id (long) of the root case that is associated with this flowNode", 
+  "state": "the current state of the flowNode (string,  for example, ready, completed, failed)", 
+  "type": "the flowNode type (string)", 
+  "assigned_id": "the user id (long) that this flowNode is assigned to, or 0 if it is unassigned", 
+  "assigned_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current flowNode was assigned, for example '2014-10-17 16:05:42.626'", 
   "executedBy": "the id (long) of the user who executed the flowNode, or 0 if the flowNode has not been executed",
-  "priority": "the priority (string) of the current flowNode",
-  "actorId": "the id (long) of the actor that can execute this flowNode, null otherwise",
-  "description": "the flowNode description (string)",
-  "name": "the flowNode name (string)",
-  "reached_state_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flowNode reached the current state, for example '2014-10-17 16:05:42.626'",
-  "displayName": "the display name (string) of this flowNode",
-  "dueDate": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flowNode is due, for example '2014-10-17 16:05:42.626'",
+  "priority": "the priority (string) of the current flowNode", 
+  "actorId": "the id (long) of the actor that can execute this flowNode, null otherwise", 
+  "description": "the flowNode description (string)", 
+  "name": "the flowNode name (string)", 
+  "reached_state_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flowNode reached the current state, for example '2014-10-17 16:05:42.626'", 
+  "displayName": "the display name (string) of this flowNode", 
+  "dueDate": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flowNode is due, for example '2014-10-17 16:05:42.626'", 
   "archivedDate": "the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this flowNode was archived, for example '2014-10-17 16:05:42.626'",
-  "last_update_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flowNode was last updated, for example '2014-10-17 16:05:42.626)",
-  "parentTaskId": "in the case of a subtask, the parent task id (long)"
+  "last_update_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flowNode was last updated, for example '2014-10-17 16:05:42.626)", 
+  "parentTaskId": "in the case of a subtask, the parent task id (long)" 
 }
 ```
-
+    
 #### Methods
 
 The methods used for this resource are:
@@ -4226,8 +4226,8 @@ The methods used for this resource are:
 
 #### Response object extension (deploy query parameter)
 
-The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with :
-  * processId: the id of the process that is associated with the activity
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * processId: the id of the process that is associated with the activity 
   * caseId: the id of the case that is associated with the activity
   * rootCaseId: the root case that is associated with this activity's case
   * parentCaseId: the parent case that is associated with this activity's case
@@ -4263,7 +4263,7 @@ Search for flow nodes using given parameters. Flow nodes in state completed, can
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   The following parameters are available:
 
-  * o:
+  * o: 
     * name
     * displayName
     * state
@@ -4273,7 +4273,7 @@ Search for flow nodes using given parameters. Flow nodes in state completed, can
     * caseId
     * archiveDate
   * s: search on any field that can be used to order results
-  * f:
+  * f: 
     * name
     * displayName
     * state
@@ -4296,7 +4296,7 @@ Search for flow nodes using given parameters. Flow nodes in state completed, can
 
 #### Description
 
-Use this resource to search for BPM timer event triggers.
+Use this resource to search for BPM timer event triggers. 
 The result enables you to to update the date and time at which the trigger should next execute.
 
 #### Identifier
