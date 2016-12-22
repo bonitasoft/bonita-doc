@@ -1,6 +1,6 @@
 # Release notes
 
-Bonita BPM 7.4 Beta includes a set of user-based product enhancements, bug fixes related to Bonita BPM Engine, 
+Bonita BPM 7.4 includes a set of user-based product enhancements, bug fixes related to Bonita BPM Engine, 
 a new REST connector and important technology updates.
 
 ## user-based product enhancements
