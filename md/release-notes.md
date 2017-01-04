@@ -67,6 +67,23 @@ a new REST connector and important technology updates.
 
 ## Bug fixes
 
+### Fixes in Bonita BPM 7.4.1 
+
+* BS-14076	V7 Translation bugs
+* BS-15679	Update of connector implementation does not work with single and same jar dependency
+* BS-15681	Process with a subprocess with a catch message or timer event never ends and is blocked on a parallel gateway
+* BS-15820	No work generated at start up to execute boundary event in waiting state
+* BS-15826	[i18n] typo in FR translation in the licence monitoring view
+* BS-15884	Monitoring view tooltips are not translated
+* BS-15887	UI Designer Form opening and save takes a minute and more
+* BS-15916	Cannot use process variable in the init of Sub Process Event
+* BS-15990	An update of the DataInstanceServiceImpl.getSADatainstanceOfContainers() logic returns incorrect data value
+* BS-16028	Chart widget advanced options link redirect to wrong version of chart.js
+* BS-16035	SessionUtil stopped working
+* BS-16050	V6 form double contingency doesn't work anymore
+* BS-16056	Date widget does not work for dates between December 1969 to January 1970
+* BS-16069	Impossible to cancel the import of a .bos if a file is selected
+
 ### Fixes in Bonita BPM 7.4.0 
 
 * BS-10745  Starting a disabled process through a Call Activity should not be allowed
