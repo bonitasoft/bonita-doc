@@ -83,6 +83,7 @@ a new REST connector and important technology updates.
 * BS-16050	V6 form double contingency doesn't work anymore
 * BS-16056	Date widget does not work for dates between December 1969 to January 1970
 * BS-16069	Impossible to cancel the import of a .bos if a file is selected
+* BS-16095	Catch message: left operator not set when using auto fill
 
 ### Fixes in Bonita BPM 7.4.0 
 
