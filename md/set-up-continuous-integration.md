@@ -87,15 +87,15 @@ All example scripts given on this page are compatible with Unix-like operating s
  The Maven artifact could also be deployed to a centralized Maven repository manager solution.   
  To do so, add a second build step of type "Invoke top-level Maven targets" configured as follows:
       
-	```bash
-	Goals: install:install-file
-	Properties:
-	groupId=com.acme.bonita
-	artifactId=process-bars
-	version=1.0.0-SNAPSHOT
-	packaging=zip
-	file=$WORKSPACE/process-bars.zip
-	 ```
+```bash
+Goals: install:install-file
+Properties:
+groupId=com.acme.bonita
+artifactId=process-bars
+version=1.0.0-SNAPSHOT
+packaging=zip
+file=$WORKSPACE/process-bars.zip
+```
       
    Eventually, archive generated artifact in Jenkins  
    You can archive the job artifact (generated processes package) in Jenkins.    
