@@ -5,7 +5,7 @@ Only one model can be deployed at a time in the Portal, so make sure it contains
 
 The Business objects must match the structure used by the deployed processes. Make sure that when modifying the Business Model, the process is modified accordingly.
 
-1. To import the Business Data Model created in Bonita BPM Studio, first [](define-and-deploy-the-bdm.md)export the Business Data Model from Bonita BPM Studio where it was designed.
+1. To import the Business Data Model created in Bonita BPM Studio, first [export the Business Data Model](define-and-deploy-the-bdm.md) from Bonita BPM Studio where it was designed.
 2. In the Bonita BPM Portal, log in as the technical user (default login 'install', default password 'install').
 3. Go to the **BPM Services** menu.
 4. Click on **Pause** to [pause](pause-and-resume-bpm-services.md) the tenant.

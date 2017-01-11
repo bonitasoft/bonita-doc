@@ -61,7 +61,7 @@ There are five properties files:
 All configurations files can be found in the conf directory.
 
 **Note**: to use a special character in a properties file, use the Unicode equivalent. For example, for à use \\u00E0\. 
-You can use a tool such as [native2ascii](http://docs.oracle.com/javase/7/docs/technotes/tools/solaris/native2ascii.html) to convert any special characters in the configuration files to Unicode.
+You can use a tool such as [native2ascii](http://docs.oracle.com/javase/8/docs/technotes/tools/unix/native2ascii.html) to convert any special characters in the configuration files to Unicode.
 
 You also need to [configure connection on Bonita BPM Engine](configure-client-of-bonita-bpm-engine.md) for the LDAP Synchronizer.
 

@@ -12,7 +12,7 @@ All the Engine services call the [technical logger service](technical-logging.md
 
 ### Bonita BPM Portal
 
-The Portal uses the [Java Util Logging](http://docs.oracle.com/javase/6/docs/api/java/util/logging/package-summary.html) (JUL) directly to log messages.
+The Portal uses the [Java Util Logging](http://docs.oracle.com/javase/8/docs/api/java/util/logging/package-summary.html) (JUL) directly to log messages.
 
 ### Bonita BPM Studio
 
