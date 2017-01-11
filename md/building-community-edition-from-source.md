@@ -11,7 +11,7 @@ To build the product, you need the following:
 * Internet connection
 * Git
 * JDK 1.7 or 1.8
-* Apache Maven 3.0.5 (version is mandatory)
+* Apache Maven 3.3.9 (version is mandatory)
 * NodeJS
 
 ::: info
@@ -29,6 +29,6 @@ Note that you can run Bonita BPM on Windows but you cannot build Bonita BPM on W
 
 In order to build Bonita BPM you need to use the script provided in [Build Bonita BPM](https://github.com/Bonitasoft-Community/Build-Bonita-BPM) GitHub project. Use the branch of the project that match the version you want to build.
 
-Simply run `bash build-script-7.3.2.sh` and provide required information.
+Simply run `bash build-script-7.4.1.sh` and provide required information.
 
 A script is used because some components rely on components that are built earlier in the sequence, so the build order must be respected.
