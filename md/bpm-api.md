@@ -3899,8 +3899,8 @@ The methods used for this resource are:
 * **URL**  
   `/API/bpm/connectorInstance`  
   _Example_: 
-   * Get information about flow node with instanceId 15 :`/API/bpm/connectorInstance?p=0&c=10&f=containerId%3d15`
-   * Get information about process instance with instanceId 4781948523999597477: `/API/bpm/connectorInstance?p=0&c=10&f=id%3d4781948523999597477`
+   * Get information about connectors attached to a flow node with instanceId 15 :`/API/bpm/connectorInstance?p=0&c=10&f=containerId%3d15`
+   * Get information about connectors attached to a process instance with instanceId 4781948523999597477: `/API/bpm/connectorInstance?p=0&c=10&f=containerId%3d4781948523999597477`
 * **Method**  
   `GET`
 * **Data Params**  
