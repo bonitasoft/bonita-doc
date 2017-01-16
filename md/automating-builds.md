@@ -18,7 +18,7 @@ To use `BonitaStudioBuilder`, you need the following:
 
 * Bonita BPM Studio (the same version as the Bonita BPM repository). This must be a dedicated Bonita BPM Studio and repository used only for your `BonitaStudioBuilder`, because the tool removes the content of the repository.
 * A window manager
-* Java 1.7
+* Java 1.8
 
 After Bonita BPM Studio is installed, the `BonitaStudioBuilder` scripts are in the `workspace_api_scripts` folder. 
 There are scripts for Windows (`.bat`), Linux (`.sh`), and MacOS (`_Mac.sh`).

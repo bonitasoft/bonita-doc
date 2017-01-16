@@ -14,18 +14,18 @@ as `apt-get` or a graphical package manager such as `synaptic`.
 
 ## Java Virtual Machine
 
-To install the OpenJDK JVM you need to install the `openjdk-7-jre-headless` package:
+To install the OpenJDK JVM you need to install the `openjdk-8-jre-headless` package:
 
-* Run the following command line: `sudo aptitude install openjdk-7-jre-headless`
+* Run the following command line: `sudo aptitude install openjdk-8-jre-headless`
 * If needed, type your Ubuntu user password
 * Type _**Enter**_ to confirm that you want to continue installation
 
 To check that Java is correctly setup in a console/terminal, type: `java -version`.
 You should get a similar message to the one below:  
 ```
-java version "1.7.0_65"
-OpenJDK Runtime Environment (IcedTea 2.5.3) (7u71-2.5.3-1ubuntu0.14.04.1)
-OpenJDK 64-Bit Server VM (build 24.65-b04, mixed mode)`
+openjdk version "1.8.0_111"
+OpenJDK Runtime Environment (build 1.8.0_111-8u111-b14-2ubuntu0.16.04.2-b14)
+OpenJDK 64-Bit Server VM (build 25.111-b14, mixed mode)
 ```
 
 ## Database

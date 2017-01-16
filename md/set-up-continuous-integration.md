@@ -22,7 +22,7 @@ Before you begin, you need the following components available for your CI enviro
 
 * Bonita BPM Studio Teamwork, Efficiency, or Performance edition: The automated process build feature is not available in the Community edition.
 * A window manager: You need a window manager to use the Bonita BPM Studio process builder.
-* Java: You need Java 7 or 8 to be installed on the CI server and your development computer.
+* Java: You need Java 8 or above to be installed on the CI server and on your development computer.
 * Maven: This guide provides example Maven-based projects for executing automated tests of your processes. Maven 3 is required on the CI server and the test development computer.
 * Subversion: Bonita BPM Studio enables business analysts and developers to collaborate on process design using a shared Subversion (SVN) repository. This tutorial assumes that you have access to a Subversion server.
 * Jenkins: The [Jenkins CI](https://jenkins.io/) server is responsible for coordinating continuous build and test of your processes.

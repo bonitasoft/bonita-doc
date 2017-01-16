@@ -9,7 +9,7 @@ To see an example of a well-formed XML file for an organization, export the ACME
 
 In the following example, the organization definition is stored in a file called `ACME.xml`, which is stored in `path`. The file content is converted to a string, and then imported.
 ```groovy
-final pOrganizationResourceName = “path/ACME.xml”
+final pOrganizationResourceName = "path/ACME.xml"
 final File orgFile = FileUtils.toFile(getClass().getResource(pOrganizationResourceName));
 final String orgContent = FileUtils.readFileToString(orgFile, CharEncoding.UTF_8);
 getIdentityAPI().importOrganization(orgContent);
