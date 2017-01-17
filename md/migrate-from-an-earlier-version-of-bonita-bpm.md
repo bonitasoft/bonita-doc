@@ -174,12 +174,15 @@ The `bonita_home` and the database have been migrated.
 1. *Only before 7.3.0* In your new `bonita-target-version` folder, delete the `bonita` folder. You will use the `bonita_home` that you have migrated instead.
 1. *Only before 7.3.0* Set the bonita_home system property to point to the migrated `bonita_home`.
 1. [Configure the bundle to use the migrated database](database-configuration.md). Do not recreate the database.
-1. <a id="compound-permission-migration" /> In the case where deployed resources have required dedicated [authorizations to use the REST API](resource-management.md#permissions), these authorizations are not automatically migrated.  
-    Some manual operation have to be done on files that are  located in the _$BONITA\_HOME_ folder if version <7.3.0 or in the extracted `platform_conf/current` folder in version >=7.3.0 (see [Update Bonita BPM Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf) for more information ). You need to merge the previous file version and the migrated one.
+1. <a id="compound-permission-migration" /> **From version 7.5+, you can skip this point.**
+
+    In the case where deployed resources have required dedicated [authorizations to use the REST API](resource-management.md#permissions), these authorizations are not automatically migrated.  
+    Some manual operation have to be done on files that are  located in the _$BONITA\_HOME_ folder if version <7.3.0 or in the extracted `platform_conf/current` folder in version >=7.3.0
+    (see [Update Bonita BPM Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf) for more information ). You need to merge the previous file version and the migrated one.
     
-    * `tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties` : contains list of permissions used for each resources 
+    * `tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties` : contains list of permissions used for each resources
     * `tenants/[TENANT_ID]/conf/resources-permissions-mapping.properties` : contains permissions for REST API extensions
-    * `tenants/[TENANT_ID]/conf/custom-permissions-mapping.properties` : contains custom permissions for users and profiles  
+    * `tenants/[TENANT_ID]/conf/custom-permissions-mapping.properties` : contains custom permissions for users and profiles
     * `tenants/[TENANT_ID]/conf/dynamic-permissions-checks.properties` : used if dynamic check on permissions is enabled
                
 1. Configure License:
