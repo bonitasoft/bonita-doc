@@ -36,11 +36,11 @@ You can set the system property `org.bonitasoft.engine.api-type` to `HTTP`, `EJB
  * `HTTP`:
    The `HTTP` connection mode will connect the client to the engine using the http protocol. This is the most common way to connect to engine remotly.  
    When using `HTTP` mode, you must set the following system properties
-   * `server.url`
+   * `org.bonitasoft.engine.server.url`
       It is the url of the server, e.g. for a engine on the same host it can be `http://localhost:8080`
-   * `application.name`
+   * `org.bonitasoft.engine.application.name`
 
-      It is the the of the web aplication on wich the engine HTTP API is deployed, e.g. `bonita`
+      It is the name of the web aplication on wich the engine HTTP API is deployed, e.g. `bonita`
  * `EJB3`
    The `EJB3` connection mode will connect the client to the engine using EJBs.  
    You will need to specify at least `org.bonitasoft.engine.ejb.naming.reference` that is the name use to lookup the ServerAPI
