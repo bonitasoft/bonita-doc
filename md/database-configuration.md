@@ -389,8 +389,29 @@ ALTER DATABASE BONITA_BPM SET ALLOW_SNAPSHOT_ISOLATION ON
 ALTER DATABASE BONITA_BPM SET READ_COMMITTED_SNAPSHOT ON
 ALTER DATABASE BONITA_BPM SET MULTI_USER
 ```
-
 See [MSDN](https://msdn.microsoft.com/en-us/library/ms175095(v=sql.110).aspx).
+
+
+Run the script below to avoid the SQL Server change the status of the database to SUSPECT during database server startup when in-doubt XA transactions are found.
+The value 2 in the block below means *presume abort* see the 
+
+```sql
+sp_configure 'show advanced options', 1
+GO
+RECONFIGURE
+GO
+sp_configure 'in-doubt xact resolution', 2 
+GO
+RECONFIGURE
+GO
+sp_configure 'show advanced options', 0
+GO
+RECONFIGURE
+GO
+```
+
+See [in-doubt xact resolution Server Configuration Option](https://msdn.microsoft.com/en-us/library/ms179586%28v%3Dsql.110%29.aspx).
+
 
 ### MySQL
 
