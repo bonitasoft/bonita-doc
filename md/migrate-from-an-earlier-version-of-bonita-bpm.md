@@ -174,7 +174,7 @@ The `bonita_home` and the database have been migrated.
 1. *Only before 7.3.0* In your new `bonita-target-version` folder, delete the `bonita` folder. You will use the `bonita_home` that you have migrated instead.
 1. *Only before 7.3.0* Set the bonita_home system property to point to the migrated `bonita_home`.
 1. [Configure the bundle to use the migrated database](database-configuration.md). Do not recreate the database.
-1. <a id="compound-permission-migration" /> **From version 7.5+, you can skip this point.**
+1. <a id="compound-permission-migration" /> **If your Bonita BPM version is 7.5+ before migrating, you can skip this point.**
 
     In the case where deployed resources have required dedicated [authorizations to use the REST API](resource-management.md#permissions), these authorizations are not automatically migrated.  
     Some manual operation have to be done on files that are  located in the _$BONITA\_HOME_ folder if version <7.3.0 or in the extracted `platform_conf/current` folder in version >=7.3.0

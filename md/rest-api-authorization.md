@@ -34,8 +34,8 @@ You need to [add authorization to your custom pages](#migrate) before you activa
 
 The static phase uses a set of configuration files:
 
-* `resources-permissions-mapping-custom.properties`
-* `compound-permissions-mapping-custom.properties`
+* `resources-permissions-mapping-*.properties`
+* `compound-permissions-mapping-*.properties`
 * `custom-permissions-mapping.properties`
 
 These files grant permissions to sets of users based on profile or user name.
@@ -113,7 +113,7 @@ To do this, create a custom profile and configure the relevant permissions.
 For example, you could create a profile called CustomProcessManager and assign the permissions needed to monitor and manage processes:
 `profile|MyCustomProfile=[process_visualization, process_management, process_manager_management, custom_process_manager_permission]`
 
-In this example, the `custom_process_manager_permission` must be defined in the `compound-permissions-mapping-custom.properties` file.
+In this example, the `custom_process_manager_permission` can be defined in the `compound-permissions-mapping-custom.properties` file.
 
 ## Dynamic authorization checking
 
@@ -261,6 +261,11 @@ Note that this level of logging is only available if you [set the logging level]
 When a new [custom page](pages.md) is added, the permissions defined in the page properties are added to the permissions configuration files and the cache.
 It is not necessary to restart the applications server to activate security for the new custom page.
 Depending on the permissions that a user of the page already has, it might be necessary to log out and log in again to get access to the new custom page.
+
+::: warning
+If the page declares resources provided by a REST API extension (link to the REST API extention page), then the REST API extension must be deployed before the page,
+otherwise the compound permissions won't be automatically created when deploying the page.
+:::
 
 ## Authorization and custom profiles
 
