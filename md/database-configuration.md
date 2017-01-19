@@ -393,7 +393,8 @@ See [MSDN](https://msdn.microsoft.com/en-us/library/ms175095(v=sql.110).aspx).
 
 
 Run the script below to avoid the SQL Server change the status of the database to SUSPECT during database server startup when in-doubt XA transactions are found.
-The value 2 in the block below means *presume abort* see the 
+The value 2 in the block below means *presume abort*
+To minimize the possibility of extended down time, an administrator might choose to configure this option to presume abort, as shown in the following example
 
 ```sql
 sp_configure 'show advanced options', 1
