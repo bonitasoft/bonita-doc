@@ -392,9 +392,7 @@ ALTER DATABASE BONITA_BPM SET MULTI_USER
 See [MSDN](https://msdn.microsoft.com/en-us/library/ms175095(v=sql.110).aspx).
 
 
-Run the script below to avoid the SQL Server change the status of the database to SUSPECT during database server startup when in-doubt XA transactions are found.
-The value 2 in the block below means *presume abort*
-To minimize the possibility of extended down time, an administrator might choose to configure this option to presume abort, as shown in the following example
+Run the script below to avoid that the SQL Server changes the status of databases to SUSPECT during database server startup when in-doubt XA transactions are found.  The value 2 in the block below means *presume abort*.  To minimize the possibility of extended down time, an administrator might choose to configure this option to presume abort, as shown in the following example
 
 ```sql
 sp_configure 'show advanced options', 1
