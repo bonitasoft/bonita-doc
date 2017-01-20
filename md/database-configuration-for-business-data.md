@@ -18,7 +18,7 @@ Configuration is done per tenant. If you have multiple tenants to configure, you
 
 ## Database creation
 
-In your RDBMS, create a database to be used to store business object. Do not reuse the Bonita BPM Engine database.
+In your RDBMS, create a database to be used to store business object. Do not reuse the Bonita BPM Engine database. Follow the instructions in the [Specific database configuration](database-configuration.md#Specific database configuration) section.
 
 Configure the database to use the UTF-8 character set.
 
