@@ -391,6 +391,7 @@ ALTER DATABASE BONITA_BPM SET MULTI_USER
 ```
 See [MSDN](https://msdn.microsoft.com/en-us/library/ms175095(v=sql.110).aspx).
 
+#### Recommended configuration in-doubt xact resolution
 
 Run the script below to avoid that the SQL Server changes the status of databases to SUSPECT during database server startup when in-doubt XA transactions are found.  
 The value 2 in the block below means *presume abort*.  
