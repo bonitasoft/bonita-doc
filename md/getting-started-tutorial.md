@@ -549,7 +549,7 @@ Now update the widgets to use the new variables:
 
 When the user clicks the button on the Travel Tool page for creating a travel request, the application displays the form for creating a request.  
 This is the instantiation form for the Travel Request process.  
-To configure this, select the button and set the target URL property to `"/bonita/portal/resource/process/Travel%20Request/1.0/content/?id="+processDef[0].id`.
+To configure this, select the button and set the target URL property by first clicking on the change to bind to an expression button (‘fx’ to the right of the field) and then updating the expression to  `"/bonita/portal/resource/process/Travel%20Request/1.0/content/?id="+processDef[0].id`.
 
 After the user submits the form, the Tasks view of Bonita BPM Portal is displayed.
 
