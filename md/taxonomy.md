@@ -123,6 +123,7 @@
       * [User authentication overview](user-authentication-overview.md)
       * [Active Directory or LDAP authentication](active-directory-or-ldap-authentication.md)
       * [Single sign-on with CAS](single-sign-on-with-cas.md)
+      * [Single sign-on with SAML](single-sign-on-with-saml.md)     
       * [Enforce password policy](enforce-password-policy.md)
       * [REST API authorization](rest-api-authorization.md)
       * [CSRF security](csrf-security.md)
