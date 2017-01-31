@@ -253,6 +253,8 @@ Now that you are almost done with the switch from h2 to your chosen RDBMS, you c
    * Remove the h2 listener, so that h2 is not started automatically: comment out the h2 listener in the `/conf/server.xml` file.
  * Check that h2 is no longer set in JVM system property value. Also, for extra security, you can remove it from `bonita-platform.properties` file and replace it with the value for your chosen RDBMS.
 
+<a id="specific_database_configuration"/>
+
 ## Specific database configuration
 
 ### PostgreSQL
