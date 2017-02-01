@@ -113,7 +113,7 @@ It is assumed in the procedure that:
    SQL query \>  
    ```sql
    select comp_name, version, status from dba_registry;
-   ```  
+   ```
 
    | Comp\_name | Version | Status |
    |:-|:-|:-|
@@ -170,7 +170,7 @@ Here is the list of steps to perform (as an example, the database name BONITA\_B
 2. Copy the `sqljdbc_xa.dll` from `%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc_4.0\enu\xa\x64\` (x64 for 64 bit version of Windows, x86 for 32 bit version of Windows) to `%SQLSERVER_INSTALL_ROO%\Instance_root\MSSQL10.MSSQLSERVER\MSSQL\Binn\.`
 3. Copy/paste the content of xa\_install.sql file (located in %JDBC\_DRIVER\_INSTALL\_ROOT%\\sqljdbc\_4.0\\enu\\xa) to SQL Server Management Studio's Query Editor.
 4. Execute the query in the Query Editor.
-5. To confirm successful execution of the script, open the "Object Explorer" and go to: **Master** \> **Programmability** \> **Extended Stored Procedures**.  
+5. To confirm successful execution of the script, open the "Object Explorer" and go to: **Master** \> **Programmability** \> **Extended Stored Procedures**.   
    You should have 12 new procedures, each with a name starting with `dbo.xp.sqljdbc_xa_`.
 6. Assign the new role 'SqlJDBCXAUser' to the user who owns the Bonita BPM Engine database (`bonitadev` in our example). To do so, execute the following commands in SQL editor:
    ```sql
@@ -206,8 +206,31 @@ ALTER DATABASE BONITA_BPM SET ALLOW_SNAPSHOT_ISOLATION ON
 ALTER DATABASE BONITA_BPM SET READ_COMMITTED_SNAPSHOT ON
 ALTER DATABASE BONITA_BPM SET MULTI_USER
 ```
-
 See [MSDN](https://msdn.microsoft.com/en-us/library/ms175095(v=sql.110).aspx).
+
+#### Recommended configuration for in-doubt xact resolution
+
+Run the script below to avoid that the SQL Server changes the status of databases to SUSPECT during database server startup when in-doubt XA transactions are found.  
+The value 2 in the block below means *presume abort*.  
+To minimize the possibility of extended down time, an administrator might choose to configure this option to presume abort, as shown in the following example
+
+```sql
+sp_configure 'show advanced options', 1
+GO
+RECONFIGURE
+GO
+sp_configure 'in-doubt xact resolution', 2 
+GO
+RECONFIGURE
+GO
+sp_configure 'show advanced options', 0
+GO
+RECONFIGURE
+GO
+```
+
+See [in-doubt xact resolution Server Configuration Option](https://msdn.microsoft.com/en-us/library/ms179586%28v%3Dsql.110%29.aspx).
+
 
 #### MySQL
 

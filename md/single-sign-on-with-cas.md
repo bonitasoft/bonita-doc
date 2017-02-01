@@ -220,7 +220,8 @@ We recommend that you use LDAP as your master source for information, synchroniz
 
 CAS is a browser-oriented protocol (based on http automatic redirection, cookies, forms, etc...), therefore, we only have securized browser-oriented resources. This is why only a subset of pages are handled to be automatically SSO CAS-verified but not the whole web application.
 
-The default AuthenticationFilter that manages CAS authentication applies only to the following pages: 
+<a id="restricted_cas_urls"/>
+The default `AuthenticationFilter` that manages CAS authentication applies only to the following pages: 
 
 * /portal
 * /mobile/\*
@@ -230,8 +231,8 @@ The default AuthenticationFilter that manages CAS authentication applies only to
 
 REST API are not part of them, but if an http session already exists thanks to cookies, REST API can be used.
 
-The recommended way to authenticate to Bonita BPM Portal to use the REST API is to use the CAS server REST API.  
-It allows to retrieve authentication tickets to authenticate to Bonita BPM Portal.
+The recommended way to authenticate to **Bonita BPM Portal** to use the REST API is to use the CAS server REST API.  
+It allows to retrieve authentication tickets to authenticate to **Bonita BPM Portal**.
 
 For detailed information about the procedure to install Restful access on your CAS SSO server, see the following links:
 
@@ -271,6 +272,8 @@ Take the TGT response and paste it in the url of the ST request, below
 | Request Method | POST| 
 | Form Data | service={form encoded parameter for the service url}| 
 
+For instance, in a **Bonita BPM Portal** deployed on Tomcat bundle on a server with IP `192.168.1.9`, `service url` can be `http://192.168.1.9:8080/bonita/portal/homepage`. Its form encoded value would be `http%3A%2F%2F192.168.1.9%3A8080%2Fbonita%2Fportal%2Fhomepage`.
+
 ##### **Response for a Service (ST)**
 
 | | |
@@ -281,14 +284,31 @@ Take the ST response and paste it in the url of the Bonita BPM Engine login requ
 
 #### Logging into Bonita BPM Engine with Rest API using the service ticket
 
-**Authentication to Bonita BPM Engine**
+Use a **Bonita BPM Portal** URL where the [CAS AuthenticationFilter applies](#restricted_cas_urls) for authentication to work.
+
+::: warning
+Prefer GET over POST to authenticate because experience has shown that in some server configuration, POST parameters cannot be retrieved in the CAS authentication web filter.
+:::
+
+##### **Authentication to Bonita BPM Engine** with GET
+
+The form encoded parameter URL used as service in the previous step must be used as access point because it will be sent to the CAS server to check ticket validation. 
 
 | | |
 |:-|:-|
-| Request URL | `bonita_server_url/loginservice?ticket={ST} `| 
-| Request Method | GET| 
-| Form Data | service={form encoded parameter for the service url}| 
+| Request URL | `{service url}` | 
+| Request Method | GET | 
+| HTTP Params | ticket={ST} | 
 
+##### **Authentication to Bonita BPM Engine** with POST
+
+Use a Bonita BPM Portal SSO protected URL for this action.
+
+| | |
+|:-|:-|
+| Request URL | `<bonita bpm portal url>` | 
+| Request Method | POST | 
+| Form Data | service={form encoded parameter for the service url}&ticket={ST} | 
 
 ##### **Response for a Service (ST)**
 
@@ -299,5 +319,7 @@ Take the ST response and paste it in the url of the Bonita BPM Engine login requ
 You are now logged into Bonita BPM Portal and REST API calls will succeed.
 
 ::: warning
-Cookies must be enabled in REST client side for authentication to persist across REST API calls.
+Cookies must be enabled in REST client side for authentication to persist across REST API calls.  
+Therefore, calling web application root context may not work (e.g. `/bonita` by default) because session cookie seems not to be set on all web server configurations.
+**Use a protected URL to authenticate to Bonita BPM Portal when using the ticket parameter with POST method.**
 :::
