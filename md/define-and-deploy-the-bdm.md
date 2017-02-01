@@ -23,7 +23,7 @@ The business data specified in the BDM is stored in a database. It requires two 
 
 During development, you can use the tools in the `h2-1.3.170.jar` in the workspace Tomcat library to view the business data in the h2 database. If you modify database content manually, there is risk of losing data and losing synchronization with business objects in a process instance. However, it can be useful to view the database for debugging processes. If you change the BDM during development, this can also cause problems in existing process definitions.
 
-When you are ready to go to production, you need to [configure a database and business data datasources for business data](database-configuration-for-business-data.md) in your production environment.
+When you are ready to go to production, you need to [configure a database and datasources for business data](database-configuration.md) in your production environment.
 
 <a id="bdm_spec"/>
 
