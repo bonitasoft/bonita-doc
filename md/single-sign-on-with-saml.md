@@ -3,12 +3,12 @@
 :::info 
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
-*
+
 This pages explains how to configure your Bonita BPM Platform system to use SAML to provide single sign-on (SSO). It assumes you already have a working SAML service. All Bonita BPM users must be registered in SAML.
 
 This information applies to a Bonita BPM platform deployed from a bundle, not to the Engine launched from Bonita BPM Studio.
 
-SAML configuration is at tenant level. Each tenant can use a different authentication method (over SAML or not)
+SAML configuration is at tenant level. Each tenant can use a different authentication method (over SAML or not).
 
 ## SAML overview for Bonita BPM 
 
@@ -18,49 +18,49 @@ This is an overview that relates the steps required to integrate a bonita BPM bu
 
 
 Here some details about the Bonita SAML2 module,
-it will be composed by: 
+it is composed of: 
 
-- One Servlet filter that will intercept all the request to bonita portal. 
+- A servlet filter that intercept all the requests to bonita portal pages  
 
-    Then it will test if the user is already logged in to bonita?
+   It checks if the user is already logged in on Bonita BPM 
     
     - if already logged in => Allow the access.
         
-    - if Not connected => Redirect to IdP (with user info)
+    - If not logged in => Redirect to IdP (with user info)
 
 
-- One Assertion Consumer Service (technically this is also handled by the servlet filter through a different URL maping (/saml)), 
+- One Assertion Consumer Service (technically this is also handled by the servlet filter through a different URL mapping (/saml)), 
 
-    this service will validate and process the SAML response :
+    This service validates and process the SAML response :
+
     
     - Decode SAMLResponse,
     
     - Check if the answer is valid (certificate, date, origin)
     
-    - Get the user name from NameId
+    - Get the username from NameId
     
-    - Connect to bonita using UserName 
+    - Connect to bonita using username 
 
     - Redirect to the initial requested resource (relayState)
 
 ::: warning  
- Bonita "username" should match the IDP "username".  
- If some users need to be able to log in without having an account on the IDP, they can use the portal login page (/loging.jsp)  
- provided they have a bonita account and their password is different from their username.
+ Should match the NameId or one attribute of the subject returned by the IdP in the response. 
+ If some users need to be able to log in without having an account on the IDP, they can use the portal login page (/loging.jsp) provided they have a bonita account and their password is different from their username.
 :::
 
 ## Configure Bonita BPM Bundle for SAML
 
-You need to execute the following actions in the folder of each tenant for which you wan to authenticate over SAML.
+You need to execute the following actions in the folder of each tenant for which you want to support authentication over SAML.
 If you want this configuration to also apply to each tenant created later, make sure to also perform those actions in the initial tenant configuration folder:
 “setup/platform_conf/initial/tenant_template_*”
 
 The bundle already contains the files needed to use SAML with Bonita BPM platform.  
 To configure Bonita BPM for SAML:
 
-1. If you do not already have it, download a Subscription edition bundle from the customer portal.
+1. If you do not already have one, download a Subscription edition bundle from the customer portal.
 2. In the tenant_portal folder of each existing tenant: “$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal”,
-   edit the authenticationManager-config.properties as following:
+   edit the authenticationManager-config.properties as follows:
     ```
             #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.standard.StandardAuthenticationManagerImpl
        -->  auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.saml.SAML2AuthenticationManagerImpl
@@ -78,10 +78,10 @@ To configure Bonita BPM for SAML:
        -->  logout.link.hidden=true 
     ```
     
-    Make sure to set the right tenant admin username (link to the doc page that explains how to change it). It is recommended to also replace the value of the passphrase (property auth.passphrase).
+    Make sure to [set the right tenant admin username](multi-tenancy-and-tenant-configuration#toc2). It is recommended to also replace the value of the passphrase (property auth.passphrase).
     
 3. In the tenant_engine folder of each existing tenant: “$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/
-  edit the bonita-tenant-sp-custom.properties as following:
+  edit the bonita-tenant-sp-custom.properties as follows:
   
    ```
             # Authentication service to use. Some are natively provided:
@@ -120,20 +120,27 @@ To configure Bonita BPM for SAML:
 For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ssh” to retrieve the key from the file id_rsa (more id_rsa, then copy the key).
 
 5. In the tenant_portal folder of each existing tenant: “$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal”,  
-   edit the file keycloak-saml.xml to setup Bonita webapp as a Service provider working with your IdP.  
-   The entityID is the Service Provider given to your bonita installation. You can change it if you want but you need to provide to your IdP.  
-   If your IdP requires the SSO requests to be signed replace the following strings in the Keys section of the SP:  
-        - put your private key here  
-        - put your certificate here  
-   with you current server's private key and with the certificate provided by the IdP.  
-   If your IdP doesn't requires the SSO requests to be signed, you can remove the Keys node from the SP and set the attribute signRequest to false.  
-   If your IdP responses are signed, replace the following strings in the Keys section of the IDP:  
-        - put your certificate here  
-   If your IdP doesn't requires the SSO requests to be signed, you can remove the Keys node from the IDP and set the attribute validateResponseSignature to false.  
-   You may also need to change the requestBinding and/or responseBinding from POST to REDIRECT depending on your IdP configuration.  
-   Note that the single logout SAML profile is not supported by bonita as it doesn't work the same way for each IdP.  
-   So the SingleLogoutService is not used (but still needs to be present anyway in order for the filter to work...).  
-   More configuration options can be found in [Keycloak official documentation](https://keycloak.gitbooks.io/securing-client-applications-guide/content/topics/saml/java/general-config.html)
+    edit the file keycloak-saml.xml to setup Bonita webapp as a Service provider working with your IdP.  
+    The entityID is the Service Provider given to your bonita installation. You can change it if you want but you need to provide to your IdP.  
+    If your IdP requires the SSO requests to be signed replace the following strings in the Keys section of the SP:  
+    - put your private key here  
+    - put your certificate here  
+    
+    with you current server's private key and with the certificate provided by the IdP.  
+    If your IdP doesn't requires the SSO requests to be signed, you can remove the Keys node from the SP and set the attribute signRequest to false.  
+    If your IdP responses are signed, replace the following strings in the Keys section of the IDP:  
+    - put your certificate here  
+    
+    If your IdP doesn't requires the SSO requests to be signed, you can remove the Keys node from the IDP and set the attribute validateResponseSignature to false.  
+    The PrincipalNameMapping policy indicates how to retrieve the subject attribute that matches a bonita user account username from the IdP response. The policy can eather be FROM_NAME_ID or FROM_ATTRIBUTE (in that case you need to specify the name of the subject attribute to use).  
+    You may also need to change the requestBinding and/or responseBinding from POST to REDIRECT depending on your IdP configuration.  
+    The url binding to your idp also needs to be define by replacing the following strings:  
+    - http://idp.saml.binding.url.to.change  
+    - http://idp.saml.binding.url.to.change   
+            
+    Note that the single logout SAML profile is not supported by bonita as it doesn't work the same way for each IdP.  
+    So the SingleLogoutService is not used (but still needs to be present anyway in order for the filter to work...).  
+    More configuration options can be found in [Keycloak official documentation](https://keycloak.gitbooks.io/securing-client-applications-guide/content/topics/saml/java/general-config.html)
    
    ```
        <keycloak-saml-adapter>
@@ -182,7 +189,7 @@ To troubleshoote SSO login issues, you need to increase the [log level](logging.
 
 #### Bonita BPM Portal
 
-When your Bonita BPM platform is configured to manage authentication over SAML, when users log out of Bonita BPM Portal, They do not log out of the SAML Identity Provider (IdP).  
+When your Bonita BPM platform is configured to manage authentication over SAML, when users log out of Bonita BPM Portal, they do not log out of the SAML Identity Provider (IdP).  
 Therefore they are not logged out of all applications that are using the IdP.  
 To avoid this, you can hide the logout option of the portal. 
 To do this, set the `logout.link.hidden=true` option in `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` 
@@ -202,10 +209,9 @@ We recommend that you use LDAP as your master source for information, synchroniz
 
 ## Single sign-on with SAML using the REST API
 
-SAML is a browser-oriented protocol (based on http automatic redirection, cookies, forms, etc...), therefore, we only have securized browser-oriented resources. 
-This is why only a subset of pages are handled to be automatically SSO SAML-verified but not the whole web application.
-
-The default AuthenticationFilter that manages SAML authentication applies only to the following pages: 
+SAML is a browser-oriented protocol (based on http automatic redirection, forms, etc...), therefore only resources that require a direct access from a web browser are handled by the SAML filter. 
+Access to other resources won't trigger an SAML authentication process. 
+Here is the subset of pages filtered by the SAML filter:
 
 * /saml
 * /samlLogout
