@@ -4,11 +4,15 @@
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 
-This pages explains how to configure your Bonita BPM Platform system to use SAML to provide single sign-on (SSO). It assumes you already have a working SAML service. All Bonita BPM users must be registered in SAML.
+This pages explains how to configure your Bonita BPM Platform system to use the SAML protocol to provide single sign-on (SSO). It assumes you already have a working SAML identity provider (IdP).
 
 This information applies to a Bonita BPM platform deployed from a bundle, not to the Engine launched from Bonita BPM Studio.
 
 SAML configuration is at tenant level. Each tenant can use a different authentication method (over SAML or not).
+
+:::info 
+**Note:** Bonita BPM uses [Keycloak](http://www.keycloak.org/) as SAML service provider adapter.
+:::
 
 ## SAML overview for Bonita BPM 
 
@@ -38,14 +42,14 @@ it is composed of:
     
     - Check if the answer is valid (certificate, date, origin)
     
-    - Get the username from NameId
+    - Extract the username from it (NameId or subject attribute)
     
     - Connect to bonita using username 
 
     - Redirect to the initial requested resource (relayState)
 
 ::: warning  
- Should match the NameId or one attribute of the subject returned by the IdP in the response. 
+ Bonita "username" should match the NameId or one attribute of the subject returned by the IdP in the response. 
  If some users need to be able to log in without having an account on the IDP, they can use the portal login page (/loging.jsp) provided they have a bonita account and their password is different from their username.
 :::
 
@@ -129,8 +133,8 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
     with you current server's private key and with the certificate provided by the IdP.  
     If your IdP doesn't requires the SSO requests to be signed, you can remove the Keys node from the SP and set the attribute signRequest to false.  
     If your IdP responses are signed, replace the following strings in the Keys section of the IDP:  
-    - put your certificate here  
-    
+    - put your certificate here
+      
     If your IdP doesn't requires the SSO requests to be signed, you can remove the Keys node from the IDP and set the attribute validateResponseSignature to false.  
     The PrincipalNameMapping policy indicates how to retrieve the subject attribute that matches a bonita user account username from the IdP response. The policy can eather be FROM_NAME_ID or FROM_ATTRIBUTE (in that case you need to specify the name of the subject attribute to use).  
     You may also need to change the requestBinding and/or responseBinding from POST to REDIRECT depending on your IdP configuration.  
@@ -140,6 +144,7 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
             
     Note that the single logout SAML profile is not supported by bonita as it doesn't work the same way for each IdP.  
     So the SingleLogoutService is not used (but still needs to be present anyway in order for the filter to work...).  
+    
     More configuration options can be found in [Keycloak official documentation](https://keycloak.gitbooks.io/securing-client-applications-guide/content/topics/saml/java/general-config.html)
    
    ```
