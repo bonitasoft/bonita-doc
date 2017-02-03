@@ -7,7 +7,7 @@ To import a diagram:
 * From a .bos archive (a diagram from another Bonita BPM studio)
 1. Choose **_Import_** -> **_BOS archive_** from the **_Diagram_** menu or click **_Import_** in the Cool bar.
 2. Specify the archive to be imported.
-3. Manage eventual conflicts (details below)
+3. Manage eventual conflicts
 4. Click **_Import_**, the .bos archive is imported, a new diagram is created.  
 
 * From an other format
@@ -26,23 +26,6 @@ You can import diagrams that were exported from the following tools:
 * jBPM 3.2
 
 You can also [migrate a process diagram from Bonita Open Solution 5.x](migrate-a-process-from-bonita-open-solution-5-x.md).
-
-### How to manage conflicts?
-
-The .bos importer provides a tool to manage conflicts. When you specify an archive to be imported in a given repository, this archive is first parsed and compared with files in the target repository.
-The result of this analysis is displayed as a tree. This tree represents the content of the archive you want to import.
-Some files in this archive may be conflicting with others in the target repository, i.e a file from your archive and a file from the target repository have the same relative path and the same name. 
-There is two kind of conflicting files: 
-
-* Files with the same relative path, the same name and **the same content**
-* Files with the same relative path, the same name and **different content**
-
-Only thoses from the second category are considered as conflicting, thoses from the first one are just _already present_ in the target repository.
-When a file from the archive you are trying to import is conflicting, you have three possibilities to manage this conflict:
-
-* **Overwrite** the file in the target repository with the file from the archive you are importing. Data in the file from the target repository will be lost.
-* **Keep** the file in the target repository, and don't import the file from the BOS archive.
-* Import the archive into an other repository (an existing or a new one). _This option is only present in the subscription edition_.
 
 ### What is supported or compatible?
 
