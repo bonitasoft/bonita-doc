@@ -28,7 +28,8 @@ It is composed of the following items:
     * `current/`: contains configuration files after a `pull` from the database is made.
     * `licenses/`: (Subscriptions only) folder to put the license file to allow Bonita BPM Platform to start without error.
     * `sql/`: SQL scripts used to create Bonita BPM database tables
-* `database.properties`: contains properties to connect to the database on which the configuration is managed.
+* `database.properties`: used as a simplified form to get values from the system administrator. It contains properties needed to connect to the database. 
+* `internal.properties`: used internally by the setup tool to properly configure and initialize the bundle. It is made of both data injected from database.properties as well as other data like database driver class name, connection URL, etc. This file should not be modified manually in most cases, unless for specific use-cases like adding parameters in the connection URL or using a specific database driver java class name.
 * `setup.sh`: Unix / Mac script to run.
 * `setup.bat`: Windows script to run.
 
