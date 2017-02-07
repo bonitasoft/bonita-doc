@@ -77,7 +77,7 @@ a new REST connector and important technology updates.
 * BS-16058	External CSS assets from custom widgets have a View icon in the page/form
 * BS-16076	Duplicate attribute added in BDM in iOS platform
 * BS-16118	Add support for contract input on the MultipleStartPointsProcessCommand
-* BS-16123	Manager can't see the v6 legacy overview page of processes executed by his subordinate
+* BS-16123	Manager can't see the v6 legacy or v7 overview page for processes executed by their subordinates
 * BS-16125	Unable to update a connector implementation if a dependency with the same name already exists
 * BS-16129	Process actors Mapping shows only 10 actors in Portal
 * BS-16131	Diagram is open twice after clicking on Debug button
