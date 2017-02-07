@@ -67,6 +67,22 @@ a new REST connector and important technology updates.
 
 ## Bug fixes
 
+### Fixes in Bonita BPM 7.4.2
+
+* BS-11654	Process with a call activity calling a process without a none start event (including implicit) stay in "started" (even with an event subprocess triggered)
+* BS-15844	Workspace is corrupted if UI Designer home folder is empty
+* BS-15972	Can't paste in name field of an expression editor.
+* BS-16029	Searching performs an api call on every keystroke
+* BS-16037	[UID] widgets are no more read only in white board after drag and drop
+* BS-16058	External CSS assets from custom widgets have a View icon in the page/form
+* BS-16076	Duplicate attribute added in BDM in iOS platform
+* BS-16118	Add support for contract input on the MultipleStartPointsProcessCommand
+* BS-16123	Manager can't see the v6 legacy or v7 overview page for processes executed by their subordinates
+* BS-16125	Unable to update a connector implementation if a dependency with the same name already exists
+* BS-16129	Process actors Mapping shows only 10 actors in Portal
+* BS-16131	Diagram is open twice after clicking on Debug button
+* BS-16144	Previous type of variable is used instead of the new one after an update
+
 ### Fixes in Bonita BPM 7.4.1 
 
 * BS-14076	V7 Translation bugs
