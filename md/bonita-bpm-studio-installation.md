@@ -16,6 +16,9 @@ Before you download Bonita BPM Studio, make sure that you know whether you are u
 Both Windows and Mac have default security settings that will prevent execution of Bonita BPM. See below for further details about what you can do to bypass those security protections
 :::
 
+**Note for users of OS X 10.12.x and above using Zip installation** : a new security feature has been added in MacOS Sierra about the _App Translocation_ prevents the launch of software that is not officially signed by Apple (see [Apple official site](https://developer.apple.com/library/prerelease/content/releasenotes/MacOSX/WhatsNewInOSX/Articles/OSXv10.html#//apple_ref/doc/uid/TP40017145-SW1) and [other dedicated site](https://eclecticlight.co/2016/06/16/macos-sierra-will-break-many-installers-and-updaters/)).   
+In order to launch Bonita BPM Studio on a system running on MacOS Sierra or above, you must apply extended attributs manually: In a terminal, run `xattr -rc BonitaBPMCommunity.app` for Community edition, or `xattr -rc BonitaBPMSubscription.app` for Subscription edition.
+
 **Note for users of OS X 10.7.5 and above**: a new security feature called **Gatekeeper** prevents the installation of software that is not officially recognized by Apple.  
 For more information and details of how to install Bonita BPM Studio on a system running Gatekeeper, see the [Apple support site](https://support.apple.com/en-us/HT202491).
 
