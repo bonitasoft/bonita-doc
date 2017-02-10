@@ -36,23 +36,22 @@ A Bonita BPM platform upgrade can only be performed on the same database type.
 
 To upgrade a Bonita BPM platform from Community edition to a Subscription edition, follow these steps:
 
-1. [Backup your Bonita BPM platform and databases](back-up-bonita-bpm-platform.md).
-2. Make sure that the platform is shut down.
-3. Download the [Deploy bundle](deploy-bundle.md).
-4. Update the configuration using the Platform setup tool included:
-    1. Configure the [Platform setup tool](BonitaBPM_platform_setup#configure_tool) to use your database.
-    2. Copy the content of `platform_conf/initial` in a directory named e.g. `sp_conf`.
-    3. Run `setup.sh pull` or `setup.bat pull` to get your current configuration in `platform_conf/current`.
-    4. Reapply the customizations made in the current configuration to the configuration in the `sp_conf`.
-    5. Delete the content of the folder `platform_conf/current`.
-    6. Put the content of the folder `sp_conf` in `platform_conf/current`.
-    7. Set the edition in the `sp_conf` configuration folder, see [here](tomcat-bundle.md#edition_specification).
-    7. [Put your license](licenses.md) in `platform_conf/licenses`.
-    8. Run `setup.sh push` or `setup.bat push` to push this configuration in database.
-5. Replace the community bonita.war with the subscription version of bonita.war. You can find it in the Deploy bundle.
-    * on Tomcat simply delete the `webapps/bonita.war` file and the `webapps/bonita` folder and copy the new war here.
-    * on WildFly delete `standalone/deployments/bonita-all-in-one-<VERSION>.ear` and the file having the same name with `.deployed`, then copy the new ear in the same place.
-6. Start you platform again.
+1. [Install the Subscription Bundle](bonita-bpm-installation-overview) and configure it to use your existing database but do not start it. We will call this installation folder `bonita-subscription`.
+2. Shut down the Community server being migrated using the `bonita-stop` script, we will call its installation folder `bonita-community`.
+3. Run a Platform setup tool pull command to fetch your current Community configuration in `<bonita-community>/setup/platform_conf/current` and copy this last in a different folder, we will call this new folder `bonita-community-configuration`.
+4. [Backup your Bonita BPM platform and databases](back-up-bonita-bpm-platform.md).
+5. Update the configuration using the [Platform setup tool](BonitaBPM_platform_setup#configure_tool) in `bonita-subscription`:
+    1. Create the folder `<bonita-subscription>/setup/platform_conf/current`, we will call it `bonita-subscrition-configuration`.
+    3. Copy the content of the `<bonita-subscrition>/setup/platform_conf/initial` to `bonita-subscrition-configuration`.
+    4. In the `bonita-subscrition-configuration`, reapply the modifications for all the folders but the one named `tenants` (use `bonita-community-configuration` as a reference).
+    5. Create the folder `<bonita-subscrition-configuration>/tenants`.
+    6. For each folder contained in `<bonita-community-configuration>/tenants`.
+        1. We will call this folder `bonita-community-configuration-tenant`.
+        2. Create one folder with the same name as `bonita-community-configuration-tenant` in `<bonita-subscription-configuration>/tenants`, we will call it `bonita-subscrition-configuration-tenant`.
+        3. Copy all folders with prefix `tenant_template_` from `bonita-subscrition-configuration` to `bonita-subscrition-configuration-tenant` and remove the prefix in their names.
+        4. In the `bonita-subscrition-configuration-tenant`, reapply the modifications (user `bonita-community-configuration-tenant` as a reference).
+    7. Run a Platform setup tool push command, it will commit the migrated configuration `bonita-subscrition-configuration` in database.
+6. Start the migrated platform using the `start-bonita` script located in `bonita-subscription`.
 
 The Upgrade is now finished, you can verify that you are now running a subscription edition in the portal user interface, the dialog displayed from the top right "Settings / About" menu should indicates the correct Subscription edition.
 
