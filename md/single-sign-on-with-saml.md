@@ -50,7 +50,7 @@ it is composed of:
 
 ::: warning  
  Bonita "username" should match the NameId or one attribute of the subject returned by the IdP in the response. 
- If some users need to be able to log in without having an account on the IDP, they can use the portal login page (/loging.jsp) provided they have a bonita account and their password is different from their username.
+ If some users need to be able to log in without having an account on the IDP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (/loging.jsp) provided they have a bonita account and their password is different from their username.
 :::
 
 ## Configure Bonita BPM Bundle for SAML
@@ -69,6 +69,7 @@ To configure Bonita BPM for SAML:
             #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.standard.StandardAuthenticationManagerImpl
        -->  auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.saml.SAML2AuthenticationManagerImpl
        -->  saml.filter.active = true
+       -->  saml.auth.standard.allowed = false
        -->  auth.tenant.admin.username = install
        -->  auth.passphrase = BonitaBPM
             #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.oauth.OAuthAuthenticationManagerImpl
@@ -82,7 +83,8 @@ To configure Bonita BPM for SAML:
        -->  logout.link.hidden=true 
     ```
     
-    Make sure to [set the right tenant admin username](multi-tenancy-and-tenant-configuration#toc2). It is recommended to also replace the value of the passphrase (property auth.passphrase).
+    Make sure to [set the right tenant admin username](multi-tenancy-and-tenant-configuration#toc2). It is recommended to also replace the value of the passphrase (property auth.passphrase).  
+    If you need some users to be able to log in without having an account on the IDP, you can authorize it by setting the property `saml.auth.standard.allowed` to true. Users will then be able to log in using the portal login page (/loging.jsp) provided they have a bonita account and their password is different from their username.
     
 3. In the tenant_engine folder of each existing tenant: “$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/
   edit the bonita-tenant-sp-custom.properties as follows:
