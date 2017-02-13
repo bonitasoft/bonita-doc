@@ -54,5 +54,5 @@ To upgrade a Bonita BPM platform from Community edition to a Subscription editio
     7. Run a Platform setup tool push command, it will push the migrated configuration `bonita-subscription-configuration` in database.
 7. Start the migrated platform using the `start-bonita` script located in `bonita-subscription`.
 
-The Upgrade is now finished, you can verify that you are now running a subscription edition in the portal user interface, the dialog displayed from the top right "Settings / About" menu should indicates the correct Subscription edition.
+The Upgrade is now finished, you can verify that you are now running a subscription edition in the portal user interface, the dialog displayed from the top right "Settings / About" menu should indicate the correct Subscription edition.
 
