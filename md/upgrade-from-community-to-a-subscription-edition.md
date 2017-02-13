@@ -42,16 +42,16 @@ To upgrade a Bonita BPM platform from Community edition to a Subscription editio
 4. Run a Platform setup tool pull command to fetch your current Community configuration in `<bonita-community>/setup/platform_conf/current` and copy this last in a different folder, we will call this new folder `bonita-community-configuration`.
 5. [Backup your Bonita BPM platform and databases](back-up-bonita-bpm-platform.md).
 6. Update the configuration using the [Platform setup tool](BonitaBPM_platform_setup#configure_tool) in `bonita-subscription`:
-    1. Create the folder `<bonita-subscription>/setup/platform_conf/current`, we will call it `bonita-subscrition-configuration`.
-    3. Copy the content of the `<bonita-subscrition>/setup/platform_conf/initial` to `bonita-subscrition-configuration`.
-    4. In the `bonita-subscrition-configuration`, reapply the modifications for all the folders but the one named `tenants` (use `bonita-community-configuration` as a reference).
-    5. Create the folder `<bonita-subscrition-configuration>/tenants`.
+    1. Create the folder `<bonita-subscription>/setup/platform_conf/current`, we will call it `bonita-subscription-configuration`.
+    3. Copy the content of the `<bonita-subscription>/setup/platform_conf/initial` to `bonita-subscription-configuration`.
+    4. In the `bonita-subscription-configuration`, reapply the modifications for all the folders but the one named `tenants` (use `bonita-community-configuration` as a reference).
+    5. Create the folder `<bonita-subscription-configuration>/tenants`.
     6. For each folder contained in `<bonita-community-configuration>/tenants`.
         1. We will call this folder `bonita-community-configuration-tenant`.
-        2. Create one folder with the same name as `bonita-community-configuration-tenant` in `<bonita-subscription-configuration>/tenants`, we will call it `bonita-subscrition-configuration-tenant`.
-        3. Copy all folders with prefix `tenant_template_` from `bonita-subscrition-configuration` to `bonita-subscrition-configuration-tenant` and remove the prefix in their names.
-        4. In the `bonita-subscrition-configuration-tenant`, reapply the modifications (user `bonita-community-configuration-tenant` as a reference).
-    7. Run a Platform setup tool push command, it will commit the migrated configuration `bonita-subscrition-configuration` in database.
+        2. Create one folder with the same name as `bonita-community-configuration-tenant` in `<bonita-subscription-configuration>/tenants`, we will call it `bonita-subscription-configuration-tenant`.
+        3. Copy all folders with prefix `tenant_template_` from `bonita-subscription-configuration` to `bonita-subscription-configuration-tenant` and remove the prefix in their names.
+        4. In the `bonita-subscription-configuration-tenant`, reapply the modifications (user `bonita-community-configuration-tenant` as a reference).
+    7. Run a Platform setup tool push command, it will commit the migrated configuration `bonita-subscription-configuration` in database.
 7. Start the migrated platform using the `start-bonita` script located in `bonita-subscription`.
 
 The Upgrade is now finished, you can verify that you are now running a subscription edition in the portal user interface, the dialog displayed from the top right "Settings / About" menu should indicates the correct Subscription edition.
