@@ -5,7 +5,8 @@ edition environment.
 
 **Warnings:**
 
-* An upgrade can only be performed on a single Bonita BPM versions. You cannot migrate to a new version at the same time as you update edition.
+* An upgrade can only be performed on a single Bonita BPM version. You cannot migrate to a new version at the same time as you upgrade to Subscription edition.  
+  Eg. Migrate from **Bonita BPM 7.3.3 Community** edition to **Bonita BPM 7.3.3 Subscription** edition. 
 * After it is applied, an upgrade cannot be undone.
 
 An upgrade is performed in two phases.
