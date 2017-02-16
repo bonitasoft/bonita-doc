@@ -89,17 +89,15 @@ This example process will use a Web Service connector to call a sample Web Servi
       // Save weather data
       Map<String,String> data = new HashMap<String,String>();
       NodeList childNodes = weatherNode.getChildNodes();
-      for (int i=0; i<childNodes.getLength(); i++)
-      {
+      for (int i=0; i<childNodes.getLength(); i++) {
           Node node = childNodes.item(i);
-          if (node.getNodeType() == Node.ELEMENT_NODE)
-          {
+          if (node.getNodeType() == Node.ELEMENT_NODE) {
                   String key = node.getNodeName();
                   String value = node.getTextContent();
                   data.put(key, value);
           }
-     }
-     return data;
+      }
+      return data;
       ```
    * In **Return type** enter `java.util.Map` 
   * Select the Display weather task and add a blank form (without any widget) by going into the Application > Pageflow tab
@@ -111,8 +109,7 @@ This example process will use a Web Service connector to call a sample Web Servi
       ```groovy
       List<List<String>> table = new ArrayList<List<String>>();
       Set<Entry<String,String>> weatherDataEntries = weatherData.entrySet();
-      for (Entry<String,String> entry : weatherDataEntries)
-      {
+      for (Entry<String,String> entry : weatherDataEntries) {
           List<String> row = new ArrayList<String>();
           row.add(entry.getKey());
           row.add(entry.getValue());
