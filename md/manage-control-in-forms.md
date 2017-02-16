@@ -94,8 +94,6 @@ AngularJS sets these different CSS classes on HTML input elements depending on t
 
 #### Using AngularJS form control CSS classes
 
-_Note_: A dedicated tutorial about [CSS assets in the UI Designer](tuto-de-camille-CSS.html) is available and we recommand to read it before you go further in this tutorial.
-
 So, to alert users about the invalidity of inputs they just edited, you need to use _ng-invalid_ and _ng-dirty_ classes on those elements:  
 In your favorite editor, create a _validationStyle.css_ file containing the class below:
 
