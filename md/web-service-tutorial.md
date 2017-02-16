@@ -40,16 +40,16 @@ This example process will use a Web Service connector to call a sample Web Servi
     * End point address: http://www.webservicex.net/globalweather.asmx
     * Binding: http://www.w3.org/2003/05/soap/bindings/HTTP/
     * Envelope 
-```xml
-     <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">
-     <env:Body>
-       <tns:GetWeather xmlns:tns="http://www.webserviceX.NET">
-         <tns:CityName>${city}</tns:CityName>
-         <tns:CountryName>${country}</tns:CountryName>
-       </tns:GetWeather>
-     </env:Body>
-    </env:Envelope>
-    ```
+      ```xml
+       <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+       <env:Body>
+         <tns:GetWeather xmlns:tns="http://www.webserviceX.NET">
+           <tns:CityName>${city}</tns:CityName>
+           <tns:CountryName>${country}</tns:CountryName>
+         </tns:GetWeather>
+       </env:Body>
+      </env:Envelope>
+      ```
 
   * In the **Response configuration** window, check the **Returns body** checkbox to use the response body in the output operations.
   * In the **Output operations** window, edit the first output operation:
@@ -58,49 +58,47 @@ This example process will use a Web Service connector to call a sample Web Servi
     * In Expression type, click on **Script**
     * The script should be as follows:
 
-    ```groovy
-    import javax.xml.parsers.DocumentBuilder;
-    import javax.xml.parsers.DocumentBuilderFactory;
+      ```groovy
+      import javax.xml.parsers.DocumentBuilder;
+      import javax.xml.parsers.DocumentBuilderFactory;
 
-    import org.w3c.dom.Document;
-    import org.w3c.dom.Element;
-    import org.w3c.dom.Node;
-    import org.w3c.dom.NodeList;
-    import org.xml.sax.InputSource;
+      import org.w3c.dom.Document;
+      import org.w3c.dom.Element;
+      import org.w3c.dom.Node;
+      import org.w3c.dom.NodeList;
+      import org.xml.sax.InputSource;
 
-    // Clean response xml document
-    responseDocumentBody.normalizeDocument();
-    // Get result node
-    NodeList resultList = responseDocumentBody.getElementsByTagName("GetWeatherResult");
-    Element resultElement = (Element) resultList.item(0);
-    String weatherDataAsXML = resultElement.getTextContent();
+      // Clean response xml document
+      responseDocumentBody.normalizeDocument();
+      // Get result node
+      NodeList resultList = responseDocumentBody.getElementsByTagName("GetWeatherResult");
+      Element resultElement = (Element) resultList.item(0);
+      String weatherDataAsXML = resultElement.getTextContent();
 
-    // Check for empty result
-    if ("Data Not Found".equalsIgnoreCase(weatherDataAsXML))
-    return null;
+      // Check for empty result
+      if ("Data Not Found".equalsIgnoreCase(weatherDataAsXML))
+      return null;
 
-    // Parse embedded XML of result
-    DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-    InputSource inputSource = new InputSource();
-    inputSource.setCharacterStream(new StringReader(weatherDataAsXML));
-    Document weatherDataDocument = documentBuilder.parse(inputSource);
-    Node weatherNode = weatherDataDocument.getDocumentElement();
+      // Parse embedded XML of result
+      DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+      InputSource inputSource = new InputSource();
+      inputSource.setCharacterStream(new StringReader(weatherDataAsXML));
+      Document weatherDataDocument = documentBuilder.parse(inputSource);
+      Node weatherNode = weatherDataDocument.getDocumentElement();
 
-    // Save weather data
-    Map<String,String> data = new HashMap<String,String>();
-    NodeList childNodes = weatherNode.getChildNodes();
-    for (int i=0; i<childNodes.getLength(); i++)
-   {
-        Node node = childNodes.item(i);
-        if (node.getNodeType() == Node.ELEMENT_NODE)
-        {
-                String key = node.getNodeName();
-                String value = node.getTextContent();
-                data.put(key, value);
-        }
-    }
-   return data;
-```
+      // Save weather data
+      Map<String,String> data = new HashMap<String,String>();
+      NodeList childNodes = weatherNode.getChildNodes();
+      for (int i=0; i<childNodes.getLength(); i++) {
+          Node node = childNodes.item(i);
+          if (node.getNodeType() == Node.ELEMENT_NODE) {
+                  String key = node.getNodeName();
+                  String value = node.getTextContent();
+                  data.put(key, value);
+          }
+      }
+      return data;
+      ```
    * In **Return type** enter `java.util.Map` 
   * Select the Display weather task and add a blank form (without any widget) by going into the Application > Pageflow tab
   * In the form builder, drag and drop a table widget to create a table
@@ -108,18 +106,17 @@ This example process will use a Web Service connector to call a sample Web Servi
   * Click on **Edit as an expression**, then click on the pencil next to the first field (initial value)
     * Use the following Script:
 
-```groovy
-List<List<String>> table = new ArrayList<List<String>>();
-Set<Entry<String,String>> weatherDataEntries = weatherData.entrySet();
-for (Entry<String,String> entry : weatherDataEntries)
-{
-List<String> row = new ArrayList<String>();
-row.add(entry.getKey());
-row.add(entry.getValue());
-table.add(row);
-}
-return table;
-```
+      ```groovy
+      List<List<String>> table = new ArrayList<List<String>>();
+      Set<Entry<String,String>> weatherDataEntries = weatherData.entrySet();
+      for (Entry<String,String> entry : weatherDataEntries) {
+          List<String> row = new ArrayList<String>();
+          row.add(entry.getKey());
+          row.add(entry.getValue());
+          table.add(row);
+      }
+      return table;
+      ```
    * In **Return type** enter: `java.util.list`
   * Create a submit button called **Close**
   * Select the **No result found task **and add a blank form by going into the Application > Pageflow tab
