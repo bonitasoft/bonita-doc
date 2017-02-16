@@ -28,24 +28,18 @@ it is composed of:
 
    It checks if the user is already logged in on Bonita BPM 
     
-    - if already logged in => Allow the access.
-        
+    - If already logged in => Allow the access
     - If not logged in => Redirect to IdP (with user info)
 
 
 - One Assertion Consumer Service (technically this is also handled by the servlet filter through a different URL mapping (/saml)), 
 
     This service validates and process the SAML response :
-
     
-    - Decode SAMLResponse,
-    
+    - Decode SAMLResponse
     - Check if the answer is valid (certificate, date, origin)
-    
     - Extract the username from it (NameId or subject attribute)
-    
-    - Connect to bonita using username 
-
+    - Connect to bonita using username
     - Redirect to the initial requested resource (relayState)
 
 ::: warning  
@@ -66,7 +60,7 @@ To configure Bonita BPM for SAML:
 2. In the tenant_portal folder of each existing tenant: “$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal”,
    edit the authenticationManager-config.properties as follows:
     ```
-            #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.standard.StandardAuthenticationManagerImpl
+       -->  #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.standard.StandardAuthenticationManagerImpl
        -->  auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.saml.SAML2AuthenticationManagerImpl
        -->  saml.filter.active = true
        -->  saml.auth.standard.allowed = false
@@ -83,7 +77,7 @@ To configure Bonita BPM for SAML:
        -->  logout.link.hidden=true 
     ```
     
-    Make sure to [set the right tenant admin username](multi-tenancy-and-tenant-configuration#toc2). It is recommended to also replace the value of the passphrase (property auth.passphrase).  
+    Make sure to [set the right tenant admin username](multi-tenancy-and-tenant-configuration#toc2). It is recommended to also replace the value of the passphrase (property auth.passphrase) which is used by the engine to verify the authentication request. The value must be the same as in the file bonita-tenant-sp-custom.properties.  
     If you need some users to be able to log in without having an account on the IDP, you can authorize it by setting the property `saml.auth.standard.allowed` to true. Users will then be able to log in using the portal login page (/loging.jsp) provided they have a bonita account and their password is different from their username.
     
 3. In the tenant_engine folder of each existing tenant: “$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/
@@ -120,34 +114,32 @@ To configure Bonita BPM for SAML:
             #authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservice
    ```
   
-    It is recommended to also replace the value of the passphrase (property auth.passphrase) with the same value as in the file authenticationManager-config.properties updated previously.
+    It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file authenticationManager-config.properties updated previously.
 
 4. If your Identity provider (IdP) requires requests to be signed, generate a private key.
 For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ssh” to retrieve the key from the file id_rsa (more id_rsa, then copy the key).
 
 5. In the tenant_portal folder of each existing tenant: “$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal”,  
     edit the file keycloak-saml.xml to setup Bonita webapp as a Service provider working with your IdP.  
-    The entityID is the Service Provider given to your bonita installation. You can change it if you want but you need to provide to your IdP.  
-    If your IdP requires the SSO requests to be signed replace the following strings in the Keys section of the SP:  
-    - put your private key here  
-    - put your certificate here  
+    + The entityID is the Service Provider given to your bonita installation. You can change it if you want but you need to provide it to your IdP.  
+    + If your IdP requires the SSO requests to be signed replace the following strings in the Keys section of the SP:  
+      - put your private key here  
+      - put your certificate here  
     
-    with you current server's private key and with the certificate provided by the IdP.  
-    If your IdP doesn't requires the SSO requests to be signed, you can remove the Keys node from the SP and set the attribute signRequest to false.  
-    If your IdP responses are signed, replace the following strings in the Keys section of the IDP:  
-    - put your certificate here
+      with you current server's private key and with the certificate provided by the IdP.  
+      If your IdP doesn't requires the SSO requests to be signed, you can remove the Keys node from the SP and set the attribute signRequest to false.  
+    + If your IdP responses are signed, replace the following strings in the Keys section of the IDP:  
+      - put your certificate here
       
-    If your IdP doesn't requires the SSO requests to be signed, you can remove the Keys node from the IDP and set the attribute validateResponseSignature to false.  
-    The PrincipalNameMapping policy indicates how to retrieve the subject attribute that matches a bonita user account username from the IdP response. The policy can eather be FROM_NAME_ID or FROM_ATTRIBUTE (in that case you need to specify the name of the subject attribute to use).  
-    You may also need to change the requestBinding and/or responseBinding from POST to REDIRECT depending on your IdP configuration.  
-    The url binding to your idp also needs to be define by replacing the following strings:  
-    - http://idp.saml.binding.url.to.change  
-    - http://idp.saml.binding.url.to.change   
-            
-    Note that the single logout SAML profile is not supported by bonita as it doesn't work the same way for each IdP.  
-    So the SingleLogoutService is not used (but still needs to be present anyway in order for the filter to work...).  
-    
-    More configuration options can be found in [Keycloak official documentation](https://keycloak.gitbooks.io/securing-client-applications-guide/content/topics/saml/java/general-config.html)
+      If your IdP responses are not signed, you can remove the Keys node from the IDP and set the attribute validateResponseSignature to false.  
+    + The PrincipalNameMapping policy indicates how to retrieve the subject attribute that matches a bonita user account username from the IdP response. The policy can eather be FROM_NAME_ID or FROM_ATTRIBUTE (in that case you need to specify the name of the subject attribute to use).  
+    + You may also need to change the requestBinding and/or responseBinding from POST to REDIRECT depending on your IdP configuration.  
+    + The url binding to your idp also needs to be define by replacing the following string:  
+      - http://idp.saml.binding.url.to.change  
+
+::: info
+**Note:** More configuration options can be found in [Keycloak official documentation](https://keycloak.gitbooks.io/securing-client-applications-guide/content/topics/saml/java/general-config.html)
+:::
    
    ```
        <keycloak-saml-adapter>
@@ -176,8 +168,8 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
                       validateResponseSignature="false"
                       requestBinding="POST"
                       responseBinding="POST"
-        -->           postBindingUrl="http://idp.saml.binding.url.to.change"
-        -->           redirectBindingUrl="http://idp.saml.binding.url.to.change"/>
+                      postBindingUrl="http://idp.saml.binding.url.to.change"
+                      redirectBindingUrl="http://idp.saml.binding.url.to.change"/>
                    <Keys>
                        <Key signing="true">
         -->            <CertificatePem>put your certificate here</CertificatePem>
@@ -187,6 +179,11 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
             </SP>
        </keycloak-saml-adapter>
    ```
+
+::: info
+**Note:** The single logout SAML profile is not supported by bonita as it doesn't work the same way for each IdP.  
+So the SingleLogoutService configuration is not used (but the element still needs to be present in order for the filter to work...).  
+:::
 
 ### Troubleshoot
 
