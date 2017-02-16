@@ -17,6 +17,11 @@ However, H2 is only suitable for testing purposes. When building a production en
 
 ## Steps to switch to another RDBMS
 
+::: warning
+Please note this procedure cannot be performed using the Bonita Studio. The Bonita Studio can run only on the H2 Database. 
+To use Bonita BPM on another RDBMS, please use a [bundle](_basic-bonita-bpm-platform-installation.md) or set up a [standalone server](deploy-bundle.md).
+:::
+
 Here are the steps to follow. They are the same for the engine database and the business data database:
 1. Create the database
 2. Customize RDBMS to make it work with Bonita BPM    

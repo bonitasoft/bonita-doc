@@ -3687,7 +3687,7 @@ When you search for a processParameter, do not provide the process\_version or p
     ]
     ```
 
-#### Update a processParameter
+#### Update a processParameter (Subscription edition only)
 
 You can update only a process parameter value using the API. If you specify values for other fields in the update request, they are ignored.
 
