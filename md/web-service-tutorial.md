@@ -40,7 +40,7 @@ This example process will use a Web Service connector to call a sample Web Servi
     * End point address: http://www.webservicex.net/globalweather.asmx
     * Binding: http://www.w3.org/2003/05/soap/bindings/HTTP/
     * Envelope 
-```xml
+      ```xml
        <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">
        <env:Body>
          <tns:GetWeather xmlns:tns="http://www.webserviceX.NET">
@@ -49,7 +49,7 @@ This example process will use a Web Service connector to call a sample Web Servi
          </tns:GetWeather>
        </env:Body>
       </env:Envelope>
-```
+      ```
 
   * In the **Response configuration** window, check the **Returns body** checkbox to use the response body in the output operations.
   * In the **Output operations** window, edit the first output operation:
@@ -58,7 +58,7 @@ This example process will use a Web Service connector to call a sample Web Servi
     * In Expression type, click on **Script**
     * The script should be as follows:
 
-```groovy
+      ```groovy
       import javax.xml.parsers.DocumentBuilder;
       import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -100,7 +100,7 @@ This example process will use a Web Service connector to call a sample Web Servi
           }
      }
      return data;
-```
+      ```
    * In **Return type** enter `java.util.Map` 
   * Select the Display weather task and add a blank form (without any widget) by going into the Application > Pageflow tab
   * In the form builder, drag and drop a table widget to create a table
@@ -108,7 +108,7 @@ This example process will use a Web Service connector to call a sample Web Servi
   * Click on **Edit as an expression**, then click on the pencil next to the first field (initial value)
     * Use the following Script:
 
-```groovy
+      ```groovy
       List<List<String>> table = new ArrayList<List<String>>();
       Set<Entry<String,String>> weatherDataEntries = weatherData.entrySet();
       for (Entry<String,String> entry : weatherDataEntries)
@@ -119,7 +119,7 @@ This example process will use a Web Service connector to call a sample Web Servi
           table.add(row);
       }
       return table;
-```
+      ```
    * In **Return type** enter: `java.util.list`
   * Create a submit button called **Close**
   * Select the **No result found task **and add a blank form by going into the Application > Pageflow tab
