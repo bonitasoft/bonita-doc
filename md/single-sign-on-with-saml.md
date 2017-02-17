@@ -79,9 +79,20 @@ To configure Bonita BPM for SAML:
     
     Make sure to [set the right tenant admin username](multi-tenancy-and-tenant-configuration#toc2). It is recommended to also replace the value of the passphrase (property auth.passphrase) which is used by the engine to verify the authentication request. The value must be the same as in the file bonita-tenant-sp-custom.properties.  
     If you need some users to be able to log in without having an account on the IDP, you can authorize it by setting the property `saml.auth.standard.allowed` to true. Users will then be able to log in using the portal login page (/loging.jsp) provided they have a bonita account and their password is different from their username.
-    
+
 3. In the tenant_engine folder of each existing tenant: “$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/
-  edit the bonita-tenant-sp-custom.properties as follows:
+  edit the file bonita-tenant-sp-custom.xml to uncomment the bean passphraseOrPasswordAuthenticationService:
+
+   ```
+        <bean id="passphraseOrPasswordAuthenticationService" class="com.bonitasoft.engine.authentication.impl.PassphraseOrPasswordAuthenticationService" lazy-init="true">
+           <constructor-arg name="logger" ref="tenantTechnicalLoggerService" />
+           <constructor-arg name="identityService" ref="identityService" />
+           <constructor-arg name="configuredPassphrase" value="${authentication.service.ref.passphrase}" />
+       </bean>
+   ```
+
+4. In the tenant_engine folder of each existing tenant: “$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/
+  edit the file bonita-tenant-sp-custom.properties as follows:
   
    ```
             # Authentication service to use. Some are natively provided:
@@ -116,10 +127,10 @@ To configure Bonita BPM for SAML:
   
     It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file authenticationManager-config.properties updated previously.
 
-4. If your Identity provider (IdP) requires requests to be signed, generate a private key.
+5. If your Identity provider (IdP) requires requests to be signed, generate a private key.
 For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ssh” to retrieve the key from the file id_rsa (more id_rsa, then copy the key).
 
-5. In the tenant_portal folder of each existing tenant: “$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal”,  
+6. In the tenant_portal folder of each existing tenant: “$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal”,  
     edit the file keycloak-saml.xml to setup Bonita webapp as a Service provider working with your IdP.  
     + The entityID is the Service Provider given to your bonita installation. You can change it if you want but you need to provide it to your IdP.  
     + If your IdP requires the SSO requests to be signed replace the following strings in the Keys section of the SP:  
