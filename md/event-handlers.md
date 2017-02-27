@@ -35,7 +35,7 @@ pom.xml :
     <artifactId>event-handler-example</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <properties>
-        <bonita.version>7.3.0</bonita.version>
+        <bonita.version>${varVersion}.0</bonita.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
