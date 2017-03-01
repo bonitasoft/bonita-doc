@@ -20,6 +20,10 @@ Prerequisites for developing a REST API extension are:
 * Basic knowledge of Maven.
 * **Access to [Maven central repository](http://central.maven.org/maven2)**. If your provider is restricting Internet access you may configure [proxy settings](https://maven.apache.org/guides/mini/guide-proxies.html) or create a [mirror repository](https://maven.apache.org/guides/mini/guide-mirror-settings.html).
 
+::: warning
+**Mirror configuration:** When setting a mirror using a `<mirrorOf>*</mirrorOf>` redirection, add an exception for the studio internal repository id like this: `<mirrorOf>*,!studio-internal-repository</mirrorOf>` in your `settings.xml`
+:::
+
 ## Example description
 
 The following sections show how to create a REST API extension. As an example, we create a REST API extension that use Bonita BPM Engine to provide user informations (first name, last name, email address).

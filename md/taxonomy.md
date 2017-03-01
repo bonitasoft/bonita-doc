@@ -246,7 +246,6 @@
   * [Preload the forms cache](preloading-the-forms-cache.md)
   * [Build Bonita BPM Community edition from source files](building-community-edition-from-source.md)
   * [Continuous integration](_continuous-integration.md)
-    * [Automate process builds](automating-process-builds.md)
     * [Automate builds](automating-builds.md)
     * [Set up continuous integration](set-up-continuous-integration.md)
 * [Howtos](_howtos.md)
