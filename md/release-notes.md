@@ -67,6 +67,27 @@ a new REST connector and important technology updates.
 
 ## Bug fixes
 
+### Fixes in Bonita BPM 7.4.3
+
+* BS-14579	ProcessAPIImpl.cancelProcessInstance fails when parent Process cannot find subprocess
+* BS-14880	Missing translations in new rest api wizard
+* BS-15851	Delete a page does not delete the metadata file
+* BS-15873	HTTP status code 500 returned when using a non existing username or wrong password
+* BS-16027	Adding two widgets with assets does not refresh asset list
+* BS-16031	BDM.find => Exception if element has a CHILD
+* BS-16106	bpm/archivedCase return error 500 instead of 404 if the case doesn't exist
+* BS-16145	WildFly bonita-start.bat failed if JAVA_HOME is set with a path including spaces
+* BS-16161	The user is not warned that the session will be closed when the BDM is deployed
+* BS-16170	JSON sorted results broken in widget Data table in Chrome
+* BS-16184	Tomcat does not test MySQL connection validity before giving it to Bonita application
+* BS-16206	Japanese chars in diagram name generate validation errors
+* BS-16214	Browse data (h2 console) new Studio Menu button not opening any browser
+* BS-16231	Connector definition - Widget input - document type (no contract input available)
+* BS-16233	IdentityApi.getUserMemberships does not set grouptParentPath
+* BS-16238	Adding contract input from large business data is very slow
+* BS-16240	Impossible to edit the name of a freshly added Business Object in the Business Data Model of the Studio - Mac OS Sierra
+* BS-16262	Renaming BDM object's attribute actually renames another object's attribute
+
 ### Fixes in Bonita BPM 7.4.2
 
 * BS-11654	Process with a call activity calling a process without a none start event (including implicit) stay in "started" (even with an event subprocess triggered)
