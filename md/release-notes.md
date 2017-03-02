@@ -17,12 +17,12 @@ Bonita BPM 7.5 includes a set of user-based product enhancements, bug fixes and 
 
 ### Full Java 8 support
 Bonita BPM 7.5.0+ is now fully Java 8 compliant.  
-Java 8 syntax and specific APIs can now be fully used in Connectors, Actor filters, Groovy Scripts, Custom REST APIs, Custom Event Handlers ...  
-As a consequence, JRE or JDK 8+ is required to run. JRE / JDK 7 is no longer supported to run Bonita BPM 7.5.0+
+Java 8 syntax and specific APIs can now be fully used in all Bonita BPM [extensions points](software-extensibility.md#stable_extension_points)  
+As a consequence, JRE or JDK 8+ is required to run. Bonita BPM 7.5.0+ cannot be operated on Java 1.7 anymore.
 
 ### Removed support for Oracle Weblogic application server
 Bonita BPM 7.5.0+ does not support Oracle Weblogic application server anymore.  
 Refer to [full software requirements](hardware-and-software-requirements.md) for more details on supported environments.
 
 ### Other updates
-* Hibernate is updated to 4.3.11, to support JPA 2.1 specification
+* Hibernate has been updated from version 4.2.13 to 4.3.11, to support JPA 2.1 specification
