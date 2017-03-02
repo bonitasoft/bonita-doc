@@ -26,3 +26,4 @@ Refer to [full software requirements](hardware-and-software-requirements.md) for
 
 ### Other updates
 * Hibernate has been updated from version 4.2.13 to 4.3.11, to support JPA 2.1 specification
+
