@@ -221,3 +221,11 @@ For Microsoft SQL Server, rename it so that the name contains at least the word 
 For Oracle, rename it so that the name contains at least the word `oracle` or `ojdbc` (case insensitive)
 
 ---
+
+**Issue**: When I run `bonita-start.sh` or `bonita-start.bat`, I get the error message `Invalid Java version (1.7) < 1.8. Please set JRE_HOME or JAVA_HOME variable to a JRE / JDK 1.8+`
+
+**Cause**: Bonita BPM 7.5+ requires Java 1.8 to run
+
+**Solution**: Ensure your running environment has a JDK or JRE 1.8 installed and set either JRE_HOME or JAVA_HOME environment variable to point to it.
+
+---

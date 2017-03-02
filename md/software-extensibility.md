@@ -4,6 +4,9 @@ Bonita BPM provides a rich set of features by default. These features are design
 However, if a project has a need that was not anticipated and cannot be met by the default features, Bonita BPM has been designed to be extensible. 
 This page lists the extension points that are available.
 
+
+<a id="stable_extension_points"/>
+
 ## Stable extension points
 
 The following elements are designed to be extension points of Bonita BPM. 
