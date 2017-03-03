@@ -24,7 +24,35 @@ Configure the database to use the UTF-8 character set.
 
 In your RDBMS, make sure there is a user defined with privileges to create tables and query them.
 
-Edit [`bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md) for each tenant and set the `bdm.db.vendor` property to indicate the RDBMS vendor.
+## Data sources
+
+
+For business data objects, you need to configure two data sources: `BusinessDataDS` and `NotManagedBizDataDS`. Two data sources are required because some RDBMS do not support use of transactions for table creation.
+The data sources for business data objects are independent of the Bonita BPM Engine data sources (`bonitaDS` and `bonitaSequenceManagerDS`).
+
+::: info
+If you have multiple tenants that use business data objects, you need to create a `BusinessDataDS` and a `NotManagedBizDataDS` for each tenant.
+:::
+The following sections show how to configure the data sources for [JBoss](#ds_jboss) and [Tomcat](#ds_tomcat). 
+There is also an [example of how to configure data sources for Weblogic](red-hat-oracle-jvm-weblogic-oracle.md).
+
+After creation of a new Tenant, use the Setup tool to pull the configuration. See [Bonita BPM plaform setup tool](BonitaBPM_platform_setup.md) for more information about platform configuration.
+
+"Pull" the configuration from the server Run 'setup pull' to get the configuration file.
+
+Unix/Mac:
+```
+setup.sh pull
+```
+  
+ Windows:
+ ```
+  setup.bat pull
+  ```
+  
+Edit `<SETUP>/platform_conf/current/tenants/<TENANT ID>/bonita-tenant-community-custom.properties`, and set the datasource for the tenant. Each tenant has a datasource, which can use a different database (Postgres for Tenant 101, Oracle for 102 for example).
+
+Set the `bdm.db.vendor` property to indicate the RDBMS vendor.
 The possible values for `bdm.db.vendor` are:
 
 <div class="row"><div class="col-md-6 col-md-offset-1">
@@ -58,16 +86,33 @@ For remaining configuration steps, you will need the following information:
 * User name
 * User password
 
-## Data sources
+For example, For example file `<SETUP>/platform_conf/current/tenants/101/bonita-tenant-community-custom.properties`, when you defined a datasource 'NotManagedBizDataDS_101' in the datasource (see below) : 
 
-For business data objects, you need to configure two data sources: `BusinessDataDS` and `NotManagedBizDataDS`. Two data sources are required because some RDBMS do not support use of transactions for table creation.
-The data sources for business data objects are independent of the Bonita BPM Engine data sources (`bonitaDS` and `bonitaSequenceManagerDS`).
+## Business data configuration
 
-::: info
-If you have multiple tenants that use business data objects, you need to create a `BusinessDataDS` and a `NotManagedBizDataDS` for each tenant.
-:::
-The following sections show how to configuire the data sources for [JBoss](#ds_jboss) and [Tomcat](#ds_tomcat). 
-There is also an [example of how to configure data sources for Weblogic](red-hat-oracle-jvm-weblogic-oracle.md).
+```
+bdm.db.vendor=postgres
+bdm.datasource.jndi.path=${sysprop.bonita.businessdata.datasource.jndi:java:comp/env/BusinessDataDS_101}
+bdm.notmanageddatasource.jndi.path=${sysprop.bonita.businessdata.notmanageddatasource.jndi:java:comp/env/NotManagedBizDataDS_101}
+bdm.hibernate.transaction.jta_platform=${sysprop.bonita.hibernate.transaction.jta_platform:org.bonitasoft.engine.persistence.JNDIBitronixJtaPlatform}
+```
+  
+
+When the configuration is finished, "push" the configuration to the server.
+
+Unix/Mac:
+```
+setup.sh push
+```
+  
+ Windows:
+ ```
+  setup.bat push
+  ```
+  
+
+
+
 
 <a id="db_jboss"/>
 
@@ -123,6 +168,7 @@ Edit [`bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md) 
 
 Edit the `<TOMCAT_HOME>/conf/bitronix-resources.properties` configuration file and find the parameters starting with `resource.ds2`. The configuration file contains examples of settings to guide you. Edit the following settings and set the values appropriate for your RDBMS and database configuration:
 
+
 * `resource.ds2.className`: JDBC driver full class name. See the examples to find the relevant value for your RDBMS.
 * `resource.ds2.driverProperties.user`: RDBMS user name.
 * `resource.ds2.driverProperties.password`: RDBMS user password.
@@ -135,3 +181,91 @@ Edit the `<TOMCAT_HOME>/conf/bitronix-resources.properties` configuration file a
 If you have multiple tenants that use business data objects, copy this block of properties for each tenant, and replace `ds2` in the property names with a unique value for each tenant (for example ds3). 
 Also make sure that `resource.ds?.uniqueName` is actually a unique name and update the value for `uniqueName` parameter accordingly in `bonita.xml` file.
 :::
+
+Example `<TOMCAT_HOME>/conf/Catalina/localhost/bonita.xml`:
+
+```
+  <!-- tenant 1 -->
+  <Resource name="BusinessDataDS" auth="Container" type="javax.sql.DataSource"
+              factory="bitronix.tm.resource.ResourceObjectFactory" uniqueName="jdbc/BusinessDataDSXA" />
+
+ <Resource name="NotManagedBizDataDS"
+              auth="Container"
+              type="javax.sql.DataSource"
+              factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+              maxActive="17"
+              minIdle="5"
+              maxIdle="17"
+              maxWait="10000"
+              initialSize="3"
+              validationQuery="SELECT 1"
+              validationInterval="30000"
+              removeAbandoned="true"
+              logAbandoned="true"
+              username="bonita"
+              password="bpm"
+              driverClassName="org.postgresql.Driver"
+              url="jdbc:postgresql://localhost:5432/business_data"/>
+	
+
+	<!-- tenant 101 -->
+	<Resource name="BusinessDataDS_101" auth="Container" type="javax.sql.DataSource"
+              factory="bitronix.tm.resource.ResourceObjectFactory" uniqueName="jdbc/BusinessDataDSXA_101" />
+
+			  
+ <Resource name="NotManagedBizDataDS"
+              auth="Container"
+              type="javax.sql.DataSource"
+              factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+              maxActive="17"
+              minIdle="5"
+              maxIdle="17"
+              maxWait="10000"
+              initialSize="3"
+              validationQuery="SELECT 1"
+              validationInterval="30000"
+              removeAbandoned="true"
+              logAbandoned="true"
+              username="bonita"
+              password="bpm"
+              driverClassName="org.postgresql.Driver"
+              url="jdbc:postgresql://localhost:5432/business_data_101"/>
+```
+  
+			  
+Example `<TOMCAT_HOME>/conf/bitronix-resources.properties` :
+
+```
+###################################
+# BONITA 'Business Data' Datasource Tenant 1
+###################################
+resource.ds2.uniqueName=jdbc/BusinessDataDSXA
+resource.ds2.minPoolSize=0
+resource.ds2.maxPoolSize=5
+
+resource.ds2.className=org.postgresql.xa.PGXADataSource
+resource.ds2.driverProperties.user=bonita
+resource.ds2.driverProperties.password=bpm
+resource.ds2.driverProperties.serverName=localhost
+resource.ds2.driverProperties.portNumber=5432
+resource.ds2.driverProperties.databaseName=business_data
+resource.ds2.testQuery=SELECT 1
+
+###################################
+# BONITA 'Business Data' Datasource Tenant 101
+###################################
+resource.ds101.uniqueName=jdbc/BusinessDataDSXA_101
+resource.ds101.minPoolSize=0
+resource.ds101.maxPoolSize=5
+
+resource.ds101.className=org.postgresql.xa.PGXADataSource
+resource.ds101.driverProperties.user=bonita
+resource.ds101.driverProperties.password=bpm
+resource.ds101.driverProperties.serverName=localhost
+resource.ds101.driverProperties.portNumber=5432
+resource.ds101.driverProperties.databaseName=business_data_101
+resource.ds101.testQuery=SELECT 1
+```
+  
+  
+  
