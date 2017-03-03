@@ -95,10 +95,6 @@ out.write("""<iframe src=../portal.js/#/admin/monitoring/${idProcess}-${idCase}?
 
 While you are developing a custom page, you can enable custom page debug mode for your portal. In debug mode, you can see changes to your custom page without importing a new zip archive.
 
-::: info
-Before use setup tool for the studio context, you need to edit the file : `database.properties`, and re-define `h2.database.dir=../../<yourRepository>/h2_database`  
-:::
-
 To enable custom page debug mode, edit [`console-config.properties`](BonitaBPM_platform_setup.md) and set `custom.page.debug` to `true`.
 
 To work on a page in debug mode:
