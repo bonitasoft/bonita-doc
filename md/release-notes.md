@@ -74,15 +74,15 @@ a new REST connector and important technology updates.
 * BS-15851	Delete a page does not delete the metadata file
 * BS-15873	HTTP status code 500 returned when using a non existing username or wrong password
 * BS-16027	Adding two widgets with assets does not refresh asset list
-* BS-16031	BDM.find => Exception if element has a CHILD
+* BS-16031	BDM.find() fails with Exception if element has a CHILD
 * BS-16106	bpm/archivedCase return error 500 instead of 404 if the case doesn't exist
 * BS-16145	WildFly bonita-start.bat failed if JAVA_HOME is set with a path including spaces
 * BS-16161	The user is not warned that the session will be closed when the BDM is deployed
 * BS-16170	JSON sorted results broken in widget Data table in Chrome
 * BS-16184	Tomcat does not test MySQL connection validity before giving it to Bonita application
 * BS-16206	Japanese chars in diagram name generate validation errors
-* BS-16214	Browse data (h2 console) new Studio Menu button not opening any browser
-* BS-16231	Connector definition - Widget input - document type (no contract input available)
+* BS-16214	The studio menu Development -> Business Data Model -> Browse Data (h2 console) doesn't open the bonded browser
+* BS-16231	Contract input not available in the expression editor, for connectors dealing with documents
 * BS-16233	IdentityApi.getUserMemberships does not set grouptParentPath
 * BS-16238	Adding contract input from large business data is very slow
 * BS-16240	Impossible to edit the name of a freshly added Business Object in the Business Data Model of the Studio - Mac OS Sierra
