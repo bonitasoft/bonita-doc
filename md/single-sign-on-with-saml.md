@@ -4,7 +4,7 @@
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 
-This pages explains how to configure your Bonita BPM Platform system to use the SAML protocol to provide single sign-on (SSO). It assumes you already have a working SAML identity provider (IdP).
+This pages explains how to configure your Bonita BPM Platform system to use the SAML protocol to provide single sign-on (SSO). It assumes you already have a SAML identity provider server up and running (IdP).
 
 This information applies to a Bonita BPM platform deployed from a bundle, not to the Engine launched from Bonita BPM Studio.
 
@@ -50,14 +50,18 @@ it is composed of:
 ## Configure Bonita BPM Bundle for SAML
 
 You need to execute the following actions in the folder of each tenant for which you want to support authentication over SAML.
-If you want this configuration to also apply to each tenant created later, make sure to also perform those actions in the initial tenant configuration folder:
-“setup/platform_conf/initial/tenant_template_*”
+If you want this configuration to also apply to each tenant created later, make sure to also perform those actions in the *template* tenant configuration folder:
+`setup/platform_conf/current/tenant_template_*` (if you have not started the Bonita bundle yet, the files are located in `setup/platform_conf/initial/tenant_template_*`)
 
 The bundle already contains the files needed to use SAML with Bonita BPM platform.  
 To configure Bonita BPM for SAML:
 
-1. If you do not already have one, download a Subscription edition bundle from the customer portal.
-2. In the tenant_portal folder of each existing tenant: “$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal”,
+1. If you do not already have one:
+    1. Download a Subscription edition bundle from the customer portal
+    1. [Configure](_basic-bonita-bpm-platform-installation) it as needed
+    1. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
+    1. Stop it before modifying the configuration files below
+2. In the tenant_portal folder of each existing tenant: `$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
    edit the authenticationManager-config.properties as follows:
     ```
        -->  #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.standard.StandardAuthenticationManagerImpl
@@ -77,11 +81,13 @@ To configure Bonita BPM for SAML:
        -->  logout.link.hidden=true 
     ```
     
-    Make sure to [set the right tenant admin username](multi-tenancy-and-tenant-configuration#toc2). It is recommended to also replace the value of the passphrase (property auth.passphrase) which is used by the engine to verify the authentication request. The value must be the same as in the file bonita-tenant-sp-custom.properties.  
+    Make sure to [set the right tenant admin username](multi-tenancy-and-tenant-configuration#toc2).
+    It is recommended to also replace the value of the passphrase (property auth.passphrase) which is used by the engine to verify the authentication request.
+    The value must be the same as in the file **bonita-tenant-sp-custom.properties**.  
     If you need some users to be able to log in without having an account on the IDP, you can authorize it by setting the property `saml.auth.standard.allowed` to true. Users will then be able to log in using the portal login page (/loging.jsp) provided they have a bonita account and their password is different from their username.
 
-3. In the tenant_engine folder of each existing tenant: “$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/
-  edit the file bonita-tenant-sp-custom.xml to uncomment the bean passphraseOrPasswordAuthenticationService:
+3. In the tenant_engine folder of each existing tenant: `$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`,
+  edit the file **bonita-tenant-sp-custom.xml** to uncomment the bean passphraseOrPasswordAuthenticationService:
 
    ```
         <bean id="passphraseOrPasswordAuthenticationService" class="com.bonitasoft.engine.authentication.impl.PassphraseOrPasswordAuthenticationService" lazy-init="true">
@@ -125,25 +131,26 @@ To configure Bonita BPM for SAML:
             #authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservice
    ```
   
-    It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file authenticationManager-config.properties updated previously.
+    It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file **authenticationManager-config.properties** updated previously.
 
 5. If your Identity provider (IdP) requires requests to be signed, generate a private key.
 For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ssh” to retrieve the key from the file id_rsa (more id_rsa, then copy the key).
 
-6. In the tenant_portal folder of each existing tenant: “$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal”,  
-    edit the file keycloak-saml.xml to setup Bonita webapp as a Service provider working with your IdP.  
+6. In the tenant_portal folder of each existing tenant: `$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,  
+    edit the file **keycloak-saml.xml** to setup Bonita webapp as a Service provider working with your IdP.  
     + The entityID is the Service Provider given to your bonita installation. You can change it if you want but you need to provide it to your IdP.  
     + If your IdP requires the SSO requests to be signed replace the following strings in the Keys section of the SP:  
-      - put your private key here  
-      - put your certificate here  
+      - put your private key here
+      - put your certificate here
     
       with you current server's private key and with the certificate provided by the IdP.  
-      If your IdP doesn't requires the SSO requests to be signed, you can remove the Keys node from the SP and set the attribute signRequest to false.  
+      If your IdP does not require the SSO requests to be signed, you can remove the Keys node from the SP and set the attribute signRequest to false.  
     + If your IdP responses are signed, replace the following strings in the Keys section of the IDP:  
       - put your certificate here
       
       If your IdP responses are not signed, you can remove the Keys node from the IDP and set the attribute validateResponseSignature to false.  
-    + The PrincipalNameMapping policy indicates how to retrieve the subject attribute that matches a bonita user account username from the IdP response. The policy can eather be FROM_NAME_ID or FROM_ATTRIBUTE (in that case you need to specify the name of the subject attribute to use).  
+    + The PrincipalNameMapping policy indicates how to retrieve the subject attribute that matches a bonita user account username from the IdP response.
+      The policy can either be FROM_NAME_ID or FROM_ATTRIBUTE (in that case you need to specify the name of the subject attribute to use).  
     + You may also need to change the requestBinding and/or responseBinding from POST to REDIRECT depending on your IdP configuration.  
     + The url binding to your idp also needs to be define by replacing the following string:  
       - http://idp.saml.binding.url.to.change  
