@@ -79,7 +79,7 @@ a new REST connector and important technology updates.
 * BS-16145	WildFly bonita-start.bat failed if JAVA_HOME is set with a path including spaces
 * BS-16161	The user is not warned that the session will be closed when the BDM is deployed
 * BS-16170	JSON sorted results broken in widget Data table in Chrome
-* BS-16184	Tomcat does not test MySQL connection validity before giving it to Bonita application
+* BS-16184	Tomcat does not test SQL connection validity before giving it to Bonita application
 * BS-16206	Japanese chars in diagram name generate validation errors
 * BS-16214	The studio menu Development -> Business Data Model -> Browse Data (h2 console) doesn't open the bound browser
 * BS-16231	Contract input not available in the expression editor, for connectors dealing with documents
