@@ -35,7 +35,7 @@ Instructions below explain how to add a language to Bonita BPM Portal. Steps bel
 
 1. Go to [Bonita BPM translation project](http://translate.bonitasoft.org/).
 1. Select the language you are interested in.
-1. Make sur you click on the "Toggle Hidden Files" button ![Toggle hidden files button](images/crowdin_toggle_hidden_files.png) to see already fully translated files.
+1. Make sure you click on the "Toggle Hidden Files" button ![Toggle hidden files button](images/crowdin_toggle_hidden_files.png) to see already fully translated files.
 1. Browse the file tree to `${varVersion}.x/bonita-web/portal` folder.
 1. For each file in the folder: open it and in the **_File_** menu click on **_Download_**. Each `.po/.pot` file has a language indicator and a locale indicator. For example, the files for the Brazilian Portuguese language end with `pt_BR.po`.
 1. For Subscription editions, you also need to get the files from `${varVersion}.x/bonita-web-sp/portal` folder.
@@ -48,6 +48,7 @@ Instructions below explain how to add a language to Bonita BPM Portal. Steps bel
     * For JBoss on Linux edit **standalone.conf**
 1. Restart your application server (or restart Bonita BPM Studio). The next time Bonita BPM Portal starts, it will detect the new language and add it to the list in the **Settings** menu.
 
+<a id="Translate-Bonita-BPM-Portal" />
 ## Translate Bonita BPM Portal
 
 First step if to go to [Bonita BPM translation project](http://translate.bonitasoft.org/) hosted on Crowdin and check if the language you want to contribute to is already listed. If it's not, please request it by submitting an issue on our [community issue tracker](https://bonita.atlassian.net).
