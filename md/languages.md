@@ -28,7 +28,7 @@ For the web mobile version:
 ## Add a language to Bonita BPM Portal
 
 ::: info
-Instructions below assume that the language you want to add is already available in the community translation project. If translation is not available see [Translate Bonita BPM Portal](#Translate-Bonita-BPM-Portal) for instruction about how to collaborate to a new or ongoing translation.
+Instructions below assume that the language you want to add is already available in the community translation project. If translation is not available see [Translate Bonita BPM Portal](#Translate_BonitaB_PM_Portal) for instruction about how to collaborate to a new or ongoing translation.
 :::
 
 Instructions below explain how to add a language to Bonita BPM Portal. Steps below involve using content created by Bonitasoft community and therefore not officially supported.
@@ -48,7 +48,7 @@ Instructions below explain how to add a language to Bonita BPM Portal. Steps bel
     * For JBoss on Linux edit **standalone.conf**
 1. Restart your application server (or restart Bonita BPM Studio). The next time Bonita BPM Portal starts, it will detect the new language and add it to the list in the **Settings** menu.
 
-<a id="Translate-Bonita-BPM-Portal" />
+<a id="Translate_BonitaB_PM_Portal" />
 
 ## Translate Bonita BPM Portal
 
