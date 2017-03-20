@@ -45,6 +45,13 @@ A tenant can be created using the Java PlatformAPI (see the [Javadoc](http://doc
 **Note:**
 If business objects will be deployed in the newly created tenant do not forget to [create the business data database and configure specific data sources](database-configuration-for-business-data.md).
 
+::: warning
+**Important**: Once a tenant has been created and activated, default theme is not yet loaded.  
+Therefore, as long as you have not logged in to the new tenant, the login page will miss the default theme.  
+
+After the first login, default theme will be loaded and the login page will look as usual. 
+:::
+
 ### Java PlatformAPI
 
 The Java PlatformAPI creates the tenant by updating the database and creating configuration based on the tenant template files (in database too). 

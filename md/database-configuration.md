@@ -28,6 +28,11 @@ For production purposes, you must modify the configuration to use another RDBMS.
 
 #### Steps to switch to another RDBMS
 
+::: warning
+Please note this procedure cannot be performed using the Bonita Studio. The Bonita Studio can run only on the H2 Database. 
+To use Bonita BPM on another RDBMS, please use a [bundle](_basic-bonita-bpm-platform-installation.md) or set up a [standalone server](deploy-bundle.md).
+:::
+
 In order to configure Bonita BPM to work with your RDBMS, you need to perform the following steps:
 
 1. Create the database
@@ -253,6 +258,8 @@ Now that you are almost done with the switch from h2 to your chosen RDBMS, you c
    * Remove the h2 listener, so that h2 is not started automatically: comment out the h2 listener in the `/conf/server.xml` file.
  * Check that h2 is no longer set in JVM system property value. Also, for extra security, you can remove it from `bonita-platform.properties` file and replace it with the value for your chosen RDBMS.
 
+<a id="specific_database_configuration"/>
+
 ## Specific database configuration
 
 ### PostgreSQL
@@ -389,8 +396,31 @@ ALTER DATABASE BONITA_BPM SET ALLOW_SNAPSHOT_ISOLATION ON
 ALTER DATABASE BONITA_BPM SET READ_COMMITTED_SNAPSHOT ON
 ALTER DATABASE BONITA_BPM SET MULTI_USER
 ```
-
 See [MSDN](https://msdn.microsoft.com/en-us/library/ms175095(v=sql.110).aspx).
+
+#### Recommended configuration for in-doubt xact resolution
+
+Run the script below to avoid that the SQL Server changes the status of databases to SUSPECT during database server startup when in-doubt XA transactions are found.  
+The value 2 in the block below means *presume abort*.  
+To minimize the possibility of extended down time, an administrator might choose to configure this option to presume abort, as shown in the following example
+
+```sql
+sp_configure 'show advanced options', 1
+GO
+RECONFIGURE
+GO
+sp_configure 'in-doubt xact resolution', 2 
+GO
+RECONFIGURE
+GO
+sp_configure 'show advanced options', 0
+GO
+RECONFIGURE
+GO
+```
+
+See [in-doubt xact resolution Server Configuration Option](https://msdn.microsoft.com/en-us/library/ms179586%28v%3Dsql.110%29.aspx).
+
 
 ### MySQL
 
@@ -401,7 +431,7 @@ However, you need to increase the packet size if you see the following error:
 `Error: 1153 SQLSTATE: 08S01 (ER_NET_PACKET_TOO_LARGE) Message: Got a packet bigger than 'max_allowed_packet' bytes`
 
 You need to update the file `my.ini` (for Windows) or `my.cnf` (for Linux) to avoid the `ER_NET_PACKET_TOO_LARGE` problem.
-Look for `max_allowed_packet` settings and reduce the value.
+Look for `max_allowed_packet` settings and increase the value.
 
 For more information, see the [MySQL website](http://dev.mysql.com/doc/refman/5.5/en/packet-too-large.html).
 

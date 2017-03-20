@@ -15,7 +15,7 @@ In this example, we use the following APIs:
 In order to use the client APIs, you need to add a dependency to the `bonita-client` artifact in your Maven `pom.xml` file: 
 ```xml
 <properties>
-   <bonita.bpm.version>7.0.0</bonita.bpm.version>
+   <bonita.bpm.version>${varVersion}.0</bonita.bpm.version>
    ...
 </properties>
  

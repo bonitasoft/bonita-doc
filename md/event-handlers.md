@@ -17,6 +17,10 @@ You can create an event handler to track any change to any object in the databas
 
 At the end of this page there is a list of all the events.
 
+::: warning
+In a cluster environment, Event handlers must be Serializable (implements Serializable and have all its fields serializable or transient) because they are shared with other nodes of the cluster.
+:::
+
 ## Example: deploy an event handler
 
 This example shows an event handler that detects changes in the state of activity instances. When executing, the event handler calls [technical logger service](technical-logging.md).
@@ -35,7 +39,7 @@ pom.xml :
     <artifactId>event-handler-example</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <properties>
-        <bonita.version>7.3.0</bonita.version>
+        <bonita.version>${varVersion}.0</bonita.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

@@ -46,7 +46,7 @@ instead of deactivating it.
 
 In this case, edit the appropriate _.md_ file and the build process will do the rest.
 
-<u>Example</u>: To edit the **actors.html** page in version 7.3, edit the `md/actors.md` file and submit a pull request on **7.3** branch.
+<u>Example</u>: To edit the **?page=actors** page in version 7.3, edit the `md/actors.md` file and submit a pull request on **7.3** branch.
 
 
 ## How to add a new page?
@@ -132,6 +132,10 @@ In the page to navigate to, add the following:
 In the page to navigate from, use the following:
 
     [textToDescribeTheLink](pageName.md#section-Name)
+
+If anchor is in the same page , use the following:
+
+    [textToDescribeTheLink](#section-Name)
 
 ### Font Awesome
 
