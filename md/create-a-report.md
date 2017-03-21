@@ -165,14 +165,21 @@ The **DATE** and **DATE\_RANGE** widgets have the following extra properties:
   </tr><tr>
     <td>BONITA_FORM_<em>XXX</em>_INITIAL_VALUE</td>
     <td rowspan="2" style="vertical-align: middle;">Yes:  one of these two properties is required</td>
-    <td>Static initial value defined in the ISO format.<br>
-        Example: <span><code>2015-01-28</code></span></td>
+    <td>Static initial value defined in the ISO format for the **DATE** widget<br>
+        Example: <span><code>2015-01-28</code></span><br>
+        Static initial values for `_from` and `_to` parameters in the ISO format separated by ` - ` for the **DATE\_RANGE** widget<br>
+        Example: <span><code>2015-01-28 - 2015-02-28</code></span>
+    </td>
   </tr>
   <tr>
     <td>BONITA_FORM_<em>XXX</em>_QUERY</td>
     <td>Query that dynamically retrieves the initial value from the Bonita BPM database.</td>
   </tr>
 </tbody></table>
+
+For a **DATE\_RANGE** widget, if you name the associated parameter `p_date` then `p_date_from` and `p_date_to` initial
+value will automatically be set to `one week before today` and `today` respectively. Setting an initial value to this
+parameter using BONITA_FORM_XXX_INITIAL_VALUE will not be taken in account.
 
 Query that dynamically retrieves the initial value from the Bonita BPM database.
 

@@ -38,7 +38,7 @@ A Bonita BPM platform upgrade can only be performed on the same database type.
 To upgrade a Bonita BPM platform from Community edition to a Subscription edition, follow these steps:
 
 1. [Install the Subscription Bundle](bonita-bpm-installation-overview) but do not start it. We will call this installation folder `bonita-subscription`.
-2. Configure the Subscription installation to use your existing database editing the file `<bonita-subscription>/setup/database.properties`).
+2. Configure the Subscription installation to use your existing database editing the file `<bonita-subscription>/setup/database.properties`.
 3. Shut down the Community server being migrated using the `bonita-stop` script, we will call this installation folder `bonita-community`.
 4. Run `<bonita-community>/setup/setup(.sh/.bat) pull` to fetch your current Community configuration in `<bonita-community>/setup/platform_conf/current` and copy this last in a different folder, we will call this new folder `bonita-community-configuration`.
 5. [Backup your Bonita BPM platform and databases](back-up-bonita-bpm-platform.md).
