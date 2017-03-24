@@ -139,7 +139,7 @@ a new REST connector and important technology updates.
 * BS-15381  Oracle constraint violation on IDX_UQ_PENDING_MAPPING
 * BS-15408  Cache is enabled on REST APIs calls
 * BS-15416  Case visualization image does not contain arrows and does not match the process diagram for a process imported from 6.3.6
-* BS-15431  Security issue - SQL injection [reproduced on JBOSS]
+* BS-15431  Security issue - server information disclosed
 * BS-15449  Unique index or primary key violation: "UC_CD_SCOPE_NAME_INDEX_9 ON CONTRACT_DATA"
 * BS-15471  Custom widget bond not updated when already in the page
 * BS-15484  The manager is set to System when overriding an existing user at organization import
