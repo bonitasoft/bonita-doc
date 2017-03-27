@@ -199,8 +199,14 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
    ```
 
 ::: info
-**Note:** The single logout SAML profile is not supported by bonita as it doesn't work the same way for each IdP.  
+**Note 1:** The single logout SAML profile is not supported by bonita as it doesn't work the same way for each IdP.  
 So the SingleLogoutService configuration is not used (but the element still needs to be present in order for the filter to work...).  
+:::
+
+::: info
+**Note 2:** If your Bonita BPM platform is behind a proxy server, You need to make sure the reverse proxy is configured 
+to include correct headers and application server is configured to use the headers. This is required so 
+HttpServletRequest.getRequestURL returns the URL used by the user and not the internal URL used by the proxy.  
 :::
 
 ### Troubleshoot
@@ -246,3 +252,4 @@ Here is the subset of pages filtered by the SAML filter:
 REST API are not part of them, but if an http session already exists thanks to cookies, REST API can be used.
 
 The recommended way to authenticate to Bonita BPM Portal to use the REST API is to use the [login service](rest-api-overview.md#bonita-authentication)..
+
