@@ -233,7 +233,11 @@ However, when you create a user in Bonita BPM Portal, specifying a password is m
 If you are using an LDAP service and the [LDAP synchronizer](ldap-synchronizer.md) to manage your user data,   
 you can continue to do this and manage authentication over SAML.  
 The LDAP synchronizer user must be registered in Bonita BPM (no need for an SAML IdP account). It is recommended though to use the tenant admin account.   
-We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your Bonita BPM platform. 
+We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your Bonita BPM platform.
+
+::: info
+**Note :** By default the [LDAP synchronizer](ldap-synchronizer.md) sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `saml.auth.standard.allowed` in **authenticationManager-config.properties**), users won't be able to log in with the portal login page directly without going through the IdP.   
+:::
 
 ## Single sign-on with SAML using the REST API
 
