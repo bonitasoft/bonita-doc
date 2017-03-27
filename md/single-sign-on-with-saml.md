@@ -223,6 +223,11 @@ To avoid this, you can hide the logout option of the portal.
 To do this, set the `logout.link.hidden=true` option in `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` 
 for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
 
+::: info
+**Note:** When a user logs out from the IdP, Bonita Portal's session will remain active. The user's session time to live will be reset 
+to the configured session timeout value upon each user interaction with the server.
+:::
+
 ## Manage passwords
 
 When your Bonita BPM platform is configured to manage authentication over SAML, the user password are managed in your SAML Identity provider (IdP).  
