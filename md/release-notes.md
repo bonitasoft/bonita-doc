@@ -7,6 +7,9 @@ Bonita BPM 7.5 includes a set of user-based product enhancements, bug fixes and 
 
 ## Technology updates
 
+- httpclient is updated to httpclient 4.5.2
+- httpcore is updated to httpcore 4.4.4
+
 ### UI Designer
 - *ui-bootstrap.js library has been removed from runtime*: in our first design iteration, forms, pages and layouts designed with the UI Designer embedded [UI Bootstrap js, version 0.13.4](http://angular-ui.github.io/bootstrap/versioned-docs/0.13.4/) by default and silently, even when not needed. We have removed it so you can use it only when you need it, and with the version you choose. 
  
