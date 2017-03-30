@@ -56,9 +56,9 @@ a new REST connector and important technology updates.
 
 <a id="technology-updates"/>
 
-## Technology updates
+## Technology updates in Bonita BPM 7.4.0
 * Wildfly 10.1.0 application server replaced Jboss AS 7.1.1
-* Hazelcast is updated to Hazlecast 3.6.3 `(SP)`, to improve clustering types of installation
+* Hazelcast is updated to Hazlecast 3.6.5 `(SP)`, to improve clustering types of installation
 
 
 ## Limitations and known issues
