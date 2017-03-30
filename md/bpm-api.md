@@ -1101,6 +1101,8 @@ In order to execute a task, the task contract values have to be provided.
     }
     ```
 
+<a id="retrieve-the-usertask-context" />
+
 #### Retrieve the userTask context
 
 * **URL**  
@@ -2866,6 +2868,8 @@ You can get a case by using its identifier. Request url
   `DELETE`
 * **Success Response**  
   * **Code**: 200
+
+<a id="retrieve-the-case-context" />
 
 #### Retrieve the case context
 
