@@ -30,3 +30,9 @@ Refer to [full software requirements](hardware-and-software-requirements.md) for
 ### Other updates
 * Hibernate has been updated from version 4.2.13 to 4.3.11, to support JPA 2.1 specification
 
+
+## API updates
+
+### API removals
+Engine APIs have been cleaned up from some deprecated methods:
+* ProcessAPI.addComment() - replacement method is [ProcessAPI.addProcessComment()](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#addProcessComment-long-java.lang.String-)
