@@ -290,6 +290,13 @@ The query can be either a default or a custom query.
 
 ## BusinessDataReference
 
+::: warning
+Deprecated (since 7.0.0)
+ 
+Use [case context API](bpm-api#retrieve-the-case-context) to get business data references for a case
+and [task context API](bpm-api#retrieve-the-usertask-context) to get business data references for a task.
+:::
+
 #### Description
 
 A business data reference is a link between the business data and the case. The reference can be either single or
