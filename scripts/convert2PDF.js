@@ -24,6 +24,7 @@
        return;
      }
    }
+   let file = argv.file;
 
   const readdirPromise = denodeify(fs.readdir);
   let outfile = `Bonita-BPM-documentation`;
@@ -31,12 +32,23 @@
   const flattenedTaxo = flattenTaxonomy(taxonomy);
   let htmlFile = '', count = 0;  
 
-  rx.Observable.from(flattenedTaxo.filter(fileName => fileName && !fileName.match(/^https?:\/\//)))
-  .select(html => {
-    return 'build/html/' + html + '.html'; 
-  }).bufferWithCount(3).toArray().subscribe(filesArray => {
-    convertLastFilesToPDF(filesArray.reverse());
-  });
+  if (!file) {
+    rx.Observable.from(flattenedTaxo.filter(fileName => fileName && !fileName.match(/^https?:\/\//)))
+    .select(html => {
+      return 'build/html/' + html + '.html'; 
+    }).bufferWithCount(3).toArray().subscribe(filesArray => {
+      convertLastFilesToPDF(filesArray.reverse());
+    });
+  } else {
+    console.log("Generate PDF for file: " + file);
+    rx.Observable.from(flattenedTaxo.filter(fileName => fileName && !fileName.match(/^https?:\/\//) && fileName == file))
+    .select(html => {
+      return 'build/html/' + html + '.html'; 
+    }).bufferWithCount(3).toArray().subscribe(filesArray => {
+      convertLastFilesToPDF(filesArray.reverse());
+    });
+  }
+  
   function convertLastFilesToPDF(filesArray) {
     const files = filesArray.pop();
     winston.info(count, files);
