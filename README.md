@@ -46,8 +46,9 @@ Use the `npm run taxonomy` to do so.
 
 ### PDF
 
-The PDF file gathering all the markdown content can be generated using the `npm run pdf` command.
+The PDF file gathering all the markdown content can be generated using the `npm run pdf` command. This command will generate the entire documentation as a PDF document. 
 
+To generate one specific page of the documentation, use the parameter `--file`. (Example for the page "assets": `npm run pdf -- --file assets`)
 
 ## Contribute
 
