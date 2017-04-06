@@ -29,7 +29,10 @@ You can define a sequence of operations at a task. The operations are performed 
    The BO instance is not modified during the operation but from that point onward, any expression or operation in the process can reference this object instance to make changes.    
    If it uses a _Script expression type_, you can use the contract inputs to fill in the BO attributes.   
    Go to [Initialize BDM attributes from contract inputs in task operations](define-and-deploy-the-bdm.md) for more information.  
-* _**isDeleted**_: an operator 'Is Deleted' can be called on a business data variable. The BO instance that the business data references is deleted from the database, at runtime, after the task is completed. The process designer should avoid calling other operations on the same business data variable within the same group of operations/actions.
+* _**isDeleted**_: an operator 'Is Deleted' can be called on a business data variable. The BO instance that the business data references is deleted from the database, at runtime, after the task is completed.
+
+**Warning:** Calling other operations (including _**instantiate with**_) after calling _**isDeleted**_ on the same Business Object, in the same task, will result in an unstable process behaviour. If you want to re instantiate your Business Object, and perform operations on it, you should do it in a separate task.
+
 
 **Warning:** Operations on business objects can be done only at task level.
 
