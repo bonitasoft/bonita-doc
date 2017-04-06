@@ -31,7 +31,7 @@ You can define a sequence of operations at a task. The operations are performed 
    Go to [Initialize BDM attributes from contract inputs in task operations](define-and-deploy-the-bdm.md) for more information.  
 * _**isDeleted**_: an operator 'Is Deleted' can be called on a business data variable. The BO instance that the business data references is deleted from the database, at runtime, after the task is completed.
 
-**Warning:** Calling other operations (including _**instantiate with**_) after calling _**isDeleted**_ on the same Business Object, in the same task, will result in an unstable process behaviour. If you want to re instantiate your Business Object, and perform operations on it, you should do it in a separate task.
+**Warning:** Calling other operations (including _**instantiate with**_) after calling _**isDeleted**_ on the same Business Object, in the same task, is not supported. If you want to re instantiate your Business Object, and perform operations on it, you should do it in a separate task.
 
 
 **Warning:** Operations on business objects can be done only at task level.
