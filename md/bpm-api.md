@@ -3092,6 +3092,44 @@ You can search cases.
     ]
     ```
 
+#### Retrieve an archived case context
+
+* **URL**  
+  `/API/bpm/archivedCase/:archivedCaseId/context`  
+* **Method**  
+  `GET`
+* **Success Response**  
+  A context object
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {  
+      "myBusinessData_ref":{  
+        "name":"myBusinessData",
+        "type":"com.company.model.BusinessObject1",
+        "link":"API/bdm/businessData/com.company.model.BusinessObject1/2",
+        "storageId":2,
+        "storageId_string":"2"
+      },
+      "myDocument_ref":{  
+        "id":1,
+        "processInstanceId":3,
+        "name":"myDocument",
+        "author":104,
+        "creationDate":1434723950847,
+        "fileName":"TestCommunity-1.0.bos",
+        "contentMimeType":null,
+        "contentStorageId":"1",
+        "url":"documentDownload?fileName=TestCommunity-1.0.bos&contentStorageId=1",
+        "description":"",
+        "version":"1",
+        "index":-1,
+        "contentFileName":"TestCommunity-1.0.bos"
+      }
+    }
+    ```
+
+
 #### Remove an archived case
 
 You can delete an archived case by using its identifier. An archived case is linked to a case with the key. 
