@@ -43,7 +43,7 @@ There is also a default tenant portal configuration directory, located here: `te
 A tenant can be created using the Java PlatformAPI (see the [Javadoc](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html)) or the [platform REST API](platform-api.md).
 
 **Note:**
-If business objects will be deployed in the newly created tenant do not forget to [create the business data database and configure specific data sources](database-configuration.md).
+If business objects will be deployed in the newly created tenant do not forget to [create the business data database and configure specific data sources](database-configuration-for-business-data.md).
 
 ::: warning
 **Important**: Once a tenant has been created and activated, default theme is not yet loaded.  

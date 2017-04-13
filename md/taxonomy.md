@@ -116,6 +116,7 @@
     * [Deploy bundle](deploy-bundle.md)
     * [Platform configuration](BonitaBPM_platform_setup.md)
     * [Database creation and customization to work with Bonita BPM](database-configuration.md)
+    * [Database configuration for business data](database-configuration-for-business-data.md)
     * [First steps after setup](first-steps-after-setup.md)
     * [Licenses](licenses.md)
   * [Advanced Bonita BPM Platform installation](_advanced-bonita-bpm-platform-installation.md)
