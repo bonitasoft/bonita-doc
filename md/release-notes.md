@@ -76,7 +76,7 @@ a new REST connector and important technology updates.
 * BS-16027	Adding two widgets with assets does not refresh asset list
 * BS-16031	BDM.find() fails with Exception if element has a CHILD
 * BS-16106	bpm/archivedCase return error 500 instead of 404 if the case doesn't exist
-* BS-16145	WildFly bonita-start.bat failed if JAVA_HOME is set with a path including spaces
+* BS-16145	WildFly start-bonita.bat failed if JAVA_HOME is set with a path including spaces
 * BS-16161	The user is not warned that the session will be closed when the BDM is deployed
 * BS-16170	JSON sorted results broken in widget Data table in Chrome
 * BS-16184	Tomcat does not test SQL connection validity before giving it to Bonita application
