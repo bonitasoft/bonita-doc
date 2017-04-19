@@ -58,7 +58,7 @@ Only in the case you have created custom widgets using this silent library, you 
 * Remove support for Oracle Weblogic application server
 Bonita BPM 7.5.0+ does not support Oracle Weblogic application server anymore.  
 Refer to [full software requirements](hardware-and-software-requirements.md) for more details on supported environments.
-* Remove support for Intyernet Explorer 9 and 10
+* Remove support for Internet Explorer 9 and 10
 Bonita BPM 7.5.0+ does not support Internet Explorer 9 and 10 anymore.  
 Refer to [full software requirements](hardware-and-software-requirements.md) for more details on supported environments.
 
