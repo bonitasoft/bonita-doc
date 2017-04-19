@@ -213,7 +213,7 @@ For Oracle, rename it so that the name contains at least the word `oracle` or `o
 
 ---
 
-**Issue**: When I run `bonita-start.sh` or `bonita-start.bat`, I get the error message `Invalid Java version (1.7) < 1.8. Please set JAVA or JAVA_HOME variable to a JDK / JRE 1.8+`
+**Issue**: When I run `start-bonita.sh` or `start-bonita.bat`, I get the error message `Invalid Java version (1.7) < 1.8. Please set JAVA or JAVA_HOME variable to a JDK / JRE 1.8+`
 
 **Cause**: Bonita BPM 7.4+ WildFly bundle requires Java 1.8 to run
 
