@@ -7,37 +7,29 @@ Bonita BPM 7.5 includes a set of new features related to the Living Application 
 ## Living Application Development and Deployment
 
 ### Integration of SSO SAML 2.0
-Bonita BPM works with Single-Sign-On (SSO) solutions using SAML V2 protocol `(Teamwork, Efficiency, Performance edition)`
-
-Capabilities: 
+Bonita BPM works with Single-Sign-On (SSO) solutions using SAML V2 protocol `(Teamwork, Efficiency, Performance edition)` : 
 * Being able to use standard authentication service 
 * Can connect to Bonita apps with my company credentials (per tenant configuration)
 * Common SAML 2.0 Identity providers : ADFS (MS Active Directory Federation Services), SalesForce, Open AM, Google Auth,...
 
 ### New wizard to import a process in the studio & compare the artifacts 
-Provide a wizard when importing a .bos that display the duplicate artifacts (forms, connectors, ...)  and ask for actions to the users. Usual actions are proposed to user for every artifacts : keep existing or overwrite with the new import.
-
-Capabilities :
+Bonita BPM Studio provides a wizard when importing a .bos that display the duplicate artifacts (forms, connectors, ...)  and ask for actions to the users. Usual actions are proposed to user for every artifacts : keep existing or overwrite with the new import :
 * Ease collaboration between teams who works with .bos exchange
 * Ease the collaboration by file exchange and reduce drastically the risk of overwrite error during import of a .bos.
 
 ### Industrialization of Living Application (in Studio)
-In Bonita BPM Studio, provide an editor to create the Living Application navigation without having to go on the Portal administration. This is the first step towards the full Application artifacts development into the Bonita BPM Studio in future versions `(Efficiency, Performance edition)`
-
-Capabilities : 
-* Create and edit Living Application navigation descriptor in Studio. It is the first step to industrialization of Living Application.
+In Bonita BPM Studio, provide an editor to create the Living Application navigation without having to go on the Portal administration. This is the first step towards the full Application artifacts development into the Bonita BPM Studio in future versions `(Efficiency, Performance edition)` :
+* Create and edit Living Application navigation descriptor in Studio. 
 * Construct application navigation from inside Studio based on existing artifacts.
-* Store in your VCS.
-* Preview and push to deploy on the local Portal to see the Living Application. 
+* Store the descriptor in your VCS.
+* Deploy on the local Portal to preview the Living Application and export for your production environment. 
 
 <a id="ui-personalization"/> 
 
 ## UI personalization
 
 ### New management of date/time
-New management of date and time to properly manage Living Applications used across multiple timezones. It now follows the philosophy of Java 8 date management.
-
-Capabilities :
+New management of date and time to properly manage Living Applications used across multiple timezones. It now follows the philosophy of Java 8 date management :
 * Benefit from the Java 8 improvement of date/time management in order to better manage timezones in UI (forms and pages). Ensure the use cases of : 
     * entering and display a birthdate (no timezone impact).
     * define and display meeting date and hour (timezone related).
