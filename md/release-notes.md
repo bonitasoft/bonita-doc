@@ -80,3 +80,7 @@ Refer to [full software requirements](hardware-and-software-requirements.md) for
 
 * Engine APIs have been cleaned up from some deprecated methods:
   * ProcessAPI.addComment() - replacement method is [ProcessAPI.addProcessComment()](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#addProcessComment-long-java.lang.String-)
+  
+## Limitations and known issues
+* **MacOS Sierra (10.12)**: **Bonita BPM Studio** installed using the `zip` package fails during launch. Bonita BPM can successfully be installed on **MacOS Sierra** using the `dmg` package
+* **MacOS** environment: starting from **MacOS El Capitan 10.11.4** (March 2016), new security rules block the launch of **Bonita BPM Studio**. You must temporarily remove security on `App` launching in _System Preferences→Security & Confidentiality_.
