@@ -7,42 +7,41 @@ Bonita BPM 7.5 includes a set of new features related to the Living Application 
 ## Living Application Development and Deployment
 
 ### Integration of SSO SAML 2.0
-Bonita BPM works with Single-Sign-On (SSO) solutions using SAML V2 protocol `(Teamwork edition)`
+Bonita BPM works with Single-Sign-On (SSO) solutions using SAML V2 protocol `(Teamwork, Efficiency, Performance edition)`
 
 Capabilities: 
 * Being able to use standard authentication service 
 * Can connect to Bonita apps with my company credentials (per tenant configuration)
 * Common SAML 2.0 Identity providers : ADFS (MS Active Directory Federation Services), SalesForce, Open AM, Google Auth,...
 
-### New wizard to import a process in the studio & compare the artefacts 
-Provide a wizard when importing a .bos that display the duplicate artefacts (forms, connectors, ...)  and ask for actions to the users. Usual actions are proposed to user for every artefacts : keep existing or overwrite with the new import.
+### New wizard to import a process in the studio & compare the artifacts 
+Provide a wizard when importing a .bos that display the duplicate artifacts (forms, connectors, ...)  and ask for actions to the users. Usual actions are proposed to user for every artifacts : keep existing or overwrite with the new import.
 
 Capabilities :
-* It eases collaboration between teams who works with .bos exchange
-* It eases the collaboration by file exchange and reduce drastically the risk of overwrite error during import of a .bos.
+* Ease collaboration between teams who works with .bos exchange
+* Ease the collaboration by file exchange and reduce drastically the risk of overwrite error during import of a .bos.
 
 ### Industrialization of Living Application (in Studio)
-In Bonita BPM Studio, provide an editor to create the Living Application navigation without having to go on the Portal administration. This is the first step towards the full Application artefacts development into the Bonita BPM Studio in future versions `(Efficiency edition)`
+In Bonita BPM Studio, provide an editor to create the Living Application navigation without having to go on the Portal administration. This is the first step towards the full Application artifacts development into the Bonita BPM Studio in future versions `(Efficiency, Performance edition)`
 
 Capabilities : 
-* Create and edit LA navigation descriptor in Studio. It is the first step to industrialization of LA.
-* can construct application navigation from inside Studio based on existing artefacts.
-* can store it in your VCS
-* can (ultimately) industrialize the continuous integration of your application
-* can preview and push to deploy on the local Portal to see the Application immediately. 
+* Create and edit Living Application navigation descriptor in Studio. It is the first step to industrialization of Living Application.
+* Construct application navigation from inside Studio based on existing artifacts.
+* Store in your VCS.
+* Preview and push to deploy on the local Portal to see the Living Application. 
 
 <a id="ui-personalization"/> 
 
 ## UI personalization
 
 ### New management of date/time
-New management of date and time to properly manage application used on multiple timezone. It now follows the philosophy of Java 8 date management.
+New management of date and time to properly manage Living Applications used across multiple timezones. It now follows the philosophy of Java 8 date management.
 
 Capabilities :
-* Benefit from the Java 8 improvement of date/time management in order to manager better timezones in UI (forms and pages). Ensure the use cases of : 
-    * entering and display a birthdate (no timezone impact)
-    * define and display meeting date and hour (timezone related)
-    * define and display a flight arrival date (local timezone)
+* Benefit from the Java 8 improvement of date/time management in order to better manage timezones in UI (forms and pages). Ensure the use cases of : 
+    * entering and display a birthdate (no timezone impact).
+    * define and display meeting date and hour (timezone related).
+    * define and display a flight arrival date (local timezone).
 * Note this update does not change the way dates are displayed on the Bonita Portal.
 
 <a id="technology-updates"/>
@@ -50,24 +49,21 @@ Capabilities :
 ## Technology updates
 
 ### Full Java 8 support
-Bonita BPM is fully compatible with java 8 in production and development environment. It allows to write java 8 extension points (Connectors, Actor Filters, Custom Pages, ...). Java 8 syntax and specific APIs can now be fully used in all Bonita BPM [extensions points](software-extensibility.md#stable_extension_points)  
-As a consequence, JRE or JDK 8+ is required to run. Bonita BPM 7.5.0+ cannot be operated on Java 1.7 anymore.
+Bonita BPM is fully compatible with java 8 in production and development environment. It allows to write java 8 extension points (Connectors, Actor Filters, Custom Pages, ...). Java 8 syntax and specific APIs can now be fully used in all Bonita BPM [extensions points](software-extensibility.md#stable_extension_points).
+JRE or JDK 8+ is *required* to run. Bonita BPM 7.5.0+ cannot be operated on Java 7 anymore.
 
 ### Support of Microsoft Edge
-Bonita web tools and user interfaces are fully compatible with the Microsoft Edge and IE 11 browsers (UI Designer editor, All artefacts generated by UID (Forms, Pages, ...), Bonita Portal). 
-
-
+Bonita web tools and user interfaces are fully compatible with the Microsoft Edge and IE 11 browsers (UI Designer editor, All artifacts generated by UID (Forms, Pages, ...), Bonita Portal). 
 
 ### UI Designer
-- *ui-bootstrap.js library has been removed from runtime*: in our first design iteration, forms, pages and layouts designed with the UI Designer embedded [UI Bootstrap js, version 0.13.4](http://angular-ui.github.io/bootstrap/versioned-docs/0.13.4/) by default and silently, even when not needed. We have removed it so you can use it only when you need it, and with the version you choose. 
+*ui-bootstrap.js library has been removed from runtime*: in our first design iteration, forms, pages and layouts designed with the UI Designer embedded [UI Bootstrap js, version 0.13.4](http://angular-ui.github.io/bootstrap/versioned-docs/0.13.4/) by default and silently, even when not needed. We have removed it so you can use it only when you need it, and with the version you choose. 
 
- This will not affect any artifact that has been created with the UI Designer and is currently deployed in Bonita BPM Platform.
+This will not affect any artifact that has been created with the UI Designer and is currently deployed in Bonita BPM Platform.
 
- Only in the case you have created custom widgets using this silent library, you need to update them by adding UI Bootstrap js as an asset.
-
+Only in the case you have created custom widgets using this silent library, you need to update them by adding UI Bootstrap js as an asset.
 
 ### Removed support 
-* Remove suport for Oracle Weblogic application server
+* Remove support for Oracle Weblogic application server
 Bonita BPM 7.5.0+ does not support Oracle Weblogic application server anymore.  
 Refer to [full software requirements](hardware-and-software-requirements.md) for more details on supported environments.
 * Remove support for Intyernet Explorer 9 and 10
@@ -75,11 +71,12 @@ Bonita BPM 7.5.0+ does not support Internet Explorer 9 and 10 anymore.
 Refer to [full software requirements](hardware-and-software-requirements.md) for more details on supported environments.
 
 ### Other dependency updates
-* Hibernate has been updated from version 4.2.13 to 4.3.11, to support JPA 2.1 specification
+* hibernate is updated to 4.3.11, to support JPA 2.1 specification
 * httpclient is updated to httpclient 4.5.2
 * httpcore is updated to httpcore 4.4.4
+* spring is updated to spring 4.3.7
 
-### API updates
+### API removals
 
-* API removals Engine APIs have been cleaned up from some deprecated methods:
+* Engine APIs have been cleaned up from some deprecated methods:
   * ProcessAPI.addComment() - replacement method is [ProcessAPI.addProcessComment()](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#addProcessComment-long-java.lang.String-)
