@@ -67,7 +67,9 @@ Refer to [full software requirements](hardware-and-software-requirements.md) for
   * ProcessAPI.addComment() - replacement method is [ProcessAPI.addProcessComment()](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#addProcessComment-long-java.lang.String-)
   
 ## Breaking changes
+
 ### UI Designer
+
 #### Ui-bootstrap.js library removed from runtime
 In our first design iteration, forms, pages and layouts designed with the UI Designer embedded 
 [UI Bootstrap js, version 0.13.4](http://angular-ui.github.io/bootstrap/versioned-docs/0.13.4/) by default and silently,
