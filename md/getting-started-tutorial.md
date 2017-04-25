@@ -4,10 +4,9 @@ This tutorial explains how to create an application that includes a process. The
 
 **Important:** these instructions are also available as a [video](http://www.bonitasoft.com/resources/videos/getting-started-tutorial). The complete solution is available on [GitHub](https://github.com/Bonitasoft-Community/getting-started-turorial).
 
-Note that example solution is available on [GitHub repository](https://github.com/Bonitasoft-Community/getting-started-turorial).
-
 Here is the use-case: *An employee opens the Travel Tool application to view their pending and approved travel requests. They create a new travel request. Then the request is sent to the employee's manager.
 The manager reviews the request and approves or refuses it.*
+
 In a real travel management application, there would be several process steps after approval: estimating costs, possibly getting a second level of approval if the cost passes a certain threshold, submitting an expenses claim after the travel, reviewing the expenses claim, escalating anything out of policy, and authorizing payment. However, for this tutorial you will consider only the first part of the process, where a travel request is submitted and then reviewed.
 
 This tutorial assumes that you are a developer using Bonita BPM for the first time.
