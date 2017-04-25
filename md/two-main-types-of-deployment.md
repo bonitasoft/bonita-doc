@@ -1,6 +1,6 @@
 # Two main types of deployment
 
-**Note: **It is highly recommended to use the provided Tomcat or JBoss bundles or the artifacts `bonita.war` and `bonita.ear` provided in the deploy bundle, in order to carry out these deployments successfully.
+**Note:** It is highly recommended to use the provided Tomcat or JBoss bundles or the artifacts `bonita.war` and `bonita.ear` provided in the deploy bundle, in order to carry out these deployments successfully.
 
 There are two main types of deployment.
 
