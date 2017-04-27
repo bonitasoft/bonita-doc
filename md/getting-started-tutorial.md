@@ -9,7 +9,7 @@ The manager reviews the request and approves or refuses it.*
 
 In a real travel management application, there would be several process steps after approval: estimating costs, possibly getting a second level of approval if the cost passes a certain threshold, submitting an expenses claim after the travel, reviewing the expenses claim, escalating anything out of policy, and authorizing payment. However, for this tutorial you will consider only the first part of the process, where a travel request is submitted and then reviewed.
 
-This tutorial assumes that you are a developer using Bonita BPM for the first time.
+This tutorial assumes that you are a developer using Bonita BPM for the first time.  
 It gives instructions for using Bonita BPM Studio, the UI Designer, and Bonita BPM Portal. It assumes you are familiar with JavaScript, JSON and REST APIs.
 
 Use Bonita BPM Studio to define your process, including using the UI Designer to create pages and forms. Then use Bonita BPM Portal to build the application.
@@ -31,20 +31,18 @@ There are also some forms that are associated with the travel management process
 
 The easiest way to create these forms is from the process definition, so that is what you will do later in the tutorial.
 
-The following sections explain how to create the application page and then populate it with dummy data. At any stage, you can click **_Preview_** and see a preview of the layout of the page as it will appear to users.
+The following sections explain how to create the application page and then populate it with dummy data. At any stage, you can click **_Preview_** and see a preview of the layout of the page as it will appear to users.  
 Remember to click **_Save_** to save your work frequently.
 
 #### Create travel tool home page
 
 In Bonita BPM Studio, start the UI Designer by clicking the icon in the coolbar. This opens the UI Designer in your browser, at the home page.
 
-In the UI Designer home page, click on the **_Create_** button. This brings a pop-up.
-In the pop-up, set the type to _Application page_ and name to _TravelTool_.
-The name must not contain spaces or special characters.
-This name is used in Bonita BPM to identify the page. It is not displayed to the application user.
-Click on **_Create_**. This opens the new page in the Page editor.
+* In the UI Designer home page, click on the **_Create_** button. This brings a pop-up.
+* In the pop-up, set the type to _Application page_ and name to _TravelTool_. The name must not contain spaces or special characters. This name is used in Bonita BPM to identify the page. It is not displayed to the application user.
+* Click on **_Create_**. This opens the new page in the Page editor.
 
-Create the page structure by dragging widgets from the palette on the left and dropping them on the whiteboard (the central panel).
+Create the page structure by dragging widgets from the palette on the left and dropping them on the whiteboard (the central panel).  
 Specify the characteristics of a widget by selecting it and updating the properties in the panel on the right. Add the following widgets:
 
 * A TEXT widget, with the **Text** property set to _username_.
@@ -62,16 +60,16 @@ Specify the characteristics of a widget by selecting it and updating the propert
     * **Headers** set to `Departure date, Number of nights, Hotel needed, Destination, Reason`.
     * **Columns key** set to `departureDate, numberOfNights, hotelNeeded, destination, reason`.
 
-When you have added the widgets, click **_Preview_** to see how the page displays.
+When you have added the widgets, click **_Preview_** to see how the page displays.  
 Change the arrangement of the widgets in the whiteboard using drag and drop and using the **Width** property, until you are happy with the result.
 
 Remember to click the topmost **_Save_** button, or type `Ctrl+S` to save your work.
 
 #### Add dummy data
 
-Now use some dummy data to see how the tables will look when there is data.
-First create a variable containing the data, and then bind the variable to the widget **Value** property.
-In the application, the real data will be business data retrieved by a REST API call.
+Now use some dummy data to see how the tables will look when there is data.  
+First create a variable containing the data, and then bind the variable to the widget **Value** property.  
+In the application, the real data will be business data retrieved by a REST API call.  
 The dummy data for the travel requests is in JSON. You need two JSON variables, `myPendingRequests` and `myApprovedRequests`.
 
 To create **myPendingRequests**:
@@ -119,7 +117,7 @@ To create **myPendingRequests**:
 5. Click **_Save_**.
 6. Select the table widget for the pending requests.
 7. In the **Content** property, click the link icon at the right ("**fx**"), then click in the box and choose `myPendingRequests` from the list of variables (start typing the variable name to get auto-completion).
-8. Click **_Preview_** to see the page with data for pending requests.
+8. Click **_Preview_** to see the page with data for pending requests.  
   Now follow the same steps to create `myApprovedRequests` with the following content:
   ```json
   [
@@ -150,7 +148,7 @@ To create **myPendingRequests**:
 
 #### Review and improve the page
 
-You now have a prototype of the _TravelTool_ page with dummy data. View the prototype, and adjust the arrangement of the widgets until you are happy with the appearance of the page.
+You now have a prototype of the _TravelTool_ page with dummy data. View the prototype, and adjust the arrangement of the widgets until you are happy with the appearance of the page.  
 You can drag and drop widgets to reorder them, and you can change properties including **Width** and **Alignment**. For example, to improve this page, you could make the following changes:
 
 * Select the username widget, and change the **Alignment** to `right`.
@@ -159,8 +157,8 @@ You can drag and drop widgets to reorder them, and you can change properties inc
 
 ## Create the data model
 
-There are two stages to defining variables: first you define the business data model, and then you specify how the process handles objects of the model.
-The model is defined as a set of Java classes, and the process uses instances of these classes. If you are not familiar with the terminology, all you need to remember is that the model is the global definition, with a collection of structured variables.
+There are two stages to defining variables: first you define the business data model, and then you specify how the process handles objects of the model.  
+The model is defined as a set of Java classes, and the process uses instances of these classes. If you are not familiar with the terminology, all you need to remember is that the model is the global definition, with a collection of structured variables.  
 For your process, you select the subset that is relevant.
 
 First, we will create the business data model, which will then be available for all processes. We will use a model with one object:
@@ -215,20 +213,19 @@ To define the business data model:
 
 #### Create the diagram
 
-The first stage is to create the new diagram, which you do using Bonita BPM Studio. While you are working on a diagram, save your work from time to time, by clicking the **_Save_** icon in the coolbar (at the top of the screen) or typing `CTRL+S`.
+The first stage is to create the new diagram, which you do using Bonita BPM Studio. While you are working on a diagram, save your work from time to time, by clicking the **_Save_** icon in the coolbar (at the top of the screen) or typing `CTRL+S`.  
 Create the diagram as follows:
 
 1. Click **_New diagram_** on the Bonita BPM Studio Welcome page. This creates an almost empty diagram for you to start updating:
   * The large rectangle with a name at the left is the **pool**.
-  * Inside the pool there is a **lane**, which is also a rectangle. You can see the border of the lane at the left side, beside the pool name.
-The other borders of the lane coincide with the pool border so are not visible.
+  * Inside the pool there is a **lane**, which is also a rectangle. You can see the border of the lane at the left side, beside the pool name. The other borders of the lane coincide with the pool border so are not visible.
   * The green circle in the lane is a **start event**.
   * The blue box in the lane is a **human task**.
 2. The first thing to do is to give the diagram a more descriptive name. Click on the diagram outside the pool, then go to the **Details** panel. This is the area on the bottom-right of the screen.
 3. In the **General** tab, **Diagram** pane, click **_Edit..._** next to the **Name** field.
 4. Enter the new diagram name, _Simple Travel Request_, in the popup and click **_OK_**. You can see in the tab at the top of the whiteboard that the diagram name has changed.
 5. Now give the Pool a more descriptive name. Select the pool by clicking in the space between the pool border and the lane border at the left side of the diagram.
-Then go to the **Details** panel, **General** tab, **Pool** pane, and click **_Edit..._** next to the **Name** field. Enter the new pool name, _Travel Request_, in the popup.
+Then go to the **Details** panel, **General** tab, **Pool** pane, and click **_Edit..._** next to the **Name** field. Enter the new pool name, _Travel Request_, in the popup.  
 When you have renamed the diagram and the pool, the diagram looks like this:
 
   ![Diagram with names changed](images/images-6_0/7.0-getting-started-renamed-diagram.png)
@@ -243,7 +240,7 @@ When you have finished, your diagram should look like this:
 
 #### Define business variables
 
-You have already defined the data model, but now you need to specify how the model is applied to this process.
+You have already defined the data model, but now you need to specify how the model is applied to this process.  
 Define a _travelRequest_ business variable, which is an instance of the _TravelRequest_ object type. Follow these steps:
 
 1. Select the pool.
@@ -262,7 +259,7 @@ A contract is the specification of what a form must return to the process instan
 
 The contract does not need to include information that is sent from the process instance to the form. This is included in the context, which is the set of information passed to the form. You cannot configure the context.
 
-The information that you specify in the contract is a subset of the information used in the process.
+The information that you specify in the contract is a subset of the information used in the process.  
 To specify the process instantiation contract, select the pool and follow these steps:
 
 1. Go to the **Details** panel, **Execution** tab, **Contract** pane.
@@ -272,7 +269,7 @@ To specify the process instantiation contract, select the pool and follow these 
 5. Leave the radio button on automatic generation of initialization script.
 6. Click **_Finish_** and safely ignore the warning related to contract generation as we will take care of those in time.
 
-Now that the case instantiation contract is set up, we will add two constraints on its values.
+Now that the case instantiation contract is set up, we will add two constraints on its values.  
 The first one will ensure that the departure date is in the future and the second will validate that the number of nights is greater or equal to zero.
 
 1. Still in the **Contract** pane, switch to the **Constraints** tab and click **_Add_**. This adds a placeholder constraint.
@@ -285,7 +282,7 @@ The first one will ensure that the departure date is in the future and the secon
   * Expression: `travelRequestInput.numberOfNights >= 0`
   * Error message: `Number of nights must be greater or equal to zero.`
 
-In the **Details** panel, **Execution** tab, **Contract** pane, **Inputs** tab click the arrow next to **travelRequestInput** to expand the list of attributes.
+In the **Details** panel, **Execution** tab, **Contract** pane, **Inputs** tab click the arrow next to **travelRequestInput** to expand the list of attributes.  
 For each attribute, add a **Description**. The description is displayed in the automatically generated form used for process testing, so include information that will help the user complete the form correctly, as follows:
 
 | Attribute  | Description |
@@ -298,7 +295,7 @@ For each attribute, add a **Description**. The description is displayed in the a
 
 The process instantiation contract is now complete.
 
-The contract for the _Manager review_ task only has two inputs, _status_ and _refusalReason_, so you can create it directly instead of from data.
+The contract for the _Manager review_ task only has two inputs, _status_ and _refusalReason_, so you can create it directly instead of from data.  
 It also has a constraint: a _refusalReason_ must be specified if the manager refuses the request. To define this contract:
 
 1. Select the _Manager review_ task.
@@ -324,7 +321,7 @@ Now that the contract is defined, you can configure the initial value of _travel
 1. Select the pool and go to the **Details** panel, **Data** tab, **Pool variables** pane.
 2. Double-click _travelRequest_ to edit it.
 3. Click the pencil icon beside the **Default value** field. This opens the expression editor.
-4. An _initTravelRequest()_ script was automatically generated to initialize our data with the contract. We will complete this script by setting up the _userId_ and _status_ attributes.
+4. An _initTravelRequest()_ script was automatically generated to initialize our data with the contract. We will complete this script by setting up the _userId_ and _status_ attributes.  
 Insert the following code after the first line:
 ```groovy
 travelRequestVar.userId = BonitaUsers.getProcessInstanceInitiator(apiAccessor, processInstanceId).id
@@ -335,7 +332,7 @@ travelRequestVar.status = "pending"
 
 #### Update business object with review data
 
-You need to define operations to update the business object with the values entered for _status_ and _refusalReason_ in the _Manager review_ form.
+You need to define operations to update the business object with the values entered for _status_ and _refusalReason_ in the _Manager review_ form.  
 Select the _Manager review_ task, and go to the **Details** panel, **Execution** tab, **Operations** pane. First define the operation for _status_, as follows:
 
 1. Create a new operation by clicking **_Add_**.
@@ -351,16 +348,16 @@ When both of the operations are defined, the **Details** panel should look like 
 
 #### Specify actors
 
-The next stage is to define who carries out the steps in the process. This is done by assigning [actors](actors.md).
-An actor is a placeholder for the person who will do a task.
-When you configure a process, you make the connection between the actors defined in the process definition and the real-world people who will do process steps.
-Bonita BPM Studio comes with a test organization, called ACME, which you can use for testing. In this example, we have two people, the employee who initiates the process, and the employee's manager.
+The next stage is to define who carries out the steps in the process. This is done by assigning [actors](actors.md).  
+An actor is a placeholder for the person who will do a task.  
+When you configure a process, you make the connection between the actors defined in the process definition and the real-world people who will do process steps.  
+Bonita BPM Studio comes with a test organization, called ACME, which you can use for testing. In this example, we have two people, the employee who initiates the process, and the employee's manager.  
 The managers are also employees, so you can use the same actor for process instantiation and for the review task, but use a filter to specify who does the approval step. This is how it works:
 
-1. In the diagram, select the pool and go to the **Details** panel, **General** tab, **Actors** pane. This is where you define all the actors for the process.
-By default, there is already an Employee actor, which is defined for testing. You can change the organization and the actors later, but for initial testing, this will work fine.
+1. In the diagram, select the pool and go to the **Details** panel, **General** tab, **Actors** pane. This is where you define all the actors for the process.  
+By default, there is already an Employee actor, which is defined for testing. You can change the organization and the actors later, but for initial testing, this will work fine.  
 The default settings mean that any employee in the organization can start a case of the travel request process. You do not need to change anything.
-2. Next, select the _Manager review_ step and define who can do this. This step will be done by the manager of the person who initiated the request.
+2. Next, select the _Manager review_ step and define who can do this. This step will be done by the manager of the person who initiated the request.  
 All the managers are also employees, and the employee actor is defined for the lane, so check the button for **Use the actor defined in the lane**.
 3. To make sure that the review task is sent to the right manager, use an actor filter:
    1. Click the actor filter **_Set..._** button.
@@ -372,7 +369,7 @@ The process is now defined. The next section shows you how to configure and run 
 
 #### Run process with temporary forms
 
-You can run a process that is in development before you create forms, by using temporary forms that are created automatically.
+You can run a process that is in development before you create forms, by using temporary forms that are created automatically.  
 This section explains how to configure the process and run it from Bonita BPM Studio.
 
 Before you can run the process, you need to configure it. For the first run we will use the default setting.
@@ -380,13 +377,13 @@ Before you can run the process, you need to configure it. For the first run we w
 You can run the process and see the temporary forms, to check that the process definition is correct.
 
 1. Click **_Run_** in the coolbar. This opens a browser window, logs you in to Bonita BPM Portal as Walter Bates (user used for authentication in the default process configuration), and displays the travel request form.
-2. Fill out the form. Make sure that you use the right format for each field in the temporary forms ("yyyy-mm-dd" format for dates and either "true" or "false" value for booleans).
-When you have filled out the form, click **_Start_**. This submits the form and starts the process instance.
-3. At the top-right of the Portal window, click the arrow beside Walter's name and choose **_Logout_**.
-4. Log in as Walter's manager, Helen Kelly, with username `helen.kelly` and password `bpm`. The **Tasks** view is displayed, where there is a task called _Manager review_.
-5. Select the _Manager review_ task. The temporary form for the manager review is displayed in the right hand panel.
-It contains fields for the items defined in the contract for this step, but not the information that Walter entered in the request.
-When you create your own forms, you will add this information, so that the manger can see the details of the request before approving or refusing it.
+1. Fill out the form. Make sure that you use the right format for each field in the temporary forms ("yyyy-mm-dd" format for dates and either "true" or "false" value for booleans).
+1. When you have filled out the form, click **_Start_**. This submits the form and starts the process instance.
+1. At the top-right of the Portal window, click the arrow beside Walter's name and choose **_Logout_**.
+1. Log in as Walter's manager, Helen Kelly, with username `helen.kelly` and password `bpm`. The **Tasks** view is displayed, where there is a task called _Manager review_.
+1. Select the _Manager review_ task. The temporary form for the manager review is displayed in the right hand panel.  
+It contains fields for the items defined in the contract for this step, but not the information that Walter entered in the request.  
+When you create your own forms, you will add this information, so that the manger can see the details of the request before approving or refusing it.  
 For now, you can see the form, so you have verified that the process definition is correct.
 
 ## Create forms
@@ -399,13 +396,13 @@ To create the process instantiation form:
 
 1. In Bonita BPM Studio, select the pool and go to the **Details** panel, **Execution** tab, **Contract** pane.
 2. At the top-right of the **Details** panel, click the UI Designer icon. This opens the UI Designer in a browser window, with the automatically generated form.
-3. Change the form name. All forms that are generated automatically are called _newForm_, so you must rename them to avoid confusion.
+3. Change the form name. All forms that are generated automatically are called _newForm_, so you must rename them to avoid confusion.  
 To do this, double-click on the name in the top bar, and then specify a new form name, _submitTravelRequest_.
 
-The form is now created. A form is a UI Designer page that is mapped to a process and a contract. A page is a collection of widgets, and each field is defined by a widget.
+The form is now created. A form is a UI Designer page that is mapped to a process and a contract. A page is a collection of widgets, and each field is defined by a widget.  
 Widgets are arranged in rows and each row is divided into 12 columns. Each widget has a width that spans across one or more column. In addition to their width, widgets have a set of editable properties that can be set on the right side of the window.
 
-To change the appearance and behavior of a page, you update the widgets. At any time, you can click **_Preview_** to see how the page will look to a user.
+To change the appearance and behavior of a page, you update the widgets. At any time, you can click **_Preview_** to see how the page will look to a user.  
 To have more space to update the page, you can hide the **Variables** and **Assets** tabs, by clicking on the down-arrow.
 
 Before improving the look of the form, we will enforce some validation rules on the different fields:
@@ -422,7 +419,8 @@ Now that the form is functional, we are going to improve its appearance to make 
 1. Select the title widget, and change the **Text** property to `Submit a new travel request`.
 2. Make the Departure date widget narrower. To do this, select it and change the value of the **Width** property to 4 columns.
 3. Move the Destination widget up to the top of the form (below the title).
-4. Move the Number of nights and Hotel needed widgets to the same row as the Departure date, and reduce the widths. Note: when you add a widget to a row, it automatically takes all the remaining columns, so set the width after you move the widgets.
+4. Move the Number of nights and Hotel needed widgets to the same row as the Departure date, and reduce the widths.  
+Note: when you add a widget to a row, it automatically takes all the remaining columns, so set the width after you move the widgets.
 5. Clear the initial value for Number of nights to show the placeholder at run time:
    1. In the **Variables** panel (at the bottom of the page), locate the row containing the _formInput_ variable.
    2. Click on the pencil icon located at the right side of this row.
@@ -452,8 +450,7 @@ Now define the form for the _Manager review_ task. Start by automatically genera
 
 6. Edit the _formInput_ variable and set the value for the _status_ attribute to _"approved"_.
 7. All of the other widgets you will add will be placed inside the form container (identified with a dashed border).
-8. Add a title widget and set its text property to `Review travel request`.
-Set the **Level** property to Level 4, so it is the same size as the title of the form for creating a request.
+8. Add a title widget and set its text property to `Review travel request`. Set the **Level** property to Level 4, so it is the same size as the title of the form for creating a request.
 9. Add read-only widgets to display the details of the travel request, using the following information:
 
    | Label  | Widget type  | Value binding  | Read-only  |
@@ -474,7 +471,7 @@ Set the **Level** property to Level 4, so it is the same size as the title of th
     | Value  | `formInput.refusalReason`  |
     | Required | yes |
 
-    The dynamic _Hidden_ property will hide the widget when the request status is set to 'approved'.
+    The dynamic _Hidden_ property will hide the widget when the request status is set to 'approved'.  
     Otherwise, the field will be marked as required and the form validation will prevent the user from refusing a request without a reason.
 12. Remove the Status widget that was added automatically.
 13. Add a Radio buttons widget with the following properties:
@@ -495,7 +492,7 @@ Set the **Level** property to Level 4, so it is the same size as the title of th
 
 You can now run the process using the forms that you created. Make sure that you have saved everything in the UI Designer. Then click **_Run_** in the Studio coolbar.
 
-Fill out the request form as Walter, then log in as Helen and do the review task.
+Fill out the request form as Walter, then log in as Helen and do the review task.  
 When the review form is displayed, it contains the information that Walter entered in the request form. You can approve or refuse the request.
 
 Once process is finished you can see the request information as stored in the test database in Bonita Studio:
@@ -535,8 +532,8 @@ Now update the widgets to use the new variables:
 
 #### Link button to process
 
-When the user clicks the button on the Travel Tool page for creating a travel request, the application displays the form for creating a request.
-This is the instantiation form for the Travel Request process.
+When the user clicks the button on the Travel Tool page for creating a travel request, the application displays the form for creating a request.  
+This is the instantiation form for the Travel Request process.  
 To configure this, select the button and set the target URL property by first clicking on the change to bind to an expression button (‘fx’ to the right of the field) and then updating the expression to  `"/bonita/portal/resource/process/Travel%20Request/1.0/content/?id="+processDef[0].id`.
 
 After the user submits the form, the Tasks view of Bonita BPM Portal is displayed.
