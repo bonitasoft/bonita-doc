@@ -1,16 +1,18 @@
-#Application Descriptor Creation
+# Application Descriptor Creation
 
 ::: info
 **Note:** We provide a custom editor for Performance and Efficiency editions only. A xml editor is available for all editions
 :::
 
-##Overview
+## Overview
+
 In Bonita 7.5, we introduced the possibility to manage Application Descriptors from the Studio. 
 It is a step in our objective to have an unique deployment artifact.
 Thus, all resources used by [Applications](applications.md) are centralized, shared by the Studio and the UIdesigner. 
 Those resources are used to create Application Descriptors from the Studio. Application Descriptors can be deployed in the Portal to create Applications.
 
-##What's an Application Descriptor ? 
+## What's an Application Descriptor ? 
+
 Basically, an **Application Descriptor** is a XML file. It represents the skeleton of an Application, it contains all the references used by the Portal to build an Application.
 An **Application File** is a XML file containing several Application Descriptors. 
 
@@ -27,7 +29,8 @@ An **Application File** is a XML file containing several Application Descriptors
 Application Descriptors in a same Application File are totally **independent**.
 It is interesting to have several Application Descriptors in a same file if the associated Applications are linked, but it is definitively not an obligation. 
 
-##How to create and build an Application Descriptor
+## How to create and build an Application Descriptor
+
 From the Studio, click on **_Development_** -> **_Application Descriptor_** -> **_New.._**
 It will create an empty Application File with a default name and open an editor. You can rename this Application file from the editor or from the open menu. 
 
