@@ -1,20 +1,23 @@
-# Application Descriptor Creation
+# Application Descriptor
 
-::: info
-**Note:** We provide a custom editor for Performance and Efficiency editions only. A xml editor is available for all editions
-:::
+
 
 ## Overview
 
-In Bonita 7.5, we introduced the possibility to manage Application Descriptors from the Studio.  
-It is a step in our objective to have an unique deployment artifact.  
-Thus, all resources used by [Applications](applications.md) are centralized, shared by the Studio and the UIdesigner.  
+In Bonita BPM 7.5, we introduced the possibility to manage application descriptors from the Studio.  
+It accounts for an additional step to ease the management of [Living Applications](applications.md) in Bonita BPM, since our objective is to offer a unique application deployment artifact, managed from the Studio.  
+Therefore, all resources used by applications will be centralized and shared by the Bonita BPM development suite: Bonita BPM Studio and the UI Designe.  
 Those resources are used to create Application Descriptors from the Studio. Application Descriptors can be deployed in the Portal to create Applications.  
 
-## What's an Application Descriptor ? 
+## Definition 
 
-Basically, an **Application Descriptor** is a XML file. It represents the skeleton of an Application, it contains all the references used by the Portal to build an Application.  
-An **Application File** is a XML file containing several Application Descriptors.  
+Basically, an **application descriptor** is an XML file. It represents the skeleton of an Application, as it contains the references to all resources installed in Bonita BPM Portal and used by a given application.  
+An application descriptor must be imported onto the portal (Administrator profile), in the Applications tab.  
+Before Bonita BPM 7.5, this portal tab was the only way to create and manage applications.  
+For development purposes, the studio can deploy applications descriptors onto the portal for you.  
+
+Application descriptors are packaged in **application files**.  
+An **application file** is a XML file containing one or more application descriptors.  
 
 	 <!--  Application File -->
     <applications>
@@ -26,31 +29,34 @@ An **Application File** is a XML file containing several Application Descriptors
 		</application>
 	</applications>
 	
-Application Descriptors in a same Application File are totally **independent**.  
-It is interesting to have several Application Descriptors in a same file if the associated Applications are linked, but it is definitively not an obligation.  
+Application Descriptors in a given application file are totally **independent**.  
+The purpose of grouping application descriptors in one file is to manage together applications with the same company purpose, each of them dedicated to a different user profile.  
+For example, four leave management applications for employees, managers, Human Resources officers, and Administrators should be managed together, therefore grouped in the same application file.  
 
 ## How to create and build an Application Descriptor
 
-From the Studio, click on **_Development_** -> **_Application Descriptor_** -> **_New.._**  
-It will create an empty Application File with a default name and open an editor. You can rename this Application file from the editor or from the open menu.  
+::: info
+**Note:** All Bonita BPM editions come with an .xml editor for this feature. Only Performance and Efficiency editions also come with a graphical UI.
+:::
+
+From Bonita BPM Studio, click on **Development** -> **Application Descriptor** -> **New..**  
+It will create an empty Application File with a default name and open an editor. You can rename this Application file from the graphical UI or from the menu **Open**.  
 
 ![Empty Application File](images/applicationDescriptors/emptyApplicationFile.png)
-Here is an overview of the editor provided (_only for efficiency and performance editions_).  
-You can switch from the editor to the xml source at any moment, using the tabs _Editor_ and _Source_ at the bottom of the editor.  
+Here is an overview of the graphical UI provided, in the tab *Editor* (_only for efficiency and performance editions_).  
+You can switch from the graphical UI to the xml source at any moment, using the tabs _Editor_ and _Source_ at the bottom of the editor.  
 A toolbar is embedded to the editor, use it to:  
 
  - **Add** an application descriptor to this Application File
- - **Deploy** this application File (i.e all the Application Descriptors contained in this Application File) and the referenced resources (pages, layout..) in the portal. /!\ If your pages use Rest API Extensions, you have to deploy those API manually.   
+ - **Deploy** this application File (i.e all the application descriptors contained in this application file) and the referenced resources (pages, layout..) in the portal. /!\ If your pages use Rest API Extensions, you have to deploy those API manually.  
  - **Rename** this Application File
  - **Export** this Application File
  - **Delete** this Application File from your current workspace
 
-To create the first Application Descriptor of an Application File, use the button in the middle of the editor or the add button in the toolbar (same effect).  
-
 ![Application Descriptor Editor](images/applicationDescriptors/applicationDescriptorEditor.png)
-Here is the Application Descriptor Editor provided. It is bonded to the XML source, you can use it to build your Application Descriptor without to code!  
+Here is the application descriptor graphical UI provided. It is bound to the XML source, so you can use it to build your application descriptor without even coding!  
 
-The Application Token is the identifier of your Application Descriptor, it has to be unique. It is used to define the URL root of your Application:  _../apps/APPLICATIONTOKEN/.._   
+The application **Token** is the identifier of your Application Descriptor, it has to be unique. It is used to define the URL root of your Application:  _../apps/APPLICATIONTOKEN/.._   
  When you update the application token, if the Application Descriptor with the old token was deployed on the portal, we propose you to re-deploy your application descriptor. Re-deploy means here that we replace the old deployed instance with the old token by a new deployed instance with the new token. If you refuse, then the deployed instance with the old token won't be replaced by the new one when you will deploy again, because tokens are different. Your will have two deployed instances. 
 
 We provide an auto complete tool for fields _Profile_, _Layout_, _Theme_, _Application Page_ and _Home page token_.  

@@ -55,7 +55,7 @@
       * [Multi-language pages](multi-language-pages.md)
       * [Migrate a form from 6.x](migrate-a-form-from-6-x.md)
     * [6.x legacy forms](6-x-legacy-forms.md)
-  * [Application Descriptor Creation](applicationCreation.md)
+  * [Application descriptor](applicationCreation.md)
   * [Connectivity](_connectivity.md)
     * [Connectivity overview](connectivity-overview.md)
     * [Alfresco](alfresco.md)
