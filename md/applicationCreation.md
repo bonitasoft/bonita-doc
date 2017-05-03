@@ -6,15 +6,15 @@
 
 In Bonita BPM 7.5, we introduced the possibility to manage application descriptors from the Studio.  
 It accounts for an additional step to ease the management of [Living Applications](applications.md) in Bonita BPM, since our objective is to offer a unique application deployment artifact, managed from the Studio.  
-Therefore, all resources used by applications will be centralized and shared by the Bonita BPM development suite: Bonita BPM Studio and the UI Designe.  
+Therefore, all resources used by applications will be centralized and shared by the Bonita BPM development suite: Bonita BPM Studio and the UI Designer.  
 Those resources are used to create Application Descriptors from the Studio. Application Descriptors can be deployed in the Portal to create Applications.  
 
 ## Definition 
 
-Basically, an **application descriptor** is an XML file. It represents the skeleton of an Application, as it contains the references to all resources installed in Bonita BPM Portal and used by a given application.  
+Basically, an **application descriptor** is an XML file. It represents the skeleton of an Application, as it contains references to resources installed in Bonita BPM Portal and used by a given application.  
 An application descriptor must be imported onto the portal (Administrator profile), in the Applications tab.  
 Before Bonita BPM 7.5, this portal tab was the only way to create and manage applications.  
-For development purposes, the studio can deploy applications descriptors onto the portal for you.  
+For development purposes, the studio can deploy applications descriptors onto the portal for you (_only for Performance and Efficiency editions_).
 
 Application descriptors are packaged in **application files**.  
 An **application file** is a XML file containing one or more application descriptors.  
@@ -48,7 +48,7 @@ You can switch from the graphical UI to the xml source at any moment, using the 
 A toolbar is embedded to the editor, use it to:  
 
  - **Add** an application descriptor to this Application File
- - **Deploy** this application File (i.e all the application descriptors contained in this application file) and the referenced resources (pages, layout..) in the portal. /!\ If your pages use Rest API Extensions, you have to deploy those API manually.  
+ - **Deploy** this application File (i.e all the application descriptors contained in this application file) and the referenced resources (pages, layout..) in the portal. 	/!\ If your pages use Rest API Extensions, you have to deploy those API manually.  
  - **Rename** this Application File
  - **Export** this Application File
  - **Delete** this Application File from your current workspace
