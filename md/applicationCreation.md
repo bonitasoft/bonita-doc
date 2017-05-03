@@ -48,24 +48,23 @@ You can switch from the graphical UI to the xml source at any moment, using the 
 A toolbar is embedded to the editor, use it to:  
 
  - **Add** an application descriptor to this Application File
- - **Deploy** this application File (i.e all the application descriptors contained in this application file) and the referenced resources (pages, layout..) in the portal. 	/!\ If your pages use Rest API Extensions, you have to deploy those API manually.  
+ - **Deploy** this application File (i.e all the application descriptors contained in this application file) and the referenced resources (pages, layout..) in the portal.⚠  If your pages use Rest API Extensions, you have to deploy those API manually.  
  - **Rename** this Application File
  - **Export** this Application File
  - **Delete** this Application File from your current workspace
 
 ![Application Descriptor Editor](images/applicationDescriptors/applicationDescriptorEditor.png)
-Here is the application descriptor graphical UI provided. It is bound to the XML source, so you can use it to build your application descriptor without even coding!  
+Here is the application descriptor graphical UI provided. It is bound to the XML source, so you can use it to build your application descriptor without writing xml.  
 
-The application **Token** is the identifier of your Application Descriptor, it has to be unique. It is used to define the URL root of your Application:  _../apps/APPLICATIONTOKEN/.._   
- When you update the application token, if the Application Descriptor with the old token was deployed on the portal, we propose you to re-deploy your application descriptor. Re-deploy means here that we replace the old deployed instance with the old token by a new deployed instance with the new token. If you refuse, then the deployed instance with the old token won't be replaced by the new one when you will deploy again, because tokens are different. Your will have two deployed instances. 
+The application **Token** is the identifier of your Application Descriptor, it has to be unique. It is used to define the URL root of your Application:  _../apps/APPLICATIONTOKEN/.._  
 
 We provide an auto complete tool for fields _Profile_, _Layout_, _Theme_, _Application Page_ and _Home page token_.  
-Be aware that we can only propose choices known by the Studio and the UI designer at the moment.  
-It means that custom profiles, custom themes or custom pages / layouts only known by the portal (not created with the UID) won't be proposed. You can still reference an unknown resource, but you will have to write the exact identifier by yourself.  
+Be aware that we can only suggest choices known by the Studio and the UI designer at the moment.  
+It means that custom profiles, custom themes or custom pages / layouts only known by the portal (not created with the UID) won't be suggested. You can still reference an unknown resource, but you will have to write the exact identifier by yourself.  
 
 There is two ways to reference pages used by your Application. In the _Navigation_ table or in the _Orphan pages_ table.  
-Pages referenced in the Navigation table will be accessible by a menu. Use this table to create all your menu/submenu, and bind those menu to pages. A page needs an unique token (unique in this Application descriptor). It will be use to define the URL to reach this page : _../apps/applicationToken/PAGETOKEN_  
-Pages referenced in the Orphan page stable will be accessible using the associated URL, but won't be attached to a menu. It can be the home page of your application, or pages accessible from other pages but not from a menu.  
-/!\ You don't need to define your pages twice, a page defined in the Navigation table will be accessible in the whole Application, you don't have to re-define it as an orphan page.  
+Pages referenced in the Navigation table will be accessible by a menu. Use this table to create all your menu/submenu, and bind those menu to pages. A page needs a unique token (unique in this Application descriptor). It will be use to define the URL to reach this page : _../apps/applicationToken/PAGETOKEN_  
+Pages referenced in the Orphan page stable will be accessible using the associated URL, but won't be attached to a menu. It can be the home page of your application, or pages accessible from other pages but not from a menu. 
+⚠ You don't need to define your pages twice, a page defined in the Navigation table will be accessible in the whole Application, you don't have to re-define it as an orphan page.  
 
-A preview link is also provided, at the top of the _Overview_ section. Clicking on the link will first deploy the whole Application File, and then open the defined home page of the associated Application descriptor. 
+A preview link is also provided, at the top of the _Overview_ section. Clicking on the link will first deploy the selected application descriptor, and then open the defined home page of the associated Application descriptor. 
