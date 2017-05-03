@@ -34,12 +34,6 @@ If you are installing a Subscription edition, you need to [request a license](li
 
 When you receive your license, copy the file to the `setup/platform_conf/licenses` folder of your application server.
 
-## Edition specification
-
-If you are installing the Performance Subscription edition, 
-you need to edit [`bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md)
-and change the value of the `activeProfiles` key to `'community,performance'`. No change is needed for the Community, Teamwork, or Efficiency edition.
-
 ## Next steps
 
 When you have finished installing the deploy bundle, [complete the setup](first-steps-after-setup.md) of your system by validating the installation, setting passwords, and creating the Administrator user.

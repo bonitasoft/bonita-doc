@@ -108,13 +108,6 @@ For the default tenant, the tenant administrator username and password must also
 At platform creation, this file contains the default username and password for the default tenant. 
 :::
 
-
-<a id="edition_specification" />
-
-### Specify the Subscription edition
-
-For **Performance** Subscription edition, edit [`<WILDFLY_HOME>/setup/platform_conf/initial/platform_init_engine/bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md) by uncommenting the line and change the value of the `activeProfiles` key to `'community,performance'`.
-
 <a id="configuration" />
 
 ### Configure the WildFly bundle
