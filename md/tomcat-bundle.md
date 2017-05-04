@@ -136,7 +136,7 @@ For production, you are recommended to use one of the supported databases, with 
 4. Run `<TOMCAT_HOME>\setup\start-bonita.bat` (Windows system) or `<TOMCAT_HOME>/setup/start-bonita.sh` (Unix system) to run Bonita BPM Tomcat bundle (see [Tomcat start script](#tomcat_start))
 
 ::: info
-The **bonita-start** script does the following:
+The **start-bonita** script does the following:
 
 1. Runs the **`setup init`** command:
     1. initializes the Bonita BPM internal database (the one you have defined in file `<TOMCAT_HOME>/setup/database.properties`): creates the tables that Bonita BPM uses internally + stores the configuration in the database.
@@ -162,8 +162,8 @@ For advanced server configuration needs: check out [Bundle configuration](Bonita
 
 Tomcat can be started by executing the following script:
 
-* Windows: `<TOMCAT_HOME>\bonita-start.bat`
-* Linux: `<TOMCAT_HOME>/bonita-start.sh`
+* Windows: `<TOMCAT_HOME>\start-bonita.bat`
+* Linux: `<TOMCAT_HOME>/start-bonita.sh`
 
 If your Subscription edition license covers fewer CPU cores than those available on your server, you must limit the number of CPUs available in the start script.
 To do so, [create a custom Tomcat start-up script](specify-cpu-cores.md)
@@ -172,8 +172,8 @@ To do so, [create a custom Tomcat start-up script](specify-cpu-cores.md)
 
 Tomcat can be shut down by executing the following script:
 
-* Windows: `<TOMCAT_HOME>\bonita-stop.bat`
-* Linux: `<TOMCAT_HOME>/bonita-stop.sh`
+* Windows: `<TOMCAT_HOME>\stop-bonita.bat`
+* Linux: `<TOMCAT_HOME>/stop-bonita.sh`
 
 **Troubleshooting:**
 If you see `checkThreadLocalMapForLeaks` errors, they probably indicate that Tomcat is shutting down before all work threads are completed.
