@@ -121,12 +121,6 @@ At platform creation, this file contains the default username and password for t
 :::
 
 
-<a id="edition_specification" />
-
-### Specify the Subscription edition
-
-For **Performance** Subscription edition, edit [`<TOMCAT_HOME>/setup/platform_conf/initial/platform_init_engine/bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md) by uncommenting the line and change the value of the `activeProfiles` key to `'community,performance'`.
-
 <a id="configuration" />
 
 ### Configure the Tomcat bundle

@@ -27,7 +27,6 @@ When done you will have a database with all tables created and with a table `CON
 * Download a Bonita BPM [Tomcat bundle](tomcat-bundle.md) or a Bonita BPM [WildFly bundle](wildfly-bundle.md), and unzip it at some place of your choice.
 * Edit file **`setup/database.properties`** and modify the properties to suit your databases (Bonita BPM internal database & Business Data database)
 * Update configuration files that are in the `platform_conf/initial` folder of the platform setup tool.
-    * In `platform_init_engine/bonita-platform-init-community-custom.properties` uncomment and update the value of `activeProfiles` property from **`community`** to **`community,performance`**.
     * In `platform_engine/bonita-platform-sp-custom.properties`
         * uncomment and set the **`bonita.cluster`** property to `true`.
         * <a id="disable-hibernate-cache"/>In order to keep consistency between nodes, the Hibernate cache must be disabled.  
@@ -122,7 +121,6 @@ The platform setup tool is also present in the Tomcat or WildFly bundle under th
 * Configure it as described in the [platform setup tool page](BonitaBPM_platform_setup.md)
 * Run the `setup.sh pull` or `setup.bat pull`. This will retrieve the configuration of your platform under `platform_conf/current` folder.
 * Update configuration files that are in the `platform_conf/current` folder of the platform setup tool.
-    * In `platform_init_engine/bonita-platform-init-community-custom.properties` uncomment and update the value of `activeProfiles` property from **`community`** to **`community,performance`**.
     * In `platform_engine/bonita-platform-sp-custom.properties`
         * uncomment and set the **`bonita.cluster`** property to `true`.
     * In `platform_engine/bonita-platform-sp-cluster-custom.properties`
