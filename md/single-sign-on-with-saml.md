@@ -32,7 +32,7 @@ it is composed of:
     - If not logged in => Redirect to IdP (with user info)
 
 
-- One Assertion Consumer Service (technically this is also handled by the servlet filter through a different URL mapping (/saml)), 
+- One Assertion Consumer Service ACS URL (technically this is also handled by the servlet filter through a different URL mapping  `/saml`), 
 
     This service validates and process the SAML response :
     
