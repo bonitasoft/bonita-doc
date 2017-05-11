@@ -156,7 +156,7 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
       - http://idp.saml.binding.url.to.change  
 
 ::: info
-**Note:** More configuration options can be found in [Keycloak official documentation](https://keycloak.gitbooks.io/securing-client-applications-guide/content/topics/saml/java/general-config.html)
+**Note:** More configuration options can be found in [Keycloak official documentation](https://keycloak.gitbooks.io/documentation/securing_apps/topics/saml/java/general-config.html)
 :::
    
    ```
