@@ -19,9 +19,9 @@ Then for all subsequent REST API calls this token is added to the HTTP request h
 For each call, the server is checked to verify that the value in the Header is equal to the value stocked in the HTTP session. 
 If so, the request proceed. Otherwise, this is considered to be an unauthorized access. (HTTP Status 401).
 
-In addition of the cookie, it is also possible to retrieve the token by performing a call to the resource `/API/session/* `. The token is then returned in the headers of the HTTP response.
+In addition of the cookie, it is also possible to retrieve the token by performing a call to the resource `/API/system/session/unusedId`. The token is then returned in the headers of the HTTP response.
 
-An attacker cannot retrieve the value of the token unless they can inject some JavaScript (which has been mitigated thanks to our SecurityFilter), to make a call to the resource `/API/session/*`,
+An attacker cannot retrieve the value of the token unless they can inject some JavaScript (which has been mitigated thanks to our SecurityFilter), to make a call to the resource `/API/system/session/unusedId`,
 get the header `X-Bonita-API-Token`, and create their own requests.
 
 ## Is there an impact on REST API calls?
@@ -35,7 +35,7 @@ If you have developed an external application or some custom pages using the RES
   * In each API request, add a header named `X-Bonita-API-Token` whose value is the token.
 
 * Using the session API resource
-  * Send an initial request to the session API resource (`/API/session/* `).
+  * Send an initial request to the session API resource (`/API/system/session/unusedId`).
   * Retrieve the `X-Bonita-API-Token` from the response header and store it.
   * In all future API requests, add a header named `X-Bonita-API-Token` containing the stored token.
 
