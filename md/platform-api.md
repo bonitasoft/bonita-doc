@@ -169,7 +169,7 @@ Create a new tenant on the platform.
 Attributes of the tenant can be changed, and it can be activated or deactivated at the same time.
 
 * **URL**  
-  `/API/platform/tenant`  
+  `/API/platform/tenant/id`  
 * **Method**  
   `PUT`
 * **Request Payload**  
