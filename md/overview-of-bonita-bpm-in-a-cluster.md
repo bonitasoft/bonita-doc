@@ -56,6 +56,7 @@ Assumptions: We assume that Ubuntu Linux is used as the operating system for Bon
 * A highly available load balancer
 * A highly available network, with all nodes able to see all other nodes
 * A highly available database accessible from all nodes
+* All nodes including the database one should be configured with the same clock (via NTP time synchronization for example) and same timezone (UTC is recommended)
 
 
 ### Cluster structure diagram
