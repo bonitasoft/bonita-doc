@@ -45,8 +45,8 @@ in the standard Tomcat context configuration file.
 
 Non-transactional data source
 1. Open the file TOMCAT_HOME/conf/Catalina/localhost/bonita.xml
-2. Remove or comment out the lines regarding the h2 database.
-3. Uncomment the line matching your RDBMS.
+2. For Bonita BPM Standard data source, remove or comment out the lines regarding the h2 database.
+3. Uncomment the lines matching your RDBMS.
 4. Update following attributes value:
     - username: your RDBMS user name.
     - password: your RDBMS password.
@@ -55,8 +55,8 @@ Non-transactional data source
 
 JTA data source (managed by Bitronix)
 1. Open the file TOMCAT_HOME/conf/bitronix-resources.properties
-2. Remove or comment out the lines regarding the h2 database.
-3. Uncomment the line matching your RDBMS and edit values for each settings (resource.ds1.*) according to your database installation.
+2. For Bonita BPM Standard data source, remove or comment out the lines regarding the h2 database.
+3. Uncomment the lines matching your RDBMS and edit values for each settings (resource.ds1.*) according to your database installation.
 5. Repeat operations 2. and 3. for Business Data data source (resources.ds2.*)
 
 ### Configure RDBMS vendor
@@ -66,7 +66,7 @@ JTA data source (managed by Bitronix)
 3. Change the value of sysprop.bonita.bdm.db.vendor according to your RDBMS vendor
 
 ### Add Jdbc driver
-You need to add your jdbc driver in TOMCAT_HOME/server/lib. 
+You need to add your jdbc driver in TOMCAT_HOME/lib. 
 MySQL and PostgreSQL drivers can be found in deploy bundle under DEPLOY_ZIP_HOME/setup/lib directory. For other RDMS, 
 use the driver provided by your RDBMS vendor
 
@@ -75,11 +75,11 @@ use the driver provided by your RDBMS vendor
 ## Wildfly installation
 
 ### Install Bonita BPM Platform in Wildfly
-Copy all files and directories from DEPLOY_ZIP_HOME/wildfly-10.1.0.Final to your Wildfly root directory (WILDFLY_HOME).
+Copy all files and directories from DEPLOY_ZIP_HOME/wildfly-10.1.0.Final/server to your Wildfly root directory (WILDFLY_HOME).
 
 ### Configure data sources
 1. Open the file WILDFLY_HOME/standalone/configuration/standalone.xml
-2. Remove or comment out the default definition for h2.
+2. For Bonita BPM Standard data source, remove or comment out the default definition for h2.
 3. Uncomment the settings matching your RDBMS vendor.
 4. Modify the values of the following settings to your configuration: server address, server port, database name, user name and password.
 5. Repeat operations 2. to 4. for Business Data data source
@@ -111,12 +111,12 @@ provide automatically. The exact details of what must be included depend on the 
 
 If you are installing a Subscription edition, you need to [request a license](licenses.md). 
 
-When you receive your license, copy the file to the `setup/platform_conf/licenses` folder of your application server.
+When you receive your license, copy the file to the `DEPLOY_ZIP_HOME/setup/platform_conf/licenses` folder of your application server.
 
 ## Edition specification
 
 If you are installing the Performance Subscription edition, 
-you need to edit [`bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md)
+you need to edit [`DEPLOY_ZIP_HOME/setup/platform_conf/initial/platform_init_engine/bonita-platform-init-community-custom.properties`](BonitaBPM_platform_setup.md)
 and change the value of the `activeProfiles` key to `'community,performance'`. No change is needed for the Community, Teamwork, or Efficiency edition.
 
 ## Database initialization
