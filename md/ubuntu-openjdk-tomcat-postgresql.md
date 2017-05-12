@@ -160,8 +160,9 @@ If you run the Subscription Pack version, you will need a license:
 
 * Generate the key in order to get a license:
   * Change the current directory to license generation scripts folder: `cd ~/BonitaBPMSubscription-x.y.z-deploy/request_key_utils-x.y-z`
-  * Make the license generation script executable: `chmod u+x generateRequestForAnyEnvironment.sh`
-  * Run the script, type the number of CPU cores to use: `./generateRequestForAnyEnvironment.sh`
+  * Make the license generation script executable: `chmod u+x generateRequestKey.sh`
+  * Run the script: `./generateRequestKey.sh`
+  * For `License type:` enter `1` to select `1 - Case counter license.` (*Note*: If your subscription type is cpu based, please refer to the [knowledge-base](https://customer.bonitasoft.com/knowledgebase) in the customer portal)
   * You will get a license key number that you can copy. Make sure that you keep the brackets. If the key is separated by a linebreak, remove it and put the key on a single line.
 * Connect to Bonitasoft [Customer Portal](https://customer.bonitasoft.com/)
 * Go to Licenses \> **Request a license**

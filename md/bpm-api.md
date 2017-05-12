@@ -1115,14 +1115,14 @@ In order to execute a task, the task contract values have to be provided.
   * **Payload**:  
     ```json
     {  
-      "businessData_ref":{  
-        "name":"myBusinessDate",
+      "myBusinessData_ref":{  
+        "name":"myBusinessData",
         "type":"com.company.model.BusinessObject1",
         "link":"API/bdm/businessData/com.company.model.BusinessObject1/2",
         "storageId":2,
         "storageId_string":"2"
       },
-      "document1_ref":{  
+      "myDocument_ref":{  
         "id":1,
         "processInstanceId":3,
         "name":"myDocument",
@@ -2883,14 +2883,14 @@ You can get a case by using its identifier. Request url
   * **Payload**:  
     ```json
     {  
-      "businessData_ref":{  
-        "name":"myBusinessDate",
+      "myBusinessData_ref":{  
+        "name":"myBusinessData",
         "type":"com.company.model.BusinessObject1",
         "link":"API/bdm/businessData/com.company.model.BusinessObject1/2",
         "storageId":2,
         "storageId_string":"2"
       },
-      "document1_ref":{  
+      "myDocument_ref":{  
         "id":1,
         "processInstanceId":3,
         "name":"myDocument",
