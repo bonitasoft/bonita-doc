@@ -24,12 +24,12 @@
        return;
      }
    }
-   let file = argv.file;
+  let file = argv.file;
 
   
   
   const readdirPromise = denodeify(fs.readdir);
-  let outfile = `Bonita-BPM-documentation`;
+  let outfile = (file ? file : `Bonita-BPM-documentation`);
 
   const flattenedTaxo = flattenTaxonomy(taxonomy);
   let htmlFile = '', count = 0;  
