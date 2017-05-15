@@ -12,7 +12,7 @@ Here is the list of database connectors. The links take you to sections of this 
 * Informix 11
 * DB2 9.7
 * [HSQL 2.2](#hsql)
-* [Microsoft SQL Server 2008 or 2012](#mssql)
+* [Microsoft SQL Server](#mssql)
 * PostgreSQL 8.4 or 9.2
 * h2 1.3
 * Oracle 10G or 11G
@@ -45,7 +45,10 @@ Allows only one connection per destination at a time
 
 <a id="mssql"/>
 
-#### Microsoft SQL Server 2008 or 2012
+#### Microsoft SQL Server
+
+
+**Supported versions**: This connector supports SQL Server 2008, 2012, and 2014.
 
 **Language encoding**: MS SQL Server uses only one encoding at a time. To avoid errors when creating the database, please do the following when using alternative languages:
 
