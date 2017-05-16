@@ -149,7 +149,7 @@ When bonita\_deactivate\_users is set to true, a Bonita BPM user who is not pres
 Note: If a user is deactivated in Bonita BPM but present in LDAP, the tool always activates the user.  
 Supported values: true or false  
 Default value: true
-* allow\_recursive\_groups: optional parameter that specifies whether sub-groups should also be synchronized.  
+* allow\_recursive\_groups: optional parameter that specifies whether sub-groups should also be synchronized. The operation does not preserve the group hierarchy however, and the sub-groups will be created at root level.  
 Supported values: true or false  
 Default value: true
 * ldap\_groups: optional parameter that specifies the LDAP groups that should be synchronized.  
