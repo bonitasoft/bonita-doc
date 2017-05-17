@@ -171,9 +171,6 @@ Tomcat can be started by executing the following script:
 * Windows: `<TOMCAT_HOME>\start-bonita.bat`
 * Linux: `<TOMCAT_HOME>/start-bonita.sh`
 
-If your Subscription edition license covers fewer CPU cores than those available on your server, you must limit the number of CPUs available in the start script.
-To do so, [create a custom Tomcat start-up script](specify-cpu-cores.md)
-
 #### Tomcat stop script
 
 Tomcat can be shut down by executing the following script:
