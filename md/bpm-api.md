@@ -1852,8 +1852,6 @@ The methods used for this resource are:
       "type":"java.lang.Float"
     }
     ```
-::: warning **Limitations** When using a Java Object variable,  `value` field contains the `toString()` value of the object, you may implement a `toString()` on your Java Object that serialized the object into a json string ( eg:  [Jackson ObjectMapper](http://wiki.fasterxml.com/JacksonInFiveMinutes) ) :::  
-  
 
 #### Update a case variable
 
@@ -2512,6 +2510,9 @@ Use the DELETE method to delete an existing actorMember.
 
 ## Cases (Process Instances)
 
+<a id="case" />
+
+
 ### Case
 
 #### Description
@@ -2805,9 +2806,7 @@ You can get a case by using its identifier. Request url
 
 #### Create a case
 
-::: info
-**Note**: Use the [Start a process using an instantiation contract](#start-process-with-contract) to create a case with contract inputs
-:::
+This way of creating a case using this method will only work for processes in which no contract is defined. To instantiate a process with a contract, check the [process instantiation resource documentation](#instantiate_process). 
 
 * **URL**  
   `/API/bpm/case`  
@@ -2816,13 +2815,18 @@ You can get a case by using its identifier. Request url
 * **Request Payload**  
   The process definition id, in JSON
 
-  Create a case without variables
+##### Create a case without variables
   ```json
   {
     "processDefinitionId":"5777042023671752656"
   }
   ```
-  Create a case with variables
+##### Create a case with variables
+
+::: danger
+:fa-exclamation-triangle: **Warning:** The attribute "variables" on the request payload is used to initialize the process variables (not BDM variables).
+:::
+
   ```json
   {  
     "processDefinitionId":"5777042023671752656",
@@ -3272,7 +3276,7 @@ Note: if the `userId` is not provided as a deploy parameter, the `userId` proper
 #### Search for comments
 
 * **URL**  
-  `/API/bpm/comment`  
+  `/API/bpm/case`  
   _Example_: `/API/bpm/comment?p=0&c=10&o=postDate%20DESC&f=processInstanceId%3d1&d=userId`
 * **Method**  
   `GET`
@@ -3331,8 +3335,8 @@ Note: if the `userId` is not provided as a deploy parameter, the `userId` proper
 ### Process
 
 #### Description
-
-Manage a [process definition](key-concepts.md) (not to be confused with a [case](#case), which is a process instance).
+ 
+Deploy and manage [process definitions](key-concepts.md) In addition, you can instantiate a process, which will create a new process instance ([case](#case)).
 
 #### Identifier
 
@@ -3372,7 +3376,7 @@ The methods used for this resource are:
 The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
   * `deployedBy`
 
-#### Create a process
+#### Deploy a process definition
 
 A process resource is created using the content of a `.bar` file that has previously been [uploaded](manage-files-using-upload-servlet-and-rest-api.md), using the `processUpload` servlet `http://.../bonita/portal/processUpload`,
 to get the process archive path.
@@ -3505,7 +3509,11 @@ Process design can be retrived client side.
   The process design object. The JSON returned is a representation of the [DesignProcessDefinition](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html) instance of the given process id.
   * **Code**: 200
 
-#### Retrieve the instantiation contract for a process
+<a id="instantiate_process"/>
+
+#### Instantiate a process
+
+##### Retrieve the instantiation contract for a process
 
 Process instantiation contract elements can be retrived client side.
 
@@ -3573,9 +3581,10 @@ Process instantiation contract elements can be retrived client side.
       ]
     }
     ```
-<a id="start-process-with-contract"/>
 
-#### Start a process using an instantiation contract
+##### Start a process using an instantiation contract
+
+This method will create a new process instance ([case](#case))
 
 * **URL**  
   `/API/bpm/process/:processId/instantiation`  
