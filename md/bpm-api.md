@@ -2826,7 +2826,7 @@ This way of creating a case using this method will only work for processes in wh
 ::: danger
 :fa-exclamation-triangle: **Warning:** The attribute "variables" on the request payload is used to initialize the process variables (not BDM variables).
 If you want to initialize BDM variables at process instantiation, add a contract on the process and map BDM variables to the contract data.
-See [Start a process using an instantiation contract](#start-process-with-contract) for usage.
+See [Start a process using an instantiation contract](#start-a-process-using-an-instantiation-contract) for usage.
 :::
 
   ```json
@@ -3583,6 +3583,8 @@ Process instantiation contract elements can be retrived client side.
       ]
     }
     ```
+
+<a id="start-a-process-using-an-instantiation-contract" />
 
 ##### Start a process using an instantiation contract
 
