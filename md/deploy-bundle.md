@@ -33,7 +33,7 @@ or from the [Customer Portal](https://customer.bonitasoft.com/download/request) 
 
 Copy all files and directories from DEPLOY_ZIP_HOME/Tomcat-7.0.76/server to your Tomcat root directory (TOMCAT_HOME).
 :::warning
-Some configurations files from the deploy zip will overwrite some default tomcat configuration files. Proceed
+Some configuration files from the deploy zip will overwrite some default tomcat configuration files. Proceed
 with care in a tomcat where other applications are already installed.
 :::
 
@@ -67,7 +67,7 @@ JTA data source (managed by Bitronix)
 
 ### Add Jdbc driver
 You need to add your jdbc driver in TOMCAT_HOME/lib. 
-MySQL and PostgreSQL drivers can be found in deploy bundle under DEPLOY_ZIP_HOME/setup/lib directory. For other RDMS, 
+MySQL and PostgreSQL drivers can be found in deploy bundle under DEPLOY_ZIP_HOME/setup/lib directory. For other RDBMS, 
 use the driver provided by your RDBMS vendor
 
 <a id="wildfly-installation" />
@@ -85,7 +85,7 @@ Copy all files and directories from DEPLOY_ZIP_HOME/wildfly-10.1.0.Final/server 
 5. Repeat operations 2. to 4. for Business Data data source
 
 ### Configure RDBMS vendor
-1. Open WILDFLY_HOME/standalone/configuration/standalone.xml and look for <system-properties> tag
+1. Open WILDFLY_HOME/standalone/configuration/standalone.xml and look for `system-properties` tag
 2. Set the value for sysprop.bonita.db.vendor (Bonita BPM Platform database vendor)
 3. Set the value for sysprop.bonita.bdm.db.vendor (Business Data database vendor)
 
