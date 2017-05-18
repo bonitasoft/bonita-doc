@@ -62,7 +62,8 @@ FYI, The value returned by the REST API for the birth date will be an ISO 8601 f
 The Date picker widget supports the following types for its **Value** property as input:  
 * [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) String variables (with or without time information)
 * Date objects
-* Long number values (Milliseconds since epoch)  
+* Long number values (Milliseconds since epoch)
+
 However, to support pages designed with an older UI Designer version, the output of the widget is always a Javascript Date object. So it will change the type of the variable bound to the widget **Value** to a Date object when the user selects a date.  
 When sent in the JSON body of a request, it is serialized into an ISO 8601 formatted String variable with the time set to midnight UTC (e.g., 2016-12-31T00:00:00.000Z).
 The time information is dropped at contract level when received by the process instantiation REST API and converted to a `java.time.LocalDate`.
