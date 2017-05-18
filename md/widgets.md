@@ -115,12 +115,22 @@ The selected value should be bound to a variable that will hold the data for the
 
 ### Date picker widget
 
-Use a datepicker widget to display a calendar from which the user can select a date or set a date manually. You can configure the displayed **date format** using a pattern, using `yyyy` for year, `MM` for Month, `dd` for day, `mm` for minutes.  
+Use a Date picker widget to display a calendar from which the user can select a date or set a date manually (e.g., a date of birth).  
+To select a date and a time (e.g., to schedule a meeting), use the Date time picker widget instead.
+
+The Date picker widget supports the following types for its **Value** property as input:  
+* [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) String variables (with or without time information)
+* Date objects
+* Long number values (Milliseconds since epoch)  
+However, the output of the widget is always a Javascript Date object. So it will change the type of the variable bound to the widget **Value** to a Date object when the user selects a date.  
+When sent in the JSON body of a request, it is serialized into an ISO 8601 formatted String variable with the time set to midnight UTC (e.g., 2016-12-31T00:00:00.000Z).
+
+You can configure the displayed **date format** using a pattern, using `yyyy` for year, `MM` for Month, `dd` for day.  
 Use the `Today` button to select automatically and quickly the current day.
 
-You can force the timezone to 0 using the relevant property.
-
 For more information about supported formats, read the Angular documentation for [date filter](https://docs.angularjs.org/api/ng/filter/date).
+
+For a detailed example using the Date picker widget, you can consult the following Howto: [Manage dates in BDM and User Interfaces](dates-management-tutorial.md).
 
 In the _Subscription Edition_,  the calendar can be localized with the usual localization mechanism (localization.json file).  
 

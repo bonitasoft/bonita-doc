@@ -257,5 +257,6 @@
   * [Manage multiple references in Business Objects](bo-multiple-refs-tutorial.md)
   * [Map authorization rules](custom-authorization-rule-mapping.md)
   * [Use the rich textarea widget in a mail template](rta-mail-template.md)
+  * [Manage dates in BDM and User Interfaces](dates-management-tutorial.md)
 
 
