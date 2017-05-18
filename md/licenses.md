@@ -4,7 +4,7 @@
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 
-Bonita BPM 7.1 introduces a new Bonita BPM Subscription edition licensing model: case-counter licensing. This page explains how to manage the license for your Bonita BPM Platform, under the case-counter licensing model or using the legacy, CPU core-based, licensing model.
+Bonita BPM 7.1 introduces a case-counter mechanism to align with the Bonita BPM Subscription edition licensing model. This page explains how to manage the license for your Bonita BPM Platform. 
 
 The **_License_** menu in Bonita BPM Portal displays information about the current license. This information is available to the platform administrator only.
 
@@ -22,32 +22,12 @@ You can monitor the case counter using Bonita BPM Portal *License* page in the A
 Those two means also allow you to check the expiration date of the license.
 
 When the case counter reaches the limit set in the license, no more cases can be started. Active cases continue to completion.  
-If a user tries to submit an instantiation form after the case counter maximum limit is reached, the form is not submitted and an error message is displayed to her.  
+If a user tries to submit an instantiation form after the case counter maximum limit is reached, the form is not submitted and an error message is displayed.  
 **Note:** If the process still uses legacy, 6.x, forms, there is no error message.
-
-## Legacy licensing (based on number of CPU cores)
-
-A legacy license has an expiration date but no case limit.
-
-Shortly before the license expiration date, an email message is sent to the address where the previous license was sent.  
-The exact delay before license expiration depends on your subscription and is set by the sales person you talk to, when purchasing the first license, so if you have a specific need, you can discuss it with him or her).  
-You can also check the expiration date using Bonita BPM Portal *License* page in the Administrator profile, or using the [REST API](platform-api.md#license) to create a custom monitoring / alerting tool.  
-Those options are useful if the email address previously used is no longer active, or if the recipient is not checking email (for example, during vacation).
-
-A legacy license is limited to a preset number of CPU cores. A development license is limited to two CPU cores.  
-A production license can allow four CPU cores or more. If your server has more CPU cores than the number allocated to Bonita BPM execution in your license, you will need to limit the number of cores available to Bonita BPM Platform.
-
-Below you can find some examples to limit execution of standalone Tomcat setup to 2 CPU cores:
-
-For Windows:   
-`start /AFFINITY 3 start-bonita.bat` where 3 is the affinity mask (expressed as a hexadecimal number). 1 -\> 1 CPU core, 3 -\> 2 CPU cores, 7 -\> 3 CPU cores, 15 -\> 4 CPU cores...
-
-For Linux:   
-`#!/bin/sh taskset -c 0,1 start-bonita.sh `  where 0,1 indicates CPU cores to use. You can set a list of CPU cores to use or a range. E.g.: 0,1,2,3 or 0-3
 
 ## Get a new license
 
-Your contract with Bonitasoft specifies the details of the subscription you have purchased, including the edition, license model, and case limit for case-counter licensing. A license matching the subscription details is generated on request.
+Your contract with Bonitasoft specifies the details of the subscription you have purchased, including the edition, and case limit for case-counter licensing. A license matching the subscription details is generated on request.
 
 If this is a license renewal, you can find your request key in the Bonita BPM Portal *License* menu of the Administrator profile or using the [platform REST API](platform-api.md#license).  
 A request key looks like this: `(CIVpYDRB8bhouXdWadLY1M9TVctwYUYuv7ou7sqeIrSUSuCqUIkjQAs0ZGgzbtqv3gguFOHlyMZkyvwdr4HLgg==)`.
@@ -76,13 +56,13 @@ When you receive the license file (`.lic` file extension):
 
 ## License renewal scheduling
 
-Whether your license is based on case-counter or based on number of CPU cores, if you are still within the Subscription period when you approach the license expiration date, request a new license that starts on the last day of your current license.  
+If you are still within the Subscription period when you approach the license expiration date, request a new license that starts on the last day of your current license.  
 Put the license you receive in the license folder alongside the existing license.  
 When you reach the "changeover" date for the licenses, Bonita BPM Engine switches automatically from the expired license to the valid one.
 **Note:** We recommend to regularly remove license files of expired licenses from the server.
 
 If you approach both the license expiration date and the end of the Subscription period, contact your sales person.
 
-For case-counter licensing, the case counter is reset at the end of the counter period.  
+The case counter is reset at the end of the counter period.  
 If your license expiration date comes before the end of the counter period, get and install a new license as usual. The case counter will continue from its current value under the new license.  
 If you approach or reach the case counter limit before the end of the license period, contact your sales person to get a new license with additional cases.
