@@ -24,7 +24,7 @@ For the **Community** edition, these actions are not relevant, but the order of 
 1. The Engine initializes process instance Documents with default value coming from the definition or with submitted files
 1. Operations (that does not initialize data) are executed. Operations at process instantiation level can either come from V6 forms or from calling process instances (for processes stared by call-activities)
 1. The Engine instantiates and executes the "on enter" connectors (evaluate input expression, execute, evaluate output operation). Connectors are executed in the order of declaration  
-   **Community**:    Execution duration is not limited. If the connector never finishes, the process instantiation will never finish  
+   **Community**: Execution duration is not limited. If the connector never finishes, the process instantiation will never finish  
    **Subscription**: Execution duration of a connector is limited to a maximum of 5 minutes by default. This timeout value can be changed by configuration. Above this limit,
    the connector execution is aborted and the process instantiation is considered failed.
 1. The process is instantiated, the API call finish and the Engine executes the process flow asynchronously
