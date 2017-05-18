@@ -15,33 +15,33 @@ It uses `java.time.LocalDate` as Java type.
 
 The following sections show how to create, update, and display an *Employee* object with a birth date.  
 
-### Define the business data
+#### Define the business data
 
 1. In the studio, open the Business Data Model editor (in menu **Development** > **Business Data Model** > **Manage...**)
 1. Create a **business object** *Employee* with an attribute *birthdate* of type **DATE ONLY** (this type replaces the type **DATE (NOT RECOMMENDED)** that is more difficult to handle as it also includes time information)
 1. Create a new process
 1. In the process **Data** tab, create a new **business variable** *employee* of the type *Employee*
 
-### Define the contract at pool level, as well as the script to initialize the business variable 
+#### Define the contract at pool level, as well as the script to initialize the business variable 
 
 1. In the process **Execution** tab > **Contract** section, define the contract inputs using the **Add from data...** button
 1. Select the business variable *employee*
 1. Follow the steps to generate a contract with a COMPLEX input *employeeInput* containing a *birthdate* attribute of type **DATE ONLY** (keep the option to generate the variable initialization script automatically)
 
-### Generate the process instantiation form
+#### Generate the process instantiation form
 
 1. In the process **Execution** tab, **Form** section, generate the form by clicking on the **pencil** icon
 1. Since you have a **DATE ONLY** attribute in the contract inputs, a **Date picker** widget is automatically added to the form  
 The form is already configured correctly.
 
-### Define the contract at task level, as well as operations to update the business variable
+#### Define the contract at task level, as well as operations to update the business variable
 
 1. Rename the first task to *Update birth date*
 1. In the task **Execution** tab > **Contract** section, define the contract inputs using the **Add from data...** button
 1. Select the business variable *employee*
 1. Follow the steps to generate a contract with a COMPLEX input *employeeInput* containing a *birthdate* attribute of type **DATE ONLY** (keep the option to generate the operations automatically)
 
-### Generate the 'Update' task form
+#### Generate the 'Update' task form
 
 1. In the task **Execution** tab, **Form** section, generate the form by clicking on the **pencil** icon
 1. Since you have a **DATE ONLY** attribute in the contract inputs, a **Date picker** widget is automatically added to the form  
@@ -69,7 +69,7 @@ When sent in the JSON body of a request, it is serialized into an ISO 8601 forma
 The time information is dropped at contract level when received by the process instantiation REST API and converted to a `java.time.LocalDate`.
 :::
 
-### Retrieve the date from the database and display it
+#### Retrieve the date from the database and display it
 
 In another step form (or in any other page) you may want to retrieve the date and display it.  
 In order to do so:  
@@ -100,33 +100,33 @@ It uses `java.time.LocalDateTime` as Java type.
 
 The following sections show how to create, update, and display a *Flight* object with a local departure date and time (that should display the same local time, no matter where you are in the world. 
 
-### Define the business data
+#### Define the business data
 
 1. In the studio, open the Business Data Model editor (in menu **Development** > **Business Data Model** > **Manage...**)
 1. Create a **business object** *Flight* with an attribute *departureTime* of type **DATE-TIME (NO TIME ZONE)**
 1. Create a new process
 1. In the process **Data** tab, create a new **business variable** *flight* of the type *Flight*
 
-### Define the contract at pool level, as well as the script to initialize the business variable
+#### Define the contract at pool level, as well as the script to initialize the business variable
 
 1. In the process **Execution** tab > **Contract** section, define the contract inputs using the **Add from data...** button
 1. Select the business variable *flight*
 1. Follow the steps to generate a contract with a COMPLEX input *flightInput* containing a *departureTime* attribute of type **DATE-TIME (NO TIME ZONE)** (keep the option to generate the variable initialization script automatically)
 
-### Generate the process instantiation form
+#### Generate the process instantiation form
 
 1. In the process **Execution** tab, **Form** section, generate the form by clicking on the **pencil** icon
 1. Since you have a **DATE-TIME (NO TIME ZONE)** attribute in the contract inputs, a **Date time picker** widget is automatically added to the form  
 The widget is already configured not to handle the user time zone.
 
-### Define the contract at task level, as well as operations to update business varaible
+#### Define the contract at task level, as well as operations to update business varaible
 
 1. Rename the first task to *Update departure time*
 1. In the task **Execution** tab > **Contract** section, define the contract inputs using the **Add from data...** button
 1. Select the business variable *flight*
 1. Follow the steps to generate a contract with a COMPLEX input *flightInput* containing a *departureTime* attribute of type **DATE-TIME (NO TIME ZONE)** (keep the option to generate the operations automatically)
 
-### Generate the 'Update' task form
+#### Generate the 'Update' task form
 
 1. In the task **Execution** tab, **Form** section, generate the form by clicking on the **pencil** icon
 1. Since you have a **DATE-TIME (NO TIME ZONE)** attribute in the contract inputs, a **Date time picker** widget is automatically added to the form  
@@ -148,7 +148,7 @@ The **Date time picker** widget output is an [ISO 8601](https://en.wikipedia.org
 At contract level, when received by the task execution REST API, it is converted to a `java.time.LocalDateTime`.
 :::
 
-### Retrieve the date and time from the database and display them
+#### Retrieve the date and time from the database and display them
 
 In another step form (or in any other page), you may want to retrieve the date and time and display them.  
 In order to do so:  
@@ -181,33 +181,33 @@ It uses `java.time.OffsetDateTime` as Java type.
 
 The following sections show how to create, update, and display a *Meeting* object with a start date and time that reflect the user time zone when it is displayed.  
 
-### Define the business data
+#### Define the business data
 
 1. In the studio, open the Business Data Model editor (in menu **Development** > **Business Data Model** > **Manage...**)
 1. Create a **business object** *Meeting* with an attribute *startTime* of type **DATE-TIME (TIME ZONE)**
 1. Create a new process
 1. In the process **Data** tab, create a new **business variable** *meeting* of the type *Meeting*
 
-### Define the contract at process level, as well as the script to initialize the business variable
+#### Define the contract at process level, as well as the script to initialize the business variable
 
 1. In the process **Execution** tab > **Contract** section, define the contract inputs using the **Add from data...** button
 1. Select the business variable *meeting*
 1. Follow the steps to generate a contract with a COMPLEX input *meetingInput* containing a *startTime* attribute of type **DATE-TIME (TIME ZONE)** (keep the option to generate the variable initialization script automatically)
 
-### Generate the process instantiation form
+#### Generate the process instantiation form
 
 1. In the process **Execution** tab, **Form** section, generate the form by clicking on the **pencil** icon
 1. Since you have a **DATE-TIME (TIME ZONE)** attribute in the contract inputs, a **Date time picker** widget is automatically added to the form  
 The widget is already configured to handle the user time zone.
 
-### Define the contract at task level, as well as the operations to update the business variable
+#### Define the contract at task level, as well as the operations to update the business variable
 
 1. Rename the first task to *Update start time*
 1. In the task **Execution** tab > **Contract** section, define the contract inputs using the **Add from data...** button
 1. Select the business variable *meeting*
 1. Follow the steps to generate a contract with a COMPLEX input *meetingInput* containing a *startTime* attribute of type **DATE-TIME (TIME ZONE)** (keep the option to generate the operations automatically)
 
-### Generate the 'Update' task form
+#### Generate the 'Update' task form
 
 1. In the task **Execution** tab, **Form** section, generate the form by clicking on the **pencil** icon
 1. Since you have a **DATE-TIME (TIME ZONE)** attribute in the contract inputs, a **Date time picker** widget is automatically added to the form  
@@ -231,7 +231,7 @@ At contract level when received by the task execution REST API, it is converted 
 Unless the user is in the GMT time zone, there will be an offset between the time he selects and the time stored in database.
 :::
 
-### Retrieve the date and time from the database and display them
+#### Retrieve the date and time from the database and display them
 
 In another step form (or in any other page) you may want to retrieve the date and time and display them.  
 In order to do so:  
