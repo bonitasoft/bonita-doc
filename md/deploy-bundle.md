@@ -6,6 +6,12 @@
 * The Bonita BPM Deploy bundle is a way of setting up a Bonita BPM Platform. You'll be able to get a setup quite similar to WildFly or Tomcat bundle.
 * It's also used to package other tools such as the LDAP synchronizer.
 
+:::warning
+This installation procedure only specifically targets the Java EE application Servers that have been installed under a single root folder (typically, from a .zip file).
+Thus, for installations using native distribution packages (that more often than not split the binaries and the configuration files into separate folder hierarchies),
+it would be up to you to adapt the documented steps to your very own folder layout.
+:::
+
 ## Deploy bundle content
 
 * `Tomcat-`_`version`_: a folder/file structure to be merged with an existing setup of Apache Tomcat, in order to install Bonita BPM Portal and Bonita BPM Engine.
