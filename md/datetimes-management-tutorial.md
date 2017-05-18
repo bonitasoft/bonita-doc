@@ -13,7 +13,7 @@ The type **DATE ONLY** is used to hold a date with no time of the day. Use it fo
 It is stored in the database as an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formatted Character String (e.g. "2017-01-13").  
 It uses `java.time.LocalDate` as Java type.  
 
-The following sections show to create, update, and display an *Employee* object with a birth date.  
+The following sections show how to create, update, and display an *Employee* object with a birth date.  
 
 ### Define the business data
 
