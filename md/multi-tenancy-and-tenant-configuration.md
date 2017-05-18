@@ -19,7 +19,7 @@ After the installation of any Bonita BPM version (Community or Subscription), a 
 
 ![default](images/images-6_0/default_tenant_setup.png)  
 
-If you are using the Performance edition, you can create additional tenants, using the Platform API (through Java or REST).
+If you are using the Performance edition, you can create additional tenants, using the Platform API (through Java or REST API).
 These tenants are configured with a single database. This illustration shows a platform with three tenants.
 
 ![multi-tenancy](images/images-6_0/v6tenant.png)
@@ -32,8 +32,8 @@ Before the platform has been initialized, its configuration can be customized in
 installation whose platform has already been initialized, you need to use the [platform setup tool](BonitaBPM_platform_setup.md) to retrieve the current
 configuration and update the files in `setup/platform_conf/current/`. Then use the tool again to save your changes into the database.
 
-The _engine_ platform configuration directory is located in sub-folder: `platform_engine/`.  
-The _portal_ platform configuration directory is located in sub-folder: `platform_portal/`.
+The _engine_ platform configuration directory is located in sub-folder: `current/platform_engine/`.  
+The _portal_ platform configuration directory is located in sub-folder: `current/platform_portal/`.
 
 There is a separate _engine_ configuration directory for each tenant, located in: `current/tenants/<tenant_id>/tenant_engine`.  
 There is a separate _portal_ configuration directory for each tenant, located in: `current/tenants/<tenant_id>/tenant_portal`.  
@@ -82,7 +82,7 @@ The following example code uses the Engine Java APIs to create a tenant called "
 
 ### REST API
 
-The [platform REST API](platform-api.md) is a REST wrapper around the Java PlatformAPI to create the tenant.
+The [platform REST API](platform-api.md) is a REST layer around the Java PlatformAPI to create the tenant.
 
 ## Tenant access
 
@@ -105,8 +105,11 @@ To use the newly created tenant:
     
     // retrieve an API to interact with the engine:
     ProcessAPI processApi = apiClient.getProcessAPI();
-    // and use the processApi...
+    // and use the processApi on the new tenant...
     [...]
+    
+    // Don't forget to logout finally:
+    apiClient.logout();
 ```
 
 ### Bonita BPM Portal
@@ -125,28 +128,28 @@ Use the [PlatformAPI](http://documentation.bonitasoft.com/javadoc/api/${varVersi
 
 Example: retrieving a tenant from its name and log into it
 ```java
-// Get platform login API using the PlatformAPIAccessor
-PlatformLoginAPI platformLoginAPI = PlatformAPIAccessor.getPlatformLoginAPI();
-// Log in to the platform
-PlatformSession platformSession = platformLoginAPI.login("platformAdmin", "platform");
-
-// Get the plaform API
-PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(platformSession);
-// Retrieve your tenant by name
-Tenant tenant = platformAPI.getTenantByName("myTenant");
-
-// Log out of the platform
-platformLoginAPI.logout(platformSession);
-
-// Get the login API using the TenantAPIAccessor
-final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
-// Log in to the tenant
-final APISession apiSession = loginAPI.login(tenant.getId(), "install", "install");
-
-// TODO: Perform some operations on the tenant...
-
-// Log out of the tenant
-loginAPI.logout(apiSession);
+    // Get platform login API using the PlatformAPIAccessor
+    PlatformLoginAPI platformLoginAPI = PlatformAPIAccessor.getPlatformLoginAPI();
+    // Log in to the platform
+    PlatformSession platformSession = platformLoginAPI.login("platformAdmin", "platform");
+    
+    // Get the plaform API
+    PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(platformSession);
+    // Retrieve your tenant by name
+    Tenant tenant = platformAPI.getTenantByName("myTenant");
+    
+    // Log out of the platform
+    platformLoginAPI.logout(platformSession);
+    
+    
+    // Log in to the tenant using the APIClient
+    APIClient apiClient = new APIClient();
+    apiClient.login(tenant.getId(), "install", "install");
+    
+    // Perform some operations on the tenant...
+    
+    // Log out of the tenant
+    apiClient.logout();
 ```
 
 ## Pause and resume a tenant
@@ -160,10 +163,10 @@ TenantAdministrationAPI contains the following methods related to pausing a tena
 
 For example, to resume the service in a tenant:
 ```java
-TenantAdministrationAPI tenantAdministrationAPI = TenantAPIAccessor.getTenantAdministrationAPI(apiSession);
-if (tenantAdministrationAPI.isPaused()) {
-    tenantAdministrationAPI.resume();
-}
+    TenantAdministrationAPI tenantAdministrationAPI = TenantAPIAccessor.getTenantAdministrationAPI(apiSession);
+    if (tenantAdministrationAPI.isPaused()) {
+        tenantAdministrationAPI.resume();
+    }
 ```
 
 While service is paused in a tenant, only the following methods are valid:
@@ -173,7 +176,7 @@ While service is paused in a tenant, only the following methods are valid:
 * themeAPI method calls
 * TenantAdministrationAPI method calls
 
-If you attempt an operation that is not permitted while a tenant is paused, a `TenantIsPausedException` is thrown.
+If you attempt an operation that is not permitted while a tenant is paused, a `TenantStatusException` is thrown.
 
 You can also pause and resume a tenant using the 
 [REST API](platform-api.md) or [Bonita BPM Portal](pause-and-resume-bpm-services.md).
