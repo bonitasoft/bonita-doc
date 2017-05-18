@@ -36,6 +36,12 @@ New management of date and time to properly manage Living Applications used acro
     * define and display a flight arrival date (local timezone).
 * Note this update does not change the way dates are displayed on the Bonita Portal.
 
+### Link widget and preview improvement
+The Link widget as been improved in order to support more use cases and it can now be tested in the preview in most cases. The improvements are:
+* Addition of a new property to pass pass additional query parameters when creating a link to a form or a page
+* Addition of a new property to pass the name of the target application (useful in the preview when you want to test a link to an application page or when you need to redirect to another application)
+* The URL of the preview can be edited to pass additional parameters in the query string in web browsers supporting it (currently, only Firefox)
+
 <a id="technology-updates"/>
 
 ## Technology updates

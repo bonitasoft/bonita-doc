@@ -24,19 +24,34 @@
        return;
      }
    }
+  let file = argv.file;
 
+  
+  
   const readdirPromise = denodeify(fs.readdir);
-  let outfile = `Bonita-BPM-documentation`;
+  let outfile = (file ? file : `Bonita-BPM-documentation`);
 
   const flattenedTaxo = flattenTaxonomy(taxonomy);
   let htmlFile = '', count = 0;  
-
-  rx.Observable.from(flattenedTaxo.filter(fileName => fileName && !fileName.match(/^https?:\/\//)))
+  
+  // Remove pdf files from previous build
+  cleanBuildFolder();
+    
+  rx.Observable.from(flattenedTaxo.filter(filterFileName))
   .select(html => {
     return 'build/html/' + html + '.html'; 
   }).bufferWithCount(3).toArray().subscribe(filesArray => {
     convertLastFilesToPDF(filesArray.reverse());
   });
+  
+  
+  function filterFileName(fileName) {
+    if (!file)
+      return (fileName && !fileName.match(/^https?:\/\//))
+    else 
+      return (fileName && !fileName.match(/^https?:\/\//) && fileName == file)
+   }
+  
   function convertLastFilesToPDF(filesArray) {
     const files = filesArray.pop();
     winston.info(count, files);
@@ -76,6 +91,16 @@
     return through(function (data) {
       return this.queue(data.toString().replace(/<a [^>]*>/g,'').replace(/<\/a\s*>/g,'').replace(new RegExp(`src="images/${version}`,'g'), `src="file://${__dirname}/../md/images/`));
     });
+  }
+  
+  function cleanBuildFolder() {
+    fs.readdir('build', (err, files)=>{
+     for (var i = 0, len = files.length; i < len; i++) {
+        var match = files[i].match(/.+.pdf/);
+        if(match !== null)
+            fs.unlink("build/"+ match[0]);
+     }
+   });
   }
   
 })();

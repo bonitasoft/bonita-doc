@@ -55,6 +55,7 @@
       * [Multi-language pages](multi-language-pages.md)
       * [Migrate a form from 6.x](migrate-a-form-from-6-x.md)
     * [6.x legacy forms](6-x-legacy-forms.md)
+  * [Application descriptor](applicationCreation.md)
   * [Connectivity](_connectivity.md)
     * [Connectivity overview](connectivity-overview.md)
     * [Alfresco](alfresco.md)
@@ -256,3 +257,4 @@
   * [Manage multiple references in Business Objects](bo-multiple-refs-tutorial.md)
   * [Map authorization rules](custom-authorization-rule-mapping.md)
   * [Use the rich textarea widget in a mail template](rta-mail-template.md)
+  * [Manage dates and times in BDM and User Interfaces](datetimes-management-tutorial.md)

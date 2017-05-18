@@ -32,7 +32,7 @@ it is composed of:
     - If not logged in => Redirect to IdP (with user info)
 
 
-- One Assertion Consumer Service (technically this is also handled by the servlet filter through a different URL mapping (/saml)), 
+- One Assertion Consumer Service ACS URL (technically this is also handled by the servlet filter through a different URL mapping  `/saml`), 
 
     This service validates and process the SAML response :
     
@@ -156,7 +156,7 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
       - http://idp.saml.binding.url.to.change  
 
 ::: info
-**Note:** More configuration options can be found in [Keycloak official documentation](https://keycloak.gitbooks.io/securing-client-applications-guide/content/topics/saml/java/general-config.html)
+**Note:** More configuration options can be found in [Keycloak official documentation](https://keycloak.gitbooks.io/documentation/securing_apps/topics/saml/java/general-config.html)
 :::
    
    ```

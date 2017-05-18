@@ -54,15 +54,17 @@ For example:
 
 Using word-based search has an impact on performance, so by default it is disabled. You can enable it for the platform or for a tenant. If you enable it, you can exclude any objects for which it is not useful.
 
-To configure word-based search, edit  [`bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md) and make the following changes:
+1. To configure word-based search, using [the setup tool](BonitaBPM_platform_setup.md), 
+edit `platform_engine/bonita-platform-community-custom.properties` and change the value of 
+`bonita.platform.persistence.platform.enableWordSearch` (for the platform) or 
+`bonita.platform.persistence.tenant.enableWordSearch` (for a tenant) to `true`.
 
-1. Change the value of `bonita.platform.persistence.platform.enableWordSearch` (for the platform) or `bonita.platform.persistence.tenant.enableWordSearch` (for a tenant) to `true` in the following line:
-   ```xml
-   <constructor-arg name="enableWordSearch" value="false" />
-   ```
-2. For each object you be excluded from word-based search, add a mapping to the `wordSearchExclusionMappings` set. Each mapping has the following form:
+2. For each object you be excluded from word-based search,  using [the setup tool](BonitaBPM_platform_setup.md), 
+edit `platform_engine/bonita-platform-custom.xml` add a mapping to the `wordSearchExclusionMappings` set.
+Each mapping has the following form:
    ```xml
    <value>org.bonitasoft.engine.identity.model.SUser</value>
    ```
 
+Don't forget to push your modifications using setup push command.
 When you restart the Engine, these settings are applied and word-based search comes into operation.
