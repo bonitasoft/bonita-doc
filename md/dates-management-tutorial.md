@@ -8,6 +8,7 @@ Up to versions 7.4.x, only date selection is supported natively in the UI Design
 
 ::: warning
 If you only use the API to retrieve dates, and you do not need to query the business data database directly, you can safely use the type **DATE** for your business objects.
+
 If you need to query the database directly, use the type **STRING** instead of **DATE**. Otherwise the time zone of the server will be used when converting the java Date in an SQL **TIMESTAMP** and, unless your server is configured in UTC, an offset will be applied. Therefore, the value stored in the database will not reflect the date entered by the user.
 :::
 
