@@ -4,9 +4,12 @@
 # If applied, this commit will...
 (): 
 
-# Commit title must NOT exceed 80 characters, for readability in Github interface
-# Commit title MUST respect the following format: <type>(<scope>): <subject>
+# A contribution is composed of a TITLE and a DESCRIPTION
+# TITLE must NOT exceed 80 characters, for readability in Github interface.
+# DESCRIPTION is not limited to any number of characters and can extend to
+#             several lines.
 # 
+# TITLE MUST respect the following format: <type>(<scope>): <subject>
 # <Type> is the nature of the change. Can be a value in (feat, fix, style, refactor, ...)
 #          (feat: feature, fix: correction, style: appearance correction, refactor: rewriting of the article, ...)
 # <scope> is the business domain on which the change is done
@@ -17,9 +20,9 @@
 # Eg. feat(APIs): provide code sample to show usage of Living Application creation
 # Eg. feat(dates): describe step by step tutorial on Date types in Bonita BPM
 
-
+# DESCRIPTION:
 # Then, if needed, give below a more detailed explanation on why this change is being made.
-# You can write as many lines of description as needed:
+# You can write as many lines of DESCRIPTION as needed:
 # Eg:
 #    This change of part of a larger scale rewriting of how to deal with Dates in Bonita BPM.
 #    Usage has proven that the feature was not correctly understood.
