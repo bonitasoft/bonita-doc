@@ -25,7 +25,7 @@ You can refer to the [example-upload-servlet](https://github.com/Bonitasoft-Comm
 
 ### Link an icon to a new organization group
 
-1. Call to the login service: `/bonita/loginservice` for authentication.
+1. Call the login service: `/bonita/loginservice` for authentication.
 1. Upload an image by using a multipart post request on the image upload servlet, `/bonita/portal/imageUpload`.
 1. The image is stored in a temporary folder.
 1. The servlet call response includes the name of the temporary file.
@@ -33,7 +33,7 @@ You can refer to the [example-upload-servlet](https://github.com/Bonitasoft-Comm
 
 ### Deploy programmatically a new REST API extension
 
-1. Call to the login service: `/bonita/loginservice` for authentication.
+1. Call the login service: `/bonita/loginservice` for authentication.
 1. Upload a REST API extension by using a multipart post request on the page upload servlet: `/bonita/portal/pageUpload`. It will send the REST API extension (handle as a "page") zip file from client side to server side.
 1. REST API extension zip file is stored in a temporary folder.
 1. The servlet call response includes the name of the temporary file.
