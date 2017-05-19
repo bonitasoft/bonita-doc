@@ -91,7 +91,7 @@
 
   function convertFile(fileName, htmlPath, mdPath) {
     writeFilePromise(htmlPath + '/' + fileName.replace(/\.md$/, '.html'),
-      md.render(
+      addForkMeRibbon(fileName) + md.render(
         replaceVariables(fs.readFileSync(mdPath + '/' + fileName).toString())
       ) + '<!-- Generated on ' + new Date() + ' -->'
     ).then(() => console.log(fileName + ' has been successfully converted'));
@@ -100,5 +100,9 @@
   function replaceVariables(content) {
     Object.keys(variables).forEach(key => content = content.replace(new RegExp('\\${' + key + '}','g'), variables[key]));
     return content;
+  }
+
+  function addForkMeRibbon(fileName) {
+    return '<a href="https://github.com/bonitasoft/bonita-doc/edit/'+version+'/md/'+fileName+'"><img style="position: absolute; top: -1px; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>\n'
   }
 })();
