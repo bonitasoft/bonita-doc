@@ -15,10 +15,10 @@ For the **Community** edition, these actions are not relevant, but the order of 
 1. The button of the form having the **Start process** action in the **UI designer** sends a POST request with the form data to start the process
 1. The submitted data are validated against the **process instantiation contract**
 1. If the contract is valid the process instance is created and input values are persisted in database
-6. Process data instances are created and initialized in the order of declaration using
-  * An **operation** declared on the process that saves its value to the process data
-  * The **initial value expression** if no operation is declared
-  * **null** if no expression or operation is defined
+6. Process data instances are created and initialized in the order of declaration using:
+    * An **operation** declared on the process that saves its value to the process data
+    * The **initial value expression** if no operation is declared
+    * **null** if no expression or operation is defined
 7. The Engine creates and initializes business data
 1. **Subscription only**: The Engine creates and initializes search indexes
 1. The Engine initializes process instance Documents with default value coming from the definition or with submitted files
