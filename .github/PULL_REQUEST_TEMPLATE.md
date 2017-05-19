@@ -4,6 +4,7 @@
 # If applied, this commit will...
 (): 
 
+# Commit title must NOT exceed 80 characters, for readability in Github interface
 # Commit title MUST respect the following format: <type>(<scope>): <subject>
 # 
 # <Type> is the nature of the change. Can be a value in (feat, fix, style, refactor, ...)
