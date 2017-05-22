@@ -50,7 +50,7 @@ Each tab is a container widget.
 
 ### Form container widget
 
-Use the **form container** to enable form validation for input widgets. The form container also exposes a local **$form** which is the AngularJS form object associated to the form container. In the Bonita BPM Studio, if you define a contract for the task or process and click on the UI Designer icon, the generated form already contains a form container to embed default input widgets to collect the information that need to be passed to the contract to be verified. You can then define the validation you need on the input.  
+Use the **form container** to enable form validation for input widgets. The form container also exposes a local **$form** which is the AngularJS form object associated to the form container. In the Bonita Studio, if you define a contract for the task or process and click on the UI Designer icon, the generated form already contains a form container to embed default input widgets to collect the information that need to be passed to the contract to be verified. You can then define the validation you need on the input.  
 For example, you can bind the button's disabled property to _$form.$invalid_ to prevent user from clicking the button, until the form inputs are valid.
 
 ## Input widgets
@@ -170,7 +170,7 @@ When inside a form container, the button is automatically disabled while the for
 
 Use a display widget for information that the user can read on a page. This includes titles, paragraphs, and text. For each, you can specify the text and its alignment. There are several types of display widgets:
 
-* File viewer, to display a preview of files, either Bonita BPM documents, or external documents. Users can also download the file thanks to this widget.
+* File viewer, to display a preview of files, either Bonita documents, or external documents. Users can also download the file thanks to this widget.
 * Link, to embed an HTML link for navigation to an external site.
 * Title, for headings. You can set the level from 1 to 6\.
 * Text, for chunks of text. Text supports basic HTML tags such a paragraph, list or image...
@@ -188,7 +188,7 @@ Note: table widget only supports text values. HTML content passed in table data 
 
 An extended table widget that provides column sorting, filtering, and paging in addition to the standard table widget facilities.
 
-Set the **Data source** to _Bonita API_ to populate the data table with records from a Bonita BPM REST API.   
+Set the **Data source** to _Bonita API_ to populate the data table with records from a Bonita REST API.   
 Then enter a REST API URL in the **URL** property. Use the **API request parameters** property to pass additional parameters to the request.  
 Supported parameters are described in the [REST API Overview](rest-api-overview.md) and in the REST API documentation for the relevant resource.  
 You do not need to specify paging parameters (such as `?p=0&c=10`), because the data table handles paging automatically when you use a Bonita API data source.  

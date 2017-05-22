@@ -18,7 +18,7 @@ You must have an SAP license and an SAP server to use the connector.
 
 ## Download and install the SAP connector.zip files
 
-To connect to an SAP system from Bonita BPM Studio, and have the correct graphic display, you must install the SAP `.dll` and `.jar` files onto your (Windows) machine.  
+To connect to an SAP system from Bonita Studio, and have the correct graphic display, you must install the SAP `.dll` and `.jar` files onto your (Windows) machine.  
 You must have a SAP User ID and password to enter the SAP Support Portal to download the files. Go to the [SAP Service marketplace](http://service.sap.com/connectors) (you will need to log in first with an account login and password).
 
 JCo2: `sapjco-ntamd64-2.1.9`
@@ -79,9 +79,9 @@ To install JCo for Linux:
 
 ## How to import the SAP JCo2 library
 
-In the Teamwork, Efficiency, and Performance editions, import of the jar file by clicking on the **_Import sapjco.jar_** button in the connection configuration window. Then restart Bonita BPM Studio.
+In the Teamwork, Efficiency, and Performance editions, import of the jar file by clicking on the **_Import sapjco.jar_** button in the connection configuration window. Then restart Bonita Studio.
 
-In the Community edition, there is no import button. The JCo2 library must be imported into the `/endorsed` directory of your Bonita BPM Studio installation by hand. Then restart Bonita BPM Studio.
+In the Community edition, there is no import button. The JCo2 library must be imported into the `/endorsed` directory of your Bonita Studio installation by hand. Then restart Bonita Studio.
 
 ## How to configure the SAP JCo2 connector
 
@@ -96,13 +96,13 @@ Set the expression type to **Script**, and enter `outputResults.get(0)`. In the 
 
 ## The result
 
-The result will be shown in the Bonita BPM Portal as a value in a field and in the .html file as a table containing the value or values.
+The result will be shown in the Bonita Portal as a value in a field and in the .html file as a table containing the value or values.
 
 **Note:** if you have already created a SAP connector and saved the settings, you can simply click on load, to automatically load the connection settings.
 
 ## Advanced features in Subscription Editions
 
-In the Bonita BPM Teamwork, Efficiency, and Performance editions, the SAP wizard has advanced features: You do not need to know the names of the functions by heart, as the functions are suggested in a dropdown menu.
+In the Bonita Teamwork, Efficiency, and Performance editions, the SAP wizard has advanced features: You do not need to know the names of the functions by heart, as the functions are suggested in a dropdown menu.
 
 * Filter functions by group: a dropdown list listing all the functions by group
 * Function description: a dropdown list listing all the functions, with auto-complete (just type the first letter e.g. G to give a list of Get functions

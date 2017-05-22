@@ -23,7 +23,7 @@ You must have an SAP license and an SAP server to use the connector.
 
 ### Download and install the SAP connector .zip files 
 
-To connect to an SAP system from Bonita BPM Studio, and have the correct graphic display, you must install the SAP .dll and .jar files onto your (Windows) machine. You must have an SAP User ID and password to enter the SAP Support Portal to download the files.
+To connect to an SAP system from Bonita Studio, and have the correct graphic display, you must install the SAP .dll and .jar files onto your (Windows) machine. You must have an SAP User ID and password to enter the SAP Support Portal to download the files.
 
 Go here (you will need to login first) [SAP Service marketplace.](http://service.sap.com/connectors)
 
@@ -32,7 +32,7 @@ JCo 3: `sapjco3-ntamd64-3.0.3`
 Contents of `sapjco-ntamd64-3.0.3.zip`
 
 * `Readme.txt`: contains instructions
-* `sapjco3.jar`: must be installed in the `/endorsed` directory of your Bonita BPM Studio installation
+* `sapjco3.jar`: must be installed in the `/endorsed` directory of your Bonita Studio installation
 * `sapjcorfc.dll`: must be installed in the Windows32 folder
 * `javadoc`: contains the .html help pages for installation
 * `examples`: contains some examples
@@ -41,7 +41,7 @@ Contents of `sapjco-ntamd64-3.0.3.zip`
 
 1. Extract the contents of the .zip file into a temporary directory, for example: `C:\temp\sapijco3`.
 2. Read the installation page provided with the sapjco distribution and follow the instructions.
-3. Put the `sapjco3.jar` file in the shared libraries directory of Bonita BPM, so that the jar is in the classloader used by the Bonita BPM Engine.
+3. Put the `sapjco3.jar` file in the shared libraries directory of Bonita, so that the jar is in the classloader used by the Bonita Engine.
 4. Put the native `sapjco.dll` or `.so` libraries in the java library path or the system path.
 
 ### How to import the SAP JCo3 library and make a request using an example function using the graphic display
@@ -50,7 +50,7 @@ Contents of `sapjco-ntamd64-3.0.3.zip`
 2. Click _**Open**_ to import the .jar file contents
 3. Click _**OK**_ to reboot the machine and save the configuration.
 4. When the connector window is displayed, the import .jar file button will have disappeared. This is replaced by **disabled** button. A .jar file cannot be imported twice.
-5. Fill in all the connection fields with the correct settings. Note that the SAP JCo 3 connector supports a single destination for all connector instances in Bonita BPM Engine.
+5. Fill in all the connection fields with the correct settings. Note that the SAP JCo 3 connector supports a single destination for all connector instances in Bonita Engine.
 6. Once all the fields are filled, test the connection by clicking on the _**test **_button.
 7. In the function definition window, only the function name is required.
 8. Click on the arrow at the end of the field to display a dropdown list of functions.

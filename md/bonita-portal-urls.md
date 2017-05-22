@@ -1,10 +1,10 @@
-# Bonita BPM Portal URLs
+# Bonita Portal URLs
 
-This page explains how to use a URL to access Bonita BPM Portal or the form for a specific task. In these URLs, the process names, versions and the task names must be URL encoded.
+This page explains how to use a URL to access Bonita Portal or the form for a specific task. In these URLs, the process names, versions and the task names must be URL encoded.
 
-## URL of Bonita BPM Portal
+## URL of Bonita Portal
 
-You can connect to Bonita BPM Portal from other tools using a URL of the form `http://`_`host`_`:`_`port`_`/bonita#?....`. Other forms of URL are liable to change in future versions. For example, use `http://localhost:8081/bonita#?process=myProcessId&locale=fr`, and do not use `http://localhost:8081/bonita/console/homepage#?process=myProcessId&locale=fr`.
+You can connect to Bonita Portal from other tools using a URL of the form `http://`_`host`_`:`_`port`_`/bonita#?....`. Other forms of URL are liable to change in future versions. For example, use `http://localhost:8081/bonita#?process=myProcessId&locale=fr`, and do not use `http://localhost:8081/bonita/console/homepage#?process=myProcessId&locale=fr`.
 
 ## Process instantiation URL
 
@@ -99,7 +99,7 @@ Example:
 ## Task URL
 
 ::: danger
-:fa-exclamation-triangle: **Important:** A task is not automatically assigned to the user who accesses the task form. If a user is using Bonita BPM Portal, the assignment is automatic. However, if a user is accessing a form directly from an application, there must first be a [REST API call to assign the task to the user](bpm-api.md). Otherwise, the user will not be able to execute the task.
+:fa-exclamation-triangle: **Important:** A task is not automatically assigned to the user who accesses the task form. If a user is using Bonita Portal, the assignment is automatic. However, if a user is accessing a form directly from an application, there must first be a [REST API call to assign the task to the user](bpm-api.md). Otherwise, the user will not be able to execute the task.
 :::
 
 The following code samples show how to generate a link to a human task.
@@ -167,8 +167,8 @@ Example:
 With the above format, the first task with the name "request approval" available for the user found in the process instance with id 8 will be displayed.
 
 ## Using autologin
-Bonita BPM 6.x URL syntax is supported in 7.x. Thus, 6.x autologin feature is supported in 7.0 version with 6.x URL syntax.
-Go to [Accessing Bonita BPM Portal and forms by URL 6.5 documentation](bonita-bpm-portal-urls.md) for more information about this.
+Bonita 6.x URL syntax is supported in 7.x. Thus, 6.x autologin feature is supported in 7.0 version with 6.x URL syntax.
+Go to [Accessing Bonita Portal and forms by URL 6.5 documentation](bonita-portal-urls.md) for more information about this.
 
 ## URL parameter summary
 

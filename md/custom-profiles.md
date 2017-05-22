@@ -4,13 +4,13 @@
 **Note:** For Performance and Efficiency editions only.
 :::
 
-In Bonita BPM Portal, you can customize profiles. To be able to do any customization of a profile, you must be using the **Administrator** profile or a custom profile with access to the profile management page.
+In Bonita Portal, you can customize profiles. To be able to do any customization of a profile, you must be using the **Administrator** profile or a custom profile with access to the profile management page.
 
 What customization can I do?
 
 ## Create a custom profile
 
-1. In the Bonita BPM Portal, in the navigation bar, click the **Organization** menu.
+1. In the Bonita Portal, in the navigation bar, click the **Organization** menu.
 2. Click **Profiles**.
 3. Click _**Add**_.
 4. In the popup, select **Create a profile**.
@@ -30,7 +30,7 @@ Select the profile to delete, and click the **delete button**.
 
 ## Edit a custom profile
 
-1. In the Bonita BPM Portal, in the navigation bar, click the **Organization** menu.
+1. In the Bonita Portal, in the navigation bar, click the **Organization** menu.
 2. Click **Profiles**.
 3. Click _**More**_.
 4. Click _**Edit**_.
@@ -39,7 +39,7 @@ Select the profile to delete, and click the **delete button**.
 
 ## Map a profile to users or groups, membership or role
 
-1. In the Bonita BPM Portal, in the navigation bar, click the **Organization** menu.
+1. In the Bonita Portal, in the navigation bar, click the **Organization** menu.
 2. Click **Profiles**.
 3. Choose a profile. This will display the users mapped to the selected profile.
 4. Click _**More**_.

@@ -1,4 +1,4 @@
-# Configure connection to Bonita BPM Engine
+# Configure connection to Bonita Engine
 
 If you want your application to use the engine API of a remote engine, your application (the *client*) must be configured to connect to the engine (the *server*)
 
@@ -8,7 +8,7 @@ The engine (the *server*) must also be configured to accept the connection.
 
 ## Client configuration
 
-There is three ways to configure the client to connect to the Bonita BPM Engine.
+There is three ways to configure the client to connect to the Bonita Engine.
 
 First the engine client verify if the configuration is set programmatically,
 then it tries to get the configuration set in system properties, finally it falls back to the legacy way of configuration that is the bonita home client.
@@ -149,7 +149,7 @@ org.bonitasoft.engine.ejb.naming.reference=ejb:bonita-ear/bonita-ejb/serverAPIBe
 ```
 
 If it is not already done for the WildFly server to accept remote connections, update the WildFly configuration file, standalone.xml:
-* In the interfaces section, modify the IP address so that the Bonita BPM Engine is visible to the network.
+* In the interfaces section, modify the IP address so that the Bonita Engine is visible to the network.
 * Specify that port 4447 comes from the remoting socket-binding.
 
 ## Troubleshooting

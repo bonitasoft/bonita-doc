@@ -22,7 +22,7 @@ creator.setProfessionalContactData(proContactDataCreator);
 final User user2 = identityAPI.createUser(creator);
 ```
 
-Now add the user to a Bonita BPM Portal profile. A user who does not have a profile cannot log in to Bonita BPM Portal.
+Now add the user to a Bonita Portal profile. A user who does not have a profile cannot log in to Bonita Portal.
 ```groovy
 // reference the user in the profile User
 // the user must be now registered in one profile. Let's choose the profile user
@@ -129,7 +129,7 @@ public class BonitaClientApplicationExample {
 
 ## Get the pending tasks for a user
 
-This example shows you how use the Bonita BPM Engine API to get the pending tasks for a user.
+This example shows you how use the Bonita Engine API to get the pending tasks for a user.
 
 It shows how to get the list of pending tasks, and then for each task, how to assign it to the user and execute it.
 

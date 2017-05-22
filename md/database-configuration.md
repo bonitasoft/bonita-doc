@@ -1,17 +1,17 @@
-# Database creation and settings to work with Bonita BPM 
+# Database creation and settings to work with Bonita 
 
 ## Database usage
 
-Bonita BPM uses an RDBMS (Relational DataBase Management System) for the following purposes:
- - One database schema is required by Bonita BPM Engine to store information about deployed process definitions, process configurations, history of process execution, users, as well as Bonita BPM Platform configuration information. 
+Bonita uses an RDBMS (Relational DataBase Management System) for the following purposes:
+ - One database schema is required by Bonita Engine to store information about deployed process definitions, process configurations, history of process execution, users, as well as Bonita Platform configuration information. 
 - We recommend that you configure a different database schema if your project uses [business data](define-and-deploy-the-bdm.md).
 
-Bonita BPM supports MySQL, PostgreSQL, SQL Server, and Oracle RDBMSs.
+Bonita supports MySQL, PostgreSQL, SQL Server, and Oracle RDBMSs.
 You can find the list of RDBMSs versions supported on the [supported database list](hardware-and-software-requirements.md) page.
 
 ## Default H2 database
 
-Bonita BPM Studio, the WildFly bundle, the Tomcat bundle, and the deploy bundle come by default with an embedded H2 RDBMS. The database is automatically created at first startup, and can be used for all purposes described earlier.
+Bonita Studio, the WildFly bundle, the Tomcat bundle, and the deploy bundle come by default with an embedded H2 RDBMS. The database is automatically created at first startup, and can be used for all purposes described earlier.
 
 However, H2 is only suitable for testing purposes. When building a production environment, you must switch to another RDBMS.  
 
@@ -19,12 +19,12 @@ However, H2 is only suitable for testing purposes. When building a production en
 
 ::: warning
 Please note this procedure cannot be performed using the Bonita Studio. The Bonita Studio can run only on the H2 Database. 
-To use Bonita BPM on another RDBMS, please use a [bundle](_basic-bonita-bpm-platform-installation.md) or set up a [standalone server](deploy-bundle.md).
+To use Bonita on another RDBMS, please use a [bundle](_basic-bonita-platform-installation.md) or set up a [standalone server](deploy-bundle.md).
 :::
 
 Here are the steps to follow. They are the same for the engine database and the business data database:
 1. Create the database
-2. Customize RDBMS to make it work with Bonita BPM    
+2. Customize RDBMS to make it work with Bonita    
 3. Add the JDBC driver to the bundle if the database is proprietary
 4. Configure the bundle with database information 
 
@@ -46,7 +46,7 @@ We recommend that you use the WildFly bundle provided by Bonitasoft.
 
 ### Create the database(s)
 
-The first step in configuring Bonita BPM with your RDBMS is to create the new databases (i.e. schemas): one for engine data, and another one, optionally, if you use business data. 
+The first step in configuring Bonita with your RDBMS is to create the new databases (i.e. schemas): one for engine data, and another one, optionally, if you use business data. 
 
 To do so, you need a RDBMS user account that has sufficient privileges (i.e. privileges to create new schema).
 
@@ -58,7 +58,7 @@ Also, note that the owner of the new schemas must own the following privileges:
 
 :::info
 CREATE TABLE and CREATE INDEX privileges are not required after first start in normal use.  
-If the same SQL user is used with the [migration tool](migrate-from-an-earlier-version-of-bonita-bpm.md), then this user needs such grants.
+If the same SQL user is used with the [migration tool](migrate-from-an-earlier-version-of-bonita.md), then this user needs such grants.
 :::
 
 To create the database(s), we recommend that you refer to your RDBMS documentation:
@@ -69,17 +69,17 @@ To create the database(s), we recommend that you refer to your RDBMS documentati
 * [MySQL](http://dev.mysql.com/doc/refman/5.5/en/database-use.html)
 
 Your database(s) must be configured to use the UTF-8 character set. 
-Also, you are recommended to configure the database(s) to be case-insensitive so that searches in Bonita BPM Portal are case-insensitive.
+Also, you are recommended to configure the database(s) to be case-insensitive so that searches in Bonita Portal are case-insensitive.
 
 <a id="specific_database_configuration" />
 
-### Customize RDBMS to make it work with Bonita BPM    
+### Customize RDBMS to make it work with Bonita    
 
 #### PostgreSQL
 
 Configure the database to use UTF-8\.
 
-Edit `postgresql.conf` and set a non-zero value for `max_prepared_transactions`. The default value, 0, disables prepared transactions, which is not compatible with Bonita BPM Engine.  
+Edit `postgresql.conf` and set a non-zero value for `max_prepared_transactions`. The default value, 0, disables prepared transactions, which is not compatible with Bonita Engine.  
 The value should be at least as large as the value set for `max_connections` (default is typically 100).  
 See the [PostgreSQL documentation](https://www.postgresql.org/docs/9.3/static/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) for details.
 
@@ -88,11 +88,11 @@ See the [PostgreSQL documentation](https://www.postgresql.org/docs/9.3/static/ru
 Make sure your database is configured to use the AL32UTF8 character set.
 If your database already exists, see the Oracle documentation for details of how to [migrate the character set](http://docs.oracle.com/cd/E11882_01/server.112/e10729/ch11charsetmig.htm#NLSPG011).
 
-Bonita BPM Engine uses datasources that handle global transactions that span resources (XADataSource), so the Oracle user used by Bonita BPM Engine, requires some specific privileges, and there are also specific settings for XA activation.
+Bonita Engine uses datasources that handle global transactions that span resources (XADataSource), so the Oracle user used by Bonita Engine, requires some specific privileges, and there are also specific settings for XA activation.
 
 ##### **Important information for a successful connection**
 
-The procedure below is used to create the settings to enable Bonita BPM Engine to connect to the Oracle database.
+The procedure below is used to create the settings to enable Bonita Engine to connect to the Oracle database.
 
 It is assumed in the procedure that:
    * Oracle product is already installed and running
@@ -131,7 +131,7 @@ It is assumed in the procedure that:
    ```
    This only needs to be done once, after the installation of Oracle.
 
-4. Create the database user to be used by the Bonita BPM Engine and grant the required rights:
+4. Create the database user to be used by the Bonita Engine and grant the required rights:
 
    SQL query \>
    ```sql
@@ -164,7 +164,7 @@ Therefore, using Bitronix as a Transaction Manager with SQL Server is not recomm
 
 To support XA transactions, SQL Server requires a specific configuration.
 You can refer to [MSDN](https://msdn.microsoft.com/en-us/library/aa342335(v=sql.110).aspx) for more information.
-Here is the list of steps to perform (as an example, the database name BONITA\_BPM is used):
+Here is the list of steps to perform (as an example, the database name BONITA is used):
 
 1. Make sure you have already downloaded and installed the [Microsoft SQL Server JDBC Driver 4.0](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774).
 2. Copy the `sqljdbc_xa.dll` from `%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc_4.0\enu\xa\x64\` (x64 for 64 bit version of Windows, x86 for 32 bit version of Windows) to `%SQLSERVER_INSTALL_ROO%\Instance_root\MSSQL12.MSSQLSERVER\MSSQL\Binn\.`
@@ -172,7 +172,7 @@ Here is the list of steps to perform (as an example, the database name BONITA\_B
 4. Execute the query in the Query Editor.
 5. To confirm successful execution of the script, open the "Object Explorer" and go to: **Master** \> **Programmability** \> **Extended Stored Procedures**.   
    You should have 12 new procedures, each with a name starting with `dbo.xp.sqljdbc_xa_`.
-6. Assign the new role 'SqlJDBCXAUser' to the user who owns the Bonita BPM Engine database (`bonitadev` in our example). To do so, execute the following commands in SQL editor:
+6. Assign the new role 'SqlJDBCXAUser' to the user who owns the Bonita Engine database (`bonitadev` in our example). To do so, execute the following commands in SQL editor:
    ```sql
    USE master;
    GO
@@ -193,18 +193,18 @@ Here is the list of steps to perform (as an example, the database name BONITA\_B
 13. Click on _**Security**_ tab. Ensure that the checkbox for **Enable XA Transactions** is checked.
 14. Click _**Apply**_, then click _**OK**_
 15. Then stop and restart SQLServer.
-16. Create the BONITA\_BPM database: `CREATE DATABASE BONITA_BPM GO`.
-17. Set `bonitadev` as owner of BONITA\_BPM database (use, for example, 'Microsoft SQL Management Studio')
+16. Create the BONITA database: `CREATE DATABASE BONITA GO`.
+17. Set `bonitadev` as owner of BONITA database (use, for example, 'Microsoft SQL Management Studio')
 
 ##### Recommended configuration for lock management
 
 Run the script below to avoid deadlocks:
 
 ```sql
-ALTER DATABASE BONITA_BPM SET SINGLE_USER WITH ROLLBACK IMMEDIATE
-ALTER DATABASE BONITA_BPM SET ALLOW_SNAPSHOT_ISOLATION ON
-ALTER DATABASE BONITA_BPM SET READ_COMMITTED_SNAPSHOT ON
-ALTER DATABASE BONITA_BPM SET MULTI_USER
+ALTER DATABASE BONITA SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+ALTER DATABASE BONITA SET ALLOW_SNAPSHOT_ISOLATION ON
+ALTER DATABASE BONITA SET READ_COMMITTED_SNAPSHOT ON
+ALTER DATABASE BONITA SET MULTI_USER
 ```
 See [MSDN](https://msdn.microsoft.com/en-us/library/ms175095(v=sql.110).aspx).
 
@@ -253,4 +253,4 @@ If you want to use surrogate characters in your processes, you need to use anoth
 
 ### Bundle database configuration
 
-Now that your databases are created and customized to work with Bonita BPM, you are ready to configure Bonita BPM bundles, either the [Tomcat bundle](tomcat-bundle.md) or the [WildFly bundle](wildfly-bundle.md).
+Now that your databases are created and customized to work with Bonita, you are ready to configure Bonita bundles, either the [Tomcat bundle](tomcat-bundle.md) or the [WildFly bundle](wildfly-bundle.md).

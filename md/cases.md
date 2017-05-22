@@ -51,7 +51,7 @@ if you are using the Performance or Efficiency edition, you can also open a diag
 On the diagram, colored flags on the steps show the number of step instances in the possible states. Click **_Show key_** to see an explanation of the display. 
 Remember that a failure at a step does not necessarily mean that the case has failed entirely, but it might indicate that some action is needed, perhaps to replay a connector.
 
-The process diagram is constructed from the deployed process definition. This means that some details visible in Bonita BPM Studio, such as comments, are not available.
+The process diagram is constructed from the deployed process definition. This means that some details visible in Bonita Studio, such as comments, are not available.
 
-Note: if a process was deployed from a bar file created in Bonita BPM Studio 6.3 or earlier, the diagram display is not available. This is because some details of the .bar structure have changed. 
-To see the diagram for such a process, export the process definition from Bonita BPM Studio 6.3 as a .bos file, import it into Bonita BPM Studio 6.4 or later, generate a new .bar file, and deploy it.
+Note: if a process was deployed from a bar file created in Bonita Studio 6.3 or earlier, the diagram display is not available. This is because some details of the .bar structure have changed. 
+To see the diagram for such a process, export the process definition from Bonita Studio 6.3 as a .bos file, import it into Bonita Studio 6.4 or later, generate a new .bar file, and deploy it.

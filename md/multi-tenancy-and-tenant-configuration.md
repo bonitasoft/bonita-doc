@@ -4,18 +4,18 @@
 **Note:** For Performance edition only.
 :::
 
-This page explains the architecture and configuration of a multi-tenant system using Bonita BPM.
+This page explains the architecture and configuration of a multi-tenant system using Bonita.
 
 ## Platform architecture
 
-By default, all installations of Bonita BPM create a single tenant. However multi-tenancy is possible with the Performance edition.
+By default, all installations of Bonita create a single tenant. However multi-tenancy is possible with the Performance edition.
 
 Multi-tenancy involves a single software installation, called a **platform**, that can serve multiple independent organizations, called **tenants**.
 Each tenant is a separate, self contained configuration for a single client/company. 
 Artifacts are deployed at tenant level, so a tenant has its own organization (users, groups, roles), processes (apps, cases, trasks), reports, and custom pages.
 Data within a tenant is completely isolated. A tenant cannot access data from any other tenant. A user logged in to a tenant cannot access any other tenant.
 
-After the installation of any Bonita BPM version (Community or Subscription), a single default tenant is created and ready for use.
+After the installation of any Bonita version (Community or Subscription), a single default tenant is created and ready for use.
 
 ![default](images/images-6_0/default_tenant_setup.png)  
 
@@ -28,7 +28,7 @@ These tenants are configured with a single database. This illustration shows a p
 
 The platform is the part of the system that is common to all tenants.
 
-Before the platform has been initialized, its configuration can be customized in `setup/platform_conf/initial`. However, in order to modify the configuration on an installation whose platform has already been initialized, you need to use the [plaform setup tool](BonitaBPM_platform_setup.md) to retrieve the current configuration and update the files in `setup/platform_conf/current/`. Then use the tool again to save your changes into to the database.
+Before the platform has been initialized, its configuration can be customized in `setup/platform_conf/initial`. However, in order to modify the configuration on an installation whose platform has already been initialized, you need to use the [plaform setup tool](Bonita_platform_setup.md) to retrieve the current configuration and update the files in `setup/platform_conf/current/`. Then use the tool again to save your changes into to the database.
 
 The engine platform configuration directory is located here: `platform_engine`.
 The portal platform configuration directory is located here: `platform_portal`.
@@ -84,14 +84,14 @@ The [platform REST API](platform-api.md) calls the Java PlatformAPI to create th
 
 A tenant is identified by an id, which is used to log in and to retrieve the tenant. A tenant also has a name. You can use the tenant name to retrieve the tenant id.
 
-### Bonita BPM Portal
+### Bonita Portal
 
-In order to access Bonita BPM Portal desktop and mobile application, add the parameter `tenant=TENANT_ID` (where TENANT\_ID is the tenant identifier) in the URL before you login.
+In order to access Bonita Portal desktop and mobile application, add the parameter `tenant=TENANT_ID` (where TENANT\_ID is the tenant identifier) in the URL before you login.
 
-Example for Bonita BPM Portal desktop version and tenant 2:  
+Example for Bonita Portal desktop version and tenant 2:  
 `http://localhost:8080/bonita/login.jsp?tenant=2`
 
-Example for Bonita BPM Portal mobile version and tenant 2:  
+Example for Bonita Portal mobile version and tenant 2:  
 `http://localhost:8080/bonita/mobile/?tenant=2`
 
 ### Bonita APIs
@@ -151,4 +151,4 @@ While service is paused in a tenant, only the following methods are valid:
 If you attempt an operation that is not permitted while a tenant is paused, a `TenantIsPausedException` is thrown.
 
 You can also pause and resume a tenant using the 
-[REST API](platform-api.md) or [Bonita BPM Portal](pause-and-resume-bpm-services.md).
+[REST API](platform-api.md) or [Bonita Portal](pause-and-resume-services.md).

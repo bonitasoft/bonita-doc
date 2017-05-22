@@ -113,7 +113,7 @@ public void createCase(String processDefinitionName, String processVersion, Map<
 
 #### Create a map of variables and values and start a process instance
 
-Version 6.1 of Bonita BPM introduces a new method for starting a case of process and setting the variables. 
+Version 6.1 of Bonita introduces a new method for starting a case of process and setting the variables. 
 
 Create a map specifying the values of the variables required to start a case, then pass it to the `instantiateProcess` method, as shown in the following example:
 ```java
@@ -221,7 +221,7 @@ processAPI.cancelProcessInstance(processInstanceID);
 
 ## Deploy a process
 
-This example will show how to use the Bonita BPM Engine API to deploy and enable a process.
+This example will show how to use the Bonita Engine API to deploy and enable a process.
 
 The process can be in a business archive (`.bar`) file or can be built using the `processDefinitionBuilder`.
 

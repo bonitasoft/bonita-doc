@@ -1,22 +1,22 @@
 # Engine API overview
 
-You can use the Bonita BPM Engine APIs to customize or add to the Bonita BPM software. Typical developments are adding a connector, adding an actor filter, and replacing or supplementing a service.
+You can use the Bonita Engine APIs to customize or add to the Bonita software. Typical developments are adding a connector, adding an actor filter, and replacing or supplementing a service.
 
 ## Concepts
 
 ### Session
 
-This version of Bonita BPM introduces the concept of a _session_. A session is the context in which processing occurs, and is created when a user logs in to the Engine. 
+This version of Bonita introduces the concept of a _session_. A session is the context in which processing occurs, and is created when a user logs in to the Engine. 
 
 The APIs remain available for the duration of a session. 
 
 ### User validation
 
-This version of Bonita BPM introduces user validation: when a user name and password are sent to the Engine, it checks that the user exists in the current organization. If the user is not known, an error is thrown and processing stops.
+This version of Bonita introduces user validation: when a user name and password are sent to the Engine, it checks that the user exists in the current organization. If the user is not known, an error is thrown and processing stops.
 
 ## APIs
 
-Bonita BPM Engine has the following Java APIs:
+Bonita Engine has the following Java APIs:
 | | |
 |:-|:-|
 | Identity API | Manages information about an organization, that is, the set of users who can act in processes. Handles creation, modification, and deletion of organizations, groups, roles, memberships, and users.|  
@@ -27,7 +27,7 @@ Bonita BPM Engine has the following Java APIs:
 | Log API | provides access to business logs, for searching and to retrieve information about current or archived processes.|  
 | Platform command API | Creates, starts, stops platform.|  
 | Document API | Manages documents that are attached to a process instance.|  
-| Theme API | Manages the Look & Feel of the Bonita BPM Portal web and mobile interfaces and forms.|  
+| Theme API | Manages the Look & Feel of the Bonita Portal web and mobile interfaces and forms.|  
 | Tenant Management API | Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in Teamwork, Efficiency, and Performance editions.|  
 
 There is also a Web API, which is for internal use only, and a Command API,
@@ -42,7 +42,7 @@ There is also a high-level [Web REST API](rest-api-overview.md), intended for cu
 
 ## API access
 
-The Bonita BPM Engine APIs can be accessed locally or remotely, in the following modes:
+The Bonita Engine APIs can be accessed locally or remotely, in the following modes:
 
 * Local: the client accesses the server directly in local mode
 * EJB3: the client accesses a remote server using EJB3 mode
@@ -54,9 +54,9 @@ The mode you use must be specified in the bonita-client-custom.properties file. 
 
 There is a slight overhead in using the remote access methods, so you are recommended to use local access whenever it is possible.
 
-## Getting started with the Bonita BPM Engine APIs
+## Getting started with the Bonita Engine APIs
 
-Before you run a Bonita BPM application, configure how the application (client) accesses the Bonita BPM Engine (server). For a HTTP access it can be done using following code:
+Before you run a Bonita application, configure how the application (client) accesses the Bonita Engine (server). For a HTTP access it can be done using following code:
 
 ```java
  final Map<String, String> parameters = new HashMap<>();

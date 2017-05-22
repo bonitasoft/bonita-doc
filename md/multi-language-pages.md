@@ -4,9 +4,9 @@
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 
-In the Bonita BPM Subscription editions, the UI Designer includes a mechanism to add translations for page, layout and forms elements, to support multi-language applications.  
-The text displayed in the preview and at runtime adapts to the locale or browser language automatically. The UI Designer itself, that speaks to developers, not end-users, is displayed in the language of your Bonita BPM Studio.  
-The Preview window is displayed in the language set for Bonita BPM Portal, since it speaks to the end-users.
+In the Bonita Subscription editions, the UI Designer includes a mechanism to add translations for page, layout and forms elements, to support multi-language applications.  
+The text displayed in the preview and at runtime adapts to the locale or browser language automatically. The UI Designer itself, that speaks to developers, not end-users, is displayed in the language of your Bonita Studio.  
+The Preview window is displayed in the language set for Bonita Portal, since it speaks to the end-users.
 
 You can translate all text strings displayed on a page, layout or form: the labels, the placeholders, the available values of a list, and the date format of the Date Picker widget. You can also translate fragments and custom widgets strings that the page, layout or form embeds.
 
@@ -38,13 +38,13 @@ The code that specifies a language in `localization.json` must be the same as th
 
 By default, US english strings are used as the keys for translation. But you could use any code or language for the keys, and create an en-US section of translations to consider english as any other translated language. That option allows to freely change english strings with no duplication on every other language section.
 
-In production, a page, layout or form is displayed in the language specified by the BOS\_locale cookie value. This value must match exactly one of the language codes in the `localization.json` asset. The BOS\_locale value is set by selecting a language in Bonita BPM Portal or in a custom widget. If BOS\_locale is not set or its value does not match a language code, the browser language is used. If neither the BOS\_locale nor the browser language matches a language code in `localization.json`, the untranslated keys are displayed in the page.
+In production, a page, layout or form is displayed in the language specified by the BOS\_locale cookie value. This value must match exactly one of the language codes in the `localization.json` asset. The BOS\_locale value is set by selecting a language in Bonita Portal or in a custom widget. If BOS\_locale is not set or its value does not match a language code, the browser language is used. If neither the BOS\_locale nor the browser language matches a language code in `localization.json`, the untranslated keys are displayed in the page.
 
 
 ## Tutorial: creating a multi-language page
 
 This tutorial explains how to create a multi-language version of the Travel Tool application page from the [getting started tutorial](getting-started-tutorial.md), adding french and russian text to the page, initially developped in US-english. It assumes that you have already created the Travel Tool page following the instructions in the [getting started tutorial](getting-started-tutorial.md).
-French is supported by default in Bonita BPM, along with US-english and Spanish. Russian is not.
+French is supported by default in Bonita, along with US-english and Spanish. Russian is not.
 
 ### Translate the text
 
@@ -67,11 +67,11 @@ yes
 no
 ```
 
-Now translate the text outside of Bonita BPM, in any suitable translation editor, or spreadsheet. 
+Now translate the text outside of Bonita, in any suitable translation editor, or spreadsheet. 
 
-### Add languages to Bonita BPM Portal
+### Add languages to Bonita Portal
 
-Before you can view a page in a language, that language must be supported for Bonita BPM web applications. French is one of the default languages supported, so you just need to add support for Russian. To do this, [add Russian from the Community translations to your Bonita BPM Portal](languages.md). Make sure that you add both the Community and Subscription files. Then restart your Bonita BPM Studio, start the Portal, and change the language to Russian to check that it is available.
+Before you can view a page in a language, that language must be supported for Bonita web applications. French is one of the default languages supported, so you just need to add support for Russian. To do this, [add Russian from the Community translations to your Bonita Portal](languages.md). Make sure that you add both the Community and Subscription files. Then restart your Bonita Studio, start the Portal, and change the language to Russian to check that it is available.
 
 ### Add a localization asset to the page
 
@@ -128,7 +128,7 @@ The strings to translate in a fragment must be added to the localization.json fi
 
 ### Preview the page
 
-Now preview the page in each language. To do this, you need to modify the language used for Bonita BPM web applications, which you do by setting the Portal language from the Portal Settings menu.
+Now preview the page in each language. To do this, you need to modify the language used for Bonita web applications, which you do by setting the Portal language from the Portal Settings menu.
 
 ![Multi-language page previews](images/images-6_0/l10n-combined-previews.png)
 
@@ -140,7 +140,7 @@ Check the translated versions of the page, and update the translated text if nec
 
 To put a multi-language page into production in an application, follow the same steps as for a single-language page: [upload the page to the Portal](resource-management.md) and then [add it to the application](applications.md). You can follow the steps for [building the application](getting-started-tutorial.md) from the getting started tutorial.
 
-After deployment, an application user will see the page in the language configured for their Bonita BPM web applications. A user can set this by selecting the language in the Bonita BPM Portal. If the selected language is not supported by the page localization.json file, the untranslated keys are displayed.
+After deployment, an application user will see the page in the language configured for their Bonita web applications. A user can set this by selecting the language in the Bonita Portal. If the selected language is not supported by the page localization.json file, the untranslated keys are displayed.
 
 ## Sharing translations
 

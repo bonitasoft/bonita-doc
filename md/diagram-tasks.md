@@ -3,10 +3,10 @@
 A task is an activity in a process. There are several different kinds of task:
 
 * A human task is carried out by a person using a form to enter data or to receive information.
-* A service task is carried out automatically by the Bonita BPM Engine and is invisible to users during normal operation.
+* A service task is carried out automatically by the Bonita Engine and is invisible to users during normal operation.
 * A call activity calls a subprocess. The sequence flow of the process passes from the call activity
 to the subprocess. When the subprocess is complete, the flow returns to the call activity.
-* A script task executes a script in the Bonita BPM Engine.
+* A script task executes a script in the Bonita Engine.
 * An abstract is a generic activity, usually used during diagram creation as a placeholder for a more specific type of task. 
 An abstract task is treated as a service task when a process executes.
 * A send task sends a message to another process in the same diagram. The message is caught by a catch message event or a receive task.
@@ -46,7 +46,7 @@ of an task in the diagram.
 
 Setting the task name seen in the Portal <!--{.h2}-->
 
-When you define a task in Bonita BPM Studio, by default the task name and description in Bonita BPM Portal are the same as the task name and description on the diagram. 
+When you define a task in Bonita Studio, by default the task name and description in Bonita Portal are the same as the task name and description on the diagram. 
 You can override this by setting the _Display name_, _Display description_, and _Description after completion_ in the Details panel, General tab, Portal pane.
 
 * _Display name_: used in the message displayed at the end of a task indicating the name of the new task that is available, and used in the task To Do list.

@@ -29,7 +29,7 @@ There are also a number of variables that are provided by default in a process, 
 
 ## Transient data
 
-A variable can be transient or persistent. A transient variable is stored only in memory, saving database transactions. A persistent variable is stored in the Bonita BPM Engine database.
+A variable can be transient or persistent. A transient variable is stored only in memory, saving database transactions. A persistent variable is stored in the Bonita Engine database.
 
 It is possible to update the value of a transient variable in a task, but this is not recommended. The value of a transient variable in a task is not preserved when the app server restarts. The value is reset to the initial value. When deciding whether to use a transient or persistent variable, consider whether the the variable is used in an operation. In particular, if a operation script does several things, one of which is to update a transient variable and the app server restarts after the script has run but before the end of the task, the transient variable is reset but the other changes made by the script survive the restart.
 
@@ -71,7 +71,7 @@ When you define a variable, you specify a name and the data type. Optionally, yo
 
 ## Data types
 
-Bonita BPM has a number of predefined data types: Boolean, date, integer, long, double, text, Java object, XML schema (XSD) and option list. You can also define a variable as _multiple_, that is, an array or collection of values of the specified type.
+Bonita has a number of predefined data types: Boolean, date, integer, long, double, text, Java object, XML schema (XSD) and option list. You can also define a variable as _multiple_, that is, an array or collection of values of the specified type.
 
 Note that since 7.0, Business data is now available. For a detailed explanation, see the [Business Data overview](define-and-deploy-the-bdm.md).
 
@@ -90,7 +90,7 @@ You are recommended to use meaningful names for variables. This make process deb
 
 The simple data types are Boolean, date, integer, long, double, and text. To define a variable with one of these types:
 
-1. Open your process diagram in Bonita BPM Studio.
+1. Open your process diagram in Bonita Studio.
 2. Select the process pool or the step where you want the variable.
 3. Go to the **Details** panel, **General** view, **Data** pane. A list of the variables already defined is displayed.
 4. Choose if you want to add Process data or Business data. Click **_Add..._**.
@@ -113,7 +113,7 @@ You can define a variable whose data type is Java object. Before you define the 
 
 To add a Java object variable:
 
-1. Open your process diagram in Bonita BPM Studio.
+1. Open your process diagram in Bonita Studio.
 2. Select the process pool or the step where you want the variable.
 3. Go to the **Details** panel, **General** view, **Data** pane. A list of the variables already defined is displayed.
 4. Click **_Add..._**.
@@ -139,7 +139,7 @@ The data type definition is stored in an XML schema (XSD) file that belongs to a
 
 To add an XML variable:
 
-1. Open your process diagram in Bonita BPM Studio.
+1. Open your process diagram in Bonita Studio.
 2. Select the process pool or the step where you want the variable.
 3. Go to the **Details** panel, **General** view, **Data** pane. A list of the variables already defined is displayed.
 4. Click **_Add..._**.
@@ -162,7 +162,7 @@ You can use a list of options when the value of a variable is one or more of a f
 
 To add a static list of options variable:
 
-1. Open your process diagram in Bonita BPM Studio.
+1. Open your process diagram in Bonita Studio.
 2. Select the process pool or the step where you want the variable.
 3. Go to the **Details** panel, **General** view, **Data** pane. A list of the variables already defined is displayed.
 4. Click **_Add..._**.

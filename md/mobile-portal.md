@@ -1,10 +1,10 @@
 # Mobile Portal
 
-The mobile version of Bonita BPM Portal only displays functions available to the logged-in user only. Functions for other profiles are not available.
+The mobile version of Bonita Portal only displays functions available to the logged-in user only. Functions for other profiles are not available.
 
 ## Security login
 
-Use the same user login and password as Bonita BPM Portal (based on the same database)
+Use the same user login and password as Bonita Portal (based on the same database)
 
 ## Do I need a special license?
 
@@ -12,11 +12,11 @@ You will need an Efficiency license (and above) to run the mobile version
 
 ## What deployment bundle do I need to access the mobile version?
 
-Bonita BPM Subscription Pack edition
+Bonita Subscription Pack edition
 
 ## How do I access it?
 
-Add `/mobile` after Bonita BPM in the URL
+Add `/mobile` after Bonita in the URL
 
 For example: [http://localhost:8080/bonita/mobile](http://localhost:8080/bonita/mobile)
 
@@ -27,7 +27,7 @@ Only the user profile is available.
 ## Mobile language
 
 * How do I change the language of the mobile interface
-* You need to change the language in the Bonita BPM Portal first
+* You need to change the language in the Bonita Portal first
 [see Languages](languages.md)
 
 ## Navigation

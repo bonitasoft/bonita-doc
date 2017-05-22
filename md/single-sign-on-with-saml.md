@@ -4,19 +4,19 @@
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 
-This pages explains how to configure your Bonita BPM Platform system to use the SAML protocol to provide single sign-on (SSO). It assumes you already have a SAML identity provider server up and running (IdP).
+This pages explains how to configure your Bonita Platform system to use the SAML protocol to provide single sign-on (SSO). It assumes you already have a SAML identity provider server up and running (IdP).
 
-This information applies to a Bonita BPM platform deployed from a bundle, not to the Engine launched from Bonita BPM Studio.
+This information applies to a Bonita platform deployed from a bundle, not to the Engine launched from Bonita Studio.
 
 SAML configuration is at tenant level. Each tenant can use a different authentication method (over SAML or not).
 
 :::info 
-**Note:** Bonita BPM uses [Keycloak](http://www.keycloak.org/) as SAML service provider adapter.
+**Note:** Bonita uses [Keycloak](http://www.keycloak.org/) as SAML service provider adapter.
 :::
 
-## SAML overview for Bonita BPM 
+## SAML overview for Bonita
 
-This is an overview that relates the steps required to integrate a bonita BPM bundle with an SAML identity provider.
+This is an overview that relates the steps required to integrate a bonita bundle with an SAML identity provider.
 
 ![Authentication over SAML](images/saml-overview.png)<!--{.img-responsive}-->
 
@@ -26,7 +26,7 @@ it is composed of:
 
 - A servlet filter that intercept all the requests to bonita portal pages  
 
-   It checks if the user is already logged in on Bonita BPM 
+   It checks if the user is already logged in on Bonita 
     
     - If already logged in => Allow the access
     - If not logged in => Redirect to IdP (with user info)
@@ -47,18 +47,18 @@ it is composed of:
  If some users need to be able to log in without having an account on the IDP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (/loging.jsp) provided they have a bonita account and their password is different from their username.
 :::
 
-## Configure Bonita BPM Bundle for SAML
+## Configure Bonita Bundle for SAML
 
 You need to execute the following actions in the folder of each tenant for which you want to support authentication over SAML.
 If you want this configuration to also apply to each tenant created later, make sure to also perform those actions in the *template* tenant configuration folder:
 `setup/platform_conf/current/tenant_template_*` (if you have not started the Bonita bundle yet, the files are located in `setup/platform_conf/initial/tenant_template_*`)
 
-The bundle already contains the files needed to use SAML with Bonita BPM platform.  
-To configure Bonita BPM for SAML:
+The bundle already contains the files needed to use SAML with Bonita platform.  
+To configure Bonita for SAML:
 
 1. If you do not already have one:
     1. Download a Subscription edition bundle from the customer portal
-    1. [Configure](_basic-bonita-bpm-platform-installation) it as needed
+    1. [Configure](_basic-bonita-platform-installation) it as needed
     1. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
     1. Stop it before modifying the configuration files below
 2. In the tenant_portal folder of each existing tenant: `$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
@@ -204,7 +204,7 @@ So the SingleLogoutService configuration is not used (but the element still need
 :::
 
 ::: info
-**Note 2:** If your Bonita BPM platform is behind a proxy server, You need to make sure the reverse proxy is configured 
+**Note 2:** If your Bonita platform is behind a proxy server, You need to make sure the reverse proxy is configured 
 to include correct headers and application server is configured to use the headers. This is required so 
 HttpServletRequest.getRequestURL returns the URL used by the user and not the internal URL used by the proxy.  
 :::
@@ -215,9 +215,9 @@ To troubleshoote SSO login issues, you need to increase the [log level](logging.
 
 ## Configure logout behaviour
 
-#### Bonita BPM Portal
+#### Bonita Portal
 
-When your Bonita BPM platform is configured to manage authentication over SAML, when users log out of Bonita BPM Portal, they do not log out of the SAML Identity Provider (IdP).  
+When your Bonita platform is configured to manage authentication over SAML, when users log out of Bonita Portal, they do not log out of the SAML Identity Provider (IdP).  
 Therefore they are not logged out of all applications that are using the IdP.  
 To avoid this, you can hide the logout option of the portal. 
 To do this, set the `logout.link.hidden=true` option in `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` 
@@ -230,15 +230,15 @@ to the configured session timeout value upon each user interaction with the serv
 
 ## Manage passwords
 
-When your Bonita BPM platform is configured to manage authentication over SAML, the user password are managed in your SAML Identity provider (IdP).  
-However, when you create a user in Bonita BPM Portal, specifying a password is mandatory. This password is ignored.
+When your Bonita platform is configured to manage authentication over SAML, the user password are managed in your SAML Identity provider (IdP).  
+However, when you create a user in Bonita Portal, specifying a password is mandatory. This password is ignored.
 
 ## LDAP synchronizer and SAML
 
 If you are using an LDAP service and the [LDAP synchronizer](ldap-synchronizer.md) to manage your user data,   
 you can continue to do this and manage authentication over SAML.  
-The LDAP synchronizer user must be registered in Bonita BPM (no need for an SAML IdP account). It is recommended though to use the tenant admin account.   
-We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your Bonita BPM platform.
+The LDAP synchronizer user must be registered in Bonita (no need for an SAML IdP account). It is recommended though to use the tenant admin account.   
+We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your Bonita platform.
 
 ::: info
 **Note :** By default the [LDAP synchronizer](ldap-synchronizer.md) sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `saml.auth.standard.allowed` in **authenticationManager-config.properties**), users won't be able to log in with the portal login page directly without going through the IdP.   
@@ -260,5 +260,5 @@ Here is the subset of pages filtered by the SAML filter:
 
 REST API are not part of them, but if an http session already exists thanks to cookies, REST API can be used.
 
-The recommended way to authenticate to Bonita BPM Portal to use the REST API is to use the [login service](rest-api-overview.md#bonita-authentication)..
+The recommended way to authenticate to Bonita Portal to use the REST API is to use the [login service](rest-api-overview.md#bonita-authentication)..
 

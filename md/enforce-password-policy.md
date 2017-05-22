@@ -6,7 +6,7 @@
 
 ## Overview
 
-By default, no password policy is set for users of Bonita BPM. It is therefore highly recommended to set a policy to protect your data.
+By default, no password policy is set for users of Bonita. It is therefore highly recommended to set a policy to protect your data.
 
 There are three options:
 
@@ -18,7 +18,7 @@ There are three options:
   * at least 2 lower case characters
   * at least 3 digits
 
-To apply this policy edit [`security-config.properties`](BonitaBPM_platform_setup.md) and change `DefaultPasswordValidator` to `RobustnessPasswordValidator`.
+To apply this policy edit [`security-config.properties`](Bonita_platform_setup.md) and change `DefaultPasswordValidator` to `RobustnessPasswordValidator`.
 * Create a custom password policy by following the tutorial below.
 
 ## How to create a custom password policy
@@ -37,7 +37,7 @@ Import **Toolkitview** into your workspace.
 Here are the steps to add a custom password validator: 
 
 1. Open Maven, and create a new Maven Project. This will create a pom.xml
-2. Add a new dependency in your pom.xml to get toolkit-view (x.y.z is the Bonita BPM version number).
+2. Add a new dependency in your pom.xml to get toolkit-view (x.y.z is the Bonita version number).
 ```xml
 <dependencies>
       <dependency>

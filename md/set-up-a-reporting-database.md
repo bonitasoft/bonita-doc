@@ -7,7 +7,7 @@
 Before you put reporting in place, you need to create a dedicated reporting database.
 For performance reasons, it is a best practice to isolate reporting data from live data.
 
-This installation is performed manually outside of Bonita BPM.
+This installation is performed manually outside of Bonita.
 This documentation does not detail the installation procedure of such a database but provides some best practices.
 
 Best practices <!--{.h2}-->

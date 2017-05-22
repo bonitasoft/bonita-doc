@@ -6,7 +6,7 @@
  Another consequence is that it removes a margin which was automatically added at the top of each pages.
 :::
 
-This page explains how to create and add a layout to the Bonita BPM Portal, and how to use it in an application.
+This page explains how to create and add a layout to the Bonita Portal, and how to use it in an application.
 
 A layout is a page used to define the main frame of an application.
 
@@ -23,7 +23,7 @@ For example, you could:
 * change the menu to add a side menu
 * add a footer
 
-Layouts are [exported. imported, modified, and deleted](resource-management.md) as resources in Bonita BPM Portal. 
+Layouts are [exported. imported, modified, and deleted](resource-management.md) as resources in Bonita Portal. 
 
 ## Layout definition
 

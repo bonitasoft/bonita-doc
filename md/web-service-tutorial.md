@@ -122,7 +122,7 @@ This example process will use a Web Service connector to call a sample Web Servi
   * Select the **No result found task **and add a blank form by going into the Application > Pageflow tab
     * Add a message widget and sets its initial value to “Sorry, no result found.”
     * Add a submit button and name it “Close”
-  * Once you have finished creating the diagram and configuring the tasks, the script and form fields, click **Run** to deploy and run the process in Bonita BPM Portal.
+  * Once you have finished creating the diagram and configuring the tasks, the script and form fields, click **Run** to deploy and run the process in Bonita Portal.
   * In the first form, enter a country and a city e.g. France, Grenoble
   * Click _**Get Weather Forecast**_
   * Click _**Display weather**_

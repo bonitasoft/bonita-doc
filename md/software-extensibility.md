@@ -1,7 +1,7 @@
 # Software extensibility
 
-Bonita BPM provides a rich set of features by default. These features are designed to meet the needs of most of your projects. 
-However, if a project has a need that was not anticipated and cannot be met by the default features, Bonita BPM has been designed to be extensible. 
+Bonita provides a rich set of features by default. These features are designed to meet the needs of most of your projects. 
+However, if a project has a need that was not anticipated and cannot be met by the default features, Bonita has been designed to be extensible. 
 This page lists the extension points that are available.
 
 
@@ -9,33 +9,33 @@ This page lists the extension points that are available.
 
 ## Stable extension points
 
-The following elements are designed to be extension points of Bonita BPM. 
-These extension points are guaranteed to be stable across versions of Bonita BPM 6: Java interfaces and XML schema will be kept backward compatible so that your implementation will work even after a Bonita BPM version upgrade.
+The following elements are designed to be extension points of Bonita. 
+These extension points are guaranteed to be stable across versions of Bonita 6: Java interfaces and XML schema will be kept backward compatible so that your implementation will work even after a Bonita version upgrade.
 
 ### Connectors
 
 In Community, Teamwork, Efficiency, and Performance editions
 
-Bonita BPM comes with more than 80 [standard connectors](_connectivity.md) to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
+Bonita comes with more than 80 [standard connectors](_connectivity.md) to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
 A new connector enables you to provide new connectivity capabilities for processes. 
 To [implement a new connector](connectors-overview.md), you need to provide some XML description files and a 
 Java class respecting the [Connector interface](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html). 
-Connectors can be implemented directly from Bonita BPM Studio.
+Connectors can be implemented directly from Bonita Studio.
 
 ### Actor filters
 
 In Community, Teamwork, Efficiency, and Performance editions
 
-Bonita BPM comes with a set of [standard actor filters](actor-filtering.md) that can be used to reduce the list of candidates for process tasks.
+Bonita comes with a set of [standard actor filters](actor-filtering.md) that can be used to reduce the list of candidates for process tasks.
 A new actor filter enables you to provide new filtering capabilities to processes. To [implement a new actor filter](creating-an-actor-filter.md), 
 you need to provide some XML description files and a Java class respecting the [UserFilter interface](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html). 
-Actor filters can be implemented directly from Bonita BPM Studio.
+Actor filters can be implemented directly from Bonita Studio.
 
 ### Engine API
 
 In Community, Teamwork, Efficiency, and Performance editions
 
-The [Bonita BPM Engine APIs](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html) enable you to:
+The [Bonita Engine APIs](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html) enable you to:
 
 * start and stop the engine
 * design, install, configure and interact with processes
@@ -47,17 +47,17 @@ ProcessBuilder and Business Objects DAO are examples of APIs that can be leverag
 
 In Community, Teamwork, Efficiency, and Performance editions
 
-The [REST APIs](rest-api-overview.md) enable you to integrate your Bonita BPM processes into your application and execute operations on Bonita BPM objects including business objects. 
+The [REST APIs](rest-api-overview.md) enable you to integrate your Bonita processes into your application and execute operations on Bonita objects including business objects. 
 Pages and forms created with the UI designer reply on the REST APIs to manage data.
 
 In addition to the standard APIs and resources, you can define [REST API extensions](rest-api-extensions.md). 
-In the Bonita BPM subscription edition, Bonita BPM Studio contains [tooling for creating, testing, and deploying REST API extensions](rest-api-extensions.md).
+In the Bonita subscription edition, Bonita Studio contains [tooling for creating, testing, and deploying REST API extensions](rest-api-extensions.md).
 
 ### Custom pages
 
 In Community, Teamwork, Efficiency, and Performance editions
 
-A [custom page](pages.md) is a page that you can add into Bonita BPM Portal to form part of an application, customize information provided in default portal pages, or to add new features to the portal. 
+A [custom page](pages.md) is a page that you can add into Bonita Portal to form part of an application, customize information provided in default portal pages, or to add new features to the portal. 
 To implement a page, you need to provide HTML, CSS and Javascript resources respecting some packaging constraints. 
 You can create a page using the [UI designer](ui-designer-overview.md), which automatically creates a well-formed page. 
 You can also use the legacy 6.x custom page construction methods.
@@ -86,8 +86,8 @@ These methods manipulate files with formats that are versioned. Newer versions o
 
 In Teamwork, Efficiency, and Performance editions
 
-From Bonita BPM 6.3, the Engine authentication service is considered to be an official extension point of the solution. It is now safe to provide your own implementation of this service to better fit the needs of your projects.
-[Default authentication implementations](user-authentication-overview.md) are provided allow to check user credentials from the Bonita BPM database, LDAP or a CAS SSO server (using JAAS).
+From Bonita 6.3, the Engine authentication service is considered to be an official extension point of the solution. It is now safe to provide your own implementation of this service to better fit the needs of your projects.
+[Default authentication implementations](user-authentication-overview.md) are provided allow to check user credentials from the Bonita database, LDAP or a CAS SSO server (using JAAS).
 To implement an Authentication Service, provide a Java class respecting the Authentication Service interface.
 
 ### Event handlers
@@ -101,7 +101,7 @@ To [implement an event handler](event-handlers.md), you need to provide a Java c
 
 In Teamwork, Efficiency, and Performance editions
 
-Bonita BPM includes a script, BonitaStudioBuilder (also known as the Workspace API), for building a bar file from a process in a repository. 
+Bonita includes a script, BonitaStudioBuilder (also known as the Workspace API), for building a bar file from a process in a repository. 
 This intended to be used for [automating process builds](automating-process-builds.md) in a continuous integration and testing environment.
 You can use the BonitaStudioBuilder to build a bar file for processes stored in a repository. This script will be kept stable in time.
 
@@ -109,12 +109,12 @@ You can use the BonitaStudioBuilder to build a bar file for processes stored in 
 
 In Teamwork, Efficiency, and Performance editions
 
-The Bonita BPM Portal Look & Feel gives the ability to customize the appearance of the portal Web interface. As a Portal Administrator, you can import a new Look & Feel (.zip archive). 
+The Bonita Portal Look & Feel gives the ability to customize the appearance of the portal Web interface. As a Portal Administrator, you can import a new Look & Feel (.zip archive). 
 To [create a new Look & Feel](creating-a-new-look-feel.md), provide CSS and resources files.
 
 ### Portal language pack
 
-Bonita BPM Portal comes with a number of language packs by default. You can also [add languages](languages.md). 
+Bonita Portal comes with a number of language packs by default. You can also [add languages](languages.md). 
 It is also possible to use this same mechanism to customize the portal terminology to your business environment. For example, an e-commerce business could change _Cases_ to _Orders_.
 
 ### Custom data types
@@ -127,11 +127,11 @@ Note that although the custom data type framework provided in the product is sta
 
 The following elements may be used as extension points but there is no guarantee of stability across versions. No changes are planned, but we reserve the right to change make incompatible changes in any future version.
 
-* **Portal URLs and Forms URLs**. Some customer projects have used hard-coded or forged URLs to access specific pages of Bonita BPM Portal or forms, to fit in with specific technology or navigation constraints. 
-While such URLs have so far been quite stable, there is no guarantee that they will not change across Bonita BPM versions. 
-Recommendation: if your project relies on such URLs, make URL generation configurable so that you can easily change it if required after a Bonita BPM upgrade.
+* **Portal URLs and Forms URLs**. Some customer projects have used hard-coded or forged URLs to access specific pages of Bonita Portal or forms, to fit in with specific technology or navigation constraints. 
+While such URLs have so far been quite stable, there is no guarantee that they will not change across Bonita versions. 
+Recommendation: if your project relies on such URLs, make URL generation configurable so that you can easily change it if required after a Bonita upgrade.
 * **Forms HTML templates**. It is possible to modify the HTML page template, HTML process template, or HTML portal template to customize the appearance and behavior of forms. 
-There is no guarantee that these templates will not change across Bonita BPM versions. 
+There is no guarantee that these templates will not change across Bonita versions. 
 If a form uses some Javascript code based on an element in the HTML Document Object Model, the element may be moved, modified or removed in a future version so the Javascript will no longer work.
 * **Authorization Rule Mapping**. It is possible to modify authorization rules mapping applied to start a process, display process overview or execute a task. 
 You can customize this mapping by defining your own bean and override property. See [Authorization Rule Mapping](custom-authorization-rule-mapping.md)   
@@ -144,7 +144,7 @@ This provides clear isolation of responsibility and eases maintenance. The inter
 
 ## Backward compatibility
 
-In Bonita BPM 6.x and 7.x, we ensure backward compatibility of the following:
+In Bonita 6.x and 7.x, we ensure backward compatibility of the following:
 
 * Engine API (except items marked as deprecated)
 * Web REST API (except items marked as deprecated)

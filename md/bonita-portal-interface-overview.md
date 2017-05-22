@@ -1,6 +1,6 @@
-# Bonita BPM Portal overview
+# Bonita Portal overview
 
-Most of the Bonita BPM Portal pages are divided into 3 main panes: left, middle and right.
+Most of the Bonita Portal pages are divided into 3 main panes: left, middle and right.
 
 The left pane is for filters, the middle one for lists and the right one for more details about the selected item.
 

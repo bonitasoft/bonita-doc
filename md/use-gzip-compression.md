@@ -1,6 +1,6 @@
 # Use gzip compression
 
-Using gzip compression in your application server can improve performance by reducing network load for some resources. This page describes how to activate gzip compression for a Bonita BPM Platform with Tomcat and with WildFly.
+Using gzip compression in your application server can improve performance by reducing network load for some resources. This page describes how to activate gzip compression for a Bonita Platform with Tomcat and with WildFly.
 
 ## WildFly
 

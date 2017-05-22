@@ -6,9 +6,9 @@ The admin can map users to a profile in the **Organization menu**.
 
 ## Default profiles
 
-There are 3 default profiles in Bonita BPM Portal, **User**, **Administrator** and **Process manager**, which correspond to functions performed in the Bonita BPM Portal.
+There are 3 default profiles in Bonita Portal, **User**, **Administrator** and **Process manager**, which correspond to functions performed in the Bonita Portal.
 
-Users can also have several profiles and switch between them in the Bonita BPM Portal in the navigation bar.
+Users can also have several profiles and switch between them in the Bonita Portal in the navigation bar.
 
 ### User profile
 
@@ -16,7 +16,7 @@ A user given a **User** profile can perform everyday tasks: start cases, perform
 
 A manager can also see the **More details** view for their team member's tasks, by specifying the task id. 
 If you are a manager and want to see a task of a member of your team, display another task in the Portal. Then change the task id in the URL to the id of the task you want to see. 
-You can see only the **More details** view for the task, unlike in Bonita BPM 6.x where you could also see the task form by using the task id.
+You can see only the **More details** view for the task, unlike in Bonita 6.x where you could also see the task form by using the task id.
 The manager needs only the user profile for this, not a special profile.
 
 This is the profile used in the Mobile Portal. A user who does not have the **User** profile cannot access the mobile portal. 

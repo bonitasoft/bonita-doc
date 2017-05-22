@@ -2,8 +2,8 @@
 
 ## Overview
 
-Starting with Bonita BPM 7.3, users benefit from a configurable task list, to manage tasks involving human actors from all processes in a more efficient fashion.
-This page is also made available as a custom page in Bonita BPM Portal > Resources, to be used in any [application](applications.md) or [custom profiles](custom-profiles.md), for users types of profiles.
+Starting with Bonita 7.3, users benefit from a configurable task list, to manage tasks involving human actors from all processes in a more efficient fashion.
+This page is also made available as a custom page in Bonita Portal > Resources, to be used in any [application](applications.md) or [custom profiles](custom-profiles.md), for users types of profiles.
 
 Here are the values of the user task list:
 
@@ -23,7 +23,7 @@ Here are the values of the user task list:
 
 ![](images/tasklist-fullpage.png)<!--{.img-responsive .img-thumbnail}-->
 
-This list also leverages two legacy features (prior to Bonita BPM 7.3.0):
+This list also leverages two legacy features (prior to Bonita 7.3.0):
 - Dynamic task display name, for efficient task identification (insert case information in task name)
 - Word-based search, for efficient task name search (search for any word in the task name)
 
@@ -32,5 +32,5 @@ To know more about how to use both features, go to [How to create unique task na
 The task list also contains a **Done tasks** filter, for the user to check if the task has been completed properly.
 
 ::: info
-**Note:** Subtask creation has not been implemented in the task list. However, subtasks created in open cases that were started in a previous Bonita BPM version are still available to their assignees when cases are migrated to Bonita BPM 7.3.
+**Note:** Subtask creation has not been implemented in the task list. However, subtasks created in open cases that were started in a previous Bonita version are still available to their assignees when cases are migrated to Bonita 7.3.
 :::

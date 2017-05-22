@@ -5,13 +5,13 @@
 :::
 
 The LDAP synchronizer is a service for synchronizing 
-Bonita BPM and LDAP directory users and groups in a single direction, LDAP to Bonita BPM. 
+Bonita and LDAP directory users and groups in a single direction, LDAP to Bonita. 
 
-The LDAP synchronization service keeps the Bonita BPM organization information synchronized with an external LDAP directory, by creating, updating, or removing
+The LDAP synchronization service keeps the Bonita organization information synchronized with an external LDAP directory, by creating, updating, or removing
 users and groups in the organization
 to match as closely as possible the user list attributes defined in LDAP. It does not modify the LDAP directory.
 
-The LDAP Synchronizer connects to both the LDAP server and Bonita BPM Engine to read the data from the LDAP server and modify the organization in the Bonita BPM Engine database using the API.
+The LDAP Synchronizer connects to both the LDAP server and Bonita Engine to read the data from the LDAP server and modify the organization in the Bonita Engine database using the API.
 Both the Engine and the LDAP server must be running when the LDAP Synchronizer tool is run.
 
 The synchronizer program runs in the background. There is no user interface: all configuration settings are specified in files and
@@ -19,7 +19,7 @@ all output is written to a log file.
 
 ## LDAP objects supported
 
-The synchronizer will synchronize LDAP objects that inherit from the "person" class as users in Bonita BPM.
+The synchronizer will synchronize LDAP objects that inherit from the "person" class as users in Bonita.
 The synchronizer application does not support user meta data and cannot synchronize passwords. A new user password is initialized with the user name.
 
 The tool supports LDAP groups of the following classes:
@@ -35,7 +35,7 @@ The tool supports LDAP groups of the following classes:
 To install the synchronizer, unzip the provided deploy.zip file and configure the files located under the conf directory. 
 This directory contains a sample configuration.
 
-Set the API access mode used by the LDAP Synchronizer, by editing the `<LDAP_SYNCHRONIZER>\BonitaBPMSubscription-7.3.x-LDAP-Synchronizer.(bat or sh)` file. 
+Set the API access mode used by the LDAP Synchronizer, by editing the `<LDAP_SYNCHRONIZER>\BonitaSubscription-7.3.x-LDAP-Synchronizer.(bat or sh)` file. 
 
 Add between `java` and `-classpath`:
 ```
@@ -55,7 +55,7 @@ There are five properties files:
 * bonita.properties defines the Bonita connection settings and specifies the account used for user synchronization (requires administration privileges).
 * ldap.properties defines the LDAP connection settings and specifies the account used for user browsing.
 * logger.properties provides the settings for the logger. Default settings should be fine for most uses.
-* mapper.properties specifies the translation between Bonita BPM and LDAP directory user attributes.
+* mapper.properties specifies the translation between Bonita and LDAP directory user attributes.
 * sync.properties defines the synchronization settings.
 
 All configurations files can be found in the conf directory.
@@ -63,7 +63,7 @@ All configurations files can be found in the conf directory.
 **Note**: to use a special character in a properties file, use the Unicode equivalent. For example, for à use \\u00E0\. 
 You can use a tool such as [native2ascii](http://docs.oracle.com/javase/8/docs/technotes/tools/unix/native2ascii.html) to convert any special characters in the configuration files to Unicode.
 
-You also need to [configure connection on Bonita BPM Engine](configure-client-of-bonita-bpm-engine.md) for the LDAP Synchronizer.
+You also need to [configure connection on Bonita Engine](configure-client-of-bonita-engine.md) for the LDAP Synchronizer.
 
 ### bonita.properties
 
@@ -73,7 +73,7 @@ This file defines the connection settings and specifies the account used for use
 |:-----|:------------|:--------|
 | bonita\_home | The path to the Bonita Home folder of the LDAP Synchronizer. (deprecated) |  |
 | login | The login to provide is a userName.  | install |
-| password | Password of the Bonita BPM account used for synchronization. | install |
+| password | Password of the Bonita account used for synchronization. | install |
 | technicalUser | This is the [username of the platform adminstrator](first-steps-after-setup.md). | platformAdmin |
 | technicalPassword | This is the [password of the platform adminstrator](first-steps-after-setup.md). | platform |
 
@@ -104,14 +104,14 @@ Example: if you set the format to "?yyyy-mm", you will get one new log file pe
 
 ### mapper.properties
 
-This file specifies the translation between Bonita BPM and LDAP directory user attributes such as:
+This file specifies the translation between Bonita and LDAP directory user attributes such as:
 `bonita_property = ldap_property`
 
 The only mandatory property is user\_name, which is the key defined for matching users. All other properties are optional.
 
 An LDAP property may be used several times in the configuration file but each Bonita property should be defined only once. Unused properties should be commented out.
 
-These are the supported Bonita BPM user properties:
+These are the supported Bonita user properties:
 | General information | Professional information | Personal information |
 |:-----|:------------|:--------|
 |user\_name  <br/> first\_name  <br/> last\_name  <br/> title  <br/> job\_title  <br/> manager |  pro\_email  <br/> pro\_phone  <br/> pro\_mobile  <br/> pro\_fax  <br/> pro\_website  <br/> pro\_room  <br/> pro\_building  <br/> pro\_address  <br/> pro\_city  <br/> pro\_zip\_code  <br/> pro\_state  <br/> pro\_country | perso\_email  <br/> perso\_phone  <br/> perso\_mobile  <br/> perso\_fax  <br/> perso\_website  <br/> perso\_room  <br/> perso\_building  <br/> perso\_address  <br/> perso\_city  <br/> perso\_zip\_code  <br/> perso\_state  <br/> perso\_country | 
@@ -134,7 +134,7 @@ This file defines the synchronization settings.
 * error\_level\_upon\_failing\_to\_get\_related\_user: optional parameter that specifies whether an error should be blocking upon getting related users (manager)  
 Supported values: ignore, warn or fatal  
 Default value: warn
-* bonita\_username\_case: optional parameter that specifies whether the LDAP user names should be converted to a given case upon being imported in Bonita BPM.  
+* bonita\_username\_case: optional parameter that specifies whether the LDAP user names should be converted to a given case upon being imported in Bonita.  
 Supported values: mixed, uppercase or lowercase  
 Default value: mixed (conserves the current LDAP user name case)
 * ldap\_watched\_directories: defines the LDAP directories to watch.  
@@ -144,9 +144,9 @@ The syntax for watched directory object properties is detailed in the next secti
 Supported values: user names separated by commas.
 * bonita\_user\_role: specifies the role assigned to Bonita users.  
 Default value: user
-* bonita\_deactivate\_users: optional parameter that specifies whether the tool should deactivate Bonita BPM users who are not present in LDAP. 
-When bonita\_deactivate\_users is set to true, a Bonita BPM user who is not present in LDAP is deactivated. The user are not removed from Bonita BPM, but they cannot start process instances or do tasks.
-Note: If a user is deactivated in Bonita BPM but present in LDAP, the tool always activates the user.  
+* bonita\_deactivate\_users: optional parameter that specifies whether the tool should deactivate Bonita users who are not present in LDAP. 
+When bonita\_deactivate\_users is set to true, a Bonita user who is not present in LDAP is deactivated. The user are not removed from Bonita, but they cannot start process instances or do tasks.
+Note: If a user is deactivated in Bonita but present in LDAP, the tool always activates the user.  
 Supported values: true or false  
 Default value: true
 * allow\_recursive\_groups: optional parameter that specifies whether sub-groups should also be synchronized. The operation does not preserve the group hierarchy however, and the LDAP sub-groups will be created at root level in Bonita organization.  
@@ -187,7 +187,7 @@ dir2.ldap_search_filter =   cn=*
 An LDAP group is defined by an id which is declared in the "ldap\_groups" list. This id provides access to the object properties with this syntax: object\_id.property.
 You can also specify groups with a search: all groups that match the search are synchronized.
 
-Groups will be synchronized based on the matching of their LDAP common name (CN) and their Bonita BPM names.
+Groups will be synchronized based on the matching of their LDAP common name (CN) and their Bonita names.
 
 The tool will automatically detect the group class from LDAP.
 
@@ -207,7 +207,7 @@ forced\_bonita\_group\_name
 optional attribute that renames the Bonita group instead of using the original LDAP group name.
 
 force\_add\_non\_existing\_users
-optional Boolean attribute (true by default) that defines whether group members that are not present in Bonita BPM should be imported (if false, these users are ignored).
+optional Boolean attribute (true by default) that defines whether group members that are not present in Bonita should be imported (if false, these users are ignored).
 
   
 Example of group declarations:
@@ -231,7 +231,7 @@ In combination or as an alternative, groups can be declared using the result of 
 |:-----|:--------|
 | ldap\_group\_search\_dn | DN of the LDAP watched directory that will be used to get the list of the LDAP groups. |
 | ldap\_group\_search\_filter | LDAP group search filter (mandatory attribute, but can be a wide filter such as "cn=\*"). |
-| force\_add\_non\_existing\_users | optional boolean attribute (true by default) that defines whether group members that are not present in Bonita BPM should be imported (if false, these users are ignored). |
+| force\_add\_non\_existing\_users | optional boolean attribute (true by default) that defines whether group members that are not present in Bonita should be imported (if false, these users are ignored). |
   
 Example of group searches:
 ```
@@ -258,16 +258,16 @@ Below are all the actions completed by the LDAP synchronizer tool:
 1. Reads all Users in the source LDAP directory
 2. Creates all Users in the bonita engine db
 3. Reads all Groups in the source LDAP directory
-4. Creates all Groups in the Bonita BPM Engine db
+4. Creates all Groups in the Bonita Engine db
 5. Retrieves all Users that are belonging to the groups in the source LDAP directory
-6. Retrieves all Users that are belonging to the groups in the Bonita BPM Engine db
-7. For all Users belonging to the groups in the Bonita BPM Engine db and not in the groups in the source LDAP directory, do Delete membership (user, role-in-ldap-tool-config, group)
+6. Retrieves all Users that are belonging to the groups in the Bonita Engine db
+7. For all Users belonging to the groups in the Bonita Engine db and not in the groups in the source LDAP directory, do Delete membership (user, role-in-ldap-tool-config, group)
 8. Creates all memberships for all users and groups with a configured role (user, role-in-ldap-tool-config, group)
 
-To run the LDAP synchronizer, execute the script `BonitaBPMSubscription-x.y.z-LDAP-Synchronizer.bat` (for Windows) or `BonitaBPMSubscription-x.y.z-LDAP-Synchronizer.sh` (for Linux), 
-where `x.y.z` is the version of Bonita BPM you are running.
+To run the LDAP synchronizer, execute the script `BonitaSubscription-x.y.z-LDAP-Synchronizer.bat` (for Windows) or `BonitaSubscription-x.y.z-LDAP-Synchronizer.sh` (for Linux), 
+where `x.y.z` is the version of Bonita you are running.
 
-**Warning:** Do not modify the Organization from the Bonita BPM Portal while the tool is running, as this will cause a synchronization error.
+**Warning:** Do not modify the Organization from the Bonita Portal while the tool is running, as this will cause a synchronization error.
 
 ## Using the LDAP synchronizer in a non-default tenant
 

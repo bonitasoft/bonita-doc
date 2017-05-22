@@ -1,8 +1,8 @@
 # Create your first project with the Engine APIs and Maven
 
-This page contains an example that explains how to set up Maven project to create a client that uses the Bonita BPM client APIs to communicate with the Bonita BPM Engine and run a process. It assumes that you are a Java programmer familiar with using Maven.
+This page contains an example that explains how to set up Maven project to create a client that uses the Bonita client APIs to communicate with the Bonita Engine and run a process. It assumes that you are a Java programmer familiar with using Maven.
 
-## Bonita BPM Client APIs
+## Bonita Client APIs
 
 In this example, we use the following APIs:
 
@@ -19,7 +19,7 @@ In order to use the client APIs, you need to add a dependency to the `bonita-cli
    ...
 </properties>
  
-<!-- Bonita BPM Engine -->
+<!-- Bonita Engine -->
 <dependency>
     <groupId>org.bonitasoft.engine</groupId>
     <artifactId>bonita-client</artifactId>
@@ -27,11 +27,11 @@ In order to use the client APIs, you need to add a dependency to the `bonita-cli
 </dependency>
 ```
 
-## Configure the connection to the Bonita BPM Platform
+## Configure the connection to the Bonita Platform
 
- You must configure the connection to the Engine (i.e. Bonita BPM Platform) for your project. To do so you can use System properties or programmatic configuration.
+ You must configure the connection to the Engine (i.e. Bonita Platform) for your project. To do so you can use System properties or programmatic configuration.
 
- Take a look at [how to configure a client](configure-client-of-bonita-bpm-engine.md)
+ Take a look at [how to configure a client](configure-client-of-bonita-engine.md)
 
 ## Log in
 
@@ -49,7 +49,7 @@ APISession apiSession = loginAPI.login(username, password);
 
 ## Example of a client program
 
-In this example, a user interacts with a Bonita BPM process by choosing actions from a command-line client program written in Java.
+In this example, a user interacts with a Bonita process by choosing actions from a command-line client program written in Java.
 
 The user can choose one of the following actions:
 
@@ -116,7 +116,7 @@ private static void startProcess(ProcessDefinition processDefinition) {
 
 ### List open process instances
 
-All Bonita BPM Engine API methods that deal with collections are paged to avoid having too many entries in memory. For these methods, if you want to retrieve all results you need to handle this page by page. This the case with the searchProcessInstances method used here to retrieve open process instances. In the example, each page will contain up to 5 (PAGE\_SIZE) elements:
+All Bonita Engine API methods that deal with collections are paged to avoid having too many entries in memory. For these methods, if you want to retrieve all results you need to handle this page by page. This the case with the searchProcessInstances method used here to retrieve open process instances. In the example, each page will contain up to 5 (PAGE\_SIZE) elements:
 ```java
 private static void listOpenedProcessInstances() {
     // the result will be retrieved by pages of PAGE_SIZE size

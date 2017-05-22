@@ -8,7 +8,7 @@ CMIS provides a common data model covering typed files and folders with generic 
 
 Two protocol bindings are defined, one using WSDL and SOAP and another using REST, using the AtomPub convention. The model is based on common architectures of document management systems.
 
-Bonita BPM Studio contains the following CMIS connectors:
+Bonita Studio contains the following CMIS connectors:
 
 * Upload a new version
 * Upload a document

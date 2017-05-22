@@ -1,10 +1,10 @@
 # How to manage dates and times in BDM and User Interfaces
 
 ::: info
-This howto applies to Bonita BPM 7.5.0 and above.
+This howto applies to Bonita 7.5.0 and above.
 :::
 
-To manage dates and times in the BDM and User Interfaces, Bonita BPM comes with 3 types of data that you can manipulate through processes, APIs and user interfaces (forms/pages).  
+To manage dates and times in the BDM and User Interfaces, Bonita comes with 3 types of data that you can manipulate through processes, APIs and user interfaces (forms/pages).  
 This page gives a step-by-step procedure to create a process with forms that allow to choose a date (with or without a time) and then display it, leveraging each of these data types.  
 
 ## Date only

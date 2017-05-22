@@ -1,7 +1,7 @@
 # Preload the forms cache
 
 ::: info
-**Note:** This information applies to legacy forms developed with Bonita BPM 6.x, or with the _6.x Application_ backward-compatibility features of Bonita BPM 7.0\. It is not necessary to preload forms developed with the UI Designer.
+**Note:** This information applies to legacy forms developed with Bonita 6.x, or with the _6.x Application_ backward-compatibility features of Bonita 7.0\. It is not necessary to preload forms developed with the UI Designer.
 :::
 
 The first time a form is displayed, it is cached so that when it is displayed again it loads more quickly. This is the default behavior. However, you can speed up the first display of a form by preloading it into the forms cache.

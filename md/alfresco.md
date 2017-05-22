@@ -1,6 +1,6 @@
 # Alfresco
 
-Bonita BPM Studio contains connectors for Alfresco 3.4 and Alfresco 4.2\. For each version, there are the following connectors:
+Bonita Studio contains connectors for Alfresco 3.4 and Alfresco 4.2\. For each version, there are the following connectors:
 
 * Delete an item by ID (folder, file, etc)
 * Delete folder by path (delete a folder and its contents)

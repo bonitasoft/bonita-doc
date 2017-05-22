@@ -4,7 +4,7 @@
 **Note:** For Performance edition only.
 :::
 
-An activity (or task) can fail in Bonita BPM Engine for several reasons. Typical reasons include:
+An activity (or task) can fail in Bonita Engine for several reasons. Typical reasons include:
 
 * An input expression evaluation fails (for example because of invalid syntax, or incorrect values).
 * The condition in an output transition fails to evaluate properly.
@@ -127,7 +127,7 @@ public class SkipConnectorAndReplayActivity {
         // Retry to execute the activity:
         processAPI.retryTask(failedTaskId);
 
-        // Finally log properly out of Bonita BPM Engine:
+        // Finally log properly out of Bonita Engine:
         loginAPI.logout(session);
     }
 }

@@ -4,7 +4,7 @@
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 
-REST API extensions provide a solution for integration between forms/pages and third party systems (including Bonita BPM Engine). They can be used to query [business data](define-and-deploy-the-bdm.md), Bonita BPM Engine APIs, or an external information
+REST API extensions provide a solution for integration between forms/pages and third party systems (including Bonita Engine). They can be used to query [business data](define-and-deploy-the-bdm.md), Bonita Engine APIs, or an external information
 system (such as a database, web service, LDAP directory...). They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
 
 <!---<p>This page provide a tutorial to create a REST API extension using Subscription edition tooling. If you are running Community edition checkout the dedicated <a href="">documentation page</a>.</p>--->
@@ -26,13 +26,13 @@ Prerequisites for developing a REST API extension are:
 
 ## Example description
 
-The following sections show how to create a REST API extension. As an example, we create a REST API extension that use Bonita BPM Engine to provide user informations (first name, last name, email address).
+The following sections show how to create a REST API extension. As an example, we create a REST API extension that use Bonita Engine to provide user informations (first name, last name, email address).
 
 ## Generate a new REST API extension skeleton
 
 1. In the **Development** menu, choose **REST API Extension** then **New...**.
 1. Enter a **Name**, for example _User informations REST API Extension_.
-1. Enter a **Description**, for example _Query Bonita BPM Engine to retrieve user informations_.
+1. Enter a **Description**, for example _Query Bonita Engine to retrieve user informations_.
 1. Enter a package name, use to set the artifact **Group id**, for example: _com.company.rest.api_
 1. Enter a **Project name**, for example _userInformationRestAPIExension_
 1. Click **Next**.
@@ -167,7 +167,7 @@ Now you can actually build and deploy the extension:
 1. In the **Development** menu, choose **REST API Extension** \> **Deploy...**
 1. Select the userInformationRestAPIExension REST API extension.
 1. Click on **Deploy** button.
-1. In the coolbar, click the **Portal** icon. This opens the Bonita BPM Portal in your browser.
+1. In the coolbar, click the **Portal** icon. This opens the Bonita Portal in your browser.
 1. In the Portal, change to the **Administrator** profile.
 1. Go to the **Resources** tab, and check that the User information REST API extension is in the list of REST API extension resources.
 

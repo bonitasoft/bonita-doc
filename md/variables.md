@@ -57,11 +57,11 @@ A variable is used with a [widget](widgets.md). There are many ways to use a var
 
 A binding is dynamic, so every time the value of a variable changes, the whole data model is re-evaluated and the UI is updated.
 
-## In Bonita BPM forms
+## In Bonita forms
 
 One of the goals of the UI Designer is to enable you to build forms for process instantiation and human tasks execution. The [contract](contracts-and-contexts.md) eases the decoupling between the user views and the process. When a form is submitted for process instantiation or for human task execution, the UI Designer sends data to fulfill the contract.
 
-To ease the definition of the form data to send back to the process, when you create a form from the Bonita BPM Studio, the UI Designer generates the following variables:
+To ease the definition of the form data to send back to the process, when you create a form from the Bonita Studio, the UI Designer generates the following variables:
 
 * _formInput_. It is a JSON object. Its structure is defined by the contract inputs and the attributes are initialized with default values. It could be used to set initial values for form fields. You can set the values in formInput either by editing the default values with constants (useful for test and debug) or with values from an object in an external source that has the same model (such as with a BDM external API). You can also set the initial values of a form from some other source without using formInput. However, you will then have to edit formOutput manually.
 * _formOutput_. It is a JavaScript expression returning an object. The object structure matches the contract requirements and it is filled with formInput by default. On Submit, values entered or modified by the user and aggregated in the formOutput object (as defined by the _Data sent on click_ property of the Submit button) are submitted to the process or task to fulfill the contract.

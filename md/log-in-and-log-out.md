@@ -8,7 +8,7 @@ Note: to avoid login problems, make sure you empty your browser cache [Empty you
 
 ## How to log in as a user
 
-If for example, you receive an email with a link to start a case or a task in the Bonita BPM Portal, you will need to log in.
+If for example, you receive an email with a link to start a case or a task in the Bonita Portal, you will need to log in.
 
 * Enter the login page url, `http://`_`hostname:port`_`/bonita/`, to get to the login page as a user. The default port number is 8080\.
 * In the user field, enter the **login**, and the **password** for this user.
@@ -30,4 +30,4 @@ See also [First steps after setup](first-steps-after-setup.md)
 
 See also [Active directory/ldap authentication](active-directory-or-ldap-authentication.md)
 
-See also [Accessing Bonita BPM Portal and forms by URL](bonita-bpm-portal-urls.md)
+See also [Accessing Bonita Portal and forms by URL](bonita-portal-urls.md)

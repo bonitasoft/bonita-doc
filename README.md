@@ -1,6 +1,6 @@
-# Bonita BPM documentation resources
+# Bonita documentation resources
 
-This repository contains the new Bonita BPM documentation site content.
+This repository contains the new Bonita documentation site content.
 It uses [Markdown](https://help.github.com/categories/writing-on-github/) to create documentation content.
 
 
@@ -52,5 +52,5 @@ To generate one specific page of the documentation, use the parameter `--file`. 
 
 ## Contribute
 
-To help you contributing to Bonita BPM documentation, we provide a set of [contribution guidelines](CONTRIBUTING.md).
+To help you contributing to Bonita documentation, we provide a set of [contribution guidelines](CONTRIBUTING.md).
 Thanks for taking time to contribute!

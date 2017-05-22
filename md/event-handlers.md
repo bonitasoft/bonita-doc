@@ -130,7 +130,7 @@ public class EventHandlerExample implements SHandler<SEvent> {
 
 ### Register an event handler
 
-An event handler is registered on an event by adding an entry to the appropriate map. The list of handlers registered can be extended in the [`bonita-tenant-sp-custom.xml`](BonitaBPM_platform_setup.md) file:
+An event handler is registered on an event by adding an entry to the appropriate map. The list of handlers registered can be extended in the [`bonita-tenant-sp-custom.xml`](Bonita_platform_setup.md) file:
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">

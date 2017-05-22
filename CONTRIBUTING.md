@@ -1,21 +1,21 @@
-# Contributing to Bonita BPM documentation
+# Contributing to Bonita documentation
 
-The following is a set of guidelines for contributing to Bonita BPM documentation.
+The following is a set of guidelines for contributing to Bonita documentation.
 
 
 ## Pull requests
 
-Each minor version of Bonita BPM has its own Git branch to manage its related documentation. (Minor version means X.Y, for example 7.3 or 7.4).  
-For instance, the **7.3** branch is where you have to open pull requests when your contribution applies to all 7.3 versions of Bonita BPM.
+Each minor version of Bonita has its own Git branch to manage its related documentation. (Minor version means X.Y, for example 7.3 or 7.4).  
+For instance, the **7.3** branch is where you have to open pull requests when your contribution applies to all 7.3 versions of Bonita.
 
 A branch should be name in kebab case prefixed by the type of the feature the branch has been created for (feat, fix, style, tr, chore, howto,...).  
 For instance, for a branch fixing a typo in the User REST API, its name should be `fix/user-delete-rest-api-typo`.
 
-If your contribution applies to multiple minor versions of Bonita BPM, then open a pull request on the lowest applicable version branch. Then add all applicable minor versions in your pull request comment and we will do the rest :-)
+If your contribution applies to multiple minor versions of Bonita, then open a pull request on the lowest applicable version branch. Then add all applicable minor versions in your pull request comment and we will do the rest :-)
 
 <u>Example</u>: Your contribution applies to versions 7.3 and 7.4. Therefore submit your pull request on branch 7.3 with a comment like:
 ```
-My awesome contribution to Bonita BPM documentation.
+My awesome contribution to Bonita documentation.
 Versions: 7.3, 7.4
 ```
 
@@ -166,7 +166,7 @@ To use them create a block surrounded with 3 colons.
 
 ```
 ::: danger
-Both Windows and Mac have default security settings that will prevent execution of Bonita BPM. See below for further details about what you can do to bypass those security protections
+Both Windows and Mac have default security settings that will prevent execution of Bonita. See below for further details about what you can do to bypass those security protections
 :::
 ```
 will be rendered as :

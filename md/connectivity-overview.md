@@ -2,9 +2,9 @@
 
 ## Overview
 
-A connector is an element in a process that accesses an external system to read or write information. By extension, it also accounts for tools that modify data within a process like Office connectors that modify Bonita BPM documents.
+A connector is an element in a process that accesses an external system to read or write information. By extension, it also accounts for tools that modify data within a process like Office connectors that modify Bonita documents.
 
-Bonita BPM contains a set of standard connectors. You can also create custom connectors using the [connector development toolkit](connector-development-toolkit.md).
+Bonita contains a set of standard connectors. You can also create custom connectors using the [connector development toolkit](connector-development-toolkit.md).
 
 A connector consists of a definition, an implementation, and a configuration.
 
@@ -31,7 +31,7 @@ To add a connector to a pool or task:
 
 ## Connectors and forms
 
-In Bonita BPM 6.x, you could add a connector to a form. This is no longer possible with forms created with the UI Designer. To achieve the same result, create a [REST API extension](rest-api-extensions.md). There is an example showing how to execute SQL queries on a external database.
+In Bonita 6.x, you could add a connector to a form. This is no longer possible with forms created with the UI Designer. To achieve the same result, create a [REST API extension](rest-api-extensions.md). There is an example showing how to execute SQL queries on a external database.
 
 ## Edit a connector
 

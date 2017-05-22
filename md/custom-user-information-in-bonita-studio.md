@@ -1,4 +1,4 @@
-# Custom User Information in Bonita BPM Studio
+# Custom User Information in Bonita Studio
 
 You can use custom user information to assign task to users based on information that is specific to your organization and not included in the standard organization definition.   
 You define the attributes that you want to store, and then add the values for the users.
@@ -11,13 +11,13 @@ For example, you may want to create a security badge with an individual value (n
 
 In the Organization menu \> Manage organizations \> Organization users, the second tab **User information management** offers a summary of the default information and allows to create custom user information. Use "Add" to create your own, with a name and an optional description.
 
-1. In Bonita BPM Studio, go to **Organization** in the cool bar
+1. In Bonita Studio, go to **Organization** in the cool bar
 2. Click on _**Manage**_ in the dropdown menu
 3. Click on _**Next**_ 3 times to get to the **Organization users** window
 4. Click on the **User information management** tab
 5. In the **Custom information** pane on the right hand side of the window, click on _**Add**_
 6. This will put a default name **Information1** in the **Name column**
-7. Add a description (if needed). This will only appear in Bonita BPM Studio.
+7. Add a description (if needed). This will only appear in Bonita Studio.
 8. Double click on the default name **Information1**, to modify it to your needs
 9. Click on **Finish**
 10. A message is displayed: _The Organization has been modified. It is recommended to re-publish it. Do you want to do it now?_
@@ -26,7 +26,7 @@ In the Organization menu \> Manage organizations \> Organization users, the seco
 13. Click on **Ok**
 14. A new custom tab is applied to all users. 
 
-If the value is changed in Bonita BPM Portal by the admin, and the filter value does not exist in the organization
+If the value is changed in Bonita Portal by the admin, and the filter value does not exist in the organization
 
 ## Add custom user information values for each user
 
@@ -39,7 +39,7 @@ In the Organization menu \> Manage organizations \> Organization users, the firs
 * Custom 
 
 To add custom user information values for a user, select a user in the **List of users**, click on the **_Custom_** tab, and enter the value for each relevant information. You also see a link **Manage custom information**, to go back and manage the list of custom user information.   
-Note: this value can be changed by a user with the Admin profile in the Bonita BPM Portal. See [How to edit Custom information for a single user](custom-user-information-in-bonita-bpm-portal.md)
+Note: this value can be changed by a user with the Admin profile in the Bonita Portal. See [How to edit Custom information for a single user](custom-user-information-in-bonita-portal.md)
 
 ## Set an actor filter on custom user information
 
