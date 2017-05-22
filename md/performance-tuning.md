@@ -428,14 +428,13 @@ To activate connector time tracking:
 
 The other parameters can be left at their default value, left commented, or set to the desired value. What each of them does:
 
-1. `maxSize` maximum of records that will be saved by the time tracker before a flush.
+1. `maxSize` maximum of records that will be saved by the time tracker before a flush. If the maximum number of records is reached before the scheduled flush, the older ones are discared. To avoid the loss of information, a number sufficiently big in comparison with `flushIntervalInSeconds` should be chosen
 2. `flushIntervalInSeconds` the interval beetween two flushes on the timetracker thread.
 3. `csv.activateAtStart` wether to save the result of the timetracker into a csv file.
 4. `csv.folder` the folder where to save the csv file.
 5. `csv.separator` the separator character in the csv file
 6. `memory.activateAtStart` wether to save the result of the timetracker in memory.
-7. `memory.maxSize` maximum amount of records saved in memory
-
+7. `memory.maxSize` maximum amount of records saved in memory. If the maximum number of records is reached before the scheduled flush, the older ones are discared. To avoid the loss of information, a number sufficiently big in comparison with `flushIntervalInSeconds` should be chosen
 
 The non-relevant options will be ignored at execution. Note that `memory` and `csv` can both be activated at the same time.
 
