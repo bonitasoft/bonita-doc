@@ -479,7 +479,7 @@ Now define the form for the _Manager review_ task. Start by automatically genera
     | Property  | Value  |
     | --------- | ------ |
     | Label  | Review decision  |
-    | Available values (click on the "fx" binding icon next to the to the input field first) | statusValues  |
+    | Available values (click on the "fx" binding icon next to the input field first) | statusValues  |
     | Displayed keys  | label  |
     | Returned keys  | value  |
     | Selected Value  | `formInput.status`  |
