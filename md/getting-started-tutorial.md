@@ -337,7 +337,7 @@ Select the _Manager review_ task, and go to the **Details** panel, **Execution**
 
 1. Create a new operation by clicking **_Add_**.
 2. In the first field, click the down-arrow to display a list of variables on which an operation can be performed, and double-click _travelRequest_.
-3. Click **_Takes value of_** link. This opens a popup listing the available operations. Choose **_Use a Java method_**. The popup displays a list of available methods. Click **_setStatus(String) - void_**, and then click **_OK_**.
+3. Click the **_Takes value of_** link. This opens a popup listing the available operations. Choose **_Use a Java method_**. The popup displays a list of available methods. Click **_setStatus(String) - void_**, and then click **_OK_**.
 4. In the last field, click the down-arrow to display a list of variables, and double-click _status_.
 
 Repeat these steps to define the operation for _refusalReason_.
@@ -383,7 +383,7 @@ You can run the process and see the temporary forms, to check that the process d
 1. Log in as Walter's manager, Helen Kelly, with username `helen.kelly` and password `bpm`. The **Tasks** view is displayed, where there is a task called _Manager review_.
 1. Select the _Manager review_ task. The temporary form for the manager review is displayed in the right hand panel.  
 It contains fields for the items defined in the contract for this step, but not the information that Walter entered in the request.  
-When you create your own forms, you will add this information, so that the manger can see the details of the request before approving or refusing it.  
+When you create your own forms, you will add this information, so that the manager can see the details of the request before approving or refusing it.  
 For now, you can see the form, so you have verified that the process definition is correct.
 
 ## Create forms
@@ -456,7 +456,7 @@ Now define the form for the _Manager review_ task. Start by automatically genera
    | Label  | Widget type  | Value binding  | Read-only  |
    | -----  | ------------ | -------------- | ---------- |
    | Destination  | Input  | request.destination  | yes  |
-   | Departure date  | Date  | request.departureDate | date  |yes  |
+   | Departure date  | Date picker | request.departureDate | date  |yes  |
    | Number of nights  | Input  | request.numberOfNights  | yes  |
    | Hotel needed  | Checkbox  | request.hotelNeeded  | yes  |
    | Reason for travel  | Text area  | request.reason  | yes  |
@@ -466,7 +466,7 @@ Now define the form for the _Manager review_ task. Start by automatically genera
 
     | Property  | Value  |
     | --------- | ------ |
-    | Hidden  | `formInput.status === 'approved'` (first click on "fx"/"bind" icon) |
+    | Hidden  | `formInput.status === 'approved'` (click on "fx"/"bind" icon first) |
     | Label  | Refusal reason  |
     | Value  | `formInput.refusalReason`  |
     | Required | yes |
@@ -479,7 +479,7 @@ Now define the form for the _Manager review_ task. Start by automatically genera
     | Property  | Value  |
     | --------- | ------ |
     | Label  | Review decision  |
-    | Available values (click on the binding "fx" icon next to the value first) | statusValues  |
+    | Available values (click on the "fx" binding icon next to the to the input field first) | statusValues  |
     | Displayed keys  | label  |
     | Returned keys  | value  |
     | Selected Value  | `formInput.status`  |
@@ -495,8 +495,8 @@ You can now run the process using the forms that you created. Make sure that you
 Fill out the request form as Walter, then log in as Helen and do the review task.  
 When the review form is displayed, it contains the information that Walter entered in the request form. You can approve or refuse the request.
 
-Once process is finished you can see the request information as stored in the test database in Bonita Studio:
-1. From the menu bar, choose **Development** menu, choose **Business Data Model**, and then choose **Brows data (h2 console)...**. This opens the h2 (test database) web interface in a web browser.
+Once process is finished you can see the request information as stored in the business data database in Bonita Studio:
+1. From the menu bar, choose **Development** menu, choose **Business Data Model**, and then choose **Brows data (h2 console)...**. This opens the h2 (business data database) web interface in a web browser.
 1. In the left tree menu click on TRAVELREQUEST. This will generate an SQL select query.
 1. Click on **Run (Ctrl+Enter)** button. You should view all the requests created by running the Travel Request process.
 
