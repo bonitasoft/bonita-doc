@@ -25,8 +25,8 @@ An application is a collection of pages and processes that meets a business need
 
 An application requires the following to be available:
 
-* The [business data model](bdm-management-in-bonita-portal.md) (BDM) must be deployed
-* The [organization](organization-in-bonita-portal-overview.md) data must be deployed, so that application users can log in.
+* The [business data model](bdm-management-in-bonita-bpm-portal.md) (BDM) must be deployed
+* The [organization](organization-in-bonita-bpm-portal-overview.md) data must be deployed, so that application users can log in.
 * The access [authorizations](rest-api-authorization.md) that grant users access to the application resources must be defined.
 
 ## Developing an application

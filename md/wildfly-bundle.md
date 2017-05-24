@@ -2,7 +2,7 @@
 
 You will find here steps needed to install and configure a WildFly bundle.
 
-The WildFly bundle is a zip archive that contains the Red Hat WildFly Java EE application server packaged with Bonita and [Bonita platform setup tool](Bonita_platform_setup.md#platform_setup_tool).
+The WildFly bundle is a zip archive that contains the Red Hat WildFly Java EE application server packaged with Bonita and [Bonita platform setup tool](BonitaBPM_platform_setup.md#platform_setup_tool).
 The WildFly bundle is a regular zip archive based on the WildFly zip distribution.
 
 ## Installation of the WildFly bundle
@@ -49,7 +49,7 @@ The WildFly bundle is based on a standard WildFly installation with the followin
 ::: info
 **Note:** Beginning with version 7.3.0, Bonita Platform configuration, including the license file, is stored in the same database as the Bonita Engine data, namely in the `CONFIGURATION` table.  
 The initialization of this configuration happens during start-bonita.bat (for Windows) or start.bonita.sh (for Linux) execution.  
-Once initialized, to update this configuration, use the [*Platform setup tool*](Bonita_platform_setup.md) embedded in Bonita bundles.  
+Once initialized, to update this configuration, use the [*Platform setup tool*](BonitaBPM_platform_setup.md) embedded in Bonita bundles.  
 :::
 
 ### Get and install a license (Subscription editions only)
@@ -75,7 +75,7 @@ The license file will be sent to you by email.
 
 When you receive your license:
 If this is your first installation, copy the file to the `<WILDFLY_HOME>/setup/platform_conf/licenses` folder before starting the bundle.
-If this is a license update, use [the *Platform setup tool*](Bonita_platform_setup.md#update_platform_conf).
+If this is a license update, use [the *Platform setup tool*](BonitaBPM_platform_setup.md#update_platform_conf).
 
 
 ### Change the default credentials (optional, recommended for production)
@@ -84,7 +84,7 @@ As a security precaution, we **strongly recommend** that before you start your a
 
 #### Platform administrator
 
-The username and password for the platform administrator are defined in the file [`<WILDFLY_HOME>/setup/platform_conf/initial/platform_engine/bonita-platform-community-custom.properties`](Bonita_platform_setup.md), by the following properties:
+The username and password for the platform administrator are defined in the file [`<WILDFLY_HOME>/setup/platform_conf/initial/platform_engine/bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md), by the following properties:
 
 * `platformAdminUsername` defines the username (default `platformAdmin`)
 * `platformAdminPassword` defines the password (default `platform`)
@@ -95,7 +95,7 @@ This password is used for platform-level administration tasks, such as creating 
 
 Each tenant has an administrator, with a tenant-specific username and password. The tenant administrator is also known as the tenant technical user.
 
-When the platform is created, default values for the tenant administrator username and password are defined in the file [`<WILDFLY_HOME>/setup/platform_conf/initial/tenant_template_engine/bonita-tenant-community-custom.properties`](Bonita_platform_setup.md), by the following properties:
+When the platform is created, default values for the tenant administrator username and password are defined in the file [`<WILDFLY_HOME>/setup/platform_conf/initial/tenant_template_engine/bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md), by the following properties:
 
 * `userName` defines the username (default `install`)
 * `userPassword` defines the password (default `install`)
@@ -104,7 +104,7 @@ When you create a tenant, the tenant administrator is created with the default u
 Change these tenant-specific credentials for an existing tenant by updating the `userName` and `userPassword` properties in `bonita-tenant-community-custom.properties`.
 
 ::: warning
-For the default tenant, the tenant administrator username and password must also be defined in file [`<WILDFLY_HOME>/setup/platform_conf/initial/platform_portal/platform-tenant-config.properties`](Bonita_platform_setup.md), with exactly the same values that you set in `bonita-tenant-community-custom.properties`.
+For the default tenant, the tenant administrator username and password must also be defined in file [`<WILDFLY_HOME>/setup/platform_conf/initial/platform_portal/platform-tenant-config.properties`](BonitaBPM_platform_setup.md), with exactly the same values that you set in `bonita-tenant-community-custom.properties`.
 At platform creation, this file contains the default username and password for the default tenant. 
 :::
 
@@ -135,7 +135,7 @@ The **start-bonita** script does the following:
     3. copies your database vendor-specific drivers into `<WILDFLY_HOME>/server/modules/**/main/` folders
 3. Starts the WildFly bundle
 
-For advanced server configuration needs: check out [Bundle configuration](Bonita_platform_setup.md#run_bundle_configure) to finely tune your WildFly bundle, using templates used by Bonita.
+For advanced server configuration needs: check out [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to finely tune your WildFly bundle, using templates used by Bonita.
 :::
 
 <a id="start" />
@@ -167,15 +167,15 @@ You can also press Ctrl + C.
 Once you have your WildFly bundle up and running, complete these [first steps](first-steps-after-setup.md) to get Bonita Platform fully operational.
 
 ### Configuration update
-To update the configuration after the first run please take a look at the [*Platform setup tool*](Bonita_platform_setup.md#update_platform_conf)
+To update the configuration after the first run please take a look at the [*Platform setup tool*](BonitaBPM_platform_setup.md#update_platform_conf)
 
 ::: info
 File `database.properties` is the only entry point to configure the WildFly environment and the
-[Bonita Platform configuration](Bonita_platform_setup.md#configure_tool)
+[Bonita Platform configuration](BonitaBPM_platform_setup.md#configure_tool)
 :::
 
 ### License update
-To update the licenses after the first run, take a look at the [platform setup tool](Bonita_platform_setup.md#update_platform_conf)
+To update the licenses after the first run, take a look at the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
 
 ## Troubleshooting
 

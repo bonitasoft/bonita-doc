@@ -5,7 +5,7 @@
 :::
 
 **Important notes:**  
-* This documentation applies to an existing and working Bonita installation (see the [installation instructions](bonita-installation-overview.md)).
+* This documentation applies to an existing and working Bonita installation (see the [installation instructions](bonita-bpm-installation-overview.md)).
 * In order to have functioning Active Directory/LDAP authentication, the user login (username) must exist both in the LDAP directory and in the Bonita database (user password is checked against the LDAP server but user information is read from Bonita database).  We recommend that you use the [LDAP synchronizer](ldap-synchronizer.md) to create Bonita users in a Bonita database.
 
 ## Overview
@@ -123,7 +123,7 @@ We recommend that you name your JAAS configuration file `jaas.cfg` and that you 
 #### Changing Bonita authentication service
 
 The default Bonita installation comes with an authentication service implementation based on the Bonita Engine database. In
-order to activate Active Directory/LDAP authentication the service implementation needs to be changed. To do this, edit [`bonita-tenant-sp-custom.properties`](Bonita_platform_setup.md).
+order to activate Active Directory/LDAP authentication the service implementation needs to be changed. To do this, edit [`bonita-tenant-sp-custom.properties`](BonitaBPM_platform_setup.md).
 
 You will need to perform following changes:
 

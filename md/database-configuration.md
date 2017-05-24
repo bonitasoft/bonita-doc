@@ -58,7 +58,7 @@ Also, note that the owner of the new schemas must own the following privileges:
 
 :::info
 CREATE TABLE and CREATE INDEX privileges are not required after first start in normal use.  
-If the same SQL user is used with the [migration tool](migrate-from-an-earlier-version-of-bonita.md), then this user needs such grants.
+If the same SQL user is used with the [migration tool](migrate-from-an-earlier-version-of-bonita-bpm.md), then this user needs such grants.
 :::
 
 To create the database(s), we recommend that you refer to your RDBMS documentation:

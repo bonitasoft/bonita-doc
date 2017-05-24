@@ -8,7 +8,7 @@ Bonita 7.1 introduces a case-counter mechanism to align with the Bonita Subscrip
 
 The **_License_** menu in Bonita Portal displays information about the current license. This information is available to the platform administrator only.
 
-The [license for Bonita Studio](bonita-studio-installation.md) is managed through a wizard when you start the studio for the first time after installation (or after the previous license expires).
+The [license for Bonita Studio](bonita-bpm-studio-installation.md) is managed through a wizard when you start the studio for the first time after installation (or after the previous license expires).
 
 ## Case-counter licensing
 
@@ -52,7 +52,7 @@ The license file will be sent to you by email.
 
 When you receive the license file (`.lic` file extension):
 - If this is the first time you start the bundle, copy the file to the`<TOMCAT_HOME>/setup/platform_conf/licenses` folder or `<WILDFLY_HOME>/setup/platform_conf/licenses/` folder before starting the bundle.
-- If the bundle has already been started, [you need to use the Platform setup tool](Bonita_platform_setup.md#update_platform_conf).
+- If the bundle has already been started, [you need to use the Platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf).
 
 ## License renewal scheduling
 

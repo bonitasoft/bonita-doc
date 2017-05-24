@@ -47,7 +47,7 @@ See the [Organization overview](organization-overview.md) for details.
 
 An actor is a placeholder specified in the process definition for the users. Using an actor instead of specifying real people directly makes the process definition more flexible: when the list of users changes, you change only the process configuration, which can be done while the process is running. You can also use the same process definition with completely different sets of users, for example, if a service business sells a process to several clients.   
 Making the connection between the actor definition and the set of users is called actor mapping.  
-See [Configure a test organization](organization-management-in-bonita-studio.md) and [actors](actors.md) for details.
+See [Configure a test organization](organization-management-in-bonita-bpm-studio.md) and [actors](actors.md) for details.
 
 ## Environments and parameters
 

@@ -2,7 +2,7 @@
 
 You will find here steps needed to install and configure a Tomcat bundle.
 
-The Tomcat bundle is a .zip archive that contains the Apache Tomcat Java EE application server prepackaged along with Bonita and [Bonita platform setup tool](Bonita_platform_setup.md#platform_setup_tool).
+The Tomcat bundle is a .zip archive that contains the Apache Tomcat Java EE application server prepackaged along with Bonita and [Bonita platform setup tool](BonitaBPM_platform_setup.md#platform_setup_tool).
 The Tomcat bundle is a regular .zip archive based on Tomcat zip distribution.
 
 
@@ -63,7 +63,7 @@ The Tomcat bundle is based on a standard Tomcat installation with the following 
 ::: info
 **Note:** Beginning with version 7.3.0, Bonita Platform configuration, including the license file, is stored in the same database as the Bonita Engine data, namely in the `CONFIGURATION` table.
 The initialization of this configuration happens during `start-bonita.bat` (for Windows) or `start.bonita.sh` (for Linux) execution.  
-Once initialized, to update this configuration, use the [*Platform setup tool*](Bonita_platform_setup.md) embedded in Bonita bundles.
+Once initialized, to update this configuration, use the [*Platform setup tool*](BonitaBPM_platform_setup.md) embedded in Bonita bundles.
 :::
 
 ### Get and install a license (Subscription editions only)
@@ -96,7 +96,7 @@ As a security precaution, we **strongly recommend** that before you start your a
 
 #### Platform administrator
 
-The username and password for the platform administrator are defined in the file [`<TOMCAT_HOME>/setup/platform_conf/initial/platform_engine/bonita-platform-community-custom.properties`](Bonita_platform_setup.md), by the following properties:
+The username and password for the platform administrator are defined in the file [`<TOMCAT_HOME>/setup/platform_conf/initial/platform_engine/bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md), by the following properties:
 
 * `platformAdminUsername` defines the username (default `platformAdmin`)
 * `platformAdminPassword` defines the password (default `platform`)
@@ -107,7 +107,7 @@ This password is used for platform-level administration tasks, such as creating 
 
 Each tenant has an administrator, with a tenant-specific username and password. The tenant administrator is also known as the tenant technical user.
 
-When the platform is created, default values for the tenant administrator username and password are defined in the file [`<TOMCAT_HOME>/setup/platform_conf/initial/tenant_template_engine/bonita-tenant-community-custom.properties`](Bonita_platform_setup.md), by the following properties:
+When the platform is created, default values for the tenant administrator username and password are defined in the file [`<TOMCAT_HOME>/setup/platform_conf/initial/tenant_template_engine/bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md), by the following properties:
 
 * `userName` defines the username (default `install`)
 * `userPassword` defines the password (default `install`)
@@ -116,7 +116,7 @@ When you create a tenant, the tenant administrator is created with the default u
 Change these tenant-specific credentials for an existing tenant by updating the `userName` and `userPassword` properties in `bonita-tenant-community-custom.properties`.
 
 ::: warning
-For the default tenant, the tenant administrator username and password must also be defined in file [`<TOMCAT_HOME>/setup/platform_conf/initial/platform_portal/platform-tenant-config.properties`](Bonita_platform_setup.md), with exactly the same values that you set in `bonita-tenant-community-custom.properties`.
+For the default tenant, the tenant administrator username and password must also be defined in file [`<TOMCAT_HOME>/setup/platform_conf/initial/platform_portal/platform-tenant-config.properties`](BonitaBPM_platform_setup.md), with exactly the same values that you set in `bonita-tenant-community-custom.properties`.
 At platform creation, this file contains the default username and password for the default tenant. 
 :::
 
@@ -149,7 +149,7 @@ The **start-bonita** script does the following:
     4. copies your database vendor-specific drivers from `<TOMCAT_HOME>/setup/lib` to `<TOMCAT_HOME>/setup/server/lib/bonita`
 3. Starts the Tomcat bundle
 
-For advanced server configuration needs: check out [Bundle configuration](Bonita_platform_setup.md#run_bundle_configure) to finely tune your Tomcat bundle, using templates used by Bonita.
+For advanced server configuration needs: check out [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to finely tune your Tomcat bundle, using templates used by Bonita.
 :::
 
 <a id="start" />
@@ -185,17 +185,17 @@ Once you have your Tomcat bundle up and running, complete these [few extra steps
 
 ### Configuration update
 
-To update Bonita configuration after the first run, take a look at the [platform setup tool](Bonita_platform_setup.md#update_platform_conf)
+To update Bonita configuration after the first run, take a look at the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
 
 ::: info
 **Note:** 
-- The file `database.properties` is the entry point to configure the [Tomcat environment](Bonita_platform_setup.md#run_bundle_configure) and the [Bonita Platform configuration](Bonita_platform_setup.md#configure_tool).
+- The file `database.properties` is the entry point to configure the [Tomcat environment](BonitaBPM_platform_setup.md#run_bundle_configure) and the [Bonita Platform configuration](BonitaBPM_platform_setup.md#configure_tool).
 - You can use command line arguments to specify database properties directly from the command line. Use `<TOMCAT_HOME>/setup/setup.sh --help` on Linux or `<TOMCAT_HOME>\setup\setup.bat --help` on Windows to have a list of available options.
 :::
 
 ### License update
 
-To update the licenses after the first run, take a look at the [platform setup tool](Bonita_platform_setup.md#update_platform_conf)
+To update the licenses after the first run, take a look at the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
 
 
 ## Troubleshooting

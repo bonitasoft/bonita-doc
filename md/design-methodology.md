@@ -77,8 +77,8 @@ When testing is complete, the processes are ready to be deployed in Bonita Porta
 ## Specifying the organization
 
 Before you can run a process in production, you need to define your organization with entries for all process users, groups, and roles. You also need to map the process actors to the real people who will carry out process steps.   
-You can [manage your organization in Bonita Portal](organization-in-bonita-portal-overview.md) for a production system.   
-While you are in the testing phase, you can [manage the organization in Bonita Studio](organization-management-in-bonita-studio.md).
+You can [manage your organization in Bonita Portal](organization-in-bonita-bpm-portal-overview.md) for a production system.   
+While you are in the testing phase, you can [manage the organization in Bonita Studio](organization-management-in-bonita-bpm-studio.md).
 
 ## Monitoring and improvement
 

@@ -8,7 +8,7 @@ In Bonita 6.x, two versions are available for download:
 2. and the Bonita Community edition version for the Community edition 
 
 For each version, there are several packaging options.
-See the [Installation overview](bonita-installation-overview.md). 
+See the [Installation overview](bonita-bpm-installation-overview.md). 
 
 ## Concept comparison
 
@@ -44,7 +44,7 @@ See the [Installation overview](bonita-installation-overview.md).
 | Feature  | Bonita 6.x  | Bonita 7.x  | 
 | -------- | --------------- | --------------- | 
 | Dynamic reconfiguration  | The process configuration is defined in Bonita Studio. With the Performance Edition, you can modify the configuration in Bonita Portal after the process is deployed. You can dynamically update the following configuration items: actor mapping (all editions), parameters (Performance edition), connector implementation (Performance edition), dependencies (Performance edition), actor filter replay by Java call (Performance edition) | New live update feature expands the dynamic reconfiguration to other editions and to other items. The following items can be updated "live": Groovy scripts (Efficiency and Performance editions), process forms (Efficiency and Performance editions), actor mapping (all editions), parameters (all editions), connector implementation (all editions), dependencies (all editions), actor filter replay by Java call (Performance edition). See [Live update](live-update.md)  |
-| User interface  | For users, a simple interface for starting cases and performing tasks. For administrators, an interface for managing processes and applications, and the organization, with views for monitoring process and case status  | No change for users. For adminsitrators, the case process and case monitoring views have been improved, new live update features have been added, and the application editor has been improved. See [Bonita Portal interface overview](bonita-portal-interface-overview.md)  |
+| User interface  | For users, a simple interface for starting cases and performing tasks. For administrators, an interface for managing processes and applications, and the organization, with views for monitoring process and case status  | No change for users. For adminsitrators, the case process and case monitoring views have been improved, new live update features have been added, and the application editor has been improved. See [Bonita Portal interface overview](bonita-bpm-portal-interface-overview.md)  |
 | Task management  | Users can choose how to manage tasks. They can perform one task after another in list order, or select my tasks for themselves then perform them in the order they choose.  | No change for users. An administrator or process manager (or a user with an appropriate custom profile) can see at a glance that status of all tasks in a case, and can perform a task for a user. See [Manage a task](tasks.md)  |
 | Mobile web portal  | A specially designed mobile interface to Bonita Portal enables users to carry out tasks from a browser on mobile devices  | No change. See [Mobile overview](mobile-portal.md)  |
 | Subtasks  | A Subtask is a part of a self-assigned existing task. A Subtask must be assigned to a specific person, by name. The assignee can be the creator  | No change. See [Manage a subtask](subtasks.md)  |
@@ -54,4 +54,4 @@ See the [Installation overview](bonita-installation-overview.md).
 ## Feature improvements in Bonita Engine
 | Feature  | Bonita 6.x  | Bonita 7.0/1/2  | Bonita 7.3 | 
 | -------- | --------------- | ------------------- | -------------- | 
-| bonita_home  | A separate bonita_home for each edition and for cluster  | A common  bonita_home used for all editions, simplifying download and installation. Improved structure for bonita_home/server that is easier to maintain and customize. See [Bonita Home](bonita-home.md)  | No more bonita_home. See  [platform setup](Bonita_platform_setup.md) 
+| bonita_home  | A separate bonita_home for each edition and for cluster  | A common  bonita_home used for all editions, simplifying download and installation. Improved structure for bonita_home/server that is easier to maintain and customize. See [Bonita Home](bonita-home.md)  | No more bonita_home. See  [platform setup](BonitaBPM_platform_setup.md) 

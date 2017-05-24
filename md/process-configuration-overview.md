@@ -6,7 +6,7 @@ There are two reasons for configuring a process:
 * Configuring a process before deployment
 
 Before you can run a process from Bonita Studio for testing, you must configure it. The configuration is partly set implicitly by the Deployment and Web 
-preferences set as [Bonita Studio preferences](bonita-studio-preferences.md) and is partly set explicitly by 
+preferences set as [Bonita Studio preferences](bonita-bpm-studio-preferences.md) and is partly set explicitly by 
 [configuring the process using the configuration wizard](configuring-a-process.md).
 
 Before you export a process for deployment, you need to set the initial configuration [using the configuration wizard](configuring-a-process.md). 

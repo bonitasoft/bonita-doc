@@ -59,7 +59,7 @@ Custom user information enables custom details to be added to a user in the Orga
 ### In Bonita Studio:
 
 Use the **Custom** tab in **Organization users** to add Custom information to a user.  
-This [custom information is defined in Bonita Studio](custom-user-information-in-bonita-studio.md), then applied to an actor filter, and when deployed in Bonita Portal, enables the filtering of users mapped to tasks.
+This [custom information is defined in Bonita Studio](custom-user-information-in-bonita-bpm-studio.md), then applied to an actor filter, and when deployed in Bonita Portal, enables the filtering of users mapped to tasks.
 
 The custom user information is saved in the Organization schema and published so it can be used in Bonita Portal.
 
@@ -69,11 +69,11 @@ When the process is deployed in Bonita Portal in a production environment, the f
 However, the value associated with a filter definition can be modified by a user with an admin profile.  
 The organization will be modified on the remote server. This enables tasks to be re-assigned to users in processes that are already deployed, which is then used to filter users for tasks.
 
-See [custom user information in Bonita Studio](custom-user-information-in-bonita-studio.md) for setting the definition and values for the filter
+See [custom user information in Bonita Studio](custom-user-information-in-bonita-bpm-studio.md) for setting the definition and values for the filter
 
 ### In Bonita Portal:
 
-This custom information can only be seen and [edited](custom-user-information-in-bonita-portal.md) by users who have the Administrator profile.
+This custom information can only be seen and [edited](custom-user-information-in-bonita-bpm-portal.md) by users who have the Administrator profile.
 
 Note that if the custom user information does not exist in Bonita Studio, modifying its value for a user in Bonita Portal will not make any difference to the filter, apart from creating an error.  
 Synchronize the Organization between Bonita Studio and Bonita Portal first by publishing it so all values are up to date.

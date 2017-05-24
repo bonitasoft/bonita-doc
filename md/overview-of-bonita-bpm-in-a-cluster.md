@@ -10,7 +10,7 @@ and therefore to your business. A Bonita cluster alone does not guarantee high a
 You must also ensure that the prerequisite infrastructure is highly available.
 
 See also:  
-[Install a Bonita cluster](install-a-bonita-cluster.md)  
+[Install a Bonita cluster](install-a-bonita-bpm-cluster.md)  
 [Cluster administration](cluster-administration.md)
 
 ## Introduction
@@ -81,7 +81,7 @@ The nodes must all be in the same datacenter, to keep latency of updates to shar
 
 All nodes must run the same software configuration (same versions on Bonita and application server). 
 
-The [Hibernate cache must be disabled](install-a-bonita-cluster.md#disable-hibernate-cache).
+The [Hibernate cache must be disabled](install-a-bonita-bpm-cluster.md#disable-hibernate-cache).
 
 The load balancer must be configured to use sticky sessions (this is needed to manage sessions created when users log in to the Portal).
 

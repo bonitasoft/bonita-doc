@@ -184,7 +184,7 @@ There are two ways to export a business data model: in a ZIP file for deployment
 
 To deploy the BDM, you export it as a ZIP file from Bonita Studio and then import it into Bonita Portal.
 
-**Warning:** Before deploying the business data model, you must [pause](pause-and-resume-services.md) the service, so that the update can be performed without affecting ongoing processes. You are recommended to backup the database before deploying a new BDM.
+**Warning:** Before deploying the business data model, you must [pause](pause-and-resume-bpm-services.md) the service, so that the update can be performed without affecting ongoing processes. You are recommended to backup the database before deploying a new BDM.
 
 Follow these steps:
 

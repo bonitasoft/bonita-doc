@@ -42,7 +42,7 @@ These files grant permissions to sets of users based on profile or user name.
 You cannot remove permissions in a configuration file, so you must ensure that the default definitions grant the minimum permissions that you want to give to any user.
 
 The default versions of these files are located in `setup/platform_conf/initial/tenant_template_portal`.
-In order to change the configuration on an installation whose platform has already been initialized, use the [platform setup tool](Bonita_platform_setup.md) to
+In order to change the configuration on an installation whose platform has already been initialized, use the [platform setup tool](BonitaBPM_platform_setup.md) to
 retrieve the current configuration and update the files in `setup/platform_conf/current/tenants/[tenantId]/tenant_portal`.
 Then use the tool again to save your changes into the database.
 
@@ -131,7 +131,7 @@ This specifies that a POST action can be done for a case resource if the user is
 or any user with the Administrator profile, or any user with the User profile, or if the CasePermissionRule grants authorization.
 
 A `check` term indicates the name of a class to be called. The class must implement `org.bonitasoft.engine.api.permission.PermissionRule`.
-This example defines a dynamic check that is made whenever a user makes a GET request for the bpm/process resource. The script must be added to the `setup/platform_conf/current/tenant_template_security_scripts` folder before the platform initialization or using the [plaform setup tool](Bonita_platform_setup.md) to retrieve the current configuration, to the folder `setup/platform_conf/current/tenants/[tenantId]/tenant_security_scripts` (then you need to use the tool again to save the changes into the database).
+This example defines a dynamic check that is made whenever a user makes a GET request for the bpm/process resource. The script must be added to the `setup/platform_conf/current/tenant_template_security_scripts` folder before the platform initialization or using the [plaform setup tool](BonitaBPM_platform_setup.md) to retrieve the current configuration, to the folder `setup/platform_conf/current/tenants/[tenantId]/tenant_security_scripts` (then you need to use the tool again to save the changes into the database).
 The `tenant_security_scripts` folder contains some example scripts. If the script returns `true`, the user is authorized. If the script returns `false` or any other result (including an error), the user is not authorized.
 
 The `dynamic-permissions-checks.properties` file contains a placeholder line for each method and resource. For example:
@@ -144,7 +144,7 @@ The `dynamic-permissions-checks.properties` file contains a placeholder line for
 ```
 
 To specify a dynamic check for a method and resource, uncomment the line in the file `dynamic-permissions-checks-custom.properties` and add the conditions.
-If you specify a condition that calls a Groovy script, add the script to the `tenant_security_scripts` folder. Then use the [plaform setup tool](Bonita_platform_setup.md) to save the changes.
+If you specify a condition that calls a Groovy script, add the script to the `tenant_security_scripts` folder. Then use the [plaform setup tool](BonitaBPM_platform_setup.md) to save the changes.
 
 ::: warning
 Do **not** modify file `dynamic-permissions-checks.properties` directly, as it is reserved for examples, and may be overwritten during migration to a newer version.

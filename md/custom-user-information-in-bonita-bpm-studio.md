@@ -39,7 +39,7 @@ In the Organization menu \> Manage organizations \> Organization users, the firs
 * Custom 
 
 To add custom user information values for a user, select a user in the **List of users**, click on the **_Custom_** tab, and enter the value for each relevant information. You also see a link **Manage custom information**, to go back and manage the list of custom user information.   
-Note: this value can be changed by a user with the Admin profile in the Bonita Portal. See [How to edit Custom information for a single user](custom-user-information-in-bonita-portal.md)
+Note: this value can be changed by a user with the Admin profile in the Bonita Portal. See [How to edit Custom information for a single user](custom-user-information-in-bonita-bpm-portal.md)
 
 ## Set an actor filter on custom user information
 

@@ -10,7 +10,7 @@ There are three major phases in the lifecycle.This page introduces these three p
 
 During this phase, the business analyst specifies the processes that are in the application and [creates the process diagrams](diagram-overview.md). The application developer takes the specification of each process and creates a running process, adding forms, scripts or Java code if required. Each process is tested and debugged. When a process is complete, it is exported ready for deployment. 
 
-This phase needs only the Bonita Studio component of Bonita. See the [Bonita Studio installation overview](bonita-studio-installation.md) for details of how to install Bonita Studio for process creation.
+This phase needs only the Bonita Studio component of Bonita. See the [Bonita Studio installation overview](bonita-bpm-studio-installation.md) for details of how to install Bonita Studio for process creation.
 
 The application developer also creates the application pages. When the pages are complete, they are exported and deployed in Bonita Portal. The application developer then builds the application, specifying the menus and navigation.
 
@@ -18,7 +18,7 @@ The application developer also creates the application pages. When the pages are
 
 During this phase, which typically runs in parallel with the end of the application creation phase, the platform administrator prepares
 the infrastructure needed to support the deployed application. This infrastructure includes Bonita, and prerequisites such as a
-database and an application server. There are many options for how Bonita can be installed: see the [Installation overview](bonita-installation-overview.md) for details.
+database and an application server. There are many options for how Bonita can be installed: see the [Installation overview](bonita-bpm-installation-overview.md) for details.
 
 Preparing the system also includes [defining the organization](organization-overview.md), with all the users, groups, and roles required for running processes and applications. Bonita Studio contains an example organization, ACME, which you can use for testing.
 

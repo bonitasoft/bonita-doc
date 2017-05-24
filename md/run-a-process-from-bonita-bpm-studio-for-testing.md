@@ -6,7 +6,7 @@ after deployment. Running a process from Bonita Studio is intended for testing d
 process development.
 
 Before you can run a process, you must [configure the process](configuring-a-process.md)
-and [configure the organization](organization-management-in-bonita-studio.md).
+and [configure the organization](organization-management-in-bonita-bpm-studio.md).
 
 To run a process, open the process diagram and select the pool, then click **_Run_** in the Cool bar. The process in the selected pool runs. Only one pool can be run at a time.
 

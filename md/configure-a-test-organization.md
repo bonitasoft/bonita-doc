@@ -66,4 +66,4 @@ To upload the organization data:
 3. Specify the username and password of the user that will be used to log in to Bonita Portal when a process is started from Bonita Studio. This user must be in the organization you have selected.
 4. Click Publish.
 
-After it has been uploaded, you can [modify the organization in Bonita Portal](organization-in-bonita-portal-overview.md).
+After it has been uploaded, you can [modify the organization in Bonita Portal](organization-in-bonita-bpm-portal-overview.md).

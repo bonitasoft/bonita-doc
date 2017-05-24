@@ -26,7 +26,7 @@ It is fast because the Bonita Portal and the Bonita Engine run on the same JVM a
 
 Even if the `bonita.war` comes with an embedded Bonita Engine, you can choose **not** to use it.
 
-In this deployment you must configure the JVM containing the client Bonita Portal to use the remote connection to the engine. To do so see [configuring the connection to a remote engine](configure-client-of-bonita-engine.md#client_config).
+In this deployment you must configure the JVM containing the client Bonita Portal to use the remote connection to the engine. To do so see [configuring the connection to a remote engine](configure-client-of-bonita-bpm-engine.md#client_config).
 
 ::: info
 Don't forget to set in this JVM the following properties:

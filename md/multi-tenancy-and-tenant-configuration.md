@@ -28,7 +28,7 @@ These tenants are configured with a single database. This illustration shows a p
 
 The platform is the part of the system that is common to all tenants.
 
-Before the platform has been initialized, its configuration can be customized in `setup/platform_conf/initial`. However, in order to modify the configuration on an installation whose platform has already been initialized, you need to use the [plaform setup tool](Bonita_platform_setup.md) to retrieve the current configuration and update the files in `setup/platform_conf/current/`. Then use the tool again to save your changes into to the database.
+Before the platform has been initialized, its configuration can be customized in `setup/platform_conf/initial`. However, in order to modify the configuration on an installation whose platform has already been initialized, you need to use the [plaform setup tool](BonitaBPM_platform_setup.md) to retrieve the current configuration and update the files in `setup/platform_conf/current/`. Then use the tool again to save your changes into to the database.
 
 The engine platform configuration directory is located here: `platform_engine`.
 The portal platform configuration directory is located here: `platform_portal`.
@@ -151,4 +151,4 @@ While service is paused in a tenant, only the following methods are valid:
 If you attempt an operation that is not permitted while a tenant is paused, a `TenantIsPausedException` is thrown.
 
 You can also pause and resume a tenant using the 
-[REST API](platform-api.md) or [Bonita Portal](pause-and-resume-services.md).
+[REST API](platform-api.md) or [Bonita Portal](pause-and-resume-bpm-services.md).

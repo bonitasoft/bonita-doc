@@ -11,7 +11,7 @@ The next three sections describe typical approaches, two using LDAP and one main
 If the groups within your organization are suitable for mapping to the actors in your processes, you can use these groups when [mapping actors](actors.md).
 
 If you are using the Bonita Performance, Efficiency, or Teamwork edition, you can [define the actor mapping in Bonita Portal](processes.md) after a process is deployed.  
-For the Community edition, you [specify the actor mapping in Bonita Studio](actors.md), so you need to [define the groups in Bonita Studio](organization-management-in-bonita-studio.md). However, you only need to create the groups that are used in actor mappings, not your whole organization hierarchy.
+For the Community edition, you [specify the actor mapping in Bonita Studio](actors.md), so you need to [define the groups in Bonita Studio](organization-management-in-bonita-bpm-studio.md). However, you only need to create the groups that are used in actor mappings, not your whole organization hierarchy.
 
 ## Maintain organization in LDAP and map actors to roles or memberships
 
@@ -19,14 +19,14 @@ If the groups within your organization are not suitable for mapping to actors in
 A membership is a combination of a group and a role.
 
 If you are using the Bonita Performance, Efficiency, or Teamwork edition, you can [define the actor mapping in Bonita Portal](processes.md) after a process is deployed.  
-For the Community edition, you [specify the actor mapping in Bonita Studio](actors.md), so you need to [define the roles and memberships in Bonita Studio](organization-management-in-bonita-studio.md). However, you only need to create the roles and memberships that are used in actor mappings.
+For the Community edition, you [specify the actor mapping in Bonita Studio](actors.md), so you need to [define the roles and memberships in Bonita Studio](organization-management-in-bonita-bpm-studio.md). However, you only need to create the roles and memberships that are used in actor mappings.
 
 In Bonita Portal, [define the roles and memberships](role.md) used in the actor mappings, and [specify the roles of the users](manage-a-user.md). User roles are specified using a membership.
 
 ## Maintain organization manually
 
 For smaller organizations that do not use LDAP, or if you are using the Community edition, you can maintain your organization manually.
-Typically, you [manage an organization manually using Bonita Studio](organization-management-in-bonita-studio.md), and then [import it into Bonita Portal](import-export-an-organization.md).   
+Typically, you [manage an organization manually using Bonita Studio](organization-management-in-bonita-bpm-studio.md), and then [import it into Bonita Portal](import-export-an-organization.md).   
 This means that the organization management and actor mapping are carried out in the same tool, from a single set of data.
 
 Alternatively, you can initialize the organization in Bonita Studio with just the elements needed for actor mapping. Then export this to Bonita Portal and [manage the users in the Bonita Portal](manage-a-user.md).

@@ -92,7 +92,7 @@ Right after the opening `<security-domains>` tag, insert these lines (specifying
 
 5. In the `CasLoginModule` configuration, check that the `principalGroupName` property is set to `CallerPrincipal`. This is required to retrieve the username from the Bonita application. 
 Bonita uses the CAS LoginModule in the JASIG implementation, so see the CAS LoginModule section of the [Jasig documentation](https://wiki.jasig.org/display/CASC/JAAS+Integration) for more information.
-6. Update [`bonita-tenant-sp-custom.properties`](Bonita_platform_setup.md) from `setup/platform_conf/initial/tenant_template_engine/` if platform has not been initialized yet or `setup/platform_conf/current/tenants/[TENANT_ID]/tenant_engine/` and `setup/platform_conf/current/tenant_template_engine/`.
+6. Update [`bonita-tenant-sp-custom.properties`](BonitaBPM_platform_setup.md) from `setup/platform_conf/initial/tenant_template_engine/` if platform has not been initialized yet or `setup/platform_conf/current/tenants/[TENANT_ID]/tenant_engine/` and `setup/platform_conf/current/tenant_template_engine/`.
    1. Remove the comment flags from these lines:
       `authentication.service.ref.name=jaasAuthenticationService`
    2. Specify the relevant IP address and port number.
@@ -106,11 +106,11 @@ Bonita uses the CAS LoginModule in the JASIG implementation, so see the CAS Logi
 ## Configure Bonita Engine and Tomcat for CAS
 
 ::: warning
-From 7.3.0, this configuration requires not to have initialized the platform or that the [configuration from database has been retrieved and be pushed to database when finished](Bonita_platform_setup.md#update_platform_conf).
+From 7.3.0, this configuration requires not to have initialized the platform or that the [configuration from database has been retrieved and be pushed to database when finished](BonitaBPM_platform_setup.md#update_platform_conf).
 :::
 
 1. The CAS implementation relies on JAAS, and is defined in the BonitaAuthentication module of the JAAS configuration file.  
-   Set the Java system property `java.security.auth.login.config` in the Tomcat startup script to point to the JAAS configuration file, [`jaas-standard.cfg`](Bonita_platform_setup.md). 
+   Set the Java system property `java.security.auth.login.config` in the Tomcat startup script to point to the JAAS configuration file, [`jaas-standard.cfg`](BonitaBPM_platform_setup.md). 
 
    For example, on Linux, edit `setenv.sh`, uncomment the line that defines `SECURITY_OPTS`, and insert the variable `SECURITY_OPTS` in the line `CATALINA_OPTS=..`. 
  

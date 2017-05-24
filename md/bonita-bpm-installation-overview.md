@@ -17,7 +17,7 @@ Used to install Bonita Studio (using a wizard) on your computer. No configuratio
 * The OS independent package. Used to manually set up Bonita Studio.
 The package contains the individual launchers in one .zip file, and creates the same installation environment as the installers.
 
-To know more, go to [Bonita Studio installation](bonita-studio-installation.md).
+To know more, go to [Bonita Studio installation](bonita-bpm-studio-installation.md).
 
 <a id="platform"/>
 
@@ -25,7 +25,7 @@ Bonita Platform  <!--{.h2}-->
 
 Bonita Platform can be installed in several ways:
 
-* If you want to migrate an existing installation to the latest version follow the [migration guide](migrate-from-an-earlier-version-of-bonita.md).
+* If you want to migrate an existing installation to the latest version follow the [migration guide](migrate-from-an-earlier-version-of-bonita-bpm.md).
 * If you want to do a fresh install, get one of our prepackaged bundles that include an Application Server
     * [Tomcat + Bonita](tomcat-bundle.md)
     * [WildFly + Bonita](wildfly-bundle.md)
@@ -36,7 +36,7 @@ For all options, you will need to [configure](database-configuration.md) Bonita 
 
 
 ::: warning
-Starting from Bonita 7.3.0, there is no more bonita home to store the configuration, all the configuration is in the database. For more information, take a look at [Bonita Platform configuration](Bonita_platform_setup.md)
+Starting from Bonita 7.3.0, there is no more bonita home to store the configuration, all the configuration is in the database. For more information, take a look at [Bonita Platform configuration](BonitaBPM_platform_setup.md)
 :::
 
 

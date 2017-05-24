@@ -1,7 +1,7 @@
 # Back up Bonita Platform
 
 Any basic one node (non-clustered) installation can be backed up to be restored later. 
-In a [Bonita cluster](overview-of-bonita-in-a-cluster.md), you need to back up the nodes, the shared database.
+In a [Bonita cluster](overview-of-bonita-bpm-in-a-cluster.md), you need to back up the nodes, the shared database.
 
 A cold backup (total shutdown) is recommended, to avoid losing data being processed during the backup process. Note: make sure your database server is backed up. 
 (Please refer to the specific documentation for your database concerning the backup procedure).

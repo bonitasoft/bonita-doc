@@ -8,12 +8,12 @@ The Bonita Engine is the runtime processor at the core of Bonita.  It executes p
 
 ![engine architecture diagram](images/images-6_0/dev_arch_engine_architecture_simple.png)  
 
-The Bonita Engine component services are completely configurable using the [plaform setup tool](Bonita_platform_setup.md) to retrieve the current configuration and update it.
+The Bonita Engine component services are completely configurable using the [plaform setup tool](BonitaBPM_platform_setup.md) to retrieve the current configuration and update it.
 
 Services are provided to the Engine using a ServiceAccessor. By default, this uses Spring to bind services and to retrieve service instances.
 The Spring configuration files are present in the classpath but beans can be added or overridden using configuration files stored in database under the **CONFIGURATION**  table.
 These files are all suffixed with -custom.xml and contain Spring bean declaration examples.
-Theses files can be retrieved and updated using the [platform setup tool](Bonita_platform_setup.md).
+Theses files can be retrieved and updated using the [platform setup tool](BonitaBPM_platform_setup.md).
 
 Folder  `setup/platform_conf/[initial|current]/tenant_template_engine` contains tenant-level template configuration files used when creating a new tenant (Subscription edition):
 

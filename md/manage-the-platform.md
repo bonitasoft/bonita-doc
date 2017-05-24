@@ -31,9 +31,9 @@ After this step, the technical user will be able to connect to the engine and cr
 platformAPI.initializePlatform();
 ```
 
-No users are created by default and the default username/password for the technical user to connect to Bonita Engine can be retrieved in the file `setup/platform_conf/current/tenants/[tenant_id]/tenant_engine/bonita-tenant-community-custom.properties` using the [plaform setup tool](Bonita_platform_setup.md) (`[tenant_id]` being the default tenant ID, that is to say `1` when using the default configuration on a fresh installation).
+No users are created by default and the default username/password for the technical user to connect to Bonita Engine can be retrieved in the file `setup/platform_conf/current/tenants/[tenant_id]/tenant_engine/bonita-tenant-community-custom.properties` using the [plaform setup tool](BonitaBPM_platform_setup.md) (`[tenant_id]` being the default tenant ID, that is to say `1` when using the default configuration on a fresh installation).
 
-Once you retrieved the default configuration using the [plaform setup tool](Bonita_platform_setup.md), you can change this username/password by editing the file `bonita-tenant-community-custom.properties` and use the tool again to [push the configuration to database](Bonita_platform_setup.md#update_platform_conf).
+Once you retrieved the default configuration using the [plaform setup tool](BonitaBPM_platform_setup.md), you can change this username/password by editing the file `bonita-tenant-community-custom.properties` and use the tool again to [push the configuration to database](BonitaBPM_platform_setup.md#update_platform_conf).
 
 Next, **start Bonita engine**. Starting the engine on a node starts the Scheduler service and restarts elements that were not finished by the Work service on the previous shutdown. Bonita Engine environment is marked as activated.
 

@@ -32,7 +32,7 @@ If an `apiSession` attribute exists, this means a user is already authenticated.
 **Note:** Information about the original page the user tried to reach is included in a URL parameter named `redirectURL`.
 The login page URL is determined by the [AuthenticationManager](https://github.com/bonitasoft/bonita-web/blob/${varVersion}.0/common/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java)
 implementation. The implementation to use for the current tenant is configured in a file `authenticationManager-config.properties`
-(located in `setup/platform_conf/initial/tenant_template_portal` or `setup/platform_conf/current/tenants/[tenantid]/tenant_portal` and updatable using the [platform setup tool](Bonita_platform_setup.md)).
+(located in `setup/platform_conf/initial/tenant_template_portal` or `setup/platform_conf/current/tenants/[tenantid]/tenant_portal` and updatable using the [platform setup tool](BonitaBPM_platform_setup.md)).
 The default [AuthenticationManager](https://github.com/bonitasoft/bonita-web/blob/${varVersion}.0/common/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java)
 is [StandardAuthenticationManagerImpl](https://github.com/bonitasoft/bonita-web/blob/${varVersion}.0/server/src/main/java/org/bonitasoft/console/common/server/auth/impl/standard/StandardAuthenticationManagerImpl.java).
 Its behavior is to redirect to the `login.jsp` page embedded in the webapp.
@@ -49,7 +49,7 @@ information.
 calls `login` method of [LoginManager](https://github.com/bonitasoft/bonita-web/blob/${varVersion}.0/server/src/main/java/org/bonitasoft/console/common/server/login/LoginManager.java)
 9. [LoginManager](https://github.com/bonitasoft/bonita-web/blob/${varVersion}.0/server/src/main/java/org/bonitasoft/console/common/server/login/LoginManager.java)
 searches for an [AuthenticationManager](https://github.com/bonitasoft/bonita-web/blob/${varVersion}.0/common/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java)
-implementation based on configuration file for current tenant ([`authenticationManager-config.properties`](Bonita_platform_setup.md)). The default [AuthenticationManager](https://github.com/bonitasoft/bonita-web/blob/${varVersion}.0/common/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java)
+implementation based on configuration file for current tenant ([`authenticationManager-config.properties`](BonitaBPM_platform_setup.md)). The default [AuthenticationManager](https://github.com/bonitasoft/bonita-web/blob/${varVersion}.0/common/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java)
 is [StandardAuthenticationManagerImpl](https://github.com/bonitasoft/bonita-web/blob/${varVersion}.0/server/src/main/java/org/bonitasoft/console/common/server/auth/impl/standard/StandardAuthenticationManagerImpl.java).
 10. `authenticate` method is called on the [AuthenticationManager](https://github.com/bonitasoft/bonita-web/blob/${varVersion}.0/common/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java).
 `authenticate` method of [StandardAuthenticationManagerImpl](https://github.com/bonitasoft/bonita-web/blob/${varVersion}.0/server/src/main/java/org/bonitasoft/console/common/server/auth/impl/standard/StandardAuthenticationManagerImpl.java)

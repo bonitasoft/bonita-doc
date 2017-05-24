@@ -14,7 +14,7 @@ Bonita Studio is a graphical environment for creating processes, applications, d
 
 Bonita Studio is the development tool for the Business Analyst and Application Developer. Back-end java developers work in Bonita Studio and collaborate with front-end developers working in the UI Designer.
 
-You can [install Bonita Studio](bonita-installation-overview.md) on your computer, then create and test processes, create data models, applications and application views (pages and forms). 
+You can [install Bonita Studio](bonita-bpm-installation-overview.md) on your computer, then create and test processes, create data models, applications and application views (pages and forms). 
 
 Bonita Studio contains a **Bonita Platform** (Tomcat, UI Designer, Bonita Portal, Bonita Engine, and an h2 database), suitable for testing an application that is in development. When you run a process, it is automatically deployed onto the development platform.
 
@@ -28,11 +28,11 @@ Users can use Bonita Portal (_User_ profile) to view and complete the process ta
 
 [Bonita Engine](bonita-engine-architecture) is the execution engine of Bonita.
 
-As mentioned before, [Bonita Portal](bonita-portal-interface-overview.md) is the part of Bonita that is visible to process users, who use it to view tasks and take actions thanks to a generic task list for all processes they are involved in.
+As mentioned before, [Bonita Portal](bonita-bpm-portal-interface-overview.md) is the part of Bonita that is visible to process users, who use it to view tasks and take actions thanks to a generic task list for all processes they are involved in.
 
 But Bonita Portal is also the tool used by the tenant administrator to [install, deploy and manage processes](processes.md) and to [build applications](applications.md). We use the word "tenant" here, in case the platform would be made of [several tenants](multi-tenancy-and-tenant-configuration.md).
 
-To install Bonita Engine and Bonita Portal in a qualification or production environment, [install Bonita Platform](bonita-installation-overview.md#platform).
+To install Bonita Engine and Bonita Portal in a qualification or production environment, [install Bonita Platform](bonita-bpm-installation-overview.md#platform).
 
 In Bonita Studio, once a process is ready, you can [build](build-a-process-for-deployment.md) it and deploy it on your Bonita qualification or production platform. 
 
@@ -74,4 +74,4 @@ See [diagrams](diagram-overview.md).
 
 **How can I get started?** 
 
-Download and install Bonita 7.x: see the [installation instructions](bonita-installation-overview.md).
+Download and install Bonita 7.x: see the [installation instructions](bonita-bpm-installation-overview.md).

@@ -3,7 +3,7 @@
 A diagram is the visual representation of a group of related processes. It contains one or more pools.  
 Each pool contains a process. One diagram can therefore contain several processes.
 
-A diagram has a name and a version number. You can [change the diagram name](bonita-studio-hints-and-tips.md) and you can [update the version number](bonita-studio-hints-and-tips.md) whenever you want to indicate a major change in the diagram. A pool also has a version number that can be updated manually.   
+A diagram has a name and a version number. You can [change the diagram name](bonita-bpm-studio-hints-and-tips.md) and you can [update the version number](bonita-bpm-studio-hints-and-tips.md) whenever you want to indicate a major change in the diagram. A pool also has a version number that can be updated manually.   
 There is no link between the diagram version and the pool version.
 
 ### How to create a new diagram

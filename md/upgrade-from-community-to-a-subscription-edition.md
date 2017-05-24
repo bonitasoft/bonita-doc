@@ -15,7 +15,7 @@ An upgrade is performed in two phases.
 
 To upgrade a Community edition Bonita Studio and its resources (such as process diagrams, data models), follow these steps:
 
-1. [Install a Bonita  Studio](bonita-studio-installation.md) Subscription edition.
+1. [Install a Bonita  Studio](bonita-bpm-studio-installation.md) Subscription edition.
 2. Export your resources from the Bonita Studio Community edition to `.bos` files. We recommend that you keep these resource files as a backup.
 3. Import your resource files into the Bonita Studio in Subscription edition.
 

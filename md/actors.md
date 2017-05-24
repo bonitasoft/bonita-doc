@@ -26,9 +26,9 @@ name, select it and type the name you want to use. You can also add a descriptio
 2. For each lane, define the actor. You can either select an actor that was defined for the pool, by selecting the actor from the drop-down list, or you can use an actor filter.
 3. For each step, define the actor. You can use the actor defined for the lane, or specify an actor for the step. To specify an actor for the step, you can either select an actor that was defined for the pool, by selecting the actor from the drop-down list, or you can use an actor filter.
 
-See [Custom User Information in Bonita Studio](custom-user-information-in-bonita-studio.md)
+See [Custom User Information in Bonita Studio](custom-user-information-in-bonita-bpm-studio.md)
 
-See [Custom User Information in Bonita Portal](custom-user-information-in-bonita-portal.md)
+See [Custom User Information in Bonita Portal](custom-user-information-in-bonita-bpm-portal.md)
 
 ## Allowing anonymous users (6.x forms)
 
@@ -55,7 +55,7 @@ For information about creating a new actor filter, see [Creating an actor filter
 ## Map an actor
 
 Before a process can be tested, you must map the actors in the process to users in the organization. Before you can do this, you must
-[define your organization Bonita Studio](organization-management-in-bonita-studio.md) and upload it to Bonita Portal.
+[define your organization Bonita Studio](organization-management-in-bonita-bpm-studio.md) and upload it to Bonita Portal.
 
 To map the process actors:
 

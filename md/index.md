@@ -34,7 +34,7 @@ Click on the **links** below to find useful information quickly, or [browse the 
 * [Process diagram overview](diagram-overview.md)<!--{li:.leaf}-->
 * [Key concepts](key-concepts.md)<!--{li:.leaf}-->
 * [UI designer overview](ui-designer-overview.md)<!--{li:.leaf}-->
-* [Bonita Studio installation](bonita-studio-installation.md)<!--{li:.leaf}-->
+* [Bonita Studio installation](bonita-bpm-studio-installation.md)<!--{li:.leaf}-->
 * [Basic Bonita platform installation](tomcat-bundle.md)<!--{li:.leaf}-->
 * [Create your first project with the Engine APIs and Maven](create-your-first-project-with-the-engine-apis-and-maven.md)<!--{li:.last .leaf}-->
 <!--{ul:.menu .nav}-->

@@ -30,4 +30,4 @@ See also [First steps after setup](first-steps-after-setup.md)
 
 See also [Active directory/ldap authentication](active-directory-or-ldap-authentication.md)
 
-See also [Accessing Bonita Portal and forms by URL](bonita-portal-urls.md)
+See also [Accessing Bonita Portal and forms by URL](bonita-bpm-portal-urls.md)

@@ -44,7 +44,7 @@ you need to specify the permissions that a user needs to have in order to access
 These permissions are defined in the `page.properties` file. If your custom page is written in Groovy and uses the Bonita Engine Java APIs, you do not need to specify permissions.
 
 For each REST resource accessed in the page, specify the authorization needed for each method used.
-You can find examples of the default resources in [`resources-permissions-mapping.properties`](Bonita_platform_setup.md).
+You can find examples of the default resources in [`resources-permissions-mapping.properties`](BonitaBPM_platform_setup.md).
 
 The following example shows the permissions defined for a custom page that enables a user to view but not update organization information:
 
@@ -95,7 +95,7 @@ out.write("""<iframe src=../portal.js/#/admin/monitoring/${idProcess}-${idCase}?
 
 While you are developing a custom page, you can enable custom page debug mode for your portal. In debug mode, you can see changes to your custom page without importing a new zip archive.
 
-To enable custom page debug mode, edit [`console-config.properties`](Bonita_platform_setup.md) and set `custom.page.debug` to `true`.
+To enable custom page debug mode, edit [`console-config.properties`](BonitaBPM_platform_setup.md) and set `custom.page.debug` to `true`.
 
 To work on a page in debug mode:
 

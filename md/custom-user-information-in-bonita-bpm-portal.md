@@ -16,7 +16,7 @@ This gives flexibility to the admin to re-assign tasks to different users.
 The Organization .xml file can also be exported from Bonita Portal, and modified by hand externally, then re-imported back into Bonita Portal.
 The API can also modify the organization.
 
-See [Custom User Information in Bonita Studio](custom-user-information-in-bonita-studio.md)
+See [Custom User Information in Bonita Studio](custom-user-information-in-bonita-bpm-studio.md)
 
 ## How to view custom information for a user
 

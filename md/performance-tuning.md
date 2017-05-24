@@ -149,7 +149,7 @@ The work service is responsible for asynchronously processing execution of proce
 This is one of the key configurations to optimize, because even though there are many client threads, client threads are held only for a short time before being released, and then execution flow continues using work service threads.  
 A thread from the pool of the work service is known as a worker.
 
-The work service is configured in [`bonita-tenant-community-custom.properties`](Bonita_platform_setup.md).
+The work service is configured in [`bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md).
 ```
 bonita.tenant.work.terminationTimeout=30
 bonita.tenant.work.corePoolSize=25
