@@ -406,13 +406,38 @@ Be sure to configure these appropriately.
 
 ## Connector time tracker
 
-It is now possible to track the duration of actions in a connector using a new time tracker. The tracker service tracks several connector lifecycle operations, and produces a CSV file.  
+It is now possible to track the duration of actions in a connector using a new time tracker. The tracker service tracks several connector lifecycle operations.  
 This service can impact performance so is disabled by default.  
-It is configured by editing `bonita-tenant-community-custom.properties` and `bonita-tenants-custom.xml`.  
-To activate connector time tracking: 
+It is configured by editing the following parameters in `bonita-tenant-community-custom.properties`.  
 
-1. Change the value of `startFlushThread` from `false` to `true`.
-2. Uncomment 'flushEventListeners' and 'activatedRecords' beans.
+```
+## Time tracker
+#bonita.tenant.timetracker.startTracking=false
+#bonita.tenant.timetracker.maxSize=1000
+#bonita.tenant.timetracker.flushIntervalInSeconds=30
+#bonita.tenant.timetracker.csv.activateAtStart=true
+#bonita.tenant.timetracker.csv.folder=$ {java.io.tmpdir}
+
+#bonita.tenant.timetracker.csv.separator=;
+#bonita.tenant.timetracker.memory.activateAtStart=false
+#bonita.tenant.timetracker.memory.maxSize=1000000
+```
+To activate connector time tracking:
+1. Uncomment all the previous lines except ```## Time tracker```.
+2. Change the value of `startTracking` from `false` to `true`.
+
+The other parameters can be left at their default value, left commented, or set to the desired value. What each of them does:
+
+1. `maxSize` maximum of records that will be saved by the time tracker before a flush. If the maximum number of records is reached before the scheduled flush, the older ones are discared. To avoid the loss of information, a number sufficiently big in comparison with `flushIntervalInSeconds` should be chosen
+2. `flushIntervalInSeconds` the interval beetween two flushes on the timetracker thread.
+3. `csv.activateAtStart` wether to save the result of the timetracker into a csv file.
+4. `csv.folder` the folder where to save the csv file.
+5. `csv.separator` the separator character in the csv file
+6. `memory.activateAtStart` wether to save the result of the timetracker in memory.
+7. `memory.maxSize` maximum amount of records saved in memory. If the maximum number of records is reached before the scheduled flush, the older ones are discared. To avoid the loss of information, a number sufficiently big in comparison with `flushIntervalInSeconds` should be chosen
+
+The non-relevant options will be ignored at execution. Note that `memory` and `csv` can both be activated at the same time.
+
 
 ## Process design, event handlers, and cron jobs
 
