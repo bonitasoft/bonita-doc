@@ -136,10 +136,10 @@ If you are running your own application, you have one thread if your applicaiton
 If you are running Bonita BPM Engine inside a container, the maximum number of client threads is defined by a parameter of the container. For example:
 
 * **Apache Tomcat** `maxThreads` set in _`Tomcat_folder`_`/conf/server.xml`.    
-     Default value 200\. 
+     Default value 20\. 
      See the [Tomcat documentation](http://tomcat.apache.org/tomcat-7.0-doc/) for information about the `maxThreads` parameter.
 * **Red Hat JBoss** `maxThreads` set in _`JBoss_folder`_`/server/default/deploy/jbossweb.sar/server.xml`.   
-     Default value 200\. 
+     Default value 20\. 
      See the [JBoss documentation](http://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch02.html) for information about the `maxThreads` parameter.
 
 <a id="work_service"/>
