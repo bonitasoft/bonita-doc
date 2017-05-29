@@ -17,7 +17,7 @@ Both Windows and Mac have default security settings that will prevent execution 
 :::
 
 **Note for users of OS X 10.12.x and above using Zip installation** : a new security feature has been added in MacOS Sierra about the _App Translocation_ prevents the launch of software that is not officially signed by Apple (see [Apple official site](https://developer.apple.com/library/prerelease/content/releasenotes/MacOSX/WhatsNewInOSX/Articles/OSXv10.html#//apple_ref/doc/uid/TP40017145-SW1) and [other dedicated site](https://eclecticlight.co/2016/06/16/macos-sierra-will-break-many-installers-and-updaters/)).   
-In order to launch Bonita Studio on a system running on MacOS Sierra or above, you must apply extended attributs manually: In a terminal, run `xattr -rc BonitaBPMCommunity.app` for Community edition, or `xattr -rc BonitaBPMSubscription.app` for Subscription edition.
+In order to launch Bonita Studio on a system running on MacOS Sierra or above, you must apply extended attributs manually: In a terminal, run `xattr -rc BonitaCommunity.app` for Community edition, or `xattr -rc BonitaSubscription.app` for Subscription edition.
 
 **Note for users of OS X 10.7.5 and above**: a new security feature called **Gatekeeper** prevents the installation of software that is not officially recognized by Apple.  
 For more information and details of how to install Bonita Studio on a system running Gatekeeper, see the [Apple support site](https://support.apple.com/en-us/HT202491).
@@ -37,37 +37,37 @@ When the download is complete, you have one of the following new files:
 
 **Linux**  
 Community edition  
-- 32 bit: `BonitaBPMCommunity-x.y.z-x86.run`
-- 64 bit: `BonitaBPMCommunity-x.y.z-x86_64.run`  
+- 32 bit: `BonitaCommunity-x.y.z-x86.run`
+- 64 bit: `BonitaCommunity-x.y.z-x86_64.run`
 
 Subscription editions   
-- 32 bit: `BonitaBPMSubscription-x.y.z-x86.run`
-- 64 bit: `BonitaBPMSubscription-x.y.z-x86_64.run`
+- 32 bit: `BonitaSubscription-x.y.z-x86.run`
+- 64 bit: `BonitaSubscription-x.y.z-x86_64.run`
 
 **Windows**  
 Community edition  
-- 32 bit: `BonitaBPMCommunity-x..zy-x86.exe`
-- 64 bit: `BonitaBPMCommunity-x.y.z-x86_64.exe`  
+- 32 bit: `BonitaCommunity-x..zy-x86.exe`
+- 64 bit: `BonitaCommunity-x.y.z-x86_64.exe`
 
 Subscription editions  
-- 32 bit: `BonitaBPMSubscription-x..zy-x86.exe`
-- 64 bit: `BonitaBPMSubscription-x.y.z-x86_64.exe`
+- 32 bit: `BonitaSubscription-x..zy-x86.exe`
+- 64 bit: `BonitaSubscription-x.y.z-x86_64.exe`
 
 **Mac**  
 Community edition  
 - 32 bit: `Not provided`
-- 64 bit: `BonitaBPMCommunity-x.y.z-x86_64.dmg`  
+- 64 bit: `BonitaCommunity-x.y.z-x86_64.dmg`
 
 Subscription editions  
 - 32 bit: `Not provided`
-- 64 bit: `BonitaBPMSubscription-x.y.z-x86_64.dmg`
+- 64 bit: `BonitaSubscription-x.y.z-x86_64.dmg`
 
 **All**  
 Community edition  
-- `BonitaBPMCommunity-x.y.z.zip`  
+- `BonitaCommunity-x.y.z.zip`
 
 Subscription editions  
-- `BonitaBPMSubscription-x.y.z.zip`
+- `BonitaSubscription-x.y.z.zip`
 
 ## Install using a wizard
 
@@ -89,30 +89,30 @@ To start Bonita Studio, go to the directory where you installed it, and run the 
 
 **Linux**   
 Community edition  
-- 32-bit: `BonitaBPMCommunity-linux`
-- 64-bit: `BonitaBPMCommunity64-linux`  
+- 32-bit: `BonitaCommunity-linux`
+- 64-bit: `BonitaCommunity64-linux`
 
 Subscription editions  
-- 32-bit: `BonitaBPMSubscription-linux`
-- 64-bit: `BonitaBPMSubscription64-linux`
+- 32-bit: `BonitaSubscription-linux`
+- 64-bit: `BonitaSubscription64-linux`
 
 **Windows**  
 Community edition  
-- 32-bit: `BonitaBPMCommunity.exe`
-- 64-bit: `BonitaBPMCommunity64.exe`
+- 32-bit: `BonitaCommunity.exe`
+- 64-bit: `BonitaCommunity64.exe`
 
 Subscription editions  
-- 32-bit: `BonitaBPMSubscription.exe`
-- 64-bit: `BonitaBPMSubscription64.exe`
+- 32-bit: `BonitaSubscription.exe`
+- 64-bit: `BonitaSubscription64.exe`
 
 **Mac**   
 Community edition  
 - 32-bit: `Not provided`
-- 64-bit: `BonitaBPMCommunity64.app`
+- 64-bit: `BonitaCommunity64.app`
 
 Subscription editions  
 - 32-bit: `Not provided`
-- 64-bit: `BonitaBPMSubscription64.app`
+- 64-bit: `BonitaSubscription64.app`
 
 ## License
 
@@ -156,6 +156,6 @@ Caused by: java.lang.OutOfMemoryError: GC overhead limit exceeded
 
 To fix this issue, you need to increase the memory allocated to the JVM that runs Bonita Studio.
 
-Edit the `*.ini` file that corresponds to the executable you use to launch the Studio (e.g. `BonitaBPMSubscription64.ini` if you run BonitaBPMSubscription64.exe) and modify this line: `-Xmx512m` to `-Xmx1024m` (or higher).
+Edit the `*.ini` file that corresponds to the executable you use to launch the Studio (e.g. `BonitaSubscription64.ini` if you run BonitaSubscription64.exe) and modify this line: `-Xmx512m` to `-Xmx1024m` (or higher).
 
 Then restart Bonita Studio.
