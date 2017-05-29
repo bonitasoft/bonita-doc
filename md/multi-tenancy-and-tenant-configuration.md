@@ -42,7 +42,7 @@ There is also a default tenant _portal_ configuration directory, located in: `cu
 
 ## Tenant creation
 
-A tenant can be created using the Java PlatformAPI (see the [Engine Javadoc](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html)) or the [platform REST API](platform-api.md).
+A tenant can be created using the Java PlatformAPI (see the [Engine Javadoc](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/com/bonitasoft/engine/api/PlatformAPI.html)) or the [platform REST API](platform-api.md).
 
 **Note:**
 If [business objects](define-and-deploy-the-bdm.md) will be deployed in the newly created tenant do not forget to [create the business data database and configure specific data sources](database-configuration-for-business-data.md).
