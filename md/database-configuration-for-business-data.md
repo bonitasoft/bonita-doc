@@ -14,6 +14,7 @@ Some configuration file detailed below are located under `setup` folder. See [Bo
 
 ::: info
 Configuration is done per tenant. If you have multiple tenants to configure, you need to apply instructions below individually for each tenant.
+
 :::
 
 ## Database creation
@@ -66,7 +67,7 @@ The data sources for business data objects are independent of the Bonita BPM Eng
 ::: info
 If you have multiple tenants that use business data objects, you need to create a `BusinessDataDS` and a `NotManagedBizDataDS` for each tenant.
 :::
-The following sections show how to configuire the data sources for [JBoss](#ds_jboss) and [Tomcat](#ds_tomcat). 
+The following sections show how to configure the data sources for [JBoss](#ds_jboss) and [Tomcat](#ds_tomcat). 
 There is also an [example of how to configure data sources for Weblogic](red-hat-oracle-jvm-weblogic-oracle.md).
 
 <a id="db_jboss"/>
