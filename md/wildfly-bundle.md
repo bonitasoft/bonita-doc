@@ -2,7 +2,7 @@
 
 You will find here steps needed to install and configure a WildFly bundle.
 
-The WildFly bundle is a zip archive that contains the Red Hat WildFly Java EE application server packaged with Bonita BPM and [Bonita platform setup tool](BonitaBPM_platform_setup.md#platform_setup_tool).
+The WildFly bundle is a zip archive that contains the Red Hat WildFly Java EE application server packaged with Bonita and [Bonita platform setup tool](BonitaBPM_platform_setup.md#platform_setup_tool).
 The WildFly bundle is a regular zip archive based on the WildFly zip distribution.
 
 ## Installation of the WildFly bundle
@@ -15,18 +15,18 @@ The WildFly bundle is a regular zip archive based on the WildFly zip distributio
 
 For the Community edition:
 
-* Go to the [Bonitasoft website](http://www.bonitasoft.com/downloads-v2) and get the Bonita BPM Community edition WildFly bundle.
+* Go to the [Bonitasoft website](http://www.bonitasoft.com/downloads-v2) and get the Bonita Community edition WildFly bundle.
 
 For a Subscription edition:
 
-* Go to the [Customer Portal](https://customer.bonitasoft.com/download/request) and download the Bonita BPM Subscription edition WildFly bundle.
+* Go to the [Customer Portal](https://customer.bonitasoft.com/download/request) and download the Bonita Subscription edition WildFly bundle.
 
 #### Unzip
 
 The folder where you unzip the WildFly bundle is known as _`<WILDFLY_HOME>`_. We recommend the following locations:
 
-* Windows: `C:\BonitaBPM`.
-* Linux: in `/opt/BonitaBPM`. Make sure that Linux user account used to execute WildFly is the owner of the folders and files.
+* Windows: `C:\Bonita`.
+* Linux: in `/opt/Bonita`. Make sure that Linux user account used to execute WildFly is the owner of the folders and files.
 
 ::: warning
 Whatever location you choose, **do not** leave blank spaces in the path to the directory, nor in the folder name.
@@ -40,16 +40,16 @@ The WildFly bundle is based on a standard WildFly installation with the followin
 * `server/bin/standalone.conf.bat`: script to configure JVM system properties on Windows systems.
 * `server/modules/system/layers/base/sun/jdk/main/module.xml`: list of base jdk module necessary for WildFly and Bonita to execute.
 * `server/request_key_utils`: script to generate license request keys (Subscription editions only).
-* `server/standalone/configuration/standalone.xml`: WildFly context configuration for Bonita BPM Portal. It defines data sources used by Bonita BPM Engine.
-* `server/standalone/deployments/bonita-all-in-one-[version].ear`: Bonita BPM Portal (web application) and EJB3 API.
-* `setup/`: a tool to manage Bonita BPM Platform configuration, stored in database instead of filesystem. Also ships a tool to centralize all the required WildFly bundle configuration.
+* `server/standalone/configuration/standalone.xml`: WildFly context configuration for Bonita Portal. It defines data sources used by Bonita Engine.
+* `server/standalone/deployments/bonita-all-in-one-[version].ear`: Bonita Portal (web application) and EJB3 API.
+* `setup/`: a tool to manage Bonita Platform configuration, stored in database instead of filesystem. Also ships a tool to centralize all the required WildFly bundle configuration.
 * `start-bonita.bat`: script to start the bundle on Windows.
 * `start-bonita.sh`: script to start the bundle on Linux.
 
 ::: info
-**Note:** Beginning with version 7.3.0, Bonita BPM Platform configuration, including the license file, is stored in the same database as the Bonita BPM Engine data, namely in the `CONFIGURATION` table.  
+**Note:** Beginning with version 7.3.0, Bonita Platform configuration, including the license file, is stored in the same database as the Bonita Engine data, namely in the `CONFIGURATION` table.  
 The initialization of this configuration happens during start-bonita.bat (for Windows) or start.bonita.sh (for Linux) execution.  
-Once initialized, to update this configuration, use the [*Platform setup tool*](BonitaBPM_platform_setup.md) embedded in Bonita BPM bundles.  
+Once initialized, to update this configuration, use the [*Platform setup tool*](BonitaBPM_platform_setup.md) embedded in Bonita bundles.  
 :::
 
 ### Get and install a license (Subscription editions only)
@@ -59,7 +59,7 @@ If this is the first time you generate a license, you need to generate a request
 
 #### Generate the request key
 
-On the server where you installed Bonita BPM Platform:
+On the server where you installed Bonita Platform:
 1. Go to the request_key_utils folder
 2. Run the `generateRequestKey.bat` script (for Windows) or the `generateRequestKey.sh` script (for Linux)
     
@@ -113,29 +113,29 @@ At platform creation, this file contains the default username and password for t
 ### Configure the WildFly bundle
 
 ::: info
-If you just want to try Bonita BPM Platform with the embedded H2 database (only for development and testing phases of your project), you can skip this paragraph.
+If you just want to try Bonita Platform with the embedded H2 database (only for development and testing phases of your project), you can skip this paragraph.
 For production, you are recommended to use one of the supported databases, with the following steps.
 :::
 
-1. Make sure [your databases are created](database-configuration.md#database_creation) and [customized to work with Bonita BPM](database-configuration.md#specific_database_configuration).
-2. Edit file `<WILDFLY_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita BPM internal database & Business Data database)
+1. Make sure [your databases are created](database-configuration.md#database_creation) and [customized to work with Bonita](database-configuration.md#specific_database_configuration).
+2. Edit file `<WILDFLY_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita internal database & Business Data database)
 3. If you use **Microsoft SQL Server** or **Oracle** database, copy your database drivers in `<WILDFLY_HOME>/setup/lib` folder. 
-4. Run `<WILDFLY_HOME>\start-bonita.bat` (Windows system) or `<WILDFLY_HOME>/start-bonita.sh (Unix system)` to run Bonita BPM WildFly bundle (see [WildFly start script](#wildfly_start))
+4. Run `<WILDFLY_HOME>\start-bonita.bat` (Windows system) or `<WILDFLY_HOME>/start-bonita.sh (Unix system)` to run Bonita WildFly bundle (see [WildFly start script](#wildfly_start))
 
 ::: info
 The **start-bonita** script does the following:
 
 1. Runs the **`setup init`** command:
-    1. initializes the Bonita BPM internal database (the one you have defined in file `<WILDFLY_HOME>/setup/database.properties`): creates the tables that Bonita BPM uses internally + stores the configuration in database.
+    1. initializes the Bonita internal database (the one you have defined in file `<WILDFLY_HOME>/setup/database.properties`): creates the tables that Bonita uses internally + stores the configuration in database.
     2. install the license files (Subscription editions only) in the database.
 2. Runs the **`setup configure`** command:
     The Setup Configure command configures the WildFly environment to access the right databases:
-    1. updates the file `<WILDFLY_HOME>/server/standalone/configuration/standalone.xml` with the values you set in file `database.properties` for **Bonita BPM internal database** & **Business Data database**
+    1. updates the file `<WILDFLY_HOME>/server/standalone/configuration/standalone.xml` with the values you set in file `database.properties` for **Bonita internal database** & **Business Data database**
     2. creates the file(s) `<WILDFLY_HOME>/server/modules/**/main/modules.xml` that WildFly needs, according to your database settings
     3. copies your database vendor-specific drivers into `<WILDFLY_HOME>/server/modules/**/main/` folders
 3. Starts the WildFly bundle
 
-For advanced server configuration needs: check out [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to finely tune your WildFly bundle, using templates used by Bonita BPM.
+For advanced server configuration needs: check out [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to finely tune your WildFly bundle, using templates used by Bonita.
 :::
 
 <a id="start" />
@@ -164,14 +164,14 @@ You can also press Ctrl + C.
 
 ### First steps after installation
 
-Once you have your WildFly bundle up and running, complete these [first steps](first-steps-after-setup.md) to get Bonita BPM Platform fully operational.
+Once you have your WildFly bundle up and running, complete these [first steps](first-steps-after-setup.md) to get Bonita Platform fully operational.
 
 ### Configuration update
 To update the configuration after the first run please take a look at the [*Platform setup tool*](BonitaBPM_platform_setup.md#update_platform_conf)
 
 ::: info
 File `database.properties` is the only entry point to configure the WildFly environment and the
-[Bonita BPM Platform configuration](BonitaBPM_platform_setup.md#configure_tool)
+[Bonita Platform configuration](BonitaBPM_platform_setup.md#configure_tool)
 :::
 
 ### License update
@@ -181,9 +181,9 @@ To update the licenses after the first run, take a look at the [platform setup t
 
 ---
 
-**Issue**: When I restart the WildFly bundle, the Bonita BPM application starts and then stops with message `WFLYSRV0009: Undeployed "bonita-all-in-one-...`
+**Issue**: When I restart the WildFly bundle, the Bonita application starts and then stops with message `WFLYSRV0009: Undeployed "bonita-all-in-one-...`
 
-**Potential cause**: There are too many BPM elements to restart.
+**Potential cause**: There are too many elements to restart.
 
 **Solution**: Increase the WildFly application deployment timeout in file `standalone.xml` in folder `setup/wildlfy-templates`. Look for `'<deployment-scanner ... deployment-timeout="600" ...'`
 and change it to a higher value (in seconds).
@@ -204,7 +204,7 @@ For Oracle, rename it so that the name contains at least the word `oracle` or `o
 
 **Issue**: When I run `start-bonita.sh` or `start-bonita.bat`, I get the error message `Invalid Java version (1.7) < 1.8. Please set JAVA or JAVA_HOME variable to a JDK / JRE 1.8+`
 
-**Cause**: Bonita BPM 7.4+ WildFly bundle requires Java 1.8 to run
+**Cause**: Bonita 7.4+ WildFly bundle requires Java 1.8 to run
 
 **Solution**: Ensure your running environment has a JDK or JRE 1.8 installed and set either JAVA or JAVA_HOME environment variable to point to it.
 

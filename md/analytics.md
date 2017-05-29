@@ -92,7 +92,7 @@ Note: what is not exported in the .csv report
 
 ## Install a custom report
 
-You can import a customized report into Bonita BPM Portal.
+You can import a customized report into Bonita Portal.
 
 Custom reports are created externally using [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio).
 
@@ -111,11 +111,11 @@ Optionally, a properties file can be added if the report is localized in differe
 
 #### Result
 
-A report is displayed in Bonita BPM Portal containing your data.
+A report is displayed in Bonita Portal containing your data.
 
 ## Export a report
 
-A report in the Bonita BPM Portal can be exported as a .pdf file.
+A report in the Bonita Portal can be exported as a .pdf file.
 
 1. Go to **Analytics**.
 2. Select the report that you want to export. This can be one of the default reports, or a custom report that you have installed.

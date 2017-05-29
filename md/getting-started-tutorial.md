@@ -1,6 +1,6 @@
 # Getting started tutorial
 
-This tutorial explains how to create an application that includes a process. The application is created using the Bonita BPM Community edition, and uses features that are available in all editions. The example application is a business travel tool, and is similar to the simple travel request process that was used in the getting started tutorial for earlier versions of Bonita BPM.
+This tutorial explains how to create an application that includes a process. The application is created using the Bonita Community edition, and uses features that are available in all editions. The example application is a business travel tool, and is similar to the simple travel request process that was used in the getting started tutorial for earlier versions of Bonita.
 
 **Important:** these instructions are also available as a [video](http://www.bonitasoft.com/resources/videos/getting-started-tutorial). The complete solution is available on [GitHub](https://github.com/Bonitasoft-Community/getting-started-turorial).
 
@@ -10,10 +10,10 @@ Here is the use-case: *An employee opens the Travel Tool application to view the
 The manager reviews the request and approves or refuses it.*
 In a real travel management application, there would be several process steps after approval: estimating costs, possibly getting a second level of approval if the cost passes a certain threshold, submitting an expenses claim after the travel, reviewing the expenses claim, escalating anything out of policy, and authorizing payment. However, for this tutorial you will consider only the first part of the process, where a travel request is submitted and then reviewed.
 
-This tutorial assumes that you are a developer using Bonita BPM for the first time.
-It gives instructions for using Bonita BPM Studio, the UI Designer, and Bonita BPM Portal. It assumes you are familiar with JavaScript, JSON and REST APIs.
+This tutorial assumes that you are a developer using Bonita for the first time.
+It gives instructions for using Bonita Studio, the UI Designer, and Bonita Portal. It assumes you are familiar with JavaScript, JSON and REST APIs.
 
-Use Bonita BPM Studio to define your process, including using the UI Designer to create pages and forms. Then use Bonita BPM Portal to build the application.
+Use Bonita Studio to define your process, including using the UI Designer to create pages and forms. Then use Bonita Portal to build the application.
 
 This is the recommended sequence for creating an application, but generally application pages, data model and processes are defined in parallel and evolve as you go deeper in the application details:
 
@@ -21,7 +21,7 @@ This is the recommended sequence for creating an application, but generally appl
 
 The first step in creating an application is to design the application pages in the UI Designer using dummy data, creating a prototype application as seen by users. This enables you to review the application with the stakeholders and get validation of the application design before proceeding to more complex tasks.
 
-The Bonita BPM Studio UI Designer is an environment for creating application pages and forms. To start the UI Designer, click the UI Designer icon in the Bonita BPM Studio coolbar (at the top of the screen). The UI Designer opens in a browser.
+The Bonita Studio UI Designer is an environment for creating application pages and forms. To start the UI Designer, click the UI Designer icon in the Bonita Studio coolbar (at the top of the screen). The UI Designer opens in a browser.
 
 The travel tool has a home page that displays a list of pending and approved travel requests to the current user. It contains a button for starting a new travel request.
 
@@ -37,12 +37,12 @@ Remember to click **_Save_** to save your work frequently.
 
 #### Create travel tool home page
 
-In Bonita BPM Studio, start the UI Designer by clicking the icon in the coolbar. This opens the UI Designer in your browser, at the home page.
+In Bonita Studio, start the UI Designer by clicking the icon in the coolbar. This opens the UI Designer in your browser, at the home page.
 
 In the UI Designer home page, click on the **_Create_** button. This brings a pop-up.  
 In the pop-up, set the type to _Application page_ and name to _TravelTool_.  
 The name must not contain spaces or special characters.  
-This name is used in Bonita BPM to identify the page. It is not displayed to the application user.   
+This name is used in Bonita to identify the page. It is not displayed to the application user.   
 Click on **_Create_**. This opens the new page in the Page editor.
 
 Create the page structure by dragging widgets from the palette on the left and dropping them on the whiteboard (the central panel).
@@ -90,7 +90,7 @@ To create **myPendingRequests**:
           "departureDate": "2016-02-09",
           "numberOfNights": 1,
           "hotelNeeded": true,
-          "reason": "Bonita BPM 7.2 launch",
+          "reason": "Bonita 7.2 launch",
           "status": "pending",
           "refusalReason": ""
       },
@@ -216,10 +216,10 @@ To define the business data model:
 
 #### Create the diagram
 
-The first stage is to create the new diagram, which you do using Bonita BPM Studio. While you are working on a diagram, save your work from time to time, by clicking the **_Save_** icon in the coolbar (at the top of the screen) or typing `Ctrl+S`.   
+The first stage is to create the new diagram, which you do using Bonita Studio. While you are working on a diagram, save your work from time to time, by clicking the **_Save_** icon in the coolbar (at the top of the screen) or typing `Ctrl+S`.   
 Create the diagram as follows:
 
-1. Click **_New diagram_** on the Bonita BPM Studio Welcome page. This creates an almost empty diagram for you to start updating:
+1. Click **_New diagram_** on the Bonita Studio Welcome page. This creates an almost empty diagram for you to start updating:
   * The large rectangle with a name at the left is the **pool**.
   * Inside the pool there is a **lane**, which is also a rectangle. You can see the border of the lane at the left side, beside the pool name.
 The other borders of the lane coincide with the pool border so are not visible.
@@ -355,7 +355,7 @@ When both of the operations are defined, the **Details** panel should look like 
 The next stage is to define who carries out the steps in the process. This is done by assigning [actors](actors.md).   
 An actor is a placeholder for the person who will do a task.   
 When you configure a process, you make the connection between the actors defined in the process definition and the real-world people who will do process steps.   
-Bonita BPM Studio comes with a test organization, called ACME, which you can use for testing. In this example, we have two people, the employee who initiates the process, and the employee's manager.  
+Bonita Studio comes with a test organization, called ACME, which you can use for testing. In this example, we have two people, the employee who initiates the process, and the employee's manager.  
 The managers are also employees, so you can use the same actor for process instantiation and for the review task, but use a filter to specify who does the approval step. This is how it works:
 
 1. In the diagram, select the pool and go to the **Details** panel, **General** tab, **Actors** pane. This is where you define all the actors for the process.  
@@ -374,7 +374,7 @@ The process is now defined. The next section shows you how to configure and run 
 #### Run process with temporary forms
 
 You can run a process that is in development before you create forms, by using temporary forms that are created automatically.  
-This section explains how to configure the process and run it from Bonita BPM Studio.
+This section explains how to configure the process and run it from Bonita Studio.
 
 Before you can run the process, you need to configure it. Use the default setting for almost everything for the first tests.   
 There are just two things to configure for this example process, the actor mapping and the name of the test user.
@@ -386,7 +386,7 @@ There are just two things to configure for this example process, the actor mappi
 
 Now you can run the process and see the temporary forms, to check that the process definition is correct.
 
-1. Click **_Run_** in the coolbar. This opens a browser window, logs you in to Bonita BPM Portal as Helen, and displays the travel request form.
+1. Click **_Run_** in the coolbar. This opens a browser window, logs you in to Bonita Portal as Helen, and displays the travel request form.
 2. Fill out the form. Make sure that you use the right format for each field in the temporary forms ("yyyy-mm-dd" format for dates and either "true" or "false" value for booleans).  
 When you have filled out the form, click **_Start_**. This submits the form and starts the process instance.
 3. At the top-right of the Portal window, click the arrow beside Helen's name and choose **_Logout_**.
@@ -404,7 +404,7 @@ While using the UI Designer, click **_Save_** frequently to save your work.
 
 To create the process instantiation form:
 
-1. In Bonita BPM Studio, select the pool and go to the **Details** panel, **Execution** tab, **Contract** pane.
+1. In Bonita Studio, select the pool and go to the **Details** panel, **Execution** tab, **Contract** pane.
 2. At the top-right of the **Details** panel, click the UI Designer icon. This opens the UI Designer in a browser window, with the automatically generated form.
 3. Change the form name. All forms that are generated automatically are called _newForm_, so you must rename them to avoid confusion.
 To do this, double-click on the name in the top bar, and then specify a new form name, _submitTravelRequest_.
@@ -451,7 +451,7 @@ When you have finished, the preview of the form looks like this:
 
 Now define the form for the _Manager review_ task. Start by automatically generating the form from the context, then add widgets to display the request details for the manager to review. Follow these steps:
 
-1. In Bonita BPM Studio, select the _Manager review_ task and go to the **Details** panel, **Execution** tab, **Contract** pane.
+1. In Bonita Studio, select the _Manager review_ task and go to the **Details** panel, **Execution** tab, **Contract** pane.
 2. At the top-right of the **Details** panel, click the UI Designer icon. This generates a form and opens it in the UI Designer.
 3. Change the form name to _reviewTravelRequest_.
 4. Add a variable to get the information that the user enters in the request form. To do this:
@@ -522,7 +522,7 @@ You process is now complete, so you can include it in an application.
 This section explains how to build the application from the pages and process that you have already created. There are the following steps:
 
 1. In the UI Designer, update the application page to use business data instead of the dummy JSON data and to specify the connection between the page and the process.
-2. In Bonita BPM Portal, create the application.
+2. In Bonita Portal, create the application.
 
 #### Update the application page
 
@@ -551,19 +551,19 @@ When the user clicks the button on the Travel Tool page for creating a travel re
 This is the instantiation form for the Travel Request process.  
 To configure this, select the button and set the target URL property by first clicking on the change to bind to an expression button (‘fx’ to the right of the field) and then updating the expression to  `"/bonita/portal/resource/process/Travel%20Request/1.0/content/?id="+processDef[0].id`.
 
-After the user submits the form, the Tasks view of Bonita BPM Portal is displayed.
+After the user submits the form, the Tasks view of Bonita Portal is displayed.
 
 #### Build application
 
-To build the Travel Tool application, you need to export the page from the UI Designer, deploy the process, and then create the application in Bonita BPM Portal.
+To build the Travel Tool application, you need to export the page from the UI Designer, deploy the process, and then create the application in Bonita Portal.
 
 To export the page, click the **_Export_** icon in the Page editor or on the home page. The page is exported as a zip file in your default browser download location.
 
-To deploy the process, you can simply run it from Bonita BPM Studio. If you have no changed the process since you last ran it, it is already deployed.
+To deploy the process, you can simply run it from Bonita Studio. If you have no changed the process since you last ran it, it is already deployed.
 
-To create your application in Bonita BPM Portal:
+To create your application in Bonita Portal:
 
-1. Log in to Bonita BPM Portal with the Administrator profile.
+1. Log in to Bonita Portal with the Administrator profile.
 2. From the menu bar, choose **Resources**, and then click **_Add_** and import the TravelTool page that you exported from the UI Designer.
 3. Go to **Applications** and click **_New_**.
 4. Name your application _Travel App_, set its URL to _travel_, and click **_Create_**. The application is created.

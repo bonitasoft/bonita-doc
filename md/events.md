@@ -91,7 +91,7 @@ A message can be caught by an intermediate catch message event, a boundary catch
 To configure a throw message event, select it in the diagram, go to the Details panel, General tab, Messages pane, and define the message that can be thrown. For each message, specify the following:
 
 1. The message name. You use this name to identify the message when you configure the message catching element, so a unique, descriptive name is best.
-2. The target pool. This identifies the target process. When you start to enter the target pool name, Bonita BPM Studio offers a list of the pools in diagrams you currently have open. Double-click a name to select it from the list. You can also specify the name of a process that is defined in a diagram that is not currently open or that is in a different workspace.
+2. The target pool. This identifies the target process. When you start to enter the target pool name, Bonita Studio offers a list of the pools in diagrams you currently have open. Double-click a name to select it from the list. You can also specify the name of a process that is defined in a diagram that is not currently open or that is in a different workspace.
 3. The target task. This is the name of the task or event that is listening for the message.
 4. The correlation level. If you want to use key-based correlation, specify the keys and their values. Define the value of a correlation key using the Expression Editor.
 5. The message content. The message content is a collection of id-value pairs. The simplest method is to use the relevant process variables, but you can use an expression to create message content in other formats. The _Content item_ is the id and must be a string.
@@ -138,7 +138,7 @@ A message can be caught by an intermediate catch message event, a boundary catch
 To configure an end message event, select it in the diagram, go to the Details panel, General tab, Messages pane, and define the message that can be thrown. For each message, specify the following:
 
 1. The message name. You use this name to identify the message when you configure the message catching element, so a unique, descriptive name is best.
-2. The target pool. This identifies the target process. When you start to enter the target pool name, Bonita BPM Studio offers a list of the pools in diagrams you currently have open. Double-click a name to select it from the list. You can also specify the name of a process that is defined in a diagram that is not currently open or that is in a different workspace.
+2. The target pool. This identifies the target process. When you start to enter the target pool name, Bonita Studio offers a list of the pools in diagrams you currently have open. Double-click a name to select it from the list. You can also specify the name of a process that is defined in a diagram that is not currently open or that is in a different workspace.
 3. The target task. This is the name of the task or event that is listening for the message.
 4. The correlation level. If you want to use key-based correlation, specify the keys and their values. Define the value of a correlation key using the Expression Editor.
 5. The message content. The message content is a collection of name-value pairs. The simplest method is to use the relevant process variables, but you can use an expression to create message content in other formats.
@@ -195,7 +195,7 @@ To configure an end error event, select the element in the diagram, go to the De
 
 #### Start event
 
-This is the normal start event for a process. It indicates the start of a process instance started by a user (typically using Bonita BPM Portal) or programmatically.
+This is the normal start event for a process. It indicates the start of a process instance started by a user (typically using Bonita Portal) or programmatically.
 
 #### End event
 

@@ -18,7 +18,7 @@ To prepare the job in Talend Open Studio:
   * `userRoutines.jar`
   * `dom4j-1.6.1.jar`
   * your job jar file, _`jobName_version`_`.jar`
-5. In Bonita BPM Studio, go to the **Development** menu, **Manage jars** option, and import the jar files listed above.
+5. In Bonita Studio, go to the **Development** menu, **Manage jars** option, and import the jar files listed above.
 
 When you [configure a process](configuring-a-process.md) that uses this connector, you must add these jar files to the **Process dependencies**.
 

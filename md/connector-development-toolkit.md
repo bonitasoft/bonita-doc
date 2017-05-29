@@ -6,8 +6,8 @@
 
 ## Overview
 
-The Connector Development Toolkit is a set of tools for implementing and testing Bonita BPM connectors independently of the Bonita BPM Studio.  
-A connector implemented with the toolkit can be used in Bonita BPM Studio or in Bonita BPM Portal just like any Bonita BPM connector.
+The Connector Development Toolkit is a set of tools for implementing and testing Bonita connectors independently of the Bonita Studio.  
+A connector implemented with the toolkit can be used in Bonita Studio or in Bonita Portal just like any Bonita connector.
 
 This toolkit uses industry-standard tools such as Java IDEs, dependency management tools (Maven), and unit testing frameworks (JUnit, Mockito and AssertJ). 
 It has the following benefits for connector developers:
@@ -21,7 +21,7 @@ It has the following benefits for connector developers:
 
 ### Prerequisites
 
-To develop and test a Bonita BPM connector with the toolkit, you need the following software installed:
+To develop and test a Bonita connector with the toolkit, you need the following software installed:
 
 * Java 8 or later
 * Maven 3.2.x or later
@@ -55,8 +55,8 @@ Before running the command, update the following parameter values:
 |:-|:-|
 | archetypeVersion | This must match the version of the toolkit.|  
 | groupId | Maven project group id.|  
-| artifactId | Maven project artifact id and Bonita BPM connector definition id.|  
-| version | Maven project version and Bonita BPM connector definition version.|  
+| artifactId | Maven project artifact id and Bonita connector definition id.|  
+| version | Maven project version and Bonita connector definition version.|  
   
 3. Run the command. This generates a new folder named `artifactId` containing the connector definition project files, as follows:
 ```
@@ -99,9 +99,9 @@ Before running the command, update the following parameter values:
 | Parameter | Description |
 |-----------|-------------|
 | archetypeVersion | This should match the version of the toolkit |  
-| groupId | Maven project group id and Java package for the Bonita BPM connector implementation |
-| artifactId | Maven artifact id and Bonita BPM connector implementation id |
-| version | Maven version id and Bonita BPM connector implementation version |
+| groupId | Maven project group id and Java package for the Bonita connector implementation |
+| artifactId | Maven artifact id and Bonita connector implementation id |
+| version | Maven version id and Bonita connector implementation version |
 | definitionId | This should match the connector definition artifactId |
 | definitionVersion | This should match the connector definition version |
   
@@ -128,7 +128,7 @@ src/test/java/<groupId>/<artifactId>Tests.java
 6. Complete your connector implementation and test classes.
 7.  When you are ready to package the connector, run this command in the implementation project folder: `mvn package`
 
-This will produce a connector zip file that can be imported in Bonita BPM Studio: `/target/<artifactId>-<version>-dist.zip`
+This will produce a connector zip file that can be imported in Bonita Studio: `/target/<artifactId>-<version>-dist.zip`
 
 <a id="widgetTypeReference"/>
 
@@ -149,7 +149,7 @@ The following widget types are supported in connectors:
 | List | List in which user can add/remove elements |
 | Group | Collapsile zone that contains one or more widgets |
   
-This is the same as the set of connector widgets available in Bonita BPM Studio.
+This is the same as the set of connector widgets available in Bonita Studio.
 
 A widget is configured by setting parameters. Some [mandatory parameters](#mandatory-common) and [optional parameters](#optional-common) are common to all types of widget. 
 There are also some specific widget properties for some types of widget, which are listed later in this page.
@@ -268,7 +268,7 @@ The following example is the configuration for an Array widget two columns and a
 
 | Parameter | Mandatory | Description | Default value |
 | --------- | ----------- | ------------- | --------- |
-| showDocuments | no | Boolean flag that indicates whether the end user can select Bonita BPM documents in the list of values. | false |
+| showDocuments | no | Boolean flag that indicates whether the end user can select Bonita documents in the list of values. | false |
 
 The following example is the configuration for a List widget:
 ```

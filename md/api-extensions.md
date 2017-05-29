@@ -1,30 +1,30 @@
 # REST API extensions
 
-A REST API extension is a way to add extra REST resources using Bonita BPM. REST API extensions are [exported, imported, updated, and deleted](resource-management.md) as resources in Bonita BPM Portal.
+A REST API extension is a way to add extra REST resources using Bonita. REST API extensions are [exported, imported, updated, and deleted](resource-management.md) as resources in Bonita Portal.
 
-If you want to learn how to create REST API extension, refer to the documentation page about Bonita BPM Studio [tooling for creating and testing REST API extensions](rest-api-extensions.md) (for Bonita BPM subscription edition).
+If you want to learn how to create REST API extension, refer to the documentation page about Bonita Studio [tooling for creating and testing REST API extensions](rest-api-extensions.md) (for Bonita subscription edition).
 
 Page below contains information about deploying a REST API manually, which is possible with all editions.
 
 ## Deploy a REST API extension
 
-You need to deploy the REST API zip archive using Bonita BPM Portal:
+You need to deploy the REST API zip archive using Bonita Portal:
 
-1. Connect to the Bonita BPM Portal and switch to "administrator" view.
+1. Connect to the Bonita Portal and switch to "administrator" view.
 1. Go to Resources. You will see the list of all resources, and a filter for each type of resource (Pages, Forms, Layouts, Themes and API extensions).
 1. Click Add button (top left).
 1. Click in the Archive field, then select the REST API extension zip file.
 1. Click Next.
 1. Click Confirm. The resource is added to the portal
 
-REST API extensions use the same authorization mechanism as the standard Bonita BPM REST APIs. When you import the extension, the information in `page.properties` is used to create the appropriate resource permission mappings in Bonita BPM (see [REST API authorization](rest-api-authorization.md) for information about REST API security configuration).
+REST API extensions use the same authorization mechanism as the standard Bonita REST APIs. When you import the extension, the information in `page.properties` is used to create the appropriate resource permission mappings in Bonita (see [REST API authorization](rest-api-authorization.md) for information about REST API security configuration).
 
 ::: info
 **Note**: It is also possible to deploy a REST API extension using [REST portal API / "page" resource](portal-api.md#page).
 :::
 
 ::: warning
-**Warning**: If you are running Bonita BPM in a cluster, after you import a REST API extension, you must restart the application server on all the cluster nodes.
+**Warning**: If you are running Bonita in a cluster, after you import a REST API extension, you must restart the application server on all the cluster nodes.
 :::
 
 <a id="usage"/>

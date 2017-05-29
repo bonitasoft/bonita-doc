@@ -6,10 +6,10 @@
 
 This page presents two implementation options for creating KPIs and integrating them to business processes:
 
-## Create a KPI using the Bonita BPM Studio KPI feature
+## Create a KPI using the Bonita Studio KPI feature
 
 This implementation option is preferred if you do not wish to manipulate database connection settings and SQL queries manually when writing your KPI data. 
-The Bonita BPM Studio assists you in setting your connection and automatically generates the SQL insertion queries for you.
+The Bonita Studio assists you in setting your connection and automatically generates the SQL insertion queries for you.
 
 Keep in mind that this implementation option has some drawbacks:
 
@@ -26,7 +26,7 @@ In order to use the KPI feature, you need to:
 
 When creating a KPI definition, you must specify its database connection settings and its structure.
 
-1. In Bonita BPM Studio, open the **KPI** menu and select _**Create KPI*_*.
+1. In Bonita Studio, open the **KPI** menu and select _**Create KPI*_*.
 2. Fill in the database JDBC connection settings:
    1. Choose the _Driver template_ that matches your reporting database type:  
 
@@ -41,7 +41,7 @@ When creating a KPI definition, you must specify its database connection setting
    5. Click on **_Next_**.
 
 3. Fill in the KPI definition page
-   1. Provide a name for the KPI definition. This is used as a reference for the Bonita BPM Studio developers.
+   1. Provide a name for the KPI definition. This is used as a reference for the Bonita Studio developers.
    2. Click on the **_Fetch tables_** button to select the table to which you wish to attach this KPI. This pre-fills the KPI fields based on your database structure. Alternatively, you can type the name of the database table.
    3. Optionally, specify a description (for documentation purpose only).
    4. Add/remove or update your KPI fields by specifying:
@@ -62,7 +62,7 @@ Once you have specified a KPI definition, you may to attach it multiple times an
 
 Follow these instructions to attach a KPI:
 
-1. In Bonita BPM Studio, either select a task or a process pool.
+1. In Bonita Studio, either select a task or a process pool.
 2. In the **Details** panel, **Execution** tab, **KPIs** pane, click on the **_Add_** button.
 3. Select your KPI Definition from the list
 4. Click on **_Next_**.
@@ -83,7 +83,7 @@ Follow these instructions to attach a KPI:
 
 When your KPIs are attached to your process, add a JDBC driver dependency to your process.
 
-1. In Bonita BPM Studio, select your process pool and click on **_Configure_** in the coolbar.
+1. In Bonita Studio, select your process pool and click on **_Configure_** in the coolbar.
 2. Select **Process dependencies** from the list on the left.
 3. Check the .jar file of the JDBC driver that matches your reporting database.
 4. Click on **_Finish_**.

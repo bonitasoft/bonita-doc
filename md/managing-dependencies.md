@@ -1,9 +1,9 @@
 # Manage dependencies
 
-A dependency is an external code module, not provided in Bonita BPM, that is used by a process. This page explains how to manage dependencies using
-Bonita BPM Studio, so that when you build a process for deployment, all the dependencies are met.
+A dependency is an external code module, not provided in Bonita, that is used by a process. This page explains how to manage dependencies using
+Bonita Studio, so that when you build a process for deployment, all the dependencies are met.
 
-Dependencies are primarily managed through the Development menu of Bonita BPM Studio. This makes the external module available for all processes.
+Dependencies are primarily managed through the Development menu of Bonita Studio. This makes the external module available for all processes.
 You can also import a dependency when you configure a process, but in this case, it is only available for the process you are configuring.
 
 From the Development menu, you can manage:

@@ -2,7 +2,7 @@
 
 ## Overview
 
-In Bonita BPM Studio, transitions represent sequence flow. Transition arrows are used to connect all objects, allowing the sequence flow to move from the start to the end of a process.  
+In Bonita Studio, transitions represent sequence flow. Transition arrows are used to connect all objects, allowing the sequence flow to move from the start to the end of a process.  
 In addition to connecting elements in a process, transitions are used to define the direction of flow between these elements.  
 If a transition is not present between process elements, the sequence flow will stop. The flow is broken and the process will not reach its termination.
 

@@ -76,4 +76,4 @@ This property controls whether the widget is hidden. Bind this property to a var
 
 ## Migrate a page from 7.0.0 and 7.0.1
 
-In Bonita BPM 7.0, property values were all dynamic. Pages and forms that were created with 7.0 and are already deployed will continue to work with 7.1\. You should note that when you import a 7.0.0 or 7.0.1 page or form into 7.0.x later versions or the 7.1 Bonita BPM Studio or UI designer, widgets properties stay dynamic.
+In Bonita 7.0, property values were all dynamic. Pages and forms that were created with 7.0 and are already deployed will continue to work with 7.1\. You should note that when you import a 7.0.0 or 7.0.1 page or form into 7.0.x later versions or the 7.1 Bonita Studio or UI designer, widgets properties stay dynamic.

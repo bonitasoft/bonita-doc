@@ -13,7 +13,7 @@ The following standard actor filters are provided:
 
 You can create additional actor filters to meet the needs of your process. An actor filter consists of a definition and an implementation. This means that you can modify the definition and implementation independently. For example, if you update the implementation to improve performance, there is no need to modify the definition.
 
-An actor filter definition defines the properties of the actor filter and defines the wizard that used to configure the actor filter when it is used in a process. An actor filter implementation consists of a set of properties and a Java class. Bonita BPM Studio provides the following options from the **Development** menu for managing actor filters:
+An actor filter definition defines the properties of the actor filter and defines the wizard that used to configure the actor filter when it is used in a process. An actor filter implementation consists of a set of properties and a Java class. Bonita Studio provides the following options from the **Development** menu for managing actor filters:
 
 * New definition... Create a new actor filter definition, specifying the properties, the input required by the actor filter, the dialog in the configuration wizard, and the languages supported in the wizard.
 * Edit definition... Modify the definition of an actor filter. You cannot modify the definition of a standard actor filter.
@@ -26,4 +26,4 @@ You can also create additional actor filters by creating the necessary files dir
 
 For details of how to apply an actor filter to a task or lane, see [Actors](actors.md).
 
-When you add an actor filter to a process, Bonita BPM Studio automatically adds an implementation snapshot jar file for the actor filter to your workspace. For example, if you add the single user actor filter, the file `bonita-userfilter-single-user-impl-`_`x.y.z`_`-SNAPSHOT.jar` is added to your workspace, where _`x.y.z`_ is the version of the implementation jar file.
+When you add an actor filter to a process, Bonita Studio automatically adds an implementation snapshot jar file for the actor filter to your workspace. For example, if you add the single user actor filter, the file `bonita-userfilter-single-user-impl-`_`x.y.z`_`-SNAPSHOT.jar` is added to your workspace, where _`x.y.z`_ is the version of the implementation jar file.

@@ -1,22 +1,22 @@
 # REST API overview
 
-This page contains an overview of how to integrate an application with Bonita BPM using REST.
+This page contains an overview of how to integrate an application with Bonita using REST.
 
 ## Overview
 
-If your application is using a technology other than Java, you can integrate it with the Bonita BPM solution using the Web REST API. This API provides access to all Bonita BPM objects (like processes, tasks, users, connectors etc.), to execute operations on them (create, retrieve, update, delete). You can use these operations to create a workflow with Bonita BPM and integrate it into your application. The Bonita BPM Engine remains responsible for executing the workflow logic (connectors, gateways with conditions, messages, timers etc.) while your application gives access to the workflow. Users can manage processes and tasks, and perform administrative activities.
+If your application is using a technology other than Java, you can integrate it with the Bonita solution using the Web REST API. This API provides access to all Bonita objects (like processes, tasks, users, connectors etc.), to execute operations on them (create, retrieve, update, delete). You can use these operations to create a workflow with Bonita and integrate it into your application. The Bonita Engine remains responsible for executing the workflow logic (connectors, gateways with conditions, messages, timers etc.) while your application gives access to the workflow. Users can manage processes and tasks, and perform administrative activities.
 
 Access to the Web REST API depends on [REST API authorization](rest-api-authorization.md) settings.
 
-![diagram of architecture of a REST client integrated with Bonita BPM](images/images-6_0/rest_overview.png)
+![diagram of architecture of a REST client integrated with Bonita](images/images-6_0/rest_overview.png)
 
 ## Phases of operation
 
-There are three phases of operation for an application that is integrated with Bonita BPM through the Web REST API: authentication, execution, and logout.
+There are three phases of operation for an application that is integrated with Bonita through the Web REST API: authentication, execution, and logout.
 
 <a id="bonita-authentication"/>
 
-### Authenticate to Bonita BPM
+### Authenticate to Bonita
   
 Calls to the Web REST API require you to first log in as a user registered in the Engine database.
 
@@ -29,20 +29,20 @@ To log in, use the following request:
   
 This call generates a cookie, which must be set on each subsequent call. If the Web REST is being used in an application running in a web browser, this is handled automatically by the browser. 
 
-Setting the redirect parameter to false indicates that the service should not redirect to Bonita BPM Portal (after a successful login) or to the login page (after a login failure).
+Setting the redirect parameter to false indicates that the service should not redirect to Bonita Portal (after a successful login) or to the login page (after a login failure).
 
 ### Execute REST calls and integrate the results in your application
 
-After the application is connected to the Bonita BPM Engine, you can start calling API methods. The following is a typical scenario for an end user.
+After the application is connected to the Bonita Engine, you can start calling API methods. The following is a typical scenario for an end user.
 
 1. [Start a new case with variables](bpm-api.md): Provide a form for the user to enter initial data. Then call the method to start a new case using the values entered by the user to initialize some variables. The engine will start the execution of the process. Depending on the design of your process, there might then be some human tasks available for the end user.
-2. [List the pending tasks for a user](bpm-api.md): Retrieve a list of available human tasks for the logged in user. When the user selects a task to do, you can display the corresponding form. It can be an external form or a Bonita BPM form that can be accessed by url.
+2. [List the pending tasks for a user](bpm-api.md): Retrieve a list of available human tasks for the logged in user. When the user selects a task to do, you can display the corresponding form. It can be an external form or a Bonita form that can be accessed by url.
 3. [Update variables and execute a task](bpm-api.md): If your application is using an external form, update the values of the variables in your process. 
 You can use a method to update process or activity variables with values coming from your application. When the user submits the external form, you can call a method to execute a task. 
 The engine will then continue the execution of the workflow as designed.
 4. [Handle tasks in error](bpm-api.md): Get a list of tasks that are in the failed state, and then replay each task by doing three steps: get the list of failed connectors, reset the state of failed connectors and replay the failed task.
 
-### Logout from Bonita BPM
+### Logout from Bonita
 
 When processing is complete, you must log out.
 
@@ -66,7 +66,7 @@ It is possible for an extension to interact with the engine (via the API) or wit
 | Request URL | `http://.../API/{API_name}/{resource_name}/  `| 
 | Request Method | POST| 
 | Request Payload | an item in JSON| 
-| Response | the same item in JSON, containing the values provided in the posted item, completed with default values and identifiers provided by Bonita BPM Engine.|  
+| Response | the same item in JSON, containing the values provided in the posted item, completed with default values and identifiers provided by Bonita Engine.|  
 
 ## Read a resource
 

@@ -2,7 +2,7 @@
 
 Gateways are used to control how sequence flows interact as they converge and diverge within a process.
 
-There are three types of gateway available for process design in Bonita BPM Studio: parallel (AND), exclusive (XOR), and inclusive. These gateways behave in accordance with the BPMN2 specification.
+There are three types of gateway available for process design in Bonita Studio: parallel (AND), exclusive (XOR), and inclusive. These gateways behave in accordance with the BPMN2 specification.
 
 ## Parallel (AND) gateways
 

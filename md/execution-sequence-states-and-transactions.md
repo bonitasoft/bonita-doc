@@ -2,7 +2,7 @@
 
 This page describes the sequence of actions performed when a process instance is created and when a step is performed by a user.
 
-It shows the interactions between the Bonita BPM Portal and Bonita BPM Engine.
+It shows the interactions between the Bonita Portal and Bonita Engine.
 
 In the sequences described in this page, some of the actions apply only to **Teamwork**, **Efficiency**, or **Performance** editions, and are marked SP only.
 
@@ -72,7 +72,7 @@ A flow node is defined by a set of states.
   3. If the state is neither stable nor terminal, the transition to the next state is scheduled asynchronously.
 
 If there is a connector to execute in the state's behavior, then the transaction is committed and the connector is executed. The flow node stays in the current state while the connector is executed.
-When execution of the last connector is completed, the state's behaviour is completed. If you are using a Bonita BPM Subscription Pack edition, a timeout can be set for connector execution.
+When execution of the last connector is completed, the state's behaviour is completed. If you are using a Bonita Subscription Pack edition, a timeout can be set for connector execution.
 
 ### Example: User task
 

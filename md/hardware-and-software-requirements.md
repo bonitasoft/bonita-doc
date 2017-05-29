@@ -3,11 +3,11 @@
 ## Hardware
 
 ::: info
-**Note:** The hardware recommended for Bonita BPM Platform is strongly dependent on your environment and
+**Note:** The hardware recommended for Bonita Platform is strongly dependent on your environment and
 processes (number of processes instances, number of current users, operations and complexity...).
 :::
 
-Hardware required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Portal)
+Hardware required for Bonita Platform (Bonita Engine and Bonita Portal)
 | Type | Minimum | Recommended |
 |:-|:-|:-|
 | Processors | 4 CPU cores | 4 CPU cores or more |
@@ -16,7 +16,7 @@ Hardware required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Port
 
 ## Software
 
-Software required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Portal).
+Software required for Bonita Platform (Bonita Engine and Bonita Portal).
 | | Version
 |:-|-
 | **Operating system** |
@@ -49,6 +49,6 @@ Notes:
 2. There is a known issue between Bitronix (the transaction manager shipped by Bonitasoft for the Tomcat bundle and inside the Deploy bundle for Tomcat) and Microsoft SQL Server JDBC driver
 (refer to: [MSDN note](https://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html)).
 Therefore, using Bitronix as a transaction manager with SQL Server does not work and is not supported. To use SQL Server database requires that you use the WildFly bundle provided by Bonitasoft.
-3. Bonita BPM can be executed on Java 8 and above. All development artifacts (connectors, REST API extensions, etc) must be compiled with Java 8 byte code (target version).
+3. Bonita can be executed on Java 8 and above. All development artifacts (connectors, REST API extensions, etc) must be compiled with Java 8 byte code (target version).
 
 Your database must be configured to use the UTF-8 character set.

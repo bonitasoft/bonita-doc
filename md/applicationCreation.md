@@ -4,15 +4,15 @@
 
 ## Overview
 
-In Bonita BPM 7.5, we introduced the possibility to manage application descriptors from the Studio.  
-It accounts for an additional step to ease the management of [Living Applications](applications.md) in Bonita BPM, since our objective is to offer a unique application deployment artifact, managed from the Studio.  
-Then, all resources used by applications will be centralized and shared by the Bonita BPM development suite: Bonita BPM Studio and the UI Designer.  
+In Bonita 7.5, we introduced the possibility to manage application descriptors from the Studio.  
+It accounts for an additional step to ease the management of [Living Applications](applications.md) in Bonita, since our objective is to offer a unique application deployment artifact, managed from the Studio.  
+Then, all resources used by applications will be centralized and shared by the Bonita development suite: Bonita Studio and the UI Designer.  
 
 ## Definition 
 
-Basically, an **application descriptor** is an XML file. It represents the skeleton of an application, as it contains references to resources installed in Bonita BPM Portal and used by a given application.  
+Basically, an **application descriptor** is an XML file. It represents the skeleton of an application, as it contains references to resources installed in Bonita Portal and used by a given application.  
 An application descriptor must be imported onto the portal (**Administrator** profile), in the **Applications** tab, to enable the application.  
-Before Bonita BPM 7.5, this portal tab was the only way to create and manage applications.  
+Before Bonita 7.5, this portal tab was the only way to create and manage applications.  
 For development purposes, the Studio can **deploy** applications descriptors onto the portal for you (_only for Performance and Efficiency editions_).
 
 Application descriptors are packaged in **application files**.  
@@ -35,10 +35,10 @@ For example, the four leave management applications for employees, managers, Hum
 ## Create and build an Application Descriptor
 
 ::: info
-**Note:** All Bonita BPM editions come with an .xml editor for this feature. Only Performance and Efficiency editions also come with a graphical UI.
+**Note:** All Bonita editions come with an .xml editor for this feature. Only Performance and Efficiency editions also come with a graphical UI.
 :::
 
-From Bonita BPM Studio, click on **Development** -> **Application Descriptor** -> **New...**  
+From Bonita Studio, click on **Development** -> **Application Descriptor** -> **New...**  
 It will create an empty application file with a default name and open an editor. You can **rename** this application file from the graphical UI or from the menu **Open**.  
 
 ![Empty Application File](images/applicationDescriptors/emptyApplicationFile.png)  

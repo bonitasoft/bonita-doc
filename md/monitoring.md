@@ -25,8 +25,8 @@ From a row in the table, you can click the list icon to see a list of cases of t
 You can also open a diagram of a process, by clicking on the picture icon for the process. On the diagram, you can see that number and state of cases in progress at each step.
 Click **_Show key_** to see an explanation of the display. 
 
-The process diagram is constructed from the deployed process definition. This means that some details visible in Bonita BPM Studio, such as comments, are not available.
+The process diagram is constructed from the deployed process definition. This means that some details visible in Bonita Studio, such as comments, are not available.
 
-Note: if a process was deployed from a bar file created in Bonita BPM Studio 6.3 or earlier, the diagram display is not available. 
+Note: if a process was deployed from a bar file created in Bonita Studio 6.3 or earlier, the diagram display is not available. 
 This is because some details of the `.bar` structure have changed. 
-To see the diagram for such a process, export the process definition from Bonita BPM Studio 6.3 as a `.bos` file, import it into Bonita BPM Studio 6.4 or later, generate a new `.bar` file, and deploy it.
+To see the diagram for such a process, export the process definition from Bonita Studio 6.3 as a `.bos` file, import it into Bonita Studio 6.4 or later, generate a new `.bar` file, and deploy it.

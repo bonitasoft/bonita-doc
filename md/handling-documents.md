@@ -1,8 +1,8 @@
 # Handle documents
 
-This page shows an example of how to manipulate documents in a Bonita BPM process using the Java APIs. 
+This page shows an example of how to manipulate documents in a Bonita process using the Java APIs. 
 
-A document is treated in a similar way to a variable in Bonita BPM Engine database. It is defined in Bonita BPM Studio or programmatically, and is stored in the Bonita BPM Engine database. Inside a process instance, a document is a byte stream.
+A document is treated in a similar way to a variable in Bonita Engine database. It is defined in Bonita Studio or programmatically, and is stored in the Bonita Engine database. Inside a process instance, a document is a byte stream.
 
 ## Configure a process document
 

@@ -1,6 +1,6 @@
 # REST API authorization
 
-The Bonita BPM Portal, or any application that uses the Web REST API, enables user to access resources.
+The Bonita Portal, or any application that uses the Web REST API, enables user to access resources.
 The set of resources that a user can access is determined by default by the user's profile.
 This authorization mechanism ensures that users can only access the appropriate resources.
 This means, for example, that a user with only the User profile cannot perform actions intended for the Administrator.
@@ -17,17 +17,17 @@ A user is granted set of permissions. These permissions define the set of resour
 
 ## Summary
 
-For a new Bonita BPM installation, a basic set of authorization checks is activated by default but you might also want to [deactivate the HTTP API](#activate).
+For a new Bonita installation, a basic set of authorization checks is activated by default but you might also want to [deactivate the HTTP API](#activate).
 Here are the key points of the authorizations configuration :
 
-* The static checks (activated by default on a fresh installation) create an authorization layer that exactly matches the standard Bonita BPM Portal features and profiles.
+* The static checks (activated by default on a fresh installation) create an authorization layer that exactly matches the standard Bonita Portal features and profiles.
 If you are using the standard Portal, you do not need to configure anything.
 * If you want to add extra authorization restrictions based on business rules, turn on the dynamic checks that you want.
 The configuration file defines standard rules for the most frequent cases, so all you need to do is uncomment the rules you want to apply.
 * If you add a custom page, include a resources=\[ list \] in your page.properties to specify which resources your custom page requires the users to have access to.
 * If the previous points do not meet your security needs, you can still manually customize the configuration and rules as much as you want.
 
-If you have migrated your platform from a version of Bonita BPM earlier than 6.4.0, security is deactivated by default.
+If you have migrated your platform from a version of Bonita earlier than 6.4.0, security is deactivated by default.
 You need to [add authorization to your custom pages](#migrate) before you activate authorization.
 
 ## Static authorization checking
@@ -55,7 +55,7 @@ For example: `GET|identity/user=[organization_visualization,organization_managem
 
 This specifies that a user with the organization\_visualization, or organization\_management permissions can see information about users.
 
-By default, this file contains a mapping of each Bonita BPM resources to at least one simple permission.
+By default, this file contains a mapping of each Bonita resources to at least one simple permission.
 You can modify the file `resources-permissions-mapping-custom.properties` to add your own mappings.
 For example: `GET|identity/user/3=[organization_management]`
 
@@ -73,14 +73,14 @@ Custom values should be added manually in file `resources-permissions-mapping-`*
 
 The `compound-permissions-mapping-*.properties` files define sets of simple permissions that are grouped together into a compound permission.
 You can use a compound permission as "shorthand" for a list of simple permissions.
-By default, the file `resources-permissions-mapping.properties` contains a compound permission that corresponds to each page of the Bonita BPM Portal,
+By default, the file `resources-permissions-mapping.properties` contains a compound permission that corresponds to each page of the Bonita Portal,
 including [custom pages](#custom_pages).
 
 For example: `userlistingadmin=[profile_visualization, process_comment, organization_visualization, tenant_platform_visualization, organization_management]`
 
-This specifies the REST API permissions that are granted with the Bonita BPM Portal Administrator page that lists all the users in the tenant.
+This specifies the REST API permissions that are granted with the Bonita Portal Administrator page that lists all the users in the tenant.
 
-By default, there is a compound permission defined for each page in the standard Bonita BPM Portal and there is also one for each provided custom page.
+By default, there is a compound permission defined for each page in the standard Bonita Portal and there is also one for each provided custom page.
 
 When you install a custom page in the portal, if the page declares its resources properly, then a new compound permission will be added in an internal version
 of this file (`compound-permissions-mapping-internal.properties`). Then all the users being able to access this page (because it is part of a custom profile or
@@ -100,7 +100,7 @@ The `custom-permissions-mapping.properties` file contains custom rules that supp
 By default, this file is empty, because the compound permissions definitions automatically manage the permissions needed for default and custom profiles, and for default and custom pages.
 
 If you want to override the default behavior, you can add a rule to this file. You can add a simple or compound permission to a profile.
-For example, to give users with the User profile the ability to manage the Bonita BPM Portal look & feel: `profile|User=[look_and_feel]`
+For example, to give users with the User profile the ability to manage the Bonita Portal look & feel: `profile|User=[look_and_feel]`
 
 You can also assign a permission to a specific user. This is useful if you want to give a named user access to a resource that is not accessible through the user's profiles.
 For example, if the user John.Smith is assigned the User profile, he does not have permission to manage the portal Look & Feel.
@@ -108,7 +108,7 @@ You can add this specific permission to `custom-permissions-mapping.properties` 
 
 This means that in addition to the permissions given to him by the User profile, John.Smith can also manage the Portal Look & Feel. It does not modify the permissions for any other user.
 
-If you do not use Bonita BPM Portal but still want to manage REST API authorizations, you can do this using the `custom-permissions-mapping.properties` file.
+If you do not use Bonita Portal but still want to manage REST API authorizations, you can do this using the `custom-permissions-mapping.properties` file.
 To do this, create a custom profile and configure the relevant permissions.
 For example, you could create a profile called CustomProcessManager and assign the permissions needed to monitor and manage processes:
 `profile|MyCustomProfile=[process_visualization, process_management, process_manager_management, custom_process_manager_permission]`

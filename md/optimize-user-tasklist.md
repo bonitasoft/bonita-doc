@@ -1,10 +1,10 @@
 # How to create unique task names for the user task list
 
 :::info
-**Note**: This howto applies to the legacy task list -Bonita BPM 6.0 to 6.5.x versions- as well as the [new task list - from Bonita BPM 7.3 and above](user-task-list.md).
+**Note**: This howto applies to the legacy task list -Bonita 6.0 to 6.5.x versions- as well as the [new task list - from Bonita 7.3 and above](user-task-list.md).
 :::
 
-Goal: Leverage Bonita BPM Studio to optimize user comfort and efficiency by inserting case information in task name and task description.  
+Goal: Leverage Bonita Studio to optimize user comfort and efficiency by inserting case information in task name and task description.  
 During process modeling, a task is given a generic definition in the process definition, so its name is generic, such as "Validate request". This is useful for development.  
 Within a process instance (case), this task name must be contextualized with business information specific to the case so that, in the user task list, users effciently pick the right task to do. 
 
@@ -171,7 +171,7 @@ When reusing these features for your own projects, make sure that the result of 
 Once you are sent to the task list, you can see that the task name is contextualized.  
 It is computed once, when the task becomes ready. 
 
-**Note:** The following set of instructions only applies to the task list in Bonita BPM 7.3.0 and above. In earlier versions, the **Description** field is displayed by default.  
+**Note:** The following set of instructions only applies to the task list in Bonita 7.3.0 and above. In earlier versions, the **Description** field is displayed by default.  
 
 To display the **Description** column and view the _submitted_ status:
 1. Click on the **settings wheel** icon on the top right of the list

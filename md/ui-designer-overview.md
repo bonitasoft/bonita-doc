@@ -1,11 +1,11 @@
 # UI Designer overview
 
-The UI Designer is a graphical development environment for creating pages and forms for a Bonita BPM application. It is a web-based tool that is launched from Bonita BPM Studio.  
+The UI Designer is a graphical development environment for creating pages and forms for a Bonita application. It is a web-based tool that is launched from Bonita Studio.  
 A page is defined in HTML extended by the AngularJS JavaScript framework. Use the UI Designer to create and update pages for business applications, forms to start process instances or execute human tasks, and application layouts that apply to all pages of an application.
 
-* Create pages directly in the Bonita BPM UI designer.
-* Start form design in Bonita BPM Studio from the appropriate [contract](contracts-and-contexts.md).
-* Create [layouts](layouts.md) by duplicating the default layout available in the Bonita BPM Portal resources and then updating it.
+* Create pages directly in the Bonita UI designer.
+* Start form design in Bonita Studio from the appropriate [contract](contracts-and-contexts.md).
+* Create [layouts](layouts.md) by duplicating the default layout available in the Bonita Portal resources and then updating it.
 
 You can import an existing page, form, or layout to edit, or duplicate existing ones.
 
@@ -43,15 +43,15 @@ In the Performance, Efficiency, and Teamwork editions, you can also use [fragmen
 
 The UI Designer generates standard HTML application code, based on AngularJS. Export pages if you want to further customize them in your favorite web development environment. Note that once customized, you can not reimport them in the UI Designer.
 
-## Integration with Bonita BPM Platform
+## Integration with Bonita Platform
 
-To use a page in a business application, export it from the Bonita BPM UI designer, import it as a portal resource, and from the relevant application, add it to the list of pages and then insert it in a navigation menu.
+To use a page in a business application, export it from the Bonita UI designer, import it as a portal resource, and from the relevant application, add it to the list of pages and then insert it in a navigation menu.
 
-To use a form in a process, map it in the Bonita BPM Studio to the relevant process or human task. It will be automatically packaged in the .bar archive ready to deploy in the Bonita BPM Portal.
+To use a form in a process, map it in the Bonita Studio to the relevant process or human task. It will be automatically packaged in the .bar archive ready to deploy in the Bonita Portal.
 
-In the Subscription editions, you can [update a form in production](live-update.md), by exporting a new version of the form from the Bonita BPM UI designer, importing it into the relevant process in the portal, and then mapping it to the relevant task or process start event. 
+In the Subscription editions, you can [update a form in production](live-update.md), by exporting a new version of the form from the Bonita UI designer, importing it into the relevant process in the portal, and then mapping it to the relevant task or process start event. 
 
-To use a layout in a business application, export it from the Bonita BPM UI designer, import it as a Bonita BPM Portal resource, and map it as the layout of the relevant application.
+To use a layout in a business application, export it from the Bonita UI designer, import it as a Bonita Portal resource, and map it as the layout of the relevant application.
 
 ## UI Designer target users' needed skills
 

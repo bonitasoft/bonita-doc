@@ -1,10 +1,10 @@
 # Import and export a process
 
-## Import a process diagram into Bonita BPM Studio
+## Import a process diagram into Bonita Studio
 
 To import a diagram:
 
-* From a .bos archive (a diagram from another Bonita BPM studio)
+* From a .bos archive (a diagram from another Bonita studio)
 1. Choose **_Import_** -> **_BOS archive_** from the **_Diagram_** menu or click **_Import_** in the Cool bar.
 2. Specify the archive to be imported.
 3. Manage eventual conflicts
@@ -18,7 +18,7 @@ To import a diagram:
 
 You can import diagrams that were exported from the following tools:
 
-* Bonita BPM
+* Bonita
 * BPMN 2.0
 * Microsoft Visio 2010
 * ARIS BPM 7.x
@@ -29,18 +29,18 @@ You can also [migrate a process diagram from Bonita Open Solution 5.x](migrate-a
 
 ### What is supported or compatible?
 
-A diagram that was exported from the same edition of Bonita BPM, or a lower edition, can be imported successfully. 
+A diagram that was exported from the same edition of Bonita, or a lower edition, can be imported successfully. 
 You cannot import a diagram from a higher edition. 
-For example, you can import a diagram created with the Community edition into a Performance edition Bonita BPM Studio, 
-but you cannot import a diagram that was created with the Performance edition into a Community edition Bonita BPM Studio.
+For example, you can import a diagram created with the Community edition into a Performance edition Bonita Studio, 
+but you cannot import a diagram that was created with the Performance edition into a Community edition Bonita Studio.
 
-If the format to be imported is BPMN 2.0 compatible, any of the BPMN 2.0 elements displayed in the Bonita BPM Studio **BPMN elements** menu, can be imported successfully. However, if the element to be 
-imported is **not displayed **in the **BPMN elements** menu, it is not supported by Bonita BPM, so Bonita BPM Studio will _interpret_ the element and create the _closest BPMN element_
+If the format to be imported is BPMN 2.0 compatible, any of the BPMN 2.0 elements displayed in the Bonita Studio **BPMN elements** menu, can be imported successfully. However, if the element to be 
+imported is **not displayed **in the **BPMN elements** menu, it is not supported by Bonita, so Bonita Studio will _interpret_ the element and create the _closest BPMN element_
 that is supported. The following specific changes are made for all import formats:
 
-* If a task in an imported process is **not recognised**, Bonita BPM Studio will create an abstract task for it by default.
+* If a task in an imported process is **not recognised**, Bonita Studio will create an abstract task for it by default.
 * A task format can be **redimensioned** (Height/width) when it is imported.
-* If a multiple event is **not recognised**, Bonita BPM Studio takes the first element in order that it can interpret.
+* If a multiple event is **not recognised**, Bonita Studio takes the first element in order that it can interpret.
 * If a gateway is **not supported**, it will be interpreted by default as an AND gateway.
 * If there are **multiple pools **in a \*.bar file, they will all be imported into a single process diagram.
 
@@ -48,14 +48,14 @@ The following sections list restrictions for specific import formats.
 
 #### BPMN 2.0 (\*.bpmn)
 
-Most BPM applications export in the BPMN 2.0 file format. This format is the most compatible with Bonita BPM Studio. See [here](http://www.bpmn.org/#tabs-implementers) for a list of applications 
+Most BPM applications export in the BPMN 2.0 file format. This format is the most compatible with Bonita Studio. See [here](http://www.bpmn.org/#tabs-implementers) for a list of applications 
 which export in the .bpmn format.
 
 #### Microsoft Visio 2010 (\*.vdx)
 
 This feature is available in the Performance, Efficiency, and Teamwork editions.
 
-* The Visio import format must be .vdx. The .vsd format is not supported in Bonita BPM Studio.
+* The Visio import format must be .vdx. The .vsd format is not supported in Bonita Studio.
 * Only horizontal display is supported.
 * The vertical display will be converted and interpreted as a _mirror image_ of the process.
 * Visio supports all shapes defined in the BPMN 1.2 standard. See [here for more info about Visio compatibility](https://blogs.msdn.microsoft.com/visio/2009/12/03/bpmn-support-in-visio-2010/).
@@ -65,11 +65,11 @@ This feature is available in the Performance, Efficiency, and Teamwork editions.
 * This feature is available in the Performance, Efficiency, and Teamwork editions.
 
 See the [Aris website](http://www.softwareag.com/corporate/products/az/aris/default.asp) for 
-more information about exporting in the BPMN 2.0 format ready for importing into Bonita BPM Studio.
+more information about exporting in the BPMN 2.0 format ready for importing into Bonita Studio.
 
 #### XPDL from Bonita 4 (\*.xpdl)
 
-The .xpdl format will only be compatible if it was created in Bonita 4.x. If the .xpdl file was created by an application other than Bonita 4.x, it cannot be imported into Bonita BPM Studio.
+The .xpdl format will only be compatible if it was created in Bonita 4.x. If the .xpdl file was created by an application other than Bonita 4.x, it cannot be imported into Bonita Studio.
 
 #### jBPM 3.2 (processdefinition.xml)
 
@@ -77,9 +77,9 @@ jBPM uses the [BPMN 2.0 standard](http://www.jboss.org/).
 
 ## Export a process diagram as a BPMN 2.0 archive
 
-If you export a process diagram as a BPMN 2.0 archive you can import it into any BPM application that supports this format, including Bonita BPM Studio.
+If you export a process diagram as a BPMN 2.0 archive you can import it into any BPM application that supports this format, including Bonita Studio.
 
-To export a diagram in BPMN 2.0 format from Bonita BPM Studio:
+To export a diagram in BPMN 2.0 format from Bonita Studio:
 
 1. Open the diagram.
 2. Choose **_Export as..._** from the **_Diagram_** menu and select **_BPMN2..._** from the drop-down list.
@@ -87,7 +87,7 @@ To export a diagram in BPMN 2.0 format from Bonita BPM Studio:
 
 ## Export process elements
 
-You can export files related to elements of the processes in the Bonita BPM Studio repository. The files are exported into a .bos archive that can be imported into another Bonita BPM Studio.
+You can export files related to elements of the processes in the Bonita Studio repository. The files are exported into a .bos archive that can be imported into another Bonita Studio.
 
 You can export the following:
 
@@ -107,7 +107,7 @@ To create a .bos archive:
 3. Specify the filename and location or use the default suggested.
 4. Click **_Finish_**.
 
-The resulting .bos file can be imported into Bonita BPM Studio.
+The resulting .bos file can be imported into Bonita Studio.
 
 ## Build a process for deployment
 
@@ -126,7 +126,7 @@ configured, including connectors and dependencies.
 
 This section explains how to export a diagram as an image.
 
-To export a diagram from Bonita BPM Studio:
+To export a diagram from Bonita Studio:
 
 1. Open the diagram.
 2. Choose **_Export as..._** from the **_Diagram_** menu and select **_Image..._** from the drop-down list.

@@ -1,6 +1,6 @@
 # Deactivate a user
 
-Note: If a user is deactivated, the user cannot log in to Bonita BPM Portal. The Administrator cannot add a membership to a deactivated user. 
+Note: If a user is deactivated, the user cannot log in to Bonita Portal. The Administrator cannot add a membership to a deactivated user. 
 In consequence, the **Add membership button ** is not displayed for a deactivated user.
 
 ## How to deactivate a user

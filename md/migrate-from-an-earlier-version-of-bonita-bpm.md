@@ -1,15 +1,15 @@
-# Migrate from an earlier version of Bonita BPM
+# Migrate from an earlier version of Bonita
 
 ## Overview
 
-This page explains how to migrate your platform to a newer version of Bonita BPM.
+This page explains how to migrate your platform to a newer version of Bonita.
 
-You can migrate your platform using the `Bonita BPM Migration Tool`. There is 2 version of the migration tool:
+You can migrate your platform using the `Bonita Migration Tool`. There is 2 version of the migration tool:
 * The version 1.x that migrate the platform from version 6.0.2 or later to any version up to 7.0.0
 * the version 2.x that migrate the platform from version 7.0.0 or later to any version up to the last one.
 
 
-For example, if you are migrating from 6.5.3 to 7.1.0, you must migrate from 6.5.3 to 7.0.0 using version 1.x of the *Bonita BPM Migration Tool*, and then migrate from 7.0.0 to 7.1.0 using version 2.x.
+For example, if you are migrating from 6.5.3 to 7.1.0, you must migrate from 6.5.3 to 7.0.0 using version 1.x of the *Bonita Migration Tool*, and then migrate from 7.0.0 to 7.1.0 using version 2.x.
 
 ::: warning
 :fa-exclamation-triangle: **Caution:**
@@ -27,7 +27,7 @@ Version 7.5 only supports JRE version 8. If migrating to version 7.5, please upg
 For more info, see Support Guide and Supported Environment Matrix for Server.
 
 The tool migrates your platform (_bonita_home_ folder and the database). You cannot [change edition](upgrade-from-community-to-a-subscription-edition.md) while migrating. If you are running a
-Bonita BPM Subscription Pack edition, you need a valid license for your target version.
+Bonita Subscription Pack edition, you need a valid license for your target version.
 If you are upgrading to a new maintenance version and not changing the minor version number (for example, you are migrating from 6.3.0 to 6.3.1),
 your current license remains valid after migration.
 
@@ -42,7 +42,7 @@ If you have customized your configuration, you will have to use the [platform se
 
 ## How it works
 
-The *Bonita BPM Migration Tool* contains a set of script that execute changes on the data to make it compatible with earlier version of Bonita BPM Platform.
+The *Bonita Migration Tool* contains a set of script that execute changes on the data to make it compatible with earlier version of Bonita Platform.
 This tool is provided as a zip archive and contains an executable script that will determine your current configuration and ask you in which version you want to migrate.
 
 The migration is step-wise by maintenance version and the script manages the sequence of steps from your current version to the target version.
@@ -60,8 +60,8 @@ The migration script migrates the following:
 The following are not migrated automatically:
 
 * Configuration of the platform: Before 7.3 in the _Bonita Home_ folder and after 7.3 in database. Reapply your customizations manually after the migration script has finished (using [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf) if migrated to 7.3.0+).
-* Deployed process definitions: The processes will continue to run using the definition created in the previous version of Bonita BPM.
-* Process definition sources (`.bos` files): Migrate these by importing them into the new version of Bonita BPM Studio.
+* Deployed process definitions: The processes will continue to run using the definition created in the previous version of Bonita.
+* Process definition sources (`.bos` files): Migrate these by importing them into the new version of Bonita Studio.
 * <a id="bdm_redeploy" />Business data model, and the business data database: if the migration path include version `7.0.0`,`7.2.0` or `7.2.4`, the Business data model must be redeployed after migration, using [Define and deploy the BDM](define-and-deploy-the-bdm)). Otherwise, no action is required.
 * Custom connectors, actor filers, data types: These might continue to work in the new version, but should be tested, depending on your custom code.
 * Custom pages: These might continue to work in the new version, but should be tested depending on your custom code.
@@ -82,13 +82,13 @@ For example, in 6.2.2, `jquery+` was renamed `jqueryplus` in `BonitaConsole.html
 If you are using a custom Look & Feel, [export](managing-look-feel.md) it before migrating.
 Then after the migration is complete, [export the default Look & Feel](managing-look-feel.md) from the new version,
 modify your custom Look & Feel to be compatible with the new definition, and with the [recommendations for form footers](creating-a-new-look-feel.md).
-Then [import](managing-look-feel.md) your updated custom Look & Feel into Bonita BPM Portal.
+Then [import](managing-look-feel.md) your updated custom Look & Feel into Bonita Portal.
 
 The migration script supports MySQL, Postgres, Oracle, and MS SQLServer. There is no migration for h2 databases.
 
 ::: warning
 **Important:**  
-The migration operation resets the Bonita BPM configuration files to default version for new settings to be applied (from the _$BONITA_HOME_ folder in <7.3.0 version or inside database in >=7.3.0). 
+The migration operation resets the Bonita configuration files to default version for new settings to be applied (from the _$BONITA_HOME_ folder in <7.3.0 version or inside database in >=7.3.0). 
 Therefore, you must do a [backup of your configuration files](BonitaBPM_platform_setup.md#update_platform_conf) before starting the migration.  
 You will need to merge custom properties and configurations to the migrated environment.
 
@@ -113,11 +113,11 @@ so it is not possible to be precise about the time that will be required. Howeve
 
 ## Migrate your platform
 
-This section explains how to migrate a platform that uses one of the Bonita BPM bundles.
+This section explains how to migrate a platform that uses one of the Bonita bundles.
 
 1. Download the target version bundle and the migration tool for your Edition from the
-[BonitaSoft site](http://www.bonitasoft.com/downloads-v2) for Bonita BPM Community edition
-or from the [Customer Portal](https://customer.bonitasoft.com/download/request) for Bonita BPM Subscription Pack editions.
+[BonitaSoft site](http://www.bonitasoft.com/downloads-v2) for Bonita Community edition
+or from the [Customer Portal](https://customer.bonitasoft.com/download/request) for Bonita Subscription Pack editions.
 1. Unzip the migration tool zip file into a directory. In the steps below, this directory is called `bonita-migration`.
 1. If you use Oracle or Microsoft SQL Server, add the JDBC driver for your database type to `bonita-migration/lib`. This is the same driver as you have installed in
 your web server `lib` directory.
@@ -129,7 +129,7 @@ Specify the following information:
    | bonita.home    | The location of the existing bonita_home. Required only until 7.3| `/opt/BPMN/bonita` (Linux) or `C:\\BPMN\\bonita` (Windows) |
    | db.vendor      | The database vendor                                              | postgres                                                   |
    | db.driverClass | The driver used to access the database                           | org.postgresql.Driver                                      |
-   | db.url         | The location of the Bonita BPM Engine database                   | `jdbc:postgresql://localhost:5432/bonita_migration`        |
+   | db.url         | The location of the Bonita Engine database                   | `jdbc:postgresql://localhost:5432/bonita_migration`        |
    | db.user        | The username used to authenticate to the database                | bonita                                                     |
    | db.password    | The password used to authenticate to the database                | bpm                                                        |
 
@@ -153,7 +153,7 @@ Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. For exam
      | Community edition     | `bonita-migration-distrib` (Linux) or `bonita-migration-distrib.bat` (Windows)      |
      | Subscription editions | `bonita-migration-distrib-sp` (Linux) or `bonita-migration-distrib-sp.bat` (Windows)|
 
-1. The script detects the current version of Bonita BPM, and displays a list of the versions that you can migrate to. Specify the
+1. The script detects the current version of Bonita, and displays a list of the versions that you can migrate to. Specify the
 version you require.
 The script starts the migration.
 1. As the script runs, it displays messages indicating progress. After each migration step, you are asked to confirm whether to
@@ -174,11 +174,11 @@ The `bonita_home` and the database have been migrated.
 1. *Only before 7.3.0* In your new `bonita-target-version` folder, delete the `bonita` folder. You will use the `bonita_home` that you have migrated instead.
 1. *Only before 7.3.0* Set the bonita_home system property to point to the migrated `bonita_home`.
 1. [Configure the bundle to use the migrated database](database-configuration.md). Do not recreate the database.
-1. <a id="compound-permission-migration" /> **If your Bonita BPM version is 7.4 or above before migrating, you can skip this point.**
+1. <a id="compound-permission-migration" /> **If your Bonita version is 7.4 or above before migrating, you can skip this point.**
 
     In the case where deployed resources have required dedicated [authorizations to use the REST API](resource-management.md#permissions), these authorizations are not automatically migrated.  
     Some manual operation have to be done on files that are  located in the _$BONITA\_HOME_ folder if version <7.3.0 or in the extracted `platform_conf/current` folder in version >=7.3.0
-    (see [Update Bonita BPM Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf) for more information ). You need to merge the previous file version and the migrated one.
+    (see [Update Bonita Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf) for more information ). You need to merge the previous file version and the migrated one.
     
     * `tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties` : contains list of permissions used for each resources
     * `tenants/[TENANT_ID]/conf/resources-permissions-mapping.properties` : contains permissions for REST API extensions
@@ -193,7 +193,7 @@ The `bonita_home` and the database have been migrated.
         Put your new license in `/bonita_home/server/licenses`.
         * *After 7.3.0*:
         Put your new license in database as described in [this guide](BonitaBPM_platform_setup.md#update_platform_conf).
-1. Start the application server. Before you start Bonita BPM Portal, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal pages instead of the new version. 
+1. Start the application server. Before you start Bonita Portal, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal pages instead of the new version. 
 Log in to the Portal and verify that the migration has completed. 
 If you did not set the default Look & Feel before migration and you cannot log in, you need to [restore the default Look & Feel](managing-look-feel.md) using a REST client or the Engine API.
 
@@ -201,7 +201,7 @@ The migration is now complete. If you were using a custom Look & Feel before mig
 
 ## Migrate your cluster
 
-A Bonita BPM cluster must have the same version of Bonita BPM on all nodes. To migrate a cluster:
+A Bonita cluster must have the same version of Bonita on all nodes. To migrate a cluster:
 
 1. Download the migration tool:
     * In version 1.x you need to download the tool for Performance cluster, the ordinary Performance migration tool does not support migration of a cluster.

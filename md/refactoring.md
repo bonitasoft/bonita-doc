@@ -1,6 +1,6 @@
 # Refactoring
 
-Refactoring a process definition means changing the name of a process element without changing the external behaviour. Typically, this is done when a process definition is almost complete, to improve readability and maintainability, or to adopt a new set of [naming conventions](naming-conventions.md). In Bonita BPM Studio, when you change the name of an element, the change is propagated to all the places that reference this element. If the change is simple (for example, you rename a variable used in transitions), the change is made automatically. If the change is more complex, such as renaming a variable used in a Groovy script, Bonita BPM Studio displays the update for you to validate before it is implemented.Refactoring is also used when you delete a process element. Expressions using the element directly will be cleared and expressions having dependency on it will clear the dependency and replace it by a blank placeholder in Groovy scripts.
+Refactoring a process definition means changing the name of a process element without changing the external behaviour. Typically, this is done when a process definition is almost complete, to improve readability and maintainability, or to adopt a new set of [naming conventions](naming-conventions.md). In Bonita Studio, when you change the name of an element, the change is propagated to all the places that reference this element. If the change is simple (for example, you rename a variable used in transitions), the change is made automatically. If the change is more complex, such as renaming a variable used in a Groovy script, Bonita Studio displays the update for you to validate before it is implemented.Refactoring is also used when you delete a process element. Expressions using the element directly will be cleared and expressions having dependency on it will clear the dependency and replace it by a blank placeholder in Groovy scripts.
 
 ## Elements and scope
 
@@ -14,13 +14,13 @@ Refactoring applies to the following types of element:
 * contract input
 * business variable
 * page
-* search index (in Bonita BPM Subscription Pack editions Efficiency and Performance)
+* search index (in Bonita Subscription Pack editions Efficiency and Performance)
 
 When you change the name of an element of one of these types, the name is changed throughout the process definition, including inside scripts and connector instance definitions.
 
 ## Scope
 
-The scope of refactoring is the process. If you rename one of the items above in a process, Bonita BPM Studio detects and updates all the places in the same process where it is used. The refactoring does not extend outside the process.
+The scope of refactoring is the process. If you rename one of the items above in a process, Bonita Studio detects and updates all the places in the same process where it is used. The refactoring does not extend outside the process.
 
 If your business process includes a call activity subprocess with mapped data, you need to modify the data mapping manually, checking both the parent process and the subprocess. If you also plan to refactor the subprocess, you should refactor it first, before making any manual changes to data mapping. 
 

@@ -45,7 +45,7 @@ Use [Jasper Studio](http://community.jaspersoft.com/project/jaspersoft-studio) t
 Select the pool and create 2 documents: a bonitadocument called input (.jxrml) and an output format for the document to be created (.pdf,.xml or.md).
 
 Go to the **Details** panel, **Data** tab, **Documents** panel, and click **_Add_**.
-In the popup, click **From Bonita BPM** \> **Browse...** \> **Import...** (example.jrxml) to import the Bonita document.
+In the popup, click **From Bonita** \> **Browse...** \> **Import...** (example.jrxml) to import the Bonita document.
 
 **Document**
 | Name  | Data type  |
@@ -60,10 +60,10 @@ Now to configure the first task:
 4. Choose the output format: pdf, xml or html.
 5. In Output operations, choose **name of the object to contain the document** and take the value **reportDocValue**.
 
-Click on _**Run.**_ Bonita BPM Portal will be launched.
+Click on _**Run.**_ Bonita Portal will be launched.
 
 ## Result
 
 A report is created, graphically representing the data from the database.
 
-**Note:** The Jasper connector is only testable in Bonita BPM Studio if a JDBC driver is installed.
+**Note:** The Jasper connector is only testable in Bonita Studio if a JDBC driver is installed.

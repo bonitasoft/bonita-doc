@@ -1,9 +1,9 @@
 # Deploy bundle
 
-## What is the purpose of the Bonita BPM Deploy bundle?
+## What is the purpose of the Bonita Deploy bundle?
 
-* The Bonita BPM Deploy bundle is used if you have **already installed a Java EE Application Server**.
-* The Bonita BPM Deploy bundle is a way of setting up a Bonita BPM Platform. You'll be able to get a setup quite similar to WildFly or Tomcat bundle.
+* The Bonita Deploy bundle is used if you have **already installed a Java EE Application Server**.
+* The Bonita Deploy bundle is a way of setting up a Bonita Platform. You'll be able to get a setup quite similar to WildFly or Tomcat bundle.
 * It's also used to package other tools such as the LDAP synchronizer.
 
 :::warning
@@ -14,10 +14,10 @@ it would be up to you to adapt the documented steps to your very own folder layo
 
 ## Deploy bundle content
 
-* `Tomcat-`_`version`_: a folder/file structure to be merged with an existing setup of Apache Tomcat, in order to install Bonita BPM Portal and Bonita BPM Engine.
-* `Wildfly-`_`version`_: a folder/file structure to be merged with an existing setup of WildFly in order to install Bonita BPM Portal and Bonita BPM Engine.
+* `Tomcat-`_`version`_: a folder/file structure to be merged with an existing setup of Apache Tomcat, in order to install Bonita Portal and Bonita Engine.
+* `Wildfly-`_`version`_: a folder/file structure to be merged with an existing setup of WildFly in order to install Bonita Portal and Bonita Engine.
 <a id="platform_setup_tool" />
-* `setup`: a command-line tool that creates the Bonita BPM Platform before it can be run. It creates the Bonita BPM Platform internal database, and stores the runtime configuration.
+* `setup`: a command-line tool that creates the Bonita Platform before it can be run. It creates the Bonita Platform internal database, and stores the runtime configuration.
 It is useful to update the configuration, locally or from a remote computer.
 * `Request_key_utils-`_`key_utils.version`_: include script files to generate license request keys.
 * `LDAP-Synchronizer-`_`LDAPSync.version`_: LDAP synchronizer to synchronize your organization in Bonita with your LDAP
@@ -35,7 +35,7 @@ or from the [Customer Portal](https://customer.bonitasoft.com/download/request) 
 <a id="tomcat-installation" />
 
 ## Tomcat installation
-### Install Bonita BPM Platform in Tomcat
+### Install Bonita Platform in Tomcat
 
 Copy all files and directories from DEPLOY_ZIP_HOME/Tomcat-7.0.76/server to your Tomcat root directory (TOMCAT_HOME).
 :::warning
@@ -51,7 +51,7 @@ in the standard Tomcat context configuration file.
 
 Non-transactional data source
 1. Open the file TOMCAT_HOME/conf/Catalina/localhost/bonita.xml
-2. For Bonita BPM Standard data source, remove or comment out the lines regarding the h2 database.
+2. For Bonita Standard data source, remove or comment out the lines regarding the h2 database.
 3. Uncomment the lines matching your RDBMS.
 4. Update following attributes value:
     - username: your RDBMS user name.
@@ -61,7 +61,7 @@ Non-transactional data source
 
 JTA data source (managed by Bitronix)
 1. Open the file TOMCAT_HOME/conf/bitronix-resources.properties
-2. For Bonita BPM Standard data source, remove or comment out the lines regarding the h2 database.
+2. For Bonita Standard data source, remove or comment out the lines regarding the h2 database.
 3. Uncomment the lines matching your RDBMS and edit values for each settings (resource.ds1.*) according to your database installation.
 5. Repeat operations 2. and 3. for Business Data data source (resources.ds2.*)
 
@@ -80,19 +80,19 @@ use the driver provided by your RDBMS vendor
 
 ## Wildfly installation
 
-### Install Bonita BPM Platform in Wildfly
+### Install Bonita Platform in Wildfly
 Copy all files and directories from DEPLOY_ZIP_HOME/wildfly-10.1.0.Final/server to your Wildfly root directory (WILDFLY_HOME).
 
 ### Configure data sources
 1. Open the file WILDFLY_HOME/standalone/configuration/standalone.xml
-2. For Bonita BPM Standard data source, remove or comment out the default definition for h2.
+2. For Bonita Standard data source, remove or comment out the default definition for h2.
 3. Uncomment the settings matching your RDBMS vendor.
 4. Modify the values of the following settings to your configuration: server address, server port, database name, user name and password.
 5. Repeat operations 2. to 4. for Business Data data source
 
 ### Configure RDBMS vendor
 1. Open WILDFLY_HOME/standalone/configuration/standalone.xml and look for `system-properties` tag
-2. Set the value for sysprop.bonita.db.vendor (Bonita BPM Platform database vendor)
+2. Set the value for sysprop.bonita.db.vendor (Bonita Platform database vendor)
 3. Set the value for sysprop.bonita.bdm.db.vendor (Business Data database vendor)
 
 ### Add Jdbc driver
@@ -120,7 +120,7 @@ If you are installing a Subscription edition, you need to [request a license](li
 When you receive your license, copy the file to the `DEPLOY_ZIP_HOME/setup/platform_conf/licenses` folder of your application server.
 
 ## Database initialization
-We assume here that the database has already been [created and configured for Bonita BPM](database-configuration.md#database_creation).
+We assume here that the database has already been [created and configured for Bonita](database-configuration.md#database_creation).
 Once created and configured you need to initialize it using the setup tool provided in the deploy bundle archive.
 This will create database schema and initial values.
 1. In DEPLOY_ZIP_HOME/setup folder, edit the file database.properties with properties matching your rdbms
@@ -128,5 +128,5 @@ This will create database schema and initial values.
 3. In DEPLOY_ZIP_HOME/setup folder, run `setup.(sh|bat) init`
 
 ## Next steps
-You're done with Bonita BPM installation. You can now start your application server as usual.
+You're done with Bonita installation. You can now start your application server as usual.
 When you have finished installing the deploy bundle, [complete the setup](first-steps-after-setup.md) of your system by validating the installation, setting passwords, and creating the Administrator user.

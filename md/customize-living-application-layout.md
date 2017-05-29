@@ -28,14 +28,14 @@ Prerequisites to customize the default living application layout:
 
 The following example shows how to convert the default top menu of an application into a side menu.  
 The example sections show how to:
-* Export the default application layout from the Bonita BPM Portal
+* Export the default application layout from the Bonita Portal
 * Import the default application layout into the UI Designer
 * Modify this layout
 * Apply the customized layout onto a living application.
 
- ## Export the default application layout from Bonita BPM Portal
+ ## Export the default application layout from Bonita Portal
 
-1. Open Bonita BPM Portal, and log in with username and password of someone mapped to the Administrator profile.
+1. Open Bonita Portal, and log in with username and password of someone mapped to the Administrator profile.
 2. Click on the **Resources** menu.
 3. Select the filter **Layouts**.
 4. Select the element **Default layout**.
@@ -102,7 +102,7 @@ Once your changes are made, save the new layout using a new name and then export
 
 ## Import the **Side Menu Layout** into the portal
 
-1. Open the Bonita BPM Portal, and again log in with username and password of someone mapped to the Administrator profile.
+1. Open the Bonita Portal, and again log in with username and password of someone mapped to the Administrator profile.
 2. Click on the **Resources** menu.
 3. Click on **Add**.
 4. Add the new **Side Menu Layout Page**.

@@ -4,9 +4,9 @@
 **Note:** For Performance edition only.
 :::
 
-This page contains information that you can use to tune the Bonita BPM Engine to get the best performance in your platform.  
+This page contains information that you can use to tune the Bonita Engine to get the best performance in your platform.  
 It assumes that you are familiar with Java threads, concurrent execution, XML, DB connection pools, your DB instance, cache policies, scheduling, connectors, network speed, I/O, Java Virtual Machine configuration, JTA and transaction management.  
-You need to know how to install and configure Bonita BPM.
+You need to know how to install and configure Bonita.
 
 This information applies primarily to the Performance edition, though some details also apply to the Teamwork and Efficiency editions.
 
@@ -32,9 +32,9 @@ Two key definitions:
 Performance tuning checklist of best practises:
 
 * [Access Engine APIs](#engine_access) in Local mode whenever possible.
-* Make sure that the [network](#hardware) between your client and the Bonita BPM Engine server is fast if you [access the APIs remotely](#remote).
+* Make sure that the [network](#hardware) between your client and the Bonita Engine server is fast if you [access the APIs remotely](#remote).
 * Install your [Database](#db) on a powerful [machine](#hardware) (hardware that meets to your DB vendor requirements: sufficient memory, powerful CPU, and fast I/O).
-* Make sure that the [network](#hardware) between your Bonita BPM Engine server and your database server is very fast.
+* Make sure that the [network](#hardware) between your Bonita Engine server and your database server is very fast.
 * Set the [Work service](#work_service) threadpool and [Connector service](#connector_service) threadpool to the same size.
 * Set the maximum [DB connections](#db_connections) for the bonitaDS [datasource](#datasource_settings) to the desired processing capacity number of parallel threads.
 * Configure a suitable [sequence manager](#seq_mgr) range size for your typical process designs and expected volume. 
@@ -43,10 +43,10 @@ Performance tuning checklist of best practises:
 * Set the basic [JVM options](#jvm) to make it fast and well-sized.
 * Optimize your [database configuration](#db) for your most frequent usage (read or write) and the level of robustness that you want.
 * Configure your [transaction manager](#tm) for the level of robustness that you want.
-* Tune the [log levels](#logs) of Bonita BPM Engine and all its dependencies.
+* Tune the [log levels](#logs) of Bonita Engine and all its dependencies.
 * Design your [processes](#process_design) following the best practises.
 * Add a reasonable number of well-developed [event handlers](#event_handlers).
-* Tuned the Bonita BPM Engine [cron jobs](#cron) for your needs.
+* Tuned the Bonita Engine [cron jobs](#cron) for your needs.
 
 <a id="engine_access"/>
 
@@ -54,7 +54,7 @@ Performance tuning checklist of best practises:
 
 This section deals with performance impact of your choice of [Engine access mode](engine-api-overview.md).
 
-There are various ways to access the Engine APIs provided by Bonita BPM Engine. Choose the most suitable access mode for your deployment, requirements, and preferences.  
+There are various ways to access the Engine APIs provided by Bonita Engine. Choose the most suitable access mode for your deployment, requirements, and preferences.  
 The access modes rely on different technologies and have different benefits and drawbacks. In this section, we will describe the performance characteristics of each mode.
 
 <a id="local"/>
@@ -106,7 +106,7 @@ Data sent is serialized using a Java library called XStream. This serialization 
 
 ##### REST
 
-This method of accessing the Bonita BPM capabilities is not yet integrated as an engine service but exists as a web application service accessed using the [Web REST API](rest-api-overview.md).  
+This method of accessing the Bonita capabilities is not yet integrated as an engine service but exists as a web application service accessed using the [Web REST API](rest-api-overview.md).  
 No details are provided here as it is currently out of scope.  
 In general, the constraints are almost the same as for the HTTP mode, but we do not provide any Java client for this access mode.
 
@@ -120,7 +120,7 @@ There are two main entry points for load on the engine:
 * **API calls** coming from outside the engine
 * **Engine-generated calls** for internal processing, specifically the **Work service** and the **Scheduler service**
 
-The Bonita BPM Engine is an asynchronous BPM process engine.  
+The Bonita Engine is an asynchronous BPM process engine.  
 This means that every thread that deals with process execution applies the following rule: do the minimum that makes sense in the current transaction to get to a stable state, and then continue in another transaction inside another thread.  
 The great benefit of this is that the caller is not locked while the engine processes something that might be long (such as a long sequence of tasks with connectors.).
 
@@ -133,7 +133,7 @@ The number of client threads is related to the number of parallel users.
 
 If you are running your own application, you have one thread if your applicaiton is not multi-threaded, or you have the number of threads you decided to create explicitly in the application or using your own threadpool.
 
-If you are running Bonita BPM Engine inside a container, the maximum number of client threads is defined by a parameter of the container. For example:
+If you are running Bonita Engine inside a container, the maximum number of client threads is defined by a parameter of the container. For example:
 
 * **Apache Tomcat** `maxThreads` set in _`Tomcat_folder`_`/conf/server.xml`.    
      Default value 200\. 
@@ -162,7 +162,7 @@ It is very similar to the constructor provided in the [default JDK ThreadPoolExe
 For a reminder of how the threadpool behaves, see the Queuing section of the 
 [ThreadPoolExecutor documentation](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html).
 
-In the default Bonita BPM configuration, `corePoolSize` is equal to `maximumPoolSize` because we have observed that the default implementation of the threadpool executor allocates work to available threads using a round robin algorithm.  
+In the default Bonita configuration, `corePoolSize` is equal to `maximumPoolSize` because we have observed that the default implementation of the threadpool executor allocates work to available threads using a round robin algorithm.  
 Therefore, if the maximum is reached, the thread pool size is unlikely ever to reduce to `corePoolSize`, because work is always allocated to available threads.  
 The current implementation of the RejectedExecutionHandler queues the work, and reduces the system load because it does not release the caller (normal behaviour for a BlockingQueue).
 
@@ -185,7 +185,7 @@ The configuration of the threadpool of this service must be correlated to the co
 This mapping between the configurations of the two threadpools depends on your processes. If you have processes that use a lot of connectors, then you need as many connector threads as work threads.  
 If you are unsure, our recommendation is to configure the two threadpools with the same values.
 
-The Connector service is configured in `cfg-bonita-connector-timedout.xml`, `bonita-tenant-community-custom.properties` and `bonita-tenant-sp-custom.properties` (cf [platform setup](BonitaBPM_platform_setup))
+The Connector service is configured in `cfg-bonita-connector-timedout.xml`, `bonita-tenant-community-custom.properties` and `bonita-tenant-sp-custom.properties` (cf [platform setup](Bonita_platform_setup))
 
 ```
 Community:
@@ -205,7 +205,7 @@ For details of these parameters, see [Work service](#work_service).
 The Scheduler service is responsible for executing jobs.  
 A job is executed inside a thread of the scheduler service.  
 There are various kinds of jobs, some resulting from internal requirements such as API session cleaning, or batch deletion of a table row, and some related to process design such as BPMN2 events.  
-The Bonita BPM Engine Scheduler service uses the Quartz Scheduler. Quartz takes the size of the threadpool as an input parameter.   Quartz uses threads to execute jobs concurrently.
+The Bonita Engine Scheduler service uses the Quartz Scheduler. Quartz takes the size of the threadpool as an input parameter.   Quartz uses threads to execute jobs concurrently.
 
 The Scheduler service configuration is in `bonita-platform-community-custom.properties`.
 You can configure:
@@ -231,7 +231,7 @@ This datasource needs only a few connections: between 5 or 10% of bonitaDS numbe
 
 ##### bonitaDS
 
-This datasource requires a higher value, because Bonita BPM Engine stores almost everything in the database.  
+This datasource requires a higher value, because Bonita Engine stores almost everything in the database.  
 This means that every single thread from any of the entry points requires a database connection through bonitaDS.  
 To make sure that this datasource is not a bottleneck, define the maximum number of database connections to be equivalent to the desired number of parallel processing threads.  
 The desired number of parallel processing threads is the sum of the number of workers (see [Work service](#work_service)) plus a percentage of the number of scheduler threads 
@@ -262,7 +262,7 @@ This section deals with some aspects of engine configurations that have a perfor
 
 #### Sequence manager
 
-Bonita BPM Engine manages a dedicated sequence for each table for ID generation.  
+Bonita Engine manages a dedicated sequence for each table for ID generation.  
 This implementation allows fast delivery of IDs and a single point of usage inside the application: the persistence service.
 
 The sequence manager keeps in memory a range of reserved IDs by table.  
@@ -281,7 +281,7 @@ This should be appropriately sized for the number of times the sequence manager 
 
 #### Persistence cache
 
-For the Teamwork, Efficiency, and Performance editions, Bonita BPM Engine has a cache providing a persistence layer using Hibernate caching. 
+For the Teamwork, Efficiency, and Performance editions, Bonita Engine has a cache providing a persistence layer using Hibernate caching. 
 
 EhCache configuration for this persistence layer is defined in a file named `bonita-platform-hibernate-cache.xml.notused` and `bonita-tenant-hibernate-cache.xml.notused`.  
 To apply the configuration of those files, remove the '.notused' suffix.  
@@ -310,7 +310,7 @@ A soft-locked cache entry was expired by the underlying Ehcache. If this happens
 
 #### Application cache
 
-Bonita BPM Engine uses an application cache to store specific objects. The default implementation of this service relies on EhCache. It is configured in these files:
+Bonita Engine uses an application cache to store specific objects. The default implementation of this service relies on EhCache. It is configured in these files:
 
 * `bonita-platform-community-custom.properties`
 * `bonita-tenant-community-custom.properties`
@@ -349,12 +349,12 @@ While the garbage collector is running, it prevents creation of new objects, whi
 
 This section deals with performance impact of hardware elements.
 
-Bonita BPM performance is very correlated to the database connectivity and its behavior.  
+Bonita performance is very correlated to the database connectivity and its behavior.  
 Almost everything (API call, internal processing using workers, jobs scheduling, and so on) requires a database access.  
 Two elements are critical: network latency, as in most cases your database is located on another server, and the I/O of your hard drives.  
 In case of issues, you should monitor these two elements and consider improvements. For example:
 
-* locate your database in the same datacenter as the Bonita BPM Engine, using gigabit network connections
+* locate your database in the same datacenter as the Bonita Engine, using gigabit network connections
 * use SSD hard drives, and RAID configuration with striping
 
 Network connectivity also impacts access to the engine APIs when you are not using local access, that is, 
@@ -362,9 +362,9 @@ if you are using [EJB3](#ejb3), [HTTP](#http), [REST](#rest).
 
 ## Database, Transaction Manager, and logs
 
-This section is a reminder about some of the main dependencies Bonita BPM Engine has that have a strong impact on the performance of the whole system.
+This section is a reminder about some of the main dependencies Bonita Engine has that have a strong impact on the performance of the whole system.
 
-Bonita BPM Engine relies on several other components that each have their own performance tuning options.  
+Bonita Engine relies on several other components that each have their own performance tuning options.  
 Some of them are key for the system and you should pay a lot of attention to them.  
 In most cases, the key things to consider are the [database](#db), [transaction manager](#tm), and [logs](#logs).
 
@@ -372,22 +372,22 @@ In most cases, the key things to consider are the [database](#db), [transaction 
 
 #### Database
 
-Bonita BPM Engine uses the database heavily, so in consequence a slow database makes the engine slow.
+Bonita Engine uses the database heavily, so in consequence a slow database makes the engine slow.
 
 It is essential that the hardware configuration of the server hosting the DB is powerful, considering resources like CPU, memory or others depending on your database instance.
 
 In addition to this, make sure that your database instance is well configured.  
 Most database software provides many options for tuning, and some of them are easy to set up.  
 Others may be more difficult and present choices between robustness and performance, fast read or fast write, etc.  
-Your database configuration must be correlated with the Bonita BPM Engine usage pattern.  
+Your database configuration must be correlated with the Bonita Engine usage pattern.  
 To find the right characteristic to optimize, one good starting point is to consider whether you are creating a lot of process instances (in which case optimize database writes) or you are executing a lot of read queries like `getTaskList` (in which case optimize database reads).
 
 <a id="tm"/>
 
 #### Transaction manager
 
-Bonita BPM Engine is natively compatible with the Java Transaction API. This means transaction management relies on a transaction manager.  
-If you are using a JEE Application server, then you only have to configure Bonita BPM Engine to use the transaction manager that is provided.  
+Bonita Engine is natively compatible with the Java Transaction API. This means transaction management relies on a transaction manager.  
+If you are using a JEE Application server, then you only have to configure Bonita Engine to use the transaction manager that is provided.  
 Otherwise, you have to embed a transaction manager (for example, we embed Bitronix by default in the Tomcat bundle).
 
 A transaction manager manages a transaction log and also frequently has notions of internal pooling.  
@@ -400,7 +400,7 @@ For example, in [Bitronix](https://github.com/bitronix/btm/wiki/JDBC-pools-confi
 In general, increasing the log level is useful for debugging but has a performance cost.  
 With this in mind, [define the log level for technical logs, queriable logs and archives](set-log-and-archive-levels.md).
 
-Remember that Bonita BPM Engine dependencies also have their own log and debug options that may impact strongly the system performance. 
+Remember that Bonita Engine dependencies also have their own log and debug options that may impact strongly the system performance. 
 Be sure to configure these appropriately.
 
 ## Connector time tracker
@@ -435,9 +435,9 @@ We strongly recommend that you add only appropriate handlers and carefully code 
 
 #### Cron jobs
 
-Bonita BPM Engine uses the [Scheduler service](engine-architecture-overview.md) to trigger jobs in a recurrent manner.
+Bonita Engine uses the [Scheduler service](engine-architecture-overview.md) to trigger jobs in a recurrent manner.
 
-The Bonita BPM Scheduler service implementation uses the Quartz Scheduler.  
+The Bonita Scheduler service implementation uses the Quartz Scheduler.  
 A cron job in Quartz can run at maximum every second (you cannot set a lower value than 1 second).  
 Three cron jobs are defined: 
 
@@ -445,11 +445,11 @@ Three cron jobs are defined:
      If you want your process instances to react faster, you can reduce this value.  
      Property name: `org.bonitasoft.engine.cron`
 * Delete dirty objects. This job cleans objects that have been tagged as _dirty_. 
-     To increase performance, during process instance execution, Bonita BPM Engine tags some frequently used objects as _dirty_ instead of deleting them.  
+     To increase performance, during process instance execution, Bonita Engine tags some frequently used objects as _dirty_ instead of deleting them.  
      This is done like this to reduce contention on database.   
      Those dirty objects have to be cleaned periodically and this is done by default every 5 minutes.   
      Property name: `delete.job.frequency`
-* Delete invalid sessions. This job cleans Bonita BPM Engine sessions kept in memory. 
+* Delete invalid sessions. This job cleans Bonita Engine sessions kept in memory. 
      It iterates over engine sessions and removes any that are invalid. By default this is done every 2 hours.  
      If you are creating a lot of new sessions in a short time, increase this frequency to avoid allocating too much memory to those 
 invalid sessions and to avoid out-of-memory errors.  

@@ -1,12 +1,12 @@
-# BDM Management in Bonita BPM Portal
+# BDM Management in Bonita Portal
 
-Processes using Business Objects with persisted data need to run with a Business Data Model deployed in the Bonita BPM Portal.
+Processes using Business Objects with persisted data need to run with a Business Data Model deployed in the Bonita Portal.
 Only one model can be deployed at a time in the Portal, so make sure it contains the Business object definition used in all processes that will run within this tenant.
 
 The Business objects must match the structure used by the deployed processes. Make sure that when modifying the Business Model, the process is modified accordingly.
 
-1. To import the Business Data Model created in Bonita BPM Studio, first [export the Business Data Model](define-and-deploy-the-bdm.md) from Bonita BPM Studio where it was designed.
-2. In the Bonita BPM Portal, log in as the technical user (default login 'install', default password 'install').
+1. To import the Business Data Model created in Bonita Studio, first [export the Business Data Model](define-and-deploy-the-bdm.md) from Bonita Studio where it was designed.
+2. In the Bonita Portal, log in as the technical user (default login 'install', default password 'install').
 3. Go to the **BPM Services** menu.
 4. Click on **Pause** to [pause](pause-and-resume-bpm-services.md) the tenant.
 
@@ -16,7 +16,7 @@ The Business objects must match the structure used by the deployed processes. Ma
 
 5. When the service is paused, go to the **Business Data Model** menu.
 6. A page called **Import and activate a new Business Data Model** is displayed.
-7. Choose the file containing the Business Data Model exported from the Bonita BPM Studio, and click on _**Activate**_.
+7. Choose the file containing the Business Data Model exported from the Bonita Studio, and click on _**Activate**_.
 8. A warning is displayed:
 
 ::: warning

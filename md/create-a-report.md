@@ -6,15 +6,15 @@
 
 The final step when setting up reporting is to create a report template using a Business Intelligence (BI) tool.
 
-You are free to choose any BI tool to do so, but if you want to display reports inside the Bonita BPM Portal you should design your reports using one of the following tools:
+You are free to choose any BI tool to do so, but if you want to display reports inside the Bonita Portal you should design your reports using one of the following tools:
 
 * [JasperReports iReport Designer](http://community.jaspersoft.com/project/ireport-designer) - Older stable tool in maintenance mode
 * [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) - Newer tool
 
-## Bonita BPM integration guidelines and tips for Jasper reports
+## Bonita integration guidelines and tips for Jasper reports
 
-This documentation does not detail the use of Jaspersoft Studio but provides some guidelines for report integration in Bonita BPM Portal. 
-There are minor differences depending on which Japsersoft tool you are using, but these concern the user interface of the Japsersoft tools, not the Bonita BPM behavior.
+This documentation does not detail the use of Jaspersoft Studio but provides some guidelines for report integration in Bonita Portal. 
+There are minor differences depending on which Japsersoft tool you are using, but these concern the user interface of the Japsersoft tools, not the Bonita behavior.
 For details about the use of the Jaspersoft products, please refer to their documentation:
 
 * [JasperReports iReport Designer documentation](http://community.jaspersoft.com/project/ireport-designer/resources)
@@ -23,17 +23,17 @@ For details about the use of the Jaspersoft products, please refer to their docu
 ### Change the script language to Java
 
 By default Jasper reports use Groovy as a script language. 
-However, Bonita BPM Portal does not provide Groovy dependencies to the report so you need to switch the report script language to Java.
+However, Bonita Portal does not provide Groovy dependencies to the report so you need to switch the report script language to Java.
 
 This is how to do this for iReport:
 
 1. In the **Report inspector** tree located on the left-hand side, select the root element.
 2. In the properties table located on the right-hand side, locate the **Language** property and change it to **Java**.
 
-### Access Bonita BPM database
+### Access Bonita database
 
-If you build a report that requires access to the Bonita BPM database, you need to add the Bonita BPM SQL Query Executor as a report dependency.
-All queries that fetch Bonita BPM Engine data must use this query executor.
+If you build a report that requires access to the Bonita database, you need to add the Bonita SQL Query Executor as a report dependency.
+All queries that fetch Bonita Engine data must use this query executor.
 
 This is how to add the query executor as a report dependency in iReport:
 
@@ -53,20 +53,20 @@ Fields Provider class (optional)com.jaspersoft.ireport.designer.data.fieldsprovi
 6. Click on **_OK_**.
 7. Still in the **Options** window, select the **Classpath** tab.
 8. Click on **_Add JAR_**.
-9. Browse to your Bonita BPM Studio installation directory and navigate to `workspace/tomcat/webapps/bonita/WEB-INF/lib/`.
-10. Select the `console-server-sp-X.Y.Z.jar` file, where `X.Y.Z` is the Bonita BPM version.
+9. Browse to your Bonita Studio installation directory and navigate to `workspace/tomcat/webapps/bonita/WEB-INF/lib/`.
+10. Select the `console-server-sp-X.Y.Z.jar` file, where `X.Y.Z` is the Bonita version.
 11. Click on **_Open_**.
 
-### Add interactivity with Bonita BPM Portal to your report
+### Add interactivity with Bonita Portal to your report
 
-When creating a report you may need to enable Bonita BPM Portal users to interact with it.
-Bonita BPM Portal integration of the Jasper report viewer makes interactivity possible by providing widgets that can control report parameters.
+When creating a report you may need to enable Bonita Portal users to interact with it.
+Bonita Portal integration of the Jasper report viewer makes interactivity possible by providing widgets that can control report parameters.
 Widgets are configured directly in the Jasper report as properties.
 
-Here is the sequence of events when an interactive Jasper report is displayed in Bonita BPM Portal:
+Here is the sequence of events when an interactive Jasper report is displayed in Bonita Portal:
 
-1. Bonita BPM Portal reads the report properties and generates an HTML form containing the widgets.
-2. The HTML code is injected as a report parameter by Bonita BPM Portal.
+1. Bonita Portal reads the report properties and generates an HTML form containing the widgets.
+2. The HTML code is injected as a report parameter by Bonita Portal.
 3. The report renders the HTML code using the parameter.
 4. The end-user can then interact with the widgets and the report is automatically re-generated if a value changes.
 
@@ -138,7 +138,7 @@ The **SELECT** widget has the following extra properties:
   </tr>
   <tr>
     <td>BONITA_FORM_<em>XXX</em>_QUERY</td>
-    <td>Query that dynamically retrieves the list of available values from the Bonita BPM database.</td>
+    <td>Query that dynamically retrieves the list of available values from the Bonita database.</td>
   </tr>
   <tr>
     <td>BONITA_FORM_<em>XXX</em>_HAS_ALL</td>
@@ -173,7 +173,7 @@ The **DATE** and **DATE\_RANGE** widgets have the following extra properties:
   </tr>
   <tr>
     <td>BONITA_FORM_<em>XXX</em>_QUERY</td>
-    <td>Query that dynamically retrieves the initial value from the Bonita BPM database.</td>
+    <td>Query that dynamically retrieves the initial value from the Bonita database.</td>
   </tr>
 </tbody></table>
 
@@ -181,7 +181,7 @@ For a **DATE\_RANGE** widget, if you name the associated parameter `p_date` then
 value will automatically be set to `one week before today` and `today` respectively. Setting an initial value to this
 parameter using BONITA_FORM_XXX_INITIAL_VALUE will not be taken in account.
 
-Query that dynamically retrieves the initial value from the Bonita BPM database.
+Query that dynamically retrieves the initial value from the Bonita database.
 
 Create the report properties using iReport as following:
 
@@ -212,9 +212,9 @@ Then, implement in Bonita Portal's look'n'feel the expected style for this CSS c
 Alternatively, you can also change the HTML tag name of a component by adding a new _Property_ in _Properties expressions_ named  _net.sf.jasperreports.export.html.tag_
 (example: _name:_ net.sf.jasperreports.export.html.tag _value:_ h1)
 
-### Package a report for Bonita BPM Portal integration
+### Package a report for Bonita Portal integration
 
-In order to integrate a Jasper report in Bonita BPM Portal, you need to prepare a ZIP archive.
+In order to integrate a Jasper report in Bonita Portal, you need to prepare a ZIP archive.
 
 The archive should contain at least the compiled Jasper report (a file with a .jasper extension).
 
@@ -242,4 +242,4 @@ If your report contains sub reports, these should be placed in a directory named
 
 If your report uses a style sheet you may also provide a .jrtx file in the archive.
 
-Once you have packaged the Jasper report as a ZIP archive, you can [install it in the Bonita BPM Portal](analytics.md).
+Once you have packaged the Jasper report as a ZIP archive, you can [install it in the Bonita Portal](analytics.md).

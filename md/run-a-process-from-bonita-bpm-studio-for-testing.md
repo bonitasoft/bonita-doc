@@ -1,8 +1,8 @@
-# Run a process from Bonita BPM Studio for testing
+# Run a process from Bonita Studio for testing
 
-When you run a process from Bonita BPM Studio it runs on the local Bonita BPM Engine and 
-launches a local Bonita BPM Portal. The process is not deployed, but behaves as it would 
-after deployment. Running a process from Bonita BPM Studio is intended for testing during 
+When you run a process from Bonita Studio it runs on the local Bonita Engine and 
+launches a local Bonita Portal. The process is not deployed, but behaves as it would 
+after deployment. Running a process from Bonita Studio is intended for testing during 
 process development.
 
 Before you can run a process, you must [configure the process](configuring-a-process.md)
@@ -29,4 +29,4 @@ To include a script in a process so it can be used in standalone mode:
 
 * In Studio, define a custom look & feel for the Application and include the script in one of the template HTML files. The script is then available for all steps in the process.
 
-After a process is [deployed and initialized](processes.md) in Bonita BPM Portal, it is run by [starting a case](cases.md).
+After a process is [deployed and initialized](processes.md) in Bonita Portal, it is run by [starting a case](cases.md).
