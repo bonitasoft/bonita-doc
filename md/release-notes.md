@@ -1,44 +1,38 @@
 # Release notes
 
-Bonita BPM 7.5 includes a set of new features related to the Living Application development and deployment and UI personalization in addition to important technology updates and bug fixes.
+Bonita BPM 7.5 includes a set of new features related to Living Application development and deployment as well as UI personalization, in addition to important technology updates and bug fixes.
 
 <a id="living-application-development-and-deployment"/>
 
-## Living Application Development and Deployment
-
-### Integration of SSO SAML 2.0
-Bonita BPM works with Single-Sign-On (SSO) solutions using SAML V2 protocol `(Teamwork, Efficiency, Performance edition)` : 
-* Being able to use standard authentication service 
-* Can connect to Bonita apps with my company credentials (per tenant configuration)
-* Common SAML 2.0 Identity providers : ADFS (MS Active Directory Federation Services), SalesForce, Open AM, Google Auth,...
+## Living Application development and deployment
 
 ### New wizard to import a process in the studio & compare the artifacts 
-Bonita BPM Studio provides a wizard when importing a .bos that display the duplicate artifacts (forms, connectors, ...)  and ask for actions to the users. Usual actions are proposed to user for every artifacts : keep existing or overwrite with the new import :
-* Ease collaboration between teams who works with .bos exchange
-* Ease the collaboration by file exchange and reduce drastically the risk of overwrite error during import of a .bos.
+Bonita BPM Studio provides a wizard when importing a .bos that displays the duplicate artifacts (forms, connectors, ...)  and asks for user actions, between keeping the existing artifact and overwriting with the newly imported artifact:
+* Ease collaboration between teams who work with .bos exchange
+* Reduce drastically the risk of overwrite error during import of a .bos.
 
 ### Industrialization of Living Application (in Studio)
-In Bonita BPM Studio, provide an editor to create the Living Application navigation without having to go on the Portal administration. This is the first step towards the full Application artifacts development into the Bonita BPM Studio in future versions `(Efficiency, Performance edition)` :
-* Create and edit Living Application navigation descriptor in Studio. 
+Bonita BPM Studio provides an editor to create the Living Application descriptor (metadata and navigation) that took place in Bonita BPM Portal (Administrator profile) in previous versions. This is the first step towards a full Application artifacts development into Bonita BPM Studio in future versions `(Efficiency, Performance edition)` :
+* Create and edit application descriptors in Studio. 
 * Construct application navigation from inside Studio based on existing artifacts.
-* Store the descriptor in your VCS.
-* Deploy on the local Portal to preview the Living Application and export for your production environment. 
+* Store the descriptor in a VCS.
+* Deploy on the local portal to preview the Living Application and export for your production environment. 
 
 <a id="ui-personalization"/> 
 
 ## UI personalization
 
-### New management of date/time
-New management of date and time to properly manage Living Applications used across multiple timezones. It now follows the philosophy of Java 8 date management :
-* Benefit from the Java 8 improvement of date/time management in order to better manage timezones in UI (forms and pages). Ensure the use cases of : 
-    * entering and display a birthdate (no timezone impact).
-    * define and display meeting date and hour (timezone related).
-    * define and display a flight arrival date (local timezone).
-* Note this update does not change the way dates are displayed on the Bonita Portal.
+### New management of date/time in BDM, contracts, and user interfaces
+New management of date and time used in Living Applications across multiple timezones. It now follows the philosophy of Java 8 date management:
+* Benefit from Java 8 improvement of date/time management in order to better manage timezones in BDM, contracts, and UI (forms and pages). Covers the following use-cases: 
+    * input and display a birthdate (not time related).
+    * define and display meeting date and time (displayed in user timezone).
+    * define and display a flight arrival date and time (displayed the same anywhere on the globe).
+* Note: this update does not change the way dates are displayed on Bonita BPM Portal.
 
 ### Link widget and preview improvement
-The Link widget as been improved in order to support more use cases and it can now be tested in the preview in most cases. The improvements are:
-* Addition of a new property to pass pass additional query parameters when creating a link to a form or a page
+The Link widget as been improved in order to support more use-cases; it can now be tested in the preview window in most cases. Improvements are:
+* Addition of a new property to pass additional query parameters when creating a link to a form or a page
 * Addition of a new property to pass the name of the target application (useful in the preview when you want to test a link to an application page or when you need to redirect to another application)
 * The URL of the preview can be edited to pass additional parameters in the query string in web browsers supporting it (currently, only Firefox)
 
@@ -48,18 +42,23 @@ The Link widget as been improved in order to support more use cases and it can n
 
 ### Full Java 8 support
 Bonita BPM is fully compatible with java 8 in production and development environment. It allows to write java 8 extension points (Connectors, Actor Filters, Custom Pages, ...). Java 8 syntax and specific APIs can now be fully used in all Bonita BPM [extensions points](software-extensibility.md#stable_extension_points).
-JRE or JDK 8+ is *required* to run. Bonita BPM 7.5.0+ cannot be operated on Java 7 anymore.
+JRE or JDK 8+ is *required* to run. Bonita BPM 7.5.0+ cannot be operated on Java 7.
 
 ### Support of Microsoft Edge
-Bonita web tools and user interfaces are fully compatible with the Microsoft Edge and IE 11 browsers (UI Designer editor, All artifacts generated by UID (Forms, Pages, ...), Bonita Portal). 
+Bonita web tools and user interfaces are fully compatible with Microsoft Edge and IE 11 browsers (UI Designer editor, all artifacts generated by the UI Designer (Forms, Pages, ...), Bonita BPM Portal). 
 
+### Integration of SSO SAML 2.0
+Bonita BPM works with Single-Sign-On (SSO) solutions using SAML V2 protocol `(Teamwork, Efficiency, Performance edition)`: 
+* Use standard authentication service 
+* Connect to Bonita Living Applications with company credentials (per tenant configuration)
+* Common SAML 2.0 Identity providers: ADFS (MS Active Directory Federation Services), SalesForce, Open AM, Google Auth,...
 
 ### Removed support
-#### Remove support for Oracle Weblogic application server
+#### Oracle Weblogic application server
 Bonita BPM 7.5.0+ does not support Oracle Weblogic application server anymore.  
 Refer to [full software requirements](hardware-and-software-requirements.md) for more details on supported environments.
 
-#### Remove support for Internet Explorer 9 and 10
+#### Internet Explorer 9 and 10
 Bonita BPM 7.5.0+ does not support Internet Explorer 9 and 10 anymore.  
 Refer to [full software requirements](hardware-and-software-requirements.md) for more details on supported environments.
 
@@ -74,29 +73,27 @@ Refer to [full software requirements](hardware-and-software-requirements.md) for
 * Engine APIs have been cleaned up from some deprecated methods:
   * ProcessAPI.addComment() - replacement method is [ProcessAPI.addProcessComment()](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#addProcessComment-long-java.lang.String-)
   
-## Breaking changes
+## Breaking changes in UI Designer
 
-### UI Designer
-
-#### Ui-bootstrap.js library removed from runtime
+### Ui-bootstrap.js library removed from runtime
 In our first design iteration, forms, pages and layouts designed with the UI Designer embedded 
 [UI Bootstrap js, version 0.13.4](http://angular-ui.github.io/bootstrap/versioned-docs/0.13.4/) by default and silently,
 even when not needed. We have removed it so you can use it only when you need it, and with the version you choose. 
 
+Before this change, custom widgets could be created based on angular-bootstrap v0.13.0 with no explicit addition of
+angular-bootstrap as an asset and without declaring required modules.
+
 This will not affect any artifact that has been created with the UI Designer and is currently deployed in Bonita BPM Platform.
 
-Before this change, user could create custom widgets based on angular-bootstrap v0.13.0 without adding explicitly
-angular-bootstrap has an asset and without declaring required modules.
-Custom widgets that has been created this way (which is not the right way to go) will not work anymore and need to 
-be changed to include angular-bootstrap has an asset and to declare the right required modules.
+In development though, if your custom widgets use angular-bootstrap, you need to add angular-bootstrap as an asset at widget level, and declare the appropriate required modules.
   
 #### Forms, pages, layouts CSS cleaned
-Default CSS file embedded in UI Designer artifacts (except custom widgets) has been cleaned. Indeed some of those CSS
-rules were overall not used and clutter this file.
+The default CSS file embedded in UI Designer artifacts (except custom widgets) has been cleaned. Indeed, some of this CSS
+rules were overall not used and cluttered this file.
  
 This will not affect any artifact that has been created with the UI Designer and is currently deployed in Bonita BPM Platform.
 
-Nevertheless some unwanted style could appear when importing a custom layout based on the default layout of Bonita < 7.5.0.
+Nevertheless some unwanted style could appear when importing a custom layout based on the default layout of Bonita BPM prior to 7.5.0.
 If you do so and observe that the layout menu does not fit the whole width of your page, you can bring back the default 
 style by adding the following lines in `layout.css` file.
 ```css
@@ -104,7 +101,7 @@ style by adding the following lines in `layout.css` file.
      width: 100%;
  }
 ```
-The most wanted choice would be to re-create the custom layout from Bonita 7.5.0+ default layout 
+We recommand that you re-create your custom layout based on Bonita 7.5.0+ default layout.
 
 ## Limitations and known issues
 * **MacOS Sierra (10.12)**: **Bonita BPM Studio** installed using the `zip` package fails during launch. Bonita BPM can successfully be installed on **MacOS Sierra** using the `dmg` package
