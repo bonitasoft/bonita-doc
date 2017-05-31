@@ -72,7 +72,7 @@ Refer to [full software requirements](hardware-and-software-requirements.md) for
 
 * Engine APIs have been cleaned up from some deprecated methods:
   * ProcessAPI.addComment() - replacement method is [ProcessAPI.addProcessComment()](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#addProcessComment-long-java.lang.String-)
-  
+
 ## Breaking changes in UI Designer
 
 ### Ui-bootstrap.js library removed from runtime
@@ -86,11 +86,11 @@ angular-bootstrap as an asset and without declaring required modules.
 This will not affect any artifact that has been created with the UI Designer and is currently deployed in Bonita BPM Platform.
 
 In development though, if your custom widgets use angular-bootstrap, you need to add angular-bootstrap as an asset at widget level, and declare the appropriate required modules.
-  
+
 #### Forms, pages, layouts CSS cleaned
 The default CSS file embedded in UI Designer artifacts (except custom widgets) has been cleaned. Indeed, some of this CSS
 rules were overall not used and cluttered this file.
- 
+
 This will not affect any artifact that has been created with the UI Designer and is currently deployed in Bonita BPM Platform.
 
 Nevertheless some unwanted style could appear when importing a custom layout based on the default layout of Bonita BPM prior to 7.5.0.
