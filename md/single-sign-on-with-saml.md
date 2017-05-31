@@ -197,6 +197,7 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
             </SP>
        </keycloak-saml-adapter>
    ```
+7. You're done.
 
 ::: info
 **Note 1:** The single logout SAML profile is not supported by bonita as it doesn't work the same way for each IdP.  
@@ -209,7 +210,7 @@ to include correct headers and application server is configured to use the heade
 HttpServletRequest.getRequestURL returns the URL used by the user and not the internal URL used by the proxy.  
 :::
 
-### Troubleshoot
+## Troubleshoot
 
 To troubleshoote SSO login issues, you need to increase the [log level](logging.md) to `ALL` in order for errors to be displayed in the log files (by default, they are not).
 
