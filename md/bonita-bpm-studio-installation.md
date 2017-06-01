@@ -37,8 +37,8 @@ When the download is complete, you have one of the following new files:
 
 **Linux**  
 Community edition  
-- 32 bit: `BonitaCommunity-x.y.z-x86.run`
-- 64 bit: `BonitaCommunity-x.y.z-x86_64.run`
+- 32 bit: `BonitaStudioCommunity-x.y.z-x86.run`
+- 64 bit: `BonitaStudioCommunity-x.y.z-x86_64.run`
 
 Subscription editions   
 - 32 bit: `BonitaSubscription-x.y.z-x86.run`
@@ -46,8 +46,8 @@ Subscription editions
 
 **Windows**  
 Community edition  
-- 32 bit: `BonitaCommunity-x..zy-x86.exe`
-- 64 bit: `BonitaCommunity-x.y.z-x86_64.exe`
+- 32 bit: `BonitaStudioCommunity-x..zy-x86.exe`
+- 64 bit: `BonitaStudioCommunity-x.y.z-x86_64.exe`
 
 Subscription editions  
 - 32 bit: `BonitaSubscription-x..zy-x86.exe`
@@ -56,7 +56,7 @@ Subscription editions
 **Mac**  
 Community edition  
 - 32 bit: `Not provided`
-- 64 bit: `BonitaCommunity-x.y.z-x86_64.dmg`
+- 64 bit: `BonitaStudioCommunity-x.y.z-x86_64.dmg`
 
 Subscription editions  
 - 32 bit: `Not provided`
@@ -64,10 +64,10 @@ Subscription editions
 
 **All**  
 Community edition  
-- `BonitaCommunity-x.y.z.zip`
+- `BonitaStudioCommunity-x.y.z.zip`
 
 Subscription editions  
-- `BonitaSubscription-x.y.z.zip`
+- `BonitaStudioSubscription-x.y.z.zip`
 
 ## Install using a wizard
 
@@ -89,30 +89,30 @@ To start Bonita Studio, go to the directory where you installed it, and run the 
 
 **Linux**   
 Community edition  
-- 32-bit: `BonitaCommunity-linux`
-- 64-bit: `BonitaCommunity64-linux`
+- 32-bit: `BonitaStudioCommunity-linux`
+- 64-bit: `BonitaStudioCommunity64-linux`
 
 Subscription editions  
-- 32-bit: `BonitaSubscription-linux`
-- 64-bit: `BonitaSubscription64-linux`
+- 32-bit: `BonitaStudioSubscription-linux`
+- 64-bit: `BonitaStudioSubscription64-linux`
 
 **Windows**  
 Community edition  
-- 32-bit: `BonitaCommunity.exe`
-- 64-bit: `BonitaCommunity64.exe`
+- 32-bit: `BonitaStudioCommunity.exe`
+- 64-bit: `BonitaStudioCommunity64.exe`
 
 Subscription editions  
-- 32-bit: `BonitaSubscription.exe`
-- 64-bit: `BonitaSubscription64.exe`
+- 32-bit: `BonitaStudioSubscription.exe`
+- 64-bit: `BonitaStudioSubscription64.exe`
 
 **Mac**   
 Community edition  
 - 32-bit: `Not provided`
-- 64-bit: `BonitaCommunity64.app`
+- 64-bit: `BonitaStudioCommunity64.app`
 
 Subscription editions  
 - 32-bit: `Not provided`
-- 64-bit: `BonitaSubscription64.app`
+- 64-bit: `BonitaStudioSubscription64.app`
 
 ## License
 
@@ -156,6 +156,6 @@ Caused by: java.lang.OutOfMemoryError: GC overhead limit exceeded
 
 To fix this issue, you need to increase the memory allocated to the JVM that runs Bonita Studio.
 
-Edit the `*.ini` file that corresponds to the executable you use to launch the Studio (e.g. `BonitaSubscription64.ini` if you run BonitaSubscription64.exe) and modify this line: `-Xmx512m` to `-Xmx1024m` (or higher).
+Edit the `*.ini` file that corresponds to the executable you use to launch the Studio (e.g. `BonitaStudioSubscription64.ini` if you run BonitaStudioSubscription64.exe) and modify this line: `-Xmx512m` to `-Xmx1024m` (or higher).
 
 Then restart Bonita Studio.
