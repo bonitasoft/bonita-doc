@@ -65,20 +65,6 @@ a new REST connector and important technology updates.
 * **MacOS Sierra (10.12)**: **Bonita BPM Studio** installed using the `zip` package fails during launch. Bonita BPM can successfully be installed on **MacOS Sierra** using the `dmg` package
 * **MacOS** environment: starting from **MacOS El Capitan 10.11.4** (March 2016), new security rules block the launch of **Bonita BPM Studio**. You must temporarily remove security on `App` launching in _System Preferences→Security & Confidentiality_.
 
-## Migrate a custom layout to 7.3.3
-  
-Custom layout migration step to fix "[BS-14885] - Living application layout log 3 error 500 on loading":  
-1. Import the CustomLayout_7.2.x in UIDesigner 7.3.3  
-2. Export the default layout from Bonita Portal  
-3. Import the default layout and confirm the overwrite of custom widgets  
-4. Open the CustomLayout_7.2.x Layout and remove the 3 variables AuthorizeApplicationAPI, AuthorizeApplicationPageAPI and AuthorizeApplicationMenuAPI (as shown below) 
-Those variables are responsible of the SEVERE error logs on server.  
-5. Select the iFrame widget and set the reziseToContent option to yes  
-6. Save then Export the layout (feel free to rename the layout if you want)  
-7. On Bonita Portal server edit the layout and import the newly exported layout  
-8. confirm all the messages  
-9. Validate that your application has a layout that fits your requirements.  
-
 
 ## Bug fixes
 
