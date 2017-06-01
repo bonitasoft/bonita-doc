@@ -94,8 +94,8 @@ Many improvements to existing features:
 
 ## Migrate a custom layout to 7.3.x
 
-If you created a custom living application layout with an oldest UIDesigner version (7.2.x or lower), please perform migration steps described in the troubleshooting
-section of the[customize living application layout](customize-living-application-layout.md) page.
+If you want to import a custom living application layout created with an oldest UIDesigner version (7.2.x or lower), please perform migration steps described in
+the troubleshooting section of the [customize living application layout](customize-living-application-layout.md) page.
 
 ## Bug fixes
 

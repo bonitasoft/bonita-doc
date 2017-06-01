@@ -125,8 +125,8 @@ Once your changes are made, save the new layout using a new name and then export
 ### Living application layout log 3 error 500 on loading
 
 This issue has been fixed in the 7.3.0 version ("[BS-14885] - Living application layout log 3 error 500 on loading").
-If you created a custom layout with an oldest UIDesigner version, you have to perform the following step to prevent the issue to occur when running on newest
-version.
+If you want to import a custom layout created with an oldest UIDesigner version (7.2.x or lower) in a 7.3.0 (or greater version), you have to perform the following
+steps to prevent the issue to occur.
 
 1. Import the CustomLayout_7.2.x in UIDesigner 7.3.3  
 2. Export the default layout from Bonita Portal  
