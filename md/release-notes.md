@@ -92,7 +92,7 @@ Many improvements to existing features:
 * Default applications layout is not compatible with new task list custom page
 * Having executed a task in a subprocess, I cannot see the overview of the root process instance
 
-## Migrate a custom layout to 7.3.x
+## Migrate a custom layout to 7.3.3
 
 If you want to import a custom living application layout created with an oldest UIDesigner version (7.2.x or lower), please perform migration steps described in
 the troubleshooting section of the [customize living application layout](customize-living-application-layout.md) page.
