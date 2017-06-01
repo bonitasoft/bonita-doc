@@ -71,8 +71,8 @@ If needed, description allow a more detailed explanation on why this change is b
 You can write as many lines of description as needed:
 
 * E.g.:
-   "This change of part of a larger scale rewriting of how to deal with Dates in Bonita BPM.
-   Usage has proven that the feature was not correctly understood.
+   "This change is part of a larger scale rewriting of how to deal with Dates in Bonita BPM.  
+   Usage has proven that the feature was not correctly understood.  
    This article tends to start over on the date notions and how to use them."
 
 #### Useful links
