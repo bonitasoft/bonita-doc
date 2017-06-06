@@ -43,7 +43,9 @@ Supported input types:
 4. **decimal:** a decimal value (e.g. 5.128)
 5. **file:** a document
 6. **integer:** a numeric value (e.g. 4)
+7. **long:** a long value (e.g. 3 000 000 000). Can be used at pool-level only (not at task-level). In called processes, this is helpful to receive IDs from call activities.
 7. **text:** a string
+
 
 Check **_multiple_** to specify that the input is a list of its primary type (for example, a list of integers).
 
