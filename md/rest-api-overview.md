@@ -25,7 +25,7 @@ To log in, use the following request:
 | Request Method | POST| 
 | Form Data | username: a username<br/>password: a password <br/>redirect: true or false<br/>redirectURL: the URL of the page to be displayed after login <br/>tenant: the tenant to log in to (optional for Teamwork, Efficiency, and Performance editions, not supported for the Community edition)| 
   
-The response to this call generates cookies, which must be transfered with each subsequent call. If the Web REST is being used in an application running in a web browser, this is handled automatically by the browser. 
+The response to this call generates cookies, which must be transfered with each subsequent calls. If the Web REST is being used in an application running in a web browser, this is handled automatically by the browser. 
 
 #### X-Bonita-API-Token cookie
 
@@ -67,6 +67,10 @@ Setting the redirect parameter to false indicates that the service should not re
 
 NOTE: this is to be done only once.
 #### Start a 7.4.0+ Studio
+Make sure the current organization contains a User with name `walter.bates` and password `bpm`
+Create a new `Registration` process
+Configure the process so that walter.bates will be able to start it
+Click on the Run button
 #### Login
 
     $ curl -v -c saved_cookies.txt -X POST --url 'http://localhost:8080/bonita/loginservice' \
@@ -74,7 +78,7 @@ NOTE: this is to be done only once.
     -d 'username=walter.bates&password=bpm&redirect=false&redirectURL='
 The above `curl` command saved the cookies on the disk, in the `saved_cookies.txt` file. 
 The cookies file must be reused with the REST API calls (HTTP requests) in order to provide session information.
-The value of X-Bonita-API-Token cookie must be passed also in the header of the subsequent REST API calls, when the POST, PUR or DELTE HTTP method is used.
+The value of X-Bonita-API-Token cookie must be passed also in the header of the subsequent REST API calls, when any of the POST, PUT or DELETE HTTP method is used.
 
 The content of the cookies file is below:
 
@@ -144,7 +148,7 @@ The `Registration` process has a process definition id equal to `609024682951522
 The response's HTTP status code is `401 Unauthorized`:
  - check that the cookies had been transfered with the call
  - check that the cookies transfered with the call are the ones generated during the last sucessfull login call
- - if one of PUT, DELETE or POST method is used, check that the X-Bonita-API-Token header is included
+ - if one of the PUT, DELETE or POST method is used, check that the X-Bonita-API-Token header is included
  - if the X-Bonita-API-Token header is included, check that the value is the same that the cookie generated during the last login
  - Maybe a logout was issued or the session has expired; try to log in again, and re run the request with the new cookies and the new value for the X-Bonita-API-Token header.
 
