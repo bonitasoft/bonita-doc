@@ -3015,6 +3015,8 @@ You can search cases.
   `GET`
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  * o (order): available values are `id`, `processDefinitionId`, `startedBy`, `startedBySubstitute`, `startDate`, 
+  `endDate`, `lastUpdate`, `archiveDate`, `sourceObjectId`
   * d: extend resource response parameters of [this resource](#archived-case-deploy) are available.
 * **Success Response**  
   A JSON representation of an array of archived case resources
