@@ -29,7 +29,7 @@ To specify an organization manually, you create the organization, create the gro
 4. Add groups to your organization:
   1. Select the name of your organization and click **_Next_**.
   2. Click **_Add_** to add a group. You can specify the following:
-    * the group Name, which is used internally by the Bonita BPM software._**NB: Bonita BPM doesn't support the '/' character in the group name field. A group name that contains a '/' may lead to unstable behaviourmay lead to unstable behaviour and may be forbidden in the future.**_ 
+    * the group Name, which is used internally by the Bonita BPM software._**NB: Bonita BPM doesn't support the '/' character in the group name field. A group name that contains a '/' may lead to unstable behaviour and may be forbidden in the future.**_ 
     * the Display name, which is the group name displayed in lists and wizards
     * the Path, which shows the hierarchical relationship between groups
     * a Description of the group
