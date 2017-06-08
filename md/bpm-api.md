@@ -480,14 +480,18 @@ Retrieve humanTask objects that match the specified filters.
 * **Method**  
   `GET`
 * **Data Params**  
-  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
-  You can also use the [flow node data params](#flownode-search-data-params).  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available:
+  * d: extend resource response parameters of [this resource](#human-task-deploy) are available.
+  * o: name, priority, dueDate, state, userId, groupId, roleId, processDefinitionId, processInstanceId, 
+  parentActivityInstanceId, assigneeId, parentContainerId, displayName, reachedStateDate
+  * s: search on any field that can be used to order results
+  * f: assigned_id, state, name, displayName, processId, parentCaseId, rootCaseId
+  
   For instance, you can filter on:
   * `assigned_id={user_id}`: retrieve only the human tasks assigned to the specified ID. For example, retrieve the human tasks assigned to user with id 2: `/API/bpm/humanTask?p=0&c=10&f=assigned\_id%3d2`
   * `state=`: retrieve only the archived user tasks with the specified state. For example, retrieve the skipped tasks: `/API/bpm/humanTask?p=0&c=10&f=state=skipped`
   * `name=`: retrieve only the human tasks with the specified name. For example, retrieve the human tasks with the name "Analyse Case": `/API/bpm/humanTask?p=0&c=10&f=name=Analyse Case`
   * `displayName=`: retrieve only the archived user tasks with the specified displayName. For example, retrieve the human tasks with the displayName "Analyse Case": `/API/bpm/humanTask?p=0&c=10&f=displayName=Analyse Case`
-  * d: extend resource response parameters of [this resource](#human-task-deploy) are available.
 * **Success Response**  
   * **Code**: 200
   * **Payload**:  
