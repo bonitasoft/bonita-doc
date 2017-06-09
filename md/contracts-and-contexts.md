@@ -46,8 +46,11 @@ Supported input types:
 7. **long:** a long value (e.g. 3 000 000 000). Can be used at pool-level only (not at task-level). In called processes, this is helpful to receive IDs from call activities.
 7. **text:** a string
 
-
 Check **_multiple_** to specify that the input is a list of its primary type (for example, a list of integers).
+
+::: info
+**:fa-info-circle:**  The type `long` can be used in a POST with JSON without precision lost. However, it is important to keep in mind that while manipulating numbers in javascript the max `integer` is 2^53-1 which is a smaller subset of max `long` type (2^63-1).
+:::
 
 **Constraints**
 
