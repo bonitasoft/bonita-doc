@@ -25,7 +25,7 @@ To log in, use the following request:
 | Request Method | POST| 
 | Form Data | username: a username<br/>password: a password <br/>redirect: true or false<br/>redirectURL: the URL of the page to be displayed after login <br/>tenant: the tenant to log in to (optional for Teamwork, Efficiency, and Performance editions, not supported for the Community edition)| 
   
-The response to this call generates cookies, which must be transfered with each subsequent calls. If the Web REST is being used in an application running in a web browser, this is handled automatically by the browser. 
+The response to this call generates cookies, which must be transfered with each subsequent calls. If the REST API is used in an application running in a web browser, this is handled automatically by the browser. 
 
 #### X-Bonita-API-Token cookie
 
@@ -58,99 +58,6 @@ To log out, use the following request:
 | Form Data | redirect: true or false| 
 
 Setting the redirect parameter to false indicates that the service should not redirect to the login page after logging out.
-
-### Walk-through: Example shows how to instantiate one case using the REST API
-#### Install `curl` command line tool
-`curl` is available on Linux OS and it transfers data from or to a server with various protocols such as HTTP and HTTPS, see manual page.
-
-    $ sudo apt install curl
-
-NOTE: this is to be done only once.
-#### Start a 7.4.0+ Studio
-Make sure the current organization contains a User with name `walter.bates` and password `bpm`
-Create a new `Registration` process
-Configure the process so that walter.bates will be able to start it
-Click on the Run button
-#### Login
-
-    $ curl -v -c saved_cookies.txt -X POST --url 'http://localhost:8080/bonita/loginservice' \
-    --header 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' -O /dev/null \
-    -d 'username=walter.bates&password=bpm&redirect=false&redirectURL='
-The above `curl` command saved the cookies on the disk, in the `saved_cookies.txt` file. 
-The cookies file must be reused with the REST API calls (HTTP requests) in order to provide session information.
-The value of X-Bonita-API-Token cookie must be passed also in the header of the subsequent REST API calls, when any of the POST, PUT or DELETE HTTP method is used.
-
-The content of the cookies file is below:
-
-    $ cat saved_cookies.txt 
-    
-    localhost	FALSE	/bonita/	FALSE	0	bonita.tenant	1
-    #HttpOnly_localhost	FALSE	/bonita/	FALSE	0	JSESSIONID	9F9665280B367259AC421378B69C3244
-    localhost	FALSE	/	FALSE	0	X-Bonita-API-Token	2f86dcab-9b54-45e6-8eb1-f82c2a2f8e25
-#### List installed process definitions
-
-    $ curl -b saved_cookies.txt -X GET --url 'http://localhost:8080/bonita/API/bpm/process?c=10&p=0'
-    [
-      {
-        "id": "6760631224735982498",
-        "displayDescription": "",
-        "deploymentDate": "2017-05-31 10:09:50.481",
-        "description": "",
-        "activationState": "ENABLED",
-        "name": "Manage Client",
-        "deployedBy": "4",
-        "displayName": "Manage Client",
-        "actorinitiatorid": "2",
-        "last_update_date": "2017-06-08 11:46:25.156",
-        "configurationState": "RESOLVED",
-        "version": "1.6.5"
-      },
-      {
-        "id": "6090246829515228480",
-        "displayDescription": "Enable the user to request to be registered and the validator to review the request.",
-        "deploymentDate": "2017-06-08 14:36:27.520",
-        "description": "Enable the user to request to be registered and the validator to review the request.",
-        "activationState": "ENABLED",
-        "name": "Registration",
-        "deployedBy": "4",
-        "displayName": "Registration",
-        "actorinitiatorid": "102",
-        "last_update_date": "2017-06-08 14:36:27.673",
-        "configurationState": "RESOLVED",
-        "version": "743.01"
-      }
-    ]
-
-The response shows that there are 2 process definitions installed.
-The `Registration` process has a process definition id equal to `6090246829515228480`
-#### Instantiate one case of the `Registration` process
-
-    $  curl -b saved_cookies.txt -X POST --url 'http://localhost:8080/bonita/API/bpm/case' \
-    --header 'Content-Type: application/json' \
-    --header 'X-Bonita-API-Token: cb7eb487-ed29-41ea-9e63-61ecb06b685e' \
-    -d '{"processDefinitionId":"6090246829515228480"}'    
-    {
-      "id": "1003",
-      "end_date": "",
-      "startedBySubstitute": "4",
-      "start": "2017-06-08 14:40:35.272",
-      "state": "started",
-      "rootCaseId": "1003",
-      "started_by": "4",
-      "processDefinitionId": "6090246829515228480",
-      "last_update_date": "2017-06-08 14:40:35.272"
-    }
-#### Logout
-
-    $ curl -b saved_cookies.txt -X GET --url 'http://localhost:8080/bonita/logoutservice?redirect=false'
-#### Troubleshooting
-##### HTTP/1.1 401 Unauthorized
-The response's HTTP status code is `401 Unauthorized`:
- - check that the cookies had been transfered with the call
- - check that the cookies transfered with the call are the ones generated during the last sucessfull login call
- - if one of the PUT, DELETE or POST method is used, check that the X-Bonita-API-Token header is included
- - if the X-Bonita-API-Token header is included, check that the value is the same that the cookie generated during the last login
- - Maybe a logout was issued or the session has expired; try to log in again, and re run the request with the new cookies and the new value for the X-Bonita-API-Token header.
 
 ## API Extensions
 
@@ -267,3 +174,90 @@ For a GET method that retrieves more than one instance of a resource, you can sp
   For example, if word-based search is enabled, `s=Valid` returns matches containing the string "valid" at the start of any word in the attribute value word, 
   such as "Valid address", "Not a valid address", and "Validated request" but not "Invalid request".
   If word-based search is disabled, `s=Valid` returns matches containing the string "valid" at the start of the attribute value, such as "Valid address" or "Validated request" but not "Not a valid address" or "Invalid request".
+
+### Walk-through: how to start a case using the REST API
+#### Install `curl` command line tool
+`curl` is available on Linux OS and it transfers data from or to a server with various protocols such as HTTP and HTTPS.
+
+    $ sudo apt install curl
+
+NOTE: this is to be done only once.
+
+#### Deploy a process
+- Start a studio
+- Make sure the current organization contains a User with username `walter.bates` and password `bpm`
+- Create a new `Registration` process
+- Configure the process so that `walter.bates` will be able to start it
+- Click on the Run button
+
+#### Login
+
+    $ curl -v -c saved_cookies.txt -X POST --url 'http://localhost:8080/bonita/loginservice' \
+    --header 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' -O /dev/null \
+    -d 'username=walter.bates&password=bpm&redirect=false&redirectURL='
+The above `curl` command saved the cookies on the disk, in the `saved_cookies.txt` file. 
+The cookies file must be reused with the REST API calls (HTTP requests) in order to provide session information.
+The value of X-Bonita-API-Token cookie must be passed also in the header of the subsequent REST API calls, when any of the POST, PUT or DELETE HTTP method is used.
+
+The content of the cookies file is below:
+
+    $ cat saved_cookies.txt 
+    
+    localhost	FALSE	/bonita/	FALSE	0	bonita.tenant	1
+    #HttpOnly_localhost	FALSE	/bonita/	FALSE	0	JSESSIONID	9F9665280B367259AC421378B69C3244
+    localhost	FALSE	/	FALSE	0	X-Bonita-API-Token	2f86dcab-9b54-45e6-8eb1-f82c2a2f8e25
+
+#### List installed process definitions
+
+    $ curl -b saved_cookies.txt -X GET --url 'http://localhost:8080/bonita/API/bpm/process?c=10&p=0'
+    [
+      {
+        "id": "6090246829515228480",
+        "displayDescription": "Enable the user to request to be registered and the validator to review the request.",
+        "deploymentDate": "2017-06-08 14:36:27.520",
+        "description": "Enable the user to request to be registered and the validator to review the request.",
+        "activationState": "ENABLED",
+        "name": "Registration",
+        "deployedBy": "4",
+        "displayName": "Registration",
+        "actorinitiatorid": "102",
+        "last_update_date": "2017-06-08 14:36:27.673",
+        "configurationState": "RESOLVED",
+        "version": "743.01"
+      }
+    ]
+
+The response shows that there is 1 process definition installed.
+The `Registration` process has a process definition id equal to `6090246829515228480`
+
+#### Instantiate one case of the `Registration` process
+
+    $  curl -b saved_cookies.txt -X POST --url 'http://localhost:8080/bonita/API/bpm/case' \
+    --header 'Content-Type: application/json' \
+    --header 'X-Bonita-API-Token: 2f86dcab-9b54-45e6-8eb1-f82c2a2f8e25' \
+    -d '{"processDefinitionId":"6090246829515228480"}'    
+    {
+      "id": "1003",
+      "end_date": "",
+      "startedBySubstitute": "4",
+      "start": "2017-06-08 14:40:35.272",
+      "state": "started",
+      "rootCaseId": "1003",
+      "started_by": "4",
+      "processDefinitionId": "6090246829515228480",
+      "last_update_date": "2017-06-08 14:40:35.272"
+    }
+
+#### Logout
+
+    $ curl -b saved_cookies.txt -X GET --url 'http://localhost:8080/bonita/logoutservice?redirect=false'
+    
+#### Troubleshooting
+##### HTTP/1.1 401 Unauthorized
+If the HTTP response's status is `401 Unauthorized`:
+ - make sure that the cookies have been transfered with the call
+ - make sure that the cookies transfered are the ones generated during the last sucessfull login call
+ - if one of the PUT, DELETE or POST method is used, make sure that the `X-Bonita-API-Token` header is included
+ - if the X-Bonita-API-Token header is included, make sure that the value is the same as the one of the cookie generated during the last login
+ - Maybe a logout was issued or the session has expired; try to log in again, and re run the request with the new cookies and the new value for the `X-Bonita-API-Token` header.
+
