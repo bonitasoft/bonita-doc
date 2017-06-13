@@ -9,6 +9,8 @@ Logged on with the Administrator profile, you have rights to manage groups as fo
 3. In the pop-up window, enter the name (required), the parent group and a description.
 4. Click _**Create**_.
 
+_**NB: Bonita BPM doesn't support the '/' character in the group name field. A group name that contains a '/' may lead to unstable behaviour and may be forbidden in the future.**_ 
+
 ## How to delete a group
 
 1. Go to the **Organization** menu and choose **Groups**.
