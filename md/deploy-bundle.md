@@ -20,7 +20,7 @@ it would be up to you to adapt the documented steps to your very own folder layo
 * `setup`: a command-line tool that creates the Bonita Platform before it can be run. It creates the Bonita Platform internal database, and stores the runtime configuration.
 It is useful to update the configuration, locally or from a remote computer.
 * `Request_key_utils-`_`key_utils.version`_: include script files to generate license request keys.
-* `LDAP-Synchronizer-`_`LDAPSync.version`_: LDAP synchronizer to synchronize your organization in Bonita with your LDAP
+* `BonitaBPMSubscription`-_`LDAPSync.version`_-`LDAP-Synchronizer` : LDAP synchronizer to synchronize your organization in Bonita with your LDAP
 * `cas-`_`cas.version`_`-module`: Module files and description to enable CAS dependency to bonita EAR.
 * `License`: license files that apply to Bonita components.
 * `README.TXT`: See this file for more details about the `deploy.zip` contents and structure. 
