@@ -60,45 +60,39 @@ After the first login, default theme will be loaded and the login page will look
 The [platform REST API](platform-api.md) is a REST layer around the Java PlatformAPI to create the tenant.
 
 #### Walk-through
+
 ##### Install `curl` command line tool
-`curl` is available on Linux OS and it transfers data from or to a server with various protocols such as HTTP and HTTPS, see manual page.
+`curl` is available on Linux OS and it transfers data from or to a server with various protocols such as HTTP and HTTPS.
 
     $ sudo apt install curl
 
 NOTE: this is to be done only once.
+
 ##### Start a tomcat
-Download a BonitaBPMSubscription-7.*-Tomcat-7.0.76.zip
+- Download a BonitaBPMSubscription-7.\*-Tomcat-7.0.76.zip
+- Unzip it
+- Provide a valid license file
+- Start the tomcat
 
-Unzip it and provide a valid license file
-
-Start the tomcat
 ##### Login
 
     $ curl -v -c saved_cookies.txt -X POST --url 'http://localhost:8080/bonita/platformloginservice' \
     --header 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
     -d 'password=platform&redirect=false&username=platformAdmin' -O /dev/null
 
-    * Connected to localhost (127.0.0.1) port 8080 (#0)
-    > POST /bonita/platformloginservice HTTP/1.1
-
-    < HTTP/1.1 200 OK
-
-    < Set-Cookie: JSESSIONID=46EF8A05819B6C268EE700F3C3FC939A; Path=/bonita/; HttpOnly
-
-    < Set-Cookie: X-Bonita-API-Token=a94cbf84-6b71-409a-981f-f91b17466929; Path=/
-
 The response to this REST API call (HTTP) generates 2 cookies, which must be transfered with each subsequent calls.
 One of the cookie is `X-Bonita-API-Token`.
 
 Note that the security against CSRF attacks is enabled by default for all fresh installations; the subsequence REST API calls using DELETE, POST, or PUT HTTP methods must define the `X-Bonita-API-Token` header, with the value transmitted via the associated cookie.
 
-The cookies had been saved on the disk, in the `saved_cookies.txt` file:
+The cookies have been saved on the disk, in the `saved_cookies.txt` file:
 
     $ cat saved_cookies.txt 
     
     #HttpOnly_localhost	FALSE	/bonita/	FALSE	0	JSESSIONID	46EF8A05819B6C268EE700F3C3FC939A
     localhost	FALSE	/	FALSE	0	X-Bonita-API-Token	a94cbf84-6b71-409a-981f-f91b17466929
-##### Create the new tenaant
+
+##### Create the new tenant
 
     $ curl -b saved_cookies.txt -X POST 'http://localhost:8080/bonita/API/platform/tenant' \
     -H "Content-Type: application/json" \
@@ -116,6 +110,7 @@ The cookies had been saved on the disk, in the `saved_cookies.txt` file:
       "password": ""
     }
 The new tenant has the id `101` and its state is `DEACTIVATED`
+
 ##### Activate the tenant with id `101`
 
     $ curl -v -b saved_cookies.txt -X PUT 'http://localhost:8080/bonita/API/platform/tenant/101' \
@@ -139,11 +134,13 @@ The new tenant has the id `101` and its state is `DEACTIVATED`
       "creation": "2017-06-09 15:11:01.191",
       "username": ""
     }
+
 ##### Logout
 
     $ curl -v -b saved_cookies.txt -X GET --url 'http://localhost:8080/bonita/platformlogoutservice?redirect=false'
+
 ### Java PlatformAPI
-This solution can be used when the portal is not needed: it creates the tenant at engine side only.
+This solution can be used when the portal is not needed.
 
 The Java PlatformAPI creates the tenant by updating the database and creating configuration based on the tenant template files (in database too). 
 The following example code uses the Engine Java APIs to create a tenant called "myNewTenantName":
