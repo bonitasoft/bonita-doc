@@ -2,7 +2,7 @@
 
 ## Activities and Tasks
 
-### Activity
+### <a name="activity"></a>Activity
 
 #### Description
 
@@ -369,7 +369,7 @@ Search for archived activities using given parameters. Only archived activities 
   An array of JSON representations of the specified activities
   * **Code**: 200
 
-### HumanTask
+### <a name="human-task"></a>HumanTask
 
 #### Description
 
@@ -2514,10 +2514,7 @@ Use the DELETE method to delete an existing actorMember.
 
 ## Cases (Process Instances)
 
-<a id="case" />
-
-
-### Case
+### <a name="case"></a>Case
 
 #### Description
 
@@ -3927,7 +3924,7 @@ Retrieve the information regarding the failure of the connector execution.
     }
     ```
     
-### ConnectorInstance
+### <a name="connector-instance"></a>ConnectorInstance
 
 #### Description
 
@@ -4103,7 +4100,7 @@ The ID of the flowNode (a long).
   "caseId": "the case id (long) that is associated with this flow node",
   "parentCaseId": "the parent case id (long) that is associated with this flow node's case",
   "rootCaseId": "the root case initiator id (long) that is associated with this flow node's case",
-  "processId": "the process id (long) that is associated with this flow node","
+  "processId": "the process id (long) that is associated with this flow node",
   "rootContainerId": "the root process id (long) of the root case that is associated with this flow node",
   "state": "the current state of the flow node (string,  for example, ready, completed, failed)",
   "type": "the flow node type (string)",
