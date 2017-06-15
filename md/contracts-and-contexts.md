@@ -49,7 +49,10 @@ Supported input types:
 Check **_multiple_** to specify that the input is a list of its primary type (for example, a list of integers).
 
 ::: info
-**:fa-info-circle:**  The type `long` can be used in a POST with JSON without precision lost. However, it is important to keep in mind that while manipulating numbers in javascript the max `integer` is 2^53-1 which is a smaller subset of Java max `long` type (2^63-1).
+**:fa-info-circle:**  The type `long` can be used in a POST with JSON without precision lost. However, it is important to keep in mind that while manipulating numbers in javascript the max `integer` is 2^53-1 which is a smaller subset of Java max `long` type (2^63-1). Example:
+
+ * If your value is in JavaScript safe integer range: Text widget (number) > JavaScript number > JSON number > Contract java.lang.Long
+ * If value is out of JavaScript safe integer range: Text widget (text) > JavaScript String > JSON String > Contract java.lang.Long
 :::
 
 **Constraints**
