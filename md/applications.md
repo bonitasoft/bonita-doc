@@ -43,6 +43,10 @@ To integrate a process into an application, you specify a link in an application
 
 ## Defining a new application
 
+::: info
+Since 7.5, An application developpement tool has been integrated to the studio for efficiency and performance editions, it is recommanded to use it. More details here: [Application descriptiors](applicationCreation.md)
+:::
+
 When you have developed all the resources that are used in an application, you are ready to define the application itself.
 The application builder is a graphical interface in Bonita BPM Portal for specifying the application pages and defining the menus.
 There is a default application home page that you can adapt or replace.
