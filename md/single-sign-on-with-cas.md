@@ -175,12 +175,12 @@ logout.link.hidden=true
 To enable a Java client application to access the engine using CAS autentication, the simplest way is to enable [REST authentication on CAS server](https://apereo.github.io/cas/4.0.x/protocol/REST-Protocol.html) and have the Java client [retrieve the `ticket` for the bonita `service` URL](#cas-rest-api).  
 Then, use the [`LoginAPI`](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/api/LoginAPI.html#login(java.util.Map)) with the `java.util.Map` having the `ticket` and `service`.
 
-#### Cluster considerations
+#### Cluster considerations and bonita webapp for Tomcat
 
 If you are configuring Bonita BPM and Tomcat in a cluster environment for CAS, there are some extra steps to do:
 
-1. Copy `commons-logging-1.1.1.jar` from the `bonita.war` to `tomcat/lib`.
-2. Remove the `WEB-INF/lib/commons-logging-1.1.1.jar` file from the `bonita.war`.
+1. Copy `commons-logging-1.1.1.jar` from the `BonitaBPMSubscription-7.3.x-deploy` into `tomcat/lib`.
+2. Remove the `WEB-INF/lib/commons-logging-1.1.1.jar` file from the `tomcat/webapps/bonita.war`.
 3. Remove the `tomcat/webapps/bonita/WEB-INF/lib/commons-logging-1.1.1.jar` file (if it is present).
 
 ### Troubleshoot
