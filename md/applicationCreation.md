@@ -41,7 +41,7 @@ For example, the four leave management applications for employees, managers, Hum
 From Bonita Studio, click on **Development** -> **Application Descriptor** -> **New...**  
 It will create an empty application file with a default name and open an editor. You can **rename** this application file from the graphical UI or from the menu **Open**.  
 
-![Empty Application File](images/applicationDescriptors/emptyApplicationFile.png)  
+![Empty Application File](images/applicationDescriptors/emptyApplicationFile_v2.png)  
 Here is the application descriptor graphical UI provided. It is bound to the XML source, so you can use it to build your application descriptor without writing xml.  
 You can switch from the graphical UI to the xml source at any moment, using the tabs _Editor_ and _Source_ at the bottom of the editor.  
 A toolbar is embedded to the editor, use it to:  
@@ -53,7 +53,7 @@ A toolbar is embedded to the editor, use it to:
  - **Export** this application file (download the .xml)
  - **Delete** this application file from your current workspace
 
-![Application Descriptor Editor](images/applicationDescriptors/applicationDescriptorEditor.png)
+![Application Descriptor Editor](images/applicationDescriptors/applicationDescriptorEditor_v2.png)
 
 The application **Token** is the identifier of your Application Descriptor; it has to be unique. It is used to define the URL root of your Application:  _../apps/APPLICATIONTOKEN/.._  
 
