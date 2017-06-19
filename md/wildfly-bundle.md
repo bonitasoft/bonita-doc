@@ -216,3 +216,11 @@ For Oracle, rename it so that the name contains at least the word `oracle` or `o
 **Solution**: Ensure your running environment has a JDK or JRE 1.8 installed and set either JAVA or JAVA_HOME environment variable to point to it.
 
 ---
+
+**Issue**: When I start the Wildfly bundle configured to use a **Microsoft SQL Server** database, I get the error message `java.lang.NoClassDefFoundError: javax/xml/bind/DatatypeConverter`
+
+**Cause**: The WildFly configuration has not been properly updated (BS-16758)
+
+**Solution**: In the _<WILDFLY_HOME>/server/modules/com/sqlserver/main/module.xml_ file, add `<module name="javax.xml.bind.api"/>` in the list of dependencies
+
+---
