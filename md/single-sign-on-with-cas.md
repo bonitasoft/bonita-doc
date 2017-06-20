@@ -118,7 +118,7 @@ Bonita BPM uses the CAS LoginModule in the JASIG implementation, so see the CAS 
        ticketValidatorClass="org.jasig.cas.client.validation.Cas20ServiceTicketValidator"
        casServerUrlPrefix="http://ip_address:port/cas"
        tolerance="20000"
-       service="http://ip_address:port/loginservice"
+       service="http://ip_address:port/bonita/loginservice"
        defaultRoles="admin,operator"
        roleAttributeNames="memberOf,eduPersonAffiliation"
        principalGroupName="CallerPrincipal"
