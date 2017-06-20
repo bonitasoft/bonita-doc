@@ -3020,7 +3020,7 @@ You can search cases.
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   * o (order): available values are `id`, `processDefinitionId`, `startedBy`, `startedBySubstitute`, `startDate`, 
-  `endDate`, `lastUpdate`, `archiveDate`, `sourceObjectId`
+  `endDate`, `lastUpdate`, `archivedDate`, `sourceObjectId`
   * d: extend resource response parameters of [this resource](#archived-case-deploy) are available.
 * **Success Response**  
   A JSON representation of an array of archived case resources
@@ -3338,6 +3338,100 @@ Note: if the `userId` is not provided as a deploy parameter, the `userId` proper
     ]
     ```
 
+### ArchivedCaseComment
+
+#### Description
+
+Retrieves information about the comment of an archived case.
+
+#### Representation
+```json
+{
+  "id": "1",
+  "content": "the comment content",
+  "processInstanceId": "the process instance(case) the comment is associated to",
+  "postDate": "the comment creation date",
+  "archivedDate": "the date set when the case was archived"
+  "userId": "the user that created the comment"
+}
+```
+#### Methods
+
+The method used for this resource is:
+
+* GET - Search for archived comments
+
+#### Response object extension (deploy query parameter)
+
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * `userId`
+
+::: info
+Note: if the `userId` is not provided as a deploy parameter, the `userId` property of a comment is filled with the system user :
+```json
+{
+  "icon": "/default/icon_user.png",
+  "userName": "System"
+}
+```
+:::
+
+#### Search for archived comments
+
+* **URL**  
+  `/API/bpm/archivedComment`  
+  _Example_: `/API/bpm/archivedComment?p=0&c=10&o=postDate%20DESC&f=processInstanceId%3d1&d=userId`
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  * o: you can sort on the `postDate` and `archivedDate`
+  * f: filter of the search. Available filters are : 
+    * `supervisor_id`
+    * `user_id`
+    * `processInstanceId`
+    You cannot use `supervisor_id` and `user_id` filter at the same time.
+* **Success Response**  
+  JSON representations of matching comments
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    [
+      {
+        "content": "Need to review the last inputs of this case",
+        "id": "20005",
+        "processInstanceId": "1",
+        "postDate": "2016-06-16 14:51:33.053",
+        "archivedDate": "2016-06-17 10:18:24.723",
+        "userId": {
+          "last_connection": "2016-06-16 14:49:37.067",
+          "created_by_user_id": "-1",
+          "creation_date": "2016-06-15 11:37:22.709",
+          "id": "30",
+          "icon": "/default/icon_user.png",
+          "enabled": "true",
+          "title": "Mr",
+          "manager_id": "0",
+          "job_title": "Chief Executive Officer",
+          "userName": "william.jobs",
+          "lastname": "Jobs",
+          "firstname": "William",
+          "password": "",
+          "last_update_date": "2016-06-15 11:37:22.709"
+        }
+      }, {
+        "content": "The task \"Etape1\" is now assigned to walter.bates",
+        "id": "20003",
+        "processInstanceId": "1",
+        "postDate": "2016-06-15 12:36:18.541",
+        "archivedDate": "2016-06-17 10:18:24.723",
+        "userId": {
+          "icon": "/default/icon_user.png",
+          "userName": "System"
+        }
+      }
+    ]
+    ```
 ## Process
 
 ### Process
@@ -4332,7 +4426,7 @@ Search for flow nodes using given parameters. Flow nodes in state completed, can
     * isTerminal
     * processId
     * caseId
-    * archiveDate
+    * archivedDate
   * s: search on any field that can be used to order results
   * f: 
     * name
