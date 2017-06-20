@@ -12,8 +12,8 @@
 
 Bonita BPM can be configured to perform user authentication against an LDAP server such as Active Directory, Apache Directory Server, or OpenLDAP.
 
-This type of configuration relies on a specific implementation of the Bonita BPM Engine authentication service that delegates the actual user name and password verification to a [JAAS](http://docs.oracle.com/javase/7/docs/technotes/guides/security/jaas/JAASRefGuide.html) service configured with an [LDAP
-specific Login Module](http://docs.oracle.com/javase/7/docs/jre/api/security/jaas/spec/com/sun/security/auth/module/LdapLoginModule.html).
+This type of configuration relies on a specific implementation of the Bonita BPM Engine authentication service that delegates the actual user name and password verification to a [JAAS](http://docs.oracle.com/javase/8/docs/technotes/guides/security/jaas/JAASRefGuide.html) service configured with an [LDAP
+specific Login Module](http://docs.oracle.com/javase/8/docs/jre/api/security/jaas/spec/com/sun/security/auth/module/LdapLoginModule.html).
 
 ## Before you start
 
@@ -82,11 +82,11 @@ If you use a `userFilter` and users are allowed to search, set the value with `{
 
 **Note:** all configuration files are case sensitive. You can find more examples in the [JAAS configuration files examples](#examples) section of this page.
 
-##### **JBoss**
+##### **WildFly**
 
-Edit the `<JBOSS_HOME>/standalone/configuration/standalone.xml` file to specify the configuration. Use HTML encoding for any strings in the configuration (for example, a space character is written as %20).
+Edit the `<WILDFLY_HOME>/standalone/configuration/standalone.xml` file to specify the configuration. Use HTML encoding for any strings in the configuration (for example, a space character is written as %20).
 
-Add the Bonita BPM login context using the JBoss specific syntax just before the `</security-domains>` tag. Note that `security-domain-name` is in fact the JAAS login context name (e.g. Bonita BPM).
+Add the Bonita BPM login context using the WildFly specific syntax just before the `</security-domains>` tag. Note that `security-domain-name` is in fact the JAAS login context name (e.g. Bonita BPM).
 
 The following example is for a tenant with id 1:
 ```xml
@@ -105,7 +105,7 @@ The following example is for a tenant with id 1:
 
 ##### **Tomcat**
 
-On Tomcat, the JAAS configuration file follows the [default JVM syntax](http://docs.oracle.com/javase/7/docs/api/javax/security/auth/login/Configuration.html).  
+On Tomcat, the JAAS configuration file follows the [default JVM syntax](http://docs.oracle.com/javase/8/docs/api/javax/security/auth/login/Configuration.html).  
 Here is an example of JAAS configuration file:  
 ```
 BonitaAuthentication-1 {
@@ -132,9 +132,9 @@ You will need to perform following changes:
 
 #### Configure JAAS
 
-##### **JBoss**
+##### **WildFly**
 
-As the JAAS configuration in JBoss is already done in a file that already exists, no further configuration is necessary.
+As the JAAS configuration in WildFly is already done in a file that already exists, no further configuration is necessary.
 
 ##### **Tomcat**
 
@@ -162,7 +162,7 @@ To define the JAAS configuration file location you need to set a JVM property, `
 
 **Note:** Remember to remove the debug flag for production.
 
-**Note:** These examples use the JAAS standard syntax (as used by Tomcat). They can easily be adapted to the JBoss XML syntax.
+**Note:** These examples use the JAAS standard syntax (as used by Tomcat). They can easily be adapted to the WildFly XML syntax.
 
 #### Active Directory
 

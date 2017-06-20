@@ -1,6 +1,6 @@
 #  Pages
 
-This page explains how to use a page resource (also called a custom page) to the Portal and make it available to users. Page resources are intended for use in applications. You can also use a page resource to customize the portal, 
+This page explains how to use a page resource (also called a custom page) to the Bonita BPM Portal and make it available to users. Page resources are intended for use in applications. You can also use a page resource to customize the portal, 
 for example:
 
 * Add a welcome page, with dashboards showing activity in Bonita BPM and related external applications.
@@ -16,7 +16,7 @@ Pages are [exported. imported, modified, and deleted](resource-management.md) as
 
 A page resource has the general [resource definition](resource-management.md). 
 If it contains an `Index.groovy` file, this must implement the PageController interface optionally with libraries. 
-If you create a custom page with the UI designer, it has the reequired structure and content automatically.
+If you create a custom page with the UI Designer, it has the required structure and content automatically.
 
 A custom page is displayed inside an iframe to prevent conflicts between the portal resources (for example JS and CSS) and those used in the custom page. 
 This also reduces the risk of migration issues, for example if a custom page uses the version of JQuery provided with Bonita BPM Portal and it is updated.
@@ -40,11 +40,11 @@ public void doGet(HttpServletRequest request, HttpServletResponse response, Page
 ### Authorization permissions for custom pages
 
 If you are using [REST API authorization](rest-api-authorization.md) and your custom page is an HTML page using the Web REST API, 
-you need to specify the permissions that a user needs to have in order access the resources in the custom page. 
+you need to specify the permissions that a user needs to have in order to access the resources in the custom page. 
 These permissions are defined in the `page.properties` file. If your custom page is written in Groovy and uses the BonitaBPM Engine Java APIs, you do not need to specify permissions.
 
-For each REST resource accessed in the page, specify the authorization needed for each method used. 
-You can find the relevant resources in [`resources-permissions-mapping.properties`](BonitaBPM_platform_setup.md).
+For each REST resource accessed in the page, specify the authorization needed for each method used.
+You can find examples of the default resources in [`resources-permissions-mapping.properties`](BonitaBPM_platform_setup.md).
 
 The following example shows the permissions defined for a custom page that enables a user to view but not update organization information:
 
@@ -59,7 +59,7 @@ resources=[GET|identity/user, GET|identity/personalcontactdata, GET|identity/pro
 
 ## Custom page examples
 
-Two example custom pages are available in the portal. Both examples show how to:
+Two custom page examples are available in the Bonita BPM Portal. Both examples show how to:
 
 * Get the Bonita CSS
 * Write simple HTML code
@@ -112,7 +112,7 @@ When you have finished developing the page, recreate the custom page zip archive
 
 ## Constraints
 
-A custom page is displayed in an iframe in the portal, so is isolated from changes to the portal. 
+A custom page is displayed in an iframe in the Bonita BPM Portal, so is isolated from changes to the portal. 
 When you migrate to a newer version of Bonita BPM, your custom page definition should still be valid. 
 However, this cannot be guaranteed for all future migrations.
 
@@ -130,14 +130,14 @@ If you are not using Groovy you can directly access a resource by adding a link 
 
 For example: `<link href="css/file.css" rel="stylesheet" />`
 
-### API acces
+### API access
 
 If your page is viewed in a custom profile or in an application, you will have access facilities for [the portal API](rest-api-overview.md).
 
-you will be abble to access the portal API using the following path: "../API/{API name}/{resource name}"
+you will be able to access the portal API using the following path: `../API/{API name}/{resource name}`
 
 ### Theme access
 
 If your page is viewed in an application, you will have access facilities for [the application theme](applications.md).
 
-You can directly access a resource by adding the following link in `index.html`: `<link href="../theme/theme.css" rel="stylesheet" />`
+The `Theme.css` is directly accessible by adding the following link in `index.html`: `<link href="../theme/theme.css" rel="stylesheet" />`

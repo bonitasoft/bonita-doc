@@ -1,8 +1,8 @@
 # Forms
 
-This page explains how to add a form resource to the Portal and make it available to users. Form resources are intended for use in applications.
+This page explains how to add a form resource to the Bonita BPM Portal and make it available to users. Form resources are intended for use in applications.
 
-Pages are [exported. imported, modified, and deleted](resource-management.md) as resources in Bonita BPM Portal. 
+Pages are [exported. imported, modified, and deleted](resource-management.md) as resources in the Portal. 
 
 Form definition <!--{.h2}-->
 
@@ -23,4 +23,21 @@ The overview consists of three main sections:
 * List of documents: it shows the content of each document used by the case.
 * Timeline: it shows in chronological order information about all the actions that have been performed in the selected case.
 
-You can see how to manage the link between process and and form in the documenation about [live update](live-update.md)
+To learn how to manage the link between process and forms, go to the [live update](live-update.md) page.
+
+### Application Theme access
+
+If your forms is viewed in an application, you will have access facilities for [the application theme](applications.md).
+
+The `Theme.css` is directly accessible by adding the following link in `index.html`: `<link href="../theme/theme.css" rel="stylesheet" />`
+This link is already inserted in the forms you design with the UI Designer.
+
+::: info 
+The `app` URL parameter is used to retrieve the current application related Theme.      
+The living application layout inject this `app` URL parameter in the targeted page/form URL, and the value is the application token.                
+If you create your own navigation link, you will need to include this `app` URL parameter in the forged form URL, in order to be able to benefit from the application theme. 
+:::
+
+::: info
+In the portal, the link `../theme/theme.css` will point the file `theme.css` from the portal theme. This portal forms theme is empty, and customizable to fit to the current portal theme. 
+::: 

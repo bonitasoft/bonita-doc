@@ -22,13 +22,10 @@ In this step you will create and initialize the database for the Bonita BPM Plat
 When done you will have a database with all tables created and with a table `CONFIGURATION` containing all configuration required for the cluster to start.
 
 * Ensure that you meet the [requirements](hardware-and-software-requirements.md)
-* Ensure that you [have a database installed and configured for the platform](database-configuration.md#database_creation).
-* In case you use [Business data](define-and-deploy-the-bdm), ensure that you [have a database installed and configured for the Business Data](database-configuration-for-business-data.md).
-* Download the Bonita BPM [Deploy bundle](deploy-bundle.md) and unzip it at some place of your choice.
-::: info
-The platform setup tool is also present in the Tomcat or JBoss bundle under the `setup` directory.
-:::
-* Configure it as described in the [platform setup tool page](BonitaBPM_platform_setup.md#configure_tool)
+* Ensure that you [have a database created](database-configuration.md#database_creation).
+* In case you use [Business data](define-and-deploy-the-bdm.md), ensure that you [have a database created for the Business Data](database-configuration.md#database_creation).
+* Download a Bonita BPM [Tomcat bundle](tomcat-bundle.md) or a Bonita BPM [WildFly bundle](wildfly-bundle.md), and unzip it at some place of your choice.
+* Edit file **`setup/database.properties`** and modify the properties to suit your databases (Bonita BPM internal database & Business Data database)
 * Update configuration files that are in the `platform_conf/initial` folder of the platform setup tool.
     * In `platform_init_engine/bonita-platform-init-community-custom.properties` uncomment and update the value of `activeProfiles` property from **`community`** to **`community,performance`**.
     * In `platform_engine/bonita-platform-sp-custom.properties`
@@ -44,10 +41,9 @@ The platform setup tool is also present in the Tomcat or JBoss bundle under the 
         uncomment the # properties and set only one them to `true`, set the others to `false` depending on how you want your nodes to discover each others,
         for more information on this take a look at the [Hazelcast Documentation](http://docs.hazelcast.org/docs/3.4/manual/html-single/index.html#discovering-cluster-members).
 * Copy licenses of all your nodes in `platform_conf/licenses`
-* run the `setup.sh init` or `setup.bat init` as described in the [platform setup tool page](BonitaBPM_platform_setup.md#init_platform_conf).
-* At the end of the script, you should see the following line: "Initial configuration files successfully pushed to database"
-* This creates the database tables needed by Bonita BPM platform, stores the configuration into this database, and stores the licence files for all your cluster nodes
-into the database.
+* run `setup.sh init` or `setup.bat init` as described in the [platform setup tool page](BonitaBPM_platform_setup.md#init_platform_conf).
+  At the end of the script, you should see the following line: "Initial configuration files successfully pushed to database".
+  This creates the database tables needed by Bonita BPM platform, stores the configuration into this database, and stores the licence files for all your cluster nodes into the database.
 
 If later you need to change the configuration of the node discovery or add new licenses to the Bonita BPM Platform configuration, you can update the configuration by following this [guide](BonitaBPM_platform_setup.md#update_platform_conf).
 
@@ -55,16 +51,13 @@ If later you need to change the configuration of the node discovery or add new l
 
 ### Install a first node
 
-1. Follow the instructions to [configure a Tomcat bundle](tomcat-bundle.md).
- You can skip the part on creating and initializing the database but you will need to configure the bundle connection to the database as described [in this part](tomcat-bundle.md#datasources_configuration).
+1 Run `setup.sh configure` or `setup.bat configure` as described in the [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to have your Tomcat / WildFly bundle configured to point to the right database.
 2. Delete the entire content of the `[TOMCAT_DIRECTORY]/setup` folder.
-3. If your Bonita installation is behind a proxy (mainly in TcpIp or Aws discovery modes), you must declare its public address by adding the following property : `-Dhazelcast.local.publicAddress=*publicaddress*`,
-this property should be added in the `[TOMCAT_DIRECTORY]/bin/setenv.sh` or `[TOMCAT_DIRECTORY]/bin/setenv.bat`
-
+3. If your Bonita installation is behind a proxy (mainly in TcpIp or Aws discovery modes), you must declare its public address by adding the following property : `-Dhazelcast.local.publicAddress=*publicaddress*`, this property should be added in the `[TOMCAT_DIRECTORY]/bin/setenv.sh` or `[TOMCAT_DIRECTORY]/bin/setenv.bat`
 4. When the installation is complete, start Tomcat on the node. This starts Bonita BPM Platform:
-```bash
-./bonita-start.sh
-```
+   ```bash
+   ./start-bonita.sh
+   ```
 5. Then start the cluster in the load balancer.
 
 Check that the log file contains messages of the following form:
@@ -88,11 +81,10 @@ Then deploy a basic process and check that it runs correctly, to validate the in
 
 You can add a new node to a cluster without interrupting service on the existing nodes.
 
-1. Install another Tomcat the same way you just installed the first node.
-2. Configure the new node to access the same database.
-3. If Hazelcast Node discovery is configured with TCP, update the configuration in database using the [platform setup tool page](BonitaBPM_platform_setup.md).
-4. Start the Tomcat on the new node, running `./bonita-start.sh` script
-5. Update the load balancer configuration to include the new node.
+1. Copy the entire Tomcat / WildFly directory to another machine.
+2. If Hazelcast Node discovery is configured with TCP, update the configuration in database using the [platform setup tool page](BonitaBPM_platform_setup.md).
+3. Start the Tomcat on the new node, running `./start-bonita.sh` script
+4. Update the load balancer configuration to include the new node.
 
 The log file will contain messages of the following form:
 
@@ -125,11 +117,11 @@ Some properties of the Bonita BPM Platform needs to be changed in order to make 
 
 * Download the Bonita BPM [Deploy bundle](deploy-bundle.md) and unzip it at some place of your choice.
 ::: info
-The platform setup tool is also present in the Tomcat or JBoss bundle under the `setup` directory.
+The platform setup tool is also present in the Tomcat or WildFly bundle under the `setup` directory.
 :::
 * Configure it as described in the [platform setup tool page](BonitaBPM_platform_setup.md)
 * Run the `setup.sh pull` or `setup.bat pull`. This will retrieve the configuration of your platform under `platform_conf/current` folder.
-* Update configuration files that are in the `platform_conf/initial` folder of the platform setup tool.
+* Update configuration files that are in the `platform_conf/current` folder of the platform setup tool.
     * In `platform_init_engine/bonita-platform-init-community-custom.properties` uncomment and update the value of `activeProfiles` property from **`community`** to **`community,performance`**.
     * In `platform_engine/bonita-platform-sp-custom.properties`
         * uncomment and set the **`bonita.cluster`** property to `true`.
@@ -169,7 +161,7 @@ To add more nodes, configure them like the first one. You can also refer to the 
 
 ### Stop a node
 
-Simply run `./bonita-stop.sh` script.
+Simply run `./stop-bonita.sh` script.
 
 ### Remove a node from a cluster
 
@@ -178,7 +170,7 @@ This section explains how to perform a planned shutdown and remove a node from t
 1. Update the load balancer configuration so that no further work is directed to the node. All work that is already in progress on the node that will be shutdown
    will continue until completion. Do not remove the node completely, because the load balancer needs to be informed when current work is finished.
 2. Allow current activity instances to complete.
-3. Stop the Tomcat server: run `./bonita-stop.sh`
+3. Stop the Tomcat server: run `./stop-bonita.sh`
 4. Update the load balancer to remove the node from the cluster.
 
 The node is now removed from the cluster.

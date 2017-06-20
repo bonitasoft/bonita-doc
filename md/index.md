@@ -11,10 +11,13 @@ Click on the **links** below to find useful information quickly, or [browse the 
 <div class="menu-block-wrapper">
 
 * [Release notes ${varVersion}](release-notes.md)    <!--{li:.first .leaf}-->
-* [Bonita home removal for easier configuration](release-notes.md#bonita-home-removal)    <!--{li:.leaf}-->
-* [User task list redesign for better efficiency](release-notes.md#user-task)<!--{li:.leaf}-->
-* [New UI Designer widgets: File viewer and Rich text area](release-notes.md#new-widgets)<!--{li:.leaf}-->
-* [UI Designer usability improvements](release-notes.md#usability-improvements)<!--{li:.last .leaf}-->
+* [Integration of SSO SAML 2.0](release-notes.md#living-application-development-and-deployment)    <!--{li:.leaf}-->
+* [New wizard to import a process in the studio and compare the artifacts](release-notes.md#living-application-development-and-deployment)<!--{li:.leaf}-->
+* [Industrialization of Living Application (in Studio)](release-notes.md#living-application-development-and-deployment)<!--{li:.leaf}-->
+* [New management of date/time](release-notes.md#ui-personalization)<!--{li:.last .leaf}-->
+* [Full Java 8 support](release-notes.md#technology-updates)<!--{li:.last .leaf}-->
+* [Support of Microsoft Edge browser](release-notes.md#technology-updates)<!--{li:.last .leaf}-->
+
 <!--{ul:.menu .nav}-->
 
 </div>

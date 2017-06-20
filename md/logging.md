@@ -12,7 +12,7 @@ All the Engine services call the [technical logger service](technical-logging.md
 
 ### Bonita BPM Portal
 
-The Portal uses the [Java Util Logging](http://docs.oracle.com/javase/6/docs/api/java/util/logging/package-summary.html) (JUL) directly to log messages.
+The Portal uses the [Java Util Logging](http://docs.oracle.com/javase/8/docs/api/java/util/logging/package-summary.html) (JUL) directly to log messages.
 
 ### Bonita BPM Studio
 
@@ -31,7 +31,7 @@ SLF4J is a facade for various logging frameworks, and a logging framework must b
 By default in Bonita BPM Engine and Bonita BPM Portal, all logs are sent to the JUL framework. To configure what is logged and where it is stored, modify the JUL configuration. The method of configuring JUL depends on the application server you use:
 
 * Apache Tomcat: edit the logging.properties file located in conf folder (see the [Apache Tomcat logging documentation](http://tomcat.apache.org/tomcat-7.0-doc/logging.html)).
-* JBoss Application Server: some documentation is available in the JBoss 7.0 [Admin guide](https://docs.jboss.org/author/display/AS7/Logging+configuration).
+* WildFly Application Server: some documentation is available in the WildFly 10 [Admin guide](https://docs.jboss.org/author/display/WFLY10/Logging+Configuration).
 * Other application server: refer to your application server documentation on Java Util Logging configuration.
 
 For the Tomcat embedded in Bonita BPM Studio, the JUL configuration file is located in the Studio installation folder under
@@ -104,16 +104,16 @@ Each file name includes the date when the file was created. There are several lo
 * _catalina.date_.log is the log file for the Tomcat application server used by Bonita BPM Studio.
 * _host-manager.date_.log, _localhost.date_.log, and _manager.date_.log are internal Tomcat log files.
 
-#### JBoss
+#### WildFly
 
-On a JBoss bundle, logs can be configured in the `$JBOSS_HOME/standalone/configuration/standalone.xml` in the `urn:jboss:domain:logging:1.1` _domain_ of the **subsystem** tag.
+On a WildFly bundle, logs can be configured in the `$WILDFLY_HOME/standalone/configuration/standalone.xml` in the `urn:jboss:domain:logging:3.0` _domain_ of the **subsystem** tag.
 
 Edit the **logger** tags which category matches BonitaBPM main package: change the **level** _name_ attribute of each **logger** section you want to change the log level.
 
 Log files are located in the `log` folder of the launched configuration.  
-Usually, the standalone configuration is run so the log files are located in the `$JBOSS_HOME/standalone/log` folder.
+Usually, the standalone configuration is run so the log files are located in the `$WILDFLY_HOME/standalone/log` folder.
 
-* _boot.log_ : contains JBoss boot logs.
-* _server.**date**.log_: is the global log file of the JBoss server.
+* _boot.log_ : contains WildFly boot logs.
+* _server.**date**.log_: is the global log file of the WildFly server.
 * _bonita.**date**.log_: is Bonita BPM log file.
 

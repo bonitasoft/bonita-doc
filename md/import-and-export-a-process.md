@@ -4,10 +4,17 @@
 
 To import a diagram:
 
-1. Choose **_Import_** from the **_Diagram_** menu or click **_Import_** in the Cool bar.
+* From a .bos archive (a diagram from another Bonita BPM studio)
+1. Choose **_Import_** -> **_BOS archive_** from the **_Diagram_** menu or click **_Import_** in the Cool bar.
+2. Specify the archive to be imported.
+3. Manage eventual conflicts
+4. Click **_Import_**, the .bos archive is imported, a new diagram is created.  
+
+* From an other format
+1. Choose **_Import_** -> **_other_** from the **_Diagram_** menu.
 2. Select the input format.
 3. Specify the file to be imported.
-4. Click **_Finish_**. A new diagram is created.
+4. Click **_Import_**. A new diagram is created.
 
 You can import diagrams that were exported from the following tools:
 

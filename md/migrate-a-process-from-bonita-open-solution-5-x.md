@@ -9,9 +9,9 @@ When you import a process from Bonita Open Solution 5.9 or 5.10, Bonita BPM auto
 
 To migrate a process from Bonita Open Solution 5.9 or 5.10:
 
-1. Choose **Import** from the **Diagram** menu or click **_Import_** in the Cool bar.
+1. Choose **Import** -> **Other..** from the **Diagram** menu.
 2. Select the Bonita BAR 5.9/5.10 input format, and select the file to be imported.
-3. Click **_Finish_**.
+3. Click **_Import_**.
 4. A pop-up explaining the format of the import status report is displayed. You can choose not to see this popup for subsequent imports.
 5. Click **_Finish_**. The process is imported and Bonita BPM Studio displays an Import status report. This report lists the status of each item in the process definition.
 6. Select an item to see what migration action has been done, or to see what manual action is required.

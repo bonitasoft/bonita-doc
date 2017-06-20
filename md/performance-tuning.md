@@ -138,9 +138,8 @@ If you are running Bonita BPM Engine inside a container, the maximum number of c
 * **Apache Tomcat** `maxThreads` set in _`Tomcat_folder`_`/conf/server.xml`.    
      Default value 20\. 
      See the [Tomcat documentation](http://tomcat.apache.org/tomcat-7.0-doc/) for information about the `maxThreads` parameter.
-* **Red Hat JBoss** `maxThreads` set in _`JBoss_folder`_`/server/default/deploy/jbossweb.sar/server.xml`.   
-     Default value 20\. 
-     See the [JBoss documentation](http://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch02.html) for information about the `maxThreads` parameter.
+* **Red Hat WildFly** : add the attributes `io-threads="10"` and `task-max-threads="20"` in the _default_ *worker* element in the io subdomain in `<WILDFLY_HOME>/standalone/configuration/standalone.xml`.  
+     The WildFly administrator guide lacks some information about advanced worker configuration. Undertow (WildFly web service handler) relies on the [XNIO API](http://docs.jboss.org/xnio/3.0/api/org/xnio/Options.html) for creating Worker threads. See [IO Worker configuration for Undertow](https://developer.jboss.org/thread/241230?start=0&tstart=0) for information about worker configuration.
 
 <a id="work_service"/>
 
@@ -159,9 +158,9 @@ bonita.tenant.work.keepAliveTimeSeconds=60
 bonita.tenant.work.queueCapacity=10000
 ```
 
-It is very similar to the constructor provided in the [default JDK ThreadPoolExecutor](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html#ThreadPoolExecutor(int,%20int,%20long,%20java.util.concurrent.TimeUnit,%20java.util.concurrent.BlockingQueue))).  
+It is very similar to the constructor provided in the [default JDK ThreadPoolExecutor](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html#ThreadPoolExecutor-int-int-long-java.util.concurrent.TimeUnit-java.util.concurrent.BlockingQueue-).  
 For a reminder of how the threadpool behaves, see the Queuing section of the 
-[ThreadPoolExecutor documentation](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html).
+[ThreadPoolExecutor documentation](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html).
 
 In the default Bonita BPM configuration, `corePoolSize` is equal to `maximumPoolSize` because we have observed that the default implementation of the threadpool executor allocates work to available threads using a round robin algorithm.  
 Therefore, if the maximum is reached, the thread pool size is unlikely ever to reduce to `corePoolSize`, because work is always allocated to available threads.  
@@ -249,7 +248,7 @@ For Tomcat:
 * For bonitaSequenceManagerDS, edit `conf/Catalina/localhost/bonita.xml` and set `maxActive=”yourvalue”`.
 * For bonitaDS, edit `conf/bitronix-resources.properties` and set `resource.ds1.maxPoolSize=”yourvalue”`.
 
-For JBoss:
+For WildFly:
 
 * For both bonitaDS and bonitaSequenceManagerDS, edit `server/default/deploy/bonita-ds.xml` and set `<max-pool-size>yourvalue</max-pool-size>`.
 
@@ -337,7 +336,7 @@ The following cache configurations can be defined:
 #### Java Virtual Machine
 
 You can configure the JVM settings for the engine to tune performance.  
-Check the [JVM documentation](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html) for details of the available settings.
+Check the [JVM documentation](http://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html) for details of the available settings.
 
 Notably, we recommend you to set the initial (`-Xms`) and maximum (`-Xmx`) heap sizes to the same value.  
 This reduces the likelihood of the JVM garbage collector starting.  
@@ -422,7 +421,7 @@ It is configured by editing the following parameters in `bonita-tenant-community
 #bonita.tenant.timetracker.memory.activateAtStart=false
 #bonita.tenant.timetracker.memory.maxSize=1000000
 ```
-To activate connector time tracking:
+To activate connector time tracking: 
 1. Uncomment all the previous lines except ```## Time tracker```.
 2. Change the value of `startTracking` from `false` to `true`.
 

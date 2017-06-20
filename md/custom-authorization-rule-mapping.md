@@ -52,8 +52,8 @@ In this example, Custom authorization rule is a maven-based java project that ne
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.5.1</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -185,7 +185,7 @@ bonita.tenant.authorization.rule.mapping=customAuthorizationRuleMapping
 * restart server
 
 ```
-./bonita-stop.sh
-./bonita-start.sh
+./stop-bonita.sh
+./start-bonita.sh
 ```
 

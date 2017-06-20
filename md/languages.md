@@ -44,8 +44,8 @@ Instructions below explain how to add a language to Bonita BPM Portal. Steps bel
     * For Tomcat embedded in Bonita BPM Studio edit the appropriate **.ini** file (e.g. **BonitaBPMCommunity64.ini** for Windows 64bit) and use the following syntax: `-Dtomcat.extra.params="-Dorg.bonitasoft.i18n.folder=C:\path\to_i18n\folder"`
     * For Tomcat on Windows edit **setenv.bat**
     * For Tomcat on Linux edit **setenv.sh**
-    * For JBoss on Windows edit **standalone.conf.bat**
-    * For JBoss on Linux edit **standalone.conf**
+    * For WildFly on Windows edit **standalone.conf.bat**
+    * For WildFly on Linux edit **standalone.conf**
 1. Restart your application server (or restart Bonita BPM Studio). The next time Bonita BPM Portal starts, it will detect the new language and add it to the list in the **Settings** menu.
 
 <a id="Translate_BonitaB_PM_Portal" />

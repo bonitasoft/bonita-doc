@@ -45,9 +45,9 @@ There is also a default tenant _portal_ configuration directory, located in: `cu
 A tenant can be created using the Java PlatformAPI (see the [Engine Javadoc](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/com/bonitasoft/engine/api/PlatformAPI.html)) or the [platform REST API](platform-api.md).
 
 **Note:**
-If [business objects](define-and-deploy-the-bdm.md) will be deployed in the newly created tenant do not forget to [create the business data database and configure specific data sources](database-configuration-for-business-data.md).
+If [business objects](define-and-deploy-the-bdm.md) will be deployed in the newly created tenant do not forget to [create the business data database and configure specific data sources](database-configuration.md).
 This must be done for each tenant that will use the [Business Data](define-and-deploy-the-bdm.md) feature.
- 
+
 ::: warning
 **Important**  
 Once a tenant has been created and activated, default theme is not yet loaded.  
@@ -55,8 +55,92 @@ Therefore, as long as you have not logged in to the new tenant, the login page w
 
 After the first login, default theme will be loaded and the login page will look as usual. 
 :::
+### REST API
+
+The [platform REST API](platform-api.md) is a REST layer around the Java PlatformAPI to create the tenant.
+
+#### Walk-through
+
+##### Install `curl` command line tool
+`curl` is available on Linux OS and it transfers data from or to a server with various protocols such as HTTP and HTTPS.
+
+    $ sudo apt install curl
+
+NOTE: this is to be done only once.
+
+##### Start a tomcat
+- Download a BonitaBPMSubscription-7.\*-Tomcat-7.0.76.zip
+- Unzip it
+- Provide a valid license file
+- Start the tomcat
+
+##### Login
+
+    $ curl -v -c saved_cookies.txt -X POST --url 'http://localhost:8080/bonita/platformloginservice' \
+    --header 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
+    -d 'password=platform&redirect=false&username=platformAdmin' -O /dev/null
+
+The response to this REST API call (HTTP) generates 2 cookies, which must be transfered with each subsequent calls.
+One of the cookie is `X-Bonita-API-Token`.
+
+Note that the security against CSRF attacks is enabled by default for all fresh installations; the subsequence REST API calls using DELETE, POST, or PUT HTTP methods must define the `X-Bonita-API-Token` header, with the value transmitted via the associated cookie.
+
+The cookies have been saved on the disk, in the `saved_cookies.txt` file:
+
+    $ cat saved_cookies.txt 
+    
+    #HttpOnly_localhost	FALSE	/bonita/	FALSE	0	JSESSIONID	46EF8A05819B6C268EE700F3C3FC939A
+    localhost	FALSE	/	FALSE	0	X-Bonita-API-Token	a94cbf84-6b71-409a-981f-f91b17466929
+
+##### Create the new tenant
+
+    $ curl -b saved_cookies.txt -X POST 'http://localhost:8080/bonita/API/platform/tenant' \
+    -H "Content-Type: application/json" \
+    -H 'X-Bonita-API-Token: a94cbf84-6b71-409a-981f-f91b17466929' \
+    -d '{"name":"MyTenant", "description":"My tenant", "username":"install", "password":"install"}'
+
+    {
+      "id": "101",
+      "creation": "2017-06-09 15:11:01.191",
+      "icon": "/default.png",
+      "username": "",
+      "description": "My tenant",
+      "name": "MyTenant",
+      "state": "DEACTIVATED",
+      "password": ""
+    }
+The new tenant has the id `101` and its state is `DEACTIVATED`
+
+##### Activate the tenant with id `101`
+
+    $ curl -v -b saved_cookies.txt -X PUT 'http://localhost:8080/bonita/API/platform/tenant/101' \
+    -H "Content-Type: application/json" \
+    -H 'X-Bonita-API-Token: a94cbf84-6b71-409a-981f-f91b17466929' \
+    -d '{"state":"ACTIVATED"}'
+    
+    * Connected to localhost (127.0.0.1) port 8080 (#0)
+    
+    < HTTP/1.1 200 OK
+
+    $ curl -b saved_cookies.txt -X GET 'http://localhost:8080/bonita/API/platform/tenant/101' 
+    
+    {
+      "password": "",
+      "name": "MyTenant",
+      "icon": "/default.png",
+      "description": "My tenant",
+      "id": "101",
+      "state": "ACTIVATED",
+      "creation": "2017-06-09 15:11:01.191",
+      "username": ""
+    }
+
+##### Logout
+
+    $ curl -v -b saved_cookies.txt -X GET --url 'http://localhost:8080/bonita/platformlogoutservice?redirect=false'
 
 ### Java PlatformAPI
+This solution can be used when the portal is not needed.
 
 The Java PlatformAPI creates the tenant by updating the database and creating configuration based on the tenant template files (in database too). 
 The following example code uses the Engine Java APIs to create a tenant called "myNewTenantName":
@@ -65,25 +149,20 @@ The following example code uses the Engine Java APIs to create a tenant called "
     PlatformLoginAPI platformLoginAPI = PlatformAPIAccessor.getPlatformLoginAPI();
     // Log in to the platform:
     PlatformSession platformSession = platformLoginAPI.login("platformAdmin", "platform");
-    
+
     // Get the platform API:
     PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(platformSession);
-    
+
     // Create a new tenant:
     TenantCreator tenantCreator = new TenantCreator("myNewTenantName");
     tenantCreator.setUsername("install");
     tenantCreator.setPassword("install");
     long tenantId = platformAPI.createTenant(tenantCreator);
     platformAPI.activateTenant(tenantId);
-    
+
     // Log out of the platform:
     platformLoginAPI.logout(platformSession);
 ```
-
-### REST API
-
-The [platform REST API](platform-api.md) is a REST layer around the Java PlatformAPI to create the tenant.
-
 ## Tenant access
 
 A tenant is identified by an id, which is used to log in and to retrieve the tenant. A tenant also has a name. You can use the tenant name to retrieve the tenant id.
@@ -137,17 +216,17 @@ Example: retrieving a tenant from its name and log into it
     PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(platformSession);
     // Retrieve your tenant by name
     Tenant tenant = platformAPI.getTenantByName("myTenant");
-    
+
     // Log out of the platform
     platformLoginAPI.logout(platformSession);
-    
-    
+
+
     // Log in to the tenant using the APIClient
     APIClient apiClient = new APIClient();
     apiClient.login(tenant.getId(), "install", "install");
-    
+
     // Perform some operations on the tenant...
-    
+
     // Log out of the tenant
     apiClient.logout();
 ```
@@ -165,7 +244,7 @@ For example, to resume the service in a tenant:
 ```java
     TenantAdministrationAPI tenantAdministrationAPI = TenantAPIAccessor.getTenantAdministrationAPI(apiSession);
     if (tenantAdministrationAPI.isPaused()) {
-        tenantAdministrationAPI.resume();
+    tenantAdministrationAPI.resume();
     }
 ```
 
