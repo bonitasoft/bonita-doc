@@ -137,7 +137,7 @@ Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. For exam
 
 1. If you use a custom Look & Feel, [export](managing-look-feel.md) it, and then [restore the default Look & Feel](managing-look-feel.md).
 1. If you use a Business data model that require to be redeployed (see [above](#bdm_redeploy)), you can pause the tenant so that as a tenant admin, you'll be able to redeploy the BDM on a paused tenant once migration is done.  
-1. Stop the application server and the database server.
+1. Stop the application server.
 1. **IMPORTANT:**
 [Back up your platform](back-up-bonita-bpm-platform.md) and database in case of problems during migration.
 1. Go to the directory containing the migration tool.
