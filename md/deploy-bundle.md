@@ -74,7 +74,7 @@ JTA data source (managed by Bitronix)
 ### Add Jdbc driver
 You need to add your jdbc driver in TOMCAT_HOME/lib. 
 MySQL and PostgreSQL drivers can be found in deploy bundle under DEPLOY_ZIP_HOME/setup/lib directory. For other RDBMS, 
-use the driver provided by your RDBMS vendor
+use the [jdbc driver](database-configuration.md#proprietary_jdbc_drivers) provided by your RDBMS vendor
 
 <a id="wildfly-installation" />
 

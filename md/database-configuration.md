@@ -42,6 +42,23 @@ We recommend that you use the WildFly bundle provided by Bonitasoft.
 :::
 
 
+<a id="proprietary_jdbc_drivers" />
+
+### Proprietary Jdbc drivers
+
+Bonita BPM provides out of the box the Jdbc drivers for H2, PostgreSQL and MySQL. For other RDBMS, you have to retrieve the related Jdbc drivers.  
+
+#### SQL Server
+
+1. Download the zip package of [Microsoft SQL Server JDBC Driver 6.0](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774) and unzip it. 
+2. Get the `sqljdbc42.jar` file from `%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc_6.0\enu\jre8\`
+
+#### Oracle Database
+
+* For Oracle 11.2.0.x, download [ojdbc6.jar](http://www.oracle.com/technetwork/apps-tech/jdbc-112010-090769.html)
+* For Oracle 12.1.0.x, download [ojdbc7.jar](http://www.oracle.com/technetwork/database/features/jdbc/default-2280470.html)
+
+
 <a id="database_creation" />
 
 ### Create the database(s)
@@ -166,9 +183,9 @@ To support XA transactions, SQL Server requires a specific configuration.
 You can refer to [MSDN](https://msdn.microsoft.com/en-us/library/aa342335(v=sql.110).aspx) for more information.
 Here is the list of steps to perform (as an example, the database name BONITA\_BPM is used):
 
-1. Make sure you have already downloaded the [Microsoft SQL Server JDBC Driver 6.0](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774).
+1. Download the zip package of [Microsoft SQL Server JDBC Driver 6.0](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774) and unzip it. 
 2. Copy the `sqljdbc_xa.dll` from `%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc_6.0\enu\xa\x64\` (x64 for 64 bit version of Windows, x86 for 32 bit version of Windows) to `%SQLSERVER_INSTALL_ROO%\Instance_root\MSSQL10.MSSQLSERVER\MSSQL\Binn\.`
-3. Copy/paste the content of xa\_install.sql file (located in `%JDBC\_DRIVER\_INSTALL\_ROOT%\\sqljdbc\_6.0\\enu\\xa`) to SQL Server Management Studio's Query Editor.
+3. Copy/paste the content of `install.sql` file (located in `%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc\6.0\enu\xa`) to SQL Server Management Studio's Query Editor.
 4. Execute the query in the Query Editor.
 5. To confirm successful execution of the script, open the "Object Explorer" and go to: **Master** \> **Programmability** \> **Extended Stored Procedures**.   
    You should have 12 new procedures, each with a name starting with `dbo.xp.sqljdbc_xa_`.
