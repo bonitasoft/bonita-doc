@@ -353,7 +353,7 @@ You can refer to [MSDN](https://msdn.microsoft.com/en-us/library/aa342335(v=sql.
 Here is the list of steps to perform (as an example, the database name BONITA\_BPM is used):
 
 1. Make sure you have already downloaded and installed the [Microsoft SQL Server JDBC Driver 4.0](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774).
-2. Copy the `sqljdbc_xa.dll` from `%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc_4.0\enu\xa\x64\` (x64 for 64 bit version of Windows, x86 for 32 bit version of Windows) to `%SQLSERVER_INSTALL_ROO%\Instance_root\MSSQL10.MSSQLSERVER\MSSQL\Binn\.`
+2. Copy the `sqljdbc_xa.dll` from `%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc_4.0\enu\xa\x64\` (x64 for 64 bit version of Windows, x86 for 32 bit version of Windows) to `%SQLSERVER_INSTALL_ROOT%\Instance_root\MSSQL10.MSSQLSERVER\MSSQL\Binn\.`
 3. Copy/paste the content of xa\_install.sql file (located in %JDBC\_DRIVER\_INSTALL\_ROOT%\\sqljdbc\_4.0\\enu\\xa) to SQL Server Management Studio's Query Editor.
 4. Execute the query in the Query Editor.
 5. To confirm successful execution of the script, open the "Object Explorer" and go to: **Master** \> **Programmability** \> **Extended Stored Procedures**.   
