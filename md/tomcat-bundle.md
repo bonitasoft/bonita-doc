@@ -138,7 +138,7 @@ For production, you are recommended to use one of the supported databases, with 
 
 1. Make sure [your databases are created](database-configuration.md#database_creation) and [customized to work with Bonita BPM](database-configuration.md#specific_database_configuration).
 2. Edit file `<TOMCAT_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita BPM internal database & Business Data database)
-3. If you use **Microsoft SQL Server** or **Oracle** database, copy your database drivers in `<TOMCAT_HOME>/setup/lib/` folder. 
+3. If you use **Microsoft SQL Server** or **Oracle** database, copy your [jdbc driver](database-configuration.md#proprietary_jdbc_drivers) in `<TOMCAT_HOME>/setup/lib/` folder. 
 4. Run `<TOMCAT_HOME>\setup\start-bonita.bat` (Windows system) or `<TOMCAT_HOME>/setup/start-bonita.sh` (Unix system) to run Bonita BPM Tomcat bundle (see [Tomcat start script](#tomcat_start))
 
 ::: info
@@ -209,7 +209,7 @@ To update the licenses after the first run, take a look at the [platform setup t
 ---
 
 **Problem**:  
-My **Microsoft SQL Server** or **Oracle** database drivers do not seem to be taken into account when I put them in `<WILDFLY_HOME>/setup/lib` folder.
+My **Microsoft SQL Server** or **Oracle** database drivers do not seem to be taken into account when I put them in `<TOMCAT_HOME>/setup/lib` folder.
 
 **Cause**:  
 Driver file must respect some naming convention.
@@ -220,7 +220,7 @@ For Oracle, rename it so that the name contains at least the word `oracle` or `o
 
 ---
 
-**Issue**: When I run `bonita-start.sh` or `bonita-start.bat`, I get the error message `Invalid Java version (1.7) < 1.8. Please set JRE_HOME or JAVA_HOME variable to a JRE / JDK 1.8+`
+**Issue**: When I run `start-bonita.sh` or `start-bonita.bat`, I get the error message `Invalid Java version (1.7) < 1.8. Please set JRE_HOME or JAVA_HOME variable to a JRE / JDK 1.8+`
 
 **Cause**: Bonita BPM 7.5+ requires Java 1.8 to run
 
