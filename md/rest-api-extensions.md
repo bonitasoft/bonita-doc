@@ -85,7 +85,7 @@ int startIndex = p*c
 int endIndex = p*c + users.size() - 1
 
 // Send the result as a JSON representation
-return buildPagedResponse(responseBuilder, new JsonBuilder(result).toPrettyString(), startIndex, endIndex, context.apiClient.identityAPI.numberOfUsers)
+return buildPagedResponse(responseBuilder, new JsonBuilder(result).toString(), startIndex, endIndex, context.apiClient.identityAPI.numberOfUsers)
 ```
 
 Make sure you are adding all missing imports (default shortcut CTRL+SHIFT+o).
