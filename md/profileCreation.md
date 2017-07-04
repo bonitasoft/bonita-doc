@@ -1,10 +1,4 @@
-# Profile
-
-## Overview
-
-in Bonita 7.6, we introduced the possibility to manage profiles from the Studio.
-It accounts for an additional step to ease the management of [Living Applications](applications.md) in Bonita, since our objective is to offer a unique application deployment artifact, managed from the Studio.  
-Then, all resources used by applications (like profiles) will be centralized and shared by the Bonita development suite: Bonita Studio and the UI Designer.
+# Profile Editor
 
 ## Definition
 
