@@ -109,6 +109,33 @@ We recommand that you re-create your custom layout based on Bonita 7.5.0+ defaul
 
 ## Bug fixes
 
+### Fixes in Bonita BPM 7.5.2
+
+#### Fixes in Documentation
+* BS-16372 7.4.x Deploy bundle installation procedure in not clear enough
+* BS-16731 Applications Portal doc page still states that application development occurs in the Portal
+
+#### Fixes in Engine component
+* BS-16482 REST API Extensions are unstable in debug mode
+* BS-16611 Alfresco connector breaks case instantiation
+* BS-16629 Issue while resuming BPM services in Wildfly and cluster mode
+
+#### Fixes in Studio component
+* BS-16692 Incoherence after contract type update
+* BS-16729 When switching from one diagram to another, tab operations is not updated
+
+#### Fixes in UI Designer component
+* BS-16736 leaving the Rich text Area Max value empty leads to an error message
+
+#### Fixes in Web component
+* BS-16482 REST API Extensions are unstable in debug mode
+* BS-16021 Http 400 response for font resources in an application page designed with UID
+* BS-16263 Security fails in bonita/portal/resource/app and LivingApplicationPageServlet
+* BS-16350 While using IE, IFrame removal causes loss of the ability to focus input elements
+* BS-16474 Analytics Case history japser report broken
+* BS-16758 Bonita wildfly bundle startup failure with the MS SQL Server 6.0 JDBC Driver Version
+* BS-16809 File contract input is loaded twice in memory
+
 ### Fixes in Bonita BPM 7.5.1
 
 #### Fixes in Documentation
