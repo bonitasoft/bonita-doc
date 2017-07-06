@@ -121,8 +121,14 @@ We recommand that you re-create your custom layout based on Bonita 7.5.0+ defaul
 * BS-16629 Issue while resuming BPM services in Wildfly and cluster mode
 
 #### Fixes in Studio component
-* BS-16692 Incoherence after contract type update
-* BS-16729 When switching from one diagram to another, tab operations is not updated
+* BS-16684	Business Object attributes table with height too short to access buttons on BDM Management
+* BS-16692	Incoherence after contract type update
+* BS-16699	In application page tokens,"-" and "_" are not considered as valid characters
+* BS-16705	.proc file size is too BIG due to complex contrat input references in expression
+* BS-16723	Wrong studio warning: cannot store the count query in a process data of type long
+* BS-16729	When switching from one diagram to another, tab operations is not updated
+* BS-16730	Missing import of BPMN2 diagram in the Studio
+* BS-16732	Cannot assign a Parameter to a Data to send to a child process
 
 #### Fixes in UI Designer component
 * BS-16736 leaving the Rich text Area Max value empty leads to an error message
