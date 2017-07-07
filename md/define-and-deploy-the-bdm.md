@@ -118,6 +118,8 @@ When you create a process that uses a business object with a composition or aggr
 * You can use getter and setter methods in process or activity operations to set the composed objects as a single instance or as a `java.util.list` for a list of instances.
 * If your process uses a query from a Groovy expression or uses DAO objects from a client Java application, load the complete composite objects including the child objects.
 
+<a id="lazy_eager_loading" />
+
 #### Loading
 
 There are two options for loading complex business objects, **lazy** or **eager**. With lazy loading, the parent object instance is loaded, but child object instances are loaded only when they are needed. With eager loading, child object instances are loaded when the parent object instance is loaded. The default is lazy loading. You can override this for any business object by configuring it to use eager loading when you specify the object relationship properties. This means that the specified object and all objects related to it by composition or aggregation relationships are loaded. There is an overhead for the additional data load and maintenance of the information in memory, but there is a saving in data access time because the data is already loaded.
