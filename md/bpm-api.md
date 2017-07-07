@@ -480,14 +480,18 @@ Retrieve humanTask objects that match the specified filters.
 * **Method**  
   `GET`
 * **Data Params**  
-  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
-  You can also use the [flow node data params](#flownode-search-data-params).  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available:
+  * d: extend resource response parameters of [this resource](#human-task-deploy) are available.
+  * o: name, priority, dueDate, state, userId, groupId, roleId, processDefinitionId, processInstanceId, 
+  parentActivityInstanceId, assigneeId, parentContainerId, displayName, reachedStateDate
+  * s: search on any field that can be used to order results
+  * f: assigned_id, state, name, displayName, processId, parentCaseId, rootCaseId
+  
   For instance, you can filter on:
   * `assigned_id={user_id}`: retrieve only the human tasks assigned to the specified ID. For example, retrieve the human tasks assigned to user with id 2: `/API/bpm/humanTask?p=0&c=10&f=assigned\_id%3d2`
   * `state=`: retrieve only the archived user tasks with the specified state. For example, retrieve the skipped tasks: `/API/bpm/humanTask?p=0&c=10&f=state=skipped`
   * `name=`: retrieve only the human tasks with the specified name. For example, retrieve the human tasks with the name "Analyse Case": `/API/bpm/humanTask?p=0&c=10&f=name=Analyse Case`
   * `displayName=`: retrieve only the archived user tasks with the specified displayName. For example, retrieve the human tasks with the displayName "Analyse Case": `/API/bpm/humanTask?p=0&c=10&f=displayName=Analyse Case`
-  * d: extend resource response parameters of [this resource](#human-task-deploy) are available.
 * **Success Response**  
   * **Code**: 200
   * **Payload**:  
@@ -3016,7 +3020,7 @@ You can search cases.
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   * o (order): available values are `id`, `processDefinitionId`, `startedBy`, `startedBySubstitute`, `startDate`, 
-  `endDate`, `lastUpdate`, `archiveDate`, `sourceObjectId`
+  `endDate`, `lastUpdate`, `archivedDate`, `sourceObjectId`
   * d: extend resource response parameters of [this resource](#archived-case-deploy) are available.
 * **Success Response**  
   A JSON representation of an array of archived case resources
@@ -3334,6 +3338,100 @@ Note: if the `userId` is not provided as a deploy parameter, the `userId` proper
     ]
     ```
 
+### ArchivedCaseComment
+
+#### Description
+
+Retrieves information about the comment of an archived case.
+
+#### Representation
+```json
+{
+  "id": "1",
+  "content": "the comment content",
+  "processInstanceId": "the process instance(case) the comment is associated to",
+  "postDate": "the comment creation date",
+  "archivedDate": "the date set when the case was archived"
+  "userId": "the user that created the comment"
+}
+```
+#### Methods
+
+The method used for this resource is:
+
+* GET - Search for archived comments
+
+#### Response object extension (deploy query parameter)
+
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * `userId`
+
+::: info
+Note: if the `userId` is not provided as a deploy parameter, the `userId` property of a comment is filled with the system user :
+```json
+{
+  "icon": "/default/icon_user.png",
+  "userName": "System"
+}
+```
+:::
+
+#### Search for archived comments
+
+* **URL**  
+  `/API/bpm/archivedComment`  
+  _Example_: `/API/bpm/archivedComment?p=0&c=10&o=postDate%20DESC&f=processInstanceId%3d1&d=userId`
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  * o: you can sort on the `postDate` and `archivedDate`
+  * f: filter of the search. Available filters are : 
+    * `supervisor_id`
+    * `user_id`
+    * `processInstanceId`
+    You cannot use `supervisor_id` and `user_id` filter at the same time.
+* **Success Response**  
+  JSON representations of matching comments
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    [
+      {
+        "content": "Need to review the last inputs of this case",
+        "id": "20005",
+        "processInstanceId": "1",
+        "postDate": "2016-06-16 14:51:33.053",
+        "archivedDate": "2016-06-17 10:18:24.723",
+        "userId": {
+          "last_connection": "2016-06-16 14:49:37.067",
+          "created_by_user_id": "-1",
+          "creation_date": "2016-06-15 11:37:22.709",
+          "id": "30",
+          "icon": "/default/icon_user.png",
+          "enabled": "true",
+          "title": "Mr",
+          "manager_id": "0",
+          "job_title": "Chief Executive Officer",
+          "userName": "william.jobs",
+          "lastname": "Jobs",
+          "firstname": "William",
+          "password": "",
+          "last_update_date": "2016-06-15 11:37:22.709"
+        }
+      }, {
+        "content": "The task \"Etape1\" is now assigned to walter.bates",
+        "id": "20003",
+        "processInstanceId": "1",
+        "postDate": "2016-06-15 12:36:18.541",
+        "archivedDate": "2016-06-17 10:18:24.723",
+        "userId": {
+          "icon": "/default/icon_user.png",
+          "userName": "System"
+        }
+      }
+    ]
+    ```
 ## Process
 
 ### Process
@@ -4328,7 +4426,7 @@ Search for flow nodes using given parameters. Flow nodes in state completed, can
     * isTerminal
     * processId
     * caseId
-    * archiveDate
+    * archivedDate
   * s: search on any field that can be used to order results
   * f: 
     * name

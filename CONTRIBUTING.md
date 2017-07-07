@@ -42,6 +42,45 @@ Allows users to be warned about the consequences to DELETE a user
 instead of deactivating it.
 ```
 
+### Convention for Contribution
+
+A contribution is composed of a `TITLE` and a `DESCRIPTION`
+
+- TITLE must NOT exceed 80 characters, for readability in Github interface.
+- DESCRIPTION is not limited to any number of characters and can extend to several lines.
+
+#### Title
+TITLE MUST respect the following format: `<type>(<scope>): <subject>`
+
+`<Type>` is the nature of the change. Can be a value in (feat, fix, style, refactor, ...)
+
+> (feat: feature, fix: correction, style: appearance correction, refactor: rewriting of the article, ...)
+
+`<scope>` is the business domain on which the change is done
+
+`<subject>` is a short description of the change
+ 
+ 
+ * E.g. "style(Business Data): fix display of the supported RDBMS matrix table"
+ * E.g. "feat(APIs): provide code sample to show usage of Living Application creation"
+ * E.g. "feat(dates): describe step by step tutorial on Date types in Bonita BPM"
+
+#### Description
+
+If needed, description allow a more detailed explanation on why this change is being made.
+You can write as many lines of description as needed:
+
+* E.g.:
+   "This change is part of a larger scale rewriting of how to deal with Dates in Bonita BPM.  
+   Usage has proven that the feature was not correctly understood.  
+   This article tends to start over on the date notions and how to use them."
+
+#### Useful links
+
+Please provide links to any relevant tickets, articles or other resources if available
+
+* E.g. : References [JIRA_ISSUE_ID](https://bonitasoft.atlassian.net/browse/JIRA_ISSUE_ID)
+
 ## How to update an existing page?
 
 In this case, edit the appropriate _.md_ file and the build process will do the rest.
