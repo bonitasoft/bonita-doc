@@ -24,41 +24,41 @@ class CarManagement implements RestApiController {
     
     @Override
     RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
-    // To retrieve query parameters use the request.getParameter(..) method.
-    // Be careful, parameter values are always returned as String values
-    
-    // Retrieve p parameter
-    def p = request.getParameter "p"
-    if (p == null) {
-        return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,"""{"error" : "the parameter p is missing"}""")
-    }
-    
-    // Retrieve c parameter
-    def c = request.getParameter "c"
-    if (c == null) {
-        return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,"""{"error" : "the parameter c is missing"}""")
-    }
-    
-    // use APIClient to retrieve the CarDAO class:
-    def carDAO = context.apiClient.getDAO(CarDAO.class)
-    
-    def currentModel = "DeLorean"
-    // Fetch the cars that match the search criteria:
-    List<Car> cars = carDAO.findByModel(currentModel, p as int, c as int)
-    
-    // Prepare the Json result:
-    // Do NOT return directly the list "cars", as all Wheel objects would be fetched one by one (lazy relation). 
-    // Instead, ONLY select the fields that are necessary for your business logic:
-    def carModels = [:]
-    for (Car car : cars) {
-        // return the fields "id", "buildYear", "color":
-        carModels.put("id: ${car.persistenceId}", "${car.buildYear} - ${car.color}")
-    }
-    
-    def result = [ "model" : currentModel, "number of cars" : cars.size(), "cars" : carModels ]
-    
-    // Attention: do not use "toPrettyString()" if your response is large, as the page "size" may be uselessly big:
-    return buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
+        // To retrieve query parameters use the request.getParameter(..) method.
+        // Be careful, parameter values are always returned as String values
+        
+        // Retrieve p parameter
+        def p = request.getParameter "p"
+        if (p == null) {
+            return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,"""{"error" : "the parameter p is missing"}""")
+        }
+        
+        // Retrieve c parameter
+        def c = request.getParameter "c"
+        if (c == null) {
+            return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,"""{"error" : "the parameter c is missing"}""")
+        }
+        
+        // use APIClient to retrieve the CarDAO class:
+        def carDAO = context.apiClient.getDAO(CarDAO.class)
+        
+        def currentModel = "DeLorean"
+        // Fetch the cars that match the search criteria:
+        List<Car> cars = carDAO.findByModel(currentModel, p as int, c as int)
+        
+        // Prepare the Json result:
+        // Do NOT return directly the list "cars", as all Wheel objects would be fetched one by one (lazy relation). 
+        // Instead, ONLY select the fields that are necessary for your business logic:
+        def carModels = [:]
+        for (Car car : cars) {
+            // return the fields "id", "buildYear", "color":
+            carModels.put("id: ${car.persistenceId}", "${car.buildYear} - ${car.color}")
+        }
+        
+        def result = [ "model" : currentModel, "number of cars" : cars.size(), "cars" : carModels ]
+        
+        // Attention: do not use "toPrettyString()" if your response is large, as the page "size" may be uselessly big:
+        return buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
     }
 }
 ```
@@ -77,38 +77,38 @@ Below is an example of the resulting response:
 {
 "model": "DeLorean",
 "number of cars": 30,
-"cars": {
-"id: 1": "1933 - Red",
-"id: 6": "1938 - Rainbow",
-"id: 20": "2002 - Green",
-"id: 24": "1940 - Yellow",
-"id: 33": "1954 - Purple",
-"id: 46": "1932 - Rainbow",
-"id: 50": "2008 - Teal",
-"id: 51": "1979 - Purple",
-"id: 53": "1942 - Purple",
-"id: 60": "1941 - Rainbow",
-"id: 71": "1987 - Orange",
-"id: 75": "1956 - Green",
-"id: 82": "1938 - Rainbow",
-"id: 92": "1955 - Rainbow",
-"id: 100": "1965 - Orange",
-"id: 119": "1992 - Blue",
-"id: 128": "2015 - Purple",
-"id: 130": "1932 - Yellow",
-"id: 142": "1951 - Grey",
-"id: 143": "1930 - White",
-"id: 146": "1937 - Teal",
-"id: 147": "1961 - Blue",
-"id: 152": "1939 - Purple",
-"id: 158": "1977 - Grey",
-"id: 159": "2013 - Rainbow",
-"id: 160": "1997 - Purple",
-"id: 163": "1973 - Rainbow",
-"id: 164": "1940 - Purple",
-"id: 165": "1933 - Teal",
-"id: 172": "1983 - Rainbow"
-}
+    "cars": {
+        "id: 1": "1933 - Red",
+        "id: 6": "1938 - Rainbow",
+        "id: 20": "2002 - Green",
+        "id: 24": "1940 - Yellow",
+        "id: 33": "1954 - Purple",
+        "id: 46": "1932 - Rainbow",
+        "id: 50": "2008 - Teal",
+        "id: 51": "1979 - Purple",
+        "id: 53": "1942 - Purple",
+        "id: 60": "1941 - Rainbow",
+        "id: 71": "1987 - Orange",
+        "id: 75": "1956 - Green",
+        "id: 82": "1938 - Rainbow",
+        "id: 92": "1955 - Rainbow",
+        "id: 100": "1965 - Orange",
+        "id: 119": "1992 - Blue",
+        "id: 128": "2015 - Purple",
+        "id: 130": "1932 - Yellow",
+        "id: 142": "1951 - Grey",
+        "id: 143": "1930 - White",
+        "id: 146": "1937 - Teal",
+        "id: 147": "1961 - Blue",
+        "id: 152": "1939 - Purple",
+        "id: 158": "1977 - Grey",
+        "id: 159": "2013 - Rainbow",
+        "id: 160": "1997 - Purple",
+        "id: 163": "1973 - Rainbow",
+        "id: 164": "1940 - Purple",
+        "id: 165": "1933 - Teal",
+        "id: 172": "1983 - Rainbow"
+    }
 }
 ```
 
