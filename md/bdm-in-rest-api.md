@@ -2,15 +2,14 @@
 
 ## Use case
 
-The example demonstrates best practices when developing a REST API Extension accessing [Business Data](define-and-deploy-the-bdm.md).  
-Special attention is focused on performance matters.
+This example demonstrates best practices when developing a [REST API Extension](rest-api-extensions.md) accessing [Business Data](define-and-deploy-the-bdm.md).  
+Special attention is paid on performance matters.
 
 Image below shows the BDM model used for the example use-case:
 
 ![BDM model used](images/bdm_model_for_rest_api_01.png)
 
-Note that the relations from car to wheel1, wheel2, wheel3, wheel4 are **[lazy](define-and-deploy-the-bdm.md#lazy_eager_loading) relations**, meaning that the Wheels are **not retrieved** directly when retrieving
-a Car. The retrieval of related Wheel objects is only done **when accessing the fields** (via getWheel1(), ...).
+Note that the relations from car to wheel1, wheel2, wheel3, wheel4 are **[lazy](define-and-deploy-the-bdm.md#lazy_eager_loading) relations**.
 
 ## groovy code sample
 
@@ -63,10 +62,15 @@ class CarManagement implements RestApiController {
 }
 ```
 ::: warning
-Be aware that if the number of Business Data returned is very large and that you have lazy relations in the returned objects, all lazy-relation fields are implicitly fetch
-when building the Json response, meaning that numerous queries are executed to fetch those relations, leading to poor performance.  
-If related objects are not necessary in the response, ONLY extract the information needed.  
-If related objects should always be returned in the response, consider setting the relation to ['eager' instead of 'lazy'](define-and-deploy-the-bdm.md#lazy_eager_loading) in the model.
+Since wheel1, wheel2, wheel3, wheel4 are lazy relations, they are **not retrieved** directly when retrieving a Car.
+The retrieval of related Wheel objects is only performed **when accessing the fields** (via getWheel1(), ...), if necessary.
+
+However, when building the response, the default Json parser **implicitly fetches** all lazy-relation fields.
+So, if the number of Business Data returned is very large and if you have lazy relations in the returned objects, numerous queries are executed, leading to poor performance.
+
+As a consequence, good practices are:
+* If related objects are not necessary in the response, ONLY extract the information needed. This avoids costly loading of unnecessary objects.
+* If related objects should always be returned in the response, consider changing the relation from ['eager' to 'lazy'](define-and-deploy-the-bdm.md#lazy_eager_loading) in the model.
 :::
 
 ## Rest API Response content

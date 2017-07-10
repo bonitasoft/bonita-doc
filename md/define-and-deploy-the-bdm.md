@@ -320,3 +320,7 @@ You can however manipulate the business object outside the connector, and use bu
 * For a _**read**_, retrieve the business object with an expression (for example, `employeeDAO.findByFirstNameAndLastName("William","Jobs")`. Then use the object as input to the connector.
 * For a _**create**_ or _**update**_, return the new or updated business object as output of the connector.
 Then use the business object (which is stored only in memory at this point) in an **operation** to update the business object in the business database, persisting the change.
+
+#### BDM and custom REST APIs
+
+Be aware that a poor implementation of a custom REST API accessing BDM objects can lead to poor performance results. See the [best practice](bdm-in-rest-api.md) on this matter.

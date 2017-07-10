@@ -183,6 +183,12 @@ The REST API extension can be used in forms and pages in the **UI Designer** usi
 
 You can download the [REST API extension described in the tutorial above](https://github.com/Bonitasoft-Community/rest-api-user-information) or check [data source REST API extension](http://community.bonitasoft.com/project/data-source-rest-api-extension) as a reference.
 
+
+## BDM and Performance matters
+
+Be aware that a poor implementation of a custom REST API accessing BDM objects can lead to poor performance results. See the [best practice](bdm-in-rest-api.md) on this matter.
+
+
 ## Troubleshooting
 
 * I get the following stacktrace when using Java 8 Date types (LocalDate, LocalDateTime...) in my Rest API Extension
