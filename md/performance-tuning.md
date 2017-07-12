@@ -245,7 +245,7 @@ You need to configure the maximum pool size for datasources (the following paths
 
 For Tomcat:
 
-* For bonitaSequenceManagerDS, edit `conf/Catalina/localhost/bonita.xml` and set `maxActive=”yourvalue”`.
+* For bonitaSequenceManagerDS, edit `conf/Catalina/localhost/bonita.xml` and set `maxTotal=”yourvalue”`.
 * For bonitaDS, edit `conf/bitronix-resources.properties` and set `resource.ds1.maxPoolSize=”yourvalue”`.
 
 For WildFly:
