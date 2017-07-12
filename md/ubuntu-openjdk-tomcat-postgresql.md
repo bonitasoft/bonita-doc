@@ -126,7 +126,7 @@ To define JVM system properties, you need to use a new file named `setenv.sh`:
 Bonita needs extra libraries such as Bitronix, in order to run on Tomcat:
 
 * Change to the Deploy bundle Tomcat lib folder: `cd ~/BonitaSubscription-x.y.z-deploy/Tomcat-8.5.z/lib`, where "y.z" stands for the last digits of the product version
-* Copy the libraries (.jar files) from the Deploy bundle to your Tomcat folder: `sudo cp bonita-tomcat-valve-7.y.z.jar btm-2.1.3.jar btm-tomcat55-lifecycle-2.1.3.jar jta-1.1.jar slf4j-api-1.6.1.jar slf4j-jdk14-1.6.1.jar /usr/share/tomcat8/lib/` (carefully check and replace with the product versions you currently have)
+* Copy the libraries (.jar files) from the Deploy bundle to your Tomcat folder: `sudo cp btm-2.1.3.jar btm-tomcat55-lifecycle-2.1.3.jar jta-1.1.jar slf4j-api-1.6.1.jar slf4j-jdk14-1.6.1.jar /usr/share/tomcat8/lib/` (carefully check and replace with the product versions you currently have)
 
 ### Configure Bonita to use PostgreSQL
 
