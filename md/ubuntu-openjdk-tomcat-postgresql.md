@@ -72,11 +72,49 @@ Prepared transactions is disabled by default in PostgreSQL. You need to enable i
 
 ### Install Tomcat 8.5
 
-To install the Apache Tomcat 8.5 you need to install the `tomcat8` package:
+Run the following command lines:
 
-* Run the following command line: `sudo aptitude install tomcat8`
-* If needed, type your Ubuntu user password
-* Type **Enter ** to confirm that you want to continue installation
+* `sudo aptitude install curl`
+* `cd /tmp/`
+* `curl -O http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.16/bin/apache-tomcat-8.5.16.tar.gz`
+* `sudo tar xzvf apache-tomcat-8.5.16.tar.gz -C /usr/share/tomcat8 --strip-components=1`
+
+Tomcat 8.5 should now be installed on your computer. Now you should enable tomcat to be run as a service
+
+* `sudo vi /etc/systemd/system/tomcat.service`
+* Copy the following code into the file
+```
+[Unit]
+Description=Apache Tomcat Web Application Container
+After=network.target
+
+[Service]
+Type=forking
+
+Environment=JAVA_HOME=Your Java Home
+Environment=CATALINA_PID=/usr/share/tomcat/temp/tomcat.pid
+Environment=CATALINA_HOME=/usr/share/tomcat
+Environment=CATALINA_BASE=/usr/share/tomcat
+Environment='CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC'
+Environment='JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom'
+
+ExecStart=/usr/share/tomcat/bin/startup.sh
+ExecStop=/usr/share/tomcat/bin/shutdown.sh
+
+User=yourUser
+Group=yourGroup
+UMask=0007
+RestartSec=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+* Save and close the file
+* Reload the systemd daemon: `sudo systemctl daemon-reload`
+
+In case of problems with this part refer to the documentations pages [How to Install and Configure Apache Tomcat 8.5 on Ubuntu 16.04](https://www.howtoforge.com/tutorial/how-to-install-apache-tomcat-8-5-on-ubuntu-16-04/)
 
 ### Add JDBC driver
 
