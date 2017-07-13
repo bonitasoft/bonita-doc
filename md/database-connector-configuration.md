@@ -27,7 +27,7 @@ The Graphical mode does not require scripting. Click _**Next**_.
 ## How to configure a datasource connector
 
 Before you can configure the datasource connector, you need to configure the datasource itself, which is done in the application server.  
-Follow the instructions in your application server documentation. [See here for an example using Tomcat with PostgreSQL.](http://tomcat.apache.org/tomcat-7.0-doc/jndi-datasource-examples-howto.html#PostgreSQL)  
+Follow the instructions in your application server documentation. [See here for an example using Tomcat with PostgreSQL.](http://tomcat.apache.org/tomcat-8.5-doc/jndi-datasource-examples-howto.html#PostgreSQL)  
 Configure the connections of the datasource to be created with auto commit set to true.  
 Make sure that all elements using connections return them to the pool with auto commit still set to true.
 

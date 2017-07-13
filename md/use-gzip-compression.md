@@ -35,7 +35,7 @@ compressableMimeType="Z"
 | compressableMimeType | The MIME types of the resources to be compressed. We recommend that all text files be compressed. | text/html,text/xml |
 
 If you use the Tomcat bundle, the file to edit is `conf/server.xml`.
-If you use a different package, use the corresponding path; for example on Ubuntu the file is located in `/etc/tomcat7/server.xml`.
+If you use a different package, use the corresponding path; for example on Ubuntu the file is located in `/etc/tomcat8/server.xml`.
 
 Connector configuration:
 ```xml

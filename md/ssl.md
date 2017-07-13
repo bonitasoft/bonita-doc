@@ -134,7 +134,7 @@ reqadd X-Forwarded-Proto:\ https
 
 Note: Make sure that the regular expression set with `internalProxies` matches your IP addresses.
 
-As explained by the [RemoteIpValve documentation](https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html): 
+As explained by the [RemoteIpValve documentation](https://tomcat.apache.org/tomcat-8.5-doc/api/org/apache/catalina/valves/RemoteIpValve.html): 
 "This valve replaces the apparent client remote IP address and hostname for the request with the IP address list presented by a proxy or a load balancer via a request headers (e.g. "X-Forwarded-For"). 
 Another feature of this valve is to replace the apparent scheme (http/https) and server port with the scheme presented by a proxy or a load balancer via a request header (e.g. "X-Forwarded-Proto")."
 3. If you use the AccessLogValve, edit `conf/server.xml` and set `requestAttributesEnabled="true"`:

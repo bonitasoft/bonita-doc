@@ -84,4 +84,4 @@ The Tomcat configuration files are located in the Bonita Studio `workspace/tomca
 * To change a port number, edit `server.xml`. 
 * To add a data source, edit `context.xml` or `workspace/tomcat/conf/Catalina/localhost/bonita.xml`.
 
-For more details, see the [Tomcat documentation](http://tomcat.apache.org/tomcat-7.0-doc/).
+For more details, see the [Tomcat documentation](http://tomcat.apache.org/tomcat-8.5-doc/).

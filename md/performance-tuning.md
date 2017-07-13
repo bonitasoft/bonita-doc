@@ -137,7 +137,7 @@ If you are running Bonita Engine inside a container, the maximum number of clien
 
 * **Apache Tomcat** `maxThreads` set in _`Tomcat_folder`_`/conf/server.xml`.    
      Default value 20\. 
-     See the [Tomcat documentation](http://tomcat.apache.org/tomcat-7.0-doc/) for information about the `maxThreads` parameter.
+     See the [Tomcat documentation](http://tomcat.apache.org/tomcat-8.5-doc/) for information about the `maxThreads` parameter.
 * **Red Hat WildFly** : add the attributes `io-threads="10"` and `task-max-threads="20"` in the _default_ *worker* element in the io subdomain in `<WILDFLY_HOME>/standalone/configuration/standalone.xml`.  
      The WildFly administrator guide lacks some information about advanced worker configuration. Undertow (WildFly web service handler) relies on the [XNIO API](http://docs.jboss.org/xnio/3.0/api/org/xnio/Options.html) for creating Worker threads. See [IO Worker configuration for Undertow](https://developer.jboss.org/thread/241230?start=0&tstart=0) for information about worker configuration.
 
@@ -245,7 +245,7 @@ You need to configure the maximum pool size for datasources (the following paths
 
 For Tomcat:
 
-* For bonitaSequenceManagerDS, edit `conf/Catalina/localhost/bonita.xml` and set `maxActive=”yourvalue”`.
+* For bonitaSequenceManagerDS, edit `conf/Catalina/localhost/bonita.xml` and set `maxTotal=”yourvalue”`.
 * For bonitaDS, edit `conf/bitronix-resources.properties` and set `resource.ds1.maxPoolSize=”yourvalue”`.
 
 For WildFly:
