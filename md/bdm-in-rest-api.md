@@ -1,4 +1,4 @@
-# How to manage BDM in custom REST APIs
+# How to manage BDM in REST API extensions
 
 ## Use case
 
@@ -13,7 +13,7 @@ Note that the relations from car to wheel1, wheel2, wheel3, wheel4 are **[lazy](
 
 ## groovy code sample
 
-Below is an example of a custom REST API groovy script that accesses the Business Data model.
+Below is an example of a REST API extension groovy script that accesses the Business Data model.
 
 ```groovy
 
