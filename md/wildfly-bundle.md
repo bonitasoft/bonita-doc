@@ -119,7 +119,7 @@ For production, you are recommended to use one of the supported databases, with 
 
 1. Make sure [your databases are created](database-configuration.md#database_creation) and [customized to work with Bonita](database-configuration.md#specific_database_configuration).
 2. Edit file `<WILDFLY_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita internal database & Business Data database)
-3. If you use **Microsoft SQL Server** or **Oracle** database, copy your database drivers in `<WILDFLY_HOME>/setup/lib` folder. 
+3. If you use **Microsoft SQL Server** or **Oracle** database, copy your [jdbc driver](database-configuration.md#proprietary_jdbc_drivers) in `<WILDFLY_HOME>/setup/lib` folder. 
 4. Run `<WILDFLY_HOME>\start-bonita.bat` (Windows system) or `<WILDFLY_HOME>/start-bonita.sh (Unix system)` to run Bonita WildFly bundle (see [WildFly start script](#wildfly_start))
 
 ::: info
@@ -207,5 +207,13 @@ For Oracle, rename it so that the name contains at least the word `oracle` or `o
 **Cause**: Bonita 7.4+ WildFly bundle requires Java 1.8 to run
 
 **Solution**: Ensure your running environment has a JDK or JRE 1.8 installed and set either JAVA or JAVA_HOME environment variable to point to it.
+
+---
+
+**Issue**: When I start the Wildfly bundle configured to use a **Microsoft SQL Server** database, I get the error message `java.lang.NoClassDefFoundError: javax/xml/bind/DatatypeConverter`
+
+**Cause**: The WildFly configuration has not been properly updated
+
+**Solution**: In the _<WILDFLY_HOME>/server/modules/com/sqlserver/main/module.xml_ file, add `<module name="javax.xml.bind.api"/>` in the list of dependencies
 
 ---

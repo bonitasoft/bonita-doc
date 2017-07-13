@@ -48,6 +48,26 @@ A new local repository is created. A new directory with the same name as the rep
 
 In Bonita Studio, you can see the new repository name shown at the top left, in the title bar.
 
+### Export/Import a repository
+
+You can export all the content from a repository for exchange or backup purposes:
+
+1. Click on **Diagram** > **Export...**
+1. Click  on **Select All** to embed all the repository content into the BOS archive. 
+1. Choose a location on your local drive to store the archive and click on **Finish**
+
+The exported archive can then be shared with other Studio of the same or newer version.
+
+To import a BOS archive:
+
+1. Click on **Diagram** > **Import** >  **BOS Archive...**
+1. Choose the location of the archive on your local drive
+1. In Subscription, you can choose the target repository of the imported content
+1. Handle conflicting files if any
+1. Click on **Import**
+
+You can retrieve the whole content of a Studio workspace by exporting all its repositories and importing them into another Studio.
+
 ## Use a shared repository
 
 A shared repository is a repository on an SVN server. It can be accessed by members of the team working on a process definition.  

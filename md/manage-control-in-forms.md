@@ -186,7 +186,7 @@ Then, to change the default style of the **p** html tag and have a little more m
 ```
 
 Go back to the home page, and then open the leave request form again.
-From the palette, add a **title** widget to the top of the form. In the **text** property, write _Leave request_.  
+From the palette, change the **title** widget at the top of the form. In the **text** property, write _Leave request_.  
 In the palette on the left, select **Fragments**, and then drag and drop the fragment just created below the form title, as shown here (from the preview):
 
 ![Leave request - filling invalid form with error panel](images/GeneratedForm-preview-summary-error.png)

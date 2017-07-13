@@ -23,16 +23,15 @@
 ### API removals
   
 ## Breaking changes
-
  
 ### Forms, pages, layouts CSS cleaned
-
 
 ## Limitations and known issues
 
 ## Bug fixes
 
 ### Fixes in Bonita BPM 7.6
+
 
 #### Fixes in Documentation
 
