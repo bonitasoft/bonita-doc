@@ -2873,11 +2873,25 @@ See [Start a process using an instantiation contract](#start-a-process-using-an-
 #### Delete a case
 
 * **URL**  
-  `/API/bpm/case`  
+  `/API/bpm/case/:caseId`  
 * **Method**  
   `DELETE`
 * **Success Response**  
   * **Code**: 200
+  
+#### Delete cases in bulk
+
+* **URL**  
+  `/API/bpm/case/`  
+* **Method**  
+  `DELETE`
+* **Request Payload**
+  List of case ids to delete
+   ```json
+  ["1", "2" ,...]
+  ```
+* **Success Response**  
+  * **Code**: 200  
 
 <a id="retrieve-the-case-context" />
 
