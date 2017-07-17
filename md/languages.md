@@ -41,7 +41,7 @@ Instructions below explain how to add a language to Bonita Portal. Steps below i
 1. For Subscription editions, you also need to get the files from `${varVersion}.x/bonita-web-sp/portal` folder.
 1. Copy all the `.po/.pot` files to a new folder of your choice, preferably in a sub-folder inside your bundle. E.g. `[TOMCAT_INSTALL_FOLDER]/i18n/`. For Bonita Studio, Tomcat installation folder is located in `workspace/tomcat`.
 1. Declare a new JVM property "org.bonitasoft.i18n.folder" and set the value to the full path to `i18n` folder:
-    * For Tomcat embedded in Bonita Studio edit the appropriate **.ini** file (e.g. **BonitaBPMCommunity64.ini** for Windows 64bit) and use the following syntax: `-Dtomcat.extra.params="-Dorg.bonitasoft.i18n.folder=C:\path\to_i18n\folder"`
+    * For Tomcat embedded in Bonita Studio edit the appropriate **.ini** file (e.g. **BonitaStudioCommunity64.ini** for Windows 64bit) and use the following syntax: `-Dtomcat.extra.params="-Dorg.bonitasoft.i18n.folder=C:\path\to_i18n\folder"`
     * For Tomcat on Windows edit **setenv.bat**
     * For Tomcat on Linux edit **setenv.sh**
     * For WildFly on Windows edit **standalone.conf.bat**

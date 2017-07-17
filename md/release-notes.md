@@ -30,7 +30,7 @@
 
 ## Bug fixes
 
-### Fixes in Bonita BPM 7.6
+### Fixes in Bonita 7.6
 
 
 #### Fixes in Documentation

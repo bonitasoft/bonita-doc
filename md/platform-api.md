@@ -231,7 +231,7 @@ empty
   "duration": integer - number of days for license file validity,
   "licenseExpirationDate": date with format "yyyy-MM-dd" - last day (included) of license file validity,
   "numberOfCPUCores": integer - number of CPUs
-  "edition": name of the BonitaBPM edition enabled by the license
+  "edition": name of the Bonita edition enabled by the license
   "licenseMode": available mode enabled by the license
   "requestKey": request key to use to generate a new license on the customer portal
 

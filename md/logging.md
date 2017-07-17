@@ -93,7 +93,7 @@ The log file location depends on your application server.
 #### Packages
 
 Logs are configured via the class package names and the main packages are `org.bonitasoft` and `com.bonitasoft` for subscription edition.  
-Change these packages value to change the BonitaBPM global log level.
+Change these packages value to change the Bonita global log level.
 
 #### Tomcat
 
@@ -108,7 +108,7 @@ Each file name includes the date when the file was created. There are several lo
 
 On a WildFly bundle, logs can be configured in the `$WILDFLY_HOME/standalone/configuration/standalone.xml` in the `urn:jboss:domain:logging:3.0` _domain_ of the **subsystem** tag.
 
-Edit the **logger** tags which category matches BonitaBPM main package: change the **level** _name_ attribute of each **logger** section you want to change the log level.
+Edit the **logger** tags which category matches Bonita main package: change the **level** _name_ attribute of each **logger** section you want to change the log level.
 
 Log files are located in the `log` folder of the launched configuration.  
 Usually, the standalone configuration is run so the log files are located in the `$WILDFLY_HOME/standalone/log` folder.

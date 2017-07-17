@@ -63,7 +63,7 @@ TITLE MUST respect the following format: `<type>(<scope>): <subject>`
  
  * E.g. "style(Business Data): fix display of the supported RDBMS matrix table"
  * E.g. "feat(APIs): provide code sample to show usage of Living Application creation"
- * E.g. "feat(dates): describe step by step tutorial on Date types in Bonita BPM"
+ * E.g. "feat(dates): describe step by step tutorial on Date types in Bonita"
 
 #### Description
 
@@ -71,7 +71,7 @@ If needed, description allow a more detailed explanation on why this change is b
 You can write as many lines of description as needed:
 
 * E.g.:
-   "This change is part of a larger scale rewriting of how to deal with Dates in Bonita BPM.  
+   "This change is part of a larger scale rewriting of how to deal with Dates in Bonita.  
    Usage has proven that the feature was not correctly understood.  
    This article tends to start over on the date notions and how to use them."
 
