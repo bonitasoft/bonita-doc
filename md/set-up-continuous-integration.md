@@ -46,12 +46,12 @@ All example scripts given on this page are compatible with Unix-like operating s
 
 1. Prepare Bonita Studio on the CI server: Bonita Studio includes a BonitaStudioBuilder script to build processes in a CI environment. Install Bonita Studio as follows:  
   1. Download the OS-independent package (zip) from the Customer Portal. For example use BonitaBPMSubscription-6.1.0.zip for version 6.1.0\. You must have the same version of Bonita Studio for the shared repository and the CI server.    
-  2. Extract the package to a permanent location on the CI server: `$> unzip -d /path/to/BonitaBPMStudio BonitaBPMSubscription-6.1.0.zip`  
-  3. Install your license (a license must have been requested for CI server): `$> cp license.lic /path/to/BonitaBPMStudio/BonitaBPMSubscription-6.1.0/lic_folder/`
+  2. Extract the package to a permanent location on the CI server: `$> unzip -d /path/to/BonitaStudio BonitaBPMSubscription-6.1.0.zip`  
+  3. Install your license (a license must have been requested for CI server): `$> cp license.lic /path/to/BonitaStudio/BonitaBPMSubscription-6.1.0/lic_folder/`
 
   You are recommended to install a window manager on the CI server in order to have process diagram screenshots generated along with business archives.  
 
-2. Create Jenkins job: In Jenkins, create a new job of type "Build a free-style software project". Specify a job name for example "BonitaBPM-BuildProcesses".  
+2. Create Jenkins job: In Jenkins, create a new job of type "Build a free-style software project". Specify a job name for example "Bonita-BuildProcesses".  
 
 3. Configure Jenkins job:   
    1. Check out your process repository from Subversion. To do this, configure the "Source Code Management" section to retrieve (check out) your Subversion process shared repository. Specify the repository URL, and optionally your local repository. We recommend that you set teh check-out strategy to _Use 'svn update' as much as possible_.  
@@ -67,11 +67,11 @@ All example scripts given on this page are compatible with Unix-like operating s
 	echo ""
 	
 	echo "##### Clean BonitaStudioBuilder workspace before each execution"
-	rm -Rf /path/to/BonitaBPMStudio/workspace
+	rm -Rf /path/to/BonitaStudio/workspace
 	echo ""
 	
 	echo "##### Execute BonitaStudioBuilder for all processes"
-	cd /path/to/BonitaBPMStudio/..
+	cd /path/to/BonitaStudio/..
 	./BonitaStudio/workspace_api_scripts/BonitaStudioBuilder.sh-repoPath=$WORKSPACE/process-repository-outputFolder=$WORKSPACE/process-bars -buildAll -environment=CI
 	
 	echo "##### Package generated business archives"

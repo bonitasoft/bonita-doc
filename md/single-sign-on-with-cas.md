@@ -177,7 +177,7 @@ Then, use the [`LoginAPI`](http://documentation.bonitasoft.com/javadoc/api/${var
 
 #### Cluster considerations and bonita webapp for Tomcat
 
-If you are configuring Bonita BPM and Tomcat in a cluster environment for CAS, there are some extra steps to do:
+If you are configuring Bonita and Tomcat in a cluster environment for CAS, there are some extra steps to do:
 
 1. Copy `commons-logging-1.1.1.jar` from the `BonitaBPMSubscription-7.3.x-deploy` into `tomcat/lib`.
 2. Remove the `WEB-INF/lib/commons-logging-1.1.1.jar` file from the `tomcat/webapps/bonita.war`.

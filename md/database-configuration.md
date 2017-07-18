@@ -46,7 +46,7 @@ We recommend that you use the WildFly bundle provided by Bonitasoft.
 
 ### Proprietary Jdbc drivers
 
-Bonita BPM provides out of the box the Jdbc drivers for H2, PostgreSQL and MySQL. For other RDBMS, you have to retrieve the related Jdbc drivers.  
+Bonita provides out of the box the Jdbc drivers for H2, PostgreSQL and MySQL. For other RDBMS, you have to retrieve the related Jdbc drivers.  
 
 #### SQL Server
 
