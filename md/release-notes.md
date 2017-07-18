@@ -25,6 +25,9 @@
 ## Breaking changes
  
 ### Forms, pages, layouts CSS cleaned
+* Application layout performance improvement. It now allows to navigate between pages without reloading the entire page.  
+  See how to [update your custom layout](customize-living-application-layout.md#improve-navigation) to take benefit of this improvement.
+
 
 ## Limitations and known issues
 

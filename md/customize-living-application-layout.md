@@ -138,3 +138,26 @@ Those variables are responsible of the SEVERE error logs on server.
 7. On Bonita Portal server edit the layout and import the newly exported layout  
 8. confirm all the messages  
 9. Validate that your application has a layout that fits your requirements. 
+
+<a id="improve-navigation"/>
+
+### Navigate between pages without reloading the entire page.
+
+This improvement has been released in the 7.6.0 version.  
+When we click on any menu item, that only refresh the content of the iframe with the targeted page. It does not reload the entire page anymore.  
+You can take benefit of this improvement in an older customized layout. To do this, you will need to follow those steps:
+
+1. Import the CustomLayout_7.5.x(or lower) in UIDesigner 7.6.0  
+2. Export the 7.6.0 default layout from Bonita Portal  
+3. Import the 7.6.0 default layout in UIDesigner 7.6.0  
+4. Open the CustomLayout_7.5.x(or lower) 
+5. If any of the custom widgets **livingApplicationMenu** or **livingApplicationIFrame** has been modified,  
+you will need report those modifications into the new version of those widgets that are **livingApplicationMenuV3** and **livingApplicationIFrameV3**  
+(a good practice should be to rename those widget in something like **myCustomizedMenuV3** and **myCustomizedIFrameV3**)
+6. Replace the custom widget **livingApplicationMenu** by the new custom widget **livingApplicationMenuV3** (or by the modified one **myCustomizedMenuV3**) 
+7. Replace the custom widget **livingApplicationIFrame** by the new custom widget **livingApplicationIFrameV3**  (or by the modified one **myCustomizedIFrameV3**) 
+8. On Bonita Portal server edit the layout and import the newly exported layout  
+9. confirm all the messages  
+10. Validate that your application has a layout that fits your requirements and the new menu behaviour. 
+
+ 
