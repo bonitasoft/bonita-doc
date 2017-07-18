@@ -122,7 +122,14 @@ When you create a process that uses a business object with a composition or aggr
 
 #### Loading
 
-There are two options for loading complex business objects, **lazy** or **eager**. With lazy loading, the parent object instance is loaded, but child object instances are loaded only when they are needed. With eager loading, child object instances are loaded when the parent object instance is loaded. The default is lazy loading. You can override this for any business object by configuring it to use eager loading when you specify the object relationship properties. This means that the specified object and all objects related to it by composition or aggregation relationships are loaded. There is an overhead for the additional data load and maintenance of the information in memory, but there is a saving in data access time because the data is already loaded.
+There are two options for loading complex business objects, **lazy** or **eager**.
+With lazy loading, the parent object instance is loaded, but child object instances are loaded only when they are needed.
+With eager loading, child object instances are loaded when the parent object instance is loaded.
+
+The default is lazy loading. You can override this for any business object by configuring it to use eager loading when you specify
+the object relationship properties. This means that the specified object and all objects related to it by composition or aggregation
+relationships are loaded.  
+There is an overhead for the additional data load and maintenance of the information in memory, but there is a saving in data access time because the data is already loaded.
 
 #### Multi-instantiation using business object variables in a list
 
@@ -134,7 +141,10 @@ You can use a list business object or variable to create multiple instances of a
 
 ## Define the BDM
 
-You define the BDM using Bonita Studio. It is automatically deployed to the built-in Bonita Engine and available to processes being run from Studio. This means that you can have a different BDM in each Studio during development, which enables you to test the BDM before deploying it in your tenant. However, if you are sharing diagrams and other artifacts in development, you need to synchronize BDM definitions, either by exporting your BDM manually for import into other development systems, or by using a shared repository (not available in the Community edition).
+You define the BDM using Bonita Studio. It is automatically deployed to the built-in Bonita Engine and available to processes being run from Studio.
+This means that you can have a different BDM in each Studio during development, which enables you to test the BDM before deploying it in your tenant.
+However, if you are sharing diagrams and other artifacts in development, you need to synchronize BDM definitions, either by exporting your BDM manually for import
+into other development systems, or by using a shared repository (not available in the Community edition).
 
 To define the BDM, go to the Bonita Studio **Development** menu, **BDM**, and choose **Manage**. The current BDM definition is displayed. Specify the package name for the BDM in the field below the **List of Business Objects**.
 
@@ -155,6 +165,11 @@ To modify a new or existing object:
    3. If the attribute is multi-valued, check the box in the **Multiple** column.
    4. If the attribute is mandatory, check the box in the **Mandatory** column.
    5. If the attribute is of type String, set the attribute length in the field below the attribute list.
+   6. If the attribute is of type of a BDM object, set type the **Relationship** (Aggregation or Composition) and the loading configuration
+
+![BDM model relationship](images/studio_bdm_relationship.png)
+
+
 4. In the **Unique constraints** tab, specify the attributes and sets of attributes that have a uniqueness constraint.
    1. Click **_Add_** to add a constraint. The constraint is added to the list with a temporary name.
    2. Click the name of the new constraint to select it, and specify the name you want to use by typing over the temporary name.
@@ -176,7 +191,7 @@ To modify a new or existing object:
    4. In the popup, specify the attributes that you want indexed. To specify an attribute to index, select the attribute in the **Available attributes** list and click **_Add_**.
    5. Use the **_Add_**, **_Remove_**, **_Up_** and **_Down_** buttons to specify the index attributes in order.
 7. Click **_OK_** to close the popup. The index is saved.
-8. * Click **_Finish_** to save the business data model, which saves all the objects and create BDM database structure. A confirmation dialog will ask to optionally reset BDM database. Reset database is required when changes impact the mandatory or multiple setting for an attribute, a unique constraint, or when a non primitive attribute type is modified.
+8. Click **_Finish_** to save the business data model, which saves all the objects and create BDM database structure. A confirmation dialog will ask to optionally reset BDM database. Reset database is required when changes impact the mandatory or multiple setting for an attribute, a unique constraint, or when a non primitive attribute type is modified.
 
 ## Export the BDM
 

@@ -68,7 +68,9 @@ The retrieval of related Wheel objects is only performed **when accessing the fi
 However, when building the response, the default Json parser **implicitly fetches** all lazy-relation fields.
 So, if the number of Business Data returned is very large and if you have lazy relations in the returned objects, numerous queries are executed, leading to poor performance.
 
-As a consequence, good practices are:
+&nbsp;
+
+As a consequence, **good practices** are:
 * If related objects are not necessary in the response, ONLY extract the information needed. This avoids costly loading of unnecessary objects.
 * If related objects should always be returned in the response, consider changing the relation from ['eager' to 'lazy'](define-and-deploy-the-bdm.md#lazy_eager_loading) in the model.
 :::
