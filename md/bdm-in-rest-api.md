@@ -9,7 +9,7 @@ Image below shows the BDM model used for the example use-case:
 
 ![BDM model used](images/bdm_model_for_rest_api_01.png)
 
-Note that the relations from car to wheel1, wheel2, wheel3, wheel4 are **[lazy](define-and-deploy-the-bdm.md#lazy_eager_loading) relations**.
+Note that the relationships from car to wheel1, wheel2, wheel3, wheel4 are **[lazy](define-and-deploy-the-bdm.md#lazy_eager_loading) loaded**.
 
 ## groovy code sample
 
@@ -46,7 +46,7 @@ class CarManagement implements RestApiController {
         List<Car> cars = carDAO.findByModel(currentModel, p as int, c as int)
         
         // Prepare the Json result:
-        // Do NOT return directly the list "cars", as all Wheel objects would be fetched one by one (lazy relation). 
+        // Do NOT return directly the list "cars", as the entire list of Wheel objects would be fetched by lazy loading.
         // Instead, ONLY select the fields that are necessary for your business logic:
         def carModels = [:]
         for (Car car : cars) {
@@ -62,17 +62,17 @@ class CarManagement implements RestApiController {
 }
 ```
 ::: warning
-Since wheel1, wheel2, wheel3, wheel4 are lazy relations, they are **not retrieved** directly when retrieving a Car.
+Since wheel1, wheel2, wheel3, wheel4 are lazy loaded, they are **not retrieved** directly when retrieving a Car.
 The retrieval of related Wheel objects is only performed **when accessing the fields** (via getWheel1(), ...), if necessary.
 
-However, when building the response, the default Json parser **implicitly fetches** all lazy-relation fields.
-So, if the number of Business Data returned is very large and if you have lazy relations in the returned objects, numerous queries are executed, leading to poor performance.
+However, when building the response, the default Json parser **implicitly fetches** all lazy loaded fields.
+So, if a large number of Business Data is returned and if you have lazy loaded fields in the returned objects, numerous queries are executed, leading to poor performance.
 
 &nbsp;
 
 As a consequence, **good practices** are:
-* If related objects are not necessary in the response, ONLY extract the information needed. This avoids costly loading of unnecessary objects.
-* If related objects should always be returned in the response, consider changing the relation from ['eager' to 'lazy'](define-and-deploy-the-bdm.md#lazy_eager_loading) in the model.
+* If lazy loaded objects are not necessary in the response, ONLY extract the information needed. This avoids costly loading of unnecessary objects.
+* If lazy loaded objects should always be returned in the response, consider changing the relation from ['lazy' to 'eager'](define-and-deploy-the-bdm.md#lazy_eager_loading) in the model.
 :::
 
 ## Rest API Response content
@@ -119,5 +119,6 @@ Below is an example of the resulting response:
 ```
 
 ::: info
-Note that Wheels are not returned. Only necessary information is fetched, thus this example performance is efficient
+Note that Wheels are not returned, only necessary information is fetched
+As a result, performance is efficient
 :::
