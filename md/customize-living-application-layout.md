@@ -1,11 +1,11 @@
-# Customize living application layout
+# Customize the living application layout
 
 ::: info
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 
 ::: warning
-Since 7.3 we made some changes on the default layout. You will have to remove `layout.css` from the page asset to make the following instructions relevant.
+Since Bonita BPM 7.3, we have made some changes in the default layout. You will have to remove `layout.css` from the page asset to make the following instructions relevant.
 :::
 
  ## Overview
@@ -28,7 +28,7 @@ Prerequisites to customize the default living application layout:
 
 The following example shows how to convert the default top menu of an application into a side menu.  
 The example sections show how to:
-* Export the default application layout from the Bonita Portal
+* Export the default application layout from Bonita Portal
 * Import the default application layout into the UI Designer
 * Modify this layout
 * Apply the customized layout onto a living application.
@@ -38,30 +38,30 @@ The example sections show how to:
 1. Open Bonita Portal, and log in with username and password of someone mapped to the Administrator profile.
 2. Click on the **Resources** menu.
 3. Select the filter **Layouts**.
-4. Select the element **Default layout**.
-5. Click on **Export** and save this **Default layout** on your file system.
+4. Select the element _Default layout_.
+5. Click on **Export** and save this _Default layout_ on your file system.
 
 ## Import the default application layout into the UI Designer
 
-To facilitate the modifications, the **default layout** is built using the UI Designer. Then you just have to import it into the UI Designer to make changes.
+To facilitate the modifications, the _Default layout_ is built using the UI Designer. Therefore you just have to import it into the UI Designer to make changes.
 
 1. Open the UI Designer.
 2. Click on the **Import** button.
-3. Retrieve the **Default layout** to import.
+3. Retrieve the _Default layout_ to import.
 
 ## Edit the default layout using the UI Designer
 
-When you import the **Default layout** into the UI Designer, you can see that it generates three artefacts:
+When you import the _Default layout_ into the UI Designer, you can see that it generates three artefacts:
 
-1. **Living application layout page**.
-2. **Living application IFrame** widget to display the application page.
-3. **Living application menu** widget to display the application menu.
+1. _Living application layout page_.
+2. _Living application IFrame_ widget to display the application page.
+3. _Living application menu_ widget to display the application menu.
 
-So we propose here to convert the **Living application menu** into a side menu.
+So we propose here to convert the _Living application menu_ into a side menu.
 
-Into the UI Designer:
+In the UI Designer:
 
-1. Click on **Living application menu** widget to open the widget editor.
+1. Click on _Living application menu_ widget to open the widget editor.
 2. Replace the template by using the following one:
 ```html
 <div class="container" style="height:100%">
@@ -86,26 +86,26 @@ Into the UI Designer:
 ```
 3. Click on **Save**.
 4. Return to the UI Designer home page.
-5. Click on **Living application layout page**.
-6. Drag and drop the existing **living application Menu** on the left side of the **living application IFrame**.
-7. Resize the **living Application Menu** by setting the width to 2\.
-8. Resize the **living Application IFrame** by setting the width to 10\.
+5. Click on _Living application layout page_.
+6. Drag and drop the existing _living application Menu_ on the left side of the _living application IFrame_.
+7. Resize the _living Application Menu_ by setting the width to _2_.
+8. Resize the _living Application IFrame_ by setting the width to _10_.
 9. Click on **Save**.
 
 ## Export the Side menu layout on your file system
 
 Once your changes are made, save the new layout using a new name and then export it.
 
-1. Rename it into **SideMenuLayout**.
+1. Rename it into _SideMenuLayout_.
 2. Click on **Save**.
 3. Click on the **Export** button.
 
-## Import the **Side Menu Layout** into the portal
+## Import the _Side Menu Layout_ into the portal
 
-1. Open the Bonita Portal, and again log in with username and password of someone mapped to the Administrator profile.
+1. Open Bonita Portal, and again log in with username and password of someone mapped to the Administrator profile.
 2. Click on the **Resources** menu.
 3. Click on **Add**.
-4. Add the new **Side Menu Layout Page**.
+4. Add the new _Side Menu Layout Page_.
 5. Click **Next**.
 6. Click **Confirm**.
 
@@ -113,10 +113,10 @@ Once your changes are made, save the new layout using a new name and then export
 
 1. Click on the **Applications** menu.
 2. Click on the edit action **...** of your living application.
-3. In the **Look & Feel** section, click on the layout link
-4. Select the **Side Menu layout**
+3. In the **Look & Feel** section, click on the **Layout** link
+4. Select the _Side Menu layout_
 5. Click on the validation button
-6. In the application details section, click on the URL link to navigate to your living application.
+6. In the **Application details** section, click on the URL link to navigate to your living application.
 7. See your new application layout with a side menu.
 8. Feel free to add lots of new improvements to create the layout that fits your needs.
 
@@ -125,15 +125,14 @@ Once your changes are made, save the new layout using a new name and then export
 ### Living application layout log 3 error 500 on loading
 
 This issue has been fixed in the 7.3.0 version ("[BS-14885] - Living application layout log 3 error 500 on loading").
-If you want to import a custom layout created with an oldest UIDesigner version (7.2.x or lower) in a 7.3.0 (or greater) version, you have to perform the following
-steps to prevent the issue to occur.
+If you want to import a custom layout created with a UI Designer older than version 7.3.0 into an application working with Bonita 7.3.0 or greater, you have to perform the following steps to prevent the issue to occur:
 
-1. Import the CustomLayout_7.2.x in UIDesigner 7.3.3  
+1. Import the CustomLayout_7.2.x in UI Designer 7.3.3  
 2. Export the default layout from Bonita Portal  
-3. Import the default layout and confirm the overwrite of custom widgets  
-4. Open the CustomLayout_7.2.x Layout and remove the 3 variables AuthorizeApplicationAPI, AuthorizeApplicationPageAPI and AuthorizeApplicationMenuAPI (as shown below) 
+3. Import the default layout and confirm that custom widgets will be overwritten  
+4. Open the CustomLayout_7.2.x Layout and remove the 3 variables **AuthorizeApplicationAPI**, **AuthorizeApplicationPageAPI** and **AuthorizeApplicationMenuAPI** (as shown below) 
 Those variables are responsible of the SEVERE error logs on server.  
-5. Select the iFrame widget and set the reziseToContent option to yes  
+5. Select the iFrame widget and set the **reziseToContent** option to yes  
 6. Save then Export the layout (feel free to rename the layout if you want)  
 7. On Bonita Portal server edit the layout and import the newly exported layout  
 8. confirm all the messages  
@@ -143,21 +142,20 @@ Those variables are responsible of the SEVERE error logs on server.
 
 ### Navigate between pages without reloading the entire page.
 
-This improvement has been released in the 7.6.0 version.  
-When we click on any menu item, that only refresh the content of the iframe with the targeted page. It does not reload the entire page anymore.  
-You can take benefit of this improvement in an older customized layout. To do this, you will need to follow those steps:
+Starting with Bonita 7.6.0, when the user clicks on any menu item, only the content of the iframe with the targeted page is refreshed: it does not reload the entire page anymore.  
+To take advantage of this improvement if your customized layout has been created with a Bonita version older than 7.6.0, you will need to follow these steps:
 
-1. Import the CustomLayout_7.5.x(or lower) in UIDesigner 7.6.0  
-2. Export the 7.6.0 default layout from Bonita Portal  
-3. Import the 7.6.0 default layout in UIDesigner 7.6.0  
-4. Open the CustomLayout_7.5.x(or lower) 
-5. If any of the custom widgets **livingApplicationMenu** or **livingApplicationIFrame** has been modified,  
-you will need report those modifications into the new version of those widgets that are **livingApplicationMenuV3** and **livingApplicationIFrameV3**  
-(a good practice should be to rename those widget in something like **myCustomizedMenuV3** and **myCustomizedIFrameV3**)
-6. Replace the custom widget **livingApplicationMenu** by the new custom widget **livingApplicationMenuV3** (or by the modified one **myCustomizedMenuV3**) 
-7. Replace the custom widget **livingApplicationIFrame** by the new custom widget **livingApplicationIFrameV3**  (or by the modified one **myCustomizedIFrameV3**) 
-8. On Bonita Portal server edit the layout and import the newly exported layout  
-9. confirm all the messages  
+1. Import your _CustomLayout_7.5.x_ (or lower) in the UI Designer 7.6.0 (or later versions)
+2. Export the _Default layout_ from Bonita Portal 7.6.0 (or later versions)
+3. Import the _Default layout_ in the UI Designer
+4. Open your _CustomLayout_7.5.x_ 
+5. If any of the custom widgets _livingApplicationMenu_ or _livingApplicationIFrame_ has been modified,  
+you will need report those modifications into the new version of those widgets, namely _livingApplicationMenuV3_ and _livingApplicationIFrameV3_.
+Note: A good practice would be to rename those widgets into something like **myCustomizedMenuV3** and **myCustomizedIFrameV3**)
+6. Replace the custom widget **livingApplicationMenu** by the new custom widget **livingApplicationMenuV3** (or your **myCustomizedMenuV3**) 
+7. Replace the custom widget **livingApplicationIFrame** by the new custom widget **livingApplicationIFrameV3**  (or your **myCustomizedIFrameV3**) 
+8. On Bonita Portal server, edit the layout and import the newly exported layout  
+9. Confirm all messages  
 10. Validate that your application has a layout that fits your requirements and the new menu behaviour. 
 
  
