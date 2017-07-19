@@ -67,6 +67,19 @@ The retrieval of related Wheel objects is only performed **when accessing the fi
 
 However, when building the response, the default Json parser **implicitly fetches** all lazy loaded fields.
 So, if a large number of Business Data is returned and if you have lazy loaded fields in the returned objects, numerous queries are executed, leading to poor performance.
+For example, if you don't follow the code sample above and write :
+
+```groovy
+        def currentModel = "DeLorean"
+        // Fetch the cars that match the search criteria:
+        List<Car> cars = carDAO.findByModel(currentModel, p as int, c as int)
+        def result = [ "model" : currentModel,"number of cars" : cars.size(), "cars" : cars ]
+        return buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
+```
+
+The returned result will contain the fields persistenceId, buildYear and color of each car, allowing you to use these in your application(s). However, assuming you want to retrieve
+10 cars of the "Delorean" model, this code will execute a total of **41** "Select" requests in the database (1 request to get the cars, and then 4 separate request per car to fetch each one of the *wheel* fields to build the JSON response);
+while the "good" code written above will only make **a single request** in the database.
 
 &nbsp;
 
