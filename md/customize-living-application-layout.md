@@ -130,12 +130,12 @@ If you want to import a custom layout created with a UI Designer older than vers
 1. Import the CustomLayout_7.2.x in UI Designer 7.3.3  
 2. Export the default layout from Bonita Portal  
 3. Import the default layout and confirm that custom widgets will be overwritten  
-4. Open the CustomLayout_7.2.x Layout and remove the 3 variables **AuthorizeApplicationAPI**, **AuthorizeApplicationPageAPI** and **AuthorizeApplicationMenuAPI** (as shown below) 
+4. Open the CustomLayout_7.2.x Layout and remove the 3 variables _AuthorizeApplicationAPI_, _AuthorizeApplicationPageAPI_ and _AuthorizeApplicationMenuAPI_ (as shown below) 
 Those variables are responsible of the SEVERE error logs on server.  
-5. Select the iFrame widget and set the **reziseToContent** option to yes  
+5. Select the iFrame widget and set the **reziseToContent** option to _yes_  
 6. Save then Export the layout (feel free to rename the layout if you want)  
 7. On Bonita Portal server edit the layout and import the newly exported layout  
-8. confirm all the messages  
+8. Confirm all messages  
 9. Validate that your application has a layout that fits your requirements. 
 
 <a id="improve-navigation"/>
@@ -151,9 +151,9 @@ To take advantage of this improvement if your customized layout has been created
 4. Open your _CustomLayout_7.5.x_ 
 5. If any of the custom widgets _livingApplicationMenu_ or _livingApplicationIFrame_ has been modified,  
 you will need report those modifications into the new version of those widgets, namely _livingApplicationMenuV3_ and _livingApplicationIFrameV3_.
-Note: A good practice would be to rename those widgets into something like **myCustomizedMenuV3** and **myCustomizedIFrameV3**)
-6. Replace the custom widget **livingApplicationMenu** by the new custom widget **livingApplicationMenuV3** (or your **myCustomizedMenuV3**) 
-7. Replace the custom widget **livingApplicationIFrame** by the new custom widget **livingApplicationIFrameV3**  (or your **myCustomizedIFrameV3**) 
+Note: A good practice would be to rename those widgets into something like _myCustomizedMenuV3_ and _myCustomizedIFrameV3_)
+6. Replace the custom widget _livingApplicationMenu_ by the new custom widget _livingApplicationMenuV3_ (or your _myCustomizedMenuV3_) 
+7. Replace the custom widget _livingApplicationIFrame_ by the new custom widget _livingApplicationIFrameV3_  (or your _myCustomizedIFrameV3_) 
 8. On Bonita Portal server, edit the layout and import the newly exported layout  
 9. Confirm all messages  
 10. Validate that your application has a layout that fits your requirements and the new menu behaviour. 
