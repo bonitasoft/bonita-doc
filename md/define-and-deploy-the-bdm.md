@@ -165,7 +165,8 @@ To modify a new or existing object:
    3. If the attribute is multi-valued, check the box in the **Multiple** column.
    4. If the attribute is mandatory, check the box in the **Mandatory** column.
    5. If the attribute is of type String, set the attribute length in the field below the attribute list.
-   6. If the attribute is of type of a BDM object, set type the **Relationship** (Aggregation or Composition) and the loading configuration
+   6. If the attribute is of type of a BDM object, set type the **Relationship** (Aggregation or Composition) and the loading configuration (for `lazy`, select
+    `Only load related objects when needed`, for `eager`, select `Always load related objects`)  
 
 ![BDM model relationship](images/studio_bdm_relationship.png)
 
