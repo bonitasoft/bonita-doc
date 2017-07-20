@@ -197,7 +197,7 @@ My **Microsoft SQL Server** or **Oracle** database drivers do not seem to be tak
 Driver file must respect some naming convention.
 
 **Solution**:  
-For Microsoft SQL Server, rename it so that the name contains at least the word `sqlserver` or `sqljdbc` (case insensitive)  
+For Microsoft SQL Server, rename it so that the name contains at least the word `sqlserver` or `sqljdbc` or `mssql` (case insensitive)  
 For Oracle, rename it so that the name contains at least the word `oracle` or `ojdbc` (case insensitive)
 
 ---
