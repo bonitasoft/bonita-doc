@@ -9,11 +9,19 @@ Image below shows the BDM model used for the example use-case:
 
 ![BDM model used](images/bdm_model_for_rest_api_01.png)
 
-Note that the relationships from car to wheel1, wheel2, wheel3, wheel4 are **[lazy](define-and-deploy-the-bdm.md#lazy_eager_loading) loaded**.
+Note that the relationships from car to wheel1, wheel2, wheel3, wheel4 are **[lazy](define-and-deploy-the-bdm.md#lazy_eager_loading) loaded** (in the Studio, it is
+configured by selecting the `Only load related objects when needed` radio button).
 
-## groovy code sample
+## Groovy code sample
 
 Below is an example of a REST API extension groovy script that accesses the Business Data model.
+
+::: info
+**Good practices** are:
+* If lazy loaded objects are not necessary in the response, ONLY extract the information needed. This avoids costly loading of unnecessary objects.
+* If lazy loaded objects should always be returned in the response, consider changing the relation from ['lazy' to 'eager'](define-and-deploy-the-bdm.md#lazy_eager_loading)
+in the model.
+:::
 
 ```groovy
 
@@ -62,12 +70,15 @@ class CarManagement implements RestApiController {
 }
 ```
 ::: warning
+**Practices leading to poor performance**
+
 Since wheel1, wheel2, wheel3, wheel4 are lazy loaded, they are **not retrieved** directly when retrieving a Car.
 The retrieval of related Wheel objects is only performed **when accessing the fields** (via getWheel1(), ...), if necessary.
 
-However, when building the response, the default Json parser **implicitly fetches** all lazy loaded fields.
+However, when building the response, the default `JsonBuilder` **implicitly fetches** all lazy loaded fields (it calls all field getters).  
 So, if a large number of Business Data is returned and if you have lazy loaded fields in the returned objects, numerous queries are executed, leading to poor performance.
-For example, if you don't follow the code sample above and write :
+
+For example, if you don't follow the code sample above and write something like:
 
 ```groovy
         def currentModel = "DeLorean"
@@ -77,20 +88,18 @@ For example, if you don't follow the code sample above and write :
         return buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
 ```
 
-The returned result will contain the fields persistenceId, buildYear and color of each car, allowing you to use these in your application(s). However, assuming you want to retrieve
-10 cars of the "Delorean" model, this code will execute a total of **41** "Select" requests in the database (1 request to get the cars, and then 4 separate request per car to fetch each one of the *wheel* fields to build the JSON response);
-while the "good" code written above will only make **a single request** in the database.
+The returned result will contain the fields persistenceId, buildYear and color of each car, allowing you to use these in your application(s).  
+However, assuming you want to retrieve 10 cars of the "Delorean" model, this code will execute a total of **41** "Select" database queries
+* 1 query to get the cars,
+* then 4 queries per car to fetch each one of the *wheel* fields to build the JSON response (so 40 queries).
+  
+In comparison, the code following good practises only performs **a single Select database query**.
 
-&nbsp;
-
-As a consequence, **good practices** are:
-* If lazy loaded objects are not necessary in the response, ONLY extract the information needed. This avoids costly loading of unnecessary objects.
-* If lazy loaded objects should always be returned in the response, consider changing the relation from ['lazy' to 'eager'](define-and-deploy-the-bdm.md#lazy_eager_loading) in the model.
 :::
 
 ## Rest API Response content
 
-Below is an example of the resulting response:
+Below is an example of the resulting response (the json is formatted to improve readability):
 
 ```json
 {
