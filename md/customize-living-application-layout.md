@@ -120,6 +120,31 @@ Once your changes are made, save the new layout using a new name and then export
 7. See your new application layout with a side menu.
 8. Feel free to add lots of new improvements to create the layout that fits your needs.
 
+## Take advantage of the latest improvement in a customized layout
+
+<a id="improve-navigation"/>
+
+### Navigate between pages without reloading the entire page.
+
+Starting with Bonita 7.6.0, when the user clicks on any menu item, only the content of the iframe with the targeted page is refreshed: it does not reload the entire page anymore.  
+To take advantage of this improvement if your customized layout has been created with a Bonita version older than 7.6.0, you will need to follow these steps:
+
+1. Import your _CustomLayout_7.5.x_ (or lower) in the UI Designer 7.6.0 (or later versions)
+2. Export the _Default layout_ from Bonita Portal 7.6.0 (or later versions)
+3. Import the _Default layout_ in the UI Designer
+4. Open your _CustomLayout_7.5.x_ 
+5. If any of the custom widgets _livingApplicationMenu_ or _livingApplicationIFrame_ has been modified,  
+you will need report those modifications into the new version of those widgets, namely _livingApplicationMenuV3_ and _livingApplicationIFrameV3_.  
+Note: A good practice would be to rename those widgets into something like _myCustomizedMenuV3_ and _myCustomizedIFrameV3_)
+Here the differences 
+
+6. Replace the custom widget _livingApplicationMenu_ by the new custom widget _livingApplicationMenuV3_ (or your _myCustomizedMenuV3_) 
+7. Replace the custom widget _livingApplicationIFrame_ by the new custom widget _livingApplicationIFrameV3_  (or your _myCustomizedIFrameV3_) 
+8. Export this updated layout page.
+9. On Bonita Portal, edit the layout and import the newly exported layout  
+10. Confirm all messages  
+11. Validate that your application has a layout that fits your requirements and the new menu behaviour. 
+
 ## Troubleshooting
 
 ### Living application layout log 3 error 500 on loading
@@ -134,28 +159,10 @@ If you want to import a custom layout created with a UI Designer older than vers
 Those variables are responsible of the SEVERE error logs on server.  
 5. Select the iFrame widget and set the **reziseToContent** option to _yes_  
 6. Save then Export the layout (feel free to rename the layout if you want)  
-7. On Bonita Portal server edit the layout and import the newly exported layout  
+7. On Bonita Portal edit the layout and import the newly exported layout  
 8. Confirm all messages  
 9. Validate that your application has a layout that fits your requirements. 
 
-<a id="improve-navigation"/>
 
-### Navigate between pages without reloading the entire page.
-
-Starting with Bonita 7.6.0, when the user clicks on any menu item, only the content of the iframe with the targeted page is refreshed: it does not reload the entire page anymore.  
-To take advantage of this improvement if your customized layout has been created with a Bonita version older than 7.6.0, you will need to follow these steps:
-
-1. Import your _CustomLayout_7.5.x_ (or lower) in the UI Designer 7.6.0 (or later versions)
-2. Export the _Default layout_ from Bonita Portal 7.6.0 (or later versions)
-3. Import the _Default layout_ in the UI Designer
-4. Open your _CustomLayout_7.5.x_ 
-5. If any of the custom widgets _livingApplicationMenu_ or _livingApplicationIFrame_ has been modified,  
-you will need report those modifications into the new version of those widgets, namely _livingApplicationMenuV3_ and _livingApplicationIFrameV3_.
-Note: A good practice would be to rename those widgets into something like _myCustomizedMenuV3_ and _myCustomizedIFrameV3_)
-6. Replace the custom widget _livingApplicationMenu_ by the new custom widget _livingApplicationMenuV3_ (or your _myCustomizedMenuV3_) 
-7. Replace the custom widget _livingApplicationIFrame_ by the new custom widget _livingApplicationIFrameV3_  (or your _myCustomizedIFrameV3_) 
-8. On Bonita Portal server, edit the layout and import the newly exported layout  
-9. Confirm all messages  
-10. Validate that your application has a layout that fits your requirements and the new menu behaviour. 
 
  
