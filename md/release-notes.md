@@ -1,6 +1,9 @@
 # Release notes
-
-
+-----
+[ to remove at Beta time ]
+Don't forget to link your announcement to documentation pages that tell more about them.
+We have forgotten that in 7.5
+-----
 <a id="living-application-development-and-deployment"/>
 
 ## Living Application development and deployment
