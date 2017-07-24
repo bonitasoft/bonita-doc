@@ -172,6 +172,7 @@ We recommand that you re-create your custom layout based on Bonita 7.5.0+ defaul
 * BS-15232 Web Service Connector fails when receiving HTTP Code status 307
 * BS-15721 Import a layout from 7.x (prior to 7.3) into 7.3 UIdesigner overrides the widgets
 * BS-15730 getProcessBusinessDataReferences : NullPointerException if BusinessData is multiple AND list contains a null
+* BS-15466 Security Issue: Exception messages in JSON responses are not escaped
 * BS-15796 Angular bootstrap 0.13.0 is included in vendor.js during runtime
 * BS-15799 When path contains a special character (accent) then widget directive fails to build
 * BS-15822 Cannot use SOURCE_OBJECT_ID in the Search API of Archived Comments
