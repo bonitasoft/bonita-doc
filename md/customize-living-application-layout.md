@@ -134,9 +134,13 @@ To take advantage of this improvement if your customized layout has been created
 3. Import the _Default layout_ in the UI Designer
 4. Open your _CustomLayout_7.5.x_ 
 5. If any of the custom widgets _livingApplicationMenu_ or _livingApplicationIFrame_ has been modified,  
-you will need report those modifications into the new version of those widgets, namely _livingApplicationMenuV3_ and _livingApplicationIFrameV3_.  
-Note: A good practice would be to rename those widgets into something like _myCustomizedMenuV3_ and _myCustomizedIFrameV3_)
-Here the differences 
+you will need to merge your modifications and the modifications of the new version of those widgets, namely _livingApplicationMenuV3_ and _livingApplicationIFrameV3_.  
+
+Note 1: To help this merge, you can generate a diff, between two version of the default layout by using Git.
+You will need to install Git, then clone the repository "https://github.com/bonitasoft/bonita-distrib.git".
+At the root level, run the following command:  "git diff 7.5.0 7.6.0 -- ./community/resources/layout-page/src/main/resources"
+
+Note 2: A good practice would be to rename those merged widgets into something like _myCustomizedMenuV3_ and _myCustomizedIFrameV3_)
 
 6. Replace the custom widget _livingApplicationMenu_ by the new custom widget _livingApplicationMenuV3_ (or your _myCustomizedMenuV3_) 
 7. Replace the custom widget _livingApplicationIFrame_ by the new custom widget _livingApplicationIFrameV3_  (or your _myCustomizedIFrameV3_) 
