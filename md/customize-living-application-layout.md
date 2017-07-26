@@ -5,7 +5,7 @@
 :::
 
 ::: warning
-Since Bonita BPM 7.3, we have made some changes in the default layout. You will have to remove `layout.css` from the page asset to make the following instructions relevant.
+Since Bonita BPM 7.3, we have made some changes in the default layout. You will have to remove `layout.css` from the page assets to make the following instructions relevant.
 :::
 
  ## Overview
@@ -126,7 +126,7 @@ Once your changes are made, save the new layout using a new name and then export
 
 ### Navigate between pages without reloading the entire page.
 
-Starting with Bonita 7.6.0, when the user clicks on any menu item, only the content of the iframe with the targeted page is refreshed: it does not reload the entire page anymore.  
+Starting with Bonita 7.6.0, when the user clicks on any menu item, only the content of the iframe with the targeted page is refreshed: it does not reload the entire page anymore. The HTML5 History API is used to achieve that.  
 To take advantage of this improvement if your customized layout has been created with a Bonita version older than 7.6.0, you will need to follow these steps:
 
 1. Import your _CustomLayout_7.5.x_ (or lower) in the UI Designer 7.6.0 (or later versions)
@@ -137,7 +137,7 @@ To take advantage of this improvement if your customized layout has been created
 you will need to merge your modifications and the modifications of the new version of those widgets, namely _livingApplicationMenuV3_ and _livingApplicationIFrameV3_.  
 
 Note 1: To help this merge, you can generate a diff, between two version of the default layout by using Git.
-You will need to install Git, then clone the repository "https://github.com/bonitasoft/bonita-distrib.git".
+If you don't already have [Git](https://git-scm.com/), you will need to install it, then clone the repository "https://github.com/bonitasoft/bonita-distrib.git".
 At the root level, run the following command:  "git diff 7.5.0 7.6.0 -- ./community/resources/layout-page/src/main/resources"
 
 Note 2: A good practice would be to rename those merged widgets into something like _myCustomizedMenuV3_ and _myCustomizedIFrameV3_)
@@ -145,7 +145,7 @@ Note 2: A good practice would be to rename those merged widgets into something l
 6. Replace the custom widget _livingApplicationMenu_ by the new custom widget _livingApplicationMenuV3_ (or your _myCustomizedMenuV3_) 
 7. Replace the custom widget _livingApplicationIFrame_ by the new custom widget _livingApplicationIFrameV3_  (or your _myCustomizedIFrameV3_) 
 8. Export this updated layout page.
-9. On Bonita Portal, edit the layout and import the newly exported layout  
+9. In Bonita portal, edit the layout and import the newly exported layout  
 10. Confirm all messages  
 11. Validate that your application has a layout that fits your requirements and the new menu behaviour. 
 
@@ -154,14 +154,14 @@ Note 2: A good practice would be to rename those merged widgets into something l
 ### Living application layout log 3 error 500 on loading
 
 This issue has been fixed in the 7.3.0 version ("[BS-14885] - Living application layout log 3 error 500 on loading").
-If you want to import a custom layout created with a UI Designer older than version 7.3.0 into an application working with Bonita 7.3.0 or greater, you have to perform the following steps to prevent the issue to occur:
+If you want to import a custom layout created with a UI Designer older than version 7.3.0 into an application working with Bonita 7.3.0 or greater, you have to perform the following steps to prevent the issue from occurring:
 
 1. Import the CustomLayout_7.2.x in UI Designer 7.3.3  
 2. Export the default layout from Bonita Portal  
 3. Import the default layout and confirm that custom widgets will be overwritten  
 4. Open the CustomLayout_7.2.x Layout and remove the 3 variables _AuthorizeApplicationAPI_, _AuthorizeApplicationPageAPI_ and _AuthorizeApplicationMenuAPI_ (as shown below) 
 Those variables are responsible of the SEVERE error logs on server.  
-5. Select the iFrame widget and set the **reziseToContent** option to _yes_  
+5. Select the iFrame widget and set the **reziseToContent** option to _yes_ (this option has been removed in 7.6.0, as the iframe is now resized using CSS)
 6. Save then Export the layout (feel free to rename the layout if you want)  
 7. On Bonita Portal edit the layout and import the newly exported layout  
 8. Confirm all messages  
