@@ -136,6 +136,10 @@ To configure Bonita for SAML:
 5. If your Identity provider (IdP) requires requests to be signed, generate a private key.
 For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ssh” to retrieve the key from the file id_rsa (more id_rsa, then copy the key).
 
+::: info
+**Note:** The expected format for Keys and certificates is PEM (with or without the comment header and footer).  
+:::
+
 6. In the tenant_portal folder of each existing tenant: `$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,  
     edit the file **keycloak-saml.xml** to setup Bonita webapp as a Service provider working with your IdP.  
     + The entityID is the Service Provider given to your bonita installation. You can change it if you want but you need to provide it to your IdP.  
@@ -197,7 +201,9 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
             </SP>
        </keycloak-saml-adapter>
    ```
-7. You're done.
+7. If your Identity Provider is corectly configured (see the section *Configure the Identity provider*), you are done.  
+Then you can try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in).  
+Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `saml.auth.standard.allowed` to true) to be able to log in without an account on the Identity Provider.
 
 ::: info
 **Note 1:** The single logout SAML profile is not supported by bonita as it doesn't work the same way for each IdP.  
@@ -210,9 +216,34 @@ to include correct headers and application server is configured to use the heade
 HttpServletRequest.getRequestURL returns the URL used by the user and not the internal URL used by the proxy.  
 :::
 
+## Configure the Identity provider
+
+Your IdP should declare a Service Provider named `bonita` (or the value of the `entityID` set in the file **keycloack-saml.xml** of Bonita BPM bundle if it is different) with the following configuration:  
+- ACS URL or SAML Processing URL: `http[s]://<bundle host>:<port>/bonita/saml`
+- request binding and response binding configured with the same values as in **keycloack-saml.xml** (`POST` or `REDIRECT`)
+- `Client signature required` configured with the same values as the property `signRequest` in **keycloack-saml.xml**
+- if the IdP responses are signed, make sure the certificate of the IdP has been set in **keycloack-saml.xml**
+- the Name ID or a user attribute of the user principal sent back by the IdP should match the username of the user accounts in Bonita BPM and the PrincipalNameMapping policy (and attribute value) in **keycloack-saml.xml** should reflect that
+
+::: info
+**Note:** If the IdP declares a redirect/target URL, it might orveride the target URL set by the service provider request, and you may always end up on the same page after logging in. In that case, try to remove the redirect URL. Bonita BPM supports redirection to the URL initially requested after logging in on the IdP provided the IdP doesn't force this URL.
+:::
+
 ## Troubleshoot
 
-To troubleshoote SSO login issues, you need to increase the [log level](logging.md) to `ALL` in order for errors to be displayed in the log files (by default, they are not).
+To troubleshoot SSO login issues, you need to add a logging handler for the package `org.keycloak` and increase the [log level](logging.md) to `ALL` for the packages `org.bonitasoft`, `com.bonitasoft`, and `org.keycloak` in order for errors to be displayed in the log files bonita-*.log (by default, they are not).
+
+In order to do that in a tomcat bundle (for example), you need to edit the file `server/conf/logging.properties.  
+* Add the lines:  
+```
+org.keycloak.handlers = 5bonita.org.apache.juli.FileHandler
+org.keycloak.level = ALL
+```
+* Update the existing lines (to set the level to `ALL`):  
+```
+org.bonitasoft.level = ALL
+com.bonitasoft.level = ALL
+```
 
 ## Configure logout behaviour
 
@@ -220,7 +251,7 @@ To troubleshoote SSO login issues, you need to increase the [log level](logging.
 
 When your Bonita platform is configured to manage authentication over SAML, when users log out of Bonita Portal, they do not log out of the SAML Identity Provider (IdP).  
 Therefore they are not logged out of all applications that are using the IdP.  
-To avoid this, you can hide the logout option of the portal. 
+To avoid this, you can hide the logout option of the portal.  
 To do this, set the `logout.link.hidden=true` option in `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` 
 for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
 
