@@ -112,3 +112,30 @@ Those variables are responsible of the SEVERE error logs on server.
 7. On Bonita Portal server edit the layout and import the newly exported layout  
 8. confirm all the messages  
 9. Validate that your application has a layout that fits your requirements. 
+
+### Ui-bootstrap.js library removed from runtime
+In our first design iteration, forms, pages and layouts designed with the UI Designer embedded 
+[UI Bootstrap js, version 0.13.4](http://angular-ui.github.io/bootstrap/versioned-docs/0.13.4/) by default and silently, even when not needed. 
+This issue has been fixed in version 7.5.0, we removed it so you can embed it as an asset only when you need it, and in the version of your choice.
+
+Before this change, custom widgets could be created based on angular-bootstrap v0.13.0 with no explicit addition of
+angular-bootstrap as an asset and without declaring required modules.
+
+This will not affect any artifact that has been created with the UI Designer and is currently deployed in Bonita BPM Platform.
+
+In development though, if your custom widgets use angular-bootstrap, you need to add angular-bootstrap as an asset at widget level, and declare the appropriate required modules.
+
+#### Forms, pages, layouts CSS cleaned
+This cleaning has been made in 7.5.0 version, The default CSS file embedded in UI Designer artifacts (except custom widgets) has been cleaned. Indeed, some of this CSS
+rules were overall not used and cluttered this file.
+
+This will not affect any artifact that has been created with the UI Designer and is currently deployed in Bonita BPM Platform.
+
+Nevertheless some unwanted style could appear when importing a custom layout based on the default layout of Bonita BPM prior to 7.5.0.
+If you do so and observe that the layout menu does not fit the whole width of your page, you can bring back the default 
+style by adding the following lines in `layout.css` file.
+```css
+.component .container {
+     width: 100%;
+ }
+```
