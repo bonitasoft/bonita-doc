@@ -5,18 +5,14 @@
 :::
 
 ::: warning
-Since 7.3 we made some changes on the default layout. You will have to remove `layout.css` from the page asset to make the following instructions relevant.
+Since 7.5 we made some improvements on the default layout.
+We recommand that you re-create your custom layout based on Bonita 7.5.0+ default layout.
 :::
 
  ## Overview
 
 As explained in the [layouts](layouts.md) documentation page, it is possible to customize the existing application layout with the UI Designer.
-
-For example, you could:
-
-* Add a login box
-* Change the menu to add a side menu
-* Add a footer
+Keep in mind that this default layout is composed by tree containers: layout-header, layout-content, layout-footer. But only layout-header and layout-footer are designed to support additional widgets.
 
 Prerequisites to customize the default living application layout:
 
@@ -26,7 +22,7 @@ Prerequisites to customize the default living application layout:
 * Basic knowledge of the UI Designer
 * An existing living application (to test the modified layout)
 
-The following example shows how to convert the default top menu of an application into a side menu.  
+The following example shows how to add new widget into the default layout.  
 The example sections show how to:
 * Export the default application layout from the Bonita BPM Portal
 * Import the default application layout into the UI Designer
@@ -57,40 +53,15 @@ When you import the **Default layout** into the UI Designer, you can see that it
 2. **Living application IFrame** widget to display the application page.
 3. **Living application menu** widget to display the application menu.
 
-So we propose here to convert the **Living application menu** into a side menu.
+So we propose here to add new widgets to the **Living application layout page** header and footer.
 
 Into the UI Designer:
 
-1. Click on **Living application menu** widget to open the widget editor.
-2. Replace the template by using the following one:
-```html
-<div class="container" style="height:100%">
-        <div class="row">
-                <div id="leftCol">
-                        <div class="well">
-                                <ul class="nav nav-stacked" id="sidebar">
-                                        <li ng-class="{active:ctrl.pageToken===menu.applicationPageId.token}" ng-repeat="menu in ctrl.filterChildren(-1)" dropdown>
-                                                <a ng-if="!ctrl.isParentMenu(menu)" ng-href="../{{menu.applicationPageId.token}}/" ng-click="ctrl.reload()" >{{menu.displayName}}</a>            
-                                                <a ng-if="ctrl.isParentMenu(menu)" dropdown-toggle>{{menu.displayName}}<span class="caret"></span></a>
-                                                <ul ng-if="ctrl.isParentMenu(menu)" class="dropdown-menu">  
-                                                        <li ng-repeat="childMenu in ctrl.filterChildren(menu.id)">
-                                                                <a ng-href="../{{childMenu.applicationPageId.token}}/" ng-click="ctrl.reload()">{{childMenu.displayName}}</a>
-                                                        </li>
-                                                </ul>
-                                        </li>
-                                </ul>
-                        </div>
-                </div>  
-        </div>  
-</div>
-```
-3. Click on **Save**.
-4. Return to the UI Designer home page.
-5. Click on **Living application layout page**.
-6. Drag and drop the existing **living application Menu** on the left side of the **living application IFrame**.
-7. Resize the **living Application Menu** by setting the width to 2\.
-8. Resize the **living Application IFrame** by setting the width to 10\.
-9. Click on **Save**.
+1. Click on **Living application layout page** to open it in the page editor.
+2. See that this page is composed by three main containers **layout-header**, **layout-content**, **layout-footer**.
+3. Drag and drop an image widget on top of the menu in the **layout-header**, to display a brand image. 
+4. Drag and drop a title widget in the **layout-footer**, to display a "Copyright © 2017, Example Corporation"
+5. Click on **Save**.
 
 ## Export the Side menu layout on your file system
 
@@ -119,6 +90,9 @@ Once your changes are made, save the new layout using a new name and then export
 6. In the application details section, click on the URL link to navigate to your living application.
 7. See your new application layout with a side menu.
 8. Feel free to add lots of new improvements to create the layout that fits your needs.
+
+## Build a Side menu layout
+As of version 7.5.x, the default provided layout does not allow this kind of customization anymore (at least not so easily), but if you start from a 7.4.x Layout you can follow the 7.4 documentation [customize-living-application-layout](/7.4?page=customize-living-application-layout#toc3) to build a side menu layout.
 
 ## Troubleshooting
 
