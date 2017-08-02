@@ -11,6 +11,22 @@ We have forgotten that in 7.5
 
 ### Industrialization of Living Application (in Studio)
 
+## Performance improvements
+
+### Engine startup and BPM Services resume
+
+A major improvement has been integrated in Bonita 7.6.0, especially for tenants with a lot of processes, processes with large dependencies or processes with a
+lot of dependencies
+
+Tests conducted both internally at Bonitasoft and on customer sites with real production data have shown the following decreases
+* execution time by a factor of 5 to 10
+* JVM Heap memory consumption by a factor of 2 to 3
+
+### Living Application
+
+To be documented
+
+
 ## Technology updates
 
 * The supported Tomcat version for this new release is Tomcat 8.5.16 (included in the bundle).
