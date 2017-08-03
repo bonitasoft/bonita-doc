@@ -109,10 +109,37 @@ We recommand that you re-create your custom layout based on Bonita 7.5.0+ defaul
 
 ## Bug fixes
 
+### Fixes in Bonita BPM 7.5.4
+
+#### Fixes in Documentation
+* BS-16934	Missing info in the Custom Layout documentation page
+* BS-16720	Living Application layout customisation: Side Menu example not working properly in 7.5.0
+
+#### Fixes in Engine component
+* BS-16878	Engine does not support operations on Business Data in a catch message
+
+#### Fixes in Studio component
+* BS-15115	Message catch vs BO => operation failed: Message content which uses a java method to set BO attribute generates an exception
+* BS-16823	Browse H2 database (h2 console) not working on Windows 64bit if Bonita installed using installer 32bit
+* BS-16853	Exporting a process fails if process uses a process variable with XML data type and without schema import
+* BS-16857	NullPointerException raised on task change type
+* BS-16879	Unwanted Studio error message when using message content of type Integer
+* BS-16883	Studio generates wrong data type on call activity data mapping
+
+#### Fixes in UI Designer component
+* None
+
+#### Fixes in Web component
+* BS-16954	Portal incompatible with Chrome 60 (released 25 Jul 2017)
+
+### Bonita BPM 7.5.3 (skipped)
+An issue with Google Chrome version 60 has been identified and impacts all versions of Bonita up to 7.5.3 (included). We choose not to release 7.5.3 and instead build a new version (7.5.4) that includes 7.5.3 modifications and a fix for Chrome.
+
 ### Fixes in Bonita BPM 7.5.2
 
 #### Fixes in Documentation
 * BS-16372 7.4.x Deploy bundle installation procedure in not clear enough
+* BS-16691 Documentation does not list Long type as supported for contract input
 * BS-16731 Applications Portal doc page still states that application development occurs in the Portal
 
 #### Fixes in Engine component
@@ -146,6 +173,9 @@ We recommand that you re-create your custom layout based on Bonita 7.5.0+ defaul
 
 #### Fixes in Documentation
 * BS-15711 Connector maxThreads default is 20 and not 200 as indicated in the Doc
+* BS-16287 Add Layout migration step in the release note 7.3 for bug fix [BS-14885]
+* BS-16518 Website does not display latest documentation version
+* BS-16535 Getting started tutorial refer to old Date type                   
 
 #### Fixes in Engine component
 * BS-14752 Improve validation messages when two BOs of type A are in a composition in BO of type B
