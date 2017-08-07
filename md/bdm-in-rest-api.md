@@ -149,7 +149,7 @@ In comparison, the code following good practises only performs **a single Select
 
 :::
 
-# Other alternatives for good performance
+## Other alternatives for good performance
 
 The rest api extension example previously described in this page advices to
 * create a custom data structure for the response 
@@ -160,7 +160,7 @@ In some cases, one may want to return the BDM object structure in the response
 * for maintenance reason, when adding a new field to our BDM object, we do not want to have to modify the Rest API extension code to manage it  
 
 
-## Returning the whole object without its lazy loaded fields
+### Returning the whole object without its lazy loaded fields
 
 The troobleshooting section gives an example using the Groovy `JsonBuilder` class leading to poor performance: it calls the getter of lazy loaded fields which
 then fetches data.
@@ -217,7 +217,7 @@ class CarManagement implements RestApiController {
     }
 ```
 
-## Returning the object with its all lazy loaded fields filled
+### Returning the object with its all lazy loaded fields filled
 
 Create a custom query that fetch all 'lazy loaded fields'
 https://en.wikibooks.org/wiki/Java_Persistence/JPQL#JOIN_FETCH
@@ -232,7 +232,7 @@ ORDER BY c.persistenceId
 
 
 
-## Returning the object with some of its lazy loaded fields
+### Returning the object with some of its lazy loaded fields
 
 ?????
 fetch some fields with query + set to null some fields  --> not sure
