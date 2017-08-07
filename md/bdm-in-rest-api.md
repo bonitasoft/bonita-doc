@@ -54,8 +54,8 @@ class CarManagement implements RestApiController {
         List<Car> cars = carDAO.findByModel(currentModel, p as int, c as int)
         
         // Prepare the Json result:
-        // Do NOT return directly the list "cars", as the entire list of Wheel objects would be fetched by lazy loading.
-        // Instead, ONLY select the fields that are necessary for your business logic:
+        // Do NOT return directly the list "cars", as the entire list of Wheel objects would be fetched by lazy loading when calling the JsonBuilder toString method.
+        // Instead, ONLY select the fields that are necessary for your business logic (alternative methods are also available, see below in this page):
         def carModels = [:]
         for (Car car : cars) {
             // return the fields "id", "buildYear", "color":
@@ -114,7 +114,7 @@ Below is an example of the resulting response (the json is formatted to improve 
 ```
 
 ::: info
-Note that Wheels are not returned, only necessary information is fetched
+Note that Wheels are not returned, only necessary information is fetched.  
 As a result, performance is efficient
 :::
 
@@ -122,12 +122,12 @@ As a result, performance is efficient
 ## Troubleshooting
 
 ::: warning
-**Practices leading to poor performance**
+**:fa-exclamation-triangle: Practices leading to poor performance**
 
 Since wheel1, wheel2, wheel3, wheel4 are lazy loaded, they are **not retrieved** directly when retrieving a Car.
 The retrieval of related Wheel objects is only performed **when accessing the fields** (via getWheel1(), ...), if necessary.
 
-However, when building the response, the default `JsonBuilder` **implicitly fetches** all lazy loaded fields (it calls all the field getters).  
+However, when building the response, the `JsonBuilder's toString` method  **implicitly fetches** all lazy loaded fields (it calls all the field getters).  
 So, if a large number of Business Data is returned and if you have lazy loaded fields in the returned objects, numerous queries are executed, leading to poor performance.
 
 For example, if you don't follow the code sample above and write something like:
@@ -148,3 +148,92 @@ However, assuming you want to retrieve 10 cars of the "Delorean" model, this cod
 In comparison, the code following good practises only performs **a single Select database query**.
 
 :::
+
+# Other alternatives for good performance
+
+The rest api extension example previously described in this page advices to
+* create a custom data structure for the response 
+* copy only selected fields from the BDM object into this custom data structure
+
+In some cases, one may want to return the BDM object structure in the response
+* it fits the REST API contract so it seems natural to use it as base structure of the response 
+* for maintenance reason, when adding a new field to our BDM object, we do not want to have to modify the Rest API extension code to manage it  
+
+
+## Returning the whole object without its lazy loaded fields
+
+The troobleshooting section gives an example using the Groovy `JsonBuilder` class leading to poor performance: it calls the getter of lazy loaded fields which
+then fetches data.
+So using an alternate json builder implementation can solve this issue.
+
+As the BDM object lazy loaded fields are marked with the Jackson's `@JsonIgnore` annotation and as the Jackson's library is available for use in the Rest API Extension,
+the best candidate for this is to use the Jackson serializer to generate the json response.
+
+```groovy
+
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.databind.SerializationFeature
+    
+    
+class CarManagement implements RestApiController {
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(CarManagement.class)
+    
+    // Use a shared instance for performance reason (see https://github.com/FasterXML/jackson-docs/wiki/Presentation:-Jackson-Performance)
+    private static final ObjectMapper jsonBuilder = new ObjectMapper()
+    static {
+        // needed to serialize BDM object because of the Bonita lazy loading mechanism
+        jsonBuilder.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
+    }
+    
+    @Override
+    RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
+        // To retrieve query parameters use the request.getParameter(..) method.
+        // Be careful, parameter values are always returned as String values
+        
+        // Retrieve p parameter
+        def p = request.getParameter "p"
+        if (p == null) {
+            return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,"""{"error" : "the parameter p is missing"}""")
+        }
+        
+        // Retrieve c parameter
+        def c = request.getParameter "c"
+        if (c == null) {
+            return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,"""{"error" : "the parameter c is missing"}""")
+        }
+        
+        // use APIClient to retrieve the CarDAO class:
+        def carDAO = context.apiClient.getDAO(CarDAO.class)
+        
+        def currentModel = "DeLorean"
+        // Fetch the cars that match the search criteria:
+        List<Car> cars = carDAO.findByModel(currentModel, p as int, c as int)
+        
+        // Prepare the Json result:
+        def result = [ "model" : currentModel, "number of cars" : cars.size(), "cars" : cars ]
+        
+        return buildResponse(responseBuilder, HttpServletResponse.SC_OK, jsonBuilder.writeValueAsString(value))
+    }
+```
+
+## Returning the object with its all lazy loaded fields filled
+
+Create a custom query that fetch all 'lazy loaded fields'
+https://en.wikibooks.org/wiki/Java_Persistence/JPQL#JOIN_FETCH
+
+https://stackoverflow.com/questions/15359306/how-to-load-lazy-fetched-items-from-hibernate-jpa-in-my-controller
+
+SELECT c
+FROM Car c
+JOIN FETCH c.wheel_front_right
+WHERE c.model= :model
+ORDER BY c.persistenceId
+
+
+
+## Returning the object with some of its lazy loaded fields
+
+?????
+fetch some fields with query + set to null some fields  --> not sure
+
