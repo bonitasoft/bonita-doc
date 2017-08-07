@@ -40,9 +40,9 @@ The platform setup tool is also present in the Tomcat or JBoss bundle under the 
           `bonita.platform.persistence.use_second_level_cache=false`
     * In `platform_engine/bonita-platform-sp-cluster-custom.properties`
         * uncomment and set the **`bonita.cluster.name`** property to a name of your own, e.g. `myBPMCluster`, **This name must be unique on the local network if you are using *multicast***
-        * set one of `bonita.platform.cluster.hazelcast.multicast.enabled`, `bonita.platform.cluster.hazelcast.tcpip.enabled` and `bonita.platform.cluster.hazelcast.aws.enabled` to true
-        uncomment the # properties and set only one them to `true`, set the others to `false` depending on how you want your nodes to discover each others,
-        for more information on this take a look at the [Hazelcast Documentation](http://docs.hazelcast.org/docs/3.4/manual/html-single/index.html#discovering-cluster-members).
+        * set one of `bonita.platform.cluster.hazelcast.multicast.enabled`, `bonita.platform.cluster.hazelcast.tcpip.enabled` and `bonita.platform.cluster.hazelcast.aws.enabled` to `true`. 
+        Uncomment the # properties and set only one of them to `true`, set the others to `false` depending on how you want your nodes to discover each others. If you don't use `bonita.platform.cluster.hazelcast.multicast.enabled`, you **must** uncomment the # properties and set it to `false`. 
+        For more information on this take a look at the [Hazelcast Documentation](http://docs.hazelcast.org/docs/3.4/manual/html-single/index.html#discovering-cluster-members).
 * Copy licenses of all your nodes in `platform_conf/licenses`
 * run the `setup.sh init` or `setup.bat init` as described in the [platform setup tool page](BonitaBPM_platform_setup.md#init_platform_conf).
 * At the end of the script, you should see the following line: "Initial configuration files successfully pushed to database"
