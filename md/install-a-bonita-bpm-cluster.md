@@ -51,7 +51,7 @@ If later you need to change the configuration of the node discovery or add new l
 
 ### Install a first node
 
-1 Run `setup.sh configure` or `setup.bat configure` as described in the [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to have your Tomcat / WildFly bundle configured to point to the right database.
+1. Run `setup.sh configure` or `setup.bat configure` as described in the [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to have your Tomcat / WildFly bundle configured to point to the right database.
 2. Delete the entire content of the `[TOMCAT_DIRECTORY]/setup` folder.
 3. If your Bonita installation is behind a proxy (mainly in TcpIp or Aws discovery modes), you must declare its public address by adding the following property : `-Dhazelcast.local.publicAddress=*publicaddress*`, this property should be added in the `[TOMCAT_DIRECTORY]/bin/setenv.sh` or `[TOMCAT_DIRECTORY]/bin/setenv.bat`
 4. When the installation is complete, start Tomcat on the node. This starts Bonita BPM Platform:
