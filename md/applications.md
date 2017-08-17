@@ -214,7 +214,7 @@ There are two aspects to updating an application: changing the application defin
 2. Click the Edit icon (...) for the application you want to edit. The application details page is displayed. From this page, you can edit the application metadata, layout, theme, pages, and navigation.
   * To edit the metadata, click the Edit button. In the popup, modify the information about the application, then click **_Save_**.
   * To edit the layout, see [Specifying application layout](#layout).
-  * To edit the theme, see [Specifying application theme](#theme).
+  * To edit the theme, see [Specifying application theme](#theme). Note that the end user will see this modification with a delay (due to the [cache policy](cache-configuration-and-policy.md#portal_and_mobile))
   * To edit the pages, go to the Pages zone. You can add a page by clicking **_Add_**. You can remove a page by clicking the trashcan icon for that page.
 Note that if you remove a page, the related menu items are automatically removed from the navigation.
   * To edit the navigation, go to the Navigation zone. You can add a menu or menu item by clicking **_Add_**. You can remove a menu or menu item by clicking the trashcan icon for that page.

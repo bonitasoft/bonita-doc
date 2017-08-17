@@ -55,6 +55,7 @@
       * [Multi-language pages](multi-language-pages.md)
       * [Migrate a form from 6.x](migrate-a-form-from-6-x.md)
     * [6.x legacy forms](6-x-legacy-forms.md)
+    * [Cache configuration and policy](cache-configuration-and-policy.md)
   * [Application descriptor](applicationCreation.md)
   * [Connectivity](_connectivity.md)
     * [Connectivity overview](connectivity-overview.md)

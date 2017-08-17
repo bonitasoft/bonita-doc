@@ -126,6 +126,20 @@ When you launch Bonita Studio for the first time, you need to install a license:
 4. _**Download**_ the attached file (.lic)
 5. Go back to your Bonita Studio, click _**Install license...**_, and select your .lic file.
 
+<a id="enable_cache">
+
+## Cache configuration
+
+By default [cache](cache-configuration-and-policy.md) is disable for the web server embedded by Bonita studio, as it is more comfortable to realise development without cache. 
+But you can decide to activate cache, to be closer to the production display time. To do this, you need to follow those steps. 
+
+1. Close your Bonita Studio if he's up.
+2. Go in the studio installation folder.
+3. Open `BonitaStudioSubscription.ini` file if you use a **32-bits version** (`BonitaStudioSubscription64.ini` for a **64-bits**).
+4. Change `-Dtomcat.extra.params=-DnoCacheCustomPage=true` to `-Dtomcat.extra.params=-DnoCacheCustomPage=false`.
+5. Save file.
+6. Start your Bonita studio. Now you have a cache for your living application and your custom page. 
+
 ## Troubleshooting
 
 #### Log files
