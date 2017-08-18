@@ -43,7 +43,7 @@ To be documented
 ### API removals
   
 ## Breaking changes
-* Change method updateGroup in identityAPI to *forbidden* group name update while new name already exist.
+* Change method updateGroup() in identityAPI to forbid group name update while new name already exist.
  
 ### Forms, pages, layouts CSS cleaned
 * Application layout performance improvement. It now allows to navigate between pages without reloading the entire page.  
