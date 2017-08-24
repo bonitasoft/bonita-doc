@@ -31,7 +31,7 @@ To be documented
 
 * The supported Tomcat version for this new release is Tomcat 8.5.16 (included in the bundle).
 * The product now supports SQLServer 2014.
-* The SQLServer connector has changed, there is now a single connector, that supports sqlserver 2008, 2012 & 2014.
+* The SQLServer connector has changed, there is now a single connector, that supports sqlserver 2008, 2012, 2014 & 2016.
 * The product now supports being run on Ubuntu 16.04.
 
 ### Removed support 

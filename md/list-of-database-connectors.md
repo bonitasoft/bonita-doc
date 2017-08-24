@@ -48,7 +48,7 @@ Allows only one connection per destination at a time
 #### Microsoft SQL Server
 
 
-**Supported versions**: This connector supports SQL Server 2008, 2012, and 2014.
+**Supported versions**: This connector supports SQL Server 2008, 2012, 2014 and 2016.
 
 **Language encoding**: MS SQL Server uses only one encoding at a time. To avoid errors when creating the database, please do the following when using alternative languages:
 
