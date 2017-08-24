@@ -13,15 +13,25 @@ A layout is a page used to define the main frame of an application.
 It defines menu positioning, a footer, or any common content that could be displayed on every page of the application.
 Each application can have it own layout.
 
-There is an example of layout in the portal, containing a horizontal menu widget and an iframe widget. 
-The menu structure is defined in the application navigation. The application pages are displayed in the iframe.
+There is an example of layout in the portal, it is made of three containers:
+- layout-header  
+            Comes with the living application menu widget to display the navigation of your application.                
+- layout-content  
+            Comes with the living application iframe widget to display pages or forms of your application.  
+- layout-footer  
+            Empty by default
+    
+ 
 The layout was created using the UI designer, so you can export it and edit it with the UI designer. 
-
+You can add more widgets in the containers layout-header and layout-footer.
+The 'layout.css' file manages the layout behaviour, allows to display the content container in full height, 
+and header and footer with fixed size.  
+But it does not allow to add other widget than the living application iframe into layout-content.
+ 
 For example, you could:
-
-* add a login box
-* change the menu to add a side menu
-* add a footer
+ 
+* Add elements in the layout-header, on top of the menu, like a login box or brand image
+* Add somme content in the layout-footer 
 
 Layouts are [exported. imported, modified, and deleted](resource-management.md) as resources in Bonita Portal. 
 
