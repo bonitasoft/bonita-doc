@@ -456,7 +456,7 @@ Now define the form for the _Manager review_ task. Start by automatically genera
    | Label  | Widget type  | Value binding  | Read-only  |
    | -----  | ------------ | -------------- | ---------- |
    | Destination  | Input  | request.destination  | yes  |
-   | Departure date  | Date picker | request.departureDate | date  |yes  |
+   | Departure date  | Date picker | request.departureDate | yes  |
    | Number of nights  | Input  | request.numberOfNights  | yes  |
    | Hotel needed  | Checkbox  | request.hotelNeeded  | yes  |
    | Reason for travel  | Text area  | request.reason  | yes  |
