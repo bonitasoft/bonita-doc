@@ -3740,7 +3740,7 @@ This method will create a new process instance ([case](#case))
       ]
     }
     ```
-### Diagram
+### Diagram (Subscription editions only)
 
 #### Description
 
