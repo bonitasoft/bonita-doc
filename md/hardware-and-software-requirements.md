@@ -36,7 +36,7 @@ Software required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Port
 | Oracle  | 11gR2 (11.2.0.x) and 12c (12.1.0.x.y) |
 | **Browser** |
 | Mozilla Firefox | latest version |
-| Google Chrome | latest version |
+| Google Chrome | latest version (see note 4) |
 | Microsoft Edge | latest version |
 | **Mobile** |
 | Mozilla Firefox | latest version |
@@ -50,5 +50,74 @@ Notes:
 (refer to: [MSDN note](https://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html)).
 Therefore, using Bitronix as a transaction manager with SQL Server does not work and is not supported. To use SQL Server database requires that you use the WildFly bundle provided by Bonitasoft.
 3. Bonita BPM can be executed on Java 8 and above. All development artifacts (connectors, REST API extensions, etc) must be compiled with Java 8 byte code (target version).
+4. Chrome version 60.0.3112 introduced an incompatibility impacting the functionality of the Bonita Portal. From that version onwards, once your BonitaBPM Platform is installed, please apply the following procedure to resolve this issue:
+
+#### Subscription users
+::: info
+**Note:** In order to apply this procedure, you MUST use a browser version that doesn't suffer from the incompatibility. You can use Firefox, Internet Explorer/Edge or Safari, for example.
+:::
+
+1. Log in the Bonita Portal as Administrator.
+1. In the menu, click on 'Portal'.
+1. Click on 'Export the current Look&Feel'.
+1. Make a back-up copy of the exported file.
+1. Unzip the exported file 'portal-theme.zip'.
+1. Edit 'BonitaConsole.html' file:
+   1. In the `<head>` section, add the code below:
+   ```xml
+   <script>
+      // Monkey Patch xhr
+      // Due to a specification change in the xhr.getAllResponseHeaders method Bonita Portal does not behave as expected 
+      // in browsers that implement this new specification (currently only Chrome >60).
+      // This patch fixes xhr.getAllResponseHeaders unwanted behavior whithin Bonita Portal context
+      //    See https://bugs.chromium.org/p/chromium/issues/detail?id=749086
+      //    See https://github.com/whatwg/xhr/issues/146
+      (function (xhr) {
+          var caseSensitiveHeaders = ['Content-Range', 'X-Bonita-API-Token'];
+          
+          var getAllResponseHeaders = xhr.getAllResponseHeaders;
+          
+          xhr.getAllResponseHeaders = function () {
+              var headers = getAllResponseHeaders.apply(this);
+              for (var i = 0; i < caseSensitiveHeaders.length; i++) {
+                  headers = headers.replace(new RegExp('^' + caseSensitiveHeaders[i].toLowerCase(), 'm'), caseSensitiveHeaders[i]);
+              }
+              return headers;
+          }
+      })(XMLHttpRequest.prototype)
+    </script>
+    ```
+1. Zip all the files and folders again into 'portal-theme.zip'. 
+   (BEWARE: make sure not to zip the 'portal-theme' folder, but its contents. If the 'portal-theme.zip' contains a 'portal-theme' folder at the base, the Bonita Portal will not recognise it as a valid zip structure.)
+1. In the portal, click on 'Import and apply a new Look&Feel' and choose the updated 'portal-theme.zip' file.
+1. Back in your Chrome update 60 browser, empty the cache.
+
+#### Community users
+
+1. In an installed Bonita bundle, edit file 'server/webapps/bonita/portal/scripts/includes/common.js':
+   1. Add the code below after or before the existing code:
+   ```java
+   `  // Monkey Patch xhr
+      // Due to a specification change in the xhr.getAllResponseHeaders method Bonita Portal does not behave as expected 
+      // in browsers that implement this new specification (currently only Chrome >60).
+      // This patch fixes xhr.getAllResponseHeaders unwanted behavior whithin Bonita Portal context
+      //    See https://bugs.chromium.org/p/chromium/issues/detail?id=749086
+      //    See https://github.com/whatwg/xhr/issues/146
+      (function (xhr) {
+          var caseSensitiveHeaders = ['Content-Range', 'X-Bonita-API-Token'];
+    
+          var getAllResponseHeaders = xhr.getAllResponseHeaders;
+    
+          xhr.getAllResponseHeaders = function () {
+              var headers = getAllResponseHeaders.apply(this);
+              for (var i = 0; i < caseSensitiveHeaders.length; i++) {
+                  headers = headers.replace(new RegExp('^' + caseSensitiveHeaders[i].toLowerCase(), 'm'), caseSensitiveHeaders[i]);
+              }
+              return headers;
+          }
+      })(XMLHttpRequest.prototype)`
+      ```
+1. In your Chrome update 60 browser, empty the cache.
+
 
 Your database must be configured to use the UTF-8 character set.
