@@ -32,8 +32,10 @@ JCo 3: `sapjco3-ntamd64-3.0.3`
 Contents of `sapjco-ntamd64-3.0.3.zip`
 
 * `Readme.txt`: contains instructions
-* `sapjco3.jar`: must be installed in the `/endorsed` directory of your Bonita BPM Studio installation and in webapp libraries directory of the application server.
-* `sapjcorfc.dll` (`sapjcorfc.so`): must be installed in the native library search path: `java.library.path` for windows (`LD_LIBRRARY_PATH` for Linux/UNIX).
+* `sapjco3.jar`: must be installed in the `/endorsed` directory of your Bonita BPM Studio installation and in the webapp libraries directory of the application server.
+* `sapjcorfc.dll` (`sapjcorfc.so`): must be installed in the native library search path:
+  * Windows: usually the dll file is stored in `C:\windows\system32`
+  * Linux: usually the dll file is stored in `/usr/lib`
 * `javadoc`: contains the .html help pages for installation
 * `examples`: contains some examples
 
@@ -42,11 +44,11 @@ Contents of `sapjco-ntamd64-3.0.3.zip`
 1. Extract the contents of the .zip file into a temporary directory, for example: `C:\temp\sapijco3`.
 2. Read the installation page provided with the sapjco distribution and follow the instructions.
 3. Put the `sapjco3.jar` file in the webapp libraries directory of the application server, so that the jar is in the classloader used by the Bonita BPM Engine.
-4. Put the `sapjco.dll` or `.so` libraries in the native library search path: `C:\windows\system32` for windows, or one of the directory listed in the `LD_LIBRRARY_PATH` for Linux/UNIX.
+4. Put the `sapjco.dll` or `.so` libraries in the native library search path: `C:\windows\system32` for windows, or `/usr/lib` for Linux.
 
-### Studio: How to import the SAP JCo3 library and make a request using an example function using the graphic display
+### Studio: How to import the SAP JCo3 library and make a request with an example function using the graphic display
 
-This is a Windows example and it is assumed that the Studio had been started at least once successfully.
+There is below a step by step procedure on Windows. It is assumed that the Studio had been started at least once successfully.
 
 1. Store the `sapjco.dll` in the `C:\windows\system32` directory
 2. Reboot
