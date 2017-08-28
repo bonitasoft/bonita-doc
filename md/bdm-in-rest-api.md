@@ -1,11 +1,10 @@
 # How to manage BDM in REST API extensions
 
-## Use case
-
-This example demonstrates best practices when developing a [REST API Extension](rest-api-extensions.md) accessing [Business Data](define-and-deploy-the-bdm.md).  
+This page demonstrates best practices when developing a [REST API Extension](rest-api-extensions.md) accessing [Business Data](define-and-deploy-the-bdm.md).  
 Special attention is paid on performance matters.
 
-Image below shows the BDM model used for the example use-case:
+## First use case
+Image below shows the BDM model used for the first use-case:
 
 ![BDM model used](images/bdm_model_for_rest_api_01.png)
 
@@ -149,21 +148,23 @@ In comparison, the code following good practises only performs **a single Select
 
 :::
 
-## Other alternatives for good performance
+## Other use cases
 
 The rest api extension example previously described in this page advices to
 * create a custom data structure for the response 
 * copy only selected fields from the BDM object into this custom data structure
 
 In some cases, one may want to return the BDM object structure in the response
-* it fits the REST API contract so it seems natural to use it as base structure of the response 
-* for maintenance reason, when adding a new field to our BDM object, we do not want to have to modify the Rest API extension code to manage it  
+* it fits the REST API contract so it seems natural to use it as the base structure of the response 
+* for maintenance reasons, when adding a new field to a BDM object, you may want not to have to modify the Rest API extension code to manage it.
+
+Below are two use cases addressing that.
 
 
 ### Returning the whole object without its lazy loaded fields
 
 The troobleshooting section gives an example using the Groovy `JsonBuilder` class leading to poor performance: it calls the getter of lazy loaded fields which
-then fetches data.
+then fetches the data.
 So using an alternate json builder implementation can solve this issue.
 
 As the BDM object lazy loaded fields are marked with the Jackson's `@JsonIgnore` annotation and as the Jackson's library is available for use in the Rest API Extension,
@@ -217,23 +218,6 @@ class CarManagement implements RestApiController {
     }
 ```
 
-### Returning the object with its all lazy loaded fields filled
-
-Create a custom query that fetch all 'lazy loaded fields'
-https://en.wikibooks.org/wiki/Java_Persistence/JPQL#JOIN_FETCH
-
-https://stackoverflow.com/questions/15359306/how-to-load-lazy-fetched-items-from-hibernate-jpa-in-my-controller
-
-SELECT c
-FROM Car c
-JOIN FETCH c.wheel_front_right
-WHERE c.model= :model
-ORDER BY c.persistenceId
-
-
-
 ### Returning the object with some of its lazy loaded fields
 
-?????
-fetch some fields with query + set to null some fields  --> not sure
-
+This use case is not supported. In other words it's necessary to use one DB request per field you wish to retrieve. 
