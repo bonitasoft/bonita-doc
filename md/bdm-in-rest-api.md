@@ -118,7 +118,7 @@ As a result, performance is efficient
 :::
 
 
-## Troubleshooting
+## Troubleshooting bad practices
 
 ::: warning
 **:fa-exclamation-triangle: Practices leading to poor performance**
@@ -135,11 +135,11 @@ For example, if you don't follow the code sample above and write something like:
         def currentModel = "DeLorean"
         // Fetch the cars that match the search criteria:
         List<Car> cars = carDAO.findByModel(currentModel, p as int, c as int)
-        def result = [ "model" : currentModel,"number of cars" : cars.size(), "cars" : cars ]
+        def result = [ "cars" : cars ]
         return buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
 ```
 
-The returned result will contain the fields persistenceId, buildYear and color of each car, allowing you to use these in your application(s).  
+The returned result will contain, for each car, the fields persistenceId, buildYear and color, allowing you to use these in your application(s).  
 However, assuming you want to retrieve 10 cars of the "Delorean" model, this code will execute a total of **41** "Select" database queries
 * 1 query to get the cars,
 * then 4 queries per car to fetch each one of the *wheel* fields to build the JSON response (so 40 queries).
@@ -150,15 +150,13 @@ In comparison, the code following good practises only performs **a single Select
 
 ## Other use cases
 
-The rest api extension example previously described in this page advices to
-* create a custom data structure for the response 
+The rest api extension example previously described in this page advices to:
+* create a custom data structure for the response
 * copy only selected fields from the BDM object into this custom data structure
 
-In some cases, one may want to return the BDM object structure in the response
-* it fits the REST API contract so it seems natural to use it as the base structure of the response 
-* for maintenance reasons, when adding a new field to a BDM object, you may want not to have to modify the Rest API extension code to manage it.
-
-Below are two use cases addressing that.
+In some cases, you may want to return the entire BDM object structure in the response:
+* because it eases parsing the REST API Json result to build an Object
+* for maintenance reasons, when adding a new field to a BDM object, you may avoid to have to modify the Rest API extension code to include this new field
 
 
 ### Returning the whole object without its lazy loaded fields
@@ -218,6 +216,9 @@ class CarManagement implements RestApiController {
     }
 ```
 
-### Returning the object with some of its lazy loaded fields
 
-This use case is not supported. In other words it's necessary to use one DB request per field you wish to retrieve. 
+## Known limitations
+
+### Returning the object with SOME of its lazy loaded fields ONLY
+
+This use case is not supported. In other words it is necessary to use one database request per lazy loaded field you wish to retrieve.
