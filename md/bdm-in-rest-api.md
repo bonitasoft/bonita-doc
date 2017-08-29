@@ -1,11 +1,10 @@
 # How to manage BDM in REST API extensions
 
-## Use case
-
-This example demonstrates best practices when developing a [REST API Extension](rest-api-extensions.md) accessing [Business Data](define-and-deploy-the-bdm.md).  
+This page demonstrates best practices when developing a [REST API Extension](rest-api-extensions.md) accessing [Business Data](define-and-deploy-the-bdm.md).  
 Special attention is paid on performance matters.
 
-Image below shows the BDM model used for the example use-case:
+## First use case
+Image below shows the BDM model used for the first use-case:
 
 ![BDM model used](images/bdm_model_for_rest_api_01.png)
 
@@ -54,8 +53,8 @@ class CarManagement implements RestApiController {
         List<Car> cars = carDAO.findByModel(currentModel, p as int, c as int)
         
         // Prepare the Json result:
-        // Do NOT return directly the list "cars", as the entire list of Wheel objects would be fetched by lazy loading.
-        // Instead, ONLY select the fields that are necessary for your business logic:
+        // Do NOT return directly the list "cars", as the entire list of Wheel objects would be fetched by lazy loading when calling the JsonBuilder toString method.
+        // Instead, ONLY select the fields that are necessary for your business logic (alternative methods are also available, see below in this page):
         def carModels = [:]
         for (Car car : cars) {
             // return the fields "id", "buildYear", "color":
@@ -114,20 +113,20 @@ Below is an example of the resulting response (the json is formatted to improve 
 ```
 
 ::: info
-Note that Wheels are not returned, only necessary information is fetched
+Note that Wheels are not returned, only necessary information is fetched.  
 As a result, performance is efficient
 :::
 
 
-## Troubleshooting
+## Troubleshooting bad practices
 
 ::: warning
-**Practices leading to poor performance**
+**:fa-exclamation-triangle: Practices leading to poor performance**
 
 Since wheel1, wheel2, wheel3, wheel4 are lazy loaded, they are **not retrieved** directly when retrieving a Car.
 The retrieval of related Wheel objects is only performed **when accessing the fields** (via getWheel1(), ...), if necessary.
 
-However, when building the response, the default `JsonBuilder` **implicitly fetches** all lazy loaded fields (it calls all the field getters).  
+However, when building the response, the `JsonBuilder's toString` method  **implicitly fetches** all lazy loaded fields (it calls all the field getters).  
 So, if a large number of Business Data is returned and if you have lazy loaded fields in the returned objects, numerous queries are executed, leading to poor performance.
 
 For example, if you don't follow the code sample above and write something like:
@@ -136,11 +135,11 @@ For example, if you don't follow the code sample above and write something like:
         def currentModel = "DeLorean"
         // Fetch the cars that match the search criteria:
         List<Car> cars = carDAO.findByModel(currentModel, p as int, c as int)
-        def result = [ "model" : currentModel,"number of cars" : cars.size(), "cars" : cars ]
+        def result = [ "cars" : cars ]
         return buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
 ```
 
-The returned result will contain the fields persistenceId, buildYear and color of each car, allowing you to use these in your application(s).  
+The returned result will contain, for each car, the fields persistenceId, buildYear and color, allowing you to use these in your application(s).  
 However, assuming you want to retrieve 10 cars of the "Delorean" model, this code will execute a total of **41** "Select" database queries
 * 1 query to get the cars,
 * then 4 queries per car to fetch each one of the *wheel* fields to build the JSON response (so 40 queries).
@@ -148,3 +147,78 @@ However, assuming you want to retrieve 10 cars of the "Delorean" model, this cod
 In comparison, the code following good practises only performs **a single Select database query**.
 
 :::
+
+## Other use cases
+
+The rest api extension example previously described in this page advices to:
+* create a custom data structure for the response
+* copy only selected fields from the BDM object into this custom data structure
+
+In some cases, you may want to return the entire BDM object structure in the response:
+* because it eases parsing the REST API Json result to build an Object
+* for maintenance reasons, when adding a new field to a BDM object, you may avoid to have to modify the Rest API extension code to include this new field
+
+
+### Returning the whole object without its lazy loaded fields
+
+The troobleshooting section gives an example using the Groovy `JsonBuilder` class leading to poor performance: it calls the getter of lazy loaded fields which
+then fetches the data.
+So using an alternate json builder implementation can solve this issue.
+
+As the BDM object lazy loaded fields are marked with the Jackson's `@JsonIgnore` annotation and as the Jackson's library is available for use in the Rest API Extension,
+the best candidate for this is to use the Jackson serializer to generate the json response.
+
+```groovy
+
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.databind.SerializationFeature
+    
+    
+class CarManagement implements RestApiController {
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(CarManagement.class)
+    
+    // Use a shared instance for performance reason (see https://github.com/FasterXML/jackson-docs/wiki/Presentation:-Jackson-Performance)
+    private static final ObjectMapper jsonBuilder = new ObjectMapper()
+    static {
+        // needed to serialize BDM object because of the Bonita lazy loading mechanism
+        jsonBuilder.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
+    }
+    
+    @Override
+    RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
+        // To retrieve query parameters use the request.getParameter(..) method.
+        // Be careful, parameter values are always returned as String values
+        
+        // Retrieve p parameter
+        def p = request.getParameter "p"
+        if (p == null) {
+            return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,"""{"error" : "the parameter p is missing"}""")
+        }
+        
+        // Retrieve c parameter
+        def c = request.getParameter "c"
+        if (c == null) {
+            return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,"""{"error" : "the parameter c is missing"}""")
+        }
+        
+        // use APIClient to retrieve the CarDAO class:
+        def carDAO = context.apiClient.getDAO(CarDAO.class)
+        
+        def currentModel = "DeLorean"
+        // Fetch the cars that match the search criteria:
+        List<Car> cars = carDAO.findByModel(currentModel, p as int, c as int)
+        
+        // Prepare the Json result:
+        def result = [ "model" : currentModel, "number of cars" : cars.size(), "cars" : cars ]
+        
+        return buildResponse(responseBuilder, HttpServletResponse.SC_OK, jsonBuilder.writeValueAsString(result))
+    }
+```
+
+
+## Known limitations
+
+### Returning the object with SOME of its lazy loaded fields ONLY
+
+This use case is not supported. In other words it is necessary to use one database request per lazy loaded field you wish to retrieve.
