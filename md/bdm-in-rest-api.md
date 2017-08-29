@@ -214,7 +214,7 @@ class CarManagement implements RestApiController {
         // Prepare the Json result:
         def result = [ "model" : currentModel, "number of cars" : cars.size(), "cars" : cars ]
         
-        return buildResponse(responseBuilder, HttpServletResponse.SC_OK, jsonBuilder.writeValueAsString(value))
+        return buildResponse(responseBuilder, HttpServletResponse.SC_OK, jsonBuilder.writeValueAsString(result))
     }
 ```
 
