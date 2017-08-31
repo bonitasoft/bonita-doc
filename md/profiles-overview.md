@@ -1,8 +1,16 @@
 # Profiles overview
 
-A profile is a set of access rights given to a user. Users have to be given a certain profile in order to access applications, processes, cases or tasks.
+A profile is a set of access rights given to a user. It is made of two distinct parts: 
 
-The admin can map users to a profile in the **Organization menu**.
+- A mapping with the organization (which users are mapped to this profile)
+- A set of _portal menu entries_ (menus and pages accessible in the portal when an user is logged with this profile)
+
+Profiles can be used in differents ways:
+
+- To give access to [Living Applications](applications.md)
+- To customize the portal interface for a set of users, regarding their rights and their needs (_only for custom profiles, available with the Performance and Efficiency editions_)
+
+To map users to a profile or define portal menu entries, use the [profile editor](profileCreation.md) is the studio. In production, an admin can do it in the **Organization menu**.
 
 ## Default profiles
 
@@ -34,7 +42,10 @@ A user given the **Process manager** profile has limited management rights for a
 ## Custom profiles
 
 Custom profiles are available with the Performance and Efficiency editions. 
-A custom profile is created by the Administrator. 
-Each profile can be given a set of customized functions organized in a customized navigation menu.
+A custom profile is created in the Studio, using the [profile editor](profileCreation.md), or in the portal by an Administrator.  
 
-See [Custom profiles](custom-profiles.md).
+## Profile editor overview
+
+in Bonita 7.6, we introduced the possibility to manage profiles from the Studio.
+It accounts for an additional step to ease the management of [Living Applications](applications.md) in Bonita, since our objective is to offer a unique application deployment artifact, managed from the Studio.  
+Then, all resources used by applications (like profiles) will be centralized and shared by the Bonita development suite: Bonita Studio and the UI Designer.

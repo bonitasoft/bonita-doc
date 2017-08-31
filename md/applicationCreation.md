@@ -17,16 +17,17 @@ For development purposes, the Studio can **deploy** applications descriptors ont
 
 Application descriptors are packaged in **application files**.  
 An **application file** is an XML file containing one or more application descriptors.  
-
-	 <!--  Application File -->
-    <applications>
-		<application>
-			<!--  First Application Descriptor -->
-		</application>
-		<application>
-			<!--  Second Application Descriptor -->
-		</application>
-	</applications>
+```xml
+<!--  Application File -->
+<applications>
+	<application>
+		<!--  First Application Descriptor -->
+	</application>
+	<application>
+		<!--  Second Application Descriptor -->
+	</application>
+</applications>
+```
 	
 However, application descriptors in a given application file are totally **independent**.  
 The purpose of grouping application descriptors in one file is to manage together applications with the same company purpose, each of them dedicated to a different user profile.  
