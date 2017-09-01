@@ -32,7 +32,7 @@ Software required for Bonita Platform (Bonita Engine and Bonita Portal).
 | **Database** |
 | MySQL | 5.5.27 and higher (see note 1) |
 | PostgreSQL | 9.3 and higher |
-| SQL Server | 2014 (see note 2) |
+| SQL Server | 2016 (see note 2) |
 | Oracle  | 11gR2 (11.2.0.x) and 12c (12.1.0.x.y) |
 | **Browser** |
 | Mozilla Firefox | latest version |
