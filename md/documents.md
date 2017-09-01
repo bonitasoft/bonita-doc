@@ -110,8 +110,10 @@ When you deploy a process, the documents included in the bar file are stored in 
 
 #### Document maximum size setting
 
-By default, the maximum size of a document is 15Mb. You can reduce or increase this in your production environment by modifying the value of the `form.attachment.max.size` property in the `forms-config.properties` file of your tenant, and then restarting Bonita BPM.  
+By default, the maximum size of a document is 25Mb. You can reduce or increase this in your production environment by modifying the value of the `form.attachment.max.size` property in the `console-config.properties` file of your tenant.
+For the V6 forms, you also need to change the `form.attachment.max.size` property of the `forms-config.properties` file. Those modifications will be applied after a server restart.
 The maximum document size cannot exceed the capacity of the database column. This value depends on your database. This setting applies to all processes in the tenant.
+This maximum document size will also depend of your web server configuration, it can't be more than the maximum post size of the web server.
 
 #### Document versioning in a process instance
 
