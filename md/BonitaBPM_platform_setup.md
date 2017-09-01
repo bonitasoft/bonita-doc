@@ -56,8 +56,10 @@ The script `setup` comes with 4 commands:
   Are you sure you want to continue? (y/n):
   ```
 
-  If you want to bypass this confirmation prompt you can add the `h2.noconfirm` property as follows:  
-  `setup.sh init -Dh2.noconfirm`
+  If you want to bypass this confirmation prompt you can add the `h2.noconfirm` property to `setup` or `start-bonita` scripts.
+
+  Eg. `setup.sh init -Dh2.noconfirm`  
+  Eg. `start-bonita.sh -Dh2.noconfirm`
   :::
 
 <a id="run_bundle_configure" />
