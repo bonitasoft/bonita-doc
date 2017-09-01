@@ -74,6 +74,7 @@ If you have specified a resource permission that is not defined in the [REST API
 
 After a resource is added to the portal, it can be used in an [application](applications.md) or in a custom profile.
 
+<a id="modify"/>
 ## Modify a resource
 
 To modify a resource in the portal, you upload a zip archive containing the new version.

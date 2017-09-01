@@ -32,38 +32,46 @@ JCo 3: `sapjco3-ntamd64-3.0.3`
 Contents of `sapjco-ntamd64-3.0.3.zip`
 
 * `Readme.txt`: contains instructions
-* `sapjco3.jar`: must be installed in the `/endorsed` directory of your Bonita Studio installation
-* `sapjcorfc.dll`: must be installed in the Windows32 folder
+* `sapjco3.jar`: must be installed in the `/endorsed` directory of your Bonita Studio installation and in the webapp libraries directory of the application server.
+* `sapjcorfc.dll` (`sapjcorfc.so`): must be installed in the native library search path:
+  * Windows: usually the dll file is stored in `C:\windows\system32`
+  * Linux: usually the dll file is stored in `/usr/lib`
 * `javadoc`: contains the .html help pages for installation
 * `examples`: contains some examples
 
-### How to use the contents of the .zip file
+### How to use the contents of the .zip file with an application server
 
 1. Extract the contents of the .zip file into a temporary directory, for example: `C:\temp\sapijco3`.
 2. Read the installation page provided with the sapjco distribution and follow the instructions.
-3. Put the `sapjco3.jar` file in the shared libraries directory of Bonita, so that the jar is in the classloader used by the Bonita Engine.
-4. Put the native `sapjco.dll` or `.so` libraries in the java library path or the system path.
+3. Put the `sapjco3.jar` file in the webapp libraries directory of the application server, so that the jar is in the classloader used by the Bonita Engine.
+4. Put the `sapjco.dll` or `.so` libraries in the native library search path: `C:\windows\system32` for windows, or `/usr/lib` for Linux.
 
-### How to import the SAP JCo3 library and make a request using an example function using the graphic display
+### Studio: How to import the SAP JCo3 library and make a request with an example function using the graphic display
 
-1. Click _**Import SAPjco3.jar**_, and use the browse dialog box to locate and select one of the .jar file
-2. Click _**Open**_ to import the .jar file contents
-3. Click _**OK**_ to reboot the machine and save the configuration.
-4. When the connector window is displayed, the import .jar file button will have disappeared. This is replaced by **disabled** button. A .jar file cannot be imported twice.
-5. Fill in all the connection fields with the correct settings. Note that the SAP JCo 3 connector supports a single destination for all connector instances in Bonita Engine.
-6. Once all the fields are filled, test the connection by clicking on the _**test **_button.
-7. In the function definition window, only the function name is required.
-8. Click on the arrow at the end of the field to display a dropdown list of functions.
-9. Click on `GET_SYSTEM_NAME` for example
-10. Click _**Next**_
-11. This will display the **Input Parameters** window
-12. Click _**Next**_
-13. This will display the **Output Parameters** window
-14. The `GET_SYSTEM_NAME` is displayed to confirm the input is this function. Note: You can create a blank .html file on your c: drive, which will be filled with the output information from the SAP connector
-15. Enter the path to the .html file in the field called "HTML File"
+There is below a step by step procedure on Windows. It is assumed that the Studio had been started at least once successfully.
+
+1. Store the `sapjco.dll` in the `C:\windows\system32` directory
+2. Reboot
+3. Store the `sapjco3.jar` in the bonita webpapp library directory, deployed in the tomcat embedded with the Studio: e.g. `C:\BonitaBPMSubscription-7.2.3\workspace\tomcat\webapps\bonita\WEB-INF\lib`
+4. Store the `sapjco3.jar` in the `endorsed` directory of your Bonita Studio installation: e.g. `C:\BonitaBPMSubscription-7.2.3\endorsed`.
+5. Start the Studio
+6. Open a diagram
+7. Select a Service task 
+8. Add a SAP JCo 3 connector
+9. Fill in all the connection fields with the correct settings. Note that the SAP JCo 3 connector supports a single destination for all connector instances in Bonita Engine.
+10. Once all the fields are filled, test the connection by clicking on the _**test **_button.
+11. In the function definition window, only the function name is required.
+12. Click on the arrow at the end of the field to display a dropdown list of functions.
+13. Click on `GET_SYSTEM_NAME` for example
+14. Click _**Next**_
+15. This will display the **Input Parameters** window
 16. Click _**Next**_
-17. This will display an **Ouput operations** window
-18. Click _**Finish**_
+17. This will display the **Output Parameters** window
+18. The `GET_SYSTEM_NAME` is displayed to confirm the input is this function. Note: You can create a blank .html file on your c: drive, which will be filled with the output information from the SAP connector
+19. Enter the path to the .html file in the field called "HTML File"
+20. Click _**Next**_
+21. This will display an **Ouput operations** window
+22. Click _**Finish**_
 
 ## Advanced features in Subscription Editions
 

@@ -34,16 +34,16 @@ To be documented
 * The SQLServer connector has changed, there is now a single connector, that supports sqlserver 2008, 2012, 2014 & 2016.
 * The product now supports being run on Ubuntu 16.04.
 
-### Removed support 
+### Removed support
 
 #### Internet Explorer 11
 
 ### Other dependency updates
 
 ### API removals
-  
+
 ## Breaking changes
- 
+
 ### Forms, pages, layouts CSS cleaned
 * Application layout performance improvement. It now allows to navigate between pages without reloading the entire page.  
   See how to [update your custom layout](customize-living-application-layout.md#improve-navigation) to take advantage of this improvement.

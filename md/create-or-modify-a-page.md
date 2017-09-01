@@ -42,6 +42,7 @@ The preview displays the artifact as it would be displayed on the selected type 
 
 Custom widget is a special artifact that we will explain in a later chapter.
 
+<a id="export"/>
 ## Export an artifact
 
 You can export a page or a layout to deploy it in Bonita Portal as a custom page.  
@@ -51,6 +52,7 @@ To export an artifact, click the **_Export_** button ![Export button](images/ima
 
 After export you can modify your page or layout code by directly editing the code located in _resources_ folder. Be aware that such a modification to the code will work when the page or layout is deployed in Bonita Portal but it may be broken if you import the page into another UI Designer.
 
+<a id="import"/>
 ## Import an artifact
 
 To import an artifact from another UI Designer, go to the UI Designer home page and click the **_Import_** button ![Import button](images/images-6_0/pb-import.png). When you import a page, layout, form or fragment, its dependencies (such as custom widgets and fragments used) are automatically be imported too.

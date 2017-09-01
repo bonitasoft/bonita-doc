@@ -36,9 +36,9 @@ When done you will have a database with all tables created and with a table `CON
           `bonita.platform.persistence.use_second_level_cache=false`
     * In `platform_engine/bonita-platform-sp-cluster-custom.properties`
         * uncomment and set the **`bonita.cluster.name`** property to a name of your own, e.g. `myBPMCluster`, **This name must be unique on the local network if you are using *multicast***
-        * set one of `bonita.platform.cluster.hazelcast.multicast.enabled`, `bonita.platform.cluster.hazelcast.tcpip.enabled` and `bonita.platform.cluster.hazelcast.aws.enabled` to true
-        uncomment the # properties and set only one them to `true`, set the others to `false` depending on how you want your nodes to discover each others,
-        for more information on this take a look at the [Hazelcast Documentation](http://docs.hazelcast.org/docs/3.4/manual/html-single/index.html#discovering-cluster-members).
+        * set one of `bonita.platform.cluster.hazelcast.multicast.enabled`, `bonita.platform.cluster.hazelcast.tcpip.enabled` and `bonita.platform.cluster.hazelcast.aws.enabled` to `true`. 
+        Uncomment the # properties and set only one of them to `true`, set the others to `false` depending on how you want your nodes to discover each others. If you don't use `bonita.platform.cluster.hazelcast.multicast.enabled`, you **must** uncomment the # properties and set it to `false`. 
+        For more information on this take a look at the [Hazelcast Documentation](http://docs.hazelcast.org/docs/3.4/manual/html-single/index.html#discovering-cluster-members).
 * Copy licenses of all your nodes in `platform_conf/licenses`
 * run `setup.sh init` or `setup.bat init` as described in the [platform setup tool page](BonitaBPM_platform_setup.md#init_platform_conf).
   At the end of the script, you should see the following line: "Initial configuration files successfully pushed to database".
@@ -50,7 +50,7 @@ If later you need to change the configuration of the node discovery or add new l
 
 ### Install a first node
 
-1 Run `setup.sh configure` or `setup.bat configure` as described in the [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to have your Tomcat / WildFly bundle configured to point to the right database.
+1. Run `setup.sh configure` or `setup.bat configure` as described in the [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to have your Tomcat / WildFly bundle configured to point to the right database.
 2. Delete the entire content of the `[TOMCAT_DIRECTORY]/setup` folder.
 3. If your Bonita installation is behind a proxy (mainly in TcpIp or Aws discovery modes), you must declare its public address by adding the following property : `-Dhazelcast.local.publicAddress=*publicaddress*`, this property should be added in the `[TOMCAT_DIRECTORY]/bin/setenv.sh` or `[TOMCAT_DIRECTORY]/bin/setenv.bat`
 4. When the installation is complete, start Tomcat on the node. This starts Bonita Platform:

@@ -73,3 +73,15 @@ To activate the addition of the secure flag, edit the configuration file and cha
 [User authentication overview](user-authentication-overview.md)
 [Read more about CSRF attacks](http://www.acunetix.com/websitesecurity/csrf-attacks)
 
+
+## How to Migrate your pages to 7.4.0 or greater when CSRF security is enabled
+To use a UI page or form that was created in lower version than 7.4, you need to re-import this old page in actual UI designer. If you don't update your page, any API call in your outdated version will be failed because `X-Bonita-API-Token` will be absent in the response header. 
+Follow this few steps to update your page or form:
+
+In UI designer:
+1) [**Import**](create-or-modify-a-page.md#import) the page from 7.3.X or lower version.
+1) [**Export**](create-or-modify-a-page.md#export) the page you previously imported.
+
+In the portal as Administrator:
+1) Go on Resources entry.
+1) [Edit the existing page](resource-management.md#modify) by uploading the new one.

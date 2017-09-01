@@ -27,9 +27,9 @@ You can add more widgets in the containers layout-header and layout-footer.
 The 'layout.css' file manages the layout behaviour, allows to display the content container in full height, 
 and header and footer with fixed size.  
 But it does not allow to add other widget than the living application iframe into layout-content.
- 
+
 For example, you could:
- 
+
 * Add elements in the layout-header, on top of the menu, like a login box or brand image
 * Add somme content in the layout-footer 
 
