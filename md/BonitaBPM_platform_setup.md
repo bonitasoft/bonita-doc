@@ -49,6 +49,19 @@ The script `setup` comes with 4 commands:
   Eg. `setup.sh init`  
   Eg. `setup.sh init -Ddb.vendor=postgres` (see [Advanced use](#advanced_use) for information on using `-D` properties)
 
+  ::: info
+  When `db.vendor` and `bdm.db.vendor` properties are both set to `h2` - which is the default configuration - the `init` command asks you to confirm this choice before continuing. The following message is displayed:
+  ```
+  [WARN] Default H2 configuration detected. This is not recommended for production. If this is not the required configuration, change file 'database.properties' and run again.
+  Are you sure you want to continue? (y/n):
+  ```
+
+  If you want to bypass this confirmation prompt you can add the `h2.noconfirm` property to `setup` or `start-bonita` scripts.
+
+  Eg. `setup.sh init -Dh2.noconfirm`  
+  Eg. `start-bonita.sh -Dh2.noconfirm`
+  :::
+
 <a id="run_bundle_configure" />
 
 * `configure`, to configure the server of a Bonita BPM Tomcat / WildFly bundle to use the appropriate database: 
