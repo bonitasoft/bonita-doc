@@ -145,21 +145,23 @@ If you need to pass more than 8 parameters, modify file `database.properties` in
 
 ### Advanced database configuration using file internal.properties
 
-The file `internal.properties` is used internally by the setup tool to properly configure and initialize the bundle.
+The file `internal.properties` is used internally by the Platform setup tool to properly configure and initialize the bundle.
 It is made of both data entered in file `database.properties` as well as other data like database driver class name, connection URL, etc.  
 This file **should not** be modified manually in most cases, unless for specific use-cases like adding parameters in the connection URL or using a specific database driver.
 
 This file contains the Database configuration information that are not inside file `database.properties` (database driver class name, connection URL, etc).
-Those information are used internally by the tool to configure properly the bundle (See [configure command](#run_bundle_configure)) and the database initialization procedure (See [init command](#init_platform_conf)).  
-The setup tool uses the values provided in file `database.properties` as replacement strings to the properties defined in file `internal.properties`. Those new processed values are then used by the tool.
+Those information are used internally by the Platform setup tool to configure properly the bundle (See [configure command](#run_bundle_configure)) and the database initialization procedure (See [init command](#init_platform_conf)).  
+The Platform setup tool uses the values provided in file `database.properties` as replacement strings to the properties defined in file `internal.properties`. Those new processed values are then used by the tool.
 
 _Usage_:  
-You are allowed to modify these values if, for instance, for Oracle RAC, you need to add parameters in the **connection URL**, or for mysql you need to add characterEncoding or other parameters: 
+You are allowed to modify these values if, in the example of Oracle RAC, you need to add parameters in the **connection URL**, or for mysql you need to add characterEncoding or other parameters: 
 
 ```properties
    oracle.url=jdbc:oracle:thin:@(description=(address_list=(address=(protocol=tcp)(port=${db.server.port})(host=${db.server.name})))(connect_data=(INSTANCE_NAME=${db.database.name}))(source_route=yes))
 
    oracle.bdm.url=jdbc:oracle:thin:@(description=(address_list=(address=(protocol=tcp)(port=${bdm.db.server.port})(host=${bdm.db.server.name})))(connect_data=(INSTANCE_NAME=${bdm.db.database.name}))(source_route=yes))
+
+   oracle.bdm.url=jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=myrac1.us.oracle.com)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=myrac2.us.oracle.com)(PORT=1521))(LOAD_BALANCE=ON)(FAILOVER=OFF)(CONNECT_DATA=(SERVICE_NAME=myrc.us.oracle.com)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=BASIC))))
 
    mysql.url=jdbc:mysql://${db.server.name}:${db.server.port}/${db.database.name}?dontTrackOpenResources=true&useUnicode=true&characterEncoding=UTF-8&profileSQL=true
 ```
