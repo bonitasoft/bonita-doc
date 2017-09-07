@@ -96,7 +96,7 @@ Therefore, using Bitronix as a transaction manager with SQL Server does not work
 
 1. In an installed Bonita bundle, edit file 'server/webapps/bonita/portal/scripts/includes/common.js':
    1. Add the code below after or before the existing code:
-   ```java
+   ```javascript
    `  // Monkey Patch xhr
       // Due to a specification change in the xhr.getAllResponseHeaders method Bonita Portal does not behave as expected 
       // in browsers that implement this new specification (currently only Chrome >60).
