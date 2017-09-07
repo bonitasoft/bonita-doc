@@ -64,12 +64,12 @@ Therefore, using Bitronix as a transaction manager with SQL Server does not work
 1. Unzip the exported file 'portal-theme.zip'.
 1. Edit 'BonitaConsole.html' file:
    1. In the `<head>` section, add the code below:
-   ```xml
+   ```javascript
    <script>
       // Monkey Patch xhr
       // Due to a specification change in the xhr.getAllResponseHeaders method Bonita Portal does not behave as expected 
       // in browsers that implement this new specification (currently only Chrome >60).
-      // This patch fixes xhr.getAllResponseHeaders unwanted behavior whithin Bonita Portal context
+      // This patch fixes xhr.getAllResponseHeaders unwanted behavior within Bonita Portal context
       //    See https://bugs.chromium.org/p/chromium/issues/detail?id=749086
       //    See https://github.com/whatwg/xhr/issues/146
       (function (xhr) {
@@ -100,7 +100,7 @@ Therefore, using Bitronix as a transaction manager with SQL Server does not work
    `  // Monkey Patch xhr
       // Due to a specification change in the xhr.getAllResponseHeaders method Bonita Portal does not behave as expected 
       // in browsers that implement this new specification (currently only Chrome >60).
-      // This patch fixes xhr.getAllResponseHeaders unwanted behavior whithin Bonita Portal context
+      // This patch fixes xhr.getAllResponseHeaders unwanted behavior within Bonita Portal context
       //    See https://bugs.chromium.org/p/chromium/issues/detail?id=749086
       //    See https://github.com/whatwg/xhr/issues/146
       (function (xhr) {
