@@ -51,6 +51,8 @@ To be documented
 
 ## Limitations and known issues
 
+* Process display name is now used everywhere in Bonita portal (when it has been set in the process design) except in the default provided Jasper reports.
+
 ## Bug fixes
 
 ### Fixes in Bonita 7.6
