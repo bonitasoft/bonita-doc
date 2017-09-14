@@ -4596,50 +4596,50 @@ _Example_: Get the supervisors of type `User` for the process 804090185767475454
   JSON representations of matching process supervisors
   * **Code**: 200
   * **Payload**:  
-    ```json
-  [
-    {
-      "process_id":"8040901857674754544",
-      "user_id":{  
-        "firstname":"April",
-        "icon":"icons/default/icon_user.png",
-        "creation_date":"2017-09-07 16:44:38.321",
-        "userName":"april.sanchez",
-        "title":"Mrs",
-        "created_by_user_id":"-1",
-        "enabled":"true",
-        "lastname":"Sanchez",
-        "last_connection":"",
-        "manager_id":"3",
-        "id":"2",
-        "job_title":"Compensation specialist",
-        "last_update_date":"2017-09-07 16:44:38.321"
-      },
-      "role_id":"-1",
-      "group_id":"-1"
-    },
-    {
-      "process_id":"8040901857674754544",
-      "user_id":{  
-        "firstname":"Anthony",
-        "icon":"icons/default/icon_user.png",
-        "creation_date":"2017-09-07 16:44:38.456",
-        "userName":"anthony.nichols",
-        "title":"Mr",
-        "created_by_user_id":"-1",
-        "enabled":"true",
-        "lastname":"Nichols",
-        "last_connection":"",
-        "manager_id":"17",
-        "id":"18",
-        "job_title":"Account manager",
-        "last_update_date":"2017-09-07 16:44:38.456"
-      },
-      "role_id":"-1",
-      "group_id":"-1"
-    }
-  ]
-    ```
+```json
+[
+   {
+     "process_id":"8040901857674754544",
+     "user_id":{  
+       "firstname":"April",
+       "icon":"icons/default/icon_user.png",
+       "creation_date":"2017-09-07 16:44:38.321",
+       "userName":"april.sanchez",
+       "title":"Mrs",
+       "created_by_user_id":"-1",
+       "enabled":"true",
+       "lastname":"Sanchez",
+       "last_connection":"",
+       "manager_id":"3",
+       "id":"2",
+       "job_title":"Compensation specialist",
+       "last_update_date":"2017-09-07 16:44:38.321"
+     },
+     "role_id":"-1",
+     "group_id":"-1"
+   },
+   {
+     "process_id":"8040901857674754544",
+     "user_id":{  
+       "firstname":"Anthony",
+       "icon":"icons/default/icon_user.png",
+       "creation_date":"2017-09-07 16:44:38.456",
+       "userName":"anthony.nichols",
+       "title":"Mr",
+       "created_by_user_id":"-1",
+       "enabled":"true",
+       "lastname":"Nichols",
+       "last_connection":"",
+       "manager_id":"17",
+       "id":"18",
+       "job_title":"Account manager",
+       "last_update_date":"2017-09-07 16:44:38.456"
+     },
+     "role_id":"-1",
+     "group_id":"-1"
+   }
+ ]
+```
 
 #### Add a process Supervisor
 
