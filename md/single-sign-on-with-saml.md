@@ -4,19 +4,19 @@
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 
-This pages explains how to configure your Bonita Platform system to use the SAML protocol to provide single sign-on (SSO). It assumes you already have a SAML identity provider server up and running (IdP).
+This pages explains how to configure your Bonita Platform system to use the SAML protocol to provide single sign-on (SSO). It assumes you already have a SAML Identity Provider server up and running (IdP).
 
 This information applies to a Bonita platform deployed from a bundle, not to the Engine launched from Bonita Studio.
 
 SAML configuration is at tenant level. Each tenant can use a different authentication method (over SAML or not).
 
 :::info 
-**Note:** Bonita uses [Keycloak](http://www.keycloak.org/) as SAML service provider adapter.
+**Note:** Bonita uses [Keycloak](http://www.keycloak.org/) as SAML Service Provider adapter.
 :::
 
 ## SAML overview for Bonita
 
-This is an overview that relates the steps required to integrate a bonita bundle with an SAML identity provider.
+This is an overview that relates the steps required to integrate a bonita bundle with an SAML Identity Provider.
 
 ![Authentication over SAML](images/saml-overview.png)<!--{.img-responsive}-->
 
@@ -68,6 +68,7 @@ To configure Bonita for SAML:
        -->  auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.saml.SAML2AuthenticationManagerImpl
        -->  saml.filter.active = true
        -->  saml.auth.standard.allowed = false
+       -->  saml.logout.global = false
        -->  auth.tenant.admin.username = install
        -->  auth.passphrase = BonitaBPM
             #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.oauth.OAuthAuthenticationManagerImpl
@@ -133,7 +134,7 @@ To configure Bonita for SAML:
   
     It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file **authenticationManager-config.properties** updated previously.
 
-5. If your Identity provider (IdP) requires requests to be signed, generate a private key.
+5. If your Identity Provider (IdP) requires requests to be signed, generate a private key.
 For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ssh” to retrieve the key from the file id_rsa (more id_rsa, then copy the key).
 
 ::: info
@@ -141,7 +142,7 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
 :::
 
 6. In the tenant_portal folder of each existing tenant: `$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,  
-    edit the file **keycloak-saml.xml** to setup Bonita webapp as a Service provider working with your IdP.  
+    edit the file **keycloak-saml.xml** to setup Bonita webapp as a Service Provider working with your IdP.  
     + The entityID is the Service Provider given to your bonita installation. You can change it if you want but you need to provide it to your IdP.  
     + If your IdP requires the SSO requests to be signed replace the following strings in the Keys section of the SP:  
       - put your private key here
@@ -167,7 +168,6 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
        <keycloak-saml-adapter>
            <SP entityID="bonita"
                sslPolicy="EXTERNAL"
-               logoutPage="http://localhost:8080/bonita/logoutservice"
                forceAuthentication="false"
                isPassive="false"
                turnOffChangeSessionIdOnLogin="true">
@@ -201,22 +201,17 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
             </SP>
        </keycloak-saml-adapter>
    ```
-7. If your Identity Provider is corectly configured (see the section *Configure the Identity provider*), you are done.  
+7. If your Identity Provider is corectly configured (see the section *Configure the Identity Provider*), you are done.  
 Then you can try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in).  
 Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `saml.auth.standard.allowed` to true) to be able to log in without an account on the Identity Provider.
 
 ::: info
-**Note 1:** The single logout SAML profile is not supported by bonita as it doesn't work the same way for each IdP.  
-So the SingleLogoutService configuration is not used (but the element still needs to be present in order for the filter to work...).  
-:::
-
-::: info
-**Note 2:** If your Bonita platform is behind a proxy server, You need to make sure the reverse proxy is configured 
+**Note:** If your Bonita platform is behind a proxy server, You need to make sure the reverse proxy is configured 
 to include correct headers and application server is configured to use the headers. This is required so 
 HttpServletRequest.getRequestURL returns the URL used by the user and not the internal URL used by the proxy.  
 :::
 
-## Configure the Identity provider
+## Configure the Identity Provider
 
 Your IdP should declare a Service Provider named `bonita` (or the value of the `entityID` set in the file **keycloack-saml.xml** of Bonita BPM bundle if it is different) with the following configuration:  
 - ACS URL or SAML Processing URL: `http[s]://<bundle host>:<port>/bonita/saml`
@@ -226,7 +221,37 @@ Your IdP should declare a Service Provider named `bonita` (or the value of the `
 - the Name ID or a user attribute of the user principal sent back by the IdP should match the username of the user accounts in Bonita BPM and the PrincipalNameMapping policy (and attribute value) in **keycloack-saml.xml** should reflect that
 
 ::: info
-**Note:** If the IdP declares a redirect/target URL, it might orveride the target URL set by the service provider request, and you may always end up on the same page after logging in. In that case, try to remove the redirect URL. Bonita BPM supports redirection to the URL initially requested after logging in on the IdP provided the IdP doesn't force this URL.
+**Note:** If the IdP declares a redirect/target URL, it might override the target URL set by the Service Provider request, and you may always end up on the same page after logging in. In that case, try to remove the redirect URL. Bonita BPM supports redirection to the URL initially requested after logging in on the IdP, provided the IdP doesn't force this URL.
+:::
+
+## Configure logout behaviour
+
+If your Bonita platform is configured to manage authentication over SAML, when users log out of Bonita Portal, they do not log out of the SAML Identity Provider (IdP).  
+Therefore they are not logged out of all applications that are using the IdP.  
+To avoid this, you have two options :  
+
+#### Hide the logout button of the portal
+
+This is the most commonly used solution. Users are logged in as long as they don't close their web browser (unless their session times out).  
+To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
+
+::: info
+**Note:** When a user logs out from the IdP directly, Bonita Portal's session will remain active. The user's session time to live will be reset 
+to the configured session timeout value upon each user interaction with the server.  
+:::
+
+#### Setup Bonita platform for SAML global logout
+
+Global logout allows to log out from the Identity Provider as well as all the registered Service Providers when logging out from Bonita platform. This is sometimes required for example if users are on public computers.  
+As Identity Providers do not necessarily support single logout and have different ways of handling it (there are several SAML Single Logout methods), Bonita only offers SAML global logout as an experimental feature. Meaning that this feature has only been tested with Keycloack server acting as Identity Provider.  
+Therefore, there is no guaranty that the global logout will work with your Identity Provider. However, if your IdP supports the Service Provider initiated flow of SAML's Web Browser Single Logout profile, single logout is likely to work.  
+To setup Bonita for global logout:
+1. Set the `saml.logout.global` option to `true` in `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
+2. Update the SingleLogoutService section of `keycloak-saml.xml` located in `platform_conf/initial/tenant_template_portal` for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/` to match your Identity Provider configuration.
+3. Update your Identity Provider configuration to setup the Logout Service POST/Redirect Binding URL to <Bonita_server_URL>/bonita/samlLogout  
+
+::: info
+**Note:** If the single logout flow supported by your IdP is not the same as the one supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutService and handle the logout programmatically.  
 :::
 
 ## Troubleshoot
@@ -245,24 +270,9 @@ org.bonitasoft.level = ALL
 com.bonitasoft.level = ALL
 ```
 
-## Configure logout behaviour
-
-#### Bonita Portal
-
-When your Bonita platform is configured to manage authentication over SAML, when users log out of Bonita Portal, they do not log out of the SAML Identity Provider (IdP).  
-Therefore they are not logged out of all applications that are using the IdP.  
-To avoid this, you can hide the logout option of the portal.  
-To do this, set the `logout.link.hidden=true` option in `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` 
-for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
-
-::: info
-**Note:** When a user logs out from the IdP, Bonita Portal's session will remain active. The user's session time to live will be reset 
-to the configured session timeout value upon each user interaction with the server.
-:::
-
 ## Manage passwords
 
-When your Bonita platform is configured to manage authentication over SAML, the user password are managed in your SAML Identity provider (IdP).  
+When your Bonita platform is configured to manage authentication over SAML, the user password are managed in your SAML Identity Provider (IdP).  
 However, when you create a user in Bonita Portal, specifying a password is mandatory. This password is ignored.
 
 ## LDAP synchronizer and SAML
@@ -289,6 +299,7 @@ Here is the subset of pages filtered by the SAML filter:
 * /portal/form/\*
 * /mobile/\*
 * /apps/\*
+* /logoutservice
 
 REST API are not part of them, but if an http session already exists thanks to cookies, REST API can be used.
 
