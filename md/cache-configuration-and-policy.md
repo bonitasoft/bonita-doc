@@ -22,10 +22,11 @@ Note that in every cases, custom pages and forms take advantage of the cache mec
  
 By default cache is disable for the web server embedded by Bonita studio, as it is more comfortable to realise development without cache. 
 But you can decide to activate cache, to be closer to the production display time. To do this, 
-see [Cache configuration](bonita-bpm-studio-installation.md#enable_cache) documentation. 
+see [Cache configuration](bonita-bpm-studio-installation.md#enable_cache) documentation.
 
-<a id="portal_and_mobile"> 
-#### Portal and Mobile 
+<a id="portal_and_mobile" />
+
+#### Portal and Mobile
 
 As the portal or mobile update frequency is specific for each users,  
 cache duration is set to 10 hours by default. So if you update your bonita portal in production, or if you change the portal look and feel,

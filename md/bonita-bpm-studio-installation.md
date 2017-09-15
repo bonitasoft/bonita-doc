@@ -128,9 +128,9 @@ When you launch Bonita Studio for the first time, you need to install a license:
 4. _**Download**_ the attached file (.lic)
 5. Go back to your Bonita Studio, click _**Install license...**_, and select your .lic file.
 
-<a id="enable_cache">
+<a id="enable_cache"/>
 
-## Cache configuration
+## Cache configuration 
 
 By default [cache](cache-configuration-and-policy.md) is disable for the web server embedded by Bonita studio, as it is more comfortable to realise development without cache. 
 But you can decide to activate cache, to be closer to the production display time. To do this, you need to follow those steps. 
