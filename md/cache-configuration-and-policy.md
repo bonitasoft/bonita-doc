@@ -28,8 +28,7 @@ see [Cache configuration](bonita-bpm-studio-installation.md#enable_cache) docume
 
 #### Portal and Mobile
 
-As the portal or mobile update frequency is specific for each users,  
-cache duration is set to 10 hours by default. So if you update your bonita portal in production, or if you change the portal look and feel,
+As the portal or mobile update frequency is specific for each users, cache duration is set to 10 hours by default. So if you update your bonita portal in production, or if you change the portal look and feel,
 the end user will see the modification within a period of 10 hours.
 
 To fit your needs, you can change this duration into your server configuration, by following those steps:

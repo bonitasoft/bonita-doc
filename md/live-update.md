@@ -75,15 +75,15 @@ This page explains how to update live process definition information. You need t
 
 The Scripts section of the process more details page allows to update a _TYPE\_READ\_ONLY\_SCRIPT_ Expression or a _TYPE\_CONSTANT_ Expression when associated to a Groovy script connector
 
-<a id="cache_busting">
+<a id="cache_busting"/>
 
 ## Cache busting
 
-Cache busting is introduce on 7.6 version at same time of [cache policy](cache-configuration-and-policy.md). 
-He allows the end user to benefit from custom page update without need to empty the browser cache.
-When you export a page or a layout with ui-designer, we suffix resource file name with a hash. 
-If the page is updated, the resource file name will change, and the browser will download it from the server and not from the cache.
+Cache busting has been introduced in Bonita 7.6, along with a new [cache policy](cache-configuration-and-policy.md).
+It allows end users to benefit from custom page update without the need to empty the browser cache.
+When you export a page or a layout from the UI Designer, we suffix the resource filename with a hash. 
+If the page is updated, the resource filename will change, and the browser will download it from the server, and not from the cache.
 
-If you don't use UI Designer to export your custom page, you need to manually manage a cache busting mechanism. 
-Without this cache busting, the end user won't see the latest custom page version, unless he empties his browser cache.
+If you don't use the UI Designer to edit, and export your custom page, don't forget to manually trigger the cache busting mechanism. 
+Without this cache busting, end users won't benefit from the latest custom page changes, unless they empty their browser cache.
  
