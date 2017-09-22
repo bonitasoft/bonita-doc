@@ -47,7 +47,8 @@ To be documented
 #### Removal of the ```platform_init_engine/bonita-platform-init-community.properties``` file
 
 In previous versions, this file should be updated to activate the archive configurability feature (Performance edition).  
-As it is now activated by default when using the Performance edition, the file has been removed.
+The configuration is now easier: the feature is activated by default when using the Performance edition and the file
+has been removed.
 
 __Note__: the migration process automatically removes this file from an existing configuration
 
