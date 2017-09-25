@@ -125,7 +125,7 @@ Some properties of the Bonita BPM Platform needs to be changed in order to make 
     ::: info
     The platform setup tool is also present in the Tomcat or WildFly bundle under the `setup` directory.
     :::
-1. If the platform setup tool is not configured already, configure it as described in the [platform setup tool page](BonitaBPM_platform_setup.md). If it is, move on to step 3. 
+1. If the platform setup tool is not configured already, configure it as described in the [platform setup tool page](BonitaBPM_platform_setup.md). If it is, move on to next step. 
 1. Run the `setup.sh pull` or `setup.bat pull`. This will retrieve the configuration of your platform under `platform_conf/current` folder.  
 In the following steps, you will update the configuration files that are in the `platform_conf/current` folder of the platform setup tool.
 
