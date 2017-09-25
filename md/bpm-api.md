@@ -3930,6 +3930,187 @@ This is the only method supported by this resource. It should be used to list th
 * **Error Response**
   * **Code**: 404 if the process does not exist
 
+### ProcessSupervisor
+
+#### Description
+
+The process supervisor has management rights over a process. He can configure and monitor it.
+You can give the ProcessSupervisor rights to some users by specifying a role and or a group, or a specific user.
+In order to be able to manage the processes he supervises in the portal, a user should also have the profile "Process Manager".
+
+#### Identifier
+
+A compound identifier constructed from process\_id/user\_id/role\_id/group\_id where all Ids are long values.
+
+#### Representation
+```json
+{
+  "process_id":"Id of the process",
+  "role_id":"Id of role, or -1 if the supervisor type is not role or membership",
+  "group_id":"Id of group, or -1 if the supervisor type is not group or membership",
+  "user_id":"Id of user, or -1 if the supervisor type is not user"
+}
+
+```
+#### Methods
+
+* POST - Add a process supervisor
+* GET - Search for process supervisors
+* DELETE - Remove a process supervisor
+
+<a id="process-supervisor-deploy"/>
+
+#### Response object extension (deploy query parameter)
+
+The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
+  * `role_id`
+  * `group_id`
+  * `user_id`
+
+#### Search for process supervisors of a given type (user, group, role or membership)
+
+* **URL**  
+  `/API/bpm/processSupervisor`  
+_Example_: Get the supervisors of type `User` for the process 8040901857674754544: `API/bpm/processSupervisor?c=5&d=user_id&f=process_id%3D8040901857674754544&f=user_id%3D>0&f=group_id%3D-1&f=role_id%3D-1&p=0`
+* **Method**  
+  `GET`
+* **Data Params**  
+  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
+  * f: filter of the search, you need to specify the process_id, and then the user\_id, group\_id and role\_id with one of them (two if you want to filter on group and role) set to `>0` and the other ones set to `-1`. E.g.: `f=process_id%3D8040901857674754544&f=user_id%3D>0&f=group_id%3D-1&f=role_id%3D-1`
+  * d: extend resource response parameters of [this resource](#process-supervisor-deploy) are available.
+* **Success Response**  
+  JSON representations of matching process supervisors
+  * **Code**: 200
+  * **Payload**:  
+```json
+[
+   {
+     "process_id":"8040901857674754544",
+     "user_id":{  
+       "firstname":"April",
+       "icon":"icons/default/icon_user.png",
+       "creation_date":"2017-09-07 16:44:38.321",
+       "userName":"april.sanchez",
+       "title":"Mrs",
+       "created_by_user_id":"-1",
+       "enabled":"true",
+       "lastname":"Sanchez",
+       "last_connection":"",
+       "manager_id":"3",
+       "id":"2",
+       "job_title":"Compensation specialist",
+       "last_update_date":"2017-09-07 16:44:38.321"
+     },
+     "role_id":"-1",
+     "group_id":"-1"
+   },
+   {
+     "process_id":"8040901857674754544",
+     "user_id":{  
+       "firstname":"Anthony",
+       "icon":"icons/default/icon_user.png",
+       "creation_date":"2017-09-07 16:44:38.456",
+       "userName":"anthony.nichols",
+       "title":"Mr",
+       "created_by_user_id":"-1",
+       "enabled":"true",
+       "lastname":"Nichols",
+       "last_connection":"",
+       "manager_id":"17",
+       "id":"18",
+       "job_title":"Account manager",
+       "last_update_date":"2017-09-07 16:44:38.456"
+     },
+     "role_id":"-1",
+     "group_id":"-1"
+   }
+ ]
+```
+
+#### Add a process Supervisor
+
+You can assign a process to a user, a group, a role, or a membership (role and group). Note that in order to be able to manage the processes he supervises in the portal, a user should also have the profile "Process Manager". 
+
+* **URL**  
+  `/API/bpm/processSupervisor`  
+* **Method**  
+  `POST`
+* **Request Payload**  
+  The process definition id and either the user, role and/or group id.
+
+##### Add a process supervisor of type `User`
+  ```json
+  {
+    "process_id":"5777042023671752656",
+    "user_id":"11"
+  }
+  ```
+##### Add a process supervisor of type `Group`
+  ```json
+  {
+    "process_id":"5777042023671752656",
+    "group_id":"2"
+  }
+  ```
+##### Add a process supervisor of type `Role`
+  ```json
+  {
+    "process_id":"5777042023671752656",
+    "role_id":"114"
+  }
+  ```
+##### Add a process supervisor of type `Membership`
+  ```json
+  {
+    "process_id":"5777042023671752656",
+    "role_id":"11",
+    "group_id":"2"
+  }
+  ```
+
+* **Success Response**  
+  The JSON representation of a process supervisor resource
+  * **Code**: 200
+  * **Payload**:  
+    ```json
+    {
+      "process_id":"5777042023671752656",
+      "user_id":"11",
+      "role_id":"-1",
+      "group_id":"-1"
+    }
+    ```
+
+#### Delete a process supervisor
+
+You can delete a process supervisor by specifying its compound Id in the body of the request (process\_id/user\_id/role\_id/group\_id)
+
+* **URL**  
+  `/API/bpm/processSupervisor`  
+* **Method**  
+  `DELETE`
+* **Request Payload**  
+  ```json
+    ["8040901857674754544/11/-1/-1"]
+  ```
+* **Success Response**  
+  * **Code**: 200
+  
+#### Delete process supervisors in bulk
+
+* **URL**  
+  `/API/bpm/processSupervisor`  
+* **Method**  
+  `DELETE`
+* **Request Payload**  
+  List of process supervisors Ids to delete
+  ```json
+    ["8040901857674754544/11/-1/-1","8040901857674754544/12/-1/-1"]
+  ```
+* **Success Response**  
+  * **Code**: 200  
+  
+  
 ## Connectors
 
 ### ProcessConnectorDependency
@@ -4544,183 +4725,3 @@ Specify the next execution date of a timer event trigger.
     1433980484194
     ```
 
-### ProcessSupervisor
-
-#### Description
-
-The process supervisor has management rights over a process. He can configure and monitor it.
-You can give the ProcessSupervisor rights to some users by specifying a role and or a group, or a specific user.
-In order to be able to manage the processes he supervises in the portal, a user should also have the profile "Process Manager".
-
-#### Identifier
-
-A compound identifier constructed from process\_id/user\_id/role\_id/group\_id where all Ids are long values.
-
-#### Representation
-```json
-{
-  "process_id":"Id of the process",
-  "role_id":"Id of role, or -1 if the supervisor type is not role or membership",
-  "group_id":"Id of group, or -1 if the supervisor type is not group or membership",
-  "user_id":"Id of user, or -1 if the supervisor type is not user"
-}
-
-```
-#### Methods
-
-* POST - Add a process supervisor
-* GET - Search for process supervisors
-* DELETE - Remove a process supervisor
-
-<a id="process-supervisor-deploy"/>
-
-#### Response object extension (deploy query parameter)
-
-The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-resource) can be used with : 
-  * `role_id`
-  * `group_id`
-  * `user_id`
-
-#### Search for process supervisors of a given type (user, group, role or membership)
-
-* **URL**  
-  `/API/bpm/processSupervisor`  
-_Example_: Get the supervisors of type `User` for the process 8040901857674754544: `API/bpm/processSupervisor?c=5&d=user_id&f=process_id%3D8040901857674754544&f=user_id%3D>0&f=group_id%3D-1&f=role_id%3D-1&p=0`
-* **Method**  
-  `GET`
-* **Data Params**  
-  [Standard search parameters](rest-api-overview.md#resource_search) are available.  
-  * f: filter of the search, you need to specify the process_id, and then the user\_id, group\_id and role\_id with one of them (two if you want to filter on group and role) set to `>0` and the other ones set to `-1`. E.g.: `f=process_id%3D8040901857674754544&f=user_id%3D>0&f=group_id%3D-1&f=role_id%3D-1`
-  * d: extend resource response parameters of [this resource](#process-supervisor-deploy) are available.
-* **Success Response**  
-  JSON representations of matching process supervisors
-  * **Code**: 200
-  * **Payload**:  
-```json
-[
-   {
-     "process_id":"8040901857674754544",
-     "user_id":{  
-       "firstname":"April",
-       "icon":"icons/default/icon_user.png",
-       "creation_date":"2017-09-07 16:44:38.321",
-       "userName":"april.sanchez",
-       "title":"Mrs",
-       "created_by_user_id":"-1",
-       "enabled":"true",
-       "lastname":"Sanchez",
-       "last_connection":"",
-       "manager_id":"3",
-       "id":"2",
-       "job_title":"Compensation specialist",
-       "last_update_date":"2017-09-07 16:44:38.321"
-     },
-     "role_id":"-1",
-     "group_id":"-1"
-   },
-   {
-     "process_id":"8040901857674754544",
-     "user_id":{  
-       "firstname":"Anthony",
-       "icon":"icons/default/icon_user.png",
-       "creation_date":"2017-09-07 16:44:38.456",
-       "userName":"anthony.nichols",
-       "title":"Mr",
-       "created_by_user_id":"-1",
-       "enabled":"true",
-       "lastname":"Nichols",
-       "last_connection":"",
-       "manager_id":"17",
-       "id":"18",
-       "job_title":"Account manager",
-       "last_update_date":"2017-09-07 16:44:38.456"
-     },
-     "role_id":"-1",
-     "group_id":"-1"
-   }
- ]
-```
-
-#### Add a process Supervisor
-
-You can assign a process to a user, a group, a role, or a membership (role and group). Note that in order to be able to manage the processes he supervises in the portal, a user should also have the profile "Process Manager". 
-
-* **URL**  
-  `/API/bpm/processSupervisor`  
-* **Method**  
-  `POST`
-* **Request Payload**  
-  The process definition id and either the user, role and/or group id.
-
-##### Add a process supervisor of type `User`
-  ```json
-  {
-    "process_id":"5777042023671752656",
-    "user_id":"11"
-  }
-  ```
-##### Add a process supervisor of type `Group`
-  ```json
-  {
-    "process_id":"5777042023671752656",
-    "group_id":"2"
-  }
-  ```
-##### Add a process supervisor of type `Role`
-  ```json
-  {
-    "process_id":"5777042023671752656",
-    "role_id":"114"
-  }
-  ```
-##### Add a process supervisor of type `Membership`
-  ```json
-  {
-    "process_id":"5777042023671752656",
-    "role_id":"11",
-    "group_id":"2"
-  }
-  ```
-
-* **Success Response**  
-  The JSON representation of a process supervisor resource
-  * **Code**: 200
-  * **Payload**:  
-    ```json
-    {
-      "process_id":"5777042023671752656",
-      "user_id":"11",
-      "role_id":"-1",
-      "group_id":"-1"
-    }
-    ```
-
-#### Delete a process supervisor
-
-You can delete a process supervisor by specifying its compound Id in the body of the request (process\_id/user\_id/role\_id/group\_id)
-
-* **URL**  
-  `/API/bpm/processSupervisor`  
-* **Method**  
-  `DELETE`
-* **Request Payload**  
-  ```json
-    ["8040901857674754544/11/-1/-1"]
-  ```
-* **Success Response**  
-  * **Code**: 200
-  
-#### Delete process supervisors in bulk
-
-* **URL**  
-  `/API/bpm/processSupervisor`  
-* **Method**  
-  `DELETE`
-* **Request Payload**  
-  List of process supervisors Ids to delete
-  ```json
-    ["8040901857674754544/11/-1/-1","8040901857674754544/12/-1/-1"]
-  ```
-* **Success Response**  
-  * **Code**: 200  
-  
