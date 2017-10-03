@@ -36,13 +36,13 @@ First, define a *LeaveRequest* business object, with the following attributes:
 
 **II - Organization and Profiles definition**
 
-In you organization, create a group 'Human Resources' and two roles: 'Novice member' & 'Experimented member'.  
-Create some users with the membership 'novice member of human resources' and some others with the membership 'experimented member of human resources'.
+In your organization, create a group 'Human Resources' and two roles: 'Trainee' & 'Manager'.  
+Create some users with the membership 'trainee of human resources' and some others with the membership 'manager of human resources'.
 
 Define two custom profiles using the [profile editor](profileCreation.md) in the Studio:  
 
- - **Novice HR**, mapped with the membership 'novice member of human resources' 
- - **Experimented HR**, mapped with the membership 'experimented member of human resources' 
+ - **Novice HR**, mapped with the membership 'trainee of human resources' 
+ - **Experimented HR**, mapped with the membership 'manager of human resources' 
 
 **III - Create a process and generate some data**
 
@@ -51,6 +51,10 @@ On the pool, add a business variable of type *LeaveRequest*, generate a contract
 Run this process a couple of time to generate some LeaveRequest data.
 
 **IV - Create a basic living application to display data**
+
+::: info
+**Note:** In this tutorial, we create a basic living application to observe the result of the access control. If you are not interested in creating this living application, you can just call the API and check the response. Here is the API to call :   *../API/bdm/businessData/com.company.model.LeaveRequest?q=find&p=0&c=10*
+:::
 
  In the UI Designer,  create an application page (*displayLeaveRequest*):
 
@@ -64,7 +68,7 @@ Run this process a couple of time to generate some LeaveRequest data.
 	 - **Collection**: leaveRequests 
 	 - **CSS classes**: alert alert-info
  - Inside this container, for each of the following attributes of your Business object *(employee - departureDate - duration - medicalComment - managerComment)*:
-	 - Add an input
+	 - Add an input with the following configuration *( [current attribute name] should be replaced by employee or departureDate or duration or medicalComment or managerComment )*
 		 - Label : [current attribute name]
 		 - Value : $item.[current attribute name]
 		 - Read-only: true
