@@ -5,10 +5,35 @@
 :::
 
 ## Overview
+In bonita 7.6, we introduced the possibility to define access controls on the BDM.  Define access control on a business object means define which attributes of this business object a given user is allowed to access.  
+If access controls are defined on the BDM, when a user call a BDM API to retrieve some objects, the response will only contains the attributes this user is allowed to see.
 
 ## Use of profiles
 
+The access logic should concern several users, based on their roles / groups in the organisation. It doesn't make a lot of sens to define an access logic for each user of the organization. That's why access control are bounded with profiles.  
+A [profile](profile-overview.md) is basically a mapping with the organization. Granting access to some attributes of a business object to a given profile means grant access to those attributes to all the users with this profile.  
+The idea is to create profiles accordingly to your logic, and to grant access to those profiles.
+
 ## Define BDM access control
+
+::: warning
+**Warning:** The access control feature follows a white list logic. If you start to define access control on your BDM, you have to do it **for each business object of your BDM**, else some objects won't be accessible.
+:::
+
+To define access control on your BDM, you have to use the Access Control Editor embed in the Studio. You can open it using the menu:  
+*Development -> Business Data Model -> Define BDM access control*
+
+Define access control on a business object means define a set of **access rules** on this object.  
+A rule is made of the following elements:  
+
+ - A name
+ - A description
+ - A list of attributes
+ - A list of profiles
+ 
+A rule define which attributes a set of profiles are allowed to access. You can define several rules for a business object. If several rules reference the same profile, then this profile is allowed  to access to the union of the attributes defined on those rules.  
+
+For development purpose, the Studio can **deploy** access control on the portal for you. To install it in production, you have to export your access control file from the Studio (using the shortcut in the editor) and install it from the portal, using [those instructions](bdm-management-in-bonita-bpm-portal.md).
 
 ## Example of use-cases to implement
 
