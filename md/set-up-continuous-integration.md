@@ -124,32 +124,32 @@ Menu Organization \> Export, Select your Organization.
 
 For example:
 ```groovy
-private void installOrganization(){
-File organizationFile = new          File(MyTestCase.class.getResource("/ACME.xml").getFile());
-String organizationContent = getFileContent(organizationFile);
-getIdentityAPI().importOrganization(organizationContent);
+private void installOrganization() {
+    File organizationFile = new File(MyTestCase.class.getResource("/ACME.xml").getFile())
+    String organizationContent = getFileContent(organizationFile)
+    getIdentityAPI().importOrganization(organizationContent)
 }
 ```
 
 6. Then as a basic test, we try to deploy each generated processes. For example:
 ```groovy
 @Test
-public void deploy() throws Exception{
-//Retrieve automatically generated bars as a Map<filename, fileContent>
-Map<String, InputStream> bars = getBars();
-    Assert.assertTrue("No bar found in resources",!bars.isEmpty());
-
-//For each bar deploy and enable it
-for(Entry<String, InputStream> entry : bars.entrySet()){
-	BusinessArchive archive = BusinessArchiveFactory.readBusinessArchive(entry.getValue()) ;
-		final String entryKey = entry.getKey();
-	ProcessDefinition def = getProcessAPI().deploy(archive);
-		final long defId = def.getId();
-		Assert.assertNotNull("Failed to deploy "+entryKey,def);
-		getProcessAPI().enableProcess(defId);
-		getProcessAPI().disableProcess(defId);
-		getProcessAPI().deleteProcessDefinition(defId);
-}
+void deploy() throws Exception {
+    // Retrieve automatically generated bars as a Map<filename, fileContent>
+    Map<String, InputStream> bars = getBars()
+    Assert.assertTrue("No bar found in resources", !bars.isEmpty())
+    
+    // For each bar deploy and enable it
+    for(Entry<String, InputStream> entry : bars.entrySet()) {
+        BusinessArchive archive = BusinessArchiveFactory.readBusinessArchive(entry.getValue())
+        final String entryKey = entry.getKey()
+        ProcessDefinition definition = getProcessAPI().deploy(archive)
+        final long defId = definition.getId()
+        Assert.assertNotNull("Failed to deploy "+entryKey, definition)
+        getProcessAPI().enableProcess(defId)
+        getProcessAPI().disableProcess(defId)
+        getProcessAPI().deleteProcessDefinition(defId)
+    }
 }
 ```
 
