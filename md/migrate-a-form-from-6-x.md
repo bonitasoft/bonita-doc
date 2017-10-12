@@ -1,5 +1,11 @@
 # Migrate a form from 6.x
 
+::: warning
+**Attention**: By the end of 2018, V6 GWT forms won't be available for modeling or execution, in Bonita 7.8.
+We strongly advise you to switch to forms created with Bonita UI Designer to benefit from technologies like html/AngularJS and use contracts in tasks and process instantiation.
+:::
+
+
 Although a form created with Bonita 6.x will work with Bonita 7.x, you are recommended to migrate your 6.x forms and process definitions to take advantage of the new features, namely live update of a form.   
 There is no specific tooling to assist with migration, and you do not have to migrate all apsects of a process definition at the same time.  
 You can take a staged approach, testing that your process continues to behave as expected after each change.

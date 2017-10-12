@@ -15,6 +15,11 @@ A human task with no form and no contract represents a manual task, completed ou
 
 For backward compatibility, so that processes created in Bonita 6.x can continue to be used and maintained, the [6.x legacy form builder](6-x-legacy-forms.md) and associated tooling are still supported. You are recommended to [migrate 6.x forms to the UI Designer](migrate-a-form-from-6-x.md) so that you can take advantage of the new features in Bonita 7.x. 
 
+::: warning
+**Attention**: By the end of 2018, V6 GWT forms won't be available for modeling or execution, in Bonita 7.8.
+We strongly advise you to switch to forms created with Bonita UI Designer to benefit from technologies like html/AngularJS and use contracts in tasks and process instantiation.
+:::
+
 ## Form types
 
 A form is a page that belongs to a process. It could be a process instantiation form, a human task form, or an overview form. There are some extra things to consider when you are creating a form compared with an ordinary page, concerning how data is passed between the process instance and the form.
