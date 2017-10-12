@@ -156,9 +156,10 @@ If the platform has already been started:
 * then use the [platform setup tool](BonitaBPM_platform_setup.md) again to push the new / modified scripts to database
 
 The `tenant_security_scripts` folder contains a script sample that can be used to write your own.
-Bonita also provides default scripts that should fit common usages. They are packages internally in the binaries, but the source code is available at
-https://github.com/bonitasoft/bonita-engine/tree/master/bpm/bonita-core/bonita-process-engine/src/main/groovy/org/bonitasoft/permissions .
+Bonita also provides default scripts that should fit common usages. They are packages internally in the binaries, but the
+[source code is available](https://github.com/bonitasoft/bonita-engine/tree/master/bpm/bonita-core/bonita-process-engine/src/main/groovy/org/bonitasoft/permissions).
 These provided scripts can be used as a base for you own scripts.
+
 If you write your own scripts:
 * make sure you either inherit from an existing rule, or implement the PermissionRule interface, by overriding the isAllowed() method
 * make sure you use the default package declaration at the top of your groovy class (no `package` keyword used)
