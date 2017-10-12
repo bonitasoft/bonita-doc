@@ -53,7 +53,7 @@ For a standard installation, it is not necessary to modify this file.
 To configure Bonita BPM Engine for CAS:
 
 1. If you do not already have it, download the Subscription edition deploy zip from the customer portal.
-2. Add the CAS module. To do this, copy `BonitaBPMSubscription-7.4.x-deploy/cas-3.3.1-module/org` to `WILDFLY_HOME/server/modules` to merge the CAS module with the existing modules.
+2. Add the CAS module. To do this, copy `BonitaBPMSubscription-x.x.x-deploy/cas-x.x.x-module/org` to `WILDFLY_HOME/server/modules` to merge the CAS module with the existing modules.
 3. Make the CAS module global so that it can be used by any application. To do this, edit `WILDFLY_HOME/setup/wildfly-templates/standalone.xml` and change the definition of the `ee` subsystem to the following:
 
 ```xml
@@ -142,14 +142,14 @@ If the platform has already been initialized, every update to the configuration 
 2. In the `CasLoginModule` configuration, check that the `principalGroupName` property is set to `CallerPrincipal`.  
    This is required to retrieve the username from the Bonita application.  
    Bonita BPM uses the CAS LoginModule in the JASIG implementation, so see the CAS LoginModule section of the [Jasig documentation](https://wiki.jasig.org/display/CASC/JAAS+Integration) for more information.
-3. Copy `cas-client-core-3.3.1.jar` from `BonitaBPMSubscription-7.4.x-deploy/cas-3.3.1-module/org/jasig/cas/main` into the `TOMCAT_HOME/server/lib` directory.
-4. Copy `commons-logging-1.1.1.jar` from `BonitaBPMSubscription-7.4.x-deploy/BonitaBPMSubscription-7.4.x-LDAP-Synchronizer/BonitaBPMSubscription-7.4.x-LDAP-Synchronizer/lib` into the `TOMCAT_HOME/server/lib` directory.
+3. Copy `cas-client-core-x.x.x.jar` from `BonitaBPMSubscription-x.x.x-deploy/cas-x.x.x-module/org/jasig/cas/main` into the `TOMCAT_HOME/server/lib` directory.
+4. Copy `commons-logging-x.x.x.jar` from `BonitaBPMSubscription-x.x.x-deploy/BonitaBPMSubscription-x.x.x-LDAP-Synchronizer/BonitaBPMSubscription-x.x.x-LDAP-Synchronizer/lib` into the `TOMCAT_HOME/server/lib` directory.
 5. Update `bonita-tenant-sp-custom.properties` from `setup/platform_conf/initial/tenant_template_engine/` if platform has not been initialized yet or `setup/platform_conf/current/tenants/[TENANT_ID]/tenant_engine/` and `setup/platform_conf/current/tenant_template_engine/`.
 ::: info
 If the platform has already been initialized, every update to the configuration files under `setup/platform_conf/current` must be done using the `setup` tool:  
-- setup pull  
+- `setup pull`  
 - edit configuration file(s)  
-- setup push
+- `setup push`
 :::
    1. Remove the comment flags from these lines:
       `authentication.service.ref.name=jaasAuthenticationService`
@@ -167,9 +167,9 @@ If the platform has already been initialized, every update to the configuration 
 Edit the `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
 ::: info
 If the platform has already been initialized, every update to the configuration files under `setup/platform_conf/current` must be done using the `setup` tool:  
-- setup pull  
+- `setup pull`
 - edit configuration file(s)  
-- setup push
+- `setup push`
 :::
 
 Make sure that `auth.AuthenticationManager` property is set to `org.bonitasoft.console.common.server.auth.impl.jaas.cas.CASRemoteAuthenticationManagerImpl`
@@ -197,9 +197,9 @@ Then, use the [`LoginAPI`](http://documentation.bonitasoft.com/javadoc/api/${var
 
 If you are configuring Bonita BPM and Tomcat in a cluster environment for CAS, there are some extra steps to do:
 
-1. Copy `commons-logging-1.1.1.jar` from `BonitaBPMSubscription-7.4.x-deploy/BonitaBPMSubscription-7.4.x-LDAP-Synchronizer/BonitaBPMSubscription-7.4.x-LDAP-Synchronizer/lib` into the `TOMCAT_HOME/server/lib` directory.
-2. Remove the `WEB-INF/lib/commons-logging-1.1.1.jar` file from the `TOMCAT_HOME/server/webapps/bonita.war`.
-3. Remove the `TOMCAT_HOME/server/webapps/bonita/WEB-INF/lib/commons-logging-1.1.1.jar` file (if it is present).
+1. Copy `commons-logging-x.x.x.jar` from `BonitaBPMSubscription-x.x.x-deploy/BonitaBPMSubscription-x.x.x-LDAP-Synchronizer/BonitaBPMSubscription-x.x.x-LDAP-Synchronizer/lib` into the `TOMCAT_HOME/server/lib` directory.
+2. Remove the `WEB-INF/lib/commons-logging-x.x.x.jar` file from the `TOMCAT_HOME/server/webapps/bonita.war`.
+3. Remove the `TOMCAT_HOME/server/webapps/bonita/WEB-INF/lib/commons-logging-x.x.x.jar` file (if it is present).
 
 ### Troubleshoot
 
@@ -213,9 +213,9 @@ If you are using CAS, when users log out of Bonita BPM Portal, they log out of C
 To do this, set the `logout.link.hidden=true` option in `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
 ::: info
 If the platform has already been initialized, every update to the configuration files under `setup/platform_conf/current` must be done using the `setup` tool:
-- setup pull
+- `setup pull`
 - edit configuration file(s)
-- setup push
+- `setup push`
 :::
 
 If this option is set, when users navigate away from the Portal, they are still logged in to CAS.
