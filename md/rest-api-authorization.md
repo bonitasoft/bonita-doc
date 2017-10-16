@@ -125,26 +125,47 @@ This enables you to tailor the permissions needed to access a resource using dyn
 A dynamic authorization check for a resource is specified by a line in the file `dynamic-permissions-checks-custom.properties`.
 The line specifies the checks to be made for a request type for a method.
 There can be several terms in the line. Checking stops when the system returns success, indicating that the user is authorized.
-For example: `POST|bpm/case=[user|william.jobs, user|walter.bates, profile|Administrator, profile|User, check|CasePermissionRule]`
+For example: `POST|bpm/case=[user|william.jobs, user|walter.bates, profile|Administrator, profile|User, check|org.bonitasoft.permissions.CasePermissionRule]`
 
 This specifies that a POST action can be done for a case resource if the user is william.jobs or walter.bates,
 or any user with the Administrator profile, or any user with the User profile, or if the CasePermissionRule grants authorization.
 
 A `check` term indicates the name of a class to be called. The class must implement `org.bonitasoft.engine.api.permission.PermissionRule`.
-This example defines a dynamic check that is made whenever a user makes a GET request for the bpm/process resource. The script must be added to the `setup/platform_conf/current/tenant_template_security_scripts` folder before the platform initialization or using the [plaform setup tool](BonitaBPM_platform_setup.md) to retrieve the current configuration, to the folder `setup/platform_conf/current/tenants/[tenantId]/tenant_security_scripts` (then you need to use the tool again to save the changes into the database).
-The `tenant_security_scripts` folder contains some example scripts. If the script returns `true`, the user is authorized. If the script returns `false` or any other result (including an error), the user is not authorized.
+This example defines a dynamic check that is made whenever a user makes a GET request for the "bpm/case" resource.
+If the script returns `true`, the user is authorized. If the script returns `false` or any other result (including an error), the user is not authorized.
 
 The `dynamic-permissions-checks.properties` file contains a placeholder line for each method and resource. For example:
 ```properties
 ## CasePermissionRule
-    #GET|bpm/case=[profile|Administrator, check|CasePermissionRule]
-    #POST|bpm/case=[profile|Administrator, check|CasePermissionRule]
-    #DELETE|bpm/case=[profile|Administrator, check|CasePermissionRule]
-    #GET|bpm/archivedCase=[profile|Administrator, check|CasePermissionRule]
+    #GET|bpm/case=[profile|Administrator, check|org.bonitasoft.permissions.CasePermissionRule]
+    #POST|bpm/case=[profile|Administrator, check|org.bonitasoft.permissions.CasePermissionRule]
+    #DELETE|bpm/case=[profile|Administrator, check|org.bonitasoft.permissions.CasePermissionRule]
+    #GET|bpm/archivedCase=[profile|Administrator, check|org.bonitasoft.permissions.CasePermissionRule]
 ```
 
 To specify a dynamic check for a method and resource, uncomment the line in the file `dynamic-permissions-checks-custom.properties` and add the conditions.
-If you specify a condition that calls a Groovy script, add the script to the `tenant_security_scripts` folder. Then use the [plaform setup tool](BonitaBPM_platform_setup.md) to save the changes.
+If you specify a condition that calls a Groovy script, you must add the new script:
+
+If the platform has never been started yet:
+* add the script to the `setup/platform_conf/initial/tenant_template_security_scripts` folder
+* it will be pushed to database at first run
+
+If the platform has already been started:
+* use the [platform setup tool](BonitaBPM_platform_setup.md) to retrieve the current configuration
+* add the script to the `setup/platform_conf/current/tenants/[tenantId]/tenant_security_scripts` folder
+* then use the [platform setup tool](BonitaBPM_platform_setup.md) again to push the new / modified scripts to database
+
+The `tenant_security_scripts` folder contains a script sample that can be used to write your own.
+Bonita also provides default scripts that should fit common usages. They are packages internally in the binaries, but the
+[source code is available](https://github.com/bonitasoft/bonita-engine/tree/master/bpm/bonita-core/bonita-process-engine/src/main/groovy/org/bonitasoft/permissions).
+These provided scripts can be used as a base for you own scripts.
+
+If you write your own scripts:
+* make sure you either inherit from an existing rule, or implement the PermissionRule interface, by overriding the isAllowed() method
+* make sure you use the default package declaration at the top of your groovy class (no `package` keyword used)
+* make sure this .groovy file is placed in the default directory, under 'initial/tenant_template_security_scripts/' if the platform has never been started,
+or under 'current/tenants/TENANT_ID/tenant_security_scripts/' if the platform has already been started
+
 
 ::: warning
 Do **not** modify file `dynamic-permissions-checks.properties` directly, as it is reserved for examples, and may be overwritten during migration to a newer version.
