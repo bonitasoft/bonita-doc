@@ -147,7 +147,7 @@ To specify a dynamic check for a method and resource, uncomment the line in the 
 If you specify a condition that calls a Groovy script, you must add the new script:
 
 If the platform has never been started yet:
-* add the script to the `setup/platform_conf/current/tenant_template_security_scripts` folder
+* add the script to the `setup/platform_conf/initial/tenant_template_security_scripts` folder
 * it will be pushed to database at first run
 
 If the platform has already been started:
@@ -163,7 +163,8 @@ These provided scripts can be used as a base for you own scripts.
 If you write your own scripts:
 * make sure you either inherit from an existing rule, or implement the PermissionRule interface, by overriding the isAllowed() method
 * make sure you use the default package declaration at the top of your groovy class (no `package` keyword used)
-* make sure this .groovy file is placed in the default directory, under 'initial/tenant_template_security_scripts/' or under 'current/tenants/TENANT_ID/tenant_security_scripts/'
+* make sure this .groovy file is placed in the default directory, under 'initial/tenant_template_security_scripts/' if the platform has never been started,
+or under 'current/tenants/TENANT_ID/tenant_security_scripts/' if the platform has already been started
 
 
 ::: warning
