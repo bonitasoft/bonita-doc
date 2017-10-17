@@ -1,5 +1,9 @@
 # SAP JCo 2
 
+::: info
+**Note:** For Performance, Efficiency, and Teamwork editions only.
+:::
+
 The SAP Java Connector (SAP JCo 2) is a toolkit that allows a Java application to communicate with any SAP system.  
 It combines an easy to use API with unprecedented flexibility and performance.  
 The package supports both Java to SAP System as well as SAP System to Java calls.
