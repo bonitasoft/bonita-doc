@@ -188,4 +188,6 @@ bonita.tenant.authorization.rule.mapping=customAuthorizationRuleMapping
 ./bonita-stop.sh
 ./bonita-start.sh
 ```
-
+::: info
+You can find an example of page mapping authorization rule and configuration in [this project on GitHub](https://github.com/bonitasoft/bonita-page-authorization-rules).
+:::
