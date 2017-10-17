@@ -118,6 +118,3 @@ Therefore, using Bitronix as a transaction manager with SQL Server does not work
       })(XMLHttpRequest.prototype)`
       ```
 1. In your Chrome update 60 browser, empty the cache.
-
-
-Your database must be configured to use the UTF-8 character set.
