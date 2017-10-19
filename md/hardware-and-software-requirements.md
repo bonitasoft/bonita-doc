@@ -50,7 +50,7 @@ Notes:
 4. There is a known issue between Bitronix (the transaction manager shipped by Bonitasoft for the Tomcat bundle and inside the Deploy bundle for Tomcat) and Microsoft SQL Server JDBC driver
 (refer to: [MSDN note](https://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html)).
 Therefore, using Bitronix as a transaction manager with SQL Server does not work and is not supported. To use SQL Server database requires that you use the WildFly bundle provided by Bonitasoft.
-5. Chrome version 60.0.3112 introduced an incompatibility impacting the functionality of Bonita Portal. So from that Chrome version onwards, once Bonita Platform is installed, apply the following procedure to resolve this issue:
+5. Chrome version 60.0.3112 introduced an incompatibility impacting the functionality of Bonita BPM Portal. So from that Chrome version onwards, once Bonita BPM Platform is installed, apply the following procedure to resolve this issue:
 
 ### Fixing procedure
 
@@ -59,7 +59,7 @@ Therefore, using Bitronix as a transaction manager with SQL Server does not work
 **Note:** In order to apply this procedure, you MUST use a Chrome browser version that doesn't suffer from the incompatibility, or you can use Firefox, Internet Explorer/Edge or Safari, for example.
 :::
 
-1. Log in to Bonita Portal as Administrator.
+1. Log in to Bonita BPM Portal as Administrator.
 1. In the menu, click on 'Portal'.
 1. Click on 'Export the current Look&Feel'.
 1. Make a back-up copy of the exported file.
@@ -69,7 +69,7 @@ Therefore, using Bitronix as a transaction manager with SQL Server does not work
    ```javascript
    <script>
       // Monkey Patch xhr
-      // Due to a specification change in the xhr.getAllResponseHeaders method Bonita Portal does not behave as expected 
+      // Due to a specification change in the xhr.getAllResponseHeaders method Bonita BPM Portal does not behave as expected 
       // in browsers that implement this new specification (currently only Chrome >60).
       // This patch fixes xhr.getAllResponseHeaders unwanted behavior within Bonita Portal context
       //    See https://bugs.chromium.org/p/chromium/issues/detail?id=749086
@@ -90,17 +90,17 @@ Therefore, using Bitronix as a transaction manager with SQL Server does not work
     </script>
     ```
 1. Zip all the files and folders again into 'portal-theme.zip'. 
-   (BEWARE: make sure not to zip the 'portal-theme' folder, but its contents. If the 'portal-theme.zip' contains a 'portal-theme' folder at the base, Bonita Portal will not recognize it as a valid zip structure.)
+   (BEWARE: make sure not to zip the 'portal-theme' folder, but its contents. If the 'portal-theme.zip' contains a 'portal-theme' folder at the base, Bonita BPM Portal will not recognize it as a valid zip structure.)
 1. In the portal, click on 'Import and apply a new Look&Feel' and choose the updated 'portal-theme.zip' file.
 1. Back to the Chrome update 60 browser, empty the cache.
 
 #### Community users
 
-1. In an installed Bonita bundle, edit file 'server/webapps/bonita/portal/scripts/includes/common.js':
+1. In an installed Bonita BPM bundle, edit file 'server/webapps/bonita/portal/scripts/includes/common.js':
    1. Add the code below before or after the existing code:
    ```javascript
    `  // Monkey Patch xhr
-      // Due to a specification change in the xhr.getAllResponseHeaders method Bonita Portal does not behave as expected 
+      // Due to a specification change in the xhr.getAllResponseHeaders method Bonita BPM Portal does not behave as expected 
       // in browsers that implement this new specification (currently only Chrome >60).
       // This patch fixes xhr.getAllResponseHeaders unwanted behavior within Bonita Portal context
       //    See https://bugs.chromium.org/p/chromium/issues/detail?id=749086
