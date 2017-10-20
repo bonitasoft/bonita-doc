@@ -216,6 +216,94 @@ class CarManagement implements RestApiController {
     }
 ```
 
+### Returning the whole object with an API link load in the lazy fields
+The idea is to create custom Json serializer.  
+A custom Json serializer is a class which extends *com.fasterxml.jackson.databind.JsonSerializer*. There is a method *serialize* to implement, which has the responsability to serialize the input model into Json.  
+The custom Json serializer has to come with two other classes:  
+
+ - An object wrapper class, which extends *com.fasterxml.jackson.databind.*
+ - A module class, which extends *com.fasterxml.jackson.databind.module.SimpleModule*
+ 
+The module contains the custom serializer, and the wrapper contains the module. At the end, in your rest API endpoint, you interact with the wrapper.
+
+Here is an implementation example for an object Employee which has a lazy attribute of type Address:  
+
+The serializer takes a list of Employee in input, and build a Json object for each employee . The address is replaced with a link to an other Rest API extension with the employee ID in parameter. Calling this API will return the employee address. This is a classic lazy behavior.
+```groovy
+
+class EmployeeSerializer extends JsonSerializer<List<Employee>>{
+
+	@Override
+	public void serialize(List<Employee> employees, JsonGenerator jgen, SerializerProvider provider)throws IOException, JsonProcessingException {
+		jgen.writeStartArray()
+		
+		employees.forEach({serializeEmployee(it,jgen)})
+		
+		jgen.writeEndArray()
+		
+	}
+	
+	private void serializeEmployee(Employee employee, JsonGenerator jgen) {
+		jgen.writeStartObject()
+		
+		jgen.writeNumberField("employeeID", employee.getPersistenceId())
+		jgen.writeStringField("name", employee.getName())
+		jgen.writeNumberField("age", employee.getAge())
+		jgen.writeStringField("skill", employee.getSkill())
+		jgen.writeStringField("addressRequest", String.format("../API/extension/address?p=0&c=10&employeeID=%s", employee.getPersistenceId()))
+		
+		jgen.writeEndObject()
+	}
+
+}
+
+class EmployeeModule extends SimpleModule {
+	private static final String NAME = "EmployeeModule";
+	private static final VersionUtil VERSION_UTIL = new VersionUtil() {};
+  
+	public EmployeeModule() {
+	  super(NAME, VERSION_UTIL.version());
+	  addSerializer(List.class, new EmployeeSerializer());
+	}
+}
+
+class EmployeeObjectMapper extends ObjectMapper {
+	public EmployeeObjectMapper() {
+		registerModule(new EmployeeModule());
+		enable(SerializationFeature.INDENT_OUTPUT);
+	} 
+}
+
+class EmployeeIndex implements RestApiController {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeIndex.class)
+	private static final EmployeeObjectMapper EMPLOYEE_MAPPER = new EmployeeObjectMapper();
+
+    @Override
+    RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
+        def p = request.getParameter "p"
+        def c = request.getParameter "c"
+		
+		def employeeDAO = context.apiClient.getDAO(EmployeeDAO.class)
+		int startIndex = (p as Integer)*(c as Integer)
+		int endIndex = c as Integer
+		List<Employee> employees = employeeDAO.find(startIndex, endIndex)
+		
+		def result = EMPLOYEE_MAPPER.writeValueAsString(employees)
+		
+        return buildResponse(responseBuilder, HttpServletResponse.SC_OK,result)
+    }
+
+    RestApiResponse buildResponse(RestApiResponseBuilder responseBuilder, int httpStatus, Serializable body) {
+        return responseBuilder.with {
+            withResponseStatus(httpStatus)
+            withResponse(body)
+            build()
+        }
+    }
+
+}
+```
 
 ## Known limitations
 
