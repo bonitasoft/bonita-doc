@@ -218,11 +218,11 @@ class CarManagement implements RestApiController {
 
 ### Returning the whole object with an API link load in the lazy fields
 
-The idea is to create custom Json serializer.  
+The idea is to create a custom Json serializer.  
 A custom Json serializer is a class which extends *com.fasterxml.jackson.databind.JsonSerializer*. There is a method *serialize* to implement, which has the responsability to serialize the input model into Json.  
 The custom Json serializer has to come with an other classe, an object mapper,  which extends *com.fasterxml.jackson.databind.ObjectMapper*.  
-This wrapper register a simple module (*com.fasterxml.jackson.databind.module.SimpleModule*), which has to contains the custom serializer.  
-At the end, in your rest API endpoint, you interact with the wrapper.
+This mapper register a simple module (*com.fasterxml.jackson.databind.module.SimpleModule*), which has to contains the custom serializer.  
+At the end, in your rest API endpoint, you interact with the mapper.
 
 Here is an implementation example for the object Car which has four lazy attributes of type Wheel:  
 
@@ -257,13 +257,13 @@ class CarSerializer extends JsonSerializer<List<Car>>{
 		jgen.writeStringField("color", car.getColor())
 		jgen.writeStringField("wheel1Request", getWheelRequest(car.getPersistenceId(),1))
 		jgen.writeStringField("wheel2Request", getWheelRequest(car.getPersistenceId(),2))
-		jgen.writeStringField("wheel3Request", getWheelRequest(car.getPersistenceId(),3)))
+		jgen.writeStringField("wheel3Request", getWheelRequest(car.getPersistenceId(),3))
 		jgen.writeStringField("wheel4Request", getWheelRequest(car.getPersistenceId(),4))
 		
 		jgen.writeEndObject()
 	}
 	private String getWheelRequest(Long carID, Integer wheelNum) {
-		return String.format("../API/extension/address?p=0&c=10&carID=%s&wheelNum=%s", carID, wheelNum)
+		return String.format("../API/extension/wheel?p=0&c=10&carID=%s&wheelNum=%s", carID, wheelNum)
 	}
 
 }
@@ -291,7 +291,7 @@ class CarObjectMapper extends ObjectMapper {
 class CarIndex implements RestApiController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CarIndex.class)
-	private static final CarObjectMapper CAR_MAPPER = new CarObjectMapper()
+    private static final CarObjectMapper CAR_MAPPER = new CarObjectMapper()
 
     @Override
     RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
