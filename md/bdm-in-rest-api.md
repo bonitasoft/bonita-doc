@@ -217,6 +217,7 @@ class CarManagement implements RestApiController {
 ```
 
 ### Returning the whole object with an API link load in the lazy fields
+
 The idea is to create custom Json serializer.  
 A custom Json serializer is a class which extends *com.fasterxml.jackson.databind.JsonSerializer*. There is a method *serialize* to implement, which has the responsability to serialize the input model into Json.  
 The custom Json serializer has to come with an other classe, an object mapper,  which extends *com.fasterxml.jackson.databind.ObjectMapper*.  
