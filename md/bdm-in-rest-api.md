@@ -247,9 +247,8 @@ class CarSerializer extends JsonSerializer<List<Car>>{
 		jgen.writeEndArray()
 		
 	}
-	// "../API/extension/wheel?p=0&c=10&carID=%s&wheelNum=%s" 
-	// ../API/extension/wheel?p=0&c=10&carID=%s&wheelNum=%s
-	../API/extension/wheel?p=0&c=10&carID=%s&wheelNum=%s
+	"../API/extension/wheel?p=0&c=10&carID=%s&wheelNum=%s"
+	"&"
 	private void serializeCar(Car car, JsonGenerator jgen) {
 		jgen.writeStartObject()
 		
