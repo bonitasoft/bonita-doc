@@ -219,79 +219,92 @@ class CarManagement implements RestApiController {
 ### Returning the whole object with an API link load in the lazy fields
 The idea is to create custom Json serializer.  
 A custom Json serializer is a class which extends *com.fasterxml.jackson.databind.JsonSerializer*. There is a method *serialize* to implement, which has the responsability to serialize the input model into Json.  
-The custom Json serializer has to come with two other classes:  
+The custom Json serializer has to come with an other classe, an object mapper,  which extends *com.fasterxml.jackson.databind.ObjectMapper*.  
+This wrapper register a simple module (*com.fasterxml.jackson.databind.module.SimpleModule*), which has to contains the custom serializer.  
+At the end, in your rest API endpoint, you interact with the wrapper.
 
- - An object wrapper class, which extends *com.fasterxml.jackson.databind.*
- - A module class, which extends *com.fasterxml.jackson.databind.module.SimpleModule*
- 
-The module contains the custom serializer, and the wrapper contains the module. At the end, in your rest API endpoint, you interact with the wrapper.
+Here is an implementation example for the object Car which has four lazy attributes of type Wheel:  
 
-Here is an implementation example for an object Employee which has a lazy attribute of type Address:  
-
-The serializer takes a list of Employee in input, and build a Json object for each employee . The address is replaced with a link to an other Rest API extension with the employee ID in parameter. Calling this API will return the employee address. This is a classic lazy behavior.
+The serializer takes a list of Car in input, and build a Json object for each car. The wheels are replaced with links to an other Rest API extension with the car ID and the wheel number in parameter. Calling this API will return the wheel. This is a classic lazy behavior.
 ```groovy
+/***********************
+ ***** SERIALIZER ******
+ ***********************/
 
-class EmployeeSerializer extends JsonSerializer<List<Employee>>{
+import com.fasterxml.jackson.core.JsonGenerator
+import com.fasterxml.jackson.databind.JsonSerializer
+import com.fasterxml.jackson.databind.SerializerProvider
+
+class CarSerializer extends JsonSerializer<List<Car>>{
 
 	@Override
-	public void serialize(List<Employee> employees, JsonGenerator jgen, SerializerProvider provider)throws IOException, JsonProcessingException {
+	public void serialize(List<Car> cars, JsonGenerator jgen, SerializerProvider provider)throws IOException, JsonProcessingException {
 		jgen.writeStartArray()
 		
-		employees.forEach({serializeEmployee(it,jgen)})
+		cars.forEach({serializeCar(it,jgen)})
 		
 		jgen.writeEndArray()
 		
 	}
 	
-	private void serializeEmployee(Employee employee, JsonGenerator jgen) {
+	private void serializeCar(Car car, JsonGenerator jgen) {
 		jgen.writeStartObject()
 		
-		jgen.writeNumberField("employeeID", employee.getPersistenceId())
-		jgen.writeStringField("name", employee.getName())
-		jgen.writeNumberField("age", employee.getAge())
-		jgen.writeStringField("skill", employee.getSkill())
-		jgen.writeStringField("addressRequest", String.format("../API/extension/address?p=0&c=10&employeeID=%s", employee.getPersistenceId()))
+		jgen.writeNumberField("carID", car.getPersistenceId())
+		jgen.writeStringField("model", car.getModel())
+		jgen.writeNumberField("buildYear", car.getBuildYear())
+		jgen.writeStringField("color", car.getColor())
+		jgen.writeStringField("wheel1Request", getWheelRequest(car.getPersistenceId(),1))
+		jgen.writeStringField("wheel2Request", getWheelRequest(car.getPersistenceId(),2))
+		jgen.writeStringField("wheel3Request", getWheelRequest(car.getPersistenceId(),3)))
+		jgen.writeStringField("wheel4Request", getWheelRequest(car.getPersistenceId(),4))
 		
 		jgen.writeEndObject()
 	}
-
-}
-
-class EmployeeModule extends SimpleModule {
-	private static final String NAME = "EmployeeModule";
-	private static final VersionUtil VERSION_UTIL = new VersionUtil() {};
-  
-	public EmployeeModule() {
-	  super(NAME, VERSION_UTIL.version());
-	  addSerializer(List.class, new EmployeeSerializer());
+	private String getWheelRequest(Long carID, Integer wheelNum) {
+		return String.format("../API/extension/address?p=0&c=10&carID=%s&wheelNum=%s", carID, wheelNum)
 	}
+
 }
 
-class EmployeeObjectMapper extends ObjectMapper {
-	public EmployeeObjectMapper() {
-		registerModule(new EmployeeModule());
-		enable(SerializationFeature.INDENT_OUTPUT);
-	} 
+/***********************
+ ******* MAPPER ********
+ ***********************/
+
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.databind.SerializationFeature
+import com.fasterxml.jackson.databind.module.SimpleModule
+
+class CarObjectMapper extends ObjectMapper {
+	public CarObjectMapper () {
+	    SimpleModule module = new SimpleModule()
+	    module.addSerializer(List.class, new CarSerializer())
+	    registerModule(module)
+    } 
 }
 
-class EmployeeIndex implements RestApiController {
+/***********************
+ ******** INDEX ********
+ ***********************/
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeIndex.class)
-	private static final EmployeeObjectMapper EMPLOYEE_MAPPER = new EmployeeObjectMapper();
+class CarIndex implements RestApiController {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(CarIndex.class)
+	private static final CarObjectMapper CAR_MAPPER = new CarObjectMapper()
 
     @Override
     RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
         def p = request.getParameter "p"
         def c = request.getParameter "c"
 		
-		def employeeDAO = context.apiClient.getDAO(EmployeeDAO.class)
+		def carDAO = context.apiClient.getDAO(CarDAO.class)
 		int startIndex = (p as Integer)*(c as Integer)
 		int endIndex = c as Integer
-		List<Employee> employees = employeeDAO.find(startIndex, endIndex)
+		List<Car> cars = carDAO.find(startIndex, endIndex)
 		
-		def result = EMPLOYEE_MAPPER.writeValueAsString(employees)
+		def result = CAR_MAPPER.writeValueAsString(cars)
 		
-        return buildResponse(responseBuilder, HttpServletResponse.SC_OK,result)
+        return buildResponse(responseBuilder, HttpServletResponse.SC_OK, result)
     }
 
     RestApiResponse buildResponse(RestApiResponseBuilder responseBuilder, int httpStatus, Serializable body) {
