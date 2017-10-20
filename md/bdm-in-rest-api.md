@@ -226,7 +226,7 @@ At the end, in your rest API endpoint, you interact with the mapper.
 
 Here is an implementation example for the object Car which has four lazy attributes of type Wheel:  
 
-The serializer takes a list of Car in input, and build a Json object for each car. The wheels are replaced with links to an other Rest API extension with the car ID and the wheel number in parameter. Calling this API will return the wheel. This is a classic lazy behavior.
+The serializer takes a list of Car in input, and build a Json object for each car. & The wheels are replaced with links to an other Rest API extension with the car ID and the wheel number in parameter. Calling this API will return the wheel. This is a classic lazy behavior.
 ```groovy
 /***********************
  ***** SERIALIZER ******
@@ -247,6 +247,7 @@ class CarSerializer extends JsonSerializer<List<Car>>{
 		jgen.writeEndArray()
 		
 	}
+	// & && \&
 	
 	private void serializeCar(Car car, JsonGenerator jgen) {
 		jgen.writeStartObject()
