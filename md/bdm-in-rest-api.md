@@ -263,7 +263,7 @@ class CarSerializer extends JsonSerializer<List<Car>>{
 		jgen.writeEndObject()
 	}
 	private String getWheelRequest(Long carID, Integer wheelNum) {
-		return String.format("../API/extension/wheel?p=0\&c=10\&carID=%s\&wheelNum=%s", carID, wheelNum)
+		return String.format("../API/extension/wheel?p=0&amp;c=10&amp;carID=%s&amp;wheelNum=%s", carID, wheelNum)
 	}
 
 }
