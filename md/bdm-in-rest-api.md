@@ -220,13 +220,13 @@ class CarManagement implements RestApiController {
 
 The idea is to create a custom Json serializer.  
 A custom Json serializer is a class which extends *com.fasterxml.jackson.databind.JsonSerializer*. There is a method *serialize* to implement, which has the responsability to serialize the input model into Json.  
-The custom Json serializer has to come with an other classe, an object mapper,  which extends *com.fasterxml.jackson.databind.ObjectMapper*.  
-This mapper register a simple module (*com.fasterxml.jackson.databind.module.SimpleModule*), which has to contains the custom serializer.  
+The custom Json serializer has to come with an other class, an object mapper,  which extends *com.fasterxml.jackson.databind.ObjectMapper*.  
+This mapper registers a simple module (*com.fasterxml.jackson.databind.module.SimpleModule*), which has to contain the custom serializer.  
 At the end, in your rest API endpoint, you interact with the mapper.
 
 Here is an implementation example for the object Car which has four lazy attributes of type Wheel:  
 
-The serializer takes a list of Car in input, and build a Json object for each car. The wheels are replaced with links to an other Rest API extension with the car ID and the wheel number in parameter. Calling this API will return the wheel. This is a classic lazy behavior.
+The serializer takes a Car in input, and build a Json object for it. The wheels are replaced with links to an other Rest API extension with the car ID and the wheel number in parameter. Calling this API will return the wheel. This is a classic lazy behavior.
 ```groovy
 /***********************
  ***** SERIALIZER ******
@@ -236,32 +236,24 @@ import com.fasterxml.jackson.core.JsonGenerator
 import com.fasterxml.jackson.databind.JsonSerializer
 import com.fasterxml.jackson.databind.SerializerProvider
 
-class CarSerializer extends JsonSerializer<List<Car>>{
+class CarSerializer extends JsonSerializer<Car>{
 
 	@Override
-	public void serialize(List<Car> cars, JsonGenerator jgen, SerializerProvider provider)throws IOException, JsonProcessingException {
-		jgen.writeStartArray()
-		
-		cars.forEach({serializeCar(it,jgen)})
-		
-		jgen.writeEndArray()
-		
-	}
-	
-	private void serializeCar(Car car, JsonGenerator jgen) {
+	public void serialize(Car car, JsonGenerator jgen, SerializerProvider provider)throws IOException, JsonProcessingException {
 		jgen.writeStartObject()
 		
 		jgen.writeNumberField("carID", car.getPersistenceId())
 		jgen.writeStringField("model", car.getModel())
 		jgen.writeNumberField("buildYear", car.getBuildYear())
 		jgen.writeStringField("color", car.getColor())
-		jgen.writeStringField("wheel1Request", getWheelRequest(car.getPersistenceId(),1))
-		jgen.writeStringField("wheel2Request", getWheelRequest(car.getPersistenceId(),2))
-		jgen.writeStringField("wheel3Request", getWheelRequest(car.getPersistenceId(),3))
-		jgen.writeStringField("wheel4Request", getWheelRequest(car.getPersistenceId(),4))
+		jgen.writeStringField("wheel1Request", getWheelRequest(car.getPersistenceId(), 1))
+		jgen.writeStringField("wheel2Request", getWheelRequest(car.getPersistenceId(), 2))
+		jgen.writeStringField("wheel3Request", getWheelRequest(car.getPersistenceId(), 3))
+		jgen.writeStringField("wheel4Request", getWheelRequest(car.getPersistenceId(), 4))
 		
 		jgen.writeEndObject()
 	}
+	
 	private String getWheelRequest(Long carID, Integer wheelNum) {
 		return String.format('../API/extension/wheel?p=0&c=10&carID=%s&wheelNum=%s', carID, wheelNum)
 	}
@@ -279,7 +271,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule
 class CarObjectMapper extends ObjectMapper {
 	public CarObjectMapper () {
 	    SimpleModule module = new SimpleModule()
-	    module.addSerializer(List.class, new CarSerializer())
+	    module.addSerializer(Car.class, new CarSerializer())
 	    registerModule(module)
     } 
 }
