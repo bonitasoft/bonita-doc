@@ -42,6 +42,10 @@ To be documented
 
 ### API removals
 
+#### BDM Api removal
+Since 7.0, BDM APIs and model classes in packages `com.bonitasoft.engine.bdm.*` where deprecated in favor of the Community version in packages `org.bonitasoft.engine.bdm.*`.  
+They are now removed in this version.
+
 ### Configuration changes
 
 #### Removal of the ```platform_init_engine/bonita-platform-init-community-custom.properties``` file
