@@ -56,7 +56,7 @@ __Note__: the migration process automatically removes this file from an existing
 ## Breaking changes
 
 ### API
-* Change method [updateGroup()](https://documentation.bonitasoft.com/javadoc/api/7.6/org/bonitasoft/engine/api/GroupAPI.html#updateGroup-long-org.bonitasoft.engine.identity.GroupUpdater-) in identityAPI to forbid group name update while new name already exist.
+* BS-16519: Change method [updateGroup()](https://documentation.bonitasoft.com/javadoc/api/7.6/org/bonitasoft/engine/api/GroupAPI.html#updateGroup-long-org.bonitasoft.engine.identity.GroupUpdater-) in identityAPI to forbid group name update when new name already exists.
 
 ### Connectors
 * SugarCRM version API v4 has been **removed**: newer versions of [SugarCRM expose a REST API](http://support.sugarcrm.com/Documentation/) that should be used with the REST connector.
@@ -65,7 +65,7 @@ __Note__: the migration process automatically removes this file from an existing
 * Google Calendar v2 connectors has been **removed**: v2 API are not more supported by Google, use Google Calendar v3 instead.
 
 ::: info
-**Migration**: in order to migrate proceses using those connectors, you wil have to export those connectors from a previous Bonita Studio version and re-import them.
+**Migration**: in order to migrate processes using those connectors, you will have to export those connectors from a previous Bonita Studio version and re-import them.
 :::
 
 
