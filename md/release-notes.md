@@ -54,7 +54,20 @@ __Note__: the migration process automatically removes this file from an existing
 
 
 ## Breaking changes
-Change method updateGroup() in identityAPI to forbid group name update while new name already exist.
+
+### API
+* BS-16519: Change method [updateGroup()](https://documentation.bonitasoft.com/javadoc/api/7.6/org/bonitasoft/engine/api/GroupAPI.html#updateGroup-long-org.bonitasoft.engine.identity.GroupUpdater-) in identityAPI to forbid group name update when new name already exists.
+
+### Connectors
+* SugarCRM version API v4 has been **removed**: newer versions of [SugarCRM expose a REST API](http://support.sugarcrm.com/Documentation/) that should be used with the REST connector.
+* [SAP Connector (jco2)](sap-jco-2.md) has been **removed from Community edition** due license incompatibility.
+* Talend connectors has been **removed**: newer versions of [Talend expose a REST API](https://help.talend.com/reader/ISPDm8GQ6s0HN0348QulWg/HF8MMjUq3bllDlzOz2lqxw) that should be used with the REST connector.
+* Google Calendar v2 connectors has been **removed**: v2 API are not more supported by Google, use Google Calendar v3 instead.
+
+::: info
+**Migration**: in order to migrate processes using those connectors, you will have to export those connectors from a previous Bonita Studio version and re-import them.
+:::
+
 
 ### Forms, pages, layouts CSS cleaned
 * Application layout performance improvement. It now allows to navigate between pages without reloading the entire page.  
