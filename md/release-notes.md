@@ -28,10 +28,10 @@ To be documented
 
 ### Button widget and forms integration improvements
 
-The integration of the forms/pages in Bonita (mobile) portal or applications and the behavior of the Button widget have been improved in order to :
+The integration of the forms/pages in Bonita (mobile) Portal or applications and the behavior of the Button widget have been improved in order to:
 - avoid redirecting the current window when the form submitted is displayed in the (mobile) portal and in the applications (issues [BS-16774](https://bonitasoft.atlassian.net/browse/BS-16774) and [BS-16790](https://bonitasoft.atlassian.net/browse/BS-16790) )
 - ignore the target URL on success when the form submitted is displayed in the (mobile) portal (issue [BS-16685](https://bonitasoft.atlassian.net/browse/BS-16685) ).
-In addition to those improvements, an embedded help as been added to the Button widget in the UI designer explaining this behavior.
+In addition to those improvements, an embedded help as been added to the Button widget in the UI Designer, explaining this behavior.
 
 ## Technology updates
 
