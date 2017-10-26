@@ -12,7 +12,7 @@ Simply Bonita.
 Our goal is to provide you with as few deployment artifacts as possible when creating applications.
 To achieve this, we need all application resources to be available in the Studio / UI Designer development suite.
 After application descriptors, profiles are now available in Bonita Studio.
-In Community and Teamwork editions, you can edit the default profiles mapping with organization entities.
+In Teamwork editions, you can edit the default profiles mapping with organization entities.
 In Efficiency and Performance editions, you can also create custom profiles, map them to the organization, and create their Bonita Portal menus if needed.
 /!\Profiles are bundled in files of profiles, to allow to create a file of profiles per target environment / target organization.
 
@@ -54,7 +54,6 @@ Attention: if you create or edit artifacts outside of the UI Designer, you will 
 Performances on realistic pages show a 33% improvement with an Ethernet connection, and a 86% improvement on 3G.
 
 ### Engine performance improvement: startup and BPM Services resume
-
 A major improvement has been integrated, especially for tenants with a lot of processes, processes with large dependencies or processes with a lot of dependencies.
 
 Tests conducted both internally at Bonitasoft and on customer's sites with real production data have shown the following decreases
@@ -66,15 +65,15 @@ Importing an existing workspace into a new version of the studio is no more avai
 
 ### Button widget and forms integration improvements
 The integration of the forms/pages in Bonita (mobile) Portal or applications and the behavior of the Button widget have been improved in order to:
- - avoid redirecting the current window when the form submitted is displayed in the (mobile) portal and in the applications (issues [BS-16774](https://bonitasoft.atlassian.net/browse/BS-16774) and [BS-16790](https://bonitasoft.atlassian.net/browse/BS-16790) )
- - ignore the target URL on success when the form submitted is displayed in the (mobile) portal (issue [BS-16685](https://bonitasoft.atlassian.net/browse/BS-16685) ).
+ - avoid redirecting the current window when the form submitted is displayed in the (mobile) portal and in the applications
+ - ignore the target URL on success when the form submitted is displayed in the (mobile) portal.
 In addition to those improvements, an embedded help as been added to the Button widget in the UI Designer, explaining this behavior.
 
 ### User management page in Administrator Portal is all new 
-To insure the move of all Bonita Portal pages in AngularJS, the User "more" page in the Administrator Portal has been redesigned and reimplemented.
+To insure the move of all Bonita Portal pages to AngularJS, the User "more" page in the Administrator Portal has been redesigned and reimplemented.
 
 ### Time picker improvement
-We brought a little more consistency to time picking in our date/time picker widget
+We brought a little more consistency to time picking in our date/time picker widget: if no time has been set, clicking on button "Today", "Now", or picking a date in the calendar sets the time to "now". If a time has been set, the button "Today" or a date picked in the calendar don't change it, whereas the button "Now" changes it to "now".
 
 ### "Initiator" switch for actors
 When defining actors in a pool, it is now possible to remove the "initiator" tag of an actor instead of moving the tag to another actor.
@@ -85,8 +84,8 @@ Autocomplete capacity has been added in UI Designer properties fields, to help y
 ### Button widget and forms integration improvements
 
 The integration of the forms/pages in Bonita (mobile) Portal or applications and the behavior of the Button widget have been improved in order to:
-- avoid redirecting the current window when the form submitted is displayed in the (mobile) portal and in the applications (issues [BS-16774](https://bonitasoft.atlassian.net/browse/BS-16774) and [BS-16790](https://bonitasoft.atlassian.net/browse/BS-16790) )
-- ignore the target URL on success when the form submitted is displayed in the (mobile) portal (issue [BS-16685](https://bonitasoft.atlassian.net/browse/BS-16685) ).
+- avoid redirecting the current window when the form submitted is displayed in the (mobile) portal and in the applications 
+- ignore the target URL on success when the form submitted is displayed in the (mobile) portal 
 In addition to those improvements, an embedded help as been added to the Button widget in the UI Designer, explaining this behavior.
 
 ## Technology updates
@@ -162,6 +161,6 @@ __Note__: the migration process automatically removes this file from an existing
 
 #### Fixes in Web component
 
-
-## Bug fixes 
+#### Acknowledgments
+Thank you [Dominique Toupin](https://github.com/domtoupin) (Engine) and [Antoni Pàmies](https://github.com/tonipamies) (UI Designer) for their contributions. 
 
