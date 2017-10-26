@@ -14,16 +14,16 @@ To achieve this, we need all application resources to be available in the Studio
 After application descriptors, profiles are now available in Bonita Studio.
 In Community and Teamwork editions, you can edit the default profiles mapping with organization entities.
 In Efficiency and Performance editions, you can also create custom profiles, map them to the organization, and create their Bonita Portal menus if needed.
-(!)Profiles are bundled in files of profiles, to allow to create a file of profiles per target environment / target organization.
+/!\Profiles are bundled in files of profiles, to allow to create a file of profiles per target environment / target organization.
 
 ### Process display name
 It is now possible to add a display name for a process, so the development team can still use the technical "name" for a Pool in Bonita Studio and provide a readable name for users in Bonita Portal. If not set, the technical name is used.
 
 ### SAML logout
-SAML logout has been implemented, so that a user logging out of Bonita is also loggued out of all applications managed by the compagny Single-Sign-On system. (!) What is the name of the strategy we implemented?
+SAML logout has been implemented, so that a user logging out of Bonita is also loggued out of all applications managed by the compagny Single-Sign-On system.
 
 ### New API method to protect task assignation
-As an alternative to the current API method, a new method has been developped to prevent AssignHumanTasks to overwrite assignee programmatically. A configuration file allows the switch. (!) can we have a link to the Javadoc?
+As an alternative to the current API method, a new method has been developped to prevent AssignHumanTasks to overwrite assignee programmatically. A configuration file allows the switch.
 
 ## Improvements
 
