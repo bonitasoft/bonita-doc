@@ -8,7 +8,7 @@ Simply Bonita.
 
 <a id="living-application-development-and-deployment"/>
 
-### Industrialization of Living Application in Bonita Studio: Profiles
+### Industrialization of Living Applications in Bonita Studio: Profiles
 Our goal is to provide you with as few deployment artifacts as possible when creating applications.  
 To achieve this, we need all application resources to be available in the Studio / UI Designer development suite.  
 After application descriptors, profiles are now available in Bonita Studio.  
@@ -83,13 +83,17 @@ When defining actors in a pool, it is now possible to remove the "initiator" tag
 ### UI Designer properties autocomplete for variables
 Autocomplete capacity has been added in UI Designer properties fields, to help you input variable names with no risk of typos anymore.
 
+<a id="techonolgy-updates"/>
 
 ## Technology updates
+* Bonita Studio now runs on Eclipse Oxygen (4.7).
 * The supported Tomcat version for this new release is Tomcat 8.5.23 (included in the bundle).
 * The product now supports SQLServer 2016.
 * The SQLServer connector has changed, there is now a single connector, that supports sqlserver 2008, 2012, 2014 & 2016.
 * The product now supports being run on Ubuntu 16.04.
 
+
+<a id="feature-removals"/>
 
 ## Feature removals
 
