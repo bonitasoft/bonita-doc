@@ -3,7 +3,7 @@
 <a id="living-application-development-and-deployment"/>
 
 ## Bonita BPM becomes Bonita
-Bonita's mission is to provide a platform allowing our customers to create highly tailored digital user experiences for their customers and employees. This is the reason why, while staying strongly BPM-based, the scope of the platform opens, and so is its name.
+Bonita's mission is to provide a platform allowing our customers to create highly tailored digital user experiences for their customers and employees. This is the reason why, while staying strongly process-based, the scope of the platform opens, and so is its name.
 Simply Bonita.
 
 ## New values added
