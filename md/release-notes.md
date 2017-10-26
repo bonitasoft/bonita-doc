@@ -30,25 +30,25 @@ As an alternative to the current API method, a new method has been developped to
 
 ### UI Designer performance improvement: artifacts loading and display
 #### Performance at first display
-1. Widgets JavaScript has been minified and contatenated.  
+* Widgets JavaScript has been minified and contatenated.  
 Such optimized versions of the widgets are now part of the .zip file exported from the UI Designer. At runtime the minified versions are used to improve display performance of pages.  
 The standard vesion of the widgets is also available in the .zip archive if you need to edit it outside of the UI Designer.  
 Reminder: such edited JavaScript won't be readable back to the UI Designer, and you will need to take minification in charge to optimize display performances.  
 The exported .zip still contains the JSON file, and this is the file used by the UI Designer.
 
-2. Living Application layout doesn't reload when user selects another menu option
+* Living Application layout doesn't reload when user selects another menu option
 As a consequence, the new content is displayed faster.  
 Attention: if your applications layout is based on the default layout, see how to [update your custom layout](customize-living-application-layout.md#improve-navigation) to take advantage of this improvement.
   
-3. If your pages call REST API extensions on BDM data, a new documentation page has been created to help you make them as efficient as possible.
+* If your pages call REST API extensions on BDM data, a new documentation page has been created to help you make them as efficient as possible.
 
 Performances on realistic pages show a 20% improvement with an Ethernet connection, and a 40% improvement on 3G.
 
 #### Performance at following displays
-1. Pages and forms resources are now saved in the brwoser cache.  
+* Pages and forms resources are now saved in the browser cache.  
 Cache has been set to 6 months, but this is configurable.
 
-2. Cache-busting has been implemented 
+* Cache-busting has been implemented 
 As a consequence, any udpate in application artefacts is automatically visible by end users.  
 Attention: if you create or edit artifacts outside of the UI Designer, you will need to udpate the artifacts URL to trigger the cache-busting mechanism to reflect the updates.
 
