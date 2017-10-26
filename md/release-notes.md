@@ -45,6 +45,8 @@ To be documented
 #### BDM Api removal
 Since 7.0, BDM APIs and model classes in packages `com.bonitasoft.engine.bdm.*` where deprecated in favor of the Community version in packages `org.bonitasoft.engine.bdm.*`.  
 They are now removed in this version.
+If you use a client Java application using Engine APIs / models in `com.bonitasoft.engine.bdm.*`, simply change the import declaration with `org.bonitasoft.engine.bdm.*`
+when upgrading to 7.6.0+.
 
 ### Configuration changes
 
