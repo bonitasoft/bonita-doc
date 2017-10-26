@@ -36,7 +36,7 @@ Only Performance and Efficiency editions can create new file of profiles, in ord
 ## Create and build a profile
 
 ::: info
-**Note:** All Bonita editions come with an .xml editor for this feature. Only Performance and Efficiency editions also come with a graphical UI.
+**Note:** All Bonita subscription editions come with an .xml editor for this feature. Only Performance and Efficiency editions also come with a graphical UI.
 :::
 
 From Bonita Studio, click on **Organization** -> **Profile** -> **New...**  
