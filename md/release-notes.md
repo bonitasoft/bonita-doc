@@ -9,29 +9,29 @@ Simply Bonita.
 ## New values added
 
 ### Industrialization of Living Application in Bonita Studio: Profiles
-Our goal is to provide you with a as few deployment artifacts as possible when creating applications.
+Our goal is to provide you with as few deployment artifacts as possible when creating applications.
 To achieve this, we need all application resources to be available in the Studio / UI Designer development suite.
 After application descriptors, profiles are now available in Bonita Studio.
 In Community and Teamwork editions, you can edit the default profiles mapping with organization entities.
 In Efficiency and Performance editions, you can also create custom profiles, map them to the organization, and create their Bonita Portal menus if needed.
-Profiles are bundled in files of profiles, to allow to create a file of profiles per target environment / target organization.
+(!)Profiles are bundled in files of profiles, to allow to create a file of profiles per target environment / target organization.
 
 ### Process display name
-It is now possible to add a display name for a process, so the development team can still use the technical "name" and provide a readable name for users. If not set, the technical name is used.
+It is now possible to add a display name for a process, so the development team can still use the technical "name" for a Pool in Bonita Studio and provide a readable name for users in Bonita Portal. If not set, the technical name is used.
 
 ### SAML logout
-SAML logout has been implemented, so that a user logging out of Bonita is also loggued out of all applications managed by the compagny Single-Sign-On system.
+SAML logout has been implemented, so that a user logging out of Bonita is also loggued out of all applications managed by the compagny Single-Sign-On system. (!) What is the name of the strategy we implemented?
 
 ### New API method to protect task assignation
-As an alternative to the current API method, a new method has been developped to prevent AssignHumanTasks to overwrite assignee programmatically. A configuration file allows the switch.
+As an alternative to the current API method, a new method has been developped to prevent AssignHumanTasks to overwrite assignee programmatically. A configuration file allows the switch. (!) can we have a link to the Javadoc?
 
 ## Improvements
 
 ### UI Designer performance improvement: artifacts loading and display
 #### Performance at first display
 1. Widgets JavaScript has been minified and contatenated.
-Such optimized versions of the widgets are now part of the .zip file exported from the UI Designer.
-The standard vesion of the widgets is also available if you need to edit it outside of the UI Designer.
+Such optimized versions of the widgets are now part of the .zip file exported from the UI Designer. At runtime the minified versions are used to improve display performance of pages.
+The standard vesion of the widgets is also available in the .zip archive if you need to edit it outside of the UI Designer.
 Reminder: such edited JavaScript won't be readable back to the UI Designer, and you will need to take minification in charge to optimize display performances.
 The exported .zip still contains the JSON file, and this is the file used by the UI Designer.
 
