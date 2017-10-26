@@ -23,7 +23,7 @@ It is now possible to add a display name for a process, so the development team 
 SAML logout has been implemented, so that a user logging out of Bonita is also loggued out of all applications managed by the compagny Single-Sign-On system.
 
 ### New API method to protect task assignation
-As an alternative to the current API method, a new method has been developped to prevent AssignHumanTasks to overwrite assignee programmatically. A configuration file allows the switch.
+As an alternative to the current API method, a new method has been developped to prevent AssignHumanTasks to overwrite assignee programmatically. For more information, go to the Java doc.
 
 ## Improvements
 
