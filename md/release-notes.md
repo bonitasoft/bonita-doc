@@ -48,6 +48,12 @@ In addition to those improvements, an embedded help as been added to the Button 
 
 ### API removals
 
+#### BDM Api removal
+Since 7.0, BDM APIs and model classes in `com.bonitasoft.engine.bdm.*` packages are deprecated in favor of the Community version in `org.bonitasoft.engine.bdm.*` packages.  
+They have been removed in this release.  
+If you use a client Java application depending on Engine APIs / models in `com.bonitasoft.engine.bdm.*`, simply change the import declaration with `org.bonitasoft.engine.bdm.*`
+when upgrading to 7.6.0+.
+
 ### Configuration changes
 
 #### Removal of the ```platform_init_engine/bonita-platform-init-community-custom.properties``` file
