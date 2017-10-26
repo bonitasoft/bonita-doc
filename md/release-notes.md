@@ -65,6 +65,9 @@ has been removed.
 __Note__: the migration process automatically removes this file from an existing configuration
 
 
+## Miscellaneous
+* The page that display user details in portal for admin profile has been revamped.
+
 ## Breaking changes
 
 ### API
