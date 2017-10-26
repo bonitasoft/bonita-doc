@@ -94,6 +94,10 @@ __Note__: the migration process automatically removes this file from an existing
 
 ### Fixes in Bonita 7.6
 
+#### Acknowledgments
+
+Thanks to [Dominique Toupin](https://github.com/domtoupin) (Engine) and [Antoni Pàmies](https://github.com/tonipamies) 
+(UI Designer) for their contributions.  
 
 #### Fixes in Documentation
 
