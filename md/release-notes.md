@@ -108,8 +108,8 @@ Now all features are available to all users.
 ### Connectors
 * SugarCRM version API v4 has been **removed**: newer versions of [SugarCRM expose a REST API](http://support.sugarcrm.com/Documentation/) that should be used with the REST connector.
 * [SAP Connector (jco2)](sap-jco-2.md) has been **removed from Community edition** due to license incompatibility.
-* Talend connectors has been **removed**: newer versions of [Talend expose a REST API](https://help.talend.com/reader/ISPDm8GQ6s0HN0348QulWg/HF8MMjUq3bllDlzOz2lqxw) that should be used with the REST connector.
-* Google Calendar v2 connectors has been **removed**: v2 API are not more supported by Google, use Google Calendar v3 instead.
+* Talend connectors have been **removed**: newer versions of [Talend expose a REST API](https://help.talend.com/reader/ISPDm8GQ6s0HN0348QulWg/HF8MMjUq3bllDlzOz2lqxw) that should be used with the REST connector.
+* Google Calendar v2 connectors have been **removed**: v2 API are not more supported by Google, use Google Calendar v3 instead.
 
 ::: info
 **Migration**: in order to migrate processes using those connectors, you will have to export those connectors from a previous Bonita Studio version and re-import them.
@@ -151,5 +151,5 @@ has been removed.
 #### Fixes in Web component
 
 #### Acknowledgments
-Thank you [Dominique Toupin](https://github.com/domtoupin) (Engine) and [Antoni Pàmies](https://github.com/tonipamies) (UI Designer) for their contributions. 
+Thank you [Dominique Toupin](https://github.com/domtoupin) (Engine) and [Antoni Pàmies](https://github.com/tonipamies) (UI Designer) for your contribution. 
 
