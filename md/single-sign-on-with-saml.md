@@ -213,15 +213,15 @@ HttpServletRequest.getRequestURL returns the URL used by the user and not the in
 
 ## Configure the Identity Provider
 
-Your IdP should declare a Service Provider named `bonita` (or the value of the `entityID` set in the file **keycloack-saml.xml** of Bonita BPM bundle if it is different) with the following configuration:  
+Your IdP should declare a Service Provider named `bonita` (or the value of the `entityID` set in the file **keycloack-saml.xml** of Bonita bundle if it is different) with the following configuration:  
 - ACS URL or SAML Processing URL: `http[s]://<bundle host>:<port>/bonita/saml`
 - request binding and response binding configured with the same values as in **keycloack-saml.xml** (`POST` or `REDIRECT`)
 - `Client signature required` configured with the same values as the property `signRequest` in **keycloack-saml.xml**
 - if the IdP responses are signed, make sure the certificate of the IdP has been set in **keycloack-saml.xml**
-- the Name ID or a user attribute of the user principal sent back by the IdP should match the username of the user accounts in Bonita BPM and the PrincipalNameMapping policy (and attribute value) in **keycloack-saml.xml** should reflect that
+- the Name ID or a user attribute of the user principal sent back by the IdP should match the username of the user accounts in Bonita and the PrincipalNameMapping policy (and attribute value) in **keycloack-saml.xml** should reflect that
 
 ::: info
-**Note:** If the IdP declares a redirect/target URL, it might override the target URL set by the Service Provider request, and you may always end up on the same page after logging in. In that case, try to remove the redirect URL. Bonita BPM supports redirection to the URL initially requested after logging in on the IdP, provided the IdP doesn't force this URL.
+**Note:** If the IdP declares a redirect/target URL, it might override the target URL set by the Service Provider request, and you may always end up on the same page after logging in. In that case, try to remove the redirect URL. Bonita supports redirection to the URL initially requested after logging in on the IdP, provided the IdP doesn't force this URL.
 :::
 
 ## Configure logout behaviour
