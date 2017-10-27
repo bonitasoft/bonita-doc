@@ -38,6 +38,7 @@ Software required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Port
 | Mozilla Firefox | latest version |
 | Google Chrome | latest version (see note 5) |
 | Microsoft Edge | latest version |
+| Internet Explorer | 11.0.x |
 | **Mobile** |
 | Mozilla Firefox | latest version |
 | Google Chrome | latest version |
