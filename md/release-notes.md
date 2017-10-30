@@ -158,29 +158,29 @@ has been removed.
 * BS-16999	Cannot use $ and \ character for password defined in database.properties and use by setup tool
 
 #### Fixes in Studio component
-BS-16686	Studio migration 7.5 result in empty workspace
-BS-16928	Links to documentation on Studio welcome page lead to the wrong doc version
-BS-16971	Provided engine varaibles are not available in pattern expression completion
-BS-17047	BDM pom generated from studio does not have all required dependencies
-BS-17049	Groovy script size limited to 64k
-BS-17067	unable to create a new parameter from connector config
-BS-17093	Expression editor return type set at null
-BS-17127	Focus problem on CTRL+f search pop-up in groovy script editor
-BS-17154	Installer try to load invalid URL on macOS
-BS-17156	.bar file generation failed: corrupted .proc file
-BS-17199	"select / unselect all" buttons from export organization dialog box do not refresh validation status
-BS-17206	CTRL+A does not work in pattern expression editor
-BS-17210	Download defaut confirmation layout does not work for V6 forms
-BS-17299	Call activity Data to send fetch Data button throw error and broken empty popup
-BS-17447	"Multiple Document" type lost in migration and operation fails
+* BS-16686	Studio migration 7.5 result in empty workspace
+* BS-16928	Links to documentation on Studio welcome page lead to the wrong doc version
+* BS-16971	Provided engine varaibles are not available in pattern expression completion
+* BS-17047	BDM pom generated from studio does not have all required dependencies
+* BS-17049	Groovy script size limited to 64k
+* BS-17067	unable to create a new parameter from connector config
+* BS-17093	Expression editor return type set at null
+* BS-17127	Focus problem on CTRL+f search pop-up in groovy script editor
+* BS-17154	Installer try to load invalid URL on macOS
+* BS-17156	.bar file generation failed: corrupted .proc file
+* BS-17199	"select / unselect all" buttons from export organization dialog box do not refresh validation status
+* BS-17206	CTRL+A does not work in pattern expression editor
+* BS-17210	Download defaut confirmation layout does not work for V6 forms
+* BS-17299	Call activity Data to send fetch Data button throw error and broken empty popup
+* BS-17447	"Multiple Document" type lost in migration and operation fails
 
 #### Fixes in UIDesigner component
-BS-16708	Time picker doesn't behave the same if, in the date picker, a date is selected or if Today is selected
-BS-16923	Time picker is not user friendly
-BS-16977	Link widget additional url parameters are not passed (based on a contribution of a Community member)
-BS-16983	File viewer and link widget use wrong docbase URL to display document
-BS-16996	External System Document not usable in file viewer widget or Overview
-BS-17278	Cannot update custom widget property
+* BS-16708	Time picker doesn't behave the same if, in the date picker, a date is selected or if Today is selected
+* BS-16923	Time picker is not user friendly
+* BS-16977	Link widget additional url parameters are not passed (based on a contribution of a Community member)
+* BS-16983	File viewer and link widget use wrong docbase URL to display document
+* BS-16996	External System Document not usable in file viewer widget or Overview
+* BS-17278	Cannot update custom widget property
 
 #### Fixes in Web component
 * BS-15960	Using REST API to call BDM decreases the performance
