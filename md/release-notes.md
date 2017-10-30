@@ -143,12 +143,66 @@ has been removed.
 ### Fixes in Bonita 7.6
 
 #### Fixes in Documentation
+* BS-17479 IE11 missing from 7.5 list of supported browsers
 
 #### Fixes in Engine component
+* BS-15944	StaleObjectStateException: Row was updated or deleted by another transaction or unsaved-value mapping was incorrect
+* BS-15960	Using REST API to call BDM decreases the performance
+* BS-15975	process instance id and flownode instance id not found when executing the work for the Start event
+* BS-16519	Inconsistent behavior of Bonita Portal for multiple group with same name
+* BS-16595	"My Tasks" view displays executing tasks
+* BS-16791	Can not have two extensions within the same REST API extension definition if one's pathTemplate is a prefix of the other's
+* BS-16868	Robustness: When there is communication issues with database sever, the works are lost
+* BS-16960	Issue with REST Connector stuck on sockRead no default timeout.
+* BS-16969	No license error in the logs when the performance activeProfile is set but the license is not performance
+* BS-16999	Cannot use $ and \ character for password defined in database.properties and use by setup tool
 
 #### Fixes in Studio component
+BS-16686	Studio migration 7.5 result in empty workspace
+BS-16928	Links to documentation on Studio welcome page lead to the wrong doc version
+BS-16971	Provided engine varaibles are not available in pattern expression completion
+BS-17047	BDM pom generated from studio does not have all required dependencies
+BS-17049	Groovy script size limited to 64k
+BS-17067	unable to create a new parameter from connector config
+BS-17093	Expression editor return type set at null
+BS-17127	Focus problem on CTRL+f search pop-up in groovy script editor
+BS-17154	Installer try to load invalid URL on macOS
+BS-17156	.bar file generation failed: corrupted .proc file
+BS-17199	"select / unselect all" buttons from export organization dialog box do not refresh validation status
+BS-17206	CTRL+A does not work in pattern expression editor
+BS-17210	Download defaut confirmation layout does not work for V6 forms
+BS-17299	Call activity Data to send fetch Data button throw error and broken empty popup
+BS-17447	"Multiple Document" type lost in migration and operation fails
+
+#### Fixes in UIDesigner component
+BS-16708	Time picker doesn't behave the same if, in the date picker, a date is selected or if Today is selected
+BS-16923	Time picker is not user friendly
+BS-16977	Link widget additional url parameters are not passed (based on a contribution of a Community member)
+BS-16983	File viewer and link widget use wrong docbase URL to display document
+BS-16996	External System Document not usable in file viewer widget or Overview
+BS-17278	Cannot update custom widget property
 
 #### Fixes in Web component
+* BS-15960	Using REST API to call BDM decreases the performance
+* BS-16519	Inconsistent behavior of Bonita Portal for multiple group with same name
+* BS-16595	"My Tasks" view displays executing tasks
+* BS-16791	Can not have two extensions within the same REST API extension definition if one's pathTemplate is a prefix of the other's
+* BS-16097	Dynamic CaseContextPermissionRule implementation always provides access when requested by an archived case
+* BS-16234	Download servlets not secured by authorization filter + dynamic rule invalid
+* BS-16324	Living Application ressources are not cached
+* BS-16449	Administrator "Do for" raises a 403 error when security.rest.api.authorizations.check.enabled is set to false
+* BS-16481	Process Manager profile can't Edit case variable
+* BS-16678	Portal displays "Successfully updated categories" when the category is not created
+* BS-16685	Executing a task or instantiating a process from Mobile Portal redirects to Portal
+* BS-16774	Get HTTP 400 Error page, on redirect after submit task in the portal and on Mobile
+* BS-16790	ClientAbortException are generated in the log files when a submit button redirect on success on an application page
+* BS-16858	Pager empty pager_bottom using Bonita Wildfly Bundle in HTTPS in Chrome
+* BS-16929	Security Issue: Autocomplete Enabled inForm
+* BS-16953	CustomPage servlets do not set a content-type in the response
+* BS-16992	CannotResolveClassException: org.apache.catalina.util.ParameterMap on engine on Wildfly when portal is on separate Tomcat
+* BS-17176	new line in human step comment are lost when the comment is displayed in the portal
+* BS-17204	Layout iframe always display a border
+* BS-17231	CSRF token cookie missing when accessing a form URL directly after loging in with SAML
 
 #### Acknowledgments
 Thank you [Dominique Toupin](https://github.com/domtoupin) (Engine) and [Antoni Pàmies](https://github.com/tonipamies) (UI Designer) for your contribution. 
