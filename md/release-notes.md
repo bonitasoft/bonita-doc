@@ -136,7 +136,8 @@ has been removed.
 
 ## Limitations and known issues
 
-* Process display name is now used everywhere in Bonita portal (when it has been set in the process design) except in the default provided Jasper reports.
+* MacOS environment: starting from MacOS El Capitan 10.11.4 (March 2016), new security rules block the launch of Bonita Studio. You must temporarily remove security on App launching in **System Preferences**>**Security & Confidentiality**.
+* Process display name is now used everywhere in Bonita Portal (when it has been set in the process design) except in the default provided Jasper reports.
 
 ## Bug fixes
 
