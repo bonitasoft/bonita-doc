@@ -74,11 +74,11 @@ You can now use the _carousel_ and _slide_ directives in your template. Here is 
 
 Template:
 ``` html
-<uib-carousel>
-      <uib-slide ng-repeat="slide in slides" >
+<div uib-carousel>
+      <div uib-slide ng-repeat="slide in slides" >
         <img ng-src="{{slide.url}}" style="margin:auto;" alt="{{slide.alt | uiTranslate}}">
-      </uib-slide>
-</uib-carousel>
+      </div>
+</div>
 ```
 
 Controller:
