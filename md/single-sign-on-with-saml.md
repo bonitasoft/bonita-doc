@@ -210,10 +210,12 @@ Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, t
 So the SingleLogoutService configuration is not used (but the element still needs to be present in order for the filter to work...).  
 :::
 
-::: info
+::: warning
 **Note 2:** If your Bonita BPM platform is behind a proxy server, You need to make sure the reverse proxy is configured 
-to include correct headers and application server is configured to use the headers. This is required so 
-HttpServletRequest.getRequestURL returns the URL used by the user and not the internal URL used by the proxy.  
+to include the correct `Host:` header to the requests and the application server is configured to use this header (it is usually the case by default).
+This is required so that `HttpServletRequest.getRequestURL` returns the URL used by the user and not the internal URL used by the reverse proxy.  
+For example, if you are running Apache >=2.0.31 as reverse proxy, this configuration is controlled by the property [ProxyPreserveHost](http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypreservehost).
+If you need more fine tuning or if you cannot update the reverse proxy configuration, you can consult the official documentation for [Tomcat](https://tomcat.apache.org/connectors-doc/common_howto/proxy.html) or [WildFly](https://docs.jboss.org/author/display/WFLY10/Undertow+subsystem+configuration).
 :::
 
 ## Configure the Identity provider
@@ -226,7 +228,7 @@ Your IdP should declare a Service Provider named `bonita` (or the value of the `
 - the Name ID or a user attribute of the user principal sent back by the IdP should match the username of the user accounts in Bonita BPM and the PrincipalNameMapping policy (and attribute value) in **keycloack-saml.xml** should reflect that
 
 ::: info
-**Note:** If the IdP declares a redirect/target URL, it might orveride the target URL set by the service provider request, and you may always end up on the same page after logging in. In that case, try to remove the redirect URL. Bonita BPM supports redirection to the URL initially requested after logging in on the IdP provided the IdP doesn't force this URL.
+**Note:** If the IdP declares a redirect/target URL, it might override the target URL set by the service provider request, and you may always end up on the same page after logging in. In that case, try to remove the redirect URL. Bonita BPM supports redirection to the URL initially requested after logging in on the IdP provided the IdP doesn't force this URL.
 :::
 
 ## Troubleshoot
