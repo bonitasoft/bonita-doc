@@ -67,6 +67,11 @@ Refer to [full software requirements](hardware-and-software-requirements.md) for
 * httpclient is updated to httpclient 4.5.2
 * httpcore is updated to httpcore 4.4.4
 * spring is updated to spring 4.3.7
+* javax.servlet-api is updated to 3.0.1 
+    * Side effect, for the Living application custom pages, the server redirection are now url encoded. You may have to 
+    manage the url decode in your pages if required.
+    For example, if user forget the trailing space after the page token, the redirected url is now:  
+               "/bonita/apps/myapp/home?time=12:00" redirected to "/bonita/apps/myapp/home/?time=12%3A00"
 
 ### API removals
 
