@@ -23,6 +23,10 @@ REST API extensions use the same authorization mechanism as the standard Bonita 
 **Note**: It is also possible to deploy a REST API extension using [REST portal API / "page" resource](portal-api.md#page).
 :::
 
+::: info
+**Note**: The deployment of the REST API extensions should always be made from the portal or its APIs, not directly from Engine APIs. Notably, the createPage() method of the Engine PageAPI would alllow you to deploy a REST API extension, but would not update the security settings, meaning that you would not be able to access it at runtime. 
+:::
+
 ::: warning
 **Warning**: If you are running Bonita BPM in a cluster, after you import a REST API extension, you must restart the application server on all the cluster nodes.
 :::
