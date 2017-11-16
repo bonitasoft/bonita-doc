@@ -78,8 +78,6 @@ To create the database, we recommend you refer to your RDBMS documentation:
 * [SQL Server](https://technet.microsoft.com/en-us/library/dd207005(v=sql.110).aspx)
 * [MySQL](http://dev.mysql.com/doc/refman/5.5/en/database-use.html)
 
-Your database must be configured to use the UTF-8 character set. You are recommended to configure the database to be case-insensitive so that searches in Bonita BPM Portal are case-insensitive.
-
 ## Specify the database vendor
 
 Bonita BPM Engine needs to know which type of RDBMS you use.  
@@ -260,14 +258,16 @@ Now that you are almost done with the switch from h2 to your chosen RDBMS, you c
 
 ### PostgreSQL
 
-Configure the database to use UTF-8\.
+Configure (see [PostgreSQL documentation](https://www.postgresql.org/docs/9.3/static/multibyte.html)) the database to use `UTF-8` and configure collation and ctype to the appropriate value for your language (e.g. `fr_BE.UTF-8` for the French language as spoken in Belgium).
 
 Edit `postgresql.conf` and set a non-zero value for `max_prepared_transactions`. The default value, 0, disables prepared transactions, which is not recommended for Bonita BPM Engine. The value should be at least as large as the value set for `max_connections` (default is typically 100). See the [PostgreSQL documentation](https://www.postgresql.org/docs/9.3/static/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) for details.
 
 ### Oracle Database
 
-Make sure your database is configured to use the AL32UTF8 character set.
+Make sure your database is configured to use the `AL32UTF8` character set.
 If your database already exists, see the Oracle documentation for details of how to [migrate the character set](http://docs.oracle.com/cd/E11882_01/server.112/e10729/ch11charsetmig.htm#NLSPG011).
+
+Also set the appropriate collation. For example for French: `FRENCH_M_AI` (see [Oracle documentation](http://docs.oracle.com/database/121/NLSPG/ch5lingsort.htm#NLSPG005)).
 
 Bonita BPM Engine uses datasources that handle global transactions that span resources (XADataSource), so the Oracle user used by Bonita BPM Engine, requires some specific privileges, and there are also specific settings for XA activation.
 
@@ -344,6 +344,9 @@ There is a known issue between Bitronix (the Transaction Manager shipped by Boni
 Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the JBoss bundle provided by Bonitasoft.
 :::
 
+#### Collation
+Configure the collation according to the language used (see [SQL Server documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support)). For example for French use `French_CI_AI`.
+
 #### XA Transactions
 
 To support XA transactions, SQL Server requires a specific configuration.
@@ -419,6 +422,9 @@ See [in-doubt xact resolution Server Configuration Option](https://msdn.microsof
 
 
 ### MySQL
+
+#### Charset and collation
+Configure MySQL to use UTF-8 charset and appropriate collation (see [MySQL documentation](https://dev.mysql.com/doc/refman/5.5/en/charset-charsets.html)). For example for Spanish use `utf8_spanish_ci`.
 
 #### Maximum packet size
 
