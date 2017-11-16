@@ -152,15 +152,20 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
     + If your IdP responses are signed, replace the following strings in the Keys section of the IDP:  
       - put your certificate here
       
+      with the certificate provided by the IdP (same certificate as in the SP section).  
       If your IdP responses are not signed, you can remove the Keys node from the IDP and set the attribute validateResponseSignature to false.  
     + The PrincipalNameMapping policy indicates how to retrieve the subject attribute that matches a bonita user account username from the IdP response.
       The policy can either be FROM_NAME_ID or FROM_ATTRIBUTE (in that case you need to specify the name of the subject attribute to use).  
     + You may also need to change the requestBinding and/or responseBinding from POST to REDIRECT depending on your IdP configuration.  
-    + The url binding to your idp also needs to be define by replacing the following string:  
+    + The url binding to your IdP also needs to be define by replacing the following string:  
       - http://idp.saml.binding.url.to.change  
 
+:::warning 
+**Note 1:** If both the requests to the IdP and the responses are signed, this means you need to add the certificate twice: in the SP section as well as in the IDP section.
+:::
+
 ::: info
-**Note:** More configuration options can be found in [Keycloak official documentation](https://keycloak.gitbooks.io/documentation/securing_apps/topics/saml/java/general-config.html)
+**Note 2:** More configuration options can be found in [Keycloak official documentation](https://keycloak.gitbooks.io/documentation/securing_apps/topics/saml/java/general-config.html)
 :::
    
    ```
