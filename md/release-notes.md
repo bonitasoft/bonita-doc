@@ -140,6 +140,11 @@ has been removed.
 
 ## Bug fixes
 
+### Fixes in Bonita 7.6.1
+
+#### Fixes in Web component
+* BS-17449 Do not list profiles without ProfileEntry in Portal.
+
 ### Fixes in Bonita 7.6
 
 #### Fixes in Documentation
