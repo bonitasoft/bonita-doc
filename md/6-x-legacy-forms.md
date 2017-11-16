@@ -1,5 +1,10 @@
 # 6.x legacy forms
 
+::: warning
+**Attention**: By the end of 2018, V6 GWT forms won't be available for modeling or execution.
+We strongly advise you to switch to forms created with Bonita UI Designer to benefit from technologies like html/AngularJS and use contracts in tasks and process instantiation.
+:::
+
 ## Continue to use 6.x forms in Bonita 7.x
 
 From the **Execution** tab, in the **Form**, **Instantiation form**, and **Overview page** panes, you can choose the **_6.x_** option.   

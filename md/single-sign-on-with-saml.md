@@ -44,7 +44,7 @@ it is composed of:
 
 ::: warning  
  Bonita "username" should match the NameId or one attribute of the subject returned by the IdP in the response. 
- If some users need to be able to log in without having an account on the IDP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (/loging.jsp) provided they have a bonita account and their password is different from their username.
+ If some users need to be able to log in without having an account on the IDP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.
 :::
 
 ## Configure Bonita Bundle for SAML
@@ -85,7 +85,7 @@ To configure Bonita for SAML:
     Make sure to [set the right tenant admin username](multi-tenancy-and-tenant-configuration#toc2).
     It is recommended to also replace the value of the passphrase (property auth.passphrase) which is used by the engine to verify the authentication request.
     The value must be the same as in the file **bonita-tenant-sp-custom.properties**.  
-    If you need some users to be able to log in without having an account on the IDP, you can authorize it by setting the property `saml.auth.standard.allowed` to true. Users will then be able to log in using the portal login page (/loging.jsp) provided they have a bonita account and their password is different from their username.
+    If you need some users to be able to log in without having an account on the IDP, you can authorize it by setting the property `saml.auth.standard.allowed` to true. Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.
 
 3. In the tenant_engine folder of each existing tenant: `$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`,
   edit the file **bonita-tenant-sp-custom.xml** to uncomment the bean passphraseOrPasswordAuthenticationService:
@@ -213,15 +213,15 @@ HttpServletRequest.getRequestURL returns the URL used by the user and not the in
 
 ## Configure the Identity Provider
 
-Your IdP should declare a Service Provider named `bonita` (or the value of the `entityID` set in the file **keycloack-saml.xml** of Bonita BPM bundle if it is different) with the following configuration:  
+Your IdP should declare a Service Provider named `bonita` (or the value of the `entityID` set in the file **keycloack-saml.xml** of Bonita bundle if it is different) with the following configuration:  
 - ACS URL or SAML Processing URL: `http[s]://<bundle host>:<port>/bonita/saml`
 - request binding and response binding configured with the same values as in **keycloack-saml.xml** (`POST` or `REDIRECT`)
 - `Client signature required` configured with the same values as the property `signRequest` in **keycloack-saml.xml**
 - if the IdP responses are signed, make sure the certificate of the IdP has been set in **keycloack-saml.xml**
-- the Name ID or a user attribute of the user principal sent back by the IdP should match the username of the user accounts in Bonita BPM and the PrincipalNameMapping policy (and attribute value) in **keycloack-saml.xml** should reflect that
+- the Name ID or a user attribute of the user principal sent back by the IdP should match the username of the user accounts in Bonita and the PrincipalNameMapping policy (and attribute value) in **keycloack-saml.xml** should reflect that
 
 ::: info
-**Note:** If the IdP declares a redirect/target URL, it might override the target URL set by the Service Provider request, and you may always end up on the same page after logging in. In that case, try to remove the redirect URL. Bonita BPM supports redirection to the URL initially requested after logging in on the IdP, provided the IdP doesn't force this URL.
+**Note:** If the IdP declares a redirect/target URL, it might override the target URL set by the Service Provider request, and you may always end up on the same page after logging in. In that case, try to remove the redirect URL. Bonita supports redirection to the URL initially requested after logging in on the IdP, provided the IdP doesn't force this URL.
 :::
 
 ## Configure logout behaviour

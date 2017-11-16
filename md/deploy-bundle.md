@@ -37,10 +37,13 @@ or from the [Customer Portal](https://customer.bonitasoft.com/download/request) 
 ## Tomcat installation
 ### Install Bonita Platform in Tomcat
 
-Copy all files and directories from DEPLOY_ZIP_HOME/Tomcat-8.5.16/server to your Tomcat root directory (TOMCAT_HOME).
+Copy all files and directories from DEPLOY_ZIP_HOME/Tomcat-8.5.23/server to your Tomcat root directory (TOMCAT_HOME).
 :::warning
 Some configuration files from the deploy zip will overwrite some default tomcat configuration files. Proceed
 with care in a tomcat where other applications are already installed.
+:::
+:::warning
+There is an [issue on tomcat 8.0.32](https://bz.apache.org/bugzilla/show_bug.cgi?id=58999) preventing the portal Look & feel to be compiled. If you deploy bonita on an existing tomcat installation, make sure it is a different version of tomcat (preferably 8.5.x with x>=23).
 :::
 
 ### Configure data sources
