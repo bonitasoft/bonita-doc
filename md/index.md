@@ -15,7 +15,7 @@ Click on the **links** below to find useful information quickly, or [browse the 
 * [UI Designer performance improvement: artifacts loading and display](release-notes.md#ui-designer-performance)<!--{li:.leaf}-->
 * [Engine performance improvement: startup and BPM Services resume](release-notes.md#engine-start-performance)<!--{li:.leaf}-->
 * [Eclipse Oxygen (4.7)](release-notes.md#techonolgy-updates)<!--{li:.last .leaf}-->
-* [Feature removals](release-notes.md#tfeature-removals)<!--{li:.last .leaf}-->
+* [Feature removals](release-notes.md#feature-removals)<!--{li:.last .leaf}-->
 
 <!--{ul:.menu .nav}-->
 
