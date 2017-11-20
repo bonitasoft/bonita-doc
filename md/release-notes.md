@@ -106,6 +106,7 @@ We recommand that you re-create your custom layout based on Bonita 7.5.0+ defaul
 ## Limitations and known issues
 * **MacOS Sierra (10.12)**: **Bonita BPM Studio** installed using the `zip` package fails during launch. Bonita BPM can successfully be installed on **MacOS Sierra** using the `dmg` package
 * **MacOS** environment: starting from **MacOS El Capitan 10.11.4** (March 2016), new security rules block the launch of **Bonita BPM Studio**. You must temporarily remove security on `App` launching in _System Preferences→Security & Confidentiality_.
+* **living application**: if you forget the trailing slash in the URL, the redirection to the valid URL will encode your query parameters twice. You may have to manage this in your custom pages, in case you parse the query parameters and they contain special characters.
 
 ## Bug fixes
 
