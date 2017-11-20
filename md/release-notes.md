@@ -137,6 +137,7 @@ has been removed.
 ## Limitations and known issues
 
 * Process display name is now used everywhere in Bonita portal (when it has been set in the process design) except in the default provided Jasper reports.
+* The default living application layout does not re-encode the URL passed to the living application iframe anymore.
 
 ## Bug fixes
 
