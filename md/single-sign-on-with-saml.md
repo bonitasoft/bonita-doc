@@ -44,7 +44,7 @@ it is composed of:
 
 ::: warning  
  Bonita "username" should match the NameId or one attribute of the subject returned by the IdP in the response. 
- If some users need to be able to log in without having an account on the IDP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (/loging.jsp) provided they have a bonita account and their password is different from their username.
+ If some users need to be able to log in without having an account on the IDP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.
 :::
 
 ## Configure Bonita Bundle for SAML
@@ -85,7 +85,7 @@ To configure Bonita for SAML:
     Make sure to [set the right tenant admin username](multi-tenancy-and-tenant-configuration#toc2).
     It is recommended to also replace the value of the passphrase (property auth.passphrase) which is used by the engine to verify the authentication request.
     The value must be the same as in the file **bonita-tenant-sp-custom.properties**.  
-    If you need some users to be able to log in without having an account on the IDP, you can authorize it by setting the property `saml.auth.standard.allowed` to true. Users will then be able to log in using the portal login page (/loging.jsp) provided they have a bonita account and their password is different from their username.
+    If you need some users to be able to log in without having an account on the IDP, you can authorize it by setting the property `saml.auth.standard.allowed` to true. Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.
 
 3. In the tenant_engine folder of each existing tenant: `$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`,
   edit the file **bonita-tenant-sp-custom.xml** to uncomment the bean passphraseOrPasswordAuthenticationService:
@@ -153,15 +153,20 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
     + If your IdP responses are signed, replace the following strings in the Keys section of the IDP:  
       - put your certificate here
       
+      with the certificate provided by the IdP (same certificate as in the SP section).  
       If your IdP responses are not signed, you can remove the Keys node from the IDP and set the attribute validateResponseSignature to false.  
     + The PrincipalNameMapping policy indicates how to retrieve the subject attribute that matches a bonita user account username from the IdP response.
       The policy can either be FROM_NAME_ID or FROM_ATTRIBUTE (in that case you need to specify the name of the subject attribute to use).  
     + You may also need to change the requestBinding and/or responseBinding from POST to REDIRECT depending on your IdP configuration.  
-    + The url binding to your idp also needs to be define by replacing the following string:  
+    + The url binding to your IdP also needs to be define by replacing the following string:  
       - http://idp.saml.binding.url.to.change  
 
+:::warning 
+**Note 1:** If both the requests to the IdP and the responses are signed, this means you need to add the certificate twice: in the SP section as well as in the IDP section.
+:::
+
 ::: info
-**Note:** More configuration options can be found in [Keycloak official documentation](https://keycloak.gitbooks.io/documentation/securing_apps/topics/saml/java/general-config.html)
+**Note 2:** More configuration options can be found in [Keycloak official documentation](https://keycloak.gitbooks.io/documentation/securing_apps/topics/saml/java/general-config.html)
 :::
    
    ```
@@ -205,10 +210,12 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
 Then you can try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in).  
 Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `saml.auth.standard.allowed` to true) to be able to log in without an account on the Identity Provider.
 
-::: info
+::: warning
 **Note:** If your Bonita platform is behind a proxy server, You need to make sure the reverse proxy is configured 
-to include correct headers and application server is configured to use the headers. This is required so 
-HttpServletRequest.getRequestURL returns the URL used by the user and not the internal URL used by the proxy.  
+to include the correct `Host:` header to the requests and the application server is configured to use this header (it is usually the case by default).
+This is required so that `HttpServletRequest.getRequestURL` returns the URL used by the user and not the internal URL used by the reverse proxy.  
+For example, if you are running Apache >=2.0.31 as reverse proxy, this configuration is controlled by the property [ProxyPreserveHost](http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypreservehost).
+If you need more fine tuning or if you cannot update the reverse proxy configuration, you can consult the official documentation for [Tomcat](https://tomcat.apache.org/connectors-doc/common_howto/proxy.html) or [WildFly](https://docs.jboss.org/author/display/WFLY10/Undertow+subsystem+configuration).
 :::
 
 ## Configure the Identity Provider
