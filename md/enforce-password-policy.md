@@ -41,12 +41,27 @@ Here are the steps to add a custom password validator:
 ```xml
 <dependencies>
       <dependency>
-          <groupId>org.bonitasoft.web.toolkit</groupId>
-          <artifactId>toolkit-view</artifactId>
+          <groupId>org.bonitasoft.console</groupId>
+          <artifactId>console-common</artifactId>
           <version>x.y.z</version>
       </dependency>
   </dependencies>`
 ```
+
+::: warning
+**Note:** As this artifact is not available in public repositories, you
+have to follow this given procedure (example given for the 7.3.3 version):
+* retrieve the console-common-7.3.3.jar from a Bonita distribution or live
+instance (in the bonita.war or in the explosed war)
+* retrieve poms from the github repository
+  * bonita-console: https://github.com/bonitasoft/bonita-web/blob/7.3.3/pom.xml
+  * console-common: https://github.com/bonitasoft/bonita-web/blob/7.3.3/common/pom.xml
+* manually put the jars and pom in your local repository or deploy them
+into your repository manager
+  * bonita-common pom.xml file in <M2_REPO>/org/bonitasoft/console/console-common/7.3.3
+  * bonita-console jar and pom.xml files in <M2_REPO>/org/bonitasoft/console/bonita-console/7.3.3
+:::
+
 
 3. Create your class, eg. `PasswordLengthValidator` with a name for the package, eg. `org.bonitasoft.ext.password.validator`.
 
