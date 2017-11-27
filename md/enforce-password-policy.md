@@ -58,8 +58,8 @@ instance (in the bonita.war or in the explosed war)
   * console-common: https://github.com/bonitasoft/bonita-web/blob/7.3.3/common/pom.xml
 * manually put the jars and pom in your local repository or deploy them
 into your repository manager
-  * bonita-common pom.xml file in <M2_REPO>/org/bonitasoft/console/console-common/7.3.3
-  * bonita-console jar and pom.xml files in <M2_REPO>/org/bonitasoft/console/bonita-console/7.3.3
+  * bonita-console pom.xml file in <M2_REPO>/org/bonitasoft/console/bonita-console/7.3.3
+  * console-common pom.xml and jar files in <M2_REPO>/org/bonitasoft/console/console-common/7.3.3
 :::
 
 
