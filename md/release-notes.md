@@ -92,6 +92,10 @@ Autocomplete capacity has been added in UI Designer properties fields, to help y
 * The SQLServer connector has changed, there is now a single connector, that supports sqlserver 2008, 2012, 2014 & 2016.
 * The product now supports being run on Ubuntu 16.04.
 
+### Other dependency updates
+* Hazelcast is updated to Hazlecast 3.8.1 (SP), to improve clustering
+types of installation
+
 
 <a id="feature-removals"/>
 
