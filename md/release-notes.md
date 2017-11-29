@@ -88,7 +88,7 @@ Autocomplete capacity has been added in UI Designer properties fields, to help y
 ## Technology updates
 * Bonita Studio now runs on Eclipse Oxygen (4.7).
 * The supported Tomcat version for this new release is Tomcat 8.5.23 (included in the bundle).
-* The product now supports SQLServer 2016.
+* The product now supports Windows Server 2016 and SQLServer 2016.
 * The SQLServer connector has changed, there is now a single connector, that supports sqlserver 2008, 2012, 2014 & 2016.
 * The product now supports being run on Ubuntu 16.04.
 
