@@ -180,13 +180,26 @@ The `bonita_home` and the database have been migrated.
     * `tenants/[TENANT_ID]/conf/dynamic-permissions-checks.properties` : used if dynamic check on permissions is enabled
                
 1. Configure License:
-    Make sure there is a valid license file
-    * If you have migrated from an earlier maintenance version of the same minor version, for example, from 6.3.0 to 6.3.1, your existing license is still valid and you do not need to do anything.
-    * If you have have migrated from an earlier minor version, for example from 6.0.4 to 6.2.1, you need to [request a new license](licenses.md).
-        * *Before 7.3.0*:
-        Put your new license in `/bonita_home/server/licenses`.
-        * *After 7.3.0*:
-        Put your new license in database as described in [this guide](BonitaBPM_platform_setup.md#update_platform_conf).
+    If the version after migration is 7.3 or greater, configure the setup tool and download the configuration from database.
+    You may also see this page for more details [Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf).
+    
+    There is below a Linux example to download the configuration from database into the local disk, after having configured the setup tool:
+    # cd setup
+    # ./setup.sh pull
+    
+    Make sure there is a valid license file in the ./platform_conf/licenses/ directory:
+    # ls -l ./platform_conf/licenses/
+    
+    If there is no valid license, these 2 pages will help you to request and install a new one:
+    * [Licenses](https://documentation.bonitasoft.com/?page=licenses)
+    * [Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf)
+   
+    When a valid license file had been stored into ./platform_conf/licenses/ directory, it should be pushed into the database:
+    # ./setup.sh push
+    
+    
+    When the version after migration is 7.2 or lower, simply save a valid license in the bonita_home/server/licenses directory.
+    
 1. Start the application server. Before you start Bonita BPM Portal, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal pages instead of the new version. 
 Log in to the Portal and verify that the migration has completed. 
 If you did not set the default Look & Feel before migration and you cannot log in, you need to [restore the default Look & Feel](managing-look-feel.md) using a REST client or the Engine API.
