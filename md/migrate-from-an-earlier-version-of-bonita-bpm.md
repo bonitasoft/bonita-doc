@@ -180,23 +180,25 @@ The `bonita_home` and the database have been migrated.
     * `tenants/[TENANT_ID]/conf/dynamic-permissions-checks.properties` : used if dynamic check on permissions is enabled
                
 1. Configure License:
-    If the version after migration is 7.3 or greater, configure the setup tool and download the configuration from database.
-    You may also see this page for more details [Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf).
+
+    If the version after migration is 7.3 or greater, you need to put a new license in the database: see [Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf) for further details.
     
-    There is below a Linux example to download the configuration from database into the local disk, after having configured the setup tool:
-    # cd setup
-    # ./setup.sh pull
-    
-    Make sure there is a valid license file in the ./platform_conf/licenses/ directory:
-    # ls -l ./platform_conf/licenses/
-    
-    If there is no valid license, these 2 pages will help you to request and install a new one:
+    There is below a Linux example :
+    ```
+    cd setup
+    vi database.properties
+    ./setup.sh pull
+    ls -l ./platform_conf/licenses/
+    ```
+    If there is no valid license in the `./platform_conf/licenses/`, these 2 pages will help you to request and install a new one:
     * [Licenses](https://documentation.bonitasoft.com/?page=licenses)
     * [Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf)
    
-    When a valid license file had been stored into ./platform_conf/licenses/ directory, it should be pushed into the database:
-    # ./setup.sh push
-    
+    Install the new license:
+    ```
+    cp BonitaBPMSubscription-7.n-Jerome-myHosname-20171023-20180122.lic ./platform_conf/licenses/
+    ./setup.sh push
+    ```
     
     When the version after migration is 7.2 or lower, simply save a valid license in the bonita_home/server/licenses directory.
     
