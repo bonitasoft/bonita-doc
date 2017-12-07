@@ -144,7 +144,7 @@
     * [Multi-tenancy and tenant configuration](multi-tenancy-and-tenant-configuration.md)
   * [Platform installation examples](_platform-installation-examples.md)
     * [Ubuntu + OpenJDK + Tomcat + PostgreSQL](ubuntu-openjdk-tomcat-postgresql.md)
-  * [Back up Bonita Platform](back-up-bonita-platform.md)
+  * [Back up Bonita Platform](back-up-bonita-bpm-platform.md)
   * [Migration](_migration.md)
     * [Migration overview](migration-overview.md)
     * [Migrate from an earlier version of Bonita](migrate-from-an-earlier-version-of-bonita-bpm.md)
