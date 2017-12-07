@@ -10,7 +10,10 @@
   const mkdirp = require('mkdirp');
   const queryString = require('query-string');
   const winston = require('winston');
-  const argv = require('yargs').argv;
+  const argv = require('yargs')
+    .string(['a', 'v'])
+    .string('_')
+    .argv;
   const variables = require('./variables.json');
   let application= argv.a || argv._[0];
   if(application){
