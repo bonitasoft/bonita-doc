@@ -8,7 +8,7 @@ Simply Bonita.
 
 <a id="living-application-development-and-deployment"/>
 
-### Industrialization of Living Applications in Bonita Studio: Profiles
+### [Industrialization of Living Applications in Bonita Studio: Profiles](profileCreation.md)
 Our goal is to provide you with as few deployment artifacts as possible when creating applications.  
 To achieve this, we need all application resources to be available in the Studio / UI Designer development suite.  
 After application descriptors, profiles are now available in Bonita Studio.  
@@ -18,7 +18,7 @@ In Efficiency and Performance editions, you can also create custom profiles, map
 ### Process display name
 It is now possible to add a display name for a process, so the development team can still use the technical "name" for a Pool in Bonita Studio and provide a readable name for users in Bonita Portal. If not set, the technical name is used.
 
-### SAML logout
+### [SAML logout](single-sign-on-with-saml.md)
 SAML logout has been implemented, so that a user logging out of Bonita is also loggued out of all applications managed by the compagny Single-Sign-On system.
 
 ### New API method to protect task assignation
