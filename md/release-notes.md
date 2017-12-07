@@ -88,9 +88,13 @@ Autocomplete capacity has been added in UI Designer properties fields, to help y
 ## Technology updates
 * Bonita Studio now runs on Eclipse Oxygen (4.7).
 * The supported Tomcat version for this new release is Tomcat 8.5.23 (included in the bundle).
-* The product now supports SQLServer 2016.
+* The product now supports Windows Server 2016 and SQLServer 2016.
 * The SQLServer connector has changed, there is now a single connector, that supports sqlserver 2008, 2012, 2014 & 2016.
 * The product now supports being run on Ubuntu 16.04.
+
+### Other dependency updates
+* Hazelcast is updated to Hazlecast 3.8.1 (SP), to improve clustering
+types of installation
 
 
 <a id="feature-removals"/>
@@ -136,7 +140,9 @@ has been removed.
 
 ## Limitations and known issues
 
-* Process display name is now used everywhere in Bonita portal (when it has been set in the process design) except in the default provided Jasper reports.
+* MacOS environment: starting from MacOS El Capitan 10.11.4 (March 2016), new security rules block the launch of Bonita Studio. You must temporarily remove security on App launching in **System Preferences**>**Security & Confidentiality**.
+* Process display name is now used everywhere in Bonita Portal (when it has been set in the process design) except in the default provided Jasper reports.
+* The default living application layout does not re-encode the URL passed to the living application iframe anymore.
 
 ## Bug fixes
 
