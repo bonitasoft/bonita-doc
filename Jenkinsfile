@@ -35,7 +35,7 @@ echo ""
 echo "### Converting .md to .html"
 PATH=\$PATH:${nodejsHome}/bin
 npm install
-scripts/convertMdToHtml.js 7.3
+scripts/convertMdToHtml.js bonita
 scripts/taxonomy.js
 echo ""
 
