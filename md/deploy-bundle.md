@@ -126,7 +126,7 @@ When you receive your license, copy the file to the `DEPLOY_ZIP_HOME/setup/platf
 We assume here that the database has already been [created and configured for Bonita](database-configuration.md#database_creation).
 Once created and configured you need to initialize it using the setup tool provided in the deploy bundle archive.
 This will create database schema and initial values.
-1. In DEPLOY_ZIP_HOME/setup folder, edit the file database.properties with properties matching your rdbms
+1. In DEPLOY_ZIP_HOME/setup folder, edit the file database.properties with properties matching your rdbms. Beware of [backslash characters](BonitaBPM_platform_setup.md#backslash_support).
 2. In DEPLOY_ZIP_HOME/setup/lib add your jdbc driver if needed (only for Microsoft SQL Server or Oracle, see [proprietary jdbc drivers](database-configuration.md#proprietary_jdbc_drivers))
 3. In DEPLOY_ZIP_HOME/setup folder, run `setup.(sh|bat) init`
 
