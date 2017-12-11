@@ -199,3 +199,13 @@ Or also if you need to use a specific **database Driver** java class name:
 **Solution**: Edit file `database.properties` and ensure there is a valid `db.vendor` value. Also ensure the line is not commented (no `#` at the beginning of the line)
 
 ---
+
+<a id="backslash_support" />
+
+**Issue**: My database name / password / ... contains a backslash (`\`) character. It seems to be ignored in file `database.properties`
+
+**Cause**: Backslash (`\`) characters are special characters in a .properties file
+
+**Solution**: Replace your backslash (`\`) characters by double-backslashes (`\\`) everywhere in file `database.properties` (and also in file `internal.properties` if you have modified it)
+
+---

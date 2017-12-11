@@ -88,7 +88,7 @@ The migration script supports MySQL, Postgres, Oracle, and MS SQLServer. There i
 
 ::: warning
 **Important:**  
-The migration operation resets the Bonita configuration files to default version for new settings to be applied (from the _$BONITA_HOME_ folder in <7.3.0 version or inside database in >=7.3.0). 
+The migration operation resets the Bonita configuration files to default version for new settings to be applied (from the _$BONITA_HOME_ folder in <7.3.0 version or inside database in >=7.3.0).
 Therefore, you must do a [backup of your configuration files](BonitaBPM_platform_setup.md#update_platform_conf) before starting the migration.  
 You will need to merge custom properties and configurations to the migrated environment.
 
@@ -186,14 +186,30 @@ The `bonita_home` and the database have been migrated.
     * `tenants/[TENANT_ID]/conf/dynamic-permissions-checks.properties` : used if dynamic check on permissions is enabled
                
 1. Configure License:
-    Make sure there is a valid license file
-    * If you have migrated from an earlier maintenance version of the same minor version, for example, from 6.3.0 to 6.3.1, your existing license is still valid and you do not need to do anything.
-    * If you have have migrated from an earlier minor version, for example from 6.0.4 to 6.2.1, you need to [request a new license](licenses.md).
-        * *Before 7.3.0*:
-        Put your new license in `/bonita_home/server/licenses`.
-        * *After 7.3.0*:
-        Put your new license in database as described in [this guide](BonitaBPM_platform_setup.md#update_platform_conf).
-1. Start the application server. Before you start Bonita Portal, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal pages instead of the new version. 
+
+    * If the version after migration is **7.3 or greater**, you need to put a new license in the database: see [Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf) for further details.
+    There is below a Linux example :
+    ```
+    cd setup
+    vi database.properties
+    ./setup.sh pull
+    ls -l ./platform_conf/licenses/
+    ```
+
+    If there is no valid license in the `./platform_conf/licenses/`, these 2 pages will help you to request and install a new one:
+
+      * [Licenses](https://documentation.bonitasoft.com/?page=licenses)
+      * [Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf)
+
+    Install the new license:
+    ```
+    cp BonitaSubscription-7.n-Jerome-myHosname-20171023-20180122.lic ./platform_conf/licenses/
+    ./setup.sh push
+    ```
+
+    * If the version after migration is **7.2.4 or lower**, simply save a valid license in the bonita_home/server/licenses directory.
+
+1. Start the application server. Before you start Bonita Portal, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal pages instead of the new version.
 Log in to the Portal and verify that the migration has completed. 
 If you did not set the default Look & Feel before migration and you cannot log in, you need to [restore the default Look & Feel](managing-look-feel.md) using a REST client or the Engine API.
 
