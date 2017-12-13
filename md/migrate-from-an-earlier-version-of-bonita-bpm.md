@@ -183,7 +183,7 @@ The `bonita_home` and the database have been migrated.
     ```
     ./setup.sh push
     ```
-1. Configure the applicationn server at `bonita-target-version/server`: customization, libs etc.
+1. If you have done specific configuration and customization in your server original version, re-do it by configuring the application server at `bonita-target-version/server` (or `bonita-target-version` if target version is 7.3.n): customization, libs etc.
 1. <a id="compound-permission-migration" /> In the case where deployed resources have required dedicated [authorizations to use the REST API](resource-management.md#permissions), these authorizations are not automatically migrated.  
     Some manual operation have to be done on files that are  located in the _$BONITA\_HOME_ folder if version <7.3.0 or in the extracted `platform_conf/current` folder in version >=7.3.0 (see [Update Bonita BPM Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf) for more information ). You need to merge the previous file version and the migrated one.
     
