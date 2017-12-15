@@ -5,7 +5,7 @@
 :::
 
 ## Overview
-Define access control on a business object  is define which attributes of this business object a given user is allowed to access through REST API.  
+To Define access control on a business object is to define which attributes of this business object a given user is allowed to access through REST API.  
 If access controls are defined on the BDM, when a user calls a BDM API to retrieve some objects, the response will only contain the attributes this user is allowed to see.
 
 ## Use of profiles
