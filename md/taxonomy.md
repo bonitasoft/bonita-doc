@@ -39,7 +39,6 @@
   * [Data](_data.md)
     * [Data handling overview](data-handling-overview.md)
     * [Define and deploy the BDM](define-and-deploy-the-bdm.md)
-	* [Define access control on business objects](bdm-access-control.md)
     * [Specify data in a process definition](specify-data-in-a-process-definition.md)
     * [Parameters](parameters.md)
     * [Contracts and contexts](contracts-and-contexts.md)
