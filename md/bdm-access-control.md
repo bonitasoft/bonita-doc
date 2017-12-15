@@ -247,17 +247,17 @@ Run this process a couple of times to generate invoices.
  - Inside this container:
 	 - Add a title (Text = An invoice)
 	 - Add an input (**Label:** Order date, **Value:** $item.orderDate)
-	 - Add a container, containing:
+	 - Add a container (**hidden:** `$item.customer == null || $item.customer == undefined`)
 		 - A title (Text: Customer)
 		 - An input ( **Label:** Name, **Value:** $item.customer.name)
 		 - An input ( **Label:** Email, **Value:** $item.customer.email)
-		 - An input ( **Label:** Address, **Value:** $item.customer.address)
+		 - An input ( **Label:** Address, **Value:** $item.customer.address, **hidden:** `$item.customer.address == null || $item.customer.address == undefined`)
 	 - Add a container, containing:
 		 -  A title (Text: Order)
 		 - A container (**Collection:** $item.fullOrder)
 		 - Inside this container:
 			 - Add an input(**Label:** Product, **Value:** $item.product.name)
-			 - Add an input(**Label:** Price, **Value:** $item.product.price)
+			 - Add an input(**Label:** Price, **Value:** $item.product.price, **hidden:** `$item.product.price == null || $item.product.price == undefined`)
 			 - Add an input(**Label:** Quantity, **Value:** $item.quantity)
 
 Create a new application descriptor using the [application editor](applicationCreation.md) in the Studio:  
