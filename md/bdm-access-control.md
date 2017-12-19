@@ -5,7 +5,7 @@
 :::
 
 ## Overview
-To Define access control on a business object is to define which attributes of this business object a given user is allowed to access through REST API.  
+Currently, in Bonita, defining access control on a business object (BO) means defining which attributes of this business object a given user is allowed to access through REST API.  
 If access controls are defined on the BDM, when a user calls a BDM API to retrieve some objects, the response will only contain the attributes this user is allowed to see.
 
 ## Use of profiles
@@ -25,15 +25,17 @@ A rule is made of the following elements:
  - A list of attributes
  - A list of profiles
  
-A rule defines which attributes a set of profiles are allowed to access. You can define several rules for a business object. If several rules reference the same profile, then this profile is allowed  to access to the union of the attributes defined on those rules.  
+Bonita 7.7 takes advantage of the capability introduced in Bonita 7.6 to define profiles in the Studio: an access control rule, defined at BO level, grants access to one or several profiles. We are making profiles an effective way to map people to Bonita items: living application or Bonita Portal access (since Bonita 5.0), BDM access control rules (starting in Bonita 7.7), actor mapping or more in the future.
+If several rules grant access to the same profile, then this profile is allowed to access to the union of the attributes defined on those rules.
 
-Business objects used in **composition relation** are handle differently. Access control are not define on the object but on its parent, because of the nature of the relation. It means that there is no access rule to define for a business object used in a composition relation.  
+Business objects used in a **composition relationship** are handle differently. Access control rules must be defined at its parent level, because the only way to access a "child" is through its father. Since there is no access rule to define for a business object used in a composition relation, they are not displayed in the list of BO in the access control graphical editor, on the left, but they appear in the parent object list of attributes, in the details of the rule.
 On the rules of the parent, you can define access control for the object in the attribute list, by defining which attributes of the object used in a composition relation are accessible.  
-The *Invoice example* bellow gives more details on how to define access control for business objects used in composition relation.  
+The *Invoice example* bellow gives more details on how to define access control for business objects used in composition relationship.  
 
 ::: warning
 **Warning:** To allow an easy migration to this new feature, and to keep our BDM API working, all objects are visible by everyone by default. But as soon as you define an accss control rule for one object, the BDM access control switches to **a white list logic**, meaning that you have to define access control **for each and every business object of your BDM**.  
-Else some objects won't be accessible by anyone.
+Else some objects won't be accessible by anyone.  
+The graphical editor helps you achieve this by adding a warning icon close to business objects that have no access rule defined.
 :::
 
 For development purposes, the Studio can **deploy** access control on the portal for you. To install it in production, you have to export your access control file from the Studio (using the shortcut in the editor) and install it from the portal, using [those instructions](bdm-management-in-bonita-bpm-portal.md).
@@ -144,8 +146,8 @@ Connect now as a user with the profile *Experimented HR*. On your application, t
 
 **Business use case:** A company has to handle invoices. An invoice references an order and a customer.  
 An employee in charge of the preparation of the order shall access to the order but not to the customer of an invoice.  
-An order is represented by several invoice line. An invoice line is made of a product , and a quantity. A product is defined by a name and a price. An employee in charge of the preparation of the order shall access to the product and the quantity but not to the price of a product.  
-A sales of the company shall access to both the customer and the order of an invoice.  
+An order is represented by several invoice line. An invoice line is made of a product and a quantity. A product is defined by a name and a price. An employee in charge of the preparation of the order is allowed to access the product name and the quantity but not the price of a product.  
+A sales representative is allowed to access both the customer and the order of an invoice.  
 A customer is represented by a name, an email and an address. A sells shall access to the name and the email of the customer, but not to its address.  
 
 **Technical use case:** Grant access to some complex attributes (with composition or aggregation relations) of a business object depending on the profiles of the requester. The access control for the business object with an aggregation / composition relation has to be defined too.  
@@ -193,6 +195,7 @@ Define two custom profiles using the [profile editor](profileCreation.md) in the
 - **Sales**, mapped with the group 'Sales'
 - **Order picker**, mapped with the group 'Order picker'
 
+Deploy those profiles.
 ::: info
 **Note:** Part 3. and 4. are not directly related to access control definition, it is just a convenient way to observe its results.
 :::
@@ -205,7 +208,7 @@ Create a new diagram, with only a start event and an end event.
 On the pool, add a business variable of type *Customer*, generate a contract from this data, and generate an instantiation form from this contract.  
 Run this process a couple of times to generate customers.
 
-Then, we are going to create a process to generate invoices. The instantiation form will have to retrieve existing customers, so there is some work to do on the UID fgor this process.
+Then, we are going to create a process to generate invoices. The instantiation form will have to retrieve existing customers, so there is some work to do on the UID for this process.
 
 Create a new diagram, with only a start event and an end event.  
 On the pool, add a business variable of type *Invoice*, generate a contract from this data, and generate an instantiation form from this contract.  
@@ -308,4 +311,4 @@ Deploy your access control file.
 
 Access to your previous data is now controlled by the BDM Access Control file you just deployed. An order picker can't see the customer and the price of a product anymore. A Sales can't see the address of a customer anymore.  
 Connect onto the portal as a user with the profile *Order picker*. Go to your application: the customer data and the order price are always empty.
-Connect now as a user with the profile *Sales*. On your application, the customer data are displayed except the address, and the price of the product is available.
+Connect now as a user with the profile *Sales*. On your application, the customer data are displayed except the address. The price of the product is now available.
