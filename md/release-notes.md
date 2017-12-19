@@ -83,6 +83,10 @@ When defining actors in a pool, it is now possible to remove the "initiator" tag
 ### UI Designer properties autocomplete for variables
 Autocomplete capacity has been added in UI Designer properties fields, to help you input variable names with no risk of typos anymore.
 
+### UI Designer allows handling collections with invalid state 
+Collection with invalid content now keeps the model available allowing modification on the structure of the collect (for instance add and remove). 
+This is a behaviour change that allows forms to be better managed and further custom validations possible.
+
 <a id="techonolgy-updates"/>
 
 ## Technology updates
@@ -205,6 +209,7 @@ has been removed.
 * BS-16996 External System Document not usable in file viewer widget or Overview
 * BS-17278 Cannot update custom widget property
 * BS-17526 Label property of input widget has not correct type
+* BS-16235 Action Remove from collection doesn't delete the correct item
 
 #### Fixes in Web component
 * BS-15960 Using REST API to call BDM decreases the performance
