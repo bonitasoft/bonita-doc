@@ -25,7 +25,7 @@ When done you will have a database with all tables created and with a table `CON
 1. [Create the database](database-configuration.md#database_creation).
 1. In case you use [Business data](define-and-deploy-the-bdm.md), [create a database for the Business Data](database-configuration.md#database_creation).
 1. Download a Bonita [Tomcat bundle](tomcat-bundle.md) or a Bonita [WildFly bundle](wildfly-bundle.md), and unzip it at some place of your choice.
-1. Edit file **`setup/database.properties`** and modify the properties to suit your databases (Bonita internal database & Business Data database).
+1. Edit file **`setup/database.properties`** and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of [backslash characters](BonitaBPM_platform_setup.md#backslash_support).
 
 In the following steps, you will update the configuration files that are in the `setup/platform_conf/initial` folder of the platform setup tool.
 
