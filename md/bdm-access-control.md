@@ -70,6 +70,8 @@ Define two custom profiles using the [profile editor](profileCreation.md) in the
  - **Novice HR**, mapped with the membership 'Trainee of Human Resources' 
  - **Experimented HR**, mapped with the membership 'Manager of Human Resources' 
 
+Deploy those profiles.
+ 
 ::: info
 **Note:** Part 3. and 4. are not directly related to access control definition, it is just a convenient way to observe its results.
 :::
