@@ -8,18 +8,18 @@ Simply Bonita.
 
 <a id="living-application-development-and-deployment"/>
 
-### [Industrialization of Living Applications in Bonita Studio: Profiles](profileCreation.md)
+### Industrialization of Living Applications in Bonita Studio: Profiles
 Our goal is to provide you with as few deployment artifacts as possible when creating applications.  
 To achieve this, we need all application resources to be available in the Studio / UI Designer development suite.  
-After application descriptors, profiles are now available in Bonita Studio.  
+After application descriptors, [profiles](profileCreation.md) are now available in Bonita Studio.  
 In Teamwork editions, you can edit the default profiles mapping with organization entities.  
 In Efficiency and Performance editions, you can also create custom profiles, map them to the organization, and create their Bonita Portal menus if needed.  
 
 ### Process display name
 It is now possible to add a display name for a process, so the development team can still use the technical "name" for a Pool in Bonita Studio and provide a readable name for users in Bonita Portal. If not set, the technical name is used.
 
-### [SAML logout](single-sign-on-with-saml.md)
-SAML logout has been implemented, so that a user logging out of Bonita is also loggued out of all applications managed by the compagny Single-Sign-On system.
+### SAML logout
+[SAML logout](single-sign-on-with-saml.md) has been implemented, so that a user logging out of Bonita is also loggued out of all applications managed by the compagny Single-Sign-On system.
 
 ### New API method to protect task assignation
 As an alternative to the current API method, a new method has been developped to prevent AssignHumanTasks to overwrite assignee programmatically. For more information, go to the Java doc.
