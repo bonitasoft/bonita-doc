@@ -82,7 +82,7 @@ Template:
 ```
 
 **Note:**
-If you want use _carousel_ and _slide_ directives in same page as bonita widgets who import `ui-bootstrap-tpls-0.13.0.min.js`, 
+If you want use _carousel_ and _slide_ directives in the same page as widgets that import `ui-bootstrap-tpls-0.13.0.min.js` as asset, 
 please use this syntax for _carousel_ and _slide_ directives in your template.
 
 ``` html
