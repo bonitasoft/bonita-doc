@@ -83,9 +83,10 @@ When defining actors in a pool, it is now possible to remove the "initiator" tag
 ### UI Designer properties autocomplete for variables
 Autocomplete capacity has been added in UI Designer properties fields, to help you input variable names with no risk of typos anymore.
 
-### UI Designer allows handling collections with invalid state 
-Collection with invalid content now keeps the model available allowing modification on the structure of the collect (for instance add and remove). 
-This is a behaviour change that allows forms to be better managed and further custom validations possible.
+### UI Designer allows handling collections with invalid state
+Before this change a collection with invalid state has no model available. Now a collection with content in invalid state keeps the model available. 
+This allow modification on the structure of the collect with invalid state like add or remove item.
+If you make some manual validation with invalid state on collection, we advise you to check if your validations are already good.
 
 <a id="techonolgy-updates"/>
 
