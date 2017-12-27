@@ -81,6 +81,18 @@ Template:
 </div>
 ```
 
+**Note:**
+If you want use _carousel_ and _slide_ directives in same page as bonita widgets who import `ui-bootstrap-tpls-0.13.0.min.js`, 
+please use this syntax of _carousel_ and _slide_ directives in your template.
+
+``` html
+<uib-carousel>
+      <uib-slide ng-repeat="slide in slides" >
+        <img ng-src="{{slide.url}}" style="margin:auto;" alt="{{slide.alt | uiTranslate}}">
+      </uib-slide>
+</uib-carousel>
+```
+
 Controller:
 ```javascript
 function ($scope) {
