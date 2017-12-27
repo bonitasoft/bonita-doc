@@ -1,6 +1,6 @@
 # Bonita installation overview
 
-Bonita exists in several [editions](http://www.bonitasoft.com/products#versions): Performance, Efficiency, Teamwork, and Community.
+Bonita exists in several [editions](http://www.bonitasoft.com/bonita-editions): Performance, Efficiency, Teamwork, and Community.
 
 For the Bonita Subscription editions: Performance, Efficiency, and Teamwork, you need to [install a license](licenses.md) during the installation procedure. This license depends on the edition, the deployment environment, the number of cases purchased or the number of cores. 
 
