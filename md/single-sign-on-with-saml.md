@@ -254,7 +254,7 @@ com.bonitasoft.level = ALL
 
 In a WildFly bundle, you need to edit the file `<BUNDLE_HOME>/server/standalone/configuration/standalone.xml` in the domain `urn:jboss:domain:logging:3.0` of the *subsystem* tag.
 
-Edit the *logger* tags which *category* matches BonitaBPM main package: change the *level* *name* attribute of each *logger* to `ALL` and add a new logger with the *category* `org.keyclock` (also with a *level* *name* set to `ALL`).
+Edit the *logger* tags which *category* matches `org.bonitasoft` and `com.bonitasoft` packages: change the *level* *name* attribute of each *logger* to `ALL` and add a new logger with the *category* `org.keyclock` (also with a *level* *name* set to `ALL`).
 
 ## Configure logout behaviour
 
@@ -263,8 +263,8 @@ Edit the *logger* tags which *category* matches BonitaBPM main package: change t
 When your Bonita BPM platform is configured to manage authentication over SAML, when users log out of Bonita BPM Portal, they do not log out of the SAML Identity Provider (IdP).  
 Therefore they are not logged out of all applications that are using the IdP.  
 To avoid this, you can hide the logout option of the portal.  
-To do this, set the `logout.link.hidden=true` option in `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` 
-for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
+To do this, set the `logout.link.hidden=true` option in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` 
+for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/`.
 
 ::: info
 **Note:** When a user logs out from the IdP, Bonita Portal's session will remain active. The user's session time to live will be reset 
