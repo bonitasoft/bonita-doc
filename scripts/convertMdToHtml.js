@@ -58,7 +58,7 @@
           tokens[idx].attrs[hrefIndex][1] = '?' + queryString.stringify({page, hash: pageAndHash[1]});
         }
       }
-      if (hrefIndex >= 0 && tokens[idx].attrs[hrefIndex][1].match(/^http:\/\/documentation.bonitasoft.com\//)) {
+      if (hrefIndex >= 0 && tokens[idx].attrs[hrefIndex][1].match(/^https?:\/\/documentation.bonitasoft.com\//)) {
         tokens[idx].attrPush([ 'target', '_self' ]);
       }
     })

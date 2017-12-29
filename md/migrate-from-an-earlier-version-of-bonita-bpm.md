@@ -65,7 +65,8 @@ The following are not migrated automatically:
 * <a id="bdm_redeploy" />Business data model, and the business data database: if the migration path include version `7.0.0`,`7.2.0` or `7.2.4`, the Business data model must be redeployed after migration, using [Define and deploy the BDM](define-and-deploy-the-bdm)). Otherwise, no action is required.
 * Custom connectors, actor filers, data types: These might continue to work in the new version, but should be tested, depending on your custom code.
 * Custom pages: These might continue to work in the new version, but should be tested depending on your custom code.
-* Custom reports: These might continue to work in the new version, but should be tested depending on your custom code.
+* Custom reports: These might continue to work in the new version, but should be tested depending on your custom code. 
+* REST API Extensions: These might continue to work in the new version, but should be tested depending on your custom code.
 
 When the script has finished,
 you need to complete the migration by unzipping and configuring a bundle for the new version.
@@ -187,7 +188,7 @@ The `bonita_home` and the database have been migrated.
                
 1. Configure License:
 
-    * If the version after migration is **7.3 or greater**, you need to put a new license in the database: see [Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf) for further details.  
+    * If the version after migration is **7.3 or greater**, you need to put a new license in the database: see [Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf) for further details.
     There is below a Linux example :
     ```
     cd setup
@@ -208,7 +209,7 @@ The `bonita_home` and the database have been migrated.
     ```
 
     * If the version after migration is **7.2.4 or lower**, simply save a valid license in the bonita_home/server/licenses directory.
-    
+
 1. Start the application server. Before you start Bonita BPM Portal, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal pages instead of the new version. 
 Log in to the Portal and verify that the migration has completed. 
 If you did not set the default Look & Feel before migration and you cannot log in, you need to [restore the default Look & Feel](managing-look-feel.md) using a REST client or the Engine API.

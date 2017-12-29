@@ -41,12 +41,12 @@ Setting the redirect parameter to false indicates that the service should not re
 
 After the application is connected to the Bonita BPM Engine, you can start calling API methods. The following is a typical scenario for an end user.
 
-1. [Start a new case with variables](bpm-api.md): Provide a form for the user to enter initial data. Then call the method to start a new case using the values entered by the user to initialize some variables. The engine will start the execution of the process. Depending on the design of your process, there might then be some human tasks available for the end user.
-2. [List the pending tasks for a user](bpm-api.md): Retrieve a list of available human tasks for the logged in user. When the user selects a task to do, you can display the corresponding form. It can be an external form or a Bonita BPM form that can be accessed by url.
-3. [Update variables and execute a task](bpm-api.md): If your application is using an external form, update the values of the variables in your process. 
+1. [Start a new case with variables](bpm-api.md#case): Provide a form for the user to enter initial data. Then call the method to start a new case using the values entered by the user to initialize some variables. The engine will start the execution of the process. Depending on the design of your process, there might then be some human tasks available for the end user.
+2. [List the pending tasks for a user](bpm-api.md#human-task): Retrieve a list of available human tasks for the logged in user. When the user selects a task to do, you can display the corresponding form. It can be an external form or a Bonita BPM form that can be accessed by url.
+3. [Update variables and execute a task](bpm-api.md#activity): If your application is using an external form, update the values of the variables in your process. 
 You can use a method to update process or activity variables with values coming from your application. When the user submits the external form, you can call a method to execute a task. 
 The engine will then continue the execution of the workflow as designed.
-4. [Handle tasks in error](bpm-api.md): Get a list of tasks that are in the failed state, and then replay each task by doing three steps: get the list of failed connectors, reset the state of failed connectors and replay the failed task.
+4. [Handle tasks in error](bpm-api.md#connector-instance): Get a list of tasks that are in the failed state, and then replay each task by doing three steps: get the list of failed connectors, reset the state of failed connectors and replay the failed task.
 
 ### Logout from Bonita BPM
 
