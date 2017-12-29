@@ -99,7 +99,7 @@ Example:
 ## Task URL
 
 ::: danger
-:fa-exclamation-triangle: **Important:** A task is not automatically assigned to the user who accesses the task form. If a user is using Bonita Portal, the assignment is automatic. However, if a user is accessing a form directly from an application, there must first be a [REST API call to assign the task to the user](bpm-api.md). Otherwise, the user will not be able to execute the task.
+:fa-exclamation-triangle: **Important:** A task is not automatically assigned to the user who accesses the task form. There must first be a [REST API call to assign the task to the user](bpm-api.md). Otherwise, the user will not be able to execute the task.
 :::
 
 The following code samples show how to generate a link to a human task.

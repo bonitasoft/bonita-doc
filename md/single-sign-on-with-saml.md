@@ -6,7 +6,7 @@
 
 This pages explains how to configure your Bonita Platform system to use the SAML protocol to provide single sign-on (SSO). It assumes you already have a SAML Identity Provider server up and running (IdP).
 
-This information applies to a Bonita platform deployed from a bundle, not to the Engine launched from Bonita Studio.
+This information applies to a Bonita BPM platform deployed from a bundle (Tomcat or WildFly), not to the Engine launched from Bonita BPM Studio. `<BUNDLE_HOME>` refers to the root directory of the bundle.
 
 SAML configuration is at tenant level. Each tenant can use a different authentication method (over SAML or not).
 
@@ -51,7 +51,7 @@ it is composed of:
 
 You need to execute the following actions in the folder of each tenant for which you want to support authentication over SAML.
 If you want this configuration to also apply to each tenant created later, make sure to also perform those actions in the *template* tenant configuration folder:
-`setup/platform_conf/current/tenant_template_*` (if you have not started the Bonita bundle yet, the files are located in `setup/platform_conf/initial/tenant_template_*`)
+`<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_*` (if you have not started the Bonita bundle yet, the files are located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_*`)
 
 The bundle already contains the files needed to use SAML with Bonita platform.  
 To configure Bonita for SAML:
@@ -61,7 +61,7 @@ To configure Bonita for SAML:
     1. [Configure](_basic-bonita-platform-installation) it as needed
     1. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
     1. Stop it before modifying the configuration files below
-2. In the tenant_portal folder of each existing tenant: `$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
+2. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
    edit the authenticationManager-config.properties as follows:
     ```
        -->  #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.standard.StandardAuthenticationManagerImpl
@@ -87,7 +87,7 @@ To configure Bonita for SAML:
     The value must be the same as in the file **bonita-tenant-sp-custom.properties**.  
     If you need some users to be able to log in without having an account on the IDP, you can authorize it by setting the property `saml.auth.standard.allowed` to true. Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.
 
-3. In the tenant_engine folder of each existing tenant: `$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`,
+3. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`,
   edit the file **bonita-tenant-sp-custom.xml** to uncomment the bean passphraseOrPasswordAuthenticationService:
 
    ```
@@ -98,7 +98,7 @@ To configure Bonita for SAML:
        </bean>
    ```
 
-4. In the tenant_engine folder of each existing tenant: “$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/
+4. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
   edit the file bonita-tenant-sp-custom.properties as follows:
   
    ```
@@ -141,8 +141,8 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
 **Note:** The expected format for Keys and certificates is PEM (with or without the comment header and footer).  
 :::
 
-6. In the tenant_portal folder of each existing tenant: `$TOMCAT_HOME/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,  
-    edit the file **keycloak-saml.xml** to setup Bonita webapp as a Service Provider working with your IdP.  
+6. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,  
+    edit the file **keycloak-saml.xml** to setup Bonita webapp as a Service provider working with your IdP.  
     + The entityID is the Service Provider given to your bonita installation. You can change it if you want but you need to provide it to your IdP.  
     + If your IdP requires the SSO requests to be signed replace the following strings in the Keys section of the SP:  
       - put your private key here
@@ -265,7 +265,7 @@ To setup Bonita for global logout:
 
 To troubleshoot SSO login issues, you need to add a logging handler for the package `org.keycloak` and increase the [log level](logging.md) to `ALL` for the packages `org.bonitasoft`, `com.bonitasoft`, and `org.keycloak` in order for errors to be displayed in the log files bonita-*.log (by default, they are not).
 
-In order to do that in a tomcat bundle (for example), you need to edit the file `server/conf/logging.properties.  
+In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/logging.properties.  
 * Add the lines:  
 ```
 org.keycloak.handlers = 5bonita.org.apache.juli.FileHandler
@@ -276,6 +276,25 @@ org.keycloak.level = ALL
 org.bonitasoft.level = ALL
 com.bonitasoft.level = ALL
 ```
+
+In a WildFly bundle, you need to edit the file `<BUNDLE_HOME>/server/standalone/configuration/standalone.xml` in the domain `urn:jboss:domain:logging:3.0` of the *subsystem* tag.
+
+Edit the *logger* tags which *category* matches BonitaBPM main package: change the *level* *name* attribute of each *logger* to `ALL` and add a new logger with the *category* `org.keyclock` (also with a *level* *name* set to `ALL`).
+
+## Configure logout behaviour
+
+#### Bonita BPM Portal
+
+When your Bonita BPM platform is configured to manage authentication over SAML, when users log out of Bonita BPM Portal, they do not log out of the SAML Identity Provider (IdP).  
+Therefore they are not logged out of all applications that are using the IdP.  
+To avoid this, you can hide the logout option of the portal.  
+To do this, set the `logout.link.hidden=true` option in `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` 
+for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
+
+::: info
+**Note:** When a user logs out from the IdP, Bonita Portal's session will remain active. The user's session time to live will be reset 
+to the configured session timeout value upon each user interaction with the server.
+:::
 
 ## Manage passwords
 
