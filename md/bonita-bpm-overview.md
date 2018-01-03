@@ -26,7 +26,7 @@ Users can use Bonita BPM Portal (_User_ profile) to view and complete the proces
 
 ## Bonita BPM Platform
 
-[Bonita BPM Engine](bonita-bpm-engine-architecture) is the execution engine of Bonita BPM.
+[Bonita BPM Engine](engine-architecture-overview.md) is the execution engine of Bonita BPM.
 
 As mentioned before, [Bonita BPM Portal](bonita-bpm-portal-interface-overview.md) is the part of Bonita BPM that is visible to process users, who use it to view tasks and take actions thanks to a generic task list for all processes they are involved in.
 
