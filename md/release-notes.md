@@ -151,10 +151,7 @@ has been removed.
 #### Fixes in Documentation
 * BS-16698 Links to nowhere in the 'Execute REST calls and integrate the results in your application'
 * BS-17659 "BDM Management in Bonita Portal" section leads customer to believe updating the BDM in production is supported
-* BS-17683 Homepage link redirects to URL with triple slash "///"
-* BS-17692 Blank page when accessing new version of documentation website (cache issue)
 * BS-17699 Broken link to 7.6 Engine Javadoc
-* BS-17731 Changing from one version of Bonita doc to another resets the current page
 
 #### Fixes in Engine component
 * BS-34 Admin / Failed Task / Connectors are not listed in the execution order specified in process definition
