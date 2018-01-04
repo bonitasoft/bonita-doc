@@ -8,9 +8,6 @@ To configure Bonita Studio preferences, click _**Preferences**_ in the Cool bar.
 
 ### General preferences
 
-User profile
-    For Performance, Efficiency, or Teamwork editions, customize the user interface for a user profile by showing or hiding features. To change your user profile, use the Profile menu in the Cool bar. You can also create your own custom profile by selecting which features you want to show
-
 Database
    Database clean-up: by default, the database (used by Bonita Engine) is purged when Bonita Studio exits, which is useful when you are testing processes. You can override this in order to preserve all data.  
    Organization load: by default, the default organization is loaded with Bonita Studio starts. You can override this. 
