@@ -150,11 +150,15 @@ has been removed.
 
 #### Fixes in Documentation
 * BS-16698 Links to nowhere in the 'Execute REST calls and integrate the results in your application'
+* BS-16862 Cannot fully deploy a REST API extension with Engine APIs
+* BS-17598 "Create your own password validator" steps lead to maven error: Could not find artifact
 * BS-17659 "BDM Management in Bonita Portal" section leads customer to believe updating the BDM in production is supported
 * BS-17699 Broken link to 7.6 Engine Javadoc
+* BS-17770 Studio preferences Documentation still speaks about Studio profiles
+* BS-17795 Single sign-on with SAML not described with Wildfly
 
 #### Fixes in Engine component
-* BS-34 Admin / Failed Task / Connectors are not listed in the execution order specified in process definition
+* BS-344 Admin / Failed Task / Connectors are not listed in the execution order specified in process definition
 * BS-16047 Hibernate Sql Server dialect implementation doesn't set the Datatype to nvarchar automatically in * the BDM fuctionnality
 * BS-16189 updateActorsOfUserTask break idx_uq_pending_mapping unique constraint
 * BS-16985 searchAssignedTasksSupervisedBy() returns duplicate tasks
