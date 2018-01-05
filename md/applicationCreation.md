@@ -58,11 +58,12 @@ A toolbar is embedded to the editor, use it to:
 
 The application **Token** is the identifier of your Application Descriptor; it has to be unique. It is used to define the URL root of your Application:  _../apps/APPLICATIONTOKEN/.._  
 
-the fields _Profile_, _Layout_, _Theme_, _Application Page_ and _Home page token_ come with an auto complete feature.  
-Be aware that we only suggest choices known by the Studio and the UI designer.  
-It means that custom themes or custom pages / layouts only known by the portal (not created with the UI Designer) won't be suggested.
-Since Bonita 7.6, profiles are embedded in the Studio. Thus, custom profiles created in the Studio will be suggested. Those created in the portal won't be suggested, but you can export them from the Portal and import them in the Studio to get the suggestion.
-You can still reference an unknown resource, but you will have to write the exact identifier by yourself, and make sure the resource is imported onto the portal **before** you deploy/import the application descriptor.  
+The fields _Profile_, _Layout_, _Theme_, _Application Page_ and _Home page token_ come with an auto complete feature.  
+Be aware that we only suggest options known by Bonita Studio and the UI Designer.  
+It means that custom themes, or custom pages and layouts created with another editor than the UI Designer will not appear as options, since they are only known by Bonita Portal.
+You can still reference such an "unknown" resource, but you will have to write the exact identifier by yourself, and make sure the resource is imported onto the portal **before** you deploy/install the application descriptor.  
+Since Bonita 7.6, and for Performance and Efficiency editions only, custom profiles can be created in the studio.  
+Therefore, such profiles will be suggested. Those created in the portal will not, but you can still export them from the portal and import them in the studio to get them in the suggested options.
 
 There are two ways to reference pages used by your application. In the _Navigation_ table or in the _Orphan pages_ table.  
 Use the _Navigation_ table to create the application menus/submenus, and bind those menus to pages.  
