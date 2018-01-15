@@ -2,6 +2,8 @@
 
 ## Activities and Tasks
 
+<a id="activity"/>
+
 ### Activity
 
 #### Description
@@ -368,6 +370,8 @@ Search for archived activities using given parameters. Only archived activities 
 * **Success Response**  
   An array of JSON representations of the specified activities
   * **Code**: 200
+
+<a id="human-task"/>
 
 ### HumanTask
 
@@ -2514,8 +2518,7 @@ Use the DELETE method to delete an existing actorMember.
 
 ## Cases (Process Instances)
 
-<a id="case" />
-
+<a id="case"/>
 
 ### Case
 
@@ -4215,6 +4218,8 @@ Retrieve the information regarding the failure of the connector execution.
       "errorStackTrace":"org.bonitasoft.engine.core.connector.exception.SConnectorException: PROCESS_DEFINITION_ID=8030057793979348308 | PROCESS_NAME=Pool1 | PROCESS_VERSION=1.0 | PROCESS_INSTANCE_ID=5 | ROOT_PROCESS_INSTANCE_ID=5 | FLOW_NODE_DEFINITION_ID=-6089366458284481881 | FLOW_NODE_INSTANCE_ID=12 | FLOW_NODE_NAME=Étape1 | CONNECTOR_DEFINITION_IMPLEMENTATION_CLASS_NAME=expression execution connector | CONNECTOR_INSTANCE_ID=5 | org.bonitasoft.engine.connector.exception.SConnectorException: java.util.concurrent.ExecutionException: java.lang.Exception: Error while executing the groovy script\n\tat org.bonitasoft.engine.core.connector.impl.ConnectorServiceImpl.executeConnectorInClassloader(ConnectorServiceImpl.java:332)"
     }
     ```
+    
+<a id="connector-instance"/>
     
 ### ConnectorInstance
 

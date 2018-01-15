@@ -64,6 +64,7 @@ The following are not migrated automatically:
 * Custom connectors, actor filers, data types: These might continue to work in the new version, but should be tested.
 * Custom pages: These might continue to work in the new version, but should be tested.
 * Reports: These might continue to work in the new version, but should be tested.
+* REST API Extensions: These might continue to work in the new version, but should be tested.
 
 When the script has finished,
 you need to complete the migration by unzipping and configuring a bundle for the new version.
@@ -86,7 +87,7 @@ The migration script supports MySQL, Postgres, Oracle, and MS SQLServer. There i
 
 ::: warning
 **Important:**  
-The migration operation resets the BonitaBPM configuration files to default version for new settings to be applied (from the _$BONITA_HOME_ folder in <7.3.0 version or inside database in >=7.3.0). 
+The migration operation resets the BonitaBPM configuration files to default version for new settings to be applied (from the _$BONITA_HOME_ folder in <7.3.0 version or inside database in >=7.3.0).
 Therefore, you must do a [backup of your configuration files](BonitaBPM_platform_setup.md#update_platform_conf) before starting the migration.  
 You will need to merge custom properties and configurations to the migrated environment.
 
@@ -185,11 +186,12 @@ The `bonita_home` and the database have been migrated.
     ```
 1. If you have done specific configuration and customization in your server original version, re-do it by configuring the application server at `bonita-target-version/server` (or `bonita-target-version` if target version is 7.3.n): customization, libs etc.
 1. <a id="compound-permission-migration" /> In the case where deployed resources have required dedicated [authorizations to use the REST API](resource-management.md#permissions), these authorizations are not automatically migrated.  
+
     Some manual operation have to be done on files that are  located in the _$BONITA\_HOME_ folder if version <7.3.0 or in the extracted `platform_conf/current` folder in version >=7.3.0 (see [Update Bonita BPM Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf) for more information ). You need to merge the previous file version and the migrated one.
     
-    * `tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties` : contains list of permissions used for each resources 
+    * `tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties` : contains list of permissions used for each resources
     * `tenants/[TENANT_ID]/conf/resources-permissions-mapping.properties` : contains permissions for REST API extensions
-    * `tenants/[TENANT_ID]/conf/custom-permissions-mapping.properties` : contains custom permissions for users and profiles  
+    * `tenants/[TENANT_ID]/conf/custom-permissions-mapping.properties` : contains custom permissions for users and profiles
     * `tenants/[TENANT_ID]/conf/dynamic-permissions-checks.properties` : used if dynamic check on permissions is enabled
                
 1. Configure License:
@@ -215,7 +217,7 @@ The `bonita_home` and the database have been migrated.
     ```
 
     * If the version after migration is **7.2.4 or lower**, simply save a valid license in the bonita_home/server/licenses directory.
-    
+
 1. Start the application server. Before you start Bonita BPM Portal, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal pages instead of the new version. 
 Log in to the Portal and verify that the migration has completed. 
 If you did not set the default Look & Feel before migration and you cannot log in, you need to [restore the default Look & Feel](managing-look-feel.md) using a REST client or the Engine API.

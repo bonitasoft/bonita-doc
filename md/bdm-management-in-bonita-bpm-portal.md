@@ -5,6 +5,7 @@ Only one model can be deployed at a time in the Portal, so make sure it contains
 
 The Business objects must match the structure used by the deployed processes. Make sure that when modifying the Business Model, the process is modified accordingly.
 
+
 1. To import the Business Data Model created in Bonita BPM Studio, first [](define-and-deploy-the-bdm.md)export the Business Data Model from Bonita BPM Studio where it was designed.
 2. In the Bonita BPM Portal, log in as the technical user (default login 'install', default password 'install').
 3. Go to the **BPM Services** menu.
@@ -30,9 +31,9 @@ in the business database, so as to store business objects appropriately when mod
 11. Go to the **BPM Services** menu.
 12. Click on **Resume** to [resume tenant activity](pause-and-resume-bpm-services.md).
 
-::: info
-**:fa-info-circle: Note:** the database model is automatically updated. You should avoid changing the database schema manually as it may jeopardize the persistence of business objects and cause errors at process runtime.
+::: warning
+**:fa-exclamation-triangle: Warning:**  Since business continually evolves, you may need to make some changes to a BDM already in production.
+Bonita uses Hibernate for data persistence, therefore some changes are handled well, like adding new objects or attributes, but some others, like changing the type of an attribute, we cannot guarantee so far.
+In such cases, you will have to implement the change on your own, through careful actions in a staging environment, and after the backup of your database. 
+This limitation is well known and will be addressed in a future Bonita version.
 :::
-
-It is recommended to perform a backup of the business database before deploying a business data model.
-(If the deployment fails, check the engine logs to analyse the problem.)
