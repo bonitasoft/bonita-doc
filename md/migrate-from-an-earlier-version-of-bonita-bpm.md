@@ -196,7 +196,7 @@ The `bonita_home` and the database have been migrated.
                
 1. Configure License:
 
-    * If the version after migration is **7.3 or greater**, you need to put a new license in the database: see [Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf) for further details.  
+    you need to put a new license in the database: see [Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf) for further details.  
     There is below a Linux example:
     ```
     cd setup
@@ -214,10 +214,7 @@ The `bonita_home` and the database have been migrated.
     ```
     cp BonitaBPMSubscription-7.n-Jerome-myHosname-20171023-20180122.lic ./platform_conf/licenses/
     ./setup.sh push
-    ```
-
-    * If the version after migration is **7.2.4 or lower**, simply save a valid license in the bonita_home/server/licenses directory.
-
+    ```  
 1. Start the application server. Before you start Bonita BPM Portal, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal pages instead of the new version. 
 Log in to the Portal and verify that the migration has completed. 
 If you did not set the default Look & Feel before migration and you cannot log in, you need to [restore the default Look & Feel](managing-look-feel.md) using a REST client or the Engine API.
