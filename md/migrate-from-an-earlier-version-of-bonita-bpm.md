@@ -30,9 +30,9 @@ If you are upgrading to a new maintenance version and not changing the minor ver
 to 6.3.1), your current license remains valid after migration.
 
 ::: info
-Starting from version 7.3 there is no more bonita home folder. This means that, your installation does not have custom changes, you do not need to configure the bundle to use the bonita home for an installation migrated in 7.3.
+Starting from version 7.3 there is no more bonita home folder. This means that, if your installation does not have any custom change, then you do not need to configure the bundle any further for an installation migrated in 7.3.
 
-If you have customized your configuration, you will have to use the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf) to send your customized configuration files to the database where configuration files are stored from 7.3.
+On the other hand, if you have customized your configuration, you will have to use the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf) to send your customized configuration files to the database where configuration is stored from 7.3.
 :::
 
 ![Migration steps](images/images-6_0/migration_bigsteps.png)
@@ -160,19 +160,33 @@ To suppress the confirmation questions, so that the migration can run unattended
 property.
 When the migration script is finished, a message is displayed showing the new platform version, and the time taken for the migration.
 The `bonita_home` and the database have been migrated.
-1. Reapply configuration made to the platform
-    * When migrating to version before 7.3.0:
-    Configure the migrated `bonita-migration/bonita_home` for your system, by reapplying the configuration settings you had in `bonita_home`
-    before migration (for example by updating `bonita-platform.properties` or services configuration files).
-    * When migrating to version 7.3.0:
-    Configuration that was stored in the Bonita Home are now in database. You must reapply configuration settings the same way you did with the bonita home
-    but in the files that are in database. Please refer to the guide on updating the configuration file using the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
 1. Unzip the target bundle version into a directory. In the steps below, this directory is called `bonita-target-version`.
-[Install the bundle](bonita-bpm-installation-overview.md) and configure it but do not start it. 
-1. *Only before 7.3.0* In your new `bonita-target-version` folder, delete the `bonita` folder. You will use the `bonita_home` that you have migrated instead.
-1. *Only before 7.3.0* Set the bonita_home system property to point to the migrated `bonita_home`.
-1. [Configure the bundle to use the migrated database](database-configuration.md). Do not recreate the database.
-1. <a id="compound-permission-migration" /> In the case where deployed resources have required dedicated [authorizations to use the REST API](resource-management.md#permissions), these authorizations are not automatically migrated.
+1. [Configure the bundle to use the migrated database](database-configuration.md).
+
+    Do not recreate the database and use the setup tool of the `bonita-target-version`
+
+    Edit the `bonita-target-version/setup/database.properties` file to point to the migrated database.
+1. Reapply configuration made to the platform, using the setup tool of the `bonita-target-version`
+
+    Download the configuration from database to the local disk.
+    
+    There is below a Linux example:
+    ```
+    cd setup
+    ./setup.sh pull
+    ```
+    
+    You must reapply the configuration that had been done on the original instance's bonita_home in the `bonita-target-version/setup/platform_conf/current`
+    
+    Please refer to the guide on updating the configuration file using the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
+    
+    When done, push the updated configuration into the database:
+    ```
+    ./setup.sh push
+    ```
+1. If you have done specific configuration and customization in your server original version, re-do it by configuring the application server at `bonita-target-version/server` (or `bonita-target-version` if target version is 7.3.n): customization, libs etc.
+1. <a id="compound-permission-migration" /> In the case where deployed resources have required dedicated [authorizations to use the REST API](resource-management.md#permissions), these authorizations are not automatically migrated.  
+
     Some manual operation have to be done on files that are  located in the _$BONITA\_HOME_ folder if version <7.3.0 or in the extracted `platform_conf/current` folder in version >=7.3.0 (see [Update Bonita BPM Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf) for more information ). You need to merge the previous file version and the migrated one.
     
     * `tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties` : contains list of permissions used for each resources
@@ -182,8 +196,8 @@ The `bonita_home` and the database have been migrated.
                
 1. Configure License:
 
-    * If the version after migration is **7.3 or greater**, you need to put a new license in the database: see [Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf) for further details.
-    There is below a Linux example :
+    you need to put a new license in the database: see [Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf) for further details.  
+    There is below a Linux example:
     ```
     cd setup
     vi database.properties
@@ -200,10 +214,7 @@ The `bonita_home` and the database have been migrated.
     ```
     cp BonitaBPMSubscription-7.n-Jerome-myHosname-20171023-20180122.lic ./platform_conf/licenses/
     ./setup.sh push
-    ```
-
-    * If the version after migration is **7.2.4 or lower**, simply save a valid license in the bonita_home/server/licenses directory.
-
+    ```  
 1. Start the application server. Before you start Bonita BPM Portal, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal pages instead of the new version. 
 Log in to the Portal and verify that the migration has completed. 
 If you did not set the default Look & Feel before migration and you cannot log in, you need to [restore the default Look & Feel](managing-look-feel.md) using a REST client or the Engine API.
