@@ -30,9 +30,9 @@ If you are upgrading to a new maintenance version and not changing the minor ver
 to 6.3.1), your current license remains valid after migration.
 
 ::: info
-Starting from version 7.3 there is no more bonita home folder. This means that, your installation does not have custom changes, you do not need to configure the bundle to use the bonita home for an installation migrated in 7.3.
+Starting from version 7.3 there is no more bonita home folder. This means that, if your installation does not have any custom change, then you do not need to configure the bundle any further for an installation migrated in 7.3.
 
-If you have customized your configuration, you will have to use the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf) to send your customized configuration files to the database where configuration files are stored from 7.3.
+On the other hand, if you have customized your configuration, you will have to use the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf) to send your customized configuration files to the database where configuration is stored from 7.3.
 :::
 
 ![Migration steps](images/images-6_0/migration_bigsteps.png)
