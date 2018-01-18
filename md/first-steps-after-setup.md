@@ -30,10 +30,10 @@ A key security concern when using passwords for authentication is password stren
 #### Choose a strong passwords for your database
 The database is at the heart of your application. It's where all entreprise data (sensitive or non-sensitive) is stored. As a result the database username and password are of great value to the business and they need to be protected. It is highly recommended to choose strong, random and long passwords, since they makes it difficult or even improbable for one to guess the password through either manual or automated means. 
 
-#### 5# Choose a strong passwords for your connectors
+#### Choose a strong passwords for your connectors
 In Bonita, connectors enable connections to your local information system or online services. The authentication credentials used for these connections are of great value to the business and as a result, they need to be protected. It is highly recommended to choose strong, random and long passwords, as explained above, to makes it difficult or even improbable for one to guess the password. 
 
-#### 6# Prohibit or limit the usage of Java Client
+#### Prohibit or limit the usage of Java Client
 The Java Client is a tool that can be downloaded and installed for configuration purposes by the administrators.If such tool is of no use for your application, it is highly recommended to prohibit the usage of Java Client in your deployment environment. Otherwise, its usage must be limited to administrators using a local connection or authorized IP addresses.
 
 #### Protect your web server configuration file
