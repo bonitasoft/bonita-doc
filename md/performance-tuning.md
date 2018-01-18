@@ -185,7 +185,7 @@ The configuration of the threadpool of this service must be correlated to the co
 This mapping between the configurations of the two threadpools depends on your processes. If you have processes that use a lot of connectors, then you need as many connector threads as work threads.  
 If you are unsure, our recommendation is to configure the two threadpools with the same values.
 
-The Connector service is configured in `cfg-bonita-connector-timedout.xml`, `bonita-tenant-community-custom.properties` and `bonita-tenant-sp-custom.properties` (cf [platform setup](Bonita_platform_setup))
+The Connector service is configured in `cfg-bonita-connector-timedout.xml`, `bonita-tenant-community-custom.properties` and `bonita-tenant-sp-custom.properties` (cf [platform setup](BonitaBPM_platform_setup))
 
 ```
 Community:
