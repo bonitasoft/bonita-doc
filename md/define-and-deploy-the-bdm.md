@@ -4,7 +4,13 @@ The business data model is the definition of the business data that is shared by
 
 ## Business data model (BDM)
 
-Your business data is the information that is shared between your processes and applications. It is defined as a set of business object in a business data model (BDM). There is one BDM that is used by all processes and applications in a tenant. When you define a process, you specify the business objects that are relevant to the process. When a process is instantiated (a case is started), the specified business objects are instantiated as required, becoming variables within the process instance.
+Your business data is the information that is shared between your processes and applications. It is defined as a set of business object in a business data model (BDM). There is one BDM that is used by all processes and applications in a tenant.
+
+::: info
+**:fa-info-circle:**  A BDM is defined at tenant level. It means you can have different BDM per tenant on the same Bonita platform. See [BDM data storage](#bdm_storage) for more information on how to configure a business data model per tenant.
+:::
+
+When you define a process, you specify the business objects that are relevant to the process. When a process is instantiated (a case is started), the specified business objects are instantiated as required, becoming variables within the process instance.
 
 You are recommended to use business data instead of process data for any data that has meaning outside of one single process. The business data objects are stored in a database that can be accessed by all applications and processes in a tenant. There is no need to import data from an external system or write it back after a change. The data is automatically stored persistently. It is simple to specify the business objects relevant to a process or task, using Bonita BPM Studio. You can also access a business object programmatically by its data access object (DAO).
 
@@ -16,6 +22,8 @@ To design your BDM, you need to consider the following:
 * Business objects are instantiated at diagram or process level, not at task or form level.
 
 The [BDM specification](#bdm_spec) explains the details of what you must configure in a BDM. Use Bonita BPM Studio to [define a BDM](#define_bdm).
+
+<a id="bdm_storage"/>
 
 ## Business data storage
 
