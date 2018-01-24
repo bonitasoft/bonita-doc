@@ -146,6 +146,31 @@ has been removed.
 
 ## Bug fixes
 
+### Fixes in Bonita 7.6.2
+
+#### Fixes in Documentation
+* BS-17902 Broken link in documentation
+
+#### Fixes in Engine component
+* BS-13653 Unique index in group_ table contains nullable fields
+* BS-17456 Connector Generate pdf from and office document (document-converter) fails in Widlfly
+
+#### Fixes in Studio component
+* BS-17819 Diagram view in portal displays 3rd lane collapsed over 2nd lane
+* BS-17859 Rename a duplicated default profile in the Studio leads to en error
+* BS-17898 Studio does not exit nicely when calling workspace API without a valid license
+
+#### Fixes in UI Designer component
+* BS-17623 UID artifacts using UI Bootstrap migrated at Studio import time no longer work
+* BS-17852 Previewing a Fragment delete the associated .json file
+
+#### Fixes in Web component
+* BS-17694 Mobile portal doesn't show "Unable to log in' when credentials are wrong on Widlfly 
+* BS-17714 Translation key missing for "Process: " string in case's "More details" portal page
+* BS-17733 'Content-Disposition' header is filtered by RESTlet in REST API Extension
+* BS-17736 Default jaas-standard.cfg unclear in setup tool vs server/conf
+* BS-17826 bdm/businessData/ API returns response of type "text/plain" instead of "application/json"
+
 ### Fixes in Bonita 7.6.1
 
 #### Fixes in Documentation
@@ -186,11 +211,11 @@ has been removed.
 * BS-17669 "Create form" tooltip not translated
 
 #### Fixes in Web component
-* BS-17449 Profiles drop down list on the Portal also displays profiles used only for applications
 * BS-2919 2 comments are added when assigning a task as admin (duplicates the following issue)
-* BS-17317 Assigning task as Administrator produces double "task is now assigned" comments
 * BS-16010 Organization manager cannot be removed from Portal
 * BS-16690 Double click on process "Delete" button generates error in logs
+* BS-17317 Assigning task as Administrator produces double "task is now assigned" comments
+* BS-17449 Profiles drop down list on the Portal also displays profiles used only for applications
 * BS-17604 By default, import servlets are not filtered by authorization mechanism
 
 ### Fixes in Bonita 7.6
@@ -254,26 +279,26 @@ has been removed.
 * BS-17526 Label property of input widget has not correct type
 
 #### Fixes in Web component
-* BS-15960 Using REST API to call BDM decreases the performance
-* BS-16519 Inconsistent behavior of Bonita Portal for multiple group with same name
-* BS-16595 "My Tasks" view displays executing tasks
-* BS-16612 Re-Import organisation file: errors and duplicate if some element name contains slash character
-* BS-16791 Can not have two extensions within the same REST API extension definition if one's pathTemplate is a prefix of the other's
-* BS-16980 spring-web-4.3.7.RELEASE.jar requires more recent version of jackson than the ones included in the bonita.war
 * BS-15849 Internal Server Error in Report when report has a space, and clicking on date range.
+* BS-15960 Using REST API to call BDM decreases the performance
 * BS-16097 Dynamic CaseContextPermissionRule implementation always provides access when requested by an archived case
 * BS-16234 Download servlets not secured by authorization filter + dynamic rule invalid
 * BS-16324 Living Application ressources are not cached
 * BS-16449 Administrator "Do for" raises a 403 error when security.rest.api.authorizations.check.enabled is set to false
 * BS-16481 Process Manager profile can't Edit case variable
+* BS-16519 Inconsistent behavior of Bonita Portal for multiple group with same name
+* BS-16595 "My Tasks" view displays executing tasks
+* BS-16612 Re-Import organisation file: errors and duplicate if some element name contains slash character
 * BS-16678 Portal displays "Successfully updated categories" when the category is not created
 * BS-16685 Executing a task or instantiating a process from Mobile Portal redirects to Portal
 * BS-16756 Resize window cuts the Instantiation form
 * BS-16774 Get HTTP 400 Error page, on redirect after submit task in the portal and on Mobile
 * BS-16790 ClientAbortException are generated in the log files when a submit button redirect on success on an application page
+* BS-16791 Can not have two extensions within the same REST API extension definition if one's pathTemplate is a prefix of the other's
 * BS-16858 Pager empty pager_bottom using Bonita Wildfly Bundle in HTTPS in Chrome
 * BS-16929 Security Issue: Autocomplete Enabled inForm
 * BS-16953 CustomPage servlets do not set a content-type in the response
+* BS-16980 spring-web-4.3.7.RELEASE.jar requires more recent version of jackson than the ones included in the bonita.war
 * BS-16992 CannotResolveClassException: org.apache.catalina.util.ParameterMap on engine on Wildfly when portal is on separate Tomcat
 * BS-17119 Cannot load ressources or classes from the custom Rest API
 * BS-17176 new line in human step comment are lost when the comment is displayed in the portal
