@@ -146,6 +146,53 @@ has been removed.
 
 ## Bug fixes
 
+### Fixes in Bonita 7.6.1
+
+#### Fixes in Documentation
+* BS-16698 Links to nowhere in the 'Execute REST calls and integrate the results in your application'
+* BS-16862 Cannot fully deploy a REST API extension with Engine APIs
+* BS-17598 "Create your own password validator" steps lead to maven error: Could not find artifact
+* BS-17659 "BDM Management in Bonita Portal" section leads customer to believe updating the BDM in production is supported
+* BS-17699 Broken link to 7.6 Engine Javadoc
+* BS-17770 Studio preferences Documentation still speaks about Studio profiles
+* BS-17795 Single sign-on with SAML not described with WildFly
+
+#### Fixes in Engine component
+* BS-344 Admin / Failed Task / Connectors are not listed in the execution order specified in process definition
+* BS-16047 Hibernate Sql Server dialect implementation doesn't set the Datatype to nvarchar automatically in the BDM fuctionnality
+* BS-16189 updateActorsOfUserTask break idx_uq_pending_mapping unique constraint
+* BS-16985 searchAssignedTasksSupervisedBy() returns duplicate tasks
+* BS-17054 Engine API: getUsersInGroup() returns both active and inactive users
+* BS-17106 In admin/tasks, "Pending" view should not display executing tasks
+* BS-17251 apiAccessor.processAPI.getHumanTaskInstances doesn't work in a call activity
+* BS-17304 Cannot use "\" character for database name defined in database.properties and used by setup tool
+* BS-17312 Incorrect exception message for invalid multiple contract input
+* BS-17373 Java API client library issue with LocalDate Serialization
+* BS-17449 Profiles drop down list on the Portal also displays profiles used only for applications
+* BS-17530 getProcessDefinitionIdFromProcessInstanceId() always logs stack trace if exception raised
+* BS-17533 Same user returned several times as a possible process initiator in administrator view
+* BS-17589 BDM REST api returns all elements when doing a query with parameter c=0
+
+#### Fixes in Studio component
+* BS-1758 SVN synchronization problem with REST API extension
+* BS-17646 Cannot create a repository with same name but different case
+* BS-17664 Groovy editor completion crash
+* BS-17665 On MacOS, installer always uses the same path, no matter the version (7.6.0 and higher)
+* BS-17682 In application descriptor App or Portal "menu", clicking out of the table doesn't save the modification
+* BS-17703 Import workspace doesn't work if repository name contains a space (Windows only)
+
+#### Fixes in UI Designer component
+* BS-16235 Action "Remove from collection" doesn't delete the correct item
+* BS-17669 "Create form" tooltip not translated
+
+#### Fixes in Web component
+* BS-17449 Profiles drop down list on the Portal also displays profiles used only for applications
+* BS-2919 2 comments are added when assigning a task as admin (duplicates the following issue)
+* BS-17317 Assigning task as Administrator produces double "task is now assigned" comments
+* BS-16010 Organization manager cannot be removed from Portal
+* BS-16690 Double click on process "Delete" button generates error in logs
+* BS-17604 By default, import servlets are not filtered by authorization mechanism
+
 ### Fixes in Bonita 7.6
 
 #### Fixes in Documentation
