@@ -23,7 +23,7 @@ To log in, use the following request:
 |:-|:-|
 | Request URL | `http://host:port/bonita/loginservice`| 
 | Request Method | POST| 
-| Form Data | username: a username<br/>password: a password <br/>redirect: true or false<br/>redirectURL: the URL of the page to be displayed after login <br/>tenant: the tenant to log in to (optional for Teamwork, Efficiency, and Performance editions, not supported for the Community edition)| 
+| Form Data | username: a username<br/>password: a password <br/>redirect: true or false<br/>redirectURL: the URL of the page to be displayed after login <br/>tenant: the tenant to log in to (optional for Performance edition, not supported for Community, Teamwork and Efficiency editions)| 
   
 This call generates a cookie, which must be set on each subsequent call. If the Web REST is being used in an application running in a web browser, this is handled automatically by the browser. 
 
