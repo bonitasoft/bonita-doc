@@ -33,8 +33,8 @@ The database is at the heart of your application. It is where all entreprise dat
 #### Choose a strong password for your connectors
 In Bonita, connectors enable connections to your local information system or online services. The authentication credentials used for these connections are of great value to the business and as a result, they need to be protected. It is highly recommended to choose strong, random and long passwords, as explained above, to makes it difficult or even improbable for one to guess the password. 
 
-#### Prohibit or limit the usage of Java Client
-The Java Client is a tool that can be downloaded and installed for configuration purposes by the administrators. If such tool is of no use for your application, it is highly recommended to prohibit the usage of Java Client in your deployment environment. Otherwise, its usage must be limited to administrators using a local connection or authorized IP addresses.
+#### Deactivate or limit the usage of Bonita Engine API
+If Bonita Engine API is of no use for your application, it is highly recommended to deactivate it in the configuration files in your deployment environment. Otherwise, its usage must be limited to administrators using a local connection or authorized IP addresses.
 
 #### Protect your web server configuration file
 The web server configuration (Tomcat, WildFly, etc) must be protected. This implies limiting access to the file so that it could be read only by the user that web server process runs as and root (or the administrator on Windows). It should be also noted that the file must be saved outside of web root directory (as an example, here are some security tips for Apache Tomcat: [Ref1](https://www.petefreitag.com/item/505.cfm), [Ref2](https://www.acunetix.com/blog/articles/10-tips-secure-apache-installation/))
