@@ -316,7 +316,7 @@ Connect onto the portal as a user with the profile *Order picker*. Go to your ap
 Connect now as a user with the profile *Sales*. On your application, the customer data are displayed except the address. The price of the product is now available.
 
 
-## III - Instances protection
+### III - Instances protection
 
 Instance protection is not supported as a part of the access control feature. However it is still possible to solve most use cases using the [rest-api authorizations](rest-api-authorization.md).
 Following is a step by step guide on how to realize one such (simple) use case:
@@ -326,14 +326,14 @@ The method shown in the example below is not a new 7.7 feature, it is present in
 It allows to protect the bdm instances by limiting the access to the jpql requests that retrieve the object instances rather than to the instances themselves.
 :::
 
-### Scenario
+**Scenario:**
 
 We will look into a mark contestation process for a school. Students can make requests about their marks to their teachers through a BPM process.
 Each teacher teaches a different subject. A teacher can only access requests made concerning his subject.
 
 The step by step guide assumes a working Bonita Studio v. 7.7.x +, with the Acme organization deployed.
 
-### Step by step implementation
+**Step by step implementation:**
 
 **1. Define the BDM**
 
@@ -454,8 +454,8 @@ class SubjectTeacherPermissionRule implements PermissionRule {
 - Return to *BonitaStudioSubscription-7.7.0/workspace/tomcat/setup/* and run *setup push*. this will upload the *dynamic-permissions-checks-custom.properties* file to the server.
 - Restart your web server. The new security rule from the *dynamic-permissions-checks-custom.properties* file now active.
 ::: warning
-		**NB:** For every modification of the *dynamic-permissions-checks-custom.properties* file, you will need to push it and restart the web server. However, since the Studio has the Debug mode active by default, you don't need to restart the web server after modifying the groovy script in this environnement.
-		You still do on a production server.
+	**NB:** For every modification of the *dynamic-permissions-checks-custom.properties* file, you will need to push it and restart the web server. However, since the Studio has the Debug mode active by default, you don't need to restart the web server after modifying the groovy script in this environnement.
+	You still do on a production server.
 :::
 - Return to your application page. Login with jan.fisher. If you select Mathematics in the drop down list, it displays nothing. If you select Physics, you will see the Physics request.
 - If you login as helen.kelly, you will be able to see the Mathematics request, but no Physics requests.
