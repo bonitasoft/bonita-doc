@@ -1918,7 +1918,7 @@ Warning: only following types are supported for _javaTypeclassname_: java.lang.S
 
 Use the document resource to access a document in an active case. 
 
-::: alert alert-warning
+::: warning
 **:fa-exclamation-triangle: Caution:** This resource is deprecated and may be removed in a future release. Instead, use caseDocument or archivedCaseDocument.
 :::
 
@@ -1928,7 +1928,7 @@ Use the document resource to access a document in an active case.
 
 Use the case document resource to access a document in an active case. For archived cases and previous document versions use archivedCaseDocument.
 
-::: alert alert-info
+::: warning
 * `author` in the payload is deprecated: use `submittedBy`
 :::
 
@@ -1967,6 +1967,7 @@ The methods used for this resource are:
 * DELETE - Remove a resource
 
 <a id="upload_casedoc"/>
+
 #### Add a document to a case
 
 Use a POST method to add a document to a case. You can upload a document from the local file system or by URL. Specify the case id and the document name in the payload. 
