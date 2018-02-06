@@ -202,6 +202,8 @@ Deploy those profiles.
 **Note:** Part 3. and 4. are not directly related to access control definition, it is just a convenient way to observe its results.
 :::
 
+<a id="bdmFilling"/> 
+
 **3. Create a process and generate some data**
 
 The attribute *customer* has an aggregation relation type, so we first need to create a process to generate customers.  
@@ -372,7 +374,7 @@ For the details on how to easily create and map those profiles see the [Profile 
 
 **3. Create a process and generate some request instances**
 
-You will need some instances of the request object, as well as some students. To create them, follow the steps discribed in the section  [II - Invoice](#ii---invoice).
+You will need some instances of the request object, as well as some students. To create them, follow the steps discribed in the section  [II - Invoice](#bdmFilling).
 
 **4. Create the visualisation application**
 
@@ -381,12 +383,13 @@ We will now create an application for the teachers to review the student request
 In the UI Designer, create an application page (*reviewRequests*):
 
 - Create 2 new variables
+
     - **Name** : requestList
-    - **Type** : External API
-    - **API URL**: ../API/bdm/businessData/com.company.model.Request?q=findBySubject&p=0&c=10&f=subject%3D{{selectedSubject}}
+        - **Type** : External API
+        - **API URL**: ../API/bdm/businessData/com.company.model.Request?q=findBySubject&p=0&c=10&f=subject%3D{{selectedSubject}}
     
     -  **Name** : selectedSubject
-	-  **Type** : String
+	    -  **Type** : String
     
 
 - Add a new Select box to the page (To choose beetween subjects):
@@ -397,7 +400,7 @@ In the UI Designer, create an application page (*reviewRequests*):
     
 - Add  a new Table widget to the page (To display the requests):
     - **Headers** : Id, Subject, Content, Medical comment, Student (constants)
-    - **Content** : requestList (script, click the X icon to switch from contstant to script)
+    - **Content** : requestList (script, click the fx icon to switch from contstant to script)
     - **Column keys** : persistenceId, subject, content, medicalComment, student.fullname
     
 Now in the Studio, create a new [application](applicationCreation.md). Call it *TeacherApp*, give it a theme, and a homepage token, and map it to the *Teacher* profile.
