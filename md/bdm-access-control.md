@@ -5,8 +5,7 @@
 :::
 
 ## Overview
-Currently, in Bonita, defining access control on a business object (BO) means defining which attributes of this business object a given user is allowed to access through REST API.  
-If access controls are defined on the BDM, when a user calls a BDM API to retrieve some objects, the response will only contain the attributes this user is allowed to see.
+This page explains how to protect the access to your BDM. It explores all the methods available in Bonita, both legacy methods (through [Rest api authorizations](rest-api-authorization.md)), and new 7.7 Access Control feature.
 
 ## Use of profiles
 
