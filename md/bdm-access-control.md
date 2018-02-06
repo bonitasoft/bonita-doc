@@ -318,18 +318,18 @@ Connect now as a user with the profile *Sales*. On your application, the custome
 
 ### III - Instances protection
 
-Instance protection is not supported as a part of the access control feature. However it is still possible to solve most use cases using the [rest-api authorizations](rest-api-authorization.md).
+Instance protection is not supported as a part of the BDM Access Control feature. However it is still possible to solve most use cases using the [rest-api authorizations](rest-api-authorization.md).
 Following is a step by step guide on how to realize one such (simple) use case:
 
 ::: info
 The method shown in the example below is not a new 7.7 feature, it is present in the Community version since 7.0 ( although the location of the files and the push/pull procedure changed in 7.6.0).
-It allows to protect the bdm instances by limiting the access to the jpql requests that retrieve the object instances rather than to the instances themselves.
+It allows to protect the bdm instances by limiting the access to the BDM query requests that retrieve the object instances rather than to the instances themselves.
 :::
 
 **Scenario:**
 
 We will look into a mark contestation process for a school. Students can make requests about their marks to their teachers through a BPM process.
-Each teacher teaches a different subject. A teacher can only access requests made concerning his subject.
+Each teacher teaches a different subject. A teacher can only access requests made concerning their subject.
 
 The step by step guide assumes a working Bonita Studio v. 7.7.x +, with the Acme organization deployed.
 
@@ -337,15 +337,15 @@ The step by step guide assumes a working Bonita Studio v. 7.7.x +, with the Acme
 
 **1. Define the BDM**
 
-We will use a simple relatively simple BDM for this use case: 
+We will use a relatively simple BDM for this use case: 
 
-1. an object Student
+1. an object Student with attributes:
 
 | Name | Type |
 |---|---|
 | fullname | STRING |
 
-2. an object Request
+2. an object Request with attributes:
 
  | Name | Type |
 |---|---|
@@ -367,12 +367,12 @@ ORDER BY r.persistenceId
 
 **2. Define the profiles**
 
-We will need a few new profiles, mapped to one or more users. We need one profile per subject (), as well as a **Teacher** profile (for all the teachers). A maths teacher would therefore have **MathematicsTeacher** and a **Teacher** profile. In the rest of the guide we will use 3 profiles **MathematicsTeacher**, **PhysicsTeacher** and **Teacher**, mapped to **helen.kelly**,**jan.fischer** and both respectively.
+We will need a few new profiles, mapped to one or more users. We need one profile per subject, as well as a **Teacher** profile (for all the teachers). A maths teacher would therefore have **MathematicsTeacher** and a **Teacher** profile. In the rest of the guide we will use 3 profiles **MathematicsTeacher**, **PhysicsTeacher** and **Teacher**, mapped to **helen.kelly**, **jan.fischer** and both respectively.
 For the details on how to easily create and map those profiles see the [Profile Creation](profileCreation.md) page.
 
 **3. Create a process and generate some request instances**
 
-You will need some instances of the request object, as well as some students. To create them, follow the steps discribed in the section  **II - Invoice**, part 3 *Create a process and generate some data* of this very page.
+You will need some instances of the request object, as well as some students. To create them, follow the steps discribed in the section  [II - Invoice](#ii---invoice).
 
 **4. Create the visualisation application**
 
@@ -388,14 +388,16 @@ In the UI Designer, create an application page (*reviewRequests*):
     -  **Name** : selectedSubject
 	-  **Type** : String
     
+
 - Add a new Select box to the page (To choose beetween subjects):
     - **Label** : Subject class
-    - **Available Values** : Mathematics, Physics (constants).
-    - **Value** : selectedSubject
+    - **Available Values** : Mathematics, Physics (constants).  
+    - **Value** : selectedSubject    
+    
     
 - Add  a new Table widget to the page (To display the requests):
     - **Headers** : Id, Subject, Content, Medical comment, Student (constants)
-    - **Content** : requestList (script)
+    - **Content** : requestList (script, click the X icon to switch from contstant to script)
     - **Column keys** : persistenceId, subject, content, medicalComment, student.fullname
     
 Now in the Studio, create a new [application](applicationCreation.md). Call it *TeacherApp*, give it a theme, and a homepage token, and map it to the *Teacher* profile.
@@ -414,7 +416,6 @@ If you preview the page at this point, both jan.fischer and helen.kelly can acce
 - Go to */BonitaStudioSubscription-7.7.0/workspace/tomcat/setup/platform_conf/current/tenants/1/tenant_security_scripts*. Create a file *SubjectTeacherPermissionRule.groovy*, with the following content:
 
 ```groovy
-package org.bonitasoft.permissions
 
 import org.bonitasoft.engine.api.APIAccessor
 import org.bonitasoft.engine.api.Logger
@@ -431,14 +432,15 @@ class SubjectTeacherPermissionRule implements PermissionRule {
         APISession session = apiSession
         long currentUserId = session.getUserId()
         List<Profile> profilesForUser = apiAccessor.getProfileAPI().getProfilesForUser(currentUserId, 0, 50, ProfileCriterion.ID_ASC)
+        // First, let's check we only restrict access to query named "findBySubject":
         if (!apiCallContext.getQueryString().contains("q=findBySubject")) {
-            println "q=findBySubject found in query string"
             return true
         }
 
         def filters = apiCallContext.getFilters()
         if (filters.containsKey("subject")) {
             def subjectAsString = filters.get("subject")
+            //Let's check the logged-in user (teacher) has at least one profile matching the Class Subject:
             for (Profile p : profilesForUser) {
                 if (p.name.contains(subjectAsString)){
                     return true
@@ -446,21 +448,22 @@ class SubjectTeacherPermissionRule implements PermissionRule {
             }
             return false
         }
+        // otherwise, it's an access to a different query, so no filtering in this case
         return true
     }
 }
 ```
 
 - Return to *BonitaStudioSubscription-7.7.0/workspace/tomcat/setup/* and run *setup push*. this will upload the *dynamic-permissions-checks-custom.properties* file to the server.
-- Restart your web server. The new security rule from the *dynamic-permissions-checks-custom.properties* file now active.
+- Restart your web server through the menu "Server -> Restart Web server". The new security rule from the *dynamic-permissions-checks-custom.properties* file is now active.
 ::: warning
-	**NB:** For every modification of the *dynamic-permissions-checks-custom.properties* file, you will need to push it and restart the web server. However, since the Studio has the Debug mode active by default, you don't need to restart the web server after modifying the groovy script in this environnement.
-	You still do on a production server.
+**NB:** For every modification of the *dynamic-permissions-checks-custom.properties* file, you will need to push it and restart the web server. However, since the Studio has the Debug mode active by default, you don't need to restart the web server after modifying the groovy script in this environnement.
+You still do on a production server.
 :::
 - Return to your application page. Login with jan.fisher. If you select Mathematics in the drop down list, it displays nothing. If you select Physics, you will see the Physics request.
 - If you login as helen.kelly, you will be able to see the Mathematics request, but no Physics requests.
 
 **6. Adding access control on attributes**
 
-It is possible to use both this security and the accessControl feature. For example, if you decide that the field Medical Comment should not be visible to teachers, you can upload an accessControl file, and the field won't be returned by the *findBySubject* request.
+It is possible to use both this security and the accessControl feature. For example, if you decide that the field Medical Comment should not be visible to teachers, you can upload an accessControl file, and the field won't be returned by the *findBySubject* request. For more details on attribute filtering, see above.
 

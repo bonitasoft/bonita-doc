@@ -304,9 +304,9 @@ For example, to add the permission to the user walter.bates (username), add the 
 
 <a id="activate"/>
 
-## Authorizing access to a BDM object or its attributes
+## Restricting access to a BDM object or its attributes
 
-Starting with the Bonita efficiency subscription version, you can use a simpler mechanism to grant or deny access to BDM objects or some of their attributes to specific profiles, using the BDM accessControl feature.
+Starting with the Bonita efficiency subscription edition, you can use a simpler mechanism to grant or deny access to BDM objects or some of their attributes to specific profiles, using the BDM Access Control feature.
 It is also possible to protect instances of the BDM objects, using REST API authorizations.
 For more details see : [BDM access control](bdm-access-control.md)
 
