@@ -21,7 +21,7 @@ To configure multi-instantiation, select the element in the diagram and go to th
 ../API/bpm/case/{{caseId}}/context
 or in the context of a process form:
 ../{{context.businessVariableName_ref.link}}
-replacing businessVariableName with multiInstanceIterator or if you edited the reference name use that instead. 
+replacing `businessVariableName` with `multiInstanceIterator` or if you edited the `reference name` use this `reference name` instead of `businessVariableName`.
 4. If you want to save the results of user activities during all instances, check the Store output result box and specify:
    * The result data of each instance to be stored in the output list
    * The final list of appended results
