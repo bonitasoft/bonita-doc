@@ -355,7 +355,7 @@ We will use a relatively simple BDM for this use case:
 | content | STRING |
 | student | Student |
 
-Subject and Student are mandatory fields.
+Subject and Student are mandatory fields. Student is in an eager, aggregated relationship.
 We also define a custom query on the Request object, *findBySubject*:
 
 ```
@@ -373,7 +373,7 @@ For the details on how to easily create and map those profiles see the [Profile 
 
 **3. Create a process and generate some request instances**
 
-You will need some instances of the request object, as well as some students. To create them, follow the steps discribed in the section  [II - Invoice](#bdmFilling).
+You will need some instances of the request object, as well as some students. To create them, follow the steps discribed in the section  [II - Invoice](#bdmFilling). For convinience, we assume the only two subjects are Mathematics and Physics.
 
 **4. Create the visualisation application**
 
@@ -405,16 +405,18 @@ In the UI Designer, create an application page (*reviewRequests*):
 Now in the Studio, create a new [application](applicationCreation.md). Call it *TeacherApp*, give it a theme, and a homepage token, and map it to the *Teacher* profile.
 Then create a one-page menu *Student Request*, with your homepage token and add to it the page you just created in the UID.
 
-If you preview the page at this point, both jan.fischer and helen.kelly can access your new application, select from a drop down list either *Mathematics* or *Physics*, wich should display all the Mathematics and all the Physics requests, respectively, for both users.
+If you preview the page at this point, both jan.fischer and helen.kelly can access your new application, select from a drop down list either *Mathematics* or *Physics*, which should display all the Mathematics and all the Physics requests, respectively, for both users.
 
 **5. Security implementation**
 
 - Got to *BonitaStudioSubscription-7.7.0/workspace/tomcat/setup/*
-- Run *setup pull*
+- Modify the file *database.properties*, so that it points to the database you want to use. In our example we will use the provided h2 database. Add the following line to your *database.properties* file :
+``` h2.database.dir=/home/dolgonos/Desktop/BonitaStudioSubscription-7.7.0-SNAPSHOT/workspace/default/h2_database/ ```
+- Run *setup pull*. For more details on what this command does see : [Bonita Platform Setup](BonitaBPM_platform_setup.md).
 - Go the */BonitaStudioSubscription-7.7.0/workspace/tomcat/setup/platform_conf/current/tenants/1/tenant_portal/* folder that should have just appeared.
 - Open the *dynamic-permissions-checks-custom.properties*, and add the following line:
 ``` GET|bdm/businessData/com.company.model.Request=[check|SubjectTeacherPermissionRule] ```
-- This line indicates that before executing any queries on the com.company.model.Request object types in the BDM, a verification has to be run. In this case we indicate that the verification is a groovy script, *SubjectTeacherPermissionRule.groovy*, which we will now create.
+- This line indicates that before executing any queries on the com.company.model.Request object types in the BDM, a verification has to be run. In this case we indicate that the verification is a groovy script, *SubjectTeacherPermissionRule.groovy*, which we will now create. For more information dynamic security and how it works with Bonita, see [Rest API authorization](rest-api-authorization.md).
 - Go to */BonitaStudioSubscription-7.7.0/workspace/tomcat/setup/platform_conf/current/tenants/1/tenant_security_scripts*. Create a file *SubjectTeacherPermissionRule.groovy*, with the following content:
 
 ```groovy
@@ -442,7 +444,11 @@ class SubjectTeacherPermissionRule implements PermissionRule {
         def filters = apiCallContext.getFilters()
         if (filters.containsKey("subject")) {
             def subjectAsString = filters.get("subject")
-            //Let's check the logged-in user (teacher) has at least one profile matching the Class Subject:
+//            Let's check the logged-in user (teacher) has at least one profile matching the Class Subject:
+//            subjectAsString == Physics
+//            profile PhysicsTeacher contains the String "Physics" -> ok
+//            profile MathematicsTeacher doesn't contain the String "Physics" -> not ok
+//            => only someone with the profile PhysicsTeacher will have the authorization to execute the query.
             for (Profile p : profilesForUser) {
                 if (p.name.contains(subjectAsString)){
                     return true
