@@ -9,7 +9,7 @@
 ## Feature removals
 
 ### Jasper 5 connector
-Jasper connector has been removed from provided connectors in the Studio. If you have process that depends on this connector and want to migrate in 7.7+, you have two options:
+Jasper connector has been removed from provided connectors in the Studio. If you have a process that depends on this connector and want to migrate in 7.7+, you have two options:
 * Export the Jasper connector from a previous Studio version
 * Download the connector from the [community website](https://community.bonitasoft.com/project/bonita-connector-jasper)
-Then just import the connector usomg `Development > Connectors > Import connector...` menu.
+Then just import the connector using `Development > Connectors > Import connector...` menu.
