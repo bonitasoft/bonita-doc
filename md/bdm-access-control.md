@@ -373,7 +373,7 @@ For the details on how to easily create and map those profiles see the [Profile 
 
 **3. Create a process and generate some request instances**
 
-You will need some instances of the request object, as well as some students. To create them, follow the steps discribed in the section  [II - Invoice](#bdmFilling). For convinience, we assume the only two subjects are Mathematics and Physics.
+You will need some instances of the request object, as well as some students. To create them, follow the steps discribed in the section  [II - Invoice](#bdmFilling). For convenience, we assume the only two subjects are Mathematics and Physics.
 
 **4. Create the visualisation application**
 
@@ -416,7 +416,7 @@ If you preview the page at this point, both jan.fischer and helen.kelly can acce
 - Go the */BonitaStudioSubscription-7.7.0/workspace/tomcat/setup/platform_conf/current/tenants/1/tenant_portal/* folder that should have just appeared.
 - Open the *dynamic-permissions-checks-custom.properties*, and add the following line:
 ``` GET|bdm/businessData/com.company.model.Request=[check|SubjectTeacherPermissionRule] ```
-- This line indicates that before executing any queries on the com.company.model.Request object types in the BDM, a verification has to be run. In this case we indicate that the verification is a groovy script, *SubjectTeacherPermissionRule.groovy*, which we will now create. For more information dynamic security and how it works with Bonita, see [Rest API authorization](rest-api-authorization.md).
+- This line indicates that before executing any queries on the com.company.model.Request object types in the BDM, a verification has to be run. In this case we indicate that the verification is a groovy script, *SubjectTeacherPermissionRule.groovy*, which we will now create. For more information about dynamic security and how it works with Bonita, see [Rest API authorization](rest-api-authorization.md).
 - Go to */BonitaStudioSubscription-7.7.0/workspace/tomcat/setup/platform_conf/current/tenants/1/tenant_security_scripts*. Create a file *SubjectTeacherPermissionRule.groovy*, with the following content:
 
 ```groovy
