@@ -207,5 +207,5 @@ In addition to the connectors that interact with content management systems (suc
 
 Note that connectors handle single documents. If your process contains a document list, you can manipulate component documents using connectors.
 
-The standard connectors provided with Bonita (CMIS, Alfresco, Jasper) take a document as input. They cannot handle document lists.   
+The standard connectors provided with Bonita (CMIS, Alfresco) take a document as input. They cannot handle document lists.   
 The email connector can handle a document list that specifies the attachments to be added to a message. The standard connectors do not provide a documentValue as output. This means that you cannot use a connector to get a document. Instead, specify the URL of the document, as you would for initialization.
