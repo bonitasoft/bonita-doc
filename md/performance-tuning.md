@@ -290,7 +290,7 @@ It is possible to modify the cache settings in those files for each kind of obje
 
 Before going into production, we encourage to finely tune the "Level-2" object cache in a pre-prod environment:
 
-* activate Hibernate cache statistics by setting at **true** the parameter **hibernate.generate\_statistics** in file **bonita-platform-community-custom.properties**
+* activate Hibernate cache statistics by setting to **true** the parameter **bonita.platform.persistence.generate_statistics** in file **bonita-platform-community-custom.properties**
 * activate logs at INFO level:
 ```
 <logger name="org.bonitasoft.engine.persistence" level="INFO"/>
