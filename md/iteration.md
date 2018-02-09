@@ -17,7 +17,11 @@ To configure multi-instantiation, select the element in the diagram and go to th
    * Specify a defined number: Check Create a defined number of instances, open the expression editor, set the expression type to  Constant, and enter the number. You can also set the number by using the value of an integer parameter or variable.
    * Define an expression: Check Create a defined number of instances, open the expression editor, set the expression type to Script, and define the script. This is useful if the number of iterations is conditional on some information in the process. The script must return an integer.
    * Specify the number of iterations from a list: Check Create instances from a list, and choose the list from the existing lists or multiple data.
-3. If you are using a list, you may also edit the name of the multiInstanceIterator, a reference that takes the value of each item in the list to create the corresponding instance. Make sure that it has the same type as the list items.
+3. If you are using a list, you may also edit the name of the multiInstanceIterator, a reference that takes the value of each item in the list to create the corresponding instance. Make sure that it has the same type as the list items. To access the referenced data use the same REST API format for retrieving data either using the caseId as in:
+../API/bpm/case/{{caseId}}/context
+or in the context of a process form:
+../{{context.businessVariableName_ref.link}}
+replacing `businessVariableName` with `multiInstanceIterator` or if you edited the `reference name` use this `reference name` instead of `businessVariableName`.
 4. If you want to save the results of user activities during all instances, check the Store output result box and specify:
    * The result data of each instance to be stored in the output list
    * The final list of appended results
