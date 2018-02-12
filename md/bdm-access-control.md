@@ -5,7 +5,10 @@
 :::
 
 ## Overview
-This page explains how to protect the access to your BDM. It explores all the methods available in Bonita, both legacy methods (through [Rest api authorizations](rest-api-authorization.md)), and new 7.7 Access Control feature.
+This page explains how to protect the access to your BDM through REST API calls.
+The BDM access control feature, available in Bonita Studio, allows to grant access to entire business objects or access to some attributes of business objects.
+To grant access to specific instances of business objects, you will need to use [Rest api authorizations](rest-api-authorization.md).
+You will find below examples of both use-cases.
 
 ## Use of profiles
 
@@ -319,12 +322,13 @@ Connect now as a user with the profile *Sales*. On your application, the custome
 
 ### III - Instances protection
 
-Instance protection is not supported as a part of the BDM Access Control feature. However it is still possible to solve most use cases using the [rest-api authorizations](rest-api-authorization.md).
+To grant access to specific instances of business objects, you will need to use [rest-api authorizations](rest-api-authorization.md).
 Following is a step by step guide on how to realize one such (simple) use case:
 
 ::: info
-The method shown in the example below is not a new 7.7 feature, it is present in the Community version since 7.0 ( although the location of the files and the push/pull procedure changed in 7.6.0).
+The example below accounts for a specific way to use a method introduced in Bonita 7.0, and updated in Bonita 7.6.
 It allows to protect the bdm instances by limiting the access to the BDM query requests that retrieve the object instances rather than to the instances themselves.
+Note that it is available starting from the Community version.
 :::
 
 **Scenario:**
@@ -355,7 +359,7 @@ We will use a relatively simple BDM for this use case:
 | content | STRING |
 | student | Student |
 
-Subject and Student are mandatory fields. Student is in an eager, aggregated relationship.
+Subject and Student are mandatory fields. Student is in an eager (related objects are always loaded), aggregated relationship.
 We also define a custom query on the Request object, *findBySubject*:
 
 ```
