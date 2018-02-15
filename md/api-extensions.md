@@ -57,7 +57,7 @@ A REST API extension example resource and API extension viewer page are provided
 
 To use the examples, define a [custom permissions](rest-api-authorization.md#custom-permissions-mapping) mapping for `demoPermission`:
 
-In a bundle:
+In a Tomcat / WildFly bundle:
 * Retrieve platform configuration using the [setup tool](BonitaBPM_platform_setup.md#update_platform_conf).
 * Edit `platform_conf/current/tenants/<TENANT_ID>/tenant_portal/custom-permissions-mapping.properties`.
 * Add the following line: `profile|User=[demoPermission]`.
@@ -68,7 +68,7 @@ In Bonita Studio:
 * Open the `custom-permissions-mapping.properties` from Development menu > REST API extension > Edit permission mapping
 * Add the following line: `profile|User=[demoPermission]`
 * Save the file
-* Logout from the current session and relogin
+* Logout from the current session and log back in
 
 REST API extension examples show how to:
 
