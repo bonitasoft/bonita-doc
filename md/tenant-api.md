@@ -45,7 +45,7 @@ Install or update a BDM on your tenant. Your tenant services need to be paused.
  :::
  
 * **URL**  
-  `/API/accessControl/bdm`  
+  `/API/tenant/bdm`  
 * **Method**  
   `POST`
 * **Success Response**
