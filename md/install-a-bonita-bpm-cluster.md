@@ -12,6 +12,28 @@ You will learn here how to create a cluster in two ways:
 * Create a cluster from scratch
 * Convert a single node installation into a cluster
 
+## Note when using the AWS support
+
+Please read the following to ensure that Bonita Cluster works correctly on AWS.
+
+
+### Add a jar to the Bonita war
+
+To proceed
+* download the [hazelcast-cloud-3.4.1.jar](http://repo1.maven.org/maven2/com/hazelcast/hazelcast-cloud/3.4.1/)
+* ensure that Bonita is stopped
+* add the jar to the bonita war and the bonita folder (the jar must be stored in the `WEB-INF/lib` subfolder of these 2
+elements)
+* the hazelcast aws support will be fully available at next Bonita startup
+
+
+### IAM role configuration
+
+If you are using IAM role configuration (iam-role) for EC2 discovery, you need to give the following policy to your IAM
+user at the least: `"ec2:DescribeInstances"`.
+
+
+
 ## Create a cluster from scratch
 
 In this part we will create a cluster from scratch. We will initialize the database on which the cluster will run, then we will configure nodes to run on this cluster.
