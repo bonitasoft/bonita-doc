@@ -193,7 +193,7 @@ import org.json.JSONObject
 class CasePermissionRule implements PermissionRule {
 
     @Override
-    public boolean check(APISession apiSession, APICallContext apiCallContext, APIAccessor apiAccessor, Logger logger) {
+    boolean isAllowed(APISession apiSession, APICallContext apiCallContext, APIAccessor apiAccessor, Logger logger) {
         long currentUserId = apiSession.getUserId()
         if ("GET".equals(apiCallContext.getMethod())) {
             return checkGetMethod(apiCallContext, apiAccessor, currentUserId, logger)
@@ -303,6 +303,12 @@ For example, in order to perform a GET on `bpm/task`, I can see that I need the 
 For example, to add the permission to the user walter.bates (username), add the following line : `user|walter.bates=[flownode_visualization]`
 
 <a id="activate"/>
+
+## Restricting access to a BDM object or its attributes
+
+Starting with the Bonita efficiency subscription edition, you can use a simpler mechanism to grant or deny access to BDM objects or some of their attributes to specific profiles, using the BDM Access Control feature.
+It is also possible to protect instances of the BDM objects, using REST API authorizations.
+For more details see : [BDM access control](bdm-access-control.md)
 
 ## Activating and deactivating authorization
 
