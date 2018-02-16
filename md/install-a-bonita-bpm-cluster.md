@@ -16,7 +16,7 @@ You will learn here how to create a cluster in two ways:
 
 In this part we will create a cluster from scratch. We will initialize the database on which the cluster will run, then we will configure nodes to run on this cluster.
 
-### Create and initialize the database for Bonita BPM Platform
+### <a id="create_init_bonita_db" /> Create and initialize the database for Bonita BPM Platform
 
 In this step you will create and initialize the database for the Bonita BPM Platform cluster using the [platform setup tool](BonitaBPM_platform_setup.md).
 When done you will have a database with all tables created and with a table `CONFIGURATION` containing all configuration required for the cluster to start.
@@ -42,7 +42,7 @@ The platform setup tool is also present in the Tomcat or JBoss bundle under the 
         * uncomment and set the **`bonita.cluster.name`** property to a name of your own, e.g. `myBPMCluster`, **This name must be unique on the local network if you are using *multicast***
         * set one of `bonita.platform.cluster.hazelcast.multicast.enabled`, `bonita.platform.cluster.hazelcast.tcpip.enabled` and `bonita.platform.cluster.hazelcast.aws.enabled` to `true`. 
         Uncomment the # properties and set only one of them to `true`, set the others to `false` depending on how you want your nodes to discover each others. If you don't use `bonita.platform.cluster.hazelcast.multicast.enabled`, you **must** uncomment the # properties and set it to `false`. 
-        For more information on this take a look at the [Hazelcast Documentation](http://docs.hazelcast.org/docs/3.4/manual/html-single/index.html#discovering-cluster-members).
+        For more information on this take a look at the [Hazelcast Documentation](http://docs.hazelcast.org/docs/3.4/manual/html-single/hazelcast-documentation.html#hazelcast-cluster-discovery).
 * Copy licenses of all your nodes in `platform_conf/licenses`
 * run the `setup.sh init` or `setup.bat init` as described in the [platform setup tool page](BonitaBPM_platform_setup.md#init_platform_conf).
 * At the end of the script, you should see the following line: "Initial configuration files successfully pushed to database"
@@ -51,15 +51,15 @@ into the database.
 
 If later you need to change the configuration of the node discovery or add new licenses to the Bonita BPM Platform configuration, you can update the configuration by following this [guide](BonitaBPM_platform_setup.md#update_platform_conf).
 
-<a id="install_first_node" />
 
-### Install a first node
+### <a id="install_first_node" /> Install a first node
 
 1. Follow the instructions to [configure a Tomcat bundle](tomcat-bundle.md).
  You can skip the part on creating and initializing the database but you will need to configure the bundle connection to the database as described [in this part](tomcat-bundle.md#datasources_configuration).
 2. Delete the entire content of the `[TOMCAT_DIRECTORY]/setup` folder.
-3. If your Bonita installation is behind a proxy (mainly in TcpIp or Aws discovery modes), you must declare its public address by adding the following property : `-Dhazelcast.local.publicAddress=*publicaddress*`,
-this property should be added in the `[TOMCAT_DIRECTORY]/bin/setenv.sh` or `[TOMCAT_DIRECTORY]/bin/setenv.bat`
+3. If your Bonita installation is behind a proxy or is installed inside a Docker container (mainly in TcpIp or Aws
+discovery modes), you must declare its public address by adding the following property :
+`-Dhazelcast.local.publicAddress=*publicaddress*`, this property should be added in the `[TOMCAT_DIRECTORY]/bin/setenv.sh` or `[TOMCAT_DIRECTORY]/bin/setenv.bat`
 
 4. When the installation is complete, start Tomcat on the node. This starts Bonita BPM Platform:
 ```bash
@@ -130,14 +130,8 @@ The platform setup tool is also present in the Tomcat or JBoss bundle under the 
 * Configure it as described in the [platform setup tool page](BonitaBPM_platform_setup.md)
 * Run the `setup.sh pull` or `setup.bat pull`. This will retrieve the configuration of your platform under `platform_conf/current` folder.
 * Update configuration files that are in the `platform_conf/initial` folder of the platform setup tool.
-    * In `platform_init_engine/bonita-platform-init-community-custom.properties` uncomment and update the value of `activeProfiles` property from **`community`** to **`community,performance`**.
-    * In `platform_engine/bonita-platform-sp-custom.properties`
-        * uncomment and set the **`bonita.cluster`** property to `true`.
-    * In `platform_engine/bonita-platform-sp-cluster-custom.properties`
-        * uncomment and set the **`bonita.cluster.name`** property to a name of your own, e.g. `myBPMCluster`, **This name must be unique on the local network if you are using *multicast***
-        * set one of `bonita.platform.cluster.hazelcast.multicast.enabled`, `bonita.platform.cluster.hazelcast.tcpip.enabled` and `bonita.platform.cluster.hazelcast.aws.enabled` to true
-        uncomment the # properties and set only one them to `true`, set the others to `false` depending on how you want your nodes to discover each others,
-        for more information on this take a look at the [Hazelcast Documentation](http://docs.hazelcast.org/docs/3.4/manual/html-single/index.html#discovering-cluster-members).
+    * In `platform_init_engine/bonita-platform-init-community-custom.properties` as described in [Create and initialize database](#create_init_bonita_db).
+    * In `platform_engine/bonita-platform-sp-custom.properties` as described in [Create and initialize database](#create_init_bonita_db).
 * Change quartz scheduler name in database: required when Bonita BPM version is `7.3.1` or lower, otherwise this step is managed by migration tool.
     * disable foreign keys on tables `qrtz_cron_triggers`, `qrtz_simple_triggers`, `qrtz_simprop_triggers` and `qrtz_triggers`
     * execute following SQL update:
@@ -162,7 +156,8 @@ The platform setup tool is also present in the Tomcat or JBoss bundle under the 
 
 The configuration of the node you were using is still valid. You should be able to run it without any issue.
 
-To add more nodes, configure them like the first one. You can also refer to the [Install a first node part](#install_first_node).
+If your Bonita installation is behind a proxy or is installed inside a Docker container, please refer to the
+[Install a first node part](#install_first_node).
 
 
 ## Cluster management
