@@ -12,6 +12,7 @@ A resource is a zip archive, and must contains a `page.properties` file, a resou
 
 For example: 
 ```
+#The name must start with 'custompage_'
 name=custompage_layout
 displayName=Application layout page
 description=This is a layout page dedicated to new born living applications. It is created and editable using the UI designer. It allows to display an horizontal menu, and an iframe. The menu allows to target some pages and the iframe define the area to display those targeted pages.

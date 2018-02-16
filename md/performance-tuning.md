@@ -185,7 +185,7 @@ The configuration of the threadpool of this service must be correlated to the co
 This mapping between the configurations of the two threadpools depends on your processes. If you have processes that use a lot of connectors, then you need as many connector threads as work threads.  
 If you are unsure, our recommendation is to configure the two threadpools with the same values.
 
-The Connector service is configured in `cfg-bonita-connector-timedout.xml`, `bonita-tenant-community-custom.properties` and `bonita-tenant-sp-custom.properties` (cf [platform setup](Bonita_platform_setup))
+The Connector service is configured in `cfg-bonita-connector-timedout.xml`, `bonita-tenant-community-custom.properties` and `bonita-tenant-sp-custom.properties` (cf [platform setup](BonitaBPM_platform_setup))
 
 ```
 Community:
@@ -289,7 +289,7 @@ It is possible to modify the cache settings in those files for each kind of obje
 
 Before going into production, we encourage to finely tune the "Level-2" object cache in a pre-prod environment:
 
-* activate Hibernate cache statistics by setting at **true** the parameter **hibernate.generate\_statistics** in file **bonita-platform-community-custom.properties**
+* activate Hibernate cache statistics by setting to **true** the parameter **bonita.platform.persistence.generate_statistics** in file **bonita-platform-community-custom.properties**
 * activate logs at INFO level:
 ```
 <logger name="org.bonitasoft.engine.persistence" level="INFO"/>
