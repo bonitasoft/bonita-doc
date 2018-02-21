@@ -38,12 +38,32 @@ Make this call to get the status the BDM.
 
 #### Install or update a BDM
 
-Install or update a BDM on your tenant. Your tenant services need to be paused.
+Install or update a BDM on your tenant.
+Need to be done in two successive steps:  
+1 - Upload a BDM file  
+2 - Install/Update the previously uploaded file    
 
- ::: info
- **Note:** The upload needs to be performed before (POST portal/bdmAccessControlUpload).
+ ::: warning
+ **Note:** To do this, your tenant services need to be paused.
  :::
  
+##### Upload a BDM file
+
+* **URL**  
+  `/portal/fileUpload`  
+* **Method**  
+  `POST` 
+* **Required headers**   
+  `Content-Type: multipart/form-data`
+* **Success Response**
+    * Code: 200    
+    * Request Payload
+   ```
+   tmp_uploaded_bdm.zip
+   ``` 
+
+ 
+##### Install/Update a file previously uploaded
 * **URL**  
   `/API/tenant/bdm`  
 * **Method**  
@@ -53,11 +73,11 @@ Install or update a BDM on your tenant. Your tenant services need to be paused.
     * Request Payload
    ```
    {
-        fileUpload: "bdm_to_upload.zip"
+        fileUpload: "tmp_uploaded_bdm.zip"
    }   
    ``` 
  ::: info
- **Note:** Use the file name returned in the response of the upload request to perform the import request (fileUpload parameter).
+ **Note:** Use the file name returned in the first step to perform the second step.
  :::
 
  ::: warning
