@@ -76,7 +76,7 @@ If later you need to change the configuration of the node discovery or add new l
 2. Delete the entire content of the `[TOMCAT_DIRECTORY]/setup` folder.
 3. If your Bonita installation is behind a proxy or is installed inside a Docker container (mainly in TcpIp or Aws
 discovery modes), you must declare its public address by adding the following property :
-`-Dhazelcast.local.publicAddress=*publicaddress*`, this property should be added in the `[TOMCAT_DIRECTORY]/bin/setenv.sh` or `[TOMCAT_DIRECTORY]/bin/setenv.bat`
+`-Dhazelcast.local.publicAddress=*publicaddress*`, this property should be added in the `[TOMCAT_DIRECTORY]/setup/tomcat-templates/setenv.sh` or `[TOMCAT_DIRECTORY]/setup/tomcat-templates/setenv.bat`
 
 4. When the installation is complete, start Tomcat on the node. This starts Bonita BPM Platform:
    ```bash
