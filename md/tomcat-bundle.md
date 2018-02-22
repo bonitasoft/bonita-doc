@@ -96,12 +96,12 @@ As a security precaution, we **strongly recommend** that before you start your a
 
 #### Platform administrator
 
-The credentials are defined in a text file:
+The username and password are defined in a text file:
  - Before the very first Tomcat start: [`<TOMCAT_HOME>/setup/platform_conf/initial/platform_engine/bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md)
  - After the first Tomcat start: [`<TOMCAT_HOME>/setup/platform_conf/current/platform_engine/bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md)
 
 
-The username and password for the platform administrator are defined in the file [`<TOMCAT_HOME>/setup/platform_conf/initial/platform_engine/bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md), by the following properties:
+The properties are listed below:
 
 * `platformAdminUsername` defines the username (default `platformAdmin`)
 * `platformAdminPassword` defines the password (default `platform`)
