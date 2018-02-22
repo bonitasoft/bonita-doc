@@ -116,7 +116,7 @@ BonitaAuthentication-1 {
 };
  ```
 
-We recommend that you name your JAAS configuration file `jaas.cfg` and that you add the file under `<TOMCAT_HOME>/conf` folder.
+We recommend that you name your JAAS configuration file `jaas.cfg` and that you add the file under `<TOMCAT_HOME>/server/conf` folder.
 
 ## Configuration steps
 
@@ -138,7 +138,7 @@ As the JAAS configuration in WildFly is already done in a file that already exis
 
 ##### **Tomcat**
 
-To define the JAAS configuration file location you need to set a JVM property, `java.security.auth.login.config`. To do this for a system running Tomcat you need to edit the `setenv` script provided with Bonita BPM and located in `<TOMCAT_HOME>/bin` folder.
+To define the JAAS configuration file location you need to set a JVM property, `java.security.auth.login.config`. To do this for a system running Tomcat you need to edit the `setenv` script provided with Bonita BPM and located in `<TOMCAT_HOME>/server/bin` folder.
 
 ###### For Linux and Mac OS
 
