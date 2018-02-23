@@ -101,11 +101,12 @@ When the platform is created, default values for the tenant administrator userna
 * `userPassword` defines the password (default `install`)
 
 When you create a tenant, the tenant administrator is created with the default username and password, unless you specify new values. 
-Change these tenant-specific credentials for an existing tenant by updating the `userName` and `userPassword` properties in `bonita-tenant-community-custom.properties`.
+Change these tenant-specific credentials for an existing tenant by updating the `userName` and `userPassword` properties in `<WILDFLY_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/bonita-tenant-community-custom.properties`.
 
 ::: warning
-For the default tenant, the tenant administrator username and password must also be defined in file [`<WILDFLY_HOME>/setup/platform_conf/initial/platform_portal/platform-tenant-config.properties`](BonitaBPM_platform_setup.md), with exactly the same values that you set in `bonita-tenant-community-custom.properties`.
-At platform creation, this file contains the default username and password for the default tenant. 
+For the **default tenant**, the tenant administrator username and password must also be changed in file [`<WILDFLY_HOME>/setup/platform_conf/initial/platform_portal/platform-tenant-config.properties`](BonitaBPM_platform_setup.md),
+with exactly the same values that you set in `bonita-tenant-community-custom.properties` (see above). At platform creation, this file contains the default username and password for the default tenant.  
+For further details and a better understanding, please read the section [Tenant administrator credentials](tenant_admin_credentials.md).
 :::
 
 
