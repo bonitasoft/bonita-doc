@@ -12,11 +12,33 @@ You will learn here how to create a cluster in two ways:
 * Create a cluster from scratch
 * Convert a single node installation into a cluster
 
+## Note when using the AWS support
+
+Please read the following to ensure that Bonita Cluster works correctly on AWS.
+
+
+### Add a jar to the Bonita war
+
+To proceed
+* download the [hazelcast-cloud-3.4.1.jar](http://repo1.maven.org/maven2/com/hazelcast/hazelcast-cloud/3.4.1/)
+* ensure that Bonita is stopped
+* add the jar to the bonita war and the bonita folder (the jar must be stored in the `WEB-INF/lib` subfolder of these 2
+elements)
+* the hazelcast aws support will be fully available at next Bonita startup
+
+
+### IAM role configuration
+
+If you are using IAM role configuration (iam-role) for EC2 discovery, you need to give the following policy to your IAM
+user at the least: `"ec2:DescribeInstances"`.
+
+
+
 ## Create a cluster from scratch
 
 In this part we will create a cluster from scratch. We will initialize the database on which the cluster will run, then we will configure nodes to run on this cluster.
 
-### Create and initialize the database for Bonita Platform
+### <a id="create_init_bonita_db" /> Create and initialize the database for Bonita Platform
 
 In this step you will create and initialize the database for the Bonita Platform cluster using the [platform setup tool](BonitaBPM_platform_setup.md).
 When done you will have a database with all tables created and with a table `CONFIGURATION` containing all configuration required for the cluster to start.
@@ -29,24 +51,23 @@ When done you will have a database with all tables created and with a table `CON
 
 In the following steps, you will update the configuration files that are in the `setup/platform_conf/initial` folder of the platform setup tool.
 
-1. Edit the file `setup/platform_conf/initial/platform_init_engine/bonita-platform-init-community-custom.properties` uncomment and update the value of `activeProfiles` property from **`community`** to **`community,performance`**, as follows: `activeProfiles=community,performance`
 1. Edit the file `setup/platform_conf/initial/platform_engine/bonita-platform-sp-custom.properties`: Uncomment and set the **`bonita.cluster`** property to `true`, as follows: `bonita.cluster=true`
-1. Edit the file `setup/platform_conf/initial/platform_engine/bonita-platform-sp-custom.properties`: <a id="disable-hibernate-cache"/>In order to keep consistency between nodes, the Hibernate cache must be disabled: 
-Uncomment and change the line: 
-      `#bonita.platform.persistence.use_second_level_cache=true`  
-    change it to:   
-      `bonita.platform.persistence.use_second_level_cache=false` 
+1. Edit the file `setup/platform_conf/initial/platform_engine/bonita-platform-sp-custom.properties`: <a id="disable-hibernate-cache"/>In order to keep consistency between nodes, the Hibernate cache must be disabled:
+Uncomment and change the line:
+      `#bonita.platform.persistence.use_second_level_cache=true`
+    change it to:
+      `bonita.platform.persistence.use_second_level_cache=false`
 1. Edit the file `setup/platform_conf/initial/platform_engine/bonita-platform-sp-cluster-custom.properties`: uncomment and set the **`bonita.cluster.name`** property to a name of your own, e.g. `myBPMCluster`, **This name must be unique on the local network if you are using *multicast***
 1. Edit the file `setup/platform_conf/initial/platform_engine/bonita-platform-sp-cluster-custom.properties`: set to `true` one of `bonita.platform.cluster.hazelcast.multicast.enabled` or `bonita.platform.cluster.hazelcast.tcpip.enabled` or `bonita.platform.cluster.hazelcast.aws.enabled`, as follows:
-Uncomment the # properties and set only one of them to `true`, set the others to `false` depending on how you want your nodes to discover each others. 
+Uncomment the # properties and set only one of them to `true`, set the others to `false` depending on how you want your nodes to discover each others.
 Example:
     ```properties
     bonita.platform.cluster.hazelcast.multicast.enabled=false
     bonita.platform.cluster.hazelcast.tcpip.enabled=true
     bonita.platform.cluster.hazelcast.tcpip.members=ipServer01,ipServer02
-    ```  
-    **Important**: If you don't use `bonita.platform.cluster.hazelcast.multicast.enabled`, **you must uncomment the # properties and set it to `false`** to deactivate it, as follows: `bonita.platform.cluster.hazelcast.multicast.enabled=false`. 
-For more information on this take a look at the [Hazelcast Documentation](http://docs.hazelcast.org/docs/3.4/manual/html-single/index.html#discovering-cluster-members).  
+    ```
+    **Important**: If you don't use `bonita.platform.cluster.hazelcast.multicast.enabled`, **you must uncomment the # properties and set it to `false`** to deactivate it, as follows: `bonita.platform.cluster.hazelcast.multicast.enabled=false`.
+For more information on this take a look at the [Hazelcast Documentation](http://docs.hazelcast.org/docs/3.4/manual/html-single/hazelcast-documentation.html#hazelcast-cluster-discovery).
 1. Copy licenses of all your nodes in `setup/platform_conf/licenses`.
 1. Run `setup.sh init` or `setup.bat init` as described in the [platform setup tool page](BonitaBPM_platform_setup.md#init_platform_conf).
 
@@ -55,17 +76,18 @@ This creates the database tables needed by Bonita platform, stores the configura
 
 If later you need to change the configuration of the node discovery or add new licenses to the Bonita Platform configuration, you can update the configuration by following this [guide](BonitaBPM_platform_setup.md#update_platform_conf).
 
-<a id="install_first_node" />
 
-### Install a first node
+### <a id="install_first_node" /> Install a first node
 
 1. Once you have done all the steps from section **Create and initialize the database for Bonita Platform** above,  run `setup.sh configure` or `setup.bat configure` as described in the [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to have your Tomcat / WildFly bundle configured to point to the right database.
 1. Once the bundle is configured, and to avoid unsynchronized versions of the configuration files between several nodes, you are advised to delete
-the folder `[TOMCAT_DIRECTORY]/setup` and its entire content.  
+the folder `[TOMCAT_DIRECTORY]/setup` and its entire content.
 Note:  if you want to keep it for future configuration changes, just move the folder `[TOMCAT_DIRECTORY]/setup` and its entire content outside the `[TOMCAT_DIRECTORY]`
 to use it as your main  [platform setup tool](BonitaBPM_platform_setup.md#init_platform_conf).
-1. If your Bonita installation is behind a proxy (mainly in TcpIp or Aws discovery modes), you must declare its public address by adding the following property:
+1. If your Bonita installation is behind a proxy or is installed inside a Docker container (mainly in TcpIp or Aws
+discovery modes), you must declare its public address by adding the following property:
 `-Dhazelcast.local.publicAddress=*publicaddress*`, this property should be added in the `[TOMCAT_DIRECTORY]/bin/setenv.sh` or `[TOMCAT_DIRECTORY]/bin/setenv.bat`
+
 1. When the installation is complete, start Tomcat on the node. This starts Bonita Platform:
    ```bash
    ./start-bonita.sh
@@ -75,7 +97,7 @@ to use it as your main  [platform setup tool](BonitaBPM_platform_setup.md#init_p
 1. Check that the log file contains messages of the following form:
     ```
     March 22, 2016 5:07:07 PM INFO: com.hazelcast.cluster.ClusterService [10.0.5.3]:5701 [myBPMCluster]
-    
+
     Members [1] {
             Member [10.0.5.3]:5701 this
     }
@@ -90,7 +112,7 @@ to use it as your main  [platform setup tool](BonitaBPM_platform_setup.md#init_p
 You can add a new node to a cluster without interrupting service on the existing nodes.
 
 1. Copy the entire Tomcat / WildFly directory to another machine.
-1. If Hazelcast Node discovery is configured with TCP, update the configuration in database using the [platform setup tool](BonitaBPM_platform_setup.md), as follows: 
+1. If Hazelcast Node discovery is configured with TCP, update the configuration in database using the [platform setup tool](BonitaBPM_platform_setup.md), as follows:
    1. Run the `setup.sh pull` or `setup.bat pull`. This will retrieve the configuration of your platform under `platform_conf/current` folder.
    1. Edit the file `platform_conf/current/platform_engine/bonita-platform-sp-cluster-custom.properties` and add the node to the list of members as follows for example: `bonita.platform.cluster.hazelcast.tcpip.members=ipServer01,ipServer02,ipServer03`
 1. Start the Tomcat on the new node, running `./start-bonita.sh` script
@@ -99,7 +121,7 @@ The log file will contain messages of the following form:
 
     ```
     March 22, 2016 5:12:53 PM INFO: com.hazelcast.cluster.ClusterService [10.0.5.17]:5701 [myBPMCluster]
-    
+
     Members [2] {
             Member [10.0.5.3]:5701
             Member [10.0.5.17]:5701 this
@@ -125,28 +147,27 @@ Some properties of the Bonita Platform needs to be changed in order to make your
     ::: info
     The platform setup tool is also present in the Tomcat or WildFly bundle under the `setup` directory.
     :::
-1. If the platform setup tool is not configured already, configure it as described in the [platform setup tool page](BonitaBPM_platform_setup.md). If it is, move on to next step. 
-1. Run the `setup.sh pull` or `setup.bat pull`. This will retrieve the configuration of your platform under `platform_conf/current` folder.  
+1. If the platform setup tool is not configured already, configure it as described in the [platform setup tool page](BonitaBPM_platform_setup.md). If it is, move on to next step.
+1. Run the `setup.sh pull` or `setup.bat pull`. This will retrieve the configuration of your platform under `platform_conf/current` folder.
 In the following steps, you will update the configuration files that are in the `platform_conf/current` folder of the platform setup tool.
 
-1. Edit the file `platform_conf/current/platform_init_engine/bonita-platform-init-community-custom.properties`: uncomment and update the value of `activeProfiles` property from **`community`** to **`community,performance`**.
 1. Edit the file `platform_conf/current/platform_engine/bonita-platform-sp-custom.properties`: Uncomment and set the **`bonita.cluster`** property to `true`, as follows: `bonita.cluster=true`
-1. Edit the file `platform_conf/current/platform_engine/bonita-platform-sp-custom.properties`: 
-<a id="disable-hibernate-cache"/>In order to keep consistency between nodes, the Hibernate cache must be disabled as follows: Uncomment and change the line: 
-      `#bonita.platform.persistence.use_second_level_cache=true`  
-    change it to:   
+1. Edit the file `platform_conf/current/platform_engine/bonita-platform-sp-custom.properties`:
+<a id="disable-hibernate-cache"/>In order to keep consistency between nodes, the Hibernate cache must be disabled as follows: Uncomment and change the line:
+      `#bonita.platform.persistence.use_second_level_cache=true`
+    change it to:
       `bonita.platform.persistence.use_second_level_cache=false`
 
 1. Edit the file `platform_conf/current/platform_engine/bonita-platform-sp-cluster-custom.properties`: uncomment and set the **`bonita.cluster.name`** property to a name of your own, e.g. `myBPMCluster`, **This name must be unique on the local network if you are using *multicast***
-1. Edit the file `platform_conf/current/platform_engine/bonita-platform-sp-cluster-custom.properties`:  set one of `bonita.platform.cluster.hazelcast.multicast.enabled` or `bonita.platform.cluster.hazelcast.tcpip.enabled` or `bonita.platform.cluster.hazelcast.aws.enabled` to `true` as follows: Uncomment the # properties and set only one of them to `true`, set the others to `false` depending on how you want your nodes to discover each others. 
+1. Edit the file `platform_conf/current/platform_engine/bonita-platform-sp-cluster-custom.properties`:  set one of `bonita.platform.cluster.hazelcast.multicast.enabled` or `bonita.platform.cluster.hazelcast.tcpip.enabled` or `bonita.platform.cluster.hazelcast.aws.enabled` to `true` as follows: Uncomment the # properties and set only one of them to `true`, set the others to `false` depending on how you want your nodes to discover each others.
 Example:
 `bonita.platform.cluster.hazelcast.multicast.enabled=false`
 `bonita.platform.cluster.hazelcast.tcpip.enabled=true`
-`bonita.platform.cluster.hazelcast.tcpip.members=ipServer01,ipServer02,ipServer03`  
-**Important**: If you don't use `bonita.platform.cluster.hazelcast.multicast.enabled`, **you must uncomment the # properties and set it to `false`** as follows: `bonita.platform.cluster.hazelcast.multicast.enabled=false`. 
+`bonita.platform.cluster.hazelcast.tcpip.members=ipServer01,ipServer02,ipServer03`
+**Important**: If you don't use `bonita.platform.cluster.hazelcast.multicast.enabled`, **you must uncomment the # properties and set it to `false`** as follows: `bonita.platform.cluster.hazelcast.multicast.enabled=false`.
 For more information on this take a look at the [Hazelcast Documentation](http://docs.hazelcast.org/docs/3.4/manual/html-single/index.html#discovering-cluster-members).
 
-1. Change quartz scheduler name in database (step 10 to 12): required when Bonita version is `7.3.1` or lower, otherwise this step is managed by migration tool. 
+1. Change quartz scheduler name in database (step 10 to 12): required when Bonita version is `7.3.1` or lower, otherwise this step is managed by migration tool.
 1. disable foreign keys on tables `qrtz_cron_triggers`, `qrtz_simple_triggers`, `qrtz_simprop_triggers` and `qrtz_triggers`
 1. execute following SQL update:
 
@@ -172,7 +193,8 @@ For more information on this take a look at the [Hazelcast Documentation](http:/
 
 The configuration of the node you were using is still valid. You should be able to run it without any issue.
 
-To add more nodes, configure them like the first one. You can also refer to the [Install a first node part](#install_first_node).
+If your Bonita installation is behind a proxy or is installed inside a Docker container, please refer to the
+[Install a first node part](#install_first_node).
 
 
 ## Cluster management
