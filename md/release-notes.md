@@ -4,6 +4,14 @@
 **Note:** The 7.7 is currently work in progress (wip). The 7.7.0 GA is planned on June 2018.
 :::
 
+
+<a id="techonolgy-updates"/>
+
+### Other dependency updates
+
+* (Performance Edition) Bonita 7.7 now supports usage of Hazelcast on AWS out-of-the box. Previous versions required
+modifying the Bonita installation.
+
 <a id="feature-removals"/>
 
 ## Feature removals

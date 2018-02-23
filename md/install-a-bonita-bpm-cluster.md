@@ -17,16 +17,6 @@ You will learn here how to create a cluster in two ways:
 Please read the following to ensure that Bonita Cluster works correctly on AWS.
 
 
-### Add a jar to the Bonita war
-
-To proceed
-* download the [hazelcast-cloud-3.6.5.jar](http://repo1.maven.org/maven2/com/hazelcast/hazelcast-cloud/3.6.5/)
-* ensure that Bonita is stopped
-* add the jar to the bonita war and the bonita folder (the jar must be stored in the `WEB-INF/lib` subfolder of these 2
-elements)
-* the hazelcast aws support will be fully available at next Bonita startup
-
-
 ### IAM role configuration
 
 If you are using IAM role configuration (iam-role) for EC2 discovery, you need to give the following policy to your IAM
