@@ -146,6 +146,32 @@ has been removed.
 
 ## Bug fixes
 
+### Fixes in Bonita 7.6.3
+
+#### Fixes in Documentation
+* BS-17930 Documentation about 'Changing technical user' needs more detailed explanations
+* BS-18134 Workaround or guidance missing for time-zoned Java 8 Date types usage in REST API extensions
+
+#### Fixes in Engine component
+* BS-17976 URL query string parsing on parameter 'filter' is too strict in dynamic security scripts
+* BS-17977 apiAccessor.processAPI.updateDueDateOfTask doesn't do anything after migration to 7.6.1
+* BS-18003 Engine should not try to delete event trigger instance on flownodes that don't have any
+* BS-18017 Task Due date is always reset by the engine even if no expression is set
+
+#### Fixes in Studio component
+* BS-16454 Cannot initialize a business object with a query with parameters - value not saved in Studio
+* BS-17965 Redeploy profile (after rename) fails if some deployed artifacts are using this profile
+* BS-18113 Process configuration failed to migrate anonymousUserName and anonymousPassword
+
+#### Fixes in UI Designer component
+* BS-18008 UI Designer fail to load default widgets when running in Turkish environment
+* BS-18012 SELECT widget sets NULL value when no element selected
+
+#### Fixes in Web component
+* BS-17668 Hamburger button should not be displayed in layout when there are no menu
+* BS-17927 Typo in the TaskList's page.properties file, generates an error at Edit in the Portal
+* BS-18020 Cache is enabled on REST APIs when called through Custom Pages
+
 ### Fixes in Bonita 7.6.2
 
 #### Fixes in Documentation
