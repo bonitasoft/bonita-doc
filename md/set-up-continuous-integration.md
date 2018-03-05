@@ -4,6 +4,11 @@
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 
+::: warning
+**Note:** [Bonta Continous Integration addon](https://documentation.bonitasoft.com/bcd/2.0/) comes with a out-of-the-box solution based on Jenkins CI. 
+:::
+
+
 This page explains how to set up a continuous integration environment for your Bonita processes.
 
 With Continuous Integration (CI) your processes are continuously built and tested while you are designing them. Collaborating on process design can be enhanced with CI by ensuring the integrity of your processes along the development phase. 

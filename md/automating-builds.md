@@ -4,6 +4,10 @@
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 
+::: warning
+**Note:** Workspace API tool is deprecated and has been replaced with a better tooling suite which is part of the [Bonta Continous Integration addon](https://documentation.bonitasoft.com/bcd/2.0/). 
+:::
+
 ## Overview
 
 Bonita includes a Workspace API, which is a script, `BonitaStudioBuilder`, for building a bar file from a process and/or a zip file from a REST API extension in a repository. 
