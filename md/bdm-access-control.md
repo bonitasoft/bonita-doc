@@ -87,21 +87,20 @@ Define a *LeaveRequest* business object, with the following attributes:
 **Note:** In this tutorial, we create a basic living application to observe the results of our access rules. You can also directly call the API and check the response. Here is the API to call: *../API/bdm/businessData/com.company.model.LeaveRequest?q=find&p=0&c=10*
 :::
 
-In the UI Designer:  
+In the UI Designer, create an application page (*displayLeaveRequest*): 
 
- - Create an application page: *displayLeaveRequest*  
-       - Create a new variable  
-   		-  **Name** : leaveRequests
-   		-  **Type** : External API
-   		-  **API URL** :  ../API/bdm/businessData/com.company.model.LeaveRequest?q=find&p=0&c=10
-       - Add a title to your page: *Leave requests*  
-       - Add a container under the title  
-   		- **Collection**: leaveRequests 
-   		- **CSS classes**: alert alert-info  
-       - Inside this container, for each of the following attributes of your Business Object *(employee - departureDate - duration - medicalComment - employeeComment)*, add an input with the following configuration  
-   		- **Label** : *[current attribute name]*
-   		- **Value** : *$item.[current attribute name]*
-   		- **Read-only**: *true*
+- Create a new variable  
+	-  **Name** : leaveRequests
+	-  **Type** : External API
+	-  **API URL** :  ../API/bdm/businessData/com.company.model.LeaveRequest?q=find&p=0&c=10
+- Add a title to your page: *Leave requests*  
+- Add a container under the title  
+	- **Collection**: leaveRequests 
+	- **CSS classes**: alert alert-info  
+- Inside this container, for each of the following attributes of your Business Object *(employee - departureDate - duration - medicalComment - employeeComment)*, add an input with the following configuration  
+	- **Label** : *[current attribute name]*
+	- **Value** : *$item.[current attribute name]*
+	- **Read-only**: *true*
 
  
 Since medicalComment will not be accessible to some users, you can make its display conditional.  
@@ -302,7 +301,8 @@ They should be able to access products name and quantity of each *InvoiceLine*. 
  - Open *fullOrder* subtree, and check the attributes *[product, quantity]*
  - Open *Product* subtree, and check the attribute *[name]*.
 
-**Experienced Sales employees: **  
+**Experienced Sales employees:**  
+
 They should be able to access all information of an invoice. So, on the object *Invoice*, create a second rule:
 
 - **Rule name**: *Invoice Experienced Sales*
@@ -318,7 +318,9 @@ They should access all customer information. Since the type of relationship betw
  - **Profiles checked**: *[Experienced Sales]*
 
 **Novice Sales employees:**  
+
 They should be able to access all information of an invoice. So, on the object *Invoice*, in the second rule, check the **Profile** *[Novice Sales]*.  
+
 They should only access the name of a customer. So, create a second rule on the business object *Customer*:
 
 - **Rule name**: *Customer Novice Sales*
