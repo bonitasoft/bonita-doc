@@ -87,7 +87,7 @@ Define a *LeaveRequest* business object, with the following attributes:
 **Note:** In this tutorial, we create a basic living application to observe the results of our access rules. You can also directly call the API and check the response. Here is the API to call: *../API/bdm/businessData/com.company.model.LeaveRequest?q=find&p=0&c=10*
 :::
 
-  1. In the UI Designer:  
+In the UI Designer:  
     - Create an application page: *displayLeaveRequest*  
     - Create a new variable  
 		-  **Name** : leaveRequests
@@ -103,7 +103,7 @@ Define a *LeaveRequest* business object, with the following attributes:
 		- **Read-only**: *true*  
     - Since medicalComment will not be accessible to some users, you can make its display conditional. To do so, in the property **hidden** of the dedicated input, click the **fx** button to make it an expression, and write `$item.medicalComment == null || $item.medicalComment == undefined`.
     
-  2. Create a new application descriptor using the [application editor](applicationCreation.md) in the studio:  
+Create a new application descriptor using the [application editor](applicationCreation.md) in the studio:  
     - Set the application token: leaveRequest  
     - Set the Application Profile: User  
     - Add an orphan page:  
@@ -112,28 +112,28 @@ Define a *LeaveRequest* business object, with the following attributes:
     - Set the Home page token: *displayLeaveRequest*  
     - Deploy
   
-  3. Make sure the living application works fine, and that all attributes are displayed at the moment.
+Make sure the living application works fine, and that all attributes are displayed at the moment.
 
 **5. Define access control for Business Object LeaveRequest**
 
 Acceess to all attributes of a leave request should be granted to HR managers. On the other hand, an HR trainee should not be able to access the attribute *medicalComment* of a leave request. 
 To do so, define two rules for our *LeaveRequest*:  
 
-  1. HR trainees  
-    They should not be able to access the medical comment of any leave request. So on the object *LeaveRequest*, create a first rule:  
+HR trainees  
+They should not be able to access the medical comment of any leave request. So on the object *LeaveRequest*, create a first rule:  
     - **Rule name**: *HR trainees access*
     - **Rule description**: *An HR trainee should not see the medical comment of any leave request*
     - **Attributes checked**:  *[employee, departureDate, duration, employeeComment]*
     - **Profiles checked**: *[HR trainees]*
 
-  2. HR managers  
-    They should be able to access full information of all leave requests. So on the object *LeaveRequest*, create a second rule:  
+HR managers  
+They should be able to access full information of all leave requests. So on the object *LeaveRequest*, create a second rule:  
     - **Rule name**: *HR managers access*
     - **Rule description**: *An HR manager should see all attributes of all leave requests*
     - **Attributes checked**:  *[employee, departureDate, duration, medicalComment, employeeComment]*
     - **Profiles checked**: *[HR managers]*
 
-  3. Deploy the access control file.
+Deploy the access control file.
 
 **6. Access control validation**
 
@@ -153,7 +153,7 @@ A novice sales representative should access all information about orders but onl
 
 **1. Define the BDM**
 
-  1. Define a *Customer* business object, with the following attributes:  
+Define a *Customer* business object, with the following attributes:  
 
 | Name | Type |
 |---|---|
@@ -161,21 +161,21 @@ A novice sales representative should access all information about orders but onl
 | email | STRING |
 | address | STRING |
 
-  2. Define a *Product* business object, with the following attributes:  
+Define a *Product* business object, with the following attributes:  
 
 | Name | Type |
 |---|---|
 | name | STRING |
 | price | INTEGER |
 
-  3. Define an *InvoiceLine* business object, with the following attributes:  
+Define an *InvoiceLine* business object, with the following attributes:  
 
 | Name | Type | Relation | Eager |
 |---|---|---|---|
 | product | Product | Composition | true |
 | quantity | INTEGER |
 
-  4. Define an *Invoice* business object, with the following attributes:  
+Define an *Invoice* business object, with the following attributes:  
 
 | Name | Type | Multiple | Relation | Eager |
 |---|---|---|---|---|
@@ -186,14 +186,14 @@ A novice sales representative should access all information about orders but onl
 
 **2. Define organization and profiles**
 
-  1. In your organization create two groups, 'Order picker' and 'Sales', and two roles 'Member' and 'Novice member'.
-  2. Create some users with the membership 'Member of Order picker', some others with 'Novice member of Sales', and some with 'Member of Sales'.
-  3. Check that all users are also mapped with the default profile *User*.
-  4. Define three custom profiles using the [profile editor](profileCreation.md) in the studio:  
-     - **Order picker**, mapped with the group 'Order picker'
-     - **Experienced Sales**, mapped with the membership 'Member of Sales'
-     - **Novice Sales**, mapped with the membership 'Novice member of Sales'
-  5. Deploy those profiles.
+- In your organization create two groups, 'Order picker' and 'Sales', and two roles 'Member' and 'Novice member'.
+- Create some users with the membership 'Member of Order picker', some others with 'Novice member of Sales', and some with 'Member of Sales'.
+- Check that all users are also mapped with the default profile *User*.
+- Define three custom profiles using the [profile editor](profileCreation.md) in the studio:  
+    - **Order picker**, mapped with the group 'Order picker'
+    - **Experienced Sales**, mapped with the membership 'Member of Sales'
+    - **Novice Sales**, mapped with the membership 'Novice member of Sales'
+- Deploy those profiles.
 
 ::: info
 **Note:** Steps 3. and 4. are not directly related to access control definition, it is just a convenient way to observe its results.
@@ -204,31 +204,31 @@ A novice sales representative should access all information about orders but onl
 **3. Create a process and generate data**
 
 The attribute *customer* has an aggregation-type relationship; it exists independently of an invoice, so its instances are created directly (which is not the case for a composition-type relationship, as explained later).
-  1. First, create a process to generate customers:  
-		- Create a new diagram, with only a start event and an end event.  
-		- On the pool, add a business variable of type *Customer*, generate a contract input from this data, and generate an instantiation form from this contract.  
-		- Run this process a couple of times to generate customers.
+- First, create a process to generate customers:  
+	- Create a new diagram, with only a start event and an end event.  
+	- On the pool, add a business variable of type *Customer*, generate a contract input from this data, and generate an instantiation form from this contract.  
+	- Run this process a couple of times to generate customers.
 
-  2. Then, create a process to generate invoices, with customers and products. The instantiation form will have to retrieve existing customers, so there is some work to do on the UI Designer for this process:
-		- Create a new diagram, with only a start event and an end event.  
-		- On the pool, add a business variable of type *Invoice*, generate a contract input from this data, and generate an instantiation form from this contract.  
+- Then, create a process to generate invoices, with customers and products. The instantiation form will have to retrieve existing customers, so there is some work to do on the UI Designer for this process:
+	- Create a new diagram, with only a start event and an end event.  
+	- On the pool, add a business variable of type *Invoice*, generate a contract input from this data, and generate an instantiation form from this contract.  
    
-  3. In the UI Designer, create a new variable which will retrieve existing customers:  
-		- **name:** customers
-		- **type:** External API
-		- **URL:** ../API/bdm/businessData/com.company.model.Customer?q=find&p=0&c=10
+- In the UI Designer, create a new variable which will retrieve existing customers:  
+	- **name:** customers
+	- **type:** External API
+	- **URL:** ../API/bdm/businessData/com.company.model.Customer?q=find&p=0&c=10
 
-  4. Remove all existing inputs for the customer (persistence ID, name, email, address).  
+- Remove all existing inputs for the customer (persistence ID, name, email, address).  
   
-  5. Add a select widget:
-        - **Label:** Customer
-        - **Available values:** customers (click on **fx**; it appears as a suggestion)
-        - **Displayed key:** name
-        - **Value:** formInput.invoiceInput.customer
+- Add a select widget:
+	- **Label:** Customer
+	- **Available values:** customers (click on **fx**; it appears as a suggestion)
+	- **Displayed key:** name
+	- **Value:** formInput.invoiceInput.customer
 
-  You should now have a combo box which contains existing customers in the instantiation form of an invoice.
+You should now have a combo box which contains existing customers in the instantiation form of an invoice.
 
-  6. Run this process a couple of times to generate invoices.
+Run this process a couple of times to generate invoices.
 
 **4. Create a living application to display data**
 
@@ -236,7 +236,7 @@ The attribute *customer* has an aggregation-type relationship; it exists indepen
 **Note:** In this tutorial, we create a basic living application to observe the results of our access rules. You can also directly call the API and check the response. Here is the API to call: *../API/bdm/businessData/com.company.model.Invoice?q=find&p=0&c=10*
 :::
 
-  1. In the UI Designer:  
+- In the UI Designer:  
     - Create an application page: *displayInvoices*  
     - Create a new variable
 		-  **Name** : invoices
@@ -262,7 +262,7 @@ The attribute *customer* has an aggregation-type relationship; it exists indepen
 				- Add an input(**Label:** Price, **Value:** $item.product.price, **hidden:** `$item.product.price == null || $item.product.price == undefined`)
 				- Add an input(**Label:** Quantity, **Value:** $item.quantity)
 
-  2. Create a new application descriptor using the [application editor](applicationCreation.md) in the studio:  
+- Create a new application descriptor using the [application editor](applicationCreation.md) in the studio:  
     - Set the application token: invoices  
     - Set the Application Profile: User   
     - Add an orphan page:
@@ -271,11 +271,11 @@ The attribute *customer* has an aggregation-type relationship; it exists indepen
     - Set the Home page token: *invoices*  
     - Deploy
 
-  3. Make sure the living application works fine, and that all objects and attributes are displayed at the moment.
+Make sure the living application works fine, and that all objects and attributes are displayed at the moment.
 
 **5. Define access control for Business Object Invoice**
 
-  1. Order pickers:  
+Order pickers:  
     - They should be able to access the order and the date of an invoice, but not the customer. So, on the object *Invoice*, create a first rule:  
 		- **Rule name**: *Invoice Order picker*
 		- **Rule description**: *The order picker should access the order date and the order details, but not the customer.*
@@ -285,7 +285,7 @@ The attribute *customer* has an aggregation-type relationship; it exists indepen
 		- Open *fullOrder* subtree, and check the attributes *[product, quantity]*
 		- Open *Product* subtree, and check the attribute *[name]*.
 
-  2. Experienced Sales employees:  
+Experienced Sales employees:  
     - They should be able to access all information of an invoice. So, on the object *Invoice*, create a second rule:
 		- **Rule name**: *Invoice Experienced Sales*
 		- **Rule description**: *Experienced Sales employee should access full invoice information. 
@@ -297,7 +297,7 @@ The attribute *customer* has an aggregation-type relationship; it exists indepen
 		- **Attributes checked**: *[ name, email, address ]*
 		- **Profiles checked**: *[Experienced Sales]*
 
-  3. Novice Sales employees  
+Novice Sales employees:
     - They should be able to access all information of an invoice. So, on the object *Invoice*, in the second rule, check the **Profile** *[Novice Sales]*  
     - They should only access the name of a customer. So, create a second rule on the business object *Customer*:
 		- **Rule name**: *Customer Novice Sales*
@@ -305,7 +305,7 @@ The attribute *customer* has an aggregation-type relationship; it exists indepen
 		- **Attributes checked**: *[ name ]*
 		- **Profiles checked**: *[Novice Sales]*
  
-  4. Deploy the access control file.  
+Deploy the access control file.  
 
 **6. Access control validation**
 
@@ -333,13 +333,13 @@ This method is available starting from the Community version.
 
 **1. Define the BDM**
 
-  1. Define a *Student* business object, with the following attributes:  
+Define a *Student* business object, with the following attributes:  
 
 | Name | Type |
 |---|---|
 | fullname | STRING |
 
-  2. Define a *Request* business object, with the following attributes:  
+Define a *Request* business object, with the following attributes:  
 
 | Name | Type | Multiple | Mandatory | Relation | Eager |
 |---|---|---|---|---|---|
@@ -348,7 +348,7 @@ This method is available starting from the Community version.
 | content | STRING | false | false |
 | student | Student | false | true | Aggregation | true |
 
-  3. Define a custom query on the *Request* object, *findBySubject*:
+Define a custom query on the *Request* object, *findBySubject*:
 
 ```
 SELECT r
@@ -380,7 +380,7 @@ Some instances of the object *Request*, as well as some instances of *Students* 
 **4. Create a living application to display data**
 
 In this application, teachers review students' requests. 
-  1. In the UI Designer:  
+In the UI Designer:  
     - Create an application page: *reviewRequests*  
     - Create 2 variables
        - **Name** : requestList
@@ -397,7 +397,7 @@ In this application, teachers review students' requests.
        - **Content** : requestList (script, click the fx icon to switch from contstant to script)
        - **Column keys** : persistenceId, subject, content, medicalComment, student.fullname
     
-  2. In the studio, create an [application descriptor](applicationCreation.md):  
+In the studio, create an [application descriptor](applicationCreation.md):  
     - Set the application token: *TeacherApp*  
     - Set the application profile: *Teachers*  
     - Add an orphan page
@@ -406,7 +406,7 @@ In this application, teachers review students' requests.
     - Set the home page token: *requests*  
     - Deploy
     
-  3. Make sure the living application works fine, and that while selecting subject from the drop down list, all instances of *Requests*, *Mathematics* or *Physiscs*, are displayed.
+Make sure the living application works fine, and that while selecting subject from the drop down list, all instances of *Requests*, *Mathematics* or *Physiscs*, are displayed.
 
 **5. Define access control for queries on Business Object Request**
 
