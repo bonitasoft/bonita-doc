@@ -88,30 +88,29 @@ Define a *LeaveRequest* business object, with the following attributes:
 :::
 
   1. In the UI Designer:  
-    a. Create an application page: *displayLeaveRequest*  
-    b. Create a new variable  
-	 -  **Name** : leaveRequests
-	 -  **Type** : External API
-	 -  **API URL** :  ../API/bdm/businessData/com.company.model.LeaveRequest?q=find&p=0&c=10  
-    c. Add a title to your page: *Leave requests*  
-    d. Add a container under the title  
-	 - **Collection**: leaveRequests 
-	 - **CSS classes**: alert alert-info  
-    e. Inside this container, for each of the following attributes of your Business Object *(employee - departureDate - duration - medicalComment - employeeComment)*, add an input with the following configuration  
-	 - **Label** : *[current attribute name]*
-	 - **Value** : *$item.[current attribute name]*
-	 - **Read-only**: *true*  
-	 *([current attribute name] should be replaced by employee, or departureDate, or duration, or medicalComment, or employeeComment)*  
-    f. Since medicalComment will not be accessible to some users, you can make its display conditional. To do so, in the property **hidden** of the dedicated input, click the **fx** button to make it an expression, and write `$item.medicalComment == null || $item.medicalComment == undefined`.
+    - Create an application page: *displayLeaveRequest*  
+    - Create a new variable  
+		-  **Name** : leaveRequests
+		-  **Type** : External API
+		-  **API URL** :  ../API/bdm/businessData/com.company.model.LeaveRequest?q=find&p=0&c=10  
+    - Add a title to your page: *Leave requests*  
+    - Add a container under the title  
+		- **Collection**: leaveRequests 
+		- **CSS classes**: alert alert-info  
+    - Inside this container, for each of the following attributes of your Business Object *(employee - departureDate - duration - medicalComment - employeeComment)*, add an input with the following configuration  
+		- **Label** : *[current attribute name]*
+		- **Value** : *$item.[current attribute name]*
+		- **Read-only**: *true*  
+    - Since medicalComment will not be accessible to some users, you can make its display conditional. To do so, in the property **hidden** of the dedicated input, click the **fx** button to make it an expression, and write `$item.medicalComment == null || $item.medicalComment == undefined`.
     
   2. Create a new application descriptor using the [application editor](applicationCreation.md) in the studio:  
-    a. Set the application token: leaveRequest  
-    b. Set the Application Profile: User  
-    c. Add an orphan page:  
+    - Set the application token: leaveRequest  
+    - Set the Application Profile: User  
+    - Add an orphan page:  
 		- **Application Page**: *custompage_displayLeaveRequest*
 		- **Token**:  *displayLeaveRequest*  
-    d. Set the Home page token: *displayLeaveRequest*  
-    e. Deploy
+    - Set the Home page token: *displayLeaveRequest*  
+    - Deploy
   
   3. Make sure the living application works fine, and that all attributes are displayed at the moment.
 
@@ -206,18 +205,18 @@ A novice sales representative should access all information about orders but onl
 
 The attribute *customer* has an aggregation-type relationship; it exists independently of an invoice, so its instances are created directly (which is not the case for a composition-type relationship, as explained later).
   1. First, create a process to generate customers:  
-    a. Create a new diagram, with only a start event and an end event.  
-    b. On the pool, add a business variable of type *Customer*, generate a contract input from this data, and generate an instantiation form from this contract.  
-    c. Run this process a couple of times to generate customers.
+		- Create a new diagram, with only a start event and an end event.  
+		- On the pool, add a business variable of type *Customer*, generate a contract input from this data, and generate an instantiation form from this contract.  
+		- Run this process a couple of times to generate customers.
 
   2. Then, create a process to generate invoices, with customers and products. The instantiation form will have to retrieve existing customers, so there is some work to do on the UI Designer for this process:
-    a. Create a new diagram, with only a start event and an end event.  
-    b. On the pool, add a business variable of type *Invoice*, generate a contract input from this data, and generate an instantiation form from this contract.  
+		- Create a new diagram, with only a start event and an end event.  
+		- On the pool, add a business variable of type *Invoice*, generate a contract input from this data, and generate an instantiation form from this contract.  
    
   3. In the UI Designer, create a new variable which will retrieve existing customers:  
-        - **name:** customers
-        - **type:** External API
-        - **URL:** ../API/bdm/businessData/com.company.model.Customer?q=find&p=0&c=10
+		- **name:** customers
+		- **type:** External API
+		- **URL:** ../API/bdm/businessData/com.company.model.Customer?q=find&p=0&c=10
 
   4. Remove all existing inputs for the customer (persistence ID, name, email, address).  
   
@@ -238,16 +237,16 @@ The attribute *customer* has an aggregation-type relationship; it exists indepen
 :::
 
   1. In the UI Designer:  
-    a. Create an application page: *displayInvoices*  
-    b. Create a new variable
+    - Create an application page: *displayInvoices*  
+    - Create a new variable
 		-  **Name** : invoices
 		-  **Type** : External API
 		-  **API URL** : ../API/bdm/businessData/com.company.model.Invoice?q=find&p=0&c=10  
-    c. Add a title to your page (*Invoices*)  
-    d. Add a container under the title:
+    - Add a title to your page (*Invoices*)  
+    - Add a container under the title:
 		- **Collection**: invoices 
 		- **CSS classes**: well  
-    e.Inside this container:
+    - Inside this container:
 		- Add a title (Text = An invoice)
 		- Add an input (**Label:** Order date, **Value:** $item.orderDate)
 		- Add a container (**hidden:** `$item.customer == null || $item.customer == undefined`)
@@ -264,43 +263,43 @@ The attribute *customer* has an aggregation-type relationship; it exists indepen
 				- Add an input(**Label:** Quantity, **Value:** $item.quantity)
 
   2. Create a new application descriptor using the [application editor](applicationCreation.md) in the studio:  
-    a. Set the application token: invoices  
-    b. Set the Application Profile: User   
-    c. Add an orphan page:
+    - Set the application token: invoices  
+    - Set the Application Profile: User   
+    - Add an orphan page:
 		- **Application Page**: *custompage_displayInvoices*
 		- **Token**: *invoices*  	 
-    d. Set the Home page token: *invoices*  
-    e. Deploy
+    - Set the Home page token: *invoices*  
+    - Deploy
 
   3. Make sure the living application works fine, and that all objects and attributes are displayed at the moment.
 
 **5. Define access control for Business Object Invoice**
 
   1. Order pickers:  
-    a. They should be able to access the order and the date of an invoice, but not the customer. So, on the object *Invoice*, create a first rule:  
+    - They should be able to access the order and the date of an invoice, but not the customer. So, on the object *Invoice*, create a first rule:  
 		- **Rule name**: *Invoice Order picker*
 		- **Rule description**: *The order picker should access the order date and the order details, but not the customer.*
 		- **Attributes checked**: *[ fullOrder, orderDate ]*.
 		- **Profiles checked**: *[Order picker]*  
-    b. They should be able to access products name and quantity of each *InvoiceLine*. Because the type of relationships between *Invoiceline* and *Product* as well as between *Invoice* and *InvoiceLine* is composition, granting this access is done through the parent, i.e on *Invoice*. So, on the rule *Invoice Order picker*:
+    - They should be able to access products name and quantity of each *InvoiceLine*. Because the type of relationships between *Invoiceline* and *Product* as well as between *Invoice* and *InvoiceLine* is composition, granting this access is done through the parent, i.e on *Invoice*. So, on the rule *Invoice Order picker*:
 		- Open *fullOrder* subtree, and check the attributes *[product, quantity]*
 		- Open *Product* subtree, and check the attribute *[name]*.
 
   2. Experienced Sales employees:  
-    a. They should be able to access all information of an invoice. So, on the object *Invoice*, create a second rule:
+    - They should be able to access all information of an invoice. So, on the object *Invoice*, create a second rule:
 		- **Rule name**: *Invoice Experienced Sales*
 		- **Rule description**: *Experienced Sales employee should access full invoice information. 
 		- **Attributes checked**: *[ customer, fullOrder, orderDate ]*, and within fullOrder, *[ product, quantity ]*, and within *product*, *[ name, price ]*
 		- **Profiles checked**: *[Experienced Sales]*  
-    b. They should access all customer information. Since the type of relationship between *Invoice* and *Customer* aggregation, access control of *Customer* is defined on the business object itself. So, create a new rule on the business object *Customer*: 
+    - They should access all customer information. Since the type of relationship between *Invoice* and *Customer* aggregation, access control of *Customer* is defined on the business object itself. So, create a new rule on the business object *Customer*: 
 		- **Rule name**: *Customer Experienced Sales*
 		- **Rule description**: *Experienced Sales should access name and email of the customer*. 
 		- **Attributes checked**: *[ name, email, address ]*
 		- **Profiles checked**: *[Experienced Sales]*
 
   3. Novice Sales employees  
-    a. They should be able to access all information of an invoice. So, on the object *Invoice*, in the second rule, check the **Profile** *[Novice Sales]*  
-    b. They should only access the name of a customer. So, create a second rule on the business object *Customer*:
+    - They should be able to access all information of an invoice. So, on the object *Invoice*, in the second rule, check the **Profile** *[Novice Sales]*  
+    - They should only access the name of a customer. So, create a second rule on the business object *Customer*:
 		- **Rule name**: *Customer Novice Sales*
 		- **Rule description**: *Novice Sales employees should access the name of the customer*. 
 		- **Attributes checked**: *[ name ]*
@@ -382,30 +381,30 @@ Some instances of the object *Request*, as well as some instances of *Students* 
 
 In this application, teachers review students' requests. 
   1. In the UI Designer:  
-    a. Create an application page: *reviewRequests*  
-    b. Create 2 variables
+    - Create an application page: *reviewRequests*  
+    - Create 2 variables
        - **Name** : requestList
        - **Type** : External API
        - **API URL**: ../API/bdm/businessData/com.company.model.Request?q=findBySubject&p=0&c=10&f=subject%3D{{selectedSubject}}
        - **Name** : selectedSubject
        - **Type** : String  
-    c. Add a Select box to the page (to choose beetween subjects):
+    - Add a Select box to the page (to choose beetween subjects):
        - **Label** : Subject class
        - **Available Values** : Mathematics, Physics (constants).  
        - **Value** : selectedSubject  
-    d. Add a Table widget to the page (to display the requests):
+    - Add a Table widget to the page (to display the requests):
 	   - **Headers** : Id, Subject, Content, Medical comment, Student (constants)
        - **Content** : requestList (script, click the fx icon to switch from contstant to script)
        - **Column keys** : persistenceId, subject, content, medicalComment, student.fullname
     
   2. In the studio, create an [application descriptor](applicationCreation.md):  
-    a. Set the application token: *TeacherApp*  
-    b. Set the application profile: *Teachers*  
-    c. Add an orphan page
+    - Set the application token: *TeacherApp*  
+    - Set the application profile: *Teachers*  
+    - Add an orphan page
        - **Application Page**: *custompage_reviewRequests*
 	   - **Token**: *requests*  
-    d. Set the home page token: *requests*  
-    e. Deploy
+    - Set the home page token: *requests*  
+    - Deploy
     
   3. Make sure the living application works fine, and that while selecting subject from the drop down list, all instances of *Requests*, *Mathematics* or *Physiscs*, are displayed.
 
