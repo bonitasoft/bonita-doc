@@ -92,29 +92,24 @@ Define a *LeaveRequest* business object, with the following attributes:
     b. Create a new variable  
 	 -  **Name** : leaveRequests
 	 -  **Type** : External API
-	 -  **API URL** :  ../API/bdm/businessData/com.company.model.LeaveRequest?q=find&p=0&c=10
-
+	 -  **API URL** :  ../API/bdm/businessData/com.company.model.LeaveRequest?q=find&p=0&c=10  
     c. Add a title to your page: *Leave requests*  
     d. Add a container under the title  
 	 - **Collection**: leaveRequests 
-	 - **CSS classes**: alert alert-info
-
+	 - **CSS classes**: alert alert-info  
     e. Inside this container, for each of the following attributes of your Business Object *(employee - departureDate - duration - medicalComment - employeeComment)*, add an input with the following configuration  
 	 - **Label** : *[current attribute name]*
 	 - **Value** : *$item.[current attribute name]*
-	 - **Read-only**: *true*
-	 
-*([current attribute name] should be replaced by employee, or departureDate, or duration, or medicalComment, or employeeComment)*
-
+	 - **Read-only**: *true*  
+	 *([current attribute name] should be replaced by employee, or departureDate, or duration, or medicalComment, or employeeComment)*  
     f. Since medicalComment will not be accessible to some users, you can make its display conditional. To do so, in the property **hidden** of the dedicated input, click the **fx** button to make it an expression, and write `$item.medicalComment == null || $item.medicalComment == undefined`.
     
   2. Create a new application descriptor using the [application editor](applicationCreation.md) in the studio:  
     a. Set the application token: leaveRequest  
     b. Set the Application Profile: User  
     c. Add an orphan page:  
-	 - **Application Page**: *custompage_displayLeaveRequest*
-	 - **Token**:  *displayLeaveRequest*
-	 
+		- **Application Page**: *custompage_displayLeaveRequest*
+		- **Token**:  *displayLeaveRequest*  
     d. Set the Home page token: *displayLeaveRequest*  
     e. Deploy
   
@@ -125,15 +120,15 @@ Define a *LeaveRequest* business object, with the following attributes:
 Acceess to all attributes of a leave request should be granted to HR managers. On the other hand, an HR trainee should not be able to access the attribute *medicalComment* of a leave request. 
 To do so, define two rules for our *LeaveRequest*:  
 
-  1. HR trainees
-    They should not be able to access the medical comment of any leave request. So on the object *LeaveRequest*, create a first rule:
+  1. HR trainees  
+    They should not be able to access the medical comment of any leave request. So on the object *LeaveRequest*, create a first rule:  
     - **Rule name**: *HR trainees access*
     - **Rule description**: *An HR trainee should not see the medical comment of any leave request*
     - **Attributes checked**:  *[employee, departureDate, duration, employeeComment]*
     - **Profiles checked**: *[HR trainees]*
 
-  2. HR managers
-    They should be able to access full information of all leave requests. So on the object *LeaveRequest*, create a second rule:
+  2. HR managers  
+    They should be able to access full information of all leave requests. So on the object *LeaveRequest*, create a second rule:  
     - **Rule name**: *HR managers access*
     - **Rule description**: *An HR manager should see all attributes of all leave requests*
     - **Attributes checked**:  *[employee, departureDate, duration, medicalComment, employeeComment]*
@@ -245,38 +240,35 @@ The attribute *customer* has an aggregation-type relationship; it exists indepen
   1. In the UI Designer:  
     a. Create an application page: *displayInvoices*  
     b. Create a new variable
-	 -  **Name** : invoices
-	 -  **Type** : External API
-	 -  **API URL** : ../API/bdm/businessData/com.company.model.Invoice?q=find&p=0&c=10
-	 
+		-  **Name** : invoices
+		-  **Type** : External API
+		-  **API URL** : ../API/bdm/businessData/com.company.model.Invoice?q=find&p=0&c=10  
     c. Add a title to your page (*Invoices*)  
     d. Add a container under the title:
-	 - **Collection**: invoices 
-	 - **CSS classes**: well
-	 
+		- **Collection**: invoices 
+		- **CSS classes**: well  
     e.Inside this container:
-	 - Add a title (Text = An invoice)
-	 - Add an input (**Label:** Order date, **Value:** $item.orderDate)
-	 - Add a container (**hidden:** `$item.customer == null || $item.customer == undefined`)
-		 - A title (Text: Customer)
-		 - An input ( **Label:** Name, **Value:** $item.customer.name)
-		 - An input ( **Label:** Email, **Value:** $item.customer.email)
-		 - An input ( **Label:** Address, **Value:** $item.customer.address, **hidden:** `$item.customer.address == null || $item.customer.address == undefined`)
-	 - Add a container, with:
-		 - A title (Text: Order)
-		 - A container (**Collection:** $item.fullOrder)
-		 - Inside this container:
-			 - Add an input(**Label:** Product, **Value:** $item.product.name)
-			 - Add an input(**Label:** Price, **Value:** $item.product.price, **hidden:** `$item.product.price == null || $item.product.price == undefined`)
-			 - Add an input(**Label:** Quantity, **Value:** $item.quantity)
+		- Add a title (Text = An invoice)
+		- Add an input (**Label:** Order date, **Value:** $item.orderDate)
+		- Add a container (**hidden:** `$item.customer == null || $item.customer == undefined`)
+			- A title (Text: Customer)
+			- An input ( **Label:** Name, **Value:** $item.customer.name)
+			- An input ( **Label:** Email, **Value:** $item.customer.email)
+			- An input ( **Label:** Address, **Value:** $item.customer.address, **hidden:** `$item.customer.address == null || $item.customer.address == undefined`)
+		- Add a container, with:
+			- A title (Text: Order)
+			- A container (**Collection:** $item.fullOrder)
+			- Inside this container:
+				- Add an input(**Label:** Product, **Value:** $item.product.name)
+				- Add an input(**Label:** Price, **Value:** $item.product.price, **hidden:** `$item.product.price == null || $item.product.price == undefined`)
+				- Add an input(**Label:** Quantity, **Value:** $item.quantity)
 
   2. Create a new application descriptor using the [application editor](applicationCreation.md) in the studio:  
     a. Set the application token: invoices  
     b. Set the Application Profile: User   
     c. Add an orphan page:
-	 - **Application Page**: *custompage_displayInvoices*
-	 - **Token**: *invoices*
-	 
+		- **Application Page**: *custompage_displayInvoices*
+		- **Token**: *invoices*  	 
     d. Set the Home page token: *invoices*  
     e. Deploy
 
@@ -286,36 +278,33 @@ The attribute *customer* has an aggregation-type relationship; it exists indepen
 
   1. Order pickers:  
     a. They should be able to access the order and the date of an invoice, but not the customer. So, on the object *Invoice*, create a first rule:  
-      - **Rule name**: *Invoice Order picker*
-      - **Rule description**: *The order picker should access the order date and the order details, but not the customer.*
-      - **Attributes checked**: *[ fullOrder, orderDate ]*.
-      - **Profiles checked**: *[Order picker]*  
-
+		- **Rule name**: *Invoice Order picker*
+		- **Rule description**: *The order picker should access the order date and the order details, but not the customer.*
+		- **Attributes checked**: *[ fullOrder, orderDate ]*.
+		- **Profiles checked**: *[Order picker]*  
     b. They should be able to access products name and quantity of each *InvoiceLine*. Because the type of relationships between *Invoiceline* and *Product* as well as between *Invoice* and *InvoiceLine* is composition, granting this access is done through the parent, i.e on *Invoice*. So, on the rule *Invoice Order picker*:
-      - Open *fullOrder* subtree, and check the attributes *[product, quantity]*
-      - Open *Product* subtree, and check the attribute *[name]*.
+		- Open *fullOrder* subtree, and check the attributes *[product, quantity]*
+		- Open *Product* subtree, and check the attribute *[name]*.
 
   2. Experienced Sales employees:  
     a. They should be able to access all information of an invoice. So, on the object *Invoice*, create a second rule:
-      - **Rule name**: *Invoice Experienced Sales*
-      - **Rule description**: *Experienced Sales employee should access full invoice information. 
-      - **Attributes checked**: *[ customer, fullOrder, orderDate ]*, and within fullOrder, *[ product, quantity ]*, and within *product*, *[ name, price ]*
-      - **Profiles checked**: *[Experienced Sales]*
-
+		- **Rule name**: *Invoice Experienced Sales*
+		- **Rule description**: *Experienced Sales employee should access full invoice information. 
+		- **Attributes checked**: *[ customer, fullOrder, orderDate ]*, and within fullOrder, *[ product, quantity ]*, and within *product*, *[ name, price ]*
+		- **Profiles checked**: *[Experienced Sales]*  
     b. They should access all customer information. Since the type of relationship between *Invoice* and *Customer* aggregation, access control of *Customer* is defined on the business object itself. So, create a new rule on the business object *Customer*: 
-       - **Rule name**: *Customer Experienced Sales*
-       - **Rule description**: *Experienced Sales should access name and email of the customer*. 
-       - **Attributes checked**: *[ name, email, address ]*
-       - **Profiles checked**: *[Experienced Sales]*
+		- **Rule name**: *Customer Experienced Sales*
+		- **Rule description**: *Experienced Sales should access name and email of the customer*. 
+		- **Attributes checked**: *[ name, email, address ]*
+		- **Profiles checked**: *[Experienced Sales]*
 
   3. Novice Sales employees  
-    a. They should be able to access all information of an invoice. So, on the object *Invoice*, in the second rule, check the **Profile** *[Novice Sales]*
-
+    a. They should be able to access all information of an invoice. So, on the object *Invoice*, in the second rule, check the **Profile** *[Novice Sales]*  
     b. They should only access the name of a customer. So, create a second rule on the business object *Customer*:
-       - **Rule name**: *Customer Novice Sales*
-       - **Rule description**: *Novice Sales employees should access the name of the customer*. 
-       - **Attributes checked**: *[ name ]*
-       - **Profiles checked**: *[Novice Sales]*
+		- **Rule name**: *Customer Novice Sales*
+		- **Rule description**: *Novice Sales employees should access the name of the customer*. 
+		- **Attributes checked**: *[ name ]*
+		- **Profiles checked**: *[Novice Sales]*
  
   4. Deploy the access control file.  
 
@@ -367,7 +356,6 @@ SELECT r
 FROM Request r
 WHERE r.subject= :subject
 ORDER BY r.persistenceId
-
 ```
 
 **2. Define organization and profiles**
@@ -400,13 +388,11 @@ In this application, teachers review students' requests.
        - **Type** : External API
        - **API URL**: ../API/bdm/businessData/com.company.model.Request?q=findBySubject&p=0&c=10&f=subject%3D{{selectedSubject}}
        - **Name** : selectedSubject
-       - **Type** : String
-	   
+       - **Type** : String  
     c. Add a Select box to the page (to choose beetween subjects):
        - **Label** : Subject class
        - **Available Values** : Mathematics, Physics (constants).  
-       - **Value** : selectedSubject
-	   
+       - **Value** : selectedSubject  
     d. Add a Table widget to the page (to display the requests):
 	   - **Headers** : Id, Subject, Content, Medical comment, Student (constants)
        - **Content** : requestList (script, click the fx icon to switch from contstant to script)
@@ -417,8 +403,7 @@ In this application, teachers review students' requests.
     b. Set the application profile: *Teachers*  
     c. Add an orphan page
        - **Application Page**: *custompage_reviewRequests*
-	   - **Token**: *requests*
-	
+	   - **Token**: *requests*  
     d. Set the home page token: *requests*  
     e. Deploy
     
