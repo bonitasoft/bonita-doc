@@ -206,6 +206,8 @@ Define an *Invoice* business object, with the following attributes:
 **Note:** Steps 3. and 4. are not directly related to access control definition, it is just a convenient way to observe its results.
 :::
 
+-<a id="bdmFilling"/> 
+
 **3. Create a process and generate data**
 
 The attribute *customer* has an aggregation-type relationship; it exists independently of an invoice, so its instances are created directly (which is not the case for a composition-type relationship, as explained later).
@@ -511,5 +513,5 @@ Access to data queries is now controlled by dynamic security. To check:
   
 **7. Adding access control on attributes**
 
-It is possible to use both this security and the A ccess Control feature, that grants access to full business objects or attributes.  
+It is possible to use both this security and the Access Control feature, that grants access to full business objects or attributes.  
 For example, if you decide that the attribute 'medicalComment' should not be visible to teachers, you can create rules on the object *Request* and deploy the Access Control file. This attribute will not be returned by the *findBySubject* request. 
