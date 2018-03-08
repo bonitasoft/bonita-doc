@@ -21,3 +21,6 @@ Jasper connector has been removed from provided connectors in the Studio. If you
 * Export the Jasper connector from a previous Studio version
 * Download the connector from the [community website](https://community.bonitasoft.com/project/bonita-connector-jasper)
 Then just import the connector using `Development > Connectors > Import connector...` menu.
+
+### Deprecated Workspace API
+The Workspace API tooling (headless studio build) has been deprecated. You are recommanded to use the *LA builder* which is part of the tooling suite of [Bonita Continuous Delivery add-on](https://documentation.bonitasoft.com/bcd/2.0/).

@@ -6,13 +6,16 @@
 
 ## Overview
 
-Bonita includes a Workspace API, which is a script, `BonitaStudioBuilder`, for building a bar file from a process and/or a zip file from a REST API extension in a repository. 
-This is intended for a use in a continuous integration and testing environment. 
+Bonita includes a Workspace API, in the form of the script `BonitaStudioBuilder`, to build a .bar file from a process and/or a .zip file from a REST API extension in a repository. It accesses the build features of Bonita Studio in the background. 
+This is intended to be used in a continuous integration and testing environment. 
 
-You can use the `BonitaStudioBuilder` to build a bar file for processes and Rest API extensions stored in a repository. It accesses the build features of Bonita Studio in the background. 
-Bonita Studio must be installed but must not be running. You must to use a dedicated Bonita Studio for continuous integration.
+Bonita Studio must be installed but must not be running. You must use a dedicated Bonita Studio for continuous integration.
 This is because the Bonita Studio `workspace` directory should be removed before running the `BonitaStudioBuilder` script. 
 (For continuous integration, it is best practice to clean the files before and after a build.)
+
+::: warning
+**Warning:** Workspace API is deprecated since Bonita 7.7.0. Instead, we strongly encourage you to use the *LA builder* included in the tooling suite of [*Bonita Continuous Delivery* add-on](https://documentation.bonitasoft.com/bcd/2.0/). One added-value is that LA builder does not need a studio to be installed.
+:::
 
 To use `BonitaStudioBuilder`, you need the following:
 
