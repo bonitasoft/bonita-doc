@@ -5,7 +5,7 @@
 :::
 
 ::: warning
-**Note:** [Bonta Continous Integration addon](https://documentation.bonitasoft.com/bcd/2.0/) comes with a out-of-the-box solution based on Jenkins CI. 
+**Note:** [Bonita Continuous Delivery add-on](https://documentation.bonitasoft.com/bcd/2.0/) comes with an out-of-the-box solution based on Jenkins CI. 
 :::
 
 
