@@ -43,9 +43,9 @@ Whatever location you choose, **do not** leave blank spaces in the path to the d
 
 The Tomcat bundle is based on a standard Tomcat installation with the following additions:
 
-* `server/bin/setenv.bat`: script to configure JVM system properties for Windows.
-* `server/bin/setenv.sh`: script to configure JVM system properties for Linux.
-* `server/conf/Catalina/localhost/bonita.xml`: Tomcat context configuration for Bonita web application. Define data sources used by Bonita Engine.
+* `setup/tomcat-templates/setenv.bat`: script to configure JVM system properties for Windows.
+* `setup/tomcat-templates/setenv.sh`: script to configure JVM system properties for Linux.
+* `setup/tomcat-templates/bonita.xml`: Tomcat context configuration for Bonita web application. Define data sources used by Bonita Engine.
 * `server/conf/catalina.properties`: modified to include lib/bonita folder to Tomcat classpath.
 * `server/conf/context.xml`: modified to add JTA support using Bitronix library.
 * `server/conf/logging.properties`: modified to create a log file dedicated to Bonita.
@@ -96,7 +96,12 @@ As a security precaution, we **strongly recommend** that before you start your a
 
 #### Platform administrator
 
-The username and password for the platform administrator are defined in the file [`<TOMCAT_HOME>/setup/platform_conf/initial/platform_engine/bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md), by the following properties:
+The username and password are defined in a text file:
+ - Before the very first Tomcat start: [`<TOMCAT_HOME>/setup/platform_conf/initial/platform_engine/bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md)
+ - After the first Tomcat start: [`<TOMCAT_HOME>/setup/platform_conf/current/platform_engine/bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md)
+
+
+The properties are listed below:
 
 * `platformAdminUsername` defines the username (default `platformAdmin`)
 * `platformAdminPassword` defines the password (default `platform`)
@@ -116,8 +121,10 @@ When you create a tenant, the tenant administrator is created with the default u
 Change these tenant-specific credentials for an existing tenant by updating the `userName` and `userPassword` properties in `<TOMCAT_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/bonita-tenant-community-custom.properties`.
 
 ::: warning
-For the **default tenant**, the tenant administrator username and password must also be changed in file [`<TOMCAT_HOME>/setup/platform_conf/initial/platform_portal/platform-tenant-config.properties`](BonitaBPM_platform_setup.md),
-with exactly the same values that you set in `bonita-tenant-community-custom.properties` (see above). At platform creation, this file contains the default username and password for the default tenant.  
+For the **default tenant**, the tenant administrator username and password must also be changed in file:
+- Before the very first Tomcat start: [`<TOMCAT_HOME>/setup/platform_conf/initial/platform_portal/platform-tenant-config.properties`](BonitaBPM_platform_setup.md)
+- After the first Tomcat start: [`<TOMCAT_HOME>/setup/platform_conf/current/platform_portal/platform-tenant-config.properties`](BonitaBPM_platform_setup.md),
+
 For further details and a better understanding, please read the section [Tenant administrator credentials](tenant_admin_credentials.md).
 :::
 
@@ -210,7 +217,7 @@ My **Microsoft SQL Server** or **Oracle** database drivers do not seem to be tak
 Driver file must respect some naming convention.
 
 **Solution**:  
-For Microsoft SQL Server, rename it so that the name contains at least the word `sqlserver` or `sqljdbc` or `mssql` (case insensitive)  
+For Microsoft SQL Server, rename it so that the name contains at least the word `sqlserver` or `sqljdbc` or `mssql` (case insensitive)
 For Oracle, rename it so that the name contains at least the word `oracle` or `ojdbc` (case insensitive)
 
 ---
