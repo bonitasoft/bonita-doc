@@ -50,16 +50,16 @@ Here are the steps to add a custom password validator:
 
 ::: warning
 **Note:** As this artifact is not available in public repositories, you
-have to follow this given procedure (example given for the 7.3.3 version):
-* retrieve the console-common-7.3.3.jar from a Bonita distribution or live
+have to follow this given procedure (example given for the x.y.z version):
+* retrieve the console-common-x.y.z.jar from a Bonita distribution or live
 instance (in the bonita.war or in the explosed war)
 * retrieve poms from the github repository
-  * bonita-console: https://github.com/bonitasoft/bonita-web/blob/7.3.3/pom.xml
-  * console-common: https://github.com/bonitasoft/bonita-web/blob/7.3.3/common/pom.xml
+  * bonita-console: https://github.com/bonitasoft/bonita-web/blob/x.y.z/pom.xml
+  * console-common: https://github.com/bonitasoft/bonita-web/blob/x.y.z/common/pom.xml
 * manually put the jars and pom in your local repository or deploy them
 into your repository manager
-  * bonita-console pom.xml file in <M2_REPO>/org/bonitasoft/console/bonita-console/7.3.3
-  * console-common pom.xml and jar files in <M2_REPO>/org/bonitasoft/console/console-common/7.3.3
+  * bonita-console pom.xml file in <M2_REPO>/org/bonitasoft/console/bonita-console/x.y.z
+  * console-common pom.xml and jar files in <M2_REPO>/org/bonitasoft/console/console-common/x.y.z
 :::
 
 

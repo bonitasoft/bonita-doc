@@ -84,7 +84,7 @@ If you use a `userFilter` and users are allowed to search, set the value with `{
 
 ##### **WildFly**
 
-Edit the `<WILDFLY_HOME>/standalone/configuration/standalone.xml` file to specify the configuration. Use HTML encoding for any strings in the configuration (for example, a space character is written as %20).
+Edit the `<WILDFLY_HOME>/setup/wildfly-templates/standalone.xml` file to specify the configuration. Use HTML encoding for any strings in the configuration (for example, a space character is written as %20).
 
 Add the Bonita login context using the WildFly specific syntax just before the `</security-domains>` tag. Note that `security-domain-name` is in fact the JAAS login context name (e.g. Bonita).
 
@@ -116,7 +116,7 @@ BonitaAuthentication-1 {
 };
  ```
 
-We recommend that you name your JAAS configuration file `jaas.cfg` and that you add the file under `<TOMCAT_HOME>/conf` folder.
+We recommend that you name your JAAS configuration file `jaas.cfg` and that you add the file under `<TOMCAT_HOME>/server/conf` folder.
 
 ## Configuration steps
 
@@ -138,23 +138,25 @@ As the JAAS configuration in WildFly is already done in a file that already exis
 
 ##### **Tomcat**
 
-To define the JAAS configuration file location you need to set a JVM property, `java.security.auth.login.config`. To do this for a system running Tomcat you need to edit the `setenv` script provided with Bonita and located in `<TOMCAT_HOME>/bin` folder.
+To define the JAAS configuration file location you need to set a JVM property, `java.security.auth.login.config`. To do this for a system running Tomcat you need to edit the `setenv` script provided with Bonita and located in `<TOMCAT_HOME>/server/bin` folder.
 
 ###### For Linux and Mac OS
 
-* Edit this file: `<TOMCAT_HOME>/bin/setenv.sh`
+* Edit this file: `<TOMCAT_HOME>/setup/tomcat-templates/setenv.sh`
 * Locate the line that starts: `#SECURITY_OPTS`
 * Uncomment this line, i.e. remove the \# sign and set property value to: `%CATALINA_HOME%\conf\jaas.cfg`.
 * Locate the line that starts: `CATALINA_OPTS=`
 * Add the tag `${SECURITY_OPTS} ` after the tag `${PLATFORM_SETUP}`
+* Push into database the changes: `./setup.sh push`
 
 ###### For Windows
 
-* Edit this file: `<TOMCAT_HOME>/bin/setenv.bat`
+* Edit this file: `<TOMCAT_HOME>/setup/tomcat-templates/setenv.bat`
 * Locate the line that starts: `rem set SECURITY_OPTS`
 * Uncomment it, i.e. remove "rem" keyword and set property value to: `${CATALINA_HOME}/conf/jaas.cfg`
 * Locate the line that starts: `set CATALINA_OPTS=`
 * Add the tag `%SECURITY_OPTS%` after the tag `%PLATFORM_SETUP%`
+* Push into database the changes: `.\setup.bat push`
 
 <a id="examples"/>
 

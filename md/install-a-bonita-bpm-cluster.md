@@ -76,7 +76,7 @@ Note:  if you want to keep it for future configuration changes, just move the fo
 to use it as your main  [platform setup tool](BonitaBPM_platform_setup.md#init_platform_conf).
 1. If your Bonita installation is behind a proxy or is installed inside a Docker container (mainly in TcpIp or Aws
 discovery modes), you must declare its public address by adding the following property:
-`-Dhazelcast.local.publicAddress=*publicaddress*`, this property should be added in the `[TOMCAT_DIRECTORY]/bin/setenv.sh` or `[TOMCAT_DIRECTORY]/bin/setenv.bat`
+`-Dhazelcast.local.publicAddress=*publicaddress*`, this property should be added in the `[TOMCAT_DIRECTORY]/setup/tomcat-templates/setenv.sh` or `[TOMCAT_DIRECTORY]/setup/tomcat-templates/setenv.bat`
 
 1. When the installation is complete, start Tomcat on the node. This starts Bonita Platform:
    ```bash

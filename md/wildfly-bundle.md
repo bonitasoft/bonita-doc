@@ -40,16 +40,16 @@ The WildFly bundle is based on a standard WildFly installation with the followin
 * `server/bin/standalone.conf.bat`: script to configure JVM system properties on Windows systems.
 * `server/modules/system/layers/base/sun/jdk/main/module.xml`: list of base jdk module necessary for WildFly and Bonita to execute.
 * `server/request_key_utils`: script to generate license request keys (Subscription editions only).
-* `server/standalone/configuration/standalone.xml`: WildFly context configuration for Bonita Portal. It defines data sources used by Bonita Engine.
 * `server/standalone/deployments/bonita-all-in-one-[version].ear`: Bonita Portal (web application) and EJB3 API.
 * `setup/`: a tool to manage Bonita Platform configuration, stored in database instead of filesystem. Also ships a tool to centralize all the required WildFly bundle configuration.
+* `setup/wildfly-templates/standalone.xml`: WildFly context configuration for Bonita Portal. It defines data sources used by Bonita Engine.
 * `start-bonita.bat`: script to start the bundle on Windows.
 * `start-bonita.sh`: script to start the bundle on Linux.
 
 ::: info
-**Note:** Beginning with version 7.3.0, Bonita Platform configuration, including the license file, is stored in the same database as the Bonita Engine data, namely in the `CONFIGURATION` table.  
+**Note:** Beginning with version 7.3.0, Bonita Platform configuration, including the license file, is stored in the same database as the Bonita Engine data, namely in the `CONFIGURATION` table.
 The initialization of this configuration happens during start-bonita.bat (for Windows) or start.bonita.sh (for Linux) execution.  
-Once initialized, to update this configuration, use the [*Platform setup tool*](BonitaBPM_platform_setup.md) embedded in Bonita bundles.  
+Once initialized, to update this configuration, use the [*Platform setup tool*](BonitaBPM_platform_setup.md) embedded in Bonita bundles.
 :::
 
 ### Get and install a license (Subscription editions only)
@@ -131,7 +131,7 @@ The **start-bonita** script does the following:
     2. install the license files (Subscription editions only) in the database.
 2. Runs the **`setup configure`** command:
     The Setup Configure command configures the WildFly environment to access the right databases:
-    1. updates the file `<WILDFLY_HOME>/server/standalone/configuration/standalone.xml` with the values you set in file `database.properties` for **Bonita internal database** & **Business Data database**
+    1. updates the file `<WILDFLY_HOME>/setup/wildfly-templates/standalone.xml` with the values you set in file `database.properties` for **Bonita internal database** & **Business Data database**
     2. creates the file(s) `<WILDFLY_HOME>/server/modules/**/main/modules.xml` that WildFly needs, according to your database settings
     3. copies your database vendor-specific drivers into `<WILDFLY_HOME>/server/modules/**/main/` folders
 3. Starts the WildFly bundle
@@ -198,7 +198,7 @@ My **Microsoft SQL Server** or **Oracle** database drivers do not seem to be tak
 Driver file must respect some naming convention.
 
 **Solution**:  
-For Microsoft SQL Server, rename it so that the name contains at least the word `sqlserver` or `sqljdbc` or `mssql` (case insensitive)  
+For Microsoft SQL Server, rename it so that the name contains at least the word `sqlserver` or `sqljdbc` or `mssql` (case insensitive)
 For Oracle, rename it so that the name contains at least the word `oracle` or `ojdbc` (case insensitive)
 
 ---

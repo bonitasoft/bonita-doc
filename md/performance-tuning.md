@@ -4,7 +4,7 @@
 **Note:** For Performance edition only.
 :::
 
-This page contains information that you can use to tune the Bonita Engine to get the best performance in your platform.  
+This page contains information that you can use to tune the Bonita Engine to get the best performance in your platform.
 It assumes that you are familiar with Java threads, concurrent execution, XML, DB connection pools, your DB instance, cache policies, scheduling, connectors, network speed, I/O, Java Virtual Machine configuration, JTA and transaction management.  
 You need to know how to install and configure Bonita.
 
@@ -54,7 +54,7 @@ Performance tuning checklist of best practises:
 
 This section deals with performance impact of your choice of [Engine access mode](engine-api-overview.md).
 
-There are various ways to access the Engine APIs provided by Bonita Engine. Choose the most suitable access mode for your deployment, requirements, and preferences.  
+There are various ways to access the Engine APIs provided by Bonita Engine. Choose the most suitable access mode for your deployment, requirements, and preferences.
 The access modes rely on different technologies and have different benefits and drawbacks. In this section, we will describe the performance characteristics of each mode.
 
 <a id="local"/>
@@ -106,7 +106,7 @@ Data sent is serialized using a Java library called XStream. This serialization 
 
 ##### REST
 
-This method of accessing the Bonita capabilities is not yet integrated as an engine service but exists as a web application service accessed using the [Web REST API](rest-api-overview.md).  
+This method of accessing the Bonita capabilities is not yet integrated as an engine service but exists as a web application service accessed using the [Web REST API](rest-api-overview.md).
 No details are provided here as it is currently out of scope.  
 In general, the constraints are almost the same as for the HTTP mode, but we do not provide any Java client for this access mode.
 
@@ -120,7 +120,7 @@ There are two main entry points for load on the engine:
 * **API calls** coming from outside the engine
 * **Engine-generated calls** for internal processing, specifically the **Work service** and the **Scheduler service**
 
-The Bonita Engine is an asynchronous BPM process engine.  
+The Bonita Engine is an asynchronous BPM process engine.
 This means that every thread that deals with process execution applies the following rule: do the minimum that makes sense in the current transaction to get to a stable state, and then continue in another transaction inside another thread.  
 The great benefit of this is that the caller is not locked while the engine processes something that might be long (such as a long sequence of tasks with connectors.).
 
@@ -138,7 +138,7 @@ If you are running Bonita Engine inside a container, the maximum number of clien
 * **Apache Tomcat** `maxThreads` set in _`Tomcat_folder`_`/conf/server.xml`.    
      Default value 20\. 
      See the [Tomcat documentation](http://tomcat.apache.org/tomcat-8.5-doc/) for information about the `maxThreads` parameter.
-* **Red Hat WildFly** : add the attributes `io-threads="10"` and `task-max-threads="20"` in the _default_ *worker* element in the io subdomain in `<WILDFLY_HOME>/standalone/configuration/standalone.xml`.  
+* **Red Hat WildFly** : add the attributes `io-threads="10"` and `task-max-threads="20"` in the _default_ *worker* element in the io subdomain in `<WILDFLY_HOME>/setup/wildfly-templates/standalone.xml`.
      The WildFly administrator guide lacks some information about advanced worker configuration. Undertow (WildFly web service handler) relies on the [XNIO API](http://docs.jboss.org/xnio/3.0/api/org/xnio/Options.html) for creating Worker threads. See [IO Worker configuration for Undertow](https://developer.jboss.org/thread/241230?start=0&tstart=0) for information about worker configuration.
 
 <a id="work_service"/>
@@ -162,7 +162,7 @@ It is very similar to the constructor provided in the [default JDK ThreadPoolExe
 For a reminder of how the threadpool behaves, see the Queuing section of the 
 [ThreadPoolExecutor documentation](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html).
 
-In the default Bonita configuration, `corePoolSize` is equal to `maximumPoolSize` because we have observed that the default implementation of the threadpool executor allocates work to available threads using a round robin algorithm.  
+In the default Bonita configuration, `corePoolSize` is equal to `maximumPoolSize` because we have observed that the default implementation of the threadpool executor allocates work to available threads using a round robin algorithm.
 Therefore, if the maximum is reached, the thread pool size is unlikely ever to reduce to `corePoolSize`, because work is always allocated to available threads.  
 The current implementation of the RejectedExecutionHandler queues the work, and reduces the system load because it does not release the caller (normal behaviour for a BlockingQueue).
 
@@ -185,7 +185,7 @@ The configuration of the threadpool of this service must be correlated to the co
 This mapping between the configurations of the two threadpools depends on your processes. If you have processes that use a lot of connectors, then you need as many connector threads as work threads.  
 If you are unsure, our recommendation is to configure the two threadpools with the same values.
 
-The Connector service is configured in `cfg-bonita-connector-timedout.xml`, `bonita-tenant-community-custom.properties` and `bonita-tenant-sp-custom.properties` (cf [platform setup](BonitaBPM_platform_setup))
+The Connector service is configured in `bonita-tenant-community-custom.properties` and `bonita-tenant-sp-custom.properties` (cf [platform setup](BonitaBPM_platform_setup))
 
 ```
 Community:
@@ -231,7 +231,7 @@ This datasource needs only a few connections: between 5 or 10% of bonitaDS numbe
 
 ##### bonitaDS
 
-This datasource requires a higher value, because Bonita Engine stores almost everything in the database.  
+This datasource requires a higher value, because Bonita Engine stores almost everything in the database.
 This means that every single thread from any of the entry points requires a database connection through bonitaDS.  
 To make sure that this datasource is not a bottleneck, define the maximum number of database connections to be equivalent to the desired number of parallel processing threads.  
 The desired number of parallel processing threads is the sum of the number of workers (see [Work service](#work_service)) plus a percentage of the number of scheduler threads 
@@ -245,8 +245,8 @@ You need to configure the maximum pool size for datasources (the following paths
 
 For Tomcat:
 
-* For bonitaSequenceManagerDS, edit `conf/Catalina/localhost/bonita.xml` and set `maxTotal=”yourvalue”`.
-* For bonitaDS, edit `conf/bitronix-resources.properties` and set `resource.ds1.maxPoolSize=”yourvalue”`.
+* For bonitaSequenceManagerDS, edit `setup/tomcat-templates/bonita.xml` and set `maxTotal=”yourvalue”`.
+* For bonitaDS, edit `setup/tomcat-templates/bitronix-resources.properties` and set `resource.ds1.maxPoolSize=”yourvalue”`.
 
 For WildFly:
 
@@ -262,7 +262,7 @@ This section deals with some aspects of engine configurations that have a perfor
 
 #### Sequence manager
 
-Bonita Engine manages a dedicated sequence for each table for ID generation.  
+Bonita Engine manages a dedicated sequence for each table for ID generation.
 This implementation allows fast delivery of IDs and a single point of usage inside the application: the persistence service.
 
 The sequence manager keeps in memory a range of reserved IDs by table.  
@@ -281,7 +281,7 @@ This should be appropriately sized for the number of times the sequence manager 
 
 #### Persistence cache
 
-For the Teamwork, Efficiency, and Performance editions, Bonita Engine has a cache providing a persistence layer using Hibernate caching. 
+For the Teamwork, Efficiency, and Performance editions, Bonita Engine has a cache providing a persistence layer using Hibernate caching.
 
 EhCache configuration for this persistence layer is defined in a file named `bonita-platform-hibernate-cache.xml.notused` and `bonita-tenant-hibernate-cache.xml.notused`.  
 To apply the configuration of those files, remove the '.notused' suffix.  
@@ -349,7 +349,7 @@ While the garbage collector is running, it prevents creation of new objects, whi
 
 This section deals with performance impact of hardware elements.
 
-Bonita performance is very correlated to the database connectivity and its behavior.  
+Bonita performance is very correlated to the database connectivity and its behavior.
 Almost everything (API call, internal processing using workers, jobs scheduling, and so on) requires a database access.  
 Two elements are critical: network latency, as in most cases your database is located on another server, and the I/O of your hard drives.  
 In case of issues, you should monitor these two elements and consider improvements. For example:
@@ -364,7 +364,7 @@ if you are using [EJB3](#ejb3), [HTTP](#http), [REST](#rest).
 
 This section is a reminder about some of the main dependencies Bonita Engine has that have a strong impact on the performance of the whole system.
 
-Bonita Engine relies on several other components that each have their own performance tuning options.  
+Bonita Engine relies on several other components that each have their own performance tuning options.
 Some of them are key for the system and you should pay a lot of attention to them.  
 In most cases, the key things to consider are the [database](#db), [transaction manager](#tm), and [logs](#logs).
 
@@ -379,15 +379,15 @@ It is essential that the hardware configuration of the server hosting the DB is 
 In addition to this, make sure that your database instance is well configured.  
 Most database software provides many options for tuning, and some of them are easy to set up.  
 Others may be more difficult and present choices between robustness and performance, fast read or fast write, etc.  
-Your database configuration must be correlated with the Bonita Engine usage pattern.  
+Your database configuration must be correlated with the Bonita Engine usage pattern.
 To find the right characteristic to optimize, one good starting point is to consider whether you are creating a lot of process instances (in which case optimize database writes) or you are executing a lot of read queries like `getTaskList` (in which case optimize database reads).
 
 <a id="tm"/>
 
 #### Transaction manager
 
-Bonita Engine is natively compatible with the Java Transaction API. This means transaction management relies on a transaction manager.  
-If you are using a JEE Application server, then you only have to configure Bonita Engine to use the transaction manager that is provided.  
+Bonita Engine is natively compatible with the Java Transaction API. This means transaction management relies on a transaction manager.
+If you are using a JEE Application server, then you only have to configure Bonita Engine to use the transaction manager that is provided.
 Otherwise, you have to embed a transaction manager (for example, we embed Bitronix by default in the Tomcat bundle).
 
 A transaction manager manages a transaction log and also frequently has notions of internal pooling.  
@@ -400,7 +400,7 @@ For example, in [Bitronix](https://github.com/bitronix/btm/wiki/JDBC-pools-confi
 In general, increasing the log level is useful for debugging but has a performance cost.  
 With this in mind, [define the log level for technical logs, queriable logs and archives](set-log-and-archive-levels.md).
 
-Remember that Bonita Engine dependencies also have their own log and debug options that may impact strongly the system performance. 
+Remember that Bonita Engine dependencies also have their own log and debug options that may impact strongly the system performance.
 Be sure to configure these appropriately.
 
 ## Connector time tracker
@@ -462,7 +462,7 @@ We strongly recommend that you add only appropriate handlers and carefully code 
 
 Bonita Engine uses the [Scheduler service](engine-architecture-overview.md) to trigger jobs in a recurrent manner.
 
-The Bonita Scheduler service implementation uses the Quartz Scheduler.  
+The Bonita Scheduler service implementation uses the Quartz Scheduler.
 A cron job in Quartz can run at maximum every second (you cannot set a lower value than 1 second).  
 Three cron jobs are defined: 
 
@@ -470,16 +470,16 @@ Three cron jobs are defined:
      If you want your process instances to react faster, you can reduce this value.  
      Property name: `org.bonitasoft.engine.cron`
 * Delete dirty objects. This job cleans objects that have been tagged as _dirty_. 
-     To increase performance, during process instance execution, Bonita Engine tags some frequently used objects as _dirty_ instead of deleting them.  
-     This is done like this to reduce contention on database.   
-     Those dirty objects have to be cleaned periodically and this is done by default every 5 minutes.   
+     To increase performance, during process instance execution, Bonita Engine tags some frequently used objects as _dirty_ instead of deleting them.
+     This is done like this to reduce contention on database.
+     Those dirty objects have to be cleaned periodically and this is done by default every 5 minutes.
      Property name: `delete.job.frequency`
-* Delete invalid sessions. This job cleans Bonita Engine sessions kept in memory. 
+* Delete invalid sessions. This job cleans Bonita Engine sessions kept in memory.
      It iterates over engine sessions and removes any that are invalid. By default this is done every 2 hours.  
      If you are creating a lot of new sessions in a short time, increase this frequency to avoid allocating too much memory to those 
 invalid sessions and to avoid out-of-memory errors.  
      Property name: `org.bonitasoft.engine.clean.invalid.sessions.cron`
 
-These property values are configured in `bonita-platform.properties` and are used to initialize the Quartz trigger tables the first time that the Engine starts.  
-They are not read subsequently, so changing the values in `bonita-platform.properties` after the Engine has been started has no effect on Quartz.  
+These property values are configured in `bonita-tenant-community-custom.properties` and are used to initialize the Quartz trigger tables the first time that the Engine starts.
+They are not read subsequently, so changing the values in `bonita-tenant-community-custom.properties` after the Engine has been started has no effect on Quartz.
 For value definition, and information about how to update the Quartz trigger tables, see the [Quartz documentation](http://www.quartz-scheduler.org/documentation/) about Cron Triggers.
