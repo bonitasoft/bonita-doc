@@ -57,7 +57,7 @@ To log out, use the following request:
 |:-|:-|
 | Request URL | `http://host:port/bonita/logoutservice`| 
 | Request Method | GET| 
-| Form Data | redirect: true or false| 
+| Query parameter | redirect: true or false (default set to true)| 
 
 Setting the redirect parameter to false indicates that the service should not redirect to the login page after logging out.
 
