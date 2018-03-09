@@ -138,7 +138,7 @@ If you are running Bonita BPM Engine inside a container, the maximum number of c
 * **Apache Tomcat** `maxThreads` set in _`Tomcat_folder`_`/conf/server.xml`.    
      Default value 20\. 
      See the [Tomcat documentation](http://tomcat.apache.org/tomcat-7.0-doc/) for information about the `maxThreads` parameter.
-* **Red Hat WildFly** : add the attributes `io-threads="10"` and `task-max-threads="20"` in the _default_ *worker* element in the io subdomain in `<WILDFLY_HOME>/standalone/configuration/standalone.xml`.  
+* **Red Hat WildFly** : add the attributes `io-threads="10"` and `task-max-threads="20"` in the _default_ *worker* element in the io subdomain in `<WILDFLY_HOME>/setup/wildfly-templates/standalone.xml`.  
      The WildFly administrator guide lacks some information about advanced worker configuration. Undertow (WildFly web service handler) relies on the [XNIO API](http://docs.jboss.org/xnio/3.0/api/org/xnio/Options.html) for creating Worker threads. See [IO Worker configuration for Undertow](https://developer.jboss.org/thread/241230?start=0&tstart=0) for information about worker configuration.
 
 <a id="work_service"/>
@@ -185,7 +185,7 @@ The configuration of the threadpool of this service must be correlated to the co
 This mapping between the configurations of the two threadpools depends on your processes. If you have processes that use a lot of connectors, then you need as many connector threads as work threads.  
 If you are unsure, our recommendation is to configure the two threadpools with the same values.
 
-The Connector service is configured in `cfg-bonita-connector-timedout.xml`, `bonita-tenant-community-custom.properties` and `bonita-tenant-sp-custom.properties` (cf [platform setup](BonitaBPM_platform_setup))
+The Connector service is configured in `bonita-tenant-community-custom.properties` and `bonita-tenant-sp-custom.properties` (cf [platform setup](BonitaBPM_platform_setup))
 
 ```
 Community:
@@ -245,8 +245,8 @@ You need to configure the maximum pool size for datasources (the following paths
 
 For Tomcat:
 
-* For bonitaSequenceManagerDS, edit `conf/Catalina/localhost/bonita.xml` and set `maxActive=”yourvalue”`.
-* For bonitaDS, edit `conf/bitronix-resources.properties` and set `resource.ds1.maxPoolSize=”yourvalue”`.
+* For bonitaSequenceManagerDS, edit `setup/tomcat-templates/bonita.xml` and set `maxActive=”yourvalue”`.
+* For bonitaDS, edit `setup/tomcat-templates/bitronix-resources.properties` and set `resource.ds1.maxPoolSize=”yourvalue”`.
 
 For WildFly:
 
@@ -466,20 +466,12 @@ The Bonita BPM Scheduler service implementation uses the Quartz Scheduler.
 A cron job in Quartz can run at maximum every second (you cannot set a lower value than 1 second).  
 Three cron jobs are defined: 
 
-* Event handling. This job processes BPMN2 messages. It runs every 5 seconds by default. 
-     If you want your process instances to react faster, you can reduce this value.  
-     Property name: `org.bonitasoft.engine.cron`
-* Delete dirty objects. This job cleans objects that have been tagged as _dirty_. 
-     To increase performance, during process instance execution, Bonita BPM Engine tags some frequently used objects as _dirty_ instead of deleting them.  
-     This is done like this to reduce contention on database.   
-     Those dirty objects have to be cleaned periodically and this is done by default every 5 minutes.   
-     Property name: `delete.job.frequency`
 * Delete invalid sessions. This job cleans Bonita BPM Engine sessions kept in memory. 
      It iterates over engine sessions and removes any that are invalid. By default this is done every 2 hours.  
      If you are creating a lot of new sessions in a short time, increase this frequency to avoid allocating too much memory to those 
 invalid sessions and to avoid out-of-memory errors.  
      Property name: `org.bonitasoft.engine.clean.invalid.sessions.cron`
 
-These property values are configured in `bonita-platform.properties` and are used to initialize the Quartz trigger tables the first time that the Engine starts.  
-They are not read subsequently, so changing the values in `bonita-platform.properties` after the Engine has been started has no effect on Quartz.  
+These property values are configured in `bonita-tenant-community-custom.properties` and are used to initialize the Quartz trigger tables the first time that the Engine starts.  
+They are not read subsequently, so changing the values in `bonita-tenant-community-custom.properties` after the Engine has been started has no effect on Quartz.  
 For value definition, and information about how to update the Quartz trigger tables, see the [Quartz documentation](http://www.quartz-scheduler.org/documentation/) about Cron Triggers.
