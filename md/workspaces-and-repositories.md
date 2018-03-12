@@ -68,7 +68,66 @@ To import a BOS archive:
 
 You can retrieve the whole content of a Studio workspace by exporting all its repositories and importing them into another Studio.
 
+### Change repository
+
+Before you change to a different repository, make sure you have saved your work.
+
+To change repository, follow these steps:
+
+1. In the **Repository** menu, choose **Change the repository**.
+2. A list of the available repositories is displayed. These are the local and shared repositories in your current workspace.
+3. Select the repository to switch to, and click **_OK_**.
+4. A confirmation message is displayed when you are working in the new location.
+You can see the name of repository at the top left, in the title bar.
+
+If the list does not contain the name of the repository you want to use, check that you are using the correct workspace, and if necessary, switch workspace.
+
 ## Use a shared repository
+
+<a id="git"/>
+
+### Git
+
+#### Prerequisites
+
+* A remote Git repository ([GitHub](https://github.com/), [Bitbucket](https://bitbucket.org)...)
+* Basic Git workflow knowledge ([Reference article](https://git-scm.com/book/en/v2/Getting-Started-Git-Basics))
+
+#### Git integration in Studio 
+
+Bonita studio Git integration is based on th EGit eclipse plugin.
+
+Git command available in Studio interface:
+
+* **Share with Git**
+This action connect the current repository to Git and share it on a remote.
+To configure the remote see the following [Egit userguide](http://wiki.eclipse.org/EGit/User_Guide#Working_with_remote_Repositories) or the [Share on GitHub howto](share-a-repository-on-github.md).
+
+* **Clone**
+Create an new Studio repository from an existing Git repository. If the remote repository version is lower than the Studio, a migration will be applied on the cloned repository. Be carefull before pushing a migration on the remote. All contributors will have to use the proper Studio version.
+
+* **Push**
+Send the local commited changes to the remote repository. You should make a pull before pushing. If the push fails, you may need to use make [force push](https://git-scm.com/docs/git-push) with the command line tool.
+
+* **Pull**
+Retrieve the remote changes from the remote repository. This operation can put your repository in conflicting state.
+Use the Git staging view and provided merge tool to resolve the conflicts. You can abort the merge with a [hard reset](https://git-scm.com/docs/git-reset) with the command line tool.
+
+* **Git statging view**
+This view display the current status of your repository. From this view you can stage/unstage your changes, commit and even commit and push. You can access to the compare editor using the contextal menu.
+More information available in [EGit user guide](http://wiki.eclipse.org/EGit/User_Guide#Git_Staging_View).
+
+* **History view**
+This view display the commit history of the repository.
+More information available in [EGit user guide](http://wiki.eclipse.org/EGit/User_Guide#Inspect_History).
+
+Those commands can be found in Repository > Team > Git menu.
+
+#### Advanced Git commands
+
+Git worklow offers a lot of other features (branch, tags, rebase...) that are not integrated in Bonita Studio. You can still use them using the command line interface ([available here](https://git-scm.com/download/)). To retrieve the location of your repository on your filesystem go to <bonita_studio_install_dir>/workspace/<name_of_the_repository>.
+
+### SVN
 
 A shared repository is a repository on an SVN server. It can be accessed by members of the team working on a process definition.  
 It is protected by username and password. Only directories in the SVN 'trunk' can be used as Bonita repositories.  
@@ -79,12 +138,12 @@ A shared Bonita development repository contains the artifacts developed in Bonit
 **Caution:** Items defined in Bonita Portal are not stored in the shared repository.  
 This includes applications and custom profiles. To share these artifacts, export them into an external repository such as Git. 
 
-### Prerequisites
+#### Prerequisites
 
 * A central SVN server accessible by the process designers, accessible by URL, and protected by login and password.  
 * The same version of Bonita must be used by all users of the shared repository.
 
-### Create a shared repository
+#### Create a shared repository
 
 There are two stages to creating a repository: connect to the SVN server, then specify the name of the new repository. Follow these steps:
 
@@ -100,7 +159,7 @@ There are two stages to creating a repository: connect to the SVN server, then s
 
 The new repository is created locally and copied remotely to the SVN server. You can configure synchronization for this new shared repository.
 
-### Connect to a shared repository
+#### Connect to a shared repository
 
 To connect to a shared repository, follow these steps:
 
@@ -117,21 +176,8 @@ To connect to a shared repository, follow these steps:
 The first time you connect to a repository, you might get a security warning.  
 Configure security for the connection according to your organization's security policy.
 
-### Change repository
 
-Before you change to a different repository, make sure you have saved your work.
-
-To change repository, follow these steps:
-
-1. In the **Repository** menu, choose **Change the repository**.
-2. A list of the available repositories is displayed. These are the local and shared repositories in your current workspace.
-3. Select the repository to switch to, and click **_OK_**.
-4. A confirmation message is displayed when you are working in the new location.
-You can see the name of repository at the top left, in the title bar.
-
-If the list does not contain the name of the repository you want to use, check that you are using the correct workspace, and if necessary, switch workspace.
-
-### Synchronize a shared repository
+#### Synchronize a shared repository
 
 Synchronizing a shared repository means merging the changes you have made in your local copy into the central repository on the server, and updating your local copy with the result.  
 There are three modes for synchronizing:
@@ -143,7 +189,7 @@ You launch synchronization manually, by going to the **Repository** menu, choosi
    You can only use this mode if you have a continuous network connection to the system hosting the SVN server. There is a significant network performance cost for using automatic synchronization. This option is not recommended.
 * Define synchronization mode repository by repository: With this mode, you define whether synchronization is manual or automatic for each repository.
 
-### Manage locks on shared resources
+#### Manage locks on shared resources
 
 This information applies to artifacts created in Bonita Studio but not those created in the UI Designer.
 
@@ -169,7 +215,7 @@ From the popup, you can:
 * Open a process in read-only mode. You can do this for any process, but it is most useful for a process that is locked by another user (red padlock).
 * Open a locked process (red padlock). You can open a locked process in read-only mode. You cannot open a locked process read-write.
 
-### Avoiding conflicts
+#### Avoiding conflicts
 
 A conflict occurs when two or more users update the same process in a repository and the updates are not compatible.  
 If you are using a shared repository, Bonita Studio automatically locks a Studio artifact when a user opens it for edit. (Note: UI Designer artifacts are not locked.)  
@@ -181,7 +227,7 @@ To commit your changes, go to the **Repository** menu, choose **Team**, and then
 When you commit your changes, you have the option to release the lock so that another user can edit the artifact. By default, your lock is maintained.  
 If you want to release the lock, uncheck the **Keep locks** box in the Commit dialog.
 
-### Versioning and history
+#### Versioning and history
 
 If you are using a shared repository, all modifications to an artifact are recorded by the SVN server. 
 
@@ -195,7 +241,7 @@ This shows all the changes that have been made, and the author of each change.
 To revert to an older version, click on that version in the revision history, then click on **_Revert to this version_** in the popup.  
 The selected version will be restored.
 
-### Restore points
+#### Restore points
 
 A restore point is a marker in a repository that you can use to restore your repository back to an earlier state.  
 The difference between a restore point and a version in the revision history is that a restore point applies to the whole repository but a version applies to a single artifact.
