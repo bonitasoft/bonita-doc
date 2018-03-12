@@ -45,8 +45,8 @@ Instructions below explain how to add a language to Bonita Portal. Steps below i
 #### Install the files and configure java
 
 7. Create a new folder depending on the situation:
-    * `[TOMCAT_HOME]/server/i18jn/`
-    * `[WILDFLY_HOME]/server/i18jn/`
+    * `[TOMCAT_HOME]/server/i18n/`
+    * `[WILDFLY_HOME]/server/i18n/`
     * `[STUDIO_HOME]/workspace/tomcat/server/i18n/`
 1. Copy all the `.po/.pot` files into the new folder just created.
 1. Declare a new JVM property **`org.bonitasoft.i18n.folder`** and set the value to the full path to `i18n` folder:
