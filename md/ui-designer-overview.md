@@ -60,22 +60,22 @@ If you are a business analyst, you can use the UI Designer to create the page st
 
 ## UI Designer with collaboration
 
-Pages which have been created with a version of bonita older than 7.7.0 have an UUID-like identifer.
+Pages which have been created with a version of bonita older than 7.7.0 have a UUID-like identifer.
 
-With 7.7 version and the improvements made for the collaboration features, the Id of created artifacts is now more human readable and understandable. This Id is now equals of the name. 
+With 7.7 version and the improvements made for the collaboration features, the Id of created artifacts is now more human readable and understandable. This Id is now equal of the name. 
 This change also applies to fragments in subscription editions.
-For pages only, if this id is already taken by another page, it is suffixed with a number (same behavior as in operating system file browsers).
+For pages only, if the id is already taken by another page, it is suffixed with a number (same behavior as in operating system file browsers).
  
 For example:
 * Create a new page named "myPageExample".
 * Create another page with the name "myPageExample".
 
-Following the second creation, when you are redirected to the editor, you can see in the URL that the is in fact `myPageExample1`.
+Following the second creation, when you are redirected to the editor, you can see in the URL that the id is in fact `myPageExample1`.
 However, it is a good practice to use a unique name for your page.
 
 :::info
-No migration are performed for existing artifacts.
-If you want to benefit from readable Ids for your existing artifacts, you need to rename your artifact from the homepage or the editor. The link with the process in Bonita Studio will be kept.
+No migration is performed for existing artifacts.
+If you want to benefit from readable Ids for your existing artifacts, you need to rename your artifacts from the homepage or the editor. The link with the process in Bonita Studio will be kept.
 :::
 
 :::warning
