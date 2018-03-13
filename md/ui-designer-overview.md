@@ -60,21 +60,24 @@ If you are a business analyst, you can use the UI Designer to create the page st
 
 ## UI Designer with collaboration
 
-Id of Pages or forms who are created in 7.6 older version is an uuid.
+Pages which have been created with a version of bonita older than 7.7.0 have an UUID-like identifer.
 
-With 7.7 version and the improvement of collaboration, the Id of created artifact is now more human readable and understandable. This Id is now equals of the name.
-If this id is already exist, a number is suffixed on id (same behavior like OS environment). For example:
-* Create a new page and call it "myPageExample".
-* Create another page and call it again "myPageExample".
+With 7.7 version and the improvements made for the collaboration features, the Id of created artifacts is now more human readable and understandable. This Id is now equals of the name. 
+This change also applies to fragments in subscription editions.
+For pages only, if this id is already taken by another page, it is suffixed with a number (same behavior as in operating system file browsers).
+ 
+For example:
+* Create a new page named "myPageExample".
+* Create another page with the name "myPageExample".
 
-In second creation, when you're redirect on editor, you can see on URL the id of the page. This id is equals to `myPageExample1`.
-It's better and good tip to use and unique name for your page.
+Following the second creation, when you are redirected to the editor, you can see in the URL that the is in fact `myPageExample1`.
+However, it is a good practice to use a unique name for your page.
 
 :::info
-However no migration step are done for existing artifacts.
-If you want benefit from readable Id for your existing artifact, you need to rename your artifact on homepage or in editor. Link with process in Bonita Studio will be kept.
+No migration are performed for existing artifacts.
+If you want to benefit from readable Ids for your existing artifacts, you need to rename your artifact from the homepage or the editor. The link with the process in Bonita Studio will be kept.
 :::
 
 :::warning
-When you rename some artifact and if you use version control, be careful to not lost history of your renaming file. You can see how to keep history in github in "git-log --follow" section.
+If your repository is under version control and you rename an artifact, you could loose the history of the artifact's resources. You can see how to keep the history in github's "git-log --follow" section.
 :::
