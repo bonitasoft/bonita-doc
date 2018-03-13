@@ -74,3 +74,7 @@ This page explains how to update live process definition information. You need t
 7. Click on _**Save**_ to update the script contents.
 
 The Scripts section of the process more details page allows to update a _TYPE\_READ\_ONLY\_SCRIPT_ Expression or a _TYPE\_CONSTANT_ Expression when associated to a Groovy script connector
+
+::: warning
+**:fa-exclamation-triangle: Warning:** The script dependencies are fixed, i.e. when the process is implemented the developer designed the script to use some variables and/or parameters. The live update capability cannot go against this design and only allows to change the script content. If the new script tries to use more variables, it will lead to execution errors. To change the script dependencies (data available in the script execution context), the process definition must be updated and a newer version of the process deployed.
+:::
