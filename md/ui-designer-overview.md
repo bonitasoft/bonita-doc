@@ -57,3 +57,27 @@ To use a layout in a business application, export it from the Bonita UI designer
 
 The UI Designer is intended for web developers creating pages and forms that will be part of a BPM application. It requires a good understanding of JavaScript and CSS.  
 If you are a business analyst, you can use the UI Designer to create the page structure and define basic behaviors. However, most properties of a page are defined using JavaScript.
+
+## UI Designer with collaboration
+
+Pages which have been created with a version of bonita older than 7.7.0 have a UUID-like identifer.
+
+With version 7.7 and the improvements made for the collaboration features, the Id of created artifacts is now more human readable and understandable. This Id is now equal of the name. 
+This change also applies to fragments in subscription editions.
+For pages only, if the id is already taken by another page, it is suffixed with a number (same behavior as in operating system file browsers).
+ 
+For example:
+* Create a new page named "myPageExample".
+* Create another page with the name "myPageExample".
+
+Following the second creation, when you are redirected to the editor, you can see in the URL that the id is in fact `myPageExample1`.
+However, it is a good practice to use a unique name for your page.
+
+:::info
+No migration is performed for existing artifacts (pages and fragments).
+If you want to benefit from readable Ids for your existing artifacts, you need to rename your artifacts from the homepage or the editor. The link with the process in Bonita Studio will be kept.
+:::
+
+:::warning
+If your repository is under version control and you rename an artifact, you could loose the history of the artifact's resources depending on your version control system. If you use git, "git-log --follow" allows you to keep track of moved files.
+:::
