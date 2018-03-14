@@ -62,7 +62,7 @@ If you are a business analyst, you can use the UI Designer to create the page st
 
 Pages which have been created with a version of bonita older than 7.7.0 have a UUID-like identifer.
 
-With 7.7 version and the improvements made for the collaboration features, the Id of created artifacts is now more human readable and understandable. This Id is now equal of the name. 
+With version 7.7 and the improvements made for the collaboration features, the Id of created artifacts is now more human readable and understandable. This Id is now equal of the name. 
 This change also applies to fragments in subscription editions.
 For pages only, if the id is already taken by another page, it is suffixed with a number (same behavior as in operating system file browsers).
  
@@ -74,10 +74,10 @@ Following the second creation, when you are redirected to the editor, you can se
 However, it is a good practice to use a unique name for your page.
 
 :::info
-No migration is performed for existing artifacts.
+No migration is performed for existing artifacts (pages and fragments).
 If you want to benefit from readable Ids for your existing artifacts, you need to rename your artifacts from the homepage or the editor. The link with the process in Bonita Studio will be kept.
 :::
 
 :::warning
-If your repository is under version control and you rename an artifact, you could loose the history of the artifact's resources. You can see how to keep the history in github's "git-log --follow" section.
+If your repository is under version control and you rename an artifact, you could loose the history of the artifact's resources depending on your version control system. If you use git, "git-log --follow" allows you to keep track of moved files.
 :::
