@@ -21,7 +21,7 @@ modifying the Bonita installation.
 * [addProcessComment()](https://documentation.bonitasoft.com/javadoc/api/7.7/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#addProcessComment-long-java.lang.String-) method in ProcessRuntimeAPI has had a behavior change that went unnoticed some releases ago:
 when called from a groovy script, it will systematically write the process comment as having been made by the "System" user, while previously it was using the user executing the task.
 While the new behavior will not be reverted for this method, a new method has been introduced : [addProcessCommentOnBehalfOfUser()](https://documentation.bonitasoft.com/javadoc/api/7.7/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#addProcessCommentOnBehalfOfUser-long-java.lang.String-long-), that will allow to replicate the previous behavior of the [addProcessComment()](https://documentation.bonitasoft.com/javadoc/api/7.7/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#addProcessComment-long-java.lang.String-) method.
-
+What it means in practice: if you are calling the method outside of groovy scripts, you can use the method you like ( addProcessComment() being probably more practical), and your process will not require any additional modification if it was migrated from an earlier version of Bonita. If you are calling the method from a groovy script, in a process designed prior to 7.3, and want to maintain the previous behavior, you will have to modify your groovy scripts to use the new API method.
 ### Jasper 5 connector
 Jasper connector has been removed from provided connectors in the Studio. If you have a process that depends on this connector and want to migrate in 7.7+, you have two options:
 * Export the Jasper connector from a previous Studio version
