@@ -35,7 +35,7 @@ Instructions below explain how to add a language to Bonita BPM Portal. Steps bel
 
 #### Download the language files
 
-1. Go to [Bonita translation project](http://translate.bonitasoft.org/).
+1. Go to [Bonita BPM translation project](http://translate.bonitasoft.org/).
 1. Select the language you are interested in.
 1. Make sure you click on the "Toggle Hidden Files" button ![Toggle hidden files button](images/crowdin_toggle_hidden_files.png) to see already fully translated files.
 1. Browse the file tree to `${varVersion}.x/bonita-web/portal` folder.
