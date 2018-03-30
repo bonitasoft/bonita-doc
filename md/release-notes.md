@@ -65,6 +65,15 @@ a new REST connector and important technology updates.
 * **MacOS Sierra (10.12)**: **Bonita BPM Studio** installed using the `zip` package fails during launch. Bonita BPM can successfully be installed on **MacOS Sierra** using the `dmg` package
 * **MacOS** environment: starting from **MacOS El Capitan 10.11.4** (March 2016), new security rules block the launch of **Bonita BPM Studio**. You must temporarily remove security on `App` launching in _System Preferences→Security & Confidentiality_.
 
+## API behavior change
+
+* [addProcessComment()](https://documentation.bonitasoft.com/javadoc/api/7.7/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#addProcessComment-long-java.lang.String-) method in ProcessRuntimeAPI has had a behavior change:
+when called from a groovy script, it will systematically write the process comment as having been made by the "System" user, while previously it was using the user executing the task. It is caused by the fix to the bug [BS-14276](https://bonitasoft.atlassian.net/browse/BS-14276). Operations on human tasks are now asynchronous (as it should have been from 7.0.0). Hence all methods relying on the Session to get the userID, as addProcessComment() does, will find -1 as a value.
+All scripts that want to perform an action on behalf of the user executing the task, should rely on the task assignee to do so, as there is no user logged during the script execution hence the -1 value in the sessions; as the execution is asynchronous.
+
+This behavior will not be reverted to pre 7.4.0 state for the addProcessComment() method, or any other method that might suffer from a similar problem.
+**Note:** This use case has never been considered before. As a comment was thought to be left by the user himself / herself.
+
 ## Bug fixes
 
 ### Fixes in Bonita BPM 7.4.3
