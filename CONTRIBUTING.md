@@ -2,6 +2,10 @@
 
 The following is a set of guidelines for contributing to Bonita BPM documentation.
 
+## Help us to be more visible for search engine 
+
+To help us, try to verify if your contribution have a clear title on the top of the page.  
+Also verify if new or updated pages have a summary of content directly after the title. This summary must be have less than 160 characters. When updated an already exist page with no summary, try to write a little summary.
 
 ## Pull requests
 
