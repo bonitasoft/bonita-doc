@@ -65,16 +65,14 @@ a new REST connector and important technology updates.
 * **MacOS Sierra (10.12)**: **Bonita BPM Studio** installed using the `zip` package fails during launch. Bonita BPM can successfully be installed on **MacOS Sierra** using the `dmg` package
 * **MacOS** environment: starting from **MacOS El Capitan 10.11.4** (March 2016), new security rules block the launch of **Bonita BPM Studio**. You must temporarily remove security on `App` launching in _System Preferences→Security & Confidentiality_.
 
-## API behavior change
-
-* [addProcessComment()](https://documentation.bonitasoft.com/javadoc/api/7.7/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#addProcessComment-long-java.lang.String-) method in ProcessRuntimeAPI has had a behavior change:
-when called from a groovy script, it will systematically write the process comment as having been made by the "System" user, while previously it was using the user executing the task. It is caused by the fix to the bug [BS-14276](https://bonitasoft.atlassian.net/browse/BS-14276). Operations on human tasks are now asynchronous (as it should have been from 7.0.0). Hence all methods relying on the Session to get the userID, as addProcessComment() does, will find -1 as a value.
-All scripts that want to perform an action on behalf of the user executing the task, should rely on the task assignee to do so, as there is no user logged during the script execution hence the -1 value in the sessions; as the execution is asynchronous.
-
-This behavior will not be reverted to pre 7.4.0 state for the addProcessComment() method, or any other method that might suffer from a similar problem.
-**Note:** This use case has never been considered before. As a comment was thought to be left by the user himself / herself.
-
 ## Bug fixes
+
+* A major behavior change of this version is related to the fix to [BS-14276](https://bonitasoft.atlassian.net/browse/BS-14276). Part of the fix involved the transfer of all the groovy script execution logic to the server, making operations on human tasks asynchronous (as they should have been since 7.0.0).
+ While it should not affect a process designed prior to 7.4.0, one of the side effect of the fix is that all the API methods relying on the Session to get the userID, will now find -1 as a value when called from a groovy script ( as there is no user logged in during the script execution, since the execution is asynchronous ).
+ Therefore, all scripts that want to perform an action on behalf of the user executing the task, should rely on the id of the task assignee to do so.
+ We identified [addProcessComment()](https://documentation.bonitasoft.com/javadoc/api/7.7/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#addProcessComment-long-java.lang.String-) as one of the affected method : when called from a groovy script, it will systematically write the process comment as having been made by the "System" user.
+ **Note:** This use case has never been considered before. As a comment was thought to be left by the user himself / herself.
+ 
 
 ### Fixes in Bonita BPM 7.4.3
 
