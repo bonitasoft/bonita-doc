@@ -19,7 +19,7 @@ Then you will be able to [create a repository](https://help.github.com/articles/
 
 * Open a Bonita Studio
 * Go to Repositroy > Team > Git > Share with Git
-* Select the repository to share or enter the name of new repository. The default repository cannot be shared, but you can make a copy of its content before sharing a new repository.
+* If you are on the `default` repository you have to create a new one. Enter the name of new repository, the content will be copied before sharing the new repository.
 * Click on Share
 * Enter a commit message for the initial commit. If it is the first time you use git, a dialog will prompt to ask for an identity (mail and name). This identity will be stored in the git configuration and can be updated in preferences afterward. All your commit will be authored with this identity.
 * Push the repository on the GitHub remote:

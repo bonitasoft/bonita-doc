@@ -99,31 +99,46 @@ Bonita studio Git integration is based on th EGit eclipse plugin.
 
 Git command available in Studio interface:
 
-* **Share with Git**
-
+* **Share with Git**  
 This action connect the current repository to Git and share it on a remote.
 To configure the remote see the following [Egit userguide](http://wiki.eclipse.org/EGit/User_Guide#Working_with_remote_Repositories) or the [Share on GitHub howto](share-a-repository-on-github.md).
 
-* **Clone**
-
+* **Clone**  
 Create an new Studio repository from an existing Git repository (must contains a proper Bonita project). If the remote repository version is lower than the Studio, a migration will be applied on the cloned repository. Be carefull before pushing a migration on the remote. All contributors will have to use the proper Studio version.
 
-* **Push**
+* **Commit...**  
+Shortcut action to `add`, `commit` and `push` the local changes.
 
-Send the local commited changes to the remote repository. You should make a pull before pushing. If the push fails, you may need to use make [force push](https://git-scm.com/docs/git-push) with the command line tool.
+* **Push to Upstream**  
+Send the local commited changes to the configured upstream remote repository. You should make a pull before pushing.
 
-* **Pull**
+* **Fetch from Upstream**  
+Downloads new data from the upstream remote repository. It doesn't integrate any of this new data into your working files. Fetch is great for getting a fresh view on all the things that happened in a remote repository.
 
-Retrieve the remote changes from the remote repository. This operation can put your repository in conflicting state.
-Use the Git staging view and provided merge tool to resolve the conflicts. You can abort the merge with a [hard reset](https://git-scm.com/docs/git-reset) with the command line tool.
+* **Push branch...**  
+Send the local commited changes to a specfic branch on the remote repository. If the push fails, you may need to use make [force push](https://git-scm.com/docs/git-push) with the command line tool.
 
-* **Git statging view**
+* **Pull**  
+Fetch and try to integrate the remote changes of the current branch. This operation can put your repository in conflicting state.
+Use the Git staging view and provided merge tool to resolve the conflicts. You can abort the merge with a [hard reset](https://git-scm.com/docs/git-reset) with the command line tool or the `Reset...` action.
 
+* **Switch branch**  
+Change current branch, checkout a new branch from remote or create a new branch.
+
+* **Merge**  
+Merge the content of a branch into current branch. [Reference article](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+
+* **Reset**  
+Reset the content of the working tree to the head reference (latest commit).
+
+* **Rebase...**  
+Like a merge, you can retrieve the content of another using a `rebase`. It replay all commits of a selected branch into the current branch. [Reference article](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
+
+* **Git statging view**  
 This view display the current status of your repository. From this view you can stage/unstage your changes, commit and even commit and push. You can access to the compare editor using the contextal menu.
 More information available in [EGit user guide](http://wiki.eclipse.org/EGit/User_Guide#Git_Staging_View).
 
-* **History view**
-
+* **History view**  
 This view display the commit history of the repository.
 More information available in [EGit user guide](http://wiki.eclipse.org/EGit/User_Guide#Inspect_History).
 
