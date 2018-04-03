@@ -38,7 +38,7 @@ Then you will be able to [create a repository](https://help.github.com/articles/
 You may also use the ssh authentication mechanism if you do not want to use https. See [GitHub documentation](https://help.github.com/articles/connecting-to-github-with-ssh/) to configure ssh.
 :::
 
-## First commit
+## Committing with the Staging view
 
 * Create a new diagram and save it.
 * A new Git Staging view is now accessible. From this view you can manage the `status` of your repository:
@@ -50,7 +50,13 @@ You may also use the ssh authentication mechanism if you do not want to use http
 * Go to Repositroy > Team > Git > Show History
 * You can now view your commit in the repository history. You should have two commits at this stage.
 * Before pushing your commit, pull the remote changes
-* Go to Repositroy > Team > Git > Pull. This will fetch the remote and try to merge or rebase new commits into your local branch. A pull can put the repository in a **conflicting state** if the merge cannot be figured out by git. Conlicting files can be merge using the Git Staging view.
+* Go to Repositroy > Team > Git > Pull. This will fetch the remote and try to merge or rebase new commits into your local branch. A pull can put the repository in a **conflicting state** if the merge cannot be figured out by git. Conlicting files can be merged using the Git Staging view.
 * In the Git Staging view you can see that your local master branch is ahead by 1 commit ([master ↑1])
 * Now that we are in synch with the remote we can safely push our commit, go to Repositroy > Team > Git > Push. Click on `Preview >` and on `Push`
+
+## Add, Commit and Push shortcut
+
+* Make a change on the diagram and save it
+* Go to Repositroy > Team > Git > Commit...
+* Enter a commit message and click on `Commit and Push`
 
