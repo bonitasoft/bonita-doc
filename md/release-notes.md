@@ -67,6 +67,13 @@ a new REST connector and important technology updates.
 
 ## Bug fixes
 
+* A major behavior change of this version is related to the fix [BS-14276](https://bonitasoft.atlassian.net/browse/BS-14276). Part of the fix involved the transfer of all the groovy script execution logic to the server, making operations on human tasks asynchronous (as they should have been since 7.0.0).
+While it should not affect a process designed prior to 7.4.0, one of the side effect of the fix is that all the API methods relying on the Session to get the userID, will now find -1 as a value when called from a groovy script (as there is no user logged in during the script execution, since the execution is asynchronous).
+Therefore, all scripts that want to perform an action on behalf of the user executing the task, should rely on the id of the task assignee to do so.
+ We identified [addProcessComment()](https://documentation.bonitasoft.com/javadoc/api/7.4/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#addProcessComment-long-java.lang.String-) as one of the affected method: when called from a groovy script, it will systematically write the process comment as having been made by the "System" user.
+ **Note:** This use case has never been considered before. As a comment was thought to be left by the user himself / herself.
+ 
+
 ### Fixes in Bonita BPM 7.4.3
 
 * BS-14579	ProcessAPIImpl.cancelProcessInstance fails when parent Process cannot find subprocess
