@@ -233,3 +233,13 @@ A Bonita BPM cluster must have the same version of Bonita BPM on all nodes. To m
 
 
 The migration of the cluster is now complete, and the cluster can be restarted.
+
+
+## Migrate your client applications
+
+If you have applications that are client of Bonita BPM, you may have to change your client code or library. Most of the
+time, we guarantee backward compatibility. In any cases, please read the [release notes](releases-notes) to check if
+some changes have been introduced.
+
+In addition, if your application connect to the Bonita Engine using the HTTP access mode, see the [bonita-client library](configure-client-of-bonita-bpm-engine)
+documentation page.
