@@ -2,6 +2,16 @@
 
 The following is a set of guidelines for contributing to Bonita documentation.
 
+## Help us to be more visible for search engine 
+
+To help us, try to verify if your contribution have a clear title on the top of the page.  
+Also verify if new or updated pages have a summary of content directly after the title. This summary must have less than 160 characters. When updating an already existing page with no summary, try to write a little summary.
+
+```
+# Bonita overview
+
+Bonita is a powerful BPM-based application platform for building highly engaging, personalized, process-based business applications to get things done.
+```
 
 ## Pull requests
 
