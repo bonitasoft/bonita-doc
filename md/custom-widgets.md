@@ -5,7 +5,7 @@ After creation, a custom widget is available in the palette to design pages, app
 
 ## Description
 
-Custom widgets are composed of:
+In UI Designer editor, custom widgets are composed of:
 
 * A description that briefly describes the widget
 * Properties exposed by the widget
@@ -20,6 +20,12 @@ When you open the custom widget editor to create a new custom widget, a simple e
 For more information, see the AngularJS guide on [templates](https://docs.angularjs.org/guide/templates) and [controllers](https://docs.angularjs.org/guide/controller).
 
 For now, the definition of custom containers is not yet available in the product.
+
+::: warning
+Note that UI Designer always prefix the ID of the custom widgets by "custom", 
+whereas the [standard widgets](widgets.md) are internally using the prefix "pb".
+If you build a widget outside of the UI Designer, your widget ID must not start with "pb".
+:::
 
 ## Custom widget properties
 
