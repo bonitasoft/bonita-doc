@@ -89,16 +89,25 @@ This protocol comes with a cost, and this cost is dependent of the implementatio
 
 ##### HTTP
 
-The HTTP access mode is available using our natively provided bonita-client library. It can also be used from other technologies like PHP, .Net or Javascript.  
-We do not guarantee to keep the protocol between client and server side stable, which why we strongly recommend that when possible you use the standard bonita-client library.  
-This mode provides remote connection to the server without requiring a JEE application server with an EJB container.  
-This mode can be easily used inside a web container like Tomcat or Jetty.
+The HTTP access mode is available using our natively provided [bonita-client library](configure-client-of-bonita-bpm-engine). It can also be used from other
+technologies like PHP, .Net or Javascript (in that case, you need to develop your our client).
 
-The bonita-client library sends data over the network using the HTTP protocol.  
-It is implemented on the `org.apache.httpcomponents:httpmime:4.2.5` open source library.  
-The connection manager used is `org.apache.http.impl.conn.PoolingClientConnectionManager`.  
-Currently, there is no configuration for this pool though this might be added in the future.  
-See the [Apache documentation](http://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.html) for more information.
+::: warning
+We do not guarantee to keep the http protocol stable, so we strongly recommend that you use
+  * the standard bonita-client library
+  * the same version for both the client and the server
+:::
+
+This mode
+  * provides remote connection to the server without requiring a JEE application server with an EJB container
+  * can be easily used inside a web container like Tomcat or Jetty.
+
+The bonita-client library
+  * sends data over the network using the HTTP protocol using the [Apache HttpComponents](http://hc.apache.org/index.html).
+open source library
+  * uses `org.apache.http.impl.conn.PoolingClientConnectionManager` as connection manager .  Currently, there is no
+  configuration for this pool though this might be added in the future.  See the [HttpComponents documentation](http://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.html)
+  for more information.
 
 Data sent is serialized using a Java library called XStream. This serialization also has a cost.
 

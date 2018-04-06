@@ -170,6 +170,10 @@ With the above format, the first task with the name "request approval" available
 Bonita 6.x URL syntax is supported in 7.x. Thus, 6.x autologin feature is supported in 7.0 version with 6.x URL syntax.
 Go to [Accessing Bonita Portal and forms by URL 6.5 documentation](bonita-bpm-portal-urls.md) for more information about this.
 
+::: danger
+:fa-exclamation-triangle: **Warning:** The autologin feature only works with v6-type instantiation forms.
+:::
+
 ## URL parameter summary
 
 | | | |
