@@ -44,7 +44,7 @@ final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
 Then find the connector instance that failed:
 ```groovy
 final SearchOptions searchOptions = new SearchOptionsBuilder(0, 1).filter(ConnectorInstancesSearchDescriptor.CONTAINER_ID, failedTaskId)
-                .filter(ConnectorInstancesSearchDescriptor.STATE, ConnectorState.FAILED).done();
+                .filter(ConnectorInstancesSearchDescriptor.STATE, ConnectorState.FAILED.name()).done();
         final SearchResult<ConnectorInstance> searchResult = processAPI.searchConnectorInstances(searchOptions);
         final ConnectorInstance connectorInstance = searchResult.getResult().get(0);
 ```
@@ -105,7 +105,7 @@ public class SkipConnectorAndReplayActivity {
         // we suppose here that we have an activity in state failed with the id 'failedTaskId'
         // retrieve the failed connector:
         final SearchOptions searchOptions = new SearchOptionsBuilder(0, 1).filter(ConnectorInstancesSearchDescriptor.CONTAINER_ID, failedTaskId)
-                .filter(ConnectorInstancesSearchDescriptor.STATE, ConnectorState.FAILED).done();
+                .filter(ConnectorInstancesSearchDescriptor.STATE, ConnectorState.FAILED.name()).done();
         final SearchResult<ConnectorInstance> searchResult = processAPI.searchConnectorInstances(searchOptions);
         final ConnectorInstance connectorInstance = searchResult.getResult().get(0);
 
