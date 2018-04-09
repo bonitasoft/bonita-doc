@@ -157,7 +157,7 @@ You can update the following parameters:
   **Optional**:
   * o: can order on "id","creationDate", "createdBy", "profileId", "token", "displayName", "updatedBy", "lastUpdateDate", "version" 
   * s: can search on "token", "displayName", "version" 
-  * f: can filter on "token", "displayName", "version", "profileId", "creationDate", "createdBy", "updatedBy" , "lastUpdateDate" with the format `f={filter\_name}={filter\_value}`
+  * f: can filter on "token", "displayName", "version", "profileId", "creationDate", "createdBy", "updatedBy" , "lastUpdateDate" with the format `f={filter_name}={filter_value}`
   * d: can directly access the details by of the "createdBy" or "updatedBy" user, or of the "profileId"
 
 * **Success Response**
@@ -376,7 +376,7 @@ The methods used for this resource are:
   * p: page number
   * o: can order on "id", "displayName", "applicationId", "applicationPageId", "index", "parentId"
   * s: search on "displayName" 
-  * f: can filter on "id", "displayName", "applicationId", "applicationPageId", "index", "parentId" with the format `f={filter\_name}={filter\_value}`
+  * f: can filter on "id", "displayName", "applicationId", "applicationPageId", "index", "parentId" with the format `f={filter_name}={filter_value}`
   * d: can deploy on "applicationPageId"
 * **Success Response**  
   A JSON array of application menu
@@ -492,7 +492,7 @@ The methods used for this resource are:
 * **Data Params**  
   * o: can order on "id", "token", "applicationId", "pageId"
   * s: search on "token" 
-  * f: can filter on "id", "token", "applicationId", "pageId" with the format `f={filter\_name}={filter\_value}`
+  * f: can filter on "id", "token", "applicationId", "pageId" with the format `f={filter_name}={filter_value}`
   * d: can deploy the "applicationId", "pageId"
 * **Success Response**  
   * **Code**: 200

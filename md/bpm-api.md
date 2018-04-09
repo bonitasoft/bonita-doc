@@ -1883,7 +1883,7 @@ Warning: only following types are supported for _javaTypeclassname_: java.lang.S
 
 * **URL**  
   `/API/bpm/caseVariable`  
-  _Example_: `/API/bpm/caseVariable?p=0&c=10&f=case\_id%3d11754`
+  _Example_: `/API/bpm/caseVariable?p=0&c=10&f=case_id%3d11754`
 * **Method**  
   `GET`
 * **Data Params**  
@@ -2494,14 +2494,14 @@ Use a GET method with filters and search terms to search for actorMembers.
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   There is a mandatory filter on:
 
-  * `actor\_id` For example, retrieve the actorMembers related to the specified actor\_id. http://localhost:8080/bonita/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1
+  * `actor_id` For example, retrieve the actorMembers related to the specified actor\_id. http://localhost:8080/bonita/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1
 
   You can also filter also on: 
 
-  * `member\_type=user|role|group|roleAndGroup` retrieve only the actorMembers of type user. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=member\_type%3duser`
-  * `user\_id=:userId}`: retrieve only the actorMembers related to the specified user\_id. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=user\_id%3d101`
-  * `role\_id=:roleId`: retrieve only the actorMembers related to the specified role\_id. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=role\_id%3d101`
-  * `group\_id=:groupId`: retrieve only the actorMembers related to the specified group\_id. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=group\_id%3d101`
+  * `member_type=user|role|group|roleAndGroup` retrieve only the actorMembers of type user. `/API/bpm/actorMember?p=0&c=10&f=actor_id%3d1&f=member_type%3duser`
+  * `user_id=:userId}`: retrieve only the actorMembers related to the specified user\_id. `/API/bpm/actorMember?p=0&c=10&f=actor_id%3d1&f=user_id%3d101`
+  * `role_id=:roleId`: retrieve only the actorMembers related to the specified role\_id. `/API/bpm/actorMember?p=0&c=10&f=actor_id%3d1&f=role_id%3d101`
+  * `group_id=:groupId`: retrieve only the actorMembers related to the specified group\_id. `/API/bpm/actorMember?p=0&c=10&f=actor_id%3d1&f=group_id%3d101`
 * **Success Response**  
   An array of actorMember objects
   * **Code**: 200
@@ -3837,7 +3837,7 @@ When you search for a processParameter, do not provide the process\_version or p
 
 * **URL**  
   `/API/bpm/processParameter`  
-  _Example_: `/API/bpm/processParameter?p=0&c=10&o=name%20ASC&f=process\_id%3d4880205209556178729`
+  _Example_: `/API/bpm/processParameter?p=0&c=10&o=name%20ASC&f=process_id%3d4880205209556178729`
 * **Method**  
   `GET`
 * **Data Params**  
@@ -3906,7 +3906,7 @@ This is the only method supported by this resource. It should be used to list th
 
 * **URL**  
   `/API/bpm/processResolutionProblem`  
-  _Example_: `/API/bpm/processResolutionProblem?p=0&c=100&f=process\_id%3d8802838415753448432`
+  _Example_: `/API/bpm/processResolutionProblem?p=0&c=100&f=process_id%3d8802838415753448432`
 * **Method**  
   `GET`
 * **Data Params**  

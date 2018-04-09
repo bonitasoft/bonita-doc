@@ -254,7 +254,7 @@ The methods used for this resource are:
   It is possible to filter on the following attributes:
   * `name=<group_name>`
   * `displayName=<group_displayName>`
-  * `parent\_path=<path_of_parent_group>`
+  * `parent_path=<path_of_parent_group>`
 
   It is possible to order by the value of the following attributes:
   * `o=id ASC` ou `o=id DESC`)
@@ -433,7 +433,7 @@ This action search memberships of a user.
   * `o=GROUP_NAME_ASC` or `o=GROUP_NAME_DESC`
   * `o=ASSIGNED_DATE_ASC` or `o=ASSIGNED_DATE_DESC`
 
-  _Example_: Get the memberships for the user with id 125, and return the role details associated with each membership: `/API/identity/membership?p=0&c=10&f=user\_id%3d125&d=role\_id`
+  _Example_: Get the memberships for the user with id 125, and return the role details associated with each membership: `/API/identity/membership?p=0&c=10&f=user_id%3d125&d=role_id`
 * **Success Response**  
   * **Code**: 200
   * **Payload**:  
@@ -771,7 +771,7 @@ A partial representation of a user in JSON
 
 * **URL**  
   `/API/identity/user/:userId`  
-  _Example_:  Get details of a specified user including professional and manager information : `/API/identity/user/21?d=professional\_data&d=manager\_id`
+  _Example_:  Get details of a specified user including professional and manager information : `/API/identity/user/21?d=professional_data&d=manager_id`
 * **Method**  
   `GET`
 * **Data Params**  
