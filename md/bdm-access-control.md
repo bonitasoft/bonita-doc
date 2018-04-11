@@ -5,7 +5,7 @@
 :::
 
 ## Overview
-This page explains how to protect the access to your BDM through REST API calls via a white list mechanism. It does not apply on DAO API.
+This page explains how to protect the access to your BDM through REST API calls via a white list mechanism. This protection does not secure access to BDM through DAO.
 The BDM access control feature, available in Bonita Studio, allows to grant access to entire business objects or access to some attributes of business objects.
 To grant access to specific instances of business objects, you will need to use [Rest api authorizations](rest-api-authorization.md).
 You will find below examples of both use-cases.
