@@ -61,7 +61,7 @@ Subscription editions
 - 32 bit: `Not provided`
 - 64 bit: `BonitaSubscription-x.y.z-x86_64.dmg`
 
-**All**  
+**Zip, no Installer (Windows or Linux)**  
 Community edition  
 - `BonitaStudioCommunity-x.y.z.zip`
 
@@ -78,7 +78,7 @@ For subscription editions: the installer import workspace feature applies only t
 If you have shared repositories in your workspace, you will need to reconnect to these manually, and possibly migrate the processes to your new version of Bonita Studio.  
 The default workspace is automatically initialized at the end of the installation.
 
-## Install using OS-independent archive
+## Install using Zip archive (Windows or Linux)
 
 To install Bonita Studio using the zip archive, unzip the downloaded .zip file to a folder on your hard drive. Avoid using a folder with a long path. Do not use a path that contains spaces.
 
