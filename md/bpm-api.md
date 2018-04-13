@@ -3508,7 +3508,7 @@ to get the process archive path.
 * **Request Payload**  
   ```javascript
   {
-    "fileupload": "D:\bonita-studio\BonitaBPMSubscription-6.6.4\workspace\tomcat\bonita\client\tenants\1\tmp\tmp_4431838172282406107.bar" // the process archive path
+    "fileupload": "D:\bonita-studio\BonitaSubscription-7.6.3\workspace\tomcat\bonita\client\tenants\1\tmp\tmp_4431838172282406107.bar" // the process archive path
   }
   ```
 * **Success Response**  

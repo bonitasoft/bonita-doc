@@ -52,8 +52,8 @@ There is below a step by step procedure on Windows. It is assumed that the Studi
 
 1. Store the `sapjco.dll` in the `C:\windows\system32` directory
 2. Reboot
-3. Store the `sapjco3.jar` in the bonita webpapp library directory, deployed in the tomcat embedded with the Studio: e.g. `C:\BonitaBPMSubscription-7.2.3\workspace\tomcat\webapps\bonita\WEB-INF\lib`
-4. Store the `sapjco3.jar` in the `endorsed` directory of your Bonita Studio installation: e.g. `C:\BonitaBPMSubscription-7.2.3\endorsed`.
+3. Store the `sapjco3.jar` in the bonita webpapp library directory, deployed in the tomcat embedded with the Studio: e.g. `C:\BonitaSubscription-7.6.3\workspace\tomcat\webapps\bonita\WEB-INF\lib`
+4. Store the `sapjco3.jar` in the `endorsed` directory of your Bonita Studio installation: e.g. `C:\BonitaSubscription-7.6.3\endorsed`.
 5. Start the Studio
 6. Open a diagram
 7. Select a Service task 
