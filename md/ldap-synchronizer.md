@@ -39,7 +39,7 @@ Two way to connect the Bonita Engine is possible:
 
 1/ Connection using the Environment variables:
 
-Set the API access mode used by the LDAP Synchronizer, by editing the `<LDAP_SYNCHRONIZER>\BonitaSubscription-7.3.x-LDAP-Synchronizer.(bat or sh)` file. 
+Set the API access mode used by the LDAP Synchronizer, by editing the `<LDAP_SYNCHRONIZER>\BonitaSubscription-<version>-LDAP-Synchronizer.(bat or sh)` file. 
 
 Add between `java` and `-classpath`:
 ```
@@ -68,7 +68,7 @@ There are five properties files:
 
 All configurations files can be found in the conf directory.
 
-**Note**: to use a special character in a properties file, use the Unicode equivalent. For example, for Ã  use \\u00E0\. 
+**Note**: to use a special character in a properties file, use the Unicode equivalent. For example, to use \\u00E0\. 
 You can use a tool such as [native2ascii](http://docs.oracle.com/javase/8/docs/technotes/tools/unix/native2ascii.html) to convert any special characters in the configuration files to Unicode.
 
 You also need to [configure connection on Bonita Engine](configure-client-of-bonita-bpm-engine.md) for the LDAP Synchronizer.
@@ -116,7 +116,7 @@ This file provides the settings for the logger. Default settings should be fine 
 
 The date format in log file names follows the syntax of the Java SimpleDateFormat class. 
 This is useful to control the number of log file create as the logger will append information to an existing log file if the file name already exists. 
-Example: if you set the format to "?yyyy-mm"Â�, you will get one new log file per month.
+Example: if you set the format to "?yyyy-mm", you will get one new log file per month.
 
 ### mapper.properties
 
@@ -226,7 +226,7 @@ bonita_user_custominfo_policy = partial
 
 Synchronize only 'Custom Information' declared in the mapper.properties.
  
-A 'Custom Information' not declared in mapper.properties will not be modified. When the Ldap Object doesn't have an property, it will not be modified.
+A 'Custom Information' not declared in mapper.properties will not be modified. When the Ldap Object doesn't have a property, it will not be modified.
 
 | LDAP object | LDAP property | Synchronization |
 |:------------|:--------------|:---------------------------|
@@ -239,7 +239,7 @@ A 'Custom Information' not declared in mapper.properties will not be modified. W
 bonita_user_custominfo_policy = scope
 ```
 
-Same as partial, plus if the Ldap Object doesn't have an property, it will be set to null 
+Same as partial, plus if the Ldap Object doesn't have a property, it will be set to null 
   (all the scope is synchronized)
 
 |LDAP object|LDAP property                          |Synchronization                |
