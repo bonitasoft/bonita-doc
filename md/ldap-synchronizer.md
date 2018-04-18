@@ -174,7 +174,7 @@ Supported values: user names separated by commas.
 Default value: user
 * bonita\_deactivate\_users: optional parameter that specifies whether the tool should deactivate Bonita users who are not present in LDAP. 
 When bonita\_deactivate\_users is set to true, a Bonita user who is not present in LDAP is deactivated. The user are not removed from Bonita, but they cannot start process instances or do tasks.
-Note: If a user is deactivated in Bonita but present in LDAP, the tool always activates the user.  
+* bonita\_reactivate\_users: optional parameter that specifies whether the tool should reactivate Bonita users who are deactivated in bonita but present in LDAP.  
 Supported values: true or false  
 Default value: true
 * allow\_recursive\_groups: optional parameter that specifies whether sub-groups should also be synchronized. The operation does not preserve the group hierarchy however, and the LDAP sub-groups will be created at root level in Bonita organization.  
