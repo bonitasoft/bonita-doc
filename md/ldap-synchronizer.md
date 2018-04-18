@@ -35,7 +35,11 @@ The tool supports LDAP groups of the following classes:
 To install the synchronizer, unzip the provided deploy.zip file and configure the files located under the conf directory. 
 This directory contains a sample configuration.
 
-Set the API access mode used by the LDAP Synchronizer, by editing the `<LDAP_SYNCHRONIZER>\BonitaSubscription-7.3.x-LDAP-Synchronizer.(bat or sh)` file. 
+Two way to connect the Bonita Engine is possible:
+
+1/ Connection using the Environment variables:
+
+Set the API access mode used by the LDAP Synchronizer, by editing the `<LDAP_SYNCHRONIZER>\BonitaSubscription-<version>-LDAP-Synchronizer.(bat or sh)` file. 
 
 Add between `java` and `-classpath`:
 ```
@@ -44,6 +48,10 @@ Add between `java` and `-classpath`:
 
 The LDAP Synchronizer can use the HTTP, or EJB3 modes, but not local access. For more information about API access modes, 
 see the [Engine API overview](engine-api-overview.md).
+
+2/ Connection using Bonita.properties files:
+
+See bonita.properties section
 
 Customize the configuration for your system, by editing the configuration files. 
 There are some additional considerations for using the LDAP synchronizer in a non-default tenant.
@@ -60,7 +68,7 @@ There are five properties files:
 
 All configurations files can be found in the conf directory.
 
-**Note**: to use a special character in a properties file, use the Unicode equivalent. For example, for à use \\u00E0\. 
+**Note**: to use a special character in a properties file, use the Unicode equivalent. For example, for `à` use \\u00E0\. 
 You can use a tool such as [native2ascii](http://docs.oracle.com/javase/8/docs/technotes/tools/unix/native2ascii.html) to convert any special characters in the configuration files to Unicode.
 
 You also need to [configure connection on Bonita Engine](configure-client-of-bonita-bpm-engine.md) for the LDAP Synchronizer.
@@ -72,14 +80,22 @@ This file defines the connection settings and specifies the account used for use
 | Item | Description | Default |
 |:-----|:------------|:--------|
 | bonita\_home | The path to the Bonita Home folder of the LDAP Synchronizer. (deprecated) |  |
+| apiType | The API Type to access the Bonita Engine: HTTP or EJB3 | (1) |
+| serverUrl | Url to access the Bonita Server (http://myHost:8080) | (1) |
+| applicationName | Application name (bonita is the general name) | (1) |
+| ejbReference | Ejb reference when Bonita Server is deployed on an Application server | (1) |
 | login | The login to provide is a userName.  | install |
 | password | Password of the Bonita account used for synchronization. | install |
 | technicalUser | This is the [username of the platform adminstrator](first-steps-after-setup.md). | platformAdmin |
 | technicalPassword | This is the [password of the platform adminstrator](first-steps-after-setup.md). | platform |
 
+**(1)**: if apiType properties is not defined, then the variable environment mechanism 
+is used to connect to the Bonita Engine.
+  
 ### ldap.properties
 
 This file defines the LDAP connection settings and specifies the account used for user browsing.
+
 | Item | Description | Default |
 |:-----|:------------|:--------|
 | host\_url | LDAP server URL | ldap://localhost:389 |
@@ -100,7 +116,7 @@ This file provides the settings for the logger. Default settings should be fine 
 
 The date format in log file names follows the syntax of the Java SimpleDateFormat class. 
 This is useful to control the number of log file create as the logger will append information to an existing log file if the file name already exists. 
-Example: if you set the format to "?yyyy-mm", you will get one new log file per month.
+Example: if you set the format to "?yyyy-mm", you will get one new log file per month.
 
 ### mapper.properties
 
@@ -112,11 +128,13 @@ The only mandatory property is user\_name, which is the key defined for matching
 An LDAP property may be used several times in the configuration file but each Bonita property should be defined only once. Unused properties should be commented out.
 
 These are the supported Bonita user properties:
-| General information | Professional information | Personal information |
-|:-----|:------------|:--------|
-|user\_name  <br/> first\_name  <br/> last\_name  <br/> title  <br/> job\_title  <br/> manager |  pro\_email  <br/> pro\_phone  <br/> pro\_mobile  <br/> pro\_fax  <br/> pro\_website  <br/> pro\_room  <br/> pro\_building  <br/> pro\_address  <br/> pro\_city  <br/> pro\_zip\_code  <br/> pro\_state  <br/> pro\_country | perso\_email  <br/> perso\_phone  <br/> perso\_mobile  <br/> perso\_fax  <br/> perso\_website  <br/> perso\_room  <br/> perso\_building  <br/> perso\_address  <br/> perso\_city  <br/> perso\_zip\_code  <br/> perso\_state  <br/> perso\_country | 
+
+| General information | Professional information | Personal information | Custom information |
+|:-----|:------------|:--------|:--------|
+|user\_name  <br/> first\_name  <br/> last\_name  <br/> title  <br/> job\_title  <br/> manager |  pro\_email  <br/> pro\_phone  <br/> pro\_mobile  <br/> pro\_fax  <br/> pro\_website  <br/> pro\_room  <br/> pro\_building  <br/> pro\_address  <br/> pro\_city  <br/> pro\_zip\_code  <br/> pro\_state  <br/> pro\_country | perso\_email  <br/> perso\_phone  <br/> perso\_mobile  <br/> perso\_fax  <br/> perso\_website  <br/> perso\_room  <br/> perso\_building  <br/> perso\_address  <br/> perso\_city  <br/> perso\_zip\_code  <br/> perso\_state  <br/> perso\_country |custom\_\<Custom Information\>| 
 
 The following items are configured by default:
+
 | Item | Default |
 |:-----|:--------|
 | user\_name | uid |
@@ -126,6 +144,16 @@ The following items are configured by default:
 | pro\_phone | telephoneNumber |
 | pro\_mobile | mobile |
 | perso\_phone | homePhone |
+
+**Custom information**
+
+The prefix ''custom\_'' is used to map any 'Custom information'. For example, to map the 'Custom information' "skypeId" and "room"
+from LDAP property "skype" and "roomNumber", the syntax is:
+
+```
+custom_skypeId = skype
+custom_room = roomNumber 
+```
 
 ### sync.properties
 
@@ -156,12 +184,92 @@ Default value: true
 Supported values: list of LDAP Group object identifiers separated by commas.  
 The syntax for group object properties is detailed in a later section.
 
+* bonita_user_custominfo_policy: Define the policy to synchronize the 'Custom Information'. The 
+  different policy is detailed in a later section.  
+  Default value: none
+
+* allow_custominfo_creation: define the strategy when a custom information is detected 
+  in the mapper.properties configuration, and not exist in the Bonita database. If this 
+  property is true, then the custom information is created.  
+Default value: false
+  
+#### Policy to synchronize the User Information
+In Bonita, you can defined a set of Custom information attributes. Then, each user has 
+a value for each attribute.
+A policy named  bonita_user_custominfo_policy give the strategy to synchronize this 
+information.
+All examples are based on 
+
+1. Two Custom Information exists in the Bonita database : *badgeId* and *room*
+
+2. the mapper.properties contains  
+
+```
+custom_badgeId = ldapBadgeIdentification
+```
+The *room* is not declared in the mapper.properties.
+
+
+* **none**:
+
+```
+bonita_user_custominfo_policy = none
+```
+
+no 'Custom Information' is synchronized.
+
+* **partial** : 
+
+```
+bonita_user_custominfo_policy = partial
+```
+
+Synchronize only 'Custom Information' declared in the mapper.properties.
+ 
+A 'Custom Information' not declared in mapper.properties will not be modified. When the Ldap Object doesn't have a property, it will not be modified.
+
+| LDAP object | LDAP property | Synchronization |
+|:------------|:--------------|:---------------------------|
+| WalterBates | *ldapBadgeIdentification*== 'walterSid' | (Synchronized) *badgeId*=='walterSid' |
+| HelenKelly | no property *ldapBadgeIdentification* defined | (No synchronization)  |
+
+* **scope**: 
+
+```
+bonita_user_custominfo_policy = scope
+```
+
+Same as partial, plus if the Ldap Object doesn't have a property, it will be set to null 
+  (all the scope is synchronized)
+
+|LDAP object|LDAP property                          |Synchronization                |
+|:----------|:--------------------------------------|:----------------------------------|
+|WalterBates|*ldapBadgeIdentification*== 'walterSid'|(Synchronized) *badgeId*=='walterSid'|
+|HelenKelly |no property *ldapBadgeIdentification* defined |(Set to null) *badgeId*==null       |
+
+* **full**:  
+
+```
+bonita_user_custominfo_policy = full
+```
+
+Synchronize all 'Custom Information'. If a 'Custom Information' is not declared in mapper.properties, or the Ldap doesn't have the property, it is set to null
+ 
+| LDAP object | LDAP property | Synchronization |
+|:------------|:--------------|:---------------------------|
+| WalterBates |*ldapBadgeIdentification*== 'walterSid' | (Synchronized) *badgeId*=='walterSid'<br>*room*==null| 
+null |
+
+
+
 #### LDAP Watched directory object properties syntax
 
-A watched directory is defined by an id that is declared in the "?ldap\_watched\_directories" list. 
+A watched directory is defined by an id that is declared in the "ldap\_watched\_directories" 
+list. 
 This id provides access to the object properties with this syntax: object\_id.property.
 
 Here are the available object properties:
+
 | | |
 |:-----|:--------|
 | ldap\_search\_dn | DN of the LDAP watched directory that will be used to get the list of the LDAP users. |
@@ -184,7 +292,7 @@ dir2.ldap_search_filter =   cn=*
 
 #### LDAP Group object properties syntax
 
-An LDAP group is defined by an id which is declared in the "ldap\_groups" list. This id provides access to the object properties with this syntax: object\_id.property.
+An LDAP group is defined by an id which is declared in the "ldap\_groups" list. This id provides access to the object properties with this syntax: object\_id.property.
 You can also specify groups with a search: all groups that match the search are synchronized.
 
 Groups will be synchronized based on the matching of their LDAP common name (CN) and their Bonita names.
@@ -227,6 +335,7 @@ group2.force_add_non_existing_users  =  false
 ```
 
 In combination or as an alternative, groups can be declared using the result of an LDAP search that is defined in the configuration file with the following properties :
+
 | | |
 |:-----|:--------|
 | ldap\_group\_search\_dn | DN of the LDAP watched directory that will be used to get the list of the LDAP groups. |
