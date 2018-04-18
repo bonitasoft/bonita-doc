@@ -1,3 +1,4 @@
+
 # Workspaces and repositories
 
 ::: info
@@ -144,9 +145,14 @@ More information available in [EGit user guide](http://wiki.eclipse.org/EGit/Use
 
 Those commands can be found in Repository > Team > Git menu.
 
+#### Conflict management 
+
+The use of Git often lead to conflicts when contributions are merged. There is different ways to manage conflicts, with a diff tool, in a text editor...  
+Bonita Studio integrates the default merge tool of EGit. Here are some hints on how to resolve conflicts using EGit: [Manage conflicts using EGit](http://wiki.eclipse.org/EGit/User_Guide#Resolving_a_merge_conflict).
+
 #### Advanced Git commands
 
-Git worklow offers a lot of other features (branch, tags, rebase...) that are not integrated in Bonita Studio. You can still use them using the command line interface ([available here](https://git-scm.com/download/)). To retrieve the location of your repository on your filesystem go to <bonita_studio_install_dir>/workspace/<name_of_the_repository>.
+Git worklow offers a lot of other features that are not directly integrated in Bonita Studio. You can still use them using the command line interface ([available here](https://git-scm.com/download/)). To retrieve the location of your repository on your filesystem go to <bonita_studio_install_dir>/workspace/<name_of_the_repository>.
 
 ### SVN
 
