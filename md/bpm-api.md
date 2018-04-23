@@ -64,7 +64,7 @@ The ID of the activity (a long value).
 * MANUAL\_TASK
 * LOOP\_ACTIVITY
 * MULTI\_INSTANCE\_ACTIVITY
-* SUB\_PROCESS
+* CALL\_ACTIVITY
 
 ##### Priorities:
 
