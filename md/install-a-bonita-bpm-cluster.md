@@ -19,9 +19,7 @@ Please read the following to ensure that Bonita Cluster works correctly on AWS.
 
 ### IAM role configuration
 
-If you are using IAM role configuration (iam-role) for EC2 discovery, you need to give the following policy to your IAM
-user at the least: `"ec2:DescribeInstances"`.
-
+If you want to use IAM role for EC2 autodiscovery, you need to attach a role to your EC2 instances with a policy allowing "ec2:DescribeInstances" action. For details about IAM Roles for Amazon EC2 see [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html)
 
 
 ## Create a cluster from scratch
