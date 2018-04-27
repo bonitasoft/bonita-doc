@@ -27,13 +27,6 @@ elements)
 * the hazelcast aws support will be fully available at next Bonita startup
 
 
-### IAM role configuration
-
-If you are using IAM role configuration (iam-role) for EC2 discovery, you need to give the following policy to your IAM
-user at the least: `"ec2:DescribeInstances"`.
-
-
-
 ## Create a cluster from scratch
 
 In this part we will create a cluster from scratch. We will initialize the database on which the cluster will run, then we will configure nodes to run on this cluster.
