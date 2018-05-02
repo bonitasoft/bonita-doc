@@ -24,7 +24,7 @@ This page explains how to update live process definition information. You need t
 
 #### How to edit connector implementation in Administrator view  
 
-**Note:** In versions 7.0.x, this feature is only available for Bonita Entreprise, Performance edition. Starting from version 7.1.0, this feature is available for Bonita Entreprise, Performance and Efficiency editions. 
+**Note:** In versions 7.0.x, this feature is only available for Bonita Entreprise and Performance editions. Starting from version 7.1.0, this feature is available for Bonita Entreprise, Performance and Efficiency editions. 
 
 1. Go to Process management
 2. Select a process and click on the _**More...**_
