@@ -38,7 +38,7 @@ In Bonita Studio, once a process is ready, you can [build](build-a-process-for-d
 
 ## Editions
 
-Bonita is provided in four different editions: Community, Teamwork, Efficiency, Performance and Entreprise.
+Bonita is provided in five different editions: Community, Teamwork, Efficiency, Performance and Entreprise.
 
 ## Getting started
 
