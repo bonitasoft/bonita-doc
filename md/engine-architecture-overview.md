@@ -39,7 +39,7 @@ This section contains a summary of the Bonita Engine APIs. For details of the AP
 | Platform command API | Creates, starts, stops platform.|  
 | Document API | Manages documents that are attached to a process instance.|  
 | Theme API | Manages the Look & Feel of the Bonita Portal web and mobile interfaces and forms.|  
-| Tenant Management API | Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in Teamwork, Efficiency, and Performance editions.|  
+| Tenant Management API | Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in Teamwork, Efficiency, Performance and Entreprise editions.|  
 
 There is also a Web API, which is for internal use only, and a Command API, which is primarily for internal use.
 
@@ -108,7 +108,7 @@ Notes: Store categories with the persistence service
 
 | | |
 |:-|:-|
-| Description: | For the Performance, Efficiency, and Teamwork editions, manage parameters of a process. Parameters are set for the scope of a process definition and are designed to be used as global configuration of a process, for example, you could store the URL of a database you use in some connectors. | 
+| Description: | For the Entreprise, Performance, Efficiency, and Teamwork editions, manage parameters of a process. Parameters are set for the scope of a process definition and are designed to be used as global configuration of a process, for example, you could store the URL of a database you use in some connectors. | 
 | Used by: | Engine, APIs, ExpressionService (using the contributed evaluator) when reading and updating parameters| 
 | Implementation: | org.bonitasoft.engine.parameter.propertyfile.PropertyFileParameterService| 
 | Notes: | Relies on Java properties in a file to store and retrieve parameters| 
@@ -182,7 +182,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | | |
 |:-|:-|
 | Description: | Check user credentials using a map. | 
-| Used by: | Login service in Bonita Teamwork, Efficiency, and Performance editions| 
+| Used by: | Login service in Bonita Teamwork, Efficiency, Performance, and Entreprise editions| 
 | Implementation: | org.bonitasoft.engine.authentication.impl.GenericAuthenticationServiceImpl| 
 | Notes: | Uses the Identity service to check user credentials| 
 
@@ -192,7 +192,7 @@ Generic services  perform actions that are not related to BPM but are required f
 |:-|:-|
 | Description: | Log information related to business actions. For example, ?Activity 'step1' was created with id = 12? or ?Connector email-1.0.0 was successfully executed on activity 1547?. By default, log information is stored in a database for easy query. | 
 | Used by: | Any service storing objects: ?deleted activity\[..\]?  Scheduler service: ?Job executed \[...\]?   | 
-| Implementations: | org.bonitasoft.engine.services.impl.SyncBusinessLoggerServiceImpl (Community edition: insert logs directly in database)  org.bonitasoft.engine.log.api.impl.BatchBusinessLoggerImpl (Teamwork, Efficiency, and Performance editions: inserts all logs in batch at the end of the transaction)| 
+| Implementations: | org.bonitasoft.engine.services.impl.SyncBusinessLoggerServiceImpl (Community edition: insert logs directly in database)  org.bonitasoft.engine.log.api.impl.BatchBusinessLoggerImpl (Teamwork, Efficiency, Performance, and Entreprise editions: inserts all logs in batch at the end of the transaction)| 
 
 #### Tenant cache
 
@@ -286,7 +286,7 @@ Generic services  perform actions that are not related to BPM but are required f
 
 | | |
 |:-|:-|
-| Description: | Evaluate an expression using the evaluator provided by another service (but do not evaluate dependencies of the expression). This service is extended by evaluators specific to the kind of expression to be evaluated. For example, in the Performance, Efficiency, and Teamwork editions, the ParameterService contributes an evaluator to evaluate expressions that reference a parameter. To add a new kind of expression, contribute a class implementing org.bonitasoft.engine.expression.ExpressionExecutorStrategy to the ExpressionExecutorStrategy class. | 
+| Description: | Evaluate an expression using the evaluator provided by another service (but do not evaluate dependencies of the expression). This service is extended by evaluators specific to the kind of expression to be evaluated. For example, in the Entreprise, Performance, Efficiency, and Teamwork editions, the ParameterService contributes an evaluator to evaluate expressions that reference a parameter. To add a new kind of expression, contribute a class implementing org.bonitasoft.engine.expression.ExpressionExecutorStrategy to the ExpressionExecutorStrategy class. | 
 | Used by: | ExpressionResolverService. to evaluate an expression and its dependencies| 
 | Implementation: | org.bonitasoft.engine.expression.impl.ExpressionServiceImpl| 
 
@@ -445,7 +445,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Description: | Trigger work for immediate execution but asynchronously.  Unlike the scheduler service, which uses persistent storage, the Work service stores data in memory for better performance. This means that clients of the service must handle restart if a triggered work does not complete. For example, if the JVM shuts down, when it restarts the client must check for incomplete work and re-trigger it. | 
 | Used by: | ProcessExecutor, to trigger work to execute flow elements one after another| 
 | Implementation: | org.bonitasoft.engine.work.ExecutorWorkService| 
-| Notes: | Trigger launches work in a ThreadPool. For Community Edition, work items are launched in sequence, each one in a new thread. For Teamwork, Efficiency, and Performance Editions, work items are triggered in multiple threads. | 
+| Notes: | Trigger launches work in a ThreadPool. For Community Edition, work items are launched in sequence, each one in a new thread. For Teamwork, Efficiency, Performance, and Entreprise Editions, work items are triggered in multiple threads. | 
 
 #### XML
 
@@ -464,4 +464,4 @@ The Engine is provided as three .jar files:
 * bonita-server contains code used on by the server. For example, it contains service implementations, the services accessor, and API implementations. 
 * bonita-client contains client-only code. For example, it contains the Accessor service for the APIs, which is not in the common or server packages to prevent the server code calling the client-side API accessor.
 
-In the Performance, Efficiency, and Teamwork editions, these jar files are bonita-common-sp.jar, bonita-server-sp.jar, and bonita-client-sp.jar.
+In the Entreprise, Performance, Efficiency, and Teamwork editions, these jar files are bonita-common-sp.jar, bonita-server-sp.jar, and bonita-client-sp.jar.

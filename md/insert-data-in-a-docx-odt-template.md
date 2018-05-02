@@ -1,7 +1,7 @@
 # Insert data in a .docx/.odt template
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 The **insert data in a .docx/.odt template** connector allows to fill a specified template file by inserting values coming from the current process instance, for example from a form attached to a human task.

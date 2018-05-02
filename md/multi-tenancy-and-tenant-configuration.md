@@ -1,14 +1,14 @@
 # Multi-tenancy and tenant configuration
 
 ::: info
-**Note:** For Performance edition only.
+**Note:** For Entreprise and Performance editions only.
 :::
 
 This page explains the architecture and configuration of a multi-tenant system using Bonita.
 
 ## Platform architecture
 
-By default, all installations of Bonita create a single tenant. However multi-tenancy is possible with the Performance edition.
+By default, all installations of Bonita create a single tenant. However multi-tenancy is possible with the Entreprise or the Performance edition.
 
 Multi-tenancy involves a single software installation, called a **platform**, that can serve multiple independent organizations, called **tenants**.
 Each tenant is a separate, self contained configuration for a single client/company. 
@@ -19,7 +19,7 @@ After the installation of any Bonita version (Community or Subscription), a sing
 
 ![default](images/images-6_0/default_tenant_setup.png)  
 
-If you are using the Performance edition, you can create additional tenants, using the Platform API (through Java or REST API).
+If you are using the Entreprise or the Performance edition, you can create additional tenants, using the Platform API (through Java or REST API).
 These tenants are configured with a single database. This illustration shows a platform with three tenants.
 
 ![multi-tenancy](images/images-6_0/v6tenant.png)

@@ -14,7 +14,7 @@ These extension points are guaranteed to be stable across versions of Bonita 6: 
 
 ### Connectors
 
-In Community, Teamwork, Efficiency, and Performance editions
+In Community, Teamwork, Efficiency, Performance and Entreprise editions
 
 Bonita comes with more than 80 [standard connectors](_connectivity.md) to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
 A new connector enables you to provide new connectivity capabilities for processes. 
@@ -24,7 +24,7 @@ Connectors can be implemented directly from Bonita Studio.
 
 ### Actor filters
 
-In Community, Teamwork, Efficiency, and Performance editions
+In Community, Teamwork, Efficiency, Performance and Entreprise editions
 
 Bonita comes with a set of [standard actor filters](actor-filtering.md) that can be used to reduce the list of candidates for process tasks.
 A new actor filter enables you to provide new filtering capabilities to processes. To [implement a new actor filter](creating-an-actor-filter.md), 
@@ -33,7 +33,7 @@ Actor filters can be implemented directly from Bonita Studio.
 
 ### Engine API
 
-In Community, Teamwork, Efficiency, and Performance editions
+In Community, Teamwork, Efficiency, Performance and Entreprise editions
 
 The [Bonita Engine APIs](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html) enable you to:
 
@@ -45,7 +45,7 @@ ProcessBuilder and Business Objects DAO are examples of APIs that can be leverag
 
 ### REST API
 
-In Community, Teamwork, Efficiency, and Performance editions
+In Community, Teamwork, Efficiency, Performance and Entreprise editions
 
 The [REST APIs](rest-api-overview.md) enable you to integrate your Bonita processes into your application and execute operations on Bonita objects including business objects. 
 Pages and forms created with the UI designer reply on the REST APIs to manage data.
@@ -55,7 +55,7 @@ In the Bonita subscription edition, Bonita Studio contains [tooling for creating
 
 ### Custom pages
 
-In Community, Teamwork, Efficiency, and Performance editions
+In Community, Teamwork, Efficiency, Performance and Entreprise editions
 
 A [custom page](pages.md) is a page that you can add into Bonita Portal to form part of an application, customize information provided in default portal pages, or to add new features to the portal. 
 To implement a page, you need to provide HTML, CSS and Javascript resources respecting some packaging constraints. 
@@ -65,14 +65,14 @@ Note that although the page framework provided in the product is stable, we cann
 
 ### Custom widgets
 
-In Community, Teamwork, Efficiency, and Performance editions
+In Community, Teamwork, Efficiency, Performance and Entreprise editions
 
 If the standard UI designer [widgets](widgets.md) do not meet your needs, you can create a [custom widget](custom-widgets.md). 
 You can then use your custom widget in pages, forms, and (for Subscription editions) fragments.
 
 ### Import and export exchange files
 
-In Community, Teamwork, Efficiency, and Performance editions
+In Community, Teamwork, Efficiency, Performance and Entreprise editions
 
 Included in the [Engine APIs](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html) are methods to import and export various items. 
 These methods manipulate files with formats that are versioned. Newer versions of the file format are designed to be backward compatible with earlier versions. The following items have import and export API methods:
@@ -84,7 +84,7 @@ These methods manipulate files with formats that are versioned. Newer versions o
 
 ### Authentication service
 
-In Teamwork, Efficiency, and Performance editions
+In Teamwork, Efficiency, Performance and Entreprise editions
 
 From Bonita 6.3, the Engine authentication service is considered to be an official extension point of the solution. It is now safe to provide your own implementation of this service to better fit the needs of your projects.
 [Default authentication implementations](user-authentication-overview.md) are provided allow to check user credentials from the Bonita database, LDAP or a CAS SSO server (using JAAS).
@@ -92,14 +92,14 @@ To implement an Authentication Service, provide a Java class respecting the Auth
 
 ### Event handlers
 
-In Teamwork, Efficiency, and Performance editions
+In Teamwork, Efficiency, Performance and Entreprise editions
 
 An event handler is an extension to the engine that is configured to run when a specified event occurs. An event is a change to any object in the database.
 To [implement an event handler](event-handlers.md), you need to provide a Java class respecting the Handler interface.
 
 ### BonitaStudioBuilder
 
-In Teamwork, Efficiency, and Performance editions
+In Teamwork, Efficiency, Performance and Entreprise editions
 
 Bonita includes a script, BonitaStudioBuilder (also known as the Workspace API), for building a bar file from a process in a repository. 
 This intended to be used for [automating process builds](automating-process-builds.md) in a continuous integration and testing environment.
@@ -107,7 +107,7 @@ You can use the BonitaStudioBuilder to build a bar file for processes stored in 
 
 ### Portal look & feel
 
-In Teamwork, Efficiency, and Performance editions
+In Teamwork, Efficiency, Performance and Entreprise editions
 
 The Bonita Portal Look & Feel gives the ability to customize the appearance of the portal Web interface. As a Portal Administrator, you can import a new Look & Feel (.zip archive). 
 To [create a new Look & Feel](creating-a-new-look-feel.md), provide CSS and resources files.

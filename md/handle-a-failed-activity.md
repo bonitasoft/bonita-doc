@@ -1,7 +1,7 @@
 # Handle a failed activity
 
 ::: info
-**Note:** For Performance edition only.
+**Note:** For Entreprise and Performance editions only.
 :::
 
 An activity (or task) can fail in Bonita Engine for several reasons. Typical reasons include:

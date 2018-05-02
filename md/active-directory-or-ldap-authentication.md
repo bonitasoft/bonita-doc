@@ -1,7 +1,7 @@
 # Active Directory or LDAP authentication
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 **Important notes:**  

@@ -9,7 +9,7 @@
 
 ### Other dependency updates
 
-* (Performance Edition) Bonita 7.7 now supports usage of Hazelcast on AWS out-of-the box. Previous versions required
+* (Entreprise and Performance editions) Bonita 7.7 now supports usage of Hazelcast on AWS out-of-the box. Previous versions required
 modifying the Bonita installation.
 
 <a id="feature-removals"/>

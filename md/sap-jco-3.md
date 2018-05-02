@@ -1,7 +1,7 @@
 # SAP JCo3
 
 ::: info
-**Note:** For Performance and Efficiency editions only.
+**Note:** For Entreprise, Performance and Efficiency editions only.
 :::
 
 The SAP Java Connector is a toolkit that allows a Java application to communicate with any SAP system. It combines an easy to use API with unprecedented flexibility and performance.   
@@ -75,7 +75,7 @@ There is below a step by step procedure on Windows. It is assumed that the Studi
 
 ## Advanced features in Subscription Editions
 
-In the Efficiency and Performance editions, the SAP wizard has advanced features: You do not need to know the names of the functions by heart, as the functions are suggested in a dropdown menu. 
+In the Efficiency, Performance and Entreprise editions, the SAP wizard has advanced features: You do not need to know the names of the functions by heart, as the functions are suggested in a dropdown menu. 
 
 * Filter functions by group: a dropdown list listing all the functions by group
 * Function description: a dropdown list listing all the functions. Auto complete (just type the first letter e.g. G to give a list of **Get** functions

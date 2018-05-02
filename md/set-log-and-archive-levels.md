@@ -12,9 +12,9 @@ You can configure the information that is recorded in the archive and the logs.
 
 In the portal, after a process is executed, it can be viewed using the "Archived" filter.
 There you can find the information on the process instances (the cases). This information is also available using the Web REST API. 
-By default, all the information is archived but in the Performance edition this is [configurable](configurable-archive.md).
+By default, all the information is archived but in the Entreprise and Performance editions this is [configurable](configurable-archive.md).
 
-Recommended configuration (Performance only):
+Recommended configuration (Entreprise and Performance only):
 
 * To keep all the user activity, set all the flowNode types to true.
 * To maximize the overall performance of the system and reduce the disk space used by the database, set all the values to false. Completed tasks will not be visible.

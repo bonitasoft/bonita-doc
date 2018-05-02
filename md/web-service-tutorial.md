@@ -31,7 +31,7 @@ This example process will use a Web Service connector to call a sample Web Servi
   * For the Community edition, provide these settings:
     * Service NS: GlobalWeather
     * Service name: http://www.webserviceX.NET
-  * For the Teamwork, Efficiency, or Performance edition. provide these settings:
+  * For the Teamwork, Efficiency, Performance, or Entreprise edition. provide these settings:
     * Enter the WDSL URL http://www.webservicex.net/globalweather.asmx?WSDL and click on the Introspect button, then leave the login info fields empty
     * Set the `Port: GlobalWheatherSoap12` and leave other parameters with default values
   * In the **Request parameters** window (for all editions), provide these settings:

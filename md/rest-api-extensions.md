@@ -1,7 +1,7 @@
 # REST API extensions
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 REST API extensions provide a solution for integration between forms/pages and third party systems (including Bonita Engine). They can be used to query [business data](define-and-deploy-the-bdm.md), Bonita Engine APIs, or an external information

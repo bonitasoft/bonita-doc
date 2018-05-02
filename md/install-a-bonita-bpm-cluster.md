@@ -1,7 +1,7 @@
 # Install a Bonita cluster
 
 ::: info
-**Note:** The cluster feature is a Subscription feature for **Performance** edition only.
+**Note:** The cluster feature is a Subscription feature for **Entreprise** and **Performance** edition only.
 :::
 
 ::: warning

@@ -1,10 +1,10 @@
 # Environments
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
-An environment is a set of configuration definitions for a project. You can configure a process for several environments. In this way, one process can run in several environments without any modification, because the information that is specific to an environment is set at configuration. In the Performance, Efficiency, and Teamwork editions, Bonita Studio proposes three environments, Local,  Production, and Qualification. You can also define custom environments.
+An environment is a set of configuration definitions for a project. You can configure a process for several environments. In this way, one process can run in several environments without any modification, because the information that is specific to an environment is set at configuration. In the Entreprise, Performance, Efficiency, and Teamwork editions, Bonita Studio proposes three environments, Local,  Production, and Qualification. You can also define custom environments.
 
 You can configure, run, and debug a process in a specific environment.
 
@@ -12,7 +12,7 @@ The default environment is the one most recently selected in the Configure, Run,
 
 ## Define a custom environment
 
-To define a custom environment for a process, open the process in Bonita Studio Performance, Efficiency, or Teamwork edition and 
+To define a custom environment for a process, open the process in Bonita Studio Entreprise, Performance, Efficiency, or Teamwork edition and 
 select the pool. Then choose **New environment...** from the **Configure**, **Run**, or **Debug** menu in the Cool bar, enter a name for the new environment, and click _**OK**_. The new environment will appear in the  **Configure**, **Run**, and **Debug** menus in the Cool bar.
 
 ## Configure a process in an environment

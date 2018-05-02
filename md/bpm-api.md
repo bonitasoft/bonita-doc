@@ -92,7 +92,7 @@ The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-re
   * parentCaseId
   * rootContainerId
   * executedBy
-  * executedBySubstitute (only in Efficiency and Performance editions)
+  * executedBySubstitute (only in Efficiency, Performance and Entreprise editions)
   * actorId
   * assigned\_id
   * parentTaskId
@@ -150,7 +150,7 @@ Note: if the task definition includes a connector that is executed on finish and
 
 #### Replay activity
 
-Make this call after all failed connectors have been reset. (only in Performance edition)
+Make this call after all failed connectors have been reset. (only in Performance and Entreprise editions)
 
 * **URL**  
   `/API/bpm/activity/:id`  
@@ -229,7 +229,7 @@ Search for flow activities using given parameters. Activities in states complete
     * parentCaseId
     * rootCaseId
     * last\_update\_date
-    * supervisor\_id (only in Efficiency and Performance editions)
+    * supervisor\_id (only in Efficiency, Performance and Entreprise editions)
   * d: extend resource response parameters of [this resource](#activity-deploy) are available.
 * **Success Response**  
   An array of JSON representations of activities
@@ -328,7 +328,7 @@ The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-re
   * parentCaseId: the parent case that is associated with this activity's case
   * rootContainerId: the root process of the root case that is associated with this activity
   * executedBy: the user who executed the activity
-  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency and Performance editions)
+  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency, Performance and Entreprise editions)
   * actorId: the actor that can execute this activity
   * assigned\_id: the user this activity is assigned to
   * parentTaskId: in the case of a subtask, the parent task
@@ -364,7 +364,7 @@ Search for archived activities using given parameters. Only archived activities 
     * caseId : the case initiator this activity is associated to
     * reached\_state\_date : the date when this activity arrived in this state
   * f: 
-    * supervisor\_id: retrieve the information the process manager associated to this id has access to (only in Efficiency and Performance edition)
+    * supervisor\_id: retrieve the information the process manager associated to this id has access to (only in Efficiency, Performance and Entreprise editions)
     * f: same as the sort order fields
   * d: extend resource response parameters of [this resource](#archived-activity-deploy) are available.
 * **Success Response**  
@@ -432,7 +432,7 @@ The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-re
   * parentCaseId: the parent case that is associated with this activity's case
   * rootContainerId: the root process of the root case that is associated with this activity
   * executedBy: the user who executed the activity
-  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency and Performance editions)
+  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency, Performance and Entreprise editions)
   * actorId: the actor that can execute this activity
   * assigned\_id: the user this activity is assigned to
   * parentTaskId: in the case of a subtask, the parent task
@@ -802,7 +802,7 @@ The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-re
   * parentCaseId: the parent case that is associated with this activity's case
   * rootContainerId: the root process of the root case that is associated with this activity
   * executedBy: the user who executed the activity
-  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency and Performance editions)
+  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency, Performance and Entreprise editions)
   * actorId: the actor that can execute this activity
   * assigned\_id: the user this activity is assigned to
   * parentTaskId: in the case of a subtask, the parent task
@@ -983,7 +983,7 @@ The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-re
   * parentCaseId: the parent case that is associated with this activity's case
   * rootContainerId: the root process of the root case that is associated with this activity
   * executedBy: the user who executed the activity
-  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency and Performance editions)
+  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency, Performance and Entreprise editions)
   * actorId: the actor that can execute this activity
   * assigned\_id: the user this activity is assigned to
   * parentTaskId: in the case of a subtask, the parent task
@@ -1464,7 +1464,7 @@ The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-re
   * parentCaseId: the parent case that is associated with this activity's case
   * rootContainerId: the root process of the root case that is associated with this activity
   * executedBy: the user who executed the activity
-  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency and Performance editions)
+  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency, Performance and Entreprise editions)
   * actorId: the actor that can execute this activity
   * assigned\_id: the user this activity is assigned to
   * parentTaskId: in the case of a subtask, the parent task
@@ -1632,7 +1632,7 @@ The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-re
   * parentCaseId: the parent case that is associated with this activity's case
   * rootContainerId: the root process of the root case that is associated with this activity
   * executedBy: the user who executed the activity
-  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency and Performance editions)
+  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency, Performance and Entreprise editions)
   * actorId: the actor that can execute this activity
   * assigned\_id: the user this activity is assigned to
   * parentTaskId: in the case of a subtask, the parent task
@@ -3778,7 +3778,7 @@ The methods used for this resource are:
 
 #### Description
 
-A process parameter is a variable attached to process. The parameter value is set at deployment, and applies to all cases of the process. This feature is available in Performance, Efficiency, and Teamwork editions. 
+A process parameter is a variable attached to process. The parameter value is set at deployment, and applies to all cases of the process. This feature is available in Entreprise, Performance, Efficiency, and Teamwork editions. 
 
 #### Identifier
 
@@ -3882,7 +3882,7 @@ You can update only a process parameter value using the API. If you specify valu
 
 #### Description
 
-This resource represents a problem in a process that needs to be resolved for the process to run. It can be an actor, a connector implementation, or a parameter (in the Performance, Efficiency, or Teamwork edition).
+This resource represents a problem in a process that needs to be resolved for the process to run. It can be an actor, a connector implementation, or a parameter (in the Entreprise, Performance, Efficiency, or Teamwork edition).
 
 #### Representation
 ```json
@@ -4178,7 +4178,7 @@ Use a GET method with filters to search for connector dependencies.
 
 #### Description
 
-Error message and stackTrace recorded when a connector fails during a process execution. Performance edition only.
+Error message and stackTrace recorded when a connector fails during a process execution. Entreprise and Performance editions only.
 
 #### Identifier
 
@@ -4422,7 +4422,7 @@ The ID of the flowNode (a long).
 The methods used for this resource are:
 
 * GET - Read a flow node or search for a flow node
-* PUT - Replay a flow node (only in Performance edition)
+* PUT - Replay a flow node (only in Entreprise and Performance editions)
 
 <a id="flownode-deploy"/>
 
@@ -4435,7 +4435,7 @@ The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-re
   * parentCaseId: the parent case that is associated with this activity's case
   * rootContainerId: the root process of the root case that is associated with this activity
   * executedBy: the user who executed the activity
-  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency and Performance editions)
+  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency, Performance and Entreprise editions)
   * actorId: the actor that can execute this activity
   * assigned\_id: the user this activity is assigned to
   * parentTaskId: in the case of a subtask, the parent task
@@ -4517,7 +4517,7 @@ Search for flow nodes using given parameters. Flow nodes in states completed, ca
 
 #### Change a Flow Node state
 
-Replay the flow node. (only in Performance edition)
+Replay the flow node. (only in Entreprise and Performance editions)
 
 * **URL**  
   `/API/bpm/flowNode/:id`  
@@ -4589,7 +4589,7 @@ The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-re
   * parentCaseId: the parent case that is associated with this activity's case
   * rootContainerId: the root process of the root case that is associated with this activity
   * executedBy: the user who executed the activity
-  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency and Performance editions)
+  * executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency, Performance and Entreprise editions)
   * actorId: the actor that can execute this activity
   * assigned\_id: the user this activity is assigned to
   * parentTaskId: in the case of a subtask, the parent task

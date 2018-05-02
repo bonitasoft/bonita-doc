@@ -182,4 +182,4 @@ Go to [Accessing Bonita Portal and forms by URL 6.5 documentation](bonita-bpm-po
 | `locale=<string>` | Optional. Identifies the language to be used. | `locale=en`  |
 | `id=<id>` | <ul><li>For process instantiation URL, identifies the process definition id.</li><li>For process overview URL, identifies the process instance id.</li><li>For task URL, identifies the activity instance of the task.</li> | `id=6972973247608922361` |
 | `user=<userId>` | Optional. Identifies the user you perform the task for (for administrators and process managers). | `user=201`  |
-| `tenant=<tenantId>` | Optional. Identifies the tenant on which the process is deployed for multiple tenants environments (Multi-tenancy is available with the Performance edition only). | `tenant=2` |
+| `tenant=<tenantId>` | Optional. Identifies the tenant on which the process is deployed for multiple tenants environments (Multi-tenancy is available with the Entreprise and Performance editions only). | `tenant=2` |

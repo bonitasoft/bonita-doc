@@ -1,7 +1,7 @@
 # Licenses
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 Bonita 7.1 introduces a case-counter mechanism to align with the Bonita Subscription edition licensing model. This page explains how to manage the license for your Bonita Platform. 

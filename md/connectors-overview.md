@@ -1,7 +1,7 @@
 # Connectors overview
 
 A connector is an element in a process that accesses an external system to read or write information. If the [default connectors in Bonita](_connectivity.md) are not suitable, you can implement your own connector. 
-In the Bonita Performance, Efficiency, and Teamwork editions, you are recommended to use the [connector development toolkit](connector-development-toolkit.md) to create new connectors.
+In the Bonita Entreprise, Performance, Efficiency, and Teamwork editions, you are recommended to use the [connector development toolkit](connector-development-toolkit.md) to create new connectors.
 Otherwise, you can define a new connector definition or implementation in Bonita Studio,
 using the wizards started from the **Development** menu, **Connectors** submenu.
 
@@ -79,4 +79,4 @@ connector has been specified in the configuration, when you build
 the process for deployment referencing the configuration, the
 connector code is included in the business archive.
 
-After deployment, if you are running the Performance edition, you can [update the connector implementation on a live system](live-update.md).
+After deployment, if you are running the Entreprise or Performance edition, you can [update the connector implementation on a live system](live-update.md).

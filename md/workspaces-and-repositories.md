@@ -2,7 +2,7 @@
 # Workspaces and repositories
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 This page explains how to use a shared repository so that several people can collaborate on process design.

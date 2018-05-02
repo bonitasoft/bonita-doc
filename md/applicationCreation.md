@@ -13,7 +13,7 @@ Then, all resources used by applications will be centralized and shared by the B
 Basically, an **application descriptor** is an XML file. It represents the skeleton of an application, as it contains references to resources installed in Bonita Portal and used by a given application.  
 An application descriptor must be imported onto the portal (**Administrator** profile), in the **Applications** tab, to enable the application.  
 Before Bonita 7.5, this portal tab was the only way to create and manage applications.  
-For development purposes, the Studio can **deploy** applications descriptors onto the portal for you (_only for Performance and Efficiency editions_).
+For development purposes, the Studio can **deploy** applications descriptors onto the portal for you (_only for Entreprise, Performance and Efficiency editions_).
 
 Application descriptors are packaged in **application files**.  
 An **application file** is an XML file containing one or more application descriptors.  
@@ -36,7 +36,7 @@ For example, the four leave management applications for employees, managers, Hum
 ## Create and build an Application Descriptor
 
 ::: info
-**Note:** All Bonita editions come with an .xml editor for this feature. Only Performance and Efficiency editions also come with a graphical UI.
+**Note:** All Bonita editions come with an .xml editor for this feature. Only Entreprise, Performance and Efficiency editions also come with a graphical UI.
 :::
 
 From Bonita Studio, click on **Development** -> **Application Descriptor** -> **New...**  
@@ -62,7 +62,7 @@ The fields _Profile_, _Layout_, _Theme_, _Application Page_ and _Home page token
 Be aware that we only suggest options known by Bonita Studio and the UI Designer.  
 It means that custom themes, or custom pages and layouts created with another editor than the UI Designer will not appear as options, since they are only known by Bonita Portal.
 You can still reference such an "unknown" resource, but you will have to write the exact identifier by yourself, and make sure the resource is imported onto the portal **before** you deploy/install the application descriptor.  
-Since Bonita 7.6, and for Performance and Efficiency editions only, custom profiles can be created in the studio.  
+Since Bonita 7.6, and for Entreprise, Performance and Efficiency editions only, custom profiles can be created in the studio.  
 Therefore, such profiles will be suggested. Those created in the portal will not, but you can still export them from the portal and import them in the studio to get them in the suggested options.
 
 There are two ways to reference pages used by your application. In the _Navigation_ table or in the _Orphan pages_ table.  
