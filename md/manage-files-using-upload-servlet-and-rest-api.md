@@ -1,6 +1,6 @@
 # Manage files using upload servlet and REST API
 
-In all the Bonita editions you can upload files by doing a multipart post request on any of the available servlets.
+You can upload files by doing a multipart post request on any of the available servlets.
 It returns the name of the temporary uploaded file.
 This file name can be used to link those files with any REST resources.
 
