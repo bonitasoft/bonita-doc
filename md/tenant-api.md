@@ -81,5 +81,5 @@ Need to be done in two successive steps:
  :::
 
  ::: warning
- **Note:** In Efficiency and Performance edition, if you have an access control file installed on your tenant, you need to delete    it before installing or updating your BDM.
+ **Note:** In Efficiency, Performance and Entreprise editions, if you have an access control file installed on your tenant, you need to delete    it before installing or updating your BDM.
  :::

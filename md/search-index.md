@@ -1,7 +1,7 @@
 # Search keys
 
 ::: info
-**Note:** For Performance and Efficiency editions only.
+**Note:** For Entreprise, Performance and Efficiency editions only.
 :::
 
 The search field in Bonita Portal can be used to search for particular values in cases, filter them, and display the result.

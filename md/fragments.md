@@ -1,13 +1,13 @@
 # Fragments
 
 ::: info
-**Note:** For Bonita Performance, Efficiency, and Teamwork editions only.
+**Note:** For Bonita Entreprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 A fragment is a piece of a page, form or layout, composed of one or more widgets and/or containers. It can be inserted in other pages.  
 A fragment has its own widget configurations and data, but can also expose data to the pages that include it.
 
-Fragments are available in the Bonita Performance, Efficiency, and Teamwork editions.
+Fragments are available in the Bonita Entreprise, Performance, Efficiency, and Teamwork editions.
 
 ## Fragment editor
 

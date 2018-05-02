@@ -1,14 +1,14 @@
 # Performance tuning
 
 ::: info
-**Note:** For Performance edition only.
+**Note:** For Entreprise and Performance edition only.
 :::
 
 This page contains information that you can use to tune the Bonita Engine to get the best performance in your platform.
 It assumes that you are familiar with Java threads, concurrent execution, XML, DB connection pools, your DB instance, cache policies, scheduling, connectors, network speed, I/O, Java Virtual Machine configuration, JTA and transaction management.  
 You need to know how to install and configure Bonita.
 
-This information applies primarily to the Performance edition, though some details also apply to the Teamwork and Efficiency editions.
+This information applies primarily to the Entreprise and Performance edition, though some details also apply to the Teamwork and Efficiency editions.
 
 It is also possible to [use gzip compression](use-gzip-compression.md) on your application server to improve performance.
 
@@ -290,7 +290,7 @@ This should be appropriately sized for the number of times the sequence manager 
 
 #### Persistence cache
 
-For the Teamwork, Efficiency, and Performance editions, Bonita Engine has a cache providing a persistence layer using Hibernate caching.
+For the Teamwork, Efficiency, Performance and Entreprise editions, Bonita Engine has a cache providing a persistence layer using Hibernate caching.
 
 EhCache configuration for this persistence layer is defined in a file named `bonita-platform-hibernate-cache.xml.notused` and `bonita-tenant-hibernate-cache.xml.notused`.  
 To apply the configuration of those files, remove the '.notused' suffix.  

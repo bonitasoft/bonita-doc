@@ -11,7 +11,7 @@ Logged on with the Administrator or Process Manager profile, you have rights to 
 
 ## Start a case for another user
 
-This feature is available with the Efficiency and Performance editions.
+This feature is available with the Efficiency, Performance and Entreprise editions.
 
 To start a case for another user:
 
@@ -47,7 +47,7 @@ These changes to the view are stored in your browser [Local Storage](https://en.
 
 From this table, you can delete a cases, or several cases. Select the cases you want to delete, and click **_Delete_**. Confirm in the popup that you want to delete the selected cases.
 
-if you are using the Performance or Efficiency edition, you can also open a diagram of a case, by clicking on the picture icon for the case. 
+if you are using the Entreprise, Performance or Efficiency edition, you can also open a diagram of a case, by clicking on the picture icon for the case. 
 On the diagram, colored flags on the steps show the number of step instances in the possible states. Click **_Show key_** to see an explanation of the display. 
 Remember that a failure at a step does not necessarily mean that the case has failed entirely, but it might indicate that some action is needed, perhaps to replay a connector.
 

@@ -1,7 +1,7 @@
 # Overview of Bonita in a cluster
 
 ::: info
-**Note:** For Performance edition only.
+**Note:** For Entreprise and Performance editions only.
 :::
 
 You can use Bonita in a cluster configuration to provide increased availability: more than one node runs Bonita Engine, 

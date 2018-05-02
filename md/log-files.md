@@ -1,7 +1,7 @@
 # Log files
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 During development, the Studio log file contains messages about development activities, including any errors.

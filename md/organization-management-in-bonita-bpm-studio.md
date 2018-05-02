@@ -96,7 +96,7 @@ In order to log in to bonita UIs (Portal, applications...), a user must have at 
 **_In Teamwork edition_**, 3 provided profiles (User, Process Manager and Adminstrator) can be edited in the Studio using an XML editor (Go to Organization > Profiles > Open). For development purposes, all users mapped to role _member_ (cf _ACME_ organization) will benefit from all profiles in the Portal to let you log in with any of those users and test your processes.
 This will not be true for other environments.
 
-**_In Efficiency and Performance editions_**, in addition to provided profiles it is possible to defined custom profiles in the Studio using the [Profile Editor](profileCreation.md).
+**_In Efficiency, Performance and Entreprise editions_**, in addition to provided profiles it is possible to defined custom profiles in the Studio using the [Profile Editor](profileCreation.md).
 
 When creating or importing other organizations, you need to make sure that all users are mapped to at least one profile, through a group, a role, a membership, or as a user, to grant them access to Bonita Portal or applications.
 

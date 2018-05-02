@@ -1,7 +1,7 @@
 # Set up KPIs
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 This page presents two implementation options for creating KPIs and integrating them to business processes:

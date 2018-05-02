@@ -1,7 +1,7 @@
 # Multi-language pages
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 In the Bonita Subscription editions, the UI Designer includes a mechanism to add translations for page, layout and forms elements, to support multi-language applications.  

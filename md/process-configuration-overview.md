@@ -12,5 +12,5 @@ preferences set as [Bonita Studio preferences](bonita-bpm-studio-preferences.md)
 Before you export a process for deployment, you need to set the initial configuration [using the configuration wizard](configuring-a-process.md). 
 This configuration is exported with the process if you check the Configuration option in the export dialog when you 
 [build a .bar archive](import-and-export-a-process.md). 
-If you are using the Performance edition, you can [update the configuration after deployment](processes.md). 
+If you are using the Entreprise or the Performance edition, you can [update the configuration after deployment](processes.md). 
 For other editions, you can modify the actor mapping only.

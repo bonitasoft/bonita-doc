@@ -1,7 +1,7 @@
 # Queriable logger
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 This page describes the queriable logger service.
@@ -11,7 +11,7 @@ This page describes the queriable logger service.
 The queriable logger service provides information about important events in the Bonita Platform that are not directly related to execution of a process. The log includes information about administration operations such as deployment of a new process definition, commands, reporting, actor mapping, Portal Look & Feel themes, and organization and user management.
 
 The Bonita Engine stores information in the queriable log. The information in the log is accessible using the [LogAPI](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html)
-(Performance, Efficiency, and Teamwork editions only).
+(Entreprise, Performance, Efficiency, and Teamwork editions only).
 
 The information available from the queriable log is primarily for the platform and process administrator. It is not intended to be used as a notification system: avoid pooling on the queriable log. If you need to be notified of specific events, use the configurable event service.
 

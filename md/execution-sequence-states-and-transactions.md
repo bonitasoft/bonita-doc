@@ -4,7 +4,7 @@ This page describes the sequence of actions performed when a process instance is
 
 It shows the interactions between the Bonita Portal and Bonita Engine.
 
-In the sequences described in this page, some of the actions apply only to **Teamwork**, **Efficiency**, or **Performance** editions, and are marked "Subscription only".
+In the sequences described in this page, some of the actions apply only to **Teamwork**, **Efficiency**, **Performance**, or **Entreprise** editions, and are marked "Subscription only".
 
 For the **Community** edition, these actions are not relevant, but the order of the other actions is the same.
 

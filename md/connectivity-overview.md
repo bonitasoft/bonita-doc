@@ -37,8 +37,8 @@ In Bonita 6.x, you could add a connector to a form. This is no longer possible w
 
 To change the implementation of a connector for a process, update the [process configuration](configuring-a-process.md).  
 The implementation can also be changed after deployment:
-   - In versions 7.0.x, if you are using the Performance edition
-   - In versions 7.1.0 and above, if you are using the Performance or Efficiency edition
+   - In versions 7.0.x, if you are using the Entreprise or Performance edition
+   - In versions 7.1.0 and above, if you are using the Entreprise, Performance or Efficiency edition
 
 To change connector configuration for a pool or task, use the connector wizard:
 

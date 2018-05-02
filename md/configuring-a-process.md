@@ -2,7 +2,7 @@
 
 To configure a process in Bonita Studio, open the process diagram, select the pool, and click **_Configure_** in the Cool bar.
 
-If you are using a Performance, Efficiency, or Teamwork edition of Bonita, you can configure a process for an [environment](environments.md): 
+If you are using a Entreprise, Performance, Efficiency, or Teamwork edition of Bonita, you can configure a process for an [environment](environments.md): 
 with the process diagram open and the pool selected, choose an environment from
 the Configuration menu in the Cool bar.
 

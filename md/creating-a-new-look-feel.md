@@ -1,7 +1,7 @@
 # Create a new Look & Feel
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 A Look & Feel is defined in a set of files. You can set the Look & Feel for the Bonita Portal Web interface, an application, a custom page, or for the Bonita Portal Mobile interface. 
