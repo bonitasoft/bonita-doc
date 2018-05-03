@@ -129,9 +129,9 @@ An LDAP property may be used several times in the configuration file but each Bo
 
 These are the supported Bonita user properties:
 
-| General information | Professional information | Personal information | Custom information |
+| General information | Professional information | Personal information | Custom User Information |
 |:-----|:------------|:--------|:--------|
-|user\_name  <br/> first\_name  <br/> last\_name  <br/> title  <br/> job\_title  <br/> manager |  pro\_email  <br/> pro\_phone  <br/> pro\_mobile  <br/> pro\_fax  <br/> pro\_website  <br/> pro\_room  <br/> pro\_building  <br/> pro\_address  <br/> pro\_city  <br/> pro\_zip\_code  <br/> pro\_state  <br/> pro\_country | perso\_email  <br/> perso\_phone  <br/> perso\_mobile  <br/> perso\_fax  <br/> perso\_website  <br/> perso\_room  <br/> perso\_building  <br/> perso\_address  <br/> perso\_city  <br/> perso\_zip\_code  <br/> perso\_state  <br/> perso\_country |custom\_\<Custom Information\>| 
+|user\_name  <br/> first\_name  <br/> last\_name  <br/> title  <br/> job\_title  <br/> manager |  pro\_email  <br/> pro\_phone  <br/> pro\_mobile  <br/> pro\_fax  <br/> pro\_website  <br/> pro\_room  <br/> pro\_building  <br/> pro\_address  <br/> pro\_city  <br/> pro\_zip\_code  <br/> pro\_state  <br/> pro\_country | perso\_email  <br/> perso\_phone  <br/> perso\_mobile  <br/> perso\_fax  <br/> perso\_website  <br/> perso\_room  <br/> perso\_building  <br/> perso\_address  <br/> perso\_city  <br/> perso\_zip\_code  <br/> perso\_state  <br/> perso\_country |custom\_\<Custom User Information\>| 
 
 The following items are configured by default:
 
@@ -145,9 +145,9 @@ The following items are configured by default:
 | pro\_mobile | mobile |
 | perso\_phone | homePhone |
 
-**Custom information**
+**Custom User Information**
 
-The prefix ''custom\_'' is used to map any 'Custom information'. For example, to map the 'Custom information' "skypeId" and "room"
+The prefix ''custom\_'' is used to map any 'Custom User Information'. For example, to map the 'Custom User Information' "skypeId" and "room"
 from LDAP property "skype" and "roomNumber", the syntax is:
 
 ```
@@ -184,25 +184,25 @@ Default value: true
 Supported values: list of LDAP Group object identifiers separated by commas.  
 The syntax for group object properties is detailed in a later section.
 
-* bonita_user_custominfo_policy: Define the policy to synchronize the 'Custom Information'. The 
+* bonita_user_custominfo_policy: Define the policy to synchronize the 'Custom User Information'. The 
   different policy is detailed in a later section.  
   Default value: none
 
-* allow_custominfo_creation: define the strategy when a custom information is detected 
+* allow_custominfo_creation: define the strategy when a Custom User Information is detected 
   in the mapper.properties configuration, and not exist in the Bonita database. If this 
-  property is true, then the custom information is created.  
+  property is true, then the Custom User Information is created.  
 Default value: false
   
-#### Policy to synchronize the User Information
-In Bonita, you can defined a set of Custom information attributes. Then, each user has 
+#### Policy to synchronize the Custom User Information
+In Bonita, you can defined a set of Custom User Information attributes. Then, each user has 
 a value for each attribute.
-A policy named  bonita_user_custominfo_policy give the strategy to synchronize this 
+A policy named  bonita_user_custominfo_policy gives the strategy to synchronize this 
 information.
 All examples are based on 
 
-1. Two Custom Information exists in the Bonita database : *badgeId* and *room*
+1. Two Custom User Information exist in the Bonita database : *badgeId* and *room*
 
-2. the mapper.properties contains  
+2. The mapper.properties contains  
 
 ```
 custom_badgeId = ldapBadgeIdentification
@@ -216,7 +216,7 @@ The *room* is not declared in the mapper.properties.
 bonita_user_custominfo_policy = none
 ```
 
-no 'Custom Information' is synchronized.
+no 'Custom User Information' is synchronized.
 
 * **partial** : 
 
@@ -224,9 +224,9 @@ no 'Custom Information' is synchronized.
 bonita_user_custominfo_policy = partial
 ```
 
-Synchronize only 'Custom Information' declared in the mapper.properties.
+Synchronize only 'Custom User Information' declared in the mapper.properties.
  
-A 'Custom Information' not declared in mapper.properties will not be modified. When the Ldap Object doesn't have a property, it will not be modified.
+A 'Custom User Information' not declared in mapper.properties will not be modified. When the Ldap Object doesn't have a property, it will not be modified.
 
 | LDAP object | LDAP property | Synchronization |
 |:------------|:--------------|:---------------------------|
@@ -253,7 +253,7 @@ Same as partial, plus if the Ldap Object doesn't have a property, it will be set
 bonita_user_custominfo_policy = full
 ```
 
-Synchronize all 'Custom Information'. If a 'Custom Information' is not declared in mapper.properties, or the Ldap doesn't have the property, it is set to null
+Synchronize all 'Custom User Information'. If a 'Custom User Information' is not declared in mapper.properties, or the Ldap doesn't have the property, it is set to null
  
 | LDAP object | LDAP property | Synchronization |
 |:------------|:--------------|:---------------------------|
