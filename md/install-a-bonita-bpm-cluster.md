@@ -146,23 +146,6 @@ The platform setup tool is also present in the Tomcat or WildFly bundle under th
 * Update configuration files that are in the `platform_conf/current` folder of the platform setup tool.
     * In `platform_init_engine/bonita-platform-init-community-custom.properties` as described in [Create and initialize database](#create_init_bonita_db).
     * In `platform_engine/bonita-platform-sp-custom.properties` as described in [Create and initialize database](#create_init_bonita_db).
-* Change quartz scheduler name in database: required when Bonita BPM version is `7.3.1` or lower, otherwise this step is managed by migration tool.
-    * disable foreign keys on tables `qrtz_cron_triggers`, `qrtz_simple_triggers`, `qrtz_simprop_triggers` and `qrtz_triggers`
-    * execute following SQL update:
-    ```sql
-    UPDATE QRTZ_LOCKS SET SCHED_NAME = 'BonitaClusteredScheduler';
-    UPDATE QRTZ_CRON_TRIGGERS SET SCHED_NAME = 'BonitaClusteredScheduler';
-    UPDATE QRTZ_SIMPLE_TRIGGERS SET SCHED_NAME = 'BonitaClusteredScheduler';
-    UPDATE QRTZ_JOB_DETAILS SET SCHED_NAME = 'BonitaClusteredScheduler';
-    UPDATE QRTZ_FIRED_TRIGGERS SET SCHED_NAME = 'BonitaClusteredScheduler';
-    UPDATE QRTZ_TRIGGERS SET SCHED_NAME = 'BonitaClusteredScheduler';
-    UPDATE QRTZ_SCHEDULER_STATE SET SCHED_NAME = 'BonitaClusteredScheduler';
-    UPDATE QRTZ_SIMPROP_TRIGGERS SET SCHED_NAME = 'BonitaClusteredScheduler';
-    UPDATE QRTZ_CALENDARS SET SCHED_NAME = 'BonitaClusteredScheduler';
-    UPDATE QRTZ_BLOB_TRIGGERS SET SCHED_NAME = 'BonitaClusteredScheduler';
-    UPDATE QRTZ_PAUSED_TRIGGER_GRPS SET SCHED_NAME = 'BonitaClusteredScheduler';
-    ```
-    * enable foreign keys on tables `qrtz_cron_triggers`, `qrtz_simple_triggers`, `qrtz_simprop_triggers` and `qrtz_triggers`
 * Copy licenses of all your nodes in `platform_conf/licenses`
 * Run the `setup.sh push` or `setup.bat push`. This will update in database the configuration of your platform.
 
