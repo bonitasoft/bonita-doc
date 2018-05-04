@@ -167,7 +167,8 @@ Example:
 **Important**: If you don't use `bonita.platform.cluster.hazelcast.multicast.enabled`, **you must uncomment the # properties and set it to `false`** as follows: `bonita.platform.cluster.hazelcast.multicast.enabled=false`.
 For more information on this take a look at the [Hazelcast Documentation](http://docs.hazelcast.org/docs/3.4/manual/html-single/index.html#discovering-cluster-members).
 
-1. Change quartz scheduler name in database (step 10 to 12): required when Bonita BPM version is `7.3.1` or lower, otherwise this step is managed by migration tool.
+::: info
+* **The 3 steps below are required when Bonita BPM version is `7.3.1` or lower, otherwise this step is managed by migration tool. Change quartz scheduler name in database:**
 1. disable foreign keys on tables `qrtz_cron_triggers`, `qrtz_simple_triggers`, `qrtz_simprop_triggers` and `qrtz_triggers`
 1. execute following SQL update:
 
@@ -186,6 +187,8 @@ For more information on this take a look at the [Hazelcast Documentation](http:/
     ```
 
 1. enable foreign keys on tables `qrtz_cron_triggers`, `qrtz_simple_triggers`, `qrtz_simprop_triggers` and `qrtz_triggers`
+:::    
+
 1. Copy licenses of all your nodes in `platform_conf/licenses`
 1. Run the `setup.sh push` or `setup.bat push`. This will update in database the configuration of your platform.
 
