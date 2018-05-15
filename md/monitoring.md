@@ -1,7 +1,7 @@
 # Monitoring
 
 ::: info
-**Note:** For Entreprise, Performance and Efficiency editions only.
+**Note:** For Enterprise, Performance and Efficiency editions only.
 :::
 
 Monitoring gives information relative to a process.

@@ -6,7 +6,7 @@ The left pane is for filters, the middle one for lists and the right one for mor
 
 ## Default profiles
 
-There are three default profiles available in the Portal: **User**, **Administrator**, and (in the Efficiency, Performance and Entreprise editions) **Process manager**.
+There are three default profiles available in the Portal: **User**, **Administrator**, and (in the Efficiency, Performance and Enterprise editions) **Process manager**.
 
 The **Administrator** is responsible for the administration of the Portal at tenant level, and particularly for the management of the processes, the organization, the reports, the custom profiles and the Look & Feel.
 

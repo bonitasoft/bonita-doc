@@ -125,7 +125,7 @@ You need to map more organization entities to the actor labelled _initiator_ in 
 
 ## Modify a parameter in the Administrator profile
 
-**Note:** In versions 7.0.x, this feature is only available for Bonita Entreprise and Performance editions. Starting from version 7.1.0, this feature is available for Bonita Entreprise, Performance and Efficiency editions. 
+**Note:** In versions 7.0.x, this feature is only available for Bonita Enterprise and Performance editions. Starting from version 7.1.0, this feature is available for Bonita Enterprise, Performance and Efficiency editions. 
 
 1. Go to the BPM tab
 2. Click _**Processes**_
@@ -138,7 +138,7 @@ You need to map more organization entities to the actor labelled _initiator_ in 
 
 ## Edit a connector implementation
 
-**Note:** In versions 7.0.x, this feature is only available for Bonita Entreprise and Performance editions. Starting from version 7.1.0, this feature is available for Bonita Entreprise, Performance and Efficiency editions. 
+**Note:** In versions 7.0.x, this feature is only available for Bonita Enterprise and Performance editions. Starting from version 7.1.0, this feature is available for Bonita Enterprise, Performance and Efficiency editions. 
 
 1. Go to the BPM tab
 2. Click _**Processes**_
@@ -150,7 +150,7 @@ You need to map more organization entities to the actor labelled _initiator_ in 
 
 ## Fix forms
 
-**Note:** For Bonita Entreprise, Performance and Efficiency editions only.
+**Note:** For Bonita Enterprise, Performance and Efficiency editions only.
 
 1. Go to the BPM tab.
 2. Click _**Processes**_.
@@ -165,7 +165,7 @@ You need to map more organization entities to the actor labelled _initiator_ in 
 
 ## Upload a new form
 
-**Note:** For Bonita Entreprise, Performance and Efficiency editions only.
+**Note:** For Bonita Enterprise, Performance and Efficiency editions only.
 
 1. Go to the BPM tab.
 2. Click _**Processes**_.
@@ -181,7 +181,7 @@ You need to map more organization entities to the actor labelled _initiator_ in 
 
 ## Edit an existing form
 
-**Note:** For Bonita Entreprise, Performance and Efficiency editions only.
+**Note:** For Bonita Enterprise, Performance and Efficiency editions only.
 
 1. Go to the BPM tab.
 2. Click _**Processes**_.
@@ -197,7 +197,7 @@ You need to map more organization entities to the actor labelled _initiator_ in 
 
 ## Edit a script content
 
-**Note:** For Bonita Entreprise, Performance and Efficiency editions only.
+**Note:** For Bonita Enterprise, Performance and Efficiency editions only.
 
 1. Go to the BPM tab
 2. Click _**Processes**_

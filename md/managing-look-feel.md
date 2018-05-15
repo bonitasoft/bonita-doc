@@ -1,7 +1,7 @@
 # Manage Look & Feel
 
 ::: info
-**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 A Look & Feel defines the appearance of Bonita Portal Web interface and Bonita Portal Mobile interface.

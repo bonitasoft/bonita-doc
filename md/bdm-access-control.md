@@ -1,7 +1,7 @@
 # BDM access control
 
 ::: info
-**Note:** for Entreprise, Performance and Efficiency editions only.
+**Note:** for Enterprise, Performance and Efficiency editions only.
 :::
 
 ## Overview

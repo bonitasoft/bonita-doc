@@ -51,6 +51,6 @@ See [Configure a test organization](organization-management-in-bonita-bpm-studio
 
 ## Environments and parameters
 
-An environment (available in the Bonita Entreprise, Performance, Efficiency, and Teamwork editions) is the context in which a process will run.  
+An environment (available in the Bonita Enterprise, Performance, Efficiency, and Teamwork editions) is the context in which a process will run.  
 There are three standard environments: Local, Qualification, and Production. You can define additional environments that are useful when designing and deploying a process for your business.  
 A parameter is a piece of information in a process that has a value specific to the environment. See [Environments](environments.md) and [Parameters](parameters.md) for more details.

@@ -1,7 +1,7 @@
 # Log in with CAS
 
 ::: info
-**Note:** For Entreprise, Performance and Efficiency editions only.
+**Note:** For Enterprise, Performance and Efficiency editions only.
 :::
 
 Depending on your underlying authentication service, you may need to provide other information with the API in order to log in. A login method with a map enables you to provide the set of credentials that the authentication service requires. 

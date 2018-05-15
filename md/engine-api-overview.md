@@ -28,14 +28,14 @@ Bonita Engine has the following Java APIs:
 | Platform command API | Creates, starts, stops platform.|  
 | Document API | Manages documents that are attached to a process instance.|  
 | Theme API | Manages the Look & Feel of the Bonita Portal web and mobile interfaces and forms.|  
-| Tenant Management API | Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in Teamwork, Efficiency, Performance and Entreprise editions.|  
+| Tenant Management API | Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in Teamwork, Efficiency, Performance and Enterprise editions.|  
 
 There is also a Web API, which is for internal use only, and a Command API,
 which is primarily for internal use.
 
 For details of the Engine APIs, the methods and related objects, see the 
 [Javadoc](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html). 
-Note that the APIs are the same for the Teamwork, Efficiency, Performance and Entreprise editions, but some features are only active if the appropriate license is installed. 
+Note that the APIs are the same for the Teamwork, Efficiency, Performance and Enterprise editions, but some features are only active if the appropriate license is installed. 
 If you try to access a feature for which you do not have a license, a _Feature not active_ error message is returned.
 
 There is also a high-level [Web REST API](rest-api-overview.md), intended for customers developing portal applications.

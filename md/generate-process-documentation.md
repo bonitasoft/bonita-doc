@@ -1,7 +1,7 @@
 # Generate process documentation
 
 ::: info
-**Note:** For Bonita Entreprise, Performance, Efficiency, and Teamwork editions only.
+**Note:** For Bonita Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 ## Overview

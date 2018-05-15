@@ -1,7 +1,7 @@
 # Access control API
 
  ::: info
- **Note:** This API is only available in Entreprise, Efficiency and Performance editions.
+ **Note:** This API is only available in Enterprise, Efficiency and Performance editions.
  :::
 
 ## BDM

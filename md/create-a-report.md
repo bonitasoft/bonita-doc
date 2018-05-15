@@ -1,7 +1,7 @@
 # Create a report
 
 ::: info
-**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 The final step when setting up reporting is to create a report template using a Business Intelligence (BI) tool.

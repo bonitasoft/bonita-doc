@@ -41,7 +41,7 @@ This is useful if you want to display some property of the current element.
 
 ### Save as fragment
 
-If you are using the Entreprise, Performance, Efficiency, or Teamwork edition, you can save any container as a fragment. This enables you to reuse the set of widgets in other pages.
+If you are using the Enterprise, Performance, Efficiency, or Teamwork edition, you can save any container as a fragment. This enables you to reuse the set of widgets in other pages.
 
 ### Tab container widget
 

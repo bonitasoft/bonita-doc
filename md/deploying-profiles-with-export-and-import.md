@@ -1,7 +1,7 @@
 # Deploy profiles with export and import
 
 ::: info
-**Note:** For ntreprise, Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 ## Overview

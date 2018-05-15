@@ -1,7 +1,7 @@
 # Custom profiles
 
 ::: info
-**Note:** For Entreprise, Performance and Efficiency editions only.
+**Note:** For Enterprise, Performance and Efficiency editions only.
 :::
 
 In Bonita Portal, you can customize profiles. To be able to do any customization of a profile, you must be using the **Administrator** profile or a custom profile with access to the profile management page.

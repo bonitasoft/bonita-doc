@@ -1,7 +1,7 @@
 # Analytics
 
 ::: info
-**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 A report presents the Administrator with data about the usage of cases and tasks in processes. 

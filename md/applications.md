@@ -45,7 +45,7 @@ To integrate a process into an application, you specify a link in an application
 
 ::: info
 Since Bonita 7.5.0, the definition of applications can be done from the studio, which makes it more straightforward to develop and package with other application artifacts.
-For Entreprise, Efficiency and Performance editions, a graphical editor is provided on top of xml source code.
+For Enterprise, Efficiency and Performance editions, a graphical editor is provided on top of xml source code.
 For more details, go to [Application descriptors](applicationCreation.md)
 :::
 
