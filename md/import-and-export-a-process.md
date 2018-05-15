@@ -31,8 +31,8 @@ You can also [migrate a process diagram from Bonita Open Solution 5.x](migrate-a
 
 A diagram that was exported from the same edition of Bonita, or a lower edition, can be imported successfully. 
 You cannot import a diagram from a higher edition. 
-For example, you can import a diagram created with the Community edition into an Entreprise edition Bonita Studio, 
-but you cannot import a diagram that was created with the Entreprise edition into a Community edition Bonita Studio.
+For example, you can import a diagram created with the Community edition into an Enterprise edition Bonita Studio, 
+but you cannot import a diagram that was created with the Enterprise edition into a Community edition Bonita Studio.
 
 If the format to be imported is BPMN 2.0 compatible, any of the BPMN 2.0 elements displayed in the Bonita Studio **BPMN elements** menu, can be imported successfully. However, if the element to be 
 imported is **not displayed **in the **BPMN elements** menu, it is not supported by Bonita, so Bonita Studio will _interpret_ the element and create the _closest BPMN element_
@@ -53,7 +53,7 @@ which export in the .bpmn format.
 
 #### Microsoft Visio 2010 (\*.vdx)
 
-This feature is available in the Entreprise, Performance, Efficiency, and Teamwork editions.
+This feature is available in the Enterprise, Performance, Efficiency, and Teamwork editions.
 
 * The Visio import format must be .vdx. The .vsd format is not supported in Bonita Studio.
 * Only horizontal display is supported.
@@ -62,7 +62,7 @@ This feature is available in the Entreprise, Performance, Efficiency, and Teamwo
 
 #### Aris BPM 7.x (\*.xml)
 
-* This feature is available in the Entreprise, Performance, Efficiency, and Teamwork editions.
+* This feature is available in the Enterprise, Performance, Efficiency, and Teamwork editions.
 
 See the [Aris website](http://www.softwareag.com/corporate/products/az/aris/default.asp) for 
 more information about exporting in the BPMN 2.0 format ready for importing into Bonita Studio.

@@ -5,7 +5,7 @@
 Basically, a **profile** is an XML file. It contains the profile name, a description, the mapping with the organization (which users / groups / roles / memberships have this profile) and the Bonita Portal menu entries (menus accessible to a user logged in the portal with this profile).  
 A profile must be imported onto the portal, in the **Profiles** tab, to enable the profile (you need to connect with the **Administrator** profile to do it).  
 Since Bonita 7.6.0, Bonita Studio offers this feature, for better packaging and deployment.
-For development purposes, the Studio can **deploy** profiles onto the portal for you (_only for Entreprise, Performance and Efficiency editions_).
+For development purposes, the Studio can **deploy** profiles onto the portal for you (_only for Enterprise, Performance and Efficiency editions_).
 
 Profiles are packaged in **files of profiles**.  
 A **file of profiles** is an XML file containing one or more profiles.  
@@ -31,12 +31,12 @@ There is a special file of profiles for default profiles: `default_profiles.xml`
 This file can only contain default profiles and cannot be renamed or deleted.
 Only the mapping between default profiles and entities of the organization can be edited.
 
-Only Entreprise, Performance and Efficiency editions can create new file of profiles, in order to create custom profiles.
+Only Enterprise, Performance and Efficiency editions can create new file of profiles, in order to create custom profiles.
 
 ## Create and build a profile
 
 ::: info
-**Note:** All Bonita subscription editions come with an .xml editor for this feature. Only Entreprise, Performance and Efficiency editions also come with a graphical UI.
+**Note:** All Bonita subscription editions come with an .xml editor for this feature. Only Enterprise, Performance and Efficiency editions also come with a graphical UI.
 :::
 
 From Bonita Studio, click on **Organization** -> **Profile** -> **New...**  

@@ -1,7 +1,7 @@
 # LDAP synchronizer
 
 ::: info
-**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 The LDAP synchronizer is a service for synchronizing 

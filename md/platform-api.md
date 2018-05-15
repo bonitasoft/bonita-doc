@@ -79,7 +79,7 @@ Start or stop the current node, that is, start or stop all services of the curre
 
 #### Description
 
-Handle the tenants (Entreprise and Performance editions only). This requires a platform session. Log in using the platformloginservice servlet.
+Handle the tenants (Enterprise and Performance editions only). This requires a platform session. Log in using the platformloginservice servlet.
 
 #### Identifier
 

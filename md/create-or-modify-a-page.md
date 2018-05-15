@@ -28,7 +28,7 @@ With the form type set to **UI Designer**, you can select a form from the dropdo
 
 After a page, layout, form, fragment is created, you can update it in the **Page editor**. Update your page, form or fragment by dragging and dropping widgets from the palette to the whiteboard. Edit widget properties in the widget properties panel, create data, and bind it to the widgets.
 
-In the Entreprise, Performance and Efficiency editions, you can optimize the page or form design for a given device type by configuring [device-specific values for the Width property](widget-properties.md) for widgets. Use the a device types bar in the Page editor to choose the target device type.
+In the Enterprise, Performance and Efficiency editions, you can optimize the page or form design for a given device type by configuring [device-specific values for the Width property](widget-properties.md) for widgets. Use the a device types bar in the Page editor to choose the target device type.
 ![Device type selection](images/images-6_0/pb-resolution.png)
 
 Custom widget is a special artifact that we will explain in a later chapter.
@@ -37,7 +37,7 @@ Custom widget is a special artifact that we will explain in a later chapter.
 
 You can preview page, form and fragment rendering by clicking the **_Preview_** button. Another browser window opens with the artifact as it will be displayed after deployment. If you update the page, form or fragment, the preview is automatically refreshed when you save (not available for Internet Explorer 9).
 
-In the Entreprise, Performance and Efficiency editions, you can use the a device types bar on the preview screen to choose the target device type.  
+In the Enterprise, Performance and Efficiency editions, you can use the a device types bar on the preview screen to choose the target device type.  
 The preview displays the artifact as it would be displayed on the selected type of device.
 
 Custom widget is a special artifact that we will explain in a later chapter.

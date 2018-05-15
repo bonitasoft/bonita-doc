@@ -1,7 +1,7 @@
 # Reporting overview
 
 ::: info
-**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 This page presents an overview of reporting with Bonita.

@@ -1,7 +1,7 @@
 # Restore the default Look & Feel
 
 ::: info
-**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 Normally, the Look & Feel for Bonita Portal and for process forms is [managed using Bonita Portal](managing-look-feel.md). However, it is also possible to restore the default Look & Feel using the Bonita Engine API. 

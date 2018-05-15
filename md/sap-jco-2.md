@@ -1,7 +1,7 @@
 # SAP JCo 2
 
 ::: info
-**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 The SAP Java Connector (SAP JCo 2) is a toolkit that allows a Java application to communicate with any SAP system.  
@@ -83,7 +83,7 @@ To install JCo for Linux:
 
 ## How to import the SAP JCo2 library
 
-In the Teamwork, Efficiency, Performance, and Entreprise editions, import of the jar file by clicking on the **_Import sapjco.jar_** button in the connection configuration window. Then restart Bonita Studio.
+In the Teamwork, Efficiency, Performance, and Enterprise editions, import of the jar file by clicking on the **_Import sapjco.jar_** button in the connection configuration window. Then restart Bonita Studio.
 
 In the Community edition, there is no import button. The JCo2 library must be imported into the `/endorsed` directory of your Bonita Studio installation by hand. Then restart Bonita Studio.
 
@@ -106,7 +106,7 @@ The result will be shown in the Bonita Portal as a value in a field and in the .
 
 ## Advanced features in Subscription Editions
 
-In the Bonita Teamwork, Efficiency, Performance, and Entreprise editions, the SAP wizard has advanced features: You do not need to know the names of the functions by heart, as the functions are suggested in a dropdown menu.
+In the Bonita Teamwork, Efficiency, Performance, and Enterprise editions, the SAP wizard has advanced features: You do not need to know the names of the functions by heart, as the functions are suggested in a dropdown menu.
 
 * Filter functions by group: a dropdown list listing all the functions by group
 * Function description: a dropdown list listing all the functions, with auto-complete (just type the first letter e.g. G to give a list of Get functions

@@ -1,7 +1,7 @@
 # Set up a reporting database
 
 ::: info
-**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 Before you put reporting in place, you need to create a dedicated reporting database.

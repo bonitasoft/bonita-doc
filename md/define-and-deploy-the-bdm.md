@@ -224,7 +224,7 @@ Follow these steps:
 5. Log in to Bonita Portal as the technical user.
 6. Go to the **BPM Services** page.
 7. Click **Pause**.
-8. When the BPM services are paused, go to the **Business Data Model** menu (and, for Efficiency, Performance and Entreprise editions, choose **Definition**).
+8. When the BPM services are paused, go to the **Business Data Model** menu (and, for Efficiency, Performance and Enterprise editions, choose **Definition**).
 9. Specify the file containing the business data model that you exported from Bonita Studio.
 10. Click _**Activate**_. A warning is displayed, reminding you that installing this new BDM will overwrite the existing BDM.
 11. Click on **Install** to complete the deployment. Bonita Portal loads the file, and retrieves the object definition enabling processes to use them at runtime. It also creates or updates the database schema in the business database, to store business objects appropriately when modified by processes. When the deployment is complete, a message is displayed. If deployment fails, use the Engine logs to analyze the problem.

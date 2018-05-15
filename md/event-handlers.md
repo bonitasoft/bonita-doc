@@ -1,7 +1,7 @@
 # Event handlers
 
 ::: info
-**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 An event handler is an extension to the engine that is configured to run when a specified event occurs.

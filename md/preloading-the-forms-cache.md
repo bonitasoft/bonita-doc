@@ -36,7 +36,7 @@ To preload the forms cache, use the formsCache service, which is accessed over H
 
 First, send a GET request to retrieve the list of forms in a specified process. Then send a PUT request for each form to load it into the cache. The PUT request can sometimes take several seconds to respond, depending on the complexity of the form.
 
-If you are using the Entreprise, Performance or Efficiency edition, you can create a custom page to preload the forms cache. For the Teamwork or Community edition, you need to create an application.
+If you are using the Enterprise, Performance or Efficiency edition, you can create a custom page to preload the forms cache. For the Teamwork or Community edition, you need to create an application.
 
 ## Forms cache configuration
 

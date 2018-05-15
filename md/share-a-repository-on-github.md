@@ -1,7 +1,7 @@
 # How to share a repository on Github
 
 ::: info
-**Note:** For Entreprise, Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 This page explains how to push a Bonita repository on [GitHub](https://github.com/). For more information on Git integration in Studio, you can read the [reference documentation page](workspaces-and-repositories.md#git).

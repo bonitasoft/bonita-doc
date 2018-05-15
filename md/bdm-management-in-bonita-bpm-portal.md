@@ -13,7 +13,7 @@ The Business objects must match the structure used by the deployed processes. Ma
 
 ::: info
 **:fa-info-circle: Note:** The deployment of a Business Data Model requires pausing the service during the operation, so that the update can be performed without affecting ongoing processes. 
- For Entreprise, Efficiency and Performance editions, you must have no [access control](#installAccessControl) file installed in order to be able to install or update the Business Data Model.
+ For Enterprise, Efficiency and Performance editions, you must have no [access control](#installAccessControl) file installed in order to be able to install or update the Business Data Model.
 :::
 
 5. When services are paused, go to the **BDM** menu.
@@ -40,7 +40,7 @@ This limitation is well known and will be addressed in a future Bonita version.
 :::
 
 ::: info
-**Note:** For Entreprise, Efficiency and Performance editions only.
+**Note:** For Enterprise, Efficiency and Performance editions only.
 :::
 
 <a id="installAccessControl"/>

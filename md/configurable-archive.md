@@ -1,10 +1,10 @@
 # Configurable Archive
 
 ::: info
-**Note:** For Entreprise and Performance editions only.
+**Note:** For Enterprise and Performance editions only.
 :::
 
-The Configurable Archive feature is provided by the `com.bonitasoft.engine.archive.impl.ListArchivingStrategy `service implementation, which only works with a **Entreprise or Performance license**. 
+The Configurable Archive feature is provided by the `com.bonitasoft.engine.archive.impl.ListArchivingStrategy `service implementation, which only works with a **Enterprise or Performance license**. 
 It enables you to specify for each FlowNode type whether or not to archive values when the flow node is changed. This determines what information 
 (for example archived instances of processes and executed tasks) is available to an administrator in Bonita Portal.
 
