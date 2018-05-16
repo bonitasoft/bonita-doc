@@ -351,3 +351,67 @@ Then use the business object (which is stored only in memory at this point) in a
 #### BDM and custom REST APIs
 
 Be aware that a poor implementation of a custom REST API accessing BDM objects can lead to poor performance results. See the [best practice](bdm-in-rest-api.md) on this matter.
+
+
+#### Handle BDM database schema manually
+
+::: warning
+This section is for advanced usage. You should fully understand the database changes made when you update the Business Data Model before considering using
+this alternative.
+:::
+
+You can use an alternative database `SchemaManager` implementation. A `SchemaManager` is responsible for updating the BDM Database schema, according to the changes you have made to your
+Business Data Model. As our third-party persistence layer *Hibernate* does not support all type of schema updates, you may want to use a SchemaManager that does **not** update the database
+tables directly, but rather let you (or your Database Administrator) update the database "manually".
+
+For that, you can use the alternative we provide, by uncommenting the following lines in file `platform_conf/current/tenants/[TENANT_ID]/tenant_engine//bonita-tenants-custom.xml` using [setup tool](BonitaBPM_platform_setup.md#update_platform_conf).
+
+```xml
+    <!-- Schema Manager that avoids to update the database schema when updating BDM -->
+    <!--
+    <bean id="schemaManager" class="org.bonitasoft.engine.business.data.impl.SchemaManagerReadOnly">
+        <constructor-arg name="loggerService" ref="tenantTechnicalLoggerService" />
+    </bean>
+    -->
+```
+
+With this alternative, you should carefully update the database before deploying the new BDM version. Otherwise, there are a number of pitfals you may fall into.
+
+Errors you can get if you:
+
+* use a business object without updating the database schema:
+```
+15-May-2018 12:04:12.106 ERROR [http-nio-52162-exec-8] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions Table "BUSINESSOBJECT1" not found; SQL statement:
+insert into BUSINESSOBJECT1 (persistenceId, ATTRIBUT1, ATTRIBUT2, ATTRIBUT3, persistenceVersion) values (null, ?, ?, ?, ?) [42102-175]
+15-May-2018 12:04:12.113 GRAVE [http-nio-52162-exec-8] org.restlet.resource.ServerResource.doCatch Exception or error caught in server resource
+ org.bonitasoft.engine.exception.BonitaRuntimeException: USERNAME=walter.bates | org.bonitasoft.engine.commons.exceptions.SRetryableException: javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not prepare statement
+```
+* extend the length of a business object attribute without updating the database column:
+```
+15-May-2018 16:09:28.066 WARN [http-nio-52162-exec-4] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions SQL Error: 22001, SQLState: 22001
+15-May-2018 16:09:28.067 ERROR [http-nio-52162-exec-4] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions Value too long for column "ATTRIBUT1 VARCHAR_IGNORECASE(20)": "CAST(STRINGDECODE('   30     caract\u00e8res__________') AS VARCHAR_IGNORECASE) (30)"; SQL statement:
+insert into BUSINESSOBJECT1 (persistenceId, ADDEDCOLUMN, ATTRIBUT1, ATTRIBUT2, NEWBOOLEAN, persistenceVersion, RENAMEDCOLUMN) values (null, ?, ?, ?, ?, ?, ?) [22001-175]
+15-May-2018 16:09:28.075 GRAVE [http-nio-52162-exec-4] org.restlet.resource.ServerResource.doCatch Exception or error caught in server resource
+ org.bonitasoft.engine.exception.BonitaRuntimeException: USERNAME=walter.bates | org.bonitasoft.engine.commons.exceptions.SRetryableException: javax.persistence.PersistenceException: org.hibernate.exception.DataException: could not execute statement
+```
+* change the type of a business object attribute without updating the database column:
+```
+15-May-2018 17:00:08.083 WARN [http-nio-52162-exec-5] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions SQL Error: 22018, SQLState: 22018
+15-May-2018 17:00:08.084 ERROR [http-nio-52162-exec-5] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions Data conversion error converting "'now is a String' (BUSINESSOBJECT1: NEWBOOLEAN BOOLEAN)"; SQL statement:
+insert into BUSINESSOBJECT1 (persistenceId, ADDEDCOLUMN, ATTRIBUT1, ATTRIBUT2, NEWBOOLEAN, persistenceVersion, RENAMEDCOLUMN) values (null, ?, ?, ?, ?, ?, ?) -- (NULL, ?1, ?2, ?3, ?4, ?5, ?6) [22018-175]
+15-May-2018 17:00:08.085 GRAVE [http-nio-52162-exec-5] org.restlet.resource.ServerResource.doCatch Exception or error caught in server resource
+ org.bonitasoft.engine.exception.BonitaRuntimeException: USERNAME=walter.bates | org.bonitasoft.engine.commons.exceptions.SRetryableException: javax.persistence.PersistenceException: org.hibernate.exception.DataException: could not execute statement
+```
+* change a relation between two business objects without updating the database / constraints:
+```
+[...]
+Caused by: groovy.lang.MissingMethodException: No signature of method: com.company.model.Invoice.addToLines() is applicable for argument types: (com.company.model.InvoiceLine) values: [com.company.model.InvoiceLine@623c31c]
+```
+* remove a composition relation without removing the foreign key in database:
+```
+16-May-2018 10:25:01.030 WARN [http-nio-52162-exec-10] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions SQL Error: 23502, SQLState: 23502
+16-May-2018 10:25:01.030 ERROR [http-nio-52162-exec-10] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions NULL not allowed for column "INVOICE_PID"; SQL statement:
+insert into INVOICELINE (persistenceId, persistenceVersion, TITLE) values (null, ?, ?) [23502-175]
+16-May-2018 10:25:01.038 GRAVE [http-nio-52162-exec-10] org.restlet.resource.ServerResource.doCatch Exception or error caught in server resource
+ org.bonitasoft.engine.exception.BonitaRuntimeException: USERNAME=walter.bates | org.bonitasoft.engine.commons.exceptions.SRetryableException: javax.persistence.PersistenceException: org.hibernate.exception.ConstraintViolationException: could not execute statement
+```
