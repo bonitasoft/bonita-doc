@@ -38,7 +38,7 @@ The Workspace API tooling (headless studio build) has been deprecated. You are r
 
 ### Technology updates
 
-* The supported Tomcat version for this new release is Tomcat 8.5.30 (included in the bundle).
+* The supported Tomcat version for this new release is Tomcat 8.5.31 (included in the bundle).
 
 #### Acknowledgments
 Thank you [Jerome Ventribout](https://github.com/jventrib) (Engine) for your contribution.
