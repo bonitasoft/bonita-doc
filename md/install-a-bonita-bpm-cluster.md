@@ -166,29 +166,6 @@ Example:
 `bonita.platform.cluster.hazelcast.tcpip.members=ipServer01,ipServer02,ipServer03`
 **Important**: If you don't use `bonita.platform.cluster.hazelcast.multicast.enabled`, **you must uncomment the # properties and set it to `false`** as follows: `bonita.platform.cluster.hazelcast.multicast.enabled=false`.
 For more information on this take a look at the [Hazelcast Documentation](http://docs.hazelcast.org/docs/3.4/manual/html-single/index.html#discovering-cluster-members).
-
-::: info
-* **The 3 steps below are required when Bonita BPM version is `7.3.1` or lower, otherwise this step is managed by migration tool. Change quartz scheduler name in database:**
-1. disable foreign keys on tables `qrtz_cron_triggers`, `qrtz_simple_triggers`, `qrtz_simprop_triggers` and `qrtz_triggers`
-1. execute following SQL update:
-
-    ```sql
-    UPDATE QRTZ_LOCKS SET SCHED_NAME = 'BonitaClusteredScheduler';
-    UPDATE QRTZ_CRON_TRIGGERS SET SCHED_NAME = 'BonitaClusteredScheduler';
-    UPDATE QRTZ_SIMPLE_TRIGGERS SET SCHED_NAME = 'BonitaClusteredScheduler';
-    UPDATE QRTZ_JOB_DETAILS SET SCHED_NAME = 'BonitaClusteredScheduler';
-    UPDATE QRTZ_FIRED_TRIGGERS SET SCHED_NAME = 'BonitaClusteredScheduler';
-    UPDATE QRTZ_TRIGGERS SET SCHED_NAME = 'BonitaClusteredScheduler';
-    UPDATE QRTZ_SCHEDULER_STATE SET SCHED_NAME = 'BonitaClusteredScheduler';
-    UPDATE QRTZ_SIMPROP_TRIGGERS SET SCHED_NAME = 'BonitaClusteredScheduler';
-    UPDATE QRTZ_CALENDARS SET SCHED_NAME = 'BonitaClusteredScheduler';
-    UPDATE QRTZ_BLOB_TRIGGERS SET SCHED_NAME = 'BonitaClusteredScheduler';
-    UPDATE QRTZ_PAUSED_TRIGGER_GRPS SET SCHED_NAME = 'BonitaClusteredScheduler';
-    ```
-
-1. enable foreign keys on tables `qrtz_cron_triggers`, `qrtz_simple_triggers`, `qrtz_simprop_triggers` and `qrtz_triggers`
-:::    
-
 1. Copy licenses of all your nodes in `platform_conf/licenses`
 1. Run the `setup.sh push` or `setup.bat push`. This will update in database the configuration of your platform.
 
