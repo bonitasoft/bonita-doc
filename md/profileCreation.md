@@ -3,7 +3,7 @@
 ## Definition
 
 ### Fonctional
-Profiles are used to grant some rights to some entities of the organization (users / groups / roles / memberships).
+Profiles are used to grant some rights to users of the organizatin, directly or through groups, roles, and memberships.
 Those rights can be:
 - Accessing a Portal menu
 - Accessing a Living Application content (introduced in Bonita 7.0.0)
@@ -12,7 +12,6 @@ Those rights can be:
 A profile is made of a name, a description, and a mapping with the organization entities. 
 When the profile is used to access a Portal menu, Portal menu entries must be defined in the profile too.  
 (When used to access a Living Application, the application menu is defined in the [application descriptor](applicationCreation.md) itself.)  
-Since Bonita 7.6.0, profiles can be managed in the studio, for easier packaging and deployment.  
 
 Only users of Performance and Efficiency editions can create profiles.  
 Community and Teamwork can use the default profiles: **Administrator**, **User**, and **Process Manager**.
@@ -34,7 +33,7 @@ A **file of profiles** is an XML file containing one or more profiles.
 ```
 However, profiles in a given file of profiles are totally **independent**.  
 
-Default profiles belong to the file `default_profiles.xml`. 
+Default profiles (Administrator, Process Manager, and User) belong to the file `default_profiles.xml`. 
 This file can only contain default profiles. It cannot be renamed or deleted. 
 Neither can be the default profiles within: only the mapping between default profiles and entities of the organization can be edited.
 
