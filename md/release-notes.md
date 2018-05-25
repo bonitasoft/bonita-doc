@@ -69,7 +69,6 @@ Bonita binaries as well as Studio installer are now officially signed on Windows
 ## Technology updates
 
 * The supported Tomcat version for this new release is Tomcat 8.5.31, in the embedded Bonita Portal as well as in the Tomcat bundle.
-* The supported Windows Server OS is now Windows Server 2016.
 
 ### Other dependency updates
 
