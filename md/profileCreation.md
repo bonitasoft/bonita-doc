@@ -3,7 +3,7 @@
 ## Definition
 
 ### Fonctional
-Profiles are used to grant some rights to users of the organizatin, directly or through groups, roles, and memberships.
+Profiles are used to grant some rights to users of the organization, directly or through groups, roles, and memberships.
 Those rights can be:
 - Accessing a Portal menu
 - Accessing a Living Application content (introduced in Bonita 7.0.0)
