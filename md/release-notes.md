@@ -27,6 +27,11 @@ In practice, it means that if your process has been designed prior to Bonita 7.3
 * If you are calling the method from a groovy script, in a process designed prior to 7.3 and migrated to 7.7, and want to maintain the previous behavior, you will have to modify your groovy scripts to use the new API method.
 * If your process has been designed in Bonita 7.4, 7.5 or 7.6, the behavior of your process will not change. You will however have now access to a new API method upon migration, which will open new possibilities.
 
+### UI Designer URL change
+
+The UI Designer webapp embedded in the Studio is now deployed in its own container (different from the portal one) with the name "bonita" instead of "designer". As a result, it is now accessible through the URL http://localhost:<designer_port>/bonita instead of http://localhost:<tomcat_port>/designer.
+This name update was a requirement in order for the UI Designer preview to continue working with bonita portal resources URLs starting with "/bonita".
+
 ### Jasper 5 connector
 Jasper connector has been removed from provided connectors in the Studio. If you have a process that depends on this connector and want to migrate in 7.7+, you have two options:
 * Export the Jasper connector from a previous Studio version
