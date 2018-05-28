@@ -1,4 +1,5 @@
 
+
 # Workspaces and repositories
 
 ::: info
@@ -153,6 +154,10 @@ Bonita Studio integrates the default merge tool of EGit. Here are some hints on 
 #### Advanced Git commands
 
 Git worklow offers a lot of other features that are not directly integrated in Bonita Studio. You can still use them using the command line interface ([available here](https://git-scm.com/download/)). To retrieve the location of your repository on your filesystem go to <bonita_studio_install_dir>/workspace/<name_of_the_repository>.
+
+#### Troubleshooting
+
+* **My git history view is empty:** The history view is based on the current selection or the active editor. Sometimes you can manage to open the history view without having any active editor and a selection null -> the history view doesn't display anything. Just open a diagram for example and then re-open your history view.
 
 ### SVN
 
