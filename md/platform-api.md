@@ -1,10 +1,36 @@
 # Platform API
 
+## Platform API Login and Logout
+
+The platform API resources require a platform session.
+In order to get one, log in as the platform administrator using the platform login service. The username and password are in bonita-platform-community-custom.properties file.
+
+* **URL**
+  `/platformloginservice`
+* **Method**
+  `POST`
+* **Success Response**
+  * **Code**: 200
+  * **Request parameters**:
+```
+username=platformAdmin
+password=platform
+redirect=false
+```
+
+In order to logout use the platform logout service as follow:
+* **URL**
+  `/platformlogoutservice`
+* **Method**
+  `POST`
+* **Success Response**
+  * **Code**: 200
+
 ## Platform
 
 #### Description
 
-Handle the platform. This requires a platform session. Log in using the platformloginservice servlet.
+Handle the platform. This requires a platform session. Log in using the platform login service.
 
 #### Identifier
 
@@ -79,7 +105,7 @@ Start or stop the current node, that is, start or stop all services of the curre
 
 #### Description
 
-Handle the tenants (Enterprise and Performance editions only). This requires a platform session. Log in using the platformloginservice servlet.
+Handle the tenants (Enterprise and Performance editions only). This requires a platform session. Log in using the platform login service.
 
 #### Identifier
 
@@ -214,8 +240,7 @@ A tenant can only be deleted if it is in DEACTIVATED state.
 
 #### Description
 
-Handle the license information. This requires a platform session. Log in using the
-platformloginservice servlet.
+Handle the license information. This requires a platform session. Log in using the platform login service.
 
 This Web REST API is available in Subscription editions only, since version 7.1\.
 

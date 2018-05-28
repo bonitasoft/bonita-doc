@@ -1,10 +1,5 @@
 # Release notes
 
-::: info
-**Note:** The 7.7 is currently work in progress (wip). The 7.7.0 GA is planned on June 2018.
-:::
-
-
 <a id="techonolgy-updates"/>
 
 ### Other dependency updates
@@ -43,7 +38,7 @@ The Workspace API tooling (headless studio build) has been deprecated. You are r
 
 ### Technology updates
 
-* The supported Tomcat version for this new release is Tomcat 8.5.30 (included in the bundle).
+* The supported Tomcat version for this new release is Tomcat 8.5.31 (included in the bundle).
 * In the Studio environment the UI Designer and the Engine/Portal are now split into two different tomcat instances. They now have different ports.
 
 #### Acknowledgments
