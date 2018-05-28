@@ -39,6 +39,7 @@ The Workspace API tooling (headless studio build) has been deprecated. You are r
 ### Technology updates
 
 * The supported Tomcat version for this new release is Tomcat 8.5.31 (included in the bundle).
+* In the Studio environment the UI Designer and the Engine/Portal are now split into two different tomcat instances. They now have different ports.
 
 #### Acknowledgments
 Thank you [Jerome Ventribout](https://github.com/jventrib) (Engine) for your contribution.

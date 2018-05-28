@@ -45,6 +45,8 @@ The UI Designer generates standard HTML application code, based on AngularJS. Ex
 
 ## Integration with Bonita Platform
 
+The UI Designer is part of the development tools integrated in Bonita Studio. It runs in a tomcat instance managed by Bonita Studio. This tomcat instance is separated from the engine/portal tomcat instance.
+
 To use a page in a business application, export it from the Bonita UI designer, import it as a portal resource, and from the relevant application, add it to the list of pages and then insert it in a navigation menu.
 
 To use a form in a process, map it in the Bonita Studio to the relevant process or human task. It will be automatically packaged in the .bar archive ready to deploy in the Bonita Portal.
