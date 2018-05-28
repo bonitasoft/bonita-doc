@@ -29,7 +29,7 @@ In practice, it means that if your process has been designed prior to Bonita 7.3
 
 ### UI Designer URL change
 
-The UI Designer webapp embedded in the Studio is now deployed in its own container (different from the portal one) with the name "bonita" instead of "designer". As a result, it is now accessible through the URL http://localhost:<designer_port>/bonita instead of http://localhost:<tomcat_port>/designer.
+The UI Designer webapp embedded in Bonita Studio is now deployed with the name "bonita" instead of "designer" in its own container (different from the one of Bonita engine and portal). As a result, it is now accessible through the URL http://localhost:<designer_port>/bonita instead of http://localhost:<tomcat_port>/designer.
 This name update was a requirement in order for the UI Designer preview to continue working with bonita portal resources URLs starting with "/bonita".
 
 ### Jasper 5 connector
