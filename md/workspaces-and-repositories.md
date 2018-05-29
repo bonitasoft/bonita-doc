@@ -157,7 +157,7 @@ Git worklow offers a lot of other features that are not directly integrated in B
 
 #### Troubleshooting
 
-* **My diagram has many validation issues after a clone / a switch branch operation:** Keep in mind that Bonita artifacts (Business Data Model, Organization, Profiles, Applications ...) are not redeployed when you perform a clone or a switch branch operation. So, if you switch from a branch A to a branch B, you may need for example to deploy manually your BDM to ensure that all the business objects specifics to the branch B are available.
+* **My diagram has many validation issues after a clone / a switch branch operation:** Keep in mind that Bonita artifacts (Business Data Model, Organization, Profiles, Applications ...) are not redeployed when you perform a clone or a switch branch operation. So, if you switch from a branch A to a branch B, you may need for example to deploy manually your BDM to ensure that all the business objects specific to the branch B are available.
 * **My git history view is empty:** The history view is based on the current selection or the active editor. Sometimes you can manage to open the history view without having any active editor and a selection null -> the history view doesn't display anything. Just open a diagram for example and then re-open your history view.
 
 ### SVN
