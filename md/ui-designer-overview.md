@@ -60,6 +60,8 @@ To use a layout in a business application, export it from the Bonita UI designer
 The UI Designer is intended for web developers creating pages and forms that will be part of a BPM application. It requires a good understanding of JavaScript and CSS.  
 If you are a business analyst, you can use the UI Designer to create the page structure and define basic behaviors. However, most properties of a page are defined using JavaScript.
 
+<a id="readable-page-name"/>
+
 ## UI Designer with collaboration
 
 Pages which have been created with a version of bonita older than 7.7.0 have a UUID-like identifer.
