@@ -101,11 +101,43 @@ Bonita studio Git integration is based on th EGit eclipse plugin.
 Git command available in Studio interface:
 
 * **Share with Git**  
-This action connect the current repository to Git and share it on a remote.
-To configure the remote see the following [Egit userguide](http://wiki.eclipse.org/EGit/User_Guide#Working_with_remote_Repositories) or the [Share on GitHub howto](share-a-repository-on-github.md).
+This action connects the current repository to Git and shares it on a remote.
+To configure the remote, see the following [Egit userguide](http://wiki.eclipse.org/EGit/User_Guide#Working_with_remote_Repositories) or the [Share on GitHub howto](share-a-repository-on-github.md).
 
 * **Clone**  
-Create an new Studio repository from an existing Git repository (must contains a proper Bonita project). If the remote repository version is lower than the Studio, a migration will be applied on the cloned repository. Be carefull before pushing a migration on the remote. All contributors will have to use the proper Studio version.
+Create a new Studio repository from an existing Git repository (that must contain a proper Bonita project). If the remote repository version is lower than the Studio, a migration will be applied on the cloned repository. Be careful before pushing a migrated repository back to the remote: all contributors will have to use the proper Studio version.
+If you used Bonita on Git before Bonita 7.7.0, chances are high the .gitignore file structure of your project is different from the one created by Bonita Studio, which may cause some issues. Before you clone the repository, manually edit your .gitignore file so it becomes:
+`bin
+.classpath
+/application_resources
+/validators
+/widgets
+/forms
+/src-providedGroovy
+/template
+/h2_database
+/process_configurations
+/META-INF
+.settings
+target/
+/build.properties
+
+#provided web widgets
+/web_widgets/pb*/
+
+#web component preferenes
+/web_widgets/.metadata
+/web_fragments/.metadata
+/web_page/.metadata
+/web_page/*/js
+/web_fragments/*/*.js
+/web_widgets/*/*.js
+
+#bdm jar dependency is regenerate from bom.xml file
+/lib/bdm-client-pojo.jar
+
+#only used as user preferences
+/database_connectors_properties`
 
 * **Commit...**  
 Shortcut action to `add`, `commit` and `push` the local changes.
@@ -124,7 +156,7 @@ Fetch and try to integrate the remote changes of the current branch. This operat
 Use the Git staging view and provided merge tool to resolve the conflicts. You can abort the merge with a [hard reset](https://git-scm.com/docs/git-reset) with the command line tool or the `Reset...` action.
 
 * **Switch branch**  
-Change current branch, checkout a new branch from remote or create a new branch.
+Change current branch, checkout a new branch from remote or create a new branch.  
 
 * **Merge**  
 Merge the content of a branch into current branch. [Reference article](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
@@ -135,13 +167,17 @@ Reset the content of the working tree to the head reference (latest commit).
 * **Rebase...**  
 Like a merge, you can retrieve the content of another using a `rebase`. It replay all commits of a selected branch into the current branch. [Reference article](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
 
-* **Git statging view**  
+* **Git staging view**  
 This view display the current status of your repository. From this view you can stage/unstage your changes, commit and even commit and push. You can access to the compare editor using the contextal menu.
 More information available in [EGit user guide](http://wiki.eclipse.org/EGit/User_Guide#Git_Staging_View).
 
 * **History view**  
 This view display the commit history of the repository.
 More information available in [EGit user guide](http://wiki.eclipse.org/EGit/User_Guide#Inspect_History).
+
+* **Status**
+This gives you connexion information with the remote as well as the current status (ahead or behind) compared to the remote.
+This information is also available at the top left corner of Bonita Studio window, as well as at the top of the Git Staging view.
 
 Those commands can be found in Repository > Team > Git menu.
 
