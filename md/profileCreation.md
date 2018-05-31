@@ -5,16 +5,16 @@
 ### Fonctional
 Profiles are used to grant some rights to users of the organization, directly or through groups, roles, and memberships.
 Those rights can be:
-- Accessing a Portal menu
 - Accessing a Living Application content (introduced in Bonita 7.0.0)
 - Accessing business data (through BDM access control) (introduced in Bonita 7.7.0)
+- Accessing a Portal menu
 
 A profile is made of a name, a description, and a mapping with the organization entities. 
 When the profile is used to access a Portal menu, Portal menu entries must be defined in the profile too.  
 (When used to access a Living Application, the application menu is defined in the [application descriptor](applicationCreation.md) itself.)  
 
-Only users of Performance and Efficiency editions can create profiles.  
-Community and Teamwork can use the default profiles: **Administrator**, **User**, and **Process Manager**.
+All profiles can use the default profiles **Administrator** and **User**.
+Performance and Efficiency users can also use the default profile **Process Manager**, and can create custom profiles.
 
 ### Technical
 Technically, a **profile** is an XML file.  
