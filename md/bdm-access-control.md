@@ -103,8 +103,11 @@ In the UI Designer, create an application page (*displayLeaveRequest*):
 	- **Read-only**: *true*
 
  
-Since medicalComment will not be accessible to some users, you can make its display conditional.  
-To do so, in the property **hidden** of the dedicated input, click the **fx** button to make it an expression, and write `$item.medicalComment == null || $item.medicalComment == undefined`.
+_medicalComment_ will not be accessible to the HR trainees. 
+To manage this and other differences between what profiles can access, you hove two options:
+- create one application per profile, and one page per profile: one with this field, and one without
+- manage it on the same page and make its display conditional.
+  To do so, in the property **hidden** of the dedicated input, click the **fx** button to make it an expression, and write `$item.medicalComment == null || $item.medicalComment == undefined`.
     
 Create a new application descriptor using the [application editor](applicationCreation.md) in the studio:  
 
