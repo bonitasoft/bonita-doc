@@ -3,11 +3,9 @@
 ## Definition
 
 ### Fonctional
-Profiles are used to grant some rights to users of the organization, directly or through groups, roles, and memberships.
-Those rights can be:
-- Accessing a Living Application content (introduced in Bonita 7.0.0)
-- Accessing business data (through BDM access control) (introduced in Bonita 7.7.0)
-- Accessing a Portal menu
+Profiles work as permissions to give access to:
++- [Living Applications](applications.md)
++- Navigation (menus) of Bonita Portal
 
 A profile is made of a name, a description, and a mapping with the organization entities. 
 When the profile is used to access a Portal menu, Portal menu entries must be defined in the profile too.  
