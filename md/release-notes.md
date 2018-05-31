@@ -8,6 +8,7 @@
 ### Collaborative development with Git (starting with Teamwork edition)
 Working as a team on a Bonita project, securing resources on a shared server, and keeping track of the resources revisions is now possible with the integration of Eclipse [EGit plug-in](http://wiki.eclipse.org/EGit/User_Guide) in Bonita Studio, as well as the creation of a dedicated gitignore file.
 Managing branches, viewing the differences between two revisions of a file, or between the local and remote repositories, as well as managing conflicts for a given file can be performed. Find more in the dedicated [documentation page section](workspaces-and-repositories.md#git) and in the howto: [Share a repository on GitHub](share-a-repository-on-github.md).
+Combining Git capabilities with [Bonita Continuous Delivery add-on](https://documentation.bonitasoft.com/bcd/2.0/) offers best of breed technologies for multi-disciplinary teams to sustain a DevOps approach. 
 
 <a id="bdm-access-control"/>
 
