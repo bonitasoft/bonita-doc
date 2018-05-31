@@ -2,11 +2,20 @@
 
 ## Definition
 
-Basically, a **profile** is an XML file. It contains the profile name, a description, the mapping with the organization (which users / groups / roles / memberships have this profile) and the Bonita Portal menu entries (menus accessible to a user logged in the portal with this profile).  
-A profile must be imported onto the portal, in the **Profiles** tab, to enable the profile (you need to connect with the **Administrator** profile to do it).  
-Since Bonita 7.6.0, Bonita Studio offers this feature, for better packaging and deployment.
-For development purposes, the Studio can **deploy** profiles onto the portal for you (_only for Performance and Efficiency editions_).
+### Fonctional
+Profiles work as permissions to give access to:
++- [Living Applications](applications.md)
++- Navigation (menus) of Bonita Portal
 
+A profile is made of a name, a description, and a mapping with the organization entities. 
+When the profile is used to access a Portal menu, Portal menu entries must be defined in the profile too.  
+(When used to access a Living Application, the application menu is defined in the [application descriptor](applicationCreation.md) itself.)  
+
+All profiles can use the default profiles **Administrator** and **User**.
+Performance and Efficiency users can also use the default profile **Process Manager**, and can create custom profiles.
+
+### Technical
+Technically, a **profile** is an XML file.  
 Profiles are packaged in **files of profiles**.  
 A **file of profiles** is an XML file containing one or more profiles.  
 ```xml
@@ -20,23 +29,22 @@ A **file of profiles** is an XML file containing one or more profiles.
 	</profile>
 </profiles>
 ```
-
 However, profiles in a given file of profiles are totally **independent**.  
+
+Default profiles (Administrator, Process Manager, and User) belong to the file `default_profiles.xml`. 
+This file can only contain default profiles. It cannot be renamed or deleted. 
+Neither can be the default profiles within: only the mapping between default profiles and entities of the organization can be edited.
+
 The purpose of grouping profiles in one file is to manage together profiles related to a same business application.  
-For example, if you want to create a leave management application for four kind of users (Employees, Managers, Human Resources officers, and Administrators) then you will have to create four applications and four profiles, and to bind each profile to the related application. As for the four applications, the four profiles should be managed together, and so grouped in the same file of profile. 
-Files of profiles are also handy to be used in different environments: you can create different files, with the same profiles, but each profile is mapped to different entities of the organization depending on the target environment.
-Therefore, you could have a "profiles_dev.xml", a "profiles_UAT.xml", and a "profiles_prof.xml" files of profiles.
+For example, if you want to create a leave management application for four kinds of users (Employees, Managers, Human Resources officers, and Administrators), then you will have to create four applications and four profiles, and to bind each profile to the related application. As for the four applications, the four profiles should be managed together, and so grouped in the same file of profiles. 
 
-There is a special file of profiles for default profiles: `default_profiles.xml`  
-This file can only contain default profiles and cannot be renamed or deleted.
-Only the mapping between default profiles and entities of the organization can be edited.
-
-Only Performance and Efficiency editions can create new file of profiles, in order to create custom profiles.
+Files of profiles are also handy to be used in different environments: you can create different files, with the same profile names, but each profile is mapped to different entities of the organization depending on the target environment.
+Therefore, you could have a "profiles_dev.xml", a "profiles_UAT.xml", and a "profiles_prod.xml" files of profiles.
 
 ## Create and build a profile
 
 ::: info
-**Note:** All Bonita subscription editions come with an .xml editor for this feature. Only Performance and Efficiency editions also come with a graphical UI.
+**Note:** All Bonita Subscription editions come with an .xml editor for this feature. Only Performance and Efficiency editions also come with a graphical UI.
 :::
 
 From Bonita Studio, click on **Organization** -> **Profile** -> **New...**  
@@ -69,3 +77,10 @@ Pages proposed are those provided by default in Bonita Portal and those created 
 
 The Applications section provides a quick access to the applications mapped to this profile.  
 To map a new application to this profile, you have to open the application and then choose this profile in the profile field of the [application descriptor editor](applicationCreation.md)
+
+
+## Enable a profile
+
+To enable a profile, it must be installed onto the portal.   
+For development purposes, the Studio can **deploy** profiles onto the portal for you (_only for Performance and Efficiency editions_).  
+On a production environment, it is done via the **Organization > Profiles** menu of the **Administrator** Portal.
