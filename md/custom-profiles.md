@@ -4,7 +4,9 @@
 **Note:** For Performance and Efficiency editions only.
 :::
 
-In Bonita Portal, you can customize profiles. To be able to do any customization of a profile, you must be using the **Administrator** profile or a custom profile with access to the profile management page.
+Reminder: In a development environment, custom profiles definition and testing is done in [Bonita Studio profile editor](profileCreation.md).
+
+In a production environment, you can administrate custom profiles in Bonita Portal. To be able to do so, you must be using the **Administrator** profile or a custom profile with access to the profile management page.
 
 What customization can I do?
 
