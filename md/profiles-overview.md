@@ -1,20 +1,15 @@
 # Profiles overview
 
 A profile is an indirection to some entities of the organization: users, groups, roles, and/or memberships.
-Profiles can be used to:
-- Give access to [Living Applications](applications.md)
-- Give access to some content on Bonita Portal.
+Profiles work as permissions to give access to:
+- [Living Applications](applications.md)
+- Defined objects and attributes of the BDM (through [BDM Access Control](access-control-api.md))
+- Navigation (menus) of Bonita Portal
 
 One organization entity can be mapped to several profiles. In Bonita Portal, a loggued user can switch between his/her profiles in the navigation bar.
 
-To map entities of the organization to a profile, use the [profile editor](profileCreation.md) in the studio.   
-In a production environment, an administrator must use the **Organization**>**Profiles** menu.
-
-## Profile editor overview
-
-In Bonita 7.6, we introduced the possibility to manage profiles from the Studio.
-It accounts for an additional step to ease the management of [Living Applications](applications.md) in Bonita, since our objective is to offer a unique application deployment artifact, managed from the Studio.  
-Then, all resources used by applications (like profiles) will be centralized and shared by the Bonita development suite: Bonita Studio and the UI Designer.
+In development, to map entities of the organization to a profile, use the [profile editor](profileCreation.md) in Bonita Studio.   
+In production, an administrator must use the **Organization**>**Profiles** menu of Bonita Portal.
 
 ## Default profiles
 
