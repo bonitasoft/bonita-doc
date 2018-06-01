@@ -33,19 +33,21 @@ The tool supports LDAP groups of the following classes:
 ## Installation
 
 To install the synchronizer, unzip the provided deploy.zip file and configure the files located under the conf directory. 
-This directory contains a sample configuration.
+This directory contains a sample configuration in the `conf/default` subfolder which is used to perform LDAP synchronization
+on the default tenant. This is also possible to perform the synchronization on a [non default tentant](#non-default-tenant)
+which requires dedicated configuration.
 
-Set the API access mode used by the LDAP Synchronizer, by editing the `<LDAP_SYNCHRONIZER>\BonitaBPMSubscription-7.3.x-LDAP-Synchronizer.(bat or sh)` file. 
+Set the API access mode used by the LDAP Synchronizer, by editing the `<LDAP_SYNCHRONIZER>\BonitaBPMSubscription-7.3.x-LDAP-Synchronizer.(bat or sh)` file.
 
 Add between `java` and `-classpath`:
 ```
 -Dorg.bonitasoft.engine.api-type=HTTP -Dorg.bonitasoft.engine.api-type.server.url=http://localhost:8080 -Dorg.bonitasoft.engine.api-type.application.name=bonita
 ```
 
-The LDAP Synchronizer can use the HTTP, or EJB3 modes, but not local access. For more information about API access modes, 
+The LDAP Synchronizer can use the HTTP, or EJB3 modes, but not local access. For more information about API access modes,
 see the [Engine API overview](engine-api-overview.md).
 
-Customize the configuration for your system, by editing the configuration files. 
+Customize the configuration for your system, by editing the configuration files.
 There are some additional considerations for using the LDAP synchronizer in a non-default tenant.
 
 ## Configuration files
@@ -184,20 +186,33 @@ dir2.ldap_search_filter =   cn=*
 
 #### LDAP Group object properties syntax
 
-An LDAP group is defined by an id which is declared in the "ldap\_groups" list. This id provides access to the object properties with this syntax: object\_id.property.
-You can also specify groups with a search: all groups that match the search are synchronized.
-
-Groups will be synchronized based on the matching of their LDAP common name (CN) and their Bonita BPM names.
-
-The tool will automatically detect the group class from LDAP.
-
-Here are the LDAP group classes supported by the LDAP Synchronizer:
-
+The tool will automatically detect the group class from LDAP. Here are the LDAP group classes supported by the LDAP
+Synchronizer:
 * group
 * groupOfURLs
 * groupOfNames
 * groupOfUniqueNames
 * ds-virtual-static-group
+
+The tool can determine the list of users belonging to a group by looking these properties, depending on the group's objectClass:
+* member: group `objectclass`
+* memberURL: `groupOfURLs` objectclass
+* member: `groupOfNames` objectclass
+* uniqueMember: `groupOfUniqueNames` objectclass
+* ds-target-group-dn: `ds-virtual-static-group` objectclass
+
+There are two ways (they can be configured individually or at the same time) to synchronize groups
+* declare a list of groups
+* perform a LDAP searches to find the list of groups to synchronize
+
+
+#### Synchronize a list of groups
+
+An LDAP group is defined by an id which is declared in the "ldap\_groups" list. This id provides access to the object properties with this syntax: object\_id.property.
+You can also specify groups with a search: all groups that match the search are synchronized.
+
+Groups will be synchronized based on the matching of their LDAP common name (CN) and their Bonita BPM names.
+
 
 Groups can be declared individually in the configuration file with the following properties :
 ldap\_group\_dn
@@ -225,6 +240,9 @@ group1.forced_bonita_group_name  =  forced group1
 group2.ldap_group_dn  =  cn=group2,ou=groups,dc=bonita,dc=com
 group2.force_add_non_existing_users  =  false
 ```
+
+
+#### Synchronize a list of groups retrieved using a LDAP search
 
 In combination or as an alternative, groups can be declared using the result of an LDAP search that is defined in the configuration file with the following properties :
 | | |
@@ -269,7 +287,8 @@ where `x.y.z` is the version of Bonita BPM you are running.
 
 **Warning:** Do not modify the Organization from the Bonita BPM Portal while the tool is running, as this will cause a synchronization error.
 
-## Using the LDAP synchronizer in a non-default tenant
+
+## <a id="non-default-tenant"/>Using the LDAP synchronizer in a non-default tenant
 
 **Installation:** The LDAP Synchronizer is installed on the platform as described above. 
 After installation, Check that the ["User" profile](profiles-overview.md) is defined for the tenant. 
@@ -284,12 +303,4 @@ The LDAP synchronizer will fail if this profile is not defined.
 
 **Running:** To run the LDAP Synchronizer on a tenant, give the name of the tenant as a parameter of the script.
 
-Important - Additional information 
 
-The tool can determine the list of users belonging to a group by looking these properties, depending on the group's objectClass:
-
-* member: group `objectclass`
-* memberURL: `groupOfURLs` objectclass
-* member: `groupOfNames` objectclass
-* uniqueMember: `groupOfUniqueNames` objectclass
-* ds-target-group-dn: `ds-virtual-static-group` objectclass
