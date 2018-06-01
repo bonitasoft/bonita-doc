@@ -168,8 +168,8 @@ When inside a form container, the button is automatically disabled while the for
 
 ### Save button widget (Subscription editions)
 
-Use a save button widget to store data in LocalStorage.
-For Instance to let users save the draft of the current form, bind the **formInput** variable of your form to the **value** property.
+Use the Save button widget to store data in the browser LocalStorage.
+For instance, to let users save the draft of the current form, bind the **formInput** variable of your form to the **value** property.
 A single entry will be created in the LocalStorage identified by the form URL.
 
 Whenever this form is reloaded, either by hitting F5 or browsing away and back again, the entry will be reloaded automatically from LocalStorage.
