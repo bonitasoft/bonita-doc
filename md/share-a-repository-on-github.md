@@ -1,4 +1,4 @@
-# How to share a repository on Github
+# How to share a repository on Github 
 
 ::: info
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
