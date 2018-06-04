@@ -268,7 +268,7 @@ To troubleshoot SSO login issues, you need to add a logging handler for the pack
 In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/logging.properties.  
 * Add the lines:  
 ```
-org.keycloak.handlers = 5bonita.org.apache.juli.FileHandler
+org.keycloak.handlers = 5bonita.org.apache.juli.AsyncFileHandler
 org.keycloak.level = ALL
 ```
 * Update the existing lines (to set the level to `ALL`):  
