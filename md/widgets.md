@@ -166,6 +166,16 @@ Finally, you can use the widget button to add or remove a data from a given coll
 
 When inside a form container, the button is automatically disabled while the form is invalid.
 
+### Save button widget (Subscription editions)
+
+Use the Save button widget to store data in the browser LocalStorage.
+For instance, to let users save the draft of the current form, bind the **formInput** variable of your form to the **value** property.
+A single entry will be created in the LocalStorage identified by the form URL.
+
+Whenever this form is reloaded, either by hitting F5 or browsing away and back again, the entry will be reloaded automatically from LocalStorage.
+
+Note: The LocalStorage entry will automatically be deleted when the form is finally submitted.
+
 ## Display widgets
 
 Use a display widget for information that the user can read on a page. This includes titles, paragraphs, and text. For each, you can specify the text and its alignment. There are several types of display widgets:

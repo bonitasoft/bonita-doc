@@ -1,5 +1,3 @@
-
-
 # Workspaces and repositories
 
 ::: info
@@ -163,6 +161,11 @@ Bonita Studio integrates the default merge tool of EGit. Here are some hints on 
 #### Advanced Git commands
 
 Git worklow offers a lot of other features that are not directly integrated in Bonita Studio. You can still use them using the command line interface ([available here](https://git-scm.com/download/)). To retrieve the location of your repository on your filesystem go to <bonita_studio_install_dir>/workspace/<name_of_the_repository>.
+
+#### Troubleshooting
+
+* **My diagram has many validation issues after a clone / a switch branch operation:** Keep in mind that Bonita artifacts (Business Data Model, Organization, Profiles, Applications, Pages ...) are not redeployed when you perform a clone or a switch branch operation. So, if you switch from a branch A to a branch B, you may need for example to deploy manually your BDM to ensure that all the business objects specific to the branch B are available.
+* **My git history view is empty:** The history view is based on  the active editor or the current selection (in eclipse, a selection is a file selected in a package explorer). Sometimes you can manage to open the history view without having any active editor and nothing selected (which is often the case in Bonita because we only provide a package explorer in the REST API extensions editor) -> the history view does not display anything. Just open a diagram for example and then re-open your history view.
 
 ### SVN
 
