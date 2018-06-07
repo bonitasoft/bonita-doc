@@ -129,6 +129,70 @@ The Workspace API tooling (headless studio build) has been deprecated. You are r
 ## Bug fixes
 
 ### Fixes in Bonita 7.7.0
+#### Fixes in Documentation
+* BS-16862 Cannot fully deploy a REST API extension with Engine APIs
+* BS-17598 Documentation steps about "Create your own password validator" lead to maven error: Could not find artifact
+* BS-17659 "BDM Management in Bonita Portal" section leads customer to believe updating the BDM in production is supported
+* BS-17699 Broken link to 7.6 Engine Javadoc
+* BS-17770 Studio preferences Documentation still speaks about Studio profiles
+* BS-17795 Single sign-on with SAML not described with Wildfly
+* BS-17930 Documentation about 'Changing technical user' needs more detailed explanations
+* BS-18134 Workaround or guidance missing for time-zoned Java 8 Date types usage in REST API extensions
+* BS-18167 Live update of script fails if a new "provided variable" is added to the script
+#### Fixes in Engine component
+* BS-15900 EventTriggers are not always deleted from the EVENT_TRIGGER_INSTANCE table
+* BS-16750 FILE contract input type generates a big usage of the heap memory with big documents
+* BS-17009 Hazelcast jar is no more available for AWS Discovery
+* BS-17267 engine-server temp folder keeps growing in size on windows environment
+* BS-17464 CMIS list documents connector and probably the others CMIS connectors generate a ClassNotFoundException on WildFly only
+* BS-17514 Setup tool should release files after a pull operation
+* BS-17624 7.3.3 and prior java client failed to deserialize an object when communicating with java Engine API 7.4.0 or higher
+* BS-17679 Prevent unsupported use case when defining BDM
+* BS-17716 Setup tool does not prevent the removal of critical configuration files
+* BS-17725 add() to an empty multiple BO (List) is failing
+* BS-17726 Case counter for Unlimited instances license is not incremented
+* BS-18196 BoundaryEvent stays behind in 'waiting' state if task is skipped
+* BS-18201 ProcessAPI.searchConnectorInstances fails with SearchOptions using .filter(ConnectorInstancesSearchDescriptor.STATE, ConnectorState.FAILED)
+* BS-18208 logged user / task assignee : Task Operation behavior has changed
+* BS-18228 Terminate and End event is not terminating the process after a failed task with a boundary event had been skipped
+* BS-18336 HazelcastSerializationException: Failed to serialize 'org.bonitasoft.engine.work.WorkDescriptor'
+* BS-18350 Fix Aws discovery sample hostHeader in bonita-platform-sp-cluster.properties
+* BS-18389 Tomcat outputs TechnicalLoggerSLF4JImpl for all logs in subscription editions
+#### Fixes in Studio component
+* BS-17267 engine-server temp folder keeps growing in size on windows environment
+* BS-17749 : surounded with space chars in task name generates an error when user clicks on the task in the portal's tasklist
+* BS-17939 Content Assist doesn't work without keyboard shortcut in Groovy expression editor
+* BS-18101 Process contract inputs missing from process-design.xml when building with BonitaStudioBuilder
+* BS-18154 Catch message - Correlation mapping value doesn't display expression editor properly
+* BS-18178 Studio splash screen doesn't work on windows
+* BS-18191 Automatic dependency resolution can fails in Groovy Expression Editor
+* BS-18197 Studio deploys too many sub process versions and the wrong one is used at run-time.
+* BS-18269 "Create a parameter..." wizard is not popping-up
+* BS-18270 Parameter type is lost on version when re entering process to call section
+* BS-18301 Welcome page displays outdated RSS flux content in welcome page
+* BS-18343 Using loop "for" in Input Constraints fails with a validation error and a warning in the Editor
+* BS-18344 CPU spike and GC overhead limit exceeded when using groovy editor for Inputs constraints
+* BS-18381 Installer fails to launch BonitaStudio at end, if path contains space characters
+#### Fixes in UI Designer component
+* BS-16696 Autocomplete widget issue with asynchronous data (Rest API call)
+* BS-16997 File viewer preview display cut and not scrollable with pdf file in Mobile portal
+* BS-17809 HTML is not interpreted anymore after page import in studio 7.7.0 from 7.6.x and lower
+* BS-18062 UI Designer Devices size Preview doesn't reflect the one selected in the main UI Designer
+* BS-18179 Form import in UI Designer displays a non-translated artifact type
+* BS-18222 Bonita API resource not exported in page.properties when single resource call with id
+* BS-18256 Infinite loop creating css file after migration error
+* BS-18385 URL parameters are not decoded in UI Designer
+#### Fixes in Web component
+* BS-16440 Instance counter starts one day before subscription start date
+* BS-17924 CSRF cookie needs to be handled when implementing authentication manager
+* BS-18137 Changing filter does not refresh the case list properly
+* BS-18149 REST API Not compliant with the If-Modified-Since HTTP header
+* BS-18223 Licensing admin page does not handle unlimited case number correctly
+* BS-18231 Select widget fails to pre select Value
+* BS-18335 Process visu is not display when process contains an intermediate catch event signal
+* BS-18341 Error message not explicit in Portal when change password policy enforced
+* BS-18367 Click inside a Living application raises a warning in the logs and a 404 on an undefined URL path
+* BS-18375 User profile - Done Task list cannot be ordered on 'performed date' column or any other date column; it used to be possible in 7.2.2
 
 ## Acknowledgments
 Thank you [Jerome Ventribout](https://github.com/jventrib) (Engine) for your contribution.
