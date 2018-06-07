@@ -10,8 +10,12 @@ Click on the **links** below to find useful information quickly, or [browse the 
 <div class="panel-body">
 <div class="menu-block-wrapper">
 
-* [Release notes ${varVersion}](release-notes.md)    <!--{li:.first .leaf}-->
-
+* [Release notes ${varVersion}](release-notes.md)<!--{li:.first .leaf}-->
+* [Collaborative development with Git](workspaces-and-repositories.md#git)<!--{li:.first .leaf}-->
+* [Business data access control (BDN AC)](bdm-access-control.md)<!--{li:.first .leaf}-->
+* [Save a form](release-notes.md#save-form)<!--{li:.first .leaf}-->
+* [New case overview form](release-notes.md#new-case-overview)<!--{li:.first .leaf}-->
+* [LDAP synchronizer handles Custom User Information](ldap-synchronizer.md#cui)    <!--{li:.first .leaf}-->
 <!--{ul:.menu .nav}-->
 
 </div>
