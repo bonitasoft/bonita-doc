@@ -136,10 +136,10 @@ The Workspace API tooling (headless studio build) has been deprecated. You are r
 
 ## Limitations and known issues
 
-* The EGit plug-in intergrates many features and few are translated yet. Some Git jargon is to keep as it and some of it can be translated. In order to make this as best as it can and to contribute this to the Eclipse community, translations in French and Spanish will all come in 7.7.1. Stay tuned.
+* The EGit plug-in integrates many features, and only a few have been translated to French and English so far. In order to contribute the best translation to the Eclipse community, we need more time. Therefore, translations in French and Spanish will all come in 7.7.1. Stay tuned.
 * MacOS environment: starting from MacOS El Capitan 10.11.4 (March 2016), new security rules block the launch of Bonita Studio. You must temporarily remove security on App launching in **System Preferences**>**Security & Confidentiality**.
 * Process display name is now used everywhere in Bonita Portal (when it has been set in the process design) except in the default provided Jasper reports.
-* The default living application layout does not re-encode the URL passed to the living application iframe anymore.
+* Since 7.6.0, the default living application layout does not re-encode the URL passed to the living application iframe anymore.
 
 ## Bug fixes
 
