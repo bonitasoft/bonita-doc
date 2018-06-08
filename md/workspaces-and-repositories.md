@@ -123,7 +123,7 @@ Shortcut action to `add`, `commit` and `push` the local changes.
 Send the local commited changes to the configured upstream remote repository. You should make a pull before pushing.
 
 * **Fetch from Upstream**  
-Downloads new data from the upstream remote repository. It doesn't integrate any of this new data into your working files. Fetch is great for getting a fresh view on all the things that happened in a remote repository.
+Download new data from the upstream remote repository. It doesn't integrate any of this new data into your working files. Fetch is great for getting a fresh view on all the things that happened in a remote repository.
 
 * **Push branch...**  
 Send the local commited changes to a specfic branch on the remote repository. If the push fails, you may need to use make [force push](https://git-scm.com/docs/git-push) with the command line tool.
