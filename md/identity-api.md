@@ -776,8 +776,8 @@ A partial representation of a user in JSON
   `GET`
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
-  * `d=professional_data` - include professionnal data in response
-  * `d=manager_id` - include details of user's manager in response
+  * `d=professional_data ` - include professionnal data in response
+  * `d=manager_id ` - include details of user's manager in response
 * **Success Response**  
   The full JSON representation of the user
   * **Code**: 200
