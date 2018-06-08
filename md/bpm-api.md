@@ -2502,7 +2502,7 @@ Use a GET method with filters and search terms to search for actorMembers.
   You can also filter also on: 
 
   * `member_type=user|role|group|roleAndGroup` retrieve only the actorMembers of type user. `/API/bpm/actorMember?p=0&c=10&f=actor_id%3d1&f=member_type%3duser`
-  * `user_id=:userId}`: retrieve only the actorMembers related to the specified user\_id. `/API/bpm/actorMember?p=0&c=10&f=actor_id%3d1&f=user_id%3d101`
+  * `user_id=:userId`: retrieve only the actorMembers related to the specified user\_id. `/API/bpm/actorMember?p=0&c=10&f=actor_id%3d1&f=user_id%3d101`
   * `role_id=:roleId`: retrieve only the actorMembers related to the specified role\_id. `/API/bpm/actorMember?p=0&c=10&f=actor_id%3d1&f=role_id%3d101`
   * `group_id=:groupId`: retrieve only the actorMembers related to the specified group\_id. `/API/bpm/actorMember?p=0&c=10&f=actor_id%3d1&f=group_id%3d101`
 * **Success Response**  
