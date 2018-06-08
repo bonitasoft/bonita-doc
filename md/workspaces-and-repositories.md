@@ -1,6 +1,3 @@
-
-
-
 # Workspaces and repositories
 
 ::: info
@@ -16,10 +13,10 @@ A workspace is a directory where Bonita Studio stores working files related to p
 A local repository is a directory within your workspace.  
 You can use local repositories to organize your work efficiently, for example by separating processes that do not interact.
 
-A team repository is a shared repository on a Subversion (SVN) server that is used by the team collaborating on developing a process.  
-A shared repository has typical code management features: locks, synchronization, versioning.  
-Your workspace contains your local copy of the shared repository, which is synchronized with the shared repository on the SVN server.  
-Note that the values of the process configurations (such as parameters) will not be synchronized on the remote SVN, to allow each Studio to have its own configuration.
+A team repository is a shared repository on a Subversion (SVN) or Git server that is used by the team collaborating on developing a process.  
+A shared repository has typical code management features: locks (SVN only), synchronization, versioning.  
+Your workspace contains your local copy of the shared repository, which is synchronized with the shared repository on the SVN or Git server.  
+Note that the values of the process configurations (such as parameters) will not be synchronized on the remote repository, to allow each Studio to have its own configuration.
 
 ### Switch workspace
 
@@ -28,10 +25,10 @@ The default workspace is _studio\_install\_directory_/workspace.
 To use a different workspace:
 
 1. Go to the **Diagram** menu and choose **Switch workspace...**. 
-2. A popup shows the path of the workspace you are currently using.
-3. In the popup, specify the path of the workspace you want to use. If the new workspace does not exist, you are asked whether you want to create it.
+2. A pop up window shows the path of the workspace you are currently using.
+3. In the pop up window, specify the path of the workspace you want to use. If the new workspace does not exist, you are asked whether you want to create it.
 4. Click **_OK_**.
-5. The workspace switch is applied the next time Bonita Studio starts. Click **_OK_** in the popup to restart Studio, or **_Cancel_** to continue in your current session.
+5. The workspace switch is applied the next time Bonita Studio starts. Click **_OK_** in the pop up window to restart the studio, or **_Cancel_** to continue in your current session.
 
 ### Create a local repository
 
@@ -56,10 +53,10 @@ In Bonita Studio, you can see the new repository name shown at the top left, in 
 You can export all the content from a repository for exchange or backup purposes:
 
 1. Click on **Diagram** > **Export...**
-1. Click  on **Select All** to embed all the repository content into the BOS archive. 
-1. Choose a location on your local drive to store the archive and click on **Finish**
+1. Click  on **Select All** to embed the whole repository content into the BOS archive. 
+1. Choose a location on your local drive to store the archive and click on **Finish**.
 
-The exported archive can then be shared with other Studio of the same or newer version.
+The exported archive can then be shared with other studios of the same version or newer.
 
 To import a BOS archive:
 
@@ -69,7 +66,7 @@ To import a BOS archive:
 1. Handle conflicting files if any
 1. Click on **Import**
 
-You can retrieve the whole content of a Studio workspace by exporting all its repositories and importing them into another Studio.
+You can retrieve the whole content of a studio workspace by exporting all its repositories and importing them into another studio.
 
 ### Change repository
 
@@ -81,7 +78,7 @@ To change repository, follow these steps:
 2. A list of the available repositories is displayed. These are the local and shared repositories in your current workspace.
 3. Select the repository to switch to, and click **_OK_**.
 4. A confirmation message is displayed when you are working in the new location.
-You can see the name of repository at the top left, in the title bar.
+You can see the name of the current repository at the top, in the title bar.
 
 If the list does not contain the name of the repository you want to use, check that you are using the correct workspace, and if necessary, switch workspace.
 
@@ -98,16 +95,26 @@ If the list does not contain the name of the repository you want to use, check t
 
 #### Git integration in Studio 
 
-Bonita studio Git integration is based on th EGit eclipse plugin.
+Bonita Studio Git integration is based on the EGit Eclipse plugin.
 
-Git command available in Studio interface:
+Git commands available in the studio interface:
 
-* **Share with Git**  
-This action connect the current repository to Git and share it on a remote.
-To configure the remote see the following [Egit userguide](http://wiki.eclipse.org/EGit/User_Guide#Working_with_remote_Repositories) or the [Share on GitHub howto](share-a-repository-on-github.md).
+ * **Share with Git**  
+This action connects the current repository to Git and shares it on a remote.
+To configure the remote, see the following [Egit userguide](http://wiki.eclipse.org/EGit/User_Guide#Working_with_remote_Repositories) or the [Share on GitHub howto](share-a-repository-on-github.md).
 
-* **Clone**  
-Create an new Studio repository from an existing Git repository (must contains a proper Bonita project). If the remote repository version is lower than the Studio, a migration will be applied on the cloned repository. Be carefull before pushing a migration on the remote. All contributors will have to use the proper Studio version.
+ * **Clone**  
+Create a new Studio repository from an existing Git repository (that must contain a proper Bonita project). If the remote repository version is lower than the studio, a migration will be applied on the cloned repository. Be careful before pushing a migrated repository back to the remote: all contributors will have to use the proper studio version.
+
+If you used Bonita on Git before Bonita 7.7.0, you might want to clone it from the studio.   
+Be careful though: we cannot guarantee that the cloning of a repository not created with Bonita Studio will work properly.  
+However, to do so, first check that your project on GitHub is "Bonita compliant":
+
+	 * The Git repository must correspond to a Bonita repository (and not the Bonita Workspace)
+	 * The .project file must be present 
+	 * It is highly recommended to use the .gitignore file generated by Bonita when you share a Bonita repository from the studio.
+
+Still, the best way to proceed is to export the repository from the older version of the studio and import it in the new studio, and then share this repository on Git, although with this procedure, the history of revisions will be lost.
 
 * **Commit...**  
 Shortcut action to `add`, `commit` and `push` the local changes.
@@ -116,7 +123,7 @@ Shortcut action to `add`, `commit` and `push` the local changes.
 Send the local commited changes to the configured upstream remote repository. You should make a pull before pushing.
 
 * **Fetch from Upstream**  
-Downloads new data from the upstream remote repository. It doesn't integrate any of this new data into your working files. Fetch is great for getting a fresh view on all the things that happened in a remote repository.
+Download new data from the upstream remote repository. It doesn't integrate any of this new data into your working files. Fetch is great for getting a fresh view on all the things that happened in a remote repository.
 
 * **Push branch...**  
 Send the local commited changes to a specfic branch on the remote repository. If the push fails, you may need to use make [force push](https://git-scm.com/docs/git-push) with the command line tool.
@@ -126,7 +133,7 @@ Fetch and try to integrate the remote changes of the current branch. This operat
 Use the Git staging view and provided merge tool to resolve the conflicts. You can abort the merge with a [hard reset](https://git-scm.com/docs/git-reset) with the command line tool or the `Reset...` action.
 
 * **Switch branch**  
-Change current branch, checkout a new branch from remote or create a new branch.
+Change current branch, checkout a new branch from remote or create a new branch.  
 
 * **Merge**  
 Merge the content of a branch into current branch. [Reference article](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
@@ -137,13 +144,17 @@ Reset the content of the working tree to the head reference (latest commit).
 * **Rebase...**  
 Like a merge, you can retrieve the content of another using a `rebase`. It replay all commits of a selected branch into the current branch. [Reference article](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
 
-* **Git statging view**  
+* **Git staging view**  
 This view display the current status of your repository. From this view you can stage/unstage your changes, commit and even commit and push. You can access to the compare editor using the contextal menu.
 More information available in [EGit user guide](http://wiki.eclipse.org/EGit/User_Guide#Git_Staging_View).
 
 * **History view**  
 This view display the commit history of the repository.
 More information available in [EGit user guide](http://wiki.eclipse.org/EGit/User_Guide#Inspect_History).
+
+* **Status**
+This gives you connexion information with the remote as well as the current status (ahead or behind) compared to the remote.
+This information is also available at the top of Bonita Studio window, as well as at the top of the Git Staging view.
 
 Those commands can be found in Repository > Team > Git menu.
 

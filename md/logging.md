@@ -40,7 +40,7 @@ For the Tomcat embedded in BonitaStudio, the JUL configuration file is located i
 Here is an example of the JUL configuration for the logger used in the [example below](#your_log):
 ```
 # Reuse Bonita log handler (file bonita.log) for org.mycompany.connector loggers
-org.mycompany.connector.handlers = 5bonita.org.apache.juli.FileHandler
+org.mycompany.connector.handlers = 5bonita.org.apache.juli.AsyncFileHandler
 # Set log level to "finest" for newly created connector
 org.mycompany.connector.level = FINEST
 # Set log level to "finest" for Groovy script
