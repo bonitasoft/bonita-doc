@@ -562,7 +562,7 @@ Fields that can be updated are `assignedId` and `state`. Specify only those fiel
     "assigned_id" : "new_user_id", 
     "state": "new_state"
   }
-  ``
+  ```
 * **Success Response**  
   * **Code**: 200
   * **Payload**:  
@@ -2308,7 +2308,7 @@ Response payload
 
 Delete the document content with id 3
 * **URL**  
-  `/API/bpm/archivedCaseDocument/:archivedCaseId``  
+  `/API/bpm/archivedCaseDocument/:archivedCaseId`  
 * **Method**  
   `DELETE`
 
