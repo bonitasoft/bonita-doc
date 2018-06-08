@@ -75,7 +75,7 @@ Just like for profiles or BDM access control, there is now a "Deploy" option in 
 When a change is made on a profile in Bonita Studio, the application descriptors that reference the profile are now refactored in Bonita Studio to take the change into account.
 
 ### French repository is now "dépôt"
-For local or shared repositories, Bonita Studio in French is not tuned to the official translation: "dépôt".
+For local or shared repositories, Bonita Studio in French is now tuned to the official translation: "dépôt".
 
 ### Official signatures on Windows
 Bonita binaries as well as Studio installer are now officially signed on Windows OS, to prevent useless security alerts.
