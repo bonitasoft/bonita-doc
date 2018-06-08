@@ -2490,7 +2490,6 @@ Use a GET method with filters and search terms to search for actorMembers.
 
 * **URL**  
   `/API/bpm/actorMemberEntry`  
-  _Example_: ``
 * **Method**  
   `GET`
 * **Data Params**  
