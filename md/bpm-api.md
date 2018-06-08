@@ -107,7 +107,7 @@ Note: if there is no data with the specified name in the activity, the update wi
 * **Request Payload**  
   ```json
   {
-    "variables": "[{\"name\":\"foo\",\"value\":\"bar\"}]"
+    "variables": "[{"name":"foo","value":"bar"}]"
   }
   ```
 * **Success Response**  
@@ -127,7 +127,7 @@ Note: if the task definition includes a connector that is executed on finish and
   ```json
   { 
     "state": "completed", 
-    "variables": "[{\"name\":\"foo\",\"value\":\"bar\"}]" 
+    "variables": "[{"name":"foo","value":"bar"}]" 
   }
   ```
 * **Success Response**  
@@ -562,7 +562,7 @@ Fields that can be updated are `assignedId` and `state`. Specify only those fiel
     "assigned_id" : "new_user_id", 
     "state": "new_state"
   }
-  ``
+  ```
 * **Success Response**  
   * **Code**: 200
   * **Payload**:  
@@ -608,7 +608,8 @@ Simple, the ID of the object (a long value)
   "assigned_id": "the user id (long) that this task is assigned to, or 0 if it is unassigned",
   "assigned_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current task was assigned, for example '2014-10-17 16:05:42.626'"
 }
-
+```
+  
 #### Methods
 
 The methods used for this resource are:
@@ -623,11 +624,12 @@ Use a POST method to create a new subtask. A subtask is attached to a parent tas
 
 Example: 
 * **URL**  
-  `/API/bpm/manualTask``  
+  `/API/bpm/manualTask`  
 * **Method**  
   `POST`
 * **Request Payload**  
-  _Example_: Add a new subtask to the parent task with id 1\. The subtask has displayName "My subtask" , is assigned to user 1, and contains other important information.
+  _Example_: Add a new subtask to the parent task with id 1\. The subtask has displayName "My subtask" , is assigned to user 1, and contains other important information.  
+  
   ```json
   {
     "parentTaskId":"40001", 
@@ -638,7 +640,8 @@ Example:
     "dueDate":"2014-12-25 00:00:00.000", 
     "assigned_id":"1" 
   }
-  ```
+    ```
+  
 * **Success Response**  
   * **Code**: 200
   * **Payload**:  
@@ -674,7 +677,7 @@ Example:
 Use a PUT method to execute a subtask. Executing a subtask basically means changing its state to completed and providing an executedBy value.
 
 * **URL**  
-  `/API/bpm/manualTask``  
+  `/API/bpm/manualTask`  
 * **Method**  
   `PUT`
 * **Request Payload**  
@@ -719,7 +722,7 @@ Use a PUT method to execute a subtask. Executing a subtask basically means chang
 Use a GET method to retrieve information about a subtask.
 
 * **URL**  
-  `/API/bpm/manualTask/:manualTaskId``  
+  `/API/bpm/manualTask/:manualTaskId`  
 * **Method**  
   `GET`
 * **Success Response**  
@@ -732,7 +735,7 @@ Use a GET method with filters and search terms to search for subtasks.
 * **URL**  
   `/API/bpm/manualTask`  
 * **Method**  
-  ``
+  `GET`
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   You can filter on:
@@ -1883,7 +1886,7 @@ Warning: only following types are supported for _javaTypeclassname_: java.lang.S
 
 * **URL**  
   `/API/bpm/caseVariable`  
-  _Example_: `/API/bpm/caseVariable?p=0&c=10&f=case\_id%3d11754`
+  _Example_: `/API/bpm/caseVariable?p=0&c=10&f=case_id%3d11754`
 * **Method**  
   `GET`
 * **Data Params**  
@@ -2047,7 +2050,7 @@ Use a GET method to get a document from a case. First you get the document infor
 To get the document information, specify the document id in the URL. The document id is created when you upload a document to a case. There is no payload.
 
 * **URL**  
-  `/API/bpm/caseDocument/:documentId``  
+  `/API/bpm/caseDocument/:documentId`  
 * **Method**  
   `GET`
 * **Success Response**  
@@ -2305,7 +2308,7 @@ Response payload
 
 Delete the document content with id 3
 * **URL**  
-  `/API/bpm/archivedCaseDocument/:archivedCaseId``  
+  `/API/bpm/archivedCaseDocument/:archivedCaseId`  
 * **Method**  
   `DELETE`
 
@@ -2487,21 +2490,20 @@ Use a GET method with filters and search terms to search for actorMembers.
 
 * **URL**  
   `/API/bpm/actorMemberEntry`  
-  _Example_: ``
 * **Method**  
-  ``
+  `GET`
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   There is a mandatory filter on:
 
-  * `actor\_id` For example, retrieve the actorMembers related to the specified actor\_id. http://localhost:8080/bonita/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1
+  * `actor_id` For example, retrieve the actorMembers related to the specified actor\_id. http://localhost:8080/bonita/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1
 
   You can also filter also on: 
 
-  * `member\_type=user|role|group|roleAndGroup` retrieve only the actorMembers of type user. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=member\_type%3duser`
-  * `user\_id=:userId}`: retrieve only the actorMembers related to the specified user\_id. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=user\_id%3d101`
-  * `role\_id=:roleId`: retrieve only the actorMembers related to the specified role\_id. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=role\_id%3d101`
-  * `group\_id=:groupId`: retrieve only the actorMembers related to the specified group\_id. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=group\_id%3d101`
+  * `member_type=user|role|group|roleAndGroup` retrieve only the actorMembers of type user. `/API/bpm/actorMember?p=0&c=10&f=actor_id%3d1&f=member_type%3duser`
+  * `user_id=:userId`: retrieve only the actorMembers related to the specified user\_id. `/API/bpm/actorMember?p=0&c=10&f=actor_id%3d1&f=user_id%3d101`
+  * `role_id=:roleId`: retrieve only the actorMembers related to the specified role\_id. `/API/bpm/actorMember?p=0&c=10&f=actor_id%3d1&f=role_id%3d101`
+  * `group_id=:groupId`: retrieve only the actorMembers related to the specified group\_id. `/API/bpm/actorMember?p=0&c=10&f=actor_id%3d1&f=group_id%3d101`
 * **Success Response**  
   An array of actorMember objects
   * **Code**: 200
@@ -3343,7 +3345,7 @@ Note: if the `userId` is not provided as a deploy parameter, the `userId` proper
           "last_update_date": "2016-06-15 11:37:22.709"
         }
       }, {
-        "content": "The task \"Etape1\" is now assigned to walter.bates",
+        "content": "The task "Etape1" is now assigned to walter.bates",
         "tenantId": "1",
         "id": "20003",
         "processInstanceId": "1",
@@ -3438,7 +3440,7 @@ Note: if the `userId` is not provided as a deploy parameter, the `userId` proper
           "last_update_date": "2016-06-15 11:37:22.709"
         }
       }, {
-        "content": "The task \"Etape1\" is now assigned to walter.bates",
+        "content": "The task "Etape1" is now assigned to walter.bates",
         "id": "20003",
         "processInstanceId": "1",
         "postDate": "2016-06-15 12:36:18.541",
@@ -3471,7 +3473,16 @@ The ID of the process definition (a long value).
   "deploymentDate":"the date when the process definition was deployed (date)",
   "description":"the process description (string)",
   "activationState":"the state of the process definition (ENABLED or DISABLED)",
-  "name":"the process name (string)",
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  :"the process name (string)",
   "deployedBy":"the id of the user who deployed the process (integer)",
   "displayName":"the human readable process description (string)",
   "actorinitiatorid":"the id of the actor that can initiate cases of the process",
@@ -3837,7 +3848,7 @@ When you search for a processParameter, do not provide the process\_version or p
 
 * **URL**  
   `/API/bpm/processParameter`  
-  _Example_: `/API/bpm/processParameter?p=0&c=10&o=name%20ASC&f=process\_id%3d4880205209556178729`
+  _Example_: `/API/bpm/processParameter?p=0&c=10&o=name%20ASC&f=process_id%3d4880205209556178729`
 * **Method**  
   `GET`
 * **Data Params**  
@@ -3906,7 +3917,7 @@ This is the only method supported by this resource. It should be used to list th
 
 * **URL**  
   `/API/bpm/processResolutionProblem`  
-  _Example_: `/API/bpm/processResolutionProblem?p=0&c=100&f=process\_id%3d8802838415753448432`
+  _Example_: `/API/bpm/processResolutionProblem?p=0&c=100&f=process_id%3d8802838415753448432`
 * **Method**  
   `GET`
 * **Data Params**  

@@ -142,7 +142,7 @@ Use a GET method to search for custom user information.
 * **Data Params** (Required)   
   * c: number of result per page
   * p: page number
-  * f : filter to apply on results with the format `f={filter\_name}={filter\_value}`  
+  * f : filter to apply on results with the format `f={filter_name}={filter_value}`  
     _Example_: `f=userId=id`
 * **Success Response**  
   An array of customuserinfo/user objects
