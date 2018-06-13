@@ -128,7 +128,10 @@ When you launch Bonita BPM Studio for the first time, you need to install a lice
 4. _**Download**_ the attached file (.lic)
 5. Go back to your Bonita BPM Studio, click _**Install license...**_, and select your .lic file.
 
+
+
 ## Troubleshooting
+
 
 #### Log files
 
@@ -138,6 +141,7 @@ Studio log file can be displayed from Bonita BPM Studio in "Help" -\> "Show Boni
 
 If Studio fails to start, you can open the log file manually. File is named `.log` and is located in `<studio_folder>/workspace/.metadata` folder.   
 Note that folder might be hidden and file might not be displayed if you choose to hide file extensions in your file manager.
+
 
 #### OutOfMemory error in Bonita BPM Studio
 
@@ -160,4 +164,18 @@ To fix this issue, you need to increase the memory allocated to the JVM that run
 
 Edit the `*.ini` file that corresponds to the executable you use to launch the Studio (e.g. `BonitaBPMSubscription64.ini` if you run BonitaBPMSubscription64.exe) and modify this line: `-Xmx512m` to `-Xmx1024m` (or higher).
 
-Then restart Bonita BPM Studio.
+Then restart Bonita BPM Studio.  
+
+
+#### Bonita Studio Welcome page stays blank on Linux (Ubuntu/Debian)
+
+If the Welcome page displays fully white when you start-up your Bonita Studio:  
+<img src="bonita/images/${varVersion}/studio_welcome_page_ko.png" width="850px"/>
+
+just install the missing packet libwebkitgtk by running the following command:
+```shell
+sudo apt-get install libwebkitgtk-1.0-0
+```
+
+Then the welcome page should display well, like this:  
+<img src="bonita/images/${varVersion}/studio_welcome_page_ok.png" width="850px"/>
