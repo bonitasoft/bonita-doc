@@ -4,16 +4,44 @@ Using gzip compression in your application server can improve performance by red
 
 ## WildFly
 
-To activate compression for WildFly:
+To activate compression for WildFly, you need to modify the `standalone.xml` configuration.
 
-* For Linux systems: edit `bin/standalone.conf` and uncomment this line:
-  ```bash
-  JAVA_OPTS="$JAVA_OPTS -Dorg.apache.coyote.http11.Http11Protocol.COMPRESSION=on" 
-  ```
-* For Windows systems: edit `bin/standalone.conf.bat` and uncomment this line:
-  ```batch
-  set "JAVA_OPTS=%JAVA_OPTS% -Dorg.apache.coyote.http11.Http11Protocol.COMPRESSION=on"
-  ```
+Therefore, in your Wildfly bundle, you need to open `WILDFLY_HOME/setup/wildfly-templates/standalone.xml` and find the `undertow:3.1` subsystem. Edit the section to add the following filters as shown below:
+
+```xml
+        <subsystem xmlns="urn:jboss:domain:undertow:3.1">
+            <buffer-cache name="default" />
+            <server name="default-server">
+                <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true" max-post-size="104857600" />
+                <https-listener name="https" socket-binding="https" security-realm="ApplicationRealm" enable-http2="true" />
+                <host name="default-host" alias="localhost">
+                    <location name="/" handler="welcome-content" />
+                    <!-- ##################### GZIP COMPRESSION ################# -->
+                    <filter-ref name="server-header"/>
+                    <filter-ref name="x-powered-by-header"/>
+                    <filter-ref name="gzipFilter" predicate="exists['%{o,Content-Type}'] and regex[pattern='(?:application/javascript|text/css|text/html|text/xml|application/json)(;.*)?', value=%{o,Content-Type}, full-match=true]"/>
+                    <filter-ref name="Vary-header"/>
+                    <!-- ######################################################## -->
+                </host>
+            </server>
+            <servlet-container name="default">
+                <jsp-config />
+                <websockets />
+                <session-cookie name="SESSIONID" />
+            </servlet-container>
+            <handlers>
+                <file name="welcome-content" path="${jboss.home.dir}/welcome-content" />
+            </handlers>
+            <!-- #################### GZIP COMPRESSION ################### -->
+            <filters>
+                <response-header name="server-header" header-name="Server" header-value="WildFly/10"/>
+                <response-header name="x-powered-by-header" header-name="X-Powered-By" header-value="Undertow/1"/>
+                <response-header name="Vary-header" header-name="Vary" header-value="Accept-Encoding"/>
+                <gzip name="gzipFilter"/>
+            </filters>
+            <!-- ######################################################### -->
+        </subsystem>
+```
 
 ## Tomcat
 
@@ -34,7 +62,7 @@ compressableMimeType="Z"
 | noCompressionUserAgents | The User Agents for which compressions is not to be used. Some older browseers do not support compression. | gozilla, traviata |
 | compressableMimeType | The MIME types of the resources to be compressed. We recommend that all text files be compressed. | text/html,text/xml |
 
-If you use the Tomcat bundle, the file to edit is `conf/server.xml`.
+If you use the Tomcat bundle, the file to edit is `TOMCAT_HOME/server/conf/server.xml`.
 If you use a different package, use the corresponding path; for example on Ubuntu the file is located in `/etc/tomcat7/server.xml`.
 
 Connector configuration:
