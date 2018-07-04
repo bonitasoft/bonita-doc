@@ -141,6 +141,16 @@ The Workspace API tooling (headless studio build) has been deprecated. You are r
 
 ## Bug fixes
 
+### Fixes in Bonita 7.7.1
+#### Fixes in Engine component
+* BS-17536 Quartz elements associated with boundary event from a sub process are not deleted when parent process instance is deleted
+* BS-17553 Exception, or a stack trace, or an incident are generated when an interruptive boundary timer is triggering during connector execution at ON_ENTER
+* BS-18448 Engine failed to start with a ClassNotFoundException after migration when a BDM 's BO defines fields with date or datetime types
+#### Fixes in UI Designer component
+* BS-18442 Cannot import form in UID in Windows when it contains chinese characters
+#### Fixes in Web component
+* BS-18374 User membership cannot be removed because memberships have no pagination
+
 ### Fixes in Bonita 7.7.0
 #### Fixes in Documentation
 * BS-16862 Cannot fully deploy a REST API extension with Engine APIs
