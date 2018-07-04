@@ -15,18 +15,18 @@ Bonita is a powerful BPM-based application platform for building highly engaging
 
 ## Pull requests
 
-Each minor version of Bonita has its own Git branch to manage its related documentation. (Minor version means X.Y, for example 7.3 or 7.4).  
-For instance, the **7.3** branch is where you have to open pull requests when your contribution applies to all 7.3 versions of Bonita.
+Each minor version of Bonita has its own Git branch to manage its related documentation. (Minor version means X.Y, for example 7.4 or 7.5).
+For instance, the **7.4** branch is where you have to open pull requests when your contribution applies to all 7.4 versions of Bonita.
 
 A branch should be name in kebab case prefixed by the type of the feature the branch has been created for (feat, fix, style, tr, chore, howto,...).  
 For instance, for a branch fixing a typo in the User REST API, its name should be `fix/user-delete-rest-api-typo`.
 
 If your contribution applies to multiple minor versions of Bonita, then open a pull request on the lowest applicable version branch. Then add all applicable minor versions in your pull request comment and we will do the rest :-)
 
-<u>Example</u>: Your contribution applies to versions 7.3 and 7.4. Therefore submit your pull request on branch 7.3 with a comment like:
+<u>Example</u>: Your contribution applies to versions 7.4 and 7.5. Therefore submit your pull request on branch 7.4 with a comment like:
 ```
 My awesome contribution to Bonita documentation.
-Versions: 7.3, 7.4
+Versions: 7.4, 7.5
 ```
 
 Ideally, a pull request, at first, should contain a single commit containing the changes you want to suggest. Other commits may be added after reviews.
@@ -81,7 +81,7 @@ If needed, description allow a more detailed explanation on why this change is b
 You can write as many lines of description as needed:
 
 * E.g.:
-   "This change is part of a larger scale rewriting of how to deal with Dates in Bonita.  
+   "This change is part of a larger scale rewriting of how to deal with Dates in Bonita.
    Usage has proven that the feature was not correctly understood.  
    This article tends to start over on the date notions and how to use them."
 
@@ -95,7 +95,7 @@ Please provide links to any relevant tickets, articles or other resources if ava
 
 In this case, edit the appropriate _.md_ file and the build process will do the rest.
 
-<u>Example</u>: To edit the **?page=actors** page in version 7.3, edit the `md/actors.md` file and submit a pull request on **7.3** branch.
+<u>Example</u>: To edit the **?page=actors** page in version 7.4, edit the `md/actors.md` file and submit a pull request on **7.4** branch.
 
 
 ## How to add a new page?
@@ -104,7 +104,7 @@ In this case, edit the appropriate _.md_ file and the build process will do the 
 
 Checkout a branch from the version you want this page to be available in and create the _.md_ file in the **md** folder.
 
-<u>Example</u>: To add a new _Manage form control/validation_ tutorial in 7.3, checkout a new branch from the **7.3** branch and create a new _manage-control-in-forms.md_ file in the **md** folder.
+<u>Example</u>: To add a new _Manage form control/validation_ tutorial in 7.4, checkout a new branch from the **7.4** branch and create a new _manage-control-in-forms.md_ file in the **md** folder.
 
 You can check its content once committed on the GitHub site ([Simple view](README.md#simple-view)) or using the web server ([Advanced view](README.md#advanced-view)).
 
