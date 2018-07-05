@@ -141,6 +141,40 @@ The Workspace API tooling (headless studio build) has been deprecated. You are r
 
 ## Bug fixes
 
+#### Fixes in Documentation
+* BS-16862 Cannot fully deploy a REST API extension with Engine APIs
+* BS-17598 Documentation steps about "Create your own password validator" lead to maven error: Could not find artifact
+* BS-17613	Instructions to use gzip compression no longer apply
+* BS-17659 "BDM Management in Bonita Portal" section leads customer to believe updating the BDM in production is supported
+* BS-17699 Broken link to 7.6 Engine Javadoc
+* BS-17770 Studio preferences Documentation still speaks about Studio profiles
+* BS-17795 Single sign-on with SAML not described with Wildfly
+* BS-17930 Documentation about 'Changing technical user' needs more detailed explanations
+* BS-17994	REST API filter names includes erroneous \ character
+* BS-18134 Workaround or guidance missing for time-zoned Java 8 Date types usage in REST API extensions
+* BS-18167 Live update of script fails if a new "provided variable" is added to the script
+* BS-18441	7.7 Javadocs have missing packages and classes
+
+### Fixes in Bonita 7.7.2 (2018-07-09)
+#### Fixes in Engine component
+* BS-17227 Bundle tomcat does not work if installation path contain special character (like "é")
+* BS-18402 BDM Composition and aggregation child update creates a new Child BO instance instead of updating the right one
+* BS-18428 Missing Hibernate queries for activity instances can lead to runtime errors when calling ProcessAPI.searchActivities()
+* BS-18439 BDM: extra lines generated with null values in table, with aggregation relation
+* BS-18445 Webservice connector fails in buildResponseDocumentBody with error: HIERARCHY_REQUEST_ERR: An attempt was made to insert a node where it is not permitted
+#### Fixes in Studio component
+* BS-18445 Webservice connector fails in buildResponseDocumentBody with error: HIERARCHY_REQUEST_ERR: An attempt was made to insert a node where it is not permitted.
+* BS-18467 Database connector wizard does not filter unaccessible connector outputs in scripting mode
+#### Fixes in UI Designer component
+* BS-18431 The LA-Builder hang for ever on UID page generation error
+* BS-18472 Rename fragment does not rename frament into Forms
+#### Fixes in Web component
+* BS-17975 As Sam, I want the Tomcat bundle to start in less than 7 minutes on my Docker env
+* BS-17880 Importing organization with expired session fails with misleading error message
+* BS-18366 Started by System displayed in the cases list page if user have an empty Lastname or empty firstname
+* BS-18417 User profile - "Done tasks" list cannot be sorted on 'Case' column whereas "To do" and "My tasks" lists can
+* BS-18449 Organization can be export by a non admin user from Bonita Portal
+
 ### Fixes in Bonita 7.7.1
 #### Fixes in Engine component
 * BS-17536 Quartz elements associated with boundary event from a sub process are not deleted when parent process instance is deleted
@@ -152,16 +186,6 @@ The Workspace API tooling (headless studio build) has been deprecated. You are r
 * BS-18374 User membership cannot be removed because memberships have no pagination
 
 ### Fixes in Bonita 7.7.0
-#### Fixes in Documentation
-* BS-16862 Cannot fully deploy a REST API extension with Engine APIs
-* BS-17598 Documentation steps about "Create your own password validator" lead to maven error: Could not find artifact
-* BS-17659 "BDM Management in Bonita Portal" section leads customer to believe updating the BDM in production is supported
-* BS-17699 Broken link to 7.6 Engine Javadoc
-* BS-17770 Studio preferences Documentation still speaks about Studio profiles
-* BS-17795 Single sign-on with SAML not described with Wildfly
-* BS-17930 Documentation about 'Changing technical user' needs more detailed explanations
-* BS-18134 Workaround or guidance missing for time-zoned Java 8 Date types usage in REST API extensions
-* BS-18167 Live update of script fails if a new "provided variable" is added to the script
 #### Fixes in Engine component
 * BS-15900 EventTriggers are not always deleted from the EVENT_TRIGGER_INSTANCE table
 * BS-16750 FILE contract input type generates a big usage of the heap memory with big documents
