@@ -64,7 +64,7 @@ Test each process individually before testing the application as a whole.
 You can validate a process definition in Bonita Studio, in teh **Details** panel, **Validation status** tab. The validation status 
 indicates any errors or omissions in the definition. Correct any errors flagged in validation before testing the process.
 
-Bonita Studio includes an environment for testing a process locally, before deployment. You can test the process without connectors by clicking **_Debug_**, test each connector independently using teh connector wizard **_Test_** button, then run the process by clicking **_Debug_** to test it with connectors. You need to [configure](process-configuration-overview.md) the process before testing it locally.
+Bonita Studio includes an environment for testing a process locally, before deployment. You can test each connector independently using teh connector wizard **_Test_** button, then run the process by clicking **_Run_** to test it with connectors. You need to [configure](process-configuration-overview.md) the process before testing it locally.
 
 Bonita Studio contains an example organization, ACME, which you can use for testing a process or application.
 
