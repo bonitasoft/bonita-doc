@@ -15,11 +15,17 @@
 
 <a id="6.x-form"/>
 
-### 6.x forms based on GWT technology removed.
+### 6.x forms based on GWT technology
 Studio forms based on Google Web Toolkit (GWT) technology are not supported anymore, starting with Bonita 7.8. They have been removed from Bonita Studio. Importing a .bos will not import such forms.
 Cloning a Git repository or migrating a SVN repository will remove such forms and their related content (validators, look'n'feels, forms and widgets templated).  
 Before you start Bonita Studio 7.8 or migrate your production to Bonita 7.8., make sure you have replaced such forms/pages by forms/pages created with more recent technologies and newer concepts, offered since Bonita 7.0: [UI Designer](ui-designer-overview.md) and [contract and context](contracts-and-contexts.md).
 
+<a id="bar-importer"/>
+
+### 5.x BAR file import in Studio
+It is no longer possible to import BAR files created with Bonita 5.x in the Studio. If you still need to migrate 5.x bar, use Bonita Studio __7.7.x__ version.
+
+### Debug action in Studio
 
 ## Other dependency updates
 Some internal libraries have been updated to newer versions:
