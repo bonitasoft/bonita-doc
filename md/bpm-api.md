@@ -562,15 +562,9 @@ Fields that can be updated are `assignedId` and `state`. Specify only those fiel
     "assigned_id" : "new_user_id", 
     "state": "new_state"
   }
-  ``
+  ```
 * **Success Response**  
   * **Code**: 200
-  * **Payload**:  
-    ```json
-    {
-      "state":"skipped"
-    }
-    ```
 
 ### ManualTask
 
@@ -608,6 +602,7 @@ Simple, the ID of the object (a long value)
   "assigned_id": "the user id (long) that this task is assigned to, or 0 if it is unassigned",
   "assigned_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current task was assigned, for example '2014-10-17 16:05:42.626'"
 }
+```
 
 #### Methods
 
@@ -623,7 +618,7 @@ Use a POST method to create a new subtask. A subtask is attached to a parent tas
 
 Example: 
 * **URL**  
-  `/API/bpm/manualTask``  
+  `/API/bpm/manualTask`  
 * **Method**  
   `POST`
 * **Request Payload**  
@@ -674,7 +669,7 @@ Example:
 Use a PUT method to execute a subtask. Executing a subtask basically means changing its state to completed and providing an executedBy value.
 
 * **URL**  
-  `/API/bpm/manualTask``  
+  `/API/bpm/manualTask/:manualTaskId`  
 * **Method**  
   `PUT`
 * **Request Payload**  
@@ -686,40 +681,13 @@ Use a PUT method to execute a subtask. Executing a subtask basically means chang
   ```
 * **Success Response**  
   * **Code**: 200
-  * **Payload**:  
-    ```json
-    { 
-      "displayDescription":"This is my subtask", 
-      "executedBySubstitute":"1", 
-      "processId":"8367255255370237633", 
-      "parentCaseId":"1", 
-      "state":"ready", 
-      "rootContainerId":"1", 
-      "type":"MANUAL_TASK", 
-      "assigned_id":"1", 
-      "assigned_date":"2014-12-01 17:39:53.784", 
-      "id":"40006", 
-      "executedBy":"1", 
-      "caseId":"1", 
-      "priority":"above_normal", 
-      "actorId":"1", 
-      "description":"This is my subtask", 
-      "name":"My subtask", 
-      "reached_state_date":"2014-12-01 17:39:53.784", 
-      "rootCaseId":"1", 
-      "displayName":"My subtask", 
-      "parentTaskId":"40001", 
-      "dueDate":"2014-12-25 00:00:00.000", 
-      "last_update_date":"2014-12-01 17:39:53.784" 
-    }
-    ```
 
 #### Retrieve a subtask
 
 Use a GET method to retrieve information about a subtask.
 
 * **URL**  
-  `/API/bpm/manualTask/:manualTaskId``  
+  `/API/bpm/manualTask/:manualTaskId`  
 * **Method**  
   `GET`
 * **Success Response**  
@@ -732,7 +700,7 @@ Use a GET method with filters and search terms to search for subtasks.
 * **URL**  
   `/API/bpm/manualTask`  
 * **Method**  
-  ``
+  `GET`
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   You can filter on:
@@ -855,10 +823,7 @@ The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-re
   { "state": "completed" }
   ```
 * **Success Response**  
-  * **Code**: 
-  * **Payload**:  
-    ```json
-    ```
+  * **Code**: 200
 
 #### Search tasks
 
@@ -2411,7 +2376,7 @@ Fields that can be upated are "displayName" and "description"
   }
   ```
 * **Success Response**  
-  * **Code**: 20
+  * **Code**: 200
 
 ### ActorMember
 
@@ -2892,7 +2857,7 @@ See [Start a process using an instantiation contract](#start-a-process-using-an-
 * **Request Payload**
   List of case ids to delete
    ```json
-  ["1", "2" ,...]
+  ["1", "2" , ...]
   ```
 * **Success Response**  
   * **Code**: 200  
@@ -3577,26 +3542,7 @@ You can update the following fields of a process definition:
   }
   ```
 * **Success Response**  
-  A process in JSON
   * **Code**: 200
-  * **Payload**:  
-    ```json
-    {
-      "id":"1",
-      "icon":"/default/process.png",
-      "displayDescription":"process description",
-      "deploymentDate":"2015-01-02 14:21:18.421",
-      "description":"another process description",
-      "activationState":"ENABLED",
-      "name":"Pool1",
-      "deployedBy":"2",
-      "displayName":"Leave booking process",
-      "actorinitiatorid":"2",
-      "last_update_date":"2015-02-23 14:29:02.249",
-      "configurationState":"RESOLVED",
-      "version":"1.0"
-    }
-    ```
 
 #### Search for a process
 
@@ -4727,7 +4673,9 @@ Specify the next execution date of a timer event trigger.
   The actual long value corresponding to the next execution date of the timer event trigger, as a long value
   * **Code**: 200
   * **Payload**:  
-    ```
-    1433980484194
+    ```json
+    {
+        "executionDate": 1433980484194
+    }
     ```
 
