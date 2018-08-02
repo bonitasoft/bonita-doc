@@ -144,16 +144,30 @@ The Workspace API tooling (headless studio build) has been deprecated. You are r
 #### Fixes in Documentation
 * BS-16862 Cannot fully deploy a REST API extension with Engine APIs
 * BS-17598 Documentation steps about "Create your own password validator" lead to maven error: Could not find artifact
-* BS-17613	Instructions to use gzip compression no longer apply
+* BS-17613 Instructions to use gzip compression no longer apply
 * BS-17659 "BDM Management in Bonita Portal" section leads customer to believe updating the BDM in production is supported
 * BS-17699 Broken link to 7.6 Engine Javadoc
 * BS-17770 Studio preferences Documentation still speaks about Studio profiles
 * BS-17795 Single sign-on with SAML not described with Wildfly
 * BS-17930 Documentation about 'Changing technical user' needs more detailed explanations
-* BS-17994	REST API filter names includes erroneous \ character
+* BS-17994 REST API filter names includes erroneous \ character
 * BS-18134 Workaround or guidance missing for time-zoned Java 8 Date types usage in REST API extensions
 * BS-18167 Live update of script fails if a new "provided variable" is added to the script
-* BS-18441	7.7 Javadocs have missing packages and classes
+* BS-18441 7.7 Javadocs have missing packages and classes
+* BS-18497 Migration: HTTP status code 403 REST API extensions
+
+### Fixes in Bonita 7.7.3 (2018-08-02)
+#### Fixes in Engine component
+* BS-18441 7.7 Javadocs have missing packages and classes
+* BS-18312 A named Hibernate query to search Activities with type CALL_ACTIVITY is missing.
+* BS-18557 Missing Hibernate queries for running and archived process instances can lead to runtime errors when using the Engine API
+* BS-18575 "-Djava.security.egd=file:/dev/./urandom" option missing from setup/tomcat-templates/setenv.sh
+#### Fixes in Studio component
+* BS-18576 Can not import .bos file in 7.7.x Teamwork edition Studio
+* BS-18589 LA-Builder groovy script compilation fails due to classpath issues
+#### Fixes in Web component
+* BS-16976	FileNotFoundException/IOException issues when accessing/deploying custom pages/REST API extensions
+* BS-18570	Cannot retrive theme.css from a custom page into a portal profile
 
 ### Fixes in Bonita 7.7.2 (2018-07-09)
 #### Fixes in Engine component
