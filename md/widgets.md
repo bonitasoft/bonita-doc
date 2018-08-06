@@ -258,7 +258,7 @@ The widget can display several styles of chart:
   * Doughnut
   * Polar area
 
-Provide each set of data for display in a JSON array, containing numeicral values.  
+Provide each set of data for display in a JSON array, containing numerical values.  
 You can enter a single array directly in the Value property, or bind it to any variable that provides an array.  
 For a multiple set chart, bind it to any variable that provides an array of arrays, all sets having have the same length.  
 The list of values in the **Labels** property must be have same length as an associated set.  
