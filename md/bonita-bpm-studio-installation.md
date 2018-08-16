@@ -61,7 +61,7 @@ Subscription editions
 - 32 bit: `Not provided`
 - 64 bit: `BonitaSubscription-x.y.z-x86_64.dmg`
 
-**Zip, no Installer (Windows or Linux)**  
+**Zip, no Installer (Windows or Linux)**
 Community edition  
 - `BonitaStudioCommunity-x.y.z.zip`
 
@@ -75,7 +75,7 @@ To run the installer wizard for Linux, Windows, or Mac, double-click the downloa
 Then follow the installation wizard through to the end of the installation procedure.
 
 For subscription editions: the installer import workspace feature applies only to local repositories.  
-If you have shared repositories in your workspace, you will need to reconnect to these manually, and possibly migrate the processes to your new version of Bonita Studio.  
+If you have shared repositories in your workspace, you will need to reconnect to these manually, and possibly migrate the processes to your new version of Bonita Studio.
 The default workspace is automatically initialized at the end of the installation.
 
 ## Install using Zip archive (Windows or Linux)
@@ -127,19 +127,22 @@ When you launch Bonita Studio for the first time, you need to install a license:
 
 <a id="enable_cache"/>
 
-## Cache configuration 
+## Cache configuration
 
-By default [cache](cache-configuration-and-policy.md) is disable for the web server embedded by Bonita studio, as it is more comfortable to realise development without cache. 
-But you can decide to activate cache, to be closer to the production display time. To do this, you need to follow those steps. 
+By default [cache](cache-configuration-and-policy.md) is disable for the web server embedded by Bonita studio, as it is more comfortable to realise development without cache.
+But you can decide to activate cache, to be closer to the production display time. To do this, you need to follow those steps.
 
 1. Close your Bonita Studio if he's up.
 2. Go in the studio installation folder.
 3. Open `BonitaStudioSubscription.ini` file if you use a **32-bits version** (`BonitaStudioSubscription64.ini` for a **64-bits**).
 4. Change `-Dtomcat.extra.params=-DnoCacheCustomPage=true` to `-Dtomcat.extra.params=-DnoCacheCustomPage=false`.
 5. Save file.
-6. Start your Bonita studio. Now you have a cache for your living application and your custom page. 
+6. Start your Bonita studio. Now you have a cache for your living application and your custom page.
+
+
 
 ## Troubleshooting
+
 
 #### Log files
 
@@ -152,7 +155,7 @@ Note that folder might be hidden and file might not be displayed if you choose t
 
 #### OutOfMemory error in Bonita Studio
 
-After installation, you might see an `OutOfMemory` error in Bonita Studio.  
+After installation, you might see an `OutOfMemory` error in Bonita Studio.
 This error sometimes occurs when importing a large process definition.  
 The log messages are similar to the following:
 
@@ -172,3 +175,17 @@ To fix this issue, you need to increase the memory allocated to the JVM that run
 Edit the `*.ini` file that corresponds to the executable you use to launch the Studio (e.g. `BonitaStudioSubscription64.ini` if you run BonitaStudioSubscription64.exe) and modify this line: `-Xmx512m` to `-Xmx1024m` (or higher).
 
 Then restart Bonita Studio.
+
+
+#### Bonita Studio Welcome page stays blank on Linux (Ubuntu/Debian)
+
+If the Welcome page displays fully white when you start-up your Bonita Studio:
+<img src="bonita/images/${varVersion}/studio_welcome_page_ko.png" width="850px"/>
+
+just install the missing packet libwebkitgtk by running the following command:
+```shell
+sudo apt-get install libwebkitgtk-1.0-0
+```
+
+Then the welcome page should display well, like this:
+<img src="bonita/images/${varVersion}/studio_welcome_page_ok.png" width="850px"/>
