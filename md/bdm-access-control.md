@@ -1,27 +1,27 @@
 # BDM access control
 
 ::: info
-**Note:** for Enterprise, Performance and Efficiency editions only.
+**Note:** for Enterprise, Performance and Efficiency editions only.  
 :::
 
 ## Overview
-This page explains how to protect the access to your BDM through REST API calls via a white list mechanism. This protection does not secure access to BDM through DAO.
-The BDM access control feature, available in Bonita Studio, allows to grant access to entire business objects or access to some attributes of business objects.
+This page explains how to protect the access to your BDM through REST API calls via a white list mechanism. This protection does not secure access to BDM through DAO.  
+The BDM access control feature, available in Bonita Studio, allows to grant access to entire business objects or access to some attributes of business objects.  
 To grant access to specific instances of business objects, you will need to use [Rest api authorizations](rest-api-authorization.md).
-You will find below examples of both use-cases.
+You will find below examples of both use-cases.  
 
 ## Use of profiles
 
 Most of the time, the access logic applies to several users, based on a combination of their roles/groups in the organization. 
-For that reason, Bonita 7.7 takes advantage of the capability introduced in Bonita 7.6 to define [profiles](profiles-overview.md) in Bonita Studio.
-We are making profiles an effective way to map people to Bonita items: living application or Bonita Portal access (since Bonita 5.0), BDM access control rules (starting in Bonita 7.7), actor mapping or more in the future.
+For that reason, Bonita 7.7 takes advantage of the capability introduced in Bonita 7.6 to define [profiles](profiles-overview.md) in Bonita Studio.  
+We are making profiles an effective way to map people to Bonita items: living application or Bonita Portal access (since Bonita 5.0), BDM access control rules (starting in Bonita 7.7), actor mapping or more in the future.  
 Granting access to a business object or some attributes of a business object to a given profile means granting access to all users mapped to this profile.  
 
 ## Define BDM access control
 
-To define access control on your BDM, use the Access Control Editor embedded in Bonita Studio. You can open it using the menu: *Development* > *Business Data Model* > *BDM access control* > *Define*
+To define access control on your BDM, use the Access Control Editor embedded in Bonita Studio. You can open it using the menu: *Development* > *Business Data Model* > *BDM access control* > *Define*  
 
-Defining access control on a business object means defining a set of **access rules** on this object.  
+Defining access control on a business object means defining a set of **access rules** on this object.   
 A rule is made of the following elements:  
  - A name
  - A description
@@ -30,8 +30,8 @@ A rule is made of the following elements:
 
 If several rules grant access to the same profile, then this profile is allowed to access to the union of the attributes defined on those rules.
 
-On the left zone of the graphical editor, displaying business objects, you will not see business objects used in a **composition relationship**. 
-Since they are strongly related to their parent object, their access must be defined at their parent level. This is why they only appear in the parent object list of attributes, in the details of the rule you define.
+On the left zone of the graphical editor, displaying business objects, you will not see business objects used in a **composition relationship**.  
+Since they are strongly related to their parent object, their access must be defined at their parent level. This is why they only appear in the parent object list of attributes, in the details of the rule you define.  
 The *Invoice example* below gives more details on how to define access control for business objects used in a composition relationship. 
 
 ::: info
@@ -103,8 +103,11 @@ In the UI Designer, create an application page (*displayLeaveRequest*):
 	- **Read-only**: *true*
 
  
-Since medicalComment will not be accessible to some users, you can make its display conditional.  
-To do so, in the property **hidden** of the dedicated input, click the **fx** button to make it an expression, and write `$item.medicalComment == null || $item.medicalComment == undefined`.
+_medicalComment_ will not be accessible to the HR trainees.  
+To manage this and other differences between what profiles can access, you have two options:
+- create one application per profile, and one page per profile: one with this field, and one without
+- manage it on the same page and make its display conditional.
+  To do so, in the property **hidden** of the dedicated input, click the **fx** button to make it an expression, and write `$item.medicalComment == null || $item.medicalComment == undefined`.
     
 Create a new application descriptor using the [application editor](applicationCreation.md) in the studio:  
 
@@ -152,9 +155,9 @@ Access to data is now controlled by the BDM Access Control file just deployed. T
 
 ### II - Grant access to attributes in a complex relationship. Invoices
 
-**Business use case:** A company handles invoices for customers' orders. 
-Looking at all invoices, an employee in charge of the preparation of the order (order picker) should access orders but no customers information. Looking at the invoice lines, the order picker should access product names and quantities but no prices.
-An experienced sales representative should access all information about orders and customers.
+**Business use case:** A company handles invoices for customers' orders.  
+Looking at all invoices, an employee in charge of the preparation of the order (order picker) should access orders but no customers information. Looking at the invoice lines, the order picker should access product names and quantities but no prices.  
+An experienced sales representative should access all information about orders and customers.  
 A novice sales representative should access all information about orders but only customer names (no email address, no regular address).  
 **Technical use case:** Grant access to complex attributes (with composition or aggregation relationships) of a business object depending on the profile of the requester. 
 
@@ -193,7 +196,7 @@ Define an *Invoice* business object, with the following attributes:
 
 **2. Define organization and profiles**
 
-- In your organization create two groups, 'Order picker' and 'Sales', and two roles 'Member' and 'Novice member'.
+- In your organization create two groups, 'Order picker' and 'Sales', and two roles 'Member' and 'Novice member'.  
 - Create some users with the membership 'Member of Order picker', some others with 'Novice member of Sales', and some with 'Member of Sales'.
 - Check that all users are also mapped with the default profile *User*.
 - Define three custom profiles using the [profile editor](profileCreation.md) in the studio:  
@@ -221,7 +224,7 @@ First, create a process to generate customers:
 Run this process a couple of times to generate customers.
    
 Then, create a process to generate invoices, with customers and products.  
- The instantiation form will have to retrieve existing customers, so there is some work to do on the UI Designer for this process:
+The instantiation form will have to retrieve existing customers, so there is some work to do on the UI Designer for this process:
  
 
 - Create a new diagram, with only a start event and an end event.  
