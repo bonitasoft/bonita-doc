@@ -30,7 +30,7 @@ For Bonita Studio, you can set the level of logging. Edit the `config.ini` in th
 When you run a process locally from Bonita Studio for testing, you can access the Engine log file by choosing **Bonita Engine log** from the **Help** menu. 
 The logging level for Engine when it is started from Studio is always `INFO`. 
 
-On a deployed system, you can configure the log level and you can access the log files directly, in `$BONITA_HOME/tomcat/logs`. 
+On a deployed system, you can configure the log level and you can access the log files directly, in `<TOMCAT_HOME>/server/logs`. 
 Each file name includes the date when the file was created. There are several log files:
 
 * _bonita.date_.log is the Bonita Engine log file.

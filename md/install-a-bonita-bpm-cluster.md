@@ -36,6 +36,11 @@ If you want to use IAM role for EC2 autodiscovery, you need to attach a role to 
 
 In this part we will create a cluster from scratch. We will initialize the database on which the cluster will run, then we will configure nodes to run on this cluster.
 
+## Allow communication between servers
+Bonita cluster uses Hazelcast as the distributed cluster dispatcher layer.
+Hazelcast needs the port 5701 (by default) to be opened on all the servers that compose the cluster.
+Ensure that these ports are opened in all the nodes of your cluster.
+
 ### <a id="create_init_bonita_db" /> Create and initialize the database for Bonita Platform
 
 In this step you will create and initialize the database for the Bonita Platform cluster using the [platform setup tool](BonitaBPM_platform_setup.md).
@@ -141,31 +146,23 @@ In this case you already have a Bonita Platform running as single node installat
 
 Some properties of the Bonita Platform needs to be changed in order to make your installation work as a cluster node.
 
-1. Use your [platform setup tool](BonitaBPM_platform_setup.md) previously used to setup and configure your node. If you don't have a platform setup tool (which is unlikely), you can download the Bonita [Deploy bundle](deploy-bundle.md) and unzip it at some place of your choice.
-    ::: info
-    The platform setup tool is also present in the Tomcat or WildFly bundle under the `setup` directory.
-    :::
-1. If the platform setup tool is not configured already, configure it as described in the [platform setup tool page](BonitaBPM_platform_setup.md). If it is, move on to next step.
-1. Run the `setup.sh pull` or `setup.bat pull`. This will retrieve the configuration of your platform under `platform_conf/current` folder.
-In the following steps, you will update the configuration files that are in the `platform_conf/current` folder of the platform setup tool.
-
-1. Edit the file `platform_conf/current/platform_engine/bonita-platform-sp-custom.properties`: Uncomment and set the **`bonita.cluster`** property to `true`, as follows: `bonita.cluster=true`
-1. Edit the file `platform_conf/current/platform_engine/bonita-platform-sp-custom.properties`:
-<a id="disable-hibernate-cache"/>In order to keep consistency between nodes, the Hibernate cache must be disabled as follows: Uncomment and change the line:
-      `#bonita.platform.persistence.use_second_level_cache=true`
-    change it to:
-      `bonita.platform.persistence.use_second_level_cache=false`
-
-1. Edit the file `platform_conf/current/platform_engine/bonita-platform-sp-cluster-custom.properties`: uncomment and set the **`bonita.cluster.name`** property to a name of your own, e.g. `myBPMCluster`, **This name must be unique on the local network if you are using *multicast***
-1. Edit the file `platform_conf/current/platform_engine/bonita-platform-sp-cluster-custom.properties`:  set one of `bonita.platform.cluster.hazelcast.multicast.enabled` or `bonita.platform.cluster.hazelcast.tcpip.enabled` or `bonita.platform.cluster.hazelcast.aws.enabled` to `true` as follows: Uncomment the # properties and set only one of them to `true`, set the others to `false` depending on how you want your nodes to discover each others.
-Example:
-`bonita.platform.cluster.hazelcast.multicast.enabled=false`
-`bonita.platform.cluster.hazelcast.tcpip.enabled=true`
-`bonita.platform.cluster.hazelcast.tcpip.members=ipServer01,ipServer02,ipServer03`
-**Important**: If you don't use `bonita.platform.cluster.hazelcast.multicast.enabled`, **you must uncomment the # properties and set it to `false`** as follows: `bonita.platform.cluster.hazelcast.multicast.enabled=false`.
-For more information on this take a look at the [Hazelcast Documentation](http://docs.hazelcast.org/docs/3.4/manual/html-single/index.html#discovering-cluster-members).
-1. Copy licenses of all your nodes in `platform_conf/licenses`
-1. Run the `setup.sh push` or `setup.bat push`. This will update in database the configuration of your platform.
+* Download the Bonita BPM [Deploy bundle](deploy-bundle.md) and unzip it at some place of your choice.
+::: info
+The platform setup tool is also present in the Tomcat or WildFly bundle under the `setup` directory.
+:::
+* Configure it as described in the [platform setup tool page](BonitaBPM_platform_setup.md)
+* Run the `setup.sh pull` or `setup.bat pull`. This will retrieve the configuration of your platform under `platform_conf/current` folder.
+* Update configuration files that are in the `platform_conf/current` folder of the platform setup tool.
+    * In `platform_init_engine/bonita-platform-init-community-custom.properties` uncomment and update the value of `activeProfiles` property from **`community`** to **`community,performance`**.
+    * In `platform_engine/bonita-platform-sp-custom.properties`
+        * uncomment and set the **`bonita.cluster`** property to `true`.
+    * In `platform_engine/bonita-platform-sp-cluster-custom.properties`
+        * uncomment and set the **`bonita.cluster.name`** property to a name of your own, e.g. `myBPMCluster`, **This name must be unique on the local network if you are using *multicast***
+        * set one of `bonita.platform.cluster.hazelcast.multicast.enabled`, `bonita.platform.cluster.hazelcast.tcpip.enabled` and `bonita.platform.cluster.hazelcast.aws.enabled` to `true`:
+        uncomment the # properties and set only one of them to `true`, set the others to `false` depending on how you want your nodes to discover each others,
+        for more information on this take a look at the [Hazelcast Documentation](http://docs.hazelcast.org/docs/3.4/manual/html-single/index.html#discovering-cluster-members).
+* Copy licenses of all your nodes in `platform_conf/licenses`
+* Run the `setup.sh push` or `setup.bat push`. This will update in database the configuration of your platform.
 
 ### Configure nodes to run on this cluster
 
@@ -211,7 +208,7 @@ See [How to update a Bonita Tomcat Bundle configuration](BonitaBPM_platform_setu
 
 ### Managing the cluster with Hazelcast
 
-A Bonita cluster uses Hazelcast as the distributed cluster dispatcher layer. Therefore you can use the Hazelcast tools to manage the cluster topology.
+As said before, Bonita cluster uses Hazelcast as the distributed cluster dispatcher layer. Therefore you can use the Hazelcast tools to manage the cluster topology.
 See the [Hazelcast documentation](http://www.hazelcast.com/docs.jsp) for details.
 
 Note that a Bonita cluster uses multicast for discovery by default. You can disable this in Hazelcast.

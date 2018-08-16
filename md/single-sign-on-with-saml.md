@@ -144,6 +144,7 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
 6. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,  
     edit the file **keycloak-saml.xml** to setup Bonita webapp as a Service provider working with your IdP.  
     + The entityID is the Service Provider given to your bonita installation. You can change it if you want but you need to provide it to your IdP.  
+    + The sslPolicy option may need to be changed if Bonita Portal and the IdP are not both accessed via HTTPS. Possible values for this property are: ALL, EXTERNAL, and NONE. For ALL, all requests must come in via HTTPS. For EXTERNAL, only non-private IP addresses must come over via HTTPS. For NONE, no requests are required to come over via HTTPS.  
     + If your IdP requires the SSO requests to be signed replace the following strings in the Keys section of the SP:  
       - put your private key here
       - put your certificate here
