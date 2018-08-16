@@ -5,7 +5,9 @@
 :::
 
 ::: warning
-**Note:** [Bonita Continuous Delivery add-on](https://documentation.bonitasoft.com/bcd/2.0/) comes with an out-of-the-box solution based on Jenkins CI. 
+**Note:**
+* The solution described here relies on the BonitaStudioBuilder which is deprecated as of Bonita 7.7
+* [Bonita Continuous Delivery add-on](https://documentation.bonitasoft.com/bcd/2.0/) comes with an out-of-the-box solution based on Jenkins CI.
 :::
 
 

@@ -4,6 +4,11 @@
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
+::: warning
+**Note:**
+* The solution described here relies on the BonitaStudioBuilder which is deprerated as of Bonita 7.7
+:::
+
 ## Overview
 
 Bonita includes a Workspace API, in the form of the script `BonitaStudioBuilder`, to build a .bar file from a process and/or a .zip file from a REST API extension in a repository. It accesses the build features of Bonita Studio in the background. 
