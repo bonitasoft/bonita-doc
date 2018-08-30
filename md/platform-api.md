@@ -3,9 +3,9 @@
 ## Platform API Login and Logout
 
 The platform API resources require a platform session.
-In order to get one, log in as the platform administrator using the platform login service. The username and password are in bonita-platform-community-custom.properties file. 
+In order to get one, log in as the platform administrator using the platform login service. The username and password are in bonita-platform-community-custom.properties file.
 
-* **URL**  
+* **URL**
   `/platformloginservice`
 * **Method**
   `POST`
@@ -17,13 +17,13 @@ username=platformAdmin
 password=platform
 redirect=false
 ```
-  
+
 In order to logout use the platform logout service as follow:
 * **URL**
   `/platformlogoutservice`
 * **Method**
   `POST`
-* **Success Response**  
+* **Success Response**
   * **Code**: 200
 
 ## Platform
@@ -105,7 +105,7 @@ Start or stop the current node, that is, start or stop all services of the curre
 
 #### Description
 
-Handle the tenants (Performance edition only). This requires a platform session. Log in using the platform login service.
+Handle the tenants (Enterprise and Performance editions only). This requires a platform session. Log in using the platform login service.
 
 #### Identifier
 
@@ -256,7 +256,7 @@ empty
   "duration": integer - number of days for license file validity,
   "licenseExpirationDate": date with format "yyyy-MM-dd" - last day (included) of license file validity,
   "numberOfCPUCores": integer - number of CPUs
-  "edition": name of the BonitaBPM edition enabled by the license
+  "edition": name of the Bonita edition enabled by the license
   "licenseMode": available mode enabled by the license
   "requestKey": request key to use to generate a new license on the customer portal
 

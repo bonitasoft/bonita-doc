@@ -1,17 +1,17 @@
 # Queriable logger
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 This page describes the queriable logger service.
 
 ## Purpose
 
-The queriable logger service provides information about important events in the Bonita BPM Platform that are not directly related to execution of a process. The log includes information about administration operations such as deployment of a new process definition, commands, reporting, actor mapping, Portal Look & Feel themes, and organization and user management.
+The queriable logger service provides information about important events in the Bonita Platform that are not directly related to execution of a process. The log includes information about administration operations such as deployment of a new process definition, commands, reporting, actor mapping, Portal Look & Feel themes, and organization and user management.
 
-The Bonita BPM Engine stores information in the queriable log. The information in the log is accessible using the [LogAPI](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html)
-(Performance, Efficiency, and Teamwork editions only).
+The Bonita Engine stores information in the queriable log. The information in the log is accessible using the [LogAPI](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html)
+(Enterprise, Performance, Efficiency, and Teamwork editions only).
 
 The information available from the queriable log is primarily for the platform and process administrator. It is not intended to be used as a notification system: avoid pooling on the queriable log. If you need to be notified of specific events, use the configurable event service.
 
@@ -33,4 +33,4 @@ System.out.println(log.getMessage());
 
 ## Implementation details
 
-The queriable logger service stores log message in the Bonita BPM Engine back-end database using the Hibernate library. The [interface](https://github.com/bonitasoft/bonita-engine/blob/master/services/bonita-log/bonita-log-api/src/main/java/org/bonitasoft/engine/services/QueriableLoggerService.java) and the [implementation](https://github.com/bonitasoft/bonita-engine/tree/master/services/bonita-log/bonita-log-impl/src/main/java/org/bonitasoft/engine/services/impl) of the service are available from the source code repository on [GitHub](https://github.com/bonitasoft/).
+The queriable logger service stores log message in the Bonita Engine back-end database using the Hibernate library. The [interface](https://github.com/bonitasoft/bonita-engine/blob/master/services/bonita-log/bonita-log-api/src/main/java/org/bonitasoft/engine/services/QueriableLoggerService.java) and the [implementation](https://github.com/bonitasoft/bonita-engine/tree/master/services/bonita-log/bonita-log-impl/src/main/java/org/bonitasoft/engine/services/impl) of the service are available from the source code repository on [GitHub](https://github.com/bonitasoft/).

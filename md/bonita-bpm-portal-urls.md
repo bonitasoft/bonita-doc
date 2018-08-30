@@ -1,10 +1,10 @@
-# Bonita BPM Portal URLs
+# Bonita Portal URLs
 
-This page explains how to use a URL to access Bonita BPM Portal or the form for a specific task. In these URLs, the process names, versions and the task names must be URL encoded.
+This page explains how to use a URL to access Bonita Portal or the form for a specific task. In these URLs, the process names, versions and the task names must be URL encoded.
 
-## URL of Bonita BPM Portal
+## URL of Bonita Portal
 
-You can connect to Bonita BPM Portal from other tools using a URL of the form `http://`_`host`_`:`_`port`_`/bonita#?....`. Other forms of URL are liable to change in future versions. For example, use `http://localhost:8081/bonita#?process=myProcessId&locale=fr`, and do not use `http://localhost:8081/bonita/console/homepage#?process=myProcessId&locale=fr`.
+You can connect to Bonita Portal from other tools using a URL of the form `http://`_`host`_`:`_`port`_`/bonita#?....`. Other forms of URL are liable to change in future versions. For example, use `http://localhost:8081/bonita#?process=myProcessId&locale=fr`, and do not use `http://localhost:8081/bonita/console/homepage#?process=myProcessId&locale=fr`.
 
 ## Process instantiation URL
 
@@ -167,8 +167,8 @@ Example:
 With the above format, the first task with the name "request approval" available for the user found in the process instance with id 8 will be displayed.
 
 ## Using autologin
-Bonita BPM 6.x URL syntax is supported in 7.x. Thus, 6.x autologin feature is supported in 7.0 version with 6.x URL syntax.
-Go to [Accessing Bonita BPM Portal and forms by URL 6.5 documentation](bonita-bpm-portal-urls.md) for more information about this.
+Bonita 6.x URL syntax is supported in 7.x. Thus, 6.x autologin feature is supported in 7.0 version with 6.x URL syntax.
+Go to [Accessing Bonita Portal and forms by URL 6.5 documentation](bonita-bpm-portal-urls.md) for more information about this.
 
 ::: danger
 :fa-exclamation-triangle: **Warning:** The autologin feature only works with v6-type instantiation forms.
@@ -182,4 +182,4 @@ Go to [Accessing Bonita BPM Portal and forms by URL 6.5 documentation](bonita-bp
 | `locale=<string>` | Optional. Identifies the language to be used. | `locale=en`  |
 | `id=<id>` | <ul><li>For process instantiation URL, identifies the process definition id.</li><li>For process overview URL, identifies the process instance id.</li><li>For task URL, identifies the activity instance of the task.</li> | `id=6972973247608922361` |
 | `user=<userId>` | Optional. Identifies the user you perform the task for (for administrators and process managers). | `user=201`  |
-| `tenant=<tenantId>` | Optional. Identifies the tenant on which the process is deployed for multiple tenants environments (Multi-tenancy is available with the Performance edition only). | `tenant=2` |
+| `tenant=<tenantId>` | Optional. Identifies the tenant on which the process is deployed for multiple tenants environments (Multi-tenancy is available with the Enterprise and Performance editions only). | `tenant=2` |

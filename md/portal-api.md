@@ -279,9 +279,11 @@ Use a GET method with filters and search terms to search for profiles.
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   You can filter on:
   * `name={exact_profile_name}`: retrieve only the profiles with the specified name. For example, retrieve the profile with `name=Administrator`: `/API/portal/profile?p=0&c=10&f=name%3dAdministrator`
-
+  *  `hasNavigation={true|false}`: retrieve the profiles with (or without) attached navigation pages (profile entries): `/API/portal/profile?p=0&c=10&f=hasNavigation=true`
+	
   You can search on:
   * name: search all profiles which name starts with the search string. For example, name starting with Adm: `/API/portal/profile?p=0&c=10&s=Adm`
+ 
 * **Success Response**  
   * **Code**: 200
   * **Payload**:  

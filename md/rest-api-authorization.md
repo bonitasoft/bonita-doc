@@ -1,6 +1,6 @@
 # REST API authorization
 
-The Bonita BPM Portal, or any application that uses the Web REST API, enables user to access resources.
+The Bonita Portal, or any application that uses the Web REST API, enables user to access resources.
 The set of resources that a user can access is determined by default by the user's profile.
 This authorization mechanism ensures that users can only access the appropriate resources.
 This means, for example, that a user with only the User profile cannot perform actions intended for the Administrator.
@@ -17,62 +17,80 @@ A user is granted set of permissions. These permissions define the set of resour
 
 ## Summary
 
-For a new Bonita BPM installation, a basic set of authorization checks is activated by default but you might also want to [deactivate the HTTP API](#activate).
+For a new Bonita installation, a basic set of authorization checks is activated by default but you might also want to [deactivate the HTTP API](#activate).
 Here are the key points of the authorizations configuration :
 
-* The static checks (activated by default on a fresh installation) create an authorization layer that exactly matches the standard Bonita BPM Portal features and profiles.
+* The static checks (activated by default on a fresh installation) create an authorization layer that exactly matches the standard Bonita Portal features and profiles.
 If you are using the standard Portal, you do not need to configure anything.
 * If you want to add extra authorization restrictions based on business rules, turn on the dynamic checks that you want.
 The configuration file defines standard rules for the most frequent cases, so all you need to do is uncomment the rules you want to apply.
 * If you add a custom page, include a resources=\[ list \] in your page.properties to specify which resources your custom page requires the users to have access to.
 * If the previous points do not meet your security needs, you can still manually customize the configuration and rules as much as you want.
 
-If you have migrated your platform from a version of Bonita BPM earlier than 6.4.0, security is deactivated by default.
+If you have migrated your platform from a version of Bonita earlier than 6.4.0, security is deactivated by default.
 You need to [add authorization to your custom pages](#migrate) before you activate authorization.
 
 ## Static authorization checking
 
 The static phase uses a set of configuration files:
 
-* `resources-permissions-mapping.properties`
-* `compound-permissions-mapping.properties`
+* `resources-permissions-mapping-*.properties`
+* `compound-permissions-mapping-*.properties`
 * `custom-permissions-mapping.properties`
 
 These files grant permissions to sets of users based on profile or user name.
 You cannot remove permissions in a configuration file, so you must ensure that the default definitions grant the minimum permissions that you want to give to any user.
 
-The default versions of these files are located in `setup/platform_conf/initial/tenant_template_portal`. In order to change the configuration on an installation whose platform has already been initialized, use the [plaform setup tool](BonitaBPM_platform_setup.md) to retrieve the current configuration and update the files in `setup/platform_conf/current/tenants/[tenantId]/tenant_portal`. Then use the tool again to save your changes into to the database.
+The default versions of these files are located in `setup/platform_conf/initial/tenant_template_portal`.
+In order to change the configuration on an installation whose platform has already been initialized, use the [platform setup tool](BonitaBPM_platform_setup.md) to
+retrieve the current configuration and update the files in `setup/platform_conf/current/tenants/[tenantId]/tenant_portal`.
+Then use the tool again to save your changes into the database.
 
 #### Resources permissions mapping
 
-The `resources-permissions-mapping.properties` file defines the mapping of REST resources to simple permissions.
-This which tells you what permission is needed to access a given resource. 
+The `resources-permissions-mapping-*.properties` files define the mapping of REST resources to simple permissions.
+This tells you what permission is needed to access a given resource. 
 
 For example: `GET|identity/user=[organization_visualization,organization_management]`
 
-This specifies that a user with the organization\_visualization, or organization\_managment permissions can see information about users.
+This specifies that a user with the organization\_visualization, or organization\_management permissions can see information about users.
 
-By default, this file contains a mapping of each Bonita BPM resources to at least one simple permission.
-You can modify the file to add your own mappings.
+By default, this file contains a mapping of each Bonita resources to at least one simple permission.
+You can modify the file `resources-permissions-mapping-custom.properties` to add your own mappings.
 For example: `GET|identity/user/3=[organization_management]`
 
-This specifies that information about the user with id 3 can only be seen by users with the Organization\_managment permission.
+This specifies that information about the user with id 3 can only be seen by users with the Organization\_management permission.
 
-If there are conflicts between permissions, the more restrictive definition overrides the more general. You can see this in the example above, where the specific permission for user 3 overrides the general permission for seeing user information.
+If there are conflicts between permissions, the more restrictive definition overrides the more general.
+You can see this in the example above, where the specific permission for user 3 overrides the general permission for seeing user information.
+
+::: warning
+Do **not** modify file `resources-permissions-mapping.properties` directly, as it is reserved for default values.
+Custom values should be added manually in file `resources-permissions-mapping-`**`-custom`**`.properties`
+:::
 
 #### Compound permissions mapping
 
-The `compound-permissions-mapping.properties` file defines sets of simple permissions that are grouped together into a compound permission.
+The `compound-permissions-mapping-*.properties` files define sets of simple permissions that are grouped together into a compound permission.
 You can use a compound permission as "shorthand" for a list of simple permissions.
-By default, the file contains a compound permission that corresponds to each page of the Bonita BPM Portal, including [custom pages](#custom_pages).
+By default, the file `resources-permissions-mapping.properties` contains a compound permission that corresponds to each page of the Bonita Portal,
+including [custom pages](#custom_pages).
 
 For example: `userlistingadmin=[profile_visualization, process_comment, organization_visualization, tenant_platform_visualization, organization_management]`
 
-This specifies the REST API permissions that are granted with the Bonita BPM Portal Administrator page that lists all the users in the tenant.
+This specifies the REST API permissions that are granted with the Bonita Portal Administrator page that lists all the users in the tenant.
 
-By default, there is a compound permission defined for each page in the standard Bonita BPM Portal and there is also one for each provided custom page.
+By default, there is a compound permission defined for each page in the standard Bonita Portal and there is also one for each provided custom page.
 
-When you install a custom page in the portal, if the page declares its resources properly, then it will add a line in this file. Then all the users being able to access this page (because it is part of a custom profile or Living Application they have access to) will also be automatically granted the necessary permissions to call the required REST API resources.
+When you install a custom page in the portal, if the page declares its resources properly, then a new compound permission will be added in an internal version
+of this file (`compound-permissions-mapping-internal.properties`). Then all the users being able to access this page (because it is part of a custom profile or
+Living Application they have access to) will also be automatically granted the necessary permissions to call the required REST API resources.
+
+::: warning
+Do **not** modify file `compound-permissions-mapping.properties` directly, as it is reserved for default values.
+Custom values should be added manually in file `compound-permissions-mapping`**`-custom`**`.properties`
+:::
+
 
 <a id="custom-permissions-mapping"/>
 
@@ -82,7 +100,7 @@ The `custom-permissions-mapping.properties` file contains custom rules that supp
 By default, this file is empty, because the compound permissions definitions automatically manage the permissions needed for default and custom profiles, and for default and custom pages.
 
 If you want to override the default behavior, you can add a rule to this file. You can add a simple or compound permission to a profile.
-For example, to give users with the User profile the ability to manage the Bonita BPM Portal look & feel: `profile|User=[look_and_feel]`
+For example, to give users with the User profile the ability to manage the Bonita Portal look & feel: `profile|User=[look_and_feel]`
 
 You can also assign a permission to a specific user. This is useful if you want to give a named user access to a resource that is not accessible through the user's profiles.
 For example, if the user John.Smith is assigned the User profile, he does not have permission to manage the portal Look & Feel.
@@ -90,11 +108,12 @@ You can add this specific permission to `custom-permissions-mapping.properties` 
 
 This means that in addition to the permissions given to him by the User profile, John.Smith can also manage the Portal Look & Feel. It does not modify the permissions for any other user.
 
-If you do not use Bonita BPM Portal but still want to manage REST API authorizations, you can do this using the `custom-permissions-mapping.properties` file.
+If you do not use Bonita Portal but still want to manage REST API authorizations, you can do this using the `custom-permissions-mapping.properties` file.
 To do this, create a custom profile and configure the relevant permissions.
-For example, you could create a profile called CustomProcessManager and assign the permissions needed to monitor and manage processes: `profile|MyCustomProfile=[process_visualization, process_management, process_manager_management, custom_process_manager_permission]`
+For example, you could create a profile called CustomProcessManager and assign the permissions needed to monitor and manage processes:
+`profile|MyCustomProfile=[process_visualization, process_management, process_manager_management, custom_process_manager_permission]`
 
-In this example, the `custom_process_manager_permission` must be defined in the `compound-permissions-mapping.properties` file.
+In this example, the `custom_process_manager_permission` can be defined in the `compound-permissions-mapping-custom.properties` file.
 
 ## Dynamic authorization checking
 
@@ -103,27 +122,55 @@ A user is then granted a permission only if the dynamic check authorizes it.
 A dynamic check is implemented as sequence of conditions, including a Groovy script.
 This enables you to tailor the permissions needed to access a resource using dynamic information related to processes.
 
-A dynamic authorization check for a resource is specified by a line in the `dynamic-permissions-checks.properties` file. The line specifies the checks to be made for a request type for a method.
-There can be several terms in the line. Checking stops when the system returns success, indicating that the user is authorized. For example: `POST|bpm/case=[user|william.jobs, user|walter.bates, profile|Administrator, profile|User, check|CasePermissionRule]`
+A dynamic authorization check for a resource is specified by a line in the file `dynamic-permissions-checks-custom.properties`.
+The line specifies the checks to be made for a request type for a method.
+There can be several terms in the line. Checking stops when the system returns success, indicating that the user is authorized.
+For example: `POST|bpm/case=[user|william.jobs, user|walter.bates, profile|Administrator, profile|User, check|org.bonitasoft.permissions.CasePermissionRule]`
 
 This specifies that a POST action can be done for a case resource if the user is william.jobs or walter.bates,
-or any user with the Administrator profile, or any user woth the User profile, or if the CasePermissionRule grants authorization.
+or any user with the Administrator profile, or any user with the User profile, or if the CasePermissionRule grants authorization.
 
 A `check` term indicates the name of a class to be called. The class must implement `org.bonitasoft.engine.api.permission.PermissionRule`.
-This example defines a dynamic check that is made whenever a user makes a GET request for the bpm/process resource. The script must be added to the `setup/platform_conf/current/tenant_template_security_scripts` folder before the platform initialization or using the [plaform setup tool](BonitaBPM_platform_setup.md) to retrieve the current configuration, to the folder `setup/platform_conf/current/tenants/[tenantId]/tenant_security_scripts` (then you need to use the tool again to save the changes into the database).
-The `tenant_security_scripts` folder contains some example scripts. If the script returns `true`, the user is authorized. If the script returns `false` or any other result (including an error), the user is not authorized.
+This example defines a dynamic check that is made whenever a user makes a GET request for the "bpm/case" resource.
+If the script returns `true`, the user is authorized. If the script returns `false` or any other result (including an error), the user is not authorized.
 
 The `dynamic-permissions-checks.properties` file contains a placeholder line for each method and resource. For example:
 ```properties
 ## CasePermissionRule
-    #GET|bpm/case=[profile|Administrator, check|CasePermissionRule]
-    #POST|bpm/case=[profile|Administrator, check|CasePermissionRule]
-    #DELETE|bpm/case=[profile|Administrator, check|CasePermissionRule]
-    #GET|bpm/archivedCase=[profile|Administrator, check|CasePermissionRule]
+    #GET|bpm/case=[profile|Administrator, check|org.bonitasoft.permissions.CasePermissionRule]
+    #POST|bpm/case=[profile|Administrator, check|org.bonitasoft.permissions.CasePermissionRule]
+    #DELETE|bpm/case=[profile|Administrator, check|org.bonitasoft.permissions.CasePermissionRule]
+    #GET|bpm/archivedCase=[profile|Administrator, check|org.bonitasoft.permissions.CasePermissionRule]
 ```
 
-To specify a dynamic check for a method and resource, uncomment the line and add the conditions.
-If you specify a condition that calls a Groovy script, add the script to the `tenant_security_scripts` folder. Then use the [plaform setup tool](BonitaBPM_platform_setup.md) to save the changes.
+To specify a dynamic check for a method and resource, uncomment the line in the file `dynamic-permissions-checks-custom.properties` and add the conditions.
+If you specify a condition that calls a Groovy script, you must add the new script:
+
+If the platform has never been started yet:
+* add the script to the `setup/platform_conf/initial/tenant_template_security_scripts` folder
+* it will be pushed to database at first run
+
+If the platform has already been started:
+* use the [platform setup tool](BonitaBPM_platform_setup.md) to retrieve the current configuration
+* add the script to the `setup/platform_conf/current/tenants/[tenantId]/tenant_security_scripts` folder
+* then use the [platform setup tool](BonitaBPM_platform_setup.md) again to push the new / modified scripts to database
+
+The `tenant_security_scripts` folder contains a script sample that can be used to write your own.
+Bonita also provides default scripts that should fit common usages. They are packages internally in the binaries, but the
+[source code is available](https://github.com/bonitasoft/bonita-engine/tree/master/bpm/bonita-core/bonita-process-engine/src/main/groovy/org/bonitasoft/permissions).
+These provided scripts can be used as a base for you own scripts.
+
+If you write your own scripts:
+* make sure you either inherit from an existing rule, or implement the PermissionRule interface, by overriding the isAllowed() method
+* make sure you use the default package declaration at the top of your groovy class (no `package` keyword used)
+* make sure this .groovy file is placed in the default directory, under 'initial/tenant_template_security_scripts/' if the platform has never been started,
+or under 'current/tenants/TENANT_ID/tenant_security_scripts/' if the platform has already been started
+
+
+::: warning
+Do **not** modify file `dynamic-permissions-checks.properties` directly, as it is reserved for examples, and may be overwritten during migration to a newer version.
+Custom values should be added manually in file `dynamic-permissions-checks`**`-custom`**`.properties`
+:::
 
 #### Example dynamic check script
 
@@ -146,7 +193,7 @@ import org.json.JSONObject
 class CasePermissionRule implements PermissionRule {
 
     @Override
-    public boolean check(APISession apiSession, APICallContext apiCallContext, APIAccessor apiAccessor, Logger logger) {
+    boolean isAllowed(APISession apiSession, APICallContext apiCallContext, APIAccessor apiAccessor, Logger logger) {
         long currentUserId = apiSession.getUserId()
         if ("GET".equals(apiCallContext.getMethod())) {
             return checkGetMethod(apiCallContext, apiAccessor, currentUserId, logger)
@@ -236,6 +283,11 @@ When a new [custom page](pages.md) is added, the permissions defined in the page
 It is not necessary to restart the applications server to activate security for the new custom page.
 Depending on the permissions that a user of the page already has, it might be necessary to log out and log in again to get access to the new custom page.
 
+::: warning
+If the page declares resources provided by a REST API extension (link to the REST API extention page), then the REST API extension must be deployed before the page,
+otherwise the compound permissions won't be automatically created when deploying the page.
+:::
+
 ## Authorization and custom profiles
 
 When a new [custom profile](custom-profiles.md) is created, the permissions mappings are updated in the configuration files and in the cache.
@@ -246,11 +298,17 @@ It is not necessary to restart the application server to activate security for t
 If you only develop custom pages and you declare the resources they use properly, you should never have to create custom permissions.
 However, you may need to do so if you need to manually grant permissions to a given REST API resource (so that it can be called programatically for example). In order to do that, you need to:
 1. Look into the file `resources-permissions-mapping.properties` for the permissions that grant access to the resource.
-For example, in order to perform a GET on `bpm/task`, I can see that I need the permisssion `flownode_visualization` (syntaxe: `GET|bpm/task=[flownode_visualization]`)
+For example, in order to perform a GET on `bpm/task`, I can see that I need the permission `flownode_visualization` (syntax: `GET|bpm/task=[flownode_visualization]`)
 2. Edit the file `custom-permissions-mapping.properties` to give the permission `flownode_visualization` to the required profiles or users.
 For example, to add the permission to the user walter.bates (username), add the following line : `user|walter.bates=[flownode_visualization]`
 
 <a id="activate"/>
+
+## Restricting access to a BDM object or its attributes
+
+Starting with the Bonita efficiency subscription edition, you can use a simpler mechanism to grant or deny access to BDM objects or some of their attributes to specific profiles, using the BDM Access Control feature.
+It is also possible to protect instances of the BDM objects, using REST API authorizations.
+For more details see : [BDM access control](bdm-access-control.md)
 
 ## Activating and deactivating authorization
 

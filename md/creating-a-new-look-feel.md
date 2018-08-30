@@ -1,16 +1,16 @@
 # Create a new Look & Feel
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
-A Look & Feel is defined in a set of files. You can set the Look & Feel for the Bonita BPM Portal Web interface, an application, a custom page, or for the Bonita BPM Portal Mobile interface. 
+A Look & Feel is defined in a set of files. You can set the Look & Feel for the Bonita Portal Web interface, an application, a custom page, or for the Bonita Portal Mobile interface. 
 
-This page explains how to modify the Look & Feel of Bonita BPM Portal and of forms in processes run from the Portal.
+This page explains how to modify the Look & Feel of Bonita Portal and of forms in processes run from the Portal.
 
 ## Introduction
 
-To create a new Look & Feel in Bonita BPM Portal, [export the default Look & Feel](managing-look-feel.md) and modify the relevant components. 
+To create a new Look & Feel in Bonita Portal, [export the default Look & Feel](managing-look-feel.md) and modify the relevant components. 
 You can either edit the files directly, or you can use a plugin and update the Look & Feel in a browser. 
 When the new Look & Feel is ready, [import and apply the new Look & Feel](managing-look-feel.md).
 
@@ -34,8 +34,8 @@ For pages developed in Angular, the Look & Feel is defined using [Bootstrap](htt
 
 There are five key files that must be present in the zip archive when you import a Look & Feel:
 
-* `BonitaConsole.html`: HTML entry page for Bonita BPM Portal. If you want to add a custom JavaScript or custom CSS, modify this file and add it to the header.
-* `BonitaForm.html`: HTML entry page for forms in Bonita BPM Portal. If you want to add a custom JavaScript or custom CSS, modify this file and add it to the header.
+* `BonitaConsole.html`: HTML entry page for Bonita Portal. If you want to add a custom JavaScript or custom CSS, modify this file and add it to the header.
+* `BonitaForm.html`: HTML entry page for forms in Bonita Portal. If you want to add a custom JavaScript or custom CSS, modify this file and add it to the header.
 * `main.less`: Used to compile the LESS files into the CSS used for the GWT pages in the Portal. You must not rename this file, and we recommend that you do not change it.
 * `skin\bootstrap\applications\main.less`: Used to compile the LESS files into the CSS used for applications. 
 * `skin\bootstrap\portal\main.less`: Used to compile the LESS files into the CSS used for Portal pages developed in Angular.
@@ -50,11 +50,11 @@ do not upload any malicious or vulnerable code. If you wish to learn more about 
 
 The tables below show the directories and the most important files that are present in the Look & Feel definition.
 
-## Bonita BPM Portal Web default Look & Feel
+## Bonita Portal Web default Look & Feel
 | Component | Description | 
 | ------ | ------ |
-| BonitaConsole.html | HTML entry page for Bonita BPM Portal. If you want to add a custom JavaScript or custom CSS, modify this file and add it to the header. | 
-| BonitaForm.html | HTML entry page for forms in Bonita BPM Portal. If you want to add a custom JavaScript or custom CSS, modify this file and add it to the header. | 
+| BonitaConsole.html | HTML entry page for Bonita Portal. If you want to add a custom JavaScript or custom CSS, modify this file and add it to the header. | 
+| BonitaForm.html | HTML entry page for forms in Bonita Portal. If you want to add a custom JavaScript or custom CSS, modify this file and add it to the header. | 
 | bonita\_ie8.css | Specific CSS content for Internet Explorer 8 support. | 
 | main.less | Used to compile the LESS files into CSS. You must not rename this file, and we recommend that you do not change it. | 
 | css | Directory containing default CSS files used by the process forms. | 
@@ -69,11 +69,11 @@ The tables below show the directories and the most important files that are pres
 | skin/bootstrap/applications/main.less | The entry point that identifies the files to be compiled to create the Bootstrap Look & Feel for applications. | 
 | skin/bootstrap/portal | Customizations to Bootstrap for the Portal.<br/> Change these files to modify the appearance of Portal pages. | 
 | skin/bootstrap/portal/main.less | The entry point that identifies the files to be compiled to create the Bootstrap Look & Feel for Portal pages developed with Angular. | 
-| skin/skin.config.less | The main LESS file that defines the appearance.<br> Change this file to modify the appearance of Bonita BPM Portal web `<not mobile>`. You only need to modify the other LESS files if you want to change the behaviour of the pages. | 
+| skin/skin.config.less | The main LESS file that defines the appearance.<br> Change this file to modify the appearance of Bonita Portal web `<not mobile>`. You only need to modify the other LESS files if you want to change the behaviour of the pages. | 
 | tools | Contains special files required for compatibility with Internet Explorer.  | 
 | VERSION | Contains the version flag. Do not update or delete this file.  | 
 
-## Bonita BPM Portal Mobile default Look & Feel
+## Bonita Portal Mobile default Look & Feel
 
 | Component | Description |
 | ------ | ------ |

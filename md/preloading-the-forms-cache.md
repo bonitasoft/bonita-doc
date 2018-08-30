@@ -1,7 +1,7 @@
 # Preload the forms cache
 
 ::: info
-**Note:** This information applies to legacy forms developed with Bonita BPM 6.x, or with the _6.x Application_ backward-compatibility features of Bonita BPM 7.0\. It is not necessary to preload forms developed with the UI Designer.
+**Note:** This information applies to legacy forms developed with Bonita 6.x, or with the _6.x Application_ backward-compatibility features of Bonita 7.0\. It is not necessary to preload forms developed with the UI Designer.
 :::
 
 The first time a form is displayed, it is cached so that when it is displayed again it loads more quickly. This is the default behavior. However, you can speed up the first display of a form by preloading it into the forms cache.
@@ -36,7 +36,7 @@ To preload the forms cache, use the formsCache service, which is accessed over H
 
 First, send a GET request to retrieve the list of forms in a specified process. Then send a PUT request for each form to load it into the cache. The PUT request can sometimes take several seconds to respond, depending on the complexity of the form.
 
-If you are using the Performance or Efficiency edition, you can create a custom page to preload the forms cache. For the Teamwork or Community edition, you need to create an application.
+If you are using the Enterprise, Performance or Efficiency edition, you can create a custom page to preload the forms cache. For the Teamwork or Community edition, you need to create an application.
 
 ## Forms cache configuration
 

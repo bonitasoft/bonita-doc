@@ -1,12 +1,12 @@
 # Generate process documentation
 
 ::: info
-**Note:** For Bonita BPM Performance, Efficiency, and Teamwork editions only.
+**Note:** For Bonita Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 ## Overview
 
-When a process is open in Bonita BPM Studio, it is possible to generate documentation, containing a summary of individual elements in the process. This is like a process report. Choose the settings for the format of the export file, how the report will be presented, choose a logo to display and its size in pixels.
+When a process is open in Bonita Studio, it is possible to generate documentation, containing a summary of individual elements in the process. This is like a process report. Choose the settings for the format of the export file, how the report will be presented, choose a logo to display and its size in pixels.
 
 ## What will be exported in the documentation?
 

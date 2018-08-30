@@ -3,7 +3,7 @@
 ## Introduction
 
 
-This tutorial explains how to create, update or delete a multiple reference in a Business Object. The tutorial can be used with Bonita BPM Community edition, and uses features that are available in all editions. The example uses an expense report as business object.
+This tutorial explains how to create, update or delete a multiple reference in a Business Object. The tutorial can be used with Bonita Community edition, and uses features that are available in all editions. The example uses an expense report as business object.
 
 
 _Design a task contract and associated operations to update a business object with a multiple reference._

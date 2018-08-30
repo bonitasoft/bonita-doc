@@ -6,8 +6,8 @@ Using a leave request management process example, you will learn how to use a ma
 
 Usually, when leaving for a vacation, you set your mail account up with an out of office message to notify your senders that you are not here until a specific date.
 
-You will design a process using Bonita BPM:  
-First, draw the wireframe of the process in Bonita BPM Studio.  
+You will design a process using Bonita:  
+First, draw the wireframe of the process in Bonita Studio.  
 The process consists of a :
 * a start event
 * a human task asking for the user to check the email content which will be send, the dates of its vacation and whether it wants to test the mail before submitting it to the mail server.

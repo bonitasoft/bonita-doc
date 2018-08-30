@@ -1,22 +1,22 @@
 # Workspaces and repositories
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 This page explains how to use a shared repository so that several people can collaborate on process design.
 
 ## Workspaces and repositories
 
-A workspace is a directory where Bonita BPM Studio stores working files related to process design. When you install Bonita BPM Studio, a workspace is created automatically. 
+A workspace is a directory where Bonita Studio stores working files related to process design. When you install Bonita Studio, a workspace is created automatically. 
 
 A local repository is a directory within your workspace.  
 You can use local repositories to organize your work efficiently, for example by separating processes that do not interact.
 
-A team repository is a shared repository on a Subversion (SVN) server that is used by the team collaborating on developing a process.  
-A shared repository has typical code management features: locks, synchronization, versioning.  
-Your workspace contains your local copy of the shared repository, which is synchronized with the shared repository on the SVN server.  
-Note that the values of the process configurations (such as parameters) will not be synchronized on the remote SVN, to allow each Studio to have its own configuration.
+A team repository is a shared repository on a Subversion (SVN) or Git server that is used by the team collaborating on developing a process.  
+A shared repository has typical code management features: locks (SVN only), synchronization, versioning.  
+Your workspace contains your local copy of the shared repository, which is synchronized with the shared repository on the SVN or Git server.  
+Note that the values of the process configurations (such as parameters) will not be synchronized on the remote repository, to allow each Studio to have its own configuration.
 
 ### Switch workspace
 
@@ -25,10 +25,10 @@ The default workspace is _studio\_install\_directory_/workspace.
 To use a different workspace:
 
 1. Go to the **Diagram** menu and choose **Switch workspace...**. 
-2. A popup shows the path of the workspace you are currently using.
-3. In the popup, specify the path of the workspace you want to use. If the new workspace does not exist, you are asked whether you want to create it.
+2. A pop up window shows the path of the workspace you are currently using.
+3. In the pop up window, specify the path of the workspace you want to use. If the new workspace does not exist, you are asked whether you want to create it.
 4. Click **_OK_**.
-5. The workspace switch is applied the next time Bonita BPM Studio starts. Click **_OK_** in the popup to restart Studio, or **_Cancel_** to continue in your current session.
+5. The workspace switch is applied the next time Bonita Studio starts. Click **_OK_** in the pop up window to restart the studio, or **_Cancel_** to continue in your current session.
 
 ### Create a local repository
 
@@ -46,25 +46,149 @@ To create a local repository:
 
 A new local repository is created. A new directory with the same name as the repository is added to your local workspace folder.
 
-In Bonita BPM Studio, you can see the new repository name shown at the top left, in the title bar.
+In Bonita Studio, you can see the new repository name shown at the top left, in the title bar.
+
+### Export/Import a repository
+
+You can export all the content from a repository for exchange or backup purposes:
+
+1. Click on **Diagram** > **Export...**
+1. Click  on **Select All** to embed the whole repository content into the BOS archive. 
+1. Choose a location on your local drive to store the archive and click on **Finish**.
+
+The exported archive can then be shared with other studios of the same version or newer.
+
+To import a BOS archive:
+
+1. Click on **Diagram** > **Import** >  **BOS Archive...**
+1. Choose the location of the archive on your local drive
+1. In Subscription, you can choose the target repository of the imported content
+1. Handle conflicting files if any
+1. Click on **Import**
+
+You can retrieve the whole content of a studio workspace by exporting all its repositories and importing them into another studio.
+
+### Change repository
+
+Before you change to a different repository, make sure you have saved your work.
+
+To change repository, follow these steps:
+
+1. In the **Repository** menu, choose **Change the repository**.
+2. A list of the available repositories is displayed. These are the local and shared repositories in your current workspace.
+3. Select the repository to switch to, and click **_OK_**.
+4. A confirmation message is displayed when you are working in the new location.
+You can see the name of the current repository at the top, in the title bar.
+
+If the list does not contain the name of the repository you want to use, check that you are using the correct workspace, and if necessary, switch workspace.
 
 ## Use a shared repository
+
+<a id="git"/>
+
+### Git
+
+#### Prerequisites
+
+* A remote Git repository ([GitHub](https://github.com/), [Bitbucket](https://bitbucket.org)...)
+* Basic Git workflow knowledge ([Reference article](https://git-scm.com/book/en/v2/Getting-Started-Git-Basics))
+
+#### Git integration in Studio 
+
+Bonita Studio Git integration is based on the EGit Eclipse plugin.
+
+Git commands available in the studio interface:
+
+ * **Share with Git**  
+This action connects the current repository to Git and shares it on a remote.
+To configure the remote, see the following [Egit userguide](http://wiki.eclipse.org/EGit/User_Guide#Working_with_remote_Repositories) or the [Share on GitHub howto](share-a-repository-on-github.md).
+
+ * **Clone**  
+Create a new Studio repository from an existing Git repository (that must contain a proper Bonita project). If the remote repository version is lower than the studio, a migration will be applied on the cloned repository. Be careful before pushing a migrated repository back to the remote: all contributors will have to use the proper studio version.
+
+If you used Bonita on Git before Bonita 7.7.0, you might want to clone it from the studio.   
+Be careful though: we cannot guarantee that the cloning of a repository not created with Bonita Studio will work properly.  
+However, to do so, first check that your project on GitHub is "Bonita compliant":
+
+	 * The Git repository must correspond to a Bonita repository (and not the Bonita Workspace)
+	 * The .project file must be present 
+	 * It is highly recommended to use the .gitignore file generated by Bonita when you share a Bonita repository from the studio.
+
+Still, the best way to proceed is to export the repository from the older version of the studio and import it in the new studio, and then share this repository on Git, although with this procedure, the history of revisions will be lost.
+
+* **Commit...**  
+Shortcut action to `add`, `commit` and `push` the local changes.
+
+* **Push to Upstream**  
+Send the local commited changes to the configured upstream remote repository. You should make a pull before pushing.
+
+* **Fetch from Upstream**  
+Download new data from the upstream remote repository. It doesn't integrate any of this new data into your working files. Fetch is great for getting a fresh view on all the things that happened in a remote repository.
+
+* **Push branch...**  
+Send the local commited changes to a specfic branch on the remote repository. If the push fails, you may need to use make [force push](https://git-scm.com/docs/git-push) with the command line tool.
+
+* **Pull**  
+Fetch and try to integrate the remote changes of the current branch. This operation can put your repository in conflicting state.
+Use the Git staging view and provided merge tool to resolve the conflicts. You can abort the merge with a [hard reset](https://git-scm.com/docs/git-reset) with the command line tool or the `Reset...` action.
+
+* **Switch branch**  
+Change current branch, checkout a new branch from remote or create a new branch.  
+
+* **Merge**  
+Merge the content of a branch into current branch. [Reference article](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+
+* **Reset**  
+Reset the content of the working tree to the head reference (latest commit).
+
+* **Rebase...**  
+Like a merge, you can retrieve the content of another using a `rebase`. It replay all commits of a selected branch into the current branch. [Reference article](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
+
+* **Git staging view**  
+This view display the current status of your repository. From this view you can stage/unstage your changes, commit and even commit and push. You can access to the compare editor using the contextal menu.
+More information available in [EGit user guide](http://wiki.eclipse.org/EGit/User_Guide#Git_Staging_View).
+
+* **History view**  
+This view display the commit history of the repository.
+More information available in [EGit user guide](http://wiki.eclipse.org/EGit/User_Guide#Inspect_History).
+
+* **Status**
+This gives you connexion information with the remote as well as the current status (ahead or behind) compared to the remote.
+This information is also available at the top of Bonita Studio window, as well as at the top of the Git Staging view.
+
+Those commands can be found in Repository > Team > Git menu.
+
+#### Conflict management 
+
+The use of Git often lead to conflicts when contributions are merged. There is different ways to manage conflicts, with a diff tool, in a text editor...  
+Bonita Studio integrates the default merge tool of EGit. Here are some hints on how to resolve conflicts using EGit: [Manage conflicts using EGit](http://wiki.eclipse.org/EGit/User_Guide#Resolving_a_merge_conflict).
+
+#### Advanced Git commands
+
+Git worklow offers a lot of other features that are not directly integrated in Bonita Studio. You can still use them using the command line interface ([available here](https://git-scm.com/download/)). To retrieve the location of your repository on your filesystem go to <bonita_studio_install_dir>/workspace/<name_of_the_repository>.
+
+#### Troubleshooting
+
+* **My diagram has many validation issues after a clone / a switch branch operation:** Keep in mind that Bonita artifacts (Business Data Model, Organization, Profiles, Applications, Pages ...) are not redeployed when you perform a clone or a switch branch operation. So, if you switch from a branch A to a branch B, you may need for example to deploy manually your BDM to ensure that all the business objects specific to the branch B are available.
+* **My git history view is empty:** The history view is based on  the active editor or the current selection (in eclipse, a selection is a file selected in a package explorer). Sometimes you can manage to open the history view without having any active editor and nothing selected (which is often the case in Bonita because we only provide a package explorer in the REST API extensions editor) -> the history view does not display anything. Just open a diagram for example and then re-open your history view.
+
+### SVN
 
 A shared repository is a repository on an SVN server. It can be accessed by members of the team working on a process definition.  
 It is protected by username and password. Only directories in the SVN 'trunk' can be used as Bonita repositories.  
 The repository created remotely is then copied to your default local workspace and synchronized.
 
-A shared Bonita BPM development repository contains the artifacts developed in Bonita BPM Studio and the UI Designer. For the UI Designer artifacts, there is no locking, merging, or conflict management.
+A shared Bonita development repository contains the artifacts developed in Bonita Studio and the UI Designer. For the UI Designer artifacts, there is no locking, merging, or conflict management.
 
-**Caution:** Items defined in Bonita BPM Portal are not stored in the shared repository.  
+**Caution:** Items defined in Bonita Portal are not stored in the shared repository.  
 This includes applications and custom profiles. To share these artifacts, export them into an external repository such as Git. 
 
-### Prerequisites
+#### Prerequisites
 
 * A central SVN server accessible by the process designers, accessible by URL, and protected by login and password.  
-* The same version of Bonita BPM must be used by all users of the shared repository.
+* The same version of Bonita must be used by all users of the shared repository.
 
-### Create a shared repository
+#### Create a shared repository
 
 There are two stages to creating a repository: connect to the SVN server, then specify the name of the new repository. Follow these steps:
 
@@ -80,7 +204,7 @@ There are two stages to creating a repository: connect to the SVN server, then s
 
 The new repository is created locally and copied remotely to the SVN server. You can configure synchronization for this new shared repository.
 
-### Connect to a shared repository
+#### Connect to a shared repository
 
 To connect to a shared repository, follow these steps:
 
@@ -97,21 +221,8 @@ To connect to a shared repository, follow these steps:
 The first time you connect to a repository, you might get a security warning.  
 Configure security for the connection according to your organization's security policy.
 
-### Change repository
 
-Before you change to a different repository, make sure you have saved your work.
-
-To change repository, follow these steps:
-
-1. In the **Repository** menu, choose **Change the repository**.
-2. A list of the available repositories is displayed. These are the local and shared repositories in your current workspace.
-3. Select the repository to switch to, and click **_OK_**.
-4. A confirmation message is displayed when you are working in the new location.
-You can see the name of repository at the top left, in the title bar.
-
-If the list does not contain the name of the repository you want to use, check that you are using the correct workspace, and if necessary, switch workspace.
-
-### Synchronize a shared repository
+#### Synchronize a shared repository
 
 Synchronizing a shared repository means merging the changes you have made in your local copy into the central repository on the server, and updating your local copy with the result.  
 There are three modes for synchronizing:
@@ -123,11 +234,11 @@ You launch synchronization manually, by going to the **Repository** menu, choosi
    You can only use this mode if you have a continuous network connection to the system hosting the SVN server. There is a significant network performance cost for using automatic synchronization. This option is not recommended.
 * Define synchronization mode repository by repository: With this mode, you define whether synchronization is manual or automatic for each repository.
 
-### Manage locks on shared resources
+#### Manage locks on shared resources
 
-This information applies to artifacts created in Bonita BPM Studio but not those created in the UI Designer.
+This information applies to artifacts created in Bonita Studio but not those created in the UI Designer.
 
-Bonita BPM Studio automatically locks an artifact (process or shared resource) when you open it for editing. You can also lock an artifact manually.   
+Bonita Studio automatically locks an artifact (process or shared resource) when you open it for editing. You can also lock an artifact manually.   
 If you try to open an artifact that is locked by another user, a popup tells you that the artifact is logged and gives the SVN username of the person who owns the lock.   
 You can choose to open the artifact in read-only mode, which means you cannot make any changes.  
 It is also possible to unlock a locked artifact and lock it yourself, but this is not generally recommended except as a last resort if the owner of the lock cannot be contacted to release the lock.
@@ -149,10 +260,10 @@ From the popup, you can:
 * Open a process in read-only mode. You can do this for any process, but it is most useful for a process that is locked by another user (red padlock).
 * Open a locked process (red padlock). You can open a locked process in read-only mode. You cannot open a locked process read-write.
 
-### Avoiding conflicts
+#### Avoiding conflicts
 
 A conflict occurs when two or more users update the same process in a repository and the updates are not compatible.  
-If you are using a shared repository, Bonita BPM Studio automatically locks a Studio artifact when a user opens it for edit. (Note: UI Designer artifacts are not locked.)  
+If you are using a shared repository, Bonita Studio automatically locks a Studio artifact when a user opens it for edit. (Note: UI Designer artifacts are not locked.)  
 This means that only one user at a time can update the artifact, avoiding the possibility of conflicts. The only risk of conflicts is if a user takes over a lock from another user who has not committed their changes.   
 For this reason, you are not recommended to unlock artifacts that are locked by another user.
 
@@ -161,7 +272,7 @@ To commit your changes, go to the **Repository** menu, choose **Team**, and then
 When you commit your changes, you have the option to release the lock so that another user can edit the artifact. By default, your lock is maintained.  
 If you want to release the lock, uncheck the **Keep locks** box in the Commit dialog.
 
-### Versioning and history
+#### Versioning and history
 
 If you are using a shared repository, all modifications to an artifact are recorded by the SVN server. 
 
@@ -175,7 +286,7 @@ This shows all the changes that have been made, and the author of each change.
 To revert to an older version, click on that version in the revision history, then click on **_Revert to this version_** in the popup.  
 The selected version will be restored.
 
-### Restore points
+#### Restore points
 
 A restore point is a marker in a repository that you can use to restore your repository back to an earlier state.  
 The difference between a restore point and a version in the revision history is that a restore point applies to the whole repository but a version applies to a single artifact.

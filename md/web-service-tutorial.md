@@ -31,7 +31,7 @@ This example process will use a Web Service connector to call a sample Web Servi
   * For the Community edition, provide these settings:
     * Service NS: GlobalWeather
     * Service name: http://www.webserviceX.NET
-  * For the Teamwork, Efficiency, or Performance edition. provide these settings:
+  * For the Teamwork, Efficiency, Performance, or Enterprise edition. provide these settings:
     * Enter the WDSL URL http://www.webservicex.net/globalweather.asmx?WSDL and click on the Introspect button, then leave the login info fields empty
     * Set the `Port: GlobalWheatherSoap12` and leave other parameters with default values
   * In the **Request parameters** window (for all editions), provide these settings:
@@ -122,7 +122,7 @@ This example process will use a Web Service connector to call a sample Web Servi
   * Select the **No result found task **and add a blank form by going into the Application > Pageflow tab
     * Add a message widget and sets its initial value to “Sorry, no result found.”
     * Add a submit button and name it “Close”
-  * Once you have finished creating the diagram and configuring the tasks, the script and form fields, click **Run** to deploy and run the process in Bonita BPM Portal.
+  * Once you have finished creating the diagram and configuring the tasks, the script and form fields, click **Run** to deploy and run the process in Bonita Portal.
   * In the first form, enter a country and a city e.g. France, Grenoble
   * Click _**Get Weather Forecast**_
   * Click _**Display weather**_

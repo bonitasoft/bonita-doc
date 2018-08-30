@@ -1,19 +1,19 @@
 # User authentication overview
 
-This page describes how user authentication is achieved in Bonita BPM (running with default configuration). 
+This page describes how user authentication is achieved in Bonita (running with default configuration). 
 
 If you want to find out how to customize authentication refer to the dedicated documentation pages:
 
 * [LDAP server / Active Directory](active-directory-or-ldap-authentication.md)
 * [CAS single sign-on (SSO)](single-sign-on-with-cas.md)
 
-## Bonita BPM Portal authentication scenario
+## Bonita Portal authentication scenario
 
-To help understand how user authentication is performed, let's take a typical case where a user accesses the Bonita BPM Portal for the first time. This scenario is the default (no LDAP authentication, nor CAS).
+To help understand how user authentication is performed, let's take a typical case where a user accesses the Bonita Portal for the first time. This scenario is the default (no LDAP authentication, nor CAS).
 
 ![user authentication](images/images-6_0/user_auth_schema_70.png)
 
-1. In a web browser, the user types the URL of Bonita BPM Portal
+1. In a web browser, the user types the URL of Bonita Portal
 (e.g. `http://localhost:8080/bonita`) that will initiate a
 HTTP request handled by the application server that delegates
 processing to the Bonita web application.
@@ -81,16 +81,16 @@ that will add session information as HTTP session attribute.
 20. Call get back to [LoginServlet](https://github.com/bonitasoft/bonita-web/blob/${varVersion}.0/server/src/main/java/org/bonitasoft/console/common/server/login/servlet/LoginServlet.java)
 that will redirect the user to the requested page.
 
-**Note:** If you [configure your Bonita BPM platform to use CAS](single-sign-on-with-cas.md), the logical flow of authentication is the same as above. 
+**Note:** If you [configure your Bonita platform to use CAS](single-sign-on-with-cas.md), the logical flow of authentication is the same as above. 
 The difference is that at step 7 the CASRemoteLoginManager is used instead of the default loginManager and at step 12 the `JAASGenericAuthenticationServiceImpl` is called instead of the default authentication service, `AuthenticationServiceImpl`. 
 The `loginManager-config.properties` file for a tenant controls which login manager and authentication service (`cfg-bonita-authentication-impl.xml`) are used.
 
 ## Information about sessions
 
-Two type of session are involved when using Bonita BPM Portal: 
+Two type of session are involved when using Bonita Portal: 
 
 * The HTTP session
-* The Bonita BPM Engine session
+* The Bonita Engine session
 
 The sessoin timeout values for these two sessions should be set to the same value.
 
@@ -99,37 +99,37 @@ The sessoin timeout values for these two sessions should be set to the same valu
 This session is created by the application server
 and corresponds to one user.
 
-**The Bonita BPM Engine session** 
+**The Bonita Engine session** 
 
 See [APISession](https://github.com/bonitasoft/bonita-engine/blob/${varVersion}.0/bpm/bonita-api/bonita-common-api/src/main/java/org/bonitasoft/engine/session/APISession.java)
-class. This session is created by Bonita BPM Engine on the Bonita BPM Portal request, when the user submits a login page.
+class. This session is created by Bonita Engine on the Bonita Portal request, when the user submits a login page.
 
 **Session expiration** 
 
-If the Engine session has expired and the user tries to reach one of the Bonita BPM Portal pages,
-an exception will be raised. Bonita BPM Portal will catch this exception,
+If the Engine session has expired and the user tries to reach one of the Bonita Portal pages,
+an exception will be raised. Bonita Portal will catch this exception,
 invalidate the HTTP session and redirect the user to the login page.
 
-**Note:** The Bonita BPM Engine default session duration is one hour (default value
+**Note:** The Bonita Engine default session duration is one hour (default value
 defined in [SessionServiceImpl](https://github.com/bonitasoft/bonita-engine/blob/${varVersion}.0/services/bonita-session/bonita-session-impl/src/main/java/org/bonitasoft/engine/session/impl/SessionServiceImpl.java)). 
 You can configure a different session duration by editing the `bonita.tenant.session.duration` property in `bonita-tenant-community-custom.properties`. Specify the duration in milliseconds.
 
-If the HTTP session has expired, Bonita BPM Portal will redirect the user to the
-authentication page. The Bonita BPM Engine session associated with the HTTP
+If the HTTP session has expired, Bonita Portal will redirect the user to the
+authentication page. The Bonita Engine session associated with the HTTP
 session that has just expired will remain active until it reaches the
 inactivity timeout. A **cron job** takes care of cleaning up inactive
 Engine sessions. 
 
-**Note:** The HTTP session default duration depends on your application server (for example, 30 minutes for Tomcat, 1 hour for WebLogic).
+**Note:** The HTTP session default duration depends on your application server (for example, 30 minutes for Tomcat).
 
 **Logout** 
 
-In Bonita BPM Portal, if a user clicks on the logout button, both the
+In Bonita Portal, if a user clicks on the logout button, both the
 Engine session and HTTP session will be invalidated.
 
-## How does the Bonita BPM Portal know if a user is authenticated?
+## How does the Bonita Portal know if a user is authenticated?
 
-The Bonita BPM Portal checks if a valid Bonita BPM Engine session ([APISession](https://github.com/bonitasoft/bonita-engine/blob/${varVersion}.0/bpm/bonita-api/bonita-common-api/src/main/java/org/bonitasoft/engine/session/APISession.java)
+The Bonita Portal checks if a valid Bonita Engine session ([APISession](https://github.com/bonitasoft/bonita-engine/blob/${varVersion}.0/bpm/bonita-api/bonita-common-api/src/main/java/org/bonitasoft/engine/session/APISession.java)
 object) is found in the
 `apiSession`
 attribute inside the HttpRequest. If the engine session is still valid, the user will have access to the required resource.

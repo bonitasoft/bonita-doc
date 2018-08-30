@@ -1,15 +1,15 @@
 # Expressions and scripts
 
-Expressions and scripts are used in Bonita BPM Studio for many purposes, including setting the initial or default value of a variable.  
+Expressions and scripts are used in Bonita Studio for many purposes, including setting the initial or default value of a variable.  
 An expression is a simple statement; a script is a sequence of expressions, and has a program-like structure. 
 
-This page explains the features of Bonita BPM Studio that enable you to use expressions and scripts.
+This page explains the features of Bonita Studio that enable you to use expressions and scripts.
 
 Note that the expression editor cannot be used in the UI Designer, which has a different concept model for [data](variables.md).
 
 ## Start the expression editor
 
-The expression editor is used throughout Bonita BPM Studio to create and modify expressions or scripts.  
+The expression editor is used throughout Bonita Studio to create and modify expressions or scripts.  
 To start the expression editor, click the crayon icon next to the field where you want to enter an expression. 
 
 There are different types of expression:
@@ -24,7 +24,7 @@ The types available differ depending on the context of the expression. For examp
 
 ## Manage Groovy scripts
 
-You can create a Groovy function and store it in Bonita BPM Studio separate from the definition of a process. You can then use the function in any process definitions. This feature is available if you are using Bonita BPM Studio with the Application Developer profile.
+You can create a Groovy function and store it in Bonita Studio separate from the definition of a process. You can then use the function in any process definitions. This feature is available if you are using Bonita Studio with the Application Developer profile.
 
 To create a function, choose **Manage Groovy scripts...** from the **Development** menu, and click _**Create...**_. Enter a name for the new function. 
 
@@ -54,7 +54,7 @@ When you define an expression in the context of a step, the expression can conta
 
 ### Provided variables
 
-You can also use a variable that is provided by Bonita BPM Engine that is executing the process. For example, an expression can include the id of the user performing a task in the process. To add a provided variable to an expression, select the variable from the **Select a provided variable...** drop-down list.
+You can also use a variable that is provided by Bonita Engine that is executing the process. For example, an expression can include the id of the user performing a task in the process. To add a provided variable to an expression, select the variable from the **Select a provided variable...** drop-down list.
 
 The provided variables are:
 

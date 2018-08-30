@@ -1,6 +1,6 @@
 # Use gzip compression
 
-Using gzip compression in your application server can improve performance by reducing network load for some resources. This page describes how to activate gzip compression for a Bonita BPM Platform with Tomcat and with WildFly.
+Using gzip compression in your application server can improve performance by reducing network load for some resources. This page describes how to activate gzip compression for a Bonita Platform with Tomcat and with WildFly.
 
 ## WildFly
 
@@ -63,7 +63,7 @@ compressableMimeType="Z"
 | compressableMimeType | The MIME types of the resources to be compressed. We recommend that all text files be compressed. | text/html,text/xml |
 
 If you use the Tomcat bundle, the file to edit is `TOMCAT_HOME/server/conf/server.xml`.
-If you use a different package, use the corresponding path; for example on Ubuntu the file is located in `/etc/tomcat7/server.xml`.
+If you use a different package, use the corresponding path; for example on Ubuntu the file is located in `/etc/tomcat8/server.xml`.
 
 Connector configuration:
 ```xml

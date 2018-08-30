@@ -1,8 +1,8 @@
 # List of database connectors
 
-This page lists the database connectors provided with Bonita BPM. For some connectors there are special considerations, included in a section below.
+This page lists the database connectors provided with Bonita. For some connectors there are special considerations, included in a section below.
 
-If you are configuring a connector to a database that is the same type of database used by Bonita BPM Engine, you are recommended to use the same driver for both, to limit possible conflicts.
+If you are configuring a connector to a database that is the same type of database used by Bonita Engine, you are recommended to use the same driver for both, to limit possible conflicts.
 
 Here is the list of database connectors. The links take you to sections of this page giving dedicated best practice information.
 
@@ -12,7 +12,7 @@ Here is the list of database connectors. The links take you to sections of this 
 * Informix 11
 * DB2 9.7
 * [HSQL 2.2](#hsql)
-* [Microsoft SQL Server 2008 or 2012](#mssql)
+* [Microsoft SQL Server](#mssql)
 * PostgreSQL 8.4 or 9.2
 * h2 1.3
 * Oracle 10G or 11G
@@ -34,7 +34,7 @@ It is not possible to execute more than one SELECT command in a single script.
 #### Teradata 14
 
 If you are using the `terajdbc4.jar`, you also need the `tdgssconfig.jar` file.  
-Import both `terajdbc4.jar` and `tdgssconfig.jar` into Bonita BPM Studio and add them to the connector configuration.  
+Import both `terajdbc4.jar` and `tdgssconfig.jar` into Bonita Studio and add them to the connector configuration.  
 Specify `terajdbc4.jar` as the active driver. To test the connector, you must specify both files. When you configure the process, specify both files in the process dependencies.
 
 <a id="hsql"/>
@@ -45,7 +45,10 @@ Allows only one connection per destination at a time
 
 <a id="mssql"/>
 
-#### Microsoft SQL Server 2008 or 2012
+#### Microsoft SQL Server
+
+
+**Supported versions**: This connector supports SQL Server 2008, 2012, 2014 and 2016.
 
 **Language encoding**: MS SQL Server uses only one encoding at a time. To avoid errors when creating the database, please do the following when using alternative languages:
 

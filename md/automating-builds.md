@@ -1,26 +1,29 @@
 # Automate builds
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 ## Overview
 
-Bonita BPM includes a Workspace API, which is a script, `BonitaStudioBuilder`, for building a bar file from a process and/or a zip file from a REST API extension in a repository. 
-This is intended for a use in a continuous integration and testing environment. 
+Bonita includes a Workspace API, in the form of the script `BonitaStudioBuilder`, to build a .bar file from a process and/or a .zip file from a REST API extension in a repository. It accesses the build features of Bonita Studio in the background. 
+This is intended to be used in a continuous integration and testing environment. 
 
-You can use the `BonitaStudioBuilder` to build a bar file for processes and Rest API extensions stored in a repository. It accesses the build features of Bonita BPM Studio in the background. 
-Bonita BPM Studio must be installed but must not be running. You must to use a dedicated Bonita BPM Studio for continuous integration.
-This is because the Bonita BPM Studio `workspace` directory should be removed before running the `BonitaStudioBuilder` script. 
+Bonita Studio must be installed but must not be running. You must use a dedicated Bonita Studio for continuous integration.
+This is because the Bonita Studio `workspace` directory should be removed before running the `BonitaStudioBuilder` script. 
 (For continuous integration, it is best practice to clean the files before and after a build.)
+
+::: warning
+**Warning:** Workspace API is deprecated since Bonita 7.7.0. Instead, we strongly encourage you to use the *LA builder* included in the tooling suite of [*Bonita Continuous Delivery* add-on](https://documentation.bonitasoft.com/bcd/2.0/). One added-value is that LA builder does not need a studio to be installed.
+:::
 
 To use `BonitaStudioBuilder`, you need the following:
 
-* Bonita BPM Studio (the same version as the Bonita BPM repository). This must be a dedicated Bonita BPM Studio and repository used only for your `BonitaStudioBuilder`, because the tool removes the content of the repository.
+* Bonita Studio (the same version as the Bonita repository). This must be a dedicated Bonita Studio and repository used only for your `BonitaStudioBuilder`, because the tool removes the content of the repository.
 * A window manager
-* Java 1.7
+* Java 1.8
 
-After Bonita BPM Studio is installed, the `BonitaStudioBuilder` scripts are in the `workspace_api_scripts` folder. 
+After Bonita Studio is installed, the `BonitaStudioBuilder` scripts are in the `workspace_api_scripts` folder. 
 There are scripts for Windows (`.bat`), Linux (`.sh`), and MacOS (`_Mac.sh`).
 
 Pass configuration information to the `BonitaStudioBuilder` script as system properties, using the following arguments:
@@ -51,7 +54,7 @@ If enabled, zip files are built and installed in maven repository for all REST A
 If enabled, bar files are built for the latest version of each process in the repository and zip files are built and installed in maven repository for all REST API extensions.
 
 `migrate`
-If enabled, you can point the `repoPath` argument to a repository of an older version than the version of the running Bonita BPM Studio. 
+If enabled, you can point the `repoPath` argument to a repository of an older version than the version of the running Bonita Studio. 
 The processes in the older version repository will be automatically migrated to the current version.
 
 `environment`
@@ -61,26 +64,32 @@ If you do not specify an environment, the exported bar file will not contain the
 All the specified processes are built for the same environment. 
 If you want to build for different environments, you need to run the script once for each environment.
 
+`profile`
+Optional Maven profiles (comma separated list of profile id) to activate when building the REST API extensions projects.
+
+`link`
+If enabled, do not make a copy of the project to build.
+
 To run the script:
 
 1. Check out the project to a directory in the Studio path.
-2. Delete the content of the `workspace` directory in your Bonita BPM Studio installation.
+2. Delete the content of the `workspace` directory in your Bonita Studio installation.
 3. Run the script. For example:
 ```bash
 ./BonitaStudioBuilder.sh -repoPath=/home/myBonitaRepoCheckedOut
 -outputFolder=/home/bonita/myArtefacts -buildAll -migrate 
--environment=Qualification
+-environment=Qualification -profile=qa
 ```
 
 When the script runs, information is logged in `workspace/.metadata/.log`.
 
 ## Deploying a process bar file
 
-From the bar file, a process can be [deployed manually using Bonita BPM Portal](processes.md). You can also [deploy a process using the Engine API](manage-a-process.md).
+From the bar file, a process can be [deployed manually using Bonita Portal](processes.md). You can also [deploy a process using the Engine API](manage-a-process.md).
 
 ## Deploying a REST API extension file
 
-From the zip file, a REST API extension can be [deployed manually using Bonita BPM Portal](api-extensions.md). You can also deploy a REST API extension using the REST API.
+From the zip file, a REST API extension can be [deployed manually using Bonita Portal](api-extensions.md). You can also deploy a REST API extension using the REST API.
 
 ## Automate build of a specific REST API extension
 

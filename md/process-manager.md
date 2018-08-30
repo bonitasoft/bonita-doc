@@ -1,7 +1,7 @@
 # Process manager
 
 ::: info
-**Note:** For Performance and Efficiency editions only.
+**Note:** For Enterprise, Performance and Efficiency editions only.
 :::
 
 The portal administrator can assign a Process manager to a process, to share responsibility for managing processes.
@@ -36,7 +36,7 @@ You can assign the PM profile and map a process to a user, groups, role, or memb
 
 To assign the Process manager profile to a user:
 
-1. Log in to Bonita BPM Portal as Administrator.
+1. Log in to Bonita Portal as Administrator.
 2. Go to **Configuration**.
 3. Choose **Profiles**.
 4. Choose the Process manager profile. This will display the users, groups, roles, and memberships who already have this profile.
@@ -51,7 +51,7 @@ You can also assign a profile to a group, role, or membership.
 
 To assign a process to a user who has the Process manager profile:
 
-1. Log in to Bonita BPM Portal as Administrator or as a Process manager of the process.
+1. Log in to Bonita Portal as Administrator or as a Process manager of the process.
 2. Go to **BPM** \> **Processes** if you use the Administrator profile or **Processes** if you use the Process manager profile.
 3. Select the process and click **_More..._**. The number of Process managers currently assigned to the process is shown in the Process manager mapping table.
 4. To add a user, click the _**Plus sign or Pencil button**_ in the **_User_** column. A popup shows a list of the users who are currently process managers for this process.

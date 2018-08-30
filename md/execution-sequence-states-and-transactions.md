@@ -2,9 +2,9 @@
 
 This page describes the sequence of actions performed when a process instance is created and when a step is performed by a user.
 
-It shows the interactions between the Bonita BPM Portal and Bonita BPM Engine.
+It shows the interactions between the Bonita Portal and Bonita Engine.
 
-In the sequences described in this page, some of the actions apply only to **Teamwork**, **Efficiency**, or **Performance** editions, and are marked "Subscription only".
+In the sequences described in this page, some of the actions apply only to **Teamwork**, **Efficiency**, **Performance**, or **Enterprise** editions, and are marked "Subscription only".
 
 For the **Community** edition, these actions are not relevant, but the order of the other actions is the same.
 
@@ -16,9 +16,9 @@ For the **Community** edition, these actions are not relevant, but the order of 
 1. The submitted data are validated against the **process instantiation contract**
 1. If the contract is valid the process instance is created and input values are persisted in database
 6. Process data instances are created and initialized in the order of declaration using:
-    * An **operation** declared on the process that saves its value to the process data
-    * The **initial value expression** if no operation is declared
-    * **null** if no expression or operation is defined
+  * An **operation** declared on the process that saves its value to the process data
+  * The **initial value expression** if no operation is declared
+  * **null** if no expression or operation is defined
 7. The Engine creates and initializes business data
 1. **Subscription only**: The Engine creates and initializes search indexes
 1. The Engine initializes process instance Documents with default value coming from the definition or with submitted files
@@ -76,7 +76,7 @@ A flow node is defined by a set of states.
 
 If there is a connector to execute in the state's behavior, then the transaction is committed and the connector is executed outside of any transaction.
 The flow node stays in the current state while the connector is being executed.
-When the execution of the last connector is complete, the state's behaviour is completed. If you are using a Bonita BPM Subscription edition, a timeout limit can be set for connector execution.
+When the execution of the last connector is complete, the state's behaviour is completed. If you are using a Bonita Subscription edition, a timeout limit can be set for connector execution.
 
 
 ## Example: User task
@@ -118,11 +118,11 @@ If there is at least one connector to execute in the state, the state execution 
 
 ## Short transactions and asynchronism
 
-Transactions in the Engine are as small as possible, and each transaction is committed as soon as possible.  
+Transactions in the Engine are as small as possible, and each transaction is committed as soon as possible.
 Each unit of work uses a non-blocking queued executor mechanism and is thus asynchronous. There is a dedicated queue for asynchronous executions. (Connector execution is handled in a separate execution queue.)
 
 As a consequence of the design, when an asynchronous work unit originates from an API call (which might be a result of a human action), then the call returns and ends the transaction.
-The work unit is then executed as soon as possible, asynchronously, in a separate transaction.  
+The work unit is then executed as soon as possible, asynchronously, in a separate transaction.
 For this reason, a task that is being initialized might not yet be ready for execution, but will be executable after a short while, depending on the work executor availability.  
 A client application therefore needs to poll regularly to check when the asynchronous work unit is finished, or write an [event handler](event-handlers.md) in order to be notified.
 

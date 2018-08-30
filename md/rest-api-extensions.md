@@ -1,10 +1,10 @@
 # REST API extensions
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
-REST API extensions provide a solution for integration between forms/pages and third party systems (including Bonita BPM Engine). They can be used to query [business data](define-and-deploy-the-bdm.md), Bonita BPM Engine APIs, or an external information
+REST API extensions provide a solution for integration between forms/pages and third party systems (including Bonita Engine). They can be used to query [business data](define-and-deploy-the-bdm.md), Bonita Engine APIs, or an external information
 system (such as a database, web service, LDAP directory...). They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
 
 <!---<p>This page provide a tutorial to create a REST API extension using Subscription edition tooling. If you are running Community edition checkout the dedicated <a href="">documentation page</a>.</p>--->
@@ -26,13 +26,13 @@ Prerequisites for developing a REST API extension are:
 
 ## Example description
 
-The following sections show how to create a REST API extension. As an example, we create a REST API extension that use Bonita BPM Engine to provide user informations (first name, last name, email address).
+The following sections show how to create a REST API extension. As an example, we create a REST API extension that use Bonita Engine to provide user informations (first name, last name, email address).
 
 ## Generate a new REST API extension skeleton
 
 1. In the **Development** menu, choose **REST API Extension** then **New...**.
 1. Enter a **Name**, for example _User informations REST API Extension_.
-1. Enter a **Description**, for example _Query Bonita BPM Engine to retrieve user informations_.
+1. Enter a **Description**, for example _Query Bonita Engine to retrieve user informations_.
 1. Enter a package name, use to set the artifact **Group id**, for example: _com.company.rest.api_
 1. Enter a **Project name**, for example _userInformationRestAPIExension_
 1. Click **Next**.
@@ -85,7 +85,7 @@ int startIndex = p*c
 int endIndex = p*c + users.size() - 1
 
 // Send the result as a JSON representation
-return buildPagedResponse(responseBuilder, new JsonBuilder(result).toPrettyString(), startIndex, endIndex, context.apiClient.identityAPI.numberOfUsers)
+return buildPagedResponse(responseBuilder, new JsonBuilder(result).toString(), startIndex, endIndex, context.apiClient.identityAPI.numberOfUsers)
 ```
 
 Make sure you are adding all missing imports (default shortcut CTRL+SHIFT+o).
@@ -167,7 +167,7 @@ Now you can actually build and deploy the extension:
 1. In the **Development** menu, choose **REST API Extension** \> **Deploy...**
 1. Select the userInformationRestAPIExension REST API extension.
 1. Click on **Deploy** button.
-1. In the coolbar, click the **Portal** icon. This opens the Bonita BPM Portal in your browser.
+1. In the coolbar, click the **Portal** icon. This opens the Bonita Portal in your browser.
 1. In the Portal, change to the **Administrator** profile.
 1. Go to the **Resources** tab, and check that the User information REST API extension is in the list of REST API extension resources.
 
@@ -182,3 +182,66 @@ The REST API extension can be used in forms and pages in the **UI Designer** usi
 ## Example ready to use
 
 You can download the [REST API extension described in the tutorial above](https://github.com/Bonitasoft-Community/rest-api-user-information) or check [data source REST API extension](http://community.bonitasoft.com/project/data-source-rest-api-extension) as a reference.
+
+
+## BDM and Performance matters
+
+Be aware that a poor implementation of a custom REST API accessing BDM objects can lead to poor performance results. See the [best practice](bdm-in-rest-api.md) on this matter.
+
+
+## Troubleshooting
+
+* I get the following stacktrace when using Java 8 Date types (LocalDate, LocalDateTime...) in my Rest API Extension
+
+```
+java.lang.StackOverflowError
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:361)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1806)
+	at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1735)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:264)
+	at groovy.lang.MetaClassRegistry$MetaClassCreationHandle.createWithCustomLookup(MetaClassRegistry.java:149)
+	at groovy.lang.MetaClassRegistry$MetaClassCreationHandle.create(MetaClassRegistry.java:144)
+	at org.codehaus.groovy.reflection.ClassInfo.getMetaClassUnderLock(ClassInfo.java:253)
+	at org.codehaus.groovy.reflection.ClassInfo.getMetaClass(ClassInfo.java:285)
+	at org.codehaus.groovy.reflection.ClassInfo.getMetaClass(ClassInfo.java:295)
+	at org.codehaus.groovy.runtime.metaclass.MetaClassRegistryImpl.getMetaClass(MetaClassRegistryImpl.java:261)
+	at org.codehaus.groovy.runtime.InvokerHelper.getMetaClass(InvokerHelper.java:871)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.getMetaPropertyValues(DefaultGroovyMethods.java:364)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.getProperties(DefaultGroovyMethods.java:383)
+	at groovy.json.JsonOutput.writeObject(JsonOutput.java:290)
+	at groovy.json.JsonOutput.writeIterator(JsonOutput.java:445)
+	at groovy.json.JsonOutput.writeObject(JsonOutput.java:269)
+	at groovy.json.JsonOutput.writeMap(JsonOutput.java:424)
+	at groovy.json.JsonOutput.writeObject(JsonOutput.java:294)
+	at groovy.json.JsonOutput.writeIterator(JsonOutput.java:441)
+	at groovy.json.JsonOutput.writeObject(JsonOutput.java:269)
+	at groovy.json.JsonOutput.writeMap(JsonOutput.java:424)
+	at groovy.json.JsonOutput.writeObject(JsonOutput.java:294)
+```
+
+The [`groovy.json.JSONBuilder`](http://docs.groovy-lang.org/2.4.4/html/gapi/groovy/json/JsonBuilder.html) does not support Java 8 Date types serialization for the groovy version currently used by Bonita.
+
+As a workaround you have to format dates in a new data structure before using the JSONBuilder.
+
+Example:
+```groovy
+def employee = //A given employee object
+def result = [
+			name:employee.name,
+			birthDate:employee.birthDate.format(DateTimeFormatter.ISO_LOCAL_DATE)
+			]
+		
+return buildResponse(responseBuilder, HttpServletResponse.SC_OK,new JsonBuilder(result).toPrettyString())
+
+```
+
+::: info
+We do not recommend to manage time zone at the Rest API level, as the local of the Rest API server, the Bonita Engine server, and the End User machine could be different.  
+So we encourage you to manitpulate UTC dates only server-side.    
+You can see how we [manage the time zone using the date time picker](datetimes-management-tutorial.md#toc2). This time zone should only be managed in the end user interface.       
+:::
+

@@ -1,6 +1,6 @@
 # Resource management
 
-This page explains how to add a resource to the Bonita BPM Portal and make it available to users. A resource is an artifact that extends the portal.
+This page explains how to add a resource to the Bonita Portal and make it available to users. A resource is an artifact that extends the portal.
 
 It is typed and can be one of the following:
 
@@ -32,9 +32,9 @@ If a resource contains both `Index.groovy` and `index.html`, the Groovy class ta
 
 If you are using [REST API authorization](rest-api-authorization.md) and your resource needs the Web REST API, 
 you need to specify the permissions that a user needs to have in order to access those API. 
-These permissions are defined in the `page.properties` file. If your resources is a page written in Groovy and uses the Bonita BPM Engine Java APIs, you do not need to specify permissions.
+These permissions are defined in the `page.properties` file. If your resources is a page written in Groovy and uses the Bonita Engine Java APIs, you do not need to specify permissions.
 For each REST resource accessed in other resources, specify the authorization needed for each method used. 
-You can find the relevant file in [`resources-permissions-mapping.properties`](BonitaBPM_platform_setup.md).
+You can find examples of the default resources in [`resources-permissions-mapping.properties`](BonitaBPM_platform_setup.md).
 
 The following example shows the permissions defined for a page that enables a user to view but not update organization information:
 ```

@@ -5,6 +5,10 @@ both Cases and Archived cases.
 Throughout this tutorial you will see how to build a simple page to manage the Case/Archived-case complexity.
 Let's get started by creating a new page in the UI Designer.
 
+::: info 
+Since Bonita 7.7.0 you can export the default case overview from the portal and import it directly in the UI Designer for edition. The explanantions below may give you a good understanding on how it is built.
+:::
+
 ## Manage a 'caseId' url parameter
 
 Create a new page in the UI Designer.  

@@ -3,11 +3,11 @@
 ## Hardware
 
 ::: info
-**Note:** The hardware recommended for Bonita BPM Platform is strongly dependent on your environment and
+**Note:** The hardware recommended for Bonita Platform is strongly dependent on your environment and
 processes (number of processes instances, number of current users, operations and complexity...).
 :::
 
-Hardware required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Portal)
+Hardware required for Bonita Platform (Bonita Engine and Bonita Portal)
 | Type | Minimum | Recommended |
 |:-|:-|:-|
 | Processors | 4 CPU cores | 4 CPU cores or more |
@@ -16,57 +16,108 @@ Hardware required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Port
 
 ## Software
 
-Software required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Portal).
-| | 7.0.x <br/> 7.1.x | 7.2.x <br/> 7.3.x  | 7.4.x
-|:-|-|-|-
+Software required for Bonita Platform (Bonita Engine and Bonita Portal).
+| | Version
+|:-|-
 | **Operating system** |
-| Windows Server 2012 R2 64 bits | ✔ | ✔ | ✔ |
-| Red Hat Enterprise Linux 6.5 64 bits | ✔ | ✔ |  ✔ |
-| Ubuntu 14.04 LTS 64 bits | ✔ | ✔ |  ✔ |
-| **Java Virtual Machine** | 
-| Oracle Java SE Runtime Environment 7 u67 | ✔ | ✔ | ✔ |
-| Oracle Java SE Runtime Environment 8 u40 (see note 4) | ✔ | ✔ |  ✔ |
-| OpenJDK 7u65 | ✔ | ✔ |  ✔ |
+| Microsoft Windows Server | 2016 64 bits and higher |
+| Red Hat Enterprise Linux |  6.5 64 bits and higher |
+| Ubuntu | 16.04 LTS 64 bits and higher |
+| **Java Virtual Machine** |
+| Oracle Java SE Runtime Environment | 8u112 (see note 1) |
+| OpenJDK | 8u112 (see note 1) |
 | **Application Server** |
-| Tomcat 7.0.55 | ✔ |  | |
-| Tomcat 7.0.67 |  | ✔ | ✔ |
-| JBoss AS 7.1.1  |✔ | ✔ | |
-| WildFly 10.1.0  | | | ✔ |
-| Weblogic server 12c (12.1.\*) | ✔ | ✔ | ✔ |
-| **Database** |
-| MySQL 5.5.27 (see notes 1 and 2) | ✔ | ✔ | ✔ |
-| PostgreSQL 9.3  |✔ | ✔ | ✔ |
-| SQL Server 2012 (see note 3) | ✔ | ✔ | ✔ |
-| Oracle 11gR2 (11.2.0.x) | ✔ | ✔ | ✔ |
-| Oracle 12c (12.1.0.x.y) | | ✔ | ✔ |
+| Apache Tomcat | 8.5.x (x > 23) |
+| Red Hat WildFly | 10.1.x |
+| **Database** | (see note 2)
+| MySQL | 5.5.27 and higher in the 5.5.x line (see note 3) |
+| PostgreSQL | 9.3 and higher |
+| SQL Server | 2016 (see note 4) |
+| Oracle  | 11gR2 (11.2.0.x) and 12c (12.1.0.x.y) |
 | **Browser** |
-| Internet Explorer 9.x and newer | ✔ | ✔ | ✔ |
-| Firefox (2 last versions) | ✔ | ✔ | ✔ |
-| Chrome (2 last versions) | ✔ | ✔ | ✔ |
+| Mozilla Firefox | latest version |
+| Google Chrome | latest version (see note 5) |
+| Microsoft Edge | latest version |
+| Internet Explorer | 11.0.x |
 | **Mobile** |
-| iOS 7.1 -- Safari -- Approved on Apple iPhone 5 | ✔ | ✔ | ✔ |
-| Android 4.4 -- Chrome -- Approved on Nexus 5 | ✔ | ✔ | ✔ |
+| Mozilla Firefox | latest version |
+| Google Chrome | latest version |
+| Apple Safari | latest version |
 
 Notes:
-
-1. MySQL must be configured with innoDB storage engine.
-2. **Warning (7.0.x only, fixed starting 7.1.0) :** There are known issues with the management of XA transactions by MySQL engine and driver: see MySQL bugs [17343](http://bugs.mysql.com/bug.php?id=17343) and [12161](http://bugs.mysql.com/bug.php?id=12161) for more details.
-Thus, using MySQL database in a production environment does not work and is not supported.
-3. **Warning:** There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft for the Tomcat bundle and inside the Deploy bundle for Tomcat) and Microsoft SQL Server driver
+1. Bonita can be executed on Java 8 and above. All development artifacts (connectors, REST API extensions, etc) must be compiled with Java 8 byte code (target version).
+2. Your database must be configured to use the UTF-8 character set.
+3. MySQL must be configured with innoDB storage engine.
+4. There is a known issue between Bitronix (the transaction manager shipped by Bonitasoft for the Tomcat bundle and inside the Deploy bundle for Tomcat) and Microsoft SQL Server JDBC driver
 (refer to: [MSDN note](https://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html)).
-Therefore, using Bitronix as a Transaction Manager with SQL Server does not work and is not supported. To use SQL Server database requires that you use the JBoss or WildFly bundle provided by Bonitasoft.
-4. Oracle Java SE Runtime Environment 8 u40 is supported if you use the web container Tomcat 7.0.55\ and WildFly 10.1.0.
-5. Bonita BPM can be executed on both Java 7 and 8. However all development (connectors, REST API extensions, etc) must use Java 7 syntax (source version) and be compiled to generate Java 7 byte code (target version). 
+Therefore, using Bitronix as a transaction manager with SQL Server does not work and is not supported. To use SQL Server database requires that you use the WildFly bundle provided by Bonitasoft.
+5. Chrome version 60.0.3112 introduced an incompatibility impacting the functionality of Bonita Portal. So from that Chrome version onwards, once Bonita Platform is installed, apply the following procedure to resolve this issue:
 
-Your database must be configured to use the UTF-8 character set.
+### Fixing procedure
 
-If you report a problem in a stack containing elements not listed in the table above, the problem will be investigated on the nearest equaivalent stack of supported components.
+#### Subscription users
+::: info
+**Note:** In order to apply this procedure, you MUST use a Chrome browser version that doesn't suffer from the incompatibility, or you can use Firefox, Internet Explorer/Edge or Safari, for example.
+:::
 
-### Example stack
+1. Log in to Bonita Portal as Administrator.
+1. In the menu, click on 'Portal'.
+1. Click on 'Export the current Look&Feel'.
+1. Make a back-up copy of the exported file.
+1. Unzip the exported file 'portal-theme.zip'.
+1. Edit 'BonitaConsole.html' file:
+   1. In the `<head>` section, add the code below:
+   ```javascript
+   <script>
+      // Monkey Patch xhr
+      // Due to a specification change in the xhr.getAllResponseHeaders method Bonita Portal does not behave as expected 
+      // in browsers that implement this new specification (currently only Chrome >60).
+      // This patch fixes xhr.getAllResponseHeaders unwanted behavior within Bonita Portal context
+      //    See https://bugs.chromium.org/p/chromium/issues/detail?id=749086
+      //    See https://github.com/whatwg/xhr/issues/146
+      (function (xhr) {
+          var caseSensitiveHeaders = ['Content-Range', 'X-Bonita-API-Token'];
+          
+          var getAllResponseHeaders = xhr.getAllResponseHeaders;
+          
+          xhr.getAllResponseHeaders = function () {
+              var headers = getAllResponseHeaders.apply(this);
+              for (var i = 0; i < caseSensitiveHeaders.length; i++) {
+                  headers = headers.replace(new RegExp('^' + caseSensitiveHeaders[i].toLowerCase(), 'm'), caseSensitiveHeaders[i]);
+              }
+              return headers;
+          }
+      })(XMLHttpRequest.prototype)
+    </script>
+    ```
+1. Zip all the files and folders again into 'portal-theme.zip'. 
+   (BEWARE: make sure not to zip the 'portal-theme' folder, but its contents. If the 'portal-theme.zip' contains a 'portal-theme' folder at the base, Bonita Portal will not recognize it as a valid zip structure.)
+1. In the portal, click on 'Import and apply a new Look&Feel' and choose the updated 'portal-theme.zip' file.
+1. Back to the Chrome update 60 browser, empty the cache.
 
-* Ubuntu 14.04 LTS 64 bits
-* OpenJDK 7
-* Tomcat 7.0.67
-* PostgreSQL 9.3
-* Firefox
-* Mobile:iOS 7.1 Safari (approved on iPhone 5)
+#### Community users
+
+1. In an installed Bonita bundle, edit file 'server/webapps/bonita/portal/scripts/includes/common.js':
+   1. Add the code below before or after the existing code:
+   ```javascript
+   `  // Monkey Patch xhr
+      // Due to a specification change in the xhr.getAllResponseHeaders method Bonita Portal does not behave as expected 
+      // in browsers that implement this new specification (currently only Chrome >60).
+      // This patch fixes xhr.getAllResponseHeaders unwanted behavior within Bonita Portal context
+      //    See https://bugs.chromium.org/p/chromium/issues/detail?id=749086
+      //    See https://github.com/whatwg/xhr/issues/146
+      (function (xhr) {
+          var caseSensitiveHeaders = ['Content-Range', 'X-Bonita-API-Token'];
+    
+          var getAllResponseHeaders = xhr.getAllResponseHeaders;
+
+          xhr.getAllResponseHeaders = function () {
+              var headers = getAllResponseHeaders.apply(this);
+              for (var i = 0; i < caseSensitiveHeaders.length; i++) {
+                  headers = headers.replace(new RegExp('^' + caseSensitiveHeaders[i].toLowerCase(), 'm'), caseSensitiveHeaders[i]);
+              }
+              return headers;
+          }
+      })(XMLHttpRequest.prototype)`
+      ```
+1. Back to the Chrome update 60 browser, empty the cache.

@@ -1,15 +1,15 @@
 # Connectors overview
 
-A connector is an element in a process that accesses an external system to read or write information. If the [default connectors in Bonita BPM](_connectivity.md) are not suitable, you can implement your own connector. 
-In the Bonita BPM Performance, Efficiency, and Teamwork editions, you are recommended to use the [connector development toolkit](connector-development-toolkit.md) to create new connectors.
-Otherwise, you can define a new connector definition or implementation in Bonita BPM Studio,
+A connector is an element in a process that accesses an external system to read or write information. If the [default connectors in Bonita](_connectivity.md) are not suitable, you can implement your own connector. 
+In the Bonita Enterprise, Performance, Efficiency, and Teamwork editions, you are recommended to use the [connector development toolkit](connector-development-toolkit.md) to create new connectors.
+Otherwise, you can define a new connector definition or implementation in Bonita Studio,
 using the wizards started from the **Development** menu, **Connectors** submenu.
 
-This page describes the structure of a connector, and summarizes the connector development features avaialble in Bonita BPM Studio.
+This page describes the structure of a connector, and summarizes the connector development features avaialble in Bonita Studio.
 
 ## Connector structure
 
-A connector is implemented in Bonita BPM in two
+A connector is implemented in Bonita in two
 parts, the definition and the implementation. This enables you to
 change the implementation without changing the definition. Several
 implementations can be created for a single definition.
@@ -18,7 +18,7 @@ implementations can be created for a single definition.
 
 A connector definition controls the external interfaces of the
 connector, both those visible to users (the connector
-configuration wizard and the icon used to identify the connector in Bonita BPM Studio) and those visible to the Bonita BPM Engine (the
+configuration wizard and the icon used to identify the connector in Bonita Studio) and those visible to the Bonita Engine (the
 inputs and outputs). 
 
 ### Connector implementation
@@ -45,17 +45,17 @@ For details of the APIs, the methods and related objects, see the
 
 <a id="Importing_a_connector"/>
 
-## Importing and exporting a connector into Bonita BPM Studio
+## Importing and exporting a connector into Bonita Studio
 
-You can import a connector that was created using the connecctor development toolkit or that was exported from another Bonita BPM Studio. The connector is imported as a zip file.
+You can import a connector that was created using the connecctor development toolkit or that was exported from another Bonita Studio. The connector is imported as a zip file.
 
-1. In Bonita BPM Studio, go to the **Development** menu, **Connectors**, **Import connector...**.
+1. In Bonita Studio, go to the **Development** menu, **Connectors**, **Import connector...**.
 2. Upload the zip file.
 
 The imported connector is now available in the dialog for adding a connector.
 
 It is also possible to export a connector using the option in the **Development** menu. The connector is exported as a zip file, which you can import into another
-instance of Bonita BPM Studio. You must specify both the definition and the implementation to export.
+instance of Bonita Studio. You must specify both the definition and the implementation to export.
 
 ## Testing a connector
 
@@ -63,7 +63,7 @@ To test the connector independently of a process, go to the **Development** menu
 Select the connector you want to test, use the wizard to configure the information required for the test, and click **_Test_**. The connector runs, and the results are
 reported.
 
-You need to [import a connector](#Importing_a_connector) into Bonita BPM Studio before you can test it. 
+You need to [import a connector](#Importing_a_connector) into Bonita Studio before you can test it. 
 
 ## Configuring
 and deploying a process with a connector
@@ -79,4 +79,4 @@ connector has been specified in the configuration, when you build
 the process for deployment referencing the configuration, the
 connector code is included in the business archive.
 
-After deployment, if you are running the Performance edition, you can [update the connector implementation on a live system](live-update.md).
+After deployment, if you are running the Enterprise or Performance edition, you can [update the connector implementation on a live system](live-update.md).

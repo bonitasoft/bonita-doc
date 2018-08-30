@@ -2,9 +2,9 @@
 
 ## Overview
 
-A connector is an element in a process that accesses an external system to read or write information. By extension, it also accounts for tools that modify data within a process like Office connectors that modify Bonita BPM documents.
+A connector is an element in a process that accesses an external system to read or write information. By extension, it also accounts for tools that modify data within a process like Office connectors that modify Bonita documents.
 
-Bonita BPM contains a set of standard connectors. You can also create custom connectors using the [connector development toolkit](connector-development-toolkit.md).
+Bonita contains a set of standard connectors. You can also create custom connectors using the [connector development toolkit](connector-development-toolkit.md).
 
 A connector consists of a definition, an implementation, and a configuration.
 
@@ -31,14 +31,14 @@ To add a connector to a pool or task:
 
 ## Connectors and forms
 
-In Bonita BPM 6.x, you could add a connector to a form. This is no longer possible with forms created with the UI Designer. To achieve the same result, create a [REST API extension](rest-api-extensions.md). There is an example showing how to execute SQL queries on a external database.
+In Bonita 6.x, you could add a connector to a form. This is no longer possible with forms created with the UI Designer. To achieve the same result, create a [REST API extension](rest-api-extensions.md). There is an example showing how to execute SQL queries on a external database.
 
 ## Edit a connector
 
 To change the implementation of a connector for a process, update the [process configuration](configuring-a-process.md).  
 The implementation can also be changed after deployment:
-   - In versions 7.0.x, if you are using the Performance edition
-   - In versions 7.1.0 and above, if you are using the Performance or Efficiency edition
+   - In versions 7.0.x, if you are using the Enterprise or Performance edition
+   - In versions 7.1.0 and above, if you are using the Enterprise, Performance or Efficiency edition
 
 To change connector configuration for a pool or task, use the connector wizard:
 

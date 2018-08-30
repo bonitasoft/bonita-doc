@@ -11,7 +11,7 @@ Logged on with the Administrator or Process Manager profile, you have rights to 
 
 ## Start a case for another user
 
-This feature is available with the Efficiency and Performance editions.
+This feature is available with the Efficiency, Performance and Enterprise editions.
 
 To start a case for another user:
 
@@ -47,11 +47,11 @@ These changes to the view are stored in your browser [Local Storage](https://en.
 
 From this table, you can delete a cases, or several cases. Select the cases you want to delete, and click **_Delete_**. Confirm in the popup that you want to delete the selected cases.
 
-if you are using the Performance or Efficiency edition, you can also open a diagram of a case, by clicking on the picture icon for the case. 
+if you are using the Enterprise, Performance or Efficiency edition, you can also open a diagram of a case, by clicking on the picture icon for the case. 
 On the diagram, colored flags on the steps show the number of step instances in the possible states. Click **_Show key_** to see an explanation of the display. 
 Remember that a failure at a step does not necessarily mean that the case has failed entirely, but it might indicate that some action is needed, perhaps to replay a connector.
 
-The process diagram is constructed from the deployed process definition. This means that some details visible in Bonita BPM Studio, such as comments, are not available.
+The process diagram is constructed from the deployed process definition. This means that some details visible in Bonita Studio, such as comments, are not available.
 
-Note: if a process was deployed from a bar file created in Bonita BPM Studio 6.3 or earlier, the diagram display is not available. This is because some details of the .bar structure have changed. 
-To see the diagram for such a process, export the process definition from Bonita BPM Studio 6.3 as a .bos file, import it into Bonita BPM Studio 6.4 or later, generate a new .bar file, and deploy it.
+Note: if a process was deployed from a bar file created in Bonita Studio 6.3 or earlier, the diagram display is not available. This is because some details of the .bar structure have changed. 
+To see the diagram for such a process, export the process definition from Bonita Studio 6.3 as a .bos file, import it into Bonita Studio 6.4 or later, generate a new .bar file, and deploy it.

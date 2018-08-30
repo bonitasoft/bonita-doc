@@ -11,7 +11,7 @@ Authorization Rule Mapping is a set of rules used to allow connected user to acc
   * display process overview
   * use a page or form to execute a task
 
-The tutorial can be used with Bonita BPM Community edition, and uses features that are available in all editions.
+The tutorial can be used with Bonita Community edition, and uses features that are available in all editions.
 
 ::: warning
 The following elements may be used as extension points but could be subject to change across versions. No changes are planned, but we reserve the right to change make incompatible changes in any future version.
@@ -52,8 +52,8 @@ In this example, Custom authorization rule is a maven-based java project that ne
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.5.1</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>

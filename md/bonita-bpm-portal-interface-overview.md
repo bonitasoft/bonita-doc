@@ -1,12 +1,12 @@
-# Bonita BPM Portal overview
+# Bonita Portal overview
 
-Most of the Bonita BPM Portal pages are divided into 3 main panes: left, middle and right.
+Most of the Bonita Portal pages are divided into 3 main panes: left, middle and right.
 
 The left pane is for filters, the middle one for lists and the right one for more details about the selected item.
 
 ## Default profiles
 
-There are three default profiles available in the Portal: **User**, **Administrator**, and (in the Efficiency and Performance editions) **Process manager**.
+There are three default profiles available in the Portal: **User**, **Administrator**, and (in the Efficiency, Performance and Enterprise editions) **Process manager**.
 
 The **Administrator** is responsible for the administration of the Portal at tenant level, and particularly for the management of the processes, the organization, the reports, the custom profiles and the Look & Feel.
 

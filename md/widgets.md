@@ -41,7 +41,7 @@ This is useful if you want to display some property of the current element.
 
 ### Save as fragment
 
-If you are using the Performance, Efficiency, or Teamwork edition, you can save any container as a fragment. This enables you to reuse the set of widgets in other pages.
+If you are using the Enterprise, Performance, Efficiency, or Teamwork edition, you can save any container as a fragment. This enables you to reuse the set of widgets in other pages.
 
 ### Tab container widget
 
@@ -50,7 +50,7 @@ Each tab is a container widget.
 
 ### Form container widget
 
-Use the **form container** to enable form validation for input widgets. The form container also exposes a local **$form** which is the AngularJS form object associated to the form container. In the Bonita BPM Studio, if you define a contract for the task or process and click on the UI Designer icon, the generated form already contains a form container to embed default input widgets to collect the information that need to be passed to the contract to be verified. You can then define the validation you need on the input.  
+Use the **form container** to enable form validation for input widgets. The form container also exposes a local **$form** which is the AngularJS form object associated to the form container. In the Bonita Studio, if you define a contract for the task or process and click on the UI Designer icon, the generated form already contains a form container to embed default input widgets to collect the information that need to be passed to the contract to be verified. You can then define the validation you need on the input.  
 For example, you can bind the button's disabled property to _$form.$invalid_ to prevent user from clicking the button, until the form inputs are valid.
 
 ## Input widgets
@@ -122,15 +122,32 @@ The Date picker widget supports the following types for its **Value** property a
 * [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) String variables (with or without time information)
 * Date objects
 * Long number values (Milliseconds since epoch)  
-However, the output of the widget is always a Javascript Date object. So it will change the type of the variable bound to the widget **Value** to a Date object when the user selects a date.  
-When sent in the JSON body of a request, it is serialized into an ISO 8601 formatted String variable with the time set to midnight UTC (e.g., 2016-12-31T00:00:00.000Z).
+However, the output of the widget is always a Javascript Date object. So it will change the type of the variable bound to the widget **Value** to a Date object when the user selects a date. This is required in order to ensure backward compatibility for pages designed with older UI Designer versions.    
+When sent in the JSON body of a request, the Date object is serialized into an ISO 8601 formatted String variable with the time set to midnight UTC (e.g., 2016-12-31T00:00:00.000Z).
 
 You can configure the displayed **date format** using a pattern, using `yyyy` for year, `MM` for Month, `dd` for day.  
 Use the `Today` button to select automatically and quickly the current day.
 
 For more information about supported formats, read the Angular documentation for [date filter](https://docs.angularjs.org/api/ng/filter/date).
 
-For a detailed example using the Date picker widget, you can consult the following Howto: [Manage dates in BDM and User Interfaces](dates-management-tutorial.md).
+For a detailed example using the Date picker widget, you can consult the following Howto: [Manage dates and times in BDM and User Interfaces](datetimes-management-tutorial.md).
+
+In the _Subscription Edition_,  the calendar can be localized with the usual localization mechanism (localization.json file).  
+
+### Date time picker widget
+
+Use a Date time picker widget to display a calendar from which the user can select a date and a time or set them manually (e.g., to schedule a meeting).  
+To select only a date (e.g., a date of birth), use the Date picker widget instead.
+
+Date and time can reflect the user time zone (e.g., a meeting day and time) or be absolute, identical everywhere (e.g., opening hours of a store somewhere). This is controlled by the property **Handle time zone**.  
+The input/output of the widget (its **Value**) is an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formatted String variable (e.g., "2016-12-31T16:30:00.000Z").
+
+You can configure the displayed **date format** using a pattern, using `yyyy` for year, `MM` for Month, `dd` for day, `HH` or `h` for hours, `mm` for minutes, `ss` for seconds.  
+Use the `Today` and `Now` buttons to select automatically and quickly the current day and time.
+
+For more information about supported formats, read the Angular documentation for [date filter](https://docs.angularjs.org/api/ng/filter/date).
+
+For a detailed example using the Date time picker widget, you can consult the following Howto: [Manage dates and times in BDM and User Interfaces](datetimes-management-tutorial.md).
 
 In the _Subscription Edition_,  the calendar can be localized with the usual localization mechanism (localization.json file).  
 
@@ -149,11 +166,21 @@ Finally, you can use the widget button to add or remove a data from a given coll
 
 When inside a form container, the button is automatically disabled while the form is invalid.
 
+### Save button widget (Subscription editions)
+
+Use the Save button widget to store data in the browser LocalStorage.
+For instance, to let users save the draft of the current form, bind the **formInput** variable of your form to the **value** property.
+A single entry will be created in the LocalStorage identified by the form URL.
+
+Whenever this form is reloaded, either by hitting F5 or browsing away and back again, the entry will be reloaded automatically from LocalStorage.
+
+Note: The LocalStorage entry will automatically be deleted when the form is finally submitted.
+
 ## Display widgets
 
 Use a display widget for information that the user can read on a page. This includes titles, paragraphs, and text. For each, you can specify the text and its alignment. There are several types of display widgets:
 
-* File viewer, to display a preview of files, either Bonita BPM documents, or external documents. Users can also download the file thanks to this widget.
+* File viewer, to display a preview of files, either Bonita documents, or external documents. Users can also download the file thanks to this widget.
 * Link, to embed an HTML link for navigation to an external site.
 * Title, for headings. You can set the level from 1 to 6\.
 * Text, for chunks of text. Text supports basic HTML tags such a paragraph, list or image...
@@ -171,7 +198,7 @@ Note: table widget only supports text values. HTML content passed in table data 
 
 An extended table widget that provides column sorting, filtering, and paging in addition to the standard table widget facilities.
 
-Set the **Data source** to _Bonita API_ to populate the data table with records from a Bonita BPM REST API.   
+Set the **Data source** to _Bonita API_ to populate the data table with records from a Bonita REST API.   
 Then enter a REST API URL in the **URL** property. Use the **API request parameters** property to pass additional parameters to the request.  
 Supported parameters are described in the [REST API Overview](rest-api-overview.md) and in the REST API documentation for the relevant resource.  
 You do not need to specify paging parameters (such as `?p=0&c=10`), because the data table handles paging automatically when you use a Bonita API data source.  

@@ -12,22 +12,22 @@ Your business data is the information that is shared between your processes and 
 
 When you define a process, you specify the business objects that are relevant to the process. When a process is instantiated (a case is started), the specified business objects are instantiated as required, becoming variables within the process instance.
 
-You are recommended to use business data instead of process data for any data that has meaning outside of one single process. The business data objects are stored in a database that can be accessed by all applications and processes in a tenant. There is no need to import data from an external system or write it back after a change. The data is automatically stored persistently. It is simple to specify the business objects relevant to a process or task, using Bonita BPM Studio. You can also access a business object programmatically by its data access object (DAO).
+You are recommended to use business data instead of process data for any data that has meaning outside of one single process. The business data objects are stored in a database that can be accessed by all applications and processes in a tenant. There is no need to import data from an external system or write it back after a change. The data is automatically stored persistently. It is simple to specify the business objects relevant to a process or task, using Bonita Studio. You can also access a business object programmatically by its data access object (DAO).
 
 To design your BDM, you need to consider the following:
 
-* In a BDM, you create predefined business object definitions that represent key concepts which are manipulated by your processes. For example, Orders, Invoices, and Leave requests are be shared by all processes when running in the Bonita BPM Engine during production.
+* In a BDM, you create predefined business object definitions that represent key concepts which are manipulated by your processes. For example, Orders, Invoices, and Leave requests are be shared by all processes when running in the Bonita Engine during production.
 * A BDM is composed of simple and complex business objects, and the composition and aggregation relationships between them.
 * There is one BDM for a tenant, so it must include all the objects needed. Updating a model must be done with care, so that the changes do not cause problems for deployed processes or applications.
 * Business objects are instantiated at diagram or process level, not at task or form level.
 
-The [BDM specification](#bdm_spec) explains the details of what you must configure in a BDM. Use Bonita BPM Studio to [define a BDM](#define_bdm).
+The [BDM specification](#bdm_spec) explains the details of what you must configure in a BDM. Use Bonita Studio to [define a BDM](#define_bdm).
 
 <a id="bdm_storage"/>
 
 ## Business data storage
 
-The business data specified in the BDM is stored in a database. It requires two datasources, BusinessDataDS and NotManagedBizDataDS. When you define the BDM in Bonita BPM Studio, the built-in H2 database and the datasources are created automatically in your development environment.
+The business data specified in the BDM is stored in a database. It requires two datasources, BusinessDataDS and NotManagedBizDataDS. When you define the BDM in Bonita Studio, the built-in H2 database and the datasources are created automatically in your development environment.
 
 During development, you can use the tools in the `h2-1.3.170.jar` in the workspace Tomcat library to view the business data in the h2 database. If you modify database content manually, there is risk of losing data and losing synchronization with business objects in a process instance. However, it can be useful to view the database for debugging processes. If you change the BDM during development, this can also cause problems in existing process definitions.
 
@@ -96,11 +96,11 @@ Example: When handling business objects in a form, you want to reload business o
 
 The purpose of an index is to retrieve data more rapidly. You can specify indexes on business objects to optimize performance of application. For example, for a process to modify purchase orders with an instantiation form used to search for the appropriate purchase order, define an index on purchase order number.
 
-When you view a business object in the Bonita BPM Studio business data model wizard, you can see the attributes that can be indexed. You can define an index on a single attribute or on an ordered list of attributes. An index is automatically created on the PersistenceID, as a primary key. This index is not visible in the BDM wizard. The BDM defines the indexes needed for all applications and processes that use business data. There is no limit to the number of indexes you can define. However, if you define a large number of indexes and have a high volume of business data, it takes longer to build the indexes.
+When you view a business object in the Bonita Studio business data model wizard, you can see the attributes that can be indexed. You can define an index on a single attribute or on an ordered list of attributes. An index is automatically created on the PersistenceID, as a primary key. This index is not visible in the BDM wizard. The BDM defines the indexes needed for all applications and processes that use business data. There is no limit to the number of indexes you can define. However, if you define a large number of indexes and have a high volume of business data, it takes longer to build the indexes.
 
 Note: If you are using an Oracle database, do not define an index on a unique constraint attribute. The database creates indexes automatically for unique constraint attributes, so there are problems during execution if you also specify an index on a unique constraint attribute.
 
-In a production environment, indexes are built when a tenant starts or after a new BDM is deployed. In a development environment, indexes are built when Bonita BPM Studio starts and when the Studio BDM wizard is closed.
+In a production environment, indexes are built when a tenant starts or after a new BDM is deployed. In a development environment, indexes are built when Bonita Studio starts and when the Studio BDM wizard is closed.
 
 <a id="compos"/>
 
@@ -113,9 +113,9 @@ Composition and aggregation are two ways in which you can define a composite bus
 
 Example: A Purchase Order object consists of a set of primitive attribute variables (such as PO number, client, creation date), and a set of order item objects. The order items have no meaning outside the order, so have a composition relationship with the purchase order. An order item contains a product object and a simple attribute for quantity. The product object has an existence outside the order item (it is used in the product catalog), so has an aggregation relationship with the order item.
 
-In the Bonita BPM Studio BDM wizard, you can specify the objects that are related by composition and aggregation, as well as the simple attributes. A child object can be mandatory or optional. A child object can be multiple, which means that the composite object contains zero or more (if optional) or one or more (if mandatory) instances of the child object. You cannot set a unique constraint on a child object. The default relationship is composition.
+In the Bonita Studio BDM wizard, you can specify the objects that are related by composition and aggregation, as well as the simple attributes. A child object can be mandatory or optional. A child object can be multiple, which means that the composite object contains zero or more (if optional) or one or more (if mandatory) instances of the child object. You cannot set a unique constraint on a child object. The default relationship is composition.
 
-When you configure an object in the Bonita BPM Studio BDM wizard, the attribute dropdown list contains the names of the objects that can be included by composition or aggregation. You cannot specify the object you are configuring or its parent.
+When you configure an object in the Bonita Studio BDM wizard, the attribute dropdown list contains the names of the objects that can be included by composition or aggregation. You cannot specify the object you are configuring or its parent.
 
 A composed object is automatically saved to the database using an appropriate schema. For a composition relationship, the child object contains the id of the parent object as a foreign key. For an aggregation relationship, if the child object is not multiple, the parent object contains the id of the child object as a foreign key. If the child object is multiple, the child object ids are stored in a dedicated association table.
 
@@ -126,9 +126,18 @@ When you create a process that uses a business object with a composition or aggr
 * You can use getter and setter methods in process or activity operations to set the composed objects as a single instance or as a `java.util.list` for a list of instances.
 * If your process uses a query from a Groovy expression or uses DAO objects from a client Java application, load the complete composite objects including the child objects.
 
+<a id="lazy_eager_loading" />
+
 #### Loading
 
-There are two options for loading complex business objects, **lazy** or **eager**. With lazy loading, the parent object instance is loaded, but child object instances are loaded only when they are needed. With eager loading, child object instances are loaded when the parent object instance is loaded. The default is lazy loading. You can override this for any business object by configuring it to use eager loading when you specify the object relationship properties. This means that the specified object and all objects related to it by composition or aggregation relationships are loaded. There is an overhead for the additional data load and maintenance of the information in memory, but there is a saving in data access time because the data is already loaded.
+There are two options for loading complex business objects, **lazy** or **eager**.
+With lazy loading, the parent object instance is loaded, but child object instances are loaded only when they are needed.
+With eager loading, child object instances are loaded when the parent object instance is loaded.
+
+The default is lazy loading. You can override this for any business object by configuring it to use eager loading when you specify
+the object relationship properties. This means that the specified object and all objects related to it by composition or aggregation
+relationships are loaded.  
+There is an overhead for the additional data load and maintenance of the information in memory, but there is a saving in data access time because the data is already loaded.
 
 #### Multi-instantiation using business object variables in a list
 
@@ -140,9 +149,12 @@ You can use a list business object or variable to create multiple instances of a
 
 ## Define the BDM
 
-You define the BDM using Bonita BPM Studio. It is automatically deployed to the built-in Bonita BPM Engine and available to processes being run from Studio. This means that you can have a different BDM in each Studio during development, which enables you to test the BDM before deploying it in your tenant. However, if you are sharing diagrams and other artifacts in development, you need to synchronize BDM definitions, either by exporting your BDM manually for import into other development systems, or by using a shared repository (not available in the Community edition).
+You define the BDM using Bonita Studio. It is automatically deployed to the built-in Bonita Engine and available to processes being run from Studio.
+This means that you can have a different BDM in each Studio during development, which enables you to test the BDM before deploying it in your tenant.
+However, if you are sharing diagrams and other artifacts in development, you need to synchronize BDM definitions, either by exporting your BDM manually for import
+into other development systems, or by using a shared repository (not available in the Community edition).
 
-To define the BDM, go to the Bonita BPM Studio **Development** menu, **BDM**, and choose **Manage**. The current BDM definition is displayed. Specify the package name for the BDM in the field below the **List of Business Objects**.
+To define the BDM, go to the Bonita Studio **Development** menu, **BDM**, and choose **Manage**. The current BDM definition is displayed. Specify the package name for the BDM in the field below the **List of Business Objects**.
 
 To add an object:
 
@@ -161,6 +173,12 @@ To modify a new or existing object:
    3. If the attribute is multi-valued, check the box in the **Multiple** column.
    4. If the attribute is mandatory, check the box in the **Mandatory** column.
    5. If the attribute is of type String, set the attribute length in the field below the attribute list.
+   6. If the attribute is of type of a BDM object, set type the **Relationship** (Aggregation or Composition) and the loading configuration (for `lazy`, select
+    `Only load related objects when needed`, for `eager`, select `Always load related objects`)  
+
+![BDM model relationship](images/studio_bdm_relationship.png)
+
+
 4. In the **Unique constraints** tab, specify the attributes and sets of attributes that have a uniqueness constraint.
    1. Click **_Add_** to add a constraint. The constraint is added to the list with a temporary name.
    2. Click the name of the new constraint to select it, and specify the name you want to use by typing over the temporary name.
@@ -182,15 +200,15 @@ To modify a new or existing object:
    4. In the popup, specify the attributes that you want indexed. To specify an attribute to index, select the attribute in the **Available attributes** list and click **_Add_**.
    5. Use the **_Add_**, **_Remove_**, **_Up_** and **_Down_** buttons to specify the index attributes in order.
 7. Click **_OK_** to close the popup. The index is saved.
-8. * Click **_Finish_** to save the business data model, which saves all the objects and create BDM database structure. A confirmation dialog will ask to optionally reset BDM database. Reset database is required when changes impact the mandatory or multiple setting for an attribute, a unique constraint, or when a non primitive attribute type is modified.
+8. Click **_Finish_** to save the business data model, which saves all the objects and create BDM database structure. A confirmation dialog will ask to optionally reset BDM database. Reset database is required when changes impact the mandatory or multiple setting for an attribute, a unique constraint, or when a non primitive attribute type is modified.
 
 ## Export the BDM
 
-There are two ways to export a business data model: in a ZIP file for deployment, or in a BOS file for sharing with other Bonita BPM Studios.
+There are two ways to export a business data model: in a ZIP file for deployment, or in a BOS file for sharing with other Bonita Studios.
 
 #### Export the BDM for deployment
 
-To deploy the BDM, you export it as a ZIP file from Bonita BPM Studio and then import it into Bonita BPM Portal.
+To deploy the BDM, you export it as a ZIP file from Bonita Studio and then import it into Bonita Portal.
 
 ::: warning
 :fa-exclamation-triangle: **Warning:** Before deploying the business data model, you must [pause](pause-and-resume-bpm-services.md) the BPM services, so that the update can be performed without affecting ongoing processes. 
@@ -199,34 +217,34 @@ To deploy the BDM, you export it as a ZIP file from Bonita BPM Studio and then i
 
 Follow these steps:
 
-1. In Bonita BPM Studio, open the **Development menu** in the cool bar.
+1. In Bonita Studio, open the **Development menu** in the cool bar.
 2. Click **Business Data Model** \> **Export**.
 3. Select a destination folder.
 4. Click **Export**. A file called `bdm.zip` is written to the folder that you specified.
-5. Log in to Bonita BPM Portal as the technical user.
+5. Log in to Bonita Portal as the technical user.
 6. Go to the **BPM Services** page.
 7. Click **Pause**.
-8. When the service is paused, go to the **Resources** menu and choose **Business Data Model**.
-9. Specify the file containing the business data model that you exported from Bonita BPM Studio.
+8. When the BPM services are paused, go to the **Business Data Model** menu (and, for Efficiency, Performance and Enterprise editions, choose **Definition**).
+9. Specify the file containing the business data model that you exported from Bonita Studio.
 10. Click _**Activate**_. A warning is displayed, reminding you that installing this new BDM will overwrite the existing BDM.
-11. Click on **Install** to complete the deployment. Bonita BPM Portal loads the file, and retrieves the object definition enabling processes to use them at runtime. It also creates or updates the database schema in the business database, to store business objects appropriately when modified by processes. When the deployment is complete, a message is displayed. If deployment fails, use the Engine logs to analyze the problem.
+11. Click on **Install** to complete the deployment. Bonita Portal loads the file, and retrieves the object definition enabling processes to use them at runtime. It also creates or updates the database schema in the business database, to store business objects appropriately when modified by processes. When the deployment is complete, a message is displayed. If deployment fails, use the Engine logs to analyze the problem.
 12. Go to the **BPM Services** page.
 13. Click **Resume**. BPM services are resumed.
 
 **Warning:** the database model is automatically updated when you deploy a new BDM. Avoid changing the database schema manually as it may jeopardize the persistence of business objects and cause errors at process runtime.
 
-#### Export the BDM to share with another Bonita BPM Studio
+#### Export the BDM to share with another Bonita Studio
 
-The `bdm.zip` exported from the Bonita BPM Studio **Development** menu is designed for import into the Portal, and cannot be imported into another Bonita BPM Studio. Instead, create a `.bos` file, as follows:
+The `bdm.zip` exported from the Bonita Studio **Development** menu is designed for import into the Portal, and cannot be imported into another Bonita Studio. Instead, create a `.bos` file, as follows:
 
 1. Choose **_Export_** from the **_Diagram_** menu or click **_Export_** in the Cool bar.
 2. In the popup of exportable items, select only the Business Data Model.
 3. Specify the filename and location or use the default suggested.
 4. Click **_Finish_**.
 
-The resulting `.bos` file can be imported into any Bonita BPM Studio with a Subscription license.
+The resulting `.bos` file can be imported into any Bonita Studio with a Subscription license.
 
-Warning: Bonita BPM Studio can contain only one business data model. When you import a `.bos` file that contains a business data model, it overwrites the model that is already in the Studio.
+Warning: Bonita Studio can contain only one business data model. When you import a `.bos` file that contains a business data model, it overwrites the model that is already in the Studio.
 
 #### View the BDM
 
@@ -262,11 +280,11 @@ l.leaveType = 'Test'" returnType="java.lang.Double">
 
 ## Business objects in processes
 
-When you design a process, you specify the variables to be used in the process. These can include variables that are instances of business objects defined in the BDM. You [define a business object variable](specify-data-in-a-process-definition.md) in Bonita BPM Studio in a similar way to defining other process variables.
+When you design a process, you specify the variables to be used in the process. These can include variables that are instances of business objects defined in the BDM. You [define a business object variable](specify-data-in-a-process-definition.md) in Bonita Studio in a similar way to defining other process variables.
 
 #### persistenceID
 
-Each object created in the database has a unique read-only ID called a persistenceID. For each new persistenceID created, the number is incremented. The persistenceID is invisible to the end user in Bonita BPM Portal. A developer can recover this Id by using the method `getPersistenceID`.
+Each object created in the database has a unique read-only ID called a persistenceID. For each new persistenceID created, the number is incremented. The persistenceID is invisible to the end user in Bonita Portal. A developer can recover this Id by using the method `getPersistenceID`.
 
 When you declare a persisted business object instance in a process, there are two ways you can initialize it:
 
@@ -321,7 +339,7 @@ Then, click on the _**pencil**_ button to open the _**Edit Expression**_ editor.
 You can use business data in a Java program by using the DAO. DAO gives _**read**_ access to business objects.
 
 ::: warning
-** :fa-exclamation-triangle: Warning**: In a connector, code is executed outside a transaction, so retrieving or updating business data by DAO is not supported.
+**:fa-exclamation-triangle: Warning**: In a connector, code is executed outside a transaction, so retrieving or updating business data by DAO is not supported.
 :::
 
 You can however manipulate the business object outside the connector, and use business objects as connector input or output:
@@ -329,3 +347,71 @@ You can however manipulate the business object outside the connector, and use bu
 * For a _**read**_, retrieve the business object with an expression (for example, `employeeDAO.findByFirstNameAndLastName("William","Jobs")`. Then use the object as input to the connector.
 * For a _**create**_ or _**update**_, return the new or updated business object as output of the connector.
 Then use the business object (which is stored only in memory at this point) in an **operation** to update the business object in the business database, persisting the change.
+
+#### BDM and custom REST APIs
+
+Be aware that a poor implementation of a custom REST API accessing BDM objects can lead to poor performance results. See the [best practice](bdm-in-rest-api.md) on this matter.
+
+
+#### Handle BDM database schema manually
+
+::: warning
+This section is for advanced usage. You should fully understand the database changes made when you update the Business Data Model before considering using
+this alternative.
+:::
+
+You can use an alternative database `SchemaManager` implementation. A `SchemaManager` is responsible for updating the BDM Database schema, according to the changes you have made to your
+Business Data Model. As our third-party persistence layer *Hibernate* does not support all type of schema updates, you may want to use a SchemaManager that does **not** update the database
+tables directly, but rather let you (or your Database Administrator) update the database "manually".
+
+For that, you can use the alternative we provide, by uncommenting the following lines in file `platform_conf/current/tenants/[TENANT_ID]/tenant_engine//bonita-tenants-custom.xml` using [setup tool](BonitaBPM_platform_setup.md#update_platform_conf).
+
+```xml
+    <!-- Schema Manager that avoids to update the database schema when updating BDM -->
+    <!--
+    <bean id="schemaManager" class="org.bonitasoft.engine.business.data.impl.SchemaManagerReadOnly">
+        <constructor-arg name="loggerService" ref="tenantTechnicalLoggerService" />
+    </bean>
+    -->
+```
+
+With this alternative, you should carefully update the database before deploying the new BDM version. Otherwise, there are a number of pitfals you may fall into.
+
+Errors you can get if you:
+
+* use a business object without updating the database schema:
+```
+15-May-2018 12:04:12.106 ERROR [http-nio-52162-exec-8] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions Table "BUSINESSOBJECT1" not found; SQL statement:
+insert into BUSINESSOBJECT1 (persistenceId, ATTRIBUT1, ATTRIBUT2, ATTRIBUT3, persistenceVersion) values (null, ?, ?, ?, ?) [42102-175]
+15-May-2018 12:04:12.113 GRAVE [http-nio-52162-exec-8] org.restlet.resource.ServerResource.doCatch Exception or error caught in server resource
+ org.bonitasoft.engine.exception.BonitaRuntimeException: USERNAME=walter.bates | org.bonitasoft.engine.commons.exceptions.SRetryableException: javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not prepare statement
+```
+* extend the length of a business object attribute without updating the database column:
+```
+15-May-2018 16:09:28.066 WARN [http-nio-52162-exec-4] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions SQL Error: 22001, SQLState: 22001
+15-May-2018 16:09:28.067 ERROR [http-nio-52162-exec-4] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions Value too long for column "ATTRIBUT1 VARCHAR_IGNORECASE(20)": "CAST(STRINGDECODE('   30     caract\u00e8res__________') AS VARCHAR_IGNORECASE) (30)"; SQL statement:
+insert into BUSINESSOBJECT1 (persistenceId, ADDEDCOLUMN, ATTRIBUT1, ATTRIBUT2, NEWBOOLEAN, persistenceVersion, RENAMEDCOLUMN) values (null, ?, ?, ?, ?, ?, ?) [22001-175]
+15-May-2018 16:09:28.075 GRAVE [http-nio-52162-exec-4] org.restlet.resource.ServerResource.doCatch Exception or error caught in server resource
+ org.bonitasoft.engine.exception.BonitaRuntimeException: USERNAME=walter.bates | org.bonitasoft.engine.commons.exceptions.SRetryableException: javax.persistence.PersistenceException: org.hibernate.exception.DataException: could not execute statement
+```
+* change the type of a business object attribute without updating the database column:
+```
+15-May-2018 17:00:08.083 WARN [http-nio-52162-exec-5] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions SQL Error: 22018, SQLState: 22018
+15-May-2018 17:00:08.084 ERROR [http-nio-52162-exec-5] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions Data conversion error converting "'now is a String' (BUSINESSOBJECT1: NEWBOOLEAN BOOLEAN)"; SQL statement:
+insert into BUSINESSOBJECT1 (persistenceId, ADDEDCOLUMN, ATTRIBUT1, ATTRIBUT2, NEWBOOLEAN, persistenceVersion, RENAMEDCOLUMN) values (null, ?, ?, ?, ?, ?, ?) -- (NULL, ?1, ?2, ?3, ?4, ?5, ?6) [22018-175]
+15-May-2018 17:00:08.085 GRAVE [http-nio-52162-exec-5] org.restlet.resource.ServerResource.doCatch Exception or error caught in server resource
+ org.bonitasoft.engine.exception.BonitaRuntimeException: USERNAME=walter.bates | org.bonitasoft.engine.commons.exceptions.SRetryableException: javax.persistence.PersistenceException: org.hibernate.exception.DataException: could not execute statement
+```
+* change a relation between two business objects without updating the database / constraints:
+```
+[...]
+Caused by: groovy.lang.MissingMethodException: No signature of method: com.company.model.Invoice.addToLines() is applicable for argument types: (com.company.model.InvoiceLine) values: [com.company.model.InvoiceLine@623c31c]
+```
+* remove a composition relation without removing the foreign key in database:
+```
+16-May-2018 10:25:01.030 WARN [http-nio-52162-exec-10] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions SQL Error: 23502, SQLState: 23502
+16-May-2018 10:25:01.030 ERROR [http-nio-52162-exec-10] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions NULL not allowed for column "INVOICE_PID"; SQL statement:
+insert into INVOICELINE (persistenceId, persistenceVersion, TITLE) values (null, ?, ?) [23502-175]
+16-May-2018 10:25:01.038 GRAVE [http-nio-52162-exec-10] org.restlet.resource.ServerResource.doCatch Exception or error caught in server resource
+ org.bonitasoft.engine.exception.BonitaRuntimeException: USERNAME=walter.bates | org.bonitasoft.engine.commons.exceptions.SRetryableException: javax.persistence.PersistenceException: org.hibernate.exception.ConstraintViolationException: could not execute statement
+```

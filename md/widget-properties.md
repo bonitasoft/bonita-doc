@@ -40,7 +40,7 @@ Some general properties are common to all widgets except containers.
 
 Specify the width of the widget relative to the container it is in, or to the page if it is not in a container. A widget can occupy one to 12 units. The actual widget widths are proportional, automatically adjusted for the device display.
 
-In the Performance and Efficiency editions, you can set a different value for the width property for each device type. Select the target device type in the top bar, then set the value of the Width property.
+In the Enterprise, Performance and Efficiency editions, you can set a different value for the width property for each device type. Select the target device type in the top bar, then set the value of the Width property.
 
 ![Device type selection](images/images-6_0/pb-resolution.png)
 
@@ -76,4 +76,4 @@ This property controls whether the widget is hidden. Bind this property to a var
 
 ## Migrate a page from 7.0.0 and 7.0.1
 
-In Bonita BPM 7.0, property values were all dynamic. Pages and forms that were created with 7.0 and are already deployed will continue to work with 7.1\. You should note that when you import a 7.0.0 or 7.0.1 page or form into 7.0.x later versions or the 7.1 Bonita BPM Studio or UI designer, widgets properties stay dynamic.
+In Bonita 7.0, property values were all dynamic. Pages and forms that were created with 7.0 and are already deployed will continue to work with 7.1\. You should note that when you import a 7.0.0 or 7.0.1 page or form into 7.0.x later versions or the 7.1 Bonita Studio or UI designer, widgets properties stay dynamic.

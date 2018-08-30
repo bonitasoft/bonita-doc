@@ -1,19 +1,19 @@
 # Manage Look & Feel
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
-A Look & Feel defines the appearance of Bonita BPM Portal Web interface and Bonita BPM Portal Mobile interface.
+A Look & Feel defines the appearance of Bonita Portal Web interface and Bonita Portal Mobile interface.
 
 A Look & Feel is not used to specify Application layout and theme. To modify Application layout and theme, see [Specifying application layout](applications.md) and [Specifying application theme](applications.md) 
 
 ## Import and apply a new Look & Feel
 
-The Bonita BPM Portal Web interface and the Bonita BPM Portal Mobile interface each have a Look & Feel, which is defined in a set of files in a zip archive.
-You can [create a new Look & Feel](creating-a-new-look-feel.md) for one of these items. When you have created the new Look & Feel, you apply it using Bonita BPM Portal, as follows:
+The Bonita Portal Web interface and the Bonita Portal Mobile interface each have a Look & Feel, which is defined in a set of files in a zip archive.
+You can [create a new Look & Feel](creating-a-new-look-feel.md) for one of these items. When you have created the new Look & Feel, you apply it using Bonita Portal, as follows:
 
-1. Log into Bonita BPM Portal as Administrator.
+1. Log into Bonita Portal as Administrator.
 2. Go to the **Configuration** menu and choose **Look & Feel**.
 3. In Filters list on the left, choose the item for which you have a new Look & Feel: **Web Portal** or **Mobile Portal**.
 4. In the **Import and apply a new Look & Feel** zone, use the file chooser to specify the zip file containing the new Look & Feel, and then click **_Apply_**.
@@ -21,13 +21,13 @@ You can [create a new Look & Feel](creating-a-new-look-feel.md) for one of these
 
 ## Export the current Look & Feel
 
-You can export the current Look & Feel to modify it or to import it into other Bonita BPM Portals.
+You can export the current Look & Feel to modify it or to import it into other Bonita Portals.
 Exporting the Look & Feel creates a zip archive containing the files that make up the Look & Feel definition.
 It has no effect on the Look & Feel currently being used.
 
 To export the current Look & Feel:
 
-1. Log into Bonita BPM Portal as Administrator.
+1. Log into Bonita Portal as Administrator.
 2. Go to the **Configuration** menu and choose **Look & Feel**.
 3. In Filters list on the left, choose the item for which you want to export the Look & Feel: **Web Portal** or **Mobile Portal**.
 4. In the **Export the current Look & Feel** zone, click **_Export_**.
@@ -40,7 +40,7 @@ You can always export the default Look & Feel, even if a customized Look & feel 
 
 To export the default Look & Feel:
 
-1. Log into Bonita BPM Portal as Administrator.
+1. Log into Bonita Portal as Administrator.
 2. Go to the **Configuration** menu and choose **Look & Feel**.
 3. In Filters list on the left, choose the item for which you want to export the default Look & Feel: **Web Portal** or **Mobile Portal**.
 4. In the **Export the default Look & Feel** zone, click **_Export_**.
@@ -48,13 +48,13 @@ To export the default Look & Feel:
 
 ## Restore the default Look & Feel
 
-Restoring the default Look & Feel replaces the Look & Feel that is currently in use with the default Look & Feel provided with Bonita BPM.
+Restoring the default Look & Feel replaces the Look & Feel that is currently in use with the default Look & Feel provided with Bonita.
 
 Warning: restoring the default Look & Feel overwrites the current Look & Feel. If you want to keep a copy of the current Look & Feel, export it into a .zip archive before you restore the default.
 
 To restore the default Look & Feel:
 
-1. Log into Bonita BPM Portal as Administrator.
+1. Log into Bonita Portal as Administrator.
 2. Go to the **Configuration** menu and choose **Look & Feel**.
 3. In Filters list on the left, choose the item for which you want to restore the default Look & Feel: **Web Portal** or **Mobile Portal**.
 4. In the **Restore the default Look & Feel** zone, click **_Restore_**.
@@ -75,4 +75,4 @@ The next time you load a Portal page, the default Look & Feel is used.
 
 Restoring the default Look & Feel with a REST client
 
-It is also possible to [restore the default Look & Feel using the Bonita BPM Engine API](restore-default-look-feel.md).
+It is also possible to [restore the default Look & Feel using the Bonita Engine API](restore-default-look-feel.md).

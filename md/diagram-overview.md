@@ -8,7 +8,7 @@ There is no link between the diagram version and the pool version.
 
 ### How to create a new diagram
 
-To create a new diagram in Bonita BPM Studio, choose **New** from the **Diagram** menu or the Cool bar, or click **_New Diagram_** on the Welcome page. Give your diagram a name, and optionally set the version number and add a description.  
+To create a new diagram in Bonita Studio, choose **New** from the **Diagram** menu or the Cool bar, or click **_New Diagram_** on the Welcome page. Give your diagram a name, and optionally set the version number and add a description.  
 You can also turn on or off validation of your diagram. If validation is on, any errors in your diagram structure are flagged with a red x icon. This helps you correct errors as you build your diagram, instead of correcting them all at the end.
 
 To open an existing diagram, choose **Open** from the **Diagram** menu or the Cool bar, click **_Open a Diagram_** on the Welcome page, 
