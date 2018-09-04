@@ -263,3 +263,4 @@
   * [Manage dates and times in BDM and User Interfaces](datetimes-management-tutorial.md)
   * [Manage BDM in custom Rest APIs](bdm-in-rest-api.md)
   * [Share a repository on GitHub](share-a-repository-on-github.md)
+  * [Install Tomcat with Bonita as a service in Windows](bonita-as-windows-service.md)
