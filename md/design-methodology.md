@@ -1,6 +1,6 @@
 # Design methodology
 
-This page presents a summary of the phases in creating a process-based application using Bonita BPM:
+This page presents a summary of the phases in creating a process-based application using Bonita:
 
 ## Setting objectives
 
@@ -9,7 +9,7 @@ Objectives are a vital part of any project to implement or improve a business ap
 Objectives can be qualitative or quantitative, and should cover the expected lifecycle of the process. For example, if you want to create an automated process to replace an existing process that uses paper forms, you could define objectives for how long it takes to fill out a form in the initial roll-out period, and after 6 months when users have become familiar with the new system. You could also define an objective for the savings achieved by no longer storing paper documents, or quality objectives that the process must
 meet before deployment. 
 
-Bonita BPM will not help you to define the objectives for a project, but it will help you create metrics to check that your objectives are met.
+Bonita will not help you to define the objectives for a project, but it will help you create metrics to check that your objectives are met.
 
 ## Defining application scope
 
@@ -26,7 +26,7 @@ it used by just one person or by many people at the same time?
 
 ## Drawing the process diagram
 
-Using Bonita BPM Studio, you can quickly sketch out the process flow, and create a diagram of the starting points, main steps, branches, decision points, and end points. Do this for each process in the application. At this stage, get agreement from the process owner and the key users before going further. 
+Using Bonita Studio, you can quickly sketch out the process flow, and create a diagram of the starting points, main steps, branches, decision points, and end points. Do this for each process in the application. At this stage, get agreement from the process owner and the key users before going further. 
 
 Things to think about:
 
@@ -34,7 +34,7 @@ Things to think about:
 * If there are activities that happen in parallel, use symmetric gates to map out the beginning and end of the parallel phases of the process.
 
 There is no requirement to create a diagram for an application, because it is not executable in the same way as a process.  
-However, you should create a specification so that you can get agreement from the application owner and key users. One option is to use the Bonita BPM Studio to create a diagram showing the usage patterns.  
+However, you should create a specification so that you can get agreement from the application owner and key users. One option is to use the Bonita Studio to create a diagram showing the usage patterns.  
 This diagram would not be executable, and should not be exported as a /bar file, nor deployed. 
 
 ## Defining the process details
@@ -54,31 +54,31 @@ In the development phase of each process in an application, there are several as
 
 When the application definition and process definitions are complete, you will have defined what interaction users have with application pages and with each process task. Create the pages and forms needed. 
 
-Use the Bonita BPM Studio UI designer to create pages and forms by manipulating widgets.  
+Use the Bonita Studio UI designer to create pages and forms by manipulating widgets.  
 You can add, remove, and reorder widgets, and you can change the appearance of a form.
 
 ## Testing
 
 Test each process individually before testing the application as a whole.
 
-You can validate a process definition in Bonita BPM Studio, in teh **Details** panel, **Validation status** tab. The validation status 
+You can validate a process definition in Bonita Studio, in teh **Details** panel, **Validation status** tab. The validation status 
 indicates any errors or omissions in the definition. Correct any errors flagged in validation before testing the process.
 
-Bonita BPM Studio includes an environment for testing a process locally, before deployment. You can test the process without connectors by clicking **_Debug_**, test each connector independently using teh connector wizard **_Test_** button, then run the process by clicking **_Debug_** to test it with connectors. You need to [configure](process-configuration-overview.md) the process before testing it locally.
+Bonita Studio includes an environment for testing a process locally, before deployment. You can test the process without connectors by clicking **_Debug_**, test each connector independently using teh connector wizard **_Test_** button, then run the process by clicking **_Debug_** to test it with connectors. You need to [configure](process-configuration-overview.md) the process before testing it locally.
 
-Bonita BPM Studio contains an example organization, ACME, which you can use for testing a process or application.
+Bonita Studio contains an example organization, ACME, which you can use for testing a process or application.
 
 When local testing is complete, depending on the environment where the application will run, you might also need to test the processes in a realistic system before putting the application into production, or perhaps to put it into production but for a limited number of users or cases.
 
 ## Deployment
 
-When testing is complete, the processes are ready to be deployed in Bonita BPM Portal and the application is ready to be put into production. You need to [configure](process-configuration-overview.md) each process for deployment before putting it into production.
+When testing is complete, the processes are ready to be deployed in Bonita Portal and the application is ready to be put into production. You need to [configure](process-configuration-overview.md) each process for deployment before putting it into production.
 
 ## Specifying the organization
 
 Before you can run a process in production, you need to define your organization with entries for all process users, groups, and roles. You also need to map the process actors to the real people who will carry out process steps.   
-You can [manage your organization in Bonita BPM Portal](organization-in-bonita-bpm-portal-overview.md) for a production system.   
-While you are in the testing phase, you can [manage the organization in Bonita BPM Studio](organization-management-in-bonita-bpm-studio.md).
+You can [manage your organization in Bonita Portal](organization-in-bonita-bpm-portal-overview.md) for a production system.   
+While you are in the testing phase, you can [manage the organization in Bonita Studio](organization-management-in-bonita-bpm-studio.md).
 
 ## Monitoring and improvement
 

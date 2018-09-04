@@ -4,11 +4,11 @@ This page explains the post-installation setup tasks that you must carry out.
 
 ## Check the installation
 
-To verify that the installation was successful and the database is correctly configured, connect to Bonita BPM Portal.
+To verify that the installation was successful and the database is correctly configured, connect to Bonita Portal.
 
 In the URL field of your web browser, enter the local host address, e.g. `http://localhost:8080/bonita`.
 
-**Note:** If the Bonita BPM Portal login page is not displayed, [empty your browser cache](http://www.wikihow.com/Clear-Your-Browser's-Cache) and [cookies](http://www.wikihow.com/Clear-Your-Browser%27s-Cookies) and then reload the page.
+**Note:** If the Bonita Portal login page is not displayed, [empty your browser cache](http://www.wikihow.com/Clear-Your-Browser's-Cache) and [cookies](http://www.wikihow.com/Clear-Your-Browser%27s-Cookies) and then reload the page.
 
 At this stage no organization information is loaded: only the technical user account exists.
 
@@ -48,15 +48,15 @@ Authentication is the process of verification that an individual, entity or webs
 #### Perform input validation in your applications and extensions
 Input validation is performed to ensure only properly formed data is entering the workflow in an information system, preventing malformed data from persisting in the database and triggering malfunction of various downstream components.If you use BonitaStudio for developing your forms, then define authorized min and max values, max length and type for input fields.
 
-For more information, please take look at the [REST API authorization](rest-api-authorization.md) and the other features relating to [security and authentication](_security-and-authentication.md) that are available in Bonita BPM and in your operating system, and update your platform as required for your production environment. 
+For more information, please take look at the [REST API authorization](rest-api-authorization.md) and the other features relating to [security and authentication](_security-and-authentication.md) that are available in Bonita and in your operating system, and update your platform as required for your production environment. 
 
-## Create a Bonita BPM Portal administrator
+## Create a Bonita Portal administrator
 
 Create a user with the "administrator" profile:
 
 Note: do not create a user or an administrator with the same login and password as the technical users (platform and tenant)
 
-1. Log in to Bonita BPM Portal as the technical user.  
+1. Log in to Bonita Portal as the technical user.  
 **Note:** If your system is using single sign-on with CAS, you need to log in with the following URL: `http://`_`hostname:port`_`/bonita/login.jsp?redirectUrl=portal/homepage`.
 2. Create a user with the standard profile.
 3. Go to **Organization** \> **Profiles**. Select "Administrator" profile.
@@ -68,4 +68,4 @@ Note: do not create a user or an administrator with the same login and password 
 
 If you already have a system that stores information about end users, you can use it to create user accounts in Bonita.
 
-If you use an LDAP or Active Directory system, you can use the [LDAP synchronizer](ldap-synchronizer.md) tool to keep the Bonita BPM Portal organization synchronized with it.
+If you use an LDAP or Active Directory system, you can use the [LDAP synchronizer](ldap-synchronizer.md) tool to keep the Bonita Portal organization synchronized with it.

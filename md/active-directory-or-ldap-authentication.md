@@ -1,19 +1,19 @@
 # Active Directory or LDAP authentication
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 **Important notes:**  
-* This documentation applies to an existing and working Bonita BPM installation (see the [installation instructions](bonita-bpm-installation-overview.md)).
-* In order to have functioning Active Directory/LDAP authentication, the user login (username) must exist both in the LDAP directory and in the Bonita BPM database (user password is checked against the LDAP server but user information is read from Bonita BPM database).  We recommend that you use the [LDAP synchronizer](ldap-synchronizer.md) to create Bonita BPM users in a Bonita BPM database.
+* This documentation applies to an existing and working Bonita installation (see the [installation instructions](bonita-bpm-installation-overview.md)).
+* In order to have functioning Active Directory/LDAP authentication, the user login (username) must exist both in the LDAP directory and in the Bonita database (user password is checked against the LDAP server but user information is read from Bonita database).  We recommend that you use the [LDAP synchronizer](ldap-synchronizer.md) to create Bonita users in a Bonita database.
 
 ## Overview
 
-Bonita BPM can be configured to perform user authentication against an LDAP server such as Active Directory, Apache Directory Server, or OpenLDAP.
+Bonita can be configured to perform user authentication against an LDAP server such as Active Directory, Apache Directory Server, or OpenLDAP.
 
-This type of configuration relies on a specific implementation of the Bonita BPM Engine authentication service that delegates the actual user name and password verification to a [JAAS](http://docs.oracle.com/javase/7/docs/technotes/guides/security/jaas/JAASRefGuide.html) service configured with an [LDAP
-specific Login Module](http://docs.oracle.com/javase/7/docs/jre/api/security/jaas/spec/com/sun/security/auth/module/LdapLoginModule.html).
+This type of configuration relies on a specific implementation of the Bonita Engine authentication service that delegates the actual user name and password verification to a [JAAS](http://docs.oracle.com/javase/8/docs/technotes/guides/security/jaas/JAASRefGuide.html) service configured with an [LDAP
+specific Login Module](http://docs.oracle.com/javase/8/docs/jre/api/security/jaas/spec/com/sun/security/auth/module/LdapLoginModule.html).
 
 ## Before you start
 
@@ -40,7 +40,7 @@ This section explains how to put together all the LDAP server information you ha
 
 #### Login context name
 
-The JAAS configuration can include one or several login contexts. The Bonita BPM login context must be named `BonitaAuthentication-<TENANT_ID>` (where `<TENANT_ID>` is your tenant id).
+The JAAS configuration can include one or several login contexts. The Bonita login context must be named `BonitaAuthentication-<TENANT_ID>` (where `<TENANT_ID>` is your tenant id).
 
 #### LdapLoginModule attributes to set
 
@@ -86,7 +86,7 @@ If you use a `userFilter` and users are allowed to search, set the value with `{
 
 Edit the `<WILDFLY_HOME>/setup/wildfly-templates/standalone.xml` file to specify the configuration. Use HTML encoding for any strings in the configuration (for example, a space character is written as %20).
 
-Add the Bonita BPM login context using the WildFly specific syntax just before the `</security-domains>` tag. Note that `security-domain-name` is in fact the JAAS login context name (e.g. Bonita BPM).
+Add the Bonita login context using the WildFly specific syntax just before the `</security-domains>` tag. Note that `security-domain-name` is in fact the JAAS login context name (e.g. Bonita).
 
 The following example is for a tenant with id 1:
 ```xml
@@ -105,7 +105,7 @@ The following example is for a tenant with id 1:
 
 ##### **Tomcat**
 
-On Tomcat, the JAAS configuration file follows the [default JVM syntax](http://docs.oracle.com/javase/7/docs/api/javax/security/auth/login/Configuration.html).  
+On Tomcat, the JAAS configuration file follows the [default JVM syntax](http://docs.oracle.com/javase/8/docs/api/javax/security/auth/login/Configuration.html).  
 Here is an example of JAAS configuration file:  
 ```
 BonitaAuthentication-1 {
@@ -120,9 +120,9 @@ We recommend that you name your JAAS configuration file `jaas.cfg` and that you 
 
 ## Configuration steps
 
-#### Changing Bonita BPM authentication service
+#### Changing Bonita authentication service
 
-The default Bonita BPM installation comes with an authentication service implementation based on the Bonita BPM Engine database. In
+The default Bonita installation comes with an authentication service implementation based on the Bonita Engine database. In
 order to activate Active Directory/LDAP authentication the service implementation needs to be changed. To do this, edit [`bonita-tenant-sp-custom.properties`](BonitaBPM_platform_setup.md).
 
 You will need to perform following changes:
@@ -138,7 +138,7 @@ As the JAAS configuration in WildFly is already done in a file that already exis
 
 ##### **Tomcat**
 
-To define the JAAS configuration file location you need to set a JVM property, `java.security.auth.login.config`. To do this for a system running Tomcat you need to edit the `setenv` script provided with Bonita BPM and located in `<TOMCAT_HOME>/server/bin` folder.
+To define the JAAS configuration file location you need to set a JVM property, `java.security.auth.login.config`. To do this for a system running Tomcat you need to edit the `setenv` script provided with Bonita and located in `<TOMCAT_HOME>/server/bin` folder.
 
 ###### For Linux and Mac OS
 

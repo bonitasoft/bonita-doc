@@ -1,7 +1,7 @@
 # Deploy profiles with export and import
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 ## Overview
@@ -16,7 +16,7 @@ When you export a profile, it includes the following:
 A custom profile can include standard pages and custom pages.
 You cannot change the mapping of a standard profile to pages.
 
-You can export and import the default profiles that are provided as standard in Bonita BPM, as a way to export and import the mapping of those profiles to elements in the organization.
+You can export and import the default profiles that are provided as standard in Bonita, as a way to export and import the mapping of those profiles to elements in the organization.
 
 By default, the profile export and import features are available in the Administrator profile. They can also be available in a custom profile.
 
@@ -54,4 +54,4 @@ A popup reports the status of the import. It shows the number of profiles succes
 Notes:
 
 * A Process manager profile does not include the list of apps assigned to a given process manager. After the Process manager profile is imported, you need to [assign a process manager to an app](process-manager.md).
-* The standard profiles defined in Bonita BPM have the flag _isDefault_ set to _True_ in the XML file. Do not change the setting of _isDefault_ for any profile, or you will get an error message on import.
+* The standard profiles defined in Bonita have the flag _isDefault_ set to _True_ in the XML file. Do not change the setting of _isDefault_ for any profile, or you will get an error message on import.

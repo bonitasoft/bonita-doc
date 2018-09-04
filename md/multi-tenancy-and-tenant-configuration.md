@@ -1,25 +1,25 @@
 # Multi-tenancy and tenant configuration
 
 ::: info
-**Note:** For Performance edition only.
+**Note:** For Enterprise and Performance editions only.
 :::
 
-This page explains the architecture and configuration of a multi-tenant system using Bonita BPM.
+This page explains the architecture and configuration of a multi-tenant system using Bonita.
 
 ## Platform architecture
 
-By default, all installations of Bonita BPM create a single tenant. However multi-tenancy is possible with the Performance edition.
+By default, all installations of Bonita create a single tenant. However multi-tenancy is possible with the Enterprise or the Performance edition.
 
 Multi-tenancy involves a single software installation, called a **platform**, that can serve multiple independent organizations, called **tenants**.
 Each tenant is a separate, self contained configuration for a single client/company. 
 Artifacts are deployed at tenant level, so a tenant has its own organization (users, groups, roles), processes (apps, cases, trasks), reports, and custom pages.
 Data within a tenant are completely isolated. A tenant cannot access data from any other tenant. A user logged in to a tenant cannot access any other tenant.
 
-After the installation of any Bonita BPM version (Community or Subscription), a single default tenant is created and ready for use.
+After the installation of any Bonita version (Community or Subscription), a single default tenant is created and ready for use.
 
 ![default](images/images-6_0/default_tenant_setup.png)  
 
-If you are using the Performance edition, you can create additional tenants, using the Platform API (through Java or REST API).
+If you are using the Enterprise or the Performance edition, you can create additional tenants, using the Platform API (through Java or REST API).
 These tenants are configured with a single database. This illustration shows a platform with three tenants.
 
 ![multi-tenancy](images/images-6_0/v6tenant.png)
@@ -69,7 +69,7 @@ The [platform REST API](platform-api.md) is a REST layer around the Java Platfor
 NOTE: this is to be done only once.
 
 ##### Start a tomcat
-- Download a BonitaBPMSubscription-7.\*-Tomcat-7.0.76.zip
+- Download a BonitaSubscription-7.\*-Tomcat-8.5.31.zip
 - Unzip it
 - Provide a valid license file
 - Start the tomcat
@@ -191,14 +191,14 @@ To use the newly created tenant:
     apiClient.logout();
 ```
 
-### Bonita BPM Portal
+### Bonita Portal
 
-In order to access Bonita BPM Portal desktop and mobile application, add the parameter `tenant=TENANT_ID` (where TENANT\_ID is the tenant identifier) in the URL before you login.
+In order to access Bonita Portal desktop and mobile application, add the parameter `tenant=TENANT_ID` (where TENANT\_ID is the tenant identifier) in the URL before you login.
 
-Example for Bonita BPM Portal desktop version and tenant 2:  
+Example for Bonita Portal desktop version and tenant 2:  
 `http://localhost:8080/bonita/login.jsp?tenant=2`
 
-Example for Bonita BPM Portal mobile version and tenant 2:  
+Example for Bonita Portal mobile version and tenant 2:  
 `http://localhost:8080/bonita/mobile/?tenant=2`
 
 ### Bonita APIs
@@ -258,4 +258,4 @@ While service is paused in a tenant, only the following methods are valid:
 If you attempt an operation that is not permitted while a tenant is paused, a `TenantStatusException` is thrown.
 
 You can also pause and resume a tenant using the 
-[REST API](platform-api.md) or [Bonita BPM Portal](pause-and-resume-bpm-services.md).
+[REST API](platform-api.md) or [Bonita Portal](pause-and-resume-bpm-services.md).

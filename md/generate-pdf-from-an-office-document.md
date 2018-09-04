@@ -1,7 +1,7 @@
 # Generate PDF from an Office document
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 The **Generate PDF from and Office document** connector converts a document from `.odt` or `.docx` format to PDF.  

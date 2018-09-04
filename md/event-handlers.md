@@ -1,7 +1,7 @@
 # Event handlers
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
 An event handler is an extension to the engine that is configured to run when a specified event occurs.
@@ -56,8 +56,8 @@ pom.xml :
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>

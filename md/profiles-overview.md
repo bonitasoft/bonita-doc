@@ -1,40 +1,45 @@
 # Profiles overview
 
-A profile is a set of access rights given to a user. Users have to be given a certain profile in order to access applications, processes, cases or tasks.
+A profile is an indirection to some entities of the organization: users, groups, roles, and/or memberships.
+Profiles work as permissions to give access to:
+- [Living Applications](applications.md)
+- Defined objects and attributes of the BDM (through [BDM Access Control](access-control-api.md))
+- Navigation (menus) of Bonita Portal
 
-The admin can map users to a profile in the **Organization menu**.
+One organization entity can be mapped to several profiles. In Bonita Portal, a loggued user can switch between his/her profiles in the navigation bar.
+
+In development, to map entities of the organization to a profile, use the [profile editor](profileCreation.md) in Bonita Studio.   
+In production, an administrator must use the **Organization**>**Profiles** menu of Bonita Portal.
 
 ## Default profiles
 
-There are 3 default profiles in Bonita BPM Portal, **User**, **Administrator** and **Process manager**, which correspond to functions performed in the Bonita BPM Portal.
-
-Users can also have several profiles and switch between them in the Bonita BPM Portal in the navigation bar.
+Bonita comes with 3 default profiles: **User** and **Administrator** are available in all editions ; **Process Manager** is available in Subscription editions only.
 
 ### User profile
 
-A user given a **User** profile can perform everyday tasks: start cases, perform tasks, create subtasks, add comments to a task. 
+An employee mapped to the **User** profile can perform everyday tasks: start cases, perform tasks, add comments to a task. 
 
-A manager can also see the **More details** view for their team member's tasks, by specifying the task id. 
-If you are a manager and want to see a task of a member of your team, display another task in the Portal. Then change the task id in the URL to the id of the task you want to see. 
-You can see only the **More details** view for the task, unlike in Bonita BPM 6.x where you could also see the task form by using the task id.
+A manager can also see the **More details** page for their team members' tasks, by specifying the task id. To do so, display any task in the Portal, then change the task id in the URL to the id of the task you want to see. 
+You can see only the **More details** view for the task, unlike in Bonita 6.x where you could also see the task form by using the task id.
 The manager needs only the user profile for this, not a special profile.
 
-This is the profile used in the Mobile Portal. A user who does not have the **User** profile cannot access the mobile portal. 
+**User** is the profile used in Bonita Mobile Portal. As a consequence, an employee who does not have the **User** profile cannot access the mobile portal. 
 
 ### Administrator profile
 
-A user given an **Administrator** profile has management rights, including importing and exporting processes, monitoring, creating reports, correcting errors, creating and modifying users, creating custom profiles, changing user memberships, creating applications
+An employee mapped to the **Administrator** profile has administration rights, including importing and exporting processes, monitoring, creating reports, live updating processes or resources, creating and modifying users, creating custom profiles, changing user memberships, creating applications, and so on.
 
 ### Process manager profile
 
-The process manager profile is available with the Performance and Efficiency editions.
+This profile is available for Subscription editions only.
+An employee mapped to the **Process manager** profile has limited administration rights for activities related to the processes they manage, as defined by the Administrator.
 
-A user given the **Process manager** profile has limited management rights for activities related to the process they are assigned by the Administrator.
+**Note:** In Bonita ACME organization, all users have the role **Member**, and the role **Member** is mapped to all default profiles. This simplifies process testing (log in as any user to see any Portal content). 
+
 
 ## Custom profiles
 
-Custom profiles are available with the Performance and Efficiency editions. 
-A custom profile is created by the Administrator. 
-Each profile can be given a set of customized functions organized in a customized navigation menu.
-
-See [Custom profiles](custom-profiles.md).
+In addition to the default profiles, users of Enterprise, Performance and Efficiency editions can create **[custom profiles]**(custom-profiles.md).
+If a custom profile is created to give access to custom content in the portal, its _Portal menu_ (navigation structure and pages) must also be defined in the profile.
+To create a custom profile, map it to entities of the organization, and create its portal menu, use the [profile editor](profileCreation.md) in the studio. 
+In a production environment, an Administrator must use the **Organization**>**Profiles** menu.

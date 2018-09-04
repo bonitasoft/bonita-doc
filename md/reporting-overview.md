@@ -1,10 +1,10 @@
 # Reporting overview
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
-This page presents an overview of reporting with Bonita BPM.
+This page presents an overview of reporting with Bonita.
 
 ## Terminology
 
@@ -15,7 +15,7 @@ Reporting is also know as Business Intelligence (BI) or Business Activity Monito
 
 ## Reporting dependencies
 
-Reporting involves Bonita BPM and two other third-party software components:
+Reporting involves Bonita and two other third-party software components:
 
 * A reporting database of your choice.
 * A BI tool of your choice.
@@ -27,10 +27,10 @@ Reporting is composed in several ordered steps.
 At design time:
 
 1. [Reporting database setup](set-up-a-reporting-database.md)
-2. [KPI definition in Bonita BPM Studio](set-up-kpis.md)
+2. [KPI definition in Bonita Studio](set-up-kpis.md)
 3. [Report creation in the BI tool](create-a-report.md)
 
 At execution time:
 
-1. KPI collection in Bonita BPM Engine and storage in the reporting database (this is performed automatically based on KPI definitions)
-2. Report generation using the BI tool or Bonita BPM Portal
+1. KPI collection in Bonita Engine and storage in the reporting database (this is performed automatically based on KPI definitions)
+2. Report generation using the BI tool or Bonita Portal

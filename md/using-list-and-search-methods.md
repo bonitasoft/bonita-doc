@@ -1,6 +1,6 @@
 # List and search methods
 
-The Bonita BPM Engine APIs contain several list and search methods. This page explains the difference between list and search, and explains how to configure word-based search.
+The Bonita Engine APIs contain several list and search methods. This page explains the difference between list and search, and explains how to configure word-based search.
 
 The following example shows how to use a list method to see the archived activity instances:
 ```java

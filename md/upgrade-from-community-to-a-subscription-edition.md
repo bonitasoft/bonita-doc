@@ -1,48 +1,48 @@
 # Community to Subscription upgrade
 
-Upgrading means moving from a Bonita BPM Community edition environment to any Bonita BPM Subscription 
+Upgrading means moving from a Bonita Community edition environment to any Bonita Subscription 
 edition environment.
 
 **Warnings:**
 
-* An upgrade can only be performed on a single Bonita BPM version. You cannot migrate to a new version at the same time as you upgrade to Subscription edition.  
-  Eg. Migrate from **Bonita BPM 7.3.3 Community** edition to **Bonita BPM 7.3.3 Subscription** edition. 
+* An upgrade can only be performed on a single Bonita  version. You cannot migrate to a new version at the same time as you upgrade to Subscription edition.  
+  Eg. Migrate from **Bonita 7.3.3 Community** edition to **Bonita 7.3.3 Subscription** edition. 
 * After it is applied, an upgrade cannot be undone.
 
 An upgrade is performed in two phases.
 
-## Bonita BPM Studio upgrade
+## Bonita Studio upgrade
 
-To upgrade a Community edition Bonita BPM Studio and its resources (such as process diagrams, data models), follow these steps:
+To upgrade a Community edition Bonita Studio and its resources (such as process diagrams, data models), follow these steps:
 
-1. [Install a Bonita BPM Studio](bonita-bpm-studio-installation.md) Subscription edition.
-2. Export your resources from the Bonita BPM Studio Community edition to `.bos` files. We recommend that you keep these resource files as a backup.
-3. Import your resource files into the Bonita BPM Studio in Subscription edition.
+1. [Install a Bonita  Studio](bonita-bpm-studio-installation.md) Subscription edition.
+2. Export your resources from the Bonita Studio Community edition to `.bos` files. We recommend that you keep these resource files as a backup.
+3. Import your resource files into the Bonita Studio in Subscription edition.
 
-The upgrade is performed automatically and silently when importing resources into Bonita BPM Studio Subscription edition.
+The upgrade is performed automatically and silently when importing resources into Bonita Studio Subscription edition.
 
 Remember that an upgrade is a non-reversible operation: 
 after your resources are imported in the Subscription edition, you will not be able to export from the Subscription edition Studio and then import them back into the Community edition.
 
-## Bonita BPM platform upgrade
+## Bonita platform upgrade
 
-Upgrading a Bonita BPM platform allows you to keep the platform data (process definitions, cases, BDM...) 
+Upgrading a Bonita platform allows you to keep the platform data (process definitions, cases, BDM...) 
 while benefiting from the Subscription edition features.
 
 The upgrade procedure is quite simple and only requires a limited service downtime (less than an hour for basic configurations).
 
 ::: warning
-A Bonita BPM platform upgrade can only be performed on the same database type.
+A Bonita platform upgrade can only be performed on the same database type.
 :::
 
-To upgrade a Bonita BPM platform from Community edition to a Subscription edition, follow these steps:
+To upgrade a Bonita platform from Community edition to a Subscription edition, follow these steps:
 
-1. [Install the Subscription Bundle](bonita-bpm-installation-overview) but do not start it. We will call this installation folder `bonita-subscription`.
-2. Configure the Subscription installation to use your existing database editing the file `<bonita-subscription>/setup/database.properties`.
+1. [Install the Subscription Bundle](bonita-installation-overview) but do not start it. We will call this installation folder `bonita-subscription`.
+2. Configure the Subscription installation to use your existing database editing the file `<bonita-subscription>/setup/database.properties`. Beware of [backslash characters](BonitaBPM_platform_setup.md#backslash_support).
 3. Shut down the Community server being migrated using the `stop-bonita` script, we will call this installation folder `bonita-community`.
 4. Run `<bonita-community>/setup/setup(.sh/.bat) pull` to fetch your current Community configuration in `<bonita-community>/setup/platform_conf/current` and copy this last in a different folder, we will call this new folder `bonita-community-configuration`.
-5. [Backup your Bonita BPM platform and databases](back-up-bonita-bpm-platform.md).
-6. Update the configuration using the [Platform setup tool](BonitaBPM_platform_setup#configure_tool) in `bonita-subscription`:
+5. [Backup your Bonita platform and databases](back-up-bonita-platform.md).
+6. Update the configuration using the [Platform setup tool](Bonita_platform_setup#configure_tool) in `bonita-subscription`:
     1. Create the folder `<bonita-subscription>/setup/platform_conf/current`, we will call it `bonita-subscription-configuration`.
     3. Copy the content of the `<bonita-subscription>/setup/platform_conf/initial` to `bonita-subscription-configuration`.
     4. In the `bonita-subscription-configuration`, reapply the modifications for all the folders but the one named `tenants` (use `bonita-community-configuration` as a reference).

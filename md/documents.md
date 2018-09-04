@@ -72,7 +72,7 @@ For most use cases, we recommend storing documents in a CMS.
 
 #### CMS
 
-Typically, business documents are stored in an external system such as a CMS, and accessed by other applications in addition to Bonita BPM. Bonita BPM is not iteself a CMS, and it is more efficient for performance to store documents in an external system and store only links in the process instance. This is particularly true if you have many documents attached to a process instance.
+Typically, business documents are stored in an external system such as a CMS, and accessed by other applications in addition to Bonita. Bonita is not iteself a CMS, and it is more efficient for performance to store documents in an external system and store only links in the process instance. This is particularly true if you have many documents attached to a process instance.
 
 You can initialize a document object in a process instance by specifying a URL that identifies the document. The document object stores a reference to the URL, not the content itself. The document can be updated in the process instance when the user specifies a URL in a form, or using a connector. You can also use a connector to push an update to the CMS.
 
@@ -91,7 +91,7 @@ A document that is stored as a file can be used to initialize or update the docu
 
 #### Resource
 
-The Bonita BPM Studio Document Repository contains documents that have been imported from the file system. After a document is imported, it is called a resource. When you [build a process bar file for deployment](build-a-process-for-deployment.md), the resources used in the process are automatically included. A resource is available to all processes in an installation of Studio. A resource cannot be updated directly in Studio, but is updated by uploading a new file. Typically, resources are used for information that is stable and common to all instances of a process, or is used in several processes. The resource is used to initialize the document object in the process instance. You cannot use a resource to update a document object.
+The Bonita Studio Document Repository contains documents that have been imported from the file system. After a document is imported, it is called a resource. When you [build a process bar file for deployment](build-a-process-for-deployment.md), the resources used in the process are automatically included. A resource is available to all processes in an installation of Studio. A resource cannot be updated directly in Studio, but is updated by uploading a new file. Typically, resources are used for information that is stable and common to all instances of a process, or is used in several processes. The resource is used to initialize the document object in the process instance. You cannot use a resource to update a document object.
 
 When you [export a process in a bos file for import into another Studio](import-and-export-a-process.md), you must select the resources that are used so that they are included.
 
@@ -106,7 +106,7 @@ The dialog for adding a resource to the document repository is inside the dialog
 7. Click **_Cancel_** to close the list of resources in the repository.
 8. Click **_Cancel_** to close the document editor or creator. The process diagram and document definition are not updated.
 
-When you deploy a process, the documents included in the bar file are stored in the local Bonita BPM database. They are used to initialize document objects when a process instance is created or when a form is initialized.
+When you deploy a process, the documents included in the bar file are stored in the local Bonita database. They are used to initialize document objects when a process instance is created or when a form is initialized.
 
 #### Document maximum size setting
 
@@ -117,7 +117,7 @@ This maximum document size will also depend on your web server configuration, it
 
 #### Document versioning in a process instance
 
-In a process instance, there is no specific versioning. When a document is updated, a new object is created. These objects are archived with the associated activity instance, and can be retrieved using Bonita BPM Engine API.
+In a process instance, there is no specific versioning. When a document is updated, a new object is created. These objects are archived with the associated activity instance, and can be retrieved using Bonita Engine API.
 
 #### Document archives
 
@@ -131,7 +131,7 @@ This section explains how to specify a document or document list in a process de
 
 A document is added to a process definition at pool level. It is similar to defining a pool-level process variable. You must define at pool level all the documents that will be used in the process.
 
-To define a document in Bonita BPM Studio:
+To define a document in Bonita Studio:
 
 1. In your process diagram, select the pool.
 2. Go to the **Details** panel, **Data** tab, **Documents** pane.
@@ -207,5 +207,5 @@ In addition to the connectors that interact with content management systems (suc
 
 Note that connectors handle single documents. If your process contains a document list, you can manipulate component documents using connectors.
 
-The standard connectors provided with Bonita BPM (CMIS, Alfresco, Jasper) take a document as input. They cannot handle document lists.   
+The standard connectors provided with Bonita (CMIS, Alfresco) take a document as input. They cannot handle document lists.   
 The email connector can handle a document list that specifies the attachments to be added to a message. The standard connectors do not provide a documentValue as output. This means that you cannot use a connector to get a document. Instead, specify the URL of the document, as you would for initialization.

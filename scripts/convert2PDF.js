@@ -29,7 +29,7 @@
   
   
   const readdirPromise = denodeify(fs.readdir);
-  let outfile = (file ? file : `Bonita-BPM-documentation`);
+  let outfile = (file ? file : `Bonita-documentation`);
 
   const flattenedTaxo = flattenTaxonomy(taxonomy);
   let htmlFile = '', count = 0;  

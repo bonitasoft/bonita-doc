@@ -253,7 +253,7 @@ The query can be either a default or a custom query.
   * q=queryName - the query name
   * p=0 - the page number
   * c=10 - the maximum number of results in the page
-  * f=parameter=value - sets the parameter value according to business data query parameters defined in Bonita BPM Studio
+  * f=parameter=value - sets the parameter value according to business data query parameters defined in Bonita Studio
   For a Boolean parameter, the accepted values are `true` or `false`.
 
   By default, for a Date parameter can use the following formats:

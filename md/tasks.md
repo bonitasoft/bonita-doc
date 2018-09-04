@@ -18,7 +18,7 @@ A task can be assigned and reassigned if necessary to another user.
 
 ## Do a task for another user
 
-With the Efficiency and Performance editions, an Administrator can do a task for another user. This is useful for unblocking a case if the assigned user cannot perform a task.
+With the Efficiency, Performance and Enterprise editions, an Administrator can do a task for another user. This is useful for unblocking a case if the assigned user cannot perform a task.
 
 1. Go to **BPM** \> **Tasks** and view the list of pending Human tasks.
 2. Select the relevant task in the list and click **Do for**.
@@ -42,7 +42,7 @@ The task is moved from Failed to Done.
 
 ## Replay a failed task
 
-This feature is available with the Performance edition.
+This feature is available with the Enterprise or the Performance edition.
 
 1. Go to **BPM** \> **Tasks**.
 2. Go to **Failed**.

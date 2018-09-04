@@ -1,6 +1,6 @@
 # Twitter
 
-This page explains how to configure the Twitter connectors in Bonita BPM Studio.
+This page explains how to configure the Twitter connectors in Bonita Studio.
 
 The following Twitter connectors are available:
 

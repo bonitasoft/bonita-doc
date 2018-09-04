@@ -1,179 +1,259 @@
 # Release notes
 
-Bonita BPM 7.4 includes a set of user-based product enhancements, bug fixes related to Bonita BPM Engine, 
-a new REST connector and important technology updates.
 
-## User-based product enhancements
+## New values added
 
-<a id="bpm-studio"/>
+<a id="git"/>
 
-### Bonita BPM Studio
-* When importing a .bos file, 3 options are now available:
-    * import it in the current repository
-    * import it in another existing repository
-    * create a new repository and import it there
-  This may prevent from overriding a BDM file or other types of development artifacts.
-* Contract inputs can be defined with the type LONG, at pool level only. In called processes, this is helpful to receive IDs from call activities
-* The list of operations in a task and in the outputs of a connector configuration can be reordered
-* Process simulation capability has been removed from the product `(removed)`
+### Collaborative development with Git (starting with Teamwork edition)
+Working as a team on a Bonita project, securing resources on a shared server, and keeping track of the resources revisions is now possible with the integration of Eclipse [EGit plug-in](http://wiki.eclipse.org/EGit/User_Guide) in Bonita Studio, as well as the creation of a dedicated gitignore file.
+Managing branches, viewing the differences between two revisions of a file, or between the local and remote repositories, as well as managing conflicts for a given file can be performed. Find more in the dedicated [documentation page section](workspaces-and-repositories.md#git) and in the howto: [Share a repository on GitHub](share-a-repository-on-github.md).
+Combining Git capabilities with [Bonita Continuous Delivery add-on](https://documentation.bonitasoft.com/bcd/2.0/) offers best of breed technologies for multi-disciplinary teams to sustain a DevOps approach. 
 
-<a id="bdm-usability-improvements"/>
+<a id="bdm-access-control"/>
 
-### Business Data Model (BDM)
-* In the Studio, a new menu item Development > Business Data Model > Browse data (h2 console) opens the H2 console to visualize and browse business data. When testing a process, this helps to see how Business Objects instances evolve.
-* In the Studio repository, .xml is now the storage format of the BDM. Using any Version Control System, you can now manually handle a _diff_ of 2 different revisions of the same BDM
+### Business data access control (BDM AC) (starting with Efficiency edition)
+It is now possible to protect the access to BDM data through REST API calls.
+This feature, [**BDM access control**](bdm-access-control.md), is available in Bonita Studio and works as a **white list** mechanism: through access rules, access is granted to entire business objects or to some attributes only, so that only users mapped with the selected **profiles** can access the data.
+Help is provided on consistency checking between BDM, profiles, and BDM access control when changes are made on the BDM or the profiles.
+A "profile access" tooling is also provided, to validate BDM access by profile.
+This new resource can be installed and updated on a Bonita platform while BPM services are running, via the Administrator Portal.
 
-<a id="uid-usability-improvements"/>
+<a id="save-form"/>
 
-### UI Designer
-* CSS, Javascript, and localization.json assets can be edited in line, directly in the UI Designer
-* Variables can be sorted by names and types
-* Variables search field sticks at the top of the pane, so you can scroll vertically and still see it
-* When the "Preview" window is open and you click on "Preview" again, it is now reloaded, so only one window is open at a given time
+### Save a Form temporarily (starting with Teamwork edition)
+When a form contains lots of fields, or when the user misses some information required to fill out the form at once, saving the form to complete it later is a need. This is now possible with the new "Save Button" widget, that can be added to any form.
+JavaScript information entered by the user is temporarily saved in the web browser local storage while the task is still in "pending" status. When the user comes back to the task, the values entered are displayed on the form, missing data can be added, so the user efficiently submits the form to either start a process instance or execute a task.
 
-<a id="task-and-case"/>
+<a id="new-case-overview"/>
 
-### Task & Case Management
-* The estimated due date for a human task can be defined as an expression in the Studio
-* A task can now be retrieved by its case ID in the user Portal task list
-* In the user Portal case list, a new icon has been added at the end of each case row. It takes the user to the task list To do, filterd by the case ID.
-
-### Connectivity
-* A new REST connector has been added, to make REST calls (GET, PUT, POST, DELETE) to a third-party system `(new)`
-* The CMIS connector has been improved, to retrieve a list of documents in a content management system (CMS), and to upload multiple documents to a CMS
-
-<a id="csrf-security"/>
-
-### Security
-* CSRF security mechanism is now enabled by default when installing Bonita BPM, to protect the REST API against Cross-Site Request Forgery (CSRF) attacks. Custom pages not developped with the UI Designer may need to be updated to comply with this new setting. 
- To know more, go to http://documentation.bonitasoft.com/7.4?page=csrf-security
-
-<a id="platform-installation"/>
-
-### Platform installation
-* The installation procedure of Bonita BPM bundles has been simplified, namely the database configuration part. Read the file HOW_TO_INSTALL_AND_RUN located in the bundles to learn more.
+### New case overview 
+Although the default case overview page has always been customizable, it was an AngularJS page, not editable in Bonita UI Designer. Moreover, its history section reported actions that occurred in the past.  
+The new default case overview page is now designed in the UI Designer and it displays the current available task(s) and, if available, the current assignee(s). You can export if from the Administrator Portal > Resources menu, as the "Autogenerated Case Overview" and import it in the UI Designer to make it suit your needs. As a Portal Administrator, in processes details pages, update the "Mapping" of "Overview" to replace it with your custom overview, and there you go.
 
 
-<a id="technology-updates"/>
+## Improvements
 
-## Technology updates in Bonita BPM 7.4.0
-* Wildfly 10.1.0 application server replaced Jboss AS 7.1.1
-* Hazelcast is updated to Hazlecast 3.6.5 `(SP)`, to improve clustering types of installation
+<a id="ldap-synchronizer"/>
+
+### LDAP synchronizer to synchronize Custom User Information too (starting with Teamwork edition)
+More information than groups can now be synchronized from a Company's LDAP into a Bonita organization: the [LDAP synchronizer](ldap-synchronizer.md#cui) can input those additional fields into [Custom User Information](custom-user-information-in-bonita-bpm-studio.md). Such information is defined in Bonita Studio, and viewed or edited in Bonita Administrator Portal, and is used in actor filters for better task allocation.
+
+<a id="readable-names"/>
+
+### [Readable UI Designer artifact names](ui-designer-overview.md#readable-page-name) in Bonita repositories
+New pages, forms, layouts, and fragments created with Bonita UI Designer now use the name given by the developer as IDs in the repository.
+Easier to find when they need to be updated.
+For existing artifacts, nothing has changed: their IDs is a UUID. You can switch them to the new mechanism by renaming them.
+
+### UI Designer artifacts last update date
+Last update date of all UI Designer artifacts is not updated with the use of the preview any more. Only when changes are made.
+
+### UI Designer logs separate from Engine logs
+In Bonita Studio **Help** menu, you can now find UI Designer logs, distinct from Engine logs, to better monitor UI Designer activities.
+
+### A responsive login page 
+The login page, used in Bonita Portal as well as in the Living Applications, is now responsive, so as to look at its best on a desktop, tablet or mobile environment.
+
+### BDM meta-information for Portal Administrator
+Since installing or updating BDM requires BPM Services to be paused, such rights are only granted to the Technical User.
+However, since the Portal Administrator can now install and update the BDM Access Control file from the Administrator Portal, he can now get information on BDM status and last update date.
+
+### New layout for the Administrator Portal "User details" page
+All details of a user in the organization are now diplayed on an AngularJS page of the Administrator Portal, bringing still more consistency to the Administrator Portal.
+
+### Bonita Studio status bar and coolbar
+To allow you to work in Bonita Studio while some back-end activities are taking place, especially in case of operations on remote repositories, the Eclipse status bar is now displayed at the bottom right hand corner of the studio window. 
+To keep the same working space in the studio, we have set the default size of the coolbar at "small". If you prefer big icons, with labels, go to "Edit > Preferences > Appearance" and set the "Coolbar default size" to "Normal". You can also click on the little down arrow at the very right end of the coolbar to expand it.
+
+### Business objects relationships
+The default relationship type between business objects is now "agreggation". It was "composition" before, which led to some validation errors: a single object cannot be linked to several parents with a composition relationship, but it can with an aggregation relationship.
+
+### Application descriptor "deploy"
+Just like for profiles or BDM access control, there is now a "Deploy" option in the Application descriptor menu of Bonita Studio, on top of the toolbar button already available in the editor.
+
+### Application descriptor refactoring upon a change on a profile
+When a change is made on a profile in Bonita Studio, the application descriptors that reference the profile are now refactored in Bonita Studio to take the change into account.
+
+### French repository is now "dépôt"
+For local or shared repositories, Bonita Studio in French is now tuned to the official translation: "dépôt".
+
+### Official signatures on Windows
+Bonita binaries as well as Studio installer are now officially signed on Windows OS, to prevent useless security alerts.
+
+### Form mapping API error messages
+Improvements of messages in case of error on form mapping API calls have been done to explain the cause of error and give options for easier error recoveries.
+
+<a id="techonolgy-updates"/>
+
+## Technology updates
+
+### Supported Tomcat version
+* The supported Tomcat version for this new release is Tomcat 8.5.31, in the Bonita Studio as well as in the Tomcat bundle.
+
+### Hazelcast on AWS
+* (Enterprise and Performance editions) Bonita 7.7 now supports the usage of Hazelcast on AWS out-of-the box. Previous versions required
+modifying the Bonita installation.
+
+
+<a id="feature-removals"/>
+
+## Feature removals
+
+### Jasper 5 connector
+Jasper connector has been removed from provided connectors in Bonita Studio. If you have a process that depends on this connector and want to migrate in 7.7+, you have two options:
+* Export the Jasper connector from a previous Studio version
+* Download the connector from the [community website](https://community.bonitasoft.com/project/bonita-connector-jasper)
+  Then just import the connector using the `Development > Connectors > Import connector...` menu.
+  
+
+## API behavior change
+
+### UI Designer URL change
+The UI Designer webapp embedded in Bonita Studio is now deployed with the name "bonita" (instead of "designer") in its own container (different from the one of Bonita Engine and Portal). As a result, it is now accessible through the URL http://localhost:<designer_port>/bonita instead of http://localhost:<tomcat_port>/designer.
+This name update was a requirement in order for the UI Designer preview to continue working with bonita portal resources URLs starting with "/bonita".
+
+### Add comment with a Groovy script in an open case
+[addProcessComment()](https://documentation.bonitasoft.com/javadoc/api/7.7/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#addProcessComment-long-java.lang.String-) method in ProcessRuntimeAPI has had a behavior change that went unnoticed in 7.4.0:
+when called from a groovy script, it will systematically write the process comment as having been made by the "System" user, while previously it was using the user executing the task. It is caused by the fix to the bug [BS-14276](https://bonitasoft.atlassian.net/browse/BS-14276). Operations on human tasks are now asynchronous (as it should have been from 7.0.0). Hence all methods relying on the Session to get the userID, as addProcessComment() does, will find -1 as a value.
+All scripts that want to perform an action on behalf of the user executing the task, should rely on the task assignee to do so, as there is no user logged during the script execution hence the -1 value in the sessions; as the execution is asynchronous.
+
+This behavior will not be reverted to pre 7.4.0 state for the addProcessComment() method, or any other method that might suffer from a similar problem.
+A new method has been introduced : [addProcessCommentOnBehalfOfUser()](https://documentation.bonitasoft.com/javadoc/api/7.7/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#addProcessCommentOnBehalfOfUser-long-java.lang.String-long-), that will allow to replicate the previous behavior of the [addProcessComment()](https://documentation.bonitasoft.com/javadoc/api/7.7/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#addProcessComment-long-java.lang.String-) method.
+This new API method is designed so that a script can leave  a comment on behalf of the user.
+**Note:** This use case has never been considered before. As a comment was thought to be left by the user himself / herself.
+
+In practice, it means that if your process has been designed prior to Bonita 7.3 :
+* If you are calling the method outside of groovy scripts, you can use the method you like ( addProcessComment() being probably more practical), and your process will not require any additional modifications
+* If you are calling the method from a groovy script, in a process designed prior to 7.3 and migrated to 7.7, and want to maintain the previous behavior, you will have to modify your groovy scripts to use the new API method.
+* If your process has been designed in Bonita 7.4, 7.5 or 7.6, the behavior of your process will not change. You will however have now access to a new API method upon migration, which will open new possibilities.
+
+### Deprecated Workspace API
+The Workspace API tooling (headless studio build) has been deprecated. You are recommanded to use the *LA builder* which is part of the tooling suite of [Bonita Continuous Delivery add-on](https://documentation.bonitasoft.com/bcd/2.0/).
 
 
 ## Limitations and known issues
-* **MacOS Sierra (10.12)**: **Bonita BPM Studio** installed using the `zip` package fails during launch. Bonita BPM can successfully be installed on **MacOS Sierra** using the `dmg` package
-* **MacOS** environment: starting from **MacOS El Capitan 10.11.4** (March 2016), new security rules block the launch of **Bonita BPM Studio**. You must temporarily remove security on `App` launching in _System Preferences→Security & Confidentiality_.
+
+* The EGit plug-in, on which relies the Bonita Studio Git feature, integrates many features, and only a few have been translated to French and English so far. In order to contribute the best translation to the Eclipse community, we need more time. Therefore, translations in French and Spanish will all come in 7.7.1. Stay tuned.
+* MacOS environment: starting from MacOS El Capitan 10.11.4 (March 2016), new security rules block the launch of Bonita Studio. You must temporarily remove security on App launching in **System Preferences**>**Security & Confidentiality**.
+* Process display name is now used everywhere in Bonita Portal (when it has been set in the process design) except in the default provided Jasper reports.
+* Since 7.6.0, the default living application layout does not re-encode the URL passed to the living application iframe anymore.
 
 ## Bug fixes
 
-* A major behavior change of this version is related to the fix [BS-14276](https://bonitasoft.atlassian.net/browse/BS-14276). Part of the fix involved the transfer of all the groovy script execution logic to the server, making operations on human tasks asynchronous (as they should have been since 7.0.0).
-While it should not affect a process designed prior to 7.4.0, one of the side effect of the fix is that all the API methods relying on the Session to get the userID, will now find -1 as a value when called from a groovy script (as there is no user logged in during the script execution, since the execution is asynchronous).
-Therefore, all scripts that want to perform an action on behalf of the user executing the task, should rely on the id of the task assignee to do so.
- We identified [addProcessComment()](https://documentation.bonitasoft.com/javadoc/api/7.4/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#addProcessComment-long-java.lang.String-) as one of the affected method: when called from a groovy script, it will systematically write the process comment as having been made by the "System" user.
- **Note:** This use case has never been considered before. As a comment was thought to be left by the user himself / herself.
- 
+#### Fixes in Documentation
+* BS-16862 Cannot fully deploy a REST API extension with Engine APIs
+* BS-17598 Documentation steps about "Create your own password validator" lead to maven error: Could not find artifact
+* BS-17613 Instructions to use gzip compression no longer apply
+* BS-17659 "BDM Management in Bonita Portal" section leads customer to believe updating the BDM in production is supported
+* BS-17699 Broken link to 7.6 Engine Javadoc
+* BS-17770 Studio preferences Documentation still speaks about Studio profiles
+* BS-17795 Single sign-on with SAML not described with Wildfly
+* BS-17930 Documentation about 'Changing technical user' needs more detailed explanations
+* BS-17994 REST API filter names includes erroneous \ character
+* BS-18134 Workaround or guidance missing for time-zoned Java 8 Date types usage in REST API extensions
+* BS-18167 Live update of script fails if a new "provided variable" is added to the script
+* BS-18441 7.7 Javadocs have missing packages and classes
+* BS-18497 Migration: HTTP status code 403 REST API extensions
 
-### Fixes in Bonita BPM 7.4.3
+### Fixes in Bonita 7.7.3 (2018-08-02)
+#### Fixes in Engine component
+* BS-18441 7.7 Javadocs have missing packages and classes
+* BS-18312 A named Hibernate query to search Activities with type CALL_ACTIVITY is missing.
+* BS-18557 Missing Hibernate queries for running and archived process instances can lead to runtime errors when using the Engine API
+* BS-18575 "-Djava.security.egd=file:/dev/./urandom" option missing from setup/tomcat-templates/setenv.sh
+#### Fixes in Studio component
+* BS-18576 Can not import .bos file in 7.7.x Teamwork edition Studio
+* BS-18589 LA-Builder groovy script compilation fails due to classpath issues
+#### Fixes in Web component
+* BS-16976	FileNotFoundException/IOException issues when accessing/deploying custom pages/REST API extensions
+* BS-18570	Cannot retrive theme.css from a custom page into a portal profile
 
-* BS-14579	ProcessAPIImpl.cancelProcessInstance fails when parent Process cannot find subprocess
-* BS-14880	Missing translations in new rest api wizard
-* BS-15851	Delete a page does not delete the metadata file
-* BS-15873	HTTP status code 500 returned when using a non existing username or wrong password
-* BS-16027	Adding two widgets with assets does not refresh asset list
-* BS-16031	BDM.find() fails with Exception if element has a CHILD
-* BS-16106	bpm/archivedCase return error 500 instead of 404 if the case doesn't exist
-* BS-16145	WildFly start-bonita.bat failed if JAVA_HOME is set with a path including spaces
-* BS-16161	The user is not warned that the session will be closed when the BDM is deployed
-* BS-16170	JSON sorted results broken in widget Data table in Chrome
-* BS-16184	Tomcat does not test SQL connection validity before giving it to Bonita application
-* BS-16206	Japanese chars in diagram name generate validation errors
-* BS-16214	The studio menu Development -> Business Data Model -> Browse Data (h2 console) doesn't open the bound browser
-* BS-16231	Contract input not available in the expression editor, for connectors dealing with documents
-* BS-16233	IdentityApi.getUserMemberships does not set grouptParentPath
-* BS-16238	Adding contract input from large business data is very slow
-* BS-16240	Impossible to edit the name of a freshly added Business Object in the Business Data Model of the Studio - Mac OS Sierra
-* BS-16262	Renaming BDM object's attribute actually renames another object's attribute
+### Fixes in Bonita 7.7.2 (2018-07-09)
+#### Fixes in Engine component
+* BS-17227 Bundle tomcat does not work if installation path contain special character (like "é")
+* BS-18402 BDM Composition and aggregation child update creates a new Child BO instance instead of updating the right one
+* BS-18428 Missing Hibernate queries for activity instances can lead to runtime errors when calling ProcessAPI.searchActivities()
+* BS-18439 BDM: extra lines generated with null values in table, with aggregation relation
+* BS-18445 Webservice connector fails in buildResponseDocumentBody with error: HIERARCHY_REQUEST_ERR: An attempt was made to insert a node where it is not permitted
+#### Fixes in Studio component
+* BS-18445 Webservice connector fails in buildResponseDocumentBody with error: HIERARCHY_REQUEST_ERR: An attempt was made to insert a node where it is not permitted.
+* BS-18467 Database connector wizard does not filter unaccessible connector outputs in scripting mode
+#### Fixes in UI Designer component
+* BS-18431 The LA-Builder hang for ever on UID page generation error
+* BS-18472 Rename fragment does not rename frament into Forms
+#### Fixes in Web component
+* BS-17975 As Sam, I want the Tomcat bundle to start in less than 7 minutes on my Docker env
+* BS-17880 Importing organization with expired session fails with misleading error message
+* BS-18366 Started by System displayed in the cases list page if user have an empty Lastname or empty firstname
+* BS-18417 User profile - "Done tasks" list cannot be sorted on 'Case' column whereas "To do" and "My tasks" lists can
+* BS-18449 Organization can be export by a non admin user from Bonita Portal
 
-### Fixes in Bonita BPM 7.4.2
+### Fixes in Bonita 7.7.1
+#### Fixes in Engine component
+* BS-17536 Quartz elements associated with boundary event from a sub process are not deleted when parent process instance is deleted
+* BS-17553 Exception, or a stack trace, or an incident are generated when an interruptive boundary timer is triggering during connector execution at ON_ENTER
+* BS-18448 Engine failed to start with a ClassNotFoundException after migration when a BDM 's BO defines fields with date or datetime types
+#### Fixes in UI Designer component
+* BS-18442 Cannot import form in UID in Windows when it contains chinese characters
+#### Fixes in Web component
+* BS-18374 User membership cannot be removed because memberships have no pagination
 
-* BS-11654	Process with a call activity calling a process without a none start event (including implicit) stay in "started" (even with an event subprocess triggered)
-* BS-15844	Workspace is corrupted if UI Designer home folder is empty
-* BS-15972	Can't paste in name field of an expression editor.
-* BS-16029	Searching performs an api call on every keystroke
-* BS-16037	[UID] widgets are no more read only in white board after drag and drop
-* BS-16058	External CSS assets from custom widgets have a View icon in the page/form
-* BS-16076	Duplicate attribute added in BDM in iOS platform
-* BS-16118	Add support for contract input on the MultipleStartPointsProcessCommand
-* BS-16123	Manager can't see the v6 legacy or v7 overview page for processes executed by their subordinates
-* BS-16125	Unable to update a connector implementation if a dependency with the same name already exists
-* BS-16129	Process actors Mapping shows only 10 actors in Portal
-* BS-16131	Diagram is open twice after clicking on Debug button
-* BS-16144	Previous type of variable is used instead of the new one after an update
+### Fixes in Bonita 7.7.0
+#### Fixes in Engine component
+* BS-15900 EventTriggers are not always deleted from the EVENT_TRIGGER_INSTANCE table
+* BS-16750 FILE contract input type generates a big usage of the heap memory with big documents
+* BS-17009 Hazelcast jar is no more available for AWS Discovery
+* BS-17267 engine-server temp folder keeps growing in size on windows environment
+* BS-17464 CMIS list documents connector and probably the others CMIS connectors generate a ClassNotFoundException on WildFly only
+* BS-17514 Setup tool should release files after a pull operation
+* BS-17624 7.3.3 and prior java client failed to deserialize an object when communicating with java Engine API 7.4.0 or higher
+* BS-17679 Prevent unsupported use case when defining BDM
+* BS-17716 Setup tool does not prevent the removal of critical configuration files
+* BS-17725 add() to an empty multiple BO (List) is failing
+* BS-17726 Case counter for Unlimited instances license is not incremented
+* BS-18196 BoundaryEvent stays behind in 'waiting' state if task is skipped
+* BS-18201 ProcessAPI.searchConnectorInstances fails with SearchOptions using .filter(ConnectorInstancesSearchDescriptor.STATE, ConnectorState.FAILED)
+* BS-18208 logged user / task assignee : Task Operation behavior has changed
+* BS-18228 Terminate and End event is not terminating the process after a failed task with a boundary event had been skipped
+* BS-18336 HazelcastSerializationException: Failed to serialize 'org.bonitasoft.engine.work.WorkDescriptor'
+* BS-18350 Fix Aws discovery sample hostHeader in bonita-platform-sp-cluster.properties
+* BS-18389 Tomcat outputs TechnicalLoggerSLF4JImpl for all logs in subscription editions
+#### Fixes in Studio component
+* BS-17267 engine-server temp folder keeps growing in size on windows environment
+* BS-17749 : surounded with space chars in task name generates an error when user clicks on the task in the portal's tasklist
+* BS-17939 Content Assist doesn't work without keyboard shortcut in Groovy expression editor
+* BS-18101 Process contract inputs missing from process-design.xml when building with BonitaStudioBuilder
+* BS-18154 Catch message - Correlation mapping value doesn't display expression editor properly
+* BS-18178 Studio splash screen doesn't work on windows
+* BS-18191 Automatic dependency resolution can fails in Groovy Expression Editor
+* BS-18197 Studio deploys too many sub process versions and the wrong one is used at run-time.
+* BS-18269 "Create a parameter..." wizard is not popping-up
+* BS-18270 Parameter type is lost on version when re entering process to call section
+* BS-18301 Welcome page displays outdated RSS flux content in welcome page
+* BS-18343 Using loop "for" in Input Constraints fails with a validation error and a warning in the Editor
+* BS-18344 CPU spike and GC overhead limit exceeded when using groovy editor for Inputs constraints
+* BS-18381 Installer fails to launch BonitaStudio at end, if path contains space characters
+#### Fixes in UI Designer component
+* BS-16696 Autocomplete widget issue with asynchronous data (Rest API call)
+* BS-16997 File viewer preview display cut and not scrollable with pdf file in Mobile portal
+* BS-17809 HTML is not interpreted anymore after page import in studio 7.7.0 from 7.6.x and lower
+* BS-18062 UI Designer Devices size Preview doesn't reflect the one selected in the main UI Designer
+* BS-18179 Form import in UI Designer displays a non-translated artifact type
+* BS-18222 Bonita API resource not exported in page.properties when single resource call with id
+* BS-18256 Infinite loop creating css file after migration error
+* BS-18385 URL parameters are not decoded in UI Designer
+#### Fixes in Web component
+* BS-16440 Instance counter starts one day before subscription start date
+* BS-17924 CSRF cookie needs to be handled when implementing authentication manager
+* BS-18137 Changing filter does not refresh the case list properly
+* BS-18149 REST API Not compliant with the If-Modified-Since HTTP header
+* BS-18223 Licensing admin page does not handle unlimited case number correctly
+* BS-18231 Select widget fails to pre select Value
+* BS-18335 Process visu is not display when process contains an intermediate catch event signal
+* BS-18341 Error message not explicit in Portal when change password policy enforced
+* BS-18367 Click inside a Living application raises a warning in the logs and a 404 on an undefined URL path
+* BS-18375 User profile - Done Task list cannot be ordered on 'performed date' column or any other date column; it used to be possible in 7.2.2
 
-### Fixes in Bonita BPM 7.4.1 
-
-* BS-14076	V7 Translation bugs
-* BS-15679	Update of connector implementation does not work with single and same jar dependency
-* BS-15681	Process with a subprocess with a catch message or timer event never ends and is blocked on a parallel gateway
-* BS-15820	No work generated at start up to execute boundary event in waiting state
-* BS-15826	[i18n] typo in FR translation in the licence monitoring view
-* BS-15884	Monitoring view tooltips are not translated
-* BS-15887	UI Designer Form opening and save takes a minute and more
-* BS-15916	Cannot use process variable in the init of Sub Process Event
-* BS-15990	An update of the DataInstanceServiceImpl.getSADatainstanceOfContainers() logic returns incorrect data value
-* BS-16028	Chart widget advanced options link redirect to wrong version of chart.js
-* BS-16035	SessionUtil stopped working
-* BS-16050	V6 form double contingency doesn't work anymore
-* BS-16056	Date widget does not work for dates between December 1969 to January 1970
-* BS-16069	Impossible to cancel the import of a .bos if a file is selected
-* BS-16095	Catch message: left operator not set when using auto fill
-
-### Fixes in Bonita BPM 7.4.0 
-
-* BS-10745  Starting a disabled process through a Call Activity should not be allowed
-* BS-11280  Jasper Connector is not working by default on JBoss
-* BS-13977  A human task can be submitted several times when connector execution is long enough
-* BS-14276  When a task operation fails the UI form submit receives an exception and fails too
-* BS-14327  Cannot install/deploy a connector implementation with a "long" version
-* BS-14787  Deploying a process with a form undefined and no contract leads to disturbing behavior in the configuration view
-* BS-14816  Executing task leads to violation of unique constraint: idx_uq_pending_mapping
-* BS-14878  When importing a .bos from the Studio, all "favorites" UID artefacts are kept
-* BS-14886  Profile API (SP version) createProfileEntry() does not work
-* BS-15008  ARJUNA016051: thread is already associated with a transaction!
-* BS-15076  Exception when using BDM queries that return primitive java types
-* BS-15127  Web Service connector cannot send requests with size > 8 KB on JBOSS only
-* BS-15381  Oracle constraint violation on IDX_UQ_PENDING_MAPPING
-* BS-15408  Cache is enabled on REST APIs calls
-* BS-15416  Case visualization image does not contain arrows and does not match the process diagram for a process imported from 6.3.6
-* BS-15431  Security issue - server information disclosed
-* BS-15449  Unique index or primary key violation: "UC_CD_SCOPE_NAME_INDEX_9 ON CONTRACT_DATA"
-* BS-15471  Custom widget bond not updated when already in the page
-* BS-15484  The manager is set to System when overriding an existing user at organization import
-* BS-15489  Process-design.xml may not be valid against XSD after migration
-* BS-15500  Portal error popup contains a stack trace of an exception
-* BS-15501  REST request retrieves a JSON containing an error and a stack trace
-* BS-15550  Cannot start process in the mobile app if Skip Form is selected
-* BS-15579  Infinite $digest Loop when radio buttons is bound to an array
-* BS-15659  Start For should store the name of the person for whom the action is made
-* BS-15684  The portal starts loading and then reloads
-* BS-15696  Error while stopping JBoss bundle
-* BS-15701  Date widget shows wrong "Today" when timezone does not match GMT
-* BS-15712  When a GET Action Button Widget is clicked on a Task Form on the Task List, the event is caught like a Submit Action Button
-* BS-15716  Cannot access pending tasks from case details view anymore
-* BS-15717  The override popup message provided at UI Designer artifact import can be inconsistent
-* BS-15733  fileInput are generated with {} by default instead of null 
-* BS-15770  Text Annotation elements are missing when exporting to BPMN XML
-* BS-15780  Text Annotation and Association not supported in Case Visualization
-* BS-15797  Variables panel does not resize properly after resizing Property panel
-* BS-15818  Task form from "Administrator" does not display normally on IE11
-* BS-15823  Installer 7.4.0 displays Copyright 2015 instead of 2016
-* BS-15827  UI Designer Preview always displays an horizontal scroll bar
-* BS-15841  Unable to create a Business Object with more than one list of the same type
-* BS-15847  Studio Subscription installer does not support Workspace importation
-* BS-15947  Messages are stuck due to BPMEventHandling Triggers
-* BS-15970  Studio installer on Windows 32bits uses locally installed JRE 6 instead of embedded JRE 7
-* BS-15972  Can't paste anything in the name field of the expression editor
-* BS-15981  Random 404 Errors using API/bpm/humanTask/TASKID
-* BS-16016  UI Designer date filter throws an error when selecting non default language on preview
-* BS-16017  Can't run previously created .bos with 6.x forms in studio 7.4.0.beta-01
+## Acknowledgments
+Thank you [Jerome Ventribout](https://github.com/jventrib) (Engine) for your contribution.

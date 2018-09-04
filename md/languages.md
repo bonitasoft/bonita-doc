@@ -11,7 +11,7 @@ The following languages are officially supported:
 
 Officially supported language means that:
 * Translation is performed by Bonitasoft.
-* Following Bonita BPM components are translated: Studio, UI Designer and Portal.
+* Following Bonita components are translated: Studio, UI Designer and Portal.
 
 ## Select BPM Portal user interface language
 
@@ -25,17 +25,17 @@ For the web mobile version:
 1. Click on _**Languages**_
 1. Select a new language from the drop-down list
 
-## Add a language to Bonita BPM Portal
+## Add a language to Bonita Portal
 
 ::: info
-Instructions below assume that the language you want to add is already available in the community translation project. If translation is not available see [Translate Bonita BPM Portal](#Translate_BonitaB_PM_Portal) for instruction about how to collaborate to a new or ongoing translation.
+Instructions below assume that the language you want to add is already available in the community translation project. If translation is not available see [Translate Bonita Portal](#Translate_BonitaB_PM_Portal) for instruction about how to collaborate to a new or ongoing translation.
 :::
 
-Instructions below explain how to add a language to Bonita BPM Portal. Steps below involve using content created by Bonitasoft community and therefore not officially supported.
+Instructions below explain how to add a language to Bonita Portal. Steps below involve using content created by Bonitasoft community and therefore not officially supported.
 
 #### Download the language files
 
-1. Go to [Bonita BPM translation project](http://translate.bonitasoft.org/).
+1. Go to [Bonita translation project](http://translate.bonitasoft.org/).
 1. Select the language you are interested in.
 1. Make sure you click on the "Toggle Hidden Files" button ![Toggle hidden files button](images/crowdin_toggle_hidden_files.png) to see already fully translated files.
 1. Browse the file tree to `${varVersion}.x/bonita-web/portal` folder.
@@ -55,23 +55,23 @@ Instructions below explain how to add a language to Bonita BPM Portal. Steps bel
     * WildFly on Windows, edit the `[WILDFLY_HOME]\server\bin\standalone.conf.bat` file.
     * WildFly on Linux, edit the `[WILDFLY_HOME]/server/bin/standalone.conf` file.
     * Tomcat embedded in Bonita Studio edit the appropriate .ini file and use the following syntax: **`-Dtomcat.extra.params="-Dorg.bonitasoft.i18n.folder=C:\path\to_i18n_folder"`**
-        * Windows 64bit: `[STUDIO_HOME]/BonitaBPMSubscription64.ini`
-        * Linux 64bit: `[STUDIO_HOME]/BonitaBPMSubscription64-linux.ini`
+        * Windows 64bit: `[STUDIO_HOME]/BonitaStudioSubscription64.ini`
+        * Linux 64bit: `[STUDIO_HOME]/BonitaStudioSubscription64-linux.ini`
         * etc.
 1. Restart your application server (or Click on Server in the Bonita Studio menu bar, click on Restart Web Server).
 1. Check that the new language is listed in Settings menu of the Bonita Portal.
 
 <a id="Translate_BonitaB_PM_Portal" />
 
-## Translate Bonita BPM Portal
+## Translate Bonita Portal
 
-First step if to go to [Bonita BPM translation project](http://translate.bonitasoft.org/) hosted on Crowdin and check if the language you want to contribute to is already listed. If it's not, please request it by submitting an issue on our [community issue tracker](https://bonita.atlassian.net).
+First step if to go to [Bonita translation project](http://translate.bonitasoft.org/) hosted on Crowdin and check if the language you want to contribute to is already listed. If it's not, please request it by submitting an issue on our [community issue tracker](https://bonita.atlassian.net).
 
 If the language you want to contribute to is already listed:
 
 1. If you don't already have one, create a Crowdin account.
-1. On the [Bonita BPM translation project](http://translate.bonitasoft.org/) page click on the language you want to translate.
+1. On the [Bonita translation project](http://translate.bonitasoft.org/) page click on the language you want to translate.
 1. At the top of the page, click on the "Join" button.
 1. Wait for us to validate your request to join the project.
-1. Navigate to the Portal `.po/.pot` files (see information in the "Add a language to Bonita BPM Portal" section above).
+1. Navigate to the Portal `.po/.pot` files (see information in the "Add a language to Bonita Portal" section above).
 1. Click on a file to begin the translation. You can then use the filter **missing translation** to only display the strings to be translated.

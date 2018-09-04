@@ -1,6 +1,6 @@
-# Bonita BPM Studio hints and tips
+# Bonita Studio hints and tips
 
-This page contains some information about smart ways to use Bonita BPM Studio.
+This page contains some information about smart ways to use Bonita Studio.
 
 ## Adding items to a diagram
 

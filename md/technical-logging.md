@@ -4,7 +4,7 @@ This page describes the technical logger service.
 
 ## Purpose
 
-The purpose of this service is to provide an abstraction to the logging framework to all Bonita BPM Engine services, to facilitate debugging of other services.
+The purpose of this service is to provide an abstraction to the logging framework to all Bonita Engine services, to facilitate debugging of other services.
 
 The logged messages are not intended to be accessible through the Engine API (see [Queriable logger service](queriable-logging.md)).
 

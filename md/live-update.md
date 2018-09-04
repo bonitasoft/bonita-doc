@@ -1,7 +1,7 @@
 # Live update
 
 ::: info
-**Note:** For Performance and Efficiency editions only.
+**Note:** For Enterprise, Performance and Efficiency editions only.
 :::
 
 This page explains how to update live process definition information. You need to be logged in with the Administrator profile.
@@ -10,7 +10,7 @@ This page explains how to update live process definition information. You need t
 
 #### How to modify a parameter in Administrator view  
 
-**Note:** In versions 7.0.x, this feature is only available for Bonita BPM Performance edition. Starting from version 7.1.0, this feature is available for Bonita BPM Performance and Efficiency editions. 
+**Note:** In versions 7.0.x, this feature is only available for Bonita Enterprise and Performance editions. Starting from version 7.1.0, this feature is available for Bonita Enterprise, Performance and Efficiency editions. 
 
 1. Go to Process management
 2. Select a process and click on the _**More...**_
@@ -24,7 +24,7 @@ This page explains how to update live process definition information. You need t
 
 #### How to edit connector implementation in Administrator view  
 
-**Note:** In versions 7.0.x, this feature is only available for Bonita BPM Performance edition. Starting from version 7.1.0, this feature is available for Bonita BPM Performance and Efficiency editions. 
+**Note:** In versions 7.0.x, this feature is only available for Bonita Enterprise and Performance editions. Starting from version 7.1.0, this feature is available for Bonita Enterprise, Performance and Efficiency editions. 
 
 1. Go to Process management
 2. Select a process and click on the _**More...**_
@@ -37,7 +37,7 @@ This page explains how to update live process definition information. You need t
 
 #### How to add/edit a form or a page of a process in Administrator view
 
-**Note:** For Bonita BPM Performance and Efficiency editions. 
+**Note:** For Bonita Enterprise, Performance and Efficiency editions. 
 
 1. Go to Process management
 2. Select a process and click on the _**More...**_
@@ -50,7 +50,7 @@ This page explains how to update live process definition information. You need t
 
 #### How to update the form/page mapping of a task, process overview or process instantiation in Administrator view
 
-**Note:** For Bonita BPM Performance and Efficiency editions.
+**Note:** For Bonita Enterprise, Performance and Efficiency editions.
 
 1. Go to Process management
 2. Select a process and click on the _**More...**_
@@ -63,7 +63,7 @@ This page explains how to update live process definition information. You need t
 
 #### How to edit a script of a process in Administrator view
 
-**Note:** For Bonita BPM Performance and Efficiency editions.
+**Note:** For Bonita Enterprise, Performance and Efficiency editions.
 
 1. Go to Process management
 2. Select a process and click on the _**More...**_
@@ -78,3 +78,17 @@ The Scripts section of the process more details page allows to update a _TYPE\_R
 ::: warning
 **:fa-exclamation-triangle: Warning:** The script dependencies are fixed, i.e. when the process is implemented the developer designed the script to use some variables and/or parameters. The live update capability cannot go against this design and only allows to change the script content. If the new script tries to use more variables, it will lead to execution errors. To change the script dependencies (data available in the script execution context), the process definition must be updated and a newer version of the process deployed.
 :::
+
+<a id="cache_busting"/>
+
+## Cache busting
+
+Cache busting has been introduced in Bonita 7.6, along with a new [cache policy](cache-configuration-and-policy.md).
+It allows end users to benefit from custom page update without the need to empty the browser cache.
+When you export a page or a layout from the UI Designer, we suffix the resource filename with a hash. 
+If the page is updated, the resource filename will change, and the browser will download it from the server, and not from the cache.
+
+If you don't use the UI Designer to edit and export your custom page, don't forget to manually trigger the cache busting mechanism. 
+Without this cache busting, end users won't benefit from the latest custom page changes, unless they empty their browser cache.
+ 
+

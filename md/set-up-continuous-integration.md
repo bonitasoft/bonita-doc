@@ -1,10 +1,15 @@
 # Set up continuous integration
 
 ::: info
-**Note:** For Performance, Efficiency, and Teamwork editions only.
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
-This page explains how to set up a continuous integration environment for your Bonita BPM processes.
+::: warning
+**Note:** [Bonita Continuous Delivery add-on](https://documentation.bonitasoft.com/bcd/2.0/) comes with an out-of-the-box solution based on Jenkins CI. 
+:::
+
+
+This page explains how to set up a continuous integration environment for your Bonita processes.
 
 With Continuous Integration (CI) your processes are continuously built and tested while you are designing them. Collaborating on process design can be enhanced with CI by ensuring the integrity of your processes along the development phase. 
 
@@ -20,20 +25,20 @@ To follow this page, you need to be familiar with:
 
 Before you begin, you need the following components available for your CI environment:
 
-* Bonita BPM Studio Teamwork, Efficiency, or Performance edition: The automated process build feature is not available in the Community edition.
-* A window manager: You need a window manager to use the Bonita BPM Studio process builder.
-* Java: You need Java 7 or 8 to be installed on the CI server and your development computer.
+* Bonita Studio Teamwork, Efficiency, Performance, or Enterprise edition: The automated process build feature is not available in the Community edition.
+* A window manager: You need a window manager to use the Bonita Studio process builder.
+* Java: You need Java 8 or above to be installed on the CI server and on your development computer.
 * Maven: This guide provides example Maven-based projects for executing automated tests of your processes. Maven 3 is required on the CI server and the test development computer.
-* Subversion: Bonita BPM Studio enables business analysts and developers to collaborate on process design using a shared Subversion (SVN) repository. This tutorial assumes that you have access to a Subversion server.
+* Subversion: Bonita Studio enables business analysts and developers to collaborate on process design using a shared Subversion (SVN) repository. This tutorial assumes that you have access to a Subversion server.
 * Jenkins: The [Jenkins CI](https://jenkins.io/) server is responsible for coordinating continuous build and test of your processes.
 
 This tutorial assumes that Jenkins is up and running with Maven and Subversion plugins.
 
-## Set up Bonita BPM Studio for CI
+## Set up Bonita Studio for CI
 
-There are two stages to setting up Bonita BPM Studio for CI:
+There are two stages to setting up Bonita Studio for CI:
 
-1. On your Subversion server, create a shared repository that can be accessed by the business analysts and developers working on processes and by the CI tools. After you have create your shared repository you may develop your processes in this repository and/or import existing processes. Each Bonita BPM Studio user must connect to the repository.
+1. On your Subversion server, create a shared repository that can be accessed by the business analysts and developers working on processes and by the CI tools. After you have create your shared repository you may develop your processes in this repository and/or import existing processes. Each Bonita Studio user must connect to the repository.
 2. Define an environment for configuring processes for CI. This environment will be stored in the shared repository together with your process definitions. 
 
 The next section assumes that you created an environment called CI.
@@ -44,14 +49,14 @@ This section describes how to create a Jenkins job to build your processes autom
 
 All example scripts given on this page are compatible with Unix-like operating systems.  
 
-1. Prepare Bonita BPM Studio on the CI server: Bonita BPM Studio includes a BonitaStudioBuilder script to build processes in a CI environment. Install Bonita BPM Studio as follows:  
-  1. Download the OS-independent package (zip) from the Customer Portal. For example use BonitaBPMSubscription-6.1.0.zip for version 6.1.0\. You must have the same version of Bonita BPM Studio for the shared repository and the CI server.    
-  2. Extract the package to a permanent location on the CI server: `$> unzip -d /path/to/BonitaBPMStudio BonitaBPMSubscription-6.1.0.zip`  
-  3. Install your license (a license must have been requested for CI server): `$> cp license.lic /path/to/BonitaBPMStudio/BonitaBPMSubscription-6.1.0/lic_folder/`
+1. Prepare Bonita Studio on the CI server: Bonita Studio includes a BonitaStudioBuilder script to build processes in a CI environment. Install Bonita Studio as follows:  
+  1. Download the OS-independent package (zip) from the Customer Portal. For example use BonitaSubscription-7.6.3.zip for version 7.6.3\. You must have the same version of Bonita Studio for the shared repository and the CI server.
+  2. Extract the package to a permanent location on the CI server: `$> unzip -d /path/to/BonitaStudio BonitaStudioSubscription-7.6.3.zip`
+  3. Install your license (a license must have been requested for CI server): `$> cp license.lic /path/to/BonitaStudio/BonitaStudioSubscription-7.6.3/lic_folder/`
 
   You are recommended to install a window manager on the CI server in order to have process diagram screenshots generated along with business archives.  
 
-2. Create Jenkins job: In Jenkins, create a new job of type "Build a free-style software project". Specify a job name for example "BonitaBPM-BuildProcesses".  
+2. Create Jenkins job: In Jenkins, create a new job of type "Build a free-style software project". Specify a job name for example "Bonita-BuildProcesses".  
 
 3. Configure Jenkins job:   
    1. Check out your process repository from Subversion. To do this, configure the "Source Code Management" section to retrieve (check out) your Subversion process shared repository. Specify the repository URL, and optionally your local repository. We recommend that you set teh check-out strategy to _Use 'svn update' as much as possible_.  
@@ -67,12 +72,12 @@ All example scripts given on this page are compatible with Unix-like operating s
 	echo ""
 	
 	echo "##### Clean BonitaStudioBuilder workspace before each execution"
-	rm -Rf /path/to/BonitaBPMStudio/workspace
+	rm -Rf /path/to/BonitaStudio/workspace
 	echo ""
 	
 	echo "##### Execute BonitaStudioBuilder for all processes"
-	cd /path/to/BonitaBPMStudio/..
-	./BonitaBPMStudio/workspace_api_scripts/BonitaStudioBuilder.sh-repoPath=$WORKSPACE/process-repository-outputFolder=$WORKSPACE/process-bars -buildAll -environment=CI
+	cd /path/to/BonitaStudio/..
+	./BonitaStudio/workspace_api_scripts/BonitaStudioBuilder.sh-repoPath=$WORKSPACE/process-repository-outputFolder=$WORKSPACE/process-bars -buildAll -environment=CI
 	
 	echo "##### Package generated business archives"
 	zip $WORKSPACE/process-bars.zip $WORKSPACE/process-bars/*
@@ -103,11 +108,11 @@ file=$WORKSPACE/process-bars.zip
    As a result, the generated business archives will be made available for download from Jenkins interface. 
   
 4. Run the Jenkins job  
-  Run the "BonitaBPM-BuildProcesses" Jenkins job. When it is finished, the Maven artifact   `com.acme.bonita:process-bars:1.0.0-SNAPSHOT` in installed in the local Maven repository of the CI server. The generated processes package is also available as a job build artifact in Jenkins.
+  Run the "Bonita-BuildProcesses" Jenkins job. When it is finished, the Maven artifact   `com.acme.bonita:process-bars:1.0.0-SNAPSHOT` in installed in the local Maven repository of the CI server. The generated processes package is also available as a job build artifact in Jenkins.
 
 ## Test your processes automatically
 
-This section contains an example of how to test a process from a given Business Archive. It consists of writing JUnit Test cases using the Bonita BPM Engine Java API.
+This section contains an example of how to test a process from a given Business Archive. It consists of writing JUnit Test cases using the Bonita Engine Java API.
 
 Note: In this example, we show only how to test the runtime aspects of a process, using the Java APIs. 
 It is also possible to use cargo to deploy the generated bar file into an application server and then launch Selenium tests to test web aspects of a process.
@@ -115,41 +120,41 @@ It is also possible to use cargo to deploy the generated bar file into an applic
 For this example we are using a Maven project to write our tests.
 
 1. In your IDE create a new Maven project and share it (for example using SVN or Git).
-2. [Configure local access](configure-client-of-bonita-bpm-engine.md) to Bonita BPM Engine.
-3. As we want to test processes build with a Bonita BPM Subscription edition, you need to [configure the required Maven artifacts](create-your-first-project-with-the-engine-apis-and-maven.md). 
+2. [Configure local access](configure-client-of-bonita-bpm-engine.md) to Bonita Engine.
+3. As we want to test processes build with a Bonita Subscription edition, you need to [configure the required Maven artifacts](create-your-first-project-with-the-engine-apis-and-maven.md). 
 You should also check that there is a valid license file in `${bonita.client.home}/` and the System property `bonita.client.home` set to this folder path.
 4. We recommend that you write your test cases in the src/test/java folder of your project and put all related resources (Bar files, organization file...) in src/test/resources.
-5. Before installing your processes load the relevant organization (regarding your actor mapping). You may have to export your organization from a Bonita BPM Studio:
+5. Before installing your processes load the relevant organization (regarding your actor mapping). You may have to export your organization from a Bonita Studio:
 Menu Organization \> Export, Select your Organization.
 
 For example:
 ```groovy
-private void installOrganization(){
-File organizationFile = new          File(MyTestCase.class.getResource("/ACME.xml").getFile());
-String organizationContent = getFileContent(organizationFile);
-getIdentityAPI().importOrganization(organizationContent);
+private void installOrganization() {
+    File organizationFile = new File(MyTestCase.class.getResource("/ACME.xml").getFile())
+    String organizationContent = getFileContent(organizationFile)
+    getIdentityAPI().importOrganization(organizationContent)
 }
 ```
 
 6. Then as a basic test, we try to deploy each generated processes. For example:
 ```groovy
 @Test
-public void deploy() throws Exception{
-//Retrieve automatically generated bars as a Map<filename, fileContent>
-Map<String, InputStream> bars = getBars();
-    Assert.assertTrue("No bar found in resources",!bars.isEmpty());
-
-//For each bar deploy and enable it
-for(Entry<String, InputStream> entry : bars.entrySet()){
-	BusinessArchive archive = BusinessArchiveFactory.readBusinessArchive(entry.getValue()) ;
-		final String entryKey = entry.getKey();
-	ProcessDefinition def = getProcessAPI().deploy(archive);
-		final long defId = def.getId();
-		Assert.assertNotNull("Failed to deploy "+entryKey,def);
-		getProcessAPI().enableProcess(defId);
-		getProcessAPI().disableProcess(defId);
-		getProcessAPI().deleteProcessDefinition(defId);
-}
+void deploy() throws Exception {
+    // Retrieve automatically generated bars as a Map<filename, fileContent>
+    Map<String, InputStream> bars = getBars()
+    Assert.assertTrue("No bar found in resources", !bars.isEmpty())
+    
+    // For each bar deploy and enable it
+    for(Entry<String, InputStream> entry : bars.entrySet()) {
+        BusinessArchive archive = BusinessArchiveFactory.readBusinessArchive(entry.getValue())
+        final String entryKey = entry.getKey()
+        ProcessDefinition definition = getProcessAPI().deploy(archive)
+        final long defId = definition.getId()
+        Assert.assertNotNull("Failed to deploy "+entryKey, definition)
+        getProcessAPI().enableProcess(defId)
+        getProcessAPI().disableProcess(defId)
+        getProcessAPI().deleteProcessDefinition(defId)
+    }
 }
 ```
 

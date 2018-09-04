@@ -1,26 +1,26 @@
 # Create administration tools
 
-This page contains an example of how to create tools to administer your Bonita BPM system. 
+This page contains an example of how to create tools to administer your Bonita system. 
 The example is developed using Maven, and is a Java program to list the failed tasks, wrapped in a script so that it can be executed in an environment with no window manager.
 
 ## Getting started
 
-You need to be familiar with building a Maven project with Bonita BPM as a dependency. You also need to be familiar with using the Bonita BPM Engine APIs. If this is not the case, follow this [tutorial](getting-started-with-the-bonita-bpm-engine-apis.md).
-The [Engine API overview](engine-api-overview.md) contains a list of the APIs with a short description of each one. For details of the methods available in the Bonita BPM Engine APIs, see the [Javadoc](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html). 
+You need to be familiar with building a Maven project with Bonita as a dependency. You also need to be familiar with using the Bonita Engine APIs. If this is not the case, follow this [tutorial](getting-started-with-the-bonita-engine-apis.md).
+The [Engine API overview](engine-api-overview.md) contains a list of the APIs with a short description of each one. For details of the methods available in the Bonita Engine APIs, see the [Javadoc](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html). 
 
-This example uses the Bonita BPM Engine Java APIs but there is also a [REST API](rest-api-overview.md).
+This example uses the Bonita Engine Java APIs but there is also a [REST API](rest-api-overview.md).
 
 In this example, the Maven project has the following settings:
 
 * Group Id: org.mycompany.bonita
 * Artifact Id: bonita-cli
 
-You must have a running Bonita BPM system. The simplest way to do this is to run a Bonita BPM Tomcat bundle locally. 
+You must have a running Bonita system. The simplest way to do this is to run a Bonita Tomcat bundle locally. 
 You also need a user: in this example the user has username _admin_ and password _secret_.
 
 ## Write a class that lists failed tasks
 
-Bonita BPM provides a client to leverage the Java APIs. This is the easiest starting point for an application, so this is what we will use in the example.
+Bonita provides a client to leverage the Java APIs. This is the easiest starting point for an application, so this is what we will use in the example.
 
 Set up your Maven project with a maven dependency to bonita-client. Then create a class to execute the business logic. In this example, the class is called `ListFailedTasksCmd`. 
 It implements `Callable<Void>`, and calls methods to log in the API, then to execute the business logic, and finally to log out from the API.

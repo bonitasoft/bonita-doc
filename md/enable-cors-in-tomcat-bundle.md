@@ -57,7 +57,7 @@ _**Important Note 1:** The filter must be inserted in the file webapps/bonita/WE
 _**Important Note 2:** It must be the first filter, inserted right after the </error-page> tag_
 
 for more information:
-[https://tomcat.apache.org/tomcat-7.0-doc/config/filter.html#CORS_Filter](https://tomcat.apache.org/tomcat-7.0-doc/config/filter.html#CORS_Filter)
+[https://tomcat.apache.org/tomcat-8.5-doc/config/filter.html#CORS_Filter](https://tomcat.apache.org/tomcat-8.5-doc/config/filter.html#CORS_Filter)
 
 ## HTML Example test page
 

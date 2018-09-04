@@ -1,6 +1,6 @@
-#  Bonita BPM Documentation
+#  Bonita Documentation
 
-Welcome to the Bonita BPM documentation website.
+Welcome to the Bonita documentation website.
 
 Click on the **links** below to find useful information quickly, or [browse the whole content tree](taxonomy.md), or use the **table of contents** to go straight to the information you want to read.
 
@@ -10,15 +10,12 @@ Click on the **links** below to find useful information quickly, or [browse the 
 <div class="panel-body">
 <div class="menu-block-wrapper">
 
-* [Release notes ${varVersion}](release-notes.md)    <!--{li:.first .leaf}-->
-* [BDM usability improvements](release-notes.md#bdm-usability-improvements)    <!--{li:.leaf}-->
-* [UI Designer usability improvements](release-notes.md#uid-usability-improvements)<!--{li:.last .leaf}-->
-* [Task & Case Management](release-notes.md#task-and-case)<!--{li:.leaf}-->
-* [Bonita BPM Studio](release-notes.md#bpm-studio)<!--{li:.leaf}-->
-* [CSRF security mechanism is now enabled by default](release-notes.md#csrf-security)<!--{li:.leaf}-->
-* [Simplify platform installation](release-notes.md#platform-installation)<!--{li:.leaf}-->
-* [Support of Wildfly 10.1.0 application server](release-notes.md#technology-updates)<!--{li:.leaf}-->
-
+* [Release notes ${varVersion}](release-notes.md)<!--{li:.first .leaf}-->
+* [Collaborative development with Git](workspaces-and-repositories.md#git)<!--{li:.first .leaf}-->
+* [Business data access control (BDM AC)](bdm-access-control.md)<!--{li:.first .leaf}-->
+* [Save a form](release-notes.md#save-form)<!--{li:.first .leaf}-->
+* [New case overview form](release-notes.md#new-case-overview)<!--{li:.first .leaf}-->
+* [LDAP synchronizer handles Custom User Information](ldap-synchronizer.md#cui)    <!--{li:.first .leaf}-->
 <!--{ul:.menu .nav}-->
 
 </div>
@@ -34,9 +31,9 @@ Click on the **links** below to find useful information quickly, or [browse the 
 * [Getting started tutorial](getting-started-tutorial.md)<!--{li:.first .leaf}-->
 * [Process diagram overview](diagram-overview.md)<!--{li:.leaf}-->
 * [Key concepts](key-concepts.md)<!--{li:.leaf}-->
-* [UI designer overview](ui-designer-overview.md)<!--{li:.leaf}-->
-* [Bonita BPM Studio installation](bonita-bpm-studio-installation.md)<!--{li:.leaf}-->
-* [Basic Bonita BPM platform installation](tomcat-bundle.md)<!--{li:.leaf}-->
+* [UI Designer overview](ui-designer-overview.md)<!--{li:.leaf}-->
+* [Bonita Studio installation](bonita-bpm-studio-installation.md)<!--{li:.leaf}-->
+* [Basic Bonita platform installation](tomcat-bundle.md)<!--{li:.leaf}-->
 * [Create your first project with the Engine APIs and Maven](create-your-first-project-with-the-engine-apis-and-maven.md)<!--{li:.last .leaf}-->
 <!--{ul:.menu .nav}-->
 
@@ -50,10 +47,10 @@ Click on the **links** below to find useful information quickly, or [browse the 
 <div class="panel-body">
 <div class="menu-block-wrapper menu-name-menu-quicklinks">
 
-* [Download Bonita BPM software](http://www.bonitasoft.com/how-we-do-it/downloads)<!--{li:.first .leaf}-->
+* [Download Bonita software](http://www.bonitasoft.com/how-we-do-it/downloads)<!--{li:.first .leaf}-->
 * [BPMN standard](http://www.bpmn.org/)<!--{li:.leaf}-->
 * [The Ultimate Guide to BPMN2](http://www.bonitasoft.com/for-you-to-read/bpm-library/ultimate-guide-bpmn)<!--{li:.leaf}-->
-* [Best Practices for Continuous Integration with Bonita BPM](http://www.bonitasoft.com/for-you-to-read/bpm-library/best-practices-continuous-integration-bonita-bpm)<!--{li:.leaf}-->
+* [Best Practices for Continuous Integration with Bonita](http://www.bonitasoft.com/for-you-to-read/bpm-library/best-practices-continuous-integration-bonita-bpm)<!--{li:.leaf}-->
 * [Javadoc](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html)<!--{li:.leaf .last}-->
 <!--{ul:.menu .nav}-->
 

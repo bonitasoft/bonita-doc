@@ -1,6 +1,6 @@
-# Contributing to Bonita BPM documentation
+# Contributing to Bonita documentation
 
-The following is a set of guidelines for contributing to Bonita BPM documentation.
+The following is a set of guidelines for contributing to Bonita documentation.
 
 ## Help us to be more visible for search engine 
 
@@ -15,17 +15,17 @@ Bonita is a powerful BPM-based application platform for building highly engaging
 
 ## Pull requests
 
-Each minor version of Bonita BPM has its own Git branch to manage its related documentation. (Minor version means X.Y, for example 7.4 or 7.5).  
-For instance, the **7.4** branch is where you have to open pull requests when your contribution applies to all 7.4 versions of Bonita BPM.
+Each minor version of Bonita has its own Git branch to manage its related documentation. (Minor version means X.Y, for example 7.4 or 7.5).
+For instance, the **7.4** branch is where you have to open pull requests when your contribution applies to all 7.4 versions of Bonita.
 
 A branch should be name in kebab case prefixed by the type of the feature the branch has been created for (feat, fix, style, tr, chore, howto,...).  
 For instance, for a branch fixing a typo in the User REST API, its name should be `fix/user-delete-rest-api-typo`.
 
-If your contribution applies to multiple minor versions of Bonita BPM, then open a pull request on the lowest applicable version branch. Then add all applicable minor versions in your pull request comment and we will do the rest :-)
+If your contribution applies to multiple minor versions of Bonita, then open a pull request on the lowest applicable version branch. Then add all applicable minor versions in your pull request comment and we will do the rest :-)
 
 <u>Example</u>: Your contribution applies to versions 7.4 and 7.5. Therefore submit your pull request on branch 7.4 with a comment like:
 ```
-My awesome contribution to Bonita BPM documentation.
+My awesome contribution to Bonita documentation.
 Versions: 7.4, 7.5
 ```
 
@@ -73,7 +73,7 @@ TITLE MUST respect the following format: `<type>(<scope>): <subject>`
  
  * E.g. "style(Business Data): fix display of the supported RDBMS matrix table"
  * E.g. "feat(APIs): provide code sample to show usage of Living Application creation"
- * E.g. "feat(dates): describe step by step tutorial on Date types in Bonita BPM"
+ * E.g. "feat(dates): describe step by step tutorial on Date types in Bonita"
 
 #### Description
 
@@ -81,7 +81,7 @@ If needed, description allow a more detailed explanation on why this change is b
 You can write as many lines of description as needed:
 
 * E.g.:
-   "This change is part of a larger scale rewriting of how to deal with Dates in Bonita BPM.  
+   "This change is part of a larger scale rewriting of how to deal with Dates in Bonita.
    Usage has proven that the feature was not correctly understood.  
    This article tends to start over on the date notions and how to use them."
 
@@ -215,12 +215,12 @@ To use them create a block surrounded with 3 colons.
 
 ```
 ::: danger
-Both Windows and Mac have default security settings that will prevent execution of Bonita BPM. See below for further details about what you can do to bypass those security protections
+Both Windows and Mac have default security settings that will prevent execution of Bonita. See below for further details about what you can do to bypass those security protections
 :::
 ```
 will be rendered as :
 
-![danger alert example](md/images/danger-alert-example.jpg)
+![danger alert example](md/images/danger-alert-example.png)
 
 ### Decorate
 

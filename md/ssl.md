@@ -1,7 +1,7 @@
 # SSL
 
-Configuring SSL for Bonita BPM is the same as configuring it for any other application. 
-No changes are necessary to forms or to process definitions, just configuration. This page contains examples of how to set up SSL for Bonita BPM. This enables you to use secure HTTP (HTTPS) to access the portal.
+Configuring SSL for Bonita is the same as configuring it for any other application. 
+No changes are necessary to forms or to process definitions, just configuration. This page contains examples of how to set up SSL for Bonita. This enables you to use secure HTTP (HTTPS) to access the portal.
 
 ## Overview
 
@@ -30,7 +30,7 @@ For details of how to set up SSL with WildFly 10, see the [SSL Configuration](ht
 
 ## Tomcat with APR and OpenSSL
 
-This example show how to configure SSL with APR and OpenSSL for a Bonita BPM using Tomcat.
+This example show how to configure SSL with APR and OpenSSL for a Bonita using Tomcat.
 
 1. Go to the `TOMCAT_HOME/conf` directory and create a directory called `ssl` to store certificate files.
 2. Create the self-signed certificate and its private key using `openssl`:   
@@ -72,7 +72,7 @@ SSLProtocol="TLSv1"></Connector>
 
 ## Tomcat with a keystore
 
-This example shows how to configure SSL with a keystore for Bonita BPM on Tomcat.
+This example shows how to configure SSL with a keystore for Bonita on Tomcat.
 
 1. Run the Java `keytool` to create a certificate and store it in the keystore. 
 (Note: if you are using Windows, you need to run `keytool` as administrator.)
@@ -134,7 +134,7 @@ reqadd X-Forwarded-Proto:\ https
 
 Note: Make sure that the regular expression set with `internalProxies` matches your IP addresses.
 
-As explained by the [RemoteIpValve documentation](https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html): 
+As explained by the [RemoteIpValve documentation](https://tomcat.apache.org/tomcat-8.5-doc/api/org/apache/catalina/valves/RemoteIpValve.html): 
 "This valve replaces the apparent client remote IP address and hostname for the request with the IP address list presented by a proxy or a load balancer via a request headers (e.g. "X-Forwarded-For"). 
 Another feature of this valve is to replace the apparent scheme (http/https) and server port with the scheme presented by a proxy or a load balancer via a request header (e.g. "X-Forwarded-Proto")."
 3. If you use the AccessLogValve, edit `conf/server.xml` and set `requestAttributesEnabled="true"`:

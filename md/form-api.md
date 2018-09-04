@@ -90,7 +90,7 @@ Request URL
     ]
     ```
 
-### Update a form mapping (Efficiency and Performance Editions)
+### Update a form mapping (Efficiency, Performance and Enterprise Editions)
 
 * **URL**  
   `/API/form/mapping/:id`  

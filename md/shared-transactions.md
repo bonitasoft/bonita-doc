@@ -1,6 +1,6 @@
 # Shared transactions
 
-There are three entry points to transactions in the Bonita BPM Engine:
+There are three entry points to transactions in the Bonita Engine:
 
 * API call: one transaction for each call. The transaction is opened automatically by the Engine if it has not been opened externally.
 * Work units: one transaction per work unit (that inherits TxBonitaWork). A work unit is asynchronous, and is executed as soon as possible when an Execution thread becomes available.

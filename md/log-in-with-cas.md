@@ -1,11 +1,11 @@
 # Log in with CAS
 
 ::: info
-**Note:** For Performance and Efficiency editions only.
+**Note:** For Enterprise, Performance and Efficiency editions only.
 :::
 
 Depending on your underlying authentication service, you may need to provide other information with the API in order to log in. A login method with a map enables you to provide the set of credentials that the authentication service requires. 
-The following example can be used if you are [using Bonita BPM with CAS](single-sign-on-with-cas.md):
+The following example can be used if you are [using Bonita with CAS](single-sign-on-with-cas.md):
 ```java
 final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
 final Map<String, Serializable> credentials = new HashMap<String, Serializable>();

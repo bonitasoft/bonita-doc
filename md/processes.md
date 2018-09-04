@@ -14,7 +14,7 @@ The .bar file is ready to be resolved and enabled
 
 **Note:** if you try to install the same process twice, a message is displayed: "Process \[yourProcessName\] in version \[yourProcessVersion\] already exists."
 
-You can only install a .bar file that was exported from a Bonita BPM Studio of the same minor (7.x) version as your Bonita BPM Portal and Bonita BPM Engine. If you have a .bar file that was exported from an earlier version of Bonita BPM Studio (7.x-1), it will not work with Bonita BPM Engine. Export the process definition as a .bos file from your old Bonita BPM Studio, import in into the new Studio, then export it as a .bar. This is necessary for a .bar that has not been deployed. A process that was developed in an older version of Bonita BPM Studio and is already deployed is migrated automatically when you migrate your platform. However, for future maintenance of the process definition, you are recommended to update all your process bar files to the latest version each time you update your platform.
+You can only install a .bar file that was exported from a Bonita Studio of the same minor (7.x) version as your Bonita Portal and Bonita Engine. If you have a .bar file that was exported from an earlier version of Bonita Studio (7.x-1), it will not work with Bonita Engine. Export the process definition as a .bos file from your old Bonita Studio, import in into the new Studio, then export it as a .bar. This is necessary for a .bar that has not been deployed. A process that was developed in an older version of Bonita Studio and is already deployed is migrated automatically when you migrate your platform. However, for future maintenance of the process definition, you are recommended to update all your process bar files to the latest version each time you update your platform.
 
 [Watch the Install a process video](images/videos-6_0/install_an_app_in_bonita_portal.mp4)
 
@@ -125,7 +125,7 @@ You need to map more organization entities to the actor labelled _initiator_ in 
 
 ## Modify a parameter in the Administrator profile
 
-**Note:** In versions 7.0.x, this feature is only available for Bonita BPM Performance edition. Starting from version 7.1.0, this feature is available for Bonita BPM Performance and Efficiency editions. 
+**Note:** In versions 7.0.x, this feature is only available for Bonita Enterprise and Performance editions. Starting from version 7.1.0, this feature is available for Bonita Enterprise, Performance and Efficiency editions. 
 
 1. Go to the BPM tab
 2. Click _**Processes**_
@@ -138,7 +138,7 @@ You need to map more organization entities to the actor labelled _initiator_ in 
 
 ## Edit a connector implementation
 
-**Note:** In versions 7.0.x, this feature is only available for Bonita BPM Performance edition. Starting from version 7.1.0, this feature is available for Bonita BPM Performance and Efficiency editions. 
+**Note:** In versions 7.0.x, this feature is only available for Bonita Enterprise and Performance editions. Starting from version 7.1.0, this feature is available for Bonita Enterprise, Performance and Efficiency editions. 
 
 1. Go to the BPM tab
 2. Click _**Processes**_
@@ -150,7 +150,7 @@ You need to map more organization entities to the actor labelled _initiator_ in 
 
 ## Fix forms
 
-**Note:** For Bonita BPM Performance and Efficiency editions only.
+**Note:** For Bonita Enterprise, Performance and Efficiency editions only.
 
 1. Go to the BPM tab.
 2. Click _**Processes**_.
@@ -165,7 +165,7 @@ You need to map more organization entities to the actor labelled _initiator_ in 
 
 ## Upload a new form
 
-**Note:** For Bonita BPM Performance and Efficiency editions only.
+**Note:** For Bonita Enterprise, Performance and Efficiency editions only.
 
 1. Go to the BPM tab.
 2. Click _**Processes**_.
@@ -181,7 +181,7 @@ You need to map more organization entities to the actor labelled _initiator_ in 
 
 ## Edit an existing form
 
-**Note:** For Bonita BPM Performance and Efficiency editions only.
+**Note:** For Bonita Enterprise, Performance and Efficiency editions only.
 
 1. Go to the BPM tab.
 2. Click _**Processes**_.
@@ -197,7 +197,7 @@ You need to map more organization entities to the actor labelled _initiator_ in 
 
 ## Edit a script content
 
-**Note:** For Bonita BPM Performance and Efficiency editions only.
+**Note:** For Bonita Enterprise, Performance and Efficiency editions only.
 
 1. Go to the BPM tab
 2. Click _**Processes**_

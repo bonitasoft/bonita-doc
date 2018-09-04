@@ -6,8 +6,8 @@
  Another consequence is that it removes a margin which was automatically added at the top of each pages.
 :::
 
-With Bonita BPM you can build an application that exactly meets your needs and interacts with processes.
-Instead of the standard, generic, process-centered Bonita BPM Portal, you can create a business-centered web application that provides access to processes.
+With Bonita you can build an application that exactly meets your needs and interacts with processes.
+Instead of the standard, generic, process-centered Bonita Portal, you can create a business-centered web application that provides access to processes.
 You can modify the application whenever you want, and users will see the changes immediately.
 This means that you can rapidly adapt an application to your changing business needs or to react to user feedback.
 
@@ -43,11 +43,17 @@ To integrate a process into an application, you specify a link in an application
 
 ## Defining a new application
 
+::: info
+Since Bonita 7.5.0, the definition of applications can be done from the studio, which makes it more straightforward to develop and package with other application artifacts.
+For Enterprise, Efficiency and Performance editions, a graphical editor is provided on top of xml source code.
+For more details, go to [Application descriptors](applicationCreation.md)
+:::
+
 When you have developed all the resources that are used in an application, you are ready to define the application itself.
-The application builder is a graphical interface in Bonita BPM Portal for specifying the application pages and defining the menus.
+The application builder is a graphical interface in Bonita Portal for specifying the application pages and defining the menus.
 There is a default application home page that you can adapt or replace.
 
-To define an application, you need to be logged in to Bonita BPM Portal using the Administrator profile.
+To define an application, you need to be logged in to Bonita Portal using the Administrator profile.
 
 You can also create a custom profile to use for creating an application. This profile must have access to the Applications page to create the application.
 To test the application, the user currently logged in must have the profile defined in the application.
@@ -55,7 +61,7 @@ To test the application, the user currently logged in must have the profile defi
 1. In the menu bar, click **Applications**. The Applications list page is displayed, showing the applications already defined.
 2. Click **_New_**. The **Create an Application** popup is displayed.
 3. In the popup, specify information about the application:
-  * **Display name**: The user-friendly name that will be used in Bonita BPM Portal to identify the application.
+  * **Display name**: The user-friendly name that will be used in Bonita Portal to identify the application.
   * **URL**: The URL of the home page of the application.
   * **Version**: The version number of the application. By default, this is set to 1.0, but you can set it to any alphanumeric string.
   * **Profile**: Select the profile that users must have to access the application. The drop-down list includes all the available profiles, including custom profiles.
@@ -139,7 +145,7 @@ If you define a multi-page menu, you can add menu items (like Trekking and Safar
 
 ## Deploying an application
 
-To deploy an application, you use the Bonita BPM Portal. You need to import (or create in the Portal), the following **in this order**:
+To deploy an application, you use the Bonita Portal. You need to import (or create in the Portal), the following **in this order**:
 
 1. Organization then profiles
 2. API extensions then pages, layout, themes
@@ -208,7 +214,7 @@ There are two aspects to updating an application: changing the application defin
 2. Click the Edit icon (...) for the application you want to edit. The application details page is displayed. From this page, you can edit the application metadata, layout, theme, pages, and navigation.
   * To edit the metadata, click the Edit button. In the popup, modify the information about the application, then click **_Save_**.
   * To edit the layout, see [Specifying application layout](#layout).
-  * To edit the theme, see [Specifying application theme](#theme).
+  * To edit the theme, see [Specifying application theme](#theme). Note that the end user will see this modification with a delay (due to the [cache policy](cache-configuration-and-policy.md#portal_and_mobile))
   * To edit the pages, go to the Pages zone. You can add a page by clicking **_Add_**. You can remove a page by clicking the trashcan icon for that page.
 Note that if you remove a page, the related menu items are automatically removed from the navigation.
   * To edit the navigation, go to the Navigation zone. You can add a menu or menu item by clicking **_Add_**. You can remove a menu or menu item by clicking the trashcan icon for that page.
