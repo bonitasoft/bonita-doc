@@ -25,17 +25,20 @@ To log in, use the following request:
 |:-|:-|
 | Request URL | `http://host:port/bonita/loginservice`| 
 | Request Method | POST| 
-| Form Data | username: a username<br/>password: a password <br/>redirect: true or false<br/>redirectURL: the URL of the page to be displayed after login <br/>tenant: the tenant to log in to (optional for Enterprise and Performance editions, not supported for Community, Teamwork and Efficiency editions)| 
+| Content-Type | application/x-www-form-urlencoded|
+| Form Data | username: a username<br/>password: a password <br/>redirect: true or false. false indicates that the service should not redirect to Bonita Portal (after a successful login) or to the login page (after a login failure).<br/>redirectURL: the URL of the page to be displayed after login <br/>tenant: the tenant to log in to (optional for Enterprise and Performance editions, not supported for Community, Teamwork and Efficiency editions)|
   
-The response to this call generates cookies, which must be transfered with each subsequent calls. If the REST API is used in an application running in a web browser, this is handled automatically by the browser. 
+The response to this call generates cookies.
+The `JSESSIONID` must be transfered with each subsequent calls. If the REST API is used in an application running in a web browser, this is handled automatically by the web browser.
+For usage of the `X-Bonita-API-Token` see below.
 
-#### X-Bonita-API-Token cookie
+#### X-Bonita-API-Token cookie and HTTP header
 
-The security against CSRF attacks is enabled by default for all fresh installations. the subsequence REST API calls using DELETE, POST, or PUT HTTP methods must contain the header below:
+The security against CSRF attacks is enabled by default for all fresh installations.
+
+This security relies on `X-Bonita-API-Token` information. The `X-Bonita-API-Token` value can be found in the cookie named: `X-Bonita-API-Token`. All the subsequence REST API calls using DELETE, POST, or PUT HTTP methods must contain the **HTTP header** below:
 
     X-Bonita-API-Token: example-dummy-not-be-used-value
-
-Setting the redirect parameter to false indicates that the service should not redirect to Bonita Portal (after a successful login) or to the login page (after a login failure).
 
 ### Execute REST calls and integrate the results in your application
 
@@ -57,7 +60,7 @@ To log out, use the following request:
 |:-|:-|
 | Request URL | `http://host:port/bonita/logoutservice`| 
 | Request Method | GET| 
-| Query parameter | redirect: true or false (default set to true)| 
+| Query parameter | redirect: true or false (default set to true)|
 
 Setting the redirect parameter to false indicates that the service should not redirect to the login page after logging out.
 
@@ -72,7 +75,7 @@ It is possible for an extension to interact with the engine (via the API) or wit
 | Request URL | `http://.../API/{API_name}/{resource_name}/  `| 
 | Request Method | POST| 
 | Request Payload | an item in JSON| 
-| Response | the same item in JSON, containing the values provided in the posted item, completed with default values and identifiers provided by Bonita Engine.|  
+| Response | the same item in JSON, containing the values provided in the posted item, completed with default values and identifiers provided by Bonita Engine.|
 
 ## Read a resource
 
