@@ -1,4 +1,4 @@
-# Install Bonita as a service on Windows
+# How to install Bonita as a service on Windows
 
 If you are a Windows server administrator you know how useful can be to have softwares installed as a windows service.
 In this tutorial we show how to install Tomcat with Bonita configured as a windows service.
