@@ -67,13 +67,13 @@ In this example %TOMCAT_INSTALL_FOLDER% = C:\Program Files\Apache Software Found
 
 * The properties should be the following ones:
 
-* -Dorg.bonitasoft.platform.setup.folder=C:\Program Files\Apache Software Foundation\Tomcat x.y\setup
-* -Dorg.bonitasoft.engine.incident.folder=C:\Program Files\Apache Software Foundation\Tomcat x.y\logs
-* -Dsysprop.bonita.db.vendor=postgres
-* -Dsysprop.bonita.bdm.db.vendor=postgres
-* -Dbtm.root=C:\Program Files\Apache Software Foundation\Tomcat x.y
-* -Dbitronix.tm.configuration=C:\Program Files\Apache Software Foundation\Tomcat x.y\conf\bitronix-config.properties
-* -Dfile.encoding=UTF-8
+ * -Dorg.bonitasoft.platform.setup.folder=C:\Program Files\Apache Software Foundation\Tomcat x.y\setup
+ * -Dorg.bonitasoft.engine.incident.folder=C:\Program Files\Apache Software Foundation\Tomcat x.y\logs
+ * -Dsysprop.bonita.db.vendor=postgres
+ * -Dsysprop.bonita.bdm.db.vendor=postgres
+ * -Dbtm.root=C:\Program Files\Apache Software Foundation\Tomcat x.y
+ * -Dbitronix.tm.configuration=C:\Program Files\Apache Software Foundation\Tomcat x.y\conf\bitronix-config.properties
+ * -Dfile.encoding=UTF-8
 
 All these configurations should be realized in the file %TOMCAT_INSTALL_FOLDER%/bin/TomcatXw.exe (Where X is the Tomcat major version), more precisely in the java tab.
 
