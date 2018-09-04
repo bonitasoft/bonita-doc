@@ -69,3 +69,8 @@ The provided variables list also contains a special variable, apiAccessor. This 
 ## Log messages in a Groovy script
 
 You can [add logging](logging.md) to Groovy scripts or Java code that you develop.
+
+## Scripts in right operands of operations at task level
+
+Scripts can be used to define the result of the right operand of an [operation](operations.md). Those scripts are created in the same editor as the others, and can also call external methods and resources, but are designed as read-only scripts in the product. It means that trying to directly write data to the database in those scripts (using java API methods), while it _might_ work, is considered a bad practice, and the behaviour of those scripts is not guaranteed across versions of the product.
+Data in this case, refers to documents, business objects, pages, process commentaries...
