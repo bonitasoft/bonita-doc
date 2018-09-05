@@ -84,6 +84,9 @@ Bonita binaries as well as Studio installer are now officially signed on Windows
 ### Form mapping API error messages
 Improvements of messages in case of error on form mapping API calls have been done to explain the cause of error and give options for easier error recoveries.
 
+### Bug fixes in the Migration tool
+The "Bug fixes" part of the release notes now embed a new section about bug fixes in the migration tool. For each version, look for "Fixes in the Migration tool" paragraph.
+
 <a id="techonolgy-updates"/>
 
 ## Technology updates
@@ -168,6 +171,7 @@ The Workspace API tooling (headless studio build) has been deprecated. You are r
 #### Fixes in Web component
 * BS-16976	FileNotFoundException/IOException issues when accessing/deploying custom pages/REST API extensions
 * BS-18570	Cannot retrive theme.css from a custom page into a portal profile
+#### Fixes in Migration tool
 
 ### Fixes in Bonita 7.7.2 (2018-07-09)
 #### Fixes in Engine component
@@ -188,6 +192,7 @@ The Workspace API tooling (headless studio build) has been deprecated. You are r
 * BS-18366 Started by System displayed in the cases list page if user have an empty Lastname or empty firstname
 * BS-18417 User profile - "Done tasks" list cannot be sorted on 'Case' column whereas "To do" and "My tasks" lists can
 * BS-18449 Organization can be export by a non admin user from Bonita Portal
+#### Fixes in Migration tool
 
 ### Fixes in Bonita 7.7.1
 #### Fixes in Engine component
@@ -198,6 +203,7 @@ The Workspace API tooling (headless studio build) has been deprecated. You are r
 * BS-18442 Cannot import form in UID in Windows when it contains chinese characters
 #### Fixes in Web component
 * BS-18374 User membership cannot be removed because memberships have no pagination
+#### Fixes in Migration tool
 
 ### Fixes in Bonita 7.7.0
 #### Fixes in Engine component
@@ -254,6 +260,7 @@ The Workspace API tooling (headless studio build) has been deprecated. You are r
 * BS-18341 Error message not explicit in Portal when change password policy enforced
 * BS-18367 Click inside a Living application raises a warning in the logs and a 404 on an undefined URL path
 * BS-18375 User profile - Done Task list cannot be ordered on 'performed date' column or any other date column; it used to be possible in 7.2.2
+#### Fixes in Migration tool
 
 ## Acknowledgments
 Thank you [Jerome Ventribout](https://github.com/jventrib) (Engine) for your contribution.
