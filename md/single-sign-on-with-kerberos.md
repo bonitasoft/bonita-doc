@@ -50,7 +50,6 @@ The Spnego filter will then verify the user’s Kerberos tickets if present or c
 
 ::: warning  
  Bonita "username" should match the authenticated user login returned in the client response. 
- If some users need to bypass kerberos authentication method, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.
 :::
 
 ## Pre-installation Environment Checks
@@ -117,17 +116,6 @@ Registered ServicePrincipalNames for CN=Bonita Tomcat,OU=Service Accounts,OU=Gre
 	
 	Trust this user for delegation to any service (Kerberos only).
 
-7- Update the Java security libraries (Java Cryptography Extension (JCE) Unlimited Strength) to those for Strong Encryption. Depending on your java version, you might have to download some extra files or not.
-
-1. For Java updates > Java 8 u162 and java 9, the unlimited policy is enabled by default. You no longer need to install the policy file in the JRE or set the security property crypto.policy
-2. For Java updates < Java 8 u162, you have to download the security libraries [Here](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html)
-
-These libraries need to be put in jre/lib/security and jdk/jre/lib/security.
-
-
-
-
-
 ## Configure Bonita Bundle for Kerberos
 
 You need to execute the following actions in the folder of each tenant for which you want to support authentication over Kerberos.
@@ -143,34 +131,94 @@ To configure Bonita for Kerberos:
     1. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
     1. Stop it before modifying the configuration files below
 	
-2. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
+2. You will need to edit the Kerberos configuration file in order to select the desired encryption types used to secure the communication. In the following folder `<BUNDLE_HOME>/server/conf`,
+	edit the krb5.conf file as follows:
+	
+```	
+		[libdefaults]
+	-->		default_realm = BONITA.LOCAL
+			default_tkt_enctypes = aes256-cts-hmac-sha1-96 aes128-cts rc4-hmac des3-cbc-sha1 des-cbc-md5 des-cbc-crc
+			default_tgs_enctypes = aes256-cts-hmac-sha1-96 aes128-cts rc4-hmac des3-cbc-sha1 des-cbc-md5 des-cbc-crc
+			permitted_enctypes   = aes256-cts-hmac-sha1-96 aes128-cts rc4-hmac des3-cbc-sha1 des-cbc-md5 des-cbc-crc
+
+		[realms]
+	-->		BONITA.LOCAL  = {
+	-->			kdc = DC.bonita.local 
+	-->			default_domain = BONITA.LOCAL 
+			}
+
+		[domain_realm]
+	-->		.BONITA.LOCAL = BONITA.LOCAL
+
+```
+	
+if you want to use the AES256-CTS encryption type, you need to update the Java security libraries (Java Cryptography Extension (JCE) Unlimited Strength) to those for Strong Encryption. Depending on your java version, you might have to download some extra files or not.
+
+	* For Java updates > Java 8 u162 and java 9, the unlimited policy is enabled by default. You no longer need to install the policy file in the JRE or set the security property crypto.policy
+	* For Java updates < Java 8 u162, you have to download the security libraries [Here](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html)
+		These libraries need to be put in jre/lib/security and jdk/jre/lib/security.
+
+3. In the following folder `<BUNDLE_HOME>/server/conf`,
+	edit the login.conf file as follows:
+	
+```	
+	spnego-client {
+		com.sun.security.auth.module.Krb5LoginModule required;
+	};
+
+	spnego-server {
+		com.sun.security.auth.module.Krb5LoginModule required
+		storeKey=true
+		isInitiator=false;
+	};
+```
+	
+4. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
    edit the authenticationManager-config.properties as follows:
    
 ```
-   -->  #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.standard.StandardAuthenticationManagerImpl
-   -->  auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.saml.SAML2AuthenticationManagerImpl
-   -->  saml.filter.active = true
-   -->  saml.auth.standard.allowed = false
-   -->  saml.logout.global = false
-   -->  auth.tenant.admin.username = install
-   -->  auth.passphrase = BonitaBPM
-		#auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.oauth.OAuthAuthenticationManagerImpl
+		# saml.logout.global = false
+		# auth.tenant.admin.username = install
+		# auth.passphrase = BonitaBPM
+   
+	-->	auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.kerberos.RemoteAuthenticationManagerImpl
+	-->	kerberos.filter.active = true
+	-->	kerberos.auth.standard.allowed = true
+	-->	auth.tenant.admin.username = install
+	-->	auth.tenant.standard.whitelist = william.jobs
+	-->	auth.passphrase = Bonita
+
+		# auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.oauth.OAuthAuthenticationManagerImpl
 		# OAuth.serviceProvider = LinkedIn
 		# OAuth.consumerKey = ove2vcdjptar
-		# OAuth.consumerSecret = vdaBrCmHvkgJoYz1
-		# OAuth.callbackURL = http://127.0.0.1:8888/loginservice
-		#auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.jaas.cas.CASRemoteAuthenticationManagerImpl
-		# Cas.serverUrlPrefix = http://127.0.1.1:8180/cas
-		# Cas.bonitaServiceURL = http://127.0.1.1:8080/bonita/loginservice
    -->  logout.link.hidden=true 
 ```
-    
+
 Make sure to [set the right tenant admin username](multi-tenancy-and-tenant-configuration#toc2).
 It is recommended to also replace the value of the passphrase (property auth.passphrase) which is used by the engine to verify the authentication request.
 The value must be the same as in the file **bonita-tenant-sp-custom.properties**.  
-If you need some users to be able to log in without having an account on the IDP, you can authorize it by setting the property `saml.auth.standard.allowed` to true. Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.
+If some users need to bypass kerberos authentication method, you can authorize it by setting the property `kerberos.auth.standard.allowed` to true. Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.
 
-3. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`,
+5. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
+   edit the spnego-config.properties file as follows:
+   
+```
+	-->  spnego.allow.basic          = true
+	-->	 spnego.allow.localhost      = true
+	-->	 spnego.allow.unsecure.basic = true
+	-->	 spnego.login.client.module  = spnego-client
+	-->	 spnego.krb5.conf            = krb5.conf
+	-->	 spnego.login.conf           = login.conf
+	-->	 spnego.login.server.module  = spnego-server
+	-->	 spnego.prompt.ntlm          = true
+	-->	 spnego.logger.level         = 1
+	-->	 spnego.preauth.username     = bonita.tomcat
+	-->	 spnego.preauth.password     = Bonita2017 
+```
+    
+Make sure to set your principal user name and password.	
+
+6. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`,
 	  edit the file **bonita-tenant-sp-custom.xml** to uncomment the bean passphraseOrPasswordAuthenticationService:
 
 ```
@@ -181,7 +229,7 @@ If you need some users to be able to log in without having an account on the IDP
    </bean>
 ```
 
-4. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
+7. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
   edit the file bonita-tenant-sp-custom.properties as follows:
   
 ```
@@ -197,7 +245,7 @@ If you need some users to be able to log in without having an account on the IDP
 		#   * does no authentication on the engine side
 		#   * impl: com.bonitasoft.engine.authentication.impl.NoAuthenticationServiceImpl
 		# passphraseOrPasswordAuthenticationService
-		#   * Used by SAML2 implementation, login only if a passphrase is valid, or if a username/password is valid.
+		#   * Used by SAML2 and Kerberos implementations, login only if a passphrase is valid, or if a username/password is valid.
 		#   * Requires PassphraseOrPasswordAuthenticationService bean to be uncommented in bonita-tenant-sp-custom.xml
 		#   * impl: com.bonitasoft.engine.authentication.impl.PassphraseOrPasswordAuthenticationService
 		# you can provide your own implementation in bonita-tenant-sp-custom.xml and refer to the bean name of your choice
@@ -217,9 +265,9 @@ If you need some users to be able to log in without having an account on the IDP
   
 It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file **authenticationManager-config.properties** updated previously.
 
-5. If your Identity Provider is correctly configured (see the section *Configure the Identity Provider*), you are done.  
-Then you can try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in).  
-Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `saml.auth.standard.allowed` to true) to be able to log in without an account on the Identity Provider.
+8. If your Domain Controller is correctly configured, you are done.  
+Then you can try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are automatically logged in.  
+Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `saml.auth.standard.allowed` to true) to be able to log in without an account on AD.
 
 
 ## Logout behavior
