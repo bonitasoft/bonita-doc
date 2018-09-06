@@ -155,6 +155,21 @@ The Workspace API tooling (headless studio build) has been deprecated. You are r
 * BS-18167 Live update of script fails if a new "provided variable" is added to the script
 * BS-18441 7.7 Javadocs have missing packages and classes
 * BS-18497 Migration: HTTP status code 403 REST API extensions
+* BS-18701 Make sure we discourage write operation in groovy scripts on the right operands of Operation
+
+### Fixes in Bonita 7.7.4 (2018-09-06)
+#### Fixes in Engine component
+* BS-15941 ExecuteMessageCouple work does not reset messages and should not in certain cases
+* BS-18579 Irrecoverable error when message content does not match waiting event
+* BS-18615 Missing Hibernate query searchSProcessInstancewithSProcessSupervisor
+* BS-18657 Data truncation error when migrating from v7.6.3 to v7.7.0
+#### Fixes in Studio component
+* BS-18660 The bonita la builder doesn't build connectors jar correctly
+* BS-18673 Saving changes in BDM will install an empty Access Control and block permissions if bdm_access_control.xml has no rules
+#### Fixes in Web component
+* BS-18427 If error, the task stays in pending state and no error is visible in the Portal (maybe due to the automatic retry new function)
+* BS-18437 ASSIGN button: popup displays NOT IMPLEMENTED when a PROCESS MANAGER is not ADMINISTRATOR
+* BS-18585 'Location' header not allowed by RESTlet in REST API extension
 
 ### Fixes in Bonita 7.7.3 (2018-08-02)
 #### Fixes in Engine component
