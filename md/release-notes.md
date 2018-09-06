@@ -167,7 +167,7 @@ The Workspace API tooling (headless studio build) has been deprecated. You are r
 * BS-18660 The bonita la builder doesn't build connectors jar correctly
 * BS-18673 Saving changes in BDM will install an empty Access Control and block permissions if bdm_access_control.xml has no rules
 #### Fixes in Web component
-* BS-18427 If error, the task stays in pending state and no error is visible in the Portal (maybe due to the automatic retry new function)
+* BS-18427 The task stays in pending state for a while before it fails and no error is visible in the Portal
 * BS-18437 ASSIGN button: popup displays NOT IMPLEMENTED when a PROCESS MANAGER is not ADMINISTRATOR
 * BS-18585 'Location' header not allowed by RESTlet in REST API extension
 
