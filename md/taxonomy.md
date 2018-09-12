@@ -128,6 +128,7 @@
       * [CSRF security](csrf-security.md)
       * [Enable CORS in Tomcat bundle](enable-cors-in-tomcat-bundle.md)
       * [SSL](ssl.md)
+      * [Tenant administrator credentials](tenant_admin_credentials.md)
     * [Set log and archive levels](set-log-and-archive-levels.md)
     * [Configurable Archive](configurable-archive.md)
     * [Performance tuning](performance-tuning.md)
@@ -257,5 +258,4 @@
   * [Map authorization rules](custom-authorization-rule-mapping.md)
   * [Use the rich textarea widget in a mail template](rta-mail-template.md)
   * [Manage dates in BDM and User Interfaces](dates-management-tutorial.md)
-
-
+  * [Install Tomcat with Bonita as a service in Windows](bonita-as-windows-service.md)
