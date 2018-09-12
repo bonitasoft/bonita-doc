@@ -61,6 +61,18 @@ Instructions below explain how to add a language to Bonita BPM Portal. Steps bel
 1. Restart your application server (or Click on Server in the Bonita Studio menu bar, click on Restart Web Server).
 1. Check that the new language is listed in Settings menu of the Bonita Portal.
 
+::: warning
+**Warning:** The `mobile_xxxx.po/.pot` files used for the language of the [Bonita BPM Mobile Portal](https://documentation.bonitasoft.com/bonita/7.4/mobile-portal) may contain some keys missing translation. For the Mobile Portal to be displayed correctly in the new language, these keys must not be empty.
+
+On the other hand, some of the keys in the `mobile_xxxx.po/.pot` files are duplicates from the ones in other non-mobile `.po/.pot` files. These keys must all have the same value (whether translated or chosen to be left in English) across all the `.po/.pot` files.
+
+For example, if you are adding the German language to the Mobile portal, the "Do it" key should be equally translated (or set to "Do it", but never left empty) in the following files:
+    * `mobile_de_DE.po`
+    * `portal_de_DE.po`
+    * `portal-sp_de_DE.po`
+:::
+
+
 <a id="Translate_BonitaB_PM_Portal" />
 
 ## Translate Bonita BPM Portal
