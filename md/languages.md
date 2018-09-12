@@ -67,9 +67,9 @@ Instructions below explain how to add a language to Bonita BPM Portal. Steps bel
 On the other hand, some of the keys in the `mobile_xxxx.po/.pot` files are duplicates from the ones in other non-mobile `.po/.pot` files. These keys must all have the same value (whether translated or chosen to be left in English) across all the `.po/.pot` files.
 
 For example, if you are adding the German language to the Mobile portal, the "Do it" key should be equally translated (or set to "Do it", but never left empty) in the following files:
-    * `mobile_de_DE.po`
-    * `portal_de_DE.po`
-    * `portal-sp_de_DE.po`
+* `mobile_de_DE.po`
+* `portal_de_DE.po`
+* `portal-sp_de_DE.po`
 :::
 
 
