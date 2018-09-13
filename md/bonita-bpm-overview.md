@@ -45,6 +45,9 @@ Bonita is provided in five different editions: Community, Teamwork, Efficiency, 
 **I'm currently using Bonita 6.x. Will 7.x be a big change?**
 
 Bonita 7.x provides new and improved features, including the [UI Designer](ui-designer-overview.md) for creating application pages and forms, as well as [contracts and context](contracts-and-contexts.md) to create a clear split between the process logic, the data, and the user views.   
+
+::: warning Attention: Starting with Bonita 7.8, V6 GWT forms are not available for modeling or execution. Before migrating to Bonita 7.8, you need to create all forms with Bonita UI Designer to benefit from technologies like html/AngularJS and use contracts in tasks and process instantiation. For more information, read the [migrate a form from 6.x](migrate-a-form-from-6-x.md) page. :::
+
 You will also find lots of familiar features, which continue to work as they did in 6.x.
 
 **Tell me about the documentation.**
@@ -58,7 +61,7 @@ See [Lifecycle and profiles](lifecycle-and-profiles.md).
 
 **Can I migrate an existing process into Bonita 7.x?**
 
-You can [import a process](import-and-export-a-process.md) from any earlier Bonita release. You can also [migrate a process from Bonita Open Solution 5.9 or 5.10](migrate-a-process-from-bonita-open-solution-5-x.md) to this release. A 6.x process will continue to run unchanged in 7.x, but to take advantage of the new features, you will need to update the process and [migrate the forms](migrate-a-form-from-6-x.md).
+You can [import a process](import-and-export-a-process.md) from any earlier Bonita release. You can also [migrate a process from Bonita Open Solution 5.9 or 5.10](migrate-a-process-from-bonita-open-solution-5-x.md) to this release. Since 6.x forms don't work in Bonita 7.8, you may want to read how to [migrate a form from 6.x](migrate-a-form-from-6-x.md).
 
 **Tell me about creating an application.** 
 
