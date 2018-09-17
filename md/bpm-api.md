@@ -4706,7 +4706,6 @@ The methods used for this resource is:
     "targetProcess": "processName",
     "targetFlowNode": "catchMessageFlowNodeName",
     "messageContent" : {
-         // exhaustive list of supported type in data values
         "data1" : {
             "value" : "aValue"
          },
