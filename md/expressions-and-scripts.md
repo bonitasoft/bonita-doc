@@ -80,3 +80,4 @@ Data in this case, refers to documents, business objects, pages, process comment
 
 For documents, you should use the [document type](documents.md) provided in the Studio and the associated [operations](operations.md) related to this document type. 
 For business objects, you should use the [BDM type](define-and-deploy-the-bdm.md) provided in the Studio and the associated [operations](operations.md) related to this BDM type. 
+For other use case you may want to use a [connector](connectors-overview.md) to perform those write operations. 
