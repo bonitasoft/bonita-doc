@@ -212,7 +212,7 @@ There are two ways (they can be configured individually or at the same time) to 
 An LDAP group is defined by an id which is declared in the "ldap\_groups" list. This id provides access to the object properties with this syntax: object\_id.property.
 You can also specify groups with a search: all groups that match the search are synchronized.
 
-Groups will be synchronized based on the matching of their LDAP common name (CN) and their Bonita BPM names.
+Groups will be synchronized based on the matching of their LDAP common name (CN) and their Bonita names.
 
 
 Groups can be declared individually in the configuration file with the following properties :
