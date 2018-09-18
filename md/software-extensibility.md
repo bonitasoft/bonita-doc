@@ -10,7 +10,7 @@ This page lists the extension points that are available.
 ## Stable extension points
 
 The following elements are designed to be extension points of Bonita. 
-These extension points are guaranteed to be stable across versions of Bonita 6: Java interfaces and XML schema will be kept backward compatible so that your implementation will work even after a Bonita version upgrade.
+These extension points are guaranteed to be stable across versions of Bonita 7: Java interfaces and XML schema will be kept backward compatible so that your implementation will work even after a Bonita version upgrade.
 
 ### Connectors
 
@@ -102,8 +102,9 @@ To [implement an event handler](event-handlers.md), you need to provide a Java c
 In Teamwork, Efficiency, Performance and Enterprise editions
 
 Bonita includes a script, BonitaStudioBuilder (also known as the Workspace API), for building a bar file from a process in a repository. 
-This intended to be used for [automating process builds](automating-process-builds.md) in a continuous integration and testing environment.
-You can use the BonitaStudioBuilder to build a bar file for processes stored in a repository. This script will be kept stable in time.
+This intended to be used for automating process builds in a continuous integration and testing environment.
+You can use the BonitaStudioBuilder to build a bar file for processes stored in a repository. 
+
 
 ### Portal look & feel
 
@@ -121,7 +122,8 @@ It is also possible to use this same mechanism to customize the portal terminolo
 
 A [custom data type](create-a-complex-data-type.md) is a Java object (.jar file) or an XML definition (.xsd file) of a data structure. 
 You can create a custom data type and use it to define a process variable if the standard data types are not suitable for your process. 
-Note that although the custom data type framework provided in the product is stable, we cannot guarantee that all custom data types will work with future versions, because this depends on the details of how the data type is implemented.
+Note that although the custom data type framework provided in the product is stable, we cannot guarantee that all custom data types will work with future versions, because this depends on the details of how the data type is implemented.  
+From version 7.0, we **strongly recommend** to use the [Business Data capabilities](define-and-deploy-the-bdm.md) instead of custom data types.  
 
 ## Unstable extension points
 
@@ -135,6 +137,9 @@ There is no guarantee that these templates will not change across Bonita version
 If a form uses some Javascript code based on an element in the HTML Document Object Model, the element may be moved, modified or removed in a future version so the Javascript will no longer work.
 * **Authorization Rule Mapping**. It is possible to modify authorization rules mapping applied to start a process, display process overview or execute a task. 
 You can customize this mapping by defining your own bean and override property. See [Authorization Rule Mapping](custom-authorization-rule-mapping.md)   
+* **BonitaStudioBuilder**
+Bonita Entreprise editions include a script, BonitaStudioBuilder (also known as the Workspace API), for building a bar file from a process in a repository. This intended to be used for automating process builds in a continuous integration and testing environment. You can use the BonitaStudioBuilder to build a bar file for processes stored in a repository. 
+WorkspaceAPI is deprecated since Bonita 7.7.0. Instead, we strongly encourage you to use the *LA builder* included in the tooling suite of [*Bonita Continuous Delivery* add-on](https://documentation.bonitasoft.com/bcd/2.0/). One added-value is that LA builder does not need a Studio to be installed.
  
 Only the elements listed on this page are intended to be used as extension points. For other elements, there is no guarantee of stability, and a high probability of changes across versions. 
 For example, the following should not be considered to be extension points:
