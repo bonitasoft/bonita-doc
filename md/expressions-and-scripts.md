@@ -72,5 +72,12 @@ You can [add logging](logging.md) to Groovy scripts or Java code that you develo
 
 ## Scripts in right operands of operations at task level
 
-Scripts can be used to define the result of the right operand of an [operation](operations.md). Those scripts are created in the same editor as the others, and can also call external methods and resources, but are designed as read-only scripts in the product. It means that trying to directly write data to the database in those scripts (using java API methods), while it _might_ work, is considered a bad practice, and the behaviour of those scripts is not guaranteed across versions of the product.
-Data in this case, refers to documents, business objects, pages, process commentaries...
+Scripts can be used to define the result of the right operand of an [operation](operations.md). Those scripts are created in the same editor as the others, and can also call external methods and resources, but are designed as read-only scripts in the product. 
+::: warning
+It means that trying to directly write data to the database in those scripts (using java API methods), while it _might_ work, is considered as a bad practice, and the behaviour of those scripts is not guaranteed across versions of the product.
+Data in this case, refers to documents, business objects, pages, process commentaries.
+:::
+
+For documents, you should use the [document type](documents.md) provided in the Studio and the associated [operations](operations.md) related to this document type. 
+For business objects, you should use the [BDM type](define-and-deploy-the-bdm.md) provided in the Studio and the associated [operations](operations.md) related to this BDM type. 
+For other use case you may want to use a [connector](connectors-overview.md) to perform those write operations. 
