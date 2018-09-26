@@ -224,6 +224,10 @@ If this option is set, when users navigate away from the Portal, they are still 
 
 By default, logging out from Bonita BPM Engine logs the user out of CAS. You can change this behavior by implementing your own Authentication Service.
 
+## Tenant administrator login
+
+The [Tenant administrator](tenant_admin_credentials.md) (also kwown as the _tenant technical user_) will always be able to log in whitout a CAS account. To log with the tenant administrator, use the standard Bonita Portal login page accessible on `http://<bundle host>:<port>/bonita/login.jsp`.
+
 ## Manage passwords
 
 When you are using CAS, the password for a user is managed in your CAS system. However, when you create a user in Bonita BPM Portal, specifying a password is mandatory. This password is ignored. 
