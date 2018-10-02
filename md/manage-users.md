@@ -25,10 +25,10 @@ final User user2 = identityAPI.createUser(creator);
 Now add the user to a Bonita BPM Portal profile. A user who does not have a profile cannot log in to Bonita BPM Portal.
 ```groovy
 // reference the user in the profile User
-// the user must be now registered in one profile. Let's choose the profile user
+// the user must be now registered in one profile. Let's choose the profile User
 org.bonitasoft.engine.api.ProfileAPI orgProfileAPI = apiAccessor.getProfileAPI();
 SearchOptionsBuilder searchOptionsBuilder = new SearchOptionsBuilder(0,10);
-searchOptionsBuilder.filter(ProfileSearchDescriptor.NAME, "user");
+searchOptionsBuilder.filter(ProfileSearchDescriptor.NAME, "User");
 SearchResult<Profile> searchResultProfile = orgProfileAPI.searchProfiles(searchOptionsBuilder.done());
     
 // we should find one result now
