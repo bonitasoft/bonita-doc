@@ -4704,7 +4704,7 @@ The methods used for this resource is:
   {
     "messageName" : "myMessage" ,
     "targetProcess": "processName",
-    "targetFlowNode": "catchMessageFlowNodeName",
+    "targetFlowNode": "catchMessageFlowNodeName", //Optional
     "messageContent" : {
         "data1" : {
             "value" : "aValue"
