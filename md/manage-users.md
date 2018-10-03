@@ -24,21 +24,21 @@ final User user2 = identityAPI.createUser(creator);
 
 Now add the user to a Bonita BPM Portal profile. A user who does not have a profile cannot log in to Bonita BPM Portal.
 ```groovy
-// reference the user in the profile User
-// the user must be now registered in one profile. Let's choose the profile User
+// The user must now be registered in a profile. Let's choose the existing "User" profile:
 org.bonitasoft.engine.api.ProfileAPI orgProfileAPI = apiAccessor.getProfileAPI();
 SearchOptionsBuilder searchOptionsBuilder = new SearchOptionsBuilder(0,10);
 searchOptionsBuilder.filter(ProfileSearchDescriptor.NAME, "User");
 SearchResult<Profile> searchResultProfile = orgProfileAPI.searchProfiles(searchOptionsBuilder.done());
     
 // we should find one result now
-if (searchResultProfile.getResult().size()!=1)
-        { return; }
+if (searchResultProfile.getResult().size() != 1) {
+    return;
+}
 
 // now register the user in the profile
 Profile profile = searchResultProfile.getResult().get(0);
-ProfileMemberCreator profileMemberCreator = new ProfileMemberCreator( profile.getId());
-profileMemberCreator.setUserId( user.getId());
+ProfileMemberCreator profileMemberCreator = new ProfileMemberCreator( profile.getId() );
+profileMemberCreator.setUserId( user.getId() );
 orgProfileAPI.createProfileMember(profileMemberCreator);
 ```
 
@@ -52,7 +52,7 @@ This example shows how to add a user to a group.
 The user, group, and role are already defined, and each one is specified by ID.
 Note that it is not possible to add a user without a role.
 ```groovy
-final IdentityAPI identityAPI = new IdentityAccessor().getIdentityAPI(apiSession);
+final IdentityAPI identityAPI = TenantAPIAccessor.getIdentityAPI(apiSession);
 UserMembership membership = identityAPI.addUserMembership(userId, groupId, roleId);
 ```
 
@@ -88,7 +88,7 @@ You can use the `getUserWithProfessionalDetails` method to retrieve a user and t
 This example shows how to get a user and the email address.
 ```groovy
 // Get the professional email address of a user
-UserWithContactData proUser = getIdentityAPI().getUserWithProfessionalDetails(user.getId());
+UserWithContactData proUser = TenantAPIAccessor.getIdentityAPI().getUserWithProfessionalDetails(user.getId());
 proUser.getContactData().getEmail();
 ```
 
