@@ -222,6 +222,31 @@ If you did not set the default Look & Feel before migration and you cannot log i
 
 The migration is now complete. If you were using a custom Look & Feel before migration, test it on the new version before applying it to your migrated platform.
 
+## Migration of processes with v6 forms
+
+Until the version 7.0.0, Bonita used forms based on the GWT technology, for the instantiation of processes, tasks and process overview.
+The runtime support for those forms was removed in 7.8.0.
+
+It means, that if one or more processes on the migrated server uses v6 forms, the migration to a version above 7.7.4 cannot be performed directly. The following lines explain how to migrate to a version 7.8.0 +
+
+Specifically if you are migrating from a 6.x version:
+* Migrate to the 7.0.0 using the migration tool 1.x.
+* Migrate to the 7.7.4 using the migration tool 2.x.
+* Redesign all your forms in the Studio using the UI designer. See [here](migrate-a-form-from-6-x.md) for more info.
+* Upload the new version of all your processes using the new forms.
+* Disable the version of your processes using v6 forms. Make sure they have no more running instances.
+* Perform the migration to the desired version.
+
+If you are migrating from a 7.x version :
+* Redesign all your forms in the Studio using the UI designer. See [here](migrate-a-form-from-6-x.md) for more info.
+* Upload the new version of all your processes using the new forms.
+* Disable the version of your processes using v6 forms. Make sure they have no more running instances.
+* Perform the migration to the desired version.
+
+The disabled processes with v6 forms will not be able to be enabled again post migration.
+Having v6 overviews on your processes will not prevent the migration of the platform, however they will all be replaced by the default v7 overview in the process.
+It means that you might want redo the overview of your processes as well as the forms, especially if you have configured a custom overview for your processes in v6.
+
 ## Migrate your cluster
 
 A Bonita cluster must have the same version of Bonita on all nodes. To migrate a cluster:

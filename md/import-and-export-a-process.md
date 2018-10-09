@@ -25,8 +25,6 @@ You can import diagrams that were exported from the following tools:
 * XPDL 1.0
 * jBPM 3.2
 
-You can also [migrate a process diagram from Bonita Open Solution 5.x](migrate-a-process-from-bonita-open-solution-5-x.md).
-
 ### What is supported or compatible?
 
 A diagram that was exported from the same edition of Bonita, or a lower edition, can be imported successfully. 

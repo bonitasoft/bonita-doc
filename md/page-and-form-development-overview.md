@@ -13,11 +13,9 @@ You can also use external forms referenced by URL. If an external URL is being u
 For certain cases, you can specify that there is no form. This is required for a process that is instantiated programmatically (by a call activity or by an API call from an application, for example), or for a process or a task that does not have any contract input.  
 A human task with no form and no contract represents a manual task, completed outside Bonita. The user will indicate in the application or Portal that the manual task is complete. A process or a human task with a contract but no form expects the information needed to fulfill the contract to be provided programmatically.
 
-For backward compatibility, so that processes created in Bonita 6.x can continue to be used and maintained, the [6.x legacy form builder](6-x-legacy-forms.md) and associated tooling are still supported. You are recommended to [migrate 6.x forms to the UI Designer](migrate-a-form-from-6-x.md) so that you can take advantage of the new features in Bonita 7.x. 
-
 ::: warning
-**Attention**: By the end of 2018, V6 GWT forms won't be available for modeling or execution.
-We strongly advise you to switch to forms created with Bonita UI Designer to benefit from technologies like html/AngularJS and use contracts in tasks and process instantiation.
+**Attention**: The 7.8 version of Bonita doesn't support V6 GWT forms either at design or at runtime.
+To migrate your processes still using them, follow those [instructions](migrate-a-form-from-6-x.md)
 :::
 
 ## Form types

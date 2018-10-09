@@ -61,7 +61,7 @@ See [Lifecycle and profiles](lifecycle-and-profiles.md).
 
 **Can I migrate an existing process into Bonita 7.x?**
 
-You can [import a process](import-and-export-a-process.md) from any earlier Bonita release. You can also [migrate a process from Bonita Open Solution 5.9 or 5.10](migrate-a-process-from-bonita-open-solution-5-x.md) to this release. Since 6.x forms don't work in Bonita 7.8, you may want to read how to [migrate a form from 6.x](migrate-a-form-from-6-x.md).
+You can [import a process](import-and-export-a-process.md) from any earlier Bonita release. Since 6.x forms don't work in Bonita 7.8, you may want to read how to [migrate a form from 6.x](migrate-a-form-from-6-x.md).
 
 **Tell me about creating an application.** 
 

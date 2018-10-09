@@ -32,8 +32,6 @@ The items configured for a task depend on the task type, as shown in the followi
 | Connectors | Details panel, Execution tab, Connectors in/out pane | Human, abstract, call activity, receive, service, script |
 | Operations | Details panel, Execution tab, Operations pane | All |
 | KPIs (Enterprise, Performance, Efficiency, and Teamwork editions only) | Details panel, Execution tab, KPIs pane | All |
-| Data entry forms (6.x legacy) | Details panel, Application tab, Pageflow pane | Human |
-| Confirmation forms (6.x legacy) | Details panel, Application tab, Confirmation pane | Human |
 | Appearance in diagram | Details panel, Appearance tab, color & font pane | All |
 | Subprocess to execute | Details panel, General tab, General pane | Call activity |
 | Message content handling | Details panel, General tab, Message content pane | Receive |
