@@ -144,7 +144,7 @@ To define the JAAS configuration file location you need to set a JVM property, `
 
 * Edit this file: `<TOMCAT_HOME>/setup/tomcat-templates/setenv.sh`
 * Locate the line that starts: `#SECURITY_OPTS`
-* Uncomment this line, i.e. remove the \# sign and set property value to: `%CATALINA_HOME%\conf\jaas.cfg`.
+* Uncomment this line, i.e. remove the \# sign and set property value to: `${CATALINA_HOME}/conf/jaas.cfg`
 * Locate the line that starts: `CATALINA_OPTS=`
 * Add the tag `${SECURITY_OPTS} ` after the tag `${PLATFORM_SETUP}`
 * Push into database the changes: `./setup.sh push`
@@ -153,7 +153,7 @@ To define the JAAS configuration file location you need to set a JVM property, `
 
 * Edit this file: `<TOMCAT_HOME>/setup/tomcat-templates/setenv.bat`
 * Locate the line that starts: `rem set SECURITY_OPTS`
-* Uncomment it, i.e. remove "rem" keyword and set property value to: `${CATALINA_HOME}/conf/jaas.cfg`
+* Uncomment it, i.e. remove "rem" keyword and set property value to: `%CATALINA_HOME%\conf\jaas.cfg`
 * Locate the line that starts: `set CATALINA_OPTS=`
 * Add the tag `%SECURITY_OPTS%` after the tag `%PLATFORM_SETUP%`
 * Push into database the changes: `.\setup.bat push`
