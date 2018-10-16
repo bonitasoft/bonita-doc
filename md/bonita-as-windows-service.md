@@ -9,7 +9,8 @@ For this tutorial you will need the following softwares:
 * Tomcat
 * Bonita deploy Bundle
 * Postgresql Database (or another database supported by Bonita)
-Please verify the version supported from the Support page
+
+Please verify the supported version from the Support page
 
 ## Download and installation
 
