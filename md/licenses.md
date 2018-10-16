@@ -4,7 +4,9 @@
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
-Bonita 7.1 introduces a case-counter mechanism to align with the Bonita Subscription edition licensing model. This page explains how to manage the license for your Bonita Platform. 
+Bonita 7.7 introduces the possibility to use a new licensing model named **Enterprise**. //TODO: to be completed by Philippe Laumay
+
+Bonita 7.1 introduces a case-counter mechanism to align with the Bonita Subscription edition licensing model. This page explains how to manage the license for your Bonita Platform.
 
 The **_License_** menu in Bonita Portal displays information about the current license. This information is available to the platform administrator only.
 
@@ -21,9 +23,9 @@ The maximum number of cases is defined in your commercial contract, in discussio
 You can monitor the case counter using Bonita Portal *License* page in the Administrator profile, or using the [REST API](platform-api.md#license) to create a custom monitoring / alerting tool.  
 Those two means also allow you to check the expiration date of the license.
 
-When the case counter reaches the limit set in the license, no more cases can be started. Active cases continue to completion.  
+When the case counter reaches the limit set in the license, no more cases can be started. Active cases continue until completion.
 If a user tries to submit an instantiation form after the case counter maximum limit is reached, the form is not submitted and an error message is displayed.  
-**Note:** If the process still uses legacy, 6.x, forms, there is no error message.
+**Note:** If the process still uses legacy 6.x forms, there is no error message.
 
 ## Get a new license
 
@@ -44,7 +46,7 @@ On the server where you installed Bonita Platform:
 
 Copy your request key and go to the [Customer Portal license request](https://customer.bonitasoft.com/license/request) page.  
 Then fill in the details in the form, copy the request key in the *Request Key* field, and submit.  
-Note: keep the brackets () in the key; if the key is separated by a line break, remove it and put the key on a single line.  
+**Note**: keep the brackets `()` in the key; if the key is separated by a line break, remove it and put the key on a single line.
 
 The license file will be sent to you by email.
 
@@ -52,7 +54,7 @@ The license file will be sent to you by email.
 
 When you receive the license file (`.lic` file extension):
 - If this is the first time you start the bundle, copy the file to the`<TOMCAT_HOME>/setup/platform_conf/licenses` folder or `<WILDFLY_HOME>/setup/platform_conf/licenses/` folder before starting the bundle.
-- If the bundle has already been started, [you need to use the Platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf).
+- If the bundle has already been started, [you need to use the Platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf) to push your license file to database.
 
 ## License renewal scheduling
 
@@ -64,5 +66,6 @@ When you reach the "changeover" date for the licenses, Bonita Engine switches au
 If you approach both the license expiration date and the end of the Subscription period, contact your sales person.
 
 The case counter is reset at the end of the counter period.  
-If your license expiration date comes before the end of the counter period, get and install a new license as usual. The case counter will continue from its current value under the new license.  
+If your license expiration date comes before the end of the counter period, get and install a new license as usual.
+The case counter will continue from its current value under the new license.
 If you approach or reach the case counter limit before the end of the license period, contact your sales person to get a new license with additional cases.
