@@ -1,7 +1,7 @@
 # Migrate a form from 6.x
 
 ::: warning
-**Attention**: Starting with Bonita 7.8, V6 GWT forms are not available for modeling or execution. To perform the operations listed below, you will need to import your processes in a Bonita Studio of any version up to 7.7.4, and build new versions of your processes before migrating to 7.8.0 or above.
+**Attention**: Starting with Bonita 7.8, 6.x GWT forms and case overview forms are not available for both modeling and execution. To perform the operations listed below, you will need to import your processes in a Bonita Studio of any version up to 7.7.x, and build new versions of your processes before migrating to 7.8.0 or above.
 :::
 
 There is no specific tooling to assist with migration, and you do not have to migrate all apsects of a process definition at the same time.  

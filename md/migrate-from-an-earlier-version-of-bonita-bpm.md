@@ -222,30 +222,30 @@ If you did not set the default Look & Feel before migration and you cannot log i
 
 The migration is now complete. If you were using a custom Look & Feel before migration, test it on the new version before applying it to your migrated platform.
 
-## Migration of processes with v6 forms
+## Migration of processes with 6.x forms and case overview pages
 
-Until the version 7.0.0, Bonita used forms based on the GWT technology, for the instantiation of processes, tasks and process overview.
-The runtime support for those forms was removed in 7.8.0.
+Until the version 7.0.0, Bonita used UI artifacts based on the Google Web Toolkit (GWT) technology: process instantiation, task execution forms and case overview page.
+The runtime support for those forms and pages was removed in 7.8.0.
 
-It means, that if one or more processes on the migrated server uses v6 forms, the migration to a version above 7.7.4 cannot be performed directly. The following lines explain how to migrate to a version 7.8.0 +
+It means that if one or more processes on the migrated server uses 6.x forms or overview page, the migration to a version above 7.7.x cannot be performed directly. The following lines explain how to migrate to a version 7.8.0.
 
 Specifically if you are migrating from a 6.x version:
 * Migrate to the 7.0.0 using the migration tool 1.x.
-* Migrate to the 7.7.4 using the migration tool 2.x.
-* Redesign all your forms in the Studio using the UI designer. See [here](migrate-a-form-from-6-x.md) for more info.
-* Upload the new version of all your processes using the new forms.
-* Disable the version of your processes using v6 forms. Make sure they have no more running instances.
+* Migrate to the last 7.7.x version, using the migration tool 2.x.
+* Redesign your process to use contracts at process instantiation and task execution levels, and recreate all your forms and case overview pages in the Studio using the UI Designer or your favorite IDE, so that they use [contracts](contracts-and-contexts.md). For more information, go to [migrate a form from 6.x](migrate-a-form-from-6-x.md)
+* Upload the new version of all your processes using contracts, new forms, and new case overview pages.
+* Make sure the versions of the processes using 6.x forms have no more running instances, and disable them.
 * Perform the migration to the desired version.
 
-If you are migrating from a 7.x version :
+If you are migrating from a 7.x version:
 * Redesign all your forms in the Studio using the UI designer. See [here](migrate-a-form-from-6-x.md) for more info.
 * Upload the new version of all your processes using the new forms.
-* Disable the version of your processes using v6 forms. Make sure they have no more running instances.
+* Disable the version of your processes using 6.x forms. Make sure they have no more running instances.
 * Perform the migration to the desired version.
 
-The disabled processes with v6 forms will not be able to be enabled again post migration.
-Having v6 overviews on your processes will not prevent the migration of the platform, however they will all be replaced by the default v7 overview in the process.
-It means that you might want redo the overview of your processes as well as the forms, especially if you have configured a custom overview for your processes in v6.
+The disabled processes with 6.x forms will not be able to be enabled again post migration.
+Having 6.x case overview pages on your processes will not prevent the migration of the platform, however they will all be replaced by the default 7.x case overview page, created with the UI Designer.
+It means that you might want to redo the case overview page as well as the forms, especially if you have configured a custom case overview page for your processes in version 6.x. Or (for Enterprise, Performance, and Efficiency editions only), you can live update it after migration.
 
 ## Migrate your cluster
 

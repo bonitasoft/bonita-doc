@@ -14,7 +14,7 @@ For certain cases, you can specify that there is no form. This is required for a
 A human task with no form and no contract represents a manual task, completed outside Bonita. The user will indicate in the application or Portal that the manual task is complete. A process or a human task with a contract but no form expects the information needed to fulfill the contract to be provided programmatically.
 
 ::: warning
-**Attention**: The 7.8 version of Bonita doesn't support V6 GWT forms either at design or at runtime.
+**Attention**: Bonita 7.8 does not support 6.x GWT forms and case overview pages, neither for design nor at runtime.
 To migrate your processes still using them, follow those [instructions](migrate-a-form-from-6-x.md)
 :::
 
