@@ -4,7 +4,7 @@
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
-Bonita 7.7 introduces the possibility to use a new licensing model named **Enterprise**. //TODO: to be completed by Philippe Laumay
+Bonita 7.7 supports the **Enterprise** licensing model in addition to the Case-based and CPU-based licensing.  
 
 Bonita 7.1 introduces a case-counter mechanism to align with the Bonita Subscription edition licensing model. This page explains how to manage the license for your Bonita Platform.
 
