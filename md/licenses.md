@@ -6,8 +6,6 @@
 
 Bonita 7.7 supports the **Enterprise** licensing model in addition to the Case-based and CPU-based licensing.  
 
-Bonita 7.1 introduces a case-counter mechanism to align with the Bonita Subscription edition licensing model. This page explains how to manage the license for your Bonita Platform.
-
 The **_License_** menu in Bonita Portal displays information about the current license. This information is available to the platform administrator only.
 
 The [license for Bonita Studio](bonita-bpm-studio-installation.md) is managed through a wizard when you start the studio for the first time after installation (or after the previous license expires).
