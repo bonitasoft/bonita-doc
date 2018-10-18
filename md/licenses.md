@@ -18,7 +18,7 @@ Each time a case starts, the case counter is increased by one.
 Case-counter licenses are available for development and for production. A development license must not be used for production, and typically has a lower case limit than a production license.  
 The maximum number of cases is defined in your commercial contract, in discussion with your sales person.
 
-You can monitor the case counter using Bonita Portal *License* page in the Administrator profile, or using the [REST API](platform-api.md#license) to create a custom monitoring / alerting tool.  
+For **Case-based licensing**, you can monitor the case counter using Bonita Portal *License* page in the Administrator profile, or using the [REST API](platform-api.md#license) to create a custom monitoring / alerting tool.  
 Those two means also allow you to check the expiration date of the license.
 
 When the case counter reaches the limit set in the license, no more cases can be started. Active cases continue until completion.
