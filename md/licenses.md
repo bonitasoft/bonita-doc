@@ -63,7 +63,7 @@ When you reach the "changeover" date for the licenses, Bonita Engine switches au
 
 If you approach both the license expiration date and the end of the Subscription period, contact your sales person.
 
-The case counter is reset at the end of the counter period.  
+For **Case-based licensing**, the case counter will be reset at the end of the counter period.  
 If your license expiration date comes before the end of the counter period, get and install a new license as usual.
 The case counter will continue from its current value under the new license.
 If you approach or reach the case counter limit before the end of the license period, contact your sales person to get a new license with additional cases.
