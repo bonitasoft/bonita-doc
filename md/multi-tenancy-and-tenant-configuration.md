@@ -69,7 +69,7 @@ The [platform REST API](platform-api.md) is a REST layer around the Java Platfor
 NOTE: this is to be done only once.
 
 ##### Start a tomcat
-- Download a BonitaSubscription-7.\*-Tomcat-8.5.31.zip
+- Download a BonitaSubscription-7.\*-Tomcat-8.5.34.zip
 - Unzip it
 - Provide a valid license file
 - Start the tomcat

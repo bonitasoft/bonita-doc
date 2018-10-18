@@ -76,8 +76,8 @@ Run the following command lines:
 
 * `sudo aptitude install curl`
 * `cd /tmp/`
-* `wget http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.31/bin/apache-tomcat-8.5.31.tar.gz`
-* `sudo tar xzvf apache-tomcat-8.5.31.tar.gz -C /usr/share/tomcat8 --strip-components=1`
+* `wget http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.34/bin/apache-tomcat-8.5.34.tar.gz`
+* `sudo tar xzvf apache-tomcat-8.5.34.tar.gz -C /usr/share/tomcat8 --strip-components=1`
 
 Tomcat 8.5 should now be installed on your computer. Now you should enable tomcat to be run as a service
 
@@ -200,8 +200,11 @@ If you run the Subscription Pack version, you will need a license:
   * Change the current directory to license generation scripts folder: `cd ~/BonitaSubscription-x.y.z-deploy/request_key_utils-x.y-z`
   * Make the license generation script executable: `chmod u+x generateRequestKey.sh`
   * Run the script: `./generateRequestKey.sh`
-  * For `License type:` enter `1` to select `1 - Case counter license.` (*Note*: If your subscription type is cpu based, please refer to the [knowledge-base](https://customer.bonitasoft.com/knowledgebase) in the customer portal)
-  * You will get a license key number that you can copy. Make sure that you keep the brackets. If the key is separated by a linebreak, remove it and put the key on a single line.
+  * For `License type:`
+    * enter `1` to select `1 - Case counter license.` if your subscription is case-based.
+    * enter `2` to select `2 - CPU core license.` If your subscription type is cpu based, please refer to the [knowledge-base](https://customer.bonitasoft.com/knowledgebase) in the customer portal.
+    * enter `3` to select `3 - Enterprise license.` if your subscription is Enterprise.
+  * You will get a license key (of the type `(9fIyr5O+e2Z8MwDiEPC23sfTfAXv7Y6K)`) that you can copy. Make sure that you keep the brackets. If the key is separated by a linebreak, remove it and put the key on a single line.
 * Connect to Bonitasoft [Customer Portal](https://customer.bonitasoft.com/)
 * Go to Licenses \> **Request a license**
 * Fill in the license request forms
