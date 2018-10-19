@@ -2627,11 +2627,18 @@ You can get a case by using its identifier. Request url
 
 * **URL**  
   `/API/bpm/case`  
+  _Example_:  list active cases for process definition with ID 1234 `/API/bpm/case?p=0&c=10&f=processDefinitionId=1234`
 * **Method**  
   `GET`
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
-  * f: filter of the search, beware you cannot use team\_manager\_id and supervisor\_id at the same time
+  * f: filter of the search. Available filters are : 
+    * `processDefinitionId`: The process derfinition ID 
+    * `name`: the process name
+    * `started\_by`: the ID of the user who started the process
+    * `team\_manager\_id`: allow to retrieve the cases in which all users with this manager ID ar involved)
+    * `supervisor\_id`: allow the retrived the cases of all processes the user with this ID is supervisor of)
+  beware you cannot use team\_manager\_id and supervisor\_id at the same time
   * n: count of related resource. Available values: `activeFlowNodes`, `failedFlowNodes`
   * d: extend resource response parameters of [this resource](#case-deploy) are available.
 * **Success Response**  
@@ -3004,6 +3011,14 @@ You can search cases.
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   * o (order): available values are `id`, `processDefinitionId`, `startedBy`, `startedBySubstitute`, `startDate`, 
   `endDate`, `lastUpdate`, `archivedDate`, `sourceObjectId`
+  * f: filter of the search. Available filters are : 
+    * `sourceObjectId`: The original case ID before the case was archived
+    * `processDefinitionId`: The process derfinition ID 
+    * `name`: the process name
+    * `started\_by`: the ID of the user who started the process
+    * `team\_manager\_id`: allow to retrieve the cases in which all users with this manager ID ar involved)
+    * `supervisor\_id`: allow the retrived the cases of all processes the user with this ID is supervisor of)
+  beware you cannot use team\_manager\_id and supervisor\_id at the same time
   * d: extend resource response parameters of [this resource](#archived-case-deploy) are available.
 * **Success Response**  
   A JSON representation of an array of archived case resources
