@@ -12,7 +12,7 @@ All the Engine services call the [technical logger service](technical-logging.md
 
 ### Bonita BPM Portal
 
-The Portal uses the [Java Util Logging](http://docs.oracle.com/javase/6/docs/api/java/util/logging/package-summary.html) (JUL) directly to log messages.
+The Portal uses the [Java Util Logging](http://docs.oracle.com/javase/8/docs/api/java/util/logging/package-summary.html) (JUL) directly to log messages.
 
 ### Bonita BPM Studio
 
@@ -24,7 +24,8 @@ The Bonita BPM Studio provides direct access to the log written by the embedded 
 
 ### Bonita BPM Engine and Bonita BPM Portal
 
-The [technical logger service](technical-logging.md) uses SLF4J (version 1.6.1) to create the log. SLF4J is also used directly by Bonita dependencies such as Hibernate, Quartz and Ehcache.
+The [technical logger service](technical-logging.md) uses SLF4J to create the log as well as some Bonita dependencies
+such as Quartz and Ehcache.
 
 SLF4J is a facade for various logging frameworks, and a logging framework must be available as the back-end. By default, Bonita BPM uses JUL (Java Util Logging) as a the back-end to SLF4J. This is defined by including the `slf4j-jdk14-1.6.1.jar` in the `bonita.war WEB-INF/lib` folder.
 
