@@ -160,6 +160,11 @@ The platform setup tool is also present in the Tomcat or WildFly bundle under th
         * set one of `bonita.platform.cluster.hazelcast.multicast.enabled`, `bonita.platform.cluster.hazelcast.tcpip.enabled` and `bonita.platform.cluster.hazelcast.aws.enabled` to `true`:
         uncomment the # properties and set only one of them to `true`, set the others to `false` depending on how you want your nodes to discover each others,
         for more information on this take a look at the [Hazelcast Documentation](http://docs.hazelcast.org/docs/3.4/manual/html-single/index.html#discovering-cluster-members).
+    * In `platform_engine/bonita-platform-sp-custom.properties`: In order to keep consistency between nodes, the Hibernate cache must be disabled:
+Uncomment and change the line:
+      `#bonita.platform.persistence.use_second_level_cache=true`
+    change it to:
+      `bonita.platform.persistence.use_second_level_cache=false`  
 * Copy licenses of all your nodes in `platform_conf/licenses`
 * Run the `setup.sh push` or `setup.bat push`. This will update in database the configuration of your platform.
 
