@@ -6,7 +6,7 @@
 
 ::: warning
 **Note:**
-* The solution described here relies on the BonitaStudioBuilder which is deprerated as of Bonita 7.7
+* The solution described here relies on the BonitaStudioBuilder, which has been deprecated since Bonita 7.7.0. Instead, we strongly encourage you to use the LA builder included in the tooling suite of Bonita Continuous Delivery add-on. One added-value is that LA builder does not need a studio to be installed.
 :::
 
 ## Overview
