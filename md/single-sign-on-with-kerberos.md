@@ -352,20 +352,6 @@ Here is the subset of resources filtered by the Kerberos filter by default:
 REST API are not part of them by default, but if an http session already exists thanks to cookies, REST API can be used.
 
 The recommended way to authenticate to Bonita Portal to use the REST API is to use the [login service](rest-api-overview.md#bonita-authentication).  
-If you need the SSO to work with the APIs you can update the web.xml of bonita.war to add the following resources to the URL Mappings of KerberosFilter:  
+If you need the SSO to work with the APIs you can update the web.xml of bonita.war to add the following resources to the URL Mappings of AuthenticationFilter and KerberosFilter:
 
-     <filter-mapping>
-        <filter-name>KerberosFilter</filter-name>
         <url-pattern>/API/*</url-pattern>
-        <url-pattern>/APIv2/*</url-pattern>
-        <url-pattern>/APIToolkit/*</url-pattern>
-        <url-pattern>/portal/custom-page/API/*</url-pattern>
-        <url-pattern>/portal/formsDocumentDownload</url-pattern>
-        <url-pattern>/portal/documentDownload</url-pattern>
-        <url-pattern>/portal/downloadDocument</url-pattern>
-        <url-pattern>/services/*</url-pattern>
-        <url-pattern>/portal/exportOrganization</url-pattern>
-        <dispatcher>REQUEST</dispatcher>
-        <dispatcher>FORWARD</dispatcher>
-        <dispatcher>INCLUDE</dispatcher>
-    </filter-mapping>
