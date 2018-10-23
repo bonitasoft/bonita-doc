@@ -58,8 +58,9 @@ For example, you can bind the button's disabled property to _$form.$invalid_ to 
 Use the **modal container** to create a pop-up window. This modal container can be opened with a button by choosing `Open Modal` in the button's "Actions" property. 
 Choose a name for the `modal ID` property so you can define what modal container the button will display.
 This ID must be unique for a given page. 
-Any button located inside a modal window can close the modal on success, during any action, when choosing `close modal` in the Action property.```
-The size of the modal window can be changed between by selecting one of the three options provided. It is also possible to change the animation when the modal window appears. 
+Any button located inside a modal window can close the modal on success, during any action, when choosing `close modal` in the Action property.
+The `Size` of the modal window can be changed by selecting small, medium or large in the drop-down menu. 
+There is also an option to remove the animation when the modal window appears. Doing so will make the modal window appear instantly, without a fade-in effect. This is useful if multiple successive windows need to be shown.
 To change the style of the modal a tip would be to input the `modal-body` CSS class into the apropriate field of the modal container, which will improve the shown modal. Another tip would be adding different containers inside the modal and specifying any of the following CSS classes for each container depending on the placement in the modal :
 * modal-header
 * modal-body
