@@ -236,7 +236,7 @@ If only a limited group of users need to bypass kerberos authentication method y
 	-->	 spnego.preauth.username     = <username>
 	-->	 spnego.preauth.password     = <password> 
 ```
-<username> and <password> shoud be replaced with the domain account and password to use to pre-authenticate to on the Domain controller acting as Kerberos Key Distribution Center.
+<username> and <password> shoud be replaced with the domain account and password to use to pre-authenticate to on the Domain controller acting as Kerberos Key Distribution Center.  
 Note that for Wildfly, the properties `spnego.krb5.conf` and `spnego.login.conf` are not used as already set in the file satndalone.xml
 
 Make sure to set your principal user name and password.	
