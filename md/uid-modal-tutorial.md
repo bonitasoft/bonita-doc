@@ -1,7 +1,7 @@
 # How to create a modal window using CSS
 
 ::: warning
-**:fa-exclamation-triangle: Warning:** This tutorial is deprecated after 7.8 because of the introduction of the modal container. Please read more about the modal on the widgets page : [Modal Container](widgets.md)
+**:fa-exclamation-triangle: Warning:** This tutorial is deprecated after 7.8 because of the introduction of the modal container. For more information, read the [modal container](widgets.md#modal-widget) page.
 :::
 
 A nice aspect of the UI designer is the way it takes advantage of the WEB technologies letting you put the style of your page where it belong.  

@@ -53,7 +53,7 @@ Each tab is a container widget.
 Use the **form container** to enable form validation for input widgets. The form container also exposes a local **$form** which is the AngularJS form object associated to the form container. In the Bonita Studio, if you define a contract for the task or process and click on the UI Designer icon, the generated form already contains a form container to embed default input widgets to collect the information that need to be passed to the contract to be verified. You can then define the validation you need on the input.  
 For example, you can bind the button's disabled property to _$form.$invalid_ to prevent user from clicking the button, until the form inputs are valid.
 
-### Modal container widget
+### <a name="modal-widget"></a> Modal container widget
 
 Use the **modal container** to create a pop-up window. This modal container can be opened with a button by choosing the `Open Modal` action. Both the button and the modal need to be specified a modal id in the coresponding field. This id must be only used once on the page. Any button that is placed inside a modal window can close the modal when a success occurs during any action when choosing the . The only different action is the `Close Modal` which will close the modal when the button is clicked.
 The size of the modal window can be changed between by selecting one of the three options provided. It is also possible to change the animation when the modal window appears. 
