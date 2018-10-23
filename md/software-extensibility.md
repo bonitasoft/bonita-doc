@@ -100,7 +100,7 @@ To [implement an event handler](event-handlers.md), you need to provide a Java c
 ### BonitaStudioBuilder
 
 ::: warning
-**Important note**: as of Bonita 7.7, the BonitaStudioBuilder tooling (headless studio build) has been deprecated. See the
+**Important note**: as of Bonita 7.7.0, the BonitaStudioBuilder tooling (headless studio build) has been deprecated. See the
 [Release Notes page](release-notes.md) for more information
 :::
 
