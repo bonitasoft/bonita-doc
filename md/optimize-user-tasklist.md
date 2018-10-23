@@ -1,12 +1,8 @@
 # How to create unique task names for the user task list
 
-:::info
-**Note**: This howto applies to the legacy task list -Bonita 6.0 to 6.5.x versions- as well as the [new task list - from Bonita 7.3 and above](user-task-list.md).
-:::
-
 Goal: Leverage Bonita Studio to optimize user comfort and efficiency by inserting case information in task name and task description.  
 During process modeling, a task is given a generic definition in the process definition, so its name is generic, such as "Validate request". This is useful for development.  
-Within a process instance (case), this task name must be contextualized with business information specific to the case so that, in the user task list, users effciently pick the right task to do. 
+Within a process instance (case), this task name must be contextualized with business information specific to the case so that, in the user task list, users efficiently pick the right task to do. 
 
 ## Pre-requisites: create the process example
 

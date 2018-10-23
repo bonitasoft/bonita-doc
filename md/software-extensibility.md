@@ -60,7 +60,6 @@ In Community, Teamwork, Efficiency, Performance and Enterprise editions
 A [custom page](pages.md) is a page that you can add into Bonita Portal to form part of an application, customize information provided in default portal pages, or to add new features to the portal. 
 To implement a page, you need to provide HTML, CSS and Javascript resources respecting some packaging constraints. 
 You can create a page using the [UI designer](ui-designer-overview.md), which automatically creates a well-formed page. 
-You can also use the legacy 6.x custom page construction methods.
 Note that although the page framework provided in the product is stable, we cannot guarantee that all custom pages will work with future versions, because this depends on the details of how the page is implemented.
 
 ### Custom widgets
@@ -149,7 +148,7 @@ This provides clear isolation of responsibility and eases maintenance. The inter
 
 ## Backward compatibility
 
-In Bonita 6.x and 7.x, we ensure backward compatibility of the following:
+In Bonita 7.x, we ensure backward compatibility of the following:
 
 * Engine API (except items marked as deprecated)
 * Web REST API (except items marked as deprecated)

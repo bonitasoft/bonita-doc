@@ -30,14 +30,6 @@ See [Custom User Information in Bonita Studio](custom-user-information-in-bonita
 
 See [Custom User Information in Bonita Portal](custom-user-information-in-bonita-bpm-portal.md)
 
-## Allowing anonymous users (6.x forms)
-
-If you use 6.x forms, you can configure a process to be started by an anonymous user. For example, on an e-commerce site,
-a new user can browse stock and save items to a cart, then register with the site if they want to save
-their cart for later or to buy something. This is known as supporting anonymous users. Anonymous users are always process initiators.
-
-To support anonymous users in a process report to the [6.x documentation page](http://documentation.bonitasoft.com/actors-859#Allowing%20anonymous%20users).
-
 ## Set the initiator
 
 The initiator is the user who starts a process instance. For a process that is started by a person, you must specify at least one actor to be the initiator. Any user who maps to this actor can then start a process instance. If a process is started automatically (for example on a schedule), it is not necessary to designate an initiator.

@@ -85,9 +85,6 @@ The [Hibernate cache must be disabled](install-a-bonita-bpm-cluster.md#disable-h
 
 The load balancer must be configured to use sticky sessions (this is needed to manage sessions created when users log in to the Portal).
 
-There is no automated migration from a Bonita Open Solution 5.10 cluster to a Bonita cluster, because the cluster models are completely different. 
-You can [migrate a process from 5.10](migrate-a-process-from-bonita-open-solution-5-x.md), but you need to build your Bonita cluster from scratch.
-
 ### Active and passive nodes
 
 If an active node fails or is stopped, the load balancer redirects work to the remaining active nodes. This keeps the downtime to a minimum, but increases the load on the active nodes. 
@@ -116,20 +113,3 @@ There are some drawbacks to the basic Bonita in a cluster configuration, but the
 * Only active-active modes is supported. There is no mechanism for starting a new node if a cluster node goes out of service. This could be provided by a third-party application.
 * There is no integrated load balancer, so the client application selects the node on which to make a API call. You should use an external load balancer. For high volume, a hardware load balancer is recommended.
 * All the nodes must use the same database, so the database itself must be highly available.
-
-### Comparison with 5.x
-
-In Bonita Open Solution 5.10, the cluster implementation had the following advantages:
-
-* Support for high availability
-* The possibility to add a new node at runtime
-
-It also had the following drawbacks:
-
-* There is no node discovery mechanism, and the cluster construction relies on the database. 
-This means that performance is lower than an in-memory data grid.
-* Only one node is responsible for execution of matching events, which can be a performance bottleneck.
-* Only active-active modes is supported. There is no mechanism for starting a new node if a cluster node goes out of service. This could be provided by a third-party application.
-* There is no integrated load balancer, so the client application selects the node on which to make a API call. You should use an external load balancer. For high volume, a hardware load balancer is recommended.
-* All the nodes must use the same database, so the database itself must be highly available.
-* The Bonita Large Data Repository (Bonita LDR) folder must be shared by NFS, so to maintain high availability, you should use an HA NFS service.

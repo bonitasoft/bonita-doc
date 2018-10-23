@@ -23,7 +23,6 @@ Those two means also allow you to check the expiration date of the license.
 
 When the case counter reaches the limit set in the license, no more cases can be started. Active cases continue until completion.
 If a user tries to submit an instantiation form after the case counter maximum limit is reached, the form is not submitted and an error message is displayed.  
-**Note:** If the process still uses legacy 6.x forms, there is no error message.
 
 ## Get a new license
 
