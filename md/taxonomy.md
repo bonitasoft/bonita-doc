@@ -143,6 +143,7 @@
   * [Platform installation examples](_platform-installation-examples.md)
     * [Red Hat + Oracle JVM + WebLogic + Oracle](red-hat-oracle-jvm-weblogic-oracle.md)
     * [Ubuntu + OpenJDK + Tomcat + PostgreSQL](ubuntu-openjdk-tomcat-postgresql.md)
+    * [Install Tomcat with Bonita as a service in Windows](bonita-as-windows-service.md)
   * [Back up Bonita BPM Platform](back-up-bonita-bpm-platform.md)
   * [Migration](_migration.md)
     * [Migration overview](migration-overview.md)
@@ -258,4 +259,4 @@
   * [Map authorization rules](custom-authorization-rule-mapping.md)
   * [Use the rich textarea widget in a mail template](rta-mail-template.md)
   * [Manage dates in BDM and User Interfaces](dates-management-tutorial.md)
-  * [Install Tomcat with Bonita as a service in Windows](bonita-as-windows-service.md)
+  
