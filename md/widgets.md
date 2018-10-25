@@ -61,10 +61,12 @@ This ID must be unique for a given page.
 Any button located inside a modal window can close the modal on success, during any action, when choosing `close modal` in the Action property.
 The `Size` of the modal window can be changed by selecting small, medium or large in the drop-down menu. 
 There is also an option to remove the animation when the modal window appears. Doing so will make the modal window appear instantly, without a fade-in effect. This is useful if multiple successive windows need to be shown.
-To change the style of the modal a tip would be to input the `modal-body` CSS class into the apropriate field of the modal container, which will improve the shown modal. Another tip would be adding different containers inside the modal and specifying any of the following CSS classes for each container depending on the placement in the modal :
-* modal-header
+
+You can add a little padding between the modal container content and its borders by typing `modal-body` in the CSS classes property. For a more structured content, you can add different plain containers inside the modal container, and specify any of the following CSS classes for each container, depending on its location in the modal:
+
+* modal-header, which creates a horizontal line underneath the element
 * modal-body
-* modal-footer
+* modal-footer, which creates a horizontal line on top of the element
 
 ## Input widgets
 
@@ -177,7 +179,7 @@ For pages that are displayed in a task or process context, the button widget can
 
 Another possible use of the widget button is to add or remove a data from a given collection.
 
-Finally, a button could be used to open any modal on the page, as long as the modal id is specified into the appropriate field. Another action for the button widget is to close the modal that contains it. 
+Finally, you can use a button to open a modal container (pop up window) on the page, as long as the modal ID is specified into the appropriate field. Another action for the button widget is to close the modal that contains it.
 Other actions can also close the modal if they succeed, being enabled when the `Close modal on success` property is positive.
 
 When inside a form container, the button is automatically disabled while the form is invalid.
