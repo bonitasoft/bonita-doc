@@ -38,8 +38,8 @@ This tutorial assumes that Jenkins is up and running with Maven and Subversion p
 
 There are two stages to setting up Bonita Studio for CI:
 
-1. On your Subversion server, create a shared repository that can be accessed by the business analysts and developers working on processes and by the CI tools. After you have create your shared repository you may develop your processes in this repository and/or import existing processes. Each Bonita Studio user must connect to the repository.
-2. Define an environment for configuring processes for CI. This environment will be stored in the shared repository together with your process definitions. 
+1. On your Subversion server, create a shared project that can be accessed by the business analysts and developers working on processes and by the CI tools. After you have create your shared project you may develop your processes in this project and/or import existing processes. Each Bonita Studio user must connect to the repository.
+2. Define an environment for configuring processes for CI. This environment will be stored in the shared project together with your process definitions. 
 
 The next section assumes that you created an environment called CI.
 
@@ -50,7 +50,7 @@ This section describes how to create a Jenkins job to build your processes autom
 All example scripts given on this page are compatible with Unix-like operating systems.  
 
 1. Prepare Bonita Studio on the CI server: Bonita Studio includes a BonitaStudioBuilder script to build processes in a CI environment. Install Bonita Studio as follows:  
-  1. Download the OS-independent package (zip) from the Customer Portal. For example use BonitaSubscription-7.6.3.zip for version 7.6.3\. You must have the same version of Bonita Studio for the shared repository and the CI server.
+  1. Download the OS-independent package (zip) from the Customer Portal. For example use BonitaSubscription-7.6.3.zip for version 7.6.3\. You must have the same version of Bonita Studio for the shared project and the CI server.
   2. Extract the package to a permanent location on the CI server: `$> unzip -d /path/to/BonitaStudio BonitaStudioSubscription-7.6.3.zip`
   3. Install your license (a license must have been requested for CI server): `$> cp license.lic /path/to/BonitaStudio/BonitaStudioSubscription-7.6.3/lic_folder/`
 
@@ -59,7 +59,7 @@ All example scripts given on this page are compatible with Unix-like operating s
 2. Create Jenkins job: In Jenkins, create a new job of type "Build a free-style software project". Specify a job name for example "Bonita-BuildProcesses".  
 
 3. Configure Jenkins job:   
-   1. Check out your process repository from Subversion. To do this, configure the "Source Code Management" section to retrieve (check out) your Subversion process shared repository. Specify the repository URL, and optionally your local repository. We recommend that you set teh check-out strategy to _Use 'svn update' as much as possible_.  
+   1. Check out your project from Subversion. To do this, configure the "Source Code Management" section to retrieve (check out) your Subversion project. Specify the repository URL, and optionally your local repository. We recommend that you set teh check-out strategy to _Use 'svn update' as much as possible_.  
    2. Invoke BonitaStudioBuilder script  
    Note: only one instance of BonitaStudioBuilder can be executed at a time on a computer.  
    Add a build step of type "Execute shell" configured with the following content: 

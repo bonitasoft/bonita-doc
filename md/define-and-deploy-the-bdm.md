@@ -152,7 +152,7 @@ You can use a list business object or variable to create multiple instances of a
 You define the BDM using Bonita Studio. It is automatically deployed to the built-in Bonita Engine and available to processes being run from Studio.
 This means that you can have a different BDM in each Studio during development, which enables you to test the BDM before deploying it in your tenant.
 However, if you are sharing diagrams and other artifacts in development, you need to synchronize BDM definitions, either by exporting your BDM manually for import
-into other development systems, or by using a shared repository (not available in the Community edition).
+into other development systems, or by using a shared project (not available in the Community edition).
 
 To define the BDM, go to the Bonita Studio **Development** menu, **BDM**, and choose **Manage**. The current BDM definition is displayed. Specify the package name for the BDM in the field below the **List of Business Objects**.
 
