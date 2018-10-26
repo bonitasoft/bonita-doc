@@ -55,19 +55,23 @@ For example, you can bind the button's disabled property to _$form.$invalid_ to 
 
 ### <a name="modal-widget"></a> Modal container widget
 
-Use the **modal container** to create a pop-up window. This modal container cannot be added into any container or fragment.
+Use the **modal container** to create a pop-in window.
 This modal container can be opened with a button by choosing `Open modal` in the button's "Actions" property.
 Choose a name for the `Modal ID` property so you can define what modal container the button will display.
 This ID must be unique for a given page. 
-Any button located inside a modal window can close the modal on success, during any action, when choosing `Close modal` in the Action property.
-The `Size` of the modal window can be changed by selecting `small`, `medium` or `large` in the drop-down menu. 
-There is also an option to remove the animation when the modal window appears. Doing so will make the modal window appear instantly, without a fade-in effect. This is useful if multiple successive windows need to be shown.
+Any button located inside a modal container can close the modal on success, during any action, when choosing `Close modal` in the Action property.
+The `Size` of the modal container can be changed by selecting `small`, `medium` or `large` in the drop-down menu. 
+There is also an option to remove the animation when the modal container appears. Doing so will make the modal container appear instantly, without a fade-in effect. This is useful if multiple successive windows need to be shown.
 
 You can add a little padding between the modal container content and its borders by typing `modal-body` in the CSS classes property. For a more structured content, you can add different plain containers inside the modal container, and specify any of the following `CSS classes` for each container, depending on its location in the modal:
 
 * modal-header, which creates a horizontal line underneath the element
 * modal-body
 * modal-footer, which creates a horizontal line on top of the element
+
+A modal container doesn't work when it is embedded in another container, next to other widgets or inside a fragment.
+In a form, a page, or a layout, we recommend to drop modal containers at the bottom of the editor content.
+To embed a pop-in into another pop-in at runtime, drop the first modal container at the bottom, drop the second modal container below the first one, and drop the button that opens the second pop-in within the first modal container.
 
 ## Input widgets
 
