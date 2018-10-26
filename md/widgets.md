@@ -55,14 +55,15 @@ For example, you can bind the button's disabled property to _$form.$invalid_ to 
 
 ### <a name="modal-widget"></a> Modal container widget
 
-Use the **modal container** to create a pop-up window. This modal container can be opened with a button by choosing `Open Modal` in the button's "Actions" property. 
-Choose a name for the `modal ID` property so you can define what modal container the button will display.
+Use the **modal container** to create a pop-up window. This modal container cannot be added into any container or fragment.
+This modal container can be opened with a button by choosing `Open modal` in the button's "Actions" property.
+Choose a name for the `Modal ID` property so you can define what modal container the button will display.
 This ID must be unique for a given page. 
-Any button located inside a modal window can close the modal on success, during any action, when choosing `close modal` in the Action property.
-The `Size` of the modal window can be changed by selecting small, medium or large in the drop-down menu. 
+Any button located inside a modal window can close the modal on success, during any action, when choosing `Close modal` in the Action property.
+The `Size` of the modal window can be changed by selecting `small`, `medium` or `large` in the drop-down menu. 
 There is also an option to remove the animation when the modal window appears. Doing so will make the modal window appear instantly, without a fade-in effect. This is useful if multiple successive windows need to be shown.
 
-You can add a little padding between the modal container content and its borders by typing `modal-body` in the CSS classes property. For a more structured content, you can add different plain containers inside the modal container, and specify any of the following CSS classes for each container, depending on its location in the modal:
+You can add a little padding between the modal container content and its borders by typing `modal-body` in the CSS classes property. For a more structured content, you can add different plain containers inside the modal container, and specify any of the following `CSS classes` for each container, depending on its location in the modal:
 
 * modal-header, which creates a horizontal line underneath the element
 * modal-body
@@ -180,7 +181,7 @@ For pages that are displayed in a task or process context, the button widget can
 Another possible use of the widget button is to add or remove a data from a given collection.
 
 Finally, you can use a button to open a modal container (pop up window) on the page, as long as the modal ID is specified into the appropriate field. Another action for the button widget is to close the modal that contains it.
-Other actions can also close the modal if they succeed, being enabled when the `Close modal on success` property is positive.
+Every action, except for the `Close modal`, can close the modal when it succeeds. Setting the `Close modal on success` property to `yes` is enough for this to happen.
 
 When inside a form container, the button is automatically disabled while the form is invalid.
 
