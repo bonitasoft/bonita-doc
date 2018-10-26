@@ -154,7 +154,7 @@ This means that you can have a different BDM in each Studio during development, 
 However, if you are sharing diagrams and other artifacts in development, you need to synchronize BDM definitions, either by exporting your BDM manually for import
 into other development systems, or by using a shared repository (not available in the Community edition).
 
-To define the BDM, go to the Bonita Studio **Development** menu, **BDM**, and choose **Define...**. The current BDM definition is displayed. Specify the package name for the BDM in the field below the **List of Business Objects**.
+To define the BDM, go to the Bonita Studio **Development** menu, **Business Data Model**, and choose **Define...**. The current BDM definition is displayed. Specify the package name for the BDM in the field below the **List of Business Objects**.
 
 To add an object:
 
