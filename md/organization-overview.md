@@ -77,8 +77,3 @@ This custom information can only be seen and [edited](custom-user-information-in
 
 Note that if the custom user information does not exist in Bonita BPM Studio, modifying its value for a user in Bonita BPM Portal will not make any difference to the filter, apart from creating an error.  
 Synchronize the Organization between Bonita BPM Studio and Bonita BPM Portal first by publishing it so all values are up to date.
-
-## Organization schema XSD file
-
-If you want to modify the organization by hand, it is important to respect the structure of the .xsd file.  
-You can see the [standard Bonita BPM organization .xsd file](https://github.com/bonitasoft/bonita-engine/blob/master/bpm/bonita-core/bonita-process-engine/src/main/resources/bos-organization.xsd) on Github, to view the xml structure and tags.
