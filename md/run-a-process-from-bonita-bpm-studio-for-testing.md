@@ -8,7 +8,10 @@ process development.
 Before you can run a process, you must [configure the process](configuring-a-process.md)
 and [configure the organization](organization-management-in-bonita-bpm-studio.md).
 
-To run a process, open the process diagram and select the pool, then click **_Run_** in the Cool bar. The process in the selected pool runs. Only one pool can be run at a time.
+
+To run a process, you can :
+* Right click on the process diagram on the project explorer, and select the process to run from the **run** menu.
+* Open the process diagram and select the pool, then click **_Run_** in the Cool bar. The process in the selected pool runs. Only one pool can be run at a time.
 
 If you are using the Enterprise, Performance, Efficiency, or Teamwork editions, you can select the environment in which to run the process. The 
 process must be configured for the environment in which it runs.
