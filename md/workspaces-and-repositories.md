@@ -4,19 +4,19 @@
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
-This page explains how to use a shared repository so that several people can collaborate on process design.
+This page explains how to use a shared project so that several people can collaborate on process design.
 
-## Workspaces and repositories
+## Workspaces and projects
 
 A workspace is a directory where Bonita Studio stores working files related to process design. When you install Bonita Studio, a workspace is created automatically. 
 
-A local repository is a directory within your workspace.  
+A project is a directory within your workspace.  
 You can use local repositories to organize your work efficiently, for example by separating processes that do not interact.
 
-A team repository is a shared repository on a Subversion (SVN) or Git server that is used by the team collaborating on developing a process.  
-A shared repository has typical code management features: locks (SVN only), synchronization, versioning.  
-Your workspace contains your local copy of the shared repository, which is synchronized with the shared repository on the SVN or Git server.  
-Note that the values of the process configurations (such as parameters) will not be synchronized on the remote repository, to allow each Studio to have its own configuration.
+A team project is a shared project on a Subversion (SVN) or Git server that is used by the team collaborating on developing a process.  
+A shared project has typical code management features: locks (SVN only), synchronization, versioning.  
+Your workspace contains a local copy of the project, which is synchronized with the remote SVN or Git server.  
+Note that the values of the _Local_ process configurations (such as parameters) will not be synchronized on the remote repository, to allow each Studio to have its own configuration. You can use another environment for shared configurations (Qualificatio, Production or custom environments).
 
 ### Switch workspace
 
@@ -24,36 +24,32 @@ The default workspace is _studio\_install\_directory_/workspace.
 
 To use a different workspace:
 
-1. Go to the **Diagram** menu and choose **Switch workspace...**. 
+1. Go to the **File** menu and choose **Switch workspace...**. 
 2. A pop up window shows the path of the workspace you are currently using.
 3. In the pop up window, specify the path of the workspace you want to use. If the new workspace does not exist, you are asked whether you want to create it.
 4. Click **_OK_**.
 5. The workspace switch is applied the next time Bonita Studio starts. Click **_OK_** in the pop up window to restart the studio, or **_Cancel_** to continue in your current session.
 
-### Create a local repository
+### Create a project
 
-You can create a local repository in your local workspace.  
-The repository is created in your current workspace.
+You can create a project in your workspace.  
+The project is created in your current workspace.
 
-To create a local repository:
+To create a project:
 
-1. Go to the **Repository** menu, choose **Local**, then choose **Create new local repository**.
-2. Specify a name for the new repository.
+1. Go to the **File** menu, choose **New project...**.
+2. Specify a name for the new project.
 3. Click **_OK_** .
-4. A status window shows the progress of the repository being built.  
-   When the repository has been successfully created, a message shows you are working with the new local repository.
-5. Click on **_OK_** to finish.
 
-A new local repository is created. A new directory with the same name as the repository is added to your local workspace folder.
+A new project is created. Only one project can be active at a time.
 
-In Bonita Studio, you can see the new repository name shown at the top left, in the title bar.
 
-### Export/Import a repository
+### Export/Import a project
 
-You can export all the content from a repository for exchange or backup purposes:
+You can export all the content from a project for exchange or backup purposes:
 
-1. Click on **Diagram** > **Export...**
-1. Click  on **Select All** to embed the whole repository content into the BOS archive. 
+1. Click on **File** > **Export...**
+1. Click  on **Select All** to embed the whole project content into the BOS archive. 
 1. Choose a location on your local drive to store the archive and click on **Finish**.
 
 The exported archive can then be shared with other studios of the same version or newer.
@@ -62,27 +58,27 @@ To import a BOS archive:
 
 1. Click on **Diagram** > **Import** >  **BOS Archive...**
 1. Choose the location of the archive on your local drive
-1. In Subscription, you can choose the target repository of the imported content
+1. In Subscription, you can choose the target project of the imported content
 1. Handle conflicting files if any
 1. Click on **Import**
 
 You can retrieve the whole content of a studio workspace by exporting all its repositories and importing them into another studio.
 
-### Change repository
+### Switch project
 
-Before you change to a different repository, make sure you have saved your work.
+Before you change to a different project, make sure you have saved your work.
 
-To change repository, follow these steps:
+To switch the current project, follow these steps:
 
-1. In the **Repository** menu, choose **Change the repository**.
-2. A list of the available repositories is displayed. These are the local and shared repositories in your current workspace.
-3. Select the repository to switch to, and click **_OK_**.
+1. In the **File** menu, choose **Switch project...**.
+2. The list of the available projects is displayed. These are the local and shared projects in your current workspace.
+3. Select the project to switch to, and click **_OK_**.
 4. A confirmation message is displayed when you are working in the new location.
 You can see the name of the current repository at the top, in the title bar.
 
-If the list does not contain the name of the repository you want to use, check that you are using the correct workspace, and if necessary, switch workspace.
+If the list does not contain the name of the project you want to use, check that you are using the correct workspace, and if necessary, switch workspace.
 
-## Use a shared repository
+## Use a shared project
 
 <a id="git"/>
 
@@ -100,21 +96,21 @@ Bonita Studio Git integration is based on the EGit Eclipse plugin.
 Git commands available in the studio interface:
 
  * **Share with Git**  
-This action connects the current repository to Git and shares it on a remote.
-To configure the remote, see the following [Egit userguide](http://wiki.eclipse.org/EGit/User_Guide#Working_with_remote_Repositories) or the [Share on GitHub howto](share-a-repository-on-github.md).
+This action connects the current project to Git and shares it on a remote.
+To configure the remote, see the following [Egit userguide](http://wiki.eclipse.org/EGit/User_Guide#Working_with_remote_Repositories) or the [Share on GitHub howto](share-a-project-on-github.md).
 
  * **Clone**  
-Create a new Studio repository from an existing Git repository (that must contain a proper Bonita project). If the remote repository version is lower than the studio, a migration will be applied on the cloned repository. Be careful before pushing a migrated repository back to the remote: all contributors will have to use the proper studio version.
+Create a new Studio project from an existing Git repository (that must contain a proper Bonita project). If the remote project version is lower than the studio, a migration will be applied on the cloned project. Be careful before pushing a migrated project back to the remote: all contributors will have to use the proper studio version.
 
 If you used Bonita on Git before Bonita 7.7.0, you might want to clone it from the studio.   
-Be careful though: we cannot guarantee that the cloning of a repository not created with Bonita Studio will work properly.  
+Be careful though: we cannot guarantee that cloning a repository not created with Bonita Studio will work properly.  
 However, to do so, first check that your project on GitHub is "Bonita compliant":
 
-	 * The Git repository must correspond to a Bonita repository (and not the Bonita Workspace)
+	 * The Git repository content must correspond to a Bonita project (and not the Bonita Workspace)
 	 * The .project file must be present 
-	 * It is highly recommended to use the .gitignore file generated by Bonita when you share a Bonita repository from the studio.
+	 * It is highly recommended to use the .gitignore file generated by Bonita when you share a Bonita project from the studio.
 
-Still, the best way to proceed is to export the repository from the older version of the studio and import it in the new studio, and then share this repository on Git, although with this procedure, the history of revisions will be lost.
+Still, the best way to proceed is to export the project from the older version of the studio and import it in the new studio, and then share this project on Git, although with this procedure, the history of revisions will be lost.
 
 * **Commit...**  
 Shortcut action to `add`, `commit` and `push` the local changes.
@@ -156,7 +152,7 @@ More information available in [EGit user guide](http://wiki.eclipse.org/EGit/Use
 This gives you connexion information with the remote as well as the current status (ahead or behind) compared to the remote.
 This information is also available at the top of Bonita Studio window, as well as at the top of the Git Staging view.
 
-Those commands can be found in Repository > Team > Git menu.
+Those commands can be found in Team > Git menu.
 
 #### Conflict management 
 
@@ -165,7 +161,7 @@ Bonita Studio integrates the default merge tool of EGit. Here are some hints on 
 
 #### Advanced Git commands
 
-Git worklow offers a lot of other features that are not directly integrated in Bonita Studio. You can still use them using the command line interface ([available here](https://git-scm.com/download/)). To retrieve the location of your repository on your filesystem go to <bonita_studio_install_dir>/workspace/<name_of_the_repository>.
+Git worklow offers a lot of other features that are not directly integrated in Bonita Studio. You can still use them using the command line interface ([available here](https://git-scm.com/download/)). To retrieve the location of your project on your filesystem go to <bonita_studio_install_dir>/workspace/<name_of_the_project>.
 
 #### Troubleshooting
 
@@ -174,65 +170,62 @@ Git worklow offers a lot of other features that are not directly integrated in B
 
 ### SVN
 
-A shared repository is a repository on an SVN server. It can be accessed by members of the team working on a process definition.  
+A shared project is a repository on an SVN server. It can be accessed by members of the team working on a process definition.  
 It is protected by username and password. Only directories in the SVN 'trunk' can be used as Bonita repositories.  
 The repository created remotely is then copied to your default local workspace and synchronized.
 
-A shared Bonita development repository contains the artifacts developed in Bonita Studio and the UI Designer. For the UI Designer artifacts, there is no locking, merging, or conflict management.
-
-**Caution:** Items defined in Bonita Portal are not stored in the shared repository.  
-This includes applications and custom profiles. To share these artifacts, export them into an external repository such as Git. 
+A shared project contains the artifacts developed in Bonita Studio and the UI Designer. For the UI Designer artifacts, there is no locking, merging, or conflict management.
 
 #### Prerequisites
 
 * A central SVN server accessible by the process designers, accessible by URL, and protected by login and password.  
-* The same version of Bonita must be used by all users of the shared repository.
+* The same version of Bonita must be used by all users of the shared project.
 
-#### Create a shared repository
+#### Shared a project
 
 There are two stages to creating a repository: connect to the SVN server, then specify the name of the new repository. Follow these steps:
 
-1. In the **Repository** menu, choose **Team**.
-2. Click on **Connect to the repository**.
+1. In the menu **Team** > **SVN**.
+2. Click on **Connect to a repository**.
 3. In the Create a new connection window, enter the URL, username, and password in the appropriate fields.
 4. Click **_Next_** to connect to the remote SVN server.
 5. From time to time, depending on your system and network security setup, you may be asked to confirm security credentials.
 6. A popup displays a list of the existing Bonita repositories available on the SVN server.
-7. Click on the button **_Create a new Bonita repository_**.
-8. In the window, Repository name, give the repository a name e.g "my\_new\_repository".
+7. Click on the button **_Create a new Bonita project_**.
+8. In the window, Project name, give the project a name e.g "my\_new\_project".
 9. Click on **_OK_**.
 
-The new repository is created locally and copied remotely to the SVN server. You can configure synchronization for this new shared repository.
+The new project is created locally and copied remotely to the SVN server. You can configure synchronization for this new shared project.
 
-#### Connect to a shared repository
+#### Connect to a shared project
 
 To connect to a shared repository, follow these steps:
 
-1. In the **Repository** menu, choose **Team**.
-2. Click on **Connect to the repository**.
+1. In the  menu **Team** > **SVN**.
+2. Click on **Connect to a repository**.
 3. In the Create a new connection window, enter the URL, username, and password in the appropriate fields.
 4. Click on **_Next_** to connect to the remote SVN server.
 5. From time to time, depending on your system and network security setup, you may be asked to confirm security credentials.
 6. A popup displays a list of the existing Bonita repositories available on the SVN server.
-7. Select the name of the repository, and click **_Connect_**.
-8. A message is displayed, showing that you are connected to the shared repository. You can see the name of repository at the top left, in the title bar.
+7. Select the name of the project, and click **_Connect_**.
+8. A message is displayed, showing that you are connected to the shared project.
 9. Click on **_OK_**.
 
 The first time you connect to a repository, you might get a security warning.  
 Configure security for the connection according to your organization's security policy.
 
 
-#### Synchronize a shared repository
+#### Synchronize a shared project
 
-Synchronizing a shared repository means merging the changes you have made in your local copy into the central repository on the server, and updating your local copy with the result.  
+Synchronizing a shared project means merging the changes you have made in your local copy into the central repository on the server, and updating your local copy with the result.  
 There are three modes for synchronizing:
 
 * Recommended: Use manual synchronization for all repositories: With this mode, no automatic synchronization is done in either direction. This is the default behavior.
-You launch synchronization manually, by going to the **Repository** menu, choosing **Team** then **Commit artifacts**. There is also a keyboard shortcut: **_Ctrl+Alt+C_**.
+You launch synchronization manually, by going to the **Team** > **SVN** menu then **Commit artifacts**. There is also a keyboard shortcut: **_Ctrl+Alt+C_**.
 * Use automatic synchronization for all repositories: With this mode, every time you make a change, it is saved in both your local copy and the central repository. 
    Changes made to the central repository are sent immediately to your local copy.   
    You can only use this mode if you have a continuous network connection to the system hosting the SVN server. There is a significant network performance cost for using automatic synchronization. This option is not recommended.
-* Define synchronization mode repository by repository: With this mode, you define whether synchronization is manual or automatic for each repository.
+* Define synchronization mode project by project: With this mode, you define whether synchronization is manual or automatic for each project.
 
 #### Manage locks on shared resources
 
@@ -262,13 +255,13 @@ From the popup, you can:
 
 #### Avoiding conflicts
 
-A conflict occurs when two or more users update the same process in a repository and the updates are not compatible.  
-If you are using a shared repository, Bonita Studio automatically locks a Studio artifact when a user opens it for edit. (Note: UI Designer artifacts are not locked.)  
+A conflict occurs when two or more users update the same process in a project and the updates are not compatible.  
+If you are using a shared project, Bonita Studio automatically locks a Studio artifact when a user opens it for edit. (Note: UI Designer artifacts are not locked.)  
 This means that only one user at a time can update the artifact, avoiding the possibility of conflicts. The only risk of conflicts is if a user takes over a lock from another user who has not committed their changes.   
 For this reason, you are not recommended to unlock artifacts that are locked by another user.
 
 It is also good practise to commit your changes regularly, to keep your local working copy synchronized with the central repository.   
-To commit your changes, go to the **Repository** menu, choose **Team**, and then choose **Commit artifacts**.   
+To commit your changes, go to the  **Team** > **SVN** menu, and then choose **Commit artifacts**.   
 When you commit your changes, you have the option to release the lock so that another user can edit the artifact. By default, your lock is maintained.  
 If you want to release the lock, uncheck the **Keep locks** box in the Commit dialog.
 
@@ -278,7 +271,7 @@ If you are using a shared repository, all modifications to an artifact are recor
 
 To view the history for an artifact:
 
-1. Go to the **Repository** menu and choose **Team**, then **History**.
+1. Go to the **Team** > **SVN** > **History**.
 2. In the history list popup, select the artifact in the left-hand column.
 3. The revision history for the selected artifact is displayed in the right-hand column. 
 This shows all the changes that have been made, and the author of each change.
@@ -288,17 +281,17 @@ The selected version will be restored.
 
 #### Restore points
 
-A restore point is a marker in a repository that you can use to restore your repository back to an earlier state.  
-The difference between a restore point and a version in the revision history is that a restore point applies to the whole repository but a version applies to a single artifact.
+A restore point is a marker in a repository that you can use to restore your project back to an earlier state.  
+The difference between a restore point and a version in the revision history is that a restore point applies to the whole project but a version applies to a single artifact.
 
 To create a restore point:
 
-1. Go to the **Repository** menu and choose **Team**, then **Manage restore points**.
+1. Go to the **Team** > **SVN** then **Manage restore points**.
 2. Select **Create a restore point** then click **_Next_**.
 3. Enter a description for the restore point, then click **_Create_**. The restore point is created.
 
 To restore an older point:
 
-1. Go to the **Repository** menu and choose choose **Team**, then **Manage restore points**.
+1. Go to the **Team** > **SVN**, then **Manage restore points**.
 2. Select **Restore to an older point** then click **_Next_**.
-3. Select the restore point you want to restore, then click **_Restore_**. The repository reverts to the restore point.
+3. Select the restore point you want to restore, then click **_Restore_**. The project reverts to the restore point.

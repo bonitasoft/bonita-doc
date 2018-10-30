@@ -85,7 +85,7 @@ To export a diagram in BPMN 2.0 format from Bonita Studio:
 
 ## Export process elements
 
-You can export files related to elements of the processes in the Bonita Studio repository. The files are exported into a .bos archive that can be imported into another Bonita Studio.
+You can export files related to elements of the processes in the Bonita Studio project. The files are exported into a .bos archive that can be imported into another Bonita Studio.
 
 You can export the following:
 

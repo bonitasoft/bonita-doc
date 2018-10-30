@@ -91,19 +91,19 @@ A document that is stored as a file can be used to initialize or update the docu
 
 #### Resource
 
-The Bonita Studio Document Repository contains documents that have been imported from the file system. After a document is imported, it is called a resource. When you [build a process bar file for deployment](build-a-process-for-deployment.md), the resources used in the process are automatically included. A resource is available to all processes in an installation of Studio. A resource cannot be updated directly in Studio, but is updated by uploading a new file. Typically, resources are used for information that is stable and common to all instances of a process, or is used in several processes. The resource is used to initialize the document object in the process instance. You cannot use a resource to update a document object.
+The Bonita Studio Document assets contains documents that have been imported from the file system. After a document is imported, it is called a resource. When you [build a process bar file for deployment](build-a-process-for-deployment.md), the resources used in the process are automatically included. A resource is available to all processes in an installation of Studio. A resource cannot be updated directly in Studio, but is updated by uploading a new file. Typically, resources are used for information that is stable and common to all instances of a process, or is used in several processes. The resource is used to initialize the document object in the process instance. You cannot use a resource to update a document object.
 
 When you [export a process in a bos file for import into another Studio](import-and-export-a-process.md), you must select the resources that are used so that they are included.
 
-The dialog for adding a resource to the document repository is inside the dialog for adding a resource to a process definition.   However, you can add a resource without updating the process definition, as follows:
+The dialog for adding a resource to the document assests is inside the dialog for adding a resource to a process definition.   However, you can add a resource without updating the process definition, as follows:
 
 1. Open any process diagram and select the pool. This definition will not be updated.
 2. Go to the **Details** panel, **Data** tab, **Documents** pane.
 3. Select any document, and check **From local file**. If there are no documents defined for the process, click **_Add_** and specify a name for the document.
-4. Click **_Browse..._**. A popup shows the list of resources in the repository.
+4. Click **_Browse..._**. A popup shows the list of available assets.
 5. Click **_Import..._**. A file selector popup is displayed.
 6. Select the file that you want to import. The filename is added to the list of resources.
-7. Click **_Cancel_** to close the list of resources in the repository.
+7. Click **_Cancel_** to close the list of assets.
 8. Click **_Cancel_** to close the document editor or creator. The process diagram and document definition are not updated.
 
 When you deploy a process, the documents included in the bar file are stored in the local Bonita database. They are used to initialize document objects when a process instance is created or when a form is initialized.

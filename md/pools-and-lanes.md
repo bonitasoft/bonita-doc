@@ -9,7 +9,7 @@ When you create a new diagram it contains one pool, which contains one lane. You
 
 For a pool, you can configure the following:
 
-* Name, description, and version number: This information identifies the pool. The name must be unique withing a repository. The pool version number is really the process version number. Update the version number when you make major changes to the process. There is no link between the pool version number and the diagram version number.
+* Name, description, and version number: This information identifies the pool. The name must be unique withing a project. The pool version number is really the process version number. Update the version number when you make major changes to the process. There is no link between the pool version number and the diagram version number.
 * Actors: An actor represents the user who will carry out tasks in the pool. [Configure the actors](actors.md) that participate in the process. An actor must be defined at pool level before it can be assigned to a lane or task.
 * Data: A variable is a container for data used in the process. [Create the variables](specify-data-in-a-process-definition.md) that will be used in your process. You can also create variables at task or form level.
 * Connectors: A connector links a process to an external information source. [Specify the connectors](connectivity-overview.md) used in the process. You can also specify a connector at lane or task level, but if a connector is used more than once it is better to define it at pool level.

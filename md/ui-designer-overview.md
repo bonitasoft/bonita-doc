@@ -83,5 +83,5 @@ If you want to benefit from readable Ids for your existing artifacts, you need t
 :::
 
 :::warning
-If your repository is under version control and you rename an artifact, you could loose the history of the artifact's resources depending on your version control system. If you use git, "git-log --follow" allows you to keep track of moved files.
+If your project is under version control and you rename an artifact, you could loose the history of the artifact's resources depending on your version control system. If you use git, "git-log --follow" allows you to keep track of moved files.
 :::
