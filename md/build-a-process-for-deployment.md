@@ -22,7 +22,7 @@ or
 3. Specify the location where the .bar file will be created. The filename is determined by the process name and cannot be changed at this stage.
 4. Click **Finish**. The business archive is created.
 
-When you build a process from the project explorer, the configuration used is the configuration saved as default. You can edit it from the [configure menu]{configuring-a-process.md}
+When you build a process from the project explorer, the configuration used is the configuration saved as default. You can edit it from the [configure menu](configuring-a-process.md)
 
 
 You can now [install the process in Bonita Portal](processes.md).
