@@ -13,7 +13,7 @@ Then, all resources used by applications will be centralized and shared by the B
 Basically, an **application descriptor** is an XML file. It represents the skeleton of an application, as it contains references to resources installed in Bonita Portal and used by a given application.  
 An application descriptor must be imported onto the portal (**Administrator** profile), in the **Applications** tab, to enable the application.  
 Before Bonita 7.5, this portal tab was the only way to create and manage applications.  
-For development purposes, the Studio can **deploy** applications descriptors onto the portal for you (_only for Enterprise, Performance and Efficiency editions_).
+For development purposes, the Studio can **deploy** applications descriptors onto the portal for you, from the project explorer or from the graphical editor (_only for Enterprise, Performance and Efficiency editions_).
 
 Application descriptors are packaged in **application files**.  
 An **application file** is an XML file containing one or more application descriptors.  
@@ -39,8 +39,8 @@ For example, the four leave management applications for employees, managers, Hum
 **Note:** All Bonita editions come with an .xml editor for this feature. Only Enterprise, Performance and Efficiency editions also come with a graphical UI.
 :::
 
-From Bonita Studio, click on **Development** -> **Application Descriptor** -> **New...**  
-It will create an empty application file with a default name and open an editor. You can **rename** this application file from the graphical UI or from the menu **Open**.  
+From Bonita Studio, use the **new** button in the Studio coolbar or click on **Development** -> **Application Descriptor** -> **New...**  
+It will create an empty application file with a default name and open an editor. You can **rename** this application file from the project explorer, the graphical UI or the menu **Open**.  
 
 ![Empty Application File](images/applicationDescriptors/emptyApplicationFile_v2.png)  
 Here is the application descriptor graphical UI provided. It is bound to the XML source, so you can use it to build your application descriptor without writing xml.  
