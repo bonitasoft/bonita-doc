@@ -69,7 +69,7 @@ You can add a little padding between the modal container content and its borders
 * modal-body
 * modal-footer, which creates a horizontal line on top of the element
 
-A modal container doesn't work when it is embedded in another container, next to other widgets or inside a fragment.
+A modal container doesn't work when it is embedded in another modal container.
 In a form, a page, or a layout, we recommend to drop modal containers at the bottom of the editor content.
 To embed a pop-in into another pop-in at runtime, drop the first modal container at the bottom, drop the second modal container below the first one, and drop the button that opens the second pop-in within the first modal container.
 
