@@ -27,7 +27,12 @@ It is no longer possible to import BAR files created with Bonita 5.x in the Stud
 
 ### Debug action in Studio
 
+## Supported Tomcat version
+
+* The supported Tomcat version for this new release is Tomcat 8.5.34, in the Bonita Studio as well as in the Tomcat bundle.
+
 ## Other dependency updates
+
 Some internal libraries have been updated to newer versions:
 * spring framework version is now 5.0.10.RELEASE
 * spring-boot version is now 2.0.6.RELEASE
