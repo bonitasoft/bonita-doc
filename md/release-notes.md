@@ -37,7 +37,7 @@ It is important to notice that on the editor, embedding a modal window in anothe
 <a id="workers-logs"/>
 
 ### Monitoring of number and details of engine workers
-In Bonita logs, busy engine workers and their activity is now available.
+Busy engine workers and their activity is now available through JMS counters. Plug a JMS console on Bonita JVM to monitor workers activity.
 
 <a id="convert"/>
 
