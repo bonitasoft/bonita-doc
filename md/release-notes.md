@@ -152,8 +152,3 @@ It is no longer possible to import BAR files created with Bonita 5.x in the Stud
 
 ### Debug action in Studio
 Debug, the option to run a diagram without its connectors, is not supported anymore, as its value proved to be too little.
-
-## API behavior change
-## Limitations and known issues
-## Bug fixes
-## Acknowledgments
