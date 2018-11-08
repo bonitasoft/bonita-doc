@@ -2,15 +2,6 @@
 
 ## New values added
 
-<a id="uipath"/>
-
-## Integration with UiPath : add Robotic Process Automation (RPA) to your BPM processes
-Sometimes, because of legacy systems, or the way systems interact, and the complexity and cost it would take to change things, employees must perform repetitive tasks, with not much added-value, like copying and pasting values from one system to another. This times are over now with the possibility to connect Bonita with its [technology partner UiPath](https://www.bonitasoft.com/robotic-process-automation), the leader in RPA. Let a robot do the boring tasks for the employees, and let the employees focus on the complex tasks with strong added-value. New connectors are now available in the Studio:
-* Start jobs: start a job on Orchestrator on a specified number of Robots. (compatible with _job input parameters_  in version 2018.3)
-* Add queue item: add a new item in a queue in order to exchange data with jobs
-* Get job status: retrieve the current status of a job
-Moreover, UiPath provides native activities to interact with Bonita in order to start a Case, send a BPM Message, validate a Task. (see UiPath documentation for more details)
-
 <a id="project-explorer"/>
 
 ### Project explorer in Bonita Studio
@@ -23,51 +14,30 @@ As for the Tree view, it is displayed just by the Project explorer, as a deep di
 **REST API extensions:**
 The tree view is now nested in the global project explorer.
 
-<a id="callback"/>
+<a id="uipath"/>
 
-### Bonita callback method
-A new REST API sendMessage is available for when Bonita has launched an external service (like UiPath or DocuSign) and needs to be called back in an asynchronous manner.
+### Integration with UiPath : add Robotic Process Automation (RPA) to your BPM processes
+Sometimes, because of legacy systems, or the way systems interact, and the complexity and cost it would take to change things, employees must perform repetitive tasks, with not much added-value, like copying and pasting values from one system to another. This times are over now with the possibility to connect Bonita with its [technology partner UiPath](https://www.bonitasoft.com/robotic-process-automation), the leader in RPA. Let a robot do the boring tasks for the employees, and let the employees focus on the complex tasks with strong added-value. New connectors are now available in the Studio:
+* Start jobs: start a job on Orchestrator on a specified number of Robots. (compatible with _job input parameters_  in version 2018.3)
+* Add queue item: add a new item in a queue in order to exchange data with jobs
+* Get job status: retrieve the current status of a job
+Moreover, UiPath provides native activities to interact with Bonita in order to start a Case, send a BPM Message, validate a Task. (see UiPath documentation for more details)
 
 <a id="modal"/>
 
 ### Modal container to create pop-ins 
-A new container is now available in the UI Designer palette. To manage such containers, the button widget gains two actions: "Open modal" and "Close modal".
-It is important to notice that on the editor, embedding a modal window in another modal window is not supported. Embed the buttons to open pop-ins in pop-ins, but not the modal containers themselves.
-
-<a id="workers-logs"/>
-
-### Monitoring of number and details of engine workers
-Busy engine workers and their activity is now available through JMS counters. Plug a JMS console on Bonita JVM to monitor workers activity.
+A new _Modal_ container is now available in the UI Designer palette, that open over the content of a page/form/layout. 
+To manage such containers, the _Button_ widget gains two actions: "Open modal" and "Close modal".
 
 <a id="convert"/>
 
-### Change the type of a UI Designer artifact, from page to form and from form to page
+### Change the type of a UI Designer artifact (page/form)
 From the page or form editors, right by the "Save" button, a click on the arrow displays a new option "Convert to...". Moreover, in the "Save as" option, the possibility to change the type has also been added, to, for example, save a form as a case overview page.
 
-<a id="improvements"/>
+<a id="callback"/>
 
-## Improvements
-
-<a id="uuid"/>
-
-### Stability of files throughout revisions
-Updating timers, business data, data dependencies, messages, pools, contract inputs, parameters, expressions, connectors, and documents, used to create additional UUID (Universal Unique Identifier) that resulted in false positives when comparing two revisions of the same file (using Git or SVN). This has been improved to make only real changes stick out when using a Diff Tool.
-
-<a id="rest-timeout"/>
-
-### REST connector Read timeout is configurable
-In the REST connector, it is now possible to set the connection timeout (during connection) and the socket timeout (lack of answer of the distant machine after connection).
-The default value is one minute for both, the values that were hard-coded before.
-
-<a id="ldap-error"/>
-
-### LDAP synchronizer manages errors and continues on fail
-Better error management during LDAP synchronization.
-
-<a id="clause-in"/>
-
-### BDM query parameters accept arrays
-It is now possible to query for multiple values of an attribute in the BDM objects.
+### Bonita callback method
+A new REST API sendMessage is available for when Bonita has launched an external service (like UiPath or DocuSign) and needs to be called back in an asynchronous manner.
 
 <a id="translate-expression"/>
 
@@ -86,10 +56,57 @@ They could be edited by opening the page.properties file. Now, they can be direc
 Also by clicking on the "Tag" button, you can get a summary of all REST API calls made by the current artifact to the Bonita REST API.
 This helps validating if all expected calls are well implemented in the artifact in its current state.
 
+<a id="clause-in"/>
+
+### BDM query parameters accept arrays
+It is now possible to query for multiple values of an attribute in the BDM objects.
+On example: 
+{code:sql}
+SELECT e
+FROM Employee e
+WHERE e.firstName IN (_:firstNames_)
+ORDER BY p.persistenceId ASC
+{code}
+where _:firstNames_ is a query parameter with a String[] type.
+
+<a id="workers-logs"/>
+
+### Monitoring of number and details of engine workers
+Busy engine workers and their activity is now available through JMS counters. Plug a JMS console on Bonita JVM to monitor workers activity.
+
 <a id="bonita-theme"/>
 
 ### New Living Applications theme
 A new theme is available for any Living Application you create: "bonita-default-theme". 
+<a id="improvements"/>
+
+## Improvements
+
+<a id="uuid"/>
+
+### Stability of files throughout revisions
+Updating timers, business data, data dependencies, messages, pools, contract inputs, parameters, expressions, connectors, and documents, used to create additional UUID (Universal Unique Identifier) that resulted in false positives when comparing two revisions of the same file (using Git or SVN). This has been improved to make only real changes stick out when using a Diff Tool.
+
+<a id="gwt"/>
+
+### New pages in the Portal: process list for profile "User" and BPM services for profile "Technical User"
+As Google Web Toolkit is an ageing technology, Bonita needs to transform the pages of Bonita Portal step by step.
+In this Bonita 7.8 release, two pages have been rewritten: 
+ - **Process list** for the profile User, very simplified compared to the GWT one.
+   It has been created using [React](https://reactjs.org/). It is made available in the portal's Resources page, so it can be used in any application. It cannot be edited in the UI Designer.
+ - **BPM Services** page for the profile Technical Administrator
+   It has been created using the UI Designer and the new modal container. Since it is dedicated to a profile critical for the good initialization and management of Bonita, the page has not been made available in the portal's resources. It cannot be added to any application nor be edited in the UI Designer. It's designed has been slightly reviewed compared to the GWT one.
+   
+<a id="rest-timeout"/>
+
+### REST connector Read timeout is configurable
+In the REST connector, it is now possible to set the connection timeout (during connection) and the socket timeout (lack of answer of the distant machine after connection).
+The default value is one minute for both, the values that were hard-coded before.
+
+<a id="ldap-error"/>
+
+### LDAP synchronizer manages errors and continues on fail
+Better error management during LDAP synchronization.
 
 <a id="operations-apiaccessor"/>
 
@@ -102,11 +119,12 @@ In diagram operations, the right operand should only use the apiAccessor with re
 
 <a id="kerberos"/>
 
-### Integration of SSO Kerberos (Teamwork, Efficiency, Performance edition)
-Bonita works with Single-Sign-On (SSO) solutions using Kerberos protocol:
-- Use standard authentication service
-- Connect to Bonita Living Applications with company credentials (per tenant configuration)
-- Works for Windows and many UNIX and UNIX-like operating systems: FreeBSD, Apple's MacOS, RED Hat Enterprise Linux, Oracle's Solaris..
+### Integration of Kerberos/SPNEGO-based SSO (Teamwork, Efficiency, Performance edition)
+Bonita works with Single-Sign-On (SSO) solutions using Kerberos/SPNEGO protocol:
+- Uses password or passphrase authentication service engine side
+- Allows connection to Bonita Portal and Living Applications with company credentials
+- Per tenant configuration
+- Compatible with Windows authentication and many UNIX-like operating systems
 
 <a id="other-dependencies"/>
 
@@ -128,16 +146,6 @@ Update to a newer Tomcat version.
 
 ## Feature removals
 
-<a id="gwt"/>
-
-### GWT technology in the Portal (1/n)
-As Google Web Toolkit is an ageing technology, Bonita needs to transform the pages of Bonita Portal step by step.
-In this Bonita 7.8 release, two pages have been redone: 
- - Process list for the profile User
-   It has been done using React. It is made available in the portal's Resources page, so it can be used in any application. It cannot be edited in the UI Designer.
- - Tenant status page for the profile Technical Administrator
-   It has been done using the UI Designer and the new modal container. Since it is dedicated to a profile critical for the good initialization and management of Bonita, the page has not been made available in the portal's resources. It cannot be added to any application nor be edited in the UI Designer.
-
 <a id="6.x-form"/>
 
 ### 6.x forms based on GWT technology
@@ -150,5 +158,8 @@ Before you start Bonita Studio 7.8 or migrate your production to Bonita 7.8., ma
 ### 5.x BAR file import in Studio
 It is no longer possible to import BAR files created with Bonita 5.x in the Studio. If you still need to migrate 5.x bar, use Bonita Studio __7.7.x__ version.
 
+### Directory "Resources/forms" for the business archives
+This used to store Legacy v6 forms. When migrating a production environment to 7.8.0, it will be removed from the database.
+
 ### Debug action in Studio
-Debug, the option to run a diagram without its connectors, is not supported anymore, as its value proved to be too little.
+Debug, the option to run a diagram without its connectors, is not supported anymore, as its value proved to be too small.
