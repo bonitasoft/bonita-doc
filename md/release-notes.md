@@ -26,8 +26,17 @@ Moreover, UiPath provides native activities to interact with Bonita in order to 
 <a id="modal"/>
 
 ### Modal container to create pop-ins 
-A new _Modal_ container is now available in the UI Designer palette, that open over the content of a page/form/layout. 
+A new [_Modal_ container](widgets.md#modal-container) is now available in the UI Designer palette, that open over the content of a page/form/layout. 
 To manage such containers, the _Button_ widget gains two actions: "Open modal" and "Close modal".
+
+<a id="kerberos"/>
+
+### Integration of Kerberos/SPNEGO-based SSO (Teamwork, Efficiency, Performance edition)
+Bonita works with [Single-Sign-On (SSO) solutions using Kerberos/SPNEGO protocol](single-sign-on-with-kerberos.md):
+- Uses password or passphrase authentication service engine side
+- Allows connection to Bonita Portal and Living Applications with company credentials
+- Per tenant configuration
+- Compatible with Windows authentication and many UNIX-like operating systems
 
 <a id="convert"/>
 
@@ -37,12 +46,14 @@ From the page or form editors, right by the "Save" button, a click on the arrow 
 <a id="callback"/>
 
 ### Bonita callback method
-A new REST API sendMessage is available for when Bonita has launched an external service (like UiPath or DocuSign) and needs to be called back in an asynchronous manner.
+A new [REST API sendMessage](bpm-api.md#message) is available for when Bonita has launched an external service (like UiPath or DocuSign) and needs to be called back in an asynchronous manner.
 
 <a id="translate-expression"/>
 
 ### In the UI Designer, strings in JavaScript expressions can now be translated
-When writing the content of a variable of type JavaScript Expression, autocompletion now offers a new service for translation; uiTranslate().
+When writing the content of a variable of type JavaScript Expression, you may want to translate the strings withing.
+Autocompletion (_ctrl+space_) now offers a new service for translation: uiTranslate(). 
+This gives the opportunity to get such strings available for translation in the _localization.json_ asset of the UI Designer artifact.
 
 <a id="metadata"/>
 
@@ -117,14 +128,10 @@ In diagram operations, the right operand should only use the apiAccessor with re
 
 ## Technology updates
 
-<a id="kerberos"/>
+<a id="tomcat"/>
 
-### Integration of Kerberos/SPNEGO-based SSO (Teamwork, Efficiency, Performance edition)
-Bonita works with Single-Sign-On (SSO) solutions using Kerberos/SPNEGO protocol:
-- Uses password or passphrase authentication service engine side
-- Allows connection to Bonita Portal and Living Applications with company credentials
-- Per tenant configuration
-- Compatible with Windows authentication and many UNIX-like operating systems
+### Tomcat 8.5.34
+Update to a newer Tomcat version. Find more info on the [Tomcat changelog official page](https://tomcat.apache.org/tomcat-8.5-doc/changelog.html)
 
 <a id="other-dependencies"/>
 
@@ -137,11 +144,6 @@ Some internal libraries have been updated to newer versions:
 * spring framework version is now 5.0.10.RELEASE
 * spring-boot version is now 2.0.6.RELEASE
 
-<a id="tomcat"/>
-
-### Tomcat 8.5.34
-Update to a newer Tomcat version.
-
 <a id="feature-removals"/>
 
 ## Feature removals
@@ -149,9 +151,13 @@ Update to a newer Tomcat version.
 <a id="6.x-form"/>
 
 ### 6.x forms based on GWT technology
-Studio forms based on Google Web Toolkit (GWT) technology are not supported anymore, starting with Bonita 7.8. They have been removed from Bonita Studio. Importing a .bos will not import such forms.
-Cloning a Git repository or migrating a SVN repository will remove such forms and their related content (validators, look'n'feels, forms and widgets templated).  
-Before you start Bonita Studio 7.8 or migrate your production to Bonita 7.8., make sure you have replaced such forms/pages by forms/pages created with more recent technologies and newer concepts, offered since Bonita 7.0: [UI Designer](ui-designer-overview.md) and [contract and context](contracts-and-contexts.md).
+Studio forms and case overview page based on Google Web Toolkit (GWT) technology are not supported anymore. 
+They have been removed from Bonita Studio. Importing a .bos will not import such forms or overview page.
+Cloning a Git repository or migrating a SVN repository will remove such forms and their related content (validators, look and feel, forms and widgets templates).  
+Before you start Bonita Studio 7.8 or migrate your production to Bonita 7.8., make sure you have replaced such forms/pages by forms/pages created with more recent technologies and newer concepts, offered since Bonita 7.0.
+The latest Bonita version to support 6.x forms and overview pages is Bonita 7.7.x. 
+For more information, go to the documentation on [UI Designer](ui-designer-overview.md) and [contract and context](contracts-and-contexts.md) or [migrate processes and forms](migrate-a-form-from-6-x) .
+For any questions, contact the Bonita Support Team or Customer Success representative.
 
 <a id="bar-importer"/>
 
