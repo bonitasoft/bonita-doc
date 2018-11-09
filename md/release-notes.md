@@ -16,7 +16,8 @@ The tree view is now nested in the global project explorer.
 
 <a id="uipath"/>
 
-### Integration with UiPath : add Robotic Process Automation (RPA) to your BPM processes
+### Integration with UiPath : add Robotic Process Automation (RPA) to your BPM processes 
+_(Teamwork, Efficiency, Performance, and Enterprise editions)_
 Sometimes, because of legacy systems, or the way systems interact, and the complexity and cost it would take to change things, employees must perform repetitive tasks, with not much added-value, like copying and pasting values from one system to another. This times are over now with the possibility to connect Bonita with its [technology partner UiPath](https://www.bonitasoft.com/robotic-process-automation), the leader in RPA. Let a robot do the boring tasks for the employees, and let the employees focus on the complex tasks with strong added-value. New connectors are now available in the Studio:
 * Start jobs: start a job on Orchestrator on a specified number of Robots. (compatible with _job input parameters_  in version 2018.3)
 * Add queue item: add a new item in a queue in order to exchange data with jobs
@@ -31,7 +32,8 @@ To manage such containers, the _Button_ widget gains two actions: "Open modal" a
 
 <a id="kerberos"/>
 
-### Integration of Kerberos/SPNEGO-based SSO (Teamwork, Efficiency, Performance edition)
+### Integration of Kerberos/SPNEGO-based SSO 
+_(Teamwork, Efficiency, Performance, and Enterprise editions)_
 Bonita works with [Single-Sign-On (SSO) solutions using Kerberos/SPNEGO protocol](single-sign-on-with-kerberos.md):
 - Uses password or passphrase authentication service engine side
 - Allows connection to Bonita Portal and Living Applications with company credentials
@@ -83,7 +85,8 @@ where _:firstNames_ is a query parameter with a String[] type.
 <a id="workers-logs"/>
 
 ### Monitoring of number and details of engine workers
-Busy engine workers and their activity is now available through JMS counters. Plug a JMS console on Bonita JVM to monitor workers activity.
+_(Teamwork, Efficiency, Performance, and Enterprise editions)_
+Busy engine workers and their activity is now available through JMS counters. Plug a JMX client on Bonita JVM to monitor workers activity.
 
 <a id="bonita-theme"/>
 
