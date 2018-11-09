@@ -6,7 +6,7 @@
 
 ### Project explorer in Bonita Studio
 In one glance, view the content of the current Bonita project. In Bonita 7.8, the project is the equivalent of what used to be a repository. Now repository is dedicated to SVN and Git, where Bonita becomes only about projects. 
-From this view, you can create, open, edit, delete and use SVN and Git commands, simply with a right click.
+From this view, you can create, open, edit, delete and use SVN and Git commands, simply with a right click. 
 **Diagrams:**
 The BPMN palette is now included in the diagram view, and if you collapse it, it still automatically opens when your mouse passes over its closed panel, and closes once you have selected the element to drag and drop on the diagram.
 The overview of the diagram is now stacked in the properties view, after the Validation tab, and is now called "Minimap".
@@ -155,7 +155,7 @@ Some internal libraries have been updated to newer versions:
 
 ### 6.x forms based on GWT technology
 Studio forms and case overview page based on Google Web Toolkit (GWT) technology are not supported anymore. 
-They have been removed from Bonita Studio. Importing a .bos will not import such forms or overview page.
+They have been removed from Bonita Studio. Importing a .bos will not import such forms or overview pages.
 Cloning a Git repository or migrating a SVN repository will remove such forms and their related content (validators, look and feel, forms and widgets templates).  
 Before you start Bonita Studio 7.8 or migrate your production to Bonita 7.8., make sure you have replaced such forms/pages by forms/pages created with more recent technologies and newer concepts, offered since Bonita 7.0.
 The latest Bonita version to support 6.x forms and overview pages is Bonita 7.7.x. 
