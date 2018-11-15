@@ -45,7 +45,7 @@ This change log must be read before migrating to a newer version of Bonita.
 ## 2.27.0 - Jan. 4th, 2018 (Bonita 7.6.1)
    None
 
-## Migration tool 2.26.0 - Dec. 7th, 2017 (Bonita 7.5.4)
+## 2.26.0 - Dec. 7th, 2017 (Bonita 7.5.4)
    None
 
 ## 2.25.1 - Sep. 20th, 2017 (Bonita 7.5.4)
