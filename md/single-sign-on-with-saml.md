@@ -165,11 +165,10 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
          - put your private key here
          
          with you current Bonita server's private key.
-      
-:::info 
+:::info
 _If your IdP does neither require the SSO requests to be signed nor encrypt its own responses, you can remove the Keys node from the SP and set the attributes signaturesRequired, signRequest and signResponse to false._
-::: 
-         
+:::
+
     + If your **IdP responses are signed**:
       + make sure you have signing="true" inside the Key node of the IDP
       + replace the following strings in the Keys:Key section of the IDP:  
@@ -181,7 +180,6 @@ _If your IdP does neither require the SSO requests to be signed nor encrypt its 
       + make sure you have the following in the SingleLogoutService node:
          - validateRequestSignature="true"
          - validateResponseSignature="true"
-      
 :::info
 _If your IdP responses are not signed, you can remove the Keys node from the IDP and set the attributes validateRequestSignature and validateResponseSignature to false._
 :::
