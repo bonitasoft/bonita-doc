@@ -98,7 +98,7 @@ A new theme is available for any Living Application you create: "bonita-default-
 
 <a id="uuid"/>
 
-### Stability of files throughout revisions
+### Stability of sources files throughout revisions
 Updating timers, business data, data dependencies, messages, pools, contract inputs, parameters, expressions, connectors, and documents, used to create additional UUID (Universal Unique Identifier) that resulted in false positives when comparing two revisions of the same file (using Git or SVN). This has been improved to make only real changes stick out when using a Diff Tool.
 
 <a id="gwt"/>
@@ -111,6 +111,16 @@ In this Bonita 7.8 release, two pages have been rewritten:
  - **BPM Services** page for the profile Technical Administrator
    It has been created using the UI Designer and the new modal container. Since it is dedicated to a profile critical for the good initialization and management of Bonita, the page has not been made available in the portal's resources. It cannot be added to any application nor be edited in the UI Designer. It's designed has been slightly reviewed compared to the GWT one.
    
+<a id="performance"/>
+
+### Performance
+A few improvements have been made to the engine efficiency:
+- Deleting an archived case now takes only a few milliseconds
+- The number of accesses to temp folders has been reduced on the file system to limit I/O access 
+- Works execution uses less database resources
+- The login REST APIs mechanism consumes less resources
+- At engine startup and BPM services resume, jars are written on disk right after retrieving them from the database to save memory 
+
 <a id="rest-timeout"/>
 
 ### REST connector Read timeout is configurable
