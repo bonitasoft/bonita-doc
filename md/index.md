@@ -16,7 +16,7 @@ Click on the **links** below to find useful information quickly, or [browse the 
 * [Bonita integreates Robotic Process Automation](release-notes.md#uipath)<!--{li:.first .leaf}-->
 * [New modal container in the UI Designer](release-notes.md#modal)<!--{li:.first .leaf}-->
 * [Integration with Kerberos/SPNEGO-based SSO](release-notes.md#kerberos)<!--{li:.first .leaf}-->
-* [Call back Bonita asynchronously from an external service] (release-notes.md#callback)<!--{li:.first .leaf}-->
+* [Call back Bonita asynchronously from an external service](release-notes.md#callback)<!--{li:.first .leaf}-->
 <!--{ul:.menu .nav}-->
 
 </div>
