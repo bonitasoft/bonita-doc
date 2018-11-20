@@ -16,9 +16,21 @@
 <a id="6.x-form"/>
 
 ### 6.x forms based on GWT technology
-Studio forms based on Google Web Toolkit (GWT) technology are not supported anymore, starting with Bonita 7.8. They have been removed from Bonita Studio. Importing a .bos will not import such forms.
-Cloning a Git repository or migrating a SVN repository will remove such forms and their related content (validators, look'n'feels, forms and widgets templated).  
-Before you migrate your production to Bonita 7.8, make sure you use Bonita Studio to replace such forms/pages by forms/pages created with more recent technologies and newer concepts, offered since Bonita 7.0: [UI Designer](ui-designer-overview.md) and [contract and context](contracts-and-contexts.md).  
+Studio forms based on Google Web Toolkit (GWT) technology are not supported anymore, starting with Bonita 7.8.  
+They have been removed from Bonita Studio.  
+This means that, in the studio, there is no more:
+  - "Resources" tab, 
+  - "Application" tab, nor all associated configuration in the process (Pageflow transition, Entry forms, View forms, Recap forms, etc.)
+  - Look'n'feels, validators, forms and widgets templates, and theme editor 
+  - In the _Execution > Form_ tab, the "Legacy 6.x" option is no longer available.
+In a repository/project, there is no more "Application resources" folder.
+
+Importing a .bos will not import such forms.
+Cloning a Git repository or migrating a SVN repository will remove such forms.
+
+Before you migrate your production to Bonita 7.8, make sure you use Bonita Studio in a version older than 7.8.0 to [replace such forms/pages](migrate-form-from-6.x.md) by forms/pages created with more recent technologies and newer concepts, offered since Bonita 7.0: [UI Designer](ui-designer-overview.md) and [contract and context](contracts-and-contexts.md). 
+Learn for example how to replace the [configuration page](migrate-form-from-6.x.md), no longer available.
+
 Moreover, deploying a process (.bar file) containing forms/pages developped using Google Web Toolkit is not possible anymore.
 
 <a id="bar-importer"/>
