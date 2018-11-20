@@ -114,12 +114,12 @@ In this Bonita 7.8 release, two pages have been rewritten:
 <a id="performance"/>
 
 ### Performance
-A few improvements have been made to the engine efficiency:
-- Deleting an archived case now takes only a few milliseconds
-- The number of accesses to temp folders has been reduced on the file system to limit I/O access 
+A few improvements have been brought to the overall Bonita efficiency:
+- Deleting an archived case went down from seconds to milliseconds. Particularly enjoyable on environments with a large amount of archived data. Moreover, deleting cases in batches is now nearly as fast as deleting a single case and is not constrained by database connexion timeouts. 
+- There is less I/O requests to temp folders
 - Works execution uses less database resources
 - The login REST APIs mechanism consumes less resources
-- At engine startup and BPM services resume, jars are written on disk right after retrieving them from the database to save memory 
+- At engine startup and BPM services resume, the process dependencies loading requires less memory
 
 <a id="rest-timeout"/>
 
