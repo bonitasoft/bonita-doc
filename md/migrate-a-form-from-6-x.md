@@ -1,7 +1,7 @@
 # Migrate a form from 6.x
 
 ::: warning
-**Attention**: Starting with Bonita 7.8, 6.x GWT forms and case overview forms are not available for both modeling and execution. To perform the operations listed below, you will need to import your processes in a Bonita Studio of any version up to 7.7.x, and build new versions of your processes before migrating to 7.8.0 or above.
+**Attention**: Starting with Bonita 7.8, 6.x GWT forms and case overview forms are not available for both modeling and execution. To perform the operations listed below, you will need to import your processes in a Bonita Studio of any version up to 7.7.x, and build new versions of your processes and forms before migrating to 7.8.0 or above.
 :::
 
 There is no specific tooling to assist with migration, and you do not have to migrate all apsects of a process definition at the same time.  
@@ -18,3 +18,8 @@ You can do so with a process that uses a connector to retrieve external data and
 6. In the Studio, at pool level and for each human task, go to the **_Details_** panel, **_Execution_** tab, **_Form_** section, and change the option from **Legacy (6.x)** to **_UI Designer_**. You can also generate them in another development environment. In this case, choose **_External URL_** option.
 
 When you export a diagram, forms created in the UI Designer are embedded by default in the .bos and .bar files, to share between Bonita Studios (.bos) or install in a Bonita Portal (.bar), so you don't need to manually export them and import them one by one.
+
+7. Confirmation page. After a 6.x form was submitted, the Portal handled a Confirmation page that browsed for the next available task in the current case for the logged user. In case there was no such a subsequent task for the user, she needed to go back to the Task List with a click, which happened most of the time. 
+Bonitasoft believes in the huge user experience potential of Living Applications to better empower users who need to follow the management of business objects along a process instance. This is why such use cases (several sequential tasks performed on the same process instance by the same actor) are now implemented with Living Applications.
+Using the Task List is now best fit to manage tasks from several processes, sorted by to due date and priority.
+However, if Task List remains your preference, a Custom Widget can be created in the UI Designer, to shortcut Bonita call to the task list after form submission and search for the next available task for the logged user. You will find this resources as a [contribution of the Community](https://community.bonitasoft.com/project/redirect-next-task-widget).
