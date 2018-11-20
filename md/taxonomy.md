@@ -1,4 +1,5 @@
 * [Release notes](release-notes.md)
+* [Migration tool change log](migration-tool.md)
 * [Application and Process Design](_application-and-process-design.md)
   * [Bonita BPM overview](bonita-bpm-overview.md)
   * [Application and process design overview](_application-and-process-design-overview.md)
