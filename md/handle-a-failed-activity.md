@@ -36,14 +36,14 @@ The methods that are used to reset process items are in the ProcessManagementAPI
 
 First you need to log in, create the session, and get the ProcessAPI:
 ```groovy
-final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
-        final APISession session = loginAPI.login("USERNAME", "PASSWORD");
-        final ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);
+        final APIClient apiClient = new APIClient()
+        apiClient.login("USERNAME", "PASSWORD")
+        final ProcessAPI processAPI = apiClient.getProcessAPI();
 ```
 
 Then find the connector instance that failed:
 ```groovy
-final SearchOptions searchOptions = new SearchOptionsBuilder(0, 1).filter(ConnectorInstancesSearchDescriptor.CONTAINER_ID, failedTaskId)
+        final SearchOptions searchOptions = new SearchOptionsBuilder(0, 1).filter(ConnectorInstancesSearchDescriptor.CONTAINER_ID, failedTaskId)
                 .filter(ConnectorInstancesSearchDescriptor.STATE, ConnectorState.FAILED.name()).done();
         final SearchResult<ConnectorInstance> searchResult = processAPI.searchConnectorInstances(searchOptions);
         final ConnectorInstance connectorInstance = searchResult.getResult().get(0);
@@ -52,12 +52,12 @@ final SearchOptions searchOptions = new SearchOptionsBuilder(0, 1).filter(Connec
 Find the reason for the failure by searching the internal logs:
 
 ```groovy
-// search why the connector failed:
+        // search why the connector failed:
         final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
         builder.filter(LogSearchDescriptor.ACTION_SCOPE, failedTaskId);
         builder.searchTerm("Connector execution failure");
         builder.sort(LogSearchDescriptor.ACTION_TYPE, Order.ASC);
-        final LogAPI logAPI = TenantAPIAccessor.getLogAPI(session);
+        final LogAPI logAPI = apiClient.getLogAPI();
         final SearchResult<Log> searchedLogs = logAPI.searchLogs(builder.done());
         for (Log log : searchedLogs.getResult()) {
             // Print the failed connecor reason message:
@@ -74,7 +74,6 @@ Finally, log out: `loginAPI.logout(session);`
 
 ## Complete code
 ```groovy
-import org.bonitasoft.engine.api.LoginAPI;
 import org.bonitasoft.engine.bpm.connector.ConnectorInstance;
 import org.bonitasoft.engine.bpm.connector.ConnectorInstancesSearchDescriptor;
 import org.bonitasoft.engine.bpm.connector.ConnectorState;
@@ -85,6 +84,7 @@ import org.bonitasoft.engine.search.SearchOptionsBuilder;
 import org.bonitasoft.engine.search.SearchResult;
 import org.bonitasoft.engine.session.APISession;
 
+import com.bonitasoft.engine.api.APIClient;
 import com.bonitasoft.engine.api.LogAPI;
 import com.bonitasoft.engine.api.ProcessAPI;
 import com.bonitasoft.engine.api.TenantAPIAccessor;
@@ -99,9 +99,9 @@ public class SkipConnectorAndReplayActivity {
         final long failedTaskId = 123456789l;
 
         // First action: Login to the api:
-        final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
-        final APISession session = loginAPI.login("USERNAME", "PASSWORD");
-        final ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);
+        final APIClient apiClient = new APIClient()
+        apiClient.login("USERNAME", "PASSWORD")
+        final ProcessAPI processAPI = apiClient.getProcessAPI();
         // we suppose here that we have an activity in state failed with the id 'failedTaskId'
         // retrieve the failed connector:
         final SearchOptions searchOptions = new SearchOptionsBuilder(0, 1).filter(ConnectorInstancesSearchDescriptor.CONTAINER_ID, failedTaskId)
@@ -114,7 +114,7 @@ public class SkipConnectorAndReplayActivity {
         builder.filter(LogSearchDescriptor.ACTION_SCOPE, failedTaskId);
         builder.searchTerm("Connector execution failure");
         builder.sort(LogSearchDescriptor.ACTION_TYPE, Order.ASC);
-        final LogAPI logAPI = TenantAPIAccessor.getLogAPI(session);
+        final LogAPI logAPI = apiClient.getLogAPI();
         final SearchResult<Log> searchedLogs = logAPI.searchLogs(builder.done());
         for (Log log : searchedLogs.getResult()) {
             // Print the failed connecor reason message:
@@ -128,7 +128,7 @@ public class SkipConnectorAndReplayActivity {
         processAPI.retryTask(failedTaskId);
 
         // Finally log properly out of Bonita Engine:
-        loginAPI.logout(session);
+        apiClient.logout();
     }
 }
 ```
