@@ -84,7 +84,24 @@ Bonita binaries as well as Studio installer are now officially signed on Windows
 ### Form mapping API error messages
 Improvements of messages in case of error on form mapping API calls have been done to explain the cause of error and give options for easier error recoveries.
 
-<a id="techonolgy-updates"/>
+### Performance (applies to Bonita 7.7.5+)
+The following improvements have been made to Bonita performance:
+- There is less I/O requests to temp folders
+- Work execution consumes less database resources
+- The login REST APIs mechanism consumes less resources
+- At engine startup and BPM services resume, the process dependencies loading consumes less memory
+
+A special attention has also been carried out to an improved deletion mechanism of archived cases. Deleting archived cases is now way more efficient.
+
+:::warning
+As a result, some [Events](event-handlers.md) are not triggered anymore (among others: ARCHIVED\_FLOWNODE\_INSTANCE\_DELETED, only concerns deletion of **archived** elements).
+If you used these events and still need them, there is a way to switch back to the previous deletion mechanism.
+In such cases, please contact Customer Support to activate this legacy deletion mechanism.
+Be aware that this legacy deletion mechanism is deprecated and will be deleted in a future version. There will be not support in the long-term.
+:::
+
+
+<a id="technology-updates"/>
 
 ## Technology updates
 
@@ -129,7 +146,7 @@ In practice, it means that if your process has been designed prior to Bonita 7.3
 * If your process has been designed in Bonita 7.4, 7.5 or 7.6, the behavior of your process will not change. You will however have now access to a new API method upon migration, which will open new possibilities.
 
 ### Deprecated Workspace API
-The Workspace API tooling (headless studio build) has been deprecated. You are recommanded to use the *LA builder* which is part of the tooling suite of [Bonita Continuous Delivery add-on](https://documentation.bonitasoft.com/bcd/2.0/).
+The Workspace API tooling (headless studio build) has been deprecated. You are recommended to use the *LA builder* which is part of the tooling suite of [Bonita Continuous Delivery add-on](https://documentation.bonitasoft.com/bcd/2.0/).
 
 
 ## Limitations and known issues
@@ -156,6 +173,18 @@ The Workspace API tooling (headless studio build) has been deprecated. You are r
 * BS-18441 7.7 Javadocs have missing packages and classes
 * BS-18497 Migration: HTTP status code 403 REST API extensions
 * BS-18701 Make sure we discourage write operation in groovy scripts on the right operands of Operation
+
+### Fixes in Bonita 7.7.5 (2018-11-21)
+#### Fixes in Engine component
+* BS-8505  ProcessAPI.deleteArchivedProcessInstances returns incorrect number of deleted instances
+* BS-16972 Engine classloader refresh should use less Heap memory on Engine startup and BPM services resume
+* BS-18131 Performance issue when retrieving process.bpmn from bar resources
+* BS-18563 Engine arbitrarily fails with License Error 51,27 at server start-up on Windows
+* BS-18847 Parallel archive cases deletion via REST API does not delete all rows
+* BS-18866 Deletion of archived case times out because it takes too long to execute
+* BS-19057 a Business Data with field referencing itself fails to be queried with StackOverflowError
+* BS-19062 Lazy referenced BO field to itself fails to serialize with StackOverflowError
+* BS-19073 Archived contract data are never deleted
 
 ### Fixes in Bonita 7.7.4 (2018-09-06)
 #### Fixes in Engine component
