@@ -5,6 +5,10 @@ to the one delivered with the latest version of Bonita.
 This is due to the fact that improvements in any version of the Migration Tool can affect all supported version of Bonita.
 This change log must be read before migrating to a newer version of Bonita.
 
+## 2.35.0 - Nov. 22th, 2018 (Bonita 7.7.5)
+* BS-18879 Migration to 7.7.0+ takes several hours when the contract data tables are large
+* BS-19073 Archived contract data are never deleted
+
 ## 2.34.0 - Sep. 6th, 2018 (Bonita 7.7.4)
 * BS-18657 Data truncation error when migrating from v7.6.3 to v7.7.0
 
