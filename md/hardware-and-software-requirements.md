@@ -39,10 +39,6 @@ Software required for Bonita Platform (Bonita Engine and Bonita Portal).
 | Google Chrome | latest version (see note 5) |
 | Microsoft Edge | latest version |
 | Internet Explorer | 11.0.x |
-| **Mobile** |
-| Mozilla Firefox | latest version |
-| Google Chrome | latest version |
-| Apple Safari | latest version |
 
 Notes:
 1. Bonita can be executed on Java 8 and above. All development artifacts (connectors, REST API extensions, etc) must be compiled with Java 8 byte code (target version).
