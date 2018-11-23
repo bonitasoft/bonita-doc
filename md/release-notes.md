@@ -74,12 +74,12 @@ This helps validating if all expected calls are well implemented in the artifact
 ### BDM query parameters accept arrays
 It is now possible to query for multiple values of an attribute in the BDM objects.
 On example: 
-{code:sql}
+```
 SELECT e
 FROM Employee e
 WHERE e.firstName IN (_:firstNames_)
 ORDER BY p.persistenceId ASC
-{code}
+```  
 where _:firstNames_ is a query parameter with a String[] type.
 
 <a id="workers-logs"/>
