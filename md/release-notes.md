@@ -6,7 +6,7 @@
 
 ### Project explorer in Bonita Studio
 In one glance, view the content of the current Bonita project. In Bonita 7.8, the project is the equivalent of what used to be a repository. Now repository is dedicated to SVN and Git, where Bonita becomes only about projects. 
-From this view, you can create, open, edit, delete and use SVN and Git commands, simply with a right click. 
+From this view, you can create, open, edit, delete and use SVN and Git commands, simply with a right click.
 **Diagrams:**
 The BPMN palette is now included in the diagram view, and if you collapse it, it still automatically opens when your mouse passes over its closed panel, and closes once you have selected the element to drag and drop on the diagram.
 The overview of the diagram is now stacked in the properties view, after the Validation tab, and is now called "Minimap".
@@ -74,13 +74,13 @@ This helps validating if all expected calls are well implemented in the artifact
 ### BDM query parameters accept arrays
 It is now possible to query for multiple values of an attribute in the BDM objects.
 On example: 
-```
+```sql
 SELECT e
 FROM Employee e
 WHERE e.firstName IN (_:firstNames_)
 ORDER BY p.persistenceId ASC
 ```  
-where _:firstNames_ is a query parameter with a String[] type.
+where _:firstNames_ is a query parameter of type `String[]`.
 
 <a id="workers-logs"/>
 
@@ -125,7 +125,7 @@ Better error management during LDAP synchronization.
 <a id="operations-apiaccessor"/>
 
 ### Warning on best practices when using API in operations
-In diagram operations, the right operand should only use the apiAccessor with read-only methods. After helping several customers with scripts calling the apiAccessor with "write"-type methods, we have created a warning in the studio, when detecting the apiAccessor is called in an opreation script.
+In diagram operations, the right operand should only use the apiAccessor with read-only methods. After helping several customers with scripts calling the apiAccessor with "write"-type methods, we have created a warning in the studio, when detecting the apiAccessor is called in an operation script.
 
 <a id="technology-updates"/>
 
