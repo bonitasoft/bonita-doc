@@ -2635,9 +2635,9 @@ You can get a case by using its identifier. Request url
   * f: filter of the search. Available filters are : 
     * `processDefinitionId`: The process derfinition ID 
     * `name`: the process name
-    * `started\_by`: the ID of the user who started the process
-    * `team\_manager\_id`: allow to retrieve the cases in which all users with this manager ID ar involved)
-    * `supervisor\_id`: allow the retrived the cases of all processes the user with this ID is supervisor of)
+    * `started_by`: the ID of the user who started the process
+    * `team_manager_id`: allow to retrieve the cases in which all users with this manager ID ar involved)
+    * `supervisor_id`: allow the retrived the cases of all processes the user with this ID is supervisor of)
   beware you cannot use team\_manager\_id and supervisor\_id at the same time
   * n: count of related resource. Available values: `activeFlowNodes`, `failedFlowNodes`
   * d: extend resource response parameters of [this resource](#case-deploy) are available.
