@@ -20,7 +20,7 @@ This page explains how to migrate a **SVN** repository and its history to a **Gi
 
 A first step will be to retrieve the committers list of the repository.  
 Checkout a copy of the repository to migrate in a location of your choice: ```svn checkout <svn-repository-url>```  
-Then run the following command to retrieve the svn committers:  
+Then run the following command from the locally checkouted repository to retrieve the svn committers:  
 ```svn log -q | awk -F '|' '/^r/ {sub("^ ", "", $2); sub(" $", "", $2); print $2" = "$2" <"$2">"}' | sort -u > authors-transform.txt```  
 
 In Git, the commit author needs to have a name and email listed. So update `authors-transform.txt` accordingly.  
