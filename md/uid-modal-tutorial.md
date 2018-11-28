@@ -1,7 +1,7 @@
 # How to create a modal window using CSS
 
 ::: warning
-**:fa-exclamation-triangle: Warning:** This tutorial is deprecated starting with Bonita 7.8 because of the introduction of the modal container as a provided container. For more information, read the [modal container](widgets.md#modal-widget) page.
+**:fa-exclamation-triangle: Warning:** This tutorial is deprecated starting with Bonita 7.8 because of the introduction of the modal container as a provided container. For more information, read the [modal container](widgets.md#modal-container) page.
 :::
 
 A nice aspect of the UI Designer is the way it takes advantage of the WEB technologies, letting you put the style of your page where it belongs.  
