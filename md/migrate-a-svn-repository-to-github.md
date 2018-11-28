@@ -77,14 +77,14 @@ Then add all the changes and commit:
 
 ### Push repository to GitHub
 
-Create a new empty repository on GitHub.
-Configure the upstream
+Create a new empty repository on GitHub.  
+Configure the upstream  
 `git remote add origin <github-repo-url>`  
-`git symbolic-ref HEAD refs/heads/trunk` 
 `git push --set-upstream origin master`  
 
 You can now clone this git repository in Bonita Studio.
 
 ## References
 
+For a more advanced migration read the following article  
 * [https://john.albin.net/git/convert-subversion-to-git](https://john.albin.net/git/convert-subversion-to-git)
