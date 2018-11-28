@@ -126,6 +126,13 @@ In the custom widget editor, use the the _uiTranslate_ filter or the _ui-transla
 
 The strings to translate in a fragment must be added to the localization.json file of each page, layout or form using the fragment.
 
+<a id="uiTranslate"/>
+
+### Translate content in Javascript Expression variable
+
+In Javascript Expression, use **uiTranslate()** function to translate the strings withing, you can find this function with Autocompletion (_ctrl+space_) service.
+This gives the opportunity to get such strings available for translation in the _localization.json_ asset of the UI Designer artifact.
+
 ### Preview the page
 
 Now preview the page in each language. To do this, you need to modify the language used for Bonita web applications, which you do by setting the Portal language from the Portal Settings menu.
