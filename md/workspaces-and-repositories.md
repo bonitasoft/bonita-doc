@@ -84,6 +84,10 @@ If the list does not contain the name of the repository you want to use, check t
 
 ## Use a shared repository
 
+::: info
+If you want to re-use an existent shared repository (Git or Svn), be aware that importing the old workspace will result in having a local repository instead of a shared one. In this case, it’s advised to clone it from the remote repository.
+:::
+
 <a id="git"/>
 
 ### Git
