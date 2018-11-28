@@ -11,7 +11,7 @@ This page explains how to migrate a **SVN** repository and its history to a **Gi
 * Ubuntu
 * awk : ```sudo apt-get install awk```
 * subversion: ```sudo apt-get install subversion```
-* git: ```sudo apt-get install git```
+* git: ```sudo apt-get install git``` (tested with git 2.17.1)
 * [git-svn](https://git-scm.com/docs/git-svn): ```sudo apt-get install git-svn```
 
 ## Migration steps
