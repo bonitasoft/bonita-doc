@@ -31,7 +31,8 @@ eg: `wbates = wbates <wbates>` into `wbates = Walter Bates <wbates@acme.org>`
 
 `git svn clone <svn-repository-url>/<bonita-repo-name> --no-metadata --stdlayout --no-minimize-url -A authors-transform.txt ~/temp`
 
-This will do the standard git-svn transformation (using the authors-transform.txt file you created in the step above) and place the git repository in the `~/temp` folder inside your home directory.
+This will do the standard git-svn transformation (using the authors-transform.txt file you created in the step above) and place the git repository in the `~/temp` folder inside your home directory.  
+Note: `<bonita-repo-name>` should have `trunk`, `branches`, `tags` children folder.
 
 ### Create a .gitignore
 
