@@ -114,12 +114,20 @@ In this Bonita 7.8 release, two pages have been rewritten:
 <a id="performance"/>
 
 ### Performance
-A few improvements have been brought to the overall Bonita efficiency:
-- Deleting an archived case went down from seconds to milliseconds. Particularly enjoyable on environments with a large amount of archived data. Moreover, deleting cases in batches is now nearly as fast as deleting a single case and is not constrained by database connexion timeouts. 
+The following improvements have been made to Bonita performance:
 - There is less I/O requests to temp folders
-- Works execution uses less database resources
+- Work execution consumes less database resources
 - The login REST APIs mechanism consumes less resources
-- At engine startup and BPM services resume, the process dependencies loading requires less memory
+- At engine startup and BPM services resume, the process dependencies loading consumes less memory
+
+A special attention has also been carried out to an improved deletion mechanism of archived cases. Deleting archived cases is now way more efficient.
+
+:::warning
+As a result, some [Events](event-handlers.md) are not triggered anymore (among others: ARCHIVED\_FLOWNODE\_INSTANCE\_DELETED, only concerns deletion of **archived** elements).
+If you used these events and still need them, there is a way to switch back to the previous deletion mechanism.
+In such cases, please contact Customer Support to activate this legacy deletion mechanism.
+Be aware that this legacy deletion mechanism is deprecated and will be deleted in a future version. There will be not support in the long-term.
+:::
 
 <a id="rest-timeout"/>
 
