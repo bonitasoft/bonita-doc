@@ -130,7 +130,8 @@ The strings to translate in a fragment must be added to the localization.json fi
 
 ### Translate content in variables of type JavaScript Expression
 
-In Javascript Expression, use **uiTranslate()** function to translate the strings withing, you can find this function with Autocompletion (_ctrl+space_) service.
+To translate the strings of JavaScript Expressions, use the function **uiTranslate()**.
+This is available in the expression editor, in the Autocompletion (_ctrl+space_) service.
 This gives the opportunity to get such strings available for translation in the _localization.json_ asset of the UI Designer artifact. You still need to copy the strings in your expressions and paste them in the  _localization.json_ asset.
 
 ### Preview the page
