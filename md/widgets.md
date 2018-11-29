@@ -11,7 +11,7 @@ Each widget in the palette has a description. To show a widget description, just
 
 ## Containers
 
-A container is a widget that contains other widgets. You can create nested containers. A typical use for containers is to control the main layout of your page. For example, if you want to create a two-column layout, you will start your page by adding two containers on the same row, each one spanning six columns of the page. A page does not need to have a container, but it is useful.  
+A container is a special kind of widget that contains other widgets. You can create nested containers. A typical use for containers is to control the main layout of your page. For example, if you want to create a two-column layout, you will start your page by adding two containers on the same row, each one spanning six columns of the page. A page does not need to have a container, but it is useful.  
 By default, a container contains one row, where you can drop component widgets or containers. You can also make the page layout dynamic by [repeating a container to display a collection of data](repeat-a-container-for-a-collection-of-data.md).
 
 ### Adding a widget to a row
@@ -43,12 +43,12 @@ This is useful if you want to display some property of the current element.
 
 If you are using the Performance, Efficiency, or Teamwork edition, you can save any container as a fragment. This enables you to reuse the set of widgets in other pages.
 
-### Tab container widget
+### Tab container
 
 Use the **tab container** to structure a page using tabs. To edit a tab name, select the corresponding tab to display its properties.  
 Each tab is a container widget.
 
-### Form container widget
+### Form container
 
 Use the **form container** to enable form validation for input widgets. The form container also exposes a local **$form** which is the AngularJS form object associated to the form container. In the Bonita Studio, if you define a contract for the task or process and click on the UI Designer icon, the generated form already contains a form container to embed default input widgets to collect the information that need to be passed to the contract to be verified. You can then define the validation you need on the input.  
 For example, you can bind the button's disabled property to _$form.$invalid_ to prevent user from clicking the button, until the form inputs are valid.
