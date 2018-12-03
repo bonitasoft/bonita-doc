@@ -98,7 +98,7 @@ A new theme is available for any Living Application you create: "bonita-default-
 
 <a id="uuid"/>
 
-### Stability of files throughout revisions
+### Stability of sources files throughout revisions
 Updating timers, business data, data dependencies, messages, pools, contract inputs, parameters, expressions, connectors, and documents, used to create additional UUID (Universal Unique Identifier) that resulted in false positives when comparing two revisions of the same file (using Git or SVN). This has been improved to make only real changes stick out when using a Diff Tool.
 
 <a id="gwt"/>
@@ -111,6 +111,24 @@ In this Bonita 7.8 release, two pages have been rewritten:
  - **BPM Services** page for the profile Technical Administrator
    It has been created using the UI Designer and the new modal container. Since it is dedicated to a profile critical for the good initialization and management of Bonita, the page has not been made available in the portal's resources. It cannot be added to any application nor be edited in the UI Designer. It's designed has been slightly reviewed compared to the GWT one.
    
+<a id="performance"/>
+
+### Performance
+The following improvements have been made to Bonita performance:
+- There is less I/O requests to temp folders
+- Work execution consumes less database resources
+- The login REST APIs mechanism consumes less resources
+- At engine startup and BPM services resume, the process dependencies loading consumes less memory
+
+A special attention has also been carried out to an improved deletion mechanism of archived cases. Deleting archived cases is now way more efficient.
+
+:::warning
+As a result, some [Events](event-handlers.md) are not triggered anymore (among others: ARCHIVED\_FLOWNODE\_INSTANCE\_DELETED, only concerns deletion of **archived** elements).
+If you used these events and still need them, there is a way to switch back to the previous deletion mechanism.
+In such cases, please contact Customer Support to activate this legacy deletion mechanism.
+Be aware that this legacy deletion mechanism is deprecated and will be deleted in a future version. There will be not support in the long-term.
+:::
+
 <a id="rest-timeout"/>
 
 ### REST connector Read timeout is configurable
