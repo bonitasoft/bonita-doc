@@ -77,7 +77,7 @@ On example:
 ```sql
 SELECT e
 FROM Employee e
-WHERE e.firstName IN (_:firstNames_)
+WHERE e.firstName IN (:firstNames)
 ORDER BY p.persistenceId ASC
 ```  
 where _:firstNames_ is a query parameter of type `String[]`.
