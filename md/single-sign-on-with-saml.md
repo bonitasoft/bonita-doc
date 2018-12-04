@@ -186,7 +186,7 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
                    </Key>
                </Keys>
                <PrincipalNameMapping policy="FROM_ATTRIBUTE" attribute="username"/>
-        -->    <IDP entityID="idp intity ID to change">
+        -->    <IDP entityID="idp entity ID to change">
                    <SingleSignOnService signRequest="true"
                       validateResponseSignature="true"
                       requestBinding="POST"
