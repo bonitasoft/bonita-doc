@@ -54,7 +54,7 @@ A new [REST API sendMessage](bpm-api.md#message) is available for when Bonita ha
 
 ### In the UI Designer, strings in JavaScript expressions can now be translated
 When writing the content of a variable of type JavaScript Expression, you may want to translate the strings withing.
-Autocompletion (_ctrl+space_) now offers a new service for translation: uiTranslate(). 
+Autocompletion (_ctrl+space_) now offers a new service for translation: [uiTranslate()](multi-language-pages.md#uiTranslate). 
 This gives the opportunity to get such strings available for translation in the _localization.json_ asset of the UI Designer artifact.
 
 <a id="metadata"/>
