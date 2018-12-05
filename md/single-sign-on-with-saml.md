@@ -178,6 +178,7 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
          - validateRequestSignature="true"
          - validateResponseSignature="true"
 
+    + The IDP entityID attribute needs to be replaced with the entity ID of the IdP.  
     + The PrincipalNameMapping policy indicates how to retrieve the subject attribute that matches a bonita user account username from the IdP response.
       The policy can either be FROM_NAME_ID or FROM_ATTRIBUTE (in that case you need to specify the name of the subject attribute to use).  
     + You may also need to change the requestBinding and/or responseBinding from POST to REDIRECT depending on your IdP configuration.  
@@ -200,6 +201,7 @@ _If your IdP responses are not signed, you can remove the Keys node from the IDP
        <keycloak-saml-adapter>
            <SP entityID="bonita"
                sslPolicy="EXTERNAL"
+               nameIDPolicyFormat="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
                forceAuthentication="false"
                isPassive="false"
                turnOffChangeSessionIdOnLogin="true">
@@ -211,7 +213,7 @@ _If your IdP responses are not signed, you can remove the Keys node from the IDP
                    </Key>
                </Keys>
                <PrincipalNameMapping policy="FROM_ATTRIBUTE" attribute="username"/>
-               <IDP entityID="idp"
+               <IDP entityID="idp entity ID to change"
         -->         signaturesRequired="true"
         -->         signatureAlgorithm="RSA_SHA256">
         -->        <SingleSignOnService signRequest="true"
