@@ -297,6 +297,7 @@ Edit the *logger* tags which *category* matches `org.bonitasoft` and `com.bonita
 * Make sure `setup[.sh][.bat] push` has been executed and the server restarted after the changes.
 * Try cleaning the cache and cookies of the web browser.
 
+
 **Symptom:** The following stacktrace appears in the Bonita server log :   
 ```
 2018-10-10 13:22:45,921 SEVERE [org.bonitasoft.console.common.server.sso.filter.InternalSSOFilter] (default task-1) java.lang.RuntimeException: Sp signing key must have a PublicKey or Certificate defined: java.lang.RuntimeException: java.lang.RuntimeException: Sp signing key must have a PublicKey or Certificate defined
@@ -319,7 +320,7 @@ Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or C
 	(...)
 
 ```
-**Problem:** The SAML module of the Bonita server has tried to validate the signature of the response sent by the IdP using the \<CertificatePem\> stored in the IDP:Keys:Key section of the **keycloak-saml.xml** file, but the validation has failed because the private key used by the IdP to sign the response does not match the certificate used by the SAML module.
+**Problem:** The SAML module of the Bonita server has tried to validate the signature of the response sent by the IdP using the \<CertificatePem\> stored in the IDP:Keys:Key section of the **keycloak-saml.xml** file, but the validation has failed because the private key used by the IdP to sign the response does not match the certificate used by the SAML module.  
 **Solution:** Make sure the certificate in the Keys:Key section of the SP is indeed the one belonging to the private key being used by the IdP to sign its responses.
 
 
