@@ -190,7 +190,7 @@ _If your IdP does neither require the SSO requests to be signed nor encrypt its 
 :::
 
 :::info
-_If your IdP responses are not signed, you can remove the Keys node from the IDP and set the attributes validateRequestSignature and validateResponseSignature to false._
+_If your IdP responses are not signed, you can remove the Keys node and the attributes signaturesRequired and signatureAlgorithm from the IDP and set the attributes validateRequestSignature and validateResponseSignature to false._
 :::
 
 ::: info
