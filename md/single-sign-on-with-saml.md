@@ -26,7 +26,7 @@ it is composed of:
 
 - A servlet filter that intercept all the requests to bonita portal pages  
 
-   It checks if the user is already logged in on Bonita 
+   It checks if the user is already logged in on Bonita
     
     - If already logged in => Allow the access
     - If not logged in => Redirect to IdP (with user info)
@@ -53,7 +53,7 @@ You need to execute the following actions in the folder of each tenant for which
 If you want this configuration to also apply to each tenant created later, make sure to also perform those actions in the *template* tenant configuration folder:
 `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_*` (if you have not started the Bonita bundle yet, the files are located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_*`)
 
-The bundle already contains the files needed to use SAML with Bonita platform.  
+The bundle already contains the files needed to use SAML with Bonita platform.
 To configure Bonita for SAML:
 
 1. If you do not already have one:
@@ -145,61 +145,93 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
     edit the file **keycloak-saml.xml** to setup Bonita webapp as a Service provider working with your IdP.  
     + The entityID is the Service Provider given to your bonita installation. You can change it if you want but you need to provide it to your IdP.  
     + The sslPolicy option may need to be changed if Bonita Portal and the IdP are not both accessed via HTTPS. Possible values for this property are: ALL, EXTERNAL, and NONE. For ALL, all requests must come in via HTTPS. For EXTERNAL, only non-private IP addresses must come over via HTTPS. For NONE, no requests are required to come over via HTTPS.  
-    + If your IdP requires the SSO requests to be signed replace the following strings in the Keys section of the SP:  
-      - put your private key here
-      - put your certificate here
-    
-      with you current server's private key and with the certificate provided by the IdP.  
-      If your IdP does not require the SSO requests to be signed, you can remove the Keys node from the SP and set the attribute signRequest to false.  
-    + If your IdP responses are signed, replace the following strings in the Keys section of the IDP:  
-      - put your certificate here
+    + If your **IdP requires the SSO requests to be signed**:
+      + make sure you have signing="true" inside the Key node of the SP
+      + replace the following strings in the Keys:Key section of the SP:
+         - put your private key here
+         - put your certificate here
+
+         with you current Bonita server's private key and certificate.
+      + make sure you have the following inside the IDP node:
+         - signaturesRequired="true"
+         - signatureAlgorithm="the_algorithm_used_by_your_IDP"  (default value: RSA_SHA256)
+      + make sure you have signRequest="true" inside the SingleSignOnService node
+      + make sure you have the following in the SingleLogoutService node:
+         - signRequest="true"
+         - signResponse="true"
+
+    + If your **IdP assertions are encrypted**:
+      + make sure you have encryption="true" inside the Key node of the SP
+      + replace the following strings in the Keys:Key section of the SP:
+         - put your private key here
+
+         with you current Bonita server's private key.
+
+    + If your **IdP responses are signed**:
+      + make sure you have signing="true" inside the Key node of the IDP
+      + replace the following strings in the Keys:Key section of the IDP:
+         - put your certificate here
       
-      with the certificate provided by the IdP (same certificate as in the SP section).  
-      If your IdP responses are not signed, you can remove the Keys node from the IDP and set the attribute validateResponseSignature to false.  
+         with the certificate provided by the IdP.
+      + make sure you have signatureAlgorithm="the_algorithm_used_by_your_IDP"  (default value: RSA_SHA256) inside the IDP node
+      + make sure you have validateResponseSignature="true" inside the SingleSignOnService node
+      + make sure you have the following in the SingleLogoutService node:
+         - validateRequestSignature="true"
+         - validateResponseSignature="true"
+
+    + The IDP entityID attribute needs to be replaced with the entity ID of the IdP.
     + The PrincipalNameMapping policy indicates how to retrieve the subject attribute that matches a bonita user account username from the IdP response.
       The policy can either be FROM_NAME_ID or FROM_ATTRIBUTE (in that case you need to specify the name of the subject attribute to use).  
     + You may also need to change the requestBinding and/or responseBinding from POST to REDIRECT depending on your IdP configuration.  
     + The url binding to your IdP also needs to be define by replacing the following string:  
       - http://idp.saml.binding.url.to.change  
 
-:::warning 
-**Note 1:** If both the requests to the IdP and the responses are signed, this means you need to add the certificate twice: in the SP section as well as in the IDP section.
+:::info
+_If your IdP does neither require the SSO requests to be signed nor encrypt its own responses, you can remove the Keys node from the SP and set the attributes signaturesRequired, signRequest and signResponse to false._
+:::
+
+:::info
+_If your IdP responses are not signed, you can remove the Keys node from the IDP and set the attributes validateRequestSignature and validateResponseSignature to false._
 :::
 
 ::: info
-**Note 2:** More configuration options can be found in [Keycloak official documentation](https://keycloak.gitbooks.io/documentation/securing_apps/topics/saml/java/general-config.html)
+**Note 2:** More configuration options can be found in [Keycloak official documentation](https://www.keycloak.org/docs/latest/securing_apps/index.html#_saml-general-config)
 :::
    
    ```
        <keycloak-saml-adapter>
            <SP entityID="bonita"
                sslPolicy="EXTERNAL"
+               nameIDPolicyFormat="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
                forceAuthentication="false"
                isPassive="false"
                turnOffChangeSessionIdOnLogin="true">
                <Keys>
-                   <Key signing="true">
+        -->        <Key signing="true"
+        -->             encryption="true">
         -->            <PrivateKeyPem>put your private key here</PrivateKeyPem>
         -->            <CertificatePem>put your certificate here</CertificatePem>
                    </Key>
                </Keys>
                <PrincipalNameMapping policy="FROM_ATTRIBUTE" attribute="username"/>
-               <IDP entityID="idp">
-                   <SingleSignOnService signRequest="true"
-                      validateResponseSignature="true"
+               <IDP entityID="idp entity ID to change"
+        -->         signaturesRequired="true"
+        -->         signatureAlgorithm="RSA_SHA256">
+        -->        <SingleSignOnService signRequest="true"
+        -->           validateResponseSignature="true"
                       requestBinding="POST"
                       responseBinding="POST"
         -->           bindingUrl="http://idp.saml.binding.url.to.change"/>
-                   <SingleLogoutService signRequest="false"
-                      signResponse="false"
-                      validateRequestSignature="false"
-                      validateResponseSignature="false"
+        -->        <SingleLogoutService signRequest="true"
+        -->           signResponse="true"
+        -->           validateRequestSignature="true"
+        -->           validateResponseSignature="true"
                       requestBinding="POST"
                       responseBinding="POST"
-                      postBindingUrl="http://idp.saml.binding.url.to.change"
-                      redirectBindingUrl="http://idp.saml.binding.url.to.change"/>
+        -->           postBindingUrl="http://idp.saml.binding.url.to.change"
+        -->           redirectBindingUrl="http://idp.saml.binding.url.to.change"/>
                    <Keys>
-                       <Key signing="true">
+        -->            <Key signing="true">
         -->            <CertificatePem>put your certificate here</CertificatePem>
                        </Key>
                    </Keys>
@@ -207,12 +239,12 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
             </SP>
        </keycloak-saml-adapter>
    ```
-7. If your Identity Provider is corectly configured (see the section *Configure the Identity Provider*), you are done.  
+7. If your Identity Provider is corectly configured (see the section *Configure the Identity Provider*), you are done.
 Then you can try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in).  
 Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `saml.auth.standard.allowed` to true) to be able to log in without an account on the Identity Provider.
 
 ::: warning
-**Note:** If your Bonita platform is behind a proxy server, You need to make sure the reverse proxy is configured 
+**Note:** If your Bonita platform is behind a proxy server, You need to make sure the reverse proxy is configured
 to include the correct `Host:` header to the requests and the application server is configured to use this header (it is usually the case by default).
 This is required so that `HttpServletRequest.getRequestURL` returns the URL used by the user and not the internal URL used by the reverse proxy.  
 For example, if you are running Apache >=2.0.31 as reverse proxy, this configuration is controlled by the property [ProxyPreserveHost](http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypreservehost).
@@ -221,11 +253,12 @@ If you need more fine tuning or if you cannot update the reverse proxy configura
 
 ## Configure the Identity Provider
 
-Your IdP should declare a Service Provider named `bonita` (or the value of the `entityID` set in the file **keycloack-saml.xml** of Bonita bundle if it is different) with the following configuration:  
+Your IdP should declare a Service Provider named `bonita` (or the value of the `entityID` set in the file **keycloack-saml.xml** of Bonita bundle if it is different) with the following configuration:
 - ACS URL or SAML Processing URL: `http[s]://<bundle host>:<port>/bonita/saml`
 - request binding and response binding configured with the same values as in **keycloack-saml.xml** (`POST` or `REDIRECT`)
 - `Client signature required` configured with the same values as the property `signRequest` in **keycloack-saml.xml**
-- if the IdP responses are signed, make sure the certificate of the IdP has been set in **keycloack-saml.xml**
+- if the IdP requires the client Bonita server (the SP) to sign its requests, make sure the IdP has access to Bonita server's certificate (the same that has been set in the SP:Keys:Key section of the **keycloak-saml.xml**)
+- if the IdP responses are signed, make sure the certificate of the IdP has been set in the IDP:Keys:Key section of the **keycloack-saml.xml**
 - the Name ID or a user attribute of the user principal sent back by the IdP should match the username of the user accounts in Bonita and the PrincipalNameMapping policy (and attribute value) in **keycloack-saml.xml** should reflect that
 
 ::: info
@@ -234,32 +267,32 @@ Your IdP should declare a Service Provider named `bonita` (or the value of the `
 
 ## Configure logout behaviour
 
-If your Bonita platform is configured to manage authentication over SAML, when users log out of Bonita Portal, they do not log out of the SAML Identity Provider (IdP).  
-Therefore they are not logged out of all applications that are using the IdP.  
-To avoid this, you have two options :  
+If your Bonita platform is configured to manage authentication over SAML, when users log out of Bonita Portal, they do not log out of the SAML Identity Provider (IdP).
+Therefore they are not logged out of all applications that are using the IdP.
+To avoid this, you have two options :
 
 #### Hide the logout button of the portal
 
-This is the most commonly used solution. Users are logged in as long as they don't close their web browser (unless their session times out).  
+This is the most commonly used solution. Users are logged in as long as they don't close their web browser (unless their session times out).
 To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
 
 ::: info
-**Note:** When a user logs out from the IdP directly, Bonita Portal's session will remain active. The user's session time to live will be reset 
-to the configured session timeout value upon each user interaction with the server.  
+**Note:** When a user logs out from the IdP directly, Bonita Portal's session will remain active. The user's session time to live will be reset
+to the configured session timeout value upon each user interaction with the server.
 :::
 
 #### Setup Bonita platform for SAML global logout
 
-Global logout allows to log out from the Identity Provider as well as all the registered Service Providers when logging out from Bonita platform. This is sometimes required for example if users are on public computers.  
-As Identity Providers do not necessarily support single logout and have different ways of handling it (there are several SAML Single Logout methods), Bonita only offers SAML global logout as an experimental feature. Meaning that this feature has only been tested with Keycloack server acting as Identity Provider.  
-Therefore, there is no guaranty that the global logout will work with your Identity Provider. However, if your IdP supports the Service Provider initiated flow of SAML's Web Browser Single Logout profile, single logout is likely to work.  
+Global logout allows to log out from the Identity Provider as well as all the registered Service Providers when logging out from Bonita platform. This is sometimes required for example if users are on public computers.
+As Identity Providers do not necessarily support single logout and have different ways of handling it (there are several SAML Single Logout methods), Bonita only offers SAML global logout as an experimental feature. Meaning that this feature has only been tested with Keycloack server acting as Identity Provider.
+Therefore, there is no guaranty that the global logout will work with your Identity Provider. However, if your IdP supports the Service Provider initiated flow of SAML's Web Browser Single Logout profile, single logout is likely to work.
 To setup Bonita for global logout:
 1. Set the `saml.logout.global` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/`.
 2. Update the SingleLogoutService section of `keycloak-saml.xml` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` to match your Identity Provider configuration.
-3. Update your Identity Provider configuration to setup the Logout Service POST/Redirect Binding URL to <Bonita_server_URL>/bonita/samlLogout  
+3. Update your Identity Provider configuration to setup the Logout Service POST/Redirect Binding URL to <Bonita_server_URL>/bonita/samlLogout
 
 ::: info
-**Note:** If the single logout flow supported by your IdP is not the same as the one supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutService and handle the logout programmatically.  
+**Note:** If the single logout flow supported by your IdP is not the same as the one supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutService and handle the logout programmatically.
 :::
 
 ## Troubleshoot
@@ -282,16 +315,65 @@ In a WildFly bundle, you need to edit the file `<BUNDLE_HOME>/server/standalone/
 
 Edit the *logger* tags which *category* matches `org.bonitasoft` and `com.bonitasoft` packages: change the *level* *name* attribute of each *logger* to `ALL` and add a new logger with the *category* `org.keyclock` (also with a *level* *name* set to `ALL`).
 
+#### Common error examples
+
+**Symptom:** After configuring SAML SSO in Bonita, the Bonita Portal login page does not redirect to the SSO login page.
+**Possible Solutions:**
+* Check all the Bonita configuration settings are correct.
+* Make sure `setup[.sh][.bat] push` has been executed and the server restarted after the changes.
+* Try cleaning the cache and cookies of the web browser.
+
+
+**Symptom:** The following stacktrace appears in the Bonita server log :
+```
+2018-10-10 13:22:45,921 SEVERE [org.bonitasoft.console.common.server.sso.filter.InternalSSOFilter] (default task-1) java.lang.RuntimeException: Sp signing key must have a PublicKey or Certificate defined: java.lang.RuntimeException: java.lang.RuntimeException: Sp signing key must have a PublicKey or Certificate defined
+	at org.keycloak.adapters.saml.config.parsers.DeploymentBuilder.build(DeploymentBuilder.java:119)
+	at org.bonitasoft.console.common.server.auth.impl.saml.BonitaSAML2Filter.getSamlDeployment(BonitaSAML2Filter.java:174)
+	(...)
+Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or Certificate defined
+	at org.keycloak.adapters.saml.config.parsers.DeploymentBuilder.build(DeploymentBuilder.java:115)
+	... 51 more
+```
+**Problem:** The signing of the requests has been enabled in the **keycloak-saml.xml** file, but there is no \<CertificatePem\> in the Keys:Key section of the SP.
+**Solution:** Add Bonita server's certificate in the Keys:Key section of the SP.
+
+
+**Symptom:** The following stacktrace appears in the Bonita server log :
+```
+2018-10-11 20:11:37,314 ERROR [org.keycloak.adapters.saml.profile.webbrowsersso.WebBrowserSsoAuthenticationHandler] (default task-1) Failed to verify saml response signature: org.keycloak.common.VerificationException: Invalid signature on document
+	at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.verifyPostBindingSignature(AbstractSamlAuthenticationHandler.java:520)
+	at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.validateSamlSignature(AbstractSamlAuthenticationHandler.java:271)
+	(...)
+
+```
+**Problem:** The SAML module of the Bonita server has tried to validate the signature of the response sent by the IdP using the \<CertificatePem\> stored in the IDP:Keys:Key section of the **keycloak-saml.xml** file, but the validation has failed because the private key used by the IdP to sign the response does not match the certificate used by the SAML module.
+**Solution:** Make sure the certificate in the Keys:Key section of the SP is indeed the one belonging to the private key being used by the IdP to sign its responses.
+
+
+**Symptom:** The following stacktrace appears in the Bonita server log :
+```
+2018-10-11 20:54:22,258 ERROR [org.keycloak.adapters.saml.profile.webbrowsersso.WebBrowserSsoAuthenticationHandler] (default task-2) Error extracting SAML assertion: Encryptd assertion and decrypt private key is null
+2018-10-11 20:54:22,260 ERROR [io.undertow.request] (default task-2) UT005023: Exception handling request to /bonita/saml: java.lang.NullPointerException
+	at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.handleLoginResponse(AbstractSamlAuthenticationHandler.java:366)
+	at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.handleSamlResponse(AbstractSamlAuthenticationHandler.java:213)
+	(...)
+
+```
+**Problem:** The IdP has sent an encrypted assertion in its response, but the SAML module can not find Bonita server's private key in the **keycloak-saml.xml** file, and so it can not decrypt the assertion.
+**Solution:**
+* Make sure you have encryption="true" inside the Key node of the SP.
+* Add Bonita server's private key in the Keys:Key section of the SP.
+
 ## Manage passwords
 
-When your Bonita platform is configured to manage authentication over SAML, the user password are managed in your SAML Identity Provider (IdP).  
+When your Bonita platform is configured to manage authentication over SAML, the user password are managed in your SAML Identity Provider (IdP).
 However, when you create a user in Bonita Portal, specifying a password is mandatory. This password is ignored when logging in with the IdP.
 
 ## LDAP synchronizer and SAML
 
 If you are using an LDAP service and the [LDAP synchronizer](ldap-synchronizer.md) to manage your user data,   
 you can continue to do this and manage authentication over SAML.  
-The LDAP synchronizer user must be registered in Bonita (no need for an SAML IdP account). It is recommended though to use the tenant admin account.   
+The LDAP synchronizer user must be registered in Bonita (no need for an SAML IdP account). It is recommended though to use the tenant admin account.
 We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your Bonita platform.
 
 ::: info

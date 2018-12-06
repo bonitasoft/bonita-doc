@@ -39,10 +39,6 @@ Software required for Bonita Platform (Bonita Engine and Bonita Portal).
 | Google Chrome | latest version (see note 5) |
 | Microsoft Edge | latest version |
 | Internet Explorer | 11.0.x |
-| **Mobile** |
-| Mozilla Firefox | latest version |
-| Google Chrome | latest version |
-| Apple Safari | latest version |
 
 Notes:
 1. Bonita can be executed on Java 8 and above. All development artifacts (connectors, REST API extensions, etc) must be compiled with Java 8 byte code (target version).
@@ -70,16 +66,16 @@ Therefore, using Bitronix as a transaction manager with SQL Server does not work
    ```javascript
    <script>
       // Monkey Patch xhr
-      // Due to a specification change in the xhr.getAllResponseHeaders method Bonita Portal does not behave as expected 
+      // Due to a specification change in the xhr.getAllResponseHeaders method Bonita Portal does not behave as expected
       // in browsers that implement this new specification (currently only Chrome >60).
       // This patch fixes xhr.getAllResponseHeaders unwanted behavior within Bonita Portal context
       //    See https://bugs.chromium.org/p/chromium/issues/detail?id=749086
       //    See https://github.com/whatwg/xhr/issues/146
       (function (xhr) {
           var caseSensitiveHeaders = ['Content-Range', 'X-Bonita-API-Token'];
-          
+
           var getAllResponseHeaders = xhr.getAllResponseHeaders;
-          
+
           xhr.getAllResponseHeaders = function () {
               var headers = getAllResponseHeaders.apply(this);
               for (var i = 0; i < caseSensitiveHeaders.length; i++) {
@@ -90,7 +86,7 @@ Therefore, using Bitronix as a transaction manager with SQL Server does not work
       })(XMLHttpRequest.prototype)
     </script>
     ```
-1. Zip all the files and folders again into 'portal-theme.zip'. 
+1. Zip all the files and folders again into 'portal-theme.zip'.
    (BEWARE: make sure not to zip the 'portal-theme' folder, but its contents. If the 'portal-theme.zip' contains a 'portal-theme' folder at the base, Bonita Portal will not recognize it as a valid zip structure.)
 1. In the portal, click on 'Import and apply a new Look&Feel' and choose the updated 'portal-theme.zip' file.
 1. Back to the Chrome update 60 browser, empty the cache.
@@ -101,14 +97,14 @@ Therefore, using Bitronix as a transaction manager with SQL Server does not work
    1. Add the code below before or after the existing code:
    ```javascript
    `  // Monkey Patch xhr
-      // Due to a specification change in the xhr.getAllResponseHeaders method Bonita Portal does not behave as expected 
+      // Due to a specification change in the xhr.getAllResponseHeaders method Bonita Portal does not behave as expected
       // in browsers that implement this new specification (currently only Chrome >60).
       // This patch fixes xhr.getAllResponseHeaders unwanted behavior within Bonita Portal context
       //    See https://bugs.chromium.org/p/chromium/issues/detail?id=749086
       //    See https://github.com/whatwg/xhr/issues/146
       (function (xhr) {
           var caseSensitiveHeaders = ['Content-Range', 'X-Bonita-API-Token'];
-    
+
           var getAllResponseHeaders = xhr.getAllResponseHeaders;
 
           xhr.getAllResponseHeaders = function () {
