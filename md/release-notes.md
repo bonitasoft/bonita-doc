@@ -190,3 +190,54 @@ This used to store Legacy v6 forms. When migrating a production environment to 7
 
 ### Debug action in Studio
 Debug, the option to run a diagram without its connectors, is not supported anymore, as its value proved to be too small.
+
+## Bug fixes
+
+#### Fixes in Documentation
+* BS-17850	Missing documentation for REST API extension creation with Community Edition
+* BS-17993	Missing information about possible filters when searching for case using REST API
+* BS-18444	Whole Javascript expression variable reset when a Collection object is changed in a Form
+* BS-18494	No fallback to English when translation not provided in Mobile app
+* BS-19105	Studio Import: unable to recognize git repositories after studio migration
+* BS-19158	Default SAML configuration doesn't work with AD FS
+
+### Fixes in Bonita 7.8.0 (2018-12-06)
+#### Fixes in Engine component
+* BS-16972	Engine classloader refresh should use less Heap memory on Engine startup and BPM services resume
+* BS-17905	LDAP Synchronizer failure with Microsoft Active Directory when MaxValRange limit reached for member in a uniq group
+* BS-18131	Performance issue when retrieving process.bpmn from bar resources
+* BS-18528	Engine logs should allow to troubleshoot why licence in DB is not loaded
+* BS-18563	Engine arbitrarily fails with License Error 51,27 at server start-up on Windows
+* BS-18615	Missing Hibernate query searchSProcessInstancewithSProcessSupervisor
+* BS-18741	Operation does not apply changes within the same transaction for document list
+* BS-18745	Operation: Assignment to a list of document from a list of File from the contract is failing when one element is null
+* BS-18783	SKIP button on a Failed Task, with Interrupting boundary event, does not cancel the event
+* BS-18847	Parallel archive cases deletion via REST API does not delete all rows
+* BS-18866	Deletion of archived case times out because it takes too long to execute
+* BS-18900	Operation does not apply changes within the same transaction for single document
+* BS-19062	Lazy referenced BO field to itself fails to serialize with StackOverflowError
+* BS-19073	Archived contract data are never deleted
+#### Fixes in Studio component
+* BS-18588	String process variable in diagram appears as Boolean in .proc file
+* BS-18664	Studio thread takes 100% CPU when selecting a call activity
+* BS-18707	UI designer forms and pages SVN delete only remove file in Local and tag as Missing instead of Delete
+* BS-18708	The bonita la builder doesn't build the global zip correctly (add a slash root folder)
+* BS-18861	Typo in description Git Clone assistant 2nd window clone destination
+* BS-18903	Nothing indicates you cannot click OK because your Groovy script is not named
+* BS-18946	Studio launches several processes to open BDM H2 console
+* BS-19033	Git reset leaves files that should not be there
+* BS-19105	Studio Import: unable to recognize git repositories after studio migration
+#### Fixes in UI Designer component
+* BS-18472	Rename fragment does not rename fragment used in a container in a form
+* BS-18860	Date widget input not removed from binded variable
+* BS-19006	Cannot use a exported page from UID if one of widget asset is inactive
+* BS-19100	Rename a fragment replace others fragments reference use in a page same page
+#### Fixes in Web component
+* BS-18847	Parallel archive cases deletion via REST API does not delete all rows
+* BS-18672	Do some check in caseOverview to ensure display in any case.
+* BS-18770	Profile User should not be able to see the list of users installed on the platform using a call to API/identity/user
+* BS-18816	Due Date translation is lost in the tasklist page imported inside a custom profile or living application
+* BS-18818	Due Date format is wrong in japanese
+* BS-18968	Security issue on Tomcat (CVE-2018-8037) impact Tomcat bundle
+* BS-19032	404 not found: Task's form and process' form displayed in a living application cannot load the assets (image and font) listed in the CSS of the application's theme
+
