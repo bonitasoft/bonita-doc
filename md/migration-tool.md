@@ -3,7 +3,10 @@
 This page displays all changes in the Migration Tool, from the version that was delivered with the oldest supported version of Bonita
 to the one delivered with the latest version of Bonita.
 This is due to the fact that improvements in any version of the Migration Tool can affect all supported version of Bonita.
-This change log must be read before migrating to a newer version of Bonita.
+This change log must be read before [migrating to a newer version of Bonita](migrate-from-an-earlier-version-of-bonita-bpm.md).
+
+## 2.36.0 - Dec. 6th, 2018 (Bonita 7.8.0)
+* None
 
 ## 2.35.0 - Nov. 22th, 2018 (Bonita 7.7.5)
 * BS-18879 Migration to 7.7.0+ takes several hours when the contract data tables are large
