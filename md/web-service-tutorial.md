@@ -109,8 +109,6 @@ return "../" + $data.context.countryBo_ref.link;
 Capital: {{country.capital}}
 ```
 
-Save the form, and we are done. 
-
-### The Result
+Save the form, and we are done.  
 
 You can test the process on the portal, you have to select a country to instantiate the case, and then the capital of this country is displayed on the next human case. The web service is used to retrieve the capital the first time.
