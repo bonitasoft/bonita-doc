@@ -10,7 +10,7 @@ To build the product, you need the following:
 
 * Internet connection
 * Git
-* JDK 1.7 or 1.8
+* JDK 1.8 or above
 * Apache Maven 3.3.9 (version is mandatory)
 * NodeJS
 

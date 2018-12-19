@@ -14,8 +14,10 @@ Access to the Web REST API depends on [REST API authorization](rest-api-authoriz
 
 There are three phases of operation for an application that is integrated with Bonita BPM through the Web REST API: authentication, execution, and logout.
 
-### Authenticate to Bonita BPM
+<a id="bonita-authentication"/>
 
+### Authenticate to Bonita BPM
+  
 Calls to the Web REST API require you to first log in as a user registered in the Engine database.
 
 To log in, use the following request:

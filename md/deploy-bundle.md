@@ -74,7 +74,7 @@ JTA data source (managed by Bitronix)
 ### Add Jdbc driver
 You need to add your jdbc driver in TOMCAT_HOME/lib. 
 MySQL and PostgreSQL drivers can be found in deploy bundle under DEPLOY_ZIP_HOME/setup/lib directory. For other RDBMS, 
-use the driver provided by your RDBMS vendor
+use the [jdbc driver](database-configuration.md#proprietary_jdbc_drivers) provided by your RDBMS vendor
 
 <a id="wildfly-installation" />
 
@@ -130,7 +130,7 @@ We assume here that the database has already been [created and configured for Bo
 Once created and configured you need to initialize it using the setup tool provided in the deploy bundle archive.
 This will create database schema and initial values.
 1. In DEPLOY_ZIP_HOME/setup folder, edit the file database.properties with properties matching your rdbms
-2. In DEPLOY_ZIP_HOME/setup/lib add your jdbc driver if needed (only for Microsoft SQL Server or Oracle)
+2. In DEPLOY_ZIP_HOME/setup/lib add your jdbc driver if needed (only for Microsoft SQL Server or Oracle, see [proprietary jdbc drivers](database-configuration.md#proprietary_jdbc_drivers))
 3. In DEPLOY_ZIP_HOME/setup folder, run `setup.(sh|bat) init`
 
 ## Next steps

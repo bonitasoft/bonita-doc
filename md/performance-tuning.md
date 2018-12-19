@@ -167,9 +167,9 @@ bonita.tenant.work.keepAliveTimeSeconds=60
 bonita.tenant.work.queueCapacity=10000
 ```
 
-It is very similar to the constructor provided in the [default JDK ThreadPoolExecutor](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html#ThreadPoolExecutor(int,%20int,%20long,%20java.util.concurrent.TimeUnit,%20java.util.concurrent.BlockingQueue))).  
+It is very similar to the constructor provided in the [default JDK ThreadPoolExecutor](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html#ThreadPoolExecutor-int-int-long-java.util.concurrent.TimeUnit-java.util.concurrent.BlockingQueue-).  
 For a reminder of how the threadpool behaves, see the Queuing section of the 
-[ThreadPoolExecutor documentation](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html).
+[ThreadPoolExecutor documentation](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html).
 
 In the default Bonita BPM configuration, `corePoolSize` is equal to `maximumPoolSize` because we have observed that the default implementation of the threadpool executor allocates work to available threads using a round robin algorithm.  
 Therefore, if the maximum is reached, the thread pool size is unlikely ever to reduce to `corePoolSize`, because work is always allocated to available threads.  
@@ -345,7 +345,7 @@ The following cache configurations can be defined:
 #### Java Virtual Machine
 
 You can configure the JVM settings for the engine to tune performance.  
-Check the [JVM documentation](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html) for details of the available settings.
+Check the [JVM documentation](http://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html) for details of the available settings.
 
 Notably, we recommend you to set the initial (`-Xms`) and maximum (`-Xmx`) heap sizes to the same value.  
 This reduces the likelihood of the JVM garbage collector starting.  

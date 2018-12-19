@@ -81,10 +81,10 @@ class Index implements RestApiController {
         p = p as int
         c = c as int
 
-        // Initialize the list to store users information  
+        // Initialize the list to store users information
         def usersInformation = []
 
-        // Get the list of user  
+        // Get the list of user
         List<User> users = context.apiClient.identityAPI.getUsers(p*c, c, UserCriterion.FIRST_NAME_ASC)
 
         // Iterate over each user
@@ -350,3 +350,61 @@ You can download the [REST API extension described in the tutorial above](https:
 ### For Enterprise, Performance, Efficiency, and Teamwork editions
 
 You can checkout the Bonita Studio repository that include this extension and a process that use it directly from the Studio by provinding the Git repository URL: https://github.com/bonitasoft/rest-api-extension-user-information-example
+
+
+## Troubleshooting
+
+* I get the following stacktrace when using Java 8 Date types (LocalDate, LocalDateTime...) in my Rest API Extension
+
+```
+java.lang.StackOverflowError
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:361)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1806)
+	at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1735)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:264)
+	at groovy.lang.MetaClassRegistry$MetaClassCreationHandle.createWithCustomLookup(MetaClassRegistry.java:149)
+	at groovy.lang.MetaClassRegistry$MetaClassCreationHandle.create(MetaClassRegistry.java:144)
+	at org.codehaus.groovy.reflection.ClassInfo.getMetaClassUnderLock(ClassInfo.java:253)
+	at org.codehaus.groovy.reflection.ClassInfo.getMetaClass(ClassInfo.java:285)
+	at org.codehaus.groovy.reflection.ClassInfo.getMetaClass(ClassInfo.java:295)
+	at org.codehaus.groovy.runtime.metaclass.MetaClassRegistryImpl.getMetaClass(MetaClassRegistryImpl.java:261)
+	at org.codehaus.groovy.runtime.InvokerHelper.getMetaClass(InvokerHelper.java:871)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.getMetaPropertyValues(DefaultGroovyMethods.java:364)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.getProperties(DefaultGroovyMethods.java:383)
+	at groovy.json.JsonOutput.writeObject(JsonOutput.java:290)
+	at groovy.json.JsonOutput.writeIterator(JsonOutput.java:445)
+	at groovy.json.JsonOutput.writeObject(JsonOutput.java:269)
+	at groovy.json.JsonOutput.writeMap(JsonOutput.java:424)
+	at groovy.json.JsonOutput.writeObject(JsonOutput.java:294)
+	at groovy.json.JsonOutput.writeIterator(JsonOutput.java:441)
+	at groovy.json.JsonOutput.writeObject(JsonOutput.java:269)
+	at groovy.json.JsonOutput.writeMap(JsonOutput.java:424)
+	at groovy.json.JsonOutput.writeObject(JsonOutput.java:294)
+```
+
+The [`groovy.json.JSONBuilder`](http://docs.groovy-lang.org/2.4.4/html/gapi/groovy/json/JsonBuilder.html) does not support Java 8 Date types serialization for the groovy version currently used by Bonita.
+
+As a workaround you have to format dates in a new data structure before using the JSONBuilder.
+
+Example:
+```groovy
+def employee = //A given employee object
+def result = [
+			name:employee.name,
+			birthDate:employee.birthDate.format(DateTimeFormatter.ISO_LOCAL_DATE)
+			]
+
+return buildResponse(responseBuilder, HttpServletResponse.SC_OK,new JsonBuilder(result).toPrettyString())
+
+```
+
+::: info
+We do not recommend to manage time zone at the Rest API level, as the local of the Rest API server, the Bonita Engine server, and the End User machine could be different.
+So we encourage you to manipulate UTC dates only server-side.
+You can see how we [manage the time zone using the date time picker](datetimes-management-tutorial.md#toc2). This time zone should only be managed in the end user interface.
+:::
+

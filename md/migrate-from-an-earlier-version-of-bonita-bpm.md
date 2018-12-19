@@ -22,17 +22,19 @@ You are recommended not to start 7.0.0 after you migrate to it, but to proceed i
 :::
 
 **JRE requirements:**
-Version 7 only supports JRE version 7. If you comes from older versions of Bonita supporting JRE 6, you must also upgrade your JRE to version 7. For more info, see Support Guide and Supported Environment Matrix for Server.
+Versions 7.0 to 7.4 only support JRE version 7. If you comes from older versions of Bonita supporting JRE 6, you must also upgrade your JRE to version 7.
+Version 7.5 only supports JRE version 8. If migrating to version 7.5, please upgrade your JRE to version 8.
+For more info, see Support Guide and Supported Environment Matrix for Server.
 
-The tool migrates your platform bonita_home and the database. You cannot [change edition](upgrade-from-community-to-a-subscription-edition.md) while migrating. If you are running a
+The tool migrates your platform (_bonita_home_ folder and the database). You cannot [change edition](upgrade-from-community-to-a-subscription-edition.md) while migrating. If you are running a
 Bonita BPM Subscription Pack edition, you need a valid license for your target version.
-If you are upgrading to a new maintenance version and not changing the minor version number (for example, you are migrating from 6.3.0
-to 6.3.1), your current license remains valid after migration.
+If you are upgrading to a new maintenance version and not changing the minor version number (for example, you are migrating from 6.3.0 to 6.3.1),
+your current license remains valid after migration.
 
 ::: info
-Starting from version 7.3 there is no more bonita home folder. This means that, if your installation does not have any custom change, then you do not need to configure the bundle any further for an installation migrated in 7.3.
+Starting from version 7.3 there is no more _bonita home_ folder. This means that, if your installation does not have any custom change, then you do not need to configure the bundle any further for an installation migrated in 7.3 or above.
 
-On the other hand, if you have customized your configuration, you will have to use the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf) to send your customized configuration files to the database where configuration is stored from 7.3.
+On the other hand, if you have customized your configuration, you will have to use the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf) to send your customized configuration files to the database where configuration is stored, for versions 7.3 and above.
 :::
 
 ![Migration steps](images/images-6_0/migration_bigsteps.png)
@@ -57,14 +59,14 @@ The migration script migrates the following:
 
 The following are not migrated automatically:
 
-* Configuration of the platform: Before 7.3 in the Bonita Home and after 7.3 in database. Reapply your customizations manually after the migration script has finished (using [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf) if migrated to 7.3.0+).
-* Deployed process definitions: The process continue to run using the definition create in the previous version.
+* Configuration of the platform: Before 7.3 in the _Bonita Home_ folder and after 7.3 in database. Reapply your customizations manually after the migration script has finished (using [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf) if migrated to 7.3.0+).
+* Deployed process definitions: The processes will continue to run using the definition created in the previous version of Bonita BPM.
 * Process definition sources (`.bos` files): Migrate these by importing them into the new version of Bonita BPM Studio.
 * <a id="bdm_redeploy" />Business data model, and the business data database: if the migration path include version `7.0.0`,`7.2.0` or `7.2.4`, the Business data model must be redeployed after migration, using [Define and deploy the BDM](define-and-deploy-the-bdm)). Otherwise, no action is required.
-* Custom connectors, actor filers, data types: These might continue to work in the new version, but should be tested.
-* Custom pages: These might continue to work in the new version, but should be tested.
-* Reports: These might continue to work in the new version, but should be tested.
-* REST API Extensions: These might continue to work in the new version, but should be tested.
+* Custom connectors, actor filers, data types: These might continue to work in the new version, but should be tested, depending on your custom code.
+* Custom pages: These might continue to work in the new version, but should be tested depending on your custom code.
+* Custom reports: These might continue to work in the new version, but should be tested depending on your custom code.
+* REST API Extensions: These might continue to work in the new version, but should be tested depending on your custom code.
 
 When the script has finished,
 you need to complete the migration by unzipping and configuring a bundle for the new version.
@@ -78,7 +80,7 @@ This applies to the following tables: `arch_process_instance`, `arch_connector_i
 
 There is no guarantee that the Look & Feel definition is compatible across maintenance versions.
 For example, in 6.2.2, `jquery+` was renamed `jqueryplus` in `BonitaConsole.html`, for compatibility with more application servers.
-If you are using a custom Look & Feel, [export](managing-look-feel.md) it before migration.
+If you are using a custom Look & Feel, [export](managing-look-feel.md) it before migrating.
 Then after the migration is complete, [export the default Look & Feel](managing-look-feel.md) from the new version,
 modify your custom Look & Feel to be compatible with the new definition, and with the [recommendations for form footers](creating-a-new-look-feel.md).
 Then [import](managing-look-feel.md) your updated custom Look & Feel into Bonita BPM Portal.
@@ -87,13 +89,14 @@ The migration script supports MySQL, Postgres, Oracle, and MS SQLServer. There i
 
 ::: warning
 **Important:**  
-The migration operation resets the BonitaBPM configuration files to default version for new settings to be applied (from the _$BONITA_HOME_ folder in <7.3.0 version or inside database in >=7.3.0).
+The migration operation resets the Bonita BPM configuration files to default version for new settings to be applied (from the _$BONITA_HOME_ folder in <7.3.0 version or inside database in >=7.3.0).
 Therefore, you must do a [backup of your configuration files](BonitaBPM_platform_setup.md#update_platform_conf) before starting the migration.  
 You will need to merge custom properties and configurations to the migrated environment.
 
 Furthermore, from the database point of view, as any operations on a production system, a migration is not a zero risk operation.   
 Therefore, it is strongly recommended to do a [backup of your database](back-up-bonita-bpm-platform.md) before starting the migration.
 :::
+
 ## Estimate time required
 
 The platform must be shut down during migration.
@@ -161,33 +164,30 @@ property.
 When the migration script is finished, a message is displayed showing the new platform version, and the time taken for the migration.
 The `bonita_home` and the database have been migrated.
 1. Unzip the target bundle version into a directory. In the steps below, this directory is called `bonita-target-version`.
-1. [Configure the bundle to use the migrated database](database-configuration.md).
+1. [Configure the bundleto use the migrated database](database-configuration.md).
 
-    Do not recreate the database and use the setup tool of the `bonita-target-version`
-
-    Edit the `bonita-target-version/setup/database.properties` file to point to the migrated database.
+    Do not recreate the database and use the setup tool of the `bonita-target-version` Edit the `bonita-target-version/setup/database.properties` file to point to the  migrated database.
 1. Reapply configuration made to the platform, using the setup tool of the `bonita-target-version`
 
     Download the configuration from database to the local disk.
-    
+
     There is below a Linux example:
     ```
     cd setup
     ./setup.sh pull
     ```
-    
-    You must reapply the configuration that had been done on the original instance's bonita_home in the `bonita-target-version/setup/platform_conf/current`
-    
-    Please refer to the guide on updating the configuration file using the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
-    
+
+    You must reapply the configuration that had been done on the original instance'sbonita_homein the `bonita-target-version/setup/platform_conf/current`
+Please refer to the guide on updating the configurationfile using the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
+
     When done, push the updated configuration into the database:
     ```
     ./setup.sh push
     ```
 1. If you have done specific configuration and customization in your server original version, re-do it by configuring the application server at `bonita-target-version/server` (or `bonita-target-version` if target version is 7.3.n): customization, libs etc.
 
-1. **If your Bonita BPM version is 7.3 or above before migrating, you can skip this point.** <a id="compound-permission-migration" />   
-In the case where deployed resources have required dedicated [authorizations to use the REST API](resource-management.md#permissions), these authorizations are not automatically migrated.  
+1. **If your Bonita BPM version is 7.4 or above before migrating, you can skip this point.** <a id="compound-permission-migration" />
+In the case where deployed resources have required dedicated [authorizations to use the REST API](resource-management.md#permissions), these authorizations are not automatically migrated.
 Some manual operations have to be done on files that are  located in the extracted `platform_conf/current` folder (see [Update Bonita BPM Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf) for more information). You need to:
     
     * Perform a diff between the version before migration and the version after migration of `tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties` and put the additional lines into the file `tenants/[TENANT_ID]/conf/compound-permissions-mapping-custom.properties`
@@ -197,7 +197,7 @@ Some manual operations have to be done on files that are  located in the extract
                
 1. Configure License:
 
-    you need to put a new license in the database: see [Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf) for further details.  
+    you need to put a new license in the database: see [Platform configuration](BonitaBPM_platform_setup.md#update_platform_conf) for further details.
     There is below a Linux example:
     ```
     cd setup
@@ -215,7 +215,7 @@ Some manual operations have to be done on files that are  located in the extract
     ```
     cp BonitaBPMSubscription-7.n-Jerome-myHosname-20171023-20180122.lic ./platform_conf/licenses/
     ./setup.sh push
-    ```  
+    ```
 1. Start the application server. Before you start Bonita BPM Portal, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal pages instead of the new version. 
 Log in to the Portal and verify that the migration has completed. 
 If you did not set the default Look & Feel before migration and you cannot log in, you need to [restore the default Look & Feel](managing-look-feel.md) using a REST client or the Engine API.

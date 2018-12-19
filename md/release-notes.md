@@ -1,179 +1,254 @@
 # Release notes
 
-Bonita BPM 7.4 includes a set of user-based product enhancements, bug fixes related to Bonita BPM Engine, 
-a new REST connector and important technology updates.
+Bonita BPM 7.5 includes a set of new features related to Living Application development and deployment as well as UI personalization, in addition to important technology updates and bug fixes.
 
-## User-based product enhancements
+<a id="living-application-development-and-deployment"/>
 
-<a id="bpm-studio"/>
+## Living Application development and deployment
 
-### Bonita BPM Studio
-* When importing a .bos file, 3 options are now available:
-    * import it in the current repository
-    * import it in another existing repository
-    * create a new repository and import it there
-  This may prevent from overriding a BDM file or other types of development artifacts.
-* Contract inputs can be defined with the type LONG, at pool level only. In called processes, this is helpful to receive IDs from call activities
-* The list of operations in a task and in the outputs of a connector configuration can be reordered
-* Process simulation capability has been removed from the product `(removed)`
+### New wizard to import a process in the studio & compare the artifacts 
+Bonita BPM Studio provides a wizard when importing a .bos that displays the duplicate artifacts (forms, connectors, ...)  and asks for user actions, between keeping the existing artifact and overwriting with the newly imported artifact:
+* Ease collaboration between teams who work with .bos exchange
+* Reduce drastically the risk of overwrite error during import of a .bos.
 
-<a id="bdm-usability-improvements"/>
+### Industrialization of Living Application (in Studio)
+Bonita BPM Studio provides an editor to create the Living Application descriptor (metadata and navigation) that took place in Bonita BPM Portal (Administrator profile) in previous versions. This is the first step towards a full Application artifacts development into Bonita BPM Studio in future versions `(Efficiency, Performance edition)` :
+* Create and edit application descriptors in Studio. 
+* Construct application navigation from inside Studio based on existing artifacts.
+* Store the descriptor in a VCS.
+* Deploy on the local portal to preview the Living Application and export for your production environment. 
 
-### Business Data Model (BDM)
-* In the Studio, a new menu item Development > Business Data Model > Browse data (h2 console) opens the H2 console to visualize and browse business data. When testing a process, this helps to see how Business Objects instances evolve.
-* In the Studio repository, .xml is now the storage format of the BDM. Using any Version Control System, you can now manually handle a _diff_ of 2 different revisions of the same BDM
+<a id="ui-personalization"/> 
 
-<a id="uid-usability-improvements"/>
+## UI personalization
 
-### UI Designer
-* CSS, Javascript, and localization.json assets can be edited in line, directly in the UI Designer
-* Variables can be sorted by names and types
-* Variables search field sticks at the top of the pane, so you can scroll vertically and still see it
-* When the "Preview" window is open and you click on "Preview" again, it is now reloaded, so only one window is open at a given time
+### New management of date/time in BDM, contracts, and user interfaces
+New management of date and time used in Living Applications across multiple timezones. It now follows the philosophy of Java 8 date management:
+* Benefit from Java 8 improvement of date/time management in order to better manage timezones in BDM, contracts, and UI (forms and pages). Covers the following use-cases: 
+    * input and display a birthdate (not time related).
+    * define and display meeting date and time (displayed in user timezone).
+    * define and display a flight arrival date and time (displayed the same anywhere on the globe).
+* Note: this update does not change the way dates are displayed on Bonita BPM Portal.
 
-<a id="task-and-case"/>
-
-### Task & Case Management
-* The estimated due date for a human task can be defined as an expression in the Studio
-* A task can now be retrieved by its case ID in the user Portal task list
-* In the user Portal case list, a new icon has been added at the end of each case row. It takes the user to the task list To do, filterd by the case ID.
-
-### Connectivity
-* A new REST connector has been added, to make REST calls (GET, PUT, POST, DELETE) to a third-party system `(new)`
-* The CMIS connector has been improved, to retrieve a list of documents in a content management system (CMS), and to upload multiple documents to a CMS
-
-<a id="csrf-security"/>
-
-### Security
-* CSRF security mechanism is now enabled by default when installing Bonita BPM, to protect the REST API against Cross-Site Request Forgery (CSRF) attacks. Custom pages not developped with the UI Designer may need to be updated to comply with this new setting. 
- To know more, go to http://documentation.bonitasoft.com/7.4?page=csrf-security
-
-<a id="platform-installation"/>
-
-### Platform installation
-* The installation procedure of Bonita BPM bundles has been simplified, namely the database configuration part. Read the file HOW_TO_INSTALL_AND_RUN located in the bundles to learn more.
-
+### Link widget and preview improvement
+The Link widget as been improved in order to support more use-cases; it can now be tested in the preview window in most cases. Improvements are:
+* Addition of a new property to pass additional query parameters when creating a link to a form or a page
+* Addition of a new property to pass the name of the target application (useful in the preview when you want to test a link to an application page or when you need to redirect to another application)
+* The URL of the preview can be edited to pass additional parameters in the query string in web browsers supporting it (currently, only Firefox)
 
 <a id="technology-updates"/>
 
-## Technology updates in Bonita BPM 7.4.0
-* Wildfly 10.1.0 application server replaced Jboss AS 7.1.1
-* Hazelcast is updated to Hazlecast 3.6.5 `(SP)`, to improve clustering types of installation
+## Technology updates
 
+### Full Java 8 support
+Bonita BPM is fully compatible with java 8 in production and development environment. It allows to write java 8 extension points (Connectors, Actor Filters, Custom Pages, ...). Java 8 syntax and specific APIs can now be fully used in all Bonita BPM [extensions points](software-extensibility.md#stable_extension_points).
+JRE or JDK 8+ is *required* to run. Bonita BPM 7.5.0+ cannot be operated on Java 7.
+
+### Support of Microsoft Edge
+Bonita web tools and user interfaces are fully compatible with Microsoft Edge and IE 11 browsers (UI Designer editor, all artifacts generated by the UI Designer (Forms, Pages, ...), Bonita BPM Portal). 
+
+### Integration of SSO SAML 2.0
+Bonita BPM works with Single-Sign-On (SSO) solutions using SAML V2 protocol `(Teamwork, Efficiency, Performance edition)`: 
+* Use standard authentication service 
+* Connect to Bonita Living Applications with company credentials (per tenant configuration)
+* Common SAML 2.0 Identity providers: ADFS (MS Active Directory Federation Services), SalesForce, Open AM, Google Auth,...
+
+### Removed support
+#### Oracle Weblogic application server
+Bonita BPM 7.5.0+ does not support Oracle Weblogic application server anymore.  
+Refer to [full software requirements](hardware-and-software-requirements.md) for more details on supported environments.
+
+#### Internet Explorer 9 and 10
+Bonita BPM 7.5.0+ does not support Internet Explorer 9 and 10 anymore.  
+Refer to [full software requirements](hardware-and-software-requirements.md) for more details on supported environments.
+
+### Other dependency updates
+* hibernate is updated to 4.3.11, to support JPA 2.1 specification
+* httpclient is updated to httpclient 4.5.2
+* httpcore is updated to httpcore 4.4.4
+* spring is updated to spring 4.3.7
+
+### API removals
+
+* Engine APIs have been cleaned up from some deprecated methods:
+  * ProcessAPI.addComment() - replacement method is [ProcessAPI.addProcessComment()](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#addProcessComment-long-java.lang.String-)
+
+## Breaking changes in UI Designer
+
+### Ui-bootstrap.js library removed from runtime
+In our first design iteration, forms, pages and layouts designed with the UI Designer embedded 
+[UI Bootstrap js, version 0.13.4](http://angular-ui.github.io/bootstrap/versioned-docs/0.13.4/) by default and silently,
+even when not needed. We have removed it so you can use it only when you need it, and with the version you choose. 
+
+Before this change, custom widgets could be created based on angular-bootstrap v0.13.0 with no explicit addition of
+angular-bootstrap as an asset and without declaring required modules.
+
+This will not affect any artifact that has been created with the UI Designer and is currently deployed in Bonita BPM Platform.
+
+In development though, if your custom widgets use angular-bootstrap, you need to add angular-bootstrap as an asset at widget level, and declare the appropriate required modules.
+
+#### Forms, pages, layouts CSS cleaned
+The default CSS file embedded in UI Designer artifacts (except custom widgets) has been cleaned. Indeed, some of this CSS
+rules were overall not used and cluttered this file.
+
+This will not affect any artifact that has been created with the UI Designer and is currently deployed in Bonita BPM Platform.
+
+Nevertheless some unwanted style could appear when importing a custom layout based on the default layout of Bonita BPM prior to 7.5.0.
+If you do so and observe that the layout menu does not fit the whole width of your page, you can bring back the default 
+style by adding the following lines in `layout.css` file.
+```css
+.component .container {
+     width: 100%;
+ }
+```
+We recommand that you re-create your custom layout based on Bonita 7.5.0+ default layout.
 
 ## Limitations and known issues
 * **MacOS Sierra (10.12)**: **Bonita BPM Studio** installed using the `zip` package fails during launch. Bonita BPM can successfully be installed on **MacOS Sierra** using the `dmg` package
 * **MacOS** environment: starting from **MacOS El Capitan 10.11.4** (March 2016), new security rules block the launch of **Bonita BPM Studio**. You must temporarily remove security on `App` launching in _System Preferences→Security & Confidentiality_.
+* **living application**: if you forget the trailing slash in the URL, the redirection to the valid URL will encode your query parameters twice. You may have to manage this in your custom pages, in case you parse the query parameters and they contain special characters.
 
 ## Bug fixes
 
-* A major behavior change of this version is related to the fix [BS-14276](https://bonitasoft.atlassian.net/browse/BS-14276). Part of the fix involved the transfer of all the groovy script execution logic to the server, making operations on human tasks asynchronous (as they should have been since 7.0.0).
-While it should not affect a process designed prior to 7.4.0, one of the side effect of the fix is that all the API methods relying on the Session to get the userID, will now find -1 as a value when called from a groovy script (as there is no user logged in during the script execution, since the execution is asynchronous).
-Therefore, all scripts that want to perform an action on behalf of the user executing the task, should rely on the id of the task assignee to do so.
- We identified [addProcessComment()](https://documentation.bonitasoft.com/javadoc/api/7.4/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#addProcessComment-long-java.lang.String-) as one of the affected method: when called from a groovy script, it will systematically write the process comment as having been made by the "System" user.
- **Note:** This use case has never been considered before. As a comment was thought to be left by the user himself / herself.
- 
+### Fixes in Bonita BPM 7.5.4
 
-### Fixes in Bonita BPM 7.4.3
+#### Fixes in Documentation
+* BS-16934	Missing info in the Custom Layout documentation page
+* BS-16720	Living Application layout customisation: Side Menu example not working properly in 7.5.0
 
-* BS-14579	ProcessAPIImpl.cancelProcessInstance fails when parent Process cannot find subprocess
-* BS-14880	Missing translations in new rest api wizard
-* BS-15851	Delete a page does not delete the metadata file
-* BS-15873	HTTP status code 500 returned when using a non existing username or wrong password
-* BS-16027	Adding two widgets with assets does not refresh asset list
-* BS-16031	BDM.find() fails with Exception if element has a CHILD
-* BS-16106	bpm/archivedCase return error 500 instead of 404 if the case doesn't exist
-* BS-16145	WildFly start-bonita.bat failed if JAVA_HOME is set with a path including spaces
-* BS-16161	The user is not warned that the session will be closed when the BDM is deployed
-* BS-16170	JSON sorted results broken in widget Data table in Chrome
-* BS-16184	Tomcat does not test SQL connection validity before giving it to Bonita application
-* BS-16206	Japanese chars in diagram name generate validation errors
-* BS-16214	The studio menu Development -> Business Data Model -> Browse Data (h2 console) doesn't open the bound browser
-* BS-16231	Contract input not available in the expression editor, for connectors dealing with documents
-* BS-16233	IdentityApi.getUserMemberships does not set grouptParentPath
-* BS-16238	Adding contract input from large business data is very slow
-* BS-16240	Impossible to edit the name of a freshly added Business Object in the Business Data Model of the Studio - Mac OS Sierra
-* BS-16262	Renaming BDM object's attribute actually renames another object's attribute
+#### Fixes in Engine component
+* BS-16878	Engine does not support operations on Business Data in a catch message
 
-### Fixes in Bonita BPM 7.4.2
+#### Fixes in Studio component
+* BS-15115	Message catch vs BO => operation failed: Message content which uses a java method to set BO attribute generates an exception
+* BS-16823	Browse H2 database (h2 console) not working on Windows 64bit if Bonita installed using installer 32bit
+* BS-16853	Exporting a process fails if process uses a process variable with XML data type and without schema import
+* BS-16857	NullPointerException raised on task change type
+* BS-16879	Unwanted Studio error message when using message content of type Integer
+* BS-16883	Studio generates wrong data type on call activity data mapping
 
-* BS-11654	Process with a call activity calling a process without a none start event (including implicit) stay in "started" (even with an event subprocess triggered)
-* BS-15844	Workspace is corrupted if UI Designer home folder is empty
-* BS-15972	Can't paste in name field of an expression editor.
-* BS-16029	Searching performs an api call on every keystroke
-* BS-16037	[UID] widgets are no more read only in white board after drag and drop
-* BS-16058	External CSS assets from custom widgets have a View icon in the page/form
-* BS-16076	Duplicate attribute added in BDM in iOS platform
-* BS-16118	Add support for contract input on the MultipleStartPointsProcessCommand
-* BS-16123	Manager can't see the v6 legacy or v7 overview page for processes executed by their subordinates
-* BS-16125	Unable to update a connector implementation if a dependency with the same name already exists
-* BS-16129	Process actors Mapping shows only 10 actors in Portal
-* BS-16131	Diagram is open twice after clicking on Debug button
-* BS-16144	Previous type of variable is used instead of the new one after an update
+#### Fixes in UI Designer component
+* None
 
-### Fixes in Bonita BPM 7.4.1 
+#### Fixes in Web component
+* BS-16954	Portal incompatible with Chrome 60 (released 25 Jul 2017)
 
-* BS-14076	V7 Translation bugs
-* BS-15679	Update of connector implementation does not work with single and same jar dependency
-* BS-15681	Process with a subprocess with a catch message or timer event never ends and is blocked on a parallel gateway
-* BS-15820	No work generated at start up to execute boundary event in waiting state
-* BS-15826	[i18n] typo in FR translation in the licence monitoring view
-* BS-15884	Monitoring view tooltips are not translated
-* BS-15887	UI Designer Form opening and save takes a minute and more
-* BS-15916	Cannot use process variable in the init of Sub Process Event
-* BS-15990	An update of the DataInstanceServiceImpl.getSADatainstanceOfContainers() logic returns incorrect data value
-* BS-16028	Chart widget advanced options link redirect to wrong version of chart.js
-* BS-16035	SessionUtil stopped working
-* BS-16050	V6 form double contingency doesn't work anymore
-* BS-16056	Date widget does not work for dates between December 1969 to January 1970
-* BS-16069	Impossible to cancel the import of a .bos if a file is selected
-* BS-16095	Catch message: left operator not set when using auto fill
+### Bonita BPM 7.5.3 (skipped)
+An issue with Google Chrome version 60 has been identified and impacts all versions of Bonita up to 7.5.3 (included). We choose not to release 7.5.3 and instead build a new version (7.5.4) that includes 7.5.3 modifications and a fix for Chrome.
 
-### Fixes in Bonita BPM 7.4.0 
+### Fixes in Bonita BPM 7.5.2
 
-* BS-10745  Starting a disabled process through a Call Activity should not be allowed
-* BS-11280  Jasper Connector is not working by default on JBoss
-* BS-13977  A human task can be submitted several times when connector execution is long enough
-* BS-14276  When a task operation fails the UI form submit receives an exception and fails too
-* BS-14327  Cannot install/deploy a connector implementation with a "long" version
-* BS-14787  Deploying a process with a form undefined and no contract leads to disturbing behavior in the configuration view
-* BS-14816  Executing task leads to violation of unique constraint: idx_uq_pending_mapping
-* BS-14878  When importing a .bos from the Studio, all "favorites" UID artefacts are kept
-* BS-14886  Profile API (SP version) createProfileEntry() does not work
-* BS-15008  ARJUNA016051: thread is already associated with a transaction!
-* BS-15076  Exception when using BDM queries that return primitive java types
-* BS-15127  Web Service connector cannot send requests with size > 8 KB on JBOSS only
-* BS-15381  Oracle constraint violation on IDX_UQ_PENDING_MAPPING
-* BS-15408  Cache is enabled on REST APIs calls
-* BS-15416  Case visualization image does not contain arrows and does not match the process diagram for a process imported from 6.3.6
-* BS-15431  Security issue - server information disclosed
-* BS-15449  Unique index or primary key violation: "UC_CD_SCOPE_NAME_INDEX_9 ON CONTRACT_DATA"
-* BS-15471  Custom widget bond not updated when already in the page
-* BS-15484  The manager is set to System when overriding an existing user at organization import
-* BS-15489  Process-design.xml may not be valid against XSD after migration
-* BS-15500  Portal error popup contains a stack trace of an exception
-* BS-15501  REST request retrieves a JSON containing an error and a stack trace
-* BS-15550  Cannot start process in the mobile app if Skip Form is selected
-* BS-15579  Infinite $digest Loop when radio buttons is bound to an array
-* BS-15659  Start For should store the name of the person for whom the action is made
-* BS-15684  The portal starts loading and then reloads
-* BS-15696  Error while stopping JBoss bundle
-* BS-15701  Date widget shows wrong "Today" when timezone does not match GMT
-* BS-15712  When a GET Action Button Widget is clicked on a Task Form on the Task List, the event is caught like a Submit Action Button
-* BS-15716  Cannot access pending tasks from case details view anymore
-* BS-15717  The override popup message provided at UI Designer artifact import can be inconsistent
-* BS-15733  fileInput are generated with {} by default instead of null 
-* BS-15770  Text Annotation elements are missing when exporting to BPMN XML
-* BS-15780  Text Annotation and Association not supported in Case Visualization
-* BS-15797  Variables panel does not resize properly after resizing Property panel
-* BS-15818  Task form from "Administrator" does not display normally on IE11
-* BS-15823  Installer 7.4.0 displays Copyright 2015 instead of 2016
-* BS-15827  UI Designer Preview always displays an horizontal scroll bar
-* BS-15841  Unable to create a Business Object with more than one list of the same type
-* BS-15847  Studio Subscription installer does not support Workspace importation
-* BS-15947  Messages are stuck due to BPMEventHandling Triggers
-* BS-15970  Studio installer on Windows 32bits uses locally installed JRE 6 instead of embedded JRE 7
-* BS-15972  Can't paste anything in the name field of the expression editor
-* BS-15981  Random 404 Errors using API/bpm/humanTask/TASKID
-* BS-16016  UI Designer date filter throws an error when selecting non default language on preview
-* BS-16017  Can't run previously created .bos with 6.x forms in studio 7.4.0.beta-01
+#### Fixes in Documentation
+* BS-16372 7.4.x Deploy bundle installation procedure in not clear enough
+* BS-16691 Documentation does not list Long type as supported for contract input
+* BS-16731 Applications Portal doc page still states that application development occurs in the Portal
+
+#### Fixes in Engine component
+* BS-16482 REST API Extensions are unstable in debug mode
+* BS-16611 Alfresco connector breaks case instantiation
+* BS-16629 Issue while resuming BPM services in Wildfly and cluster mode
+
+#### Fixes in Studio component
+* BS-16684	Business Object attributes table with height too short to access buttons on BDM Management
+* BS-16692	Incoherence after contract type update
+* BS-16699	In application page tokens,"-" and "_" are not considered as valid characters
+* BS-16705	.proc file size is too BIG due to complex contrat input references in expression
+* BS-16723	Wrong studio warning: cannot store the count query in a process data of type long
+* BS-16729	When switching from one diagram to another, tab operations is not updated
+* BS-16730	Missing import of BPMN2 diagram in the Studio
+* BS-16732	Cannot assign a Parameter to a Data to send to a child process
+
+#### Fixes in UI Designer component
+* BS-16736 leaving the Rich text Area Max value empty leads to an error message
+
+#### Fixes in Web component
+* BS-16482 REST API Extensions are unstable in debug mode
+* BS-16021 Http 400 response for font resources in an application page designed with UID
+* BS-16263 Security fails in bonita/portal/resource/app and LivingApplicationPageServlet
+* BS-16350 While using IE, IFrame removal causes loss of the ability to focus input elements
+* BS-16474 Analytics Case history japser report broken
+* BS-16758 Bonita wildfly bundle startup failure with the MS SQL Server 6.0 JDBC Driver Version
+* BS-16809 File contract input is loaded twice in memory
+
+### Fixes in Bonita BPM 7.5.1
+
+#### Fixes in Documentation
+* BS-15711 Connector maxThreads default is 20 and not 200 as indicated in the Doc
+* BS-16287 Add Layout migration step in the release note 7.3 for bug fix [BS-14885]
+* BS-16518 Website does not display latest documentation version
+* BS-16535 Getting started tutorial refer to old Date type                   
+
+#### Fixes in Engine component
+* BS-14752 Improve validation messages when two BOs of type A are in a composition in BO of type B
+* BS-15015 Cannot start case with a Search Index referencing a Business data
+* BS-16057 ProcessApi.sendMessage does not allow the messageContent value to be null or an empty string
+* BS-16188 Invalid connector implementation generates a NULL pointer exeption
+* BS-16253 LDAP Synchronizer can not resolve dynamic LDAP groups (groupOfURLs)
+* BS-16521 Cannot get the document with DocumentsSearchDescriptor.CONTENT_STORAGE_ID
+* BS-16543 Timetracker activated prevents the tenant resuming
+
+#### Fixes in Studio component
+* BS-16473 Improve Studio Help message for Operations
+* BS-16554 Engine errors while exporting BAR file are not displayed in Studio
+* BS-16589 While setting an actor filter you can read "Connector definitions" instead "Actor filter definitions"
+
+#### Fixes in Web component
+* BS-16551 Process Actor Mapping: Label role is not displayed in section "roles mapped"
+* BS-16594 Process Actor Mapping: membership popup does not load Role at first load
+* BS-16626 Unmapped an entity in Process Manager mapping, the name of entity isn't displayed in title.
+
+
+### Fixes in Bonita BPM 7.5.0
+* BS-12872 Cannot retry a task if the displayName script fails
+* BS-15232 Web Service Connector fails when receiving HTTP Code status 307
+* BS-15721 Import a layout from 7.x (prior to 7.3) into 7.3 UIdesigner overrides the widgets
+* BS-15730 getProcessBusinessDataReferences : NullPointerException if BusinessData is multiple AND list contains a null
+* BS-15466 Security Issue: Exception messages in JSON responses are not escaped
+* BS-15796 Angular bootstrap 0.13.0 is included in vendor.js during runtime
+* BS-15799 When path contains a special character (accent) then widget directive fails to build
+* BS-15822 Cannot use SOURCE_OBJECT_ID in the Search API of Archived Comments
+* BS-15868 Upload field in V6 legacy forms raises a SEVERE harmless error
+* BS-15899 With CAS, Redirect URL drops id parameter if the process name contains "id" in the name
+* BS-15913 SSO - CAS: service parameter is not properly checked on the URL
+* BS-15949 Form V6 URL can be used to list all process instance variable values (autogenerated form)
+* BS-15956 Postgres processes are stuck to 100% for a while due to SQL requests involving user_ and actor tables
+* BS-15962 bonita.cluster.name property is not used to set the cluster name for the MulticastJoiner from Hazelcast
+* BS-15977 Variable completion does not work if NOT operator (!) is used
+* BS-15984 Custom Layout - Adding widgets on top of the widget menu increase its height
+* BS-16006 Impossible to add row on a editable grid in a V6 form
+* BS-16046 File name not refreshed in File upload widget after file deletion and re-upload of the same file
+* BS-16067 Data Table paging footer is not usable when too many records
+* BS-16078 widget link + Human Task / Instantiation / Overview is broken in preview
+* BS-16105 UI Designer Editor 7.4 is not working on Safari
+* BS-16115 Request Key and License file contain a wrong osName with Windows 10 and java8_u40 - License Error 27,423
+* BS-16121 Only one translation key between server/"build" menu and REST API/"build" button which leads to a wrong translation
+* BS-16168 Several catch Link events and inclusive and parallel gateways wrong behavior
+* BS-16169 Unique catch Link event receiving several throw links event and inclusive and parallel gateways wrong behavior
+* BS-16187 Updating MULTI_INSTANCE_ACTIVITY task state to "skipped" does not update state of "child" task instances
+* BS-16213 OracleXAException when resuming BPM Services with WildFly + Oracle /11g R2 after installing Business Data Model
+* BS-16221 Page title is incoherent with page message, 404 error vs. 403
+* BS-16241 X-Bonita-API-Token Duplicated in login response header
+* BS-16273 SVN repository Migration loses Form critical files
+* BS-16280 StringIndexes / search keys are not updated in sub-processes
+* BS-16282 Parent process stringindex (search key) is updated with a human task's operation part of a subprocess
+* BS-16288 Cannot use Japanese characters in Repository name
+* BS-16291 Deleting and re-instantiating a Business Object in the same task fails
+* BS-16292 Create a new form is missing
+* BS-16298 TimeoutException is hidden when it occurs during actor filter execution
+* BS-16311 BDM deployment confirm message not translated in French
+* BS-16339 Browse H2 database not working on Windows if install folder includes spaces
+* BS-16345 Rich text Area Preview raises errors in the developer tool console debug
+* BS-16364 Enable to type € character in custom widget template on Windows
+* BS-16366 Can not reopen the preview popup on Safari
+* BS-16377 Generated documentation on non-interrupting boundary events not reported properly
+* BS-16409 Whole Portal displays Half screen in IE11 version 11.0.40 (windows Update KB4012204)
+* BS-16410 Remove example on businessDataReference API since it is deprecated
+* BS-16415 Typo in BOSWebServerManager.java implies that tech user password MUST equal tech user name
+* BS-16451 taskAssigneeId cannot be resolved in groovy script editor in an Activity operation
+* BS-16454 Cannot initialize a business object with a query with parameters - value not saved in Studio
+* BS-16486 Documents cannot be used as connectors inputs
+* BS-16504 Business object lost and transformed in string when used in a email connector after a change
+* BS-16507 UI Designer Preview: Uncaught DOMException: Failed to construct 'WebSocket'
+* BS-16511 Editing group description breaks relation with child group
+* BS-16517 Contract "Add Data" with a document fails
+* BS-16531 Contract input description should not be linked to widget placeholder in form generated by the developer
