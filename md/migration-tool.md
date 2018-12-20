@@ -75,22 +75,3 @@ This change log must be read before [migrating to a newer version of Bonita](mig
 
 ## 2.22.0 - May. 31st, 2017 (Bonita 7.5.0)
 * None
-   
-## 2.21.1 - Apr. 13th, 2017 (Bonita 7.4.3)
-* BS-15959 Process parameter with utf-8 char in its name is not found after migration to 7.3.0
-* BS-16196 New REST APIs are not added after migration in 7.4.0
-* BS-16347 IndexOutOfBoundsException is generated after a migration when trying to create or end an event sub process defined in a sub process
-
-## 2.21.0 - Mar. 2nd, 2017 (Bonita 7.4.3)
-* BS-16094 Validation problem during migration: process-design.xml endEvent description incomingTransition
-* BS-16237 Migration tool does not run anymore with JRE 1.7
-
-## 2.20.0 - Feb. 6th, 2017 (Bonita 7.4.2)
-* BS-16079 Invalid .bar files block migration to 7.4.0 => Duplicate actor entries in processs-design.xml
-* BS-16094 Validation problem during migration: process-design.xml endEvent description incomingTransition
-
-## 2.19.0 - Jan. 5th, 2017 (Bonita 7.4.1)
-* None
-   
-## 2.18.0 - Dec. 20th, 2016 (Bonita 7.4.0)
-* BS-16005  Increase version fields length up to 50 char
