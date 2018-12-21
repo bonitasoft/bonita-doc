@@ -31,6 +31,10 @@ REST API extensions use the same authorization mechanism as the standard Bonita 
 **Warning**: If you are running Bonita BPM in a cluster, after you import a REST API extension, you must restart the application server on all the cluster nodes.
 :::
 
+::: warning
+**Warning**: As the deployment of the REST API extensions automatically create the appropriate resource permission mappings, be careful to not [push configuration](BonitaBPM_platform_setup.md#update_platform_conf) without doing a pull previously. This would lost the running configuration.
+:::
+
 <a id="usage"/>
 
 ## Usage

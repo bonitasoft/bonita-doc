@@ -77,9 +77,11 @@ For WildFly:
 * `pull`, to retrieve the current configuration 
 
   It gets the current configuration of Bonita BPM Platform from the database and saves it locally in the `platform_conf/current` folder.  
-  **Note:** You must pull the configuration from the database every time you need to update your license file or edit the configuration of Bonita BPM Platform. Since some information is inserted by the platform itself in the database, this prevents database inconsistency.
-  
   Eg. `setup.sh pull`
+  
+::: warning
+  **Note:** You must pull the configuration from the database every time you need to update your license file or edit the configuration of Bonita BPM Platform. Since some information is inserted by the platform itself in the database, this prevents database inconsistency.
+:::  
 
 * `push`, to update the configuration of Bonita BPM Platform, and update your license
 

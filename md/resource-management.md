@@ -75,6 +75,10 @@ If you have specified a resource permission that is not defined in the [REST API
 
 After a resource is added to the portal, it can be used in an [application](applications.md) or in a custom profile.
 
+::: warning
+**Warning**: As the deployment of resource automatically create the appropriate resource permission mappings, be careful to not [push configuration](BonitaBPM_platform_setup.md#update_platform_conf) without doing a pull previously. This would lost the running configuration.
+:::
+
 <a id="modify"/>
 ## Modify a resource
 
