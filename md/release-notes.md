@@ -73,8 +73,8 @@ This helps validating if all expected calls are well implemented in the artifact
 <a id="clause-in"/>
 
 ### BDM query parameters accept arrays
-It is now possible to query for multiple values of an attribute in the BDM objects.
-On example: 
+For a given BDM attribute of an object, custom queries can now be performed within a selection of values passed as a parameter (array).
+One example: 
 ```sql
 SELECT e
 FROM Employee e
