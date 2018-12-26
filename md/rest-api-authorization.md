@@ -24,8 +24,6 @@ Here are the key points of the authorizations configuration :
 If you are using the standard Portal, you do not need to configure anything.
 * If you want to add extra authorization restrictions based on business rules, turn on the dynamic checks that you want.
 The configuration file defines standard rules for the most frequent cases, so all you need to do is uncomment the rules you want to apply.
-* When you add a custom page or REST API extension, the appropriate resource permission mappings is created. Be careful to not [push configuration](BonitaBPM_platform_setup.md#update_platform_conf) 
-without doing a pull previously. This would lost the running configuration.
 * If you add a custom page, include a resources=\[ list \] in your page.properties to specify which resources your custom page requires the users to have access to.
 * If the previous points do not meet your security needs, you can still manually customize the configuration and rules as much as you want.
 

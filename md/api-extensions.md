@@ -32,7 +32,7 @@ REST API extensions use the same authorization mechanism as the standard Bonita 
 :::
 
 ::: warning
-**Warning**: As the deployment of the REST API extensions automatically create the appropriate resource permission mappings, be careful to not [push configuration](BonitaBPM_platform_setup.md#update_platform_conf) without doing a pull previously. This would lost the running configuration.
+**Warning**: As the deployment of the REST API extensions automatically creates the appropriate resource permission mapping, be careful not to [push a configuration](BonitaBPM_platform_setup.md#update_platform_conf) that has been updated before the push. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to the Bonita runtime in a pretty short amount of time.
 :::
 
 <a id="usage"/>
