@@ -70,4 +70,6 @@ When you select the custom profile, the navigation bar will be applied to it.
 
 Note: Click _**Reset**_ to erase the navigation bar if required.
 
+**Note:** The navigation bar is designed to be displayed as a single line. If your menu is too long, use menus with several menu entries in them.
+
 When a user logs in with a profile, the page displayed is the first option in the first menu from the left.
