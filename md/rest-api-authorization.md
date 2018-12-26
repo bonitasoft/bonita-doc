@@ -27,6 +27,7 @@ The configuration file defines standard rules for the most frequent cases, so al
 * If you add a custom page, include a resources=\[ list \] in your page.properties to specify which resources your custom page requires the users to have access to.
 * If the previous points do not meet your security needs, you can still manually customize the configuration and rules as much as you want.
 
+
 If you have migrated your platform from a version of Bonita BPM earlier than 6.4.0, security is deactivated by default.
 You need to [add authorization to your custom pages](#migrate) before you activate authorization.
 
