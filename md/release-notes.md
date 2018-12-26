@@ -21,7 +21,8 @@ _(Teamwork, Efficiency, Performance, and Enterprise editions)_
 Sometimes, because of legacy systems, or the way systems interact, and the complexity and cost it would take to change things, employees must perform repetitive tasks, with not much added-value, like copying and pasting values from one system to another. This times are over now with the possibility to connect Bonita with its [technology partner UiPath](https://www.bonitasoft.com/robotic-process-automation), the leader in RPA. Let a robot do the boring tasks for the employees, and let the employees focus on the complex tasks with strong added-value. New connectors are now available in the Studio:
 * Start jobs: start a job on Orchestrator on a specified number of Robots. (compatible with _job input parameters_  in version 2018.3)
 * Add queue item: add a new item in a queue in order to exchange data with jobs
-* Get job status: retrieve the current status of a job
+* Get job status: retrieve the current status of a job  
+
 Moreover, UiPath provides native activities to interact with Bonita in order to start a Case, send a BPM Message, validate a Task. (see UiPath documentation for more details)
 
 <a id="modal"/>
@@ -72,8 +73,8 @@ This helps validating if all expected calls are well implemented in the artifact
 <a id="clause-in"/>
 
 ### BDM query parameters accept arrays
-It is now possible to query for multiple values of an attribute in the BDM objects.
-On example: 
+For a given BDM attribute of an object, custom queries can now be performed within a selection of values passed as a parameter (array).
+One example: 
 ```sql
 SELECT e
 FROM Employee e
