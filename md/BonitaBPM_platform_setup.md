@@ -15,7 +15,7 @@ We made it easy for you by creating `start-bonita.bat`(for Windows) or `start-bo
 The *Platform setup tool* handles:
   - The creation of the database tables
   - The configuration of the Tomcat or WildFly bundle with this database without the need for a fully manual configuration
-  - The management of Bonita Platform configuration (stored in the database) 
+  - The management of Bonita Platform configuration (stored in the database)
   - The management of licenses (also stored in the database)
 
 It is located in both [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles, and also in the [deploy bundle](deploy-bundle.md). In Tomcat and WildFly bundles, you can find the tool in the `setup` folder.
@@ -58,14 +58,14 @@ The script `setup` comes with 4 commands:
 
   If you want to bypass this confirmation prompt you can add the `h2.noconfirm` property to `setup` or `start-bonita` scripts.
 
-  Eg. `setup.sh init -Dh2.noconfirm`  
+  Eg. `setup.sh init -Dh2.noconfirm`
   Eg. `start-bonita.sh -Dh2.noconfirm`
   :::
 
 <a id="run_bundle_configure" />
 
-* `configure`, to configure the server of a Bonita Tomcat / WildFly bundle to use the appropriate database: 
-  If run from inside a Bonita bundle, it configures the Application Server environment, so you don't need to configure all Tomcat / WildFly basic configuration files manually.  
+* `configure`, to configure the server of a Bonita Tomcat / WildFly bundle to use the appropriate database:
+  If run from inside a Bonita bundle, it configures the Application Server environment, so you don't need to configure all Tomcat / WildFly basic configuration files manually.
   It is run by the global script `start-bonita`, but you can also insert it in your own scripts.
   
   Eg. `setup.sh configure`
@@ -89,10 +89,12 @@ For WildFly:
 
 * `pull`, to retrieve the current configuration 
 
-  It gets the current configuration of Bonita Platform from the database and saves it locally in the `platform_conf/current` folder.  
-  **Note:** You must pull the configuration from the database every time you need to update your license file or edit the configuration of Bonita Platform. Since some information is inserted by the platform itself in the database, this prevents database inconsistency.
-  
+  It gets the current configuration of Bonita Platform from the database and saves it locally in the `platform_conf/current` folder.
   Eg. `setup.sh pull`
+
+::: warning
+  **Warning:** You must pull the configuration from the database every time you need to update your license file or edit the configuration of Bonita BPM Platform. Since some information is inserted by the platform itself in the database, this prevents database inconsistency.
+:::
 
 * `push`, to update the configuration of Bonita Platform, and update your license
 
@@ -116,7 +118,7 @@ Keep in mind that the folder **`platform_conf/initial`** is not used anymore onc
 
 ## Pre-requisites
 
-Before running it, make sure the setup tool is configured to point to the database of the Bonita Platform.  
+Before running it, make sure the setup tool is configured to point to the database of the Bonita Platform.
 
 ::: info
 **Note:** If you have already run `start-bonita` script inside a [Tomcat bundle](tomcat-bundle.md#configuration) or a [WildFly bundle](wildfly-bundle.md#configuration), those steps are already done.
@@ -124,7 +126,7 @@ Before running it, make sure the setup tool is configured to point to the databa
 
 Here is how to do so:
    1. Create the database
-   2. Customize it so it works with Bonita 
+   2. Customize it so it works with Bonita
    3. Modify the `database.properties` file: Set the right db vendor and change connection url, user credentials, database name and so on.
    4. If you are using an Oracle or Microsoft SQL Server database, add the related [JDBC driver](database-configuration.md#proprietary_jdbc_drivers) in the `lib` folder. 
 
