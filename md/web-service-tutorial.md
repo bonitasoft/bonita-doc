@@ -114,7 +114,7 @@ Rename the form into _**Display capital**_, save it, and we are done.
 18. We do not want to implement a case overview for this simple use case. Select the pool, go on the _**Execution tab**_, click on _**Overview page**_ and select _**No form**_.
 
 
-To test the process, just follow those steps:
+19. Test the process, by following those steps:
 * Select the pool
 * Configure the actor mapping to the group "/acme"
 * Click on the "Run" button to install and enable the process and be redirected to the instantiation form
