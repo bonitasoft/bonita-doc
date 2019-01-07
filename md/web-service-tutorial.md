@@ -5,7 +5,7 @@
 
 This example process will use a Web Service connector to call a sample Web Service to display the capital of a given country.
 
-1. In the BDM, create a business object with the following attributes:
+1. In the BDM, create a business object _**Country**_ with the following attributes:
 
 | Name | Type |
 |---|---|
@@ -35,14 +35,14 @@ This example process will use a Web Service connector to call a sample Web Servi
 
 6. Go back on the _country_ process variable, and set the _countryInput_ as default value.
 
-7. Select the  _**countryUnknown**_ flow,  go on the _**General tab**_ and set this flow as the Default flow.
+7. Select the  _**No**_ flow,  go on the _**General tab**_ and set this flow as the Default flow.
 
-8.  Select the  _**countryAlreadyKnown**_ flow, go on the _**General tab**_. Check _Use expression_, and add the following script as the expression to use: 
+8.  Select the  _**Yes**_ flow, go on the _**General tab**_. Check _Use expression_, and add the following script as the expression to use: 
 ```groovy
 !countryDAO.findById(country, 0, 100).isEmpty()
 ```
 
-9. Select the _**retrieveAlreadyKnownCapital task**_, go on the _**Execution tab**_ and click on _**Operations**_. Add the following operation: 
+9. Select the _**Retrieve already known capital task**_, go on the _**Execution tab**_ and click on _**Operations**_. Add the following operation: 
   - **Left operand**: countryBo
   - **Operation**: takeValueOf
   - **Right operand**: A script _retrieveCountry_, with the following content: 
@@ -90,12 +90,12 @@ responseDocumentBody.childNodes.item(0).textContent
 
 And we are done for the connector configuration. If you want to test it from the wizard, replace _${country}_ by _FRA_ in the envelope, and ensure that _Paris_ is returned.
 
-16. Select the _**retrieveUnknownCapital**_ task, go on the _**Execution tab**_, click on _**Operations**_ and add the following operation:
+16. Select the _**Retrieve unknown capital**_ task, go on the _**Execution tab**_, click on _**Operations**_ and add the following operation:
 * **Left operand**: countryBo
-* **Operation**: Java method -> setId
+* **Operation**: Use a java method -> setId
 * **Right operand**: country
 
-17. Select the _**DisplayCapital**_ task, go on the _**Execution tab**_, click on _**Form**_ and click on the pencil to create the form of this task. The UI Designer should open. The idea here is to simply display the field _capital_ of the business object used in the case (which has been created during the case or retrieved from the database). This business object is accessible in the context.
+17. Select the _**Display capital**_ task, go on the _**Execution tab**_, click on _**Form**_ and click on the pencil to create the form of this task. The UI Designer should open. The idea here is to simply display the field _capital_ of the business object used in the case (which has been created during the case or retrieved from the database). This business object is accessible in the context.
 * Create a _**Javascript expression**_ variable named _**api**_, with the following content: 
 ```Javascript
 return "../" + $data.context.countryBo_ref.link;
@@ -104,11 +104,21 @@ return "../" + $data.context.countryBo_ref.link;
 ```
 {{api}}
 ```
-* Insert a text widget in the form, with the following content: 
+* Insert a text widget in the form, with the following text property: 
 ```
 Capital: {{country.capital}}
 ```
 
-Save the form, and we are done.  
+Rename the form into _**Display capital**_, save it, and we are done.
 
-You can test the process on the portal, you have to select a country to instantiate the case, and then the capital of this country is displayed on the next human case. The web service is used to retrieve the capital the first time.
+18. We do not want to implement a case overview for this simple use case. Select the pool, go on the _**Execution tab**_, click on _**Overview page**_ and select _**No form**_.
+
+
+To test the process, just follow those steps:
+* Select the pool
+* Configure the actor mapping to the group "/acme"
+* Click on the "Run" button to install and enable the process and be redirected to the instantiation form
+* From the instantiation form in your browser, select a country and submit
+* The browser will be redirected to the user perspective in the Portal
+* A new task "Display Capital" should be available (refresh if not), click on it
+* The capital should appear on its associated form
