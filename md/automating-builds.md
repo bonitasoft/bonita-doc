@@ -18,7 +18,7 @@ To use `BonitaStudioBuilder`, you need the following:
 
 * Bonita BPM Studio (the same version as the Bonita BPM repository). This must be a dedicated Bonita BPM Studio and repository used only for your `BonitaStudioBuilder`, because the tool removes the content of the repository.
 * A window manager
-* Java 1.7
+* Java 1.8
 
 After Bonita BPM Studio is installed, the `BonitaStudioBuilder` scripts are in the `workspace_api_scripts` folder. 
 There are scripts for Windows (`.bat`), Linux (`.sh`), and MacOS (`_Mac.sh`).
@@ -61,6 +61,12 @@ If you do not specify an environment, the exported bar file will not contain the
 All the specified processes are built for the same environment. 
 If you want to build for different environments, you need to run the script once for each environment.
 
+`profile`
+Optional Maven profiles (comma separated list of profile id) to activate when building the REST API extensions projects.
+
+`link`
+If enabled, do not make a copy of the project to build.
+
 To run the script:
 
 1. Check out the project to a directory in the Studio path.
@@ -69,7 +75,7 @@ To run the script:
 ```bash
 ./BonitaStudioBuilder.sh -repoPath=/home/myBonitaRepoCheckedOut
 -outputFolder=/home/bonita/myArtefacts -buildAll -migrate 
--environment=Qualification
+-environment=Qualification -profile=qa
 ```
 
 When the script runs, information is logged in `workspace/.metadata/.log`.

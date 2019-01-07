@@ -74,11 +74,23 @@ You can now use the _carousel_ and _slide_ directives in your template. Here is 
 
 Template:
 ``` html
-<carousel>
-      <slide ng-repeat="slide in slides" >
+<div uib-carousel>
+      <div uib-slide ng-repeat="slide in slides track by $index" index="$index" >
         <img ng-src="{{slide.url}}" style="margin:auto;" alt="{{slide.alt | uiTranslate}}">
-      </slide>
-    </carousel>
+      </div>
+</div>
+```
+
+**Note:**
+If you want use _carousel_ and _slide_ directives in the same page as widgets that import `ui-bootstrap-tpls-0.13.0.min.js` as asset, 
+please use this syntax for _carousel_ and _slide_ directives in your template.
+
+``` html
+<uib-carousel>
+      <uib-slide ng-repeat="slide in slides" >
+        <img ng-src="{{slide.url}}" style="margin:auto;" alt="{{slide.alt | uiTranslate}}">
+      </uib-slide>
+</uib-carousel>
 ```
 
 Controller:

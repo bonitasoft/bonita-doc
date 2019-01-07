@@ -11,13 +11,12 @@ Click on the **links** below to find useful information quickly, or [browse the 
 <div class="menu-block-wrapper">
 
 * [Release notes ${varVersion}](release-notes.md)    <!--{li:.first .leaf}-->
-* [BDM usability improvements](release-notes.md#bdm-usability-improvements)    <!--{li:.leaf}-->
-* [UI Designer usability improvements](release-notes.md#uid-usability-improvements)<!--{li:.last .leaf}-->
-* [Task & Case Management](release-notes.md#task-and-case)<!--{li:.leaf}-->
-* [Bonita BPM Studio](release-notes.md#bpm-studio)<!--{li:.leaf}-->
-* [CSRF security mechanism is now enabled by default](release-notes.md#csrf-security)<!--{li:.leaf}-->
-* [Simplify platform installation](release-notes.md#platform-installation)<!--{li:.leaf}-->
-* [Support of Wildfly 10.1.0 application server](release-notes.md#technology-updates)<!--{li:.leaf}-->
+* [Integration of SSO SAML 2.0](release-notes.md#living-application-development-and-deployment)    <!--{li:.leaf}-->
+* [New wizard to import a process in the studio and compare the artifacts](release-notes.md#living-application-development-and-deployment)<!--{li:.leaf}-->
+* [Industrialization of Living Application (in Studio)](release-notes.md#living-application-development-and-deployment)<!--{li:.leaf}-->
+* [New management of date/time](release-notes.md#ui-personalization)<!--{li:.last .leaf}-->
+* [Full Java 8 support](release-notes.md#technology-updates)<!--{li:.last .leaf}-->
+* [Support of Microsoft Edge browser](release-notes.md#technology-updates)<!--{li:.last .leaf}-->
 
 <!--{ul:.menu .nav}-->
 

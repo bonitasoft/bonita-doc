@@ -120,7 +120,7 @@ session that has just expired will remain active until it reaches the
 inactivity timeout. A **cron job** takes care of cleaning up inactive
 Engine sessions. 
 
-**Note:** The HTTP session default duration depends on your application server (for example, 30 minutes for Tomcat, 1 hour for WebLogic).
+**Note:** The HTTP session default duration depends on your application server (for example, 30 minutes for Tomcat).
 
 **Logout** 
 

@@ -23,7 +23,7 @@ It has the following benefits for connector developers:
 
 To develop and test a Bonita BPM connector with the toolkit, you need the following software installed:
 
-* Java 7 or later
+* Java 8 or later
 * Maven 3.2.x or later
 
 ### Installation procedure

@@ -9,4 +9,5 @@ build/html/*
 .idea/
 *.iml
 *.orig
+/.project
 *.DS_Store

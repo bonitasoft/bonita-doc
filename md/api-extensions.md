@@ -42,8 +42,9 @@ For example, if a page uses the demoHeaders, demoXml, and putResource API extens
 ```
 resources=[GET|extension/demoHeaders,POST|extension/demoXml,PUT|extension/putResource]
 ```
-If the pages declare its resources correctly, then every user being able to access this page (because it is part of a custom profile or Living Application they have access to) will also be automatically granted the necessary permissions to call the REST API extention. This works the same way as with the other resources of the REST API.  
-However, if you need to grant access to this API extention to some users regardless of the pages they have access to, then you need to add [custom permissions](rest-api-authorization.md#custom-permissions-mapping) for these users.  
+If the page declares its resources correctly, then every user being able to access this page (because it is part of a custom profile or Living Application they have access to)
+will also be automatically granted the necessary permissions to call the REST API extension. This works the same way as with the other resources of the REST API.  
+However, if you need to grant access to this API extension to some users regardless of the pages they have access to, then you need to add [custom permissions](rest-api-authorization.md#custom-permissions-mapping) for these users.  
 In order to do so, edit `custom-permissions-mapping.properties` to give the permissions (value of the property `apiExtension.permissions`) declared in the page.properties of the REST API extension to the required profiles or users.
 
 ::: info
