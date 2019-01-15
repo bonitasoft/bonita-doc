@@ -41,7 +41,7 @@ Software required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Port
 | Internet Explorer | 11.0.x |
 
 Notes:
-1. Bonita BPM can be executed on Java 8 and above. All development artifacts (connectors, REST API extensions, etc) must be compiled with Java 8 byte code (target version).
+1. Bonita BPM can be executed on Java 8. All development artifacts (connectors, REST API extensions, etc) must be compiled with Java 8 byte code (target version).
 2. Your database must be configured to use the UTF-8 character set.
 3. MySQL must be configured with innoDB storage engine.
 4. There is a known issue between Bitronix (the transaction manager shipped by Bonitasoft for the Tomcat bundle and inside the Deploy bundle for Tomcat) and Microsoft SQL Server JDBC driver
