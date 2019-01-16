@@ -31,7 +31,7 @@ The Java class must implement the `org.bonitasoft.engine.connector.Connector` cl
 following methods:
 
 * `setInputParameters` to retrieve configuration parameters
-* `>validateInputParameters` to check that the configuration of the
+* `validateInputParameters` to check that the configuration of the
 connector is well defined
 * `execute` to execute the connector and returns a map containing
 all outputs 
