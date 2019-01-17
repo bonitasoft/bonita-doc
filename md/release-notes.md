@@ -221,7 +221,6 @@ BS-19095	Studio Import: Unresolved dependency for expression of type Variable
 * BS-17278 Cannot update custom widget property
 
 #### Fixes in Web component
-BS-19241	Path traversal vulnerability
 BS-19185	Cannot bypass SAML authentication when using /bonita/login.jsp
 BS-19183	In portal, if you open the language modal in settings, the current language is always english and not the current one
 BS-19181	In portal, after switching language, there are 2 cookies BOS_Locale instead of one
