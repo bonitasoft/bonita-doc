@@ -5,6 +5,9 @@ to the one delivered with the latest version of Bonita.
 This is due to the fact that improvements in any version of the Migration Tool can affect all supported version of Bonita.
 This change log must be read before [migrating to a newer version of Bonita](migrate-from-an-earlier-version-of-bonita-bpm.md).
 
+## 2.37.0 - Jan. 17th, 2019 (Bonita 7.8.1)
+* None
+
 ## 2.36.1 - Dec. 17th, 2018 (Bonita 7.8.0)
 * BS-19198 2.36.0 Migration tool: performance improvements on arch_contract_data table migration are missing
 
