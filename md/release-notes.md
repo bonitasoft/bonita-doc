@@ -204,15 +204,15 @@ Debug, the option to run a diagram without its connectors, is not supported anym
 
 ### Fixes in Bonita 7.8.1 (2019-01-17)
 #### Fixes in Engine component
-BS-19123	Transient activity data instance should be reevaluated when needed when using `getActivityTransientDataInstance`
-BS-19107	MultiInstance variable 'numberOfCompletedInstances' not available in expression evaluation
-BS-19104 Unclear/Useless exception when merging a null Business Objects into a Multiple Business Data reference
-BS-19084	Provided variable 'activityInstanceId' is not available in default value expression of a task variable
+* BS-19123	Transient activity data instance should be reevaluated when needed when using `getActivityTransientDataInstance`
+* BS-19107	MultiInstance variable 'numberOfCompletedInstances' not available in expression evaluation
+* BS-19104 Unclear/Useless exception when merging a null Business Objects into a Multiple Business Data reference
+* BS-19084	Provided variable 'activityInstanceId' is not available in default value expression of a task variable
 
 #### Fixes in Studio component
-BS-19236	Impossible to import a BOS with a renamed diagram in Community
-BS-19201	When importing an old .bos archive, migration is performed on diagrams with the 'keep existing' flag
-BS-19095	Studio Import: Unresolved dependency for expression of type Variable
+* BS-19236	Impossible to import a BOS with a renamed diagram in Community
+* BS-19201	When importing an old .bos archive, migration is performed on diagrams with the 'keep existing' flag
+* BS-19095	Studio Import: Unresolved dependency for expression of type Variable
 
 #### Fixes in UI Designer component
 * BS-19177 SELECT widget continually re-evaluates the selected value
@@ -221,10 +221,10 @@ BS-19095	Studio Import: Unresolved dependency for expression of type Variable
 * BS-17278 Cannot update custom widget property
 
 #### Fixes in Web component
-BS-19185	Cannot bypass SAML authentication when using /bonita/login.jsp
-BS-19183	In portal, if you open the language modal in settings, the current language is always english and not the current one
-BS-19181	In portal, after switching language, there are 2 cookies BOS_Locale instead of one
-BS-19158	Default SAML configuration doesn't work with AD FS (Active Directory Federation Services)
+* BS-19185	Cannot bypass SAML authentication when using /bonita/login.jsp
+* BS-19183	In portal, if you open the language modal in settings, the current language is always english and not the current one
+* BS-19181	In portal, after switching language, there are 2 cookies BOS_Locale instead of one
+* BS-19158	Default SAML configuration doesn't work with AD FS (Active Directory Federation Services)
 
 ### Fixes in Bonita 7.8.0 (2018-12-06)
 #### Fixes in Engine component
