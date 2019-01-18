@@ -1,4 +1,4 @@
-# UI Path
+# UIPath
 
 This page explains how to configure the UiPath connectors in Bonita Studio.
 
