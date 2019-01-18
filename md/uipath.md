@@ -40,7 +40,7 @@ Key/value pairs containing custom data (complex type will be serialized in a JSO
 |---|---|---|---|
 |queueContent|Key,Value|array| |
 
-### UiPath - Get job
+## UiPath - Get job
 
 Get a UiPath Job status
 
@@ -57,7 +57,7 @@ Set connection and authentication connector parameters.
 |Password| |password| |
 |Job ID|The ID of the job to request.|string| |
 
-### UiPath - Start jobs
+## UiPath - Start jobs
 
 Start UiPath jobs
 
