@@ -2,15 +2,11 @@
 
 This page explains how to configure the UiPath connectors in Bonita Studio.
 
-
-## UiPath - Add queue item
-
+## UiPath - Add queue item
 
 Add an item in a specific UiPath queue
 
-
-### Connector settings
-
+### Connector settings
 
 Set connection and authentication connector parameters.
 
@@ -22,9 +18,7 @@ Set connection and authentication connector parameters.
 |Username or Email| |string| |
 |Password| |password| |
 
-
-### Queue item definition
-
+### Queue item definition
 
 Specify information for the new queue item
 
@@ -37,9 +31,7 @@ Specify information for the new queue item
 |Defer date|The earliest date and time (ISO-8601 format) at which the item is available for processing. If empty the item can be processed as soon as possible.|string| |
 |Due date|The latest date and time (ISO-8601 format) at which the item should be processed. If empty the item can be processed at any given time.|string| |
 
-
-### Specific content
-
+### Specific content
 
 Key/value pairs containing custom data (complex type will be serialized in a JSON string)
 
@@ -48,16 +40,11 @@ Key/value pairs containing custom data (complex type will be serialized in a JSO
 |---|---|---|---|
 |queueContent|Key,Value|array| |
 
-
-
-## UiPath - Get job
-
+### UiPath - Get job
 
 Get a UiPath Job status
 
-
-### Connector settings
-
+### Connector settings
 
 Set connection and authentication connector parameters.
 
@@ -70,15 +57,11 @@ Set connection and authentication connector parameters.
 |Password| |password| |
 |Job ID|The ID of the job to request.|string| |
 
-
-## UiPath - Start jobs
-
+### UiPath - Start jobs
 
 Start UiPath jobs
 
-
-### Connection settings
-
+### Connection settings
 
 Set connection and authentication connector parameters.
 
@@ -90,9 +73,7 @@ Set connection and authentication connector parameters.
 |Username or Email| |string| |
 |Password| |password| |
 
-
-### Job configuration
-
+### Job configuration
 
 Configure job parameters. 
 
@@ -105,9 +86,7 @@ Configure job parameters.
 |Robot names (if Specific strategy)| |list| |
 |Jobs count (if JobsCount strategy)|Number of pending jobs to be created in the environment, for the current process. This number must be greater than 0 only if the start strategy is JobsCount. |integer| |
 
-
-### Input parameters
-
+### Input parameters
 
 Input parameters to be passed to job execution.
 
