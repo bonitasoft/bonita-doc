@@ -11,7 +11,7 @@ Each widget in the palette has a description. To show a widget description, just
 
 ## Containers
 
-A container is a widget that contains other widgets. You can create nested containers. A typical use for containers is to control the main layout of your page. For example, if you want to create a two-column layout, you will start your page by adding two containers on the same row, each one spanning six columns of the page. A page does not need to have a container, but it is useful.  
+A container is a special kind of widget that contains other widgets. You can create nested containers. A typical use for containers is to control the main layout of your page. For example, if you want to create a two-column layout, you will start your page by adding two containers on the same row, each one spanning six columns of the page. A page does not need to have a container, but it is useful.  
 By default, a container contains one row, where you can drop component widgets or containers. You can also make the page layout dynamic by [repeating a container to display a collection of data](repeat-a-container-for-a-collection-of-data.md).
 
 ### Adding a widget to a row
@@ -43,15 +43,35 @@ This is useful if you want to display some property of the current element.
 
 If you are using the Enterprise, Performance, Efficiency, or Teamwork edition, you can save any container as a fragment. This enables you to reuse the set of widgets in other pages.
 
-### Tab container widget
+### Tab container
 
 Use the **tab container** to structure a page using tabs. To edit a tab name, select the corresponding tab to display its properties.  
 Each tab is a container widget.
 
-### Form container widget
+### Form container
 
 Use the **form container** to enable form validation for input widgets. The form container also exposes a local **$form** which is the AngularJS form object associated to the form container. In the Bonita Studio, if you define a contract for the task or process and click on the UI Designer icon, the generated form already contains a form container to embed default input widgets to collect the information that need to be passed to the contract to be verified. You can then define the validation you need on the input.  
 For example, you can bind the button's disabled property to _$form.$invalid_ to prevent user from clicking the button, until the form inputs are valid.
+
+### <a name="modal-container"></a> Modal container
+
+Use the **modal container** to create a pop-in window.
+This modal container can be opened with a button by choosing `Open modal` in the button's "Actions" property.
+Choose a name for the `Modal ID` property so you can define what modal container the button will display.
+This ID must be unique for a given page. 
+Any button located inside a modal container can close the modal on success, during any action, when choosing `Close modal` in the Action property.
+The `Size` of the modal container can be changed by selecting `small`, `medium` or `large` in the drop-down menu. 
+There is also an option to remove the animation when the modal container appears. Doing so will make the modal container appear instantly, without a fade-in effect. This is useful if multiple successive windows need to be shown.
+
+You can add a little padding between the modal container content and its borders by typing `modal-body` in the CSS classes property. For a more structured content, you can add different plain containers inside the modal container, and specify any of the following `CSS classes` for each container, depending on its location in the modal:
+
+* modal-header, which creates a horizontal line underneath the element
+* modal-body
+* modal-footer, which creates a horizontal line on top of the element
+
+A modal container cannot be located in another container.
+We recommend to drop all modal containers at the bottom of the whiteboard, for clarity.
+To embed a pop-in into another pop-in at runtime, drop the first modal container at the bottom, drop the second modal container below the first one, and drop the button that opens the second pop-in within the first modal container.
 
 ## Input widgets
 
@@ -162,7 +182,10 @@ You can use a variable to hold the resulting data after success or failure.
 
 For pages that are displayed in a task or process context, the button widget can be used to submit a form, completing the human task or starting a process instance. For form submission, you need to define only the data to send. The URL is extracted from the context.
 
-Finally, you can use the widget button to add or remove a data from a given collection.
+Another possible use of the widget button is to add or remove a data from a given collection.
+
+Finally, you can use a button to open a modal container (pop up window) on the page, as long as the modal ID is specified into the appropriate field. Another action for the button widget is to close the modal that contains it.
+Every action, except for the `Close modal`, can close the modal when it succeeds. Setting the `Close modal on success` property to `yes` is enough for this to happen.
 
 When inside a form container, the button is automatically disabled while the form is invalid.
 

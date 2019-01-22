@@ -51,7 +51,7 @@ Proxy
 Advanced
 * Rename diagram the first time it is saved.
 * Do not show confirmation on connector definition edition.
-* SVN connector: the SVN connector used if you are using a remote SVN ["repository](workspaces-and-repositories.md). Note: if you change this your local working copy might become unstable. To avoid this, commit any outstanding changes before you modify the connector setting, and reinitialize your local working copy after the update  
+* SVN connector: the SVN connector used if you are using a remote SVN ["repository](workspaces-and-projects.md). Note: if you change this your local working copy might become unstable. To avoid this, commit any outstanding changes before you modify the connector setting, and reinitialize your local working copy after the update  
 
 Eclipse
    Give access to all Eclipse settings (Bonita Studio is based on Eclipse)  

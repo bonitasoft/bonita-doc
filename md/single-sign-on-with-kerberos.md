@@ -50,7 +50,7 @@ The Spnego authenticator will then verify the user’s Kerberos tickets if prese
 
 ## Pre-installation Environment Checks
 
-In this section, we will describe the minimal set of configuration checks that must be performed before starting the installation.
+In this section, we will describe the minimal set of configuration checks that must be performed before starting the installation on windows.
 
 ### Domain Membership Checks
 
@@ -233,9 +233,10 @@ If only a limited group of users need to bypass kerberos authentication method y
 	-->	 spnego.login.server.module  = spnego-server
 	-->	 spnego.prompt.ntlm          = true
 	-->	 spnego.logger.level         = 1
-	-->	 spnego.preauth.username     = bonita.tomcat
-	-->	 spnego.preauth.password     = Bonita2017 
+	-->	 spnego.preauth.username     = <username>
+	-->	 spnego.preauth.password     = <password> 
 ```
+<username> and <password> shoud be replaced with the domain account and password to use to pre-authenticate to on the Domain controller acting as Kerberos Key Distribution Center.  
 Note that for Wildfly, the properties `spnego.krb5.conf` and `spnego.login.conf` are not used as already set in the file satndalone.xml
 
 Make sure to set your principal user name and password.	
@@ -288,7 +289,8 @@ Make sure to set your principal user name and password.
 It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file **authenticationManager-config.properties** updated previously.
 
 8. If your Domain Controller is correctly configured, you are done.  
-Then you can try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are automatically logged in.  
+Then you can start the bundle and try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are automatically logged in.  
+
 Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `kerberos.auth.standard.allowed` to true or define a whitelist with the property `auth.tenant.standard.whitelist`) to be able to log in without an account on AD.
 
 
@@ -339,7 +341,7 @@ We recommend that you use LDAP or AD as your master source for information, sync
 
 Only resources that require a direct access from a web browser are handled by the Kerberos filter. 
 Access to other resources won't trigger a Kerberos authentication process. 
-Here is the subset of pages filtered by the Kerberos filter:
+Here is the subset of resources filtered by the Kerberos filter by default:
 
 * /portal/homepage
 * /portal/resource/*
@@ -347,7 +349,9 @@ Here is the subset of pages filtered by the Kerberos filter:
 * /mobile/*
 * /apps/*
 
-REST API are not part of them, but if an http session already exists thanks to cookies, REST API can be used.
+REST API are not part of them by default, but if an http session already exists thanks to cookies, REST API can be used.
 
-The recommended way to authenticate to Bonita Portal to use the REST API is to use the [login service](rest-api-overview.md#bonita-authentication).
+The recommended way to authenticate to Bonita Portal to use the REST API is to use the [login service](rest-api-overview.md#bonita-authentication).  
+If you need the SSO to work with the APIs you can update the web.xml of bonita.war to add the following resources to the URL Mappings of AuthenticationFilter and KerberosFilter:
 
+        <url-pattern>/API/*</url-pattern>

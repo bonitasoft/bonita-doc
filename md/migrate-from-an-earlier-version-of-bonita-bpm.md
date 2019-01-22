@@ -247,6 +247,10 @@ The disabled processes with 6.x forms will not be able to be enabled again post 
 Having 6.x case overview pages on your processes will not prevent the migration of the platform, however they will all be replaced by the default 7.x case overview page, created with the UI Designer.
 It means that you might want to redo the case overview page as well as the forms, especially if you have configured a custom case overview page for your processes in version 6.x. Or (for Enterprise, Performance, and Efficiency editions only), you can live update it after migration.
 
+::: info
+Note: 6.x application resources have been removed too in 7.8.0, so if you are migrating a process that leverage this feature, you need to modify it (for example to use process dependencies instead (Configure > Process dependencies in Bonita Studio)).
+:::
+
 ## Migrate your cluster
 
 A Bonita cluster must have the same version of Bonita on all nodes. To migrate a cluster:

@@ -49,14 +49,14 @@ Therefore, you could have a "profiles_dev.xml", a "profiles_UAT.xml", and a "pro
 **Note:** All Bonita subscription editions come with an .xml editor for this feature. Only Enterprise, Performance and Efficiency editions also come with a graphical UI.
 :::
 
-From Bonita Studio, click on **Organization** -> **Profile** -> **New...**  
-It will create an empty file of profiles with a default name and open an editor. You can **rename** this file from the graphical UI or from the menu **Open**.  
+From Bonita Studio, use the **new** button in the Studio coolbar or click on **Organization** -> **Profile** -> **New...** 
+It will create an empty file of profiles with a default name and open an editor. You can **rename** this file from the graphical UI, the project explorer or the menu **Open**.  
 
 The profile graphical UI provided is bound to the xml source, so you can use it to build your profile without writing xml.  
 You can switch from the graphical UI to the xml source at any moment, using the tabs _Editor_ and _Source_ at the bottom of the editor.  
 A toolbar is embedded to the editor, use it to:  
 
- - **Add** a profile to this file of profiles: you can add a new profile or duplicate an existing one from your current repository
+ - **Add** a profile to this file of profiles: you can add a new profile or duplicate an existing one from your current project
  - **Save** this file of profiles **As** an other file of profiles (useful to duplicate the whole file)
  - **Deploy** this file of profiles (i.e all the profiles in this file)
  ⚠  For _development_ purposes, it also deploys their referenced pages used as portal menu entries, but if those resources use REST API Extensions, you have to deploy those manually. In _production_ environment, you still need to import pages, and REST API Extensions manually **before** to import the file of profiles.   
