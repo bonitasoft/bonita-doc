@@ -169,7 +169,7 @@ private static void listArchivedProcessInstances() {
 }
 ```
 ```java
-private static SearchResult<ArchivedPorcessInstance> getArchivedProcessInstancePage(APISession apiSession, int startIndex) throws BonitaException {
+private static SearchResult<ArchivedProcessInstance> getArchivedProcessInstancePage(APISession apiSession, int startIndex) throws BonitaException {
     // create a new SeachOptions with given start index and PAGE_SIZE as max number of elements
     SearchOptionsBuilder optionsBuilder = new SearchOptionsBuilder(startIndex, PAGE_SIZE);
     // when process instances are archived the original process instance id is supplied by SOURCE_OBJECT_ID,
