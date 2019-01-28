@@ -10,3 +10,4 @@ build/html/*
 *.iml
 *.orig
 /.project
+*.DS_Store

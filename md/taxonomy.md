@@ -85,6 +85,7 @@
     * [SAP JCo 3](sap-jco-3.md)
     * [Script](script.md)
     * [Twitter](twitter.md)
+    * [UiPath](uipath.md)
     * [Web service](_web-service.md)
       * [Web service connector overview](web-service-connector-overview.md)
       * [Web service connector tutorial](web-service-tutorial.md)
