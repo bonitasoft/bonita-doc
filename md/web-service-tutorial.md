@@ -1,145 +1,124 @@
+
+
+
 # Web service connector tutorial
 
-Note: This example uses the 6.x Application legacy forms.
+This example process will use a Web Service connector to call a sample Web Service to display the capital of a given country.
 
-This example process will use a Web Service connector to call a sample Web Service to display a weather report.
+1. In the BDM, create a business object _**Country**_ with the following attributes:
 
-![web service process diagram](images/images-6_0/webservice_diagram.png)
+| Name | Type |
+|---|---|
+| id | STRING |
+| capital | STRING |
 
-1. Create the diagram (as shown in the example above)
-2. Select the Pool \> Data and click on the _**Variables tab**_ and add the following process variables:
-  * city (text)
-  * country (text)
-  * weatherData (Java Object of type `java.util.Map`)
+2. Create the diagram (as shown in the example bellow)
 
-3. Create a case start form for the Pool. Select the pool and go to the **Details** panel, **6.x Application** tab, **Pageflow** pane, **Forms** tab and add the following widgets:
-  * City (text field)
-  * Country (text field)
-  * Get weather forecast (submit button)
+![web service process diagram](images/connector_webservice_tuto/webservice_diagram.png)
 
-4. Set the : **transition conditions on the gateway**
-  * Select the transition to **Display Weather** and check Default Flow
-  * Select the transition to No Result Found and edit the condition by clicking on the Pencil icon
-  * Select script in the edit window and enter the following Groovy to evaluate the condition: 
-  `return (weatherData==null)`
-  * set a name and click OK
+3. Select the Pool \> Data, click on the _**Pool Variables tab**_, add a process variable _country_ (Text) and a Business variable _countryBo_ (Country)
 
-5. Select the **Get weather** service task
-  * Add a WebService 1.2 connector to this task and configure it using the wizard.
+4. Select the Pool \> Execution, click on the _**Contract tab**_, and add a variable _countryInput_ (Text) on the contract.
 
-6. In the **Connection parameters** window:
-  * For the Community edition, provide these settings:
-    * Service NS: GlobalWeather
-    * Service name: http://www.webserviceX.NET
-  * For the Teamwork, Efficiency, or Performance edition. provide these settings:
-    * Enter the WDSL URL http://www.webservicex.net/globalweather.asmx?WSDL and click on the Introspect button, then leave the login info fields empty
-    * Set the `Port: GlobalWheatherSoap12` and leave other parameters with default values
-  * In the **Request parameters** window (for all editions), provide these settings:
-    * SOAP action: http://www.webserviceX.net/GetWeather
-    * Port name: GlobalWeatherSoap12
-    * End point address: http://www.webservicex.net/globalweather.asmx
-    * Binding: http://www.w3.org/2003/05/soap/bindings/HTTP/
-    * Envelope 
-      ```xml
-       <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">
-       <env:Body>
-         <tns:GetWeather xmlns:tns="http://www.webserviceX.NET">
-           <tns:CityName>${city}</tns:CityName>
-           <tns:CountryName>${country}</tns:CountryName>
-         </tns:GetWeather>
-       </env:Body>
-      </env:Envelope>
-      ```
+5. Add an instantiation form: select the Pool \> Execution, click on the _**Instantiation form tab**_, and click on the pencil on the right of the field _Target form_, it should open the UI designer. The idea here is to create a combo box which will propose some countries. The selected country will be passed to the contract.
+  - Rename  the form into _countrySelection_
+  - Add a JSON data _countries_, with the following content:
+  ``` json
+  [{ "name": "France","code": "FRA"},{"name": "Switzerland","code": "CH"},{"name": "Finland","code": "FI"}]
+  ```
+  - Add a select widget, with the following parameters:
+    - **Availables values:** countries
+    - **Displayed key:** name
+    - **Returned key:** code
+    - **Value:** formInput.countryInput
+  -  Ensure in the preview that the combo box gives the possibility to select one of the countries, and we are done for the instantiation form.
 
-  * In the **Response configuration** window, check the **Returns body** checkbox to use the response body in the output operations.
-  * In the **Output operations** window, edit the first output operation:
-    * Select the weatherData variable as the connector output target
-    * Click on the pencil icon to edit. Edit the expression of the data to be saved and enter the following Groovy script (the script parses the XML output of the Web Service):
-    * In Expression type, click on **Script**
-    * The script should be as follows:
+6. Go back on the _country_ process variable, and set the _countryInput_ as default value.
 
-      ```groovy
-      import javax.xml.parsers.DocumentBuilder;
-      import javax.xml.parsers.DocumentBuilderFactory;
+7. Select the  _**No**_ flow,  go on the _**General tab**_ and set this flow as the Default flow.
 
-      import org.w3c.dom.Document;
-      import org.w3c.dom.Element;
-      import org.w3c.dom.Node;
-      import org.w3c.dom.NodeList;
-      import org.xml.sax.InputSource;
+8.  Select the  _**Yes**_ flow, go on the _**General tab**_. Check _Use expression_, and add the following script as the expression to use:
+```groovy
+!countryDAO.findById(country, 0, 100).isEmpty()
+```
 
-      // Clean response xml document
-      responseDocumentBody.normalizeDocument();
-      // Get result node
-      NodeList resultList = responseDocumentBody.getElementsByTagName("GetWeatherResult");
-      Element resultElement = (Element) resultList.item(0);
-      String weatherDataAsXML = resultElement.getTextContent();
+9. Select the _**Retrieve already known capital task**_, go on the _**Execution tab**_ and click on _**Operations**_. Add the following operation:
+  - **Left operand**: countryBo
+  - **Operation**: takeValueOf
+  - **Right operand**: A script _retrieveCountry_, with the following content:
+```groovy
+countryDAO.findById(country, 0, 100).get(0)
+```
 
-      // Check for empty result
-      if ("Data Not Found".equalsIgnoreCase(weatherDataAsXML))
-      return null;
+10. Select the _**retrieveUnknownCapital**_ task, go on the _**Execution tab**_ and click on _**Connectors in**_.
 
-      // Parse embedded XML of result
-      DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-      InputSource inputSource = new InputSource();
-      inputSource.setCharacterStream(new StringReader(weatherDataAsXML));
-      Document weatherDataDocument = documentBuilder.parse(inputSource);
-      Node weatherNode = weatherDataDocument.getDocumentElement();
+11. Add a _**WebService SOAP 1.2**_ connector to this task and configure it using the wizard.
 
-      // Save weather data
-      Map<String,String> data = new HashMap<String,String>();
-      NodeList childNodes = weatherNode.getChildNodes();
-      for (int i=0; i<childNodes.getLength(); i++) {
-          Node node = childNodes.item(i);
-          if (node.getNodeType() == Node.ELEMENT_NODE) {
-                  String key = node.getNodeName();
-                  String value = node.getTextContent();
-                  data.put(key, value);
-          }
-      }
-      return data;
-      ```
-   * In **Return type** enter `java.util.Map` 
-  * Select the Display weather task and add a blank form (without any widget) by going into the Application > Pageflow tab
-  * In the form builder, drag and drop a table widget to create a table
-  * Select the table widget, click on the Data tab
-  * Click on **Edit as an expression**, then click on the pencil next to the first field (initial value)
-    * Use the following Script:
+12. In the **Connection parameters** window:
+* For the Community edition, provide these settings:
+  * Service NS: CountryInfoService
+  * Service name: http://www.oorsprong.org/websamples.countryinfo
+* For the Teamwork, Efficiency, or Performance edition. provide these settings:
+  * Enter the WDSL URL http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL, and click on the Introspect button, then leave the login info fields empty
 
-      ```groovy
-      List<List<String>> table = new ArrayList<List<String>>();
-      Set<Entry<String,String>> weatherDataEntries = weatherData.entrySet();
-      for (Entry<String,String> entry : weatherDataEntries) {
-          List<String> row = new ArrayList<String>();
-          row.add(entry.getKey());
-          row.add(entry.getValue());
-          table.add(row);
-      }
-      return table;
-      ```
-   * In **Return type** enter: `java.util.list`
-  * Create a submit button called **Close**
-  * Select the **No result found task **and add a blank form by going into the Application > Pageflow tab
-    * Add a message widget and sets its initial value to “Sorry, no result found.”
-    * Add a submit button and name it “Close”
-  * Once you have finished creating the diagram and configuring the tasks, the script and form fields, click **Run** to deploy and run the process in Bonita Portal.
-  * In the first form, enter a country and a city e.g. France, Grenoble
-  * Click _**Get Weather Forecast**_
-  * Click _**Display weather**_
+13. In the **Request parameters** window (for all editions), provide these settings:
+* Port name: CountryInfoServiceSoap12
+* End point address: http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso
+* Binding: http://www.w3.org/2003/05/soap/bindings/HTTP/
+* Envelope
+```xml
+       <?xml version="1.0" encoding="utf-8"?>
+    <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+      <soap12:Body>
+        <CapitalCity xmlns="http://www.oorsprong.org/websamples.countryinfo">
+          <sCountryISOCode>${country}</sCountryISOCode>
+        </CapitalCity>
+      </soap12:Body>
+    </soap12:Envelope>
+```
+14. In the **Response configuration** window, check the **Returns body** checkbox to use the response body in the output operations.
+15. In the **Output operations** window, keep only one output operation:
+* **Left operand**: countryBo
+* **Operation**: Java method -> setCapital
+* **Right operand**: A script _parseCapital_  returning a String, with the following content
+ ```groovy
+import org.codehaus.groovy.ast.stmt.ContinueStatement
+import org.w3c.dom.NodeList
 
-### The Result
+responseDocumentBody.childNodes.item(0).textContent
+```
 
-The result is a form displaying all the weather information retrieved, for Grenoble.
+And we are done for the connector configuration. If you want to test it from the wizard, replace _${country}_ by _FRA_ in the envelope, and ensure that _Paris_ is returned.
 
-**Weather forecast**
+16. Select the _**Retrieve unknown capital**_ task, go on the _**Execution tab**_, click on _**Operations**_ and add the following operation:
+* **Left operand**: countryBo
+* **Operation**: Use a java method -> setId
+* **Right operand**: country
 
-| Status  | Success  |
-| ------- | -------- | 
-| Time  | Jan 02, 2014 - 08:00 AM EST / 2014.01.02 1300 UTC | 
-| RelativeHumidity  | 81%  |
-| Temperature  | 51 F (11 C)  |
-| Location  | Grenoble / St. Geoirs, France (LFLS) 45-22N 005-20E 386M  | 
-| DewPoint  | 46 F (8 C)  |
-| Visibility  | greater than 7 mile(s):0  |
-| Pressure  | 29.85 in. Hg (1011 hPa)  |
-| Wind  | from the SSW (200 degrees) at 8 MPH (7 KT) (direction variable):0  | 
+17. Select the _**Display capital**_ task, go on the _**Execution tab**_, click on _**Form**_ and click on the pencil to create the form of this task. The UI Designer should open. The idea here is to simply display the field _capital_ of the business object used in the case (which has been created during the case or retrieved from the database). This business object is accessible in the context.
+* Create a _**Javascript expression**_ variable named _**api**_, with the following content:
+```Javascript
+return "../" + $data.context.countryBo_ref.link;
+```
+* Create an _**External API**_ variable named _**country**_, with the following api url:
+```
+{{api}}
+```
+* Insert a text widget in the form, with the following text property:
+```
+Capital: {{country.capital}}
+```
+
+Rename the form into _**Display capital**_, save it, and we are done.
+
+18. We do not want to implement a case overview for this simple use case. Select the pool, go on the _**Execution tab**_, click on _**Overview page**_ and select _**No form**_.
+
+
+19. Test the process, by following those steps:
+* Select the pool
+* Configure the actor mapping to the group "/acme"
+* Click on the "Run" button to install and enable the process and be redirected to the instantiation form
+* From the instantiation form in your browser, select a country and submit
+* The browser will be redirected to the user perspective in the Portal
+* A new task "Display Capital" should be available (refresh if not), click on it
+* The capital should appear on its associated form
