@@ -38,7 +38,7 @@ You can set the system property `org.bonitasoft.engine.api-type` to `HTTP`, `EJB
    When using `HTTP` mode, you must set the following system properties
    * `org.bonitasoft.engine.api-type.server.url`: it is the url of the server, e.g. for a engine on the same host it can be `http://localhost:8080`
    * `org.bonitasoft.engine.api-type.application.name`: it is the name of the web aplication on wich the engine HTTP API is deployed, e.g. `bonita`
-   
+
 ::: warning
 We do not guarantee to keep the http protocol stable, so we strongly recommend that you use the same version for both
 the client and the server
@@ -122,7 +122,7 @@ For Windows (start-bonita.bat) :
    
 Finally, you can edit the file `<bonita-subscription>/server/webapps/bonita/WEB-INF/web.xml` and comment these three lines to disable the engine of your Client server :
 
-```code
+```xml
 <listener> 
 <listener-class>com.bonitasoft.engine.api.internal.servlet.EngineInitializerListenerSP</listener-class> 
 </listener>
