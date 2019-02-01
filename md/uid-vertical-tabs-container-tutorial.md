@@ -5,14 +5,14 @@
 :::
 
 ## Goal: Display stacked tabs on mobile and juxtaposed tabs on desktop
-Since Bonita 7.9, tabs container can be configured "Vertically" by displaying tabs as "pills". This is useful for displaying tabs on mobile (tabs and contents are stacked) but not on large device (tabs content should be displayed on the right, not below). To have a tabs container well displayed on all devices, you just need to add some css rules as described below.
+Since Bonita 7.9, tabs container can be configured `Vertically` by displaying tabs as `pills`. This is useful for displaying tabs on mobiles (tabs and contents are stacked) but not on large devices (tabs content should be displayed on the right, not below). To have a tabs container well displayed on all devices, you just need to add some css rules as described below.
 
 ![Vertical tabs container on mobile](images/vertical-tabs-container-tutorial/mobile.png) <!--{.img-responsive .img-thumbnail}-->
 
 ![Vertical tabs container on desktop](images/vertical-tabs-container-tutorial/desktop.png) <!--{.img-responsive .img-thumbnail}-->
 
 ## Step 1: Configure the tabs container
-The tabs container must be configured `Vertically` with type `pills` and must have a css class (for example tab-vertical) as follows:
+The tabs container must be configured `Vertically` with type `pills` and must have a css class (for example `tab-vertical`) as follows:
 ![Vertical tabs container configuration](images/vertical-tabs-container-tutorial/configuration.png) <!--{.img-responsive .img-thumbnail}-->
 
 ## Step 2: Add css rules in a css file
