@@ -5,7 +5,7 @@
 :::
 
 ::: warning
-**Note:** Deprecated. Use a Business Object or a POJO ( using a custom Groovy script or import a jar) instead. POJO must implement _java.io.Serializable_.
+**Deprecated:** Use a Business Object or a POJO ( using a custom Groovy script or import a jar) instead. POJO must implement _java.io.Serializable_.
 :::
 
 If the standard data types are not suitable for a variable in your process, you can create a new custom complex data type. It is useful for example to reference data from an external database.
