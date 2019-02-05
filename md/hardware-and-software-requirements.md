@@ -25,7 +25,7 @@ Software required for Bonita Platform (Bonita Engine and Bonita Portal).
 | Ubuntu | 16.04 LTS 64 bits and higher |
 | **Java Virtual Machine** |
 | Oracle Java SE Runtime Environment | 8 (see note 1) |
-| OpenJDK | 8 (see note 1) |
+| OpenJDK | 8 and 11 (see note 1) |
 | **Application Server** |
 | Apache Tomcat | 8.5.x (x > 23) |
 | Red Hat WildFly | 10.1.x |
@@ -41,7 +41,7 @@ Software required for Bonita Platform (Bonita Engine and Bonita Portal).
 | Internet Explorer | 11.0.x |
 
 Notes:
-1. Bonita can be executed on Java 8. All development artifacts (connectors, REST API extensions, etc) must be compiled with Java 8 byte code (target version).
+1. Bonita can be executed on Java 8 and 11. All development artifacts (connectors, REST API extensions, etc) must be compiled with Java 8 byte code (target version).
 2. Your database must be configured to use the UTF-8 character set.
 3. MySQL must be configured with innoDB storage engine.
 4. There is a known issue between Bitronix (the transaction manager shipped by Bonitasoft for the Tomcat bundle and inside the Deploy bundle for Tomcat) and Microsoft SQL Server JDBC driver
