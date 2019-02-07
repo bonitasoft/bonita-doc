@@ -1,4 +1,3 @@
-
 # Release notes
 
 ::: info
