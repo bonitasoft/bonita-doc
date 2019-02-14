@@ -76,6 +76,6 @@ The following dependencies have been removed:
 
 The version of the _javax.mail:mail_ dependency has been updated from _1.4.5_ to _1.4.7_
 
-#### Connector twitter
+#### Twitter connector
 
 The version of the _org.twitter4j:twitter4j-core_ dependency has been updated from _4.0.2_ to _4.0.7_
