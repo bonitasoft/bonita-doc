@@ -41,7 +41,7 @@ The following Bonita dependencies have been upgraded to improve the Java 11 supp
 
 <a id="connector-dependency-updates"/>
 
-#### Connector web service
+#### WebService connector
 
 The following dependencies have been added, to ensure java 11 compliance:
 
