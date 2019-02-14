@@ -57,7 +57,7 @@ The following dependencies have been added, to ensure Java 11 compliance:
  - _javax.xml.bind:jaxb-api_
  - _com.sun.xml.bind:jaxb-impl_
 
-#### Connector CMIS
+#### CMIS connector
 
 The version of the _org.apache.chemistry.opencmis:chemistry-opencmis-client-impl_ dependency has been updated from _0.13.0_ to _1.1.0_
 
