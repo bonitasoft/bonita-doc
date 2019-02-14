@@ -29,6 +29,6 @@ Note that you can run Bonita on Windows but you cannot build Bonita on Windows (
 
 In order to build Bonita you need to use the script provided in [Build Bonita](https://github.com/Bonitasoft-Community/Build-Bonita) GitHub project. Use the branch of the project that match the version you want to build.
 
-Simply run `bash build-script-7.4.1.sh` and provide required information.
+Simply run `bash build-script.sh` and provide required information.
 
 A script is used because some components rely on components that are built earlier in the sequence, so the build order must be respected.
