@@ -72,7 +72,7 @@ The following dependencies have been removed:
 - _org.apache.cxf:cxf-rt-frontend-jaxws:2.7.7_
 - _org.apache.cxf:cxf-rt-transports-http:2.7.7_
 
-#### Connector email
+#### Email connector
 
 The version of the _javax.mail:mail_ dependency has been updated from _1.4.5_ to _1.4.7_
 
