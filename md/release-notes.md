@@ -43,7 +43,7 @@ The following Bonita dependencies have been upgraded to improve the Java 11 supp
 
 #### WebService connector
 
-The following dependencies have been added, to ensure java 11 compliance:
+The following dependencies have been added, to ensure Java 11 compliance:
 
  - _javax.xml.stream:stax-api:1.0-2_
  - _org.codehaus.woodstox:woodstox-core-asl:4.1.2_
