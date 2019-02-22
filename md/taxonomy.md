@@ -265,3 +265,4 @@
   * [Manage BDM in custom Rest APIs](bdm-in-rest-api.md)
   * [Share a project on GitHub](share-a-repository-on-github.md)
   * [Migrate a SVN repository to a Git repository](migrate-a-svn-repository-to-github.md)
+  * [Create a vertical tabs container for all devices](uid-vertical-tabs-container-tutorial.md)
