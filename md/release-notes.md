@@ -14,6 +14,12 @@ In order to be compatible with Java 11, you must update the following plug-ins d
 * _groovy-eclipse-compiler_ dependency must be updated to **3.0.0-01**
 * _groovy-eclipse-batch_ dependency must be updated to **2.4.16-02**  
 
+## Data Management
+
+<a id="uid-lazyRef-filter"/>
+
+### New embedded AngularJS filter to resolve business object lazy references
+More info on how to use it [here](variables.md).
 
 ## Feature removals
 
