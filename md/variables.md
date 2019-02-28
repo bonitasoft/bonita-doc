@@ -37,6 +37,9 @@ API URL: `../API/bdm/businessDataReference/{{caseId}}/{{businessDataName}}`
 * Retrieve business data using the reference in the [context](contracts-and-contexts.md) when building a form:  
 API URL: `../{{context.myBusinessData_ref.link}}`
 
+* Retrieve lazy references of a business data field using `lazyRef` filter in an External API variable:  
+API URL: `{{myBusinessData | lazyRef : 'relationName'}}` where `myBusinessData` is an External API variable retrieving a business data from the context like in the above example and `relationName` the name of the lazy relation field to retrieve.
+
 ### JavaScript expression
 
 An JavaScript expression variable is a JavaScript function. During the evaluation, the function can use the **$data** variable, which provides access to the page data model. For example:  
