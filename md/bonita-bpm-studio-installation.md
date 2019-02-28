@@ -127,6 +127,36 @@ When you launch Bonita Studio for the first time, you need to install a license:
 
 <a id="enable_cache"/>
 
+## Configure Bonita Studio to use a specific JVM
+
+Bonita Studio 7.8 only support Java 8. If you have multiple versions of Java installed on your computer you might need to specify which Java Virtual Machine (JVM) to use.
+
+To specify the JVM version use to run the Studio you first need to identify the appropriate file to edit. For example if you launch the Studio using `BonitaStudioCommunity64.exe`, the file to edit will be `BonitaStudioCommunity64.ini`. This file is located in your Studio installation folder.
+
+Next you need to add a -vm option and the path to the Java runtime in the ini file (each of them on a new line). Note the format of the -vm option − it is important to be exact:
+- The -vm option and its value (the path) must be on separate lines.
+- The value must be the full absolute or relative path to the Java executable, not just to the Java home directory.
+- The -vm option must occur after the other Bonita-specific options (such as -product, --launcher.*, etc), but before the -vmargs option, since everything after -vmargs is passed directly to the JVM.
+- For the 32-bit Bonita executable (BonitaStudioCommunity.exe on Windows) a 32-bit JVM must be used and for the 64-bit Eclipse executable a 64-bit JVM must be used. 32-bit Bonita will not work with a 64-bit JVM.
+
+For example on Windows:
+```
+-startup
+plugins/org.eclipse.equinox.launcher_1.4.0.v20161219-1356.jar
+--launcher.library
+plugins/org.eclipse.equinox.launcher.win32.win32.x86_64_1.1.551.v20171108-1834
+--launcher.XXMaxPermSize512m
+-vm
+C:\progra~1\Java\jre1.8.0_112\bin\javaw.exe 
+-vmargs
+-Xmx512m
+-Xms512m
+-Dosgi.requiredJavaVersion=1.8
+-Dfile.encoding=UTF8
+-Dgreclipse.nonlocking=true
+-Djava.endorsed.dirs=endorsed
+```
+
 ## Cache configuration
 
 By default [cache](cache-configuration-and-policy.md) is disable for the web server embedded by Bonita studio, as it is more comfortable to realise development without cache.
@@ -144,7 +174,7 @@ But you can decide to activate cache, to be closer to the production display tim
 ## Troubleshooting
 
 
-#### Log files
+### Log files
 
 In case of trouble when running Bonita Studio, you might want to take a look at log files.
 
@@ -153,7 +183,11 @@ Studio log file can be displayed from Bonita Studio in "Help" -\> "Show Bonita S
 If Studio fails to start, you can open the log file manually. File is named `.log` and is located in `<studio_folder>/workspace/.metadata` folder.   
 Note that folder might be hidden and file might not be displayed if you choose to hide file extensions in your file manager.
 
-#### OutOfMemory error in Bonita Studio
+### JVM terminated. Exit code=1
+
+If when launching the Studio you get an error message "JVM terminated. Exit code=1" it might be because you try to launch Bonita Studio with a version of the JVM that is not supported. See above "Configure Bonita Studio to use a specific JVM" how to force the JVM to use.
+
+### OutOfMemory error in Bonita Studio
 
 After installation, you might see an `OutOfMemory` error in Bonita Studio.
 This error sometimes occurs when importing a large process definition.  
@@ -177,9 +211,10 @@ Edit the `*.ini` file that corresponds to the executable you use to launch the S
 Then restart Bonita Studio.
 
 
-#### Bonita Studio Welcome page stays blank on Linux (Ubuntu/Debian)
+### Bonita Studio Welcome page stays blank on Linux (Ubuntu/Debian)
 
 If the Welcome page displays fully white when you start-up your Bonita Studio:
+
 <img src="bonita/images/${varVersion}/studio_welcome_page_ko.png" width="850px"/>
 
 just install the missing packet libwebkitgtk by running the following command:
@@ -188,4 +223,5 @@ sudo apt-get install libwebkitgtk-1.0-0
 ```
 
 Then the welcome page should display well, like this:
+
 <img src="bonita/images/${varVersion}/studio_welcome_page_ok.png" width="850px"/>
