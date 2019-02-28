@@ -186,7 +186,11 @@ Importing a .bos will not import such forms.
 Cloning a Git repository or migrating a SVN repository will remove such forms.
 
 Before you migrate your production to Bonita 7.8, make sure you use Bonita Studio in a version older than 7.8.0 to [replace such forms/pages](migrate-form-from-6.x.md) by forms/pages created with more recent technologies and newer concepts, offered since Bonita 7.0: [UI Designer](ui-designer-overview.md) and [contract and context](contracts-and-contexts.md). 
-Learn for example how to replace the [configuration page](migrate-form-from-6.x.md), no longer available.
+The migration will also handle the attempt to migrate projects with GWT forms/overview page:
+   - If no GWT forms or overview page is found, migration is performed
+   - If one process with GWT forms is enabled and/or has open cases, migration will not be performed at all
+   - If all processes with GWT forms are archived and disabled, migration will be performed. If a GWT case overview page is found it is replaced by the default Bonita overview page. 
+   With the Enterprise edition, the Administrator or Process Manager can replace it with a compliant page in the process details.
 
 Moreover, deploying a process (.bar file) containing forms/pages developped using Google Web Toolkit is not possible anymore.
 
