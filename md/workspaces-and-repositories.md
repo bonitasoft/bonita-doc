@@ -175,6 +175,7 @@ Git worklow offers a lot of other features that are not directly integrated in B
 
 * **My diagram has many validation issues after a clone / a switch branch operation:** Keep in mind that Bonita artifacts (Business Data Model, Organization, Profiles, Applications, Pages ...) are not redeployed when you perform a clone or a switch branch operation. So, if you switch from a branch A to a branch B, you may need for example to deploy manually your BDM to ensure that all the business objects specific to the branch B are available.
 * **My git history view is empty:** The history view is based on  the active editor or the current selection (in eclipse, a selection is a file selected in a package explorer). Sometimes you can manage to open the history view without having any active editor and nothing selected (which is often the case in Bonita because we only provide a package explorer in the REST API extensions editor) -> the history view does not display anything. Just open a diagram for example and then re-open your history view.
+* **Cloning a repository hosted on Azure DevOps** When authentication to azure dev ops git repository uses SSO, cloning using https and Microsoft dédicated eclipse plugin is not supported (e.g. `https://user@dev.azure.com/organization/repository/_git/repository`). Use SSH url instead (e.g. `git@ssh.dev.azure.com:v3/user/organization/repository`)/
 
 ### SVN
 
