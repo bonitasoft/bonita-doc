@@ -198,7 +198,7 @@ The migration will also handle the attempt to migrate projects with GWT forms/ov
    is found, it is replaced by the default Bonita overview page.   
    - If one process with GWT forms is enabled and/or has open cases, migration will not be performed at all
 
-If your face the last case, the mitigation depends on the Bonita Edition.
+If you face the last case, the mitigation depends on the Bonita Edition.
 
 With **Community edition**, you should create a new version for each process that uses GWT forms. Use the Bonita Studio
 of your pre 7.8.0 version to [replace such forms/pages](migrate-a-form-from-6-x.md) by forms/pages created with more recent
