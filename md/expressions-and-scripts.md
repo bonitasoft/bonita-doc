@@ -22,24 +22,68 @@ There are different types of expression:
 
 The types available differ depending on the context of the expression. For example, comparison expressions are available only for transitions.
 
-## Manage Groovy scripts
+## Groovy classes
 
-You can create a Groovy function and store it in Bonita Studio separate from the definition of a process. You can then use the function in any process definitions. This feature is available if you are using Bonita Studio with the Application Developer profile.
+If a same piece of Groovy code is needed in different locations you might want to define it once and reused it in order to avoid duplication.
 
-To create a function, choose **Manage Groovy scripts...** from the **Development** menu, and click _**Create...**_. Enter a name for the new function. 
+In order to reuse some Groovy code you need to:
+* Create a Groovy class that will be stored as part of your project in Bonita Studio
+* Declare in the Groovy class one or several methods to store your code
+* Configure your process(es) dependencies to include the required Groovy script file(s)
+* In the expression editor, select the **Script** type and as part of your code call the method(s) declared previously
 
-To edit the content of a function (or to create it), select the function name and click **_Open_**. This opens the expression editor.  
-Enter the function details in the pop-up window. For a function to be included in the Expression editor list of user-defined functions, it must be declared as static and it must have suitable visibility. To validate the function, click _**Evaluate**_. To save the function, click _**OK**_. 
+### Create Groovy class
 
-Note that you can use this feature to save any Groovy script, not just a function. However, only a predefined script that defines a function can be used in an expression. You can declare a method in a Groovy script, but must not declare a class.
+To create a groovy class:
+* Right click on **My Project** from the **Project explorer** tree view, then **New** > **Groovy class...**.
+* Enter a name for the new Groovy class (e.g. `MyClass`) and optionally for the package name (e.g. `com.mypackage`).
+* Click on **Finish** button. This will open the Groovy script editor. 
 
-In addition to any user-defined functions, there are a number of standard functions, in the **Bonita**, **Collection**, **Number**, **String**, and **Others** categories. Click a function name to see a description in the **Documentation** box of the Expression editor.
+Note that the newly created Groovy script file is stored as part of your project.
 
-To add a user-defined or standard function to an expression:
+### Declares methods
+
+In the previously created Groovy class you can declares methods (static or not). For example:
+```groovy
+package com.mypackage
+
+class MyClass {
+	
+	static def myMethod(String input) {
+		return "Hello ${input}"
+	}
+
+}
+```
+
+### Configure process dependencies
+
+If you plan to use a Groovy method, for example to process the output of a connector, you first need to add the Groovy script file as a dependency of your process:
+* Select your process pool
+* In **Server** menu select **Configure**
+* Select **Java dependencies**
+* In the tree view, under **Groovy scripts**, select the file(s) that define the method(s) you want to use (e.g. `com/mypackage/MyClass.groovy`)
+* Click on **Finish** button
+
+### Use a Groovy method
+
+In order to call a Groovy method from a script defined using the expression editor you need to:
+* Add the import statement at the beginning of the script. E.g.: `import com.mypackage.MyClass`
+* Call the method (optionally instantiate the class if method is not static): `MyClass.myMethod("test")`
+
+Update of process dependencies and package import can be automatically done when using code completion (this is trigger by default with the shortcut ctrl+space).
+
+Note that the Groovy script will be embedded in the process deployment file (*.bar). If you update the Groovy script content you will need to redeploy the process in order to benefit from the modification.
+
+## Predefined Groovy methods
+
+In addition to any user-defined methods, there are a number of standard methods, in the **Bonita**, **Collection**, **Number**, **String**, and **Others** categories (in the expression editor - type: Script). Click a function name to see a description in the **Documentation** box of the Expression editor.
+
+To add a standard function to an expression:
 
 1. In the Expression editor, **Expression type** list, select **Script**.
 2. Enter your script, and position the cursor where you want to include the function.
-3. In the **Categories** list, select **User defined**. The function list will show the user-defined functions that are available.
+3. In the **Categories** list, select one of the category available. The function list will show the methods that are available.
 4. In the **Function** list, double-click the function you want to include in your expression. The function is inserted in the script at the point where the cursor was positioned.
 
 At concatenation points in the script, the expression editor displays a popup with a list of possible terms. In the popup, you can toggle between Groovy terms and process variables. For example, if you select `activityInstanceId` from the list of provided variables then type a period, the expression editor displays a list of terms available. This is known as _autocompletion_.
