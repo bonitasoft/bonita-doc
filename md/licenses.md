@@ -52,13 +52,18 @@ The license file will be sent to you by email.
 
 When you receive the license file (`.lic` file extension):
 - If this is the first time you start the bundle, copy the file to the`<TOMCAT_HOME>/setup/platform_conf/licenses` folder or `<WILDFLY_HOME>/setup/platform_conf/licenses/` folder before starting the bundle.
-- If the bundle has already been started, [you need to use the Platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf).
+- If the bundle has already been started, [you need to use the Platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf) to push your license file to database.
+Don't forget to restart your application server after pushing the license to the database.
 
 ## License renewal scheduling
 
 If you are still within the Subscription period when you approach the license expiration date, request a new license that starts on the last day of your current license.  
-Put the license you receive in the license folder alongside the existing license.  
-When you reach the "changeover" date for the licenses, Bonita BPM Engine switches automatically from the expired license to the valid one.
+[Use the Platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf) to pull the existing configuration from the database.
+Put the license you receive in the license folder alongside the existing license. 
+[Use the Platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf) to push your license file to database.
+Don't forget to restart your application server after pushing the license to the database.
+
+When you reach the "changeover" date for the licenses, Bonita Engine switches automatically from the expired license to the valid one.
 **Note:** We recommend to regularly remove license files of expired licenses from the server.
 
 If you approach both the license expiration date and the end of the Subscription period, contact your sales person.
