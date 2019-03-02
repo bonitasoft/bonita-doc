@@ -467,28 +467,20 @@ We strongly recommend that you add only appropriate handlers and carefully code 
 
 <a id="cron"/>
 
-#### Cron jobs
+#### BPMN Timers execution
 
-Bonita Engine uses the [Scheduler service](engine-architecture-overview.md) to trigger jobs in a recurrent manner.
+Bonita Engine uses the [Scheduler service](engine-architecture-overview.md) to trigger timers.
 
-The Bonita Scheduler service implementation uses the Quartz Scheduler.
-A cron job in Quartz can run at maximum every second (you cannot set a lower value than 1 second).  
-Three cron jobs are defined: 
+The Bonita Scheduler service implementation uses the Quartz Scheduler. Some quartz properties can be modified to fine tune quartz jobs execution. These properties can be found in `bonita-platform-community-custom.properties`.
 
-* Event handling. This job processes BPMN2 messages. It runs every 5 seconds by default. 
-     If you want your process instances to react faster, you can reduce this value.  
-     Property name: `org.bonitasoft.engine.cron`
-* Delete dirty objects. This job cleans objects that have been tagged as _dirty_. 
-     To increase performance, during process instance execution, Bonita Engine tags some frequently used objects as _dirty_ instead of deleting them.
-     This is done like this to reduce contention on database.
-     Those dirty objects have to be cleaned periodically and this is done by default every 5 minutes.
-     Property name: `delete.job.frequency`
-* Delete invalid sessions. This job cleans Bonita Engine sessions kept in memory.
-     It iterates over engine sessions and removes any that are invalid. By default this is done every 2 hours.  
-     If you are creating a lot of new sessions in a short time, increase this frequency to avoid allocating too much memory to those 
-invalid sessions and to avoid out-of-memory errors.  
-     Property name: `org.bonitasoft.engine.clean.invalid.sessions.cron`
+```
+org.quartz.jobStore.misfireThreshold
+org.quartz.jobStore.maxMisfiresToHandleAtATime
+org.quartz.jobStore.acquireTriggersWithinLock
+org.quartz.scheduler.batchTriggerAcquisitionMaxCount
+org.quartz.scheduler.batchTriggerAcquisitionFireAheadTimeWindow
+```
+Details on these properties can be found in [the Quartz documentation](http://www.quartz-scheduler.org/documentation/quartz-2.2.2/configuration/ConfigMain.html).
 
-These property values are configured in `bonita-tenant-community-custom.properties` and are used to initialize the Quartz trigger tables the first time that the Engine starts.
 They are not read subsequently, so changing the values in `bonita-tenant-community-custom.properties` after the Engine has been started has no effect on Quartz.
 For value definition, and information about how to update the Quartz trigger tables, see the [Quartz documentation](http://www.quartz-scheduler.org/documentation/) about Cron Triggers.
