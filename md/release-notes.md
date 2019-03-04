@@ -11,8 +11,26 @@
 ### REST API extension project update
 In order to be compatible with Java 11, you must update the following plug-ins dependencies in your _pom.xml_:
 * _groovy-all_ dependency must be updated to **2.4.16**
-* _groovy-eclipse-compiler_ dependency must be updated to **3.0.0-01**
-* _groovy-eclipse-batch_ dependency must be updated to **2.4.16-02**  
+* _groovy-eclipse-batch_ dependency must be updated to **2.4.16-02** 
+* _maven-compiler-plugin_ dependency must be updated to **3.8.0** 
+* _groovy-eclipse-compiler_ dependency must be updated to **3.3.0-01**
+	* You need to add the plugin repository below in your pom.xml
+```
+ <pluginRepositories>
+    <pluginRepository>
+      <id>bintray</id>
+      <name>Groovy Bintray</name>
+      <url>https://dl.bintray.com/groovy/maven</url>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+    ...
+  </pluginRepositories>
+``` 
 
 ## Data Management
 
