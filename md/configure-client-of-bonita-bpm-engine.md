@@ -50,7 +50,7 @@ the client and the server
  * `LOCAL`
     This is the default connection mode, it connects to the server in the same JVM (not remote). If nothing is set this mode will be used.
     
-These system properties has to be set in the file `<bonita-subscription>/setup/tomcat-templates/setenv.(bat|sh)`
+These system properties have to be set in the file `<bonita-subscription>/setup/tomcat-templates/setenv.(bat|sh)`
     
 Here is an example of system configuration to an engine installed on Linux (setenv.sh) :
 
