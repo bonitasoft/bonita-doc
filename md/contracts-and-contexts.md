@@ -77,7 +77,7 @@ Limitation : there is currently no way to customize which business data or docum
 
 ## <a name="form-generation"/> Form generation
 
-When creating a contract input from a Data (Add from Data...) you select the edition mode.  
+When creating a contract input from a Data (Add from Data...) you can select the edition mode.  
 In `Create` mode, the generated contract input is meant to instantiate new Data instance.  
 In `Edit` mode, additional `persistenceId_string` input are generated to ensure edition of existing data instances. When generating a Form, additional variables are created in the UID page to retrieve existing data from the Task context and bind create a proper databinding. There is some known limitations if the data has _lazy_ relations:  
 * The _lazy_ field is not contained in a repeatable container (no multiple parent in the object hierarchy): Another UID variable (External API) is generated to retrieve the _lazy_ relation.
