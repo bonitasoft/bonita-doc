@@ -224,7 +224,7 @@ Debug, the option to run a diagram without its connectors, is not supported anym
 
 #### Fixes in UI Designer component
 * UID-11 Bonita API resource Template path truncated when exported in page.properties
-* UID-33	Editing a custom widget property breaks the parent artifacts
+* UID-33 Editing a custom widget property breaks the parent artifacts
 * UID-35 Editing a custom widget property breaks the parent fragment and parent artifact
 * UID-37 UI Designer workspace gets corrupted when renaming a fragment
 
