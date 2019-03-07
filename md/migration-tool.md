@@ -5,6 +5,11 @@ to the one delivered with the latest version of Bonita.
 This is due to the fact that improvements in any version of the Migration Tool can affect all supported version of Bonita.
 This change log must be read before [migrating to a newer version of Bonita](migrate-from-an-earlier-version-of-bonita-bpm.md).
 
+## 2.39.0 - Mar. 7th, 2019 (Bonita 7.8.3)
+This version of the migration tool migrates Bonita up to version 7.8.3.
+Because some bugs in Bonita Development Suite have been found, this migration tool will not allow the migration to 7.8.0, 7.8.1, or 7.8.2.
+* No bug fix. 
+
 ## 2.38.0 - Fev. 8th, 2019 (Bonita 7.8.2)
 This version of the migration tool migrates Bonita up to version 7.8.2.
 * No bug fix. 
