@@ -80,7 +80,7 @@ Limitation : there is currently no way to customize which business data or docum
 When creating a contract input from a Data (Add from Data...) you can select the edition mode.  
 In `Create` mode, the generated contract input is meant to instantiate new Data instance.  
 In `Edit` mode, additional `persistenceId_string` input are generated to ensure edition of existing data instances. When generating a Form, additional variables are created in the UID page to retrieve existing data from the Task context and bind create a proper databinding. There is some known limitations if the data has _lazy_ relations:  
-* The _lazy_ field is not contained in a repeatable container (no multiple parent in the object hierarchy): Another UID variable (External API) is generated to retrieve the _lazy_ relation.
+* If the _lazy_ field is not contained in a repeatable container (no multiple parent in the object hierarchy): Another UID variable (External API) is generated to retrieve the _lazy_ relation.
 * If the _lazy_ field is contained in a repeatable container (there is a multiple parent in the object hierarchy or the data is multiple): This kind of fields are unselected by default when generating the contract. We cannot retrieve the values from the context for those relations and a consistent _edition_ form generation is not possible. The current workarounds to handle this use case are:
 	* Change the relation loading mode to _eager_ (Always load related objects option) instead of _lazy_ (Only load related objects when needed)
 	* Use UID [fragments](fragments.md) (Enterprise edition only). Keep in mind that it may lead to performance issues as each lazy instance will generate an HTTP request.
