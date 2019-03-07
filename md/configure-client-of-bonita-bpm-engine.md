@@ -103,7 +103,7 @@ org.bonitasoft.engine.api-type = LOCAL
 #default EJB reference name
 #org.bonitasoft.engine.ejb.naming.reference=ejb:bonita-ear/bonita-ejb/serverAPIBean!org.bonitasoft.engine.api.internal.ServerAPI
 ```
-You can next go to `<bonita-subscription>/start-bonita.(sh|bat)` and delete the following lines so you won't be prompt to configure h2 database each time you start your Bonita server.
+Next you can go to `<bonita-subscription>/start-bonita.(sh|bat)` and delete the following lines so you won't be prompted to configure h2 database each time you start your Bonita server.
 
 For Linux (start-bonita.sh) :
 
