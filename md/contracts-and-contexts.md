@@ -72,4 +72,16 @@ Whatever means is used to submit information to process or human task, the syste
 To display contextual information of the task or the process instance in a form, you can leverage the business data and document references made publicly available through the context. The notion of context is available at two levels : process instance and human task. The context is a list of references to the business data and documents manipulated by the process instance during its execution.
 Currently, context is the same for a human task and its process instance. All the business data and documents defined are public.
 
-Limitation : there is currently no way to customize which business data or document are public.
+Limitation : there is currently no way to customize which business data or document are public in Community edition. When using an Enterprise edition, you may want to use the [BDM Access Control](bdm-access-control.md) to protect data access.
+
+
+## <a name="form-generation"/> Form generation
+
+When creating a contract input from a Data (Add from Data...) you can select the edition mode.  
+In `Create` mode, the generated contract input is meant to instantiate new Data instance.  
+In `Edit` mode, additional `persistenceId_string` input are generated to ensure edition of existing data instances. When generating a Form, additional variables are created in the UID page to retrieve existing data from the Task context and bind create a proper databinding. There is some known limitations if the data has _lazy_ relations:  
+* If the _lazy_ field is not contained in a repeatable container (no multiple parent in the object hierarchy): Another UID variable (External API) is generated to retrieve the _lazy_ relation.
+* If the _lazy_ field is contained in a repeatable container (there is a multiple parent in the object hierarchy or the data is multiple): This kind of fields are unselected by default when generating the contract. We cannot retrieve the values from the context for those relations and a consistent _edition_ form generation is not possible. The current workarounds to handle this use case are:
+	* Change the relation loading mode to _eager_ (Always load related objects option) instead of _lazy_ (Only load related objects when needed)
+	* Use UID [fragments](fragments.md) (Enterprise edition only). Keep in mind that it may lead to performance issues as each lazy instance will generate an HTTP request.
+	* Use a [Rest API Extension](api-extensions.md). Instead of reusing the Task context, create your own endpoint that will serve all the needed data in one HTTP request.
