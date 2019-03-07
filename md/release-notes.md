@@ -223,9 +223,10 @@ BST-96 Impossible to import a BOS renamed in 7.8.0 in other Community Studios
 BST-100 Project explorer makes Studio considerably slower on Windows	
 
 #### Fixes in UI Designer component
-UID-8	Display placeholder option on Datepicker widget if an expression is set	
 UID-11	Bonita API resource Template path truncated when exported	in page.properties
-UID-33	As Fred, i need to be able to édit custom widget properties without breaking the parent pages
+UID-33	Editing a custom widget property breaks the parent artifacts
+UID-35 Editing a custom widget property breaks the parent fragment and parent artifact
+UID-37 UI Designer workspace gets corrupted when renaming a fragment
 
 #### Fixes in Web/Portal component
 BPO-35	Multiple documents are not displayed in the case overview	
