@@ -15,17 +15,20 @@ In general we recommended that you set all attributes to **true** or all to **fa
 
 * To archive the ProcessInstance comments when the process instance completes, set `org.bonitasoft.engine.core.process.comment.model.SComment` to true. Comments entered in a task during execution are archived in executed tasks in archived cases.
 * To archive a process instance each time its state changes, set `org.bonitasoft.engine.core.process.instance.model.SProcessInstance` to true.
-* To archive transition instances, set `org.bonitasoft.engine.core.process.instance.model.STransitionInstance` to true. This information is not available in Bonita Portal.
 * To archive an automatic (service) task each time it changes state, set `org.bonitasoft.engine.core.process.instance.model.SAutomaticTaskInstance` to true. 
 * To archive a manual task (e.g. sub-tasks) each time it changes state, set `org.bonitasoft.engine.core.process.instance.model.SManualTaskInstance` to true.
 * To archive a user (human) task each time it changes state, set `org.bonitasoft.engine.core.process.instance.model.SUserTaskInstance` to true. 
 * To archive a receive task each time it changes state, set `org.bonitasoft.engine.core.process.instance.model.SReceiveTaskInstance` to true. This information is not available in Bonita Portal.
+* To archive a send task each time it changes state, set `org.bonitasoft.engine.core.process.instance.model.SSendTaskInstance` to true. This information is not available in Bonita BPM Portal.
 * To archive a loop activity each time it changes state, set `org.bonitasoft.engine.core.process.instance.model.SLoopActivityInstance` to true.
 * To archive a multi-instances activity each time it changes state, set `org.bonitasoft.engine.core.process.instance.model.SMultiInstanceActivityInstance` to true. 
 * To archive a call activity each time it changes state, set `org.bonitasoft.engine.core.process.instance.model.SCallActivityInstance` to true. 
 * To archive a gateway each time it changes state, set `org.bonitasoft.engine.core.process.instance.model.SGatewayInstance` to true. This information is not available in Bonita Portal.
 * To archive a sub-process activity each time it changes state, set `org.bonitasoft.engine.core.process.instance.model.SSubProcessActivityInstance` to true. 
 * To archive a connector instance each time it changes state, set `org.bonitasoft.engine.core.process.instance.model.SConnectorInstance` to true. 
+* To archive a reference between a document and its process instance, set `org.bonitasoft.engine.core.document.model.SDocumentMapping` to true. 
+* To archive a data instance each time it changes value, set `org.bonitasoft.engine.data.instance.model.SDataInstance` to true. 
+* To archive a reference between a business data and its process instance, set `org.bonitasoft.engine.core.process.instance.model.business.data.SRefBusinessDataInstance` to true. 
 
 To configure the archiving strategy, edit the file [`bonita-tenant-sp-custom.properties`](BonitaBPM_platform_setup.md) and specify the items that you want archived. 
 By default, the archiving strategy is that everything is archived, so the value for each type of information is set to `true`. Change this setting to `false` for the items that you do not want to archive.
