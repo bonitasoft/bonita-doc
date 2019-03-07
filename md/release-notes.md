@@ -216,21 +216,21 @@ Debug, the option to run a diagram without its connectors, is not supported anym
 
 ### Fixes in Bonita 7.8.3 (2019-03-07)
 #### Fixes in Studio component
-* BST-49	Allow condition on a sequence flow that connect a BPMN element to a parallel gateway	
-* BST-77	Diagram overview broken after pool sizing in the Studio	
-* BST-94	Bonita la builder doesn't work if a process contains a decision table	
+* BST-49 Allow condition on a sequence flow that connect a BPMN element to a parallel gateway	
+* BST-77 Diagram overview broken after pool sizing in the Studio	
+* BST-94 Bonita la builder doesn't work if a process contains a decision table	
 * BST-96 Impossible to import a BOS renamed in 7.8.0 in other Community Studios
 * BST-100 Project explorer makes Studio considerably slower on Windows	
 
 #### Fixes in UI Designer component
-* UID-11	Bonita API resource Template path truncated when exported in page.properties
+* UID-11 Bonita API resource Template path truncated when exported in page.properties
 * UID-33	Editing a custom widget property breaks the parent artifacts
 * UID-35 Editing a custom widget property breaks the parent fragment and parent artifact
 * UID-37 UI Designer workspace gets corrupted when renaming a fragment
 
 #### Fixes in Web/Portal component
-* BPO-35	Multiple documents are not displayed in the case overview	
-* BPO-57	[Case Overview] caseDocument Rest API should be used instead of context to retrieve case documents	
+* BPO-35 Multiple documents are not displayed in the case overview	
+* BPO-57 [Case Overview] caseDocument Rest API should be used instead of context to retrieve case documents	
 
 ### Fixes in Bonita 7.8.2 (2019-02-07)
 #### Fixes in Engine component
