@@ -68,6 +68,8 @@ file `server/conf/bitronix-config.properties`
 
 The following Bonita dependencies have been upgraded to improve the Java 11 support
 * groovy-all from 2.4.4 to 2.4.16
+* spring framework version is now 5.1.5.RELEASE
+* spring-boot version is now 2.1.3.RELEASE
 
 ### Connectors dependency updates
 
