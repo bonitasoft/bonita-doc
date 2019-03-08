@@ -244,6 +244,7 @@
       * [Technical logger](technical-logging.md)
     * [Execution sequence, states, and transactions](execution-sequence-states-and-transactions.md)
     * [Shared transactions](shared-transactions.md)
+    * [Work execution audit](work-execution-audit.md)
   * [Living application](_living-application.md)
     * [Customize living application layout](customize-living-application-layout.md)
   * [Logs](logging.md)
