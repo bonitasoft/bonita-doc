@@ -174,24 +174,46 @@ Some internal libraries have been updated to newer versions:
 
 ### 6.x forms based on GWT technology
 Studio forms based on Google Web Toolkit (GWT) technology are not supported anymore, starting with Bonita 7.8.  
-They have been removed from Bonita Studio.  
-This means that, in the studio, there is no more:
-  - "Resources" tab, 
-  - "Application" tab, nor all associated configuration in the process (Pageflow transition, Entry forms, View forms, Recap forms, etc.)
-  - Look'n'feels, validators, forms and widgets templates, and theme editor 
-  - In the _Execution > Form_ tab, the "Legacy 6.x" option is no longer available.
-In a repository/project, there is no more "Application resources" folder.
+They have been removed from Bonita Studio and Bonita Runtime.  
 
-Importing a .bos will not import such forms.  
-Cloning a Git repository or migrating a SVN repository will remove such forms.  
-Lastly, deploying a process (.bar file) containing forms/pages developped using Google Web Toolkit is not possible anymore.
+#### In Studio and Runtime
 
-Before you migrate your production to Bonita 7.8, make sure you use Bonita Studio in a version older than 7.8.0 to [replace such forms/pages](migrate-form-from-6.x.md) by forms/pages created with more recent technologies and newer concepts, offered since Bonita 7.0: [UI Designer](ui-designer-overview.md) and [contract and context](contracts-and-contexts.md). 
+This means that, 
+  * in the Studio,
+    * Importing a .bos will not import such forms.  
+    * Cloning a Git repository or migrating a SVN repository will remove such forms.  
+  * in the Studio, there is no more:
+    * "Resources" tab, 
+    * "Application" tab, nor all associated configuration in the process (Pageflow transition, Entry forms, View forms, Recap forms, etc.)
+    * Look'n'feels, validators, forms and widgets templates, and theme editor 
+    * In the _Execution > Form_ tab, the "Legacy 6.x" option is no longer available.
+  * in a repository/project, there is no more "Application resources" folder.
+  * at Runtime, deploying a process (.bar file) containing forms/pages developed using Google Web Toolkit is not possible anymore.
+
+#### Migration paths
+
 The migration will also handle the attempt to migrate projects with GWT forms/overview page:
    - If no GWT forms or overview page is found, migration is performed
+   - If all processes with GWT forms only have archived cases and are disabled, migration will be performed. If a GWT case overview page
+   is found, it is replaced by the default Bonita overview page.   
    - If one process with GWT forms is enabled and/or has open cases, migration will not be performed at all
-   - If all processes with GWT forms are archived and disabled, migration will be performed. If a GWT case overview page is found, it is replaced by the default Bonita overview page.   
-   With the Enterprise edition, the Administrator or Process Manager can replace it with a compliant page in the process details.
+
+If you face the last case, the mitigation depends on the Bonita Edition.
+
+With **Community edition**, you should create a new version for each process that uses GWT forms. Use the Bonita Studio
+of your pre 7.8.0 version to [replace such forms/pages](migrate-a-form-from-6-x.md) by forms/pages created with more recent
+technologies and newer concepts, offered since Bonita 7.0: [UI Designer](ui-designer-overview.md) and [contract and context](contracts-and-contexts.md).
+
+Then deploy the new process version (.bar file) and disable the old one. No more new cases with this old process version
+will be created but you have to wait for all remaining running cases to complete.  
+You will be able to migrate to Bonita 7.8 once all such cases are completed. 
+
+
+With the **Enterprise edition**, your are not forced to wait for all the cases to complete: the Administrator or Process Manager
+can replace GWT forms with a compliant page in the process details. Once all processes with open cases using GWT forms have
+been updated, the migration to Bonita 7.8 can be performed.   
+In addition, follow the Community edition instructions.
+
 
 <a id="bar-importer"/>
 
