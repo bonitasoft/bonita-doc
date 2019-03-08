@@ -204,6 +204,9 @@ This used to store Legacy v6 forms. When migrating a production environment to 7
 ### Debug action in Studio
 Debug, the option to run a diagram without its connectors, is not supported anymore, as its value proved to be too small.
 
+### Complex data types are deprecated
+If you need to use custom types, it is recommended to use Business Object from the BDM. You can also create your own POJOs in Groovy using a custom Groovy script or import a jar dependency in your project.  
+
 ## Bug fixes
 
 #### Fixes in Documentation
