@@ -194,7 +194,7 @@ This means that,
 
 The migration will also handle the attempt to migrate projects with GWT forms/overview page:
    - If no GWT forms or overview page is found, migration is performed
-   - If all processes with GWT forms are archived and disabled, migration will be performed. If a GWT case overview page
+   - If all processes with GWT forms only have archived cases and are disabled, migration will be performed. If a GWT case overview page
    is found, it is replaced by the default Bonita overview page.   
    - If one process with GWT forms is enabled and/or has open cases, migration will not be performed at all
 
