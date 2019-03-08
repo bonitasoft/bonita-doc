@@ -35,12 +35,6 @@ All RDBMSs require [specific customization](#specific_database_configuration), w
 If you do not complete the specific configuration for your RDBMS, your installation may fail.
 :::
 
-::: warning
-There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft for the Tomcat bundle & inside Deploy bundle for Tomcat) and Microsoft SQL Server driver (refer to: [MSDN note](https://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html)).  
-Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended.  
-We recommend that you use the WildFly bundle provided by Bonitasoft.
-:::
-
 
 <a id="proprietary_jdbc_drivers" />
 
@@ -170,12 +164,6 @@ It is assumed in the procedure that:
    ```
 
 #### SQL Server
-
-::: warning
-**Reminder:** There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft in the Tomcat bundle and in the Tomcat directories of the Deploy bundle) and the Microsoft SQL Server driver
-(refer to: [MSDN note](https://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html)).
-Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the WildFly bundle provided by Bonitasoft.
-:::
 
 ##### XA Transactions
 

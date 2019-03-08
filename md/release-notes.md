@@ -31,6 +31,14 @@ More info on how to use it [here](variables.md).
 
 ## Technology updates
 
+### JTA transaction manager replacement
+
+In Bonita 7.9.0, we replaced the JTA transaction manager used to handle XA transactions in Bonita Engine from
+Bitronix to Narayana (also known as Arjuna).  
+This change should not impact the way to use Bonita.  
+However, tuning Bonita transaction configuration is a little different. If you are used to change default transaction timeout,
+it can now be done by changing the `defaultTimeout` property in file `server/conf/jbossts-properties.xml`  instead of
+file `server/conf/bitronix-config.properties`
 
 <a id="other-dependencies"/>
 

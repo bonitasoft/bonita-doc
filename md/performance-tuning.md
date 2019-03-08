@@ -252,14 +252,16 @@ The desired number of parallel processing threads is the sum of the number of wo
 
 You need to configure the maximum pool size for datasources (the following paths are for bundle users):
 
-For Tomcat:
+For Tomcat, edit file `setup/tomcat-templates/bonita.xml`:
 
-* For bonitaSequenceManagerDS, edit `setup/tomcat-templates/bonita.xml` and set `maxTotal=”yourvalue”`.
-* For bonitaDS, edit `setup/tomcat-templates/bitronix-resources.properties` and set `resource.ds1.maxPoolSize=”yourvalue”`.
+* For bonitaSequenceManagerDS, set `maxTotal=”yourvalue”`.
+* For RawBonitaDS, set `maxTotal=”yourvalue”`.
+* If necessary, for the Business Data feature, do the same for the datasources 'RawBusinessDataDS' and 'NotManagedBizDataDS'.
 
-For WildFly:
+For WildFly, edit file `setup/wildfly-templates/standalone.xml`:
 
-* For both bonitaDS and bonitaSequenceManagerDS, edit `server/default/deploy/bonita-ds.xml` and set `<max-pool-size>yourvalue</max-pool-size>`.
+* For both bonitaDS and bonitaSequenceManagerDS, set `<max-pool-size>yourvalue</max-pool-size>`.
+* If necessary, for the Business Data feature, do the same for the datasources 'RawBusinessDataDS' and 'NotManagedBizDataDS'.
 
 <a id="volume"/>
 
@@ -397,10 +399,10 @@ To find the right characteristic to optimize, one good starting point is to cons
 
 Bonita Engine is natively compatible with the Java Transaction API. This means transaction management relies on a transaction manager.
 If you are using a JEE Application server, then you only have to configure Bonita Engine to use the transaction manager that is provided.
-Otherwise, you have to embed a transaction manager (for example, we embed Bitronix by default in the Tomcat bundle).
+Otherwise, you have to embed a transaction manager (for example, we embed Narayana by default in the Tomcat bundle).
 
 A transaction manager manages a transaction log and also frequently has notions of internal pooling.  
-For example, in [Bitronix](https://github.com/bitronix/btm/wiki/JDBC-pools-configuration) you can configure some options for the transaction journal. 
+For example, in [Narayana](http://narayana.io//docs/product/index.html#d0e3473) you can configure some options for transaction management. 
 
 <a id="logs"/>
 

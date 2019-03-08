@@ -156,15 +156,15 @@ To define JVM system properties, you need to use a new file named `setenv.sh`:
 * Make the file executable: `sudo chmod +x /usr/share/tomcat8/bin/setenv.sh`
 * Edit `setenv.sh` file: `sudo nano /usr/share/tomcat8/bin/setenv.sh`
 * Change `sysprop.bonita.db.vendor` from `h2` to `postgres`
-* Change `btm.root` from `${CATALINA_HOME}` to `/opt/bonita/btm`
-* Change `bitronix.tm.configuration` from `${CATALINA_HOME}/conf/bitronix-config.properties` to `/opt/bonita/btm/conf/bitronix-config.properties`
+* Change `com.arjuna.ats.arjuna.common.propertiesFile` from `${CATALINA_HOME}/conf/jbossts-properties.xml` to `/opt/bonita/conf/jbossts-properties.xml`
 
 ### Add extra libraries to Tomcat
 
-Bonita needs extra libraries such as Bitronix, in order to run on Tomcat:
+Bonita needs extra libraries such as Narayana, in order to run on Tomcat:
 
 * Change to the Deploy bundle Tomcat lib folder: `cd ~/BonitaSubscription-x.y.z-deploy/Tomcat-8.5.z/lib`, where "y.z" stands for the last digits of the product version
-* Copy the libraries (.jar files) from the Deploy bundle to your Tomcat folder: `sudo cp btm-2.1.3.jar btm-tomcat55-lifecycle-2.1.3.jar jta-1.1.jar slf4j-api-1.6.1.jar slf4j-jdk14-1.6.1.jar /usr/share/tomcat8/lib/` (carefully check and replace with the product versions you currently have)
+* Copy the libraries (.jar files) from the Deploy bundle to your Tomcat folder: `sudo cp *.jar /usr/share/tomcat8/lib/`
+* Remove default tomcat-dbcp.jar from folder `/usr/share/tomcat8/lib/`, as Bonita provides a newer version.
 
 ### Configure Bonita to use PostgreSQL
 
@@ -172,14 +172,6 @@ You need to configure the data source for Bonita Engine.
 
 Warning: make sure you stop Tomcat before performing following operations: `sudo service tomcat8 stop`
 
-* Create new folders in order to store Bitronix files: `sudo mkdir -p /opt/bonita/btm/conf && sudo mkdir /opt/bonita/btm/work`
-* Set the ownership of the Bitronix folder: `sudo chown -R tomcat8:tomcat8 /opt/bonita/btm`
-* Copy the Bitronix configuration files to `/opt/bonita/btm/conf` folder: `sudo cp ~/BonitaSubscription-x.y.z-deploy/Tomcat-8.5.z/conf/bitronix-* /opt/bonita/btm/conf/`
-* Edit `bitronix-resources.properties` file, comment (using `#`) h2 section, uncomment PostgreSQL example
-and update the username, password and DB name ("bonita" in the URL property) to match your configuration (e.g.
-`bonita_db_user`, `bonita_db_password` and `bonita_db`): `sudo nano /opt/bonita/btm/conf/bitronix-resources.properties`
-* Also in `bitronix-resources.properties` update the section for `resource.ds2` (BDM data source) and set the value for the BDM data base (e.g. `bonita_db_user`, `bonita_db_password` and `bonita_bdm`)
-* Save and quit: `CTRL+X, Y, ENTER`
 * Copy the `bonita.xml` file (Bonita web app context configuration): `sudo cp ~/BonitaSubscription-x.y.z-deploy/Tomcat-8.5.z/conf/Catalina/localhost/bonita.xml /etc/tomcat8/Catalina/localhost/`
 * Edit the `bonita.xml` file by commenting the h2 datasource configuration (using ),
 uncomment PostgreSQL example and update username, password and DB name (bonita in the URL property) to match your
