@@ -103,3 +103,12 @@ The version of the _javax.mail:mail_ dependency has been updated from _1.4.5_ to
 #### Twitter connector
 
 The version of the _org.twitter4j:twitter4j-core_ dependency has been updated from _4.0.2_ to _4.0.7_
+
+## Monitoring capabilities
+
+### Engine work execution
+
+A work execution audit mechanism has been introduced. It can be activated
+to detect when a work takes too much time to be executed or it was _rescheduled_
+too much times.
+See [Work execution audit page](work-execution-audit.md)
