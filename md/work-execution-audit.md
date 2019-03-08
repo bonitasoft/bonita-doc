@@ -10,21 +10,21 @@ This can be achieved using a specific logger called _Work execution audit_
 
 The logger produce a _Warning_ each time a work takes too much time to be executed or it was _rescheduled_ too much times.
 
-For theses cases it also produce an _Info_ log when the work was finally executed.
+For theses cases, it also produces an _Info_ log when the work was finally executed.
 
 
 A _reschedule_ happens when a work can't be executed right now because some other work already locked the same process instance.
 
 ## How to activate it
 
-### Enable the logger
+### Logging configuration
 
 Enable the logger called `BONITA_WORK_AUDIT.EXECUTION` in the logger configuration.
 
 
-### Activate and configure the logger
+### Activate and configure the work execution audit
 
-The logger is activated by default, it can be deactivated or reactivated here:
+The audit is activated by default, it can be deactivated or reactivated here:
 
 In `bonita-tenant-community-custom.properties` set flag `bonita.tenant.work.audit.activated` to `true` or `false`
 
