@@ -5,13 +5,6 @@ You will find here steps needed to install and configure a Tomcat bundle.
 The Tomcat bundle is a .zip archive that contains the Apache Tomcat Java EE application server prepackaged along with Bonita and [Bonita platform setup tool](BonitaBPM_platform_setup.md#platform_setup_tool).
 The Tomcat bundle is a regular .zip archive based on Tomcat zip distribution.
 
-
-::: warning
-There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft in the Tomcat bundle) and the Microsoft SQL Server JDBC driver
-(refer to: [MSDN note](https://msdn.microsoft.com/en-us/library/aa342335.aspx), [Bitronix note](http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html)).
-Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the [WildFly bundle](wildfly-bundle.md) provided by Bonitasoft.
-:::
-
 ## Installation of the Tomcat bundle
 
 ### Download and unzip the Tomcat bundle
@@ -47,11 +40,11 @@ The Tomcat bundle is based on a standard Tomcat installation with the following 
 * `setup/tomcat-templates/setenv.sh`: script to configure JVM system properties for Linux.
 * `setup/tomcat-templates/bonita.xml`: Tomcat context configuration for Bonita web application. Define data sources used by Bonita Engine.
 * `server/conf/catalina.properties`: modified to include lib/bonita folder to Tomcat classpath.
-* `server/conf/context.xml`: modified to add JTA support using Bitronix library.
+* `server/conf/context.xml`: modified to add JTA support using Narayana library.
 * `server/conf/logging.properties`: modified to create a log file dedicated to Bonita.
-* `server/conf/server.xml`: modified to add listener for Bitronix and h2 (see below for modification needed if you want to switch to another RDBMS).
-* `server/conf/bitronix-*.properties`: configuration files for Bitronix.
-* `server/lib/bonita`: extra libraries needed by Bonita. The following libraries are included: Bitronix JTA Transaction Manager, h2, SLF4J (required by Bitronix).
+* `server/conf/server.xml`: modified to add listener for Narayana and h2 (see below for modification needed if you want to switch to another RDBMS).
+* `server/conf/jbossts-properties.xml`: configuration files for Narayana transaction manager.
+* `server/lib/bonita`: extra libraries needed by Bonita. The following libraries are included: Narayana JTA Transaction Manager, h2, SLF4J.
 * `server/request_key_utils`: folder containing script to generate license request keys (Subscription editions only).
 * `server/webapps/bonita.war`: the Bonita web application.
 * `setup/`: a tool to manage Bonita Platform configuration, stored in database instead of filesystem. Also ships a tool to centralize all the required Tomcat bundle configuration.
@@ -152,8 +145,7 @@ The **start-bonita** script does the following:
 2. Runs the **`setup configure`** command:
     The Setup Configure command configures the Tomcat environment to access the right databases:
     1. updates the file setenv.sh (Unix system) or setenv.bat (Windows system) to set the database vendor values for **Bonita internal database** & **Business Data database**
-    2. updates the file `<TOMCAT_HOME>/setup/tomcat-templates/bitronix-resources.properties` with the values you set in file `database.properties` **Bonita internal database** & **Business Data database**
-    3. updates the file `<TOMCAT_HOME>/setup/tomcat-templates/bonita.xml` with the values you set in file `database.properties`
+    3. updates the file `<TOMCAT_HOME>/setup/tomcat-templates/bonita.xml` with the values you set in file `database.properties` **Bonita internal database** & **Business Data database**
     4. copies your database vendor-specific drivers from `<TOMCAT_HOME>/setup/lib` to `<TOMCAT_HOME>/setup/server/lib/bonita`
 3. Starts the Tomcat bundle
 

@@ -12,6 +12,12 @@ Thus, for installations using native distribution packages (that more often than
 it would be up to you to adapt the documented steps to your very own folder layout.
 :::
 
+:::warning
+Remember that the recommended way of installing Bonita is to use the provided [Tomcat](tomcat-bundle.md) / [WildFly](wildfly-bundle.md) bundle.  
+It saves you from doing all the following configuration at hand, as the setup tool included handles it automatically.
+:::
+
+
 ## Deploy bundle content
 
 * `Tomcat-`_`version`_: a folder/file structure to be merged with an existing setup of Apache Tomcat, in order to install Bonita Portal and Bonita Engine.
@@ -46,27 +52,18 @@ with care in a tomcat where other applications are already installed.
 There is an [issue on tomcat 8.0.32](https://bz.apache.org/bugzilla/show_bug.cgi?id=58999) preventing the portal Look & feel to be compiled. If you deploy bonita on an existing tomcat installation, make sure it is a different version of tomcat (preferably 8.5.x with x>=23).
 :::
 
+
 ### Configure data sources
 
-Configuration of data source for Tomcat is split in two parts: because Tomcat doesn't support JTA natively,
-one data source will be configured in the Bitronix configuration file and the other data source will be configured
-in the standard Tomcat context configuration file.
-
-Non-transactional data source
 1. Open the file TOMCAT_HOME/conf/Catalina/localhost/bonita.xml
-2. For Bonita Standard data source, remove or comment out the lines regarding the h2 database.
+2. Remove or comment out the lines regarding the h2 database.
 3. Uncomment the lines matching your RDBMS.
 4. Update following attributes value:
     - username: your RDBMS user name.
     - password: your RDBMS password.
     - url: the URL, including the RDBMS server address, RDBMS server port and database (schema) name.
-5. Repeat operations 2. to 4. for Business Data data source
+5. There are 4 datasources declared. Make sure you made the change for them all, named RawBonitaDS, bonitaSequenceManagerDS, RawBusinessDataDS, NotManagedBizDataDS.
 
-JTA data source (managed by Bitronix)
-1. Open the file TOMCAT_HOME/conf/bitronix-resources.properties
-2. For Bonita Standard data source, remove or comment out the lines regarding the h2 database.
-3. Uncomment the lines matching your RDBMS and edit values for each settings (resource.ds1.*) according to your database installation.
-5. Repeat operations 2. and 3. for Business Data data source (resources.ds2.*)
 
 ### Configure RDBMS vendor
 

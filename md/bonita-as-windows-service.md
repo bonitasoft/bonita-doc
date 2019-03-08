@@ -50,10 +50,6 @@ Check your Database provider documentation in order to get the proper driver ver
 * **_Add_** your database driver to %TOMCAT_INSTALL_FOLDER%/lib
 * **_Move_** the folder %BONITA_DEPLOY%/Tomcat-x.y.z/server/conf to %TOMCAT_INSTALL_FOLDER%/conf
 * **_Move_** the folder %BONITA_DEPLOY%/Tomcat-x.y.z/server/webapps to %TOMCAT_INSTALL_FOLDER%/webapps
-* **_Configure_** %TOMCAT_INSTALL_FOLDER%/conf/bitronix-resources.properties
-
-![bitronix configuration](images/bonita-as-windows-service/bitronixConfiguration.png)
-
 * **_Configure_** %TOMCAT_INSTALL_FOLDER%/conf/Catalina/localhost/bonita.xml
 
 ![datasource configuration](images/bonita-as-windows-service/bonitaXml.png)
@@ -72,8 +68,7 @@ In this example %TOMCAT_INSTALL_FOLDER% = C:\Program Files\Apache Software Found
   * -Dorg.bonitasoft.engine.incident.folder=C:\Program Files\Apache Software Foundation\Tomcat x.y\logs
   * -Dsysprop.bonita.db.vendor=postgres
   * -Dsysprop.bonita.bdm.db.vendor=postgres
-  * -Dbtm.root=C:\Program Files\Apache Software Foundation\Tomcat x.y
-  * -Dbitronix.tm.configuration=C:\Program Files\Apache Software Foundation\Tomcat x.y\conf\bitronix-config.properties
+  * -Dcom.arjuna.ats.arjuna.common.propertiesFile=C:\Program Files\Apache Software Foundation\Tomcat x.y\conf\jbossts-properties.xml
   * -Dfile.encoding=UTF-8
 
 All these configurations should be realized in the file %TOMCAT_INSTALL_FOLDER%/bin/TomcatXw.exe (Where X is the Tomcat major version), more precisely in the java tab.
