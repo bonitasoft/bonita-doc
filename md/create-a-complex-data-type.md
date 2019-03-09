@@ -4,6 +4,10 @@
 **Note:** For Bonita Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
+::: warning
+**Deprecated:** Use a Business Object or a POJO ( using a custom Groovy script or import a jar) instead. POJO must implement _java.io.Serializable_.
+:::
+
 If the standard data types are not suitable for a variable in your process, you can create a new custom complex data type. It is useful for example to reference data from an external database.
 
 A complex data type is a collection of attributes, each attribute having a data type. Complex data types are defined in a JAR or XSD file. Each file can contain more than one definition. To add a new complex data type, create a new JAR or XSD file.
