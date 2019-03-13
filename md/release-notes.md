@@ -43,7 +43,7 @@ More info on how to use it [here](variables.md).
 
 ### EJB
 
-EJB communication protocol with the engine is now deprecated, Removal is planned for 7.10 versiion
+EJB communication protocol with the engine is now deprecated. Removal is planned for 7.10 version.
 
 ## Feature removals
 
