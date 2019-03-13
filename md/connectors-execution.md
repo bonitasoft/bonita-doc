@@ -2,9 +2,9 @@
 
 ## What are connectors
 
-Connectors are extension point that can be added to a process to extend Bonita Runtime capabilities. They are a piece of code having inputs defined as `Expressions` and outputs that are defined as `Operations`.
+Connectors are extension points that can be added to a process to extend Bonita Runtime capabilities. They are a piece of code having inputs defined as `Expressions` and outputs defined as `Operations`.
 
-## Executiion mechanism
+## Execution mechanism
 
 
 ### Diagram of the execution

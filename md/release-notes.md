@@ -125,7 +125,7 @@ See [Work execution audit page](work-execution-audit.md)
 
 ## Performance
 
-### Asynchronous connetor execution
+### Asynchronous connector execution
 
-Connectors are executed in an asynchrous manner. in earlier version each work was waiting for the connector to end before processing other workload resulting in degraded performances if few connectors have a long execution time.
-Worker thread are now releases as soon as the execution of the connector is triggered. see [connector execution page](connectors-execution.md) for more details.
+Connectors are executed in an asynchrous manner. In earlier versions each work was waiting for the connector to end before processing other workload. This resulted in degraded performance if few connectors had a long execution time.
+Worker threads are now released as soon as the execution of the connector is triggered. see [connector execution page](connectors-execution.md) for more details.
