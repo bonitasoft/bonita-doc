@@ -480,7 +480,7 @@ org.quartz.jobStore.acquireTriggersWithinLock
 org.quartz.scheduler.batchTriggerAcquisitionMaxCount
 org.quartz.scheduler.batchTriggerAcquisitionFireAheadTimeWindow
 ```
-Details on these properties can be found in [the Quartz documentation](http://www.quartz-scheduler.org/documentation/quartz-2.2.2/configuration/ConfigMain.html).
+Details on these properties can be found in [the Quartz documentation](http://www.quartz-scheduler.org/documentation/).
 
 They are not read subsequently, so changing the values in `bonita-tenant-community-custom.properties` after the Engine has been started has no effect on Quartz.
 For value definition, and information about how to update the Quartz trigger tables, see the [Quartz documentation](http://www.quartz-scheduler.org/documentation/) about Cron Triggers.
