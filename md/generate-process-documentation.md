@@ -36,7 +36,7 @@ In the optional settings in the pop-up window, you can choose to:
 
 ## Generate process documentation
 
-1. Go to the Menu bar \> Process.
+1. Go to the Menu bar \> File.
 2. In the dropdown menu, click on _**Generate documentation**_.
 
 A popup window will be displayed where you can configure a number of parameters for the exported file.  
