@@ -9,8 +9,9 @@ A document is treated in a similar way to a variable in Bonita Engine database. 
 ## Set or update the value of a document in a process operation using a script
 
 In a process operation, you might want to set / update the value of a document data using a groovy script instead of simply use a contract input.  
-The script should return a _DocumentValue_ . 
-**N.B**: _All the following exemples deal with single document data. For a multiple document data, just adapt the scripts to return a list  of DocumentInput instead of a document input._
+The script should return a _DocumentValue_ .  
+**N.B**: _All the following exemples deal with single document data. For a multiple document data, just adapt the scripts to return a list  of DocumentInput instead of a document input._  
+
 
 #### Create a new document
 The following groovy scripts create a new document from an existing contract input / url / file.
@@ -36,11 +37,13 @@ def DocumentValue createNewDocument(File file) throws IOException {
     def mimeType = Files.probeContentType(file.toPath())
     new DocumentValue(file.bytes, mimeType, file.name)
 }
-```
+```  
+
 
 #### Update the value of an existing document if a new content is provided
 
-This following script is a way to address the use case of an optional update of the value of a document: A user might want to change the value of a document, or not. If a new document is uploaded then the value of the data must be updated, if not then the data should be left unchanged.
+This following script is a way to address the use case of an optional update of the value of a document:  
+A user might want to change the value of a document, or not. If a new document is uploaded then the value of the data must be updated, if not then the data should be left unchanged.  
 
 ```groovy
 import java.nio.file.Files
@@ -72,10 +75,13 @@ def DocumentValue optionalUpdateDocument(long documentId, File file) throws IOEx
     }
     new DocumentValue(documentId);
 }
-```
+```  
+
+
 ## Create a case with documents
 
-The following method, `createCaseWithDocument`, creates a case and attaches documents to it.
+The following method, `createCaseWithDocument`, creates a case and attaches documents to it.  
+
 ```groovy
 import java.nio.file.Files
 
@@ -115,7 +121,8 @@ def createCaseWithDocument(String processDefinitionName,
     // ----- start process instance -----
     processAPI.startProcess(processDefinitionId, operations, listExpressionsContext);
 }
-```
+```  
+
 
 ## Attach a document to a case
 
