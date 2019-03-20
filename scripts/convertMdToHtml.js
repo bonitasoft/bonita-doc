@@ -41,7 +41,17 @@
   const mdInline = require('markdown-it-for-inline');
   const alerts = require('markdown-it-alerts');
   const hljs = require('highlight.js');
-  const md  = require('markdown-it')({ html: true })
+  const md  = require('markdown-it')( { html: true,
+        highlight: function (str, lang) {
+            if (lang && hljs.getLanguage(lang)) {
+                try {
+                    return hljs.highlight(lang, str).value;
+                } catch (__) {}
+            }
+
+            return ''; // use external default escaping
+        }
+      })
     .use(fa)
     .use(decorate)
     .use(smartArrows)
@@ -81,7 +91,7 @@
         tokens[idx].attrs[titleIndex][1] = tokens[idx].content;
       }
     })
-    .use(hljs, (str, lang) => {
+    .use(highlight, (str, lang) => {
             if (lang && hljs.getLanguage(lang)) {
                 try {
                     return hljs.highlight(lang, str).value;
@@ -89,7 +99,8 @@
             }
 
             return ''; // use external default escaping
-        });
+        })
+    .use(hljs);
 
   const pathToRepo = __dirname + `/..`;
   const pathToMd = pathToRepo + '/md';
