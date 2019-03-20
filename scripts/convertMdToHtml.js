@@ -40,7 +40,6 @@
   const decorate = require('markdown-it-decorate');
   const mdInline = require('markdown-it-for-inline');
   const alerts = require('markdown-it-alerts');
-  const hljs = require('highlight.js');
   const md  = require('markdown-it')({ html: true })
     .use(fa)
     .use(decorate)
