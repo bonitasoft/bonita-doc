@@ -122,3 +122,10 @@ A work execution audit mechanism has been introduced. It can be activated
 to detect when a work takes too much time to be executed or it was _rescheduled_
 too much times.
 See [Work execution audit page](work-execution-audit.md)
+
+## Performance
+
+### Asynchronous connector execution
+
+Connectors are executed in an asynchrous manner. In earlier versions each work was waiting for the connector to end before processing other workload. This resulted in degraded performance if few connectors had a long execution time.
+Worker threads are now released as soon as the execution of the connector is triggered. see [connector execution page](connectors-execution.md) for more details.
