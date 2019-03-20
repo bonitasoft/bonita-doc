@@ -24,9 +24,9 @@ A contract specifies the pieces of information the process requires to be starte
 In Bonita Studio select the pool to create the process instantiation contract, or select a human task to create a task contract.
 Go to the **Details** panel, **Execution** tab, **Contract** pane. In the Inputs tab, declare each expected input and its type. You have two options: declare the input manually or from a business variable using the **Add from data** option. 
 
-Defining an input based on a variable saves you time, and is the preferred option if the aim of the input is to initialize (or update) the business variable. In addition, using **Add from data** on a contract automatically generates [operations](operations.md) or expression to instantiate or edit the selected business variables with the task inputs. It also generates **constraints** for each mandatory field and all aggregation relations to validate their integrity.  
+Defining an input based on a variable saves you time, and is the preferred option if the aim of the input is to initialize (or update) the business variable. In addition, using **Add from data** on a contract automatically generates [operations](operations.md) or expressions to instantiate or edit the selected business variables with the task contract inputs. It also generates **constraints** for each mandatory field and all aggregation relations to validate their integrity.  
 
-In the Constraints tab, declare expressions that check the validity of the value of each input. A constraint has a name, a content, and a error message. The message is logged if the constraint is not met. Make sure to provide a meaningful name and message to help process users understand why the system rejected the order to start the process or execute a task.
+In the **Constraints** tab, declare expressions that check the validity of the value of each input. A constraint has a name, a content, and an error message. The message is logged if the constraint is not met. Make sure to provide a meaningful name and message to help process users understand why the system rejected the command to instantiate the process or execute a task.
 
 In the Leave Request Process example, the contract inputs and the constraints would be similar to the following:
 
