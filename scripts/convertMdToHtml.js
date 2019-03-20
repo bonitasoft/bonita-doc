@@ -81,7 +81,7 @@
         tokens[idx].attrs[titleIndex][1] = tokens[idx].content;
       }
     })
-    .use(highlight, (str, lang) => {
+    .use(hljs, (str, lang) => {
             if (lang && hljs.getLanguage(lang)) {
                 try {
                     return hljs.highlight(lang, str).value;
