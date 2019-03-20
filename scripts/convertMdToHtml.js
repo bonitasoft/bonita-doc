@@ -90,8 +90,7 @@
       } else {
         tokens[idx].attrs[titleIndex][1] = tokens[idx].content;
       }
-    })
-    .use(hljs);
+    });
 
   const pathToRepo = __dirname + `/..`;
   const pathToMd = pathToRepo + '/md';
