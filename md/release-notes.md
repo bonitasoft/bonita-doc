@@ -129,3 +129,15 @@ See [Work execution audit page](work-execution-audit.md)
 
 Connectors are executed in an asynchrous manner. In earlier versions each work was waiting for the connector to end before processing other workload. This resulted in degraded performance if few connectors had a long execution time.
 Worker threads are now released as soon as the execution of the connector is triggered. see [connector execution page](connectors-execution.md) for more details.
+
+## Timer execution
+
+Bugs were fixed to increase stability of the integration with Quartz
+
+* BS-19239 Exception during Quartz Job execution leave the associated flownode in WAITING state and the process execution is stopped
+* BR-56 Failure in a cron timer stop cancel future executions
+
+A [new page](timers-execution.md) was added to explain how Timers are executed and how to handle time execution failures
+
+Also details were added on how to configure Quartz for timers execution: [quartz performance tunning](performance-tunning.md#cron)
+
