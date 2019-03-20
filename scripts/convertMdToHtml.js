@@ -40,7 +40,19 @@
   const decorate = require('markdown-it-decorate');
   const mdInline = require('markdown-it-for-inline');
   const alerts = require('markdown-it-alerts');
-  const md  = require('markdown-it')({ html: true })
+  const hljs = require('highlight.js');
+  const md  = require('markdown-it')(
+      { html: true,
+        highlight: function (str, lang) {
+            if (lang && hljs.getLanguage(lang)) {
+                try {
+                    return hljs.highlight(lang, str).value;
+                } catch (__) {}
+            }
+
+            return ''; // use external default escaping
+        }
+      })
     .use(fa)
     .use(decorate)
     .use(smartArrows)
