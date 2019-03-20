@@ -73,10 +73,11 @@ To ease the definition of the form data to send back to the process, when you cr
 * _formOutput_. It is a JavaScript expression returning an object. The object structure matches the contract requirements and it is filled with formInput by default. On Submit, values entered or modified by the user and aggregated in the formOutput object (as defined by the _Data sent on click_ property of the Submit button) are submitted to the process or task to fulfill the contract.
 * _taskId_. It is the id of the current BPM task. You can use it as a BPM API parameter.
 * _context_. It is an External API that provides references to all business variables and documents in the process instance.
+* _submit_errors_list_. It is a JavaScript expression formatting the response payload to html when a submit fails. 
 In some cases, other types of variables are created:
 * To display an aggregated object, a Select widget is generated to display the _available values_ of the object. 
-  The variable (External API) bound to the widget is created. It queries the BDM: `../API/bdm/businessData/com.company.model.Product?q=find&p=0&c=99`. By default it uses the `find` query with a default pagination (only first 100 objects are returned).
-* When the business variable is edited in the form (as specified in the contract creation wizard), a UI Designer variable is created for each variable (External API). The value is retrieved from the _context_: `../{{context.myBusinessData_ref.link}}`
+  The variable (External API) bound to the widget is created. It queries the BDM: `../API/bdm/businessData/com.company.model.Customer?q=find&p=0&c=99`. By default it uses the `find` query with a default pagination (only first 100 objects are returned).
+* When the business variable is edited in the form (as specified in the contract creation wizard), a UI Designer variable is created for each variable (External API). 
+By example, if the contract has been created from a business data `invoice` in the process, a variable `invoice` is created in the form and its URL is set to `../{{context.invoice_ref.link}}`.
 * When the business variable is edited in the form and is related to a parent in Lazy mode, the related variables are created. Reference URL is resolved using the _lazyRef_ filter: `{{invoice|lazyRef:'customer'}}` where `customer` is related to `invoice` with a lazy reference.
-* _submit_errors_list_. It is a JavaScript expression formatting the response payload to html when a submit fails.
 
