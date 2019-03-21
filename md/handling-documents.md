@@ -2,7 +2,7 @@
 # Handle documents with Java APIs
 
 This page shows examples on how to manipulate documents in a Bonita process using the Java APIs.  
-You might want to consult the [document documentation](document.md) first.
+You might want to consult the [document documentation](documents.md) first.
 
 A document is treated in a similar way to a variable in Bonita Engine database. It is defined in Bonita Studio or programmatically, and is stored in the Bonita Engine database.
 
