@@ -80,7 +80,7 @@ You can then configure other clients to use one of the remote modes but you do n
 
 <a id="ejb3"/>
 
-##### EJB3
+##### EJB3 (deprecated, removed in 7.10)
 
 EJB3 access is serialized data using RMI protocol.  
 This protocol comes with a cost, and this cost is dependent of the implementation in the EJB container you are using.
