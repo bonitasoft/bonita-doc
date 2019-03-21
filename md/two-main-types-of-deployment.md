@@ -52,6 +52,10 @@ But you can still use the pre packaged Tomcat bundles or the `bonita.war` webapp
 
 ### Accessible through RMI (EJB3)
 
+::: danger
+EJB communication protocol is removed in 7.10.
+:::
+
 ![deploy3](images/images-6_0/poss_deploy3.png)
 
 With this third type of deployment, the engine is accessed by the Bonita Portal (and possibly other applications) through the EJB.

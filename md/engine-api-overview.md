@@ -42,10 +42,14 @@ There is also a high-level [Web REST API](rest-api-overview.md), intended for cu
 
 ## API access
 
+::: danger
+EJB communication protocol is removed in 7.10.
+:::
+
 The Bonita Engine APIs can be accessed locally or remotely, in the following modes:
 
 * Local: the client accesses the server directly in local mode
-* EJB3: the client accesses a remote server using EJB3 mode
+* EJB3: the client accesses a remote server using EJB3 mode (deprecated, removed in 7.10)
 * HTTP: the client accesses a remote server via HTTP
 
 ![Diagram of API access options](images/images-6_0/dev_overview_api_access.png)
