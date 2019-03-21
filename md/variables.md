@@ -78,6 +78,6 @@ In some cases, other types of variables are created:
 * To display an aggregated object, a Select widget is generated to display the _available values_ of the object. 
   The variable (External API) bound to the widget is created. It queries the BDM: `../API/bdm/businessData/com.company.model.Customer?q=find&p=0&c=99`. By default it uses the `find` query with a default pagination (only first 100 objects are returned).
 * When the business variable is edited in the form (as specified in the contract creation wizard), a UI Designer variable is created for each variable (External API). 
-By example, if the contract has been created from a business data `invoice` in the process, a variable `invoice` is created in the form and its URL is set to `../{{context.invoice_ref.link}}`.
+For example, if the contract input has been created from a business variable `invoice` in the process, a variable `invoice` is created in the form and its URL is set to `../{{context.invoice_ref.link}}`.
 * When the business variable is edited in the form and is related to a parent in Lazy mode, the related variables are created. Reference URL is resolved using the _lazyRef_ filter: `{{invoice|lazyRef:'customer'}}` where `customer` is related to `invoice` with a lazy reference.
 
