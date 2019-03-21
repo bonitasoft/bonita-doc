@@ -74,7 +74,7 @@ If the same SQL user is used with the [migration tool](migrate-from-an-earlier-v
 
 To create the database(s), we recommend that you refer to your RDBMS documentation:
 
-* [PostgreSQL](http://www.postgresql.org/docs/9.3/static/app-createdb.html)
+* [PostgreSQL](https://www.postgresql.org/docs/11/app-createdb.html)
 * [Oracle database](https://docs.oracle.com/cd/E11882_01/server.112/e25494/create.htm#ADMIN002)
 * [SQL Server](https://technet.microsoft.com/en-us/library/dd207005(v=sql.110).aspx)
 * [MySQL](http://dev.mysql.com/doc/refman/5.5/en/database-use.html)
@@ -92,7 +92,7 @@ Configure the database to use UTF-8\.
 
 Edit `postgresql.conf` and set a non-zero value for `max_prepared_transactions`. The default value, 0, disables prepared transactions, which is not compatible with Bonita Engine.  
 The value should be at least as large as the value set for `max_connections` (default is typically 100).  
-See the [PostgreSQL documentation](https://www.postgresql.org/docs/9.3/static/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) for details.
+See the [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) for details.
 
 #### Oracle Database
 

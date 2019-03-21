@@ -64,6 +64,17 @@ However, tuning Bonita transaction configuration is now a little different. If y
 it is now done by changing the `defaultTimeout` property in file `server/conf/jbossts-properties.xml`  instead of
 file `server/conf/bitronix-config.properties`
 
+### Databases supported
+
+#### Oracle
+
+From Bonita 7.9, the supported version of Oracle database is **12c (12.2.x.y)**
+
+#### PostgreSQL
+
+From Bonita 7.9, the supported version of PostgreSQL database is **11.2**
+
+
 <a id="other-dependencies"/>
 
 ## Dependency updates

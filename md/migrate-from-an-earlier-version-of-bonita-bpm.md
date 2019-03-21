@@ -130,7 +130,7 @@ Specify the following information:
    | bonita.home    | The location of the existing bonita_home. Required only until 7.3| `/opt/BPMN/bonita` (Linux) or `C:\\BPMN\\bonita` (Windows) |
    | db.vendor      | The database vendor                                              | postgres                                                   |
    | db.driverClass | The driver used to access the database                           | org.postgresql.Driver                                      |
-   | db.url         | The location of the Bonita Engine database                   | `jdbc:postgresql://localhost:5432/bonita_migration`        |
+   | db.url         | The location of the Bonita Engine database                       | `jdbc:postgresql://localhost:5432/bonita_migration`        |
    | db.user        | The username used to authenticate to the database                | bonita                                                     |
    | db.password    | The password used to authenticate to the database                | bpm                                                        |
 

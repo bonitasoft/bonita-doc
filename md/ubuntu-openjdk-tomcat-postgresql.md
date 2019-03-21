@@ -32,9 +32,9 @@ OpenJDK 64-Bit Server VM (build 25.111-b14, mixed mode)
 
 ### Install
 
-To install the PostgreSQL 9.3 you need to install the `postgres-9.3` package:
+To install PostgreSQL 11 you need to install the `postgres-11` package:
 
-* Run the following command line: `sudo aptitude install postgresql-9.3`
+* Run the following command line: `sudo aptitude install postgresql-11`
 * If needed, type your Ubuntu user password
 * Type _**Enter**_ to confirm that you want to continue installation
 
@@ -61,7 +61,7 @@ You can now verify that user and database are correctly created. In a terminal o
 
 Prepared transactions is disabled by default in PostgreSQL. You need to enable it:
 
-* Edit the `postgresql.conf` configuration file: `sudo nano /etc/postgresql/9.3/main/postgresql.conf`
+* Edit the `postgresql.conf` configuration file: `sudo nano /etc/postgresql/11.2/main/postgresql.conf`
 * Look for the line with `max_prepared_transactions` (line 117)
 * Uncomment the line: remove `#` character
 * Change the value from `zero` to `100`
@@ -122,7 +122,7 @@ You need to include JDBC driver in Tomcat classpath:
 
 * Change to Tomcat libraries directory: `cd /usr/share/tomcat8/lib`
 * Install `wget` tool in order to be able to download JDBC driver: `sudo aptitude install wget`
-* Download the JDBC driver: `sudo wget http://jdbc.postgresql.org/download/postgresql-9.3-1102.jdbc4.jar`
+* Download the JDBC driver: `sudo wget http://jdbc.postgresql.org/download/postgresql-42.2.5.jar`
 
 ## Bonita Platform
 
