@@ -1,3 +1,4 @@
+
 # Documents
 
 Many business processes require documents, or exist because of documents. For example:
@@ -37,7 +38,7 @@ In a process definition, you can specify multiple documents or document lists. U
 
 To initialize a document list, use a script that returns a list of DocumentValue objects. For example:
 
-```java
+```groovy
 import org.bonitasoft.engine.bpm.document.DocumentValue
 
 [
@@ -46,7 +47,18 @@ import org.bonitasoft.engine.bpm.document.DocumentValue
 ]  
 ```
 
-To update a document list, you need to specify the whole list again using a script,. You cannot just add or replace one component of the list.
+To update a document list, you need to use the id of the document. The script should return a new document list.  
+ Documents with id will be updated, documents without id will be created. To remove an existing document from the list, just don't add it in the new list.  
+ For example: 
+```groovy
+import org.bonitasoft.engine.bpm.document.DocumentValue
+
+[
+  new DocumentValue(101),//The existing document with the id `101` will be left unchanged
+  new DocumentValue(102, "exampleContentType".getBytes(), "text/plain", "example.txt")//The content of the document with the id `102` will be changed
+]  
+```  
+
 
 ## Documents storage
 
@@ -182,14 +194,13 @@ To do this, define an operation in the automatic task as follows:
      2. Set the operator type to Set document.
      3. Open the expression editor for the second field and create a script expression with the following content:
 
-       ```java
-       import org.bonitasoft.engine.bpm.document.Document;
-       import org.bonitasoft.engine.bpm.document.DocumentValue;
+```groovy
+import org.bonitasoft.engine.bpm.document.Document;
+import org.bonitasoft.engine.bpm.document.DocumentValue;
 
-       Document doc=apiAccessor.getProcessAPI().getDocument(sub_docId);
-       DocumentValue docValue=new DocumentValue(apiAccessor.getProcessAPI().getDocumentContent(doc.getContentStorageId()), doc.getContentMimeType(), doc.getContentFileName());
-       return docValue;
-       ```
+Document doc = apiAccessor.getProcessAPI().getDocument(sub_docId)
+new DocumentValue(apiAccessor.getProcessAPI().getDocumentContent(doc.getContentStorageId()), doc.getContentMimeType(), doc.getContentFileName())
+```
 
 ## Specify a document in a process form
 
