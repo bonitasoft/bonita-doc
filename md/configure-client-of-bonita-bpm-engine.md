@@ -43,8 +43,11 @@ You can set the system property `org.bonitasoft.engine.api-type` to `HTTP`, `EJB
 We do not guarantee to keep the http protocol stable, so we strongly recommend that you use the same version for both
 the client and the server
 :::
+::: danger
+EJB communication protocol is removed in 7.10.
+:::
 
- * `EJB3`
+ * `EJB3` (deprecated, removed in 7.10)
    The `EJB3` connection mode will connect the client to the engine using EJBs.  
    You will need to specify at least `org.bonitasoft.engine.ejb.naming.reference` that is the name use to lookup the ServerAPI
  * `LOCAL`
@@ -148,6 +151,10 @@ This HTTP access  is not secured, it should not be exposed outside a trusted are
 :::
 
 ### Server configuration to accept EJB3 connection
+
+::: danger
+EJB communication protocol is removed in 7.10.
+:::
 
 By default the [WildFly bundle](wildfly-bundle.md) is configured to accept connection for EJB3.
 
