@@ -57,7 +57,7 @@ To make sure the process gets the information it needs to start a new instance, 
 
 In actual BPM projects, we recommend you to also add a description to each contract input. It will be used as input field caption for end-users in the auto-generated form, if you decide to use such forms up to the User Acceptance Test phase of your project.  
 
-When the leave request is submitted, _status_ and _requesterName_ must default values must be set. To do so, edit the script:
+When the leave request is submitted, _status_ and _requesterName_ default values must be set. To do so, edit the script:
  
 1. Go back to the **Data** pane, **Pool variables** tab, **Business variables** table
 2. Click on **leaveRequest** and on the **Edit...** button
@@ -87,7 +87,7 @@ This is the form used in this howto, to save some time.
 
 ### "Validate request" task 
 
-For the sake of this howto, do not specify any contract of form on the task, but just create an operation to switch the request status from "submitted" to "validated" when the task is completed. 
+For the sake of this howto, do not specify any contract or form on the task, but just create an operation to switch the request status from "submitted" to "validated" when the task is completed. 
 1. Click on task "Validate request"
 2. Go to the **Execution** pane > **Operations** tab
 3. Click on **Add**
@@ -120,7 +120,7 @@ The task display name will be made of the requester's first name, last name, and
 1. Next to the **Display name** field, click the **pencil** icon to display the expression editor.
 2. Select the **Script** expression
 3. Give it a name: **buildValidateRequestDisplayName()**
-4. Type the script. 
+4. Type the script.
 
     ```groovy
     return "Validate leave: ${leaveRequest.requesterName}: ${leaveRequest.startDate.format('yyyy-M-d')} / ${leaveRequest.endDate.format('yyyy-M-d')}".toString()
@@ -164,7 +164,7 @@ When reusing these features for your own projects, make sure that the result of 
 ## View it in the task list
 
 1. Save the diagram
-2. Run the pool. The default loggued user is Walter Bates
+2. Run the pool. The default logged in user is Walter Bates
 3. Fill out the default instantiation form with two dates
 4. Click on **Start**  
 
@@ -184,7 +184,7 @@ You can see the description field, showing the status: "submitted", as shown her
 ![display task name and description](images/display_task_name_and_description.png)<!--{.img-responsive .img-thumbnail}-->
 
 1. Logout
-2. Login with helen.kelly / bpm credentials (as if Helen Kelly is Walter Bates' manager)
+2. Login with helen.kelly / bpm credentials (since Helen Kelly is Walter Bates' manager)
 3. Perform the task
 4. Go to the **Done tasks** filter
 
