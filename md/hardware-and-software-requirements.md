@@ -31,7 +31,7 @@ Software required for Bonita Platform (Bonita Engine and Bonita Portal).
 | Red Hat WildFly | 10.1.x |
 | **Database** | (see note 2)
 | MySQL | 5.5.27 and higher in the 5.5.x line (see note 3) |
-| PostgreSQL | 9.3 and higher |
+| PostgreSQL | 11.2 and higher in the 11.x line |
 | SQL Server | 2016 (see note 4) |
 | Oracle  | 11gR2 (11.2.0.x) and 12c (12.1.0.x.y) |
 | **Browser** |
