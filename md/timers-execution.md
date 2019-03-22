@@ -6,7 +6,7 @@ Timers are BPMN event that are executed at a **given date** (type **DATE**), aft
 
 ## Execution mechanism
 
-Their execution are delegated to the **Quartz Job Scheduler**, a popular Java scheduling library.
+Their execution is delegated to the **Quartz Job Scheduler**, a popular Java scheduling library.
 
 ## Change timers execution data
 
@@ -16,27 +16,27 @@ Execution date for timer of type **DATE** or **DURATION** (not **CYCLE**) can be
 
 ### Failure behavior
 
-When a timer fail the following happen
+When a timer fails the following happens:
 
 * a FailJob is registered that contains
   * The id of the `JobDescriptor` that failed
   * The stacktrace of the last failure
   * The date of the failure
-  * The number of time it failed
-* If the timer is of type **CYCLE** subsequent execution will still be triggered
+  * The number of times it has failed
+* If the timer is of type **CYCLE** subsequent executions will still be triggered
 
 ### Handling the failure
 
 To check for failure you can call the API method `org.bonitasoft.engine.api.ProcessRuntimeAPI#getFailedJobs(int, int)`
 
-Then you can retry a timer that failed using `org.bonitasoft.engine.api.ProcessRuntimeAPI#replayFailedJob(long)`
+Then you can replay a timer that failed using `org.bonitasoft.engine.api.ProcessRuntimeAPI#replayFailedJob(long)`
 
 If the job failed more than one time, you can restart this job multiple times by calling this api method the number of times you wish.
 
-Once this method is called the `FailedJob`s for this timer will be cleared.
+Once this method is called (at least once) the `FailedJob`s for this timer will be cleared.
 
 
 ## Tune performance of timers execution
 
 If you notice that timers are executed significantly after the date they should be executed, you might suffer Quartz performance issues.
-Check [this page](performance-tunning.ms#cron) to fine tune Quartz performances.
+Check [this page](performance-tunning.ms#cron) to fine tune Quartz performance.
