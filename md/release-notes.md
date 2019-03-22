@@ -134,7 +134,7 @@ Worker threads are now released as soon as the execution of the connector is tri
 
 Bugs were fixed to increase stability of the integration with Quartz
 
-* BS-19239 Exception during Quartz Job execution leave the associated flownode in WAITING state and the process execution is stopped
+* BS-19239 Exception during Quartz Job execution leaves the associated flownode in WAITING state and the process execution is stopped
 * BR-56 Failure in a cron timer cancels future executions
 
 A [new page](timers-execution.md) was added to explain how Timers are executed and how to handle time execution failures
