@@ -124,7 +124,7 @@ public class BonitaClientApplicationExample {
         for (final User user : searchUsers.getResult()) {
             System.out.println(" * " + user.getUserName() + " -- " + user.getId())
         }
-        apiClient.logout();
+        apiClient.logout()
         System.out.println("logged out")
     }
 }

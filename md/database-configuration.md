@@ -49,8 +49,7 @@ Bonita provides out of the box the Jdbc drivers for H2, PostgreSQL and MySQL. Fo
 
 #### Oracle Database
 
-* For Oracle 11.2.0.x, download [ojdbc6.jar](http://www.oracle.com/technetwork/apps-tech/jdbc-112010-090769.html)
-* For Oracle 12.1.0.x, download [ojdbc7.jar](http://www.oracle.com/technetwork/database/features/jdbc/default-2280470.html)
+Download the driver compatible with Oracle 12.2.0.x: [ojdbc8.jar](https://www.oracle.com/technetwork/database/features/jdbc/jdbc-ucp-122-3110062.html)
 
 
 <a id="database_creation" />
@@ -75,7 +74,7 @@ If the same SQL user is used with the [migration tool](migrate-from-an-earlier-v
 To create the database(s), we recommend that you refer to your RDBMS documentation:
 
 * [PostgreSQL](https://www.postgresql.org/docs/11/app-createdb.html)
-* [Oracle database](https://docs.oracle.com/cd/E11882_01/server.112/e25494/create.htm#ADMIN002)
+* [Oracle database](https://docs.oracle.com/database/121/ADMIN/create.htm#ADMIN002)
 * [SQL Server](https://technet.microsoft.com/en-us/library/dd207005(v=sql.110).aspx)
 * [MySQL](http://dev.mysql.com/doc/refman/5.5/en/database-use.html)
 
@@ -97,7 +96,7 @@ See the [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-co
 #### Oracle Database
 
 Make sure your database is configured to use the AL32UTF8 character set.
-If your database already exists, see the Oracle documentation for details of how to [migrate the character set](http://docs.oracle.com/cd/E11882_01/server.112/e10729/ch11charsetmig.htm#NLSPG011).
+If your database already exists, see the Oracle documentation for details of how to [migrate the character set](https://docs.oracle.com/database/121/NLSPG/ch11charsetmig.htm#NLSPG011).
 
 Bonita Engine uses datasources that handle global transactions that span resources (XADataSource), so the Oracle user used by Bonita Engine, requires some specific privileges, and there are also specific settings for XA activation.
 
@@ -111,7 +110,7 @@ It is assumed in the procedure that:
    * A database already exists
    * The environment is already set:
 ```
-  ORACLE_HOME=/u01/app/oracle/product/11.2.0/dbhome_1
+  ORACLE_HOME=/u01/app/oracle/product/12.2.0/dbhome_1
   ORACLE_SID=...
 ```
 
@@ -128,17 +127,17 @@ It is assumed in the procedure that:
 
    | Comp\_name | Version | Status |
    |:-|:-|:-|
-   | Oracle Database Catalog Views | 11.2.0.1.0 | VALID |
-   | Oracle Database Packages and Types | 11.2.0.1.0 | VALID |
-   | JServer JAVA Virtual Machine | 11.2.0.1.0 | VALID |
-   | Oracle XDK | 11.2.0.1.0 | VALID |
-   | Oracle Database Java Packages | 11.2.0.1.0 | VALID |
+   | Oracle Database Catalog Views | 12.2.0.1.0 | VALID |
+   | Oracle Database Packages and Types | 12.2.0.1.0 | VALID |
+   | JServer JAVA Virtual Machine | 12.2.0.1.0 | VALID |
+   | Oracle XDK | 12.2.0.1.0 | VALID |
+   | Oracle Database Java Packages | 12.2.0.1.0 | VALID |
 
 3. Add XA elements:
 
    SQL query \>
    ```sql
-   @/u01/app/oracle/product/11.2.0/dbhome_1/javavm/install/initxa.sql
+   @/u01/app/oracle/product/12.2.0/dbhome_1/javavm/install/initxa.sql
    ```
    This only needs to be done once, after the installation of Oracle.
 
@@ -146,7 +145,7 @@ It is assumed in the procedure that:
 
    SQL query \>
    ```sql
-   @/u01/app/oracle/product/11.2.0/dbhome_1/rdbms/admin/xaview.sql
+   @/u01/app/oracle/product/12.2.0/dbhome_1/rdbms/admin/xaview.sql
    ```
    The following queries must be done for each new user: i.e. one user = one database schema.
 
@@ -161,6 +160,7 @@ It is assumed in the procedure that:
    GRANT select ON sys.v$xatrans$ TO bonita;
    GRANT execute ON sys.dbms_xa TO bonita;
    GRANT FORCE ANY TRANSACTION TO bonita;
+   ALTER USER bonita quota unlimited on users;
    ```
 
 #### SQL Server
