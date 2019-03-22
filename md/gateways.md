@@ -22,4 +22,8 @@ several outputs defined, a condition is required to determine which one fires.
   ![diagram of a inclusive gateway](images/images-6_0/papde_pm_diag_gateways_inclusive_gate.png)
 
 An inclusive gateway waits for the input from all active paths, and activates all outgoing transitions that have a condition that
-evaluates to true. If there is only one outgoing transition, no condition is needed and the transition is always activated. If there is more than one outgoing transition, every transition must either be the default or must have a condition.
+evaluates to true.  
+If there is only one outgoing transition, no condition is needed and the transition is always activated.  
+If there is more than one outgoing transition, every transition must either be the default or must have a condition.
+The default transition is used if all other conditions are evaluated to false. It is not mandatory to have a default transition, but it is a way to ensure that your process won’t end successfully in the middle of its flow because all conditions returned false.  
+If you don't want to define a default transition, you should ensure that at least one of your conditions will be evaludated to true.
