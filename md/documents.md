@@ -47,9 +47,9 @@ import org.bonitasoft.engine.bpm.document.DocumentValue
 ]  
 ```
 
-To update a document list, you need to use the id of the document. The script should return a new document list.  
- Documents with id will be updated, documents without id will be created. To remove an existing document from the list, just don't add it in the new list.  
- For example: 
+To update a document list, you need to write a script in the operation and to use the id of the documents. The script should return a new document list.  
+Documents with id will be updated (i.e the version of an existing document with this id will be updated), documents without id will be created. To remove an existing document from the list, just don't add it in the new list.  
+For example: 
 ```groovy
 import org.bonitasoft.engine.bpm.document.DocumentValue
 

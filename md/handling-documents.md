@@ -28,7 +28,7 @@ def DocumentValue createNewDocument(FileInputValue fileFromContract) {
 }
 
 // From an url
-def DocumentValue createNewDocument(String URL) {
+def DocumentValue createNewDocument(String url) {
     new DocumentValue(url);
 }
 
@@ -53,27 +53,23 @@ import org.bonitasoft.engine.bpm.document.DocumentValue
 
 // From a contractInput
 def DocumentValue optionalUpdateDocument(long documentId, FileInputValue fileFromContract) {
-    if (fileFromContract) {
-        return new DocumentValue(documentId, fileFromContract.content, fileFromContract.contentType, fileFromContract.fileName)
-    }
-    new DocumentValue(documentId)
+    return fileFromContract 
+        ? new DocumentValue(documentId, fileFromContract.content, fileFromContract.contentType, fileFromContract.fileName)
+        : new DocumentValue(documentId)
 }
 
 // From an url
-def DocumentValue optionalUpdateDocument(long documentId, String URL) {
-    if (URL) {
-        return new DocumentValue(documentId, url);
-    }
-    new DocumentValue(documentId);
+def DocumentValue optionalUpdateDocument(long documentId, String url) {
+    return url
+        ? new DocumentValue(documentId, url)
+        : new DocumentValue(documentId)
 }
 
 // From an existing file on the fileSystem
 def DocumentValue optionalUpdateDocument(long documentId, File file) throws IOException {
-    if (file) {
-        def mimeType = Files.probeContentType(file.toPath())
-        return new DocumentValue(documentId, file.bytes, mimeType, file.name)
-    }
-    new DocumentValue(documentId);
+    return file
+        ? new DocumentValue(documentId, file.bytes, Files.probeContentType(file.toPath()), file.name)
+        : new DocumentValue(documentId)
 }
 ```  
 
@@ -94,8 +90,8 @@ import com.bonitasoft.engine.api.ProcessAPI
 
 /**
  * In this example, `documents` is a map which link a document data (key) to a file (value)
- * This map will be converted ton operations to set document data with DocumentValue
- * We assume in this example that all documents are initialized with File (i.e a content), it could be an URL! 
+ * This map will be converted to operations to set document data with DocumentValue
+ * We assume in this example that all documents are initialized with Files (i.e contents), it could be URLs! 
  */
 def createCaseWithDocument(String processDefinitionName,
         String processVersion,
