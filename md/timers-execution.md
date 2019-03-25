@@ -39,4 +39,4 @@ Once this method is called (at least once) the `FailedJob`s for this timer will 
 ## Tune performance of timers execution
 
 If you notice that timers are executed significantly after the date they should be executed, you might suffer Quartz performance issues.
-Check [this page](performance-tunning.ms#cron) to fine tune Quartz performance.
+Check [this page](performance-tunning.md#cron) to fine tune Quartz performance.
