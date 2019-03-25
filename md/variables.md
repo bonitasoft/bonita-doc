@@ -72,4 +72,13 @@ To ease the definition of the form data to send back to the process, when you cr
 * _formInput_. It is a JSON object. Its structure is defined by the contract inputs and the attributes are initialized with default values. It could be used to set initial values for form fields. You can set the values in formInput either by editing the default values with constants (useful for test and debug) or with values from an object in an external source that has the same model (such as with a BDM external API). You can also set the initial values of a form from some other source without using formInput. However, you will then have to edit formOutput manually.
 * _formOutput_. It is a JavaScript expression returning an object. The object structure matches the contract requirements and it is filled with formInput by default. On Submit, values entered or modified by the user and aggregated in the formOutput object (as defined by the _Data sent on click_ property of the Submit button) are submitted to the process or task to fulfill the contract.
 * _taskId_. It is the id of the current BPM task. You can use it as a BPM API parameter.
-* _context_. It is an External API that provides references to all business variables and documents in the process instance. To retrieve a business variable instance, create an External API variable with value `../{{context.myBusinessData_ref.link}}`.
+* _context_. It is an External API that provides references to all business variables and documents in the process instance.
+* _submit_errors_list_. It is a JavaScript expression formatting the response payload to html when a submit fails. 
+In some cases, other types of variables are created:
+* When the business variable is edited in the form (as specified in the contract creation wizard), a UI Designer variable is created for each variable (External API). 
+For example, if the contract input has been created from a business variable `invoice` in the process, a variable `invoice` is created in the form and its URL is set to `../{{context.invoice_ref.link}}`. 
+If `invoice` contains lazy relations, additional variables are generated for each lazy relation to resolve (using _lazyRef_ filter). 
+For example, if `invoice` has a `customer` relation in lazy, an External API variable `invoice_customer` is added. Its URL is set to `{{invoice|lazyRef:'customer'}}`.
+* To display an aggregated object, a Select widget is generated to display the _available values_ of the object. 
+  The variable (External API) bound to the widget is created. It queries the BDM. For example, when the object Invoice has an aggregated object Customer, the query is: `../API/bdm/businessData/com.company.model.Customer?q=find&p=0&c=99`. By default it uses the `find` query with a default pagination (only first 100 objects are returned).
+
