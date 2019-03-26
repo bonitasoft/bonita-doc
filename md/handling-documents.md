@@ -10,7 +10,7 @@ A document is treated in a similar way to a variable in Bonita Engine database. 
 
 In a process operation, you might want to set / update the value of a document data using a groovy script instead of simply use a contract input.  
 The script should return a _DocumentValue_ .  
-**N.B**: _All the following exemples deal with single document data. For a multiple document data, just adapt the scripts to return a list  of DocumentInput instead of a document input._  
+**N.B**: _All the following exemples deal with single document data. For multiple document data, just adapt the scripts to return a list  of DocumentInput instead of a document input._  
 
 
 #### Create a new document
