@@ -36,7 +36,10 @@ Then you will be able to [create a repository](https://help.github.com/articles/
    g. Click on "Next"  
    h. Click on "Finish" (Push will be done in a background job, visible at the bottom right corner of the studio window)  
    i. When the Push is done, a push confirmation dialog is displayed  
-7. To validate that the push has actually been done, you can check your repository on GitHub
+
+You might encounter some issues if the two factor authentiation is activated on your github account, see the [Git trouble shooting section](workspaces-and-repositories.md#git-troubleshooting).
+
+8. To validate that the push has actually been done, you can check your repository on GitHub
 
 ::: info
 You may also use the ssh authentication mechanism if you do not want to use https. You still do not need to select the protocol nor the port in this case. See [GitHub documentation](https://help.github.com/articles/connecting-to-github-with-ssh/) to configure ssh. 
