@@ -715,7 +715,7 @@ Use a GET method with filters and search terms to search for subtasks.
   An array of manualTask objects
   * **Code**: 200
 
-## Task
+### Task
 
 #### Description
 
@@ -953,9 +953,9 @@ The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-re
   * assigned\_id: the user this activity is assigned to
   * parentTaskId: in the case of a subtask, the parent task
 
-### Actions
+#### Actions
 
-### Retrieve a userTask
+##### Retrieve a userTask
 
 * **URL**  
   `/API/bpm/userTask/:userTaskId`  
@@ -989,7 +989,7 @@ The `d` (deploy) used to [extend response object](rest-api-overview.md#extend-re
     }
     ```
 
-#### Update a userTask
+##### Update a userTask
 
 Fields that can be updated are `assignedId` and `state`. The only value that can be set for the state is "skipped". You only need to specify the fields that are to be updated.
 
@@ -1007,7 +1007,7 @@ Fields that can be updated are `assignedId` and `state`. The only value that can
 * **Success Response**  
   * **Code**: 200
 
-#### Retrieve the task contract
+##### Retrieve the task contract
 
 Task contract elements can be retrived client side.
 
@@ -1043,7 +1043,7 @@ Task contract elements can be retrived client side.
     }
     ```
 
-#### Execute a task with contract
+##### Execute a task with contract
 
 In order to execute a task, the task contract values have to be provided.
 
@@ -1076,7 +1076,7 @@ In order to execute a task, the task contract values have to be provided.
 
 <a id="retrieve-the-usertask-context" />
 
-#### Retrieve the userTask context
+##### Retrieve the userTask context
 
 * **URL**  
   `/API/bpm/userTask/:userTaskId/context`  
