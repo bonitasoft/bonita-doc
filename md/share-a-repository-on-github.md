@@ -5,7 +5,7 @@
 :::
 
 This page explains how to push an existing Bonita project on [GitHub](https://github.com/) to share it with teammates.   
-For more information on Git integration in Bonita Studio, you can read the [reference documentation page](workspaces-and-projects.md#git).
+For more information on Git integration in Bonita Studio, you can read the [reference documentation page](workspaces-and-repositories.md#git).
 
 ## Create an empty GitHub repository
 
