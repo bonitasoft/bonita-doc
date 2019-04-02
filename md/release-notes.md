@@ -110,18 +110,38 @@ The following dependencies have been added, to ensure Java 11 compliance:
 
 #### CMIS connector
 
-The version of the _org.apache.chemistry.opencmis:chemistry-opencmis-client-impl_ dependency has been updated from _0.13.0_ to _1.1.0_
+The following dependencies were updated to ensure Java 11 compliance:
+- _org.apache.chemistry.opencmis:chemistry-opencmis-client-impl_ dependency has been updated from _0.13.0_ to _1.1.0_
+- _org.apache.chemistry.opencmis:chemistry-opencmis-client-api_ dependency has been updated from _0.13.0_ to _1.1.0_
+- _org.apache.chemistry.opencmis:chemistry-opencmis-commons-api_ dependency has been updated from _0.11.0_ to _1.1.0_
+- _org.apache.chemistry.opencmis:chemistry-opencmis-commons-impl_ dependency has been updated from _0.11.0_ to _1.1.0_
+- _org.apache.chemistry.opencmis:chemistry-opencmis-client-bindings_ dependency has been updated from _0.11.0_ to _1.1.0_
+- _org.apache.cxf:cxf-rt-bindings-xml_ dependency has been updated from _2.7.7_ to _3.0.12_
+- _org.apache.cxf:cxf-rt-frontend-simple_ dependency has been updated from _2.7.7_ to _3.0.12_
+- _org.apache.cxf:cxf-rt-core dependency_ dependency has been updated from _2.7.7_ to _3.0.12_
+- _org.apache.cxf:cxf-rt-transports-http_ dependency has been updated from _2.7.7_ to _3.0.12_
+- _org.apache.cxf:cxf-rt-ws-policy_ dependency has been updated from _2.7.7_ to _3.0.12_
+- _org.apache.cxf:cxf-rt-ws-addr_ dependency has been updated from _2.7.7_ to _3.0.12_
+- _org.apache.cxf:cxf-rt-bindings-soap_ dependency has been updated from _2.7.7_ to _3.0.12_
+- _org.apache.cxf:cxf-rt-databinding-jaxb_ dependency has been updated from _2.7.7_ to _3.0.12_
+- _org.apache.cxf:cxf-rt-frontend-jaxws_ dependency has been updated from _2.7.7_ to _3.0.12_
+- _org.apache.neethi:neethi_ dependency has been updated from _3.0.2_ to _3.0.3_
+- _org.apache.ws.xmlschema:xmlschema-core_ dependency has been updated from _2.0.3_ to _2.2.1_
+
 
 The following dependencies have been added to ensure Java 11 compliance:
 
-- _javax.xml.bind:jaxb-api:2.2.7_
-- _com.sun.xml.bind:jaxb-core:2.2.7_
-- _com.sun.xml.bind:jaxb-impl:2.2.7_
+- _org.apache.cxf:cxf-rt-wsdl-3.0.12_
 
 The following dependencies have been removed: 
 
-- _org.apache.cxf:cxf-rt-frontend-jaxws:2.7.7_
-- _org.apache.cxf:cxf-rt-transports-http:2.7.7_
+- _org.jvnet.mimepull:mimepull-1.9.4.jar_
+- _org.codehaus.woodstox:stax2-api-3.1.1.jar_
+- _org.apache.geronimo.javamail:geronimo-javamail_1.4_spec-1.7.1.jar_
+- _org.codehaus.woodstox:woodstox-core-asl-4.2.0.jar_
+- _org.apache.cxf:cxf-api-2.7.7.jar_
+
+In addition _bonita-connector-cmis-<specific Implementation>.jar_ and _bonita-connector-cmis-common-<version>.jar_ have been replaced by a single bonita-connector-cmis-<version>.jar
 
 #### Email connector
 
