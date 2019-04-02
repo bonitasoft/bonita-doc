@@ -5,7 +5,7 @@ to the one delivered with the latest version of Bonita.
 This is due to the fact that improvements in any version of the Migration Tool can affect all supported version of Bonita.
 This change log must be read before [migrating to a newer version of Bonita](migrate-from-an-earlier-version-of-bonita-bpm.md).
 
-## 2.40.0 - Jun. 6th, 2019
+## 2.40.0 - Jun. 6th, 2019 (Bonita 7.9.0)
 This version of the migration tool migrates Bonita up to version 7.9.0.
 It also migrates the CMIS, email and Webservice connectors, along with their dependencies, to allow the migrated platform to run on Java 11.
 If some of the connectors fail to migrate during this step, the platform will still be functionnal on java 8, but will not run on java 11, and will require a manual update.
