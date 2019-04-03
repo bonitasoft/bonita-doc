@@ -85,24 +85,24 @@ import org.bonitasoft.engine.log.technical.TechnicalLoggerService;
 public class EventHandlerExample implements SHandler<SEvent> {
 
     private final TechnicalLoggerService technicalLoggerService;
-    private TechnicalLogSeverity technicalLogSeverity;
+    private final TechnicalLogSeverity technicalLogSeverity;
+    private final String identifier = UUID.randomUUID().toString();
 
     public EventHandlerExample(TechnicalLoggerService technicalLoggerService, String loggerSeverity) {
         this.technicalLoggerService = technicalLoggerService;
-
-        //set desired logging level
         this.technicalLogSeverity = TechnicalLogSeverity.valueOf(loggerSeverity);
     }
 
+    @Override
     public void execute(SEvent event) throws SHandlerExecutionException {
         if (technicalLoggerService.isLoggable(this.getClass(), technicalLogSeverity)) {
             technicalLoggerService.log(this.getClass(), technicalLogSeverity, "ExampleHandler: executing event " + event.getType());
         }
 
         // add your business logic here
-
     }
 
+    @Override
     public boolean isInterested(SEvent event) {
         if (technicalLoggerService.isLoggable(this.getClass(), technicalLogSeverity)) {
             technicalLoggerService.log(this.getClass(), technicalLogSeverity,
@@ -116,9 +116,9 @@ public class EventHandlerExample implements SHandler<SEvent> {
         return true;
     }
 
+    @Override
     public String getIdentifier() {
-        //ensure this handler is registered only once
-        return UUID.randomUUID().toString();
+        return identifier;
     }
 }
 ```
