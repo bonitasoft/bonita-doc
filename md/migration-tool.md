@@ -5,15 +5,6 @@ to the one delivered with the latest version of Bonita.
 This is due to the fact that improvements in any version of the Migration Tool can affect all supported version of Bonita.
 This change log must be read before [migrating to a newer version of Bonita](migrate-from-an-earlier-version-of-bonita-bpm.md).
 
-## 2.40.0 - Jun. 6th, 2019 (Bonita 7.9.0)
-This version of the migration tool migrates Bonita up to version 7.9.0.
-It also attempts to migrate the *CMIS*, *email* and *Webservice* connectors, along with their dependencies, to allow the migrated platform to run on Java 11.
-The step works at best effort:
-* It will try to upgrade all the connectors it can.
-* It will not upgrade connectors that have dependencies used by other connectors. Those connectors will still work on java 8, but not in java 11, and will require a manual update.
-* A detailed report of all the changes made is displayed at the end of the migration step.
-* Beware that if one of these connectors' removed dependencies was used in one your scripts, it will still be removed/updated, and therefor your scripts might not work anymore after migration. The full list of updated and deleted dependencies can be found [here](release-notes.md).
-
 ## 2.39.0 - Mar. 7th, 2019 (Bonita 7.8.3)
 This version of the migration tool migrates Bonita up to version 7.8.3.
 Because some bugs in Bonita Development Suite have been found, this migration tool will not allow the migration to 7.8.0, 7.8.1, or 7.8.2.
