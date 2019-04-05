@@ -1,147 +1,146 @@
-# Handle documents
 
-This page shows an example of how to manipulate documents in a Bonita BPM process using the Java APIs. 
+# Handle documents with Java APIs
 
-A document is treated in a similar way to a variable in Bonita BPM Engine database. It is defined in Bonita BPM Studio or programmatically, and is stored in the Bonita BPM Engine database. Inside a process instance, a document is a byte stream.
+This page shows examples on how to manipulate documents in a Bonita process using the Java APIs.  
+You might want to consult the [document documentation](documents.md) first.
 
-## Configure a process document
+A document is treated in a similar way to a variable in Bonita Engine database. It is defined in Bonita Studio or programmatically, and is stored in the Bonita Engine database.
 
-To configure a document in a process definition, go to the **Details** panel, **General** view, **Documents** pane.
-An external document is specified by URI. An internal document is specified by path and file name, by clicking the **_Browse..._** button.
+## Set or update the value of a document in a process operation using a script
 
-![Configure documents](images/images-6_0/documents_declarations.png)
+In a process operation, you might want to set / update the value of a document data using a groovy script instead of simply use a contract input.  
+The script should return a _DocumentValue_ .  
+**N.B**: _All the following exemples deal with single document data. For multiple document data, just adapt the scripts to return a list  of DocumentInput instead of a document input._  
 
-## Convert a file to a document
 
-The following example shows how to convert the content of a document to a byte stream that can then be used to create or update the content of a document.
-```java
-/**
- * load the file give in parameters and return a byteArray or a null value
- * 
- * @param fileName
- * @return
- */
-public static ByteArrayOutputStream loadFile(String fileName) {
-	FileInputStream file = null;
-	int read;
-	try {
-		file = new FileInputStream(fileName);
+#### Create a new document
+The following groovy scripts create a new document from an existing contract input / url / file.
 
-		ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
-		byte[] content = new byte[2048 * 16 * 16];
+```groovy
+import java.nio.file.Files
 
-		while ((read = file.read(content)) > 0) {
-				byteArray.write(content, 0, read);
-		}
+import org.bonitasoft.engine.bpm.contract.FileInputValue
+import org.bonitasoft.engine.bpm.document.DocumentValue
 
-		return byteArray;
-	} catch (FileNotFoundException e) {
-			e.printStackTrace();
-	} catch (IOException e) {
-			e.printStackTrace();
-	} finally {
-		if (file != null)
-			try {
-				file.close();
-			} catch (IOException e) {
-		}
-	}
-	return null;
+// From a contractInput
+def DocumentValue createNewDocument(FileInputValue fileFromContract) {
+    new DocumentValue(fileFromContract.content, fileFromContract.contentType, fileFromContract.fileName)
 }
-```
 
-## Create a case with a document
+// From an url
+def DocumentValue createNewDocument(String url) {
+    new DocumentValue(url);
+}
 
-The following method, `createCaseWithDocument`, creates a case and attaches a document to it.
-```java
-public static void createCaseWithDocument(String processDefinitionName, String processVersion, Map<String, Object> variables, Map<String, Object> documents, ProcessAPI processAPI)
-    throws ProcessDefinitionNotFoundException, InvalidExpressionException, ProcessActivationException, ProcessExecutionException {
+// From an existing file on the fileSystem
+def DocumentValue createNewDocument(File file) throws IOException {
+    def mimeType = Files.probeContentType(file.toPath())
+    new DocumentValue(file.bytes, mimeType, file.name)
+}
+```  
 
-    long processDefinitionId = processAPI.getProcessDefinitionId(processDefinitionName, processVersion);
-                
-                
-        // ----- create list of operations -----                
-        List<Operations> listOperations = new ArrayList<Operation>();
-                
-        // variables
-        Map<String, Serializable> ListExpressionsContext = new HashMap<String, Serializable>();
 
-        for (String variableName : variables.keySet()) {
+#### Update the value of an existing document if a new content is provided
 
-            if (variables.get(variableName) == null || (!(variables.get(variableName) instanceof Serializable)))
-                continue;
-            Object value = variables.get(variableName);
-            Serializable valueSerializable = (Serializable) value;
+This following script is a way to address the use case of an optional update of the value of a document:  
+A user might want to change the value of a document, or not. If a new document is uploaded then the value of the data must be updated, if not then the data should be left unchanged.  
 
-            variableName = variableName.toLowerCase();
-            Expression expr = new ExpressionBuilder().createExpression(variableName, variableName, value.getClass().getName(), ExpressionType.TYPE_INPUT);
-            Operation op = new OperationBuilder().createSetDataOperation(variableName, expr);
-            listOperations.add(op);
-            ListExpressionsContext.put(variableName, valueSerializable);
-            }
-                
-        // update document
-        for (String documentName : documents.keySet()) {
+```groovy
+import java.nio.file.Files
 
-            if (documents.get(documentName) == null)
-                continue;
+import org.bonitasoft.engine.bpm.contract.FileInputValue
+import org.bonitasoft.engine.bpm.document.DocumentValue
 
-            DocumentValue documentValue = null;
+// From a contractInput
+def DocumentValue optionalUpdateDocument(long documentId, FileInputValue fileFromContract) {
+    return fileFromContract 
+        ? new DocumentValue(documentId, fileFromContract.content, fileFromContract.contentType, fileFromContract.fileName)
+        : new DocumentValue(documentId)
+}
 
-            if (documents.get(documentName) instanceof String)
-                {
-                    documentValue = new DocumentValue( ((String) documents.get(documentName)));
-                }
-                else if (documents.get(documentName) instanceof byte[])
-                {
-                    // byte
-                    documentValue = new DocumentValue(((byte[])documents.get(documentName)), "plain/text", "myfilename");        
-                }
-                else if (documents.get(documentName) instanceof ByteArrayOutputStream)
-                    {
-                        documentValue = new DocumentValue(((ByteArrayOutputStream) documents.get(documentName)).toByteArray(), "plain/text", "myfilename");         // url
-                    }
-                Operation docRefOperation = new OperationBuilder().createSetDocument(documentName,
-                    new ExpressionBuilder().createInputExpression(documentName+"Reference", DocumentValue.class.getName()));
-                        
-                listOperations.add(docRefOperation);
-                ListExpressionsContext.put(documentName+"Reference", documentValue);
-            }
-                
-        // ----- start process instance -----
-        processAPI.startProcess(processDefinitionId, listOperations, ListExpressionsContext);
+// From an url
+def DocumentValue optionalUpdateDocument(long documentId, String url) {
+    return url
+        ? new DocumentValue(documentId, url)
+        : new DocumentValue(documentId)
+}
+
+// From an existing file on the fileSystem
+def DocumentValue optionalUpdateDocument(long documentId, File file) throws IOException {
+    return file
+        ? new DocumentValue(documentId, file.bytes, Files.probeContentType(file.toPath()), file.name)
+        : new DocumentValue(documentId)
+}
+```  
+
+
+## Create a case with documents
+
+The following method, `createCaseWithDocument`, creates a case and attaches documents to it.  
+
+```groovy
+import java.nio.file.Files
+
+import org.bonitasoft.engine.bpm.document.DocumentValue
+import org.bonitasoft.engine.exception.BonitaException
+import org.bonitasoft.engine.expression.ExpressionBuilder
+import org.bonitasoft.engine.operation.OperationBuilder
+
+import com.bonitasoft.engine.api.ProcessAPI
+
+/**
+ * In this example, `documents` is a map which link a document data (key) to a file (value)
+ * This map will be converted to operations to set document data with DocumentValue
+ * We assume in this example that all documents are initialized with Files (i.e contents), it could be URLs! 
+ */
+def createCaseWithDocument(String processDefinitionName,
+        String processVersion,
+        Map<String, File> documents,
+        ProcessAPI processAPI) throws BonitaException {
+
+    def processDefinitionId = processAPI.getProcessDefinitionId(processDefinitionName, processVersion)
+    def operations = []
+    def listExpressionsContext = [:]
+
+    // ----- create setDocument operations -----
+    documents.keySet().each { documentName ->
+        def file = documents.get(documentName)
+        def mimeType = Files.probeContentType(file.toPath())
+        def documentValue = new DocumentValue(file.bytes, mimeType, file.name)
+        def expressionName = documentName + "Reference"
+        def expression = new ExpressionBuilder().createInputExpression(expressionName, DocumentValue.class.getName())
+        def operation = new OperationBuilder().createSetDocument(documentName, expression)
+        operations.add(operation)
+        listExpressionsContext.put(expressionName, documentValue)
     }
-```
 
-In this example, we construct two maps, one containing case data and one containing an invoice document and reference. 
-The invoice documented is created by converting a local file to a byte stream using the `loadFile` method defined above. 
-The two maps are then used to create a case of the process using the `createCaseWithDocument` method defined above.
-```java
-// ---------- create a case with the value
-Map<String, Object> firstInvoice = new HashMap<String, Object>();
-firstInvoice.put("emailAddress", "jan.Fisher@bonitasoft.com");
-firstInvoice.put("invoiceId", Long.valueOf(45));
-firstInvoice.put("dateOfInvoice", new Date());
-Map<String, Object> firstInvoiceDocument = new HashMap<String, Object>();
-firstInvoiceDocument.put("invoiceReference", "http://documentation.bonitasoft.com");
-firstInvoiceDocument.put("invoiceLetter", loadFile("c:/tmp/firstinvoice.pdf"));
-createCaseWithDocument("IntegrateMyApplication", "1.0", firstInvoice, firstInvoiceDocument, processAPI);
-```
+    // ----- start process instance -----
+    processAPI.startProcess(processDefinitionId, operations, listExpressionsContext);
+}
+```  
+
 
 ## Attach a document to a case
 
-To attach a document to a case, use the `attachDocument` method of the process API. 
-This method is used to create a document and to update it: you update a document by replacing it is replaced with the new version. 
-You can provide either a URL pointing to an external document or a byte stream, as shown in the example below:
-```java
-// update the document
-for (String documentName : documentsToUpdate.keySet()) {
-    if (documentsToUpdate.get(documentName) instanceof String)
-	// document provided by pointer URL
-       processAPI.attachDocument(pendingTask.getId(), documentName, "TheFileName", "application/pdf", (String) documentsToUpdate.get(documentName));
+To attach a first version of a document data to a case, use the `attachDocument` method of the process API.  
+To attach a new version of a document data to a case, use the `attachDocumentNewDocumentVersion` method of the process API.  
 
-    else if (documentsToUpdate.get(documentName) instanceof ByteArrayOutputStream)
-	// document provided as byte stream
-       processAPI.attachDocument(pendingTask.getId(), documentName, "TheFileName", "application/pdf", ((ByteArrayOutputStream) documentsToUpdate.get(documentName)).toByteArray());
-    }
+```groovy
+import java.nio.file.Files
+
+import com.bonitasoft.engine.api.ProcessAPI
+
+// Set the first value of the document `documentName` with the file `document`
+// throw an exception if `documentName` has already a value
+def attachDocumentToCase(ProcessAPI processAPI, long processInstanceId, String documentName, File document) {
+    def mimeType = Files.probeContentType(document.toPath())
+    processAPI.attachDocument(processInstanceId, documentName, document.name, mimeType, document.bytes)
+}
+
+// Update the value of the document `documentName` with the file `document`
+// throw an exception if `documentName` doesn't already have a value
+def attachNewDocumentVersionToCase(ProcessAPI processAPI, long processInstanceId, String documentName, File document) {
+    def mimeType = Files.probeContentType(document.toPath())
+    processAPI.attachNewDocumentVersion(processInstanceId, documentName, document.name, mimeType, document.bytes)
+}
 ```
