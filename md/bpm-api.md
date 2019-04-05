@@ -1059,6 +1059,8 @@ In order to execute a task, the task contract values have to be provided.
     "ticket_comment":"This is a comment"
   }
   ```
+* **Optional URL Parameter**  
+  `assign=true`, assign the task to the current user and execute the task.
 * **Success Response**  
   * **Code**: 204
 * **Error Response**
