@@ -77,6 +77,8 @@ From Bonita 7.9, the supported version of PostgreSQL database is **11.2**
 
 <a id="other-dependencies"/>
 
+## Supported Operating Systems
+Bonita now supports Red Hat Enterprise Linux 7, and Ubuntu 18.04 LTS
 ## Dependency updates
 
 ### Bonita dependency updates
