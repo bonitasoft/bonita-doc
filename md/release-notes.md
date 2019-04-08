@@ -160,6 +160,11 @@ The version of the _javax.mail:mail_ dependency has been updated from _1.4.5_ to
 
 The version of the _org.twitter4j:twitter4j-core_ dependency has been updated from _4.0.2_ to _4.0.7_
 
+#### SAP connector
+
+The SAP connector in the current version does not work with Java 11. No update of it are planned at the moment.
+If you are using the connector, and plan to migrate your platform to Java 11, please contact the Bonita support team. 
+
 ## Monitoring capabilities
 
 ### Engine work execution
