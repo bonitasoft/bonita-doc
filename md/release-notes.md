@@ -261,8 +261,8 @@ If you need to use custom types, it is recommended to use Business Object from t
 * UID-54 The default display name of every (new?) form is "newForm", regardless of the form name
 
 #### Fixes in Web/Portal component
-* BPO-23	(BS-18671) Update of manager using the community Portal is not saved
-* BPO-58	Wrong business data retrieved in open case Overview page when open Case Id equals an Archived case id already existing in the db
+* BPO-23 (BS-18671) Update of manager using the community Portal is not saved
+* BPO-58 Wrong business data retrieved in open case Overview page when open Case Id equals an Archived case id already existing in the db
 * BPO-71 REST API - bpm/humanTask filter by displayName doesn't work 
 * BS-19284 Cases open and archived tabs show inconsistent Display and Technical Process Name in the process Name column
 
