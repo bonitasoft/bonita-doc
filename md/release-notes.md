@@ -244,8 +244,6 @@ If you need to use custom types, it is recommended to use Business Object from t
 * BR-68	BDM REST API response JSON is huge
 * BR-69	SQLServerException error when deleting cases with more then 2100 subprocesses
 * BS-19024	Custom page update sometimes doesn't work unless you restart the platform
-* BS-19284	Cases open and archived tabs show inconsistent Display and Technical Process Name in the process Name column
-* BS-19295	SELECT widget sets the field of the variable holding the initial value to null when the page/form loads if it is shared by another SELECT widget
 * BS-19298	Process may end up locked forever
 
 #### Fixes in Studio component
@@ -266,6 +264,7 @@ If you need to use custom types, it is recommended to use Business Object from t
 * BPO-23	(BS-18671) Update of manager using the community Portal is not saved
 * BPO-58	Wrong business data retrieved in open case Overview page when open Case Id equals an Archived case id already existing in the db
 * BPO-71 REST API - bpm/humanTask filter by displayName doesn't work 
+* BS-19284	Cases open and archived tabs show inconsistent Display and Technical Process Name in the process Name column
 
 ### Fixes in Bonita 7.8.3 (2019-03-07)
 #### Fixes in Studio component
