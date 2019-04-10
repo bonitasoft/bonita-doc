@@ -133,7 +133,7 @@ For production, you are recommended to use one of the supported databases, with 
 
 1. Make sure [your databases are created](database-configuration.md#database_creation) and [customized to work with Bonita](database-configuration.md#specific_database_configuration).
 2. Edit file `<TOMCAT_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of [backslash characters](BonitaBPM_platform_setup.md#backslash_support).
-3. If you use **Microsoft SQL Server** or **Oracle** database, copy your [jdbc driver](database-configuration.md#proprietary_jdbc_drivers) in `<TOMCAT_HOME>/setup/lib/` folder. 
+3. If you use **Oracle** database, copy your [jdbc driver](database-configuration.md#proprietary_jdbc_drivers) in `<TOMCAT_HOME>/setup/lib/` folder. 
 4. Run `<TOMCAT_HOME>\setup\start-bonita.bat` (Windows system) or `<TOMCAT_HOME>/setup/start-bonita.sh` (Unix system) to run Bonita Tomcat bundle (see [Tomcat start script](#tomcat_start))
 
 ::: info
@@ -203,13 +203,12 @@ To update the licenses after the first run, take a look at the [platform setup t
 ---
 
 **Problem**:  
-My **Microsoft SQL Server** or **Oracle** database drivers do not seem to be taken into account when I put them in `<TOMCAT_HOME>/setup/lib` folder.
+My **Oracle** database drivers do not seem to be taken into account when I put them in `<TOMCAT_HOME>/setup/lib` folder.
 
 **Cause**:  
 Driver file must respect some naming convention.
 
 **Solution**:  
-For Microsoft SQL Server, rename it so that the name contains at least the word `sqlserver` or `sqljdbc` or `mssql` (case insensitive)
 For Oracle, rename it so that the name contains at least the word `oracle` or `ojdbc` (case insensitive)
 
 ---

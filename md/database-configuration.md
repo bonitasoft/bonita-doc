@@ -6,7 +6,7 @@ Bonita uses an RDBMS (Relational DataBase Management System) for the following p
  - One database schema is required by Bonita Engine to store information about deployed process definitions, process configurations, history of process execution, users, as well as Bonita Platform configuration information. 
 - We recommend that you configure a different database schema if your project uses [business data](define-and-deploy-the-bdm.md).
 
-Bonita supports MySQL, PostgreSQL, SQL Server, and Oracle RDBMSs.
+Bonita supports MySQL, PostgreSQL, Microsoft SQL Server, and Oracle RDBMSs.
 You can find the list of RDBMSs versions supported on the [supported database list](hardware-and-software-requirements.md) page.
 
 ## Default H2 database
@@ -40,12 +40,7 @@ If you do not complete the specific configuration for your RDBMS, your installat
 
 ### Proprietary Jdbc drivers
 
-Bonita provides out of the box the Jdbc drivers for H2, PostgreSQL and MySQL. For other RDBMS, you have to retrieve the related Jdbc drivers.  
-
-#### SQL Server
-
-1. Download the zip package of [Microsoft SQL Server JDBC Driver 6.0](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774) and unzip it. 
-2. Get the `sqljdbc42.jar` file from `%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc_6.0\enu\jre8\`
+Bonita provides out of the box the Jdbc drivers for H2, PostgreSQL, Microsoft SQL Server and MySQL. For Oracle, you have to retrieve the related Jdbc drivers as follows.  
 
 #### Oracle Database
 
@@ -163,7 +158,7 @@ It is assumed in the procedure that:
    ALTER USER bonita quota unlimited on users;
    ```
 
-#### SQL Server
+#### Microsoft SQL Server
 
 ##### XA Transactions
 

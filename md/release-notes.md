@@ -74,6 +74,9 @@ From Bonita 7.9, the supported version of Oracle database is **12c (12.2.x.y)**
 
 From Bonita 7.9, the supported version of PostgreSQL database is **11.2**
 
+#### Microsoft SQL Server
+
+Microsoft SQL Server **open-source drivers** are now provided by Bonita. There is no need to download and install them manually anymore.
 
 <a id="other-dependencies"/>
 
