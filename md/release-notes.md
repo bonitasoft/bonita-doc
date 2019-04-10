@@ -254,6 +254,7 @@ If you need to use custom types, it is recommended to use Business Object from t
 * BST-177 Search index not built with la-builder
 * BST-210 Avoir Studio freeze if the user start to switch into a repository shared with git / svn just after the Studio launch
 * BST-221 UID allows to have 2 forms with same name when created from the Studio: this breaks LA Builder
+* BS-19331 Fail to import .bos file with only a Groovy script in Bonita Community Edition 7.8.3
 
 #### Fixes in UI Designer component
 * UID-30 When a form or a page is renamed in the UID, the field 'displayName' is not updated in the json
