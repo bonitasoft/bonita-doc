@@ -28,6 +28,7 @@ It is composed of the following items:
     * `current/`: contains configuration files after a `pull` from the database is made.
     * `licenses/`: (Subscriptions only) folder to put the license file to allow Bonita Platform to start without error.
     * `sql/`: SQL scripts used to create Bonita database tables
+    * `backup-{TIMESTAMP}/`: (Subscriptions only) folder automatically created with every `push`; copy of the configuration and license in database at `{TIMESTAMP}`.  
 * `database.properties`: used as a simplified entry form to get property values to connect to the database. Those values will be used by the file internal.properties.
 * `internal.properties`: used internally by the setup tool to properly configure and initialize the bundle. It is made of both data entered in database.properties as well as other data like database driver class name, connection URL, etc. This file should not be modified manually in most cases, unless for specific use-cases like adding parameters in the connection URL or using a specific database driver.
 * `setup.sh`: Unix / Mac script to run.
@@ -97,6 +98,7 @@ For WildFly:
 
 * `push`, to update the configuration of Bonita Platform, and update your license
 
+  It downloads the platform configuration and licenses from the database into the `platform_conf/backup-{TIMESTAMP}` folder.
   It gets the platform configuration you have edited locally in the folder `platform_conf/current` folder and pushes it to the database.  
   To make the platform take your changes into account, you must (re-)start Bonita Platform.
   
