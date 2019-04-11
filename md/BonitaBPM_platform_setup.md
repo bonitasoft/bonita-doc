@@ -98,7 +98,7 @@ For WildFly:
 
 * `push`, to update the configuration of Bonita Platform, and update your license
 
-  It downloads the platform configuration and licenses from the database into the `platform_conf/backup-{TIMESTAMP}` folder.
+  It downloads the platform configuration and licenses from the database into the `platform_conf/backup-{TIMESTAMP}` folder.  
   It gets the platform configuration you have edited locally in the folder `platform_conf/current` folder and pushes it to the database.  
   To make the platform take your changes into account, you must (re-)start Bonita Platform.
   
