@@ -85,7 +85,7 @@ Then after the migration is complete, [export the default Look & Feel](managing-
 modify your custom Look & Feel to be compatible with the new definition, and with the [recommendations for form footers](creating-a-new-look-feel.md).
 Then [import](managing-look-feel.md) your updated custom Look & Feel into Bonita Portal.
 
-The migration script supports MySQL, Postgres, Oracle, and MS SQLServer. There is no migration for h2 databases.
+The migration script supports MySQL, Postgres, Oracle, and Microsoft SQL Server. There is no migration for h2 database.
 
 ::: warning
 **Important:**  
@@ -120,7 +120,7 @@ This section explains how to migrate a platform that uses one of the Bonita bund
 [BonitaSoft site](http://www.bonitasoft.com/downloads-v2) for Bonita Community edition
 or from the [Customer Portal](https://customer.bonitasoft.com/download/request) for Bonita Subscription Pack editions.
 1. Unzip the migration tool zip file into a directory. In the steps below, this directory is called `bonita-migration`.
-1. If you use Oracle or Microsoft SQL Server, add the JDBC driver for your database type to `bonita-migration/lib`. This is the same driver as you have installed in
+1. If you use Oracle, add the JDBC driver for your database to `bonita-migration/lib`. This is the same driver as you have installed in
 your web server `lib` directory.
 1. Configure the database properties needed by the migration script, by editing `bonita-migration/Config.properties`.
 Specify the following information:
