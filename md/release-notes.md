@@ -239,7 +239,7 @@ If you need to use custom types, it is recommended to use Business Object from t
 * BS-19105	Studio Import: unable to recognize git repositories after studio migration
 * BS-19158	Default SAML configuration doesn't work with AD FS
 
-#### Fixes in Bonita 7.8.4 (2019-04-11)
+### Fixes in Bonita 7.8.4 (2019-04-11)
 #### Fixes in Engine component
 * BR-68	BDM REST API response JSON is huge
 * BR-69	SQLServerException error when deleting cases with more then 2100 subprocesses
