@@ -239,15 +239,45 @@ If you need to use custom types, it is recommended to use Business Object from t
 * BS-19105	Studio Import: unable to recognize git repositories after studio migration
 * BS-19158	Default SAML configuration doesn't work with AD FS
 
+#### Fixes in Bonita 7.8.4 (2019-04-11)
+#### Fixes in Engine component
+* BR-68	BDM REST API response JSON is huge
+* BR-69	SQLServerException error when deleting cases with more then 2100 subprocesses
+* BS-19024 Custom page update sometimes doesn't work unless you restart the platform
+* BS-19298 Process may end up locked forever
+
+#### Fixes in Studio component
+* BST-95 Revert change in the Git staging view is not refreshing project view
+* BST-122 Studio crashes when the user tries to switch repository while the engine is still starting
+* BST-124 Organization - all memberships updated when adding/changing a role
+* BST-142 Importing 7.8.1 worskpace fails in 7.8.3
+* BST-177 Search index not built with la-builder
+* BST-210 Avoir Studio freeze if the user start to switch into a repository shared with git / svn just after the Studio launch
+* BST-221 UID allows to have 2 forms with same name when created from the Studio: this breaks LA Builder
+* BS-19331 Groovy scripts with a custom package are not exported correctly
+
+#### Fixes in UI Designer component
+* UID-30 When a form or a page is renamed in the UID, the field 'displayName' is not updated in the json
+* UID-38 Select widget set bound value to null 
+* UID-54 The default display name of every (new?) form is "newForm", regardless of the form name
+
+#### Fixes in Web/Portal component
+* BPO-23 (BS-18671) Update of manager using the community Portal is not saved
+* BPO-58 Wrong business data retrieved in open case Overview page when open Case Id equals an Archived case id already existing in the db
+* BPO-71 REST API - bpm/humanTask filter by displayName doesn't work 
+* BS-19284 Cases open and archived tabs show inconsistent Display and Technical Process Name in the process Name column
+
 ### Fixes in Bonita 7.8.3 (2019-03-07)
 #### Fixes in Studio component
 * BST-49 Allow condition on a sequence flow that connect a BPMN element to a parallel gateway	
 * BST-77 Diagram overview broken after pool sizing in the Studio	
 * BST-94 Bonita la builder doesn't work if a process contains a decision table	
 * BST-96 Impossible to import a BOS renamed in 7.8.0 in other Community Studios
+* BST-93	BCD livingapp build fails with ClassNotFoundException: org.bonitasoft.studio.decision.core.DecisionTableUtil whenthere are flows using "decision tables" in the repository
 * BST-100 Project explorer makes Studio considerably slower on Windows	
 
 #### Fixes in UI Designer component
+* UID-8 Display placeholder option on Datepicker widget if an expression is set
 * UID-11 Bonita API resource Template path truncated when exported in page.properties
 * UID-33 Editing a custom widget property breaks the parent artifacts
 * UID-35 Editing a custom widget property breaks the parent fragment and parent artifact
