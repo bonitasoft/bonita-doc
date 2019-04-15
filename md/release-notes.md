@@ -247,14 +247,14 @@ If you need to use custom types, it is recommended to use Business Object from t
 * BS-19298 Process may end up locked forever
 
 #### Fixes in Studio component
-* BST-95 Revert change in staging view is not refreshing project view
+* BST-95 Revert change in the Git staging view is not refreshing project view
 * BST-122 Studio crashes when the user tries to switch repository while the engine is still starting
 * BST-124 Organization - all memberships updated when adding/changing a role
 * BST-142 Importing 7.8.1 worskpace fails in 7.8.3
 * BST-177 Search index not built with la-builder
 * BST-210 Avoir Studio freeze if the user start to switch into a repository shared with git / svn just after the Studio launch
 * BST-221 UID allows to have 2 forms with same name when created from the Studio: this breaks LA Builder
-* BS-19331 Fail to import .bos file with only a Groovy script in Bonita Community Edition 7.8.3
+* BS-19331 Groovy scripts with a custom package are not exported correctly
 
 #### Fixes in UI Designer component
 * UID-30 When a form or a page is renamed in the UID, the field 'displayName' is not updated in the json
