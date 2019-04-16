@@ -167,7 +167,7 @@ First, we will create the business data model, which will then be available for 
 
 To define the business data model:
 
-1. Go to the **Development** menu, choose **Business Data Model**, and then choose **Manage...**. This opens the dialog to manage the business data model.
+1. Go to the **Development** menu, choose **Business Data Model**, and then choose **Define...**. This opens the dialog to manage the business data model.
 2. Beside the list of business object types, click **_Add_**. A temporary type name, such as _BusinessObject1_ is added to the list.
 3. Click on the temporary name, and change it to _TravelRequest_.
 4. Select the _TravelRequest_ business object type, and add its attributes. This table shows the attributes and their types:
