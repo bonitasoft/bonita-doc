@@ -80,6 +80,8 @@ Microsoft SQL Server **open-source drivers** are now provided by Bonita. There i
 
 <a id="other-dependencies"/>
 
+## Supported Operating Systems
+Bonita now supports Red Hat Enterprise Linux 7, and Ubuntu 18.04 LTS
 ## Dependency updates
 
 ### Bonita dependency updates
