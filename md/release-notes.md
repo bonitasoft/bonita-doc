@@ -197,3 +197,12 @@ A [new page](timers-execution.md) was added to explain how Timers are executed a
 
 Also details were added on how to configure Quartz for timers execution: [quartz performance tunning](performance-tunning.md#cron)
 
+## Cluster locks
+
+A new configuration capability was added:
+
+`bonita.platform.cluster.lock.leaseTimeSeconds` : 
+
+Specify a maximum time a lock is kept cluster-wise. It avoids having an instance of process indefinitely locked when one node does not release a lock due to errors like network issues.
+
+It is set by default to 600 seconds. It should be kept to a high value (more than transaction timeout) or else some concurrent modifications on processes can happen.
