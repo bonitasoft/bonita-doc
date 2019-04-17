@@ -164,6 +164,6 @@ A new configuration capability was added:
 
 `bonita.platform.cluster.lock.leaseTimeSeconds` : 
 
-Specify a maximum time a lock is kept cluster wise. It avoids to have an instance of process indefinitly locked when one node does not release a lock due to errors like network issues.
+Specify a maximum time a lock is kept cluster-wise. It avoids having an instance of process indefinitely locked when one node does not release a lock due to errors like network issues.
 
 It is set by default to 600 seconds. It should be kept to a high value (more than transaction timeout) or else some concurrent modifications on processes can happen.
