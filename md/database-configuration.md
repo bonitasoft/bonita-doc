@@ -71,14 +71,15 @@ To create the database(s), we recommend that you refer to your RDBMS documentati
 * [PostgreSQL](https://www.postgresql.org/docs/11/app-createdb.html)
 * [Oracle database](https://docs.oracle.com/database/121/ADMIN/create.htm#ADMIN002)
 * [SQL Server](https://technet.microsoft.com/en-us/library/dd207005(v=sql.110).aspx)
-* [MySQL](http://dev.mysql.com/doc/refman/5.5/en/database-use.html)
+* [MySQL](https://dev.mysql.com/doc/refman/8.0/en/database-use.html)
 
+<a id="utf8_requirement"/>
 Your database(s) must be configured to use the UTF-8 character set. 
 Also, you are recommended to configure the database(s) to be case-insensitive so that searches in Bonita Portal are case-insensitive.
 
 <a id="specific_database_configuration" />
 
-### Customize RDBMS to make it work with Bonita    
+### Customize RDBMS to make it work with Bonita
 
 #### PostgreSQL
 
@@ -243,7 +244,7 @@ However, you need to increase the packet size if you see the following error:
 You need to update the file `my.ini` (for Windows) or `my.cnf` (for Linux) to avoid the `ER_NET_PACKET_TOO_LARGE` problem.
 Look for `max_allowed_packet` setting and increase the value.
 
-For more information, see the [MySQL website](http://dev.mysql.com/doc/refman/5.5/en/packet-too-large.html).
+For more information, see the [MySQL website](https://dev.mysql.com/doc/refman/8.0/en/packet-too-large.html).
 
 ##### Surrogate characters not supported
 
