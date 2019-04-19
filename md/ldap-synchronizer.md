@@ -73,7 +73,7 @@ All configurations files can be found in the conf directory.
 **Note**: to use a special character in a properties file, use the Unicode equivalent. For example, for `à` use \\u00E0\. 
 You can use a tool such as [native2ascii](http://docs.oracle.com/javase/8/docs/technotes/tools/unix/native2ascii.html) to convert any special characters in the configuration files to Unicode.
 
-You also need to [configure connection on Bonita Engine](configure-client-of-bonita-bpm-engine.md) for the LDAP Synchronizer.
+You also need to [configure connection on Bonita BPM Engine](configure-client-of-bonita-bpm-engine.md) for the LDAP Synchronizer.
 
 ### bonita.properties
 
@@ -397,6 +397,7 @@ where `x.y.z` is the version of Bonita you are running.
 
 **Warning:** Do not modify the Organization from the Bonita Portal while the tool is running, as this will cause a synchronization error.
 
+**Note:** Some use cases require additional configuration server side (for example to use directly the engine API). They are described [here](configure-client-of-bonita-bpm-engine.md).
 
 ## <a id="non-default-tenant"/>Using the LDAP synchronizer in a non-default tenant
 
