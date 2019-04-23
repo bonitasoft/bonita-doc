@@ -78,6 +78,18 @@ From Bonita 7.9, the supported version of PostgreSQL database is **11.2**
 
 Microsoft SQL Server **open-source drivers** are now provided by Bonita. There is no need to download and install them manually anymore.
 
+#### MySQL
+
+From Bonita 7.9, the supported version of MySQL database is **8.0 (8.0.x)**
+
+To migrate to Bonita 7.9+ from an earlier version, you need to run the [Bonita Migration Tool](migrate-from-an-earlier-version-of-bonita-bpm.md), so that
+the database and configuration is updated. Then you must upgrade MySQL to version 8.0. See [Migrating to Bonita 7.9+ using MySQL](migrate-from-an-earlier-version-of-bonita-bpm.md#mysql8) for more details.
+
+::: info
+**Note:** Bonita requires MySQL to use [UTF-8 encoding](database-configuration.md#utf8_requirement), which is an alias for 'utf8mb3', now deprecated by MySQL.  
+The [official recommendation is to use 'utf8mb4'](https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-utf8.html). Bonitasoft will handles this change in a later release.
+:::
+
 <a id="other-dependencies"/>
 
 ## Supported Operating Systems

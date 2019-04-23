@@ -4,7 +4,7 @@
 
 This page explains how to migrate your platform to a newer version of Bonita.
 
-You can migrate your platform using the `Bonita Migration Tool`. There is 2 version of the migration tool:
+You can migrate your platform using the `Bonita Migration Tool`. There are 2 versions of the migration tool:
 * The version 1.x that migrate the platform from version 6.0.2 or later to any version up to 7.0.0
 * the version 2.x that migrate the platform from version 7.0.0 or later to any version up to the last one.
 
@@ -136,11 +136,12 @@ Specify the following information:
 
 ::: info
 Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
-`db.url=jdbc:mysql://localhost:3306/bonita_migration?allowMultiQueries=true`.
+`db.url=jdbc:mysql://localhost:3306/bonita_migration?allowMultiQueries=true`.  
+Also, if you are migrating to Bonita 7.9+, you must upgrade your database server to MySQL 8.0, see [Migrating to Bonita 7.9+ using MySQL](#mysql8) specific procedure below.
 :::
 
 1. If you use a custom Look & Feel, [export](managing-look-feel.md) it, and then [restore the default Look & Feel](managing-look-feel.md).
-1. If you use a Business data model that require to be redeployed (see [above](#bdm_redeploy)), you can pause the tenant so that as a tenant admin, you'll be able to redeploy the BDM on a paused tenant once migration is done.  
+1. If you use a Business data model that requires to be redeployed (see [above](#bdm_redeploy)), you can pause the tenant so that as a tenant admin, you'll be able to redeploy the BDM on a paused tenant once migration is done.  
 1. Stop the application server.
 1. **IMPORTANT:**
 [Back up your platform](back-up-bonita-bpm-platform.md) and database in case of problems during migration.
@@ -164,7 +165,7 @@ property.
 When the migration script is finished, a message is displayed showing the new platform version, and the time taken for the migration.
 The `bonita_home` and the database have been migrated.
 1. Unzip the target bundle version into a directory. In the steps below, this directory is called `bonita-target-version`.
-1. [Configure the bundleto use the migrated database](database-configuration.md).
+1. [Configure the bundle to use the migrated database](database-configuration.md).
 
     Do not recreate the database and use the setup tool of the `bonita-target-version` Edit the `bonita-target-version/setup/database.properties` file to point to the  migrated database.
 1. Reapply configuration made to the platform, using the setup tool of the `bonita-target-version`
@@ -250,6 +251,18 @@ It means that you might want to redo the case overview page as well as the forms
 ::: info
 Note: 6.x application resources have been removed too in 7.8.0, so if you are migrating a process that leverage this feature, you need to modify it (for example to use process dependencies instead (Configure > Process dependencies in Bonita Studio)).
 :::
+
+<a id="mysql8"/>
+
+## Migrating to Bonita 7.9+ using MySQL
+
+Bonita 7.9+ supports MySQL 8.0.x version, which is not compatible with older versions of MySQL. For this reason, to migrate to Bonita 7.9+ when using MySQL,
+please follow this procedure:
+* ensure your Bonita platform is shut down
+* run Bonita migration tool to update Bonita platform to version 7.9 or newer, following the procedure above
+* upgrade your MySQL database server installation following the [official documentation](https://dev.mysql.com/doc/refman/8.0/en/upgrading.html)
+* once done, you can restart your updated Bonita platform
+
 
 ## Migrate your cluster
 
