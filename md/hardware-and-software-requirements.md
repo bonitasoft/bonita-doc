@@ -8,37 +8,37 @@ processes (number of processes instances, number of current users, operations an
 :::
 
 Hardware required for Bonita Platform (Bonita Engine and Bonita Portal)
-| Type | Minimum | Recommended |
-|:-|:-|:-|
-| Processors | 4 CPU cores | 4 CPU cores or more |
-| Memory (RAM) | 4 GB | 8 GB or more |
-| Disk space | 10 GB | 30 GB or more, depending on usage |
+| Type         | Minimum     | Recommended                       |
+| :----------- | :---------- | :-------------------------------- |
+| Processors   | 4 CPU cores | 4 CPU cores or more               |
+| Memory (RAM) | 4 GB        | 8 GB or more                      |
+| Disk space   | 10 GB       | 30 GB or more, depending on usage |
 
 ## Software
 
 Software required for Bonita Platform (Bonita Engine and Bonita Portal).
-| | Version
-|:-|-
-| **Operating system** |
-| Microsoft Windows Server | 2016 64 bits and higher |
-| Red Hat Enterprise Linux |  7.6 64 bits and higher |
-| Ubuntu | 18.04 LTS 64 bits and higher |
-| **Java Virtual Machine** |
-| Oracle Java SE Runtime Environment | 8 (see note 1) |
-| OpenJDK | 8 (see note 1) |
-| **Application Server** |
-| Apache Tomcat | 8.5.x (x > 23) |
-| Red Hat WildFly | 10.1.x |
-| **Database** | (see note 2)
-| MySQL | 8.0.14 and higher in the 8.0.x line (see note 3) |
-| PostgreSQL | 11.2 and higher in the 11.x line |
-| SQL Server | 2016 (see note 4) |
-| Oracle  | 12c (12.2.0.x) |
-| **Browser** |
-| Mozilla Firefox | latest version |
-| Google Chrome | latest version (see note 5) |
-| Microsoft Edge | latest version |
-| Internet Explorer | 11.0.x |
+|                                    | Version                                          |
+| :--------------------------------- | ------------------------------------------------ |
+| **Operating system**               |
+| Microsoft Windows Server           | 2016 64 bits and higher                          |
+| Red Hat Enterprise Linux           | 7.6 64 bits and higher                           |
+| Ubuntu                             | 18.04 LTS 64 bits and higher                     |
+| **Java Virtual Machine**           |
+| Oracle Java SE Runtime Environment | 8 (see note 1)                                   |
+| OpenJDK                            | 8 (see note 1)                                   |
+| **Application Server**             |
+| Apache Tomcat                      | 8.5.x (x > 23)                                   |
+| Red Hat WildFly                    | 10.1.x                                           |
+| **Database**                       | (see note 2)                                     |
+| MySQL                              | 8.0.14 and higher in the 8.0.x line (see note 3) |
+| PostgreSQL                         | 11.2 and higher in the 11.x line                 |
+| SQL Server                         | 2016 (see note 4)                                |
+| Oracle                             | 12c (12.2.0.x)                                   |
+| **Browser**                        |
+| Mozilla Firefox                    | latest version                                   |
+| Google Chrome                      | latest version (see note 5)                      |
+| Microsoft Edge                     | latest version                                   |
+| Internet Explorer                  | 11.0.x                                           |
 
 Notes:
 1. Bonita can be executed on Java 8. All development artifacts (connectors, REST API extensions, etc) must be compiled with Java 8 byte code (target version).
