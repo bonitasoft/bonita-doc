@@ -125,4 +125,6 @@ An attribute is considerated as _related to a contract input_ if:
 * The parent of this attribute has at least one child used as a contract input
 
 If a simple attribute is considerated as _related to a contract input_, then a read only widget can be generated for this attribute.  
-If a complex attribute is considerated as _related to a contract input_, then a read only widget can be generated for all the simple children of this attribute.
+If a complex attribute is considerated as _related to a contract input_, then a read only widget can be generated for all the simple children of this attribute.  
+
+⚠️ We do not generate read only widgets for lazy fields contained in a repeatable container (the limitation is explained above)
