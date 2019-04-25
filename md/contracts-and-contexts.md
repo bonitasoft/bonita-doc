@@ -109,3 +109,13 @@ In `Edit` mode, additional `persistenceId_string` input are generated to ensure 
 	* Change the relation loading mode to _eager_ (Always load related objects option) instead of _lazy_ (Only load related objects when needed)
 	* Use UID [fragments](fragments.md) (Enterprise edition only). Keep in mind that it may lead to performance issues as each lazy instance will generate an HTTP request.
 	* Use a [Rest API Extension](api-extensions.md). Instead of reusing the Task context, create your own endpoint that will serve all the needed data in one HTTP request.
+
+In `Edit` mode, you have the possibility to generate read only widgets for attributes related to the contract but not in the contract.  
+The following exemple describes the logic: 
+
+![Read only exemple](images/formGenerationReadOnly.svg)
+
+Elements in green are the contract inputs, i.e a subpart of the business model that will be edited.  
+Elements in orange are the attributes considered as _related to the contract input_. We will propose you to generate read only widgets to display the values of those attributes. 
+
+
