@@ -116,6 +116,13 @@ The following exemple describes the logic:
 ![Read only exemple](images/formGenerationReadOnly.svg)
 
 Elements in green are the contract inputs, i.e a subpart of the business model that will be edited.  
-Elements in orange are the attributes considered as _related to the contract input_. We will propose you to generate read only widgets to display the values of those attributes. 
+Elements in orange are the attributes considered as _related to a contract input_. We will propose you to generate read only widgets to display the values of those attributes.  
 
+The rules are the following:  
+An attribute is considerated as _related to a contract input_ if: 
 
+* This attribute is not used as a contract input
+* The parent of this attribute has at least one child used as a contract input
+
+If a simple attribute is considerated as _related to a contract input_, then a read only widget can be generated for this attribute.  
+If a complex attribute is considerated as _related to a contract input_, then a read only widget can be generated for all the simple children of this attribute.
