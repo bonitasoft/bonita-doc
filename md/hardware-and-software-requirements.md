@@ -32,8 +32,8 @@ Software required for Bonita Platform (Bonita Engine and Bonita Portal).
 | **Database**                       | (see note 2)                                     |
 | MySQL                              | 8.0.14 and higher in the 8.0.x line (see note 3) |
 | PostgreSQL                         | 11.2 and higher in the 11.x line                 |
-| SQL Server                         | 2016 (see note 4)                                |
-| Oracle                             | 12c (12.2.0.x)                                   |
+| SQL Server                         | 2016                                             |
+| Oracle                             | 12c (12.2.0.x) (see note 4)                      |
 | **Browser**                        |
 | Mozilla Firefox                    | latest version                                   |
 | Google Chrome                      | latest version (see note 5)                      |
@@ -44,6 +44,7 @@ Notes:
 1. Bonita can be executed on Java 8. All development artifacts (connectors, REST API extensions, etc) must be compiled with Java 8 byte code (target version).
 1. Your database must be configured to use the UTF-8 character set.
 1. MySQL must be configured with innoDB storage engine, which is the default.
+1. Oracle must be configured using AL32UTF8 character set to store properly all *Char* data
 1. Chrome version 60.0.3112 introduced an incompatibility impacting the functionality of Bonita Portal. So from that Chrome version onwards, once Bonita Platform is installed, apply the following procedure to resolve this issue:
 
 ### Fixing procedure
