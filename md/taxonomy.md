@@ -249,6 +249,8 @@
     * [Connectors execution](connectors-execution.md)
   * [Living application](_living-application.md)
     * [Customize living application layout](customize-living-application-layout.md)
+    * [Customize resource layouts](customize-resource-layouts.md)
+    * [Bonita Layout](bonita-layout.md)
   * [Logs](logging.md)
   * [Workspaces and projects](workspaces-and-repositories.md)
   * [Build Bonita Community edition from source files](building-community-edition-from-source.md)
