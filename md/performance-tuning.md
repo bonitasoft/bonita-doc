@@ -190,8 +190,8 @@ If the queue becomes full, the application restarts in order to force the engine
 #### Connector service
 
 The connector service executes connectors. To improve tenant isolation (and to protect against denial-of-service attacks), the default implementation of the connector service has its own threadpool and requires executes connectors in a separate thread from the worker.   
-The configuration of the threadpool of this serviceit idenpendent from the configuration of the work service.
-If you have processes that use a lot of connectors, then you can have more threads to execute connectors. See [Connector execution](connectors-execution.md) page for details on how connectors are executed..
+The configuration of the threadpool of this service is independent from the configuration of the work service.
+If you have processes that use a lot of connectors, then you can have more threads to execute connectors. See [Connector execution](connectors-execution.md) page for details on how connectors are executed.
 
 The Connector service is configured in `bonita-tenant-community-custom.properties` and `bonita-tenant-sp-custom.properties` (cf [platform setup](BonitaBPM_platform_setup))
 
