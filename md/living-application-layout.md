@@ -1,4 +1,4 @@
-# Customize the living application layout
+# Living application layout
 
 ::: info
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
@@ -10,9 +10,11 @@ We recommand that you re-create your custom layout based on Bonita 7.6.0+ defaul
 **:fa-exclamation-triangle: Warning:** This layout is deprecated starting with Bonita 7.9 because of the introduction of the [Bonita Layout](bonita-layout.md).
 :::
 
+This layout contains a line with the name of the application, followed by the names of the pages.
+
 ## Customizing this layout
 
-You can customize this layout by following the [customize-resource-layouts](customize-resource-layouts.md) steps.
+You can customize this layout by following the [customize-application-layouts](customize-application-layouts.md) steps.
 
 ## Build a Side menu layout
 As of version 7.5.x, the default provided layout does not allow this kind of customization anymore (at least not so easily), but if you start from a 7.4.x Layout you can follow the 7.4 documentation [customize-living-application-layout](/7.4?page=customize-living-application-layout#toc3) to build a side menu layout.

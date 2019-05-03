@@ -1,4 +1,4 @@
-# Customize the resources layouts
+# Customize the application layouts
 
 ::: info
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
@@ -6,7 +6,7 @@
 
 ## Overview
 
-As explained in the [layouts](layouts.md) documentation page, it is possible to customize the existing application layout with the UI Designer.
+As explained in the [layouts](layouts.md) documentation page, it is possible to customize the existing application layout using the UI Designer.
 Keep in mind that any layout is composed by tree containers: layout-header, layout-content, layout-footer. But only layout-header and layout-footer are designed to support additional widgets.
 
 Prerequisites to customize a layout:
@@ -29,7 +29,7 @@ The example sections show how to:
 1. Open Bonita Portal, and log in with username and password of someone mapped to the Administrator profile.
 2. Click on the **Resources** menu.
 3. Select the filter **Layouts**.
-4. Select the element that you want to modify.
+4. Select the layout that you want to modify.
 5. Click on **Export** and save this layout on your file system.
 
 ## Import a layout into the UI Designer
@@ -80,7 +80,7 @@ Once your changes are made, save the new layout using a new name and then export
 1. Click on the **Applications** menu.
 2. Click on the edit action **...** of your living application.
 3. In the **Look & Feel** section, click on the **Layout** link
-4. Select the _myCustomLayout_
+4. Select _myCustomLayout_
 5. Click on the validation button
 6. In the **Application details** section, click on the URL link to navigate to your living application.
 7. See your new application layout with a custom layout.
