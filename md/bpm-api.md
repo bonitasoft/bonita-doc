@@ -3573,7 +3573,7 @@ Search for processes that match the search criteria.
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   * s: search on "name", "displayName" or "version"
-  * o: can order by "name", "version", "deploymentDate", "deployedBy", "activationState", "configurationState", "processId", "displayName", "lastUpdateDate", "categoryId", "label"
+  * o: can order by "name", "version", "deploymentDate", "deployedBy", "activationState", "configurationState", "processId", "displayName", "lastUpdateDate", "categoryId", "label". By default sort order is ASC (`%20asc` added to order). You can sort in reverse order by adding `%20desc` to order. Example: `/API/bpm/process?f=name=MyProcess&p=0&c=1&o=version%20desc&f=activationState=ENABLED`
   * f: can filter on "name", "version", "deploymentDate", "deployedBy", "activationState" with the value DISABLED or ENABLED, "configurationState" with the value UNRESOLVED, or RESOLVED, "processId", "displayName", "lastUpdateDate", "categoryId", "label", "supervisor\_id"
   * d: extend resource response parameters of [this resource](#process-deploy) are available.
 * **Success Response**  
