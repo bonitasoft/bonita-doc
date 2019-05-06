@@ -13,18 +13,18 @@ Each application can have its own theme.
 ## Prerequisites
 
 * An Internet connection to fetch maven and npm repositories
-* Maven basics
-* CSS basics
+* Maven basic knowledge
+* CSS basic knowledge
 
-## Create a Theme project
+## Create a theme project
 
-When you create a new theme (Right click in Project Explorer > New > Theme...), you start with a default project layout based on [Sass](https://sass-lang.com/) preprocessor and SCSS syntax.
+When you create a new theme (right click in Project Explorer > New > Theme...), you start with a default project theme based on [Sass](https://sass-lang.com/) preprocessor and SCSS syntax.
 
 ::: info
-**Note:** Sass is a css preprocessor and SCSS syntax is a superset of CSS 3. You can just write classic css 3 in a .scss file.
+**Note:** Sass is a CSS preprocessor and SCSS syntax is a superset of CSS 3. You can just write classic CSS 3 in a .scss file.
 :::
 
-### Default project layout
+### Default project theme
 
 ```
 myCustomTheme
