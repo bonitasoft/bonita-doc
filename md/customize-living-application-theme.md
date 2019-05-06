@@ -21,10 +21,10 @@ Each application can have its own theme.
 When you create a new theme (right click in Project Explorer > New > Theme...), you start with a default project theme based on [Sass](https://sass-lang.com/) preprocessor and SCSS syntax.
 
 ::: info
-**Note:** Sass is a CSS preprocessor and SCSS syntax is a superset of CSS 3. You can just write classic CSS 3 in a .scss file.
+**Note:** Sass is a CSS preprocessor and SCSS syntax is a superset of CSS3. You can just write classic CSS 3 in a .scss file.
 :::
 
-### Default project theme
+### Default theme project
 
 ```
 myCustomTheme
@@ -54,7 +54,7 @@ myCustomTheme
 ```
 
 This project is using [Sass](https://sass-lang.com/) to easily create and customize a bootstrap *3.3.7* theme.
-To compile the scss it relies on [Node](https://nodejs.org/en/) and [NPM](https://www.npmjs.com/). See the package.json file below for more detailed.
+To compile the scss it relies on [Node](https://nodejs.org/en/) and [NPM](https://www.npmjs.com/). See the package.json file below for more details.
 
 `package.json`
 ```json
@@ -78,7 +78,7 @@ To compile the scss it relies on [Node](https://nodejs.org/en/) and [NPM](https:
 By default, a _build_ npm script is defined. It runs `node-sass` to compile the `src/scss/main.scss` file. The build command includes the bootstrap-sass stylesheets in order to have clean `@import` statements in the _*.scss_ files.
 In addition, *postcss-cli* and *autoprefixer* are used to add vendor prefixes for a better browser compatibility.
 
-The maven descriptor is responsible to run the npm build and package the result as a Theme custom page archive. See the pom.xml file below for more detailed.  
+The maven descriptor is responsible for running the npm build and package the result as a Theme custom page archive. See the pom.xml file below for more details.  
 `pom.xml`
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -163,7 +163,7 @@ The maven descriptor is responsible to run the npm build and package the result 
 </project>
 ```
 
-The `artifactId`, `name` and `description` are used to defined the theme metadata (the name used in the URL, the display name, and a description) in the `page.properties`. NodeJS and NPM version are fixed in the `properties` section. The `frontend-maven-plugin` will locally install and use these versions even if you have  NodeJS and NPM already installed in your environment. See the [plugin github repository](https://github.com/eirslett/frontend-maven-plugin) for more informations.
+The `artifactId`, `name` and `description` are used to define the theme metadata (the name used in the URL, the display name, and a description) in the `page.properties`. NodeJS and NPM version are fixed in the `properties` section. The `frontend-maven-plugin` will locally install and use these versions even if you have  NodeJS and NPM already installed in your environment. See the [plugin github repository](https://github.com/eirslett/frontend-maven-plugin) for more informations.
 
 ### SCSS source files
 
@@ -302,7 +302,7 @@ $panel-danger-heading-bg: $brand-danger;
 //Glyphicons fonts
 $icon-font-path: "./fonts/"; // path relative to the theme.css file in the dist folder
 ```
-All the variables defined in this file are used by *bootstrap-sass*. You can look the following scss file `node_modules/bootstratp-sass/assets/stylesheets/bootstrap/_variable.scss` to discover all available variables.
+All the variables defined in this file are used by *bootstrap-sass*. You can look at the following scss file `node_modules/bootstratp-sass/assets/stylesheets/bootstrap/_variable.scss` to discover all available variables.
 
 ::: info
 **Note:** Only variables declared with the `!default` flag can be overridden.
