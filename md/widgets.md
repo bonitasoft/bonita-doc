@@ -180,7 +180,7 @@ Use an upload widget to perform a file upload (POST) on the specified **URL**. D
 Use a button widget to enable to user to trigger an action. The button can perform a `PUT`, `POST`, `GET` (from 7.1.3), or `DELETE` (from 7.1.3) request and send data to a given URL.  
 You can use a variable to hold the resulting data after success or failure.
 
-For pages that are displayed in a task or process context, the button widget can be used to submit a form, completing the human task or starting a process instance. For form submission, you need to define only the data to send. The URL is extracted from the context.
+For pages that are displayed in a task or process context, the button widget can be used to submit a form, completing the human task or starting a process instance. For form submission, you need to define only the data to send. The URL is extracted from the context. When using the `Submit task` action, you can choose to automatically assign the task to the current user. It will assign and execute the task in a single action.
 
 Another possible use of the widget button is to add or remove a data from a given collection.
 
