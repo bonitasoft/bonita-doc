@@ -12,7 +12,7 @@ Each application can have its own theme.
 
 ## Prerequisites
 
-* An Internet connection to fetch maven and npm repositories
+* An Internet connection to fetch Maven and NPM repositories
 * Maven basic knowledge
 * CSS basic knowledge
 
