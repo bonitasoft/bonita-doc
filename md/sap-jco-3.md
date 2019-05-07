@@ -54,7 +54,6 @@ It is assumed that Tomcat had been started once sucessfully, and the Bonita Engi
 3. Start Tomcat
 
 #### Point 3. Wildfly example (BonitaSubscription-7.8.3-wildfly-10.1.0.Final bundle)
-It is assumed that the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\start-bonita.bat` script is used to start Wildfly.
 
 1. Create the `sapjco3\main` directories under `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\modules\system\layers\base\com\` directory
 2. Copy the `sapjco3.jar` file into `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\modules\system\layers\base\com\sapjco3\main`
@@ -70,12 +69,20 @@ It is assumed that the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\start-boni
     </dependencies>
 </module>
 ```
-4. Edit the `BonitaBPMSubscription-7.5.4-wildfly-10.1.0.Final\setup\wildfly-templates\standalone.xml`, add these 3 lines under `subsystem xmlns="urn:jboss:domain:ee:4.0"`
+4. Edit the `standalone.xml` file and add these 3 lines under `subsystem xmlns="urn:jboss:domain:ee:4.0"`
+
+When the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\start-bonita.bat` script is used to start Wildfly, then edit the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\setup\wildfly-templates\standalone.xml`.
+
+Otherwise edit the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\standalone\configuration\standalone.xml` file.
+
 ```xml
 <global-modules>      
     <module name="com.sapjco3" slot="main"/>
 </global-modules> 
-``` 
+```
+
+
+
 5. Start Wildfly
 
 
