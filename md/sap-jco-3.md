@@ -32,7 +32,7 @@ JCo 3: `sapjco3-ntamd64-3.0.3`
 Contents of `sapjco-ntamd64-3.0.3.zip`
 
 * `Readme.txt`: contains instructions
-* `sapjco3.jar`: must be installed in the `/endorsed` directory of your Bonita Studio installation and in the webapp libraries directory of the application server.
+* `sapjco3.jar`: must be installed in the `/endorsed` directory of your Bonita Studio installation and in class path of the bonita webapp.
 * `sapjcorfc.dll` (`sapjcorfc.so`): must be installed in the native library search path:
   * Windows: usually the dll file is stored in `C:\windows\system32`
   * Linux: usually the dll file is stored in `/usr/lib`
@@ -43,8 +43,41 @@ Contents of `sapjco-ntamd64-3.0.3.zip`
 
 1. Extract the contents of the .zip file into a temporary directory, for example: `C:\temp\sapijco3`.
 2. Read the installation page provided with the sapjco distribution and follow the instructions.
-3. Put the `sapjco3.jar` file in the webapp libraries directory of the application server, so that the jar is in the classloader used by the Bonita Engine.
+3. Put the `sapjco3.jar` file in the webapp libraries directory of the application server, so that the jar is in the classloader used by the Bonita Engine
 4. Put the `sapjco.dll` or `.so` libraries in the native library search path: `C:\windows\system32` for windows, or `/usr/lib` for Linux.
+
+#### Point 3. Tomcat example (BonitaSubscription-7.8.3-Tomcat-8.5.34 bundle)
+It is assumed that Tomcat had been started once sucessfully, and the Bonita Engine already started once successfully.
+
+1. Stop Tomcat
+2. Copy the `sapjco3.jar` file into `BonitaSubscription-7.8.3-Tomcat-8.5.34\server\webapps\bonita\WEB-INF\lib` directory
+3. Start Tomcat
+
+#### Point 3. Wildfly example (BonitaSubscription-7.8.3-wildfly-10.1.0.Final bundle)
+It is assumed that the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\start-bonita.bat` script is used to start Wildfly.
+
+1. Create the `sapjco3\main` directories under `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\modules\system\layers\base\com\` directory
+2. Copy the `sapjco3.jar` file into `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\modules\system\layers\base\com\sapjco3\main`
+3. Create the `module.xml` file in the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\modules\system\layers\base\com\sapjco3\main` directory, with the content below:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.0" name="com.sapjco3">
+    <resources>
+        <resource-root path="sapjco3.jar" />
+    </resources>
+    <dependencies>
+       <module name="sun.jdk"/>
+    </dependencies>
+</module>
+```
+4. Edit the `BonitaBPMSubscription-7.5.4-wildfly-10.1.0.Final\setup\wildfly-templates\standalone.xml`, add these 3 lines under `subsystem xmlns="urn:jboss:domain:ee:4.0"`
+```xml
+<global-modules>      
+    <module name="com.sapjco3" slot="main"/>
+</global-modules> 
+``` 
+5. Start Wildfly
+
 
 ### Studio: How to import the SAP JCo3 library and make a request with an example function using the graphic display
 
