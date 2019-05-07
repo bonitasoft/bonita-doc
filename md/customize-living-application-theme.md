@@ -53,7 +53,7 @@ myCustomTheme
 | pom.xml //Maven project descriptor
 ```
 
-This project is using [Sass](https://sass-lang.com/) to easily create and customize a bootstrap *3.3.7* theme.
+This project is using [Sass](https://sass-lang.com/) to easily create and customize a Bootstrap *3.3.7* theme.
 To compile the scss it relies on [Node](https://nodejs.org/en/) and [NPM](https://www.npmjs.com/). See the package.json file below for more details.
 
 `package.json`
@@ -70,7 +70,7 @@ To compile the scss it relies on [Node](https://nodejs.org/en/) and [NPM](https:
     "node-sass": "4.11.0",
     "postcss-cli": "6.1.2",
     "autoprefixer": "9.5.0",
-    "bootstrap-sass": "3.3.7" //Supported version of bootstrap in Bonita
+    "bootstrap-sass": "3.3.7" //Supported version of Bootstrap in Bonita
   }
 }
 ```
@@ -178,11 +178,11 @@ The `artifactId`, `name` and `description` are used to define the theme metadata
 @import "bonita_pager";
 ```
 The main.scss is the aggregation of 3 imports:
-* `@import "bonita_variables";` import the content of `src/scss/_bonita_variables.scss` file.
-* `@import "bootstrap";` import the bootstrap-sass stylesheet. You may look its content in `node_modules/bootstratp-sass/assets/stylesheets/_bootstrap.scss`.
-* `@import "bonita_pager";` import the content of `src/scss/_bonita_pager.scss` file, a custom style for bootstrap pager used by the Bonita theme. 
+* `@import "bonita_variables";` imports the content of `src/scss/_bonita_variables.scss` file.
+* `@import "bootstrap";` imports the bootstrap-sass stylesheet. You may look its content in `node_modules/bootstratp-sass/assets/stylesheets/_bootstrap.scss`.
+* `@import "bonita_pager";` imports the content of `src/scss/_bonita_pager.scss` file, a custom style for Bootstrap pager used by the Bonita theme. 
 
-When using Sass you can split your stylesheets into _partials_. This is a great way to modularize your CSS and help keep things easier to maintain. A partial is simply a Sass file named with a leading underscore. You might name it something like `_partial.scss`. The underscore lets Sass know that the file is only a partial file and that it should not be generated into a CSS file. Sass partials are used with the `@import` directive like in our `src/scss/main.scss`. 
+When using Sass, you can split your stylesheets into _partials_. This is a great way to modularize your CSS and help keep things easier to maintain. A partial is simply a Sass file named with a leading underscore. You might name it something like `_partial.scss`. The underscore lets Sass know that the file is only a partial file and that it should not be generated into a CSS file. Sass partials are used with the `@import` directive like in our `src/scss/main.scss`. 
 Note that the `@import` order is important.
 
 `src/scss/_bonita_variables.scss`
@@ -308,20 +308,20 @@ All the variables defined in this file are used by *bootstrap-sass*. You can loo
 **Note:** Only variables declared with the `!default` flag can be overridden.
 :::
 
-SASS and SCSS have a lots of other interesting features that you should use. Check [SASS documentation](https://sass-lang.com/documentation) to known more.
+Sass and SCSS have lots of other interesting features that you could use. Check [Sass documentation](https://sass-lang.com/documentation) to known more.
                                                                           
-## Building, Deploying, Previewing a Theme
+## Building, Deploying, and Previewing a theme
 
-During the development phase you can have preview your theme using the provided test page in `test/index.html`.
-First you will have to `build` your theme: Right click on your theme project > Build or press `Ctrl+Shift+B` shortcut.
+During the development phase, you can preview your theme using the provided test page in `test/index.html`.
+First you will have to `build` your theme: right click on your theme project > Build or press `Ctrl+Shift+B` for a shortcut.
 
-If your theme is already associated to a living application you can just `deploy` your theme:  Right click on your theme project > Deploy or press `Ctrl+Shift+D` shortcut.
+If your theme is already associated to a living application, you can just `deploy` your theme:  right click on your theme project > Deploy or press `Ctrl+Shift+D` for a shortcut.
 
-## Create a Theme project from an existing theme in production
+## Create a theme project from an existing theme in production
 
 If you are upgrading from a previous Bonita version you may already have a theme.css file packaged in a custom page archive.  
-The easiest way of integrating your theme as a new Theme project is:
-* Create a New Theme
-* Extract the theme.css file from your Theme custom page zip
-* Replace the content of the main.scss file with the content of the extracted theme.css file
-* Retrieve all the related assets if any and copy them in the `dist` folder accordingly
+The easiest way of integrating your theme as a new theme project is:
+* 1. Create a new theme
+* 2. Extract the theme.css file from your theme custom page .zip archive
+* 3. Replace the content of the main.scss file with the content of the extracted theme.css file
+* 4. Retrieve all the related assets if any and copy them in the `dist` folder accordingly
