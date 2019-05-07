@@ -182,6 +182,10 @@ You can use a variable to hold the resulting data after success or failure.
 
 For pages that are displayed in a task or process context, the button widget can be used to submit a form, completing the human task or starting a process instance. For form submission, you need to define only the data to send. The URL is extracted from the context. When using the `Submit task` action, you can choose to automatically assign the task to the current user. It will assign and execute the task in a single action.
 
+:::warning
+**:fa-exclamation-triangle:** The Tasklist of the Bonita User App does not take that property into account and it is still required to `take` a task in order to execute it.
+:::
+
 Another possible use of the widget button is to add or remove a data from a given collection.
 
 Finally, you can use a button to open a modal container (pop up window) on the page, as long as the modal ID is specified into the appropriate field. Another action for the button widget is to close the modal that contains it.
