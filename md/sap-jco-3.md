@@ -43,12 +43,12 @@ Contents of `sapjco-ntamd64-3.0.3.zip`
 
 #### 1. Install the system library.
 
-##### Windows
+##### Windows
 
 1. Store the `sapjco.dll` file in the `C:\windows\system32` directory.
-2. Reboot
+2. Reboott
 
-##### Linux
+##### Linux
 
 Store the `sapjco.so` in the `/usr/lib` directory.
 
@@ -79,8 +79,11 @@ It is assumed that both the Tomcat and the Bonita Engine were already successful
 </module>
 ```
 4. Edit the `standalone.xml` file
-When the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\start-bonita.bat` script is used to start Wildfly, then edit the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\setup\wildfly-templates\standalone.xml`.
+
+When the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\start-bonita.bat` script is used to start Wildfly, then edit the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\setup\wildfly-templates\standalone.xml` file.
+
 Otherwise edit the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\standalone\configuration\standalone.xml` file.
+
 Add these 3 lines under `subsystem xmlns="urn:jboss:domain:ee:4.0"`:
 ```xml
 <global-modules>      
