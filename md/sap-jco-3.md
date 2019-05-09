@@ -39,13 +39,20 @@ Contents of `sapjco-ntamd64-3.0.3.zip`
 * `javadoc`: contains the .html help pages for installation
 * `examples`: contains some examples
 
-### How to use the contents of the sapjco-ntamd64-3.0.3.zip file with an application server
+### How to use the contents of the sapjco-ntamd64-3.0.3.zip file with an application server?
 
-#### 1. Extract the contents of the sapjco-ntamd64-3.0.3.zip file into a temporary directory, for example: `C:\temp\sapijco3`.
+#### 1. Install the system library.
 
-#### 2. Read the installation page provided with the sapjco distribution and follow the instructions.
+##### Windows
 
-#### 3. Put the `sapjco3.jar` file in a class path, so that the classes are available for the Bonita Engine.
+1. Store the `sapjco.dll` file in the `C:\windows\system32` directory.
+2. Reboot
+
+##### Linux
+
+Store the `sapjco.so` in the `/usr/lib` directory.
+
+#### 2. Configure the application server to make the classes, from the `sapjco3.jar` file, available for the Bonita Engine.
 
 ##### Tomcat example (BonitaSubscription-7.8.3-Tomcat-8.5.34 bundle)
 It is assumed that both Tomcat and the Bonita Engine were already successfully started once.
@@ -72,17 +79,13 @@ It is assumed that both Tomcat and the Bonita Engine were already successfully s
 ```
 4. Edit the `standalone.xml` file and add these 3 lines under `subsystem xmlns="urn:jboss:domain:ee:4.0"`
 When the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\start-bonita.bat` script is used to start Wildfly, then edit the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\setup\wildfly-templates\standalone.xml`.
-
 Otherwise edit the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\standalone\configuration\standalone.xml` file.
-
 ```xml
 <global-modules>      
     <module name="com.sapjco3" slot="main"/>
 </global-modules> 
 ```
 5. Start Wildfly
-
-#### 4. Put the `sapjco.dll` or `.so` libraries in the native library search path: `C:\windows\system32` for windows, or `/usr/lib` for Linux.
 
 ### Studio: How to import the SAP JCo3 library and make a request with an example function using the graphic display
 
