@@ -45,10 +45,10 @@ Contents of `sapjco-ntamd64-3.0.3.zip`
 
 #### 2. Read the installation page provided with the sapjco distribution and follow the instructions.
 
-#### 3. Put the `sapjco3.jar` file in the webapp libraries directory of the application server, so that the jar is in the classloader used by the Bonita Engine
+#### 3. Put the `sapjco3.jar` file in a class path, so that the classes are available for the Bonita Engine.
 
 ##### Tomcat example (BonitaSubscription-7.8.3-Tomcat-8.5.34 bundle)
-It is assumed that Tomcat had been started once sucessfully, and the Bonita Engine already started once successfully.
+It is assumed that both Tomcat and the Bonita Engine were already successfully started once.
 
 1. Stop Tomcat
 2. Copy the `sapjco3.jar` file into `BonitaSubscription-7.8.3-Tomcat-8.5.34\server\webapps\bonita\WEB-INF\lib` directory
