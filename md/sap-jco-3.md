@@ -52,16 +52,17 @@ Contents of `sapjco-ntamd64-3.0.3.zip`
 
 Store the `sapjco.so` in the `/usr/lib` directory.
 
-#### 2. Configure the application server to make the classes, from the `sapjco3.jar` file, available for the Bonita Engine.
+#### 2. Configure the application server
 
 ##### Tomcat example (BonitaSubscription-7.8.3-Tomcat-8.5.34 bundle)
-It is assumed that both Tomcat and the Bonita Engine were already successfully started once.
+
+It is assumed that both the Tomcat and the Bonita Engine were already successfully started once.
 
 1. Stop Tomcat
 2. Copy the `sapjco3.jar` file into `BonitaSubscription-7.8.3-Tomcat-8.5.34\server\webapps\bonita\WEB-INF\lib` directory
 3. Start Tomcat
 
-#### Wildfly example (BonitaSubscription-7.8.3-wildfly-10.1.0.Final bundle)
+##### Wildfly example (BonitaSubscription-7.8.3-wildfly-10.1.0.Final bundle)
 
 1. Create the `sapjco3\main` directories under `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\modules\system\layers\base\com\` directory
 2. Copy the `sapjco3.jar` file into `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\modules\system\layers\base\com\sapjco3\main`
@@ -77,9 +78,10 @@ It is assumed that both Tomcat and the Bonita Engine were already successfully s
     </dependencies>
 </module>
 ```
-4. Edit the `standalone.xml` file and add these 3 lines under `subsystem xmlns="urn:jboss:domain:ee:4.0"`
+4. Edit the `standalone.xml` file
 When the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\start-bonita.bat` script is used to start Wildfly, then edit the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\setup\wildfly-templates\standalone.xml`.
 Otherwise edit the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\standalone\configuration\standalone.xml` file.
+Add these 3 lines under `subsystem xmlns="urn:jboss:domain:ee:4.0"`:
 ```xml
 <global-modules>      
     <module name="com.sapjco3" slot="main"/>
