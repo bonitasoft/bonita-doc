@@ -5,7 +5,7 @@
 :::
 
 This layout has different desktop and mobile versions.
-For dektop version, the layout contains two rows.
+For the desktop version, the layout contains two rows.
 The first row has the logo, the name of the application on the left, as well as the user name, which, when clicked, opens the information about the current session. The last button of the first row opens a window that will let you switch between living applications.
 The second row contains the menu of the application pages.
 For the mobile version there is only one row that has the name of the application, as well as a button that opens a dropdown. The dropdown will contain the menu of the application pages, the user name which, when clicked, opens the information about the current session, as well as the button that opens the navigation between applications.
