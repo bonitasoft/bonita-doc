@@ -1,3 +1,4 @@
+
 # Define and deploy the Business Data Model (BDM)
 
 The business data model is the definition of the business data that is shared by processes and process-based applications in a tenant. This page explains how to define the business data model and how to deploy it. After the model is defined, you can use it to [specify the business data used in a process](specify-data-in-a-process-definition.md).
@@ -112,6 +113,10 @@ Composition and aggregation are two ways in which you can define a composite bus
 * In an aggregation relationship, a child object can exist independently of the parent. The composite business object refers to other business objects, as well as containing simple attributes.
 
 Example: A Purchase Order object consists of a set of primitive attribute variables (such as PO number, client, creation date), and a set of order item objects. The order items have no meaning outside the order, so have a composition relationship with the purchase order. An order item contains a product object and a simple attribute for quantity. The product object has an existence outside the order item (it is used in the product catalog), so has an aggregation relationship with the order item.
+
+::: warning
+In Bonita, a composition relationship is unique: A given object can only be used in one composition relationship. For exemple, you cannot use the same object _Wheel_ in composition for an object _Car_ and an object _Bike_. You will have to use an object _WheelCar_ and an object _WheelBike_.
+:::
 
 In the Bonita BPM Studio BDM wizard, you can specify the objects that are related by composition and aggregation, as well as the simple attributes. A child object can be mandatory or optional. A child object can be multiple, which means that the composite object contains zero or more (if optional) or one or more (if mandatory) instances of the child object. You cannot set a unique constraint on a child object. The default relationship is composition.
 
