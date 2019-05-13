@@ -34,14 +34,27 @@ In order to be compatible with Java 11, you must update the following plug-ins d
 
 ## Data Management
 
+### Edition form generation from a contract with Business data or Documents
+An edition form can now be generated to edit a Business data or a Document from a task contract. More info on how to use it [here](contracts-and-contexts.md).
+
 <a id="uid-lazyRef-filter"/>
 
 ### New embedded AngularJS filter to resolve business object lazy references
 More info on how to use it [here](variables.md).
 
+## Industrialization
+
+### Theme projects integrated in Bonita project (Subscription only)
+More info on how to use it [here](customize-living-application-theme.md).
+
 ## Packaging
 ### Bundles
 Tomcat and Wildfly bundles have been renamed. The Wildfly and Tomcat version are no longer specified in their name.
+
+## Miscellaneous
+
+### Import a bos archive in Bonita Studio using Drag and Drop
+Bos archive can now be imported in Bonita Studio by being dragged from a file system and dropped into the Bonita project explorer.
 
 ## Deprecation
 
@@ -64,11 +77,16 @@ The Wildfly bundle was mainly used with the SQL server database. The Tomcat bund
 ### 32 bits installers
 32 bits installers for all platforms are no longer provided.
 
-
 ## Technology updates
+
 
 ### Tomcat
 Tomcat has been updated to the version 8.5.40.
+
+### Bonita Studio
+Underlying Eclipse version has been updated to 2018-12 version integrating Java 11 support. 
+Bonita Studio Community installers are now packaged with a JRE 11 by default (instead of a JRE 8).
+For Linux users, you now need GTK3 library to be installed. 
 
 ### JTA transaction manager replacement
 
@@ -191,11 +209,6 @@ The version of the _javax.mail:mail_ dependency has been updated from _1.4.5_ to
 #### Twitter connector
 
 The version of the _org.twitter4j:twitter4j-core_ dependency has been updated from _4.0.2_ to _4.0.7_
-
-#### SAP connector
-
-The SAP connector in the current version does not work with Java 11. No update of this implementation is planned at the moment.
-If you are using the connector, and plan to migrate your platform to Java 11, please contact the Bonita support team. 
 
 ## Monitoring capabilities
 
