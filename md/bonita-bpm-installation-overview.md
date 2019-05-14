@@ -29,7 +29,7 @@ Bonita Platform can be installed in several ways:
 * If you want to do a fresh install, get one of our prepackaged bundles that include an Application Server
     * [Tomcat + Bonita](tomcat-bundle.md)
     * [WildFly + Bonita](wildfly-bundle.md)
-* If you want to do a custom installation, use the [Deploy bundle](deploy-bundle.md).
+* If you want to do a custom installation, see [Custom Deployment](deploy-bundle.md).
 
 
 For all options, you will need to [configure](database-configuration.md) Bonita Engine to work with the database of your choice (e.g. PostgreSQL or Oracle).
