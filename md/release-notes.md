@@ -39,6 +39,10 @@ In order to be compatible with Java 11, you must update the following plug-ins d
 ### New embedded AngularJS filter to resolve business object lazy references
 More info on how to use it [here](variables.md).
 
+## Packaging
+### Bundles
+Tomcat and Wildfly bundles have been renamed. The Wildfly and Tomcat version are no longer specified in their name.
+
 ## Deprecation
 
 ### EJB
@@ -54,6 +58,9 @@ EJB communication protocol with the engine is now deprecated. Removal is planned
 
 
 ## Technology updates
+
+### Tomcat
+Tomcat has been updated to the version 8.5.40.
 
 ### JTA transaction manager replacement
 
