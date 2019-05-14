@@ -80,8 +80,9 @@ use the [jdbc driver](database-configuration.md#proprietary_jdbc_drivers) provid
 
 ## Wildfly installation
 
+::: warning
 **WARNING:** Starting from Bonita 7.9.0 the Wildfly bundle is deprecated. It will be removed in a future release. Check the [Release Note](release-notes.md) for more details.
-
+:::
 ### Install Bonita Platform in Wildfly
 Copy all files and directories from DEPLOY_ZIP_HOME/wildfly-10.1.0.Final/server to your Wildfly root directory (WILDFLY_HOME).
 

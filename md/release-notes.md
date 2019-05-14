@@ -49,13 +49,9 @@ EJB communication protocol with the engine is now deprecated. Removal is planned
 
 The Wildfly bundle has been deprecated in Bonita 7.9.
 
-The Wildfly bundle is a legacy solution to a compatibility problem between the Bonita Platform and the SQLServer database;
-the Bitronix JTA transaction manager used in the Tomcat bundle caused database deadlocks.
-With the replacement of the JTA transaction manager (cf. below), it's not an issue anymore.
-
-Therefore the Wildfly bundle has no more reason to be maintained. It's removal is planned for a future release.
-
 If you are using the Wildfly bundle, we advise you to switch to the Tomcat bundle when migrating to 7.9.
+
+The Wildfly bundle was mainly used with the SQL server database. The Tomcat bundle is now compatible with it, and is the recommended solution.
 
 ## Feature removals
 
