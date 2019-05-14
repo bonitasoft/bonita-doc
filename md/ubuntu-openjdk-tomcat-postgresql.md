@@ -76,8 +76,8 @@ Run the following command lines:
 
 * `sudo aptitude install curl`
 * `cd /tmp/`
-* `wget http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.34/bin/apache-tomcat.tar.gz`
-* `sudo tar xzvf apache-tomcat-8.5.x.tar.gz -C /usr/share/tomcat8 --strip-components=1`
+* `wget http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.40/bin/apache-tomcat-8.5.40.tar.gz`
+* `sudo tar xzvf apache-tomcat-8.5.40.tar.gz -C /usr/share/tomcat8 --strip-components=1`
 
 Tomcat 8.5 should now be installed on your computer. Now you should enable tomcat to be run as a service
 
