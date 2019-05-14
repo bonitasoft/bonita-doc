@@ -45,6 +45,14 @@ More info on how to use it [here](variables.md).
 
 EJB communication protocol with the engine is now deprecated. Removal is planned for 7.10 version.
 
+### Wildfly Bundle
+
+The Wildfly bundle has been deprecated in Bonita 7.9.
+
+If you are using the Wildfly bundle, we advise you to switch to the Tomcat bundle when migrating to 7.9.
+
+The Wildfly bundle was mainly used with the SQL server database. The Tomcat bundle is now compatible with it, and is the recommended solution.
+
 ## Feature removals
 
 <a id="32bits-installers"/>

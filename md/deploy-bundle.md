@@ -13,7 +13,7 @@ it would be up to you to adapt the documented steps to your very own folder layo
 :::
 
 :::warning
-Remember that the recommended way of installing Bonita is to use the provided [Tomcat](tomcat-bundle.md) / [WildFly](wildfly-bundle.md) bundle.  
+Remember that the recommended way of installing Bonita is to use the provided [Tomcat](tomcat-bundle.md) bundle.  
 It saves you from doing all the following configuration at hand, as the setup tool included handles it automatically.
 :::
 
@@ -80,6 +80,9 @@ use the [jdbc driver](database-configuration.md#proprietary_jdbc_drivers) provid
 
 ## Wildfly installation
 
+::: warning
+**WARNING:** Starting from Bonita 7.9.0 the Wildfly bundle is deprecated. It will be removed in a future release. Check the [Release Note](release-notes.md) for more details.
+:::
 ### Install Bonita Platform in Wildfly
 Copy all files and directories from DEPLOY_ZIP_HOME/wildfly-10.1.0.Final/server to your Wildfly root directory (WILDFLY_HOME).
 
