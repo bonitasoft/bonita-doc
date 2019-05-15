@@ -1,9 +1,21 @@
+
 # How to manage a list of documents
 
-A list of documents is represented by several documents having the same name (attribute "name"). 
-It is possible to add/remove elements to a list using the same methods as for a simple document.
+Manage a list of documents through a process means add / edit / remove documents from a multiple data of type _document_.
 
-## Get the documents of the list
+## Low code exemple: Document validation process
+
+This exemple shows how to easily create a document validation process using Bonita Studio.  
+A document validation process is a process where a User should be able to first submit a list fo documents. Then, an other user can perform a review on the list submitted, and ask for some changes on the list. If the reviewer asks for it, then the first user has to edit the list of documents by adding / editing / removing some documents of the list, according to the review.  
+
+
+
+## Using APIs
+
+A list of documents is represented by several documents having the same name (attribute "name"). 
+It is possible to add/remove/edits elements to a list using the same methods as for a simple document.
+
+### Get the documents of the list
 
 In a case with `myDocList` as a list of documents, use the following request to sort the result by ascending index value:
 
@@ -65,7 +77,7 @@ Response payload :
 ]
 ```
 
-## Add a new document
+### Add a new document
 
 To add a new document to the list `myDocList` at the end of the list, do a POST call without specifying the _index_ attribute in the request payload.
 
@@ -109,7 +121,7 @@ Response payload
 _Note_: that this new document has got index=3\. 
 If you now rerun the first GET request, you will now get a list containing four documents with the new document as last element of the list.
 
-## Add a new document to the list at a given index
+### Add a new document to the list at a given index
 
 To add a new document to the list `myDocList` at index 1\, do a POST call specifying the _index_ attribute in the request payload.
 
