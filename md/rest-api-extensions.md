@@ -185,7 +185,10 @@ There is some additional prerequisites when creating a REST API extension with E
 * **Access to [Maven central repository](http://central.maven.org/maven2)**. If your provider is restricting Internet access you may configure [proxy settings](https://maven.apache.org/guides/mini/guide-proxies.html) or create a [mirror repository](https://maven.apache.org/guides/mini/guide-mirror-settings.html).
 
 ::: warning
-**Mirror configuration:** When setting a mirror using a `<mirrorOf>*</mirrorOf>` redirection, add an exception for the studio internal repository id like this: `<mirrorOf>*,!studio-internal-repository</mirrorOf>` in your `settings.xml`
+**Mirror configuration:** When setting a mirror using a `<mirrorOf>*</mirrorOf>` redirection, add an exception for the studio internal repository id like this: `<mirrorOf>*,!studio-internal-repository</mirrorOf>` in your `settings.xml` (do not put spaces in this String, otherwise the exclusion won't be considered by Maven)
+
+The `studio-internal-repository` repository is used by the Studio to resolve some dependencies not available in public repositories.
+Without this exclusion, the REST API Extension build fails because of some missing dependencies.
 :::
 
 ### Generate a new REST API extension skeleton
