@@ -250,7 +250,7 @@
   * [Living application](_living-application.md)
     * [Bonita Layout](bonita-layout.md)
     * [Living application layout](living-application-layout.md)
-    * [Customize resource layouts](customize-resource-layouts.md)
+    * [Customize layouts](customize-layouts.md)
     * [Customize living application theme](customize-living-application-theme.md)
   * [Logs](logging.md)
   * [Workspaces and projects](workspaces-and-repositories.md)
