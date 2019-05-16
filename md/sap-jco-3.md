@@ -98,12 +98,17 @@ There is below a step by step procedure on Windows. It is assumed that the Studi
 
 1. Store the `sapjco.dll` in the `C:\windows\system32` directory
 1. Reboot
-1. Store the `sapjco3.jar` in the bonita webpapp library directory, deployed in the tomcat embedded with the Studio: e.g. `<studio_folder>\workspace\tomcat\server\lib`
 1. Start the Studio
 1. Open a diagram
-7. Select a Service task 
-1. Add a SAP JCo 3 connector
-1. Fill in all the connection fields with the correct settings. Note that the SAP JCo 3 connector supports a single destination for all connector instances in Bonita Engine.
+1. Add a SAP JCo 3 connector on a task or a pool
+1. Use `import sapjco3.jar` button to add it to the embedded runtime environment
+1. Restart the Studio
+1. Fill in all the connection fields with the correct settings. 
+
+:::warning
+**Note**: SAP JCo 3 connector supports a single destination for all connector instances in Bonita Engine. You also need to restart the web server when changing its value.
+:::
+
 1. Once all the fields are filled, test the connection by clicking on the _**test **_button.
 1. In the function definition window, only the function name is required.
 1. Click on the arrow at the end of the field to display a dropdown list of functions.
