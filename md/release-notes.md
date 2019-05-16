@@ -6,6 +6,8 @@
 
 ## Java 11 Migration
 
+Bonita now runs on Java 8 and Java 11.
+
 <a id="rest-api-extension-update"/>
 
 ### REST API extension project update
@@ -149,7 +151,7 @@ The step works at best effort:
 * It will try to upgrade all the connectors it can.
 * It will not upgrade connectors that have dependencies used by other connectors. Those connectors will still work on java 8, but not in java 11, and will require a manual update.
 * A detailed report of all the changes made is displayed at the end of the migration step.
-* Beware that if one of these connectors' removed dependencies was used in one your scripts, it will still be removed/updated, and therefor your scripts might not work anymore after migration. The full list of updated and deleted dependencies can be found below.
+* Beware that if one of these connectors' removed dependencies was used in one your scripts, it will still be removed/updated, and therefore your scripts might not work anymore after migration. The full list of updated and deleted dependencies can be found below.
 
 #### WebService connector
 
