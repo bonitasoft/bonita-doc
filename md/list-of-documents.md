@@ -13,7 +13,7 @@ This exemple shows how to easily create a document validation process using Boni
 A document validation process is a process where a User should be able to first submit a list fo documents. Then, an other user can perform a review on the list submitted, and ask for some changes on the list. If the reviewer asks for it, then the submitter has to edit the list of documents by adding / editing / removing some documents of the list, according to the review.  
 
 Here is a preview of the process we are going to build:  
-[](images/documentValidationProcess.png)
+![Validation process](images/documentValidationProcess.png)
 
  1. Create a process _documentValidation_, with two lanes: _Submitter lane_ and _Reviewer lane_. 
  2. Create also two actors: _Submitter actor_ and _Reviewer actor_. Each actor should be mapped to a different part of the organization (two different users for exemple). Set the _Submitter actor_ as initiator, and map each lane to its actor.
