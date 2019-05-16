@@ -13,6 +13,7 @@ Each application can have its own theme.
 ## Prerequisites
 
 * An Internet connection to fetch Maven and NPM repositories
+	* If the Internet access is behind a proxy follow the proxy settings from the [maven-frontend-plugin](https://github.com/eirslett/frontend-maven-plugin#proxy-settings)
 * Maven basic knowledge
 * CSS basic knowledge
 
@@ -321,7 +322,7 @@ If your theme is already associated to a living application, you can just `deplo
 
 If you are upgrading from a previous Bonita version you may already have a theme.css file packaged in a custom page archive.  
 The easiest way of integrating your theme as a new theme project is:
-* 1. Create a new theme
-* 2. Extract the theme.css file from your theme custom page .zip archive
-* 3. Replace the content of the main.scss file with the content of the extracted theme.css file
-* 4. Retrieve all the related assets if any and copy them in the `dist` folder accordingly
+ 1. Create a new theme
+ 1. Extract the _theme.css_ file from your theme custom page .zip archive
+ 1. Replace the content of the _main.scss_ file with the content of the extracted _theme.css_ file
+ 1. Retrieve all the related assets if any and copy them in the `dist` folder accordingly
