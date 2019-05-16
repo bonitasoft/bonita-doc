@@ -32,8 +32,8 @@ JCo 3: `sapjco3-ntamd64-3.0.3`
 Contents of `sapjco-ntamd64-3.0.3.zip`
 
 * `Readme.txt`: contains instructions
-* `sapjco3.jar`: must be installed in the `/endorsed` directory of your Bonita Studio installation and in class path of the bonita webapp.
-* `sapjcorfc.dll` (`sapjcorfc.so`): must be installed in the native library search path:
+* `sapjco3.jar`: must be installed in the `/endorsed` directory of your Bonita Studio installation and in class path of the bonita web server.
+* `sapjco3.dll` (`libspajco3.so`): must be installed in the native library search path:
   * Windows: usually the dll file is stored in `C:\windows\system32`
   * Linux: usually the dll file is stored in `/usr/lib`
 * `javadoc`: contains the .html help pages for installation
@@ -46,11 +46,11 @@ Contents of `sapjco-ntamd64-3.0.3.zip`
 ##### Windows
 
 1. Store the `sapjco.dll` file in the `C:\windows\system32` directory.
-2. Reboott
+2. Reboot
 
 ##### Linux
 
-Store the `sapjco.so` in the `/usr/lib` directory.
+Store the `libsapjco3.so` in the `/usr/lib` directory.
 
 #### 2. Configure the application server
 
@@ -59,7 +59,7 @@ Store the `sapjco.so` in the `/usr/lib` directory.
 It is assumed that both the Tomcat and the Bonita Engine were already successfully started once.
 
 1. Stop Tomcat
-2. Copy the `sapjco3.jar` file into `BonitaSubscription-7.8.3-Tomcat-8.5.34\server\webapps\bonita\WEB-INF\lib` directory
+2. Copy the `sapjco3.jar` file into `BonitaSubscription-7.8.3-Tomcat-8.5.34\server\lib` directory
 3. Start Tomcat
 
 ##### Wildfly example (BonitaSubscription-7.8.3-wildfly-10.1.0.Final bundle)
