@@ -22,7 +22,7 @@ description=Application theme based on Bootstrap "Simplex" theme (see http://boo
 contentType=theme
 ```
 
-* The `resources` folder must contain at least an `index.html` file and a CSS file named `theme.css`. The index file must be present in the zip but is ignored, so can be empty.
+* The `resources` folder must contain at least a CSS file named `theme.css`.
 
 Any CSS, images or JavaScript files can be shared using a theme resource.
 
