@@ -45,16 +45,16 @@ Contents of `sapjco-ntamd64-3.0.3.zip`
 
 ##### Windows
 
-1. Store the `sapjco.dll` file in the `C:\windows\system32` directory.
+1. Copy the `sapjco.dll` file in the `C:\windows\system32`
 2. Reboot
 
 ##### Linux
 
-Store the `libsapjco3.so` in the `/usr/lib` directory.
+Copy the `libspajco3.so` file in `/usr/lib`
 
 #### 2. Configure the application server
 
-##### Tomcat example (BonitaSubscription-7.8.3-Tomcat-8.5.34 bundle)
+##### Tomcat example
 
 It is assumed that both the Tomcat and the Bonita Engine were already successfully started once.
 
@@ -62,7 +62,7 @@ It is assumed that both the Tomcat and the Bonita Engine were already successful
 2. Copy the `sapjco3.jar` file into `BonitaSubscription-7.8.3-Tomcat-8.5.34\server\lib` directory
 3. Start Tomcat
 
-##### Wildfly example (BonitaSubscription-7.8.3-wildfly-10.1.0.Final bundle)
+##### Wildfly example
 
 1. Create the `sapjco3\main` directories under `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\modules\system\layers\base\com\` directory
 2. Copy the `sapjco3.jar` file into `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\modules\system\layers\base\com\sapjco3\main`
@@ -97,27 +97,26 @@ Add these 3 lines under `subsystem xmlns="urn:jboss:domain:ee:4.0"`:
 There is below a step by step procedure on Windows. It is assumed that the Studio had been started at least once successfully.
 
 1. Store the `sapjco.dll` in the `C:\windows\system32` directory
-2. Reboot
-3. Store the `sapjco3.jar` in the bonita webpapp library directory, deployed in the tomcat embedded with the Studio: e.g. `C:\BonitaSubscription-7.6.3\workspace\tomcat\webapps\bonita\WEB-INF\lib`
-4. Store the `sapjco3.jar` in the `endorsed` directory of your Bonita Studio installation: e.g. `C:\BonitaSubscription-7.6.3\endorsed`.
-5. Start the Studio
-6. Open a diagram
+1. Reboot
+1. Store the `sapjco3.jar` in the bonita webpapp library directory, deployed in the tomcat embedded with the Studio: e.g. `<studio_folder>\workspace\tomcat\server\lib`
+1. Start the Studio
+1. Open a diagram
 7. Select a Service task 
-8. Add a SAP JCo 3 connector
-9. Fill in all the connection fields with the correct settings. Note that the SAP JCo 3 connector supports a single destination for all connector instances in Bonita Engine.
-10. Once all the fields are filled, test the connection by clicking on the _**test **_button.
-11. In the function definition window, only the function name is required.
-12. Click on the arrow at the end of the field to display a dropdown list of functions.
-13. Click on `GET_SYSTEM_NAME` for example
-14. Click _**Next**_
-15. This will display the **Input Parameters** window
-16. Click _**Next**_
-17. This will display the **Output Parameters** window
-18. The `GET_SYSTEM_NAME` is displayed to confirm the input is this function. Note: You can create a blank .html file on your c: drive, which will be filled with the output information from the SAP connector
-19. Enter the path to the .html file in the field called "HTML File"
-20. Click _**Next**_
-21. This will display an **Ouput operations** window
-22. Click _**Finish**_
+1. Add a SAP JCo 3 connector
+1. Fill in all the connection fields with the correct settings. Note that the SAP JCo 3 connector supports a single destination for all connector instances in Bonita Engine.
+1. Once all the fields are filled, test the connection by clicking on the _**test **_button.
+1. In the function definition window, only the function name is required.
+1. Click on the arrow at the end of the field to display a dropdown list of functions.
+1. Click on `GET_SYSTEM_NAME` for example
+1. Click _**Next**_
+1. This will display the **Input Parameters** window
+1. Click _**Next**_
+1. This will display the **Output Parameters** window
+1. The `GET_SYSTEM_NAME` is displayed to confirm the input is this function. Note: You can create a blank .html file on your c: drive, which will be filled with the output information from the SAP connector
+1. Enter the path to the .html file in the field called "HTML File"
+1. Click _**Next**_
+1. This will display an **Ouput operations** window
+1. Click _**Finish**_
 
 ## Advanced features in Subscription Editions
 
