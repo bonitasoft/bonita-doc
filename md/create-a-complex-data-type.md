@@ -4,11 +4,15 @@
 **Note:** For Bonita Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
-::: warning
-**Deprecated:** Use a Business Object or a POJO ( using a custom Groovy script or import a jar) instead. POJO must implement _java.io.Serializable_.
-:::
+If the standard data types are not suitable for a variable in your process, you can create a new custom complex data type. It could be useful for example to reference data from an external database.
 
-If the standard data types are not suitable for a variable in your process, you can create a new custom complex data type. It is useful for example to reference data from an external database.
+::: warning
+**Deprecated:** 
+Because they are serialized in the database, because they do not allow the use of Bonita API, because they may not work if the Bonita platform Java version is updated, complex data types are now deprecated.
+When the feature is removed from Bonita (in a few versions), data types will still work, but their creation will not be possible in Bonita Studio anymore.
+Instead of data types, you can create a [Business Object](define-and-deploy-the-bdm.md). Its data will be stored in a structured way.
+You can also add a POJO (using a custom Groovy script or importing a .jar). This POJO must implement _java.io.Serializable_.
+:::
 
 A complex data type is a collection of attributes, each attribute having a data type. Complex data types are defined in a JAR or XSD file. Each file can contain more than one definition. To add a new complex data type, create a new JAR or XSD file.
 
