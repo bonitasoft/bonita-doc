@@ -172,48 +172,37 @@ Some internal libraries have been updated to newer versions:
 
 <a id="6.x-form"/>
 
-### 6.x forms based on GWT technology
-Studio forms based on Google Web Toolkit (GWT) technology are not supported anymore, starting with Bonita 7.8.  
+### 6.x forms/case overview pages based on GWT technology
+Studio forms and case overview pages based on Google Web Toolkit (GWT) technology are not supported anymore, starting with Bonita 7.8.  
 They have been removed from Bonita Studio and Bonita Runtime.  
+Here is what changed:
 
-#### In Studio and Runtime
-
-This means that, 
-  * in the Studio,
-    * Importing a .bos will not import such forms.  
-    * Cloning a Git repository or migrating a SVN repository will remove such forms.  
-  * in the Studio, there is no more:
-    * "Resources" tab, 
-    * "Application" tab, nor all associated configuration in the process (Pageflow transition, Entry forms, View forms, Recap forms, etc.)
-    * Look'n'feels, validators, forms and widgets templates, and theme editor 
-    * In the _Execution > Form_ tab, the "Legacy 6.x" option is no longer available.
-  * in a repository/project, there is no more "Application resources" folder.
-  * at Runtime, deploying a process (.bar file) containing forms/pages developed using Google Web Toolkit is not possible anymore.
+#### In Bonita Studio and Bonita Runtimes
+* In the studio:
+  - Importing a .bos will not import such forms  
+  - Cloning a Git repository or migrating a SVN repository will remove such forms  
+  - Items removed:
+   - The "Resources" tab 
+   - The "Application" tab and associated configuration in the processes (Pageflow transition, Entry forms, View forms, Recap forms, etc.)
+   - Look'n'feels, validators, forms and widgets templates, and theme editor 
+   - The "Legacy 6.x" option in the "Execution > Form" tab 
+* In a repository/project, there is no more "Application resources" folder.
+* At Runtime, installing a process (.bar file) with forms/pages developed using Google Web Toolkit is not possible anymore
 
 #### Migration paths
+The migration will handle the attempt to migrate projects with GWT forms/case overview pages:
+* If no GWT form/overview page is found, migration is performed
+* If all processes with GWT forms have *only archived cases and are disabled*, migration will be performed. If a GWT case overview page is found, it is replaced by the default Bonita overview page.   
+* If one process with GWT forms is enabled and/or has open cases, migration will not be performed at all
 
-The migration will also handle the attempt to migrate projects with GWT forms/overview page:
-   - If no GWT forms or overview page is found, migration is performed
-   - If all processes with GWT forms only have archived cases and are disabled, migration will be performed. If a GWT case overview page
-   is found, it is replaced by the default Bonita overview page.   
-   - If one process with GWT forms is enabled and/or has open cases, migration will not be performed at all
+If you face the latest case:
+1. Create a new version for each process that uses GWT forms. 
+2. Use Bonita Studio from your pre-7.8.0 version to [replace such forms/pages](migrate-a-form-from-6-x.md) by forms/pages created with more recent technologies and newer concepts, offered since Bonita 7.0: [UI Designer](ui-designer-overview.md) and [contract and context](contracts-and-contexts.md).
+3. Deploy the new process version (.bar file) and disable the old one. No more new cases with this old process version will be created.
 
-If you face the last case, the mitigation depends on the Bonita Edition.
-
-With **Community edition**, you should create a new version for each process that uses GWT forms. Use the Bonita Studio
-of your pre 7.8.0 version to [replace such forms/pages](migrate-a-form-from-6-x.md) by forms/pages created with more recent
-technologies and newer concepts, offered since Bonita 7.0: [UI Designer](ui-designer-overview.md) and [contract and context](contracts-and-contexts.md).
-
-Then deploy the new process version (.bar file) and disable the old one. No more new cases with this old process version
-will be created but you have to wait for all remaining running cases to complete.  
-You will be able to migrate to Bonita 7.8 once all such cases are completed. 
-
-
-With the **Enterprise edition**, your are not forced to wait for all the cases to complete: the Administrator or Process Manager
-can replace GWT forms with a compliant page in the process details. Once all processes with open cases using GWT forms have
-been updated, the migration to Bonita 7.8 can be performed.   
-In addition, follow the Community edition instructions.
-
+Then, it depends on the Bonita Edition:
+- **Community edition**: You must wait for all remaining running cases of the old process version to complete. You will be able to migrate to Bonita 7.8 once all such cases are completed. 
+- **Enterprise edition**: You do not need to wait for all the cases to complete: the Administrator or Process Manager can replace GWT forms with a compliant form in the process details. Once all processes with open cases using GWT forms have been updated, the migration to Bonita 7.8 can be performed.  
 
 <a id="bar-importer"/>
 
