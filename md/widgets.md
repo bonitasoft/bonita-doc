@@ -295,7 +295,7 @@ Options are specific to each chart type and are listed in the [Chart.js document
 
 <a id="file-viewer"/>
 
-## File viewer widget (Subscription editions)
+## File viewer widget
 
 Use the file viewer widget to preview or download a file or a process document in any UI Designer artifact (page or form for instance). 
 You can display a document in a modal dialog box or directly in a page.  
