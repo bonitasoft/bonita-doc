@@ -1,7 +1,7 @@
 # Custom widgets
 
 If the [standard widgets](widgets.md) do not meet your needs, you can create a custom widget to match exactly what you want to achieve.  
-You can also modify or extend a [standard widget](widgets.md): edit it and save it as a custom widget.
+You can also clone a [standard widget](widgets.md) to match your needs: edit and save it as a custom widget.
 After creation, a custom widget is available in the palette to design pages, application layouts, forms or fragments. 
 
 ## Description
