@@ -10,9 +10,22 @@ These are the following script connectors:
 
 Follow the steps in the wizard to configure the connector. For the **Parameters of the script**, enter this information:
 
+On Linux or Mac
 * In the first field, enter the script interpreter e.g. `/bin/sh`
 * In the second field, enter the execution parameter e.g. `-c`
 * In the third field, enter the script e.g. `find /home/ -name "*.xml"`
+
+On Windows - Command Prompt
+* In the first field, enter the script interpreter `cmd`
+* In the second field, enter the execution parameter `/c`
+* In the third field, enter the script e.g. `java -version`
+
+On Windows - Powershell
+* In the first field, enter the script interpreter `powershell`
+* In the second field, enter the execution parameter `-command`
+* In the third field, enter the script e.g. `$PSVersionTable`
+
+
 
 ## How to configure the Groovy script connector
 
