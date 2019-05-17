@@ -44,14 +44,22 @@ An edition form can now be generated to edit a Business data or a Document from 
 ### New embedded AngularJS filter to resolve business object lazy references
 More info on how to use it [here](variables.md).
 
+
 ## Industrialization
 
 ### Theme projects integrated in Bonita project (Subscription only)
 More info on how to use it [here](customize-living-application-theme.md).
 
+
 ## Packaging
 ### Bundles
 Tomcat and Wildfly bundles have been renamed. The Wildfly and Tomcat version are no longer specified in their name.
+
+### LDAP synchronizer & CAS single sign-on module
+The LDAP synchronizer & CAS single sign-on module are now provided with the Bonita Subscription bundles, in the `tools/` sub-directory.
+
+### License Request Key generator
+Within Tomcat and WildFly bundles, the License Request Key generator tool has been moved from the `server/` sub-directory to the `tools/` sub-directory.
 
 ## Miscellaneous
 
@@ -78,6 +86,11 @@ The Wildfly bundle was mainly used with the SQL server database. The Tomcat bund
 
 ### 32 bits installers
 32 bits installers for all platforms are no longer provided.
+
+### Deploy zip
+The BonitaSubscription-x.y.z-deploy.zip is no longer provided starting from Bonita 7.9.
+Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bundle.md) page for more specific needs.
+
 
 ## Technology updates
 

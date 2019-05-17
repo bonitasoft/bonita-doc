@@ -36,7 +36,7 @@ If this is the first time you generate a license, you need to generate a request
 ### Generate the request key
 
 On the server where you installed Bonita Platform:  
-1. Go to the `request_key_utils` folder
+1. Go to the `tools/request_key_utils` folder
 2. Run the `generateRequestKey.bat` script (for Windows) or the `generateRequestKey.sh` script (for other operating systems)
 
 ### Generate the new license

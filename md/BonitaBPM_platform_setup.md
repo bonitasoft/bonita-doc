@@ -18,7 +18,7 @@ The *Platform setup tool* handles:
   - The management of Bonita Platform configuration (stored in the database)
   - The management of licenses (also stored in the database)
 
-It is located in both [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles, and also in the [deploy bundle](deploy-bundle.md). In Tomcat and WildFly bundles, you can find the tool in the `setup` folder.
+It is located in both [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles. You can find the tool in the `setup` folder.
 
 ### Structure
 

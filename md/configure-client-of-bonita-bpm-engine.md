@@ -135,7 +135,7 @@ Finally, you can edit the file `<bonita-subscription>/server/webapps/bonita/WEB-
 
 ### Server configuration to accept HTTP Connection
 
-By default [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles along with the `bonita.war` from the [deploy bundle](deploy-bundle.md) are configured to accept connection for HTTP connections.
+By default [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles are configured to accept connection for HTTP connections.
 
 It is configured in the `web.xml` file of the web application like this:
 

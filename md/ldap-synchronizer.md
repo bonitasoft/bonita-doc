@@ -32,7 +32,7 @@ The tool supports LDAP groups of the following classes:
 
 ## Installation
 
-To install the synchronizer, unzip the provided deploy.zip file and configure the files located under the conf directory. 
+To install the synchronizer, unzip the Tomcat bundle and configure the files located under the tools/BonitaSubscriptionLDAPSynchronizer/conf directory. 
 This directory contains a sample configuration in the `conf/default` subfolder which is used to perform LDAP synchronization
 on the default tenant. This is also possible to perform the synchronization on a [non default tentant](#non-default-tenant)
 which requires dedicated configuration.
