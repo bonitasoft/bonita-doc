@@ -29,7 +29,7 @@ Copy, from the bundle into your Tomcat server:
 * The entirety of the bundle `server/lib/bonita` folder to `lib/bonita`
 * The `server/webapps/bonita.war` and `webapps/ROOT/favicon.ico` to `webapps` and `webapps/ROOT/`
 * The entirety of the `setup` directory at the root of your tomcat server.
-* The entirety of the `server/Request_key_utils-`. Includes script files to generate license request keys.
+* The entirety of the `tools/request_key_utils-`. Includes script files to generate license request keys.
 
 :::warning
 Some configuration files from the bundle will overwrite some default tomcat configuration files. Proceed

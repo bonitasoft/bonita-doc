@@ -7,16 +7,16 @@ includes the following set of components:
 
 Simply follow a standard Ubuntu installation procedure. You won't need any specific settings here.
 
-Note: make sure you got a text editor installed such as `nano`. In order to install it: `sudo apt-get install nano`
+Note: make sure you got a text editor installed such as `nano`. In order to install it: `sudo apt install nano`
 
-Note: we use `aptitude` command line tool to install packages such as OpenJDK or PostgreSQL. You can also use different tool such
-as `apt-get` or a graphical package manager such as `synaptic`.
+Note: we use `apt` command line tool to install packages such as OpenJDK or PostgreSQL. You can also use different tool such
+as `apt` or a graphical package manager such as `synaptic`.
 
 ## Java Virtual Machine
 
 To install the OpenJDK JVM you need to install the `openjdk-8-jre-headless` package:
 
-* Run the following command line: `sudo aptitude install openjdk-8-jre-headless`
+* Run the following command line: `sudo apt install openjdk-8-jre-headless`
 * If needed, type your Ubuntu user password
 * Type _**Enter**_ to confirm that you want to continue installation
 
@@ -34,7 +34,7 @@ OpenJDK 64-Bit Server VM (build 25.111-b14, mixed mode)
 
 To install PostgreSQL 11 you need to install the `postgres-11` package:
 
-* Run the following command line: `sudo aptitude install postgresql-11`
+* Run the following command line: `sudo apt install postgresql-11`
 * If needed, type your Ubuntu user password
 * Type _**Enter**_ to confirm that you want to continue installation
 
@@ -74,7 +74,7 @@ Prepared transactions is disabled by default in PostgreSQL. You need to enable i
 
 Run the following command lines:
 
-* `sudo aptitude install curl`
+* `sudo apt install curl`
 * `cd /tmp/`
 * `wget http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.40/bin/apache-tomcat-8.5.40.tar.gz`
 * `sudo tar xzvf apache-tomcat-8.5.40.tar.gz -C /usr/share/tomcat8 --strip-components=1`
@@ -121,30 +121,28 @@ In case of problems with this part refer to the documentations pages [How to Ins
 You need to include JDBC driver in Tomcat classpath:
 
 * Change to Tomcat libraries directory: `cd /usr/share/tomcat8/lib`
-* Install `wget` tool in order to be able to download JDBC driver: `sudo aptitude install wget`
+* Install `wget` tool in order to be able to download JDBC driver: `sudo apt install wget`
 * Download the JDBC driver: `sudo wget http://jdbc.postgresql.org/download/postgresql-42.2.5.jar`
 
 ## Bonita Platform
 
 ### Download and unzip the Bonita deploy bundle
 
-Download the Bonita deploy bundle from the [Customer Portal](https://customer.bonitasoft.com/)
-(Subscription editions) or get the [Community edtion](http://www.bonitasoft.com/downloads-v2). Instructions
-below will be given for Bonita Subscription Pack. You can easily adapt files and folder names to your edition.
+Download the Bonita Tomcat bundle from the [Customer Portal](https://customer.bonitasoft.com/)
+(Subscription editions) or get the [Community edition](http://www.bonitasoft.com/downloads-v2). Instructions
+below will be given for Bonita Subscription. You can easily adapt files and folder names to the Community edition.
 
 * Go to Bonitasoft [Customer Portal](https://customer.bonitasoft.com/)
 * In **Download** menu, click on _**Request a download**_
 * Select your version and click on _**Access download page**_ button
 * On the download page, go to the **Deploying Server Components** section
-* Click on _**Download BonitaSubscription-x.y.z-deploy.zip**_ link. If your server only has a terminal available
+* Click on _**Download BonitaSubscription-x.y.z-tomcat.zip**_ link. If your server only has a terminal available
 you can copy the link and use `wget` to download the file or use SSH with `scp` command to copy
 the file from another computer.
-* Make sure that the `BonitaSubscription-x.y.z-deploy.zip` is located in your home folder (e.g. `/home/osuser`).
+* Make sure that the `BonitaSubscription-x.y.z-tomcat.zip` file is located in your home folder (e.g. `/home/osuser`).
 If you type `cd ~ && ls` you should see the file listed.
-* Make sure the `unzip` command is installed: `sudo aptitude install unzip`
-* Unzip the deploy bundle: `unzip -q BonitaSubscription-x.y.z-deploy.zip`
-
-Finally, make sure that the user that runs the Tomcat server, is the owner of all Bonita "home" files:
+* Make sure the `unzip` command is installed: `sudo apt install unzip`
+* Unzip the Tomcat bundle: `unzip -q BonitaSubscription-x.y.z-tomcat.zip`
 
 * Change folders and files ownership: `sudo chown -R tomcat8:tomcat8 /opt/bonita`
 
@@ -152,7 +150,7 @@ Finally, make sure that the user that runs the Tomcat server, is the owner of al
 
 To define JVM system properties, you need to use a new file named `setenv.sh`:
 
-* Copy the file from deploy bundle to Tomcat `bin` folder: `sudo cp ~/BonitaSubscription-x.y.z-deploy/Tomcat-8.5.z/bin/setenv.sh /usr/share/tomcat8/bin/`, where "x.y.z" stands for your current product version.
+* Copy the file from Tomcat bundle to Tomcat installation `bin` folder: `sudo cp ~/BonitaSubscription-x.y.z-tomcat/server/bin/setenv.sh /usr/share/tomcat8/bin/`, where "x.y.z" stands for your current product version.
 * Make the file executable: `sudo chmod +x /usr/share/tomcat8/bin/setenv.sh`
 * Edit `setenv.sh` file: `sudo nano /usr/share/tomcat8/bin/setenv.sh`
 * Change `sysprop.bonita.db.vendor` from `h2` to `postgres`
@@ -172,15 +170,23 @@ You need to configure the data source for Bonita Engine.
 
 Warning: make sure you stop Tomcat before performing following operations: `sudo service tomcat8 stop`
 
-* Copy the `bonita.xml` file (Bonita web app context configuration): `sudo cp ~/BonitaSubscription-x.y.z-deploy/Tomcat-8.5.z/conf/Catalina/localhost/bonita.xml /etc/tomcat8/Catalina/localhost/`
-* Edit the `bonita.xml` file by commenting the h2 datasource configuration (using ),
-uncomment PostgreSQL example and update username, password and DB name (bonita in the URL property) to match your
+* Create new folders in order to store Arjuna configuration and work files: `sudo mkdir -p /opt/bonita/conf && sudo mkdir -p /opt/bonita/arjuna/tx-object-store`
+* Set the ownership of the Arjuna configuration folder: `sudo chown -R tomcat8:tomcat8 /opt/bonita/arjuna/tx-object-store`
+* Copy the Arjuna configuration files to `/opt/bonita/conf` folder: `sudo cp ~/BonitaSubscription-x.y.z-tomcat/server/conf/jbossts-properties.xml /opt/bonita/conf/`
+* Edit `jbossts-properties.xml` file, and update the `objectStoreDir` property to point to Arjuna work dir (created above) by replacing:  
+  `<entry key="com.arjuna.ats.arjuna.objectstore.objectStoreDir">${catalina.base}/work/bonita-tx-object-store</entry>`  
+  by  
+  `<entry key="com.arjuna.ats.arjuna.objectstore.objectStoreDir">/opt/bonita/arjuna/tx-object-store</entry>`
+* Save and quit: `CTRL+X, Y, ENTER`
+* Copy the `bonita.xml` file (Bonita web app context configuration): `sudo cp ~/BonitaSubscription-x.y.z-tomcat/server/conf/Catalina/localhost/bonita.xml /etc/tomcat8/Catalina/localhost/`
+* Edit the `bonita.xml` file by commenting the h2 datasource configuration and
+uncomment PostgreSQL example and update username, password and database name (bonita in the URL property) to match your
 configuration (e.g. `bonita_db_user`, `bonita_db_password` and `bonita_db`): `sudo nano /etc/tomcat8/Catalina/localhost/bonita.xml`
 * Also in `bonita.xml` file update data base configuration for BDM to match your configuration (e.g. `bonita_db_user`, `bonita_db_password` and `bonita_bdm`)
 * Save and quit: `CTRL+X, Y, ENTER`
-* Copy and overwrite `logging.properties` file: `sudo cp ~/BonitaSubscription-x.y.z-deploy/Tomcat-8.5.z/conf/logging.properties /etc/tomcat8/logging.properties`
-* Copy and overwrite `context.xml` file: `sudo cp ~/BonitaSubscription-x.y.z-deploy/Tomcat-8.5.z/conf/context.xml /etc/tomcat8/context.xml`
-* Copy and overwrite `server.xml` file: `sudo cp ~/BonitaSubscription-x.y.z-deploy/Tomcat-8.5.z/conf/server.xml /etc/tomcat8/server.xml`
+* Copy and overwrite `logging.properties` file: `sudo cp ~/BonitaSubscription-x.y.z-tomcat/server/conf/logging.properties /etc/tomcat8/logging.properties`
+* Copy and overwrite `context.xml` file: `sudo cp ~/BonitaSubscription-x.y.z-tomcat/server/conf/context.xml /etc/tomcat8/context.xml`
+* Copy and overwrite `server.xml` file: `sudo cp ~/BonitaSubscription-x.y.z-tomcat/server/conf/server.xml /etc/tomcat8/server.xml`
 * Edit `server.xml` (`sudo nano /etc/tomcat8/server.xml`) and comment out h2 listener line
 * Fix ownership on the copied files: `sudo chown -R root:tomcat8 /etc/tomcat8`
 
@@ -189,8 +195,8 @@ configuration (e.g. `bonita_db_user`, `bonita_db_password` and `bonita_db`): `su
 If you run the Subscription Pack version, you will need a license:
 
 * Generate the key in order to get a license:
-  * Change the current directory to license generation scripts folder: `cd ~/BonitaSubscription-x.y.z-deploy/request_key_utils-x.y-z`
-  * Make the license generation script executable: `chmod u+x generateRequestKey.sh`
+  * Change the current directory to license generation scripts folder: `cd ~/BonitaSubscription-x.y.z-tomcat/tools/request_key_utils-x.y-z`
+  * Make sure the license generation script is executable: `chmod u+x generateRequestKey.sh`
   * Run the script: `./generateRequestKey.sh`
   * For `License type:`
     * enter `1` to select `1 - Case counter license.` if your subscription is case-based.
@@ -201,14 +207,14 @@ If you run the Subscription Pack version, you will need a license:
 * Go to Licenses \> **Request a license**
 * Fill in the license request forms
 * You should receive the license file by email
-* Copy the license file to the Bonita "home" folder: `sudo cp BonitaSubscription-x.y-Your_Name-ServerName-YYYYMMDD-YYYYMMDD.lic /opt/bonita/bonita_home-x.y.z/server/licenses/`
+* Copy the license file to the Bonita license folder: `sudo cp BonitaSubscription-x.y-Your_Name-ServerName-YYYYMMDD-YYYYMMDD.lic /opt/bonita/<SETUP_TOOL_FOLDER>/platform_conf/licenses/`
 * Change folders and files ownership: `sudo chown -R tomcat8:tomcat8 /opt/bonita`
 
 ### Deployment
 
 Deploy the Bonita web application:
 
-Copy `bonita.war` to Tomcat `webapps` folder: `sudo cp ~/BonitaSubscription-x.y.z-deploy/Tomcat-8.5.z/webapps/bonita.war /var/lib/tomcat8/webapps/`
+Copy `bonita.war` to Tomcat `webapps` folder: `sudo cp ~/BonitaSubscription-x.y.z-tomcat/server/webapps/bonita.war /var/lib/tomcat8/webapps/`
 
 Take care to set the proper owner: `sudo chown tomcat8:tomcat8 /var/lib/tomcat8/webapps/bonita.war`
 

@@ -42,10 +42,12 @@ The WildFly bundle is based on a standard WildFly installation with the followin
 * `server/bin/standalone.conf`: script to configure JVM system properties on Linux systems.
 * `server/bin/standalone.conf.bat`: script to configure JVM system properties on Windows systems.
 * `server/modules/system/layers/base/sun/jdk/main/module.xml`: list of base jdk module necessary for WildFly and Bonita to execute.
-* `server/request_key_utils`: script to generate license request keys (Subscription editions only).
 * `server/standalone/deployments/bonita-all-in-one-[version].ear`: Bonita Portal (web application) and EJB3 API.
 * `setup/`: a tool to manage Bonita Platform configuration, stored in database instead of filesystem. Also ships a tool to centralize all the required WildFly bundle configuration.
 * `setup/wildfly-templates/standalone.xml`: WildFly context configuration for Bonita Portal. It defines data sources used by Bonita Engine.
+* `tools/request_key_utils-`_`key_utils.version`_: folder containing the script to generate license request keys (Subscription editions only).
+* `tools/BonitaSubscription-x.y.z`-`LDAP-Synchronizer` : folder containing the tool to synchronize your organization in Bonita with your LDAP (Subscription editions only).
+* `tools/cas-`_`cas.version`_`-module`: folder containing module files and description to enable CAS dependency to bonita EAR (Subscription editions only).
 * `start-bonita.bat`: script to start the bundle on Windows.
 * `start-bonita.sh`: script to start the bundle on Linux.
 
@@ -63,7 +65,7 @@ If this is the first time you generate a license, you need to generate a request
 #### Generate the request key
 
 On the server where you installed Bonita Platform:
-1. Go to the request_key_utils folder
+1. Go to the `tools/request_key_utils` folder
 2. Run the `generateRequestKey.bat` script (for Windows) or the `generateRequestKey.sh` script (for Linux)
     
 #### Request the new license

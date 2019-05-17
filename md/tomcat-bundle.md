@@ -45,9 +45,11 @@ The Tomcat bundle is based on a standard Tomcat installation with the following 
 * `server/conf/server.xml`: modified to add listener for Narayana and h2 (see below for modification needed if you want to switch to another RDBMS).
 * `server/conf/jbossts-properties.xml`: configuration files for Narayana transaction manager.
 * `server/lib/bonita`: extra libraries needed by Bonita. The following libraries are included: Narayana JTA Transaction Manager, h2, SLF4J.
-* `server/request_key_utils`: folder containing script to generate license request keys (Subscription editions only).
 * `server/webapps/bonita.war`: the Bonita web application.
 * `setup/`: a tool to manage Bonita Platform configuration, stored in database instead of filesystem. Also ships a tool to centralize all the required Tomcat bundle configuration.
+* `tools/request_key_utils-`_`key_utils.version`_: folder containing the script to generate license request keys (Subscription editions only).
+* `tools/BonitaSubscription-x.y.z`-`LDAP-Synchronizer` : folder containing the tool to synchronize your organization in Bonita with your LDAP (Subscription editions only).
+* `tools/cas-`_`cas.version`_`-module`: folder containing module files and description to enable CAS dependency to bonita EAR (Subscription editions only).
 * `start-bonita.bat`: script to start the bundle on Windows.
 * `start-bonita.sh`: script to start the bundle on Linux.
 * `stop-bonita.bat`: script to stop the bundle on Windows.
@@ -67,7 +69,7 @@ If this is the first time you generate a license, you need to generate a request
 #### Generate the request key
 
 On the server where you installed Bonita Platform:
-1. Go to the request_key_utils folder
+1. Go to the `tools/request_key_utils` folder
 2. Run the `generateRequestKey.bat` script (for Windows) or the `generateRequestKey.sh` script (for Linux)
     
 #### Request the new license

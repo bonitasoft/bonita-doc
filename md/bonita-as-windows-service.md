@@ -20,16 +20,16 @@ Please verify the supported version from the Support page
 
 ![Tomcat home page](images/bonita-as-windows-service/tomcatHome.png)
 
-* **_Download_** the bundle BonitaSubscription-x.y.z-deploy.zip (or BonitaCommunity-x.y.z-deploy.zip for the community edition)
-* **_Unzip_** the bundle in a folder that we'll call: %BONITA_DEPLOY%
-* **_Move_** the setup tool %BONITA_DEPLOY%/setup into another folder, for example %TOMCAT_INSTALL_FOLDER%/setup
+* **_Download_** the bundle BonitaSubscription-x.y.z-tomcat.zip (or BonitaCommunity-x.y.z-tomcat.zip for the community edition)
+* **_Unzip_** the bundle in a folder that we'll call: %TOMCAT_BUNDLE%
+* **_Move_** the setup tool %TOMCAT_BUNDLE%/setup into another folder, for example %TOMCAT_INSTALL_FOLDER%/setup
 This last step is not mandatory since the setup tool is independent from Tomcat, you can place it wherever you want.
 
 ## Get the license (In case of Subscription edition)
 
-* **_Execute_** %BONITA_DEPLOY%/request_key_utils/generateRequestKey.bat
-* **_Use_** the generated key to get a license from the customer portal. The license shouldn't be a development license.
-* **_Move_** the license file into the folder %TOMCAT_INSTALL_FOLDER%/setup/platform_conf/licenses
+* **_Execute_** %TOMCAT_BUNDLE%/tools/request_key_utils/generateRequestKey.bat
+* **_Use_** the generated key to get a license from the customer portal. The license should not be a development license.
+* **_Move_** the received license file into the folder %TOMCAT_INSTALL_FOLDER%/setup/platform_conf/licenses
 
 ## Database configuration
 
@@ -46,21 +46,21 @@ Check your Database provider documentation in order to get the proper driver ver
 
 ## Server configuration
 
-* **_Move_** the folder %BONITA_DEPLOY%/Tomcat-x.y.z/server/lib to %TOMCAT_INSTALL_FOLDER%/lib
+* **_Move_** the folder %TOMCAT_BUNDLE%/server/lib to %TOMCAT_INSTALL_FOLDER%/lib
 * **_Add_** your database driver to %TOMCAT_INSTALL_FOLDER%/lib
-* **_Move_** the folder %BONITA_DEPLOY%/Tomcat-x.y.z/server/conf to %TOMCAT_INSTALL_FOLDER%/conf
-* **_Move_** the folder %BONITA_DEPLOY%/Tomcat-x.y.z/server/webapps to %TOMCAT_INSTALL_FOLDER%/webapps
+* **_Move_** the folder %TOMCAT_BUNDLE%/server/conf to %TOMCAT_INSTALL_FOLDER%/conf
+* **_Move_** the folder %TOMCAT_BUNDLE%/server/webapps to %TOMCAT_INSTALL_FOLDER%/webapps
 * **_Configure_** %TOMCAT_INSTALL_FOLDER%/conf/Catalina/localhost/bonita.xml
 
 ![datasource configuration](images/bonita-as-windows-service/bonitaXml.png)
 
 ## Configure JVM properties
 
-* The file %BONITA_DEPLOY%/Tomcat-x.y.z/server/bin/setenv.bat contains all JVM parameters to use in the new installation.
+* The file %TOMCAT_BUNDLE%/server/bin/setenv.bat contains all JVM parameters to use in the new installation.
 * Update this file to change the database provider (for example postgresql).
 * In this file update all the references to %CATALINA_HOME% with %TOMCAT_INSTALL_FOLDER%
 In this example %TOMCAT_INSTALL_FOLDER% = C:\Program Files\Apache Software Foundation\Tomcat x.y
-* Extract all the JVM properties of the file %BONITA_DEPLOY%/Tomcat-x.y.z/server/bin/setenv.bat 
+* Extract all the JVM properties of the file %TOMCAT_BUNDLE%/server/bin/setenv.bat 
 
 * The properties should be the following ones:
 
