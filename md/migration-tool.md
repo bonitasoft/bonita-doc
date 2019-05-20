@@ -5,6 +5,10 @@ to the one delivered with the latest version of Bonita.
 This is due to the fact that improvements in any version of the Migration Tool can affect all supported version of Bonita.
 This change log must be read before [migrating to a newer version of Bonita](migrate-from-an-earlier-version-of-bonita-bpm.md).
 
+## 2.40.1 - May. 20th, 2019 (Bonita 7.8.4)
+This version of the migration tool migrates Bonita up to version 7.8.4. and contains one bug fix:
+* BS-19346 Migration tool: SQL query used to migrate contract_data/arch_contract_data is not actually limited to 5000
+
 ## 2.40.0 - April. 12th, 2019 (Bonita 7.8.4)
 This version of the migration tool migrates Bonita up to version 7.8.4.
 * No bug fix.
