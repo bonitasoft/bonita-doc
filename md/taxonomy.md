@@ -81,7 +81,6 @@
     * [Messaging](messaging.md)
     * [Generate PDF from an Office document](generate-pdf-from-an-office-document.md)
     * [Salesforce](salesforce.md)
-    * [SAP JCo 2](sap-jco-2.md)
     * [SAP JCo 3](sap-jco-3.md)
     * [Script](script.md)
     * [Twitter](twitter.md)

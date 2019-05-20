@@ -87,6 +87,9 @@ The Wildfly bundle was mainly used with the SQL server database. The Tomcat bund
 ### 32 bits installers
 32 bits installers for all platforms are no longer provided.
 
+### SAP JCO2 connector (Subscription only)
+The SAP JCO2 connector is no longer available. Use the SAP JCO3 connector instead.
+
 ### Deploy zip
 The BonitaSubscription-x.y.z-deploy.zip is no longer provided starting from Bonita 7.9.
 Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bundle.md) page for more specific needs.
