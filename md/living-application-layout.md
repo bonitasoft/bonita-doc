@@ -14,7 +14,7 @@ This layout contains a line with the name of the application, followed by the na
 
 ## Customizing this layout
 
-You can customize this layout by following the [customize-application-layouts](customize-application-layouts.md) steps.
+You can customize this layout by following the [customize-layouts](customize-layouts.md) steps.
 
 ## Build a Side menu layout
 As of version 7.5.x, the default provided layout does not allow this kind of customization anymore (at least not so easily), but if you start from a 7.4.x Layout you can follow the 7.4 documentation [customize-living-application-layout](/7.4?page=customize-living-application-layout#toc3) to build a side menu layout.
