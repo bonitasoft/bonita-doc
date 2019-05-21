@@ -10,6 +10,16 @@
 
 #### Highly Scalable asynchronous Engine
 PABLO
+=======
+Bonita is still compiled with java 8, but can now run on Java 11.
+The various libraries and dependencies of the product have been updated according to this mindset.
+It means:
+- Some of Bonita dependencies might officially be listed as not working or problematic with Java 11. The dependencies presenting security issues, as well as those not working at runtime have been updated.
+The others were left as they were. The main updated libraries can be found [there](release-notes.md#java-11-lib-update)
+- If you are migrating to Bonita 7.9, and plan to run it on Java 11, some of your connectors will have to be migrated. See [Connectors dependency updates](release-notes.md#connector-dependency-updates)
+- Generally speaking, custom code and connectors might require updated version of libraries used in Bonita. In such cases, those updated versions should be added as script/connector dependencies.
+
+<a id="rest-api-extension-update"/>
 
 #### Embeddable engine - LABS
 PABLO
