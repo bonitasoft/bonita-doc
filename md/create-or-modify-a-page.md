@@ -35,7 +35,11 @@ Custom widget is a special artifact that we will explain in a later chapter.
 
 ## Preview a page, layout, form, or fragment
 
-You can preview page, form and fragment rendering by clicking the **_Preview_** button. Another browser window opens with the artifact as it will be displayed after deployment. If you update the page, form or fragment, the preview is automatically refreshed when you save (not available for Internet Explorer 9).
+You can preview page, form and fragment rendering by clicking the **_Preview_** button. Another browser window opens with the artifact as it will be displayed after deployment. If you update the page, form or fragment, the preview is automatically refreshed when you save (not available for Internet Explorer 11).
+
+You can display your page, layout, form or fragment with one of your theme application installed. 
+
+You can open your preview in a browser tab with expand button, outside of current preview mechanism to allow you set new URL parameters, play with dynamic browser sizing, and to reuse same url in another browser to see how your form or page behaves in your user default browser.
 
 In the Enterprise, Performance and Efficiency editions, you can use the a device types bar on the preview screen to choose the target device type.  
 The preview displays the artifact as it would be displayed on the selected type of device.
@@ -43,6 +47,7 @@ The preview displays the artifact as it would be displayed on the selected type 
 Custom widget is a special artifact that we will explain in a later chapter.
 
 <a id="export"/>
+
 ## Export an artifact
 
 You can export a page or a layout to deploy it in Bonita Portal as a custom page.  
@@ -53,6 +58,7 @@ To export an artifact, click the **_Export_** button ![Export button](images/ima
 After export you can modify your page or layout code by directly editing the code located in _resources_ folder. Be aware that such a modification to the code will work when the page or layout is deployed in Bonita Portal but it may be broken if you import the page into another UI Designer.
 
 <a id="import"/>
+
 ## Import an artifact
 
 To import an artifact from another UI Designer, go to the UI Designer home page and click the **_Import_** button ![Import button](images/images-6_0/pb-import.png). When you import a page, layout, form or fragment, its dependencies (such as custom widgets and fragments used) are automatically be imported too.
