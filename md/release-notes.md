@@ -4,13 +4,131 @@
 **Note:** The 7.9 is currently work in progress (WIP). The 7.9.0 GA is planned on June 2019.
 :::
 
-## Java 11 Migration
+## New values added
+
+### Componentization and tools for developers
+
+#### Highly Scalable asynchronous Engine
+PABLO
+
+#### Embeddable engine - LABS
+PABLO
+Do you want to advertize also for the "internal" micro service architecture?
+
+### Continuous delivery of projects / Industrialization
+
+#### Theme projects are now integrated in Bonita project (Subscription only)
+From the Studio, the theme can now be created as any other part of a Living Application, from the Development Menu and from the Project Explorer "New" option.
+It is packaged as a Maven project, just like the REST API extensions, and is nested in the Bonita project.
+A theme created in the Studio can be deployed to the Portal, and managed (open, edit, delete) as any other element of the application.
+The theme is taken into account in [Bonita Continuous Delivery Add-on](bonita-continuous-delivery-doc/md/index.md), through the builder and the deployer.
+For more information on how to use it, go to the [dedicated documentation](customize-living-application-theme.md).
+
+#### View a UI Designer artifact within an application theme while developing
+Once the theme is mapped to applications, it can be used to view a page, form, layout or fragment under development in the context of the target application.
+To do so, a new "View in application" feature has been added to the preview window in the UI Designer, to ease the style adjustments of the artifact.
+
+#### Community can add customized themes and layouts in living applications
+Themes created in an IDE can now be mapped with an application descriptor to customize the look and feel of a living application.
+Layouts created in the UI Designer can also be updated in an application descriptor for better customization.
+
+#### Use provided UID widgets as a template for a custom widget 
+
+#### Manage UID assets order to guarantee user interface rendering  
+
+### Low code application development: business data management in the UI Designer
+
+#### Easily create forms where business variables or documents are edited by the users (read/write)
+A form that allows a user to edit business variables or documents needs to display the current values before the user modifies them.
+The Studio now creates the variables needed to display the current values and link them to the same widgets than the widgets linked to the task contract: what the user needs to fill and send back to the process. 
+No need to create variables and manipulate the BDM REST API anymore.
+For more information, read [the dedicated documentation](contracts-and-contexts.md).
+
+#### Easily display read-only business variables in forms
+A lot of forms that require users' input or edition of business variables also need to display other business data as read-only information. This information is useful to the users to make the right inputs and/or decisions.
+For each form created for a task, the studio now gives the option to display all attributes that are linked to the business objects used to create the contract inputs as read-only widgets. 
+The unneeded attributes can easily be deleted, all useful ones are ready to be displayed to the users, saving a lot of development time.
+For more information, read [the dedicated documentation](contracts-and-contexts.md).
+
+<a id="uid-lazyRef-filter"/>
+
+#### New embedded AngularJS filter to resolve the lazy references of a business object 
+This improves the management of embedded objects with lazy references. 
+When in the need to retrieve lazy references of objects for either edit or read-only use-case, the above features create a variable using the | lazyRef filter for the object to retrieve (as well as the widget to display the variable).
+For more information, read [the dedicated documentation](variables.md).
+
+#### Switch widget
+
+#### Update multiple documents
+Operations at the level of tasks now handle the complete update of multiple documents: add/delete/update are automatically managed by the method, using document Ids.
+This improvement is also implemented in Bonita Portal case overview, where only the last version of each document is visible, and each document gets two widgets: file viewer to access the document, and file upload to update it.
+
+#### Render a UID page and form in the end-user browser
+
+#### From Bonita Portal to Bonita Living Applications
+We are pursuing the initiative of progressively migrating Bonita Portal to our UI Designer technology and transforming it into three applications, one per provided profile. 
+Each new page is provided as a new custom page that is responsive, that can be customized in the UI Designer, and used in any living application.
+
+##### "Install/Export Organization" for the Administrator Portal
+It offers the same features than the old Portal page:
+   - A file updload expecting the .xml of an organization
+   - An Export button to download the .xml locally and share it
+Additionally, it offers better validation (checks for any error in the file format with a dedicated error message).
+
+##### A new Bonita Layout
+Created with the UI Designer, it is responsive, it can be customized and added to any living application.
+It is composed of a few custom widgets.
+Provided as a Resource in Bonita Portal (the old one is deprecated), it can be imported and edited in Bonita UI Designer.
+It offers new features:
+   - A "list of applications" icon: once clicked, it displays a modal window that lists the available Applications for the profiles of the loggued user, so the user can pick one and switch application.
+   - The name of the loggued user: once clicked, it displays a modal window with user's information, the language picker for the application and a logout button
+It is compliant with all browsers: Microsoft Edge, IE11, Mozilla Firefox and Google Chrome.
+
+## Improvements
+### Studio usability
+#### Import a bos archive in Bonita Studio using Drag and Drop
+Bos archive can now be imported in Bonita Studio by being dragged from a file system and dropped into the Bonita project explorer.
+
+### Performance
+#### Asynchronous connector execution
+
+Connectors are executed in an asynchrous manner. In earlier versions each work was waiting for the connector to end before processing other workload. This resulted in degraded performance if few connectors had a long execution time.
+Worker threads are now released as soon as the execution of the connector is triggered. see [connector execution page](connectors-execution.md) for more details.
+
+#### Engine work execution
+
+A work execution audit mechanism has been introduced. It can be activated to detect when a work takes too much time to be executed or it was _rescheduled_too much times.
+See [Work execution audit page](work-execution-audit.md)
+
+#### Timer execution
+
+Bugs were fixed to increase stability of the integration with Quartz
+
+* BS-19239 Exception during Quartz Job execution leaves the associated flownode in WAITING state and the process execution is stopped
+* BR-56 Failure in a cron timer cancels future executions
+
+A [new page](timers-execution.md) was added to explain how Timers are executed and how to handle time execution failures
+
+Also details were added on how to configure Quartz for timers execution: [quartz performance tunning](performance-tunning.md#cron)
+
+#### Cluster locks
+
+A new configuration capability was added:
+
+`bonita.platform.cluster.lock.leaseTimeSeconds` : 
+
+Specify a maximum time a lock is kept cluster-wise. It avoids having an instance of process indefinitely locked when one node does not release a lock due to errors like network issues.
+
+It is set by default to 600 seconds. It should be kept to a high value (more than transaction timeout) or else some concurrent modifications on processes can happen.
+
+## Technical updates
+### Java 11 Compliance
 
 Bonita now runs on Java 8 and Java 11.
 
 <a id="rest-api-extension-update"/>
 
-### REST API extension project update
+#### REST API extension project update
 In order to be compatible with Java 11, you must update the following plug-ins dependencies in your _pom.xml_:
 * _groovy-all_ dependency must be updated to **2.4.16**
 * _groovy-eclipse-batch_ dependency must be updated to **2.4.16-02** 
@@ -33,70 +151,6 @@ In order to be compatible with Java 11, you must update the following plug-ins d
     ...
   </pluginRepositories>
 ``` 
-
-## Data Management
-
-### Edition form generation from a contract with Business data or Documents
-An edition form can now be generated to edit a Business data or a Document from a task contract. More info on how to use it [here](contracts-and-contexts.md).
-
-<a id="uid-lazyRef-filter"/>
-
-### New embedded AngularJS filter to resolve business object lazy references
-More info on how to use it [here](variables.md).
-
-
-## Industrialization
-
-### Theme projects integrated in Bonita project (Subscription only)
-More info on how to use it [here](customize-living-application-theme.md).
-
-
-## Packaging
-### Bundles
-Tomcat and Wildfly bundles have been renamed. The Wildfly and Tomcat version are no longer specified in their name.
-
-### LDAP synchronizer & CAS single sign-on module
-The LDAP synchronizer & CAS single sign-on module are now provided with the Bonita Subscription bundles, in the `tools/` sub-directory.
-
-### License Request Key generator
-Within Tomcat and WildFly bundles, the License Request Key generator tool has been moved from the `server/` sub-directory to the `tools/` sub-directory.
-
-## Miscellaneous
-
-### Import a bos archive in Bonita Studio using Drag and Drop
-Bos archive can now be imported in Bonita Studio by being dragged from a file system and dropped into the Bonita project explorer.
-
-## Deprecation
-
-### EJB
-
-EJB communication protocol with the engine is now deprecated. Removal is planned for 7.10 version.
-
-### Wildfly Bundle
-
-The Wildfly bundle has been deprecated in Bonita 7.9.
-
-If you are using the Wildfly bundle, we advise you to switch to the Tomcat bundle when migrating to 7.9.
-
-The Wildfly bundle was mainly used with the SQL server database. The Tomcat bundle is now compatible with it, and is the recommended solution.
-
-## Feature removals
-
-<a id="32bits-installers"/>
-
-### 32 bits installers
-32 bits installers for all platforms are no longer provided.
-
-### SAP JCO2 connector (Subscription only)
-The SAP JCO2 connector is no longer available. Use the SAP JCO3 connector instead.
-
-### Deploy zip
-The BonitaSubscription-x.y.z-deploy.zip is no longer provided starting from Bonita 7.9.
-Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bundle.md) page for more specific needs.
-
-
-## Technology updates
-
 
 ### Tomcat
 Tomcat has been updated to the version 8.5.40.
@@ -143,11 +197,12 @@ The [official recommendation is to use 'utf8mb4'](https://dev.mysql.com/doc/refm
 
 <a id="other-dependencies"/>
 
-## Supported Operating Systems
+### Supported Operating Systems
 Bonita now supports Red Hat Enterprise Linux 7, and Ubuntu 18.04 LTS
-## Dependency updates
 
-### Bonita dependency updates
+### Dependency updates
+
+#### Bonita dependency updates
 
 <a id="java-11-lib-update"/>
 
@@ -156,7 +211,7 @@ The following Bonita dependencies have been upgraded to improve the Java 11 supp
 * spring framework version is now 5.1.5.RELEASE
 * spring-boot version is now 2.1.3.RELEASE
 
-### Connectors dependency updates
+#### Connectors dependency updates
 
 <a id="connector-dependency-updates"/>
 
@@ -228,39 +283,34 @@ The version of the _javax.mail:mail_ dependency has been updated from _1.4.5_ to
 
 The version of the _org.twitter4j:twitter4j-core_ dependency has been updated from _4.0.2_ to _4.0.7_
 
-## Monitoring capabilities
+## Feature deprecations and removals
+### Deprecations
 
-### Engine work execution
+#### EJB
 
-A work execution audit mechanism has been introduced. It can be activated
-to detect when a work takes too much time to be executed or it was _rescheduled_
-too much times.
-See [Work execution audit page](work-execution-audit.md)
+EJB communication protocol with the engine is now deprecated. Removal is planned for 7.10 version.
 
-## Performance
+#### Wildfly Bundle
 
-### Asynchronous connector execution
+The Wildfly bundle has been deprecated in Bonita 7.9.
 
-Connectors are executed in an asynchrous manner. In earlier versions each work was waiting for the connector to end before processing other workload. This resulted in degraded performance if few connectors had a long execution time.
-Worker threads are now released as soon as the execution of the connector is triggered. see [connector execution page](connectors-execution.md) for more details.
+If you are using the Wildfly bundle, we advise you to switch to the Tomcat bundle when migrating to 7.9.
 
-## Timer execution
+The Wildfly bundle was mainly used with the SQL server database. The Tomcat bundle is now compatible with it, and is the recommended solution.
 
-Bugs were fixed to increase stability of the integration with Quartz
 
-* BS-19239 Exception during Quartz Job execution leaves the associated flownode in WAITING state and the process execution is stopped
-* BR-56 Failure in a cron timer cancels future executions
+### Removals
 
-A [new page](timers-execution.md) was added to explain how Timers are executed and how to handle time execution failures
+<a id="32bits-installers"/>
 
-Also details were added on how to configure Quartz for timers execution: [quartz performance tunning](performance-tunning.md#cron)
+#### 32 bits installers
+32 bits installers for all platforms are no longer provided.
 
-## Cluster locks
+#### SAP JCO2 connector (Subscription only)
+The SAP JCO2 connector is no longer available. SAP JCO3 connector is more recent and can still be used.
 
-A new configuration capability was added:
+#### Deploy zip
+The BonitaSubscription-x.y.z-deploy.zip is no longer provided starting from Bonita 7.9.
+Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bundle.md) page for more specific needs.## Monitoring capabilities
 
-`bonita.platform.cluster.lock.leaseTimeSeconds` : 
-
-Specify a maximum time a lock is kept cluster-wise. It avoids having an instance of process indefinitely locked when one node does not release a lock due to errors like network issues.
-
-It is set by default to 600 seconds. It should be kept to a high value (more than transaction timeout) or else some concurrent modifications on processes can happen.
+## Bug fixes
