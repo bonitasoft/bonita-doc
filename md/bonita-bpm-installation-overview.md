@@ -6,7 +6,7 @@ For the Bonita Subscription editions: Enterprise, Performance, Efficiency, and T
 
 For the Bonita Community edition, no license is needed.
 
-Bonita Studio <!--{.h2}-->
+## Bonita Studio
 
 Bonita Studio contains an embedded test platform that includes an Apache Tomcat application server, an h2 database and the Bonita web application (that itself includes Bonita Engine).
 
@@ -21,7 +21,7 @@ To know more, go to [Bonita Studio installation](bonita-bpm-studio-installation.
 
 <a id="platform"/>
 
-Bonita Platform  <!--{.h2}-->
+## Bonita Platform
 
 Bonita Platform can be installed in several ways:
 
@@ -41,3 +41,13 @@ Starting from Bonita 7.3.0, there is no more bonita home to store the configurat
 
 
 For detailed information on the Supported Environment Matrix, see the [Support Guide](https://customer.bonitasoft.com/support-policies) or [ask to be contacted by our commercial team](http://www.bonitasoft.com/contact-us).
+
+
+## Bonita Engine only ![](images/bonita-lab-icon.png)
+
+If you only need the execution engine you can integrate it in different ways
+
+* Using the Spring boot starter
+* If you are not using Spring boot, it can ba integrated programatically
+
+This mode of installation is currently in *Lab*, see [Embed Engine](embed-engine.md) page.
