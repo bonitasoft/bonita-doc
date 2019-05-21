@@ -1,4 +1,4 @@
-# Customize the layouts
+# Customize layouts
 
 ::: info
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
