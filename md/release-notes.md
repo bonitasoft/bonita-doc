@@ -122,6 +122,7 @@ This change should not impact the way to use Bonita.
 However, tuning Bonita transaction configuration is now a little different. If you wish to change the default transaction timeout,
 it is now done by changing the `defaultTimeout` property in file `server/conf/jbossts-properties.xml`  instead of
 file `server/conf/bitronix-config.properties`
+More configuration info can be found [here](tomcat-bundle.md)
 
 ### Databases supported
 
