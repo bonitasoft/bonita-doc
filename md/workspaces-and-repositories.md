@@ -102,7 +102,7 @@ Git commands available in the studio interface:
 
  * **Share with Git**  
 This action connects the current project to Git and shares it on a remote.
-To configure the remote, see the following [Egit user guide](http://wiki.eclipse.org/EGit/User_Guide#Working_with_remote_Repositories) or the [Share on GitHub howto](share-a-project-on-github.md).
+To configure the remote, see the following [Egit user guide](http://wiki.eclipse.org/EGit/User_Guide#Working_with_remote_Repositories) or the [Share on GitHub howto](share-a-repository-on-github.md).
 
  * **Clone**  
 Create a new Studio project from an existing Git repository (that must contain a proper Bonita project). If the remote project version is lower than the studio, a migration will be applied on the cloned project. Be careful before pushing a migrated project back to the remote: all contributors will have to use the proper studio version.
