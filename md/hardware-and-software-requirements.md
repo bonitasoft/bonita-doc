@@ -27,7 +27,7 @@ Software required for Bonita Platform (Bonita Engine and Bonita Portal).
 | Oracle Java SE Runtime Environment | 8 (see note 1)                                   |
 | OpenJDK                            | 8 (see note 1)                                   |
 | **Application Server**             |
-| Apache Tomcat                      | 8.5.x (x > 23)                                   |
+| Apache Tomcat                      | 8.5.x (x > 40)                                   |
 | Red Hat WildFly                    | 10.1.x                                           |
 | **Database**                       | (see note 2)                                     |
 | MySQL                              | 8.0.14 and higher in the 8.0.x line (see note 3) |
