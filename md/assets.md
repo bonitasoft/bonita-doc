@@ -78,7 +78,7 @@ You can manually change the order of CSS and Javascript page assets. Reorder thi
 
 At runtime, custom widget assets are loaded in alphabetical order of the custom widgets. For each custom widget, the assets are loaded in the order they are listed. 
 
-Then page assets are loaded. JavaScript and CSS assets are loaded in the page header, this loading is done as it's represented in this list, CSS first then Javascript.
+Then page assets are loaded. JavaScript and CSS assets are loaded in the page header, this loading is done according the list order, CSS first then Javascript.
 
 
 ## Assets in the custom widget editor

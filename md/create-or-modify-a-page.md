@@ -39,7 +39,7 @@ You can preview page, form and fragment rendering by clicking the **_Preview_** 
 
 You can display your page, layout, form or fragment with one of your theme application installed. 
 
-You can open your preview in a browser tab with expand button, outside of current preview mechanism to allow you set new URL parameters, play with dynamic browser sizing, and to reuse same url in another browser to see how your form or page behaves in your user default browser.
+From the preview window, you can also expand the preview outside of current preview mechanism, with the **Expand Preview in new window** button. This allows you to set new URL parameters ..., play with dynamic browser sizing, and to reuse same url in another browser to see how your form or page behaves in your user default browser.
 
 In the Enterprise, Performance and Efficiency editions, you can use the a device types bar on the preview screen to choose the target device type.  
 The preview displays the artifact as it would be displayed on the selected type of device.

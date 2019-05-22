@@ -15,11 +15,12 @@ Each widget in the palette has a description. To show a widget description, just
  Not available for containers.
 :::
 
-Close to the widget name in the properties panel, several options are available in widgets actions button.
+From the properties panel header, the "Widget actions" menu provides a list of actions for the selected widget.
 
-* Use **view** menu option to view the code of standard widget. Use standard widgets as a template for a custom widget, click on **Save as**, find a name for the custom widget, and make it your own.
+* Use **view** menu option to view the code of the standard widget in the widget editor.
+  From there, you can clone this widget (to modify or extend it) by clicking on **Save as**. This will create a custom widget that you can modify as needed.
 
-* Use **edit** menu option, only on custom widget, to go to widget editor.
+* Use **edit** menu option to edit the widget in the widget editor (custom widget only).
 
 * Use the **switch** menu option to replace a widget by another one and keep the current configuration.
 
@@ -33,7 +34,7 @@ Whenever possible, properties in the source widgets are mapped with similar prop
  
  You can edit that or map more, then click on **Switch**.                    
 
-When the switch is completed, chances are you will still have properties to fill out, in the properties panel.
+When the switch is completed, you still may have to set properties from the properties panel.
 
 :::info
  Switch feature not available for Internet Explorer 11 and Microsoft Edge.
@@ -71,7 +72,7 @@ This is useful if you want to display some property of the current element.
 
 ### Save as fragment
 
-If you are using the Enterprise, Performance, Efficiency, or Teamwork edition, you can save any container as a fragment (in widget actions menu). This enables you to reuse the set of widgets in other pages.
+If you are using the Enterprise, Performance, Efficiency, or Teamwork edition, you can save any container as a fragment (from the properties panel header, widget actions menu). This enables you to reuse the set of widgets in other pages.
 
 ### Tab container
 
