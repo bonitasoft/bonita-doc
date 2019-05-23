@@ -94,12 +94,18 @@ It offers new features:
    - The name of the loggued user: once clicked, it displays a modal window with user's information, the language picker for the application and a logout button
 It is compliant with all browsers: Microsoft Edge, IE11, Mozilla Firefox and Google Chrome.
 
-### Getting to Adaptive Case Management
+### A new methods for Living Applications buttons
+A new action is available on the provided _Button_ widget in the UI Designer: "Assign and submit task".  
+This action is mandatory for ACM use-cases, where a user often manages a given case on his own, from begining to end, but can be used in many other use-cases.
+As a result, a user of an ACM-type Living Application can view and fill out the form of any available task in the case, and then simply click on "Submit".
+This is different from Bonita Portal Task List where the user needs to click on "Take" to book a task and take it out his colleagues' To Do list.
+
+### Getting to Adaptive Case Management (ACM)
 Bonita Platform now embeds the underlying mechanism that allows the update of tasks statuses in the scenario of mixed diagrams (structures as well as unstructured).
-This event-handler is in charge of the task_activity variable computation and is included in the Studio and the Runtime bundle but is disabled by default. 
+This event-handler will evaluate the value of task variables that begin with "$" after any task execution.  
+For the purpose of ACM, the variable is the status of each task, deciding for its availability for the user at any step of case execution. 
+This event-handler is included in the Studio and the Runtime bundle, but is disabled by default. 
 To use it, it needs to be enabled in the studio Preferences or in the bundle configuration.
-(doc link to add here)
-Moreover, a new action is available on the provided Submit button in the UI Designer : "assign and submit task". This action is mandatory for ACM use-case where a task can be taken by anybody to be executed. 
 
 ## Improvements
 ### Studio usability
