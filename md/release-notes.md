@@ -43,8 +43,18 @@ Themes created in an IDE can now be mapped with an application descriptor to cus
 Layouts created in the UI Designer can also be updated in an application descriptor for better customization.
 
 #### Use provided UID widgets as a template for a custom widget 
+Do you need a text widget that applies an specific numeric formating to match your external system keys? Do you need a table widget with specific padding?
+
+Bonita UI Designer provides a set of standard widgets to build your form & pages, and now you can extend them to fullfill your specific needs.
+
+In the Properties panel header, there is a new widget action menu. From this menu, you can launch all the widget-related actions, such as: edit, view, save as fragment (depending on the selected widget).
+
+From this widget action menu, you can view the widget, clone it as a custom widget and modify it. It will be directly available in your palette for further uses.
 
 #### Manage UID assets order to guarantee user interface rendering  
+Apply the right order on assets affects the behaviour the page such as the order or CSS loading to override styles, or JS object declarations.
+
+Base framework assets are now visible to show you which ones are used to build your UI Designer page, such as Angular or Bootstrap and in which version, additionally a documentation link has been added to take benefit of such frameworks documentation
 
 ### Low code application development: business data management in the UI Designer
 
@@ -68,12 +78,14 @@ When in the need to retrieve lazy references of objects for either edit or read-
 For more information, read [the dedicated documentation](variables.md).
 
 #### Switch widget
+Directly from whiteboard or from widget properties section, you will now be able to change your current widget by a new one without loosing the configuration you have done. Useful when switching to a new version of your widget custom or not, and as first customization steps after your form creation from studio to match your end user needs.
 
 #### Update multiple documents
 Operations at the level of tasks now handle the complete update of multiple documents: add/delete/update are automatically managed by the method, using document Ids.
 This improvement is also implemented in Bonita Portal case overview, where only the last version of each document is visible, and each document gets two widgets: file viewer to access the document, and file upload to update it.
 
 #### Render a UID page and form in the end-user browser
+Now you can open your preview in a browser tab, outside of current preview mechanism to allow you set new URL parameters, play with dynamic browser sizing, and to reuse same url in another browser to see how your form or page behaves in your user default browser.
 
 #### From Bonita Portal to Bonita Living Applications
 We are pursuing the initiative of progressively migrating Bonita Portal to our UI Designer technology and transforming it into three applications, one per provided profile. 
