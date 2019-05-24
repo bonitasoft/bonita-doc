@@ -26,7 +26,7 @@ You can create a fragment from scratch in the UI Designer home page.
 You can also convert a plain container used in a page, a form, a layout or a fragment into a fragment:
 
 1. Select the container in the page editor.
-2. Click the link **Save as fragment** in the properties panel.
+2. From the properties panel header, click the "Widget actions" menu and select "Save as fragment" item.
 3. Specify a name.
 4. Click the **_Save_** button. 
 5. The Fragment editor opens.

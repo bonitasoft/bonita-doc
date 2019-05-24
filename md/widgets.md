@@ -9,6 +9,37 @@ A page consists of widgets that are arranged in rows, and optionally, containers
 
 Each widget in the palette has a description. To show a widget description, just roll over the widget in the palette.
 
+## Widget Actions
+
+From the properties panel header, the "Widget actions" menu provides a list of actions for the selected widget.
+
+* Use **view** menu option to view the code of the standard widget in the widget editor.
+  From there, you can clone this widget (to modify or extend it) by clicking on **Save as**. This will create a custom widget that you can modify as needed.
+
+* Use **edit** menu option to edit the widget in the widget editor (custom widget only).
+
+* Use the **switch** menu option to replace a widget by another one and keep the current configuration.
+
+Image below shows wizard of switch widget behaviour
+
+:::info
+ This action is not available for containers.
+:::
+
+![widget_switch_mapping](images/widget_switch_mapping.png)
+ 
+In this wizard, select or type the widget to switch to, then click **Show properties**.
+
+Whenever possible, properties in the source widgets are mapped with same properties in the target widget.
+ 
+ You can edit that or map more, then click on **Switch**.                    
+
+When the switch is completed, you still may have to set properties from the properties panel.
+
+:::info
+ Switch feature not available for Internet Explorer 11 and Microsoft Edge.
+:::
+
 ## Containers
 
 A container is a special kind of widget that contains other widgets. You can create nested containers. A typical use for containers is to control the main layout of your page. For example, if you want to create a two-column layout, you will start your page by adding two containers on the same row, each one spanning six columns of the page. A page does not need to have a container, but it is useful.  
@@ -41,7 +72,7 @@ This is useful if you want to display some property of the current element.
 
 ### Save as fragment
 
-If you are using the Enterprise, Performance, Efficiency, or Teamwork edition, you can save any container as a fragment. This enables you to reuse the set of widgets in other pages.
+If you are using the Enterprise, Performance, Efficiency, or Teamwork edition, you can save any container as a fragment (from the properties panel header, widget actions menu). This enables you to reuse the set of widgets in other pages.
 
 ### Tab container
 
