@@ -6,25 +6,6 @@
 
 ## New values added
 
-### Componentization and tools for developers
-
-#### Highly Scalable asynchronous Engine
-PABLO
-=======
-Bonita is still compiled with java 8, but can now run on Java 11.
-The various libraries and dependencies of the product have been updated according to this mindset.
-It means:
-- Some of Bonita dependencies might officially be listed as not working or problematic with Java 11. The dependencies presenting security issues, as well as those not working at runtime have been updated.
-The others were left as they were. The main updated libraries can be found [there](release-notes.md#java-11-lib-update)
-- If you are migrating to Bonita 7.9, and plan to run it on Java 11, some of your connectors will have to be migrated. See [Connectors dependency updates](release-notes.md#connector-dependency-updates)
-- Generally speaking, custom code and connectors might require updated version of libraries used in Bonita. In such cases, those updated versions should be added as script/connector dependencies.
-
-<a id="rest-api-extension-update"/>
-
-#### Embeddable engine - LABS
-PABLO
-Do you want to advertize also for the "internal" micro service architecture?
-
 ### Continuous delivery of projects / Industrialization
 
 #### Theme projects are now integrated in Bonita project (Subscription only)
@@ -38,23 +19,25 @@ For more information on how to use it, go to the [dedicated documentation](custo
 Once the theme is mapped to applications, it can be used to view a page, form, layout or fragment under development in the context of the target application.
 To do so, a new "View in application" feature has been added to the preview window in the UI Designer, to ease the style adjustments of the artifact.
 
-#### Community can add customized themes and layouts in living applications
+#### Bonita Community, add customized themes and layouts in living applications
 Themes created in an IDE can now be mapped with an application descriptor to customize the look and feel of a living application.
 Layouts created in the UI Designer can also be updated in an application descriptor for better customization.
 
 #### Use provided UID widgets as a template for a custom widget 
-Do you need a text widget that applies an specific numeric formating to match your external system keys? Do you need a table widget with specific padding?
-
-Bonita UI Designer provides a set of standard widgets to build your form & pages, and now you can extend them to fullfill your specific needs.
-
-In the Properties panel header, there is a new widget action menu. From this menu, you can launch all the widget-related actions, such as: edit, view, save as fragment (depending on the selected widget).
-
+Do you need a text widget that applies an specific numeric formating to match your external system keys? Do you need a table widget with specific padding?  
+Bonita UI Designer provides a set of standard widgets to build your form & pages, and now you can extend them to fullfill your specific needs.  
+In the Properties panel header, there is a new widget action menu. From this menu, you can launch all the widget-related actions, such as: edit, view, save as fragment (depending on the selected widget).  
 From this widget action menu, you can view the widget, clone it as a custom widget and modify it. It will be directly available in your palette for further uses.
 
 #### Manage UID assets order to guarantee user interface rendering  
-Apply the right order on assets affects the behaviour the page such as the order or CSS loading to override styles, or JS object declarations.
-
+Apply the right order on assets affects the behaviour the page such as the order or CSS loading to override styles, or JS object declarations.  
 Base framework assets are now visible to show you which ones are used to build your UI Designer page, such as Angular or Bootstrap and in which version, additionally a documentation link has been added to take benefit of such frameworks documentation
+
+#### A new method for Living Applications buttons
+A new action is available on the provided _Button_ widget in the UI Designer: "Assign and submit task".  
+This action is mandatory for ACM use-cases, where a user often manages a given case on his own, from begining to end, but can be used in many other use-cases.
+As a result, a user of an ACM-type Living Application can view and fill out the form of any available task in the case, and then simply click on "Submit".
+This is different from Bonita Portal Task List where the user needs to click on "Take" to book a task and take it out his colleagues' To Do list.
 
 ### Low code application development: business data management in the UI Designer
 
@@ -87,7 +70,7 @@ This improvement is also implemented in Bonita Portal case overview, where only 
 #### Render a UID page and form in the end-user browser
 Now you can open your preview in a browser tab, outside of current preview mechanism to allow you set new URL parameters, play with dynamic browser sizing, and to reuse same url in another browser to see how your form or page behaves in your user default browser.
 
-#### From Bonita Portal to Bonita Living Applications
+### From Bonita Portal to Bonita Living Applications
 We are pursuing the initiative of progressively migrating Bonita Portal to our UI Designer technology and transforming it into three applications, one per provided profile. 
 Each new page is provided as a new custom page that is responsive, that can be customized in the UI Designer, and used in any living application.
 
@@ -102,15 +85,9 @@ Created with the UI Designer, it is responsive, it can be customized and added t
 It is composed of a few custom widgets.
 Provided as a Resource in Bonita Portal (the old one is deprecated), it can be imported and edited in Bonita UI Designer.
 It offers new features:
-   - A "list of applications" icon: once clicked, it displays a modal window that lists the available Applications for the profiles of the loggued user, so the user can pick one and switch application.
-   - The name of the loggued user: once clicked, it displays a modal window with user's information, the language picker for the application and a logout button
+* A "list of applications" icon: once clicked, it displays a modal window that lists the available Applications for the profiles of the loggued user, so the user can pick one and switch application.
+* The name of the loggued user: once clicked, it displays a modal window with user's information, the language picker for the application and a logout button  
 It is compliant with all browsers: Microsoft Edge, IE11, Mozilla Firefox and Google Chrome.
-
-### A new methods for Living Applications buttons
-A new action is available on the provided _Button_ widget in the UI Designer: "Assign and submit task".  
-This action is mandatory for ACM use-cases, where a user often manages a given case on his own, from begining to end, but can be used in many other use-cases.
-As a result, a user of an ACM-type Living Application can view and fill out the form of any available task in the case, and then simply click on "Submit".
-This is different from Bonita Portal Task List where the user needs to click on "Take" to book a task and take it out his colleagues' To Do list.
 
 ### Getting to Adaptive Case Management (ACM)
 Bonita Platform now embeds the underlying mechanism that allows the update of tasks statuses in the scenario of mixed diagrams (structures as well as unstructured).
@@ -125,25 +102,23 @@ To use it, it needs to be enabled in the studio Preferences or in the bundle con
 Bos archive can now be imported in Bonita Studio by being dragged from a file system and dropped into the Bonita project explorer.
 
 ### Performance
-#### Asynchronous connector execution
-
-Connectors are executed in an asynchrous manner. In earlier versions each work was waiting for the connector to end before processing other workload. This resulted in degraded performance if few connectors had a long execution time.
-Worker threads are now released as soon as the execution of the connector is triggered. see [connector execution page](connectors-execution.md) for more details.
-
 #### Engine work execution
 
-A work execution audit mechanism has been introduced. It can be activated to detect when a work takes too much time to be executed or it was _rescheduled_too much times.
+A work execution audit mechanism has been introduced. It can be activated to detect when a work takes too much time to be executed or it was _rescheduled_too much times.  
 See [Work execution audit page](work-execution-audit.md)
+
+#### Asynchronous connector execution
+
+  - Connectors are executed in an asynchrous manner. In earlier versions each work was waiting for the connector to end before processing other workload. This resulted in degraded performance if few connectors had a long execution time.  
+  - Worker threads are now released as soon as the execution of the connector is triggered. see [connector execution page](connectors-execution.md) for more details.
 
 #### Timer execution
 
-Bugs were fixed to increase stability of the integration with Quartz
-
+Bugs were fixed to increase stability of the integration with Quartz:
 * BS-19239 Exception during Quartz Job execution leaves the associated flownode in WAITING state and the process execution is stopped
 * BR-56 Failure in a cron timer cancels future executions
 
-A [new page](timers-execution.md) was added to explain how Timers are executed and how to handle time execution failures
-
+A [new page](timers-execution.md) was added to explain how Timers are executed and how to handle time execution failures.  
 Also details were added on how to configure Quartz for timers execution: [quartz performance tunning](performance-tunning.md#cron)
 
 #### Cluster locks
@@ -152,15 +127,30 @@ A new configuration capability was added:
 
 `bonita.platform.cluster.lock.leaseTimeSeconds` : 
 
-Specify a maximum time a lock is kept cluster-wise. It avoids having an instance of process indefinitely locked when one node does not release a lock due to errors like network issues.
-
+Specify a maximum time a lock is kept cluster-wise. It avoids having an instance of process indefinitely locked when one node does not release a lock due to errors like network issues.  
 It is set by default to 600 seconds. It should be kept to a high value (more than transaction timeout) or else some concurrent modifications on processes can happen.
+
+## Packaging
+### Bundles
+Tomcat and Wildfly bundles have been renamed. The Wildfly and Tomcat version are no longer specified in their name.
+
+### LDAP synchronizer & CAS single sign-on module
+The LDAP synchronizer & CAS single sign-on module are now provided with the Bonita Subscription bundles, in the `tools/` sub-directory.
+
+### License Request Key generator
+Within Tomcat and WildFly bundles, the License Request Key generator tool has been moved from the `server/` sub-directory to the `tools/` sub-directory.
 
 ## Technical updates
 ### Java 11 Compliance
 
 Bonita now runs on Java 8 and Java 11.
-
+Bonita is still compiled with java 8, but can now run on Java 11.
+The various libraries and dependencies of the product have been updated according to this mindset.
+It means:
+- Some of Bonita dependencies might officially be listed as not working or problematic with Java 11. The dependencies presenting security issues, as well as those not working at runtime have been updated.
+The others were left as they were. The main updated libraries can be found [there](release-notes.md#java-11-lib-update)
+- If you are migrating to Bonita 7.9, and plan to run it on Java 11, some of your connectors will have to be migrated. See [Connectors dependency updates](release-notes.md#connector-dependency-updates)
+- Generally speaking, custom code and connectors might require updated version of libraries used in Bonita. In such cases, those updated versions should be added as script/connector dependencies.
 <a id="rest-api-extension-update"/>
 
 #### REST API extension project update
@@ -187,54 +177,11 @@ In order to be compatible with Java 11, you must update the following plug-ins d
   </pluginRepositories>
 ``` 
 
-### Tomcat
-Tomcat has been updated to the version 8.5.40.
-
-### Bonita Studio
+#### Bonita Studio
 Underlying Eclipse version has been updated to 2018-12 version integrating Java 11 support. 
 Bonita Studio Community installers are now packaged with a JRE 11 by default (instead of a JRE 8).
-For Linux users, you now need GTK3 library to be installed. 
-
-### JTA transaction manager replacement
-
-In Bonita 7.9.0, we replaced the JTA transaction manager used to handle XA transactions in Bonita Engine from
-Bitronix to Narayana (also known as Arjuna).  
-This change should not impact the way to use Bonita.  
-However, tuning Bonita transaction configuration is now a little different. If you wish to change the default transaction timeout,
-it is now done by changing the `defaultTimeout` property in file `server/conf/jbossts-properties.xml`  instead of
-file `server/conf/bitronix-config.properties`
-More configuration info can be found [here](tomcat-bundle.md)
-
-### Databases supported
-
-#### Oracle
-
-From Bonita 7.9, the supported version of Oracle database is **12c (12.2.x.y)**
-
-#### PostgreSQL
-
-From Bonita 7.9, the supported version of PostgreSQL database is **11.2**
-
-#### Microsoft SQL Server
-
-Microsoft SQL Server **open-source drivers** are now provided by Bonita. There is no need to download and install them manually anymore.
-
-#### MySQL
-
-From Bonita 7.9, the supported version of MySQL database is **8.0 (8.0.x)**
-
-To migrate to Bonita 7.9+ from an earlier version, you need to run the [Bonita Migration Tool](migrate-from-an-earlier-version-of-bonita-bpm.md), so that
-the database and configuration is updated. Then you must upgrade MySQL to version 8.0. See [Migrating to Bonita 7.9+ using MySQL](migrate-from-an-earlier-version-of-bonita-bpm.md#mysql8) for more details.
-
-::: info
-**Note:** Bonita requires MySQL to use [UTF-8 encoding](database-configuration.md#utf8_requirement), which is an alias for 'utf8mb3', now deprecated by MySQL.  
-The [official recommendation is to use 'utf8mb4'](https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-utf8.html). Bonitasoft will handles this change in a later release.
-:::
-
-<a id="other-dependencies"/>
-
-### Supported Operating Systems
-Bonita now supports Red Hat Enterprise Linux 7, and Ubuntu 18.04 LTS
+For Linux users, you now need GTK3 library to be installed. ### Tomcat
+Tomcat has been updated to the version 8.5.40.
 
 ### Dependency updates
 
@@ -319,6 +266,47 @@ The version of the _javax.mail:mail_ dependency has been updated from _1.4.5_ to
 
 The version of the _org.twitter4j:twitter4j-core_ dependency has been updated from _4.0.2_ to _4.0.7_
 
+### JTA transaction manager replacement
+
+In Bonita 7.9.0, we replaced the JTA transaction manager used to handle XA transactions in Bonita Engine from
+Bitronix to Narayana (also known as Arjuna).  
+This change should not impact the way to use Bonita.  
+However, tuning Bonita transaction configuration is now a little different. If you wish to change the default transaction timeout,
+it is now done by changing the `defaultTimeout` property in file `server/conf/jbossts-properties.xml`  instead of
+file `server/conf/bitronix-config.properties`
+More configuration info can be found [here](tomcat-bundle.md)
+
+### Databases supported
+
+#### Oracle
+
+From Bonita 7.9, the supported version of Oracle database is **12c (12.2.x.y)**
+
+#### PostgreSQL
+
+From Bonita 7.9, the supported version of PostgreSQL database is **11.2**
+
+#### Microsoft SQL Server
+
+Microsoft SQL Server **open-source drivers** are now provided by Bonita. There is no need to download and install them manually anymore.
+
+#### MySQL
+
+From Bonita 7.9, the supported version of MySQL database is **8.0 (8.0.x)**
+
+To migrate to Bonita 7.9+ from an earlier version, you need to run the [Bonita Migration Tool](migrate-from-an-earlier-version-of-bonita-bpm.md), so that
+the database and configuration is updated. Then you must upgrade MySQL to version 8.0. See [Migrating to Bonita 7.9+ using MySQL](migrate-from-an-earlier-version-of-bonita-bpm.md#mysql8) for more details.
+
+::: info
+**Note:** Bonita requires MySQL to use [UTF-8 encoding](database-configuration.md#utf8_requirement), which is an alias for 'utf8mb3', now deprecated by MySQL.  
+The [official recommendation is to use 'utf8mb4'](https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-utf8.html). Bonitasoft will handles this change in a later release.
+:::
+
+<a id="other-dependencies"/>
+
+### Supported Operating Systems
+Bonita now supports Red Hat Enterprise Linux 7, and Ubuntu 18.04 LTS
+
 ## Feature deprecations and removals
 ### Deprecations
 
@@ -347,6 +335,6 @@ The SAP JCO2 connector is no longer available. SAP JCO3 connector is more recent
 
 #### Deploy zip
 The BonitaSubscription-x.y.z-deploy.zip is no longer provided starting from Bonita 7.9.
-Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bundle.md) page for more specific needs.## Monitoring capabilities
+Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bundle.md) page for more specific needs.
 
 ## Bug fixes
