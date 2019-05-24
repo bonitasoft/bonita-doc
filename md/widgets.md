@@ -11,10 +11,6 @@ Each widget in the palette has a description. To show a widget description, just
 
 ## Widget Actions
 
-:::info
- Not available for containers.
-:::
-
 From the properties panel header, the "Widget actions" menu provides a list of actions for the selected widget.
 
 * Use **view** menu option to view the code of the standard widget in the widget editor.
@@ -26,11 +22,15 @@ From the properties panel header, the "Widget actions" menu provides a list of a
 
 Image below shows wizard of switch widget behaviour
 
+:::info
+ This action is not available for containers.
+:::
+
 ![widget_switch_mapping](images/widget_switch_mapping.png)
  
 In this wizard, select or type the widget to switch to, then click **Show properties**.
 
-Whenever possible, properties in the source widgets are mapped with similar properties in the target widget.
+Whenever possible, properties in the source widgets are mapped with same properties in the target widget.
  
  You can edit that or map more, then click on **Switch**.                    
 

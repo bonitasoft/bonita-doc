@@ -72,7 +72,7 @@ A page can not have more than one localization asset. When you upload a new `loc
 
 The list contains both page assets and the assets of the custom widgets used in this page.
 
-In the list, you can delete page assets only, view local assets, and edit external assets of a page. You can also indicate whether an asset is active. To avoid dependency clashes with multiple version of assets, make sure only one version of an asset is active in a page.
+In the list, you can delete page assets only, view and edit local assets, and update url of external assets of a page. You can also indicate whether an asset is active. To avoid dependency clashes with multiple version of assets, make sure only one version of an asset is active in a page.
 
 You can manually change the order of CSS and Javascript page assets. Reorder this files can be useful to override some css classes or javascript functions.
 
