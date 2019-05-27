@@ -43,6 +43,6 @@ In the portal, the link `../theme/theme.css` will point the file `theme.css` fro
 ::: 
 
 ::: info
-To view the form in the graphical context of an application, use the “View in application” drop down feature of the UI Designer Preview window.
-This requires that the theme has already been mapped to one or several applications, and you are loggued as a user with the profile mapped with the application .
+To view the form in the graphical context of an application, use the “View in application” dropdown menu of the UI Designer Preview window.  
+This requires that the theme has already been mapped to one or several applications, and you are loggued as a user with the profile mapped with the application.
 :::
