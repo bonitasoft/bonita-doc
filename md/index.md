@@ -11,12 +11,11 @@ Click on the **links** below to find useful information quickly, or [browse the 
 <div class="menu-block-wrapper">
 
 * [Release notes ${varVersion}](release-notes.md)<!--{li:.first .leaf}-->
-* [Bonita Engine can be embedded in a Spring Boot application](release-notes.md#)<!--{li:.first .leaf}-->
-* [Bonita runs on either Java 8 or Java 11 environments](release-notes.md#)<!--{li:.first .leaf}-->
-* [Faster Form Generation to edit and display business data](release-notes.md#)<!--{li:.first .leaf}-->
-* [A new Bonita Layout for your applications](release-notes.md#)<!--{li:.first .leaf}-->
-* [Theme projects are now integrated in Bonita project (Subscription only)](release-notes.md#)<!--{li:.first .leaf}-->
-* [Performance: Asynchronous connector execution](release-notes.md#)<!--{li:.first .leaf}-->
+* [Bonita runs on either Java 8 or Java 11 environments](release-notes.md#java-11-compliance)<!--{li:.first .leaf}-->
+* [Faster Form Generation to edit and display business data](release-notes.md#improve-form-generation)<!--{li:.first .leaf}-->
+* [A new Bonita Layout for your applications](release-notes.md#new-bonita-layout)<!--{li:.first .leaf}-->
+* [Theme projects are now integrated in Bonita project (Subscription only)](release-notes.md#theme-in-project)<!--{li:.first .leaf}-->
+* [Performance: Asynchronous connector execution](release-notes.md#asynchronous-connector-execution)<!--{li:.first .leaf}-->
 <!--{ul:.menu .nav}-->
 
 </div>
