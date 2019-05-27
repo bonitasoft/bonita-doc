@@ -41,3 +41,8 @@ If you create your own navigation link, you will need to include this `app` URL 
 ::: info
 In the portal, the link `../theme/theme.css` will point the file `theme.css` from the portal theme. This portal forms theme is empty, and customizable to fit to the current portal theme. 
 ::: 
+
+::: info
+To view the form in the graphical context of an application, use the “View in application” dropdown menu of the UI Designer Preview window.  
+This requires that the theme has already been mapped to one or several applications, and you are loggued as a user with the profile mapped with the application.
+:::
