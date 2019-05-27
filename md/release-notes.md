@@ -78,7 +78,7 @@ Base framework assets are now visible to show you which ones are used to build y
 We are pursuing the initiative of progressively migrating Bonita Portal to our UI Designer technology and transforming it into three applications, one per provided profile. 
 Each new page is provided as a new custom page that is responsive, that can be customized in the UI Designer, and used in any living application.
 
-##### "Install/Export Organization" for the Administrator Portal
+#### "Install/Export Organization" for the Administrator Portal
 It offers the same features than the old Portal page:
   - A file updload expecting the .xml of an organization
   - An Export button to download the .xml locally and share it
@@ -86,7 +86,7 @@ Additionally, it offers better validation (checks for any error in the file form
 
 <a id="new-bonita-layout"/>
 
-##### A new Bonita Layout
+#### A new Bonita Layout
 Created with the UI Designer, it is responsive, it can be customized and added to any living application.
 It is composed of a few custom widgets. 
 Provided as a Resource in Bonita Portal (the old one is deprecated), it can be imported and edited in Bonita UI Designer.
