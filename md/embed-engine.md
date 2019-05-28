@@ -2,7 +2,7 @@
 
 ![](images/bonita-lab.png)
 ::: warning
-**Warning**: This is a Lab feature and is subject to change without warning in any version. It is not recommended for production
+**Warning**: This is a Lab feature and is subject to change without warning in any version. It is not recommended for production.
 :::
 
 
@@ -57,7 +57,7 @@ All other configuration can be customized using the standard bonita configuratio
 
 An example can be found in the [bonita-examples](https://github.com/bonitasoft/bonita-examples/tree/master/bonita-loan-request-application) github repository.
 
-## Programatically
+## Programmatically
 
 If you do not wish to use Spring boot, the integration can be done manually.
 
@@ -105,7 +105,7 @@ If you are using subscription edition, use `com.bonitasoft.engine.BonitaEngineSP
 
 ### Configuration
 
-Configuration can be done programatically on the `BonitaEngine` instance:
+Configuration can be done programmatically on the `BonitaEngine` instance:
 
 ```java
 engine.setBonitaDatabaseConfiguration(BonitaDatabaseConfiguration.builder()

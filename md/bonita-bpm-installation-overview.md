@@ -45,9 +45,9 @@ For detailed information on the Supported Environment Matrix, see the [Support G
 
 ## Bonita Engine only ![](images/bonita-lab-icon.png)
 
-If you only need the execution engine you can integrate it in different ways
+If you only need the execution engine you can integrate it two different ways:
 
 * Using the Spring boot starter
-* If you are not using Spring boot, it can ba integrated programatically
+* If you are not using Spring boot, it can be integrated programmatically
 
-This mode of installation is currently in *Lab*, see [Embed Engine](embed-engine.md) page.
+This mode of installation is currently in *Lab* mode, see how to [embed Bonita Engine](embed-engine.md).

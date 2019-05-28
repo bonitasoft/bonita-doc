@@ -152,6 +152,21 @@ The LDAP synchronizer & CAS single sign-on module are now provided with the Boni
 ### License Request Key generator
 Within Tomcat and WildFly bundles, the License Request Key generator tool has been moved from the `server/` sub-directory to the `tools/` sub-directory.
 
+
+## Embed Bonita engine in your application
+![](images/bonita-lab.png)
+::: warning
+**Warning**: This is a Lab feature and is subject to change without warning in any version. It is not recommended for production.
+:::
+
+You can now easily embed a Bonita Engine and easily interact with processes within your business application.  
+This can be done 2 different ways:
+* using standard Spring boot starter integration
+* programmatically, calling Bonita Engine code through Java, Kotlin, Groovy, or any other language running on JVM
+
+See [how to embed Bonita Engine](embed-engine.md) for more details.
+
+
 ## Technical updates
 
 <a id="java-11-compliance"/>
