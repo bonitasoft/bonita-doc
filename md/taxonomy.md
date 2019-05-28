@@ -31,7 +31,6 @@
       * [Event subprocesses](event-subprocesses.md)
       * [Text annotations](text-annotations.md)
     * [Naming conventions](naming-conventions.md)
-    * [Generate process documentation](generate-process-documentation.md)
     * [Refactoring](refactoring.md)
     * [Actors](actors.md)
     * [Actor filters](actor-filtering.md)
