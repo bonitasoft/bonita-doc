@@ -321,12 +321,12 @@ The [official recommendation is to use 'utf8mb4'](https://dev.mysql.com/doc/refm
 Bonita now supports Red Hat Enterprise Linux 7, and Ubuntu 18.04 LTS
 
 
-### Componentization and tools for developers
+## Componentization and tools for developers
 
-#### Embed Bonita Engine in your application
+### Embed Bonita Engine in your application
 
 You can now easily embed a Bonita Engine and easily interact with processes within your business application.  
-This can be done 2 different ways:
+This can be done in two different ways:
 * using standard Spring Boot starter integration
 * programmatically, calling Bonita Engine code through Java, Kotlin, Groovy, or any other language running on JVM
 
