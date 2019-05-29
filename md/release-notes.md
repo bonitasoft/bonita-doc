@@ -152,6 +152,7 @@ The LDAP synchronizer & CAS single sign-on module are now provided with the Boni
 ### License Request Key generator
 Within Tomcat and WildFly bundles, the License Request Key generator tool has been moved from the `server/` sub-directory to the `tools/` sub-directory.
 
+
 ## Technical updates
 
 <a id="java-11-compliance"/>
@@ -318,6 +319,20 @@ The [official recommendation is to use 'utf8mb4'](https://dev.mysql.com/doc/refm
 
 ### Supported Operating Systems
 Bonita now supports Red Hat Enterprise Linux 7, and Ubuntu 18.04 LTS
+
+
+## Componentization and tools for developers
+
+### Embed Bonita Engine in your application
+
+You can now easily embed a Bonita Engine and easily interact with processes within your business application.  
+This can be done in two different ways:
+* using standard Spring Boot starter integration
+* programmatically, calling Bonita Engine code through Java, Kotlin, Groovy, or any other language running on JVM
+
+For more information, see [how to embed Bonita Engine](embed-engine.md).
+
+**Warning**: This is a Lab feature and is subject to change without warning in any version. It is not recommended for production.
 
 ## Feature deprecations and removals
 
