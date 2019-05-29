@@ -142,7 +142,7 @@
       * [Install a Bonita cluster](install-a-bonita-bpm-cluster.md)
       * [Cluster administration](cluster-administration.md)
     * [Multi-tenancy and tenant configuration](multi-tenancy-and-tenant-configuration.md)
-  * [Embed engine - LABS](embed-engine.md)
+  * [Embed engine - Lab](embed-engine.md)
   * [Platform installation examples](_platform-installation-examples.md)
     * [Ubuntu + OpenJDK + Tomcat + PostgreSQL](ubuntu-openjdk-tomcat-postgresql.md)
     * [Install Tomcat with Bonita as a service in Windows](bonita-as-windows-service.md)

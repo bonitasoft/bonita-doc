@@ -1,4 +1,4 @@
-# Embed Bonita engine in your application
+# Embed Bonita Engine in your application
 
 ![](images/bonita-lab.png)
 ::: warning
@@ -8,7 +8,7 @@
 
 Starting from version 7.9.0, new artifacts allow to start an embedded engine in your application.
 
-## Using Spring boot
+## Using Spring Boot
 
 ### Quick start
 
@@ -34,18 +34,18 @@ Maven
 If you are using Bonita subscription edition, change group id for `com.bonitasoft.engine` and artifact id for `bonita-engine-spring-boot-starter-sp`
 :::
 
-This will embed and start Bonita engine when your application starts. Also a spring bean `org.bonitasoft.engine.api.APIClient` will be available and injected in your Spring beans. (`com.bonitasoft.engine.api.APIClient` if you are using subscription edition).
+This will embed and start Bonita Engine when your application starts. Also a spring bean `org.bonitasoft.engine.api.APIClient` will be available and injected in your Spring beans. (`com.bonitasoft.engine.api.APIClient` if you are using subscription edition).
 
 
 ### Configuration
 
-Configuration uses the standard Spring boot mechanism. The easiest way is to put them in your `application.properties` file.
+Configuration uses the standard Spring Boot mechanism. The easiest way is to put them in your `application.properties` file.
 
 All existing configuration can be found by your IDE using the completion in the `application.properties` file.
 These configuration properties have as prefix `org.bonitasoft.engine` and `com.bonitasoft.engine`
 
 For now, only the following configuration is supported:
- * the database connection settings for Bonita engine
+ * the database connection settings for Bonita Engine
  * the database connection settings for business data
  * the size of the connection pools for the above databases
 
@@ -59,7 +59,7 @@ An example can be found in the [bonita-examples](https://github.com/bonitasoft/b
 
 ## Programmatically
 
-If you do not wish to use Spring boot, the integration can be done manually.
+If you do not wish to use Spring Boot, the integration can be done manually.
 
 ### Quick start
 
