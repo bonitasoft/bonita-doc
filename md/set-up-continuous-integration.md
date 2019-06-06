@@ -79,7 +79,7 @@ All example scripts given on this page are compatible with Unix-like operating s
 	```
 
   This sample script invokes BonitaStudioBuilder to build all processes from your process-repository using the CI environment.  
-  See the [BonitaStudioBuilder documentation](automating-process-builds.md) for information on script options.  
+  See the [BonitaStudioBuilder documentation](automating-builds.md) for information on script options.  
         
  Then, share generated business archives as a Maven artifacts 
  One way to make the generated .bar files available to other Maven projects is to install them as Maven artifacts.   
