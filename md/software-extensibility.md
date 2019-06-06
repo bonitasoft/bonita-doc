@@ -102,7 +102,7 @@ To [implement an event handler](event-handlers.md), you need to provide a Java c
 In Teamwork, Efficiency, and Performance editions
 
 Bonita includes a script, BonitaStudioBuilder (also known as the Workspace API), for building a bar file from a process in a repository. 
-This intended to be used for [automating process builds](automating-process-builds.md) in a continuous integration and testing environment.
+This intended to be used for [automating builds](automating-builds.md) in a continuous integration and testing environment.
 You can use the BonitaStudioBuilder to build a bar file for processes stored in a repository. This script will be kept stable in time.
 
 ### Portal look & feel

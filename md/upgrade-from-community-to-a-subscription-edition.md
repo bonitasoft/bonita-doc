@@ -37,12 +37,12 @@ A Bonita platform upgrade can only be performed on the same database type.
 
 To upgrade a Bonita platform from Community edition to a Subscription edition, follow these steps:
 
-1. [Install the Subscription Bundle](bonita-installation-overview) but do not start it. We will call this installation folder `bonita-subscription`.
+1. [Install the Subscription Bundle](bonita-bpm-installation-overview.md) but do not start it. We will call this installation folder `bonita-subscription`.
 2. Configure the Subscription installation to use your existing database editing the file `<bonita-subscription>/setup/database.properties`. Beware of [backslash characters](BonitaBPM_platform_setup.md#backslash_support).
 3. Shut down the Community server being migrated using the `stop-bonita` script, we will call this installation folder `bonita-community`.
 4. Run `<bonita-community>/setup/setup(.sh/.bat) pull` to fetch your current Community configuration in `<bonita-community>/setup/platform_conf/current` and copy this last in a different folder, we will call this new folder `bonita-community-configuration`.
-5. [Backup your Bonita platform and databases](back-up-bonita-platform.md).
-6. Update the configuration using the [Platform setup tool](Bonita_platform_setup#configure_tool) in `bonita-subscription`:
+5. [Backup your Bonita platform and databases](back-up-bonita-bpm-platform.md).
+6. Update the configuration using the [Platform setup tool](BonitaBPM_platform_setup.md#configure_tool) in `bonita-subscription`:
     1. Create the folder `<bonita-subscription>/setup/platform_conf/current`, we will call it `bonita-subscription-configuration`.
     3. Copy the content of the `<bonita-subscription>/setup/platform_conf/initial` to `bonita-subscription-configuration`.
     4. In the `bonita-subscription-configuration`, reapply the modifications for all the folders but the one named `tenants` (use `bonita-community-configuration` as a reference).
