@@ -125,7 +125,7 @@ Bugs were fixed to increase stability of the integration with Quartz:
 * BS-19239 Exception during Quartz Job execution leaves the associated flownode in WAITING state and the process execution is stopped
 * BR-56 Failure in a cron timer cancels future executions
 A [new page](timers-execution.md) was added to explain how Timers are executed and how to handle time execution failures. 
-Also details were added on how to configure Quartz for timers execution: [quartz performance tunning](performance-tunning.md#cron)
+Also details were added on how to configure Quartz for timers execution: [quartz performance tuning](performance-tuning.md#cron)
 
 #### Cluster locks
 

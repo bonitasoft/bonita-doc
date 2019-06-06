@@ -27,8 +27,7 @@ See the [service interface](https://github.com/bonitasoft/bonita-engine/blob/7.4
 
 The technical logger
 [implementation](https://github.com/bonitasoft/bonita-engine/blob/7.4.3/services/bonita-log/bonita-log-technical-slf4j/src/main/java/org/bonitasoft/engine/log/technical/TechnicalLoggerSLF4JImpl.java)
-uses SLF4J to handle the log. SLF4J itself uses a back-end logging framework to write log messages. See the [logging
-overview](logging.md) for more details.
+uses SLF4J to handle the log. SLF4J itself uses a back-end logging framework to write log messages. See the [logging overview](logging.md) for more details.
 
 Logged messages are passed to SLF4J with appropriate logger information so the source of the message remains meaningful.
 
