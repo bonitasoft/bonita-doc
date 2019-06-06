@@ -58,6 +58,8 @@ The mode you use must be specified in the bonita-client-custom.properties file. 
 
 There is a slight overhead in using the remote access methods, so you are recommended to use local access whenever it is possible.
 
+<a id="getting-started-engine-apis"/>
+
 ## Getting started with the Bonita Engine APIs
 
 Before you run a Bonita application, configure how the application (client) accesses the Bonita Engine (server). For a HTTP access it can be done using following code:

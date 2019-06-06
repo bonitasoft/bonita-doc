@@ -5,7 +5,8 @@ The example is developed using Maven, and is a Java program to list the failed t
 
 ## Getting started
 
-You need to be familiar with building a Maven project with Bonita as a dependency. You also need to be familiar with using the Bonita Engine APIs. If this is not the case, follow this [tutorial](getting-started-with-the-bonita-engine-apis.md).
+You need to be familiar with building a Maven project with Bonita as a dependency. You also need to be familiar with using the Bonita Engine APIs.
+If this is not the case, follow this [tutorial](engine-api-overview.md#getting-started-engine-apis).
 The [Engine API overview](engine-api-overview.md) contains a list of the APIs with a short description of each one. For details of the methods available in the Bonita Engine APIs, see the [Javadoc](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html). 
 
 This example uses the Bonita Engine Java APIs but there is also a [REST API](rest-api-overview.md).

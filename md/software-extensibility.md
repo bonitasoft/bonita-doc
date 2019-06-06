@@ -108,9 +108,8 @@ We strongly encourage you to use the LA builder included in the tooling suite of
 In Teamwork, Efficiency, Performance and Enterprise editions
 
 Bonita includes a script, BonitaStudioBuilder (also known as the Workspace API), for building a bar file from a process in a project. 
-This intended to be used for automating process builds in a continuous integration and testing environment.
+This intended to be used for [automating builds](automating-builds.md) in a continuous integration and testing environment.
 You can use the BonitaStudioBuilder to build a bar file for processes stored in a project. 
-
 
 ### Portal look & feel
 
