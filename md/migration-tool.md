@@ -5,6 +5,20 @@ to the one delivered with the latest version of Bonita.
 This is due to the fact that improvements in any version of the Migration Tool can affect all supported version of Bonita.
 This change log must be read before [migrating to a newer version of Bonita](migrate-from-an-earlier-version-of-bonita-bpm.md).
 
+## 2.40.3 - May. 27th, 2019 ??
+This version of the migration tool migrates Bonita up to version 7.8.4.
+* BS-19346 reduce disk space used when migrating (archived) contract data in version 7.7.0
+
+## 2.40.2 - May. 23rd, 2019 ??
+This version of the migration tool migrates Bonita up to version 7.8.4.
+* Configuration: make datasource pool size configurable
+* Logs: introduce timestamp in the log files
+* BS-19267 improve performance when migrating (archived) contract data in version 7.7.0
+
+## 2.40.1 - April. xxth, 2019 ??
+This version of the migration tool migrates Bonita up to version 7.8.4.
+* BS-19346 fix SQL pagination when migrating (archived) contract data in version 7.7.0
+
 ## 2.40.0 - April. 12th, 2019 (Bonita 7.8.4)
 This version of the migration tool migrates Bonita up to version 7.8.4.
 * No bug fix.
@@ -88,27 +102,4 @@ This version of the migration tool migrates Bonita up to version 7.6.1.
 
 ## 2.26.0 - Dec. 7th, 2017 (Bonita 7.6.0)
 This version of the migration tool migrates Bonita up to version 7.6.0.
-* No bug fix.
-
-## 2.25.1 - Sep. 20th, 2017 (Bonita 7.5.4)
-This version of the migration tool migrates Bonita up to version 7.5.4. and contains one bug fix:
-* BS-17108 Error Migrating process from pre-6.5 version that contains BDM
-
-## 2.25.0 - Aug. 3rd, 2017 (Bonita 7.5.4)
-This version of the migration tool migrates Bonita up to version 7.5.4.
-* No bug fix.
-
-## 2.24.0 - Jul. 6th, 2017 (Bonita 7.5.2)
-This version of the migration tool migrates Bonita up to version 7.5.2. and contains some bug fixes:
-* BS-16194 ProcessSupervisorPermissionRule.groovy not updated by migration
-* BS-16195 Security-config.properties file is not migrated in 7.4.0
-* BS-16197 Custom avatar is not displayed after migrating to 7.3.1
-* BS-16198 Process Manager profile still can't delete case after migration to 7.3.1
-
-## 2.23.0 - Jun. 8th, 2017 (Bonita 7.5.1)
-This version of the migration tool migrates Bonita up to version 7.5.1. and contains one bug fix:
-* BS-16191 ProcessPermissionRule.groovy not updated by migration
-
-## 2.22.0 - May. 31st, 2017 (Bonita 7.5.0)
-This version of the migration tool migrates Bonita up to version 7.5.0.
 * No bug fix.
