@@ -8,7 +8,7 @@
 
 <a id="improve-form-generation"/>
 
-### Low code application development: business data management in the UI Designer
+### Low code application development: business data management form the studio to the UI Designer
 
 #### Easily create forms where business variables or documents are edited by the users (read/write)
 A form that allows a user to edit business variables or documents needs to display the current values before the user modifies them. 
@@ -364,4 +364,21 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 
 ## Bug fixes
 
-(more to come on June)
+## Bug fixes
+
+### Fixes in Documentation
+
+### Fixes in Bonita 7.9.0 (2019-06-13)
+#### Fixes in Engine component
+
+#### Fixes in Studio component
+
+#### Fixes in UI Designer component
+* UID-29 RichTextArea readOnly property should be dynamic
+* UID-34 ui-bootstrap-tpls.js asset should be displayed in the Assets panel for the modal container (as for tabs container)
+* UID-69 Localization help section is empty in custom widget editor
+* UID-86 Modal container: the focus should be located on the input element
+* UID-90 Deleting one asset from a custom Widget based on the default one remove all the assets
+
+#### Fixes in Web/Portal component
+
