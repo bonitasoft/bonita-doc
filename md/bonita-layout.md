@@ -12,7 +12,7 @@ For the mobile version there is only one row that has the name of the applicatio
 
 ## Customizing this layout
 
-You can customize this layout by following the [customize-resource-layouts](customize-resource-layouts.md) steps.
+You can customize this layout by following the [customize layouts](customize-layouts.md) steps.
 
 ## Adding a logo to the layout
 
