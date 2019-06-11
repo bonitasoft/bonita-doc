@@ -5,17 +5,17 @@ to the one delivered with the latest version of Bonita.
 This is due to the fact that improvements in any version of the Migration Tool can affect all supported version of Bonita.
 This change log must be read before [migrating to a newer version of Bonita](migrate-from-an-earlier-version-of-bonita-bpm.md).
 
-## 2.40.3 - May. 27th, 2019 ??
+## 2.40.3 - May. 27th, 2019 (Bonita 7.8.4)
 This version of the migration tool migrates Bonita up to version 7.8.4.
 * BS-19346 reduce disk space used when migrating (archived) contract data in version 7.7.0
 
-## 2.40.2 - May. 23rd, 2019 ??
+## 2.40.2 - May. 23rd, 2019 (Bonita 7.8.4)
 This version of the migration tool migrates Bonita up to version 7.8.4.
 * Configuration: make datasource pool size configurable
 * Logs: introduce timestamp in the log files
 * BS-19267 improve performance when migrating (archived) contract data in version 7.7.0
 
-## 2.40.1 - April. xxth, 2019 ??
+## 2.40.1 - May. 17th, 2019 (Bonita 7.8.4)
 This version of the migration tool migrates Bonita up to version 7.8.4.
 * BS-19346 fix SQL pagination when migrating (archived) contract data in version 7.7.0
 
