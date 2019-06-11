@@ -252,7 +252,7 @@ It means that you might want to redo the case overview page as well as the forms
 Note: 6.x application resources have been removed too in 7.8.0, so if you are migrating a process that leverage this feature, you need to modify it (for example to use process dependencies instead (Configure > Process dependencies in Bonita Studio)).
 :::
 
-##Migrating to Java 11 in Bonita 7.9
+## Migrating to Java 11 in Bonita 7.9
 
 Bonita 7.9+ supports Java 11.
 Migrating an existing platform to Java 11 is not an easy, or painless endeavour.
