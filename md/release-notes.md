@@ -1,9 +1,5 @@
 # Release notes
 
-::: info
-**Note:** The 7.9 is currently work in progress (WIP). The 7.9.0 GA is planned on June 2019.
-:::
-
 ## New values added
 
 <a id="improve-form-generation"/>
@@ -366,8 +362,6 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 
 ## Bug fixes
 
-### Fixes in Documentation
-
 ### Fixes in Bonita 7.9.0 (2019-06-13)
 #### Fixes in Engine component
 * BR-69 SQLServerException error when deleting cases with more then 2100 subprocesses
@@ -387,6 +381,7 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 * BS-19322 Contract validation fail if a complex contract input is null and has a multiple complex child contract input
 * BS-19335 Timers triggers keep being rescheduled and are not fired on time or fired randomly
 * BS-19345 Script Connector does not return stderr in connector result
+
 #### Fixes in Studio component
 * BST-126 Studio must be restarted to use User-defined functions
 * BST-132 Wrong script generated in some specific cases with multiple data
@@ -394,6 +389,7 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 * BST-204 Default Application created in the Portal raises an error about custompage_home when imported and Deployed from Studio
 * BST-221 UID allows to have 2 forms with same name when created from the Studio: this breaks LA Builder
 * BST-271 Import .bpmn diagram fails
+
 #### Fixes in UI Designer component
 * UID-29 RichTextArea readOnly property should be dynamic
 * UID-34 ui-bootstrap-tpls.js asset should be displayed in the Assets panel for the modal container (as for tabs container)
