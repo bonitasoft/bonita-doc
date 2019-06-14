@@ -14,8 +14,8 @@
 A form that allows a user to edit business variables or documents needs to display the current values before the user modifies them.  
 The Studio now creates the variables needed to display the current values and links them to the same widgets than the widgets linked to the task contract: what the user needs to fill and send back to the process.  
 No need to create variables and manipulate the BDM REST API anymore.  
-In the generated forms, the property _required_ of the widgets now reflects the property _mandatory_ of the corresponding attributes in the BDM. All contract inputs were marked _required_ before.
-⚠️This is not the case for DatePicker and DateTimePicker types yet: they still are always _required_. This limitation will be fixed shortly.
+In the generated forms, the property _required_ of the widgets now reflects the property _mandatory_ of the corresponding attributes in the BDM. All contract inputs were marked _required_ before.  
+⚠️This is not the case for DatePicker and DateTimePicker types yet: they still are always _required_. This limitation will be fixed shortly.  
 For more information, read [the dedicated documentation](contracts-and-contexts.md).  
 
 #### Easily display read-only business variables in forms
