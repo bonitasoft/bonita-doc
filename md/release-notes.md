@@ -7,10 +7,12 @@
 ### Low code application development: business data management form the studio to the UI Designer
 
 #### Easily create forms where business variables or documents are edited by the users (read/write)
-A form that allows a user to edit business variables or documents needs to display the current values before the user modifies them. 
-The Studio now creates the variables needed to display the current values and link them to the same widgets than the widgets linked to the task contract: what the user needs to fill and send back to the process.
-No need to create variables and manipulate the BDM REST API anymore. 
-For more information, read [the dedicated documentation](contracts-and-contexts.md).
+A form that allows a user to edit business variables or documents needs to display the current values before the user modifies them.  
+The Studio now creates the variables needed to display the current values and links them to the same widgets than the widgets linked to the task contract: what the user needs to fill and send back to the process.  
+No need to create variables and manipulate the BDM REST API anymore.  
+In the generated forms, the property _required_ of the widgets now reflects the property _mandatory_ of the corresponding attributes in the BDM. All contract inputs were marked _required_ before.  
+⚠️This is not the case for DatePicker and DateTimePicker types yet: they still are always _required_. This limitation will be fixed shortly.  
+For more information, read [the dedicated documentation](contracts-and-contexts.md).  
 
 #### Easily display read-only business variables in forms
 A lot of forms that require users' input or edition of business variables also need to display other business data as read-only information. This information is useful to the users to make the right inputs and/or decisions.
