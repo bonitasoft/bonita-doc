@@ -402,3 +402,4 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 
 #### Fixes in Web/Portal component
 * BPO-71 REST API - bpm/humanTask filter by displayName doesn't work
+* BPO-110 Theme custom page should not be forced to have an index.html (but a theme.css ?)
