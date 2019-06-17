@@ -401,5 +401,6 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 * UID-90 Deleting one asset from a custom Widget based on the default one remove all the assets
 
 #### Fixes in Web/Portal component
+* BPO-31 Process list console Error in portal
 * BPO-71 REST API - bpm/humanTask filter by displayName doesn't work
 * BPO-110 Theme custom page should not be forced to have an index.html (but a theme.css ?)
