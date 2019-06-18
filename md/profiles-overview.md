@@ -39,7 +39,7 @@ An employee mapped to the **Process manager** profile has limited administration
 
 ## Custom profiles
 
-In addition to the default profiles, users of Enterprise, Performance and Efficiency editions can create **[custom profiles]**(custom-profiles.md).
+In addition to the default profiles, users of Enterprise, Performance and Efficiency editions can create [custom profiles](custom-profiles.md).
 If a custom profile is created to give access to custom content in the portal, its _Portal menu_ (navigation structure and pages) must also be defined in the profile.
 To create a custom profile, map it to entities of the organization, and create its portal menu, use the [profile editor](profileCreation.md) in the studio. 
 In a production environment, an Administrator must use the **Organization**>**Profiles** menu.

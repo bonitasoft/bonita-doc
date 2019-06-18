@@ -1,20 +1,18 @@
 # Release notes
 
-::: info
-**Note:** The 7.9 is currently work in progress (WIP). The 7.9.0 GA is planned on June 2019.
-:::
-
 ## New values added
 
 <a id="improve-form-generation"/>
 
-### Low code application development: business data management in the UI Designer
+### Low code application development: business data management form the studio to the UI Designer
 
 #### Easily create forms where business variables or documents are edited by the users (read/write)
-A form that allows a user to edit business variables or documents needs to display the current values before the user modifies them. 
-The Studio now creates the variables needed to display the current values and link them to the same widgets than the widgets linked to the task contract: what the user needs to fill and send back to the process.
-No need to create variables and manipulate the BDM REST API anymore. 
-For more information, read [the dedicated documentation](contracts-and-contexts.md).
+A form that allows a user to edit business variables or documents needs to display the current values before the user modifies them.  
+The Studio now creates the variables needed to display the current values and links them to the same widgets than the widgets linked to the task contract: what the user needs to fill and send back to the process.  
+No need to create variables and manipulate the BDM REST API anymore.  
+In the generated forms, the property _required_ of the widgets now reflects the property _mandatory_ of the corresponding attributes in the BDM. All contract inputs were marked _required_ before.  
+⚠️This is not the case for DatePicker and DateTimePicker types yet: they still are always _required_. This limitation will be fixed shortly.  
+For more information, read [the dedicated documentation](contracts-and-contexts.md).  
 
 #### Easily display read-only business variables in forms
 A lot of forms that require users' input or edition of business variables also need to display other business data as read-only information. This information is useful to the users to make the right inputs and/or decisions.
@@ -125,7 +123,7 @@ Bugs were fixed to increase stability of the integration with Quartz:
 * BS-19239 Exception during Quartz Job execution leaves the associated flownode in WAITING state and the process execution is stopped
 * BR-56 Failure in a cron timer cancels future executions
 A [new page](timers-execution.md) was added to explain how Timers are executed and how to handle time execution failures. 
-Also details were added on how to configure Quartz for timers execution: [quartz performance tunning](performance-tunning.md#cron)
+Also details were added on how to configure Quartz for timers execution: [quartz performance tuning](performance-tuning.md#cron)
 
 #### Cluster locks
 
@@ -151,6 +149,7 @@ The LDAP synchronizer & CAS single sign-on module are now provided with the Boni
 
 ### License Request Key generator
 Within Tomcat and WildFly bundles, the License Request Key generator tool has been moved from the `server/` sub-directory to the `tools/` sub-directory.
+
 
 ## Technical updates
 
@@ -193,9 +192,11 @@ In order to be compatible with Java 11, you must update the following plug-ins d
 ``` 
 
 #### Bonita Studio
-Underlying Eclipse version has been updated to 2018-12 version integrating Java 11 support. 
-Bonita Studio Community installers are now packaged with a JRE 11 by default (instead of a JRE 8).
-For Linux users, you now need GTK3 library to be installed. ### Tomcat
+Underlying Eclipse version has been updated to 2018-12 version integrating Java 11 support.   
+Bonita Studio Community installers are now packaged with a JRE 11 by default (instead of a JRE 8).  
+For Linux users, you now need GTK3 library to be installed. 
+
+### Tomcat
 Tomcat has been updated to the version 8.5.40.
 
 ### Dependency updates
@@ -215,7 +216,7 @@ The following Bonita dependencies have been upgraded to improve the Java 11 supp
 
 ### Migration
 
-For Bonita 7.9.0, the migration step tries to migrate the *CMIS*, *Email* and *Webservice* connectors of the processes deployed on the platform, along with their dependencies, to allow the migrated platform to run on Java 11.
+For Bonita 7.9.0, the migration step tries to migrate the *CMIS*, *Email* and *Webservice* connectors of the processes deployed on the platform, along with their dependencies, to allow the migrated platform to run on Java 11.  
 The step works at best effort:
 * It will try to upgrade all the connectors it can.
 * It will not upgrade connectors that have dependencies used by other connectors. Those connectors will still work on java 8, but not in java 11, and will require a manual update.
@@ -285,9 +286,8 @@ The version of the _org.twitter4j:twitter4j-core_ dependency has been updated fr
 In Bonita 7.9.0, we replaced the JTA transaction manager used to handle XA transactions in Bonita Engine from Bitronix to Narayana (also known as Arjuna). 
 This change should not impact the way to use Bonita. 
 However, tuning Bonita transaction configuration is now a little different. If you wish to change the default transaction timeout,
-it is now done by changing the `defaultTimeout` property in file `server/conf/jbossts-properties.xml` instead of
-file `server/conf/bitronix-config.properties`
-More configuration info can be found [here](tomcat-bundle.md)
+it is now done by changing the `defaultTimeout` property in file `server/conf/jbossts-properties.xml` instead of file `server/conf/bitronix-config.properties`
+More configuration info can be found [here](tomcat-bundle.md).
 
 ### Databases supported
 
@@ -319,6 +319,20 @@ The [official recommendation is to use 'utf8mb4'](https://dev.mysql.com/doc/refm
 ### Supported Operating Systems
 Bonita now supports Red Hat Enterprise Linux 7, and Ubuntu 18.04 LTS
 
+
+## Componentization and tools for developers
+
+### Embed Bonita Engine in your application
+
+You can now easily embed a Bonita Engine and easily interact with processes within your business application.  
+This can be done in two different ways:
+* using standard Spring Boot starter integration
+* programmatically, calling Bonita Engine code through Java, Kotlin, Groovy, or any other language running on JVM
+
+For more information, see [how to embed Bonita Engine](embed-engine.md).
+
+**Warning**: This is a Lab feature and is subject to change without warning in any version. It is not recommended for production.
+
 ## Feature deprecations and removals
 
 ### Deprecations
@@ -349,4 +363,44 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 
 ## Bug fixes
 
-(more to come on June)
+## Bug fixes
+
+### Fixes in Bonita 7.9.0 (2019-06-13)
+#### Fixes in Engine component
+* BR-69 SQLServerException error when deleting cases with more then 2100 subprocesses
+* BS-15896 Unable to configure EntityManagerFactory
+* BS-18364 Connector Replay stays in state TO_RE_EXECUTE when executeFlowNode arrives at the same time the task is transitioning from 'initializing' to 'ready'
+* BS-18734 Deploying a BAR with two forms with the same name but a different case leads to Unique index or primary key violation CONSTRAINT_INDEX_29 BAR_RESOURCE(TENANTID, PROCESS_ID, NAME, TYPE)
+* BS-18748 Portal Organization IMPORT button has no feedback
+* BS-18874 work execution: 5 seconds SELECT * FROM flownode_instance WHERE kind = 'boundaryEvent' ...
+* BS-18880 work execution: 84 seconds SELECT * FROM from flownode_instance where logicalGroup3=nn and terminal=0 order by id ASC limit 1;
+* BS-18910 message_instance x waiting_event couples: 72 seconds request duration
+* BS-19082 Long execution duration for this processAPI.searchAssignedAndPendingHumanTasks API call
+* BS-19239 Exception during Quartz Job execution leaves the associated flownode in WAITING state and the process execution is stopped
+* BS-19293 REST API extension: ClassCastException
+* BS-19295 SELECT widget sets the field of the variable holding the initial value to null when the page/form loads if it is shared by another SELECT widget
+* BS-19298 Process may end up locked forever
+* BS-19319 [BDM] Business Object Java Setter does not create aggregated instances
+* BS-19322 Contract validation fail if a complex contract input is null and has a multiple complex child contract input
+* BS-19335 Timers triggers keep being rescheduled and are not fired on time or fired randomly
+* BS-19345 Script Connector does not return stderr in connector result
+
+#### Fixes in Studio component
+* BST-126 Studio must be restarted to use User-defined functions
+* BST-132 Wrong script generated in some specific cases with multiple data
+* BST-162 Generate process documentation does not work post 7.7
+* BST-204 Default Application created in the Portal raises an error about custompage_home when imported and Deployed from Studio
+* BST-221 UID allows to have 2 forms with same name when created from the Studio: this breaks LA Builder
+* BST-271 Import .bpmn diagram fails
+
+#### Fixes in UI Designer component
+* UID-29 RichTextArea readOnly property should be dynamic
+* UID-34 ui-bootstrap-tpls.js asset should be displayed in the Assets panel for the modal container (as for tabs container)
+* UID-69 Localization help section is empty in custom widget editor
+* UID-86 Modal container: the focus should be located on the input element
+* UID-90 Deleting one asset from a custom Widget based on the default one remove all the assets
+
+#### Fixes in Web/Portal component
+* BPO-31 Process list console Error in portal
+* BPO-71 REST API - bpm/humanTask filter by displayName doesn't work
+* BPO-110 Theme custom page should not be forced to have an index.html (but a theme.css ?)

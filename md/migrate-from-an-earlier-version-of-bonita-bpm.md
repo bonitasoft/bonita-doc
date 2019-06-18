@@ -252,6 +252,19 @@ It means that you might want to redo the case overview page as well as the forms
 Note: 6.x application resources have been removed too in 7.8.0, so if you are migrating a process that leverage this feature, you need to modify it (for example to use process dependencies instead (Configure > Process dependencies in Bonita Studio)).
 :::
 
+## Migrating to Java 11 in Bonita 7.9
+
+Bonita 7.9+ supports Java 11.
+Migrating an existing platform to Java 11 is not an easy, or painless endeavour.
+To migrate a Bonita platform to Java 11, you need to follow the following steps:
+- Migrate the platform to Bonita 7.9.0 as usual, and keep running it in Java 8. Verify that everything works as expected.
+- Test the migrated platform in Java 11, on a test environment.
+- Once tested, update what is required on the production server, and switch it to Java 11.
+
+The main parts that require attention and testing are connectors and custom code.
+While the 7.9.0 migration step tries its best to migrate the implementation of connectors that are known not to work in Java 11, namely [WebService, CMIS, Email and Twitter](release-notes.md#connector-dependency-updates), custom connectors, groovy scripts, rest api extensions etc. are not migrated and might not work outright in Java 11.
+Aside from just code incompatibility, special attention has to be given to the dependencies of the custom code, as they might either not work in Java 11, work fine but conflict with Bonita own dependencies or the script might use dependencies previously included in Bonita, but no more accessible, or accessible in a different version.
+
 <a id="mysql8"/>
 
 ## Migrating to Bonita 7.9+ using MySQL
@@ -282,7 +295,7 @@ The migration of the cluster is now complete, and the cluster can be restarted.
 ## Migrate your client applications
 
 If you have applications that are client of Bonita, you may have to change your client code or library. Most of the
-time, we guarantee backward compatibility. In any cases, please read the [release notes](releases-notes) to check if
+time, we guarantee backward compatibility. In any cases, please read the [release notes](release-notes.md) to check if
 some changes have been introduced.
 
 In addition, if your application connect to the Bonita Engine using the HTTP access mode, see the [bonita-client library](configure-client-of-bonita-bpm-engine)
