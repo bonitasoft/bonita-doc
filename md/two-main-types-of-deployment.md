@@ -1,8 +1,15 @@
-# Two main types of deployment
+# Two main types of Bonita deployment
 
-**Note:** It is highly recommended to use the provided Tomcat or WildFly bundles or the artifacts `bonita.war` and `bonita.ear` provided in the deploy bundle, in order to carry out these deployments successfully.
+There are two main types of deployment
+* Bonita Portal + Bonita Engine on the same application server: this is the usual deployment and the default one when
+using a Bonita bundle
+* Bonita Portal and Bonita Engine running on two different application servers
 
-There are two main types of deployment.
+
+
+**Note:** It is highly recommended to use the provided Tomcat or WildFly bundles or the artifacts `bonita.war` and `bonita.ear`
+provided in the deploy bundle, in order to carry out these deployments successfully.
+
 
 ## Bonita Portal + Bonita Engine on the same application server
 
@@ -46,22 +53,24 @@ Access to the portal can be de-activated by server or webapp configuration if ne
 * impact on performance (serialization + network overhead)
 
 
-### Configuring the Bonita Stack
+### Configuring the Bonita Runtime
 
 The example below is for use with the Tomcat and Wildfly bundles. 
 
-Bonita Engine installation: follow the regular installation (see the [Tomcat](tomcat-bundle.md)
-or the [Wildfly](wildfly-bundle.md) bundle installation page) and use the setup tool
-to configure Bonita
+#### Bonita Engine
 
-Bonita Portal installation
-* unarchive the binaries
-* configure custom authentication if required, see the [user authentication overview](user-authentication-overview.md) 
-* apply the following to make the Portal be a Client of the Bonita Engine
-* then you can start the Bonita Portal bundle with the startup script
+Follow the regular installation (see the [Tomcat](tomcat-bundle.md) or the [Wildfly](wildfly-bundle.md) bundle installation page)
+and use the setup tool to configure Bonita
 
 
 #### Bonita Portal 
+
+##### Bonita Portal configuration overview
+
+* unarchive the bundle
+* configure custom authentication if required, see the [user authentication overview](user-authentication-overview.md) 
+* apply the following to make the Portal be a Client of the Bonita Engine
+* then you can start the Bonita Portal bundle with the startup script
 
 In this deployment, the Engine Client used by the Bonita Portal is configured by setting JVM System Properties for the following elements
 * instruct the Engine Client to use the HTTP protocol
@@ -75,27 +84,11 @@ In addition, all database datasources are disabled
 
 ##### Common to all bundle types
 
-Update the `<bonita-installation-directory>/start-bonita.(sh|bat)` file to delete the following lines in order to only
-configure the bundle and bypass the Bonita initialization
-
-On Linux (start-bonita.sh)
-```bash
-  ./setup/setup.sh init $@
-  testReturnCode $?
-```
-
-On Windows (start-bonita.bat)
-```
-   call setup\setup.bat init %0 %1 %2 %3 %4 %5 %6 %7 %8 %9
-   if errorlevel 1 (
-       goto exit
-   )
-```
-
+Remove the content of the `setup` directory as the setup tool in not used on the Portal part
 
 ##### Tomcat
 
-Configure the Engine Client by setting system properties in the `<bonita-installation-directory>/setup/tomcat-templates/setenv.(bat|sh)` file
+Configure the Engine Client by setting system properties in the `<bonita-installation-directory>/server/bin/setenv.(bat|sh)` file
 We suggest to define a `ENGINE_OPTS` variable and add its content to the `CATALINA_OPTS` variable
     
 On Linux (setenv.sh)
@@ -153,12 +146,12 @@ Disable XA datasources managed by Bitronix by commenting or deleting the followi
   <Listener className="bitronix.tm.integration.tomcat55.BTMLifecycleListener" />
 ```
 
-Disable datasources managed by Tomcat by commenting or removing database resources declared in the in the `<bonita-installation-directory>/setup/tomcat-templates/bonita.xml` file
+Disable datasources managed by Tomcat by commenting or removing database resources declared in the in the `<bonita-installation-directory>/conf/Catalina/localhost/bonita.xml` file
 
 
 ##### Wildfly
 
-Edit the `<bonita-installation-directory>/setup/wildfly-templates/standalone.xml` file as described in the following
+Edit the `<bonita-installation-directory>/server/standalone/configuration/standalone.xml` file as described in the following
 
 Configure the Engine Client
 ```xml
