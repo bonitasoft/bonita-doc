@@ -1,5 +1,7 @@
 # Bonita dependencies
 
+You will find below the list of dependencies used by each component of Bonita.
+
 ## Bonita Engine
 
 ## Bonita Portal
