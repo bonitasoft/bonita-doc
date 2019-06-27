@@ -1,4 +1,5 @@
 
+
 # How to manage a list of documents
 
 Manage a list of documents through a process means add / edit / remove documents from a multiple data of type _document_.
@@ -16,16 +17,20 @@ Here is a preview of the process we are going to build:
 ![Validation process](images/documentValidationProcess.png)
 
  1. Create a process _documentValidation_, with two lanes: _Submitter lane_ and _Reviewer lane_. 
- 2. Create also two actors: _Submitter actor_ and _Reviewer actor_. Each actor should be mapped to a different part of the organization (two different users for exemple). Set the _Submitter actor_ as initiator, and map each lane to its actor.
+ 2. Create also two actors: _Submitter actor_ and _Reviewer actor_. Each actor should be mapped to a different part of the organization (two different groups for exemple). Set the _Submitter actor_ as initiator, and map each lane to its actor.
  3. Create a multiple document variable named _documents_, and a process variable of type boolean named _submissionValid_.
- 4. Select the pool and create a contract for the data _documents_.  ⚠️ Make sure to use the button **Add from data** to create your contract, else the contract input is not bounded to the data, you will have to code many things by yourself.
+ 4. Select the pool and create a contract for the data _documents_.  ⚠️ Make sure to use the button **Add from data** to create your contract, the contract input will be bounded to the data, it will save you a lot of development time (operation & form generation).
  5. Create the instantiation form using the Studio shortcut. Rename the form into _initDocuments_, and then go back to the Studio.
- 6. Select the task _Review_. The objective of this task is to display the documents submitted to the reviewer. He should then be able to validate or not the submission, depending on the documents. To do so, we are going to use a small trick to gain some development time.
-    - Create a contract input for the document data _documents_, using the button Add from data. This contract input will be removed in the second time, but it will allow us to generate a form which display the documents (that's the trick).
-    - Create an other contract input (using the button add this time) of type BOOLEAN, named _review_.
-    - Create the form using the Studio shortcut. Rename this form review, **and remove the file upload widget from the form** -> The form display the documents, and give the possibility to validate the submission. Save and go back to the Studio.
-    - On the task review, remove the contract input for the documents (the form has been generated, we do not need it anymore). 
-    - On the operations panel, remove the operation that update the list of documents (same idea), and add an operation to assign the value of the contract input _review_ to the process data _submitionValid_. At the end, you should have only one operation: _submitionValid_ takes value of _review_.
+ 6. Select the task _Review_. The objective of this task is to display the documents submitted to the reviewer. He should then be able to validate or not the submission, depending on the documents.
+    - Create a contract input (using the button _add_) of type BOOLEAN, named _review_.
+    - Create the form using the Studio shortcut, and rename this form _review_. It should only contain a title, a checkbox _review_ and a submit button. We are going to add some widgets to display the documents:  
+      -  Above the checkbox, add a container with the following collection: _context.documents_ref_
+      - In the container, add a File Viewer widget, with the following properties: 
+        - **File source**: Process document
+        - **Process document**: $item
+        - **Show preview**: no (it is actually up to you, but display the preview often reduce the visibility of the form)
+    - Save the form and go back to the Studio. 
+    - On the operations panel, add an operation to assign the value of the contract input _review_ to the process data _submitionValid_. 
  7. Select the output transition _No_ (of the gateway _Is submission validated?_), and set it as the default flow. Select the other transition _Yes_, and use the process data _submissionValid_ as expression. So, the transition _Yes_ is used if the reviewer validate the submission.
  8. Select the task _modification_, add a contract input for the data _documents_ (using the button _Add from data_). Create the form for this task using the Studio shortcut, rename it into _editSubmission_ and go back to the Studio. 
 
@@ -189,3 +194,4 @@ If you now rerun the request in Example 1, you will see that the indexes of the 
 recalculated with respect to the newly added document index.
 
 Knowing the document Id of a document list, it is possible to update it (PUT) and remove it(DELETE) as for a simple document.
+
