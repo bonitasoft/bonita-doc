@@ -96,7 +96,7 @@ To configure a throw message event, select it in the diagram, go to the Details 
 4. The correlation level. If you want to use key-based correlation, specify the keys and their values. Define the value of a correlation key using the Expression Editor.
 5. The message content. The message content is a collection of id-value pairs. The simplest method is to use the relevant process variables, but you can use an expression to create message content in other formats. The _Content item_ is the id and must be a string.
 The _Content value_ must be serialized, so that it is kept in the database and persists even after a JVM restart.   
-It can be contructed with a script or variable. it can also be a complex datatype as long as all its attributes are serializable.
+It can be contructed with a script or variable. it can also be a complex datatype as long as all its attributes are serializable. This value  must not be longer than 255 characters.
 
 If the source and target of the message are in the same diagram, they will be connected by a dotted line.
 
