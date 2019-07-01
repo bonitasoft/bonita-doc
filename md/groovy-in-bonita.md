@@ -265,8 +265,8 @@ public interface AppUserDAO extends BusinessObjectDAO {
 So, in a Groovy script, you can access the data like this:  
 
 ```groovy
-def users = userAppDAO.find(0, 10) // returns to first tens users ordered by persistenceId
-def johnUsers = userAppDAO.findByFirstName('John', 0, 10) // returns to first tens users with firstName == 'John' ordered by persistenceId
+def users = appUserDAO.find(0, 10) // returns to first tens users ordered by persistenceId
+def johnUsers = appUserDAO.findByFirstName('John', 0, 10) // returns to first tens users with firstName == 'John' ordered by persistenceId
 ```
 
 ### Update a Business Data
@@ -300,17 +300,17 @@ As it is generated code it has to work in many situation so it is not the most c
 Here is another example where it updates the _lastEditedBy_ aggregation relation  
 
 ```groovy
-//Retrieve aggregated UserApp using its DAO and persistenceId
-def userAppVar = userAppDAO.findByPersistenceId(commentInput?.lastEditedBy?.persistenceId_string?.trim() ? commentInput.lastEditedBy.persistenceId_string.toLong() : null)
-if (!userAppVar) { // no userApp found for the given persistenceId
+//Retrieve aggregated AppUser using its DAO and persistenceId
+def appUserVar = appUserDAO.findByPersistenceId(commentInput?.lastEditedBy?.persistenceId_string?.trim() ? commentInput.lastEditedBy.persistenceId_string.toLong() : null)
+if (!appUserVar) { // no userApp found for the given persistenceId
 	if (commentInput?.lastEditedBy?.persistenceId_string?.trim() ? commentInput.lastEditedBy.persistenceId_string.toLong() : null) {
 		// Throw an exception to explain that the given persistenceId is invalid
-		throw new IllegalArgumentException("The aggregated reference of type `UserApp` with the persistence id " + commentInput?.lastEditedBy?.persistenceId_string?.trim() ? commentInput.lastEditedBy.persistenceId_string.toLong() : null + " has not been found.")
+		throw new IllegalArgumentException("The aggregated reference of type `AppUser` with the persistence id " + commentInput?.lastEditedBy?.persistenceId_string?.trim() ? commentInput.lastEditedBy.persistenceId_string.toLong() : null + " has not been found.")
 	}
 	//Just return null when no persistenceId is given, case of a not mandatory relation
 	return null
 }
-return userAppVar //Return the user found for the given persistenceId
+return appUserVar //Return the user found for the given persistenceId
 ```
 
 ### Search for Tasks instances
