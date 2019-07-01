@@ -313,7 +313,7 @@ Here is another example where it updates the _lastEditedBy_ aggregation relation
 
 ```groovy
 //Retrieve aggregated AppUser using its DAO and persistenceId
-def appUserVar = appUserDAO.findByPersistenceId(commentInput?.lastEditedBy?.persistenceId_string?.trim() ? commentInput.lastEditedBy.persistenceId_string.toLong() : null)
+def appUserVar = appUserDAO.findByPersistenceId(commentInput?.lastEditedBy?.persistenceId_string?.trim() ? commentInput.lastEditedBy.persistenceId_string.toLong() : null) //commentInput?.lastEditedBy?.persistenceId_string?.trim() checks that the persistenceId_string is not null and not empty after removing all whitspaces
 if (!appUserVar) { // no userApp found for the given persistenceId
 	if (commentInput?.lastEditedBy?.persistenceId_string?.trim() ? commentInput.lastEditedBy.persistenceId_string.toLong() : null) {
 		// Throw an exception to explain that the given persistenceId is invalid
