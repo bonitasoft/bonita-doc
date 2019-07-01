@@ -165,6 +165,18 @@ def ternaryOutput = (sampleText != null) ? sampleText : 'Hello Groovy!'
 def elvisOutput = sampleText ?: 'Viva Las Vegas!'
 ```
 
+### Groovy truth
+
+Groovy decides whether an expression is true or false by applying the rules given below.  
+* Boolean expressions : True if the corresponding Boolean value is `true`.  
+* Collections and Arrays: Non-empty Collections and arrays are true.  
+* Matchers: True if the Matcher has at least one match.  
+* Maps: Non-empty Maps are evaluated to true.  
+* Strings: Non-empty Strings, GStrings and CharSequences are coerced to true.  
+* Numbers: Non-zero numbers are true.  
+* Object References: Non-null object references are coerced to true.
+
+
 More about Operators in Groovy [here](http://docs.groovy-lang.org/docs/groovy-2.4.16/html/documentation/#groovy-operators).
 
 ## Bonita use cases with Groovy
