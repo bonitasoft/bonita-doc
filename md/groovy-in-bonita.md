@@ -165,6 +165,8 @@ def ternaryOutput = (sampleText != null) ? sampleText : 'Hello Groovy!'
 def elvisOutput = sampleText ?: 'Viva Las Vegas!'
 ```
 
+More about Operators in Groovy [here](http://docs.groovy-lang.org/docs/groovy-2.4.16/html/documentation/#groovy-operators).
+
 ### Groovy truth
 
 Groovy decides whether an expression is true or false by applying the rules given below.  
@@ -176,8 +178,7 @@ Groovy decides whether an expression is true or false by applying the rules give
 * Numbers: Non-zero numbers are true.  
 * Object References: Non-null object references are coerced to true.
 
-
-More about Operators in Groovy [here](http://docs.groovy-lang.org/docs/groovy-2.4.16/html/documentation/#groovy-operators).
+More about Groovy Truth [here](http://groovy-lang.org/semantics.html#Groovy-Truth).  
 
 ## Bonita use cases with Groovy
 
