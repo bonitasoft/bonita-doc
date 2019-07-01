@@ -35,3 +35,15 @@ It is also possible to customize your own theme using [bootstrap-live-customizer
 ## Constraints
 
 A theme can only be associated with an application to define the style. It cannot itself be used as a simple application page.
+
+<a id="font-awesome"/>
+
+## Migration notes 
+
+Since Bonita 7.9.1 [bonita layout](bonita-layout.md) uses font-awesome icons, you may need to add font-awesome to your 
+custom theme if you are migrating from an older version.  
+In order to do this:
+* Download [font-awesome](https://fontawesome.com/v4.7.0/assets/font-awesome-4.7.0.zip) version 4.7.0
+* Copy `font-awesome.min.css` from `font-awesome-4.7.0/css` and put it into your custom theme in `resources/css`
+* Similarly, copy all the fonts from `font-awesome-4.7.0/fonts` and put them into your custom theme in `resources/fonts`
+* Finally, edit `resources/theme.css` to add the following line `@import url('./css/font-awesome.min.css');`
