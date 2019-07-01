@@ -480,8 +480,8 @@ Now define the form for the _Manager review_ task. Start by automatically genera
     | --------- | ------ |
     | Label  | Review decision  |
     | Available values (click on the "fx" binding icon next to the input field first) | statusValues  |
-    | Displayed keys  | label  |
-    | Returned keys  | value  |
+    | Displayed keys  | "label"  |
+    | Returned keys  | "value"  |
     | Selected Value  | `formInput.status`  |
 
 14. Preview the form to test the validation and rearrange the widgets until it looks like this in the editor:
