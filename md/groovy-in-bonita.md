@@ -243,14 +243,14 @@ All object DAO are injected at runtime in Groovy script expression or can be ret
 Here is the UserAppDAO interface generated for the UserApp object:
 
 ```java
-public interface UserAppDAO extends BusinessObjectDAO {
-    public UserApp findByPersistenceId(Long persistenceId);
+public interface AppUserDAO extends BusinessObjectDAO {
+    public AppUser findByPersistenceId(Long persistenceId);
 
-    public List<UserApp> findByFirstName(String firstName, int startIndex, int maxResults);
+    public List<AppUser> findByFirstName(String firstName, int startIndex, int maxResults);
 
-    public List<UserApp> findByLastName(String lastName, int startIndex, int maxResults);
+    public List<AppUser> findByLastName(String lastName, int startIndex, int maxResults);
 
-    public List<UserApp> find(int startIndex, int maxResults);
+    public List<AppUser> find(int startIndex, int maxResults);
 
     public Long countForFindByFirstName(String firstName);
 
@@ -258,7 +258,7 @@ public interface UserAppDAO extends BusinessObjectDAO {
 
     public Long countForFind();
 
-    public UserApp newInstance(String firstName, String lastName);
+    public AppUser newInstance(String firstName, String lastName);
 }
 ```
 
