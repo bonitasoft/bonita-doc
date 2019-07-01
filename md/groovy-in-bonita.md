@@ -230,7 +230,7 @@ userInput COMPLEX
 As a COMPLEX input is stored as Map it is possible to write
 
 ```groovy
-userInput as UserApp
+userInput as AppUser 
 ```
 
 ### List Business Objects using DAO
