@@ -41,7 +41,10 @@ A theme can only be associated with an application to define the style. It canno
 Since Bonita 7.9.1 [bonita layout](bonita-layout.md) uses font-awesome icons, you may need to add font-awesome to your 
 custom theme if you are migrating from an older version.  
 
-In order to do this for a theme priore 7.9.0, you need to:
+### migrating from a version prior to 7.9.0
+
+In order to to add font-awesome to your theme created with a Bonita version prior to 7.9.0,  
+you need to:
 * Download [font-awesome](https://fontawesome.com/v4.7.0/assets/font-awesome-4.7.0.zip) version 4.7.0
 * Copy `font-awesome.min.css` from `font-awesome-4.7.0/css` and put it into your custom theme in `resources/css`
 * Similarly, copy all the fonts from `font-awesome-4.7.0/fonts` and put them into your custom theme in `resources/fonts`
@@ -50,7 +53,9 @@ In order to do this for a theme priore 7.9.0, you need to:
     @import url('./css/font-awesome.min.css');
 ```
 
-if you want to migrate a 7.9.0 theme generated using the 'new theme' functionality of the studio,  
+### migrating from a version 7.9.0
+
+In order to to add font-awesome to your 7.9.0 theme generated using the 'new theme' functionality of the studio,  
 you need to:
 * Download [font-awesome](https://fontawesome.com/v4.7.0/assets/font-awesome-4.7.0.zip) version 4.7.0
 * Copy all the fonts from `font-awesome-4.7.0/fonts` and put them into your custom theme in `dist/fonts`
@@ -58,13 +63,16 @@ you need to:
 ```json
     "font-awesome-sass": "4.7.0"
 ```
+* In this same file `package.json`, include the font-awesome stylesheets path in the scripts/build section   
+```json
+    --include-path ./node_modules/font-awesome-sass/assets/stylesheets/
+```
 * In the file `src/scss/main.scss`, import font-awesome by adding 
 ```scss
-    @import "font-awesome";`
+    @import "font-awesome";
 ```
-* In the file `src/scss/_bonita_variables.scss`, set the required font path by adding:
+* In the file `src/scss/_bonita_variables.scss`, set the required font-awesome font path by adding:
 ```scss
-     $icon-font-path: "./fonts/";
      $fa-font-path: "./fonts/"; 
 ```      
 * Finally, build and deploy your migrated theme to see if the 7.9.1 [bonita layout](bonita-layout.md) works well with 
