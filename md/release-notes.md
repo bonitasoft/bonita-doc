@@ -404,3 +404,11 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 * BPO-31 Process list console Error in portal
 * BPO-71 REST API - bpm/humanTask filter by displayName doesn't work
 * BPO-110 Theme custom page should not be forced to have an index.html (but a theme.css ?)
+
+### Fixes in Bonita 7.9.1 (2019-07-03)
+
+#### Fixes in UI Designer component
+
+* UID-83 display a clear message toast in UID when license is expired
+* UID-104	Fragment variable value isn't clean when variable scope change
+* UID-105	When name of artifact is too long, left panel is broken
