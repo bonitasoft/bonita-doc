@@ -387,9 +387,9 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 * BPO-154 Clean and Improve Layout css file
 * BPO-159 "All profiles" should be the default option in the application list filter of Bonita layout
 * BPO-163 "..." of ellipsis should not be displayed on a white background
-* BPO-167 Avoid user details modal overflow DONE  
+* BPO-167 Avoid user details modal overflow
 * BPO-171 Bonita Layout mobile app title error on click
-* BPO-178 Improve the default user icon in the bonita layout DONE
+* BPO-178 Improve the default user icon in the bonita layout
 
 ### Fixes in Bonita 7.9.0 (2019-06-13)
 #### Fixes in Engine component
