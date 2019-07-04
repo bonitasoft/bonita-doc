@@ -118,7 +118,15 @@ Example: A Purchase Order object consists of a set of primitive attribute variab
 In Bonita, a composition relationship is unique: A given object can only be used in one composition relationship. For exemple, you cannot use the same object _Wheel_ in composition for an object _Car_ and an object _Bike_. You will have to use an object _WheelCar_ and an object _WheelBike_.
 :::
 
+<<<<<<< HEAD
 In the Bonita Studio BDM wizard, you can specify the objects that are related by composition and aggregation, as well as the simple attributes. A child object can be mandatory or optional. A child object can be multiple, which means that the composite object contains zero or more (if optional) or one or more (if mandatory) instances of the child object. You cannot set a unique constraint on a child object. The default relationship is aggregation.
+=======
+::: warning
+In Bonita, in an aggregation relationship, a child must exist when creating its parent. When creating a parent, you must refer to an existing child to value an attribute with an aggregation relationship.
+:::
+
+In the Bonita Studio BDM wizard, you can specify the objects that are related by composition and aggregation, as well as the simple attributes. A child object can be mandatory or optional. A child object can be multiple, which means that the composite object contains zero or more (if optional) or one or more (if mandatory) instances of the child object. You cannot set a unique constraint on a child object. The default relationship is composition.
+>>>>>>> 5a8a035c82da7685f869aefd0e9e777140619c5a
 
 When you configure an object in the Bonita Studio BDM wizard, the attribute dropdown list contains the names of the objects that can be included by composition or aggregation. You cannot specify the object you are configuring or its parent.
 
@@ -356,7 +364,6 @@ Then use the business object (which is stored only in memory at this point) in a
 #### BDM and custom REST APIs
 
 Be aware that a poor implementation of a custom REST API accessing BDM objects can lead to poor performance results. See the [best practice](bdm-in-rest-api.md) on this matter.
-
 
 #### Handle BDM database schema manually
 
