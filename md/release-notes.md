@@ -362,6 +362,8 @@ The BonitaSubscription-x.y.z-deploy.zip is no longer provided starting from Boni
 Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bundle.md) page for more specific needs.
 
 ## Bug fixes
+### Fixes in Documentation
+* BS-19323 Bonita documentation is not clear enough about PostgreSQL versions supported
 
 ### Fixes in Bonita 7.9.1 (2019-07-04)
 #### Fixes in Studio component
