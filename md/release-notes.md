@@ -362,8 +362,34 @@ The BonitaSubscription-x.y.z-deploy.zip is no longer provided starting from Boni
 Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bundle.md) page for more specific needs.
 
 ## Bug fixes
+### Fixes in Documentation
+* BS-19323 Bonita documentation is not clear enough about PostgreSQL versions supported
 
-## Bug fixes
+### Fixes in Bonita 7.9.1 (2019-07-04)
+#### Fixes in Studio component
+* BST-248 Name of sub-process is lost when importing an BPMN XML file
+* BST-282 When creating an application or editing the displayName of an application, there is no limit to the number of characters
+* BST-287 In UI Designer tomcat server, there is no extended parameters
+* BST-288 Click on Configuration icon has no effect
+* BST-290 Import multiple jars at once does not work: in the project lib, the files are empty
+* BST-294 Bonita LA Builder doesn't have the provided groovy scripts
+* BST-299 BPMN export fails if Data to send in Call Activity contains empty association
+
+#### Fixes in UI Designer component
+* UID-83 Message toast in UI Designer is not clear when license is expired
+* UID-104 Fragment variable value isn't clean when variable scope change
+* UID-105 When name of artifact is too long, left panel is broken
+
+#### Fixes in Web/Portal component
+* BPO-72 BS-19311 Administration profile: Monitoring page generates a 26 seconds request (search process definition)
+* BPO-106 BS-19310 Administration profile: Open cases page generates twice the same requests (search)
+* BPO-146 No tooltips on the top right icons and name of the user
+* BPO-154 Clean and Improve Layout css file
+* BPO-159 "All profiles" should be the default option in the application list filter of Bonita layout
+* BPO-163 "..." of ellipsis should not be displayed on a white background
+* BPO-167 Avoid user details modal overflow
+* BPO-171 Bonita Layout mobile app title error on click
+* BPO-178 Improve the default user icon in the bonita layout
 
 ### Fixes in Bonita 7.9.0 (2019-06-13)
 #### Fixes in Engine component
