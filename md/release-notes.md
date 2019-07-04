@@ -367,13 +367,13 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 
 ### Fixes in Bonita 7.9.1 (2019-07-04)
 #### Fixes in Studio component
-* BST-248	Name of sub-process is lost when importing an BPMN XML file
-* BST-282	When creating an application or editing the displayName of an application, there is no limit to the number of characters
-* BST-287	In UI Designer tomcat server, there is no extended parameters
-* BST-288	Click on Configuration icon has no effect
-* BST-290	Import multiple jars at once does not work: in the project lib, the files are empty
-* BST-294	Bonita LA Builder doesn't have the provided groovy scripts
-* BST-299	BPMN export fails if Data to send in Call Activity contains empty association
+* BST-248 Name of sub-process is lost when importing an BPMN XML file
+* BST-282 When creating an application or editing the displayName of an application, there is no limit to the number of characters
+* BST-287 In UI Designer tomcat server, there is no extended parameters
+* BST-288 Click on Configuration icon has no effect
+* BST-290 Import multiple jars at once does not work: in the project lib, the files are empty
+* BST-294 Bonita LA Builder doesn't have the provided groovy scripts
+* BST-299 BPMN export fails if Data to send in Call Activity contains empty association
 
 #### Fixes in UI Designer component
 * UID-83 Message toast in UI Designer is not clear when license is expired
