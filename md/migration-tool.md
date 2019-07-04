@@ -7,7 +7,7 @@ This changelog must be read before [migrating to a newer version of Bonita](migr
 
 ## 2.42.0 - July 4th, 2019 (Bonita 7.9.1)
 This version of the migration tool migrates Bonita up to version 7.9.1.
-* BS-19362 Migration tool: NullPointerException when replacing connector implementation with Java 11-compatible one in migrate_to_7.9.0 step
+* BS-19362 NullPointerException when replacing connector implementation with Java 11-compatible version (in Bonita 7.9.0 migration step)
 * BR-145 Automate backup of arch_contract_data table (in Bonita 7.7.0 migration step)
 
 ## 2.41.0 - June 13th, 2019 (Bonita 7.9.0)
