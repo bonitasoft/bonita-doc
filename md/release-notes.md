@@ -363,7 +363,7 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 
 ## Bug fixes
 
-### Fixes in Bonita 7.9.1 (2019-07-05)
+### Fixes in Bonita 7.9.1 (2019-07-04)
 #### Fixes in Studio component
 * BST-248	Name of sub-process is lost when importing an BPMN XML file
 * BST-282	When creating an application or editing the displayName of an application, there is no limit to the number of characters
