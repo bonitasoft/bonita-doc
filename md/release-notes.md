@@ -37,7 +37,7 @@ This improvement is also implemented in Bonita Portal case overview, where only 
 #### Render a UID page and form in the end-user browser
 Now you can open your preview in a browser tab, outside of current preview mechanism to allow you set new URL parameters, play with dynamic browser sizing, and to reuse same url in another browser to see how your form or page behaves in your user default browser.
 
-#### A new method for Living Applications buttons: Assign and execute"
+#### A new method for Living Applications buttons: "Assign and execute"
 A new action is available on the provided _Button_ widget in the UI Designer: "Assign and submit task". 
 This action is mandatory for ACM use-cases, where a user often manages a given case on his own, from begining to end, but can be used in many other use-cases.
 As a result, a user of an ACM-type Living Application can view and fill out the form of any available task in the case, and then simply click on "Submit". 
