@@ -34,7 +34,7 @@ Directly from whiteboard or from widget properties section, you will now be able
 Operations at the level of tasks now handle the complete update of multiple documents: add/delete/update are automatically managed by the method, using document Ids. 
 This improvement is also implemented in Bonita Portal case overview, where only the last version of each document is visible, and each document gets two widgets: file viewer to access the document, and file upload to update it.
 
-#### Render a UID page and form in the end-user browser
+#### Render a UI Designer page and form in the end-user browser
 Now you can open your preview in a browser tab, outside of current preview mechanism to allow you set new URL parameters, play with dynamic browser sizing, and to reuse same url in another browser to see how your form or page behaves in your user default browser.
 
 #### A new method for Living Applications buttons: "Assign and execute"
@@ -62,13 +62,13 @@ To do so, a new "View in application" feature has been added to the preview wind
 Themes created in an IDE can now be mapped with an application descriptor to customize the look and feel of a living application. 
 Layouts created in the UI Designer can also be updated in an application descriptor for better customization.
 
-#### Use provided UID widgets as a template for a custom widget 
+#### Use provided UI Designer widgets as a template for a custom widget 
 Do you need a text widget that applies an specific numeric formating to match your external system keys? Do you need a table widget with specific padding? 
 Bonita UI Designer provides a set of standard widgets to build your form & pages, and now you can extend them to fullfill your specific needs. 
 In the Properties panel header, there is a new widget action menu. From this menu, you can launch all the widget-related actions, such as: edit, view, save as fragment (depending on the selected widget). 
 From this widget action menu, you can view the widget, clone it as a custom widget and modify it. It will be directly available in your palette for further uses.
 
-#### Manage UID assets order to guarantee user interface rendering  
+#### Manage UI Designer assets order to guarantee user interface rendering  
 Apply the right order on assets affects the behaviour the page such as the order or CSS loading to override styles, or JS object declarations. 
 Base framework assets are now visible to show you which ones are used to build your UI Designer page, such as Angular or Bootstrap and in which version, additionally a documentation link has been added to take benefit of such frameworks documentation.
 
@@ -416,7 +416,7 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 * BST-132 Wrong script generated in some specific cases with multiple data
 * BST-162 Generate process documentation does not work post 7.7
 * BST-204 Default Application created in the Portal raises an error about custompage_home when imported and Deployed from Studio
-* BST-221 UID allows to have 2 forms with same name when created from the Studio: this breaks LA Builder
+* BST-221 UI Designer allows to have 2 forms with same name when created from the Studio: this breaks LA Builder
 * BST-271 Import .bpmn diagram fails
 
 #### Fixes in UI Designer component
