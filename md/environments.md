@@ -10,6 +10,11 @@ You can configure and run a process in a specific environment.
 
 The default environment is the one most recently selected in the Configure or Run menus in the Cool bar.
 
+::: warning
+The **Local** environment is meant to be local, you cannot share it with a VCS (Git / SVN).
+:::
+
+
 ## Define a custom environment
 
 To define a custom environment for a process, open the process in Bonita Studio Enterprise, Performance, Efficiency, or Teamwork edition and 
