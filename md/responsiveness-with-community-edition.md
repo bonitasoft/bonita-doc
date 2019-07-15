@@ -5,6 +5,7 @@ To build a responsive page/form based on different screen sizes using UI Designe
 By default, the preview of Bonita UI Designer in Community edition is mobile first approach. The bootstrap CSS classes for grid columns
 such as; ``` col-lg-12, col-md-12, col-sm-12, col-xs-12, etc. ``` helps Community users to build responsive application(s).
 
+
 According to grid system, bootstrap predefined CSS classes for different screen resolutions explain 3 major things;
  - ```col``` : grid columns
  - ```lg```, ```md```, ```sm```, ```xs``` : lg stands for large screen size whereas md for medium, sm for small, and xs stands for extra small screen size devices. 
@@ -29,3 +30,6 @@ On large, medium, and small screen devices;
 On extra small screen (mobile) devices;
 
 ![mobile device output](images/responsiveness-community-edition/responsivenessCommunityEditionOutput2.png)
+
+For more details about bootstrap grid system, click [here.](https://getbootstrap.com/docs/3.3/css/#grid)
+
