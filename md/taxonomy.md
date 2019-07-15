@@ -272,3 +272,4 @@
   * [Git versioning Community Edition](git-versioning-community-edition.md)
   * [Migrate a SVN repository to a Git repository](migrate-a-svn-repository-to-github.md)
   * [Create a vertical tabs container for all devices](uid-vertical-tabs-container-tutorial.md)
+  * [Create a responsive web application with Community edition](responsiveness-with-community-edition.md)
