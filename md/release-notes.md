@@ -311,7 +311,7 @@ To migrate to Bonita 7.9+ from an earlier version, you need to run the [Bonita M
 
 ::: info
 **Note:** Bonita requires MySQL to use [UTF-8 encoding](database-configuration.md#utf8_requirement), which is an alias for 'utf8mb3', now deprecated by MySQL. 
-The [official recommendation is to use 'utf8mb4'](https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-utf8.html). Bonitasoft will handles this change in a later release.
+The [official MySQL recommendation is to use 'utf8mb4'](https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-utf8.html). Bonitasoft will handles this change in a later release.
 :::
 
 <a id="other-dependencies"/>
