@@ -21,28 +21,10 @@ There are three phases of operation for an application that is integrated with B
 <a id="bonita-authentication"/>
 
 ### Authenticate to Bonita
-  
-Calls to the Web REST API require you to first log in as a user registered in the Engine database.
 
-To log in, use the following request:
-| | |
-|:-|:-|
-| Request URL | `http://host:port/bonita/loginservice`| 
-| Request Method | POST| 
-| Content-Type | application/x-www-form-urlencoded|
-| Form Data | username: a username<br/>password: a password <br/>redirect: true or false. false indicates that the service should not redirect to Bonita Portal (after a successful login) or to the login page (after a login failure).<br/>redirectURL: the URL of the page to be displayed after login <br/>tenant: the tenant to log in to (optional for Performance edition, not supported for Community, Teamwork and Efficiency editions)|
-  
-The response to this call generates cookies.
-The `JSESSIONID` must be transfered with each subsequent calls. If the REST API is used in an application running in a web browser, this is handled automatically by the web browser.
-For usage of the `X-Bonita-API-Token` see below.
+See [REST Authentication](rest-api-authent.md) details to understand how to login from Bonita REST APIs.
 
-#### X-Bonita-API-Token cookie and HTTP header
-
-The security against CSRF attacks is enabled by default for all fresh installations.
-
-This security relies on `X-Bonita-API-Token` information. The `X-Bonita-API-Token` value can be found in the cookie named: `X-Bonita-API-Token`. All the subsequence REST API calls using DELETE, POST, or PUT HTTP methods must contain the **HTTP header** below:
-
-    X-Bonita-API-Token: example-dummy-not-be-used-value
+Make sure your application has authentified your user before calling other APIs otherwise you will receive 401 HTTP error code.
 
 ### Execute REST calls and integrate the results in your application
 
@@ -57,16 +39,9 @@ The engine will then continue the execution of the workflow as designed.
 
 ### Logout from Bonita
 
-When processing is complete, you must log out.
+When processing is complete, you must log out.  
 
-To log out, use the following request:
-| | |
-|:-|:-|
-| Request URL | `http://host:port/bonita/logoutservice`| 
-| Request Method | GET| 
-| Query parameter | redirect: true or false (default set to true)|
-
-Setting the redirect parameter to false indicates that the service should not redirect to the login page after logging out.
+See [REST Authentication](rest-api-authent.md) details to understand how to logout from Bonita REST APIs.
 
 ## API Extensions
 
