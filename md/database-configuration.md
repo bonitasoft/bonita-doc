@@ -251,6 +251,9 @@ For more information, see the [MySQL website](https://dev.mysql.com/doc/refman/8
 MySQL does not support [surrogate characters](https://en.wikipedia.org/wiki/Universal_Character_Set_characters#Surrogates).
 If you want to use surrogate characters in your processes, you need to use another type of database.
 
+##### utf8mb4 charset not supported
+
+Note: Bonita requires MySQL to use UTF-8 encoding, which is an alias for 'utf8mb3', now deprecated by MySQL. The official MySQL recommendation is to use 'utf8mb4'. Bonitasoft will handles this change in a later release. For the moment, Bonita requires 'utf8mb3' charset. 
 
 ### Bundle database configuration
 
