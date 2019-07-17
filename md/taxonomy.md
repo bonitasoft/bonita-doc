@@ -207,7 +207,7 @@
   * [API glossary](api-glossary.md)
   * [REST API](_rest-api.md)
     * [REST API overview](rest-api-overview.md)
-    * [REST Authentication](rest-api-authent.md)
+    * [REST Authentication](rest-api-authentication.md)
     * [application API](application-api.md)
     * [bdm API](bdm-api.md)
     * [bpm API](bpm-api.md)

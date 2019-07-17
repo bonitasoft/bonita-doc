@@ -22,7 +22,7 @@ There are three phases of operation for an application that is integrated with B
 
 ### Authenticate to Bonita
 
-See [REST Authentication](rest-api-authent.md) details to understand how to login from Bonita REST APIs.
+See [REST Authentication](rest-api-authentication.md) details to understand how to login from Bonita REST APIs.
 
 Make sure your application has authentified your user before calling other APIs otherwise you will receive 401 HTTP error code.
 
@@ -41,7 +41,7 @@ The engine will then continue the execution of the workflow as designed.
 
 When processing is complete, you must log out.  
 
-See [REST Authentication](rest-api-authent.md) details to understand how to logout from Bonita REST APIs.
+See [REST Authentication](rest-api-authentication.md) details to understand how to logout from Bonita REST APIs.
 
 ## API Extensions
 
