@@ -21,7 +21,7 @@ Both Windows and Mac have default security settings that will prevent execution 
 **Note for users of OS X 10.7.5 and above**: a new security feature called **Gatekeeper** prevents the installation of software that is not officially recognized by Apple.  
 For more information and details of how to install Bonita Studio on a system running Gatekeeper, see the [Apple support site](https://support.apple.com/en-us/HT202491).
 
-**Not for users of Windows 10**: the security feature called **SmartScreen** prevents execution of Bonita Studio installer.  When you get the "Windows protect your PC" pop up window, click on "More info" link and click on "Run anyway" button.
+**Note for users of Windows 10**: the security feature called **SmartScreen** prevents execution of Bonita Studio installer.  When you get the "Windows protect your PC" pop up window, click on "More info" link and click on "Run anyway" button.
 
 ## Download Bonita Studio
 
