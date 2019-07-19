@@ -87,6 +87,10 @@ discovery modes), you must declare its public address by adding the following pr
    ```
 1. Then start the cluster in the load balancer.
 
+::: warning
+If you are using apache-tomcat load-balancer whith mod_jk, make sure that jvmRoute attribute is set at your Engine <Engine name="Catalina" defaultHost="localhost" jvmRoute="node01" > and that the jvmRoute attribute value matches your worker name in workers.properties. See official documentation: https://tomcat.apache.org/tomcat-7.0-doc/cluster-howto.html 
+In the server.xml file, for example, change the line to: Engine name="Catalina" defaultHost="localhost" jvmRoute="node01"
+:::
 1. Check that the log file contains messages of the following form:
     ```
     March 22, 2016 5:07:07 PM INFO: com.hazelcast.cluster.ClusterService [10.0.5.3]:5701 [myBPMCluster]
