@@ -34,9 +34,9 @@ Installer will guide you through a very basic installation configuration:
 ![Bonita Studio installer last screen](images/getting-started-tutorial/installation/studio-installation-installer-08-last-screen.png)
 
 The Studio is now installed. Default installation folders are:
-- Windows: C:\BonitaStudioCommunity-x.y.z
-- macOS: /Applications/BonitaStudioCommunity-x.y.z
-- Linux: /home/<username>/BonitaStudioCommunity-x.y.z
+- Windows: `C:\BonitaStudioCommunity-x.y.z`
+- macOS: `/Applications/BonitaStudioCommunity-x.y.z`
+- Linux: `/home/<username>/BonitaStudioCommunity-x.y.z`
 
 ## First Studio execution
 
