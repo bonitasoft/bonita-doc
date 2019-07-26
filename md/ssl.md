@@ -24,10 +24,6 @@ If you use the default HTTPS port number, 443, users do not need to specify the 
 * The operating system is Ubuntu.
 * The starting point is a bundle that has been installed and configured but not started.
 
-## WildFly with keystore
-
-For details of how to set up SSL with WildFly 10, see the [SSL Configuration](https://docs.jboss.org/author/display/WFLY10/Admin+Guide#AdminGuide-EnableSSL) on the WildFly 10 web site.
-
 ## Tomcat with APR and OpenSSL
 
 This example show how to configure SSL with APR and OpenSSL for a Bonita using Tomcat.

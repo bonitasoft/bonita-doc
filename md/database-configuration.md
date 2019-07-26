@@ -11,7 +11,7 @@ You can find the list of RDBMSs versions supported on the [supported database li
 
 ## Default H2 database
 
-Bonita Studio, the WildFly bundle, the Tomcat bundle, and the deploy bundle come by default with an embedded H2 RDBMS. The database is automatically created at first startup, and can be used for all purposes described earlier.
+Bonita Studio, the Tomcat bundle, and the deploy bundle come by default with an embedded H2 RDBMS. The database is automatically created at first startup, and can be used for all purposes described earlier.
 
 However, H2 is only suitable for testing purposes. When building a production environment, you must switch to another RDBMS.  
 
@@ -28,7 +28,7 @@ Here are the steps to follow. They are the same for the engine database and the 
 3. Add the JDBC driver to the bundle if the database is proprietary
 4. Configure the bundle with database information 
 
-Steps 1 and 2 are detailed further down this page, steps 3 and 4 are part of the configuration part of [Tomcat bundle](tomcat-bundle.md) and [WildFly bundle](wildfly-bundle.md) pages.
+Steps 1 and 2 are detailed further down this page, steps 3 and 4 are part of the configuration part of the [Tomcat bundle](tomcat-bundle.md) page.
 
 ::: warning
 All RDBMSs require [specific customization](#specific_database_configuration), which must be done before you complete your installation.  
@@ -257,4 +257,4 @@ Note: Bonita requires MySQL to use UTF-8 encoding, which is an alias for 'utf8mb
 
 ### Bundle database configuration
 
-Now that your databases are created and customized to work with Bonita, you are ready to configure Bonita bundles, either the [Tomcat bundle](tomcat-bundle.md) or the [WildFly bundle](wildfly-bundle.md).
+Now that your databases are created and customized to work with Bonita, you are ready to configure the [Bonita bundle](tomcat-bundle.md).

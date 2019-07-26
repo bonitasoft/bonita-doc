@@ -1,49 +1,6 @@
 # Use gzip compression
 
-Using gzip compression in your application server can improve performance by reducing network load for some resources. This page describes how to activate gzip compression for a Bonita Platform with Tomcat and with WildFly.
-
-## WildFly
-
-To activate compression for WildFly, you need to modify the `standalone.xml` configuration.
-
-Therefore, in your Wildfly bundle, you need to open `WILDFLY_HOME/setup/wildfly-templates/standalone.xml` and find the `undertow:3.1` subsystem. Edit the section to add the following filters as shown below:
-
-```xml
-        <subsystem xmlns="urn:jboss:domain:undertow:3.1">
-            <buffer-cache name="default" />
-            <server name="default-server">
-                <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true" max-post-size="104857600" />
-                <https-listener name="https" socket-binding="https" security-realm="ApplicationRealm" enable-http2="true" />
-                <host name="default-host" alias="localhost">
-                    <location name="/" handler="welcome-content" />
-                    <!-- ##################### GZIP COMPRESSION ################# -->
-                    <filter-ref name="server-header"/>
-                    <filter-ref name="x-powered-by-header"/>
-                    <filter-ref name="gzipFilter" predicate="exists['%{o,Content-Type}'] and regex[pattern='(?:application/javascript|text/css|text/html|text/xml|application/json)(;.*)?', value=%{o,Content-Type}, full-match=true]"/>
-                    <filter-ref name="Vary-header"/>
-                    <!-- ######################################################## -->
-                </host>
-            </server>
-            <servlet-container name="default">
-                <jsp-config />
-                <websockets />
-                <session-cookie name="SESSIONID" />
-            </servlet-container>
-            <handlers>
-                <file name="welcome-content" path="${jboss.home.dir}/welcome-content" />
-            </handlers>
-            <!-- #################### GZIP COMPRESSION ################### -->
-            <filters>
-                <response-header name="server-header" header-name="Server" header-value="WildFly/10"/>
-                <response-header name="x-powered-by-header" header-name="X-Powered-By" header-value="Undertow/1"/>
-                <response-header name="Vary-header" header-name="Vary" header-value="Accept-Encoding"/>
-                <gzip name="gzipFilter"/>
-            </filters>
-            <!-- ######################################################### -->
-        </subsystem>
-```
-
-## Tomcat
+Using gzip compression in your application server can improve performance by reducing network load for some resources. This page describes how to activate gzip compression for a Bonita Platform with Tomcat.
 
 To activate gzip compression for http requests, you need to modify the `server.xml` configuration. 
 
@@ -83,7 +40,7 @@ Connector configuration:
 After you modify the file, restart your application server and test with the following `curl` command:
 `curl -I -H 'Accept-Encoding: gzip' http://`_`ip_address:port`_`/bonita/login.jsp`
 
-Check that the header returned contains the line `Content-Encoding: gzip`. For example, on a WildFly system the output will be similar to this:
+Check that the header returned contains the line `Content-Encoding: gzip`. The output should be similar to this:
 ```
 HTTP/1.1 200 OK
 Server: Apache-Coyote/1.1

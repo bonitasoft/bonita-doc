@@ -21,7 +21,7 @@ For an already existing tenant, you can change these tenant-specific credentials
 
 
 ## Important notice (only for default tenant)
-The engine and the portal can be installed on different machines / Tomcat / WildFly installations. For that reason, the portal has its own configuration file
+The engine and the portal can be installed on different machines / Tomcat installations. For that reason, the portal has its own configuration file
 that define the tenant technical user credentials, in order to communicate with the (potentially remote) engine.
 
 For this matter, if you change the tenant admin credentials (default tenant only) on engine side (see above), you must also update the corresponding values in the file:

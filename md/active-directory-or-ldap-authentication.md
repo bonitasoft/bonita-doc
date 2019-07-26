@@ -82,30 +82,7 @@ If you use a `userFilter` and users are allowed to search, set the value with `{
 
 **Note:** all configuration files are case sensitive. You can find more examples in the [JAAS configuration files examples](#examples) section of this page.
 
-##### **WildFly**
-
-Edit the `<WILDFLY_HOME>/setup/wildfly-templates/standalone.xml` file to specify the configuration. Use HTML encoding for any strings in the configuration (for example, a space character is written as %20).
-
-Add the Bonita login context using the WildFly specific syntax just before the `</security-domains>` tag. Note that `security-domain-name` is in fact the JAAS login context name (e.g. Bonita).
-
-The following example is for a tenant with id 1:
-```xml
-<security-domain name="BonitaAuthentication-1">
-    <authentication>
-        <login-module code="com.sun.security.auth.module.LdapLoginModule" flag="required">
-            <module-option name="userProvider" value="ldap://localhost:389/ou=all%20people,dc=example,dc=com"/>
-            <module-option name="userFilter" value="(&amp;(objectClass=user)(userPrincipalName={USERNAME}@myExampleDomain.com))"/>
-            <module-option name="authIdentity" value="{USERNAME}@myExampleDomain.com"/>
-            <module-option name="useSSL" value="false"/>
-            <module-option name="debug" value="true"/>
-        </login-module>
-    </authentication>
-</security-domain>
-```
-
-##### **Tomcat**
-
-On Tomcat, the JAAS configuration file follows the [default JVM syntax](http://docs.oracle.com/javase/8/docs/api/javax/security/auth/login/Configuration.html).  
+The JAAS configuration file follows the [default JVM syntax](http://docs.oracle.com/javase/8/docs/api/javax/security/auth/login/Configuration.html).  
 Here is an example of JAAS configuration file:  
 ```
 BonitaAuthentication-1 {
@@ -132,15 +109,9 @@ You will need to perform following changes:
 
 #### Configure JAAS
 
-##### **WildFly**
+To define the JAAS configuration file location you need to set a JVM property, `java.security.auth.login.config`. To do this for a system running a Tomcat bundle you need to edit the `setenv` script provided with Bonita and located in `<TOMCAT_HOME>/server/bin` folder.
 
-As the JAAS configuration in WildFly is already done in a file that already exists, no further configuration is necessary.
-
-##### **Tomcat**
-
-To define the JAAS configuration file location you need to set a JVM property, `java.security.auth.login.config`. To do this for a system running Tomcat you need to edit the `setenv` script provided with Bonita and located in `<TOMCAT_HOME>/server/bin` folder.
-
-###### For Linux and Mac OS
+##### For Linux and Mac OS
 
 * Edit this file: `<TOMCAT_HOME>/setup/tomcat-templates/setenv.sh`
 * Locate the line that starts: `#SECURITY_OPTS`
@@ -149,7 +120,7 @@ To define the JAAS configuration file location you need to set a JVM property, `
 * Add the tag `${SECURITY_OPTS} ` after the tag `${PLATFORM_SETUP}`
 * Push into database the changes: `./setup.sh push`
 
-###### For Windows
+##### For Windows
 
 * Edit this file: `<TOMCAT_HOME>/setup/tomcat-templates/setenv.bat`
 * Locate the line that starts: `rem set SECURITY_OPTS`
@@ -164,7 +135,7 @@ To define the JAAS configuration file location you need to set a JVM property, `
 
 **Note:** Remember to remove the debug flag for production.
 
-**Note:** These examples use the JAAS standard syntax (as used by Tomcat). They can easily be adapted to the WildFly XML syntax.
+**Note:** These examples use the JAAS standard syntax (as used by Tomcat).
 
 #### Active Directory
 

@@ -78,13 +78,6 @@ The engine server access mode is defined per client and does not need to be the 
 If you have a client located in the same JVM as your server, configure it to use the local access mode.  
 You can then configure other clients to use one of the remote modes but you do not penalize the client able to leverage the local access performance.
 
-<a id="ejb3"/>
-
-##### EJB3 (deprecated, removed in 7.10)
-
-EJB3 access is serialized data using RMI protocol.  
-This protocol comes with a cost, and this cost is dependent of the implementation in the EJB container you are using.
-
 <a id="http"/>
 
 ##### HTTP
@@ -147,8 +140,6 @@ If you are running Bonita Engine inside a container, the maximum number of clien
 * **Apache Tomcat** `maxThreads` set in _`Tomcat_folder`_`/conf/server.xml`.    
      Default value 20\. 
      See the [Tomcat documentation](http://tomcat.apache.org/tomcat-8.5-doc/) for information about the `maxThreads` parameter.
-* **Red Hat WildFly** : add the attributes `io-threads="10"` and `task-max-threads="20"` in the _default_ *worker* element in the io subdomain in `<WILDFLY_HOME>/setup/wildfly-templates/standalone.xml`.
-     The WildFly administrator guide lacks some information about advanced worker configuration. Undertow (WildFly web service handler) relies on the [XNIO API](http://docs.jboss.org/xnio/3.0/api/org/xnio/Options.html) for creating Worker threads. See [IO Worker configuration for Undertow](https://developer.jboss.org/thread/241230?start=0&tstart=0) for information about worker configuration.
 
 <a id="work_service"/>
 
@@ -260,11 +251,6 @@ For Tomcat, edit file `setup/tomcat-templates/bonita.xml`:
 * For RawBonitaDS, set `maxTotal=”yourvalue”`.
 * If necessary, for the Business Data feature, do the same for the datasources 'RawBusinessDataDS' and 'NotManagedBizDataDS'.
 
-For WildFly, edit file `setup/wildfly-templates/standalone.xml`:
-
-* For both bonitaDS and bonitaSequenceManagerDS, set `<max-pool-size>yourvalue</max-pool-size>`.
-* If necessary, for the Business Data feature, do the same for the datasources 'RawBusinessDataDS' and 'NotManagedBizDataDS'.
-
 <a id="volume"/>
 
 ## Volume
@@ -371,7 +357,7 @@ In case of issues, you should monitor these two elements and consider improvemen
 * use SSD hard drives, and RAID configuration with striping
 
 Network connectivity also impacts access to the engine APIs when you are not using local access, that is, 
-if you are using [EJB3](#ejb3), [HTTP](#http), [REST](#rest).
+if you are using [HTTP](#http), [REST](#rest).
 
 ## Database, Transaction Manager, and logs
 

@@ -54,43 +54,11 @@ Copy the `libspajco3.so` file in `/usr/lib`
 
 #### 2. Configure the application server
 
-##### Tomcat example
-
 It is assumed that both the Tomcat and the Bonita Engine were already successfully started once.
 
 1. Stop Tomcat
 2. Copy the `sapjco3.jar` file into `BonitaSubscription-7.8.3-Tomcat-8.5.34\server\lib` directory
 3. Start Tomcat
-
-##### Wildfly example
-
-1. Create the `sapjco3\main` directories under `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\modules\system\layers\base\com\` directory
-2. Copy the `sapjco3.jar` file into `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\modules\system\layers\base\com\sapjco3\main`
-3. Create the `module.xml` file in the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\modules\system\layers\base\com\sapjco3\main` directory, with the content below:
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<module xmlns="urn:jboss:module:1.0" name="com.sapjco3">
-    <resources>
-        <resource-root path="sapjco3.jar" />
-    </resources>
-    <dependencies>
-       <module name="sun.jdk"/>
-    </dependencies>
-</module>
-```
-4. Edit the `standalone.xml` file
-
-When the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\start-bonita.bat` script is used to start Wildfly, then edit the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\setup\wildfly-templates\standalone.xml` file.
-
-Otherwise edit the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\standalone\configuration\standalone.xml` file.
-
-Add these 3 lines under `subsystem xmlns="urn:jboss:domain:ee:4.0"`:
-```xml
-<global-modules>      
-    <module name="com.sapjco3" slot="main"/>
-</global-modules> 
-```
-5. Start Wildfly
 
 ### Studio: How to import the SAP JCo3 library and make a request with an example function using the graphic display
 

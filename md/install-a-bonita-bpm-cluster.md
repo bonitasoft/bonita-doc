@@ -39,7 +39,7 @@ When done you will have a database with all tables created and with a table `CON
 1. Ensure that you meet the [requirements](hardware-and-software-requirements.md).
 1. [Create the database](database-configuration.md#database_creation).
 1. In case you use [Business data](define-and-deploy-the-bdm.md), [create a database for the Business Data](database-configuration.md#database_creation).
-1. Download a Bonita [Tomcat bundle](tomcat-bundle.md) or a Bonita [WildFly bundle](wildfly-bundle.md), and unzip it at some place of your choice.
+1. Download a Bonita [Tomcat bundle](tomcat-bundle.md) and unzip it at some place of your choice.
 1. Edit file **`setup/database.properties`** and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of [backslash characters](BonitaBPM_platform_setup.md#backslash_support).
 
 In the following steps, you will update the configuration files that are in the `setup/platform_conf/initial` folder of the platform setup tool.
@@ -72,7 +72,7 @@ If later you need to change the configuration of the node discovery or add new l
 
 ### <a id="install_first_node" /> Install a first node
 
-1. Once you have done all the steps from section **Create and initialize the database for Bonita Platform** above,  run `setup.sh configure` or `setup.bat configure` as described in the [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to have your Tomcat / WildFly bundle configured to point to the right database.
+1. Once you have done all the steps from section **Create and initialize the database for Bonita Platform** above,  run `setup.sh configure` or `setup.bat configure` as described in the [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to have your Tomcat bundle configured to point to the right database.
 1. Once the bundle is configured, and to avoid unsynchronized versions of the configuration files between several nodes, you are advised to delete
 the folder `[TOMCAT_DIRECTORY]/setup` and its entire content.
 Note:  if you want to keep it for future configuration changes, just move the folder `[TOMCAT_DIRECTORY]/setup` and its entire content outside the `[TOMCAT_DIRECTORY]`
@@ -108,7 +108,7 @@ In the server.xml file, for example, change the line to: Engine name="Catalina" 
 
 You can add a new node to a cluster without interrupting service on the existing nodes.
 
-1. Copy the entire Tomcat / WildFly directory to another machine.
+1. Copy the entire Tomcat directory to another machine.
 1. If Hazelcast Node discovery is configured with TCP, update the configuration in database using the [platform setup tool](BonitaBPM_platform_setup.md), as follows:
    1. Run the `setup.sh pull` or `setup.bat pull`. This will retrieve the configuration of your platform under `platform_conf/current` folder.
    1. Edit the file `platform_conf/current/platform_engine/bonita-platform-sp-cluster-custom.properties` and add the node to the list of members as follows for example: `bonita.platform.cluster.hazelcast.tcpip.members=ipServer01,ipServer02,ipServer03`
@@ -140,7 +140,7 @@ In this case you already have a Bonita Platform running as single node installat
 
 Some properties of the Bonita Platform needs to be changed, through [Bonita platform setup tool](BonitaBPM_platform_setup.md), in order to make your installation work as a cluster node.
 
-* Download Bonita [Tomcat bundle](tomcat-bundle.md) or [WildFly bundle](wildfly-bundle.md), that contains the platform setup tool, and unzip it at some place of your choice.
+* Download Bonita [Tomcat bundle](tomcat-bundle.md), that contains the platform setup tool, and unzip it at some place of your choice.
 * Go into the `setup` folder: `cd ./setup/`
 * Configure the Setup Tool as described in the [platform setup tool page](BonitaBPM_platform_setup.md)
 * Run the `setup.sh pull` or `setup.bat pull`. This will retrieve the configuration of your platform under `platform_conf/current` folder.

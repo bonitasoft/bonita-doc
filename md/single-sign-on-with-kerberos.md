@@ -6,7 +6,7 @@
 
 This pages explains how to configure your Bonita Platform system to use the Kerberos protocol to provide single sign-on (SSO). It assumes you already have a Correctly configured Windows Domain (AD/KDC/DNS services).
 
-This information applies to a Bonita platform deployed from a bundle (Tomcat or WildFly), not to the Engine launched from Bonita Studio. `<BUNDLE_HOME>` refers to the root directory of the bundle.
+This information applies to a Bonita platform deployed from a bundle, not to the Engine launched from Bonita Studio. `<BUNDLE_HOME>` refers to the root directory of the bundle.
 
 Kerberos configuration is at tenant level. Each tenant can use a different authentication method (over Kerberos or not).
 
@@ -127,7 +127,7 @@ To configure Bonita for Kerberos:
     1. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
     1. Stop it before modifying the configuration files below
 	
-2. You will need to edit the Kerberos configuration file in order to select the desired encryption types used to secure the communication. In the following folder `<BUNDLE_HOME>/server/conf` (Tomcat) or `<BUNDLE_HOME>/server/bin` (Wildfly),
+2. You will need to edit the Kerberos configuration file in order to select the desired encryption types used to secure the communication. In the following folder `<BUNDLE_HOME>/server/conf` (Tomcat),
 	edit the krb5.conf file as follows:
 	
 ```	
@@ -154,7 +154,7 @@ if you want to use the AES256-CTS encryption type, you need to update the Java s
 	* For Java updates < Java 8 u162, you have to download the security libraries [Here](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html)
 		These libraries need to be put in jre/lib/security and jdk/jre/lib/security.
 
-3. (Tomcat) In the following folder `<BUNDLE_HOME>/server/conf`,
+3. In the following folder `<BUNDLE_HOME>/server/conf`,
 	edit the login.conf file as follows:
 	
 ```	
@@ -167,31 +167,6 @@ if you want to use the AES256-CTS encryption type, you need to update the Java s
 		storeKey=true
 		isInitiator=false;
 	};
-```
-	
-3. (Wildfly) In the following folder `<BUNDLE_HOME>/setup/wildfly-templates`,
-	edit the standalone.xml file as follows:
-	
-In:
-```	
-<subsystem xmlns="urn:jboss:domain:security:1.2">
-            <security-domains>
-```
-Make sure the following security domains are present:
-```
-		<security-domain name="spnego-server">
-			<authentication>
-			  <login-module code="com.sun.security.auth.module.Krb5LoginModule" flag="required">
-				<module-option name="storeKey" value="true"/>
-				<module-option name="isInitiator" value="false"/>
-			  </login-module>
-			</authentication>
-		</security-domain>
-		<security-domain name="spnego-client">
-			<authentication>
-			  <login-module code="com.sun.security.auth.module.Krb5LoginModule" flag="required"/>
-			</authentication>
-		</security-domain>
 ```
 	
 4. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
@@ -237,7 +212,6 @@ If only a limited group of users need to bypass kerberos authentication method y
 	-->	 spnego.preauth.password     = <password> 
 ```
 <username> and <password> shoud be replaced with the domain account and password to use to pre-authenticate to on the Domain controller acting as Kerberos Key Distribution Center.  
-Note that for Wildfly, the properties `spnego.krb5.conf` and `spnego.login.conf` are not used as already set in the file satndalone.xml
 
 Make sure to set your principal user name and password.	
 
@@ -316,8 +290,6 @@ org.bonitasoft.console.common.server.auth.level = ALL
 org.bonitasoft.engine.authentication.level = ALL
 com.bonitasoft.engine.authentication.level = ALL
 ```
-
-In a WildFly bundle, you need to edit the file `<BUNDLE_HOME>/setup/wildfly-templates/standalone.xml` in the domain `urn:jboss:domain:logging:3.0` of the *subsystem* tag.
 
 Edit the *logger* tags which *category* matches `org.bonitasoft.console.common.server.auth`, `org.bonitasoft.engine.authentication` and `com.bonitasoft.engine.authentication` packages: change the *level* *name* attribute of each *logger* to `ALL` and add a new logger with the *category* `net.sourceforge.spnego` (also with a *level* *name* set to `ALL`).
 
