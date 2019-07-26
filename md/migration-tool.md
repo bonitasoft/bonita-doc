@@ -5,6 +5,10 @@ to the one delivered with the latest version of Bonita.
 This is due to the fact that improvements in any version of the Migration Tool can affect all supported versions of Bonita.
 This changelog must be read before [migrating to a newer version of Bonita](migrate-from-an-earlier-version-of-bonita-bpm.md).
 
+## 2.43.0 - August 1st, 2019 (Bonita 7.9.2)
+This version of the migration tool migrates Bonita up to version 7.9.2.
+* BS-19371 Migration to 7.7.0 (sometimes) fails on oracle with migration tool 2.42.0.
+
 ## 2.42.0 - July 4th, 2019 (Bonita 7.9.1)
 This version of the migration tool migrates Bonita up to version 7.9.1.
 * BS-19362 NullPointerException when replacing connector implementation with Java 11-compatible version (in Bonita 7.9.0 migration step)
