@@ -11,7 +11,7 @@ You can find the list of RDBMSs versions supported on the [supported database li
 
 ## Default H2 database
 
-Bonita Studio, the Tomcat bundle, and the deploy bundle come by default with an embedded H2 RDBMS. The database is automatically created at first startup, and can be used for all purposes described earlier.
+The Bonita Studio and the Tomcat bundle come by default with an embedded H2 RDBMS. The database is automatically created at first startup, and can be used for all purposes described earlier.
 
 However, H2 is only suitable for testing purposes. When building a production environment, you must switch to another RDBMS.  
 

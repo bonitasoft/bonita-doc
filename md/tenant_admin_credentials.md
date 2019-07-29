@@ -25,5 +25,5 @@ The engine and the portal can be installed on different machines / Tomcat instal
 that define the tenant technical user credentials, in order to communicate with the (potentially remote) engine.
 
 For this matter, if you change the tenant admin credentials (default tenant only) on engine side (see above), you must also update the corresponding values in the file:
-`<WEBSERVER_HOME>/setup/platform_conf/`**initial**`/platform_portal/platform-tenant-config.properties` if you have never started the platform yet, and
-`<WEBSERVER_HOME>/setup/platform_conf/`**current**`/platform_portal/platform-tenant-config.properties` if the platform has been already started.
+`<BUNDLE_HOME>/setup/platform_conf/`**initial**`/platform_portal/platform-tenant-config.properties` if you have never started the platform yet, and
+`<BUNDLE_HOME>/setup/platform_conf/`**current**`/platform_portal/platform-tenant-config.properties` if the platform has been already started.
