@@ -7,7 +7,7 @@ This changelog must be read before [migrating to a newer version of Bonita](migr
 
 ## 2.43.0 - August 1st, 2019 (Bonita 7.9.2)
 This version of the migration tool migrates Bonita up to version 7.9.2.
-* BS-19371 Migration to 7.7.0 (sometimes) fails on oracle with migration tool 2.42.0.
+* BS-19371 Migration to 7.7.0 (sometimes) fails when recreating arch_contract_data PK on oracle with migration tool 2.42.0.
 
 ## 2.42.0 - July 4th, 2019 (Bonita 7.9.1)
 This version of the migration tool migrates Bonita up to version 7.9.1.
