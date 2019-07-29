@@ -76,7 +76,6 @@ You do not need to configure Tomcat files directly anymore. The command `setup c
 If you decide to do it anyway, the tool will overwrite your custom values (after storing a restore backup into the folder `tomcat-backups`).
 If you need to finely tune the configuration, modify the following template files, as they serve as a basis for configuration:
 
-For Tomcat:
 * tomcat-templates/bonita.xml
 * tomcat-templates/setenv.sh
 * tomcat-templates/setenv.bat
