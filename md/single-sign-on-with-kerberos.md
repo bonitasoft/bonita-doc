@@ -127,7 +127,7 @@ To configure Bonita for Kerberos:
     1. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
     1. Stop it before modifying the configuration files below
 	
-2. You will need to edit the Kerberos configuration file in order to select the desired encryption types used to secure the communication. In the following folder `<BUNDLE_HOME>/server/conf` (Tomcat),
+2. You will need to edit the Kerberos configuration file in order to select the desired encryption types used to secure the communication. In the following folder `<BUNDLE_HOME>/server/conf`,
 	edit the krb5.conf file as follows:
 	
 ```	
