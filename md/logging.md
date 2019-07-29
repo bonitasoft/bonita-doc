@@ -97,7 +97,7 @@ Change these packages value to change the Bonita global log level.
 
 #### Tomcat
 
-On a Tomcat bundle, you can configure the log level and you can access the log files directly, in `$TOMCAT_HOME/logs`. 
+On a Tomcat bundle, you can configure the log level and you can access the log files directly, in `BUNDLE_HOME/logs`. 
 Each file name includes the date when the file was created. There are several log files:
 
 * _bonita.date_.log is the Bonita log file.

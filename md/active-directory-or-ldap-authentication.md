@@ -93,7 +93,7 @@ BonitaAuthentication-1 {
 };
  ```
 
-We recommend that you name your JAAS configuration file `jaas.cfg` and that you add the file under `<TOMCAT_HOME>/server/conf` folder.
+We recommend that you name your JAAS configuration file `jaas.cfg` and that you add the file under `<BUNDLE_HOME>/server/conf` folder.
 
 ## Configuration steps
 
@@ -109,11 +109,11 @@ You will need to perform following changes:
 
 #### Configure JAAS
 
-To define the JAAS configuration file location you need to set a JVM property, `java.security.auth.login.config`. To do this for a system running a Tomcat bundle you need to edit the `setenv` script provided with Bonita and located in `<TOMCAT_HOME>/server/bin` folder.
+To define the JAAS configuration file location you need to set a JVM property, `java.security.auth.login.config`. To do this for a system running a Tomcat bundle you need to edit the `setenv` script provided with Bonita and located in `<BUNDLE_HOME>/server/bin` folder.
 
 ##### For Linux and Mac OS
 
-* Edit this file: `<TOMCAT_HOME>/setup/tomcat-templates/setenv.sh`
+* Edit this file: `<BUNDLE_HOME>/setup/tomcat-templates/setenv.sh`
 * Locate the line that starts: `#SECURITY_OPTS`
 * Uncomment this line, i.e. remove the \# sign and set property value to: `${CATALINA_HOME}/conf/jaas.cfg`
 * Locate the line that starts: `CATALINA_OPTS=`
@@ -122,7 +122,7 @@ To define the JAAS configuration file location you need to set a JVM property, `
 
 ##### For Windows
 
-* Edit this file: `<TOMCAT_HOME>/setup/tomcat-templates/setenv.bat`
+* Edit this file: `<BUNDLE_HOME>/setup/tomcat-templates/setenv.bat`
 * Locate the line that starts: `rem set SECURITY_OPTS`
 * Uncomment it, i.e. remove "rem" keyword and set property value to: `%CATALINA_HOME%\conf\jaas.cfg`
 * Locate the line that starts: `set CATALINA_OPTS=`

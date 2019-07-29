@@ -13,8 +13,8 @@ You also need to back up the load balancer (see your load balancer documentation
 
 ## Troubleshooting
 
-Each Bonita Engine maintains its own log file on the node at `tomcat_home/logs/bonita.`_`date`_`.log`, where _`date`_ is the date the file is created.
-In addition, there is an incident file `tomcat_home/logs/tenants/[TENANT_ID]/incident.log` (where `[TENANT_ID]` is the ID of the tenant on which the error
+Each Bonita Engine maintains its own log file on the node at `bundle_home/logs/bonita.`_`date`_`.log`, where _`date`_ is the date the file is created.
+In addition, there is an incident file `bundle_home/logs/tenants/[TENANT_ID]/incident.log` (where `[TENANT_ID]` is the ID of the tenant on which the error
 occurred) that is used as a last resort to record an error that cannot be handled, such as failure to access the database.
 
 ## Monitoring a process
