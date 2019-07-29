@@ -42,17 +42,12 @@ After you modify the file, restart your application server and test with the fol
 
 Check that the header returned contains the line `Content-Encoding: gzip`. The output should be similar to this:
 ```
-HTTP/1.1 200 OK
-Server: Apache-Coyote/1.1
-Expires: 0
-Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
-Pragma: no-cache
+HTTP/1.1 200 
 X-XSS-Protection: 1; mode=block
 X-Frame-Options: SAMEORIGIN
 X-Content-Type-Options: nosniff
-X-Powered-By: JSP/2.2
+Cache-Control: max-age=36000
+Set-Cookie: JSESSIONID=031D2F9C4DBFAD48A19670AEF83A57E6; Path=/; HttpOnly
 Content-Type: text/html;charset=UTF-8
 Transfer-Encoding: chunked
-Content-Encoding: gzip
-Vary: Accept-Encoding
 ```
