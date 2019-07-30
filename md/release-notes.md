@@ -364,6 +364,23 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 ## Bug fixes
 ### Fixes in Documentation
 * BS-19323 Bonita documentation is not clear enough about PostgreSQL versions supported
+* BST-151 Default outgoing transition not executed when  there is more than one outgoing transition from inclusive gateway
+* BST-269 Document workaround for macos - ssh issue
+* BST-171 Can't share a project on github using HTTPS and double authentication factor
+* BST-341 On Mac, Studio does not start if recent Java versions installed
+
+### Fixes in Bonita 7.9.2 (2019-08-01)
+#### Fixes in Engine component
+* BS-19299 GET REST API connector raised an exception if answer HTTP code is 204 or 404
+
+#### Fixes in Studio component
+* BST-345 Open an invalid access control file leads to an NPE instead of displaying the `error view`
+* BST-349 The option to initialize a business data using a Query is not always available
+* BST-365 BS-19299 - GET REST API connector raised an exception if answer HTTP code is 204 or 404
+
+#### Fixes in Web/Portal component
+* BPO-24 BS-18487 cannot download a document from the FilePreview widget link
+* BPO-189 Case overview page for an archived case is not working in IE 11 (id not found)
 
 ### Fixes in Bonita 7.9.1 (2019-07-04)
 #### Fixes in Studio component
@@ -376,6 +393,7 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 * BST-299 BPMN export fails if Data to send in Call Activity contains empty association
 
 #### Fixes in UI Designer component
+* UID-82 When a new Fragment is created, the Palette is not updated
 * UID-83 Message toast in UI Designer is not clear when license is expired
 * UID-104 Fragment variable value isn't clean when variable scope change
 * UID-105 When name of artifact is too long, left panel is broken
@@ -415,16 +433,23 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 * BST-126 Studio must be restarted to use User-defined functions
 * BST-132 Wrong script generated in some specific cases with multiple data
 * BST-162 Generate process documentation does not work post 7.7
+* BST-201 Contract input name should never be equals to the associated business data name
+* BST-202 Application descriptor Deploy button does not trigger the saved changes and doesn't raise errors
 * BST-204 Default Application created in the Portal raises an error about custompage_home when imported and Deployed from Studio
 * BST-221 UI Designer allows to have 2 forms with same name when created from the Studio: this breaks LA Builder
+* BST-251 manage organizations wizard display issue
 * BST-271 Import .bpmn diagram fails
 
 #### Fixes in UI Designer component
 * UID-29 RichTextArea readOnly property should be dynamic
+* UID-30 When a form or a page is renamed in the UID, the field 'displayName' is not updated in the json
 * UID-34 ui-bootstrap-tpls.js asset should be displayed in the Assets panel for the modal container (as for tabs container)
+* UID-38 Select widget set bound value to null
+* UID-39 when importing a javascript local asset, content is not editable
 * UID-69 Localization help section is empty in custom widget editor
 * UID-86 Modal container: the focus should be located on the input element
 * UID-90 Deleting one asset from a custom Widget based on the default one remove all the assets
+* UID-101 INTEGER contract type is not set as mandatory in widget when creating the form
 
 #### Fixes in Web/Portal component
 * BPO-31 Process list console Error in portal
