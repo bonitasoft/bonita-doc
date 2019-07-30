@@ -4,7 +4,7 @@ Each tenant has an administrator, with a tenant-specific username and password. 
 
 ## How it works
 When the platform is created, default values of the administrator username and password, for the default tenant, are defined in the file
-`<WEBSERVER_HOME>/setup/platform_conf/initial/tenant_template_engine/bonita-tenant-community-custom.properties`, by the following properties:
+`<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_engine/bonita-tenant-community-custom.properties`, by the following properties:
 
 * userName defines the username (default value `install`)
 * userPassword defines the password (default value `install`)
