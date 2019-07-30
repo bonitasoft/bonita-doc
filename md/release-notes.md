@@ -379,7 +379,6 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 * BST-365 BS-19299 - GET REST API connector raised an exception if answer HTTP code is 204 or 404
 
 #### Fixes in Web/Portal component
-* BPO-24 BS-18487 cannot download a document from the FilePreview widget link
 * BPO-189 Case overview page for an archived case is not working in IE 11 (id not found)
 
 ### Fixes in Bonita 7.9.1 (2019-07-04)
@@ -447,6 +446,7 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 * UID-38 Select widget set bound value to null
 * UID-39 when importing a javascript local asset, content is not editable
 * UID-69 Localization help section is empty in custom widget editor
+* UID-73 Widget editor: title underline not aligned
 * UID-86 Modal container: the focus should be located on the input element
 * UID-90 Deleting one asset from a custom Widget based on the default one remove all the assets
 * UID-101 INTEGER contract type is not set as mandatory in widget when creating the form
