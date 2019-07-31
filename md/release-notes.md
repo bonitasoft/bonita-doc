@@ -371,7 +371,7 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 
 ### Fixes in Bonita 7.9.2 (2019-08-01)
 #### Fixes in Engine component
-* BS-19299 GET REST API connector raised an exception if answer HTTP code is 204 or 404
+* BS-19299 GET REST API connector raised an exception if answer body is null
 
 #### Fixes in Studio component
 * BST-345 Open an invalid access control file leads to an NPE instead of displaying the `error view`
