@@ -370,7 +370,7 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 * BST-151 Default outgoing transition not executed when there is more than one outgoing transition from inclusive gateway
 * BST-269 Document workaround for MacOS - ssh issue
 * BST-171 Can't share a project on github using HTTPS and double authentication factor
-* BST-341 On Mac, Studio installer might not detect the installed JRE
+* BST-341 On MacOS, Studio installer might not detect the installed JRE
 
 ### Fixes in Bonita 7.9.2 (2019-08-01)
 #### Fixes in Engine component
