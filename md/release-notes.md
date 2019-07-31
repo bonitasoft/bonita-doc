@@ -438,7 +438,7 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 * BST-202 Application descriptor Deploy button does not trigger the saved changes and does not raise errors
 * BST-204 Default Application created in the Portal raises an error about custompage_home when imported and Deployed from Studio
 * BST-221 UI Designer allows to have 2 forms with same name when created from the Studio: this breaks LA Builder
-* BST-251 manage organizations wizard display issue
+* BST-251 On MacOS, manage organizations wizard needs scrolling to add a membership
 * BST-271 Import .bpmn diagram fails
 
 #### Fixes in UI Designer component
