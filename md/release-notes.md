@@ -368,7 +368,7 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 ### Fixes in Documentation
 * BS-19323 Bonita documentation is not clear enough about PostgreSQL versions supported
 * BST-151 Default outgoing transition not executed when there is more than one outgoing transition from inclusive gateway
-* BST-269 Document workaround for macos - ssh issue
+* BST-269 Document workaround for MacOS - ssh issue
 * BST-171 Can't share a project on github using HTTPS and double authentication factor
 * BST-341 On Mac, Studio installer might not detect the installed JRE
 
