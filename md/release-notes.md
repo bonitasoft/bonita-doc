@@ -281,6 +281,9 @@ The version of the _javax.mail:mail_ dependency has been updated from _1.4.5_ to
 
 The version of the _org.twitter4j:twitter4j-core_ dependency has been updated from _4.0.2_ to _4.0.7_
 
+#### REST API connector
+Starting with Bonita 7.9.2, the studio uses REST API connector 1.0.6
+
 ### JTA transaction manager replacement
 
 In Bonita 7.9.0, we replaced the JTA transaction manager used to handle XA transactions in Bonita Engine from Bitronix to Narayana (also known as Arjuna). 
@@ -376,7 +379,6 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 #### Fixes in Studio component
 * BST-345 Open an invalid access control file leads to an NPE instead of displaying the `error view`
 * BST-349 The option to initialize a business data using a Query is not always available
-* BST-365 BS-19299 - GET REST API connector raised an exception if answer HTTP code is 204 or 404
 
 #### Fixes in Web/Portal component
 * BPO-189 Case overview page for an archived case is not working in IE 11 (id not found)
