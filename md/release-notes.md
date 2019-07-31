@@ -435,7 +435,7 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 * BST-132 Wrong script generated in some specific cases with multiple data
 * BST-162 Generate process documentation does not work post 7.7
 * BST-201 Contract input name should never be equal to the associated business data name
-* BST-202 Application descriptor Deploy button does not trigger the saved changes and doesn't raise errors
+* BST-202 Application descriptor Deploy button does not trigger the saved changes and does not raise errors
 * BST-204 Default Application created in the Portal raises an error about custompage_home when imported and Deployed from Studio
 * BST-221 UI Designer allows to have 2 forms with same name when created from the Studio: this breaks LA Builder
 * BST-251 manage organizations wizard display issue
