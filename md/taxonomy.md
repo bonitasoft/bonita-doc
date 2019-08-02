@@ -205,6 +205,7 @@
   * [API glossary](api-glossary.md)
   * [REST API](_rest-api.md)
     * [REST API overview](rest-api-overview.md)
+    * [REST Authentication](rest-api-authentication.md)
     * [application API](application-api.md)
     * [access control API](access-control-api.md)
     * [bdm API](bdm-api.md)    
@@ -272,3 +273,4 @@
   * [Git versioning Community Edition](git-versioning-community-edition.md)
   * [Migrate a SVN repository to a Git repository](migrate-a-svn-repository-to-github.md)
   * [Create a vertical tabs container for all devices](uid-vertical-tabs-container-tutorial.md)
+  * [Create a responsive web application with Community edition](responsiveness-with-community-edition.md)
