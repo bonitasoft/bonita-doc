@@ -364,6 +364,10 @@ The SAP JCO2 connector is no longer available. SAP JCO3 connector is more recent
 The BonitaSubscription-x.y.z-deploy.zip is no longer provided starting from Bonita 7.9.
 Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bundle.md) page for more specific needs.
 
+## API behavior change
+### servletDownloadApp
+The file exported by the Portal servlet for applications is now called "ApplicationDescriptorFile.xml" instead of "Application_Data.xml" to bring consistency compared to Bonita Studio, and to  the concept of application. 
+
 ## Bug fixes
 ### Fixes in Documentation
 * BS-19323 Bonita documentation is not clear enough about PostgreSQL versions supported
@@ -381,6 +385,11 @@ Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bund
 * BST-349 The option to initialize a business data using a Query is not always available
 
 #### Fixes in Web/Portal component
+* BPO-24 BS-18487 and BS-18488 cannot download a document from the FilePreview widget link
+* BPO-101 Rename Application Descriptor XML file using "ApplicationDescriptorFile.xml" in Portal 
+* BPO-157 Migration form and color in a form
+* BPO-170 Different caseIds are displayed for a same archived case in Bonita Portal
+* BPO-179 URL parameters are not displayed in a Custom Profile
 * BPO-189 Case overview page for an archived case is not working in IE 11 (id not found)
 
 ### Fixes in Bonita 7.9.1 (2019-07-04)
