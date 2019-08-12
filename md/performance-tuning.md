@@ -91,9 +91,7 @@ We do not guarantee to keep the http protocol stable, so we strongly recommend t
   * the same version for both the client and the server
 :::
 
-This mode
-  * provides remote connection to the server without requiring a JEE application server with an EJB container
-  * can be easily used inside a web container like Tomcat or Jetty.
+This mode can be easily used inside a web container like Tomcat or Jetty.
 
 The bonita-client library
   * sends data over the network using the HTTP protocol using the [Apache HttpComponents](http://hc.apache.org/index.html).
