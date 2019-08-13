@@ -19,7 +19,7 @@ However, H2 is only suitable for testing purposes. When building a production en
 
 ::: warning
 Please note this procedure cannot be performed using the Bonita Studio. The Bonita Studio can run only on the H2 Database. 
-To use Bonita on another RDBMS, please use a [bundle](_basic-bonita-platform-installation.md) or set up a [standalone server](deploy-bundle.md).
+To use Bonita on another RDBMS, please use a [bundle](_basic-bonita-platform-installation.md) or set up a [standalone server](custom-deployment.md).
 :::
 
 Here are the steps to follow. They are the same for the engine database and the business data database:

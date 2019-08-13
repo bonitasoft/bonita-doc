@@ -138,13 +138,11 @@ In this case you already have a Bonita Platform running as single node installat
 
 ### Update the configuration in database
 
-Some properties of the Bonita Platform needs to be changed in order to make your installation work as a cluster node.
+Some properties of the Bonita Platform needs to be changed, through [Bonita platform setup tool](BonitaBPM_platform_setup.md), in order to make your installation work as a cluster node.
 
-* Download the Bonita [Deploy bundle](deploy-bundle.md) and unzip it at some place of your choice.
-::: info
-The platform setup tool is also present in the Tomcat or WildFly bundle under the `setup` directory.
-:::
-* Configure it as described in the [platform setup tool page](BonitaBPM_platform_setup.md)
+* Download Bonita [Tomcat bundle](tomcat-bundle.md) or [WildFly bundle](wildfly-bundle.md), that contains the platform setup tool, and unzip it at some place of your choice.
+* Go into the `setup` folder: `cd ./setup/`
+* Configure the Setup Tool as described in the [platform setup tool page](BonitaBPM_platform_setup.md)
 * Run the `setup.sh pull` or `setup.bat pull`. This will retrieve the configuration of your platform under `platform_conf/current` folder.
 * Update configuration files that are in the `platform_conf/current` folder of the platform setup tool.
     * In `platform_engine/bonita-platform-sp-custom.properties`
