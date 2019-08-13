@@ -50,4 +50,5 @@ Cache-Control: max-age=36000
 Set-Cookie: JSESSIONID=031D2F9C4DBFAD48A19670AEF83A57E6; Path=/; HttpOnly
 Content-Type: text/html;charset=UTF-8
 Transfer-Encoding: chunked
+Content-Encoding: gzip
 ```
