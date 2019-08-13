@@ -4,6 +4,10 @@ If you want your application to use the engine API of a remote engine, your appl
 
 The engine (the *server*) must also be configured to accept the connection.
 
+**Note**: the Bonita Portal can be configured to be used as a Client of the Bonita Engine. See the [Alternate Bonita Deployment](two-main-types-of-deployment.md)
+documentation for more information
+
+
 <a id="client_config" />
 
 ## Client configuration
@@ -12,12 +16,6 @@ There is three ways to configure the client to connect to the Bonita Engine.
 
 First the engine client verify if the configuration is set programmatically,
 then it tries to get the configuration set in system properties, finally it falls back to the legacy way of configuration that is the bonita home client.
-
-::: info
-In order to be able to start the portal with a remote engine the following system properties must be set in the JVM starting the Portal:
- * `org.bonitasoft.platform.username` must be set with the username of the platform admin
- * `org.bonitasoft.platform.password` must be set with the password of the platform admin
-:::
 
 ### Configure Client using programmatic configuration
 You can configure the connection to the engine directly using `org.bonitasoft.engine.util.APITypeManager`, please refer to the [Javadoc](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/util/APITypeManager.html).
@@ -53,29 +51,6 @@ EJB communication protocol is removed in 7.10.
  * `LOCAL`
     This is the default connection mode, it connects to the server in the same JVM (not remote). If nothing is set this mode will be used.
     
-These system properties have to be set in the file `<bonita-subscription>/setup/tomcat-templates/setenv.(bat|sh)`
-    
-Here is an example of system configuration to an engine installed on Linux (setenv.sh) :
-
-   ```code
-ENGINE_OPTS="-Dorg.bonitasoft.engine.api-type=HTTP -Dorg.bonitasoft.engine.api-type.server.url=http://localhost:8080"
-ENGINE_OPTS="${ENGINE_OPTS} -Dorg.bonitasoft.engine.api-type.application.name=bonita"
-ENGINE_OPTS="${ENGINE_OPTS} -Dorg.bonitasoft.platform.username=platformAdmin -Dorg.bonitasoft.platform.password=platform"
-
-CATALINA_OPTS="${CATALINA_OPTS} ${PLATFORM_SETUP} ${ENGINE_OPTS} ..."
-export CATALINA_OPTS
-   ```
-Here is an example of system configuration to an engine installed on Windows (setenv.bat) :
-
-   ```code
-set ENGINE_OPTS="-Dorg.bonitasoft.engine.api-type=HTTP" "-Dorg.bonitasoft.engine.api-type.server.url=http://localhost:8080"
-set ENGINE_OPTS=%ENGINE_OPTS% "-Dorg.bonitasoft.engine.api-type.application.name=bonita"
-set ENGINE_OPTS=%ENGINE_OPTS% "-Dorg.bonitasoft.platform.username=platformAdmin" "-Dorg.bonitasoft.platform.password=platform"
-
-set CATALINA_OPTS=%CATALINA_OPTS% %PLATFORM_SETUP% %ENGINE_OPTS% ...
-+HeapDumpOnOutOfMemoryError
-   ```
-
 ### Configure client using Bonita Home client
 
 ::: danger
@@ -106,30 +81,6 @@ org.bonitasoft.engine.api-type = LOCAL
 #default EJB reference name
 #org.bonitasoft.engine.ejb.naming.reference=ejb:bonita-ear/bonita-ejb/serverAPIBean!org.bonitasoft.engine.api.internal.ServerAPI
 ```
-Next you can go to `<bonita-subscription>/start-bonita.(sh|bat)` and delete the following lines so you won't be prompted to configure h2 database each time you start your Bonita server.
-
-For Linux (start-bonita.sh) :
-
-```code
-  ./setup/setup.sh init $@
-  testReturnCode $?
-   ```
-For Windows (start-bonita.bat) :
-
-```code
-   call setup\setup.bat init %0 %1 %2 %3 %4 %5 %6 %7 %8 %9
-   if errorlevel 1 (
-       goto exit
-   )
-   ```
-   
-Finally, you can edit the file `<bonita-subscription>/server/webapps/bonita/WEB-INF/web.xml` and comment these three lines to disable the engine of your Client server :
-
-```xml
-<listener> 
-<listener-class>com.bonitasoft.engine.api.internal.servlet.EngineInitializerListenerSP</listener-class> 
-</listener>
-   ```
 
 ## Server configuration
 
