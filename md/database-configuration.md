@@ -57,7 +57,10 @@ Bonita provides out of the box the Jdbc drivers for H2, PostgreSQL and MySQL. Fo
 #### Oracle Database
 
 * For Oracle 11.2.0.x, download [ojdbc6.jar](http://www.oracle.com/technetwork/apps-tech/jdbc-112010-090769.html)
-* For Oracle 12.1.0.x, download [ojdbc7.jar](http://www.oracle.com/technetwork/database/features/jdbc/default-2280470.html)
+
+* For Oracle 12.1.0.1, download [ojdbc7.jar](https://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html)
+
+* For Oracle 12.1.0.2, download [ojdbc7.jar](http://www.oracle.com/technetwork/database/features/jdbc/default-2280470.html)
 
 
 <a id="database_creation" />
