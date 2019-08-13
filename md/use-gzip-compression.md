@@ -1,10 +1,13 @@
 # Use gzip compression
 
-Using gzip compression in your application server can improve performance by reducing network load for some resources. This page describes how to activate gzip compression for a Bonita Platform with Tomcat.
+Using gzip compression in your application server can improve performance by reducing network load for some resources.
+This page describes how to activate gzip compression for a Bonita Platform with Tomcat.
+
+## Tomcat configuration
 
 To activate gzip compression for http requests, you need to modify the `server.xml` configuration. 
 
-Open `server.xml` and find the Connector configuration that you use. Edit the section to add following parameters:
+Open `server.xml` and find the Connector configuration corresponding to HTTP. Edit the section to add following parameters:
 
 ```xml
 compression="on"
@@ -15,7 +18,7 @@ compressableMimeType="Z"
 | Property | Description | Example |
 |:-|:-|:-|
 | compression | Activates or deactivates gzip compression. | on |
-| compressionMinSize | The minimum size of resources to be compressed. It is not useful to compress resources that are already small. | 2048 |
+| compressionMinSize | The minimum size of resources to be compressed. It is not useful to compress resources that are already small. | 2048 (default value) |
 | noCompressionUserAgents | The User Agents for which compressions is not to be used. Some older browseers do not support compression. | gozilla, traviata |
 | compressableMimeType | The MIME types of the resources to be compressed. We recommend that all text files be compressed. | text/html,text/xml |
 
@@ -25,15 +28,16 @@ If you use a different package, use the corresponding path; for example on Ubunt
 Connector configuration:
 ```xml
 <Connector port="8080" protocol="HTTP/1.1"
-   connectionTimeout="20000"
-   redirectPort="8443"
-   maxPostSize="-1"
-   URIEncoding="UTF-8"
-   compression="on"
-   compressionMinSize="2048"
-   noCompressionUserAgents="gozilla, traviata"
-   compressableMimeType="text/html,text/xml,text/plain,text/javascript,text/css"></Connector>
+           connectionTimeout="20000"
+           maxThreads="100"
+           redirectPort="8443"
+           maxPostSize="-1"
+           URIEncoding="UTF-8"
+           compression="on"
+           noCompressionUserAgents="gozilla, traviata" />
 ```
+
+Official Tomcat documentation for [HTTP Configuration](https://tomcat.apache.org/tomcat-8.5-doc/config/http.html). 
 
 ## Check changes
 
