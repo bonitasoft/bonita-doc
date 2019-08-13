@@ -26,9 +26,7 @@ To know more, go to [Bonita Studio installation](bonita-bpm-studio-installation.
 Bonita Platform can be installed in several ways:
 
 * If you want to migrate an existing installation to the latest version follow the [migration guide](migrate-from-an-earlier-version-of-bonita-bpm.md).
-* If you want to do a fresh install, get one of our prepackaged bundles that include an Application Server
-    * [Tomcat + Bonita](tomcat-bundle.md)
-    * [WildFly + Bonita](wildfly-bundle.md)
+* If you want to do a fresh install, get our [prepackaged bundle](tomcat-bundle.md) that include an Application Server
 * If you want to do a custom installation, see [Custom Deployment](custom-deployment.md).
 
 

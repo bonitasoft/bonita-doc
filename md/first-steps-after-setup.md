@@ -37,7 +37,7 @@ In Bonita, connectors enable connections to your local information system or onl
 If Bonita Engine API is of no use for your application, it is highly recommended to deactivate it in the configuration files in your deployment environment. Otherwise, its usage must be limited to administrators using a local connection or authorized IP addresses.
 
 #### Protect your web server configuration file
-The web server configuration (Tomcat, WildFly, etc) must be protected. This implies limiting access to the file so that it could be read only by the user that web server process runs as and root (or the administrator on Windows). It should be also noted that the file must be saved outside of web root directory (as an example, here are some security tips for Apache Tomcat: [Ref1](https://www.petefreitag.com/item/505.cfm), [Ref2](https://www.acunetix.com/blog/articles/10-tips-secure-apache-installation/))
+The web server configuration must be protected. This implies limiting access to the file so that it could be read only by the user that web server process runs as and root (or the administrator on Windows). It should be also noted that the file must be saved outside of web root directory (as an example, here are some security tips for Apache Tomcat: [Ref1](https://www.petefreitag.com/item/505.cfm), [Ref2](https://www.acunetix.com/blog/articles/10-tips-secure-apache-installation/))
 
 
 ### When developping using Bonita

@@ -48,8 +48,7 @@ Add between `java` and `-classpath`:
 -Dorg.bonitasoft.engine.api-type=HTTP -Dorg.bonitasoft.engine.api-type.server.url=http://localhost:8080 -Dorg.bonitasoft.engine.api-type.application.name=bonita
 ```
 
-The LDAP Synchronizer can use the HTTP, or EJB3 modes, but not local access. For more information about API access modes,
-see the [Engine API overview](engine-api-overview.md).
+The LDAP Synchronizer can use the HTTP mode, but not local access. For more information about API access modes, see the [Engine API overview](engine-api-overview.md).
 
 2/ Connection using Bonita.properties files:
 
@@ -82,10 +81,9 @@ This file defines the connection settings and specifies the account used for use
 | Item | Description | Default |
 |:-----|:------------|:--------|
 | bonita\_home | The path to the Bonita Home folder of the LDAP Synchronizer. (deprecated) |  |
-| apiType | The API Type to access the Bonita Engine: HTTP or EJB3 | (1) |
+| apiType | The API Type to access the Bonita Engine: HTTP | (1) |
 | serverUrl | Url to access the Bonita Server (http://myHost:8080) | (1) |
 | applicationName | Application name (bonita is the general name) | (1) |
-| ejbReference | Ejb reference when Bonita Server is deployed on an Application server | (1) |
 | login | The login to provide is a userName.  | install |
 | password | Password of the Bonita account used for synchronization. | install |
 | technicalUser | This is the [username of the platform adminstrator](first-steps-after-setup.md). | platformAdmin |

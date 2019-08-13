@@ -17,11 +17,11 @@ After logging in, the requested page is not displayed automatically. The user mu
 
 
 1. The CAS implementation relies on JAAS, and is defined in the BonitaAuthentication module of the JAAS configuration file.  
-   Set the Java system property `java.security.auth.login.config` in the Tomcat startup script to point to the JAAS configuration file, [`TOMCAT_HOME/server/conf/jaas-standard.cfg`](BonitaBPM_platform_setup.md). 
+   Set the Java system property `java.security.auth.login.config` in the Tomcat startup script to point to the JAAS configuration file, [`BUNDLE_HOME/server/conf/jaas-standard.cfg`](BonitaBPM_platform_setup.md). 
 
-   For example, on Linux, edit `TOMCAT_HOME/setup/tomcat-templates/setenv.sh`, uncomment the line that defines `SECURITY_OPTS`, and insert the variable `SECURITY_OPTS` in the line `CATALINA_OPTS=..`. 
+   For example, on Linux, edit `BUNDLE_HOME/setup/tomcat-templates/setenv.sh`, uncomment the line that defines `SECURITY_OPTS`, and insert the variable `SECURITY_OPTS` in the line `CATALINA_OPTS=..`. 
  
-   The `TOMCAT_HOME/server/conf/jaas-standard.cfg` file contains the following (replace `ip_address:port` with the relevant IP addresses and port numbers, in two places): 
+   The `BUNDLE_HOME/server/conf/jaas-standard.cfg` file contains the following (replace `ip_address:port` with the relevant IP addresses and port numbers, in two places): 
    ```
    BonitaAuthentication-1 {
      org.jasig.cas.client.jaas.CasLoginModule required
@@ -46,8 +46,8 @@ After logging in, the requested page is not displayed automatically. The user mu
 2. In the `CasLoginModule` configuration, check that the `principalGroupName` property is set to `CallerPrincipal`.  
    This is required to retrieve the username from the Bonita application.
    Bonita uses the CAS LoginModule in the JASIG implementation, so see the CAS LoginModule section of the [Jasig documentation](https://wiki.jasig.org/display/CASC/JAAS+Integration) for more information.
-3. Copy `cas-client-core-x.x.x.jar` from `BonitaSubscription-x.x.x-tomcat/tools/cas-x.x.x-module/org/jasig/cas/main` into the `TOMCAT_HOME/server/lib` directory.
-4. Copy `commons-logging-x.x.x.jar` from `BonitaSubscription-x.x.x-tomcat/tools//BonitaSubscription-x.x.x-LDAP-Synchronizer/lib` into the `TOMCAT_HOME/server/lib` directory.
+3. Copy `cas-client-core-x.x.x.jar` from `BonitaSubscription-x.x.x-tomcat/tools/cas-x.x.x-module/org/jasig/cas/main` into the `BUNDLE_HOME/server/lib` directory.
+4. Copy `commons-logging-x.x.x.jar` from `BonitaSubscription-x.x.x-tomcat/tools//BonitaSubscription-x.x.x-LDAP-Synchronizer/lib` into the `BUNDLE_HOME/server/lib` directory.
 5. Update `bonita-tenant-sp-custom.properties` from `setup/platform_conf/initial/tenant_template_engine/` if platform has not been initialized yet or `setup/platform_conf/current/tenants/[TENANT_ID]/tenant_engine/` and `setup/platform_conf/current/tenant_template_engine/`.
 ::: info
 If the platform has already been initialized, every update to the configuration files under `setup/platform_conf/current` must be done using the `setup` tool:  
@@ -101,115 +101,14 @@ Then, use the [`LoginAPI`](http://documentation.bonitasoft.com/javadoc/api/${var
 
 If you are configuring Bonita and Tomcat in a cluster environment for CAS, there are some extra steps to do:
 
-1. Copy `commons-logging-x.x.x.jar` from `BonitaSubscription-x.x.x-tomcat/tools/BonitaSubscription-x.x.x-LDAP-Synchronizer/lib` into the `TOMCAT_HOME/server/lib` directory.
-2. Remove the `WEB-INF/lib/commons-logging-x.x.x.jar` file from the `TOMCAT_HOME/server/webapps/bonita.war`.
-3. Remove the `TOMCAT_HOME/server/webapps/bonita/WEB-INF/lib/commons-logging-x.x.x.jar` file (if it is present).
+1. Copy `commons-logging-x.x.x.jar` from `BonitaSubscription-x.x.x-tomcat/tools/BonitaSubscription-x.x.x-LDAP-Synchronizer/lib` into the `BUNDLE_HOME/server/lib` directory.
+2. Remove the `WEB-INF/lib/commons-logging-x.x.x.jar` file from the `BUNDLE_HOME/server/webapps/bonita.war`.
+3. Remove the `BUNDLE_HOME/server/webapps/bonita/WEB-INF/lib/commons-logging-x.x.x.jar` file (if it is present).
 
 ### Troubleshoot
 
 To troubleshoote SSO login issues, you need to increase the [log level](logging.md) to `ALL` in order for errors to be displayed in the log files (by default, they are not).
 
-## Configure Bonita Engine and WildFly for CAS
-
-::: warning
-**WARNING:** Starting from Bonita 7.9.0 the Wildfly bundle is deprecated. It will be removed in a future release. Check the [Release Note](release-notes.md) for more details.
-:::
-
-The deploy bundle contains the files needed to use CAS with Bonita platform and a WildFly 10 application server.  
-They are contained in `cas-3.3.1-module`. 
-
-You can use this folder to configure CAS for a platform deployed from the WildFly bundle.  
-The `cas-3.3.1-module` folder contains some jar files that are required. 
-
-It also contains a configuration file for the module, `module.xml`, which defines the jar files to be loaded from the module itself and the dependencies of the module. For example:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<module xmlns="urn:jboss:module:1.0" name="org.jasig.cas">
-    <resources>
-        <resource-root path="cas-client-core-3.3.1.jar" />
-        <resource-root path="slf4j-api-1.7.1.jar" />
-        <resource-root path="slf4j-log4j12-1.7.1.jar" />
-        <resource-root path="log4j-1.2.15.jar" />
-    </resources>
-    <dependencies>
-        <system>
-            <paths>
-                <path name="org/xml/sax"/>
-                <path name="org/xml/sax/helpers"/>
-                <path name="javax/net/ssl"/>
-                <path name="javax/xml/parsers"/>
-                <path name="javax/security/auth/spi"/>
-                <path name="javax/security/auth/login"/>
-                <path name="javax/security/auth/callback"/>
-                <path name="javax/security/auth"/>
-            </paths>
-        </system>
-    </dependencies>
-</module>
-```
-
-For a standard installation, it is not necessary to modify this file.
-
-To configure Bonita Engine for CAS:
-
-1. If you do not already have it, download the Subscription edition Wildfly bundle from the customer portal.
-2. Add the CAS module. To do this, copy `BonitaSubscription-x.x.x-wildfly/tools/cas-x.x.x-module/org` to `WILDFLY_HOME/server/modules` to merge the CAS module with the existing modules.
-3. Make the CAS module global so that it can be used by any application. To do this, edit `WILDFLY_HOME/setup/wildfly-templates/standalone.xml` and change the definition of the `ee` subsystem to the following:
-
-```xml
- <subsystem xmlns="urn:jboss:domain:ee:1.0">
-    <global-modules>
-        <module name="org.jasig.cas" slot="main"/>
-     </global-modules>
-</subsystem>
-```
-
-4. Edit `WILDFLY_HOME/setup/wildfly-templates/standalone.xml` and add the BonitaAuthentication module. 
-Right after the opening `<security-domains>` tag, insert these lines (specifying the relevant IP addresses and port numbers):
-
-```xml
-<security-domain name="BonitaAuthentication-1">
-    <authentication>
-        <login-module code="org.jasig.cas.client.jaas.CasLoginModule" flag="required">
-            <module-option name="ticketValidatorClass" value="org.jasig.cas.client.validation.Cas20ServiceTicketValidator"/>
-            <module-option name="casServerUrlPrefix" value="http://cas_ip_address:cas_port/cas"/>
-            <module-option name="tolerance" value="20000"/>
-            <module-option name="service" value="http://cas_ip_address:cas_port/bonita/loginservice"/>
-            <module-option name="defaultRoles" value="admin,operator"/>
-            <module-option name="roleAttributeNames" value="memberOf,eduPersonAffiliation"/>
-            <module-option name="principalGroupName" value="CallerPrincipal"/>
-            <module-option name="roleGroupName" value="Roles"/>
-            <module-option name="cacheAssertions" value="true"/>
-            <module-option name="cacheTimeout" value="480"/>
-        </login-module>
-    </authentication>
-</security-domain>
-```
-::: warning
-**Warning**: module names must be unique (from the example above, BonitaAuthentication-1 is the module name). Therefore, remove the unecessary ones
-:::
-
-5. In the `CasLoginModule` configuration, check that the `principalGroupName` property is set to `CallerPrincipal`. This is required to retrieve the username from the Bonita application. 
-Bonita uses the CAS LoginModule in the JASIG implementation, so see the CAS LoginModule section of the [Jasig documentation](https://wiki.jasig.org/display/CASC/JAAS+Integration) for more information.
-6. Update [`bonita-tenant-sp-custom.properties`](BonitaBPM_platform_setup.md) from `setup/platform_conf/initial/tenant_template_engine/` if platform has not been initialized yet or `setup/platform_conf/current/tenants/[TENANT_ID]/tenant_engine/` and `setup/platform_conf/current/tenant_template_engine/`.
-::: info
-If the platform has already been initialized, every update to the configuration files under `setup/platform_conf/current` must be done using the `setup` tool:  
-- `setup pull`  
-- edit configuration file(s)  
-- `setup push`
-:::
-
-   1. Remove the comment flags from these lines:
-      `authentication.service.ref.name=jaasAuthenticationService`
-   2. Specify the relevant IP address and port number.
-   3. **Optionally**, to enable anonymous user to access a process, uncomment this lines:
-      ```
-      authenticator.delegate=casAuthenticatorDelegate
-      authentication.delegate.cas.server.url.prefix=http://ip_address:port
-      authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservice
-      ```
-      
 ## Configure logout behaviour
 
 #### Bonita Portal

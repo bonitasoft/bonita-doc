@@ -32,7 +32,6 @@ SLF4J is a facade for various logging frameworks, and a logging framework must b
 By default in Bonita Engine and Bonita Portal, all logs are sent to the JUL framework. To configure what is logged and where it is stored, modify the JUL configuration. The method of configuring JUL depends on the application server you use:
 
 * Apache Tomcat: edit the logging.properties file located in conf folder (see the [Apache Tomcat logging documentation](http://tomcat.apache.org/tomcat-8.5-doc/logging.html)).
-* WildFly Application Server: some documentation is available in the WildFly 10 [Admin guide](https://docs.jboss.org/author/display/WFLY10/Logging+Configuration).
 * Other application server: refer to your application server documentation on Java Util Logging configuration.
 
 For the Tomcat embedded in BonitaStudio, the JUL configuration file is located in the Studio installation folder under
@@ -98,23 +97,9 @@ Change these packages value to change the Bonita global log level.
 
 #### Tomcat
 
-On a Tomcat bundle, you can configure the log level and you can access the log files directly, in `$TOMCAT_HOME/logs`. 
+On a Tomcat bundle, you can configure the log level and you can access the log files directly, in `BUNDLE_HOME/logs`. 
 Each file name includes the date when the file was created. There are several log files:
 
 * _bonita.date_.log is the Bonita log file.
 * _catalina.date_.log is the log file for the Tomcat application server used by Bonita Studio.
 * _host-manager.date_.log, _localhost.date_.log, and _manager.date_.log are internal Tomcat log files.
-
-#### WildFly
-
-On a WildFly bundle, logs can be configured in the `$WILDFLY_HOME/standalone/configuration/standalone.xml` in the `urn:jboss:domain:logging:3.0` _domain_ of the **subsystem** tag.
-
-Edit the **logger** tags which category matches Bonita main package: change the **level** _name_ attribute of each **logger** section you want to change the log level.
-
-Log files are located in the `log` folder of the launched configuration.  
-Usually, the standalone configuration is run so the log files are located in the `$WILDFLY_HOME/standalone/log` folder.
-
-* _boot.log_ : contains WildFly boot logs.
-* _server.**date**.log_: is the global log file of the WildFly server.
-* _bonita.**date**.log_: is Bonita log file.
-

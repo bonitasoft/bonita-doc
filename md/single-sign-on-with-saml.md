@@ -6,7 +6,7 @@
 
 This pages explains how to configure your Bonita Platform system to use the SAML protocol to provide single sign-on (SSO). It assumes you already have a SAML Identity Provider server up and running (IdP).
 
-This information applies to a Bonita platform deployed from a bundle (Tomcat or WildFly), not to the Engine launched from Bonita Studio. `<BUNDLE_HOME>` refers to the root directory of the bundle.
+This information applies to a Bonita platform deployed from a bundle, not to the Engine launched from Bonita Studio. `<BUNDLE_HOME>` refers to the root directory of the bundle.
 
 SAML configuration is at tenant level. Each tenant can use a different authentication method (over SAML or not).
 
@@ -248,7 +248,7 @@ Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, t
 to include the correct `Host:` header to the requests and the application server is configured to use this header (it is usually the case by default).
 This is required so that `HttpServletRequest.getRequestURL` returns the URL used by the user and not the internal URL used by the reverse proxy.  
 For example, if you are running Apache >=2.0.31 as reverse proxy, this configuration is controlled by the property [ProxyPreserveHost](http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypreservehost).
-If you need more fine tuning or if you cannot update the reverse proxy configuration, you can consult the official documentation for [Tomcat](https://tomcat.apache.org/connectors-doc/common_howto/proxy.html) or [WildFly](https://docs.jboss.org/author/display/WFLY10/Undertow+subsystem+configuration).
+If you need more fine tuning or if you cannot update the reverse proxy configuration, you can consult the official documentation for [Tomcat](https://tomcat.apache.org/connectors-doc/common_howto/proxy.html)
 :::
 
 ## Configure the Identity Provider
@@ -310,8 +310,6 @@ org.keycloak.level = ALL
 org.bonitasoft.level = ALL
 com.bonitasoft.level = ALL
 ```
-
-In a WildFly bundle, you need to edit the file `<BUNDLE_HOME>/server/standalone/configuration/standalone.xml` in the domain `urn:jboss:domain:logging:3.0` of the *subsystem* tag.
 
 Edit the *logger* tags which *category* matches `org.bonitasoft` and `com.bonitasoft` packages: change the *level* *name* attribute of each *logger* to `ALL` and add a new logger with the *category* `org.keyclock` (also with a *level* *name* set to `ALL`).
 

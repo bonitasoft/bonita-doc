@@ -28,7 +28,6 @@ Software required for Bonita Platform (Bonita Engine and Bonita Portal).
 | OpenJDK                            | 8 or 11 (see note 1)                             |
 | **Application Server**             |
 | Apache Tomcat                      | 8.5.x (x > 40)                                   |
-| Red Hat WildFly                    | 10.1.x                                           |
 | **Database**                       | (see note 2)                                     |
 | MySQL                              | 8.0.14 and higher in the 8.0.x line (see note 3) |
 | PostgreSQL                         | 11.2 and higher in the 11.x line                 |

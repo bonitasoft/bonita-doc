@@ -14,11 +14,11 @@ We made it easy for you by creating `start-bonita.bat`(for Windows) or `start-bo
 
 The *Platform setup tool* handles:
   - The creation of the database tables
-  - The configuration of the Tomcat or WildFly bundle with this database without the need for a fully manual configuration
+  - The configuration of the Tomcat bundle with this database without the need for a fully manual configuration
   - The management of Bonita Platform configuration (stored in the database)
   - The management of licenses (also stored in the database)
 
-It is located in both [Tomcat](tomcat-bundle.md) and [WildFly](wildfly-bundle.md) bundles. You can find the tool in the `setup` folder.
+It is located in the [Tomcat bundle](tomcat-bundle.md). You can find the tool in the `setup` folder.
 
 ### Structure
 
@@ -65,25 +65,20 @@ The script `setup` comes with 4 commands:
 
 <a id="run_bundle_configure" />
 
-* `configure`, to configure the server of a Bonita Tomcat / WildFly bundle to use the appropriate database:
-  If run from inside a Bonita bundle, it configures the Application Server environment, so you don't need to configure all Tomcat / WildFly basic configuration files manually.
+* `configure`, to configure the server of a Bonita Tomcat bundle to use the appropriate database:
+  If run from inside a Bonita bundle, it configures the Application Server environment, so you don't need to configure all Tomcat basic configuration files manually.
   It is run by the global script `start-bonita`, but you can also insert it in your own scripts.
   
   Eg. `setup.sh configure`
 
 ::: info
-You do not need to configure Tomcat / WildFly files directly anymore. The command `setup configure` does it for you.
-If you decide to do it anyway, the tool will overwrite your custom values (after storing a restore backup into folder `tomcat-backups` or `wildfly-backups`).
+You do not need to configure Tomcat files directly anymore. The command `setup configure` does it for you.
+If you decide to do it anyway, the tool will overwrite your custom values (after storing a restore backup into the folder `tomcat-backups`).
 If you need to finely tune the configuration, modify the following template files, as they serve as a basis for configuration:
 
-For Tomcat:
 * tomcat-templates/bonita.xml
 * tomcat-templates/setenv.sh
 * tomcat-templates/setenv.bat
-
-For WildFly:
-* wildfly-templates/standalone.xml
-:::
 
 <a id="update_platform_conf" />
 
@@ -122,7 +117,7 @@ Keep in mind that the folder **`platform_conf/initial`** is not used anymore onc
 Before running it, make sure the setup tool is configured to point to the database of the Bonita Platform.
 
 ::: info
-**Note:** If you have already run `start-bonita` script inside a [Tomcat bundle](tomcat-bundle.md#configuration) or a [WildFly bundle](wildfly-bundle.md#configuration), those steps are already done.
+**Note:** If you have already run `start-bonita` script inside a [Tomcat bundle](tomcat-bundle.md#configuration) , those steps are already done.
 :::
 
 Here is how to do so:

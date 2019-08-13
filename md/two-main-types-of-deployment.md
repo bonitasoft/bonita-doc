@@ -5,22 +5,21 @@ There are two main types of deployment
 using a Bonita bundle
 * Bonita Portal and Bonita Engine running on two different application servers
 
+**Note:** It is highly recommended to use the provided Tomcat bundle or the artifact `bonita.war` provided in the deploy bundle, in order to carry out these deployments successfully.
 
-**Note:** It is highly recommended to use the provided Tomcat or WildFly bundles in order to carry out these deployments
-successfully.
-
+There are two main types of deployment.
 
 ## Bonita Portal + Bonita Engine on the same application server
 
 ![deploy1](images/images-6_0/poss_deploy1.png)
 
-This is the simplest deployment configuration. The engine used is the one embedded in the webapp bonita.war. Using the pre-packaged Tomcat or Wildfly bundle is the easiest way to achieve this kind of deployment.
+This is the simplest deployment configuration. The engine used is the one embedded in the webapp bonita.war. Using the pre-packaged Tomcat bundle is the easiest way to achieve this kind of deployment, but it is also possible to retrieve the `bonita.war` webapp provided in the **deploy.zip** and deploy it on another application server/servlet container.
 It is fast because the Bonita Portal and the Bonita Engine run on the same JVM and so there is no serialization and network overhead every time the Bonita Portal calls the engine.
 
 **Advantages**
 
 * simple (single webapp and application server)
-* works out of the box if you use the provided Tomcat or Wildfly bundle
+* works out of the box if you use the provided Tomcat bundle
 * you can still access the embedded Bonita Engine API (or the Bonita Portal REST API) through HTTP if you need an external application to access it
 * improved performance
 
@@ -38,7 +37,7 @@ Even if the `bonita.war` comes with an embedded Bonita Engine, you can choose **
 
 With this deployment, the Bonita Engine is accessed by the portal (and possibly other applications) through HTTP. The Bonita
 Portal is deployed on one application server and the engine on another one.
-But you can still use the pre packaged Tomcat or Wildfly bundles, in both servers.
+But you can still use the pre-packaged Tomcat bundle, in both servers.
 On one of them, only the Bonita Portal part will be used and on the other one, only the engine server.
 Access to the portal can be de-activated by server or webapp configuration if necessary.
 
@@ -54,17 +53,14 @@ Access to the portal can be de-activated by server or webapp configuration if ne
 
 ### Configuring the Bonita Runtime
 
-The example below is for use with the Tomcat and Wildfly bundles. 
+The example below is for use with the Tomcat bundle. 
 
 #### Bonita Engine
 
 Follow the regular installation (see the [Tomcat](tomcat-bundle.md) or the [Wildfly](wildfly-bundle.md) bundle installation page)
 and use the setup tool to configure Bonita
 
-
 #### Bonita Portal 
-
-##### Bonita Portal configuration overview
 
 * unarchive the bundle
 * configure custom authentication if required, see the [user authentication overview](user-authentication-overview.md) 
@@ -80,12 +76,7 @@ or the [Wildfly](wildfly-bundle.md) bundle configuration page)
 
 In addition, all database datasources are disabled
 
-
-##### Common to all bundle types
-
 Remove the content of the `setup` directory as the setup tool in not used on the Portal part
-
-##### Tomcat
 
 Configure the Engine Client by setting system properties in the `<bonita-installation-directory>/server/bin/setenv.(bat|sh)` file
 We suggest to define a `ENGINE_OPTS` variable and add its content to the `CATALINA_OPTS` variable
@@ -146,60 +137,3 @@ Disable XA datasources managed by Bitronix by commenting or deleting the followi
 ```
 
 Disable datasources managed by Tomcat by commenting or removing database resources declared in the in the `<bonita-installation-directory>/conf/Catalina/localhost/bonita.xml` file
-
-
-##### Wildfly
-
-Edit the `<bonita-installation-directory>/server/standalone/configuration/standalone.xml` file as described in the following
-
-Configure the Engine Client
-```xml
-    <system-properties>
-        ...
-        <!-- Engine Client configuration -->
-        <property name="org.bonitasoft.engine.api-type" value="HTTP" />
-        <property name="org.bonitasoft.engine.api-type.server.url" value="http://localhost:8080" />
-        <property name="org.bonitasoft.engine.api-type.application.name" value="bonita" />
-        <property name="org.bonitasoft.platform.username" value="platformAdmin" />
-        <property name="org.bonitasoft.platform.password" value="platform" />
-    </system-properties>
-```
-
-Remove or comment the datasources configuration
-```xml
-    <subsystem xmlns="urn:jboss:domain:datasources:4.0">
-        <datasources>
-        ...
-        </datasources>
-    </subsystem>
-```
-
-
-Edit the `<bonita-installation-directory>/server/standalone/deployments/bonita-all-in-one-x.y.z.ear/bonita.war/WEB-INF/web.xml`
-
-Apply the same changes as for the Tomcat bundle to disable Engine resources
-
-
-### Accessible through RMI (EJB3) - Deprecated Solution
-
-::: danger
-EJB communication protocol is removed in 7.10.
-:::
-
-![deploy3](images/images-6_0/poss_deploy3.png)
-
-With this third type of deployment, the engine is accessed by the Bonita Portal (and possibly other applications) through the EJB.
-The Portal is deployed on one application server and the engine on another one.
-However, you can still use the pre packaged Tomcat bundle for the Bonita Portal and the pre-packaged WildFly Bundle for the Bonita Engine.
-In this case, you will need to add the WildFly client libraries to the classpath of the Bonita Portal webapp. 
-On one of the application servers, only the portal part will be used and on the other one, only the engine server. 
-Access to the Bonita Portal can be deactivated by server or app configuration, if necessary.
-
-**Advantages**
-
-* may fit some architecture and network constraints
-
-**Drawbacks**
-
-* more complex than the first deployment option (two application servers instead of one)
-* impact on performance (serialization + network overhead) but it should be faster than the second option though (no HTTP protocol overhead)

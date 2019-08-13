@@ -24,15 +24,11 @@ If you use the default HTTPS port number, 443, users do not need to specify the 
 * The operating system is Ubuntu.
 * The starting point is a bundle that has been installed and configured but not started.
 
-## WildFly with keystore
-
-For details of how to set up SSL with WildFly 10, see the [SSL Configuration](https://docs.jboss.org/author/display/WFLY10/Admin+Guide#AdminGuide-EnableSSL) on the WildFly 10 web site.
-
 ## Tomcat with APR and OpenSSL
 
 This example show how to configure SSL with APR and OpenSSL for a Bonita using Tomcat.
 
-1. Go to the `TOMCAT_HOME/conf` directory and create a directory called `ssl` to store certificate files.
+1. Go to the `BUNDLE_HOME/conf` directory and create a directory called `ssl` to store certificate files.
 2. Create the self-signed certificate and its private key using `openssl`:   
     `openssl req -new -x509 -days 365 -nodes -out conf/ssl/test.bonitasoft.net.pem -keyout conf/ssl/test.bonitasoft.net.key`
 3. Provide the information about your system that `openssl` requires.
@@ -52,7 +48,7 @@ SSLVerifyClient="optional"
 SSLProtocol="TLSv1"></Connector>
 ```
 5. Install the Tomcat native library, which contains APR: `sudo apt-get install libtcnative-1`
-6. Edit `TOMCAT_HOME/webapps/bonita/WEB-INF/web.xml` and add the following security definition:
+6. Edit `BUNDLE_HOME/webapps/bonita/WEB-INF/web.xml` and add the following security definition:
 ```xml
 <web-app>
    ...
@@ -92,7 +88,7 @@ keystorePass="password!"
 SSLVerifyClient="optional" 
 SSLProtocol="TLSv1"></Connector>
 ```
-4. Edit `TOMCAT_HOME/webapps/bonita/WEB-INF/web.xml` and add the following security definition:
+4. Edit `BUNDLE_HOME/webapps/bonita/WEB-INF/web.xml` and add the following security definition:
 ```xml
 <web-app>
    ...

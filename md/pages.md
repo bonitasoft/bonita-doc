@@ -100,7 +100,7 @@ To enable custom page debug mode, edit [`console-config.properties`](BonitaBPM_p
 To work on a page in debug mode:
 
 ::: info
-On a Tomcat installation, `<java.io.tmpdir>` points to `<TOMCAT_HOME>/temp/`
+On a Tomcat installation, `<java.io.tmpdir>` points to `<BUNDLE_HOME>/temp/`
 :::
 
 1. Import your custom page zip archive into the portal. This creates a directory `<java.io.tmpdir>/bonita_portal_*/tenants/tenant_id/pages/custompage_<your custom page>`.

@@ -41,7 +41,7 @@ There is an [issue on tomcat 8.0.32](https://bz.apache.org/bugzilla/show_bug.cgi
 
 ### Configure data sources
 
-1. Open the file TOMCAT_HOME/conf/Catalina/localhost/bonita.xml
+1. Open the file BUNDLE_HOME/conf/Catalina/localhost/bonita.xml
 2. Remove or comment out the lines regarding the h2 database.
 3. Uncomment the lines matching your RDBMS.
 4. Update following attributes value:
@@ -53,12 +53,12 @@ There is an [issue on tomcat 8.0.32](https://bz.apache.org/bugzilla/show_bug.cgi
 
 ### Configure RDBMS vendor
 
-1. Open the file TOMCAT_HOME/bin/setenv.(bat|sh)
+1. Open the file BUNDLE_HOME/bin/setenv.(bat|sh)
 2. Change the value of sysprop.bonita.db.vendor according to your RDBMS vendor
 3. Change the value of sysprop.bonita.bdm.db.vendor according to your RDBMS vendor
 
 ### Add Jdbc driver
-You need to add your jdbc driver in TOMCAT_HOME/lib. 
+You need to add your jdbc driver in BUNDLE_HOME/lib. 
 MySQL, PostgreSQL and Microsoft SQL Server drivers can be found in the Tomcat bundle under DEPLOY_ZIP_HOME/setup/lib directory. For Oracle, 
 use the [jdbc driver](database-configuration.md#proprietary_jdbc_drivers) provided by Oracle.
 

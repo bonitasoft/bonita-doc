@@ -23,7 +23,7 @@ For a Subscription edition:
 
 #### Unzip
 
-The fully qualified folder path (including the Bonita-x.y.z-tomcat folder) to the folder where you unzip the Tomcat bundle is referred to as `<TOMCAT_HOME>`. We recommend the following locations:
+The fully qualified folder path (including the Bonita-x.y.z-tomcat folder) to the folder where you unzip the Tomcat bundle is referred to as `<BUNDLE_HOME>`. We recommend the following locations:
 
 * Windows: `C:\Bonita`.
 * Linux: in `/opt/Bonita`. Make sure that Linux user account used to execute Tomcat is the owner of the folders and files.
@@ -83,7 +83,7 @@ The license file will be sent to you by email.
 <a id="license" />
 
 When you receive your license:
-Copy the file to the `<TOMCAT_HOME>/setup/platform_conf/licenses` folder before starting the bundle.
+Copy the file to the `<BUNDLE_HOME>/setup/platform_conf/licenses` folder before starting the bundle.
 
 ### Change the default credentials (optional, recommended for production)
 
@@ -92,8 +92,8 @@ As a security precaution, we **strongly recommend** that before you start your a
 #### Platform administrator
 
 The username and password are defined in a text file:
- - Before the very first Tomcat start: [`<TOMCAT_HOME>/setup/platform_conf/initial/platform_engine/bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md)
- - After the first Tomcat start: [`<TOMCAT_HOME>/setup/platform_conf/current/platform_engine/bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md)
+ - Before the very first Tomcat start: [`<BUNDLE_HOME>/setup/platform_conf/initial/platform_engine/bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md)
+ - After the first Tomcat start: [`<BUNDLE_HOME>/setup/platform_conf/current/platform_engine/bonita-platform-community-custom.properties`](BonitaBPM_platform_setup.md)
 
 
 The properties are listed below:
@@ -107,18 +107,18 @@ This password is used for platform-level administration tasks, such as creating 
 
 Each tenant has an administrator, with a tenant-specific username and password. The tenant administrator is also known as the tenant technical user.
 
-When the platform is created, default values for the tenant administrator username and password are defined in the file [`<TOMCAT_HOME>/setup/platform_conf/initial/tenant_template_engine/bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md), by the following properties:
+When the platform is created, default values for the tenant administrator username and password are defined in the file [`<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_engine/bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md), by the following properties:
 
 * `userName` defines the username (default `install`)
 * `userPassword` defines the password (default `install`)
 
 When you create a tenant, the tenant administrator is created with the default username and password, unless you specify new values. 
-Change these tenant-specific credentials for an existing tenant by updating the `userName` and `userPassword` properties in `<TOMCAT_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/bonita-tenant-community-custom.properties`.
+Change these tenant-specific credentials for an existing tenant by updating the `userName` and `userPassword` properties in `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/bonita-tenant-community-custom.properties`.
 
 ::: warning
 For the **default tenant**, the tenant administrator username and password must also be changed in file:
-- Before the very first Tomcat start: [`<TOMCAT_HOME>/setup/platform_conf/initial/platform_portal/platform-tenant-config.properties`](BonitaBPM_platform_setup.md)
-- After the first Tomcat start: [`<TOMCAT_HOME>/setup/platform_conf/current/platform_portal/platform-tenant-config.properties`](BonitaBPM_platform_setup.md),
+- Before the very first Tomcat start: [`<BUNDLE_HOME>/setup/platform_conf/initial/platform_portal/platform-tenant-config.properties`](BonitaBPM_platform_setup.md)
+- After the first Tomcat start: [`<BUNDLE_HOME>/setup/platform_conf/current/platform_portal/platform-tenant-config.properties`](BonitaBPM_platform_setup.md),
 
 For further details and a better understanding, please read the section [Tenant administrator credentials](tenant_admin_credentials.md).
 :::
@@ -134,21 +134,21 @@ For production, you are recommended to use one of the supported databases, with 
 :::
 
 1. Make sure [your databases are created](database-configuration.md#database_creation) and [customized to work with Bonita](database-configuration.md#specific_database_configuration).
-2. Edit file `<TOMCAT_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of [backslash characters](BonitaBPM_platform_setup.md#backslash_support).
-3. If you use **Oracle** database, copy your [jdbc driver](database-configuration.md#proprietary_jdbc_drivers) in `<TOMCAT_HOME>/setup/lib/` folder. 
-4. Run `<TOMCAT_HOME>\setup\start-bonita.bat` (Windows system) or `<TOMCAT_HOME>/setup/start-bonita.sh` (Unix system) to run Bonita Tomcat bundle (see [Tomcat start script](#tomcat_start))
+2. Edit file `<BUNDLE_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of [backslash characters](BonitaBPM_platform_setup.md#backslash_support).
+3. If you use **Oracle** database, copy your [jdbc driver](database-configuration.md#proprietary_jdbc_drivers) in `<BUNDLE_HOME>/setup/lib/` folder. 
+4. Run `<BUNDLE_HOME>\setup\start-bonita.bat` (Windows system) or `<BUNDLE_HOME>/setup/start-bonita.sh` (Unix system) to run Bonita Tomcat bundle (see [Tomcat start script](#tomcat_start))
 
 ::: info
 The **start-bonita** script does the following:
 
 1. Runs the **`setup init`** command:
-    1. initializes the Bonita internal database (the one you have defined in file `<TOMCAT_HOME>/setup/database.properties`): creates the tables that Bonita uses internally + stores the configuration in the database.
+    1. initializes the Bonita internal database (the one you have defined in file `<BUNDLE_HOME>/setup/database.properties`): creates the tables that Bonita uses internally + stores the configuration in the database.
     2. installs the license files (Subscription editions only) in the database.
 2. Runs the **`setup configure`** command:
     The Setup Configure command configures the Tomcat environment to access the right databases:
     1. updates the file setenv.sh (Unix system) or setenv.bat (Windows system) to set the database vendor values for **Bonita internal database** & **Business Data database**
-    3. updates the file `<TOMCAT_HOME>/setup/tomcat-templates/bonita.xml` with the values you set in file `database.properties` **Bonita internal database** & **Business Data database**
-    4. copies your database vendor-specific drivers from `<TOMCAT_HOME>/setup/lib` to `<TOMCAT_HOME>/setup/server/lib/bonita`
+    3. updates the file `<BUNDLE_HOME>/setup/tomcat-templates/bonita.xml` with the values you set in file `database.properties` **Bonita internal database** & **Business Data database**
+    4. copies your database vendor-specific drivers from `<BUNDLE_HOME>/setup/lib` to `<BUNDLE_HOME>/setup/server/lib/bonita`
 3. Starts the Tomcat bundle
 
 For advanced server configuration needs: check out [Bundle configuration](BonitaBPM_platform_setup.md#run_bundle_configure) to finely tune your Tomcat bundle, using templates used by Bonita.
@@ -164,16 +164,16 @@ For advanced server configuration needs: check out [Bundle configuration](Bonita
 
 Tomcat can be started by executing the following script:
 
-* Windows: `<TOMCAT_HOME>\start-bonita.bat`
-* Linux: `<TOMCAT_HOME>/start-bonita.sh`
+* Windows: `<BUNDLE_HOME>\start-bonita.bat`
+* Linux: `<BUNDLE_HOME>/start-bonita.sh`
 
 
 #### Tomcat stop script
 
 Tomcat can be shut down by executing the following script:
 
-* Windows: `<TOMCAT_HOME>\stop-bonita.bat`
-* Linux: `<TOMCAT_HOME>/stop-bonita.sh`
+* Windows: `<BUNDLE_HOME>\stop-bonita.bat`
+* Linux: `<BUNDLE_HOME>/stop-bonita.sh`
 
 **Troubleshooting:**
 If you see `checkThreadLocalMapForLeaks` errors, they probably indicate that Tomcat is shutting down before all work threads are completed.
@@ -192,7 +192,7 @@ To update Bonita configuration after the first run, take a look at the [platform
 ::: info
 **Note:** 
 - The file `database.properties` is the entry point to configure the [Tomcat environment](BonitaBPM_platform_setup.md#run_bundle_configure) and the [Bonita Platform configuration](BonitaBPM_platform_setup.md#configure_tool).
-- You can use command line arguments to specify database properties directly from the command line. Use `<TOMCAT_HOME>/setup/setup.sh --help` on Linux or `<TOMCAT_HOME>\setup\setup.bat --help` on Windows to have a list of available options.
+- You can use command line arguments to specify database properties directly from the command line. Use `<BUNDLE_HOME>/setup/setup.sh --help` on Linux or `<BUNDLE_HOME>\setup\setup.bat --help` on Windows to have a list of available options.
 :::
 
 ### License update
@@ -205,7 +205,7 @@ To update the licenses after the first run, take a look at the [platform setup t
 ---
 
 **Problem**:  
-My **Oracle** database drivers do not seem to be taken into account when I put them in `<TOMCAT_HOME>/setup/lib` folder.
+My **Oracle** database drivers do not seem to be taken into account when I put them in `<BUNDLE_HOME>/setup/lib` folder.
 
 **Cause**:  
 Driver file must respect some naming convention.

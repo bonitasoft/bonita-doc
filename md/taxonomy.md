@@ -111,7 +111,6 @@
   * [Basic Bonita Platform installation](_basic-bonita-platform-installation.md)
     * [Hardware and software requirements](hardware-and-software-requirements.md)
     * [Tomcat bundle](tomcat-bundle.md)
-    * [WildFly bundle](wildfly-bundle.md)
     * [Custom Deployment into existing Tomcat installation](custom-deployment.md)
     * [Platform configuration](BonitaBPM_platform_setup.md)
     * [Database creation and customization to work with Bonita](database-configuration.md)
