@@ -281,7 +281,7 @@ please follow this procedure:
 
 ## Migrating to Bonita 7.9+ using Oracle
 
-Bonita 7.9+ supports Oracle 12c version. To migrate to Bonita 7.9+ when using Oracle,
+Bonita 7.9+ supports Oracle 12c (12.2.x.y) version. To migrate to Bonita 7.9+ when using Oracle,
 please follow this procedure:
 * ensure your Bonita platform is shut down
 * run Bonita migration tool to update Bonita platform to version 7.8.4, following the procedure above
