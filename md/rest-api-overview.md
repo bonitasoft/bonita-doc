@@ -140,7 +140,7 @@ Example
 
 The required object is specified with a set of filters in the request URL. The URL parameters must be URL-encoded.
 
-Results are returned in a paged list, and you can specify the page (counting from zero), the number of results per page (count), and the sort key (order). You can see the total number of matching results in the HTTP response header Content-Range.
+Results are returned in a paged list, so you have to specify the page (counting from zero), and the number of results per page (count), additionally you can define a sort key (order). You can see the total number of matching results in the HTTP response header Content-Range.
 If you are searching for business data using a custom query, there must be a [count query in the BDM](define-and-deploy-the-bdm.md). If there is no count query, results from a custom query on business data cannot be paged properly (the header Content-Range will be absent). 
 For business data default queries, the count query is defined automatically.
 
@@ -156,8 +156,8 @@ Example
 
 For a GET method that retrieves more than one instance of a resource, you can specify the following request parameters:
 
-* p: index of the page to display
-* c: maximum number of elements to retrieve
+* p (Mandatory): index of the page to display
+* c (Mandatory): maximum number of elements to retrieve
 * o: order of presentation of values in response: must be either `attributeName ASC` or `attributeName DESC`. The final order parameter value must be URL encoded. 
 * f: list of filters, specified as `attributeName=attributeValue`. To filter on more than one attribute, specify an f parameters for each attribute. The final filter parameter value must be URL encoded. 
   The attributes you can filter on are specific to the resource.
