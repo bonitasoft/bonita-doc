@@ -1,6 +1,6 @@
 # Bonita Studio hints and tips
 
-Discover smart ways to use Bonita Studio diagrams
+Discover smart ways to use diagrams in Bonita Studio
 
 ## Adding items to a diagram
 
