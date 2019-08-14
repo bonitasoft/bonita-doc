@@ -110,6 +110,11 @@ On a Tomcat installation, `<java.io.tmpdir>` points to `<BUNDLE_HOME>/temp/`
 
 When you have finished developing the page, recreate the custom page zip archive, and then modify the page to import it. This makes your final version of the page permanently available.
 
+::: info
+In Bonita Studio, the debug mode is enabled by default.  
+If you want to disable it, you need to use the setup tool provided in `workspace/tomcat/setup/` to update `console-config.properties` (Update the file database.properties first so it points to the target database. E.g.: h2.database.dir=../../default/h2_database).
+:::
+
 ## Constraints
 
 A custom page is displayed in an iframe in the Bonita Portal, so is isolated from changes to the portal. 
