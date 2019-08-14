@@ -31,14 +31,14 @@ You are recommended not to start 7.0.0 after you migrate to it, but to proceed i
 The version targeted may not support the version of the database that is being migrated. You may then need to upgrade the version of your database prior to running the migration tool.
 * Please check the [database requirements](hardware-and-software-requirements.md).
 * If you need to upgrade your database:
-   * Please make sure to apply all the [RDBMS customisations required by Bonita](database-configuration.md#toc5) when setting up the new version.
-   * Please make sure to use the [appropriate JDBC driver](database-configuration.md#toc3)
+   * Please make sure to apply all the [RDBMS customisations required by Bonita](database-configuration.md#specific_database_configuration) when setting up the new version.
+   * Please make sure to use the [appropriate JDBC driver](database-configuration.md#proprietary_jdbc_drivers)
  :::
 
 **Community/Subscription edition:**
 The tool migrates your platform (_bonita_home_ folder and the database). You cannot [change edition](upgrade-from-community-to-a-subscription-edition.md) while migrating.
 * If you are running a Bonita Subscription Pack edition, you need a valid license for your target version.
-* If you are upgrading to a new maintenance version and not changing the minor version number (for example, you are migrating from 6.3.0 to 6.3.1), your current license remains valid after migration.
+* If you are upgrading to a new maintenance version and not changing the minor version number (for example, you are migrating from X.Y.0 to X.Y.1), your current license remains valid after migration.
 
 ::: info
 Starting from version 7.3 there is no more _bonita home_ folder. This means that, if your installation does not have any custom change, then you do not need to configure the bundle any further for an installation migrated in 7.3 or above.
