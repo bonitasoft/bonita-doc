@@ -223,6 +223,9 @@ The step works at best effort:
 * A detailed report of all the changes made is displayed at the end of the migration step.
 * Beware that if one of these connectors' removed dependencies was used in one your scripts, it will still be removed/updated, and therefore your scripts might not work anymore after migration. The full list of updated and deleted dependencies can be found below.
 
+From Bonita 7.9+, the supported version of Oracle database is **12c (12.2.x.y)**
+To migrate to Bonita 7.9+ from an earlier version than Oracle 12c (12.2.x.y), see [Migrating to Bonita 7.9+ using Oracle](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12).
+
 #### WebService connector
 
 The following dependencies have been added, to ensure Java 11 compliance:
