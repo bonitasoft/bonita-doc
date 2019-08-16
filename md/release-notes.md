@@ -298,6 +298,8 @@ More configuration info can be found [here](tomcat-bundle.md).
 
 From Bonita 7.9, the supported version of Oracle database is **12c (12.2.x.y)**
 
+To migrate to Bonita 7.9+ from an earlier version, you need to run the [Bonita Migration Tool](migrate-from-an-earlier-version-of-bonita-bpm.md), so that the database and configuration is updated. Then you must upgrade your Oracle database to version 12c. See [Migrating to Bonita 7.9+ using Oracle](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12) for more details.
+
 #### PostgreSQL
 
 From Bonita 7.9, the supported version of PostgreSQL database is **11.2**
