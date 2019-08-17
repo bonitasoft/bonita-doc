@@ -277,6 +277,19 @@ please follow this procedure:
 * once done, you can restart your updated Bonita platform
 
 
+<a id="oracle12"/>
+
+## Migrating to Bonita 7.9+ using Oracle
+
+Bonita 7.9+ supports Oracle 12c (12.2.x.y) version. To migrate to Bonita 7.9+ when using Oracle,
+please follow this procedure:
+* ensure your Bonita platform is shut down
+* run Bonita migration tool to update Bonita platform to version 7.8.4, following the procedure above
+* upgrade your Oracle database server to the version 12c
+* run the migration tool again to migrate the platform to 7.9.0 or newer
+* once done, you can restart your updated Bonita platform
+
+
 ## Migrate your cluster
 
 A Bonita cluster must have the same version of Bonita on all nodes. To migrate a cluster:
