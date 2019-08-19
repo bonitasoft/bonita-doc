@@ -44,7 +44,7 @@ Notes:
 1. Bonita can be executed on Java 8 or 11. All development artifacts (connectors, REST API extensions, etc) must be compiled with Java 8 byte code (target version).
 1. Your database must be configured to use the UTF-8 character set.
 1. MySQL must be configured to use UTF-8 (utfmb3). It is the only supported charset.
-MySQL must be configured with innoDB storage engine. Even if the 5.5.x line is recommended, tests have shown that Bonita can run with MySQL 5.6.x and 5.7.x (please make tests prior to using these versions, especially when using exotic encoding/charset). Note that Bonita does not work with MySQL 8.x
+MySQL must be configured with innoDB storage engine. Even if the 5.5.x line is recommended, tests have shown that Bonita can run with MySQL 5.6.x and 5.7.x (please make tests prior to using these versions, especially when using exotic encoding/charset).
 1. Oracle must be configured using AL32UTF8 character set to store properly all *Char* data
 1. Chrome version 60.0.3112 introduced an incompatibility impacting the functionality of Bonita Portal. So from that Chrome version onwards, once Bonita Platform is installed, apply the following procedure to resolve this issue:
 
