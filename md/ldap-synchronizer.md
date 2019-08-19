@@ -41,14 +41,15 @@ Two way to connect the Bonita Engine is possible:
 
 1/ Connection using the Environment variables:
 
-Set the API access mode used by the LDAP Synchronizer, by editing the `<LDAP_SYNCHRONIZER>\BonitaSubscription-<version>-LDAP-Synchronizer.(bat or sh)` file. 
+Set the HTTP connection parameters used by the LDAP Synchronizer, by editing the `<LDAP_SYNCHRONIZER>\BonitaSubscription-<version>-LDAP-Synchronizer.(bat or sh)` file. 
 
 Add between `java` and `-classpath`:
 ```
--Dorg.bonitasoft.engine.api-type=HTTP -Dorg.bonitasoft.engine.api-type.server.url=http://localhost:8080 -Dorg.bonitasoft.engine.api-type.application.name=bonita
+-Dorg.bonitasoft.engine.api-type.server.url=http://localhost:8080 -Dorg.bonitasoft.engine.api-type.application.name=bonita
 ```
 
-The LDAP Synchronizer can use the HTTP mode, but not local access. For more information about API access modes, see the [Engine API overview](engine-api-overview.md).
+The LDAP Synchronizer connects to Bonita server using the HTTP mode only.
+For more understanding about API access, see the [Engine API overview](engine-api-overview.md).
 
 2/ Connection using Bonita.properties files:
 
@@ -81,17 +82,13 @@ This file defines the connection settings and specifies the account used for use
 | Item | Description | Default |
 |:-----|:------------|:--------|
 | bonita\_home | The path to the Bonita Home folder of the LDAP Synchronizer. (deprecated) |  |
-| apiType | The API Type to access the Bonita Engine: HTTP | (1) |
-| serverUrl | Url to access the Bonita Server (http://myHost:8080) | (1) |
-| applicationName | Application name (bonita is the general name) | (1) |
+| serverUrl | Url to access the Bonita Server (http://myHost:8080) | no default value |
+| applicationName | Application name (bonita is the general name) | no default value |
 | login | The login to provide is a userName.  | install |
 | password | Password of the Bonita account used for synchronization. | install |
 | technicalUser | This is the [username of the platform adminstrator](first-steps-after-setup.md). | platformAdmin |
 | technicalPassword | This is the [password of the platform adminstrator](first-steps-after-setup.md). | platform |
 
-**(1)**: if apiType properties is not defined, then the variable environment mechanism 
-is used to connect to the Bonita Engine.
-  
 ### ldap.properties
 
 This file defines the LDAP connection settings and specifies the account used for user browsing.
