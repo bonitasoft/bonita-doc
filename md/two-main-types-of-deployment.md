@@ -57,7 +57,7 @@ The example below is for use with the Tomcat bundle.
 
 #### Bonita Engine
 
-Follow the regular installation (see the [Tomcat](tomcat-bundle.md) or the [Wildfly](wildfly-bundle.md) bundle installation page)
+Follow the regular installation (see the [Tomcat bundle](tomcat-bundle.md) installation page)
 and use the setup tool to configure Bonita
 
 #### Bonita Portal 
@@ -70,8 +70,8 @@ and use the setup tool to configure Bonita
 In this deployment, the Engine Client used by the Bonita Portal is configured by setting JVM System Properties for the following elements
 * instruct the Engine Client to use the HTTP protocol
 * set the url to the Engine
-* use username and password that match credentials configured for the platform admin (see the [Tomcat](tomcat-bundle.md)
-or the [Wildfly](wildfly-bundle.md) bundle configuration page)
+* use username and password that match credentials configured for the platform admin (see the [Tomcat bundle](tomcat-bundle.md)
+configuration page)
 * for more details, please read [configuring the connection to a remote engine](configure-client-of-bonita-bpm-engine.md#client_config)
 
 In addition, all database datasources are disabled
