@@ -2,33 +2,33 @@
 
 This page explains how to build Bonita Community edition from the source.
 
-All source code of Bonita solution is available from the [Bonitasoft GitHub organization](https://github.com/bonitasoft). Each component of the solution has a dedicated repository (e.g. [Engine repository](https://github.com/bonitasoft/bonita-engine)).
+All source code of Bonita is available from the [Bonitasoft GitHub organization](https://github.com/bonitasoft). Each Bonita component has
+a dedicated repository (e.g. [Engine repository](https://github.com/bonitasoft/bonita-engine)).
+
 
 # Prerequisites
 
-To build the product, you need the following:
+To build Bonita, you need the following:
 
 * Internet connection
 * Git
-* JDK 1.8 or above
-* Apache Maven 3.3.9 (version is mandatory)
-* NodeJS
+* JDK 1.8
+* Apache Maven 3.5.x
 
-::: info
-We provide build script for Linux only. Therefore it is recommended to use Linux. If you don't have Linux you can either use a virtual machine or port the build script to Mac.
-:::
-
-<!---
-BS-8375
---->
-::: warning
-Note that you can run Bonita on Windows but you cannot build Bonita on Windows (known limitation).
-:::
 
 # Building Bonita
 
-In order to build Bonita you need to use the script provided in [Build Bonita](https://github.com/Bonitasoft-Community/Build-Bonita) GitHub project. Use the branch of the project that match the version you want to build.
+## Manual Bonita build
 
-Simply run `bash build-script.sh` and provide required information.
+You can build Bonita from component to component, but you have to know the component interdependencies: some components rely on components
+that are built earlier in the sequence, so the build order must be respected. For instance, build `bonita-engine` prior to build
+`bonita-web`.
 
-A script is used because some components rely on components that are built earlier in the sequence, so the build order must be respected.
+## The 'Build Bonita' repository
+
+To simplify the build process, you can use the solution provided in the [Build Bonita](https://github.com/Bonitasoft-Community/Build-Bonita) GitHub project.
+
+Follow the `README` file to get instructions about
+* the build procedure
+* eventual limitations
+* eventual additional prerequisites

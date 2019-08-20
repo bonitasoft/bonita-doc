@@ -1,7 +1,7 @@
 # Create administration tools
 
-This page contains an example of how to create tools to administer your Bonita system. 
-The example is developed using Maven, and is a Java program to list the failed tasks, wrapped in a script so that it can be executed in an environment with no window manager.
+Discover how to create tools to administer your Bonita system using Maven and Java.  
+The example proposes to list the failed tasks, and is wrapped in a script so that it can be executed in an environment with no window manager.
 
 ## Getting started
 
