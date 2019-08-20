@@ -4,7 +4,7 @@
 **Note:** For Enterprise and Performance editions only.
 :::
 
-This page explains how to manage a Bonita cluster.
+Discover how to administer, monitor and manage a Bonita cluster
 
 ## Backing up a cluster
 
