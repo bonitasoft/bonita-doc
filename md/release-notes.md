@@ -1,20 +1,18 @@
 # Release notes
 
-::: info
-**Note:** The 7.9 is currently work in progress (WIP). The 7.9.0 GA is planned on June 2019.
-:::
-
 ## New values added
 
 <a id="improve-form-generation"/>
 
-### Low code application development: business data management in the UI Designer
+### Low code application development: business data management form the studio to the UI Designer
 
 #### Easily create forms where business variables or documents are edited by the users (read/write)
-A form that allows a user to edit business variables or documents needs to display the current values before the user modifies them. 
-The Studio now creates the variables needed to display the current values and link them to the same widgets than the widgets linked to the task contract: what the user needs to fill and send back to the process.
-No need to create variables and manipulate the BDM REST API anymore. 
-For more information, read [the dedicated documentation](contracts-and-contexts.md).
+A form that allows a user to edit business variables or documents needs to display the current values before the user modifies them.  
+The Studio now creates the variables needed to display the current values and links them to the same widgets than the widgets linked to the task contract: what the user needs to fill and send back to the process.  
+No need to create variables and manipulate the BDM REST API anymore.  
+In the generated forms, the property _required_ of the widgets now reflects the property _mandatory_ of the corresponding attributes in the BDM. All contract inputs were marked _required_ before.  
+⚠️This is not the case for DatePicker and DateTimePicker types yet: they still are always _required_. This limitation will be fixed shortly.  
+For more information, read [the dedicated documentation](contracts-and-contexts.md).  
 
 #### Easily display read-only business variables in forms
 A lot of forms that require users' input or edition of business variables also need to display other business data as read-only information. This information is useful to the users to make the right inputs and/or decisions.
@@ -36,10 +34,10 @@ Directly from whiteboard or from widget properties section, you will now be able
 Operations at the level of tasks now handle the complete update of multiple documents: add/delete/update are automatically managed by the method, using document Ids. 
 This improvement is also implemented in Bonita Portal case overview, where only the last version of each document is visible, and each document gets two widgets: file viewer to access the document, and file upload to update it.
 
-#### Render a UID page and form in the end-user browser
+#### Render a UI Designer page and form in the end-user browser
 Now you can open your preview in a browser tab, outside of current preview mechanism to allow you set new URL parameters, play with dynamic browser sizing, and to reuse same url in another browser to see how your form or page behaves in your user default browser.
 
-#### A new method for Living Applications buttons: Assign and execute"
+#### A new method for Living Applications buttons: "Assign and execute"
 A new action is available on the provided _Button_ widget in the UI Designer: "Assign and submit task". 
 This action is mandatory for ACM use-cases, where a user often manages a given case on his own, from begining to end, but can be used in many other use-cases.
 As a result, a user of an ACM-type Living Application can view and fill out the form of any available task in the case, and then simply click on "Submit". 
@@ -64,13 +62,13 @@ To do so, a new "View in application" feature has been added to the preview wind
 Themes created in an IDE can now be mapped with an application descriptor to customize the look and feel of a living application. 
 Layouts created in the UI Designer can also be updated in an application descriptor for better customization.
 
-#### Use provided UID widgets as a template for a custom widget 
+#### Use provided UI Designer widgets as a template for a custom widget 
 Do you need a text widget that applies an specific numeric formating to match your external system keys? Do you need a table widget with specific padding? 
 Bonita UI Designer provides a set of standard widgets to build your form & pages, and now you can extend them to fullfill your specific needs. 
 In the Properties panel header, there is a new widget action menu. From this menu, you can launch all the widget-related actions, such as: edit, view, save as fragment (depending on the selected widget). 
 From this widget action menu, you can view the widget, clone it as a custom widget and modify it. It will be directly available in your palette for further uses.
 
-#### Manage UID assets order to guarantee user interface rendering  
+#### Manage UI Designer assets order to guarantee user interface rendering  
 Apply the right order on assets affects the behaviour the page such as the order or CSS loading to override styles, or JS object declarations. 
 Base framework assets are now visible to show you which ones are used to build your UI Designer page, such as Angular or Bootstrap and in which version, additionally a documentation link has been added to take benefit of such frameworks documentation.
 
@@ -159,14 +157,14 @@ Within Tomcat and WildFly bundles, the License Request Key generator tool has be
 
 ### Java 11 Compliance
 
-Bonita now runs on Java 8 and Java 11.
-Bonita is still compiled with java 8, but can now run on Java 11.
-The various libraries and dependencies of the product have been updated according to this mindset.
-It means:
-- Some of Bonita dependencies might officially be listed as not working or problematic with Java 11. The dependencies presenting security issues, as well as those not working at runtime have been updated.
-The others were left as they were. The main updated libraries can be found [there](release-notes.md#java-11-lib-update)
-- If you are migrating to Bonita 7.9, and plan to run it on Java 11, some of your connectors will have to be migrated. See [Connectors dependency updates](release-notes.md#connector-dependency-updates)
-- Generally speaking, custom code and connectors might require updated version of libraries used in Bonita. In such cases, those updated versions should be added as script/connector dependencies.
+Bonita now runs on Java 8 and Java 11. It is still compiled with java 8, but can now run on Java 11.  
+According to that, some libraries and dependencies of the product have been updated: they either presented security issues, or they did not work at runtime. The list can be found [there](#java-11-lib-update).   
+The others have been left as they were.  
+Some of those can generate warnings with Java 11, such as "WARNING: Illegal reflective access by [.../]", but this has no consequence on Bonita execution, and they will be updated in the future.  
+
+If you are migrating to Bonita 7.9 and plan to run it on Java 11, some of your connectors will have to be migrated. See [Connectors dependency updates](#connector-dependency-updates)  
+Generally speaking, custom code and connectors might require updated versions of libraries used in Bonita. In such cases, those updated versions should be added as scripts/connector dependencies.  
+
 <a id="rest-api-extension-update"/>
 
 #### REST API extension project update
@@ -194,9 +192,11 @@ In order to be compatible with Java 11, you must update the following plug-ins d
 ``` 
 
 #### Bonita Studio
-Underlying Eclipse version has been updated to 2018-12 version integrating Java 11 support. 
-Bonita Studio Community installers are now packaged with a JRE 11 by default (instead of a JRE 8).
-For Linux users, you now need GTK3 library to be installed. ### Tomcat
+Underlying Eclipse version has been updated to 2018-12 version integrating Java 11 support.   
+Bonita Studio Community installers are now packaged with a JRE 11 by default (instead of a JRE 8).  
+For Linux users, you now need GTK3 library to be installed. 
+
+### Tomcat
 Tomcat has been updated to the version 8.5.40.
 
 ### Dependency updates
@@ -216,7 +216,7 @@ The following Bonita dependencies have been upgraded to improve the Java 11 supp
 
 ### Migration
 
-For Bonita 7.9.0, the migration step tries to migrate the *CMIS*, *Email* and *Webservice* connectors of the processes deployed on the platform, along with their dependencies, to allow the migrated platform to run on Java 11.
+For Bonita 7.9.0, the migration step tries to migrate the *CMIS*, *Email* and *Webservice* connectors of the processes deployed on the platform, along with their dependencies, to allow the migrated platform to run on Java 11.  
 The step works at best effort:
 * It will try to upgrade all the connectors it can.
 * It will not upgrade connectors that have dependencies used by other connectors. Those connectors will still work on java 8, but not in java 11, and will require a manual update.
@@ -281,20 +281,24 @@ The version of the _javax.mail:mail_ dependency has been updated from _1.4.5_ to
 
 The version of the _org.twitter4j:twitter4j-core_ dependency has been updated from _4.0.2_ to _4.0.7_
 
+#### REST API connector
+Starting with Bonita 7.9.2, the studio uses REST API connector 1.0.6
+
 ### JTA transaction manager replacement
 
 In Bonita 7.9.0, we replaced the JTA transaction manager used to handle XA transactions in Bonita Engine from Bitronix to Narayana (also known as Arjuna). 
 This change should not impact the way to use Bonita. 
 However, tuning Bonita transaction configuration is now a little different. If you wish to change the default transaction timeout,
-it is now done by changing the `defaultTimeout` property in file `server/conf/jbossts-properties.xml` instead of
-file `server/conf/bitronix-config.properties`
-More configuration info can be found [here](tomcat-bundle.md)
+it is now done by changing the `defaultTimeout` property in file `server/conf/jbossts-properties.xml` instead of file `server/conf/bitronix-config.properties`
+More configuration info can be found [here](tomcat-bundle.md).
 
 ### Databases supported
 
 #### Oracle
 
 From Bonita 7.9, the supported version of Oracle database is **12c (12.2.x.y)**
+
+To migrate to Bonita 7.9+ from an earlier version, you need to run the [Bonita Migration Tool](migrate-from-an-earlier-version-of-bonita-bpm.md), so that the database and configuration is updated. Then you must upgrade your Oracle database to version 12c. See [Migrating to Bonita 7.9+ using Oracle](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12) for more details.
 
 #### PostgreSQL
 
@@ -312,7 +316,7 @@ To migrate to Bonita 7.9+ from an earlier version, you need to run the [Bonita M
 
 ::: info
 **Note:** Bonita requires MySQL to use [UTF-8 encoding](database-configuration.md#utf8_requirement), which is an alias for 'utf8mb3', now deprecated by MySQL. 
-The [official recommendation is to use 'utf8mb4'](https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-utf8.html). Bonitasoft will handles this change in a later release.
+The [official MySQL recommendation is to use 'utf8mb4'](https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-utf8.html). Bonitasoft will handles this change in a later release.
 :::
 
 <a id="other-dependencies"/>
@@ -362,6 +366,105 @@ The SAP JCO2 connector is no longer available. SAP JCO3 connector is more recent
 The BonitaSubscription-x.y.z-deploy.zip is no longer provided starting from Bonita 7.9.
 Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bundle.md) page for more specific needs.
 
-## Bug fixes
+## API behavior change
+### servletDownloadApp
+The file exported by the Portal servlet for applications is now called "ApplicationDescriptorFile.xml" instead of "Application_Data.xml" to bring consistency compared to Bonita Studio, and to  the concept of application. 
 
-(more to come on June)
+## Bug fixes
+### Fixes in Documentation
+* BS-19323 Bonita documentation is not clear enough about PostgreSQL versions supported
+* BST-151 Default outgoing transition not executed when there is more than one outgoing transition from inclusive gateway
+* BST-269 Document workaround for MacOS - ssh issue
+* BST-171 Can't share a project on github using HTTPS and double authentication factor
+* BST-341 On MacOS, Studio installer might not detect the installed JRE
+
+### Fixes in Bonita 7.9.2 (2019-08-01)
+#### Fixes in Engine component
+* BS-19299 GET REST API connector raised an exception if answer body is null
+
+#### Fixes in Studio component
+* BST-345 Open an invalid access control file leads to an NPE instead of displaying the `error view`
+* BST-349 The option to initialize a business data using a Query is not always available
+
+#### Fixes in Web/Portal component
+* BPO-24 BS-18487 and BS-18488 cannot download a document from the FilePreview widget link
+* BPO-101 Rename Application Descriptor XML file using "ApplicationDescriptorFile.xml" in Portal 
+* BPO-157 Migration form and color in a form
+* BPO-170 Different caseIds are displayed for a same archived case in Bonita Portal
+* BPO-179 URL parameters are not displayed in a Custom Profile
+* BPO-189 Case overview page for an archived case is not working in IE 11 (id not found)
+
+### Fixes in Bonita 7.9.1 (2019-07-04)
+#### Fixes in Studio component
+* BST-248 Name of sub-process is lost when importing an BPMN XML file
+* BST-282 When creating an application or editing the displayName of an application, there is no limit to the number of characters
+* BST-287 In UI Designer tomcat server, there is no extended parameters
+* BST-288 Click on Configuration icon has no effect
+* BST-290 Import multiple jars at once does not work: in the project lib, the files are empty
+* BST-294 Bonita LA Builder doesn't have the provided groovy scripts
+* BST-299 BPMN export fails if Data to send in Call Activity contains empty association
+
+#### Fixes in UI Designer component
+* UID-82 When a new Fragment is created, the Palette is not updated
+* UID-83 Message toast in UI Designer is not clear when license is expired
+* UID-104 Fragment variable value isn't clean when variable scope change
+* UID-105 When name of artifact is too long, left panel is broken
+
+#### Fixes in Web/Portal component
+* BPO-72 BS-19311 Administration profile: Monitoring page generates a 26 seconds request (search process definition)
+* BPO-106 BS-19310 Administration profile: Open cases page generates twice the same requests (search)
+* BPO-146 No tooltips on the top right icons and name of the user
+* BPO-154 Clean and Improve Layout css file
+* BPO-159 "All profiles" should be the default option in the application list filter of Bonita layout
+* BPO-163 "..." of ellipsis should not be displayed on a white background
+* BPO-167 Avoid user details modal overflow
+* BPO-171 Bonita Layout mobile app title error on click
+* BPO-178 Improve the default user icon in the bonita layout
+
+### Fixes in Bonita 7.9.0 (2019-06-13)
+#### Fixes in Engine component
+* BR-69 SQLServerException error when deleting cases with more then 2100 subprocesses
+* BS-15896 Unable to configure EntityManagerFactory
+* BS-18364 Connector Replay stays in state TO_RE_EXECUTE when executeFlowNode arrives at the same time the task is transitioning from 'initializing' to 'ready'
+* BS-18734 Deploying a BAR with two forms with the same name but a different case leads to Unique index or primary key violation CONSTRAINT_INDEX_29 BAR_RESOURCE(TENANTID, PROCESS_ID, NAME, TYPE)
+* BS-18748 Portal Organization IMPORT button has no feedback
+* BS-18874 work execution: 5 seconds SELECT * FROM flownode_instance WHERE kind = 'boundaryEvent' ...
+* BS-18880 work execution: 84 seconds SELECT * FROM from flownode_instance where logicalGroup3=nn and terminal=0 order by id ASC limit 1;
+* BS-18910 message_instance x waiting_event couples: 72 seconds request duration
+* BS-19082 Long execution duration for this processAPI.searchAssignedAndPendingHumanTasks API call
+* BS-19239 Exception during Quartz Job execution leaves the associated flownode in WAITING state and the process execution is stopped
+* BS-19293 REST API extension: ClassCastException
+* BS-19295 SELECT widget sets the field of the variable holding the initial value to null when the page/form loads if it is shared by another SELECT widget
+* BS-19298 Process may end up locked forever
+* BS-19319 [BDM] Business Object Java Setter does not create aggregated instances
+* BS-19322 Contract validation fail if a complex contract input is null and has a multiple complex child contract input
+* BS-19335 Timers triggers keep being rescheduled and are not fired on time or fired randomly
+* BS-19345 Script Connector does not return stderr in connector result
+
+#### Fixes in Studio component
+* BST-126 Studio must be restarted to use User-defined functions
+* BST-132 Wrong script generated in some specific cases with multiple data
+* BST-162 Generate process documentation does not work post 7.7
+* BST-201 Contract input name should never be equal to the associated business data name
+* BST-202 Application descriptor Deploy button does not trigger the saved changes and does not raise errors
+* BST-204 Default Application created in the Portal raises an error about custompage_home when imported and Deployed from Studio
+* BST-221 UI Designer allows to have 2 forms with same name when created from the Studio: this breaks LA Builder
+* BST-251 On MacOS, manage organizations wizard needs scrolling to add a membership
+* BST-271 Import .bpmn diagram fails
+
+#### Fixes in UI Designer component
+* UID-29 RichTextArea readOnly property should be dynamic
+* UID-30 When a form or a page is renamed in the UID, the field 'displayName' is not updated in the json
+* UID-34 ui-bootstrap-tpls.js asset should be displayed in the Assets panel for the modal container (as for tabs container)
+* UID-38 Select widget set bound value to null
+* UID-39 when importing a javascript local asset, content is not editable
+* UID-69 Localization help section is empty in custom widget editor
+* UID-73 Widget editor: title underline not aligned
+* UID-86 Modal container: the focus should be located on the input element
+* UID-90 Deleting one asset from a custom Widget based on the default one remove all the assets
+* UID-101 INTEGER contract type is not set as mandatory in widget when creating the form
+
+#### Fixes in Web/Portal component
+* BPO-31 Process list console Error in portal
+* BPO-71 REST API - bpm/humanTask filter by displayName doesn't work
+* BPO-110 Theme custom page should not be forced to have an index.html (but a theme.css ?)

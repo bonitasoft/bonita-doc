@@ -8,6 +8,10 @@ If your application is using a technology other than Java, you can integrate it 
 
 Access to the Web REST API depends on [REST API authorization](rest-api-authorization.md) settings.
 
+::: danger
+EJB communication protocol is removed in 7.10.
+:::
+
 ![diagram of architecture of a REST client integrated with Bonita](images/images-6_0/rest_overview_v2.png)
 
 ## Phases of operation
@@ -17,8 +21,8 @@ There are three phases of operation for an application that is integrated with B
 <a id="bonita-authentication"/>
 
 ### Authenticate to Bonita
-  
-Calls to the Web REST API require you to first log in as a user registered in the Engine database.
+
+See [REST Authentication](rest-api-authentication.md) details to understand how to login from Bonita REST APIs.
 
 To log in, use the following request:
 | | |
@@ -32,13 +36,7 @@ The response to this call generates cookies.
 The `JSESSIONID` must be transfered with each subsequent calls. If the REST API is used in an application running in a web browser, this is handled automatically by the web browser.
 For usage of the `X-Bonita-API-Token` see below.
 
-#### X-Bonita-API-Token cookie and HTTP header
-
-The security against CSRF attacks is enabled by default for all fresh installations.
-
-This security relies on `X-Bonita-API-Token` information. The `X-Bonita-API-Token` value can be found in the cookie named: `X-Bonita-API-Token`. All the subsequence REST API calls using DELETE, POST, or PUT HTTP methods must contain the **HTTP header** below:
-
-    X-Bonita-API-Token: example-dummy-not-be-used-value
+Make sure your application has authentified your user before calling other APIs otherwise you will receive 401 HTTP error code.
 
 ### Execute REST calls and integrate the results in your application
 
@@ -53,16 +51,9 @@ The engine will then continue the execution of the workflow as designed.
 
 ### Logout from Bonita
 
-When processing is complete, you must log out.
+When processing is complete, you must log out.  
 
-To log out, use the following request:
-| | |
-|:-|:-|
-| Request URL | `http://host:port/bonita/logoutservice`| 
-| Request Method | GET| 
-| Query parameter | redirect: true or false (default set to true)|
-
-Setting the redirect parameter to false indicates that the service should not redirect to the login page after logging out.
+See [REST Authentication](rest-api-authentication.md) details to understand how to logout from Bonita REST APIs.
 
 ## API Extensions
 
@@ -153,7 +144,7 @@ Example
 
 The required object is specified with a set of filters in the request URL. The URL parameters must be URL-encoded.
 
-Results are returned in a paged list, and you can specify the page (counting from zero), the number of results per page (count), and the sort key (order). You can see the total number of matching results in the HTTP response header Content-Range.
+Results are returned in a paged list, so you have to specify the page (counting from zero), and the number of results per page (count), additionally you can define a sort key (order). You can see the total number of matching results in the HTTP response header Content-Range.
 If you are searching for business data using a custom query, there must be a [count query in the BDM](define-and-deploy-the-bdm.md). If there is no count query, results from a custom query on business data cannot be paged properly (the header Content-Range will be absent). 
 For business data default queries, the count query is defined automatically.
 
@@ -169,8 +160,8 @@ Example
 
 For a GET method that retrieves more than one instance of a resource, you can specify the following request parameters:
 
-* p: index of the page to display
-* c: maximum number of elements to retrieve
+* p (Mandatory): index of the page to display
+* c (Mandatory): maximum number of elements to retrieve
 * o: order of presentation of values in response: must be either `attributeName ASC` or `attributeName DESC`. The final order parameter value must be URL encoded. 
 * f: list of filters, specified as `attributeName=attributeValue`. To filter on more than one attribute, specify an f parameters for each attribute. The final filter parameter value must be URL encoded. 
   The attributes you can filter on are specific to the resource.

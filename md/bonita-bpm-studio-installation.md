@@ -1,3 +1,4 @@
+
 # Bonita Studio installation
 
 This page explains how to install Bonita Studio for developing processes. There are installer wizards for Windows, Linux, and Mac systems, and an OS-independent archive that can be installed on any system.
@@ -21,7 +22,7 @@ Both Windows and Mac have default security settings that will prevent execution 
 **Note for users of OS X 10.7.5 and above**: a new security feature called **Gatekeeper** prevents the installation of software that is not officially recognized by Apple.  
 For more information and details of how to install Bonita Studio on a system running Gatekeeper, see the [Apple support site](https://support.apple.com/en-us/HT202491).
 
-**Not for users of Windows 10**: the security feature called **SmartScreen** prevents execution of Bonita Studio installer.  When you get the "Windows protect your PC" pop up window, click on "More info" link and click on "Run anyway" button.
+**Note for users of Windows 10**: the security feature called **SmartScreen** prevents execution of Bonita Studio installer.  When you get the "Windows protect your PC" pop up window, click on "More info" link and click on "Run anyway" button.
 
 ## Download Bonita Studio
 
@@ -225,3 +226,11 @@ sudo apt-get install libwebkitgtk-1.0-0
 Then the welcome page should display well, like this:
 
 <img src="bonita/images/${varVersion}/studio_welcome_page_ok.png" width="850px"/>
+
+
+#### Bonita Studio installation fail due to JVM errors
+
+A given Bonita Studio version can only run with some specifics Java versions ([hardware and software requirements](hardware-and-software-requirements.md)).  
+If you encounter some issues related to the JVM during the installation, ensure first that a valid Java version is available. You can for exemple type _java -version_ on a terminal, and informations about the main Java version used will be displayed.  
+If the problem persist, the easiest way to solve it is to remove the installed Java versions, to download that last stable build of the required Java version [on the Oracle website](https://www.oracle.com/technetwork/java/javase/downloads/index.html) and to install it properly.  
+Those issues can be related to bad Java installations, or to incompatibilities between a given Java version and Bitrock (Bitrock is the install builder used to install Bonita, it has the responsibility to detect the JRE used to install Bonita. Some defects on a given version could lead to incompatibility). 

@@ -19,7 +19,7 @@ However, H2 is only suitable for testing purposes. When building a production en
 
 ::: warning
 Please note this procedure cannot be performed using the Bonita Studio. The Bonita Studio can run only on the H2 Database. 
-To use Bonita on another RDBMS, please use a [bundle](_basic-bonita-platform-installation.md) or set up a [standalone server](deploy-bundle.md).
+To use Bonita on another RDBMS, please use a [bundle](_basic-bonita-platform-installation.md) or set up a [standalone server](custom-deployment.md).
 :::
 
 Here are the steps to follow. They are the same for the engine database and the business data database:
@@ -251,6 +251,9 @@ For more information, see the [MySQL website](https://dev.mysql.com/doc/refman/8
 MySQL does not support [surrogate characters](https://en.wikipedia.org/wiki/Universal_Character_Set_characters#Surrogates).
 If you want to use surrogate characters in your processes, you need to use another type of database.
 
+##### utf8mb4 charset not supported
+
+Note: Bonita requires MySQL to use UTF-8 encoding, which is an alias for 'utf8mb3', now deprecated by MySQL. The official MySQL recommendation is to use 'utf8mb4'. Bonitasoft will handles this change in a later release. For the moment, Bonita requires 'utf8mb3' charset. 
 
 ### Bundle database configuration
 

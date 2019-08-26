@@ -87,6 +87,10 @@ discovery modes), you must declare its public address by adding the following pr
    ```
 1. Then start the cluster in the load balancer.
 
+::: warning
+If you are using apache-tomcat load-balancer whith mod_jk, make sure that jvmRoute attribute is set at your Engine <Engine name="Catalina" defaultHost="localhost" jvmRoute="node01" > and that the jvmRoute attribute value matches your worker name in workers.properties. See official documentation: https://tomcat.apache.org/tomcat-7.0-doc/cluster-howto.html 
+In the server.xml file, for example, change the line to: Engine name="Catalina" defaultHost="localhost" jvmRoute="node01"
+:::
 1. Check that the log file contains messages of the following form:
     ```
     March 22, 2016 5:07:07 PM INFO: com.hazelcast.cluster.ClusterService [10.0.5.3]:5701 [myBPMCluster]
@@ -134,13 +138,11 @@ In this case you already have a Bonita Platform running as single node installat
 
 ### Update the configuration in database
 
-Some properties of the Bonita Platform needs to be changed in order to make your installation work as a cluster node.
+Some properties of the Bonita Platform needs to be changed, through [Bonita platform setup tool](BonitaBPM_platform_setup.md), in order to make your installation work as a cluster node.
 
-* Download the Bonita [Deploy bundle](deploy-bundle.md) and unzip it at some place of your choice.
-::: info
-The platform setup tool is also present in the Tomcat or WildFly bundle under the `setup` directory.
-:::
-* Configure it as described in the [platform setup tool page](BonitaBPM_platform_setup.md)
+* Download Bonita [Tomcat bundle](tomcat-bundle.md) or [WildFly bundle](wildfly-bundle.md), that contains the platform setup tool, and unzip it at some place of your choice.
+* Go into the `setup` folder: `cd ./setup/`
+* Configure the Setup Tool as described in the [platform setup tool page](BonitaBPM_platform_setup.md)
 * Run the `setup.sh pull` or `setup.bat pull`. This will retrieve the configuration of your platform under `platform_conf/current` folder.
 * Update configuration files that are in the `platform_conf/current` folder of the platform setup tool.
     * In `platform_engine/bonita-platform-sp-custom.properties`
