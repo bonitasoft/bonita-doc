@@ -223,6 +223,9 @@ The step works at best effort:
 * A detailed report of all the changes made is displayed at the end of the migration step.
 * Beware that if one of these connectors' removed dependencies was used in one your scripts, it will still be removed/updated, and therefore your scripts might not work anymore after migration. The full list of updated and deleted dependencies can be found below.
 
+From Bonita 7.9+, the supported version of Oracle database is **12c (12.2.x.y)**
+To migrate to Bonita 7.9+ from an earlier version than Oracle 12c (12.2.x.y), see [Migrating to Bonita 7.9+ using Oracle](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12).
+
 #### WebService connector
 
 The following dependencies have been added, to ensure Java 11 compliance:
@@ -298,7 +301,7 @@ More configuration info can be found [here](tomcat-bundle.md).
 
 From Bonita 7.9, the supported version of Oracle database is **12c (12.2.x.y)**
 
-To migrate to Bonita 7.9+ from an earlier version, you need to run the [Bonita Migration Tool](migrate-from-an-earlier-version-of-bonita-bpm.md), so that the database and configuration is updated. Then you must upgrade your Oracle database to version 12c. See [Migrating to Bonita 7.9+ using Oracle](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12) for more details.
+To migrate to Bonita 7.9+ from an earlier version, you need to run the [Bonita Migration Tool](migrate-from-an-earlier-version-of-bonita-bpm.md) once with the version 7.8.4 target, so that the database and configuration is updated. Then you must upgrade your Oracle database to version 12c (12.2.x.y). Then run the migration tool again to target version 7.9+. See [Migrating to Bonita 7.9+ using Oracle](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12) for more details.
 
 #### PostgreSQL
 
