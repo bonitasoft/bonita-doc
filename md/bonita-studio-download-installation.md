@@ -3,17 +3,17 @@
 The first step of this getting started tutorial is to setup your development environment. All you need is actually to install Bonita Studio.
 
 ::: info
-If you face any difficulties in this getting started tutorial, please ask for help on [community Q&A](https://community.bonitasoft.com/questions-and-answers) and/or open an issue on our [community issue tracker](https://bonita.atlassian.net/projects/BBPMC/issues).
+If you face any difficulties in this getting started tutorial, please [ask for help on Bonita community](https://community.bonitasoft.com/questions-and-answers) and/or open an issue on our [community issue tracker](https://bonita.atlassian.net/projects/BBPMC/issues).
 :::
 
 ## Download Bonita Studio
 
 To download Bonita Studio latest version, open the [download page](https://www.bonitasoft.com/downloads) and start the download by clicking on the "Download" button. This will start the download of Bonita Studio installer for your operating system.
 
-Once download is finished you should have one of the following file on your computer (x.y.z refers to the Studio version, e.g. 7.9.1):
+Once download is finished you should have one of the following file on your computer (x.y.z refers to the Studio version, e.g. 7.9.2):
 - Windows: `BonitaStudioCommunity-x.y.z-x86_64.exe`
 - macOS: `BonitaStudioCommunity-x.y.z-x86_64.dmg`
-- Linux: `BonitaSubscription-x.y.z-x86_64.run`
+- Linux: `BonitaStudioCommunity-x.y.z-x86_64.run`
 
 You are now ready to start the installation process.
 
@@ -59,7 +59,7 @@ This might take a while and can explain why some features are not immediately av
 
 ## Installation validation
 
-In order to make sure that everything is properly installed click on the button in the toolbar to open Bonita Portal:
+In order to make sure that everything is properly installed click on the **Portal** button in the toolbar to open Bonita Portal:
 
 ![Bonita Portal icon](images/getting-started-tutorial/installation/portal-icon.png)
 
@@ -69,7 +69,7 @@ This should open the Bonita Portal home page in your web browser:
 
 
 
-Also click on the button in the toolbar to open Bonita UI Designer tool:
+Also click on the **UI Designer** button in the toolbar to open Bonita UI Designer tool:
 
 ![UI Designer icon](images/getting-started-tutorial/installation/ui-designer-icon.png)
 
