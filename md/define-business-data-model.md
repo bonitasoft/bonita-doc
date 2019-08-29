@@ -10,21 +10,21 @@ Data management will involve several steps:
 In this chapter we will focus on the creation of the Business Data Model (BDM) only. Declaration of business variables is part of the next chapter.
 
 In Bonita Studio, create a BDM:
-- Go in **Development > Business Data Model > Define...** menu
+1. Go in **Development > Business Data Model > Define...** menu
 
   ![Define business data model menu](images/getting-started-tutorial/define-business-data-model/define-business-data-model-menu.png)
   
-- Click on **Add** button
-- Type the object name _Claim_ (objects name must always start with an uppercase letter)
-- In the **Attributes** tab, click on **Add** button
-- You need to add 3 attributes (attributes name must always start with a lowercase letter):
-  - _description_ of type _STRING_ and _mandatory_ (you need to check the checkbox in the **mandatory** column)
-  - _answer_ of type _STRING_, _optional_
-  - _satisfactionLevel_ of type _INTEGER_, 
+1. Click on **Add** button
+1. Type the object name _Claim_ (objects name must always start with an uppercase letter)
+1. In the **Attributes** tab, click on **Add** button
+1. You need to add 3 attributes (attributes name must always start with a lowercase letter):
+  1. _description_ of type _STRING_ and _mandatory_ (you need to check the checkbox in the **mandatory** column)
+  1. _answer_ of type _STRING_, _optional_
+  1. _satisfactionLevel_ of type _INTEGER_, 
   
   ![Create business object with attributes](images/getting-started-tutorial/define-business-data-model/create-business-object-with-attributes.gif)
   
-- Click on **Finish** button
+1. Click on **Finish** button
 
 ::: info
 **mandatory** option on a object attribute means that the object cannot be create with an empty value for this attribute. If **mandatory** option is not checked, it means that object can exist with an empty value for the attribute "not mandatory" (i.e. optional). In our example, the _answer_ attribute is optional because at process start it will be empty. Later in the process execution, an employee will provide an answer and doing so will be mandatory (but will not be enforced by BDM definition).
