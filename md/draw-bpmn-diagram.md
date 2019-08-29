@@ -2,7 +2,7 @@
 
 Now that you have your development environment (i.e. Bonita Studio) up and running you are ready to start building your first Bonita living application.
 
-In this tutorial we will build a claims management solution. Making sure that claims are handle and answer in a timely manner by the appropriate employee(s) can be key to customers satisfaction. It is also a perfect fit for application based on processes and requiring automation. We will of course drastically simplify such application in this getting started tutorial to make sure you can focus on learning about Bonita and not about claims management!
+In this tutorial we will build a claims management solution. Making sure that claims are handled and answered in a timely manner by the appropriate employee(s) can be key to customers satisfaction. It is also a perfect fit for an application based on processes and requiring automation. We will of course drastically simplify such an application in this getting started tutorial to make sure you can focus on learning about Bonita and not about claims management!
 
 Create a new diagram:
 1. In Bonita Studio menu click on **File > New diagram**.
@@ -12,7 +12,7 @@ The new diagram includes:
 - One pool: one process definition
 - One lane inside the pool: lane default name is _Employee lane_, more about lanes in a next chapter
 - A start event: the starting point of process execution
-- A user task: a task (or step) that need to be performed by a user
+- A user task: a task (or step) that needs to be performed by a user
 
 and it should look like that:
 
