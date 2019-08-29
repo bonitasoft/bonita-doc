@@ -15,6 +15,10 @@ In our process we will deal with a single object: a claim. The claim object will
 Now that we have a business variable declare we can use it in our transition condition definition:
 1. Select the transition connecting _Satisfaction level_ gateway with _Deal with unsatisfied customer_
 1. Go in **General > General** tab
+1. In **condition** click on the pencil icon
+1. Select **Script** in **Expression type** on the left hand side of the pop-up window
+1. Type the script: `claim.satisfactionLevel < 3`
+1. Click on **OK** button
 
 ::: info
 Our business variable is never initialized so it will remains empty. They are several different options available to initialize a business variable:
