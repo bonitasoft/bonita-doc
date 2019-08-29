@@ -20,6 +20,8 @@ Now that we have a business variable declare we can use it in our transition con
 1. Type the script: `claim.satisfactionLevel < 3`
 1. Click on **OK** button
 
+   ![Define transition condition using business variable value](images/getting-started-tutorial/declare-business-variable/define-condition.gif)
+
 ::: info
 Our business variable is never initialized so it will remains empty. They are several different options available to initialize a business variable:
 - business variable default value
