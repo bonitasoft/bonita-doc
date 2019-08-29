@@ -14,11 +14,11 @@ Bonita applies to a wide range of use cases: applications can go from loan reque
 
 Thanks to Bonita low-code approach you won't need to write a lot of code to create an application. Creation of Bonita applications relies heavily on models: process model (using BPMN standard), data model for business data management, WYSIWYG tool for user interfaces design...
 
-Creating an application in Bonita Studio (the Bonita development environment) will requires to perform the following steps:
+Creating an application in Bonita Studio (the Bonita development environment) requires to perform the following steps:
 - graphical design of one or several processes using BPMN notation
 - definition of data model using the Bonita Business Data Management feature (you can of course use your own database if needed)
 - creation of web user interfaces using Bonita UI Designer (or your preferred web framework)
-- definition of users involved in the application
+- definition of users involved in the application (? involved in the process sounds better : we build an application to optimize and automate processes?)
 - configuration of connectors to integrate Bonita with the information system (e.g. to send an email, call a web service...)
 
 We will cover all these steps in this getting started tutorial so you can get familiar with all the concepts behind a Bonita application.
@@ -29,7 +29,7 @@ We will cover all these steps in this getting started tutorial so you can get fa
 
 ![Bonita Studio architecture](images/getting-started-tutorial/what-is-bonita/architecture-bonita-studio.png)
 
-Bonita Studio provides everything you need to develop and build a Bonita application. Bonita Studio is a desktop application build on top of Eclipse.
+Bonita Studio provides everything you need to develop and build a Bonita application. Bonita Studio is a desktop application built on top of Eclipse.
 
 It provides :
 - capabilities to model BPMN (Business Process Modeling Notation) processes
@@ -46,9 +46,9 @@ Bonita Studio is not intended for any use other than development. As a consequen
 
 Bonita stack refers to all the components you need to deploy in order to make applications available to end users in production. It includes the Bonita runtime and the two database schemas (one for Bonita Engine and one for business data).
 
-A Bonita runtime include a single Bonita server in Community Edition. In Enterprise Edition, a Bonita runtime can includes several Bonita servers to create a cluster for high performance and availability.
+A Bonita runtime includes a single Bonita server in Community Edition. In Enterprise Edition, a Bonita runtime can include several Bonita servers to create a cluster for high performance and availability.
 
-A Bonita server is composed of two parts: the Bonita Engine that is in charge for example of processes execution and the web portal that provide the end user and administration web interface.
+A Bonita server is composed of two components : the Bonita Engine that is in charge for example of processes execution and the web portal which provides the end user and administration web interface.
 
 The Bonita server is a standalone Java application running in a Java application server installed on a host (a machine, a virtual machine, a cloud instance, a container like Docker…).
 
