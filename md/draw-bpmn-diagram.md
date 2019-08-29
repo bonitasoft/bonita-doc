@@ -4,6 +4,8 @@ Now that you have your development environment (i.e. Bonita Studio) up and runni
 
 In this tutorial we will build a claims management solution. Making sure that claims are handled and answered in a timely manner by the appropriate employee(s) can be key to customers satisfaction. It is also a perfect fit for an application based on processes and requiring automation. We will of course drastically simplify such an application in this getting started tutorial to make sure you can focus on learning about Bonita and not about claims management!
 
+Add story
+
 Create a new diagram:
 1. In Bonita Studio menu click on **File > New diagram**.
 
