@@ -59,21 +59,13 @@ This might take a while and can explain why some features are not immediately av
 
 ## Installation validation
 
-In order to make sure that everything is properly installed click on the **Portal** button in the toolbar to open Bonita Portal:
-
-![Bonita Portal icon](images/getting-started-tutorial/installation/portal-icon.png)
-
-This should open the Bonita Portal home page in your web browser:
+In order to make sure that everything is properly installed click on the **Portal** button ![Bonita Portal icon](images/getting-started-tutorial/installation/portal-icon.png) in the toolbar. This should open the Bonita Portal home page in your web browser:
 
 ![Bonita Portal display in a web browser](images/getting-started-tutorial/installation/web-browser-display-portal.png)
 
 
 
-Also click on the **UI Designer** button in the toolbar to open Bonita UI Designer tool:
-
-![UI Designer icon](images/getting-started-tutorial/installation/ui-designer-icon.png)
-
-This will display a pop-up window that you can ignore:
+Also click on the **UI Designer** button ![UI Designer icon](images/getting-started-tutorial/installation/ui-designer-icon.png) in the toolbar. This will display a pop-up window that you can ignore:
 
 ![UI Designer first launch pop-up window](images/getting-started-tutorial/installation/ui-designer-launch-pop-up.png)
 

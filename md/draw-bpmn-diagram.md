@@ -56,7 +56,7 @@ In order to define different path in our process execution we will include an ex
 1. Click on the toolbox icon
 1. Change the gateway type from parallel (the one with the **+** sign) to exclusive (the one with the **x** sign)
 
-   ![Switch from parallel to inclusive gateway](images/getting-started-tutorial/switch-from-parallel-to-exclusive-gateway.png)
+   ![Switch from parallel to inclusive gateway](images/getting-started-tutorial/draw-bpmn-diagram/switch-from-parallel-to-exclusive-gateway.png)
 
 1. Rename the gateway to: "Satisfaction level"
 
@@ -65,7 +65,7 @@ From the gateway we will have two possibles paths. The first one, if customer sa
 1. Drag and drop the event icon (the disc icon)
 1. Select the end event type (red disc icon)
 
-   ![Event type selection: end event](images/getting-started-tutorial/event-type-selection.png)
+   ![Event type selection: end event](images/getting-started-tutorial/draw-bpmn-diagram/event-type-selection.png)
 
 1. Rename the event to: _End client satisfied_
 
@@ -83,7 +83,7 @@ And from this _Deal with unsatisfied customer_ we need to go to second end event
 1. Rename the event to: _End client unsatisfied_
 
 Your process diagram should be like this:
-![Process diagram](images/getting-started-tutorial/process-diagram-before-transitions-configuration.png)
+![Process diagram](images/getting-started-tutorial/draw-bpmn-diagram/process-diagram-before-transitions-configuration.png)
 
 ::: info
 At this stage you can see a validation error on the gateway. The error is displayed because we didn't define conditions for process execution when it will reach the gateway. So trying to execute such process will failed because process execution engine cannot determine the path to follow.
@@ -95,7 +95,7 @@ We need to configure the conditions required to define the path to follow when e
 1. Go in **General > General** tab
 1. Check the checkbox **Default flow**
    
-   ![Transitions names and conditions configuration](images/getting-started-tutorial/transitions-name-and-condition.gif)
+   ![Transitions names and conditions configuration](images/getting-started-tutorial/draw-bpmn-diagram/transitions-name-and-condition.gif)
 
 ::: info
 **Default flow** means that the transition will be activated only if all other conditions configured on gateway outgoing transitions are _false_ (boolean value).
@@ -114,15 +114,15 @@ In order to make the error goes away you need to refresh the diagram validation:
 Congratulations you have now your first valid BPMN process diagram!
 
 You can now easily build, package, deploy and start the execution of this process definition in the Bonita Studio embedded test environment:
-1. Click on the **Run** button ![Run button](images/getting-started-tutorial/run.png) in toolbar at the top of the Studio window
+1. Click on the **Run** button ![Run button](images/getting-started-tutorial/draw-bpmn-diagram/run.png) in toolbar at the top of the Studio window
 1. On the instantiation form click on the **Start** button, the process instance is started and you are redirected to the Bonita Portal tasks list
 1. Move your mouse over the _Review and answer claim_ form on the right hand side of the Portal and click on the **Take** button to "claim" the task
 1. Click on the **Execute** button to actually perform the task and move the process execution forward
-1. Click on the **Refresh** button ![Refresh button](images/getting-started-tutorial/refresh.png) at the top of the task list to update it
+1. Click on the **Refresh** button ![Refresh button](images/getting-started-tutorial/draw-bpmn-diagram/refresh.png) at the top of the task list to update it
 1. Click on the **Overview** tab on the right hand side to see the process execution overview form with information about process execution
 1. Click on the **Form** tab to get back to the _Read the answer and rate it_ user task form
 1. You can click on **Take** and execute for both _Read the answer and rate it_ and _Deal with unsatisfied customer_ to finish the process execution
-1. In Portal top menu, click on **Cases** ![Cases button](images/getting-started-tutorial/refresh.png)
+1. In Portal top menu, click on **Cases** ![Cases button](images/getting-started-tutorial/draw-bpmn-diagram/cases.png)
 1. Click on **Archived cases** tab
 1. Click on the **View case overview** action (i.e. the "eye" icon) to display the overview form with information about process execution
 
