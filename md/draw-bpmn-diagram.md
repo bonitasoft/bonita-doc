@@ -4,6 +4,10 @@ Now that you have your development environment (i.e. Bonita Studio) up and runni
 
 In this tutorial we will build a claims management solution. Making sure that claims are handle and answer in a timely manner by the appropriate employee(s) can be key to customers satisfaction. It is also a perfect fit for application based on processes and requiring automation. We will of course drastically simplify such application in this getting started tutorial to make sure you can focus on learning about Bonita and not about claims management!
 
+//TODO: explain the use case, story, user involve. clarify that in a first iteration one user will do all the task
+
+## Create the process diagram
+
 Create a new diagram:
 1. In Bonita Studio menu click on **File > New diagram**.
 
@@ -107,11 +111,17 @@ We need to configure the condition on the transition from the gateway to the "De
 1. Go in **General > General** tab
 1. In **Condition** type the value _true_
 
+::: warning
+//TODO explain that because of true we will always take this path.
+:::
+
 ::: info
 In order to make the error goes away you need to refresh the diagram validation: at the bottom of the screen select **Validation status** tab and click on the **Refresh** button. You should have only five warnings left.
 :::
 
 Congratulations you have now your first valid BPMN process diagram!
+
+## Run your process
 
 You can now easily build, package, deploy and start the execution of this process definition in the Bonita Studio embedded test environment:
 1. Click on the **Run** button ![Run button](images/getting-started-tutorial/draw-bpmn-diagram/run.png) in toolbar at the top of the Studio window
