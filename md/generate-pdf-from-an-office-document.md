@@ -11,6 +11,8 @@ The generated document can then be sent by email or stored in an external inform
 For proper conversion, you must specify the character encoding that is used in the source document. On most Windows configurations, encoding **"windows-1252"** is used.  
 UTF-8 is assumed if you do not specify the encoding (that is, if the field is left blank in the connector configuration wizard).   
 
+**Warning:** This connector requires memory for its dependencies, if you experience issues you can increase the memory in your Bonita Studio: Preferences-> Server settings -> 1024 (0r 2048)
+
 **Warning:** As an example when using special characters like '€' with an invalid encoding will generate a PDF without those characters.
 
 Known limitations <!--{.h2}-->
