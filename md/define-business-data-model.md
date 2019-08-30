@@ -4,7 +4,7 @@ Bonita provides a solution to define, manipulate and store your business data. T
 
 Data management will involve several steps:
 - Business Data Model (BDM). This is the definition of the types of data you will deal with in your processes and applications.
-- Declaration of business variable in the process definition. Variables are used to make the link between your process definition and the data it needs to create, read, update, and delete. Data can be create as part of process execution (on start or on a task) but processes can also read and update data created by other processes and of course can choose to delete data.
+- Declaration of business variable in the process definition. Variables are used to make the link between your process definition and the data it needs to create, read, update, and delete. Data can be created as part of a process execution (on start or on a task) but processes can also read and update data created by other processes and of course can choose to delete data.
 - Definition of processes and tasks contracts. Contracts define the information process excepts from the user submitting the form.
 
 In this chapter we will focus on the creation of the Business Data Model (BDM) only. Declaration of business variables is part of the next chapter.
@@ -43,7 +43,7 @@ When you click on "Finish" button three different operations are performed:
 :::
 
 ::: info
-Studio relies on h2 to provide database for testing (you can use other types of databases such as Oracle, PostgreSQL, MySQL and SQL Server for production). Studio provides two database schemas: one for Bonita Engine and one dedicated to BDM. You can view the tables create in the h2 BDM database by clicking in the Studio menu on **Development > Business Data Model > Browse data (h2 console)...**. In the h2 console (a web interface) you can see that a table named "CLAIM" was created. You can run an SQL query such as `SELECT * FROM CLAIM` that should returns an empty result as we don't have any data yet.
+Studio relies on h2 to provide database for testing (you can use other types of databases such as Oracle, PostgreSQL, MySQL and SQL Server for production). Studio provides two database schemas: one for the Bonita Engine and one dedicated to BDM. You can view the tables create in the h2 BDM database by clicking in the Studio menu on **Development > Business Data Model > Browse data (h2 console)...**. In the h2 console (a web interface) you can see that a table named "CLAIM" was created. You can run an SQL query such as `SELECT * FROM CLAIM` that should returns an empty result as we don't have any data yet.
 :::
 
 Now you have a fully functional business data management model. Your are ready to move to the next chapter and start populating the database with data collected by the process. 

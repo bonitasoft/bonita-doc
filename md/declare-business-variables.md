@@ -1,18 +1,18 @@
 # Declare business variables 
 
-In order for your process to be able to perform operation on business data such as the classical create, read, update and delete operations you need to include in your process definition business variables.
+In order for your process to be able to perform operation on business data such as the classical create, read, update and delete operations you need to include definition business variables in your process.
 
 In our process we will deal with a single object: a claim. The claim object will store information about the claim itself (i.e. it's description), the provided answer and a satisfaction level. To declare a business variable:
 1. Select the process pool, it's the rectangle shape that includes start events, tasks...
 1. At the bottom of the Studio screen go in **Data > Pool variables**
 1. Click on **Add...** button next to **Business variables**
-1. Type the name of business variable: _claim_
+1. Type the name of business variable: _claim_(with lower cap)
 1. Select the **Business Object**: _Claim_
 1. Click on **Finish** button
 
    ![Declare business variable](images/getting-started-tutorial/declare-business-variable/declare-business-variable.gif)
 
-Now that we have a business variable declare we can use it in our transition condition definition:
+Now that we have a business variable declared we can use it in our transition condition definition:
 1. Select the transition connecting _Satisfaction level_ gateway with _Deal with unsatisfied customer_
 1. Go in **General > General** tab
 1. In **condition** click on the pencil icon
