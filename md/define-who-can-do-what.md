@@ -2,7 +2,7 @@
 
 So far when you execute the process you were using a single user (username: _walter.bates_, password: _bpm_) that can perform all the user tasks. In a scenario closer to a real life use case, customers (who can submit claims), employees (who answer claims) and manager of the user who provide the answer (that need to deal with unsatisfied customers) are all different groups of users.
 
-First step in the configuration of who can do what is to create lanes with in our pool. A lane is used to group together user tasks that should be done by a same set of users. We already have one default lane for the employees, let's add one for the customer and one for the manager:
+First step in the configuration of "who can do what" is to create lanes within our pool. A lane is used to group together user tasks that should be done by a same set of users. We already have one default lane for the employees, let's add one for the customer and one for the manager:
 1. In the Studio, in the palette on the left hand side of the diagram select the **lane** icon
 1. Click inside the diagram to add the lane. Do this twice to have a total of three lane
 1. Select the employee lane and click on the down arrow icon to move it as the central lane

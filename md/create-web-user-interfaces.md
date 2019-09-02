@@ -1,6 +1,6 @@
 # Create web user interfaces (forms)
 
-User usually drive process execution using web user interfaces. Bonita provide a solution, the UI Designer, to easily create such interfaces.
+User usually drive process execution using web user interfaces. Bonita provides a solution, the UI Designer, to easily create such interfaces.
 
 The standard workflow would be to:
 - create the Business Data Model
@@ -10,7 +10,7 @@ The standard workflow would be to:
 
 As we already did the first three steps, it is now time to create the forms.
 
-Let start with the process instantiation form:
+Let's start with the process instantiation form:
 - select the process pool
 - go in *Execution > Instantiation form*
 - click on the pencil icon next to "Target form". It will create a new form based on the contract (if form does not exist) and open the UI Designer in your web browser

@@ -2,9 +2,9 @@
 
 So far our process defined a sequences of events and tasks and declares a business variable that it will instantiate and update when being executed. We want to instantiate our `claim` business variable using the description provide by the customer when he will start the process. We will also need to update the claim with the answer provided by the employee and with the satisfaction rating provided by the customer. So we need a way to collect information from the user and store them in the business variable. This is achieve using of course user interfaces (web forms by default in Bonita) but it also used another concept: contract.
 
-A contract define the data expected from the user to start a process (instantiation contract) or execute a user task (task contract). By default Bonita offer a solution to easily build forms (see next chapter) to allow the user to view and provide data. When submitted, forms will ask the Bonita Engine to start a process or execute a task using provided data that must match what is expected by the contract.
+A contract defines the data expected from the user to start a process (instantiation contract) or execute a user task (task contract). By default Bonita offers a solution to easily build forms (see next chapter) to allow the user to view and provide data. When submitted, forms will ask the Bonita Engine to start a process or execute a task using provided data that must match what is expected by the contract.
 
-As our contract information aim to be used to set business variable value we can use a wizard that will generate the contract based on the business variable. This wizard also take care of setting the business variable default value and generate task operations.
+As our contract information aims to be used to set business variable value we can use a wizard that will generate the contract based on the business variable. This wizard also takes care of setting the business variable default value and generates task operations.
 
 Create the contract for process instantiation:
 1. Select the process pool
