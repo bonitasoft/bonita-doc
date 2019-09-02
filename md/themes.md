@@ -28,7 +28,28 @@ Any CSS, images or JavaScript files can be shared using a theme resource.
 
 Export the examples to see how to structure a theme.
 
-The default themes are based on the [bootswatch example](https://bootswatch.com/), so you can easily choose another existing theme and package it to define a new theme. 
+### Using bootswatch for a custom theme
+
+The default themes are based on the [bootswatch example](https://bootswatch.com/), so you can easily choose another existing theme and package it to define a new theme.
+
+A second way to create a custom theme is starting from an new custom theme in Studio and using a bootswatch default sass theme. In order to do this using the 3.3.4 version of bootswatch:
+* In the custom theme file `package.json`, add `bootswatch` in the `devDependencies` section
+```json
+    "bootswatch": "3.3.4"
+```
+* In this same file `package.json`, include the bootswatch path towards the default theme in the scripts/build section   
+```json
+    --include-path ./node_modules/bootswatch/`name-of-default-theme`/
+```
+* In the file `src/scss/main.scss`, import the variables of the theme before importing bootstrap by doing: 
+```scss
+    @import "variables";
+```
+* In the file `src/scss/main.scss`, import bootswatch after importing bootstrap by doing: 
+```scss
+    @import "bootswatch";
+```
+* You can optionally remove the custom `src/scss/_bonita_buttons.scss` and `src/scss/_bonita_pager.scss` files, as well as everything except the font paths from the `src/scss/_bonita_variables.scss`. If you remove the custom files, also remove the imports of the files in the `src/scss/main.scss` file.
 
 ## Constraints
 
@@ -41,7 +62,7 @@ A theme can only be associated with an application to define the style. It canno
 Since Bonita 7.9.1 [bonita layout](bonita-layout.md) uses font-awesome icons, you may need to add font-awesome to your 
 custom theme if you are migrating from an older version.  
 
-### migrating from a version prior to 7.9.0
+### Migrating from a version prior to 7.9.0
 
 In order to to add font-awesome to your theme created with a Bonita version prior to 7.9.0,  
 you need to:
@@ -53,7 +74,7 @@ you need to:
     @import url('./css/font-awesome.min.css');
 ```
 
-### migrating from a version 7.9.0
+### Migrating from a version 7.9.0
 
 In order to to add font-awesome to your 7.9.0 theme generated using the 'new theme' functionality of the studio,  
 you need to:
@@ -76,4 +97,4 @@ you need to:
      $fa-font-path: "./fonts/"; 
 ```      
 * Finally, build and deploy your migrated theme to see if the 7.9.1 [bonita layout](bonita-layout.md) works well with 
-your custoum theme.   
+your custom theme.   
