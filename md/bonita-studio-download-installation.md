@@ -77,4 +77,4 @@ And then the UI Designer should be opened in your web browser:
 ## Ready to move on
 
 At this stage the Studio is successfully installed and all the tools and test environment are up and running.
-You are ready to move to the next chapter to start creating your first process.
+You are ready to move to the next chapter to [start creating your first process](draw-bpmn-diagram.md).
