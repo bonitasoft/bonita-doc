@@ -7,9 +7,9 @@ In this tutorial we will build a claims management solution. Making sure that cl
 Here is an overview of process execution:
 - The process will be started by a customer who submit a claim, a simple text description in our example.
 - Next an employee will review the claim description and provide an answer.
-- The customer will be able to review the answer and provided a satisfaction rating.
+- The customer will be able to review the answer and provide a satisfaction rating.
 - If the rating is equal or above 3 the process will finish after customer read the answer.
-- If the rating is lower than 3 an extra task will be assigned to the manager of the employee in order to deal with this not very happy customer. Once this task if done process fill finish.
+- If the rating is lower than 3 an extra task will be assigned to the manager of the employee in order to deal with this customer who is not really satisfied. Once this task if done process will finish.
 
 ::: warning
 We will have an iterative approach in the process development. Meaning that in first iteration we will have a few limitations:
@@ -28,7 +28,7 @@ Create a new diagram:
 
 The new diagram includes:
 - One pool: one process definition
-- One lane inside the pool: lane default name is _Employee lane_, more about lanes in a next chapter
+- One lane inside the pool: lane default name is _Employee lane_ (more about lanes in a next chapter)
 - A start event: the starting point of process execution
 - A user task: a task (or step) that needs to be performed by a user
 
@@ -156,7 +156,7 @@ You can now easily build, package, deploy and start the execution of this proces
  :::
  
 ::: info
-You can view process instances information in the **Cases** section of the Bonita Portal. You can switch between **Open cases** and **Archived cases** to either view the ongoing processes instances or the finished ones. Note that if you want to start a second case (i.e. a process instance), you should go into Bonita Portal **Processes** menu and click on the **Start a new case** button (i.e. the "play" icon in **Action** column) next to the process definition name. If you click on the **Run** button from the Studio it will clean all information related to process with same name and version including previous cases. Note that if you did any modifications to your project your probably want to click on the **Run** button to make sure that the latest version is deployed.
+You can view process instances information in the [**Cases**](cases.md) section of the Bonita Portal. You can switch between **Open cases** and **Archived cases** to either view the ongoing processes instances or the finished ones. Note that if you want to start a second case (i.e. a process instance), you should go into Bonita Portal **Processes** menu and click on the **Start a new case** button (i.e. the "play" icon in **Action** column) next to the process definition name. If you click on the **Run** button from the Studio it will clean all information related to process with same name and version including previous cases. Note that if you did any modifications to your project your probably want to click on the **Run** button to make sure that the latest version is deployed.
 :::
 
-You successfully build and execute your first process. So far it is not very useful as it does not deal with any data and web forms only includes a single submit button. In the next chapters we will define a business data model and bind it to our process to save information related to the claim submitted by the user.
+You successfully build and execute your first process. So far it is not very useful as it does not deal with any data and web forms only include a single submit button. In the next chapters we will [define a business data model](define-business-data-model.md) and bind it to our process to save information related to the claim submitted by the user.
