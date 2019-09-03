@@ -21,7 +21,7 @@ Now we need to define "actors", one for each lane and map them to the lane they 
 - select the "Customer lane" (click on the lane name), go in *General > Actors* and in the drop down list select "Customer actor"
 - do the same for the "Manager lane" with the "Manager actor"
 
-Actor are just identifier, in order to define the actual user we need to configure the actors and map them with groups, roles , users... of the organization. We will use Bonita Acme test organization for this example:
+Actor are just identifiers, in order to define the actual user we need to configure the actors and map them with groups, roles , users... of the organization. We will use Bonita Acme test organization for this example:
 - in the Studio tool bar, click on the wrench icon
 - select the "Employee actor"
 - click on the "Groups..." button
@@ -77,4 +77,4 @@ tasks.first().executedBy`
 
 Now if you run the process again, only walter.bates should have access to "Read the answer and rate it" and only michael.morrison should have access to "Deal with unsatisfied customer" (as he is the manager of both user who can do the task "Review and answer claim").
 
-Now we have a fully customize process that process data and dispatch tasks to appropriate users. The next step will be to make it interact with the outside world.
+Now we have a fully customize process that processes data and dispatches tasks to appropriate users. The next step will be to make this process interact with the outside world.
