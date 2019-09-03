@@ -1,8 +1,8 @@
 # Design an application page
 
-So far with a process, data, forms and connectors we build a fully functional software solution to our need of managing claims. But what if we want to have a dashboard with all ongoing claims? Such dashboard is not a process, you should not have to "start" it in order to view it. Bonita applications is the answer to such need. And the first of build an application is to create pages.
+So far with a process, data, forms and connectors we built a fully functional software solution to manage our need around claims. But what if we want to have a dashboard with all ongoing claims? Such dashboard is not a process, you should not have to "start" it in order to view it. Bonita application is the answer to such need. And the first step to build an application is to create pages.
 
-Pages in Bonita are a lot like forms: they are created with the UI Designer with the same sets of widgets. The main difference is that they are not bind with a process definition (like instantiation forms and user tasks forms). An application page can display business data values, charts and even let the user start a process or execute a task by displaying the appropriate form.
+Pages in Bonita are a lot like forms: they are created with the UI Designer with the same sets of widgets. The main difference is that they are not bound with a process definition (like instantiation forms and user tasks forms). An application page can display business data values, charts and even let the user start a process or execute a task by displaying the appropriate form.
 
 For this example we will build a basic page that display in a table all the claims submitted. To create a new page:
 - click on the UI Designer icon in the Studio tool bar
@@ -26,6 +26,6 @@ Add and configure the table widget:
 	- for the content, first click on the "fx" button and then enter "claims" for the value
 	- set "Column keys" to: description, answer, satisfactionLevel
 
-You can now click on the UI Designer "Save" button and then on the preview button to get a preview of your page. In order for preview to access the data a user need to be logged in to the Bonita Portal. You can click on the "Portal" button in the Studio tool bar to make sure a user is logged in.
+You can now click on the UI Designer "Save" button and then on the preview button to get a preview of your page. In order for preview to access the data a user needs to be logged in to the Bonita Portal. You can click on the "Portal" button in the Studio tool bar to make sure a user is logged in.
 
 Now you have your first application page, it is time to move to the next chapter and create the application that will include the page.
