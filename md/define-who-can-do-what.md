@@ -103,4 +103,4 @@ Currently the task _Read the answer and rate it_ is available to all users in th
 
 If you run the process again, only _walter.bates_ should have access to _Read the answer and rate it_ and only _michael.morrison_ should have access to _Deal with unsatisfied customer_ (as he is the manager of both user who can do the task _Review and answer claim_).
 
-Now we have a fully customize process that process data and dispatch tasks to appropriate users. The next step will be to make it interact with the outside world.
+Now we have a fully customize process that processes data and dispatches tasks to appropriate users. The next step will be to make this process interact with the outside world.

@@ -2,7 +2,7 @@
 
 Creating the application is the final step of this getting started tutorial.
 
-But before we actually create the application we need to deploy in Bonita Portal our application page:
+But before we actually create the application we need to deploy our application page in Bonita Portal:
 1. In the Studio project explorer go to **Pages/Forms/Layouts**
 1. Select _claimsList_ page
 1. Do a right click and select **Deploy**
@@ -38,5 +38,5 @@ You now need to edit the application in order to add the previously created appl
 
 You can now click on the application URL and you should see the application page being display inside the default application layout.
 
-Congratulations! You successfully create your first process and application with Bonita. If you want to learn more about Bonita components and concepts we recommend to follow the [Bonita Camp tutorial](https://www.youtube.com/playlist?list=PLvvoQatxaHOMHRiP7hFayNXTJNdxIEiYp). Off course [official documentation](https://documentation.bonitasoft.com) is also a great place to learn more about Bonita. And finally you can get help and [ask your questions](https://community.bonitasoft.com/questions-and-answers/). 
+Congratulations! You successfully created your first process and application with Bonita. If you want to learn more about Bonita components and concepts we recommend the [Bonita Camp tutorial](https://www.youtube.com/playlist?list=PLvvoQatxaHOMHRiP7hFayNXTJNdxIEiYp). Off course [official documentation](https://documentation.bonitasoft.com) is also a great place to learn more about Bonita. And finally you can get help and [ask your questions](https://community.bonitasoft.com/questions-and-answers/). 
 
