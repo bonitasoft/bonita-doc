@@ -23,6 +23,10 @@ Now that a business variable is declared, we can use it in our transition condit
    ![Define transition condition using business variable value](images/getting-started-tutorial/declare-business-variable/define-condition.gif)
 
 ::: info
+The script configured for the transition condition will return `true` if satisfaction level is lower than 3 and so the transition to _Deal with unsatisfied customer_ will be activated.
+:::
+
+::: info
 Our business variable is never initialized so it will remains empty. They are several different options available to initialize a business variable:
 - business variable default value
 - operations on a task
