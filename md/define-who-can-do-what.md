@@ -74,7 +74,7 @@ Currently the task _Read the answer and rate it_ is available to all users in th
 1. Set the name: _Manager of the user who provided answer_
 1. Click on **Next** button
 1. Click on the pencil icon
-1. Select **Script** and paste the following script (it will search for the id of the user who performed the task _Review and answer claim_):
+1. Select **Script** and paste the following Groovy script (it will search for the id of the user who performed the task _Review and answer claim_):
 
    ``` groovy
    import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstance

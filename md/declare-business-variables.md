@@ -17,7 +17,7 @@ Now that a business variable is declared, we can use it in our transition condit
 1. Go in **General > General** tab
 1. In **condition** click on the pencil icon
 1. Select **Script** in **Expression type** on the left hand side of the pop-up window
-1. Type the script: `claim.satisfactionLevel < 3`
+1. Type the Groovy script: `claim.satisfactionLevel < 3`
 1. Click on **OK** button
 
    ![Define transition condition using business variable value](images/getting-started-tutorial/declare-business-variable/define-condition.gif)
