@@ -11,6 +11,10 @@ Here is an overview of process execution:
 - If the rating is equal or above 3 the process will finish after customer read the answer.
 - If the rating is lower than 3 an extra task will be assigned to the manager of the employee in order to deal with this customer who is not really satisfied. Once this task if done process will finish.
 
+::: info
+To design our process we will use the Business Process Model and Notation (BPMN) standard. You don't need to learn all about BPMN to follow this tutorial but, if you are curious, you can read the [Ultimate Guide to BPMN 2.0](https://www.bonitasoft.com/library/ultimate-guide-bpmn).
+:::
+
 ::: warning
 We will have an iterative approach in the process development. Meaning that in first iteration we will have a few limitations:
 - a single user will perform all the tasks
