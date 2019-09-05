@@ -21,7 +21,7 @@
 
   server.use((req, res, next) => {
     if(req.url.match(/.*\.md$/)) {
-      res.writeHead(200, {'Content-type': 'text/html'}); 
+      res.writeHead(200, {'Content-type': 'text/html; charset=utf-8'}); 
       let html = md.render(fs.readFileSync(__dirname + '/..' + req.url).toString());
       html += `<script>
         document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
