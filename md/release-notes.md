@@ -4,7 +4,7 @@
 
 <a id="improve-form-generation"/>
 
-### Low code application development: business data management from the studio to the UI Designer
+### Low code application development: business data management from the Studio to the UI Designer
 
 #### Easily create forms where business variables or documents are edited by the users (read/write)
 A form that allows a user to edit business variables or documents needs to display the current values before the user modifies them.  
