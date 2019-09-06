@@ -49,7 +49,7 @@ SSLCertificateFile="$ {catalina.base}/conf/ssl/test.bonitasoft.net.pem"
 SSLCertificateKeyFile="${catalina.base}
 /conf/ssl/test.bonitasoft.net.key"
 SSLVerifyClient="optional" 
-SSLProtocol="TLSv1"></Connector>
+SSLProtocol="TLSv1.2"></Connector>
 ```
 5. Install the Tomcat native library, which contains APR: `sudo apt-get install libtcnative-1`
 6. Edit `TOMCAT_HOME/webapps/bonita/WEB-INF/web.xml` and add the following security definition:
@@ -90,7 +90,7 @@ URIEncoding="UTF-8"
 keystoreFile="$ {catalina.base}/conf/ssl/keystore" 
 keystorePass="password!"
 SSLVerifyClient="optional" 
-SSLProtocol="TLSv1"></Connector>
+SSLProtocol="TLSv1.2"></Connector>
 ```
 4. Edit `TOMCAT_HOME/webapps/bonita/WEB-INF/web.xml` and add the following security definition:
 ```xml
