@@ -87,7 +87,7 @@ Remove the content of the `setup` directory as the setup tool in not used on the
 
 ##### Tomcat
 
-Configure the Engine Client by setting system properties in the `<bonita-installation-directory>/server/bin/setenv.(bat|sh)` file
+Configure the Engine Client by setting system properties in the `<bonita-installation-directory>/setup/tomcat-template/setenv.(bat|sh)` file
 We suggest to define a `ENGINE_OPTS` variable and add its content to the `CATALINA_OPTS` variable
     
 On Linux (setenv.sh)
@@ -145,12 +145,12 @@ Disable XA datasources managed by Bitronix by commenting or deleting the followi
   <Listener className="bitronix.tm.integration.tomcat55.BTMLifecycleListener" />
 ```
 
-Disable datasources managed by Tomcat by commenting or removing database resources declared in the in the `<bonita-installation-directory>/conf/Catalina/localhost/bonita.xml` file
+Disable datasources managed by Tomcat by commenting or removing database resources declared in the in the `<bonita-installation-directory>/setup/tomcat-template/bonita.xml` file
 
 
 ##### Wildfly
 
-Edit the `<bonita-installation-directory>/server/standalone/configuration/standalone.xml` file as described in the following
+Edit the `<bonita-installation-directory>/setup/wildfly-template/standalone.xml` file as described in the following
 
 Configure the Engine Client
 ```xml
