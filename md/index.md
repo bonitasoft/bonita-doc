@@ -28,7 +28,7 @@ Click on the **links** below to find useful information quickly, or [browse the 
 <div class="panel-body">
 <div class="menu-block-wrapper">
 
-* [Getting started tutorial](getting-started-tutorial.md)<!--{li:.first .leaf}-->
+* [Getting started tutorial](_getting-started-tutorial.md)<!--{li:.first .leaf}-->
 * [Process diagram overview](diagram-overview.md)<!--{li:.leaf}-->
 * [Key concepts](key-concepts.md)<!--{li:.leaf}-->
 * [UI Designer overview](ui-designer-overview.md)<!--{li:.leaf}-->
