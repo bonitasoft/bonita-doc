@@ -381,7 +381,7 @@ The file exported by the Portal servlet for applications is now called "Applicat
 * BST-171 Can't share a project on github using HTTPS and double authentication factor
 * BST-341 On MacOS, Studio installer might not detect the installed JRE
 
-### Fixes in Bonita 7.9.3 (2019-09-01)
+### Fixes in Bonita 7.9.3 (2019-09-05)
 #### Fixes in Studio component
 * BST-396 Import validation message doesn't show up
 * BST-398 Avoid errors when the expected active organization is not in the project anymore
