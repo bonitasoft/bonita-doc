@@ -30,7 +30,7 @@ Export the examples to see how to structure a theme.
 
 ### Using bootswatch for a custom theme
 
-The default themes are based on the [bootswatch examples](https://bootswatch.com/), so you can easily choose another existing theme and package it to define a new theme.
+Some of the default themes are based on the [bootswatch examples](https://bootswatch.com/), so you can easily choose another existing theme and package it to define a new theme.
 
 A second way to create a custom theme is starting from an new custom theme in Studio and using a bootswatch default Sass theme. In order to do this using the version 3.3.4 of bootswatch:
 * In the custom theme file `package.json`, add `bootswatch` in the `devDependencies` section
