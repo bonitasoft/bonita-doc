@@ -2,7 +2,7 @@
 
 In order for a process to interact with external systems such as: publishing a document on a CMS, calling a REST API or sending an email Bonita provides connectors. In our example we will configure an email connector to notify the manager that a task _Deal with unsatisfied customer_ requires his attention.
 
-info:::
+::: info
 Connectors is a piece of code that is executed when starting or finishing a process or a task. It will process input data (for example business variables values) and generate (optionally) some outputs. Connector code might only transform inputs but can as well perform interaction with external systems.
 :::
 

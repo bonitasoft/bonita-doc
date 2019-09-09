@@ -2,12 +2,12 @@
 
 So far with a process, data, forms and connectors we built a fully functional software solution to manage our need around claims. But what if we want to have a dashboard with all ongoing claims? Such dashboard is not a process, you should not have to "start" it in order to view it. Bonita application is the answer to such need. And the first step to build an application is to create pages.
 
-info:::
+::: info
 Pages in Bonita are a lot like forms: they are created with the UI Designer with the same sets of widgets. The main difference is that they are not bound with a process definition (like instantiation forms and user tasks forms). An application page can display business data values, charts and even let the user start a process or execute a task by displaying the appropriate form.
 :::
 
 For this example we will build a basic page that display in a table all the claims submitted. To create a new page:
-1. Click on the **UI Designer** icon ![UI Designer icon](images/getting-started-tutorial/design-application-page/ui-desginer.png) in the Studio tool bar
+1. Click on the **UI Designer** icon ![UI Designer icon](images/getting-started-tutorial/design-application-page/ui-designer.png) in the Studio tool bar
 1. You can ignore the information message pop up window
 1. Click on the **create** button
 1. Make sure that **Application page** is selected
