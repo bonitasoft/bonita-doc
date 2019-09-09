@@ -5,7 +5,6 @@ to the one delivered with the latest version of Bonita.
 This is due to the fact that improvements in any version of the Migration Tool can affect all supported versions of Bonita.
 This changelog must be read before [migrating to a newer version of Bonita](migrate-from-an-earlier-version-of-bonita-bpm.md).
 
-chore(RN): add migration release note for 2.44.0
 ## 2.44.1 - September 5th, 2019 (Bonita 7.9.3)
 This version of the migration tool migrates Bonita up to version 7.9.3.
 * Add a new script `check-migration-dryrun`
