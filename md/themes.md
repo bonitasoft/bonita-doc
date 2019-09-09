@@ -30,9 +30,9 @@ Export the examples to see how to structure a theme.
 
 ### Using bootswatch for a custom theme
 
-The default themes are based on the [bootswatch example](https://bootswatch.com/), so you can easily choose another existing theme and package it to define a new theme.
+The default themes are based on the [bootswatch examples](https://bootswatch.com/), so you can easily choose another existing theme and package it to define a new theme.
 
-A second way to create a custom theme is starting from an new custom theme in Studio and using a bootswatch default sass theme. In order to do this using the 3.3.4 version of bootswatch:
+A second way to create a custom theme is starting from an new custom theme in Studio and using a bootswatch default Sass theme. In order to do this using the version 3.3.4 of bootswatch:
 * In the custom theme file `package.json`, add `bootswatch` in the `devDependencies` section
 ```json
     "bootswatch": "3.3.4"
@@ -41,15 +41,15 @@ A second way to create a custom theme is starting from an new custom theme in St
 ```json
     --include-path ./node_modules/bootswatch/`name-of-default-theme`/
 ```
-* In the file `src/scss/main.scss`, import the variables of the theme before importing bootstrap by doing: 
+* In the file `src/scss/main.scss`, import the variables of the theme before importing bootstrap by adding: 
 ```scss
     @import "variables";
 ```
-* In the file `src/scss/main.scss`, import bootswatch after importing bootstrap by doing: 
+* In the file `src/scss/main.scss`, import bootswatch after importing bootstrap by adding: 
 ```scss
     @import "bootswatch";
 ```
-* You can optionally remove the custom `src/scss/_bonita_buttons.scss` and `src/scss/_bonita_pager.scss` files, as well as everything except the font paths from the `src/scss/_bonita_variables.scss`. If you remove the custom files, also remove the imports of the files in the `src/scss/main.scss` file.
+* You can optionally remove the custom `src/scss/_bonita_buttons.scss` and `src/scss/_bonita_pager.scss` files, as well as everything except the font paths from `src/scss/_bonita_variables.scss`. If you remove the custom files, also remove the imports of the files in the file `src/scss/main.scss`.
 
 ## Constraints
 
