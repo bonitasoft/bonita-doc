@@ -31,7 +31,6 @@ Run mode
 
 Server settings
 * Start engine server lazily: by default, the engine server is started when the Studio starts up. You may choose not to start the engine until it is actually needed, that is, when you first deploy a new process/organization/BDM/... or when you launch the UI Designer for the first time.
-* Custom page debug mode: When enabled, custom pages classloader are rebuilt at each call. Can be useful when updating custom page source directly from cache folder (_<tomcat_folder>/server/temp/bonita_portal_14360@hostname/tenants/<tenantId>/pages/<custompage_folder>_)
 * Port number: Studio embedded Tomcat HTTP listening port.
 * Tomcat Maximum memory allocation (in Mb): the maximum memory allocation (Xmx) for the heap of the JVM running the Tomcat server. Default: 512
 * Tomcat JVM additional arguments: additional java arguments to be passed to the Tomcat JVM at startup. e.g.: -XX:+HeapDumpOnOutOfMemory
