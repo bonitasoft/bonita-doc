@@ -12,7 +12,7 @@ your needs.
 
 ## Glossary
 
-**Work**: a unit piece of code that executes processes, tasks, BPM elements... and allows the processes to execute forwards.
+**Work**: a unit piece of code that executes parts of process instances, tasks, BPM elements... and allows the processes to execute forwards.
 It executes in a Java thread.
 
 **Connector work**: a unit piece of code that specifically executes Bonita connectors
