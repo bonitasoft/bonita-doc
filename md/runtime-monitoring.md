@@ -1,12 +1,12 @@
-# Bonita Platform Monitoring
+# Bonita Runtime Monitoring
 
-Discover how to monitor a runtime environment running Bonita Platform 
+Discover how to monitor a runtime environment running Bonita 
 
 ## Why monitoring ?
 
-Monitoring a Production environment is crucial to ensure the platform is correctly sized and tuned.
+Monitoring a Production environment is crucial to ensure the runtime is correctly sized and tuned.
 
-Bonita provides a series of technical and BPM-related metrics to monitor the health of Bonita platform.  
+Bonita provides a series of technical and BPM-related metrics to monitor the health of Bonita runtime environment.  
 Some metrics are enabled by default and cannot be disabled. Some others are optional and can be enabled according to
 your needs.
 
@@ -15,19 +15,19 @@ your needs.
 **Work**: a unit piece of code that executes parts of process instances, tasks, BPM elements... and allows the processes to execute forwards.
 It executes in a Java thread.
 
-**Connector work**: a unit piece of code that specifically executes Bonita connectors
+**Connector work**: a unit piece of code that specifically executes Bonita connectors.
 
-**Work queue**: a queue storing pending works before they are taken by threads for execution 
+**Work queue**: a queue storing pending works before they are taken by threads for execution.
 
 ## Bonita-related metrics
-Bonita-related metrics are **enabled by default** and cannot be disabled. Here they are:
+Bonita-related metrics are **enabled by default** and cannot be disabled. Here are the provided metrics:
 * The number of currently running works, under the logical key name **org.bonitasoft.engine.work.works.running**
 * The number of currently pending works, waiting in the work queue to be treated, under the logical key name **org.bonitasoft.engine.work.works.pending**
-* The total number of executed works (since the last start of Bonita platform), under the logical key name **org.bonitasoft.engine.work.works.executed**
+* The total number of executed works (since the last start of Bonita runtime), under the logical key name **org.bonitasoft.engine.work.works.executed**
 * The number of currently running connector works, under the logical key name **org.bonitasoft.engine.connector.connectors.running**
 * The number of currently pending connector works, waiting in the connector work queue to be treated,
 under the logical key name **org.bonitasoft.engine.connector.connectors.pending**
-* The total number of executed connector works (since the last start of Bonita platform), under the logical key name **org.bonitasoft.engine.connector.connectors.executed**
+* The total number of executed connector works (since the last start of Bonita runtime), under the logical key name **org.bonitasoft.engine.connector.connectors.executed**
 
 
 
@@ -37,7 +37,7 @@ Retrieve current configuration by running:
 ```bash
 ./setup/setup.sh pull
 ```
-and edit file `./setup/platform_conf/current/platform_engine/bonita-platform-community-custom.properties`.  
+and edit file `./setup/platform_conf/current/platform_engine/bonita-platform-community-custom.properties`  
 You will see, in the `# Monitoring` section, two series of properties with their default value:
 
     ## Monitoring
@@ -59,8 +59,9 @@ You will see, in the `# Monitoring` section, two series of properties with their
 
 The first series is the list of **publishers** that can be activated.  
 In Community edition, 2 publishers are provided:
-* JMX (enabled by default), that allows to use any JMX console to monitor your favorite metrics (except JVM metrics)
-* Logging (disabled by default), that prints to standard Bonita log file the Bonita-related metrics. Print interval can
+* JMX (enabled by default), that allows to use any JMX console to monitor your favorite metrics (except JVM metrics,
+as they are already published by the JVM itself by default)
+* Logging (disabled by default), that regularly prints to standard Bonita log file the Bonita-related metrics. Print interval can
 be changed (property `org.bonitasoft.engine.monitoring.logging.step`).
 
 The second series is the list of **metrics** (counters) that can be exposed.  
@@ -76,7 +77,12 @@ Each of these metrics provides many different counters to finely understand what
 To change any value, **uncomment the line by removing the # character**, and change the true / false value.  
 Server restart is required for the changes to take effect.
 
+
 ## Subscription-only monitoring publisher
+
+::: info
+**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
+:::
 
 Additionally, Bonita Subscription editions can publish to a REST endpoint in the
 [Prometheus format](https://prometheus.io/docs/instrumenting/exposition_formats/#text-format-example), that can
