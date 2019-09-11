@@ -28,7 +28,7 @@ Bonita-related metrics are **enabled by default** and cannot be disabled. Here a
 * The number of currently pending connector works, waiting in the connector work queue to be treated,
 under the logical key name **org.bonitasoft.engine.connector.connectors.pending**
 * The total number of executed connector works (since the last start of Bonita runtime), under the logical key name **org.bonitasoft.engine.connector.connectors.executed**
-
+* The total number of treated BPM messages (since the last start of Bonita runtime), under the logical key name **org.bonitasoft.engine.message.messages.executed**
 
 
 ## Activating specific monitoring metrics
