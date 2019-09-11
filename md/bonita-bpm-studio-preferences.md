@@ -30,10 +30,11 @@ Run mode
 * Validation: whether to validate the process before it runs. We recommend to keep this option enabled.  
 
 Server settings
-* Start engine server lazily: by default, the engine server is started when the Studio starts up. You may choose not to start the engine until it is actually needed, that is, when you first deploy a new process/organisation/BDM/... or when you launch the UI Designer for the first time.
+* Start engine server lazily: by default, the engine server is started when the Studio starts up. You may choose not to start the engine until it is actually needed, that is, when you first deploy a new process/organization/BDM/... or when you launch the UI Designer for the first time.
 * Port number: Studio embedded Tomcat HTTP listening port.
 * Tomcat Maximum memory allocation (in Mb): the maximum memory allocation (Xmx) for the heap of the JVM running the Tomcat server. Default: 512
-* Tomcat JVM additional arguments: additional java arguments to be passed to the Tomcat JVM at startup time. e.g.: -XX:+HeapDumpOnOutOfMemory
+* Tomcat JVM additional arguments: additional java arguments to be passed to the Tomcat JVM at startup. e.g.: -XX:+HeapDumpOnOutOfMemory
+* UI Designer JVM options: additional java arguments to be passed to the UI Designer at startup. e.g.: -Xmx256m
 
 Database connectors  
 * Manage the JDBC drivers associated with database connectors. You should use that to include JDBC drivers for commercial DBMS (e.g. DB2)  

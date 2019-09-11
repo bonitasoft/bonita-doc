@@ -120,8 +120,7 @@ This section explains how to migrate a platform that uses one of the Bonita bund
 [BonitaSoft site](http://www.bonitasoft.com/downloads-v2) for Bonita Community edition
 or from the [Customer Portal](https://customer.bonitasoft.com/download/request) for Bonita Subscription Pack editions.
 1. Unzip the migration tool zip file into a directory. In the steps below, this directory is called `bonita-migration`.
-1. If you use Oracle, add the JDBC driver for your database to `bonita-migration/lib`. This is the same driver as you have installed in
-your web server `lib` directory.
+1. If you use Oracle, add the JDBC driver for your database to `bonita-migration/lib`. This is the same driver as you have installed in your web server `lib` directory. You must upgrade to [Oracle 12c (12.2.x.y)](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12) in order to migrate to 7.9+. 
 1. Configure the database properties needed by the migration script, by editing `bonita-migration/Config.properties`.
 Specify the following information:
 
@@ -154,6 +153,7 @@ Also, if you are migrating to Bonita 7.9+, you must upgrade your database server
      |:-                     |:-                                                                                   |
      | Community edition     | `bonita-migration-distrib` (Linux) or `bonita-migration-distrib.bat` (Windows)      |
      | Subscription editions | `bonita-migration-distrib-sp` (Linux) or `bonita-migration-distrib-sp.bat` (Windows)|
+   * Starting from version 2.44.1, an additional script called `check-migration-dryrun` is present in the same folder. This script only run checks the migration would without actually migrating. This is equivalent to running the migration script with a `--verify` option.
 
 1. The script detects the current version of Bonita, and displays a list of the versions that you can migrate to. Specify the
 version you require.
@@ -284,9 +284,9 @@ please follow this procedure:
 Bonita 7.9+ supports Oracle 12c (12.2.x.y) version. To migrate to Bonita 7.9+ when using Oracle,
 please follow this procedure:
 * ensure your Bonita platform is shut down
-* run Bonita migration tool to update Bonita platform to version 7.8.4, following the procedure above
-* upgrade your Oracle database server to the version 12c
-* run the migration tool again to migrate the platform to 7.9.0 or newer
+* in a first step, run Bonita migration tool to update Bonita platform to version 7.8.4, following the procedure above
+* then upgrade your Oracle database server to the version 12c (it must be 12.2.x.y)
+* in a second step, run the migration tool again to migrate the platform to 7.9.0 or newer
 * once done, you can restart your updated Bonita platform
 
 
