@@ -103,7 +103,7 @@ and restart server.
 
 This exposes all activated metrics (see [above](#activating-specific-monitoring-metrics)) at endpoint:
 
-    http://`<SERVER_URL>`/bonita/metrics  
+    http://<SERVER_URL>/bonita/metrics
 
 Use this URL to configure your graphical monitoring tool in order to record and display the metrics.
 
