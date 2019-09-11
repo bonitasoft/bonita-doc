@@ -106,3 +106,26 @@ This exposes all activated metrics (see [above](#activating-specific-monitoring-
     http://`<SERVER_URL>`/bonita/metrics  
 
 Use this URL to configure your graphical monitoring tool in order to record and display the metrics.
+
+Sample extract of expose Prometheus data:
+
+    # HELP jvm_buffer_memory_used_bytes An estimate of the memory that the Java virtual machine is using for this buffer pool
+    # TYPE jvm_buffer_memory_used_bytes gauge
+    jvm_buffer_memory_used_bytes{id="direct",} 565248.0
+    jvm_buffer_memory_used_bytes{id="mapped",} 0.0
+    # HELP org_bonitasoft_engine_connector_connectors_pending  
+    # TYPE org_bonitasoft_engine_connector_connectors_pending gauge
+    org_bonitasoft_engine_connector_connectors_pending{tenant="1",} 0.0
+    # HELP org_bonitasoft_engine_connector_connectors_executed_total  
+    # TYPE org_bonitasoft_engine_connector_connectors_executed_total counter
+    org_bonitasoft_engine_connector_connectors_executed_total{tenant="1",} 0.0
+    # HELP org_bonitasoft_engine_work_works_running  
+    # TYPE org_bonitasoft_engine_work_works_running gauge
+    org_bonitasoft_engine_work_works_running{tenant="1",} 0.0
+    # HELP jvm_gc_max_data_size_bytes Max size of old generation memory pool
+    # TYPE jvm_gc_max_data_size_bytes gauge
+    jvm_gc_max_data_size_bytes 7.16177408E8
+    # HELP org_bonitasoft_engine_work_works_pending  
+    # TYPE org_bonitasoft_engine_work_works_pending gauge
+    org_bonitasoft_engine_work_works_pending{tenant="1",} 0.0
+    ...
