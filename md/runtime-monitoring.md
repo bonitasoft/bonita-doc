@@ -86,7 +86,7 @@ Server restart is required for the changes to take effect.
 
 Additionally, Bonita Subscription editions can publish to a REST endpoint in the
 [Prometheus format](https://prometheus.io/docs/instrumenting/exposition_formats/#text-format-example), that can
-easily be consumed by tools like Grafana, etc.
+easily be consumed by graphical tools like Grafana, etc.
 
 To activate, simply edit file `./setup/platform_conf/current/platform_engine/bonita-platform-sp-custom.properties`
 and change:
@@ -105,9 +105,9 @@ This exposes all activated metrics (see [above](#activating-specific-monitoring-
 
     http://<SERVER_URL>/bonita/metrics
 
-Use this URL to configure your graphical monitoring tool in order to record and display the metrics.
+Use this URL to configure your installed Prometheus configuration in order to record and display the metrics.
 
-Sample extract of expose Prometheus data:
+Sample extract of exposed Prometheus data:
 
     # HELP jvm_buffer_memory_used_bytes An estimate of the memory that the Java virtual machine is using for this buffer pool
     # TYPE jvm_buffer_memory_used_bytes gauge
