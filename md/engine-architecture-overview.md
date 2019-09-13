@@ -329,7 +329,7 @@ Generic services  perform actions that are not related to BPM but are required f
 |:-|:-|
 | Description: | Monitor Engine activity, such as active transactions, active users, or JVM status. | 
 | Used by: | API| 
-| Implementation: | org.bonitasoft.engine.monitoring.impl.MonitoringServiceImpl| 
+| Implementation: | com.bonitasoft.engine.monitoring.impl.MonitoringServiceImpl| 
 
 #### Tenant Monitoring
 

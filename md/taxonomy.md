@@ -205,6 +205,7 @@
     * [Manage Look & Feel](managing-look-feel.md)
     * [Create a new Look & Feel](creating-a-new-look-feel.md)
   * [Search keys](search-index.md)
+* [Bonita Runtime Monitoring](runtime-monitoring.md)
 * [Development](_development.md)
   * [Software extensibility](software-extensibility.md)
   * [Bonita artifacts](_bonita-artifacts.md)
