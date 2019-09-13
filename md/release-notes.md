@@ -4,7 +4,10 @@
 **Note:** The 7.10 is currently work in progress (WIP). The 7.10.0 GA is planned on December 2019.
 :::
 
+## New features
 
+### Monitoring
+Bonita 7.10 now includes a brand new extensible [monitoring](runtime-monitoring.md) mechanism.
 
 ## Feature deprecations and removals
 

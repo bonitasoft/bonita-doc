@@ -69,7 +69,7 @@ To change any value, **uncomment the line by removing the # character**, and cha
 Server restart is required for the changes to take effect.
 :::
 
-### Activating specific metrics
+### Activating specific metric indicators
 
 Edit the same file `./setup/platform_conf/current/platform_engine/bonita-platform-community-custom.properties`  
 
@@ -82,7 +82,7 @@ Edit the same file `./setup/platform_conf/current/platform_engine/bonita-platfor
     ## publish technical metrics related to Worker / Connector thread pools:
     #org.bonitasoft.engine.monitoring.metrics.executors.enable=false
     ## Enable hibernate statistics metrics publishing,
-    ## hibernate statistics must be enabled in platform configuration (property bonita.platform.persistence.generate_statistics)
+    ## Hibernate statistics must be enabled in platform configuration (property bonita.platform.persistence.generate_statistics)
     #org.bonitasoft.engine.monitoring.metrics.hibernate.enable=false
 
 These are the **metrics** (counters) that can be exposed.  
