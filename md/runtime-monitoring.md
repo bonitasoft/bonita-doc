@@ -19,6 +19,12 @@ It executes in a Java thread.
 
 **Work queue**: a queue storing pending works before they are taken by threads for execution.
 
+**Metric**: an indicator (generally a numeric value) giving information on the system. They can be technical (number
+of running threads on the JVM), or more Bonita-oriented (total number of connectors executed).
+
+**Metric Publisher**: a publisher is responsible for exposing the activated metrics. Provided publishers are
+JMX, Log files, Prometheus (not available in Community edition).
+
 ## Bonita-related metrics
 Bonita-related metrics are **enabled by default** and cannot be disabled. Here are the provided metrics:
 * The number of currently running works, under the logical key name **org.bonitasoft.engine.work.works.running**
@@ -37,17 +43,36 @@ Retrieve current configuration by running:
 ```bash
 ./setup/setup.sh pull
 ```
-and edit file `./setup/platform_conf/current/platform_engine/bonita-platform-community-custom.properties`  
-You will see, in the `# Monitoring` section, two series of properties with their default value:
+
+### Activating Metrics Publishers
+
+Edit file `./setup/platform_conf/current/platform_engine/bonita-platform-community-custom.properties`  
+You will see, in the `# Monitoring` section, a series of properties with their default value:
 
     ## Monitoring
     ## publish metrics to JMX:
-    #org.bonitasoft.engine.monitoring.jmx.enable=true
+    #org.bonitasoft.engine.monitoring.publisher.jmx.enable=true
     ## periodically print metrics to logs (bonita-related metrics only):
-    #org.bonitasoft.engine.monitoring.logging.enable=false
+    #org.bonitasoft.engine.monitoring.publisher.logging.enable=false
     ## print to logs every minute by default (in the ISO-8601 duration format):
-    #org.bonitasoft.engine.monitoring.logging.step=PT1M
-    #
+    #org.bonitasoft.engine.monitoring.publisher.logging.step=PT1M
+
+These are the **publishers** that can be activated.  
+In Community edition, 2 publishers are provided:
+* JMX (enabled by default), that allows to use any JMX console to monitor your favorite metrics (except JVM metrics,
+as they are already published by the JVM itself by default)
+* Logging (disabled by default), that regularly prints to standard Bonita log file the Bonita-related metrics. Print interval can
+be changed (property `org.bonitasoft.engine.monitoring.logging.step`).
+
+::: info
+To change any value, **uncomment the line by removing the # character**, and change the true / false value.  
+Server restart is required for the changes to take effect.
+:::
+
+### Activating specific metrics
+
+Edit the same file `./setup/platform_conf/current/platform_engine/bonita-platform-community-custom.properties`  
+
     ## publish metrics related to JVM memory:
     #org.bonitasoft.engine.monitoring.metrics.jvm.memory.enable=false
     ## publish metrics related to JVM Threads:
@@ -56,27 +81,25 @@ You will see, in the `# Monitoring` section, two series of properties with their
     #org.bonitasoft.engine.monitoring.metrics.jvm.gc.enable=false
     ## publish technical metrics related to Worker / Connector thread pools:
     #org.bonitasoft.engine.monitoring.metrics.executors.enable=false
+    ## Enable hibernate statistics metrics publishing,
+    ## hibernate statistics must be enabled in platform configuration (property bonita.platform.persistence.generate_statistics)
+    #org.bonitasoft.engine.monitoring.metrics.hibernate.enable=false
 
-The first series is the list of **publishers** that can be activated.  
-In Community edition, 2 publishers are provided:
-* JMX (enabled by default), that allows to use any JMX console to monitor your favorite metrics (except JVM metrics,
-as they are already published by the JVM itself by default)
-* Logging (disabled by default), that regularly prints to standard Bonita log file the Bonita-related metrics. Print interval can
-be changed (property `org.bonitasoft.engine.monitoring.logging.step`).
-
-The second series is the list of **metrics** (counters) that can be exposed.  
+These are the **metrics** (counters) that can be exposed.  
 All configurable metrics are disabled by default and can be enabled separately.  
 They provide information about:
 * the running JVM memory
 * JVM threads
 * Garbage collection usage
 * Worker / Connector thread pools
+* Hibernate statistics
 
 Each of these metrics provides many different counters to finely understand what is going on.
 
+::: info
 To change any value, **uncomment the line by removing the # character**, and change the true / false value.  
 Server restart is required for the changes to take effect.
-
+:::
 
 ## Subscription-only monitoring publisher
 
