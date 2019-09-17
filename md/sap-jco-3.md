@@ -57,7 +57,7 @@ Copy the `libspajco3.so` file in `/usr/lib`
 It is assumed that both the Tomcat and the Bonita Engine were already successfully started once.
 
 1. Stop Tomcat
-2. Copy the `sapjco3.jar` file into `BonitaSubscription-7.8.3-Tomcat-8.5.34\server\lib` directory
+2. Copy the `sapjco3.jar` file into `BonitaSubscription-7.8.3\server\lib` directory
 3. Start Tomcat
 
 ### Studio: How to import the SAP JCo3 library and make a request with an example function using the graphic display

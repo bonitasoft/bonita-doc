@@ -46,8 +46,8 @@ After logging in, the requested page is not displayed automatically. The user mu
 2. In the `CasLoginModule` configuration, check that the `principalGroupName` property is set to `CallerPrincipal`.  
    This is required to retrieve the username from the Bonita application.
    Bonita uses the CAS LoginModule in the JASIG implementation, so see the CAS LoginModule section of the [Jasig documentation](https://wiki.jasig.org/display/CASC/JAAS+Integration) for more information.
-3. Copy `cas-client-core-x.x.x.jar` from `BonitaSubscription-x.x.x-tomcat/tools/cas-x.x.x-module/org/jasig/cas/main` into the `BUNDLE_HOME/server/lib` directory.
-4. Copy `commons-logging-x.x.x.jar` from `BonitaSubscription-x.x.x-tomcat/tools//BonitaSubscription-x.x.x-LDAP-Synchronizer/lib` into the `BUNDLE_HOME/server/lib` directory.
+3. Copy `cas-client-core-x.x.x.jar` from `BonitaSubscription-x.x.x/tools/cas-x.x.x-module/org/jasig/cas/main` into the `BUNDLE_HOME/server/lib` directory.
+4. Copy `commons-logging-x.x.x.jar` from `BonitaSubscription-x.x.x/tools//BonitaSubscription-x.x.x-LDAP-Synchronizer/lib` into the `BUNDLE_HOME/server/lib` directory.
 5. Update `bonita-tenant-sp-custom.properties` from `setup/platform_conf/initial/tenant_template_engine/` if platform has not been initialized yet or `setup/platform_conf/current/tenants/[TENANT_ID]/tenant_engine/` and `setup/platform_conf/current/tenant_template_engine/`.
 ::: info
 If the platform has already been initialized, every update to the configuration files under `setup/platform_conf/current` must be done using the `setup` tool:  
@@ -101,7 +101,7 @@ Then, use the [`LoginAPI`](http://documentation.bonitasoft.com/javadoc/api/${var
 
 If you are configuring Bonita and Tomcat in a cluster environment for CAS, there are some extra steps to do:
 
-1. Copy `commons-logging-x.x.x.jar` from `BonitaSubscription-x.x.x-tomcat/tools/BonitaSubscription-x.x.x-LDAP-Synchronizer/lib` into the `BUNDLE_HOME/server/lib` directory.
+1. Copy `commons-logging-x.x.x.jar` from `BonitaSubscription-x.x.x/tools/BonitaSubscription-x.x.x-LDAP-Synchronizer/lib` into the `BUNDLE_HOME/server/lib` directory.
 2. Remove the `WEB-INF/lib/commons-logging-x.x.x.jar` file from the `BUNDLE_HOME/server/webapps/bonita.war`.
 3. Remove the `BUNDLE_HOME/server/webapps/bonita/WEB-INF/lib/commons-logging-x.x.x.jar` file (if it is present).
 
