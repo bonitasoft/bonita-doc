@@ -215,7 +215,7 @@ Here is the list of steps to perform (as an example, the database name BONITA is
 13. Click on _**Security**_ tab. Ensure that the checkbox for **Enable XA Transactions** is checked.
 14. Click _**Apply**_, then click _**OK**_
 15. Then stop and restart SQLServer to ensure it syncs up with the MS DTC changes.
-16. Create the BONITA\_BPM database: `CREATE DATABASE BONITA_BPM GO`.
+16. Create the BONITA database: `CREATE DATABASE BONITA GO`.
 17. Set `bonitadev` as owner of BONITA\_BPM database (use, for example, 'Microsoft SQL Management Studio')
 
 ##### Recommended configuration for lock management
