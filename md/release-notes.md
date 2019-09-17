@@ -6,7 +6,7 @@
 
 ## Global Changes
 ### Renaming
-The Tomcat bundle packaging has changed. Previously called _Bonita{version}-7.x.y-tomcat_, it has been renamed _Bonita{version}-7.x.y_.
+The Tomcat bundle packaging has changed. Previously called _Bonita{edition}-7.x.y-tomcat_, it has been renamed to _Bonita{edition}-7.x.y_.
 The file structure underneath, the location of scripts and configuration files remain unchanged.
 
 ## New features
