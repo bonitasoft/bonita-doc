@@ -4,6 +4,11 @@
 **Note:** The 7.10 is currently work in progress (WIP). The 7.10.0 GA is planned on December 2019.
 :::
 
+## Global Changes
+### Renaming
+The Tomcat bundle packaging has changed. Previously called _Bonita{version}-7.x.y-tomcat_, it has been renamed _Bonita{version}-7.x.y_.
+The file structure underneath, the location of scripts and configuration files remain unchanged.
+
 ## New features
 
 ### Monitoring
