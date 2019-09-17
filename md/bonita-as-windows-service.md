@@ -20,7 +20,7 @@ Please verify the supported version from the Support page
 
 ![Tomcat home page](images/bonita-as-windows-service/tomcatHome.png)
 
-* **_Download_** the bundle BonitaSubscription-x.y.z.zip (or BonitaCommunity-x.y.z-tomcat.zip for the community edition)
+* **_Download_** the bundle BonitaSubscription-x.y.z.zip (or BonitaCommunity-x.y.z.zip for the community edition)
 * **_Unzip_** the bundle in a folder that we'll call: %TOMCAT_BUNDLE%
 * **_Move_** the setup tool %TOMCAT_BUNDLE%/setup into another folder, for example %TOMCAT_INSTALL_FOLDER%/setup
 This last step is not mandatory since the setup tool is independent from Tomcat, you can place it wherever you want.
