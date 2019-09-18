@@ -105,9 +105,7 @@ This mode
 The bonita-client library
   * sends data over the network using the HTTP protocol using the [Apache HttpComponents](http://hc.apache.org/index.html).
 open source library
-  * uses `org.apache.http.impl.conn.PoolingClientConnectionManager` as connection manager .  Currently, there is no
-  configuration for this pool though this might be added in the future.  See the [HttpComponents documentation](http://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.html)
-  for more information.
+  * uses a maximum of 20 connections. To change this value refer to the page [Configure connection to Bonita Engine](configure-client-of-bonita-bpm-engine.md).
 
 Data sent is serialized using a Java library called XStream. This serialization also has a cost.
 
