@@ -1,4 +1,8 @@
-# Widgets
+# UI Designer Embedded widgets  
+
+The UI Designer provides a set of default widgets that you can use or customize to design a page or form.
+
+## Difference between page and form
 
 The UI Designer is a tool for creating pages and forms to use in a BPM application.   
 A form is mapped to process instantiation or to a human task and must fulfill a [contract](contracts-and-contexts.md). To gather the inputs that will be sent to the contract, it embeds input fields and a submit button. A page is not mapped to any part of a process, it displays business information and gives access to forms or action buttons that send information to the process. Besides this, there is no difference between a page and a form, so the procedure for designing them is the same. This documentation uses the term _page_ for both pages and forms, unless otherwise stated.
