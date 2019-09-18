@@ -29,6 +29,7 @@ For more information, read [the dedicated documentation](variables.md).
 
 #### Switch widget
 Directly from whiteboard or from widget properties section, you will now be able to change your current widget by a new one without loosing the configuration you have done. Useful when switching to a new version of your widget custom or not, and as first customization steps after your form creation from studio to match your end user needs.
+⚠️This feature is not available on Edge and IE 11 browsers.  
 
 #### Update multiple documents
 Operations at the level of tasks now handle the complete update of multiple documents: add/delete/update are automatically managed by the method, using document Ids. 
