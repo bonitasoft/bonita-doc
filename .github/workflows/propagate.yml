@@ -1,0 +1,21 @@
+name: Propagate doc to upper versions
+
+on:
+  push:
+#    branches:
+#      - 7.6
+  pull_request:
+    branches:
+      - 7.6
+  schedule:
+    - cron:  '05 22 * * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Propagate doc updates
+        run: scripts/propagate_doc_upwards.sh
