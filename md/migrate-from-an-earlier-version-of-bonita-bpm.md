@@ -153,6 +153,7 @@ Also, if you are migrating to Bonita 7.9+, you must upgrade your database server
      |:-                     |:-                                                                                   |
      | Community edition     | `bonita-migration-distrib` (Linux) or `bonita-migration-distrib.bat` (Windows)      |
      | Subscription editions | `bonita-migration-distrib-sp` (Linux) or `bonita-migration-distrib-sp.bat` (Windows)|
+   * Starting from version 2.44.1, an additional script called `check-migration-dryrun` is present in the same folder. This script only run checks the migration would without actually migrating. This is equivalent to running the migration script with a `--verify` option.
 
 1. The script detects the current version of Bonita, and displays a list of the versions that you can migrate to. Specify the
 version you require.

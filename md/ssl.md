@@ -35,17 +35,18 @@ This example show how to configure SSL with APR and OpenSSL for a Bonita using T
 4. Edit `conf/server.xml` and add the following definition for the Connector:
 ```xml
 <Connector port="8443" 
-protocol="HTTP/1.1" 
-SSLEnabled="true"
-maxThreads="150" 
-scheme="https" 
-secure="true"
-URIEncoding="UTF-8"
-SSLCertificateFile="$ {catalina.base}/conf/ssl/test.bonitasoft.net.pem"
-SSLCertificateKeyFile="${catalina.base}
-/conf/ssl/test.bonitasoft.net.key"
-SSLVerifyClient="optional" 
-SSLProtocol="TLSv1"></Connector>
+    protocol="HTTP/1.1" 
+    SSLEnabled="true"
+    maxThreads="150" 
+    scheme="https" 
+    secure="true"
+    URIEncoding="UTF-8"
+    SSLCertificateFile="${catalina.base}/conf/ssl/test.bonitasoft.net.pem"
+    SSLCertificateKeyFile="${catalina.base}
+    /conf/ssl/test.bonitasoft.net.key"
+    SSLVerifyClient="optional" 
+    SSLProtocol="TLSv1.2">
+</Connector>
 ```
 5. Install the Tomcat native library, which contains APR: `sudo apt-get install libtcnative-1`
 6. Edit `BUNDLE_HOME/webapps/bonita/WEB-INF/web.xml` and add the following security definition:
