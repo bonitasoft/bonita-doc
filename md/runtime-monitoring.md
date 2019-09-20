@@ -1,12 +1,12 @@
 # Bonita Runtime Monitoring
 
-Discover how to monitor a runtime environment running Bonita 
+Discover how to monitor a runtime environment running Bonita
 
 ## Why monitoring ?
 
 Monitoring a Production environment is crucial to ensure the runtime is correctly sized and tuned.
 
-Bonita provides a series of technical and BPM-related metrics to monitor the health of Bonita runtime environment.  
+Bonita provides a series of technical and Bonita-related metrics to monitor the health of Bonita runtime environment.  
 Some metrics are enabled by default and cannot be disabled. Some others are optional and can be enabled according to
 your needs.
 
@@ -25,7 +25,9 @@ of running threads on the JVM), or more Bonita-oriented (total number of connect
 **Metric Publisher**: a publisher is responsible for exposing the activated metrics. Provided publishers are
 JMX, Log files, Prometheus (not available in Community edition).
 
-## Bonita-related metrics
+## Which metrics are available?
+
+### Bonita-related metrics
 Bonita-related metrics are **enabled by default** and cannot be disabled. Here are the provided metrics:
 * The number of currently running works, under the logical key name **org.bonitasoft.engine.work.works.running**
 * The number of currently pending works, waiting in the work queue to be treated, under the logical key name **org.bonitasoft.engine.work.works.pending**
@@ -36,10 +38,19 @@ under the logical key name **org.bonitasoft.engine.connector.connectors.pending*
 * The total number of executed connector works (since the last start of Bonita runtime), under the logical key name **org.bonitasoft.engine.connector.connectors.executed**
 * The total number of treated BPM messages (since the last start of Bonita runtime), under the logical key name **org.bonitasoft.engine.message.messages.executed**
 
+## Technical metrics
+The following available metrics are **disabled by default** and can be enabled.
+* Several metrics related to JVM memory, under the logical key names **jvm.memory.*** and **jvm.buffer.***
+* Several metrics related to JVM threads, under the logical key name **jvm.threads.***
+* Several metrics related to JVM garbage collection, under the logical key name **jvm.gc.***
+* Several metrics related to Worker / Connector thread pools, under the logical key name **executor.***
+* Several metrics related to Hibernate statistics, under the logical key name **hibernate.***
+* Several metrics related to Tomcat, under the logical key name **tomcat.***
+
 
 ## Activating specific monitoring metrics
 
-Retrieve current configuration by running:
+Retrieve [current configuration](BonitaBPM_platform_setup.md#update_platform_conf) by running:
 ```bash
 ./setup/setup.sh pull
 ```
@@ -67,7 +78,7 @@ be changed (property `org.bonitasoft.engine.monitoring.logging.step`).
 
 ::: info
 To change any value, **uncomment the line by removing the # character**, and change the true / false value.  
-Then push your configuration changes to database:
+Then [push your configuration changes](BonitaBPM_platform_setup.md#update_platform_conf) to database:
 ```bash
 ./setup/setup.sh push
 ```
@@ -107,7 +118,7 @@ Each of these metrics provides many different counters to finely understand what
 
 ::: info
 To change any value, **uncomment the line by removing the # character**, and change the true / false value.  
-Then push your configuration change to database:
+Then [push your configuration changes](BonitaBPM_platform_setup.md#update_platform_conf) to database:
 ```bash
 ./setup/setup.sh push
 ```
@@ -138,7 +149,7 @@ to
     # Activate publication of metrics to prometheus:
     com.bonitasoft.engine.plugin.monitoring.prometheus.enable=true
 
-Then push your configuration change to database:
+Then [push your configuration changes](BonitaBPM_platform_setup.md#update_platform_conf) to database:
 ```bash
 ./setup/setup.sh push
 ```
@@ -195,9 +206,9 @@ to
     ## Monitor locks on cluster
     org.bonitasoft.engine.monitoring.metrics.cluster.locks.enable=false
 
-Then push your configuration change to database:
+Then [push your configuration changes](BonitaBPM_platform_setup.md#update_platform_conf) to database:
 ```bash
 ./setup/setup.sh push
 ```
-Then restart Tomcat server for the changes to take effect.
+Then restart the Tomcat server for the changes to take effect.
 
