@@ -47,9 +47,10 @@ Retrieve current configuration by running:
 ### Activating Metrics Publishers
 
 Edit file `./setup/platform_conf/current/platform_engine/bonita-platform-community-custom.properties`  
-You will see, in the `# Monitoring` section, a series of properties with their default value:
+You will see, in the `# MONITORING` section, a series of properties with their default value:
 
-    ## Monitoring
+    ## MONITORING
+    ## PUBLISHERS = where to publish?
     ## publish metrics to JMX:
     #org.bonitasoft.engine.monitoring.publisher.jmx.enable=true
     ## periodically print metrics to logs (bonita-related metrics only):
@@ -66,13 +67,18 @@ be changed (property `org.bonitasoft.engine.monitoring.logging.step`).
 
 ::: info
 To change any value, **uncomment the line by removing the # character**, and change the true / false value.  
-Server restart is required for the changes to take effect.
+Then push your configuration changes to database:
+```bash
+./setup/setup.sh push
+```
+Then restart the Tomcat server for the changes to take effect.
 :::
 
 ### Activating specific metric indicators
 
 Edit the same file `./setup/platform_conf/current/platform_engine/bonita-platform-community-custom.properties`  
 
+    ## METRICS = what to publish?
     ## publish metrics related to JVM memory:
     #org.bonitasoft.engine.monitoring.metrics.jvm.memory.enable=false
     ## publish metrics related to JVM Threads:
@@ -82,8 +88,10 @@ Edit the same file `./setup/platform_conf/current/platform_engine/bonita-platfor
     ## publish technical metrics related to Worker / Connector thread pools:
     #org.bonitasoft.engine.monitoring.metrics.executors.enable=false
     ## Enable hibernate statistics metrics publishing,
-    ## Hibernate statistics must be enabled in platform configuration (property bonita.platform.persistence.generate_statistics)
+    ## Hibernate statistics must be enabled in platform configuration (property bonita.platform.persistence.generate_statistics):
     #org.bonitasoft.engine.monitoring.metrics.hibernate.enable=false
+    ## publish technical metrics related to Tomcat (if in a Tomcat context):
+    #org.bonitasoft.engine.monitoring.metrics.tomcat.enable=false
 
 These are the **metrics** (counters) that can be exposed.  
 All configurable metrics are disabled by default and can be enabled separately.  
@@ -93,15 +101,23 @@ They provide information about:
 * Garbage collection usage
 * Worker / Connector thread pools
 * Hibernate statistics
+* Tomcat counters on sessions, threads, requests, connections...
 
 Each of these metrics provides many different counters to finely understand what is going on.
 
 ::: info
 To change any value, **uncomment the line by removing the # character**, and change the true / false value.  
-Server restart is required for the changes to take effect.
+Then push your configuration change to database:
+```bash
+./setup/setup.sh push
+```
+Then restart the Tomcat server for the changes to take effect.
+
 :::
 
-## Subscription-only monitoring publisher
+## Subscription-only monitoring
+
+### Prometheus publisher
 
 ::: info
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
@@ -122,7 +138,12 @@ to
     # Activate publication of metrics to prometheus:
     com.bonitasoft.engine.plugin.monitoring.prometheus.enable=true
 
-and restart server.
+Then push your configuration change to database:
+```bash
+./setup/setup.sh push
+```
+Then restart the Tomcat server for the changes to take effect.
+
 
 This exposes all activated metrics (see [above](#activating-specific-monitoring-metrics)) at endpoint:
 
@@ -152,3 +173,31 @@ Sample extract of exposed Prometheus data:
     # TYPE org_bonitasoft_engine_work_works_pending gauge
     org_bonitasoft_engine_work_works_pending{tenant="1",} 0.0
     ...
+
+
+### Cluster-specific metrics
+
+::: info
+**Note:** For Enterprise, Performance editions only, with cluster mode activated.
+:::
+
+A Bonita 7.10+ cluster has monitoring on distributed cluster locks ACTIVE by default.
+
+To DISABLE those metrics, simply edit the file
+`./setup/platform_conf/current/platform_engine/bonita-platform-sp-cluster-custom.properties`
+and change:
+  
+    ## Monitor locks on cluster
+    #org.bonitasoft.engine.monitoring.metrics.cluster.locks.enable=true
+
+to
+
+    ## Monitor locks on cluster
+    org.bonitasoft.engine.monitoring.metrics.cluster.locks.enable=false
+
+Then push your configuration change to database:
+```bash
+./setup/setup.sh push
+```
+Then restart Tomcat server for the changes to take effect.
+
