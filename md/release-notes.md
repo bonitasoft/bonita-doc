@@ -9,6 +9,9 @@
 ### Monitoring
 Bonita 7.10 now includes a brand new extensible [monitoring](runtime-monitoring.md) mechanism.
 
+### Archives
+#### Contract data
+Bonita 7.10 now allows (in Enterprise and Performance editions) to disable the archiving of Contract Data, to improve the platform performance. More details as to how [here](configurable-archive.md).
 ## Feature deprecations and removals
 
 ### Removals
