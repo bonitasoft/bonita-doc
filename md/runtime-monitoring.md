@@ -71,7 +71,7 @@ Then push your configuration changes to database:
 ```bash
 ./setup/setup.sh push
 ```
-Then restart Tomcat server for the changes to take effect.
+Then restart the Tomcat server for the changes to take effect.
 :::
 
 ### Activating specific metric indicators
@@ -111,7 +111,7 @@ Then push your configuration change to database:
 ```bash
 ./setup/setup.sh push
 ```
-Then restart Tomcat server for the changes to take effect.
+Then restart the Tomcat server for the changes to take effect.
 
 :::
 
@@ -142,7 +142,7 @@ Then push your configuration change to database:
 ```bash
 ./setup/setup.sh push
 ```
-Then restart Tomcat server for the changes to take effect.
+Then restart the Tomcat server for the changes to take effect.
 
 
 This exposes all activated metrics (see [above](#activating-specific-monitoring-metrics)) at endpoint:
@@ -183,7 +183,7 @@ Sample extract of exposed Prometheus data:
 
 A Bonita 7.10+ cluster has monitoring on distributed cluster locks ACTIVE by default.
 
-To DISABLE those metrics, simply edit file
+To DISABLE those metrics, simply edit the file
 `./setup/platform_conf/current/platform_engine/bonita-platform-sp-cluster-custom.properties`
 and change:
   
