@@ -122,7 +122,7 @@ In Bonita, a composition relationship is unique: A given object can only be used
 In Bonita, in an aggregation relationship, a child must exist when creating its parent. When creating a parent, you must refer to an existing child to value an attribute with an aggregation relationship.
 :::
 
-In the Bonita Studio BDM wizard, you can specify the objects that are related by composition and aggregation, as well as the simple attributes. A child object can be mandatory or optional. A child object can be multiple, which means that the composite object contains zero or more (if optional) or one or more (if mandatory) instances of the child object. You cannot set a unique constraint on a child object. The default relationship is composition.
+In the Bonita Studio BDM wizard, you can specify the objects that are related by composition and aggregation, as well as the simple attributes. A child object can be mandatory or optional. A child object can be multiple, which means that the composite object contains zero or more (if optional) or one or more (if mandatory) instances of the child object. You cannot set a unique constraint on a child object. The default relationship is aggregation.
 
 When you configure an object in the Bonita Studio BDM wizard, the attribute dropdown list contains the names of the objects that can be included by composition or aggregation. You cannot specify the object you are configuring or its parent.
 
