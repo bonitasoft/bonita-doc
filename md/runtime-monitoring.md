@@ -38,7 +38,7 @@ under the logical key name **org.bonitasoft.engine.connector.connectors.pending*
 * The total number of executed connector works (since the last start of Bonita runtime), under the logical key name **org.bonitasoft.engine.connector.connectors.executed**
 * The total number of treated BPM messages (since the last start of Bonita runtime), under the logical key name **org.bonitasoft.engine.message.messages.executed**
 
-## Technical metrics
+### Technical metrics
 The following available metrics are **disabled by default** and can be enabled.
 * Several metrics related to JVM memory, under the logical key names **jvm.memory.*** and **jvm.buffer.***
 * Several metrics related to JVM threads, under the logical key name **jvm.threads.***
@@ -134,6 +134,8 @@ Then restart the Tomcat server for the changes to take effect.
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
+Prometheus 
+
 Additionally, Bonita Subscription editions can publish to a REST endpoint in the
 [Prometheus format](https://prometheus.io/docs/instrumenting/exposition_formats/#text-format-example), that can
 easily be consumed by graphical tools like Grafana, etc.
@@ -183,6 +185,19 @@ Sample extract of exposed Prometheus data:
     # HELP org_bonitasoft_engine_work_works_pending  
     # TYPE org_bonitasoft_engine_work_works_pending gauge
     org_bonitasoft_engine_work_works_pending{tenant="1",} 0.0
+    # HELP tomcat_servlet_request_max_seconds 
+    # TYPE tomcat_servlet_request_max_seconds gauge
+    tomcat_servlet_request_max_seconds{name="default",} 0.0
+    tomcat_servlet_request_max_seconds{name="dispatcherServlet",} 0.104
+    # HELP tomcat_threads_config_max_threads 
+    # TYPE tomcat_threads_config_max_threads gauge
+    tomcat_threads_config_max_threads{name="http-nio-8080",} 200.0
+    # HELP tomcat_sessions_expired_sessions_total 
+    # TYPE tomcat_sessions_expired_sessions_total counter
+    tomcat_sessions_expired_sessions_total 0.0
+    # HELP tomcat_sessions_active_max_sessions 
+    # TYPE tomcat_sessions_active_max_sessions gauge
+    tomcat_sessions_active_max_sessions 0.0
     ...
 
 
