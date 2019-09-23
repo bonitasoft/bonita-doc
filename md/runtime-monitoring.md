@@ -2,6 +2,11 @@
 
 Discover how to monitor a runtime environment running Bonita
 
+In Community edition, monitoring metrics can be published via 2 channels: JMX and / or Logging file.  
+In Subscription editions, monitoring metrics can be published via 3 channels: JMX and / or Logging file and / or
+a Prometheus endpoint.  
+
+
 ## Why monitoring ?
 
 Monitoring a Production environment is crucial to ensure the runtime is correctly sized and tuned.
@@ -22,8 +27,8 @@ It executes in a Java thread.
 **Metric**: an indicator (generally a numeric value) giving information on the system. They can be technical (number
 of running threads on the JVM), or more Bonita-oriented (total number of connectors executed).
 
-**Metric Publisher**: a publisher is responsible for exposing the activated metrics. Provided publishers are
-JMX, Log files, Prometheus (not available in Community edition).
+**Metric Publisher**: a publisher is responsible for exposing the activated metrics. It is a channel on which metrics are published.
+Provided metric publishers are JMX (all editions), Log files (all editions), Prometheus (Subscription editions only).
 
 ## Which metrics are available?
 
@@ -69,8 +74,8 @@ You will see, in the `# MONITORING` section, a series of properties with their d
     ## print to logs every minute by default (in the ISO-8601 duration format):
     #org.bonitasoft.engine.monitoring.publisher.logging.step=PT1M
 
-These are the **publishers** that can be activated.  
-In Community edition, 2 publishers are provided:
+These are the **metric publishers** that can be activated.  
+In Community edition, 2 metric publishers are provided:
 * JMX (enabled by default), that allows to use any JMX console to monitor your favorite metrics (except JVM metrics,
 as they are already published by the JVM itself by default)
 * Logging (disabled by default), that regularly prints to standard Bonita log file the Bonita-related metrics. Print interval can
@@ -90,6 +95,10 @@ Then restart the Tomcat server for the changes to take effect.
 Edit the same file `./setup/platform_conf/current/platform_engine/bonita-platform-community-custom.properties`  
 
     ## METRICS = what to publish?
+    ##
+    ## Note: Bonita-related metrics are automatically published.
+    ## They are active by default and cannot be disabled.
+    ##
     ## publish metrics related to JVM memory:
     #org.bonitasoft.engine.monitoring.metrics.jvm.memory.enable=false
     ## publish metrics related to JVM Threads:
@@ -98,9 +107,8 @@ Edit the same file `./setup/platform_conf/current/platform_engine/bonita-platfor
     #org.bonitasoft.engine.monitoring.metrics.jvm.gc.enable=false
     ## publish technical metrics related to Worker / Connector thread pools:
     #org.bonitasoft.engine.monitoring.metrics.executors.enable=false
-    ## Enable hibernate statistics metrics publishing,
-    ## Hibernate statistics must be enabled in platform configuration (property bonita.platform.persistence.generate_statistics):
-    #org.bonitasoft.engine.monitoring.metrics.hibernate.enable=false
+    ## publish technical metrics related to HIBERNATE statistics
+    ## To activate, simply set property (a few lines above) 'bonita.platform.persistence.generate_statistics=true'
     ## publish technical metrics related to Tomcat (if in a Tomcat context):
     #org.bonitasoft.engine.monitoring.metrics.tomcat.enable=false
 
@@ -136,11 +144,11 @@ Then restart the Tomcat server for the changes to take effect.
 
 Prometheus 
 
-Additionally, Bonita Subscription editions can publish to a REST endpoint in the
+In addition to these metric publishers, Bonita Subscription editions can also publish to a REST endpoint in the
 [Prometheus format](https://prometheus.io/docs/instrumenting/exposition_formats/#text-format-example), that can
-easily be consumed by graphical tools like Grafana, etc.
+easily be consumed by Time Series databases like Prometheus, and displayed by graphical tools like Grafana, etc.
 
-To activate, simply edit file `./setup/platform_conf/current/platform_engine/bonita-platform-sp-custom.properties`
+To activate Prometheus endpoint in Bonita, simply edit file `./setup/platform_conf/current/platform_engine/bonita-platform-sp-custom.properties`
 and change:
   
     # Activate publication of metrics to prometheus:
@@ -158,7 +166,7 @@ Then [push your configuration changes](BonitaBPM_platform_setup.md#update_platfo
 Then restart the Tomcat server for the changes to take effect.
 
 
-This exposes all activated metrics (see [above](#activating-specific-monitoring-metrics)) at endpoint:
+This exposes all activated metrics (see [above](#activating-specific-metric-indicators)) at endpoint:
 
     http://<SERVER_URL>/bonita/metrics
 
