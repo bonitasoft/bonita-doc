@@ -79,6 +79,7 @@ If you need to finely tune the configuration, modify the following template file
 * tomcat-templates/bonita.xml
 * tomcat-templates/setenv.sh
 * tomcat-templates/setenv.bat
+:::
 
 <a id="update_platform_conf" />
 
