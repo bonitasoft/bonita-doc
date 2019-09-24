@@ -34,14 +34,14 @@ Provided metric publishers are JMX (all editions), Log files (all editions), Pro
 
 ### Bonita-related metrics
 Bonita-related metrics are **enabled by default** and cannot be disabled. Here are the provided metrics:
-* The number of currently running works, under the logical key name **org.bonitasoft.engine.work.works.running**
-* The number of currently pending works, waiting in the work queue to be treated, under the logical key name **org.bonitasoft.engine.work.works.pending**
-* The total number of executed works (since the last start of Bonita runtime), under the logical key name **org.bonitasoft.engine.work.works.executed**
-* The number of currently running connector works, under the logical key name **org.bonitasoft.engine.connector.connectors.running**
+* The number of currently running works, under the logical key name **bonita.bpmengine.work.running**
+* The number of currently pending works, waiting in the work queue to be treated, under the logical key name **bonita.bpmengine.work.pending**
+* The total number of executed works (since the last start of Bonita runtime), under the logical key name **bonita.bpmengine.work.executed**
+* The number of currently running connector works, under the logical key name **bonita.bpmengine.connector.running**
 * The number of currently pending connector works, waiting in the connector work queue to be treated,
-under the logical key name **org.bonitasoft.engine.connector.connectors.pending**
-* The total number of executed connector works (since the last start of Bonita runtime), under the logical key name **org.bonitasoft.engine.connector.connectors.executed**
-* The total number of treated BPM messages (since the last start of Bonita runtime), under the logical key name **org.bonitasoft.engine.message.messages.executed**
+under the logical key name **bonita.bpmengine.connector.pending**
+* The total number of executed connector works (since the last start of Bonita runtime), under the logical key name **bonita.bpmengine.connector.executed**
+* The total number of treated BPM messages (since the last start of Bonita runtime), under the logical key name **bonita.bpmengine.message.executed**
 
 ### Technical metrics
 The following available metrics are **disabled by default** and can be enabled.
@@ -178,21 +178,21 @@ Sample extract of exposed Prometheus data:
     # TYPE jvm_buffer_memory_used_bytes gauge
     jvm_buffer_memory_used_bytes{id="direct",} 565248.0
     jvm_buffer_memory_used_bytes{id="mapped",} 0.0
-    # HELP org_bonitasoft_engine_connector_connectors_pending  
-    # TYPE org_bonitasoft_engine_connector_connectors_pending gauge
-    org_bonitasoft_engine_connector_connectors_pending{tenant="1",} 0.0
-    # HELP org_bonitasoft_engine_connector_connectors_executed_total  
-    # TYPE org_bonitasoft_engine_connector_connectors_executed_total counter
-    org_bonitasoft_engine_connector_connectors_executed_total{tenant="1",} 0.0
-    # HELP org_bonitasoft_engine_work_works_running  
-    # TYPE org_bonitasoft_engine_work_works_running gauge
-    org_bonitasoft_engine_work_works_running{tenant="1",} 0.0
+    # HELP bonita_bpmengine_connector_pending  
+    # TYPE bonita_bpmengine_connector_pending gauge
+    bonita_bpmengine_connector_pending{tenant="1",} 0.0
+    # HELP bonita_bpmengine_connector_executed_total  
+    # TYPE bonita_bpmengine_connector_executed_total counter
+    bonita_bpmengine_connector_executed_total{tenant="1",} 0.0
+    # HELP bonita_bpmengine_work_running  
+    # TYPE bonita_bpmengine_work_running gauge
+    bonita_bpmengine_work_running{tenant="1",} 0.0
     # HELP jvm_gc_max_data_size_bytes Max size of old generation memory pool
     # TYPE jvm_gc_max_data_size_bytes gauge
     jvm_gc_max_data_size_bytes 7.16177408E8
-    # HELP org_bonitasoft_engine_work_works_pending  
-    # TYPE org_bonitasoft_engine_work_works_pending gauge
-    org_bonitasoft_engine_work_works_pending{tenant="1",} 0.0
+    # HELP bonita_bpmengine_work_pending  
+    # TYPE bonita_bpmengine_work_pending gauge
+    bonita_bpmengine_work_pending{tenant="1",} 0.0
     # HELP tomcat_servlet_request_max_seconds 
     # TYPE tomcat_servlet_request_max_seconds gauge
     tomcat_servlet_request_max_seconds{name="default",} 0.0
