@@ -146,7 +146,7 @@ Prometheus
 
 In addition to these metric publishers, Bonita Subscription editions can also publish to a REST endpoint in the
 [Prometheus format](https://prometheus.io/docs/instrumenting/exposition_formats/#text-format-example), that can
-easily be consumed by Time Series databases like Prometheus, and displayed by graphical tools like Grafana, etc.
+easily be consumed by Prometheus and then displayed by graphical tools like Grafana, etc.
 
 To activate Prometheus endpoint in Bonita, simply edit file `./setup/platform_conf/current/platform_engine/bonita-platform-sp-custom.properties`
 and change:
