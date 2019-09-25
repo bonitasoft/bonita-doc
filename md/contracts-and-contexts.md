@@ -111,20 +111,20 @@ In `Edit` mode, additional `persistenceId_string` input are generated to ensure 
 	* Use a [Rest API Extension](api-extensions.md). Instead of reusing the Task context, create your own endpoint that will serve all the needed data in one HTTP request.
 
 In `Edit` mode, you have the possibility to generate read only widgets for attributes related to the contract but not in the contract.  
-The following exemple describes the logic: 
+The following example describes the logic: 
 
-![Read only exemple](images/formGenerationReadOnly.svg)
+![Read only example](images/formGenerationReadOnly.svg)
 
-Elements in green are the contract inputs, i.e a subpart of the business model that will be edited.  
-Elements in orange are the attributes considered as _related to a contract input_. We will propose you to generate read only widgets to display the values of those attributes.  
+Elements in blue are the contract inputs, i.e a sub-part of the business model that will be edited.  
+Elements in red are the attributes considered as _related to a contract input_. We will propose you to generate read only widgets to display the values of those attributes.  
 
 The rules are the following:  
-An attribute is considerated as _related to a contract input_ if: 
+An attribute is considered as _related to a contract input_ if: 
 
 * This attribute is not used as a contract input
 * The parent of this attribute has at least one child used as a contract input
 
-If a simple attribute is considerated as _related to a contract input_, then a read only widget can be generated for this attribute.  
-If a complex attribute is considerated as _related to a contract input_, then a read only widget can be generated for all the simple children of this attribute.  
+If a simple attribute is considered as _related to a contract input_, then a read only widget can be generated for this attribute.  
+If a complex attribute is considered as _related to a contract input_, then a read only widget can be generated for all the simple children of this attribute.  
 
 ⚠️ We do not generate read only widgets for lazy fields contained in a repeatable container (the limitation is explained above)
