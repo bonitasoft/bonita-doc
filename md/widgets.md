@@ -206,7 +206,13 @@ Set the **Data source** to _Bonita API_ to populate the data table with records 
 Then enter a REST API URL in the **URL** property. Use the **API request parameters** property to pass additional parameters to the request.  
 Supported parameters are described in the [REST API Overview](rest-api-overview.md) and in the REST API documentation for the relevant resource.  
 You do not need to specify paging parameters (such as `?p=0&c=10`), because the data table handles paging automatically when you use a Bonita API data source.  
-The value of the **Page size** property controls how many rows are displayed in a table view, and automatically adds buttons to show subsequent pages of the table.  
+The value of the **Page size** property controls how many rows are displayed in a table view, and automatically adds buttons to show subsequent pages of the table.
+
+**Warning:** If your Data source is a **Rest Api Extension** and you need pagination, you need to provide the Content-Range header in the response, so the Data Table will handle the pagination.
+In order to do that you can use the method withContentRange in the responseBuilder variable of you Rest Api Extension, something like:
+```groovy
+return buildResponse(responseBuilder.withContentRange(p, c, totalNumberOfElements), HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
+```
 
 Alternatively, you can set the **Data source** to _Variable_ and use a variable definition to point ot the table content.   
 Note that if you use a Variable datasource and an External API variable, the paging of the table content is not handled automatically.
