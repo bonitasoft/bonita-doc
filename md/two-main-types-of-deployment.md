@@ -93,7 +93,7 @@ We suggest to define a `ENGINE_OPTS` variable and add its content to the `CATALI
 On Linux (setenv.sh)
 ```
 ENGINE_OPTS="-Dorg.bonitasoft.engine.api-type=HTTP -Dorg.bonitasoft.engine.api-type.server.url=http://localhost:8080"
-ENGINE_OPTS="${ENGINE_OPTS} -Dorg.bonitasoft.engine.api-type.application.name=bonita"
+ENGINE_OPTS="${ENGINE_OPTS} -Dorg.bonitasoft.engine.api-type.application.name=bonita -Dorg.bonitasoft.engine.api-type.connections.max=20"
 ENGINE_OPTS="${ENGINE_OPTS} -Dorg.bonitasoft.platform.username=platformAdmin -Dorg.bonitasoft.platform.password=platform"
 
 CATALINA_OPTS="${CATALINA_OPTS} ${ENGINE_OPTS} ${PLATFORM_SETUP} ..."
@@ -103,7 +103,7 @@ export CATALINA_OPTS
 On Windows (setenv.bat)
 ```
 set ENGINE_OPTS="-Dorg.bonitasoft.engine.api-type=HTTP" "-Dorg.bonitasoft.engine.api-type.server.url=http://localhost:8080"
-set ENGINE_OPTS=%ENGINE_OPTS% "-Dorg.bonitasoft.engine.api-type.application.name=bonita"
+set ENGINE_OPTS=%ENGINE_OPTS% "-Dorg.bonitasoft.engine.api-type.application.name=bonita -Dorg.bonitasoft.engine.api-type.connections.max=20"
 set ENGINE_OPTS=%ENGINE_OPTS% "-Dorg.bonitasoft.platform.username=platformAdmin" "-Dorg.bonitasoft.platform.password=platform"
 
 set CATALINA_OPTS=%CATALINA_OPTS% %ENGINE_OPTS% %PLATFORM_SETUP% ...
@@ -160,6 +160,7 @@ Configure the Engine Client
         <property name="org.bonitasoft.engine.api-type" value="HTTP" />
         <property name="org.bonitasoft.engine.api-type.server.url" value="http://localhost:8080" />
         <property name="org.bonitasoft.engine.api-type.application.name" value="bonita" />
+        <property name="org.bonitasoft.engine.api-type.connections.max" value="20" />
         <property name="org.bonitasoft.platform.username" value="platformAdmin" />
         <property name="org.bonitasoft.platform.password" value="platform" />
     </system-properties>
