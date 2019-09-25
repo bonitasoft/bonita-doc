@@ -286,3 +286,4 @@
   * [Create a vertical tabs container for all devices](uid-vertical-tabs-container-tutorial.md)
   * [Use Groovy in Bonita](groovy-in-bonita.md)
   * [Create a responsive web application with Community edition](responsiveness-with-community-edition.md)
+  * [Enable Adaptive Case Management with Bonita](use-bonita-acm.md)
