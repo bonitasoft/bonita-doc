@@ -29,7 +29,7 @@ In general we recommended that you set all attributes to **true** or all to **fa
 * To archive a receive task each time it changes state, set `bonita.tenant.archive.SReceiveTaskInstance` to true. This information is not available in Bonita Portal.
 * To archive a data instance each time it changes value, set `bonita.tenant.archive.SDataInstance` to true. 
 * To archive a reference between a business data and its process instance, set `bonita.tenant.archive.RefBusinessDataInstance` to true. 
-* To archive a reference to a contract data and its process instance, set `bonita.tenant.archive.SContractData` to true.  Note that, if not set, this parameter will by default be set to true. 
+* To archive contract data when a task / process instance finishes, set `bonita.tenant.archive.SContractData` to true.  Note that, if not set, this parameter will by be set to true by default. 
 
 To configure the archiving strategy, edit the file [`bonita-tenant-sp-custom.properties`](BonitaBPM_platform_setup.md) and specify the items that you want archived. 
 By default, the archiving strategy is that everything is archived, so the value for each type of information is set to `true`. Change this setting to `false` for the items that you do not want to archive.
