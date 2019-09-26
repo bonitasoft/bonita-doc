@@ -136,13 +136,13 @@ below will be given for Bonita Subscription. You can easily adapt files and fold
 * In **Download** menu, click on _**Request a download**_
 * Select your version and click on _**Access download page**_ button
 * On the download page, go to the **Deploying Server Components** section
-* Click on _**Download BonitaSubscription-x.y.z-tomcat.zip**_ link. If your server only has a terminal available
+* Click on _**Download BonitaSubscription-x.y.z.zip**_ link. If your server only has a terminal available
 you can copy the link and use `wget` to download the file or use SSH with `scp` command to copy
 the file from another computer.
-* Make sure that the `BonitaSubscription-x.y.z-tomcat.zip` file is located in your home folder (e.g. `/home/osuser`).
+* Make sure that the `BonitaSubscription-x.y.z.zip` file is located in your home folder (e.g. `/home/osuser`).
 If you type `cd ~ && ls` you should see the file listed.
 * Make sure the `unzip` command is installed: `sudo apt install unzip`
-* Unzip the Tomcat bundle: `unzip -q BonitaSubscription-x.y.z-tomcat.zip`
+* Unzip the Tomcat bundle: `unzip -q BonitaSubscription-x.y.z.zip`
 
 * Change folders and files ownership: `sudo chown -R tomcat8:tomcat8 /opt/bonita`
 
@@ -150,7 +150,7 @@ If you type `cd ~ && ls` you should see the file listed.
 
 To define JVM system properties, you need to use a new file named `setenv.sh`:
 
-* Copy the file from Tomcat bundle to Tomcat installation `bin` folder: `sudo cp ~/BonitaSubscription-x.y.z-tomcat/server/bin/setenv.sh /usr/share/tomcat8/bin/`, where "x.y.z" stands for your current product version.
+* Copy the file from Tomcat bundle to Tomcat installation `bin` folder: `sudo cp ~/BonitaSubscription-x.y.z/server/bin/setenv.sh /usr/share/tomcat8/bin/`, where "x.y.z" stands for your current product version.
 * Make the file executable: `sudo chmod +x /usr/share/tomcat8/bin/setenv.sh`
 * Edit `setenv.sh` file: `sudo nano /usr/share/tomcat8/bin/setenv.sh`
 * Change `sysprop.bonita.db.vendor` from `h2` to `postgres`
@@ -172,21 +172,21 @@ Warning: make sure you stop Tomcat before performing following operations: `sudo
 
 * Create new folders in order to store Arjuna configuration and work files: `sudo mkdir -p /opt/bonita/conf && sudo mkdir -p /opt/bonita/arjuna/tx-object-store`
 * Set the ownership of the Arjuna configuration folder: `sudo chown -R tomcat8:tomcat8 /opt/bonita/arjuna/tx-object-store`
-* Copy the Arjuna configuration files to `/opt/bonita/conf` folder: `sudo cp ~/BonitaSubscription-x.y.z-tomcat/server/conf/jbossts-properties.xml /opt/bonita/conf/`
+* Copy the Arjuna configuration files to `/opt/bonita/conf` folder: `sudo cp ~/BonitaSubscription-x.y.z/server/conf/jbossts-properties.xml /opt/bonita/conf/`
 * Edit `jbossts-properties.xml` file, and update the `objectStoreDir` property to point to Arjuna work dir (created above) by replacing:  
   `<entry key="com.arjuna.ats.arjuna.objectstore.objectStoreDir">${catalina.base}/work/bonita-tx-object-store</entry>`  
   by  
   `<entry key="com.arjuna.ats.arjuna.objectstore.objectStoreDir">/opt/bonita/arjuna/tx-object-store</entry>`
 * Save and quit: `CTRL+X, Y, ENTER`
-* Copy the `bonita.xml` file (Bonita web app context configuration): `sudo cp ~/BonitaSubscription-x.y.z-tomcat/server/conf/Catalina/localhost/bonita.xml /etc/tomcat8/Catalina/localhost/`
+* Copy the `bonita.xml` file (Bonita web app context configuration): `sudo cp ~/BonitaSubscription-x.y.z/server/conf/Catalina/localhost/bonita.xml /etc/tomcat8/Catalina/localhost/`
 * Edit the `bonita.xml` file by commenting the h2 datasource configuration and
 uncomment PostgreSQL example and update username, password and database name (bonita in the URL property) to match your
 configuration (e.g. `bonita_db_user`, `bonita_db_password` and `bonita_db`): `sudo nano /etc/tomcat8/Catalina/localhost/bonita.xml`
 * Also in `bonita.xml` file update data base configuration for BDM to match your configuration (e.g. `bonita_db_user`, `bonita_db_password` and `bonita_bdm`)
 * Save and quit: `CTRL+X, Y, ENTER`
-* Copy and overwrite `logging.properties` file: `sudo cp ~/BonitaSubscription-x.y.z-tomcat/server/conf/logging.properties /etc/tomcat8/logging.properties`
-* Copy and overwrite `context.xml` file: `sudo cp ~/BonitaSubscription-x.y.z-tomcat/server/conf/context.xml /etc/tomcat8/context.xml`
-* Copy and overwrite `server.xml` file: `sudo cp ~/BonitaSubscription-x.y.z-tomcat/server/conf/server.xml /etc/tomcat8/server.xml`
+* Copy and overwrite `logging.properties` file: `sudo cp ~/BonitaSubscription-x.y.z/server/conf/logging.properties /etc/tomcat8/logging.properties`
+* Copy and overwrite `context.xml` file: `sudo cp ~/BonitaSubscription-x.y.z/server/conf/context.xml /etc/tomcat8/context.xml`
+* Copy and overwrite `server.xml` file: `sudo cp ~/BonitaSubscription-x.y.z/server/conf/server.xml /etc/tomcat8/server.xml`
 * Edit `server.xml` (`sudo nano /etc/tomcat8/server.xml`) and comment out h2 listener line
 * Fix ownership on the copied files: `sudo chown -R root:tomcat8 /etc/tomcat8`
 
@@ -195,7 +195,7 @@ configuration (e.g. `bonita_db_user`, `bonita_db_password` and `bonita_db`): `su
 If you run the Subscription Pack version, you will need a license:
 
 * Generate the key in order to get a license:
-  * Change the current directory to license generation scripts folder: `cd ~/BonitaSubscription-x.y.z-tomcat/tools/request_key_utils-x.y-z`
+  * Change the current directory to license generation scripts folder: `cd ~/BonitaSubscription-x.y.z/tools/request_key_utils-x.y-z`
   * Make sure the license generation script is executable: `chmod u+x generateRequestKey.sh`
   * Run the script: `./generateRequestKey.sh`
   * For `License type:`
@@ -214,7 +214,7 @@ If you run the Subscription Pack version, you will need a license:
 
 Deploy the Bonita web application:
 
-Copy `bonita.war` to Tomcat `webapps` folder: `sudo cp ~/BonitaSubscription-x.y.z-tomcat/server/webapps/bonita.war /var/lib/tomcat8/webapps/`
+Copy `bonita.war` to Tomcat `webapps` folder: `sudo cp ~/BonitaSubscription-x.y.z/server/webapps/bonita.war /var/lib/tomcat8/webapps/`
 
 Take care to set the proper owner: `sudo chown tomcat8:tomcat8 /var/lib/tomcat8/webapps/bonita.war`
 

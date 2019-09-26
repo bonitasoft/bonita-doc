@@ -23,7 +23,7 @@ For a Subscription edition:
 
 #### Unzip
 
-The fully qualified folder path (including the Bonita-x.y.z-tomcat folder) to the folder where you unzip the Tomcat bundle is referred to as `<BUNDLE_HOME>`. We recommend the following locations:
+The fully qualified folder path (including the Bonita-x.y.z folder) to the folder where you unzip the Tomcat bundle is referred to as `<BUNDLE_HOME>`. We recommend the following locations:
 
 * Windows: `C:\Bonita`.
 * Linux: in `/opt/Bonita`. Make sure that Linux user account used to execute Tomcat is the owner of the folders and files.
