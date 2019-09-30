@@ -1,6 +1,8 @@
 # Actor filters
 
-An actor filter refines the list of users who can perform a task, by filtering the list of users mapped to the actor.
+On a human task, the actor filter calculates which users can perform it. Calculation uses data in the case, or external system. 
+
+To create your own Actor filter, see [Create an actor filter](creating-an-actor-filter.md)].
 
 The following standard actor filters are provided:
 
