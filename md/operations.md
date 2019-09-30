@@ -1,5 +1,7 @@
 # Operations
 
+This page defines operations at task level and provides information on different types of operations that are available.
+
 An operation is an action that updates the value of a variable (using an expression) when a task is performed.   
 You can specify any number of operations on a task. Operations are executed in the order they are listed.
 
