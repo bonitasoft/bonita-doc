@@ -1,6 +1,6 @@
-# Key concepts
+# Bonita key concepts
 
-This page introduces some of the key concepts related to designing an application or process with Bonita, and the terminology used in Bonita Studio.
+Learn some of the key concepts related to designing an application or a process with Bonita, and the terminology used in Bonita Studio.
 
 ## Applications and processes
 
