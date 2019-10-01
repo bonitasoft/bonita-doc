@@ -222,7 +222,7 @@ Log in to the Portal and verify that the migration has completed.
 If you did not set the default Look & Feel before migration and you cannot log in, you need to [restore the default Look & Feel](managing-look-feel.md) using a REST client or the Engine API.
 1. **If you migrated pasted version 7.7**
 In that case, if you used the migration tool 2.41.1 or greater, the table `arch_contract_data` is automatically backed up to the table `arch_contract_data_backup` to avoid long lasting migration.
-To reintegrate the data to you installation, a new tool is provided in version 2.46.0. It is localised in the `tools/live-migration` folder.
+To reintegrate the data into your installation, a new tool is provided in version 2.46.0. It is located in the `tools/live-migration` folder.
 Follow instruction in the README.md to run this tool and re-integrate data from `arch_contract_data_backup`.
 
 The migration is now complete. If you were using a custom Look & Feel before migration, test it on the new version before applying it to your migrated platform.
