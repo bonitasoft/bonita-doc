@@ -1,6 +1,6 @@
 # Manage users
 
-This page contains examples on how to create and edit users or search for users data through Bonita java API's.
+This page contains examples on how to create and edit users, to search for users data, through Bonita java API's.
 
 ## Create a new user
 
