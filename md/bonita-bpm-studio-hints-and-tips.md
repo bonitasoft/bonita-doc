@@ -1,6 +1,6 @@
 # Bonita Studio hints and tips
 
-Discover smart ways to use diagrams in Bonita Studio
+Discover how to add items to a diagram in Bonita Studio, use the tree view, and search/edit diagrams.
 
 ## Adding items to a diagram
 
