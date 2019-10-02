@@ -1,5 +1,7 @@
 # Events
 
+This section will define different types of events and provide information on their usage.
+
 ##  Overview
 
 An event is something that happens during the execution of a process and has an impact on the flow.  
