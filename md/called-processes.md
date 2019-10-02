@@ -1,6 +1,6 @@
 # Called processes
 
-This page defines called processes, how to define them and how they can be extracted.
+This page defines called processes in Bonita, how to define them and how they can be extracted.
 
 ## Overview
 
