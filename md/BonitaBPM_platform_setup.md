@@ -1,7 +1,7 @@
 
-# Platform configuration
+# Platform configuration setup tool 
 
-In this section you will learn what the Platform setup tool is and how to use it to configure the Bonita Platform, manage your licenses (for Subscription users), and more...
+This page explains how to use the Platform setup tool to configure the Bonita platform (properties, permissions, license install...).
 
 :::info
 **Note:** First thing to know is that for all basic installation and start scenarios, you don't need to use the setup tool. 
