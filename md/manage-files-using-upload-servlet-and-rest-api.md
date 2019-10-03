@@ -1,6 +1,6 @@
 # Upload servlets for the REST API expecting files 
 
-For all the REST APIs expecting a file path it is required to upload the file using one of the provided upload servlet first.  
+For all the REST APIs expecting a file path it is required to upload the file using one of the provided upload servlets first.  
 
 To upload a file you need to perform a multipart post request on any of the available servlets.
 It returns the name of the temporary uploaded file.
