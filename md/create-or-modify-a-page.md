@@ -1,6 +1,6 @@
 # UI artifacts in UI Designer
 
-How to create and modify UI artifacts to build powerful application with Bonita UI Designer.
+How to create and modify UI artifacts to build powerful applications with Bonita UI Designer.
 
 
 ## Artifacts overview
