@@ -1,9 +1,19 @@
-# UI artifacts
+# UI artifacts in UI Designer
 
-The UI Designer is a powerful application to design Bonita custom pages, layouts, forms, custom widgets and fragments.  
-Custom pages are used in Bonita Portal custom profiles or in custom BPM applications.  
-Forms are used to instantiate a process or to execute a human task.  
-The UI Designer runs in a browser. Launching it from Bonita Studio starts a web server and opens your default browser.
+How to create and modify UI artifacts to build powerful application with Bonita UI Designer.
+
+
+## Artifacts overview
+
+Design Bonita custom pages, layouts, forms, custom widgets and fragments in UI Designer.
+
+[Custom pages](pages.md) are used in Bonita Portal custom profiles or in custom BPM applications.
+
+[Forms](forms.md) are used to instantiate a process or to execute a human task.
+
+[Fragments](fragments.md) (Bonita Enterprise, Performance, Efficiency and Teamwork editions only) aim at being reused in other pages of your application.
+
+[Widgets](widgets.md) are used or customized to design your page or form
 
 
 ## Design a page, layout, form, or fragment
