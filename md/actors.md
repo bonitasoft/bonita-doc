@@ -1,6 +1,6 @@
 # Actors of processes
 
-The concept of Actor define who can perform a task or start a process.
+The concept of Actor defines who can perform a task or start a process.
 
 
 ## Define an actor
