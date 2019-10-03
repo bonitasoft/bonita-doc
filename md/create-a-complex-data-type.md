@@ -1,4 +1,6 @@
-# Complex data types
+# Custom complex data types
+
+Creation of custom data types.
 
 ::: info
 **Note:** For Bonita Performance, Efficiency, and Teamwork editions only.
