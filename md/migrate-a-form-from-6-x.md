@@ -9,6 +9,7 @@ We also strongly advise you to switch to forms created with Bonita UI Designer t
 By the end of 2018, V6 GWT forms won't be available for modeling or execution.
 
 ## How to migrate ?
+
 There is no specific tooling to assist with migration, and you do not have to migrate all aspects of a process definition at the same time.  
 You can take a staged approach, testing that your process continues to behave as expected after each change.
 
