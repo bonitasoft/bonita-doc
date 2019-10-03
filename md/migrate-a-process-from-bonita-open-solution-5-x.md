@@ -1,5 +1,7 @@
 # Migrate a process from Bonita Open Solution 5.x
 
+Learn the steps required to migrate from Bonita 5 to Bonita 7.
+
 A process exported from Bonita Open Solution 5.x must be modified to run in Bonita because of the modifications and new features.  
 Bonita provides a guided migration for importing a process from 5.9 or 5.10 to the Bonita legacy 6.x concepts and tooling.  
 You can then modify the process definition to take advantage of the new features in the latest version of Bonita.  
