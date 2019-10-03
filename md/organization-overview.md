@@ -1,6 +1,6 @@
 # Organization overview
 
-This page explains the concepts of actors and organizations in Bonita.
+Concepts of actors and organizations in Bonita.
 
 There are two stages to specify who will perform a step in a process:
 
