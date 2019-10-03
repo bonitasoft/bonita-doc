@@ -1,5 +1,7 @@
 # Form API
 
+Mapping of a form to a process or a task.
+
 ## Form mapping resource
 
 ### Description
