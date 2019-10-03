@@ -1,6 +1,6 @@
 # 6.x legacy forms
 
-Information how to use GWT forms created in previous version of Bonita.
+How to use GWT forms created in previous version of Bonita.
 
 ::: warning
 **Attention**: By the end of 2018, V6 GWT forms won't be available for modeling or execution.
