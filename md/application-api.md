@@ -1,12 +1,12 @@
 # Application API
 
-## Application
+Bonita application API allow you to retrieve the current deployed application definitions
 
 ## Living application
 
 #### Description
 
-Manage applications. This enables you to build to build a consistent functional applicative environment for users to interact with business processes and business data from one place.
+Manage applications. This enables you to build a consistent functional applicative environment for users to interact with business processes and business data from one place.
 
 #### Identifier
 
