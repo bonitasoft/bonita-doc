@@ -1,8 +1,10 @@
-# BDM API
+# Business Data Model (BDM) API
 
-Access to the bdm REST API depends on the [REST API authorization](rest-api-authorization.md) settings.
+BDM Rest APIs allow to query Bonita Business Data.
 
-## BusinessData
+Access to the BDM Rest APIs depends on the [REST API authorization](rest-api-authorization.md) settings.
+
+## Business Data
 
 #### Description
 
