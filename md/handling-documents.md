@@ -1,7 +1,10 @@
 
-# Handle documents with Java APIs
+# Manage documents with code examples and Java API
 
-This page shows examples on how to manipulate documents in a Bonita process using the Java APIs.  
+These lines of code illustrate how the Bonita Engine JAVA API lets you create, add new version and attach document to Bonita process.
+
+## More information
+
 You might want to consult the [document documentation](documents.md) first.
 
 A document is treated in a similar way to a variable in Bonita Engine database. It is defined in Bonita Studio or programmatically, and is stored in the Bonita Engine database. Inside a process instance, a document is a byte stream.
