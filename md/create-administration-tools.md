@@ -1,9 +1,10 @@
 # Create administration tools
 
 Discover how to create tools to administer your Bonita system using Maven and Java.  
-The example proposes to list the failed tasks, and is wrapped in a script so that it can be executed in an environment with no window manager.
 
 ## Getting started
+
+The example proposes to list the failed tasks, and is wrapped in a script so that it can be executed in an environment with no window manager.
 
 You need to be familiar with building a Maven project with Bonita as a dependency. You also need to be familiar with using the Bonita Engine APIs.
 If this is not the case, follow this [tutorial](engine-api-overview.md#getting-started-engine-apis).
