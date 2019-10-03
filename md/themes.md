@@ -1,6 +1,6 @@
 # Application Themes
 
-Create, import, define and use personal theme to skin your Bonita application.
+Create, import, define and use personal themes to skin your Bonita application.
 
 ## Theme definition
 
