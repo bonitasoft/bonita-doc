@@ -1,4 +1,4 @@
-# manage a list of documents
+# Manage a list of documents
 
 Bonita allows you to group documents with lists.
 
