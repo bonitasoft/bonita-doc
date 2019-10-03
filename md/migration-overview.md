@@ -1,4 +1,5 @@
 # Migration overview
+A overview of the migration process of a Bonita Platform.
 
 ## Migrating your platform to the new version
 
