@@ -1,9 +1,10 @@
-# Appearance
+# Appearance of page and forms
 
-Page and form appearance is based on the Bootstrap v3.3.2 CSS framework. To define the appearance of a page or form you can use an application [theme resource](themes.md), apply a Boostrap theme, or manually add a custom CSS class that you implement.
+Bonita allows you to define the appearance of a page or form using themes.
 
 ## Apply an application resource theme
 
+Page and form appearance is based on the Bootstrap v3.3.2 CSS framework. To define the appearance of a page or form you can use an application [theme resource](themes.md), apply a Boostrap theme, or manually add a custom CSS class that you implement.
 By default, pages designed with the UI Designer are deployed in an [application](applications.md) and use the theme chosen for the application.
 
 ## Apply a Boostrap CSS theme
