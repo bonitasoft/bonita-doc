@@ -1,6 +1,6 @@
 # Manage an organization
 
-This page contains examples on how to import / read / edit / delete organizations through Bonita java API's.
+Examples on how to import / read / edit / delete organizations through Bonita java API's.
 
 ## Import an organization
 
