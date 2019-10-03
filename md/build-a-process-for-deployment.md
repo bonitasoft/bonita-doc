@@ -1,9 +1,10 @@
 # Build a process for deployment
+Build executables to deploy your process. 
+
+## How to
 
 When a process is ready for deployment, build an archive file in Bonita Studio that can be installed in Bonita Portal.
 You also need to initialize the organization information needed in Bonita Portal.
-
-## Build a process for deployment
 
 A process is deployed by installing a business archive (.bar) file in Bonita Portal.
 To create the business archive:
