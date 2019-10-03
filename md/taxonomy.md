@@ -45,7 +45,7 @@
     * [Contracts and contexts](contracts-and-contexts.md)
     * [Documents](documents.md)
     * [Complex data types](create-a-complex-data-type.md)
-    * [Define a search key](define-a-search-index.md)
+    * [Search keys](define-a-search-index.md)
     * [Expressions and scripts](expressions-and-scripts.md)
     * [Operations](operations.md)
   * [Page and form development](_page-and-form-development.md)
