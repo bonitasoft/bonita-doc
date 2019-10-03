@@ -1,10 +1,10 @@
-# Multi-tenancy and tenant configuration
+# Multi-tenant configuration for a Bonita platform
+
+One single platform to admininstrate with multiple logical engines. Discover what is a Tenant and how to setup Bonita with Multi-tenancy.
 
 ::: info
 **Note:** For Performance edition only.
 :::
-
-This page explains the architecture and configuration of a multi-tenant system using Bonita.
 
 ## Platform architecture
 
