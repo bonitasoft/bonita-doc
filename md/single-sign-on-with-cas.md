@@ -1,9 +1,10 @@
-# Single sign-on with CAS
+# CAS SSO configuration
+
+Bonita can be configured to use CAS to provide single sign-on (SSO), as long as you already have a working CAS service and all Bonita users are registered in CAS.
+
 ::: info
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
-
-This pages explains how to configure your Bonita Platform system to use CAS to provide single sign-on (SSO). It assumes you already have a working CAS service. All Bonita users must be registered in CAS.
 
 This information applies to a Bonita platform deployed from a bundle, not to the Engine launched from Bonita Studio.
 
