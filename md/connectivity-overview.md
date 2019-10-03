@@ -1,4 +1,5 @@
-# Connectivity overview
+# Connecting to external systems from processes
+Connectors are elements in Bonita that allows to read or write information from external systems from within a process or a task. 
 
 ## Overview
 
