@@ -1,18 +1,17 @@
-# Customuserinfo API
+# Custom user info API
 
-## Description
+The Custom user info Rest API allows to manage the custom information of the Bonita's users.
 
-Use the customuserinfo API for managing custom user definitions. Three resources are used: customuserinfo/definition, customuserinfo/value, and customuserinfo/user.
+## Definition
+### Description
+
+Manage the custom user definitions.
 
 ### Identifier
 
 Simple, the ID of the object (a long value)
 
-### Parameters
-
-None
-
-### Representation of customuserinfo/definition
+### Representation
 
 ```json
 {
@@ -22,40 +21,15 @@ None
 }
 ```
 
-### Representation of customuserinfo/value
+### Methods
 
-```json
-{
-  "userId":"_id of user_",
-  "value":"_content of the value_",
-  "definitionId":"_id of definition_"
-}
-```
-
-### Representation of customuserinfo/user
-
-```json
-{
-  "userId":"_id of user_",
-  "value":"_content of the value_",
-  "definitionId":{
-    "id" : "_id of definition_",
-    "description" : "_definition description_",
-    "name" : "_definition name_"
-  }
-}
-```
-
-## Methods
-
-The methods used for these resources are:
-
+The methods used for this resource are:
 * GET
 * POST
 * PUT
 * DELETE
 
-### Add a new definition
+#### Add a new definition
 
 Use the method POST to add a new definition.
 
@@ -85,7 +59,7 @@ Use the method POST to add a new definition.
     }
     ```
 
-### Delete a definition
+#### Delete a definition
 
 Use the DELETE method to delete an existing definition.
 
@@ -93,26 +67,8 @@ Use the DELETE method to delete an existing definition.
   `http://localhost:8080/bonita/API/customuserinfo/definition/`  
 * **Method**  
   `DELETE`
-
-### Associate definitions to users
-
-Use a PUT method to associate users with custom information.
-
-* **URL**  
-  `http://localhost:8080/bonita/API/customuserinfo/value/:userId/:definitionId`  
-  _Example_: Associate the user with id = 1 with the definition with id = 2\. `http://localhost:8080/bonita/API/customuserinfo/value/1/2`
-* **Method**  
-  `PUT`
-* **Request Payload**  
-  ```json
-  {
-    "value":"customUserInfoValue"
-  }
-  ```
-* **Success Response**  
-  * **Code**: 200
-
-### List the custom user information
+  
+#### List the custom user information
 
 Use a GET method to search for definitions.
 
@@ -130,7 +86,84 @@ There are no filters, and no search terms. All the definitions are returned.
   * **Payload**:  
     An array of definition objects
 
-### Search custom user info
+
+## Value
+### Description
+
+Manage the value of the custom user definitions.
+
+### Identifier
+
+Simple, the ID of the object (a long value)
+
+### Representation
+
+```json
+{
+  "userId":"_id of user_",
+  "value":"_content of the value_",
+  "definitionId":"_id of definition_"
+}
+```
+
+### Methods
+
+The methods used for this resource are:
+* GET
+* POST
+* PUT
+* DELETE
+
+#### Associate definitions to users
+
+Use a PUT method to associate users with custom information.
+
+* **URL**  
+  `http://localhost:8080/bonita/API/customuserinfo/value/:userId/:definitionId`  
+  _Example_: Associate the user with id = 1 with the definition with id = 2\. `http://localhost:8080/bonita/API/customuserinfo/value/1/2`
+* **Method**  
+  `PUT`
+* **Request Payload**  
+  ```json
+  {
+    "value":"customUserInfoValue"
+  }
+  ```
+* **Success Response**  
+  * **Code**: 200
+
+## User
+### Description
+
+Manage the custom user info associated to specified users
+
+### Identifier
+
+Simple, the ID of the object (a long value)
+
+### Representation
+
+```json
+{
+  "userId":"_id of user_",
+  "value":"_content of the value_",
+  "definitionId":{
+    "id" : "_id of definition_",
+    "description" : "_definition description_",
+    "name" : "_definition name_"
+  }
+}
+```
+
+### Methods
+
+The methods used for this resource are:
+* GET
+* POST
+* PUT
+* DELETE
+
+#### Search custom user info
 
 Use a GET method to search for custom user information.
 
