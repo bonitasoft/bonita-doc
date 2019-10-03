@@ -1,6 +1,6 @@
 # Manage a user
 
-This page explains how to manage users through Bonita Portal.
+How to manage users through Bonita Portal.
 
 :::info
 You must be logged on with the Administrator profile.
