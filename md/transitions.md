@@ -1,6 +1,6 @@
 # Transitions
 
-This page explains how transitions connect all objects permitting the sequence flow to execute from start to end.
+Transitions connect all objects permitting the sequence flow to execute from start to end.
 
 ## Overview
 
