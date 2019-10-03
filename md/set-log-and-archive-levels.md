@@ -1,6 +1,9 @@
-# Set log and archive levels
+# Logging and archiving of Bonita processes
 
-There are three ways to record the information about a running process:
+How the information about your Bonita processes is recorded, and how to configure what is recorded. 
+
+## Foreword
+There are three ways to record the information of a process:
 
 * Archive: used by a business analyst or process administrator using Bonita Portal, during the production phase, to trace the running of the process instances in their life cycle. Records who did what and when.
 * Technical log: used by an application developer for troubleshooting, debugging and process tuning.
