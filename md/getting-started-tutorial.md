@@ -1,5 +1,7 @@
 # Getting started tutorial
 
+Tutorial to create an application with a business travel process.
+
 This tutorial explains how to create an application that includes a process. The application is created using the Bonita Community Edition, and uses features that are available in all editions. The example application is a business travel tool.
 
 **Important:** these instructions are also available as a [video](http://www.bonitasoft.com/resources/videos/getting-started-tutorial). The complete solution is available on [GitHub](https://github.com/Bonitasoft-Community/getting-started-turorial).
