@@ -1,6 +1,8 @@
 # Widget properties
 
-A page is constructed from [widgets](widgets.md). The behavior of a widget is determined by the its properties. Any property you configure for a container is applied to all widgets in the container unless you override it with a widget-specific value.
+A page is constructed from [widgets](widgets.md). The behavior of a widget is determined by its properties.
+
+Any property you configure for a container is applied to all widgets in the container unless you override it with a widget-specific value.
 
 ## Specifying a widget property
 
