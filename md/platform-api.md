@@ -1,8 +1,10 @@
 # Platform API
 
+The Platform Rest API allows to manage the Bonita's platform.
+
 ## Platform API Login and Logout
 
-The platform API resources require a platform session.
+The Platform API resources require a platform session.
 In order to get one, log in as the platform administrator using the platform login service. The username and password are in bonita-platform-community-custom.properties file. 
 
 * **URL**  
