@@ -1,6 +1,6 @@
-# First steps after setup
+# Post-installation recommendations
 
-This page explains the post-installation setup tasks that you must carry out.
+This page describes the best practices and steps to follow in order to ensure the security of the platform after the initial installation.
 
 ## Check the installation
 

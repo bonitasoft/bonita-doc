@@ -1,4 +1,6 @@
-# Database creation and settings to work with Bonita 
+# Database creation and configuration for Bonita engine and BDM
+
+This page describes the steps to create and customize the databases for Bonita Engine and Business Data Model in the Platform installation.
 
 ## Database usage
 
