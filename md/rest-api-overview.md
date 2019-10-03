@@ -1,6 +1,6 @@
 # REST API Overview with a Getting started example
 
-The REST API lets you access the data with HTTP requests; it is useful to implement richer web forms for a better user experience.
+The REST API lets you access the data with HTTP requests; it is useful when implementing rich web forms / pages for a good user experience.
 
 ## Overview
 
