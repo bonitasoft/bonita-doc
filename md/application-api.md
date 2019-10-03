@@ -1,6 +1,6 @@
 # Application API
 
-Bonita application API allow you to retrieve the current deployed application definitions
+Bonita application API allows you to retrieve the current deployed application definitions
 
 ## Living application
 
