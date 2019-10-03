@@ -1,9 +1,13 @@
-# How to manage a list of documents
+# manage a list of documents
+
+Bonita allows you to group documents with lists.
+
+## How to 
 
 A list of documents is represented by several documents having the same name (attribute "name"). 
 It is possible to add/remove elements to a list using the same methods as for a simple document.
 
-## Get the documents of the list
+### Get the documents of the list
 
 In a case with `myDocList` as a list of documents, use the following request to sort the result by ascending index value:
 
@@ -65,7 +69,7 @@ Response payload :
 ]
 ```
 
-## Add a new document
+### Add a new document
 
 To add a new document to the list `myDocList` at the end of the list, do a POST call without specifying the _index_ attribute in the request payload.
 
@@ -109,7 +113,7 @@ Response payload
 _Note_: that this new document has got index=3\. 
 If you now rerun the first GET request, you will now get a list containing four documents with the new document as last element of the list.
 
-## Add a new document to the list at a given index
+### Add a new document to the list at a given index
 
 To add a new document to the list `myDocList` at index 1\, do a POST call specifying the _index_ attribute in the request payload.
 
