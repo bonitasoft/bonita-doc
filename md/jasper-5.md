@@ -1,8 +1,8 @@
 # Jasper
 
-## Overview
-
 A Jasper 5.0 connector is used for creating pre-formatted reports of data extracted from a database.
+
+## Overview
 
 The procedure below is an example, and not a reference:
 
