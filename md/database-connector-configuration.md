@@ -1,4 +1,5 @@
-# Database connector configuration
+# Default database connector configuration
+The Bonita Studio includes a generic database connector that allows both JDBC and Datasource configurations 
 
 There are two types of configuration for database connectors:
 
