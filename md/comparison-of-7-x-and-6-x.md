@@ -1,4 +1,6 @@
-# Comparison of 7.x and 6.x
+# Comparison of Bonita 7.x and Bonita 6.x
+
+Find out the main differences between versions 7 and 6 and learn about feature improvements in Bonita Studio, Portal, and Engine.
 
 ## Packaging comparison
 

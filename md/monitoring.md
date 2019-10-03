@@ -1,10 +1,10 @@
-# Monitoring
+# Process monitoring
+
+Monitoring gives information relative to a process ongoing execution.
 
 ::: info
 **Note:** For Enterprise, Performance and Efficiency editions only.
 :::
-
-Monitoring gives information relative to a process.
 
 This is only available to the Administrator and Process Manager profile.
 

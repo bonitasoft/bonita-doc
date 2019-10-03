@@ -1,5 +1,7 @@
 # Repeat a container for a collection of data
 
+Reuse a container inside a form more than once times to insert multiple-type data.
+
 ## Overview
 
 The content of a container can be included multiple times in a page, once for each element in a collection of data. The content is repeated as many times as necessary to display all the data in the collection.

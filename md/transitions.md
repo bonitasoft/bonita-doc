@@ -1,5 +1,7 @@
 # Transitions
 
+Transitions connect all objects permitting the sequence flow to execute from start to end.
+
 ## Overview
 
 In Bonita Studio, transitions represent sequence flow. Transition arrows are used to connect all objects, allowing the sequence flow to move from the start to the end of a process.  

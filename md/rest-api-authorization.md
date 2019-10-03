@@ -1,4 +1,6 @@
-# REST API authorization
+# REST API authorizations
+
+Permissions to access Bonita platform's REST API resources are handled by a configurable authorizations mecanism.
 
 The Bonita Portal, or any application that uses the Web REST API, enables user to access resources.
 The set of resources that a user can access is determined by default by the user's profile.

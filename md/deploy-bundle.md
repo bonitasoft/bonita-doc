@@ -1,4 +1,6 @@
-# Deploy bundle
+# Bonita Deploy bundle
+
+Description on how to install Bonita Runtime on an existing and already installed Java EE Application Server like Tomcat or WildFly. 
 
 ## What is the purpose of the Bonita Deploy bundle?
 

@@ -1,6 +1,6 @@
 # REST API authentication
 
-Calls to the Web REST API require you to first log in as a user registered in the Engine database.
+To call the REST API, you must first log on with a user registered in the Engine database.
 
 ## Login to Bonita
 To log in, use the following request:

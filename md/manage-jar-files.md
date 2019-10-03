@@ -1,11 +1,21 @@
 # Manage JAR files
 
+JAR files deployed with your application can be configured in the Bonita Studio.
+
+## What is a JAR file
+
 A JAR file is an archive container for Java code. Process and application dependencies are managed by managing the JAR files that contain the required code.
 For example, if your process uses a connector, the relevant JAR file must be referenced when you configure the process.
+
+
+## How to configure which JAR files to use
 
 The configuration dialog shows the JAR files that are known to Bonita Studio. To add a JAR file, choose **_Manage jars..._** from the **Development** menu.
 The popup shows the JARs that are known. To add a JAR, click **_Import_** and browse to the file to be imported. After the JAR file is imported, it can be used in a process.
 You can also access the **Manage jars...** dialog from the process configuration wizard.
+
+
+## Known integration issues
 
 Duplicate libraries <!--{.h2}-->
 

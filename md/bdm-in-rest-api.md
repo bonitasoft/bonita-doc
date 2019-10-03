@@ -1,6 +1,6 @@
 # How to manage BDM in REST API extensions
 
-This page demonstrates best practices when developing a [REST API Extension](rest-api-extensions.md) accessing [Business Data](define-and-deploy-the-bdm.md).  
+Learn best practices when developing a [REST API Extension](rest-api-extensions.md) accessing [Business Data](define-and-deploy-the-bdm.md).  
 Special attention is paid on performance matters.
 
 ## First use case

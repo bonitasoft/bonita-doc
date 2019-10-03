@@ -1,9 +1,8 @@
-# Run a process from Bonita Studio for testing
+# Run a process in Bonita Studio
 
-When you run a process from Bonita Studio it runs on the local Bonita Engine and 
-launches a local Bonita Portal. The process is not deployed, but behaves as it would 
-after deployment. Running a process from Bonita Studio is intended for testing during 
-process development.
+You can run a process from Bonita Studio. Bonita Studio includes a test environment with all the components required to execute a process.
+
+When you run a process from Bonita Studio it runs on the local Bonita server. The server includes an Java application server (Tomcat), two databases (h2), Bonita Engine and Bonita Portal. Running a process from Bonita Studio is intended for testing during process development.
 
 Before you can run a process, you must [configure the process](configuring-a-process.md)
 and [configure the organization](organization-management-in-bonita-bpm-studio.md).

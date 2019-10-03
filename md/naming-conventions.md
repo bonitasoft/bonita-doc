@@ -1,4 +1,6 @@
-# Naming conventions
+# Bonita naming conventions
+
+Overview of the naming conventions that should be respected in Bonita.  
 
 Every element in a process definition has a name. The only rules about naming are that you cannot use [Java language keywords](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html) and that you cannot use the same name for more than one element within the same diagram.  
 For example, you cannot have two variables called `beanCounter` in a diagram, even if they are in different pools.  

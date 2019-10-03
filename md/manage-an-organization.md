@@ -1,5 +1,7 @@
 # Manage an organization
 
+Examples on how to import / read / edit / delete organizations through Bonita java API's.
+
 ## Import an organization
 
 This example explains how to import an organization definition from an XML file into Bonita Engine. 

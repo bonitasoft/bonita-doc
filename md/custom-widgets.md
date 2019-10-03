@@ -1,7 +1,8 @@
-# Custom widgets
+# UI Designer Custom widgets
 
-If the [standard widgets](widgets.md) do not meet your needs, you can create a custom widget to match exactly what you want to achieve.  
-After creation, a custom widget is available in the palette to design pages, application layouts, forms or fragments. 
+To extend the [standard widgets](widgets.md), develop your custom widgets using HTML, AngularJS and Javascript.
+
+After creation, custom widgets are available in the palette to design pages, application layouts, forms or fragments. 
 
 ## Description
 

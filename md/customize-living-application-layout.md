@@ -1,5 +1,7 @@
 # Customize the living application layout
 
+UI Designer allows the customization of the page layouts (header, body and footer).
+
 ::: info
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
