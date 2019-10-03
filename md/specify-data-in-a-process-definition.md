@@ -1,7 +1,6 @@
 # Specify data in a process definition
 
-By data, we mean variables and documents.
-This page explains how to handle data in a process, including specifying process and task-level data.
+This page explains how to handle data (variables and documents) in a process, including specifying process and task-level data.
 
 ## Variable scope
 

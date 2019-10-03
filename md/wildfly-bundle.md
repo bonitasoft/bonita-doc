@@ -1,6 +1,6 @@
-# WildFly bundle
+# Bonita WildFly bundle
 
-You will find here steps needed to install and configure a WildFly bundle.
+You will find here the mandatory and optional steps needed to install and configure the WildFly bundle to run the Bonita platform. 
 
 The WildFly bundle is a zip archive that contains the Red Hat WildFly Java EE application server packaged with Bonita and [Bonita platform setup tool](BonitaBPM_platform_setup.md#platform_setup_tool).
 The WildFly bundle is a regular zip archive based on the WildFly zip distribution.

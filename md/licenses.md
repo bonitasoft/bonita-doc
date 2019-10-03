@@ -1,5 +1,7 @@
 # Licenses
 
+This page explains how to manage your license for the Bonita Platform: generate a request key, get the license file and install it.
+
 ::: info
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
