@@ -1,9 +1,11 @@
+# Create a report
+
+
+The final step when setting up reporting in Bonita is to create a report template using a Business Intelligence (BI) tool.
+
 ::: info
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
-
-# Create a report
-The final step when setting up reporting in Bonita is to create a report template using a Business Intelligence (BI) tool.
 
 ## Prerequisites
 
