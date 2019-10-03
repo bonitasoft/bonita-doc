@@ -1,6 +1,6 @@
-# Forms
+# Forms for Process instantiation or Human Tasks
 
-How to add a form resource to the Bonita Portal and make it available to users. Form resources are intended for use in applications.
+How to add a form resource to the Bonita Portal and make it available to users. Forms are intended to be used with one or several processes.
 
 ## Form definition <!--{.h2}-->
 
