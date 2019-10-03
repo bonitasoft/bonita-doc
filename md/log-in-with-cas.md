@@ -1,5 +1,5 @@
 # SSO Log in with CAS
-Use CAS as your SSO authentication server to log into Bonita.
+Use CAS as your Single Sign On (SSO) authentication server to log into Bonita Portal or REST APIs.
 
 ::: info
 **Note:** For Performance and Efficiency editions only.
