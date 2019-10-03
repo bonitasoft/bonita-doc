@@ -1,6 +1,6 @@
 # Bonita Studio installation
 
-This page explains how to install a Bonita Studio on Windows, Linux, or Mac operating systems.
+How to install a Bonita Studio on Windows, Linux, or Mac operating systems. An OS-independent archive can also be used.
 
 ## Prerequisites
 
