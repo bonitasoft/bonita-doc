@@ -1,7 +1,6 @@
+# Manage documents with code examples and Java APIs
 
-# Manage documents with code examples and Java API
-
-These lines of code illustrate how the Bonita Engine JAVA API lets you create, add new version and attach document to Bonita process.
+Code examples that illustrate how the Bonita Engine Java APIs let you create, add a new version and attach documents to a Bonita process.  
 
 ## More information
 
