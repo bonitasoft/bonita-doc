@@ -1,6 +1,6 @@
-# LDAP
+# LDAP connector
 
-The LDAP connector searches in an LDAP directory and returns a list.
+The LDAP connector allows a process to retrieve data from an LDAP server by running a query. It is not related with user authentication.
 
 Configuring an LDAP connector with the wizard:
 
