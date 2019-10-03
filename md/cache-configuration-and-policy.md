@@ -1,6 +1,6 @@
 ## Cache configuration and policy 
 
-Portal cache and living application cache configuration in bonita 7.6 version. 
+Learn how to configure Bonita Portal cache and Living Application cache. 
 
 Details about this cache configuration impact for the end user, and tutorial on modification of this configuration.
 
