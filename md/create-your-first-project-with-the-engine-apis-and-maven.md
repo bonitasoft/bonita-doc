@@ -1,6 +1,8 @@
-# Create your first project with the Engine APIs and Maven
+# Create your first application with the Engine APIs and Maven
 
-This page contains an example that explains how to set up Maven project to create a client that uses the Bonita client APIs to communicate with the Bonita Engine and run a process. It assumes that you are a Java programmer familiar with using Maven.
+Learn how to set up a client application that uses the Bonita APIs to communicate with Bonita Engine and run a process.
+
+It assumes that you are a Java programmer familiar with [Maven](https://maven.apache.org/).
 
 ## Bonita Client APIs
 
@@ -25,6 +27,12 @@ In order to use the client APIs, you need to add a dependency to the `bonita-cli
     <artifactId>bonita-client</artifactId>
     <version>${bonita.bpm.version}</version>
 </dependency>
+<!-- If you use Subscription edition, use this dependency instead: -->
+<!--dependency>
+    <groupId>com.bonitasoft.engine</groupId>
+    <artifactId>bonita-client-sp</artifactId>
+    <version>${bonita.bpm.version}</version>
+</dependency-->
 ```
 
 ## Configure the connection to the Bonita Platform
@@ -37,14 +45,15 @@ In order to use the client APIs, you need to add a dependency to the `bonita-cli
 
 The first action of the client must be to log in. This example shows how to log in when accessing the server over HTTP:
 ```java
+// Let's set the connection settings to use HTTP on the already running Bonita runtime:
 Map<String, String> settings = new HashMap<String, String>();
 settings.put("server.url", "http://localhost:8080");
 settings.put("application.name", "bonita");
 APITypeManager.setAPITypeAndParams(ApiAccessType.HTTP, settings);
-// get the LoginAPI using the TenantAPIAccessor
-LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
-// log in to the tenant to create a session
-APISession apiSession = loginAPI.login(username, password);
+
+// First of all, let's log in on the engine:
+org.bonitasoft.engine.api.APIClient apiClient = new APIClient();
+apiClient.login(username, password); // use "install" / "install" if you don't have any other user created
 ```
 
 ## Example of a client program
@@ -70,8 +79,7 @@ private static String getMenutTextContent() {
    stb.append("4 - list pending tasks \n");
    stb.append("5 - execute a task\n");
    stb.append("Choice:");
-   String message = stb.toString();
-   return message;
+   return stb.toString();
    }
 ```
 
@@ -109,7 +117,7 @@ private static void executeActions(ProcessDefinition processDefinition)
 ### Start a process
 ```bash
 private static void startProcess(ProcessDefinition processDefinition) {
-    ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(apiSession);
+    ProcessAPI processAPI = apiClient.getProcessAPI();
     ProcessInstance processInstance = processAPI.startProcess(processDefinition.getId());
 }
 ```
@@ -125,7 +133,7 @@ private static void listOpenedProcessInstances() {
     SearchResult<ProcessInstance> result = null;
     do {
         // get the current page of open process instances
-        result = getOpenProcessInstancePage(session, startIndex);
+        result = getOpenProcessInstancePage(apiClient, startIndex);
         // print the current page
         printOpenedProcessIntancesPage(page, result);
 
@@ -136,13 +144,13 @@ private static void listOpenedProcessInstances() {
 }
 ```
 ```java
-private static SearchResult<ProcessInstance> getOpenProcessInstancePage(APISession apiSession, int startIndex) throws BonitaException {
+private static SearchResult<ProcessInstance> getOpenProcessInstancePage(APIClient apiClient, int startIndex) throws BonitaException {
     // create a new SeachOptions with given start index and PAGE_SIZE as max number of elements
     SearchOptionsBuilder optionsBuilder = new SearchOptionsBuilder(startIndex, PAGE_SIZE);
     // sort the result by the process instance id in ascending order
     optionsBuilder.sort(ProcessInstanceSearchDescriptor.ID, Order.ASC);
     // perform the request and return the result
-    ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(apiSession);
+    ProcessAPI processAPI = apiClient.getProcessAPI();
     return processAPI.searchProcessInstances(optionsBuilder.done());
 }
 ```
@@ -158,7 +166,7 @@ private static void listArchivedProcessInstances() {
     SearchResult<ArchivedProcessInstance> result = null;
     do {
         // get the current page of opened process instances
-        result = getArchivedProcessInstancePage(session, startIndex);
+        result = getArchivedProcessInstancePage(apiClient, startIndex);
         // print the current page
         printArchivedProcessInstancePage(page, result);
 
@@ -169,14 +177,14 @@ private static void listArchivedProcessInstances() {
 }
 ```
 ```java
-private static SearchResult<ArchivedProcessInstance> getArchivedProcessInstancePage(APISession apiSession, int startIndex) throws BonitaException {
+private static SearchResult<ArchivedProcessInstance> getArchivedProcessInstancePage(APIClient apiClient, int startIndex) throws BonitaException {
     // create a new SeachOptions with given start index and PAGE_SIZE as max number of elements
     SearchOptionsBuilder optionsBuilder = new SearchOptionsBuilder(startIndex, PAGE_SIZE);
     // when process instances are archived the original process instance id is supplied by SOURCE_OBJECT_ID,
     // so the result will be sort by the SOURCE_OBJECT_ID
     optionsBuilder.sort(ArchivedProcessInstancesSearchDescriptor.SOURCE_OBJECT_ID, Order.ASC);
     // perform the request and return the result;
-    ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(apiSession);
+    ProcessAPI processAPI = apiClient.getProcessAPI();
     return processAPI.searchArchivedProcessInstances(optionsBuilder.done());
 }
 ```
@@ -186,7 +194,7 @@ private static SearchResult<ArchivedProcessInstance> getArchivedProcessInstanceP
 To get the pending tasks for the logged user, you use the method getPendingHumanTaskInstances.
 ```java
 private static void listPendingTasks() {
-    ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(apiSession);
+    ProcessAPI processAPI = apiClient.getProcessAPI();
     // the result will be retrieved by pages of PAGE_SIZE size
     int startIndex = 0;
     int page = 1;
