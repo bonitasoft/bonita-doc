@@ -384,11 +384,11 @@ The file exported by the Portal servlet for applications is now called "Applicat
 
 ### Fixes in Bonita 7.9.4 (2019-10-03)
 #### Fixes in Engine component
-* BR-143 platform-setup-sp contains both community and subscription versions of files
+* BR-143 platform-setup-sp contains both Community and Subscription versions of files
 * BR-189 NullPointerException error is shown when the description of a page/form is empty
-* BS-18473 Unable to update connector implementation with same java class name
+* BS-18473 Unable to update connector implementation with the same java class name
 * BS-19340 SAP Connector throws JCoException: (101) RFC_ERROR_PROGRAM: 'mshost' missing -- RFC_INVALID_PARAMETER(19)	
-* BS-19377 When a failed Receive Task is replayed no waiting_event is generated
+* BS-19377 When a failed Receive Task is replayed, no waiting_event is generated
 * BS-19387 ConcurrentModificationException is shown in the logs and in the portal when a connector fails
 * BS-19395 Java clients are limited to only 2 remote HTTP connections to Bonita server 
 
