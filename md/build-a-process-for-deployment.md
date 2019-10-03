@@ -1,5 +1,5 @@
 # Build a process for deployment
-Build executables to deploy your process. 
+Build deployment artifacts that will allow you to install your process onto a server. 
 
 ## How to
 
