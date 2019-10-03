@@ -243,7 +243,6 @@
       * [Queriable logger](queriable-logging.md)
       * [Technical logger](technical-logging.md)
     * [Execution sequence, states, and transactions](execution-sequence-states-and-transactions.md)
-    * [Shared transactions](shared-transactions.md)
   * [Living application](_living-application.md)
     * [Customize living application layout](customize-living-application-layout.md)
   * [Logs](logging.md)
