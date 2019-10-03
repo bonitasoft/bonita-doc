@@ -1,7 +1,8 @@
 # REST API extensions
 
-REST API extensions provide a solution for integration between forms/pages and third party systems (including Bonita Engine). They can be used to query [business data](define-and-deploy-the-bdm.md), Bonita Engine APIs, or an external information
-system (such as a database, web service, LDAP directory...). They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
+Create REST API extensions to use third party systems (databases, web services, Bonita Engine, etc) data in forms and pages.
+
+REST API extensions can be used to query [business data](define-and-deploy-the-bdm.md), Bonita Engine APIs, or an external information system (such as a database, web service, LDAP directory...). They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
 
 ## Prerequisites
 
