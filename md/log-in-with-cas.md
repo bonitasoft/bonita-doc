@@ -1,4 +1,5 @@
-# Log in with CAS
+# SSO Log in with CAS
+Use CAS as your SSO authentication server to log into Bonita.
 
 ::: info
 **Note:** For Performance and Efficiency editions only.
