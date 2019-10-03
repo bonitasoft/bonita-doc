@@ -1,10 +1,10 @@
-# Set up KPIs
+# KPI (Key Performance Indicator) configuration
+
+Discover how to create KPIs through the Bonita Studio feature and through a database connector to integrate them in your business processes.
 
 ::: info
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
-
-This page presents two implementation options for creating KPIs and integrating them to business processes:
 
 ## Create a KPI using the Bonita Studio KPI feature
 
