@@ -1,6 +1,6 @@
 # Enforce Password Policy
 
-A Password Policy defines a set of rules to determine whether a new password is valid. 
+A Password Policy defines a set of rules to determine whether a new password is valid or not. 
 
 ::: info
 **Note:** For Performance, Efficiency, and Teamwork editions only.
