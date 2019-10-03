@@ -1,4 +1,5 @@
-# Users task list
+# User task list
+The user task list page provides information such as; user's tasks, tasks to do, already done tasks related to different processes.
 
 ## Overview
 
