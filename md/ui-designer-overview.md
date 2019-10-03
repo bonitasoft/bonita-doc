@@ -1,6 +1,11 @@
 # UI Designer overview
 
-The UI Designer is a graphical development environment for creating pages and forms for a Bonita application. It is a web-based tool that is launched from Bonita Studio.  
+The UI Designer is a wysiwyg development environment for creating pages and forms for a Bonita application.
+
+
+## Usage
+
+It is a web-based tool that is launched from Bonita Studio.  
 A page is defined in HTML extended by the AngularJS JavaScript framework. Use the UI Designer to create and update pages for business applications, forms to start process instances or execute human tasks, and application layouts that apply to all pages of an application.
 
 * Create pages directly in the Bonita UI designer.
@@ -11,7 +16,7 @@ You can import an existing page, form, or layout to edit, or duplicate existing 
 
 ## Page structure
 
-A page (but also a form or a layout) is constructed as a vertical arrangement of rows.  
+A page (but also a form or a layout) is constraucted as a vertical arrangement of rows.  
 A row is a mechanism for aligning widgets, from top left to bottom right. When you create a new, empty, page, it contains a row. A row occupies the whole width of the page, which is considered to be 12 units. The actual width is calculated when the page is displayed. The rows are indicated by a thin pale grey rectangle on the left side of the whiteboard. 
 
 To move or delete a row, position your mouse in the row, and the row toolbar is displayed.
