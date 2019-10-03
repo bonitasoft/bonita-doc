@@ -1,6 +1,6 @@
 # Tenant administrator credentials
 
-Each tenant has an administrator, with a tenant-specific username and password. The **tenant administrator** is also known as the **tenant technical user**.
+Each tenant has an administrator (also known as the **tenant technical user**) with a tenant-specific username and password.
 
 ## How it works
 When the platform is created, default values of the administrator username and password, for the default tenant, are defined in the file
