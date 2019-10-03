@@ -1,9 +1,6 @@
-# Operations
+# Operations to update variables value
 
-This page defines the concept of Bonita operations, and provides information on different types of operations that are available.
-
-An operation is an action that updates the value of a variable (using an expression) when a task is performed.   
-You can specify any number of operations on a task. Operations are executed in the order they are listed.
+An operation is an action that updates the value of a variable when a task is executed. You can specify any number of operations per task, they are executed in the order they are listed.
 
 ## Define operations at task level
 
