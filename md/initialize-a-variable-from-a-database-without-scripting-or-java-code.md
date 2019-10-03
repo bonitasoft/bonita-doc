@@ -2,6 +2,8 @@
 
 This page explains how to set the value of a variable using the output of a database connector without using scripts or Java code.
 
+## Procedure
+
 You can initialize single valued items and multivalued items. The connector automatically populates the data structure of the variable.
 
 Before you configure the database connector, define the pool-level variable to be initialized. If you do not define the variable first, 
