@@ -1,28 +1,10 @@
-# Create or modify UI artifacts
+# UI artifacts
 
 The UI Designer is a powerful application to design Bonita custom pages, layouts, forms, custom widgets and fragments.  
 Custom pages are used in Bonita Portal custom profiles or in custom BPM applications.  
 Forms are used to instantiate a process or to execute a human task.  
 The UI Designer runs in a browser. Launching it from Bonita Studio starts a web server and opens your default browser.
 
-## Starting the UI Designer
-
-### From Bonita Studio menu bar
-
-Open the **Development** menu then choose **Open UI Designer**, or click the UI Designer icon in the coolbar. This is useful to create application pages that are not linked to a process, but display business information whose changes are managed by underlying processes.
-
-### From a form mapping tab
-
-Select a human task or a pool, go to the **Details** panel, **Execution** tab. Then go to the relevant form mapping tab:
-
-* **_Instantiation form_** for a form to start a process instance
-* **_Form_** for a form on a human task
-
-With the form type set to **UI Designer**, you can select a form from the dropdown list and click the pencil icon to edit it, or you can choose **Create a new form**. This is the way to go to create forms as the Studio will auto-generate a form based on the process instantiation or task execution [contract](contracts-and-contexts.md).
-
-You can also create a customized **overview form**, to display a summary of the case to the users, either in a case details page, or in the tasklist, to give some context to the task to do.  
-To do so, go to the pool **Details** panel, **Execution** tab, and click **_Overview page**.  
-With the form type set to **UI Designer**, you can select a form from the dropdown list and click the pencil icon to edit it, or you can choose **Create a new form**.
 
 ## Design a page, layout, form, or fragment
 
