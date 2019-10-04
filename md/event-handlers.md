@@ -23,7 +23,7 @@ In a cluster environment, Event handlers must be Serializable (implements Serial
 
 ## Example: deploy an event handler
 
-This example shows an event handler that detects changes in the state of activity instances. When executing, the event handler calls [technical logger service](technical-logging.md).
+This example shows an event handler that detects changes in the state of activity instances.
 
 ### create a maven project for event handler jar
 
@@ -79,38 +79,29 @@ import java.util.UUID;
 import org.bonitasoft.engine.events.model.SEvent;
 import org.bonitasoft.engine.events.model.SHandler;
 import org.bonitasoft.engine.events.model.SHandlerExecutionException;
-import org.bonitasoft.engine.log.technical.TechnicalLogSeverity;
-import org.bonitasoft.engine.log.technical.TechnicalLoggerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class EventHandlerExample implements SHandler<SEvent> {
 
-    private final TechnicalLoggerService technicalLoggerService;
-    private final TechnicalLogSeverity technicalLogSeverity;
+    private static Logger logger = LoggerFactory.getLogger(EventHandlerExample.class);
+
     private final String identifier = UUID.randomUUID().toString();
 
-    public EventHandlerExample(TechnicalLoggerService technicalLoggerService, String loggerSeverity) {
-        this.technicalLoggerService = technicalLoggerService;
-        this.technicalLogSeverity = TechnicalLogSeverity.valueOf(loggerSeverity);
+    public EventHandlerExample() {
     }
 
     @Override
     public void execute(SEvent event) throws SHandlerExecutionException {
-        if (technicalLoggerService.isLoggable(this.getClass(), technicalLogSeverity)) {
-            technicalLoggerService.log(this.getClass(), technicalLogSeverity, "ExampleHandler: executing event " + event.getType());
-        }
+        logger.info("ExampleHandler: executing event {}", event.getType())
 
         // add your business logic here
     }
 
     @Override
     public boolean isInterested(SEvent event) {
-        if (technicalLoggerService.isLoggable(this.getClass(), technicalLogSeverity)) {
-            technicalLoggerService.log(this.getClass(), technicalLogSeverity,
-                    "ExampleHandler - event "
-                            + event.getType()
-                            + " - asks if we are interested in handling this event instance");
-        }
-
+        logger.info("ExampleHandler - event {} - asks if we are interested in handling this event instance",
+         event.getType())
         // add your business logic here
         // for this example purpose, assume we are always interested
         return true;
@@ -137,9 +128,6 @@ An event handler is registered on an event by adding an entry to the appropriate
 
     <!-- add event handler bean definition -->
     <bean id="myEventHandlerExample" class="org.bonitasoft.example.EventHandlerExample">
-        <!-- add logging service -->
-        <constructor-arg name="technicalLoggerService" ref="tenantTechnicalLoggerService" />
-        <constructor-arg name="loggerSeverity" value="WARNING"/>
     </bean>
 
     <bean id="eventHandlers" class="org.springframework.beans.factory.config.MapFactoryBean">
