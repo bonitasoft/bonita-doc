@@ -1,5 +1,5 @@
 # Migration overview
-A overview of the migration process of a Bonita Platform.
+Learn how to migrate a Bonita Platform from an older version to a newer version.
 
 ## Migrating your platform to the new version
 
