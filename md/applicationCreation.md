@@ -1,5 +1,5 @@
 # Application descriptor
-
+Define your Bonita application descriptor.
 
 
 ## Overview
