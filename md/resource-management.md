@@ -1,8 +1,8 @@
-# Resource management
+# Resources management
 
-This page explains how to add a resource to the Bonita Portal and make it available to users. A resource is an artifact that extends the portal.
+A resource is an artifact that extends Bonita platform. It is possible to add resources to Bonita Portal and make them available to users. 
 
-It is typed and can be one of the following:
+A resource is typed and can be one of the following:
 
 ## Resource definition
 

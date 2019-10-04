@@ -1,8 +1,13 @@
-# Analytics
+# Analytics and Reports
+
+You can get custom statistics and reports in order to extract meaningful data and monitor how different processes are performing.
 
 ::: info
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
+
+## Purpose
+
 
 A report presents the Administrator with data about the usage of cases and tasks in processes. 
 
@@ -16,6 +21,7 @@ There are four reports available by default:
 You can also [define](reporting-overview.md) and [install a custom report](#install). For example, you could define a report to track purchase order progress.
 
 ## Default reports
+
 
 #### Case average time
 

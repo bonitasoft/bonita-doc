@@ -1,6 +1,6 @@
 # Organization management in Bonita Studio
 
-In Bonita, the organization is the set of users who performs tasks in your business processes.
+Organization is the set of users, groups and roles. It is used indirectly to define privileges for tasks execution, applications, API, etc.
 
 Within Bonita Studio, more than one organization can be defined. This is useful if you are developing a process that will be deployed in several different organizations. It is also useful for testing, because you can create a reduced version of your organization that has the same structure but fewer users, saving time in managing your test environment.
 

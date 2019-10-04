@@ -1,12 +1,12 @@
-# Manage Look & Feel
+# Manage the Bonita Portal Look & Feel
+
+The Look & Feel defines the appearance of Bonita Portal Web interface and the Bonita Portal Mobile interface. Discover how to customize it.
 
 ::: info
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 
-A Look & Feel defines the appearance of Bonita Portal Web interface and Bonita Portal Mobile interface.
-
-A Look & Feel is not used to specify Application layout and theme. To modify Application layout and theme, see [Specifying application layout](applications.md) and [Specifying application theme](applications.md) 
+A Look & Feel is not used to specify Application layout and theme. To modify Application layout and theme, see [Specifying application layout](applications.md) and [Specifying application theme](applications.md)
 
 ## Import and apply a new Look & Feel
 

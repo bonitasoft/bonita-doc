@@ -1,6 +1,9 @@
 # Actor filters
 
-An actor filter refines the list of users who can perform a task, by filtering the list of users mapped to the actor.
+On a human task, the actor filter is responsible for filtering out users - mapped to the actor definition - who can actually perform it. 
+
+Bonita provides a set of ready-to-use actor filters.
+To create your own Actor filter, see [Create an actor filter](creating-an-actor-filter.md)].
 
 The following standard actor filters are provided:
 

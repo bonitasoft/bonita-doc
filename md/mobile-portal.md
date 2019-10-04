@@ -1,6 +1,6 @@
-# Mobile Portal
+# Bonita Portal - Mobile version
 
-The mobile version of Bonita Portal only displays functions available to the logged-in user only. Functions for other profiles are not available.
+The Bonita Portal has a mobile version thought to be used by the User profile only. It displays the User task list and the process list.
 
 ## Security login
 

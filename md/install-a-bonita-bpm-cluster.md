@@ -1,4 +1,6 @@
-# Install a Bonita cluster
+# Bonita cluster installation and configuration
+
+Discover how to create a cluster from scratch, convert a single node into a cluster, allow communication between nodes and manage a cluster.
 
 ::: info
 **Note:** The cluster feature is a Subscription feature for **Performance** edition only.
@@ -7,10 +9,6 @@
 ::: warning
 It is possible to manage the lifecycle of a node using the API to connect directly to the node, but this bypasses the load balancer so should be done with care and only in exceptional circumstances.
 :::
-
-You will learn here how to create a cluster in two ways:
-* Create a cluster from scratch
-* Convert a single node installation into a cluster
 
 ## Note when using the AWS support
 

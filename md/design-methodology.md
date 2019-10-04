@@ -1,6 +1,6 @@
 # Design methodology
 
-This page presents a summary of the phases in creating a process-based application using Bonita:
+Summary of the phases in creating a process-based application using Bonita (Definition, Development, and Testing).
 
 ## Setting objectives
 

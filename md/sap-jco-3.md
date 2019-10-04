@@ -1,17 +1,19 @@
-# SAP JCo3
+# SAP JCo 3 Connector
+
+The Bonita SAP Java Connector 3 allows Bonita to communicate with any SAP system using the SAP JCo 3 toolkit.
+
+
+## Notice
 
 ::: info
 **Note:** For Performance and Efficiency editions only.
 :::
 
-The SAP Java Connector is a toolkit that allows a Java application to communicate with any SAP system. It combines an easy to use API with unprecedented flexibility and performance.   
-The package supports both Java to SAP System and SAP System to Java calls. 
-
-Prerequisite <!--{.h3}-->
+## Prerequisite
 
 You must have an SAP license and an SAP server to use the connector.
 
-### JCo 3
+### Overview of the SAP Java Connector (SAP JCo 3) underlying toolkit
 
 * The SAP JCo3 connector can be used to call a SAP function (BAPI, RFC or ZBAPI).
 * High-performance JNI-based RFC middleware.
