@@ -1,6 +1,8 @@
 # BDM Management in Bonita Portal
-
 Processes using Business Objects with persisted data need to run with a Business Data Model deployed in the Bonita Portal.
+
+## Manage your BDM
+
 Only one model can be deployed at a time in the Portal, so make sure it contains the Business object definition used in all processes that will run within this tenant.
 
 The Business objects must match the structure used by the deployed processes. Make sure that when modifying the Business Model, the process is modified accordingly.
