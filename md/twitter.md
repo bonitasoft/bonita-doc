@@ -1,6 +1,6 @@
 # Twitter connector
 
-Twitter connectors allows to publish Tweets or send direct messages in your processes.
+Twitter connectors allows to publish Tweets or send direct messages from your processes.
 
 # Overview
 
