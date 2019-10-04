@@ -1,6 +1,6 @@
-# Bonita overview
+# Bonita platform overview
 
-Bonita 7 is a powerful BPM-based application platform for building highly engaging, personalized, process-based business applications to get things done, take full advantage of BPM, and adapt to business changes in real time. 
+Build engaging, personalized, process-based business applications using BPM application platform. Adapt to business changes real-time
 
 Bonita has two parts: the development environment, Bonita Studio, and the runtime environment, Bonita Platform.
 
