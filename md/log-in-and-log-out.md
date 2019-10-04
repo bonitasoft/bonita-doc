@@ -1,6 +1,6 @@
 # Log in and log out
 
-How to log in or log out to the Bonita Portal.
+How to log in or log out of the Bonita Portal.
 
 You can also switch between users with different rights,(e.g. user profile and admin profile), to access different management menus.
 
