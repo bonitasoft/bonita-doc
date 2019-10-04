@@ -1,6 +1,6 @@
-# REST API overview
+# REST API Overview with a Getting started example
 
-This page contains an overview of how to integrate an application with Bonita using REST.
+The REST API lets you access the data with HTTP requests; it is useful when implementing rich web forms / pages for a good user experience.
 
 ## Overview
 
@@ -170,7 +170,7 @@ For a GET method that retrieves more than one instance of a resource, you can sp
   such as "Valid address", "Not a valid address", and "Validated request" but not "Invalid request".
   If word-based search is disabled, `s=Valid` returns matches containing the string "valid" at the start of the attribute value, such as "Valid address" or "Validated request" but not "Not a valid address" or "Invalid request".
 
-### Walk-through: how to start a case using the REST API
+### Getting started: how to start a case using the REST API
 #### Install `curl` command line tool
 `curl` is available on Linux OS and it transfers data from or to a server with various protocols such as HTTP and HTTPS.
 

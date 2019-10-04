@@ -1,5 +1,7 @@
 # Set up a reporting database
 
+Learn how to set up a reporting database to put reporting in place
+
 ::: info
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
@@ -10,7 +12,7 @@ For performance reasons, it is a best practice to isolate reporting data from li
 This installation is performed manually outside of Bonita.
 This documentation does not detail the installation procedure of such a database but provides some best practices.
 
-Best practices <!--{.h2}-->
+## Best practice
 
 Start by identifying the KPIs you wish to track, then create the reporting database structure. 
 You need to create the appropriate tables and columns to store the reporting data.

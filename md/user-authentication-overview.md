@@ -1,6 +1,6 @@
 # User authentication overview
 
-This page describes how user authentication is achieved in Bonita (running with default configuration). 
+Learn how user authentication is achieved in Bonita. This page can be helpful to troubleshoot and debug authentication issues.
 
 If you want to find out how to customize authentication refer to the dedicated documentation pages:
 

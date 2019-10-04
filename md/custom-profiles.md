@@ -1,12 +1,14 @@
-# Custom profiles
+# Bonita portal Custom profiles
+
+Bonita Studio profile editor allows you to create custom profiles that feet better with your needs regarding the Bonita portal.
+
+In a development environment, custom profiles definition and testing is done in [Bonita Studio profile editor](profileCreation.md).
+
+In a production environment, you can administrate custom profiles in Bonita Portal. To be able to do so, you must be using the **Administrator** profile or a custom profile with access to the profile management page.
 
 ::: info
 **Note:** For Enterprise, Performance and Efficiency editions only.
 :::
-
-Reminder: In a development environment, custom profiles definition and testing is done in [Bonita Studio profile editor](profileCreation.md).
-
-In a production environment, you can administrate custom profiles in Bonita Portal. To be able to do so, you must be using the **Administrator** profile or a custom profile with access to the profile management page.
 
 What customization can I do?
 

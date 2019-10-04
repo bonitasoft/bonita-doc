@@ -1,7 +1,6 @@
-
 # Bonita Studio installation
 
-This page explains how to install Bonita Studio for developing processes. There are installer wizards for Windows, Linux, and Mac systems, and an OS-independent archive that can be installed on any system.
+How to install a Bonita Studio on Windows, Linux, or Mac operating systems. An OS-independent archive can also be used.
 
 ## Prerequisites
 

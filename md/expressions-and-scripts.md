@@ -1,6 +1,8 @@
-# Expressions and scripts
+# Process Expressions and scripts
 
-Expressions and scripts are used in Bonita Studio for many purposes, including setting the initial or default value of a variable.  
+Learn how to define Expressions and script in Bonita Studio that will be executed in your processes.
+
+Expressions and scripts are used in Bonita Studio for many purposes, including setting the initial or default value of a variable.
 An expression is a simple statement; a script is a sequence of expressions, and has a program-like structure. 
 
 This page explains the features of Bonita Studio that enable you to use expressions and scripts.

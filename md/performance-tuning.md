@@ -1,10 +1,11 @@
 # Performance tuning
 
+Learn how to tune the Bonita Engine to get optimize the performance of your platform.
+
 ::: info
 **Note:** For Enterprise and Performance edition only.
 :::
 
-This page contains information that you can use to tune the Bonita Engine to get the best performance in your platform.
 It assumes that you are familiar with Java threads, concurrent execution, XML, DB connection pools, your DB instance, cache policies, scheduling, connectors, network speed, I/O, Java Virtual Machine configuration, JTA and transaction management.  
 You need to know how to install and configure Bonita.
 

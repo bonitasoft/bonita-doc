@@ -1,12 +1,17 @@
-# Execution sequence, states, and transactions
+# BPM process / task execution sequence, states, transitions
 
-This page describes the sequence of actions performed when a process instance is created and when a step is performed by a user.
+Understand the sequence of actions performed when a process instance is created and when a task is performed by a user
 
-It shows the interactions between the Bonita Portal and Bonita Engine.
+This page also shows the interactions between the Bonita Portal and Bonita Engine.
 
 In the sequences described in this page, some of the actions apply only to **Teamwork**, **Efficiency**, **Performance**, or **Enterprise** editions, and are marked "Subscription only".
 
+
+::: info
+In the sequences described in this page, some of the actions apply only to **Teamwork**, **Efficiency**, or **Performance** editions,
+and are marked "Subscription only".  
 For the **Community** edition, these actions are not relevant, but the order of the other actions is the same.
+:::
 
 ## Instantiation of a process through a user entry form
 

@@ -1,6 +1,6 @@
 #  Bonita Documentation
 
-Welcome to the Bonita documentation website.
+Learn how to use the Bonita Platform and all of its components.
 
 Click on the **links** below to find useful information quickly, or [browse the whole content tree](taxonomy.md), or use the **table of contents** to go straight to the information you want to read.
 
