@@ -1,9 +1,8 @@
-
-
-
 # Web service connector tutorial
 
-This example process will use a Web Service connector to call a sample Web Service to display the capital of a given country.
+Learn how to use a Web Service connector to call a publicly available Web Service, store the answer and display the information.
+
+The web service used in this example provides the capital of a given country.
 
 1. In the BDM, create a business object _**Country**_ with the following attributes:
 

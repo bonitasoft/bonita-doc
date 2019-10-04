@@ -1,6 +1,8 @@
-# List and search methods
+# Search and list elements of Bonita Engine
 
-The Bonita Engine APIs contain several list and search methods. This page explains the difference between list and search, and explains how to configure word-based search.
+Learn how to use search and list methods of the Bonita Engine APIs and how to configure word-based search.
+
+## List elements
 
 The following example shows how to use a list method to see the archived activity instances:
 ```java
@@ -8,16 +10,16 @@ List<ArchivedActivityInstance> archivedActivityInstances =
     TenantAPIAccessor.getProcessAPI(session).getArchivedActivityInstances(instance.getId(), 0, 100, ActivityInstanceCriterion.NAME_ASC);
 ```
 
+The advantage of using list is that it is a single query, so has better performance. It is also simpler to code.
+
+## Search elements
+
 The following example shows how to use a search method to see the archived activity instances.
 ```java
 SearchOptionsBuilder searchBuilder = new SearchOptionsBuilder(0, 100);
 searchBuilder.sort(ArchivedActivityInstanceSearchDescriptor.NAME, Order.ASC);
 SearchResult<ArchivedActivityInstance> archActivitResult = TenantAPIAccessor.getProcessAPI(session).searchArchivedActivities(searchBuilder.done());
 ```
-
-These two examples above return identical information. Both list and search can be used to return a specified number of results, sorted according to a specified criterion.
-
-The advantage of using list is that it is a single query, so has better performance. It is also simpler to code.
 
 The advantage of using search is that you can specify filters to get a more precise set of results, which can be more efficient. Several filters can be added. By default, an implicit AND clause is added when several filters are added. If the need is different,
 you can have an OR clause, of more complex clauses. See [SearchOptionsBuilder methods](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/search/SearchOptionsBuilder.html) for filtering that matches your needs.   
@@ -30,6 +32,7 @@ searchBuilder.filter(ArchivedActivityInstanceSearchDescriptor.ASSIGNEE_ID, myUse
 searchBuilder.sort(ArchivedActivityInstanceSearchDescriptor.NAME, Order.ASC);
 SearchResult<ArchivedActivityInstance> archActivitResult = TenantAPIAccessor.getProcessAPI(session).searchArchivedActivities(searchBuilder.done());
 ```
+
 Below is another example of a more complex search filtering.
 ```java
 SearchOptionsBuilder sob = new SearchOptionsBuilder(0, 10);
@@ -39,8 +42,7 @@ sob.differentFrom</b>(HumanTaskInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getI
 ```
 
 <a id="word_based_search" />
-
-Word-based search <!--{.h2}-->
+## Word-based search
 
 By default, search uses a "starts by" algorithm for searching, and finds matches where the search string occurs at the start of a phrase.
 If word-based search is enabled, you can search for a string that is preceded by white space or is at the start of the phrase.

@@ -1,10 +1,9 @@
-# How to create a modal window using CSS
+# How to create a modal window in UI Designer
 
-A nice aspect of the UI designer is the way it takes advantage of the WEB technologies letting you put the style of your page where it belong.  
-In a CSS file. 
+A nice aspect of Bonita UI Designer is that it allows users to apply or customize styles to the page as per their requirements through CSS.
 
-Throughout this tutorial you will see how to build a modal window using only CSS.  
-Let's get started by creating some content.  
+Throughout this tutorial you will see how to build a modal window using only CSS.
+Let's get started by creating some content.
 You will need a container which will end up being our modal and some other content on top of which that modal will be displayed.
 
 ![Initial content](images/uid-modal-tutorial/initial-content.png) <!--{.img-responsive .img-thumbnail}-->

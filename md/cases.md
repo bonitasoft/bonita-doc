@@ -1,6 +1,8 @@
 # Cases
 
-Logged on with the Administrator or Process Manager profile, you have rights to manage a case as follows:
+How to manage cases in the Bonita Portal.
+
+You need to be logged on Bonita with the Administrator profile or the Process Manager profile, in order to manage a case.
 
 ## Add a comment to a case
 

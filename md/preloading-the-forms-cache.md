@@ -1,5 +1,7 @@
 # Preload the forms cache
 
+The forms cache allow legacy forms (6.x) to be displayed more rapidly. It is possible to preload this cache.
+
 ::: info
 **Note:** This information applies to legacy forms developed with Bonita 6.x, or with the _6.x Application_ backward-compatibility features of Bonita 7.0\. It is not necessary to preload forms developed with the UI Designer.
 :::

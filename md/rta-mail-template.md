@@ -1,6 +1,6 @@
 # How to use the rich textarea widget in a mail template
 
-Using a leave request management process example, you will learn how to use a mail template in a form.
+Learn how to use a mail template in a form with the rich textarea widget: the leave request management process example. 
 
 ## Out of office message process
 

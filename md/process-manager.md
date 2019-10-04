@@ -1,10 +1,10 @@
-# Process manager
+# Bonita portal Process manager profile 
+
+Users can be assigned as manager for processes. Then, users mapped to the Process manager profile will be able to manage those processes.
 
 ::: info
 **Note:** For Performance and Efficiency editions only.
 :::
-
-The portal administrator can assign a Process manager to a process, to share responsibility for managing processes.
 
 ## Process manager description
 

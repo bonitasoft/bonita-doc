@@ -1,4 +1,6 @@
-# Process configuration overview
+# Different process configuration scenarios
+
+The Bonita Studio provides dedicated tooling to configure the different artefacts that are part of a process.
 
 There are two reasons for configuring a process:
 

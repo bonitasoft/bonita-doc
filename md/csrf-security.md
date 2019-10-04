@@ -1,6 +1,6 @@
 # CSRF security
 
-This page explains how Bonita REST API is secured against Cross-Site Request Forgery (CSRF) attacks.
+Bonita REST API is secured against Cross-Site Request Forgery (CSRF) attacks.
 
 CSRF (also known as XSRF and Sea-Surf), is an example of a malicious attack on a trusted website.
 While the user is authenticated, by being logged on to a trusted website, malicious requests are transmitted without the user knowing, or giving their consent. 

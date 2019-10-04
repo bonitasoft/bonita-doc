@@ -1,6 +1,9 @@
-# Set log and archive levels
+# Logging and archiving of Bonita processes
 
-There are three ways to record the information about a running process:
+How the information about your Bonita processes is recorded, and how to configure what is recorded. 
+
+## Foreword
+There are three ways to record the information of a process:
 
 * Archive: used by a business analyst or process administrator using Bonita Portal, during the production phase, to trace the running of the process instances in their life cycle. Records who did what and when.
 * Technical log: used by an application developer for troubleshooting, debugging and process tuning.
@@ -23,7 +26,7 @@ Between these two extreme cases, you can [customize archiving](configurable-arch
 
 ## Technical log
 
-The [technical logger service](technical-logging.md) is part of the Bonita Engine. The default implementation is based on the framework Java Util Logging.
+Bonita Engine uses SLF4J to log. The default implementation embedded in the Tomcat bundle is Java Util Logging.
 
 You can [configure the log level](logging.md). The log level can be set on several categories in the `logging.properties` file. Some categories are very specific to a particular issue. 
 For example:

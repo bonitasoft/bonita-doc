@@ -1,12 +1,11 @@
-# Community to Subscription upgrade
+# Upgrade from Community to Subscription
 
 Upgrading means moving from a Bonita Community edition environment to any Bonita Subscription 
 edition environment.
 
-**Warnings:**
-
-* An upgrade can only be performed on a single Bonita  version. You cannot migrate to a new version at the same time as you upgrade to Subscription edition.  
-  Eg. Migrate from **Bonita 7.3.3 Community** edition to **Bonita 7.3.3 Subscription** edition. 
+## To Check before upgrading
+* An upgrade can only be performed on a single Bonita version. You cannot migrate to a new version at the same time as you upgrade to Subscription edition.  
+  Eg. You can only upgrade from **Bonita 7.3.3 Community** edition to **Bonita 7.3.3 Subscription** edition. You **cannot** upgrade from **Bonita 7.3.3 Community** to **Bonita 7.4.0 Subscription**.
 * After it is applied, an upgrade cannot be undone.
 
 An upgrade is performed in two phases.

@@ -1,10 +1,10 @@
 # Workspaces and repositories
 
+Organize and share your Bonita project using workspaces and repositories in order to ease developers team collaboration.
+
 ::: info
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
-
-This page explains how to use a shared repository so that several people can collaborate on process design.
 
 ## Workspaces and repositories
 
