@@ -1,11 +1,15 @@
 # Multi-language pages
 
+The UI Designer includes a mechanism to add translations for page, layout and form elements, to support multi-language applications.
+
 ::: info
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 
-In the Bonita Subscription editions, the UI Designer includes a mechanism to add translations for page, layout and forms elements, to support multi-language applications.  
-The text displayed in the preview and at runtime adapts to the locale or browser language automatically. The UI Designer itself, that speaks to developers, not end-users, is displayed in the language of your Bonita Studio.  
+## Visualization
+
+The text displayed in the preview and at the runtime adapts to the local or browser language automatically. The UI Designer itself, that speaks to developers, not end-users, is displayed in the language of your Bonita Studio.  
+
 The Preview window is displayed in the language set for Bonita Portal, since it speaks to the end-users.
 
 You can translate all text strings displayed on a page, layout or form: the labels, the placeholders, the available values of a list, and the date format of the Date Picker widget. You can also translate fragments and custom widgets strings that the page, layout or form embeds.

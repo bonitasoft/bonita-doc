@@ -1,5 +1,7 @@
 # How to map authorization rules
 
+Custom authorization can be configured for pages and forms to restrict the access to selected profiles or users.
+
 ## Introduction
 
 This tutorial explains how to customize authorization rule mapping.

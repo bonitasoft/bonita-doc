@@ -1,4 +1,6 @@
-# Overview of Bonita in a cluster
+# Overview of Bonita Platform in cluster
+
+Learn how to achieve High availability by setting up Bonita Platform in cluster.
 
 ::: info
 **Note:** For Performance edition only.

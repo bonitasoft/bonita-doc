@@ -1,10 +1,10 @@
 # Set up continuous integration
 
+Learn how to set up a continuous integration (CI) environment for your Bonita projects. CI includes automation of build, deployment, etc.
+
 ::: info
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
-
-This page explains how to set up a continuous integration environment for your Bonita processes.
 
 With Continuous Integration (CI) your processes are continuously built and tested while you are designing them. Collaborating on process design can be enhanced with CI by ensuring the integrity of your processes along the development phase. 
 

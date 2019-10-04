@@ -1,11 +1,10 @@
 # Log files
+Studio log file is related to development activities, while Engine log file is related to process testing.
+
 
 ::: info
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
-
-During development, the Studio log file contains messages about development activities, including any errors.
-When you run a process for testing, messages are written to the Engine log file.
 
 From the Bonita Studio Help menu you can access the Studio log file 
 and the Engine log file.

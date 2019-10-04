@@ -1,11 +1,12 @@
 # Organization overview
 
-There are two stages to specifying who will perform a step in a process:
+Concepts of actors and organizations in Bonita.
+
+There are two stages to specify who will perform a step in a process:
 
 1. When the process is designed, the designer designates an _actor_ for the step. An actor is a placeholder that defines the theoretical user who will perform the step.
 2. Before a process is deployed, the actors are mapped to the real _users_ in an organization.
 
-This page explains the concepts of actors and organizations in Bonita.
 
 ## Actors and users
 

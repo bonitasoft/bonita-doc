@@ -242,7 +242,7 @@
       * [Event handlers](event-handlers.md)
       * [Queriable logger](queriable-logging.md)
       * [Technical logger](technical-logging.md)
-    * [Execution sequence, states, and transactions](execution-sequence-states-and-transactions.md)
+    * [BPM process / task execution sequence](execution-sequence-states-and-transactions.md)
   * [Living application](_living-application.md)
     * [Customize living application layout](customize-living-application-layout.md)
   * [Logs](logging.md)

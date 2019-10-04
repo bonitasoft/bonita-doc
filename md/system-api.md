@@ -1,4 +1,6 @@
-# system API
+# REST API System API
+
+Get informations on the current session and on localisation/translation.
 
 ## i18nlocale
 

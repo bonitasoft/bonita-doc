@@ -1,6 +1,8 @@
-# Pause and resume BPM services
+# Maintenance of the Bonita Platform
 
-For certain maintenance tasks that require a change to database tables or to information used by several processes (for example to update the business data model), it is necessary to pause your Bonita service temporarily while it is updated. This is done by pausing the tenant. 
+Learn how to execute maintenance tasks on your tenants by pausing and resuming services of the Bonita Platform.
+
+For certain maintenance tasks that require a change to database tables or to information used by several processes (for example to update the business data model), it is necessary to pause services of the Bonita Platform temporarily while it is updated. This is done by pausing the tenant. 
 While a tenant is paused, only the technical user has access to Bonita Portal.
 
 When you pause a tenant, this has the following consequences:
