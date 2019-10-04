@@ -1,5 +1,7 @@
 # Data handling overview
 
+How to effectively use the different kinds of data available within Bonita Platform
+
 In a BPM-based application, use:
 
 * [Business variables](define-and-deploy-the-bdm.md) for information that:
