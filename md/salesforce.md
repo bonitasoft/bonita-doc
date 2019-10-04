@@ -1,6 +1,6 @@
 # Using SaleForce with Bonita
   
-Bonita allows you to connect Saleforce.
+SaleForce connectors allow you to interact with Saleforce through Bonita.
 
 ## Overview
 
