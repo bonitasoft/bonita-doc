@@ -1,4 +1,6 @@
-# portal API
+# Portal API
+
+Portal API in Bonita is used to access and manage the following resources: Page, Profile, ProfileEntry, ProfileMember, Theme
 
 <a id="page"></a>
 

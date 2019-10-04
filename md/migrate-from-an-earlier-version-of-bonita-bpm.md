@@ -1,4 +1,6 @@
-# Migrate from an earlier version of Bonita
+# Migrate a live environment to upgrade the version
+
+Service stopped: Migrate the data, install a new environment, test non-migrated elements behavior and compatibility with new bonita version
 
 ## Overview
 

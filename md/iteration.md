@@ -1,8 +1,10 @@
 # Iteration
 
-Iteration means performing a task multiple times.
+Iteration is used in Bonita when you need to perform a task multiple times.
 
-You can start several instances of a task at the same time, which is call multi-instantiation, or you can start another instance of a task when the previous one finished, which is called a loop. You can iterate a task or a call activity. If you have several tasks in sequence that need to be iterated, groups them into a subprocess and define the iteration on the call activity that calls the subprocess.
+## How to
+
+You can start several instances of a task at the same time, which is called multi-instantiation, or you can start another instance of a task when the previous one finished, which is called a loop. You can iterate a task or a call activity. If you have several tasks in sequence that need to be iterated, group them into a subprocess and define the iteration on the call activity that calls the subprocess.
 
 ### Multi-instantiation
 
@@ -10,7 +12,7 @@ Use multi-instantiation if you want several instances of a task to be performed 
 
   ![Multi-instantiation](images/images-6_0/multi_inst.png)
 
-To configure multi-instantiation, select the element in the diagram and go to the Details panel, General tab, Iteration pane. Specify the following:
+To configure multi-instantiation, select the element in the diagram and go to the Details panel, General tab, Iteration panel. Specify the following:
 
 1. Select _Parallel_ or _Sequential_ Multi-instantiation.
 2. Specify how many instances of the task you want. You can:

@@ -1,6 +1,10 @@
 # Page and form development overview
 
-A page presents information to a user. It can also collect information entered by a user. A page is displayed in a browser.
+Your process-based application can use pages and forms to show or collect information in a browser. Let's discover how they work here.
+
+## Pages and forms
+
+A page presents information to a user or can also collect information entered by a user. Displayed in a browser, a [page](pages.md) is intended for use in applications. You can also use a page resource to customize the portal.
 
 A form is a page that belongs to a process. In a process, there can be forms for process instantiation and for human tasks, and there can be overview forms.
 
@@ -11,7 +15,7 @@ You are recommended to use the [UI Designer](ui-designer-overview.md) to create 
 You can also use external forms referenced by URL. If an external URL is being used, the information submitted to the Engine by the form must fulfill the contract. You can store external forms wherever you want as long as they are accessible by URL. 
 
 For certain cases, you can specify that there is no form. This is required for a process that is instantiated programmatically (by a call activity or by an API call from an application, for example), or for a process or a task that does not have any contract input.  
-A human task with no form and no contract represents a manual task, completed outside Bonita. The user will indicate in the application or Portal that the manual task is complete. A process or a human task with a contract but no form expects the information needed to fulfill the contract to be provided programmatically.
+A human task with no form and no contract represents a manual task completed outside Bonita. The user will indicate in the application or Portal that the manual task is complete. A process or a human task with a contract but no form expects the information needed to fulfill the contract to be provided programmatically.
 
 ::: warning
 **Attention**: Bonita 7.8 does not support 6.x GWT forms and case overview pages, neither for design nor at runtime.

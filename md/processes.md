@@ -1,6 +1,8 @@
-# Processes
+# Bonita Processes administration
 
-Logged on with the Administrator profile, you have rights to manage a process as follows.
+Users with the Administrator profile can: install, enable and edit processes as well as categories, forms, entities, parameters, connectors
+
+Logged on as an Administrator, you have the rights to manage a process as follows.
 
 ## Install a new process
 

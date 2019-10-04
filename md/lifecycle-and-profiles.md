@@ -1,6 +1,8 @@
-# Lifecycle and profiles
+# Development of a Bonita Platform Application
 
-This page explains the lifecycle of creating an application or a process using Bonita and putting it into production. At different stages in the lifecycle, different people with different knowledge and skills play roles. These people are identified by profiles.
+Typical development of an application based on the Bonita Platform follows the phases described in this document.
+
+At different stages in the lifecycle, different people with different knowledge and skills play roles. These people are identified by profiles.
 
   ![Lifecycle and profiles diagram](images/images-6_0/lifecycle-app.png)
   

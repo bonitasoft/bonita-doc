@@ -1,6 +1,8 @@
-# LDAP
+# LDAP Connector
 
-The LDAP connector searches in an LDAP directory and returns a list.
+The LDAP connector allows a process to retrieve data from an LDAP server by running a query.   
+
+If you are looking for LDAP Authentication please go to: [Active Directory or LDAP authentication](https://documentation.bonitasoft.com/bonita/${varVersion}/active-directory-or-ldap-authentication).
 
 Configuring an LDAP connector with the wizard:
 

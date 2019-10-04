@@ -1,5 +1,7 @@
 # Restore the default Look & Feel
 
+Restoring default Look & Feel in case of errors
+
 ::: info
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::

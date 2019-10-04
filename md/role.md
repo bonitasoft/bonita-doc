@@ -1,4 +1,6 @@
-# Manage roles
+# Role management
+
+Roles can be defined in the organization, attached to users and used to map actors.
 
 Logged on with the Administrator profile, you have rights to manage roles as follows:
 

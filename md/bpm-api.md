@@ -1,4 +1,6 @@
-# BPM API
+# REST API BPM API 
+
+Easily retrieve human or service tasks, call activities, and subprocesses with BPM APIs. Perform maintenance tasks. 
 
 ## Activities and Tasks
 
