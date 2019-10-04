@@ -1,6 +1,6 @@
 # Form API
 
-Mapping of a form to a process or a task.
+Form Rest APIs allow to map a form to a process or a task.
 
 ## Form mapping resource
 
