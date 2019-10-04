@@ -8,7 +8,7 @@ An environment is a set of configuration definitions for a project. You can conf
 **Note:** For Performance, Efficiency, and Teamwork editions only.
 :::
 
-The main idea behind the environment concept is to avoid modifying processes to ba able to run on different deployments (for example: production and development).
+The main idea behind the environment concept is to avoid modifying processes to be able to run on different deployments (for example: production and development).
 One process can run in several environments without any modification, because the information that is specific to an environment is set at configuration. In the Performance, Efficiency, and Teamwork editions, Bonita Studio proposes three environments, Local, Production, and Qualification. You can also define custom environments.
 
 You can configure, run, and debug a process in a specific environment.
