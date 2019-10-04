@@ -1,4 +1,5 @@
 # Migration overview
+
 Learn how to migrate a Bonita Platform from an older version to a newer version.
 
 ## Migrating your platform to the new version
