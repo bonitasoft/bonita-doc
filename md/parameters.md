@@ -1,6 +1,7 @@
-# Parameters
+# Process Parameters
 
-You can use a parameter to store a value that differs between deployments but is fixed for all cases of a deployed process.   
+A parameter can be used to store a value that differs between deployments but is fixed for all cases of a deployed process.
+
 The value is set when you configure the process. For example, if you have a process for approving expense reports, you could define a parameter for the approver's email address that is set at deployment.  
 The value can also be changed after deployment:  
      - In versions 7.0.x, if you are using the Performance edition  
