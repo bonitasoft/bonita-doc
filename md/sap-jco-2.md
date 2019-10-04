@@ -1,12 +1,16 @@
-# SAP JCo 2
+# SAP JCo 2 Connector
+
+The Bonita SAP Java Connector 2 allows Bonita to communicate with any SAP system using the SAP JCo 2 toolkit.
+
+
+## Notice
 
 ::: info
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
-The SAP Java Connector (SAP JCo 2) is a toolkit that allows a Java application to communicate with any SAP system.  
-It combines an easy to use API with unprecedented flexibility and performance.  
-The package supports both Java to SAP System as well as SAP System to Java calls.
+
+## Overview of the SAP Java Connector (SAP JCo 2) underlying toolkit
 
 * The SAP Jco2 connector can be used to call a SAP function (BAPI, RFC or ZBAPI)
 * High-performance JNI-based RFC middleware

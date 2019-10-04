@@ -26,7 +26,7 @@ Between these two extreme cases, you can [customize archiving](configurable-arch
 
 ## Technical log
 
-The [technical logger service](technical-logging.md) is part of the Bonita Engine. The default implementation is based on the framework Java Util Logging.
+Bonita Engine uses SLF4J to log. The default implementation embedded in the Tomcat bundle is Java Util Logging.
 
 You can [configure the log level](logging.md). The log level can be set on several categories in the `logging.properties` file. Some categories are very specific to a particular issue. 
 For example:

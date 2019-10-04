@@ -1,5 +1,7 @@
 # How to manage dates and times in BDM and User Interfaces
 
+Manage dates and times in user interface is often difficult. This following howTo should help you.
+
 ::: info
 This howto applies to Bonita 7.5.0 and above.
 :::
