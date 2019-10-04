@@ -1,6 +1,8 @@
-# Messaging
+# Email connector
 
-This connector will send an email message when activated. There is no output returned.
+This connector will send an email message when activated.
+
+There is no output returned.
 
 **Note:** There is no way to set proxy server settings in this wizard.  
 If there is a Proxy server setup in the company, ask the IT department for the specific configuration.
