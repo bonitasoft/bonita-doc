@@ -37,6 +37,8 @@ You can set the system property `org.bonitasoft.engine.api-type` to `HTTP`, `EJB
    * `org.bonitasoft.engine.api-type.server.url`: it is the url of the server, e.g. for a engine on the same host it can be `http://localhost:8080`
    * `org.bonitasoft.engine.api-type.application.name`: it is the name of the web aplication on wich the engine HTTP API is deployed, e.g. `bonita`
 
+  In addition, starting from version 7.9.4, the number of connections used by the client can be configured with system property `org.bonitasoft.engine.api-type.connections.max`, the default is 20.
+
 ::: warning
 We do not guarantee to keep the http protocol stable, so we strongly recommend that you use the same version for both
 the client and the server
@@ -73,6 +75,7 @@ org.bonitasoft.engine.api-type = LOCAL
 #org.bonitasoft.engine.api-type = HTTP
 #server.url = http://localhost:8080
 #application.name = bonita
+#connections.max = 20
 
 # Remote: EJB3
 #org.bonitasoft.engine.api-type = EJB3
