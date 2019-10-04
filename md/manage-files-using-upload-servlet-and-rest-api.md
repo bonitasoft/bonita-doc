@@ -1,6 +1,8 @@
-# Manage files using upload servlet and REST API
+# Upload servlets for the REST API expecting files 
 
-In the Community, Teamwork, Efficiency, and Performance editions you can upload files by doing a multipart post request on any of the available servlets.
+For all the REST APIs expecting a file path it is required to upload the file using one of the provided upload servlets first.  
+
+To upload a file you need to perform a multipart post request on any of the available servlets.
 It returns the name of the temporary uploaded file.
 This file name can be used to link those files with any REST resources.
 
@@ -17,6 +19,11 @@ This file name can be used to link those files with any REST resources.
 * `/portal/reportUpload`, supports any type of file (not available in Community edition)
 * `/portal/resourceUpload`, supports only `.jar` files (not available in Community edition)
 * `/portal/profilesUpload`, supports only `.xml` files (not available in Community edition)
+* `/API/formFileUpload`, supports any type of files, used to upload a file before submitting a process or task form with a document in its contract
+
+::: info
+**Note:** For `/API/formFileUpload`, you indeed need to pass the [CSRF token](csrf-security.md) in the request. It is expected to be present as one of the form data of the request (contrary to the REST API which expects it in the request headers). The name of this form-data needs to be "CSRFToken" and the value, the content of the X-Bonita-API-Token cookie.
+:::
 
 ## Example
 
