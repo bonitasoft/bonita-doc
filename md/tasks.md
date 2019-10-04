@@ -1,6 +1,9 @@
 # Tasks
 
-Logged on with the Administrator or Process Manager profile, you have rights to manage a task as follows.
+A task is an element of a process. It defines an action to be performed (automatic or human).
+
+## Prerequisites
+To manage a task as follows, you need to be logged on Bonita with the **Administrator** profile or the **Process Manager** profile.
 
 ## Assign a task
 
