@@ -1,4 +1,5 @@
 # Manage organization, actors and users within Bonita
+
 Bonita requires to define organizations, actors and users to execute your process
 
 ## Approaches to managing organizations and actor mapping
