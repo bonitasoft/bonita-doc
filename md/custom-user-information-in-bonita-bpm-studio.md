@@ -1,11 +1,18 @@
 # Custom User Information in Bonita Studio
 
-You can use custom user information to assign task to users based on information that is specific to your organization and not included in the standard organization definition.   
-You define the attributes that you want to store, and then add the values for the users.
+Learn how you can add custom (business) information on users, that will then be available for filtering.
+For instance:
 
-## Value
+Custom User Information are (key, value) pairs that can be added on users.  
+You define the attributes that you want to store, and then add the values for the users.  
+You can use custom user information to assign tasks to users based on information that is specific to your organization
+and not included in the standard Bonita organization definition.
 
-For example, you may want to create a security badge with an individual value (number) for each user, or an office skill for a user, a special professional activity, or geographical details. All these types of information are not displayed in standard information tabs but you may want to filter candidates to a human task thanks to those attributes.
+## Purpose
+
+For example, you may want to create a security badge with an individual value (number) for each user, or an office skill
+for a user, a special professional activity, or geographical details.
+All these types of information are not displayed in standard information tabs but you may want to filter candidates to a human task thanks to those attributes.
 
 ## Define custom user information
 
