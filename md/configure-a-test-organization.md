@@ -1,6 +1,6 @@
 # Configure a test organization
 
-This page describes how to set up a test organization in Bonita Studio, for process testing. 
+A brief description on how to set up and manage a test organization in Bonita Studio, for process development and testing. 
 
 ## The ACME example organization
 
