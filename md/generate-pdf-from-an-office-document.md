@@ -1,6 +1,6 @@
 # Generate a PDF from an Office document
 
-How to use the Generate PDF from and Office document connector.
+How to use the Generate PDF from an Office document connector.
 
 ## Description
 ::: info
