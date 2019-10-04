@@ -1,6 +1,6 @@
 # Platform API
 
-The Platform Rest API allows to manage the Bonita's platform.
+The Platform REST API allows to manage Bonita Platform and platform level resources.
 
 ## Platform API Login and Logout
 
