@@ -1,6 +1,6 @@
 # Data handling overview
 
-How to effectively use the different kinds of data in the Bonita application
+How to effectively use the different kinds of data available within Bonita Platform
 
 In a BPM-based application, use:
 
