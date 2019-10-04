@@ -1,6 +1,7 @@
 # Custom User Information in Bonita Studio
 
-Learn how you can add custom (business) information on users, that will then be available for filtering, for instance
+Learn how you can add custom (business) information on users, that will then be available for filtering.
+For instance:
 
 Custom User Information are (key, value) pairs that can be added on users.  
 You define the attributes that you want to store, and then add the values for the users.  
