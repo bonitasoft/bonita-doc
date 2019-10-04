@@ -1,6 +1,6 @@
 # Custom User Information in Bonita Portal
 
-Learn how you can use and display in Bonita Portal, Custom User Information [previously defined in Bonita Studio](custom-user-information-in-bonita-bpm-studio.md)
+Learn how you can use and display Custom User Information, previously defined in Bonita Studio, in Bonita Portal.
 
 ## Overview
 
