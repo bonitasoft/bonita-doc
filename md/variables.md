@@ -1,4 +1,6 @@
-# Variables
+# Variables in the UI Designer
+
+This page contains information about how to use variables in the UI Designer to manage information in artifacts.
 
 **Variables** are a key concept in the UI Designer. They define how pages, layouts, forms and fragments behave. They are used to fetch external resources, to manipulate and process information, and much more. It is important to understand how to define and use variables in artifacts, and how the data contained in the variables works when combined with widget properties. Unless otherwise stated, we will use "page" as the generic term for page, layout, form, and fragment.
 
@@ -50,7 +52,7 @@ An expression often relies on other variables as dependencies.
 **Warning:** Every time one of these variables changes, the whole JavaScript expression is re-evaluated and the previous value is overwritten.   
 :::
 For example, create a `login` expression variable: `return $data.firstname.toLowercase() + '-' + $data.lastname.toLowercase()`. Its dependencies are the two variables `firstname` and `lastname`.   
-Create two input widgets "First name" and "Last name" and bind the values to two variables `firstname` and `lastname`.Add a text widget "Login" to display the result of the `login` expression. When the user fills out the two input fields, the expression is updated. If the login value is manually edited before the user fills out the fields, then its value is overwritten.
+Create two input widgets "First name" and "Last name" and bind the values to two variables `firstname` and `lastname`. Add a text widget "Login" to display the result of the `login` expression. When the user fills out the two input fields, the expression is updated. If the login value is manually edited before the user fills out the fields, then its value is overwritten.
 
 ## Using a variable
 
