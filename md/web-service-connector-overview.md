@@ -1,4 +1,5 @@
 # Overview of the generic web service connector
+
 The Bonita Studio includes a generic web service connector that leverages SOAP 1.2 protocol.
 
 ## Generic configuration
