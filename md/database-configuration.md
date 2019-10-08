@@ -243,6 +243,8 @@ To support XA transactions, starting from MySQL 8.0, special XA rights must be g
 
 ```sql
 GRANT XA_RECOVER_ADMIN ON *.* to bonita, business_data;
+
+FLUSH PRIVILEGES;
 ```
 
 Refer to the [Privileges section](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html) in the official MySQL documentation for further information.
