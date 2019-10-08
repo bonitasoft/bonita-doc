@@ -1,4 +1,6 @@
-# Active Directory or LDAP authentication
+# LDAP authentication configuration
+
+Bonita can be configured to perform user authentication against an LDAP server such as Active Directory, Apache Directory Server, or OpenLDAP.
 
 ::: info
 **Note:** For Performance, Efficiency, and Teamwork editions only.
@@ -9,8 +11,6 @@
 * In order to have functioning Active Directory/LDAP authentication, the user login (username) must exist both in the LDAP directory and in the Bonita database (user password is checked against the LDAP server but user information is read from Bonita database).  We recommend that you use the [LDAP synchronizer](ldap-synchronizer.md) to create Bonita users in a Bonita database.
 
 ## Overview
-
-Bonita can be configured to perform user authentication against an LDAP server such as Active Directory, Apache Directory Server, or OpenLDAP.
 
 This type of configuration relies on a specific implementation of the Bonita Engine authentication service that delegates the actual user name and password verification to a [JAAS](http://docs.oracle.com/javase/8/docs/technotes/guides/security/jaas/JAASRefGuide.html) service configured with an [LDAP
 specific Login Module](http://docs.oracle.com/javase/8/docs/jre/api/security/jaas/spec/com/sun/security/auth/module/LdapLoginModule.html).
