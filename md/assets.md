@@ -1,6 +1,6 @@
 # Assets
 
-Assets enable you to add web resources to pages, layouts and forms ("page"). Asset type: JavaScript, CSS, image, and localization.
+Assets enable you to add web resources to pages, layouts and forms. You can use JavaScript, CSS, image, and localization asset type.
 
 ## Assets location
 
