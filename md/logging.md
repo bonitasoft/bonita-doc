@@ -1,6 +1,6 @@
-# Logs
+# Logging in Bonita components
 
-This page contains information about logging in Bonita.
+Learn how to view and configure logging of Bonita components.
 
 ## How components produce log messages
 
