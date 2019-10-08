@@ -1,4 +1,6 @@
-# Languages
+# Bonita is available in different languages
+
+Bonita is officially released in various languages.
 
 ## Languages available by default
 
