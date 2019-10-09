@@ -247,6 +247,10 @@ GRANT XA_RECOVER_ADMIN ON *.* to bonita, business_data;
 FLUSH PRIVILEGES;
 ```
 
+::: warning
+Please note that the above command, by specifying **`*.*`**, is granting the right for all the databases. You may want to limit the command to your engine and BDM databases if there are additional databases in your MySQL server.
+:::
+
 Refer to the [Privileges section](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html) in the official MySQL documentation for further information.
 
 ##### Maximum packet size
