@@ -237,6 +237,22 @@ See [in-doubt xact resolution Server Configuration Option](https://msdn.microsof
 
 #### MySQL
 
+##### XA Transactions
+
+To support XA transactions, starting from MySQL 8.0, special XA rights must be granted to the database user. For example, if the users for the Bonita BPM and BDM databases are `bonita` and `business_data` respectively, you should run the following command:
+
+```sql
+GRANT XA_RECOVER_ADMIN ON *.* to bonita, business_data;
+
+FLUSH PRIVILEGES;
+```
+
+::: warning
+Please note that the above command, by specifying **`*.*`**, is granting privileges for all databases. You may want to limit them to the Bonita BPM and BDM databases if there are additional databases in your MySQL server.
+:::
+
+Refer to the [Privileges section](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html) in the official MySQL documentation for further information.
+
 ##### Maximum packet size
 
 MySQL defines a maximum packet size on the server side. The default value for this setting is appropriate for most standard use cases.
