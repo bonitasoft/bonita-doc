@@ -155,7 +155,6 @@ It is assumed in the procedure that:
    GRANT select ON sys.pending_trans$ TO bonita;
    GRANT select ON sys.dba_2pc_pending TO bonita;
    GRANT execute ON sys.dbms_system TO bonita;
-   GRANT select ON sys.v$xatrans$ TO bonita;
    GRANT execute ON sys.dbms_xa TO bonita;
    GRANT FORCE ANY TRANSACTION TO bonita;
    ALTER USER bonita quota unlimited on users;
