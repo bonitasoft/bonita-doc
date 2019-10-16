@@ -1,6 +1,6 @@
-# Engine API overview
+# Bonita Engine API overview
 
-You can use the Bonita Engine APIs to customize or add to the Bonita software. Typical developments are adding a connector, adding an actor filter, and replacing or supplementing a service.
+Customize or add to your application by developing new connectors, actor filters or by replacing/enhancing existing services
 
 ## Concepts
 
