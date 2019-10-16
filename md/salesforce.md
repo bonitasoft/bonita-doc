@@ -1,4 +1,8 @@
-# Salesforce
+# Using SaleForce with Bonita
+  
+SaleForce connectors allow you to interact with Saleforce through Bonita.
+
+## Overview
 
 Salesforce version 24.0.0
 

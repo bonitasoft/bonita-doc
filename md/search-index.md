@@ -1,10 +1,10 @@
 # Search keys
 
+The search fields in Bonita Portal can be used to search for particular values in cases, filter them, and display the result.
+
 ::: info
 **Note:** For Enterprise, Performance and Efficiency editions only.
 :::
-
-The search field in Bonita Portal can be used to search for particular values in cases, filter them, and display the result.
 
 Note: the search in Bonita Portal is dependent on the search keys configured in Bonita Studio. If nothing has been entered as a value for the task during the design of the process, then no results come up.
 

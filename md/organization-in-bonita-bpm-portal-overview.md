@@ -1,6 +1,8 @@
-# Organization in Bonita Portal overview
+# Overview of the organization in Bonita Portal
 
-In Bonita Portal, a user with the Administrator profile active can view all the parts of an organization including:
+In Bonita Portal, a user with the Administrator profile can view all the parts of an organization.
+
+In practice, this includes:
 
 * the parent groups
 * child groups
@@ -8,9 +10,9 @@ In Bonita Portal, a user with the Administrator profile active can view all the 
 * the manager of each user
 * the email address of a user
 * the date and time of the user's last login
-* the roles created and the number of users with that role
+* the roles and the number of users with that role
 
-The Administrator has the right to:
+The Administrator has the rights to:
 
 * [import an organization exported from Bonita Studio](import-export-an-organization.md)
 * [export an organization from Bonita Portal](import-export-an-organization.md)

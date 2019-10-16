@@ -1,11 +1,14 @@
-# Actors
+# Actors of processes
 
-There are two stages to specify who performs a step in a process:
+The concept of Actor defines who can perform a task or start a process.
+
+
+## Define an actor
+
+This is done in two stages:
 
 * When the process is designed, the business analyst designates an actor for the step. An actor is a placeholder that defines the theoretical user who will perform the step.
 * Before a process is deployed, the actors are mapped to the real users in an organization.
-
-## Define an actor
 
 When you define a process, you define who will carry out a step in the process by specifying an actor. For example, if a step can be done by any member of the HR team, you could call the actor hr, or if a step can only be done by the sales team manager in Europe, you
 could call the actor sales\_mgr\_europe.

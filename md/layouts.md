@@ -2,6 +2,14 @@
 
 This page explains how to create and add a layout to the Bonita Portal, and how to use it in an application.
 
+::: warning
+ Since 7.3 we made some changes on the default layout. 
+ Those changes live in the `layout.css` page asset and allow us to better handle the content layout of the page displayed. 
+ Another consequence is that it removes a margin which was automatically added at the top of each pages.
+:::
+
+## Description
+
 A layout is a page used to define the main frame of an application.
 
 It defines menu positioning, a footer, or any common content that could be displayed on every page of the application.
@@ -29,7 +37,7 @@ For example, you could:
 
 Layouts are [exported. imported, modified, and deleted](resource-management.md) as resources in Bonita Portal. 
 
-## Layout definition
+## Usage
 
 A layout is imported as a zip archive containing a page.properties file and a resources folder.
 

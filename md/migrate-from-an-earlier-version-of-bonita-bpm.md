@@ -1,4 +1,6 @@
-# Migrate from an earlier version of Bonita
+# Migrate a live environment to upgrade the version
+
+Service stopped: Migrate the data, install a new environment, test non-migrated elements behavior and compatibility with new bonita version
 
 ## Overview
 
@@ -22,14 +24,25 @@ You are recommended not to start 7.0.0 after you migrate to it, but to proceed i
 :::
 
 **JRE requirements:**
-Versions 7.0 to 7.4 only support JRE version 7. If you comes from older versions of Bonita supporting JRE 6, you must also upgrade your JRE to version 7.
-Version 7.5 only supports JRE version 8. If migrating to version 7.5, please upgrade your JRE to version 8.
-For more info, see Support Guide and Supported Environment Matrix for Server.
+* Versions 7.0 to 7.4 only support JRE version 7. If you comes from older versions of Bonita supporting JRE 6, you must also upgrade your JRE to version 7.
+* Version 7.5 only supports JRE version 8. If migrating to version 7.5, please upgrade your JRE to version 8.
+* For more info, see Support Guide and Supported Environment Matrix for Server.
 
-The tool migrates your platform (_bonita_home_ folder and the database). You cannot [change edition](upgrade-from-community-to-a-subscription-edition.md) while migrating. If you are running a
-Bonita Subscription Pack edition, you need a valid license for your target version.
-If you are upgrading to a new maintenance version and not changing the minor version number (for example, you are migrating from 6.3.0 to 6.3.1),
-your current license remains valid after migration.
+<a id="rdbms_requirements" />
+
+::: warning
+**RDBMS requirements:**
+The version targeted may not support the version of the database that is being migrated. You may then need to upgrade the version of your database prior to running the migration tool.
+* Please check the [database requirements](hardware-and-software-requirements.md).
+* If you need to upgrade your database:
+   * Please make sure to apply all the [RDBMS customisations required by Bonita](database-configuration.md#specific_database_configuration) when setting up the new version.
+   * Please make sure to use the [appropriate JDBC driver](database-configuration.md#proprietary_jdbc_drivers)
+:::
+
+**Community/Subscription edition:**
+The tool migrates your platform (_bonita_home_ folder and the database). You cannot [change edition](upgrade-from-community-to-a-subscription-edition.md) while migrating.
+* If you are running a Bonita Subscription Pack edition, you need a valid license for your target version.
+* If you are upgrading to a new maintenance version and not changing the minor version number (for example, you are migrating from x.y.0 to x.y.1), your current license remains valid after migration.
 
 ::: info
 Starting from version 7.3 there is no more _bonita home_ folder. This means that, if your installation does not have any custom change, then you do not need to configure the bundle any further for an installation migrated in 7.3 or above.
@@ -74,18 +87,17 @@ See [Migrate your platform](#migrate) for step-by-step instructions.
 
 ## Constraints
 
-If you have added indexes to certain tables in the Engine database, you must remove them before migrating from 6.2.6 to a later version.
-If you do not remove these indexes, the migration will not complete.
+* If you have added indexes to certain tables in the Engine database, you must remove them before migrating from 6.2.6 to a later version. If you do not remove these indexes, the migration will not complete.
 This applies to the following tables: `arch_process_instance`, `arch_connector_instance`, `arch_flownode_instance`, `arch_data_instance` and `arch_data_mapping`.
 
-There is no guarantee that the Look & Feel definition is compatible across maintenance versions.
+* There is no guarantee that the Look & Feel definition is compatible across maintenance versions.
 For example, in 6.2.2, `jquery+` was renamed `jqueryplus` in `BonitaConsole.html`, for compatibility with more application servers.
 If you are using a custom Look & Feel, [export](managing-look-feel.md) it before migrating.
 Then after the migration is complete, [export the default Look & Feel](managing-look-feel.md) from the new version,
 modify your custom Look & Feel to be compatible with the new definition, and with the [recommendations for form footers](creating-a-new-look-feel.md).
 Then [import](managing-look-feel.md) your updated custom Look & Feel into Bonita Portal.
 
-The migration script supports MySQL, Postgres, Oracle, and Microsoft SQL Server. There is no migration for h2 database.
+* The migration script supports MySQL, Postgres, Oracle, and Microsoft SQL Server. There is no migration for h2 database.
 
 ::: warning
 **Important:**  
@@ -119,6 +131,7 @@ This section explains how to migrate a platform that uses one of the Bonita bund
 1. Download the target version bundle and the migration tool for your Edition from the
 [BonitaSoft site](http://www.bonitasoft.com/downloads-v2) for Bonita Community edition
 or from the [Customer Portal](https://customer.bonitasoft.com/download/request) for Bonita Subscription Pack editions.
+1. Check your current RDBMS version is compliant with the versions supported by the target version of Bonita (see [above](#rdbms_requirements))
 1. Unzip the migration tool zip file into a directory. In the steps below, this directory is called `bonita-migration`.
 1. If you use Oracle, add the JDBC driver for your database to `bonita-migration/lib`. This is the same driver as you have installed in your web server `lib` directory. You must upgrade to [Oracle 12c (12.2.x.y)](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12) in order to migrate to 7.9+. 
 1. Configure the database properties needed by the migration script, by editing `bonita-migration/Config.properties`.

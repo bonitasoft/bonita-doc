@@ -1,6 +1,8 @@
+# Manage a list of documents
 
+Bonita allows you to group documents with lists.
 
-# How to manage a list of documents
+## How to 
 
 Manage a list of documents through a process means add / edit / remove documents from a multiple data of type _document_.
 

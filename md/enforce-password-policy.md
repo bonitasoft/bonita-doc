@@ -1,4 +1,6 @@
-# Enforce password policy
+# Enforce Password Policy
+
+A Password Policy defines a set of rules to determine whether a new password is valid or not. 
 
 ::: info
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
@@ -45,14 +47,14 @@ Here are the steps to add a custom password validator:
           <artifactId>console-common</artifactId>
           <version>x.y.z</version>
       </dependency>
-  </dependencies>`
+  </dependencies>
 ```
 
 ::: warning
 **Note:** As this artifact is not available in public repositories, you
 have to follow this given procedure (example given for the x.y.z version):
 * retrieve the console-common-x.y.z.jar from a Bonita distribution or live
-instance (in the bonita.war or in the explosed war)
+instance (in the bonita.war or in the exploded war)
 * retrieve poms from the github repository
   * bonita-console: https://github.com/bonitasoft/bonita-web/blob/x.y.z/pom.xml
   * console-common: https://github.com/bonitasoft/bonita-web/blob/x.y.z/common/pom.xml
@@ -93,7 +95,7 @@ public class PasswordLengthValidator extends AbstractStringValidator {
 ```
 
 4. Then, you can build your project. In command-line and type `mvn package`
-5. Go in the `target/ folder` and you have your JAR archive, eg. `password-validator-0.0.1-SNAPSHOT.jar`
+5. Go in the `target/` folder and you have your JAR archive, eg. `password-validator-0.0.1-SNAPSHOT.jar`
 6. Take a bundle and start it once. This will extract the `bonita.war.`
 7. Start it by typing: `cd bin`then `./catalina.sh run`
 8. Copy your JAR archive in the folder `webapps/bonita/WEB-INF/lib`

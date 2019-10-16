@@ -1,9 +1,14 @@
 # Migration tool changelog
 
-This page displays all changes in the Migration Tool, from the version that was delivered with the oldest supported version of Bonita
-to the one delivered with the latest version of Bonita.
+This is the changelog of the migration tool.
+
+All changes in the Migration Tool are logged: from the version that was delivered with the oldest supported version of Bonita to the one delivered with the latest version of Bonita.
 This is due to the fact that improvements in any version of the Migration Tool can affect all supported versions of Bonita.
 This changelog must be read before [migrating to a newer version of Bonita](migrate-from-an-earlier-version-of-bonita-bpm.md).
+
+## 2.45.0 - October 3rd, 2019 (Bonita 7.9.4)
+This version of the migration tool migrates Bonita up to version 7.9.4.
+* Add a new script `check-migration-dryrun`
 
 ## 2.44.0 - September 5th, 2019 (Bonita 7.9.3)
 This version of the migration tool migrates Bonita up to version 7.9.3.

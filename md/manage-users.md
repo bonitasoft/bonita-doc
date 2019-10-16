@@ -1,5 +1,7 @@
 # Manage users
 
+Examples on how to create and edit users, to search for users data, through Bonita java API's.
+
 ## Create a new user
 
 This example shows you how to create a new user and assign the user to a profile. 

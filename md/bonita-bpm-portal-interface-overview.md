@@ -1,8 +1,6 @@
 # Bonita Portal overview
 
-Most of the Bonita Portal pages are divided into 3 main panes: left, middle and right.
-
-The left pane is for filters, the middle one for lists and the right one for more details about the selected item.
+Bonita Portal allows you to access server administration and monitoring for administrators, and a generic process view for users.
 
 ## Default profiles
 

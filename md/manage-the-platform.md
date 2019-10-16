@@ -1,33 +1,38 @@
 # Manage the platform
 
-This example shows how to use Bonita Engine API to manage the platform.
+With Bonita Engine API, you can create and initialize the platform, start and stop the Bonita Engine.
 
-You can create the platform, initialize the platform, start Bonita Engine, and stop Bonita Engine.
+1. **Log on the platform**
 
 Before you can create the platform, you need to log in and get the platformAPI:
 
 ```bash
 // Get platform login API using the PlatformAPIAccessor
 PlatformLoginAPI platformLoginAPI = PlatformAPIAccessor.getPlatformLoginAPI();
-// Log in to the platform
+
+// Log on the platform
 PlatformSession platformSession = platformLoginAPI.login("platformAdmin", "platform");
 
 // Get the platform API
 PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(platformSession);    
 ```
 
-**Create the platform** by calling the createPlatform method. This will create the database structure and put the platform state into persistent storage.
+2. **Create the platform**
+
+This will create the database structure and put the platform state into persistent storage.
 
 ```bash
-// create the platform
+// Create the platform
 platformAPI.createPlatform();
 ```
 
-The next step is to **initialize the platform**, that is, create the default tenant and initialize Bonita Engine environment. 
+3. **Initialize the platform**
+
+This will create the default tenant and initialize Bonita Engine environment. 
 After this step, the technical user will be able to connect to the engine and create new users or [import the organization](manage-an-organization.md).
 
 ```bash
-// initialize the platform
+// Initialize the platform
 platformAPI.initializePlatform();
 ```
 
@@ -35,15 +40,20 @@ No users are created by default and the default username/password for the techni
 
 Once you retrieved the default configuration using the [plaform setup tool](BonitaBPM_platform_setup.md), you can change this username/password by editing the file `bonita-tenant-community-custom.properties` and use the tool again to [push the configuration to database](BonitaBPM_platform_setup.md#update_platform_conf).
 
-Next, **start Bonita engine**. Starting the engine on a node starts the Scheduler service and restarts elements that were not finished by the Work service on the previous shutdown. Bonita Engine environment is marked as activated.
+4. **Start Bonita engine**
+
+Starting the engine on a node starts the Scheduler service and restarts elements that were not finished by the Work service on the previous shutdown. Bonita Engine environment is marked as activated.
 
 ```bash
-// start the execution engine
+// Start the execution engine
 platformAPI.startNode();
 ```
 
-To **stop Bonita engine**, call the stopNode method. Stopping the node stops the Scheduler service. Bonita Engine environment is marked as deactivated.
+5. **Stop Bonita engine** 
+
+Stopping the node stops the Scheduler service. Bonita Engine environment is marked as deactivated.
+
 ```bash
-// stop the execution engine
+// Stop the execution engine
 platformAPI.stopNode();
 ```

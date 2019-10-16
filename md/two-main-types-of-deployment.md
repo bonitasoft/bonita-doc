@@ -1,11 +1,14 @@
 # Two main types of Bonita deployment
 
+Discover the two main types of deployments of a Bonita Platform.
+
 There are two main types of deployment
 * Bonita Portal + Bonita Engine on the same application server: this is the usual deployment and the default one when
 using a Bonita bundle
 * Bonita Portal and Bonita Engine running on two different application servers
 
-**Note:** It is highly recommended to use the provided Tomcat bundle or the artifact `bonita.war` provided in the deploy bundle, in order to carry out these deployments successfully.
+## Foreword
+It is highly recommended to use the provided Tomcat bundle or the artifact `bonita.war` provided in the deploy bundle, in order to carry out these deployments successfully.
 
 There are two main types of deployment.
 
@@ -84,7 +87,7 @@ We suggest to define a `ENGINE_OPTS` variable and add its content to the `CATALI
 On Linux (setenv.sh)
 ```
 ENGINE_OPTS="-Dorg.bonitasoft.engine.api-type=HTTP -Dorg.bonitasoft.engine.api-type.server.url=http://localhost:8080"
-ENGINE_OPTS="${ENGINE_OPTS} -Dorg.bonitasoft.engine.api-type.application.name=bonita"
+ENGINE_OPTS="${ENGINE_OPTS} -Dorg.bonitasoft.engine.api-type.application.name=bonita -Dorg.bonitasoft.engine.api-type.connections.max=20"
 ENGINE_OPTS="${ENGINE_OPTS} -Dorg.bonitasoft.platform.username=platformAdmin -Dorg.bonitasoft.platform.password=platform"
 
 CATALINA_OPTS="${CATALINA_OPTS} ${ENGINE_OPTS} ${PLATFORM_SETUP} ..."
@@ -94,7 +97,7 @@ export CATALINA_OPTS
 On Windows (setenv.bat)
 ```
 set ENGINE_OPTS="-Dorg.bonitasoft.engine.api-type=HTTP" "-Dorg.bonitasoft.engine.api-type.server.url=http://localhost:8080"
-set ENGINE_OPTS=%ENGINE_OPTS% "-Dorg.bonitasoft.engine.api-type.application.name=bonita"
+set ENGINE_OPTS=%ENGINE_OPTS% "-Dorg.bonitasoft.engine.api-type.application.name=bonita -Dorg.bonitasoft.engine.api-type.connections.max=20"
 set ENGINE_OPTS=%ENGINE_OPTS% "-Dorg.bonitasoft.platform.username=platformAdmin" "-Dorg.bonitasoft.platform.password=platform"
 
 set CATALINA_OPTS=%CATALINA_OPTS% %ENGINE_OPTS% %PLATFORM_SETUP% ...

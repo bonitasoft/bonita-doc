@@ -1,6 +1,8 @@
 
 # Define and deploy the Business Data Model (BDM)
 
+This page explains how to define, deploy, and export Business Data Model (BDM) and how these objects can be used in processes.
+
 The business data model is the definition of the business data that is shared by processes and process-based applications in a tenant. This page explains how to define the business data model and how to deploy it. After the model is defined, you can use it to [specify the business data used in a process](specify-data-in-a-process-definition.md).
 
 ## Business data model (BDM)

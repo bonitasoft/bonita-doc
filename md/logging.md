@@ -1,6 +1,6 @@
-# Logs
+# Logging in Bonita components
 
-This page contains information about logging in Bonita.
+Learn how to view and configure logging of Bonita components.
 
 ## How components produce log messages
 
@@ -8,7 +8,7 @@ The components of Bonita have their own ways to produce logs, which are describe
 
 ### Bonita Engine
 
-All the Engine services call the [technical logger service](technical-logging.md) in order to write log messages. There is no direct access to any logging framework such as log4j, JUL or SLF4J.
+All the Engine services uses SLF4J in order to write log messages.
 
 ### Bonita Portal
 
@@ -24,8 +24,7 @@ The Bonita Studio provides direct access to the log written by the embedded Port
 
 ### Bonita Engine and Bonita Portal
 
-The [technical logger service](technical-logging.md) uses SLF4J to create the log as well as some Bonita dependencies
-such as Quartz and Ehcache.
+Bonita Engine uses SLF4J to create the logs as well as some Bonita dependencies such as Quartz and Ehcache.
 
 SLF4J is a facade for various logging frameworks, and a logging framework must be available as the back-end. By default, Bonita uses JUL (Java Util Logging) as a the back-end to SLF4J. This is defined by including the `slf4j-jdk14-1.6.1.jar` in the `bonita.war WEB-INF/lib` folder.
 

@@ -1,12 +1,12 @@
-# Forms
+# Forms for Process instantiation or Human Tasks
 
-This page explains how to add a form resource to the Bonita Portal and make it available to users. Form resources are intended for use in applications.
+How to add a form resource to the Bonita Portal and make it available to users. Forms are intended to be used with one or several processes.
 
-Pages are [exported. imported, modified, and deleted](resource-management.md) as resources in the Portal. 
-
-Form definition <!--{.h2}-->
+## Form definition <!--{.h2}-->
 
 A form is a [page](pages.md) that belongs to a process. It could be a process instantiation form, a human task form, or an overview form. There are some extra things to consider when you are creating a form compared with an ordinary page, concerning how data is passed between the process instance and the form.
+
+Pages are [exported. imported, modified, and deleted](resource-management.md) as resources in the Portal. 
 
 A [context](contracts-and-contexts.md) is the set of data provided by the process instance or task instance to the form. 
 There is no context for a process instantiation form.

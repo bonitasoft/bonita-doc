@@ -1,6 +1,6 @@
 # Bonita Studio preferences
 
-This page provides information about Bonita Studio preferences and the Bonita Studio embedded Tomcat configuration.
+Learn about deployment, web and other Bonita Studio preferences, and the Bonita Studio embedded Tomcat configuration.
 
 ## Bonita Studio preferences
 

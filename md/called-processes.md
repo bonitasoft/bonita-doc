@@ -1,5 +1,7 @@
 # Called processes
 
+This page defines called processes in Bonita, how to define them and how they can be extracted.
+
 ## Overview
 
 A called process is a complete process that is called from another process.  

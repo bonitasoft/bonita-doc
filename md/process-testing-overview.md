@@ -11,8 +11,6 @@ You can test some process components individually:
 * Connectors: go to **_Test connector..._** in the **_Development_** menu.
 * Expressions: use the **_Evaluate_** feature of the Expression editor.
 
-You can run the process in debug mode, with the option to skip connector execution: click **_Debug_** in the Cool bar.
-
 You can run the process locally, launching it from Bonita Studio without first deploying it to Bonita Portal. 
 You must [create a test organization](configure-a-test-organization.md)
 and [configure a process](configuring-a-process.md) before you can 

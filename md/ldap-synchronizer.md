@@ -1,11 +1,10 @@
 # LDAP synchronizer
 
+Learn how to configure the LDAP Synchronizer. This tool updates Bonita Users and Groups database from the LDAP directory.
+
 ::: info
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
-
-The LDAP synchronizer is a service for synchronizing 
-Bonita and LDAP directory users and groups in a single direction, LDAP to Bonita. 
 
 The LDAP synchronization service keeps the Bonita organization information synchronized with an external LDAP directory, by creating, updating, or removing
 users and groups in the organization

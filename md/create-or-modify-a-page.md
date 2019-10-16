@@ -1,28 +1,20 @@
-# Create or modify UI artifacts
+# UI artifacts in UI Designer
 
-The UI Designer is a powerful application to design Bonita custom pages, layouts, forms, custom widgets and fragments.  
-Custom pages are used in Bonita Portal custom profiles or in custom BPM applications.  
-Forms are used to instantiate a process or to execute a human task.  
-The UI Designer runs in a browser. Launching it from Bonita Studio starts a web server and opens your default browser.
+How to create and modify UI artifacts to build powerful applications with Bonita UI Designer.
 
-## Starting the UI Designer
 
-### From Bonita Studio menu bar
+## Artifacts overview
 
-Open the **Development** menu then choose **Open UI Designer**, or click the UI Designer icon in the coolbar. This is useful to create application pages that are not linked to a process, but display business information whose changes are managed by underlying processes.
+Design Bonita custom pages, layouts, forms, custom widgets and fragments in UI Designer.
 
-### From a form mapping tab
+[Custom pages](pages.md) are used in Bonita Portal custom profiles or in custom BPM applications.
 
-Select a human task or a pool, go to the **Details** panel, **Execution** tab. Then go to the relevant form mapping tab:
+[Forms](forms.md) are used to instantiate a process or to execute a human task.
 
-* **_Instantiation form_** for a form to start a process instance
-* **_Form_** for a form on a human task
+[Fragments](fragments.md) (Bonita Enterprise, Performance, Efficiency and Teamwork editions only) aim at being reused in other pages of your application.
 
-With the form type set to **UI Designer**, you can select a form from the dropdown list and click the pencil icon to edit it, or you can choose **Create a new form**. This is the way to go to create forms as the Studio will auto-generate a form based on the process instantiation or task execution [contract](contracts-and-contexts.md).
+[Widgets](widgets.md) are used or customized to design your page or form
 
-You can also create a customized **overview form**, to display a summary of the case to the users, either in a case details page, or in the tasklist, to give some context to the task to do.  
-To do so, go to the pool **Details** panel, **Execution** tab, and click **_Overview page**.  
-With the form type set to **UI Designer**, you can select a form from the dropdown list and click the pencil icon to edit it, or you can choose **Create a new form**.
 
 ## Design a page, layout, form, or fragment
 

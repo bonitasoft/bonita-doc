@@ -1,6 +1,7 @@
 # Use gzip compression
 
-Using gzip compression in your application server can improve performance by reducing network load for some resources.
+How to activate gzip compression for a Bonita Platform. It can improve performance by reducing network load.
+
 This page describes how to activate gzip compression for a Bonita Platform with Tomcat.
 
 ## Tomcat configuration

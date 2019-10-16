@@ -1,7 +1,9 @@
 #  Pages
 
-This page explains how to use a page resource (also called a custom page) to the Bonita Portal and make it available to users. Page resources are intended for use in applications. You can also use a page resource to customize the portal, 
-for example:
+Page resources are intended for use in applications or to customize Bonita portal. See how to
+use it and make it available to users. 
+
+## Custom page usage examples
 
 * Add a welcome page, with dashboards showing activity in Bonita and related external applications.
 * Provide a process owner with a dashboard showing the activity of open cases of the process.

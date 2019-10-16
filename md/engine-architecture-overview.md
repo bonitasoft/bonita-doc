@@ -1,6 +1,6 @@
-# Bonita Engine architecture overview
+# Bonita Engine architecture
 
-This page describes the Bonita Engine. 
+Discover Bonita Engine architecture, its APIs, main services, and how they are packaged. 
 
 ## Overview
 
@@ -47,14 +47,14 @@ There is also a Web API, which is for internal use only, and a Command API, whic
 
 BPM services are related to BPM activities.
 
-#### Actor mapping
+### Actor mapping
 | | |
 |:-|:-|
 | Description: | Manage mapping between actors and users, roles, and groups. | 
 | Used by:  |-| 
 | Implementation: | org.bonitasoft.engine.actor.mapping.impl.ActorMappingServiceImpl| 
 
-#### Category
+### Category
 
 | | |
 |:-|:-|
@@ -64,7 +64,7 @@ BPM services are related to BPM activities.
 
 Notes: Store categories with the persistence service 
 
-#### Connector
+### Connector
 
 | | |
 |:-|:-|
@@ -72,7 +72,7 @@ Notes: Store categories with the persistence service
 | Used by: | Command service| 
 | Implementation: | org.bonitasoft.engine.core.connector.impl.ConnectorServiceImpl| 
 
-#### Expression resolver
+### Expression resolver
 
 | | |
 |:-|:-|
@@ -80,7 +80,7 @@ Notes: Store categories with the persistence service
 | Used by:  |Any service that evaluates expressions| 
 | Implementation: | org.bonitasoft.engine.core.expression.control.api.impl.ExpressionResolverServiceImpl| 
 
-#### Login
+### Login
 
 | | |
 |:-|:-|
@@ -88,7 +88,7 @@ Notes: Store categories with the persistence service
 | Used by: | APIs| 
 | Implementation: | org.bonitasoft.engine.core.login.LoginServiceImpl| 
 
-#### Platform login
+### Platform login
 
 | | |
 |:-|:-|
@@ -96,7 +96,7 @@ Notes: Store categories with the persistence service
 | Used by: | APIs| 
 | Implementation: | org.bonitasoft.engine.core.platform.login.impl.PlatformLoginServiceImpl| 
 
-#### Operation
+### Operation
 
 | | |
 |:-|:-|
@@ -104,7 +104,7 @@ Notes: Store categories with the persistence service
 | Used by: | Engine service, APIs when updating data using an operation| 
 | Implementation: | org.bonitasoft.engine.core.operation.impl.OperationServiceImpl| 
 
-#### Parameter
+### Parameter
 
 | | |
 |:-|:-|
@@ -113,7 +113,7 @@ Notes: Store categories with the persistence service
 | Implementation: | org.bonitasoft.engine.parameter.propertyfile.PropertyFileParameterService| 
 | Notes: | Relies on Java properties in a file to store and retrieve parameters| 
 
-#### Process comment
+### Process comment
 
 | | |
 |:-|:-|
@@ -122,7 +122,7 @@ Notes: Store categories with the persistence service
 | Implementation: | org.bonitasoft.engine.core.process.comment.api.impl.SCommentServiceImpl| 
 | Notes: | Relies on persistence service to store comments| 
 
-#### Process definition
+### Process definition
 
 | | |
 |:-|:-|
@@ -131,7 +131,7 @@ Notes: Store categories with the persistence service
 | Implementation: | org.bonitasoft.engine.core.process.definition.ProcessDefinitionServiceImpl| 
 | Notes: | Stores definition in file system and in cache using XML| 
 
-#### Engine
+### Engine
 
 | | |
 |:-|:-|
@@ -139,7 +139,7 @@ Notes: Store categories with the persistence service
 | Used by: | APIs when executing processes or activities| 
 | Implementation: | the Engine itself| 
 
-#### Process instance
+### Process instance
 
 | | |
 |:-|:-|
@@ -148,7 +148,7 @@ Notes: Store categories with the persistence service
 | Implementation: | org.bonitasoft.engine.core.process.instance.impl.ProcessInstanceServiceImpl| 
 | Notes: | Relies on the persistence service to store objects| 
 
-#### Supervisor mapping
+### Supervisor mapping
 
 | | |
 |:-|:-|
@@ -156,7 +156,7 @@ Notes: Store categories with the persistence service
 | Used by: | APIs| 
 | Implementation: | org.bonitasoft.engine.supervisor.mapping.impl.SupervisorMappingServiceImpl| 
 
-#### User filter
+### User filter
 
 | | |
 |:-|:-|
@@ -169,7 +169,7 @@ Notes: Store categories with the persistence service
 
 Generic services  perform actions that are not related to BPM but are required for successful process execution. No generic service has a dependency on a BPM service.
 
-#### Archive
+### Archive
 
 | | |
 |:-|:-|
@@ -177,7 +177,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Used by: | ProcessInstance service to store ArchivedProcessInstance objects| 
 | Implementation: | org.bonitasoft.engine.archive.impl.ArchiveServiceImpl| 
 
-#### Authentication
+### Authentication
 
 | | |
 |:-|:-|
@@ -186,7 +186,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Implementation: | org.bonitasoft.engine.authentication.impl.GenericAuthenticationServiceImpl| 
 | Notes: | Uses the Identity service to check user credentials| 
 
-#### Querieable logs
+### Queriable logs
 
 | | |
 |:-|:-|
@@ -194,7 +194,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Used by: | Any service storing objects: ?deleted activity\[..\]?  Scheduler service: ?Job executed \[...\]?   | 
 | Implementations: | org.bonitasoft.engine.services.impl.SyncBusinessLoggerServiceImpl (Community edition: insert logs directly in database)  org.bonitasoft.engine.log.api.impl.BatchBusinessLoggerImpl (Teamwork, Efficiency, Performance, and Enterprise editions: inserts all logs in batch at the end of the transaction)| 
 
-#### Tenant cache
+### Tenant cache
 
 | | |
 |:-|:-|
@@ -203,7 +203,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Implementation: | org.bonitasoft.engine.cache.ehcache.EhCacheCacheService| 
 | Notes: | Uses EhCache to cache objects| 
 
-#### Platform cache
+### Platform cache
 
 | | |
 |:-|:-|
@@ -212,7 +212,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Implementation: | org.bonitasoft.engine.cache.ehcache.PlatformEhCacheCacheService| 
 | Notes: | Uses EhCache to cache objects| 
 
-#### ClassLoader
+### ClassLoader
 
 | | |
 |:-|:-|
@@ -221,7 +221,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Implementation: | org.bonitasoft.engine.classloader.ClassLoaderServiceImpl| 
 | Notes: | Relies on the dependency service to load the jar put in dependencies for a specific classloader| 
 
-#### Platform command
+### Platform command
 
 | | |
 |:-|:-|
@@ -230,7 +230,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Implementation: | org.bonitasoft.engine.platform.command.impl.PlatformCommandServiceImpl| 
 | Notes: | Uses persistence service to store commands| 
 
-#### Connector executor
+### Connector executor
 
 | | |
 |:-|:-|
@@ -238,7 +238,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Used by: | Connector service, to execute the instantiated connector| 
 | Implementation: | org.bonitasoft.engine.connector.impl.ConnectorExecutorImpl| 
 
-#### Data
+### Data
 
 | | |
 |:-|:-|
@@ -246,7 +246,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Used by: | DataInstance service, to get the data source of a data definition to get its value| 
 | Implementation: | org.bonitasoft.engine.data.DataServiceImpl| 
 
-#### DataInstance
+### DataInstance
 
 | | |
 |:-|:-|
@@ -255,7 +255,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Implementation: | org.bonitasoft.engine.data.DataInstanceServiceImpl| 
 | Notes: | Uses the persistence service to store data instances| 
 
-#### Dependency
+### Dependency
 
 | | |
 |:-|:-|
@@ -264,7 +264,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Implementation: | org.bonitasoft.engine.dependency.impl.DependencyServiceImpl| 
 | Notes: | Dependency information is stored in database| 
 
-#### Platform dependency
+### Platform dependency
 
 | | |
 |:-|:-|
@@ -273,7 +273,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Implementation: | org.bonitasoft.engine.dependency.impl.PlatformDependencyServiceImpl| 
 | Notes: | Dependency information is stored in database| 
 
-#### Document
+### Document
 
 | | |
 |:-|:-|
@@ -282,7 +282,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Implementation: | org.bonitasoft.engine.core.document.api.impl.DocumentServiceImpl| 
 | Notes: | The mapping of the document is not stored in the same table as the documetn itself. | 
 
-#### Expression
+### Expression
 
 | | |
 |:-|:-|
@@ -290,7 +290,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Used by: | ExpressionResolverService. to evaluate an expression and its dependencies| 
 | Implementation: | org.bonitasoft.engine.expression.impl.ExpressionServiceImpl| 
 
-#### Identity
+### Identity
 
 | | |
 |:-|:-|
@@ -298,7 +298,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Used by: | ProcessExecutor, to resolve actor mappings. | 
 | Implementation: | org.bonitasoft.engine.identity.impl.IdentityServiceImpl| 
 
-#### Incident
+### Incident
 
 | | |
 |:-|:-|
@@ -306,7 +306,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Used by: | Mainly by the work service. | 
 | Implementation: | org.bonitasoft.engine.incident.IncidentServiceImpl| 
 
-#### Job
+### Job
 
 | | |
 |:-|:-|
@@ -314,7 +314,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Used by: | Scheduler service. | 
 | Implementation: | org.bonitasoft.engine.scheduler.impl.JobServiceImpl,| 
 
-#### Lock
+### Lock
 
 | | |
 |:-|:-|
@@ -323,7 +323,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Implementation: | org.bonitasoft.engine.lock.impl.MemoryLockService| 
 | Notes: | Uses java.util.concurrent.locks.ReentrantReadWriteLock objects that are in memory only| 
 
-#### Monitoring
+### Monitoring
 
 | | |
 |:-|:-|
@@ -331,7 +331,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Used by: | API| 
 | Implementation: | com.bonitasoft.engine.monitoring.impl.MonitoringServiceImpl| 
 
-#### Tenant Monitoring
+### Tenant Monitoring
 
 | | |
 |:-|:-|
@@ -339,7 +339,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Used by: | API| 
 | Implementation: | com.bonitasoft.engine.monitoring.impl.TenantMonitoringServiceImpl| 
 
-#### Platform Monitoring
+### Platform Monitoring
 
 | | |
 |:-|:-|
@@ -347,7 +347,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Used by: | API| 
 | Implementation: | com.bonitasoft.engine.monitoring.impl.PlatformMonitoringServiceImpl| 
 
-#### Persistence
+### Persistence
 
 | | |
 |:-|:-|
@@ -355,7 +355,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Used by: | All services reading persistent objects (such as processInstanceService) use bonita-persistence-read. All services creating or modifying objects use bonita-persistence-api. | 
 | Implementation: | Hibernate| 
 
-#### Platform
+### Platform
 
 | | |
 |:-|:-|
@@ -364,7 +364,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Implementation: | org.bonitasoft.engine.platform.impl.PlatformServiceImpl| 
 | Notes: | Uses the persistence service to create platform. | 
 
-#### Profile
+### Profile
 
 | | |
 |:-|:-|
@@ -373,14 +373,14 @@ Generic services  perform actions that are not related to BPM but are required f
 | Implementation: | org.bonitasoft.engine.profile.impl.ProfileServiceImpl| 
 | Notes: | Uses persistence service to store privileges| 
 
-#### Recorder
+### Recorder
 
 | | |
 |:-|:-|
 | Description: | A layer between the persistence service and all services that need to store objects. It ensures that events are triggered and that queriable log entries are written. | 
 | Used by: | All services storing objects. For example, the ProcessInstanceService stores a ProcessInstanceObject using the recorder Implementation: org.bonitasoft.engine.recorder.impl.RecorderImpl| 
 
-#### Reporting
+### Reporting
 
 | | |
 |:-|:-|
@@ -388,7 +388,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Used by: | API| 
 | Implementation: | com.bonitasoft.engine.core.reporting.ReportingServiceImpl| 
 
-#### Scheduler
+### Scheduler
 
 | | |
 |:-|:-|
@@ -397,7 +397,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Implementation: | QuartzSchedulerService, org.bonitasoft.engine.scheduler.impl.SchedulerServiceImpl| 
 | Notes: | Relies on Quartz to launch jobs| 
 
-#### Session
+### Session
 
 | | |
 |:-|:-|
@@ -405,7 +405,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Used by: | LoginService,SchedulerService,WorkService to create sessions| 
 | Implementation: | org.bonitasoft.engine.session.impl.SessionServiceImpl| 
 
-#### Platform session
+### Platform session
 
 | | |
 |:-|:-|
@@ -413,7 +413,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Used by: | PlatformLoginService| 
 | Implementation: | org.bonitasoft.engine.platform.session.impl.PlatformSessionServiceImpl| 
 
-#### Theme
+### Theme
 
 | | |
 |:-|:-|
@@ -421,7 +421,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Used by: | API. | 
 | Implementation: | org.bonitasoft.engine.theme.impl.ThemeServiceImpl| 
 
-#### Transaction
+### Transaction
 
 | | |
 |:-|:-|
@@ -429,16 +429,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Used by: | Almost all services, including persistence service to register technical transactions. | 
 | Implementation: | org.bonitasoft.engine.transaction.TransactionServiceImpl| 
 
-#### Technical logger
-
-| | |
-|:-|:-|
-| Description: | An abstraction layer used to access the logger implementation. Clients of this service can log information using different levels: TRACE, DEBUG, INFO, WARNING, ERROR. | 
-| Used by: | All services that log information in the technical log. | 
-| Implementation: | TechnicalLoggerSLF4JImpl| 
-| Notes: | Implementation based on SLF4J| 
-
-#### Work
+### Work
 
 | | |
 |:-|:-|
@@ -447,7 +438,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Implementation: | org.bonitasoft.engine.work.ExecutorWorkService| 
 | Notes: | Trigger launches work in a ThreadPool. For Community Edition, work items are launched in sequence, each one in a new thread. For Teamwork, Efficiency, Performance, and Enterprise Editions, work items are triggered in multiple threads. | 
 
-#### XML
+### XML
 
 | | |
 |:-|:-|
@@ -464,4 +455,9 @@ The Engine is provided as three .jar files:
 * bonita-server contains code used on by the server. For example, it contains service implementations, the services accessor, and API implementations. 
 * bonita-client contains client-only code. For example, it contains the Accessor service for the APIs, which is not in the common or server packages to prevent the server code calling the client-side API accessor.
 
-In the Enterprise, Performance, Efficiency, and Teamwork editions, these jar files are bonita-common-sp.jar, bonita-server-sp.jar, and bonita-client-sp.jar.
+::: info
+In the Enterprise, Performance, Efficiency, and Teamwork editions, these jar files are respectively:  
+* bonita-common-sp.jar
+* bonita-server-sp.jar
+* bonita-client-sp.jar
+:::

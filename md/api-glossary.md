@@ -1,4 +1,6 @@
-# API glossary
+# Bonita REST API glossary
+
+List of Bonita REST API definitions and descriptions.
 
 ## Definition
 

@@ -1,6 +1,10 @@
 # Manage a user
 
-Logged on with the Administrator profile, you have rights to manage users as follows.
+How to manage users through Bonita Portal.
+
+:::info
+You must be logged on with the Administrator profile.
+:::
 
 ## How to create a user
 

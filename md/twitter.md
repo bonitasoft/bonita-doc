@@ -1,6 +1,8 @@
-# Twitter
+# Twitter connector
 
-This page explains how to configure the Twitter connectors in Bonita Studio.
+Twitter connectors allows to publish Tweets or send direct messages from your processes.
+
+# Overview
 
 The following Twitter connectors are available:
 

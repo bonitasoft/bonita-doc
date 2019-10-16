@@ -1,10 +1,11 @@
 # Performance tuning
 
+Learn how to tune the Bonita Engine to get optimize the performance of your platform.
+
 ::: info
 **Note:** For Enterprise and Performance edition only.
 :::
 
-This page contains information that you can use to tune the Bonita Engine to get the best performance in your platform.
 It assumes that you are familiar with Java threads, concurrent execution, XML, DB connection pools, your DB instance, cache policies, scheduling, connectors, network speed, I/O, Java Virtual Machine configuration, JTA and transaction management.  
 You need to know how to install and configure Bonita.
 
@@ -96,9 +97,7 @@ This mode can be easily used inside a web container like Tomcat or Jetty.
 The bonita-client library
   * sends data over the network using the HTTP protocol using the [Apache HttpComponents](http://hc.apache.org/index.html).
 open source library
-  * uses `org.apache.http.impl.conn.PoolingClientConnectionManager` as connection manager .  Currently, there is no
-  configuration for this pool though this might be added in the future.  See the [HttpComponents documentation](http://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.html)
-  for more information.
+  * uses a maximum of 20 connections. To change this value refer to the page [Configure connection to Bonita Engine](configure-client-of-bonita-bpm-engine.md).
 
 Data sent is serialized using a Java library called XStream. This serialization also has a cost.
 

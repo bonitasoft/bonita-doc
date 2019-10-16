@@ -1,6 +1,8 @@
 # Performance troubleshooting
 
-This page contains information about monitoring your Bonita platform. 
+Learn how to monitoring your Bonita Platform and troubleshoot performance issues.
+
+
 We recommend that you monitor your system regularly, so that if you suspect a performance degradation, you can repeat these checks and identify the potential problem areas by comparing the performance to the normal level. 
 
 When troubleshooting a performance problem, we recommend that you first check your system and network, and then check your Bonita platform and configuration. Follow the order of the topics in this page. 

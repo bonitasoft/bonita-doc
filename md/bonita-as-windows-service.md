@@ -1,13 +1,12 @@
 # How to install Bonita as a service on Windows
 
-If you are a Windows server administrator you know how useful can be to have softwares installed as a windows service.
 In this tutorial we show how to install Tomcat with Bonita configured as a windows service.
 
 ## Software needed
 
 For this tutorial you will need the following softwares:
 * Tomcat
-* Bonita deploy Bundle
+* Bonita Tomcat Bundle
 * Postgresql Database (or another database supported by Bonita)
 
 Please verify the supported version from the Support page
@@ -46,10 +45,10 @@ Check your Database provider documentation in order to get the proper driver ver
 
 ## Server configuration
 
-* **_Move_** the folder %TOMCAT_BUNDLE%/server/lib to %TOMCAT_INSTALL_FOLDER%/lib
+* **_Move_** the folder %TOMCAT_BUNDLE%/server/lib/bonita to %TOMCAT_INSTALL_FOLDER%/lib
 * **_Add_** your database driver to %TOMCAT_INSTALL_FOLDER%/lib
 * **_Move_** the folder %TOMCAT_BUNDLE%/server/conf to %TOMCAT_INSTALL_FOLDER%/conf
-* **_Move_** the folder %TOMCAT_BUNDLE%/server/webapps to %TOMCAT_INSTALL_FOLDER%/webapps
+* **_Move_** the application %TOMCAT_BUNDLE%/server/webapps/bonita.war to %TOMCAT_INSTALL_FOLDER%/webapps
 * **_Configure_** %TOMCAT_INSTALL_FOLDER%/conf/Catalina/localhost/bonita.xml
 
 ![datasource configuration](images/bonita-as-windows-service/bonitaXml.png)
@@ -57,11 +56,6 @@ Check your Database provider documentation in order to get the proper driver ver
 ## Configure JVM properties
 
 * The file %TOMCAT_BUNDLE%/server/bin/setenv.bat contains all JVM parameters to use in the new installation.
-* Update this file to change the database provider (for example postgresql).
-* In this file update all the references to %CATALINA_HOME% with %TOMCAT_INSTALL_FOLDER%
-In this example %TOMCAT_INSTALL_FOLDER% = C:\Program Files\Apache Software Foundation\Tomcat x.y
-* Extract all the JVM properties of the file %TOMCAT_BUNDLE%/server/bin/setenv.bat 
-
 * The properties should be the following ones:
 
   * -Dorg.bonitasoft.platform.setup.folder=C:\Program Files\Apache Software Foundation\Tomcat x.y\setup
@@ -71,7 +65,9 @@ In this example %TOMCAT_INSTALL_FOLDER% = C:\Program Files\Apache Software Found
   * -Dcom.arjuna.ats.arjuna.common.propertiesFile=C:\Program Files\Apache Software Foundation\Tomcat x.y\conf\jbossts-properties.xml
   * -Dfile.encoding=UTF-8
 
-All these configurations should be realized in the file %TOMCAT_INSTALL_FOLDER%/bin/TomcatXw.exe (Where X is the Tomcat major version), more precisely in the java tab.
+where we replaced the %CATALINA_HOME% with our new Tomcat directory
+
+In order to apply these configurations to the new installation, you have to use the program %TOMCAT_INSTALL_FOLDER%/bin/TomcatXw.exe (Where X is the Tomcat major version), and replicate them in the java tab.
 
 ![tomcatw configuration](images/bonita-as-windows-service/tomcatw.png)
 

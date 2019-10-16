@@ -1,6 +1,8 @@
-# Gateways
+# Process Gateways
 
 Gateways are used to control how sequence flows interact as they converge and diverge within a process.
+
+## Types of gateways
 
 There are three types of gateway available for process design in Bonita Studio: parallel (AND), exclusive (XOR), and inclusive. These gateways behave in accordance with the BPMN2 specification.
 

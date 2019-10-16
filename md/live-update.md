@@ -1,10 +1,10 @@
 # Live update
 
+Some process definition information can be live updated from Administrator profile.
+
 ::: info
 **Note:** For Enterprise, Performance and Efficiency editions only.
 :::
-
-This page explains how to update live process definition information. You need to be logged in with the Administrator profile.
 
 ## Parameters
 

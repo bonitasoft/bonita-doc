@@ -1,5 +1,9 @@
 # Back up Bonita Platform
 
+To provide continuity, regular backups of the platform (clustered or not) is advised.
+
+## Procedure
+
 Any basic one node (non-clustered) installation can be backed up to be restored later. 
 In a [Bonita cluster](overview-of-bonita-bpm-in-a-cluster.md), you need to back up the nodes, the shared database.
 

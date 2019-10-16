@@ -1,5 +1,7 @@
 # Hardware and software requirements
 
+This page describes the suggested hardware and software requirements to install Bonita platform.
+
 ## Hardware
 
 ::: info
