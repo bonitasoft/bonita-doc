@@ -1,6 +1,6 @@
-# Create your first application with the Engine APIs and Maven
+# Create your first application with Bonita Engine APIs
 
-Learn how to set up a client application that uses the Bonita APIs to communicate with Bonita Engine and run a process.
+Learn how to set up a Maven client application that uses Bonita Engine APIs to communicate with Bonita Engine and run a process.
 
 It assumes that you are a Java programmer familiar with [Maven](https://maven.apache.org/).
 
