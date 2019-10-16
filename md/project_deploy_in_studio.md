@@ -1,13 +1,13 @@
 # Project deployment in a Studio
 
-This page presents an overview of the _Deploy wizard_ capabilities in the Studio
+This page presents an overview of the _Deploy wizard_ capabilities in Bonita Development Suite.
 
 ## Artifact selection
 
-After importing or cloning a project in the Studio, you will have the possibility to directly deploy your project in the embedded studio runtime.  
-You can open the _Deploy wizard_ using the contextual menu on the project in the Project Explorer view or using find the action directly in the toolbar bar.  
+After importing or cloning a project in the studio, you will have the possibility to directly deploy your project in the embedded studio runtime.  
+You can open the _Deploy wizard_ using the contextual menu of the project in the Project Explorer view or find the action directly in the toolbar.  
 In the wizard, you have the possibility to select or deselect an artifact. An artifact can be a process, a page or any deployable element of your project.  
-Processes are categorized by versions and you can opt to only select the latest version ([SemVer](https://semver.org/)). The artifact selection is persisted between to deployment. You may also use the search text to quickly find an artifact in a large project.
+Processes are categorized by versions and you can opt to only select the latest version ([SemVer](https://semver.org/)). The artifact selection is persisted between two deployments. You may also use the search text to quickly find an artifact in a large project.
 
 ## Deploy options
 
