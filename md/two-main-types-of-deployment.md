@@ -1,12 +1,14 @@
 # Two main types of Bonita deployment
 
+Discover the two main types of deployments of a Bonita Platform.
+
 There are two main types of deployment
 * Bonita Portal + Bonita Engine on the same application server: this is the usual deployment and the default one when
 using a Bonita bundle
 * Bonita Portal and Bonita Engine running on two different application servers
 
-
-**Note:** It is highly recommended to use the provided Tomcat or WildFly bundles in order to carry out these deployments
+## Foreword
+It is highly recommended to use the provided Tomcat or WildFly bundles in order to carry out these deployments
 successfully.
 
 

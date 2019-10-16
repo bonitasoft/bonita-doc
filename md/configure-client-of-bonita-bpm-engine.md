@@ -1,6 +1,9 @@
 # Configure connection to Bonita Engine
 
-If you want your application to use the engine API of a remote engine, your application (the *client*) must be configured to connect to the engine (the *server*)
+Learn how to configure your application to connect to a remote Bonita Engine, in order to access Engine APIs
+
+If you want your application to use Bonita Engine APIs of a remote engine, your application (the *client*)
+must configure the connection to the remote engine (the *server*)
 
 The engine (the *server*) must also be configured to accept the connection.
 

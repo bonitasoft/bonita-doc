@@ -1,10 +1,10 @@
-# Single sign-on with SAML
+# SAML SSO configuration
+
+Bonita can be configured to use the SAML protocol to provide single sign-on (SSO), as long as you already have a SAML Identity Provider server up and running (IdP).
 
 :::info 
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
-
-This pages explains how to configure your Bonita Platform system to use the SAML protocol to provide single sign-on (SSO). It assumes you already have a SAML Identity Provider server up and running (IdP).
 
 This information applies to a Bonita platform deployed from a bundle (Tomcat or WildFly), not to the Engine launched from Bonita Studio. `<BUNDLE_HOME>` refers to the root directory of the bundle.
 

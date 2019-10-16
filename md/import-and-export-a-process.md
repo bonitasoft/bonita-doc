@@ -1,4 +1,5 @@
 # Import and export a process
+How to import and export processes in Bonita Studio.
 
 ## Import a process diagram into Bonita Studio
 

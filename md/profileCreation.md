@@ -1,5 +1,7 @@
 # Profile Editor
 
+Build a profile to customize the user's environment, define page listing and who can access it. 
+
 ## Definition
 
 ### Fonctional
@@ -43,7 +45,7 @@ For example, if you want to create a leave management application for four kinds
 Files of profiles are also handy to be used in different environments: you can create different files, with the same profile names, but each profile is mapped to different entities of the organization depending on the target environment.
 Therefore, you could have a "profiles_dev.xml", a "profiles_UAT.xml", and a "profiles_prod.xml" files of profiles.
 
-## Create and build a profile
+## Create and edit a profile
 
 ::: info
 **Note:** All Bonita subscription editions come with an .xml editor for this feature. Only Enterprise, Performance and Efficiency editions also come with a graphical UI.

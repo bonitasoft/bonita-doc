@@ -1,5 +1,7 @@
 # Migration overview
 
+Learn how to migrate a Bonita Platform from an older version to a newer version.
+
 ## Migrating your platform to the new version
 
 You can automatically [migrate the platform from an earlier version of Bonita](migrate-from-an-earlier-version-of-bonita-bpm.md). You cannot migrate your platform from a version earlier than 6.0.2\. 

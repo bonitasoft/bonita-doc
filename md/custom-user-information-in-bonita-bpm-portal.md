@@ -1,5 +1,7 @@
 # Custom User Information in Bonita Portal
 
+Learn how you can use and display Custom User Information, previously defined in Bonita Studio, in Bonita Portal.
+
 ## Overview
 
 Custom User Information defined in the Organization in Bonita Studio is displayed in the Bonita Portal in the **More** page for a user (only accessible under the Administrator profile).
@@ -21,22 +23,22 @@ See [Custom User Information in Bonita Studio](custom-user-information-in-bonita
 ## How to view custom information for a user
 
 1. Log on as a user with\>Administrator rights.
-2. Go to the **Organization** menu and choose **Users**.
-3. Select a user in the list, by clicking on a name.
-4. Click _**More**_.
-5. The custom user definition and value are displayed in the zone called **Other**.
+1. Go to the **Organization** menu and choose **Users**.
+1. Select a user in the list, by clicking on a name.
+1. Click _**More**_.
+1. The custom user definition and value are displayed in the zone called **Other**.
 
 ## How to edit Custom information for a single user
 
 1. **Log on ** as a user with _**Administrator rights**_.
-2. 3. Go to the **Organization** menu and choose **Users**.
-4. Select a user in the list, by clicking on a name.
-5. Click _**More**_.
-6. The custom user definition and value are displayed in the zone called **Other**.
-7. Click _**Edit user**_ in the top right corner of the screen.
-8. In the **Edit a user** pop-up window, click on the _**Other**_ tab.
-9. Enter a value for the definition (defined in Bonita Studio), which will only be added to this user.
-10. Click _**Save**_. This closes the pop-up.
-11. The new value for the the definition will be updated and displayed in the **Other** zone.
+1. Go to the **Organization** menu and choose **Users**.
+1. Select a user in the list, by clicking on a name.
+1. Click _**More**_.
+1. The custom user definition and value are displayed in the zone called **Other**.
+1. Click _**Edit user**_ in the top right corner of the screen.
+1. In the **Edit a user** pop-up window, click on the _**Other**_ tab.
+1. Enter a value for the definition (defined in Bonita Studio), which will only be added to this user.
+1. Click _**Save**_. This closes the pop-up.
+1. The new value for the the definition will be updated and displayed in the **Other** zone.
 
 Note that changing the value will modify the filtering and map the user to a different task.

@@ -1,6 +1,8 @@
-# identity API
+# Identity API
 
-## professionalcontactdata and personalcontactdata
+The Identity Rest API allows to manage the Bonita's organization.
+
+## Professional and Personal contact data
 
 ### Description
 

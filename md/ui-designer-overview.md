@@ -1,6 +1,12 @@
 # UI Designer overview
 
-The UI Designer is a graphical development environment for creating pages and forms for a Bonita application. It is a web-based tool that is launched from Bonita Studio.  
+
+The UI Designer is a wysiwyg development environment for creating pages and forms for a Bonita application.
+
+
+## Usage
+
+It is a web-based tool that is launched from Bonita Studio.  
 A page is defined in HTML extended by the AngularJS JavaScript framework. Use the UI Designer to create and update pages for business applications, forms to start process instances or execute human tasks, and application layouts that apply to all pages of an application.
 
 * Create pages directly in the Bonita UI designer.
@@ -11,7 +17,7 @@ You can import an existing page, form, or layout to edit, or duplicate existing 
 
 ## Page structure
 
-A page (but also a form or a layout) is constructed as a vertical arrangement of rows.  
+A page (but also a form or a layout) is built as a vertical arrangement of rows.  
 A row is a mechanism for aligning widgets, from top left to bottom right. When you create a new, empty, page, it contains a row. A row occupies the whole width of the page, which is considered to be 12 units. The actual width is calculated when the page is displayed. The rows are indicated by a thin pale grey rectangle on the left side of the whiteboard. 
 
 To move or delete a row, position your mouse in the row, and the row toolbar is displayed.
@@ -42,6 +48,25 @@ The behavior of a page is determined by the widget properties. Any property you 
 In the Enterprise, Performance, Efficiency, and Teamwork editions, you can also use [fragments](fragments.md), which are groups of widgets. They allow to reuse the same group of widgets with the same behavior in several pages or forms.
 
 The UI Designer generates standard HTML application code, based on AngularJS. Export pages if you want to further customize them in your favorite web development environment. Note that once customized, you can not reimport them in the UI Designer.
+
+## Starting the UI Designer
+
+### From Bonita Studio menu bar
+
+Open the **Development** menu then choose **Open UI Designer**, or click the UI Designer icon in the coolbar. This is useful to create application pages that are not linked to a process, but display business information whose changes are managed by underlying processes.
+
+### From a form mapping tab
+
+Select a human task or a pool, go to the **Details** panel, **Execution** tab. Then go to the relevant form mapping tab:
+
+* **_Instantiation form_** for a form to start a process instance
+* **_Form_** for a form on a human task
+
+With the form type set to **UI Designer**, you can select a form from the dropdown list and click the pencil icon to edit it, or you can choose **Create a new form**. This is the way to go to create forms as the Studio will auto-generate a form based on the process instantiation or task execution [contract](contracts-and-contexts.md).
+
+You can also create a customized **overview form**, to display a summary of the case to the users, either in a case details page, or in the tasklist, to give some context to the task to do.  
+To do so, go to the pool **Details** panel, **Execution** tab, and click **_Overview page**.  
+With the form type set to **UI Designer**, you can select a form from the dropdown list and click the pencil icon to edit it, or you can choose **Create a new form**.
 
 ## Integration with Bonita Platform
 

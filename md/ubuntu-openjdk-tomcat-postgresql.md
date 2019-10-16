@@ -1,10 +1,10 @@
-# Ubuntu + OpenJDK + Tomcat + PostgreSQL
+# Custom Bonita Platform Setup
 
-This page explains how to set up a Bonita Platform in a specific environment. This environment
-includes the following set of components:
+How to set up a Bonita Platform from scratch in a specific environment (Ubuntu, Openjdk, Tomcat, PostgreSQL).
 
 ## Operating System
 
+Install a Ubuntu Linux distribution.
 Simply follow a standard Ubuntu installation procedure. You won't need any specific settings here.
 
 Note: make sure you got a text editor installed such as `nano`. In order to install it: `sudo apt install nano`

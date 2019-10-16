@@ -1,8 +1,9 @@
 # Assets
 
-Assets enable you to add web resources to pages, layouts and forms. We will use "page" to refer to those three artifacts. 
+Assets enable you to add web resources to pages, layouts and forms. You can use JavaScript, CSS, image, and localization asset type.
 
-Available asset types are JavaScript, CSS, image, and (in the Subscription editions) Localization.   
+## Assets location
+
 Assets can be Local (file stored in the artifact) or External (URL). A localization asset is always local and its name is always "Localization.json". An external asset name must be a standard URL.
 
 ## Assets in the page editor
@@ -67,6 +68,8 @@ An image asset can be displayed in a custom widget (see the Custom widget editor
 The localization asset of a page is a local file called `localization.json` that contains the text presented in the page with translations into the languages that you want to support. This enables you to create [multi-language pages](multi-language-pages.md).
 
 A page can not have more than one localization asset. When you upload a new `localization.json` asset file, it overwrites the existing one.
+
+
 
 ### Asset list
 
