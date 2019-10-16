@@ -36,7 +36,7 @@ The version targeted may not support the version of the database that is being m
 - If you need to upgrade your database:
    - Please make sure to apply all the [RDBMS customisations required by Bonita](database-configuration.md#specific_database_configuration) when setting up the new version.
    - Please make sure to use the [appropriate JDBC driver](database-configuration.md#proprietary_jdbc_drivers)
- :::
+:::
 
 **Community/Subscription edition:**
 The tool migrates your platform (_bonita_home_ folder and the database). You cannot [change edition](upgrade-from-community-to-a-subscription-edition.md) while migrating.
