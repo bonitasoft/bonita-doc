@@ -491,6 +491,10 @@ For value definition, and information about how to update the Quartz trigger tab
 
 Here is Bonita advice to finely tune PostgreSQL database server performance.
 
+In this example, we assume with have:
+* 12Gb of RAM
+* fast SSD storage
+
 Update **memory** configuration in file `postgresql.conf` (typically `/etc/postgresql/11/main/postgresql.conf`) with the
 following values:
 
@@ -515,13 +519,12 @@ checkpoint_completion_target = 0.9
 
 ::: warning
 Warning: properties `random_page_cost` and `seq_page_cost` should have values relative to each other thoroughly set, in order
-for the planner to choose the right execution plan.  
+for PostgreSQL query planner to choose the right execution plan.  
 See PostgreSQL [Planner Cost Constants](https://www.postgresql.org/docs/11/runtime-config-query.html#RUNTIME-CONFIG-QUERY-CONSTANTS)
 for more details on how to set those values.
 :::
 
 If you want to be able to **restore live PITR backup** of the database, ensure archiving is activated:
-
 
 ```properties
 # SHOULD already be the default value:
