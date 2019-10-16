@@ -1,14 +1,14 @@
-
 # Documents
 
-Many business processes require documents, or exist because of documents. For example:
+Some processes require documents to provide supplementary information, or to manipulate business information.  
+Users can download it.
+
+## Examples of use case 
 
 * A process to claim travel expenses includes scanned copies of receipts, a company credit card statement, and a list of currency exchange rates.
 * A process for considering candidates for a position includes CVs and a job description.
 * A process for approving a document for publication includes the document itself and a quality checklist.
-
-Documents can also be attached to processes to provide supplementary information. For example, a travel expense claim process could have an attached document detailing the expense policy of the company.   
-Users have the option to download the document if required.
+* A travel expense claim process could have an attached document detailing the expense policy of the company.   
 
 ## Document definition
 

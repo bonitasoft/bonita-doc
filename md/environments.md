@@ -1,10 +1,15 @@
-# Environments
+# Environment management
+
+An environment is a set of configuration definitions for a project. You can configure a process differently for each environments. 
+
+## How to use environments
 
 ::: info
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
-An environment is a set of configuration definitions for a project. You can configure a process for several environments. In this way, one process can run in several environments without any modification, because the information that is specific to an environment is set at configuration. In the Enterprise, Performance, Efficiency, and Teamwork editions, Bonita Studio proposes three environments, Local,  Production, and Qualification. You can also define custom environments.
+The main idea behind the environment concept is to avoid modifying processes to be able to run on different deployments (for example: production and development).
+One process can run in several environments without any modification, because the information that is specific to an environment is set at configuration. In the Enterprise, Performance, Efficiency, and Teamwork editions, Bonita Studio proposes three environments, Local, Production, and Qualification. You can also define custom environments.
 
 You can configure, run, and debug a process in a specific environment.
 
@@ -13,7 +18,6 @@ The default environment is the one most recently selected in the Configure, Run,
 ::: warning
 The **Local** environment is meant to be local, you cannot share it with a VCS (Git / SVN).
 :::
-
 
 ## Define a custom environment
 

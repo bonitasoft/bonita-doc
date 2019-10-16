@@ -1,4 +1,6 @@
-# Configurable Archive
+# Configure the archiving of BPM elements
+
+Learn how you can deactivate the archiving of some BPM elements if you don't need to keep track of them.
 
 ::: info
 **Note:** For Enterprise and Performance editions only.

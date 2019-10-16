@@ -1,10 +1,11 @@
-# Event handlers
+# Bonita Engine Event handlers
+
+An event handler is an extension to the engine that is configured to run when a specified event occurs.
 
 ::: info
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
-An event handler is an extension to the engine that is configured to run when a specified event occurs.
 You can add event handlers for several purposes and you can configure which events you want to catch.
 We strongly recommend that you add only appropriate handlers and carefully code the handler filters to handle only those events that you are interested in.
 

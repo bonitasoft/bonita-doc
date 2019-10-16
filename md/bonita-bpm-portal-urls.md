@@ -1,6 +1,10 @@
 # Bonita Portal URLs
 
-This page explains how to use a URL to access Bonita Portal or the form for a specific task. In these URLs, the process names, versions and the task names must be URL encoded.
+This page explains how to use a URL to access Bonita Portal or the form for a specific process or task.
+
+::: info
+**Note:** In these URLs, the process names, versions and the task names must be URL encoded.
+:::
 
 ## URL of Bonita Portal
 

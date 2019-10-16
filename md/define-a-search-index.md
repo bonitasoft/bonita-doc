@@ -1,4 +1,6 @@
-# Define a search key
+# Search keys
+
+Learn how you can set and use Bonita Search Keys to easily search for business values defined on your processes
 
 ::: info
 **Note:** For Bonita Enterprise, Performance and Efficiency editions only.

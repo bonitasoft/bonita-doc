@@ -1,5 +1,9 @@
 # Tasks
 
+You can create tasks to define the process. These tasks can be performed by human or services. 
+
+## Definition
+
 A task is an activity in a process. There are several different kinds of task:
 
 * A human task is carried out by a person using a form to enter data or to receive information.

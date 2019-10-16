@@ -1,10 +1,12 @@
-# Insert data in a .docx/.odt template
+# Insert data in a .docx/.odt template connector
+
+The **insert data in a .docx/.odt template** fills a specified template file by inserting values coming from the current process instance.
+
+## Usage
 
 ::: info
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
-
-The **insert data in a .docx/.odt template** connector allows to fill a specified template file by inserting values coming from the current process instance, for example from a form attached to a human task.
 
 The template is a LibreOffice/OpenOffice `.odt` file or a Microsoft Word`.docx` file with special placeholders called `keys`.  
 A key is a replaceable element in the template that is identified with a dollar sign and surrounded by braces, (eg. ${element}), following the [Velocity Template Language](https://velocity.apache.org/engine/releases/velocity-1.7/user-guide.html).

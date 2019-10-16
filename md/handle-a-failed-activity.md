@@ -1,10 +1,12 @@
-# Handle a failed activity
+# Task errors managmenent
+
+Learn how to handle errors happening on a task.
 
 ::: info
 **Note:** For Enterprise and Performance editions only.
 :::
 
-An activity (or task) can fail in Bonita Engine for several reasons. Typical reasons include:
+A task can fail in Bonita Engine for several reasons. Typical reasons include:
 
 * An input expression evaluation fails (for example because of invalid syntax, or incorrect values).
 * The condition in an output transition fails to evaluate properly.
@@ -29,7 +31,7 @@ replayActivity(long activityInstanceId, `Map<Long` connectorsToReset>connectorsT
 
 ## Code explained
 
-In this example, an activity has failed because a connector failed to execute.
+In this example, a task has failed because a connector failed to execute.
 
 The methods that are used to reset process items are in the ProcessManagementAPI, and the details are in the 
 [Javadoc](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html). These methods are accessed through the ProcessAPI, which extends the ProcessManagementAPI.
@@ -68,7 +70,7 @@ Find the reason for the failure by searching the internal logs:
 Then either reset the state of the connector instance and re-execute it, or skip the connector, as shown below:
 `processAPI.setConnectorInstanceState(connectorInstance.getId(), ConnectorStateReset.SKIPPED);`
 
-Then try to execute the activity again: `processAPI.retryTask(failedTaskId);`
+Then try to execute the task again: `processAPI.retryTask(failedTaskId);`
 
 Finally, log out: `loginAPI.logout(session);`
 

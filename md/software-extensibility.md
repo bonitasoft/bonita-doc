@@ -1,4 +1,6 @@
-# Software extensibility
+# Platform extensibility
+
+Learn how Bonita Platform can be extended to suit your needs.
 
 Bonita provides a rich set of features by default. These features are designed to meet the needs of most of your projects. 
 However, if a project has a need that was not anticipated and cannot be met by the default features, Bonita has been designed to be extensible. 
