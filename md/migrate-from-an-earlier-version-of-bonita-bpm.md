@@ -32,10 +32,10 @@ You are recommended not to start 7.0.0 after you migrate to it, but to proceed i
 ::: warning
 **RDBMS requirements:**
 The version targeted may not support the version of the database that is being migrated. You may then need to upgrade the version of your database prior to running the migration tool.
-* Please check the [database requirements](hardware-and-software-requirements.md).
-* If you need to upgrade your database:
-   * Please make sure to apply all the [RDBMS customisations required by Bonita](database-configuration.md#specific_database_configuration) when setting up the new version.
-   * Please make sure to use the [appropriate JDBC driver](database-configuration.md#proprietary_jdbc_drivers)
+- Please check the [database requirements](hardware-and-software-requirements.md).
+- If you need to upgrade your database:
+   - Please make sure to apply all the [RDBMS customisations required by Bonita](database-configuration.md#specific_database_configuration) when setting up the new version.
+   - Please make sure to use the [appropriate JDBC driver](database-configuration.md#proprietary_jdbc_drivers)
  :::
 
 **Community/Subscription edition:**
