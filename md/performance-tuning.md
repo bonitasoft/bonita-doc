@@ -524,7 +524,7 @@ See PostgreSQL [Planner Cost Constants](https://www.postgresql.org/docs/11/runti
 for more details on how to set those values.
 :::
 
-If you want to be able to **restore live PITR backup** of the database, ensure archiving is activated:
+If you want to be able to **restore live PITR ([Point-in-Time Recovery](https://www.postgresql.org/docs/11/continuous-archiving.html)) backup** of the database, ensure archiving is activated:
 
 ```properties
 # SHOULD already be the default value:
