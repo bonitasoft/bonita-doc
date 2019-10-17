@@ -491,7 +491,7 @@ For value definition, and information about how to update the Quartz trigger tab
 
 Here is Bonita advice to finely tune PostgreSQL database server performance.
 
-In this example, we assume with have:
+In this example, we assume you have:
 * 12Gb of RAM
 * fast SSD storage
 
