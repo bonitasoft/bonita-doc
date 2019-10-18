@@ -22,7 +22,7 @@ Bonita 7.10 now allows (in Enterprise and Performance editions) to disable the a
 There is a new _Deploy..._ action in Bonita Studio that lets you [deploy a whole project](project_deploy_in_dev_suite.md) (or a subset) in the embedded runtime environment.
 
 ### Studio Welcome page updated
-A new design has been implemented for the studio Welcome page. It is now more project oriented in Enterprise editions. It is now possible to directly  import official Bonita examples like:
+A new design has been implemented for the studio Welcome page. It is now more project oriented in Enterprise editions and it is possible to directly import official Bonita examples like:
 * Procurement example
 * Expense note example
 * Credit Card dispute resolution, with the implementation of an Adaptive Case Management use-case. (Enterprise only)  
