@@ -29,8 +29,8 @@ Some special characters are considered as invalid in XML [(more details)](https:
 In Bonita 7.10, it is now possible to submit a contract containing some of those invalid characters.  
 The following connectors have also been updated to be resilient to those characters:  
 
- - The connector _document templating_ in version 1.1.2 removes all invalid XML characters from the resulting document. 
- - The connector _web service_ in version 1.2.4 removes all invalid XML characters from the envelope.
+ - The connector _document templating_ in version 1.1.3 removes all invalid XML characters from the resulting document. 
+ - The connector _web service_ in version 1.2.5 removes all invalid XML characters from the envelope.
  
 ## Technical updates
 
