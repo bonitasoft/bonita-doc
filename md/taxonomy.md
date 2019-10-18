@@ -115,6 +115,7 @@
     * [Configure a test organization](configure-a-test-organization.md)
     * [Run a process from Bonita Studio for testing](run-a-process-from-bonita-bpm-studio-for-testing.md)
     * [Log files](log-files.md)
+  * [Project deployment in Bonita Development Suite](project_deploy_in_dev_suite.md)
   * [Build a process for deployment](build-a-process-for-deployment.md)
 * [Installation](_installation.md)
   * [Bonita installation overview](bonita-bpm-installation-overview.md)
