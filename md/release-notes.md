@@ -1,3 +1,4 @@
+
 # Release notes
 
 ::: info
@@ -20,6 +21,22 @@ Bonita 7.10 now allows (in Enterprise and Performance editions) to disable the a
 
 ### Project deployment in Studio
 There is a new _Deploy..._ action in Bonita Studio that lets you [deploy a whole project](project_deploy_in_dev_suite.md) (or a subset) in the embedded runtime environment.
+
+## Improvements
+
+### Support of invalid XML characters
+Some special characters are considered as invalid in XML [(more details)](https://www.w3.org/TR/xml/#charsets) .  
+In Bonita 7.10, it is now possible to submit a contract containing some of those invalid characters.  
+The following connectors have also been updated to be resilient to those characters:  
+
+ - The connector _document templating_ in version 1.1.3 removes all invalid XML characters from the resulting document. 
+ - The connector _web service_ in version 1.2.5 removes all invalid XML characters from the envelope.
+ 
+## Technical updates
+
+### Connectors
+
+ - The connectors _document templating_  and _web service_ dependency on [xdocreport](https://github.com/opensagres/xdocreport) has been updated from 1.0.5 to 2.0.2.
 
 ## Feature deprecations and removals
 
