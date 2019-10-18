@@ -2,10 +2,6 @@
 
 Learn how to tune the Bonita Engine to get optimize the performance of your platform.
 
-::: info
-**Note:** For Enterprise and Performance edition only.
-:::
-
 It assumes that you are familiar with Java threads, concurrent execution, XML, DB connection pools, your DB instance, cache policies, scheduling, connectors, network speed, I/O, Java Virtual Machine configuration, JTA and transaction management.  
 You need to know how to install and configure Bonita.
 
@@ -15,7 +11,7 @@ It is also possible to [use gzip compression](use-gzip-compression.md) on your a
 
 ## Summary
 
-This section is a summary of the key recommandations from the rest of the page. You can use it as a checklist of things to consider when tuning system performance.  
+This section is a summary of the key recommendations from the rest of the page. You can use it as a checklist of things to consider when tuning system performance.  
 To understand these recommendations in detail, read the sections below.
 
 Two key definitions:
@@ -34,9 +30,9 @@ Performance tuning checklist of best practises:
 
 * [Access Engine APIs](#engine_access) in Local mode whenever possible.
 * Make sure that the [network](#hardware) between your client and the Bonita Engine server is fast if you [access the APIs remotely](#remote).
-* Install your [Database](#db) on a powerful [machine](#hardware) (hardware that meets to your DB vendor requirements: sufficient memory, powerful CPU, and fast I/O).
+* Install your [Database](#db) on a powerful [machine](#hardware) (hardware that meets your DB vendor requirements: sufficient memory, powerful CPU, and fast I/O).
 * Make sure that the [network](#hardware) between your Bonita Engine server and your database server is very fast.
-* Set the [Work service](#work_service) threadpool and [Connector service](#connector_service) threadpool to the same size.
+* Set the [Work service](#work_service) threadpool and [Connector service](#connector_service) threadpool to a size according to the usage of your processes.
 * Set the maximum [DB connections](#db_connections) for the bonitaDS [datasource](#datasource_settings) to the desired processing capacity number of parallel threads.
 * Configure a suitable [sequence manager](#seq_mgr) range size for your typical process designs and expected volume. 
 * Make sure that the maximum [DB connections](#db_connections) for sequenceManagerDS [datasource](#datasource_settings) is more than 1 and is appropriate for the SequenceManager range size configuration.
@@ -48,6 +44,7 @@ Performance tuning checklist of best practises:
 * Design your [processes](#process_design) following the best practises.
 * Add a reasonable number of well-developed [event handlers](#event_handlers).
 * Tuned the Bonita Engine [cron jobs](#cron) for your needs.
+* If your database is PostgreSQL, follow [our recommendations](#postgresql-performance-tuning).
 
 <a id="engine_access"/>
 
@@ -392,7 +389,8 @@ In addition to this, make sure that your database instance is well configured.
 Most database software provides many options for tuning, and some of them are easy to set up.  
 Others may be more difficult and present choices between robustness and performance, fast read or fast write, etc.  
 Your database configuration must be correlated with the Bonita Engine usage pattern.
-To find the right characteristic to optimize, one good starting point is to consider whether you are creating a lot of process instances (in which case optimize database writes) or you are executing a lot of read queries like `getTaskList` (in which case optimize database reads).
+To find the right characteristic to optimize, one good starting point is to consider whether you are creating a lot of process instances (in which case optimize database writes) or you are executing a lot of read queries like `getTaskList` (in which case optimize database reads).  
+[Specific PostgreSQL performance tuning](#postgresql-performance-tuning) is given as a database tuning reference.
 
 <a id="tm"/>
 
@@ -403,7 +401,7 @@ If you are using a JEE Application server, then you only have to configure Bonit
 Otherwise, you have to embed a transaction manager (for example, we embed Narayana by default in the Tomcat bundle).
 
 A transaction manager manages a transaction log and also frequently has notions of internal pooling.  
-For example, in [Narayana](http://narayana.io//docs/product/index.html#d0e3473) you can configure some options for transaction management. 
+For example, in [Narayana](http://narayana.io/docs/product/index.html#d0e3473) you can configure some options for transaction management. 
 
 <a id="logs"/>
 
@@ -487,3 +485,63 @@ Details on these properties can be found in [the Quartz documentation](http://ww
 
 They are not read subsequently, so changing the values in `bonita-tenant-community-custom.properties` after the Engine has been started has no effect on Quartz.
 For value definition, and information about how to update the Quartz trigger tables, see the [Quartz documentation](http://www.quartz-scheduler.org/documentation/) about Cron Triggers.
+
+
+#### PostgreSQL performance tuning
+
+Here is Bonita advice to finely tune PostgreSQL database server performance.
+
+In this example, we assume you have:
+* 12Gb of RAM
+* fast SSD storage
+
+Update **memory** configuration in file `postgresql.conf` (typically `/etc/postgresql/11/main/postgresql.conf`) with the
+following values:
+
+```properties
+# MEMORY PARAMETERS:
+# shared_buffers SHOULD be set to 1/4 of the total memory available on the server, with a maximum of 8GB:
+shared_buffers = 3GB
+work_mem = 16MB
+maintenance_work_mem = 256MB
+
+# QUERY PLANNING PARAMETERS:
+# cost of non-sequentially-fetched disk page. 2 for fast RAID0 disks, higher value for slower disks:
+random_page_cost = 2
+# cost of a disk page fetch. Value is correlated with random_page_cost. See Warning below. :
+seq_page_cost = 2
+# effective_cache_size SHOULD be 2/3 of the total memory available on the server
+effective_cache_size = 8GB
+# effective_io_concurrency is the number of current disk operations. 200 is a good value for SSD.
+effective_io_concurrency = 200
+checkpoint_completion_target = 0.9
+```
+
+::: warning
+Warning: properties `random_page_cost` and `seq_page_cost` should have values relative to each other thoroughly set, in order
+for PostgreSQL query planner to choose the right execution plan.  
+See PostgreSQL [Planner Cost Constants](https://www.postgresql.org/docs/11/runtime-config-query.html#RUNTIME-CONFIG-QUERY-CONSTANTS)
+for more details on how to set those values.
+:::
+
+If you want to be able to **restore live PITR ([Point-in-Time Recovery](https://www.postgresql.org/docs/11/continuous-archiving.html)) backup** of the database, ensure archiving is activated:
+
+```properties
+# SHOULD already be the default value:
+wal_level = replica
+# archiving is off by default, set it to on:
+archive_mode = on
+```
+
+Update **kernel** configuration in file `10-postgresql.conf` (typically `/etc/sysctl.d/10-postgresql.conf`; create the file
+if it does not exist yet) with the following values:
+
+```properties
+# KERNEL PARAMETERS:
+vm.swappiness=10
+vm.zone_reclaim_mode=0
+vm.overcommit_memory=2
+vm.overcommit_ratio=80
+vm.dirty_ratio=40
+vm.dirty_background_ratio=30
+```

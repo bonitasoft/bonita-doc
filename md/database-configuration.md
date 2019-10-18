@@ -91,6 +91,8 @@ Edit `postgresql.conf` and set a non-zero value for `max_prepared_transactions`.
 The value should be at least as large as the value set for `max_connections` (default is typically 100).  
 See the [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) for details.
 
+See also [how to finely tune performance for PostgreSQL](performance-tuning.md#postgresql-performance-tuning).
+
 #### Oracle Database
 
 Make sure your database is configured to use the AL32UTF8 character set.
