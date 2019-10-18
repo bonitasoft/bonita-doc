@@ -29,7 +29,7 @@ On large, medium, and small screen devices;
 
 On extra small screen (mobile) devices;
 
-![mobile device output](images/responsiveness-community-edition/responsivenessCommunityEditionOutput2.png)
+![mobile device output](images/responsiveness-community-edition/responsivenessCommunityEditionOutput2.png) 
 
 For more details about bootstrap grid system, click [here.](https://getbootstrap.com/docs/3.3/css/#grid)
 
