@@ -19,6 +19,8 @@ Bonita 7.10 now includes a brand new extensible [monitoring](runtime-monitoring.
 #### Contract data
 Bonita 7.10 now allows (in Enterprise and Performance editions) to disable the archiving of Contract Data, to improve the platform performance. More details as to how [here](configurable-archive.md).
 
+### Project deployment in Studio
+There is a new _Deploy..._ action in Bonita Studio that lets you [deploy a whole project](project_deploy_in_dev_suite.md) (or a subset) in the embedded runtime environment.
 
 ## Improvements
 
@@ -35,7 +37,6 @@ The following connectors have also been updated to be resilient to those charact
 ### Connectors
 
  - The connectors _document templating_  and _web service_ dependency on [xdocreport](https://github.com/opensagres/xdocreport) has been updated from 1.0.5 to 2.0.2.
- 
 
 ## Feature deprecations and removals
 
