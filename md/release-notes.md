@@ -1,3 +1,4 @@
+
 # Release notes
 
 ::: info
@@ -27,6 +28,22 @@ A new design has been implemented for the studio Welcome page. It is now more pr
 * Expense note example
 * Credit Card dispute resolution, with the implementation of an Adaptive Case Management use-case. (Enterprise only)  
 This Release note is now opened at first Studio launch or can be opened later from the studio (Menu _Help_ > _Open Release Notes_)
+
+## Improvements
+
+### Support of invalid XML characters
+Some special characters are considered as invalid in XML [(more details)](https://www.w3.org/TR/xml/#charsets) .  
+In Bonita 7.10, it is now possible to submit a contract containing some of those invalid characters.  
+The following connectors have also been updated to be resilient to those characters:  
+
+ - The connector _document templating_ in version 1.1.3 removes all invalid XML characters from the resulting document. 
+ - The connector _web service_ in version 1.2.5 removes all invalid XML characters from the envelope.
+ 
+## Technical updates
+
+### Connectors
+
+ - The connectors _document templating_  and _web service_ dependency on [xdocreport](https://github.com/opensagres/xdocreport) has been updated from 1.0.5 to 2.0.2.
 
 ## Feature deprecations and removals
 
