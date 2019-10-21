@@ -169,7 +169,7 @@ if you want to use the AES256-CTS encryption type, you need to update the Java s
 	};
 ```
 
-In addition, the system property "java.security.auth.login.config" should not already be set or, if it is, it should target the file `conf/login.conf`. In oreder to do that, you can edit the file `<BUNDLE_HOME>/server/bin/setenv.sh (.bat)` and set the SECURITY_OPT variable as follows:  
+In addition, the system property `java.security.auth.login.config` should not already be set or, if it is, it should target the file `conf/login.conf`. In order to do that, you can edit the file `<BUNDLE_HOME>/server/bin/setenv.sh (.bat)` and set the SECURITY_OPT variable as follows:  
 `SECURITY_OPTS="-Djava.security.auth.login.config=${CATALINA_HOME}/conf/login.conf"`
 
 3. (Wildfly) In the following folder `<BUNDLE_HOME>/setup/wildfly-templates`,
