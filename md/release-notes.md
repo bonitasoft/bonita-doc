@@ -34,7 +34,7 @@ The following connectors have also been updated to be resilient to those charact
 
 ### Studio Windows installer
 * Now detect if an anti-virus is enabled and suggest to exclude the install folder to improve Studio performance.
-* Now detect if the fire-wall is enabled and automatically allow the studio and the embedded JVM (Community only) executables.
+* Now detect if the fire-wall is enabled and automatically allow incoming accesses to the studio and the embedded JVM (Community only) executables.
 
 
 ## Technical updates
