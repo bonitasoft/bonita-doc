@@ -36,7 +36,7 @@ The following connectors have also been updated to be resilient to those charact
 
 ### Connectors
 
- - The connectors _document templating_  and _web service_ dependency on [xdocreport](https://github.com/opensagres/xdocreport) has been updated from 1.0.5 to 2.0.2.
+ - The connectors _document templating_  and _document converter_ dependency on [xdocreport](https://github.com/opensagres/xdocreport) has been updated from 1.0.5 to 2.0.2.
 
 ## Feature deprecations and removals
 
