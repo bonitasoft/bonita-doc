@@ -240,7 +240,7 @@ If only a limited group of users need to bypass kerberos authentication method y
 	-->	 spnego.preauth.password     = <password> 
 ```
 <username> and <password> shoud be replaced with the domain account and password to use to pre-authenticate to on the Domain controller acting as Kerberos Key Distribution Center.  
-`spnego.login.client.module` and `spnego.login.server.module` property values should match the login context set in `login.conf` for Tomcat or the security domain names set in `standalone.xml` for Wildfly (spnego-client and spnego-server by default).
+`spnego.login.client.module` and `spnego.login.server.module` property values should match the login contexts set in `login.conf` for Tomcat or the security domain names set in `standalone.xml` for Wildfly (spnego-client and spnego-server by default).
 Note that for Wildfly, the properties `spnego.krb5.conf` and `spnego.login.conf` are not used as already set in the file satndalone.xml
 
 Make sure to set your principal user name and password.	
@@ -326,8 +326,10 @@ In a WildFly bundle, you need to edit the file `<BUNDLE_HOME>/setup/wildfly-temp
 Edit the *logger* tags which *category* matches `org.bonitasoft.console.common.server.auth`, `org.bonitasoft.engine.authentication` and `com.bonitasoft.engine.authentication` packages: change the *level* *name* attribute of each *logger* to `ALL` and add a new logger with the *category* `net.sourceforge.spnego` (also with a *level* *name* set to `ALL`).
 
 ::: info
-**Common issue :** In the logs, you may get a NullPointerException in the class `net.sourceforge.spnego.SpnegoFilterConfig` if the login context (set in `login.conf`) for Tomcat or the security domain names (set in `standalone.xml`) for Wildfly (spnego-client and spnego-server by default) do not match the values of the properties `spnego.login.client.module` and `spnego.login.server.module` set in the file `spnego-config.properties`.  
-In addition, for Tomcat, you should make sure the properties `spnego.krb5.conf` and `spnego.login.conf` of `spnego-config.properties` target the right files (the path is relative to `<BUNDLE_HOME>/server`) and the  system property `java.security.auth.login.config` should not be set or, if it is, it should target the file `conf/login.conf`.
+**Common issues :** In the logs, you may get a IllegalArgumentException in the class `net.sourceforge.spnego.SpnegoFilterConfig`.  
+The most probable cause for that is that the login contexts (set in `login.conf`) for Tomcat or the security domain names (set in `standalone.xml`) for Wildfly (spnego-client and spnego-server by default) do not match the values of the properties `spnego.login.client.module` and `spnego.login.server.module` set in the file `spnego-config.properties`.  
+You may also see a NullPointerException in the class `net.sourceforge.spnego.SpnegoFilterConfig`  
+In that case, for Tomcat, you should make sure the properties `spnego.krb5.conf` and `spnego.login.conf` of `spnego-config.properties` target the right files (the path is relative to `<BUNDLE_HOME>/server`) and the  system property `java.security.auth.login.config` should not be set or, if it is, it should target the file `conf/login.conf`.
 :::
 
 ## Manage passwords
