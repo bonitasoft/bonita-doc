@@ -46,3 +46,8 @@ As announced in the previous release, the Wildfly bundle has been removed in the
 
 #### EJB support
 As announced in the previous release, the support for EJB communication to Bonita Engine has been removed in the 7.10 release.
+
+## Improvements
+### Bonita Layout usability
+#### Profile dropdown in application modal of the Bonita layout
+Labels for the default options were changed to be more intuitive. The profile dropdown was also disabled if the user has only one available profile.
