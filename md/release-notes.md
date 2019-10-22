@@ -33,8 +33,8 @@ The following connectors have also been updated to be resilient to those charact
  - The connector _web service_ in version 1.2.5 removes all invalid XML characters from the envelope.
 
 ### Studio Windows installer
-* Now detect if an anti-virus is enabled and suggest to exclude the install folder to improve Studio performance.
-* Now detect if the fire-wall is enabled and automatically allow incoming traffic for the studio and the embedded JVM (Community only) executables.
+* Now detects if an anti-virus is enabled and if so, suggests to exclude the folder where Bonita is installed from the anti-virus scanning scope, to improve Studio performance.
+* Now detects if the fire-wall is enabled and if so, automatically allows incoming traffic for the studio and the embedded JVM (Community only) executables.
 
 
 ## Technical updates
