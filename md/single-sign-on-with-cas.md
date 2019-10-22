@@ -25,7 +25,7 @@ When a reverse proxy is used, the `server` and `port` of the HTTP request genera
 As a consequence, configure the reverse proxy to include the `Host:` header when forwarding the request to the web application server.
 
 ::: info
-The `HttpServletRequest.getRequestURL()` java call is used internaly to retrieve the `server` and `port` of the HTTP request.
+The method [`getRequestURL ot HttpServletRequest`](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html#getRequestURL--) is used internaly to retrieve the `server` and `port` of the HTTP request.
 :::
 
 ::: example
