@@ -34,5 +34,5 @@ To know more about how to use both features, go to [How to create unique task na
 The task list also contains a **Done tasks** filter, for the user to check if the task has been completed properly.
 
 ::: info
-**Note:** Subtask creation has not been implemented in the task list. However, subtasks created in open cases that were started in a previous Bonita version are still available to their assignees when cases are migrated to Bonita 7.3.
+**Note:** Since Bonita 7.3.0, creating subtasks is no longer possible. However, if subtasks have been created in a process instance in an old Bonita version, and if the Bonita Platform has been migrated to a later version while the case was open, then the subtasks will still be visible to the users assigned, and users will still be able to complete them.
 :::

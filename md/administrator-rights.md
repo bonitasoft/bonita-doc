@@ -9,6 +9,5 @@ A user mapped to the Administration profile has the maximum rights to manage act
 * [Manage a process](processes.md)
 * [Manage a case](cases.md)
 * [Manage a task](tasks.md)
-* [Manage a subtask](subtasks.md)
 * [Manage a category](processes.md)
 * [Import/export an organization](organization-in-bonita-bpm-portal-overview.md)
