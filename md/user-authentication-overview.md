@@ -6,6 +6,8 @@ If you want to find out how to customize authentication refer to the dedicated d
 
 * [LDAP server / Active Directory](active-directory-or-ldap-authentication.md)
 * [CAS single sign-on (SSO)](single-sign-on-with-cas.md)
+* [Single sign-on with SAML (SSO)](single-sign-on-with-saml.md)
+* [Single sign-on with Kerberos (SSO)](single-sign-on-with-kerberos.md)
 
 ## Bonita Portal authentication scenario
 
