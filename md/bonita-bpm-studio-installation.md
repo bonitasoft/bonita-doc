@@ -43,8 +43,8 @@ Community edition: `BonitaStudioCommunity-x.y.z-x86_64.exe`
 Subscription editions: `BonitaSubscription-x.y.z-x86_64.exe`  
 
 **Mac**  
-Community edition: `BonitaStudioCommunity-x.y.z-x86_64.dmg`  
-Subscription editions: `BonitaSubscription-x.y.z-x86_64.dmg`  
+Community edition: `BonitaStudioCommunity-x.y.z-macOs.dmg`  
+Subscription editions: `BonitaSubscription-x.y.z-macOs.dmg`  
 
 **Zip, no Installer (Windows or Linux)**
 Community edition  
@@ -76,8 +76,8 @@ Community edition: `BonitaStudioCommunity-linux`
 Subscription editions: `BonitaStudioSubscription-linux`  
 
 **Windows**  
-Community edition: `BonitaStudioCommunity64.exe`  
-Subscription editions: `BonitaStudioSubscription64.exe`  
+Community edition: `BonitaStudioCommunity.exe`  
+Subscription editions: `BonitaStudioSubscription.exe`  
 
 **Mac**   
 Community edition: `BonitaStudioCommunity.app`  
