@@ -45,7 +45,7 @@ A BDM is a structured hierarchy of packages containing business objects.
 
 A package is defined by its name, which must be a Java package name.  
 Packages can be seen as logical containers, a package should contain business objects related to each other.  
-As example, a package _com.company.product_ could contain the objects `Car` and `Wheel`, a package _com.company.finance_could contain the objects `Bill` and `Loan`.
+As example, a package _com.company.product_ could contain the objects `Car` and `Wheel`, a package _com.company.finance_ could contain the objects `Bill` and `Loan`.
 
 A business object definition consists of the following:
 
