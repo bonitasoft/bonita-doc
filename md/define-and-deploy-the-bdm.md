@@ -174,8 +174,8 @@ To define the BDM, go to the Bonita Studio **Development** menu, **Business Data
 
 To create a package:
 
-1. Go to the **List of Business Objects** and click _New package_.
-2. The newly created package is added to the list, with a temporary name.
+1. Click _New package_.
+2. The new package is created with a temporary name.
 3. Click the name of the new package to select it, and specify the name you want to use by typing over the temporary name.
 
 ::: info
@@ -184,7 +184,7 @@ A package package must contain at least one business object. A new package comes
 
 To add an object into a package:
 
-1. Go to the **List of Business Objects** and select the expected package.
+1. Select the expected package.
 2. Click _New Business object_.
 3. The newly created object is added to the selected package, with a temporary name.
 4. Click the name of the new object to select it, and specify the name you want to use by typing over the temporary name.
