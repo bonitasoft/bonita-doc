@@ -59,6 +59,14 @@ As announced in the previous release, the Wildfly bundle has been removed in the
 #### EJB support
 As announced in the previous release, the support for EJB communication to Bonita Engine has been removed in the 7.10 release.
 
+### Deprecations
+
+#### Alfresco connectors
+Alfresco connectors has been deprecated in favors of [CMIS connectors](cmis.md).
+
+#### Transactional Groovy script connector
+The transactional Groovy script connector is deprecated. Use the non-transactional Groovy script connector instead.
+
 ## Improvements
 ### Bonita Layout usability
 #### Profile dropdown in application modal of the Bonita layout
