@@ -1,6 +1,10 @@
 # Using Alfresco with Bonita
 Bonita allows you to connect Alfresco ECM content platform.
 
+:::warning
+Alfresco connectors has been deprecated in favor of [CMIS](cmis.md) connectors.
+:::
+
 ## Connecting to Alfresco
 
 Bonita Studio contains connectors for Alfresco 3.4 and Alfresco 4.2\. For each version, there are the following connectors:
