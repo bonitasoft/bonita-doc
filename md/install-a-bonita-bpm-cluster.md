@@ -73,7 +73,7 @@ For more information on this take a look at the [Hazelcast Documentation](http:/
 1. Run `setup.sh init` or `setup.bat init` as described in the [platform setup tool page](BonitaBPM_platform_setup.md#init_platform_conf).
 
 At the end of the script, you should see the following line: "Initial configuration files successfully pushed to database".
-This creates the database tables needed by Bonita platform, stores the configuration into this database, and stores the licence files for all your cluster nodes into the database.
+This creates the database tables needed by Bonita platform, stores the configuration into this database, and stores the license files for all your cluster nodes into the database.
 
 If later you need to change the configuration of the node discovery or add new licenses to the Bonita Platform configuration, you can update the configuration by following this [guide](BonitaBPM_platform_setup.md#update_platform_conf).
 
