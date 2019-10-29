@@ -267,7 +267,7 @@ Follow these steps:
 #### Export the BDM to share with another Bonita Studio
 
 Bonita Studio is able to import a unitary BDM, exported as a ZIP file, or a BDM contained in a .bos archive.  
-The Bonita Studio will try to import the new BDM into the existing one.  
+Bonita Studio will try to import the new BDM into the existing one.  
 If the two models are conflicting (i.e there are business objects with the same name but with different content in the two models) the following rules apply: 
 
  1. **If business objects are conflicting across packages:** 
