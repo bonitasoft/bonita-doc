@@ -14,7 +14,7 @@ According to grid system, bootstrap predefined CSS classes for different screen 
 Grid columns are created by specifying the number of twelve available columns. For example, .col-lg-6 is equal to two equal columns in a row.
 
 Example:
-![bootstrap css classes](images/responsiveness-community-edition/responsivenessCommunityEdition.png)
+![bootstrap css classes](images/responsiveness-community-edition/responsivenessCommunityEdition.PNG)
 
 For instance, to make a responsive input field in UI Designer, user can add col-lg-6, col-md-6, and col-sm-6 to the CSS classes property.
 These CSS classes will divide the given row into 2 columns where an input field will take half the row width in large, medium and small screen 
@@ -24,12 +24,12 @@ Output:
 
 On large, medium, and small screen devices;
 
-![different screen resolution output](images/responsiveness-community-edition/responsivenessCommunityEditionOutput1.png)
+![different screen resolution output](images/responsiveness-community-edition/responsivenessCommunityEditionOutput1.PNG)
 
 
 On extra small screen (mobile) devices;
 
-![mobile device output](images/responsiveness-community-edition/responsivenessCommunityEditionOutput2.png) 
+![mobile device output](images/responsiveness-community-edition/responsivenessCommunityEditionOutput2.PNG)
 
 For more details about bootstrap grid system, click [here.](https://getbootstrap.com/docs/3.3/css/#grid)
 
