@@ -1,3 +1,4 @@
+
 # Bonita Studio installation
 
 How to install a Bonita Studio on Windows, Linux, or Mac operating systems. An OS-independent archive can also be used.
@@ -21,7 +22,11 @@ Both Windows and Mac have default security settings that will prevent execution 
 **Note for users of macOS Catalina 10.15 and above**: Since Catalina 10.15, only **installed JDK** are accepted by the macOS _gatekeeper_.  
 If you try to use a JDK directly downloaded, you will get this kind of error: _jdk-11.0.5 can’t be opened because it is from an unidentified developer._  
 The solution is to use an installer to install properly the JDK. The easiest way is to tape the following commands:  
-```
+``` bash
+# Install brew first if it is not installed yet, more details here: [https://brew.sh/index_fr](https://brew.sh/index_fr) 
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Use brew to install a JDK
 brew tap homebrew/cask-versions
 brew cask install java11
 ```  
