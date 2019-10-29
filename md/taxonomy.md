@@ -264,5 +264,5 @@
   * [Manage dates and times in BDM and User Interfaces](datetimes-management-tutorial.md)
   * [Manage BDM in custom Rest APIs](bdm-in-rest-api.md)
   * [Share a project on GitHub Enterprise Edition](share-a-repository-on-github.md)
-  * [Git versioning Community Edition](git-versioning-community-edition.md)
+  * [Use Git for versioning with Community Edition](git-versioning-community-edition.md)
   * [Migrate a SVN repository to a Git repository](migrate-a-svn-repository-to-github.md)
