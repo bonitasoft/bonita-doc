@@ -6,9 +6,21 @@ If you can't wait to start creating your first application with Bonita, you can 
 
 ## What can I do with Bonita?
 
-Bonita is a Digital Process Automation platform that allows you to create applications based on processes. Processes can be  partially automated (if involving users) or fully automated.
+Bonita is a Digital Process Automation platform that allows you to create applications based on processes. Processes can be partially automated (if involving users) or fully automated.
 
-Bonita is applicable to a wide range of use cases: applications can go from loan request management, to student application processes,to analytical processes in drug discovery - and more! You can find the various industries where Bonita is  used as well as use cases from our [website dedicated page](https://www.bonitasoft.com/industries).
+DPA, available with all Bonita editions, is applicable to a wide range of use cases: applications can go from loan request management, to student application processes,to analytical processes in drug discovery - and more! You can find the various industries where Bonita is used as well as use cases from our [website dedicated page](https://www.bonitasoft.com/industries).
+
+Starting with Bonita 7.10, you can also handle Adaptive Case Management with Bonita. 
+ACM (Adaptive or Advanced Case Management) is like DPA in the sense that it allows to handle cases with some automation. But it also relies on strong principles that make it different from DPA: 
+  - Empower the actors: 
+  Actors in charge of the case have some autonomy to lead the case to its closure: not all process paths are pre-determined. Some tasks are optional, some are discretionnary. Actors' specific knowledge make them fully able to choose the right next action for a case. 
+  - Expect the unexpected: 
+  A case can be stopped, resumed and can even change its state at any time without a path being predefined. New tasks may need to be created on the fly to reflect the specificity of a case while still benefiting from traceability.
+  - Adapt to the context: case type and state define the availability of tasks following a set of business rules. Those rules must be editable on the fly.
+  - Center on data: Case execution is not centered around a strict process, but around case data to create and update.
+
+ACM, available in Teamwork, Efficiency, Performance and Enterprise editions, is applicable to use cases including problem investigations  (like insurance claims), audits or decision making procedures.
+
 
 ## How do I create a Bonita application?
 
