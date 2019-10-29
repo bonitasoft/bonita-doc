@@ -23,7 +23,7 @@ Both Windows and Mac have default security settings that will prevent execution 
 If you try to use a JDK directly downloaded, you will get this kind of error: _jdk-11.0.5 can’t be opened because it is from an unidentified developer._  
 The solution is to use an installer to install properly the JDK. The easiest way is to tape the following commands:  
 ``` bash
-# Install brew first if it is not installed yet, more details here: [https://brew.sh/index_fr](https://brew.sh/index_fr) 
+# Install brew first if it is not installed yet, more details here: https://brew.sh
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Use brew to install a JDK
