@@ -19,6 +19,10 @@ Bonita 7.10 now includes a brand new extensible [monitoring](runtime-monitoring.
 #### Contract data
 Bonita 7.10 now allows (in Enterprise and Performance editions) to disable the archiving of Contract Data, to improve the platform performance. More details as to how [here](configurable-archive.md).
 
+### Business Data Model
+Bonita 7.10 now allows to create different packages to store Business Objects as long as Business Objects names are unique accross packages.  
+Bonita Studio offers the possibility to import a Business Data Model into the current one.  
+
 ### Project deployment in Studio
 There is a new _Deploy..._ action in Bonita Studio that lets you [deploy a whole project](project_deploy_in_dev_suite.md) (or a subset) in the embedded runtime environment.
 
@@ -44,7 +48,6 @@ The following connectors have also been updated to be resilient to those charact
 * Now detects if the fire-wall is enabled and if so, automatically allows incoming traffic for the studio and the embedded JVM (Community only) executables. It will avoid fire-wall security notifications at first startup.
 
 ### utf8mb4 support
-
 Previously, when using a Mysql database, the only supported encoding was utf8mb3, which was deprecated as of Mysql 8.
 Bonita now supports the (default) utf8mb4 encoding, and it is now the recommended configuration.
 
