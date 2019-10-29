@@ -4,7 +4,7 @@
 
 This page explains how to define, deploy, export and import Business Data Model (BDM) and how these objects can be used in processes.
 
-The business data model is the definition of the business data that is shared by processes and process-based applications in a tenant. This page explains how to define the business data model and how to deploy it. After the model is defined, you can use it to [specify the business data used in a process](specify-data-in-a-process-definition.md).
+The Business Data Model is the definition of the business data that is shared by processes and process-based applications in a tenant. This page explains how to define the Business Data Model and how to deploy it. After the model is defined, you can use it to [specify the business data used in a process](specify-data-in-a-process-definition.md).
 
 ## Business data model (BDM)
 
@@ -49,7 +49,8 @@ As example, a package _com.company.product_ could contain the objects `Car` and 
 
 A business object definition consists of the following:
 
-* An object name. This must be a Java class name, because a business object is implemented as a Java class. ⚠️ Business object names must be unique, even across packages.
+* An object name. This must be a Java class name (starting with a capital letter), because a business object is implemented as a Java class.  
+⚠️ Business object names must be unique, even across packages.
 * Attributes. These are the components of the object. There can be any number of attributes. For each attribute, you can specify:
   * A name
   * The data type
@@ -179,7 +180,7 @@ To create a package:
 3. Click the name of the new package to select it, and specify the name you want to use by typing over the temporary name.
 
 ::: info
-A package package must contain at least one business object. A new package comes automatically with a first business object, and deleting the last business object of a package delete the package.
+A package must contain at least one business object. A new package comes automatically with a first business object, and deleting the last business object of a package deletes the package.
 :::
 
 To add an object into a package:
@@ -193,10 +194,10 @@ To add an object into a package:
 To modify a new or existing object:
 
 1. Select the object in the **List of Business Objects**. The details are displayed on the right-hand side of the popup.
-2. The package of the object can be modified by clicking on _Update package_ or by using drag and drop.
-3. Enter a description for the object. This is optional, but recommended for maintenance and for communicating with other developers using the same BDM.
+2. The package of the object can be modified by clicking on _Change package_ or by using drag and drop.
+3. Enter a description for the object. This is optional, but recommended for maintenance and for communicating with other developers using the same BDM, as well as business users.
 4. In the **Attributes** tab, specify the attributes of the object. For each attribute:
-   1. Specify a name. This must be unique within the object.
+   1. Specify a name. This must be unique within the object, and start with a lower-case letter.
    2. Specify the type, by clicking on the exiting type and choosing the new type from the drop-down list.
    3. If the attribute is multi-valued, check the box in the **Multiple** column.
    4. If the attribute is mandatory, check the box in the **Mandatory** column.
@@ -269,11 +270,12 @@ If the two models are conflicting (i.e there are business objects with the same 
 
  1. **If business objects are conflicting across packages:** 
 Example: the current model contains a package _com.company.vehicle_ with an object `Car`, the imported model contains a package _com.company.transport_ with an object `Car`.  
-This kind of conflict is considered as **not solvable** by the Bonita Studio, the only possibility is to overwrite the current model by the new one. 
+This kind of conflict is considered as **not solvable** by Bonita Studio; thus the only possibility for the studio is to overwrite the current model by the new one. 
+If overwritting is not the option for you, click on "Cancel", solve the conflicts by comparing the two BDMs in xml editors, make sure all processes and UIs comply with those changes, and import again."
 
  2. **If business objects are conflicting in the same package:** 
  Example: the current and the imported model contains a package _com.company.vehicle_ with an object `Car`. In the current model the object `Car` has only one field:  `brand`. In the imported model, the object `Car` has two attributes: `brand` and `color`. The two models are conflicting: two objects with the same name but different contents, and the two objects are in the same package in the two models.
-This kind of conflict is considered as **solvable** by the Bonita Studio.  You will have the possibility to import the new model **into** the current one, and a decision has to be made for the conflicting package: keep the existing version of the package or overwrite it with the new one. The others non conflicting packages will be merged together.
+This kind of conflict is considered as **solvable** by Bonita Studio.  You will have the possibility to import the new model **into** the current one, and a decision has to be made for the conflicting package: keep the existing version of the package or overwrite it with the new one. The others non-conflicting packages will be merged.
 
 #### View the BDM
 
