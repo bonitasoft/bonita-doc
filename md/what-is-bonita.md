@@ -21,7 +21,7 @@ ACM (Adaptive or Advanced Case Management) is like DPA in the sense that it allo
 
 ACM, available in Teamwork, Efficiency, Performance and Enterprise editions, is applicable to use cases including problem investigations  (like insurance claims), audits or decision making procedures.
 
-To learn more about how to implement ACM capabilities in Bonita, check the [documentation](use-bonita-acm.md).
+To learn more about how to use ACM capabilities in Bonita, check the [documentation](use-bonita-acm.md).
 
 
 ## How do I create a Bonita application?
