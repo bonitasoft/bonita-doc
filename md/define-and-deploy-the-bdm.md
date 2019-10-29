@@ -43,7 +43,7 @@ When you are ready to go to production, you need to [configure a database and da
 
 A BDM is a structured hierarchy of packages containing business objects.
 
-A package is defined by its name, which must be a Java package name, it is highly recommended to follow the [standard package naming convention](https://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html).  
+A package is defined by its name, which must be a Java package name. It is highly recommended to follow the [standard package naming convention](https://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html).  
 Packages can be seen as logical containers, a package should contain business objects related to each other.  
 As example, a package _com.company.product_ could contain the objects `Car` and `Wheel`, a package _com.company.finance_ could contain the objects `Bill` and `Loan`.
 
