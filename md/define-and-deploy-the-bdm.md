@@ -172,6 +172,8 @@ However, if you are sharing diagrams and other artifacts in development, you nee
 into other development systems, or by using a shared project (not available in the Community edition).
 
 To define the BDM, go to the Bonita Studio **Development** menu, **Business Data Model**, and choose **Define...**. The current BDM definition is displayed. 
+You can also right click on the project name in the Project Explorer, choose "New..." and then "Business Data Model".
+Once defined, double-click on the bom.xml file in the Project Explorer to open it.
 
 To create a package:
 
