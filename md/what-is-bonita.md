@@ -6,7 +6,7 @@ If you can't wait to start creating your first application with Bonita, you can 
 
 ## What can I do with Bonita?
 
-Bonita is a Digital Process Automation platform that allows you to create applications based on processes. Processes can be partially automated (if involving users) or fully automated.
+Bonita is a Digital Process Automation (DPA) platform that allows you to create applications based on processes. Processes can be partially automated (if involving users) or fully automated.
 
 DPA, available with all Bonita editions, is applicable to a wide range of use cases: applications can go from loan request management, to student application processes,to analytical processes in drug discovery - and more! You can find the various industries where Bonita is used as well as use cases from our [website dedicated page](https://www.bonitasoft.com/industries).
 
