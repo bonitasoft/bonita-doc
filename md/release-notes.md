@@ -43,6 +43,10 @@ The following connectors have also been updated to be resilient to those charact
 * Now detects if an anti-virus is enabled and if so, suggests to exclude the folder where Bonita is installed from the anti-virus scanning scope, to improve Studio performance.
 * Now detects if the fire-wall is enabled and if so, automatically allows incoming traffic for the studio and the embedded JVM (Community only) executables. It will avoid fire-wall security notifications at first startup.
 
+### utf8mb4 support
+
+Previously, when using a Mysql database, the only supported encoding was utf8mb3, which was deprecated as of Mysql 8.
+Bonita now supports the (default) utf8mb4 encoding, and it is now the recommended configuration.
 
 ## Technical updates
 
