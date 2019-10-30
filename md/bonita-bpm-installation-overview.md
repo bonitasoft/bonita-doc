@@ -42,6 +42,9 @@ Starting from Bonita 7.3.0, there is no more bonita home to store the configurat
 
 For detailed information on the Supported Environment Matrix, see the [Support Guide](https://customer.bonitasoft.com/support-policies) or [ask to be contacted by our commercial team](http://www.bonitasoft.com/contact-us).
 
+## Bonita Docker image
+Bonita Platform can be installed in a docker container using the Bonita docker distribution.
+A more detailed look at how to configure and run the container can be found [here](bonita-container.md) 
 
 ## Bonita Engine only ![](images/bonita-lab-icon.png)
 
