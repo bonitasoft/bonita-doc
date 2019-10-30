@@ -56,6 +56,9 @@ The following connectors have also been updated to be resilient to those charact
 Previously, when using a Mysql database, the only supported encoding was utf8mb3, which was deprecated as of Mysql 8.
 Bonita now supports the (default) utf8mb4 encoding, and it is now the recommended configuration.
 
+### Email connector
+Connector definition has been updated to add a Return-Path input parameter.
+
 ### User Task list now available for the Community edition
 
 ## Technical updates
