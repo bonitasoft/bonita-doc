@@ -148,3 +148,41 @@ def attachNewDocumentVersionToCase(ProcessAPI processAPI, long processInstanceId
     processAPI.attachNewDocumentVersion(processInstanceId, documentName, document.name, mimeType, document.bytes)
 }
 ```
+
+
+## Delete documents of archived cases based on archive date
+
+The use case is to delete the documents of archived cases older than a certain date.
+`searchArchivedDocumentsOlderThanArchivedDate` look for archived documents
+`deleteArchivedDocumentsOlderThan` delete the content of the document
+
+**Warning:** Althought the document binary will be deleted there will still be records in the database. No methods are provided to completely get rid of the document from the database
+
+```groovy
+
+//Search for documents of archived cases with archived date older than "archivedDate"
+def SearchResult searchArchivedDocumentsOlderThanArchivedDate(ProcessAPI processAPI, long archivedDate, int startIndex, int maxResults){
+	processAPI.searchArchivedDocuments(new SearchOptionsBuilder(startIndex, maxResults).with { 
+			lessOrEquals(ArchivedDocumentsSearchDescriptor.ARCHIVE_DATE, archivedDate)
+			done()
+		 })
+}
+
+//Delete archived documents older than archivedDate
+def deleteArchivedDocumentsOlderThan(ProcessAPI processAPI, long archivedDate) {
+	int startIndex = 0;
+	int maxResults = 100
+	def searchResult = searchArchivedDocumentsOlderThanArchivedDate(processAPI, archivedDate, startIndex, maxResults)
+	while(searchResult.count > 0){
+		searchResult.result.each { archivedDocument ->
+			processAPI.deleteContentOfArchivedDocument(archivedDocument.contentStorageId.toLong());
+		}
+		startIndex += maxResults
+		searchResult = searchArchivedDocumentsOlderThanArchivedDate(processAPI, archivedDate, startIndex, maxResults)
+	}
+}
+
+//Then just call the method with desired archivedDate
+deleteArchivedDocumentsOlderThan(processAPI, archivedDate);
+
+```
