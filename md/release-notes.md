@@ -4,24 +4,29 @@
 ## New values added
 
 <a id="acm"/>
+
 ### Adaptive Case Management with Bonita
 It is now possible to create Living applications based on a mix of structured and unstructured processes. Users have more decision power on what to execute next, and can create their own task to adapt to a case specificities.
 Open the Credit Card Dispute Resolution Management application from Bonita Studio welcome page, and [learn more](what-is-bonita.md).
 
 <a id="monitoring"/>
+
 ### Monitoring
 Bonita 7.10 now includes a brand new extensible [monitoring](runtime-monitoring.md) mechanism, in the form of a series of technical and Bonita-related metrics made available. Monitoring is crutial to ensure that Bonita runtime environment is correctly sized and tuned and  that it runs healthy.
 
 <a id="guest-user"/>
+
 ### Guest User (Teamwork, Efficiency, Performance, and Enterprise editions only)
 Opening the content of a living application to public access is now possible thanks to the new ["Guest User"](....md) feature. Used in process actor mappings, added to a custom profile to access applications, it allows anyone to access some public content.  
 The Bonita application layout has been updated accordingly, to allow a Bonita user with credentials to log in from a public application and access password-protected content, if any.
 
 <a id="deploy-project"/>
+
 ### Project deployment in Bonita Studio
 The new _Deploy..._ action in Bonita Studio allows you to [deploy a whole project](project_deploy_in_dev_suite.md) (or a subset) in the embedded runtime environment, taking care of deploying all artifacts on the right order. Import a .bos file, clone a Git repository, or right click on the project name, click on _Deploy..._ and save a lot of time.
 
 <a id="bdm-multi-package"/>
+
 ### Business Data Model handles multiple packages
 Bonita 7.10 now allows to create different packages to store Business Objects.  
 It is also possible to import a BDM into the existing one, as long as Business Objects names are unique accross packages, so several teams can work on different packages and get their BDM integrated at some point.    
