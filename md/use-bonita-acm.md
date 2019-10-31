@@ -21,7 +21,7 @@ It can be achieved:
 On Bonita Studio Welcome page, in the "Resources" tile, click on "Import Adaptive Case Management example".   
 This opens the "Import .bos" wizard and retrieves the project from the Internet.  
 Choose the Bonita project in which the .bos will be imported in the studio, and import.
-At the end of the importation, open the Credit Card Dispute application, and just start reading the Tutorial.
+At the end of the importation, click on _Deploy..._, select all artifacts and _Deploy_. At the end of the deployment open the Credit Card Dispute application, and just start reading the Tutorial.
 This will give you the theory as well as a practical example of an application using Bonita Adaptive Case Management capabilities.
 You can play with it and customize it to your own needs.
 
