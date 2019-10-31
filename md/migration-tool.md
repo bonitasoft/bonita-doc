@@ -6,6 +6,10 @@ All changes in the Migration Tool are logged: from the version that was delivere
 This is due to the fact that improvements in any version of the Migration Tool can affect all supported versions of Bonita.
 This changelog must be read before [migrating to a newer version of Bonita](migrate-from-an-earlier-version-of-bonita-bpm.md).
 
+## 2.46.0 - December 5th, 2019 (Bonita 7.10.0)
+This version of the migration tool migrates Bonita up to version 7.10.0.
+* Add a live-migration tool to reintegrate arch_contract_data_backup into arch_contract_data table
+
 ## 2.45.0 - October 3rd, 2019 (Bonita 7.9.4)
 This version of the migration tool migrates Bonita up to version 7.9.4.
 * Add a new script `check-migration-dryrun`
