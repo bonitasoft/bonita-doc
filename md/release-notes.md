@@ -3,6 +3,10 @@
 
 ## New values added
 
+### Adaptive Case Management with Bonita
+It is now possible to create Living applications based on a mix of structured and unstructured processes. Users have more decision power on what to execute next, and can create their own task to adapt to a case specificities.
+Open the Credit Card Dispute Resolution Management application from Bonita Studio welcome page, and [learn more](what-is-bonita.md).
+
 ### Monitoring
 Bonita 7.10 now includes a brand new extensible [monitoring](runtime-monitoring.md) mechanism, in the form of a series of technical and Bonita-related metrics made available. Monitoring is crutial to ensure that Bonita runtime environment is correctly sized and tuned and  that it runs healthy.
 
