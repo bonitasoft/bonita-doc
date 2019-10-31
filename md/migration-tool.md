@@ -9,6 +9,10 @@ This changelog must be read before [migrating to a newer version of Bonita](migr
 ## 2.46.0 - December 5th, 2019 (Bonita 7.10.0)
 This version of the migration tool migrates Bonita up to version 7.10.0.
 * Add a live-migration tool to reintegrate arch_contract_data_backup into arch_contract_data table
+* BR-238 - include Live Migration in Migration Tool distribution 
+* BR-236 - fix in Live Migration tool
+* BR-240 - fix in Live Migration tool
+* BS-19380 - ensure Oracle is on a supported version on step 7.9.0
 
 ## 2.45.0 - October 3rd, 2019 (Bonita 7.9.4)
 This version of the migration tool migrates Bonita up to version 7.9.4.
