@@ -106,27 +106,27 @@ As announced in the previous release, the support for EJB communication to Bonit
 ### Fixes in Bonita 7.10.0 (2019-12-05) (partial list until GA release
 
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
-BST-276 - Bonita installation may fail if installation folder is not empty
-BST-339 - Living apps token should be case insensitive
-BST-433 - Studio freezing when refreshing Theme resources
-BST-463 - Studio Community 7.9.2 build failed due to usage of repositories.rd.lan
-BST-483 - changing credentials for studio user has no effects 
-BST-530 - Delete a theme that has already been built doesn't always delete all the resources in node module 
-BST-667 - "Always run in background" not saved after restart
+* BST-276 - Bonita installation may fail if installation folder is not empty
+* BST-339 - Living apps token should be case insensitive
+* BST-433 - Studio freezing when refreshing Theme resources
+* BST-463 - Studio Community 7.9.2 build failed due to usage of repositories.rd.lan
+* BST-483 - changing credentials for studio user has no effects 
+* BST-530 - Delete a theme that has already been built doesn't always delete all the resources in node module 
+* BST-667 - "Always run in background" not saved after restart
 
 #### Fixes in Bonita Runtime (including Portal)
-BPO-177 - Loginservice returns a 200 despite a LoginException
-BPO-196 - Task name truncated in portal view case design
-BPO-236 - Case overview does not handle well cases started by the technical user (and tasks executed by)
-BPO-260 - Link widget returns hard-coded "/bonita" as Portal base URL
-BR-155 - Contract data archiving is not configurable 
-BR-189 - NullPointerException error is shown when the description of a page/form is empty 
-BS-15975 - process instance id and flownode instance id not found when executing the work for the Start event 
-BS-19262 - The duration of the classloaders initialization at startup has increased with last product versions
-BS-19272 - Engine initialization uses only one XA transaction which forces customer to continuously raise up the Default XA transaction timeout as the database size is growing 
-BS-19324 - Cannot submit a form when the JSON output contains some unicode characters 
-BS-19335 - Timers triggers keep being rescheduled and are not fired on time or fired randomly 
-BS-19372 - failed flownode_instance when there is some cluster node start and stop
-BS-19384 - When sequence manager fail on all retry. Next id is still updated in memory
-BS-19395 - Java clients are limited to only 2 remote HTTP connections to Bonita server 
-BS-19398 - Process instantiation fails with NullPointerException if initialisation script of multiple business variables returns 'null'
+* BPO-177 - Loginservice returns a 200 despite a LoginException
+* BPO-196 - Task name truncated in portal view case design
+* BPO-236 - Case overview does not handle well cases started by the technical user (and tasks executed by)
+* BPO-260 - Link widget returns hard-coded "/bonita" as Portal base URL
+* BR-155 - Contract data archiving is not configurable 
+* BR-189 - NullPointerException error is shown when the description of a page/form is empty 
+* BS-15975 - process instance id and flownode instance id not found when executing the work for the Start event 
+* BS-19262 - The duration of the classloaders initialization at startup has increased with last product versions
+* BS-19272 - Engine initialization uses only one XA transaction which forces customer to continuously raise up the Default XA transaction timeout as the database size is growing 
+* BS-19324 - Cannot submit a form when the JSON output contains some unicode characters 
+* BS-19335 - Timers triggers keep being rescheduled and are not fired on time or fired randomly 
+* BS-19372 - failed flownode_instance when there is some cluster node start and stop
+* BS-19384 - When sequence manager fail on all retry. Next id is still updated in memory
+* BS-19395 - Java clients are limited to only 2 remote HTTP connections to Bonita server 
+* BS-19398 - Process instantiation fails with NullPointerException if initialisation script of multiple business variables returns 'null'
