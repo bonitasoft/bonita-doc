@@ -24,7 +24,7 @@
     "markdown-it-fontawesome": "0.2.0",
     "markdown-it-for-inline": "0.1.1",
     "markdown-it-smartarrows": "1.0.1",
-    "markdown-pdf": "7.0.0",
+    "markdown-pdf": "10.0.0",
     "mkdirp": "0.5.1",
     "pdf-merge": "0.0.4",
     "query-string": "4.2.2",
