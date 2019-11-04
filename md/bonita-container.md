@@ -50,7 +50,7 @@ chmod +x custom_postgres/bonita.sh
 ```
 Mount that directory location as /docker-entrypoint-initdb.d inside the PostgreSQL container:
 ```
-docker run --name mydbpostgres -v "$PWD"/custom_postgres/:/docker-entrypoint-initdb.d -e POSTGRES_PASSWORD=mysecretpassword -d postgres:9.3
+docker run --name mydbpostgres -v "$PWD"/custom_postgres/:/docker-entrypoint-initdb.d -e POSTGRES_PASSWORD=mysecretpassword -d postgres:11.2
 ```
 See the official PostgreSQL documentation for more details.
 ```
