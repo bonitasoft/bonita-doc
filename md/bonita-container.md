@@ -40,7 +40,7 @@ You can access to the portal on http://localhost:8080/bonita and login using the
 
 #### PostgreSQL Container
 
-Postgresql is the recommanded database.
+PostgreSQL is the recommended database.
 First, set the max_prepared_transactions to 100:
 ```
 mkdir -p custom_postgres
