@@ -80,7 +80,7 @@ BIZ_DB_PASS=custombusinesspass
 EOM
 ```
 ```
-docker run --name=bonita-subscription --env-file=/tmp/env.txt -d -p 8080:8080 bonita-subscription
+docker run --name=bonita-subscription --env-file=/tmp/env.txt -d -p 8080:8080 bonitasoft/bonita-subscription
 ```
 
 ### Modify default credentials
