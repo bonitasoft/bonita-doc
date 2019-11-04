@@ -26,7 +26,7 @@ cp ~/Downloads/BonitaSubscription-7.7-Cloud_Techuser-bonita-20170124-20170331.li
 
 ### Start the container
 
-Re-launch the Bonita container with the same hostname (-h) and this host directory mounted (-v) :
+Re-create a new Bonita container with the same hostname (-h) and this host directory mounted (-v) :
 
 ```
 docker run --name bonita -h bonita -v ~/Documents/Docker/Volumes/bonita-subscription/:/opt/bonita_lic/ -d -p 8080:8080 bonitasoft/bonita-subscription
