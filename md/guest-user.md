@@ -14,7 +14,7 @@ When accessing a public application the user will be automatically logged in wit
 
 ## Prerequisite: Guest profile and user account
 
-+ In order to use this feature, you need to create a new user account in Bonita organisation. This account will be the one used to log in automatically a user that tries to access a public living application if he is not looged in to Bonita platform yet.
++ In order to use this feature, you need to create a new user account in Bonita organisation. This account will be the one used to log in automatically a user that tries to access a public living application if he is not logged in to Bonita platform yet.
 
 + You also need to create a new custom profile and add the user account created in the previous step as a member of this profile. This profile will be the one to use as the profile of the living applications that require public access. If an application should also be accessible by users already logged in with their own bonita account, then they should also be members of this profile. 
 
