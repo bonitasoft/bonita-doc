@@ -44,7 +44,7 @@ In the Tabs Container, you can now hide/show and enable/disable a tab given some
 
 ### Docker
 A Bonita docker distribution is now available for download and installation both in community and subscription editions.
-See [how to install and use it](bonita-container.md).
+See [how to install and use it](bonita-docker-installation.md).
 
 ## Improvements
 

@@ -44,7 +44,7 @@ For detailed information on the Supported Environment Matrix, see the [Support G
 
 ## Bonita Docker image
 Bonita Platform can be installed in a docker container using the Bonita docker distribution.
-Read [how to configure and run the container](bonita-container.md).
+Read [how to configure and run the container](bonita-docker-installation.md).
 
 ## Bonita Engine only ![](images/bonita-lab-icon.png)
 
