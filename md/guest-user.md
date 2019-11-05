@@ -41,7 +41,7 @@ To activate it:
     ```
     
     Make sure to set the username and password of the guest user account created in the prerequisite section.
-    The property "auth.tenant.guest.apps" contains the list of URL tokens of the applications that require public access (in this example, "public" and "guest"). Replace it with you applications tokens
+    The property "auth.tenant.guest.apps" contains the list of URL tokens of the applications that require public access (in this example, "public" and "guest"). Replace it with your applications tokens
 
 3. Use the [platform setup tool](BonitaBPM_platform_setup) again to save your changes into the database.  
    Restart Bonita server.
