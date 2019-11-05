@@ -316,3 +316,12 @@ The following example is the configuration for a Group widget that contains two 
         </widgets>
 </widget>
 ```
+
+## Attention
+:warning:
+As of version 7.9.0 some bonita libraries have been removed. If your connector relies on one of the mentioned below libraries, you must add it as dependency.
+:warning:
+
+* poi-3.9.jar
+* poi-ooxml-3.9.jar
+* poi-ooxml-schemas-3.9.jar
