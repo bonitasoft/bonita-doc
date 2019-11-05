@@ -91,13 +91,7 @@ Now you can access the Bonita Portal on localhost:8080/bonita and login using: t
 
 
 ## Security
-This docker image ensures to activate by default both static and dynamic authorization checks on REST API. To be coherent it also deactivates the HTTP API.
-
-    REST API authorization
-        Static authorization checking
-        Dynamic authorization checking
-    HTTP API
-
+This docker image ensures to activate by default both static and dynamic authorization checks on [REST API](rest-api-authorization.md). To be coherent it also deactivates the HTTP API.
 But for specific needs you can override this behavior by setting HTTP_API to true and REST_API_DYN_AUTH_CHECKS to false :
 ```
 docker run  -e HTTP_API=true -e REST_API_DYN_AUTH_CHECKS=false --name bonita -h bonita -v ~/Documents/Docker/Volumes/bonita-subscription/:/opt/bonita_home/ -d -p 8080:8080 bonita
