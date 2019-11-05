@@ -19,7 +19,7 @@ When accessing a public application the user will be automatically logged in wit
 + You also need to create a new custom profile and add the user account created in the previous step as a member of this profile. This profile will be the one to use as the profile of the living applications that require public access. If an application should also be accessible by users already logged in with their own bonita account, then they should also be members of this profile. 
 
 :::info 
-**Note:** Since the applications will be public, it is recommended to have a group or a role containing all the users of Bonita platform organisation and add this group or role as a member of the profile used for public application (otherwise users already logged in with their account will get a 403 error when trying to access the public a pplications).
+**Note:** Since the applications will be public, it is recommended to have a group or a role containing all the users of Bonita platform organisation and add this group or role as a member of the profile used for public application (otherwise users already logged in with their account will get a 403 error when trying to access the public applications).
 :::
 
 ## Configure Bonita to allow guest user access to some applications
@@ -27,7 +27,7 @@ When accessing a public application the user will be automatically logged in wit
 The bundle already contains the files needed to setup guest user access with Bonita platform.
 To activate it:
 
-1.  Use the [platform setup tool](BonitaBPM_platform_setup) to retrieve the current configuration. You need to execute the following actions in the folder of the tenant in which the applications which require public access are deployed.
+1.  Use the [platform setup tool](BonitaBPM_platform_setup) to retrieve the current configuration. You need to execute the following actions in the folder of the tenant in which the applications which requires public access are deployed.
 
 2. In the tenant_portal folder of the target tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
    edit the authenticationManager-config.properties as follows:
@@ -41,19 +41,19 @@ To activate it:
     ```
     
     Make sure to set the username and password of the guest user account created in the prerequisite section.
-    The property "auth.tenant.guest.apps" contains the list of URL token of the applications that require public access (in this example: "public" and "guest"). Replace it with you application tokens
+    The property "auth.tenant.guest.apps" contains the list of URL tokens of the applications that require public access (in this example, "public" and "guest"). Replace it with you applications tokens
 
 3. Use the [platform setup tool](BonitaBPM_platform_setup) again to save your changes into the database.  
    Restart Bonita server.
 
-4. If your configuartion is correct you should be able to access you public application directly with the URL `http://<host>:<port>/bonita/apps/<app token>` without being logged in first.  
+4. If your configuration is correct you should be able to access your public application directly with the URL `http://<host>:<port>/bonita/apps/<app token>` without being logged in first.  
    You are done.
 
 ## Starting a process as guest user
 
-You may require your living application to provide a link to start a process. In this case, all you need to do so that you process instantiation form can be displayed to a guest in the application is adding the guest user account in the actor mapping of the actor initiator of the process.
+You may require your living application to provide a link to start a process. In order for the process instantiation form to be displayed to a guest in the application, all you need to do is add the guest user account in the actor mapping of the actor initiator of the process.
 
 ## Login behaviour
 
-The default Bonita layout handle the guest user account by providing a log in link instead of the user modale link.
+The default Bonita layout handles the guest user account by providing a "Sign in" link instead of the user modal link in the header.
 
