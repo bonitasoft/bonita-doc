@@ -1,6 +1,8 @@
 # Guest user access
 
-It is possible to configure one or several living application for public access (without the need to log in to Bonita). When accessing such an application the user will be automatically logged in with a guest user account.
+It is possible to allow public access to some living applications (without the need to log in to Bonita).  
+
+When accessing a public application the user will be automatically logged in with a guest user account.
 
 :::info 
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
