@@ -1,5 +1,3 @@
-
-
 # Define and deploy the Business Data Model (BDM)
 
 This page explains how to define, deploy, export and import Business Data Model (BDM) and how these objects can be used in processes.
@@ -232,6 +230,31 @@ To modify a new or existing object:
    5. Use the **_Add_**, **_Remove_**, **_Up_** and **_Down_** buttons to specify the index attributes in order.
 7. Click **_OK_** to close the popup. The index is saved.
 8. Click **_Finish_** to save the business data model, which saves all the objects and create BDM database structure. A confirmation dialog will ask to optionally reset BDM database. Reset database is required when changes impact the mandatory or multiple setting for an attribute, a unique constraint, or when a non primitive attribute type is modified.
+
+::: info
+**Note**: for subscription editions only.
+:::
+Two maven artifacts are generated from the Business Data Model : **bdm-dao** and **bdm-client**.  
+The version of those artifacts is fixed to 1.0.
+You have the possibility to edit the group id of those artifacts from the BDM edition wizard.  
+Those maven artifacts are meant to be used from REST API extensions, using the following dependencies:  
+```
+<dependency>
+	<groupId>[YOUR GROUP ID]</groupId>
+	<artifactId>bdm-client</artifactId>
+	<version>1.0.0</version>
+	<scope>provided</scope>
+</dependency>
+
+<dependency>
+	<groupId>[YOUR GROUP ID]</groupId>
+	<artifactId>bdm-dao</artifactId>
+	<version>1.0.0</version>
+	<scope>provided</scope>
+</dependency>
+```
+Those dependencies are automatically added when a REST API Extension is created from the Bonita Studio. It allows to manipulate Business Objects from a REST API Extension.  
+ℹ️ Only **read operations**  can be performed on business objects from a REST API Extension, even with the dao. Write operations are done through processes. 
 
 ## Export the BDM
 

@@ -1,3 +1,4 @@
+
 # REST API extensions
 
 Create REST API extensions to use third party systems (databases, web services, Bonita Engine, etc) data in forms and pages.
@@ -358,6 +359,28 @@ You can checkout the Bonita Studio repository that include this extension and a 
 
 
 ## BDM and Performance matters
+
+Two maven artifacts are generated from the Business Data Model : **bdm-dao** and **bdm-client**.  
+The version of those artifacts is fixed to 1.0.
+You have the possibility to edit the group id of those artifacts from the BDM edition wizard.  
+Those maven artifacts are meant to be used from REST API extensions, using the following dependencies:  
+```
+<dependency>
+	<groupId>[YOUR GROUP ID]</groupId>
+	<artifactId>bdm-client</artifactId>
+	<version>1.0.0</version>
+	<scope>provided</scope>
+</dependency>
+
+<dependency>
+	<groupId>[YOUR GROUP ID]</groupId>
+	<artifactId>bdm-dao</artifactId>
+	<version>1.0.0</version>
+	<scope>provided</scope>
+</dependency>
+```
+Those dependencies are automatically added when a REST API Extension is created from the Bonita Studio. It allows to manipulate Business Objects from a REST API Extension.  
+ℹ️ Only **read operations**  can be performed on business objects from a REST API Extension, even with the dao. Write operations are done through processes. 
 
 Be aware that a poor implementation of a custom REST API accessing BDM objects can lead to poor performance results. See the [best practice](bdm-in-rest-api.md) on this matter.
 
