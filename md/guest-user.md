@@ -2,7 +2,7 @@
 
 It is possible to allow public access to some living applications (without the need to sign in to Bonita).  
 
-When accessing a public application the user will be automatically logged in with a guest user account.
+When accessing a public application without any active session on bonita platform the user will be automatically logged in with a guest user account.
 
 :::info 
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
@@ -12,7 +12,7 @@ When accessing a public application the user will be automatically logged in wit
  This feature is different from the auto-login feature that was available in the 6.x versions of Bonita BPM as it do gives directly access to a process form publicly. It is intended for living applications access.
 :::
 
-## Prerequisite: Guest profile and user account
+## Guest profile and dedicated user account
 
 + In order to use this feature, you need to create a new user account in Bonita organisation. This account will be the one used to log in automatically a user that tries to access a public living application if he is not logged in to Bonita platform yet.
 
@@ -40,7 +40,7 @@ To activate it:
        -->  auth.tenant.guest.apps=[public,guest] 
     ```
     
-    Make sure to set the username and password of the guest user account created in the prerequisite section.
+    Make sure to set the username and password of the guest user account created in the section "Guest profile and dedicated user account".
     The property "auth.tenant.guest.apps" contains the list of URL tokens of the applications that require public access (in this example, "public" and "guest"). Replace it with your applications tokens
 
 3. Use the [platform setup tool](BonitaBPM_platform_setup) again to save your changes into the database.  
