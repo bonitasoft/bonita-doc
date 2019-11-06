@@ -21,7 +21,7 @@ When accessing a public application without any active session on Bonita platfor
 + You also need to create a new custom profile and add the user account created in the previous step as a member of this profile. This profile will be the one to use as the profile of the living applications that require public access. If an application should also be accessible by users already logged in with their own bonita account, then they should also be members of this profile.  
 
 ::: warning  
- You should not use any of the default profiles of Bonita portal as profile for your public living applications, because by doing that you would give access to the guest user account to those portal profiles (and their priviledges).
+ You should not use any of the default profiles of Bonita portal as profiles for your public living applications because, by doing that, you would give access to the guest user account to those portal profiles (and their priviledges).
 :::
 
 :::info 
