@@ -72,9 +72,9 @@ In order to give the "case_start" permission:
     ```
     or
     ```
-            profile|<guest_username>=[case_start] 
+            user|<guest_username>=[case_start] 
     ```
-    Make sure to replace <guest_profile_name> and <guest_profile_name>by the name of the guest profile or guest user account created in the section [Guest profile and dedicated user account](#prerequisite).
+    Make sure to replace <guest_profile_name> or <guest_username> by the name of the guest profile or guest user account created in the section [Guest profile and dedicated user account](#prerequisite).
 
 3. Use the [platform setup tool](BonitaBPM_platform_setup) again to save your changes into the database (Eg. setup.sh/.bat push).  
    Restart Bonita server.
