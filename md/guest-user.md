@@ -57,7 +57,7 @@ To activate it:
 
 ## Starting a process as guest user
 
-You may require your living application to provide a link to start a process. In order for the process instantiation form to be displayed to a guest in the application, what you need to do is :
+You may require your public living application to provide a link to start a process. In order for the process instantiation form to be displayed to a guest in an application, what you need to do is :
 - add the guest user account in the actor mapping of the actor which is defined as [initiator of the process](actors#toc1)
 - give the "case_start" REST API permission to the guest user or the guest profile created in the section [Guest profile and dedicated user account](#prerequisite).  
 
