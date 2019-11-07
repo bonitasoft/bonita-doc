@@ -5,15 +5,15 @@ How to install and use the docker distribution of the Bonita platform.
 This guide assumes you use the subscription version of the docker image. For the community version, simply skip the _Retrieve a licence_ step.
 It also assumes you are on a unix-based operating system.
 
-## Quick start
+## Quick start
 
 ### Retrieve a licence
 First generate a request key into a container with a specific hostname (-h):
 
 ```
-docker run --rm --name=bonita -h bonita -ti bonitasoft/bonita-subscription:7.10.0 /bin/bash
-unzip /opt/files/BonitaSubscription-7.10.0.zip
-cd BonitaSubscription-7.10.0/tools/request_key_utils/
+docker run --rm --name=bonita -h bonita -ti bonitasoft/bonita-subscription:${varVersion}.0 /bin/bash
+unzip /opt/files/BonitaSubscription-${varVersion}.0.zip
+cd BonitaSubscription-${varVersion}.0/tools/request_key_utils/
 ./generateRequestKey.sh
 exit
 ```
@@ -83,9 +83,9 @@ EOM
 docker run --name=bonita-subscription --env-file=/tmp/env.txt -d -p 8080:8080 bonitasoft/bonita-subscription
 ```
 
-### Modify default credentials
+### Start Bonita with custom security credentials
 ```
-docker run --name=bonita -e "TENANT_LOGIN=tech_user" -e "TENANT_PASSWORD=secret" -e "PLATFORM_LOGIN=pfadmin" -e "PLATFORM_PASSWORD=pfsecret" -d -p 8080:8080 bonita
+docker run --name=bonita -e "TENANT_LOGIN=tech_user" -e "TENANT_PASSWORD=secret" -e "PLATFORM_LOGIN=pfadmin" -e "PLATFORM_PASSWORD=pfsecret" -d -p 8080:8080 bonitasoft/bonita-subscription:${varVersion}.0
 ```
 Now you can access the Bonita Portal on localhost:8080/bonita and login using: tech_user / secret
 
@@ -94,7 +94,7 @@ Now you can access the Bonita Portal on localhost:8080/bonita and login using: t
 This docker image ensures to activate by default both static and dynamic authorization checks on [REST API](rest-api-authorization.md). To be coherent it also deactivates the HTTP API.
 But for specific needs you can override this behavior by setting HTTP_API to true and REST_API_DYN_AUTH_CHECKS to false :
 ```
-docker run  -e HTTP_API=true -e REST_API_DYN_AUTH_CHECKS=false --name bonita -h bonita -v ~/Documents/Docker/Volumes/bonita-subscription/:/opt/bonita_home/ -d -p 8080:8080 bonita
+docker run  -e HTTP_API=true -e REST_API_DYN_AUTH_CHECKS=false --name bonita -h bonita -v ~/Documents/Docker/Volumes/bonita-subscription/:/opt/bonita_home/ -d -p 8080:8080  bonitasoft/bonita-subscription:${varVersion}.0
 ```
 
 ## Migrating from an earlier version of Bonita
