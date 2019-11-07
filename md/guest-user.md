@@ -36,7 +36,7 @@ To activate it:
 1.  Use the [platform setup tool](BonitaBPM_platform_setup) to retrieve the current configuration (Eg. setup.sh/.bat pull). You need to execute the following actions in the folder of the tenant in which the applications which requires public access are deployed.
 
 2. In the tenant_portal folder of the target tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
-   update the file authenticationManager-config.properties as follows:
+   update the file `authenticationManager-config.properties` as follows:
     ```
             [...]
             # logout.link.hidden=true
@@ -57,7 +57,30 @@ To activate it:
 
 ## Starting a process as guest user
 
-You may require your living application to provide a link to start a process. In order for the process instantiation form to be displayed to a guest in the application, all you need to do is add the guest user account in the actor mapping of the actor initiator of the process.
+You may require your living application to provide a link to start a process. In order for the process instantiation form to be displayed to a guest in the application, what you need to do is :
+- add the guest user account in the actor mapping of the actor initiator of the process
+- give the "case_start" permission to the guest user or the guest profile created in the section [Guest profile and dedicated user account](#prerequisite).  
+
+In order to give the "case_start" permission:  
+
+1.  Use the [platform setup tool](BonitaBPM_platform_setup) to retrieve the current configuration (Eg. setup.sh/.bat pull). You need to execute the following actions in the folder of the tenant in which the applications which requires public access are deployed.
+
+2. In the tenant_portal folder of the target tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
+   update the file `custom-permissions-mapping.properties` to add the following line:
+    ```
+            profile|<guest_profile_name>=[case_start] 
+    ```
+    or
+    ```
+            profile|<guest_username>=[case_start] 
+    ```
+    Make sure to replace <guest_profile_name> and <guest_profile_name>by the name of the guest profile or guest user account created in the section [Guest profile and dedicated user account](#prerequisite).
+
+3. Use the [platform setup tool](BonitaBPM_platform_setup) again to save your changes into the database (Eg. setup.sh/.bat push).  
+   Restart Bonita server.
+
+4. If your configuration is correct a guest user should be able to start a case without being logged in first.  
+   You are done.
 
 ## Login behaviour
 
