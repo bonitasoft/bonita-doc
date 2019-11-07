@@ -9,6 +9,8 @@ When accessing a public application without any active session on Bonita platfor
 :::
 
 ::: warning  
+ This feature is deactivated by default. When you activate it, make sure you give limited access rights to the guest user account (Eg.: use a [dedicated profile](#prerequisite) instead of the default provided ones and make sure the pages you put in the application don't grant more access rights to the REST API than what you accept to grant).  
+ For better security it is recommended when using this feature, to have a reverse proxy or a load balancer configured to prevent too many requests to the REST API to be performed, consuming all the platform resources (Distributed denial of service attacks, etc...).  
  This feature is different from the auto-login feature that was available in the 6.x versions of Bonita BPM as it do gives directly access to a process form publicly. It is intended for living applications access.
 :::
 
@@ -77,7 +79,7 @@ In order to give the "case_start" permission:
     Make sure to replace <guest_profile_name> or <guest_username> by the name of the guest profile or guest user account created in the section [Guest profile and dedicated user account](#prerequisite).
     
 :::info 
-**Note:** If you use the [dynamic authorisation checking](rest-api-authorization#dynamic_authorization) instead of the default static authorization checking, this modification is not necessary as the rule `ProcessInstantiationPermissionRule`should already grant the access to the guest account when it is mapped to the actor initiator of the process.
+**Note:** If you use the [dynamic authorisation checking](rest-api-authorization#dynamic_authorization) instead of the default static authorization checking, this modification is not necessary as the rule `ProcessInstantiationPermissionRule` should already grant the access to the guest account when it is mapped to the actor initiator of the process.
 :::
 
 3. Use the [platform setup tool](BonitaBPM_platform_setup) again to save your changes into the database (Eg. setup.sh/.bat push).  
