@@ -33,6 +33,8 @@ The configuration file defines standard rules for the most frequent cases, so al
 If you have migrated your platform from a version of Bonita earlier than 6.4.0, security is deactivated by default.
 You need to [add authorization to your custom pages](#migrate) before you activate authorization.
 
+<a id="static_authorization"/>
+
 ## Static authorization checking
 
 The static phase uses a set of configuration files:
@@ -117,6 +119,8 @@ For example, you could create a profile called CustomProcessManager and assign t
 `profile|MyCustomProfile=[process_visualization, process_management, process_manager_management, custom_process_manager_permission]`
 
 In this example, the `custom_process_manager_permission` can be defined in the `compound-permissions-mapping-custom.properties` file.
+
+<a id="dynamic_authorization"/>
 
 ## Dynamic authorization checking
 
