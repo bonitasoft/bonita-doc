@@ -29,12 +29,12 @@ cp ~/Downloads/BonitaSubscription-7.7-Cloud_Techuser-bonita-20170124-20170331.li
 Re-create a new Bonita container with the same hostname (-h) and this host directory mounted (-v) :
 
 ```
-docker run --name bonita -h bonita -v ~/Documents/Docker/Volumes/bonita-subscription/:/opt/bonita_lic/ -d -p 8080:8080 bonitasoft/bonita-subscription
+docker run --name bonita -h bonita -v ~/Documents/Docker/Volumes/bonita-subscription/:/opt/bonita_lic/ -d -p 8080:8080 bonitasoft/bonita-subscription:${varVersion}.0
 ```
 
-This will start a container running the Tomcat Bundle with Bonita Engine + Portal. As you did not specify any environment variables it's almost like if you have launched the Bundle on your host using startup.{sh|bat} (with security hardening on REST and HTTP APIs, cf Security part). It means that Bonita uses a H2 database here.
+This will start a container running the Tomcat Bundle with Bonita Engine + Portal. As you did not specify any environment variables it's almost like if you had launched the Bundle on your host using startup.{sh|bat} (with security hardening on REST and HTTP APIs, cf Security part). It means that Bonita uses a H2 database here.
 
-You can access to the portal on http://localhost:8080/bonita and login using the default credentials : install / install
+You can access the portal on http://localhost:8080/bonita and login using the default credentials : install / install
 
 ### Link Bonita to a database
 
@@ -43,24 +43,27 @@ You can access to the portal on http://localhost:8080/bonita and login using the
 PostgreSQL is the recommended database.
 First, set the max_prepared_transactions to 100:
 ```
-mkdir -p custom_postgres
-echo '#!/bin/bash' > custom_postgres/bonita.sh
-echo 'sed -i "s/^.*max_prepared_transactions\s*=\s*\(.*\)$/max_prepared_transactions = 100/" "$PGDATA"/postgresql.conf' >> custom_postgres/bonita.sh
-chmod +x custom_postgres/bonita.sh
+mkdir -p ~/Documents/Docker/Volumes/custom_postgres
+echo '#!/bin/bash' > ~/Documents/Docker/Volumes/custom_postgres/bonita.sh
+echo 'sed -i "s/^.*max_prepared_transactions\s*=\s*\(.*\)$/max_prepared_transactions = 100/" "$PGDATA"/postgresql.conf' >> ~/Documents/Docker/Volumes/custom_postgres/bonita.sh
+chmod +x ~/Documents/Docker/Volumes/custom_postgres/bonita.sh
 ```
+
+For more specific PostgresSQL tuning options see [Performance tuning](performance-tuning.md#postgresql-performance-tuning).
+
 Mount that directory location as /docker-entrypoint-initdb.d inside the PostgreSQL container:
 ```
-docker run --name mydbpostgres -v "$PWD"/custom_postgres/:/docker-entrypoint-initdb.d -e POSTGRES_PASSWORD=mysecretpassword -d postgres:11.2
+docker run --name mydbpostgres -v ~/Documents/Docker/Volumes/custom_postgres/:/docker-entrypoint-initdb.d -e POSTGRES_PASSWORD=mysecretpassword -d postgres:11.2
 ```
 See the official PostgreSQL documentation for more details.
 ```
-docker run --name bonita_postgres --link mydbpostgres:postgres -d -p 8080:8080 bonita
+docker run --name bonita_postgres --link mydbpostgres:postgres -d -p 8080:8080 bonitasoft/bonita-subscription:${varVersion}.0
 ```
 
-Alternatively, you can simply link the preconfigured bonita-postgres database:
+Alternatively, you can simply link the preconfigured bonita-postgres database (with max_prepared_transactions already set):
 ```
 docker run --name mydbpostgres -e POSTGRES_PASSWORD=mysecretpassword -d bonitasoft/postgres
-docker run --name bonita_postgres --link mydbpostgres:postgres -h bonita -v ~/Documents/Docker/Volumes/bonita-subscription/:/opt/bonita_lic/ -d -p 8080:8080 bonitasoft/bonita-subscription
+docker run --name bonita_postgres --link mydbpostgres:postgres -h bonita -v ~/Documents/Docker/Volumes/bonita-subscription/:/opt/bonita_lic/ -d -p 8080:8080 bonitasoft/bonita-subscription:${varVersion}.0
 ```
 
 #### PostgreSQL
@@ -80,12 +83,12 @@ BIZ_DB_PASS=custombusinesspass
 EOM
 ```
 ```
-docker run --name=bonita-subscription --env-file=/tmp/env.txt -d -p 8080:8080 bonitasoft/bonita-subscription
+docker run --name=bonita -h bonita --env-file=/tmp/env.txt -d -p 8080:8080 bonitasoft/bonita-subscription:${varVersion}.0
 ```
 
 ### Start Bonita with custom security credentials
 ```
-docker run --name=bonita -e "TENANT_LOGIN=tech_user" -e "TENANT_PASSWORD=secret" -e "PLATFORM_LOGIN=pfadmin" -e "PLATFORM_PASSWORD=pfsecret" -d -p 8080:8080 bonitasoft/bonita-subscription:${varVersion}.0
+docker run --name=bonita -h bonita -e "TENANT_LOGIN=tech_user" -e "TENANT_PASSWORD=secret" -e "PLATFORM_LOGIN=pfadmin" -e "PLATFORM_PASSWORD=pfsecret" -d -p 8080:8080 bonitasoft/bonita-subscription:${varVersion}.0
 ```
 Now you can access the Bonita Portal on localhost:8080/bonita and login using: tech_user / secret
 
@@ -94,7 +97,7 @@ Now you can access the Bonita Portal on localhost:8080/bonita and login using: t
 This docker image ensures to activate by default both static and dynamic authorization checks on [REST API](rest-api-authorization.md). To be coherent it also deactivates the HTTP API.
 But for specific needs you can override this behavior by setting HTTP_API to true and REST_API_DYN_AUTH_CHECKS to false :
 ```
-docker run  -e HTTP_API=true -e REST_API_DYN_AUTH_CHECKS=false --name bonita -h bonita -v ~/Documents/Docker/Volumes/bonita-subscription/:/opt/bonita_home/ -d -p 8080:8080  bonitasoft/bonita-subscription:${varVersion}.0
+docker run  -e HTTP_API=true -e REST_API_DYN_AUTH_CHECKS=false --name bonita -h bonita -v ~/Documents/Docker/Volumes/bonita-subscription/:/opt/bonita_lic/ -d -p 8080:8080  bonitasoft/bonita-subscription:${varVersion}.0
 ```
 
 ## Migrating from an earlier version of Bonita
