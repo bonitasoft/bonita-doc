@@ -58,8 +58,8 @@ To activate it:
 ## Starting a process as guest user
 
 You may require your living application to provide a link to start a process. In order for the process instantiation form to be displayed to a guest in the application, what you need to do is :
-- add the guest user account in the actor mapping of the actor initiator of the process
-- give the "case_start" permission to the guest user or the guest profile created in the section [Guest profile and dedicated user account](#prerequisite).  
+- add the guest user account in the actor mapping of the actor which is defined as [initiator of the process](actors#toc1)
+- give the "case_start" REST API permission to the guest user or the guest profile created in the section [Guest profile and dedicated user account](#prerequisite).  
 
 In order to give the "case_start" permission:  
 
@@ -75,6 +75,10 @@ In order to give the "case_start" permission:
             user|<guest_username>=[case_start] 
     ```
     Make sure to replace <guest_profile_name> or <guest_username> by the name of the guest profile or guest user account created in the section [Guest profile and dedicated user account](#prerequisite).
+    
+:::info 
+**Note:** If you use the [dynamic authorisation checking](rest-api-authorization#dynamic_authorization) instead of the default static authorization checking, this modification is not necessary as the rule `ProcessInstantiationPermissionRule`should already grant the access to the guest account when it is mapped to the actor initiator of the process.
+:::
 
 3. Use the [platform setup tool](BonitaBPM_platform_setup) again to save your changes into the database (Eg. setup.sh/.bat push).  
    Restart Bonita server.
