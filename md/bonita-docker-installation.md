@@ -61,12 +61,6 @@ See the official PostgreSQL documentation for more details.
 docker run --name bonita_postgres --link mydbpostgres:postgres -d -p 8080:8080 bonitasoft/bonita-subscription:${varVersion}.0
 ```
 
-Alternatively, you can simply link the preconfigured bonita-postgres database (with max_prepared_transactions already set):
-```
-docker run --name mydbpostgres -e POSTGRES_PASSWORD=mysecretpassword -d bonitasoft/postgres
-docker run --name bonita_postgres --link mydbpostgres:postgres -h bonita -v ~/Documents/Docker/Volumes/bonita-subscription/:/opt/bonita_lic/ -d -p 8080:8080 bonitasoft/bonita-subscription:${varVersion}.0
-```
-
 #### PostgreSQL
 if you don't want to run your database in a docker container, some things need to be configured separately: 
 ```
