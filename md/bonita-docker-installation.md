@@ -2,10 +2,11 @@
 
 How to install and use the docker distribution of the Bonita platform.
 
-This guide assumes you use the subscription version of the docker image. For the community version, simply skip the _Retrieve a licence_ step.
-It also assumes you are on a unix-based operating system.
+This guide assumes you are on a unix-based operating system.
+It also assumes you use the subscription version of the docker image. 
+For the community version, see the guide [on docker hub](https://hub.docker.com/_/bonita).
 
-## Quick start
+## Step by step installation procedure
 
 ### Retrieve a licence
 First generate a request key into a container with a specific hostname (-h):
@@ -93,7 +94,7 @@ docker run --name=bonita -h bonita -e "TENANT_LOGIN=tech_user" -e "TENANT_PASSWO
 Now you can access the Bonita Portal on localhost:8080/bonita and login using: tech_user / secret
 
 
-## Security
+## Secure your remote access
 This docker image ensures to activate by default both static and dynamic authorization checks on [REST API](rest-api-authorization.md). To be coherent it also deactivates the HTTP API.
 But for specific needs you can override this behavior by setting HTTP_API to true and REST_API_DYN_AUTH_CHECKS to false :
 ```
