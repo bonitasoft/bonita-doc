@@ -14,7 +14,7 @@ When accessing a public application without any active session on Bonita platfor
 :::
 
 ::: warning  
- This feature is different from the auto-login feature that was available in the 6.x versions of Bonita BPM as it do gives directly access to a process form publicly. It is intended for living applications access.
+ This feature is different from the auto-login feature that was available in the 6.x versions of Bonita BPM as it doesn't give directly access to a process form publicly. It is intended for living applications access.
 :::
 
 <a id="prerequisite"/>
