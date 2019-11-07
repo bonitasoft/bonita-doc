@@ -17,7 +17,7 @@ Bonita 7.10 now includes a brand new extensible [monitoring](runtime-monitoring.
 <a id="guest-user"/>
 
 ### Guest User (Teamwork, Efficiency, Performance, and Enterprise editions only)
-Opening the content of a living application to public access is now possible thanks to the new ["Guest User"](....md) feature. Used in process actor mappings, added to a custom profile to access applications, it allows anyone to access some public content.  
+Opening the content of a living application to public access is now possible thanks to the new ["Guest User"](guest-user) feature. Used in process actor mappings, added to a custom profile to access applications, it allows anyone to access some public content.  
 The Bonita application layout has been updated accordingly, to allow a Bonita user with credentials to log in from a public application and access password-protected content, if any.
 
 <a id="deploy-project"/>
