@@ -62,9 +62,9 @@ To activate it:
 
 ## Starting a process as guest user
 
-You may require your public living application to provide a link to start a process. In order for the process instantiation form to be displayed to a guest in an application, what you need to do is:
+You may require your public living application to provide a link to start a process instance (case). In order for the process instantiation form to be displayed to a guest in an application, what you need to do is:
 - add the guest user account in the actor mapping of the actor which is defined as [initiator of the process](actors#toc1)
-- make sure the REST API authorization mechanism allows the guest user to start the process.  
+- make sure the REST API authorization mechanism allows the guest user to start the process instance.  
 
 In order for the authorization filter to let the guest user make the necessary API requests, the best solution is to activate the [dynamic authorisation checking](rest-api-authorization#dynamic_authorization) for those requests :  
 
@@ -80,7 +80,7 @@ In order for the authorization filter to let the guest user make the necessary A
         #POST|bpm/process=[profile|Administrator, check|org.bonitasoft.permissions.ProcessPermissionRule]
         #PUT|bpm/process=[profile|Administrator, check|org.bonitasoft.permissions.ProcessPermissionRule]
         #DELETE|bpm/process=[profile|Administrator, check|org.bonitasoft.permissions.ProcessPermissionRule]
-    --> GET|bpm/process/*/instantiation=[profile|Administrator, check|org.bonitasoft.permissions.ProcessInstantiationPermissionRule]
+    --> GET|bpm/process/*/contract=[profile|Administrator, check|org.bonitasoft.permissions.ProcessPermissionRule]
     --> POST|bpm/process/*/instantiation=[profile|Administrator, check|org.bonitasoft.permissions.ProcessInstantiationPermissionRule]
         [...]
     ```
@@ -102,7 +102,7 @@ If in your process instantiation form you make other requests to Bonita REST API
 3. Use the [platform setup tool](BonitaBPM_platform_setup) again to save your changes into the database (Eg. setup.sh/.bat push).  
    Restart Bonita server.
 
-4. If your configuration is correct a guest user should be able to start a process without being logged in first.  
+4. If your configuration is correct a guest user should be able to start a process instance (case) without being logged in first.  
    You are done.
 
 ## Login behaviour
