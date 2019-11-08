@@ -42,6 +42,10 @@ Bonita 7.10 now allows to disable the archiving of Contract Data, to improve the
 ### Dynamic tabs in tab container
 In the Tabs Container, you can now hide/show and enable/disable a tab given some conditions, customize a tab title and add CSS dynamically, or change tabs format to pills and build nice side menus thanks to vertical display.
 
+### Docker
+A Bonita docker distribution is now available for download and installation both in community and subscription editions.
+See [how to install and use it](bonita-docker-installation.md).
+
 ## Improvements
 
 ### Better data management in the UI Designer

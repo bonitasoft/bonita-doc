@@ -128,6 +128,7 @@
     * [Database creation and customization to work with Bonita](database-configuration.md)
     * [First steps after setup](first-steps-after-setup.md)
     * [Licenses](licenses.md)
+  * [Bonita docker installation](bonita-docker-installation.md)
   * [Advanced Bonita Platform installation](_advanced-bonita-platform-installation.md)
     * [Security and authentication](_security-and-authentication.md)
       * [User authentication overview](user-authentication-overview.md)
