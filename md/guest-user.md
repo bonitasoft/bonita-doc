@@ -62,33 +62,47 @@ To activate it:
 
 ## Starting a process as guest user
 
-You may require your public living application to provide a link to start a process. In order for the process instantiation form to be displayed to a guest in an application, what you need to do is :
+You may require your public living application to provide a link to start a process instance (case). In order for the process instantiation form to be displayed to a guest in an application, what you need to do is:
 - add the guest user account in the actor mapping of the actor which is defined as [initiator of the process](actors#toc1)
-- give the "case_start" REST API permission to the guest user or the guest profile created in the section [Guest profile and dedicated user account](#prerequisite).  
+- make sure the REST API authorization mechanism allows the guest user to start the process instance.  
 
-In order to give the "case_start" permission:  
+In order for the authorization filter to let the guest user make the necessary API requests, the best solution is to activate the [dynamic authorisation checking](rest-api-authorization#dynamic_authorization) for those requests :  
 
 1.  Use the [platform setup tool](BonitaBPM_platform_setup) to retrieve the current configuration (Eg. setup.sh/.bat pull). You need to execute the following actions in the folder of the tenant in which the applications which requires public access are deployed.
 
 2. In the tenant_portal folder of the target tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
-   update the file `custom-permissions-mapping.properties` to add the following line:
+   update the file `dynamic-permissions-checks-custom.properties` to uncomment 3 lines as follows (they may already be uncommented if you use the dynamic authorisation checking instead of the default static authorization checking) :
     ```
-            profile|<guest_profile_name>=[case_start] 
+        [...]
+        ## ProcessPermissionRule
+        ## Let the user do get only on processes he deployed or that he supervised
+    --> GET|bpm/process=[profile|Administrator, check|org.bonitasoft.permissions.ProcessPermissionRule]
+        #POST|bpm/process=[profile|Administrator, check|org.bonitasoft.permissions.ProcessPermissionRule]
+        #PUT|bpm/process=[profile|Administrator, check|org.bonitasoft.permissions.ProcessPermissionRule]
+        #DELETE|bpm/process=[profile|Administrator, check|org.bonitasoft.permissions.ProcessPermissionRule]
+    --> GET|bpm/process/*/contract=[profile|Administrator, check|org.bonitasoft.permissions.ProcessPermissionRule]
+    --> POST|bpm/process/*/instantiation=[profile|Administrator, check|org.bonitasoft.permissions.ProcessInstantiationPermissionRule]
+        [...]
     ```
-    or
-    ```
-            user|<guest_username>=[case_start] 
-    ```
-    Make sure to replace <guest_profile_name> or <guest_username> by the name of the guest profile or guest user account created in the section [Guest profile and dedicated user account](#prerequisite).
-    
 :::info 
-**Note:** If you use the [dynamic authorisation checking](rest-api-authorization#dynamic_authorization) instead of the default static authorization checking, this modification is not necessary as the rule `ProcessInstantiationPermissionRule` should already grant the access to the guest account when it is mapped to the actor initiator of the process.
+**Note:** This modification will activate the [dynamic authorisation checking](rest-api-authorization#dynamic_authorization) instead of the default static authorization checking for the following request : `GET|bpm/process`, `GET|bpm/process/*/instantiation`, `POST|bpm/process/*/instantiation`. It does not impact only the guest user access to these resources but the whole organization.  
+When a user tries to get the contract or general information of a process it will make sure he is either:
+- a member of the actor mapping of the process
+- an administrator 
+- or a manager of the process
+
+When someone tries to start a process, it will make sure he is either:
+- a member of the actor mapping defined as the initiator of the process
+- an administrator
+- or a manager of the process
 :::
+
+If in your process instantiation form you make other requests to Bonita REST API, you may need to uncomment more lines in `dynamic-permissions-checks-custom.properties` accordingly.
 
 3. Use the [platform setup tool](BonitaBPM_platform_setup) again to save your changes into the database (Eg. setup.sh/.bat push).  
    Restart Bonita server.
 
-4. If your configuration is correct a guest user should be able to start a case without being logged in first.  
+4. If your configuration is correct a guest user should be able to start a process instance (case) without being logged in first.  
    You are done.
 
 ## Login behaviour
