@@ -487,6 +487,7 @@ They are not read subsequently, so changing the values in `bonita-tenant-communi
 For value definition, and information about how to update the Quartz trigger tables, see the [Quartz documentation](http://www.quartz-scheduler.org/documentation/) about Cron Triggers.
 
 <a id="postgresql-performance-tuning"/>
+
 #### PostgreSQL performance tuning
 
 Here is Bonita advice to finely tune PostgreSQL database server performance.
