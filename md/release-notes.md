@@ -137,6 +137,10 @@ As announced in the previous release, the support for EJB communication to Bonit
 * BPO-196 - Task name truncated in portal view case design
 * BPO-236 - Case overview does not handle well cases started by the technical user (and tasks executed by)
 * BPO-260 - Link widget returns hard-coded "/bonita" as Portal base URL
+* BPO-296 - Process manager cannot start a case with Dynamic authorization checking enabled
+* BPO-297 - Process instantiator can start a process on behalf of another user with Dynamic authorization checking enabled
+* BPO-301 - Community build.gradle should use Maven central repository
+* BPO-306 - Font Awesome in Bonita default Theme causes migration issue: default user icon is not displayed
 * BR-155 - Contract data archiving is not configurable 
 * BR-189 - NullPointerException error is shown when the description of a page/form is empty 
 * BS-15975 - process instance id and flownode instance id not found when executing the work for the Start event 
