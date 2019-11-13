@@ -55,12 +55,7 @@ A second way to create a custom theme is starting from an new custom theme in St
 
 A theme can only be associated with an application to define the style. It cannot itself be used as a simple application page.
 
-<a id="font-awesome"/>
-
 ## Migration notes 
-
-Since Bonita 7.9.1 [bonita layout](bonita-layout.md) uses font-awesome icons, you may need to add font-awesome to your 
-custom theme if you are migrating from an older version.  
 
 ### Migrating from a version prior to 7.9.0
 
@@ -74,27 +69,8 @@ you need to:
     @import url('./css/font-awesome.min.css');
 ```
 
-### Migrating from a version 7.9.0
+### Migrating from version 7.9.1 - 7.9.X
 
-In order to to add font-awesome to your 7.9.0 theme generated using the 'new theme' functionality of the studio,  
-you need to:
-* Download [font-awesome](https://fontawesome.com/v4.7.0/assets/font-awesome-4.7.0.zip) version 4.7.0
-* Copy all the fonts from `font-awesome-4.7.0/fonts` and put them into your custom theme in `dist/fonts`
-* In the custom theme file `package.json`, add `font-awesome-sass` in the `devDependencies` section
-```json
-    "font-awesome-sass": "4.7.0"
-```
-* In this same file `package.json`, include the font-awesome stylesheets path in the scripts/build section   
-```json
-    --include-path ./node_modules/font-awesome-sass/assets/stylesheets/
-```
-* In the file `src/scss/main.scss`, import font-awesome by adding 
-```scss
-    @import "font-awesome";
-```
-* In the file `src/scss/_bonita_variables.scss`, set the required font-awesome font path by adding:
-```scss
-     $fa-font-path: "./fonts/"; 
-```      
-* Finally, build and deploy your migrated theme to see if the 7.9.1 [bonita layout](bonita-layout.md) works well with 
-your custom theme.   
+In these versions, the provided themes were using font-awesome. The library was removed in favor of adding the webfonts. If you used a provided theme and any font-awesome icon, either :
+* create a custom theme out of the provided theme and add the font-awesome library (as explained in the 7.9 documentation)
+* add the font-awesome webfonts to your page
