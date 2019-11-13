@@ -29,7 +29,9 @@ The first option is changing the theme that is used by the application by adding
 The second option is adding an image asset to the layout in UI Designer, and using this asset directly in the URL 
 property of the image widget.
 
-### Font awesome
+## Migration notes
 
-This layout requires a theme containing the font-awesome library.
-If you are using a custom theme, make sure [font-awesome is available in your theme](themes.md#font-awesome).
+### Migrating from version 7.9.1 - 7.9.X
+
+Since we removed font-awesome dependency from Bonita layout, no more font-awesome icon(s) will work.
+Therefore, if a Bonita user wants to use any font-awesome icon, they will need to add the font-awesome library on their own.
