@@ -59,6 +59,6 @@ A theme can only be associated with an application to define the style. It canno
 
 ### Migrating from version 7.9.1 - 7.9.X
 
-In these versions, the provided themes were using font-awesome. The library was removed in favor of adding the webfonts directly in the pages. If you were using a provided theme and any font-awesome icon, either :
+In these versions, the provided themes were embedding font-awesome. The library was removed in favor of adding the webfonts directly in the pages. If you were using a provided theme and any font-awesome icon, either :
 * create a custom theme out of the provided theme and add the font-awesome library (as explained in the 7.9 version of this page)
 * add the font-awesome webfonts to your page
