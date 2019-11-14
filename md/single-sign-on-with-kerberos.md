@@ -100,7 +100,7 @@ Registered ServicePrincipalNames for CN=Bonita Tomcat,OU=Service Accounts,OU=Gre
         HTTP/win2008tomcat
 ```
 
-5- In Active directory, open the technical user properties and go to the account tab. Flag the following values:
+5- In Active directory, open the service account user properties and go to the account tab. Flag the following values:
 
 	-	Password never expires = true
 	-	User cannot change password = true
@@ -108,7 +108,7 @@ Registered ServicePrincipalNames for CN=Bonita Tomcat,OU=Service Accounts,OU=Gre
 	-	This account supports Kerberos AES256
 	-	Use Kerberos DES encryption types for this account = should preferably be false
 
-6- Still in the technical user properties, go to the delegation tab and set the following value to true:
+6- Still in the service account user properties, go to the delegation tab and set the following value to true:
 	
 	Trust this user for delegation to any service (Kerberos only).
 
@@ -168,7 +168,10 @@ if you want to use the AES256-CTS encryption type, you need to update the Java s
 		isInitiator=false;
 	};
 ```
-	
+
+In addition, the system property `java.security.auth.login.config` should not already be set or, if it is, it should target the file `conf/login.conf`. In order to do that, you can edit the file `<BUNDLE_HOME>/server/bin/setenv.sh (.bat)` and set the SECURITY_OPT variable as follows:  
+`SECURITY_OPTS="-Djava.security.auth.login.config=${CATALINA_HOME}/conf/login.conf"`
+
 4. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
    edit the authenticationManager-config.properties as follows:
    
@@ -212,6 +215,7 @@ If only a limited group of users need to bypass kerberos authentication method y
 	-->	 spnego.preauth.password     = <password> 
 ```
 <username> and <password> shoud be replaced with the domain account and password to use to pre-authenticate to on the Domain controller acting as Kerberos Key Distribution Center.  
+`spnego.login.client.module` and `spnego.login.server.module` property values should match the login contexts set in `login.conf` (spnego-client and spnego-server by default).
 
 Make sure to set your principal user name and password.	
 
@@ -292,6 +296,13 @@ com.bonitasoft.engine.authentication.level = ALL
 ```
 
 Edit the *logger* tags which *category* matches `org.bonitasoft.console.common.server.auth`, `org.bonitasoft.engine.authentication` and `com.bonitasoft.engine.authentication` packages: change the *level* *name* attribute of each *logger* to `ALL` and add a new logger with the *category* `net.sourceforge.spnego` (also with a *level* *name* set to `ALL`).
+
+::: info
+**Common issues :** In the logs, you may get a IllegalArgumentException in the class `net.sourceforge.spnego.SpnegoFilterConfig`.  
+The most probable cause for that is that the login contexts (set in `login.conf`) for Tomcat or the security domain names (set in `standalone.xml`) for Wildfly (spnego-client and spnego-server by default) do not match the values of the properties `spnego.login.client.module` and `spnego.login.server.module` set in the file `spnego-config.properties`.  
+You may also see a NullPointerException in the class `net.sourceforge.spnego.SpnegoFilterConfig`  
+In that case, for Tomcat, you should make sure the properties `spnego.krb5.conf` and `spnego.login.conf` of `spnego-config.properties` target the right files (the path is relative to `<BUNDLE_HOME>/server`) and the  system property `java.security.auth.login.config` should not be set or, if it is, it should target the file `conf/login.conf`.
+:::
 
 ## Manage passwords
 

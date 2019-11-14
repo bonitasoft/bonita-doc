@@ -1,3 +1,4 @@
+
 # Bonita Studio installation
 
 How to install a Bonita Studio on Windows, Linux, or Mac operating systems. An OS-independent archive can also be used.
@@ -18,8 +19,18 @@ Both Windows and Mac have default security settings that will prevent execution 
 
 **Note for users of macOS 10.12.x and above** : There is an known issue on macOS Sierra and Java about the slowness of   java.net.InetAddress getLocalHost() which results in a slowness of the Bonita Studio (find more info on [thoeni](https://thoeni.io/post/macos-sierra-java/) or [plumbr](https://plumbr.eu/blog/java/macos-sierra-problems-with-java-net-inetaddress-getlocalhost)). To resolve this issue you shoud add your computer name to your /etc/hosts file : In a terminal, edit your `/etc/hosts` with sudo privilege, add your computer name to the local IP addresses `127.0.0.1 localhost <mycomputername.local>` and `::1 localhost <mycomputername.local>` (To find your macOS computer name, look at [Apple support dedicated page](https://support.apple.com/kb/PH25076)).
 
-**Note for users of OS X 10.7.5 and above**: a new security feature called **Gatekeeper** prevents the installation of software that is not officially recognized by Apple.  
-For more information and details of how to install Bonita Studio on a system running Gatekeeper, see the [Apple support site](https://support.apple.com/en-us/HT202491).
+**Note for users of macOS Catalina 10.15 and above**: Since Catalina 10.15, only **installed JDK** are accepted by the macOS _gatekeeper_.  
+If you try to use a JDK directly downloaded, you will get this kind of error: _jdk-11.0.5 can’t be opened because it is from an unidentified developer._  
+The solution is to use an installer to install properly the JDK. The easiest way is to tape the following commands:  
+``` bash
+# Install brew first if it is not installed yet, more details here: https://brew.sh
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Use brew to install a JDK
+brew tap homebrew/cask-versions
+brew cask install java11
+```  
+An other solution is to download and execute manually the installer, [here for example](https://adoptopenjdk.net/index.html). 
 
 **Note for users of Windows 10**: the security feature called **SmartScreen** prevents execution of Bonita Studio installer.  When you get the "Windows protect your PC" pop up window, click on "More info" link and click on "Run anyway" button.
 
@@ -35,31 +46,16 @@ Then click the **_Download_** button.
 When the download is complete, you have one of the following new files:
 
 **Linux**  
-Community edition  
-- 32 bit: `BonitaStudioCommunity-x.y.z-x86.run`
-- 64 bit: `BonitaStudioCommunity-x.y.z-x86_64.run`
-
-Subscription editions   
-- 32 bit: `BonitaSubscription-x.y.z-x86.run`
-- 64 bit: `BonitaSubscription-x.y.z-x86_64.run`
+Community edition: `BonitaStudioCommunity-x.y.z-x86_64.run`  
+Subscription editions: `BonitaSubscription-x.y.z-x86_64.run`  
 
 **Windows**  
-Community edition  
-- 32 bit: `BonitaStudioCommunity-x..zy-x86.exe`
-- 64 bit: `BonitaStudioCommunity-x.y.z-x86_64.exe`
-
-Subscription editions  
-- 32 bit: `BonitaSubscription-x..zy-x86.exe`
-- 64 bit: `BonitaSubscription-x.y.z-x86_64.exe`
+Community edition: `BonitaStudioCommunity-x.y.z-x86_64.exe`  
+Subscription editions: `BonitaSubscription-x.y.z-x86_64.exe`  
 
 **Mac**  
-Community edition  
-- 32 bit: `Not provided`
-- 64 bit: `BonitaStudioCommunity-x.y.z-x86_64.dmg`
-
-Subscription editions  
-- 32 bit: `Not provided`
-- 64 bit: `BonitaSubscription-x.y.z-x86_64.dmg`
+Community edition: `BonitaStudioCommunity-x.y.z-macOs.dmg`  
+Subscription editions: `BonitaSubscription-x.y.z-macOs.dmg`  
 
 **Zip, no Installer (Windows or Linux)**
 Community edition  
@@ -87,31 +83,16 @@ To install Bonita Studio using the zip archive, unzip the downloaded .zip file t
 To start Bonita Studio, go to the directory where you installed it, and run the launcher for your operating system:
 
 **Linux**   
-Community edition  
-- 32-bit: `BonitaStudioCommunity-linux`
-- 64-bit: `BonitaStudioCommunity64-linux`
-
-Subscription editions  
-- 32-bit: `BonitaStudioSubscription-linux`
-- 64-bit: `BonitaStudioSubscription64-linux`
+Community edition: `BonitaStudioCommunity-linux`  
+Subscription editions: `BonitaStudioSubscription-linux`  
 
 **Windows**  
-Community edition  
-- 32-bit: `BonitaStudioCommunity.exe`
-- 64-bit: `BonitaStudioCommunity64.exe`
-
-Subscription editions  
-- 32-bit: `BonitaStudioSubscription.exe`
-- 64-bit: `BonitaStudioSubscription64.exe`
+Community edition: `BonitaStudioCommunity.exe`  
+Subscription editions: `BonitaStudioSubscription.exe`  
 
 **Mac**   
-Community edition  
-- 32-bit: `Not provided`
-- 64-bit: `BonitaStudioCommunity64.app`
-
-Subscription editions  
-- 32-bit: `Not provided`
-- 64-bit: `BonitaStudioSubscription64.app`
+Community edition: `BonitaStudioCommunity.app`  
+Subscription editions: `BonitaStudioSubscription.app`  
 
 ## License
 
@@ -131,13 +112,12 @@ When you launch Bonita Studio for the first time, you need to install a license:
 
 Bonita Studio 7.8 only support Java 8. If you have multiple versions of Java installed on your computer you might need to specify which Java Virtual Machine (JVM) to use.
 
-To specify the JVM version use to run the Studio you first need to identify the appropriate file to edit. For example if you launch the Studio using `BonitaStudioCommunity64.exe`, the file to edit will be `BonitaStudioCommunity64.ini`. This file is located in your Studio installation folder.
+To specify the JVM version use to run the Studio you first need to identify the appropriate file to edit. For example if you launch the Studio using `BonitaStudioCommunity.exe`, the file to edit will be `BonitaStudioCommunity.ini`. This file is located in your Studio installation folder.
 
 Next you need to add a -vm option and the path to the Java runtime in the ini file (each of them on a new line). Note the format of the -vm option − it is important to be exact:
 - The -vm option and its value (the path) must be on separate lines.
 - The value must be the full absolute or relative path to the Java executable, not just to the Java home directory.
 - The -vm option must occur after the other Bonita-specific options (such as -product, --launcher.*, etc), but before the -vmargs option, since everything after -vmargs is passed directly to the JVM.
-- For the 32-bit Bonita executable (BonitaStudioCommunity.exe on Windows) a 32-bit JVM must be used and for the 64-bit Eclipse executable a 64-bit JVM must be used. 32-bit Bonita will not work with a 64-bit JVM.
 
 For example on Windows:
 ```
@@ -164,7 +144,7 @@ But you can decide to activate cache, to be closer to the production display tim
 
 1. Close your Bonita Studio if he's up.
 2. Go in the studio installation folder.
-3. Open `BonitaStudioSubscription.ini` file if you use a **32-bits version** (`BonitaStudioSubscription64.ini` for a **64-bits**).
+3. Open `BonitaStudioSubscription.ini`.
 4. Change `-Dtomcat.extra.params=-DnoCacheCustomPage=true` to `-Dtomcat.extra.params=-DnoCacheCustomPage=false`.
 5. Save file.
 6. Start your Bonita studio. Now you have a cache for your living application and your custom page.
@@ -206,10 +186,14 @@ Caused by: java.lang.OutOfMemoryError: GC overhead limit exceeded
 
 To fix this issue, you need to increase the memory allocated to the JVM that runs Bonita Studio.
 
-Edit the `*.ini` file that corresponds to the executable you use to launch the Studio (e.g. `BonitaStudioSubscription64.ini` if you run BonitaStudioSubscription64.exe) and modify this line: `-Xmx512m` to `-Xmx1024m` (or higher).
+Edit the `*.ini` file that corresponds to the executable you use to launch the Studio and modify this line: `-Xmx512m` to `-Xmx1024m` (or higher).
 
 Then restart Bonita Studio.
 
+### OutOfMemory error in Bonita Studio embedded Tomcat server
+
+When using connectors having a large amount of dependencies you may encounter some memory issue with the default `-Xmx` used for the tomcat server.  
+You can increase this value in Studio preferences -> Server settings -> Tomcat Maximum memory allocation.  
 
 ### Bonita Studio Welcome page stays blank on Linux (Ubuntu/Debian)
 

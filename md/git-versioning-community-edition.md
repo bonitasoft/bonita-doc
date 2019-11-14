@@ -1,4 +1,4 @@
-# Git versioning with Community Edition
+# How to use Git for versioning with Community Edition
 
 ::: info
 **Note:** This page explains how to use Git to do versioning control of your Bonita Community Edition project. Enterprise Edition provides additional features including a [native integration of Git](workspaces-and-repositories.md) in Bonita Studio.

@@ -91,3 +91,7 @@ You will find out advanced report design documentation:
 * [Use a MS Word macro to design the report](https://github.com/opensagres/xdocreport/wiki/DocxDesignReportMacro)
 * [Report samples](https://github.com/opensagres/xdocreport.samples)
 * ...
+
+## Troubleshooting
+
+You may encounter memory issues using this connector as it has substantial size of dependencies. To workaround those issues you may increase the maximum memory allocation value of the Tomcat server JVM. Go to Preferences -> Server settings -> Increase the Tomcat Maximum memory allocation (`-Xmx` JVM argument) value to **1024** (512 by default). Do not forget to use the same value when configuring your production Bundle.
