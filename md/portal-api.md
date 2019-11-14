@@ -134,7 +134,7 @@ Use a GET method with filters and search terms to search for custom pages.
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   You can filter on:
-  * `createdBy={user\_id}`: retrieve only the pages created by the specified user ID.
+  * `createdBy={user_id}`: retrieve only the pages created by the specified user ID.
   For example, to retrieve the custom pages created by the user with id 1: `http://localhost:8080/bonita/API/portal/page?p=0&c=10&f=createdBy%3d1`.
   * `contentType={contentType}`: retrieve only the resources of requested type. This filter is available since v7.0\.
   For example, to retrieve the theme resources: `http://localhost:8080/bonita/API/portal/page?p=0&c=10&f=contentType%3Dtheme`.
@@ -461,9 +461,9 @@ Use a GET method with filters and search terms to search for profileEntry items.
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   You can filter on:
-  * `page={exact\_pageToken}`: retrieve only the profileEntry items with the specified tokenName. For example, retrieve the profileEntry with page name = tasklistinguser: `/API/portal/profileEntry?p=0&c=10&f=page%3dtasklistinguser`.
-  * `name={exact\_page\_name}`: retrieve only the profileEntry items with the specified pageName. For example, retrieve the profileEntry with page name = Tasks: `/API/portal/profileEntry?p=0&c=10&f=name%3dTasks`.
-  * `parentId={parent\_id}`: retrieve only the profileEntry items with the specified parent\_id. For example, retrieve the profileEntry with parent\_id = 1: `/API/portal/profileEntry?p=0&c=10&f=parent_id%3d1`.
+  * `page={exact_pageToken}`: retrieve only the profileEntry items with the specified tokenName. For example, retrieve the profileEntry with page name = tasklistinguser: `/API/portal/profileEntry?p=0&c=10&f=page%3dtasklistinguser`.
+  * `name={exact_page_name}`: retrieve only the profileEntry items with the specified pageName. For example, retrieve the profileEntry with page name = Tasks: `/API/portal/profileEntry?p=0&c=10&f=name%3dTasks`.
+  * `parentId={parent_id}`: retrieve only the profileEntry items with the specified parent\_id. For example, retrieve the profileEntry with parent\_id = 1: `/API/portal/profileEntry?p=0&c=10&f=parent_id%3d1`.
 
   You can search on:
   * `name`: search all profileEntry definitions with name starting with the search string. 
@@ -574,13 +574,13 @@ Use a GET method with filters and search terms to search for profileMembers.
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   There is a mandatory filter on:
-  * `member\_type=`. For example, retrieve the profileMembers of type user: `/API/portal/profileMember?p=0&c=10&f=member\_type%3duser`
+  * `member_type=`. For example, retrieve the profileMembers of type user: `/API/portal/profileMember?p=0&c=10&f=member_type%3duser`
 
   You can also filter also on: 
-  * `profile\_id={profile\_id}`: retrieve only the profileMembers related to the specified profile\_id. `/API/portal/profileMember?p=0&c=10&f=member\_type%3duser&f=profile\_id%3d1`
-  * `user\_id={user\_id}`: retrieve only the profileMembers related to the specified user\_id. `API/portal/profileMember?p=0&c=10&f=member\_type%3duser&f=profile\_id%3d1&f=user\_id%3d101`
-  * `role\_id={role\_id}`: retrieve only the profileMembers related to the specified role\_id. `API/portal/profileMember?p=0&c=10&f=member\_type%3drole&f=profile\_id%3d1&f=role\_id%3d101`
-  * `group\_id={group\_id}`: retrieve only the profileMembers related to the specified group\_id. `API/portal/profileMember?p=0&c=10&f=member\_type%3dgroup&f=profile\_id%3d1&f=group\_id%3d101`
+  * `profile_id={profile_id}`: retrieve only the profileMembers related to the specified profile\_id. `/API/portal/profileMember?p=0&c=10&f=member_type%3duser&f=profile_id%3d1`
+  * `user_id={user_id}`: retrieve only the profileMembers related to the specified user\_id. `API/portal/profileMember?p=0&c=10&f=member_type%3duser&f=profile_id%3d1&f=user_id%3d101`
+  * `role_id={role_id}`: retrieve only the profileMembers related to the specified role\_id. `API/portal/profileMember?p=0&c=10&f=member_type%3drole&f=profile_id%3d1&f=role_id%3d101`
+  * `group_id={group_id}`: retrieve only the profileMembers related to the specified group\_id. `API/portal/profileMember?p=0&c=10&f=member_type%3dgroup&f=profile_id%3d1&f=group_id%3d101`
 * **Success Response**  
   An array of profileMember objects
   * **Code**: 200
