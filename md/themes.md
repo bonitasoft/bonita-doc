@@ -55,22 +55,10 @@ A second way to create a custom theme is starting from an new custom theme in St
 
 A theme can only be associated with an application to define the style. It cannot itself be used as a simple application page.
 
-## Migration notes 
-
-### Migrating from a version prior to 7.9.0
-
-In order to to add font-awesome to your theme created with a Bonita version prior to 7.9.0,  
-you need to:
-* Download [font-awesome](https://fontawesome.com/v4.7.0/assets/font-awesome-4.7.0.zip) version 4.7.0
-* Copy `font-awesome.min.css` from `font-awesome-4.7.0/css` and put it into your custom theme in `resources/css`
-* Similarly, copy all the fonts from `font-awesome-4.7.0/fonts` and put them into your custom theme in `resources/fonts`
-* Finally, edit `resources/theme.css` to add the following line 
-```css
-    @import url('./css/font-awesome.min.css');
-```
+## Migration notes
 
 ### Migrating from version 7.9.1 - 7.9.X
 
-In these versions, the provided themes were using font-awesome. The library was removed in favor of adding the webfonts. If you used a provided theme and any font-awesome icon, either :
-* create a custom theme out of the provided theme and add the font-awesome library (as explained in the 7.9 documentation)
+In these versions, the provided themes were using font-awesome. The library was removed in favor of adding the webfonts directly in the pages. If you were using a provided theme and any font-awesome icon, either :
+* create a custom theme out of the provided theme and add the font-awesome library (as explained in the 7.9 version of this page)
 * add the font-awesome webfonts to your page
