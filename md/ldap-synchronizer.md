@@ -136,7 +136,7 @@ Supported values: ignore, warn or fatal
 Default value: warn
 * bonita\_username\_case: optional parameter that specifies whether the LDAP user names should be converted to a given case upon being imported in Bonita BPM.  
 Supported values: mixed, uppercase or lowercase  
-Default value: mixed (conserves the current LDAP user name case)
+Default value: lowercase
 * ldap\_watched\_directories: defines the LDAP directories to watch.  
 Supported values: list of LDAP watched directory object identifiers separated by commas.  
 The syntax for watched directory object properties is detailed in the next section.
