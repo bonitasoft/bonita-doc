@@ -372,6 +372,12 @@ The SAP JCO2 connector is no longer available. SAP JCO3 connector is more recent
 The BonitaSubscription-x.y.z-deploy.zip is no longer provided starting from Bonita 7.9.
 Please use the Tomcat bundle instead, or see the [Custom Deployment](deploy-bundle.md) page for more specific needs.
 
+#### Dependency libraries
+* poi-3.9.jar
+* poi-ooxml-3.9.jar
+* poi-ooxml-schemas-3.9.jar
+
+
 ## API behavior change
 ### servletDownloadApp
 The file exported by the Portal servlet for applications is now called "ApplicationDescriptorFile.xml" instead of "Application_Data.xml" to bring consistency compared to Bonita Studio, and to  the concept of application. 
