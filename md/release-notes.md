@@ -119,7 +119,7 @@ As announced in the previous release, the Wildfly bundle has been removed in the
 As announced in the previous release, the support for EJB communication to Bonita Engine has been removed in the 7.10 release.
 
 #### font-awesome in applications's themes
-In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The library was removed in favor of adding the webfonts directly in the pages in order to avoid versions conflicts. If you were using a provided theme and any font-awesome icon, either :
+In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The library was removed in favor of adding the webfonts directly in the pages in order to avoid version conflicts. If you were using a provided theme and any font-awesome icon, either :
 * create a custom theme out of the provided themes and add the font-awesome library to it (as explained in the [documentation for version 7.9](../../7.9/themes))
 * add the font-awesome webfonts to your page
 
