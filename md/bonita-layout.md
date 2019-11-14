@@ -33,5 +33,6 @@ property of the image widget.
 
 ### Migrating from version 7.9.1 - 7.9.X
 
-Since we removed font-awesome dependency from Bonita layout, no more font-awesome icon(s) will work.
-Therefore, if a Bonita user wants to use any font-awesome icon, they will need to add the font-awesome library on their own.
+In these versions, the provided themes were embedding font-awesome. The library was removed in favor of adding the webfonts directly in the layout. If your layout and your pages were using the fonts provided in the theme, either :
+* create a custom theme out of the provided theme and add the font-awesome library (as explained in the 7.9 version of this page)
+* add the font-awesome webfonts to your pages
