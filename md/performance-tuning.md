@@ -486,6 +486,7 @@ Details on these properties can be found in [the Quartz documentation](http://ww
 They are not read subsequently, so changing the values in `bonita-tenant-community-custom.properties` after the Engine has been started has no effect on Quartz.
 For value definition, and information about how to update the Quartz trigger tables, see the [Quartz documentation](http://www.quartz-scheduler.org/documentation/) about Cron Triggers.
 
+<a id="postgresql-performance-tuning"/>
 
 #### PostgreSQL performance tuning
 
