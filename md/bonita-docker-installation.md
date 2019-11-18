@@ -14,9 +14,9 @@ To start the latest subscription release
 >Access to Quay.io has to be requested through customer portal
 ```
 docker login quay.io
-docker pull quay.io/bonitasoft/bonita-subscription:latest
+docker pull quay.io/bonitasoft/bonita-subscription:${varVersion}.0
 docker logout quay.io
-docker run --name=bonita -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:latest
+docker run --name=bonita -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:${varVersion}.0
 ```
 >Note: You need to provide a valid licence, [follow these steps](#section-StepByStep) in order to get and configure one. 
 
@@ -87,7 +87,7 @@ services:
       - -c
       - max_prepared_transactions=100
   bonita:
-    image: quay.io/bonitasoft/bonita-subscription
+    image: quay.io/bonitasoft/bonita-subscription:${varVersion}.0
     ports:
       - 8080:8080
     environment:
@@ -121,7 +121,7 @@ services:
         exec /opt/files/startup.sh
 ```
 
-Run `docker stack deploy -c stack.yml quay.io/bonitasoft/bonita-subscription` (or `docker-compose -f stack.yml up`), wait for it to initialize completely, and visit `http://swarm-ip:8080`, `http://localhost:8080`, or `http://host-ip:8080` (as appropriate).
+Run `docker stack deploy -c stack.yml bonita`  or `docker-compose -f stack.yml up`, wait for it to initialize completely, and visit `http://swarm-ip:8080`, `http://localhost:8080`, or `http://host-ip:8080` (as appropriate).
 
 #### PostgreSQL as an installed service
 If you don't want to run your database in a docker container, the following file `env.txt` needs to be configured and provided to the docker run command: 
