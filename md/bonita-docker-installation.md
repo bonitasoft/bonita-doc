@@ -16,7 +16,7 @@ To start the latest subscription release
 docker login quay.io
 docker pull quay.io/bonitasoft/bonita-subscription:latest
 docker logout quay.io
-docker run --name=bonita -d -p 8080:8080 bonitasoft/bonita-subscription:latest
+docker run --name=bonita -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:latest
 ```
 >Note: You need to provide a valid licence, [follow these steps](#section-StepByStep) in order to get and configure one. 
 
@@ -28,7 +28,7 @@ docker run --name=bonita -d -p 8080:8080 bonitasoft/bonita-subscription:latest
 First generate a request key into a container with a specific hostname (-h):
 
 ```
-docker run --rm --name=bonita -h bonita -ti bonitasoft/bonita-subscription:${varVersion}.0 /bin/bash
+docker run --rm --name=bonita -h bonita -ti quay.io/bonitasoft/bonita-subscription:${varVersion}.0 /bin/bash
 unzip /opt/files/BonitaSubscription-${varVersion}.0.zip
 cd BonitaSubscription-${varVersion}.0/tools/request_key_utils/
 ./generateRequestKey.sh
@@ -46,7 +46,7 @@ cp ~/Downloads/BonitaSubscription-7.7-Cloud_Techuser-bonita-20170124-20170331.li
 Re-create a new Bonita container with the same hostname (-h) and this host directory mounted (-v) :
 
 ```
-docker run --name bonita -h bonita -v ~/Documents/Docker/Volumes/bonita-subscription/:/opt/bonita_lic/ -d -p 8080:8080 bonitasoft/bonita-subscription:${varVersion}.0
+docker run --name bonita -h bonita -v ~/Documents/Docker/Volumes/bonita-subscription/:/opt/bonita_lic/ -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:${varVersion}.0
 ```
 
 This will start a container running the Tomcat Bundle with Bonita Engine + Portal. As you did not specify any environment variables it's almost like if you had launched the Bundle on your host using startup.{sh|bat} (with security hardening on REST and HTTP APIs, cf Security part). It means that Bonita uses a H2 database here.
@@ -77,7 +77,7 @@ docker run --name mydbpostgres -v ~/Documents/Docker/Volumes/custom_postgres/:/d
 ```
 See the official PostgreSQL documentation for more details.
 ```
-docker run --name bonita_postgres --link mydbpostgres:postgres -d -p 8080:8080 bonitasoft/bonita-subscription:${varVersion}.0
+docker run --name bonita_postgres --link mydbpostgres:postgres -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:${varVersion}.0
 ```
 
 #### Using docker-compose
@@ -97,7 +97,7 @@ services:
       - -c
       - max_prepared_transactions=100
   bonita:
-    image: bonitasoft/bonita-subscription
+    image: quay.io/bonitasoft/bonita-subscription
     ports:
       - 8080:8080
     environment:
@@ -131,7 +131,7 @@ services:
         exec /opt/files/startup.sh
 ```
 
-Run `docker stack deploy -c stack.yml bonitasoft/bonita-subscription` (or `docker-compose -f stack.yml up`), wait for it to initialize completely, and visit `http://swarm-ip:8080`, `http://localhost:8080`, or `http://host-ip:8080` (as appropriate).
+Run `docker stack deploy -c stack.yml quay.io/bonitasoft/bonita-subscription` (or `docker-compose -f stack.yml up`), wait for it to initialize completely, and visit `http://swarm-ip:8080`, `http://localhost:8080`, or `http://host-ip:8080` (as appropriate).
 
 #### PostgreSQL as an installed service
 If you don't want to run your database in a docker container, the following file `env.txt` needs to be configured and provided to the docker run command: 
@@ -149,12 +149,12 @@ BIZ_DB_PASS=custombusinesspass
 ```
 
 ```
-docker run --name=bonita -h bonita --env-file=env.txt -d -p 8080:8080 bonitasoft/bonita-subscription:${varVersion}.0
+docker run --name=bonita -h bonita --env-file=env.txt -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:${varVersion}.0
 ```
 
 ### Start Bonita with custom security credentials
 ```
-docker run --name=bonita -h bonita -e "TENANT_LOGIN=tech_user" -e "TENANT_PASSWORD=secret" -e "PLATFORM_LOGIN=pfadmin" -e "PLATFORM_PASSWORD=pfsecret" -d -p 8080:8080 bonitasoft/bonita-subscription:${varVersion}.0
+docker run --name=bonita -h bonita -e "TENANT_LOGIN=tech_user" -e "TENANT_PASSWORD=secret" -e "PLATFORM_LOGIN=pfadmin" -e "PLATFORM_PASSWORD=pfsecret" -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:${varVersion}.0
 ```
 Now you can access the Bonita Portal on localhost:8080/bonita and login using: tech_user / secret
 
@@ -162,7 +162,7 @@ Now you can access the Bonita Portal on localhost:8080/bonita and login using: t
 This docker image ensures to activate by default both static and dynamic authorization checks on [REST API](rest-api-authorization.md). To be coherent it also deactivates the HTTP API.
 But for specific needs you can override this behavior by setting HTTP_API to true and REST_API_DYN_AUTH_CHECKS to false :
 ```
-docker run  -e HTTP_API=true -e REST_API_DYN_AUTH_CHECKS=false --name bonita -h bonita -v ~/Documents/Docker/Volumes/bonita-subscription/:/opt/bonita_lic/ -d -p 8080:8080  bonitasoft/bonita-subscription:${varVersion}.0
+docker run  -e HTTP_API=true -e REST_API_DYN_AUTH_CHECKS=false --name bonita -h bonita -v ~/Documents/Docker/Volumes/bonita-subscription/:/opt/bonita_lic/ -d -p 8080:8080  quay.io/bonitasoft/bonita-subscription:${varVersion}.0
 ```
 
 ## Environment variables
