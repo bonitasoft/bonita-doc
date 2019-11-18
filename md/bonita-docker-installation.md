@@ -159,7 +159,7 @@ docker run  -e HTTP_API=true -e REST_API_DYN_AUTH_CHECKS=false --name bonita -h 
 When you start the bonita image, you can adjust the configuration of the Bonita instance by passing one or more environment variables on the docker run command line.
 
 ### PLATFORM_PASSWORD
-This environment variable is recommended for you to use the Bonita image. It sets the platform administrator password for Bonita. If it is not specified, the default password platform will be used.
+This environment variable is recommended for you to use the Bonita image. It sets the platform administrator password for Bonita. If it is not specified, the default password `platform` will be used.
 
 ### PLATFORM_LOGIN
 This optional environment variable is used in conjunction with PLATFORM_PASSWORD to define the username for the platform administrator. If it is not specified, the default username `platformAdmin` will be used.
