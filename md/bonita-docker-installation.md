@@ -1,10 +1,26 @@
-# Deploy a Bonita platform using docker
+# Deploy Bonita Runtime with Docker
 
-How to install and use the docker distribution of the Bonita platform.
+How to install and use the Bonita Runtime docker distribution.
 
-This guide assumes you are on a unix-based operating system.
-It also assumes you use the subscription version of the docker image. 
-For the community version, see the guide [on docker hub](https://hub.docker.com/_/bonita).
+This guide assumes you have a working docker environment.
+
+## Quick start
+To start the latest community release
+```
+docker run --name bonita -d -p 8080:8080 bonita
+```
+
+To start the latest subscription release
+>Access to Quay.io has to be requested through customer portal
+```
+docker login quay.io
+docker pull quay.io/bonitasoft/bonita-subscription:latest
+docker logout quay.io
+docker run --name=bonita -d -p 8080:8080 bonitasoft/bonita-subscription:latest
+```
+>Note: You need to provide a valid licence, [follow these steps](#section-StepByStep) in order to get and configure one. 
+
+<a id="section-StepByStep" />
 
 ## Step by step installation procedure
 
@@ -38,11 +54,14 @@ This will start a container running the Tomcat Bundle with Bonita Engine + Porta
 You can access the portal on http://localhost:8080/bonita and login using the default credentials : install / install
 
 ### Link Bonita to a database
+The H2 database allows the Bonita container to work out of the box, but it is not recommended outside of a development environment.
+
+As PostgreSQL is the recommended database for qualification and production environments, follow one of these next sections to configure your Bonita container to run on Postgresql database.
+You can work with either a PostgreSQL Container, or PostgreSQL as an installed service.
 
 #### PostgreSQL Container
 
-PostgreSQL is the recommended database.
-First, set the max_prepared_transactions to 100:
+First, set the max_prepared_transactions to 100 (unix example):
 ```
 mkdir -p ~/Documents/Docker/Volumes/custom_postgres
 echo '#!/bin/bash' > ~/Documents/Docker/Volumes/custom_postgres/bonita.sh
@@ -61,10 +80,62 @@ See the official PostgreSQL documentation for more details.
 docker run --name bonita_postgres --link mydbpostgres:postgres -d -p 8080:8080 bonitasoft/bonita-subscription:${varVersion}.0
 ```
 
-#### PostgreSQL
-if you don't want to run your database in a docker container, some things need to be configured separately: 
+#### Using docker-compose
+
+Create a file stack.yml with the following content:
 ```
-cat > /tmp/env.txt <<- EOM
+# Use tech_user/secret as user/password credentials
+version: '3'
+
+services:
+  db:
+    image: postgres:11.6
+    environment:
+      POSTGRES_PASSWORD: example
+    restart: always
+    command:
+      - -c
+      - max_prepared_transactions=100
+  bonita:
+    image: bonitasoft/bonita-subscription
+    ports:
+      - 8080:8080
+    environment:
+      - POSTGRES_ENV_POSTGRES_PASSWORD=example
+      - DB_VENDOR=postgres
+      - DB_HOST=db
+      - TENANT_LOGIN=tech_user
+      - TENANT_PASSWORD=secret
+      - PLATFORM_LOGIN=pfadmin
+      - PLATFORM_PASSWORD=pfsecret
+    restart: on-failure:2
+    depends_on:
+      - db
+    entrypoint:
+      - bash
+      - -c
+      - |
+        set -e
+        echo 'Waiting for Postgres to be available'
+        export PGPASSWORD="$$POSTGRES_ENV_POSTGRES_PASSWORD"
+        maxTries=10
+        while [ "$$maxTries" -gt 0 ] && ! psql -h "$$DB_HOST" -U 'postgres' -c '\l'; do
+            let maxTries--
+            sleep 1
+        done
+        echo
+        if [ "$$maxTries" -le 0 ]; then
+            echo >&2 'error: unable to contact Postgres after 10 tries'
+            exit 1
+        fi
+        exec /opt/files/startup.sh
+```
+
+Run `docker stack deploy -c stack.yml bonitasoft/bonita-subscription` (or `docker-compose -f stack.yml up`), wait for it to initialize completely, and visit `http://swarm-ip:8080`, `http://localhost:8080`, or `http://host-ip:8080` (as appropriate).
+
+#### PostgreSQL as an installed service
+If you don't want to run your database in a docker container, the following file `env.txt` needs to be configured and provided to the docker run command: 
+```
 ENSURE_DB_CHECK_AND_CREATION=false
 DB_VENDOR=postgres
 DB_HOST=172.17.0.2
@@ -75,10 +146,10 @@ DB_PASS=custombonitapass
 BIZ_DB_NAME=custombusinessdb
 BIZ_DB_USER=custombusinessuser
 BIZ_DB_PASS=custombusinesspass
-EOM
 ```
+
 ```
-docker run --name=bonita -h bonita --env-file=/tmp/env.txt -d -p 8080:8080 bonitasoft/bonita-subscription:${varVersion}.0
+docker run --name=bonita -h bonita --env-file=env.txt -d -p 8080:8080 bonitasoft/bonita-subscription:${varVersion}.0
 ```
 
 ### Start Bonita with custom security credentials
@@ -87,7 +158,6 @@ docker run --name=bonita -h bonita -e "TENANT_LOGIN=tech_user" -e "TENANT_PASSWO
 ```
 Now you can access the Bonita Portal on localhost:8080/bonita and login using: tech_user / secret
 
-
 ## Secure your remote access
 This docker image ensures to activate by default both static and dynamic authorization checks on [REST API](rest-api-authorization.md). To be coherent it also deactivates the HTTP API.
 But for specific needs you can override this behavior by setting HTTP_API to true and REST_API_DYN_AUTH_CHECKS to false :
@@ -95,9 +165,82 @@ But for specific needs you can override this behavior by setting HTTP_API to tru
 docker run  -e HTTP_API=true -e REST_API_DYN_AUTH_CHECKS=false --name bonita -h bonita -v ~/Documents/Docker/Volumes/bonita-subscription/:/opt/bonita_lic/ -d -p 8080:8080  bonitasoft/bonita-subscription:${varVersion}.0
 ```
 
+## Environment variables
+When you start the bonita image, you can adjust the configuration of the Bonita instance by passing one or more environment variables on the docker run command line.
+
+### PLATFORM_PASSWORD
+This environment variable is recommended for you to use the Bonita image. It sets the platform administrator password for Bonita. If it is not specified, the default password platform will be used.
+
+### PLATFORM_LOGIN
+This optional environment variable is used in conjunction with PLATFORM_PASSWORD to define the username for the platform administrator. If it is not specified, the default user platformAdmin will be used.
+
+### TENANT_PASSWORD
+This environment variable is recommended for you to use the Bonita image. It sets the tenant administrator password for Bonita. If it is not specified, the default password install will be used.
+
+### TENANT_LOGIN
+This optional environment variable is used in conjunction with TENANT_PASSWORD to define the username for the tenant administrator. If it is not specified, the default user of install will be used.
+
+### REST_API_DYN_AUTH_CHECKS
+This optional environment variable is used to enable/disable dynamic authorization checking on Bonita REST API. The default value is true, which will activate dynamic authorization checking.
+
+### HTTP_API
+This optional environment variable is used to enable/disable the Bonita HTTP API. The default value is false, which will deactivate the HTTP API.
+
+### JAVA_OPTS
+This optional environment variable is used to customize JAVA_OPTS. The default value is -Xms1024m -Xmx1024m -XX:MaxPermSize=256m.
+
+### ENSURE_DB_CHECK_AND_CREATION
+This optional environment variable is used to allow/disallow the SQL queries to automatically check and create the databases using the database administrator credentials. The default value is true.
+
+### DB_VENDOR
+This environment variable is automatically set to postgres or mysql if the Bonita container is linked to a PostgreSQL or MySQL database using --link. The default value is h2. It can be overridden if you don't use the --link capability.
+
+### DB_HOST, DB_PORT
+These variables are optional, used in conjunction to configure the bonita image to reach the database instance. There are automatically set if --link is used to run the container.
+
+### DB_NAME, DB_USER, DB_PASS
+These variables are used in conjunction to create a new user, set that user's password, and create the bonita database.
+
+`DB_NAME` default value is bonitadb.
+
+`DB_USER` default value is bonitauser.
+
+`DB_PASS` default value is bonitapass.
+
+### BIZ_DB_NAME, BIZ_DB_USER, BIZ_DB_PASS
+These variables are used in conjunction to create a new user, set that user's password and create the bonita business database.
+
+`BIZ_DB_NAME` default value is businessdb.
+
+`BIZ_DB_USER` default value is businessuser.
+
+`BIZ_DB_PASS` default value is businesspass.
+
+### DB_ADMIN_USER, DB_ADMIN_PASS
+These variables are optional, and used in conjunction to create users and databases through the administrator account used on the database instance.
+
+`DB_ADMIN_USER` if no value is provided, this is automatically set to root with MySQL or postgres with PostgreSQL.
+
+`DB_ADMIN_PASS` if no value is provided, this is automatically set using the value from the linked container: MYSQL_ENV_MYSQL_ROOT_PASSWORD or POSTGRES_ENV_POSTGRES_PASSWORD.
+
+### DB_DROP_EXISTING, BIZ_DB_DROP_EXISTING
+`DB_DROP_EXISTING` and `BIZ_DB_DROP_EXISTING` can be used to drop existing databases in order to reuse an existing database instance.
+
+`DB_DROP_EXISTING` default value is N.
+
+`BIZ_DB_DROP_EXISTING` default value is N.
+
+### BONITA_SERVER_LOGGING_FILE, BONITA_SETUP_LOGGING_FILE
+Since Bonita 7.9 BONITA_SERVER_LOGGING_FILE and BONITA_SETUP_LOGGING_FILE can be used to update logging configuration.
+
+`BONITA_SERVER_LOGGING_FILE` default value is /opt/bonita/BonitaSubscription-${BONITA_VERSION}-tomcat/server/conf/logging.properties.
+
+`BONITA_SETUP_LOGGING_FILE` default value is /opt/bonita/BonitaSubscription-${BONITA_VERSION}-tomcat/setup/logback.xml.
+
 ## Migrating from an earlier version of Bonita
 The migration scripts affect only the database, not the Bonita instance.
 The procedure to migrate a Bonita container is therefore as follow:
-* Stop an destroy the running Bonita container.
-* Play the migration script on your Bonita database
-* Start a new Bonita container, as explained above, in the new version.
+* Stop and destroy the running Bonita container.
+* Play the migration script on your Bonita database see [migrate the platform from an earlier version of Bonita](migrate-from-an-earlier-version-of-bonita-bpm.md#migrate).
+* Get the new Bonita docker image, as explained above.
+* Start a new Bonita container.
