@@ -61,19 +61,9 @@ You can work with either a PostgreSQL Container, or PostgreSQL as an installed s
 
 #### PostgreSQL Container
 
-First, set the max_prepared_transactions to 100 (unix example):
+Bonita needs to enable XA transactions in postgres, to do that we set the max_prepared_transactions to 100 (bigger than 0):
 ```
-mkdir -p ~/Documents/Docker/Volumes/custom_postgres
-echo '#!/bin/bash' > ~/Documents/Docker/Volumes/custom_postgres/bonita.sh
-echo 'sed -i "s/^.*max_prepared_transactions\s*=\s*\(.*\)$/max_prepared_transactions = 100/" "$PGDATA"/postgresql.conf' >> ~/Documents/Docker/Volumes/custom_postgres/bonita.sh
-chmod +x ~/Documents/Docker/Volumes/custom_postgres/bonita.sh
-```
-
-For more specific PostgresSQL tuning options see [Performance tuning](performance-tuning.md#postgresql-performance-tuning).
-
-Mount that directory location as /docker-entrypoint-initdb.d inside the PostgreSQL container:
-```
-docker run --name mydbpostgres -v ~/Documents/Docker/Volumes/custom_postgres/:/docker-entrypoint-initdb.d -e POSTGRES_PASSWORD=mysecretpassword -d postgres:11.2
+docker run --name mydbpostgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres:11.2 -c 'max_prepared_transactions=100'
 ```
 See the official PostgreSQL documentation for more details.
 ```
@@ -178,7 +168,7 @@ This optional environment variable is used in conjunction with PLATFORM_PASSWORD
 This environment variable is recommended for you to use the Bonita image. It sets the tenant administrator password for Bonita. If it is not specified, the default password `install` will be used.
 
 ### TENANT_LOGIN
-This optional environment variable is used in conjunction with TENANT_PASSWORD to define the username for the tenant administrator. If it is not specified, the default user of install will be used.
+This optional environment variable is used in conjunction with TENANT_PASSWORD to define the username for the tenant administrator. If it is not specified, the default username `install` will be used.
 
 ### REST_API_DYN_AUTH_CHECKS
 This optional environment variable is used to enable/disable dynamic authorization checking on Bonita REST API. The default value is true, which will activate dynamic authorization checking.
