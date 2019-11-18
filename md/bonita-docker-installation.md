@@ -172,7 +172,7 @@ When you start the bonita image, you can adjust the configuration of the Bonita 
 This environment variable is recommended for you to use the Bonita image. It sets the platform administrator password for Bonita. If it is not specified, the default password platform will be used.
 
 ### PLATFORM_LOGIN
-This optional environment variable is used in conjunction with PLATFORM_PASSWORD to define the username for the platform administrator. If it is not specified, the default user platformAdmin will be used.
+This optional environment variable is used in conjunction with PLATFORM_PASSWORD to define the username for the platform administrator. If it is not specified, the default username `platformAdmin` will be used.
 
 ### TENANT_PASSWORD
 This environment variable is recommended for you to use the Bonita image. It sets the tenant administrator password for Bonita. If it is not specified, the default password install will be used.
