@@ -56,7 +56,7 @@ You can access the portal on http://localhost:8080/bonita and login using the de
 ### Link Bonita to a database
 The H2 database allows the Bonita container to work out of the box, but it is not recommended outside of a development environment.
 
-As PostgreSQL is the recommended database for qualification and production environments, follow one of these next sections to configure your Bonita container to run on Postgresql database.
+As PostgreSQL is the recommended database for qualification and production environments, follow one of these next sections to configure your Bonita container to run on PostgreSQL database.
 You can work with either a PostgreSQL Container, or PostgreSQL as an installed service.
 
 #### PostgreSQL Container
