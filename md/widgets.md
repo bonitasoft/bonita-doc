@@ -247,6 +247,7 @@ Use a display widget for information that the user can read on a page. This incl
 * Title, for headings. You can set the level from 1 to 6\.
 * Text, for chunks of text. Text supports basic HTML tags such a paragraph, list or image...
 
+
 ### Table widget
 
 Use a table widget to display data in a table. In order to display the data, first define the **headers** property with a comma-separated list of column headings.  
@@ -254,9 +255,55 @@ Then bind the **content** to an array of JavaScript objects.
 Finally, provide a comma-separated list for the **columns keys** indicating the attribute to display in each column.  
 To get the data from a selected row, bind **selected row** to a variable.
 
-Note: table widget only supports text values. HTML content passed in table data will not be rendered.
+With 7.10 update, you can now display html in header or data content when `Interpret HTML` property is set to true. HTML sanitization is called before rendering to keep only safe HTML.
+
+#### Customize look and feel
+
+Styling properties are available:
+
+* Zebra-Striping to set a different background color on even and odd lines
+* Condensed to display cells without spacing
+* Bordered to display cells with border
+
+You can customize default display for zebra-styling or bordered. Here an example to explain you how to customize default zebra styling. 
+
+This styling can be done in the theme.css file in Bonita Studio part to customize **all** the tables. You need to use this following css selector: 
+
+    ```
+    .table-striped > tbody > tr:nth-of-type(odd) {
+      // Put you custome styling here
+      background-color: chartreuse;
+    }
+    
+    .table-striped > tbody > tr:nth-of-type(even) {
+      // Put you custome styling here
+      background-color: black;
+    }
+    ```
+  
+In some case, you want override your theme to display custom style for only <b>one specific table</b>, to do this:
+
+* For table widget, in CSS Classes in property panel, add a class, `zebra-custom` for example
+* Add the following class in style.css asset
+    
+    ```
+   .zebra-custom .table-striped > tbody > tr:nth-of-type(odd) {
+     // Put you custome styling here
+     background-color: chartreuse;
+    }
+        
+    .zebra-custom .table-striped > tbody > tr:nth-of-type(even) {
+      // Put you custome styling here
+      background-color: black;
+    }
+    ```
+
+
+Note: In embedded Table widget documentation you can found an example for bordered custom style.
 
 ### Data table widget (Subscription editions)
+
+Note: Read [Table widget](widgets.md#table-widget) section to know how you can customize display of your data table widget.
 
 An extended table widget that provides column sorting, filtering, and paging in addition to the standard table widget facilities.
 
