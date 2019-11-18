@@ -79,7 +79,7 @@ version: '3'
 
 services:
   db:
-    image: postgres:11.6
+    image: postgres:11.2
     environment:
       POSTGRES_PASSWORD: example
     restart: always
