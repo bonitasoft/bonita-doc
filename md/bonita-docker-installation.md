@@ -233,7 +233,7 @@ These variables are optional, and used in conjunction to create users and databa
 ### BONITA_SERVER_LOGGING_FILE, BONITA_SETUP_LOGGING_FILE
 Since Bonita 7.9 BONITA_SERVER_LOGGING_FILE and BONITA_SETUP_LOGGING_FILE can be used to update logging configuration.
 
-`BONITA_SERVER_LOGGING_FILE` default value is /opt/bonita/BonitaSubscription-${BONITA_VERSION}-tomcat/server/conf/logging.properties.
+`BONITA_SERVER_LOGGING_FILE` default value is /opt/bonita/BonitaSubscription-${BONITA_VERSION}/server/conf/logging.properties.
 
 `BONITA_SETUP_LOGGING_FILE` default value is /opt/bonita/BonitaSubscription-${BONITA_VERSION}-tomcat/setup/logback.xml.
 
