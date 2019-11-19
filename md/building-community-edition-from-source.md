@@ -6,16 +6,6 @@ All source code of Bonita is available from the [Bonitasoft GitHub organization]
 a dedicated repository (e.g. [Engine repository](https://github.com/bonitasoft/bonita-engine)).
 
 
-# Prerequisites
-
-To build Bonita, you need the following:
-
-* Internet connection
-* Git
-* JDK 1.8
-* Apache Maven 3.5.x
-
-
 # Building Bonita
 
 ## Manual Bonita build
