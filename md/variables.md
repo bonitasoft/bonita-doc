@@ -12,12 +12,28 @@ There are several types of variables:
   * JavaScript Expression
   * External API
   * URL parameter
+* Data Management
+  * Business data
 
 ## Evaluation cycle
 
 String and JSON variables are initialized at page data model instantiation and their values do not change subsequently. 
 
 Expression, external API and URL parameter variables are evaluated every time something happens on the page, such as when receiving data or on a user interaction. The call of an External API variable is triggered every time the URL of the resource it points at changes.
+
+#### Business Data
+
+Business Data variable are used to fetch Business Data Model more easier than with external API. With this type. Just follow the wizard, select the query to retrieve Business Object, use dynamic variable (use `{{ myVariable }}`) or static value for filter parameter and set pagination data. Then you can bind your variable into widget or use it in Javascript Expression. 
+
+You can fire this wizard with drag and drop a Object from Data Model section in left palette panel to white-board area. This wizard will only create a new variable and it can be used in your page.
+
+:::warning
+Be careful, by default each business data variable is an array (=collection), even if only one result from query is returned.
+:::
+
+:::info
+Read [Integration with Bonita Platform](ui-designer-overview.md#integration-with-bonita-platform) to know how Business Data are connected with Bonita Platform.
+:::
 
 ### External API
 
