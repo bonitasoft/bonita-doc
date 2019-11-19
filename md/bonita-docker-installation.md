@@ -29,7 +29,7 @@ First generate a request key into a container with a specific hostname (-h):
 
 ```
 docker run --rm --name=bonita -h bonita -ti quay.io/bonitasoft/bonita-subscription:${varVersion}.0 /bin/bash
-unzip /opt/files/BonitaSubscription-${varVersion}.0.zip
+unzip /opt/files/BonitaSubscription-${varVersion}.0.zip 'BonitaSubscription-7.9.0-tomcat/tools/request_key_utils/*'
 cd BonitaSubscription-${varVersion}.0/tools/request_key_utils/
 ./generateRequestKey.sh
 exit
