@@ -114,9 +114,9 @@ If you use the SSO property to hide the sign out link (`logout.link.hidden` in `
 
 The guest user access can work even if the platform is configured for single sign on with SAML Kerberos or CAS.  
 
-For SSO with SAML and Kerberos, the guest user access will bypass SSO authentication, so if you activate the feature, you don't need to do anything particular in the SSO configuration or in the IdP. The only constraint is that *the username and password of the guest user account need to be different* in order for the engine authentication service to allow to login as guest.  
+For SSO with [SAML](single-sign-on-with-saml) and [Kerberos](single-sign-on-with-kerberos), the guest user access will bypass SSO authentication, so if you activate the feature, you don't need to do anything particular in the SSO configuration or in the IdP. The only constraint is that *the username and password of the guest user account need to be different* in order for the engine authentication service to allow to login as guest.  
 
-For CAS, the guest user acount exist in the accounts of the CAS server with the username/password configured in `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/authenticationManager-config.properties` and the following lines should be uncommented in the file `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/bonita-tenant-sp-custom.properties :  
+For [CAS](single-sign-on-with-cas), the guest user acount exist in the accounts of the CAS server with the username/password configured in `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/authenticationManager-config.properties` and the following lines should be uncommented in the file `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/bonita-tenant-sp-custom.properties :  
   ```
   authenticator.delegate=casAuthenticatorDelegate
   authentication.delegate.cas.server.url.prefix=http://bonita_ip_address:port
