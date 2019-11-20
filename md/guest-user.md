@@ -47,7 +47,7 @@ To activate it:
             # logout.link.hidden=true
        -->  auth.tenant.guest.active=true
        -->  auth.tenant.guest.username=guest
-       -->  auth.tenant.guest.password=guest
+       -->  auth.tenant.guest.password=guestPwd
        -->  auth.tenant.guest.apps=[public,guest] 
     ```
     
@@ -107,5 +107,19 @@ If in your process instantiation form you make other requests to Bonita REST API
 
 ## Login behaviour
 
-The default Bonita layout handles the guest user account by providing a "Sign in" link instead of the user modal link in the header.
+The default Bonita application layout handles the guest user account by providing a "Sign in" link instead of the user modal link in the header.  
+If you use the SSO property to hide the sign out link (`logout.link.hidden` in `authenticationManager-config.properties`), the sign in link will also not be displayed.
 
+## SSO configuration
+
+The guest user access can work even if the platform is configured for single sign on with SAML Kerberos or CAS.  
+
+For SSO with SAML and Kerberos, the guest user access will bypass SSO authentication, so if you activate the feature, you don't need to do anything particular in the SSO configuration or in the IdP. The only constraint is that *the username and password of the guest user account need to be different* in order for the engine authentication service to allow to login as guest.  
+
+For CAS, the guest user acount exist in the accounts of the CAS server with the username/password configured in `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/authenticationManager-config.properties` and the following lines should be uncommented in the file `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/bonita-tenant-sp-custom.properties :  
+  ```
+  authenticator.delegate=casAuthenticatorDelegate
+  authentication.delegate.cas.server.url.prefix=http://bonita_ip_address:port
+  authentication.delegate.cas.service.url=http://bonita_ip_address:port/bonita/loginservice
+  ```
+Specify the relevant IP address and port number.
