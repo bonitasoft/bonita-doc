@@ -79,7 +79,7 @@ If the platform has already been initialized, every update to the configuration 
 :::
    1. Remove the comment flags from these lines:
       `authentication.service.ref.name=jaasAuthenticationService`
-   2. **Optionally**, to enable anonymous user to access a process, uncomment this lines:
+   2. **Optionally**, to enable [guest user access](guest-user), uncomment this lines:
       ```
       authenticator.delegate=casAuthenticatorDelegate
       authentication.delegate.cas.server.url.prefix=http://ip_address:port
