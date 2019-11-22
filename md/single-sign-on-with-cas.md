@@ -32,7 +32,7 @@ The method [`getRequestURL ot HttpServletRequest`](https://docs.oracle.com/javae
 **Reverse proxy configuration:**  use the [ProxyPreserveHost](http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypreservehost) property (Apache 2.0.31 or greater).
 :::
 
-If you need more fine tuning or if you cannot update the reverse proxy configuration, you can consult the official documentation for [Tomcat](https://tomcat.apache.org/connectors-doc/common_howto/proxy.html) or [WildFly](https://docs.jboss.org/author/display/WFLY10/Undertow+subsystem+configuration).
+If you need more fine tuning or if you cannot update the reverse proxy configuration, you can consult the official documentation for [Tomcat](https://tomcat.apache.org/connectors-doc/common_howto/proxy.html).
 
 
 ## Configure Bonita Engine and Tomcat for CAS
@@ -79,7 +79,7 @@ If the platform has already been initialized, every update to the configuration 
 :::
    1. Remove the comment flags from these lines:
       `authentication.service.ref.name=jaasAuthenticationService`
-   2. **Optionally**, to enable anonymous user to access a process, uncomment this lines:
+   2. **Optionally**, to enable [guest user access](guest-user), uncomment this lines:
       ```
       authenticator.delegate=casAuthenticatorDelegate
       authentication.delegate.cas.server.url.prefix=http://ip_address:port

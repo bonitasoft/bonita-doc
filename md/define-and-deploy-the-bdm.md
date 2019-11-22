@@ -1,9 +1,8 @@
-
 # Define and deploy the Business Data Model (BDM)
 
-This page explains how to define, deploy, and export Business Data Model (BDM) and how these objects can be used in processes.
+This page explains how to define, deploy, export and import Business Data Model (BDM) and how these objects can be used in processes.
 
-The business data model is the definition of the business data that is shared by processes and process-based applications in a tenant. This page explains how to define the business data model and how to deploy it. After the model is defined, you can use it to [specify the business data used in a process](specify-data-in-a-process-definition.md).
+The Business Data Model is the definition of the business data that is shared by processes and process-based applications in a tenant. This page explains how to define the Business Data Model and how to deploy it. After the model is defined, you can use it to [specify the business data used in a process](specify-data-in-a-process-definition.md).
 
 ## Business data model (BDM)
 
@@ -40,13 +39,18 @@ When you are ready to go to production, you need to [configure a database and da
 
 ## BDM specification
 
-A BDM is a structured hierarchy of business objects. It is identified by a package name.
+A BDM is a structured hierarchy of packages containing business objects.
+
+A package is defined by its name, which must be a Java package name. It is highly recommended to follow the [standard package naming convention](https://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html).  
+Packages can be seen as logical containers, a package should contain business objects related to each other.  
+As example, a package _com.company.product_ could contain the objects `Car` and `Wheel`, a package _com.company.finance_ could contain the objects `Bill` and `Loan`.
 
 A business object definition consists of the following:
 
-* An object name. This must be a Java class name, because a business object is implemented as a Java class. The fully-qualified object name must be unique.
+* An object name. This must be a Java class name (starting with a capital letter), because a business object is implemented as a Java class.  
+⚠️ Business object names must be unique, even across packages.
 * Attributes. These are the components of the object. There can be any number of attributes. For each attribute, you can specify:
-  * A name
+  * A name starting with lower case letter.
   * The data type
   * The length, when relevant for the data type
   * Whether it is mandatory
@@ -165,21 +169,35 @@ This means that you can have a different BDM in each Studio during development, 
 However, if you are sharing diagrams and other artifacts in development, you need to synchronize BDM definitions, either by exporting your BDM manually for import
 into other development systems, or by using a shared project (not available in the Community edition).
 
-To define the BDM, go to the Bonita Studio **Development** menu, **Business Data Model**, and choose **Define...**. The current BDM definition is displayed. Specify the package name for the BDM in the field below the **List of Business Objects**.
+To define the BDM, go to the Bonita Studio **Development** menu, **Business Data Model**, and choose **Define...**. The current BDM definition is displayed. 
+You can also right click on the project name in the Project Explorer, choose "New..." and then "Business Data Model".
+Once defined, double-click on the bom.xml file in the Project Explorer to open it.
 
-To add an object:
+To create a package:
 
-1. Go to the **List of Business Objects** and click _Add_.
-2. The newly created object is added to the list, with a temporary name.
-3. Click the name of the new object to select it, and specify the name you want to use by typing over the temporary name.
-4. Then modify the object to specify the details.
+1. Click on the button _New package_.
+2. The new package is created with a temporary name.
+3. Click the name of the new package to select it, and specify the name you want to use by typing over the temporary name.
+
+::: info
+A package must contain at least one business object. A new package comes automatically with a first business object, and deleting the last business object of a package deletes the package.
+:::
+
+To add an object into a package:
+
+1. Select the expected package.
+2. Click on the button _New Business object_.
+3. The newly created object is added to the selected package, with a temporary name.
+4. Click the name of the new object to select it, and specify the name you want to use by typing over the temporary name.
+5. Then modify the object to specify the details.
 
 To modify a new or existing object:
 
 1. Select the object in the **List of Business Objects**. The details are displayed on the right-hand side of the popup.
-2. Enter a description for the object. This is optional, but recommended for maintenance and for communicating with other developers using the same BDM.
-3. In the **Attributes** tab, specify the attributes of the object. For each attribute:
-   1. Specify a name. This must be unique within the object.
+2. The package of the object can be modified by clicking on _Change package_ or by using drag and drop.
+3. Enter a description for the object. This is optional, but recommended for maintenance and for communicating with other developers using the same BDM, as well as business users.
+4. In the **Attributes** tab, specify the attributes of the object. For each attribute:
+   1. Specify a name. This must be unique within the object, and start with a lower-case letter.
    2. Specify the type, by clicking on the exiting type and choosing the new type from the drop-down list.
    3. If the attribute is multi-valued, check the box in the **Multiple** column.
    4. If the attribute is mandatory, check the box in the **Mandatory** column.
@@ -212,6 +230,31 @@ To modify a new or existing object:
    5. Use the **_Add_**, **_Remove_**, **_Up_** and **_Down_** buttons to specify the index attributes in order.
 7. Click **_OK_** to close the popup. The index is saved.
 8. Click **_Finish_** to save the business data model, which saves all the objects and create BDM database structure. A confirmation dialog will ask to optionally reset BDM database. Reset database is required when changes impact the mandatory or multiple setting for an attribute, a unique constraint, or when a non primitive attribute type is modified.
+
+::: info
+**Note**: for subscription editions only.
+:::
+Two maven artifacts are generated from the Business Data Model : **bdm-dao** and **bdm-client**.  
+The version of those artifacts is fixed to 1.0.
+You have the possibility to edit the group id of those artifacts from the BDM edition wizard.  
+Those maven artifacts are meant to be used from REST API extensions, using the following dependencies:  
+```
+<dependency>
+	<groupId>[YOUR GROUP ID]</groupId>
+	<artifactId>bdm-client</artifactId>
+	<version>1.0.0</version>
+	<scope>provided</scope>
+</dependency>
+
+<dependency>
+	<groupId>[YOUR GROUP ID]</groupId>
+	<artifactId>bdm-dao</artifactId>
+	<version>1.0.0</version>
+	<scope>provided</scope>
+</dependency>
+```
+Those dependencies are automatically added when a REST API Extension is created from the Bonita Studio. It allows to manipulate Business Objects from a REST API Extension.  
+ℹ️ Only **read operations**  can be performed on business objects from a REST API Extension, even with the dao. Write operations are done through processes. 
 
 ## Export the BDM
 
@@ -246,16 +289,18 @@ Follow these steps:
 
 #### Export the BDM to share with another Bonita Studio
 
-The `bdm.zip` exported from the Bonita Studio **Development** menu is designed for import into the Portal, and cannot be imported into another Bonita Studio. Instead, create a `.bos` file, as follows:
+Bonita Studio is able to import a unitary BDM, exported as a ZIP file, or a BDM contained in a .bos archive.  
+Bonita Studio will try to import the new BDM into the existing one.  
+If the two models are conflicting (i.e there are business objects with the same name but with different content in the two models) the following rules apply: 
 
-1. Choose **_Export_** from the **_Diagram_** menu or click **_Export_** in the Cool bar.
-2. In the popup of exportable items, select only the Business Data Model.
-3. Specify the filename and location or use the default suggested.
-4. Click **_Finish_**.
+ 1. **If business objects are conflicting across packages:** 
+Example: the current model contains a package _com.company.vehicle_ with an object `Car`, the imported model contains a package _com.company.transport_ with an object `Car`.  
+This kind of conflict is considered as **not solvable** by Bonita Studio; thus the only possibility for the studio is to overwrite the current model by the new one. 
+If overwritting is not the option for you, click on "Cancel", solve the conflicts by comparing the two BDMs in xml editors, make sure all processes and UIs comply with those changes, and import again."
 
-The resulting `.bos` file can be imported into any Bonita Studio with a Subscription license.
-
-Warning: Bonita Studio can contain only one business data model. When you import a `.bos` file that contains a business data model, it overwrites the model that is already in the Studio.
+ 2. **If business objects are conflicting in the same package:** 
+ Example: the current and the imported model contains a package _com.company.vehicle_ with an object `Car`. In the current model the object `Car` has only one field:  `brand`. In the imported model, the object `Car` has two attributes: `brand` and `color`. The two models are conflicting: two objects with the same name but different contents, and the two objects are in the same package in the two models.
+This kind of conflict is considered as **solvable** by Bonita Studio.  You will have the possibility to import the new model **into** the current one, and a decision has to be made for the conflicting package: keep the existing version of the package or overwrite it with the new one. The others non-conflicting packages will be merged.
 
 #### View the BDM
 

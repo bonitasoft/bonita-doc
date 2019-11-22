@@ -105,7 +105,6 @@ You can also use a variable that is provided by Bonita Engine that is executing 
 The provided variables are:
 
 * `activityInstanceId`: the identifier of the activity instance (not available for a process-level expression)
-* `loggedUserId`: the identifier of the user who is performing an activity at the time when the expression is evaluated
 * `processDefinitionId`: the identifier of the process
 * `processInstanceId`: the identifier of the process instance
 * `rootProcessInstanceId`: for a called process or an event subprocess, the identifier of the root process (note that if there are multiple layers of called processes or subprocesses, this is the root of the hierarchy, not the parent called process or subprocesses)

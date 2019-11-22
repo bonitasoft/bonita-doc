@@ -209,29 +209,3 @@ Sample extract of exposed Prometheus data:
     ...
 
 
-### Cluster-specific metrics
-
-::: info
-**Note:** For Enterprise, Performance editions only, with cluster mode activated.
-:::
-
-A Bonita 7.10+ cluster has monitoring on distributed cluster locks ACTIVE by default.
-
-To DISABLE those metrics, simply edit the file
-`./setup/platform_conf/current/platform_engine/bonita-platform-sp-cluster-custom.properties`
-and change:
-  
-    ## Monitor locks on cluster
-    #org.bonitasoft.engine.monitoring.metrics.cluster.locks.enable=true
-
-to
-
-    ## Monitor locks on cluster
-    org.bonitasoft.engine.monitoring.metrics.cluster.locks.enable=false
-
-Then [push your configuration changes](BonitaBPM_platform_setup.md#update_platform_conf) to database:
-```bash
-./setup/setup.sh push
-```
-Then restart the Tomcat server for the changes to take effect.
-

@@ -36,3 +36,7 @@ Rendering issues (at worst the element will not be visible in the generated PDF;
 * Alignment of some text elements
 * HTML conversion generates a single html file. For that matter, linked resources (like images, ...) are not supported. If you have images, use PDF conversion instead.  
 This connector is build upon **XdocReport** third party library, for more information check their Wiki at [https://github.com/opensagres/xdocreport/wiki](https://github.com/opensagres/xdocreport/wiki)
+
+## Troubleshooting
+
+You may encounter memory issues using this connector as it has substantial size of dependencies. To workaround those issues you may increase the maximum memory allocation value of the Tomcat server JVM. Go to Preferences -> Server settings -> Increase the Tomcat Maximum memory allocation (`-Xmx` JVM argument) value to **1024** (512 by default). Do not forget to use the same value when configuring your production Bundle.
