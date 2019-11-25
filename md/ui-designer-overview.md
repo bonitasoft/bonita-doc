@@ -87,8 +87,6 @@ This synchronization is done by a new independent process and managed by Bonita 
 
 See [Data management](variables.md#business-data) section to know how to use this Business Data Model.
 
-If an error occurs, restart you Bonita Studio allow you restart this process.
-
 ## UI Designer target users' needed skills
 
 The UI Designer is intended for web developers creating pages and forms that will be part of a BPM application. It requires a good understanding of JavaScript and CSS.  
