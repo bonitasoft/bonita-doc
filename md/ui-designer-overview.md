@@ -80,6 +80,13 @@ In the Subscription editions, you can [update a form in production](live-update.
 
 To use a layout in a business application, export it from the Bonita UI designer, import it as a Bonita Portal resource, and map it as the layout of the relevant application.
 
+### Business Data model Synchronization
+
+Business Data Model is synchronized from Bonita Studio to Bonita UI-Designer when you deployed your BDM. 
+This synchronization is done by a new independent process and managed by Bonita Studio.
+
+See [Data management](variables.md#business-data) section to know how to use this Business Data Model.
+
 ## UI Designer target users' needed skills
 
 The UI Designer is intended for web developers creating pages and forms that will be part of a BPM application. It requires a good understanding of JavaScript and CSS.  
