@@ -26,7 +26,8 @@ Expression, external API and URL parameter variables are evaluated every time so
 Business Data variables are meant to retrieve BDM objects defined in Studio. These objects are accessible through REST API calls, so they can be retrieved using External API variables defining the URL.
 For example, you can know by heart this URL:
 
-    `../API/bdm/businessData/{{businessDataType}}?q={{queryName}}&p=0&c=10&f={{filter}}`
+    ../API/bdm/businessData/{{businessDataType}}?q={{queryName}}&p=0&c=10&f={{filter}}
+    
 With: 
 *   **businessDataType** As example com.company.model.Invoice
 *   **queryName** One of object available queries, as example findByNumInvoice
@@ -40,9 +41,12 @@ This allows boost and simplify configuration on these data.
 A Business Data variable can be created in two ways:
 - From Data Model section in the left panel, drag and droping a Business Object to the whiteboard area
 - From the Variables bottom panel, creating a new variable with the type Business Data
+
 A configuration wizard appears: create a Business Data variable by providing information on how to retrieve elements of this Business Object.
+
 Select the query to retrieve Business Object. Queries can be a simple attribute query (ex: findByName) or an additional query such as a custom query.
 A filter area is displayed, depending on your selection, you may have to enter one or several attribute values. You can use a variable to fill its value using interpolation syntax.
+
 You can use Pagination section to define the number of elements you want by page (by default 10 elements) and the page number (by default first page - index 0).
 
 :::warning
