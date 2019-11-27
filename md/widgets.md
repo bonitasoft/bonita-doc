@@ -265,7 +265,7 @@ Styling properties are available:
 * Condensed to display cells without spacing
 * Bordered to display cells with border
 
-You can customize default display for zebra-styling or bordered. Here an example to explain you how to customize default zebra styling. 
+You can customize default display for zebra-striping or bordered. Here is an example to explain you how to customize default zebra styling. 
 
 This styling can be done in the theme.css file in Bonita Studio part to customize **all** the tables. You need to use this following css selector: 
 
@@ -400,4 +400,3 @@ You can add rich text area inputs for end users to create text to be exported in
 It can be prefilled with an HTML template.
 
 A options toolbar exposed to end users can be customized and localized with the usual [localization mechanism](multi-language-pages.md) (localization.json file).
-
