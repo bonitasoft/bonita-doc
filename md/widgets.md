@@ -267,7 +267,7 @@ Styling properties are available:
 
 You can customize default display for zebra-striping or bordered. Here is an example to explain you how to customize default zebra styling. 
 
-This styling can be done in the theme.css file in Bonita Studio part to customize **all** the tables. You need to use this following css selector: 
+This styling can be done in the theme.css file in Bonita Studio part to customize **all** the tables. You need to use the following css selector: 
 
     ```
     .table-striped > tbody > tr:nth-of-type(odd) {
