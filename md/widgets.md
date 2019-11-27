@@ -80,8 +80,21 @@ If you are using the Enterprise, Performance, Efficiency, or Teamwork edition, y
 
 ### Tab container
 
-Use the **tab container** to structure a page using tabs. To edit a tab name, select the corresponding tab to display its properties.  
-Each tab is a container widget.
+Use the **tab container** to structure a page using tabs. 
+
+### Tab container properties
+
+Tabs can be display vertically or horizontally. By default, tabs is stacked above the content. If you want to display tabs in the left of the content, you can follow this [tutorial](uid-vertical-tabs-container-tutorial.md).
+
+Type property allows you to customize the tabs style ('tabs' or 'pills').
+
+### Tab properties
+
+Each tab is a container widget. To edit a tab name, select the corresponding tab to display its properties.
+
+The tab's properties allows you to customize default display and behaviour of tabs based on data and/or JS expressions. For example you can hide or disable tab with a dynamic expression.
+
+Tab title can be calculated dynamically to display and **render html**.  
 
 ### Form container
 
