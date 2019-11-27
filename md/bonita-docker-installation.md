@@ -249,7 +249,7 @@ Since Bonita 7.9 BONITA_SERVER_LOGGING_FILE and BONITA_SETUP_LOGGING_FILE can be
 
 `BONITA_SERVER_LOGGING_FILE` default value is /opt/bonita/BonitaSubscription-${BONITA_VERSION}/server/conf/logging.properties.
 
-`BONITA_SETUP_LOGGING_FILE` default value is /opt/bonita/BonitaSubscription-${BONITA_VERSION}-tomcat/setup/logback.xml.
+`BONITA_SETUP_LOGGING_FILE` default value is /opt/bonita/BonitaSubscription-${BONITA_VERSION}/setup/logback.xml.
 
 ## Migrating from an earlier version of Bonita
 The migration scripts affect only the database, not the Bonita instance.
