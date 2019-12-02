@@ -99,28 +99,16 @@ Edit the same file `./setup/platform_conf/current/platform_engine/bonita-platfor
     ## Note: Bonita-related metrics are automatically published.
     ## They are active by default and cannot be disabled.
     ##
-    ## publish metrics related to JVM memory:
-    #org.bonitasoft.engine.monitoring.metrics.jvm.memory.enable=false
-    ## publish metrics related to JVM Threads:
-    #org.bonitasoft.engine.monitoring.metrics.jvm.threads.enable=false
-    ## publish metrics related to JVM garbage collection:
-    #org.bonitasoft.engine.monitoring.metrics.jvm.gc.enable=false
     ## publish technical metrics related to Worker / Connector thread pools:
     #org.bonitasoft.engine.monitoring.metrics.executors.enable=false
     ## publish technical metrics related to HIBERNATE statistics
     ## To activate, simply set property (a few lines above) 'bonita.platform.persistence.generate_statistics=true'
-    ## publish technical metrics related to Tomcat (if in a Tomcat context):
-    #org.bonitasoft.engine.monitoring.metrics.tomcat.enable=false
 
 These are the **metrics** (counters) that can be exposed.  
 All configurable metrics are disabled by default and can be enabled separately.  
 They provide information about:
-* the running JVM memory
-* JVM threads
-* Garbage collection usage
 * Worker / Connector thread pools
 * Hibernate statistics
-* Tomcat counters on sessions, threads, requests, connections...
 
 Each of these metrics provides many different counters to finely understand what is going on.
 
@@ -135,6 +123,30 @@ Then restart the Tomcat server for the changes to take effect.
 :::
 
 ## Subscription-only monitoring
+
+### Additional metrics
+
+Thanks to additional publisher, additional metrics can be published
+
+These metrics provide information about:
+* the running JVM memory
+* JVM threads
+* Garbage collection usage
+* Tomcat counters on sessions, threads, requests, connections...
+
+They can be activated by editing file `./setup/platform_conf/current/platform_engine/bonita-platform-sp-custom.properties`  
+
+    ## METRICS = what to publish?
+    ##
+    ## publish metrics related to JVM memory:
+    #org.bonitasoft.engine.monitoring.metrics.jvm.memory.enable=false
+    ## publish metrics related to JVM Threads:
+    #org.bonitasoft.engine.monitoring.metrics.jvm.threads.enable=false
+    ## publish metrics related to JVM garbage collection:
+    #org.bonitasoft.engine.monitoring.metrics.jvm.gc.enable=false
+    ## publish technical metrics related to Tomcat (if in a Tomcat context):
+    #org.bonitasoft.engine.monitoring.metrics.tomcat.enable=false
+
 
 ### Prometheus publisher
 
