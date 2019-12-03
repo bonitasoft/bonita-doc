@@ -28,13 +28,10 @@ docker run --name=bonita -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:
 First generate a request key into a container with a specific hostname (-h):
 
 ```
-docker run --rm --name=bonita -h bonita -ti quay.io/bonitasoft/bonita-subscription:${varVersion}.0 /bin/bash
-unzip /opt/files/BonitaSubscription-${varVersion}.0.zip 'BonitaSubscription-7.9.0-tomcat/tools/request_key_utils/*'
-cd BonitaSubscription-${varVersion}.0/tools/request_key_utils/
-./generateRequestKey.sh
-exit
+docker run --rm --name=bonita -h bonita -ti quay.io/bonitasoft/bonita-subscription:${varVersion}.0 /bin/bash ./generateRequestKey.sh
 ```
-Stop the docker container.
+Answer the questions related to the license you want. This will print out the request key.
+
 Retrieve the licence from the customer portal and place it to a docker volume:
 ```
 docker volume create bonita-lic
