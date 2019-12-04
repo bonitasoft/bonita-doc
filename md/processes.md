@@ -70,7 +70,16 @@ Disabling a process blocks the creation of new cases. This does not impact exist
 
 ## Delete a process
 
-**Note:**A process must be disabled before it can be deleted.
+::: info
+**Note:** A process must be disabled before it can be deleted.
+:::
+
+::: warning
+**Warning:** **Beware! Data loss risk!**
+Deleting a process will automatically delete all its cases (on-going and archived alike). Thus, the operation may take a long time, and fail if the transaction timeout is not large enough.
+This feature should only be used on non-production environments.
+**Please proceed at your own risk.**
+:::
 
 1. Go to BPM menu tab
 2. Click _**Processes**_
