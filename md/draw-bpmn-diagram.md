@@ -12,7 +12,7 @@ Here is an overview of process execution:
 - If the rating is lower than 3 an extra task will be assigned to the manager of the employee to work with this customer who is not really satisfied. Once this task is done the process will be completed.
 
 ::: info
-To design this process we will use the Business Process Model and Notation (BPMN) standard. You don't need to learn everything about BPMN to follow this tutorial but, if you sould like to know more, you can read the [Ultimate Guide to BPMN 2.0](https://www.bonitasoft.com/library/ultimate-guide-bpmn).
+To design this process we will use the Business Process Model and Notation (BPMN) standard. You don't need to learn everything about BPMN to follow this tutorial but, if you would like to know more, you can read the [Ultimate Guide to BPMN 2.0](https://www.bonitasoft.com/library/ultimate-guide-bpmn).
 :::
 
 ::: warning
