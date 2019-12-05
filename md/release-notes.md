@@ -125,8 +125,9 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 
 ## Bug fixes
 
-### Fixes in Documentation
-### Fixes in Bonita 7.10.0 (2019-12-05) (partial list until GA release
+### Fixes in Documentation  
+
+### Fixes in Bonita 7.10.0 (2019-12-05)   
 
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
 * BST-276 - Bonita installation may fail if installation folder is not empty
