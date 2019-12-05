@@ -43,7 +43,7 @@ When you click on the "Finish" button three different operations are performed:
 :::
 
 ::: info
-Bonita Studio use h2 to provide the database for testing (you can use other types of databases such as Oracle, PostgreSQL, MySQL and SQL Server for production). Bonita Studio provides two database schemas: one for the Bonita Engine and one dedicated to BDM. You can view the tables created in the h2 BDM database by clicking in the Bonita Studio menu on **Development > Business Data Model > Browse data (h2 console)...**. In the h2 console (a web interface) you can see that a table named "CLAIM" was created. You can run an SQL query such as `SELECT * FROM CLAIM` which should return an empty result as there is no data yet.
+Bonita Studio uses h2 to provide the database for testing. (You can use other types of databases such as Oracle, PostgreSQL, MySQL and SQL Server for production). Bonita Studio provides two database schemas: one for the Bonita Engine and one dedicated to BDM. You can view the tables created in the h2 BDM database by clicking in the Bonita Studio menu on **Development > Business Data Model > Browse data (h2 console)...**. In the h2 console (a web interface) you can see that a table named "CLAIM" was created. You can run an SQL query such as `SELECT * FROM CLAIM` which should return an empty result as there is no data yet.
 :::
 
 Now you have a fully functional business data management model. You are ready to move to the next chapter and [start populating the database with data collected by the process](declare-business-variables.md). 
