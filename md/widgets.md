@@ -251,7 +251,8 @@ Use a display widget for information that the user can read on a page. This incl
 
 Use a table widget to display data in a table. In order to display the data, first define the **headers** property with a comma-separated list of column headings.  
 Then bind the **content** to an array of JavaScript objects.  
-Finally, provide a comma-separated list for the **columns keys** indicating the attribute to display in each column.  
+Finally, provide a comma-separated list for the **columns keys** indicating the attribute to display in each column.
+**:fa-exclamation-triangle:** These column keys must not be a number, or start with a number
 To get the data from a selected row, bind **selected row** to a variable.
 
 Note: table widget only supports text values. HTML content passed in table data will not be rendered.
@@ -265,6 +266,8 @@ Then enter a REST API URL in the **URL** property. Use the **API request paramet
 Supported parameters are described in the [REST API Overview](rest-api-overview.md) and in the REST API documentation for the relevant resource.  
 You do not need to specify paging parameters (such as `?p=0&c=10`), because the data table handles paging automatically when you use a Bonita API data source.  
 The value of the **Page size** property controls how many rows are displayed in a table view, and automatically adds buttons to show subsequent pages of the table.
+**:fa-exclamation-triangle:** The column keys must not be a number, or start with a number
+
 
 **Warning:** If your Data source is a **Rest Api Extension** and you need pagination, you need to provide the Content-Range header in the response, so the Data Table will handle the pagination.
 In order to do that you can use the method withContentRange in the responseBuilder variable of you Rest Api Extension, something like:
