@@ -55,7 +55,7 @@
           const pageAndHash = tokens[idx].attrs[hrefIndex][1].split('#', 2);
           const page = pageAndHash[0].replace(/\.md$/, '');
           tokens[idx].attrPush([ 'ng-click', 'contentCtrl.goTo($event, \'' + page + '\'' + ((pageAndHash[1]) ? ', \'' + pageAndHash[1] + '\'' : '') + ')' ]);
-          tokens[idx].attrs[hrefIndex][1] = '?' + queryString.stringify({page, hash: pageAndHash[1]});
+          tokens[idx].attrs[hrefIndex][1] = application + 'latest/' + page;
         }
       }
       if (hrefIndex >= 0 && tokens[idx].attrs[hrefIndex][1].match(/^https?:\/\/documentation.bonitasoft.com\//)) {
