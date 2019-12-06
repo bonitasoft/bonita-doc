@@ -30,9 +30,9 @@ First generate a request key into a container with a specific hostname (-h):
 ```
 docker run --rm --name=bonita -h bonita -ti quay.io/bonitasoft/bonita-subscription:${varVersion}.0 /bin/bash ./generateRequestKey.sh
 ```
-Answer the questions related to the license you want. This will print out the request key.
+Answer the questions related to the license you want. This will print out the request key and exit automatically from the running container.
 
-Retrieve the licence from the customer portal and place into one folder that will be mounted as volume of the docker image:
+Retrieve the licence from the customer portal and place into one folder that will be mounted as a volume of the docker container. In this example, we will use `~/bonita-lic/.`.
 
 ```
 cp ~/Downloads/BonitaSubscription-7.7-Cloud_Techuser-bonita-20170124-20170331.lic ~/bonita-lic/.
@@ -48,10 +48,9 @@ Re-create a new Bonita container with the same hostname (-h) and this host direc
 docker run --name bonita -h bonita -v ~/bonita-lic/:/opt/bonita_lic/ -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:${varVersion}.0
 ```
 
-where `~/bonita-lic/` is the folder containing license file.
 
 ::: info
-This will only add the initial license to the Bonita Runtime. To update a license on an existing installation see [Update configuration and license section](#section-update-configuration)
+This will only add the initial license to the Bonita Runtime. To renew a license on an existing installation see [Update configuration and license section](#section-update-configuration)
 :::
 
 This will start a container running the Tomcat Bundle with Bonita Engine + Portal. As you did not specify any environment variables it's almost like if you had launched the Bundle on your host using startup.{sh|bat} (with security hardening on REST and HTTP APIs, cf Security part). It means that Bonita uses a H2 database here.
@@ -252,12 +251,12 @@ The procedure to migrate a Bonita container is therefore as follow:
 
 ## Update configuration and license
 
-The license file and configuration files are updated using the Setup tool.
+Once renewed from Bonita Customer Portal, the license file and the configuration files are updated using the Setup tool.
 
 Setup tool can be used outside of the Docker container directly by downloading the Tomcat bundle and running it from there.
 
 ::: info
-The setup tool need to be able to access the database. Because of that, if the database is in a docker container, its port must be exposed to the host.
+The setup tool needs to be able to access the database. Because of that, if the database is in a docker container, its port must be exposed to the host.
 :::
 
-See [setup tool page]([setup tool](BonitaBPM_platform_setup.md#update_platform_conf)) for more informations.
+See [setup tool page]([setup tool](BonitaBPM_platform_setup.md#update_platform_conf)) for more information.
