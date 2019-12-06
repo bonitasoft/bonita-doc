@@ -45,7 +45,7 @@ The WildFly bundle is based on a standard WildFly installation with the followin
 * `server/standalone/deployments/bonita-all-in-one-[version].ear`: Bonita Portal (web application) and EJB3 API.
 * `setup/`: a tool to manage Bonita Platform configuration, stored in database instead of filesystem. Also ships a tool to centralize all the required WildFly bundle configuration.
 * `setup/wildfly-templates/standalone.xml`: WildFly context configuration for Bonita Portal. It defines data sources used by Bonita Engine.
-* `tools/request_key_utils-`_`key_utils.version`_: folder containing the script to generate license request keys (Subscription editions only).
+* `tools/request_key_utils: folder containing the script to generate license request keys (Subscription editions only).
 * `tools/BonitaSubscription-x.y.z`-`LDAP-Synchronizer` : folder containing the tool to synchronize your organization in Bonita with your LDAP (Subscription editions only).
 * `tools/cas-`_`cas.version`_`-module`: folder containing module files and description to enable CAS dependency to bonita EAR (Subscription editions only).
 * `start-bonita.bat`: script to start the bundle on Windows.
