@@ -29,7 +29,7 @@ The new _Deploy..._ action in Bonita Studio allows you to [deploy a whole projec
 
 ### Business Data Model handles multiple packages
 Bonita 7.10 now allows to create different packages to store Business Objects.  
-It is also possible to import a BDM into the existing one, as long as Business Objects names are unique accross packages, so several teams can work on different packages and get their BDM integrated at some point.    
+In the Development phase, it is also possible to import a BDM into the existing one, as long as Business Objects names are unique accross packages, so several teams can work on different packages and get their BDM integrated at some point, before deployment.    
 Learn more [here](define-and-deploy-the-bdm.md).
 
 ### A Bonita User Application example available 
