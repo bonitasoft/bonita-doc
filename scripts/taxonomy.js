@@ -39,7 +39,7 @@
       if (node.attributes.href.match(/^http:\/\//)) {
         result.href = node.attributes.href;
       } else {
-        result.page = queryString.parse(node.attributes.href).page;
+        result.page = node.attributes.href;
       }
       return result;
     } else {
@@ -65,7 +65,8 @@
     // Generate sub taxonomy HTML pages from root taxonomy.html page
     xpath.select('//li[ul]', new dom().parseFromString(html)).forEach(li => {
       li = new dom().parseFromString(li.toString());
-      var filename = queryString.parse(xpath.select1('/li/a/@href', li).value).page + '.html';
+      var all = xpath.select1('/li/a/@href', li).value + '.html';
+      var filename = all.split('/').pop();
       var content = 
         stripIndents`<h1>${xpath.select('string(/li/a)', li)}</h1>
         ${xpath.select('/li/ul', li).toString()}
