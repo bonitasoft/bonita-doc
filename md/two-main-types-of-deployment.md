@@ -7,23 +7,18 @@ There are two main types of deployment
 using a Bonita bundle
 * Bonita Portal and Bonita Engine running on two different application servers
 
-## Foreword
-It is highly recommended to use the provided Tomcat bundle or the artifact `bonita.war` provided in the deploy bundle, in order to carry out these deployments successfully.
-
-There are two main types of deployment.
-
 ## Bonita Portal + Bonita Engine on the same application server
 
 ![deploy1](images/images-6_0/poss_deploy1.png)
 
-This is the simplest deployment configuration. The engine used is the one embedded in the webapp bonita.war. Using the pre-packaged Tomcat bundle is the easiest way to achieve this kind of deployment, but it is also possible to retrieve the `bonita.war` webapp provided in the **deploy.zip** and deploy it on another application server/servlet container.
-It is fast because the Bonita Portal and the Bonita Engine run on the same JVM and so there is no serialization and network overhead every time the Bonita Portal calls the engine.
+Bonita Portal and the Bonita Engine run on the same JVM. This is the simplest deployment configuration and is also the most performant as there is no serialization and network overhead.
+To perform this setup, you can use the [prepackaged bundle](tomcat-bundle.md) or the Bonita [docker image](bonita-docker-installation.md).
 
 **Advantages**
 
 * simple (single webapp and application server)
-* works out of the box if you use the provided Tomcat bundle
-* you can still access the embedded Bonita Engine API (or the Bonita Portal REST API) through HTTP if you need an external application to access it
+* works out of the box
+* you can access the embedded Bonita Engine API (or the Bonita Portal REST API) through HTTP if you need an external application to access it
 * improved performance
 
 **Drawbacks**
@@ -32,21 +27,17 @@ It is fast because the Bonita Portal and the Bonita Engine run on the same JVM a
 
 ## Bonita Engine on a remote application server
 
-Even if the `bonita.war` comes with an embedded Bonita Engine, you can choose **not** to use it.
-
-### Accessible through HTTP
-
 ![deploy2](images/images-6_0/poss_deploy2.png)
 
 With this deployment, the Bonita Engine is accessed by the portal (and possibly other applications) through HTTP. The Bonita
 Portal is deployed on one application server and the engine on another one.
-But you can still use the pre-packaged Tomcat bundle, in both servers.
+But you can still use the pre-packaged Tomcat bundle, or Bonita docker image, in both servers.
 On one of them, only the Bonita Portal part will be used and on the other one, only the engine server.
 Access to the portal can be de-activated by server or webapp configuration if necessary.
 
 **Advantages**
 
-* may be adapted to some architecture and network constraints
+* may be adapted to some architecture and network constraints (DMZ)
 
 **Drawbacks**
 
@@ -64,25 +55,24 @@ Follow the regular installation (see the [Tomcat bundle](tomcat-bundle.md) insta
 and use the setup tool to configure Bonita
 
 #### Bonita Portal 
-
-* unarchive the bundle
-* configure custom authentication if required, see the [user authentication overview](user-authentication-overview.md) 
-* apply the following to make the Portal be a Client of the Bonita Engine
-* then you can start the Bonita Portal bundle with the startup script
-
-In this deployment, the Engine Client used by the Bonita Portal is configured by setting JVM System Properties for the following elements
-* instruct the Engine Client to use the HTTP protocol
+In this deployment, we will configure the Bonita Engine Client used by the Bonita Portal, by setting JVM System Properties for the following elements :
+* set the Engine Client to use the HTTP protocol
 * set the url to the Engine
-* use username and password that match credentials configured for the platform admin (see the [Tomcat bundle](tomcat-bundle.md)
-configuration page)
-* for more details, please read [configuring the connection to a remote engine](configure-client-of-bonita-bpm-engine.md#client_config)
+* set username and password that match credentials configured for the platform admin (see the [Tomcat bundle](tomcat-bundle.md) configuration page)
+In addition, all database datasources will be disabled
 
-In addition, all database datasources are disabled
+For more details, please read [configuring the connection to a remote engine](configure-client-of-bonita-bpm-engine.md#client_config)
 
+##### Configuring the Bonita Portal
+:::info 
+**Note:** At the end of these steps, you can start the Bonita Portal bundle with the startup script.
+:::
+
+Unarchive the bundle.
 Remove the content of the `setup` directory as the setup tool in not used on the Portal part
 
 Configure the Engine Client by setting system properties in the `<bonita-installation-directory>/server/bin/setenv.(bat|sh)` file
-We suggest to define a `ENGINE_OPTS` variable and add its content to the `CATALINA_OPTS` variable
+We suggest to define a `ENGINE_OPTS` variable and add its content to the `CATALINA_OPTS` variable, and remove `ARJUNA_OPTS`
     
 On Linux (setenv.sh)
 ```
@@ -134,9 +124,11 @@ HTTP Engine API Configuration
     </servlet-mapping>
 ```
 
-Disable XA datasources managed by Bitronix by commenting or deleting the following line in the `<bonita-installation-directory>/server/conf/server.xml` file 
+Disable XA datasources managed by Arjuna by commenting or deleting the following line in the `<bonita-installation-directory>/server/conf/server.xml` file 
 ```xml
-  <Listener className="bitronix.tm.integration.tomcat55.BTMLifecycleListener" />
+  <Listener className="org.jboss.narayana.tomcat.jta.TransactionLifecycleListener" />
 ```
 
 Disable datasources managed by Tomcat by commenting or removing database resources declared in the in the `<bonita-installation-directory>/conf/Catalina/localhost/bonita.xml` file
+
+You can now start the Bonita Portal bundle with the startup script.
