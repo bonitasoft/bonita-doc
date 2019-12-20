@@ -56,8 +56,8 @@ In order to do so, edit `custom-permissions-mapping.properties` to give the perm
 :::
 
 ::: warning
-In Bonita Studio, the debug mode is enabled by default. In debug mode, you can see changes on your REST API Extensions without importing a new zip archive, but it means the class of the extension is reloaded at each request.  
-If you want to disable the debug mode, you need to use the setup tool provided in `workspace/tomcat/setup/` to set `custom.page.debug` to `false` in `console-config.properties`. (Update the file database.properties first so it points to the target database. E.g.: h2.database.dir=../../<PROJECT NAME>/h2_database).
+In Bonita Studio, the debug mode is disabled by default. In debug mode, you can see changes on your REST API Extensions without importing a new zip archive, but it means the classloader of the extension is recreated at each request.  
+If you want to enable the debug mode, you can activate it in the Studio server preferences.
 :::
 
 ## REST API Extensions examples
