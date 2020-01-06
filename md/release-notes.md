@@ -5,10 +5,17 @@
 :::
 
 
+## Runtime changes
+
+### lib upgrade
+- spring, spring-boot
+- hibernate 4 to 5
+- ...
+
 
 ## Bundle changes
 
-## Tomcat Manager removal
+### Tomcat Manager removal
 
 - the Tomcat Manager is no more provided
 - the bundle is not intended to be used to deploy extra webapps
