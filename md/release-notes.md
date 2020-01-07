@@ -15,6 +15,9 @@
 
 ## Bundle changes
 
+Upgrade Tomcat to 8.5.47 (tomcat-dbcp to 9.0.30) **subject to change prior GA**
+
+
 ### Tomcat Manager removal
 
 - the Tomcat Manager is no more provided
