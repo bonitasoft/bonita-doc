@@ -259,4 +259,4 @@ Setup tool can be used outside of the Docker container directly by downloading t
 The setup tool needs to be able to access the database. Because of that, if the database is in a docker container, its port must be exposed to the host.
 :::
 
-See [setup tool page]([setup tool](BonitaBPM_platform_setup.md#update_platform_conf)) for more information.
+See [setup tool page](BonitaBPM_platform_setup.md#update_platform_conf) for more information.
