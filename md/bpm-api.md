@@ -3590,7 +3590,7 @@ This feature should only be used on non-production environments.
 **Please proceed at your own risk.**
 
 * **URL**  
-  `/API/bpm/processes`  
+  `/API/bpm/process`  
 * **Method**  
   `DELETE`
 * **Request Payload**
