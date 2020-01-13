@@ -67,6 +67,7 @@ When you receive the license file (`.lic` file extension), store the file into t
    ```
      ./setup.sh push
    ```
+- Save the application server
 
 ## License renewal scheduling
 
