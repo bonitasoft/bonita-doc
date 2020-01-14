@@ -3470,6 +3470,7 @@ The methods used for this resource are:
 * POST - Create a process
 * GET - Read a process or search for a process
 * PUT - Update a process
+* DELETE - Delete a process and all its cases
 
 <a id="process-deploy"/>
 
@@ -3560,6 +3561,45 @@ You can update the following fields of a process definition:
   ```
 * **Success Response**  
   * **Code**: 200
+ 
+#### Delete a process
+
+You can delete a process based on its ID.
+
+  ::: warning
+**Warning:** **Beware! Data loss risk!**
+Deleting a process will automatically delete all its cases (on-going and archived alike). Thus, the operation may take a long time, and fail if the transaction timeout is not large enough.
+This feature should only be used on non-production environments.
+**Please proceed at your own risk.**
+
+* **URL**  
+  `/API/bpm/process/:processId`  
+* **Method**  
+  `DELETE`
+* **Success Response**  
+  * **Code**: 200
+  
+#### Delete processes in bulk
+
+You can also delete several processes.
+
+  ::: warning
+**Warning:** **Beware! Data loss risk!**
+Deleting a process will automatically delete all its cases (on-going and archived alike). Thus, the operation may take a long time, and fail if the transaction timeout is not large enough.
+This feature should only be used on non-production environments.
+**Please proceed at your own risk.**
+
+* **URL**  
+  `/API/bpm/process`  
+* **Method**  
+  `DELETE`
+* **Request Payload**
+  List of processes ids to delete
+   ```json
+  ["1", "2" , ...]
+  ```
+* **Success Response**  
+  * **Code**: 200  
 
 #### Search for a process
 
