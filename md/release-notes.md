@@ -23,3 +23,10 @@ Upgrade Tomcat to 8.5.47 (tomcat-dbcp to 9.0.30) **subject to change prior GA**
 - the Tomcat Manager is no more provided
 - the bundle is not intended to be used to deploy extra webapps
 - alternatives exist to deploy extra webapps if still needed
+
+### Tomcat root url redirected to Bonita
+
+Simplify access to bonita by redirecting tomcat root to the bonita webapps.
+For instance http://localhost:8080 redirected to http://localhost:8080/bonita
+
+TODO: find other rationales
