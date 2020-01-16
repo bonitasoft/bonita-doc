@@ -3573,6 +3573,7 @@ You can delete a process based on its ID.
 Deleting a process will automatically delete all its cases (on-going and archived alike). Thus, the operation may take a long time, and fail if the transaction timeout is not large enough.
 This feature should only be used on non-production environments.
 **Please proceed at your own risk.**
+:::
 
 * **URL**  
   `/API/bpm/process/:processId`  
@@ -3590,6 +3591,7 @@ You can also delete several processes.
 Deleting a process will automatically delete all its cases (on-going and archived alike). Thus, the operation may take a long time, and fail if the transaction timeout is not large enough.
 This feature should only be used on non-production environments.
 **Please proceed at your own risk.**
+:::
 
 * **URL**  
   `/API/bpm/process`  
