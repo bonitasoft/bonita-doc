@@ -113,7 +113,8 @@ The transactional Groovy script connector is deprecated. Use the non-transaction
 
 ### Removals
 #### Wildfly bundle
-As announced in the previous release, the Wildfly bundle has been removed in the 7.10 release.
+As announced in the previous release, the Wildfly bundle has been removed in the 7.10 release.  
+To convert your installation into a Bonita Tomcat installation, [follow the guide](convert-wildfly-into-tomcat.md)
 
 #### EJB support
 As announced in the previous release, the support for EJB communication to Bonita Engine has been removed in the 7.10 release.
