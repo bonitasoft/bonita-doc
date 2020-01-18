@@ -124,6 +124,7 @@
     * [Hardware and software requirements](hardware-and-software-requirements.md)
     * [Tomcat bundle](tomcat-bundle.md)
     * [Custom Deployment into existing Tomcat installation](custom-deployment.md)
+    * [Convert a WildFly into a Tomcat installation](convert-wildfly-into-tomcat.md)
     * [Platform configuration](BonitaBPM_platform_setup.md)
     * [Database creation and customization to work with Bonita](database-configuration.md)
     * [First steps after setup](first-steps-after-setup.md)
