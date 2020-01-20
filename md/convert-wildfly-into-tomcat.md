@@ -4,7 +4,7 @@ Learn how to convert a Bonita installation based on WildFly to a one based on To
 
 ## Overview
 
-Bonita 7.10 does not provide nor support any WildFly anymore. As a consequence, it is necessary when updating
+Bonita 7.10 does not provide nor support WildFly anymore. As a consequence, it is necessary when updating
 Bonita to version 7.10 or superior to convert the installation so that it works the same way under tomcat.
 
 ## Conversion steps to Bonita Tomcat bundle
