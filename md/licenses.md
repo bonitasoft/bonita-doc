@@ -53,7 +53,7 @@ The license file will be sent to you by email.
 
 If the application server has never been started before (i.e. this is the first time you start the bundle), when you receive the license file (`.lic` file extension), store the file into the `<TOMCAT_HOME>/setup/platform_conf/licenses` folder or `<WILDFLY_HOME>/setup/platform_conf/licenses/` folder before starting the bundle.
 
-## Otherwise, Save a new license file in the database; when the application server has already been started successfuly once (or more)
+## Otherwise, save a new license file in the database; when the application server has already been started successfuly once (or more)
 
 - Download the configuration on the disk
   ```
