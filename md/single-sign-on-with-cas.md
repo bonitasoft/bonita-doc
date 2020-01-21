@@ -86,6 +86,7 @@ If the platform has already been initialized, every update to the configuration 
       authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservice
       ```
       Specify the relevant IP address and port number.
+      Please note that Guest user access with this configuration has been validated with version 4.2 of CAS server and Bonita 7.10.1.
 
 #### Configure the Bonita Portal for CAS SSO
 
