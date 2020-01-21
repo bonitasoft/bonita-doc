@@ -49,7 +49,7 @@ Then fill in the details in the form, copy the request key in the *Request Key* 
 
 The license file will be sent to you by email.
 
-## Only once, if the application server had never been started yet: install the very first license file
+## Install the license for the very first time
 
 When you receive the license file (`.lic` file extension), store the file into the `<TOMCAT_HOME>/setup/platform_conf/licenses` folder or `<WILDFLY_HOME>/setup/platform_conf/licenses/` folder before starting the bundle.
 
