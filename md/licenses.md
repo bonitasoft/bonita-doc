@@ -55,6 +55,7 @@ If the application server has never been started before (i.e. this is the first 
 
 ## Otherwise, save a new license file in the database; when the application server has already been started successfuly once (or more)
 
+If the application server has already been started successfully at least once and you need to install a new license because the one already installed has expired or is no longer valid:
 - Download the configuration on the disk
   ```
     cd setup
