@@ -51,7 +51,7 @@ The license file will be sent to you by email.
 
 ## Install the license for the very first time
 
-When you receive the license file (`.lic` file extension), store the file into the `<TOMCAT_HOME>/setup/platform_conf/licenses` folder or `<WILDFLY_HOME>/setup/platform_conf/licenses/` folder before starting the bundle.
+If the application server has never been started before (i.e. this is the first time you start the bundle), when you receive the license file (`.lic` file extension), store the file into the `<TOMCAT_HOME>/setup/platform_conf/licenses` folder or `<WILDFLY_HOME>/setup/platform_conf/licenses/` folder before starting the bundle.
 
 ## Otherwise, Save a new license file in the database; when the application server has already been started successfuly once (or more)
 
