@@ -49,12 +49,26 @@ Then fill in the details in the form, copy the request key in the *Request Key* 
 
 The license file will be sent to you by email.
 
-## Install the license
+## Install the license for the very first time
 
-When you receive the license file (`.lic` file extension):
-- If this is the first time you start the bundle, copy the file to the`<TOMCAT_HOME>/setup/platform_conf/licenses` folder or `<WILDFLY_HOME>/setup/platform_conf/licenses/` folder before starting the bundle.
-- If the bundle has already been started, [you need to use the Platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf) to push your license file to database.
-Don't forget to restart your application server after pushing the license to the database.
+If the application server has never been started before (i.e. this is the first time you start the bundle), when you receive the license file (`.lic` file extension), store the file into the `<TOMCAT_HOME>/setup/platform_conf/licenses` folder or `<WILDFLY_HOME>/setup/platform_conf/licenses/` folder before starting the bundle.
+
+## Otherwise, save a new license file in the database; when the application server has already been started successfuly once (or more)
+
+If the application server has already been started successfully at least once and you need to install a new license because the one already installed has expired or is no longer valid:
+- Download the configuration on the disk
+  ```
+    cd setup
+    ./setup.sh pull
+    ls -l ./platform_conf/licenses/
+   ```
+ - Delete all license files that may be located in the `<TOMCAT_HOME>/setup/platform_conf/licenses` directory or `<WILDFLY_HOME>/setup/platform_conf/licenses/` directory.
+ - Store the new license file in the `<TOMCAT_HOME>/setup/platform_conf/licenses` directory or `<WILDFLY_HOME>/setup/platform_conf/licenses/` directory.
+ - Save the configuration into the database
+   ```
+     ./setup.sh push
+   ```
+- Restart the application server
 
 ## License renewal scheduling
 
