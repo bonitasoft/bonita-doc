@@ -31,7 +31,7 @@ The installer will guide you through a very basic installation configuration:
 1. You'll see a confirmation message that offers the option to start Bonita Studio. Choose to start Bonita Studio and click on **Finish** button
 1. A "thank you for downloading" page will be displayed in your web browser. You can close it
 
-![Bonita Studio installer last screen](images/getting-started-tutorial/installation/studio-installation-installer-08-last-screen.png)
+![Bonita Studio installer last screen](images/getting-started-tutorial/installation/studio-installation-installer-08-last-screen.png)<!--{.img-responsive .img-thumbnail}-->
 
 Bonita Studio is now installed. Default installation folders are:
 - Windows: `C:\BonitaStudioCommunity-x.y.z`
@@ -44,7 +44,8 @@ At this stage Bonita Studio should be running on your computer. If not, you can 
 
 You should get the Bonita Studio welcome page:
 
-![Bonita Studio with welcome page displayed](images/getting-started-tutorial/installation/studio-first-start-02-studio-on-welcome-page.png)
+![Bonita Studio pop-up window](images/getting-started-tutorial/installation/studio-first-start-01-welcome-popup-values.png)<!--{.img-responsive .img-thumbnail}-->
+![Bonita Studio with welcome page displayed](images/getting-started-tutorial/installation/studio-first-start-02-studio-on-welcome-page.png)<!--{.img-responsive .img-thumbnail}-->
 
 ::: info
 When Bonita Studio starts, various tasks are executed in the background, such as the embedded Bonita test server startup (including Bonita Engine initialization), Bonita test organization deployment, and more.
@@ -55,17 +56,17 @@ This might take a while and may be why some features are not immediately availab
 
 In order to make sure that everything is properly installed, click on the **Portal** button ![Bonita Portal icon](images/getting-started-tutorial/installation/portal-icon.png) in the toolbar. This should open the Bonita Portal home page in your web browser:
 
-![Bonita Portal display in a web browser](images/getting-started-tutorial/installation/web-browser-display-portal.png)
+![Bonita Portal display in a web browser](images/getting-started-tutorial/installation/web-browser-display-portal.png)<!--{.img-responsive .img-thumbnail}-->
 
 
 
 Also click on the **UI Designer** button ![UI Designer icon](images/getting-started-tutorial/installation/ui-designer-icon.png) in the toolbar. This will display a pop-up window that you can ignore:
 
-![UI Designer first launch pop-up window](images/getting-started-tutorial/installation/ui-designer-launch-pop-up.png)
+![UI Designer first launch pop-up window](images/getting-started-tutorial/installation/ui-designer-launch-pop-up.png)<!--{.img-responsive .img-thumbnail}-->
 
 And then the UI Designer should be opened in your web browser:
 
-![UI Designer, on first launch, displayed in a web browser](images/getting-started-tutorial/installation/ui-designer-first-start.png)
+![UI Designer, on first launch, displayed in a web browser](images/getting-started-tutorial/installation/ui-designer-first-start.png)<!--{.img-responsive .img-thumbnail}-->
 
 
 ## Ready to move on
