@@ -2,14 +2,14 @@
 
 Now that you have your development environment (i.e. Bonita Studio) up and running, you are ready to start building your first Bonita Living Application.
 
-In this tutorial we will build a claims management solution. Making sure that claims are handled and answered in a timely manner by the appropriate employee(s) can be key to customer satisfaction. It is also a good fit for an process-based application that uses automation. We will of course drastically simplify the application in this tutorial so you can focus on learning about Bonita and not about claims management!
+In this tutorial we will build a claims management solution. Making sure that claims are handled and answered in a timely manner by the appropriate employee(s) can be key to customer satisfaction. It is also a good fit for a process-based application that uses automation. We will of course drastically simplify the application in this tutorial so you can focus on learning about Bonita and not about claims management!
 
 Here is an overview of process execution:
-- The process will be started by a customer who submits a claim, which is a simple text description in our example.
-- Next, an employee will review the claim and provide an answer.
-- The customer will be able to review the employee's answer and provide a satisfaction rating.
-- If the rating is equal to or greater than 3, the process will finish after the customer has read the answer.
-- If the rating is lower than 3 an extra task will be assigned to the manager of the employee to work with this customer who is not really satisfied. Once this task is done the process will be completed.
+- The process will be started by a customer who submits a claim, which is a simple text description in our example
+- Next, an employee will review the claim and provide an answer
+- The customer will be able to review the employee's answer and provide a satisfaction rating
+- If the rating is equal to or greater than 3, the process will finish after the customer has read the answer
+- If the rating is lower than 3 an extra task will be assigned to the manager of the employee to work with this customer who is not really satisfied. Once this task is done the process will be completed
 
 ::: info
 To design this process we will use the Business Process Model and Notation (BPMN) standard. You don't need to learn everything about BPMN to follow this tutorial but, if you would like to know more, you can read the [Ultimate Guide to BPMN 2.0](https://www.bonitasoft.com/library/ultimate-guide-bpmn).
@@ -29,6 +29,7 @@ As we introduce data in our process definition and configure actors, a user will
 Create a new diagram:
 1. In the Bonita Studio menu, click on **File > New diagram**.
 
+   ![Add user task](images/getting-started-tutorial/draw-bpmn-diagram/new-diagram.gif)<!--{.img-responsive .img-thumbnail}-->
 
 The new diagram includes:
 - One pool: one process definition
