@@ -10,7 +10,7 @@ If you face any difficulties in this getting started tutorial, please [ask for h
 
 To download the latest version of Bonita Studio, open the [download page](https://www.bonitasoft.com/downloads) and click on the **Download** button. This will start the download of Bonita Studio installer for your operating system.
 
-When the download is finished, you should have one of the following files on your computer (x.y.z refers to the version of Bonita Studio, e.g. 7.10.0):
+When the download is finished, you should have one of the following files on your computer (x.y.z refers to the version of Bonita Studio, e.g. ${varVersion}.0):
 - Windows: `BonitaStudioCommunity-x.y.z-x86_64.exe`
 - macOS: `BonitaStudioCommunity-x.y.z-x86_64.dmg`
 - Linux: `BonitaStudioCommunity-x.y.z-x86_64.run`
