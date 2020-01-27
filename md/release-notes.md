@@ -159,3 +159,37 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 * BS-19384 - When sequence manager fail on all retry. Next id is still updated in memory
 * BS-19395 - Java clients are limited to only 2 remote HTTP connections to Bonita server 
 * BS-19398 - Process instantiation fails with NullPointerException if initialisation script of multiple business variables returns 'null'
+
+### Fixes in Bonita 7.10.1 (2020-02-06)
+#### Fixes in Web/Portal component
+* BPO-73 Documents returned by the REST API should have a valid downloadUrl
+* BPO-104 BS-19008 - CAS ticket persists in URL in portal after login
+* BPO-205 BS-19366 - Error 500 when accessing BPM services page
+* BPO-256 BS-19383 - Redirection back to CAS when Authenticated CAS user not valid in Bonita tries to access Bonita
+* BPO-258 Wrong spanish translation in BPM Services page
+* BPO-313 Process instantion form URL redirection has invalid processDefinitionId parameter
+* BPO-316 BDM and License page Access Denied when associated to custom profile menu
+* BPO-337 Translation errors in french in applications pop-up window
+* BPO-341 Default case overview form leads to error 500 when trying to access archived process instance document
+* BPO-358 TaskPermissionRule : Process manager cannot list the tasks with f=parentCaseId=nnn with Dynamic authorization checking enable
+* BPO-373 Error message shown with Broken characters when trying to create an existing user on the Portal
+* BPO-374 When using the process list in an app, LA theme is not applied to the instantiation form
+* BPO-376 Guest user access doesn't work with CAS Authentication
+* BS-15956 The CPU of the DB server spikes to 100% for 90 minutes due to Portal Admin -Start for- button
+
+#### Fixes in Engine component
+* BS-19401 ClassCastException when calling BDM queries that do not return BDM entities on Business Objects with an Access Control defined
+
+#### Fixes in UI Designer component
+* UID-74 Remove whitespace between title and option for RadioButton and Checklist widget
+* UID-113 Generated Form displayDescription Text widget doesn't honor 'interpret HTML' property
+* UID-115 Renaming custom widget is not checked correctly
+* UID-166 Column keys starting with number in a table widget leads to incorrect display
+* UID-217 When editing an asset and immediately press the Supr key, the selected widget is removed
+* UID-218 Move gitIgnore files in temporary folder to make import possible when user checkout another branch
+* UID-221 Enable page or form artifact import when reference exist in index.json metadata file
+
+#### Fixes in Studio component
+* STUDIO-3366 NullPointerException is shown in the Studio when trying to export a project
+* STUDIO-3362 Configure toolbar icon has disappeared in Community
+* STUDIO-3328 Studio is out of sync when merging a rebase conflict
