@@ -156,7 +156,7 @@ Those information are used internally by the Platform setup tool to configure pr
 The Platform setup tool uses the values provided in file `database.properties` as replacement strings to the properties defined in file `internal.properties`. Those new processed values are then used by the tool.
 
 _Usage_:  
-You are allowed to modify these values if, in the example of Oracle RAC, you need to add parameters in the **connection URL**, or for mysql you need to add characterEncoding or other parameters: 
+You are allowed to modify these values if, in the example of Oracle RAC, you need to add parameters in the **connection URL**, or for mysql you need to add characterEncoding or other parameters, or for SQL server to support NT Authentication: 
 
 ```properties
    oracle.url=jdbc:oracle:thin:@(description=(address_list=(address=(protocol=tcp)(port=${db.server.port})(host=${db.server.name})))(connect_data=(INSTANCE_NAME=${db.database.name}))(source_route=yes))
@@ -166,6 +166,11 @@ You are allowed to modify these values if, in the example of Oracle RAC, you nee
    oracle.bdm.url=jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=myrac1.us.oracle.com)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=myrac2.us.oracle.com)(PORT=1521))(LOAD_BALANCE=ON)(FAILOVER=OFF)(CONNECT_DATA=(SERVICE_NAME=myrc.us.oracle.com)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=BASIC))))
 
    mysql.url=jdbc:mysql://${db.server.name}:${db.server.port}/${db.database.name}?dontTrackOpenResources=true&useUnicode=true&characterEncoding=UTF-8&profileSQL=true
+   
+   sqlserver.url=jdbc:sqlserver://${db.server.name}:${db.server.port};database=${db.database.name};integratedSecurity=true
+   
+   sqlserver.bdm.url=jdbc:sqlserver://${bdm.db.server.name}:${bdm.db.server.port};database=${bdm.db.database.name};integratedSecurity=true
+   
 ```
 
 Or also if you need to use a specific **database Driver** java class name:
