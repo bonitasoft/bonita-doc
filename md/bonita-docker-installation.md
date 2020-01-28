@@ -11,7 +11,7 @@ docker run --name bonita -d -p 8080:8080 bonita
 ```
 
 To start the latest subscription release
->Access to Quay.io has to be requested through customer portal
+>Information on how to access Quay.io can be found <a href="https://customer.bonitasoft.com/download/request">here</a>
 ```
 docker login quay.io
 docker pull quay.io/bonitasoft/bonita-subscription:${varVersion}.0
