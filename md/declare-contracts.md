@@ -4,19 +4,19 @@ So far our process defines a sequences of events and tasks, and declares a busin
 
 A contract defines the data expected from the user to start a process (instantiation contract) or to execute a user task (task contract). By default Bonita offers a solution to easily build forms (see next chapter) to allow the user to view and provide data. When submitted, forms will ask the Bonita Engine to start a process or execute a task using provided data that must match what is expected by the contract.
 
-As our contract information will be used to set business variable values, we can use a wizard that will generate the contract based on the business variable. This wizard also sets the business variable default value and generates task operations.
+As our contract information will be used to set business variable values, we can use a wizard that will generate the contract based on the business variable. This wizard sets the business variable default value and generates task operations.
 
 Create the contract for process instantiation:
 1. Select the process pool
-1. At the bottom of the Bonita Studio window go to the **Execution > Contract** tab
+1. At the bottom of the Bonita Studio window go to the **Execution > Contract > Inputs** tab
 1. Click on the **Add from data...** button
 1. Leave the default options selected (_Business variable_, _Instantiate_, _claim_, _claimInput_)
 1. Click on the **Next** button
-1. Select only the _description_
+1. Select only the _description_ (uncheck _answer_, _satisfactionLevel_)
 1. Click on **Finish**
 1. You can ignore the information message and click on **OK** button
 
-   ![Declare process instantiation contract](images/getting-started-tutorial/declare-contracts/declare-process-instantiation-contract.gif)
+   ![Declare process instantiation contract](images/getting-started-tutorial/declare-contracts/declare-process-instantiation-contract.gif)<!--{.img-responsive .img-thumbnail}-->
 
 ::: info
 You now have a contract named _claimedInput_ of type "COMPLEX" with one attribute, _description_ of type "TEXT". Also, as the description is mandatory, you can see in **Execution > Contract > Constraints** tab that a validation rule has been created to make sure that we get a value for the description. Finally, if you edit the _claim_ business variable, you can see that a script has been generated for you to set the variable default value. Setting this value will trigger an insert in the `CLAIM` table created for you in the business data database managed by Bonita.
@@ -24,15 +24,15 @@ You now have a contract named _claimedInput_ of type "COMPLEX" with one attribut
 
 Now let's create the contract for the user task _Review and answer claim_:
 1. Select the task _Review and answer claim_
-1. At the bottom of the Bonita Studio window go to **Execution > Contract** tab
+1. At the bottom of the Bonita Studio window go to **Execution > Contract > Inputs** tab
 1. Click on the **Add from data...** button
 1. Select Data: _Business variable_, Action: _Edit_, and leave other options with their default values
 1. Click on the **Next** button
-1. Select only the _answer_
+1. Select only the _answer_ (uncheck _description_, _satisfactionLevel_)
 1. Click on the **Finish** button
-1. You can ignore the warning message and click on the **OK** button
+1. You can ignore the information and warning messages and click on the **OK** button
 
-   ![Declare user task contract](images/getting-started-tutorial/declare-contracts/declare-user-task-contract.gif)
+   ![Declare user task contract](images/getting-started-tutorial/declare-contracts/declare-user-task-contract.gif)<!--{.img-responsive .img-thumbnail}-->
 
 ::: info
 We now have a contract for the step. This contract does not create a new claim but rather updates an attribute of the claim (the claim is created when we start the process). The attribute update is performed by an operation (generated for you) on the task. Select **Execution > Operations** to view the operation that updates the _answer_ attribute.
