@@ -8,9 +8,9 @@ If you face any difficulties in this getting started tutorial, please [ask for h
 
 ## Download Bonita Studio
 
-To download the latest version of Bonita Studio, open the [download page](https://www.bonitasoft.com/downloads) and click on the "Download" button. This will start the download of Bonita Studio installer for your operating system.
+To download the latest version of Bonita Studio, open the [download page](https://www.bonitasoft.com/downloads) and click on the **Download** button. This will start the download of Bonita Studio installer for your operating system.
 
-When the download is finished, you should have one of the following files on your computer (x.y.z refers to the version of Bonita Studio, e.g. 7.9.2):
+When the download is finished, you should have one of the following files on your computer (x.y.z refers to the version of Bonita Studio, e.g. ${varVersion}.0):
 - Windows: `BonitaStudioCommunity-x.y.z-x86_64.exe`
 - macOS: `BonitaStudioCommunity-x.y.z-x86_64.dmg`
 - Linux: `BonitaStudioCommunity-x.y.z-x86_64.run`
@@ -22,14 +22,14 @@ You are now ready to start the installation process.
 To run the installer for Windows, macOS or Linux, double-click on the file you downloaded.
 
 The installer will guide you through a very basic installation configuration:
-1. Select installation language: this will be used for the installation process.
-1. Welcome message: click on "Next" button.
-1. License agreement: you need to accept this to continue.
-1. Installation directory: the default one should be fine.
-1. Confirmation that installation is about to start: click on "Next" button.
-1. Actual installation: wait a little bit.
-1. You'll see a confirmation message that offers the option to start Bonita Studio. Choose to start Bonita Studio and click on "Finish" button.
-1. A "thank you for downloading" page will be displayed in your web browser. You can close it.
+1. Select installation language: this will be used for the installation process
+1. Welcome message: click on **Next** button
+1. License agreement: you need to accept this to continue
+1. Installation directory: the default one should be fine
+1. Confirmation that installation is about to start: click on "Next" button
+1. Actual installation: wait a little bit
+1. You'll see a confirmation message that offers the option to start Bonita Studio. Choose to start Bonita Studio and click on **Finish** button
+1. A "thank you for downloading" page will be displayed in your web browser. You can close it
 
 ![Bonita Studio installer last screen](images/getting-started-tutorial/installation/studio-installation-installer-08-last-screen.png)
 
@@ -42,13 +42,7 @@ Bonita Studio is now installed. Default installation folders are:
 
 At this stage Bonita Studio should be running on your computer. If not, you can manually start it by using the installed shortcut or by using the Bonita Studio executable file from the installation folder.
 
-On the first Bonita Studio startup you will get the following pop-up window:
-
-![Bonita Studio pop-up window](images/getting-started-tutorial/installation/studio-first-start-01-welcome-popup-values.png)
-
-You can ignore it.
-
-And finally, you should get the Bonita Studio welcome page:
+You should get the Bonita Studio welcome page:
 
 ![Bonita Studio with welcome page displayed](images/getting-started-tutorial/installation/studio-first-start-02-studio-on-welcome-page.png)
 
