@@ -132,6 +132,7 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 #### Fixes in Engine component
 * BS-15956 - The CPU of the DB server spikes to 100% for 90 minutes due to Portal Admin -Start for- button
 * BS-19401 - ClassCastException when calling BDM queries that do not return BDM entities on Business Objects with an Access Control defined
+* BS-19443 - Context information missing in error message when BDM install fails because business object class already exists
 
 #### Fixes in Studio component
 * STUDIO-3366 - NullPointerException is shown in the Studio when trying to export a project
