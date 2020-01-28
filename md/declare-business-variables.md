@@ -4,6 +4,9 @@ In order for your process to be able to perform operations on business data such
 
 In our process we will deal with a single object: a claim. The claim object will store information about the claim itself (i.e. its description), the provided answer and a satisfaction level. To declare a business variable:
 1. Select the process pool, the rectangle shape that includes start events and tasks.
+
+   ![Select the pool](images/getting-started-tutorial/declare-business-variable/select-process-pool.gif)<!--{.img-responsive .img-thumbnail}-->
+
 1. At the bottom of the Bonita Studio screen, go to **Data > Pool variables**
 1. Click on the **Add...** button next to **Business variables**
 1. Type the name of the business variable: _claim_ (lower case)
