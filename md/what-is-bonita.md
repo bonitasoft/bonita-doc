@@ -41,7 +41,7 @@ We will cover these steps in this getting started tutorial so you can get famili
 
 ### Bonita Studio
 
-![Bonita Studio architecture](images/getting-started-tutorial/what-is-bonita/architecture-bonita-studio.png)
+![Bonita Studio architecture](images/getting-started-tutorial/what-is-bonita/architecture-bonita-studio.png)<!--{.img-responsive .img-thumbnail}-->
 
 Bonita Studio provides everything you need to develop and build a Bonita application. Bonita Studio is a desktop application built on Eclipse.
 
@@ -56,7 +56,7 @@ Bonita Studio is not intended for any use other than development. As a consequen
 
 ### Bonita stack, runtime and server
 
-![Bonita stack architecture](images/getting-started-tutorial/what-is-bonita/architecture-bonita-stack.png)
+![Bonita stack architecture](images/getting-started-tutorial/what-is-bonita/architecture-bonita-stack.png)<!--{.img-responsive .img-thumbnail}-->
 
 The "Bonita stack" refers to all the components you need to deploy in order to make applications available to end users in production. It includes the Bonita runtime and the two database schemas (one for the Bonita Engine and one for business data).
 
