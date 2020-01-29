@@ -7,7 +7,7 @@ How to generate the project documentation in Bonita Studio.
 
 ## Overview
 
-In order to collaborate efficiently with business users, Bonitasoft studio allows you to generate and export the documentation of your project.
+To collaborate efficiently with business users, Bonitasoft studio allows you to generate and export the documentation of your project.
 
 The documentation generator will use mostly information stored in the objects of the studio such as the processes or tasks. 
 
@@ -32,20 +32,20 @@ The following artifacts will be created in the project's root folder:
 * A `documentation` folder containing the sources for the documentation:  
 	* `.plantuml` files: UML diagrams  
 	* `images` folder: all the images used in the documentation  
-	* `static` folder: to store static document that can be imported in the documentation.  
+	* `static` folder: to store static documents that can be imported in the documentation.  
 
 ## Customizing the documentation
 
 ### Customizing the generated document
 _Required skills_: [asciidoc](https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/) syntax
 
-Once the file is generated you can fine-tune by modifying to the output document.
+Once the file is generated you can fine-tune it by modifying the output document.
 To do, open the `README.adoc` file with the Studio. The embedded editor is divided into three vertical panels:
 * On the left, the source code of the documentation in asciidoc format  
-* In the middle, the html preview of the document 
+* In the middle, the HTML preview of the document 
 * On the right the document outline  
 
-Now you can edit the source code to customize the documentation. To refresh the preview, your source code. 
+Now you can edit the source code to customize the documentation. To refresh the preview, save your source code. 
 
 ::: warning
 **Warning:** If you launch the documentation generation again it will overwrite your README.adoc file. To avoid this, rename your file.
@@ -60,7 +60,7 @@ The following artifacts will be created in the project’s `documentation` folde
 * A `templates` folder
 	* `src` folder: the template source files
 	* `groovydoc` folder: the groovy documentation for the Project data model and the template tools.  
-	* `README.adoc` file: The instructions to help you customize the templates.
+	* `README.adoc` file: the instructions to help you customize the templates.
 
 ## Exporting the documentation
 
@@ -89,11 +89,13 @@ All you need to do is generate your documentation and push it to your repository
 
 ## Collaboration thanks documentation generation feature
 
-The documentation will help you collaborate with business users in order to build processes and applications that match perfectly their needs.
+The documentation will help you collaborate with business users to build processes and applications that match perfectly their needs.
 
 ### Fail fast
 
-The business users or citizen developers will all the functional inputs required for the implementation, the documentation allows you to share that implementation without having to build and deploy. This means that this sharing takes place at a really early stage of the project's lifecycle.
+The business users or citizen developers have the functional inputs required for the implementation. However, as the project advances there can be a misalignment between the implementation and business needs.
+
+Thanks to the documentation generator, as a developer you can share the current implementation status without having to build and deploy. This means that this sharing can take place at an early stage of the project's lifecycle. 
 
 Potential issues, misunderstandings or inconsistencies will be detected at a minimal cost.
 
@@ -101,15 +103,14 @@ Therefore, we will strongly recommend that you generate regularly the documentat
 
 #### Project Quality
 
-In order to have maintainable and understandable projects, we strongly recommend that to fill out description fields.
+To have maintainable and understandable projects, we strongly recommend that to fill out description fields.
 
 The generated documentation will show all the missing descriptions and will make it easier to request the required information.
 
 ### Improve your processes
 
-The documentation also provides an easy-to-access baseline for the design of your processes that can be then used to brainstorm the next improvements.
+The documentation also provides an easy-to-access baseline of your processes that can be then used to brainstorm the next improvements.
 
 ### Explain
 
 The documentation will help onboard new users of the processes and applications or anyone that will be working on the project. No need to install studio all you need is access to the documentation!
-
