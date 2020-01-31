@@ -320,7 +320,7 @@ Edit the *logger* tags which *category* matches `org.bonitasoft` and `com.bonita
 
 #### Common error examples
 
-**Symptom:** After configuring SAML SSO in Bonita, the Bonita Portal login page does not redirect to the SSO login page.
+**Symptom:** After configuring SAML SSO in Bonita, the Bonita Portal login page does not redirect to the SSO login page.  
 **Possible Solutions:**
 * Check all the Bonita configuration settings are correct.
 * Make sure `setup[.sh][.bat] push` has been executed and the server restarted after the changes.
@@ -336,8 +336,8 @@ Edit the *logger* tags which *category* matches `org.bonitasoft` and `com.bonita
 Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or Certificate defined
 	at org.keycloak.adapters.saml.config.parsers.DeploymentBuilder.build(DeploymentBuilder.java:115)
 	... 51 more
-```
-**Problem:** The signing of the requests has been enabled in the **keycloak-saml.xml** file, but there is no \<CertificatePem\> in the Keys:Key section of the SP.
+```  
+**Problem:** The signing of the requests has been enabled in the **keycloak-saml.xml** file, but there is no \<CertificatePem\> in the Keys:Key section of the SP.  
 **Solution:** Add Bonita server's certificate in the Keys:Key section of the SP.
 
 
@@ -348,10 +348,10 @@ Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or C
 	at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.validateSamlSignature(AbstractSamlAuthenticationHandler.java:271)
 	(...)
 
-```
-**Problem:** The SAML module of the Bonita server has tried to validate the signature of the response sent by the IdP using the \<CertificatePem\> stored in the IDP:Keys:Key section of the **keycloak-saml.xml** file, but:
-- either the validation has failed because the private key used by the IdP to sign the response does not match the certificate used by the SAML module.
-- or the IdP does not really sign the response (in that case, by activating all the logs for the `org.keyclock` package, you should also see a message `Cannot find Signature element`).
+```  
+**Problem:** The SAML module of the Bonita server has tried to validate the signature of the response sent by the IdP using the \<CertificatePem\> stored in the IDP:Keys:Key section of the **keycloak-saml.xml** file, but:  
+* either the validation has failed because the private key used by the IdP to sign the response does not match the certificate used by the SAML module.
+* or the IdP does not really sign the response (in that case, by activating all the logs for the `org.keyclock` package, you should also see a message `Cannot find Signature element`).  
 **Solution:** Make sure the certificate in the Keys:Key section of the IdP is indeed the one belonging to the private key being used by the IdP to sign its responses. Also make sure the IdP is configured to indeed sign the response. If not you can also change the IDP:Keys:Key section of the **keycloak-saml.xml** to put signing to false and the IDP:SingleSignOnService section to put validateResponseSignature to false.
 
 
@@ -363,11 +363,12 @@ Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or C
 	at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.handleSamlResponse(AbstractSamlAuthenticationHandler.java:213)
 	(...)
 
-```
-**Problem:** The IdP has sent an encrypted assertion in its response, but the SAML module can not find Bonita server's private key in the **keycloak-saml.xml** file, and so it can not decrypt the assertion.
+```  
+**Problem:** The IdP has sent an encrypted assertion in its response, but the SAML module can not find Bonita server's private key in the **keycloak-saml.xml** file, and so it can not decrypt the assertion.  
 **Solution:**
 * Make sure you have encryption="true" inside the Key node of the SP.
 * Add Bonita server's private key in the Keys:Key section of the SP.
+
 
 ## Manage passwords
 
