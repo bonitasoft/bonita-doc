@@ -187,8 +187,8 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
       - http://idp.saml.binding.url.to.change  
 
 ::: info
-About SAML assertions encryption by the IdP: When the assertions encryption is active, the IdP uses a random symmetric key which in turn is encrypted with the SP's public key.  
-The SP uses its private key to decrypt the symmetric key which in turn is used to decrypt the SAML assertion.
+About SAML assertions encryption by the IdP: When the assertions encryption is active, the IdP uses a random key which in turn is encrypted with the SP's public key.  
+The SP uses its private key to decrypt the random key which in turn is used to decrypt the SAML assertion.
 This ensures that only the SP can decrypt the SAML assertion.
 :::
 
@@ -349,8 +349,10 @@ Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or C
 	(...)
 
 ```
-**Problem:** The SAML module of the Bonita server has tried to validate the signature of the response sent by the IdP using the \<CertificatePem\> stored in the IDP:Keys:Key section of the **keycloak-saml.xml** file, but the validation has failed because the private key used by the IdP to sign the response does not match the certificate used by the SAML module.
-**Solution:** Make sure the certificate in the Keys:Key section of the IdP is indeed the one belonging to the private key being used by the IdP to sign its responses.
+**Problem:** The SAML module of the Bonita server has tried to validate the signature of the response sent by the IdP using the \<CertificatePem\> stored in the IDP:Keys:Key section of the **keycloak-saml.xml** file, but:
+- either the validation has failed because the private key used by the IdP to sign the response does not match the certificate used by the SAML module.
+- or the IdP does not really sign the response (in that case, by activating all the logs for the `org.keyclock` package, you should also see a message `Cannot find Signature element`).
+**Solution:** Make sure the certificate in the Keys:Key section of the IdP is indeed the one belonging to the private key being used by the IdP to sign its responses. Also make sure the IdP is configured to indeed sign the response. If not you can also change the IDP:Keys:Key section of the **keycloak-saml.xml** to put signing to false and the IDP:SingleSignOnService section to put validateResponseSignature to false.
 
 
 **Symptom:** The following stacktrace appears in the Bonita server log :
