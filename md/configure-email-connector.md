@@ -13,7 +13,7 @@ In order to avoid settings that are specific to real email provider, we will use
 1. When the user interface is displayed, set the **listening port** to _2525_
 1. Click on the **Start server** button.
 
-   ![FakeSMTP configured and listening](images/getting-started-tutorial/configure-email-connector/fakesmtp-configured-and-listening.png)
+   ![FakeSMTP configured and listening](images/getting-started-tutorial/configure-email-connector/fakesmtp-configured-and-listening.png)<!--{.img-responsive .img-thumbnail}-->
 
 Now that we have a fake server running, let's configure the email connector on the _Deal with unsatisfied customer_ task:
 1. Select the task _Deal with unsatisfied customer_
@@ -31,14 +31,14 @@ Now that we have a fake server running, let's configure the email connector on t
 1. Enter _no-reply@acme.com_ in the **From** field
 1. Use the ![pencil icon](images/getting-started-tutorial/configure-email-connector/pencil.png) icon to edit the expression of the **To** field
 1. Set the **Expression type** to **Script**
-1. Paste the following Groovy script into the code editing zone: `BonitaUsers.getProcessInstanceInitiatorProfessionalContactInfo(apiAccessor,processInstanceId).email`
+1. Paste the following Groovy script into the code editing zone: `BonitaUsers.getUserProfessionalContactInfo(apiAccessor,taskAssigneeId).email`
 1. Click on the **OK** button
 1. Click on the **Next** button
 1. Set _You have a pending task_ as the subject
 1. Click on **Finish**
 
-   ![Email connector configuration](images/getting-started-tutorial/configure-email-connector/configure-email-connector.gif)
+   ![Email connector configuration](images/getting-started-tutorial/configure-email-connector/configure-email-connector.gif)<!--{.img-responsive .img-thumbnail}-->
 
 If you run the process with the connector configured, you should see a new incoming email in the FakeSMTP user interface when task _Deal with unsatisfied customer_ becomes available.
 
-You have now a process definition that uses a wide range of Bonita features. In the next chapters, we will create an application on top of this process.
+You have now a process definition that uses a wide range of Bonita features. In the [next chapters](design-application-page.md), we will create an application on top of this process.
