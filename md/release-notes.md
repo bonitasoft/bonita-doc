@@ -130,9 +130,9 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 
 ### Fixes in Bonita 7.10.1 (2020-02-06)
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
-* STUDIO-3366 - NullPointerException is shown in the Studio when trying to export a project
-* STUDIO-3362 - Configure toolbar icon has disappeared in Community
 * STUDIO-3328 - Studio is out of sync when merging a rebase conflict
+* STUDIO-3362 - Configure toolbar icon has disappeared in Community
+* STUDIO-3366 - NullPointerException is shown in the Studio when trying to export a project
 * UID-74 - Whitespace between title and options is confusing on Editor and Preview for fred in RadioButton and Checklist widgets
 * UID-113 - Generated Form displayDescription Text widget doesn't honor 'interpret HTML' property
 * UID-115 - Renaming custom widget is not checked correctly
