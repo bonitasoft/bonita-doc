@@ -4,13 +4,16 @@ In order for your process to be able to perform operations on business data such
 
 In our process we will deal with a single object: a claim. The claim object will store information about the claim itself (i.e. its description), the provided answer and a satisfaction level. To declare a business variable:
 1. Select the process pool, the rectangle shape that includes start events and tasks.
+
+   ![Select the pool](images/getting-started-tutorial/declare-business-variable/select-process-pool.gif)<!--{.img-responsive .img-thumbnail}-->
+
 1. At the bottom of the Bonita Studio screen, go to **Data > Pool variables**
 1. Click on the **Add...** button next to **Business variables**
 1. Type the name of the business variable: _claim_ (lower case)
-1. Select the **Business Object**: _Claim_
+1. Select the **Business Object**: _com.company.model.Claim_
 1. Click on **Finish** button
 
-   ![Declare business variable](images/getting-started-tutorial/declare-business-variable/declare-business-variable.gif)
+   ![Declare business variable](images/getting-started-tutorial/declare-business-variable/declare-business-variable.gif)<!--{.img-responsive .img-thumbnail}-->
 
 Now that a business variable is declared, we can use it in our transition condition definition:
 1. Select the transition connecting the _Satisfaction level_ gateway with _Deal with unsatisfied customer_
@@ -20,7 +23,7 @@ Now that a business variable is declared, we can use it in our transition condit
 1. Type the Groovy script: `claim.satisfactionLevel < 3`
 1. Click on **OK** button
 
-   ![Define transition condition using business variable value](images/getting-started-tutorial/declare-business-variable/define-condition.gif)
+   ![Define transition condition using business variable value](images/getting-started-tutorial/declare-business-variable/define-condition.gif)<!--{.img-responsive .img-thumbnail}-->
 
 ::: info
 The script configured for the transition condition will return `true` if satisfaction level given is lower than 3, as the transition to _Deal with unsatisfied customer_ will be activated.
@@ -37,4 +40,4 @@ We will use the first and second options in the upcoming chapters.
 
 At this stage of the process definition, if you try to execute it, you will not see any difference in the process instantiation form and user task forms. Only the process overview form is different, now listing the business variable but with no associated value.
 
-You are now ready to move to the next chapter and start collecting user inputs from forms. They will go through [contracts](declare-contracts.md) and can finally be stored in business variables.
+You are now ready to move to the [next chapter](declare-contracts.md) and start collecting user inputs from forms. They will go through [contracts](declare-contracts.md) and can finally be stored in business variables.

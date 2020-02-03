@@ -104,8 +104,10 @@ And from this _Deal with unsatisfied customer_ task we need to go to a second en
 1. Drag and drop the event icon (the disc icon)
 1. Select the end event type (red disc icon)
 1. Rename the event to: _End client unsatisfied_
+1. Refresh the diagram validation: at the bottom of the screen, select the **Validation status** tab and click on the **Refresh** button
 
 Your process diagram should look like this:
+
 ![Process diagram](images/getting-started-tutorial/draw-bpmn-diagram/process-diagram-before-transitions-configuration.png)
 
 ::: info
@@ -129,6 +131,7 @@ We need to configure the condition on the transition from the gateway to the _De
 1. Name the transition _Bad_
 1. Go in **General > General** tab
 1. In **Condition** type the value _true_
+1. In the Bonita Studio menu, click on **File > Save**
 
 ::: warning
 Due to the static value _true_, this version of the process will always go through the _Deal with unsatisfied customer_ task.
@@ -143,6 +146,7 @@ Congratulations! You have now your first valid BPMN process diagram!
 ## Run your process
 
 You can now easily build, package, deploy and execute this process definition in the Bonita Studio embedded test environment:
+1. Select the process pool, the rectangle shape that includes start events and tasks
 1. Click on the **Run** button ![Run button](images/getting-started-tutorial/draw-bpmn-diagram/run.png) in the toolbar at the top of the Bonita Studio window
 1. On the instantiation form, click on the **Start** button. The process instance is started and you are redirected to the Bonita Portal task list
 1. Move your mouse over the _Review and answer claim_ form on the right hand side of the Bonita Portal and click on the **Take** button to "claim" the task
@@ -154,6 +158,8 @@ You can now easily build, package, deploy and execute this process definition in
 1. In the Bonita Portal top menu, click on **Cases** ![Cases button](images/getting-started-tutorial/draw-bpmn-diagram/cases.png)
 1. Click on the **Archived cases** tab
 1. Click on the **View case overview** action (i.e. the "eye" icon) to display the overview form with information about process execution
+   
+   ![Process execution](images/getting-started-tutorial/draw-bpmn-diagram/run-process.gif)<!--{.img-responsive .img-thumbnail}-->
 
 
 ::: info
