@@ -133,12 +133,12 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 * STUDIO-3366 - NullPointerException is shown in the Studio when trying to export a project
 * STUDIO-3362 - Configure toolbar icon has disappeared in Community
 * STUDIO-3328 - Studio is out of sync when merging a rebase conflict
-* UID-74 - Remove whitespace between title and option for RadioButton and Checklist widget
+* UID-74 - Whitespace between title and options is confusing on Editor and Preview for fred in RadioButton and Checklist widgets
 * UID-113 - Generated Form displayDescription Text widget doesn't honor 'interpret HTML' property
 * UID-115 - Renaming custom widget is not checked correctly
 * UID-166 - Column keys starting with number in a table widget leads to incorrect display
 * UID-217 - When editing an asset and immediately press the Supr key, the selected widget is removed
-* UID-218 - Move gitIgnore files in temporary folder to make import possible when user checkout another branch
+* UID-218 - Remove files declared in gitIgnore to avoid ghost files on user workspace
 * UID-221 - Enable page or form artifact import when reference exist in index.json metadata file
 
 #### Fixes in Bonita Runtime (including Portal)
