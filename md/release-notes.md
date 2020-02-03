@@ -129,17 +129,10 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 ### Fixes in Documentation
 
 ### Fixes in Bonita 7.10.1 (2020-02-06)
-#### Fixes in Engine component
-* BS-15956 - The CPU of the DB server spikes to 100% for 90 minutes due to Portal Admin -Start for- button
-* BS-19401 - ClassCastException when calling BDM queries that do not return BDM entities on Business Objects with an Access Control defined
-* BS-19443 - Context information missing in error message when BDM install fails because business object class already exists
-
-#### Fixes in Studio component
+#### Fixes in Bonita Development Suite (Studio and UI Designer)
 * STUDIO-3366 - NullPointerException is shown in the Studio when trying to export a project
 * STUDIO-3362 - Configure toolbar icon has disappeared in Community
-* STUDIO-3328 - Studio is out of sync when merging a rebase conflict  
-
-#### Fixes in UI Designer component
+* STUDIO-3328 - Studio is out of sync when merging a rebase conflict
 * UID-74 - Remove whitespace between title and option for RadioButton and Checklist widget
 * UID-113 - Generated Form displayDescription Text widget doesn't honor 'interpret HTML' property
 * UID-115 - Renaming custom widget is not checked correctly
@@ -148,11 +141,14 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 * UID-218 - Move gitIgnore files in temporary folder to make import possible when user checkout another branch
 * UID-221 - Enable page or form artifact import when reference exist in index.json metadata file
 
-#### Fixes in Web/Portal component
+#### Fixes in Bonita Runtime (including Portal)
+* BS-15956 - The CPU of the DB server spikes to 100% for 90 minutes due to Portal Admin -Start for- button
+* BS-19401 - ClassCastException when calling BDM queries that do not return BDM entities on Business Objects with an Access Control defined
+* BS-19443 - Context information missing in error message when BDM install fails because business object class already exists
 * BPO-73 - Documents returned by the REST API should have a valid downloadUrl
-* BPO-104 BS-19008 - CAS ticket persists in URL in portal after login
-* BPO-205 BS-19366 - Occasional 500 error when accessing BPM services page
-* BPO-256 BS-19383 - Redirection back to CAS when Authenticated CAS user not valid in Bonita tries to access Bonita
+* BPO-104 - CAS ticket persists in URL in portal after login
+* BPO-205 - Occasional 500 error when accessing BPM services page
+* BPO-256 - Redirection back to CAS when Authenticated CAS user not valid in Bonita tries to access Bonita
 * BPO-258 - Wrong spanish translation in BPM Services page
 * BPO-313 - Process instantion form URL redirection has invalid processDefinitionId parameter
 * BPO-316 - BDM and License page Access Denied when associated to custom profile menu
