@@ -299,7 +299,8 @@ please follow this procedure:
 ## Migrating to Bonita 7.9+ using Oracle
 
 Bonita 7.9+ supports Oracle 12c (12.2.x.y) version: this is a requirement change.
-The Oracle database server change needs to be done before the using the Bonita migration tool from 7.8.4 to 7.9.0.
+
+The Oracle database server change needs to be done before using the Bonita migration tool from 7.8.4 to 7.9.0.
 
 ### Migrate to 7.8.4
 
@@ -316,9 +317,9 @@ Skip this section and jump directly to **Upgrade Oracle database server** sectio
 ### Configure the Oracle database server
 
 * configure the Oracle database server, in particular activate the XA transactions management: see the *Oracle Database* section in the [Database creation and configuration for Bonita engine and BDM](database-configuration) page:
-** some Oracle component are required
-** there are sql scripts to run to *install* XA management elements
-** there are GRANT to executeContinue with the *From 7.8.4* section
+* Install the missing Oracle components
+* execute the SQL scripts to *install* XA management elements
+* execute the SQL requests to GRANT the proper rights to the Oracle user
 
 ### migrate to 7.9+
 
