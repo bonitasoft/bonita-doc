@@ -12,7 +12,7 @@ In this chapter we will focus on the creation of the Business Data Model (BDM) o
 In Bonita Studio, create a BDM:
 1. Go to **Development > Business Data Model > Define...** menu
 
-  ![Define business data model menu](images/getting-started-tutorial/define-business-data-model/define-business-data-model-menu.png)
+  ![Define business data model menu](images/getting-started-tutorial/define-business-data-model/define-business-data-model-menu.png)<!--{.img-responsive .img-thumbnail}-->
   
 1. Click on **Add** button
 1. Type the object name _Claim_ (objects name must always start with an uppercase letter)
@@ -20,9 +20,9 @@ In Bonita Studio, create a BDM:
 1. Add 3 attributes (attributes name must always start with a lowercase letter):
   1. _description_ of type _STRING_ and _mandatory_ (check the checkbox in the **mandatory** column)
   1. _answer_ of type _STRING_, _optional_
-  1. _satisfactionLevel_ of type _INTEGER_, 
+  1. _satisfactionLevel_ of type _INTEGER_, _optional_
   
-  ![Create business object with attributes](images/getting-started-tutorial/define-business-data-model/create-business-object-with-attributes.gif)
+  ![Create business object with attributes](images/getting-started-tutorial/define-business-data-model/create-business-object-with-attributes.gif)<!--{.img-responsive .img-thumbnail}-->
   
 1. Click on **Finish** button
 

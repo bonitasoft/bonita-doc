@@ -4,17 +4,17 @@ Up to this point, when you execute the process you were acting as a single user 
 
 The first step in the configuration of "who can do what" is to create lanes within our pool. We already have one default lane for the employees. Let's add another one for the customer and one for the manager:
 1. In Bonita Studio, from the palette on the left hand side of the diagram select the **lane** icon
-1. Click inside the diagram to add the lane. Do this twice to have a total of three lanes
+1. Click inside the process pool to add the lane. Do this twice to have a total of three lanes
 1. Select the employee lane and click on the down arrow icon to move it, so it is the middle lane
 
-   ![Add and organize lanes](images/getting-started-tutorial/define-who-can-do-what/add-and-organize-lanes.gif)
+   ![Add and organize lanes](images/getting-started-tutorial/define-who-can-do-what/add-and-organize-lanes.gif)<!--{.img-responsive .img-thumbnail}-->
 
 1. Select _Lane1_, go to the **General > Lane** tab, and rename it _Customer lane_
 1. Select  _Lane2_, go to the **General > Lane** tab and rename it _Manager lane_
 1. Select the start event _Submit claim_ and move it (via drag and drop) to the _Customer lane_. Do the same for the task _Read the answer and rate it_
 1. Select the _Deal with unsatisfied customer_ task and move it to the _Manager lane_. Do the same with the end event _End client unsatisfied_
 
-   ![Diagrams with lanes](images/getting-started-tutorial/define-who-can-do-what/diagrams-with-lanes.png)
+   ![Diagrams with lanes](images/getting-started-tutorial/define-who-can-do-what/diagrams-with-lanes.png)<!--{.img-responsive .img-thumbnail}-->
 
 ::: info
 A lane is used to group together user tasks that should be done by the same set of users.
@@ -28,23 +28,23 @@ Now we need to define "actors," one for each lane, and map them to the lane they
 1. Repeat to create _Manager actor_
 1. Select the _Customer actor_ and click on **Set as initiator** button. This will add a flag on this actor to mark it as the one can start the process
 
-   ![Add and rename actors, define initiator](images/getting-started-tutorial/define-who-can-do-what/add-rename-actors-set-initiator.gif)
+   ![Add and rename actors, define initiator](images/getting-started-tutorial/define-who-can-do-what/add-rename-actors-set-initiator.gif)<!--{.img-responsive .img-thumbnail}-->
 
 1. Select _Customer lane_ (click on the lane name)
 1. Go to **General > Actors** and in the drop down list, select _Customer actor_
 1. Do the same for the _Manager lane_ with the _Manager actor_
 
-   ![Map actor to lane](images/getting-started-tutorial/define-who-can-do-what/map-actor-to-lane.gif)
+   ![Map actor to lane](images/getting-started-tutorial/define-who-can-do-what/map-actor-to-lane.gif)<!--{.img-responsive .img-thumbnail}-->
 
 Actor are just identifiers. In order to define the actual user, we need to configure the actors and map them with groups, roles , users, etc of the organization. We will use the Bonita Acme test organization for this example:
-1. In the Bonita Studio tool bar, click on the **Configure** button ![Configure button icon](images/getting-started-tutorial/define-who-can-do-what/configure.png)
+1. In the Bonita Studio menu, click on the **Server > Configure** ![Configure button icon](images/getting-started-tutorial/define-who-can-do-what/configure.png)
 1. Select _Employee actor_
 1. Click on the **Groups...** button
 1. Unselect _/acme_
 1. Select _/acme/production/services_. We will use this group of users to act as support team in charge of answering claims. In the test organization, two users belong to this group: _mauro.zetticci_ and _thomas.wallis_. The manager of both users is: _michael.morrison_
 1. Click on the **Finish** button
 
-   ![Configure actor mapping for customer actor](images/getting-started-tutorial/define-who-can-do-what/configure-actor-mapping.gif)
+   ![Configure actor mapping for customer actor](images/getting-started-tutorial/define-who-can-do-what/configure-actor-mapping.gif)<!--{.img-responsive .img-thumbnail}-->
 
 1. Select **Customer actor**
 1. Click on the **Groups...** button
@@ -67,7 +67,7 @@ Currently the task _Read the answer and rate it_ is available to all users in th
 1. Set the name: _User who submit the claim_
 1. Click on the **Finish** button
 
-   ![Configure initiator actor filter on Customer lane](images/getting-started-tutorial/define-who-can-do-what/configure-initiator-actor-filter.gif)
+   ![Configure initiator actor filter on Customer lane](images/getting-started-tutorial/define-who-can-do-what/configure-initiator-actor-filter.gif)<!--{.img-responsive .img-thumbnail}-->
 
 1. Select _Manager lane_
 1. Follow the same steps but select the _user-manager_ actor filter
@@ -98,9 +98,9 @@ Currently the task _Read the answer and rate it_ is available to all users in th
 1. Click on **OK**
 1. Click on **Finish**
 
-   ![Configure user manager actor filter for manager lane](images/getting-started-tutorial/define-who-can-do-what/configure-user-manager-actor-filter.gif)
+   ![Configure user manager actor filter for manager lane](images/getting-started-tutorial/define-who-can-do-what/configure-user-manager-actor-filter.gif)<!--{.img-responsive .img-thumbnail}-->
 
 
 If you run the process again, only _walter.bates_ should have access to _Read the answer and rate it_ and only _michael.morrison_ should have access to _Deal with unsatisfied customer_ (as he is the manager of both users who can complete the task _Review and answer claim_).
 
-Now we have a fully customized process that processes data and dispatches tasks to appropriate users. The next step will be to make this process interact with the outside world.
+Now we have a fully customized process that processes data and dispatches tasks to appropriate users. The [next step](configure-email-connector.md) will be to make this process interact with the outside world.
