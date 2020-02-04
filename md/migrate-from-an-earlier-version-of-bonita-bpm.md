@@ -120,8 +120,7 @@ This section explains how to migrate a platform that uses one of the Bonita BPM 
 [BonitaSoft site](http://www.bonitasoft.com/downloads-v2) for Bonita BPM Community edition
 or from the [Customer Portal](https://customer.bonitasoft.com/download/request) for Bonita BPM Subscription Pack editions.
 1. Unzip the migration tool zip file into a directory. In the steps below, this directory is called `bonita-migration`.
-1. If you use Oracle or Microsoft SQL Server, add the JDBC driver for your database type to `bonita-migration/lib`. This is the same driver as you have installed in
-your web server `lib` directory.
+1. If you use Oracle or Microsoft SQL Server, add the JDBC driver for your database type to `bonita-migration/lib`. This is the same driver as you have installed in your web server `lib` directory. **Warning**: For Oracle, make sure you double check that you use the official driver version that match your Database version. The correct driver is mandatory for a smooth migration: [Follow instructions for Oracle driver download.](database-configuration.md#proprietary_jdbc_drivers)
 1. Configure the database properties needed by the migration script, by editing `bonita-migration/Config.properties`.
 Specify the following information:
 
