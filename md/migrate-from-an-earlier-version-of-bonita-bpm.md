@@ -304,9 +304,9 @@ The Oracle database server change needs to be done before the migration from 7.8
 *Important*: the Oracle database must be configured with XA transactions before using the script to migrate to 7.9.0. 
 :::
 
-### migrate to 7.8.4
+### Migrate to 7.8.4
 
-Skip this section and jump directly to *Upgrade Oracle database server* section if the 7.8.4 is already the version in use.
+Skip this section and jump directly to **Upgrade Oracle database server* section if the 7.8.4 is already the version in use.
 
 * shut down the Bonita platform 
 * run Bonita migration tool to update Bonita platform to version 7.8.4, following the procedure above
@@ -316,9 +316,9 @@ Skip this section and jump directly to *Upgrade Oracle database server* section 
 * shut down the Bonita platform
 * upgrade the Oracle database server to the version 12c (it must be 12.2.x.y)
 * configure the Oracle database server, in particular activate the XA transactions management: see the *Oracle Database* section in the [Database creation and configuration for Bonita engine and BDM](database-configuration) page:
- * some Oracle component are required
- * there are sql scripts to run to *install* XA management elements
- * there are GRANT to executeContinue with the *From 7.8.4* section
+** some Oracle component are required
+** there are sql scripts to run to *install* XA management elements
+** there are GRANT to executeContinue with the *From 7.8.4* section
 
 ### migrate to 7.9+
 
