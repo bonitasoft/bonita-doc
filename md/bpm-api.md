@@ -4759,8 +4759,10 @@ The methods used for this resource is:
 
 #### Send a message event
 
+* **Header**  
+  `Content-Type : application/json`
 * **URL**  
-  `/API/bpm/message/`  
+  `/API/bpm/message`
 * **Method**  
   `POST`
 * **Request Payload**  
