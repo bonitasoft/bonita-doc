@@ -321,7 +321,7 @@ Skip this section and jump directly to **Upgrade Oracle database server** sectio
 * execute the SQL scripts to *install* XA management elements
 * execute the SQL requests to GRANT the proper rights to the Oracle user
 
-### migrate to 7.9+
+### Migrate to 7.9+
 
 * shut down the Bonita platform 
 * Run the migration tool to migrate the platform to 7.9+, following the procedure above
