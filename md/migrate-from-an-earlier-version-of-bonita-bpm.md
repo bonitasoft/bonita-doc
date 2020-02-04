@@ -299,14 +299,11 @@ please follow this procedure:
 ## Migrating to Bonita 7.9+ using Oracle
 
 Bonita 7.9+ supports Oracle 12c (12.2.x.y) version: this is a requirement change.
-The Oracle database server change needs to be done before the migration from 7.8.4 to 7.9.0.
-::: info
-*Important*: the Oracle database must be configured with XA transactions before using the script to migrate to 7.9.0. 
-:::
+The Oracle database server change needs to be done before the using the Bonita migration tool from 7.8.4 to 7.9.0.
 
 ### Migrate to 7.8.4
 
-Skip this section and jump directly to **Upgrade Oracle database server* section if the 7.8.4 is already the version in use.
+Skip this section and jump directly to **Upgrade Oracle database server** section if the 7.8.4 is already the version in use.
 
 * shut down the Bonita platform 
 * run Bonita migration tool to update Bonita platform to version 7.8.4, following the procedure above
@@ -315,19 +312,15 @@ Skip this section and jump directly to **Upgrade Oracle database server* section
 
 * shut down the Bonita platform
 * upgrade the Oracle database server to the version 12c (it must be 12.2.x.y)
+
+### Configure the Oracle database server
+
 * configure the Oracle database server, in particular activate the XA transactions management: see the *Oracle Database* section in the [Database creation and configuration for Bonita engine and BDM](database-configuration) page:
 ** some Oracle component are required
 ** there are sql scripts to run to *install* XA management elements
 ** there are GRANT to executeContinue with the *From 7.8.4* section
 
 ### migrate to 7.9+
-
-::: info
-*Important*: the XA transaction must be already active on the Oracle database server see the *Oracle Database* section in the [Database creation and configuration for Bonita engine and BDM](database-configuration) page:
- * some Oracle component are required
- * there are sql scripts to run to *install* XA management elements
- * there are GRANT to executeContinue with the *From 7.8.4* section
-:::
 
 * shut down the Bonita platform 
 * Run the migration tool to migrate the platform to 7.9+, following the procedure above
