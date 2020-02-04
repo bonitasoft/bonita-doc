@@ -1,6 +1,6 @@
 # UiPath
 
-This page explains how to configure the UiPath connectors in Bonita Studio.
+This page explains how to configure the UiPath connectors in Bonita Studio. UiPath is a global software company that develops a platform for robotic process automation (RPA)
 
 ## UiPath - Add queue item
 
