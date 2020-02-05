@@ -321,11 +321,19 @@ Skip this section and jump directly to **Upgrade Oracle database server** sectio
 * execute the SQL scripts to *install* XA management elements
 * execute the SQL requests to GRANT the proper rights to the Oracle user
 
+### Check the Bonita 7.8.4 server starts with the Oracle database server 12c (12.2.0.x.y)
+
+* download and install a Bonita 7.8.4 server
+* setup the Bonita 7.8.4 server to use the Oracle 12c (12.2.0.x.y) database
+* request and install a temporary 7.8 license in the Bonita server
+* start the Bonita 7.8.4 server
+* check you can successfully log into the portal
+
 ### Migrate to 7.9+
 
 * shut down the Bonita platform 
 * run the migration tool to migrate the platform to 7.9+, following the procedure above
-* install target Tomcat application server with bonita 
+* install target application server with bonita 
 * etc.
 
 
