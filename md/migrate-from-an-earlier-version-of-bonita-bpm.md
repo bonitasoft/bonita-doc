@@ -316,10 +316,18 @@ Skip this section and jump directly to **Upgrade Oracle database server** sectio
 
 ### Configure the Oracle database server
 
-* configure the Oracle database server, in particular activate the XA transactions management: see the *Oracle Database* section in the [Database creation and configuration for Bonita engine and BDM](database-configuration) page:
+* configure the Oracle database server, in particular activate the XA transactions management: see the *Oracle Database* section in the [Database creation and configuration for Bonita engine and BDM](database-configuration) page
 * install the missing Oracle components
 * execute the SQL scripts to *install* XA management elements
 * execute the SQL requests to GRANT the proper rights to the Oracle user
+
+### Download the specific jdbc driver for the Oracle 12c (12.2.0.x.y)
+
+**Beware**: two different jdbc driver jar files may share the same name (ojdbc8.jar for example).
+
+Each file however is specific to the Oracle DB server version installed.
+Please make sure to download the appropriate one:
+* Oracle 12c : [Oracle Database 12.2.0.1 JDBC Driver & UCP Downloads](https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html)
 
 ### Check the Bonita 7.8.4 server starts with the Oracle database server 12c (12.2.0.x.y)
 
