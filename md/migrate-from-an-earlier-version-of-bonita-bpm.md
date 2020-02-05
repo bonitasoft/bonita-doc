@@ -139,7 +139,7 @@ your web server `lib` directory. **Warning**: For Oracle, make sure you double c
 1. Configure the database properties needed by the migration script, by editing `bonita-migration/Config.properties`.
 Specify the following information:
 
-   | Property       | Description                                                      | Example                                                    |
+    | Property       | Description                                                      | Example                                                    |
    |:-              |:-                                                                |:-                                                          |
    | bonita.home    | The location of the existing bonita_home. Required only until 7.3| `/opt/BPMN/bonita` (Linux) or `C:\\BPMN\\bonita` (Windows) |
    | db.vendor      | The database vendor                                              | postgres                                                   |
@@ -148,10 +148,10 @@ Specify the following information:
    | db.user        | The username used to authenticate to the database                | bonita                                                     |
    | db.password    | The password used to authenticate to the database                | bpm                                                        |
 
-::: info
-Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
-`db.url=jdbc:mysql://localhost:3306/bonita_migration?allowMultiQueries=true`.
-:::
+    ::: info
+    Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
+    `db.url=jdbc:mysql://localhost:3306/bonita_migration?allowMultiQueries=true`.
+    :::
 
 1. If you use a custom Look & Feel, [export](managing-look-feel.md) it, and then [restore the default Look & Feel](managing-look-feel.md).
 1. If you use a Business data model that require to be redeployed (see [above](#bdm_redeploy)), you can pause the tenant so that as a tenant admin, you'll be able to redeploy the BDM on a paused tenant once migration is done.  
