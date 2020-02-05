@@ -133,11 +133,12 @@ This section explains how to migrate a platform that uses one of the Bonita bund
 or from the [Customer Portal](https://customer.bonitasoft.com/download/request) for Bonita Subscription Pack editions.
 1. Check your current RDBMS version is compliant with the versions supported by the target version of Bonita (see [above](#rdbms_requirements))
 1. Unzip the migration tool zip file into a directory. In the steps below, this directory is called `bonita-migration`.
-1. If you use Oracle, add the JDBC driver for your database to `bonita-migration/lib`. This is the same driver as you have installed in your web server `lib` directory. You must upgrade to [Oracle 12c (12.2.x.y)](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12) in order to migrate to 7.9+. 
+1. If you use Oracle, and you are migrating from a version lower than 7.9.0, skip to the section [Migrating to Bonita 7.9+ using Oracle](#oracle12) below.
+If you use Oracle and are migrating from version 7.9.0 and higher, add the JDBC driver for your database to `bonita-migration/lib`. This is the same driver as you have installed in your web server `lib` directory. You must upgrade to [Oracle 12c (12.2.x.y)](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12) in order to migrate to 7.9+. 
 1. Configure the database properties needed by the migration script, by editing `bonita-migration/Config.properties`.
 Specify the following information:
 
-   | Property       | Description                                                      | Example                                                    |
+    | Property       | Description                                                      | Example                                                    |
    |:-              |:-                                                                |:-                                                          |
    | bonita.home    | The location of the existing bonita_home. Required only until 7.3| `/opt/BPMN/bonita` (Linux) or `C:\\BPMN\\bonita` (Windows) |
    | db.vendor      | The database vendor                                              | postgres                                                   |
@@ -146,11 +147,11 @@ Specify the following information:
    | db.user        | The username used to authenticate to the database                | bonita                                                     |
    | db.password    | The password used to authenticate to the database                | bpm                                                        |
 
-::: info
-Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
-`db.url=jdbc:mysql://localhost:3306/bonita_migration?allowMultiQueries=true`.  
-Also, if you are migrating to Bonita 7.9+, you must upgrade your database server to MySQL 8.0, see [Migrating to Bonita 7.9+ using MySQL](#mysql8) specific procedure below.
-:::
+    ::: info
+    Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
+    `db.url=jdbc:mysql://localhost:3306/bonita_migration?allowMultiQueries=true`.  
+    Also, if you are migrating to Bonita 7.9+, you must upgrade your database server to MySQL 8.0, see [Migrating to Bonita 7.9+ using MySQL](#mysql8) specific procedure below.
+    :::
 
 1. If you use a custom Look & Feel, [export](managing-look-feel.md) it, and then [restore the default Look & Feel](managing-look-feel.md).
 1. If you use a Business data model that requires to be redeployed (see [above](#bdm_redeploy)), you can pause the tenant so that as a tenant admin, you'll be able to redeploy the BDM on a paused tenant once migration is done.  
@@ -307,7 +308,7 @@ The Oracle database server change needs to be done before using the Bonita migra
 Skip this section and jump directly to **Upgrade Oracle database server** section if the 7.8.4 is already the version in use.
 
 * shut down the Bonita platform 
-* run Bonita migration tool to update Bonita platform to version 7.8.4, following the procedure above
+* run Bonita migration tool to update Bonita platform to version 7.8.4, following the migration procedure [above](#migrate)
 
 ### Upgrade Oracle database server
 
@@ -340,9 +341,7 @@ Please make sure to download the appropriate one:
 ### Migrate to 7.9+
 
 * shut down the Bonita platform 
-* run the migration tool to migrate the platform to 7.9+, following the procedure above
-* install target application server with bonita 
-* etc.
+* run the migration tool to migrate the platform to 7.9+, following the migration procedure [above](#migrate)
 
 
 ## Migrate your cluster
