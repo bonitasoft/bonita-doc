@@ -312,7 +312,7 @@ Skip this section and jump directly to **Upgrade Oracle database server** sectio
 ### Upgrade Oracle database server
 
 * shut down the Bonita platform
-* upgrade the Oracle database server to the version 12c (it must be 12.2.x.y)
+* upgrade the Oracle database server to the version 12c (it must be 12.2.0.x.y)
 
 ### Configure the Oracle database server
 
