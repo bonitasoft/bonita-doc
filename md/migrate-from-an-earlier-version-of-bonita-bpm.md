@@ -298,7 +298,7 @@ please follow this procedure:
 
 ## Migrating to Bonita 7.9+ using Oracle
 
-Bonita 7.9+ supports Oracle 12c (12.2.x.y) version: this is a requirement change.
+Bonita 7.9+ supports Oracle 12c (12.2.0.x.y) version: this is a requirement change.
 
 The Oracle database server change needs to be done before using the Bonita migration tool from 7.8.4 to 7.9.0.
 
