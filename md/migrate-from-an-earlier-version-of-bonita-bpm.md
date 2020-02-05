@@ -317,14 +317,14 @@ Skip this section and jump directly to **Upgrade Oracle database server** sectio
 ### Configure the Oracle database server
 
 * configure the Oracle database server, in particular activate the XA transactions management: see the *Oracle Database* section in the [Database creation and configuration for Bonita engine and BDM](database-configuration) page:
-* Install the missing Oracle components
+* install the missing Oracle components
 * execute the SQL scripts to *install* XA management elements
 * execute the SQL requests to GRANT the proper rights to the Oracle user
 
 ### Migrate to 7.9+
 
 * shut down the Bonita platform 
-* Run the migration tool to migrate the platform to 7.9+, following the procedure above
+* run the migration tool to migrate the platform to 7.9+, following the procedure above
 * install target Tomcat application server with bonita 
 * etc.
 
