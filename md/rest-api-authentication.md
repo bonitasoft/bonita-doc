@@ -26,7 +26,7 @@ This security relies on `X-Bonita-API-Token` information. The `X-Bonita-API-Toke
 ### Example using Curl
 #### Login
     $ curl -v -c saved_cookies.txt -X POST --url 'http://localhost:8080/bonita/loginservice' \
-    --header 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' -O /dev/null \
+    --header 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' -o /dev/null \
     -d 'username=walter.bates&password=bpm&redirect=false&redirectURL='
 
 The above `curl` command saved the cookies on the disk, in the `saved_cookies.txt` file.
