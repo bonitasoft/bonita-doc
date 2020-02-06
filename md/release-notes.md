@@ -126,7 +126,38 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 
 ## Bug fixes
 
-### Fixes in Documentation  
+### Fixes in Documentation
+
+### Fixes in Bonita 7.10.1 (2020-02-06)
+#### Fixes in Bonita Development Suite (Studio and UI Designer)
+* STUDIO-3328 - Studio is out of sync when merging a rebase conflict
+* STUDIO-3362 - Configure toolbar icon has disappeared in Community
+* STUDIO-3366 - NullPointerException is shown in the Studio when trying to export a project
+* UID-74 - Whitespace between title and options is confusing on Editor and Preview for fred in RadioButton and Checklist widgets
+* UID-113 - Generated Form displayDescription Text widget doesn't honor 'interpret HTML' property
+* UID-115 - Renaming custom widget is not checked correctly
+* UID-166 - Column keys starting with number in a table widget leads to incorrect display
+* UID-217 - When editing an asset and immediately press the Supr key, the selected widget is removed
+* UID-218 - Remove files declared in gitIgnore to avoid ghost files on user workspace
+* UID-221 - Enable page or form artifact import when reference exist in index.json metadata file
+
+#### Fixes in Bonita Runtime (including Portal)
+* BS-15956 - The CPU of the DB server spikes to 100% for 90 minutes due to Portal Admin -Start for- button
+* BS-19401 - ClassCastException when calling BDM queries that do not return BDM entities on Business Objects with an Access Control defined
+* BS-19443 - Context information missing in error message when BDM install fails because business object class already exists
+* BPO-73 - Documents returned by the REST API should have a valid downloadUrl
+* BPO-104 - CAS ticket persists in URL in portal after login
+* BPO-205 - Occasional 500 error when accessing BPM services page
+* BPO-256 - Redirection back to CAS when Authenticated CAS user not valid in Bonita tries to access Bonita
+* BPO-258 - Wrong spanish translation in BPM Services page
+* BPO-313 - Process instantion form URL redirection has invalid processDefinitionId parameter
+* BPO-316 - BDM and License page Access Denied when associated to custom profile menu
+* BPO-337 - Translation errors in french in applications pop-up window
+* BPO-341 - Default case overview form leads to error 500 when trying to access archived process instance document
+* BPO-358 - TaskPermissionRule : Process manager cannot list the tasks with f=parentCaseId with Dynamic authorization checking enable
+* BPO-373 - Error message shown with Broken characters when trying to create an existing user in the Portal
+* BPO-374 - When using the process list in an app, the app theme is not applied to the instantiation form
+* BPO-376 - Guest user access doesn't work with CAS Authentication
 
 ### Fixes in Bonita 7.10.0 (2019-12-05)   
 
