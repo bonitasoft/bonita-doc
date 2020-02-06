@@ -6,6 +6,12 @@ All changes in the Migration Tool are logged: from the version that was delivere
 This is due to the fact that improvements in any version of the Migration Tool can affect all supported versions of Bonita.
 This changelog must be read before [migrating to a newer version of Bonita](migrate-from-an-earlier-version-of-bonita-bpm.md).
 
+## 2.47.0 - February 06th, 2020 (Bonita 7.10.1)
+
+This version of the migration tool migrates Bonita up to version 7.10.1
+
+* No bug fix.
+
 ## 2.46.1 - December 19th, 2019 (Bonita 7.10.0)
 This version of the migration tool migrates Bonita up to version 7.10.0.
 * Restore the possibility to migrate to version 7.9.4 (erroneously removed)
