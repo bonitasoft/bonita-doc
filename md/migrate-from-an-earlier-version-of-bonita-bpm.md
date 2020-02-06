@@ -133,9 +133,11 @@ This section explains how to migrate a platform that uses one of the Bonita bund
 or from the [Customer Portal](https://customer.bonitasoft.com/download/request) for Bonita Subscription Pack editions.
 1. Check your current RDBMS version is compliant with the versions supported by the target version of Bonita (see [above](#rdbms_requirements))
 1. Unzip the migration tool zip file into a directory. In the steps below, this directory is called `bonita-migration`.
-1. If you use Oracle, and you are migrating from a version lower than 7.9.0, you must upgrade to [Oracle 12c (12.2.x.y)](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12) in order to migrate to 7.9+...
-Please skip to the section [Migrating to Bonita 7.9+ using Oracle](#oracle12) below... 
-If you use Oracle and are migrating from version 7.9.0 and higher, add the JDBC driver for your database to `bonita-migration/lib`. This is the same driver as you have installed in your web server `lib` directory.  
+1. If you use Oracle, and you are migrating from a version lower than 7.9.0, you must upgrade to [Oracle 12c (12.2.x.y)](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12) in order to migrate to 7.9+.
+
+    Please skip to the section [Migrating to Bonita 7.9+ using Oracle](#oracle12) below.
+
+    If you use Oracle and are migrating from version 7.9.0 and higher, add the JDBC driver for your database to `bonita-migration/lib`. This is the same driver as you have installed in your web server `lib` directory.  
 1. Configure the database properties needed by the migration script, by editing `bonita-migration/Config.properties`.
 Specify the following information:
 
