@@ -46,7 +46,7 @@ Bonita provides out of the box the Jdbc drivers for H2, PostgreSQL, Microsoft SQ
 
 #### Oracle Database
 
-*Warning*: Bonita 7.9.+ is compatible with Oracle 12.2.0.x only. Make sure you use the driver that works with your Oracle database version, make sure you check your driver's Checksum. 
+*Warning*: Bonita 7.9.+ is compatible with Oracle 12.2.0.x only. This includes, in the new Oracle versioning, Oracle 19c (19.3). Make sure you use the driver that works with your Oracle database version, make sure you check your driver's Checksum. 
 Download the driver compatible with Oracle 12.2.0.1: [ojdbc8.jar](https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html) ( make sure it is the offical driver by checking the SHA1 Checksum: 60f439fd01536508df32658d0a416c49ac6f07fb )
 
 <a id="database_creation" />
@@ -110,13 +110,13 @@ It is assumed in the procedure that:
    * A database already exists
    * The environment is already set:
 ```
-  ORACLE_HOME=/u01/app/oracle/product/12.2.0/dbhome_1
+  ORACLE_HOME=/u01/app/oracle/product/19.3.0/dbhome_1
   ORACLE_SID=...
 ```
 
 1. Connect to the database as the System Administrator.
    ```bash
-   oracle@ubuntu:~$ sqlplus / as sysdba
+   oracle@ubuntu:~$ sqlplus sys@ORCLPDB1 as sysdba;
    ```
 
 2. Check that the following components exist and are valid:  
@@ -127,26 +127,13 @@ It is assumed in the procedure that:
 
    | Comp\_name | Version | Status |
    |:-|:-|:-|
-   | Oracle Database Catalog Views | 12.2.0.1.0 | VALID |
-   | Oracle Database Packages and Types | 12.2.0.1.0 | VALID |
-   | JServer JAVA Virtual Machine | 12.2.0.1.0 | VALID |
-   | Oracle XDK | 12.2.0.1.0 | VALID |
-   | Oracle Database Java Packages | 12.2.0.1.0 | VALID |
+   | Oracle Database Catalog Views | 19.0.0.0.0 | VALID |
+   | Oracle Database Packages and Types | 19.0.0.0.0 | VALID |
+   | JServer JAVA Virtual Machine | 19.0.0.0.0 | VALID |
+   | Oracle XDK | 19.0.0.0.0 | VALID |
+   | Oracle Database Java Packages | 19.0.0.0.0 | VALID |
 
-3. Add XA elements:
-
-   SQL query \>
-   ```sql
-   @/u01/app/oracle/product/12.2.0/dbhome_1/javavm/install/initxa.sql
-   ```
-   This only needs to be done once, after the installation of Oracle.
-
-4. Create the database user to be used by the Bonita Engine and grant the required rights:
-
-   SQL query \>
-   ```sql
-   @/u01/app/oracle/product/12.2.0/dbhome_1/rdbms/admin/xaview.sql
-   ```
+3. Create the database user to be used by the Bonita Engine and grant the required rights:
    The following queries must be done for each new user: i.e. one user = one database schema.
 
    SQL query \>
