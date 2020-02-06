@@ -58,11 +58,11 @@ Bonita provides out of the box the Jdbc drivers for H2, PostgreSQL and MySQL. Fo
 
 #### Oracle Database
 
-* For Oracle 11.2.0.x, download [ojdbc6.jar](http://www.oracle.com/technetwork/apps-tech/jdbc-112010-090769.html)
-
-* For Oracle 12.1.0.1, download [ojdbc7.jar](https://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html)
-
-* For Oracle 12.1.0.2, download [ojdbc7.jar](http://www.oracle.com/technetwork/database/features/jdbc/default-2280470.html)
+*Warning*: Oracle drivers have the same name but are different from one version to the other. Make sure you use the one that works with your Oracle Database version. 
+* For Oracle *12.1.0.2*, download [ojdbc7.jar](https://www.oracle.com/database/technologies/jdbc-upc-downloads.html)( make sure it is the offical driver by checking the SHA1 Checksum: 7c9b5984b2c1e32e7c8cf3331df77f31e89e24c2 )
+* For Oracle *12.1.0.1*, download [ojdbc7.jar](https://www.oracle.com/database/technologies/jdbc-drivers-12c-downloads.html) ( make sure it is the offical driver by checking the SHA1 Checksum: a2348e4944956fac05235f7cd5d30bf872afb157 )
+* For Oracle 11.2.0.x, download [ojdbc6.jar](https://www.oracle.com/database/technologies/jdbcdriver-ucp-downloads.html) ( make sure it is the offical driver by checking the SHA1 Checksum: a483a046eee2f404d864a6ff5b09dc0e1be3fe6c )
+* Here is the list of all [jdbc-downloads] (https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html)
 
 
 <a id="database_creation" />
