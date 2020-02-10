@@ -74,7 +74,9 @@ As a PDF file thanks to the ![pdf export button](images/doc-generation/pdfIcon.p
  
 ### Export as HTML
 
-To generate an HTML output from an asciidoc document you can use many tools. The most straightforward way is to install asciidoctor command line interface like explained in the [official documentation](https://asciidoctor.org/docs/install-toolchain/).
+As a HTML document thanks to the ![Open in external browser](images/doc-generation/previewHTML.png) button.
+
+If you need to industrialize the HTML generation you can use many tools. The most straightforward way is to install asciidoctor command line interface like explained in the [official documentation](https://asciidoctor.org/docs/install-toolchain/).
 
 Then follow the instructions of the [official documentation](https://asciidoctor.org/docs/user-manual/#html) for more information to generate a `.html` file from an `.adoc` file. The `.html` file needs the `documentation` folder to be at the same level to properly display the images assets.
 
