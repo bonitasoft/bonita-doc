@@ -125,13 +125,6 @@ To [create a new Look & Feel](creating-a-new-look-feel.md), provide CSS and reso
 Bonita Portal comes with a number of language packs by default. You can also [add languages](languages.md). 
 It is also possible to use this same mechanism to customize the portal terminology to your business environment. For example, an e-commerce business could change _Cases_ to _Orders_.
 
-### Custom data types
-
-A [custom data type](create-a-complex-data-type.md) is a Java object (.jar file) or an XML definition (.xsd file) of a data structure. 
-You can create a custom data type and use it to define a process variable if the standard data types are not suitable for your process. 
-Note that although the custom data type framework provided in the product is stable, we cannot guarantee that all custom data types will work with future versions, because this depends on the details of how the data type is implemented.  
-From version 7.0, we **strongly recommend** to use the [Business Data capabilities](define-and-deploy-the-bdm.md) instead of custom data types.  
-
 ## Unstable extension points
 
 The following elements may be used as extension points but there is no guarantee of stability across versions. No changes are planned, but we reserve the right to change make incompatible changes in any future version.
