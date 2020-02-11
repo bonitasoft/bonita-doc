@@ -273,7 +273,7 @@
     * [Set up continuous integration](set-up-continuous-integration.md)
 * [Collaboration](_collaboration.md)
   * [Project documentation generation](project-documentation-generation.md)
-  * [Using a shared project](Shared-project.md)
+  * [Using a shared project](shared-project.md)
 * [Howtos](_howtos.md)
   * [Create a modal window using CSS](uid-modal-tutorial.md)
   * [Create a case overview page using the UI Designer](uid-case-overview-tutorial.md)
