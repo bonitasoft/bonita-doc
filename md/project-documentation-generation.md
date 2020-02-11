@@ -30,9 +30,25 @@ It will trigger the documentation generation based on the default templates.
 The following artifacts will be created in the project's root folder:  
 * `README.adoc` file in the project root folder. It is the generated documentation in asciidoc format. Double click on it to edit with the Studio's asciidoc editor or just to view it.
 * A `documentation` folder containing the sources for the documentation:  
-	* `.plantuml` files: UML diagrams  
 	* `images` folder: all the images used in the documentation  
+	* `plantuml` folder: Contains `.plantuml` files, those files are transformed into `svg` images at generation.
 	* `static` folder: to store static documents that can be imported in the documentation.  
+	
+### Plantuml and Graphviz dependency
+
+In order to generate BDM class diagram or Organization group hierarchy diagram it is required to install [Graphviz](https://graphviz.org/download/) on your computer.  
+
+* On Windows: Download [msi installer](https://graphviz.gitlab.io/_pages/Download/windows/graphviz-2.38.msi) and install it in the default folder. If you want to change the default folder, you'll need to configure the location in the Studio (Preferences > Eclipse > Plantuml > Path the dot executable of Graphviz).
+* On Ubuntu: `sudo apt-get install graphviz`
+* On MacOs:
+```shell
+brew install libtool
+brew link libtool
+brew install graphviz
+brew link --overwrite graphviz
+```
+
+Once installed, it is possible to create your own [plantuml](https://plantuml.com/) diagrams and integrate them in the documentation using template customization.
 
 ## Customizing the documentation
 
