@@ -146,7 +146,7 @@ In practice, it means that if your process has been designed prior to Bonita 7.3
 * If your process has been designed in Bonita 7.4, 7.5 or 7.6, the behavior of your process will not change. You will however have now access to a new API method upon migration, which will open new possibilities.
 
 ### Deprecated Workspace API
-The Workspace API tooling (headless studio build) has been deprecated. You are recommended to use the *LA builder* which is part of the tooling suite of [Bonita Continuous Delivery add-on](https://documentation.bonitasoft.com/bcd/2.0/).
+The Workspace API tooling (headless studio build) has been deprecated. You are recommended to use the *bcd build* command which is part of the tooling suite of [Bonita Continuous Delivery add-on](https://documentation.bonitasoft.com/bcd/latest/).
 
 ### Business Archive (\*.bar) content updated
 In order to build business archives without having a constraint on a GUI, the process _png_ file is not embedded in the archive resources anymore.
