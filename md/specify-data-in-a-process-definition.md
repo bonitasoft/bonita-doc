@@ -105,7 +105,7 @@ Note: if you add Business data, only add it at the pool/lane level. See this tut
 
 ### Define a Java object variable
 
-You can define a variable whose data type is Java object.  
+You can define a variable whose data type is Java or Groovy object.  
 
 To add a Java object variable:
 
@@ -116,7 +116,7 @@ To add a Java object variable:
 5. Specify a name for the variable. The name must be unique within the scope of the variable. For easier process maintenance, it is a good idea to make all variable names unique within the process, even though this is not strictly necessary for variables defined in a step.
 6. Optionally, add a description of the variable.
 7. Select Java Object from the drop down list of data types.
-8. Specify the class that defines the Java object.
+8. Specify the class that defines the Java object. The selected class must implements _java.io.Serializable_.
 9. Optionally, set a default value. You can use the expression editor to set the value, or type directly in the field.
 10. To define the variable as multiple, check the box.
 11. To define the variable as transient, check the box. This option is not available for process-level variables.
