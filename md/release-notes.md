@@ -49,6 +49,6 @@ An example of `PageController` migration is available in the [bonita-distrib git
 
 ## Development suite changes
 
-### Custom datatypes generation have been removed
+### Complex data-types generation have been removed
 
-This feature was used to generate Java POJOs and XSD in Subscription editions. It is recommend to add your own Java model as jar file in the project classpath.
+This feature was used to generate Java POJOs and XSD in Subscription editions. It is recommend to add your own Java model as jar file in the project classpath or create your [data model using Groovy objects](groovy-in-bonita.md#create-data-model).
