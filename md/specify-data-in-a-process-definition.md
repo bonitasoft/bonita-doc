@@ -12,7 +12,6 @@ You can define a variable at process, task, or form level:
 
 See also:  
 [Data types and defining a variable](data-handling-overview.md)  
-[Complex data types](create-a-complex-data-type.md)  
 [Data handling in a form](variables.md)  
 
   ![Scope of variables](images/images-6_0/variables_scope.png)
@@ -74,8 +73,6 @@ Bonita has a number of predefined data types: Boolean, date, integer, long, doub
 
 Note that since 7.0, Business data is now available. For a detailed explanation, see the [Business Data overview](define-and-deploy-the-bdm.md).
 
-You can also define additional [complex data types](create-a-complex-data-type.md) as Java objects or as XML objects.
-
 <a id="variable_naming"/>
 
 ### Variable naming
@@ -108,7 +105,7 @@ Note: if you add Business data, only add it at the pool/lane level. See this tut
 
 ### Define a Java object variable
 
-You can define a variable whose data type is Java object. Before you define the variable, you must [create the data type definition](create-a-complex-data-type.md).
+You can define a variable whose data type is Java or Groovy object.  
 
 To add a Java object variable:
 
@@ -119,7 +116,7 @@ To add a Java object variable:
 5. Specify a name for the variable. The name must be unique within the scope of the variable. For easier process maintenance, it is a good idea to make all variable names unique within the process, even though this is not strictly necessary for variables defined in a step.
 6. Optionally, add a description of the variable.
 7. Select Java Object from the drop down list of data types.
-8. Specify the class that defines the Java object.
+8. Specify the class that defines the Java object. The selected class must implements _java.io.Serializable_.
 9. Optionally, set a default value. You can use the expression editor to set the value, or type directly in the field.
 10. To define the variable as multiple, check the box.
 11. To define the variable as transient, check the box. This option is not available for process-level variables.
@@ -133,7 +130,6 @@ When you configure the process, add the JAR file that contains the data type def
 ### Define an XML variable
 
 An XML variable has a data type that is defined by an XML schema file.   
-Before you define the variable, you must [create the XML schema](create-a-complex-data-type.md) that contains the data type definition.  
 The data type definition is stored in an XML schema (XSD) file that belongs to a namespace.
 
 To add an XML variable:

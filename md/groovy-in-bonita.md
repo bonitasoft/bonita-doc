@@ -353,6 +353,31 @@ def customInfo1Value = apiAccessor.identityAPI
                  ?.getValue()
 ```
 
+<a id="create-data-model" />
+
+### Create a data model
+
+An advantage of Groovy over Java when implementing a data model is that accessor's methods are not required. In addition, it is possible to use annotations like [@Canonical](http://docs.groovy-lang.org/2.4.16/html/gapi/groovy/transform/Canonical.html) to generate _toString_, _equals_ and _hashCode_ methods.
+
+To create a Groovy class, right click on your project, New > Groovy...
+
+```groovy
+package org.company.model
+
+import groovy.transform.Canonical
+
+@Canonical
+class Customer implements Serializable{
+
+    String firstName
+    String lastName
+    LocalDate birthDate
+
+}
+```
+
+This object can then be used as a process variable type for example.
+
 
 ## References
 
