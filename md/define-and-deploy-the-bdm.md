@@ -1,3 +1,4 @@
+
 # Define and deploy the Business Data Model (BDM)
 
 This page explains how to define, deploy, export and import Business Data Model (BDM) and how these objects can be used in processes.
@@ -198,40 +199,31 @@ To modify a new or existing object:
 1. Select the object in the **List of Business Objects**. The details are displayed on the right-hand side of the popup.
 2. The package of the object can be modified by clicking on _Change package_ or by using drag and drop.
 3. Enter a description for the object. This is optional, but recommended for maintenance and for communicating with other developers using the same BDM, as well as business users.
-4. In the **Attributes** tab, specify the attributes of the object. For each attribute:
+4. In the **Attributes** section, specify the attributes of the object. For each attribute:
    1. Specify a name. This must be unique within the object, and start with a lower-case letter.
    2. Specify the type, by clicking on the exiting type and choosing the new type from the drop-down list.
    3. If the attribute is multi-valued, check the box in the **Multiple** column.
    4. If the attribute is mandatory, check the box in the **Mandatory** column.
    5. If the attribute is of type String, set the attribute length in the field below the attribute list.
    6. If the attribute is of type of a BDM object, set type the **Relationship** (Aggregation or Composition) and the loading configuration (for `lazy`, select
-    `Only load related objects when needed`, for `eager`, select `Always load related objects`)  
-
-![BDM model relationship](images/studio_bdm_relationship.png)
-
-
-4. In the **Unique constraints** tab, specify the attributes and sets of attributes that have a uniqueness constraint.
+    `Only load related objects when needed`, for `eager`, select `Always load related objects`)
+5. In the **Unique constraints** tab, specify the attributes and sets of attributes that have a uniqueness constraint.
    1. Click **_Add_** to add a constraint. The constraint is added to the list with a temporary name.
    2. Click the name of the new constraint to select it, and specify the name you want to use by typing over the temporary name.
-   3. Click in the **Attribute** column of the constraint, and click the icon at the right end of the file to open the **Select attributes** popup.
-   4. In the popup, check the boxes to select the combination of attributes that must be unique. You can specify a single attribute or a set.
-   5. Click **_OK_** to close the popup. The attributes are shown in the constraints list.
-5. In the **Queries** tab, you can view the default queries and manage custom queries. To add a custom query:
-   1. Click the **Custom** radio button.
-   2. Click **_Add_** to add a constraint. The query is added to the list with a temporary name.
-   3. Click the name of the new query to select it, and specify the name you want to use by typing over the temporary name.
-   4. Click in the **Query** column, and click the icon at the right end of the file to open the **Create query** popup.
-   5. In the popup, specify the query in JPQL. All the parameters used in the query must be specified in the list.
-   6. Select the result type from the drop-down list.
-   7. Click **_OK_** to close the popup. The query is saved.
-6. In the **Indexes** tab, specify the indexes for the object.
+   3. Select the constraint and check the boxes on the attributes section to select the combination of attributes that must be unique. You can specify a single attribute or a set.
+6. In the **Queries** tab, you can view the default queries and manage custom queries. To add a custom query:
+   1. Click **_Add_** to add a custom query. The query is added to the list with a temporary name.
+   2. Click the name of the new query to select it, and specify the name you want to use by typing over the temporary name.
+   3. Select the **Query** to display the query content section (only editable for custom queries).
+   4. Specify the query in JPQL. All the parameters used in the query must be specified in the list.
+   5. Select the result type from the drop-down list.
+7. In the **Indexes** tab, specify the indexes for the object.
    1. Click **_Add_** to add an index. The index is added to the list with a temporary name.
    2. Click the name of the new index to select it, and specify the name you want to use by typing over the temporary name.
-   3. Click in the **Attribute** column of the index, and click the icon at the right end of the file to open the **Select attributes** popup.
-   4. In the popup, specify the attributes that you want indexed. To specify an attribute to index, select the attribute in the **Available attributes** list and click **_Add_**.
-   5. Use the **_Add_**, **_Remove_**, **_Up_** and **_Down_** buttons to specify the index attributes in order.
-7. Click **_OK_** to close the popup. The index is saved.
-8. Click **_Finish_** to save the business data model, which saves all the objects and create BDM database structure. A confirmation dialog will ask to optionally reset BDM database. Reset database is required when changes impact the mandatory or multiple setting for an attribute, a unique constraint, or when a non primitive attribute type is modified.
+   3. Select the index to display the **attributes** section.
+   4. Specify the attributes that you want indexed. To specify an attribute to index, move it from the **available attributes** table to the **indexed attributes** table using Drag and Drop.
+   5. Use Drag and Drop in the **index attributes** table to specify the order of the index attributes.
+8. Save your Business Data Model using **CTRL + S** or the save button in the Coolbar. Use the **Deploy button** to deploy your BDM. It creates the BDM database structure. To **reset the database**, use the **Clean Deploy** button. Reset database is required when changes impact the mandatory or multiple setting for an attribute, a unique constraint, or when a non primitive attribute type is modified.
 
 ::: info
 **Note**: for subscription editions only.
