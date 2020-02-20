@@ -50,7 +50,7 @@ ProcessBuilder and Business Objects DAO are examples of APIs that can be leverag
 In Community, Teamwork, Efficiency, Performance and Enterprise editions
 
 The [REST APIs](rest-api-overview.md) enable you to integrate your Bonita processes into your application and execute operations on Bonita objects including business objects. 
-Pages and forms created with the UI designer reply on the REST APIs to manage data.
+Pages and forms created with the UI designer rely on the REST APIs to manage data.
 
 In addition to the standard APIs and resources, you can define [REST API extensions](rest-api-extensions.md). 
 In the Bonita subscription edition, Bonita Studio contains [tooling for creating, testing, and deploying REST API extensions](rest-api-extensions.md).
