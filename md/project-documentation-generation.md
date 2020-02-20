@@ -34,7 +34,7 @@ The following artifacts will be created in the project's root folder:
 	* `plantuml` folder: Contains `.plantuml` files, those files are transformed into `svg` images at generation.
 	* `static` folder: to store static documents that can be imported in the documentation.  
 	
-### Plantuml and Graphviz dependency
+## Including the BDM class diagram
 
 In order to generate BDM class diagram or Organization group hierarchy diagram it is required to install [Graphviz](https://graphviz.org/download/) on your computer.  
 
