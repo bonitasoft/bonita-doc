@@ -109,6 +109,7 @@
     * [Configure a process](configuring-a-process.md)
     * [Manage JAR files](manage-jar-files.md)
     * [Manage dependencies](managing-dependencies.md)
+    * [Additional resources](additional-resources.md)
   * [Process testing](_process-testing.md)
     * [Process testing overview](process-testing-overview.md)
     * [Configure a test organization](configure-a-test-organization.md)
