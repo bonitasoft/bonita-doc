@@ -1,6 +1,6 @@
 # Additional resources
 Additional resources can be added to a process.  
-Those resources are added in the .bar file at build time, and are available at runtime.
+Those resources are embedded in the .bar file at build time, and are available at runtime.
 
 ## Overview
 
