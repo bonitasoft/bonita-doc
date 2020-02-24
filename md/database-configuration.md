@@ -46,8 +46,9 @@ Bonita provides out of the box the Jdbc drivers for H2, PostgreSQL, Microsoft SQ
 
 #### Oracle Database
 
-*Warning*: Bonita 7.9.+ is compatible with Oracle 12.2.0.x only. This includes, in the new Oracle versioning, Oracle 19c (19.3). Make sure you use the driver that works with your Oracle database version, make sure you check your driver's Checksum. 
-Download the driver compatible with Oracle 12.2.0.1: [ojdbc8.jar](https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html) ( make sure it is the offical driver by checking the SHA1 Checksum: 60f439fd01536508df32658d0a416c49ac6f07fb )
+*Warning*: Bonita 7.9.+ is compatible with Oracle 12.2.0.x and Oracle 19c (19.3.0.0). Make sure you use the driver that works with your Oracle database version, make sure you check your driver's Checksum. 
+The driver compatible with Oracle 12.2.0.x can be found here: [ojdbc8.jar](https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html) ( make sure it is the offical driver by checking the SHA1 Checksum: 60f439fd01536508df32658d0a416c49ac6f07fb )
+The driver compatible with Oracle 19.3.0 can be found here: [ojdbc8.jar](https://www.oracle.com/database/technologies/appdev/jdbc-ucp-19c-downloads.html)
 
 <a id="database_creation" />
 
@@ -100,7 +101,69 @@ If your database already exists, see the Oracle documentation for details of how
 
 Bonita Engine uses datasources that handle global transactions that span resources (XADataSource), so the Oracle user used by Bonita Engine, requires some specific privileges, and there are also specific settings for XA activation.
 
-##### **Important information for a successful connection**
+#####  Oracle 12c
+
+The procedure below is used to create the settings to enable Bonita Engine to connect to the Oracle database.
+
+It is assumed in the procedure that:
+   * Oracle product is already installed and running
+   * An 'Oracle' OS user is already created
+   * A database already exists
+   * The environment is already set:
+```
+  ORACLE_HOME=/u01/app/oracle/product/12.2.0/dbhome_1
+  ORACLE_SID=...
+```
+
+1. Connect to the database as the System Administrator.
+   ```bash
+   oracle@ubuntu:~$ sqlplus / as sysdba
+   ```
+
+2. Check that the following components exist and are valid:  
+   SQL query \>  
+   ```sql
+   select comp_name, version, status from dba_registry;
+   ```
+
+   | Comp\_name | Version | Status |
+   |:-|:-|:-|
+   | Oracle Database Catalog Views | 12.2.0.1.0 | VALID |
+   | Oracle Database Packages and Types | 12.2.0.1.0 | VALID |
+   | JServer JAVA Virtual Machine | 12.2.0.1.0 | VALID |
+   | Oracle XDK | 12.2.0.1.0 | VALID |
+   | Oracle Database Java Packages | 12.2.0.1.0 | VALID |
+
+3. Add XA elements:
+
+   SQL query \>
+   ```sql
+   @/u01/app/oracle/product/12.2.0/dbhome_1/javavm/install/initxa.sql
+   ```
+   This only needs to be done once, after the installation of Oracle.
+
+4. Create the database user to be used by the Bonita Engine and grant the required rights:
+
+   SQL query \>
+   ```sql
+   @/u01/app/oracle/product/12.2.0/dbhome_1/rdbms/admin/xaview.sql
+   ```
+   The following queries must be done for each new user: i.e. one user = one database schema.
+
+   SQL query \>
+   ```sql
+   CREATE USER bonita IDENTIFIED BY bonita;
+   GRANT connect, resource TO bonita IDENTIFIED BY bonita;
+   GRANT select ON sys.dba_pending_transactions TO bonita;
+   GRANT select ON sys.pending_trans$ TO bonita;
+   GRANT select ON sys.dba_2pc_pending TO bonita;
+   GRANT execute ON sys.dbms_system TO bonita;
+   GRANT execute ON sys.dbms_xa TO bonita;
+   GRANT FORCE ANY TRANSACTION TO bonita;
+   ALTER USER bonita quota unlimited on users;
+   ```
+
+#####  Oracle 19c
 
 The procedure below is used to create the settings to enable Bonita Engine to connect to the Oracle database.
 
@@ -133,7 +196,13 @@ It is assumed in the procedure that:
    | Oracle XDK | 19.0.0.0.0 | VALID |
    | Oracle Database Java Packages | 19.0.0.0.0 | VALID |
 
-3. Create the database user to be used by the Bonita Engine and grant the required rights:
+3. Add XA elements:
+    ```
+    sql
+    @"$ORACLE_HOME/rdbms/admin/xaview.sql"
+    ```
+
+4. Create the database user to be used by the Bonita Engine and grant the required rights:
    The following queries must be done for each new user: i.e. one user = one database schema.
 
    SQL query \>
