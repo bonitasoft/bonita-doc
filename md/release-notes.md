@@ -4,6 +4,11 @@
 **Note:** The 7.11 is currently work in progress (WIP). The 7.11.0 GA is planned on June 2019.
 :::
 
+## New values added
+
+### Additional resources
+Processes can now use additional resources. More details [here](additional-resources.md).
+
 
 ## Runtime changes
 
