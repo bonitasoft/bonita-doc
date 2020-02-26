@@ -255,8 +255,9 @@ The query can be either a default or a custom query.
   * q=queryName - the query name
   * p=0 - the page number
   * c=10 - the maximum number of results in the page
-  * f=parameter=value - sets the parameter value according to business data query parameters defined in Bonita Studio
-  For a Boolean parameter, the accepted values are `true` or `false`.
+  * f=parameter=value - sets the parameter value according to business data query parameters defined in the Business Data Model  
+    * For a _Boolean_ parameter, the accepted values are `true` or `false`.
+    * For _Array_ parameters (_String[]_,_Long[]_...), the values must be separated by `,`. For _String[]_, values should be quoted and url encoded. Eg: `f=param='value%20with%20space','value2'...`
 
   By default, for a Date parameter can use the following formats:
 
