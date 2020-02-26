@@ -1,4 +1,4 @@
-# Bonita-ui-designer dependencies 7.10
+# Bonita-portal-js dependencies 7.10
 
 
 List all dependencies uses for Bonita portal-js
@@ -45,6 +45,4 @@ moment | 2.8.4 | MIT*
 ng-sortable | 1.3.1 | MIT
 ngToast | 1.5.6 | MIT
 ngstorage | 0.3.9 | MIT*
-numeral | 1.5.3 | MIT
-portaljs | 0.0.0 | GPL-2.0*
-portaljs-sp | 0.0.0 | UNKNOWN | 
+numeral | 1.5.3 | MIT 
