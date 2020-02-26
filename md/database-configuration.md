@@ -46,12 +46,10 @@ Bonita provides out of the box the Jdbc drivers for H2, PostgreSQL, Microsoft SQ
 
 #### Oracle Database
 
-*Warning*: Bonita 7.9.+ is compatible with Oracle 12.2.0.x and Oracle 19c (19.3.0.0). Make sure you use the driver that works with your Oracle database version, make sure you check your driver's Checksum. 
-The driver compatible with Oracle 12.2.0.x can be found here: [ojdbc8.jar](https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html) ( make sure it is the offical driver by checking the SHA1 Checksum: 60f439fd01536508df32658d0a416c49ac6f07fb )
-The driver compatible with Oracle 19.3.0 can be found here: [ojdbc8.jar](https://www.oracle.com/database/technologies/appdev/jdbc-ucp-19c-downloads.html)
+*Warning*: Bonita 7.10.+ is compatible with Oracle 12.2.0.x and Oracle 19c (19.3.0.0).
+The driver compatible with Oracle 12.2.0.x & 19.3.0 can be found here: [ojdbc8.jar](https://www.oracle.com/database/technologies/appdev/jdbc-ucp-19c-downloads.html)( make sure it is the official driver by checking the SHA1 Checksum: 967c0b1a2d5b1435324de34a9b8018d294f8f47b )
 
 <a id="database_creation" />
-
 ### Create the database(s)
 
 The first step in configuring Bonita with your RDBMS is to create the new databases (i.e. schemas): one for engine data, and another one, optionally, if you use business data. 
