@@ -48,9 +48,3 @@ ngstorage | 0.3.9 | MIT*
 numeral | 1.5.3 | MIT
 portaljs | 0.0.0 | GPL-2.0*
 portaljs-sp | 0.0.0 | UNKNOWN | 
-
-### Backend
-
- | groupId | artifactId | version | type | licences | 
- | --- | --- | --- | --- | --- | 
- |  | 
