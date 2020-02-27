@@ -20,7 +20,7 @@ Processes can now use additional resources. More details [here](additional-resou
 
 ## Bundle changes
 
-Upgrade Tomcat to 8.5.47 (tomcat-dbcp to 9.0.30) **subject to change prior GA**
+Upgrade Tomcat from 8.5.47 to 8.5.50 (tomcat-dbcp from 9.0.16 to 9.0.30) **subject to change prior GA**
 
 
 ### Tomcat Manager removal
