@@ -66,6 +66,15 @@ The Tomcat bundle is based on a standard Tomcat installation with the following 
 The initialization of this configuration happens during `start-bonita.bat` (for Windows) or `start.bonita.sh` (for Linux) execution.  
 Once initialized, to update this configuration, use the [*Platform setup tool*](BonitaBPM_platform_setup.md) embedded in Bonita bundles.
 :::
+#### Security note
+
+The Bonita Tomcat bundle is affected by [CVE-2020-1938](https://nvd.nist.gov/vuln/detail/CVE-2020-1938), owing to the version of Tomcat used.
+To eliminate the security problem, it is necessary to delete the following line in the `server/conf/server.xml` file, ideally before starting the Tomcat Bundle for the first time :
+```
+<Connector port="8009" protocol="AJP/1.3"
+ redirectPort="8443" maxPostSize="-1"
+ URIEncoding="UTF-8" />
+```
 
 ### Get and install a license (Subscription editions only)
 
