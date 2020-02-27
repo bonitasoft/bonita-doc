@@ -301,7 +301,7 @@ please follow this procedure:
 
 ## Migrating to Bonita 7.9+ using Oracle
 
-Bonita 7.9+ supports Oracle 12c (12.2.0.x.y) version: this is a requirement change.
+Bonita 7.9+ supports Oracle 12c (12.2.0.x.y) and Oracle 19c (19.3.0.0) versions: this is a requirement change.
 
 The Oracle database server change needs to be done before using the Bonita migration tool from 7.8.4 to 7.9.0.
 
@@ -315,27 +315,28 @@ Skip this section and jump directly to **Upgrade Oracle database server** sectio
 ### Upgrade Oracle database server
 
 * shut down the Bonita platform
-* upgrade the Oracle database server to the version 12c (it must be 12.2.0.x.y)
+* upgrade the Oracle database server to the version 12c (it must be 12.2.0.x.y) or 19c (it must be 19.3.0.0)
 
 ### Configure the Oracle database server
 
 * configure the Oracle database server, in particular activate the XA transactions management: see the *Oracle Database* section in the [Database creation and configuration for Bonita engine and BDM](database-configuration) page
 * install the missing Oracle components
 * execute the SQL scripts to *install* XA management elements
-* execute the SQL requests to GRANT the proper rights to the Oracle user
+* execute the SQL requests to GRANT the proper rights to the Oracle users; for both Bonita BPM and BDM schemas
 
-### Download the specific jdbc driver for the Oracle 12c (12.2.0.x.y)
+### Download the specific jdbc driver for the Oracle 12c (12.2.0.x.y) or 19c (19.3.0.0)
 
 **Beware**: two different jdbc driver jar files may share the same name (ojdbc8.jar for example).
 
 Each file however is specific to the Oracle DB server version installed.
 Please make sure to download the appropriate one:
-* Oracle 12c : [Oracle Database 12.2.0.1 JDBC Driver & UCP Downloads](https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html)
+* Oracle 12c (12.2.0.x.y) : [Oracle Database 12.2.0.1 JDBC Driver & UCP Downloads](https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html)
+* Oracle 19c (19.3.0.0) : [Oracle Database 19c (19.3) JDBC Driver & UCP Downloads](https://www.oracle.com/database/technologies/appdev/jdbc-ucp-19c-downloads.html)
 
-### Check the Bonita 7.8.4 server starts with the Oracle database server 12c (12.2.0.x.y)
+### Check the Bonita 7.8.4 server starts with the Oracle database server 12c (12.2.0.x.y) or 19c (19.3.0.0)
 
 * download and install a Bonita 7.8.4 server
-* setup the Bonita 7.8.4 server to use the Oracle 12c (12.2.0.x.y) database
+* setup the Bonita 7.8.4 server to use the Oracle 12c (12.2.0.x.y) or 19c (19.3.0.0) database
 * request and install a temporary 7.8 license in the Bonita server
 * start the Bonita 7.8.4 server
 * check you can successfully log into the portal
