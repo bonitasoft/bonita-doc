@@ -38,19 +38,28 @@ TODO: find other rationales
 
 
 ## API Removal
-### web-extensions
 
-**In Progress**
+### rest api extension
 
 The classes located in the `org.bonitasoft.console.common.server` have been removed. They have been deprecated since December 2015 as of Bonita 7.2.0
 
 Replacements
-- `org.bonitasoft.console.common.server.page.PageContext` by `org.bonitasoft.web.extension.page.PageContext`
-- `org.bonitasoft.console.common.server.page.PageController` by `org.bonitasoft.web.extension.page.PageController`
-- `org.bonitasoft.console.common.server.page.PageResourceProvider` by `org.bonitasoft.web.extension.page.PageResourceProvider`
+- for `PageController`
+  - `org.bonitasoft.console.common.server.page.PageContext` by `org.bonitasoft.web.extension.page.PageContext`
+  - `org.bonitasoft.console.common.server.page.PageController` by `org.bonitasoft.web.extension.page.PageController`
+  - `org.bonitasoft.console.common.server.page.PageResourceProvider` by `org.bonitasoft.web.extension.page.PageResourceProvider`
+- for `RestApiController `
+  - `org.bonitasoft.console.common.server.page.RestApiController` by `org.bonitasoft.web.extension.rest.RestApiController`
+  - `org.bonitasoft.console.common.server.page.RestApiResponse` by `org.bonitasoft.web.extension.rest.RestApiResponse`
+  - `org.bonitasoft.console.common.server.page.RestApiResponseBuilder` by `org.bonitasoft.web.extension.rest.RestApiResponseBuilder`
+  - `org.bonitasoft.console.common.server.page.PageContext`, `org.bonitasoft.console.common.server.page.PageResourceProvider`,
+  `org.bonitasoft.console.common.server.page.RestApiUtil` are no more used and are replaced by
+  `org.bonitasoft.web.extension.rest.RestAPIContext`
 
+Examples of replacements are available in the bonita source code
+- `PageController` in the [bonita-distrib github repository](https://github.com/bonitasoft/bonita-distrib/commit/f1f9d356c96d4e2807bd8b59376ce57d4af89b9a#diff-caa18f5f325ab429a66c76851e3bdd42)
+- `RestApiController` in the [bonita-web github repository](https://github.com/bonitasoft/bonita-web/commit/1387c4c513bdc2bb97071cddefc75d519886ed90#diff-c08aeb7d35cf380be1cdc09fea7ef822)
 
-An example of `PageController` migration is available in the [bonita-distrib github repository](https://github.com/bonitasoft/bonita-distrib/commit/f1f9d356c96d4e2807bd8b59376ce57d4af89b9a#diff-caa18f5f325ab429a66c76851e3bdd42)
 
 ## Development suite changes
 
