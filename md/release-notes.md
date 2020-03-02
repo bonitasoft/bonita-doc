@@ -37,6 +37,21 @@ For instance http://localhost:8080 redirected to http://localhost:8080/bonita
 TODO: find other rationales
 
 
+### Thread name in Bonita logs
+
+**TODO**: improve wording + provide more info
+
+As of Bonita 7.11, the thread name information is added in `bonita.log` (by default, right after the logger name).
+This helps tracking the processing when parallel requests are in progress.
+```
+2020-03-02 17:32:51.529 +0100 INFO (localhost-startStop-1) org.bonitasoft.engine.EngineInitializer Initialization of Bonita Engine done! ( took 8982ms)
+2020-03-02 17:33:12.515 +0100 INFO (http-nio-8080-exec-4) org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/bonita] RestletServlet: [Restlet] ServerServlet: component class is null
+2020-03-02 17:33:12.792 +0100 INFO (http-nio-8080-exec-1) org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/bonita] RestletServlet: [Restlet] Attaching application: org.bonitasoft.web.rest.server.BonitaRestletApplication@383b5fb0 to URI: /bonita/API
+2020-03-02 17:33:12.806 +0100 INFO (http-nio-8080-exec-1) org.restlet.Component.BonitaRestletApplication Starting org.bonitasoft.web.rest.server.BonitaRestletApplication application
+2020-03-02 17:33:32.938 +0100 INFO (http-nio-8080-exec-7) org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/bonita] CustomPageRestletServlet: [Restlet] ServerServlet: component class is null
+```
+
+
 ## API Removal
 
 ### rest api extension
