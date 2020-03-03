@@ -34,7 +34,7 @@ Copy, from the bundle into your Tomcat server:
 :::warning
 Some of the libraries copied from the bundle `server/lib/bonita` may already exist (albeit in a different version) in your Tomcat server `lib` folder. e.g.:
 * bundle (Tomcat 8.5.40): `server/lib/bonita/tomcat-dbcp-9.0.16.jar`
-* Tomcat server (Tomcat 8.0.36): `lib/tomcat-dbcp-8.0.36.jar` and `lib/tomcat-dbcp.jar`
+* Tomcat server (Tomcat 8.0.36): `lib/tomcat-dbcp-8.0.36.jar` and `lib/tomcat-dbcp.jar`  
 For such libraries, you should only keep the ones copied from the bundle under `lib/bonita`, or else the Bonita server may encounter `NoSuchMethodError`-type of issues.
 :::
 :::warning
