@@ -44,6 +44,9 @@ To add an additional resource:
  4. Select your additional resource in the table
  5. Click on the cell in the _File_ column and then on the "..." button that appears.
  6. Select a file from your documents assets, import a new one if needed. 
+ ::: info
+**Note:** There is no extension restriction, you can add any type of file.
+ :::
  7. Validate
 
 The value of an additional resource is specific to a given [environment](environments.md). Do not forget to value your additional resources for each environment you may use.
