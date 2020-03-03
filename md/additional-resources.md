@@ -1,6 +1,6 @@
 # Additional resources
 Additional resources can be added to a process.  
-Those resources are added in the .bar file at build time, and are available at runtime.
+Those resources are added in the .bar file at build time and are available at runtime.
 
 ## Overview
 
@@ -70,7 +70,7 @@ The process API takes a _pattern_ in input, and returns a map with all the resul
 
 ## Example
 
-We are going to use an additional ressource as an email template, which will be filled with some data from the case.
+We are going to use an additional resource as an email template, which will be filled with some data from the case.
 
 ::: info
 **Note**: This tutorial assumes that you already have some Bonita development experience.
@@ -81,12 +81,12 @@ We are going to use an additional ressource as an email template, which will be 
 	   - **Content**: Hello $name !!!
  
  2. On Bonita Studio, create a new diagram.  Select the pool, and add the following elements: 
-	   - An additional ressource named **template**
+	   - An additional resource named **template**
 	   - A process variable **name** (_TEXT_)
 	   - A process variable **email** (_TEXT_)
 	   - A process variable **emailContent** (_TEXT_)
  
- 3. Click on the configuration button, and set the value of the additional ressource **template** with the file you created on step 1.
+ 3. Click on the configuration button, and set the value of the additional resource **template** with the file you created on step 1.
  4. Add a contract on the pool, with the following contract inputs:
 	  - **name** (_TEXT_)
 	  - **email** (_TEXT_)
