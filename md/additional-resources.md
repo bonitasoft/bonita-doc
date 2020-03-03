@@ -64,7 +64,7 @@ def Map<String, byte[]> retrieveResources(apiAccessor, processDefinitionId, file
 	apiAccessor.processAPI.getProcessResources(processDefinitionId, 'resources/misc/filenamesPattern')
 }
 ```
-The process API take a _pattern_ in input, and returns a map with all the results. It means that if you want to retrieve all the .txt files, you can use _*.txt_ as pattern. If you only want to retrieve one file, use _myFile.txt_ as pattern.  
+The process API takes a _pattern_ in input, and returns a map with all the results. It means that if you want to retrieve all the .txt files, you can use _*.txt_ as pattern. If you only want to retrieve one file, use _myFile.txt_ as pattern.  
 ⚠️ Retrieving to many files can lead to performance issues.  
 ℹ️ You can type _bar_ and trigger the autocomplete in any Bonita groovy editor to get the template of the API call to perform.
 
