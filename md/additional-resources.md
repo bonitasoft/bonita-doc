@@ -42,13 +42,10 @@ To add an additional resource:
  2. Click on the **Configure** button in the coolbar
  3. Select the tab **Additional resources**
  4. Select your additional resource in the table
- 5. Click on the cell in the column _File_, a small button should appear in the cell. Click on it.
+ 5. Click on the cell in the _File_ column and then on the "..." button that appears.
  6. Select a file from your documents assets, import a new one if needed. 
  7. Validate
 
-::: info
-**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
-:::
 The value of an additional resource is specific to a given [environment](environments.md). Do not forget to value your additional resources for each environment you may use.
 
 ### Use an additional resource at runtime
@@ -61,11 +58,11 @@ Those resources can be retrieved at runtime from any Groovy script, using the Pr
 
 ``` groovy
 def Map<String, byte[]> retrieveResources(apiAccessor, processDefinitionId, filenamesPattern) {
-	apiAccessor.processAPI.getProcessResources(processDefinitionId, 'resources/misc/filenamesPattern')
+	apiAccessor.processAPI.getProcessResources(processDefinitionId, 'resources/misc/ + filenamesPattern')
 }
 ```
 The process API takes a _pattern_ in input, and returns a map with all the results. It means that if you want to retrieve all the .txt files, you can use _*.txt_ as pattern. If you only want to retrieve one file, use _myFile.txt_ as pattern.  
-⚠️ Retrieving to many files can lead to performance issues.  
+⚠️ Retrieving too many files can lead to performance issues.  
 ℹ️ You can type _bar_ and trigger the autocomplete in any Bonita groovy editor to get the template of the API call to perform.
 
 ## Example
