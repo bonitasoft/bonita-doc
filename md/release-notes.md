@@ -127,6 +127,9 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 ## Bug fixes
 
 ### Fixes in Documentation
+### Fixes in Bonita 7.10.3
+#### Fixes in Bonita Runtime
+* BS-19464 Cannot instantiate/execute a process with a Business Object with Oracle and Tomcat bundle, or restart the BPM services after installing a BDM.
 
 ### Fixes in Bonita 7.10.1 (2020-02-06)
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
