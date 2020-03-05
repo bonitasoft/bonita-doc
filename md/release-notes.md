@@ -126,10 +126,30 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 
 ## Bug fixes
 
-### Fixes in Documentation
 ### Fixes in Bonita 7.10.3
-#### Fixes in Bonita Runtime
+#### Fixes in Bonita Development Suite (Studio and UI Designer)
+* STUDIO-3452	NPE when closing LA editor without saving
+#### Fixes in Bonita Runtime (including Portal)
+* BS-19451	Not enough log messages available to track message coupling thread's activity
 * BS-19464 Cannot instantiate/execute a process with a Business Object with Oracle and Tomcat bundle, or restart the BPM services after installing a BDM.
+* BR-370	Standalone engine does not use real XA datasources
+
+### Fixes in Bonita 7.10.2 (2020-03-05)
+#### Fixes in Bonita Development Suite (Studio and UI Designer)
+* STUDIO-3393 - Lots of Nullpointer exception in the studio		
+* STUDIO-3398 - Email connector migration error		
+* STUDIO-3404 - NPE when importing a Living App Xml file		
+* STUDIO-3435 - Dialog "Are you sure to delete the file.proc" appears but it shouldn't		
+* STUDIO-3444 - Connector configuration automatically resets default value of some parameters		
+* STUDIO-3454 - Cannot export .bos when an custom widget asset contains .json in its name	
+* UID-248 - Export and reimport a custom widget does not work	
+
+#### Fixes in Bonita Runtime (including Portal)
+* BR-361 - Process with only on_enter connector does not work	
+* BR-342 - getBusinessDataModelVersion() returns Optional[1001] instead of 1001	
+* BPO-359 - ClassCastException generated when bpm/userTask REST API call is used	
+* BPO-336 - Profile User cannot see the case timeline for his cases
+
 
 ### Fixes in Bonita 7.10.1 (2020-02-06)
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
