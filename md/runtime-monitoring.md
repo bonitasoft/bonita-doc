@@ -41,7 +41,9 @@ Bonita-related metrics are **enabled by default** and cannot be disabled. Here a
 * The number of currently pending connector works, waiting in the connector work queue to be treated,
 under the logical key name **bonita.bpmengine.connector.pending**
 * The total number of executed connector works (since the last start of Bonita runtime), under the logical key name **bonita.bpmengine.connector.executed**
-* The total number of treated BPM messages (since the last start of Bonita runtime), under the logical key name **bonita.bpmengine.message.executed**
+* The total number of BPMN message couples executed (since the last start of Bonita runtime), under the logical key name **bonita.bpmengine.message.executed**
+* The total number of BPMN message couples potentially matched (since the last start of Bonita runtime), under the logical key name **bonita.bpmengine.message.potential** (starting from 7.10.3)
+* The total number of BPMN message matching tasks retriggered (since the last start of Bonita runtime), under the logical key name **bonita.bpmengine.message.retriggered_tasks** (starting from 7.10.3)
 
 ### Technical metrics
 The following available metrics are **disabled by default** and can be enabled.
