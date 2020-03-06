@@ -389,7 +389,8 @@ The file exported by the Portal servlet for applications is now called "Applicat
 * BST-269 Document workaround for MacOS - ssh issue
 * BST-171 Can't share a project on github using HTTPS and double authentication factor
 * BST-341 On MacOS, Studio installer might not detect the installed JRE
-### Fixes in Bonita 7.9.5
+
+### Fixes in Bonita 7.9.5 (2019-03-06)
 #### Fixes in Engine component
 * BS-19464 Cannot instantiate/execute a process with a Business Object with Oracle and Tomcat bundle, or restart the BPM services after installing a BDM.
 
