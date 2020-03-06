@@ -10,6 +10,7 @@ The following languages are officially supported:
 * French
 * Spanish (Latin American)
 * Japanese
+* Brazilian Portuguese
 
 Officially supported language means that:
 * Translation is performed by Bonitasoft.
