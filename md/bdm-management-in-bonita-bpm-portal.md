@@ -36,7 +36,7 @@ in the business database, so as to store business objects appropriately when mod
 
 ::: warning
 **:fa-exclamation-triangle: Warning:**  Since business continually evolves, you may need to make some changes to a BDM already in production.
-Bonita uses Hibernate for data persistence, therefore some changes are handled well, like adding new objects or attributes, but some others, like changing the type of an attribute, we cannot guarantee so far.
+Bonita uses Hibernate for data persistence, therefore some changes are handled well, like adding new objects or attributes, but some others, like changing the type of an attribute or defining a unique constraint, we cannot guarantee so far.
 In such cases, you will have to implement the change on your own, through careful actions in a staging environment, and after the backup of your database.
 This limitation is well known and will be addressed in a future Bonita version.
 :::
