@@ -47,7 +47,7 @@ Bonita provides out of the box the Jdbc drivers for H2, PostgreSQL, Microsoft SQ
 #### Oracle Database
 
 *Warning*: Bonita 7.9.+ is compatible with Oracle 12.2.0.x only. Make sure you use the driver that works with your Oracle database version, make sure you check your driver's Checksum. 
-Download the driver compatible with Oracle 12.2.0.1: [ojdbc8.jar](https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html) ( make sure it is the offical driver by checking the SHA1 Checksum: 60f439fd01536508df32658d0a416c49ac6f07fb )
+Download the driver compatible with Oracle 12.2.0.1: [ojdbc8.jar](https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html) ( make sure it is the offical driver by checking the SHA1 Checksum: 60f439fd01536508df32658d0a416c49ac6f07fb ) 
 
 <a id="database_creation" />
 

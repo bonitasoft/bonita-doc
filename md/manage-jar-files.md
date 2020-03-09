@@ -10,9 +10,9 @@ For example, if your process uses a connector, the relevant JAR file must be ref
 
 ## How to configure which JAR files to use
 
-The configuration dialog shows the JAR files that are known to Bonita Studio. To add a JAR file, choose **_Manage jars..._** from the **Development** menu.
+The configuration dialog shows the JAR files that are known to Bonita Studio. To add a JAR file, choose **_Manage dependencies..._** from the **Development** menu.
 The popup shows the JARs that are known. To add a JAR, click **_Import_** and browse to the file to be imported. After the JAR file is imported, it can be used in a process.
-You can also access the **Manage jars...** dialog from the process configuration wizard.
+You can also access the **Manage dependencies...** dialog from the process configuration wizard or the project contextual menu.
 
 
 ## Known integration issues
