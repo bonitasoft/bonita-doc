@@ -8,7 +8,7 @@ This page explains how to use a URL to access Bonita Portal or the form for a sp
 
 ## URL of Bonita Portal
 
-You can connect to Bonita Portal from other tools using a URL of the form `http://`_`host`_`:`_`port`_`/bonita#?....`. Other forms of URL are liable to change in future versions. For example, use `http://localhost:8081/bonita#?process=myProcessId&locale=fr`, and do not use `http://localhost:8081/bonita/console/homepage#?process=myProcessId&locale=fr`.
+You can connect to Bonita Portal from other tools using a URL of the form `http://`_`host`_`:`_`port`_`/bonita#?....`. Other forms of URL are liable to change in future versions. For example, use `http://localhost:8081/bonita#?process=myProcessId`, and do not use `http://localhost:8081/bonita/console/homepage#?process=myProcessId`.
 
 ## Process instantiation URL
 
