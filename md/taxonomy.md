@@ -266,3 +266,4 @@
   * [Manage BDM in custom Rest APIs](bdm-in-rest-api.md)
   * [Share a repository on GitHub](share-a-repository-on-github.md)
   * [Migrate a SVN repository to a Git repository](migrate-a-svn-repository-to-github.md)
+  * [Configure Maven](configure-maven.md)
