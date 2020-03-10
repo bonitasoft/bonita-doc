@@ -137,6 +137,8 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 
 
 ### Fixes in Bonita 7.10.2 (unreleased)
+The following bugs have a 7.10.2 fix version, but since this version has net been released, you will find them in version 7.10.3.
+
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
 * STUDIO-3393 - Lots of Nullpointer exception in the studio		
 * STUDIO-3398 - Email connector migration error		
