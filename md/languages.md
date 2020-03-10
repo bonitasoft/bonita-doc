@@ -36,7 +36,7 @@ For a web living application, if it is configured to use the default Bonita layo
 
 ## Language detection mechanism
 
-When a user accesses a page of Bonita portal or an application, the language to use to display the page is detected using the following priority order:  
+Since Bonita 7.11.0, when a user accesses a page of Bonita portal or an application, the language to use to display the page is detected using the following priority order:  
 1. `locale` parameter value in the URL if it is present (E.g.: `?locale=pt_BR`)
 1. BOS_Locale cookie value
 1. Web browser prefered language (first locale sent in the request header Accept-Language)
