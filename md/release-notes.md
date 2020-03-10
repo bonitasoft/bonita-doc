@@ -126,15 +126,19 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 
 ## Bug fixes
 
-### Fixes in Bonita 7.10.3
+### Fixes in Bonita 7.10.3 (2020-03-06)
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
-* STUDIO-3452	NPE when closing LA editor without saving
-#### Fixes in Bonita Runtime (including Portal)
-* BS-19451	Not enough log messages available to track message coupling thread's activity
-* BS-19464 Cannot instantiate/execute a process with a Business Object with Oracle and Tomcat bundle, or restart the BPM services after installing a BDM.
-* BR-370	Standalone engine does not use real XA datasources
+* STUDIO-3452 - NPE when closing LA editor without saving
 
-### Fixes in Bonita 7.10.2 (2020-03-05)
+#### Fixes in Bonita Runtime (including Portal)
+* BS-19451 - Not enough log messages available to track message coupling thread's activity
+* BS-19464 - Cannot instantiate/execute a process with a Business Object with Oracle and Tomcat bundle, or restart the BPM services after installing a BDM.
+* BR-370 - Standalone engine does not use real XA datasources
+
+
+### Fixes in Bonita 7.10.2 (unreleased)
+The following bugs have a 7.10.2 fix version, but since this version has net been released, you will find them in version 7.10.3.
+
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
 * STUDIO-3393 - Lots of Nullpointer exception in the studio		
 * STUDIO-3398 - Email connector migration error		
@@ -145,10 +149,10 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 * UID-248 - Export and reimport a custom widget does not work	
 
 #### Fixes in Bonita Runtime (including Portal)
-* BR-361 - Process with only on_enter connector does not work	
 * BR-342 - getBusinessDataModelVersion() returns Optional[1001] instead of 1001	
-* BPO-359 - ClassCastException generated when bpm/userTask REST API call is used	
+* BR-361 - Process with only on_enter connector does not work	
 * BPO-336 - Profile User cannot see the case timeline for his cases
+* BPO-359 - ClassCastException generated when bpm/userTask REST API call is used	
 
 
 ### Fixes in Bonita 7.10.1 (2020-02-06)
