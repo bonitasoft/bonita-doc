@@ -9,6 +9,9 @@
 ### Additional resources
 Processes can now use additional resources. More details [here](additional-resources.md).
 
+### Business Data Model editor
+BDM editor has been reworked, in order to improve the user experience.
+
 
 ## Runtime changes
 
