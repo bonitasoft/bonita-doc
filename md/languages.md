@@ -10,12 +10,13 @@ The following languages are officially supported:
 * French
 * Spanish (Latin American)
 * Japanese
+* Brazilian Portuguese
 
 Officially supported language means that:
 * Translation is performed by Bonitasoft.
 * Following Bonita components are translated: Studio, UI Designer and Portal.
 
-## Select BPM Portal user interface language
+## Select Bonita Portal user interface language
 
 For the web desktop version:
 1. Go to the top right corner and click on _**Settings**_/_**Language**_
@@ -26,6 +27,25 @@ For the web mobile version:
 1. Click on the _**Tools icon**_
 1. Click on _**Languages**_
 1. Select a new language from the drop-down list
+
+## Select Bonita applications user interface language
+
+For a web living application, if it is configured to use the default Bonita layout:
+1. Click on the user icon in the top right corner of the layout
+1. In the user modale, go to the language section and select a language from the drop-down list.
+
+## Language detection mechanism
+
+Since Bonita 7.11.0, when a user accesses a page of Bonita portal or an application, the language to use to display the page is detected using the following priority order:  
+1. `locale` parameter value in the URL if it is present (E.g.: `?locale=pt_BR`)
+1. BOS_Locale cookie value
+1. Web browser prefered language (first locale sent in the request header Accept-Language)
+1. English if none of the previous ones are set and/or supported
+
+::: info
+When a language different from the one already set in the BOS_Locale cookie is passed in the URL (`locale` parameter), then the cookie value is reset with this new language.
+This can be used to force the default language if needed (by simply providing a link to Bonita portal/applications with the locale parameter).
+:::
 
 ## Add a language to Bonita Portal
 
