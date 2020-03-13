@@ -1,6 +1,6 @@
 # Additional resources
 Additional resources can be added to a process.  
-Those resources are added in the .bar file at build time, and are available at runtime.
+Those resources are added in the .bar file at build time and are available at runtime.
 
 ## Overview
 
@@ -42,13 +42,13 @@ To add an additional resource:
  2. Click on the **Configure** button in the coolbar
  3. Select the tab **Additional resources**
  4. Select your additional resource in the table
- 5. Click on the cell in the column _File_, a small button should appear in the cell. Click on it.
+ 5. Click on the cell in the _File_ column and then on the "..." button that appears.
  6. Select a file from your documents assets, import a new one if needed. 
+ ::: info
+**Note:** There is no extension restriction, you can add any type of file.
+ :::
  7. Validate
 
-::: info
-**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
-:::
 The value of an additional resource is specific to a given [environment](environments.md). Do not forget to value your additional resources for each environment you may use.
 
 ### Use an additional resource at runtime
@@ -61,16 +61,17 @@ Those resources can be retrieved at runtime from any Groovy script, using the Pr
 
 ``` groovy
 def Map<String, byte[]> retrieveResources(apiAccessor, processDefinitionId, filenamesPattern) {
-	apiAccessor.processAPI.getProcessResources(processDefinitionId, 'resources/misc/filenamesPattern')
+	apiAccessor.processAPI.getProcessResources(processDefinitionId, 'resources/misc/ + filenamesPattern')
 }
 ```
+
 The process API takes a _pattern (i.e a regular expression)_ in input, and returns a map with all the results. It means that if you want to retrieve all the .txt files, you can use `resources/misc/.*\\.txt` as pattern. If you only want to retrieve one file, use `resources/misc/myFile.txt` as pattern.  
-⚠️ Retrieving to many files can lead to performance issues.  
+⚠️ Retrieving too many files can lead to performance issues.  
 ℹ️ You can type _bar_ and trigger the autocomplete in any Bonita groovy editor to get the template of the API call to perform.
 
 ## Example
 
-We are going to use an additional ressource as an email template, which will be filled with some data from the case.
+We are going to use an additional resource as an email template, which will be filled with some data from the case.
 
 ::: info
 **Note**: This tutorial assumes that you already have some Bonita development experience.
@@ -81,12 +82,12 @@ We are going to use an additional ressource as an email template, which will be 
 	   - **Content**: Hello $name !!!
  
  2. On Bonita Studio, create a new diagram.  Select the pool, and add the following elements: 
-	   - An additional ressource named **template**
+	   - An additional resource named **template**
 	   - A process variable **name** (_TEXT_)
 	   - A process variable **email** (_TEXT_)
 	   - A process variable **emailContent** (_TEXT_)
  
- 3. Click on the configuration button, and set the value of the additional ressource **template** with the file you created on step 1.
+ 3. Click on the configuration button, and set the value of the additional resource **template** with the file you created on step 1.
  4. Add a contract on the pool, with the following contract inputs:
 	  - **name** (_TEXT_)
 	  - **email** (_TEXT_)
