@@ -9,6 +9,9 @@
 ### Additional resources
 Processes can now use additional resources. More details [here](additional-resources.md).
 
+### Business Data Model editor
+BDM editor has been reworked, in order to improve the user experience.
+
 
 ## Runtime changes
 
@@ -79,6 +82,8 @@ Examples of replacements are available in the bonita source code
 ## Development suite changes
 
 ### Increase the default value of the development runtime's maximum memory heap size to 1Gb (512Mo previously)
+
+To avoid memory issues with large bar files deployment the default xmx value has been increased to 1Gb. If you want to revert this change, you can change it in the Studio preferences -> Server settings -> Tomcat Maximum memory allocation.
  
 ### Complex data-types generation have been removed
 

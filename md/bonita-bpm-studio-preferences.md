@@ -50,6 +50,13 @@ Proxy
 
 ### Other preferences
 
+Validation
+* Define the validation to be applied to the different components of your project: Business Data Model, Connector validation, KPI validation, and Processes.
+
+  ::: info
+  **Note**: You can activate this option for Business users so that they can create and share processes without worrying about the technical constraints
+  :::
+
 Advanced
 * Rename diagram the first time it is saved.
 * Do not show confirmation on connector definition edition.
