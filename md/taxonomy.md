@@ -205,7 +205,7 @@
     * [Manage Look & Feel](managing-look-feel.md)
     * [Create a new Look & Feel](creating-a-new-look-feel.md)
   * [Search keys](search-index.md)
-* [Bonita Platform Maintenance Operations](maintenance-operation.md)
+* [Bonita Runtime Maintenance Operations](maintenance-operation.md)
 * [Development](_development.md)
   * [Software extensibility](software-extensibility.md)
   * [Bonita artifacts](_bonita-artifacts.md)
