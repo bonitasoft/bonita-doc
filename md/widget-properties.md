@@ -79,7 +79,7 @@ This property controls whether the widget is hidden. Bind this property to a var
 
 ### URL's
 
-When you need to reference a Bonita internal URL (an API call, a link to an other page / form ...), **do not hard code the server root. (eg: `/bonita` in a Development environment)**  
+When you need to reference a Bonita internal URL (an API call, a link to an other page / form ...), **do not hard code the webapp name. (eg: `/bonita` in a Development environment)**  
 You have the possibility to **use relative paths** in the widget properties / data.  
 
 So, instead of writing
@@ -94,7 +94,8 @@ You can simply write
 ../API/[...]
 ```  
 
-Hard coding the server root ('_/bonita_') is a bad practice. It will work in the development environment, because the server root of the Bonita Studio tomcat is always _/bonita_, but on your production environment it is likely to change. 
+Hard coding the webapp name ('_/bonita_') is a bad practice. It will work in the development environment, because the webapp name of the Bonita Studio tomcat is always _/bonita_, but on your production environment it is likely to change.  
+On Bonita cloud, the webapp doesn't have a name, it's just '_/_'.
 
 ## Migrate a page from 7.0.0 and 7.0.1
 
