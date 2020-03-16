@@ -160,6 +160,10 @@ This information is also available at the top of Bonita Studio window, as well a
 
 Those commands can be found in Team > Git menu.
 
+::: warning
+**Branches can be merged/rebased into each others if and only if branches are in the same Bonita version.** Else, migration might be skipped.
+:::
+
 #### Conflict management 
 
 The use of Git often lead to conflicts when contributions are merged. There is different ways to manage conflicts, with a diff tool, in a text editor...  
