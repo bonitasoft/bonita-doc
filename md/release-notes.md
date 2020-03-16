@@ -125,6 +125,12 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 * add the font-awesome webfonts to your page
 
 ## Bug fixes
+### Fixes in Documentation
+* BS-19323 Bonita documentation is not clear enough about PostgreSQL versions supported
+* BST-151 Default outgoing transition not executed when there is more than one outgoing transition from inclusive gateway
+* BST-269 Document workaround for MacOS - ssh issue
+* BST-171 Can't share a project on github using HTTPS and double authentication factor
+* BST-341 On MacOS, Studio installer might not detect the installed JRE
 
 ### Fixes in Bonita 7.10.3 (2020-03-06)
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
