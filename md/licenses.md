@@ -53,7 +53,7 @@ The license file will be sent to you by email.
 
 If the application server has never been started before (i.e. this is the first time you start the bundle), when you receive the license file (`.lic` file extension), store the file into the `<TOMCAT_HOME>/setup/platform_conf/licenses` folder or `<WILDFLY_HOME>/setup/platform_conf/licenses/` folder before starting the bundle.
 
-## Otherwise, save a new license file in the database; when the application server has already been started successfully once (or more)
+## Renew or replace a license
 
 If the application server has already been started successfully at least once and you need to install a new license because the one already installed has expired or is no longer valid:
 - Download the configuration on the disk
@@ -62,7 +62,7 @@ If the application server has already been started successfully at least once an
     ./setup.sh pull
     ls -l ./platform_conf/licenses/
    ```
- - Delete all license files that may be located in the `<TOMCAT_HOME>/setup/platform_conf/licenses` directory.
+ - If the new license is already valid (i.e. its Start Date has already come): delete all license files that may be located in the `<TOMCAT_HOME>/setup/platform_conf/licenses` directory.
  - Store the new license file in the `<TOMCAT_HOME>/setup/platform_conf/licenses` directory.
  - Save the configuration into the database
    ```
