@@ -1,3 +1,4 @@
+
 # Widget properties
 
 A page is constructed from [widgets](widgets.md). The behavior of a widget is determined by its properties.
@@ -75,6 +76,25 @@ By default, the [Bootstrap](http://getbootstrap.com/) CSS library is available s
 ### Hidden
 
 This property controls whether the widget is hidden. Bind this property to a variable. The value of the variable determines whether or not the widget is displayed. You can use this to control conditional display, for example when a widget becomes visible when the user enters a certain value in a form.
+
+### URL's
+
+When you need to use an URL to the Bonita tomcat (an API call, a link to an other page / form ...), **do not hard code the server root.**  
+You have the possibility to **use relative paths** in the widget properties / data.  
+
+So, instead of writing
+
+```
+http://localhost:8080/bonita/portal/resource/app/myApp/myPage/API/[...]
+```  
+
+You can simply write
+
+```
+../API/[...]
+```  
+
+Hard coding the server root ('_/bonita_') is a bad habit. It will work in the development environment, because the server root of the Bonita Studio tomcat is always _/bonita_, but on your production environment it is likely to change. 
 
 ## Migrate a page from 7.0.0 and 7.0.1
 
