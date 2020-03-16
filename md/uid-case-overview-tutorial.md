@@ -1,6 +1,6 @@
-# Create a case overview form using the UI Designer
+# Create a case overview page using the UI Designer
 
-Understand what is and how to create a case overview form by following this step by step tutorial.
+Understand what is and how to create a case overview page by following this step by step tutorial.
 
 If you need to modify our default case overview or build your own case overview page, you will have to manage the display of
 both Cases and Archived cases.  
