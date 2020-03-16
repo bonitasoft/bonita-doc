@@ -79,7 +79,7 @@ This property controls whether the widget is hidden. Bind this property to a var
 
 ### URL's
 
-When you need to use an URL to the Bonita tomcat (an API call, a link to an other page / form ...), **do not hard code the server root.**  
+When you need to reference a Bonita internal URL (an API call, a link to an other page / form ...), **do not hard code the server root. (eg: `/bonita` in a Development environment)**  
 You have the possibility to **use relative paths** in the widget properties / data.  
 
 So, instead of writing
