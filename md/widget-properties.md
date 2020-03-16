@@ -94,7 +94,7 @@ You can simply write
 ../API/[...]
 ```  
 
-Hard coding the server root ('_/bonita_') is a bad habit. It will work in the development environment, because the server root of the Bonita Studio tomcat is always _/bonita_, but on your production environment it is likely to change. 
+Hard coding the server root ('_/bonita_') is a bad practice. It will work in the development environment, because the server root of the Bonita Studio tomcat is always _/bonita_, but on your production environment it is likely to change. 
 
 ## Migrate a page from 7.0.0 and 7.0.1
 
