@@ -64,7 +64,7 @@ Add the following code to CSS file.
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, .4);
-    z-index: 1;
+    z-index: 100;
 }
 ```
 
