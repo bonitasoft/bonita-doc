@@ -94,8 +94,8 @@ You can simply write
 ../API/[...]
 ```  
 
-Hard coding the webapp name ('_/bonita_') is a bad practice. It will work in the development environment, because the webapp name of the Bonita Studio tomcat is always _/bonita_, but on your production environment it is likely to change.  
-On Bonita cloud, the webapp doesn't have a name, it's just '_/_'.
+Hard coding the webapp name ('_/bonita_') is a bad practice. It will work in the development environment, because the webapp name of the Bonita Studio tomcat is always _bonita_, but on your production environment it is likely to change.  
+On Bonita cloud, the webapp uses the ROOT context and doesn't have a name.
 
 ## Migrate a page from 7.0.0 and 7.0.1
 
