@@ -12,6 +12,10 @@ Processes can now use additional resources. More details [here](additional-resou
 ### Business Data Model editor
 BDM editor has been reworked, in order to improve the user experience.
 
+### Generate project documentation
+For Teamwork, Efficiency, Performace and Enterprise editions only.
+Extract informations from a project sources to generate an asciidoc document. The generation templates can be customized to suit your needs. More details [here](project-documentation-generation.md).
+
 
 ## Runtime changes
 
