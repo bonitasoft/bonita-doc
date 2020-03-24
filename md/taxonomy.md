@@ -267,3 +267,4 @@
   * [Share a repository on GitHub](share-a-repository-on-github.md)
   * [Migrate a SVN repository to a Git repository](migrate-a-svn-repository-to-github.md)
   * [Configure Maven](configure-maven.md)
+  * [Create a custom connector apart from the Bonita Studio](connector-archetype.md)
