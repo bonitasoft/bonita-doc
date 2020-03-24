@@ -132,6 +132,13 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 * BST-171 Can't share a project on github using HTTPS and double authentication factor
 * BST-341 On MacOS, Studio installer might not detect the installed JRE
 
+### Fixes in Bonita 7.10.4 (2020-04-02)
+#### Fixes in Bonita Development Suite (Studio and UI Designer)
+* UID-253 - we should not be able to switch a widget to tab widget
+* UID-244 - Mac os .DS_Store prevents UID to start
+* UID-243 - UI designer fails to starts when page workspace does not contain folders only
+* STUDIO-3477 - Deploy fails when launched after a git update containing a BDM change used in updated process
+
 ### Fixes in Bonita 7.10.3 (2020-03-06)
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
 * STUDIO-3452 - NPE when closing LA editor without saving
