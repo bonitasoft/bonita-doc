@@ -89,7 +89,7 @@ A connector input:
 
  - Has a name
  - Has a type
- - Has an optional default value
+ - Can have a default value
  - Can be mandatory 
 
 ##### Connector Outputs
