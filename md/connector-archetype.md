@@ -1,3 +1,4 @@
+
 ## How to create a custom connector apart from the Bonita Studio
 
 Bonita offers the possibility to create and plug custom connectors, to allow you to connect with any external system you may need.  
@@ -56,10 +57,10 @@ Example:
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
 <definition:ConnectorDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1">
-    <id>myConnector</id>
-    <version>1.0.0</version>
-    <icon>connector.png</icon> 
-    <category icon="connector.png" id="Custom"/>
+    <id>myConnector</id> <!-- The name of the definition -->
+    <version>1.0.0</version> <!-- The version of the definition -->
+    <icon>connector.png</icon> <!-- The icon used in the Studio for this definition -->
+    <category icon="connector.png" id="Custom"/> <!-- The category of this definition, used in the Studio (e.g: http, script ...) -->
   
     <!-- Connector inputs -->
     <input mandatory="true" name="defaultInput" type="java.lang.String"/>
@@ -79,4 +80,48 @@ Example:
     </page>
   
 </definition:ConnectorDefinition>
+```
+
+##### Connector Inputs
+
+The inputs of a connector are defined in the definition. Those inputs are valued by processes, and are retrieved by the implementation classes of the connector to execute the business logic.  
+A connector input: 
+
+ - Has a name
+ - Has a type
+ - Has an optional default value
+ - Can be mandatory 
+
+##### Connector Outputs
+
+The outputs of a connector are defined in the definition. Those outputs are valued by the implementation classes of the connector, and are used by processes.  
+A connector output:
+
+ - Has a name
+ - Has a type
+
+##### Pages and widgets
+
+A connector definition includes _pages_ and _widgets_.  Those elements define the UI that will appear in the Bonita Studio to configure the connector.  
+
+ - A widget is bound to an input
+ - A page contains a set of widgets
+
+The idea is to create pages for related inputs, so the person who will configure the connector will easily understand what he has to do. 
+
+ All the available widgets are defined in the XSD. You must reference the widget type in the tag to create a specific widget: 
+
+``` xml 
+<widget  xsi:type="definition:[WIDGET TYPE]"  id="[WIDGET ID]"  inputName="[CORRESPONDING INPUT]"/>
+```
+
+The widget id is used in the _.properties_ files to define and translate the widget name and the widget description. The input name is used to bind this widget to one of the connector inputs.  
+Some widgets can require additional informations. For example, if you want to create a select widget with a set of item to select, you will have to do something like that: 
+
+``` xml
+<widget xsi:type="definition:Select" id="choiceWidget" inputName="choice">
+    <items>Item 1</items>
+    <items>Item 2</items>
+    <items>Item 3</items>
+</widget>
 ```
