@@ -6,14 +6,14 @@ A maven archetype is available on maven central to help you to bootstrap a conne
 ### Prerequisite
 
  1. Java must be installed: [https://adoptopenjdk.net/index.html](https://adoptopenjdk.net/index.html)
- 2.  Maven must be installed: [https://maven.apache.org/install.html](https://maven.apache.org/install.html)
- 3. Developing a connector apart from the Bonita Studio requires some software development skills. The  archetype offers the possibility to develop the connector in Java, Groovy or Kotlin. Make sure that you are comfortable with at least one of those three languages. 
+ 2. Maven must be installed: [https://maven.apache.org/install.html](https://maven.apache.org/install.html)
+ 3. Developing a connector outside Bonita Studio requires some software development skills. The  archetype offers the possibility to develop the connector in Java, Groovy or Kotlin. Make sure that you are comfortable with at least one of those three languages. 
 
 ### Create a Bonita connector project using the maven archetype
 
 A maven archetype is a maven project templating toolkit (_[more details here](https://maven.apache.org/archetype/index.html)_). This archetype allows you to bootstrap a Bonita connector project on your file system. A Bonita connector project is a maven project. It can be built, and then imported into a Bonita Studio to be used.  
 
-Before to create your project, you have to define: 
+Before creating your project, you have to define: 
 
  - The **groupId** of your connector
      _used as a maven groupId_
@@ -42,7 +42,7 @@ A folder name _[your artifact id]_ containing your project should be created. Th
 
 ### Connector developpment
 
-In this section we'll look into the different component of a connector project, and how you should use them to develop your connector.
+In this section we'll look into the different components of a connector project, and how you should use them to develop your connector.
 
 #### Connector definition
 A connector is first defined by its **definition**.  It is an XML file located in _src/main/resources/[connector name].def_ by default.  
