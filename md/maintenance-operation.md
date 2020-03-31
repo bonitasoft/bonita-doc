@@ -8,17 +8,17 @@ Archive tables contain the execution history of the Bonita Platform. Some of the
 ## Archive Contract Data
 
 Archive contract data table keeps the information of all contracts sent to execute tasks or instantiate processes.
-After of a lot of tasks or processes were executed, the `archive_contract_data` table could become very big and
+After of a lot of tasks or processes were executed, the `arch_contract_data` table could become very big and
 consume a lot of disk space.
 
-Those information are not required by Bonita Platform to work, so the table could be purged to reduce disk space usage.
-                                                                                                                                 
+The information contained in table `arch_contract_data` is not required by Bonita Platform to work so this table could be purged to reduce disk space usage.
 
-These section will describe how to purge the `archive_contract_data` table, depending on the version of Bonita Runtime installed.
+
+These section will describe how to purge the `arch_contract_data` table, depending on the version of Bonita Runtime installed.
 
 :::warning
-_This operation is destructive, data will be not usable for audit or analytics purposes. It is highly recommended to backup data
-before the purge._
+
+_This operation is destructive, data will be not usable for audit or analytics purposes. It is highly recommended to backup data before the purge._
 :::
 
 _Keep in mind that the contract data will continue to be archived and the table will continue to grow, even after the purge has been done.
@@ -31,7 +31,7 @@ To delete all rows from the `arch_contract_data`, you can use the `TRUNCATE TABL
 ~~~~
 
 ::: info
-**Note**: After a migration to version 7.7 of Bonita Runtime, the data of the `archive_contract_data` table has been moved
+**Note**: After a migration to version 7.7 of Bonita Runtime, the data of the `arch_contract_data` table has been moved
 to a new table named `arch_contract_data_backup`, for migration purposes.
 In that case, if the `live-migration` tool was not executed (please see [Bonita migration steps](migrate-from-an-earlier-version-of-bonita-bpm.md)),
 you will also need to drop the table `arch_contract_data_backup`:
@@ -39,3 +39,4 @@ you will also need to drop the table `arch_contract_data_backup`:
     DROP TABLE arch_contract_data_backup;
 ~~~~
 :::
+
