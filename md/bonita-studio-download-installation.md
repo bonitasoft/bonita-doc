@@ -44,7 +44,6 @@ At this stage Bonita Studio should be running on your computer. If not, you can 
 
 You should get the Bonita Studio welcome page:
 
-![Bonita Studio pop-up window](images/getting-started-tutorial/installation/studio-first-start-01-welcome-popup-values.png)<!--{.img-responsive .img-thumbnail}-->
 ![Bonita Studio with welcome page displayed](images/getting-started-tutorial/installation/studio-first-start-02-studio-on-welcome-page.png)<!--{.img-responsive .img-thumbnail}-->
 
 ::: info
