@@ -1,6 +1,6 @@
 ## How to create a custom connector apart from the Bonita Studio
 
-Bonita offers the possibility to create au plug custom connectors, to allow you to connect with any external system you may need.  
+Bonita offers the possibility to create and plug custom connectors, to allow you to connect with any external system you may need.  
 A maven archetype is available on maven central to help you to bootstrap a connector project apart from the Bonita Studio. The source code of the archetype is available [here](https://github.com/bonitasoft/bonita-connector-archetype).
 
 ### Prerequisite
