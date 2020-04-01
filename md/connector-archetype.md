@@ -46,8 +46,10 @@ A folder name _[your artifact id]_ containing your project should be created. Th
 In this section we'll look into the different components of a connector project, and how you should use them to develop your connector.
 
 #### Connector definition
-A connector is first defined by its **definition**.  It is an XML file located in _src/main/resources/[connector name].def_ by default.  
-The XSD is available in _schemas/connector-definition-descriptor.xsd_, you can import it in a IDE to get completion. 
+A connector is first defined by its **definition**.  It is an XML file located in _src/main/resources/[connector name].def_ by default.   
+A connector definition defines the inputs and the outputs of a connector. It can be seen as a black box. The definition explicits what will be passed to the connector, and what is expected as output. Then, implementations of this definition can be created, they just need to respect the inputs / outputs contract of the definition.  
+
+The connector definition XSD is available in _schemas/connector-definition-descriptor.xsd_, you can import it in a IDE to get completion. 
 
 
 ![Connector definition xsd overview](images/connector-def-xsd-overview.png)
@@ -89,7 +91,7 @@ A connector input:
 
  - Has a name
  - Has a type
- - Can have a default value
+ - Has an optional default value
  - Can be mandatory 
 
 ##### Connector Outputs
@@ -115,13 +117,29 @@ The idea is to create pages for related inputs, so the person who will configure
 <widget  xsi:type="definition:[WIDGET TYPE]"  id="[WIDGET ID]"  inputName="[CORRESPONDING INPUT]"/>
 ```
 
-The widget id is used in the _.properties_ files to define and translate the widget name and the widget description. The input name is used to bind this widget to one of the connector inputs.  
+The widget id is used in the _.properties_ files to define and translate the widget name and the widget description.  
+The input name is used to bind this widget to one of the connector inputs.  
+
 Some widgets can require additional informations. For example, if you want to create a select widget with a set of item to select, you will have to do something like that: 
 
 ``` xml
 <widget xsi:type="definition:Select" id="choiceWidget" inputName="choice">
-    <items>Item 1</items>
-    <items>Item 2</items>
-    <items>Item 3</items>
+    <items>Choice 1</items>
+    <items>Choice 2</items>
+    <items>Choice 3</items>
 </widget>
 ```
+
+#### Connector implementation
+
+A _connector implementation_ implements a connector definition. A definition defines a set on inputs / outputs, implementing a definition means use the provided inputs to create the expected outputs.  
+Several implementations can be created for a given definition. A connector implementation can be updated at runtime in a Bonita bundle, as long as it implements the same definition.  
+
+A connector implementation is made of two elements: 
+- An xml file used to explicit the definition implemented, the dependencies required and the location of the implementation sources
+- A set of Java based classes, constituting the sources of the implementation
+
+The implementation XML file is located in _src/main/resources/[connector name].impl_ by default.  
+The connector definition XSD is available in _schemas/connector-implementation-descriptor.xsd_, you can import it in a IDE to get completion. 
+
+![Connector implementation xsd overview](images/connector-impl-xsd-overview.png)
