@@ -56,11 +56,11 @@ The connector definition XSD is available in _schemas/connector-definition-descr
 
 
 Example: 
-``` xml
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <definition:ConnectorDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1">
-    <id>myConnector</id> <!-- The name of the definition -->
-    <version>1.0.0</version> <!-- The version of the definition -->
+    <id>myConnector</id> <!-- Id of the definition -->
+    <version>1.0.0</version> <!-- Version of the definition -->
     <icon>connector.png</icon> <!-- The icon used in the Studio for this definition -->
     <category icon="connector.png" id="Custom"/> <!-- The category of this definition, used in the Studio (e.g: http, script ...) -->
   
@@ -139,7 +139,102 @@ A connector implementation is made of two elements:
 - An xml file used to explicit the definition implemented, the dependencies required and the location of the implementation sources
 - A set of Java based classes, constituting the sources of the implementation
 
+##### Implementation XML file
+
 The implementation XML file is located in _src/main/resources/[connector name].impl_ by default.  
 The connector definition XSD is available in _schemas/connector-implementation-descriptor.xsd_, you can import it in a IDE to get completion. 
 
 ![Connector implementation xsd overview](images/connector-impl-xsd-overview.png)
+
+Example: 
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0">
+  <implementationId>myConnector-impl</implementationId> <!-- Id of the implementation -->
+  <implementationVersion>$implementation.version$</implementationVersion> <!-- Version of the implementation -->
+  <definitionId>myConnector</definitionId> <!-- Id of the definition implemented -->
+  <definitionVersion>1.0.0</definitionVersion> <!-- Version of the definition implemented -->
+  <implementationClassname>myGroupId.Connector</implementationClassname> <!-- Path to the main implementation class -->
+  <hasSources>false</hasSources> <!-- true if you want to embbed the sources in the jar builded -->
+  <description>Default connector implementation</description>
+
+<!-- Implementation dependencies, retrieved from the pom.xml at build time -->
+$Dependencies$
+
+</implementation:connectorImplementation>
+```
+
+##### Implementation sources
+
+The implementation sources contain all the logic of your connector. 
+
+ - The validation of the inputs
+ - The connection / disconnection to any external system _(if required)_
+ - The execution of the business logic and the  creation of the outputs
+
+The archetype offers the possibility to generate the default sources in Java, Groovy or Kotlin. The build result will always be a Java archive (jar), no matters the langage selected.
+
+The entry point of the implementation sources must extends the class _`org.bonitasoft.engine.connector.AbstractConnector`_.
+
+Example (_Groovy_): 
+```groovy
+package myGroupId
+
+import org.bonitasoft.engine.connector.AbstractConnector;
+import org.bonitasoft.engine.connector.ConnectorException;
+import org.bonitasoft.engine.connector.ConnectorValidationException;
+
+class Connector extends AbstractConnector {
+    
+    def defaultInput = "defaultInput"
+    def defaultOutput = "defaultOutput"
+    
+    /**
+     * Perform validation on the inputs defined on the connector definition (src/main/resources/myConnector.def)
+     * You should:
+     * - validate that mandatory inputs are presents
+     * - validate that the content of the inputs is coherent with your use case (e.g: validate that a date is / isn't in the past ...)
+     */
+    @Override
+    def void validateInputParameters() throws ConnectorValidationException {
+        checkMandatoryStringInput(defaultInput)
+    }
+    
+    def checkMandatoryStringInput(inputName) throws ConnectorValidationException {
+        def value = getInputParameter(inputName)
+        if (value in String) {
+            if (!value) {
+                throw new ConnectorValidationException(this, "Mandatory parameter '$inputName' is missing.")
+            }
+        } else {
+            throw new ConnectorValidationException(this, "'$inputName' parameter must be a String")
+        }
+    }
+    
+    /**
+     * Core method:
+     * - Execute all the business logic of your connector using the inputs (connect to an external service, compute some values ...).
+     * - Set the output of the connector execution. If outputs are not set, connector fails.
+     */
+    @Override
+    def void executeBusinessLogic() throws ConnectorException {
+        def defaultInput = getInputParameter(defaultInput)
+        setOutputParameter(defaultOutput, "$defaultInput - output".toString())
+    }
+    
+    /**
+     * [Optional] Open a connection to remote server
+     */
+    @Override
+    def void connect() throws ConnectorException{}
+
+    /**
+     * [Optional] Close connection to remote server
+     */
+    @Override
+    def void disconnect() throws ConnectorException{}
+}
+```
+
+The methods _validateInputParameters_ and _executeBusinessLogic_ must be implemented, and are called by the Bonita engine when the connector is executed.  
+The methods _connect_ and _disconnect_ can be used to open and close a connection to a remote server.  The life cycle of the connection will then be managed by the Bonita engine.
