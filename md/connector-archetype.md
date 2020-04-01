@@ -137,7 +137,7 @@ Several implementations can be created for a given definition. A connector imple
 
 A connector implementation is made of two elements: 
 - An xml file used to explicit the definition implemented, the dependencies required and the location of the implementation sources
-- A set of Java based classes, constituting the sources of the implementation
+- A set of Java based classes, constituting the implementation sources
 
 ##### Implementation XML file
 
@@ -151,7 +151,7 @@ Example:
 <?xml version="1.0" encoding="UTF-8"?>
 <implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0">
   <implementationId>myConnector-impl</implementationId> <!-- Id of the implementation -->
-  <implementationVersion>$implementation.version$</implementationVersion> <!-- Version of the implementation -->
+  <implementationVersion>$implementation.version$</implementationVersion> <!-- Version of the implementation, retrieved from the pom.xml at build time -> ${project.version} -->
   <definitionId>myConnector</definitionId> <!-- Id of the definition implemented -->
   <definitionVersion>1.0.0</definitionVersion> <!-- Version of the definition implemented -->
   <implementationClassname>myGroupId.Connector</implementationClassname> <!-- Path to the main implementation class -->
@@ -166,7 +166,7 @@ $Dependencies$
 
 ##### Implementation sources
 
-The implementation sources contain all the logic of your connector. 
+The implementation sources contain all the logic of the connector:
 
  - The validation of the inputs
  - The connection / disconnection to any external system _(if required)_
@@ -174,7 +174,7 @@ The implementation sources contain all the logic of your connector.
 
 The archetype offers the possibility to generate the default sources in Java, Groovy or Kotlin. The build result will always be a Java archive (jar), no matters the langage selected.
 
-The entry point of the implementation sources must extends the class _`org.bonitasoft.engine.connector.AbstractConnector`_.
+The entry point of the implementation sources must extend the class _`org.bonitasoft.engine.connector.AbstractConnector`_.
 
 Example (_Groovy_): 
 ```groovy
@@ -238,3 +238,35 @@ class Connector extends AbstractConnector {
 
 The methods _validateInputParameters_ and _executeBusinessLogic_ must be implemented, and are called by the Bonita engine when the connector is executed.  
 The methods _connect_ and _disconnect_ can be used to open and close a connection to a remote server.  The life cycle of the connection will then be managed by the Bonita engine.
+
+#### Build a connector project
+
+A connector project is built using Maven, and especially the [maven assembly plugin](https://maven.apache.org/plugins/maven-assembly-plugin/).   
+The root _pom.xml_ file has the following parent: 
+```xml
+<parent>
+    <groupId>org.bonitasoft.connectors</groupId>
+    <artifactId>bonita-connectors</artifactId>
+    <version>1.0.0</version>
+</parent>
+```
+This parent contains the logic that make the replacements in the implementation xml file at build time.
+
+By default, two zip archives are built: 
+
+ - One containing all the definitions and implementations found in the project (built using the file _connector-assembly.xml)_
+ - One containing only the default implementation generated (built using the file _[connector name]-assembly.xml_
+
+Those two assembly are here to help you to:
+
+ - Build an _all in one_ zip archive for all the definitions and implementation created in this project. By importing this archive in a Bonita Studio you will import all the definitions and implementations created in the project
+ - Build a single zip archive with only one implementation. This implementation zip archive can be imported in a Bonita Studio, but also in a Bonita Bundle to update a connector implementation at runtime.
+
+To build the connector project, type the following command at the root of the project : 
+```
+mvn clean install
+```
+The two zip archives can be found in the folder _target_ after the build: 
+
+ - **[artifactd id]-[pom version]-all.zip** for the _all in one_ archive
+ - **[artifactd id]-[pom version]-[connector name].zip** for the implementation archive
