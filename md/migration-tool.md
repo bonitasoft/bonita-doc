@@ -9,7 +9,7 @@ This changelog must be read before [migrating to a newer version of Bonita](migr
 
 ## 2.49.0 - March 06th, 2020 (Bonita 7.10.3)
 This version of the migration tool migrates Bonita up to version 7.10.3
-* Added migration step to 7.9.5 ( in addition to 7.10.3 )
+* Added migration step to 7.9.5 (in addition to 7.10.3)
 
 ## 2.47.0 - February 06th, 2020 (Bonita 7.10.1)
 This version of the migration tool migrates Bonita up to version 7.10.1
