@@ -57,23 +57,13 @@ This version of the migration tool migrates Bonita up to version 7.9.0.
 This version of the migration tool migrates Bonita up to version 7.8.4.
 * BS-19346 reduce disk space used when migrating (archived) contract data in version 7.7.0
 
-## 2.40.2 - May. 23rd, 2019 (Bonita 7.8.4)
+## 2.40.2 - May 23rd, 2019 (Bonita 7.8.4)
 This version of the migration tool migrates Bonita up to version 7.8.4.
 * Configuration: make datasource pool size configurable
 * Logs: introduce timestamp in the log files
 * BS-19267 improve performance when migrating (archived) contract data in version 7.7.0
 
-## 2.40.3 - May. 27th, 2019 (Bonita 7.8.4)
-This version of the migration tool migrates Bonita up to version 7.8.4.
-* BS-19346 reduce disk space used when migrating (archived) contract data in version 7.7.0
-
-## 2.40.2 - May. 23rd, 2019 (Bonita 7.8.4)
-This version of the migration tool migrates Bonita up to version 7.8.4.
-* Configuration: make datasource pool size configurable
-* Logs: introduce timestamp in the log files
-* BS-19267 improve performance when migrating (archived) contract data in version 7.7.0
-
-## 2.40.1 - May. 17th, 2019 (Bonita 7.8.4)
+## 2.40.1 - May 17th, 2019 (Bonita 7.8.4)
 This version of the migration tool migrates Bonita up to version 7.8.4.
 * BS-19346 fix SQL pagination when migrating (archived) contract data in version 7.7.0
 
@@ -142,7 +132,7 @@ This version of the migration tool migrates Bonita up to version 7.7.0. and cont
 This version of the migration tool migrates Bonita up to version 7.7.0. and contains one bug fix:
 * BS-18211 QLException: migration to 7.5.0 is failing depending on the compound-permissions-mapping.properties file content
 
-## 2.29.1 - May. 15th, 2018 (Bonita 7.6.3)
+## 2.29.1 - May 15th, 2018 (Bonita 7.6.3)
 This version of the migration tool migrates Bonita up to version 7.6.3. and contains one bug fix:
 * BS-18338 After migration multi-iteration send task does not work
    
