@@ -301,7 +301,18 @@ you need to redesign them in the Studio using Bonita UI designer, as explained i
 
 Example of output issued when running the tool:
 
-<script id="asciicast-fvVMGjFTqWsfwY4tmGaOZ7fC7" src="https://asciinema.org/a/fvVMGjFTqWsfwY4tmGaOZ7fC7.js" async></script>
+<script type="text/javascript">
+function loadCSS(filename){
+    let file = document.createElement("link");
+    file.setAttribute("rel", "stylesheet");
+    file.setAttribute("type", "text/css");
+    file.setAttribute("href", filename);
+    document.head.appendChild(file);
+}
+loadCSS("./assets/asciinema-player.css");
+</script>
+<asciinema-player src="bonita/images/${varVersion}/case_overview_update_mode-ascii.cast" speed="2" theme="monokai" title="Update case overview console output example" cols="240" rows="32"></asciinema-player>
+<script src="./assets/asciinema-player.js"></script>
 
 ## Migrate your cluster
 
