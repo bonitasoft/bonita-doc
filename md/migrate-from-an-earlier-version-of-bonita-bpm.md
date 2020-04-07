@@ -130,7 +130,7 @@ so it is not possible to be precise about the time that will be required. Howeve
 This section explains how to migrate a platform that uses one of the Bonita bundles.
 
 1. Download the target version bundle and the migration tool for your Edition from the
-[BonitaSoft site](http://www.bonitasoft.com/downloads-v2) for Bonita Community edition
+[Bonitasoft site](http://www.bonitasoft.com/downloads-v2) for Bonita Community edition
 or from the [Customer Portal](https://customer.bonitasoft.com/download/request) for Bonita Subscription Pack editions.
 1. Check your current RDBMS version is compliant with the versions supported by the target version of Bonita (see [above](#rdbms_requirements))
 1. Unzip the migration tool zip file into a directory. In the steps below, this directory is called `bonita-migration`.
@@ -194,8 +194,8 @@ The `bonita_home` and the database have been migrated.
     ./setup.sh pull
     ```
 
-    You must reapply the configuration that had been done on the original instance'sbonita_homein the `bonita-target-version/setup/platform_conf/current`
-Please refer to the guide on updating the configurationfile using the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
+    You must reapply the configuration that had been done on the original instance's BONITA_HOME into the `bonita-target-version/setup/platform_conf/current`
+Please refer to the guide on updating the configuration file using the [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf)
 
     When done, push the updated configuration into the database:
     ```
@@ -265,12 +265,45 @@ If you are migrating from a 7.x version:
 * Perform the migration to the desired version.
 
 The disabled processes with 6.x forms will not be able to be enabled again post migration.
-Having 6.x case overview pages on your processes will not prevent the migration of the platform, however they will all be replaced by the default 7.x case overview page, created with the UI Designer.
-It means that you might want to redo the case overview page as well as the forms, especially if you have configured a custom case overview page for your processes in version 6.x. Or (for Enterprise, Performance, and Efficiency editions only), you can live update it after migration.
+Having 6.x case overview pages on your processes will not prevent the migration of the platform,
+however they will all be replaced by the default 7.x case overview page, created with the UI Designer.
+It means that you might want to redo the case overview page as well as the forms, especially if you have configure
+a custom case overview page for your processes in version 6.x. Or (for Enterprise, Performance, and Efficiency editions only),
+you can live update it after migration.
 
 ::: info
 Note: 6.x application resources have been removed too in 7.8.0, so if you are migrating a process that leverage this feature, you need to modify it (for example to use process dependencies instead (Configure > Process dependencies in Bonita Studio)).
 :::
+
+<a id="update-case-overview-pages" />
+
+## Use the provided Bonita tool to update case overview pages before migrating to 7.8.0
+
+Bonita Migration Tool now ships an option to allow you to replace 6.x case overview pages with the default 7.x case overview page
+(created with the UI Designer), when your Bonita runtime is still in a pre-7.8.0 version. This allows you to see if the page suits your needs, or if not,
+it can be used as a base to customize your case overview page. Your pages will then be ready for the 7.8.0 migration step.
+
+To run it, unzip the latest Migration Tool and run, for **Community** edition:  
+`./bonita-migration-distrib` (Linux) or `bonita-migration-distrib.bat` (Windows) `--updateCaseOverview <PROCESS_DEFINITION_ID>`
+
+or for **Subscription** edition:  
+`./bonita-migration-distrib-sp` (Linux) or `bonita-migration-distrib-sp.bat` (Windows) `--updateCaseOverview <PROCESS_DEFINITION_ID>`
+ 
+For instance:
+```bash
+./bonita-migration-distrib-sp --updateCaseOverview 6437638294854549375
+```
+
+If you want to update several processes, simply run the command with all the processDefinitionId's one by one.
+
+::: info
+Note: This tool will only change case overview pages. This means that if some of your processes still have process instantiation / task execution forms,
+you need to redesign them in the Studio using Bonita UI designer, as explained in the section above.
+:::
+
+Example of output issued when running the tool:
+
+<script id="asciicast-fvVMGjFTqWsfwY4tmGaOZ7fC7" src="https://asciinema.org/a/fvVMGjFTqWsfwY4tmGaOZ7fC7.js" async></script>
 
 ## Migrating to Java 11 in Bonita 7.9
 
