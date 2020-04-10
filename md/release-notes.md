@@ -24,7 +24,7 @@ Extract informations from a project sources to generate an asciidoc document. Th
 
 ## Bundle changes
 
-Upgrade Tomcat from 8.5.47 to 8.5.50 (tomcat-dbcp from 9.0.16 to 9.0.30) **subject to change prior GA**
+Upgrade Tomcat from 8.5.47 to 8.5.53 (tomcat-dbcp from 9.0.16 to 9.0.31) **subject to change prior GA**
 
 
 ### Tomcat Manager removal
