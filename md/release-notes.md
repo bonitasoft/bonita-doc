@@ -132,6 +132,10 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 * BST-171 Can't share a project on github using HTTPS and double authentication factor
 * BST-341 On MacOS, Studio installer might not detect the installed JRE
 
+### Fixes in Bonita 7.10.4 (2020-XX-XX)
+#### Fixes in Bonita Runtime (including Portal)
+* BR-408 - Update tomcat to 8.5.53 That include latests security fixes
+
 ### Fixes in Bonita 7.10.4 (2020-04-02)
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
 * UID-243 - UI Designer fails to start when pages workspace does not contain folders only
