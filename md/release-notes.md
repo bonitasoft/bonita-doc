@@ -68,7 +68,7 @@ On startup Bonita now only checks if the database version is compatible with the
 Aside of the quality of life update of not having to run a migration between migration versions, this update brings a few behavioral changes:
 * Platform.getVersion() method now returns the version of the Bonita binaries (ie. 7.11.0), not the "version" field of the database.
 * Platform.getPreviousVersion() is now deprecated, and voided (will always return ""). The method was effectively deterministic, as the queried database field was always set at ```CurrentBonitaVersion - 1```.
-* A check has been added in Cluster mode as to forbid the start of nodes in different Bonita platform versions. For example, on a two nodes cluster, you can't have a node in 7.11.0 and another in 7.11.1.
+* A check has been added in Cluster mode as to forbid the start of nodes in different Bonita platform versions. For example, on a two-node cluster, you can't have a node in 7.11.0 and another in 7.11.1.
 The feature of having nodes in different Bonita versions was never supported, though there were cases where it "worked" in previous versions.  
 
 ## API Removal
