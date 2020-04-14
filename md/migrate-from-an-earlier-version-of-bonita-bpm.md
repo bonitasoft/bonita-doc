@@ -353,6 +353,20 @@ please follow this procedure:
 * in a second step, run the migration tool again to migrate the platform to 7.9.0 or newer
 * once done, you can restart your updated Bonita platform
 
+<a id="maintenanceVersionCompatible"/>
+
+## Migrate between maintenance versions of Bonita in Bonita 7.11+
+
+Starting with Bonita 7.11+, upgrading between maintenance versions of Bonita does not require the migration tool anymore.
+To migrate between maintenance versions in bonita 7.11+ (for example going from 7.11.0 to 7.11.1) follow the following steps:
+* Download the new bundle version from [Bonitasoft site](http://www.bonitasoft.com/downloads-v2) for Bonita Community edition 
+or from the [Customer Portal](https://customer.bonitasoft.com/download/request) for Bonita Subscription Pack editions.
+* Shut down your old platform.
+* Unzip and configure the new bundle.
+* Start the new bundle
+* Delete the old bundle files
+
+**NB** : In a cluster environment, you need to update all your nodes before restarting them. 
 
 ## Migrate your cluster
 

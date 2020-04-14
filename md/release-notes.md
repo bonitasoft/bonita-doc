@@ -56,6 +56,21 @@ This helps tracking the processing when parallel requests are in progress.
 ```
 
 
+## No more migration between maintenance versions of Bonita
+Starting with Bonita 7.11.0, it is not necessary to run the Bonita migration tool to migrate between maintenance versions of the Bonita Platform (between 7.11.**0** and 7.11.**1**).
+More details on the new procedure [here]()
+On the technical side, Bonita 7.11.0 introduces a loose couple between Bonita binaries and the Database schema it runs on. 
+There is now a distinction between a new database field Bonita Database Schema, and the Bonita Platform Version.
+The Bonita Database Schema version is, for now, a technical number (not accessible through APIs), set at ```{Major}.{Minor}```, ie. at ```7.11``` for this release.
+The Bonita Platform Version is the same as the Bonita Version in versions < 7.11.0 (ie. 7.11.0, 7.11.1 etc.).
+On startup Bonita now only checks if the database version is compatible with the binaries version, not if they are identical.
+
+Aside of the quality of life update of not having to run a migration between migration versions, this update brings a few behavioral changes:
+* Platform.getVersion() method now returns the version of the Bonita binaries (ie. 7.11.0), not the "version" field of the database.
+* Platform.getPreviousVersion() is now deprecated, and voided (will always return ""). The method was effectively deterministic, as the queried database field was always set at ```CurrentBonitaVersion - 1```.
+* A check has been added in Cluster mode as to forbid the start of nodes in different Bonita platform versions. For example, on a two nodes cluster, you can't have a node in 7.11.0 and another in 7.11.1.
+The feature of having nodes in different Bonita versions was never supported, though there were cases where it "worked" in previous versions.  
+
 ## API Removal
 
 ### rest api extension
