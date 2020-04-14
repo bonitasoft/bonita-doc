@@ -61,8 +61,8 @@ Starting with Bonita 7.11.0, it is not necessary to run the Bonita migration too
 More details on the new procedure [here](migrate-from-an-earlier-version-of-bonita-bpm.md#maintenanceVersionCompatible)  
 On the technical side, Bonita 7.11.0 introduces a loose couple between Bonita binaries and the Database schema it runs on. 
 There is now a distinction between a new database field Bonita Database Schema, and the Bonita Platform Version.
-The Bonita Database Schema version is, for now, a technical number (not accessible through APIs), set at ```{Major}.{Minor}```, ie. at ```7.11``` for this release.
-The Bonita Platform Version is the same as the Bonita Version in versions < 7.11.0 (ie. 7.11.0, 7.11.1 etc.).
+The Bonita Database Schema version is a technical number (not accessible through APIs), that changes when the database schema changes.
+The Bonita Platform Version is the 3 digit version number we usually use to refer to Bonita.
 On startup Bonita now only checks if the database version is compatible with the binaries version, not if they are identical.
 
 Aside of the quality of life update of not having to run a migration between migration versions, this update brings a few behavioral changes:
