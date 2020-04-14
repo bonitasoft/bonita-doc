@@ -58,7 +58,7 @@ This helps tracking the processing when parallel requests are in progress.
 
 ## No more migration between maintenance versions of Bonita
 Starting with Bonita 7.11.0, it is not necessary to run the Bonita migration tool to migrate between maintenance versions of Bonita Runtime (between 7.11.**0** and 7.11.**1**, for instance).  
-More details on the new procedure [here](migrate-from-an-earlier-version-of-bonita-bpm.md#maintenanceVersionCompatible)
+More details on the new procedure [here](migrate-from-an-earlier-version-of-bonita-bpm.md#maintenanceVersionCompatible)  
 On the technical side, Bonita 7.11.0 introduces a loose couple between Bonita binaries and the Database schema it runs on. 
 There is now a distinction between a new database field Bonita Database Schema, and the Bonita Platform Version.
 The Bonita Database Schema version is, for now, a technical number (not accessible through APIs), set at ```{Major}.{Minor}```, ie. at ```7.11``` for this release.
