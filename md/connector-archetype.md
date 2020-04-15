@@ -14,31 +14,32 @@ A maven archetype is available on maven central to help you to bootstrap a conne
 
 A maven archetype is a maven project templating toolkit (_[more details here](https://maven.apache.org/archetype/index.html)_). This archetype allows you to bootstrap a Bonita connector project on your file system. A Bonita connector project is a maven project. It can be built, and then imported into a Bonita Studio to be used.  
 
-Before creating your project, you have to define: 
-
- - The **groupId** of your connector
-     _used as a maven groupId_
- - The **artifactId** of your connector
-    _used as a maven artifactId_
- - The **version** of your connector
-    _used as a maven version_
- - The **name** of your connector
- - The targeted **Bonita version**: 
-    A Bonita connector project depends on _org.bonitasoft.engine:bonita-common_. To avoid potential conflicts / errors at runtime, you should use the Bonita version of your runtime environment.
- - The **language** used in your project. Available values: 
-     - java (_default_)
-     - groovy
-     - kotlin
-
-
 To create your connector project, prompt a terminal and enter the following command: 
 ::: warning
 **Warning:** Make sure that you are not executing the command from an existing maven project.
 :::
 ```
-mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype -DarchetypeVersion=1.0.0 -DgroupId=[YOUR GROUP ID] -DartifactId=[YOUR ARTIFACT ID] -Dversion=[YOUR VERSION] -DconnectorName=[YOUR CONNECTOR NAME] -DbonitaVersion=[TARGET BONITA VERSION] -Dlanguage=[YOUR LANGUAGE]
+mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype -DarchetypeVersion=1.0.0
 ```
-A folder name _[your artifact id]_ containing your project should be created. This connector project can already be built, imported and used in a process.
+You'll then have to specify interactively the properties of your project: 
+
+- **groupId:** the group id of your connector.
+- **artifactId:** the artifact id of your connector
+- **version:** the version of your connector _(default value: 1.0-SNAPSHOT)_
+- **package** the package in which the connector source files will be created _(default value: the group id of the connector)_
+- **bonitaVersion:** the targeted Bonita version
+    - A Bonita connector project depends on _org.bonitasoft.engine:bonita-common_. To avoid potential conflicts / errors at runtime, you should use the Bonita version of your runtime environment.s
+- **connectorName:** the name of your connector
+    - Must match the following regex: `^[a-zA-Z0-9\-]+$`
+    - Example: _myConnector-1_
+- **language**: the language used in the connector project. Available values:
+    - java
+    - groovy
+    - kotlin
+
+A folder named _[your artifact id]_ is created, with your Bonita connector project, ready to use.
+
+⚠️ You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
 
 
 ### Connector developpment
