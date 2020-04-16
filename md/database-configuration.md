@@ -92,7 +92,7 @@ To create the database(s), we recommend that you refer to your RDBMS documentati
 * [MySQL](http://dev.mysql.com/doc/refman/5.5/en/database-use.html)
 
 Your database(s) must be configured to use the UTF-8 character set. 
-Also, you are recommended to configure the database(s) to be case-insensitive so that searches in Bonita Portal are case-insensitive.
+Also, you are recommended to configure the database(s) to be case-insensitive so that searches in Bonita Portal, Bonita REST API and Bonita Engine API are case-insensitive.
 
 <a id="specific_database_configuration" />
 
