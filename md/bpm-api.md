@@ -4773,20 +4773,20 @@ The methods used for this resource is:
     "targetFlowNode": "catchMessageFlowNodeName", //Optional
     "messageContent" : {
         "data1" : {
-            "value" : "aValue"
+            "value" : "aValue" //Cannot be null
          },
         "data2" : {
-            "value" : 42,
+            "value" : 42, //Cannot be null or empty
             "type" : "java.lang.Long" //Optional
         },
         ...
     },
     "correlations" : {
         "key1" : {
-            "value" : "aValue"
+            "value" : "aValue" //Cannot be null
         },
         "key2" : {
-            "value" : 123,
+            "value" : 123, //Cannot be null or empty
             "type" : "java.lang.Integer" //Optional
         },
         ... // 5 keys max
