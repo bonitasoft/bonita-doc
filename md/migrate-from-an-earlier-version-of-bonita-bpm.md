@@ -363,6 +363,7 @@ To migrate between maintenance versions in bonita 7.11+ (for example going from 
 or from the [Customer Portal](https://customer.bonitasoft.com/download/request) for Bonita Subscription editions.
 * Shut down your old Bonita Runtime.
 * Unzip and configure the new bundle.
+This means copying the configuration files of the old Bonita Runtime, mainly *database.properties*, *server.xml*, *internal.properties* if changes have been made in them.
 * Start the new bundle
 * Delete the old bundle files
 
