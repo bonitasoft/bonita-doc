@@ -358,7 +358,7 @@ please follow this procedure:
 ## Migrate between maintenance versions of Bonita in Bonita 7.11+
 
 Starting with Bonita 7.11+, upgrading between maintenance versions of Bonita does not require the migration tool.
-To migrate between maintenance versions in bonita 7.11+ (for example going from 7.11.0 to 7.11.1) follow the following steps:
+To upgrade between maintenance versions in bonita 7.11+ (for example going from 7.11.0 to 7.11.1) follow the following steps:
 * Download the new bundle version from [Bonitasoft site](http://www.bonitasoft.com/downloads) for Bonita Community edition 
 or from the [Customer Portal](https://customer.bonitasoft.com/download/request) for Bonita Subscription editions.
 * Shut down your old Bonita Runtime.
