@@ -1,18 +1,18 @@
 
-## How to create a custom connector apart from the Bonita Studio
+## Create a custom connector
 
 Bonita offers the possibility to create and plug custom connectors, to allow you to connect with any external system you may need.  
-A maven archetype is available on maven central to help you to bootstrap a connector project apart from the Bonita Studio. The source code of the archetype is available [here](https://github.com/bonitasoft/bonita-connector-archetype).
+We provide a maven archetype to help you to bootstrap a connector project. The source code of the archetype is available [here](https://github.com/bonitasoft/bonita-connector-archetype).
 
 ### Prerequisite
 
- 1. Java must be installed: [https://adoptopenjdk.net/index.html](https://adoptopenjdk.net/index.html)
+ 1. Java 8 must be installed: [https://adoptopenjdk.net/index.html](https://adoptopenjdk.net/index.html)
  2. Maven must be installed: [https://maven.apache.org/install.html](https://maven.apache.org/install.html)
- 3. Developing a connector outside Bonita Studio requires some software development skills. The  archetype offers the possibility to develop the connector in Java, Groovy or Kotlin. Make sure that you are comfortable with at least one of those three languages. 
+ 3. Connector development requires some software development skills. The  archetype offers the possibility to develop the connector in _Java_, _Groovy_ or _Kotlin_. Make sure that you are comfortable with at least one of those three languages. 
 
-### Create a Bonita connector project using the maven archetype
+### Generate the project using the maven archetype
 
-A maven archetype is a maven project templating toolkit (_[more details here](https://maven.apache.org/archetype/index.html)_). This archetype allows you to bootstrap a Bonita connector project on your file system. A Bonita connector project is a maven project. It can be built, and then imported into a Bonita Studio to be used.  
+A [maven archetype](https://maven.apache.org/archetype/index.html) is a maven project templating toolkit. This archetype allows you to bootstrap a Bonita connector project on your file system. A Bonita connector project is a maven project. It can be built, tested and then imported into a Bonita project using Bonita Studio.
 
 To create your connector project, prompt a terminal and enter the following command: 
 ::: warning
@@ -26,6 +26,7 @@ You'll then have to specify interactively the properties of your project:
 - **groupId:** the group id of your connector.
 - **artifactId:** the artifact id of your connector
 - **version:** the version of your connector _(default value: 1.0-SNAPSHOT)_
+Follow the [maven naming convention guide](http://maven.apache.org/guides/mini/guide-naming-conventions.html)
 - **package** the package in which the connector source files will be created _(default value: the group id of the connector)_
 - **bonitaVersion:** the targeted Bonita version
     - A Bonita connector project depends on _org.bonitasoft.engine:bonita-common_. To avoid potential conflicts / errors at runtime, you should use the Bonita version of your runtime environment.s
@@ -265,9 +266,11 @@ Those two assembly are here to help you to:
 
 To build the connector project, type the following command at the root of the project : 
 ```
-mvn clean install
+./mvnw clean install
 ```
+By default, maven wrapper is installed by the archetype. It helps to have a portable and reproductible build system. If you elected to disable the wrapper install at archetype generation, you can use your local maven install.
+
 The two zip archives can be found in the folder _target_ after the build: 
 
- - **[artifactd id]-[pom version]-all.zip** for the _all in one_ archive
- - **[artifactd id]-[pom version]-[connector name].zip** for the implementation archive
+ - **[artifact id]-[artifact version]-all.zip** for the _all in one_ archive
+ - **[artifact id]-[artifact version]-[connector name].zip** for the implementation archive
