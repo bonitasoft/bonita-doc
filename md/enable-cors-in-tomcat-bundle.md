@@ -16,6 +16,8 @@ By configuring the CORS filter on the tomcat bundle, you will be able to access 
 ## Tomcat configuration
 
 Edit the web.xml of the bonita.war to add the CORS filter:
+_**Important Note:** to use this configuration, you will need to replace the `ALLOWED_ORIGIN_LIST` by your own allowed origin list._
+
 
 ```code
 <filter>
@@ -23,7 +25,7 @@ Edit the web.xml of the bonita.war to add the CORS filter:
   <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
   <init-param>
     <param-name>cors.allowed.origins</param-name>
-    <param-value>*</param-value>
+    <param-value>ALLOWED_ORIGIN_LIST</param-value>
   </init-param>
 
   <init-param>
@@ -66,7 +68,7 @@ for more information:
 Here is an example of html page that:
 - logs in using the loginservice,
 - get the current session, via the REST api resource system/session
-- edit a user using the REST api resource identity/user
+- edit a user password using the REST api resource identity/user
 
 This page can be hosted on a different domain, and thanks to the CORS filter, the requests will be successfully processed.
 
@@ -78,64 +80,124 @@ _**Important Note 2:** to use this page you will need to replace the `BONITA_ACC
 
 <!doctype html>
 <html>
-<head>
- <meta charset="utf-8">
- <title>Demo</title>
-</head>
-<body>
-<h1>CORS INDEX</h1>
- <script src="http://code.jquery.com/jquery-2.1.4.js"></script>
- <script>
-   var formData = {
-     username: "walter.bates",
-     password: "bpm",
-     redirect: false
-   };
-   $.ajax({
-     url: "BONITA_ACCESS_URL/bonita/loginservice",
-     type: "POST",
-     data: formData,
-     xhrFields: {withCredentials: true},
-     success: function(data, textStatus, jqXHR) {
-           $.ajax({
-             url: "BONITA_ACCESS_URL/bonita/API/system/session/1",
-             type: "GET",
-             xhrFields: {withCredentials: true},
-             success: function(data, textStatus, jqXHR) {
-                   console.log('success getting session');
-                   var apiToken = jqXHR.getResponseHeader('X-Bonita-API-Token');
-                   console.log('X-Bonita-API-Token: ' + apiToken);
-                   var formData = {"title":"Mr","manager_id":"0","job_title":"Chief Executive Officer","lastname":"Jobs","firstname":"Will"};
-                   $.ajax({
-                         url: "BONITA_ACCESS_URL/bonita/API/identity/user/1",
-                         type: "PUT",
-                         contentType: "application/json",
-                         /*passing the X-Bonita-API-Token for the CSRF security filter*/
-                         headers: {'X-Bonita-API-Token': apiToken},
-                         data: JSON.stringify(formData),
-                         xhrFields: {withCredentials: true},
-                         success: function(data, textStatus, jqXHR) {
-                           console.log('success updating user info');
-                           console.log(data);
-                         },
-                         error: function(jqXHR, textStatus, errorThrown) {
-                           console.log('error updating user info');
-                         }
-                   });
-             },
-             error: function(jqXHR, textStatus, errorThrown) {
-               console.log('error getting session');
-             }
-           });
-     },
-     error: function(jqXHR, textStatus, errorThrown) {
-       console.log('error login');
-     }
-   });
- </script>
-</body>
-</html>
+    <head>
+        <meta charset="utf-8">
+        <title>CORS Demo</title>
+    
+        <script type="text/javascript">
+            function loginToBonita() {
+                var myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    
+                var urlencoded = new URLSearchParams();
+                urlencoded.append("username", document.getElementById("username").value);
+                urlencoded.append("password", document.getElementById("current-password").value);
+                urlencoded.append("redirect", "false");
+    
+    
+                var requestOptions = {
+                    method: 'POST',
+                    headers: myHeaders,
+                    body: urlencoded,
+                    redirect: 'follow',
+                    credentials: 'include'
+                };
+    
+                return fetch("BONITA_ACCESS_URL/bonita/loginservice", requestOptions)
+                    .then(result => {
+						if (!result.ok) {
+							throw Error(result.status);
+						}
+						return getAuthToken();})
+                    .catch(error => console.error('Login error. ', error));
+            };
+    
+            function getAuthToken() {
+                var myHeaders = new Headers();
+                var requestOptions = {
+                    method: 'GET',
+                    headers: myHeaders,
+                    credentials: 'include'
+                };
 
+                return fetch("BONITA_ACCESS_URL/bonita/API/system/session/unusedId", requestOptions)
+                    .then(response => {
+						if (!response.ok) {
+							throw Error(response.status);
+						}
+						return response.headers.get("x-bonita-api-token");})
+                    .catch(error => console.error('Unable to retrieve authentication token from session. ', error));
+            };
+    
+            function getUserId() {
+                var myHeaders = new Headers();
+                var requestOptions = {
+                    method: 'GET',
+                    headers: myHeaders,
+                    credentials: 'include'
+                };
+    
+                return fetch("BONITA_ACCESS_URL/bonita/API/system/session/unusedId", requestOptions)
+                    .then(response => {
+						if (!response.ok) {
+							throw Error(response.status);
+						}
+						return response.json();})
+                    .then(body => body.user_id)
+                    .catch(error => console.error('Unable to retrieve UserId from session. ', error));
+            };
+    
+            function updatePassword(authToken) {
+                var formData = {"password": document.getElementById("new-password").value}
+                var myHeaders = new Headers();
+                myHeaders.append("X-Bonita-API-Token", authToken);
+                myHeaders.append("Content-Type", 'application/json');
+    
+                var requestOptions = {
+                    method: 'PUT',
+                    headers: myHeaders,
+                    credentials: 'include',
+                    body: JSON.stringify(formData)
+                };
+    
+    
+                return getUserId().then(userId =>
+                    fetch("BONITA_ACCESS_URL/bonita/API/identity/user/" + userId, requestOptions)
+                        .then(response => {
+							if (!response.ok) {
+								throw Error(response.status);
+							}
+							return response.text();})
+                        .then(result =>  console.log('Password updated!'))
+                        .catch(error =>  console.error('Unable to update the password. ', error)));
+    
+            };
+    
+            function submit() {
+                loginToBonita().then(authToken => updatePassword(authToken));
+            };
+        </script>
+    
+    </head>
+    <body>
+        <h1>CORS Demo, edit user password:</h1>
+        <div>
+			<label style="width: 150px; display:inline-block;  padding: 5px 0;" for="username">Username</label></span>
+			<input type="text" placeholder="Enter username" id="username" required/>
+		</div>
+        <div>
+			<label style="width: 150px; display:inline-block; padding: 5px 0;" for="username">Current password</label>
+			<input type="password" placeholder="Enter current password" id="current-password" required/>
+		</div>
+        <div>
+			<label style="width: 150px; display:inline-block; padding: 5px 0;" for="username">New password</label>
+			<input type="password" placeholder="Enter new password" id="new-password" required/>
+		</div>
+        <div>
+			<button onclick="submit()">Update password</button>
+		</div>
+    </body>
+</html>
 
 ```
 
