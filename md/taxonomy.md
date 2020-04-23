@@ -202,7 +202,7 @@
   * [Bonita artifacts](_bonita-artifacts.md)
     * [Connectors](_connectors.md)
       * [Connectors overview](connectors-overview.md)
-      * [Connector development toolkit](connector-development-toolkit.md)
+      * [Create a custom connector apart from the Bonita Studio](connector-archetype.md)
     * [Create an actor filter](creating-an-actor-filter.md)
   * [API glossary](api-glossary.md)
   * [REST API](_rest-api.md)
@@ -267,4 +267,3 @@
   * [Share a repository on GitHub](share-a-repository-on-github.md)
   * [Migrate a SVN repository to a Git repository](migrate-a-svn-repository-to-github.md)
   * [Configure Maven](configure-maven.md)
-  * [Create a custom connector apart from the Bonita Studio](connector-archetype.md)

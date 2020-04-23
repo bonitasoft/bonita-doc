@@ -1,3 +1,5 @@
+# Custom connector's development
+A set of best of breed tools to develop and test custom connectors independently of the Bonita Studio. 
 
 ## Create a custom connector
 
