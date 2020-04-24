@@ -85,6 +85,8 @@ _**Important Note 2:** to use this page you will need to replace the `BONITA_ACC
         <title>CORS Demo</title>
     
         <script type="text/javascript">
+			var bonitaServerPath;
+			
             function loginToBonita() {
                 var myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -103,13 +105,13 @@ _**Important Note 2:** to use this page you will need to replace the `BONITA_ACC
                     credentials: 'include'
                 };
     
-                return fetch("BONITA_ACCESS_URL/bonita/loginservice", requestOptions)
+                return fetch(bonitaServerPath + "/loginservice", requestOptions)
                     .then(result => {
 						if (!result.ok) {
 							throw Error(result.status);
 						}
 						return getAuthToken();})
-                    .catch(error => console.error('Login error. ', error));
+                    .catch(error => {document.getElementById("error").innerHTML += "<br/> &#x26a0; Login error. " + error;});
             };
     
             function getAuthToken() {
@@ -120,13 +122,13 @@ _**Important Note 2:** to use this page you will need to replace the `BONITA_ACC
                     credentials: 'include'
                 };
 
-                return fetch("BONITA_ACCESS_URL/bonita/API/system/session/unusedId", requestOptions)
+                return fetch(bonitaServerPath + "/API/system/session/unusedId", requestOptions)
                     .then(response => {
 						if (!response.ok) {
 							throw Error(response.status);
 						}
 						return response.headers.get("x-bonita-api-token");})
-                    .catch(error => console.error('Unable to retrieve authentication token from session. ', error));
+                    .catch(error => {document.getElementById("error").innerHTML += "<br/> &#x26a0; Unable to retrieve authentication token from session. " + error;});
             };
     
             function getUserId() {
@@ -137,14 +139,14 @@ _**Important Note 2:** to use this page you will need to replace the `BONITA_ACC
                     credentials: 'include'
                 };
     
-                return fetch("BONITA_ACCESS_URL/bonita/API/system/session/unusedId", requestOptions)
+                return fetch(bonitaServerPath + "/API/system/session/unusedId", requestOptions)
                     .then(response => {
 						if (!response.ok) {
 							throw Error(response.status);
 						}
 						return response.json();})
                     .then(body => body.user_id)
-                    .catch(error => console.error('Unable to retrieve UserId from session. ', error));
+                    .catch(error =>  {document.getElementById("error").innerHTML += "<br/> &#x26a0; Unable to retrieve UserId from session. " + error;});
             };
     
             function updatePassword(authToken) {
@@ -162,39 +164,50 @@ _**Important Note 2:** to use this page you will need to replace the `BONITA_ACC
     
     
                 return getUserId().then(userId =>
-                    fetch("BONITA_ACCESS_URL/bonita/API/identity/user/" + userId, requestOptions)
+                    fetch(bonitaServerPath + "/API/identity/user/" + userId, requestOptions)
                         .then(response => {
 							if (!response.ok) {
 								throw Error(response.status);
 							}
 							return response.text();})
-                        .then(result =>  console.log('Password updated!'))
-                        .catch(error =>  console.error('Unable to update the password. ', error)));
+                        .then(result =>  {document.getElementById("success").innerHTML = "&#10003; Password updated!"})
+                        .catch(error =>  {document.getElementById("error").innerHTML += "<br/> &#x26a0; Unable to update the password. " + error;}));
     
             };
     
             function submit() {
-                loginToBonita().then(authToken => updatePassword(authToken));
+				document.getElementById("success").innerHTML = "";
+				document.getElementById("error").innerHTML = "";
+				bonitaServerPath = document.getElementById("bonita-server-path").value;
+				loginToBonita().then(authToken => updatePassword(authToken));
             };
         </script>
     
     </head>
     <body>
-        <h1>CORS Demo, edit user password:</h1>
-        <div>
-			<label style="width: 150px; display:inline-block;  padding: 5px 0;" for="username">Username</label></span>
-			<input type="text" placeholder="Enter username" id="username" required/>
-		</div>
-        <div>
-			<label style="width: 150px; display:inline-block; padding: 5px 0;" for="username">Current password</label>
-			<input type="password" placeholder="Enter current password" id="current-password" required/>
-		</div>
-        <div>
-			<label style="width: 150px; display:inline-block; padding: 5px 0;" for="username">New password</label>
-			<input type="password" placeholder="Enter new password" id="new-password" required/>
-		</div>
-        <div>
-			<button onclick="submit()">Update password</button>
+		<div style="display: flex; flex-direction: column;  align-items: center;">
+				<h1>CORS Demo, edit user password:</h1>
+				<div>
+					<label style="width: 150px; display:inline-block;  padding: 5px 0;" for="bonita-server-path">Path to bonita server</label></span>
+					<input type="text" placeholder="Enter bonita server path" id="bonita-server-path" required/>
+				</div>
+				<div>
+					<label style="width: 150px; display:inline-block;  padding: 5px 0;" for="username">Username</label></span>
+					<input type="text" placeholder="Enter username" id="username" required/>
+				</div>
+				<div>
+					<label style="width: 150px; display:inline-block; padding: 5px 0;" for="username">Current password</label>
+					<input type="password" placeholder="Enter current password" id="current-password" required/>
+				</div>
+				<div>
+					<label style="width: 150px; display:inline-block; padding: 5px 0;" for="username">New password</label>
+					<input type="password" placeholder="Enter new password" id="new-password" required/>
+				</div>
+				<button  style="margin: 5px 0;" onclick="submit()">Update password</button>
+				<div style="width: width: 320px;">
+					<p style="color:green; padding: 5px 0;" id="success"></p>
+					<p style="color:red; padding: 5px 0;" id="error"></p>
+				</div>
 		</div>
     </body>
 </html>
