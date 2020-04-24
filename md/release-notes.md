@@ -7,12 +7,39 @@
 ## New values added
 
 ### Business Data Model editor
-BDM editor has been reworked, in order to improve the user experience.
+BDM and access control editors have been reworked, in order to improve your experience and your efficiency.
 
 ### Generate project documentation
 For Teamwork, Efficiency, Performace and Enterprise editions only.
 Extract informations from a project sources to generate an asciidoc document. The generation templates can be customized to suit your needs. More details [here](project-documentation-generation.md).
 
+
+## Improvements
+
+### Development suite changes
+
+#### Increase the default value of the development runtime's maximum memory heap size to 1Gb (512Mo previously)
+
+To avoid memory issues with large bar files deployment the default xmx value has been increased to 1Gb. If you want to revert this change, you can change it in the Studio preferences -> Server settings -> Tomcat Maximum memory allocation.
+
+#### UIPath connector: Cloud support
+The UIPath connector now supports the cloud solution.
+
+### Collaboration - Select the branches to clone
+When cloning a project, gain time by selecting the branches you want to clone instead cloning all the branches
+
+
+## Technical updates
+
+## Feature deprecations and removals
+### Deprecations
+
+### Removals
+### Complex data-types generation have been removed
+
+This feature was used to generate Java POJOs and XSD in Subscription editions. It is recommend to add your own Java model as jar file in the project classpath or create your [data model using Groovy objects](groovy-in-bonita.md#create-data-model).
+
+## Bug fixes
 
 ## Runtime changes
 
@@ -92,12 +119,6 @@ Examples of replacements are available in the bonita source code
 - `RestApiController` in the [bonita-web github repository](https://github.com/bonitasoft/bonita-web/commit/1387c4c513bdc2bb97071cddefc75d519886ed90#diff-c08aeb7d35cf380be1cdc09fea7ef822)
 
 
-## Development suite changes
 
-### Increase the default value of the development runtime's maximum memory heap size to 1Gb (512Mo previously)
-
-To avoid memory issues with large bar files deployment the default xmx value has been increased to 1Gb. If you want to revert this change, you can change it in the Studio preferences -> Server settings -> Tomcat Maximum memory allocation.
  
-### Complex data-types generation have been removed
 
-This feature was used to generate Java POJOs and XSD in Subscription editions. It is recommend to add your own Java model as jar file in the project classpath or create your [data model using Groovy objects](groovy-in-bonita.md#create-data-model).
