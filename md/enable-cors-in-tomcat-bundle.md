@@ -74,8 +74,6 @@ This page can be hosted on a different domain, and thanks to the CORS filter, th
 
 _**Important Note 1:** this example works on a bundle where the [CSRF security filter is activated](csrf-security). As the header "X-Bonita-API-Token" is set with the "session apiToken"._
 
-_**Important Note 2:** to use this page you will need to replace the `BONITA_ACCESS_URL` by your own tomcat bundle URL._
-
 ```html
 
 <!doctype html>
