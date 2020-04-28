@@ -29,6 +29,11 @@ _**Important Note:** to use this configuration, you will need to replace the `AL
   </init-param>
 
   <init-param>
+	<param-name>cors.support.credentials</param-name>
+	<param-value>true</param-value>
+  </init-param>
+
+  <init-param>
     <param-name>cors.allowed.methods</param-name>
    <param-value>GET, HEAD, POST, PUT, DELETE, OPTIONS</param-value>
   </init-param>
