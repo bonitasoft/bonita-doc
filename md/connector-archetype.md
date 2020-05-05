@@ -162,7 +162,6 @@ Example:
   <definitionId>myConnector</definitionId> <!-- Id of the definition implemented -->
   <definitionVersion>1.0.0</definitionVersion> <!-- Version of the definition implemented -->
   <implementationClassname>myGroupId.Connector</implementationClassname> <!-- Path to the main implementation class -->
-  <hasSources>false</hasSources> <!-- true if you want to embbed the sources in the jar builded -->
   <description>Default connector implementation</description>
 
 <!-- Implementation dependencies, retrieved from the pom.xml at build time -->
