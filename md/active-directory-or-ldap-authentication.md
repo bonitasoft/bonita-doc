@@ -111,7 +111,9 @@ You will need to perform following changes:
 
 #### Configure JAAS
 
-To define the JAAS configuration file location you need to set a JVM property, `java.security.auth.login.config`. To do this for a system running a Tomcat bundle you need to edit the `setenv` script provided with Bonita and located in `<BUNDLE_HOME>/server/bin` folder.
+To define the JAAS configuration file location you need to set a JVM property, `java.security.auth.login.config`. 
+If you're using a [`custom deployment into existing Tomcat`](custom-deployment.md) installation, you need to edit the `setenv` script provided with Bonita and located in `<BUNDLE_HOME>/server/bin` folder.
+If you're using the [`tomcat bundle`](tomcat-bundle.md) installation, you need to edit the `setenv` script provided with Bonita and located in `<BUNDLE_HOME>/setup/tomcat-templates` folder.
 
 ##### For Linux and Mac OS
 
