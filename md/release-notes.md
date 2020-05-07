@@ -83,6 +83,18 @@ Aside of the quality of life update of not having to run a migration between mig
 * A check has been added in Cluster mode as to forbid the start of nodes in different Bonita platform versions. For example, on a two-node cluster, you can't have a node in 7.11.0 and another in 7.11.1.
 The feature of having nodes in different Bonita versions was never supported, though there were cases where it "worked" in previous versions.  
 
+## Bonita Portal transformation
+
+Bonita Portal is being transformed into Bonita Applications. When Bonita Applications are ready, Bonita Portal will be removed.
+Developers and users will need to learn how to stop using the Portal and start using Bonita Applications instead.
+This change will allow Bonita and its users to get free from Google Web Toolkit (GWT) technology and offer opportunities for customization.
+Indeed, some Portal pages (built with GWT) are being totally recreated with our own UI Designer. They will be customizable.
+Others (those that were already using another technology than GWT) are being wrapped and will not be customizable.
+Moreover, as any Living Application, Bonita applications will be extensible to add any page the users need.
+More details in the upcoming versions of Bonita.
+Until then, we strongly advise not to create Custom Portal Profiles anymore but applications instead if possible.
+When Bonita Portal does not exist anymore, the existing Portal Custom Profiles will need to be migrated into Living applications.
+
 ## API Removal
 
 ### rest api extension
