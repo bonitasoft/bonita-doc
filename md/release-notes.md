@@ -8,7 +8,10 @@
 
 
 <a id="data-management"/>
+
 ### Business Data Management in the UI Designer
+Introspect and visualize your Business Data model in your UI Designer pages with a few clicks to speed up your development
+
 
 <a id="bdm-editor"/>
 
