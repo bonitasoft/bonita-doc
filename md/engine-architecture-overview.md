@@ -13,7 +13,7 @@ The Bonita Engine component services are completely configurable using the [plaf
 Services are provided to the Engine using a ServiceAccessor. By default, this uses Spring to bind services and to retrieve service instances.
 The Spring configuration files are present in the classpath but beans can be added or overridden using configuration files stored in database under the **CONFIGURATION**  table.
 These files are all suffixed with -custom.xml and contain Spring bean declaration examples.
-Theses files can be retrieved and updated using the [platform setup tool](BonitaBPM_platform_setup.md).
+These files can be retrieved and updated using the [platform setup tool](BonitaBPM_platform_setup.md).
 
 Folder  `setup/platform_conf/[initial|current]/tenant_template_engine` contains tenant-level template configuration files used when creating a new tenant (Subscription edition):
 

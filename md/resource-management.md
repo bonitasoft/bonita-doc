@@ -80,6 +80,7 @@ After a resource is added to the portal, it can be used in an [application](appl
 :::
 
 <a id="modify"/>
+
 ## Modify a resource
 
 To modify a resource in the portal, you upload a zip archive containing the new version.
