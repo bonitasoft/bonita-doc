@@ -14,7 +14,7 @@ This way of building artifacts is deprecated. Use [Bonita Continuous Delivery ad
 
 ::: warning
 **Warning:**
-* The solution described here relies on the `Workspace API`/`BonitaStudioBuilder`, which has been deprecated since Bonita 7.7.0. Instead, we strongly encourage you to use the LA builder included in the tooling suite of [*Bonita Continuous Delivery* add-on](https://documentation.bonitasoft.com/bcd/3.1/) add-on. One added-value is that LA builder does not need a studio to be installed.
+* The solution described here relies on the `Workspace API`/`BonitaStudioBuilder`, which has been deprecated since Bonita 7.7.0. Instead, we strongly encourage you to use the LA builder included in the tooling suite of [*Bonita Continuous Delivery* add-on](https://documentation.bonitasoft.com/bcd/latest/) add-on. One added-value is that LA builder does not need a studio to be installed.
 :::
 
 ## Overview
