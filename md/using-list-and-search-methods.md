@@ -42,6 +42,7 @@ sob.differentFrom</b>(HumanTaskInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getI
 ```
 
 <a id="word_based_search" />
+
 ## Word-based search
 
 By default, search uses a "starts by" algorithm for searching, and finds matches where the search string occurs at the start of a phrase.
