@@ -202,7 +202,7 @@
   * [Bonita artifacts](_bonita-artifacts.md)
     * [Connectors](_connectors.md)
       * [Connectors overview](connectors-overview.md)
-      * [Connector development toolkit](connector-development-toolkit.md)
+      * [Bonita connector archetype](connector-archetype.md)
     * [Create an actor filter](creating-an-actor-filter.md)
   * [API glossary](api-glossary.md)
   * [REST API](_rest-api.md)
