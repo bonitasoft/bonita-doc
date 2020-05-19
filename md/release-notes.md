@@ -6,14 +6,30 @@
 
 ## New values added
 
+
+<a id="data-management"/>
+
+### Business Data Management in the UI Designer
+Introspect and visualize your Business Data model in your UI Designer pages with a few clicks to speed up your development
+
+
+<a id="bdm-editor"/>
+
 ### Business Data Model editor
 BDM editor has been reworked, in order to improve the user experience.
+
+<a id="project-documentation"/>
 
 ### Generate project documentation
 For Teamwork, Efficiency, Performace and Enterprise editions only.
 Extract informations from a project sources to generate an asciidoc document. The generation templates can be customized to suit your needs. More details [here](project-documentation-generation.md).
 
 
+## Improvements
+
+<a id="uipath-cloud"/>
+
+### Integration with UiPath deployed in the Cloud 
 ## Runtime changes
 
 ### lib upgrade
