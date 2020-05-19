@@ -4,7 +4,7 @@ Discover how to explore [Business Data Model](define-business-data-model.md) (BD
 
 A **Data Model** tab is available from the Palette of the Page editor:
 
-![data_model_panel](images/data_model_panel.png)
+![data_model_panel](images/uid_data_model_panel.png)
 
 ## Exploring the BDM
 From the Data Model tab, the graph icon allows you to visualize and explore the BDM.
@@ -23,8 +23,15 @@ You can find information on how to use this wizard from the [Business Data Varia
 
 A user interface is generated. It follows the master/details pattern: a Table widget is displayed with all the object instances, and the details are shown when a line is selected.
 The details section map each Business Object attribute to a corresponding widget (for instance, an Input widget for an attribute of type String).
+If you need another widget for an attribute, you can [switch the widget](widgets.md).
 A set of variables are generated as well, to allow the user interface to operate.
-Note that all the widgets are in read-only mode since the purpose here is to visualize data.
+
+::: info
+Notes:
+- All the widgets are in read-only mode since the purpose here is to visualize data
+- The pagination is not handled by the generated interface
+:::
+
 You can try it with the Preview, and modify it as needed.
 
 ## Create a variable from a Business Object

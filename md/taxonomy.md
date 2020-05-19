@@ -68,6 +68,7 @@
         * [Repeat a container for a collection of data](repeat-a-container-for-a-collection-of-data.md)
       * [Fragments](fragments.md)
       * [Custom widgets](custom-widgets.md)
+      * [Data management](data-management.md)
       * [Variables](variables.md)
       * [Appearance](appearance.md)
       * [Assets](assets.md)

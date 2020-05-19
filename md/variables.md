@@ -39,8 +39,8 @@ This allows boost and simplify configuration on these data.
 ##### How to create a Business Data variable
 
 A Business Data variable can be created in two ways:
-- From Data Model section in the left panel, drag and droping a Business Object to the whiteboard area
 - From the Variables bottom panel, creating a new variable with the type Business Data
+- From Data Model section in the left panel, drag and droping a Business Object to the whiteboard area. In this case, a user interface will also be generated
 
 A configuration wizard appears: create a Business Data variable by providing information on how to retrieve elements of this Business Object.
 
