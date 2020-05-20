@@ -87,7 +87,7 @@ In Bonita Studio you have access to two log files:
 Logs are configured via the class package names and the main packages are `org.bonitasoft` and `com.bonitasoft` for subscription edition.  
 Change these packages value to change the Bonita global log level.
 
-#### Tomcat
+#### Bonita Bundle
 
 On a Bonita bundle, you can configure the log level and you can access the log files directly, in `BUNDLE_HOME/logs`. 
 Each file name includes the date when the file was created. Log files:
