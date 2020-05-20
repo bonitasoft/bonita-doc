@@ -6,8 +6,19 @@
 
 ## New values added
 
+
+<a id="data-management"/>
+
+### Business Data Management in the UI Designer
+Introspect and visualize your Business Data model in your UI Designer pages with a few clicks to speed up your development
+
+
+<a id="bdm-editor"/>
+
 ### Business Data Model editor
 BDM and access control editors have been reworked, in order to improve your experience and your efficiency.
+
+<a id="project-documentation"/>
 
 ### Generate project documentation
 For Teamwork, Efficiency, Performace and Enterprise editions only.
@@ -52,7 +63,6 @@ STUDIO-3295	When extracting a sub process from a task using a bdm object, init s
 STUDIO-3327	Reset/clean bdm has no effect
 STUDIO-3365	Password is displayed in clear where deploying a process fail
 
-
 ## Runtime changes
 
 ### lib upgrade
@@ -63,7 +73,7 @@ STUDIO-3365	Password is displayed in clear where deploying a process fail
 
 ## Bundle changes
 
-Upgrade Tomcat from 8.5.47 to 8.5.50 (tomcat-dbcp from 9.0.16 to 9.0.30) **subject to change prior GA**
+Upgrade Tomcat from 8.5.47 to 8.5.53 (tomcat-dbcp from 9.0.16 to 9.0.31) **subject to change prior GA**
 
 
 ### Tomcat Manager removal
@@ -106,6 +116,33 @@ This helps tracking the processing when parallel requests are in progress.
 2020-03-02 17:33:32.938 +0100 INFO (http-nio-8080-exec-7) org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/bonita] CustomPageRestletServlet: [Restlet] ServerServlet: component class is null
 ```
 
+
+## No more migration between maintenance versions of Bonita
+Starting with Bonita 7.11.0, it is not necessary to run the Bonita migration tool to upgrade between maintenance versions of Bonita Runtime (between 7.11.**0** and 7.11.**1**, for instance).  
+More details on the new procedure [here](migrate-from-an-earlier-version-of-bonita-bpm.md#maintenanceVersionCompatible)  
+On the technical side, Bonita 7.11.0 introduces a loose couple between Bonita binaries and the Database schema it runs on. 
+There is now a distinction between Bonita Database Schema version and Bonita Runtime version.
+The Bonita Database Schema version is a technical number (not accessible through APIs), that changes when the database schema changes.
+The Bonita Platform Version is the 3 digit version number we usually use to refer to Bonita.
+On startup Bonita now only checks if the database version is compatible with the binaries version, not if they are identical.
+
+Aside of the quality of life update of not having to run a migration between migration versions, this update brings a few behavioral changes:
+* Platform.getVersion() method still returns the version of the Bonita runtime binaries (ie. 7.11.0).
+* Platform.getPreviousVersion() is now deprecated, and voided (will always return ""). It was not used anywhere. It will be removed in a later version.
+* A check has been added in Cluster mode as to forbid the start of nodes in different Bonita platform versions. For example, on a two-node cluster, you can't have a node in 7.11.0 and another in 7.11.1.
+The feature of having nodes in different Bonita versions was never supported, though there were cases where it "worked" in previous versions.  
+
+## Bonita Portal transformation
+
+Bonita Portal is being transformed into Bonita Applications. When Bonita Applications are ready, Bonita Portal will be removed.
+Developers and users will need to learn how to stop using the Portal and start using Bonita Applications instead.
+This change will allow Bonita and its users to get free from Google Web Toolkit (GWT) technology and offer opportunities for customization.
+Indeed, some Portal pages (built with GWT) are being totally recreated with our own UI Designer. They will be customizable.
+Others (those that were already using another technology than GWT) are being wrapped and will not be customizable.
+Moreover, as any Living Application, Bonita applications will be extensible to add any page the users need.
+More details in the upcoming versions of Bonita.
+Until then, we strongly advise not to create Custom Portal Profiles anymore but applications instead if possible.
+When Bonita Portal does not exist anymore, the existing Portal Custom Profiles will need to be migrated into Living applications.
 
 ## API Removal
 

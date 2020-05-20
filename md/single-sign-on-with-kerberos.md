@@ -130,7 +130,7 @@ To configure Bonita for Kerberos:
 2. You will need to edit the Kerberos configuration file in order to select the desired encryption types used to secure the communication. In the following folder `<BUNDLE_HOME>/server/conf`,
 	edit the krb5.conf file as follows:
 	
-```	
+    ```	
 		[libdefaults]
 	-->		default_realm = BONITA.LOCAL
 			default_tkt_enctypes = aes256-cts-hmac-sha1-96 aes128-cts rc4-hmac des3-cbc-sha1 des-cbc-md5 des-cbc-crc
@@ -146,10 +146,10 @@ To configure Bonita for Kerberos:
 		[domain_realm]
 	-->		.BONITA.LOCAL = BONITA.LOCAL
 
-```
-	
-if you want to use the AES256-CTS encryption type, you need to update the Java security libraries (Java Cryptography Extension (JCE) Unlimited Strength) to those for Strong Encryption. Depending on your java version, you might have to download some extra files or not.
-
+    ```
+    
+    if you want to use the AES256-CTS encryption type, you need to update the Java security libraries (Java Cryptography Extension (JCE) Unlimited Strength) to those for Strong Encryption. Depending on your java version, you might have to download some extra files or not.
+    
 	* For Java updates > Java 8 u162 and java 9, the unlimited policy is enabled by default. You no longer need to install the policy file in the JRE or set the security property crypto.policy
 	* For Java updates < Java 8 u162, you have to download the security libraries [Here](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html)
 		These libraries need to be put in jre/lib/security and jdk/jre/lib/security.
@@ -157,7 +157,7 @@ if you want to use the AES256-CTS encryption type, you need to update the Java s
 3. In the following folder `<BUNDLE_HOME>/server/conf`,
 	edit the login.conf file as follows:
 	
-```	
+    ```	
 	spnego-client {
 		com.sun.security.auth.module.Krb5LoginModule required;
 	};
@@ -167,15 +167,15 @@ if you want to use the AES256-CTS encryption type, you need to update the Java s
 		storeKey=true
 		isInitiator=false;
 	};
-```
-
-In addition, the system property `java.security.auth.login.config` should not already be set or, if it is, it should target the file `conf/login.conf`. In order to do that, you can edit the file `<BUNDLE_HOME>/server/bin/setenv.sh (.bat)` and set the SECURITY_OPT variable as follows:  
+    ```
+    
+    In addition, the system property `java.security.auth.login.config` should not already be set or, if it is, it should target the file `conf/login.conf`. In order to do that, you can edit the file `<BUNDLE_HOME>/server/bin/setenv.sh (.bat)` and set the SECURITY_OPT variable as follows:  
 `SECURITY_OPTS="-Djava.security.auth.login.config=${CATALINA_HOME}/conf/login.conf"`
 
 4. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
    edit the authenticationManager-config.properties as follows:
    
-```
+    ```
 		# saml.logout.global = false
 		# auth.tenant.admin.username = install
 		# auth.passphrase = BonitaBPM
@@ -190,18 +190,19 @@ In addition, the system property `java.security.auth.login.config` should not al
 		# auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.oauth.OAuthAuthenticationManagerImpl
 		# OAuth.serviceProvider = LinkedIn
 		# OAuth.consumerKey = ove2vcdjptar
-   -->  logout.link.hidden=true 
-```
-
-Make sure to [set the right tenant admin username](multi-tenancy-and-tenant-configuration#toc2).
-It is recommended to also replace the value of the passphrase (property auth.passphrase) which is used by the engine to verify the authentication request.
-The value must be the same as in the file **bonita-tenant-sp-custom.properties**.  
-If the users need to bypass kerberos authentication method, you can authorize it by setting the property `kerberos.auth.standard.allowed` to true. Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.  
-If only a limited group of users need to bypass kerberos authentication method you can restrain it by setting the property `kerberos.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (coma separated).
+		(...)
+        -->	logout.link.hidden=true 
+    ```
+    
+    Make sure to [set the right tenant admin username](multi-tenancy-and-tenant-configuration#toc2).
+    It is recommended to also replace the value of the passphrase (property auth.passphrase) which is used by the engine to verify the authentication request.
+    The value must be the same as in the file **bonita-tenant-sp-custom.properties**.  
+    If the users need to bypass kerberos authentication method, you can authorize it by setting the property `kerberos.auth.standard.allowed` to true. Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.  
+    If only a limited group of users need to bypass kerberos authentication method you can restrain it by setting the property `kerberos.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (comma separated).
 
 5. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
    edit the spnego-config.properties file as follows:
-```
+    ```
 	-->      spnego.allow.basic          = true
 	-->	 spnego.allow.localhost      = true
 	-->	 spnego.allow.unsecure.basic = true
@@ -213,27 +214,27 @@ If only a limited group of users need to bypass kerberos authentication method y
 	-->	 spnego.logger.level         = 1
 	-->	 spnego.preauth.username     = <username>
 	-->	 spnego.preauth.password     = <password> 
-```
-<username> and <password> shoud be replaced with the domain account and password to use to pre-authenticate to on the Domain controller acting as Kerberos Key Distribution Center.  
-`spnego.login.client.module` and `spnego.login.server.module` property values should match the login contexts set in `login.conf` (spnego-client and spnego-server by default).
-
-Make sure to set your principal user name and password.	
+    ```
+    <username> and <password> shoud be replaced with the domain account and password to use to pre-authenticate to on the Domain controller acting as Kerberos Key Distribution Center.  
+    `spnego.login.client.module` and `spnego.login.server.module` property values should match the login contexts set in `login.conf` (spnego-client and spnego-server by default).
+    
+    Make sure to set your principal user name and password.	
 
 6. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`,
 	  edit the file **bonita-tenant-sp-custom.xml** to uncomment the bean passphraseOrPasswordAuthenticationService:
 
-```
+    ```
 	<bean id="passphraseOrPasswordAuthenticationService" class="com.bonitasoft.engine.authentication.impl.PassphraseOrPasswordAuthenticationService" lazy-init="true">
 	   <constructor-arg name="logger" ref="tenantTechnicalLoggerService" />
 	   <constructor-arg name="identityService" ref="identityService" />
 	   <constructor-arg name="configuredPassphrase" value="${authentication.service.ref.passphrase}" />
    </bean>
-```
+    ```
 
 7. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
   edit the file bonita-tenant-sp-custom.properties as follows:
   
-```
+    ```
 		# Authentication service to use. Some are natively provided:
 		# authenticationService
 		#   * binded to bonita authentication mode
@@ -262,9 +263,9 @@ Make sure to set your principal user name and password.
 		#authenticator.delegate=casAuthenticatorDelegate
 		#authentication.delegate.cas.server.url.prefix=http://ip_address:port
 		#authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservice
-```
-  
-It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file **authenticationManager-config.properties** updated previously.
+    ```
+    
+    It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file **authenticationManager-config.properties** updated previously.
 
 8. If your Domain Controller is correctly configured, you are done.  
 Then you can start the bundle and try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are automatically logged in.  

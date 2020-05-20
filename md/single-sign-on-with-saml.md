@@ -71,21 +71,26 @@ To configure Bonita for SAML:
        -->  saml.logout.global = false
        -->  auth.tenant.admin.username = install
        -->  auth.passphrase = BonitaBPM
+       
+            #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.kerberos.RemoteAuthenticationManagerImpl
+            # kerberos.filter.active = true
+            # kerberos.auth.standard.allowed = false
+            # auth.tenant.admin.username = install
+       -->  auth.tenant.standard.whitelist = william.jobs
+            # auth.passphrase = Bonita
+
             #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.oauth.OAuthAuthenticationManagerImpl
             # OAuth.serviceProvider = LinkedIn
             # OAuth.consumerKey = ove2vcdjptar
-            # OAuth.consumerSecret = vdaBrCmHvkgJoYz1
-            # OAuth.callbackURL = http://127.0.0.1:8888/loginservice
-            #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.jaas.cas.CASRemoteAuthenticationManagerImpl
-            # Cas.serverUrlPrefix = http://127.0.1.1:8180/cas
-            # Cas.bonitaServiceURL = http://127.0.1.1:8080/bonita/loginservice
+            (...)
        -->  logout.link.hidden=true 
     ```
     
     Make sure to [set the right tenant admin username](multi-tenancy-and-tenant-configuration#toc2).
     It is recommended to also replace the value of the passphrase (property auth.passphrase) which is used by the engine to verify the authentication request.
     The value must be the same as in the file **bonita-tenant-sp-custom.properties**.  
-    If you need some users to be able to log in without having an account on the IDP, you can authorize it by setting the property `saml.auth.standard.allowed` to true. Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.
+    If you need users to be able to log in without having an account on the IDP, you can authorize it by setting the property `saml.auth.standard.allowed` to true. Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.  
+    If only a limited group of users need to bypass SAML authentication method you can restrain it by setting the property `saml.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (comma separated).
 
 3. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`,
   edit the file **bonita-tenant-sp-custom.xml** to uncomment the bean passphraseOrPasswordAuthenticationService:
