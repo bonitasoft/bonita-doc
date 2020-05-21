@@ -10,7 +10,7 @@ We provide a maven archetype to help you to bootstrap a connector project. The s
 
  1. Java 8 must be installed: [https://adoptopenjdk.net/index.html](https://adoptopenjdk.net/index.html)
  2. Maven must be installed: [https://maven.apache.org/install.html](https://maven.apache.org/install.html)
- 3. Connector development requires some software development skills. The  archetype offers the possibility to develop the connector in _Java_, _Groovy_ or _Kotlin_. Make sure that you are comfortable with at least one of those three languages. 
+ 3. Connector development requires some software development skills. The archetype offers the possibility to develop the connector in _Java_, _Groovy_ or _Kotlin_. Make sure that you are comfortable with at least one of those three languages. 
 
 ### Generate the project using the maven archetype
 
@@ -27,17 +27,16 @@ You'll then have to specify interactively the properties of your project:
 
 - **groupId:** the group id of your connector.
 - **artifactId:** the artifact id of your connector
+	- Must match the following regex: `^[a-zA-Z0-9\-]+$`
+    - Example: _myConnector-1_
 - **version:** the version of your connector _(default value: 1.0-SNAPSHOT)_
 Follow the [maven naming convention guide](http://maven.apache.org/guides/mini/guide-naming-conventions.html)
 - **package** the package in which the connector source files will be created _(default value: the group id of the connector)_
 - **bonitaVersion:** the targeted Bonita version
-    - A Bonita connector project depends on _org.bonitasoft.engine:bonita-common_. To avoid potential conflicts / errors at runtime, you should use the Bonita version of your runtime environment.s
+    - A Bonita connector project depends on _org.bonitasoft.engine:bonita-common_. To avoid potential conflicts / errors at runtime, you should use the Bonita version of your runtime environment.
 - **className:** the class name of your connector 
     - Must match the following regex: `^[a-zA-Z_$][a-zA-Z\d_$]+$` (A Java classname valid identifier)
     - Example: _MyConnector1_
-- **connectorName:** the name of your connector
-    - Must match the following regex: `^[a-zA-Z0-9\-]+$`
-    - Example: _myConnector-1_
 - **language**: the language used in the connector project. Available values:
     - java
     - groovy
@@ -52,8 +51,8 @@ A folder named _[your artifact id]_ is created, with your Bonita connector proje
 
 In this section we'll look into the different components of a connector project, and how you should use them to develop your connector.
 
-#### Connector definition
-A connector is first defined by its **definition**.  It is an XML file located in _src/main/resources/[connector name].def_ by default.   
+#### Definition
+A connector is first defined by its **definition**.  It is an XML file located in _src/main/resources/[artifactId].def_ by default.   
 A connector definition defines the inputs and the outputs of a connector. It can be seen as a black box. The definition explicits what will be passed to the connector, and what is expected as output. Then, implementations of this definition can be created, they just need to respect the inputs / outputs contract of the definition.  
 
 The connector definition XSD is available in _schemas/connector-definition-descriptor.xsd_, you can import it in a IDE to get completion. 
@@ -258,23 +257,11 @@ The root _pom.xml_ file has the following parent:
 ```
 This parent contains the logic that make the replacements in the implementation xml file at build time.
 
-By default, two zip archives are built: 
-
- - One containing all the definitions and implementations found in the project (built using the file _connector-assembly.xml)_
- - One containing only the default implementation generated (built using the file _[connector name]-assembly.xml_
-
-Those two assembly are here to help you to:
-
- - Build an _all in one_ zip archive for all the definitions and implementation created in this project. By importing this archive in a Bonita Studio you will import all the definitions and implementations created in the project
- - Build a single zip archive with only one implementation. This implementation zip archive can be imported in a Bonita Studio, but also in a Bonita Bundle to update a connector implementation at runtime.
+By default, a zip archives is built containing all the definitions and implementations found in the project.
+By importing this archive in a Bonita Studio you will import all the definitions and implementations created in the project
 
 To build the connector project, type the following command at the root of the project : 
 ```
 ./mvnw clean install
 ```
-By default, maven wrapper is installed by the archetype. It helps to have a portable and reproductible build system. If you elected to disable the wrapper install at archetype generation, you can use your local maven install.
-
-The two zip archives can be found in the folder _target_ after the build: 
-
- - **[artifact id]-[artifact version]-all.zip** for the _all in one_ archive
- - **[artifact id]-[artifact version]-[connector name].zip** for the implementation archive
+The built archive can be found in here `target/[artifact id]-[artifact version].zip` after the build.
