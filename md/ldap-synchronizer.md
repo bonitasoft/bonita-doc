@@ -318,15 +318,13 @@ Groups will be synchronized based on the matching of their LDAP common name (CN)
 
 
 Groups can be declared individually in the configuration file with the following properties :
-ldap\_group\_dn
-mandatory attribute that specifies the DN of the LDAP group.
 
-forced\_bonita\_group\_name
-optional attribute that renames the Bonita group instead of using the original LDAP group name.
 
-force\_add\_non\_existing\_users
-optional Boolean attribute (true by default) that defines whether group members (users in LDAP) that are not present in Bonita should be imported (created in Bonita). If false, these users are not created but group is created and existing users get associated with the group.
-
+| | |
+|:-----|:--------|
+| ldap\_group\_dn | mandatory attribute that specifies the DN of the LDAP group. |
+| forced\_bonita\_group\_name | optional attribute that renames the Bonita group instead of using the original LDAP group name. |
+| force\_add\_non\_existing\_users | optional Boolean attribute (true by default) that defines whether group members (users in LDAP) that are not present in Bonita should be imported (created in Bonita). If false, these users are not created but group is created and existing users get associated with the group. |
   
 Example of group declarations:
 
