@@ -42,6 +42,10 @@ Extract informations from a project sources to generate an asciidoc document. Th
 
 Upgrade Tomcat from 8.5.47 to 8.5.53 (tomcat-dbcp from 9.0.16 to 9.0.31) **subject to change prior GA**
 
+### Oracle driver
+
+The Oracle jdbc driver does not need to be downloaded separately anymore and is now packaged in the Bonita bundle,
+ exactly like the Postgres, Mysql & SQLServer jdbc drivers. 
 
 ### Tomcat Manager removal
 

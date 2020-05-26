@@ -37,17 +37,13 @@ All RDBMSs require [specific customization](#specific_database_configuration), w
 If you do not complete the specific configuration for your RDBMS, your installation may fail.
 :::
 
+## Jdbc drivers
 
-<a id="proprietary_jdbc_drivers" />
-
-### Proprietary Jdbc drivers
-
-Bonita provides out of the box the Jdbc drivers for H2, PostgreSQL, Microsoft SQL Server and MySQL. For Oracle, you have to retrieve the related Jdbc drivers as follows.  
+Bonita provides out of the box the Jdbc drivers for H2, PostgreSQL, Microsoft SQL Server, Oracle and MySQL.
 
 #### Oracle Database
 
 *Warning*: Bonita 7.10.+ is compatible with Oracle 12.2.0.x and Oracle 19c (19.3.0.0).
-The driver compatible with Oracle 12.2.0.x & 19.3.0 can be found here: [ojdbc8.jar](https://www.oracle.com/database/technologies/appdev/jdbc-ucp-19c-downloads.html)( make sure it is the official driver by checking the SHA1 Checksum: 967c0b1a2d5b1435324de34a9b8018d294f8f47b )
 
 <a id="database_creation" />
 
@@ -71,7 +67,7 @@ If the same SQL user is used with the [migration tool](migrate-from-an-earlier-v
 To create the database(s), we recommend that you refer to your RDBMS documentation:
 
 * [PostgreSQL](https://www.postgresql.org/docs/11/app-createdb.html)
-* [Oracle database](https://docs.oracle.com/database/121/ADMIN/create.htm#ADMIN002)
+* [Oracle database](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/creating-and-configuring-an-oracle-database.html#GUID-FE07A9CD-3BD4-46E8-BA24-289FD50FDFE8)
 * [SQL Server](https://technet.microsoft.com/en-us/library/dd207005(v=sql.110).aspx)
 * [MySQL](https://dev.mysql.com/doc/refman/8.0/en/database-use.html)
 

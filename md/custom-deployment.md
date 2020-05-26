@@ -67,8 +67,7 @@ There is an [issue on tomcat 8.0.32](https://bz.apache.org/bugzilla/show_bug.cgi
 
 ### Add Jdbc driver
 You need to add your jdbc driver in BUNDLE_HOME/lib. 
-MySQL, PostgreSQL and Microsoft SQL Server drivers can be found in the Tomcat bundle under DEPLOY_ZIP_HOME/setup/lib directory. For Oracle, 
-use the [jdbc driver](database-configuration.md#proprietary_jdbc_drivers) provided by Oracle.
+MySQL, PostgreSQL, Oracle and Microsoft SQL Server drivers can be found in the Tomcat bundle under DEPLOY_ZIP_HOME/setup/lib directory.
 
 
 ## License installation
@@ -82,8 +81,7 @@ We assume here that the database has already been [created and configured for Bo
 Once created and configured you need to initialize it using the setup tool provided in the bundle.
 This will create database schema and initial values.
 1. In TOMCAT_DIRECTORY/setup folder, edit the file database.properties with properties matching your rdbms. Beware of [backslash characters](BonitaBPM_platform_setup.md#backslash_support).
-2. In TOMCAT_DIRECTORY/setup/lib add your jdbc driver if needed (only for Oracle, see [proprietary jdbc drivers](database-configuration.md#proprietary_jdbc_drivers))
-3. In TOMCAT_DIRECTORY/setup folder, run `setup.(sh|bat) init`
+2. In TOMCAT_DIRECTORY/setup folder, run `setup.(sh|bat) init`
 
 ## Next steps
 You're done with Bonita installation. You can now start your application server as usual.
