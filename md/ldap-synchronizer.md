@@ -325,7 +325,7 @@ forced\_bonita\_group\_name
 optional attribute that renames the Bonita group instead of using the original LDAP group name.
 
 force\_add\_non\_existing\_users
-optional Boolean attribute (true by default) that defines whether group members that are not present in Bonita should be imported (if false, these users are ignored).
+optional Boolean attribute (true by default) that defines whether group members (users in LDAP) that are not present in Bonita should be imported (if false, these users are ignored but group is created).
 
   
 Example of group declarations:
@@ -353,7 +353,7 @@ In combination or as an alternative, groups can be declared using the result of 
 |:-----|:--------|
 | ldap\_group\_search\_dn | DN of the LDAP watched directory that will be used to get the list of the LDAP groups. |
 | ldap\_group\_search\_filter | LDAP group search filter (mandatory attribute, but can be a wide filter such as "cn=\*"). |
-| force\_add\_non\_existing\_users | optional boolean attribute (true by default) that defines whether group members that are not present in Bonita should be imported (if false, these users are ignored). |
+| force\_add\_non\_existing\_users | optional boolean attribute (true by default) that defines whether group members (users in LDAP) that are not present in Bonita should be imported (if false, these users are ignored but group is created). |
   
 Example of group searches:
 ```
