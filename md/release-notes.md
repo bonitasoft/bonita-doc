@@ -11,7 +11,8 @@
 
 ### Business Data Management in the UI Designer
 
-Add sections to your pages and forms to display Business Data Information in master-detail representation in a few clicks and introspect and visualize Business Data Model in your browser to help you know and use your data model.
+Visualize and explore your Business Data Model (BDM) in your browser.
+In a few clicks, generate user interfaces from the BDM, using the master/details pattern.
 
 More details [here](data-management.md).
 
@@ -149,4 +150,4 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 
 ### Description field on widgets
 
-Add documentation to your pages explaining how and what your widgets do thanks to the new optional field "description" and use this information to [generate documentation](release-notes.md#project-documentation).
+Add documentation to your pages by providing information on a widget (e.g. how to use it), thanks to the new Description field. Use this information to [generate documentation](release-notes.md#project-documentation).
