@@ -10,8 +10,11 @@
 <a id="data-management"/>
 
 ### Business Data Management in the UI Designer
-Introspect and visualize your Business Data model in your UI Designer pages with a few clicks to speed up your development
 
+Visualize and explore your Business Data Model (BDM) in your browser.
+In a few clicks, generate user interfaces from the BDM, using the master/details pattern.
+
+More details [here](data-management.md).
 
 <a id="bdm-editor"/>
 
@@ -144,3 +147,7 @@ To avoid memory issues with large bar files deployment the default xmx value has
 ### Complex data-types generation have been removed
 
 This feature was used to generate Java POJOs and XSD in Subscription editions. It is recommend to add your own Java model as jar file in the project classpath or create your [data model using Groovy objects](groovy-in-bonita.md#create-data-model).
+
+### Description field on widgets
+
+Add documentation to your pages by providing information on a widget (e.g. how to use it), thanks to the new Description field. Use this information to [generate documentation](release-notes.md#project-documentation).
