@@ -111,7 +111,7 @@ _**Important Note 1:** this example works on a bundle where the [CSRF security f
 <!doctype html>
 <html>
     <head>
-        <meta charset="utf-8">1
+        <meta charset="utf-8">
         <title>CORS Demo</title>
     
         <script type="text/javascript">
