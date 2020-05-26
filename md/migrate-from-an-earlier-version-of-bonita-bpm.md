@@ -132,7 +132,7 @@ This section explains how to migrate a platform that uses one of the Bonita bund
 or from the [Customer Portal](https://customer.bonitasoft.com/download/request) for Bonita Subscription Pack editions.
 1. Check your current RDBMS version is compliant with the versions supported by the target version of Bonita (see [above](#rdbms_requirements))
 1. Unzip the migration tool zip file into a directory. In the steps below, this directory is called `bonita-migration`.
-1. If you use Oracle, you must upgrade to [Oracle 12c (12.2.x.y)](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12) in order to migrate to 7.9+. 
+1. If you use Oracle, you must upgrade to [Oracle 12c (12.2.x.y)](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12) in order to migrate to 7.9+ or to [Oracle 19c ](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle19) in order to migrate to 7.11+  
 1. Configure the database properties needed by the migration script, by editing `bonita-migration/Config.properties`.
 Specify the following information:
 
@@ -347,6 +347,19 @@ please follow this procedure:
 * in a first step, run Bonita migration tool to update Bonita platform to version 7.8.4, following the procedure above
 * then upgrade your Oracle database server to the version 12c (it must be 12.2.x.y)
 * in a second step, run the migration tool again to migrate the platform to 7.9.0 or newer
+* once done, you can restart your updated Bonita platform
+
+
+<a id="oracle19"/>
+
+## Migrating to Bonita 7.11+ using Oracle
+
+Bonita 7.11+ supports Oracle 19c version. To migrate to Bonita 7.11+ when using Oracle,
+please follow this procedure:
+* ensure your Bonita platform is shut down
+* in a first step, run Bonita migration tool to update Bonita platform to version 7.10.5, following the procedure above
+* then upgrade your Oracle database server to the version 19c, version 7.10.x is compatible with 12c and 19c. 
+* in a second step, run the migration tool again to migrate the platform to 7.11.0 or newer
 * once done, you can restart your updated Bonita platform
 
 <a id="maintenanceVersionCompatible"/>
