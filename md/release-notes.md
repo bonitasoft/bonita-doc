@@ -135,6 +135,10 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 ### Fixes in Bonita 7.10.5 (2020-XX-XX)
 #### Fixes in Bonita Runtime (including Portal)
 * BR-408 - Update tomcat to 8.5.53 version that includes latest security fixes
+#### Fixes in Bonita Development Suite (Studio and UI Designer)
+* STUDIO-3521 - Changes into Business Data initialization scripts are lost every time
+* STUDIO-3492 - Process imported from a version lesser than 7.8.4 can be invisible on the diagram
+* STUDIO-3530 - Performance issues when exporting a diagram with a lot of configurations and forms to .bos archive
 
 ### Fixes in Bonita 7.10.4 (2020-04-02)
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
