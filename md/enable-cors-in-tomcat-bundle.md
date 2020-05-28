@@ -23,7 +23,7 @@ Edit the web.xml of the bonita.war to add the CORS filter:
   <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
   <init-param>
     <param-name>cors.allowed.origins</param-name>
-    <param-value>*</param-value>
+    <param-value>[DOMAIN_OF_YOU_HOSTED_PAGE]</param-value>
   </init-param>
 
   <init-param>
@@ -46,6 +46,12 @@ Edit the web.xml of the bonita.war to add the CORS filter:
       <param-name>cors.allowed.headers</param-name>
       <param-value>Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,X-Bonita-API-Token</param-value>
   </init-param>
+  <!-- Calls from the client are made with credentials.
+  -->
+  <init-param>
+      <param-name>cors.support.credentials</param-name>
+      <param-value>true</param-value>
+  </init-param>  
 
 </filter>
 ...
@@ -57,6 +63,8 @@ Edit the web.xml of the bonita.war to add the CORS filter:
 _**Important Note 1:** The filter must be inserted in the file webapps/bonita/WEB-INF/web.xml (not in the Tomcat conf/web.xml)_
 
 _**Important Note 2:** It must be the first filter, inserted right after the </error-page> tag_
+
+_**Important Not 3:** Replace [DOMAIN_OF_YOU_HOSTED_PAGE] with the domain of your web page (Eg: http://mydomaine.com)_
 
 for more information:
 [https://tomcat.apache.org/tomcat-8.5-doc/config/filter.html#CORS_Filter](https://tomcat.apache.org/tomcat-8.5-doc/config/filter.html#CORS_Filter)
