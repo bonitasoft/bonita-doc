@@ -38,10 +38,10 @@ To avoid memory issues with large bar files deployment the default xmx value has
 #### UIPath connector: Cloud support
 The UIPath connector now supports the cloud solution.
 
-### Collaboration - Select the branches to clone
+#### Collaboration - Select the branches to clone
 When cloning a project, gain time by selecting the branches you want to clone instead cloning all the branches.
 
-### Description field on widgets
+#### Description field on widgets
 Add documentation to your pages by providing information on a widget (e.g. how to use it), thanks to the new Description field. Use this information to [generate documentation](release-notes.md#project-documentation).
 
 
