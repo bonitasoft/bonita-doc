@@ -11,6 +11,7 @@
   * [Design an application page](design-application-page.md)
   * [Create an application](create-application.md)
 * [Release notes](release-notes.md)
+  * [Bug Fixes](fixes.md)
 * [Migration tool change log](migration-tool.md)
 * [Application and Process Design](_application-and-process-design.md)
   * [Bonita overview](bonita-bpm-overview.md)
