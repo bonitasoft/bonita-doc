@@ -19,7 +19,7 @@ More details [here](data-management.md).
 <a id="bdm-editor"/>
 
 ### Business Data Model editor
-BDM editor has been reworked, in order to improve the user experience.
+BDM and access control editors have been reworked, in order to improve your experience and your efficiency.
 
 <a id="project-documentation"/>
 
@@ -30,12 +30,24 @@ Extract informations from a project sources to generate an asciidoc document. Th
 
 ## Improvements
 
-<a id="uipath-cloud"/>
+### Development suite changes
 
-### Integration with UiPath deployed in the Cloud 
-## Runtime changes
+#### Increase the default value of the development runtime's maximum memory heap size to 1Gb (512Mo previously)
+To avoid memory issues with large bar files deployment the default xmx value has been increased to 1Gb. If you want to revert this change, you can change it in the Studio preferences -> Server settings -> Tomcat Maximum memory allocation.
 
-### lib upgrade
+#### UIPath connector: Cloud support
+The UIPath connector now supports the cloud solution.
+
+### Collaboration - Select the branches to clone
+When cloning a project, gain time by selecting the branches you want to clone instead cloning all the branches.
+
+### Description field on widgets
+Add documentation to your pages by providing information on a widget (e.g. how to use it), thanks to the new Description field. Use this information to [generate documentation](release-notes.md#project-documentation).
+
+
+### Runtime
+
+#### lib upgrade
 - spring, spring-boot
 - hibernate 4 to 5
 - ...
@@ -142,16 +154,27 @@ Examples of replacements are available in the bonita source code
 - `RestApiController` in the [bonita-web github repository](https://github.com/bonitasoft/bonita-web/commit/1387c4c513bdc2bb97071cddefc75d519886ed90#diff-c08aeb7d35cf380be1cdc09fea7ef822)
 
 
-## Development suite changes
+## Technical updates
 
-### Increase the default value of the development runtime's maximum memory heap size to 1Gb (512Mo previously)
+## Feature deprecations and removals
 
-To avoid memory issues with large bar files deployment the default xmx value has been increased to 1Gb. If you want to revert this change, you can change it in the Studio preferences -> Server settings -> Tomcat Maximum memory allocation.
- 
+### Deprecations
+
+### Removals
 ### Complex data-types generation have been removed
-
 This feature was used to generate Java POJOs and XSD in Subscription editions. It is recommend to add your own Java model as jar file in the project classpath or create your [data model using Groovy objects](groovy-in-bonita.md#create-data-model).
 
-### Description field on widgets
 
-Add documentation to your pages by providing information on a widget (e.g. how to use it), thanks to the new Description field. Use this information to [generate documentation](release-notes.md#project-documentation).
+
+## Bug fixes
+
+### Fixes in Bonita Development Suite (Studio and UI Designer)
+STUDIO-3471	Error when switching from a Business Object to an other in the constraints view
+STUDIO-3464	Generate documentation leads to error if a used connector / actor filter doesn't have a display name
+STUDIO-3462	Share with git wizard is ugly / unusable
+STUDIO-3458	Messages mapping validation
+STUDIO-3340	DOC: REST API extension page still says that debug mode is enabled by default
+STUDIO-3294	Web service connector throw null pointer exception with one way web service
+STUDIO-3295	When extracting a sub process from a task using a bdm object, init script is falsy
+STUDIO-3327	Reset/clean bdm has no effect
+STUDIO-3365	Password is displayed in clear where deploying a process fail
