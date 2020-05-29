@@ -10,8 +10,11 @@
 <a id="data-management"/>
 
 ### Business Data Management in the UI Designer
-Introspect and visualize your Business Data model in your UI Designer pages with a few clicks to speed up your development
 
+Visualize and explore your Business Data Model (BDM) in your browser.
+In a few clicks, generate user interfaces from the BDM, using the master/details pattern.
+
+More details [here](data-management.md).
 
 <a id="bdm-editor"/>
 
@@ -30,42 +33,21 @@ Extract informations from a project sources to generate an asciidoc document. Th
 ### Development suite changes
 
 #### Increase the default value of the development runtime's maximum memory heap size to 1Gb (512Mo previously)
-
 To avoid memory issues with large bar files deployment the default xmx value has been increased to 1Gb. If you want to revert this change, you can change it in the Studio preferences -> Server settings -> Tomcat Maximum memory allocation.
 
 #### UIPath connector: Cloud support
 The UIPath connector now supports the cloud solution.
 
-### Collaboration - Select the branches to clone
-When cloning a project, gain time by selecting the branches you want to clone instead cloning all the branches
+#### Collaboration - Select the branches to clone
+When cloning a project, gain time by selecting the branches you want to clone instead cloning all the branches.
+
+#### Description field on widgets
+Add documentation to your pages by providing information on a widget (e.g. how to use it), thanks to the new Description field. Use this information to [generate documentation](release-notes.md#project-documentation).
 
 
-## Technical updates
+### Runtime
 
-## Feature deprecations and removals
-### Deprecations
-
-### Removals
-### Complex data-types generation have been removed
-
-This feature was used to generate Java POJOs and XSD in Subscription editions. It is recommend to add your own Java model as jar file in the project classpath or create your [data model using Groovy objects](groovy-in-bonita.md#create-data-model).
-
-## Bug fixes
-
-### Fixes in Bonita Development Suite (Studio and UI Designer)
-STUDIO-3471	Error when switching from a Business Object to an other in the constraints view
-STUDIO-3464	Generate documentation leads to error if a used connector / actor filter doesn't have a display name
-STUDIO-3462	Share with git wizard is ugly / unusable
-STUDIO-3458	Messages mapping validation
-STUDIO-3340	DOC: REST API extension page still says that debug mode is enabled by default
-STUDIO-3294	Web service connector throw null pointer exception with one way web service
-STUDIO-3295	When extracting a sub process from a task using a bdm object, init script is falsy
-STUDIO-3327	Reset/clean bdm has no effect
-STUDIO-3365	Password is displayed in clear where deploying a process fail
-
-## Runtime changes
-
-### lib upgrade
+#### lib upgrade
 - spring, spring-boot
 - hibernate 4 to 5
 - ...
@@ -75,6 +57,10 @@ STUDIO-3365	Password is displayed in clear where deploying a process fail
 
 Upgrade Tomcat from 8.5.47 to 8.5.53 (tomcat-dbcp from 9.0.16 to 9.0.31) **subject to change prior GA**
 
+### Oracle driver
+
+The Oracle jdbc driver does not need to be downloaded separately anymore and is now packaged in the Bonita bundle,
+ exactly like the Postgres, Mysql & SQLServer jdbc drivers. 
 
 ### Tomcat Manager removal
 
@@ -168,6 +154,27 @@ Examples of replacements are available in the bonita source code
 - `RestApiController` in the [bonita-web github repository](https://github.com/bonitasoft/bonita-web/commit/1387c4c513bdc2bb97071cddefc75d519886ed90#diff-c08aeb7d35cf380be1cdc09fea7ef822)
 
 
+## Technical updates
 
- 
+## Feature deprecations and removals
 
+### Deprecations
+
+### Removals
+### Complex data-types generation have been removed
+This feature was used to generate Java POJOs and XSD in Subscription editions. It is recommend to add your own Java model as jar file in the project classpath or create your [data model using Groovy objects](groovy-in-bonita.md#create-data-model).
+
+
+
+## Bug fixes
+
+### Fixes in Bonita Development Suite (Studio and UI Designer)
+STUDIO-3471	Error when switching from a Business Object to an other in the constraints view
+STUDIO-3464	Generate documentation leads to error if a used connector / actor filter doesn't have a display name
+STUDIO-3462	Share with git wizard is ugly / unusable
+STUDIO-3458	Messages mapping validation
+STUDIO-3340	DOC: REST API extension page still says that debug mode is enabled by default
+STUDIO-3294	Web service connector throw null pointer exception with one way web service
+STUDIO-3295	When extracting a sub process from a task using a bdm object, init script is falsy
+STUDIO-3327	Reset/clean bdm has no effect
+STUDIO-3365	Password is displayed in clear where deploying a process fail
