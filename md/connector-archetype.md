@@ -273,8 +273,8 @@ In this example, we are going to create a connector to communicate with the [Sta
 This connector will be implemented using: 
 
  - [Groovy](https://groovy-lang.org/)
- - [Spock]([http://spockframework.org/](http://spockframework.org/))
- - [Retrofit]([https://square.github.io/retrofit/](https://square.github.io/retrofit/))
+ - [Spock](http://spockframework.org/)
+ - [Retrofit](https://square.github.io/retrofit/)
 
 ### 1 - Generate project and retrieve dependencies
 The first step is to generate  the maven project using the archetype:
@@ -292,8 +292,9 @@ mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeA
 * **language**: groovy
 * **wrapper**: true
 
-The generated project has the following skeleton: 
-![Connector project overview](images/connector-archetype-example/connector-project-overview.png)
+The generated project has the following skeleton:  
+
+![Connector project overview](images/connector-archetype-example/connector-project-overview.png)  
 
 Add the following properties and dependencies to the existing ones in the pom.xml: 
 
@@ -367,7 +368,7 @@ Replace the default page by the following one:
 </page>
 ```
 
-For each page and widget , a name and a description has to be added  in the property file, else the Studio is unable to display the element.  
+For each page and widget , a name and a description must be added  in the property file, else the Studio is unable to display the element.  
 Open the file _src/main/resources/connector-starwars.properties_ and replace the content for the default page and widgets by the following: 
 
 ```
@@ -386,7 +387,7 @@ We will first create a data model, and then a retrofit service typed with this m
 
 #### The model
 
-The model should match the API response structure, else some custom convertors will be required.  
+The model should match the API response structure, else some custom convertors are required.  
 Here is an example of an API call and the response: 
 ```
 GET /api/people/?search=yoda
@@ -421,7 +422,7 @@ Our model will contain two Classes :
 
 Create a new package _model_ in the package _com.company.connector_, and add those two classes in this package: 
 
-```Groovy
+```groovy
 package com.company.connector.model
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
@@ -439,7 +440,7 @@ class Person implements Serializable {
 }
 ```
 
-```Groovy
+```groovy
 package com.company.connector.model
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
@@ -460,7 +461,7 @@ _note:_ The API returns many informations about a single star wars character. In
 A retrofit service is a Java interface. Specific annotations on methods are used to define the service.  
 In the package _com.company.connector_, create the Interface _StarWarsService_:
 
-```Groovy
+```groovy
 package com.company.connector
 
 import com.company.connector.model.PersonResponse
@@ -536,7 +537,7 @@ Complete the method _validateInputParameters_ with the following content:
     }
 ```
 
-Add the following tests in the test class, to validate the behavior when an input in incorrect: 
+Add the following tests in the test class, to validate the behavior when an input is incorrect: 
 
 ``` groovy
     def should_throw_exception_if_mandatory_input_is_missing() {
@@ -577,7 +578,8 @@ Add the following tests in the test class, to validate the behavior when an inpu
 
 #### Retrofit service creation 
 
-In the class _ConnectorStarWars_, replace the method _connect_ with the following one. We do not need to implement the disconnect method, as there is no authentication. Creating the service in the _connect_ method  ensure that the service will be created once (and only once) before the logic execution.
+In the class _ConnectorStarWars_, replace the method _connect_ by the following one. We do not need to implement the disconnect method, as there is no authentication.
+Creating the service in the _connect_ method  ensure that the service will be created once (and only once) before the logic execution.
 
 ```groovy
 def StarWarsService service
@@ -589,9 +591,9 @@ def void connect() throws ConnectorException {
 }
 
 def static OkHttpClient createHttpClient(Interceptor... interceptors) {
-    def clientBuilder = new OkHttpClient.Builder();
-    if (interceptors != null) {
-        interceptors.each { i -> clientBuilder.interceptors().add(i) }
+    def clientBuilder = new OkHttpClient.Builder()
+    if (interceptors) {
+        interceptors.each { clientBuilder.interceptors().add(it) }
     }
     clientBuilder.build()
 }
@@ -645,7 +647,7 @@ class StarWarsServiceTest extends Specification {
 #### API call 
 
 We are finally going to perform the API call to retrieve details on a Star Wars character, and then put those details in the related connector output.  
-In the class _ConnectorStarWars_,  replace the method _executeBusinessLogic_ with the following one.
+In the class _ConnectorStarWars_,  replace the method _executeBusinessLogic_ by the following one.
 
 ```groovy
 def static final PERSON_OUTPUT = "person"
@@ -670,7 +672,7 @@ def void executeBusinessLogic() throws ConnectorException {
 }
 ```
 
-In order to test the logic of our connector, we are going to mock the Star Wars web server using _MockWebServer_.  Thus we will be able to unitary test that the http response is correctly parsed, the output correctly set, and that server error are managed.  
+In order to test the logic of our connector, we are going to mock the Star Wars web server using _MockWebServer_.  Thus we will be able to unitary test that the http response is correctly parsed, the output correctly set, and that server errors are managed.  
 
 Add the following tests in the test class _ConnectorStarWarsTest_:
 
