@@ -170,16 +170,7 @@ The entry point of the implementation sources must extend the class _`org.bonita
 
 #### Build an actor filter project
 
-An actor filter project is built using Maven, and especially the [maven assembly plugin](https://maven.apache.org/plugins/maven-assembly-plugin/).   
-The root _pom.xml_ file has the following parent: 
-```xml
-<parent>
-    <groupId>org.bonitasoft.connectors</groupId>
-    <artifactId>bonita-connectors</artifactId>
-    <version>1.0.0</version>
-</parent>
-```
-This parent contains the logic that make the replacements in the implementation xml file at build time.
+An actor filter project is built using Maven, and especially the [maven assembly plugin](https://maven.apache.org/plugins/maven-assembly-plugin/).  
 
 By default, a zip archives is built containing all the definitions and implementations found in the project.
 By importing this archive in a Bonita Studio you will import all the definitions and implementations created in the project
