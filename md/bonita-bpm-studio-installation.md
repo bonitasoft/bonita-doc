@@ -19,7 +19,9 @@ Both Windows and Mac have default security settings that will prevent execution 
 
 **Note for users of macOS 10.12.x and above** : There is an known issue on macOS Sierra and Java about the slowness of   java.net.InetAddress getLocalHost() which results in a slowness of the Bonita Studio (find more info on [thoeni](https://thoeni.io/post/macos-sierra-java/) or [plumbr](https://plumbr.eu/blog/java/macos-sierra-problems-with-java-net-inetaddress-getlocalhost)). To resolve this issue you shoud add your computer name to your /etc/hosts file : In a terminal, edit your `/etc/hosts` with sudo privilege, add your computer name to the local IP addresses `127.0.0.1 localhost <mycomputername.local>` and `::1 localhost <mycomputername.local>` (To find your macOS computer name, look at [Apple support dedicated page](https://support.apple.com/kb/PH25076)).
 
-**Note for users of macOS Catalina 10.15 and above**: Since Catalina 10.15, only **installed JDK** are accepted by the macOS _gatekeeper_.  
+**Notes for users of macOS Catalina 10.15 and above**: 
+1. Only version 7.7.5 and upwards are compatible
+2. Only **installed JDK** are accepted by the macOS _gatekeeper_.  
 If you try to use a JDK directly downloaded, you will get this kind of error: _jdk-11.0.5 can’t be opened because it is from an unidentified developer._  
 The solution is to use an installer to install properly the JDK. The easiest way is to tape the following commands:  
 ``` bash
