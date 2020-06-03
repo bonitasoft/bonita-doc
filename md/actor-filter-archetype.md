@@ -64,7 +64,7 @@ Example:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <definition:ConnectorDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1">
-    <id>myConnector</id> <!-- Id of the definition -->
+    <id>myFilter</id> <!-- Id of the definition -->
     <version>1.0.0</version> <!-- Version of the definition -->
     <icon>icon.png</icon> <!-- The icon used in the Studio for this definition -->
     <category icon="icon.png" id="Custom"/> <!-- The category of this definition, used in the Studio (e.g: http, script ...) -->
