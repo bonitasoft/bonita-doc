@@ -158,7 +158,7 @@ ${impl-dependencies}
 </implementation:connectorImplementation>
 ```
 `impl-id`, `impl-version`, `definition-id`, `definition-version` and `impl-main-class` are properties defined in the `pom.xml`.  
-`impl-dependencies` is replaced at build time using `src\script\dependencies-as-var.groovy` scipt.
+`impl-dependencies` is replaced at build time using `src\script\dependencies-as-var.groovy` script.
 
 ##### Implementation sources
 
