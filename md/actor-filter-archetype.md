@@ -52,7 +52,7 @@ A folder named _[your artifact id]_ is created, with your Bonita actor filter pr
 In this section we'll look into the different components of an actor filter project, and how you should use them to develop your filter.
 
 #### Definition
-An actor filter is first defined by its **definition**.  It is an XML file located in _src/main/resources/[artifactId].def_ by default.   
+An actor filter is first defined by its **definition**.  It is an XML file located in _src/main/resources-filtered/[artifactId].def_ by default.   
 A definition defines the inputs of a filter. It can be seen as a black box. The definition explicits what will be passed to the filter. Then, implementations of this definition can be created, they just need to respect the inputs contract of the definition.  
 
 The connector definition XSD is available in _schemas/connector-definition-descriptor.xsd_, you can import it in a IDE to get completion. 
@@ -64,8 +64,8 @@ Example:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <definition:ConnectorDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1">
-    <id>myFilter</id> <!-- Id of the definition -->
-    <version>1.0.0</version> <!-- Version of the definition -->
+    <id>${definition-id}</id> <!-- Id of the definition -->
+    <version>${definition-version}</version> <!-- Version of the definition -->
     <icon>icon.png</icon> <!-- The icon used in the Studio for this definition -->
     <category icon="icon.png" id="Custom"/> <!-- The category of this definition, used in the Studio (e.g: http, script ...) -->
   
@@ -85,6 +85,7 @@ Example:
   
 </definition:ConnectorDefinition>
 ```
+`definition-id` and `definition-version` are properties defined in the `pom.xml`.
 
 ##### Actor filter Inputs
 
@@ -135,7 +136,7 @@ An actor filter implementation is made of two elements:
 
 ##### Implementation XML file
 
-The implementation XML file is located in _src/main/resources/[actor filter name].impl_ by default.  
+The implementation XML file is located in _src/main/resources-filtered/[artifactId].impl_ by default.  
 The connector definition XSD is available in _schemas/connector-implementation-descriptor.xsd_, you can import it in a IDE to get completion. 
 
 ![Connector implementation xsd overview](images/connector-impl-xsd-overview.png)
@@ -144,18 +145,20 @@ Example:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0">
-  <implementationId>myFilter-impl</implementationId> <!-- Id of the implementation -->
-  <implementationVersion>$implementation.version$</implementationVersion> <!-- Version of the implementation, retrieved from the pom.xml at build time -> ${project.version} -->
-  <definitionId>myFilter</definitionId> <!-- Id of the definition implemented -->
-  <definitionVersion>1.0.0</definitionVersion> <!-- Version of the definition implemented -->
-  <implementationClassname>myGroupId.MyFilterImpl</implementationClassname> <!-- Path to the main implementation class -->
-  <description>Default actor filter implementation</description>
+  <implementationId>${impl-id}</implementationId> <!-- Id of the implementation -->
+  <implementationVersion>${impl-version}</implementationVersion> <!-- Version of the implementation -->
+  <definitionId>${definition-id}</definitionId> <!-- Id of the definition implemented -->
+  <definitionVersion>${definition-version}</definitionVersion> <!-- Version of the definition implemented -->
+  <implementationClassname>${impl-main-class}</implementationClassname> <!-- Path to the main implementation class -->
+  <description>Default ${definition-id} implementation</description>
 
-<!-- Implementation dependencies, retrieved from the pom.xml at build time -->
-$Dependencies$
+<!-- retrieved from the pom.xml at build time -->
+${impl-dependencies}
 
 </implementation:connectorImplementation>
 ```
+`impl-id`, `impl-version`, `definition-id`, `definition-version` and `impl-main-class` are properties defined in the `pom.xml`.  
+`impl-dependencies` is replaced at build time using `src\script\dependencies-as-var.groovy` scipt.
 
 ##### Implementation sources
 
@@ -177,6 +180,6 @@ By importing this archive in a Bonita Studio you will import all the definitions
  
 To build the actor filter project, type the following command at the root of the project : 
 ```
-./mvnw clean install
+./mvnw clean package
 ```
 The built archive can be found in here `target/[artifact id]-[artifact version].zip` after the build.
