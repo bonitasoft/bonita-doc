@@ -132,6 +132,17 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 * BST-171 Can't share a project on github using HTTPS and double authentication factor
 * BST-341 On MacOS, Studio installer might not detect the installed JRE
 
+### Fixes in Bonita 7.10.5 (2020-06-04)
+#### Fixes in Bonita Runtime (including Portal)
+* BR-408 - Update tomcat to 8.5.53 version that includes latest security fixes
+* BR-421 - Deploying an invalid BDM make the state of services inconsistent
+* BPO-539 - `../API/bpm/message` returns a `400` error code when message value is `null` (instead of `500`), message value can now be an empty string.
+#### Fixes in Bonita Development Suite (Studio and UI Designer)
+* STUDIO-3521 - Changes into Business Data initialization scripts are lost every time
+* STUDIO-3492 - Process imported from a version lesser than 7.8.4 can be invisible on the diagram
+* STUDIO-3530 - Performance issues when exporting a diagram with a lot of configurations and forms to .bos archive
+* UID-252 - Data management section is not shown if BDM has a query with a multiple parameter
+
 ### Fixes in Bonita 7.10.4 (2020-04-02)
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
 * UID-243 - UI Designer fails to start when pages workspace does not contain folders only
