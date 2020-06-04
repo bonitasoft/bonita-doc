@@ -141,6 +141,7 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 * STUDIO-3521 - Changes into Business Data initialization scripts are lost every time
 * STUDIO-3492 - Process imported from a version lesser than 7.8.4 can be invisible on the diagram
 * STUDIO-3530 - Performance issues when exporting a diagram with a lot of configurations and forms to .bos archive
+* UID-252 - Data management section is not shown if BDM has a query with a multiple parameter
 
 ### Fixes in Bonita 7.10.4 (2020-04-02)
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
