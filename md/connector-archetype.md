@@ -266,15 +266,16 @@ To build the connector project, type the following command at the root of the pr
 ```
 The built archive can be found in here `target/[artifact id]-[artifact version].zip` after the build.
 
+
 ## Example
 
 In this example, we are going to create a connector to communicate with the [Star Wars API](https://swapi.dev/). It will take in input a Star Wars character name, and will return details on this character.  
 
 This connector will be implemented using: 
 
- - [Groovy](https://groovy-lang.org/)
- - [Spock](http://spockframework.org/)
- - [Retrofit](https://square.github.io/retrofit/)
+ - [Groovy](https://groovy-lang.org/): _A programming language based on the JVM_
+ - [Spock](http://spockframework.org/): _A test framework for Groovy applications_
+ - [Retrofit](https://square.github.io/retrofit/): _A library which allows to create typed http clients_
 
 ### 1 - Generate project and retrieve dependencies
 The first step is to generate  the maven project using the archetype:
@@ -703,7 +704,21 @@ def should_fetch_person() {
     given: 'A person name'
     def name = 'Luke'
     and: 'A related person JSON response'
-    def body = "{\"count\":1,\"next\":null,\"previous\":null,\"results\":[{\"name\":\"$name Skywalker\",\"height\":\"172\",\"mass\":\"77\",\"hair_color\":\"blond\",\"skin_color\":\"fair\",\"eye_color\":\"blue\",\"birth_year\":\"19BBY\",\"gender\":\"male\",\"homeworld\":\"http://swapi.dev/api/planets/1/\",\"films\":[\"http://swapi.dev/api/films/1/\",\"http://swapi.dev/api/films/2/\",\"http://swapi.dev/api/films/3/\",\"http://swapi.dev/api/films/6/\"],\"species\":[],\"vehicles\":[\"http://swapi.dev/api/vehicles/14/\",\"http://swapi.dev/api/vehicles/30/\"],\"starships\":[\"http://swapi.dev/api/starships/12/\",\"http://swapi.dev/api/starships/22/\"],\"created\":\"2014-12-09T13:50:51.644000Z\",\"edited\":\"2014-12-20T21:17:56.891000Z\",\"url\":\"http://swapi.dev/api/people/1/\"}]}"
+    def body = """
+        {"results": [
+            {
+                "name":"$name Skywalker",
+                "height":"172",
+                "mass":"77",
+                "hair_color":"blond",
+                "skin_color":"fair",
+                "eye_color":"blue",
+                "birth_year":"19BBY",
+                "gender":"male",
+                "homeworld":"http://swapi.dev/api/planets/1/"
+            }
+        ]}
+    """
     server.enqueue(new MockResponse().setBody(body))
 
     when: 'Executing connector'
