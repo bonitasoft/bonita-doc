@@ -21,7 +21,7 @@ To create your connector project, prompt a terminal and enter the following comm
 **Warning:** Make sure that you are not executing the command from an existing maven project.
 :::
 ```
-mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype -DarchetypeVersion=1.0.0
+mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype
 ```
 You'll then have to specify interactively the properties of your project: 
 
@@ -281,7 +281,7 @@ This connector will be implemented using:
 The first step is to generate  the maven project using the archetype:
 
 ```
-mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype -DarchetypeVersion=1.0.0
+mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype
 ```
 
 * **groupId**: com.company.connector
