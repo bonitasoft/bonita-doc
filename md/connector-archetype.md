@@ -339,6 +339,30 @@ Add the following properties and dependencies to the existing ones in the pom.xm
 </dependencies>
 ```
 
+If you are interested by test coverage, you can add the following jacoco configuration: 
+```xml
+<plugin>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>0.8.5</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>prepare-agent</goal>
+            </goals>
+        </execution>
+        <!-- attached to Maven test phase -->
+        <execution>
+            <id>report</id>
+            <phase>test</phase>
+            <goals>
+                <goal>report</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
 ### 2 - Define connector inputs 
 
 The connector inputs are defined in the connector definition.  
