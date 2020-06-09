@@ -216,7 +216,7 @@
     * [Connectors](_connectors.md)
       * [Connectors overview](connectors-overview.md)
       * [Bonita connector archetype](connector-archetype.md)
-    * [Create an actor filter](creating-an-actor-filter.md)
+    * [Create an actor filter](actor-filter-archetype.md)
   * [API glossary](api-glossary.md)
   * [REST API](_rest-api.md)
     * [REST API overview](rest-api-overview.md)
