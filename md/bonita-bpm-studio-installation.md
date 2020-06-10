@@ -21,9 +21,9 @@ Both Windows and Mac have default security settings that will prevent execution 
 
 **Notes for users of macOS Catalina 10.15 and above**: 
 ::: danger
-1. Only version 7.7.5 and upwards are compatible
+Only version 7.7.5 and upwards are compatible
 :::
-2. Only **installed JDK** are accepted by the macOS _gatekeeper_.  
+Only **installed JDK** are accepted by the macOS _gatekeeper_.  
 If you try to use a JDK directly downloaded, you will get this kind of error: _jdk-11.0.5 can’t be opened because it is from an unidentified developer._  
 The solution is to use an installer to install properly the JDK. The easiest way is to tape the following commands:  
 ``` bash
