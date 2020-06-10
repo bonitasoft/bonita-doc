@@ -34,13 +34,13 @@ More details [here](data-management.md).
 <a id="bdm-editor"/>
 
 ### Business Data Model editor
-BDM and access control editors have been reworked, in order to improve your experience and your efficiency.
+BDM and access control editors have been reworked, to improve your experience and your efficiency.
 
 <a id="project-documentation"/>
 
 ### Generate project documentation
 For Teamwork, Efficiency, Performace and Enterprise editions only.
-Extract informations from a project sources to generate an asciidoc document. The generation templates can be customized to suit your needs. More details [here](project-documentation-generation.md).
+Extract information from project sources to generate an asciidoc document. The generation templates can be customized to suit your needs. More details [here](project-documentation-generation.md).
 
 
 ## Improvements
@@ -54,7 +54,7 @@ To avoid memory issues with large bar files deployment the default xmx value has
 The UIPath connector now supports the cloud solution.
 
 #### Collaboration - Select the branches to clone
-When cloning a project, gain time by selecting the branches you want to clone instead cloning all the branches.
+When cloning a project, gain time by selecting the branches you want to clone instead of cloning all the branches.
 
 #### Description field on widgets
 Add documentation to your pages by providing information on a widget (e.g. how to use it), thanks to the new Description field. Use this information to [generate documentation](release-notes.md#project-documentation).
@@ -173,19 +173,19 @@ Examples of replacements are available in the bonita source code
 
 ### Removals
 ### Complex data-types generation have been removed
-This feature was used to generate Java POJOs and XSD in Subscription editions. It is recommend to add your own Java model as jar file in the project classpath or create your [data model using Groovy objects](groovy-in-bonita.md#create-data-model).
+This feature was used to generate Java POJOs and XSD in Subscription editions. It is recommended to add your own Java model as jar file in the project classpath or create your [data model using Groovy objects](groovy-in-bonita.md#create-data-model).
 
 
 
 ## Bug fixes
 
 ### Fixes in Bonita Development Suite (Studio and UI Designer)
-STUDIO-3471	Error when switching from a Business Object to an other in the constraints view
-STUDIO-3464	Generate documentation leads to error if a used connector / actor filter doesn't have a display name
-STUDIO-3462	Share with git wizard is ugly / unusable
+STUDIO-3471	Error when switching from a Business Object to another in the constraints view
+STUDIO-3464	Generate documentation leads to error if a used connector/actor filter doesn't have a display name
+STUDIO-3462	Share with git wizard is ugly/unusable
 STUDIO-3458	Messages mapping validation
 STUDIO-3340	DOC: REST API extension page still says that debug mode is enabled by default
-STUDIO-3294	Web service connector throw null pointer exception with one way web service
-STUDIO-3295	When extracting a sub process from a task using a bdm object, init script is falsy
+STUDIO-3294	Web service connector throws null pointer exception with one-way web service
+STUDIO-3295	When extracting a sub-process from a task using a bdm object, init script is falsy
 STUDIO-3327	Reset/clean bdm has no effect
-STUDIO-3365	Password is displayed in clear where deploying a process fail
+STUDIO-3365	Password is displayed in clear when deploying a process fail
