@@ -6,6 +6,21 @@
 
 ## New values added
 
+### No more migration between maintenance versions of Bonita
+Starting with Bonita 7.11.0, it is not necessary to run the Bonita migration tool to upgrade between maintenance versions of Bonita Runtime (between 7.11.**0** and 7.11.**1**, for instance).  
+More details on the new procedure [here](migrate-from-an-earlier-version-of-bonita-bpm.md#maintenanceVersionCompatible)  
+
+On the technical side, Bonita 7.11.0 introduces a loose couple between Bonita binaries and the Database schema it runs on. 
+There is now a distinction between Bonita Database Schema version and Bonita Runtime version.
+The Bonita Database Schema version is a technical number (not accessible through APIs), that changes when the database schema changes.
+The Bonita Platform Version is the 3 digit version number we usually use to refer to Bonita.
+On startup Bonita now only checks if the database version is compatible with the binaries version, not if they are identical.
+
+Aside of the quality of life update of not having to run a migration between migration versions, this update brings a few behavioral changes:
+* Platform.getVersion() method still returns the version of the Bonita runtime binaries (ie. 7.11.0).
+* Platform.getPreviousVersion() is now deprecated, and voided (will always return ""). It was not used anywhere. It will be removed in a later version.
+* A check has been added in Cluster mode as to forbid the start of nodes in different Bonita platform versions. For example, on a two-node cluster, you can't have a node in 7.11.0 and another in 7.11.1.
+The feature of having nodes in different Bonita versions was never supported, though there were cases where it "worked" in previous versions.  
 
 <a id="data-management"/>
 
@@ -43,7 +58,18 @@ When cloning a project, gain time by selecting the branches you want to clone in
 
 #### Description field on widgets
 Add documentation to your pages by providing information on a widget (e.g. how to use it), thanks to the new Description field. Use this information to [generate documentation](release-notes.md#project-documentation).
+ 
+## Bonita Platform Extensibility: Connectors and Actor filters archetypes
+You can now develop and test custom connectors and actor filters independently of the Bonita Studio.
+Bonita offers maven archetypes to help bootstrap these extension points
 
+More information:
+* [Bonita actor filter archetype](actor-filter-archetype.md)
+* [Bonita connector archetype](connector-archetype.md)
+
+::: info
+This is not limited to 7.11 but can be used from version 7.7
+:::
 
 ### Runtime
 
@@ -102,21 +128,6 @@ This helps tracking the processing when parallel requests are in progress.
 2020-03-02 17:33:32.938 +0100 INFO (http-nio-8080-exec-7) org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/bonita] CustomPageRestletServlet: [Restlet] ServerServlet: component class is null
 ```
 
-
-## No more migration between maintenance versions of Bonita
-Starting with Bonita 7.11.0, it is not necessary to run the Bonita migration tool to upgrade between maintenance versions of Bonita Runtime (between 7.11.**0** and 7.11.**1**, for instance).  
-More details on the new procedure [here](migrate-from-an-earlier-version-of-bonita-bpm.md#maintenanceVersionCompatible)  
-On the technical side, Bonita 7.11.0 introduces a loose couple between Bonita binaries and the Database schema it runs on. 
-There is now a distinction between Bonita Database Schema version and Bonita Runtime version.
-The Bonita Database Schema version is a technical number (not accessible through APIs), that changes when the database schema changes.
-The Bonita Platform Version is the 3 digit version number we usually use to refer to Bonita.
-On startup Bonita now only checks if the database version is compatible with the binaries version, not if they are identical.
-
-Aside of the quality of life update of not having to run a migration between migration versions, this update brings a few behavioral changes:
-* Platform.getVersion() method still returns the version of the Bonita runtime binaries (ie. 7.11.0).
-* Platform.getPreviousVersion() is now deprecated, and voided (will always return ""). It was not used anywhere. It will be removed in a later version.
-* A check has been added in Cluster mode as to forbid the start of nodes in different Bonita platform versions. For example, on a two-node cluster, you can't have a node in 7.11.0 and another in 7.11.1.
-The feature of having nodes in different Bonita versions was never supported, though there were cases where it "worked" in previous versions.  
 
 ## Bonita Portal transformation
 
