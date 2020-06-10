@@ -59,7 +59,7 @@ When cloning a project, gain time by selecting the branches you want to clone in
 #### Description field on widgets
 Add documentation to your pages by providing information on a widget (e.g. how to use it), thanks to the new Description field. Use this information to [generate documentation](release-notes.md#project-documentation).
  
-## Bonita Platform Extensibility: Connectors and Actor filters archetypes
+#### Bonita Platform Extensibility: Connectors and Actor filters archetypes
 You can now develop and test custom connectors and actor filters independently of the Bonita Studio.
 Bonita offers maven archetypes to help bootstrap these extension points
 
@@ -71,17 +71,29 @@ More information:
 This is not limited to 7.11 but can be used from version 7.7
 :::
 
-### Runtime
+### Runtime changes
 
-#### lib upgrade
-- spring, spring-boot
-- hibernate 4 to 5
-- ...
+#### Monitoring
+##### Messages
+Two new message metrics are now accessible for monitoring purposes:
+* Potential: total number of potential couples, prior to duplicates removal. If this counter grows faster than the executed one, this indicates that we have lot of duplicates. See bonita.log for ids of duplicate couples.
+* ReTriggerMatchingTasks: number of times we detect that there are more potential matches to be processed.
+We retrieve the matches by batch of 100, a retrigger is performed if there are remaining potential matches. This counter increases when they are remaining messages to be processed. If this counter continues to increase, this means that we are continuously processing matches (even if no new waiting events and/or messages have been created), so events processing is delayed ie new events/messages are not processed on the fly as it should in a nominal situation.
 
+##### Connectors
+There is now a configurable time threshold on connectors. When connector execution takes longer than the threshold, a warning is logged. It allows identification of slow running services 
+The parameter is :
+```
+bonita.tenant.connector.warnWhenLongerThanMillis
+```
+
+#### Bonita Purge Tool
+A new open source project is available [here](https://github.com/bonitasoft/bonita-purge-tool)
+It cleans archived process instances older than a specific date. Allows to (potentially) reduce the size of a production database.
 
 ## Bundle changes
 
-Upgrade Tomcat from 8.5.47 to 8.5.53 (tomcat-dbcp from 9.0.16 to 9.0.31) **subject to change prior GA**
+Upgrade Tomcat from 8.5.47 to 8.5.53 (tomcat-dbcp from 9.0.16 to 9.0.31)
 
 ### Oracle driver
 
@@ -112,6 +124,8 @@ fixed from version to version, but most of the time, this was done only after re
 investigations (information were lost or hidden in catalina log file).
 - complex logging configuration to handle which logs are generated to which log file
 - hard to follow `localhost` logs and Bonita logs
+
+Bonita monitoring logs are still logged in a separate file (bonita-monitoring.<date>.log)
 
 
 ### Thread name in Bonita logs
@@ -166,6 +180,18 @@ Examples of replacements are available in the bonita source code
 
 
 ## Technical updates
+
+### Internal libraries upgrades
+- spring has been upgraded to 5.2.2
+- spring-boot has been upgraded to 2.2.2
+- The project switched from hibernate 4 to hibernate 5
+- ehcache has been upgraded to 2.10.6
+- hibernate-gpa has been upgraded to 1.0.2
+- hazelcast has been upgraded to 3.12.5
+
+### Support Matrix
+Bonita now supports only Oracle 19c (as opposed to 19c & 12c in 7.10).
+Bonita now support SQLServer 2017.
 
 ## Feature deprecations and removals
 
