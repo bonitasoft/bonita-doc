@@ -90,6 +90,10 @@ Bonita now supports the (default) utf8mb4 encoding, and it is now the recommende
 ### Email connector
 Connector definition has been updated to add a Return-Path input parameter.
 
+### Document name encoding
+We now URL encode the document name on server side by default. It will avoid errors when a document to be downloaded contains special characters.
+In the previous versions, you needed to do a workaround client-side using the javascript native function "encodeURI" to generate document download url. You can now remove this workaround.
+
 ## Change of edition
 
 ### User Portal Task list 
