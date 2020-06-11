@@ -68,7 +68,7 @@ More information:
 * [Bonita connector archetype](connector-archetype.md)
 
 ::: info
-This is not limited to 7.11 but can be used from version 7.7
+This is not limited to 7.11 and can be used from version 7.7
 :::
 
 ### Runtime changes
