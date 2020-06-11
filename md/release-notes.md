@@ -214,3 +214,4 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 * STUDIO-3295	When extracting a sub-process from a task using a bdm object, init script is falsy
 * STUDIO-3327	Reset/clean bdm has no effect
 * STUDIO-3365	Password is displayed in clear when deploying a process fail
+* UID-280 Document edition script generation has a typo
