@@ -215,3 +215,13 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 * STUDIO-3327	Reset/clean bdm has no effect
 * STUDIO-3365	Password is displayed in clear when deploying a process fail
 * UID-280 Document edition script generation has a typo
+
+### Fixes in Bonita Runtime 
+* BS-18877	Listing process comments on a case (directly or in assign task view) generates a 20 seconds request
+* BS-14777	Missing information in javadoc of FlowNodeInstance.getState API call
+* BS-18907	Diagram is slow to display and generate many request + one slow request
+* BS-19406	When database server restarts, works could be lost
+* BS-16868	When network communication issues with database server, works could be lost
+* BS-19431	Add debug log's messages to investigate lost work issues
+* BS-17052	Low performance of processAPI.getUserIdsForActor API call	
+* BS-19435	LDAP Sync force_add_non_existing_users not working as expected
