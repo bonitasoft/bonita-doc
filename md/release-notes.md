@@ -148,9 +148,12 @@ This helps tracking the processing when parallel requests are in progress.
 Bonita Portal is being transformed into Bonita Applications. When Bonita Applications are ready, Bonita Portal will be removed.
 Developers and users will need to learn how to stop using the Portal and start using Bonita Applications instead.
 This change will allow Bonita and its users to get free from Google Web Toolkit (GWT) technology and offer opportunities for customization.
+
 Indeed, some Portal pages (built with GWT) are being totally recreated with our own UI Designer. They will be customizable.
+
 Others (those that were already using another technology than GWT) are being wrapped and will not be customizable.
 Moreover, as any Living Application, Bonita applications will be extensible to add any page the users need.
+
 More details in the upcoming versions of Bonita.
 Until then, we strongly advise not to create Custom Portal Profiles anymore but applications instead if possible.
 When Bonita Portal does not exist anymore, the existing Portal Custom Profiles will need to be migrated into Living applications.
