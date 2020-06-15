@@ -3,6 +3,9 @@
 ::: info
 **Note:** The 7.11 is currently work in progress (WIP). The 7.11.0 GA is planned on June 2020.
 :::
+::: info
+**Note:** Bonita Portal is being transformed into Bonita Applications for User and Administrator.This will imply some changes in the upcoming versions of Bonita. Read more [further down](release-notes.md#portal-transformation).
+:::
 
 ## New values added
 
@@ -50,7 +53,7 @@ Extract information from project sources to generate an asciidoc document. The g
 #### Increase the default value of the development runtime's maximum memory heap size to 1Gb (512Mo previously)
 To avoid memory issues with large bar files deployment the default xmx value has been increased to 1Gb. If you want to revert this change, you can change it in the Studio preferences -> Server settings -> Tomcat Maximum memory allocation.
 
-#### UIPath connector: Cloud support
+#### UIPath connector - Cloud support
 The UIPath connector now supports the cloud solution.
 
 #### Collaboration - Select the branches to clone
@@ -138,22 +141,6 @@ This helps tracking the processing when parallel requests are in progress specia
 2020-03-02 17:33:32.938 +0100 INFO (http-nio-8080-exec-7) org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/bonita] CustomPageRestletServlet: [Restlet] ServerServlet: component class is null
 ```
 
-
-## Bonita Portal transformation
-
-Bonita Portal is being transformed into Bonita Applications. When Bonita Applications are ready, Bonita Portal will be removed.
-Developers and users will need to learn how to stop using the Portal and start using Bonita Applications instead.
-This change will allow Bonita and its users to get free from Google Web Toolkit (GWT) technology and offer opportunities for customization.
-
-Indeed, some Portal pages (built with GWT) are being totally recreated with our own UI Designer. They will be customizable.
-
-Others (those that were already using another technology than GWT) are being wrapped and will not be customizable.
-Moreover, as any Living Application, Bonita applications will be extensible to add any page the users need.
-
-More details in the upcoming versions of Bonita.
-Until then, we strongly advise not to create Custom Portal Profiles anymore but applications instead if possible.
-When Bonita Portal does not exist anymore, the existing Portal Custom Profiles will need to be migrated into Living applications.
-
 ## API Removal
 
 ### Rest API extension
@@ -196,11 +183,26 @@ Bonita now support SQLServer 2017.
 
 ### Deprecations
 
+<a id="portal-transformation"/>
+
+#### Bonita Portal transformation
+
+Bonita Portal is being transformed into Bonita Applications. When Bonita Applications are ready, Bonita Portal will be removed.
+Developers and users will need to learn how to stop using the Portal and start using Bonita Applications instead.
+This change will allow Bonita and its users to get free from Google Web Toolkit (GWT) technology and offer opportunities for customization.
+
+Indeed, some Portal pages (built with GWT) are being totally recreated with our own UI Designer. They will be customizable.
+Others (those that were already using another technology than GWT) are being wrapped and will not be customizable.
+
+Moreover, as any Living Application, Bonita applications will be extensible to add any page the users need.
+More details in the upcoming versions of Bonita.
+
+Until then, we strongly advise not to create Custom Portal Profiles anymore but applications instead if possible.
+When Bonita Portal does not exist anymore, the existing Portal Custom Profiles will need to be migrated into Living applications.
+
 ### Removals
 ### Complex data-types generation have been removed
 This feature was used to generate Java POJOs and XSD in Subscription editions. It is recommended to add your own Java model as jar file in the project classpath or create your [data model using Groovy objects](groovy-in-bonita.md#create-data-model).
-
-
 
 ## Bug fixes
 
