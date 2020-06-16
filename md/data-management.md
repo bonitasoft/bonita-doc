@@ -45,5 +45,5 @@ You can try it with the Preview, and modify it as needed.
 ## Create a variable from a Business Object
 Create a new variable from the Variables panel and select BusinessData as a type.
 A configuration wizard appears (see the instructions just above).
-Once the variable is created, you can create your own user interface using this variable.
+Once the variable is created, you can create your user interface using this variable.
 
