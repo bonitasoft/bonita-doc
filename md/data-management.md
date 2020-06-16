@@ -9,11 +9,11 @@ A **Data Model** tab is available from the Palette of the Page editor:
 ## Exploring the BDM
 From the Data Model tab, the graph icon allows you to visualize and explore the BDM.
 A graphical view of the relationships between business objects (with their attributes) is displayed in a new tab of your browser.
-The left part provides a way to explore the BDM tree, or search a specific object or attribute.
+The left part provides a way to explore the BDM tree or search a specific object or attribute.
 You can use also the graphical view to explore the model.
 
 ::: info
-Note: we are using the graphql-voyager tool, which represent a GraphQL schema as an interactive graph. 
+Note: we are using the graphql-voyager tool, which represents a GraphQL schema as an interactive graph. 
 :::
 
 ![graphql_voyager](images/uid_graphql_voyager.png)
