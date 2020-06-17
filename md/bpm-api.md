@@ -2022,6 +2022,10 @@ To get the document information, specify the document id in the URL. The documen
 * **Success Response**  
   The response includes the "url" to use to download the content. Call the documentDownload servlet with this URL: 
   `/portal/documentDownload?fileName=doc.jpg&contentStorageId=4`.
+  _Note_: that since Bonita 7.10, document url fileName is now URL encoded. 
+  It will avoid errors when a document to be downloaded contains special characters in its name.  
+  In the previous versions, you needed to do a workaround client-side using the javascript native function "encodeURI" to generate document download url. You can now remove this workaround.
+
   * **Code**: 200
   * **Payload**:  
     ```json

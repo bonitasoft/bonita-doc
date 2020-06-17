@@ -43,6 +43,10 @@ And that's all, the document validation process is ready to be used. Start it fr
 A list of documents is represented by several documents having the same name (attribute "name"). 
 It is possible to add/remove/edits elements to a list using the same methods as for a simple document.
 
+_Note_: that since Bonita 7.10, document url fileName is now URL encoded. 
+It will avoid errors when a document to be downloaded contains special characters in its name.  
+In the previous versions, you needed to do a workaround client-side using the javascript native function "encodeURI" to generate document download url. You can now remove this workaround.
+
 ### Get the documents of the list
 
 In a case with `myDocList` as a list of documents, use the following request to sort the result by ascending index value:
