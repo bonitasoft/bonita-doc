@@ -1,9 +1,6 @@
 # Release notes
 
 ::: info
-**Note:** The 7.11 is currently work in progress (WIP). The 7.11.0 GA is planned on June 2020.
-:::
-::: info
 **Note:** Bonita Portal is being transformed into Bonita Applications for User and Administrator.This will imply some changes in the upcoming versions of Bonita. Read more [further down](release-notes.md#portal-transformation).
 :::
 
