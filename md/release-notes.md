@@ -71,6 +71,13 @@ More information:
 This is not limited to 7.11 and can be used from version 7.7
 :::
 
+#### Bonita Purge Tool
+A new open source project is available [here](https://github.com/bonitasoft/bonita-purge-tool)
+It cleans archived process instances older than a specific date. Allows to (potentially) reduce the size of a production database.
+::: info
+This is not limited to 7.11 and can be used in previous 7.x versions.
+:::
+
 ### Runtime changes
 
 #### Monitoring
@@ -86,13 +93,11 @@ The parameter is :
 ```
 bonita.tenant.connector.warnWhenLongerThanMillis
 ```
-
-#### Bonita Purge Tool
-A new open source project is available [here](https://github.com/bonitasoft/bonita-purge-tool)
-It cleans archived process instances older than a specific date. Allows to (potentially) reduce the size of a production database.
+More information [here](performance-tuning.md)
 
 ## Bundle changes
 
+### Technical updates
 Upgrade Tomcat from 8.5.47 to 8.5.53 (tomcat-dbcp from 9.0.16 to 9.0.31)
 
 ### Oracle driver
@@ -174,7 +179,7 @@ Examples of replacements are available in the bonita source code
 
 ### Support Matrix
 Bonita now supports only Oracle 19c (as opposed to 19c & 12c in 7.10).
-Bonita now support SQLServer 2017.
+Bonita now supports SQLServer 2017.
 
 ## Feature deprecations and removals
 
