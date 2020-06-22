@@ -1,7 +1,7 @@
 # Release notes
 
 ::: info
-**Note:** Bonita Portal is being transformed into Bonita Applications for User and Administrator.This will imply some changes in the upcoming versions of Bonita. Read more [further down](release-notes.md#portal-transformation).
+**Note:** Bonita Portal is being transformed into Bonita Applications for User and Administrator.This will imply some changes in the upcoming versions of Bonita. Read more [further down](#portal-transformation).
 :::
 
 ## New values added
@@ -50,6 +50,7 @@ Extract information from project sources to generate an asciidoc document. The g
 #### Increase the default value of the development runtime's maximum memory heap size to 1Gb (512Mo previously)
 To avoid memory issues with large bar files deployment the default xmx value has been increased to 1Gb. If you want to revert this change, you can change it in the Studio preferences -> Server settings -> Tomcat Maximum memory allocation.
 
+<a id="uipath-cloud"/>
 #### UIPath connector - Cloud support
 The UIPath connector now supports the cloud solution.
 
@@ -59,6 +60,7 @@ When cloning a project, gain time by selecting the branches you want to clone in
 #### Description field on widgets
 Add documentation to your pages by providing information on a widget (e.g. how to use it), thanks to the new Description field. Use this information to [generate documentation](release-notes.md#project-documentation).
  
+<a id="connector-archetype"/>
 #### Bonita Platform Extensibility: Connectors and Actor filters archetypes
 You can now develop and test custom connectors and actor filters independently of the Bonita Studio.
 Bonita offers maven archetypes to help bootstrap these extension points
@@ -201,6 +203,11 @@ More details in the upcoming versions of Bonita.
 
 Until then, we strongly advise not to create Custom Portal Profiles anymore but applications instead if possible.
 When Bonita Portal does not exist anymore, the existing Portal Custom Profiles will need to be migrated into Living applications.
+
+#### IE11 support
+Internet Explorer 11 will soon not be supported anymore through the Bonita Platform.
+The Development Suite already embeds features that are not compatible with IE11 (like the widget switch in the UI Designer).
+Bonita Portal is still compatible with IE11 but will soon not be anymore.
 
 ### Removals
 ### Complex data-types generation have been removed
