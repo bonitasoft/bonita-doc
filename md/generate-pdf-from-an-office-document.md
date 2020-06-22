@@ -16,7 +16,7 @@ UTF-8 is assumed if you do not specify the encoding (that is, if the field is le
 
 **Warning:** As an example when using special characters like '€' with an invalid encoding will generate a PDF without those characters.
 
-## Known limitations
+## Known limitations
 
 ::: warning
 **:fa-exclamation-triangle: Warning:** there are known issues when adding an image in a docx using drag'n drop instead of copy/paste. The image is not rendered properly when converted into PDF.

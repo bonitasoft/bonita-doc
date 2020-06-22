@@ -85,7 +85,7 @@ In order for the authorization filter to let the guest user make the necessary A
         [...]
     ```
 :::info 
-**Note:** This modification will activate the [dynamic authorisation checking](rest-api-authorization#dynamic_authorization) instead of the default static authorization checking for the following request : `GET|bpm/process`, `GET|bpm/process/*/instantiation`, `POST|bpm/process/*/instantiation`. It does not impact only the guest user access to these resources but the whole organization.  
+**Note:** This modification will activate the [dynamic authorisation checking](rest-api-authorization#dynamic_authorization) instead of the default static authorization checking for the following request : `GET|bpm/process`, `GET|bpm/process/*/contract`, `POST|bpm/process/*/instantiation`. It does not impact only the guest user access to these resources but the whole organization.  
 When a user tries to get the contract or general information of a process it will make sure he is either:
 - a member of the actor mapping of the process
 - an administrator 

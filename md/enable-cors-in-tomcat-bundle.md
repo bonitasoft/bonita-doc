@@ -15,11 +15,13 @@ By configuring the CORS filter on the tomcat bundle, you will be able to access 
 
 ## Tomcat configuration
 
+### Add CORS filter
+
 Edit the web.xml of the bonita.war to add the CORS filter:
 _**Important Note:** to use this configuration, you will need to replace the `ALLOWED_ORIGIN_LIST` by your own allowed origin list._
 
 
-```code
+```xml
 <filter>
   <filter-name>CorsFilter</filter-name>
   <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
@@ -67,6 +69,31 @@ _**Important Note 2:** It must be the first filter, inserted right after the </e
 
 for more information:
 [https://tomcat.apache.org/tomcat-8.5-doc/config/filter.html#CORS_Filter](https://tomcat.apache.org/tomcat-8.5-doc/config/filter.html#CORS_Filter)
+
+### Choose cookies SameSite Policy
+
+By default, cookies will be automatically passed with a same-site request, or a cross-site top-level navigation with a "safe" HTTP method.  
+This default configuration aims to ensure that we respect the new standard cookie policy rules.
+
+To understand those changes, see [https://blog.chromium.org/2020/02/samesite-cookie-changes-in-february.html](https://blog.chromium.org/2020/02/samesite-cookie-changes-in-february.html)  
+Also note that this new policy will be definitively applied in the months to come for Chrome, and later for the other browsers,
+as you can see here [https://blog.chromium.org/2020/04/temporarily-rolling-back-samesite.html](https://blog.chromium.org/2020/04/temporarily-rolling-back-samesite.html)
+
+If you want to perform "unsafe" CORS requests (which means performing a POST/PUT/DELETE request)
+you will need to modify the tomcat `conf/context.xml` file, to set sameSiteCookies to "none" instead of "lax".
+
+```xml
+    ...
+    <!-- default samesite cookies configuration, for CORS set sameSiteCookies to "none" and configure bundle for HTTPS  -->
+    <CookieProcessor sameSiteCookies="none" />
+    ...
+```
+
+::: warning
+**Warning:** 
+Using sameSiteCookies="none" will also force you to use [secure HTTP (HTTPS) on your Bonita server](ssl.md).  
+To explain this constraint, see [https://blog.chromium.org/2019/10/developers-get-ready-for-new.html](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)
+:::
 
 ## HTML Example test page
 

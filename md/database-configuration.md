@@ -37,19 +37,16 @@ All RDBMSs require [specific customization](#specific_database_configuration), w
 If you do not complete the specific configuration for your RDBMS, your installation may fail.
 :::
 
+## Jdbc drivers
 
-<a id="proprietary_jdbc_drivers" />
-
-### Proprietary Jdbc drivers
-
-Bonita provides out of the box the Jdbc drivers for H2, PostgreSQL, Microsoft SQL Server and MySQL. For Oracle, you have to retrieve the related Jdbc drivers as follows.  
+Bonita provides out of the box the Jdbc drivers for H2, PostgreSQL, Microsoft SQL Server, Oracle and MySQL.
 
 #### Oracle Database
 
 *Warning*: Bonita 7.10.+ is compatible with Oracle 12.2.0.x and Oracle 19c (19.3.0.0).
-The driver compatible with Oracle 12.2.0.x & 19.3.0 can be found here: [ojdbc8.jar](https://www.oracle.com/database/technologies/appdev/jdbc-ucp-19c-downloads.html)( make sure it is the official driver by checking the SHA1 Checksum: 967c0b1a2d5b1435324de34a9b8018d294f8f47b )
 
 <a id="database_creation" />
+
 ### Create the database(s)
 
 The first step in configuring Bonita with your RDBMS is to create the new databases (i.e. schemas): one for engine data, and another one, optionally, if you use business data. 
@@ -70,7 +67,7 @@ If the same SQL user is used with the [migration tool](migrate-from-an-earlier-v
 To create the database(s), we recommend that you refer to your RDBMS documentation:
 
 * [PostgreSQL](https://www.postgresql.org/docs/11/app-createdb.html)
-* [Oracle database](https://docs.oracle.com/database/121/ADMIN/create.htm#ADMIN002)
+* [Oracle database](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/creating-and-configuring-an-oracle-database.html#GUID-FE07A9CD-3BD4-46E8-BA24-289FD50FDFE8)
 * [SQL Server](https://technet.microsoft.com/en-us/library/dd207005(v=sql.110).aspx)
 * [MySQL](https://dev.mysql.com/doc/refman/8.0/en/database-use.html)
 
@@ -98,68 +95,6 @@ Make sure your database is configured to use the AL32UTF8 character set.
 If your database already exists, see the Oracle documentation for details of how to [migrate the character set](https://docs.oracle.com/database/121/NLSPG/ch11charsetmig.htm#NLSPG011).
 
 Bonita Engine uses datasources that handle global transactions that span resources (XADataSource), so the Oracle user used by Bonita Engine, requires some specific privileges, and there are also specific settings for XA activation.
-
-#####  Oracle 12c
-
-The procedure below is used to create the settings to enable Bonita Engine to connect to the Oracle database.
-
-It is assumed in the procedure that:
-   * Oracle product is already installed and running
-   * An 'Oracle' OS user is already created
-   * A database already exists
-   * The environment is already set:
-```
-  ORACLE_HOME=/u01/app/oracle/product/12.2.0/dbhome_1
-  ORACLE_SID=...
-```
-
-1. Connect to the database as the System Administrator.
-   ```bash
-   oracle@ubuntu:~$ sqlplus / as sysdba
-   ```
-
-2. Check that the following components exist and are valid:  
-   SQL query \>  
-   ```sql
-   select comp_name, version, status from dba_registry;
-   ```
-
-   | Comp\_name | Version | Status |
-   |:-|:-|:-|
-   | Oracle Database Catalog Views | 12.2.0.1.0 | VALID |
-   | Oracle Database Packages and Types | 12.2.0.1.0 | VALID |
-   | JServer JAVA Virtual Machine | 12.2.0.1.0 | VALID |
-   | Oracle XDK | 12.2.0.1.0 | VALID |
-   | Oracle Database Java Packages | 12.2.0.1.0 | VALID |
-
-3. Add XA elements:
-
-   SQL query \>
-   ```sql
-   @/u01/app/oracle/product/12.2.0/dbhome_1/javavm/install/initxa.sql
-   ```
-   This only needs to be done once, after the installation of Oracle.
-
-4. Create the database user to be used by the Bonita Engine and grant the required rights:
-
-   SQL query \>
-   ```sql
-   @/u01/app/oracle/product/12.2.0/dbhome_1/rdbms/admin/xaview.sql
-   ```
-   The following queries must be done for each new user: i.e. one user = one database schema.
-
-   SQL query \>
-   ```sql
-   CREATE USER bonita IDENTIFIED BY bonita;
-   GRANT connect, resource TO bonita IDENTIFIED BY bonita;
-   GRANT select ON sys.dba_pending_transactions TO bonita;
-   GRANT select ON sys.pending_trans$ TO bonita;
-   GRANT select ON sys.dba_2pc_pending TO bonita;
-   GRANT execute ON sys.dbms_system TO bonita;
-   GRANT execute ON sys.dbms_xa TO bonita;
-   GRANT FORCE ANY TRANSACTION TO bonita;
-   ALTER USER bonita quota unlimited on users;
-   ```
 
 #####  Oracle 19c
 

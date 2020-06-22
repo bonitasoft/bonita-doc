@@ -125,8 +125,6 @@ Here is how to do so:
    1. Create the database
    2. Customize it so it works with Bonita
    3. Modify the `database.properties` file: Set the right db vendor and change connection url, user credentials, database name and so on.
-   4. If you are using an Oracle database, add the related [JDBC driver](database-configuration.md#proprietary_jdbc_drivers) in the `lib` folder. 
-
 
 <a id="advanced_use" />
 

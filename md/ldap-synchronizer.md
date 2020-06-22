@@ -318,15 +318,13 @@ Groups will be synchronized based on the matching of their LDAP common name (CN)
 
 
 Groups can be declared individually in the configuration file with the following properties :
-ldap\_group\_dn
-mandatory attribute that specifies the DN of the LDAP group.
 
-forced\_bonita\_group\_name
-optional attribute that renames the Bonita group instead of using the original LDAP group name.
 
-force\_add\_non\_existing\_users
-optional Boolean attribute (true by default) that defines whether group members that are not present in Bonita should be imported (if false, these users are ignored).
-
+| | |
+|:-----|:--------|
+| ldap\_group\_dn | mandatory attribute that specifies the DN of the LDAP group. |
+| forced\_bonita\_group\_name | optional attribute that renames the Bonita group instead of using the original LDAP group name. |
+| force\_add\_non\_existing\_users | optional Boolean attribute (true by default) that defines whether group members (users in LDAP) that are not present in Bonita should be imported (created in Bonita). If false, these users are not created but group is created and existing users get associated with the group. |
   
 Example of group declarations:
 
@@ -353,7 +351,7 @@ In combination or as an alternative, groups can be declared using the result of 
 |:-----|:--------|
 | ldap\_group\_search\_dn | DN of the LDAP watched directory that will be used to get the list of the LDAP groups. |
 | ldap\_group\_search\_filter | LDAP group search filter (mandatory attribute, but can be a wide filter such as "cn=\*"). |
-| force\_add\_non\_existing\_users | optional boolean attribute (true by default) that defines whether group members that are not present in Bonita should be imported (if false, these users are ignored). |
+| force\_add\_non\_existing\_users | optional Boolean attribute (true by default) that defines whether group members (users in LDAP) that are not present in Bonita should be imported (created in Bonita). If false, these users are not created but group is created and existing users get associated with the group. |
   
 Example of group searches:
 ```
@@ -407,5 +405,3 @@ The LDAP synchronizer will fail if this profile is not defined.
 * Configure the LDAP synchronizer for the tenant by editing the configuration files in the tenant-specific folder, as described above.
 
 **Running:** To run the LDAP Synchronizer on a tenant, give the name of the tenant as a parameter of the script.
-
-
