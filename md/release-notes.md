@@ -1,11 +1,26 @@
 # Release notes
 
 ::: info
-**Note:** The 7.11 is currently work in progress (WIP). The 7.11.0 GA is planned on June 2020.
+**Note:** Bonita Portal is being transformed into Bonita Applications for User and Administrator.This will imply some changes in the upcoming versions of Bonita. Read more [further down](release-notes.md#portal-transformation).
 :::
 
 ## New values added
 
+### No more migration between maintenance versions of Bonita
+Starting with Bonita 7.11.0, it is not necessary to run the Bonita migration tool to upgrade between maintenance versions of Bonita Runtime (between 7.11.**0** and 7.11.**1**, for instance).  
+More details on the new procedure [here](migrate-from-an-earlier-version-of-bonita-bpm.md#maintenanceVersionCompatible)  
+
+On the technical side, Bonita 7.11.0 introduces a loose couple between Bonita binaries and the Database schema it runs on. 
+There is now a distinction between Bonita Database Schema version and Bonita Runtime version.
+The Bonita Database Schema version is a technical number (not accessible through APIs), that changes when the database schema changes.
+The Bonita Platform Version is the 3 digit version number we usually use to refer to Bonita.
+On startup Bonita now only checks if the database version is compatible with the binaries version, not if they are identical.
+
+Aside of the quality of life update of not having to run a migration between migration versions, this update brings a few behavioral changes:
+* Platform.getVersion() method still returns the version of the Bonita runtime binaries (ie. 7.11.0).
+* Platform.getPreviousVersion() is now deprecated, and voided (will always return ""). It was not used anywhere. It will be removed in a later version.
+* A check has been added in Cluster mode as to forbid the start of nodes in different Bonita platform versions. For example, on a two-node cluster, you can't have a node in 7.11.0 and another in 7.11.1.
+The feature of having nodes in different Bonita versions was never supported, though there were cases where it "worked" in previous versions.  
 
 <a id="data-management"/>
 
@@ -19,13 +34,13 @@ More details [here](data-management.md).
 <a id="bdm-editor"/>
 
 ### Business Data Model editor
-BDM and access control editors have been reworked, in order to improve your experience and your efficiency.
+BDM and access control editors have been reworked, to improve your experience and your efficiency.
 
 <a id="project-documentation"/>
 
 ### Generate project documentation
 For Teamwork, Efficiency, Performace and Enterprise editions only.
-Extract informations from a project sources to generate an asciidoc document. The generation templates can be customized to suit your needs. More details [here](project-documentation-generation.md).
+Extract information from project sources to generate an asciidoc document. The generation templates can be customized to suit your needs. More details [here](project-documentation-generation.md).
 
 
 ## Improvements
@@ -35,27 +50,55 @@ Extract informations from a project sources to generate an asciidoc document. Th
 #### Increase the default value of the development runtime's maximum memory heap size to 1Gb (512Mo previously)
 To avoid memory issues with large bar files deployment the default xmx value has been increased to 1Gb. If you want to revert this change, you can change it in the Studio preferences -> Server settings -> Tomcat Maximum memory allocation.
 
-#### UIPath connector: Cloud support
+#### UIPath connector - Cloud support
 The UIPath connector now supports the cloud solution.
 
 #### Collaboration - Select the branches to clone
-When cloning a project, gain time by selecting the branches you want to clone instead cloning all the branches.
+When cloning a project, gain time by selecting the branches you want to clone instead of cloning all the branches.
 
 #### Description field on widgets
 Add documentation to your pages by providing information on a widget (e.g. how to use it), thanks to the new Description field. Use this information to [generate documentation](release-notes.md#project-documentation).
+ 
+#### Bonita Platform Extensibility: Connectors and Actor filters archetypes
+You can now develop and test custom connectors and actor filters independently of the Bonita Studio.
+Bonita offers maven archetypes to help bootstrap these extension points
 
+More information:
+* [Bonita actor filter archetype](actor-filter-archetype.md)
+* [Bonita connector archetype](connector-archetype.md)
 
-### Runtime
+::: info
+This is not limited to 7.11 and can be used from version 7.7
+:::
 
-#### lib upgrade
-- spring, spring-boot
-- hibernate 4 to 5
-- ...
+#### Bonita Purge Tool
+A new open source project is available [here](https://github.com/bonitasoft/bonita-purge-tool)
+It cleans archived process instances older than a specific date. Allows to (potentially) reduce the size of a production database.
+::: info
+This is not limited to 7.11 and can be used in previous 7.x versions.
+:::
 
+### Runtime changes
+
+#### Monitoring
+##### Messages
+Two new message metrics are now accessible for monitoring purposes:
+* Potential: total number of potential couples, prior to duplicates removal. If this counter grows faster than the executed one, this indicates that we have lot of duplicates. See bonita.log for ids of duplicate couples.
+* ReTriggerMatchingTasks: number of times we detect that there are more potential matches to be processed.
+We retrieve the matches by batch of 100, a retrigger is performed if there are remaining potential matches. This counter increases when they are remaining messages to be processed. If this counter continues to increase, this means that we are continuously processing matches (even if no new waiting events and/or messages have been created), so events processing is delayed ie new events/messages are not processed on the fly as it should in a nominal situation.
+
+##### Connectors
+There is now a configurable time threshold on connectors. When connector execution takes longer than the threshold, a warning is logged. It allows identification of slow running services 
+The parameter is :
+```
+bonita.tenant.connector.warnWhenLongerThanMillis
+```
+More information [here](performance-tuning.md)
 
 ## Bundle changes
 
-Upgrade Tomcat from 8.5.47 to 8.5.53 (tomcat-dbcp from 9.0.16 to 9.0.31) **subject to change prior GA**
+### Technical updates
+Upgrade Tomcat from 8.5.47 to 8.5.53 (tomcat-dbcp from 9.0.16 to 9.0.31)
 
 ### Oracle driver
 
@@ -73,8 +116,6 @@ The Oracle jdbc driver does not need to be downloaded separately anymore and is 
 Simplify access to bonita by redirecting tomcat root to the bonita webapps.
 For instance http://localhost:8080 redirected to http://localhost:8080/bonita
 
-TODO: find other rationales
-
 ### Single Bonita log file
 
 All logs are now generated by default in a single `bonita.log` file.
@@ -87,13 +128,13 @@ investigations (information were lost or hidden in catalina log file).
 - complex logging configuration to handle which logs are generated to which log file
 - hard to follow `localhost` logs and Bonita logs
 
+Bonita monitoring logs are still logged in a separate file (bonita-monitoring.<date>.log)
+
 
 ### Thread name in Bonita logs
 
-**TODO**: improve wording + provide more info
-
 As of Bonita 7.11, the thread name information is added in `bonita.log` (by default, right after the logger name).
-This helps tracking the processing when parallel requests are in progress.
+This helps tracking the processing when parallel requests are in progress specially since there is a single log file from Bonita 7.11.
 ```
 2020-03-02 17:32:51.529 +0100 INFO (localhost-startStop-1) org.bonitasoft.engine.EngineInitializer Initialization of Bonita Engine done! ( took 8982ms)
 2020-03-02 17:33:12.515 +0100 INFO (http-nio-8080-exec-4) org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/bonita] RestletServlet: [Restlet] ServerServlet: component class is null
@@ -102,37 +143,9 @@ This helps tracking the processing when parallel requests are in progress.
 2020-03-02 17:33:32.938 +0100 INFO (http-nio-8080-exec-7) org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/bonita] CustomPageRestletServlet: [Restlet] ServerServlet: component class is null
 ```
 
-
-## No more migration between maintenance versions of Bonita
-Starting with Bonita 7.11.0, it is not necessary to run the Bonita migration tool to upgrade between maintenance versions of Bonita Runtime (between 7.11.**0** and 7.11.**1**, for instance).  
-More details on the new procedure [here](migrate-from-an-earlier-version-of-bonita-bpm.md#maintenanceVersionCompatible)  
-On the technical side, Bonita 7.11.0 introduces a loose couple between Bonita binaries and the Database schema it runs on. 
-There is now a distinction between Bonita Database Schema version and Bonita Runtime version.
-The Bonita Database Schema version is a technical number (not accessible through APIs), that changes when the database schema changes.
-The Bonita Platform Version is the 3 digit version number we usually use to refer to Bonita.
-On startup Bonita now only checks if the database version is compatible with the binaries version, not if they are identical.
-
-Aside of the quality of life update of not having to run a migration between migration versions, this update brings a few behavioral changes:
-* Platform.getVersion() method still returns the version of the Bonita runtime binaries (ie. 7.11.0).
-* Platform.getPreviousVersion() is now deprecated, and voided (will always return ""). It was not used anywhere. It will be removed in a later version.
-* A check has been added in Cluster mode as to forbid the start of nodes in different Bonita platform versions. For example, on a two-node cluster, you can't have a node in 7.11.0 and another in 7.11.1.
-The feature of having nodes in different Bonita versions was never supported, though there were cases where it "worked" in previous versions.  
-
-## Bonita Portal transformation
-
-Bonita Portal is being transformed into Bonita Applications. When Bonita Applications are ready, Bonita Portal will be removed.
-Developers and users will need to learn how to stop using the Portal and start using Bonita Applications instead.
-This change will allow Bonita and its users to get free from Google Web Toolkit (GWT) technology and offer opportunities for customization.
-Indeed, some Portal pages (built with GWT) are being totally recreated with our own UI Designer. They will be customizable.
-Others (those that were already using another technology than GWT) are being wrapped and will not be customizable.
-Moreover, as any Living Application, Bonita applications will be extensible to add any page the users need.
-More details in the upcoming versions of Bonita.
-Until then, we strongly advise not to create Custom Portal Profiles anymore but applications instead if possible.
-When Bonita Portal does not exist anymore, the existing Portal Custom Profiles will need to be migrated into Living applications.
-
 ## API Removal
 
-### rest api extension
+### Rest API extension
 
 The classes located in the `org.bonitasoft.console.common.server` have been removed. They have been deprecated since December 2015 as of Bonita 7.2.0
 
@@ -156,15 +169,42 @@ Examples of replacements are available in the bonita source code
 
 ## Technical updates
 
+### Internal libraries upgrades
+- spring has been upgraded to 5.2.2
+- spring-boot has been upgraded to 2.2.2
+- The project switched from hibernate 4 to hibernate 5
+- ehcache has been upgraded to 2.10.6
+- hibernate-gpa has been upgraded to 1.0.2
+- hazelcast has been upgraded to 3.12.5
+
+### Support Matrix
+Bonita now supports only Oracle 19c (as opposed to 19c & 12c in 7.10).
+Bonita now supports SQLServer 2017.
+
 ## Feature deprecations and removals
 
 ### Deprecations
 
+<a id="portal-transformation"/>
+
+#### Bonita Portal transformation
+
+Bonita Portal is being transformed into Bonita Applications. When Bonita Applications are ready, Bonita Portal will be removed.
+Developers and users will need to learn how to stop using the Portal and start using Bonita Applications instead.
+This change will allow Bonita and its users to get free from Google Web Toolkit (GWT) technology and offer opportunities for customization.
+
+Indeed, some Portal pages (built with GWT) are being totally recreated with our own UI Designer. They will be customizable.
+Others (those that were already using another technology than GWT) are being wrapped and will not be customizable.
+
+Moreover, as any Living Application, Bonita applications will be extensible to add any page the users need.
+More details in the upcoming versions of Bonita.
+
+Until then, we strongly advise not to create Custom Portal Profiles anymore but applications instead if possible.
+When Bonita Portal does not exist anymore, the existing Portal Custom Profiles will need to be migrated into Living applications.
+
 ### Removals
 ### Complex data-types generation have been removed
-This feature was used to generate Java POJOs and XSD in Subscription editions. It is recommend to add your own Java model as jar file in the project classpath or create your [data model using Groovy objects](groovy-in-bonita.md#create-data-model).
-
-
+This feature was used to generate Java POJOs and XSD in Subscription editions. It is recommended to add your own Java model as jar file in the project classpath or create your [data model using Groovy objects](groovy-in-bonita.md#create-data-model).
 
 ## Bug fixes
 
@@ -179,3 +219,16 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 * STUDIO-3295	When extracting a sub process from a task using a bdm object, init script is falsy
 * STUDIO-3327	Reset/clean bdm has no effect
 * STUDIO-3365	Password is displayed in clear where deploying a process fail
+* UID-280 Document edition script generation has a typo
+
+### Fixes in Bonita Runtime 
+
+* BS-18877	Listing process comments on a case (directly or in assign task view) generates a 20 seconds request
+* BS-14777	Missing information in javadoc of FlowNodeInstance.getState API call
+* BS-18907	Diagram is slow to display and generate many request + one slow request
+* BS-19406	When database server restarts, works could be lost
+* BS-16868	When network communication issues with database server, works could be lost
+* BS-19431	Add debug log's messages to investigate lost work issues
+* BS-17052	Low performance of processAPI.getUserIdsForActor API call	
+* BS-19435	LDAP Sync force_add_non_existing_users not working as expected
+
