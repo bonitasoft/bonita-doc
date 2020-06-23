@@ -1,13 +1,15 @@
 # Release notes
 
 ::: info
-**Note:** Bonita Portal is being transformed into Bonita Applications for User and Administrator.This will imply some changes in the upcoming versions of Bonita. Read more [further down](#portal-transformation).
+**Note:** Bonita Portal is being transformed into Bonita Applications for User and Administrator.  
+This will imply some changes in the upcoming versions of Bonita. Read more [further down](#portal-transformation).
 :::
 
 ## New values added
 
 ### No more migration between maintenance versions of Bonita
-Starting with Bonita 7.11.0, it is not necessary to run the Bonita migration tool to upgrade between maintenance versions of Bonita Runtime (between 7.11.**0** and 7.11.**1**, for instance).  
+Starting with Bonita 7.11.0, it is not necessary to run the Bonita migration tool to upgrade between maintenance versions of Bonita Runtime
+(to upgrade from 7.11.**0** to 7.11.**1**, for instance).  
 More details on the new procedure [here](migrate-from-an-earlier-version-of-bonita-bpm.md#maintenanceVersionCompatible)  
 
 On the technical side, Bonita 7.11.0 introduces a loose couple between Bonita binaries and the Database schema it runs on. 
@@ -16,7 +18,7 @@ The Bonita Database Schema version is a technical number (not accessible through
 The Bonita Platform Version is the 3 digit version number we usually use to refer to Bonita.
 On startup Bonita now only checks if the database version is compatible with the binaries version, not if they are identical.
 
-Aside of the quality of life update of not having to run a migration between migration versions, this update brings a few behavioral changes:
+Aside of the quality of life update of not having to run a migration between maintenance versions, this update brings a few behavioral changes:
 * Platform.getVersion() method still returns the version of the Bonita runtime binaries (ie. 7.11.0).
 * Platform.getPreviousVersion() is now deprecated, and voided (will always return ""). It was not used anywhere. It will be removed in a later version.
 * A check has been added in Cluster mode as to forbid the start of nodes in different Bonita platform versions. For example, on a two-node cluster, you can't have a node in 7.11.0 and another in 7.11.1.
@@ -51,6 +53,7 @@ Extract information from project sources to generate an asciidoc document. The g
 To avoid memory issues with large bar files deployment the default xmx value has been increased to 1Gb. If you want to revert this change, you can change it in the Studio preferences -> Server settings -> Tomcat Maximum memory allocation.
 
 <a id="uipath-cloud"/>
+
 #### UIPath connector - Cloud support
 The UIPath connector now supports the cloud solution.
 
@@ -61,9 +64,10 @@ When cloning a project, gain time by selecting the branches you want to clone in
 Add documentation to your pages by providing information on a widget (e.g. how to use it), thanks to the new Description field. Use this information to [generate documentation](release-notes.md#project-documentation).
  
 <a id="connector-archetype"/>
+
 #### Bonita Platform Extensibility: Connectors and Actor filters archetypes
 You can now develop and test custom connectors and actor filters independently of the Bonita Studio.
-Bonita offers maven archetypes to help bootstrap these extension points
+Bonita offers maven archetypes to help bootstrap these extension points.
 
 More information:
 * [Bonita actor filter archetype](actor-filter-archetype.md)
@@ -74,7 +78,7 @@ This is not limited to 7.11 and can be used from version 7.7
 :::
 
 #### Bonita Purge Tool
-A new open source project is available [here](https://github.com/bonitasoft/bonita-purge-tool)
+A new open source project is available [here](https://github.com/bonitasoft/bonita-purge-tool).  
 It cleans archived process instances older than a specific date. Allows to (potentially) reduce the size of a production database.
 ::: info
 This is not limited to 7.11 and can be used in previous 7.x versions.
@@ -84,13 +88,18 @@ This is not limited to 7.11 and can be used in previous 7.x versions.
 
 #### Monitoring
 ##### Messages
-Two new message metrics are now accessible for monitoring purposes:
+Two new metrics on BPM Messages are now accessible [for monitoring purposes](runtime-monitoring.md):
 * Potential: total number of potential couples, prior to duplicates removal. If this counter grows faster than the executed one, this indicates that we have lot of duplicates. See bonita.log for ids of duplicate couples.
 * ReTriggerMatchingTasks: number of times we detect that there are more potential matches to be processed.
-We retrieve the matches by batch of 100, a retrigger is performed if there are remaining potential matches. This counter increases when they are remaining messages to be processed. If this counter continues to increase, this means that we are continuously processing matches (even if no new waiting events and/or messages have been created), so events processing is delayed ie new events/messages are not processed on the fly as it should in a nominal situation.
+We retrieve the matches by batch of 100, a retrigger is performed if there are remaining potential matches.
+This counter increases when they are remaining messages to be processed.
+If this counter continues to increase, this means that we are continuously processing matches
+(even if no new waiting events and/or messages have been created), so events processing is delayed,
+i.e. new events/messages are not processed on the fly as it should in a nominal situation.
 
 ##### Connectors
-There is now a configurable time threshold on connectors. When connector execution takes longer than the threshold, a warning is logged. It allows identification of slow running services 
+There is now a configurable time threshold on connectors. When connector execution takes longer than the threshold, a warning is logged.
+It allows identification of slow running services.  
 The parameter is :
 ```
 bonita.tenant.connector.warnWhenLongerThanMillis
@@ -120,7 +129,7 @@ For instance http://localhost:8080 redirected to http://localhost:8080/bonita
 
 ### Single Bonita log file
 
-All logs are now generated by default in a single `bonita.log` file.
+All logs are now generated by default in a single `bonita.<date>.log` file.
 
 This fixes the following issues that occurred in previous Bonita versions
 - empty log files as their related webapps are not packaged within the Bonita Bundle
@@ -130,7 +139,7 @@ investigations (information were lost or hidden in catalina log file).
 - complex logging configuration to handle which logs are generated to which log file
 - hard to follow `localhost` logs and Bonita logs
 
-Bonita monitoring logs are still logged in a separate file (bonita-monitoring.<date>.log)
+Bonita monitoring-specific logs are still logged in a separate file (`bonita-monitoring.<date>.log`)
 
 
 ### Thread name in Bonita logs
@@ -176,11 +185,11 @@ Examples of replacements are available in the bonita source code
 - spring-boot has been upgraded to 2.2.2
 - The project switched from hibernate 4 to hibernate 5
 - ehcache has been upgraded to 2.10.6
-- hibernate-gpa has been upgraded to 1.0.2
+- hibernate-jpa has been upgraded to 1.0.2
 - hazelcast has been upgraded to 3.12.5
 
 ### Support Matrix
-Bonita now supports only Oracle 19c (as opposed to 19c & 12c in 7.10).
+Bonita now supports only Oracle 19c (as opposed to both 19c & 12c in 7.10).  
 Bonita now supports SQLServer 2017.
 
 ## Feature deprecations and removals
@@ -236,6 +245,9 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 * BS-19406	When database server restarts, works could be lost
 * BS-16868	When network communication issues with database server, works could be lost
 * BS-19431	Add debug log's messages to investigate lost work issues
-* BS-17052	Low performance of processAPI.getUserIdsForActor API call	
+* BS-17052	Low performance of processAPI.getUserIdsForActor API call
+
+### Fixes in Bonita LDAP Synchronizer
+
 * BS-19435	LDAP Sync force_add_non_existing_users not working as expected
 
