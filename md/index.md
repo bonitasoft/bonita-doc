@@ -14,7 +14,8 @@ Click on the **links** below to find useful information quickly, or [browse the 
 * [Business data management in the UI Designer](release-notes.md#data-management)<!--{li:.first .leaf}-->
 * [Generation of the project documentation](release-notes.md#project-documentation)<!--{li:.first .leaf}-->
 * [New BDM editor](release-notes.md#bdm-editor)<!--{li:.first .leaf}-->
-* [Integration with UiPath deployed in the Cloud](release-notes.md#uipath-cloud)<!--{li:.first .leaf}-->
+* [Extensibility: new connector and actor filter archetype](release-notes.md#uipath-cloud)<!--{li:.first .leaf}-->
+* [UiPath RPA connector, now in the Cloud](release-notes.md#connector-archetype)<!--{li:.first .leaf}-->
 <!--{ul:.menu .nav}-->
 
 </div>
