@@ -227,7 +227,7 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 ### Fixes in Bonita 7.11.1 (2020-??-??)  
 
 #### Fixes in Connectors
-* LDAP Connector: [#4](https://github.com/bonitasoft/bonita-connector-ldap/issues/4) Add support for paged LDAP queries - Contibution by [Andrew Block](https://github.com/Catchwa)
+* LDAP Connector: [#4](https://github.com/bonitasoft/bonita-connector-ldap/issues/4) Add support for paged LDAP queries - Contibution by [Andrew Brock](https://github.com/Catchwa)
 
 ### Fixes in Bonita 7.11.0 (2020-06-25)   
 
