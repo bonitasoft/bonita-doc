@@ -224,7 +224,14 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 
 ## Bug fixes
 
-### Fixes in Bonita Development Suite (Studio and UI Designer)
+### Fixes in Bonita 7.11.1 (2020-??-??)  
+
+#### Fixes in Connectors
+* LDAP Connector: [#4](https://github.com/bonitasoft/bonita-connector-ldap/issues/4) Add support for paged LDAP queries - Contibution by [Andrew Block](https://github.com/Catchwa)
+
+### Fixes in Bonita 7.11.0 (2020-06-25)   
+
+#### Fixes in Bonita Development Suite (Studio and UI Designer)
 
 * STUDIO-3471	Error when switching from a Business Object to an other in the constraints view
 * STUDIO-3464	Generate documentation leads to error if a used connector / actor filter doesn't have a display name
@@ -237,7 +244,7 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 * STUDIO-3365	Password is displayed in clear where deploying a process fail
 * UID-280 Document edition script generation has a typo
 
-### Fixes in Bonita Runtime 
+#### Fixes in Bonita Runtime 
 
 * BS-18877	Listing process comments on a case (directly or in assign task view) generates a 20 seconds request
 * BS-14777	Missing information in javadoc of FlowNodeInstance.getState API call
@@ -247,7 +254,7 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 * BS-19431	Add debug log's messages to investigate lost work issues
 * BS-17052	Low performance of processAPI.getUserIdsForActor API call
 
-### Fixes in Bonita LDAP Synchronizer
+#### Fixes in Bonita LDAP Synchronizer
 
 * BS-19435	LDAP Sync force_add_non_existing_users not working as expected
 
