@@ -21,10 +21,6 @@ You can import diagrams that were exported from the following tools:
 
 * Bonita
 * BPMN 2.0
-* Microsoft Visio 2010
-* ARIS BPM 7.x
-* XPDL 1.0
-* jBPM 3.2
 
 ### What is supported or compatible?
 
@@ -49,30 +45,6 @@ The following sections list restrictions for specific import formats.
 
 Most BPM applications export in the BPMN 2.0 file format. This format is the most compatible with Bonita Studio. See [here](http://www.bpmn.org/#tabs-implementers) for a list of applications 
 which export in the .bpmn format.
-
-#### Microsoft Visio 2010 (\*.vdx)
-
-This feature is available in the Enterprise, Performance, Efficiency, and Teamwork editions.
-
-* The Visio import format must be .vdx. The .vsd format is not supported in Bonita Studio.
-* Only horizontal display is supported.
-* The vertical display will be converted and interpreted as a _mirror image_ of the process.
-* Visio supports all shapes defined in the BPMN 1.2 standard. See [here for more info about Visio compatibility](https://blogs.msdn.microsoft.com/visio/2009/12/03/bpmn-support-in-visio-2010/).
-
-#### Aris BPM 7.x (\*.xml)
-
-* This feature is available in the Enterprise, Performance, Efficiency, and Teamwork editions.
-
-See the [Aris website](http://www.softwareag.com/corporate/products/az/aris/default.asp) for 
-more information about exporting in the BPMN 2.0 format ready for importing into Bonita Studio.
-
-#### XPDL from Bonita 4 (\*.xpdl)
-
-The .xpdl format will only be compatible if it was created in Bonita 4.x. If the .xpdl file was created by an application other than Bonita 4.x, it cannot be imported into Bonita Studio.
-
-#### jBPM 3.2 (processdefinition.xml)
-
-jBPM uses the [BPMN 2.0 standard](http://www.jboss.org/).
 
 ## Export a process diagram as a BPMN 2.0 archive
 
