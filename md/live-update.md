@@ -88,7 +88,6 @@ It allows end users to benefit from custom page update without the need to empty
 When you export a page or a layout from the UI Designer, we suffix the resource filename with a hash. 
 If the page is updated, the resource filename will change, and the browser will download it from the server, and not from the cache.
 
-If you don't use the UI Designer to edit and export your custom page, don't forget to manually trigger the cache busting mechanism. 
+If you don't use the UI Designer to edit and export your custom page, don't forget to manually trigger the cache busting mechanism. It means that, as a developer, you must make sure to either change the name of the file or add a query parameter (e.g. ?version=2) to the URL to access the file. So that the web-browser will not use the version it has in cache but the new file instead. 
 Without this cache busting, end users won't benefit from the latest custom page changes, unless they empty their browser cache.
- 
 
