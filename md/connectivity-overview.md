@@ -5,7 +5,7 @@ Connectors are elements in Bonita that allows to read or write information from 
 
 A connector is an element in a process that accesses an external system to read or write information. By extension, it also accounts for tools that modify data within a process like Office connectors that modify Bonita documents.
 
-Bonita contains a set of standard connectors. You can also create custom connectors using the [connector development toolkit](connector-development-toolkit.md).
+Bonita contains a set of standard connectors. You can also create custom connectors using the [maven connector archetype](connector-archetype.md).
 
 A connector consists of a definition, an implementation, and a configuration.
 
