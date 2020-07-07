@@ -26,7 +26,6 @@ Simple, the ID of the object (a long value)
 The methods used for this resource are:
 * GET
 * POST
-* PUT
 * DELETE
 
 #### Add a new definition
@@ -110,9 +109,7 @@ Simple, the ID of the object (a long value)
 
 The methods used for this resource are:
 * GET
-* POST
 * PUT
-* DELETE
 
 #### Associate definitions to users
 
@@ -132,10 +129,29 @@ Use a PUT method to associate users with custom information.
 * **Success Response**  
   * **Code**: 200
 
+#### Search custom user info
+
+Use a GET method to search for custom user information associated to a specific user.
+
+* **URL**  
+  `/API/customuserinfo/value`  
+  _Example_: http://localhost:8080/bonita/API/customuserinfo/value?c=10&p=0&f=definitionId=1
+* **Method**  
+  `GET`
+* **Data Params** (Required)   
+  * c: number of result per page
+  * p: page number
+  * f : filter to apply on results with the format `f={filter\_name}={filter\_value}`  
+   _possible filter names_: userId, value, definitionId (the filter value being the custom user information definition ID)
+* **Success Response**  
+  An array of customuserinfo/value objects
+  * **Code**: 200
+
+
 ## User
 ### Description
 
-Manage the custom user info associated to specified users
+Manage the custom user info associated to a specific user
 
 ### Identifier
 
@@ -159,13 +175,10 @@ Simple, the ID of the object (a long value)
 
 The methods used for this resource are:
 * GET
-* POST
-* PUT
-* DELETE
 
 #### Search custom user info
 
-Use a GET method to search for custom user information.
+Use a GET method to search for custom user information associated to a specific user.
 
 * **URL**  
   `/API/customuserinfo/user`  
@@ -176,7 +189,7 @@ Use a GET method to search for custom user information.
   * c: number of result per page
   * p: page number
   * f : filter to apply on results with the format `f={filter\_name}={filter\_value}`  
-    _Example_: `f=userId=id`
+   the filter userId is mandatory `f=userId=id`
 * **Success Response**  
   An array of customuserinfo/user objects
   * **Code**: 200
