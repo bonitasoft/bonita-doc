@@ -2,7 +2,7 @@
 Description of the structure, definition, implementation and test of custom connectors in Bonita.
 
 A connector is an element in a process that accesses an external system to read or write information. If the [default connectors in Bonita](_connectivity.md) are not suitable, you can implement your own connector. 
-In the Bonita Enterprise, Performance, Efficiency, and Teamwork editions, you are recommended to use the [connector development toolkit](connector-development-toolkit.md) to create new connectors.
+It's recommended to use the [maven connector archetype](connector-archetype.md) to create new connector project.
 Otherwise, you can define a new connector definition or implementation in Bonita Studio,
 using the wizards started from the **Development** menu, **Connectors** submenu.
 
