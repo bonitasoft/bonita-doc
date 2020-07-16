@@ -137,7 +137,8 @@ Some widgets can require additional informations. For example, if you want to cr
 ```
 
 :::warning
-As widgets are displayed in a dialog window in the Studio, be careful to not use too many widgets in the same page. Use Group widget if you need to stack a lot of widgets in the same page.
+**Warning:** As widgets are displayed in a dialog window in the Studio, be careful to not use too many widgets in the same page. 
+Use Group widget if you need to stack a lot of widgets in the same page.
 :::
 
 #### Connector implementation
