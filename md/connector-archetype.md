@@ -136,6 +136,11 @@ Some widgets can require additional informations. For example, if you want to cr
 </widget>
 ```
 
+:::warning
+**Warning:** As widgets are displayed in a dialog window in the Studio, be careful to not use too many widgets in the same page. 
+Use Group widget if you need to stack a lot of widgets in the same page.
+:::
+
 #### Connector implementation
 
 A _connector implementation_ implements a connector definition. A definition defines a set on inputs / outputs, implementing a definition means use the provided inputs to create the expected outputs.  
