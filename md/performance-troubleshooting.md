@@ -86,19 +86,17 @@ All connection numbers must be defined according to the performance tuning recom
 
 ## Monitor SQL request duration time
 
-By default, all queries taking more than one minute to respond will be logged in `INFO` in the bonita log file. 
+By default, all queries taking more than one second to respond will be logged at the `INFO` level in the bonita log file, using the `org.hibernate.SQL_SLOW` logger. 
 
 An increasing number of those logs can mean :
-* Slow connection between database server and Bonita server.
-* Database server overloaded.
-* Important Database volume can slow queries down. In this case, you might consider to [purge unnecessary archive data](https://github.com/bonitasoft/bonita-purge-tool/releases)  
+* The connection between database server and Bonita server is becoming slow.
+* Database server is overloaded.
+* Big Database volume can slow queries down. In this case, you might consider to [purge unnecessary archive data](https://github.com/bonitasoft/bonita-purge-tool/releases).
 
-The execution threshold value is configured in `bonita-platform-community.properties`
+The execution threshold value can be configured in `bonita-platform-community.properties`
 ```
 bonita.platform.persistence.dbquery.warnWhenLongerThanMillis=1000
 ```
-
-
 
 ## Connectors
 
