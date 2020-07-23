@@ -194,9 +194,9 @@ bonita.tenant.connector.timeout=300
 ```
 For details of these parameters, see [Work service](#work_service).
 
-In addition, connectors longer that 10 seconds produces *warning* using the logger `org.bonitasoft.engine.core.connector.impl.ConnectorExecutionTimeLogger`.
+In addition, connectors longer that 10 seconds produces a log at *warning* level named : `org.bonitasoft.engine.core.connector.impl.ConnectorExecutionTimeLogger`.
 
-The *warning* log contains all references to find exactly which connector is slow. A *debug* log prints all input parameters of this connector.
+The *warning* log contains all references to find exactly which connector is slow. A *fine* log prints all input parameters of this connector.
 
 Here is a sample log produced using a connector that does a `Thread.sleep(15000)`
 ```
@@ -204,7 +204,7 @@ WARNING: Connector 15 sleep with id 20002 with class org.mycompany.connector.Sle
 FINE:  Input parameters of the connector with id 20002: {seconds: [15]}
 ```
 
-This 10 seconds threshold can be changed in the same configuration file `bonita-tenant-community-custom.properties`
+This 10 seconds threshold can be changed in the configuration file `bonita-tenant-community-custom.properties`
 ```properties
 bonita.tenant.connector.warnWhenLongerThanMillis=10000
 ```

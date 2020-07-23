@@ -32,7 +32,7 @@ Bonita also provides a [PlatformMonitoringAPI](http://documentation.bonitasoft.c
 Network performance has a direct impact on the duration of an instance. We recommend that you measure network performance at the following points: 
 
 * Between the server hosting the Bonita Engine and the database server. Check that the servers ping time duration is less than 1ms. There are many connections between Engine and the database, so network performance between these two servers has huge impact on performance. 
-* Between the server hosting the Bonita Engine and any other servers used (typically those called by connectors). As connectors are often used to enable Bonita to communicate with outside world, network performance has impact on performance. See 
+* Between the server hosting the Bonita Engine and any other servers used (typically those called by connectors). As connectors are often used to enable Bonita to communicate with outside world, network performance has impact on performance.
 
 ## JVM
 
