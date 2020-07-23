@@ -101,7 +101,7 @@ bonita.platform.persistence.dbquery.warnWhenLongerThanMillis=1000
 
 ## Connectors
 
-Any connectors longer than 10 seconds will produce a warning log. See [connector servive](performance-tuning.md#connector_service) for more information. 
+Any connectors longer than 10 seconds will produce a warning log. See [connector service](performance-tuning.md#connector_service) for more information. 
 
 In addition, performance of connectors can be measured using the [connector time tracker](performance-tuning.md#time_tracker).
 
