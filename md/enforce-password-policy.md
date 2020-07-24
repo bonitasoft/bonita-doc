@@ -20,7 +20,7 @@ There are three options:
   * at least 2 lower case characters
   * at least 3 digits
 
-To apply this policy edit [`security-config.properties`](BonitaBPM_platform_setup.md) and change `DefaultPasswordValidator` to `RobustnessPasswordValidator`.
+To apply this policy edit `security-config.properties` using the [platform setup tool](BonitaBPM_platform_setup.md) and change `DefaultPasswordValidator` to `RobustnessPasswordValidator`.
 * Create a custom password policy by following the tutorial below.
 
 ## How to create a custom password policy
