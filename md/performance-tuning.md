@@ -174,8 +174,8 @@ If the queue becomes full, the application restarts in order to force the engine
 
 #### Connector service
 
-The connector service executes connectors. To improve tenant isolation (and to protect against denial-of-service attacks), the default implementation of the connector service has its own threadpool and requires executes connectors in a separate thread from the worker.   
-The configuration of the threadpool of this service is independent from the configuration of the work service.
+The connector service executes connectors. To improve tenant isolation (and to protect against denial-of-service attacks), the default implementation of the connector service has its own thread pool and requires executes connectors in a separate thread from the worker.   
+The configuration of the thread pool of this service is independent of the configuration of the work service.
 If you have processes that use a lot of connectors, then you can have more threads to execute connectors. See [Connector execution](connectors-execution.md) page for details on how connectors are executed.
 
 The Connector service is configured in `bonita-tenant-community-custom.properties` and `bonita-tenant-sp-custom.properties` (cf [platform setup](BonitaBPM_platform_setup))
@@ -193,6 +193,22 @@ Subscription only:
 bonita.tenant.connector.timeout=300
 ```
 For details of these parameters, see [Work service](#work_service).
+
+In addition, connectors longer that 10 seconds produces a log at *warning* level named : `org.bonitasoft.engine.core.connector.impl.ConnectorExecutionTimeLogger`.
+This log contains all references to find exactly which connector is slow.
+
+Another log at the *debug* level prints all input parameters of this connector.
+
+Here is a sample log produced using a connector that does a `Thread.sleep(15000)`
+```
+WARNING: Connector 15 sleep with id 20002 with class org.mycompany.connector.SleepImpl of process definition 6587226372021992905 on element flowNode with id 20003 took 15001 ms.
+FINE:  Input parameters of the connector with id 20002: {seconds: [15]}
+```
+
+The 10 seconds threshold can be changed in the configuration file `bonita-tenant-community-custom.properties`
+```properties
+bonita.tenant.connector.warnWhenLongerThanMillis=10000
+```
 
 <a id="scheduler_service"/>
 
@@ -396,6 +412,8 @@ With this in mind, [define the log level for technical logs, queriable logs and 
 
 Remember that Bonita Engine dependencies also have their own log and debug options that may impact strongly the system performance.
 Be sure to configure these appropriately.
+
+<a id="time_tracker"/>
 
 ## Connector time tracker
 
