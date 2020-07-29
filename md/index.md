@@ -51,7 +51,6 @@ Click on the **links** below to find useful information quickly, or [browse the 
 * [BPMN standard](http://www.bpmn.org/)<!--{li:.leaf}-->
 * [The Ultimate Guide to BPMN2](http://www.bonitasoft.com/for-you-to-read/bpm-library/ultimate-guide-bpmn)<!--{li:.leaf}-->
 * [Best Practices for Continuous Integration with Bonita](http://www.bonitasoft.com/for-you-to-read/bpm-library/best-practices-continuous-integration-bonita-bpm)<!--{li:.leaf}-->
-* [Dependencies](dependencies-index.md)<!--{li:.leaf .last}-->
 * [Javadoc](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html)<!--{li:.leaf .last}-->
 <!--{ul:.menu .nav}-->
 
