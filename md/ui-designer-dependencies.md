@@ -58,7 +58,7 @@ stomp-websocket | 2.3.4 | Apache-2.0 |
 
  | groupId | artifactId | version | type | licences | 
  | --- | --- | --- | --- | --- | 
- | ch.qos.logback | logback-classic | 1.2.3 | jar | Eclipse Public License - v 1.0 ,GNU Lesser General Public License
+ch.qos.logback | logback-classic | 1.2.3 | jar | Eclipse Public License - v 1.0 ,GNU Lesser General Public License
 com.bonitasoft.manager | manager | 1.16.1 | - | 
 com.fasterxml.jackson.core | jackson-databind | 2.9.8 | - | 
 com.fasterxml.jackson.datatype | jackson-datatype-joda | 2.9.8 | jar | The Apache Software License, Version 2.0
