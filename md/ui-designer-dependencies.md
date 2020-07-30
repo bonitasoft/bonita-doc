@@ -7,7 +7,7 @@ List all dependencies uses for Bonita UI-Designer
 
  | name | version | license | 
  | --- | --- | --- | 
- | @bonitasoft/query-selector | 1.0.8 | LicenseRef-LICENSE
+@bonitasoft/query-selector | 1.0.8 | LicenseRef-LICENSE
 ace-builds | 1.1.9 | BSD, MIT*
 angular | 1.3.11 | MIT
 angular | 1.3.18 | MIT
