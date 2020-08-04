@@ -226,6 +226,18 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 
 ### Fixes in Bonita 7.11.1 (2020-??-??)  
 
+#### Fixes in Bonita Runtime
+* BS-18869  The underlying database request for displaying the User Archived cases page in the Bonita Portal is very slow
+* BS-19482	Actor filter never calls `validateInputParameters()`
+* BS-19484	NPE when first BDM object in a multiple relation list is null
+* BS-19489  StarterThread fails and stops if a flownode instance is not found
+* BR-430    Add a configuration property to track down slow queries
+* BR-429    Search queries now use hibernate prepared statements, which improves performance
+* BR-440    Hibernate query plan cache is now configurable
+* BR-443    Improve Starter thread robustness
+* BR-451    Some errors submitting work on transaction may corrupt the java thread forever (should fix the "lost work" phenomenon)
+
+
 #### Fixes in Connectors
 * LDAP Connector: [#4](https://github.com/bonitasoft/bonita-connector-ldap/issues/4) Add support for paged LDAP queries - Contibution by [Andrew Brock](https://github.com/Catchwa)
 
