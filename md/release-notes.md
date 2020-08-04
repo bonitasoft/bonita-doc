@@ -224,7 +224,17 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 
 ## Bug fixes
 
-### Fixes in Bonita 7.11.1 (2020-??-??)  
+### Fixes in Bonita 7.11.1 (2020-08-06)
+
+#### Fixes in Bonita Development Suite (Studio and UI Designer)
+
+* UID-232 UI Designer lets me save invalid JSON variable definition that leads to runtime error  
+* UID-236 'Ctrl + s' doesn't work after editing the asset 'style.css'
+* UID-239 In preview,  space is missing between label and 'required' asterisk on input widget
+* UID-274 UID favorites reset to false when Studio restart
+* UID-282 Bonita Data Repository (BDR) error if BDM object has unique constraint with a relation
+* UID-283 Unexpected file in fragment directory prevent the UID to start
+* UID-293 Issue migrating pages with BusinessData variable from 7.10 to 7.11
 
 #### Fixes in Bonita Runtime
 * BS-18869  The underlying database request for displaying the User Archived cases page in the Bonita Portal is very slow
@@ -238,11 +248,11 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 * BR-451    Some errors submitting work on transaction may corrupt the java thread forever (should fix the "lost work" phenomenon)
 
 
+
 #### Fixes in Connectors
 * LDAP Connector: [#4](https://github.com/bonitasoft/bonita-connector-ldap/issues/4) Add support for paged LDAP queries - Contibution by [Andrew Brock](https://github.com/Catchwa)
 
-### Fixes in Bonita 7.11.0 (2020-06-25)   
-
+### Fixes in Bonita 7.11.0 (2020-06-25)
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
 
 * STUDIO-3471	Error when switching from a Business Object to an other in the constraints view
