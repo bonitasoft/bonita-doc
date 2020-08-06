@@ -236,10 +236,10 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 * UID-283 Unexpected file in fragment directory prevent the UID to start
 * UID-293 Issue migrating pages with BusinessData variable from 7.10 to 7.11
 
-#### Fixes in Bonita Runtime
+#### Fixes in Bonita Runtime (including Portal)
 * BS-18869  The underlying database request for displaying the User Archived cases page in the Bonita Portal is very slow
-* BS-19482	Actor filter never calls `validateInputParameters()`
-* BS-19484	NPE when first BDM object in a multiple relation list is null
+* BS-19482  Actor filter never calls `validateInputParameters()`
+* BS-19484  NPE when first BDM object in a multiple relation list is null
 * BS-19489  StarterThread fails and stops if a flownode instance is not found
 * BR-430    Add a configuration property to track down slow queries
 * BR-429    Search queries now use hibernate prepared statements, which improves performance
