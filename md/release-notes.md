@@ -224,7 +224,38 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 
 ## Bug fixes
 
-### Fixes in Bonita Development Suite (Studio and UI Designer)
+### Fixes in Bonita 7.11.1 (2020-08-06)
+
+#### Fixes in Bonita Development Suite (Studio and UI Designer)
+
+* UID-232 UI Designer lets me save invalid JSON variable definition that leads to runtime error  
+* UID-236 'Ctrl + s' doesn't work after editing the asset 'style.css'
+* UID-239 In preview,  space is missing between label and 'required' asterisk on input widget
+* UID-274 UID favorites reset to false when Studio restart
+* UID-282 Bonita Data Repository (BDR) error if BDM object has unique constraint with a relation
+* UID-283 Unexpected file in fragment directory prevent the UID to start
+* UID-293 Issue migrating pages with BusinessData variable from 7.10 to 7.11
+
+#### Fixes in Bonita Runtime (including Portal)
+* BS-18869  The underlying database request for displaying the User Archived cases page in the Bonita Portal is very slow
+* BS-19482  Actor filter never calls `validateInputParameters()`
+* BS-19484  NPE when first BDM object in a multiple relation list is null
+* BS-19489  StarterThread fails and stops if a flownode instance is not found
+* BR-430    Add a configuration property to track down slow queries
+* BR-429    Search queries now use hibernate prepared statements, which improves performance
+* BR-440    Hibernate query plan cache is now configurable
+* BR-443    Improve Starter thread robustness
+* BR-451    Some errors submitting work on transaction may corrupt the java thread forever (should fix the "lost work" phenomenon)
+* BPO-539 /API/bpm/message does not allow the messageContent value to be null or an empty string
+* BPO-379 Tenant information lost when user logs out
+* BPO-581 Process enable button: no text "ENABLE"
+* BPO-506 Cache busting doesn't work on json variables inside page used in custom profile
+
+#### Fixes in Connectors
+* LDAP Connector: [#4](https://github.com/bonitasoft/bonita-connector-ldap/issues/4) Add support for paged LDAP queries - Contibution by [Andrew Brock](https://github.com/Catchwa)
+
+### Fixes in Bonita 7.11.0 (2020-06-25)
+#### Fixes in Bonita Development Suite (Studio and UI Designer)
 
 * STUDIO-3471	Error when switching from a Business Object to an other in the constraints view
 * STUDIO-3464	Generate documentation leads to error if a used connector / actor filter doesn't have a display name
@@ -237,7 +268,7 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 * STUDIO-3365	Password is displayed in clear where deploying a process fail
 * UID-280 Document edition script generation has a typo
 
-### Fixes in Bonita Runtime 
+#### Fixes in Bonita Runtime (including Portal)
 
 * BS-18877	Listing process comments on a case (directly or in assign task view) generates a 20 seconds request
 * BS-14777	Missing information in javadoc of FlowNodeInstance.getState API call
@@ -247,7 +278,7 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 * BS-19431	Add debug log's messages to investigate lost work issues
 * BS-17052	Low performance of processAPI.getUserIdsForActor API call
 
-### Fixes in Bonita LDAP Synchronizer
+#### Fixes in Bonita LDAP Synchronizer
 
 * BS-19435	LDAP Sync force_add_non_existing_users not working as expected
 
