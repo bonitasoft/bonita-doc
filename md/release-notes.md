@@ -246,8 +246,10 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 * BR-440    Hibernate query plan cache is now configurable
 * BR-443    Improve Starter thread robustness
 * BR-451    Some errors submitting work on transaction may corrupt the java thread forever (should fix the "lost work" phenomenon)
-
-
+* BPO-539 /API/bpm/message does not allow the messageContent value to be null or an empty string
+* BPO-379 Tenant information lost when user logs out
+* BPO-581 Process enable button: no text "ENABLE"
+* BPO-506 Cache busting doesn't work on json variables inside page used in custom profile
 
 #### Fixes in Connectors
 * LDAP Connector: [#4](https://github.com/bonitasoft/bonita-connector-ldap/issues/4) Add support for paged LDAP queries - Contibution by [Andrew Brock](https://github.com/Catchwa)
@@ -266,7 +268,7 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 * STUDIO-3365	Password is displayed in clear where deploying a process fail
 * UID-280 Document edition script generation has a typo
 
-#### Fixes in Bonita Runtime 
+#### Fixes in Bonita Runtime (including Portal)
 
 * BS-18877	Listing process comments on a case (directly or in assign task view) generates a 20 seconds request
 * BS-14777	Missing information in javadoc of FlowNodeInstance.getState API call
