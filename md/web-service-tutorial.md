@@ -57,7 +57,6 @@ countryDAO.findById(country, 0, 100).get(0)
 * For the Community edition, provide these settings:
   * Service NS: CountryInfoService
   * Service name: http://www.oorsprong.org/websamples.countryinfo
-* For the Teamwork, Efficiency, Performance, or Enterprise edition. provide these settings:
   * Enter the WDSL URL http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL, and click on the Introspect button, then leave the login info fields empty
 
 13. In the **Request parameters** window (for all editions), provide these settings:
