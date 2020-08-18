@@ -3,9 +3,6 @@
 How to use the Generate PDF from an Office document connector.
 
 ## Description
-::: info
-**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
-:::
 
 The **Generate PDF from and Office document** connector converts a document from `.odt` or `.docx` format to PDF.  
 It can be used in conjunction with the [Insert data in a .docx/.odt template connector](insert-data-in-a-docx-odt-template.md).   
