@@ -11,7 +11,7 @@ Design Bonita custom pages, layouts, forms, custom widgets and fragments in UI D
 
 [Forms](forms.md) are used to instantiate a process or to execute a human task.
 
-[Fragments](fragments.md) (Bonita Enterprise, Performance, Efficiency and Teamwork editions only) aim at being reused in other pages of your application.
+[Fragments](fragments.md) aim at being reused in other pages of your application.
 
 [Widgets](widgets.md) are used or customized to design your page or form
 
@@ -20,7 +20,7 @@ Design Bonita custom pages, layouts, forms, custom widgets and fragments in UI D
 
 After a page, layout, form, fragment is created, you can update it in the **Page editor**. Update your page, form or fragment by dragging and dropping widgets from the palette to the whiteboard. Edit widget properties in the widget properties panel, create data, and bind it to the widgets.
 
-In the Enterprise, Performance and Efficiency editions, you can optimize the page or form design for a given device type by configuring [device-specific values for the Width property](widget-properties.md) for widgets. Use the a device types bar in the Page editor to choose the target device type.
+You can optimize the page or form design for a given device type by configuring [device-specific values for the Width property](widget-properties.md) for widgets. Use the a device types bar in the Page editor to choose the target device type.
 ![Device type selection](images/images-6_0/pb-resolution.png)
 
 Custom widget is a special artifact that we will explain in a later chapter.
