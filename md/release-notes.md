@@ -14,6 +14,10 @@ For example: if your Studio is in version 7.12.4. You will be able to work on 7.
 ### Development suite changes
 #### Warning before the migration when cloning a project
 If you are cloning a repository branch that required migration then you will be informed of the need for migration before it is actually done. This allows you to cancel the operation and change the branch if needed.
+
+### Project Problem View and project validation
+A new view is now available in the Studio to see all the project issues and warnings. It is also possible to validate a project through the contextual menu.
+
 ### Runtime changes
 
 ## Bundle changes
