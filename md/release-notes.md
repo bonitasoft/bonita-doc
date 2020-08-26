@@ -18,6 +18,9 @@ If you are cloning a repository branch that required migration then you will be 
 #### Project Problem View and project validation
 A new view is now available in the Studio to see all the project issues and warnings. It is also possible to validate a project through the contextual menu.
 
+#### Dark mode theme for the Studio
+In the "Appearance" section of the Studio settings, you can now change the theme. You have two possibility: light (default) and dark.
+
 ### Runtime changes
 
 ## Bundle changes
