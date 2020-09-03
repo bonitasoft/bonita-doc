@@ -76,7 +76,7 @@ This is useful if you want to display some property of the current element.
 
 ### Save as fragment
 
-Yu can save any container as a fragment (from the properties panel header, widget actions menu). This enables you to reuse the set of widgets in other pages.
+You can save any container as a fragment (from the properties panel header, widget actions menu). This enables you to reuse the set of widgets in other pages.
 
 ### Tab container
 
