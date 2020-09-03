@@ -43,7 +43,7 @@ Some general properties are common to all widgets except containers.
 
 Specify the width of the widget relative to the container it is in, or to the page if it is not in a container. A widget can occupy one to 12 units. The actual widget widths are proportional, automatically adjusted for the device display.
 
-In the Enterprise, Performance and Efficiency editions, you can set a different value for the width property for each device type. Select the target device type in the top bar, then set the value of the Width property.
+You can set a different value for the width property for each device type. Select the target device type in the top bar, then set the value of the Width property.
 
 ![Device type selection](images/images-6_0/pb-resolution.png)
 

@@ -76,7 +76,7 @@ This is useful if you want to display some property of the current element.
 
 ### Save as fragment
 
-If you are using the Enterprise, Performance, Efficiency, or Teamwork edition, you can save any container as a fragment (from the properties panel header, widget actions menu). This enables you to reuse the set of widgets in other pages.
+You can save any container as a fragment (from the properties panel header, widget actions menu). This enables you to reuse the set of widgets in other pages.
 
 ### Tab container
 
@@ -241,7 +241,7 @@ Every action, except for the `Close modal`, can close the modal when it succeeds
 
 When inside a form container, the button is automatically disabled while the form is invalid.
 
-### Save button widget (Subscription editions)
+### Save button widget
 
 Use the Save button widget to store data in the browser LocalStorage.
 For instance, to let users save the draft of the current form, bind the **formInput** variable of your form to the **value** property.
@@ -315,7 +315,7 @@ In some case, you want override your theme to display custom style for only <b>o
 
 Note: In embedded Table widget documentation you can found an example for bordered custom style.
 
-### Data table widget (Subscription editions)
+### Data table widget
 
 Note: Read [Table widget](widgets.md#table-widget) section to know how you can customize display of your data table widget.
 
@@ -373,7 +373,7 @@ Use an image widget to display an image. The image widget is able to display ima
 
 _**Note**_: Applies from _7.0.2_
 
-### Chart widget (Subscription editions)
+### Chart widget
 
 Use the chart widget to create a graphical display of data to ease understanding. This widget is based on angular-chart-0.8.1, which is based on Chart.js.  
 For information, see the [Angular chart documentation](http://jtblin.github.io/angular-chart.js/) or [Chart.js documentation](http://www.chartjs.org/docs/).
@@ -408,7 +408,7 @@ The previewable documents are limited to documents supported by the end user bro
 
 <a id="rich-text-area"/>
 
-## Rich Text Area widget (Subscription editions)
+## Rich Text Area widget
 
 Use the rich text area widget to edit HTML formatted text in any UI Designer artifact (page or form for instance).
 
