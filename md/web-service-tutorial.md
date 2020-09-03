@@ -53,11 +53,7 @@ countryDAO.findById(country, 0, 100).get(0)
 
 11. Add a _**WebService SOAP 1.2**_ connector to this task and configure it using the wizard.
 
-12. In the **Connection parameters** window:
-* For the Community edition, provide these settings:
-  * Service NS: CountryInfoService
-  * Service name: http://www.oorsprong.org/websamples.countryinfo
-  * Enter the WDSL URL http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL, and click on the Introspect button, then leave the login info fields empty
+12. Enter the WDSL URL http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL, and click on the Introspect button, then leave the login info fields empty
 
 13. In the **Request parameters** window (for all editions), provide these settings:
 * Port name: CountryInfoServiceSoap12
