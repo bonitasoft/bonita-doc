@@ -207,6 +207,7 @@ The following bugs have a 7.10.2 fix version, but since this version has net bee
 * BPO-258 - Wrong spanish translation in BPM Services page
 * BPO-313 - Process instantion form URL redirection has invalid processDefinitionId parameter
 * BPO-316 - BDM and License page Access Denied when associated to custom profile menu
+* BPO-325 - HTTP Status 400 : IE11 - Cannot download a document with chinese chars in the name from the overview page
 * BPO-337 - Translation errors in french in applications pop-up window
 * BPO-341 - Default case overview form leads to error 500 when trying to access archived process instance document
 * BPO-358 - TaskPermissionRule : Process manager cannot list the tasks with f=parentCaseId with Dynamic authorization checking enable
