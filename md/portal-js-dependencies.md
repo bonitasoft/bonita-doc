@@ -1,4 +1,4 @@
-# Bonita-portal-js dependencies 7.10
+# Bonita-portal-js dependencies 7.11
 
 
 List all dependencies uses for Bonita portal-js
