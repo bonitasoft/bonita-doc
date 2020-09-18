@@ -15,15 +15,24 @@ By configuring the CORS filter on the tomcat bundle, you will be able to access 
 
 ## Tomcat configuration
 
-Edit the web.xml of the bonita.war to add the CORS filter:
+### Add CORS filter
 
-```code
+Edit the web.xml of the bonita.war to add the CORS filter:
+_**Important Note:** to use this configuration, you will need to replace the `ALLOWED_ORIGIN_LIST` by your own allowed origin list._
+
+
+```xml
 <filter>
   <filter-name>CorsFilter</filter-name>
   <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
   <init-param>
     <param-name>cors.allowed.origins</param-name>
-    <param-value>*</param-value>
+    <param-value>ALLOWED_ORIGIN_LIST</param-value>
+  </init-param>
+
+  <init-param>
+	<param-name>cors.support.credentials</param-name>
+	<param-value>true</param-value>
   </init-param>
 
   <init-param>
@@ -61,81 +70,177 @@ _**Important Note 2:** It must be the first filter, inserted right after the </e
 for more information:
 [https://tomcat.apache.org/tomcat-8.5-doc/config/filter.html#CORS_Filter](https://tomcat.apache.org/tomcat-8.5-doc/config/filter.html#CORS_Filter)
 
+### Choose cookies SameSite Policy
+
+By default, cookies will be automatically passed with a same-site request, or a cross-site top-level navigation with a "safe" HTTP method.  
+This default configuration aims to ensure that we respect the new standard cookie policy rules.
+
+To understand those changes, see [https://blog.chromium.org/2020/02/samesite-cookie-changes-in-february.html](https://blog.chromium.org/2020/02/samesite-cookie-changes-in-february.html)  
+Also note that this new policy will be definitively applied in the months to come for Chrome, and later for the other browsers,
+as you can see here [https://blog.chromium.org/2020/04/temporarily-rolling-back-samesite.html](https://blog.chromium.org/2020/04/temporarily-rolling-back-samesite.html)
+
+If you want to perform "unsafe" CORS requests (which means performing a POST/PUT/DELETE request)
+you will need to modify the tomcat `conf/context.xml` file, to set sameSiteCookies to "none" instead of "lax".
+
+```xml
+    ...
+    <!-- default samesite cookies configuration, for CORS set sameSiteCookies to "none" and configure bundle for HTTPS  -->
+    <CookieProcessor sameSiteCookies="none" />
+    ...
+```
+
+::: warning
+**Warning:** 
+Using sameSiteCookies="none" will also force you to use [secure HTTP (HTTPS) on your Bonita server](ssl.md).  
+To explain this constraint, see [https://blog.chromium.org/2019/10/developers-get-ready-for-new.html](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)
+:::
+
 ## HTML Example test page
 
 Here is an example of html page that:
 - logs in using the loginservice,
 - get the current session, via the REST api resource system/session
-- edit a user using the REST api resource identity/user
+- edit a user password using the REST api resource identity/user
 
 This page can be hosted on a different domain, and thanks to the CORS filter, the requests will be successfully processed.
 
 _**Important Note 1:** this example works on a bundle where the [CSRF security filter is activated](csrf-security). As the header "X-Bonita-API-Token" is set with the "session apiToken"._
 
-_**Important Note 2:** to use this page you will need to replace the `BONITA_ACCESS_URL` by your own tomcat bundle URL._
-
 ```html
 
 <!doctype html>
 <html>
-<head>
- <meta charset="utf-8">
- <title>Demo</title>
-</head>
-<body>
-<h1>CORS INDEX</h1>
- <script src="http://code.jquery.com/jquery-2.1.4.js"></script>
- <script>
-   var formData = {
-     username: "walter.bates",
-     password: "bpm",
-     redirect: false
-   };
-   $.ajax({
-     url: "BONITA_ACCESS_URL/bonita/loginservice",
-     type: "POST",
-     data: formData,
-     xhrFields: {withCredentials: true},
-     success: function(data, textStatus, jqXHR) {
-           $.ajax({
-             url: "BONITA_ACCESS_URL/bonita/API/system/session/1",
-             type: "GET",
-             xhrFields: {withCredentials: true},
-             success: function(data, textStatus, jqXHR) {
-                   console.log('success getting session');
-                   var apiToken = jqXHR.getResponseHeader('X-Bonita-API-Token');
-                   console.log('X-Bonita-API-Token: ' + apiToken);
-                   var formData = {"title":"Mr","manager_id":"0","job_title":"Chief Executive Officer","lastname":"Jobs","firstname":"Will"};
-                   $.ajax({
-                         url: "BONITA_ACCESS_URL/bonita/API/identity/user/1",
-                         type: "PUT",
-                         contentType: "application/json",
-                         /*passing the X-Bonita-API-Token for the CSRF security filter*/
-                         headers: {'X-Bonita-API-Token': apiToken},
-                         data: JSON.stringify(formData),
-                         xhrFields: {withCredentials: true},
-                         success: function(data, textStatus, jqXHR) {
-                           console.log('success updating user info');
-                           console.log(data);
-                         },
-                         error: function(jqXHR, textStatus, errorThrown) {
-                           console.log('error updating user info');
-                         }
-                   });
-             },
-             error: function(jqXHR, textStatus, errorThrown) {
-               console.log('error getting session');
-             }
-           });
-     },
-     error: function(jqXHR, textStatus, errorThrown) {
-       console.log('error login');
-     }
-   });
- </script>
-</body>
-</html>
+    <head>
+        <meta charset="utf-8">
+        <title>CORS Demo</title>
+    
+        <script type="text/javascript">
+			var bonitaServerPath;
+			
+            function loginToBonita() {
+                var myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    
+                var urlencoded = new URLSearchParams();
+                urlencoded.append("username", document.getElementById("username").value);
+                urlencoded.append("password", document.getElementById("current-password").value);
+                urlencoded.append("redirect", "false");
+    
+    
+                var requestOptions = {
+                    method: 'POST',
+                    headers: myHeaders,
+                    body: urlencoded,
+                    redirect: 'follow',
+                    credentials: 'include'
+                };
+    
+                return fetch(bonitaServerPath + "/loginservice", requestOptions)
+                    .then(result => {
+						if (!result.ok) {
+							throw Error(result.status);
+						}
+						return getAuthToken();})
+                    .catch(error => {document.getElementById("error").innerHTML += "<br/> &#x26a0; Login error. " + error;});
+            };
+    
+            function getAuthToken() {
+                var myHeaders = new Headers();
+                var requestOptions = {
+                    method: 'GET',
+                    headers: myHeaders,
+                    credentials: 'include'
+                };
 
+                return fetch(bonitaServerPath + "/API/system/session/unusedId", requestOptions)
+                    .then(response => {
+						if (!response.ok) {
+							throw Error(response.status);
+						}
+						return response.headers.get("x-bonita-api-token");})
+                    .catch(error => {document.getElementById("error").innerHTML += "<br/> &#x26a0; Unable to retrieve authentication token from session. " + error;});
+            };
+    
+            function getUserId() {
+                var myHeaders = new Headers();
+                var requestOptions = {
+                    method: 'GET',
+                    headers: myHeaders,
+                    credentials: 'include'
+                };
+    
+                return fetch(bonitaServerPath + "/API/system/session/unusedId", requestOptions)
+                    .then(response => {
+						if (!response.ok) {
+							throw Error(response.status);
+						}
+						return response.json();})
+                    .then(body => body.user_id)
+                    .catch(error =>  {document.getElementById("error").innerHTML += "<br/> &#x26a0; Unable to retrieve UserId from session. " + error;});
+            };
+    
+            function updatePassword(authToken) {
+                var formData = {"password": document.getElementById("new-password").value}
+                var myHeaders = new Headers();
+                myHeaders.append("X-Bonita-API-Token", authToken);
+                myHeaders.append("Content-Type", 'application/json');
+    
+                var requestOptions = {
+                    method: 'PUT',
+                    headers: myHeaders,
+                    credentials: 'include',
+                    body: JSON.stringify(formData)
+                };
+    
+    
+                return getUserId().then(userId =>
+                    fetch(bonitaServerPath + "/API/identity/user/" + userId, requestOptions)
+                        .then(response => {
+							if (!response.ok) {
+								throw Error(response.status);
+							}
+							return response.text();})
+                        .then(result =>  {document.getElementById("success").innerHTML = "&#10003; Password updated!"})
+                        .catch(error =>  {document.getElementById("error").innerHTML += "<br/> &#x26a0; Unable to update the password. " + error;}));
+    
+            };
+    
+            function submit() {
+				document.getElementById("success").innerHTML = "";
+				document.getElementById("error").innerHTML = "";
+				bonitaServerPath = document.getElementById("bonita-server-path").value;
+				loginToBonita().then(authToken => updatePassword(authToken));
+            };
+        </script>
+    
+    </head>
+    <body>
+		<div style="display: flex; flex-direction: column;  align-items: center;">
+				<h1>CORS Demo, edit user password:</h1>
+				<div>
+					<label style="width: 150px; display:inline-block;  padding: 5px 0;" for="bonita-server-path">Path to bonita server</label></span>
+					<input type="text" placeholder="Enter bonita server path" id="bonita-server-path" required/>
+				</div>
+				<div>
+					<label style="width: 150px; display:inline-block;  padding: 5px 0;" for="username">Username</label></span>
+					<input type="text" placeholder="Enter username" id="username" required/>
+				</div>
+				<div>
+					<label style="width: 150px; display:inline-block; padding: 5px 0;" for="username">Current password</label>
+					<input type="password" placeholder="Enter current password" id="current-password" required/>
+				</div>
+				<div>
+					<label style="width: 150px; display:inline-block; padding: 5px 0;" for="username">New password</label>
+					<input type="password" placeholder="Enter new password" id="new-password" required/>
+				</div>
+				<button  style="margin: 5px 0;" onclick="submit()">Update password</button>
+				<div style="width: width: 320px;">
+					<p style="color:green; padding: 5px 0;" id="success"></p>
+					<p style="color:red; padding: 5px 0;" id="error"></p>
+				</div>
+		</div>
+    </body>
+</html>
 
 ```
 
