@@ -224,6 +224,13 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 
 ## Bug fixes
 
+### Fixes in Bonita 7.11.2 (2020-10-01)
+
+#### Fixes in Bonita Runtime (including Portal)
+* BS-19529 REST API vs BDM custom query with ORDER BY vs BDM access control: JSON list of BDM objects is not sorted in the HTTP response
+* BPO-619 standardAuthenticationAllowedProperty returns wrong value and breaks the checkIfSSOAuthenticationCanBeBypassed for Kerberos
+* BR-478 Error 404 on http://localhost:8080/ , Tomcat admin default page missing
+
 ### Fixes in Bonita 7.11.1 (2020-08-06)
 
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
