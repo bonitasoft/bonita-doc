@@ -136,6 +136,19 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 * BST-171 Can't share a project on github using HTTPS and double authentication factor
 * BST-341 On MacOS, Studio installer might not detect the installed JRE
 
+### Fixes in Bonita 7.10.6 (2020-10-01)
+#### Fixes in Bonita Runtime (including Portal)
+* BS-19528 Process stuck when Error End Event fails because Error Start Event Sub-process no longer exists
+* BS-19489 StarterThread fails and stops half-way if flownode instance is not found
+* BS-18869 Displaying the Portal User Archived cases tab fails because of a timeout or takes dozen of seconds	
+* BR-477 Fix Process stucked due to Errors on event subprocesses
+
+#### Fixes in Bonita Development Suite (Studio and UI Designer)
+* STUDIO-3599 LA-Builder randomly not find uid pages
+
+#### Fixes in Bonita LDAP Synchronizer
+* BS-19527 LDAP Synchronizer fails to assign manager
+
 ### Fixes in Bonita 7.10.5 (2020-06-04)
 #### Fixes in Bonita Runtime (including Portal)
 * BR-408 - Update tomcat to 8.5.53 version that includes latest security fixes
