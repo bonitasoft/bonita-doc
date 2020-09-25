@@ -419,12 +419,12 @@ The LDAP synchronizer will fail if this profile is not defined.
 
 * Configure the LDAP synchronizer  by editing `ldap.properties` configuration file, as described above
   * host_url= ldaps://`ldapServerHostname:ldapsServerPort` ( most common `ldapsServerPort` is 636  )
-By default, the `ldapSynchronizer` used the `default java trust Store`, but it is possible to use a custom, by configured the properties :
+By default, the LDAP synchronizer uses the `default java trust Store`, but it is possible to use a custom one, by configuring the properties :
   * truststore_path= `locationOfCustomTrustore` 
   * truststore_password= `passwordOfCustomTrustore` 
   * truststore_type= `customTrustoreType` ( default JKS)    
   
-In case of : 
-* When the server Certificate is auto sign (using of custom root certification) you might configured :
-    * the `public certificate` should be imported to the default java or custom trust Store.
+In the following cases:
+* when the server certificate is auto-signed (use of custom root certification) you might configure :
+    * the `public certificate` should be imported into the default java or custom trust Store.
     * the endpoint authentication might be disabled `disable_endpoint_authentication=true`
