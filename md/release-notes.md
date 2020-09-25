@@ -227,10 +227,11 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 ### Fixes in Bonita 7.11.2 (2020-10-01)
 
 #### Fixes in Bonita Runtime (including Portal)
-* BS-19529 REST API vs BDM custom query with ORDER BY vs BDM access control: JSON list of BDM objects is not sorted in the HTTP response
 * BPO-619 standardAuthenticationAllowedProperty returns wrong value and breaks the checkIfSSOAuthenticationCanBeBypassed for Kerberos
 * BR-478 Error 404 on http://localhost:8080/ , Tomcat admin default page missing
+* BS-19520 Reserved keyword "index" is not forbidden in the Studio and result in BDM update failure in MySQL
 * BS-19528 Process stuck when Error End Event fails because Error Start Event Sub-process no longer exists
+* BS-19529 REST API vs BDM custom query with ORDER BY vs BDM access control: JSON list of BDM objects is not sorted in the HTTP response
 
 ### Fixes in Bonita 7.11.1 (2020-08-06)
 
