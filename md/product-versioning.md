@@ -16,9 +16,11 @@ The following artifacts have model versions:
 * Diagrams
 * Organization
 * Business Data Model
-* Applications
+* BDM Access control
+* Applications 
 * Pages
 * Forms
+* Fragments
 * Layouts
 * Customer Widgets
 
