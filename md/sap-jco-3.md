@@ -2,13 +2,6 @@
 
 The Bonita SAP Java Connector 3 allows Bonita to communicate with any SAP system using the SAP JCo 3 toolkit.
 
-
-## Notice
-
-::: info
-**Note:** For Enterprise, Performance and Efficiency editions only.
-:::
-
 ## Prerequisite
 
 You must have an SAP license and an SAP server to use the connector.
