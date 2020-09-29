@@ -197,10 +197,6 @@ The SP uses its private key to decrypt the random key which in turn is used to d
 This ensures that only the SP can decrypt the SAML assertion.
 :::
 
-::: warning
-Due to an [issue](https://issues.redhat.com/browse/KEYCLOAK-4377) with the version of Keycloak embedded in this version of Bonita, responses that are both signed and encrypted cannot be validated. As a result, the IdP needs to either sign the request or encrypt it (but not both) for the single sign on to work with Bonita.
-:::
-
 ::: info
 **Note 2:** _If your IdP neither requires the SSO requests to be signed nor encrypts its own responses, you can remove the Keys node from the SP and set the attributes signaturesRequired, signRequest and signResponse to false._  
 _If your IdP responses are not signed, you can remove the Keys node from the IDP and set the attributes validateRequestSignature and validateResponseSignature to false._
