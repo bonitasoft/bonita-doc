@@ -3,14 +3,14 @@
 ## Product Versions
 
 Bonita follows the usual semantic versioning X.Y.z:
-* X being the major version number. The major version changes when non-backward compatible changes are implemented
-* Y being the minor version number. The minor version changes when backward compatible features are added. A minor version is released every 6 month to improve continuously Bonita
-* z being hte maintenance version number. Maintenances version contain fixes. Maintenance versions are released every month between two minor version for the current minor version.
+* X is the major version number. The major version changes when non-backward compatible changes are implemented
+* Y is the minor version number. The minor version changes when backward compatible features are added. A minor version is released every 6 months to improve continuously Bonita
+* z being the maintenance version number. The maintenance versions contain fixes. Maintenance versions are released every month between two minor versions for the current minor version.
 
 ## Artifact version
 
-In addition to the product version each artifact has model version. This model version is used to determine if the corresponding artifact is compatible with the development suite (Studio & UI Designer).
-If the artifact are not compatible then either the artifact is migrated (when the model version lower than development suite version) or you will have to upgrade your develoment suite.
+In addition to the product version, each artifact has a model version. This model version is used to determine if the corresponding artifact is compatible with the development suite (Studio & UI Designer).
+If the artifacts are not compatible then either the artifact is migrated (when the model version lower than the development suite version) or you will have to upgrade your development suite.
 
 The following artifacts have model versions:
 * Diagrams
@@ -22,8 +22,23 @@ The following artifacts have model versions:
 * Layouts
 * Customer Widgets
 
-These model version should not change between maintenance versions of a given minor version (e.g. between a 7.12.5 and a 7.12.3). This means that no migration are needed in production or in the studio when changing the maintenance version.
+These model versions should not change between maintenance versions of a given minor version (e.g. between a 7.12.5 and a 7.12.3). This means that no migration is needed in production or the studio when changing the maintenance version.
 
 ::: info
 **Note:** Changing the minor version does not imply that the model version all artifacts will change
 :::
+
+## Version checks in the development suite
+
+### Studio
+The Studio will check the model version of every artifact of a given project when cloning or importing it. The artifact model version will also be checked when importing artifacts unitarily. 
+
+The model versions of all artifacts are also checked when deploying a project. Finally, the model version is checked when an artifact is opened.
+
+To check the compatibility of your artifacts manually, you can use the "Validate" action in the project's contextual menu.
+
+You will not able to work on incompatible artifacts or deploy them. You will be able if you desire to migrate older artifacts.
+
+### UID
+
+The UID will check the model version of all artifacts when it is launched and when a given artifact is opened. You will not able to work on incompatible artifacts or deploy them. You will be able if you desire to migrate older artifacts.
