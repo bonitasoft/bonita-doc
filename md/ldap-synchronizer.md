@@ -94,11 +94,16 @@ This file defines the LDAP connection settings and specifies the account used fo
 
 | Item | Description | Default |
 |:-----|:------------|:--------|
-| host\_url | LDAP server URL | ldap://localhost:389 |
+| host\_url | LDAP server URL | ldap://localhost:389  |
 | auth\_type | LDAP authentication type (supported values: none, simple or strong) | simple |
 | principal\_dn | distinguished name (DN) of the user account used for browsing through the LDAP users | cn=Directory Manager |
-| principal\_password | password of the LDAP ?browser account | root |
+| principal\_password  | password of the LDAP | root |
 | directory\_user\_type | type of the user object ("user" for an Active Directory, "person" for an LDAP) | person |
+| enforce\_ssl | force the connection between ldap client and server to use ssl | false |
+| truststore\_path | allow to configure the java truststore path,  in case of you want to use different keystore than the default  |  |
+| truststore\_password | allow to configure the java truststore password, in case of you want to use a different keystore password than the default  | |
+| truststore\_type | type of the trust store (if different than JKS) | |
+| disable\_endpoint\_authentication | can be useful when using a self-signed certificate | false |
 
 ### logger.properties
 
@@ -405,3 +410,21 @@ The LDAP synchronizer will fail if this profile is not defined.
 * Configure the LDAP synchronizer for the tenant by editing the configuration files in the tenant-specific folder, as described above.
 
 **Running:** To run the LDAP Synchronizer on a tenant, give the name of the tenant as a parameter of the script.
+
+
+### LDAPS(TLS) Activation
+**Required** LDAP server should be configured with a valid certificate signed by Certification Authority or with the Auto signed certificate.
+  
+**Configuration:** To configure the LDAP synchronizer for using encrypted connection ( TLS ) :
+
+* Configure the LDAP synchronizer  by editing `ldap.properties` configuration file, as described above
+  * host_url= ldaps://`ldapServerHostname:ldapsServerPort` ( most common `ldapsServerPort` is 636  )
+By default, the LDAP synchronizer uses the `default java trust Store`, but it is possible to use a custom one, by configuring the properties :
+  * truststore_path= `locationOfCustomTrustore` 
+  * truststore_password= `passwordOfCustomTrustore` 
+  * truststore_type= `customTrustoreType` ( default JKS)    
+  
+In the following cases:
+* when the server certificate is auto-signed (use of custom root certification) you might configure :
+    * the `public certificate` should be imported into the default java or custom trust Store.
+    * the endpoint authentication might be disabled `disable_endpoint_authentication=true`
