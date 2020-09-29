@@ -1,4 +1,5 @@
 # Bonita Versioning
+Discover how Bonita manages its product and artifacts versions and how it can impact your projects
 
 ## Product Versions
 
