@@ -6,7 +6,7 @@ Discover how Bonita manages its product and artifacts versions and how it can im
 Bonita follows the usual semantic versioning X.Y.z:
 * X is the major version number. The major version changes when non-backward compatible changes are implemented
 * Y is the minor version number. The minor version changes when backward compatible features are added. A minor version is released every 6 months to improve continuously Bonita
-* z being the maintenance version number. The maintenance versions contain fixes. Maintenance versions are released every month between two minor versions for the current minor version.
+* z being the maintenance version number. The maintenance versions contain fixes. Maintenance versions are released every month between two minor versions for the current minor version. These versions are cross-compatible by default for the same minor version
 
 ## Artifact version
 
