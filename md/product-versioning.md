@@ -8,13 +8,17 @@ Bonita follows the usual semantic versioning X.Y.z:
 * Y is the minor version number. It version changes when backward compatible features are added. A minor version is released every six months to improve continuously Bonita.
 * Z is the maintenance version number. The maintenance versions contain fixes. Maintenance versions are released every month between two minor versions for the current minor version. These versions are cross-compatible by default for the same minor version.
 
-For example, upgrading from a 7.12.2 to a 7.12.5 will not require any migration. However migrating from a 7.11.5 to a 7.12.2  or to  8.0.1 will require a migration.
+For example, upgrading from a 7.12.2 to a 7.12.5 will not require any migration. However, migrating from a 7.11.5 to a 7.12.2  or to  8.0.1 will require a migration.
 
 ## Artifact version
 
 In addition to the product version, most artifacts have a model version. The development suite (Studio and UI Designer
 ) uses this model version to determine if the corresponding artifact is compatible.
 If the artifacts are incompatible, then either the development suite migrates the artifacts (when the model version is lower than the development suite version), or you will have to upgrade your development suite to a compatible version.
+
+Example:
+In the below case, my diagram model version is "7.12.1-001". I will not be able to open it with a 7.11 Studio but I will be able to open it without migration with any 7.12 Studio. Finally, if I'm using a 7.13 Studio my diagram will be migrated.
+![modelversionexample](images/Modelversion-example.png)
 
 The following artifacts have model versions:
 * Diagrams
@@ -31,7 +35,7 @@ The following artifacts have model versions:
 These model versions should not change between maintenance versions of a given minor version (e.g. between a 7.12.5 and a 7.12.3). This means that no migration is needed in production or the Studio when changing the maintenance version.
 
 ::: info
-**Note:** Changing the minor version does not imply that the model version of all artifacts will change
+**Note:** Changing the minor version does not imply that the model version of all artifacts will change. Meaning that in some cases, upgrading to a new minor will not require migration.
 :::
 
 ## Version checks in the development suite
