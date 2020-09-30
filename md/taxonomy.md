@@ -160,6 +160,7 @@
     * [Ubuntu + OpenJDK + Tomcat + PostgreSQL](ubuntu-openjdk-tomcat-postgresql.md)
     * [Install Tomcat with Bonita as a service in Windows](bonita-as-windows-service.md)
   * [Back up Bonita Platform](back-up-bonita-bpm-platform.md)
+  * [Bonita Versions](product-versioning.md)
   * [Migration](_migration.md)
     * [Migration overview](migration-overview.md)
     * [Migrate from an earlier version of Bonita](migrate-from-an-earlier-version-of-bonita-bpm.md)
