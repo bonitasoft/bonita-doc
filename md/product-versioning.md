@@ -17,6 +17,7 @@ In addition to the product version, most artifacts have a model version. The dev
 If the artifacts are incompatible, then either the development suite migrates the artifacts (when the model version is lower than the development suite version), or you will have to upgrade your development suite to a compatible version.
 
 Example:
+
 In the below case, my diagram model version is "7.12.1-001". I will not be able to open it with a 7.11 Studio but I will be able to open it without migration with any 7.12 Studio. Finally, if I'm using a 7.13 Studio my diagram will be migrated.
 ![modelversionexample](images/Modelversion-example.png)
 
