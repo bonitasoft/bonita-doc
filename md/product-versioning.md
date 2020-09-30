@@ -12,7 +12,7 @@ Bonita follows the usual semantic versioning X.Y.z:
 
 In addition to the product version, most artifacts have a model version. The development suite (Studio and UI Designer
 ) uses this model version to determine if the corresponding artifact is compatible.
-If the artifacts are incompatible, then either the development suite migrates the artifact (when the model version is lower than the development suite version), or you will have to upgrade your development suite to a compatible version.
+If the artifacts are incompatible, then either the development suite migrates the artifacts (when the model version is lower than the development suite version), or you will have to upgrade your development suite to a compatible version.
 
 The following artifacts have model versions:
 * Diagrams
