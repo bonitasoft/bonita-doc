@@ -8,6 +8,8 @@ Bonita follows the usual semantic versioning X.Y.z:
 * Y is the minor version number. It version changes when backward compatible features are added. A minor version is released every six months to improve continuously Bonita.
 * Z is the maintenance version number. The maintenance versions contain fixes. Maintenance versions are released every month between two minor versions for the current minor version. These versions are cross-compatible by default for the same minor version.
 
+For example, upgrading from a 7.12.2 to a 7.12.5 will not require any migration. However migrating from a 7.11.5 to a 7.12.2  or to  8.0.1 will require a migration.
+
 ## Artifact version
 
 In addition to the product version, most artifacts have a model version. The development suite (Studio and UI Designer
@@ -41,11 +43,11 @@ The model versions of all artifacts are also checked when deploying a project. F
 
 To check the compatibility of your artifacts manually, you can use the "Validate" action in the project's context menu or via the File menu.
 
-You will not be able to work with incompatible artifacts or deploy them. You will be able if you desire to migrate to older artifacts.
+You will not be able to work with incompatible artifacts or deploy them. You will be able if you desire to migrate the older artifacts.
 
 ### UI Designer
 
-The UI Designer will check the model version of all artifacts when it is launched and when a given artifact is opened. You will not be able to work with incompatible artifacts. You will be able if you desire to migrate to older artifacts.
+The UI Designer will check the model version of all artifacts when it is launched and when a given artifact is opened. You will not be able to work with incompatible artifacts. You will be able if you desire to migrate the older artifacts.
 
 :::warning
 **Warning**: Artifact migration is not reversible. Once the Studio or UI Designer has migrated an artifact it is no longer compatible with the previous version of the development suite.
