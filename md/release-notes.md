@@ -21,6 +21,9 @@ A new view is now available in the Studio to see all the project issues and warn
 #### Dark mode theme for the Studio
 In the "Appearance" section of the Studio settings, you can now change the theme. You have two possibility: light (default) and dark.
 
+#### Multi-selection for REST API and Theme build
+You can now select several REST API or theme to build in the Studio
+
 #### Displaying the fragments and custom widgets fullname in the UI Designer
 When editing an UI Designer artifact, you can now see the full name of the available fragments and custom widget in a new tool tip. Previously fragments and custom widgets with long name where truncated making their selection cumbersom.
 
