@@ -34,7 +34,7 @@ We provide a maven archetype to help you to bootstrap a theme project outside of
 
 ### Generate the project using the maven archetype
 
-A [maven archetype](https://maven.apache.org/archetype/index.html) is a maven project templating toolkit. This archetype allows you to bootstrap a Bonita connector project on your file system. A Bonita connector project is a maven project. It can be built, tested and then imported into a Bonita project using Bonita Studio.
+A [maven archetype](https://maven.apache.org/archetype/index.html) is a maven project templating toolkit. This archetype allows you to bootstrap a theme project on your file system. A theme project is a maven project. It can be built, tested and then imported into Bonita from the Bonita portal.
 
 To create your theme project, prompt a terminal and enter the following command: 
 ::: warning
