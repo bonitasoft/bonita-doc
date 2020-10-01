@@ -1,10 +1,6 @@
 # Customize the living application theme
 
-::: info
-**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
-:::
-
-This page explains how to create a theme project in the Studio.
+This page explains how to create a theme project from the Studio or using the dedicated maven archetype.
 
 A theme is an archive of files used to define and share CSS definitions and images for an application.
 It enables you to specify the same style for all pages and layout of an application.
@@ -17,9 +13,51 @@ Each application can have its own theme.
 * Maven basic knowledge
 * CSS basic knowledge
 
-## Create a theme project
+## Create a theme project from the Studio
 
-When you create a new theme (right click in Project Explorer > New > Theme...), you start with a default project theme based on [Sass](https://sass-lang.com/) preprocessor and SCSS syntax.
+To create a new theme from the Studio: 
+
+* Right click in Project Explorer > New > Theme...
+* From the creation wizard, define your theme metadata (name, description, maven gav)
+* Create
+
+Your project should appear in the project explorer, and can be edited within the Studio using the embedded editor. 
+
+## Create a theme project using the maven archetype
+
+We provide a maven archetype to help you to bootstrap a theme project outside of the Studio. The source code of the archetype is available  [here](https://github.com/bonitasoft/bonita-theme-archetype).
+
+### Prerequisite
+
+1.  Java 8+ must be installed:  [https://adoptopenjdk.net/index.html](https://adoptopenjdk.net/index.html)
+2.  Maven must be installed:  [https://maven.apache.org/install.html](https://maven.apache.org/install.html)
+
+### Generate the project using the maven archetype
+
+A [maven archetype](https://maven.apache.org/archetype/index.html) is a maven project templating toolkit. This archetype allows you to bootstrap a Bonita connector project on your file system. A Bonita connector project is a maven project. It can be built, tested and then imported into a Bonita project using Bonita Studio.
+
+To create your theme project, prompt a terminal and enter the following command: 
+::: warning
+**Warning:** Make sure that you are not executing the command from an existing maven project.
+:::
+```
+mvn archetype:generate \
+    -DarchetypeGroupId=org.bonitasoft.archetypes \
+    -DarchetypeArtifactId=bonita-theme-archetype \
+    -DgroupId=com.company.api \
+    -DartifactId=my-theme \
+    -Dversion=0.0.1-SNAPSHOT \
+    -Dname=myTheme \
+    -DdisplayName="My Theme" 
+```
+*The parameter values for 'archetypeGroupId' and 'archetypeArtifactId' cannot be changed, else you won't use the right archetype.  
+Feel free to edit the others, respecting the maven naming conventions*.  
+
+A folder named _[your artifact id]_ is created, with your theme project, ready to use.
+
+## Project structure
+
+You start with a default project theme based on [Sass](https://sass-lang.com/) preprocessor and SCSS syntax.
 
 ::: info
 **Note:** Sass is a CSS preprocessor and SCSS syntax is a superset of CSS3. You can just write classic CSS 3 in a .scss file.
@@ -314,9 +352,19 @@ Sass and SCSS have lots of other interesting features that you could use. Check 
 ## Building, Deploying, and Previewing a theme
 
 During the development phase, you can preview your theme using the provided test page in `test/index.html`.
-First you will have to `build` your theme: right click on your theme project > Build or press `Ctrl+Shift+B` for a shortcut.
+First you will have to `build` your theme: 
+
+### From Bonita Studio
+
+Right click on your theme project > Build or press `Ctrl+Shift+B` for a shortcut.
 
 If your theme is already associated to a living application, you can just `deploy` your theme:  right click on your theme project > Deploy or press `Ctrl+Shift+D` for a shortcut.
+
+### From the maven project
+
+Prompt a terminal and enter the following command: `mvn clean package`  
+The build produces a zip archive in the target folder. This archive can be imported into the Bonita Portal, from the resource page using the Administrator application. The theme is now available for all living applications.
+
 
 ## Create a theme project from an existing theme in production
 
