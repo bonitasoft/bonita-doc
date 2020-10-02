@@ -293,3 +293,6 @@
     * [Timers execution](timers-execution.md)
     * [Connectors execution](connectors-execution.md)
     * [BPM process / task execution sequence](execution-sequence-states-and-transactions.md)
+    * [How flow node is executed](how-a-flownode-is-executed.md)
+    * [How a flownode is completed](how-a-flownode-is-completed.md)
+    * [How a process is executed](how-a-process-is-completed.md)
