@@ -292,4 +292,7 @@
     * [Bonita Engine architecture overview](engine-architecture-overview.md)
     * [Timers execution](timers-execution.md)
     * [Connectors execution](connectors-execution.md)
+    * [Works](_works.md)
+      * [Work execution](work-execution.md)
+      * [Work locking](work-locking.md)
     * [BPM process / task execution sequence](execution-sequence-states-and-transactions.md)
