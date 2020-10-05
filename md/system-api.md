@@ -193,7 +193,7 @@ The methods used for this resource are:
 #### Pause or resume the current tenant
 
 * **URL**  
-  `/API/system/tenant/unusedid`  
+  `/API/system/tenant/:tenantId`  
 * **Method**  
   `PUT`
 * **Request Payload**  
