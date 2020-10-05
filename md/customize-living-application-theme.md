@@ -362,7 +362,7 @@ If your theme is already associated to a living application, you can just `deplo
 
 ### From the maven project
 
-Prompt a terminal and enter the following command: `mvn clean package`  
+Prompt a terminal and enter the following command: `./mvnw`  
 The build produces a zip archive in the target folder. This archive can be imported into the Bonita Portal, from the resource page using the Administrator application. The theme is now available for all living applications.
 
 
