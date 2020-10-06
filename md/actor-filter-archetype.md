@@ -31,10 +31,10 @@ You'll then have to specify interactively the properties of your project:
     - Example: _my-custom-filter_
 - **version:** the version of your connector _(default value: 1.0-SNAPSHOT)_
 Follow the [maven naming convention guide](http://maven.apache.org/guides/mini/guide-naming-conventions.html)
-- **package** the package in which the source files will be created _(default value: the group id of the connector)_
+- **package** the package in which the connector source files will be created _(default value: the group id of the connector)_
 - **bonitaVersion:** the targeted Bonita version
-    - A Bonita actor filter project depends on _org.bonitasoft.engine:bonita-common_. To avoid potential conflicts / errors at runtime, you should use the Bonita version of your runtime environment.
-- **className:** the class name of your actor filter 
+    - A Bonita connector project depends on _org.bonitasoft.engine:bonita-common_. To avoid potential conflicts / errors at runtime, you should use the Bonita version of your runtime environment.
+- **className:** the class name of your connector 
     - Must match the following regex: `^[a-zA-Z_$][a-zA-Z\d_$]+$` (A Java classname valid identifier)
     - Example: _MyCustomFilter_
 - **language**: the language used in the connector project. Available values:
