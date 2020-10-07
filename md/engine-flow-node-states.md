@@ -44,9 +44,6 @@ If not, the next state is "skipped" and the second next state is checked the sam
 If so, the next state is executed, in another background task (if terminal or not stable).  
 
 
-## Example
-A UserTask is...
-
 ## Abort/Cancel procedure
 
 Aborting is the action of changing the flow of transitions from the normal flow to the **aborting** sequence of states. It is triggered by the Bonita Engine itself.  
