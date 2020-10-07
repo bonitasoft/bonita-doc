@@ -25,7 +25,7 @@ In the "Appearance" section of the Studio settings, you can now change the theme
 You can now select several REST API or theme to build in the Studio
 
 #### Displaying the fragments and custom widgets fullname in the UI Designer
-When editing an UI Designer artifact, you can now see the full name of the available fragments and custom widget in a new tool tip. Previously fragments and custom widgets with long name where truncated making their selection cumbersom.
+When editing an UI Designer artifact, you can now see the full name of the available fragments and custom widgets in a new tooltip. Previously, fragments and custom widgets with long name were truncated, making their selection cumbersome.
 
 
 ### Runtime changes
@@ -43,8 +43,8 @@ When editing an UI Designer artifact, you can now see the full name of the avail
 ### Removals
 
 #### Legacy third party format importers
-In Community edition, XPDL and jBPM importers has been removed.  
-In Enterprise editon, Visio and Aris importer has been removed.  
+In Community edition, XPDL and jBPM importers have been removed.  
+In Enterprise editon, Visio and Aris importers have been removed.  
 Use BPMN 2 importer for model exchange with third party editors.
 
 
