@@ -290,6 +290,7 @@
   * [Build Bonita Community edition from source files](building-community-edition-from-source.md)
   * [Bonita Engine developer documentation](_engine-developer-doc.md)
     * [Bonita Engine architecture overview](engine-architecture-overview.md)
+    * [Flow node states](engine-flow-node-states.md)
     * [Timers execution](timers-execution.md)
     * [Connectors execution](connectors-execution.md)
     * [Works](_works.md)
