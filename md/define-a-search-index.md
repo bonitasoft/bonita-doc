@@ -2,10 +2,6 @@
 
 Learn how you can set and use Bonita Search Keys to easily search for business values defined on your processes
 
-::: info
-**Note:** For Bonita Enterprise, Performance and Efficiency editions only.
-:::
-
 A search key is data that is attached to a process and is used to distinguish between cases of the process in Bonita Portal.  
 You can define up to five search keys for a process.
 
@@ -23,5 +19,5 @@ To configure a search key:
 4. In the **Value** column, open the expression editor by clicking the pencil icon.
 5. Define the search key value using an expression.
 
-In Enterprise, Performance and Efficiency editions, search keys are displayed in the Bonita Portal case list and in the case more details view.  
+Search keys are displayed in the Bonita Portal case list and in the case more details view.  
 In this way, you can use search keys for adding business information to your cases. You can search on search keys typing the value of a search key in the **Search** field. For example, if you have a process called _Issue E111_ that uses the applicant social security number as a search key, you can type the number of an applicant into the search field and see the status of the tasks in the case.
