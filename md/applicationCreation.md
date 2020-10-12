@@ -35,10 +35,6 @@ For example, the four leave management applications for employees, managers, Hum
 
 ## Create and build an Application Descriptor
 
-::: info
-**Note:** All Bonita editions come with an .xml editor for this feature. Only Enterprise, Performance and Efficiency editions also come with a graphical UI.
-:::
-
 From Bonita Studio, use the **new** button in the Studio coolbar or click on **Development** -> **Application Descriptor** -> **New...**  
 It will create an empty application file with a default name and open an editor. You can **rename** this application file from the project explorer, the graphical UI or the menu **Open**.  
 
