@@ -2,10 +2,6 @@
 
 Build a database query graphically.
 
-::: info
-**Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
-:::
-
 ## Connect to the database
 
 In the Database access information screen, check **Use the graphical query builder** and click **_Connect_**.  
