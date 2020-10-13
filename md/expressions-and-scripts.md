@@ -26,3 +26,25 @@ There are different types of expression:
 * _Variable_: sets the expression to the value of the variable at the time the expression is evaluated.
 
 The types available differ depending on the context of the expression. For example, comparison expressions are available only for transitions.
+
+
+### Comparison
+![comparisonExpression](images/expressionEditor/comparisonExpression.png)
+
+### Constant
+![constantExpression](images/expressionEditor/constantExpression.png)
+
+### Java
+![javaExpression](images/expressionEditor/javaExpression.png)
+
+### Contract Input
+![contractExpression](images/expressionEditor/contractExpression.png)
+
+### Query
+![queryExpression](images/expressionEditor/queryExpression.png)
+
+### Variable
+![variableExpression](images/expressionEditor/variableExpression.png)
+
+### Parameters
+![parametersExpression](images/expressionEditor/parametersExpression.png)
