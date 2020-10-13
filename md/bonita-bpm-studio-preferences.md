@@ -16,6 +16,7 @@ Appearance
 * Coolbar size: Normal (default) or small.
 * Grid options for process diagrams. You can choose to use a grid positioning for all new process diagrams
 * Grid spacing (in centimeters). Default: 0.5
+* Theme: Light or Dark
   
 Language
 * Bonita Studio language.  
