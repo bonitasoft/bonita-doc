@@ -29,6 +29,12 @@ The types available differ depending on the context of the expression. For examp
 
 
 ### Comparison
+Comparison are only available for transitions and can only use parameters, constants and variable. A comparison either return true or false.
+
+::: info
+You can press on Ctrl + Space to access the auto-complete feature.
+:::
+
 ![comparisonExpression](images/expressionEditor/comparisonExpression.png)
 
 ### Constant
@@ -50,6 +56,18 @@ The types available differ depending on the context of the expression. For examp
 ![parametersExpression](images/expressionEditor/parametersExpression.png)
 
 ### Scripts
+
+Scripts provide the most flexible to define business rules. Bonita uses Groovy scripts.
+
+::: info
+You can press on Ctrl + Space to access the auto-complete feature. It can be pressed several time to access all auto-complete proposals and templates
+:::
+
+#### Basic Operations
+
+```
+bonita.tenant.connector.warnWhenLongerThanMillis
+```
 
 #### Groovy classes
 
