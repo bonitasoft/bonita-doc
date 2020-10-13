@@ -11,7 +11,7 @@
   * [Design an application page](design-application-page.md)
   * [Create an application](create-application.md)
 * [Release notes](release-notes.md)
-* [Migration tool change log](migration-tool.md)
+    * [Migration tool change log](migration-tool.md)
 * [Application and Process Design](_application-and-process-design.md)
   * [Application and process design overview](_application-and-process-design-overview.md)
     * [Key concepts](key-concepts.md)
