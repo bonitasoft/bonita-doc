@@ -65,8 +65,17 @@ You can press on Ctrl + Space to access the auto-complete feature. It can be pre
 
 #### Basic Operations
 
+Example 1:
+Do transition only if the change cost of my BDM object "Change request" is lower than 300.
+
 ```
-bonita.tenant.connector.warnWhenLongerThanMillis
+if (itemChangeRequest.changeCost > 300) {
+	return false	
+}
+else {
+	return true
+}
+	
 ```
 
 #### Groovy classes
