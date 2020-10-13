@@ -41,11 +41,3 @@ In case of an error event on a connector, we call the same method handlePostThro
 ### Catch events
 ### Throw events
 
-
-## Events Type
-
-# Remarks
-
-* Error events, signals, messages etc. all go through the same code. It's suboptimal as they don't have much in common in their execution.
-* SWaitingErrorEvent (in db) seems redundant as to trigger it we already search in the process definition which elements catch the error.
-* Creating fake values to call handlePostThrowEvent() in case of an error event on a connector does not look clean code... 
