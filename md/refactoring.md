@@ -16,7 +16,7 @@ Refactoring applies to the following types of element:
 * contract input
 * business variable
 * page
-* search index (in Bonita Subscription Pack editions Efficiency, Performance and Enterprise)
+* search index
 
 When you change the name of an element of one of these types, the name is changed throughout the process definition, including inside scripts and connector instance definitions.
 
