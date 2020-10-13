@@ -31,13 +31,3 @@ Once all children have been aborted, we search in the process definition which c
 In case of an error event on a connector, we call the same method handlePostThrowEvent(), but we fill in the not normally available fields with fake values.
 
 
-## Message Trigger
-### Catch events
-### Throw events
-## Signal Trigger
-### Catch events
-### Throw events
-## Timer Trigger
-### Catch events
-### Throw events
-
