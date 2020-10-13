@@ -3,6 +3,20 @@
 The concept of Actor defines who can perform a task or start a process.
 
 
+## Candidate and assignee
+
+First thing to know is that, in Bonita, a human task can be performed by a set of users (i.e. the candidates).  
+
+When a user is connected on Bonita Portal he/she can see the list of user task instances he/she can perform. But before actually performing the task, he/she needs to claim the task. By doing so he/she becomes the **task assignee**.  
+This action prevents concurrent actions from several candidates on a single user task instance.
+
+
+::: info
+Note that if the task assignee realize that he/she cannot actually perform a user task instance he/she can release it. Releasing a user task instance will make it available again to all the initial candidates.
+:::
+
+In order to define the candidates of a user task instances Bonita offers two alternatives: actor and [actor filters](actor-filtering.md).
+
 ## Define an actor
 
 This is done in two stages:
