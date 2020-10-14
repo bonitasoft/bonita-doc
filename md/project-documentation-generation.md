@@ -7,7 +7,7 @@ How to generate the project documentation in Bonita Studio.
 
 ## Overview
 
-To collaborate efficiently with business users, Bonitasoft studio allows you to generate and export the documentation of your project.
+To collaborate efficiently with business users, Bonita studio allows you to generate and export the documentation of your project.
 
 The documentation generator will use mostly information stored in the objects of the studio such as the processes or tasks. 
 
@@ -56,7 +56,7 @@ Once installed, it is possible to create your own [plantuml](https://plantuml.co
 _Required skills_: [asciidoc](https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/) syntax
 
 Once the file is generated you can fine-tune it by modifying the output document.
-To do, open the `README.adoc` file with the Studio. The embedded editor is divided into three vertical panels:
+To do it, open the `README.adoc` file with the Studio. The embedded editor is divided into three vertical panels:
 * On the left, the source code of the documentation in asciidoc format  
 * In the middle, the HTML preview of the document 
 * On the right the document outline  
@@ -131,4 +131,4 @@ The documentation also provides an easy-to-access baseline of your processes tha
 
 ### Explain
 
-The documentation will help onboard new users of the processes and applications or anyone that will be working on the project. No need to install studio all you need is access to the documentation!
+The documentation will help onboard new users of the processes and applications or anyone that will be working on the project. No need to install Bonita studio all you need is access to the documentation!
