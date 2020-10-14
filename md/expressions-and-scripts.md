@@ -38,11 +38,19 @@ You can press on Ctrl + Space to access the auto-complete feature.
 ![comparisonExpression](images/expressionEditor/comparisonExpression.png)
 
 The following operators are available:
-* == equals to 
-* !
-* !=
-* \> and < : greater than and small than 
-* \>= and <=: greater or equal than and small or equal than
+* "==": equals to 
+* "!": Is not
+* "!=": Different from
+* "\>" and "<" : greater than and small than 
+* "\>=" and "<=:" greater or equal than and small or equal than
+
+You can not combine several comparison (no AND and OR operators).
+
+Example 1:
+Do transition only if myParameter value is "test"
+```
+myParameter1 =="test" 	
+```
 
 ### Constant
 ![constantExpression](images/expressionEditor/constantExpression.png)
