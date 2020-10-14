@@ -63,6 +63,8 @@ Scripts provide the most flexible to define business rules. Bonita uses Groovy s
 You can press on Ctrl + Space to access the auto-complete feature. It can be pressed several time to access all auto-complete proposals and templates
 :::
 
+#### Using the editor
+
 #### Basic Operations
 
 Example 1:
