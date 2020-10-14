@@ -139,6 +139,13 @@ else {
 	
 ```
 
+Example 2:
+Initialize a business data from an ID
+```
+def questionnaireVar = questionnaireDAO.findByPersistenceId(editquestionnaireInput.persistenceId_string.toLong())
+```
+
+
 #### Groovy classes
 
 If a same piece of Groovy code is needed in different locations you might want to define it once and reused it in order to avoid duplication.
