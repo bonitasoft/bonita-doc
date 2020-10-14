@@ -72,15 +72,20 @@ Constant formating based on expected returned value:
 ![javaExpression](images/expressionEditor/javaExpression.png)
 
 ### Contract Input
+In operation you can directly get the value from your contract. This is pratical in operation to use the value from contract (from your form).
 ![contractExpression](images/expressionEditor/contractExpression.png)
 
 ### Query
+Allows you use queries defined in your BDM. It is a great way to get a specific object in an operation.
 ![queryExpression](images/expressionEditor/queryExpression.png)
 
 ### Variable
+Process variables and data can be directly used:
 ![variableExpression](images/expressionEditor/variableExpression.png)
 
 ### Parameters
+You can also directly select the value of a parameters.
+Using parameter can be easily updated in the portal (in the Enterprise edition) and can have different values based on the environment (Production, Qualification...)
 ![parametersExpression](images/expressionEditor/parametersExpression.png)
 
 ### Scripts
@@ -92,6 +97,27 @@ You can press on Ctrl + Space to access the auto-complete feature. It can be pre
 :::
 
 #### Using the editor
+
+##### Use variables in a script expression
+
+You can use a variable in an expression. When the expression is evaluated during process execution, the current value of the variable is used in the expression.
+
+###### Process variables
+
+When you define an expression in the context of a step, the expression can contain a variable that is defined at process level in the pool containing the step. The expression cannot contain a variable that was defined for this step or in another step in the process. To add a process variable to an expression, select the variable from the **Select a process variable...** drop-down list. 
+
+###### Provided variables
+
+You can also use a variable that is provided by Bonita Engine that is executing the process. For example, an expression can include the id of the user performing a task in the process. To add a provided variable to an expression, select the variable from the **Select a provided variable...** drop-down list.
+
+The provided variables are:
+
+* `activityInstanceId`: the identifier of the activity instance (not available for a process-level expression)
+* `processDefinitionId`: the identifier of the process
+* `processInstanceId`: the identifier of the process instance
+* `rootProcessInstanceId`: for a called process or an event subprocess, the identifier of the root process (note that if there are multiple layers of called processes or subprocesses, this is the root of the hierarchy, not the parent called process or subprocesses)
+
+The provided variables list also contains a special variable, apiAccessor. This enables you to construct API calls in a script using autocompletion. For example, to get the number of overdue open tasks, choose `apiAccessor` from the list of provided variable, then add the `processAPI`, and then add `getNumberOfOverdueOpenTasks`.
 
 #### Basic Operations
 
@@ -174,26 +200,6 @@ To add a standard function to an expression:
 
 At concatenation points in the script, the expression editor displays a popup with a list of possible terms. In the popup, you can toggle between Groovy terms and process variables. For example, if you select `activityInstanceId` from the list of provided variables then type a period, the expression editor displays a list of terms available. This is known as _autocompletion_.
 
-#### Use variables in a script expression
-
-You can use a variable in an expression. When the expression is evaluated during process execution, the current value of the variable is used in the expression.
-
-##### Process variables
-
-When you define an expression in the context of a step, the expression can contain a variable that is defined at process level in the pool containing the step. The expression cannot contain a variable that was defined for this step or in another step in the process. To add a process variable to an expression, select the variable from the **Select a process variable...** drop-down list. 
-
-##### Provided variables
-
-You can also use a variable that is provided by Bonita Engine that is executing the process. For example, an expression can include the id of the user performing a task in the process. To add a provided variable to an expression, select the variable from the **Select a provided variable...** drop-down list.
-
-The provided variables are:
-
-* `activityInstanceId`: the identifier of the activity instance (not available for a process-level expression)
-* `processDefinitionId`: the identifier of the process
-* `processInstanceId`: the identifier of the process instance
-* `rootProcessInstanceId`: for a called process or an event subprocess, the identifier of the root process (note that if there are multiple layers of called processes or subprocesses, this is the root of the hierarchy, not the parent called process or subprocesses)
-
-The provided variables list also contains a special variable, apiAccessor. This enables you to construct API calls in a script using autocompletion. For example, to get the number of overdue open tasks, choose `apiAccessor` from the list of provided variable, then add the `processAPI`, and then add `getNumberOfOverdueOpenTasks`.
 
 #### Log messages in a Groovy script
 
