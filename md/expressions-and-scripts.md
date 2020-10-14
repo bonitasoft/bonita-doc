@@ -53,6 +53,19 @@ myParameter1 =="test"
 ```
 
 ### Constant
+When your expression needs to return a static value, you can use the constant. This can be quite useful when testing. However using parameters is more convenient if the static needs to be updates.
+
+Make sure to clear define the expected returned value (drop-down field at the bottom of the expression editor).
+
+Constant formating based on expected returned value:
+|Expected return value                      |Possible Values|
+|-----------------------------------------------------|-------------------------------------------------------|
+|Boolean                                              |True/true or False/false                               |
+|String                                               |Any character - quotes "" or '' are not need           |
+|Long                                                 |Any whole number positve or negative                   |
+|Integer                                              |Any positive whole number                              |
+|Double & Float                                       |Fractional number e.g. 3.5 (, is not supported)        |
+
 ![constantExpression](images/expressionEditor/constantExpression.png)
 
 ### Java
