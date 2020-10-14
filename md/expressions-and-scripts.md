@@ -41,8 +41,8 @@ The following operators are available:
 * == equals to 
 * !
 * !=
-* > and < : greater than and small than 
-* >= and <=: greater or equal than and small or equal than
+* \> and < : greater than and small than 
+* \>= and <=: greater or equal than and small or equal than
 
 ### Constant
 ![constantExpression](images/expressionEditor/constantExpression.png)
