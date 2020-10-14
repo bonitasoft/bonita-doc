@@ -96,17 +96,22 @@ Scripts provide the most flexible to define business rules. Bonita uses Groovy s
 You can press on Ctrl + Space to access the auto-complete feature. It can be pressed several time to access all auto-complete proposals and templates
 :::
 
-#### Using the editor
 
-##### Use variables in a script expression
+#### Use variables in a script expression
 
 You can use a variable in an expression. When the expression is evaluated during process execution, the current value of the variable is used in the expression.
 
-###### Process variables
+The following variables are available:
+* Documents
+* Local variables
+* Process Variables and Process Data
+* Contract Input
+
+##### Process variables
 
 When you define an expression in the context of a step, the expression can contain a variable that is defined at process level in the pool containing the step. The expression cannot contain a variable that was defined for this step or in another step in the process. To add a process variable to an expression, select the variable from the **Select a process variable...** drop-down list. 
 
-###### Provided variables
+##### Provided variables
 
 You can also use a variable that is provided by Bonita Engine that is executing the process. For example, an expression can include the id of the user performing a task in the process. To add a provided variable to an expression, select the variable from the **Select a provided variable...** drop-down list.
 
