@@ -18,7 +18,7 @@ The Bonita Database Schema version is a technical number (not accessible through
 The Bonita Platform Version is the 3 digit version number we usually use to refer to Bonita.
 On startup Bonita now only checks if the database version is compatible with the binaries version, not if they are identical.
 
-Aside of the quality of life update of not having to run a migration between maintenance versions, this update brings a few behavioral changes:
+Aside of the quality of live update of not having to run a migration between maintenance versions, this update brings a few behavioral changes:
 * Platform.getVersion() method still returns the version of the Bonita runtime binaries (ie. 7.11.0).
 * Platform.getPreviousVersion() is now deprecated, and voided (will always return ""). It was not used anywhere. It will be removed in a later version.
 * A check has been added in Cluster mode as to forbid the start of nodes in different Bonita platform versions. For example, on a two-node cluster, you can't have a node in 7.11.0 and another in 7.11.1.
@@ -41,7 +41,7 @@ BDM and access control editors have been reworked, to improve your experience an
 <a id="project-documentation"/>
 
 ### Generate project documentation
-For Teamwork, Efficiency, Performace and Enterprise editions only.
+For Teamwork, Efficiency, Performance and Enterprise editions only.
 Extract information from project sources to generate an asciidoc document. The generation templates can be customized to suit your needs. More details [here](project-documentation-generation.md).
 
 
@@ -205,7 +205,7 @@ Developers and users will need to learn how to stop using the Portal and start u
 This change will allow Bonita and its users to get free from Google Web Toolkit (GWT) technology and offer opportunities for customization.
 
 Indeed, some Portal pages (built with GWT) are being totally recreated with our own UI Designer. They will be customizable.
-Others (those that were already using another technology than GWT) are being wrapped and will not be customizable.
+Other pages (those that were already using another technology than GWT) are being wrapped and will not be customizable.
 
 Moreover, as any Living Application, Bonita applications will be extensible to add any page the users need.
 More details in the upcoming versions of Bonita.
