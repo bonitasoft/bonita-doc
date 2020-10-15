@@ -14,7 +14,7 @@ This action prevents concurrent actions from several candidates on a single user
 Note that if the task assignee realizes that he/she cannot actually perform a user task instance he/she can release it. Releasing a user task instance will make it available again to all the initial candidates.
 :::
 
-In order to define the candidates of a user task instances Bonita offers two alternatives: actor and [actor filters](actor-filtering.md).
+In order to define the candidates of a user task instance Bonita offers two alternatives: actor and [actor filters](actor-filtering.md).
 
 ## Define an actor
 
