@@ -406,6 +406,11 @@ You can display a document in a modal dialog box or directly in a page.
 
 The previewable documents are limited to documents supported by the end user browser (by default pdf and images on usual browsers). Documents that are not previewable are prompted to be downloaded.
 
+:::warning
+**:fa-exclamation-triangle:** If you create a custom FileViewer: edit the `box-viewer.directive.js` file from the custom widget editor, and replace `pbFileViewer` by the name of your custom FileViewer prefixed by `custom` (for instance `customFileViewerSmart`).
+Limitation: adding several types of `FileViewer` in a page is not supported.
+:::
+
 <a id="rich-text-area"/>
 
 ## Rich Text Area widget
