@@ -45,7 +45,7 @@ Once a container is added to the page, it contains a row. Therefore, widgets can
 
 The behavior of a page is determined by the widget properties. Any property you configure for a container is applied to all widgets in the container unless you override it with a widget-specific value.
 
-In the Enterprise, Performance, Efficiency, and Teamwork editions, you can also use [fragments](fragments.md), which are groups of widgets. They allow to reuse the same group of widgets with the same behavior in several pages or forms.
+You can also use [fragments](fragments.md), which are groups of widgets. They allow to reuse the same group of widgets with the same behavior in several pages or forms.
 
 The UI Designer generates standard HTML application code, based on AngularJS. Export pages if you want to further customize them in your favorite web development environment. Note that once customized, you can not reimport them in the UI Designer.
 
@@ -76,7 +76,7 @@ To use a page in a business application, export it from the Bonita UI designer, 
 
 To use a form in a process, map it in the Bonita Studio to the relevant process or human task. It will be automatically packaged in the .bar archive ready to deploy in the Bonita Portal.
 
-In the Subscription editions, you can [update a form in production](live-update.md), by exporting a new version of the form from the Bonita UI designer, importing it into the relevant process in the portal, and then mapping it to the relevant task or process start event. 
+You can [update a form in production](live-update.md), by exporting a new version of the form from the Bonita UI designer, importing it into the relevant process in the portal, and then mapping it to the relevant task or process start event. 
 
 To use a layout in a business application, export it from the Bonita UI designer, import it as a Bonita Portal resource, and map it as the layout of the relevant application.
 
@@ -99,7 +99,6 @@ If you are a business analyst, you can use the UI Designer to create the page st
 Pages which have been created with a version of bonita older than 7.7.0 have a UUID-like identifer.
 
 With version 7.7 and the improvements made for the collaboration features, the Id of created artifacts is now more human readable and understandable. This Id is now equal of the name. 
-This change also applies to fragments in subscription editions.
 For pages only, if the id is already taken by another page, it is suffixed with a number (same behavior as in operating system file browsers).
  
 For example:

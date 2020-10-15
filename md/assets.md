@@ -63,7 +63,7 @@ For example, you can create a file mycss.css with this content:
 
 An image asset can be displayed in a custom widget (see the Custom widget editor \> Assets help). Add an image asset at page level if the image is used as a custom widget property.
 
-### Localization asset (Subscription editions only)
+### Localization asset
 
 The localization asset of a page is a local file called `localization.json` that contains the text presented in the page with translations into the languages that you want to support. This enables you to create [multi-language pages](multi-language-pages.md).
 

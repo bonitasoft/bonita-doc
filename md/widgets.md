@@ -200,7 +200,7 @@ For more information about supported formats, read the Angular documentation for
 
 For a detailed example using the Date picker widget, you can consult the following Howto: [Manage dates and times in BDM and User Interfaces](datetimes-management-tutorial.md).
 
-In the _Subscription Edition_,  the calendar can be localized with the usual localization mechanism (localization.json file).  
+The calendar can be localized with the usual localization mechanism (localization.json file).  
 
 ### Date time picker widget
 
@@ -217,7 +217,7 @@ For more information about supported formats, read the Angular documentation for
 
 For a detailed example using the Date time picker widget, you can consult the following Howto: [Manage dates and times in BDM and User Interfaces](datetimes-management-tutorial.md).
 
-In the _Subscription Edition_,  the calendar can be localized with the usual localization mechanism (localization.json file).  
+The calendar can be localized with the usual localization mechanism (localization.json file).  
 
 ### File upload widget
 

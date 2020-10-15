@@ -75,7 +75,7 @@ Now translate the text outside of Bonita, in any suitable translation editor, or
 
 ### Add languages to Bonita Portal
 
-Before you can view a page in a language, that language must be supported for Bonita web applications. French is one of the default languages supported, so you just need to add support for Russian. To do this, [add Russian from the Community translations to your Bonita Portal](languages.md). Make sure that you add both the Community and Subscription files. Then restart your Bonita Studio, start the Portal, and change the language to Russian to check that it is available.
+Before you can view a page in a language, that language must be supported for Bonita web applications. French is one of the default languages supported, so you just need to add support for Russian. To do this, [add Russian from the Community translations to your Bonita Portal](languages.md). Then restart your Bonita Studio, start the Portal, and change the language to Russian to check that it is available.
 
 ### Add a localization asset to the page
 
@@ -126,7 +126,7 @@ In the UI Designer, import this file as an asset of the travel tool page. This w
 
 In the custom widget editor, use the the _uiTranslate_ filter or the _ui-translate_ directive to indicate the content to translate.   Then add the strings to the localization.json file of each page, layout and forms using it. See [Custom widgets section](custom-widgets.md) for more information.
 
-### Translate content in fragments (Subscription editions)
+### Translate content in fragments
 
 The strings to translate in a fragment must be added to the localization.json file of each page, layout or form using the fragment.
 
