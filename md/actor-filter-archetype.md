@@ -3,8 +3,8 @@ A set of best of breed tools to develop and test custom actor filters independen
 
 ## Create a custom actor filter
 
-Bonita offers the possibility to create and plug custom actor filters, to allow you to fine tuned the potential candidates for a task.  
-We provide a maven archetype to help you to bootstrap an actor filter project. The source code of the archetype is available [here](https://github.com/bonitasoft/bonita-actorfilter-archetype).
+Bonita offers the possibility to create and plug custom actor filters, to allow you to fine tune the potential candidates for a task.  
+We provide a maven archetype to help you bootstrap an actor filter project. The source code of the archetype is available [here](https://github.com/bonitasoft/bonita-actorfilter-archetype).
 
 ### Prerequisite
 
