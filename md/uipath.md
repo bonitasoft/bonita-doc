@@ -1,7 +1,9 @@
 
 # UiPath
 
-This page explains how to configure the UiPath connectors in Bonita Studio. UiPath is a global software company that develops a platform for robotic process automation (RPA). 
+This page explains how to configure the UiPath connectors in Bonita Studio. UiPath is a global software company that develops a platform for robotic process automation (RPA).  
+RPA is a complementary technology to BPM that handles high-volume, repeatable tasks that previously required humans to perform. RPA technology consists of software robots that mimic a human. Processes can leverage RPA technology when needed to gain efficiency and focus human on added value tasks. [Combining BPM and RPA](https://www.bonitasoft.com/robotic-process-automation) allows end to end automation and avoids what is called "islands of automation" by adding the orchestration capacity of a BPM platform to the RPA approach.  
+
 All connectors share common authentication settings, and have other specific settings.
 
 ## UiPath - Authentication settings

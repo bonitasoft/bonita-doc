@@ -325,6 +325,21 @@ The main parts that require attention and testing are connectors and custom code
 While the 7.9.0 migration step tries its best to migrate the implementation of connectors that are known not to work in Java 11, namely [WebService, CMIS, Email and Twitter](release-notes.md#connector-dependency-updates), custom connectors, groovy scripts, rest api extensions etc. are not migrated and might not work outright in Java 11.
 Aside from just code incompatibility, special attention has to be given to the dependencies of the custom code, as they might either not work in Java 11, work fine but conflict with Bonita own dependencies or the script might use dependencies previously included in Bonita, but no more accessible, or accessible in a different version.
 
+<a id="postgres11"/>
+
+## Migrating to Bonita 7.9+ using PostgreSQL
+
+Bonita 7.9+ supports PostgreSQL 11.x (x>=2) which is not compatible with previous versions.
+When migrating to Bonita 7.9+ using PostgreSQL follow this procedure:
+
+* shutdown Bonita
+* Run Bonita migration tool to the latest Bonita version supporting postgres 9 (7.8.4)
+* Backup the Bonita database
+* Migrate PostgreSQL from 9 to 11.x (x>=2) following the [Official documentation]
+(https://www.postgresql.org/docs/11/upgrading.html)
+* Run again the migration tool to the desired Bonita version requiring PostgreSQL 11
+* Restart your updated Bonita platform
+
 <a id="mysql8"/>
 
 ## Migrating to Bonita 7.9+ using MySQL
