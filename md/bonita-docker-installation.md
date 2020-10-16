@@ -28,14 +28,14 @@ docker run --name=bonita -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:
 First generate a request key into a container with a specific hostname (-h):
 
 ```
-docker run --rm --name=bonita -h bonita -ti quay.io/bonitasoft/bonita-subscription:${varVersion}.0 /bin/bash ./generateRequestKey.sh
+docker run --rm --name=bonita -h <hostname> -ti quay.io/bonitasoft/bonita-subscription:${varVersion}.0 /bin/bash ./generateRequestKey.sh
 ```
 Answer the questions related to the license you want. This will print out the request key and exit automatically from the running container.
 
 Retrieve the licence from the customer portal and place into one folder that will be mounted as a volume of the docker container. In this example, we will use `~/bonita-lic/.`.
 
 ```
-cp ~/Downloads/BonitaSubscription-7.7-Cloud_Techuser-bonita-20170124-20170331.lic ~/bonita-lic/.
+cp ~/Downloads/BonitaSubscription-7.7-Cloud_Techuser-<hostname>-20170124-20170331.lic ~/bonita-lic/.
 ```
 
 Alternatively, you can create a named persistent volume in docker for keeping license file. See [docker documentation on volumes](https://docs.docker.com/storage/volumes/).
@@ -45,7 +45,7 @@ Alternatively, you can create a named persistent volume in docker for keeping li
 Re-create a new Bonita container with the same hostname (-h) and this host directory mounted (-v) :
 
 ```
-docker run --name bonita -h bonita -v ~/bonita-lic/:/opt/bonita_lic/ -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:${varVersion}.0
+docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:${varVersion}.0
 ```
 
 
@@ -71,12 +71,12 @@ docker run --name mydbpostgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
 ```
 See the official PostgreSQL documentation for more details.
 ```
-docker run --name bonita_postgres -v bonita-lic:/opt/bonita_lic/ --link mydbpostgres:postgres -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:${varVersion}.0
+docker run --name bonita_postgres -h <hostname> -v bonita-lic:/opt/bonita_lic/ --link mydbpostgres:postgres -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:${varVersion}.0
 ```
 
 #### Using docker-compose
 
-Create a file stack.yml with the following content:
+Create a file stack.yml with the following content (remember to replace the <hostname> with the one used in the licence generation command):
 ```
 # Use tech_user/secret as user/password credentials
 version: '3'
@@ -92,6 +92,7 @@ services:
       - max_prepared_transactions=100
   bonita:
     image: quay.io/bonitasoft/bonita-subscription:${varVersion}.0
+    hostname: <hostname>
     volumes:
       - ~/bonita-lic:/opt/bonita_lic/
     ports:
@@ -149,12 +150,12 @@ BIZ_DB_PASS=custombusinesspass
 ```
 
 ```
-docker run --name=bonita -h bonita --env-file=env.txt -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:${varVersion}.0
+docker run --name=bonita -h <hostname> --env-file=env.txt -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:${varVersion}.0
 ```
 
 ### Start Bonita with custom security credentials
 ```
-docker run --name=bonita -v bonita-lic:/opt/bonita_lic/ -h bonita -e "TENANT_LOGIN=tech_user" -e "TENANT_PASSWORD=secret" -e "PLATFORM_LOGIN=pfadmin" -e "PLATFORM_PASSWORD=pfsecret" -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:${varVersion}.0
+docker run --name=bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -e "TENANT_LOGIN=tech_user" -e "TENANT_PASSWORD=secret" -e "PLATFORM_LOGIN=pfadmin" -e "PLATFORM_PASSWORD=pfsecret" -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:${varVersion}.0
 ```
 Now you can access the Bonita Portal on localhost:8080/bonita and login using: tech_user / secret
 
@@ -162,7 +163,7 @@ Now you can access the Bonita Portal on localhost:8080/bonita and login using: t
 This docker image ensures to activate by default both static and dynamic authorization checks on [REST API](rest-api-authorization.md). To be coherent it also deactivates the HTTP API.
 But for specific needs you can override this behavior by setting HTTP_API to true and REST_API_DYN_AUTH_CHECKS to false :
 ```
-docker run  -e HTTP_API=true -e REST_API_DYN_AUTH_CHECKS=false --name bonita -v bonita-lic:/opt/bonita_lic/ -h bonita -d -p 8080:8080  quay.io/bonitasoft/bonita-subscription:${varVersion}.0
+docker run  -e HTTP_API=true -e REST_API_DYN_AUTH_CHECKS=false --name bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -d -p 8080:8080  quay.io/bonitasoft/bonita-subscription:${varVersion}.0
 ```
 
 ## Environment variables
