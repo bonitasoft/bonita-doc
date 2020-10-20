@@ -30,6 +30,8 @@ When editing an UI Designer artifact, you can now see the full name of the avail
 #### Google Calender New authication method
 The google connector can now use a Json tokens to authenticate.
 
+#### Java REST API Extension
+It is now possible to create REST API Extensions in Java.
 
 ### Runtime changes
 
