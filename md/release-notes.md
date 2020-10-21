@@ -35,6 +35,13 @@ It is now possible to create REST API Extensions in Java.
 
 ### Runtime changes
 
+#### REST API and portal login
+
+The redirect parameter is now optional when login in to the REST API using `/bonita/loginservice`
+This means it is no longer needed to put redirect=false in the request to log in using the API.
+However, previous login requests with a redirect URL will continue working as the redirect parameter is optional.  
+If you use a customised login page to log in to Bonita portal UI and don't specify any redirect URL (redirectURL parameter), then you need to make sure it passes a parameter redirect=true to the login service.
+
 ## Bundle changes
 
 ## API Removal

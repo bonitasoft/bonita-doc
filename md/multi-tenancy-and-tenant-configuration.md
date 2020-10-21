@@ -78,7 +78,7 @@ NOTE: this is to be done only once.
 
     $ curl -v -c saved_cookies.txt -X POST --url 'http://localhost:8080/bonita/platformloginservice' \
     --header 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
-    -d 'password=platform&redirect=false&username=platformAdmin' -O /dev/null
+    -d 'username=platformAdmin&password=platform' -O /dev/null
 
 The response to this REST API call (HTTP) generates 2 cookies, which must be transfered with each subsequent calls.
 One of the cookie is `X-Bonita-API-Token`.
@@ -137,7 +137,7 @@ The new tenant has the id `101` and its state is `DEACTIVATED`
 
 ##### Logout
 
-    $ curl -v -b saved_cookies.txt -X GET --url 'http://localhost:8080/bonita/platformlogoutservice?redirect=false'
+    $ curl -v -b saved_cookies.txt -X GET --url 'http://localhost:8080/bonita/platformlogoutservice'
 
 ### Java PlatformAPI
 This solution can be used when the portal is not needed.
