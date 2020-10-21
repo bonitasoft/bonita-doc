@@ -373,6 +373,64 @@ Search for archived activities using given parameters. Only archived activities 
   An array of JSON representations of the specified activities
   * **Code**: 200
 
+<a id="activity-replay"></a>
+
+### ActivityReplay (Enterprise and Performance editions only)
+
+#### Description
+
+Use this resource to replay a failed activity. You can choose to re-execute or skip the failed connectors.
+
+#### Identifier
+
+The ID of the activity (a long value).
+
+#### Representation
+```code
+{
+  "connector instance id (string)": "new connector state (TO_RE_EXECUTE, SKIPPED)",
+  "connector instance id (string)": "new connector state (TO_RE_EXECUTE, SKIPPED)",
+  ...
+}
+```
+
+##### Connector States:
+
+* TO_RE_EXECUTE
+* SKIPPED
+
+#### Methods
+
+The methods used for this resource are:
+
+* PUT - Replay an activity
+
+#### Replay activity without connectors
+
+* **URL**  
+  `/API/bpm/activityReplay/:id`  
+* **Method**  
+  `PUT`
+* **Success Response**  
+  * **Code**: 200
+
+#### Replay activity with connectors
+
+* **URL**  
+  `/API/bpm/activityReplay/:id`  
+* **Method**  
+  `PUT`
+* **Request Payload**  
+  ```json
+  { 
+    "1": "TO_RE_EXECUTE",
+    "2": "SKIPPED",
+    "3": "TO_RE_EXECUTE" 
+  }
+  ```
+* **Success Response**  
+  * **Code**: 200
+ 
 <a id="human-task"/>
 
 ### HumanTask
