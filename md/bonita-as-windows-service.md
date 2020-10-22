@@ -9,7 +9,7 @@ For this tutorial you will need the following softwares:
 * Bonita Tomcat Bundle
 * Postgresql Database (or another database supported by Bonita)
 
-Please verify the supported version in Installation/Basic Bonita Platform installation/hardware-and-software-requirements
+Please verify the supported version in [Installation/Basic Bonita Platform installation/hardware-and-software-requirements](hardware-and-software-requirements.md)
 
 ## Download and installation
 
@@ -135,4 +135,3 @@ http://localhost:8080/bonita
   * Add an organization.
   * Assign profiles to users.
   * Deploy a simple process and test its execution.
-
