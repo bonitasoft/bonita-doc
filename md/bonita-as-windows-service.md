@@ -16,7 +16,7 @@ Please verify the supported version in [Installation/Basic Bonita Platform insta
 * **_Download_** apache-tomcat-x.y.exe from Tomcat website: https://tomcat.apache.org/
 
 :::warning
-download the same apache-tomcat version (visible in Installation/Basic Bonita Platform installation/hardware-and-software-requirements)
+Download the same apache-tomcat version (visible in [Installation/Basic Bonita Platform installation/hardware-and-software-requirements](hardware-and-software-requirements.md))
 Choose the "32-bit/64-bit Windows Service Installer" installation.
 :::
 
