@@ -13,8 +13,7 @@ An event is a change to any object in the database (user, activity, processDefin
 You can create an event handler to track any change to any object in the database and take the appropriate action. For example:
 
 * Catch PROCESSINSTANCE\_CREATED to detect that a process instance has started, and notify the process supervisor.
-* Catch FLOWNODE\_INSTANCE\_CREATED to detect that a human task is available, and send email to all the users elligible to perform it.
-* Catch HIDDEN\_TASK\_CREATED to detect that a service task becomes available, and start an external system that is required to complete the task.
+* Catch ACTIVITYINSTANCE\_STATE\_UPDATED to detect that a human task become available, and send email to all the users eligible to perform it.
 
 At the end of this page there is a list of all the events.
 
@@ -94,7 +93,7 @@ public class EventHandlerExample implements SHandler<SEvent> {
 
     @Override
     public void execute(SEvent event) throws SHandlerExecutionException {
-        logger.info("ExampleHandler: executing event {}", event.getType())
+        logger.info("ExampleHandler: executing event {}", event.getType());
 
         // add your business logic here
     }
@@ -102,7 +101,7 @@ public class EventHandlerExample implements SHandler<SEvent> {
     @Override
     public boolean isInterested(SEvent event) {
         logger.info("ExampleHandler - event {} - asks if we are interested in handling this event instance",
-         event.getType())
+         event.getType());
         // add your business logic here
         // for this example purpose, assume we are always interested
         return true;
@@ -189,7 +188,7 @@ This is a snapshot of the events used in the Engine.
 | | |
 |:-|:-|
 | Service | Events| 
-| ActivityInstanceServiceImpl | ACTIVITYINSTANCE\_CREATED, HUMAN\_TASK\_INSTANCE\_ASSIGNEE\_UPDATED, ACTIVITYINSTANCE\_STATE\_UPDATED, ACTIVITY\_INSTANCE\_TOKEN\_COUNT\_UPDATED, HIDDEN\_TASK\_CREATED, HIDDEN\_TASK\_DELETED, PENDINGACTIVITYMAPPING\_CREATED, PENDINGACTIVITYMAPPING\_DELETED| 
+| ActivityInstanceServiceImpl | ACTIVITYINSTANCE\_CREATED, HUMAN\_TASK\_INSTANCE\_ASSIGNEE\_UPDATED, ACTIVITYINSTANCE\_STATE\_UPDATED, ACTIVITY\_INSTANCE\_TOKEN\_COUNT\_UPDATED, PENDINGACTIVITYMAPPING\_CREATED, PENDINGACTIVITYMAPPING\_DELETED| 
 | ActorMappingServiceImpl | ACTOR\_CREATED, ACTOR\_DELETED, ACTOR\_UPDATED, ACTOR\_MEMBER\_CREATED, ACTOR\_MEMBER\_DELETED| 
 | CategoryServiceImpl | CATEGORY\_CREATED, CATEGORY\_DELETED, CATEGORY\_UPDATED| 
 | CommandServiceImpl | COMMAND\_CREATED, COMMAND\_DELETED, COMMAND\_UPDATED| 
