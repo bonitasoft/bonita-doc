@@ -37,10 +37,11 @@ It is now possible to create REST API Extensions in Java.
 
 #### REST API and portal login
 
-The redirect parameter is now optional when login in to the REST API using `/bonita/loginservice`
-This means it is no longer needed to put redirect=false in the request to log in using the API.
+The redirect parameter is now optional when logging in to the REST API using `/bonita/loginservice` as well as when logging out using `/bonita/logoutservice`
+This means it is no longer needed to put redirect=false in the request to log in/out using the API.
 However, previous login requests with a redirect URL will continue working as the redirect parameter is optional.  
-If you use a customised login page to log in to Bonita portal UI and don't specify any redirect URL (redirectURL parameter), then you need to make sure it passes a parameter redirect=true to the login service.
+If you use a customised login page to log in to Bonita portal UI and don't specify any redirect URL (`redirectUrl` parameter), then you need to make sure it passes a parameter `redirect=true` to the login service. same thing if you have a logout link in a custom page that does not passes a `loginUrl` or a `redirectUrl` parameter.  
+If you use Bonita layout version 5 or a customize version of it in your applications, make sure you upgrate to version 6 when migrating. Otherwisthe the logout button will not redirect to the login page when clicked.
 
 ## Bundle changes
 
