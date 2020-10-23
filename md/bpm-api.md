@@ -379,7 +379,7 @@ Search for archived activities using given parameters. Only archived activities 
 
 #### Description
 
-Use this resource to replay a failed activity. You can choose to re-execute or skip the failed connectors.
+Use this resource to replay a failed activity. The difference with the Activity resource replay functionality is that using ActivityReplay, you can choose to re-execute or skip the failed connectors.
 
 #### Identifier
 
@@ -412,7 +412,7 @@ The methods used for this resource are:
 * **Method**  
   `PUT`
 * **Success Response**  
-  * **Code**: 200
+  * **Code**: 204
 
 #### Replay activity with connectors
 
@@ -429,7 +429,7 @@ The methods used for this resource are:
   }
   ```
 * **Success Response**  
-  * **Code**: 200
+  * **Code**: 204
  
 <a id="human-task"/>
 
