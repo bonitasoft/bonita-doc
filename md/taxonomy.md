@@ -1,6 +1,6 @@
 * [What is Bonita?](what-is-bonita.md)
 * [Getting started tutorial](_getting-started-tutorial.md)
-  * [Welcome](welcome.md) 
+  * [Tutorial overview](tutorial-overview.md) 
   * [Download and install](bonita-studio-download-installation.md)
   * [Draw a BPMN diagram](draw-bpmn-diagram.md)
   * [Define business data model (BDM)](define-business-data-model.md)
