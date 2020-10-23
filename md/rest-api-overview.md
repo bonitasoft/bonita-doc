@@ -26,7 +26,7 @@ To log in, use the following request:
 | Request URL | `http://host:port/bonita/loginservice`| 
 | Request Method | POST| 
 | Content-Type | application/x-www-form-urlencoded|
-| Form Data | username: a username<br/>password: a password <br/>redirect: `true` or `false`. `false` is the default value if the redirect parameter is not specified. It indicates that the service should not redirect to Bonita Portal (after a successful login) or to the login page (after a login failure).<br/>redirectURL: the URL of the page to be displayed after a succesful login. If it is specified, then the a redirection after the login will be performed even if the redircet parameter is not present in the request.<br/>tenant: the tenant to log in to (optional for Enterprise and Performance editions, not supported for Community, Teamwork and Efficiency editions)|
+| Form Data | username: a username<br/>password: a password <br/>redirect: `true` or `false`. `false` is the default value if the redirect parameter is not specified. It indicates that the service should not redirect to Bonita Portal (after a successful login) or to the login page (after a login failure).<br/>redirectUrl: the URL of the page to be displayed after a succesful login. If it is specified, then the a redirection after the login will be performed even if the redircet parameter is not present in the request.<br/>tenant: the tenant to log in to (optional for Enterprise and Performance editions, not supported for Community, Teamwork and Efficiency editions)|
   
 The response to this call generates cookies.
 The `JSESSIONID` must be transfered with each subsequent calls. If the REST API is used in an application running in a web browser, this is handled automatically by the web browser.
