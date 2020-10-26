@@ -13,7 +13,6 @@
 * [Release notes](release-notes.md)
 * [Migration tool change log](migration-tool.md)
 * [Application and Process Design](_application-and-process-design.md)
-  * [Bonita overview](bonita-bpm-overview.md)
   * [Application and process design overview](_application-and-process-design-overview.md)
     * [Key concepts](key-concepts.md)
     * [Comparison of 7.x and 6.x](comparison-of-7-x-and-6-x.md)
