@@ -234,7 +234,7 @@ _**Important Note 1:** this example works on a bundle where the [CSRF security f
 					<input type="password" placeholder="Enter new password" id="new-password" required/>
 				</div>
 				<button  style="margin: 5px 0;" onclick="submit()">Update password</button>
-				<div style="width: width: 320px;">
+				<div style="width: 320px;">
 					<p style="color:green; padding: 5px 0;" id="success"></p>
 					<p style="color:red; padding: 5px 0;" id="error"></p>
 				</div>
