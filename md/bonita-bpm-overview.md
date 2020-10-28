@@ -1,12 +1,12 @@
 # Bonita platform overview
 
-Build engaging, personalized, process-based business applications using BPM application platform. Adapt to business changes real-time
+Bonita is an open-source and extensible platform for business process automation and optimization. The Bonita platform accelerates development and production with clear separation between capabilities for visual programming and for coding.  BPMN graphical notation, full extensibility, and reusable components allow smooth collaboration among the different profiles on the IT team, and with the business teams. Bonita integrates with existing information systems, orchestrates heterogeneous systems, and provides deep visibility into processes across the organization.
 
-Bonita has two parts: the development environment, Bonita Studio, and the runtime environment, Bonita Platform.
+The Bonita Platform has two components: the development environment, Bonita Studio, and the runtime environment, Bonita Runtime.
 
 ## Bonita Studio
 
-Bonita Studio is a graphical environment for creating processes, applications, data models, and users views (pages and forms). It contains three major design tools: 
+Bonita Studio contains all the elements needed to develop and compile a Bonita application. It is a graphical environment for creating processes, applications, data models, and users views (pages and forms). It contains three major design tools: 
 
 * the whiteboard, for drawing a process flow diagram and defining the detail of steps, transitions, decision points and other process elements
 * the Development menu, to extend the Studio capabilities and create your data models
@@ -16,7 +16,7 @@ Bonita Studio is the development tool for the Business Analyst and Application D
 
 You can [install Bonita Studio](bonita-bpm-installation-overview.md) on your computer, then create and test processes, create data models, applications and application views (pages and forms). 
 
-Bonita Studio contains a **Bonita Platform** (Tomcat, UI Designer, Bonita Portal, Bonita Engine, and an h2 database), suitable for testing an application that is in development. When you run a process, it is automatically deployed onto the development platform.
+Bonita Studio contains a **Bonita Runtime** (Tomcat, UI Designer, Bonita Portal, Bonita Engine, and an h2 database), suitable for testing an application that is in development. When you run a process, it is automatically deployed onto the development platform.
 
 Process forms, used to complete the human tasks, are created in the UI Designer, and use the data models created in the Studio.
 
@@ -24,7 +24,9 @@ Users can use Bonita Portal (_User_ profile) to view and complete the process ta
 
 <a id="platform"/>
 
-## Bonita Platform
+## Bonita Runtime
+
+Bonita Runtime is composed of one or more Bonita Server nodes installed on some hosts (physical machine, virtual machine, a cloud instance, a container like Docker, ...). A Bonita Runtime composed of multiple nodes constitutes a cluster.  
 
 [Bonita Engine](engine-architecture-overview.md) is the execution engine of Bonita.
 
@@ -38,7 +40,7 @@ In Bonita Studio, once a process is ready, you can [build](build-a-process-for-d
 
 ## Editions
 
-Bonita is provided in five different editions: Community, Teamwork, Efficiency, Performance and Enterprise.
+Until 2019 Bonita was provided in four different editions: Community, Teamwork, Efficiency and Performance. Since 2019 Bonita is only provided in two editions : Community and Enterprise.
 
 ## Getting started
 
