@@ -24,7 +24,7 @@ This is an overview that relates the steps required to integrate a bonita bundle
 Here some details about the Bonita SAML2 module,
 it is composed of: 
 
-- A servlet filter that intercept all the requests to bonita portal pages  
+- A servlet filter that intercept all the requests to Bonita portal pages  
 
    It checks if the user is already logged in on Bonita
     
@@ -44,7 +44,8 @@ it is composed of:
 
 ::: warning  
  Bonita "username" should match the NameId or one attribute of the subject returned by the IdP in the response. 
- If some users need to be able to log in without having an account on the IDP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.
+ If some users need to be able to log in without having an account on the IdP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.  
+ You can configure Bonita engine to create the accounts on the fly in the database once a user accessing Bonita has been authenticated with the IdP (see the configuration of bonita-tenant-sp-custom.properties in the 3rd section of the next chapter.
 :::
 
 ## Configure Bonita Bundle for SAML
@@ -132,6 +133,11 @@ To configure Bonita for SAML:
    ```
   
     It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file **authenticationManager-config.properties** updated previously.
+    
+    If you want Bonita engine to create the accounts on the fly once a user accessing Bonita has been authenticated with the IdP, you can uncomment the property `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable` (and change its value to true) as well as the next 2 properties to add a default membership to each user account: 
+    - `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath` specify the group in which every user account created on the fly will be added (the full group path is needed)
+    - `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName` secify the role to use to create the membership  
+    **Note:** Activating this option means any user authorized by the IdP to access Bonita will have an account created automatically in Bonita Database.
 
 4. If your Identity Provider (IdP) requires requests to be signed, generate a private key.
 For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ssh” to retrieve the key from the file id_rsa (more id_rsa, then copy the key).
