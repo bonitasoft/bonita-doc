@@ -220,18 +220,7 @@ To configure Bonita for Kerberos:
     
     Make sure to set your principal user name and password.	
 
-6. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`,
-	  edit the file **bonita-tenant-sp-custom.xml** to uncomment the bean passphraseOrPasswordAuthenticationService:
-
-    ```
-	<bean id="passphraseOrPasswordAuthenticationService" class="com.bonitasoft.engine.authentication.impl.PassphraseOrPasswordAuthenticationService" lazy-init="true">
-	   <constructor-arg name="logger" ref="tenantTechnicalLoggerService" />
-	   <constructor-arg name="identityService" ref="identityService" />
-	   <constructor-arg name="configuredPassphrase" value="${authentication.service.ref.passphrase}" />
-   </bean>
-    ```
-
-7. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
+6. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
   edit the file bonita-tenant-sp-custom.properties as follows:
   
     ```
@@ -253,10 +242,15 @@ To configure Bonita for Kerberos:
 		# you can provide your own implementation in bonita-tenant-sp-custom.xml and refer to the bean name of your choice
    -->  authentication.service.ref.name=passphraseOrPasswordAuthenticationService
 		
-		# If authentication.service.ref.name equals "PassphraseOrPasswordAuthenticationService",
+		# If authentication.service.ref.name equals "passphraseOrPasswordAuthenticationService",
 		# you need to configure the following passphrase 
    -->  authentication.service.ref.passphrase=BonitaBPM
 		
+    # Create users on the fly, when they are missing from bonita but authenticated by the SSO. The user will belong to the group and role specified below.
+    #authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable=true
+    #authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath=/ACME/HR
+    #authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName=member
+    
 		# CAS authentication delegate : enables the user, providing login/password,
 		# to be logged in automatically against CAS web application 
 		# To be used in conjunction with the generic authentication service configured with CAS (jaasAuthenticationService)
@@ -267,7 +261,7 @@ To configure Bonita for Kerberos:
     
     It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file **authenticationManager-config.properties** updated previously.
 
-8. If your Domain Controller is correctly configured, you are done.  
+7. If your Domain Controller is correctly configured, you are done.  
 Then you can start the bundle and try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are automatically logged in.  
 
 Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `kerberos.auth.standard.allowed` to true or define a whitelist with the property `auth.tenant.standard.whitelist`) to be able to log in without an account on AD.
