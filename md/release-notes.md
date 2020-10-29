@@ -9,6 +9,9 @@
 For a given minor version of the development suite (Studio and UI designer), you can now seamlessly work on projects that have a different maintenance version (but the same minor version).
 For example: if your Studio is in version 7.12.4. You will be able to work on 7.12.2 or 7.12.5 projects without migrating the project or being blocked.
 
+### Simplified Expression editor
+Writting a script expression has never been easier with the reviewed expression editor. You can drag and drop variables and quickly access operator.
+
 ## Improvements
 
 ### Development suite changes
@@ -40,6 +43,7 @@ It is now possible to create REST API Extensions in Java.
 ## API Removal
 
 ## Technical updates
+#### Groovy updated to 2.4.20
 
 ## Feature deprecations and removals
 
@@ -54,3 +58,7 @@ Use BPMN 2 importer for model exchange with third party editors.
 
 
 ## Bug fixes
+
+### Fixes in Bonita 7.11.0 (2020-06-25)
+#### Fixes in Bonita Development Suite (Studio and UI Designer)
+* STUDIO-3630 - More log messages are need to debug the SAP Connector
