@@ -414,5 +414,5 @@ If you have applications that are client of Bonita, you may have to change your 
 time, we guarantee backward compatibility. In any cases, please read the [release notes](release-notes.md) to check if
 some changes have been introduced.
 
-In addition, if your application connect to the Bonita Engine using the HTTP access mode, see the [bonita-client library](configure-client-of-bonita-bpm-engine)
+In addition, if your application connects to the Bonita Engine using the HTTP access mode, see the [bonita-client library](configure-client-of-bonita-bpm-engine)
 documentation page.
