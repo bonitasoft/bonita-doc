@@ -46,7 +46,7 @@ The Spnego authenticator will then verify the user’s Kerberos tickets if prese
 
 ::: warning  
  Bonita "username" should match the authenticated user login returned in the client response.   
-You can configure Bonita engine to create the accounts on the fly in the database once a user accessing Bonita has been authenticated with Spnego (see the configuration of bonita-tenant-sp-custom.properties in the 6th section of the chapter "Configure Bonita Bundle for Kerberos".
+You can configure Bonita engine to create the accounts on the fly in the database once a user accessing Bonita has been authenticated with Spnego (see the configuration of `bonita-tenant-sp-custom.properties` in the 6th section of the chapter "Configure Bonita Bundle for Kerberos").
 :::
 
 ## Pre-installation Environment Checks
