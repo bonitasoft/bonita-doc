@@ -46,7 +46,7 @@ The Spnego authenticator will then verify the user’s Kerberos tickets if prese
 
 ::: warning  
  Bonita "username" should match the authenticated user login returned in the client response.   
-You can configure Bonita engine to create the accounts on the fly in the database once a user accessing Bonita has been authenticated with Spnego (see the configuration of `bonita-tenant-sp-custom.properties` in the 6th section of the chapter "Configure Bonita Bundle for Kerberos").
+You can configure Bonita engine to create the accounts on the fly in the database when a user accessing Bonita is already authenticated with Kerberos (see the configuration of `bonita-tenant-sp-custom.properties` in the 6th section of the chapter "Configure Bonita Bundle for Kerberos").
 :::
 
 ## Pre-installation Environment Checks
@@ -262,11 +262,11 @@ To configure Bonita for Kerberos:
     
     It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file **authenticationManager-config.properties** updated previously.
     
-    If you want Bonita engine to create the accounts on the fly once a user accessing Bonita has been authenticated with the IdP, you can uncomment the property `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable` (and set its value to true) as well as the next 2 properties to add a default membership to each user account: 
+    If you want Bonita engine to create the accounts on the fly when a user accessing Bonita is already authenticated with Kerberos, you can uncomment the property `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable` (and set its value to true) as well as the next 2 properties to add a default membership to each user account: 
     - `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath` specify the group in which every user account created on the fly will be added (the full group path is needed)
     - `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName` specify the role to use to create the membership 
 
-    **Note:** Activating this option means any user authorized by the IdP to access Bonita will have an account created automatically in Bonita Database.
+    **Note:** Activating this option means any user logged in on the domain trying to access Bonita will have an account created automatically in Bonita Database.
 
 7. If your Domain Controller is correctly configured, you are done.  
 Then you can start the bundle and try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are automatically logged in.  
