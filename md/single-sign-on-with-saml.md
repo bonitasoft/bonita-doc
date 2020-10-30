@@ -134,9 +134,10 @@ To configure Bonita for SAML:
   
     It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file **authenticationManager-config.properties** updated previously.
     
-    If you want Bonita engine to create the accounts on the fly once a user accessing Bonita has been authenticated with the IdP, you can uncomment the property `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable` (and change its value to true) as well as the next 2 properties to add a default membership to each user account: 
+    If you want Bonita engine to create the accounts on the fly once a user accessing Bonita has been authenticated with the IdP, you can uncomment the property `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable` (and set its value to true) as well as the next 2 properties to add a default membership to each user account: 
     - `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath` specify the group in which every user account created on the fly will be added (the full group path is needed)
-    - `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName` secify the role to use to create the membership  
+    - `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName` specify the role to use to create the membership 
+
     **Note:** Activating this option means any user authorized by the IdP to access Bonita will have an account created automatically in Bonita Database.
 
 4. If your Identity Provider (IdP) requires requests to be signed, generate a private key.
