@@ -35,7 +35,7 @@ The target architecture for integrating Kerberos SSO with Bonita and Spnego will
 
 The scenario covered by the filter is the following: 
 
-- The Bonita Kerberos filter intercepts all the requests to bonita portal pages, and checks if the user is already logged in on Bonita 
+- The Bonita Kerberos filter intercepts all the requests to Bonita portal pages, and checks if the user is already logged in on Bonita 
     
     - If already logged in => Allow the access
     - If not logged in => The request is transferred to the Spnego authenticator
@@ -46,7 +46,7 @@ The Spnego authenticator will then verify the user’s Kerberos tickets if prese
 
 ::: warning  
  Bonita "username" should match the authenticated user login returned in the client response.   
-You can configure Bonita engine to create the accounts on the fly in the database once a user accessing Bonita has been authenticated with Spnego (see the configuration of bonita-tenant-sp-custom.properties in the 6th section of the next chapter "Configure Bonita Bundle for Kerberos".
+You can configure Bonita engine to create the accounts on the fly in the database once a user accessing Bonita has been authenticated with Spnego (see the configuration of bonita-tenant-sp-custom.properties in the 6th section of the chapter "Configure Bonita Bundle for Kerberos".
 :::
 
 ## Pre-installation Environment Checks
@@ -247,10 +247,10 @@ To configure Bonita for Kerberos:
 		# you need to configure the following passphrase 
    -->  authentication.service.ref.passphrase=BonitaBPM
 		
-    # Create users on the fly, when they are missing from bonita but authenticated by the SSO. The user will belong to the group and role specified below.
-    #authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable=true
-    #authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath=/ACME/HR
-    #authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName=member
+		# Create users on the fly, when they are missing from bonita but authenticated by the SSO. The user will belong to the group and role specified below.
+		#authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable=true
+		#authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath=/ACME/HR
+		#authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName=member
     
 		# CAS authentication delegate : enables the user, providing login/password,
 		# to be logged in automatically against CAS web application 
@@ -262,9 +262,10 @@ To configure Bonita for Kerberos:
     
     It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file **authenticationManager-config.properties** updated previously.
     
-    If you want Bonita engine to create the accounts on the fly once a user accessing Bonita has been authenticated with the IdP, you can uncomment the property `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable` (and change its value to true) as well as the next 2 properties to add a default membership to each user account: 
+    If you want Bonita engine to create the accounts on the fly once a user accessing Bonita has been authenticated with the IdP, you can uncomment the property `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable` (and set its value to true) as well as the next 2 properties to add a default membership to each user account: 
     - `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath` specify the group in which every user account created on the fly will be added (the full group path is needed)
-    - `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName` secify the role to use to create the membership  
+    - `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName` specify the role to use to create the membership 
+
     **Note:** Activating this option means any user authorized by the IdP to access Bonita will have an account created automatically in Bonita Database.
 
 7. If your Domain Controller is correctly configured, you are done.  
