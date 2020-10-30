@@ -59,7 +59,7 @@ To log out, use the following request:
 | Request Method | GET|
 | Query parameter | redirect: `true` or `false` (set to `false` by default)|
 
-Not setting then redirect parameter to `true` means that the service will not redirect to the login page after logging out.
+Not setting the redirect parameter to `true` means that the service will not redirect to the login page after logging out.
 
 #### Troubleshooting
 ##### HTTP/1.1 401 Unauthorized
