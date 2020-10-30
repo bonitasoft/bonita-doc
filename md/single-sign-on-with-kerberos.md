@@ -35,7 +35,7 @@ The target architecture for integrating Kerberos SSO with Bonita and Spnego will
 
 The scenario covered by the filter is the following: 
 
-- The Bonita Kerberos filter intercepts all the requests to bonita portal pages, and checks if the user is already logged in on Bonita 
+- The Bonita Kerberos filter intercepts all the requests to Bonita portal pages, and checks if the user is already logged in on Bonita 
     
     - If already logged in => Allow the access
     - If not logged in => The request is transferred to the Spnego authenticator
@@ -45,7 +45,8 @@ The Spnego authenticator will then verify the user’s Kerberos tickets if prese
 - The Bonita Kerberos filter will automatically create a Bonita session and let the user through to access the Portal resources.
 
 ::: warning  
- Bonita "username" should match the authenticated user login returned in the client response. 
+ Bonita "username" should match the authenticated user login returned in the client response.   
+You can configure Bonita engine to create the accounts on the fly in the database once a user accessing Bonita has been authenticated with Spnego (see the configuration of `bonita-tenant-sp-custom.properties` in the 6th section of the chapter "Configure Bonita Bundle for Kerberos").
 :::
 
 ## Pre-installation Environment Checks
@@ -220,18 +221,7 @@ To configure Bonita for Kerberos:
     
     Make sure to set your principal user name and password.	
 
-6. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`,
-	  edit the file **bonita-tenant-sp-custom.xml** to uncomment the bean passphraseOrPasswordAuthenticationService:
-
-    ```
-	<bean id="passphraseOrPasswordAuthenticationService" class="com.bonitasoft.engine.authentication.impl.PassphraseOrPasswordAuthenticationService" lazy-init="true">
-	   <constructor-arg name="logger" ref="tenantTechnicalLoggerService" />
-	   <constructor-arg name="identityService" ref="identityService" />
-	   <constructor-arg name="configuredPassphrase" value="${authentication.service.ref.passphrase}" />
-   </bean>
-    ```
-
-7. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
+6. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
   edit the file bonita-tenant-sp-custom.properties as follows:
   
     ```
@@ -253,10 +243,15 @@ To configure Bonita for Kerberos:
 		# you can provide your own implementation in bonita-tenant-sp-custom.xml and refer to the bean name of your choice
    -->  authentication.service.ref.name=passphraseOrPasswordAuthenticationService
 		
-		# If authentication.service.ref.name equals "PassphraseOrPasswordAuthenticationService",
+		# If authentication.service.ref.name equals "passphraseOrPasswordAuthenticationService",
 		# you need to configure the following passphrase 
    -->  authentication.service.ref.passphrase=BonitaBPM
 		
+		# Create users on the fly, when they are missing from bonita but authenticated by the SSO. The user will belong to the group and role specified below.
+		#authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable=true
+		#authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath=/ACME/HR
+		#authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName=member
+    
 		# CAS authentication delegate : enables the user, providing login/password,
 		# to be logged in automatically against CAS web application 
 		# To be used in conjunction with the generic authentication service configured with CAS (jaasAuthenticationService)
@@ -266,8 +261,14 @@ To configure Bonita for Kerberos:
     ```
     
     It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file **authenticationManager-config.properties** updated previously.
+    
+    If you want Bonita engine to create the accounts on the fly once a user accessing Bonita has been authenticated with the IdP, you can uncomment the property `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable` (and set its value to true) as well as the next 2 properties to add a default membership to each user account: 
+    - `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath` specify the group in which every user account created on the fly will be added (the full group path is needed)
+    - `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName` specify the role to use to create the membership 
 
-8. If your Domain Controller is correctly configured, you are done.  
+    **Note:** Activating this option means any user authorized by the IdP to access Bonita will have an account created automatically in Bonita Database.
+
+7. If your Domain Controller is correctly configured, you are done.  
 Then you can start the bundle and try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are automatically logged in.  
 
 Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `kerberos.auth.standard.allowed` to true or define a whitelist with the property `auth.tenant.standard.whitelist`) to be able to log in without an account on AD.

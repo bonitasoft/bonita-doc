@@ -24,7 +24,7 @@ This is an overview that relates the steps required to integrate a bonita bundle
 Here some details about the Bonita SAML2 module,
 it is composed of: 
 
-- A servlet filter that intercept all the requests to bonita portal pages  
+- A servlet filter that intercept all the requests to Bonita portal pages  
 
    It checks if the user is already logged in on Bonita
     
@@ -44,7 +44,8 @@ it is composed of:
 
 ::: warning  
  Bonita "username" should match the NameId or one attribute of the subject returned by the IdP in the response. 
- If some users need to be able to log in without having an account on the IDP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.
+ If some users need to be able to log in without having an account on the IdP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.  
+ You can configure Bonita engine to create the accounts on the fly in the database once a user accessing Bonita has been authenticated with the IdP (see the configuration of `bonita-tenant-sp-custom.properties` in the 3rd section of the next chapter).
 :::
 
 ## Configure Bonita Bundle for SAML
@@ -92,18 +93,7 @@ To configure Bonita for SAML:
     If you need users to be able to log in without having an account on the IDP, you can authorize it by setting the property `saml.auth.standard.allowed` to true. Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.  
     If only a limited group of users need to bypass SAML authentication method you can restrain it by setting the property `saml.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (comma separated).
 
-3. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`,
-  edit the file **bonita-tenant-sp-custom.xml** to uncomment the bean passphraseOrPasswordAuthenticationService:
-
-   ```
-        <bean id="passphraseOrPasswordAuthenticationService" class="com.bonitasoft.engine.authentication.impl.PassphraseOrPasswordAuthenticationService" lazy-init="true">
-           <constructor-arg name="logger" ref="tenantTechnicalLoggerService" />
-           <constructor-arg name="identityService" ref="identityService" />
-           <constructor-arg name="configuredPassphrase" value="${authentication.service.ref.passphrase}" />
-       </bean>
-   ```
-
-4. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
+3. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
   edit the file bonita-tenant-sp-custom.properties as follows:
   
    ```
@@ -125,9 +115,14 @@ To configure Bonita for SAML:
             # you can provide your own implementation in bonita-tenant-sp-custom.xml and refer to the bean name of your choice
        -->  authentication.service.ref.name=passphraseOrPasswordAuthenticationService
             
-            # If authentication.service.ref.name equals "PassphraseOrPasswordAuthenticationService",
+            # If authentication.service.ref.name equals "passphraseOrPasswordAuthenticationService",
             # you need to configure the following passphrase 
        -->  authentication.service.ref.passphrase=BonitaBPM
+            
+            # Create users on the fly, when they are missing from bonita but authenticated by the SSO. The user will belong to the group and role specified below.
+            #authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable=true
+            #authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath=/ACME/HR
+            #authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName=member
             
             # CAS authentication delegate : enables the user, providing login/password,
             # to be logged in automatically against CAS web application 
@@ -138,15 +133,21 @@ To configure Bonita for SAML:
    ```
   
     It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file **authenticationManager-config.properties** updated previously.
+    
+    If you want Bonita engine to create the accounts on the fly once a user accessing Bonita has been authenticated with the IdP, you can uncomment the property `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable` (and set its value to true) as well as the next 2 properties to add a default membership to each user account: 
+    - `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath` specify the group in which every user account created on the fly will be added (the full group path is needed)
+    - `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName` specify the role to use to create the membership 
 
-5. If your Identity Provider (IdP) requires requests to be signed, generate a private key.
+    **Note:** Activating this option means any user authorized by the IdP to access Bonita will have an account created automatically in Bonita Database.
+
+4. If your Identity Provider (IdP) requires requests to be signed, generate a private key.
 For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ssh” to retrieve the key from the file id_rsa (more id_rsa, then copy the key).
 
 ::: info
 **Note:** The expected format for Keys and certificates is PEM (with or without the comment header and footer).  
 :::
 
-6. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,  
+5. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,  
     edit the file **keycloak-saml.xml** to setup Bonita webapp as a Service provider working with your IdP.  
     + The entityID is the Service Provider given to your bonita installation. You can change it if you want but you need to provide it to your IdP.  
     + The sslPolicy option may need to be changed if Bonita Portal and the IdP are not both accessed via HTTPS. Possible values for this property are: ALL, EXTERNAL, and NONE. For ALL, all requests must come in via HTTPS. For EXTERNAL, only non-private IP addresses must come over via HTTPS. For NONE, no requests are required to come over via HTTPS.  
@@ -247,7 +248,7 @@ _If your IdP responses are not signed, you can remove the Keys node from the IDP
             </SP>
        </keycloak-saml-adapter>
    ```
-7. If your Identity Provider is corectly configured (see the section *Configure the Identity Provider*), you are done.
+6. If your Identity Provider is corectly configured (see the section *Configure the Identity Provider*), you are done.
 Then you can try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in).  
 Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `saml.auth.standard.allowed` to true) to be able to log in without an account on the Identity Provider.
 
@@ -412,4 +413,3 @@ Here is the subset of pages filtered by the SAML filter:
 REST API are not part of them, but if an http session already exists thanks to cookies, REST API can be used.
 
 The recommended way to authenticate to Bonita Portal to use the REST API is to use the [login service](rest-api-overview.md#bonita-authentication)..
-
