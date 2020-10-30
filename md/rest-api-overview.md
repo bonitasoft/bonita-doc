@@ -26,7 +26,7 @@ To log in, use the following request:
 | Request URL | `http://host:port/bonita/loginservice`| 
 | Request Method | POST| 
 | Content-Type | application/x-www-form-urlencoded|
-| Form Data | username: a username<br/>password: a password <br/>redirect: true or false. false indicates that the service should not redirect to Bonita Portal (after a successful login) or to the login page (after a login failure).<br/>redirectURL: the URL of the page to be displayed after login <br/>tenant: the tenant to log in to (optional for Enterprise and Performance editions, not supported for Community, Teamwork and Efficiency editions)|
+| Form Data | username: a username<br/>password: a password <br/>redirect: `true` or `false`. `false` is the default value if the redirect parameter is not specified. It indicates that the service should not redirect to Bonita Portal (after a successful login) or to the login page (after a login failure).<br/>redirectUrl: the URL of the page to be displayed after a succesful login. If it is specified, then the a redirection after the login will be performed even if the redircet parameter is not present in the request.<br/>tenant: the tenant to log in to (optional for Enterprise and Performance editions, not supported for Community, Teamwork and Efficiency editions)|
   
 The response to this call generates cookies.
 The `JSESSIONID` must be transfered with each subsequent calls. If the REST API is used in an application running in a web browser, this is handled automatically by the web browser.
@@ -185,7 +185,7 @@ NOTE: this is to be done only once.
 
     $ curl -v -c saved_cookies.txt -X POST --url 'http://localhost:8080/bonita/loginservice' \
     --header 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' -O /dev/null \
-    -d 'username=walter.bates&password=bpm&redirect=false&redirectURL='
+    -d 'username=walter.bates&password=bpm'
 The above `curl` command saved the cookies on the disk, in the `saved_cookies.txt` file. 
 The cookies file must be reused with the REST API calls (HTTP requests) in order to provide session information.
 The value of X-Bonita-API-Token cookie must be passed also in the header of the subsequent REST API calls, when any of the POST, PUT or DELETE HTTP method is used.
@@ -241,7 +241,7 @@ The `Registration` process has a process definition id equal to `609024682951522
 
 #### Logout
 
-    $ curl -b saved_cookies.txt -X GET --url 'http://localhost:8080/bonita/logoutservice?redirect=false'
+    $ curl -b saved_cookies.txt -X GET --url 'http://localhost:8080/bonita/logoutservice'
     
 #### Troubleshooting
 ##### HTTP/1.1 401 Unauthorized
@@ -251,4 +251,3 @@ If the HTTP response's status is `401 Unauthorized`:
  - if one of the PUT, DELETE or POST method is used, make sure that the `X-Bonita-API-Token` header is included
  - if the X-Bonita-API-Token header is included, make sure that the value is the same as the one of the cookie generated during the last login
  - Maybe a logout was issued or the session has expired; try to log in again, and re run the request with the new cookies and the new value for the `X-Bonita-API-Token` header.
-

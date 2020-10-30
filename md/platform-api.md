@@ -17,7 +17,6 @@ In order to get one, log in as the platform administrator using the platform log
 ```
 username=platformAdmin
 password=platform
-redirect=false
 ```
 
 In order to logout use the platform logout service as follow:
