@@ -28,6 +28,7 @@ The expression must return a value of the required type. To specify the message 
 | ------ | ------------ | ----- |
 | From  | Sender email address  | String  |
 | To  | Receiver email address  | String  | 
+| Return-Path  | Email address that identifies where the email originated | String  | 
 | Other \> Reply to  | Email address to use when user tries to reply  | String  | 
 | Other \> CC  | Email address to use for a copy  | String  | 
 | Other \> BCC (hidden copy)  | Email address to use for a hidden copy  | String  |
