@@ -45,7 +45,7 @@ it is composed of:
 ::: warning  
  Bonita "username" should match the NameId or one attribute of the subject returned by the IdP in the response. 
  If some users need to be able to log in without having an account on the IdP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.  
- You can configure Bonita engine to create the accounts on the fly in the database once a user accessing Bonita has been authenticated with the IdP (see the configuration of bonita-tenant-sp-custom.properties in the 3rd section of the next chapter.
+ You can configure Bonita engine to create the accounts on the fly in the database once a user accessing Bonita has been authenticated with the IdP (see the configuration of `bonita-tenant-sp-custom.properties` in the 3rd section of the next chapter).
 :::
 
 ## Configure Bonita Bundle for SAML
