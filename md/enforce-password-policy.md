@@ -20,8 +20,8 @@ There are three options:
   * at least 2 lower case characters
   * at least 3 digits
 
-To apply this policy edit `<TOMCAT_HOME>/setup/platform_conf/`**initial**`/platform_portal/security-config.properties` if you have never started the platform yet, and
-`<TOMCAT_HOME>/setup/platform_conf/`**current**`/platform_portal/security-config.properties` if the platform has been already started using the [platform setup tool](BonitaBPM_platform_setup.md) and change `DefaultPasswordValidator` to `RobustnessPasswordValidator`.
+To apply this policy edit **initial** configuration in `<TOMCAT_HOME>/setup/platform_conf/initial/platform_portal/security-config.properties` if you have never started the platform yet, and **current** configuration in
+`<TOMCAT_HOME>/setup/platform_conf/current/platform_portal/security-config.properties` if the platform has been already started using the [platform setup tool](BonitaBPM_platform_setup.md) and change `DefaultPasswordValidator` to `RobustnessPasswordValidator`.
 * Create a custom password policy by following the tutorial below.
 
 ## How to create a custom password policy
