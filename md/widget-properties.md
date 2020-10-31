@@ -39,6 +39,10 @@ Example: I'm sorry, _{{ user.name | uppercase }}_. I'm afraid I can't do that.
 
 Some general properties are common to all widgets except containers.
 
+### Description
+
+Specify the usage of the widget (e.g. how to use it), and this description will be used when [generating documentation](project-documentation-generation.md).
+
 ### Width
 
 Specify the width of the widget relative to the container it is in, or to the page if it is not in a container. A widget can occupy one to 12 units. The actual widget widths are proportional, automatically adjusted for the device display.
