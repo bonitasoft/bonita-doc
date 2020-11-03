@@ -16,13 +16,13 @@ To start the expression editor, click the crayon icon next to the field where yo
 
 There are different types of expression:
 
+* _Script_: the result of the script sets the value of the expression.
 * _Comparison_: compares the value of a variable, parameter, or constant using the operators !, ==, !=, <, >:, <:= or >=.
 * _Constant_: sets the expression to a constant (fixed) value.
 * _Java_: Select Java methods to set the value of your expression
 * _Contract Input_: Select a element of your contract.
 * _Query_: Use a query from your BDM.
 * _Parameter_: sets the expression to the value of the parameter at the time the expression is evaluated.
-* _Script_: the result of the script sets the value of the expression.
 * _Variable_: sets the expression to the value of the variable at the time the expression is evaluated.
 
 The types available differ depending on the context of the expression. For example, comparison expressions are available only for transitions.
@@ -34,8 +34,6 @@ Comparison are only available for transitions and can only use parameters, const
 ::: info
 You can press on Ctrl + Space to access the auto-complete feature.
 :::
-
-![comparisonExpression](images/expressionEditor/comparisonExpression.png)
 
 The following operators are available:
 * "==": equals to 
@@ -66,27 +64,19 @@ Constant formating based on expected returned value:
 |Integer                                              |Any positive whole number                              |
 |Double & Float                                       |Fractional number e.g. 3.5 (, is not supported)        |
 
-![constantExpression](images/expressionEditor/constantExpression.png)
-
-### Java
-![javaExpression](images/expressionEditor/javaExpression.png)
 
 ### Contract Input
 In operation you can directly get the value from your contract. This is pratical in operation to use the value from contract (from your form).
-![contractExpression](images/expressionEditor/contractExpression.png)
 
 ### Query
 Allows you use queries defined in your BDM. It is a great way to get a specific object in an operation.
-![queryExpression](images/expressionEditor/queryExpression.png)
 
 ### Variable
-Process variables and data can be directly used:
-![variableExpression](images/expressionEditor/variableExpression.png)
+Process variables and data can be directly used as values for your expression.
 
 ### Parameters
 You can also directly select the value of a parameters.
 Using parameter can be easily updated in the portal (in the Enterprise edition) and can have different values based on the environment (Production, Qualification...)
-![parametersExpression](images/expressionEditor/parametersExpression.png)
 
 ### Scripts
 
@@ -96,27 +86,27 @@ Scripts provide the most flexible to define business rules. Bonita uses Groovy s
 You can press on Ctrl + Space to access the auto-complete feature. It can be pressed several time to access all auto-complete proposals and templates
 :::
 
-
 #### Use variables in a script expression
 
 You can use a variable in an expression. When the expression is evaluated during process execution, the current value of the variable is used in the expression.
 
 The following variables are available:
-* Documents
-* Local variables
-* Process Variables and Process Data
+* Parameters
 * Contract Input
+* Process Variables
+* Business Variables
+* Business Queries
+* Documents
+* Execution Context 
+* Code Templates
 
-##### Process variables
+All the variables are displayed in a searchable tree next to the script. To add a variable to the script, double click on it or drag and drop it on the script.
 
-When you define an expression in the context of a step, the expression can contain a variable that is defined at process level in the pool containing the step. The expression cannot contain a variable that was defined for this step or in another step in the process. To add a process variable to an expression, select the variable from the **Select a process variable...** drop-down list. 
+##### Execution Context
 
-##### Provided variables
-
-You can also use a variable that is provided by Bonita Engine that is executing the process. For example, an expression can include the id of the user performing a task in the process. To add a provided variable to an expression, select the variable from the **Select a provided variable...** drop-down list.
+The execution context contains variables that are relevant to the current state of the system when evaluating this expression.
 
 The provided variables are:
-
 * `activityInstanceId`: the identifier of the activity instance (not available for a process-level expression)
 * `processDefinitionId`: the identifier of the process
 * `processInstanceId`: the identifier of the process instance
@@ -125,6 +115,10 @@ The provided variables are:
 The provided variables list also contains a special variable, apiAccessor. This enables you to construct API calls in a script using autocompletion. For example, to get the number of overdue open tasks, choose `apiAccessor` from the list of provided variable, then add the `processAPI`, and then add `getNumberOfOverdueOpenTasks`.
 
 #### Basic Operations
+
+You can use the quick access operators bar above the script to easily write your expression.
+
+Here are some examples.
 
 Example 1:
 Do transition only if the change cost of my BDM object "Change request" is lower than 300.
