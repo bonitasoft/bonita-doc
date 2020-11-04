@@ -224,6 +224,22 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 
 ## Bug fixes
 
+#### Fixes in Bonita Runtime (including Portal)
+* BS-19532	Connector disconnect is not called if an exception is thrown during the connector output operations
+* BS-19513	Admin process more details page retrieves too many forms
+* BR-553	FIX Hibernate sequence after migration
+* BR-549	SOAP connector stays in executing state even though it's failing
+* BR-425	Fix LDAP Sync Message on force_add_non_exisiting
+
+#### Fixes in Bonita Development Suite (Studio and UI Designer)
+* STUDIO-3684	Groovy semantic highlight throws false positive in script editor
+* STUDIO-3659	CMIS connector are not visible in connector wizard
+* STUDIO-3655	Inclusive Gateway validation throw false positive
+* STUDIO-3642	Generating a bar with no configuration
+* STUDIO-3613	Leak on Datasource connector
+* STUDIO-3609	ClassCastException is thrown in the add data wizard
+
+
 ### Fixes in Bonita 7.11.2 (2020-10-01)
 
 #### Fixes in Bonita Runtime (including Portal)
