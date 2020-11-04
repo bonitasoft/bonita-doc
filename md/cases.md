@@ -35,7 +35,7 @@ In a row in the table, you can click a case id or the ellipsis icon to open the 
 You can change the view to see only the information that you need:
 
 * View the cases of a specified process, by selecting the process name, or name and version, from the dropdown lists.
-* Search indexes are also available as additional columns. In this way, you can use search indexes for adding business information to your cases. It is also possible to search on search indexes values.
+* Search keys are also available as additional columns. In this way, you can use search keys for adding business information to your cases. It is also possible to search on search keys values.
 * Filter the cases by state, by choosing **With failures** or **All** from the **State** dropdown list. 
 The **Failed tasks** column shows the number of failed tasks and tasks where a connector has failed when starting or ending a case. A connector failure at a task is counted as a task failure. 
 Connector failures on case start or end are shown by an exclamation point (!).

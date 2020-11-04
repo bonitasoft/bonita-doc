@@ -17,7 +17,7 @@ For a pool, you can configure the following:
 * Connectors: A connector links a process to an external information source. [Specify the connectors](connectivity-overview.md) used in the process. You can also specify a connector at lane or task level, but if a connector is used more than once it is better to define it at pool level.
 * Parameters: A parameter is like a variable but has a value that is fixed for a deployment of a process. [Define the parameters](parameters.md) of your process. 
 * Documents: You can attach [documents](documents.md) to a process. List the documents that attached to the process.
-* Search: A search index is used in the Portal to find a specific instance of a process. [Specify the search indexes](search-index.md) associated with the process.
+* Search: A search key is used in the Portal to find a specific instance of a process. [Specify the search keys](search-index.md) associated with the process.
 
 The items configured for a lane supplement or override those defined for the pool. You only need to configure something at lane level if is not already defined at pool level, or if you want to override the definition. Note that nested lanes are not supported.  
 

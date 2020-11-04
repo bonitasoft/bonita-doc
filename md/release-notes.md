@@ -46,6 +46,11 @@ However, previous login requests with a redirect URL will continue working as th
 If you use a customized login page to log in to Bonita portal UI and don't specify any redirect URL (`redirectUrl` parameter), then you need to make sure it passes a parameter `redirect=true` to the login service. same thing if you have a logout link in a custom page that does not pass a `loginUrl` or a `redirectUrl` parameter.  
 If you use Bonita layout version 5 or a customized version of it in your applications, make sure you upgrade to version 6 when migrating. Otherwise, the logout button will not redirect to the login page when clicked.
 
+#### Search keys
+
+Search keys can be defined and used in the community edition. Take a look at the [search keys documentation](define-a-search-index.md) to learn more about it. 
+
+
 ## Bundle changes
 
 ## API Removal
