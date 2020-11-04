@@ -2576,16 +2576,16 @@ ID of the Object: a long value
   "started_by":"the identifier of the user who started the case",
   "processDefinitionId":"the identifier of the process related of the case",
   "last_update_date":"the date of the last update done on the case",
-  "searchIndex1Label":"the 1st search index label",
-  "searchIndex2Label":"the 2nd search index label",
-  "searchIndex3Label":"the 3rd search index label",
-  "searchIndex4Label":"the 4th search index label",
-  "searchIndex5Label":"the 5th search index label",
-  "searchIndex1Value":"the 1st search index value",
-  "searchIndex2Value":"the 2nd search index value",
-  "searchIndex3Value":"the 3rd search index value",
-  "searchIndex4Value":"the 4th search index value",
-  "searchIndex5Value":"the 5th search index value"
+  "searchIndex1Label":"the 1st search key label",
+  "searchIndex2Label":"the 2nd search key label",
+  "searchIndex3Label":"the 3rd search key label",
+  "searchIndex4Label":"the 4th search key label",
+  "searchIndex5Label":"the 5th search key label",
+  "searchIndex1Value":"the 1st search key value",
+  "searchIndex2Value":"the 2nd search key value",
+  "searchIndex3Value":"the 3rd search key value",
+  "searchIndex4Value":"the 4th search key value",
+  "searchIndex5Value":"the 5th search key value"
 }
 ```
 #### Methods
@@ -2998,16 +2998,16 @@ The ID of the archived case (a long value).
   "archivedDate":"the date set when the case was archived", 
   "processDefinitionId":"the id of the process related to this archived case", 
   "last_update_date":"the date of the last update done on the case",
-  "searchIndex1Label":"the 1st search index label",
-  "searchIndex2Label":"the 2nd search index label",
-  "searchIndex3Label":"the 3rd search index label",
-  "searchIndex4Label":"the 4th search index label",
-  "searchIndex5Label":"the 5th search index label",
-  "searchIndex1Value":"the 1st search index value",
-  "searchIndex2Value":"the 2nd search index value",
-  "searchIndex3Value":"the 3rd search index value",
-  "searchIndex4Value":"the 4th search index value",
-  "searchIndex5Value":"the 5th search index value"
+  "searchIndex1Label":"the 1st search key label",
+  "searchIndex2Label":"the 2nd search key label",
+  "searchIndex3Label":"the 3rd search key label",
+  "searchIndex4Label":"the 4th search key label",
+  "searchIndex5Label":"the 5th search key label",
+  "searchIndex1Value":"the 1st search key value",
+  "searchIndex2Value":"the 2nd search key value",
+  "searchIndex3Value":"the 3rd search key value",
+  "searchIndex4Value":"the 4th search key value",
+  "searchIndex5Value":"the 5th search key value"
 }
 ```   
 
