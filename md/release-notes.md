@@ -224,6 +224,8 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 
 ## Bug fixes
 
+### Fixes in Bonita 7.11.3 (2020-11-05)
+
 #### Fixes in Bonita Runtime (including Portal)
 * BS-19532	Connector disconnect is not called if an exception is thrown during the connector output operations
 * BS-19513	Admin process more details page retrieves too many forms
@@ -246,7 +248,6 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 * STUDIO-3609	ClassCastException is thrown in the add data wizard
 * UID-341 BOS_Locale is duplicated from Preview
 * UID-317 Menu Autocomplete Hidden behind modal
-
 
 ### Fixes in Bonita 7.11.2 (2020-10-01)
 
