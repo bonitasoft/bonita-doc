@@ -224,12 +224,20 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 
 ## Bug fixes
 
+### Fixes in Bonita 7.11.3 (2020-11-05)
+
 #### Fixes in Bonita Runtime (including Portal)
 * BS-19532	Connector disconnect is not called if an exception is thrown during the connector output operations
 * BS-19513	Admin process more details page retrieves too many forms
+* BS-19502 LDAP Synch: connection to the Bonita engine using the environment variables does not work
+* BR-478 Error 404 on http://localhost:8080/ , Tomcat admin default page missing
+* BR-477 Fix Process stucked due to Errors on event subprocesses
 * BR-553	FIX Hibernate sequence after migration
 * BR-549	SOAP connector stays in executing state even though it's failing
 * BR-425	Fix LDAP Sync Message on force_add_non_exisiting
+* BPO-660 Error 500 after redirection to the login page with locale es_419
+* BPO-650 Invalid Content-Type check in LoginServlet
+* BPO-543 Warning : Cannot find the resource file custompage_processlistBonita/resources/locales/en_US.json
 
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
 * STUDIO-3684	Groovy semantic highlight throws false positive in script editor
@@ -238,7 +246,8 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 * STUDIO-3642	Generating a bar with no configuration
 * STUDIO-3613	Leak on Datasource connector
 * STUDIO-3609	ClassCastException is thrown in the add data wizard
-
+* UID-341 BOS_Locale is duplicated from Preview
+* UID-317 Menu Autocomplete Hidden behind modal
 
 ### Fixes in Bonita 7.11.2 (2020-10-01)
 
