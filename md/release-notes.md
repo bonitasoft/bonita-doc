@@ -10,7 +10,7 @@ For a given minor version of the development suite (Studio and UI designer), you
 For example: if your Studio is in version 7.12.4. You will be able to work on 7.12.2 or 7.12.5 projects without migrating the project or being blocked.
 
 ### Simplified Expression editor
-Writting a script expression has never been easier with the reviewed expression editor. You can drag and drop variables and quickly access operator.
+Writting a script expression has never been easier with the reviewed expression editor. You can drag and drop variables and quickly access operators.
 
 ## Improvements
 
