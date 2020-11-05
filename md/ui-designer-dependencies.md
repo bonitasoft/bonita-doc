@@ -59,4 +59,35 @@ stomp-websocket | 2.3.4 | Apache-2.0 |
 
 | groupId | artifactId | version | type | licences |
 | ------- | ---------- | ------- | ---- | -------- |
-|  |
+| ch.qos.logback | logback-classic | 1.2.3 | jar | Eclipse Public License - v 1.0 ,GNU Lesser General Public License
+com.fasterxml.jackson.core | jackson-databind | 2.11.1 | jar | The Apache Software License, Version 2.0
+com.fasterxml.jackson.datatype | jackson-datatype-joda | 2.11.1 | jar | The Apache Software License, Version 2.0
+com.github.jknack | handlebars | 4.0.6 | jar | The Apache Software License, Version 2.0
+com.github.jknack | handlebars-jackson2 | 4.0.6 | jar | The Apache Software License, Version 2.0
+com.google.guava | guava | 18.0 | jar | The Apache Software License, Version 2.0
+commons-codec | commons-codec | 1.10 | jar | Apache License, Version 2.0
+commons-io | commons-io | 2.4 | jar | The Apache Software License, Version 2.0
+javax.inject | javax.inject | 1 | jar | The Apache Software License, Version 2.0
+joda-time | joda-time | 2.7 | jar | Apache 2
+org.apache.commons | commons-lang3 | 3.3.2 | jar | The Apache Software License, Version 2.0
+org.apache.maven | maven-artifact | 3.3.3 | jar | Apache License, Version 2.0
+org.aspectj | aspectjrt | 1.8.5 | jar | Eclipse Public License - v 1.0
+org.aspectj | aspectjweaver | 1.8.5 | jar | Eclipse Public License - v 1.0
+org.bonitasoft.web | ui-designer-backend-contract | 1.12.0-SNAPSHOT | jar | GPL-v2.0
+org.bonitasoft.web | ui-designer-backend-migrationReport | 1.12.0-SNAPSHOT | jar | GPL-v2.0
+org.codehaus.janino | janino | 2.7.8 | jar | New BSD License
+org.eclipse.jdt | ecj | 3.14.0 | jar | Eclipse Public License
+org.eclipse.jetty | jetty-client | 9.4.14.v20181114 | jar | Apache Software License - Version 2.0 ,Eclipse Public License - Version 1.0
+org.eclipse.jetty | jetty-security | 9.4.14.v20181114 | jar | Apache Software License - Version 2.0 ,Eclipse Public License - Version 1.0
+org.fedorahosted.tennera | jgettext | 0.13 | jar | GNU Lesser General Public License
+org.glassfish | javax.el | 3.0.1-b08 | jar | CDDL + GPLv2 with classpath exception
+org.hibernate | hibernate-validator | 5.4.1.Final | jar | Apache License, Version 2.0
+org.jsoup | jsoup | 1.8.1 | jar | The MIT License
+org.mitre.dsmiley.httpproxy | smiley-http-proxy-servlet | 1.10 | jar | The Apache Software License, Version 2.0
+org.slf4j | jcl-over-slf4j | 1.7.30 | jar | Apache License, Version 2.0
+org.slf4j | slf4j-api | 1.7.30 | jar | MIT License
+org.springframework | spring-core | 5.2.3.RELEASE | jar | Apache License, Version 2.0
+org.springframework | spring-messaging | 5.2.3.RELEASE | jar | Apache License, Version 2.0
+org.springframework | spring-webmvc | 5.2.3.RELEASE | jar | Apache License, Version 2.0
+org.springframework | spring-websocket | 5.2.3.RELEASE | jar | Apache License, Version 2.0
+org.zeroturnaround | zt-zip | 1.8 | jar | The Apache Software License, Version 2.0 |
