@@ -4,7 +4,7 @@ An operation is an action that updates the value of a variable when a task is ex
 
 ## Define operations at task level
 
-An operation at task level updates the value of a variable defined for the task or at process level. You can also use an operation at a task to update the value of a search index.
+An operation at task level updates the value of a variable defined for the task or at process level. You can also use an operation at a task to update the value of a search key.
 
 To define an operation at task level:
 
