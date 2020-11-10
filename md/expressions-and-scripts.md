@@ -124,13 +124,7 @@ Example 1:
 Do transition only if the change cost of my BDM object "Change request" is lower than 300.
 
 ```
-if (itemChangeRequest.changeCost > 300) {
-	return false	
-}
-else {
-	return true
-}
-	
+return itemChangeRequest.changeCost <= 300
 ```
 
 Example 2:
