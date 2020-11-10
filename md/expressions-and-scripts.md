@@ -193,19 +193,6 @@ Update of process dependencies and package import can be automatically done when
 
 Note that the Groovy script will be embedded in the process deployment file (*.bar). If you update the Groovy script content you will need to redeploy the process in order to benefit from the modification.
 
-#### Predefined Groovy methods
-
-In addition to any user-defined methods, there are a number of standard methods, in the **Bonita**, **Collection**, **Number**, **String**, and **Others** categories (in the expression editor - type: Script). Click a function name to see a description in the **Documentation** box of the Expression editor.
-
-To add a standard function to an expression:
-
-1. In the Expression editor, **Expression type** list, select **Script**.
-2. Enter your script, and position the cursor where you want to include the function.
-3. In the **Categories** list, select one of the category available. The function list will show the methods that are available.
-4. In the **Function** list, double-click the function you want to include in your expression. The function is inserted in the script at the point where the cursor was positioned.
-
-At concatenation points in the script, the expression editor displays a popup with a list of possible terms. In the popup, you can toggle between Groovy terms and process variables. For example, if you select `activityInstanceId` from the list of provided variables then type a period, the expression editor displays a list of terms available. This is known as _autocompletion_.
-
 
 #### Log messages in a Groovy script
 
