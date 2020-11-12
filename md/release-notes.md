@@ -36,6 +36,9 @@ The google connector can now use JSON tokens to authenticate.
 #### Java REST API Extension
 It is now possible to create REST API Extensions in Java.
 
+#### Autocomplete Widget returned value
+With the autocomplete widget you have a returned value that different from the dislayed value.
+
 ### Runtime changes
 
 #### REST API and portal login
