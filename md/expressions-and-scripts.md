@@ -134,9 +134,9 @@ def questionnaireVar = questionnaireDAO.findByPersistenceId(editquestionnaireInp
 ```
 
 
-#### Groovy classes
+#### User defined functions
 
-If a same piece of Groovy code is needed in different locations you might want to define it once and reused it in order to avoid duplication.
+If a same piece of script code is needed in different locations you might want to define it once and reused it in order to avoid duplication.
 
 In order to reuse some Groovy code you need to:
 * Create a Groovy class that will be stored as part of your project in Bonita Studio
