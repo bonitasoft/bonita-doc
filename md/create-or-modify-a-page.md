@@ -27,7 +27,7 @@ Custom widget is a special artifact that we will explain in a later chapter.
 
 ## Preview a page, layout, form, or fragment
 
-You can preview page, form and fragment rendering by clicking the **_Preview_** button. Another browser window opens with the artifact as it will be displayed after deployment. If you update the page, form or fragment, the preview is automatically refreshed when you save (not available for Internet Explorer 11).
+You can preview page, form and fragment rendering by clicking the **_Preview_** button. Another browser window opens with the artifact as it will be displayed after deployment. If you update the page, form or fragment, the preview is automatically refreshed when you save.
 
 You can display your page, layout, form or fragment with one of your theme application installed. 
 
