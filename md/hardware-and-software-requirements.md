@@ -39,7 +39,6 @@ Software required for Bonita Platform (Bonita Engine and Bonita Portal).
 | Mozilla Firefox                    | latest version                                   |
 | Google Chrome                      | latest version (see note 6)                      |
 | Microsoft Edge                     | latest version                                   |
-| Internet Explorer                  | 11.0.x                                           |
 
 Notes:
 1. Bonita can be executed on Java 8 or 11. All development artifacts (connectors, REST API extensions, etc) must be compiled with Java 8 byte code (target version).
@@ -54,7 +53,7 @@ MySQL must be configured with innoDB storage engine. Even if the 5.5.x line is r
 
 #### Subscription users
 ::: info
-**Note:** In order to apply this procedure, you MUST use a Chrome browser version that doesn't suffer from the incompatibility, or you can use Firefox, Internet Explorer/Edge or Safari, for example.
+**Note:** In order to apply this procedure, you MUST use a Chrome browser version that doesn't suffer from the incompatibility, or you can use Firefox, Edge or Safari, for example.
 :::
 
 1. Log in to Bonita Portal as Administrator.
