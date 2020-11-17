@@ -48,7 +48,7 @@ Depending on the type of the file missing, other error messages could be (where 
 "Controller not found for [customInputTest.ctrl.js]"
 
 :::warning
-The error message may vary depending on the Studio version
+The error message may vary depending on the Bonita version
 :::
 
 ### Expected files for the different artifacts
@@ -84,6 +84,61 @@ SmartFragment (the fragment directory)
 	SmartFragment.json
 ```
 
+### Error messages
+#### Custom widget
+- Custom widget missing 
+    -  7.10 7.11 7.12
+        ```
+        NotFoundException: Could not load component, unexpected structure in the file [customSmartInput.json]
+        ```
+* Custom widget template file missing
+    * 7.10
+        ```
+        NotFoundException: Could not load component, unexpected structure in the file [customSmartInput.json]
+        ```
+    * 7.11 7.12
+        ```
+        NotFoundException: Template not found for [customSmartInput.tpl.html]
+        ```
+* Custom widget json file missing
+    * 7.10 7.11 7.12
+        ```
+        NotFoundException: Could not load component, unexpected structure in the file [customSmartInput.json]
+        ```
+* Custom widget json file syntax error
+    * 7.10
+        ```
+        Unexpected exception while processing file /Applications/BonitaStudioSubscription-7.10.5.app/Contents/Eclipse/workspace/MyProject/web_widgets/customSmartInput/customSmartInput.json
+        com.fasterxml.jackson.core.JsonParseException: Unexpected character
+        ```
+    * 7.11 7.12
+        ```
+        com.fasterxml.jackson.core.JsonParseException: Unexpected character
+        ```    
+* Custom widget controller file missing
+    * 7.10
+        ```
+        NotFoundException: Could not load component, unexpected structure in the file [customSmartInput.json]
+        ```    
+    * 7.11 7.12
+        ```
+        NotFoundException: Controller not found for [customSmartInput.ctrl.js]
+        ```    
+* Custom widget js file missing
+    * No error, file is re-generated
+
+#### Fragment
+* Fragment is missing (same error for all versions)
+        ```
+        NotFoundException: File not found: [SmartFragment.json]
+        ```
+* Fragment json file missing (same error for all versions)
+        ```
+        NotFoundException: File not found: [SmartFragment.json]
+        ```
+* Fragment js file missing
+    * No error, file is re-generated
+ 
 
 ## Solution
 
