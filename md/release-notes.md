@@ -41,6 +41,10 @@ With the autocomplete widget you have a returned value that different from the d
 
 ### Runtime changes
 
+#### Micrometer updated to 1.6.0
+This version of micrometer adds new metrics. Notably two new hibernate metrics: `hibernate.cache.query.plan` respectively `hit` & `miss`, to help troubleshoot performance problems.
+How to activate this metrics is documented [here](runtime-monitoring.md).
+
 #### REST API and portal login
 
 The redirect parameter is now optional when logging in to the REST API using `/bonita/loginservice` as well as when logging out using `/bonita/logoutservice`.  
