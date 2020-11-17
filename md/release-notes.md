@@ -45,7 +45,7 @@ With the autocomplete widget you have a returned value that different from the d
 
 It was already possible to ensure the high availability using a [clustered architecture](overview-of-bonita-bpm-in-a-cluster.md), 
 Bonita Platform is now even more tolerant to incident like database outage thanks to the brand new **Recovery mechanism**.
-See [Fault tolerance mechanisms](fault-tolerance.md) documentation page for more details
+See [Fault tolerance mechanisms](fault-tolerance.md) documentation page for more details.
 
 #### REST API and portal login
 
