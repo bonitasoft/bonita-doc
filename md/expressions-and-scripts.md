@@ -9,24 +9,134 @@ This page explains the features of Bonita Studio that enable you to use expressi
 
 Note that the expression editor cannot be used in the UI Designer, which has a different concept model for [data](variables.md).
 
-## Start the expression editor
+## Expression types
 
 The expression editor is used throughout Bonita Studio to create and modify expressions or scripts.  
 To start the expression editor, click the crayon icon next to the field where you want to enter an expression. 
 
 There are different types of expression:
 
+* _Script_: the result of the script sets the value of the expression.
 * _Comparison_: compares the value of a variable, parameter, or constant using the operators !, ==, !=, <, >:, <:= or >=.
 * _Constant_: sets the expression to a constant (fixed) value.
+* _Java_: Select Java methods to set the value of your expression
+* _Contract Input_: Select a element of your contract.
+* _Query_: Use a query from your BDM.
 * _Parameter_: sets the expression to the value of the parameter at the time the expression is evaluated.
-* _Script_: the result of the script sets the value of the expression.
 * _Variable_: sets the expression to the value of the variable at the time the expression is evaluated.
 
 The types available differ depending on the context of the expression. For example, comparison expressions are available only for transitions.
 
-## Groovy classes
 
-If a same piece of Groovy code is needed in different locations you might want to define it once and reused it in order to avoid duplication.
+### Comparison
+Comparison are only available for transitions and can only use parameters, constants and variable. A comparison either return true or false.
+
+::: info
+You can press on Ctrl + Space to access the auto-complete feature.
+:::
+
+The following operators are available:
+* "==": equals to 
+* "!": Is not
+* "!=": Different from
+* "\>" and "<" : greater than and small than 
+* "\>=" and "<=:" greater or equal than and small or equal than
+
+You can not combine several comparison (no AND and OR operators).
+
+Example 1:
+Do transition only if myParameter value is "test"
+```
+myParameter1 =="test" 	
+```
+
+### Constant
+When your expression needs to return a static value, you can use the constant. This can be quite useful when testing. However using parameters is more convenient if the static needs to be updates.
+
+Make sure to clear define the expected returned value (drop-down field at the bottom of the expression editor).
+
+Constant formating based on expected returned value:
+|Expected return value                      |Possible Values|
+|-----------------------------------------------------|-------------------------------------------------------|
+|Boolean                                              |True/true or False/false                               |
+|String                                               |Any character - quotes "" or '' are not need           |
+|Long                                                 |Any whole number positve or negative                   |
+|Integer                                              |Any positive whole number                              |
+|Double & Float                                       |Fractional number e.g. 3.5 (, is not supported)        |
+
+
+### Contract Input
+In operation you can directly get the value from your contract. This is pratical in operation to use the value from contract (from your form).
+
+### Query
+Allows you use queries defined in your BDM. It is a great way to get a specific object in an operation.
+
+### Variable
+Process variables and data can be directly used as values for your expression.
+
+### Parameters
+You can also directly select the value of a parameters.
+Using parameter can be easily updated in the portal (in the Enterprise edition) and can have different values based on the environment (Production, Qualification...)
+
+### Scripts
+
+Scripts provide the most flexible to define business rules. Bonita uses Groovy scripts.
+
+::: info
+You can press on Ctrl + Space to access the auto-complete feature. It can be pressed several time to access all auto-complete proposals and templates
+:::
+
+#### Use variables in a script expression
+
+You can use a variable in an expression. When the expression is evaluated during process execution, the current value of the variable is used in the expression.
+
+The following variables are available:
+* Parameters
+* Contract Input
+* Process Variables
+* Business Variables
+* Business Queries
+* Documents
+* Execution Context 
+* Code Templates
+
+All the variables are displayed in a searchable tree next to the script. To add a variable to the script, double click on it or drag and drop it on the script.
+
+##### Execution Context
+
+The execution context contains variables that are relevant to the current state of the system when evaluating this expression.
+
+The provided variables are:
+* `activityInstanceId`: the identifier of the activity instance (not available for a process-level expression)
+* `processDefinitionId`: the identifier of the process
+* `processInstanceId`: the identifier of the process instance
+* `rootProcessInstanceId`: for a called process or an event subprocess, the identifier of the root process (note that if there are multiple layers of called processes or subprocesses, this is the root of the hierarchy, not the parent called process or subprocesses)
+
+The provided variables list also contains a special variable, apiAccessor. This enables you to construct API calls in a script using autocompletion. For example, to get the number of overdue open tasks, choose `apiAccessor` from the list of provided variable, then add the `processAPI`, and then add `getNumberOfOverdueOpenTasks`.
+
+#### Basic Operations
+
+You can use the quick access operators bar above the script to easily write your expression.
+
+Here are some examples.
+
+Example 1:
+Do transition only if the change cost of my BDM object "Change request" is lower than 300.
+
+```
+return itemChangeRequest.changeCost <= 300
+```
+
+Example 2:
+Initialize a business data from an ID
+```
+def questionnaireVar = questionnaireDAO.findByPersistenceId(editquestionnaireInput.persistenceId_string.toLong())
+```
+
+
+#### User defined functions
+
+If a same piece of script code is needed in different locations you might want to define it once and reused it in order to avoid duplication.
 
 In order to reuse some Groovy code you need to:
 * Create a Groovy class that will be stored as part of your project in Bonita Studio
@@ -34,7 +144,7 @@ In order to reuse some Groovy code you need to:
 * Configure your process(es) dependencies to include the required Groovy script file(s)
 * In the expression editor, select the **Script** type and as part of your code call the method(s) declared previously
 
-### Create Groovy class
+##### Create Groovy class
 
 To create a groovy class:
 * Right click on **My Project** from the **Project explorer** tree view, then **New** > **Groovy class...**.
@@ -43,7 +153,7 @@ To create a groovy class:
 
 Note that the newly created Groovy script file is stored as part of your project.
 
-### Declares methods
+##### Declares methods
 
 In the previously created Groovy class you can declares methods (static or not). For example:
 ```groovy
@@ -58,7 +168,7 @@ class MyClass {
 }
 ```
 
-### Configure process dependencies
+##### Configure process dependencies
 
 If you plan to use a Groovy method, for example to process the output of a connector, you first need to add the Groovy script file as a dependency of your process:
 * Select your process pool
@@ -67,7 +177,7 @@ If you plan to use a Groovy method, for example to process the output of a conne
 * In the tree view, under **Groovy scripts**, select the file(s) that define the method(s) you want to use (e.g. `com/mypackage/MyClass.groovy`)
 * Click on **Finish** button
 
-### Use a Groovy method
+##### Use a Groovy method
 
 In order to call a Groovy method from a script defined using the expression editor you need to:
 * Add the import statement at the beginning of the script. E.g.: `import com.mypackage.MyClass`
@@ -77,45 +187,12 @@ Update of process dependencies and package import can be automatically done when
 
 Note that the Groovy script will be embedded in the process deployment file (*.bar). If you update the Groovy script content you will need to redeploy the process in order to benefit from the modification.
 
-## Predefined Groovy methods
 
-In addition to any user-defined methods, there are a number of standard methods, in the **Bonita**, **Collection**, **Number**, **String**, and **Others** categories (in the expression editor - type: Script). Click a function name to see a description in the **Documentation** box of the Expression editor.
-
-To add a standard function to an expression:
-
-1. In the Expression editor, **Expression type** list, select **Script**.
-2. Enter your script, and position the cursor where you want to include the function.
-3. In the **Categories** list, select one of the category available. The function list will show the methods that are available.
-4. In the **Function** list, double-click the function you want to include in your expression. The function is inserted in the script at the point where the cursor was positioned.
-
-At concatenation points in the script, the expression editor displays a popup with a list of possible terms. In the popup, you can toggle between Groovy terms and process variables. For example, if you select `activityInstanceId` from the list of provided variables then type a period, the expression editor displays a list of terms available. This is known as _autocompletion_.
-
-## Use variables in a script expression
-
-You can use a variable in an expression. When the expression is evaluated during process execution, the current value of the variable is used in the expression.
-
-### Process variables
-
-When you define an expression in the context of a step, the expression can contain a variable that is defined at process level in the pool containing the step. The expression cannot contain a variable that was defined for this step or in another step in the process. To add a process variable to an expression, select the variable from the **Select a process variable...** drop-down list. 
-
-### Provided variables
-
-You can also use a variable that is provided by Bonita Engine that is executing the process. For example, an expression can include the id of the user performing a task in the process. To add a provided variable to an expression, select the variable from the **Select a provided variable...** drop-down list.
-
-The provided variables are:
-
-* `activityInstanceId`: the identifier of the activity instance (not available for a process-level expression)
-* `processDefinitionId`: the identifier of the process
-* `processInstanceId`: the identifier of the process instance
-* `rootProcessInstanceId`: for a called process or an event subprocess, the identifier of the root process (note that if there are multiple layers of called processes or subprocesses, this is the root of the hierarchy, not the parent called process or subprocesses)
-
-The provided variables list also contains a special variable, apiAccessor. This enables you to construct API calls in a script using autocompletion. For example, to get the number of overdue open tasks, choose `apiAccessor` from the list of provided variable, then add the `processAPI`, and then add `getNumberOfOverdueOpenTasks`.
-
-## Log messages in a Groovy script
+#### Log messages in a Groovy script
 
 You can [add logging](logging.md) to Groovy scripts or Java code that you develop.
 
-## Scripts in right operands of operations at task level
+#### Scripts in right operands of operations at task level
 
 Scripts can be used to define the result of the right operand of an [operation](operations.md). Those scripts are created in the same editor as the others, and can also call external methods and resources, but are designed as read-only scripts in the product. 
 ::: warning
@@ -126,3 +203,4 @@ Data in this case, refers to documents, business objects, pages, process comment
 For documents, you should use the [document type](documents.md) provided in the Studio and the associated [operations](operations.md) related to this document type. 
 For business objects, you should use the [BDM type](define-and-deploy-the-bdm.md) provided in the Studio and the associated [operations](operations.md) related to this BDM type. 
 For other use case you may want to use a [connector](connectors-overview.md) to perform those write operations. 
+
