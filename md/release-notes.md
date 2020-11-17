@@ -45,6 +45,13 @@ With the autocomplete widget you have a returned value that different from the d
 This version of micrometer adds new metrics. Notably two new hibernate metrics: `hibernate.cache.query.plan` respectively `hit` & `miss`, to help troubleshoot performance problems.
 How to activate this metrics is documented [here](runtime-monitoring.md).
 
+
+### Fault tolerance mechanisms
+
+It was already possible to ensure the high availability using a [clustered architecture](overview-of-bonita-bpm-in-a-cluster.md), 
+Bonita Platform is now even more tolerant to incident like database outage thanks to the brand new **Recovery mechanism**.
+See [Fault tolerance mechanisms](fault-tolerance.md) documentation page for more details.
+
 #### REST API and portal login
 
 The redirect parameter is now optional when logging in to the REST API using `/bonita/loginservice` as well as when logging out using `/bonita/logoutservice`.  
