@@ -46,7 +46,7 @@ This version of micrometer adds new metrics. Notably two new hibernate metrics: 
 How to activate this metrics is documented [here](runtime-monitoring.md).
 
 
-### Fault tolerance mechanisms
+#### Fault tolerance mechanisms
 
 It was already possible to ensure the high availability using a [clustered architecture](overview-of-bonita-bpm-in-a-cluster.md), 
 Bonita Platform is now even more tolerant to incident like database outage thanks to the brand new **Recovery mechanism**.
