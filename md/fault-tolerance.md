@@ -5,9 +5,9 @@ Learn which mechanism allows the platform to be fault tolerant.
 ## Global fault tolerance strategy
 
 Multiple incidents can happen in a given system. We can have the database not responding anymore either because of a crash or 
-a network issue, we can have the JVM on which Bonita Platform run failing, or we can have external services not available. Each category of incident have a mechanism to recover from it.
+a network issue, we can have the JVM on which Bonita Platform runs failing, or we can have external services not available. Each category of incident has a mechanism to recover from it.
 
-* When dealing with machine wise failure like the JVM or physical host crashing, Bonita platform can be installed in a
+* When dealing with a failure on the host machine, like the JVM or hardware crashing, Bonita platform can be installed in a
 [clustered architecture](overview-of-bonita-bpm-in-a-cluster.md) to ensure the High availability of the service. 
 It means that if one node of the cluster fails, another one is available to continue executing [works](work-execution.md).
 * When dealing with external services' outage called by [connectors](connectors-overview.md), they can be [replayed](tasks.md). 
@@ -19,8 +19,8 @@ the Recovery mechanism
 It is a reactive system, when an incident happens during the execution of a work, an exception is thrown. This mechanism
 analyses the exception and determine if the work should be retried automatically or not.
 
-When the exception is retryable, the platform re-queue the work with a delay. That can be done up to 10 times with a delay
-increasing from 1 second to more than 1 hour by default.
+When the exception is retryable, the platform queues the work again, with a delay. That can be done up to 10 times
+with the delay increasing gradually from 1 second to more than 1 hour by default.
  
 See [Work execution](work-execution.md) and [Work executiuon audit](work-execution-audit.md) for more details.
  
@@ -95,7 +95,6 @@ bonita_bpmengine_recovery_recovered_last_elements{tenant="1",} 0.0
 # HELP bonita_bpmengine_recovery_recovered_total_elements_total Total number of elements recovered
 # TYPE bonita_bpmengine_recovery_recovered_total_elements_total counter
 bonita_bpmengine_recovery_recovered_total_elements_total{tenant="1",} 39768.0
-bonita_bpmengine_work_pending_works{tenant="1",} 0.0
 # HELP bonita_bpmengine_recovery_execution_executions_total Number of recovery executed
 # TYPE bonita_bpmengine_recovery_execution_executions_total counter
 bonita_bpmengine_recovery_execution_executions_total{tenant="1",} 818.0
