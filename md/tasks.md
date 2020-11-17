@@ -54,7 +54,7 @@ This feature is available with the Enterprise or the Performance edition.
 5. Correct the reason for the error e.g. Connector parameters.
 6. Click _**More**_.
 7. Click _**Replay**_.
-8. In the popup window **Replay task **, tick the task which failed.
+8. In the popup window **Replay task**, tick the task which failed.
 9. Click _**Replay**_.
 
 Note: You will need to fix any parameter causing the failure, **BEFORE** clicking on Replay.
