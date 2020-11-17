@@ -41,7 +41,12 @@ With the autocomplete widget you have a returned value that different from the d
 
 ### Runtime changes
 
-### Fault tolerance mechanisms
+#### Micrometer updated to 1.6.0
+This version of micrometer adds new metrics. Notably two new hibernate metrics: `hibernate.cache.query.plan` respectively `hit` & `miss`, to help troubleshoot performance problems.
+How to activate this metrics is documented [here](runtime-monitoring.md).
+
+
+#### Fault tolerance mechanisms
 
 It was already possible to ensure the high availability using a [clustered architecture](overview-of-bonita-bpm-in-a-cluster.md), 
 Bonita Platform is now even more tolerant to incident like database outage thanks to the brand new **Recovery mechanism**.
