@@ -165,13 +165,13 @@ easily be consumed by Prometheus and then displayed by graphical tools like Graf
 To activate Prometheus endpoint in Bonita, simply edit file `./setup/platform_conf/current/platform_engine/bonita-platform-sp-custom.properties`
 and change:
   
-    # Activate publication of metrics to prometheus:
-    # com.bonitasoft.engine.plugin.monitoring.prometheus.enable=false
+    # publish metrics to Prometheus
+    # com.bonitasoft.engine.plugin.monitoring.publisher.prometheus.enable=false
 
 to
 
-    # Activate publication of metrics to prometheus:
-    com.bonitasoft.engine.plugin.monitoring.prometheus.enable=true
+    # publish metrics to Prometheus
+    com.bonitasoft.engine.plugin.monitoring.publisher.prometheus.enable=true
 
 Then [push your configuration changes](BonitaBPM_platform_setup.md#update_platform_conf) to database:
 ```bash
