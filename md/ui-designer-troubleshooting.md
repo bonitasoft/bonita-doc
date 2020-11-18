@@ -148,11 +148,11 @@ SmartFragment (the fragment directory)
 
 In the case of a missing file, there are several ways to fix this error:
 
-### 1- You are NOT using Git
+### 1. You are NOT using Git
 * Option A: You have a backup of your repository and you can add the missing file in your repository again.
 * Option B: If it's default widget, you can find the file in your local studio workspace and add it to your repository.
 
-### 2- You ARE using Git
+### 2. You ARE using Git
 Here are some examples of common mistakes:
 * You didn't pull the correct branch, you need to do the right pull. 
 * You have a merge conflict, you need to fix that conflict. 
