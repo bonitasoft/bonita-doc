@@ -9,19 +9,21 @@ You started your Studio today, and when you try to open a form from your process
 
 Instead of the form or the home page of the UI Designer, here's what you see in Chrome!  
 
-![UI Designer displays a 404 error page in Chrome](images/error-my-ui-designer-broken-and-returns-404-error-out-bluechrome.png)<!--{.img-responsive}-->
+![UI Designer displays a 404 error page in Chrome](images/ui-designer-troubleshooting-404-error-chrome.png)<!--{.img-responsive}-->
 
 Here's what you see Firefox, it's just a blank page!  
 
-![UI Designer displays a blank page in Firefox](images/error-my-ui-designer-broken-and-returns-404-error-out-blueff.png)<!--{.img-responsive}-->
+![UI Designer displays a blank page in Firefox](images/ui-designer-troubleshooting-ff-blank-page.png)<!--{.img-responsive}-->
+
 ## How to identify the root cause?
+
 The UI Designer has a log file that you can consult, either from the Studio Menu > Bonita UI-Designer log:  
-![Open UI Designer log from the Studio](images/error-my-ui-designer-broken-and-returns-404-error-out-blueuidlogs.png)<!--{.img-responsive}-->  
+![Open UI Designer log from the Studio](images/ui-designer-troubleshooting-uid-logs.png)<!--{.img-responsive}-->  
 Or from your file system here: `STUDIO_HOME/workspace/.metadata/.plugins/org.bonitasoft.studio.designer/.extract/logs/ui-designer.log`.  
 When reading the log file, you see this kind of error:  
 ```Could not load component, unexpected structure in the file [timelineWidget.json]```
 
-Here is the full stack trace: 
+Here is the full stack trace:  
 ```16:32:41 [localhost-startStop-1] ERROR o.s.w.c.ContextLoader - Context initialization failed  
 org.bonitasoft.web.designer.repository.exception.NotFoundException: Could not load component, unexpected structure in the file [timelineWidget.json]  
 [...] 
@@ -35,15 +37,15 @@ Wrapped by: org.springframework.beans.factory.UnsatisfiedDependencyException: Er
 
 ## Why do you have this error?
 
-Oops, some artifacts from the UI Designer got corrupted in my git repository!  
+Oops, some artifacts from the UI Designer got corrupted in your git repository!  
 
 Most of the time, and this is the case in this example, it's because of a missing file in your repository. It may be for different reasons: switch on a wrong git branch, file deleted by error, wrong commit, ...
 
-In the error above, for example, my log file says: "Could not load component, unexpected structure in the file [timelineWidget.json] ... Build error for timelineWidget.json".  
+In the error above, for example, the log file says: "Could not load component, unexpected structure in the file [timelineWidget.json] ... Build error for timelineWidget.json".  
 
-This means that the Widget timeline cannot be built correctly. In my case here, the file timelineWidget.tpl.html is missing from the folder 'web_widgets/timelineWidget' committed in my git repository.
+This means that the Widget timeline cannot be built correctly. In this case here, the file timelineWidget.tpl.html is missing from the folder 'web_widgets/timelineWidget' committed in the git repository.
 
-Depending on the type of the file missing, other error messages could be (where "customInputTest" is my widget's name):
+Depending on the type of the file missing, other error messages could be (where "customInputTest" is the widget's name):
 "Template not found for [customInputTest.tpl.html]"
 "Controller not found for [customInputTest.ctrl.js]"
 
@@ -142,15 +144,15 @@ SmartFragment (the fragment directory)
 
 ## Solution
 
-In the case of my missing file, there are several ways to fix this error:
+In the case of a missing file, there are several ways to fix this error:
 
-### 1- I am NOT using Git
-* Option A: I have a backup of my repository and I can add the missing file in my repository again.
-* Option B: If it's default widget, I can find the file in my local studio workspace and add it to my repository.
+### 1- You are NOT using Git
+* Option A: You have a backup of your repository and you can add the missing file in your repository again.
+* Option B: If it's default widget, you can find the file in your local studio workspace and add it to your repository.
 
-### 2- I am using Git
+### 2- You ARE using Git
 Here are some examples of common mistakes:
-* I didn't pull the correct branch
-* I have a merge conflict
+* You didn't pull the correct branch, you need to do the right pull. 
+* You have a merge conflict, you need to fix that conflict. 
 * Somebody removed a file by error
-    * Retrieve the file from a previous commit
+    * You can retrieve the file from a previous commit.
