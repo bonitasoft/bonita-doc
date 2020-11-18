@@ -130,16 +130,18 @@ SmartFragment (the fragment directory)
     * No error, file is re-generated
 
 #### Fragment
-* Fragment is missing (same error for all versions)
+* Entire fragment folder is missing
+    * Same error for all versions  
         ```
         NotFoundException: File not found: [SmartFragment.json]
-        ```
-* Fragment json file missing (same error for all versions)
+        ```    
+* Fragment json file missing
+    * Same error for all versions
         ```
         NotFoundException: File not found: [SmartFragment.json]
-        ```
+        ```    
 * Fragment js file missing
-    * No error, file is re-generated
+    * No error, file is automatically re-generated
  
 
 ## Solution
