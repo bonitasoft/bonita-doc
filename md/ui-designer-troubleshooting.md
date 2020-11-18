@@ -9,16 +9,16 @@ You started your Studio today, and when you try to open a form from your process
 
 Instead of the form or the home page of the UI Designer, here's what you see in Chrome!  
 
-![UI Designer displays a 404 error page in Chrome](images/ui-designer-troubleshooting-404-error-chrome.png)<!--{.img-responsive}-->
+![UI Designer displays a 404 error page in Chrome](images/ui-designer-troubleshooting/404-error-chrome.png)<!--{.img-responsive}-->
 
 Here's what you see Firefox, it's just a blank page!  
 
-![UI Designer displays a blank page in Firefox](images/ui-designer-troubleshooting-ff-blank-page.png)<!--{.img-responsive}-->
+![UI Designer displays a blank page in Firefox](images/ui-designer-troubleshooting/ff-blank-page.png)<!--{.img-responsive}-->
 
 ## How to identify the root cause?
 
 The UI Designer has a log file that you can consult, either from the Studio Menu > Bonita UI-Designer log:  
-![Open UI Designer log from the Studio](images/ui-designer-troubleshooting-uid-logs.png)<!--{.img-responsive}-->  
+![Open UI Designer log from the Studio](images/ui-designer-troubleshooting/uid-logs.png)<!--{.img-responsive}-->  
 Or from your file system here: `STUDIO_HOME/workspace/.metadata/.plugins/org.bonitasoft.studio.designer/.extract/logs/ui-designer.log`.  
 When reading the log file, you see this kind of error:  
 ```Could not load component, unexpected structure in the file [timelineWidget.json]```
