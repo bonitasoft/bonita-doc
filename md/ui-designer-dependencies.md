@@ -7,7 +7,7 @@ List all dependencies uses for Bonita UI-Designer
 
  | name | version | license | 
  | --- | --- | --- | 
-@bonitasoft/query-selector | 1.0.8 | LicenseRef-LICENSE
+ | @bonitasoft/query-selector | 1.0.8 | LicenseRef-LICENSE
 ace-builds | 1.1.9 | BSD, MIT*
 angular | 1.3.11 | MIT
 angular | 1.3.18 | MIT
@@ -58,7 +58,7 @@ stomp-websocket | 2.3.4 | Apache-2.0 |
 
  | groupId | artifactId | version | type | licences | 
  | --- | --- | --- | --- | --- | 
-ch.qos.logback | logback-classic | 1.2.3 | jar | Eclipse Public License - v 1.0 ,GNU Lesser General Public License
+ | ch.qos.logback | logback-classic | 1.2.3 | jar | Eclipse Public License - v 1.0 ,GNU Lesser General Public License
 com.bonitasoft.manager | manager | 1.16.1 | - | 
 com.fasterxml.jackson.core | jackson-databind | 2.9.8 | - | 
 com.fasterxml.jackson.datatype | jackson-datatype-joda | 2.9.8 | jar | The Apache Software License, Version 2.0
@@ -73,8 +73,8 @@ org.apache.commons | commons-lang3 | 3.3.2 | - |
 org.apache.maven | maven-artifact | 3.3.3 | jar | Apache License, Version 2.0
 org.aspectj | aspectjrt | 1.8.5 | jar | Eclipse Public License - v 1.0
 org.aspectj | aspectjweaver | 1.8.5 | jar | Eclipse Public License - v 1.0
-org.bonitasoft.web | ui-designer-backend-contract | 1.11.0-SNAPSHOT | - | 
-org.bonitasoft.web | ui-designer-backend-webapp | 1.11.0-SNAPSHOT | classes | 
+org.bonitasoft.web | ui-designer-backend-contract | 1.11.58 | - | 
+org.bonitasoft.web | ui-designer-backend-webapp | 1.11.58 | classes | 
 org.codehaus.janino | janino | 2.7.8 | jar | New BSD License
 org.eclipse.jdt | ecj | 3.14.0 | - | 
 org.eclipse.jetty | jetty-client | 9.4.14.v20181114 | - | 
