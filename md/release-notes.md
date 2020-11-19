@@ -4,6 +4,13 @@
 **Note:** The 7.12 is currently work-in-progress (WIP). The 7.12.0 GA is planned for December 2020.
 :::
 
+## Reinforcing our Open Source DNA
+Bonita has always a highly open-source project and we strongly that it is the best to create a great and extensible platform. 
+
+In 7.12, we've decided to provide the Community edition with all the tools to create state of the art and successful automation projects.
+
+More information [here](https://www.bonitasoft.com/Offering)
+
 ## New values added
 ### Development suite multi-maintenance version support
 For a given minor version of the development suite (Studio and UI designer), you can now seamlessly work on projects that have a different maintenance version (but the same minor version).
@@ -84,9 +91,13 @@ In the Community edition, XPDL and jBPM importers have been removed.
 In Enterprise edition, Visio and Aris importers have been removed.  
 Use BPMN 2 importer for model exchange with third-party editors.
 
+## Translations
+Please note that Bonita 7.12.0 is not fully translated in Japanese. 
+Translations will be added in the next maintenance versions.
 
 ## Bug fixes
 
 ### Fixes in Bonita 7.12.0 (2020-12-04)
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
 * STUDIO-3630 - More log messages are needed to debug the SAP Connector
+* STUDIO-3694 - User password is not retrieved from the active organization when logging in Portal/App
