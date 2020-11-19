@@ -4,6 +4,13 @@
 **Note:** The 7.12 is currently work-in-progress (WIP). The 7.12.0 GA is planned for December 2020.
 :::
 
+## Reinforcing our Open Source DNA
+Bonita has always a highly open-source project and we strongly that it is the best to create a great and extensible platform. 
+
+In 7.12, we've decide to provide the community edition all the tools to create state of the art and successful automation projects.
+
+More information here
+
 ## New values added
 ### Development suite multi-maintenance version support
 For a given minor version of the development suite (Studio and UI designer), you can now seamlessly work on projects that have a different maintenance version (but the same minor version).
