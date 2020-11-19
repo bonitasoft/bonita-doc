@@ -74,9 +74,9 @@ bonita.tenant.recover.delay_between_recovery=PT30M
 
 ### Monitoring
 
-It exists two ways to monitor the recovery mechanism : 
+There are two ways to monitor the recovery mechanism : 
   * `bonita.xxx.log` file
-  * Metrics Prometheus published   
+  * Metrics
 
 #### Log File 
 
@@ -87,21 +87,12 @@ The recovery mechanism produce `INFO` and`DEBUG` logs each time the recovery is 
  INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Start detecting flow nodes to restart...
  INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Recovery of elements executed, 12006 elements recovered.
  INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Restarting elements...Handled 1000 of 12006 elements candidates to be recovered in PT0.025S
- INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Restarting elements...Handled 2000 of 12006 elements candidates to be recovered in PT0.075S
- INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Restarting elements...Handled 3000 of 12006 elements candidates to be recovered in PT0.113S
- INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Restarting elements...Handled 4000 of 12006 elements candidates to be recovered in PT0.151S
- INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Restarting elements...Handled 5000 of 12006 elements candidates to be recovered in PT0.188S
- INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Restarting elements...Handled 6000 of 12006 elements candidates to be recovered in PT0.223S
- INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Restarting elements...Handled 7000 of 12006 elements candidates to be recovered in PT0.259S
- INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Restarting elements...Handled 8000 of 12006 elements candidates to be recovered in PT0.3S
- INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Restarting elements...Handled 9000 of 12006 elements candidates to be recovered in PT0.335S
- INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Restarting elements...Handled 10000 of 12006 elements candidates to be recovered in PT0.374S
- INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Restarting elements...Handled 11000 of 12006 elements candidates to be recovered in PT0.414S
+[...]
  INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Restarting elements...Handled 12000 of 12006 elements candidates to be recovered in PT0.452S
  INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Recovery of elements executed, 12006 elements recovered.
 ```
 
-#### Metrics Prometheus published  
+#### Metrics
 
 New metrics are available to monitor when the recovery runs and how many elements it recovers. It can help to identify 
 period of times when there are incidents like database outage.
