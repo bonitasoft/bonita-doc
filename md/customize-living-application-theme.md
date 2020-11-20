@@ -68,10 +68,11 @@ To compile the scss it relies on [Node](https://nodejs.org/en/) and [NPM](https:
     "build": "node-sass --precision 8 --output-style compressed --omit-source-map-url true --include-path ./node_modules/bootstrap-sass/assets/stylesheets/ src/scss/main.scss target/theme.noprefix.css && postcss target/theme.noprefix.css --no-map --use autoprefixer -b \"last 2 versions\" -o dist/theme.css"
   },
   "devDependencies": {
-    "node-sass": "4.11.0",
-    "postcss-cli": "6.1.2",
-    "autoprefixer": "9.5.0",
-    "bootstrap-sass": "3.3.7" //Supported version of Bootstrap in Bonita
+    "autoprefixer": "10.0.1",
+    "bootstrap-sass": "3.4.1", //Supported version of Bootstrap in Bonita
+    "node-sass": "4.14.1",
+    "postcss-cli": "8.0.0",
+    "postcss": "8.1.1" 
   }
 }
 ```
@@ -95,8 +96,8 @@ The maven descriptor is responsible for running the npm build and package the re
 	<description>My custom theme description</description>
 
 	<properties>
-		<node.version>v10.15.3</node.version>
-		<npm.version>6.9.0</npm.version>
+		<node.version>v12.18.4</node.version>
+		<npm.version>6.14.6</npm.version>
 	</properties>
 
 	<build>
@@ -105,16 +106,35 @@ The maven descriptor is responsible for running the npm build and package the re
 				<plugin>
 					<groupId>com.github.eirslett</groupId>
 					<artifactId>frontend-maven-plugin</artifactId>
-					<version>1.7.5</version>
+					<version>1.10.2</version>
 					<configuration>
 						<installDirectory>${session.executionRootDirectory}</installDirectory>
 						<nodeVersion>${node.version}</nodeVersion>
 						<npmVersion>${npm.version}</npmVersion>
 					</configuration>
 				</plugin>
+				<plugin>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>3.1.0</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>node</directory>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+						<fileset>
+							<directory>node_modules</directory>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
 				<artifactId>frontend-maven-plugin</artifactId>
