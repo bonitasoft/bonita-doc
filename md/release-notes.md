@@ -90,6 +90,9 @@ In the Community edition, XPDL and jBPM importers have been removed.
 In Enterprise edition, Visio and Aris importers have been removed.  
 Use BPMN 2 importer for model exchange with third-party editors.
 
+## Translations
+Please note that Bonita 7.12.0 is not fully translated in Japanese. 
+Translations will be added in the next maintenance versions.
 
 ## Bug fixes
 
