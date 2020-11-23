@@ -38,7 +38,7 @@ bonita.tenant.work.retry.factor=2
 ```
 
 Above is the default configuration. With it, each work can be retried up to **10 times**, starting with a delay of **1 second** 
-multipled at each retry **by 2**.
+multiplied at each retry **by 2**.
 
 ### Monitoring
 
@@ -73,6 +73,26 @@ bonita.tenant.recover.delay_between_recovery=PT30M
 ```
 
 ### Monitoring
+
+There are two ways to monitor the recovery mechanism : 
+  * `bonita.xxx.log` file
+  * Metrics
+
+#### Log File 
+
+The recovery mechanism produce `INFO` and`DEBUG` logs each time the recovery is trigger, it's looks like :
+
+ 
+```
+ INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Start detecting flow nodes to restart...
+ INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Recovery of elements executed, 12006 elements recovered.
+ INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Restarting elements...Handled 1000 of 12006 elements candidates to be recovered in PT0.025S
+[...]
+ INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Restarting elements...Handled 12000 of 12006 elements candidates to be recovered in PT0.452S
+ INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Recovery of elements executed, 12006 elements recovered.
+```
+
+#### Metrics
 
 New metrics are available to monitor when the recovery runs and how many elements it recovers. It can help to identify 
 period of times when there are incidents like database outage.
