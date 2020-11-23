@@ -224,6 +224,13 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 
 ## Bug fixes
 
+### Fixes in Bonita 7.11.4 (2020-12-??)
+
+#### Fixes in Bonita Development Suite (Studio and UI Designer)
+
+* STUDIO-3706 REST Connector fails to parse response not encoded with the default jvm charset: The REST connector now search for the charset to use in the response Content-Type header. If no Content-Type header is found, it uses `ISO-8859-1` as default charset. It is possible to fallback to the previous behavior where JVM Default charset was used setting `-Dorg.bonitasoft.connectors.rest.response.fallbackToJVMCharset=true` system property when starting a Bonita Runtime.
+* REST Connector error management: The connector does not throw exception anymore when the status code of the request is not successful (20x). A warning is logged instead and the error management can be handled process side using the `status_code` connector output.
+
 ### Fixes in Bonita 7.11.3 (2020-11-05)
 
 #### Fixes in Bonita Runtime (including Portal)
