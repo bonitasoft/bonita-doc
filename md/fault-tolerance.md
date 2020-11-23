@@ -42,7 +42,7 @@ multiplied at each retry **by 2**.
 
 ### Monitoring
 
-The [Work executiuon audit](work-execution-audit.md) allows to be informed when the work is retried to many times.
+The [Work execution audit](work-execution-audit.md) allows to be informed when the work is retried to many times.
 
 ## Recovery mechanism
 
@@ -50,7 +50,7 @@ Starting from 7.12 version, a specific mechanism is responsible to recover from 
 
 This mechanism will periodically scan the database to retrieve elements that were not executed and re-execute them.
 
-Only elements that were **not updated during the last hour** are recovered. By default, the recovery runs every hour.
+Only elements that were **not updated during the last hour** are recovered. By default, the recovery runs every 2 hours.
 Also, in cluster environment, only one node is responsible to run the recovery at any given time.
 
 ### Configuration
@@ -62,14 +62,11 @@ Configuration for the recovery is available in the `bonita-tenant-comunity-custo
 ```properties
 
 # configuration of the recovery mechanism (how works are recreated if lost)
-# size of the page to retrieve flow node / process instances
-bonita.tenant.recover.read_batch_size=5000
-# Will only restart elements that were not updated for at least... (ISO-8601 duration format)
+# Avoid verifying elements recently modified, by default no elements updated during the last hour is considered (ISO-8601 duration format).
 bonita.tenant.recover.consider_elements_older_than=PT1H
-# Delay before the first recovery of elements (ISO-8601 duration format)
-bonita.tenant.recover.delay_before_first_recovery=PT2H
-# Duration after the end of an execution before a new one is started  (ISO-8601 duration format)
-bonita.tenant.recover.delay_between_recovery=PT30M
+# Duration after the end of the previous execution before a new one is started. By default recovery runs every 2 hours (ISO-8601 duration format)
+bonita.tenant.recover.delay_between_recovery=PT2H
+
 ```
 
 ### Monitoring
