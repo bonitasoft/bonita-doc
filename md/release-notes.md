@@ -9,7 +9,7 @@ Bonita has always a highly open-source project and we strongly that it is the be
 
 In 7.12, we've decided to provide the Community edition with all the tools to create state of the art and successful automation projects.
 
-More information here
+More information [here](https://www.bonitasoft.com/Offering)
 
 ## New values added
 ### Development suite multi-maintenance version support
