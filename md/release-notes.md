@@ -99,3 +99,4 @@ Translations will be added in the next maintenance versions.
 ### Fixes in Bonita 7.12.0 (2020-12-04)
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
 * STUDIO-3630 - More log messages are needed to debug the SAP Connector
+* STUDIO-3694 - User password is not retrieved from the active organization when logging in Portal/App
