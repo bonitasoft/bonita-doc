@@ -224,6 +224,31 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 
 ## Bug fixes
 
+### Fixes in Bonita 7.11.4 (2020-11-26)
+
+#### Fixes in Bonita Runtime (including Portal)
+
+* BS-19550	Cannot install 7.8.4 bdm.zip containing "index" named attributes in version 7.11.x will cause to redesign entire BDM and processes
+* BS-19520	Reserved keyword "index" is not forbidden in the Studio and result in BDM update failure in MySQL
+* BS-19454	Export Organization vs Pagination: Missing ORDER BY may cause issues
+* BR-565	Too many logs when locale is not supported and unnecessary INFO log level
+
+#### Fixes in Bonita Development Suite (Studio and UI Designer)
+
+* STUDIO-3712	[MacOS Big Sur] Search fields on table using StyledString doesn't redraw elements correctly when search is applied
+* STUDIO-3710	[MacOS Big Sur] Connector definitions table isn't refreshed properly when switching category
+* STUDIO-3707	[MacOS Big Sur] Organisation user tab folders are note usable
+* STUDIO-3706	REST Connector fails to parse response not encoded with the default jvm charset
+* STUDIO-3705	[MacOS Big Sur] Selected line is invisible
+* STUDIO-3699	Open welcome page "breaks" the view when properties view are active
+* STUDIO-3696	Organization import fails with java.lang.NullPointerException
+* UID-366	DatePicker and DateTimePicker should disable autocomplete
+* UID-347	fileUpload widget: successful upload doesn't reset 'Error on upload holder'
+* UID-346	Some sentence in Upload widget isn't translate
+* UID-342	Cache busting doesn't work on .js files in fragment
+* UID-335	Deleting middle item in collection causes loss of selected data in following items when a select widget is used
+* UID-332	In help popup, some sentence is not translated
+
 ### Fixes in Bonita 7.11.3 (2020-11-05)
 
 #### Fixes in Bonita Runtime (including Portal)
