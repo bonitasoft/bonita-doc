@@ -6,8 +6,8 @@ An event handler is an extension to the engine that is configured to run when a 
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
-Event handlers can help in adding new features to the Platform. You can use it to call your own services when specific events
-happens like a case starts, or a user submit a task.
+Event handlers can help in adding new features to the Platform. You can use them to call your own services when specific events
+happen like when a case starts, or when a user submits a task.
 
 An event is a change to any object in the database (user, activity, processDefinition,... ).
 You can create an event handler to track any change to any object in the database and take the appropriate action. For example:
@@ -25,7 +25,7 @@ it in the same thread and same transaction that the one executing the element.
 
 It means that:
 * Events handlers should never block, i.e. no network call, no I/O on the filesystem.
-* Events handlers should never throw exception, if it does, the related element execution will fail.
+* Events handlers should never throw exception, if it does, the related element execution will fail, meaning that the transaction is rolled back and the task (for instance) goes to the failed state, which is generally NOT what one wants.
 
 ::: warning
 In a cluster environment, Event handlers must be Serializable (implements Serializable and have all its fields serializable or transient) because they are shared with other nodes of the cluster.
