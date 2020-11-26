@@ -31,7 +31,7 @@ Configuration for the retry is available in the `bonita-tenant-comunity-custom.p
 [setup tool](BonitaBPM_platform_setup.md)
 
 ```properties
-# Retry mechanism: retry work when they fails because of an error that is transient
+# Retry mechanism: retry the works when they fail because of an error that is transient
 # maximum number of times a work will be retried before setting it as failed
 bonita.tenant.work.maxRetry=10
 # delay in millis before retrying the work
@@ -129,7 +129,3 @@ bonita_bpmengine_recovery_recovered_total_elements_total{tenant="1",} 39768.0
 # TYPE bonita_bpmengine_recovery_execution_executions_total counter
 bonita_bpmengine_recovery_execution_executions_total{tenant="1",} 818.0
 ```
-
-
-### Troubleshooting
-
