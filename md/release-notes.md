@@ -57,7 +57,8 @@ See [Fault tolerance mechanisms](fault-tolerance.md) documentation page for more
 The redirect parameter is now optional when logging in to the REST API using `/bonita/loginservice` as well as when logging out using `/bonita/logoutservice`.  
 This means it is no longer needed to put redirect=false in the request to log in/out using the API.
 However, previous login requests with a redirect URL will continue working as the redirect parameter is optional.  
-If you use a customized login page to log in to Bonita portal UI **and** your page don't send any `redirectURL=<targetBonitaURL>` parameter to the login service, then you need to make sure your page send a parameter `redirect=true` in the request to the login service. same thing if you have a logout link in a custom page that does not pass a `loginUrl` or a `redirectUrl` parameter.  
+If you use a customized login page to log in to Bonita portal UI **and** your page don't send any `redirectURL=<targetBonitaURL>` parameter to the login service, **then** you need to make sure your page send a parameter `redirect=true` in the request to the login service.
+Same thing if you have a logout link in a custom page that does not pass a `loginUrl` or a `redirectUrl` parameter.  
 If you use Bonita layout version 5 or a customized version of it in your applications, make sure you upgrade to version 6 when migrating. Otherwise, the logout button will not redirect to the login page when clicked.
 
 #### Search keys
