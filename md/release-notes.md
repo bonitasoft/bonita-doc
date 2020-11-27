@@ -5,7 +5,7 @@
 :::
 
 ## Reinforcing our Open Source DNA
-Bonita has always a highly open-source project and we strongly that it is the best to create a great and extensible platform. 
+Bonita has always been a highly open-source project, and we strongly think that it is the best to create a great and extensible platform. 
 
 In 7.12, we've decided to provide the Community edition with all the tools to create state of the art and successful automation projects.
 
@@ -69,7 +69,8 @@ See [Fault tolerance mechanisms](fault-tolerance.md) documentation page for more
 The redirect parameter is now optional when logging in to the REST API using `/bonita/loginservice` as well as when logging out using `/bonita/logoutservice`.  
 This means it is no longer needed to put redirect=false in the request to log in/out using the API.
 However, previous login requests with a redirect URL will continue working as the redirect parameter is optional.  
-If you use a customized login page to log in to Bonita portal UI and don't specify any redirect URL (`redirectUrl` parameter), then you need to make sure it passes a parameter `redirect=true` to the login service. same thing if you have a logout link in a custom page that does not pass a `loginUrl` or a `redirectUrl` parameter.  
+If you use a customized login page to log in to Bonita portal UI **and** your page don't send any `redirectURL=<targetBonitaURL>` parameter to the login service, **then** you need to make sure your page send a parameter `redirect=true` in the request to the login service.
+Same thing if you have a logout link in a custom page that does not pass a `loginUrl` or a `redirectUrl` parameter.  
 If you use Bonita layout version 5 or a customized version of it in your applications, make sure you upgrade to version 6 when migrating. Otherwise, the logout button will not redirect to the login page when clicked.
 
 #### Search keys
@@ -105,7 +106,7 @@ Use BPMN 2 importer for model exchange with third-party editors.
 
 ## Translations
 Please note that Bonita 7.12.0 is not fully translated in Japanese. 
-Translations will be added in the next maintenance versions.
+Translations might be added in the next maintenance versions.
 
 ## Bug fixes
 
@@ -113,3 +114,17 @@ Translations will be added in the next maintenance versions.
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
 * STUDIO-3630 - More log messages are needed to debug the SAP Connector
 * STUDIO-3694 - User password is not retrieved from the active organization when logging in Portal/App
+
+#### Fixes in Bonita Runtime (including Portal)
+* BS-19410 - Failed Flownodes after a database server restart
+* BS-19453 - no state found after AbortedFlowNodeStateImpl for flow node of type SBoundaryEventInstance
+* BS-19455 - Performance: 10 sec SQL request on ARCH_FLOWNODE_INSTANCE with 13500000 rows
+* BS-19497 - NullPointerException is generated after replaying a call activity in a failed state
+* BS-19534 - no state found after CancelledFlowNodeStateImpl for flow node of type SBoundaryEventInstance CANCELLING
+* BS-19538 - Cancel of process instance fails because MULTI element cancelled before all children call activities are cancelled
+* BPO-643 - Not all processes get disabled when multiple ones are selected in Portal - Administration - BPM - Processes page
+* BPO-648 - Load more limitation when result is multiple of number per page
+* BPO-655 - LoginServlet redirect param should be optional and default to false
+* BPO-664 - Security risk: API/formsDocumentImage executes injected script
+* BR-454 - Sometimes CallActivity are left Completed without target process
+
