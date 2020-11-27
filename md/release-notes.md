@@ -5,7 +5,7 @@
 :::
 
 ## Reinforcing our Open Source DNA
-Bonita has always a highly open-source project and we strongly that it is the best to create a great and extensible platform. 
+Bonita has always been a highly open-source project, and we strongly think that it is the best to create a great and extensible platform. 
 
 In 7.12, we've decided to provide the Community edition with all the tools to create state of the art and successful automation projects.
 
