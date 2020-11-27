@@ -59,7 +59,6 @@ How to activate this metrics is documented [here](runtime-monitoring.md).
 
 
 #### Fault tolerance mechanisms
-
 It was already possible to ensure the high availability using a [clustered architecture](overview-of-bonita-bpm-in-a-cluster.md), 
 Bonita Platform is now even more tolerant to incident like database outage thanks to the brand new **Recovery mechanism**.
 See [Fault tolerance mechanisms](fault-tolerance.md) documentation page for more details.
@@ -69,7 +68,6 @@ You can now configure Bonita to allow Bonita Engine create user accounts in the 
 Find more information on how to configure it [here](single-sign-on-with-saml.md).
 
 #### REST API and portal login
-
 The redirect parameter is now optional when logging in to the REST API using `/bonita/loginservice` as well as when logging out using `/bonita/logoutservice`.  
 This means it is no longer needed to put redirect=false in the request to log in/out using the API.
 However, previous login requests with a redirect URL will continue working as the redirect parameter is optional.  
@@ -78,7 +76,6 @@ Same thing if you have a logout link in a custom page that does not pass a `logi
 If you use Bonita layout version 5 or a customized version of it in your applications, make sure you upgrade to version 6 when migrating. Otherwise, the logout button will not redirect to the login page when clicked.
 
 #### Search keys
-
 Search keys can be defined and used in the community edition. Take a look at the [search keys documentation](define-a-search-index.md) to learn more about it. 
 
 
@@ -96,12 +93,13 @@ Search keys can be defined and used in the community edition. Take a look at the
 Bonita Portal is being transformed into Bonita Applications. When Bonita Applications are ready, Bonita Portal will be removed. Developers and users will need to learn how to stop using the Portal and start using Bonita Applications instead. This change will allow Bonita and its users to get free from Google Web Toolkit (GWT) technology and offer opportunities for customization.
 Indeed, some Portal pages (built with GWT) are being totally recreated with our own UI Designer. They will be customizable. Other pages (those that were already using another technology than GWT) are being wrapped and will not be customizable.
 Moreover, as any Living Application, Bonita applications will be extensible to add any page the users need. More details in the upcoming versions of Bonita.
-Until then, we strongly advise not to create Custom Portal Profiles anymore but applications instead if possible. When Bonita Portal does not exist anymore, the existing Portal Custom Profiles will need to be migrated into Living applications.
+Until then, we strongly advise not to create Custom Portal Profiles anymore but applications instead. When Bonita Portal will not exist anymore, the existing Portal Custom Profiles will need to be migrated into Living applications.
 
 
 ### Removals
 #### IE11 support
 Internet Explorer 11 is not supported anymore through the Bonita Platform. 
+The web browsers supported by Bonita 7.12 are Mozilla Firefox, Google Chrome and Microsoft Edge.
 
 #### Legacy third party format importers
 In the Community edition, XPDL and jBPM importers have been removed.  
