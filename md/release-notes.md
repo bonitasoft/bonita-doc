@@ -64,6 +64,10 @@ It was already possible to ensure the high availability using a [clustered archi
 Bonita Platform is now even more tolerant to incident like database outage thanks to the brand new **Recovery mechanism**.
 See [Fault tolerance mechanisms](fault-tolerance.md) documentation page for more details.
 
+#### User creation on the fly for SSO Authenticated users  
+You can now configure Bonita to allow Bonita Engine create user accounts in the fly as soon as they have been previously authenticated in their SSO (SAML or Kerberos).
+Find more information on how to configure it [here](single-sign-on-with-saml.md).
+
 #### REST API and portal login
 
 The redirect parameter is now optional when logging in to the REST API using `/bonita/loginservice` as well as when logging out using `/bonita/logoutservice`.  
