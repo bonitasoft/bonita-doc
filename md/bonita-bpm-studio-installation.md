@@ -23,6 +23,12 @@ Both Windows and Mac have default security settings that will prevent execution 
 ::: danger
 Only version 7.7.5 and upwards are compatible
 :::
+
+**Notes for users of macOS Big Sur 11.0 and above**: 
+::: danger
+Only version 7.11.4 and upwards are compatible
+:::
+
 Only **installed JDK** are accepted by the macOS _gatekeeper_.  
 If you try to use a JDK directly downloaded, you will get this kind of error: _jdk-11.0.5 can’t be opened because it is from an unidentified developer._  
 The solution is to use an installer to install properly the JDK. The easiest way is to tape the following commands:  
