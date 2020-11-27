@@ -19,6 +19,11 @@ For example: if your Studio is in version 7.12.4. You will be able to work on 7.
 ### Simplified Expression editor
 Writing a script expression has never been easier with the reviewed expression editor. You can drag and drop variables and quickly access operators.
 
+### New Bonita Administrator Application available
+Give a try to our new *Bonita Administrator Application!* (get it from Bonita Studio Welcome page, in the Resources tile).
+Starting now, you can use it as is, but you can also customize half of the pages in UI Designer or create your own Administrator Application from a handy starting point. 
+It replicates current Administrator Portal profile except for Analytics Enterprise page. In a later version of Bonita, this application will override the current and now deprecated Administrator Portal profile. 
+
 ## Improvements
 
 ### Development suite changes
@@ -82,8 +87,16 @@ Search keys can be defined and used in the community edition. Take a look at the
 ## Feature deprecations and removals
 
 ### Deprecations
+#### Bonita Portal transformation
+Bonita Portal is being transformed into Bonita Applications. When Bonita Applications are ready, Bonita Portal will be removed. Developers and users will need to learn how to stop using the Portal and start using Bonita Applications instead. This change will allow Bonita and its users to get free from Google Web Toolkit (GWT) technology and offer opportunities for customization.
+Indeed, some Portal pages (built with GWT) are being totally recreated with our own UI Designer. They will be customizable. Other pages (those that were already using another technology than GWT) are being wrapped and will not be customizable.
+Moreover, as any Living Application, Bonita applications will be extensible to add any page the users need. More details in the upcoming versions of Bonita.
+Until then, we strongly advise not to create Custom Portal Profiles anymore but applications instead if possible. When Bonita Portal does not exist anymore, the existing Portal Custom Profiles will need to be migrated into Living applications.
+
 
 ### Removals
+#### IE11 support
+Internet Explorer 11 is not supported anymore through the Bonita Platform. 
 
 #### Legacy third party format importers
 In the Community edition, XPDL and jBPM importers have been removed.  
