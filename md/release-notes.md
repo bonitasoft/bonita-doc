@@ -60,6 +60,13 @@ How to activate this metrics is documented [here](runtime-monitoring.md).
 #### Fault tolerance mechanisms
 It was already possible to ensure the high availability using a [clustered architecture](overview-of-bonita-bpm-in-a-cluster.md), 
 Bonita Platform is now even more tolerant to incident like database outage thanks to the brand new **Recovery mechanism**.
+
+New properties added are:
+
+```properties
+bonita.tenant.recover.consider_elements_older_than
+bonita.tenant.recover.delay_between_recovery
+```
 See [Fault tolerance mechanisms](fault-tolerance.md) documentation page for more details.
 
 #### User creation on the fly for SSO Authenticated users  
