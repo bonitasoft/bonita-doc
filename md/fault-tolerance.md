@@ -27,7 +27,7 @@ See [Work execution](work-execution.md) and [Work executiuon audit](work-executi
 
 ### Configuration
 
-Configuration for the retry is available in the `bonita-tenant-comunity-custom.properties` and can be updated using the
+Configuration for the retry is available in the `bonita-tenant-community-custom.properties` and can be updated using the
 [setup tool](BonitaBPM_platform_setup.md)
 
 ```properties
@@ -56,7 +56,7 @@ Also, in cluster environment, only one node is responsible to run the recovery a
 ### Configuration
 
 
-Configuration for the recovery is available in the `bonita-tenant-comunity-custom.properties` and can be updated using the
+Configuration for the recovery is available in the `bonita-tenant-community-custom.properties` and can be updated using the
 [setup tool](BonitaBPM_platform_setup.md)
 
 ```properties
