@@ -373,9 +373,16 @@ Bonita 7.11+ supports Oracle 19c version. To migrate to Bonita 7.11+ when using 
 please follow this procedure:
 * ensure your Bonita platform is shut down
 * in a first step, run Bonita migration tool to update Bonita platform to version 7.10.5, following the procedure above
-* then upgrade your Oracle database server to the version 19c, version 7.10.x is compatible with 12c and 19c. 
+* then upgrade your Oracle database server to the version 19c, version 7.11.x is compatible with 12c and 19c. 
 * in a second step, run the migration tool again to migrate the platform to 7.11.0 or newer
 * once done, you can restart your updated Bonita platform
+
+**NB** : When upgrading the Oracle database ensure that the initialisation parameter [Compatible](https://docs.oracle.com/en/database/oracle/oracle-database/19/upgrd/what-is-oracle-database-compatibility.html#GUID-551DEA35-0A31-4D1C-A367-AFAF8906AEC8) is not set to a previous version. You can check this with the query:
+
+```
+SQL> SELECT name, value FROM v$parameter
+         WHERE name = 'compatible';
+```
 
 <a id="maintenanceVersionCompatible"/>
 
