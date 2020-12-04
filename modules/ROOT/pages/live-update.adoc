@@ -1,0 +1,85 @@
+= Live update
+
+NOTE:
+*Note:* For Performance and Efficiency editions only.
+
+
+This page explains how to update live process definition information. You need to be logged in with the Administrator profile.
+
+== Parameters
+
+[discrete]
+==== How to modify a parameter in Administrator view
+
+NOTE: In versions 7.0.x, this feature is only available for Bonita BPM Performance edition. Starting from version 7.1.0, this feature is available for Bonita BPM Performance and Efficiency editions.
+
+. Go to Process management
+. Select a process and click on the _*More...*_
+. Select Parameters on the left side menu
+. A table of parameters is displayed
+. In the *Value* column, click on the parameter value you want to edit
+. Edit the process variable
+. Click _*✔*_ button to save it
+
+== Connectors
+
+[discrete]
+==== How to edit connector implementation in Administrator view
+
+NOTE: In versions 7.0.x, this feature is only available for Bonita BPM Performance edition. Starting from version 7.1.0, this feature is available for Bonita BPM Performance and Efficiency editions.
+
+. Go to Process management
+. Select a process and click on the _*More...*_
+. Select Connectors on the left side menu
+. In the connector definitions table, in the actions column, click on the _*pencil button*_
+. Browse to a .zip file containing the new connector implementation
+. Click on _*Save*_ to import the new implementation.
+
+== Forms
+
+[discrete]
+==== How to add/edit a form or a page of a process in Administrator view
+
+NOTE: For Bonita BPM Performance and Efficiency editions.
+
+. Go to Process management
+. Select a process and click on the _*More...*_
+. Select Forms on the left side menu
+. Select Form List tab
+. In the table, in the actions column, click on the _*pencil button*_ or the _*plus sign button*_
+. Browse to a .zip file containing the new page/form
+. Click on _*Next*_ to check the permissions associated with the uploaded page/form.
+. Click on _*Confirm*_ to import the new page/form.
+
+[discrete]
+==== How to update the form/page mapping of a task, process overview or process instantiation in Administrator view
+
+NOTE: For Bonita BPM Performance and Efficiency editions.
+
+. Go to Process management
+. Select a process and click on the _*More...*_
+. Select Forms on the left side menu
+. In the table, click on the current mapping name of the task you want to update
+. Enter the name of the already uploaded page/form or a URL that will handle the task submission
+. Click _*✔*_ button to save it
+
+== Scripts
+
+[discrete]
+==== How to edit a script of a process in Administrator view
+
+NOTE: For Bonita BPM Performance and Efficiency editions.
+
+. Go to Process management
+. Select a process and click on the _*More...*_
+. Select Scripts on the left side menu
+. In the displayed tree, find the script you want to update or enter the script name in the înput field
+. Click on the _*pencil Button*_ in front of the script name
+. Edit the script in the displayed editor
+. Click on _*Save*_ to update the script contents.
+
+The Scripts section of the process more details page allows to update a _TYPE_READ_ONLY_SCRIPT_ Expression or a _TYPE_CONSTANT_ Expression when associated to a Groovy script connector
+
+WARNING:
+*:fa-exclamation-triangle: Warning:* The script dependencies are fixed, i.e. when the process is implemented the developer designed the script to use some variables and/or parameters. The live update capability cannot go against this design and only allows to change the script content. If the new script tries to use more variables, it will lead to execution errors. To change the script dependencies (data available in the script execution context), the process definition must be updated and a newer version of the process deployed.
+

@@ -1,0 +1,38 @@
+= Build Bonita BPM Community edition from the source
+:doctype: book
+
+This page explains how to build Bonita BPM Community edition from the source.
+
+All source code of Bonita BPM solution is available from the https://github.com/bonitasoft[Bonitasoft GitHub organization]. Each component of the solution has a dedicated repository (e.g. https://github.com/bonitasoft/bonita-engine[Engine repository]).
+
+= Prerequisites
+
+To build the product, you need the following:
+
+* Internet connection
+* Git
+* JDK 1.8 or above
+* Apache Maven 3.3.9 (version is mandatory)
+* NodeJS
+
+NOTE:
+We provide build script for Linux only. Therefore it is recommended to use Linux. If you don't have Linux you can either use a virtual machine or port the build script to Mac.
+
+
+////
+-
+BS-8375
+-
+////
+
+WARNING:
+Note that you can run Bonita BPM on Windows but you cannot build Bonita BPM on Windows (known limitation).
+
+
+= Building Bonita BPM
+
+In order to build Bonita BPM you need to use the script provided in https://github.com/Bonitasoft-Community/Build-Bonita-BPM[Build Bonita BPM] GitHub project. Use the branch of the project that match the version you want to build.
+
+Simply run `bash build-script-7.4.1.sh` and provide required information.
+
+A script is used because some components rely on components that are built earlier in the sequence, so the build order must be respected.
