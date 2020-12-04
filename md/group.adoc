@@ -1,0 +1,33 @@
+= Manage groups
+
+Logged on with the Administrator profile, you have rights to manage groups as follows:
+
+== How to create a group
+
+. Go to the *Organization* menu and choose *Groups*.
+. Click _*Create a group*_.
+. In the pop-up window, enter the name (required), the parent group and a description.
+. Click _*Create*_.
+
+_*NB: Bonita BPM doesn't support the '/' character in the group name field. A group name that contains a '/' may lead to unstable behaviour and may be forbidden in the future.*_
+
+== How to delete a group
+
+. Go to the *Organization* menu and choose *Groups*.
+. Check a box to select a group.
+. Click _*Delete*_.
+. In the popup window, click _*Delete*_.
+
+== How to edit a group
+
+. Go to the *Organization* menu and choose *Groups*.
+. Check a box to select a group.
+. Click _*Edit*_.
+. In the popup window, update the group information.
+. Click _*Save*_.
+
+== More information about the group
+
+. Go to the *Organization* menu and choose *Groups*.
+. Click on a group in the list of groups. A list of users and subgroups in this group is displayed.
+. In the *Direct users* list, you can click a user name to get more information about the user.

@@ -1,0 +1,54 @@
+= Manage a user
+
+Logged on with the Administrator profile, you have rights to manage users as follows.
+
+== How to create a user
+
+Reminder: do not create a user with the same login and password as the platform user or the tenant administration (also called the technical user).
+
+. In the Portal, go to the *Organization* menu and choose *Users*.
+. Click _*Create a user*_.
+. In the pop-up window, enter the login, password, first name and last name of the new user.
+. Click _*Create*_ to confirm the creation.
+. A page is displayed confirming the information about the new user.
+
+== How to edit a user
+
+. Go to the *Organization* menu and choose *Users*.
+. Click on a user.
+. Click _*More*_.
+. Click _*Edit user*_.
+. Edit the details about the user in the popup window.
+. Click _*Save*_.
+
+== How to add a membership to a user
+
+. Go to the *Organization* menu and choose *Users*.
+. Click _*More*_.
+. Click _*Add membership*_.
+. In the pop-up window, enter the group and role.
+. Click _*Add*_.
+
+== How to delete membership of a user
+
+. Go to the *Organization* menu and choose *Users*.
+. Click _*More*_.
+. In the Membership table, find the membership to be deleted and click _*Delete*_.
+. In the pop-up window, click _*Delete*_.
+
+== How to edit user rights
+
+The rights of a user are defined by mapping the user to a profile.
+
+To map a user to a profile:
+
+. Go to the *Organization* menu and choose *Profiles*.
+. Select a profile.
+. Click _*More*_.
+. In the Users mapping section, click _*Add a user*_.
+. in the popup, click the checkbox to select the user to add.
+. Click _*Add*_.
+
+The user is mapped to the profile.
+
+To see all the profiles that are mapped to a user, go to the *Organization* menu, choose *Users* and then select the user. The mapped profiles are shown in the Profile section on the right.

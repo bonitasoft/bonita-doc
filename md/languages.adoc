@@ -1,0 +1,93 @@
+= Languages
+
+== Languages available by default
+
+The following languages are officially supported:
+
+* English (US)
+* French
+* Spanish (Latin American)
+* Japanese
+
+Officially supported language means that:
+
+* Translation is performed by Bonitasoft.
+* Following Bonita BPM components are translated: Studio, UI Designer and Portal.
+
+== Select BPM Portal user interface language
+
+For the web desktop version:
+
+. Go to the top right corner and click on _*Settings*_/_*Language*_
+. Select a language from the drop-down list.
+
+For the web mobile version:
+
+. Click on the _*Tools icon*_
+. Click on _*Languages*_
+. Select a new language from the drop-down list
+
+== Add a language to Bonita BPM Portal
+
+::: info
+Instructions below assume that the language you want to add is already available in the community translation project. If translation is not available see <<Translate_BonitaB_PM_Portal,Translate Bonita BPM Portal>> for instruction about how to collaborate to a new or ongoing translation.
+:::
+
+Instructions below explain how to add a language to Bonita BPM Portal. Steps below involve using content created by Bonitasoft community and therefore not officially supported.
+
+[discrete]
+==== Download the language files
+
+. Go to http://translate.bonitasoft.org/[Bonita BPM translation project].
+. Select the language you are interested in.
+. Make sure you click on the "Toggle Hidden Files" button image:images/crowdin_toggle_hidden_files.png[Toggle hidden files button] to see already fully translated files.
+. Browse the file tree to `+${varVersion}.x/bonita-web/portal+` folder.
+. For each file in the folder: open it and in the *_File_* menu click on *_Download_*. Each `.po/.pot` file has a language indicator and a locale indicator. For example, the files for the Brazilian Portuguese language end with `pt_BR.po`.
+. For Subscription editions, you also need to get the files from `+${varVersion}.x/bonita-web-sp/portal+` folder.
+
+[discrete]
+==== Install the files and configure java
+
+. Create a new folder depending on the situation:
+ ** `[TOMCAT_HOME]/server/i18n/`
+ ** `[WILDFLY_HOME]/server/i18n/`
+ ** `[STUDIO_HOME]/workspace/tomcat/server/i18n/`
+. Copy all the `.po/.pot` files into the new folder just created.
+. Declare a new JVM property *`org.bonitasoft.i18n.folder`* and set the value to the full path to `i18n` folder:
+ ** Tomcat on Windows, edit the `[TOMCAT_HOME]\setup\tomcat-templates\setenv.bat` file: *`"-Dorg.bonitasoft.i18n.folder=C:\path_to_i18n_folder"`*
+ ** Tomcat on Linux, edit the `[TOMCAT_HOME]/setup/tomcat-templates/setenv.sh` file: *`-Dorg.bonitasoft.i18n.folder="/path_to_i18n_folder"`*
+ ** WildFly on Windows, edit the `[WILDFLY_HOME]\server\bin\standalone.conf.bat` file.
+ ** WildFly on Linux, edit the `[WILDFLY_HOME]/server/bin/standalone.conf` file.
+ ** Tomcat embedded in Bonita Studio edit the appropriate .ini file and use the following syntax: *`-Dtomcat.extra.params="-Dorg.bonitasoft.i18n.folder=C:\path\to_i18n_folder"`*
+  *** Windows 64bit: `[STUDIO_HOME]/BonitaBPMSubscription64.ini`
+  *** Linux 64bit: `[STUDIO_HOME]/BonitaBPMSubscription64-linux.ini`
+  *** etc.
+. Restart your application server (or Click on Server in the Bonita Studio menu bar, click on Restart Web Server).
+. Check that the new language is listed in Settings menu of the Bonita Portal.
+
+::: warning
+*Warning:* The `mobile_xxxx.po/.pot` files used for the language of the https://documentation.bonitasoft.com/bonita/7.4/mobile-portal[Bonita BPM Mobile Portal] may contain some keys missing translation. For the Mobile Portal to be displayed correctly in the new language, these keys must not be empty.
+
+On the other hand, some of the keys in the `mobile_xxxx.po/.pot` files are duplicates from the ones in other non-mobile `.po/.pot` files. These keys must all have the same value (whether translated or chosen to be left in English) across all the `.po/.pot` files.
+
+For example, if you are adding the German language to the Mobile portal, the "Do it" key should be equally translated (or set to "Do it", but never left empty) in the following files:
+
+* `mobile_de_DE.po`
+* `portal_de_DE.po`
+* `portal-sp_de_DE.po`
+:::
+
++++<a id="Translate_BonitaB_PM_Portal">++++++</a>+++
+
+== Translate Bonita BPM Portal
+
+First step if to go to http://translate.bonitasoft.org/[Bonita BPM translation project] hosted on Crowdin and check if the language you want to contribute to is already listed. If it's not, please request it by submitting an issue on our https://bonita.atlassian.net[community issue tracker].
+
+If the language you want to contribute to is already listed:
+
+. If you don't already have one, create a Crowdin account.
+. On the http://translate.bonitasoft.org/[Bonita BPM translation project] page click on the language you want to translate.
+. At the top of the page, click on the "Join" button.
+. Wait for us to validate your request to join the project.
+. Navigate to the Portal `.po/.pot` files (see information in the "Add a language to Bonita BPM Portal" section above).
+. Click on a file to begin the translation. You can then use the filter *missing translation* to only display the strings to be translated.

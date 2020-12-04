@@ -1,0 +1,40 @@
+= Approaches to managing organizations and actor mapping
+
+There are several possible approaches to managing the organization information required by Bonita BPM. The most appropriate approach for your organization depends on many factors, including the size and stability of your organization, the actors that are defined in the processes you are using, and whether you have a central repository for user data that is LDAP-compatible.
+
+If your organization structure is maintained in LDAP, to avoid duplication of the organization data and its maintenance, you are recommended to use the xref:ldap-synchronizer.adoc[LDAP synchronizer], which is available with the Bonita BPM Performance, Efficiency, and Teamwork editions.
+
+The next three sections describe typical approaches, two using LDAP and one maintaining the organization data manually:
+
+== Maintain organization in LDAP and map actors to groups
+
+If the groups within your organization are suitable for mapping to the actors in your processes, you can use these groups when xref:actors.adoc[mapping actors].
+
+If you are using the Bonita BPM Performance, Efficiency, or Teamwork edition, you can xref:processes.adoc[define the actor mapping in Bonita BPM Portal] after a process is deployed. +
+For the Community edition, you xref:actors.adoc[specify the actor mapping in Bonita BPM Studio], so you need to xref:organization-management-in-bonita-bpm-studio.adoc[define the groups in Bonita BPM Studio]. However, you only need to create the groups that are used in actor mappings, not your whole organization hierarchy.
+
+== Maintain organization in LDAP and map actors to roles or memberships
+
+If the groups within your organization are not suitable for mapping to actors in your processes, you can use roles or memberships when xref:actors.adoc[mapping actors]. +
+A membership is a combination of a group and a role.
+
+If you are using the Bonita BPM Performance, Efficiency, or Teamwork edition, you can xref:processes.adoc[define the actor mapping in Bonita BPM Portal] after a process is deployed. +
+For the Community edition, you xref:actors.adoc[specify the actor mapping in Bonita BPM Studio], so you need to xref:organization-management-in-bonita-bpm-studio.adoc[define the roles and memberships in Bonita BPM Studio]. However, you only need to create the roles and memberships that are used in actor mappings.
+
+In Bonita BPM Portal, xref:role.adoc[define the roles and memberships] used in the actor mappings, and xref:manage-a-user.adoc[specify the roles of the users]. User roles are specified using a membership.
+
+== Maintain organization manually
+
+For smaller organizations that do not use LDAP, or if you are using the Community edition, you can maintain your organization manually.
+Typically, you xref:organization-management-in-bonita-bpm-studio.adoc[manage an organization manually using Bonita BPM Studio], and then xref:import-export-an-organization.adoc[import it into Bonita BPM Portal]. +
+This means that the organization management and actor mapping are carried out in the same tool, from a single set of data.
+
+Alternatively, you can initialize the organization in Bonita BPM Studio with just the elements needed for actor mapping. Then export this to Bonita BPM Portal and xref:manage-a-user.adoc[manage the users in the Bonita BPM Portal].
+
+== Other considerations
+
+* If you are specifying actor mapping in Bonita BPM Studio, you do not need to duplicate the whole organization structure in Bonita BPM Studio, only the elements that are used in actor mapping. +
+However, you can choose to have the whole structure in the Studio. In this way, you can manage all the information in one place, then load it into Bonita BPM Portal using the organization export/import features.
+* It is possible to map an actor to an individual user. This is not generally recommended, but in rare cases it can be useful, typically for solving a problem or escalating an issue.
+* When deciding how to map actors for a process, you also need to take into account the xref:actor-filtering.adoc[actor filters] that are specified in the process definition.
+* If you are using the LDAP synchronizer, consider using xref:active-directory-or-ldap-authentication.adoc[LDAP authentication].

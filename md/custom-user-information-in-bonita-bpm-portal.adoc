@@ -1,0 +1,43 @@
+= Custom User Information in Bonita BPM Portal
+
+== Overview
+
+Custom User Information defined in the Organization in Bonita BPM Studio is displayed in the Bonita BPM Portal in the *More* page for a user (only accessible under the Administrator profile).
+
+The *Users with custom information* filter in Bonita BPM Studio uses this custom information to map which users can perform tasks in the Bonita BPM Portal.
+
+In Bonita BPM Portal, this custom information can only be accessed and edited by a user (Administrator profile only).
+
+NOTE: if no customer user definitions are set in Bonita BPM Studio, then no information will be displayed in the Bonita BPM Portal. However definitions can be added and modified manually and using the WEB REST API
+
+NOTE: the custom user definition cannot be modified in Bonita BPM Portal by the admin. The custom value for a user can be modified by the Administrator. +
+This gives flexibility to the admin to re-assign tasks to different users.
+
+The Organization .xml file can also be exported from Bonita BPM Portal, and modified by hand externally, then re-imported back into Bonita BPM Portal.
+The API can also modify the organization.
+
+See xref:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Information in Bonita BPM Studio]
+
+== How to view custom information for a user
+
+. Log on as a user with>Administrator rights.
+. Go to the *Organization* menu and choose *Users*.
+. Select a user in the list, by clicking on a name.
+. Click _*More*_.
+. The custom user definition and value are displayed in the zone called *Other*.
+
+== How to edit Custom information for a single user
+
+. **Log on ** as a user with _*Administrator rights*_.
+. {blank}
+ .. Go to the *Organization* menu and choose *Users*.
+. Select a user in the list, by clicking on a name.
+. Click _*More*_.
+. The custom user definition and value are displayed in the zone called *Other*.
+. Click _*Edit user*_ in the top right corner of the screen.
+. In the *Edit a user* pop-up window, click on the _*Other*_ tab.
+. Enter a value for the definition (defined in Bonita BPM Studio), which will only be added to this user.
+. Click _*Save*_. This closes the pop-up.
+. The new value for the the definition will be updated and displayed in the *Other* zone.
+
+Note that changing the value will modify the filtering and map the user to a different task.

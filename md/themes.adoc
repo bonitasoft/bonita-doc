@@ -1,0 +1,39 @@
+= Themes
+
+This page explains how to create a theme and add it to the Portal.
+
+A theme is an archive of files used to define and share CSS definitions and images for an application.
+It enables you to specify the same style for all pages and layout of an application.
+Each application can have its own theme.
+
+There are some examples of themes in the portal.
+
+A theme is xref:resource-management.adoc[exported, imported, modified, and deleted] as a resource in Bonita BPM Portal. You specify the xref:applications.adoc[theme for an application] in Bonita BPM Portal.
+
+== Theme definition
+
+A theme is imported as a zip archive containing a `page.properties` file and a `resources` folder.
+
+* The `page.properties` file contains the metadata for the theme (the name used in the URL, the display name, and a description). For example:
++
+[source,properties]
+----
+name=custompage_defaulttheme
+displayName=Default theme
+description=Application theme based on Bootstrap "Simplex" theme (see http://bootswatch.com/simplex/)
+contentType=theme
+----
+
+* The `resources` folder must contain at least an `index.html` file and a CSS file named `theme.css`. The index file must be present in the zip but is ignored, so can be empty.
+
+Any CSS, images or JavaScript files can be shared using a theme resource.
+
+Export the examples to see how to structure a theme.
+
+The default themes are based on the https://bootswatch.com/[bootswatch example], so you can easily choose another existing theme and package it to define a new theme.
+
+It is also possible to customize your own theme using http://bootstrap-live-customizer.com/[bootstrap-live-customizer] or http://getbootstrap.com/customize/[bootstrap basic customization tool].
+
+== Constraints
+
+A theme can only be associated with an application to define the style. It cannot itself be used as a simple application page.

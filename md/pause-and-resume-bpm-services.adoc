@@ -1,0 +1,33 @@
+= Pause and resume BPM services
+
+For certain maintenance tasks that require a change to database tables or to information used by several processes (for example to update the business data model), it is necessary to pause your Bonita BPM service temporarily while it is updated. This is done by pausing the tenant.
+While a tenant is paused, only the technical user has access to Bonita BPM Portal.
+
+When you pause a tenant, this has the following consequences:
+
+* Only the technical user can log in to the Portal.
+* Users who are currently logged in, including Administrator users, are automatically logged out.
+* Users who are filling in forms when the service is paused will lose any information that has not been submitted.
+* All processes are automatically paused.
+
+The following sections explain how to pause and resume service in a tenant using Bonita BPM Portal. You can also use the http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[Engine API] or the xref:rest-api-overview.adoc[Web REST API].
+
+== Pause a tenant
+
+To pause a tenant:
+
+. Log in to Bonita BPM Portal as the tenant technical user.
+. Go to *Configuration* > *BPM services*
+. Click the *_Pause_* button.
+. In the popup, click *_Pause_* to confirmation that the tenant is to be paused.
+. The tenant is immediately paused.
+
+== Resume a tenant
+
+. Log in to Bonita BPM Portal as the tenant technical user.
+. Go to *Configuration* > *BPM services*
+. Click the *_Resume_* button.
+. In the popup, click *_Resume_* to confirm that you want the tenant to resume service.
+. The tenant resumes activity.
+
+After the service is resumed, inform users that they can now log in to the Portal.
