@@ -1,7 +1,9 @@
 name: bonita
 title: Bonita
 version: 7.5
-prerelease: true
+asciidoc:
+  attributes:
+    varVersion: 7.5
 # default
 #start_page: ROOT:index.adoc
 nav:
