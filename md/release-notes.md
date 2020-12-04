@@ -4,6 +4,8 @@
 **Note:** The 7.12 is currently work-in-progress (WIP). The 7.12.0 GA is planned for December 2020.
 :::
 
+<a id="feature-transfer"/>
+
 ## Reinforcing our Open Source DNA
 Bonita has always been a highly open-source project, and we strongly think that it is the best to create a great and extensible platform. 
 
@@ -12,17 +14,26 @@ In 7.12, we've decided to provide the Community edition with all the tools to cr
 More information [here](https://www.bonitasoft.com/Offering)
 
 ## New values added
+
+<a id="maintenance-compatibility"/>
+
 ### Development suite multi-maintenance version support
-For a given minor version of the development suite (Studio and UI designer), you can now seamlessly work on projects that have a different maintenance version (but the same minor version).
+For a given minor version of the development suite (Studio and UI Designer), you can now seamlessly work on projects that have a different maintenance version (but the same minor version).
 For example: if your Studio is in version 7.12.4. You will be able to work on 7.12.2 or 7.12.5 projects without migrating the project or being blocked.
+
+<a id="simplified-script"/>
 
 ### Simplified Expression editor
 Writing a script expression has never been easier with the reviewed expression editor. You can drag and drop variables and quickly access operators.
 
+<a id="admin-app"/>
+
 ### New Bonita Administrator Application available
 Give a try to our new *Bonita Administrator Application!* (get it from Bonita Studio Welcome page, in the Resources tile).
-Starting now, you can use it as is, but you can also customize half of the pages in UI Designer or create your own Administrator Application from a handy starting point. 
-It replicates current Administrator Portal profile except for Analytics Enterprise page. In a later version of Bonita, this application will override the current and now deprecated Administrator Portal profile. 
+Starting now, you can use it as is, but you can also customize the pages that have been recreated with the UI Designer, or create your own Administrator Application from a handy starting point. 
+It replicates the current Administrator Portal profile, except for Analytics page, available in the Enterprise edition. 
+
+In a later version of Bonita, this application will replace the current and now deprecated Administrator Portal profile. 
 
 ## Improvements
 
@@ -30,7 +41,7 @@ It replicates current Administrator Portal profile except for Analytics Enterpri
 #### Warning before the migration when cloning a project
 If you are cloning a repository branch that required migration then you will be informed of the need for migration before it is actually done. This allows you to cancel the operation and change the branch if needed.
 
-#### Project Problem View and project validation
+#### Project Problem view and Project validation
 A new view is now available in the Studio to see all the project issues and warnings. It is also possible to validate a project through the contextual menu.
 
 #### Dark mode theme for the Studio
@@ -49,7 +60,7 @@ The google connector can now use JSON tokens to authenticate.
 It is now possible to create REST API Extensions in Java.
 
 #### Autocomplete Widget returned value
-With the autocomplete widget you have a returned value that different from the displayed value.
+Within the autocomplete widget, you can select a returned value different from the displayed value, opening for new use-cases.
 
 ### Runtime changes
 
@@ -57,9 +68,11 @@ With the autocomplete widget you have a returned value that different from the d
 This version of micrometer adds new metrics. Notably two new hibernate metrics: `hibernate.cache.query.plan` respectively `hit` & `miss`, to help troubleshoot performance problems.
 How to activate this metrics is documented [here](runtime-monitoring.md).
 
-#### Fault tolerance mechanisms
+<a id="fault-tolerance-mechanism"/>
+
+#### Fault tolerance mechanism
 It was already possible to ensure the high availability using a [clustered architecture](overview-of-bonita-bpm-in-a-cluster.md), 
-Bonita Platform is now even more tolerant to incident like database outage thanks to the brand new **Recovery mechanism**.
+Bonita Platform is now even more tolerant to incidents like database outages thanks to the brand new **Recovery mechanism**.
 
 New properties added are:
 
@@ -69,8 +82,10 @@ bonita.tenant.recover.delay_between_recovery
 ```
 See [Fault tolerance mechanisms](fault-tolerance.md) documentation page for more details.
 
+<a id="SSO-create-users"/>
+
 #### User creation on the fly for SSO Authenticated users  
-You can now configure Bonita to allow Bonita Engine create user accounts in the fly as soon as they have been previously authenticated in their SSO (SAML or Kerberos).
+You can now configure Bonita to allow Bonita Engine to create user accounts on the fly as soon as they have been previously authenticated in their SSO (SAML or Kerberos).
 Find more information on how to configure it [here](single-sign-on-with-saml.md).
 
 #### REST API and portal login
@@ -82,7 +97,8 @@ Same thing if you have a logout link in a custom page that does not pass a `logi
 If you use Bonita layout version 5 or a customized version of it in your applications, make sure you upgrade to version 6 when migrating. Otherwise, the logout button will not redirect to the login page when clicked.
 
 #### Search keys
-Search keys can be defined and used in the community edition. Take a look at the [search keys documentation](define-a-search-index.md) to learn more about it. 
+As part of the reinforcement of our Open Source DNA, Search keys can now be defined and used in the Community edition.  
+Take a look at the [search keys documentation](define-a-search-index.md) to learn more about it. 
 
 
 ## Bundle changes
