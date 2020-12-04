@@ -113,7 +113,7 @@ If your repository is under version control and you rename an artifact, you coul
 
 ---
 
-## [troubleshooting-icon] Troubleshooting
+## ![troubleshooting-icon](images/troubleshooting.png) Troubleshooting
 
 
 ### My UI Designer is broken and return a 404 error or a blank page
