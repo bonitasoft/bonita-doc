@@ -4332,7 +4332,7 @@ node.
   "connectorId":"the connector id (string)",
   "id":"the identifier (long) of the connector instance",
   "name":"the name (string) of the connector",
-  "activationEvent":"the name (string) of hte event that activsted the connector instance",
+  "activationEvent":"the name (string) of the event that activsted the connector instance",
   "state":"the state (string) of the connector",
   "archivedDate": "the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this connecctor instance was archived, for example '2014-10-17 16:05:42.626'",
   "containerId":"the identifier (long) of the containing activity instance",
