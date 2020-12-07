@@ -75,7 +75,10 @@ bonita.tenant.recover.consider_elements_older_than=PT1H
 bonita.tenant.recover.delay_between_recovery=PT2H
 ```
 
-`bonita.tenant.recover.delay_between_recovery` is also the delay before the first recovery after the startup.
+`bonita.tenant.recover.delay_between_recovery` is the time we wait before verifying if some elements should be recovered. e.g. if that is set to 2 hours,
+we verify it for the first time 2 hours after the startup and then, every 2 hours.
+
+
 
 ### Monitoring
 
