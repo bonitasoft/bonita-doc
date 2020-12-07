@@ -23,12 +23,16 @@ A task connector _in_ is executed before the task executes. This means it can be
 To add a connector to a pool or task:
 
 1. Select the pool or task.
-2. Go to the **Details** panel, **Execution** tab.
-3. Go to the **Connectors in** or **Connectors out** panel, depending on whether you want to add a connector at the start or the end of the pool or task.
-4. Click **_Add_**.
-5. Choose the category.
-6. Choose the connector from the list.
-7. Follow the wizard to configure the connector. For details, see the connector-specific documentation pages.
+1. Go to the **Details** panel, **Execution** tab.
+1. Go to the **Connectors in** or **Connectors out** panel, depending on whether you want to add a connector at the start or the end of the pool or task.
+1. Click **_Add_**.
+1. Choose the category.
+1. Choose the connector from the list.
+1. On the next page, you can choose what action to take in case of connector execution failure:
+    * When you choose FAIL, in case of error, the task the connector is on is put in FAILED state, and the process instance stops its execution
+    * When you choose IGNORE, in case of error, the task the connector is on is completed normally, and the process instance continues its execution
+    * When you choose THROW ERROR, in case of error, the task the connector is on is ABORTED and an Error Event is thrown with the error message you specify
+1. Follow the wizard to configure the connector. For details, see the connector-specific documentation pages.
 
 ## Connectors and forms
 
