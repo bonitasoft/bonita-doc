@@ -34,7 +34,7 @@ The database is at the heart of your application. It is where all entreprise dat
 In Bonita, connectors enable connections to your local information system or online services. The authentication credentials used for these connections are of great value to the business and as a result, they need to be protected. It is highly recommended to choose strong, random and long passwords, as explained above, to makes it difficult or even improbable for one to guess the password. 
 
 #### Limit the usage of Bonita REST API
-If you want to restrict the authorization granted to the default profiles, it's is highly recommended to activate the Dynamic authorization checking on the bonita REST APIs access (See [REST API Authorization](rest-api-authorization.md)). 
+If you want to restrict the authorization granted to the default profiles, it is highly recommended to activate the Dynamic authorization checking on the bonita REST APIs access (See [REST API Authorization](rest-api-authorization.md)). 
 To do so: 
 1. Use the setup tool to get the current configuration of Bonita Platform from the database: `setup.sh pull` (See [Setup tool](BonitaBPM_platform_setup.md))
 2. Edit the file: `/setup/platform_conf/current/tenant_template_portal/security-config.properties`
