@@ -3,4 +3,38 @@
 
 Welcome to the Bonita BPM documentation website.
 
-Click on the *links* below to find useful information quickly, or xref:taxonomy.adoc[browse the whole content tree], or use the *table of contents* to go straight to the information you want to read.+++<div class="col-md-4">++++++<div class="panel panel-default">+++Highlights+++<div class="panel-body">+++* [Release notes $\{varVersion}](release-notes.md)+++</div>++++++</div>++++++</div>++++++<div class="col-md-4">++++++<div class="panel panel-default">+++Getting started+++<div class="panel-body">+++* [Getting started tutorial](getting-started-tutorial.adoc])+++</div>++++++</div>++++++</div>++++++<div class="col-md-4">++++++<div class="panel panel-default">+++Resources+++<div class="panel-body">+++* [Download Bonita BPM software](http://www.bonitasoft.com/how-we-do-it/downloads)+++</div>++++++</div>++++++</div>+++
+Click on the *links* below to find useful information quickly, or xref:../taxonomy.adoc[browse the whole content tree], or use the *table of contents* to go straight to the information you want to read.
+
+[grid=cols]
+|===
+| *Highlights* | *Getting started* | *Resources*
+
+|xref:release-notes.adoc[Release-note {varVersion}]
+|xref:getting-started-tutorial.adoc[Getting started tutorial]
+|xref:http://www.bonitasoft.com/how-we-do-it/downloads[Download Bonita BPM software]
+
+|xref:release-notes.adoc#integration-sso-saml[Integration of SSO SAML 2.0]
+|xref:diagram-overview.adoc[Process diagram overview]
+|xref:http://www.bonitasoft.com/how-we-do-it/downloads[BPMN standard]
+
+|xref:release-notes.adoc#living-application-development-and-deployment[New wizard to import a process in the studio and compare the artifacts]
+|xref:key-concepts.adoc[Key concepts]
+|xref:http://www.bonitasoft.com/for-you-to-read/bpm-library/ultimate-guide-bpmn[The Ultimate Guide to BPMN2]
+
+|xref:release-notes.adoc#living-application-development-and-deployment[Industrialization of Living Application (in Studio)]
+|xref:ui-designer-overview.adoc[UI designer overview]
+|xref:http://www.bonitasoft.com/for-you-to-read/bpm-library/best-practices-continuous-integration-bonita-bpm[Best Practices for Continuous Integration with Bonita BPM]
+
+|xref:release-notes.adoc#ui-personalization[New management of date/time]
+|xref:bonita-bpm-studio-installation.adoc[Bonita BPM Studio installation]
+|xref:http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[Javadoc]
+
+
+|xref:release-notes.adoc#technology-updates[Full Java 8 support]
+|xref:tomcat-bundle.adoc[Basic Bonita BPM platform installation]
+|
+
+|xref:release-notes.adoc#technology-updates[Support of Microsoft Edge browser]
+|xref:create-your-first-project-with-the-engine-apis-and-maven.adoc[Create your first project with the Engine APIs and Maven]
+|
+|===
