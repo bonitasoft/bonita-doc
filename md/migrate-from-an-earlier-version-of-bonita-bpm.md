@@ -384,7 +384,7 @@ please follow this procedure:
 SQL> SELECT name, value FROM v$parameter
          WHERE name = 'compatible';
 ```
-
+:::
 <a id="maintenanceVersionCompatible"/>
 
 ## Migrate between maintenance versions of Bonita in Bonita 7.11+
