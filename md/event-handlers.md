@@ -31,6 +31,14 @@ It means that:
 In a cluster environment, Event handlers must be Serializable (implements Serializable and have all its fields serializable or transient) because they are shared with other nodes of the cluster.
 :::
 
+
+What can be done is:
+* Calling your own services that should be retrieved statically. e.g. pushing information to a queue on which you will poll data.
+
+What should not be done is:
+* Call Rest APIs: Network call can drastically impact Bonita platform performance.
+* Call Bonita platform Java APIs: It will not work, APIs handle the transaction and when the handler is called, we are already in transaction.
+
 ## Example: deploy an event handler
 
 This example shows an event handler that detects changes in the state of activity instances.
