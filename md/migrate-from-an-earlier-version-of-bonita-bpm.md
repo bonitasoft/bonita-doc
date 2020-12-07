@@ -377,6 +377,7 @@ please follow this procedure:
 * in a second step, run the migration tool again to migrate the platform to 7.11.0 or newer
 * once done, you can restart your updated Bonita platform
 
+::: warning
 **NB** : When upgrading the Oracle database ensure that the initialisation parameter [Compatible](https://docs.oracle.com/en/database/oracle/oracle-database/19/upgrd/what-is-oracle-database-compatibility.html#GUID-551DEA35-0A31-4D1C-A367-AFAF8906AEC8) is not set to a previous version. You can check this with the query:
 
 ```
