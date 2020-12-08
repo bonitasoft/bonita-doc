@@ -392,3 +392,18 @@ some changes have been introduced.
 
 In addition, if your application connect to the Bonita Engine using the HTTP access mode, see the [bonita-client library](configure-client-of-bonita-bpm-engine)
 documentation page.
+
+## Migration troubleshooting
+### Quartz timers are stuck after migrating to 7.10.0
+_Symptom_: When migrating to 7.10.0+ the timers on processes don't work anymore.
+
+_Cause_: A bug in the pause/resume of tenant services, fixed in 7.12.1.
+
+_Solutions_: The easier solution is to **NOT** [pause the bpm services](pause-and-resume-bpm-services.md) before migrating.
+Failing that, if the bpm services were paused before migrating or have to be paused for whatever reason, then you need to execute the following database requests after the migration completes:
+
+```
+DELETE FROM QRTZ_PAUSED_TRIGGER_GRPS;
+UPDATE QRTZ_TRIGGERS SET TRIGGER_STATE = 'WAITING' WHERE TRIGGER_STATE = 'PAUSED';
+```
+After the operation, the table QRTZ_PAUSED_TRIGGER_GRPS should be empty, and all the triggers in the QRTZ_TRIGGERS table should be in state _waiting_, and not _paused_.
