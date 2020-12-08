@@ -71,7 +71,7 @@ In Bonita 7.12, we changed the way ID's are generated when you deploy a (new ver
 Previously, the strategy to generate table ID's of BDM objects was left to Hibernate to decide. It could be a database SEQUENCE, an auto-incremented column, ...  
 Now, the specific implementation is explicitly set on each ID column during the BDM class generation. It is however different
 from one Database vendor to another (a database SEQUENCE for Oracle and PostgreSQL, an auto-incremented column for MySQL and MS SQL Server).  
-Note that no change is required from you, and upgrading to Bonita 7.12 does not affect to your already generated BDM, until you actually redeploy it (next time you update it).
+Note that no change is required from you, and upgrading to Bonita 7.12 does not affect your already generated BDM until you actually redeploy it (next time you update it).
 
 ## Bundle changes
 
