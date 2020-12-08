@@ -33,6 +33,29 @@ The database is at the heart of your application. It is where all entreprise dat
 #### Choose a strong password for your connectors
 In Bonita, connectors enable connections to your local information system or online services. The authentication credentials used for these connections are of great value to the business and as a result, they need to be protected. It is highly recommended to choose strong, random and long passwords, as explained above, to makes it difficult or even improbable for one to guess the password. 
 
+#### Limit the usage of Bonita REST API
+If you want to restrict the authorization granted to the default profiles, it is highly recommended to activate the Dynamic authorization checking on the bonita REST APIs access (See [REST API Authorization](rest-api-authorization.md)). 
+To do so: 
+1. Use the setup tool to get the current configuration of Bonita Platform from the database: `setup.sh pull` (See [Setup tool](BonitaBPM_platform_setup.md))
+2. Edit the file: `/setup/platform_conf/current/tenant_template_portal/security-config.properties`
+3. Make sure this line is set to `true`: `security.rest.api.authorizations.check.enabled true`
+4. Then edit the file: `/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/dynamic-permissions-checks-custom.properties`
+5. Uncomment all the lines to restrict the authorization access on all the Bonita REST API (lines starting with `GET`, `PUT`, `POST`...).
+i.e. to restrict the authorization on the instantiation and humanTask API, to only users that are allowed to them (meaning that they are: assigned or pending to, or processes that they deployed or that they supervised), uncomment:
+```
+GET|bpm/process/*/instantiation=[profile|Administrator, check|org.bonitasoft.permissions.ProcessInstantiationPermissionRule]
+POST|bpm/process/*/instantiation=[profile|Administrator, check|org.bonitasoft.permissions.ProcessInstantiationPermissionRule]
+```
+And:
+```
+GET|bpm/humanTask=[profile|Administrator, check|org.bonitasoft.permissions.TaskPermissionRule]
+PUT|bpm/humanTask=[profile|Administrator, check|org.bonitasoft.permissions.TaskPermissionRule]
+```
+6. Save the changes made in file  `/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/dynamic-permissions-checks-custom.properties`. 
+7. Use the setup tool to push the current configuration of Bonita Platform from the database: `setup.sh push` (See [Setup tool](BonitaBPM_platform_setup.md))
+
+For a maximum security, uncomment the entire file on production, so that the  REST API authorization are more restrictive. Then authorize the REST API access by commenting them out one by one as needed.
+
 #### Deactivate or limit the usage of Bonita Engine API
 If Bonita Engine API is of no use for your application, it is highly recommended to deactivate it in the configuration files in your deployment environment. Otherwise, its usage must be limited to administrators using a local connection or authorized IP addresses.
 
