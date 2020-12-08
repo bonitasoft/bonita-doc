@@ -51,10 +51,10 @@ The [Work execution audit](work-execution-audit.md) allows to be informed when t
 
 Starting from 7.12 version, a specific mechanism is responsible to recover from incidents like database or network outage.
 
-This mechanism will periodically scan the database to retrieve elements that were not executed and re-execute them.
+At startup, the platform restart all elements that were being executed, then the **recovery mechnism** scan **every 2 hours** 
+the database and re-execute elements that should have being executed and were **not updated during the last hour**.
 
-Only elements that were **not updated during the last hour** are recovered. By default, the recovery runs every 2 hours.
-Also, in cluster environment, only one node is responsible to run the recovery at any given time.
+In cluster environment, only one node is responsible to run the recovery at any given time.
 
 ### Configuration
 
@@ -75,8 +75,7 @@ bonita.tenant.recover.consider_elements_older_than=PT1H
 bonita.tenant.recover.delay_between_recovery=PT2H
 ```
 
-`bonita.tenant.recover.delay_between_recovery` is the time we wait before verifying if some elements should be recovered. e.g. if that is set to 2 hours,
-we verify it for the first time 2 hours after the startup and then, every 2 hours.
+`bonita.tenant.recover.delay_between_recovery` is the time between two scans of the database and also the time before the first scan after startup.
 
 
 
