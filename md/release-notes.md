@@ -1,7 +1,7 @@
 # Release notes
 
 ::: info
-**Note:** The 7.12 is currently work-in-progress (WIP). The 7.12.0 GA is planned for December 2020.
+**Note:** The 7.12 is currently work-in-progress (WIP). The 7.12.0 GA is planned for January 2021.
 :::
 
 <a id="feature-transfer"/>
@@ -100,6 +100,13 @@ If you use Bonita layout version 5 or a customized version of it in your applica
 As part of the reinforcement of our Open Source DNA, Search keys can now be defined and used in the Community edition.  
 Take a look at the [search keys documentation](define-a-search-index.md) to learn more about it. 
 
+#### BDM (Business Data Model) class generation
+
+In Bonita 7.12, we changed the way ID's are generated when you deploy a (new version of a) Business Data Model.  
+Previously, the strategy to generate table ID's of BDM objects was left to Hibernate to decide. It could be a database SEQUENCE, an auto-incremented column, ...  
+Now, the specific implementation is explicitly set on each ID column during the BDM class generation. It is however different
+from one Database vendor to another (a database SEQUENCE for Oracle and PostgreSQL, an auto-incremented column for MySQL and MS SQL Server).  
+Note that no change is required from you, and upgrading to Bonita 7.12 does not affect your already generated BDM until you actually redeploy it (next time you update it).
 
 ## Bundle changes
 
