@@ -109,8 +109,14 @@ from one Database vendor to another (a database SEQUENCE for Oracle and PostgreS
 Note that no change is required from you, and upgrading to Bonita 7.12 does not affect your already generated BDM until you actually redeploy it (next time you update it).
 
 ## Technical updates
+### Libraries
 Groovy updated to 2.4.20
 Micrometer updated to 1.6.1
+
+### Support Matrix
+Bonita now supports Red Hat Enterprise Linux (RHEL) and CentOS 8.2 version 
+
+#### Groovy updated to 2.4.20
 
 ## Feature deprecations and removals
 
@@ -155,4 +161,3 @@ Translations might be added in the next maintenance versions.
 * BPO-655 - LoginServlet redirect param should be optional and default to false
 * BPO-664 - Security risk: API/formsDocumentImage executes injected script
 * BR-454 - Sometimes CallActivity are left Completed without target process
-
