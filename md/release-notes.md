@@ -64,8 +64,8 @@ Within the autocomplete widget, you can select a returned value different from t
 
 ### Runtime changes
 
-#### Micrometer updated to 1.6.1
-This version of micrometer adds new metrics. Notably two new hibernate metrics: `hibernate.cache.query.plan` respectively `hit` & `miss`, to help troubleshoot performance problems.
+#### New Monitoring metrics available 
+Notably two new hibernate metrics: `hibernate.cache.query.plan` respectively `hit` & `miss`, to help troubleshoot performance problems.
 How to activate this metrics is documented [here](runtime-monitoring.md).
 
 <a id="fault-tolerance-mechanism"/>
@@ -108,12 +108,9 @@ Now, the specific implementation is explicitly set on each ID column during the 
 from one Database vendor to another (a database SEQUENCE for Oracle and PostgreSQL, an auto-incremented column for MySQL and MS SQL Server).  
 Note that no change is required from you, and upgrading to Bonita 7.12 does not affect your already generated BDM until you actually redeploy it (next time you update it).
 
-## Bundle changes
-
-## API Removal
-
 ## Technical updates
-#### Groovy updated to 2.4.20
+Groovy updated to 2.4.20
+Micrometer updated to 1.6.1
 
 ## Feature deprecations and removals
 
