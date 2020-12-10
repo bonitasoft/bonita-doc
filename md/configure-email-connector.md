@@ -31,7 +31,7 @@ Now that we have a fake server running, let's configure the email connector on t
 1. Enter _no-reply@acme.com_ in the **From** field
 1. Use the ![pencil icon](images/getting-started-tutorial/configure-email-connector/pencil.png) icon to edit the expression of the **To** field
 1. Set the **Expression type** to **Script**
-1. Paste the following Groovy script into the code editing zone: `BonitaUsers.getUserProfessionalContactInfo(apiAccessor,taskAssigneeId).email`
+1. Paste the following Groovy script into the code editing zone: `apiAccessor.getIdentityAPI().getUserContactData(taskAssigneeId, false).email`
 1. Click on the **OK** button
 1. Click on the **Next** button
 1. Set _You have a pending task_ as the subject
