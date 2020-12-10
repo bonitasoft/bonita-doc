@@ -488,10 +488,10 @@ Retrieve humanTask objects that match the specified filters.
 * **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available:
   * d: extend resource response parameters of [this resource](#human-task-deploy) are available.
-  * o: name, priority, dueDate, state, userId, groupId, roleId, processDefinitionId, processInstanceId, 
+  * o: name, priority, dueDate, state, processDefinitionId, processInstanceId, 
   parentActivityInstanceId, assigneeId, parentContainerId, displayName, reachedStateDate
   * s: search on any field that can be used to order results
-  * f: assigned_id, state, name, displayName, processDefinitionId, parentContainerId
+  * f: assigned_id, state, name, displayName, processDefinitionId, caseId, parentCaseId, rootCaseId
   
   For instance, you can filter on:
   * `assigned_id={user_id}`: retrieve only the human tasks assigned to the specified ID. For example, retrieve the human tasks assigned to user with id 2: `/API/bpm/humanTask?p=0&c=10&f=assigned_id%3d2`
