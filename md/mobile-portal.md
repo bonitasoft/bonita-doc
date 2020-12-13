@@ -1,6 +1,13 @@
-# Bonita Portal - Mobile version
+# Mobile User Interfaces
 
-The Bonita Portal has a mobile version thought to be used by the User profile only. It displays the User task list and the process list.
+This page gives an overview of the use of Bonita on mobile devices.  
+
+Bonita Portal has a mobile version to be used by the User profile only, available in Efficiency, Performance, and Enterprise editions.  
+It displays the process list to start a process and a task list.  
+But as [Bonita Portal will be replaced](bonita-bpm-portal-interface-overview.md) with Bonita applications in a next version, the Mobile Portal will not be supported anymore. It will be replaced by the Bonita User Application. Indeed, as Bonita applications can be adapted to four different screen sizes, the provided Bonita User Application is responsive.  
+So far, the Bonita Administrator application is mostly thought for desktop and laptop screen sizes, as we believe this is the most likely screen sizes to be used to administrate Bonita.  
+So just like Bonitasoft, you can [develop your own application](key-concepts.md) and choose the target screen sizes to optimize the content display: desktop, laptop, tablet, or mobile phone.  
+The following applies to Bonita Mobile Portal.
 
 ## Security login
 
@@ -12,7 +19,7 @@ You will need an Efficiency license (and above) to run the mobile version
 
 ## What deployment bundle do I need to access the mobile version?
 
-Bonita Subscription Pack edition
+Bonita Subscription Pack edition.
 
 ## How do I access it?
 
@@ -42,8 +49,8 @@ Display and perform tasks, create subtasks, add comments.
 
 ## Start a new case
 
-You can now start a case from the mobile version. Click **_Apps_** to see a list of the processes for which you can start a case. Click on an App to start a case.
+You can start a case from the mobile version. Click **_Apps_** to see a list of the processes for which you can start a case. Click on an App to start a case.
 
-Here some examples of the mobile user screens:
+Here are some examples of the mobile user screens:
 
 ![Mobile_interface](images/images-6_0/mobile7.x_0.login.png) ![Mobile_interface](images/images-6_0/mobile7.x_1b.tasksapps.png) ![Mobile_interface](images/images-6_0/mobile7.x_2.available.png) ![Mobile_interface](images/images-6_0/mobile7.x_3.todo.png) ![Mobile_interface](images/images-6_0/mobile7.x_4.tasks.png) ![Mobile_interface](images/images-6_0/mobile7.x_7.step1_comments.png) ![Mobile_interface](images/images-6_0/mobile7.x_8.step1_details.png) ![Mobile_interface](images/images-6_0/mobile7.x_9.step1_subtasks.png) ![Mobile_interface](images/images-6_0/mobile7.x_6.addsubtask2.png)
