@@ -116,8 +116,6 @@ Micrometer updated to 1.6.1
 ### Support Matrix
 Bonita now supports Red Hat Enterprise Linux (RHEL) and CentOS 8.2 version 
 
-#### Groovy updated to 2.4.20
-
 ## Feature deprecations and removals
 
 ### Deprecations
