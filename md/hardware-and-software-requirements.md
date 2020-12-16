@@ -23,7 +23,8 @@ Software required for Bonita Platform (Bonita Engine and Bonita Portal).
 | :--------------------------------- | ------------------------------------------------ |
 | **Operating system**               |
 | Microsoft Windows Server           | 2016 64 bits                                     |
-| Red Hat Enterprise Linux           | 7.6 64 bits                                      |
+| Red Hat Enterprise Linux           | 8.2 64 bits                                      |
+| CentOS                             | 8.2 64 bits                                      |
 | Ubuntu                             | 18.04 LTS 64 bits                                |
 | **Java Virtual Machine**           |
 | Oracle Java SE Runtime Environment | 8 or 11 (see note 1)                             |
