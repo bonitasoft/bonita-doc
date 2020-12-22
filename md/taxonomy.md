@@ -260,6 +260,7 @@
   * [Living application](_living-application.md)
     * [Bonita Layout](bonita-layout.md)
     * [Living application layout](living-application-layout.md)
+    * [Multi-language applications](multi-language-applications.md)
     * [Customize layouts](customize-layouts.md)
     * [Customize living application theme](customize-living-application-theme.md)
   * [Logs](logging.md)
