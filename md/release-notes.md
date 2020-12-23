@@ -142,25 +142,27 @@ Translations might be added in the next maintenance versions.
 
 ## Bug fixes
 
-### Fixes in Bonita 7.12.0 (2020-12-04)
+### Fixes in Bonita 2021.1 (2021-XX-XX)
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
 * STUDIO-3630 - More log messages are needed to debug the SAP Connector
 * STUDIO-3694 - User password is not retrieved from the active organization when logging in Portal/App
 
 #### Fixes in Bonita Runtime (including Portal)
+* BS-17167 Live update of connector fails after BDM redeployment
+* BS-18685 Portal's task REPLAY says failed connector will be re-executed but it is not true if task's prev_state_id=4 (ready)
 * BS-19410 - Failed Flownodes after a database server restart
 * BS-19453 - no state found after AbortedFlowNodeStateImpl for flow node of type SBoundaryEventInstance
 * BS-19455 - Performance: 10 sec SQL request on ARCH_FLOWNODE_INSTANCE with 13500000 rows
 * BS-19497 - NullPointerException is generated after replaying a call activity in a failed state
 * BS-19534 - no state found after CancelledFlowNodeStateImpl for flow node of type SBoundaryEventInstance CANCELLING
 * BS-19538 - Cancel of process instance fails because MULTI element cancelled before all children call activities are cancelled
+* BS-19543 Cannot create case because hibernate_sequence table or sequence is missing after migration to 7.11
+* BS-19551 Migration to 7.12 Failure : Database schema version [7.11] prevents setup.sh pull / push with version 7.12 and threfore start bonita fails
+* BPO-307 Process manager can assign a task and execute a task on behalf of a user which is not associated to the process in the actor mapping with our without Dynamic authorization checking
 * BPO-643 - Not all processes get disabled when multiple ones are selected in Portal - Administration - BPM - Processes page
+* BPO-645 Erroneous space at the end of property value breaks the standard authentication allowed functionality
 * BPO-648 - Load more limitation when result is multiple of number per page
 * BPO-655 - LoginServlet redirect param should be optional and default to false
+* BPO-662 Expanding/collapsing the form resets input data
 * BPO-664 - Security risk: API/formsDocumentImage executes injected script
 * BR-454 - Sometimes CallActivity are left Completed without target process
-
-### Fixes in Bonita 2021.1 (2021-XX-XX)
-#### Fixes in Bonita Development Suite (Studio and UI Designer)
-
-#### Fixes in Bonita Runtime (including Portal)
