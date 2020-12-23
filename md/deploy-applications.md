@@ -17,10 +17,10 @@ For a more technical user, there is a second way to get the applications. You ca
 For the user application, you can find it in the [user application repository](https://github.com/bonitasoft/bonita-user-application/).
 And for the admin one, you can find it in the [admin application repository](https://github.com/bonitasoft/bonita-admin-application/).
 There are two ways to get the .bos file. You can either get it from the *Releases* on the right or by cloning the repository of your choice and building it using maven.
-Building the repository will create a .bos file in the ```target``` folder. You can import this one into the Studio.
+Building the repository will create a .bos file in the ```target``` folder. You can import this one into the development environment.
 <br>Using this method is also useful if you want to get an older version of an application or if you need a weekly version that contains a bugfix.
 
-Now that you got the applications, you can deploy them into your locally running server using the Studio deployment.
+Now that you got the applications, you can deploy them into your locally running server using the development environment deployment.
 
 ## How to deploy the applications into a bundle or the cloud
 
@@ -38,4 +38,5 @@ Don't forget to check the pages that you need by opening the application descrip
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
-The second way to deploy the applications into a bundle or the cloud is to use [BCD](https://documentation.bonitasoft.com/bcd//_manage_living_application). This will let you easily deploy an app from a Studio environment into your bundle or cloud.
+The second way to deploy the applications into a bundle or the cloud is to use [BCD](https://documentation.bonitasoft.com/bcd//_manage_living_application). 
+This will let you easily deploy an app from a development environment into your bundle or cloud.
