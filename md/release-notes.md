@@ -159,3 +159,8 @@ Translations might be added in the next maintenance versions.
 * BPO-655 - LoginServlet redirect param should be optional and default to false
 * BPO-664 - Security risk: API/formsDocumentImage executes injected script
 * BR-454 - Sometimes CallActivity are left Completed without target process
+
+### Fixes in Bonita 2021.1 (2021-XX-XX)
+#### Fixes in Bonita Development Suite (Studio and UI Designer)
+
+#### Fixes in Bonita Runtime (including Portal)
