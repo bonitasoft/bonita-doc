@@ -1,0 +1,45 @@
+# Bonita User Application overview
+
+This pages describes the Bonita User Application: its value, how to access it, its difference with the _User_ profile of Bonita Portal, and its pages. 
+
+## Value
+Bonita Portal is deprecated and will be removed in a future Bonita release.  
+We believe that Bonita Applications give our users much more freedom for customization:
+  * Their menus can be customized compared to provided Portal profiles by adding or removing pages
+  * Because we are in the process of re-creating our Portal pages with the UI Designer, you will also be able to modify the pages to fit the precise users' needs.
+
+The Bonita User Application allows anyone with the _User_ profile to interact with processes, cases, and tasks.
+
+## Access
+To get the application during Development, go to the "Resources" tile of the Studio Welcome page, and click on "Import Bonita User Application".
+After validation, you can import the application and deploy it.
+
+## Differences with _User_ profile of Bonita Portal
+As we said just above, the main difference is that it is customizable.
+As for the provided pages:
+  * _Process page_ is the same than the [Portal process](user-process-list.md) page. It is made in _React_ and cannot be customized with the UI Designer yet.
+  * _Case page_ has been recreated with the UI Designer so it has a few improvements and can be customized with the UI Designer.
+  * _Task page_ is the same than the [Portal task](user-task-list.md) page. It is made in AngularJS and cannot be customized with the UI Designer yet.
+
+## The User Case page
+It has been created using our [R&D best practices](read the article), with repeatable containers.
+
+### Filtering
+
+### Search
+
+### Sorting
+
+### Each case row
+
+### Pagination
+
+Search indexes
+
+### Search by case Id
+
+### Case details
+
+### Case overview
+
+### Tasks to do/done in the case
