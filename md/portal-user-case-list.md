@@ -1,4 +1,4 @@
-# Portal cases for users
+# Case list for users in Bonita Portal
 
 This page explains what a user with the _User_ profile in Bonita Portal can see and do about cases (the process instances).
 
