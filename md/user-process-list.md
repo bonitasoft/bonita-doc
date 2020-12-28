@@ -1,4 +1,4 @@
-# Portal processes for users
+# User process list
 
 This page explains what a user with the User profile in Bonita Portal can see and do about processes.
 
