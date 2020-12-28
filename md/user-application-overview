@@ -1,45 +1,61 @@
-# Bonita User Application overview
+# Bonita User Application
 
-This pages describes the Bonita User Application: its value, how to access it, its difference with the _User_ profile of Bonita Portal, and its pages. 
+This pages describes the Bonita User Application: its values, how to access it, its difference with the _User_ profile of Bonita Portal, and the details of its features. 
 
 ## Value
 Bonita Portal is deprecated and will be removed in a future Bonita release.  
 We believe that Bonita Applications give our users much more freedom for customization:
-  * Their menus can be customized compared to provided Portal profiles by adding or removing pages
-  * Because we are in the process of re-creating our Portal pages with the UI Designer, you will also be able to modify the pages to fit the precise users' needs.
+  * Their menus can be customized compared to provided Portal profiles, by adding or removing pages, while still keeping the mapping with the profile _User_
+  * They are responsive
+  * Portal pages that have been re-created with the UI Designer have more features and/or features improvements  
+  * These pages can also be modified in the UI Designer to fit precise users' needs.
 
-The Bonita User Application allows anyone with the _User_ profile to interact with processes, cases, and tasks.
+The Bonita User Application allows anyone with the _User_ profile to interact at user level with processes, cases, and tasks.
 
-## Access
-To get the application during Development, go to the "Resources" tile of the Studio Welcome page, and click on "Import Bonita User Application".
-After validation, you can import the application and deploy it.
+## Access during Implementation
+To get the application during the project Implementation phase, go to the "Resources" tile of the **Studio Welcome page**, and click on "Import Bonita User Application".
+After validation, you can import the application, deploy it, and open it.
+
+## Access during pre-Production and Production
+### Cloud
+### On premises
 
 ## Differences with _User_ profile of Bonita Portal
-As we said just above, the main difference is that it is customizable.
-As for the provided pages:
-  * _Process page_ is the same than the [Portal process](user-process-list.md) page. It is made in _React_ and cannot be customized with the UI Designer yet.
-  * _Case page_ has been recreated with the UI Designer so it has a few improvements and can be customized with the UI Designer.
-  * _Task page_ is the same than the [Portal task](user-task-list.md) page. It is made in AngularJS and cannot be customized with the UI Designer yet.
+On top of the application values, here are the differences between application and Portal for the provided pages:
+  * _Process_ page is the same than the [Portal process](user-process-list.md) page. It is made in _React_ and cannot be customized with the UI Designer yet.
+  * _Case_ page has been recreated with the UI Designer so it has a few improvements and can be customized with the UI Designer.
+  * _Task_ page is the same than the [Portal task](user-task-list.md) page. It is made in AngularJS and cannot be customized with the UI Designer yet.
 
-## The User Case page
-It has been created using our [R&D best practices](read the article), with repeatable containers.
+## Responsiveness
+Bonita applications have been developped using the responsiveness feature of the UI Designer, as explained [in this page](create-or-modify-a-page.md).  
+Their layouts [adapt to the screen size](bonita-layout.md), and their pages display well in all of the four supported screen sizes.  
+Here is an example of the case list viewed in a mobile screen size.
+![User mobile Case list](images/UI2021.1/user-case-mobile.png)<!--{.img-responsive}-->
+This is why the Mobile Portal will has been deprecated and will soon be removed from Bonita.  
 
-### Filtering
+## Login and sign out
+Login works with the same credentials as in Bonita Portal.
+Sign out
+To sign out:
+  1. The user clicks on their name or avatar in the Application header
+  2. They cick on the , and then on the "Sign out" button 
+![Sign out](images/UI2021.1/sign-out.png)<!--{.img-responsive}-->
+  
+## Language selection
+By default, the application is displayed in the language of the browser locale.
+Five languages are provided: English, French, Spanish, Japanese, and Brazilian portuguese
+To translate Bonita applications in other languages, go to the [multi-languages pages](multi-language-pages.md) page.
+To select another language than the default one:
+  1. The user clicks on their name or avatar in the Application header
+  2. They select the language in the drow down list
+  3. They click on the "Apply" button
+  4. They close the modal window
+![Select language](images/UI2021.1/select-language.png)<!--{.img-responsive}-->
 
-### Search
-
-### Sorting
-
-### Each case row
-
-### Pagination
-
-Search indexes
-
-### Search by case Id
-
-### Case details
-
-### Case overview
-
-### Tasks to do/done in the case
+## Navigation between applications
+Users may be mapped with several profiles, opening permissions to access several applications.
+Or maybe a given profiles is mapped with several applications.
+In both cases, the user can navigate between applications they have the permissions to access:
+  1. The user clicks on the _mosaïc_ icon in the Application header
+  2. The user selects the tile of the application to navigate to
+  
