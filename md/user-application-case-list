@@ -1,0 +1,66 @@
+## The User Case page
+It has been created using our [R&D best practices](link to the article), featuring:
+  * Search by by Case Id, to access the details of a case directly
+  * Repeatable containers, to better display the case search keys
+  * "Load more" mechanism for better display performance
+  * Displayed process version in the process filter, to make a more accurate choice in case several versions of a process must be distinguished
+
+Here is a view of the User Case page
+![User Case page](images/UI2021.1/user-case-page.png)<!--{.img-responsive}-->
+
+### Cases listed
+As in the equivalent Portal page, the page displays the cases in which the loggued user has been involved:
+  * They either started the case
+  * Or they have done one or several tasks in the case
+
+### Case information
+Each case has been rendered in the form of a container with the following information:
+  * Case ID. It is clickable to navigate to case details
+  * Process name (version). The process and version that has been started to give way to this instance
+  * Started by. The initiator of the case
+  * Start date. The date and time this case has been instantiated. It is displayed in the format of the loggued user locale or chosen application language
+  
+
+### Filtering
+Open and Archived cases lists can be filtered by:
+  * process name and version, in the "All processes (All versions)" drop down list
+  * started by anyone or the loggued user. By default, the list displays the cases started by anyone. By checking the "Started by me" checkbox, the cases list is filtered by the loggued user as the initiator.  
+
+To know more about how to set an entity of the organization as the initiator of a case, go to the [actors](actors.md) page, or check the [User process list](user-process-list) page.  
+  
+### Search
+In case the number of processes is very big, the user can also search by process name. This search will then act as a filter by process name.
+The case list can also be refined with a search by [search keys](define-a-search-index.md). The user types the beginning of the search key value.  
+By default, the search is performed on the first word of the string.  
+In case the string contains several words and you would need the search to be performed on the beginning of either word, you need to activate the [word-based search](using-list-and-search-methods.md#word_based_search).  
+The search is launched automatically after a character is typed, with no need to press the Enter key.
+
+### Search by Case Id
+By entering the Id of a case and clicking the "..." button, the user gets to the [case details](#case-details) page directly.
+
+### Sorting
+Sorting options are the same as in the equivalent Portal page, except they have been brought to the top of the page instead of in the table headers.
+Here are the Portal sorting options.  
+![User Case sorting options - Portal](images/UI2021.1/user-case-sort-Portal.png)<!--{.img-responsive}-->
+
+Here are the Application sorting options.  
+![User Case sorting options - Application](images/UI2021.1/user-case-sort-App.png)<!--{.img-responsive}-->
+
+The list can be sorted by:
+  * Case Id (Ascending - Descending)
+  * Process Name (Ascending - Descending)
+  * Start Date (Newest first - Oldest first)
+
+### Pagination
+
+
+### Responsiveness
+
+
+<a id="case-details"/>
+
+### Case details
+
+### Case overview
+
+### Tasks to do/done in the case
