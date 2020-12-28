@@ -23,7 +23,7 @@ After validation, you can import the application, deploy it, and open it.
 ## Differences with _User_ profile of Bonita Portal
 On top of the application values, here are the differences between application and Portal for the provided pages:
   * _Process_ page is the same than the [Portal process](user-process-list.md) page. It is made in _React_ and cannot be customized with the UI Designer yet.
-  * _Case_ page has been recreated with the UI Designer so it has a few improvements and can be customized with the UI Designer.
+  * _Case_ page has been recreated with the UI Designer to implement some improvements. It can be customized with the UI Designer. For more details, go to the [User Case List in Bonita Application](user-application-case-list.md) page.
   * _Task_ page is the same than the [Portal task](user-task-list.md) page. It is made in AngularJS and cannot be customized with the UI Designer yet.
 
 ## Responsiveness
