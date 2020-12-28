@@ -1,6 +1,7 @@
 # User task list
 
-The user task list page provides information such as: user's tasks, tasks to do, already done tasks related to different processes.
+This page explains what a user with the User profile in Bonita Portal or in the [Bonita User Application](user-application-overview.md) can see and do about tasks.
+_Users_ can view lists of tasks to do, tasks they are assigned to, tasks thay have done related to different processes, take and release tasks, and do tasks.
 
 ## Overview
 
