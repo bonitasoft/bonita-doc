@@ -85,6 +85,11 @@ All connection numbers must be defined according to the performance tuning recom
 * Monitor number of simultaneous connections on database
 * Monitor SQL request duration time
 
+## Purge archive tables
+
+If you can afford to get rid of data of old finished process instances, use [the purge tool](purge-tool.md) to clean up unnecessary data
+that take volume in the database and that slows some queries down.
+
 ## Connectors
 
 Use the [connector time tracker](performance-tuning.md) to check connector performance. 
