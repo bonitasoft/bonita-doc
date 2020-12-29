@@ -13,10 +13,10 @@ For any of this, they need to log in. To do so:
 
   1. Enter the login page url.
     * For Bonita Portal: `http://`_`hostname:port`_`/bonita/`. The default port number is 8080\.  
-    * For Bonita User Application: `http://`_`hostname:port`_`/bonita/apps/userApp`.
+    * For Bonita User Application: `http://`_`hostname:port`_`/bonita/apps/userApp`.  
     * For Bonita Administrator Application: 
-      * For the Enterprise edition: `http://`_`hostname:port`_`/bonita/apps/adminAppSP` 
-      * For the Community edition: `http://`_`hostname:port`_`/bonita/apps/adminApp`
+      * For the Enterprise edition: `http://`_`hostname:port`_`/bonita/apps/adminAppSP`   
+      * For the Community edition: `http://`_`hostname:port`_`/bonita/apps/adminApp`  
     * For a custom application: `http://`_`hostname:port`_`/bonita/apps/yourAppName`.
 
   2. In the fields, enter the _username_, and the _password_
