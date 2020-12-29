@@ -34,28 +34,11 @@ Here is an example of the case list viewed in a mobile screen size.
 This is why the Mobile Portal will has been deprecated and will soon be removed from Bonita.  
 
 ## Login and sign out
-Login works with the same credentials as in Bonita Portal.
-Sign out
-To sign out:
-  1. The user clicks on their name or avatar in the Application header
-  2. They cick on the , and then on the "Sign out" button 
-![Sign out](images/UI2021.1/sign-out.png)<!--{.img-responsive}-->
+To know more, go to the [dedicated page](log-in-and-log-out.md).
   
 ## Language selection
-By default, the application is displayed in the language of the browser locale.
-Five languages are provided: English, French, Spanish, Japanese, and Brazilian portuguese
-To translate Bonita applications in other languages, go to the [multi-languages pages](multi-language-pages.md) page.
-To select another language than the default one:
-  1. The user clicks on their name or avatar in the Application header
-  2. They select the language in the drow down list
-  3. They click on the "Apply" button
-  4. They close the modal window
-![Select language](images/UI2021.1/select-language.png)<!--{.img-responsive}-->
+To know more, go to the [dedicated page](languages.md).
 
 ## Navigation between applications
-Users may be mapped with several profiles, opening permissions to access several applications.
-Or maybe a given profiles is mapped with several applications.
-In both cases, the user can navigate between applications they have the permissions to access:
-  1. The user clicks on the _mosaïc_ icon in the Application header
-  2. The user selects the tile of the application to navigate to
-  
+To know more, go to the [dedicated page](navigation.md).
+
