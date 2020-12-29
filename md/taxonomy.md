@@ -167,6 +167,7 @@
     * [Bonita User Interfaces overview](bonita-bpm-portal-interface-overview.md)
     * [Languages](languages.md)
     * [Log in and log out](log-in-and-log-out.md)
+    * [Navigation between User Interfaces](navigation.md)
     * [Mobile Portal](mobile-portal.md)
     * [User Interface for End-users](_ui-for-users.md)
       * [Bonita User Portal view](_user-portal.md)
