@@ -130,4 +130,5 @@ It displays:
 Is is used both in Bonita Portal and in Bonita Applications.  
 Here is an example of the case overview provided by Bonita.
 ![Case Overview](images/UI2021.1/case-overview.png)<!--{.img-responsive}-->
+
 To know more about the customization of the case overview, go to the [Case overview](uid-case-overview-tutorial.md) page.
