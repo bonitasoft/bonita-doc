@@ -54,7 +54,25 @@ The "loop" icon, at the right of the filter by initiator, allows the user to ref
 In case the number of processes is very big, the user can also search by process name. This search will then act as a filter by process name.
 
 ### Search by search keys
-The case list can also be refined with a search by [search keys](define-a-search-index.md). The user types the beginning of the search key value.  
+::: info
+This feature has been made available in the Community edition since Bonita 2021.1. It used to be only available in the Enterprise edition.
+:::
+
+#### Search keys
+
+Search keys are data attached to the process definition to distinguish between cases of the process. For example: the customer's name for a request.  
+It eases the search for a case if case Id is not what users favor when referring to a case.  
+They are instantiated through operations, mainly after the instantiation form has been submitted and the case starts.  
+They can be updated anytime during the lifetime of the case.  
+Search keys are optional and it is possible to define up to five search keys for a process.  
+All available search keys are displayed for a given case.  
+Technical note: A search key is translated by a database index in Bonita Engine.  
+To know more about how to implement search keys, go to the [search keys](define-a-search-index.md) page. 
+
+#### Search keys filter results
+
+Only cases which have been given values for their search keys during the execution of the case will be filtered.
+Search can be done on the value of a search key. In our example, not on "customer name" (the label), but on "Doe" (the value).
 By default, the search is performed on the first word of the string.  
 In case the string contains several words and you would need the search to be performed on the beginning of either word, you need to activate the [word-based search](using-list-and-search-methods.md#word_based_search).  
 The search is launched automatically after a character is typed, with no need to press the Enter key.
