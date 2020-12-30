@@ -36,14 +36,24 @@ If you select "Me", the list is refreshed and only displays the cases you have s
 ### Filter by search key
 
 ::: info
-This feature has been made available in the Community and Enterprise editions since Bonita 2021.1. It used to be only available in the Enterprise edition.
+This feature has been made available in the Community edition since Bonita 2021.1. It used to be only available in the Enterprise edition.
 :::
 
-A search key is data attached to the process definition to distinguish between cases of the process.  
+#### Search keys
+
+Search keys are data attached to the process definition to distinguish between cases of the process. For example: the customer's name for a request.  
+It eases the search for a case if case Id is not what users favor when referring to a case.  
+They are instantiated through operations, mainly after the instantiation form has been submitted and the case starts.  
+They can be updated anytime during the lifetime of the case.  
 Search keys are optional and it is possible to define up to five search keys for a process.   
-To know more about how to implement search keys, go to the [search keys](define-a-search-index.md) page.  
-By default, the task list only displays one search key, but through table configuration, it is possible to show the five columns dedicated to search keys.
-Search can be done on either the label or the value of a search key. For example, on "Geography" and on "Asia".  
+Technical note: A search key is translated by a database index in Bonita Engine.  
+To know more about how to implement search keys, go to the [search keys](define-a-search-index.md) page. 
+
+#### Search keys filter results
+
+Only cases which have been given values for their search keys during the execution of the case will be filtered.
+By default, the case list only displays one search key, but through table configuration, it is possible to show the five columns dedicated to search keys (see "table display preferences" below).
+Search can be done on the value of a search key. In our example, not on "customer name" (the label), but on "Doe" (the value).
 
 The three filters can be activated together to refine the relevance of the cases displayed.  
 
