@@ -181,7 +181,6 @@
       * [Bonita Administrator Portal view](_admin-portal.md)
          * [Process maintenance](_process-maintenance.md)
           * [Processes](processes.md)
-          * [Search keys](search-index.md) 
           * [Cases](cases.md)
           * [Tasks](tasks.md)
           * [Monitoring](monitoring.md)
