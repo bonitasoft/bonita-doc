@@ -46,14 +46,17 @@ It eases the search for a case if case Id is not what users favor when referring
 They are instantiated through operations, mainly after the instantiation form has been submitted and the case starts.  
 They can be updated anytime during the lifetime of the case.  
 Search keys are optional and it is possible to define up to five search keys for a process.   
+By default, the case list only displays one search key, but through table configuration, it is possible to show the five columns dedicated to search keys (see "table display preferences" below).  
 Technical note: A search key is translated by a database index in Bonita Engine.  
 To know more about how to implement search keys, go to the [search keys](define-a-search-index.md) page. 
 
 #### Search keys filter results
 
 Only cases which have been given values for their search keys during the execution of the case will be filtered.
-By default, the case list only displays one search key, but through table configuration, it is possible to show the five columns dedicated to search keys (see "table display preferences" below).
 Search can be done on the value of a search key. In our example, not on "customer name" (the label), but on "Doe" (the value).
+By default, the search is performed on the first word of the string.  
+In case the string contains several words and you would need the search to be performed on the beginning of either word, you need to activate the [word-based search](using-list-and-search-methods.md#word_based_search).  
+The search is launched automatically after a character is typed, with no need to press the Enter key.  
 
 The three filters can be activated together to refine the relevance of the cases displayed.  
 
