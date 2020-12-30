@@ -43,7 +43,9 @@ In Bonita Portal, this has been made possible through the concept of [custom pro
 Then, with Bonita 7.0, Living applications have given the possibility to create applications *made of custom pages*, with their own look & feel. The pages can be created with Bonita UI Designer or in another environment.  
 With Bonita 7.12 and the availability of Administrator and User applications, Living applications can be *made of Bonita pages and/or custom pages* too.
 
+To know more about how to create an application, or creat an application from a Bonita Application, go to the [Design methodology](design-methodology.md) page.
+
 ::: info
-**Note:** As Portal will be replaced by applications in next versions of Bonita, we strongly encourage you **not** to create Custom profiles for Portal views anymore, but applications.  
+**Note:** As Portal will be replaced by applications in next versions of Bonita, we strongly recommend you **not** to create Custom profiles for Portal views anymore, but applications.  
 For more information on how to migrate existing Custom profiles with Portal views into applications, go to the dedicated [documentation page](custom-profiles.md).
 :::   
