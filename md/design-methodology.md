@@ -71,9 +71,9 @@ Indeed, our pages have been developed with different frameworks over time. Pages
 2. Duplicate the application descriptor and rename your copy
 3. Delete the pages you do not need, add the pages you need, keep the pages that fit the target use  
 4. You can customize the pages created with the UI Designer. To do so:
-  1. From the project explorer pane, double-click on the page to open it in the UI Designer
-  1. Make it yours
-  1. We recommend that you save it under another name, in case you need the original version at some point
+    1. From the project explorer pane, double-click on the page to open it in the UI Designer
+    2. Make it yours
+    3. We recommend that you save it under another name, in case you need the original version at some point
 
 ::: info
 Note: While both the Bonita User Application and the Bonita Administrator Application are supported by Bonitasoft in their original versions, any customization of yours cannot be supported, as Bonitasoft cannot garantee the content of your custom development.  
