@@ -176,7 +176,7 @@
       * [Mobile Portal](mobile-portal.md)  
       * [Bonita User Application view](_user-application.md)
         * [Bonita User Application overview](user-application-overview.md)
-	* [User process list](user-process-list.md)
+	  * [User process list](user-process-list.md)
 	  * [User Application case list](user-application-case-list.md)
           * [User task list](user-task-list.md)
     * [User Interface for Administrators](_ui-for-administrators.md)
