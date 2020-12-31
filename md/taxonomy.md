@@ -184,7 +184,7 @@
          * [Process Management](_process-maintenance.md)
           * [Administrator process list](processes.md)
           * [Administrator case list](cases.md)
-          * [Adinistrator task list](tasks.md)
+          * [Administrator task list](tasks.md)
           * [Monitoring](monitoring.md)
           * [Pause and resume services](pause-and-resume-bpm-services.md)
         * [BDM Management](bdm-management-in-bonita-bpm-portal.md)
