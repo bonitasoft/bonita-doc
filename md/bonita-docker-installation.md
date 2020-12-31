@@ -57,6 +57,19 @@ This will start a container running the Tomcat Bundle with Bonita Engine + Porta
 
 You can access the portal on http://localhost:8080/bonita and login using the default credentials : install / install
 
+### Start the container interactively
+
+You may also run the Bonita container with an interactive shell session in order to control start and stop of the Tomcat bundle. Although the main usage of the Docker image is to automatically start the Bonita runtime, manually start and stop Tomcat may be useful for development or troubleshooting purposes.
+
+Run the container as follows in order to get an interactive `bash` shell session:
+
+```
+docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -it -p 8080:8080 quay.io/bonitasoft/bonita-subscription:${varVersion}.0 bash
+```
+
+Then run `/opt/files/startup.sh` inside the container to start Tomcat. In order to stop Tomcat inside the container, press `Ctrl-C`.  
+Repeat this sequence to manually start and stop Tomcat in the container.
+
 ### Link Bonita to a database
 The H2 database allows the Bonita container to work out of the box, but it is not recommended outside of a development environment.
 
