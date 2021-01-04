@@ -46,7 +46,7 @@ The [Work execution audit](work-execution-audit.md) allows to be informed when t
 
 ## Recovery mechanism
 
-Starting from 7.12 version, a specific mechanism is responsible to recover from incidents like database or network outage.
+Starting from 2021.1 version, a specific mechanism is responsible to recover from incidents like database or network outage.
 
 This mechanism will periodically scan the database to retrieve elements that were not executed and re-execute them.
 
