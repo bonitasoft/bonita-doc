@@ -381,11 +381,12 @@ To find the right characteristic to optimize, one good starting point is to cons
 #### Transaction manager
 
 Bonita Engine is natively compatible with the Java Transaction API. This means transaction management relies on a transaction manager.
-If you are using a JEE Application server, then you only have to configure Bonita Engine to use the transaction manager that is provided.
-Otherwise, you have to embed a transaction manager (for example, we embed Narayana by default in the Tomcat bundle).
 
-A transaction manager manages a transaction log and also frequently has notions of internal pooling.  
-For example, in [Narayana](http://narayana.io/docs/product/index.html#d0e3473) you can configure some options for transaction management. 
+Bonita Platform embed [Narayana](https://narayana.io/), an open source transaction manager.
+
+It uses the following configuraton file `server/conf/jbossts-properties.xml`.
+The most common configuration to change here would be `com.arjuna.ats.arjuna.coordinator.defaultTimeout` that is the timeout for transactions. 
+More details on the configuration can be found in the [Narayana documentation](http://narayana.io/docs/product/index.html#d0e3473).
 
 <a id="logs"/>
 
