@@ -5,7 +5,7 @@ This page explains how to build Bonita BPM Community edition from the source.
 
 All source code of Bonita BPM solution is available from the https://github.com/bonitasoft[Bonitasoft GitHub organization]. Each component of the solution has a dedicated repository (e.g. https://github.com/bonitasoft/bonita-engine[Engine repository]).
 
-= Prerequisites
+== Prerequisites
 
 To build the product, you need the following:
 
@@ -29,7 +29,7 @@ WARNING:
 Note that you can run Bonita BPM on Windows but you cannot build Bonita BPM on Windows (known limitation).
 
 
-= Building Bonita BPM
+== Building Bonita BPM
 
 In order to build Bonita BPM you need to use the script provided in https://github.com/Bonitasoft-Community/Build-Bonita-BPM[Build Bonita BPM] GitHub project. Use the branch of the project that match the version you want to build.
 
