@@ -38,7 +38,7 @@ This example show how to configure SSL with APR and OpenSSL for a Bonita BPM usi
  `openssl req -new -x509 -days 365 -nodes -out conf/ssl/test.bonitasoft.net.pem -keyout conf/ssl/test.bonitasoft.net.key`
 . Provide the information about your system that `openssl` requires.
 . Edit `conf/server.xml` and add the following definition for the Connector:
-
++
 [source,xml]
 ----
 <Connector port="8443"
@@ -54,10 +54,9 @@ SSLCertificateKeyFile="${catalina.base}
 SSLVerifyClient="optional"
 SSLProtocol="TLSv1"></Connector>
 ----
-
 . Install the Tomcat native library, which contains APR: `sudo apt-get install libtcnative-1`
 . Edit `TOMCAT_HOME/webapps/bonita/WEB-INF/web.xml` and add the following security definition:
-
++
 [source,xml]
 ----
 <web-app>
@@ -73,7 +72,6 @@ SSLProtocol="TLSv1"></Connector>
    </security-constraint>
 </web-app>
 ----
-
 . Start Tomcat: `./bin/startup.sh`
 . Check that everything is correctly configured, by opening `+https://127.0.0.1:8443/bonita+` in your browser. Your browser should warn you about the self-signed certificate used to perform the HTTPS connection. You can safely add this self-signed certificate to the exceptions allowed.
 
@@ -86,7 +84,7 @@ This example shows how to configure SSL with a keystore for Bonita BPM on Tomcat
 `keytool -genkey -alias tomcat -keyalg RSA -keystore conf/ssl/keystore`
 . Answer the questions that `keytool` asks. When asked for your first name and last name, provide the hostname of your system.
 . Edit `conf/server.xml` and include the following configuration for the Connector:
-
++
 [source,xml]
 ----
 <Connector port="8443"
@@ -101,9 +99,8 @@ keystorePass="password!"
 SSLVerifyClient="optional"
 SSLProtocol="TLSv1"></Connector>
 ----
-
 . Edit `TOMCAT_HOME/webapps/bonita/WEB-INF/web.xml` and add the following security definition:
-
++
 [source,xml]
 ----
 <web-app>
@@ -119,7 +116,6 @@ SSLProtocol="TLSv1"></Connector>
    </security-constraint>
 </web-app>
 ----
-
 . Start Tomcat: `./bin/startup.sh`
 . Check that everything is correctly configured, by opening `+https://127.0.0.1:8443/bonita+` in your browser. Your browser should warn you about the certificate used to perform the HTTPS connection. You can safely add this certificate to the exceptions allowed.
 
@@ -134,9 +130,8 @@ If you use HAProxy you can add following lines into your http://www.haproxy.org/
 option forwardfor
 reqadd X-Forwarded-Proto:\ https
 ----
-
 . Edit `conf/server.xml` and include the `RemoteIpValve` configuration for the host:
-
++
 [source,xml]
 ----
 <Host name="localhost"  appBase="webapps" unpackWARs="true" autoDeploy="true">
@@ -148,20 +143,24 @@ reqadd X-Forwarded-Proto:\ https
  protocolHeader="X-Forwarded-Proto"
  />
 ----
-
++
 NOTE: Make sure that the regular expression set with `internalProxies` matches your IP addresses.
-
++
 As explained by the https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html[RemoteIpValve documentation]:
-"This valve replaces the apparent client remote IP address and hostname for the request with the IP address list presented by a proxy or a load balancer via a request headers (e.g. "X-Forwarded-For").
-Another feature of this valve is to replace the apparent scheme (http/https) and server port with the scheme presented by a proxy or a load balancer via a request header (e.g. "X-Forwarded-Proto")."
++
+----
+This valve replaces the apparent client remote IP address and hostname for the request with the IP address list presented
+by a proxy or a load balancer via a request headers (e.g. "X-Forwarded-For").
+Another feature of this valve is to replace the apparent scheme (http/https) and server port with the scheme presented by
+a proxy or a load balancer via a request header (e.g. "X-Forwarded-Proto").
+----
 
 . If you use the AccessLogValve, edit `conf/server.xml` and set `requestAttributesEnabled="true"`:
-
++
 [source,xml]
 ----
 <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
               prefix="localhost_access_log." suffix=".txt" requestAttributesEnabled="true"
               pattern="%a %{X-Forwarded-Proto}i %l %u %t "%r" %s %b" />
 ----
-
 If you omit this, %a will log your load balancer's IP address and not the client's IP address.
