@@ -67,14 +67,13 @@ countryDAO.findById(country, 0, 100).get(0)
 * Binding: http://www.w3.org/2003/05/soap/bindings/HTTP/
 * Envelope 
 ```xml
-       <?xml version="1.0" encoding="utf-8"?>
-    <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
-      <soap12:Body>
-        <CapitalCity xmlns="http://www.oorsprong.org/websamples.countryinfo">
-          <sCountryISOCode>${country}</sCountryISOCode>
-        </CapitalCity>
-      </soap12:Body>
-    </soap12:Envelope>
+<soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+  <soap12:Body>
+    <CapitalCity xmlns="http://www.oorsprong.org/websamples.countryinfo">
+      <sCountryISOCode>${country}</sCountryISOCode>
+    </CapitalCity>
+  </soap12:Body>
+</soap12:Envelope>
 ```
 14. In the **Response configuration** window, check the **Returns body** checkbox to use the response body in the output operations.
 15. In the **Output operations** window, keep only one output operation:
