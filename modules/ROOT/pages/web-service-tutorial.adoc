@@ -3,7 +3,7 @@
 This example process will use a Web Service connector to call a sample Web Service to display the capital of a given country.
 
 . In the BDM, create a business object _*Country*_ with the following attributes:
-
++
 |===
 | Name | Type
 
@@ -15,7 +15,7 @@ This example process will use a Web Service connector to call a sample Web Servi
 |===
 
 . Create the diagram (as shown in the example bellow)
-
++
 image::images/connector_webservice_tuto/webservice_diagram.png[web service process diagram]
 
 . Select the Pool > Data, click on the _**Pool Variables tab**_, add a process variable _country_ (Text) and a Business variable _countryBo_ (Country)
@@ -67,37 +67,48 @@ countryDAO.findById(country, 0, 100).get(0)
  ** End point address: http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso
  ** Binding: http://www.w3.org/2003/05/soap/bindings/HTTP/
  ** Envelope
-```xml
-// <?xml version="1.0" encoding="UTF-8"?>+++<soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">++++++<soap12:Body>++++++<CapitalCity xmlns="http://www.oorsprong.org/websamples.countryinfo">++++++<sCountryISOCode>+++$\{country}+++</sCountryISOCode>++++++</CapitalCity>++++++</soap12:Body>++++++</soap12:Envelope>+++
-
++
+[source,xml]
 ----
-14. In the **Response configuration** window, check the **Returns body** checkbox to use the response body in the output operations.
-15. In the **Output operations** window, keep only one output operation:
+<?xml version="1.0" encoding="UTF-8"?>
+<soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+  <soap12:Body>
+    <CapitalCity xmlns="http://www.oorsprong.org/websamples.countryinfo">
+      <sCountryISOCode>${country}</sCountryISOCode>
+    </CapitalCity>
+  </soap12:Body>
+</soap12:Envelope>
+----
+
+. In the **Response configuration** window, check the **Returns body** checkbox to use the response body in the output operations.
+. In the **Output operations** window, keep only one output operation:
 * **Left operand**: countryBo
 * **Operation**: Java method -> setCapital
 * **Right operand**: A script _parseCapital_  returning a String, with the following content
- ```groovy
++
+[source,groovy]
+----
 import org.codehaus.groovy.ast.stmt.ContinueStatement
 import org.w3c.dom.NodeList
 
 responseDocumentBody.childNodes.item(0).textContent
 ----
-
++
 And we are done for the connector configuration. If you want to test it from the wizard, replace _$\{country}_ by _FRA_ in the envelope, and ensure that _Paris_ is returned.
 
-. Select the _*Retrieve unknown capital*_ task, go on the _*Execution tab*_, click on _*Operations*_ and add the following operation:
+. Select the _**Retrieve unknown capital**_ task, go on the _**Execution tab**_, click on _**Operations**_ and add the following operation:
  ** *Left operand*: countryBo
  ** *Operation*: Use a java method \-> setId
  ** *Right operand*: country
-. Select the _*Display capital*_ task, go on the _*Execution tab*_, click on _*Form*_ and click on the pencil to create the form of this task. The UI Designer should open. The idea here is to simply display the field _capital_ of the business object used in the case (which has been created during the case or retrieved from the database). This business object is accessible in the context.
- ** Create a _*Javascript expression*_ variable named _*api*_, with the following content:
+. Select the _**Display capital**_ task, go on the _**Execution tab**_, click on _**Form**_ and click on the pencil to create the form of this task. The UI Designer should open. The idea here is to simply display the field _capital_ of the business object used in the case (which has been created during the case or retrieved from the database). This business object is accessible in the context.
+ ** Create a _**Javascript expression**_ variable named _**api**_, with the following content:
 +
 [source,Javascript]
 ----
 return "../" + $data.context.countryBo_ref.link;
 ----
 
- ** Create an _*External API*_ variable named _*country*_, with the following api url:
+ ** Create an _**External API**_ variable named _**country**_, with the following api url:
 +
 ----
 {{api}}
@@ -108,15 +119,15 @@ return "../" + $data.context.countryBo_ref.link;
 ----
 Capital: {{country.capital}}
 ----
-
-Rename the form into _*Display capital*_, save it, and we are done.
++
+Rename the form into _**Display capital**_, save it, and we are done.
 
 . We do not want to implement a case overview for this simple use case. Select the pool, go on the _*Execution tab*_, click on _*Overview page*_ and select _*No form*_.
 . Test the process, by following those steps:
- ** Select the pool
- ** Configure the actor mapping to the group "/acme"
- ** Click on the "Run" button to install and enable the process and be redirected to the instantiation form
- ** From the instantiation form in your browser, select a country and submit
- ** The browser will be redirected to the user perspective in the Portal
- ** A new task "Display Capital" should be available (refresh if not), click on it
- ** The capital should appear on its associated form
+* Select the pool
+* Configure the actor mapping to the group "/acme"
+* Click on the "Run" button to install and enable the process and be redirected to the instantiation form
+* From the instantiation form in your browser, select a country and submit
+* The browser will be redirected to the user perspective in the Portal
+* A new task "Display Capital" should be available (refresh if not), click on it
+* The capital should appear on its associated form
