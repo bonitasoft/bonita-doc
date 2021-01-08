@@ -157,7 +157,6 @@ Translations might be added in the next maintenance versions.
 * BS-19534 - no state found after CancelledFlowNodeStateImpl for flow node of type SBoundaryEventInstance CANCELLING
 * BS-19538 - Cancel of process instance fails because MULTI element cancelled before all children call activities are cancelled
 * BS-19543 Cannot create case because hibernate_sequence table or sequence is missing after migration to 7.11
-* BS-19551 Migration to 7.12 Failure : Database schema version [7.11] prevents setup.sh pull / push with version 7.12 and threfore start bonita fails
 * BPO-307 Process manager can assign a task and execute a task on behalf of a user which is not associated to the process in the actor mapping with our without Dynamic authorization checking
 * BPO-643 - Not all processes get disabled when multiple ones are selected in Portal - Administration - BPM - Processes page
 * BPO-645 Erroneous space at the end of property value breaks the standard authentication allowed functionality
