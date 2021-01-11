@@ -1,6 +1,6 @@
 # Purge Tool
 
-Bonita Purge Tool provides the capability to purge finished (archived) process instances from [Bonita](https://documentation.bonitasoft.com) Runtime environment.
+Bonita Purge Tool provides the capability to purge finished (archived) process instances from Bonita Runtime environment.
 
 By default, all archives are preserved forever in Bonita runtime, but if your functional context allows you to remove old unused process instances
 (for example, if you only need to keep a history of last 6 months), use this tool to clean up your Bonita database.
