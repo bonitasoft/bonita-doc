@@ -157,7 +157,7 @@ You can update the following parameters:
   **Optional**:
   * o: can order on "id","creationDate", "createdBy", "profileId", "token", "displayName", "updatedBy", "lastUpdateDate", "version" 
   * s: can search on "token", "displayName", "version" 
-  * f: can filter on "token", "displayName", "version", "profileId", "creationDate", "createdBy", "updatedBy" , "lastUpdateDate" with the format `f={filter\_name}={filter\_value}`
+  * f: can filter on "token", "displayName", "version", "profileId", "creationDate", "createdBy", "updatedBy", "lastUpdateDate" with the format `f={filter\_name}={filter\_value}`, "userId" to get the applications for a specific user
   * d: can directly access the details by of the "createdBy" or "updatedBy" user, or of the "profileId"
 
 * **Success Response**
