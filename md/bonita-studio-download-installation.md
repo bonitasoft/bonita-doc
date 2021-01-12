@@ -7,8 +7,12 @@ If you face any difficulties in this getting started tutorial, please [ask for h
 :::
 
 ## Download Bonita Studio
-
 To download the latest version of Bonita Studio, open the [download page](https://www.bonitasoft.com/downloads) and click on the **Download** button. This will start the download of Bonita Studio installer for your operating system.
+
+
+{::comment}
+update package name
+{::comment}
 
 When the download is finished, you should have one of the following files on your computer (x.y.z refers to the version of Bonita Studio, e.g. ${varVersion}.0):
 - Windows: `BonitaStudioCommunity-x.y.z-x86_64.exe`
@@ -33,6 +37,12 @@ The installer will guide you through a very basic installation configuration:
 
 ![Bonita Studio installer last screen](images/getting-started-tutorial/installation/studio-installation-installer-08-last-screen.png)<!--{.img-responsive .img-thumbnail}-->
 
+
+{::comment}
+update package name
+{::comment}
+
+
 Bonita Studio is now installed. Default installation folders are:
 - Windows: `C:\BonitaStudioCommunity-x.y.z`
 - macOS: `/Applications/BonitaStudioCommunity-x.y.z`
@@ -46,10 +56,15 @@ You should get the Bonita Studio welcome page:
 
 ![Bonita Studio with welcome page displayed](images/getting-started-tutorial/installation/studio-first-start-02-studio-on-welcome-page.png)<!--{.img-responsive .img-thumbnail}-->
 
+
 ::: info
 When Bonita Studio starts, various tasks are executed in the background, such as the embedded Bonita test server startup (including Bonita Engine initialization), Bonita test organization deployment, and more.
-This might take a while and may be why some features are not immediately available.
+This might take a while and may be why some features are not immediately available. A pop-up window will appear to indicate you can update Bonita server configuration in the [preferences](https://documentation.bonitasoft.com/bonita//bonita-bpm-studio-preferences) ![Bonita Studio Server starting pop-up](images/getting-started-tutorial/installation/studio-first-start-03-starting-bonita-server-popup.png)
 :::
+
+When Bonita engine is started, you will see a confirmation pop-up on your Studio welcome page.
+
+![Bonita Studio server started pop-up](images/getting-started-tutorial/installation/studio-first-start-04-engine-started-popup.png)
 
 ## Installation validation
 
