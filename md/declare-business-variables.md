@@ -2,6 +2,10 @@
 
 In order for your process to be able to perform operations on business data such as the classical create, read, update and delete operations, you need to include business variables in your process definition.
 
+::: info
+If you want to know more about operations, just read the [related documentation section](operations.md).
+:::
+
 In our process we will deal with a single object: a claim. The claim object will store information about the claim itself (i.e. its description), the provided answer and a satisfaction level. To declare a business variable:
 1. Select the process pool, the rectangle shape that includes start events and tasks.
 
@@ -20,8 +24,13 @@ Now that a business variable is declared, we can use it in our transition condit
 1. Go into the **General > General** tab
 1. In **condition** click on the pencil icon
 1. Select **Script** in **Expression type** on the left hand side of the pop-up window
-1. Type the Groovy script: `claim.satisfactionLevel < 3`
+1. Select the object **claims** in the left menu "Business variable" and then the attribute **satisfactionLevel** 
+1. Click on **<** in the quick access operators' bar and type **3** 
 1. Click on **OK** button
+
+:::note
+You can also directly type the Groovy script: `claim.satisfactionLevel < 3`
+:::
 
    ![Define transition condition using business variable value](images/getting-started-tutorial/declare-business-variable/define-condition.gif)<!--{.img-responsive .img-thumbnail}-->
 
@@ -30,10 +39,10 @@ The script configured for the transition condition will return `true` if satisfa
 :::
 
 ::: info
-Our business variable is never initialized so it will remain empty. They are several different options available to initialize a business variable:
+Our business variable has never been initialized so it will remain empty. They are several different options available to initialize a business variable:
 - business variable default value
-- operation on a task
-- connector output
+- [operation](operations.md) on a task
+- [connector output](initialize-a-variable-from-a-database-without-scripting-or-java-code.md)
 
 We will use the first and second options in the upcoming chapters.
 :::

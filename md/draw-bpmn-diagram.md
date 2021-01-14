@@ -9,11 +9,9 @@ Here is an overview of process execution:
 - Next, an *employee* will review the claim and provide an answer
 - The *customer* will be able to review the *employee*'s answer and provide a satisfaction rating
 - If the rating is equal to or greater than 3, the process will finish after the customer has read the answer
-- If the rating is lower than 3 an extra task will be assigned to the manager of the employee to work with this customer who is not really satisfied. Once this task is done the process will be completed
+- If the rating is lower than 3 an extra task will be assigned to the manager of the employee to work with this customer who is not really satisfied. The manager will be notified by email that a task Deal with unsatisfied customer requires their attention.
+- Once this task is done the process will be completed
 
-{::comment}
-Udpdate process steps to add a notification to the employee in case the rating is lower than 3?
-{::comment}
 
 ::: info
 To design this process we will use the Business Process Model and Notation (BPMN) standard. You don't need to learn everything about BPMN to follow this tutorial but, if you would like to know more, you can read the [Ultimate Guide to BPMN 2.0](https://www.bonitasoft.com/library/ultimate-guide-bpmn).
@@ -34,11 +32,11 @@ The first step is the design of the process "happy path".
 
 ::: info
 While drawing you are going to discover basic BPMN elements used in most of the process diagrams: 
-- [Pool](https://documentation.bonitasoft.com/bonita//pools-and-lanes.md): a pool is a container for a process in a diagram.
-- [Lanes](https://documentation.bonitasoft.com/bonita//pools-and-lanes.md): a lane is a division of a pool. Typically, a lane contains all the tasks assigned to an [actor](https://documentation.bonitasoft.com/bonita//actors).
-- [Start and end events](https://documentation.bonitasoft.com/bonita//events.md): a start event is at the start of a process flow, and an end event is at the end of a flow.
-- [Tasks](https://documentation.bonitasoft.com/bonita//diagram-tasks.md): a task is an activity in a process.
-- [Gateways](https://documentation.bonitasoft.com/bonita//gateways.md): they are used to control how sequence flows interact within a process.
+- [Pool](pools-and-lanes.md): a pool is a container for a process in a diagram.
+- [Lanes](pools-and-lanes.md): a lane is a division of a pool. Typically, a lane contains all the tasks assigned to an [actor](actors).
+- [Start and end events](events.md): a start event is at the start of a process flow, and an end event is at the end of a flow.
+- [Tasks](diagram-tasks.md): a task is an activity in a process.
+- [Gateways](gateways.md): they are used to control how sequence flows interact within a process.
 :::
 
 

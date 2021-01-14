@@ -3,12 +3,12 @@
 The Bonita platform provides a means to define, manipulate and store your business data. This data management service will create Java objects to allow data manipulation, database tables for storage, and all operations required to get the data from your process into the database and vice versa.
 
 Data management involves several steps:
-- Create the [Business Data Model (BDM)](https://documentation.bonitasoft.com/bonita//define-and-deploy-the-bdm.md). This is the definition of the types of data you will deal with in your processes and applications.
-- Declare [business variables](https://documentation.bonitasoft.com/bonita//specify-data-in-a-process-definition#toc4) in the process definition. Variables are used to make the link between your process definition and the data it needs to create, read, update, and delete. Data can be created as part of process execution (on start or on a task) but processes can also read and update data created by other processes and of course can choose to delete data.
-- Define process and task [contracts](https://documentation.bonitasoft.com/bonita//contracts-and-contexts.md). Contracts define the information process accepts from the user submitting the form.
+- Create the [Business Data Model (BDM)](define-and-deploy-the-bdm.md). This is the definition of the types of data you will deal with in your processes and applications.
+- Declare [business variables](specify-data-in-a-process-definition#toc4) in the process definition. Variables are used to make the link between your process definition and the data it needs to create, read, update, and delete. Data can be created as part of process execution (on start or on a task) but processes can also read and update data created by other processes and of course can choose to delete data.
+- Define process and task [contracts](contracts-and-contexts.md). Contracts define the information process accepts from the user submitting the form.
 
 In this chapter we will focus on the creation of the Business Data Model (BDM) only. Declaration of business variables is part of the next chapter. 
-You can read the chapter about [data handling](https://documentation.bonitasoft.com/bonita//data-handling-overview.md) for more information on data management. 
+You can read the chapter about [data handling](data-handling-overview.md) for more information on data management. 
 
 In Bonita Studio, create a BDM:
 1. Go to **Development > Business Data Model > Define...** menu
@@ -48,6 +48,6 @@ Now you have a fully functional business data management model. You are ready to
 ::: info
 Bonita Studio uses h2 to provide the database for testing. (We recommend you to use other types of databases such as Oracle, PostgreSQL, MySQL and SQL Server for production). Bonita Studio provides two database schemas: one for the Bonita Engine and one dedicated to BDM. 
 You can view the tables created in the h2 BDM database by clicking in the Bonita Studio menu on **Development > Business Data Model > Browse data (h2 console)...**. In the h2 console (a web interface) you can see that a table named "CLAIM" was created. You can run an SQL query such as `SELECT * FROM CLAIM` which should return an empty result as there is no data yet.  
-You can also [explore the BDM database schema](https://documentation.bonitasoft.com/bonita//data-management#toc0) by clicking in the Bonita Studio menu on **Development > Business Data Model > Explore model (GraphQL voyager)...**. 
+You can also [explore the BDM database schema](data-management#toc0) by clicking in the Bonita Studio menu on **Development > Business Data Model > Explore model (GraphQL voyager)...**. 
 :::
 

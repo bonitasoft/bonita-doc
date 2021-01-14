@@ -1,8 +1,12 @@
 # Declare contracts
 
-So far our process defines a sequences of events and tasks, and declares a business variable that it will instantiate and update when executed. We want to instantiate our `claim` business variable using the description provided by the customer when they start the process. We will also need to update the claim with the answer provided by the employee and with the satisfaction rating provided by the customer. We need a way to collect information from the user and store it in the business variable. This is achieved using the user interfaces (web forms by default in Bonita) and based on another concept: contract.
+So far our process defines a sequences of events and tasks, and declares a business variable that it will instantiate and update when executed.  
+We want to instantiate our `claim` business variable using the description provided by the customer when they start the process. We will also need to update the claim with the answer provided by the employee and with the satisfaction rating provided by the customer. We need a way to collect information from the user and store it in the business variable. This is achieved using the user interfaces (web forms by default in Bonita) and based on another concept: [contract](contracts-and-contexts.md).
 
-A contract defines the data expected from the user to start a process (instantiation contract) or to execute a user task (task contract). By default Bonita offers a solution to easily build forms (see next chapter) to allow the user to view and provide data. When submitted, forms will ask the Bonita Engine to start a process or execute a task using provided data that must match what is expected by the contract.
+A contract defines the data expected from the user to start a process (instantiation contract) or to execute a user task (task contract). By default Bonita offers a solution to easily build forms (_[see next chapter](create-web-user-interfaces.md)_) to allow the user to view and provide data. 
+When submitted, forms will ask the Bonita Engine to start a process or execute a task using provided data that must match what is expected by the contract, as described on this diagram:
+
+![contract-mvc](images/getting-started-tutorial/declare-contracts/contract-MVC.PNG) 
 
 As our contract information will be used to set business variable values, we can use a wizard that will generate the contract based on the business variable. This wizard sets the business variable default value and generates task operations.
 
@@ -19,8 +23,10 @@ Create the contract for process instantiation:
    ![Declare process instantiation contract](images/getting-started-tutorial/declare-contracts/declare-process-instantiation-contract.gif)<!--{.img-responsive .img-thumbnail}-->
 
 ::: info
-You now have a contract named _claimedInput_ of type "COMPLEX" with one attribute, _description_ of type "TEXT". Also, as the description is mandatory, you can see in **Execution > Contract > Constraints** tab that a validation rule has been created to make sure that we get a value for the description. Finally, if you edit the _claim_ business variable, you can see that a script has been generated for you to set the variable default value. Setting this value will trigger an insert in the `CLAIM` table created for you in the business data database managed by Bonita.
+You now have a contract named _claimedInput_ of type "COMPLEX" with one attribute, _description_ of type "TEXT". 
 :::
+
+Also, as the description is mandatory, you can see in **Execution > Contract > Constraints** tab that a validation rule has been created to make sure that we get a value for the description. Finally, if you edit the _claim_ business variable, you can see that a script has been generated for you to set the variable default value. Setting this value will trigger an insert in the `CLAIM` table created for you in the business data database managed by Bonita.
 
 Now let's create the contract for the user task _Review and answer claim_:
 1. Select the task _Review and answer claim_
@@ -35,7 +41,10 @@ Now let's create the contract for the user task _Review and answer claim_:
    ![Declare user task contract](images/getting-started-tutorial/declare-contracts/declare-user-task-contract.gif)<!--{.img-responsive .img-thumbnail}-->
 
 ::: info
-We now have a contract for the step. This contract does not create a new claim but rather updates an attribute of the claim (the claim is created when we start the process). The attribute update is performed by an operation (generated for you) on the task. Select **Execution > Operations** to view the operation that updates the _answer_ attribute.
+We now have a contract for the step. This contract does not create a new claim but rather updates an attribute of the claim (the claim is created when we start the process). 
+The attribute update is performed by an operation (generated for you) on the task. Select **Execution > Operations** to view the operation that updates the _answer_ attribute, as you can see on the image below:
+
+   ![Operation](images/getting-started-tutorial/declare-contracts/operation.png)<!--{.img-responsive .img-thumbnail}-->
 :::
 
 Create the contract for _Read the answer and rate it_ task:

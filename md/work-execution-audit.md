@@ -15,6 +15,13 @@ For theses cases, it also produces an _Info_ log when the work was finally execu
 
 A _reschedule_ happens when a work can't be executed right now because some other work already locked the same process instance.
 
+## How to activate it
+
+### Logging configuration
+
+Enable the logger called `BONITA_WORK_AUDIT.EXECUTION` in the logger configuration.
+
+
 ### Activate and configure the work execution audit
 
 The audit is activated by default, it can be deactivated or reactivated here:
@@ -24,5 +31,3 @@ In `bonita-tenant-community-custom.properties` set flag `bonita.tenant.work.audi
 Some properties can be configured, these can be found in the default configuration file `bonita-tenant-community.properties` under the `Work execution audit` section
 
 See [the file on Github](https://github.com/bonitasoft/bonita-engine/blob/7.9.0/bpm/bonita-core/bonita-process-engine/src/main/resources/bonita-tenant-community.properties)
-
-There is a dedicated logger called `BONITA_WORK_AUDIT.EXECUTION`, its level can be changed to DEBUG for more information, in file `logging.properties`.

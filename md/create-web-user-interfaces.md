@@ -1,6 +1,6 @@
 # Create web user interfaces (forms)
 
-The user usually drives process execution using web interfaces. Bonita provides a solution, the UI Designer, to easily create such interfaces.
+The user usually drives process execution using web interfaces. Bonita provides a solution, [the UI Designer](ui-designer-overview.md), to easily create such interfaces.
 
 ::: info
 The standard workflow would be to:
@@ -32,6 +32,10 @@ You can customize the form appearance. For example, you can switch from a one li
 1. Click on the **Save** button to save your modifications
 
    ![Switch to a different widget type](images/getting-started-tutorial/create-web-user-interfaces/switch-widget.gif)<!--{.img-responsive .img-thumbnail}-->
+
+::: info
+The [switch menu option](widgets.md) can be used to replace a widget by another one and keep the current configuration.
+:::
 
 You can now go back to Bonita Studio and create the form for the _Review and answer claim_ user task:
 1. Select the task
