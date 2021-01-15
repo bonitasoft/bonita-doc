@@ -81,6 +81,9 @@ Also, you are recommended to configure the database(s) to be case-insensitive so
 
 <a id="specific_database_configuration" />
 
+**Note**: Bonita is not attached to a specific database user. Therefore, the database user that bonita uses to connect to the database can be changed after the platform creation, provided the new user has the required access rights.
+The same goes for the user used to connect to the business data database, if it is different.
+
 ### Customize RDBMS to make it work with Bonita
 
 #### PostgreSQL
