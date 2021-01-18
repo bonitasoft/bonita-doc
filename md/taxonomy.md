@@ -302,6 +302,7 @@
     * [Log in with CAS](log-in-with-cas.md)
   * [Bonita Portal URLs](bonita-bpm-portal-urls.md)
   * [Living application](_living-application.md)
+    * [Get Bonita provided applications](get-bonita-provided-applications.md)
     * [Bonita Layout](bonita-layout.md)
     * [Living application layout](living-application-layout.md)
     * [Customize layouts](customize-layouts.md)

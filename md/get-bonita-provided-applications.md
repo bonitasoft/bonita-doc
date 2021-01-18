@@ -20,17 +20,9 @@ There are two ways to get the .bos file. You can either get it from the *Release
 Building the repository will create a .bos file in the ```target``` folder. You can import this one into the development environment.
 <br>Using this method is also useful if you want to get an older version of an application or if you need a weekly version that contains a bugfix.
 
-Now that you got the applications, you can deploy them into your locally running server using the development environment deployment.
+Now that you got the applications, you can deploy them into your locally running server using the Studio deployment.
 
-## How to deploy the applications into a bundle or the cloud
-
-There are two ways to deploy an application into your bundle or into a cloud platform, but only the first is possible to do in the Community version of the product.
-
-The first way to import the entire application, is to import every page into the Portal and then import the application descriptor. 
-You can get the appropriate application descriptor in the above mentioned GitHub repositories. 
-For the user application, it is under the ```applications``` folder and for the admin application, it is under ```community/applications``` or ```subscription/applications```.
-As for the pages, you need to build the [bonita-web-pages project](https://github.com/bonitasoft/bonita-web-pages) using gradle and you will find them in the ```uid-pages/name_of_the_page/build``` folder (where name_of_the_page is the name of the page that you need).
-Don't forget to check the pages that you need by opening the application descriptor.
+A way to deploy the applications into a bundle or into your cloud platform is explained in the [applications](applications.md) page.
 
 ### Use BCD
 
