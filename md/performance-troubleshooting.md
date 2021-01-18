@@ -99,6 +99,11 @@ The execution threshold value can be configured in `bonita-platform-community.pr
 bonita.platform.persistence.dbquery.warnWhenLongerThanMillis=1000
 ```
 
+## Purge archive tables
+
+If you can afford to get rid of data of old finished process instances, use [the purge tool](purge-tool.md) to clean up unnecessary data
+that take volume in the database and that slows some queries down.
+
 ## Connectors
 
 Any connectors longer than 10 seconds will produce a warning log. See [connector service](performance-tuning.md#connector_service) for more information. 
