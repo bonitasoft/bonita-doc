@@ -2,7 +2,9 @@
 
 Up to this point, when you execute the process you were acting as a single user (username: _walter.bates_, password: _bpm_) who can perform all the user tasks. In a scenario closer to a real life use case, there are different types of users: customers (who can submit claims), employees (who answer claims) and the manager of the user who provides the answer (who is needed to interact with unsatisfied customers).
 
-The first step in the configuration of "who can do what" is to create lanes within our pool. We already have one default lane for the employees. Let's add another one for the customer and one for the manager:
+To define "who can do what",  you will define the [actors](actors.md) who can perform a task or start a process and map them to the "real" users in the [organization](organization-overview.md).
+
+The first step in the configuration of "who can do what" is to create [lanes](pools-and-lanes.md) within our pool. We already have one default lane for the employees. Let's add another one for the customer and one for the manager:
 1. In Bonita Studio, from the palette on the left hand side of the diagram select the **lane** icon
 1. Click inside the process pool to add the lane. Do this twice to have a total of three lanes
 1. Select the employee lane and click on the down arrow icon to move it, so it is the middle lane
@@ -56,9 +58,20 @@ Actor are just identifiers. In order to define the actual user, we need to confi
 1. Click on the **Finish** button
 1. Click on the **Finish** button to close the configuration window
 
+::: info
 At this stage, if you try to run the process, you will see that _walter.bates_ can no longer perform the task _Review and answer claim_. You'll have to logout from the Bonita Portal (click on **Walter Bates** in top right corner and select **Logout**) and log in with _mauro.zetticci_ or _thomas.wallis_ (password: _bpm_) to be able to view the task. And you need to log back in with _walter.bates_ account to be able to view the task that let you read the provided answer.
+:::
 
-Currently the task _Read the answer and rate it_ is available to all users in the group _/acme/hr_, but it should only be available to the user who started the process (_walter.bates_). Similarly, the task _Deal with unsatisfied customer_ will be available to everyone when it should only be available to the manager of the user who completed the task _Review and answer claim_. To address this, we will configure actor filters:
+Currently the task _Read the answer and rate it_ is available to all users in the group _/acme/hr_, but it should only be available to the user who started the process (_walter.bates_). Similarly, the task _Deal with unsatisfied customer_ will be available to everyone when it should only be available to the manager of the user who completed the task _Review and answer claim_.  
+To address this, we will configure [actor filters](actor-filtering.md).
+
+::: info
+The actor filter produces a list of users based on input information and internal logic. It completely overrides the actor configuration.  
+An actor filter will be executed when the process reaches a step to which the filter is mapped.
+:::
+
+First we will configure the **initiator** actor filter:
+
 1. Select the _Customer lane_
 1. Go to **General > Actors**
 1. Click on the **Set...** button next to actor filter
@@ -68,6 +81,8 @@ Currently the task _Read the answer and rate it_ is available to all users in th
 1. Click on the **Finish** button
 
    ![Configure initiator actor filter on Customer lane](images/getting-started-tutorial/define-who-can-do-what/configure-initiator-actor-filter.gif)<!--{.img-responsive .img-thumbnail}-->
+
+Now we will configure the **manager** actor filter:  
 
 1. Select _Manager lane_
 1. Follow the same steps but select the _user-manager_ actor filter
@@ -101,6 +116,6 @@ Currently the task _Read the answer and rate it_ is available to all users in th
    ![Configure user manager actor filter for manager lane](images/getting-started-tutorial/define-who-can-do-what/configure-user-manager-actor-filter.gif)<!--{.img-responsive .img-thumbnail}-->
 
 
-If you run the process again, only _walter.bates_ should have access to _Read the answer and rate it_ and only _michael.morrison_ should have access to _Deal with unsatisfied customer_ (as he is the manager of both users who can complete the task _Review and answer claim_).
+If you run the process again, only _mauro.zetticci_ should have access to _Read the answer and rate it_ and only _michael.morrison_ should have access to _Deal with unsatisfied customer_ (as he is the manager of both users who can complete the task _Review and answer claim_).
 
 Now we have a fully customized process that processes data and dispatches tasks to appropriate users. The [next step](configure-email-connector.md) will be to make this process interact with the outside world.

@@ -13,7 +13,7 @@ Then, all resources used by applications will be centralized and shared by the B
 Basically, an **application descriptor** is an XML file. It represents the skeleton of an application, as it contains references to resources installed in Bonita Portal and used by a given application.  
 An application descriptor must be imported onto the portal (**Administrator** profile), in the **Applications** tab, to enable the application.  
 Before Bonita 7.5, this portal tab was the only way to create and manage applications.  
-For development purposes, the Studio can **deploy** applications descriptors onto the portal for you, from the project explorer or from the graphical editor (_only for Enterprise, Performance and Efficiency editions_).
+For development purposes, the Studio can **deploy** applications descriptors onto the portal for you, from the project explorer or from the graphical editor.
 
 Application descriptors are packaged in **application files**.  
 An **application file** is an XML file containing one or more application descriptors.  
