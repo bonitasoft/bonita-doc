@@ -2,14 +2,18 @@
 
 Now that you have your development environment (i.e. Bonita Studio) up and running, you are ready to start building your first Bonita Living Application.
 
-In this tutorial we will build a claims management solution. Making sure that claims are handled and answered in a timely manner by the appropriate employee(s) can be key to customer satisfaction. It is also a good fit for a process-based application that uses automation. We will of course drastically simplify the application in this tutorial so you can focus on learning about Bonita and not about claims management!
+In this tutorial we will build a **claims management solution**. Making sure that claims are handled and answered in a timely manner by the appropriate employee(s) can be key to customer satisfaction. It is also a good fit for a process-based application that uses automation. We will of course drastically simplify the application in this tutorial so you can focus on learning about Bonita and not about claims management!
 
 Here is an overview of process execution:
-- The process will be started by a customer who submits a claim, which is a simple text description in our example
-- Next, an employee will review the claim and provide an answer
-- The customer will be able to review the employee's answer and provide a satisfaction rating
+- The process will be started by a *customer* who submits a claim, which is a simple text description in our example
+- Next, an *employee* will review the claim and provide an answer
+- The *customer* will be able to review the *employee*'s answer and provide a satisfaction rating
 - If the rating is equal to or greater than 3, the process will finish after the customer has read the answer
 - If the rating is lower than 3 an extra task will be assigned to the manager of the employee to work with this customer who is not really satisfied. Once this task is done the process will be completed
+
+{::comment}
+Udpdate process steps to add a notification to the employee in case the rating is lower than 3?
+{::comment}
 
 ::: info
 To design this process we will use the Business Process Model and Notation (BPMN) standard. You don't need to learn everything about BPMN to follow this tutorial but, if you would like to know more, you can read the [Ultimate Guide to BPMN 2.0](https://www.bonitasoft.com/library/ultimate-guide-bpmn).
@@ -19,12 +23,24 @@ To design this process we will use the Business Process Model and Notation (BPMN
 We will use an iterative approach in the process development. This means that in the first iteration, we will have a few limitations:
 - a single user will perform all the tasks
 - we won't collect data from the user
-- the process will follow a single path - the one for an unsatisfied customer
+- the process will follow a single path - the one for an unsatisfied customer, which will be called "happy path"
 
 As we introduce data in our process definition and configure actors, a user will be able to input data in web forms, the process will follow paths that depend on data values, and different users will be involved.
 :::
 
 ## Create the process diagram
+
+The first step is the design of the process "happy path". 
+
+::: info
+While drawing you are going to discover basic BPMN elements used in most of the process diagrams: 
+- [Pool](https://documentation.bonitasoft.com/bonita//pools-and-lanes.md): a pool is a container for a process in a diagram.
+- [Lanes](https://documentation.bonitasoft.com/bonita//pools-and-lanes.md): a lane is a division of a pool. Typically, a lane contains all the tasks assigned to an [actor](https://documentation.bonitasoft.com/bonita//actors).
+- [Start and end events](https://documentation.bonitasoft.com/bonita//events.md): a start event is at the start of a process flow, and an end event is at the end of a flow.
+- [Tasks](https://documentation.bonitasoft.com/bonita//diagram-tasks.md): a task is an activity in a process.
+- [Gateways](https://documentation.bonitasoft.com/bonita//gateways.md): they are used to control how sequence flows interact within a process.
+:::
+
 
 Create a new diagram:
 1. In the Bonita Studio menu, click on **File > New diagram**.

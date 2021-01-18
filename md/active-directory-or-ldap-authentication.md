@@ -33,6 +33,7 @@ or `uid` on other LDAP servers, value: `john.smith`)
 * Does the LDAP server allow anonymous search?
 * Does the LDAP server allow search for all users that can possibly log in?
 * If search can only be performed by a limited number of "technical" accounts you will need the user name and password of such an account.
+* If SSL security is required, ldaps server address FQDN, port and the certificate if provided
 
 ## Create a JAAS configuration file
 
@@ -79,6 +80,9 @@ If you use a `userFilter` and users are allowed to search, set the value with `{
 
 **`java.naming.security.credentials`**  
 (only if needed): specify the password of a user that can perform searches on the server.
+
+**`useSSL`**
+Set this to `true` if SSL is required, `false` otherwise.
 
 #### Create or edit the configuration file for your application server
 
@@ -132,6 +136,38 @@ If you're using the [`tomcat bundle`](tomcat-bundle.md) installation, you need t
 * Locate the line that starts: `set CATALINA_OPTS=`
 * Add the tag `%SECURITY_OPTS%` after the tag `%PLATFORM_SETUP%`
 * Push into database the changes: `.\setup.bat push`
+
+#### Configure SSL (optional)
+
+It's possible to allow authentication to ldap over SSL (ldaps).
+First of all in the `<BUNDLE_HOME>/server/conf/jaas.cfg` file you should use ldaps FQDN and port, and set `useSSL` to true.
+Then the following operations are required:
+
+##### Create the keystore
+
+You should have a certificate from the ldaps server (i.e. certificate.pem). 
+* Create the following folder:  `${CATALINA_HOME}/conf/SSL`.
+* Put the certificate.pem file into this folder. 
+* Move to this directory and create a keystore with the keytool command (keytool is part of JDK):
+```
+keytool -importcert  -alias yourAlisaName -file certificate.pem -keystore certificateStore.jks
+```
+* Choose a password for your keystore (here we call it keyStorePassword)
+* Answer to the questions and at the end verify that the truststore (i.e. certificateStore.jks) has been created correctly
+
+##### Share the truststore with Tomcat
+
+* Edit this file: `<BUNDLE_HOME>/setup/tomcat-templates/setenv.sh` (Linux) or `<BUNDLE_HOME>/setup/tomcat-templates/setenv.bat` (Windows)
+* Add the following line after the one that starts with set `SECURITY_OPTS`:
+```
+Linux: SSL_OPTS="-Djavax.net.ssl.trustStore=pathToTruststore -Djavax.net.ssl.trustStorePassword=keyStorePassword"
+Windows: set SSL_OPTS="-Djavax.net.ssl.trustStore=pathToTruststore -Djavax.net.ssl.trustStorePassword=keyStorePassword"
+```
+* Replace the `pathToTruststore` and `keyStorePassword` with the proper values
+* Locate the line that starts with CATALINA_OPTS (Linux) or set CATALINA_OPTS (Windows)
+* (Linux) Add the tag `${SSL_OPTS}` after the tag `${INCIDENT_LOG_DIR}` 
+* (Windows) Add the tag `%SSL_OPTS%` after the tag `%INCIDENT_LOG_DIR%`
+
 
 <a id="examples"/>
 
