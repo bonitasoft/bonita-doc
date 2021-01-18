@@ -40,7 +40,8 @@ In 2021.1, we've decided to provide the Community edition with all the tools to 
 More information [here](https://www.bonitasoft.com/Offering) WHY THIS LINK?
 
 <a id="feature-transfer2"/>
-## Full power to the Enterprise version
+
+## Full power to the Enterprise version  
 To ensure consistency with Community vs Enterprise concepts, in 2021.1, we have moved from Community to Enterprise edition the following capabilities:
   - PurgeTool to manage Bonita Platform scalability. The tool allows to purge finished (archived) process instances from a Bonita Runtime environment.
   - Maintenance releases. From now on, maintenance releases are only available to customers (Enterprise users). Community users will benefit from all fixes done on a minor release in the next minro release. 
