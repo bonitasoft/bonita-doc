@@ -10,7 +10,7 @@ Click on the **links** below to find useful information quickly, or [browse the 
 <div class="panel-body">
 <div class="menu-block-wrapper">
 
-* [Release notes ${varVersion}](release-notes.md)<!--{li:.first .leaf}-->
+* [Release notes 2021.1](release-notes.md)<!--{li:.first .leaf}-->
 * [Stronger Open Source DNA](release-notes.md#feature-transfer)<!--{li:.first .leaf}-->
 * [New Bonita Administrator application](release-notes.md#admin-app)<!--{li:.first .leaf}-->
 * [Maintenance versions compatibility in the development suite](release-notes.md#maintenance-compatibility)<!--{li:.first .leaf}-->
