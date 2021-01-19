@@ -51,7 +51,18 @@ And because of its new clear concepts, Bonita will now follow a special type of 
 So we are proud to present the new (and fresh) Bonita 2021.1!
 As for the Maintenance versions, they will be taggued yyyy.#-mmdd like 2021.1-0212 for the maintenance release of Feb 12th, based on the first minor release of 2021.
 
-## New values added
+## Now, for the brand new values added
+
+<a id="administrator-app"/>
+
+### New Bonita Administrator Application available
+As Bonita Portal is turning into Living Applications, to give you more flexibility and opportunities of customization, you now have two applications to try.  
+After the Bonita User Application in 7.11, give a try to our new *Bonita Administrator Application!*. 
+You can get it from Bonita Studio Welcome page, in the _Resources_ tile.
+Starting now, you can use it as is, but you can also customize the pages that have been recreated with the UI Designer, or create your own Administrator Application from a handy starting point. 
+It replicates the current Administrator Portal profile, except for the _Analytics_ page, available in the Enterprise edition. 
+
+In a later version of Bonita, this application will replace the current and now deprecated Administrator Portal profile. 
 
 <a id="maintenance-compatibility"/>
 
@@ -66,12 +77,6 @@ Writing a script expression has never been easier with the reviewed expression e
 
 <a id="admin-app"/>
 
-### New Bonita Administrator Application available
-Give a try to our new *Bonita Administrator Application!* (get it from Bonita Studio Welcome page, in the Resources tile).
-Starting now, you can use it as is, but you can also customize the pages that have been recreated with the UI Designer, or create your own Administrator Application from a handy starting point. 
-It replicates the current Administrator Portal profile, except for Analytics page, available in the Enterprise edition. 
-
-In a later version of Bonita, this application will replace the current and now deprecated Administrator Portal profile. 
 
 ## Improvements
 
