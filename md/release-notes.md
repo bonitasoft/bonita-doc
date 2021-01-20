@@ -1,13 +1,13 @@
 # Release notes
 
 ::: info
-**Note:** The 2021.1 is currently work-in-progress (WIP). The 2021.1 GA is planned for January 2021.
+**Note:** The 2021.1 is currently work-in-progress (WIP). The 2021.1 GA is planned for January 28, 2021.
 :::
 
 <a id="renaming"/>
 
-## Renaming Bonita versions!
-This version of Bonita offers significant improvements and new values, among which the clarification of what we call **Enterprise** and **Community** editions:
+## Democratization of process automation technology !
+This version of Bonita offers significant improvements and new values, among which the clarification of both **Enterprise** and **Community** editions:
 
 ### Bonita Community
 The open source edition of the platform including all capabilities required to develop and deploy process automation projects. The platform is based on Bonitasoft's genuine approach to low-code and clearly separates visual programming vs coding capabilities to drive collaboration and simplify project governance.
@@ -16,10 +16,9 @@ The open source edition of the platform including all capabilities required to d
 The commercial edition of the platform to address core and critical process automation use cases. This edition adds capabilities to Bonita Community to secure, scale, monitor and continuously improve process automation projects. The Enterprise edition is bundled with a customer success subscription that provides full project lifecycle support and services from development to operations.
 
 ### The changes 
-This means that more values [were added in Community](<a id="feature-transfer"/>), so users can achieve the target goals. Alternatively, some values, linked to the goals of Enterprise, have been [moved from Community to Enterprise](<a id="feature-transfer2"/>).   
+This means an unprecedented number of features [were added in Community](<a id="feature-transfer"/>), so users can achieve the target goals. Alternatively, some values, linked to the goals of Enterprise, have been [moved from Community to Enterprise](<a id="feature-transfer2"/>).   
 As a direct benefit, upgrades/downgrades operations between Community and Enterprise editions will be simplified. Both operations still require the re-installation of the targeted platform but there is no need for project re-development anymore.   
-Enterprise downgrades to Community also imply that Enterprise edition capabilities and subscription services will not be available anymore.  
-More information [here](https://www.bonitasoft.com/Offering) WHY THIS LINK?
+More information [here](https://www.bonitasoft.com/Offering)
 
 <a id="feature-transfer"/>
 
@@ -42,14 +41,15 @@ These are the features you will find in the Community edition of Bonita 2021.1:
 To ensure consistency with Community vs Enterprise concepts, in 2021.1, we have moved from Community to Enterprise edition the following capabilities:
   - PurgeTool to manage Bonita Platform scalability. The tool allows to purge finished (archived) process instances from a Bonita Runtime environment.
   - Maintenance releases. From now on, maintenance releases are only available to customers (Enterprise users). Community users will benefit from all fixes done on a minor release in the next minro release. 
-  - JMX metrics publisher, monitoring log files and API dynamic security capabilities will be removed from Bonita Community 7.13 and will be part of the set of Enterprise features related to security and monitoring themes respectively. As a matter of clarification, operational logging capabilities of the platform will remain in the Community edition.
+  - JMX metrics publisher, monitoring log files and API dynamic security capabilities will be removed from Bonita Community 2021.2 and will be part of the set of Enterprise features related to security and monitoring themes respectively. As a matter of clarification, operational logging capabilities of the platform will remain in the Community edition.
 Morover, the Enterprise offering now encompasses the availability of Bonita Continuous Delivery, our powerful tool to deploy Living Applications on subsequent environments during the initial lifecycle of the Bonita project, and for every improvement or evolution.
 
-### The name 
+### The version name 
 So, how should we name this version? Not 7.12 because of all those changes, and all the following ones, but not 8.0 either, as it does not embed backwards incompatible APIs or any other breaking changes.
 And because of its new clear concepts, Bonita will now follow a special type of #CalendarVersioning, with a YEAR.NUM pattern.
 So we are proud to present the new (and fresh) Bonita 2021.1!
 As for the Maintenance versions, they will be taggued yyyy.#-mmdd like 2021.1-0212 for the maintenance release of Feb 12th, based on the first minor release of 2021.
+New release will continue to be rolled out on a 6 month cycle to provide even more new values. 
 
 ## Now, for the brand new values added
 
@@ -67,7 +67,7 @@ In a later version of Bonita, this application will replace the current and now 
 <a id="maintenance-compatibility"/>
 
 ### Development Suite supports multi-maintenance versions
-For a given minor version of the development suite (Studio and UI Designer), you can now seamlessly work on projects that have a different maintenance version (but the same minor version).
+For a given YEAR.NUM version of the development suite (Studio and UI Designer), you can now seamlessly work on projects that have a different maintenance version (but the same version).
 For example: if your Studio is in a later version of 2021.1, you will be able to work on all 2021.1 projects without migrating the project or being blocked.
 
 <a id="simplified-script"/>
