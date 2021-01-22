@@ -32,8 +32,8 @@ The expression must return a value of the required type. To specify the message 
 | Other \> CC  | Email address to use for a copy  | String  | 
 | Other \> BCC (hidden copy)  | Email address to use for a hidden copy  | String  |
 
-All addresses should use the syntax of [RFC822](https://www.ietf.org/rfc/rfc822.txt).
-**e.g.**: It is possible to add sender name with the following syntax in the `from` input:  
+All addresses should use the syntax of [RFC822](https://www.ietf.org/rfc/rfc822.txt).  
+It is possible to add sender name with the following syntax in the `from` input:  
 `john.doe@acme.com (John Doe)`
 If the sender name contains non-ASCII characters, it is possible to specify a charset and the character hexadecimal byte(s) like this (see [rfc1342](https://tools.ietf.org/html/rfc1342):  
 `andre.picard@acme.com (=?ISO-8859-1?Q?Andr=E9_?= Pirard)` where `E9` is the hexadecimal byte of `é` character in `ISO-8859-1` charset.
