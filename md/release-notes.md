@@ -5,6 +5,8 @@
 This will imply some changes in the upcoming versions of Bonita. Read more [further down](#portal-transformation).
 :::
 
+Watch a 5-min presentation of the main new values you will find in Bonita 7.11, in [english](https://www.youtube.com/watch?v=FNqmC64Qszs&list=PLvvoQatxaHOOsAGuLQs2ObgX3JgXDwYaW), [french](https://www.youtube.com/watch?v=Br6MY0DCJlg&list=PLvvoQatxaHONj4o8wmnPEqYml7dnzA9NU), or [spanish](https://www.youtube.com/watch?v=miEouDm7yM0&list=PLvvoQatxaHOMNTj22Nh_3KEu4ln65EPpy). 
+
 ## New values added
 
 ### No more migration between maintenance versions of Bonita
@@ -30,7 +32,7 @@ The feature of having nodes in different Bonita versions was never supported, th
 
 Visualize and explore your Business Data Model (BDM) in your browser.
 In a few clicks, generate user interfaces from the BDM, using the master/details pattern.
-
+Watch the video presentation in [english](https://www.youtube.com/watch?v=ChTv2f-p7UA&list=PLvvoQatxaHOOsAGuLQs2ObgX3JgXDwYaW&index=2), [french](https://www.youtube.com/watch?v=JjHsiqu0WjQ&list=PLvvoQatxaHONj4o8wmnPEqYml7dnzA9NU&index=2), or [spanish](https://www.youtube.com/watch?v=mT40Z_yc3ss&list=PLvvoQatxaHOMNTj22Nh_3KEu4ln65EPpy&index=2).
 More details [here](data-management.md).
 
 <a id="bdm-editor"/>
@@ -42,7 +44,10 @@ BDM and access control editors have been reworked, to improve your experience an
 
 ### Generate project documentation
 For Teamwork, Efficiency, Performance and Enterprise editions only.
-Extract information from project sources to generate an asciidoc document. The generation templates can be customized to suit your needs. More details [here](project-documentation-generation.md).
+Extract information from project sources to generate an asciidoc document. The generation templates can be customized to suit your needs. 
+
+Watch the video presentation in [english](https://www.youtube.com/watch?v=uwLkCsamZ84&list=PLvvoQatxaHOOsAGuLQs2ObgX3JgXDwYaW&index=4), [french](https://www.youtube.com/watch?v=4GzFzbMw0l4&list=PLvvoQatxaHONj4o8wmnPEqYml7dnzA9NU&index=4), or [spanish](https://www.youtube.com/watch?v=DX2nZH3QF1I&list=PLvvoQatxaHOMNTj22Nh_3KEu4ln65EPpy&index=4).
+More details [here](project-documentation-generation.md).
 
 
 ## Improvements
@@ -69,6 +74,7 @@ Add documentation to your pages by providing information on a widget (e.g. how t
 You can now develop and test custom connectors and actor filters independently of the Bonita Studio.
 Bonita offers maven archetypes to help bootstrap these extension points.
 
+Watch the video presentation in [english](https://www.youtube.com/watch?v=RvRPF_GWYxE&list=PLvvoQatxaHOOsAGuLQs2ObgX3JgXDwYaW&index=3), [french](https://www.youtube.com/watch?v=rVKqw6V6ME8&list=PLvvoQatxaHONj4o8wmnPEqYml7dnzA9NU&index=3), or [spanish](https://www.youtube.com/watch?v=k4H3EoyPT3M&list=PLvvoQatxaHOMNTj22Nh_3KEu4ln65EPpy&index=3).
 More information:
 * [Bonita actor filter archetype](actor-filter-archetype.md)
 * [Bonita connector archetype](connector-archetype.md)
