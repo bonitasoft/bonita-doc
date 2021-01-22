@@ -21,7 +21,7 @@ all output is written to a log file.
 The synchronizer will synchronize LDAP objects that inherit from the "person" class as users in Bonita.
 The synchronizer application does not support user meta data and cannot synchronize passwords. A new user password is initialized with the user name.
 
-The tool supports LDAP groups of the following classes:
+The tool supports LDAP groups of the following classes (all of the verifications are case-insensitive) :
 
 * group
 * groupOfURLs
