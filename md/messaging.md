@@ -35,7 +35,7 @@ The expression must return a value of the required type. To specify the message 
 All addresses should use the syntax of [RFC822](https://www.ietf.org/rfc/rfc822.txt).  
 It is possible to add sender name with the following syntax in the `from` input:  
 `john.doe@acme.com (John Doe)`
-If the sender name contains non-ASCII characters, it is possible to specify a charset and the character hexadecimal byte(s) like this (see [rfc1342](https://tools.ietf.org/html/rfc1342):  
+If the sender name contains non-ASCII characters, it is possible to specify a charset and the character hexadecimal byte(s) like this (see [rfc1342](https://tools.ietf.org/html/rfc1342)):  
 `andre.picard@acme.com (=?ISO-8859-1?Q?Andr=E9_?= Pirard)` where `E9` is the hexadecimal byte of `é` character in `ISO-8859-1` charset.
 Here is an example of a groovy expression that converts the `senderName` variable into the an rfc1342 compliant format using `UTF-8` charset:
 ```groovy
