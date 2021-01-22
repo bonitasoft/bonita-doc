@@ -157,6 +157,11 @@ Specify the following information:
 
 1. If you use a custom Look & Feel, [export](managing-look-feel.md) it, and then [restore the default Look & Feel](managing-look-feel.md).
 1. If you use a Business data model that requires to be redeployed (see [above](#bdm_redeploy)), you can pause the tenant so that as a tenant admin, you'll be able to redeploy the BDM on a paused tenant once migration is done.  
+
+    ::: warn
+    **IMPORTANT:** Do **not** [pause the BPM services](pause-and-resume-bpm-services.md) before you stop the application server. It will cause problems. 
+    :::
+
 1. Stop the application server.
 1. **IMPORTANT:**
 [Back up your platform](back-up-bonita-bpm-platform.md) and database in case of problems during migration.
@@ -392,3 +397,19 @@ some changes have been introduced.
 
 In addition, if your application connect to the Bonita Engine using the HTTP access mode, see the [bonita-client library](configure-client-of-bonita-bpm-engine)
 documentation page.
+
+## Migration troubleshooting
+### Timers are stuck after migrating to 7.10.0+
+_Symptom_: When migrating to 7.10.0+ the timers on processes don't work anymore.
+
+_Cause_: Bug in the pause/resume of tenant services, fixed in 7.12.1 version.
+This issue happens because the [BPM services](pause-and-resume-bpm-services.md) were paused before the migration was performed.
+
+_Solution_: If the BPM services were paused before migrating or had to be paused for whatever reason, then to resolve this,
+you need to execute the following database requests after the migration completes and before you restart your Bonita platform:
+
+```
+DELETE FROM QRTZ_PAUSED_TRIGGER_GRPS;
+UPDATE QRTZ_TRIGGERS SET TRIGGER_STATE = 'WAITING' WHERE TRIGGER_STATE = 'PAUSED';
+```
+After this operation, the table QRTZ_PAUSED_TRIGGER_GRPS should be empty, and all the triggers in the QRTZ_TRIGGERS table should be in state _waiting_, and not _paused_.
