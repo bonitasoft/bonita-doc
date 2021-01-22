@@ -1,4 +1,4 @@
-# Bonita engine dependencies (7.12.0)
+# Bonita engine dependencies (7.12.1)
 
 
 -------------------------------------------
