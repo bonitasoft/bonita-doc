@@ -399,12 +399,14 @@ In addition, if your application connect to the Bonita Engine using the HTTP acc
 documentation page.
 
 ## Migration troubleshooting
-### Timers are stuck after migrating to 7.10.0
+### Timers are stuck after migrating to 7.10.0+
 _Symptom_: When migrating to 7.10.0+ the timers on processes don't work anymore.
 
-_Cause_: Bug in the pause/resume of tenant services, fixed in 7.12.1 version. This issue happens because the [BPM services](pause-and-resume-bpm-services.md) were paused before the migration was performed.
+_Cause_: Bug in the pause/resume of tenant services, fixed in 7.12.1 version.
+This issue happens because the [BPM services](pause-and-resume-bpm-services.md) were paused before the migration was performed.
 
-_Solution_: If the BPM services were paused before migrating or had to be paused for whatever reason, then to resolve this, you need to execute the following database requests after the migration completes:
+_Solution_: If the BPM services were paused before migrating or had to be paused for whatever reason, then to resolve this,
+you need to execute the following database requests after the migration completes and before you restart your Bonita platform:
 
 ```
 DELETE FROM QRTZ_PAUSED_TRIGGER_GRPS;
