@@ -45,6 +45,10 @@ work and return either `true` or `false`. See [Official Groovy documentation](ht
 :::
 
 
+#### Logging
+
+default log level for `com.bonitasoft` and `org.bonitasoft` change from `WARNING` to `INFO`
+
 
 ## Technical updates
 ### Libraries
