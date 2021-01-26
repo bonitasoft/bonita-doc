@@ -7,15 +7,18 @@ _Users_ can view a list of the processes they have the permission to start, and 
 
 ## Process list
 
+This list displays the processes that the logged user can start.  
+
 ![User Process list](images/UI2021.1/user_process_list.png)<!--{.img-responsive}-->
 
-This list displays the processes that the logged user can start.  
-This property has been stated in the Studio, by mapping the _initiator_ actor of the pool with entities of the organization the user is part of.
+The ability to start a process has been stated in the Studio, by mapping the _initiator_ actor of the pool with entities of the organization the user is part of.
 
-In the pool configuration, this is how to map an actor to the entities of the organization.
+In the pool configuration, here is how to map an actor to the entities of the organization.
+
 ![Actor mapping](images/UI2021.1/Actor-mapping.png)<!--{.img-responsive}-->
 
-In the Pool properties, this is how to set an actor as the initiator.
+In the Pool properties, here is how to set an actor as the initiator.
+
 ![Set an actor as the process initiator](images/UI2021.1/Set-as-initiator.png)<!--{.img-responsive}-->
 
 ## Start a process
