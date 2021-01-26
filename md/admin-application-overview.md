@@ -1,7 +1,7 @@
 # Bonita Administrator Application
 
-The Bonita Administrator Application allows anyone with the _Administrator_ profile to manage the usages of Bonita throughout a department or a company.  
 This pages describes the Bonita Administrator Application: its values, how to access it, its difference with the _Administrator_ profile of Bonita Portal, and the details of its features.   
+The Bonita Administrator Application allows anyone with the _Administrator_ profile to manage the usages of Bonita throughout a department or a company.  
 
 ## Value
 Bonita Portal is deprecated and will be removed in a future Bonita release.  
