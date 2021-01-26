@@ -1,55 +1,46 @@
-# Mobile User Interfaces
+# Mobile User Portal
+This page gives an overview of the use of Bonita User Portal on mobile devices.  
 
-This page gives an overview of the use of Bonita on mobile devices.  
+Bonita Portal has a mobile version to be used by the _User_ profile only, available in Efficiency, Performance, and Enterprise editions.  
+Users can view a list of the processes they have the permission to start, start a new instance of a process, view a list of tasks, and do tasks.
 
-Bonita Portal has a mobile version to be used by the User profile only, available in Efficiency, Performance, and Enterprise editions.  
-It displays the process list to start a process and a task list.  
-But as [Bonita Portal will be replaced](bonita-bpm-portal-interface-overview.md) with Bonita applications in a next version, the Mobile Portal will not be supported anymore. It will be replaced by the Bonita User Application. Indeed, as Bonita applications can be adapted to four different screen sizes, the provided Bonita User Application is responsive.  
-So far, the Bonita Administrator application is mostly thought for desktop and laptop screen sizes, as we believe this is the most likely screen sizes to be used to administrate Bonita.  
-So just like Bonitasoft, you can [develop your own application](key-concepts.md) and choose the target screen sizes to optimize the content display: desktop, laptop, tablet, or mobile phone.  
+::: info
+As [Bonita Portal will soon be replaced](bonita-bpm-portal-interface-overview.md) by Bonita applications in a next version, and as the Bonita User Application is responsive, the Mobile Portal will not be supported anymore. It will be replaced by the **Bonita User Application**, available to all Bonita editions. 
+:::
+
 The following applies to Bonita Mobile Portal.
 
-## Security login
-
-Use the same user login and password as Bonita Portal (based on the same database)
-
-## Do I need a special license?
-
-You will need an Efficiency license (and above) to run the mobile version
-
-## What deployment bundle do I need to access the mobile version?
-
-Bonita Subscription Pack edition.
-
-## How do I access it?
+## Access
 
 Add `/mobile` after Bonita in the URL
 
 For example: [http://localhost:8080/bonita/mobile](http://localhost:8080/bonita/mobile)
 
+## Login
+
+The same user login and password as in Bonita Portal must be used (login is based on the same database).
+
 ## Profile
 
-Only the user profile is available.
+The _User_ profile is mapped to this mobile version.
 
-## Mobile language
+## Language
 
-* How do I change the language of the mobile interface
-* You need to change the language in the Bonita Portal first
-[see Languages](languages.md)
+To change the language of the Mobile Portal, change it Bonita Portal. To know more, see[Languages](languages.md)
 
 ## Navigation
 
-The navigation is slightly different from the Portal (first choose a filter to list corresponding tasks, then click on a task in the list to display it).
+The navigation is slightly different from the Portal (first choose a filter to list the corresponding tasks, then click on a task in the list to display it).
 
-Note: to display forms properly in the mobile version, only create a form with one column. If more than one column is used in a form design, then you will have to right scroll to display all the form.
-
-## What menus and functions are available?
-
-Display and perform tasks, create subtasks, add comments.
+::: info
+Note: to display forms properly in the mobile version, forms must only contain one column. If there are more than one, users will need to right scroll to display all the form, which does not provide the best user experience.
+:::
 
 ## Start a new case
 
-You can start a case from the mobile version. Click **_Apps_** to see a list of the processes for which you can start a case. Click on an App to start a case.
+To start a case from the mobile version:
+  1. Click on **_Apps_** to see a list of the processes for which you can start a case. 
+  1. Click on an App to start a case.
 
 Here are some examples of the mobile user screens:
 
