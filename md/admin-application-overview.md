@@ -19,7 +19,7 @@ So far, the Bonita Administrator Application is mostly thought for desktop and l
 ## Access during Implementation
 To get the application when you are implementing your Bonita project, go to the "Resources" tile of the **Studio Welcome page**, and click on "Import Bonita Admin Application".
 
-![Get application from Studio](images/application-deploy/studio-get-application.JPG)
+![Get application from Studio](images/UI2021.1/studio-get-application.png)
 
 You can also get it from our [Admin Application GitHub repository](https://github.com/bonitasoft/bonita-admin-application/).  
 There are two ways to get the .bos file. You can either get it from the *Releases* on the right or by cloning the repository of your choice and building it using maven.  
@@ -31,7 +31,7 @@ After Studio validation, the application is imported or cloned; you can view its
 ## Access during pre-Production and Production
 To deploy the applications into a bundle or the Cloud, you can use [Bonita Continuous Delivery](https://documentation.bonitasoft.com/bcd//_manage_living_application).   
 
-## Differences with _Administration_ profile of Bonita Portal
+## Similarities and differences with _Administration_ profile of Bonita Portal
 On top of the values of Bonita Living applications, here are the similarities and differences between this Bonita application and Bonita Portal:
   * All pages previously created within the Google Web Toolkit framework have been recreated in the UI Designer. They can be customized in the UI Designer. They come with the Admin Application you download from Bonita Studio.
   * All pages previously created in other technologies have been wrapped as custom pages. They cannot be customized in the UI Designer. Since they cannot be imported in a .bos archive, they do not come with the Admin Application you downlaod. Instead, they come as provided resources. You can find them in the "Resources" tab of the application.
@@ -41,7 +41,7 @@ Now, in details:
     * _Monitoring_: same as in Bonita Portal. 
     * _Processes_:
       * Process list: recreated with the UI Designer. It brings more clarity to the unresolved-resolved-enabled lifecycle of the processes.
-      * Process details:  same than the one in Bonita Portal. For Community, monitoring information has been added to display what was previously in the third panel of the process list.
+      * Process details: same than in Bonita Portal. For Community, monitoring information has been added to display what was previously in the third panel of the process list.
     * _Cases_:
       * Case list: same than in Bonita Portal.
       * Case details: recreated with the UI Designer. It brings more clarity in the information layout and the edition of process variables.
