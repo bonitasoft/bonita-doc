@@ -13,9 +13,9 @@ We believe that Bonita Applications give our users much more freedom for customi
 We also want to come out of the Google Web Toolkit framework; as useful as it has been when building Bonita Portal, we now find some limitations.  
 
 ## Access during Implementation
-To get the application when you are implementing your Bonita project, go to the "Resources" tile of the **Studio Welcome page**, and click on "Import Bonita Admin Application".
+To get the application when you are implementing your Bonita project, go to the "Resources" tile of the **Studio Welcome page**, and click on "Import Bonita User Application".
 
-![Get application from Studio](images/application-deploy/studio-get-application.png)
+![Get application from Studio](images/UI2021.1/studio-get-application.png)
 
 You can also get it from our [User Application GitHub repository](https://github.com/bonitasoft/bonita-user-application/).  
 There are two ways to get the .bos file. You can either get it from the *Releases* on the right or by cloning the repository of your choice and building it using maven.  
