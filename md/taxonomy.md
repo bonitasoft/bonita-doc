@@ -167,7 +167,6 @@
   * [Languages](languages.md)
   * [Log in and log out](log-in-and-log-out.md)
   * [Navigation between User Interfaces](navigation.md)
-  * [Cache busting](cache-busting.md)
   * [User Interface for End-users](_ui-for-users.md)
     * [User Portal](_user-portal.md)
       * [Process list](user-process-list.md)
