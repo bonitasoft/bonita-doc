@@ -2,12 +2,14 @@
 
 This page explains how to log in and log out of the Bonita User Interfaces.  
 
-Note: to avoid login problems, make sure you [empty your browser cache](http://www.wikihow.com/Clear-Your-Browser's-Cache)
+:::info
+Note: to avoid login problems, make sure you [empty your browser cache](http://www.wikihow.com/Clear-Your-Browser's-Cache).
+:::
 
 ## Log in
 
-A user may receive an email with a link to start a case or a task in Bonita Portal or an application. 
-Or a user wants to check the status of the tasklist in Bonita Portal or business data and operations in a custom application.  
+A user may receive an email with a link to start a case or a do task in Bonita Portal, Bonita User Application, or a custom application. 
+Or a user wants to check the status of the tasklist in Bonita Portal, Bonita User Application, or business data and operations in a custom application.  
 Or an administrator needs to perform monitoring or maintenance on the Bonita Platform.  
 For any of this, they need to log in. To do so:
 
