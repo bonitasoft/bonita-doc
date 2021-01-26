@@ -7,11 +7,14 @@ This pages describes the Bonita Administrator Application: its values, how to ac
 Bonita Portal is deprecated and will be removed in a future Bonita release.  
 We believe that Bonita Applications give our users much more freedom for customization:
   * Their menus can be customized compared to provided Portal profiles, by adding or removing pages, while still keeping the mapping with the profile _User_
-  * They are responsive
-  * Portal pages that have been re-created with the UI Designer have more features and/or features improvements  
+  * Portal pages that have been re-created with the UI Designer benefit from features improvements  
   * These pages can also be modified in the UI Designer to fit precise users' needs.
 
 We also want to come out of the Google Web Toolkit framework; as useful as it has been when building Bonita Portal, we now find some limitations.  
+
+::: info
+So far, the Bonita Administrator Application is mostly thought for desktop and laptop screen sizes, as we believe this is the most likely screen sizes to be used to administrate Bonita.  
+:::
 
 ## Access during Implementation
 To get the application when you are implementing your Bonita project, go to the "Resources" tile of the **Studio Welcome page**, and click on "Import Bonita Admin Application".
