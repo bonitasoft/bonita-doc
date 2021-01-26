@@ -1,4 +1,4 @@
-# Case list for users in Bonita Portal
+# User Case list in Bonita Portal
 
 This page explains what a user with the _User_ profile in Bonita Portal can see and do about cases (the process instances).
 
@@ -18,8 +18,8 @@ This list displays the cases in which the logged user is involved:
 
 At the top of the page, two tabs act as the first filter of the list: _Open cases_ and _Archived cases_.  
 Obvious differences between the two:
-  * Open cases have an "Available tasks" column but not the archived cases
-  * Archived cases have an end date but not the open cases
+  * Open cases have an _Available tasks_ column but not the archived cases
+  * Archived cases have an _End date_ but not the open cases
   
 Less obvious difference:
 Users can add a comment in an open case, but cannot anymore in an archived case.  
