@@ -1,9 +1,11 @@
-# Case list for users in Bonita Application
+# User Case list in Bonita Application
 
 This page explains what a user with the _User_ profile in Bonita User Application can see and do about cases (the process instances).  
 It describes the value and details of the User Case List in Bonita User Application, as well as its related pages Case Details and Case Overview.  
 
-This page has been created using our [R&D best practices](link to the article), featuring:
+This page has been created using our [R&D best practices](https://community.bonitasoft.com/blog/development-ui-designer-page-done-bonitasoft).
+
+It features:
   * Search by Case Id, to access the details of a case directly
   * Repeatable containers, to better display the case search keys
   * "Load more" mechanism for better display performance
