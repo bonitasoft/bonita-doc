@@ -42,14 +42,15 @@ To ensure consistency with Community vs Enterprise concepts, in 2021.1, we have 
   - PurgeTool to manage Bonita Platform scalability. The tool allows to purge finished (archived) process instances from a Bonita Runtime environment.
   - Maintenance releases. From now on, maintenance releases are only available to customers (Enterprise users). Community users will benefit from all fixes done on a minor release in the next minro release. 
   - JMX metrics publisher, monitoring log files and API dynamic security capabilities will be removed from Bonita Community 2021.2 and will be part of the set of Enterprise features related to security and monitoring themes respectively. As a matter of clarification, operational logging capabilities of the platform will remain in the Community edition.
-Morover, the Enterprise offering now encompasses the availability of Bonita Continuous Delivery, our powerful tool to deploy Living Applications on subsequent environments during the initial lifecycle of the Bonita project, and for every improvement or evolution.
+Moreover, the Enterprise offering now encompasses the availability of Bonita Continuous Delivery, our powerful tool to deploy Living Applications on subsequent environments during the initial lifecycle of the Bonita project, and for every improvement or evolution.
 
 ### The version name 
 So, how should we name this version? Not 7.12 because of all those changes, and all the following ones, but not 8.0 either, as it does not embed backwards incompatible APIs or any other breaking changes.
 And because of its new clear concepts, Bonita will now follow a special type of #CalendarVersioning, with a YEAR.NUM pattern.
 So we are proud to present the new (and fresh) Bonita 2021.1!
 As for the Maintenance versions, they will be taggued yyyy.#-mmdd like 2021.1-0212 for the maintenance release of Feb 12th, based on the first minor release of 2021.
-New release will continue to be rolled out on a 6 month cycle to provide even more new values. 
+New releases will continue to be rolled out on a 6-month cycle to provide new values. 
+And the technical components of Bonita will keep their semantic versioning numbers, that you should not see too often.
 
 ## Now, for the brand new values added
 
