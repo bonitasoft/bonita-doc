@@ -25,7 +25,7 @@ On the new page, thanks to the [data management](data-management.md) capabilitie
 
    ![Declare claims page variable](images/getting-started-tutorial/design-application-page/declare-claims-page-variable.gif)<!--{.img-responsive .img-thumbnail}-->
 
-The UI designer automatically created 2 variables which will be used to retrieve and display business data in the application page:
+The UI Designer automatically created 2 variables which will be used to retrieve and display business data in the application page:
 - ``claim`` of type **Business data**
 - `claim_selected`` of type **String** which returns the list of claims
 
