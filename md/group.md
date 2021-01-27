@@ -15,11 +15,13 @@ Here is a view of this page:
 
 _**NB: Bonita doesn't support the '/' character in the group name field. A group name that contains a '/' may lead to unstable behaviour and may be forbidden in the future.**_ 
 
-## Delete a group
-1. Go to _Organization_/_Groups_.
-2. Check a box to select a group.
-3. Click on _Delete_.
-4. In the popup window, click on _Delete_.
+## Assign a group to a user
+1. Go to the _Organization_/_Users_. The list of users in the organization will be displayed.
+2. Click on a _User_.
+3. Click on _More_
+4. In _Memberships_, click on _Add_.
+5. Choose the group and role for the user.
+6. Click on _Add_.
 
 ## Edit a group
 1. Go to _Organization_/_Groups_.
@@ -27,6 +29,12 @@ _**NB: Bonita doesn't support the '/' character in the group name field. A group
 3. Click on _Edit_.
 4. In the popup window, update the group information.
 5. Click on _Save_.
+
+## Delete a group
+1. Go to _Organization_/_Groups_.
+2. Check a box to select a group.
+3. Click on _Delete_.
+4. In the popup window, click on _Delete_.
 
 ## More information about the group
 1. Go to _Organization_/_Groups_.
