@@ -21,7 +21,7 @@ To design this process we will use the Business Process Model and Notation (BPMN
 We will use an iterative approach in the process development. This means that in the first iteration, we will have a few limitations:
 - a single user will perform all the tasks
 - we won't collect data from the user
-- the process will follow a single path - the one for an unsatisfied customer, which will be called "happy path"
+- the process will follow a single path - in this case the one for an unsatisfied customer - which will be called "happy path" because its design is the best case scenario to run the entire process smoothly.
 
 As we introduce data in our process definition and configure actors, a user will be able to input data in web forms, the process will follow paths that depend on data values, and different users will be involved.
 :::
@@ -35,7 +35,7 @@ While drawing the model, you will use and learn about some basic BPMN elements u
 - [Pool](pools-and-lanes.md): a pool is a container for a process in a diagram.
 - [Lanes](pools-and-lanes.md): a lane is a division of a pool. Typically, a lane contains all the tasks assigned to one [actor](actors).
 - [Start and end events](events.md): a start event is at the start of a process flow, and an end event is at the end of a flow.
-- [Tasks](diagram-tasks.md): a task is an activity in a process.
+- [Tasks](diagram-tasks.md): a task is a type of activity in a process.
 - [Gateways](gateways.md): gateways are used to control how sequence flows interact within a process.
 :::
 
