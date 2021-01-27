@@ -7,7 +7,7 @@ To define "who can do what",  you will define the [actors](actors.md) who can pe
 The first step in the configuration of "who can do what" is to create [lanes](pools-and-lanes.md) within our pool. We already have one default lane for the employees. Let's add another one for the customer and one for the manager:
 1. In Bonita Studio, from the palette on the left hand side of the diagram select the **lane** icon
 1. Click inside the process pool to add the lane. Do this twice to have a total of three lanes
-1. Select the employee lane and click on the down arrow icon to move it, so it is the middle lane
+1. Select the _employee lane_ and click on the down arrow icon to move it, so it is the middle lane
 
    ![Add and organize lanes](images/getting-started-tutorial/define-who-can-do-what/add-and-organize-lanes.gif)<!--{.img-responsive .img-thumbnail}-->
 
@@ -28,7 +28,7 @@ Now we need to define "actors," one for each lane, and map them to the lane they
 1. Click on the **Add** button
 1. Click on the default name of the actor (_Actor1_) and change it to: _Customer actor_
 1. Repeat to create _Manager actor_
-1. Select the _Customer actor_ and click on **Set as initiator** button. This will add a flag on this actor to mark it as the one can start the process
+1. Select the _Customer actor_ and click on **Set as initiator** button. This will add a flag on this actor to mark it as the one who can start the process
 
    ![Add and rename actors, define initiator](images/getting-started-tutorial/define-who-can-do-what/add-rename-actors-set-initiator.gif)<!--{.img-responsive .img-thumbnail}-->
 
