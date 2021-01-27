@@ -117,12 +117,18 @@ To do so:
 1. Click on the _Add_ button
 1. Select whether you want to "import" or "create" a profile
     1. To import, click in the file field, select your .xml file, click on _Open_, and then on _Import_.
-       It is possible to import a profile file made of several profiles. All the profiles it contains will be imported.
+       It is possible to import a profile file made of several profiles. The file is imported and checked.  
+       A popup reports the status of the import. It shows the number of profiles successfully imported, partially imported, or with errors.
+       ::: info
+       Note: The default profiles defined in Bonita have the flag `isDefault` set to "True" in the XML file. Do not change the setting of `isDefault` for any profile, or you will get an error message on import.
+       :::
     1. To create, type the name and description, and click on the _Create_ button. This will take you to the details page.
        Create the mapping with the organization entities, and if needed, create a Portal navigation.  
-       
-Starting with Bonita 2021.1, because Bonita Portal is deprecated, we strongly encourage to create applications instead of Custom Profiles in Bonita Portal.
-   
+ 
+::: info
+Starting with Bonita 2021.1, because Bonita Portal is deprecated, we strongly encourage to create applications instead of Custom Profiles for Bonita Portal.
+:::   
+
 ## Delete a profile
 Very rarely, the Administrator may have to delete a profile. It is not possible for Bonita default profiles.  
 Deleting a profile will not delete the mapped entities, but if the custom profile has a Portal navigation, this will be deleted.  
