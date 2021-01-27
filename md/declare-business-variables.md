@@ -7,7 +7,7 @@ If you want to know more about operations, just read the [related documentation 
 :::
 
 In our process we will deal with a single object: a claim. The claim object will store information about the claim itself (i.e. its description), the provided answer and a satisfaction level. To declare a business variable:
-1. Select the process pool, the rectangle shape that includes start events and tasks.
+1. Select the process pool, the rectangle shape that includes events and tasks.
 
    ![Select the pool](images/getting-started-tutorial/declare-business-variable/select-process-pool.gif)<!--{.img-responsive .img-thumbnail}-->
 
@@ -23,7 +23,7 @@ Now that a business variable is declared, we can use it in our transition condit
 1. Select the transition connecting the _Satisfaction level_ gateway with _Deal with unsatisfied customer_
 1. Go into the **General > General** tab
 1. In **condition** click on the pencil icon
-1. Select **Script** in **Expression type** on the left hand side of the pop-up window
+1. Select **Script** in **Expression type** in the top tabs of the modal window
 1. Select the object **claims** in the left menu "Business variable" and then the attribute **satisfactionLevel** 
 1. Click on **<** in the quick access operators' bar and type **3** 
 1. Click on **OK** button
@@ -39,7 +39,7 @@ The script configured for the transition condition will return `true` if satisfa
 :::
 
 ::: info
-Our business variable has never been initialized so it will remain empty. They are several different options available to initialize a business variable:
+Our business variable has never been initialized so it will remain empty. They are several options available to initialize a business variable:
 - business variable default value
 - [operation](operations.md) on a task
 - [connector output](initialize-a-variable-from-a-database-without-scripting-or-java-code.md)
