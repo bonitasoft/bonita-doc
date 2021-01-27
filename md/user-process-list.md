@@ -1,6 +1,6 @@
 # User process list
 
-This page explains what a user with the User profile in Bonita Portal or in the [Bonita User Application](user-application-overview.md) can see and do about processes.
+This page explains what a user with the _User_ profile in Bonita Portal or in the [Bonita User Application](user-application-overview.md) can see and do about processes.
 
 _Users_ can view a list of the processes they have the permission to start, and start a new instance of a process.
 
