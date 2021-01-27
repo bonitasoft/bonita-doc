@@ -31,12 +31,12 @@ As we introduce data in our process definition and configure actors, a user will
 The first step is the design of the process "happy path". 
 
 ::: info
-While drawing you are going to discover basic BPMN elements used in most of the process diagrams: 
+While drawing the model, you will use and learn about some basic BPMN elements used in most process diagrams: 
 - [Pool](pools-and-lanes.md): a pool is a container for a process in a diagram.
-- [Lanes](pools-and-lanes.md): a lane is a division of a pool. Typically, a lane contains all the tasks assigned to an [actor](actors).
+- [Lanes](pools-and-lanes.md): a lane is a division of a pool. Typically, a lane contains all the tasks assigned to one [actor](actors).
 - [Start and end events](events.md): a start event is at the start of a process flow, and an end event is at the end of a flow.
 - [Tasks](diagram-tasks.md): a task is an activity in a process.
-- [Gateways](gateways.md): they are used to control how sequence flows interact within a process.
+- [Gateways](gateways.md): gateways are used to control how sequence flows interact within a process.
 :::
 
 
@@ -87,7 +87,7 @@ Now we will add another task to the process:
 
    ![Add user task](images/getting-started-tutorial/draw-bpmn-diagram/add-task.gif)
 
-In order to define another path in our process execution, we will add an exclusive gateway. This gateway will direct the process execution to a different path based on certain conditions. Adding an exclusive gateway is done quite the same as adding a task:
+In order to define another path in our process execution, we will add an exclusive gateway. This gateway will direct the process execution to a different path based on certain conditions. Adding an exclusive gateway is done in the same way as adding a task:
 1. Select the user task _Read the answer and rate it_
 1. Drag and drop the diamond-shaped gateway icon
 1. Click on the toolbox icon
@@ -97,7 +97,7 @@ In order to define another path in our process execution, we will add an exclusi
 
 1. Rename the gateway to: _Satisfaction level_
 
-From the gateway, there are two possibles paths. The first one completes the process if the customer satisfaction level is good. The end of a process is identified by an end event, a red disc. Adding the end event is similar to how you added a task and a gateway:
+From the gateway, there are two possibles paths. The first one completes the process if the customer satisfaction level is good. The end of a process is identified by an end event, a red disc. Add the end event in a similar way as adding a task and a gateway:
 1. Select the gateway
 1. Drag and drop the event icon (the disc icon)
 1. Select the end event type (red disc icon)
