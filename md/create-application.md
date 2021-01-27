@@ -2,7 +2,7 @@
 
 Creating the application is the final step of this Getting Started tutorial.
 
-To create and deploy our first application in our local environment, the easiest way is to use the **[Application descriptor](applicationCreation.md)**. This editor helps you defining the skeleton of an application, as it contains references to resources installed in Bonita Portal and used by a given application. It will also help us deploying the application directly from Bonita Studio. 
+To create and deploy our first application in our local environment, we will use the **[Application descriptor](applicationCreation.md)**. This editor helps you defining the skeleton of an application, as it contains references to resources installed in Bonita Portal and used by a given application. It will also help us deploying the application directly from Bonita Studio. 
 
 The page you have created in the UI Designer as well as the forms have been automatically added to the project resources under **Pages/Forms/Layout**.
 
