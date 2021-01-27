@@ -2,7 +2,7 @@
 
 This page explains what a user with the _Administrator_ or _Process Manager_ profile in Bonita Portal can see and do about processes.
 
-Users with the Administrator profile can: install, enable and edit processes as well as categories, forms, entities mapped to actors, parameters, and connectors.
+Users with the _Administrator_ profile can: install, enable and edit processes as well as categories, forms, entities mapped to actors, parameters, and connectors.
 
 Here is a view of the Process list page:
 ![Administrator Process list in Portal](images/UI2021.1/admin-process-list-portal.png)<!--{.img-responsive}-->
