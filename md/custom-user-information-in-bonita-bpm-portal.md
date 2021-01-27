@@ -1,44 +1,33 @@
-# Custom User Information in Bonita Portal
+# Custom User Information Management
 
-Learn how you can use and display Custom User Information, previously defined in Bonita Studio, in Bonita Portal.
+This page explains what a user with the _Administrator_ profile in Bonita Portal or in the [Bonita Administrator Application](admin-application-overview.md) can see and do with custom information [created at development time](custom-user-information-in-bonita-bpm-studio.md) about the users.  
+
+Administrators can view and update Custom User Information.
+
+Here is a view of this page:
+![Custom User Information UI](images/UI2021.1/custom-user-info.png)<!--{.img-responsive}-->
 
 ## Overview
+Custom User Information -CUI) account for additional information than the provided information defined in Bonita Studio to describe users. This may be needed to define the right actors for a human task. 
+Each CUI is defined in Bonita Studio organization, and used in the specific _Users with custom information_ provided actor filter in Bonita Studio.  
+CUIs are also displayed in Bonita Portal, in the _More_ page of a user.  
+This allows the Administrator to edit the values of a CUI for a given user, and by this means change the actor mapping.  
+The Administrator cannot create a CUI nor edit a CUI definition.
 
-Custom User Information defined in the Organization in Bonita Studio is displayed in the Bonita Portal in the **More** page for a user (only accessible under the Administrator profile).
-
-The **Users with custom information** filter in Bonita Studio uses this custom information to map which users can perform tasks in the Bonita Portal.
-
-In Bonita Portal, this custom information can only be accessed and edited by a user (Administrator profile only).
-
-Note: if no customer user definitions are set in Bonita Studio, then no information will be displayed in the Bonita Portal. However definitions can be added and modified manually and using the WEB REST API
-
-Note: the custom user definition cannot be modified in Bonita Portal by the admin. The custom value for a user can be modified by the Administrator.  
-This gives flexibility to the admin to re-assign tasks to different users.
-
-The Organization .xml file can also be exported from Bonita Portal, and modified by hand externally, then re-imported back into Bonita Portal.
-The API can also modify the organization.
+::: info
+**Note**: if no customer user definitions are set in Bonita Studio, then no information will be displayed in Bonita Portal.  
+However, definitions can be created and edited using the [Web REST API](customuserinfo-api.md).  
+The Organization .xml file can also be exported from Bonita Portal, modified by hand externally, and then re-imported back into Bonita Portal, although we strongly advise to always modify resources from the development environment and then deploy iteratively on the test environments until the Production environment.
+:::
 
 See [Custom User Information in Bonita Studio](custom-user-information-in-bonita-bpm-studio.md)
 
-## How to view custom information for a user
+## View / Edit custom information for a user
+1. Go to _Organization_/_Users_.
+1. Click on a user.
+1. Click on _More_.
+1. Click on _Custom information_.
+1. In the information to edit, enter a value for the definition (defined in Bonita Studio), which will only be added to this user.
+1. Click _Update custom information_.
 
-1. Log on as a user with\>Administrator rights.
-1. Go to the **Organization** menu and choose **Users**.
-1. Select a user in the list, by clicking on a name.
-1. Click _**More**_.
-1. The custom user definition and value are displayed in the zone called **Other**.
-
-## How to edit Custom information for a single user
-
-1. **Log on ** as a user with _**Administrator rights**_.
-1. Go to the **Organization** menu and choose **Users**.
-1. Select a user in the list, by clicking on a name.
-1. Click _**More**_.
-1. The custom user definition and value are displayed in the zone called **Other**.
-1. Click _**Edit user**_ in the top right corner of the screen.
-1. In the **Edit a user** pop-up window, click on the _**Other**_ tab.
-1. Enter a value for the definition (defined in Bonita Studio), which will only be added to this user.
-1. Click _**Save**_. This closes the pop-up.
-1. The new value for the the definition will be updated and displayed in the **Other** zone.
-
-Note that changing the value will modify the filtering and map the user to a different task.
+Note that changing the value will modify the filtering and may map the user to different tasks.
