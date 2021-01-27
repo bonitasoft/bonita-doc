@@ -169,6 +169,8 @@ Indeed, some Portal pages (built with GWT) are being totally recreated with our 
 Moreover, as any Living Application, Bonita applications will be extensible to add any page the users need. More details in the upcoming versions of Bonita.
 Until then, we strongly advise not to create Custom Portal Profiles anymore but applications instead. When Bonita Portal will not exist anymore, the existing Portal Custom Profiles will need to be migrated into Living applications.
 
+#### Java 8 support
+Bonita 2021.1 (7.12) is the latest version fully compatible with java 8 in production and development environment. JRE or JDK 11+ will be required to run. Bonita 2021.2+ won't be operated on Java 8.
 
 ### Removals
 #### IE11 support
