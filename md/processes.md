@@ -1,6 +1,6 @@
 # Administrator Process list in Bonita Portal
 
-This page explains what a user with the _Administrator_ profile in Bonita Portal can see and do about processes.
+This page explains what a user with the _Administrator_ or _Process Manager_ profile in Bonita Portal can see and do about processes.
 
 Users with the Administrator profile can: install, enable and edit processes as well as categories, forms, entities mapped to actors, parameters, and connectors.
 
@@ -8,7 +8,6 @@ Here is a view of the Process list page:
 ![Administrator Process list in Portal](images/UI2021.1/admin-process-list-portal.png)<!--{.img-responsive}-->
 
 ## Install a new process
-
 1. Go to _BPM_ > _Processes_
 3. Click on the _Install_ button on the top left of the page
 4. Click to browse to the .bar file to import
@@ -23,7 +22,6 @@ This is necessary for a .bar that has not been deployed. A process that was deve
 However, for future maintenance of the process definition, you are recommended to update all your process .bar files to the latest version each time you update your platform.
 
 ## Resolve a process
-
 Resolving a process means completing the configuration in Bonita Portal and making sure that all dependencies are met. A process has to be resolved before it can be enabled. 
 
 To resolve a process, you must complete the configuration of the actor mappings, parameters, forms, and connectors defined for the process.
@@ -111,6 +109,17 @@ After you created a category and added to the process, you can add other process
 6. Click on the _Save_ button
 
 All of what fallows belongs to the [Live update feature](live-update.md) and are only available in for the Enterprise, Performance, and Efficiency editions.
+
+## Start a case for another user
+This feature is available with the Efficiency, Performance and Enterprise editions.
+To start a case for another user:
+1. Go to _BPM_>_Processes_.
+2. Select the process and click on the _Start for_ button.
+3. In the popup, specify the user for whom you are starting the case. Only valid users for the case are displayed.
+4. Click on _Start_.
+
+The case is started as though the specified user had started it. 
+For example, if a you start a case for user A and a subsequent task is to be done by the manager of the user, it is assigned to user A's manager, not to your manager.
 
 ## Edit the actor mapping
 You need to map more or less organization entities to an actor. To do so:
