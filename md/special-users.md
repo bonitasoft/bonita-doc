@@ -19,3 +19,8 @@ Where to change it.
 
 If you modify these values before the first start of the platform, the new values will be the default values for all tenants that will be
 created in the future, including the default tenant.
+
+## Guest user
+Quick definition and rights.
+Link to guest user for how it works.
+
