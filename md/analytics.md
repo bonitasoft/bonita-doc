@@ -9,6 +9,10 @@ A report presents the Administrator with data about the usage of cases and tasks
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
+Here is a view of the page:
+![Analytics](images/UI2021.1/analytics.png)<!--{.img-responsive}-->
+
+
 ## Provided reports
 There are four reports available by default:
 
