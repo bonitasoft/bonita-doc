@@ -1,4 +1,4 @@
-# Group list in Bonita Portal
+# Administrator Group list in Bonita Portal
 
 This page explains what a user with the _Administrator_ profile in Bonita Portal can see and do about groups in the organization.  
 To easily manipulate users with the same rights, it is possible to group them together.
