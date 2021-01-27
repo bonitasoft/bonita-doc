@@ -145,22 +145,22 @@ There are two stages to define a Process Manager:
 
 1. Map organization entities to access the _Process Manager_ Portal to view information related to the processes they will be _Process Managers_ of.
    Only Administrators can do so.
-  1. Go to _Organization_/_Profiles_
-  2. Choose the _Process manager_ profile. This will display the users, groups, roles, and memberships who already have this profile.
-  3. Click on _More..._.
-  4. Click on _Add a user_.
-  5. Select a user by checking the box next to the user name.
-  6. Click on _Add_. 
+    1. Go to _Organization_/_Profiles_
+    2. Choose the _Process manager_ profile. This will display the users, groups, roles, and memberships who already have this profile.
+    3. Click on _More..._.
+    4. Click on _Add a user_.
+    5. Select a user by checking the box next to the user name.
+    6. Click on _Add_. 
      The _Process manager_ profile is now assigned to the user.
      You can also assign a profile to a group, role, or membership.
      
 2. Map the process to one or several entities that have the _Process Manager_ profile. 
-  1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers) 
-  2. Select the process 
-  3. Click on _More..._. The Process managers currently assigned to the process are shown in the _Process manager mapping_ table.
-  4. To add a user, click the _Plus_ sign or _Pencil_ button in the _User_ column. A popup shows a list of the users who are currently process managers for this process.
-  5. Click _Select users_. A list of users with the Process manager profile is displayed.
-  6. Select the user you want to be a Process manager for the process, and click on _Apply_. 
+    1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers) 
+    2. Select the process 
+    3. Click on _More..._. The Process managers currently assigned to the process are shown in the _Process manager mapping_ table.
+    4. To add a user, click the _Plus_ sign or _Pencil_ button in the _User_ column. A popup shows a list of the users who are currently process managers for this process.
+    5. Click _Select users_. A list of users with the Process manager profile is displayed.
+    6. Select the user you want to be a Process manager for the process, and click on _Apply_. 
      The selected user is added as a Process manager for the process.
      You can also assign a process to a group, role, or memberships.
 
