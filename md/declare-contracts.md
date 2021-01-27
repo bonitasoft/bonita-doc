@@ -3,7 +3,7 @@
 So far our process defines a sequences of events and tasks, and declares a business variable that it will instantiate and update when executed.  
 We want to instantiate our `claim` business variable using the description provided by the customer when they start the process. We will also need to update the claim with the answer provided by the employee and with the satisfaction rating provided by the customer. We need a way to collect information from the user and store it in the business variable. This is achieved using the user interfaces (auto-generated forms) and based on another concept: [contract](contracts-and-contexts.md).
 
-A contract defines the data expected from the user to start a process (instantiation contract) or to execute a user task (task contract). By default Bonita offers a solution to easily build forms (_[see next chapter](create-web-user-interfaces.md)_) to allow the user to view and provide data. 
+A contract defines the data expected from the user (or an API call) to start a process (instantiation contract) or to execute a user task (task contract). By default, Bonita offers a solution to easily build forms (_[see next chapter](create-web-user-interfaces.md)_) to allow the user to view and provide data. 
 When submitted, forms will ask the Bonita Engine to start a process or execute a task using provided data that must match what is expected by the contract, as described on this diagram:
 
 ![contract-mvc](images/getting-started-tutorial/declare-contracts/contract-MVC.PNG) 
