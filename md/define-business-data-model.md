@@ -47,7 +47,6 @@ Now you have a fully functional business data management model. You are ready to
 
 ::: info
 Bonita Studio uses h2 to provide the database for testing. (We recommend you to use other types of databases such as Oracle, PostgreSQL, MySQL and SQL Server for production). Bonita Studio provides two database schemas: one for the Bonita Engine and one dedicated to BDM. 
-You can view the tables created in the h2 BDM database by clicking in the Bonita Studio menu on **Development > Business Data Model > Browse data (h2 console)...**. In the h2 console (a web interface) you can see that a table named "CLAIM" was created. You can run an SQL query such as `SELECT * FROM CLAIM` which should return an empty result as there is no data yet.  
+You can view the tables created in the h2 BDM database by clicking on **Development > Business Data Model > Browse data (h2 console)...**. In the h2 console (a web interface) you can see that a table named "CLAIM" was created. You can run an SQL query such as `SELECT * FROM CLAIM` which should return an empty result as there is no data yet.  
 You can also [explore the BDM database schema](data-management#toc0) by clicking in the Bonita Studio menu on **Development > Business Data Model > Explore model (GraphQL voyager)...**. 
 :::
-
