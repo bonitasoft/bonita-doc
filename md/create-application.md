@@ -47,7 +47,7 @@ Congratulations! You have successfully created your first process and applicatio
 
 ::: info
 You can verify that the application has been created in Bonita Portal.
-1. Click on the Portal icon ![Portal icon](images/getting-started-tutorial/create-application/portal-icon.png) in the Bonita Studio tool bar.
+1. Click on the Portal icon ![Portal icon](images/getting-started-tutorial/create-application/portal-icon.png) in Bonita Studio coolbar.
 1. In the upper right corner of the window, click on the **User** drop down menu
 1. Select **Administrator**
 1. Click on the **Applications** tab
