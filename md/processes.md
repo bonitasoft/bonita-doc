@@ -2,13 +2,14 @@
 
 This page explains what a user with the _Administrator_ or _Process Manager_ profile in Bonita Portal can see and do about processes.
 
-Users with the _Administrator_ profile can: install, enable and edit processes as well as categories, forms, entities mapped to actors, parameters, and connectors.
+Those users can: install, enable and edit processes, categories, forms, entities mapped to actors and process manager, parameters, and connectors.
 
 Here is a view of the Process list page:
 ![Administrator Process list in Portal](images/UI2021.1/admin-process-list-portal.png)<!--{.img-responsive}-->
 
 ## Install a new process
-1. Go to _BPM_ > _Processes_
+This feature is only available for the _Administrator_ profile.
+1. Go to _BPM_ > _Processes_ 
 3. Click on the _Install_ button on the top left of the page
 4. Click to browse to the .bar file to import
 5. Click on _Install_
@@ -23,7 +24,6 @@ However, for future maintenance of the process definition, you are recommended t
 
 ## Resolve a process
 Resolving a process means completing the configuration in Bonita Portal and making sure that all dependencies are met. A process has to be resolved before it can be enabled. 
-
 To resolve a process, you must complete the configuration of the actor mappings, parameters, forms, and connectors defined for the process.
 
 * **Actors**: Every actor in a process must be mapped to at least one user, group, role or membership.
@@ -33,7 +33,7 @@ To resolve a process, you must complete the configuration of the actor mappings,
 * Also, every business variable used in the process should have a corresponding model. 
 
 To resolve a process for actors, parameters, connectors, and forms:
-1. Go to _BPM_>_Processes_,
+1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers),
 2. Click on a process.The _Configuration_ section of the right panel shows whether there are items to be resolved. 
 4. Click on _More_ button.
 5. A summary of configuration problems is displayed below the process name in a well and warning icons are displayed in the left navigation list.
@@ -44,9 +44,10 @@ To resolve a process for business variables:
 2. Login with the [technical user credentials](tenant_admin_credentials.md)
 3. [Pause the BPM services](pause-and-resume-bpm-services.md)
 4. [Update the BDM](bdm-management-in-bonita-bpm-portal.md)
+5. Come back to _BPM_/_Processes_ and check the status.
 
 ## Enable a process
-1. Go to _BPM_>_Processes_
+1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers)
 2. Click on the _Resolved_ filter
 3. Select the process
 4. Click on the _More_ button
@@ -60,7 +61,7 @@ To resolve a process for business variables:
 
 ## Disable a process
 Disabling a process blocks the creation of new cases. This does not impact existing cases, where tasks can still be executed.
-1. Go to _BPM_>_Processes_
+1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers)
 2. Click on the _Enabled_ filter
 4. Select the process 
 5. Click on the _Disable_ button
@@ -83,14 +84,14 @@ This feature should only be used on non-production environments.
 **Proceed at your own risk.**
 :::
 
-1. Go to _BPM_>_Processes_
+1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers),
 2. Select the process to delete by checking the tickbox next to the process
 4. Click on the _Delete_ button
 
 You can also delete the process in the _More details_ view of a disabled process by clicking on the _Delete_ button, then click on the _Delete_ button to confirm in the modal window.
 
 ## Create a category for a process
-1. Go to _BPM_>_Processes_
+1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers),
 2. Select a process in the list
 3. Click on the _More_ button
 4. In _General_, click the _Pencil_ next to _Categories_ label
@@ -100,7 +101,7 @@ You can also delete the process in the _More details_ view of a disabled process
 After you created a category and added to the process, you can add other processes to the category.
 
 ## Add a category to a process
-1. Go to _BPM_>_Processes_
+1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers)
 2. Select a process in the list
 3. Click on the _More_ button
 4. In _General_, click the _Pencil_ next to _Categories_ label
@@ -113,7 +114,7 @@ All of what fallows belongs to the [Live update feature](live-update.md) and are
 ## Start a case for another user
 This feature is available with the Efficiency, Performance and Enterprise editions.
 To start a case for another user:
-1. Go to _BPM_>_Processes_.
+1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers)
 2. Select the process and click on the _Start for_ button.
 3. In the popup, specify the user for whom you are starting the case. Only valid users for the case are displayed.
 4. Click on _Start_.
@@ -123,7 +124,7 @@ For example, if a you start a case for user A and a subsequent task is to be don
 
 ## Edit the actor mapping
 You need to map more or less organization entities to an actor. To do so:
-1. Go to _BPM_>_Processes_.
+1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers)
 2. Select a process in the list.
 3. Click on the _More_ button.
 4. Click on _Actors_ in the left menu.
@@ -138,6 +139,31 @@ To remove entities:
 ::: info
 **Note:** Only the first 200 actors are displayed in the dropdown.
 ::: 
+
+## Define one or more Process managers
+There are two stages to define a Process Manager:
+
+1. Map organization entities to access the _Process Manager_ Portal to view information related to the processes they will be _Process Managers_ of.
+   Only Administrators can do so.
+  1. Go to _Organization_/_Profiles_
+  2. Choose the _Process manager_ profile. This will display the users, groups, roles, and memberships who already have this profile.
+  3. Click on _More..._.
+  4. Click on _Add a user_.
+  5. Select a user by checking the box next to the user name.
+  6. Click on _Add_. 
+     The _Process manager_ profile is now assigned to the user.
+     You can also assign a profile to a group, role, or membership.
+     
+2. Map the process to one or several entities that have the _Process Manager_ profile. 
+  1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers) 
+  2. Select the process 
+  3. Click on _More..._. The Process managers currently assigned to the process are shown in the _Process manager mapping_ table.
+  4. To add a user, click the _Plus_ sign or _Pencil_ button in the _User_ column. A popup shows a list of the users who are currently process managers for this process.
+  5. Click _Select users_. A list of users with the Process manager profile is displayed.
+  6. Select the user you want to be a Process manager for the process, and click on _Apply_. 
+     The selected user is added as a Process manager for the process.
+     You can also assign a process to a group, role, or memberships.
+
 
 ## Modify a parameter
 1. Go to  _BPM_> _Processes_
