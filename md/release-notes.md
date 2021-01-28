@@ -6,7 +6,7 @@
 
 <a id="renaming"/>
 
-## Democratization of process automation technology !
+## Democratization of process automation technology!
 This version of Bonita offers significant improvements and new values, among which the clarification of both **Enterprise** and **Community** editions:
 
 ### Bonita Community
@@ -37,7 +37,7 @@ These are the features you will find in the Community edition of Bonita 2021.1:
 
 <a id="feature-transfer2"/>
 
-## Full power to the Enterprise edition  
+### Full power to the Enterprise edition  
 To ensure consistency with Community vs Enterprise concepts, in 2021.1, we have moved from Community to Enterprise edition the following capabilities:
   - PurgeTool to manage Bonita Platform scalability. The tool allows to purge finished (archived) process instances from a Bonita Runtime environment.
   - Maintenance releases. From now on, maintenance releases are only available to customers (Enterprise users). Community users will benefit from all fixes done on a minor release in the next minro release. 
