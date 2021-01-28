@@ -16,7 +16,7 @@ The open source edition of the platform including all capabilities required to d
 The commercial edition of the platform to address core and critical process automation use cases. This edition adds capabilities to Bonita Community to secure, scale, monitor and continuously improve process automation projects. The Enterprise edition is bundled with a customer success subscription that provides full project lifecycle support and services from development to operations.
 
 ### The changes 
-This means an unprecedented number of features [were added in Community](<a id="feature-transfer"/>), so users can achieve the target goals. Alternatively, some values, linked to the goals of Enterprise, have been [moved from Community to Enterprise](<a id="feature-transfer2"/>).   
+This means an unprecedented number of features [were added in Community](#feature-transfer), so users can achieve the target goals. Alternatively, some values, linked to the goals of Enterprise, have been [moved from Community to Enterprise](#feature-transfer2).   
 As a direct benefit, upgrades/downgrades operations between Community and Enterprise editions will be simplified. Both operations still require the re-installation of the targeted platform but there is no need for project re-development anymore.   
 More information [here](https://www.bonitasoft.com/Offering)
 
