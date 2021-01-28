@@ -36,7 +36,7 @@ These are the features you will find in the Community edition of Bonita 2021.1:
 ### Full power to the Enterprise edition  
 To ensure consistency with Community vs Enterprise concepts, in 2021.1, we have moved from Community to Enterprise edition the following capabilities:
   - PurgeTool to manage Bonita Platform scalability. The tool allows to purge finished (archived) process instances from a Bonita Runtime environment.
-  - Maintenance releases. From now on, maintenance releases are only available to customers (Enterprise users). Community users will benefit from all fixes done on a minor release in the next minro release. 
+  - Maintenance releases. From now on, maintenance releases are only available to customers (Enterprise users). Community users will benefit from all fixes done on a minor release in the next minor release. 
   - JMX metrics publisher, monitoring log files and API dynamic security capabilities will be removed from Bonita Community 2021.2 and will be part of the set of Enterprise features related to security and monitoring themes respectively. As a matter of clarification, operational logging capabilities of the platform will remain in the Community edition.
 Moreover, the Enterprise offering now encompasses the availability of Bonita Continuous Delivery, our powerful tool to deploy Living Applications on subsequent environments during the initial lifecycle of the Bonita project, and for every improvement or evolution.
 
