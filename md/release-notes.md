@@ -1,9 +1,5 @@
 # Release notes
 
-::: info
-**Note:** The 2021.1 is currently work-in-progress (WIP). The 2021.1 GA is planned for January 28, 2021.
-:::
-
 <a id="renaming"/>
 
 ## Democratization of process automation technology !
