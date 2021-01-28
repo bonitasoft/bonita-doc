@@ -3,7 +3,7 @@ Discover how Bonita manages its product and artifacts versions and how it can im
 
 ## Product Versions
 
-After years of semantic versioning, Bonita now follows calendar versioning: YYYY.n, since version 2021.1:
+After years of semantic versioning, Bonita now follows the calendar versioning: YYYY.n, since version 2021.1:
 * YYYY year of the release
 * n is the release number. Two versions are released every year.
 
