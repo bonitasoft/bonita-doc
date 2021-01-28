@@ -3,9 +3,9 @@ Discover how Bonita manages its product and artifacts versions and how it can im
 
 ## Product Versions
 
-Bonita follows calendar versioning: YYYY.:
+Bonita follows calendar versioning: YYYY.n:
 * YYYY year of the release
-* Y is the Minor version. A minor version is released every six months to improve continuously Bonita.
+* n is the release number. Two versions are released every year.
 
 ### Technical Id
 
