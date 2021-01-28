@@ -60,6 +60,7 @@ Read [Integration with Bonita Platform](ui-designer-overview.md#integration-with
 ### External API
 
 External API variables are used to fetch data from outside the page. These are typically used for REST API calls using HTTP GET requests. The response is stored in the page data model. You can parameterize the URL construction with other data using `{{variableName}}` syntax. You can retrieve information using the [Bonita REST APIs](rest-api.md). 
+You can retrieve response **Status Code** or response **Headers** with `__status` and `__headers` on this variable (ex: variableName.__status)
 
 Here are some examples:
 
