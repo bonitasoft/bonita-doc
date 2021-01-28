@@ -24,26 +24,20 @@ Enter your database configuration properties in the file `application.properties
 
 ## Run Bonita Purge Tool
 
-This command will delete all archived process instances belonging to the process identified by **PROCESS_DEFINITION_ID**,
+This command will delete all archived process instances belonging to the process identified by mandatory parameters **PROCESS_DEFINITION_ID**,
 that are finished since at least **OLDEST_DATE_TIMESTAMP**.
 
 
 example (Unix):
 
 ```shell
-# If no PROCESS_DEFINITION_ID parameter is given, the program lists all existing process definitions and stops:
-bin/bonita-purge-tool
-
 bin/bonita-purge-tool <PROCESS_DEFINITION_ID> <OLDEST_DATE_TIMESTAMP> [<TENANT_ID>]
 ```
 
 example (Windows):
 
 ```shell
-# If no PROCESS_DEFINITION_ID parameter is given, the program lists all existing process definitions and stops:
-bin/bonita-purge-tool.bat
-
-bin/bonita-purge-tool.bat <PROCESS_DEFINITION_ID> <OLDEST_DATE_TIMESTAMP> [<TENANT_ID>]`
+bin/bonita-purge-tool.bat <PROCESS_DEFINITION_ID> <OLDEST_DATE_TIMESTAMP> [<TENANT_ID>]
 ```
 
 An optional **TENANT_ID** parameter can be given if the platform uses multiple tenants to specify on which tenant should the process instances be deleted.
