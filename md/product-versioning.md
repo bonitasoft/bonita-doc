@@ -3,6 +3,12 @@ Discover how Bonita manages its product and artifacts versions and how it can im
 
 ## Product Versions
 
+Bonita follows calendar versioning: YYYY.Y:
+* YYYY year of the release
+* Minor version: A minor version is released every six months to improve continuously Bonita.
+
+### Build Id
+
 Bonita follows the usual semantic versioning X.Y.z:
 * X is the major version number. It changes when non-backward compatible changes are implemented.
 * Y is the minor version number. It version changes when backward compatible features are added. A minor version is released every six months to improve continuously Bonita.
