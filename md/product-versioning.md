@@ -5,7 +5,7 @@ Discover how Bonita manages its product and artifacts versions and how it can im
 
 After years of semantic versioning, Bonita now follows the calendar versioning: YYYY.#-mmdd, since version 2021.1:
 * YYYY is the year of the release
-* # is the release number. Two versions are released every year.
+* \# is the release number. Two versions are released every year.
 * mmdd is the month and day of the release. A new maintenance version of the released number is made available every month. For example the february version will be 2021.1-0205.Keep in mind that all maintenance version are cross-compatible (see the Technical Id chapter)
 
 ## Technical Id
