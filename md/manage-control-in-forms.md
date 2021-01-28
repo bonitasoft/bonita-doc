@@ -130,7 +130,7 @@ So in this case, the $form variable has the properties $invalid, $valid, $pristi
 Therefore, the HTML form element has the associated ng-pristine, ng-dirty, ng-valid and ng-invalid classes set whether the $form properties are true or false.  
 Since the HTML form element has no border, the CSS classes added have no impact on it.
 
-### Error summary panel _(SP only)_
+### Error summary panel
 
 For debug purposes, you can add a panel at the top of the form to list all errors in the form:
 From the UI Designer home page, create a **fragment**. Set _errorPanel_ as the fragment name. In the **Variable** panel at the bottom, create one variable, of type **exposed: yes**, called _errors_. Create two other variables, of type **exposed: no**: 
