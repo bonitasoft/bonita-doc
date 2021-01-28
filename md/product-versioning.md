@@ -7,14 +7,19 @@ Bonita follows calendar versioning: YYYY.Y:
 * YYYY year of the release
 * Minor version: A minor version is released every six months to improve continuously Bonita.
 
-### Build Id
+### Technical Id
 
-A technical version also exists and it follows the usual semantic versioning X.Y.z:
+A technical Id also exists and it follows the usual semantic versioning X.Y.z:
 * X is the major version number. It changes when non-backward compatible changes are implemented.
 * Y is the minor version number. It version changes when backward compatible features are added. A minor version is released every six months to improve continuously Bonita.
 * Z is the maintenance version number. The maintenance versions contain fixes. Maintenance versions are released every month between two minor versions for the current minor version. These versions are cross-compatible by default for the same minor version.
 
 For example, upgrading from a 7.12.2 to a 7.12.5 will not require any migration. However, migrating from a 7.11.5 to a 7.12.2  or to  8.0.1 will require a migration.
+
+Technical Id Bonita version correspondence table 
+|Bonita Version            |Technical Id                          |
+|--------------------------|--------------------------------------|
+|2021.1                    |7.12.z                                |
 
 ## Artifact version
 
