@@ -203,7 +203,4 @@ Use BPMN 2 importer for model exchange with third-party editors.
 * BPO-662 Expanding/collapsing the form resets input data
 * BPO-664 - Security risk: API/formsDocumentImage executes injected script
 * BR-454 - Sometimes CallActivity are left Completed without target process
-
-### Fixes in Bonita 7.12.1
-#### Fixes in Bonita Runtime (including Portal)
 * RUNTIME-50/BR-621 - All LDAP group objectclass checks are now case-insensitive.
