@@ -27,8 +27,8 @@ Software required for Bonita Platform (Bonita Engine and Bonita Portal).
 | CentOS                             | 8.2 64 bits                                      |
 | Ubuntu                             | 18.04 LTS 64 bits                                |
 | **Java Virtual Machine**           |
-| Oracle Java SE Runtime Environment | 8 or 11 (see note 1)                             |
-| OpenJDK                            | 8 or 11 (see note 1)                             |
+| Oracle Java SE Runtime Environment | 8 (deprecated) or 11 (see note 1)                             |
+| OpenJDK                            | 8 (deprecated) or 11 (see note 1)                             |
 | **Application Server**             |
 | Apache Tomcat                      | 8.5.x (x > 40)                                   |
 | **Database**                       | (see note 2)                                     |
@@ -42,7 +42,7 @@ Software required for Bonita Platform (Bonita Engine and Bonita Portal).
 | Microsoft Edge                     | latest version                                   |
 
 Notes:
-1. Bonita can be executed on Java 8 or 11. All development artifacts (connectors, REST API extensions, etc) must be compiled with Java 8 byte code (target version).
+1. Bonita can be executed on Java 8 or 11. All development artifacts (connectors, REST API extensions, etc) must be compiled with Java 8 byte code (target version). Bonita 2021.1 (7.12) is the latest version fully compatible with java 8 in production and development environment. JRE or JDK 11+ will be required to run. Bonita 2021.2+ won't be operated on Java 8.
 1. Memory usage: In a Studio, by default, the embedded Tomcat server is started with a maximum memory allocation set to 521Mo. Depending on your usage you may need to [increase this value](bonita-bpm-studio-installation.md).
 1. Your database must be configured to use the UTF-8 character set.
 1. MySQL must be configured to use UTF-8 (utfmb3). It is the only supported charset.
