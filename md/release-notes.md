@@ -230,7 +230,7 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 
 ## Bug fixes
 
-### Fixes in Bonita 7.11.4 (2020-11-26)
+### Fixes in Bonita 7.11.5 (2020-01-29)
 
 #### Fixes in Bonita Runtime (including Portal)
 
