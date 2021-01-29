@@ -65,25 +65,25 @@ Add a build step of type "Execute shell" configured with the following content:
 [source,bash]
 ----
  #!/usr/bin/env sh
-	
+
  echo "##### Clean previously generated business archives"
  rm -Rf $WORKSPACE/process-bars
  echo ""
-	
+
  echo "##### Clean BonitaStudioBuilder workspace before each execution"
  rm -Rf /path/to/BonitaBPMStudio/workspace
  echo ""
-	
+
  echo "##### Execute BonitaStudioBuilder for all processes"
  cd /path/to/BonitaBPMStudio/..
  ./BonitaBPMStudio/workspace_api_scripts/BonitaStudioBuilder.sh-repoPath=$WORKSPACE/process-repository-outputFolder=$WORKSPACE/process-bars -buildAll -environment=CI
-	
+
  echo "##### Package generated business archives"
  zip $WORKSPACE/process-bars.zip $WORKSPACE/process-bars/*
 ----
 
 This sample script invokes BonitaStudioBuilder to build all processes from your process-repository using the CI environment. +
-  See the xref:automating-process-builds.adoc[BonitaStudioBuilder documentation] for information on script options.
+  See the xref:automating-builds.adoc[BonitaStudioBuilder documentation] for information on script options.
 
 Then, share generated business archives as a Maven artifacts
  One way to make the generated .bar files available to other Maven projects is to install them as Maven artifacts. +
