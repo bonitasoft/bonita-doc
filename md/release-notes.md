@@ -234,6 +234,14 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 
 #### Fixes in Bonita Runtime (including Portal)
 
+* RUNTIME-50 LDAP Synch: LDAP group objectclass check should be case insensitive
+* RUNTIME-60 Portal - User Profile - Processes: the list is blank on IE11
+* RUNTIME-69 LDAP Synch: NullPointerException during manager synchronisation makes synchronization fail and exit
+
+### Fixes in Bonita 7.11.4 (2020-11-26)
+
+#### Fixes in Bonita Runtime (including Portal)
+
 * BS-19550	Cannot install 7.8.4 bdm.zip containing "index" named attributes in version 7.11.x will cause to redesign entire BDM and processes
 * BS-19520	Reserved keyword "index" is not forbidden in the Studio and result in BDM update failure in MySQL
 * BS-19454	Export Organization vs Pagination: Missing ORDER BY may cause issues
