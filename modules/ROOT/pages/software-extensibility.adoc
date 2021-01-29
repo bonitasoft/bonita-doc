@@ -16,7 +16,7 @@ These extension points are guaranteed to be stable across versions of Bonita BPM
 
 In Community, Teamwork, Efficiency, and Performance editions
 
-Bonita BPM comes with more than 80 xref:_connectivity.adoc[standard connectors] to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
+Bonita BPM comes with more than 80 xref:connectivity-overview.adoc[standard connectors] to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
 A new connector enables you to provide new connectivity capabilities for processes.
 To xref:connectors-overview.adoc[implement a new connector], you need to provide some XML description files and a
 Java class respecting the http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[Connector interface].
@@ -102,7 +102,7 @@ To xref:event-handlers.adoc[implement an event handler], you need to provide a J
 In Teamwork, Efficiency, and Performance editions
 
 Bonita BPM includes a script, BonitaStudioBuilder (also known as the Workspace API), for building a bar file from a process in a repository.
-This intended to be used for xref:automating-process-builds.adoc[automating process builds] in a continuous integration and testing environment.
+This intended to be used for xref:automating-builds.adoc[automating process builds] in a continuous integration and testing environment.
 You can use the BonitaStudioBuilder to build a bar file for processes stored in a repository. This script will be kept stable in time.
 
 === Portal look & feel
