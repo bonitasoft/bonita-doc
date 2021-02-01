@@ -57,7 +57,7 @@ If you use one of our four BPM reports or one of the Jasper reports you have cre
   * Organization menu
     * _Users_:
       * User list: recreated with the UI Designer. It gives less information without the left panel but allows a clearer display at top level.
-      * User details: same than in Bonita Portal.
+      * User details: same as in Bonita Portal.
     * _Groups_: recreated with the UI Designer. All information in the third panel has been made available in the table (parent group, technical name, last updatee), or on click (subgroups, users in the group). Actions (Edit, Delete) have been made more reachable at the end of each row.
     * _Roles_: recreated with the UI Designer. Same improvement than for _Groups_.
     * _Install / Export_: same than in Bonita Portal.
