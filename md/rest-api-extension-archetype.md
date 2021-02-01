@@ -104,6 +104,29 @@ To deploy the REST API Extension:
 1. Click on _Next_
 1. Click on _Confirm_
 
+
+## Use in applications
+
+A REST API Extensions must be deployed before any page or form resource using it is deployed.
+
+A page that uses REST API Extensions must add the required resources in the page resource `page.properties` file.
+For example, if a page uses the demoHeaders, demoXml, and putResource API extensions, its `page.properties` must include this line:
+```
+resources=[GET|extension/demoHeaders,POST|extension/demoXml,PUT|extension/putResource]
+```
+If the page declares its resources correctly, then every user able to access this page (because they have the right profile for the Living Application) will also be automatically granted the necessary permissions to call the REST API Extensions. This works the same way as with the other resources of the REST API.  
+However, if you need to grant access to this REST API Extensions to some users regardless of the pages they have access to, then you need to add [custom permissions](rest-api-authorization.md#custom-permissions-mapping) for these users.  
+In order to do so, edit `custom-permissions-mapping.properties` to give the permissions (value of the property `apiExtension.permissions`) declared in the page.properties of the REST API Extensions to the required profiles or users.
+
+::: info
+**Note**: REST API permissions are stored in the user's session and new permissions will only be effective for a user the next time they log into Bonita Portal.
+:::
+
+::: warning
+In Bonita Studio, the debug mode is disabled by default. In debug mode, you can see changes on your REST API Extensions without importing a new .zip archive, but it means the classloader of the extension is recreated at each request.  
+If you want to enable the debug mode, you can activate it in Bonita Studio "Server" preferences.
+:::
+
 ### Configure the authorization
 
 To configure the REST API authorization, checkout the dedicated [documentation page](rest-api-authorization.md). Note that you can reuse existing permissions that are already mapped to provided profiles (User, Administrator).
