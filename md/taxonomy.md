@@ -211,7 +211,7 @@
       * [Applications](applications.md)
       * [Look & Feel](_look-feel.md)
         * [Manage Look & Feel](managing-look-feel.md)
-        * [Create a new Look & Feel](creating-a-new-look-feel.md
+        * [Create a new Look & Feel](creating-a-new-look-feel.md)
       * [License information](license-info.md)
     * [Bonita Administrator Application](_admin-application.md)
       * [Overview](admin-application-overview.md)
