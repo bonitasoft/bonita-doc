@@ -10,7 +10,7 @@ After years of semantic versioning, Bonita now follows the calendar versioning: 
 
 ## Technical Id
 
-A technical Id also exists and it follows the usual semantic versioning X.Y.z:
+A technical Id also exists for Bonita components, and it follows the usual semantic versioning X.Y.Z:
 * X is the major version number. It changes when non-backward compatible changes are implemented.
 * Y is the minor version number. It version changes when backward compatible features are added. A minor version is released every six months to improve continuously Bonita.
 * Z is the maintenance version number. The maintenance versions contain fixes. Maintenance versions are released every month between two Bonita YYYY.# versions. These versions are cross-compatible by default for the same YYYY.# version (for Bonita Runtime and Bonita Studio).
