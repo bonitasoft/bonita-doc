@@ -43,7 +43,7 @@ Now, in details:
       * Process list: recreated with the UI Designer. It brings more clarity to the unresolved-resolved-enabled lifecycle of the processes.
       * Process details: same as in Bonita Portal. For Community, monitoring information has been added to display what was previously in the third panel of the process list.
     * _Cases_:
-      * Case list: same than in Bonita Portal.
+      * Case list: same as in Bonita Portal.
       * Case details: recreated with the UI Designer. It brings more clarity in the information layout and the edition of process variables.
     * _Tasks_:
       * Task list: recreated with the UI Designer. It brings more clarity about what is displayed (all types of flow nodes or only human tasks), brings consistency in the page layout with the horizontal tabs, with the failed flownodes first as this is the main monitoring information to get a grip on.
