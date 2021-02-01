@@ -1,13 +1,43 @@
 # Bonita Rest API Extension archetype
-A set of best of breed tools to develop and test Rest API Extension independently of the Bonita Studio. 
+A set of best of breed tools to develop and test Rest API Extension independently of Bonita Studio. 
 
-## Create a Rest API Extension
+## REST API Extensions examples
+
+A REST API Extension example resource and API extension viewer page are provided in the Administrator Portal, in the "Resources" section.
+
+To use the examples, define a [custom permissions](rest-api-authorization.md#custom-permissions-mapping) mapping for `demoPermission`:
+
+In a Tomcat bundle:
+* Retrieve platform configuration using the [setup tool](BonitaBPM_platform_setup.md#update_platform_conf).
+* Edit `platform_conf/current/tenants/<TENANT_ID>/tenant_portal/custom-permissions-mapping.properties`.
+* Add the following line: `profile|User=[demoPermission]`.
+* Push the changed platform configuration into database using the _setup tool_.
+* Restart Tomcat bundle
+
+In Bonita Studio:
+* Open the `custom-permissions-mapping.properties` from Development menu > REST API Extensions > Edit permission mapping
+* Add the following line: `profile|User=[demoPermission]`
+* Save the file
+* Logout from the current session and log back in
+
+REST API Extensions examples show how to:
+
+* Customize response with additional header, cookie and response code
+* Get resource return a simple echo of query parameters
+* Use a SLF4J logger
+* Post resources with Json payload and return a simple echo of parameters
+* Return an XML content with specific media type and character set
+* Call to external SOAP webservice (requires internet connexion)
+
+Another REST API Extensions example with SQL data source is available on [Bonitasoft Community](http://community.bonitasoft.com/project/data-source-rest-api-extension). This example shows how to execute SQL queries on a external database.
+
+## Create a REST API Extension
 
 Bonita offers the possibility to extend the set of existing REST API with custom extension that let you enrich your forms and applications with specific needs. 
 They can be used to query [business data](define-and-deploy-the-bdm.md), Bonita Engine APIs, or an external information system (such as a database, web service, LDAP directory...). They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes). 
-We provide a Maven archetype to help you to bootstrap a Rest API Extension project. The source code of the archetype is available [here](https://github.com/bonitasoft/bonita-rest-api-extension-archetype).
+We provide a Maven archetype to help you to bootstrap a REST API Extension project. The source code of the archetype is available [here](https://github.com/bonitasoft/bonita-rest-api-extension-archetype).
 
-### Prerequisite
+### Prerequisites
 
  1. Java 8 must be installed: [https://adoptopenjdk.net/index.html](https://adoptopenjdk.net/index.html)
  2. Maven must be installed: [https://maven.apache.org/install.html](https://maven.apache.org/install.html)
@@ -51,7 +81,7 @@ You'll then have to specify interactively the properties of your project.
 
 ⚠️ You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
 
-#### Generated prpject
+#### Generated project
 
 A folder named _[your artifact id]_ is created, with your Bonita Rest API Extension project, ready to use.
 Using the terminal you can `cd` into this folder and run:
@@ -60,19 +90,20 @@ Using the terminal you can `cd` into this folder and run:
 $ ./mvnw
 ```
 
-It should build and test the generated api sample. The result of this build is a zip archive that can be retrieved in the target folder of the project.
-You can deploy this api extension archive using Bonita portal.
+It should build and test the generated api sample. The result of this build is a .zip archive that can be retrieved in the target folder of the project.
+You can deploy this API extension archive using Bonita Portal.
 
 ### Deployment
 
-To deploy the REST API extension:
+To deploy the REST API Extension:
 
-1. Connect to Bonita Portal with a user account that have Administrator profile
-1. Switch to administration view
-1. Go in Resources and click on Add button
-1. Select the previously created zip file
-1. Click on Next and on Confirm
+1. Go to the Administrator Portal
+1. Click on _Resources_
+1. Click on the _Add_ button
+1. Select the previously created .zip file
+1. Click on _Next_
+1. Click on _Confirm_
 
 ### Configure the authorization
 
-To configure the REST API authorization checkout the dedicated [documentation page](rest-api-authorization.md). Note that you can reuse existing permissions that are already mapped to provided profiles (User, Administrator).
+To configure the REST API authorization, checkout the dedicated [documentation page](rest-api-authorization.md). Note that you can reuse existing permissions that are already mapped to provided profiles (User, Administrator).
