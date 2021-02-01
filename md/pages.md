@@ -1,9 +1,13 @@
 #  Pages
+Pages are resources intended to be used in applications. They are [added, exported, edited, and deleted](resource-management.md) as resources in Bonita Portal. 
 
-Page resources are intended for use in applications. See how to use it and make it available to users. 
+## Provided pages 
+Bonita Portal comes with some provided pages to use in applications. They are wrapped pages developed in other technologies than Bonita UI Designer (AngularJS, React, PortalJS).  
+Starting with Bonita 2021.1, you can also download the Bonita User and Administrator Applications (from Bonita Studio Welcome page), and get more provided pages, developped with Bonita UI Designer.
 
-## Custom page usage examples
-
+## Custom pages
+To create the perfect user experience for different profiles of applications users, you need to create custom pages. This can be done with Bonita UI Designer, on in your favorite IDE.
+A few examples of custom pages:
 * Add a welcome page, with dashboards showing activity in Bonita and related external applications.
 * Provide a process owner with a dashboard showing the activity of open cases of the process.
 * Provide a busy user with a filtered view of the task list.
@@ -11,15 +15,8 @@ Page resources are intended for use in applications. See how to use it and make 
 * Integrate a page from an external application.
 * Make a report available to users who do not have the Administrator profile.
 
-Pages are [added, exported, edited, and deleted](resource-management.md) as resources in Bonita Portal. 
-
-## Custom page definition
-
-A page resource has the general [resource definition](resource-management.md). 
-If it contains an `Index.groovy` file, this must implement the PageController interface optionally with libraries. 
-If you create a custom page with Bonita UI Designer, its required structure and content are right, by default.
-
-A custom page is displayed inside an iframe to prevent conflicts between Bonita Portal resources (for example JS and CSS) and those used in the custom page. 
-This also reduces the risk of migration issues, for example if a custom page uses the version of JQuery provided with Bonita Portal and it is updated.
-
 For all information about developping a custom page, go to [page and form development overview](page-and-form-development-overview.md).
+
+## Use in applications
+Once the pages are all made available in the Resources section of Bonita Portal, they can be used to [create applications](applicationCreation.md).  
+We highly recommand that the creation of applications is done in Bonita Studio, to be managed with all other project resources in the Version Control System (Git).
