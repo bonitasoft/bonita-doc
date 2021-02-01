@@ -15,7 +15,7 @@ A technical Id also exists and it follows the usual semantic versioning X.Y.z:
 * Y is the minor version number. It version changes when backward compatible features are added. A minor version is released every six months to improve continuously Bonita.
 * Z is the maintenance version number. The maintenance versions contain fixes. Maintenance versions are released every month between two minor versions for the current minor version. These versions are cross-compatible by default for the same minor version (for the runtime and Studio).
 
-For example, upgrading from a 7.12.2 to a 7.12.5 will not require any migration. However, upgrades from a 7.11.5 to a 7.12.2  or to  8.0.1 will require a migration.
+For example, upgrading from a 2021.1-0205 to a 2021.1-0401 will not require any migration. However, upgrades from a 7.11.5 to a 2021.1-0205 will require a migration.
 
 Technical Id Bonita version correspondence table 
 |Bonita Version            |Technical Id                          |
