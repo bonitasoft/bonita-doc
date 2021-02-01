@@ -9,7 +9,7 @@ Each application can have it own layout.
 
 There is an example of layout in Bonita Portal.
     
-Layouts are [added, exported, editied, and deleted](resource-management.md) as resources in Bonita Portal. 
+Layouts are [added, exported, edited, and deleted](resource-management.md) as resources in Bonita Portal. 
 
 ## Use in applications
 
