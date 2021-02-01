@@ -41,7 +41,7 @@ Now, in details:
     * _Monitoring_: same as in Bonita Portal. 
     * _Processes_:
       * Process list: recreated with the UI Designer. It brings more clarity to the unresolved-resolved-enabled lifecycle of the processes.
-      * Process details: same than in Bonita Portal. For Community, monitoring information has been added to display what was previously in the third panel of the process list.
+      * Process details: same as in Bonita Portal. For Community, monitoring information has been added to display what was previously in the third panel of the process list.
     * _Cases_:
       * Case list: same than in Bonita Portal.
       * Case details: recreated with the UI Designer. It brings more clarity in the information layout and the edition of process variables.
