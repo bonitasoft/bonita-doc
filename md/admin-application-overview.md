@@ -62,7 +62,7 @@ If you use one of our four BPM reports or one of the Jasper reports you have cre
     * _Roles_: recreated with the UI Designer. Same improvement than for _Groups_.
     * _Install / Export_: same than in Bonita Portal.
     * _Profiles_: 
-      * Profile list: recreated with the UI Designer. It gives the possibility to view and edit the profile mapping by a simple click. There is no option to create a Portal navigation for a profile anymore: applications can now be made of both custom as well as Bonita pages, so it is better to create applications, and the mapping UI has been streamlined.
+      * Profile list: recreated with the UI Designer. It gives the possibility to view and edit the profile mapping by a simple click. There is no option to create a Portal navigation for a profile anymore: applications can now be made of both custom as well as all Bonita provided pages, so it is better to create applications, and the mapping UI has been streamlined.
       * Profile details: no more details page :)
   * _BDM_: same than in Bonita Portal. 
   * _Resources_: recreated with the UI Designer. You can now search a resource by its name, and hide resources that are provided by Bonita to only show your custom resources.
