@@ -34,7 +34,11 @@ In Bonita Portal, with the _Administrator_ profile, or in the Bonita Administrat
 5. Browse to a .zip file containing the new connector implementation
 6. Click on _Save_ to import the new implementation.
 
+
 ## Forms
+
+<a id="form-list"/>
+
 ### Form list
 This is the list of forms that can be mapped to a task, the case overview, or the process instantiation.
 1. Go to _BPM_> _Processes_
@@ -45,6 +49,8 @@ This is the list of forms that can be mapped to a task, the case overview, or th
 6. Browse to a .zip file containing the new page/form
 7. Click on _**Next**_ to check the permissions associated with the uploaded page/form.
 8. Click on _**Confirm**_ to import the new page/form.
+
+<a id="form-mapping"/>
 
 ### Form mapping of a task, case overview, or process instantiation
 This is the actual mapping between a form in the list and a process element.
