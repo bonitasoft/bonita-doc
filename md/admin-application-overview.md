@@ -64,26 +64,26 @@ If you use one of our four BPM reports or one of the Jasper reports you have cre
     * _Profiles_: 
       * Profile list: recreated with the UI Designer. It gives the possibility to view and edit the profile mapping by a simple click. There is no option to create a Portal navigation for a profile anymore: applications can now be made of both custom as well as all Bonita provided pages, so it is better to create applications, and the mapping UI has been streamlined.
       * Profile details: no more details page :)
-  * _BDM_: same than in Bonita Portal. 
+  * _BDM_: same as in Bonita Portal. 
   * _Resources_: recreated with the UI Designer. You can now search a resource by its name, and hide resources that are provided by Bonita to only show your custom resources.
-  * _Applications_: same than in Bonita Portal.
+  * _Applications_: same as in Bonita Portal.
   * _Portal_: no more Portal means no more Porta Look & Feel, so this page is not needed in our application.
-  * _License_: same than in Bonita Portal.
+  * _License_: same as in Bonita Portal.
   
 Note that for all pages recreated with the UI Designer, error management has been improved. A lot.
 
 ## Create your own Administrator application from ours
-1. Have all your custom pages ready, either imported in the UI Designer or the studio.
+1. Have all your custom pages ready, either imported in Bonita UI Designer or Bonita Studio.
 1. Open our UI Designer pages to customize them.
 1. In Bonita Studio, go to the "Project explorer" on the left and double click on the "bonita-admin-application.xml" application descriptor for Community, or "bonita-admin-application-sp.xml" for Enterprise.
-1. In the editor, rename the pages, change the order in the menu, remove the pages you do not need, add yours in the menu, or as orphan pages accessed through a menu option.
+1. In the editor, rename the pages, change the order in the menu, remove the pages you do not need, add yours in the menu, or as orphan pages accessed through navigation from another page.
 :::warning
-Make sure our "details" pages are always used as orphan pages, as they need an id to be passed from a list or another page to show any content.
+Make sure our "details" pages are always used as orphan pages, as they need some parameters (usually just an ID) to be passed in the URL by a list or another page to show any content.
 :::
 1. To add other Bonita provided pages, open the portal from the coolbar, switch to the Administrator profile, and look in the "Resources" page, filtered by pages.
 
 ::: info
-Once a page has been customized, or when the Administrator application has been customized, it is no more supported.  
+Once a page has been customized, or when the Administrator application has been customized, it is no longer supported.  
 But you can reach one of our Professional Services team member to help you develop or maintain it.
 :::
 
