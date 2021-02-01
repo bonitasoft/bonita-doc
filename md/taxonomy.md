@@ -59,7 +59,7 @@
     * [Operations](operations.md)
   * [Page and form development](_page-and-form-development.md)
     * [Overview](page-and-form-development-overview.md)
-    * [Pages](page-development.md)
+    * [Pages](pages-development.md)
     * [Forms](forms-development.md)
     * [Layout](layout-development.md)
     * [Theme](theme-development.md)
