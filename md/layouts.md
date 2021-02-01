@@ -1,6 +1,6 @@
 # Layouts
 
-This page explains handle layouts in Bonita Portal, and how to use it in an application.
+This page explains how to handle layouts in Bonita Portal, and how to use it in an application.
 
 A layout is a page used to define the main frame of an application.
 
