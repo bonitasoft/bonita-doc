@@ -50,7 +50,7 @@ Now, in details:
       * Task details: recreated with the UI Designer. For failed flow nodes, the error management "replay" functionality has been clarified.
   
 ::: Warning
-The _Analytics_ page has not been either wrapped or recreated with the UI Designer. This value is about to be created as part of a new application soon to be released. 
+The _Analytics_ page has neither been wrapped nor recreated with the UI Designer. This value is about to be created as part of a new application soon to be released. 
 If you use one of our four BPM reports or one of the Jasper reports you have created and installed, do continue to use Bonita Portal with the Administrator profile.
 :::
 
