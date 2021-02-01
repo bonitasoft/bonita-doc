@@ -1,6 +1,6 @@
 # Bonita Administrator Application
 
-This pages describes the Bonita Administrator Application: its values, how to access it, its difference with the _Administrator_ profile of Bonita Portal, and the details of its features.   
+This pages describes the Bonita Administrator Application: its values, how to access it, its differences with the _Administrator_ profile of Bonita Portal, and the details of its features.   
 The Bonita Administrator Application allows anyone with the _Administrator_ profile to manage the usages of Bonita throughout a department or a company.  
 
 ## Value
@@ -95,4 +95,3 @@ To know more, go to the [dedicated page](languages.md).
 
 ## Navigation between applications
 To know more, go to the [dedicated page](navigation.md).
-
