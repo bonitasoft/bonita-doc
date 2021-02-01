@@ -158,7 +158,7 @@ To migrate your processes still using them, follow those [instructions](migrate-
 
 ## Form types
 
-A form is a page that belongs to a process. It could be a process instantiation form, a human task form, or an overview form. There are some extra things to consider when you are creating a form compared with an ordinary page, concerning how data is passed between the process instance and the form.
+A form is the User Interface attached to a process. It can be a process instantiation form, a human task form, or a case overview form. There are some extra things to consider when you are creating a form compared with an ordinary page, concerning how data is passed between the process instance and the form.
 
 A [context](contracts-and-contexts.md) is the set of data provided by the process instance or task instance to the form. There is no context for a process instantiation form.
 
