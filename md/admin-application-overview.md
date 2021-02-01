@@ -10,7 +10,7 @@ We believe that Bonita Applications give our users much more freedom for customi
   * Portal pages that have been re-created with the UI Designer benefit from features improvements  
   * These pages can also be modified in the UI Designer to fit precise users' needs.
 
-We also want to come out of the Google Web Toolkit framework; as useful as it has been when building Bonita Portal, we now find some limitations.  
+We also want to remove the last parts of the platform that were still built with Google Web Toolkit framework; as useful as it has been when building Bonita Portal, we now find some limitations.  
 
 ::: info
 So far, the Bonita Administrator Application is mostly thought for desktop and laptop screen sizes, as we believe this is the most likely screen sizes to be used to administrate Bonita.  
