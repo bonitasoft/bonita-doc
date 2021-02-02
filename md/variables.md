@@ -33,7 +33,7 @@ With:
 *   **queryName** One of object available queries, as example findByNumInvoice
 *   **filter** All filters required by the query, as example f=numInvoice=XXXX
 
-Or with Business Data variables, you are able to select one object (from left panel or select box), see its available queries and select one, and configure its filters which are already proposed.
+Or with Business Data variables, you can select one object (from left panel or select box), see the available queries and select one, and configure its filters.
 This allows boost and simplify configuration on these data.    
 
 ##### How to create a Business Data variable
@@ -60,7 +60,7 @@ Read [Integration with Bonita Platform](ui-designer-overview.md#integration-with
 ### External API
 
 External API variables are used to fetch data from outside the page. These are typically used for REST API calls using HTTP GET requests. The response is stored in the page data model. You can parameterize the URL construction with other data using `{{variableName}}` syntax. You can retrieve information using the [Bonita REST APIs](rest-api.md). 
-You can retrieve response **Status Code** or response **Headers** with `__status` and `__headers` on this variable (ex: variableName.__status)
+You can retrieve the response **Status Code** or response **Headers** with `__status` and `__headers` on this variable (e.g. variableName.__status)
 
 Here are some examples:
 
