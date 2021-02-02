@@ -2,7 +2,7 @@
 
 Discover how to use variables in the UI Designer to manage information in artifacts.
 
-**Variables** are a key concept in the UI Designer. They define how pages, layouts, forms and fragments behave. They are used to fetch external resources, to manipulate and process information, and much more. It is important to understand how to define and use variables in artifacts, and how the data contained in the variables works when combined with widget properties. Unless otherwise stated, we will use "page" as the generic term for page, layout, form, and fragment.
+**Variables** are a key concept in the UI Designer. They define how pages, layouts, forms, and fragments behave. They are used to fetch external resources, to manipulate and process information, and much more. It is important to understand how to define and use variables in artifacts, and how the data contained in the variables works when combined with widget properties. Unless otherwise stated, we will use "page" as the generic term for page, layout, form, and fragment.
 
 There are several types of variables:
 * Static
@@ -19,11 +19,15 @@ There are several types of variables:
 
 String and JSON variables are initialized at page data model instantiation and their values do not change subsequently. 
 
-Expression, external API and URL parameter variables are evaluated every time something happens on the page, such as when receiving data or on a user interaction. The call of an External API variable is triggered every time the URL of the resource it points at changes.
+Expression, external API, and URL parameter variables are evaluated every time something happens on the page, such as when receiving data or on a user interaction. The call of an External API variable is triggered every time the URL of the resource it points at changes.
 
 #### Business Data
 
-Business Data variables are meant to retrieve BDM objects defined in Studio. These objects are accessible through REST API calls, so they can be retrieved using External API variables defining the URL.
+Business Data variables are meant to retrieve BDM objects defined in Studio. These objects are accessible through REST API calls. To help you, the UI Designer provides an easy to use interface to define the data you want to get: select the corresponding object, see the available queries and select one, and configure its filters.
+
+This is the easy and most efficient way to get data from the Business Data ModelT. 
+
+However, for advanced users or specific use cases you can also use External API variables.
 For example, you can know by heart this URL:
 
     ../API/bdm/businessData/{{businessDataType}}?q={{queryName}}&p=0&c=10&f={{filter}}
@@ -33,24 +37,21 @@ With:
 *   **queryName** One of object available queries, as example findByNumInvoice
 *   **filter** All filters required by the query, as example f=numInvoice=XXXX
 
-Or with Business Data variables, you are able to select one object (from left panel or select box), see its available queries and select one, and configure its filters which are already proposed.
-This allows boost and simplify configuration on these data.    
-
 ##### How to create a Business Data variable
 
 A Business Data variable can be created in two ways:
 - From the Variables bottom panel, creating a new variable with the type Business Data
-- From Data Model section in the left panel, drag and droping a Business Object to the whiteboard area. In this case, a user interface will also be generated
+- From the Data Model section in the left panel, drag and dropping a Business Object to the whiteboard area. In this case, a user interface will also be generated
 
 A configuration wizard appears: create a Business Data variable by providing information on how to retrieve elements of this Business Object.
 
-Select the query to retrieve Business Object. Queries can be a simple attribute query (ex: findByName) or an additional query such as a custom query.
+Select the query to retrieve Business Object. Queries can be a simple attribute query (e.g. findByName) or an additional query such as a custom query.
 A filter area is displayed, depending on your selection, you may have to enter one or several attribute values. You can use a variable to fill its value using interpolation syntax.
 
-You can use Pagination section to define the number of elements you want by page (by default 10 elements) and the page number (by default first page - index 0).
+You can use the Pagination section to define the number of elements you want by page (by default 10 elements) and the page number (by default the first page - index 0).
 
 :::warning
-Business data variables will be always an array that contains the result of query execution. In case of single result queries, such as find by persistence Id, you may access the values like this InvoiceVar[0], knowing that 0 is first and only element of your array.
+Business data variables will be always an array that contains the result of query execution. In case of single result queries, such as find by persistence Id, you may access the values like this InvoiceVar[0], knowing that 0 is the first and only element of your array.
 :::
 
 :::info
@@ -60,7 +61,7 @@ Read [Integration with Bonita Platform](ui-designer-overview.md#integration-with
 ### External API
 
 External API variables are used to fetch data from outside the page. These are typically used for REST API calls using HTTP GET requests. The response is stored in the page data model. You can parameterize the URL construction with other data using `{{variableName}}` syntax. You can retrieve information using the [Bonita REST APIs](rest-api.md). 
-You can retrieve response **Status Code** or response **Headers** with `__status` and `__headers` on this variable (ex: variableName.__status)
+You can retrieve the response **Status Code** or response **Headers** with `__status` and `__headers` on this variable (e.g. variableName.__status)
 
 Here are some examples:
 
@@ -106,7 +107,7 @@ A binding is dynamic, so every time the value of a variable changes, the whole d
 
 ## In Bonita forms
 
-One of the goals of the UI Designer is to enable you to build forms for process instantiation and human tasks execution. The [contract](contracts-and-contexts.md) eases the decoupling between the user views and the process. When a form is submitted for process instantiation or for human task execution, the UI Designer sends data to fulfill the contract.
+One of the goals of the UI Designer is to enable you to build forms for process instantiation and human tasks execution. The [contract](contracts-and-contexts.md) eases the decoupling between the user views and the process. When a form is submitted for process instantiation or human task execution, the UI Designer sends data to fulfill the contract.
 
 To ease the definition of the form data to send back to the process, when you create a form from the Bonita Studio, the UI Designer generates the following variables:
 
@@ -114,12 +115,12 @@ To ease the definition of the form data to send back to the process, when you cr
 * _formOutput_. It is a JavaScript expression returning an object. The object structure matches the contract requirements and it is filled with formInput by default. On Submit, values entered or modified by the user and aggregated in the formOutput object (as defined by the _Data sent on click_ property of the Submit button) are submitted to the process or task to fulfill the contract.
 * _taskId_. It is the id of the current BPM task. You can use it as a BPM API parameter.
 * _context_. It is an External API that provides references to all business variables and documents in the process instance.
-* _submit_errors_list_. It is a JavaScript expression formatting the response payload to html when a submit fails. 
+* _submit_errors_list_. It is a JavaScript expression formatting the response payload to HTML when a submit fails. 
 In some cases, other types of variables are created:
 * When the business variable is edited in the form (as specified in the contract creation wizard), a UI Designer variable is created for each variable (External API). 
 For example, if the contract input has been created from a business variable `invoice` in the process, a variable `invoice` is created in the form and its URL is set to `../{{context.invoice_ref.link}}`. 
 If `invoice` contains lazy relations, additional variables are generated for each lazy relation to resolve (using _lazyRef_ filter). 
 For example, if `invoice` has a `customer` relation in lazy, an External API variable `invoice_customer` is added. Its URL is set to `{{invoice|lazyRef:'customer'}}`.
 * To display an aggregated object, a Select widget is generated to display the _available values_ of the object. 
-  The variable (External API) bound to the widget is created. It queries the BDM. For example, when the object Invoice has an aggregated object Customer, the query is: `../API/bdm/businessData/com.company.model.Customer?q=find&p=0&c=99`. By default it uses the `find` query with a default pagination (only first 100 objects are returned).
+  The variable (External API) bound to the widget is created. It queries the BDM. For example, when the object Invoice has an aggregated object Customer, the query is: `../API/bdm/businessData/com.company.model.Customer?q=find&p=0&c=99`. By default, it uses the `find` query with the default pagination (only the first 100 objects are returned).
 
