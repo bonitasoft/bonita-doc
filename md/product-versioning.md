@@ -3,12 +3,24 @@ Discover how Bonita manages its product and artifacts versions and how it can im
 
 ## Product Versions
 
-Bonita follows the usual semantic versioning X.Y.z:
-* X is the major version number. It changes when non-backward compatible changes are implemented.
-* Y is the minor version number. It version changes when backward compatible features are added. A minor version is released every six months to improve continuously Bonita.
-* Z is the maintenance version number. The maintenance versions contain fixes. Maintenance versions are released every month between two minor versions for the current minor version. These versions are cross-compatible by default for the same minor version.
+After years of semantic versioning, Bonita now follows the calendar versioning: YYYY.#-mmdd, since version 2021.1:
+* YYYY is the year of the release
+* \# is the release number. Two versions are released every year.
+* mmdd is the month and day of the release. A new maintenance version is made available every month. For example, the February version will be 2021.1-0205 as it will be released on the 5th. Keep in mind that all maintenance versions are cross-compatible (see the Technical Id chapter).
 
-For example, upgrading from a 7.12.2 to a 7.12.5 will not require any migration. However, migrating from a 7.11.5 to a 7.12.2  or to  8.0.1 will require a migration.
+## Technical Id
+
+A technical Id also exists for Bonita components, and it follows the usual semantic versioning X.Y.Z:
+* X is the major version number. It changes when non-backward compatible changes are implemented.
+* Y is the minor version number. It changes when backward compatible features are added. A minor version is released every six months to improve continuously Bonita.
+* Z is the maintenance version number. The maintenance versions contain fixes. Maintenance versions are released every month between two Bonita YYYY.# versions. These versions are cross-compatible by default for the same YYYY.# version (for Bonita Runtime and Bonita Studio).
+
+For example, upgrading from a 2021.1-0205 to a 2021.1-0401 will not require any migration. However, upgrades from a 7.11.5 to a 2021.1-0205 will require a migration.
+
+Technical Id Bonita version correspondence table 
+|Bonita Version            |Technical Id                          |
+|--------------------------|--------------------------------------|
+|2021.1                    |7.12.z                                |
 
 ## Artifact version
 
@@ -48,11 +60,11 @@ The model versions of all artifacts are also checked when deploying a project. F
 
 To check the compatibility of your artifacts manually, you can use the "Validate" action in the project's context menu or via the File menu.
 
-You will not be able to work with incompatible artifacts or deploy them. You will be able if you desire to migrate the older artifacts.
+You will not be able to work with incompatible artifacts or deploy them. You will be able if you desire to migrate older artifacts.
 
 ### UI Designer
 
-The UI Designer will check the model version of all artifacts when it is launched and when a given artifact is opened. You will not be able to work with incompatible artifacts. You will be able if you desire to migrate the older artifacts.
+The UI Designer will check the model version of all artifacts when it is launched and when a given artifact is opened. You will not be able to work with incompatible artifacts. You will be able if you desire to migrate older artifacts.
 
 :::warning
 **Warning**: Artifact migration is not reversible. Once the Studio or UI Designer has migrated an artifact it is no longer compatible with the previous version of the development suite.
