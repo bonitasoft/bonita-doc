@@ -56,7 +56,8 @@ To resolve a process for business variables:
 7. The process disappears from the disabled filter and is now displayed in the enabled filter
 
 ::: info
-**Note:** You can also select the processes you want to enable by checking the box in the _Resolved_ list, then click on the _ENABLE_ button in the bulk actions section, at the top of the list.
+**Note:** You can also select the processes you want to enable by checking the box in the _Resolved_ list, then click on the _ENABLE_ button in the bulk actions section, at the top of the list.  
+You can also enable a process in the _More details_ view, by clicking on the _Enable_ button.
 :::
 
 ## Disable a process
@@ -69,7 +70,7 @@ Disabling a process blocks the creation of new cases. This does not impact exist
 6. The process disappears from enabled filter and is located in the disabled filter
 
 ::: info
-**Note:** You can also disable a process in the _More details_ view, by clicking on the _Enabled_ toggle button.
+**Note:** You can also disable a process in the _More details_ view, by clicking on the _Disable_ button.
 :::
 
 ## Delete a process
@@ -98,7 +99,7 @@ You can also delete the process in the _More details_ view of a disabled process
 5. In the opened modal window, type a new category name then press _**Enter**_ key
 6. Click on the _Save_ button.
 
-After you created a category and added to the process, you can add other processes to the category.
+After you created a category and added it to the process, you can add other processes to the category.
 
 ## Add a category to a process
 1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers)
@@ -109,10 +110,8 @@ After you created a category and added to the process, you can add other process
 6. Press the _**Enter**_ key
 7. Click on the _Save_ button
 
-All of what fallows belongs to the [Live update feature](live-update.md) and are only available in for the Enterprise, Performance, and Efficiency editions.
-
 ## Start a case for another user
-This feature is available with the Efficiency, Performance and Enterprise editions.
+This feature is available with the Enterprise, Performance, and Efficiency editions.  
 To start a case for another user:
 1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers)
 2. Select the process and click on the _Start for_ button.
@@ -121,6 +120,9 @@ To start a case for another user:
 
 The case is started as though the specified user had started it. 
 For example, if a you start a case for user A and a subsequent task is to be done by the manager of the user, it is assigned to user A's manager, not to your manager.
+
+All of what follows belong to the [Live update feature](live-update.md) and are only available in for the Enterprise, Performance, and Efficiency editions.
+
 
 ## Edit the actor mapping
 You need to map more or less organization entities to an actor. To do so:
