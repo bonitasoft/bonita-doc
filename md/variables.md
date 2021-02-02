@@ -23,7 +23,11 @@ Expression, external API and URL parameter variables are evaluated every time so
 
 #### Business Data
 
-Business Data variables are meant to retrieve BDM objects defined in Studio. These objects are accessible through REST API calls, so they can be retrieved using External API variables defining the URL.
+Business Data variables are meant to retrieve BDM objects defined in Studio. These objects are accessible through REST API calls. To help you, the UI Designer provides an easy to use interface to define the data you want to get: select the corresponding object, see the available queries and select one, and configure its filters.
+
+This is the easy and most efficient way to get data from the Business Data ModelT. 
+
+However for advanced users or specific use case, you can also use External API variables.
 For example, you can know by heart this URL:
 
     ../API/bdm/businessData/{{businessDataType}}?q={{queryName}}&p=0&c=10&f={{filter}}
@@ -32,9 +36,6 @@ With:
 *   **businessDataType** As example com.company.model.Invoice
 *   **queryName** One of object available queries, as example findByNumInvoice
 *   **filter** All filters required by the query, as example f=numInvoice=XXXX
-
-Or with Business Data variables, you can select one object (from left panel or select box), see the available queries and select one, and configure its filters.
-This allows boost and simplify configuration on these data.    
 
 ##### How to create a Business Data variable
 
