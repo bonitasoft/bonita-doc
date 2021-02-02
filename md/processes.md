@@ -5,7 +5,7 @@ This page explains what a user with the _Administrator_ or _Process Manager_ pro
 Those users can: install, enable and edit processes, categories, forms, entities mapped to actors and process manager, parameters, and connectors.
 
 Here is a view of the Process list page:
-![Administrator Process list in Portal](images/UI2021.1/admin-process-list-portal.png)<!--{.img-responsive}-->
+![Process list in Administrator Application](images/UI2021.1/admin-application-process-list.png)<!--{.img-responsive}-->
 
 ## Install a new process
 This feature is only available for the _Administrator_ profile.
@@ -35,9 +35,9 @@ To resolve a process, you must complete the configuration of the actor mappings,
 To resolve a process for actors, parameters, connectors, and forms:
 1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers),
 2. Click on a process.The _Configuration_ section of the right panel shows whether there are items to be resolved. 
-4. Click on _More_ button.
-5. A summary of configuration problems is displayed below the process name in a well and warning icons are displayed in the left navigation list.
-6. Modify your configuration for each element displayed.
+3. Click on _More_ button.
+4. A summary of configuration problems is displayed below the process name in a well and warning icons are displayed in the left navigation list.
+5. Modify your configuration for each element displayed.
 
 To resolve a process for business variables:
 1. Logout
@@ -51,9 +51,9 @@ To resolve a process for business variables:
 2. Click on the _Resolved_ filter
 3. Select the process
 4. Click on the _More_ button
-6. Click on the _Enable_ button
-7. The activation state changes to "enabled"
-8. The process disappears from the disabled filter and is now displayed in the enabled filter
+5. Click on the _Enable_ button
+6. The activation state changes to "enabled"
+7. The process disappears from the disabled filter and is now displayed in the enabled filter
 
 ::: info
 **Note:** You can also select the processes you want to enable by checking the box in the _Resolved_ list, then click on the _ENABLE_ button in the bulk actions section, at the top of the list.
@@ -63,10 +63,10 @@ To resolve a process for business variables:
 Disabling a process blocks the creation of new cases. This does not impact existing cases, where tasks can still be executed.
 1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers)
 2. Click on the _Enabled_ filter
-4. Select the process 
-5. Click on the _Disable_ button
-6. The activation state changes to "disabled"
-7. The process disappears from enabled filter and is located in the disabled filter
+3. Select the process 
+4. Click on the _Disable_ button
+5. The activation state changes to "disabled"
+6. The process disappears from enabled filter and is located in the disabled filter
 
 ::: info
 **Note:** You can also disable a process in the _More details_ view, by clicking on the _Enabled_ toggle button.
@@ -86,7 +86,7 @@ This feature should only be used on non-production environments.
 
 1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers),
 2. Select the process to delete by checking the tickbox next to the process
-4. Click on the _Delete_ button
+3. Click on the _Delete_ button
 
 You can also delete the process in the _More details_ view of a disabled process by clicking on the _Delete_ button, then click on the _Delete_ button to confirm in the modal window.
 
@@ -107,7 +107,7 @@ After you created a category and added to the process, you can add other process
 4. In _General_, click the _Pencil_ next to _Categories_ label
 5. In the opened modal window, start typing the category name, and then select among the suggestions by using the arrow keys or mouse.
 6. Press the _**Enter**_ key
-6. Click on the _Save_ button
+7. Click on the _Save_ button
 
 All of what fallows belongs to the [Live update feature](live-update.md) and are only available in for the Enterprise, Performance, and Efficiency editions.
 
@@ -205,9 +205,9 @@ There are two stages to define a Process Manager:
 1. Go to _BPM_>_Processes_
 2. Click on the _More_ button
 3. Click on _Forms_ in the left menu.
-5. The tables are displayed which list available forms. Click on a red link. A field input appears.
-6. Starting to type some text, and any matching names of installed forms will be proposed. If there is no match for the name you enter, it will be considered as a URL.
-7. Click the _Tick_ button to validate your change or _**X**_ to dismiss your change.
+4. The tables are displayed which list available forms. Click on a red link. A field input appears.
+5. Starting to type some text, and any matching names of installed forms will be proposed. If there is no match for the name you enter, it will be considered as a URL.
+6. Click the _Tick_ button to validate your change or _**X**_ to dismiss your change.
 
 ::: info
 **Note:** You can also upload a form in order to create a new mapping.
