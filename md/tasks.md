@@ -1,9 +1,9 @@
 # Administrator Task list in Bonita Portal
 
-This page explains what a user with the _Administrator_ or _Process Manager_ profile in Bonita Portal can see and do about tasks and more generally, flownodes.  
-A flownode is an element of a process. It defines an action to be performed (automatic or human). A taks is a flownode done by a person. 
+This page explains what a user with the _Administrator_ or _Process Manager_ profile in Bonita Portal can see and do about tasks and more generally, flow nodes.  
+A flow node is an element of a process. It defines an action to be performed (automatic or human). A taks is a flow node done by a person. 
 
-Such users can view the list of flownodes in error, pending tasks, done tasks, assign and unassign a task, do task for someone else, skip a task, replay a task, and write a comment about the case.
+Such users can view the list of flow nodes in error, pending tasks, done tasks, assign and unassign a task, do task for someone else, skip a failed flow node, replay a failed flow node, and write a comment about the case.
 
 Here is a view of the task list:
 ![Administrator Task list Portal](images/UI2021.1/admin-task-list-portal.png)<!--{.img-responsive}-->
@@ -32,7 +32,7 @@ This is useful for unblocking a case if the assigned user cannot perform a task.
 
 1. Go to _BPM_>_Tasks_ and view the list of pending human tasks.
 2. Select the relevant task in the list and click on _Do for_.
-3. In the popup, stgart typing the name of the user to the task for.
+3. In the popup, start typing the name of the user to the task for.
 4. Select the user for whom you want to do the task.
 5. Click on _Do it_.
 
@@ -45,7 +45,7 @@ If a failed task does not impact subsequent tasks in a process, it can be skippe
 2. Go to the _Failed_ menu option on the left.
 3. Click on a task.
 4. Click on the _More_ button.
-5. In _Technical details_, the reason for the failure is displayed
+5. In "Technical details", the reason for the failure is displayed
 6. Click on the _Skip_ button.
 
 The task is moved from "Failed" to "Done".
