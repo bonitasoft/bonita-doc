@@ -15,6 +15,7 @@ On this page, an Administrator can:
 ## View the users directly mapped to a group
 1. Go to _Organization_/_Groups_
 2. In the row of the group, click on the _view users in the group_ icon
+3. In the modal window, if you require more information about the user, go to the end of his row and click on the _View user details_ icon to navigate to the user details page.
 
 ## Live Update
 You can [Live Update](live-update.md) a group:
