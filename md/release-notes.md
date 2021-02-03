@@ -230,6 +230,14 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 
 ## Bug fixes
 
+### Fixes in Bonita 7.11.5 (2020-02-01)
+
+#### Fixes in Bonita Runtime (including Portal)
+
+* RUNTIME-50 LDAP Synch: LDAP group objectclass check should be case insensitive
+* RUNTIME-60 Portal - User Profile - Processes: the list is blank on IE11
+* RUNTIME-69 LDAP Synch: NullPointerException during manager synchronisation makes synchronization fail and exit
+
 ### Fixes in Bonita 7.11.4 (2020-11-26)
 
 #### Fixes in Bonita Runtime (including Portal)
