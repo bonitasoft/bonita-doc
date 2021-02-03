@@ -22,7 +22,8 @@ The Administrator can [Live Update](live-update.md) a group:
  * create
  * delete
  * edit the name, description, and parent group
- * modify users within
+ * modify users within a group  
+ 
 This is only in case of an issue to solve temporarily. We strongly encourage the modification of the organization to be conducted 
 in Bonita Studio so it can be shared and versioned with the whole project, or through the [LDAP synchronizer](ldap-synchronizer.md) if the organization is located in an external system. 
 
