@@ -2,7 +2,7 @@
 
 This page defines the term "Resources" and explains what a user with the _Administrator_ profile in Bonita Portal can see and do about resources.  
 
-_Administrators_ can view a list of the resources filtered by type, search a resource by its name, install new resources, update existing resources, or delete resources.  
+_Administrators_ can view a list of the resources filtered by type, install new resources, update existing resources, or delete resources.  
 
 Here is a view of the page:
 ![Administrator Resources](images/UI2021.1/admin_resources_portal.png)<!--{.img-responsive}-->
