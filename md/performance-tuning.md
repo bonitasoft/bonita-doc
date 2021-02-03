@@ -177,7 +177,7 @@ When Bonita platform is under high volumetry on work execution and database tran
 This issue happens only when using Bonita and BDM XA resources ( **XAMultipleResource** ) and because the **transaction isolation level** is configured as **ALLOW_SNAPSHOT_ISOLATION** and **READ_COMMITTED_SNAPSHOT**. These isolation levels are mandatory to avoid a deadlock.
 
 To avoid the issue described above, by default, a **100 ms work execution delay** is added when the database is **SQL Server** and if the **previous transaction has multiple XA Resources ( Bonita + BDM )**.
-This small execution delay allows database to handle the commit and update of the information out of the isolated level, so next request out of the write transaction can get the updated data.
+This small execution delay allows database to handle the commit and update the information out of the isolated level, so next request out of the write transaction can get the updated data.
 The **work execution delay** is configured in [`bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md).
 
 ```properties
