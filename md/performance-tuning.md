@@ -172,12 +172,12 @@ If the queue becomes full, the application restarts in order to force the engine
 
 ##### SQLServer
 
-Sometimes, in case of a lot of concurrence ( work triggered in same ms ), the data commits in a database was not visible by the next transaction.
+When Bonita platform is under high volumetry on work execution and database transaction, sometimes when one work commits its data and next transaction try to access it, this information was not yet visible.
 
-It happens when the previous transaction has used  **XAMultipleResource (Bonita + BDM )** and when the **transaction isolation level** is configured  **ALLOW_SNAPSHOT_ISOLATION** and **READ_COMMITTED_SNAPSHOT** are configured. Those isolations level are mandatory to avoid a deadlock.
+This issue happens only when using Bonita and BDM XA resources ( **XAMultipleResource** ) and because the **transaction isolation level** is configured as **ALLOW_SNAPSHOT_ISOLATION** and **READ_COMMITTED_SNAPSHOT**. These isolation levels are mandatory to avoid a deadlock.
 
 To avoid the issue describe above, we add a **work execution delay** (100 ms by default) only in case of the database is **SQL Server** and if the **previous transaction has used a XAMultipleResource ( Bonita + BDM )**.
-
+This small execution delay allows database to handle the commit and update of the information out of the isolated level, so next request out of the write transaction can get the updated data.
 The **work execution delay** is configured in [`bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md).
 
 ```properties
