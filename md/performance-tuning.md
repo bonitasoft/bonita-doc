@@ -182,8 +182,8 @@ The **work execution delay** is configured in [`bonita-tenant-community-custom.p
 
 ```properties
 
-# configuration of the work execution delay ( default 100ms ) only used when the db vendor is SQL SERVER
-# Avoid the data commits, by a transaction using XAMultipleResource (Bonita + BDM ),  was not visible by the next transaction.
+# Add a delay on work when the transaction that registers the work has multiple XA Resources
+# This is an SQL Server specific property to ensure all data commit are visible when the next work is executed.
 bonita.tenant.work.sqlserver.delayOnMultipleXAResource=100
 ```
 
