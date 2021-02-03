@@ -40,7 +40,6 @@ bonita.tenant.work.retry.factor=2
 Above is the default configuration. With it, each work can be retried up to **10 times**, starting with a delay of **1 second** 
 multiplied at each retry **by 2**.
 
-
 ### Monitoring
 
 The [Work execution audit](work-execution-audit.md) allows to be informed when the work is retried to many times.
