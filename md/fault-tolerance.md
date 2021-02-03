@@ -40,6 +40,7 @@ bonita.tenant.work.retry.factor=2
 Above is the default configuration. With it, each work can be retried up to **10 times**, starting with a delay of **1 second** 
 multiplied at each retry **by 2**.
 
+
 ### Monitoring
 
 The [Work execution audit](work-execution-audit.md) allows to be informed when the work is retried to many times.
@@ -66,6 +67,30 @@ Configuration for the recovery is available in the `bonita-tenant-community-cust
 bonita.tenant.recover.consider_elements_older_than=PT1H
 # Duration after the end of the previous execution before a new one is started. By default recovery runs every 2 hours (ISO-8601 duration format)
 bonita.tenant.recover.delay_between_recovery=PT2H
+
+```
+
+## Advanced
+
+### SQLServer
+
+**Before 2021.1**, sometimes,  in case of a lot of concurrence ( work triggered in same ms ), the data commits in a database was not visible by the next transaction. 
+
+It happens when the previous transaction has used  **XAMultipleResource (Bonita + BDM )** and when the **transaction isolation level** is configured  **ALLOW_SNAPSHOT_ISOLATION** and **READ_COMMITTED_SNAPSHOT** are configured. Those isolations level are mandatory to avoid a deadlock.
+
+To avoid the issue describe above, we decide to add a **work execution delay** (100 ms by default)  only in case of the database is **SQL Server** and if **the previous transaction has used a XAMultipleResource ( Bonita + BDM )**.
+
+#### Configuration
+
+Configuration for the **work execution delay** is available in the `bonita-tenant-community-custom.properties` and can be updated using the
+[setup tool](BonitaBPM_platform_setup.md)
+
+```properties
+
+# configuration of the work execution delay only used when the db vendor is SQL SERVER
+# Avoid the data commits, by a transaction using XAMultipleResource (Bonita + BDM ),  was not visible by the next transaction.
+bonita.tenant.work.sqlserver.delayOnMultipleXAResource=100
+
 
 ```
 
