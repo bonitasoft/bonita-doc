@@ -88,23 +88,27 @@ However, our team of Professional Services consultants can assist you in the cus
 
 ##### Bonita User Application
 In this application, you can customize:
-  * Bonita User Case List `UserCaseListBonitaV3`
-  * Bonita User Case Details `UserCaseDetailsBonitaV1` 
+  * Bonita User Case List `UserCaseListBonitaV_`
+  * Bonita User Case Details `UserCaseDetailsBonitaV_` 
 
 #### Bonita Administrator Application
 In this application, you can customize:
-  * Bonita Admin Process List `adminProcessListBonitaV1`
-  * Bonita Admin Case Details `adminCaseDetailsBonitaV2`
-  * Bonita Admin Task List `adminTaskListBonitaV1`
-  * Bonita Admin Task Details `adminTaskDetailsBonitaV1`
-  * Bonita Admin User List `adminUserListBonitaV1`
-  * Bonita Admin Group List `adminGroupListBonitaV1`
-  * Bonita Admin Role List `adminRoleListBonitaV1`
-  * Bonita Admin Install Export Organization `adminInstallExportOrganizationBonitaV1`
-  * Bonita Admin Profile List `adminProfileListBonitaV1`
-  * Bonita Admin Resources List `adminResourceListBonitaV1`
+  * Bonita Admin Process List `adminProcessListBonitaV_`
+  * Bonita Admin Case Details `adminCaseDetailsBonitaV_`
+  * Bonita Admin Task List `adminTaskListBonitaV_`
+  * Bonita Admin Task Details `adminTaskDetailsBonitaV_`
+  * Bonita Admin User List `adminUserListBonitaV_`
+  * Bonita Admin Group List `adminGroupListBonitaV_`
+  * Bonita Admin Role List `adminRoleListBonitaV_`
+  * Bonita Admin Install Export Organization `adminInstallExportOrganizationBonitaV_`
+  * Bonita Admin Profile List `adminProfileListBonitaV_`
+  * Bonita Admin Resources List `adminResourceListBonitaV_`
 
-Note: All the "Details" pages must be used as "orphan" pages in the application descriptor, since they need an id to be passed in order to display the details of the right item. They cannot be used at top-level menu.
+The "_" in "V_" stands for the latest "version" of the resource.
+
+::: info
+**Note**: All the "Details" pages must be used as "orphan" pages in the application descriptor, since they need an id to be passed in order to display the details of the right item. They cannot be used at top-level menu.
+:::
 
 #### Case overview
 This page linked to the case lists and case details pages is considered as a form in Bonita. It is linked to the process and can be edited from the Studio:
