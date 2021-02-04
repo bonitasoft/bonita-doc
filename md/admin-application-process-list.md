@@ -1,6 +1,6 @@
 # Process list in Bonita Administrator Application
 
-This page explains what a user with the _Administrator_ profile in Bonita Administrator Application can see and do about processes.
+This page explains what a user with the _Administrator_ profile can see and do about processes in [Bonita Administrator Application](admin-application-overview).
 
 Those users can: install, enable and edit processes, categories, forms, entities mapped to actors and process manager, parameters, and connectors.
 
