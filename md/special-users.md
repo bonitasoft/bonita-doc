@@ -3,7 +3,7 @@
 This page explains the three other ways to log into Bonita than with a regular profile: Tenant Administrator (Technical user), Platform Administrator, and Guest user.
 
 ## Platform administrator. 
-Quick definition, rights and duties. 
+The platform is the part of the system that is common to all tenants. The platform administrator can manage [through the API](platform-api.md) the platform level resources (including starting/stopping all services of the platform and managing tenants). He can also access the license information (for Enterprise editions).  
 Its username and password are defined in a configuration file and need to be changed for any other usage of a Bonita Tomcat bundle than local development (see
 [Bonita Tomcat bundle installation procedure](tomcat-bundle.md#toc3) for more information on how to proceed.
 Its default credentials are:
