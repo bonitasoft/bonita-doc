@@ -13,7 +13,7 @@ Here is a view of the page:
 
 ::: warning
 Only one model can be deployed at a time in Bonita Portal, so make sure it contains the Business Object definitions used in all processes that will run within this tenant.
-The Business Objects must match the structure used by the deployed processes. Make sure that when modifying the Business Data Model, the process is modified accordingly.
+The Business Objects must match the structure used by the deployed processes. Make sure that when modifying the Business Data Model, the processes are modified accordingly.
 :::
 
 ::: info
@@ -75,5 +75,4 @@ The Access Control rules must match the Business Data model.
 1. A successful import message will be displayed.
 
 Please note that a delay is required after the installation, for Bonita Engine to process the access control and for the filtering to be effective.
-
 
