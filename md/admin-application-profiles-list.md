@@ -33,7 +33,7 @@ The Administrator can [Live Update](live-update.md) a profile:
  * edit the mapping (all editions, all profiles)
  
 This is only in case of an issue to solve temporarily. We strongly encourage the modification of the organization and profiles to be conducted 
-in Bonita Studio so it can be shared and versioned with the whole project, or through the [LDAP synchronizer](ldap-synchronizer.md) if the organization is located in an external system. 
+in Bonita Studio so it can be shared and versioned with the whole project. 
 
 ### Add a profile (import or create)
 To do so:
@@ -87,5 +87,4 @@ In specific situations, the Administrator may need to add or remove entities to 
   1. In "[...] mapped", search for the entity by using the search field if needed
   2. In the row of the profile to delete, click on the _remove [...] from mapping_ icon
    
-
 
