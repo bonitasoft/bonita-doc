@@ -170,9 +170,9 @@ Setting a high `queueCapacity` limit means that more work can be queued, but can
 It is essential to ensure that the queue never becomes full (`queueCapacity` is never reached).  
 If the queue becomes full, the application restarts in order to force the engine to generate all work from the database. This means that work is lost.
 
-##### SQLServer
+##### SQLServer-specific work configuration
 
-When Bonita platform is under high volumetry on work execution and database transaction, sometimes when one work commits its data and next transaction try to access it, this information was not yet visible.
+When Bonita platform is under high volumetry on work execution and database transaction, sometimes when one work commits its data and next transaction tries to access it, this information is not yet visible.
 
 This issue happens only when using Bonita and BDM XA resources ( **XAMultipleResource** ) and because the **transaction isolation level** is configured as **ALLOW_SNAPSHOT_ISOLATION** and **READ_COMMITTED_SNAPSHOT**. These isolation levels are mandatory to avoid a deadlock.
 
