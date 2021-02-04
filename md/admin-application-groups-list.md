@@ -2,7 +2,7 @@
 
 This page explains what a user with the _Administrator_ profile can see and do about groups (of the organization) in [Bonita Administrator Application](admin-application-overview).  
 To easily manipulate users with the same rights, it is possible to group them together.  
-Groups can be defined in the organization, users can then be added to groups, and groups and used to map actors or profiles or other permissions in Bonita.
+Groups can be defined in the organization, users can then be added to groups, and groups can be used to map actors or profiles or other permissions in Bonita.
 
 Here is a view of this page:
 ![Administrator groups list Portal](images/UI2021.1/admin-application-groups-list.png)<!--{.img-responsive}-->
