@@ -149,11 +149,11 @@ Specify the following information:
    | db.user        | The username used to authenticate to the database                | bonita                                                     |
    | db.password    | The password used to authenticate to the database                | bpm                                                        |
 
-    ::: info
-    Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
-    `db.url=jdbc:mysql://localhost:3306/bonita_migration?allowMultiQueries=true`.  
-    Also, if you are migrating to Bonita 7.9+, you must upgrade your database server to MySQL 8.0, see [Migrating to Bonita 7.9+ using MySQL](#mysql8) specific procedure below.
-    :::
+::: info
+Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
+`db.url=jdbc:mysql://localhost:3306/bonita_migration?allowMultiQueries=true`.  
+Also, if you are migrating to Bonita 7.9+, you must upgrade your database server to MySQL 8.0, see [Migrating to Bonita 7.9+ using MySQL](#mysql8) specific procedure below.
+:::
 
 1. If you use a custom Look & Feel, [export](managing-look-feel.md) it, and then [restore the default Look & Feel](managing-look-feel.md).
 1. If you use a Business data model that requires to be redeployed (see [above](#bdm_redeploy)), you can pause the tenant so that as a tenant admin, you'll be able to redeploy the BDM on a paused tenant once migration is done.  
