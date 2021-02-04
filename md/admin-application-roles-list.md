@@ -2,7 +2,7 @@
 
 This page explains what a user with the _Administrator_ profile can see and do about roles (of the organization) in [Bonita Administrator Application](admin-application-overview).  
 To easily manipulate users with the same rights, it is possible to give them the same role (in the same or in different groups), like "Project Manager", for example.   
-Roles can be defined in the organization, users can then be added to roles, and roles are used to map actors or profiles or other permissions in Bonita.
+Roles can be defined in the organization, users can then be added to roles, and roles can be used to map actors or profiles or other permissions in Bonita.
 
 Here is a view of this page:
 ![Administrator roles Portal](images/UI2021.1/admin-application-roles-list.png)<!--{.img-responsive}-->
