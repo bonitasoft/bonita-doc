@@ -1,6 +1,6 @@
 # Profiles management in Bonita Administration Application
 
-This page explains what a user with the _Administrator_ profile can do with profiles in the Bonita Administrator Application. 
+This page explains what a user with the _Administrator_ profile can do with profiles in [Bonita Administrator Application](admin-application-overview).
 
 In all Bonita editions, Administrators can change the mapping between a provided profile (User and Administrator) and the organization entities (user, groups, roles, and memberships).  
 In Enterprise, Performance, Efficiency, and Teamwork editions, there is one more provided profile: Process Manager.
@@ -87,6 +87,5 @@ In specific situations, the Administrator may need to add or remove entities to 
   1. In "[...] mapped", search for the entity by using the search field if needed
   2. In the row of the profile to delete, click on the _remove [...] from mapping_ icon
    
-
 
 
