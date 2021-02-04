@@ -1,9 +1,9 @@
 # Task list in Bonita Administrator Application
 
-This page explains what a user with the _Administrator_ in the Bonita Administrator Application can see and do about tasks and more generally, flow nodes.  
+This page explains what a user with the _Administrator_ profile can see and do about tasks (and more generally, flow nodes) in [Bonita Administrator Application](admin-application-overview).  
 A flow node is an element of a process. It defines an action to be performed (automatic or human). A taks is a flownode done by a person. 
 
-Such users can view the list of flow nodes in error, pending tasks, done tasks, assign and unassign a task, do a task for someone else, skip a failed flow node, replay a failed flow node, and write a comment about the case.
+Those users can view the list of flow nodes in error, pending tasks, done tasks, assign and unassign a task, do a task for someone else, skip a failed flow node, replay a failed flow node, and write a comment about the case.
 
 Here is a view of the task list:
 ![Task list Administrator Application](images/UI2021.1/admin-application-task-list.png)<!--{.img-responsive}-->
@@ -11,7 +11,7 @@ Here is a view of the task list:
 ## View tasks and flow nodes
 Tasks and flow nodes are showns in three tabs: _Failed flow nodes_, _Pending tasks_, and _Done tasks_.
 In the "Failed flow nodes", as tasks and other automatic elements can fail, we chose to show them all.  
-When they do not fail, they execute so fast that there is no need to show them in their pending state.  
+When they do not fail, they are usually executing fast and there is no need to show them as there is no action to perform for them.  
 Also, usually, the follow up of the execution of a case is mostly about human tasks.  
 To view all flow nodes in a process or case, the "Process details" and "Case details" give access to a graphical view of the BPMN diagram to follow up on the status.  
 In the "Pending tasks", for each human task, the priority and due date are shown in the list.
