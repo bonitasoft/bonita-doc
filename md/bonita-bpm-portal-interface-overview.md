@@ -9,7 +9,7 @@ They rely on the analysis that four types of personas use process-based applicat
 
 ## Default User Interfaces
 
-Starting with Bonita 2021.1, there are two types of User Interfaces provided by Bonita: Bonita Portal (legacy), and Bonita Applications (the way to go).  
+Starting with Bonita 2021.1, there are two types of runtime User Interfaces provided by Bonita: Bonita Portal (legacy), and Bonita Applications (the way to go).  
 
  ::: info
  **Note:** In next versions of Bonita, Portal will be replaced with Applications, so we encourage you to use the applications as of now.
