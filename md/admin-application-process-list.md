@@ -127,7 +127,7 @@ To add entities:
 4. Click the _+_ button in the user, group, role or membership column of the actor line.
 5. In the opened modal window, click on the dropdown list to select one or several entities. The list displays the first five elements, then a number is displayed representing the other selected entities.
 To remove entities:
-6. In the opened modal window, there is a list of the actors already mapped. Click on the _X_ button next to the actor, or click on _Remove all_. A list appears filled with the actors you are about to remove. 
+6. In the opened modal window, there is a list of the entities already mapped with the actor. Click on the _X_ button next to an entity, or click on _Remove all_. A list appears filled with the entities you are about to remove. 
    You can **undo** a removal by clicking on the _X_ button next to the actor or by clicking _Enable all_ 
 7. Click on the _Apply_ button.
 
