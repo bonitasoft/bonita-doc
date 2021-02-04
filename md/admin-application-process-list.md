@@ -128,7 +128,7 @@ To add entities:
 5. In the opened modal window, click on the dropdown list to select one or several entities. The list displays the first five elements, then a number is displayed representing the other selected entities.
 To remove entities:
 6. In the opened modal window, there is a list of the entities already mapped with the actor. Click on the _X_ button next to an entity, or click on _Remove all_. A list appears filled with the entities you are about to remove. 
-   You can **undo** a removal by clicking on the _X_ button next to the actor or by clicking _Enable all_ 
+   You can **undo** a removal by clicking on the _X_ button next to the entity or by clicking _Enable all_ 
 7. Click on the _Apply_ button.
 
 ::: info
@@ -152,7 +152,7 @@ There are two stages to define a Process Manager:
 2. Map the process to one or several entities that have the _Process Manager_ profile. 
     1. Go to _BPM_>_Processes_ 
     2. In the row of the process, click on the "View more details" icon. The Process managers currently assigned to the process are shown in the _Process manager mapping_ table.
-    4. To add a user, click the _Plus_ sign or _Pencil_ button in the _User_ column. A popup shows a list of the users who are currently process managers for this process.
+    3. To add a user, click the _Plus_ sign or _Pencil_ button in the _User_ column. A popup shows a list of the users who are currently process managers for this process.
     5. Click _Select users_. A list of users with the Process manager profile is displayed.
     6. Select the user you want to be a Process manager for the process, and click on _Apply_. 
      The selected user is added as a Process manager for the process.
