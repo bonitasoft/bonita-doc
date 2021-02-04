@@ -23,5 +23,6 @@ If you modify these values before the first start of the platform, the new value
 created in the future, including the default tenant.
 
 ## Guest user
-Quick definition and rights.
-Link to guest user for how it works.
+With enterprise editions, it is possible to allow public access to some living applications (without the need to sign in to Bonita).
+When accessing a public application without any active session on Bonita platform the user will be automatically logged in with a guest user account.  
+To know more about this feature, go to the [Guest user access documentation](guest-user.md).
