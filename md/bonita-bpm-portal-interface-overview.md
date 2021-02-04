@@ -1,6 +1,6 @@
 # Bonita User Interfaces overview
 
-This page describes the User Interfaces provided by Bonita.   
+This page describes the runtime User Interfaces provided by Bonita.   
 They rely on the analysis that four types of personas use process-based applications in a company:
   - the **User** is responsible of performing the tasks for which they are a candidate and also for starting new cases of the processes to which they have access.
   - the **Administrator** is responsible for the administration of Bonita at tenant level, and particularly for the management of the processes, the organization, the reports, the custom profiles and the Look & Feel.
