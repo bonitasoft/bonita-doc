@@ -32,7 +32,7 @@ Both Bonita Applications can be downloaded from the Welcome Page of the Studio, 
 
 Applications are more flexible than the portal, in two ways:
    - The navigation can be customized: remove the pages that are not needed, add custom pages that are needed. This is the equivalent of Custom Profiles, but with the flexibility of an application. 
-   - Some pages of those applications have been recreated with Bonita UI Designer (see the list [here]). This means that you can open and customize the page to make it fit the precise needs of the users. Starting with an existing page accounts for a big gain of time.
+   - Some pages of those applications have been recreated with Bonita UI Designer (see [which ones here](admin-application-overview.md)). This means that you can open and customize the page to make it fit the precise needs of the users. Starting with an existing page accounts for a big gain of time.
 
 Moreover, for Bonitasoft as for its users, applications are free from the Google Web Toolkit framework used to build an important part of Bonita Portal, which accounts for an important technical update and optimized maintenance ahead of us.
 
