@@ -154,7 +154,7 @@ There are two stages to define a Process Manager:
     2. In the row of the process, click on the "View more details" icon. The Process managers currently assigned to the process are shown in the _Process manager mapping_ table.
     3. To add a user, click the _Plus_ sign or _Pencil_ button in the _User_ column. A popup shows a list of the users who are currently process managers for this process.
     4. Click _Select users_. A list of users is displayed.
-    6. Select the user you want to be a Process manager for the process, and click on _Apply_. 
+    5. Select the user you want to be a Process manager for the process, and click on _Apply_. 
      The selected user is added as a Process manager for the process.
      You can also assign a process to a group, role, or memberships.
 
@@ -202,7 +202,7 @@ There are two stages to define a Process Manager:
 7. Click the _Tick_ button to validate your change or _X_ to dismiss your change.
 
 ::: info
-**Note:** You can also upload a form in order to create a new mapping.
+**Note:** You can also upload a new form in order to create a new form mapping (see the above section Upload a new form).
 :::
 
 ## Edit a script content
