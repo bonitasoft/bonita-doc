@@ -67,7 +67,7 @@ The Access Control rules must match the Business Data model.
 **:fa-info-circle: Note:** Contrary to the BDM definition, the deployment of a BDM Access Control file does not require pausing the BPM services during the operation. 
 :::
 1. [Export the BDM Access Control file](bdm-access-control.md) from Bonita Studio where it was designed.
-1. In Bonita Portal, log in as a user with the _Administrator_ profile, or as the Technical user (default login 'install', default password 'install') 
+1. In Bonita Portal, log in as a user with the _Administrator_ profile, or as the Technical user
 1. Go to the _BDM_ menu
 1. Click on the _Install_ button to open install popup
 1. Choose the file containing the BDM Access Control definition exported from Bonita Studio
