@@ -2,10 +2,6 @@
 
 This page explains the three other ways to log into Bonita than with a regular profile: Tenant Administrator (Technical user), Platform Administrator, and Guest user.
 
-## Sytem administrator
-Quick definition, rights and duties.
-Default username password. Where to change it.
-
 ## Platform administrator. 
 Quick definition, rights and duties. 
 Default username password. Where to change it.
