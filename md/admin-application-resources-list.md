@@ -42,6 +42,8 @@ These permissions are defined in the `page.properties` file. If your resource is
 For each REST resource accessed in other resources, specify the authorization needed for each method used. 
 You can find examples of the default resources in [`resources-permissions-mapping.properties`](BonitaBPM_platform_setup.md).
 
+When a user is given access to a page/layout because they are in a profile that contains it or that is mapped to an application that contains the page/layout, then this user is granted, upon login, the permissions associated to these REST resources (see [REST API authorizations](rest-api-authorization.md) for more details).  
+
 The following example shows the permissions defined for a page that enables a user to view but not update organization information:
 ```
 #The name must start with 'custompage_'
