@@ -35,8 +35,8 @@ To resolve a process, you must complete the configuration of the actor mappings,
 To resolve a process for actors, parameters, connectors, and forms:
 1. Go to _BPM_>_Processes_
 2. On the row of the process, click on _View process details_ icon.
-5. A summary of configuration problems is displayed below the process name in a well and warning icons are displayed in the left navigation list.
-6. Modify your configuration for each element displayed.
+3. A summary of configuration problems is displayed below the process name in a well and warning icons are displayed in the left navigation list.
+4. Modify your configuration for each element displayed.
 
 To resolve a process for business variables:
 1. Logout
