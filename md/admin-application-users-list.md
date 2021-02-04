@@ -53,7 +53,7 @@ Reactivating a user can be done through the same mechanism from the "Inactive" u
 5. Click on the _Update [...]_ button of the section
 
 ### Edit user's memberships
-In the way we conceive the pertainance of a user to an organization, it is only possible to add both a role and a group (what we call a membership) to a user.    
+In the way we conceive how a user pertains to an organization, it is only possible to add both a role and a group (what we call a membership) to a user.    
 For example, "Assistant"(role) of "Human Resources"(group).
 1. Go to _Organization_/_Users_
 2. In the row of the user, click on the _View user details_ icon
