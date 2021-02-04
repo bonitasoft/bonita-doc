@@ -67,7 +67,10 @@ Each application is devoted to a special business need:
 To customize an application to your needs:
 1. From Bonita Studio's Welcome page, in the "Resources" tile, download the application that suits your needs. 
 In the studio "Project explorer" pane, you will find all resources of the application: descriptor, layout, theme, custom widgets, as well as some pages.
-Indeed, our pages have been developed with different frameworks over time. Pages developed with the UI Designer appear in the Project explorer, they can be edited in the UI Designer; pages developed with AngularJS, React, or PortalJS are embedded in the Development Suite Tomcat and can be found in the Resources page of Bonita Portal / the Bonita Administrator Application. Those pages have been "wrapped" from Bonita Portal to be used as custom pages. They cannot be edited in the UI Designer.
+Our pages have been developed with different frameworks over time.
+- Pages developed with the UI Designer appear in the Project explorer, they can be edited in the UI Designer
+- Pages developed with AngularJS are embedded in the Development Suite Tomcat and can be found in the Resources page of Bonita Portal / the Bonita Administrator Application. Those pages have been "wrapped" from Bonita Portal to be used as custom pages. They cannot be edited in the UI Designer.
+- Pages developed with React are embedded in the Development Suite Tomcat and can be found in the Resources page of Bonita Portal / the Bonita Administrator Application. Those pages cannot be edited in the UI Designer but they can be modified using an IDE (Integrated Development Environment) if needed.
 2. Duplicate the application descriptor and rename your copy
 3. Delete the pages you do not need, add the pages you need, keep the pages that fit the target use  
 4. You can customize the pages created with the UI Designer. To do so:
