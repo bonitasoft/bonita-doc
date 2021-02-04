@@ -19,9 +19,6 @@ Its default credentials are:
 * username: `install`
 * password: `install`
 
-If you modify these values before the first start of the platform, the new values will be the default values for all tenants that will be
-created in the future, including the default tenant.
-
 ## Guest user
 With enterprise editions, it is possible to allow public access to some living applications (without the need to sign in to Bonita).
 When accessing a public application without any active session on Bonita platform the user will be automatically logged in with a guest user account.  
