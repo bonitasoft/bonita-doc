@@ -1,6 +1,6 @@
 # Special users
 
-This page explains the two/three ? other ways to log into Bonita Portal than with a profile: Tenant Administrator (Technical user), Platform Administrator, and System Administrator.
+This page explains the three other ways to log into Bonita than with a regular profile: Tenant Administrator (Technical user), Platform Administrator, and Guest user.
 
 ## Sytem administrator
 Quick definition, rights and duties.
@@ -23,4 +23,3 @@ created in the future, including the default tenant.
 ## Guest user
 Quick definition and rights.
 Link to guest user for how it works.
-
