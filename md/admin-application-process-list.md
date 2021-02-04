@@ -114,18 +114,18 @@ To start a case for another user:
 6. Click on _OK_
 
 The case is started as though the specified user had started it. 
-For example, if a you start a case for user A and a subsequent task is to be done by the manager of the user, it is assigned to user A's manager, not to your manager.
+For example, if you start a case for user A and a subsequent task is to be done by the manager of the user, it is assigned to user A's manager, not to your manager.
 
 All of what follows belong to the [Live update feature](live-update.md) and are only available in for the Enterprise, Performance, and Efficiency editions.
 
 ## Edit the actor mapping
-You need to map more or less organization entities to an actor. To do so:
+You need to map organization entities to an actor. To do so:
 1. Go to _BPM_>_Processes_ 
 2. In the row of the process, click on the "View more details" icon
 3. Click on _Actors_ in the left menu.
 To add entities:
 4. Click the _+_ button in the user, group, role or membership column of the actor line.
-5. In the opened modal window, click on the dropdown list to select one or several actors. The list displays the first five elements, then a number is displayed representing the other selected entities.
+5. In the opened modal window, click on the dropdown list to select one or several entities. The list displays the first five elements, then a number is displayed representing the other selected entities.
 To remove entities:
 6. In the opened modal window, there is a list of the actors already mapped. Click on the _X_ button next to the actor, or click on _Remove all_. A list appears filled with the actors you are about to remove. 
    You can **undo** a removal by clicking on the _X_ button next to the actor or by clicking _Enable all_ 
