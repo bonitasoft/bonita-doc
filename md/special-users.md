@@ -4,7 +4,12 @@ This page explains the three other ways to log into Bonita than with a regular p
 
 ## Platform administrator. 
 Quick definition, rights and duties. 
-Default username password. Where to change it.
+Its username and password are defined in a configuration file and need to be changed for any other usage of a Bonita Tomcat bundle than local development (see
+[Bonita Tomcat bundle installation procedure](tomcat-bundle.md#toc3) for more information on how to proceed.
+Its default credentials are:
+* username: `platformAdmin`
+* password: `platform`
+
 
 ## Technical user
 Each tenant has an administrator (also known as the **tenant technical user**) with a tenant-specific username and password. The tenant administrator can start and stop the BPM services for the tenant, install a Business Data Model, install the resources and the organization.  
