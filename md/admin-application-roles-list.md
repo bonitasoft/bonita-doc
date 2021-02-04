@@ -43,7 +43,7 @@ The new role will be displayed in the list of roles.
 4. Click _Save_
 
 ## Modify users in a role
-In the way we conceive the pertainance of a user to an organization, it is only possible to add both a role and a group (what we call a membership) to a user.  
+In the way we conceive how a user pertains to an organization, it is only possible to add both a role and a group (what we call a membership) to a user.  
 For example, "Assistant"(role) of "Human Resources"(group).  
 1. Go to _Organization_/_Users_. You navigate to the [Users](admin-application-users-list.md) page
 2. On the row of the user, click on the _View user details_ icon
