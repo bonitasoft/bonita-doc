@@ -5,6 +5,7 @@ This page explains what a user with the _Administrator_ profile can see and do a
 Those users can: install, enable and edit processes, categories, forms, entities mapped to actors and process manager, parameters, and connectors.
 
 Here is a view of the Process list page:
+
 ![Administrator Process list in Portal](images/UI2021.1/admin-process-list-portal.png)<!--{.img-responsive}-->
 
 ## Install a new process
