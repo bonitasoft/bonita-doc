@@ -2,7 +2,7 @@
 
 This page explains what a user with the _Administrator_ profile in Bonita Portal or in the [Bonita Administrator Application](admin-application-overview.md) can see and do about Business Data Model (BDM) and BDM Access Control.
 
-Processes using Business Objects with persisted data need to run with a Business Data Model deployed in the Bonita Portal.  
+Processes using Business Objects with persisted data need to run with a Business Data Model deployed in Bonita Portal.  
 On top of that, it is possible to define access rights on some attributes of business objects based on the user profile. This file is also managed in Bonita Portal.
 
 Here is a view of the page:
@@ -75,4 +75,3 @@ The Access Control rules must match the Business Data model.
 1. A successful import message will be displayed.
 
 Please note that a delay is required after the installation, for Bonita Engine to process the access control and for the filtering to be effective.
-
