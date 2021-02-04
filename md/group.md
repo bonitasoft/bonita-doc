@@ -2,7 +2,7 @@
 
 This page explains what a user with the _Administrator_ profile in Bonita Portal can see and do about groups in the organization.  
 To easily manipulate users with the same rights, it is possible to group them together.  
-Groups can be defined in the organization, attached to users and used to map actors.
+Groups can be defined in the organization, attached to users and used to map process actors or application profiles with the organization.
 
 Here is a view of this page:
 ![Administrator groups list Portal](images/UI2021.1/groups-portal.png)<!--{.img-responsive}-->
