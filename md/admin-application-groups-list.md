@@ -49,7 +49,7 @@ in Bonita Studio so it can be shared and versioned with the whole project, or th
 4. Click on _Save_.
 
 ### Modify users within a group
-In the way we conceive the pertainance of a user to an organization, it is only possible to add both a role and a group (what we call a membership) to a user.    
+In the way we conceive the way a user pertains to an organization, it is only possible to add both a role and a group (what we call a membership) to a user.    
 For example, "Assistant"(role) of "Human Resources"(group).  
 1. Go to _Organization_/_Users_. You navigate to the [Users](admin-application-users-list.md) page.
 2. In the row of a user, click on the _View user details_ icon
