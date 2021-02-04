@@ -32,11 +32,5 @@ This list also leverages two legacy features (prior to Bonita 7.3.0):
 The task list also contains a _Done tasks_ filter, for the user to check if the task has been completed properly.
 
 ::: info
-A user with the _User_ profile, who is a manager, can see the _More..._ page for their team members' tasks, by specifying the task id.  
-To do so, display any task in the Portal, then change the task id in the URL to the id of the task you want to see. 
-:::
-(**Anthony... not clear to me**)
-
-::: info
 **Note:** Since Bonita 7.3.0, creating subtasks is no longer possible. However, if subtasks have been created in a process instance in an old Bonita version, and if the Bonita Platform has been migrated to a later version while the case was open, then the subtasks will still be visible to the users assigned, and users will still be able to complete them.
 :::
