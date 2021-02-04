@@ -1,6 +1,6 @@
 # User list in Bonita Administrator Application
 
-This page explains what a user with the _Administrator_ profile in Bonita Administrator Application can see and do about the users of the deployed organization.
+This page explains what a user with the _Administrator_ profile can see and do about the users (of the organization) in [Bonita Administrator Application](admin-application-overview).
 
 Here is a view of this page:
 ![Administrator user list Portal](images/UI2021.1/admin-application-users-list.png)<!--{.img-responsive}-->
