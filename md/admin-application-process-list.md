@@ -193,13 +193,13 @@ There are two stages to define a Process Manager:
 7. Click _Next_, then if your form requires some authorization, it will be displayed.
 8. Click on _Confirm_.
 
-## Fix forms
+## Update the form mapping with process instantiation, tasks, or case overview
 1. Go to _BPM_>_Processes_ 
 2. In the row of the process, click on the "View more details" icon
 3. Click on _Forms_ in the left menu.
 5. The tables are displayed which list available forms. Click on a red link. A field input appears.
 6. Starting to type some text, and any matching names of installed forms will be proposed. If there is no match for the name you enter, it will be considered as a URL.
-7. Click the _Tick_ button to validate your change or _**X**_ to dismiss your change.
+7. Click the _Tick_ button to validate your change or _X_ to dismiss your change.
 
 ::: info
 **Note:** You can also upload a form in order to create a new mapping.
