@@ -18,9 +18,9 @@ To configure a transition, select it in the process diagram and go to the Detail
 * The condition under which this transition is taken. There are three ways to specify this:
 
 
-## Condition expression
+## Expression Editor
 
-Click the crayon icon to open the Expression editor. Select the expression type and enter the expression. The most useful type of expression for a transition is a comparison. A comparison expression uses logical operators on variables, parameters, or constants to determine whether the transition is taken.
+Click the crayon icon to open the Expression editor. Use the provided quick operators and the available varialbes (parameters, business and process variables) to define the transition logic. 
 
 ## Condition decision table
 
