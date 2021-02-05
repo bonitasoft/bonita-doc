@@ -31,7 +31,7 @@ This profile is also the only one mapped with Bonita Mobile Portal.
 This profile is also mapped to the [Bonita User Application](user-application-overview.md), bringing the same value but with more customization options.
   
 ### Administrator
-By default, they access the Administrator navigation of Bonita Portal. It includes:
+By default, its gives access to the Administrator navigation of Bonita Portal. It includes:
   * [Process Management](_process-maintenance.md) and [Analytics](analytics.md)
   * [Organization Management](organization-in-bonita-bpm-portal-overview.md)
   * [Business Data Model Management](bdm-management-in-bonita-bpm-portal.md)
