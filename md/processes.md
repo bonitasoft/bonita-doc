@@ -87,6 +87,7 @@ This feature should only be used on non-production environments.
 1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers),
 2. Select the process to delete by checking the tickbox next to the process
 3. Click on the _Delete_ button
+4. After making sure that the deletion is safe, click on the _Delete_ button in the confirmation modal window
 
 You can also delete the process in the _More details_ view of a disabled process by clicking on the _Delete_ button, then click on the _Delete_ button to confirm in the modal window.
 
