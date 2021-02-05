@@ -30,6 +30,7 @@ contentType=layout
 * Except for REST API extensions, the zip archive must contain at least one of the following files:
    * An `index.html` file in the `resources` directory
    * An `Index.groovy` class at the root of the archive with, optionally, libraries
+   * A `resources/theme.css` file for applications themes
 
 If a resource contains both `Index.groovy` and `index.html`, the Groovy class takes precedence.  
 
