@@ -17,8 +17,6 @@ If you create a custom page with Bonita UI Designer, its required structure and 
 A custom page is displayed inside an iframe to prevent conflicts between Bonita Portal resources (for example JS and CSS) and those used in the custom page. 
 This also reduces the risk of migration issues, for example if a custom page uses the version of JQuery provided with Bonita Portal and it is updated.
 
-For all information about developping a custom page, go to the dedicated page
-
 ### PageController interface
 ```java
 public interface PageController {
