@@ -7,7 +7,7 @@ This pages describe how to create a layout and use it in an application.
 A layout is structure of the application and page content. It defines menu positioning, a footer, or any common content that could be displayed on every page of the application.
 Each application can have its own layout, or the same layout can be used consistently to all applications.
 
-There is an example of layout in Bonita Portal, that can be found in the Administrator "Resources" section.  
+There is an example of layout in Bonita Portal, "Bonita Layout", that can be found in the Administrator "Resources" section.  
 It is made of three containers:
 - layout-header  
             Comes with the living application menu widget to display the navigation of your application.                
