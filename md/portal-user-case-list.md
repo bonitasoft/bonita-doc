@@ -23,7 +23,7 @@ Obvious differences between the two:
   
 Less obvious difference:
 Users can add a comment in an open case, but cannot anymore in an archived case.  
-Comments are discribed a little below in this page.
+Comments are described a little below in this page.
 
 ### Filter by process
 The default filtering option is "All", but you can click on the drop down list widget to view all process names and select the one of your interest.
