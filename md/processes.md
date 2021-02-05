@@ -57,7 +57,6 @@ To resolve a process for business variables:
 
 ::: info
 **Note:** You can also select the processes you want to enable by checking the box in the _Resolved_ list, then click on the _ENABLE_ button in the bulk actions section, at the top of the list.  
-You can also enable a process in the _More details_ view, by clicking on the _Enable_ button.
 :::
 
 ## Disable a process
