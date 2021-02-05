@@ -15,7 +15,7 @@ Here is a view of the User Case list
 ![User Case list in Bonita Application](images/UI2021.1/user-case-list-app.png)<!--{.img-responsive}-->
 
 ## Cases listed
-As in the equivalent Portal page, the page displays the cases in which the loggued user has been involved:
+As in the equivalent Portal page, the page displays the cases in which the logged in user has been involved:
   * They started the case, from the [process list](user-process-list.md) or another application
   * AND/OR they have done tasks in this case earlier, from the [task list](user-task-list.md) or another application
 
