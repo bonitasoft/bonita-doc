@@ -53,7 +53,7 @@ To know more about how to implement search keys, go to the [search keys](define-
 #### Search keys filter results
 
 Only cases which have been given values for their search keys during the execution of the case will be filtered.
-Search can be done on the value of a search key. In our example, not on "customer name" (the label), but on "Doe" (the value).
+Search can be done on the value of a search key. 
 By default, the search is performed on the first word of the string.  
 In case the string contains several words and you would need the search to be performed on the beginning of either word, you need to activate the [word-based search](using-list-and-search-methods.md#word_based_search).  
 The search is launched automatically after a character is typed, with no need to press the Enter key.  
