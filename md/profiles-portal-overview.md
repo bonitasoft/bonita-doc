@@ -11,7 +11,7 @@ Profiles work as permissions to give access to:
 - [REST API extension permissions](rest-api-authorization.md)
 - Navigation (menus) of Bonita Portal
 
-One organization entity can be mapped to several profiles. In Bonita Portal, a loggued user can switch between his/her profiles in the navigation bar.
+One organization entity can be mapped to several profiles. In Bonita Portal, a logged in user can switch between his/her profiles in the navigation bar.
 
 In development, the creation and edition of profiles is done through the [profile editor](profileCreation.md) in Bonita Studio.   
 In non-production and production, an Administrator can use the _Organization_>_Profiles_ menu of Bonita Portal.
