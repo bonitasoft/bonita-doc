@@ -202,7 +202,7 @@
           * [Custom User Information](custom-user-information-in-bonita-bpm-portal.md)
         * [Profiles](_user-profiles.md)
           * [Overview](profiles-portal-overview.md)
-          * [Profiles Management](admin-application-profiles-list.md)          
+          * [Profiles Management](profile-list-portal.md)          
           * [Special users](special-users.md)
       * [BDM Management](bdm-management-in-bonita-bpm-portal.md)
       * [Resources](_resources.md)
