@@ -7,7 +7,7 @@ This page defines what is called "Live update" and details the process informati
 :::
 
 ## Definition
-Sometimes, in Non-Production or even Production Runtimes, there is a need of quickly change the content of a page or the pages linked to an application. And sometimes, there is no time to modify the sources and go through the whole validation cycle.  
+Sometimes, in Non-Production or even Production Runtimes, there is a need for quickly changing the content of a page or the pages linked to an application. And sometimes, there is no time to modify the sources and go through the whole validation cycle.  
 To save this situation before all changes are made in the project sources, validated as they should, and deployed in a new project version, here comes Bonita "Live Update".
 Live update is the procedure by which the Administrator can modify elements of an application on a Runtime environment (Production or Non-Production environments).
 
