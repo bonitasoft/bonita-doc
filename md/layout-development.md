@@ -50,8 +50,6 @@ contentType=layout
 ```
 * The resources folder must contain an `Index.groovy` class or an `index.html` file and optionally can contain some additional resources.
 
-If you create a resource with the UI Designer, the exported zip automatically has the correct format (only the contentType will have to be changed to "layout").
-
 In case of layout edition using Bonita UI Designer, the contentType is kept unchanged.
 [Export the examples](resource-management.md) to see how to structure your layout.
 
