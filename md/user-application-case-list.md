@@ -1,6 +1,6 @@
 # User Case list in Bonita Application
 
-This page explains what a user with the _User_ profile in Bonita Portal or in the Bonita User Application can see and do about cases (the process instances).  
+This page explains what a user with the _User_ profile can see and do about cases (the process instances) in [Bonita User Application](user-application-overview.md).
 It describes the value and details of the User Case List in Bonita User Application, as well as its related pages Case Details and Case Overview.  
 
 This page has been created using our [R&D best practices](https://community.bonitasoft.com/blog/development-ui-designer-page-done-bonitasoft).
