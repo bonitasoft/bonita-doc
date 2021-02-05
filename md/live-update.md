@@ -26,7 +26,7 @@ In Bonita Portal, with the _Administrator_ profile, or in the Bonita Administrat
 6. Edit the process variable
 7. Click on the _**✔**_ button to save it
 
-## Connectors implementation
+## Connector implementations
 1. Go to _BPM_> _Processes_
 2. Select a process and click on the _More..._ button
 3. Select Connectors on the left side menu
