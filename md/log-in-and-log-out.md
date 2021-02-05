@@ -13,7 +13,7 @@ Or a user wants to check the status of the tasklist in Bonita Portal, Bonita Use
 Or an administrator needs to perform monitoring or maintenance on the Bonita Platform.  
 For any of this, they need to log in. To do so:
 
-  1. Enter the login page url.
+  1. Enter the login page URL.
     * For Bonita Portal: `http://`_`hostname:port`_`/bonita/`. The default port number is 8080\.  
     * For Bonita User Application: `http://`_`hostname:port`_`/bonita/apps/userApp`.  
     * For Bonita Administrator Application: 
