@@ -15,7 +15,10 @@ It is made of three containers:
             Comes with the living application iframe widget to display pages or forms of your application.  
 - layout-footer  
             Empty by default
-    
+- User modal
+            Current logged in user information, language selection and sign out link
+- Application List modal
+            List of application links for the current logged in user 
 The layout was created using Bonita UI Designer, so you can export it and customize it with Bonita UI designer. 
 You can add more widgets in the containers layout-header and layout-footer.
 The 'layout.css' file manages the layout behavior, allows to display the content container in full height, 
