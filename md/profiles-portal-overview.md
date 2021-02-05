@@ -23,7 +23,7 @@ It should only be done to recover from an error temporarily. We strongly encoura
 
 ## Default profiles 
 ### User
-By default, they access the User navigation of Bonita Portal. It includes:
+By default, it gives access to the User navigation of Bonita Portal. It includes:
   * a [Process list](user-process-list.md)
   * a [Case list](portal-user-case-list.md)
   * a [Task list](user-task-list.md).
