@@ -70,7 +70,7 @@ To do so:
        Create the mapping with the organization entities, and if needed, create a Portal navigation.  
  
 ::: info
-Starting with Bonita 2021.1, because Bonita Portal is deprecated, we strongly encourage to create applications instead of Custom Profiles for Bonita Portal.
+Starting with Bonita 2021.1, because Bonita Portal is deprecated, we strongly encourage to create applications instead of Custom Profiles with navigation for Bonita Portal.
 :::   
 
 ## Delete a profile
