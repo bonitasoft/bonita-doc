@@ -27,7 +27,7 @@ contentType=layout
 
 * The `resources` directory contains all the public files of your resource (for example `index.md`, images, Javascript files, CSS files).  
 
-* The zip archive must contain at least one of the following index files:
+* Except for REST API extensions, the zip archive must contain at least one of the following files:
    * An `index.html` file in the `resources` directory
    * An `Index.groovy` class at the root of the archive with, optionally, libraries
 
