@@ -30,11 +30,6 @@ For example, you could:
 * Add elements in the layout-header, on top of the menu, like a login box or brand image
 * Add somme content in the layout-footer 
 
-::: warning
- Since 7.3 we made some changes on the default layout. 
- Those changes live in the `layout.css` page asset and allow us to better handle the content layout of the page displayed. 
- Another consequence is that it removes a margin which was automatically added at the top of each pages.
-:::
 
 ## Usage
 
