@@ -13,7 +13,6 @@ A few examples of custom pages:
 * Provide a busy user with a filtered view of the task list.
 * Provide an administrator with a multi-attribute search facility.
 * Integrate a page from an external application.
-* Make a report available to users who do not have the Administrator profile.
 
 For all information about developping a custom page, go to [page and form development overview](page-and-form-development-overview.md).
 
