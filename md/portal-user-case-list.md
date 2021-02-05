@@ -42,7 +42,7 @@ This feature has been made available in the Community edition since Bonita 2021.
 #### Search keys
 
 Search keys are data attached to the process definition to distinguish between cases of the process. For example: the customer's name for a request.  
-It eases the search for a case if case Id is not what users favor when referring to a case.  
+It eases the search for a case if the case Id is not what users favor when referring to a case.  
 They are instantiated through operations, mainly after the instantiation form has been submitted and the case starts.  
 They can be updated anytime during the lifetime of the case.  
 Search keys are optional and it is possible to define up to five search keys for a process.   
