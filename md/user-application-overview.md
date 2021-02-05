@@ -37,7 +37,7 @@ Now, in details:
   * _Cases_: 
     * Case list: recreated with the UI Designer. It allows a much better display of search keys.
     * Case details: recreated with the UI Designer.
-  * _Tasks_: same than in Bonita Portal.
+  * _Tasks_: same as in Bonita Portal.
   
 ## Create your own User application from ours
 1. Have all your custom pages ready, either imported in the UI Designer or the studio.
