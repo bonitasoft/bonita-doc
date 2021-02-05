@@ -77,7 +77,7 @@ Cache busting is the mechanism used in Bonita to refresh the cache for users whe
 Cache busting has been introduced in Bonita 7.6, along with a new [cache policy](cache-configuration-and-policy.md).  
 It allows end users to benefit from custom page update without the need to empty the browser cache.  
 When you export a page or a layout from the UI Designer, we suffix the resources filenames with a hash.  
-If the page is updated, the resource filename will change, and the browser will download it from the server, and not from the cache.
+If the page is updated, the resources filenames will change, and the browser will download it from the server, and not from the cache.
 
 If you do not use the UI Designer to edit and export your custom page, do not forget to manually trigger the cache busting mechanism.  
 It means that, as a developer, you must make sure to either change the file names of the modified resources (javaScript, CSS, images, etc...)
