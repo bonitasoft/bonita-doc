@@ -36,7 +36,7 @@ Each case has been rendered in the form of a container, with the following infor
   * Started by. The initiator of the case
   * Start date. The date and time this case has been instantiated. It is displayed in the format of the logged in user locale or chosen application language.
   * Archived cases only: End date
-  * Open cases only: Available tasks. Number of tasks the loggued user can do in this case at that very moment in the case lifetime (in the "To do" or "My tasks" basket)
+  * Open cases only: Available tasks. Number of tasks the logged in user can do in this case at that very moment in the case lifetime (in the "To do" or "My tasks" basket)
   * "..." icon, to navigate to the [case details](#case-details)
   * If available for the case, the next row displays the case search keys (between 1 and 5)
 
