@@ -37,7 +37,7 @@ If a resource contains both `Index.groovy` and `index.html`, the Groovy class ta
 ## Permissions for resources
 
 If your resource needs to perform requests to Bonita REST API, 
-you need to specify the permissions that a user needs to have in order to access those API. 
+you need to specify the [REST API authorizations](rest-api-authorization.md) that a user needs to have in order to access those API. 
 These permissions are defined in the `page.properties` file. If your resource is a page written in Groovy and uses the Bonita Engine Java APIs, you do not need to specify permissions.
 For each REST resource accessed in other resources, specify the authorization needed for each method used. 
 You can find examples of the default resources in [`resources-permissions-mapping.properties`](BonitaBPM_platform_setup.md).
