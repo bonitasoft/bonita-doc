@@ -68,7 +68,7 @@ They are instantiated through operations, mainly after the instantiation form ha
 They can be updated anytime during the lifetime of the case.  
 Search keys are optional and it is possible to define up to five search keys for a process.  
 All available search keys are displayed for a given case.  
-Technical note: A search key is translated by a database index in Bonita Engine.  
+Technical note: There is a databse index ofr each search key.  
 To know more about how to implement search keys, go to the [search keys](define-a-search-index.md) page. 
 
 #### Search keys filter results
