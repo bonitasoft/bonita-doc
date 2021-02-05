@@ -6,7 +6,7 @@ _Users_ can view lists of tasks to do as a member of a team, view tasks precisel
 ## Overview
 
 Starting with Bonita 7.3, users benefit from a configurable task list, to manage tasks involving human actors from all processes in a more efficient fashion.
-This page is also made available as a custom page in Bonita Portal > _Resources_, to be used in any [application](applications.md) or [custom profiles](custom-profiles.md), for users types of profiles.
+This page is also made available as a custom page in Bonita Portal > _Resources_, to be used in any [application](applications.md) or [custom profiles](profile-list-portal.md), for users types of profiles.
 
 Here are the values of the user task list:
   * Default Master/Detail design pattern, to view list and form in the same screen
