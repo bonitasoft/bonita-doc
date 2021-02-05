@@ -1,7 +1,7 @@
 # Monitor open cases
 
 This page describes the "Monitor open cases" page of the Administration profile in Bonita Portal and in the [Bonita Administrator Application](admin-application-overview.md).  
-In this page, _Administrators_ and _Process Managers_ can have a complete view of the sanity of the BPM operations, filter by process, access the process visualization and case details of a process. The page is available in both Bonita Portal and
+In this page, _Administrators_ and _Process Managers_ can have a complete view of the sanity of the BPM operations, filter by process, access the process visualization and case details of a process. 
 
 ::: info
 **Note:** For Enterprise, Performance and Efficiency editions only.
