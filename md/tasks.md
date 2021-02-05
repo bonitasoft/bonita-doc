@@ -3,7 +3,7 @@
 This page explains what a user with the _Administrator_ or _Process Manager_ profile in Bonita Portal can see and do about tasks and more generally, flow nodes.  
 A flow node is an element of a process. It defines an action to be performed (automatic or human). A taks is a flow node done by a person. 
 
-Such users can view the list of flow nodes in error, pending tasks, done tasks, assign and unassign a task, do task for someone else, skip a failed flow node, replay a failed flow node, and write a comment about the case.
+Those users can view the list of flow nodes in error, pending tasks, done tasks, assign and unassign a task, do task for someone else, skip a failed flow node, replay a failed flow node, and write a comment about the case.
 
 Here is a view of the task list:
 ![Administrator Task list Portal](images/UI2021.1/admin-task-list-portal.png)<!--{.img-responsive}-->
