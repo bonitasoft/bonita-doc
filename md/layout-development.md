@@ -10,7 +10,7 @@ Each application can have its own layout, or the same layout can be used consist
 There is an example of layout in Bonita Portal, "Bonita Layout", that can be found in the Administrator "Resources" section.  
 It is made of three containers:
 - layout-header  
-            Comes with the living application menu widget to display the navigation of your application.                
+            Comes with the links to the user modal and the applications modal, and the living application menu widget to display the navigation of your application.                
 - layout-content  
             Comes with the living application iframe widget to display pages or forms of your application.  
 - layout-footer  
@@ -75,4 +75,3 @@ You will be able to access the portal API using the following path: "../API/{API
 If your page is viewed in an application, you will have access facilities for [the application theme](applications.md).
 
 The `Theme.css` is directly accessible by adding the following link in `index.html`: `<link href="../theme/theme.css" rel="stylesheet" />`
-
