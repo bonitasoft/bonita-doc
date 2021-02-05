@@ -76,7 +76,7 @@ It displays:
   * Second zone: data about the pending tasks of the case if the logged in user can do them. Open cases only
   * Same zone: done tasks in this case
   * Third zone: comments list
-  * Last zone: the possibility to add a comment. Open case only
+  * Last zone: the possibility to add a comment (open case only).
 
 ## Case overview
 From the case details (button on the top right), or from the case list (_eye_ icon at the end of a case row), you can access the case overview.
