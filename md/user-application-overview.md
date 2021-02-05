@@ -29,7 +29,7 @@ To deploy the applications into a bundle or the Cloud, you can use [Bonita Conti
 
 ## Similarities and differences with _User_ profile of Bonita Portal
 On top of the application values, here are the similarities and differences between application and Portal for the provided pages:
-  * All pages previously created within the Google Web Toolkit framework have been recreated in the UI Designer. They can be customized in the UI Designer. They come with the Admin Application you download from Bonita Studio.
+  * All pages previously created using Google Web Toolkit framework have been recreated with Bonita UI Designer. They can be customized in the UI Designer. They come with the Admin Application you download from Bonita Studio.
   * All pages previously created in other technologies have been wrapped as custom pages. They cannot be customized in the UI Designer. Since they cannot be imported in a .bos archive, they do not come with the Admin Application you downlaod. Instead, they come as provided resources. You can find them in the "Resources" tab of the application.
 
 Now, in details: 
