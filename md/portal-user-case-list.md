@@ -61,7 +61,7 @@ The search is launched automatically after a character is typed, with no need to
 The three filters can be activated together to refine the relevance of the cases displayed.  
 
 ### Table display preferences
-By clicking on the cog icon at the top right of the table, users can define they display preferences:
+By clicking on the cog icon at the top right of the table, users can define their display preferences:
   * Number of cases displayed on each page of the table: select 25, 50, 100, or 200. 
     Depending on the quality of the Internet connexion, less items will display faster.
   * Columns that are the most useful: tick or untick the checkboxes
