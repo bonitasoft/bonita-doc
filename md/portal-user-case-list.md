@@ -73,7 +73,7 @@ Here is an example of the case details page.
 ![User Case details](images/UI2021.1/user-case-details.png)<!--{.img-responsive}-->
 It displays: 
   * At the top, all metadata about the case
-  * Second zone: data about the pending tasks of the case if the loggued user can do them. Open cases only
+  * Second zone: data about the pending tasks of the case if the logged in user can do them. Open cases only
   * Same zone: done tasks in this case
   * Third zone: comments list
   * Last zone: the possibility to add a comment. Open case only
