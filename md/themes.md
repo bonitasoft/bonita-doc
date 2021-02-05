@@ -4,7 +4,7 @@ This page explains how to handle themes in Bonita Portal, and how to use it in a
 
 A theme is an archive of files used to define and share CSS definitions and images for an application.
 It enables you to specify the same style for all pages and layout of an application.
-Each application can have its own theme or the same theme can be consistantly applied to all applications.
+Each application can have its own theme, or the same theme can be consistently applied to several applications.
 
 There are some examples of themes in Bonita Portal.  
 
