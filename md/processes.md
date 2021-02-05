@@ -212,7 +212,7 @@ There are two stages to define a Process Manager:
 6. Click the _Tick_ button to validate your change or _**X**_ to dismiss your change.
 
 ::: info
-**Note:** You can also upload a form in order to create a new mapping.
+**Note:** You can also upload a new form in order to create a new form mapping (see the above section Upload a new form).
 :::
 
 ## Edit a script content
