@@ -10,7 +10,7 @@ We believe that Bonita Applications give our users much more freedom for customi
   * Portal pages that have been re-created with the UI Designer have more features and/or features improvements  
   * These pages can also be modified in the UI Designer to fit precise users' needs.
   
-We also want to come out of the Google Web Toolkit framework; as useful as it has been when building Bonita Portal, we now find some limitations.  
+We also want to remove the last parts of the platform that were still built with Google Web Toolkit framework; as useful as it has been when building Bonita Portal, we now find some limitations.  
 
 ## Access during Implementation
 To get the application when you are implementing your Bonita project, go to the "Resources" tile of the **Studio Welcome page**, and click on "Import Bonita User Application".
