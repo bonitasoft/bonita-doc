@@ -50,7 +50,7 @@ Make sure our "details" pages are always used as orphan pages, as they need some
 1. To add other Bonita provided pages, open the portal from the coolbar, switch to the Administrator profile, and look in the "Resources" page, filtered by pages.
 
 ::: info
-Once a page has been customized, or when the User application has been customized, it is no more supported.  
+Once a page has been customized, or when the User application has been customized, it is no longer supported.  
 But you can reach one of our Professional Services team member to help you develop or maintain it.
 :::  
 
