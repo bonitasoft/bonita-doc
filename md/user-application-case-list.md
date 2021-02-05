@@ -27,7 +27,7 @@ Obvious differences between the two:
   
 Less obvious difference:
 Users can add a comment in an open case, but cannot anymore in an archived case.  
-Comments are discribed a little below in this page.
+Comments are described a little below in this page.
 
 ### Case information
 Each case has been rendered in the form of a container, with the following information:
