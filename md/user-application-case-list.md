@@ -118,7 +118,7 @@ This page displays:
   * For open cases only, the "Available tasks" number is a link that navigates to the task list filtered by the case Id
   * The search keys, also displayed in the list
   * Comments written in the whole case lifetime, to read
-  * For open cases only, an input field to add new comments for other actors of the case to read
+  * For open cases only, an input field to add new comments for other users involved in the case to read
   * A "Back" button to navigate back to the case list
   * An "Overview" button to navigate to the Case Overview.
 
