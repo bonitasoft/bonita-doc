@@ -43,7 +43,7 @@ Now, in details:
 1. Have all your custom pages ready, either imported in Bonita UI Designer or Bonita Studio.
 1. Open our UI Designer pages to customize them.
 1. In Bonita Studio, go to the "Project explorer" on the left and double click on the "bonita-user-application.xml" application descriptor.
-1. In the editor, rename the pages, change the order in the menu, remove the pages you do not need, add yours in the menu, or as orphan pages accessed through a menu option.
+1. In the editor, rename the pages, change the order in the menu, remove the pages you do not need, add yours in the menu, or as orphan pages accessed through navigation from another page.
 :::warning
 Make sure our "details" pages are always used as orphan pages, as they need an id to be passed from a list or another page to show any content.
 :::
