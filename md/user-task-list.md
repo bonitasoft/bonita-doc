@@ -1,6 +1,6 @@
 # User task list
 
-This page explains what a user with the User profile in Bonita Portal or in the [Bonita User Application](user-application-overview.md) can see and do about tasks.  
+This page explains what a user with the User profile in Bonita Portal or in [Bonita User Application](user-application-overview.md) can see and do about tasks.  
 _Users_ can view lists of tasks to do as a member of a team, view tasks precisely assigned to them, view tasks thay have done related to different processes, take and release tasks, and do tasks, eventually.
 
 ## Overview
