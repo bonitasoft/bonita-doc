@@ -36,7 +36,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse response, Page
 ### Permissions for custom pages
 
 If your custom page is an HTML page using the Web REST API, 
-you need to specify the permissions that a user needs to have in order to access the resources in the custom page. 
+you need to specify the [REST API authorizations](rest-api-authorization.md) that a user needs to have in order to access the resources in the custom page. 
 These permissions are defined in the `page.properties` file. If your custom page is written in Groovy and uses the Bonita Engine Java APIs, you do not need to specify permissions.
 
 For each REST resource accessed in the page, specify the authorization needed for each method used.  
