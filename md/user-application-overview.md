@@ -40,7 +40,7 @@ Now, in details:
   * _Tasks_: same as in Bonita Portal.
   
 ## Create your own User application from ours
-1. Have all your custom pages ready, either imported in the UI Designer or the studio.
+1. Have all your custom pages ready, either imported in Bonita UI Designer or Bonita Studio.
 1. Open our UI Designer pages to customize them.
 1. In Bonita Studio, go to the "Project explorer" on the left and double click on the "bonita-user-application.xml" application descriptor.
 1. In the editor, rename the pages, change the order in the menu, remove the pages you do not need, add yours in the menu, or as orphan pages accessed through a menu option.
