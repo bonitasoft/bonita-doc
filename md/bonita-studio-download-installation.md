@@ -64,7 +64,7 @@ This might take a while and some features may not be immediately available. A po
 
 When the Bonita Engine is started, you will see a confirmation pop-up on your Bonita Studio welcome page.
 
-![Bonita Studio server started pop-up](images/getting-started-tutorial/installation/studio-first-start-04-engine-started-popup.png)
+![Bonita Studio server started pop-up](images/getting-started-tutorial/installation/studio-first-start-04-engine-started-popup.png)<!--{.img-responsive .img-thumbnail}-->
 
 ## Installation validation
 
