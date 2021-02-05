@@ -42,7 +42,7 @@ By default, its gives access to the Administrator navigation of Bonita Portal. I
 
 ### Process manager
 This profile is available for Subscription editions only.
-An employee mapped to the _Process manager_ profile has limited administration rights for activities related to the processes they manage. It includes:
+Someone mapped to the _Process manager_ profile has limited administration rights for activities related to the processes they manage. It includes:
   * [Process monitoring](monitoring.md)
   * [Process list](processes.md), but they cannot install a process
   * [Case list](cases.md)
