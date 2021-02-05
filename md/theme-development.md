@@ -6,7 +6,7 @@ This page describes how to create, import, and use personal themes to skin your 
 
 A theme is an archive of files used to define and share CSS definitions and images for an application.
 It enables you to specify the same style for all pages and layout of an application.
-Each application can have its own theme, or the same theme can apply consistantly to all applications.
+Each application can have its own theme, or the same theme can be consistently applied to several applications.
 
 There are some examples of themes in Bonita Portal, in the Administrator "Resources" section.
 
