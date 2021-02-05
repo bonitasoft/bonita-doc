@@ -51,6 +51,7 @@ displayName=Organization viewer
 description=Organization viewer page. You cannot modify the organization from this page.
 resources=[GET|identity/user, GET|identity/personalcontactdata, GET|identity/professionalcontactdata, GET|identity/role, GET|identity/group, GET|identity/membership, GET|customuserinfo/user, GET|customuserinfo/definition, GET|customuserinfo/value] 
 ```
+When a user is given access to this page because they are in a profile that contains it or that is mapped to an application that contains the page, then this user is granted, upon login, the permissions associated to these resources (see [REST API authorizations](rest-api-authorization.md) for more details).  
 
 ### Custom page examples
 
