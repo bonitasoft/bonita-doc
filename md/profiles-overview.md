@@ -41,6 +41,6 @@ An employee mapped to the **Process manager** profile has limited administration
 
 In addition to the default profiles, users of Enterprise, Performance and Efficiency editions can create custom profiles.  
 Custom profiles must be created and updated in the [profile editor](profileCreation.md) of Bonita studio. 
-To create a custom profile, map it to entities of the organization.  
+To make a custom profile accessible to users, it has to be mapped to entities of the organization.  
 If a custom profile is created to give access to custom content in the portal, its _Portal menu_ (navigation structure and pages) must also be defined in the profile.
 In a production environment, to recover from an issue or in rare situations, an Administrator can use the _Organization_>_Profiles_ actions.
