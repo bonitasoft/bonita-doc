@@ -203,7 +203,7 @@ There are two stages to define a Process Manager:
 7. Click _Next_, then if your form requires some authorization, it will be displayed.
 8. Click on _Confirm_.
 
-## Fix forms
+## Change the instantiation or tasks forms or the overview page
 1. Go to _BPM_>_Processes_
 2. Click on the _More_ button
 3. Click on _Forms_ in the left menu.
