@@ -6,7 +6,7 @@ Bonita Portal comes with some provided pages to use in applications. They are wr
 Starting with Bonita 2021.1, you can also download the Bonita User and Administrator Applications (from Bonita Studio Welcome page), and get more provided pages, developped with Bonita UI Designer.
 
 ## Custom pages
-To create the perfect user experience for different profiles of applications users, you need to create custom pages. This can be done with Bonita UI Designer, on in your favorite IDE.
+To create the perfect user experience for different profiles of applications users, you need to create custom pages. This can be done with Bonita UI Designer, or in your favorite IDE.
 A few examples of custom pages:
 * Add a welcome page, with dashboards showing activity in Bonita and related external applications.
 * Provide a process owner with a dashboard showing the activity of open cases of the process.
