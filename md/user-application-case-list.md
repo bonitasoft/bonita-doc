@@ -100,7 +100,7 @@ The list can be sorted by:
 
 ### Pagination
 By default, the list shows ten cases.  
-A link at the bottom of the list says "Load more cases". When the user clicks on the link, it add ten more cases to the list, or just as many as remaining in the database for this filters configuration.  
+A link at the bottom of the list says "Load more cases". When the user clicks on the link, it adds up to ten more cases to the list (depending on how many are remaining in the database for this filters configuration).  
 The total number of cases displayed at a given time appears at the bottom right of the list, with the "Cases shown:" label fallowed by the number.  When this number is not a multiple of ten, that means that all cases available in the database for this filters configuration have been displayed.  
 The "Load more cases" link cannot be clicked anymore.
 
