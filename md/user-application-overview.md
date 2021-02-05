@@ -6,7 +6,7 @@ The Bonita User Application allows anyone with the _User_ profile to view tasks 
 ## Value
 Bonita Portal is deprecated and will be removed in a future Bonita release.  
 We believe that Bonita Applications give our users much more freedom for customization:
-  * Their menus can be customized compared to provided Portal profiles, by adding or removing pages, while still keeping the mapping with the profile _User_
+  * Their menus can be customized compared to provided Portal profiles, by adding or removing pages, while still keeping the mapping with the _User_ profile
   * Portal pages that have been re-created with the UI Designer have more features and/or features improvements  
   * These pages can also be modified in the UI Designer to fit precise users' needs.
   
