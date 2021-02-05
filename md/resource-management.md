@@ -115,5 +115,5 @@ To delete a resource:
 The selected resources are deleted.
 
 ::: info
-Note: Either all the selected resources are deleted, or no resources are deleted. If you have selected a page, a layout or a theme that are used in an application or a custom profile, you will see an error message listing these resources and the User Interfaces where they are used. In the case, none of the pages you selected is deleted.
+Note: Either all the selected resources are deleted, or no resources are deleted. If you have selected a page, a layout or a theme that are used in an application or a custom profile, you will see an error message listing these resources and the User Interfaces where they are used. In this case, none of the pages you selected is deleted.
 :::
