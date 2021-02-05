@@ -82,7 +82,7 @@ The search is launched automatically after a character is typed, with no need to
 ### Search by Case Id
 By entering the Id of a case and clicking the "..." button, the user gets to the [case details](#case-details) page directly.  
 This search is active on both open and archived cases.  
-Technically, cases change their Id when going from _open_ to _archived_ status. But users do not access this technical change. This is why the search is performed on both open and archived cases using the _original_ Id. For archived cases, it means the Id they had when they were open.  
+Technically, cases change their Id when going from _open_ to _archived_ status. But users do not observe this technical change. This is why the search is performed on both open and archived cases using the _original_ Id. For archived cases, it means the Id they had when they were open.  
 
 ### Sorting options
 Sorting options are the same as in the equivalent Portal page, except they have been brought to the top of the page instead of in the table headers.
