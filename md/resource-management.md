@@ -10,7 +10,7 @@ Here is a view of the page:
 
 ## Resource definition
 
-A resource is deployed in Bonita Portal to create the User Interface of a Living Application: it is a page, a layout, a theme, a REST API extension, but also a form that will be used by several processes so it is better to store it at platform level than within the process .bar file.  
+A resource is deployed in Bonita Portal to create the User Interface of a Living Application: it can be a page, a layout, a theme, a REST API extension, or a form that will be used by several processes so it is better to store it at platform level than within the process .bar file.  
 
 A resources is packaged as a .zip archive that contains a `page.properties` file, a resources directory and an index file.  
 * The `page.properties` file contains the metadata for the page.
