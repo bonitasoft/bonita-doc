@@ -43,7 +43,7 @@ For an application:
 
 
 ::: info
-Note: in a system that uses CAS to provide single sign-on, the administrator can remove the logout option. In this case, to log out of the portal or an application, you must log out of the CAS system or close your browser.
+Note: in a system that uses a solution to provide single sign-on (with SAML, CAS, etc...), the administrator can remove the logout option. In this case, to log out of the portal or an application, you must log out of the SSO system or close your browser.
 :::
 
 See also [First steps after setup](first-steps-after-setup.md)
