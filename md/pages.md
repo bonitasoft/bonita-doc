@@ -18,7 +18,7 @@ For all information about developping a custom page, go to [page and form develo
 
 ## Use in applications
 Once the pages are all made available in the Resources section of Bonita Portal, they can be used to [create applications](applicationCreation.md).  
-We highly recommand that the creation of applications is done in Bonita Studio, to be managed with all other project resources in the Version Control System (Git).
+We highly recommend that the creation of applications is done in Bonita Studio, to be managed with all the other resources of the project in the Version Control System (Git).
 
 ## Live update
 [Live update](live-update.md) allows the Administrator to update one element of the application in a situation of emergency.
