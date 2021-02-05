@@ -34,7 +34,7 @@ Each case has been rendered in the form of a container, with the following infor
   * Case ID. It is clickable to navigate to the [case details](#case-details)
   * Process name (version). The process and version that has been started to give way to this instance
   * Started by. The initiator of the case
-  * Start date. The date and time this case has been instantiated. It is displayed in the format of the loggued user locale or chosen application language.
+  * Start date. The date and time this case has been instantiated. It is displayed in the format of the logged in user locale or chosen application language.
   * Archived cases only: End date
   * Open cases only: Available tasks. Number of tasks the loggued user can do in this case at that very moment in the case lifetime (in the "To do" or "My tasks" basket)
   * "..." icon, to navigate to the [case details](#case-details)
