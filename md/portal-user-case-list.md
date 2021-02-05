@@ -36,7 +36,7 @@ If you select "Me", the list is refreshed and only displays the cases you have s
 ### Filter by search key
 
 ::: info
-This feature has been made available in the Community edition since Bonita 2021.1. It used to be only available in the Enterprise edition.
+This feature has been made available in the Community edition since Bonita 2021.1. 
 :::
 
 #### Search keys
