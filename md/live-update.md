@@ -96,5 +96,5 @@ The _Scripts_ section of the process "More details" page allows to update a _TYP
 7. Click on _Save_ to update the script content.
 
 ::: warning
-The script dependencies are fixed, i.e. when the process is implemented, the developer designed the script to use some variables and/or parameters. The Live update capability cannot go against this design and only allows to change the script content. If the new script tries to use more variables, it will lead to execution errors. To change the script dependencies (data available in the script execution context), the process definition must be updated and a newer version of the process deployed.
+The script dependencies are fixed, i.e., when the process is implemented, the developer design the script to use some variables and/or parameters. The Live update capability cannot go against this design and only allows to change the script content. If the new script tries to use more variables, it will lead to execution errors. To change the script dependencies (data available in the script execution context), the process definition must be updated and a newer version of the process deployed.
 :::
