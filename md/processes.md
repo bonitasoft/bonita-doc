@@ -135,7 +135,7 @@ To add entities:
 6. In the opened modal window, click on the dropdown list to select one or several entities. The list displays the first five elements, then a number is displayed representing the other selected entities.
 To remove entities:
 7. In the opened modal window, there is a list of the entities already mapped with the actor. Click on the _X_ button next to an entity, or click on _Remove all_. A list appears filled with the entities you are about to remove. 
-   You can **undo** a removal by clicking on the _X_ button next to the actor or by clicking _Enable all_ 
+   You can **undo** a removal by clicking on the _X_ button next to the entity or by clicking _Enable all_ 
 7. Click on the _Apply_ button.
 
 ::: info
