@@ -125,7 +125,7 @@ All of what follows belong to the [Live update feature](live-update.md) and are 
 
 
 ## Edit the actor mapping
-You need to map more or less organization entities to an actor. To do so:
+You need to map organization entities to an actor. To do so:
 1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers)
 2. Select a process in the list.
 3. Click on the _More_ button.
