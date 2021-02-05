@@ -24,7 +24,7 @@ Building the repository will create a .bos file in the ```target``` folder. You 
 
 After Studio validation, the application is imported or cloned; you can view its content in the project explorer, deploy it, and open it.
 
-## Access during pre-Production and Production
+## Access in pre-Production and in Production
 To deploy the applications into a bundle or the Cloud, you can use [Bonita Continuous Delivery](https://documentation.bonitasoft.com/bcd//_manage_living_application).   
 
 ## Similarities and differences with _User_ profile of Bonita Portal
