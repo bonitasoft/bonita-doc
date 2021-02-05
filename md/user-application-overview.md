@@ -1,6 +1,6 @@
 # Bonita User Application
 
-This pages describes the Bonita User Application: its values, how to access it, its difference with the _User_ profile of Bonita Portal, and the details of its features.   
+This pages describes the Bonita User Application: its values, how to access it, its differences with the _User_ profile of Bonita Portal, and the details of its features.   
 The Bonita User Application allows anyone with the _User_ profile to view tasks and do them, get information and add comments on cases, get a list of processes to start.
 
 ## Value
@@ -62,4 +62,3 @@ To know more, go to the [dedicated page](languages.md).
 
 ## Navigation between applications
 To know more, go to the [dedicated page](navigation.md).
-
