@@ -1,48 +1,35 @@
-# Forms for Process instantiation or Human Tasks
+# Forms
 
-How to add a form resource to the Bonita Portal and make it available to users. Forms are intended to be used with one or several processes.
+Forms are critical to process execution. They are linked to both process instantiation and task execution.  
 
-## Form definition <!--{.h2}-->
+Most of the time, they are used in only one process; in this case, they are packaged with the process and deployed in the _Processes_ section of Bonita Portal. They can be viewed in the process details section.
+Alternatively, they can be used in several processes. In this case, they can be managed as [_Resources_](resource-management.md) in Bonita Portal.
 
-A form is a [page](pages.md) that belongs to a process. It could be a process instantiation form, a human task form, or an overview form. There are some extra things to consider when you are creating a form compared with an ordinary page, concerning how data is passed between the process instance and the form.
+## Instantiation form
+When it is submitted, a case (process instance) is created.  
+At develoment time, an auto-generated form is provided by default, to ease process logic testing and debugging.  
+It is based on the relevant contract.  
+A custom form must be developed for user testing and production environments.
 
-Pages are [exported. imported, modified, and deleted](resource-management.md) as resources in the Portal. 
 
-A [context](contracts-and-contexts.md) is the set of data provided by the process instance or task instance to the form. 
-There is no context for a process instantiation form.
+## Human Task execution form
+When it is submitted, the human task is executed.  
+At development time, an auto-generated form is provided by default, to ease process logic testing and debugging.  
+It is based on the relevant contract.  
+A custom form must be developed for user testing and production environments.
 
-A [contract](contracts-and-contexts.md) is the definition of that data that the form returns to the process instance. There is no contract for an overview form.
 
-Three auto-generated forms are provided by default, for process instantiation, for human task execution, and for the case overview. 
+## Case overview form
+It gives the chronological evolution of the case, the current values for Business data as well as documents.  
+At development time, an auto-generated form is provided by default. It can also be used in Non-Production or Production environments.  
 
-The process instantiation and step execution auto-generated forms are based on the relevant contract and they are a useful tool for testing and debugging your application. 
+## Use in processes
+Most of the time, processes imbed their forms in the .bar generated from Bonita Studio and deployed to a Bonita Runtime.
+Rarely, when a form is used by multiple processes, it can be deployed as a "Resource" in Bonita Portal.
 
-The overview consists of three main sections:
+## Live update
+[Live update](live-update.md) allows the Administrator to update one element of the application in a situation of emergency.  
+You can [update the form in the list](live-update.md#form-list) and [modify the mapping with the process](live-update.md#form-mapping).  
+You can also [edit](resource-management.md#modify) a global form as a resource in Bonita Portal. 
 
-* List of business data: it shows the content of the business variables used by the case.
-* List of documents: it shows the content of each document used by the case.
-* Timeline: it shows in chronological order information about all the actions that have been performed in the selected case.
-
-To learn how to manage the link between process and forms, go to the [live update](live-update.md) page.
-
-### Application Theme access
-
-If your forms is viewed in an application, you will have access facilities for [the application theme](applications.md).
-
-The `Theme.css` is directly accessible by adding the following link in `index.html`: `<link href="../theme/theme.css" rel="stylesheet" />`
-This link is already inserted in the forms you design with the UI Designer.
-
-::: info 
-The `app` URL parameter is used to retrieve the current application related Theme.      
-The living application layout inject this `app` URL parameter in the targeted page/form URL, and the value is the application token.                
-If you create your own navigation link, you will need to include this `app` URL parameter in the forged form URL, in order to be able to benefit from the application theme. 
-:::
-
-::: info
-In the portal, the link `../theme/theme.css` will point the file `theme.css` from the portal theme. This portal forms theme is empty, and customizable to fit to the current portal theme. 
-::: 
-
-::: info
-To view the form in the graphical context of an application, use the “View in application” dropdown menu of the UI Designer Preview window.  
-This requires that the theme has already been mapped to one or several applications, and you are loggued as a user with the profile mapped with the application.
-:::
+To know more about the development of forms, go to the [page and form development overview](page-and-form-development-overview.md) page.

@@ -1,36 +1,44 @@
-# Groups of an organization
+# Administrator Group list in Bonita Portal
 
-To easily manipulate users with the same rights, it is possible to group them together.
+This page explains what a user with the _Administrator_ profile in Bonita Portal can see and do about groups in the organization.  
+To easily manipulate users with the same rights, it is possible to group them together.  
+Groups can be defined in the organization, attached to users and used to map process actors or application profiles with the organization.
 
-## Prerequisites
-To manage a group, you need to be logged on Bonita with the **Administrator** profile.
+Here is a view of this page:
+![Administrator groups list Portal](images/UI2021.1/groups-portal.png)<!--{.img-responsive}-->
 
-## How to create a group
-
-1. Go to the **Organization** menu and choose **Groups**.
-2. Click _**Create a group**_.
+## Create a group
+1. Go to _Organization_/_Groups_
+2. Click on _Create a group_
 3. In the pop-up window, enter the name (required), the parent group and a description.
-4. Click _**Create**_.
+4. Click on _Create_.
 
-_**NB: Bonita doesn't support the '/' character in the group name field. A group name that contains a '/' may lead to unstable behaviour and may be forbidden in the future.**_ 
+::: info
+**Note**: Bonita doesn't accept the '/' character in the group name field. A group name that contains a '/' may lead to unstable behaviour.
+:::
 
-## How to delete a group
+## Assign a user to a group
+1. Go to _Organization_/_Users_. The list of users in the organization will be displayed.
+2. Click on a user.
+3. Click on _More_
+4. In _Memberships_, click on _Add_.
+5. Choose the group and role for the user.
+6. Click on _Add_.
 
-1. Go to the **Organization** menu and choose **Groups**.
+## Edit a group
+1. Go to _Organization_/_Groups_.
 2. Check a box to select a group.
-3. Click _**Delete**_.
-4. In the popup window, click _**Delete**_.
-
-## How to edit a group
-
-1. Go to the **Organization** menu and choose **Groups**.
-2. Check a box to select a group.
-3. Click _**Edit**_.
+3. Click on _Edit_.
 4. In the popup window, update the group information.
-5. Click _**Save**_.
+5. Click on _Save_.
+
+## Delete a group
+1. Go to _Organization_/_Groups_.
+2. Check a box to select a group.
+3. Click on _Delete_.
+4. In the popup window, click on _Delete_.
 
 ## More information about the group
-
-1. Go to the **Organization** menu and choose **Groups**.
+1. Go to _Organization_/_Groups_.
 2. Click on a group in the list of groups. A list of users and subgroups in this group is displayed.
-3. In the **Direct users** list, you can click a user name to get more information about the user.
+3. In the _Direct users_ list, you can click a user name to get more information about the user.
