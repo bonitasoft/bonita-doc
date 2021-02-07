@@ -1,32 +1,51 @@
-# Bonita Portal overview
+# Bonita User Interfaces overview
 
-Bonita Portal allows you to access server administration and monitoring for administrators, and a generic process view for users.
+This page describes the runtime User Interfaces provided by Bonita.   
+They rely on the analysis that four types of personas use process-based applications in a company:
+  - the **User** is responsible of performing the tasks for which they are a candidate and also for starting new cases of the processes to which they have access.
+  - the **Administrator** is responsible for the administration of Bonita at tenant level, and particularly for the management of the processes, the organization, the reports, the custom profiles and the Look & Feel.
+  - the **Process Manager** shares process management responsibilities with the Administrator for the processes he has been declared as the Process Manager.
+  - the **Technical User** is responsible for opening permissions to use Bonita in non-production or production environments by creating users. S·he is also the only person with permissions to start and stop the BPM services for maintenance or update (namely BDM update). For more information, go to the dedicated [documentation page](first-steps-after-setup.md).
 
-## Default profiles
+## Default User Interfaces
 
-There are three default profiles available in the Portal: **User**, **Administrator**, and (in the Efficiency, Performance and Enterprise editions) **Process manager**.
+Starting with Bonita 2021.1, there are two types of runtime User Interfaces provided by Bonita: Bonita Portal (legacy), and Bonita Applications (the way to go).  
 
-The **Administrator** is responsible for the administration of the Portal at tenant level, and particularly for the management of the processes, the organization, the reports, the custom profiles and the Look & Feel.
+ ::: info
+ **Note:** In next versions of Bonita, Portal will be replaced with Applications, so we encourage you to use the applications as of now.
+ :::   
 
-Example of the Administrator profile interface
-![](images/images-6_0/admin_view7.1.png)<!--{.img-responsive}-->
+Bonita Portal gives access to:
+  - a User view
+  - an Administrator view
+  - a Process Manager view, with administrator rights applicable on a defined scope of the deployed processes (in Efficiency, Performance, and Enterprise editions only)
+  - a Technical User view
 
-The **Process Manager** shares process management responsibilities with the Administrator for the processes he has been declared as the Process Manager.
+Each view accounts for a set of single-page or multiple-page menu options.
+Bonita Portal views are automatically launched when running a process from the Studio. You can also open Bonita Portal with the Portal icon in the Studio Coolbar.
 
-The **User** is responsible of performing the tasks for which she is a candidate and also for starting new cases of the processes to which she has access.
+In Bonita 2021.1, Bonita Applications offer:
+  - the Bonita User Application
+  - the Bonita Administrator Application
+  
+Both Bonita Applications can be downloaded from the Welcome Page of the Studio, in the "Resources" tile.
 
-Example of the User profile interface
-![](images/user_tasklist.png)<!--{.img-responsive}-->
+Applications are more flexible than the portal, in two ways:
+   - The navigation can be customized: remove the pages that are not needed, add custom pages that are needed. This is the equivalent of Custom Profiles, but with the flexibility of an application. 
+   - Some pages of those applications have been recreated with Bonita UI Designer (find [the list here](design-methodology.md)). This means that you can open and customize the page to make it fit the precise needs of the users. Starting with an existing page accounts for a big gain of time.
 
-To know more about the use and optimization of the task list, go to [User task list](user-task-list.md).
+Moreover, for Bonitasoft as for its users, applications are free from the Google Web Toolkit framework used to build an important part of Bonita Portal, which accounts for an important technical update and optimized maintenance ahead of us.
 
-## Access to menus
+## Custom User Interfaces
 
-Each profile has access to a different set of single page menus or drop down menus, containing filters and action buttons related to their user rights.
+You can also create views that fit users' needs better than the provided User Interfaces.  
+In Bonita Portal, this has been made possible through the concept of [custom profiles](custom-profiles.md) with new Portal navigations *made of Bonita pages and/or custom pages*.  
+Then, with Bonita 7.0, Living applications have given the possibility to create applications *made of custom pages*, with their own look & feel. The pages can be created with Bonita UI Designer or in another environment.  
+With Bonita 2021.1 and the availability of Administrator and User Applications, Living applications can be *made of Bonita pages and/or custom pages* too.
+
+To know more about how to create an application, or create an application from a Bonita Application, go to the [Design methodology](design-methodology.md) page.
 
 ::: info
-**:fa-info-circle:Note**: The tenant administrator, logged as the Technical user, needs to map the Administrator profile with individuals in the company (or groups, or roles) to let the Administrator(s) manage the rest of the organization and other users. See [First steps after setup/Create an Administrator user](first-steps-after-setup.md).
-:::
-
-See also [Profiles overview](profiles-overview.md).  
-See also [Custom profiles](custom-profiles.md).
+**Note:** Again, as Bonita Portal will be replaced by applications in next versions of Bonita, we strongly advise you **not** to create Custom profiles with custom Portal navigations anymore, but applications.  
+For more information on how to migrate existing Custom profiles with Portal views into applications, go to the dedicated [documentation page](custom-profiles.md).
+:::   

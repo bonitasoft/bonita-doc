@@ -1,30 +1,33 @@
-# Import/export an organization
+# Install/export an organization
 
-Logged on with the Administrator profile, you have rights to import or export an organization.
+This page explains what a user with the _Administrator_ profile in Bonita Portal or in the Bonita Administrator Application can see and do about the Organization of Bonita users (an .xml file). 
 
-## How to import an organization
+Here is a view of this page:
+![Install export organization](images/UI2021.1/install-export.png)<!--{.img-responsive}-->
 
-**Caution:**
-This will import a file containing your whole organization data. This organization data will be merged with existing data.
-In case of conflict, the priority is given to the data in the imported file. Take care not to overwrite information that has been updated in Bonita Portal.
 
+## How to install an organization
+
+::: Warning
+This will import a file containing your whole organization data. This organization data will be merged with existing data.  
+In case of conflict, the priority is given to the data in the imported file. Take care not to overwrite information that has been updated in Bonita Portal since the last installation of the organization.
+:::
+
+::: info
 **Note:**
-In 6.3 there was a change to the structure of the .xml file. This means that you cannot import into Bonita Portal 6.3.0 or later an organization .xml file that was created in 6.2.x or earlier.
-You will need to first import the organization file into Bonita Studio and re-export it, so it is compatible.
+In 6.3 there was a change to the structure of the .xml file. This means that you cannot install into Bonita Portal 6.3.0 or later an organization .xml file that was created in 6.2.x or earlier.  
+You will need to first install the organization file into Bonita Studio and re-export it, so it is compatible.
+:::
 
-To import an organization in .xml format, that has already been exported from Bonita Studio, containing your whole organization data.
-
-Be careful, your organization will be merged with existing data.
-
-1. Go to Organization \> Import/Export.
-2. Click _**Click here to choose your file**_. The xml file will be displayed in the import file field.
-3. Click _**Import**_.
-4. Click _**Save**_.
+To install an organization:
+1. Go to _Organization_ > _Install/Export_.
+2. Click on _Click here to choose your file_. The xml file will be displayed in the import file field.
+3. Click on _Install_.
+4. Click on _Save_.
 
 ## How to export an organization
-
-1. Go to Organization \> Import/Export.
-2. Click _**Export**_.
+1. Go to _Organization_>_Install/Export_.
+2. Click on _Export_.
 
 This will export an organization from Bonita Portal. Users, groups and roles will be exported in a file in .xml format.
 

@@ -1,28 +1,26 @@
-# User activation / deactivation
+# Administrator User activation / deactivation in Bonita Portal
 
-Activation / deactivation of a user allows to revoke any access to the platform without
-deleting the user.
-
-If a user is deactivated, the user cannot log in to Bonita Portal. However, all their past actions are kept
-intact and can be displayed.
+This page explains what a user with the _Administrator_ profile in Bonita Portal can see and do about the activation and deactivation of a user.  
+Activation / deactivation of a user allows to revoke any access to the platform, without deleting the user.  
+If a user is deactivated, they cannot log in to Bonita Portal. However, all their past actions are kept intact and can be displayed.
 
 ::: info
 The Administrator cannot add a membership to a deactivated user.
-In consequence, the **Add membership button** is not displayed for a deactivated user.
+In consequence, the _Add membership_ button is not displayed for an inactive user.
 :::
 
-## How to deactivate a user
+Here is a view of this page:
+![Administrator user deactivation](images/UI2021.1/user-deactivate.png)<!--{.img-responsive}-->
 
-1. Go to the **Organization** menu and choose **Users**.
-2. Select a user in the **Active** list.
-3. Click _**Deactivate**_.
+## Deactivate a user
+1. Go to_Organization_/_Users_.
+2. Select a user in the _Active_ list.
+3. Click on _Deactivate_.
 4. Confirm the deactivation
-5. The user is then moved from the **Active** list to the **Inactive** list.
+The user is then moved from the Active list to the Inactive list.
 
-## How to reactivate a deactivated user
-
-1. Go to the **Organization** menu and choose **Users**.
-2. Go to the **Inactive** list.
-3. Select user from list.
-4. Click _**activate**_.
-5. The user is moved from the **Inactive** list to the **Active** list.
+## Reactivate a deactivated user
+1. Go to_Organization_/_Users_.
+2. Select a user in the _Inactive_ list.
+4. Click on _Activate_.
+The user is moved from the _Inactive_ list to the _Active_ list.
