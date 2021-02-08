@@ -54,7 +54,7 @@ And the technical components of Bonita will keep their semantic versioning numbe
 
 ### New Bonita Administrator Application available
 As Bonita Portal is turning into Living Applications, to give you more flexibility and opportunities of customization, you now have two applications to try.  
-After the Bonita User Application in 7.11, give a try to our new *Bonita Administrator Application!*. 
+After the [Bonita User Application](user-application-overview.md) in 7.11, give a try to our new [*Bonita Administrator Application!*](admin-application-overview.md). 
 You can get it from Bonita Studio Welcome page, in the _Resources_ tile.
 Starting now, you can use it as is, but you can also customize the pages that have been recreated with the UI Designer, or create your own Administrator Application from a handy starting point. 
 It replicates the current Administrator Portal profile, except for the _Analytics_ page, available in the Enterprise edition. 
