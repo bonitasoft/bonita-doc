@@ -63,6 +63,11 @@ You may also run the Bonita container with an interactive shell session in order
 
 Run the container as follows in order to get an interactive `bash` shell session:
 
+<span class="label label-primary" style="vertical-align: bottom;">Community release</span>
+```
+docker run --name bonita -it -p 8080:8080 bonita bash
+```
+<span class="label label-primary" style="vertical-align: bottom;">Subscription release</span>
 ```
 docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -it -p 8080:8080 quay.io/bonitasoft/bonita-subscription:${varVersion}.0 bash
 ```
