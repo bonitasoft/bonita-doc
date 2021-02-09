@@ -106,6 +106,8 @@ If there is at least one connector to execute in the state, the state execution 
 * The connectors are not transactional. Nevertheless, a transaction is needed to save the output data of the connector execution. There will be a transaction for each connector that is executed.
 * The last transaction is used to continue to execute the current state's behavior, and to set the state to the next reachable one (but not execute it).
 
+If the connector execution never ends because the external system does not have a timeout, the connector instance is re-executed at next server startup
+(or automatically by the recovery mechanism, if your Bonita platform is 7.12 or later).
 
 
 ### Work service mechanism
