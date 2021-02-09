@@ -28,10 +28,10 @@ final LogAPI logAPI = TenantAPIAccessor.getLogAPI(session);
 final SearchResult<Log> searchedLogs = logAPI.searchLogs(builder.done());
 for (Log log : searchedLogs.getResult()) {
      // Print the detailed user creation message:
-System.out.println(log.getMessage());
+    System.out.println(log.getMessage());
 }
 ```
 
 ## Implementation details
 
-The queriable logger service stores log message in the Bonita Engine back-end database using the Hibernate library. The [interface](https://github.com/bonitasoft/bonita-engine/blob/master/services/bonita-log/bonita-log-api/src/main/java/org/bonitasoft/engine/services/QueriableLoggerService.java) and the [implementation](https://github.com/bonitasoft/bonita-engine/tree/master/services/bonita-log/bonita-log-impl/src/main/java/org/bonitasoft/engine/services/impl) of the service are available from the source code repository on [GitHub](https://github.com/bonitasoft/).
+The queriable logger service stores log message in the Bonita Engine back-end database using the Hibernate library. The [interface](https://github.com/bonitasoft/bonita-engine/blob/master/services/bonita-log/src/main/java/org/bonitasoft/engine/services/QueriableLoggerService.java) and the [implementation](https://github.com/bonitasoft/bonita-engine/tree/master/services/bonita-log/src/main/java/org/bonitasoft/engine/services/impl) of the service are available from the source code repository on [GitHub](https://github.com/bonitasoft/).
