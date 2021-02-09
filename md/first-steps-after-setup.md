@@ -73,6 +73,8 @@ Input validation is performed to ensure only properly formed data is entering th
 
 For more information, please take look at the [REST API authorization](rest-api-authorization.md) and the other features relating to [security and authentication](_security-and-authentication.md) that are available in Bonita and in your operating system, and update your platform as required for your production environment. 
 
+<a id="create-admin"/>
+
 ## Create a Bonita Portal administrator
 
 Create a user with the "administrator" profile:
