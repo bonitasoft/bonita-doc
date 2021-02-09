@@ -28,8 +28,8 @@ In practice, it means that in this case, the connector will timeout, releasing t
 A typical example of this is if the custom code in a groovy connector falls into an infinite loop : the connector will timeout, but the connector executor will be running forever.
 
 
-![Connector execution with t imeout](images/connector_execution_timeout.png)
+![Connector execution with timeout](images/connector_execution_timeout.png)
 
 ## Configuration
 
-The size of the pool to execute connector and the timeout can be configured as described in [Connector service performance tunning page](performance-tunning.ms#connector_service)
+The size of the pool to execute connector and the timeout can be configured as described in [Connector service performance tuning page](performance-tuning.md#connector_service)
