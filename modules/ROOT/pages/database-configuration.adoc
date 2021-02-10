@@ -18,8 +18,7 @@ However, H2 is only suitable for testing purposes. When building a production en
 
 == Steps to switch to another RDBMS
 
-WARNING:
-Please note this procedure cannot be performed using the Bonita Studio. The Bonita Studio can run only on the H2 Database.
+WARNING: Please note this procedure cannot be performed using the Bonita Studio. The Bonita Studio can run only on the H2 Database.  
 To use Bonita BPM on another RDBMS, please use a xref:_basic-bonita-bpm-platform-installation.adoc[bundle] or set up a xref:deploy-bundle.adoc[standalone server].
 
 
@@ -32,13 +31,11 @@ Here are the steps to follow. They are the same for the engine database and the 
 
 Steps 1 and 2 are detailed further down this page, steps 3 and 4 are part of the configuration part of xref:tomcat-bundle.adoc[Tomcat bundle] and xref:wildfly-bundle.adoc[WildFly bundle] pages.
 
-WARNING:
-All RDBMSs require <<specific_database_configuration,specific customization>>, which must be done before you complete your installation. +
+WARNING: All RDBMSs require <<specific_database_configuration,specific customization>>, which must be done before you complete your installation. +
 If you do not complete the specific configuration for your RDBMS, your installation may fail.
 
 
-WARNING:
-There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft for the Tomcat bundle & inside Deploy bundle for Tomcat) and Microsoft SQL Server driver (refer to: https://msdn.microsoft.com/en-us/library/aa342335.aspx[MSDN note], http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html[Bitronix note]). +
+WARNING: There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft for the Tomcat bundle & inside Deploy bundle for Tomcat) and Microsoft SQL Server driver (refer to: https://msdn.microsoft.com/en-us/library/aa342335.aspx[MSDN note], http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html[Bitronix note]). +
 Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. +
 We recommend that you use the WildFly bundle provided by Bonitasoft.
 *Note*: This limitation disappears in the 7.9 release.
@@ -78,8 +75,7 @@ Also, note that the owner of the new schemas must own the following privileges:
 * CREATE INDEX
 * SELECT, INSERT, UPDATE, DELETE on created TABLE
 
-NOTE:
-CREATE TABLE and CREATE INDEX privileges are not required after first start in normal use. +
+NOTE: CREATE TABLE and CREATE INDEX privileges are not required after first start in normal use. +
 If the same SQL user is used with the xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[migration tool], then this user needs such grants.
 
 
@@ -206,11 +202,10 @@ GRANT FORCE ANY TRANSACTION TO bonita;
 
 ==== SQL Server
 
-WARNING:
-*Reminder:* There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft in the Tomcat bundle and in the Tomcat directories of the Deploy bundle) and the Microsoft SQL Server driver
+WARNING: *Reminder:* There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft in the Tomcat bundle and in the Tomcat directories of the Deploy bundle) and the Microsoft SQL Server driver
 (refer to: https://msdn.microsoft.com/en-us/library/aa342335.aspx[MSDN note], http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html[Bitronix note]).
 Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the WildFly bundle provided by Bonitasoft.
-*Note*: This limitation disappears in the 7.9 release.
+NOTE: This limitation disappears in the 7.9 release.
 
 
 ===== XA Transactions
