@@ -2020,9 +2020,7 @@ To get the document information, specify the document id in the URL. The documen
 * **Success Response**  
   The response includes the "url" to use to download the content. Call the documentDownload servlet with this URL: 
   `/portal/documentDownload?fileName=doc.jpg&contentStorageId=4`.
-::: info
-**Note:** The filename attribute is just a way to indicate to the browser under what name the document should be downloaded. There is no check to make sure that the filename passed matches he original one as the sensitive part is the content of the document not its name and when you develop a process/app you may want the documents to be downloaded under a specific name different from the initial document name. This is the purpose of this parameter.
-:::
+  **Note:** The filename attribute is just a way to indicate to the browser under what name the document should be downloaded. There is no check to make sure that the filename passed matches he original one as the sensitive part is the content of the document not its name and when you develop a process/app you may want the documents to be downloaded under a specific name different from the initial document name. This is the purpose of this parameter.
   * **Code**: 200
   * **Payload**:  
     ```json
