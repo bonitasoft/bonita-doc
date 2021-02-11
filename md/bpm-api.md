@@ -2021,7 +2021,8 @@ To get the document information, specify the document id in the URL. The documen
   `GET`
 * **Success Response**  
   The response includes the "url" to use to download the content. Call the documentDownload servlet with this URL: 
-  `/portal/documentDownload?fileName=doc.jpg&contentStorageId=4`.
+  `/portal/documentDownload?fileName=doc.jpg&contentStorageId=4`.  
+  **Note:** The filename attribute is just a way to indicate to the browser under what name the document should be downloaded. There is no check to make sure that the filename passed matches he original one as the sensitive part is the content of the document not its name and when you develop a process/app you may want the documents to be downloaded under a specific name different from the initial document name. This is the purpose of this parameter.
   _Note_: Since Bonita 7.10, document url fileName is now URL encoded. 
   This will avoid errors when a document to be downloaded contains special characters in its name.  
   In the previous versions, a workaround was necessary client-side using the javascript native function "encodeURI" to generate document download url. You can now remove this workaround.
