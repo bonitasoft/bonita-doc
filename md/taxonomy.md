@@ -140,6 +140,7 @@
       * [Active Directory or LDAP authentication](active-directory-or-ldap-authentication.md)
       * [Single sign-on with CAS](single-sign-on-with-cas.md)
       * [Single sign-on with SAML](single-sign-on-with-saml.md)
+      * [Single sign-on with OIDC](single-sign-on-with-oidc.md)
       * [Single sign-on with Kerberos](single-sign-on-with-kerberos.md)
       * [Enforce password policy](enforce-password-policy.md)
       * [REST API authorization](rest-api-authorization.md)
