@@ -141,6 +141,8 @@ In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The lib
 * BS-19528 Process stuck when Error End Event fails because Error Start Event Sub-process no longer exists
 * BS-19489 StarterThread fails and stops half-way if flownode instance is not found
 * BS-18869 The underlying database request for displaying the User Archived cases page in the Bonita Portal is very slow
+* BS-19508 JSONSerializer class generates too much GC pressure
+* BS-19511 Process api call ActorInitiator and generates too much GC pressure
 * BR-429 Search queries now use hibernate prepared statements, which improves performance
 * BR-440 Hibernate query plan cache is now configurable
 * BR-443 Improve Starter thread robustness
