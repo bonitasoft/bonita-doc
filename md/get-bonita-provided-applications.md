@@ -22,7 +22,7 @@ Building the repository will create a .bos file in the ```target``` folder. You 
 
 Now that you got the applications, you can deploy them into your locally running server using the Studio deployment.
 
-A way to deploy the applications into a bundle or into your cloud platform is explained in the [applications](applications.md) page.
+A way to deploy the applications into a Tomcat bundle or into your cloud platform is explained in the [applications](applications.md) page.
 
 ### Use BCD
 
