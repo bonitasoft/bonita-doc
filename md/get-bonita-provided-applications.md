@@ -13,7 +13,7 @@ To get the pages from the Studio welcome page, all you need to do is to click on
 
 This will open an import window, which will let you import the application.
 
-For a more technical user, there is a second way to get the applications. You can get it from it's corresponding GitHub repository. 
+For more technical users, there is a second way to get the application. You can get it from its corresponding GitHub repository. 
 For the user application, you can find it in the [user application repository](https://github.com/bonitasoft/bonita-user-application/).
 And for the admin one, you can find it in the [admin application repository](https://github.com/bonitasoft/bonita-admin-application/).
 There are two ways to get the .bos file. You can either get it from the *Releases* on the right or by cloning the repository of your choice and building it using maven.
