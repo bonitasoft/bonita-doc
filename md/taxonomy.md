@@ -166,7 +166,7 @@
     * [Install Tomcat with Bonita as a service in Windows](bonita-as-windows-service.md)
   * [Bonita Versions](product-versioning.md)
   * [Community to Subscription upgrade](upgrade-from-community-to-a-subscription-edition.md)
-* [Bonita User Interfaces](_bonita-portal-interface.md)
+* [Bonita User Interfaces in Production](_bonita-portal-interface.md)
   * [Overview](bonita-bpm-portal-interface-overview.md)
   * [Languages](languages.md)
   * [Log in and log out](log-in-and-log-out.md)
