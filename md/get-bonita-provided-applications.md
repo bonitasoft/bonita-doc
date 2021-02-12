@@ -4,7 +4,7 @@ This page describes how to get the two applications and how to deploy them into 
 
 ## How to get the applications 
 
-You can get the applications in two different ways, either from the Studio welcome page or from the two repositories.
+You can get the applications in two different ways, either from the Studio welcome page or from their two GitHub repositories.
 Moreover, the two repositories have two ways to get the applications.
 
 To get the pages from the Studio welcome page, all you need to do is to click on the link for the corresponding application.
