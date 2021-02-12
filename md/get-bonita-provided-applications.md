@@ -1,4 +1,4 @@
-# Deploying the Bonita User and Admin Applications
+# Deploying the Bonita User and Administrator Applications
 
 This page describes how to get the two applications and how to deploy them into a bundle or the cloud.
 
