@@ -91,11 +91,9 @@ The load balancer must be configured to use sticky sessions (this is needed to m
 
 If an active node fails or is stopped, the load balancer redirects work to the remaining active nodes. This keeps the downtime to a minimum, but increases the load on the active nodes. 
 
-A passive node is installed with exactly the same software and has the same configuration as an active node, but the application server and Bonita Engine are not started.
-A passive node is a "cold standby". 
-It does not consume computing resources. 
-To add a cold-standby node to the cluster, the necessary licenses must be installed, the configuration must be completed, the application server must be started,
-and it must it must be activated in the load balancer.
+A passive node is installed with exactly the same software and has the same configuration as an active node, but the application server and Bonita Engine are not started. If you have a passive node in your cluster, there is no mechanism in bonita for starting that passive node if an active node goes out of service. This could be provided by a third-party application.  
+A passive node is a "cold standby". It does not consume computing resources.   
+To add a cold-standby node to the cluster, the necessary licenses must be installed, the configuration must be completed and it must be activated in the load balancer. But the application server and Bonita Engine must not be started on the passive node.
 
 A cluster needs a minimum of two active nodes for high availability. The maximum number of nodes you can have depends on the load balancer you are using. 
 
