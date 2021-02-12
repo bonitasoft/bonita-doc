@@ -3,7 +3,6 @@
 Throughout this page, you will see how you can translate the application menus.
 
 The menus in Bonita User and Administrator applications are available in English only by default. But, depending on your requirements, the menus can be translated into other languages too by updating Bonita layout. Using the same procedure, custom applications menus can be translated as well.
-Based on the needs, the menus can be translated into other languages also by updating the Bonita layout.
 This documentation is only about the menus. For more information regarding translations at the page level, go to the [multi language pages](multi-language-pages.md) page.  
 
 ## Updating the menu widget
