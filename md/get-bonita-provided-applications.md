@@ -1,6 +1,6 @@
 # Deploying the Bonita User and Administrator Applications
 
-This page describes how to get the two applications and how to deploy them into a bundle or the cloud.
+This page describes how to get the two applications and how to deploy them into a Tomcat bundle or the cloud.
 
 ## How to get the applications 
 
