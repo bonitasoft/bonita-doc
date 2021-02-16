@@ -45,7 +45,7 @@ Performance tuning checklist of best practises:
 * Tuned the Bonita Engine <<cron,cron jobs>> for your needs.
 * If your database is PostgreSQL, follow <<postgresql-performance-tuning,our recommendations>>.
 
-+++<a id="engine_access">++++++</a>+++
+[#engine_access]
 
 == Engine access
 
@@ -54,7 +54,7 @@ This section deals with performance impact of your choice of xref:engine-api-ove
 There are various ways to access the Engine APIs provided by Bonita Engine. Choose the most suitable access mode for your deployment, requirements, and preferences.
 The access modes rely on different technologies and have different benefits and drawbacks. In this section, we will describe the performance characteristics of each mode.
 
-+++<a id="local">++++++</a>+++
+[#local]
 
 [discrete]
 ==== Local access
@@ -62,7 +62,7 @@ The access modes rely on different technologies and have different benefits and 
 This is undoubtedly the fastest way to access this engine, because it means a direct Java call with nothing additional between client and server. +
 The deployment constraint is that the client of the engine must be located in the same JVM as the engine server.
 
-+++<a id="remote">++++++</a>+++
+[#remote]
 
 [discrete]
 ==== Remote access
@@ -77,7 +77,7 @@ The engine server access mode is defined per client and does not need to be the 
 If you have a client located in the same JVM as your server, configure it to use the local access mode. +
 You can then configure other clients to use one of the remote modes but you do not penalize the client able to leverage the local access performance.
 
-+++<a id="http">++++++</a>+++
+[#http]
 
 [discrete]
 ===== HTTP
@@ -102,7 +102,7 @@ open source library
 
 Data sent is serialized using a Java library called XStream. This serialization also has a cost.
 
-+++<a id="rest">++++++</a>+++
+[#rest]
 
 [discrete]
 ===== REST
@@ -125,7 +125,7 @@ The Bonita Engine is an asynchronous BPM process engine.
 This means that every thread that deals with process execution applies the following rule: do the minimum that makes sense in the current transaction to get to a stable state, and then continue in another transaction inside another thread. +
 The great benefit of this is that the caller is not locked while the engine processes something that might be long (such as a long sequence of tasks with connectors.).
 
-+++<a id="client_threads">++++++</a>+++
+[#client_threads]
 
 [discrete]
 ==== Client Threads
@@ -141,7 +141,7 @@ If you are running Bonita Engine inside a container, the maximum number of clien
    Default value 20.
    See the http://tomcat.apache.org/tomcat-8.5-doc/[Tomcat documentation] for information about the `maxThreads` parameter.
 
-+++<a id="work_service">++++++</a>+++
+[#work_service]
 
 [discrete]
 ==== Work service
@@ -178,7 +178,7 @@ Setting a high `queueCapacity` limit means that more work can be queued, but can
 It is essential to ensure that the queue never becomes full (`queueCapacity` is never reached). +
 If the queue becomes full, the application restarts in order to force the engine to generate all work from the database. This means that work is lost.
 
-+++<a id="connector_service">++++++</a>+++
+[#connector_service]
 
 [discrete]
 ==== Connector service
@@ -227,7 +227,7 @@ The 10 seconds threshold can be changed in the configuration file `bonita-tenant
 bonita.tenant.connector.warnWhenLongerThanMillis=10000
 ----
 
-+++<a id="scheduler_service">++++++</a>+++
+[#scheduler_service]
 
 [discrete]
 ==== Scheduler service
@@ -245,7 +245,7 @@ bonita.platform.scheduler.quartz.threadpool.size=5
 bonita.platform.scheduler.batchsize=1000
 ----
 
-+++<a id="db_connections">++++++</a>+++
+[#db_connections]
 
 [discrete]
 ==== Database connections
@@ -271,7 +271,7 @@ To make sure that this datasource is not a bottleneck, define the maximum number
 The desired number of parallel processing threads is the sum of the number of workers (see <<work_service,Work service>>) plus a percentage of the number of scheduler threads
 (see <<scheduler_service,Scheduler Service>>) plus a percentage of the number of concurrently external API calls (see <<client_threads,Client threads>>).
 
-+++<a id="datasource_settings">++++++</a>+++
+[#datasource_settings]
 
 [discrete]
 ==== Datasources settings
@@ -284,13 +284,13 @@ For Tomcat, edit file `setup/tomcat-templates/bonita.xml`:
 * For RawBonitaDS, set `maxTotal=”yourvalue”`.
 * If necessary, for the Business Data feature, do the same for the datasources 'RawBusinessDataDS' and 'NotManagedBizDataDS'.
 
-+++<a id="volume">++++++</a>+++
+[#volume]
 
 == Volume
 
 This section deals with some aspects of engine configurations that have a performance impact in the case of high volume.
 
-+++<a id="seq_mgr">++++++</a>+++
+[#seq_mgr]
 
 [discrete]
 ==== Sequence manager

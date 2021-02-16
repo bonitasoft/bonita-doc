@@ -69,7 +69,7 @@ In the details page of an application, you can xref:live-update.adoc[Live Update
 
 To map new resources, you need to make sure that they have been installed first. To do so, go to _Resources_ and add what needs to be.
 
-+++<a id="layout">++++++</a>+++
+[#layout]
 
 ==== Updating the layout
 
@@ -81,7 +81,7 @@ To change the application layout:
 . Choose the new layout from the drop down list.
 . Click on the "Tick" button.
 
-+++<a id="theme">++++++</a>+++
+[#theme]
 
 ==== Updating the theme
 
@@ -94,7 +94,7 @@ To update the application theme:
 . Choose the new theme from the drop down list.
 . Click on the "Tick" button.
 
-+++<a id="specify-pages">++++++</a>+++
+[#specify-pages]
 
 ==== Updating the page list
 
@@ -108,7 +108,7 @@ To update the pages:
 
 NOTE: When you define the URL token for a page, you cannot use "API","content" or "theme" (case insensitive). Those words are reserved for internal use.
 
-+++<a id="define-navigation">++++++</a>+++
+[#define-navigation]
 
 ==== Updating the navigation
 

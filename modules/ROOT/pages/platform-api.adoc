@@ -276,7 +276,7 @@ A tenant can only be deleted if it is in DEACTIVATED state.
 * *Success Response*
  ** *Code*: 200
 
-+++<a id="license">++++++</a>+++
+[#license]
 
 == License
 

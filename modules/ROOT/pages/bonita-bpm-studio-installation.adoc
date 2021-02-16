@@ -120,7 +120,7 @@ When you launch Bonita Studio for the first time, you need to install a license:
 . _*Download*_ the attached file (.lic)
 . Go back to your Bonita Studio, click _*Install license...*_, and select your .lic file.
 
-+++<a id="enable_cache">++++++</a>+++
+[#enable_cache]
 
 == Configure Bonita Studio to use a specific JVM
 

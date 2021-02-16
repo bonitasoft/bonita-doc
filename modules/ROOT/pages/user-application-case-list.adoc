@@ -123,7 +123,7 @@ A link at the bottom of the list says "Load more cases". When the user clicks on
 The total number of cases displayed at a given time appears at the bottom right of the list, with the "Cases shown:" label fallowed by the number.  When this number is not a multiple of ten, that means that all cases available in the database for this filters configuration have been displayed. +
 The "Load more cases" link cannot be clicked anymore.
 
-+++<a id="case-details">++++++</a>+++
+[#case-details]
 
 === Case details
 

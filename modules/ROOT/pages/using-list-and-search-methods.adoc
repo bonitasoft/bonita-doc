@@ -49,7 +49,7 @@ sob.or();
 sob.differentFrom</b>(HumanTaskInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getId());
 ----
 
-+++<a id="word_based_search">++++++</a>+++
+[#word_based_search]
 
 == Word-based search
 

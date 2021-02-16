@@ -26,7 +26,7 @@ By default cache is disable for the web server embedded by Bonita studio, as it 
 But you can decide to activate cache, to be closer to the production display time. To do this,
 see link:bonita-bpm-studio-installation.md#enable_cache[Cache configuration] documentation.
 
-+++<a id="portal_and_mobile">++++++</a>+++
+[#portal_and_mobile]
 
 ==== Portal and Mobile
 

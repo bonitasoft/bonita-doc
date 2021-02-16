@@ -9,7 +9,7 @@ The Tomcat bundle is a regular .zip archive based on Tomcat zip distribution.
 
 === Download and unzip the Tomcat bundle
 
-+++<a id="download">++++++</a>+++
+[#download]
 
 ==== Download
 
@@ -81,7 +81,7 @@ On the server where you installed Bonita Platform:
 
 The license file will be sent to you by email.
 
-+++<a id="license">++++++</a>+++
+[#license]
 
 When you receive your license:
 Copy the file to the `<BUNDLE_HOME>/setup/platform_conf/licenses` folder before starting the bundle.
@@ -125,7 +125,7 @@ For the *default tenant*, the tenant administrator username and password must al
 For further details and a better understanding, please read the section xref:tenant_admin_credentials.adoc[Tenant administrator credentials].
 
 
-+++<a id="configuration">++++++</a>+++
+[#configuration]
 
 === Configure the Tomcat bundle
 
@@ -154,11 +154,11 @@ The *start-bonita* script does the following:
 For advanced server configuration needs: check out link:BonitaBPM_platform_setup.md#run_bundle_configure[Bundle configuration] to finely tune your Tomcat bundle, using templates used by Bonita.
 
 
-+++<a id="start">++++++</a>+++
+[#start]
 
 === Starting and shutting down Tomcat
 
-+++<a id="tomcat_start">++++++</a>+++
+[#tomcat_start]
 
 ==== Tomcat start script
 

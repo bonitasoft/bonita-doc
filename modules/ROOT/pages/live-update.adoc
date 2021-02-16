@@ -40,7 +40,7 @@ In Bonita Portal, with the _Administrator_ profile, or in the Bonita Administrat
 
 == Forms
 
-+++<a id="form-list">++++++</a>+++
+[#form-list]
 
 === Form list
 
@@ -55,7 +55,7 @@ This is the list of forms that can be mapped to a task, the case overview, or th
 . Click on _*Next*_ to check the permissions associated with the uploaded page/form.
 . Click on _*Confirm*_ to import the new page/form.
 
-+++<a id="form-mapping">++++++</a>+++
+[#form-mapping]
 
 === Form mapping of a task, case overview, or process instantiation
 
@@ -78,7 +78,7 @@ This is the actual mapping between a form in the list and a process element.
 . Click on _Next_
 . Review the permissions to confirm the update
 
-+++<a id="cache-busting">++++++</a>+++
+[#cache-busting]
 
 === Cache busting
 

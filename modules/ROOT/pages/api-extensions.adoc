@@ -28,7 +28,7 @@ WARNING:
 *Warning*: As the deployment of the REST API Extensions automatically creates the appropriate resource permission mapping, be careful not to link:BonitaBPM_platform_setup.md#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to the Bonita runtime in a pretty short amount of time.
 
 
-+++<a id="usage">++++++</a>+++
+[#usage]
 
 == Use in applications
 

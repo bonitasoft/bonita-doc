@@ -4,7 +4,7 @@ NOTE:
 Bonita Studio provide a feature (*File* menu, *Import*, *Workspace...*) to import all the projects from a given workspace into your current workspace. If the workspace you import from includes shared projects (Git or Subversion), be aware that importing the workspace will result in having a local project instead of a shared one. For shared projects, it's advised to clone them directly from the remote Git repository instead of using the import workspace feature.
 
 
-+++<a id="git">++++++</a>+++
+[#git]
 
 === Git
 
@@ -77,7 +77,7 @@ Bonita Studio integrates the default merge tool of EGit. Here are some hints on 
 
 Git workflow offers a lot of other features that are not directly integrated in Bonita Studio. You can still use them using the command line interface (https://git-scm.com/download/[available here]). To retrieve the location of your project on your filesystem do a right click on the project name in the project explorer and select *Show in system explorer* (default location of your project would be: +++<bonita_studio_install_dir>+++/workspace/+++<name_of_the_project>+++).+++</name_of_the_project>++++++</bonita_studio_install_dir>+++
 
-+++<a id="git-troubleshooting">++++++</a>+++
+[#git-troubleshooting]
 
 ==== Troubleshooting
 

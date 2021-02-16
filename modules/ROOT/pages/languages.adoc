@@ -107,7 +107,7 @@ For example, if you are adding the German language to the Mobile portal, the "Do
 * `portal-sp_de_DE.po`
 
 
-+++<a id="Translate_BonitaB_PM_Portal">++++++</a>+++
+[#Translate_BonitaB_PM_Portal]
 
 == Translate Bonita Portal
 

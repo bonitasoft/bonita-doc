@@ -132,7 +132,7 @@ In the custom widget editor, use the the _uiTranslate_ filter or the _ui-transla
 
 The strings to translate in a fragment must be added to the localization.json file of each page, layout or form using the fragment.
 
-+++<a id="uiTranslate">++++++</a>+++
+[#uiTranslate]
 
 === Translate content in variables of type JavaScript Expression
 

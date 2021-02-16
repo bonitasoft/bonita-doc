@@ -25,7 +25,7 @@ To design your BDM, you need to consider the following:
 
 The <<bdm_spec,BDM specification>> explains the details of what you must configure in a BDM. Use Bonita Studio to <<define_bdm,define a BDM>>.
 
-+++<a id="bdm_storage">++++++</a>+++
+[#bdm_storage]
 
 == Business data storage
 
@@ -35,7 +35,7 @@ During development, you can use the tools in the `h2-1.3.170.jar` in the workspa
 
 When you are ready to go to production, you need to xref:database-configuration.adoc[configure a database and datasources for business data] in your production environment.
 
-+++<a id="bdm_spec">++++++</a>+++
+[#bdm_spec]
 
 == BDM specification
 
@@ -115,7 +115,7 @@ NOTE: If you are using an Oracle database, do not define an index on a unique co
 
 In a production environment, indexes are built when a tenant starts or after a new BDM is deployed. In a development environment, indexes are built when Bonita Studio starts and when the Studio BDM wizard is closed.
 
-+++<a id="compos">++++++</a>+++
+[#compos]
 
 [discrete]
 ==== Composition and aggregation
@@ -148,7 +148,7 @@ When you create a process that uses a business object with a composition or aggr
 * You can use getter and setter methods in process or activity operations to set the composed objects as a single instance or as a `java.util.list` for a list of instances.
 * If your process uses a query from a Groovy expression or uses DAO objects from a client Java application, load the complete composite objects including the child objects.
 
-+++<a id="lazy_eager_loading">++++++</a>+++
+[#lazy_eager_loading]
 
 [discrete]
 ==== Loading
@@ -169,7 +169,7 @@ The list can be a multiple business data variable, a multivalued process variabl
 
 You can use a list business object or variable to create multiple instances of a task. The MultiInstanceIterator reference created at task level uses each item of the list to create an instance of the task.
 
-+++<a id="define_bdm">++++++</a>+++
+[#define_bdm]
 
 == Define the BDM
 
@@ -356,7 +356,7 @@ When you declare a persisted business object instance in a process, there are tw
 
 After it is declared in the process, a business object instance can be adapted by reading or modifying its data attributes. The Engine will handle the persistence of the modification.
 
-+++<a id="initBDM">++++++</a>+++
+[#initBDM]
 
 [discrete]
 ==== Initialize BDM attributes from process instantiation contract inputs

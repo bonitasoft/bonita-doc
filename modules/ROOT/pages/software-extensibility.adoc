@@ -6,7 +6,7 @@ Bonita provides a rich set of features by default. These features are designed t
 However, if a project has a need that was not anticipated and cannot be met by the default features, Bonita has been designed to be extensible.
 This page lists the extension points that are available.
 
-+++<a id="stable_extension_points">++++++</a>+++
+[#stable_extension_points]
 
 == Stable extension points
 

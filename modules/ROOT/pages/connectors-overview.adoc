@@ -45,7 +45,7 @@ NOTE: All the connector outputs must be set in the implementation; otherwise, th
 For details of the APIs, the methods and related objects, see the
 http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[Javadoc].
 
-+++<a id="Importing_a_connector">++++++</a>+++
+[#Importing_a_connector]
 
 == Importing and exporting a connector into Bonita Studio
 

@@ -25,14 +25,14 @@ Here is the list of database connectors. The links take you to sections of this 
 
 To xref:database-connector-configuration.adoc[configure a database connector], follow the instructions in the wizard.
 
-+++<a id="mysql">++++++</a>+++
+[#mysql]
 
 [discrete]
 ==== MySQL 5.5
 
 It is not possible to execute more than one SELECT command in a single script.
 
-+++<a id="teradata">++++++</a>+++
+[#teradata]
 
 [discrete]
 ==== Teradata 14
@@ -41,14 +41,14 @@ If you are using the `terajdbc4.jar`, you also need the `tdgssconfig.jar` file. 
 Import both `terajdbc4.jar` and `tdgssconfig.jar` into Bonita Studio and add them to the connector configuration. +
 Specify `terajdbc4.jar` as the active driver. To test the connector, you must specify both files. When you configure the process, specify both files in the process dependencies.
 
-+++<a id="hsql">++++++</a>+++
+[#hsql]
 
 [discrete]
 ==== HSQL 2.2
 
 Allows only one connection per destination at a time
 
-+++<a id="mssql">++++++</a>+++
+[#mssql]
 
 [discrete]
 ==== Microsoft SQL Server
@@ -72,7 +72,7 @@ Define the encoding:
 
 When you configure the connector, use this port number in the URL. For example: `jdbc:sqlserver://localhost:53165`.
 
-+++<a id="sysbase">++++++</a>+++
+[#sysbase]
 
 [discrete]
 ==== Sybase ASE 15

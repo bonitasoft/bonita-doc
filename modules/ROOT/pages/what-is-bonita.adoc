@@ -58,7 +58,7 @@ Process forms, used to complete the human tasks, are created in the UI Designer,
 
 Users can use Bonita Portal (_User_ profile) to view and complete the process tasks for all processes. You can also build personalized process-based applications. To do so, use the UI Designer to create application pages that display business data from the data models, display external data through REST API extensions, and move processes forward thanks to action buttons. Then use Bonita Studio to construct the application piece by piece.
 
-+++<a id="platform">++++++</a>+++
+[#platform]
 
 === Bonita stack, runtime and server
 

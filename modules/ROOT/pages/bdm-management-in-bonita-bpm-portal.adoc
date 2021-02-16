@@ -55,7 +55,7 @@ In such cases, you will have to implement the change on your own, through carefu
 This limitation is well known and will be addressed in a future Bonita version.
 
 
-+++<a id="installAccessControl">++++++</a>+++
+[#installAccessControl]
 
 == Manage BDM Access Control
 

@@ -4,7 +4,7 @@ Easily retrieve human or service tasks, call activities, and subprocesses with B
 
 == Activities and Tasks
 
-+++<a id="activity">++++++</a>+++
+[#activity]
 
 === Activity
 
@@ -85,7 +85,7 @@ The methods used for this resource are:
 * GET - Read an activity or search for an activity
 * PUT - Update an activity
 
-+++<a id="activity-deploy">++++++</a>+++
+[#activity-deploy]
 
 ==== Response object extension (deploy query parameter)
 
@@ -340,7 +340,7 @@ The methods used for this resource are:
 
 * GET - Read a resource or search for an archived activity
 
-+++<a id="archived-activity-deploy">++++++</a>+++
+[#archived-activity-deploy]
 
 ==== Response object extension (deploy query parameter)
 
@@ -396,7 +396,7 @@ The following xref:rest-api-overview.adoc[search parameters] are available:
 An array of JSON representations of the specified activities
  ** *Code*: 200
 
-+++<a id="activity-replay">++++++</a>+++
+[#activity-replay]
 
 === ActivityReplay (Enterprise and Performance editions only)
 
@@ -459,7 +459,7 @@ The methods used for this resource are:
 * *Success Response*
  ** *Code*: 204
 
-+++<a id="human-task">++++++</a>+++
+[#human-task]
 
 === HumanTask
 
@@ -511,7 +511,7 @@ The methods used for this resource are:
 * GET - Read a resource
 * PUT - Update a resource
 
-+++<a id="manual-task-deploy">++++++</a>+++
+[#manual-task-deploy]
 
 ==== Response object extension (deploy query parameter)
 
@@ -872,7 +872,7 @@ The methods used for this resource are:
 * GET - Read a resource or search for a resource
 * PUT - Update a resource
 
-+++<a id="task-deploy">++++++</a>+++
+[#task-deploy]
 
 ==== Response object extension (deploy query parameter)
 
@@ -1059,7 +1059,7 @@ The methods used for this resource are:
 * POST - Execute a task with contract
 * PUT - Update a userTask
 
-+++<a id="user-task-deploy">++++++</a>+++
+[#user-task-deploy]
 
 ==== Response object extension (deploy query parameter)
 
@@ -1211,7 +1211,7 @@ Execute a task providing correct contract values.
 }
 ----
 
-+++<a id="retrieve-the-usertask-context">++++++</a>+++
+[#retrieve-the-usertask-context]
 
 ===== Retrieve the userTask context
 
@@ -1577,7 +1577,7 @@ The methods used for this resource are:
 
 * GET - Read a resource or search for a resource
 
-+++<a id="archived-task-deploy">++++++</a>+++
+[#archived-task-deploy]
 
 ==== Response object extension (deploy query parameter)
 
@@ -1751,7 +1751,7 @@ The methods used for this resource are:
 
 * GET - Retrieve an archivedUserTask, search for archivedUserTask objects
 
-+++<a id="archived-user-task-deploy">++++++</a>+++
+[#archived-user-task-deploy]
 
 ==== Response object extension (deploy query parameter)
 
@@ -2118,7 +2118,7 @@ The methods used for this resource are:
 * PUT - Update a resource
 * DELETE - Remove a resource
 
-+++<a id="upload_casedoc">++++++</a>+++
+[#upload_casedoc]
 
 [discrete]
 ==== Add a document to a case
@@ -2722,7 +2722,7 @@ Use the DELETE method to delete an existing actorMember.
 
 == Cases (Process Instances)
 
-+++<a id="case">++++++</a>+++
+[#case]
 
 === Case
 
@@ -2769,7 +2769,7 @@ ID of the Object: a long value
 * GET - Read a case or search for a case
 * DELETE - Remove a case
 
-+++<a id="case-deploy">++++++</a>+++
+[#case-deploy]
 
 ==== Response object extension (deploy query parameter)
 
@@ -3125,7 +3125,7 @@ List of case ids to delete
 * *Success Response*
  ** *Code*: 200
 
-+++<a id="retrieve-the-case-context">++++++</a>+++
+[#retrieve-the-case-context]
 
 ==== Retrieve the case context
 
@@ -3213,7 +3213,7 @@ The methods used for this resource are:
 * GET - Read a resource or search for a resource
 * DELETE - Remove a resource
 
-+++<a id="archived-case-deploy">++++++</a>+++
+[#archived-case-deploy]
 
 ==== Response object extension (deploy query parameter)
 
@@ -3767,7 +3767,7 @@ The methods used for this resource are:
 * PUT - Update a process
 * DELETE - Delete a process and all its cases
 
-+++<a id="process-deploy">++++++</a>+++
+[#process-deploy]
 
 ==== Response object extension (deploy query parameter)
 
@@ -3942,7 +3942,7 @@ Process design can be retrived client side.
 The process design object. The JSON returned is a representation of the http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[DesignProcessDefinition] instance of the given process id.
  ** *Code*: 200
 
-+++<a id="instantiate_process">++++++</a>+++
+[#instantiate_process]
 
 ==== Instantiate a process
 
@@ -4017,7 +4017,7 @@ The task contract elements
 }
 ----
 
-+++<a id="start-a-process-using-an-instantiation-contract">++++++</a>+++
+[#start-a-process-using-an-instantiation-contract]
 
 ===== Start a process using an instantiation contract
 
@@ -4301,7 +4301,7 @@ A compound identifier constructed from process_id/user_id/role_id/group_id where
 * GET - Search for process supervisors
 * DELETE - Remove a process supervisor
 
-+++<a id="process-supervisor-deploy">++++++</a>+++
+[#process-supervisor-deploy]
 
 ==== Response object extension (deploy query parameter)
 
@@ -4587,7 +4587,7 @@ A connectorFailure resource as JSON
 }
 ----
 
-+++<a id="connector-instance">++++++</a>+++
+[#connector-instance]
 
 === ConnectorInstance
 
@@ -4802,7 +4802,7 @@ The methods used for this resource are:
 * GET - Read a flow node or search for a flow node
 * PUT - Replay a flow node (only in Enterprise and Performance editions)
 
-+++<a id="flownode-deploy">++++++</a>+++
+[#flownode-deploy]
 
 ==== Response object extension (deploy query parameter)
 
@@ -4870,7 +4870,7 @@ Search for flow nodes using given parameters. Flow nodes in states completed, ca
 _Example_: Get all the active flow nodes named "Escalate", ordering the results by state: `/API/bpm/flowNode/?p=0&c=10&f=name%3dEscalate&o%3dstate`
 * *Method* +
 `GET`
-+++<a id="flownode-search-data-params">++++++</a>+++
+[#flownode-search-data-params]
 * *Data Params* +
 link:rest-api-overview.md#resource_search[Standard search parameters] are available. +
 The following parameters are available:
@@ -4964,7 +4964,7 @@ The methods used for this resource are:
 
 * GET - Read a flow node or search for a flow node
 
-+++<a id="archived-flow-node-deploy">++++++</a>+++
+[#archived-flow-node-deploy]
 
 ==== Response object extension (deploy query parameter)
 
@@ -5033,7 +5033,7 @@ The following parameters are available:
 The JSON representation of the specified flownode
  ** *Code*: 200
 
-+++<a id="timers">++++++</a>+++
+[#timers]
 
 === TimerEventTrigger
 
@@ -5129,7 +5129,7 @@ The actual long value corresponding to the next execution date of the timer even
 }
 ----
 +
-+++<a id="message">++++++</a>+++
+[#message]
 
 === Message
 

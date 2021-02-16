@@ -22,7 +22,7 @@ As of version 7.5.x, the default provided layout does not allow this kind of cus
 
 == Take advantage of the latest improvement in a customized layout
 
-+++<a id="improve-navigation">++++++</a>+++
+[#improve-navigation]
 
 == Troubleshooting
 

@@ -1,6 +1,6 @@
 = Release notes
 
-+++<a id="renaming">++++++</a>+++
+[#renaming]
 
 == Democratization of process automation technology!
 
@@ -20,7 +20,7 @@ This means an unprecedented number of features <<feature-transfer,were added in 
 As a direct benefit, upgrades/downgrades operations between Community and Enterprise editions will be simplified. Both operations still require the re-installation of the targeted platform but there is no need for project re-development anymore. +
 More information https://www.bonitasoft.com/Offering[here]
 
-+++<a id="feature-transfer">++++++</a>+++
+[#feature-transfer]
 
 === Create state-of-the-art and successful automation projects with the Community edition
 
@@ -37,7 +37,7 @@ These are the features you will find in the Community edition of Bonita 2021.1:
 * Fragments: reuse groups of widgets in multiple pages of forms, with just a different configuration
 * Search keys: allow users to search their cases with business data
 
-+++<a id="feature-transfer2">++++++</a>+++
+[#feature-transfer2]
 
 === Full power to the Enterprise edition
 
@@ -59,7 +59,7 @@ And the technical components of Bonita will keep their semantic versioning numbe
 
 == Now, for the brand new values added
 
-+++<a id="administrator-app">++++++</a>+++
+[#administrator-app]
 
 === New Bonita Administrator Application available
 
@@ -71,20 +71,20 @@ It replicates the current Administrator Portal profile, except for the _Analytic
 
 In a later version of Bonita, this application will replace the current and now deprecated Administrator Portal profile.
 
-+++<a id="maintenance-compatibility">++++++</a>+++
+[#maintenance-compatibility]
 
 === Development Suite supports multi-maintenance versions
 
 For a given YEAR.NUM version of the development suite (Studio and UI Designer), you can now seamlessly work on projects that have a different maintenance version (but the same version).
 For example: if your Studio is in a later version of 2021.1, you will be able to work on all 2021.1 projects without migrating the project or being blocked.
 
-+++<a id="simplified-script">++++++</a>+++
+[#simplified-script]
 
 === Simplified Expression editor
 
 Writing a script expression has never been easier with the reviewed expression editor. You can drag and drop variables and quickly access operators.
 
-+++<a id="admin-app">++++++</a>+++
+[#admin-app]
 
 == Improvements
 
@@ -129,7 +129,7 @@ Within the autocomplete widget, you can select a returned value different from t
 Notably two new hibernate metrics: `hibernate.cache.query.plan` respectively `hit` & `miss`, to help troubleshoot performance problems.
 How to activate this metrics is documented xref:runtime-monitoring.adoc[here].
 
-+++<a id="fault-tolerance-mechanism">++++++</a>+++
+[#fault-tolerance-mechanism]
 
 ==== Fault tolerance mechanism
 
@@ -146,7 +146,7 @@ bonita.tenant.recover.delay_between_recovery
 
 See xref:fault-tolerance.adoc[Fault tolerance mechanisms] documentation page for more details.
 
-+++<a id="SSO-create-users">++++++</a>+++
+[#SSO-create-users]
 
 ==== User creation on the fly for SSO Authenticated users
 

@@ -14,7 +14,7 @@ image::images/rest_api_architecture_overview.png[diagram of architecture of a RE
 
 There are three phases of operation for an application that is integrated with Bonita through the Web REST API: authentication, execution, and logout.
 
-+++<a id="bonita-authentication">++++++</a>+++
+[#bonita-authentication]
 
 === Authenticate to Bonita
 
@@ -86,7 +86,7 @@ It is possible for an extension to interact with the engine (via the API) or wit
 
 Example `+http://.../API/identity/user/5 +`
 
-+++<a id="extend-resource">++++++</a>+++
+[#extend-resource]
 
 === Extend resource response
 
@@ -154,7 +154,7 @@ Use the DELETE request to remove multiple resources.
 Example
 `+http://.../API/identity/membership/ +`
 
-+++<a id="resource_search">++++++</a>+++
+[#resource_search]
 
 == Search for a resource
 

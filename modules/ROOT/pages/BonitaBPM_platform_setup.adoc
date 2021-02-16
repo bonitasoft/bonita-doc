@@ -7,7 +7,7 @@ NOTE:
 We made it easy for you by creating `start-bonita.bat`(for Windows) or `start-bonita.sh` (for Unix), a script that initializes, configures and starts the bundle, using the Platform setup tool.
 
 
-+++<a id="platform_setup_tool">++++++</a>+++
+[#platform_setup_tool]
 
 == Platform setup tool overview and use
 
@@ -39,7 +39,7 @@ It is composed of the following items:
 
 The script `setup` comes with 4 commands:
 
-+++<a id="init_platform_conf">++++++</a>+++
+[#init_platform_conf]
 
 * `init`, to initialize the database
 +
@@ -64,7 +64,7 @@ Eg. `setup.sh init -Dh2.noconfirm`
 Eg. `start-bonita.sh -Dh2.noconfirm`
 
 
-+++<a id="run_bundle_configure">++++++</a>+++
+[#run_bundle_configure]
 
 * `configure`, to configure the server of a Bonita Tomcat bundle to use the appropriate database:
 If run from inside a Bonita bundle, it configures the Application Server environment, so you don't need to configure all Tomcat basic configuration files manually.
@@ -82,7 +82,7 @@ If you need to finely tune the configuration, modify the following template file
 * tomcat-templates/setenv.bat
 
 
-+++<a id="update_platform_conf">++++++</a>+++
+[#update_platform_conf]
 
 * `pull`, to retrieve the current configuration
 +
@@ -112,7 +112,7 @@ NOTE:
 Keep in mind that the folder *`platform_conf/initial`* is not used anymore once the platform has been initialized for the first time. To update your configuration, only the *`platform_conf/current`* folder is taken into account.
 
 
-+++<a id="configure_tool">++++++</a>+++
+[#configure_tool]
 
 == Pre-requisites
 
@@ -128,7 +128,7 @@ Here is how to do so:
 . Customize it so it works with Bonita
 . Modify the `database.properties` file: Set the right db vendor and change connection url, user credentials, database name and so on.
 
-+++<a id="advanced_use">++++++</a>+++
+[#advanced_use]
 
 == Advanced use of the _Platform setup tool_
 
@@ -203,7 +203,7 @@ Or also if you need to use a specific *database Driver* java class name:
 
 '''
 
-+++<a id="backslash_support">++++++</a>+++
+[#backslash_support]
 
 *Issue*: My database name / password / ... contains a backslash (`\`) character. It seems to be ignored in file `database.properties`
 

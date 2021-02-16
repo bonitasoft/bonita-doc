@@ -18,7 +18,7 @@ or from the https://customer.bonitasoft.com/download/request[Customer Portal] fo
 . Unzip it into a temporary folder (BUNDLE_DIRECTORY).
 . Follow the <<tomcat-installation,Tomcat bundle steps>>.
 
-+++<a id="tomcat-installation">++++++</a>+++
+[#tomcat-installation]
 
 == Tomcat installation
 

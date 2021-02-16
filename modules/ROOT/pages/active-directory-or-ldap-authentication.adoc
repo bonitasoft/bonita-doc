@@ -186,7 +186,7 @@ Windows: set SSL_OPTS="-Djavax.net.ssl.trustStore=pathToTruststore -Djavax.net.s
 * (Linux) Add the tag `+${SSL_OPTS}+` after the tag `+${INCIDENT_LOG_DIR}+`
 * (Windows) Add the tag `%SSL_OPTS%` after the tag `%INCIDENT_LOG_DIR%`
 
-+++<a id="examples">++++++</a>+++
+[#examples]
 
 == JAAS configuration files examples
 

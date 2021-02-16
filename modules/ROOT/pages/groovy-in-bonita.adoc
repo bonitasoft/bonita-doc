@@ -376,7 +376,7 @@ def customInfo1Value = apiAccessor.identityAPI
                  ?.getValue()
 ----
 
-+++<a id="create-data-model">++++++</a>+++
+[#create-data-model]
 
 === Create a data model
 

@@ -17,7 +17,7 @@ WARNING: +
  This feature is different from the auto-login feature that was available in the 6.x versions of Bonita BPM as it doesn't give directly access to a process form publicly. It is intended for living applications access.
 
 
-+++<a id="prerequisite">++++++</a>+++
+[#prerequisite]
 
 == Guest profile and dedicated user account
 

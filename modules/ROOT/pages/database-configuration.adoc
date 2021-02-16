@@ -48,7 +48,7 @@ Bonita provides out of the box the Jdbc drivers for H2, PostgreSQL, Microsoft SQ
 
 WARNING: Bonita 7.10.+ is compatible with Oracle 12.2.0.x and Oracle 19c (19.3.0.0).
 
-+++<a id="database_creation">++++++</a>+++
+[#database_creation]
 
 === Create the database(s)
 
@@ -74,11 +74,11 @@ To create the database(s), we recommend that you refer to your RDBMS documentati
 * https://technet.microsoft.com/en-us/library/dd207005(v=sql.110).aspx[SQL Server]
 * https://dev.mysql.com/doc/refman/8.0/en/database-use.html[MySQL]
 
-+++<a id="utf8_requirement">++++++</a>+++
+[#utf8_requirement]
 Your database(s) must be configured to use the UTF-8 character set.
 Also, you are recommended to configure the database(s) to be case-insensitive so that searches in Bonita Portal, Bonita REST API and Bonita Engine API are case-insensitive.
 
-+++<a id="specific_database_configuration">++++++</a>+++
+[#specific_database_configuration]
 
 NOTE: Bonita is not attached to a specific database user. Therefore, the database user that bonita uses to connect to the database can be changed after the platform creation, provided the new user has the required access rights.
 The same goes for the user used to connect to the business data database, if it is different.

@@ -175,13 +175,13 @@ Alternatively, the LDAP synchronizer could be run with the tenant technical user
 
 We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your CAS server.
 
-+++<a id="cas-rest-api">++++++</a>+++
+[#cas-rest-api]
 
 == Single sign-on with CAS using the REST API
 
 CAS is a browser-oriented protocol (based on http automatic redirection, cookies, forms, etc...), therefore, we only have securized browser-oriented resources. This is why only a subset of pages are handled to be automatically SSO CAS-verified but not the whole web application.
 
-+++<a id="restricted_cas_urls">++++++</a>+++
+[#restricted_cas_urls]
 The default `AuthenticationFilter` that manages CAS authentication applies only to the following pages:
 
 * /portal

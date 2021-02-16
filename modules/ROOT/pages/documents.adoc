@@ -93,7 +93,7 @@ The table below shows the possible interactions between each storage option and 
 
 For most use cases, we recommend storing documents in a CMS.
 
-+++<a id="cms">++++++</a>+++
+[#cms]
 
 [discrete]
 ==== CMS
@@ -107,14 +107,14 @@ For example, the content might be updated by some other applications after you h
 
 For example, in a process to approve a document for publication, the document exists in an external file store or CMS before the process is instantiated. At a step in the process, the document is approved for external publication, and a new revision of the file is created with a "Confidential" watermark removed. This new revision is uploaded to the CMS by connector, and continues to exist after the process instance is completed and archived.
 
-+++<a id="file">++++++</a>+++
+[#file]
 
 [discrete]
 ==== File
 
 A document that is stored as a file can be used to initialize or update the document object in a process instance. This is done when the user specifies the file in a form. Typically, this is useful for information that does not have to be stored outside the process, where the file can be deleted after the document object is created. For example, a file containing a scanned copy of a travel receipt does not need to be kept after the receipt object has been added to a travel expense claim process instance.
 
-+++<a id="resource">++++++</a>+++
+[#resource]
 
 [discrete]
 ==== Resource

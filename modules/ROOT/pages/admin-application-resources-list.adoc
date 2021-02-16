@@ -62,7 +62,7 @@ contentType=page
 The Administrator can filter by type and can hide the resources provided by Bonita as examples to develop from, so only the project resoures are displayed. +
 They can also search the list by the name of the resource.
 
-+++<a id="export">++++++</a>+++
+[#export]
 
 == Export a resource
 
@@ -109,7 +109,7 @@ To delete a resource:
 . In the row of the resource to delete, click on the _Delete_ icon
 . In the confirmation modal window, click on _Delete_
 
-+++<a id="modify">++++++</a>+++
+[#modify]
 
 === Update a resource
 

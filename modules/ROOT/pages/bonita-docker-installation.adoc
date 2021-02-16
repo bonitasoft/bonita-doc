@@ -27,7 +27,7 @@ docker run --name=bonita -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:
 NOTE: You need to provide a valid licence, <<section-StepByStep,follow these steps>> in order to get and configure one.
 ____
 
-+++<a id="section-StepByStep">++++++</a>+++
+[#section-StepByStep]
 
 == Step by step installation procedure
 
@@ -288,7 +288,7 @@ The procedure to migrate a Bonita container is therefore as follow:
 * Update the license, see <<section-update-configuration,Update configuration and license section>>
 * Start a new Bonita container.
 
-+++<a id="section-update-configuration">++++++</a>+++
+[#section-update-configuration]
 
 == Update configuration and license
 

@@ -21,7 +21,7 @@ The package contains the individual launchers in one .zip file, and creates the 
 
 To know more, go to xref:bonita-bpm-studio-installation.adoc[Bonita Studio installation].
 
-+++<a id="platform">++++++</a>+++
+[#platform]
 
 == Bonita Platform
 

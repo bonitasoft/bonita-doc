@@ -36,7 +36,7 @@ The preview displays the artifact as it would be displayed on the selected type 
 
 Custom widget is a special artifact that we will explain in a later chapter.
 
-+++<a id="export">++++++</a>+++
+[#export]
 
 == Export an artifact
 
@@ -47,7 +47,7 @@ To export an artifact, click the *_Export_* button image:images/images-6_0/pb-ex
 
 After export you can modify your page or layout code by directly editing the code located in _resources_ folder. Be aware that such a modification to the code will work when the page or layout is deployed in Bonita Portal but it may be broken if you import the page into another UI Designer.
 
-+++<a id="import">++++++</a>+++
+[#import]
 
 == Import an artifact
 

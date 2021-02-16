@@ -32,7 +32,7 @@ The configuration file defines standard rules for the most frequent cases, so al
 If you have migrated your platform from a version of Bonita earlier than 6.4.0, security is deactivated by default.
 You need to <<migrate,add authorization to your custom pages>> before you activate authorization.
 
-+++<a id="static_authorization">++++++</a>+++
+[#static_authorization]
 
 == Static authorization checking
 
@@ -97,7 +97,7 @@ Do *not* modify file `compound-permissions-mapping.properties` directly, as it i
 Custom values should be added manually in file `compound-permissions-mapping`*`-custom`*`.properties`
 
 
-+++<a id="custom-permissions-mapping">++++++</a>+++
+[#custom-permissions-mapping]
 
 [discrete]
 ==== Custom permissions mapping
@@ -121,7 +121,7 @@ For example, you could create a profile called CustomProcessManager and assign t
 
 In this example, the `custom_process_manager_permission` can be defined in the `compound-permissions-mapping-custom.properties` file.
 
-+++<a id="dynamic_authorization">++++++</a>+++
+[#dynamic_authorization]
 
 == Dynamic authorization checking
 
@@ -290,7 +290,7 @@ Otherwise, access is refused.
 If access is not authorized, a message is written in the log so that the Administrator is aware that an unauthorized user has tried to gain access.
 Note that this level of logging is only available if you xref:logging.adoc[set the logging level] to `FINEST`.
 
-+++<a id="custom_pages">++++++</a>+++
+[#custom_pages]
 
 == Authorizing access to a custom page
 
@@ -318,7 +318,7 @@ For example, in order to perform a GET on `bpm/task`, I can see that I need the 
 . Edit the file `custom-permissions-mapping.properties` to give the permission `flownode_visualization` to the required profiles or users.
 For example, to add the permission to the user walter.bates (username), add the following line : `user|walter.bates=[flownode_visualization]`
 
-+++<a id="activate">++++++</a>+++
+[#activate]
 
 == Restricting access to a BDM object or its attributes
 
@@ -358,7 +358,7 @@ edit `web.xml` and comment out the following definitions:
      -->
 ----
 
-+++<a id="debug">++++++</a>+++
+[#debug]
 
 [discrete]
 ==== Running in debug mode
@@ -369,7 +369,7 @@ To activate debug mode, edit `security-config.properties` and set the value of t
 
 To deactivate authorization, set the property to `false`, then restart the application server. Debug mode should be deactivated in production, so as not to impact performance.
 
-+++<a id="migrate">++++++</a>+++
+[#migrate]
 
 [discrete]
 ==== Migration
