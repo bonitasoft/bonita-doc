@@ -124,7 +124,7 @@ To deploy an application, import the following **in this order**:
 
 1. Organization then profiles
 2. API extensions then pages, layout, themes
-3. Business Data Dodel then processes
+3. Business Data Model then processes
 4. Application descriptor
 
 ### Export an application
