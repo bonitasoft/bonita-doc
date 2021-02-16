@@ -4,89 +4,88 @@ Learn how to use the Bonita Platform and all of its components.
 
 Click on the *links* below to find useful information quickly, or xref:taxonomy.adoc[browse the whole content tree], or use the *table of contents* to go straight to the information you want to read.
 
-////
-<div class="col-md-4">
-<div class="panel panel-default">
-<div class="panel-heading">Highlights</div>
-<div class="panel-body">
-<div class="menu-block-wrapper">
-////
+[.card-section]
+== Highlight
 
-* xref:release-notes.adoc[Release notes $\{varVersion}]
-// {li:.first .leaf}
-* https://documentation.bonitasoft.com/bcd/3.0/livingapp_manage_configuration[Manage parameters outside of the application content for easier deployments]
-// {li:.first .leaf}
-* link:release-notes.md#project-explorer[Project explorer in the studio]
-// {li:.first .leaf}
-* link:release-notes.md#uipath[Bonita integreates Robotic Process Automation]
-// {li:.first .leaf}
-* link:release-notes.md#modal[New modal container in the UI Designer]
-// {li:.first .leaf}
-* link:release-notes.md#kerberos[Integration with Kerberos/SPNEGO-based SSO]
-// {li:.first .leaf}
-* link:release-notes.md#callback[Call back Bonita asynchronously from an external service]
-// {li:.first .leaf}
+[.card.card-index]
+--
+xref:release-notes.adoc[[.card-title]#Release note {varVersion}# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+--
 
-// {ul:.menu .nav}
+[.card.card-index]
+--
+xref:release-notes.adoc#project-explorer[[.card-title]#Project explorer in the studio# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+--
 
-////
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-4">
-<div class="panel panel-default">
-<div class="panel-heading">Getting started</div>
-<div class="panel-body">
-<div class="menu-block-wrapper">
-////
+[.card.card-index]
+--
+xref:release-notes.adoc#uipath[[.card-title]#Bonita integreates Robotic Process Automation# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+--
 
-* xref:getting-started-tutorial.adoc[Getting started tutorial]
-// {li:.first .leaf}
-* xref:diagram-overview.adoc[Process diagram overview]
-// {li:.leaf}
-* xref:key-concepts.adoc[Key concepts]
-// {li:.leaf}
-* xref:ui-designer-overview.adoc[UI Designer overview]
-// {li:.leaf}
-* xref:bonita-bpm-studio-installation.adoc[Bonita Studio installation]
-// {li:.leaf}
-* xref:tomcat-bundle.adoc[Basic Bonita platform installation]
-// {li:.leaf}
-* xref:create-your-first-project-with-the-engine-apis-and-maven.adoc[Create your first project with the Engine APIs and Maven]
-// {li:.last .leaf}
+[.card.card-index]
+--
+xref:release-notes.adoc#modal[[.card-title]#New modal container in the UI Designer# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+--
 
-// {ul:.menu .nav}
+[.card.card-index]
+--
+xref:release-notes.adoc#callback[[.card-title]#Call back Bonita asynchronously from an external service# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+--
 
-////
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-4">
-<div class="panel panel-default">
-<div class="panel-heading">Resources</div>
-<div class="panel-body">
-<div class="menu-block-wrapper menu-name-menu-quicklinks">
-////
+[.card-section]
+== Getting started
+[.card.card-index]
+--
+xref:getting-started-tutorial.adoc[[.card-title]#Getting started tutorial# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+--
 
-* http://www.bonitasoft.com/how-we-do-it/downloads[Download Bonita]
-// {li:.first .leaf}
-* https://community.bonitasoft.com/questions-and-answers[Community Q&A]
-* http://www.bpmn.org/[BPMN standard]
-// {li:.leaf}
-* http://www.bonitasoft.com/for-you-to-read/bpm-library/ultimate-guide-bpmn[The Ultimate Guide to BPMN2]
-// {li:.leaf}
-* http://www.bonitasoft.com/for-you-to-read/bpm-library/best-practices-continuous-integration-bonita-bpm[Best Practices for Continuous Integration with Bonita]
-// {li:.leaf}
-* http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[Javadoc]
-// {li:.leaf .last}
+[.card.card-index]
+--
+xref:diagram-overview.adoc[[.card-title]#Process diagram overview# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+--
 
-// {ul:.menu .nav}
+[.card.card-index]
+--
+xref:key-concepts.adoc[[.card-title]#Key concepts# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+--
 
-////
-</div>
-</div>
-</div>
-</div>
-////
+[.card.card-index]
+--
+xref:ui-designer-overview.adoc[[.card-title]#UI designer overview# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+--
+
+[.card.card-index]
+--
+xref:bonita-bpm-studio-installation.adoc[[.card-title]#Bonita BPM Studio installation# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+--
+
+[.card.card-index]
+--
+xref:tomcat-bundle.adoc[[.card-title]#Basic Bonita BPM platform installation# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+--
+
+[.card.card-index]
+--
+xref:create-your-first-project-with-the-engine-apis-and-maven.adoc[[.card-title]#Create your first project with the Engine APIs and Maven# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+--
+
+[.card-section]
+== Resources
+
+[.card.card-index]
+--
+xref:http://www.bonitasoft.com/how-we-do-it/downloads[[.card-title]#Download Bonita BPM software# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+--
+
+[.card.card-index]
+--
+xref:http://www.bonitasoft.com/how-we-do-it/downloads[[.card-title]#BPMN standard# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+--
+
+[.card.card-index]
+--
+xref:http://www.bonitasoft.com/for-you-to-read/bpm-library/ultimate-guide-bpmn[[.card-title]#The Ultimate Guide to BPMN2# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+--
+
+[.card.card-index]
+--
