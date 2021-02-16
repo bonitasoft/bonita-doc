@@ -1,0 +1,50 @@
+= Administrator Group list in Bonita Portal
+
+This page explains what a user with the _Administrator_ profile in Bonita Portal can see and do about groups in the organization. +
+To easily manipulate users with the same rights, it is possible to group them together. +
+Groups can be defined in the organization, attached to users and used to map process actors or application profiles with the organization.
+
+Here is a view of this page:
+image:images/UI2021.1/groups-portal.png[Administrator groups list Portal]
+// {.img-responsive}
+
+== Create a group
+
+. Go to _Organization_/_Groups_
+. Click on _Create a group_
+. In the pop-up window, enter the name (required), the parent group and a description.
+. Click on _Create_.
+
+NOTE:
+*Note*: Bonita doesn't accept the '/' character in the group name field. A group name that contains a '/' may lead to unstable behaviour.
+
+
+== Assign a user to a group
+
+. Go to _Organization_/_Users_. The list of users in the organization will be displayed.
+. Click on a user.
+. Click on _More_
+. In _Memberships_, click on _Add_.
+. Choose the group and role for the user.
+. Click on _Add_.
+
+== Edit a group
+
+. Go to _Organization_/_Groups_.
+. Check a box to select a group.
+. Click on _Edit_.
+. In the popup window, update the group information.
+. Click on _Save_.
+
+== Delete a group
+
+. Go to _Organization_/_Groups_.
+. Check a box to select a group.
+. Click on _Delete_.
+. In the popup window, click on _Delete_.
+
+== More information about the group
+
+. Go to _Organization_/_Groups_.
+. Click on a group in the list of groups. A list of users and subgroups in this group is displayed.
+. In the _Direct users_ list, you can click a user name to get more information about the user.

@@ -1,0 +1,595 @@
+= BDM access control
+
+NOTE:
+*Note:* for Enterprise, Performance and Efficiency editions only. +
+
+
+== Overview
+
+This page explains how to protect the access to your BDM through REST API calls via a white list mechanism. This protection does not secure access to BDM through DAO. +
+The BDM access control feature, available in Bonita Studio, allows to grant access to entire business objects or access to some attributes of business objects. +
+To grant access to specific instances of business objects, you will need to use xref:rest-api-authorization.adoc[Rest api authorizations].
+You will find below examples of both use-cases.
+
+== Use of profiles
+
+Most of the time, the access logic applies to several users, based on a combination of their roles/groups in the organization.
+For that reason, Bonita 7.7 takes advantage of the capability introduced in Bonita 7.6 to define xref:profiles-overview.adoc[profiles] in Bonita Studio. +
+We are making profiles an effective way to map people to Bonita items: living application or Bonita Portal access (since Bonita 5.0), BDM access control rules (starting in Bonita 7.7), actor mapping or more in the future. +
+Granting access to a business object or some attributes of a business object to a given profile means granting access to all users mapped to this profile.
+
+== Define BDM access control
+
+To define access control on your BDM, use the Access Control Editor embedded in Bonita Studio. You can open it using the menu: _Development_ > _Business Data Model_ > _BDM access control_ > _Define_
+
+Defining access control on a business object means defining a set of *access rules* on this object. +
+A rule is made of the following elements:
+
+* A name
+* A description
+* A list of attributes
+* A list of profiles
+
+If several rules grant access to the same profile, then this profile is allowed to access to the union of the attributes defined on those rules.
+
+On the left zone of the graphical editor, displaying business objects, you will not see business objects used in a *composition relationship*. +
+Since they are strongly related to their parent object, their access must be defined at their parent level. This is why they only appear in the parent object list of attributes, in the details of the rule you define. +
+The _Invoice example_ below gives more details on how to define access control for business objects used in a composition relationship.
+
+NOTE:
+*Note:* To allow an easy migration to this new feature, and to keep our BDM API working, all objects are visible by everyone by default. But as soon as you define an accss control rule for one object, the BDM access control switches to *a white list logic*, meaning that *for each business object of your BDM* that needs to be accessed, you must define at least one access control rule. Objects without rules won't be accessible by anyone. +
+The graphical editor helps you to achieve this by adding a warning icon close to business objects that have no access rule defined.
+
+
+For development purposes, the studio can *deploy* access control onto Bonita Portal for you. Use the _Deploy_ option of the editor toolbar or from the menu. To install it in a production environment, export the access control file (using the _Export_ option of the editor toolbar or from the menu), login to the portal, and xref:bdm-management-in-bonita-bpm-portal.adoc[install it].
+
+== Examples of use-cases to implement
+
+=== I - Grant access to objects and simple attributes. Human resources trainees
+
+*Business use case:* In a company, there are two kinds of Human Resources employees: The managers and the trainees. Human Resources employees review employees' leave requests. Leave requests include a medical comment if the cause of the leave is illness. So the access rules to define are _An HR trainee should not be able to access the medical comment of any leave request_ and _An HR manager should access all attributes of all leave requests_.
+
+*Technical use case:* Grant access to some or all attributes of a business object depending on the profile of the requester.
+
+*1. Define the BDM*
+
+Define a _LeaveRequest_ business object, with the following attributes:
+
+|===
+| Name | Type
+
+| employee
+| STRING
+
+| departureDate
+| DATE ONLY
+
+| duration
+| INTEGER
+
+| medicalComment
+| STRING
+
+| employeeComment
+| STRING
+|===
+
+*2. Define organization and profiles*
+
+. In your organization, create a group _Human Resources_ and two roles: _Trainee_ & _Manager_.
+. Create some users with the membership _Trainee of Human Resources_ and some others with the membership _Manager of Human Resources_.
+. Check that all users are also mapped with the default profile _User_.
+. Define two custom profiles using the xref:profileCreation.adoc[profile editor] in the studio:
+ ** *HR trainees*, mapped with the membership _Trainee of Human Resources_
+ ** *HR managers*, mapped with the membership _Manager of Human Resources_
+. Deploy those profiles.
+
+NOTE:
+*Note:* Steps 3. and 4. are not directly related to access control definition, it is just a convenient way to observe its results.
+
+
+*3. Create a process and generate data*
+
+. Create a new diagram, with only a start event and an end event.
+. On the pool, add a business variable of type _LeaveRequest_, generate a contract from this data, and generate an instantiation form  from this contract.
+. Run this process a couple of times to generate LeaveRequest data.
+
+*4. Create a living application to display data*
+
+NOTE:
+*Note:* In this tutorial, we create a basic living application to observe the results of our access rules. You can also directly call the API and check the response. Here is the API to call: _../API/bdm/businessData/com.company.model.LeaveRequest?q=find&p=0&c=10_
+
+
+In the UI Designer, create an application page (_displayLeaveRequest_):
+
+* Create a new variable
+ ** *Name* : leaveRequests
+ ** *Type* : External API
+ ** *API URL* :  ../API/bdm/businessData/com.company.model.LeaveRequest?q=find&p=0&c=10
+* Add a title to your page: _Leave requests_
+* Add a container under the title
+ ** *Collection*: leaveRequests
+ ** *CSS classes*: alert alert-info
+* Inside this container, for each of the following attributes of your Business Object _(employee - departureDate - duration - medicalComment - employeeComment)_, add an input with the following configuration
+ ** *Label* : _[current attribute name]_
+ ** *Value* : _$item.[current attribute name]_
+ ** *Read-only*: _true_
+
+_medicalComment_ will not be accessible to the HR trainees. +
+To manage this and other differences between what profiles can access, you have two options:
+
+* create one application per profile, and one page per profile: one with this field, and one without
+* manage it on the same page and make its display conditional.
+To do so, in the property *hidden* of the dedicated input, click the *fx* button to make it an expression, and write `$item.medicalComment == null || $item.medicalComment == undefined`.
+
+Create a new application descriptor using the xref:applicationCreation.adoc[application editor] in the studio:
+
+* Set the application token: _leaveRequest_
+* Set the Application Profile: _User_
+* Add an orphan page:
+ ** *Application Page*: _custompage_displayLeaveRequest_
+ ** *Token*:  _displayLeaveRequest_
+* Set the Home page token: _displayLeaveRequest_
+* Deploy
+
+Make sure the living application works fine, and that all attributes are displayed at the moment.
+
+*5. Define access control for Business Object LeaveRequest*
+
+Acceess to all attributes of a leave request should be granted to HR managers. On the other hand, an HR trainee should not be able to access the attribute _medicalComment_ of a leave request.
+To do so, define two rules for our _LeaveRequest_:
+
+HR trainees +
+They should not be able to access the medical comment of any leave request. So on the object _LeaveRequest_, create a first rule:
+
+* *Rule name*: _HR trainees access_
+* *Rule description*: _An HR trainee should not see the medical comment of any leave request_
+* *Attributes checked*:  _[employee, departureDate, duration, employeeComment]_
+* *Profiles checked*: _[HR trainees]_
+
+HR managers +
+They should be able to access full information of all leave requests. So on the object _LeaveRequest_, create a second rule:
+
+* *Rule name*: _HR managers access_
+* *Rule description*: _An HR manager should see all attributes of all leave requests_
+* *Attributes checked*:  _[employee, departureDate, duration, medicalComment, employeeComment]_
+* *Profiles checked*: _[HR managers]_
+
+Deploy the access control file.
+
+*6. Access control validation*
+
+Access to data is now controlled by the BDM Access Control file just deployed. To check:
+
+. Login onto the portal as a user with the profile _HR trainee_.
+. In the studio, open the application descriptor.
+. Click on the overview link of the application. You are viewing the application as an HR trainee. The medical comment is not displayed.
+. Login onto the portal as a user with the profile _HR manager_. Refresh the application in the web browser. You are viewing the application as an HR manager. The medical comment is displayed.
+
+=== II - Grant access to attributes in a complex relationship. Invoices
+
+*Business use case:* A company handles invoices for customers' orders. +
+Looking at all invoices, an employee in charge of the preparation of the order (order picker) should access orders but no customers information. Looking at the invoice lines, the order picker should access product names and quantities but no prices. +
+An experienced sales representative should access all information about orders and customers. +
+A novice sales representative should access all information about orders but only customer names (no email address, no regular address). +
+*Technical use case:* Grant access to complex attributes (with composition or aggregation relationships) of a business object depending on the profile of the requester.
+
+*1. Define the BDM*
+
+Define a _Customer_ business object, with the following attributes:
+
+|===
+| Name | Type
+
+| name
+| STRING
+
+| email
+| STRING
+
+| address
+| STRING
+|===
+
+Define a _Product_ business object, with the following attributes:
+
+|===
+| Name | Type
+
+| name
+| STRING
+
+| price
+| INTEGER
+|===
+
+Define an _InvoiceLine_ business object, with the following attributes:
+
+|===
+| Name | Type | Relation | Eager
+
+| product
+| Product
+| Composition
+| true
+
+| quantity
+| INTEGER
+|
+|
+|===
+
+Define an _Invoice_ business object, with the following attributes:
+
+|===
+| Name | Type | Multiple | Relation | Eager
+
+| customer
+| Customer
+| false
+| Aggregation
+| true
+
+| fullOrder
+| InvoiceLine
+| yes
+| Composition
+| true
+
+| orderDate
+| DATE ONLY
+| false
+|
+|
+|===
+
+*2. Define organization and profiles*
+
+* In your organization create two groups, 'Order picker' and 'Sales', and two roles 'Member' and 'Novice member'.
+* Create some users with the membership 'Member of Order picker', some others with 'Novice member of Sales', and some with 'Member of Sales'.
+* Check that all users are also mapped with the default profile _User_.
+* Define three custom profiles using the xref:profileCreation.adoc[profile editor] in the studio:
+ ** *Order picker*, mapped with the group 'Order picker'
+ ** *Experienced Sales*, mapped with the membership 'Member of Sales'
+ ** *Novice Sales*, mapped with the membership 'Novice member of Sales'
+* Deploy those profiles.
+
+NOTE:
+*Note:* Steps 3. and 4. are not directly related to access control definition, it is just a convenient way to observe its results.
+
+
++++<a id="bdmFilling">++++++</a>+++
+
+*3. Create a process and generate data*
+
+The attribute _customer_ has an aggregation-type relationship; it exists independently of an invoice, so its instances are created directly (which is not the case for a composition-type relationship, as explained later).
+
+First, create a process to generate customers:
+
+* Create a new diagram, with only a start event and an end event.
+* On the pool, add a business variable of type _Customer_, generate a contract input from this data, and generate an
+ instantiation form    from this contract.
+
+Run this process a couple of times to generate customers.
+
+Then, create a process to generate invoices, with customers and products. +
+The instantiation form will have to retrieve existing customers, so there is some work to do on the UI Designer for this process:
+
+* Create a new diagram, with only a start event and an end event.
+* On the pool, add a business variable of type _Invoice_, generate a contract input from this data, and generate an
+ instantiation form    from this contract.
+
+In the UI Designer, create a new variable which will retrieve existing customers:
+
+* *name:* customers
+* *type:* External API
+* *URL:* ../API/bdm/businessData/com.company.model.Customer?q=find&p=0&c=10
+* Remove all existing inputs for the customer (persistence ID, name, email, address).
+* Add a select widget:
+ ** *Label:* Customer
+ ** *Available values:* customers (click on *fx*; it appears as a suggestion)
+ ** *Displayed key:* name
+ ** *Value:* formInput.invoiceInput.customer
+
+You should now have a combo box which contains existing customers in the instantiation form of an invoice.
+
+Run this process a couple of times to generate invoices.
+
+*4. Create a living application to display data*
+
+NOTE:
+*Note:* In this tutorial, we create a basic living application to observe the results of our access rules. You can also directly call the API and check the response. Here is the API to call: _../API/bdm/businessData/com.company.model.Invoice?q=find&p=0&c=10_
+
+
+In the UI Designer, create an application page _displayInvoices_  :
+
+* Create a new variable
+ ** *Name* : invoices
+ ** *Type* : External API
+ ** *API URL* : ../API/bdm/businessData/com.company.model.Invoice?q=find&p=0&c=10
+* Add a title to your page (_Invoices_)
+* Add a container under the title:
+ ** *Collection*: invoices
+ ** *CSS classes*: well
+ ** Inside this container:
+ 		- Add a title (Text = An invoice)
+ 		- Add an input (*Label:* Order date, *Value:* $item.orderDate)
+ 		- Add a container (*hidden:* `$item.customer == null || $item.customer == undefined`), with:
+ 			- A title (Text: Customer)
+ 			- An input ( *Label:* Name, *Value:* $item.customer.name)
+ 			- An input ( *Label:* Email, *Value:* $item.customer.email)
+ 			- An input ( *Label:* Address, *Value:* $item.customer.address, *hidden:* `$item.customer.address == null || $item.customer.address == undefined`)
+ 		- Add a container, with:
+ 			- A title (Text: Order)
+ 			- A container (*Collection:* $item.fullOrder), with:
+ 				- An input(*Label:* Product, *Value:* $item.product.name)
+ 				- An input ( *Label:* Address, *Value:* $item.customer.address, *hidden:* `$item.customer.address == null || $item.customer.address == undefined`)
+ 				- An input(*Label:* Quantity, *Value:* $item.quantity)
+
+Create a new application descriptor using the xref:applicationCreation.adoc[application editor] in the studio:
+
+* Set the application token: invoices
+* Set the Application Profile: User
+* Add an orphan page:
+ ** *Application Page*: _custompage_displayInvoices_
+ ** *Token*: _invoices_
+* Set the Home page token: _invoices_
+* Deploy
+
+Make sure the living application works fine, and that all objects and attributes are displayed at the moment.
+
+*5. Define access control for Business Object Invoice*
+
+*Order pickers:* +
+They should be able to access the order and the date of an invoice, but not the customer. So, on the object _Invoice_, create a first rule:
+
+* _*Rule name: ** *Invoice Order picker_
+* *Rule description:*  _The order picker should access the order date and the order details, but not the customer._
+* _*Attributes checked: ** *[ fullOrder, orderDate ]_.
+* *Profiles checked:*  _[Order picker]_
+
+They should be able to access products name and quantity of each _InvoiceLine_. Because the type of relationships between _Invoiceline_ and _Product_ as well as between _Invoice_ and _InvoiceLine_ is composition, granting this access is done through the parent, i.e on _Invoice_. So, on the rule _Invoice Order picker_:
+
+* Open _fullOrder_ subtree, and check the attributes _[product, quantity]_
+* Open _Product_ subtree, and check the attribute _[name]_.
+
+*Experienced Sales employees:*
+
+They should be able to access all information of an invoice. So, on the object _Invoice_, create a second rule:
+
+* *Rule name*: _Invoice Experienced Sales_
+* *Rule description*: _Experienced Sales employee should access full invoice information._
+* *Attributes checked*: _[ customer, fullOrder, orderDate ]_, and within fullOrder, _[ product, quantity ]_, and within _product_, _[ name, price ]_
+* *Profiles checked*: _[Experienced Sales]_
+
+They should access all customer information. Since the type of relationship between _Invoice_ and _Customer_ aggregation, access control of _Customer_ is defined on the business object itself. So, create a new rule on the business object _Customer_:
+
+* *Rule name*: _Customer Experienced Sales_
+* *Rule description*: _Experienced Sales should access name and email of the customer_.
+* *Attributes checked*: _[ name, email, address ]_
+* *Profiles checked*: _[Experienced Sales]_
+
+*Novice Sales employees:*
+
+They should be able to access all information of an invoice. So, on the object _Invoice_, in the second rule, check the *Profile* _[Novice Sales]_.
+
+They should only access the name of a customer. So, create a second rule on the business object _Customer_:
+
+* *Rule name*: _Customer Novice Sales_
+* *Rule description*: _Novice Sales employees should access the name of the customer_.
+* *Attributes checked*: _[ name ]_
+* *Profiles checked*: _[Novice Sales]_
+
+Deploy the access control file.
+
+*6. Access control validation*
+
+Access to data is now controlled by the BDM Access Control file just deployed. To check:
+
+. Login onto the portal as a user with the profile _Order picker_.
+. In the studio, open the application descriptor
+. Click on the overview link of the application. Customer data and product prices are not displayed.
+. Login onto the portal as a user with the profile _Experienced Sales_. Refresh the application in the web browser. All data are displayed.
+. Login onto the portal as a user with the profile _Novice Sales_. Refresh the application in the web browser. Full invoice information is displayed. Only customer data names are displayed.
+
+=== III - Grant access to business object instances. Requests on marks
+
+To grant access to specific instances of business objects, you will need to use xref:rest-api-authorization.adoc[rest-api authorizations].
+
+NOTE:
+*Note:* The example below accounts for a specific way to use a method introduced in Bonita 7.0, and updated in Bonita 7.6.
+It grants access to BDM query requests that retrieve object instances rather than to the instances themselves.
+This method is available starting from the Community version.
+
+
+*Business use case:* Students of a university can make requests to their teachers about their marks. Each teacher teaches a different subject. A teacher should only be able to access requests that address their subject.
+
+*Technical use case:* Grant access to BDM queries depending on a business object attribute value and the profile of requester.
+
+*1. Define the BDM*
+
+Define a _Student_ business object, with the following attributes:
+
+|===
+| Name | Type
+
+| fullname
+| STRING
+|===
+
+Define a _Request_ business object, with the following attributes:
+
+|===
+| Name | Type | Multiple | Mandatory | Relation | Eager
+
+| subject
+| STRING
+| false
+| true
+|
+|
+
+| medicalComment
+| STRING
+| false
+| false
+|
+|
+
+| content
+| STRING
+| false
+| false
+|
+|
+
+| student
+| Student
+| false
+| true
+| Aggregation
+| true
+|===
+
+Define a custom query on the _Request_ object, _findBySubject_:
+
+----
+SELECT r
+FROM Request r
+WHERE r.subject= :subject
+ORDER BY r.persistenceId
+----
+
+*2. Define organization and profiles*
+
+. In your organization create two groups, 'Physics' and 'Mathematics', and a role 'Teacher'
+. Create some users with the membership 'Teacher of Physics', some others with 'Teacher of Mathematics'
+. Check that all users are also mapped with the default profile _User_.
+. Define three custom profiles using the xref:profileCreation.adoc[profile editor] in the studio:
+ ** *PhysicsTeachers*, mapped with the membership 'Teacher of Physics'
+ ** *MathematicsTeachers*, mapped with the membership 'Teacher of Mathematics'
+ ** *Teachers*, mapped with role 'Teachers'
+. Deploy those profiles.
+
+NOTE:
+*Note:* Steps 3. and 4. are not directly related to access control definition, it is just a convenient way to observe its results.
+
+
+*3. Create a process and generate data*
+
+Some instances of the object _Request_, as well as some instances of _Students_ are needed. To create them, follow the steps discribed in the section  <<bdmFilling,II - Invoice>>. For convenience, we assume that there are only two subjects: Mathematics and Physics.
+
+*4. Create a living application to display data*
+
+In this application, teachers review students' requests. +
+In the UI Designer:, create an application page (_reviewRequests_):
+
+* Create a variable:
+ ** *Name* : requestList
+ ** *Type* : External API
+ ** *API URL*: ../API/bdm/businessData/com.company.model.Request?q=findBySubject&p=0&c=10&f=subject%3D{\{selectedSubject}}
+* Create a variable:
+ ** *Name* : selectedSubject
+ ** *Type* : String
+* Add a Select box to the page (to choose beetween subjects):
+ ** *Label* : Subject class
+ ** *Available Values* : Mathematics, Physics (constants).
+ ** *Value* : selectedSubject
+* Add a Table widget to the page (to display the requests):
+ ** *Headers* : Id, Subject, Content, Medical comment, Student (constants)
+ ** *Content* : requestList (script, click the fx icon to switch from contstant to script)
+ ** *Column keys* : persistenceId, subject, content, medicalComment, student.fullname
+
+In the studio, create an xref:applicationCreation.adoc[application descriptor]:
+
+* Set the application token: _TeacherApp_
+* Set the application profile: _Teachers_
+* Add an orphan page
+ ** *Application Page*: _custompage_reviewRequests_
+ ** *Token*: _requests_
+* Set the home page token: _requests_
+* Deploy
+
+Make sure the living application works fine, and that while selecting subject from the drop down list, all instances of _Requests_, _Mathematics_ or _Physiscs_, are displayed.
+
+*5. Define access control for queries on Business Object Request*
+
+. Go to _BonitaStudioSubscription-7.7.0/workspace/tomcat/setup/_
+. Modify the file _database.properties_, so it points to the target database. In our example we will use the provided h2 database.
+. Add the following line to your _database.properties_ file :
+`h2.database.dir=/home/dolgonos/Desktop/BonitaStudioSubscription-7.7.0-SNAPSHOT/workspace/default/h2_database/`
+. Run _setup pull_. For more details on what this command does, see xref:BonitaBPM_platform_setup.adoc[Bonita Platform Setup].
+. Go the _/BonitaStudioSubscription-7.7.0/workspace/tomcat/setup/platform_conf/current/tenants/1/tenant_portal/_ folder that has just appeared.
+. Open the _dynamic-permissions-checks-custom.properties_, and add the following line:
+`GET|bdm/businessData/com.company.model.Request=[check|SubjectTeacherPermissionRule]`
+This line indicates that before executing any query on the com.company.model.Request object types in the BDM, a verification has to be run. In this case, this is a groovy script, _SubjectTeacherPermissionRule.groovy_ (created in step 7).
+For more information about dynamic security and how it works with Bonita, see xref:rest-api-authorization.adoc[Rest API authorization].
+. Go to _/BonitaStudioSubscription-7.7.0/workspace/tomcat/setup/platform_conf/current/tenants/1/tenant_security_scripts_. Create a file _SubjectTeacherPermissionRule.groovy_, with the following content:
+
+[source,groovy]
+----
+
+import org.bonitasoft.engine.api.APIAccessor
+import org.bonitasoft.engine.api.Logger
+import org.bonitasoft.engine.api.permission.APICallContext
+import org.bonitasoft.engine.api.permission.PermissionRule
+import org.bonitasoft.engine.profile.Profile
+import org.bonitasoft.engine.profile.ProfileCriterion
+import org.bonitasoft.engine.session.APISession
+
+class SubjectTeacherPermissionRule implements PermissionRule {
+
+    @Override
+    boolean isAllowed(APISession apiSession, APICallContext apiCallContext, APIAccessor apiAccessor, Logger logger) {
+        APISession session = apiSession
+        long currentUserId = session.getUserId()
+        List<Profile> profilesForUser = apiAccessor.getProfileAPI().getProfilesForUser(currentUserId, 0, 50, ProfileCriterion.ID_ASC)
+        // First, let's check we only restrict access to query named "findBySubject":
+        if (!apiCallContext.getQueryString().contains("q=findBySubject")) {
+            return true
+        }
+
+        def filters = apiCallContext.getFilters()
+        if (filters.containsKey("subject")) {
+            def subjectAsString = filters.get("subject")
+//            Let's check the logged-in user (teacher) has at least one profile matching the Class Subject:
+//            subjectAsString == Physics
+//            profile PhysicsTeacher contains the String "Physics" -> ok
+//            profile MathematicsTeacher doesn't contain the String "Physics" -> not ok
+//            => only someone with the profile PhysicsTeacher will have the authorization to execute the query.
+            for (Profile p : profilesForUser) {
+                if (p.name.contains(subjectAsString)){
+                    return true
+                }
+            }
+            return false
+        }
+        // otherwise, it's an access to a different query, so no filtering in this case
+        return true
+    }
+}
+----
+
+. Go back to _BonitaStudioSubscription-7.7.0/workspace/tomcat/setup/_ and run _setup push_. This will upload the _dynamic-permissions-checks-custom.properties_ file to the server.
+. Restart the web server through the menu "Server > Restart Web server".
+  The new security rule from the _dynamic-permissions-checks-custom.properties_ file is now active.
+
+NOTE:
+*Note:* For every change of the _dynamic-permissions-checks-custom.properties_ file, you must push it and restart the web server. However, since the Studio has the Debug mode active by default, you do not need to restart the web server after modifying the groovy script in this environnement.
+You still do on a production server.
+
+
+*6. Access control validation*
+
+Access to data queries is now controlled by dynamic security. To check:
+
+. Login onto the portal as a user with the profile _Mathamtics Teacher_.
+. In the studio, open the application descriptor
+. Click on the overview link of the application. Select 'Physics'. No instances are displayed but you can see instances when you select 'Mathematics'.
+. Login onto the portal as a user with the profile _Physics Teacher_. Refresh the application in the web browser. Select 'Mathematics'. No instances are displayed but you can see instances when you select 'Physics'.
+. Login onto the portal as a user with the profile _Teachers_. Refresh the application in the web browser. All instances are available to you.
+
+*7. Adding access control on attributes*
+
+It is possible to use both this security and the Access Control feature, that grants access to full business objects or attributes. +
+For example, if you decide that the attribute 'medicalComment' should not be visible to teachers, you can create rules on the object _Request_ and deploy the Access Control file. This attribute will not be returned by the _findBySubject_ request.

@@ -1,0 +1,83 @@
+= User list in Bonita Administrator Application
+
+This page explains what a user with the _Administrator_ profile can see and do about the users (of the organization) in link:admin-application-overview[Bonita Administrator Application].
+
+Here is a view of this page:
+image:images/UI2021.1/admin-application-users-list.png[Administrator user list Portal]
+// {.img-responsive}
+
+== View user's detailed information
+
+In the user list, the Administrator can view the users currently active in the deployed organization. +
+By clicking in the _Inactive_ radio button, they can also access the users who have been deactivated. "Inactive" means that they can no longer log in Bonita Portal nor any Bonita application.
+To view the user's detailed information:
+
+. Go to _Organization_/_Users_
+. In the row of the user, click on the _View user details_ icon
+. Click on the sections in the menu on the left to read all the user's detailed information
+
+== Live Update
+
+The Administrator can xref:live-update.adoc[Live Update] a user:
+
+* create
+* deactivate
+* edit information
+* edit memberships
+* edit profiles
+
+Live updating is only in case of an issue to solve temporarily. We strongly encourage the modification of the organization to be conducted
+in Bonita Studio so it can be shared and versioned with the whole project, or through the xref:ldap-synchronizer.adoc[LDAP synchronizer] if the organization is located in an external system.
+
+=== Create a user
+
+Reminder: do not create a user with the same login and password as the xref:first-steps-after-setup.adoc[platform administrator nor the technical user].
+
+. Go to _Organization_/_Users_
+. Click on _Create_
+. In the modal window, enter the username, password (twice), first name and last name of the new user
+. Click _Create_ to confirm the creation
+
+=== Deactivate a user
+
+. Go to _Organization_/_Users_
+. In the row of the user, click on the _Deactivate user_ icon
+. In the confirmation modal window, check that this deactivation is safe, and click on _Deactivate_
+
+Reactivating a user can be done through the same mechanism from the "Inactive" user list.
+
+=== Edit user's information
+
+. Go to _Organization_/_Users_
+. In the row of the user, click on the _View user details_ icon
+. Stay in the "General information" section, or click on one of the other sections in the menu on the left:
+ ** Password
+ ** Profiles/Memberships (see below)
+ ** Business card
+ ** Personal information
+ ** xref:custom-user-information-in-bonita-bpm-portal.adoc[Custom information]
+. Edit the information
+. Click on the _Update [...]_ button of the section
+
+=== Edit user's memberships
+
+In the way we conceive how a user pertains to an organization, it is only possible to add both a role and a group (what we call a membership) to a user.  +
+For example, "Assistant"(role) of "Human Resources"(group).
+
+. Go to _Organization_/_Users_
+. In the row of the user, click on the _View user details_ icon
+. Click on _Profiles_/_Memberships_
+. To add a membership, click on _+_, select a role and a group, and click on _Add_
+or to delete an existing membership, click on the _Delete_ icon, and in the confirmation modal window, confirm the deletion if it is safe
+
+=== Edit user profiles
+
+The rights of a user are defined by mapping the user to a profile.
+To map a user to a profile:
+
+. Go to _Organization_/_Profiles_
+. In the row of a profile, click on the _Show mapping with organization_ icon
+. In the "Mapping with Users" section, click on the _Edit user mapping_ icon
+. Start typing the name of the user to add
+. Select the right suggestion
+. Click on _Add_

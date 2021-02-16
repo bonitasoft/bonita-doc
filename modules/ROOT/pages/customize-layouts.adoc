@@ -1,0 +1,113 @@
+= Customize layouts
+
+NOTE:
+*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+
+
+== Overview
+
+As explained in the xref:layouts.adoc[layouts] documentation page, it is possible to customize the existing application layout using the UI Designer.
+Keep in mind that any layout is composed by tree containers: layout-header, layout-content, layout-footer. But only layout-header and layout-footer are designed to support additional widgets.
+
+Prerequisites to customize a layout:
+
+* Basic knowledge of Java script
+* Basic knowledge of AngularJS
+* Basic knowledge of Bootstrap
+* Basic knowledge of the UI Designer
+* An existing living application (to test the modified layout)
+
+The following example shows how to add a new widget into the layout.  +
+The example sections show how to:
+
+* Export the layout from Bonita Portal
+* Import the layout into the UI Designer
+* Modify the layout
+* Apply the customized layout onto a living application.
+
+== Export a layout from Bonita Portal
+
+. Open Bonita Portal, and log in with username and password of someone mapped to the Administrator profile.
+. Click on the *Resources* menu.
+. Select the filter *Layouts*.
+. Select the layout that you want to modify.
+. Click on *Export* and save this layout on your file system.
+
+== Import a layout into the UI Designer
+
+To facilitate the modifications, layouts are built using the UI Designer. Therefore you just have to import it into the UI Designer to make changes.
+
+. Open the UI Designer.
+. Click on the *Import* button.
+. Select the layout to import.
+
+== Edit the layout using the UI Designer
+
+When you import the layout into the UI Designer, you can see that it generates three artefacts:
+
+. A _Layout page_, which can be found in the layout tab.
+. The _Living application IFrame_ widget, used to display the application page, found in the custom widgets tab.
+. An _Application menu_ widget to display the application menu, found in the custom widgets tab.
+
+So we propose here to add new widgets to the *Layout page* header and footer.
+
+In the UI Designer:
+
+. Click on the *Layout page* to open it in the page editor.
+. See that this page is composed by three main containers *layout-header*, *layout-content*, *layout-footer*.
+. Drag and drop an image widget on top of the menu in the *layout-header*, to display a brand image.
+. Drag and drop a title widget in the *layout-footer*, to display a "Copyright © 2017, Example Corporation"
+. Click on *Save*.
+
+== Export the customized layout onto your file system
+
+Once your changes are made, save the new layout using a new name and then export it.
+
+. Rename it into _myCustomLayout_.
+. Click on *Save*.
+. Click on the *Export* button.
+
+== Import the _myCustomLayout_ into the portal
+
+. Open Bonita Portal, and again log in with username and password of someone mapped to the Administrator profile.
+. Click on the *Resources* menu.
+. Click on *Add*.
+. Add the new _myCustomLayout_.
+. Click *Next*.
+. Click *Confirm*.
+
+== Configure your living application to use the modified layout
+
+. Click on the *Applications* menu.
+. Click on the edit action *...* of your living application.
+. In the *Look & Feel* section, click on the *Layout* link
+. Select _myCustomLayout_
+. Click on the validation button
+. In the *Application details* section, click on the URL link to navigate to your living application.
+. See your new application layout with a custom layout.
+. Feel free to add lots of new improvements to create the layout that fits your needs.
+
+=== Navigate between pages without reloading the entire page.
+
+Starting with Bonita 7.6.0, when the user clicks on any menu item, only the content of the iframe with the targeted page is refreshed: it does not reload the entire page anymore. The HTML5 History API is used to achieve that. +
+To take advantage of this improvement if your customized layout has been created with a Bonita version older than 7.6.0, you will need to follow these steps:
+
+. Import your _CustomLayout_7.5.x_ (or lower) in the UI Designer 7.6.0 (or later versions)
+. Export the _Default layout_ from Bonita Portal 7.6.0 (or later versions)
+. Import the _Default layout_ in the UI Designer
+. Open your _CustomLayout_7.5.x_
+. If any of the custom widgets _livingApplicationMenu_ or _livingApplicationIFrame_ has been modified, +
+you will need to merge your modifications and the modifications of the new version of those widgets, namely _livingApplicationMenuV3_ and _livingApplicationIFrameV3_.
+
+Note 1: To help this merge, you can generate a diff, between two version of the default layout by using Git.
+If you don't already have https://git-scm.com/[Git], you will need to install it, then clone the repository "https://github.com/bonitasoft/bonita-distrib.git".
+At the root level, run the following command:  "git diff 7.5.0 7.6.0 -- ./community/resources/layout-page/src/main/resources"
+
+Note 2: A good practice would be to rename those merged widgets into something like _myCustomizedMenuV3_ and _myCustomizedIFrameV3_)
+
+. Replace the custom widget _livingApplicationMenu_ by the new custom widget _livingApplicationMenuV3_ (or your _myCustomizedMenuV3_)
+. Replace the custom widget _livingApplicationIFrame_ by the new custom widget _livingApplicationIFrameV3_  (or your _myCustomizedIFrameV3_)
+. Export this updated layout page.
+. In Bonita portal, edit the layout and import the newly exported layout
+. Confirm all messages
+. Validate that your application has a layout that fits your requirements and the new menu behaviour.

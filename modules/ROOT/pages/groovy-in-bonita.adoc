@@ -1,0 +1,408 @@
+= Groovy script language in Bonita
+
+In Bonita, it is a prerequisite to be comfortable with Java when implementing advanced behaviors in your processes, the below article aims at helping with Groovy, the scripting language used by Bonita.
+Groovy has been chosen as the scripting language because it is :
+
+* Concise, readable and have an expressive syntax, easy to learn for Java developers
+* Seamlessly and transparently integrates and interoperates with Java and any third-party libraries
+
+== From Java to Groovy
+
+For a complete description, please have a look at the reference documentation http://groovy-lang.org/differences.html[here].
+
+=== Strings
+
+Text literals are represented in the form of chain of characters called strings. Groovy lets you instantiate _java.lang.String_ objects, as well as GStrings (_groovy.lang.GString_) which are also called interpolated strings in other programming languages.
+
+* Single quoted strings are a series of characters surrounded by single quotes:
+
+[source,groovy]
+----
+'a single quoted string'
+----
+
+* Triple single quoted strings are a series of characters surrounded by triplets of single quotes and are multiline:
+
+[source,groovy]
+----
+def aMultilineString = '''line one
+line two
+line three'''
+----
+
+* Double quoted strings are a series of characters surrounded by double quotes:
+
+[source,groovy]
+----
+"a double quoted string"
+----
+
+WARNING:
+Double quoted strings are plain _java.lang.String_ if there's no interpolated expression, but are _groovy.lang.GString_ instances if interpolation is present.
+
+
+* String interpolation
+
+Any Groovy expression can be interpolated in all string literals, apart from single and triple single quoted strings. Interpolation is the act of replacing a placeholder in the string with its value upon evaluation of the string. The placeholder expressions are surrounded by `${}` or prefixed with `$` for dotted expressions. The expression value inside the placeholder is evaluated to its string representation when the GString is passed to a method taking a String as argument by calling `toString()` on that expression.
+
+Here, we have a string with a placeholder referencing a local variable:
+
+[source,groovy]
+----
+def name = 'Romain' // a plain string
+def greeting = "Hello ${name}"
+
+assert greeting.toString() == 'Hello Romain'
+----
+
+In addition to `${}` placeholders, we can also use a lone `$` sign prefixing a dotted expression:
+
+[source,groovy]
+----
+def person = [name: 'Romain', age: 34]
+assert "$person.name is $person.age years old" == 'Romain is 34 years old'
+----
+
+But only dotted expressions of the form `a.b`, `a.b.c`, etc, are valid, but expressions that would contain parentheses like method calls, curly braces for closures, or arithmetic operators would be invalid.
+
+More about Strings in Groovy http://docs.groovy-lang.org/docs/groovy-2.4.16/html/documentation/#all-strings[here].
+
+=== Lambdas & Closures
+
+Java 8 supports lambdas and method references:
+
+[source,java]
+----
+Runnable run = () -> System.out.println("Run");
+list.forEach(System.out::println);
+----
+
+Java 8 lambdas can be more or less considered as anonymous inner classes. Groovy doesn't support that syntax, but has closures instead:
+
+[source,groovy]
+----
+Runnable run = { println 'run' }
+list.each { println it } // or list.each(this.&println)
+----
+
+Closures are heavily used when processing collections:
+
+[source,groovy]
+----
+def list = ['Daffy', 'Bugs', 'Elmer', 'Tweety', 'Silvester', 'Yosemite']
+assert 'Bugs' == list.find { it == 'Bugs' }
+assert ['Daffy', 'Bugs', 'Elmer'] == list.findAll { it.size() < 6 }
+assert list.any { it =~ /a/ }
+assert list.every { it.size() > 3 }
+
+def map = [name: 'Messages from mrhaki', url: 'http://mrhaki.blogspot.com', blog: true]
+def found = map.find { key, value -> key == 'name' }
+assert found.key == 'name' && found.value == 'Messages from mrhaki'
+found = map.find { it.value =~ /mrhaki/ }
+assert found.key == 'name' && found.value == 'Messages from mrhaki'
+assert [name: 'Messages from mrhaki', url: 'http://mrhaki.blogspot.com'] == map.findAll { key, value -> value =~ /mrhaki/ }
+assert map.any { entry -> entry.value }
+assert map.every { key, value -> key.size() >= 3 }
+----
+
+More about Closures in Groovy http://docs.groovy-lang.org/docs/groovy-2.4.16/html/documentation/#_closures[here].
+
+=== Operators
+
+* Identity operator
+
+In Groovy, using `==` to test equality is different from using the same operator in Java. In Groovy, it is calling equals. If you want to compare reference equality, you should use is like in the following example:
+
+[source,groovy]
+----
+def list1 = ['Groovy 1.8','Groovy 2.0','Groovy 2.3'] // Create a list of strings
+def list2 = ['Groovy 1.8','Groovy 2.0','Groovy 2.3'] // Create another list of strings containing the same elements
+assert list1 == list2 // using ==, we test object equality
+assert !list1.is(list2) //	but using 'is', we can check that references are distinct
+----
+
+* Safe navigation operator `?.` to Avoid NullPointerException:
+
+Suppose we have a simple model like this:
+
+[source,groovy]
+----
+class Company {
+    Address address
+    String name
+}
+
+class Address {
+    Street street
+    String postalCode
+    String city
+}
+
+class Street {
+    String name
+    String number
+    String additionalInfo
+}
+----
+
+We want to display the street name, but we don't know if all object instances are available. To avoid a NullPointerException we write the following code:
+
+[source,groovy]
+----
+// company can be null.
+if (company != null && company.getAddress() != null && company.getAddress().getStreet() != null) {
+    println company.address.street.name
+}
+----
+
+Groovy adds the safe navigation operator to shorten all this to:
+
+[source,groovy]
+----
+// company can be null.
+println company?.address?.street?.name
+----
+
+* The Elvis operator `:?` to shorten ternary expression
+
+[source,groovy]
+----
+def sampleText
+
+// Normal ternary operator.
+def ternaryOutput = (sampleText != null) ? sampleText : 'Hello Groovy!'
+
+// The Elvis operator in action. We must read: 'If sampleText is not null assign
+// sampleText to elvisOuput, otherwise assign 'Viva Las Vegas!' to elvisOutput.
+def elvisOutput = sampleText ?: 'Viva Las Vegas!'
+----
+
+More about Operators in Groovy http://docs.groovy-lang.org/docs/groovy-2.4.16/html/documentation/#groovy-operators[here].
+
+=== Groovy truth
+
+Groovy decides whether an expression is true or false by applying the rules given below.
+
+* Boolean expressions : True if the corresponding Boolean value is `true`.
+* Collections and Arrays: Non-empty Collections and arrays are true.
+* Matchers: True if the Matcher has at least one match.
+* Maps: Non-empty Maps are evaluated to true.
+* Strings: Non-empty Strings, GStrings and CharSequences are coerced to true.
+* Numbers: Non-zero numbers are true.
+* Object References: Non-null object references are coerced to true.
+
+More about Groovy Truth http://groovy-lang.org/semantics.html#Groovy-Truth[here].
+
+== Bonita use cases with Groovy
+
+In the below examples, the following BDM will be used
+
+`*` for mandatory fields
+
+[source,groovy]
+----
+Comment {
+    String content*
+    AppUser createdBy* //Aggregation
+    DateTime creationDate*
+    AppUser lastEditedBy* //Aggregation
+}
+
+AppUser {
+    String firstName*
+    String lastName*
+    Address address //Composition
+}
+
+Address {
+    Street street* //Composition
+    String postalCode*
+    String city*
+}
+
+Street {
+    String name*
+    String number*
+    String additionalInfo
+}
+----
+
+=== Instantiate a Business Data
+
+==== Using the generated DAO
+
+By default a `newInstance` factory method is generated in the object DAO. +
+This method has as many parameters as mandatory fields for this object.
+
+[source,groovy]
+----
+appUserDAO.newInstance('Jane','Doe') // create a UserApp instance with firstName = 'Jane' and lastName = 'Doe'
+----
+
+==== Using a constructor with named arguments
+
+[source,groovy]
+----
+new Address(street: new Street(number: '32', name: 'Gustave Eiffel'), postalCode: '38000', city: 'Grenoble')
+----
+
+==== From a map
+
+Given a complex contract input
+
+----
+userInput COMPLEX
+	firstName TEXT
+	lastName TEXT
+----
+
+As a COMPLEX input is stored as Map it is possible to write
+
+[source,groovy]
+----
+userInput as AppUser
+----
+
+=== List Business Objects using DAO
+
+When defining your BDM you can write custom queries in JPQL that can be called using the object DAO.
+Some queries are generated by default like: `find`, `findByFirstName`, `findByLastName`...
+
+All object DAO are injected at runtime in Groovy script expression or can be retrieved using https://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/api/APIClient.html#getDAO-java.lang.Class-[APIClient#getDAO]
+
+Here is the UserAppDAO interface generated for the UserApp object:
+
+[source,java]
+----
+public interface AppUserDAO extends BusinessObjectDAO {
+    public AppUser findByPersistenceId(Long persistenceId);
+
+    public List<AppUser> findByFirstName(String firstName, int startIndex, int maxResults);
+
+    public List<AppUser> findByLastName(String lastName, int startIndex, int maxResults);
+
+    public List<AppUser> find(int startIndex, int maxResults);
+
+    public Long countForFindByFirstName(String firstName);
+
+    public Long countForFindByLastName(String lastName);
+
+    public Long countForFind();
+
+    public AppUser newInstance(String firstName, String lastName);
+}
+----
+
+So, in a Groovy script, you can access the data like this:
+
+[source,groovy]
+----
+def users = appUserDAO.find(0, 10) // returns to first tens users ordered by persistenceId
+def johnUsers = appUserDAO.findByFirstName('John', 0, 10) // returns to first tens users with firstName == 'John' ordered by persistenceId
+----
+
+=== Update a Business Data
+
+The example below is the generated code when editing a UserApp address from a contract
+
+`user` is the existing data in the process +
+`userInput` is the contract input of the edition task
+
+[source,groovy]
+----
+if (!userInput?.address) { // As Address is not mandatory it can be null
+	return null
+}
+def addressVar = user.address ?: new com.company.model.Address() // Retrieve the existing address or create a new one
+addressVar.street = { //Use a Closure to resolve the street value
+	if (!userInput?.address?.street) { // Street is mandatory so it can't be null here, protected by a contract constraint, null-check statement is generated anyway
+		return null
+	}
+	def streetVar = addressVar.street ?: new com.company.model.Street() // Retrieve the existing street or create a new one
+	// Assign contract values, note that nullsafe navigators are used even if we know that userInput.address is not null here
+	streetVar.name = userInput?.address?.street?.name
+	streetVar.number = userInput?.address?.street?.number
+	streetVar.additionalInfo = userInput?.address?.street?.additionalInfo
+	return streetVar}() //execute the Closure to assign  the Street value to address
+addressVar.postalCode = userInput?.address?.postalCode
+addressVar.city = userInput?.address?.city
+return addressVar // Return the edited (or new) address
+----
+
+As it is generated code it has to work in many situation so it is not the most concise code.
+Here is another example where it updates the _lastEditedBy_ aggregation relation
+
+[source,groovy]
+----
+//Retrieve aggregated AppUser using its DAO and persistenceId
+def appUserVar = appUserDAO.findByPersistenceId(commentInput?.lastEditedBy?.persistenceId_string?.trim() ? commentInput.lastEditedBy.persistenceId_string.toLong() : null) //commentInput?.lastEditedBy?.persistenceId_string?.trim() checks that the persistenceId_string is not null and not empty after removing all whitspaces
+if (!appUserVar) { // no userApp found for the given persistenceId
+	if (commentInput?.lastEditedBy?.persistenceId_string?.trim() ? commentInput.lastEditedBy.persistenceId_string.toLong() : null) {
+		// Throw an exception to explain that the given persistenceId is invalid
+		throw new IllegalArgumentException("The aggregated reference of type `AppUser` with the persistence id " + commentInput?.lastEditedBy?.persistenceId_string?.trim() ? commentInput.lastEditedBy.persistenceId_string.toLong() : null + " has not been found.")
+	}
+	//Just return null when no persistenceId is given, case of a not mandatory relation
+	return null
+}
+return appUserVar //Return the user found for the given persistenceId
+----
+
+=== Search for Tasks instances
+
+In a Groovy script expression you can access Bonita APIs using the `apiAccessor` provided variable.
+
+[source,groovy]
+----
+def user = apiAccessor.identityAPI.getUserByUserName('john.doe')
+def johnsTasks = apiAccessor.processAPI
+	.searchHumanTaskInstances(new SearchOptionsBuilder(0, 50).with { // using groovy builder
+		filter(HumanTaskInstanceSearchDescriptor.ASSIGNEE_ID, user.id)
+		sort(HumanTaskInstanceSearchDescriptor.DUE_DATE, Order.DESC)
+		done()
+	})
+	.result // returns the 50 first opened tasks assigned to john.doe sorted by due date
+----
+
+=== Get CustomUserInfo value for a user
+
+In a Groovy script expression you can access Bonita APIs using the `apiAccessor` provided variable.
+
+[source,groovy]
+----
+def user = apiAccessor.identityAPI.getUserByUserName('john.doe')
+def customInfo1Value = apiAccessor.identityAPI
+                 .getCustomUserInfo(user.id, 0, 1000)
+                 .find { "customInfo1" == it.getDefinition().getName() }
+                 ?.getValue()
+----
+
++++<a id="create-data-model">++++++</a>+++
+
+=== Create a data model
+
+An advantage of Groovy over Java when implementing a data model is that accessor's methods are not required. In addition, it is possible to use annotations like http://docs.groovy-lang.org/2.4.16/html/gapi/groovy/transform/Canonical.html[@Canonical] to generate _toString_, _equals_ and _hashCode_ methods.
+
+To create a Groovy class, right click on your project, New > Groovy...
+
+[source,groovy]
+----
+package org.company.model
+
+import groovy.transform.Canonical
+
+@Canonical
+class Customer implements Serializable{
+
+    String firstName
+    String lastName
+    LocalDate birthDate
+
+}
+----
+
+This object can then be used as a process variable type for example.
+
+== References
+
+* http://docs.groovy-lang.org/docs/groovy-2.4.16/html/documentation/[Groovy 2.4.16 official documentation]
+* https://mrhaki.blogspot.com/search/label/Groovy%3AGoodness[Groovy Goodness by MrHaki]

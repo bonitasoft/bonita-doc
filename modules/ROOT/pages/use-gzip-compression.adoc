@@ -1,0 +1,64 @@
+= Use gzip compression
+
+How to activate gzip compression for a Bonita Platform. It can improve performance by reducing network load.
+
+This page describes how to activate gzip compression for a Bonita Platform with Tomcat.
+
+== Tomcat configuration
+
+To activate gzip compression for http requests, you need to modify the `server.xml` configuration.
+
+Open `server.xml` and find the Connector configuration corresponding to HTTP. Edit the section to add following parameters:
+
+[source,xml]
+----
+compression="on"
+compressionMinSize="X"
+noCompressionUserAgents="Y"
+compressableMimeType="Z"
+----
+
+| Property | Description | Example |
+|:-|:-|:-|
+| compression | Activates or deactivates gzip compression. | on |
+| compressionMinSize | The minimum size of resources to be compressed. It is not useful to compress resources that are already small. | 2048 (default value) |
+| noCompressionUserAgents | The User Agents for which compressions is not to be used. Some older browseers do not support compression. | gozilla, traviata |
+| compressableMimeType | The MIME types of the resources to be compressed. We recommend that all text files be compressed. | text/html,text/xml |
+
+If you use the Tomcat bundle, the file to edit is `BUNDLE_HOME/server/conf/server.xml`.
+If you use a different package, use the corresponding path; for example on Ubuntu the file is located in `/etc/tomcat8/server.xml`.
+
+Connector configuration:
+
+[source,xml]
+----
+<Connector port="8080" protocol="HTTP/1.1"
+           connectionTimeout="20000"
+           maxThreads="100"
+           redirectPort="8443"
+           maxPostSize="-1"
+           URIEncoding="UTF-8"
+           compression="on"
+           noCompressionUserAgents="gozilla, traviata" />
+----
+
+Official Tomcat documentation for https://tomcat.apache.org/tomcat-8.5-doc/config/http.html[HTTP Configuration].
+
+== Check changes
+
+After you modify the file, restart your application server and test with the following `curl` command:
+`curl -I -H 'Accept-Encoding: gzip' http://`_`ip_address:port`_`/bonita/login.jsp`
+
+Check that the header returned contains the line `Content-Encoding: gzip`. The output should be similar to this:
+
+----
+HTTP/1.1 200
+X-XSS-Protection: 1; mode=block
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+Cache-Control: max-age=36000
+Set-Cookie: JSESSIONID=031D2F9C4DBFAD48A19670AEF83A57E6; Path=/; HttpOnly
+Content-Type: text/html;charset=UTF-8
+Transfer-Encoding: chunked
+Content-Encoding: gzip
+----

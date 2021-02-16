@@ -1,0 +1,26 @@
+= Dependencies
+
+You will find below the list of dependencies used by Bonita.
+
+== Development suite - Other
+
+[discrete]
+==== Bonita Studio
+
+The list of Bonita Studio dependencies are directly available in the Bonita Studio:
+Click on the menu *Help* \-> *About* \-> *Installation Details*
+
+[discrete]
+==== UI Designer
+
+xref:ui-designer-dependencies.adoc[List of dependencies]
+
+=== Bonita Data-Repository
+
+xref:bonita-data-repositories-dependencies.adoc[List of dependencies]
+
+== Runtime
+
+=== Engine
+
+xref:bonita-engine-dependencies.adoc[List of dependencies]

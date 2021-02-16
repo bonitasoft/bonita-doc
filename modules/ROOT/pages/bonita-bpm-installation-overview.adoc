@@ -1,0 +1,54 @@
+= Bonita installation overview
+
+Description of the different options for Bonita installation.
+
+Bonita exists in several http://www.bonitasoft.com/bonita-editions[editions]: Enterprise, Performance, Efficiency, Teamwork, and Community.
+
+For the Bonita Subscription editions: Enterprise, Performance, Efficiency, and Teamwork, you need to xref:licenses.adoc[install a license] during the installation procedure. This license depends on the edition, the deployment environment, the number of cases purchased or the number of cores.
+
+For the Bonita Community edition, no license is needed.
+
+== Bonita Studio
+
+Bonita Studio contains an embedded test platform that includes an Apache Tomcat application server, an h2 database and the Bonita web application (that itself includes Bonita Engine).
+
+To install Bonita Studio you can either use:
+
+* The installer for your operating system (Windows, Mac OS, Linux).
+Used to install Bonita Studio (using a wizard) on your computer. No configuration necessary.
+* The OS independent package. Used to manually set up Bonita Studio.
+The package contains the individual launchers in one .zip file, and creates the same installation environment as the installers.
+
+To know more, go to xref:bonita-bpm-studio-installation.adoc[Bonita Studio installation].
+
++++<a id="platform">++++++</a>+++
+
+== Bonita Platform
+
+Bonita Platform can be installed in several ways:
+
+* If you want to migrate an existing installation to the latest version follow the xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[migration guide].
+* If you want to do a fresh install, get our xref:tomcat-bundle.adoc[prepackaged bundle] that include an Application Server
+* If you want to do a custom installation, see xref:custom-deployment.adoc[Custom Deployment].
+
+For all options, you will need to xref:database-configuration.adoc[configure] Bonita Engine to work with the database of your choice (e.g. PostgreSQL or Oracle).
+
+WARNING:
+Starting from Bonita 7.3.0, there is no more bonita home to store the configuration, all the configuration is in the database. For more information, take a look at xref:BonitaBPM_platform_setup.adoc[Bonita Platform configuration]
+
+
+For detailed information on the Supported Environment Matrix, see the https://customer.bonitasoft.com/support-policies[Support Guide] or http://www.bonitasoft.com/contact-us[ask to be contacted by our commercial team].
+
+== Bonita Docker image
+
+Bonita Platform can be installed in a docker container using the Bonita docker distribution.
+Read xref:bonita-docker-installation.adoc[how to configure and run the container].
+
+== Bonita Engine only image:images/bonita-lab-icon.png[]
+
+If you only need the execution engine you can integrate it two different ways:
+
+* Using the Spring boot starter
+* If you are not using Spring boot, it can be integrated programmatically
+
+This mode of installation is currently in _Lab_ mode, see how to xref:embed-engine.adoc[embed Bonita Engine].

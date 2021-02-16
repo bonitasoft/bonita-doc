@@ -1,0 +1,80 @@
+= Task list in Bonita Administrator Application
+
+This page explains what a user with the _Administrator_ profile can see and do about tasks (and more generally, flow nodes) in link:admin-application-overview[Bonita Administrator Application]. +
+A flow node is an element of a process. It defines an action to be performed (automatic or human). A taks is a flownode done by a person.
+
+Those users can view the list of flow nodes in error, pending tasks, done tasks, assign and unassign a task, do a task for someone else, skip a failed flow node, replay a failed flow node, and write a comment about the case.
+
+Here is a view of the task list:
+image:images/UI2021.1/admin-application-task-list.png[Task list Administrator Application]
+// {.img-responsive}
+
+== View tasks and flow nodes
+
+Tasks and flow nodes are showns in three tabs: _Failed flow nodes_, _Pending tasks_, and _Done tasks_.
+In the "Failed flow nodes", as tasks and other automatic elements can fail, we chose to show them all. +
+When they do not fail, they are usually executing fast and there is no need to show them as there is no action to perform for them. +
+Also, usually, the follow up of the execution of a case is mostly about human tasks. +
+To view all flow nodes in a process or case, the "Process details" and "Case details" give access to a graphical view of the BPMN diagram to follow up on the status. +
+In the "Pending tasks", for each human task, the priority and due date are shown in the list.
+
+== Assign a task
+
+A pending or failed task can be assigned and reassigned to another user if necessary.
+
+. Go to _BPM_>__Tasks__
+. Click on the _Pending tasks_ tab
+. In the row of the task, click on the _View task details_ icon
+. Click on the _Assign_ button
+. In the popup, start typing the name of the user to assign the task to.
+. Select the right suggestion
+. Click on _Assign_
+
+== Unassign a task
+
+. Go to _BPM_>__Tasks__
+. Click on the _Pending tasks_ tab
+. In the row of the task, click on the _View task details_ icon
+. Click on _Unassign_
+. In the confirmation modal window, click on _Unassign_
+
+== Do a task for another user
+
+With the Enterprise, Performance, and Efficiency editions, an Administrator can do a task for another user. +
+This is useful for unblocking a case if the assigned user cannot perform the task.
+
+. Go to _BPM_>__Tasks__
+. Click on the _Pending tasks_ tab
+. In the row of the task, click on the _View task details_ icon
+. If the task is not assigned, first assign it to the person who should do the task.
+. Click on _Do for_
+. In the confirmation modal window, click on _Do the task_
+
+The task is done and traced in the BPM database as though you have done the task "on behalf" of the selected user.
+
+== Skip a failed flow node
+
+If a failed flow node does not impact subsequent flow nodes in a process, it can be skipped. +
+This means that the flow node does not have to be done successfully for the following steps to become available.
+
+. Go to _BPM_>__Tasks__
+. In the row of the failed flow node, click on the _View task details_ icon
+. In "Connectors", one or several connectors show a red "Click here for more details" icon. You can click on the icon to view the stack trace of the issue
+. Click on the _Skip_ button
+. In the confirmation modal window, click on "Skip"
+
+The task is moved from "Failed" to "Done", while the connector stays in the "Failed" state.
+
+== Replay a failed flow node
+
+This feature is available with the Enterprise or the Performance editions.
+
+. Go to _BPM_>__Tasks__
+. In the row of the failed flow node, click on the _View task details_ icon
+. In "Connectors", one or several connectors show a red "Click here for more details" icon. You can click on the icon to view the stack trace of the issue
+. In order for the result of the replay to be different than a new failure, fix any parameter causing the failure
+. Come back to the task details, and click on _Replay_
+. In the popup window, check the connectors you want to replay, and the ones that can be skipped
+. Click on _Replay_
+. Click on _Close_
+. Refresh the flow node details page to view its new state

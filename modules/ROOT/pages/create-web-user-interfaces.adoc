@@ -1,0 +1,61 @@
+= Create web user interfaces (forms)
+:experimental:
+
+Generally, a user usually drives process execution using web interfaces. Bonita provides xref:ui-designer-overview.adoc[the UI Designer] to easily create such interfaces.
+
+NOTE:
+The standard workflow would be to:
+
+* Create the Business Data Model
+* Add business variables to the process definition
+* Generate contracts based on business variables
+* Generate Bonita forms based on contracts
+
+If you have been following this Getting Started tutorial, you have already done the first three steps. Now it's time to create the forms.
+
+
+Start with the process instantiation form:
+
+. Select the process pool
+. Go to menu:Execution[Instantiation form]
+. Click on the pencil icon next to *Target form*. It will create a new form based on the contract (if the form does not already exist) and open the UI Designer in your web browser
+. Rename the form from _newForm_ to _submitClaimForm_
+. Click on *Save* to save the form with its new name
++
+image:images/getting-started-tutorial/create-web-user-interfaces/create-instantiation-form.gif[Create process instantiation form based on contract definition]
+// {.img-responsive .img-thumbnail}
+
+Customize the form appearance. For example, you can switch from a one line text widget to a text area widget:
+
+. Select the _Description_ widget by clicking on it
+. In the *Widget properties*, on the right hand side of the window, click on the *...* icon and select *Switch...*
+. In the drop down list select *Text Area*
+. Click on *Show properties*
+. Click on *Switch*
+. Click on *Save* to save your modifications
++
+image:images/getting-started-tutorial/create-web-user-interfaces/switch-widget.gif[Switch to a different widget type]
+// {.img-responsive .img-thumbnail}
+
+NOTE:
+The xref:widgets.adoc[switch menu option] can be used to replace one widget with another one while keepiing the current configuration.
+
+
+You can now go back to Bonita Studio and create the form for the _Review and answer claim_ user task:
+
+. Select the task
+. Go to menu:Execution[Form]
+. Click on the pencil icon next to *Target form*. It will create a new form based on the contract (if the form does not already exist) and open the UI Designer in your web browser
+. Answer *Yes* to the question presented. This will add widgets to view all the attributes of the business variable in the form
+. Rename the form from _newForm_ to _reviewAndAnswerForm_
+. Select the _Satisfaction Level_ widget and use the delete key to remove it as you don't want it in this form
+. Click on *Save* to save your modifications
+
+Do the same set of operations with the form for _Read the answer and rate it_ task:
+
+. Set the form name to _readAnswerAndRateItForm_
+. Leave all widgets as is, as you want to display both the claim description and the answer, and allow the user to provide a satisfaction level
+
+Execute this new process version and see that the form still offers the option to capture the data required by the contract, but now also displays the data provided at the process start and in previous steps.
+
+In the xref:define-who-can-do-what.adoc[next chapter] you'll assure that individual tasks can only be performed by appropriate users.
