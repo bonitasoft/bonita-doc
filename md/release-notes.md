@@ -183,6 +183,12 @@ Use BPMN 2 importer for model exchange with third-party editors.
 
 ## Bug fixes
 
+### Fixes in Bonita 2021.1-02?? (2021-02-??)
+
+#### Fixes in Bonita Development Suite (Studio and UI Designer)
+
+#### Fixes in Bonita Runtime (including Portal)
+
 ### Fixes in Bonita 2021.1 (2021-01-28)
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
 * STUDIO-3630 - More log messages are needed to debug the SAP Connector
