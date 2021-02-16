@@ -1,0 +1,18 @@
+= Back up Bonita Platform
+
+To provide continuity, regular backups of the platform (clustered or not) is advised.
+
+== Procedure
+
+Any basic one node (non-clustered) installation can be backed up to be restored later.
+In a xref:overview-of-bonita-bpm-in-a-cluster.adoc[Bonita cluster], you need to back up the nodes, the shared database.
+
+A cold backup (total shutdown) is recommended, to avoid losing data being processed during the backup process. Note: make sure your database server is backed up.
+(Please refer to the specific documentation for your database concerning the backup procedure).
+
+. Stop the application server
+. Save the Application Server configuration files modified during Bonita setup.
+. Save the deployed web application (i.e. `bonita.war`) (for Tomcat `[TOMCAT_HOME]/server/webapps/bonita.war`), or you can redeploy all applications at startup.
+If you decide not to save the `webapps` directory, make sure that you have a copy of your Bonita application available.
+. Back up your database (Please refer to the specific documentation for your database concerning the backup procedure).
+. Start the application server.

@@ -1,0 +1,42 @@
+= Role management
+
+Roles can be defined in the organization, attached to users and used to map actors.
+
+Logged on with the Administrator profile, you have rights to manage roles as follows:
+
+== Create a role
+
+. Go to the *Organization* menu and choose *Roles*.
+. Click on the _*Create a role*_ button in the top left corner.
+. In the pop-up window, enter the avatar (picture) to represent the role (optional).
+. Enter the name, the display name, and a description of the role.
+. Click _*Create*_. The new role will be displayed in the list of roles.
+
+== Assign a role to a user
+
+. Go to the *Organization* menu and choose *Users*. The list of users in the organization will be displayed.
+. Click on a _*User*_.
+. Click on _*More*_
+. In *Memberships*, click _*Add*_.
+. Choose the group and role for the user.
+. Click _*Add*_.
+
+== Edit a role
+
+. Go to the *Organization* menu and choose *Roles*.
+. Click a checkbox to select a role.
+. Click _*Edit*_.
+. In the popup window, update the role information.
+. Click _*Save*_.
+
+== Delete a role
+
+. Go to the *Organization* menu and choose *Roles*.
+. Click a checkbox to select a role.
+. Click _*Delete*_.
+. In the popup window, click _*Delete*_.
+
+== More information about a role
+
+. Go to the *Organization* menu and choose *Roles*.
+. Click a checkbox to select a role. A list of users who have this role is displayed.

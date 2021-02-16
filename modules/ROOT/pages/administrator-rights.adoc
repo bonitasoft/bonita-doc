@@ -1,0 +1,14 @@
+= Bonita portal administrator profile
+
+A user mapped to the Administration profile has the maximum rights to manage activity on Bonita Portal.
+
+* xref:profiles-overview.adoc[Manage user rights]
+* xref:manage-a-user.adoc[Manage a user]
+* xref:group.adoc[Manage a group]
+* xref:role.adoc[Manage a role]
+* xref:processes.adoc[Manage a process]
+* xref:cases.adoc[Manage a case]
+* xref:tasks.adoc[Manage a task]
+* xref:subtasks.adoc[Manage a subtask]
+* xref:processes.adoc[Manage a category]
+* xref:organization-in-bonita-bpm-portal-overview.adoc[Import/export an organization]

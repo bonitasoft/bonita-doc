@@ -1,0 +1,22 @@
+= Appearance of page and forms
+
+Bonita allows you to define the appearance of a page or form using themes.
+
+== Apply an application resource theme
+
+Page and form appearance is based on the Bootstrap v3.3.2 CSS framework. To define the appearance of a page or form you can use an application xref:themes.adoc[theme resource], apply a Boostrap theme, or manually add a custom CSS class that you implement.
+By default, pages designed with the UI Designer are deployed in an xref:applications.adoc[application] and use the theme chosen for the application.
+
+== Apply a Boostrap CSS theme
+
+Many Bootstrap CSS themes are available (for example at https://bootswatch.com/).
+
+To apply a Bootstrap theme, download it and add it to your page or form as a xref:assets.adoc[CSS asset]. To see the result, preview your page. Applying a Bootstrap theme as a CSS asset will override the application theme.
+
+== Customize appearance
+
+The appearance of a page or form widget can be modified with a CSS stylesheet.
+
+The UI Designer use the Bootstrap CSS, so the markup provided for widgets uses http://getbootstrap.com/css/#helper-classes[Bootstrap CSS classes]. You can add classes by using the _CSS classes_ property field available for each widget in the whiteboard.
+
+Then, to customize the widget appearance, include a xref:assets.adoc[CSS asset] in your page or form. In this CSS file you can either overwrite the Bootstrap CSS classes or implement the classes you specify in the _CSS classes_ property field.

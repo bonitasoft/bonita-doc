@@ -1,0 +1,18 @@
+= Different process configuration scenarios
+
+The Bonita Studio provides dedicated tooling to configure the different artefacts that are part of a process.
+
+There are two reasons for configuring a process:
+
+* Configuring a process for testing
+* Configuring a process before deployment
+
+Before you can run a process from Bonita Studio for testing, you must configure it. The configuration is partly set implicitly by the Deployment and Web
+preferences set as xref:bonita-bpm-studio-preferences.adoc[Bonita Studio preferences] and is partly set explicitly by
+xref:configuring-a-process.adoc[configuring the process using the configuration wizard].
+
+Before you export a process for deployment, you need to set the initial configuration xref:configuring-a-process.adoc[using the configuration wizard].
+This configuration is exported with the process if you check the Configuration option in the export dialog when you
+xref:import-and-export-a-process.adoc[build a .bar archive].
+If you are using the Enterprise or the Performance edition, you can xref:processes.adoc[update the configuration after deployment].
+For other editions, you can modify the actor mapping only.

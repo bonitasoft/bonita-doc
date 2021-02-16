@@ -1,0 +1,224 @@
+= Bonita Processes administration
+
+Users with the Administrator profile can: install, enable and edit processes as well as categories, forms, entities, parameters, connectors
+
+Logged on as an Administrator, you have the rights to manage a process as follows.
+
+== Install a new process
+
+. Go to the BPM tab
+. Click _*Processes*_
+. Click _*Install new process*_
+. Click to browse to the .bar file to import
+. Click _*Install*_
+
+The .bar file is ready to be resolved and enabled
+
+NOTE: if you try to install the same process twice, a message is displayed: "Process [yourProcessName] in version [yourProcessVersion] already exists."
+
+You can only install a .bar file that was exported from a Bonita Studio of the same minor (7.x) version as your Bonita Portal and Bonita Engine. If you have a .bar file that was exported from an earlier version of Bonita Studio (7.x-1), it will not work with Bonita Engine. Export the process definition as a .bos file from your old Bonita Studio, import in into the new Studio, then export it as a .bar. This is necessary for a .bar that has not been deployed. A process that was developed in an older version of Bonita Studio and is already deployed is migrated automatically when you migrate your platform. However, for future maintenance of the process definition, you are recommended to update all your process bar files to the latest version each time you update your platform.
+
+link:images/videos-6_0/install_an_app_in_bonita_portal.mp4[Watch the Install a process video]
+
+== Resolve a process
+
+Resolving a process means completing the configuration in the Portal and making sure that all dependencies are met. A process has to be resolved before it can be enabled.
+
+To resolve a process, you must complete the configuration of the actor mappings, parameters, forms, and connectors defined for the process. You can also configure other information such as Categories and Scripts, but this is not mandatory for resolving a process.
+
+* *Actor mapping*; Every actor in a process must be mapped to at least one user, group, role or membership.
+* *Parameters*: Every parameter defined in a process must have a value.
+* *Connector definitions*: Every connector definition in a process must have a corresponding Class name.
+* *Business Data Model*: Every business data object defined in a process must have a corresponding model.
+* *Forms*: Every form defined in a process must be mapped to a page or a URL.
+
+To resolve a process:
+
+. Go to BPM tab.
+. Click _*Processes*_,
+. Click on a _*Process*_. The Configuration section of the right panel shows whether there are items to be resolved.
+. Click on _*More*_.
+. A summary of configuration problems is displayed below the process name in a well and warning icons are displayed in the left navigation list.
+. Modify your configuration for each element displayed.
+
+== Enable a process
+
+. Go to the BPM menu tab
+. Click _*Processes*_
+. Click _*Resolved filter*_
+. Select the process
+. Click _*More* button_
+. Click _*Enable*_
+. The activation state changes to "enabled"
+. The process disappears from the disabled filter and is now displayed in the enabled filter
+
+NOTE: You can also select the processes you want to enable by checking the box in the Resolved list, then click _*ENABLE*_ button in the bulk actions section
+
+== Disable a process
+
+Disabling a process blocks the creation of new cases. This does not impact existing cases.
+
+. Go to the BPM tab
+. Click _*Processes*_
+. Click _*Enabled filter*_
+. Select the process
+. Click _*Disable*_
+. The activation state changes to "disabled"
+. The process disappears from enabled filter and is located in the disabled filter
+
+NOTE: You can also disable a process in the more details view, by clicking _*Enabled*_ toggle button.
+
+== Delete a process
+
+NOTE:
+*Note:* A process must be disabled before it can be deleted.
+
+
+WARNING:
+*Warning:* *Beware! Data loss risk!*
+Deleting a process will automatically delete all its cases (on-going and archived alike). Thus, the operation may take a long time, and fail if the transaction timeout is not large enough.
+This feature should only be used on non-production environments.
+*Please proceed at your own risk.*
+
+
+. Go to BPM menu tab
+. Click _*Processes*_
+. Select the process to delete by checking the tickbox next to the process
+. Click _*Delete*_
+
+You can also delete the process in the more details view of a disabled process by clicking _*DELETE*_, then click _*DELETE*_ in the modal window
+
+== Create a category for a process
+
+. Go to BPM tab
+. Select a process in the list
+. Click _*More*_
+. In General, click the pencil next to Categories label
+. In the opened modal, type a new category name then press _*Enter*_ key
+. Click _*Save*_
+
+After you created a category and added to the process, you can add other processes to the category.
+
+== Add a category to a process
+
+. Go to BPM tab
+. Select a process in the list
+. Click _*More*_
+. In General, click the pencil next to Categories label
+. In the opened modal, type a new category name then press _*Enter*_ key, or use arrow keys to browse among exisiting categories
+. Click _*Save*_
+
+== Make start a process available for more users
+
+You need to map more organization entities to the actor labelled _initiator_ in the process definition. To do so:
+
+. Go to the BPM tab.
+. Click _*Processes*_.
+. Select a process in the list.
+. Click _*More*_.
+. Click _*Actors*_ in the left navigation.
+. In the Actors section, click the _*+*_ button in the user, group, role or membership column of the actor line.
+. In the opened popup, click on the dropdown list to select one or several actors. The list displays the first five elements, then a number is displayed representing the other selected entities.
+. Click _*APPLY*_.
+
+NOTE: Notice that only the first 200 actors are displayed in the dropdown.
+
+== Remove an entity from an actor
+
+. Go to the BPM tab.
+. Click _*Processes*_.
+. Select a process in the list.
+. Click _*More*_.
+. Click _*Actors*_ in the left navigation.
+. In the Actors section, click the _*pencil*_ button in the user, group, role or membership column of the actor line.
+. In the opened popup, there is a list of the actors already mapped.
+. Click the _*X*_ button next to the actor, or click _*Remove all*_.
+. A list appears filled with the actors you can to remove. You can undo a removal by clicking _*X*_ button next to the actor or by clicking _*Enable all*_
+. Click _*APPLY*_.
+
+== Modify a parameter in the Administrator profile
+
+NOTE: In versions 7.0.x, this feature is only available for Bonita Enterprise and Performance editions. Starting from version 7.1.0, this feature is available for Bonita Enterprise, Performance and Efficiency editions.
+
+. Go to the BPM tab
+. Click _*Processes*_
+. Select a process
+. Click _*MORE*_
+. Click _*Parameters*_ in the left navigation
+. In the *Value* column, click on the value you want to edit
+. A field appears
+. Click the _*Tick*_ button to validate your change or _*X*_ to dismiss your change.
+
+== Edit a connector implementation
+
+NOTE: In versions 7.0.x, this feature is only available for Bonita Enterprise and Performance editions. Starting from version 7.1.0, this feature is available for Bonita Enterprise, Performance and Efficiency editions.
+
+. Go to the BPM tab
+. Click _*Processes*_
+. Click _*More*_ button
+. Click _*Connectors*_
+. In the connector definitions table, in the actions column, click on the _*Pencil*_
+. Browse to a .zip file containing the new connector implementation
+. Click _*Save*_ to import the new implementation.
+
+== Fix forms
+
+NOTE: For Bonita Enterprise, Performance and Efficiency editions only.
+
+. Go to the BPM tab.
+. Click _*Processes*_.
+. Click _*More*_ button.
+. Click _*Forms*_ in the left navigation.
+. The tables are displayed which list available forms. Click on a red link.
+. A field input appears.
+. Starting to type some text, and any matching names of installed forms will be proposed. If there is no match for the name you enter, it will be considered as a URL.
+. Click the _*Tick*_ button to validate your change or _*X*_ to dismiss your change.
+
+NOTE: You can also upload a form in order to create a new mapping.
+
+== Upload a new form
+
+NOTE: For Bonita Enterprise, Performance and Efficiency editions only.
+
+. Go to the BPM tab.
+. Click _*Processes*_.
+. Click _*More*_ button.
+. Click _*Forms*_ in the left navigation.
+. Click _*Form list*_ tab.
+. A list of form is displayed. These forms are only visible to the current process.
+. Click the _*plus*_ button at the bottom of the list.
+. A file selector popup is displayed.
+. Browse to a .zip containing a form.
+. Click _*NEXT*_, then if your form requires some authorization, it will be displayed.
+. Click _*CONFIRM*_.
+
+== Edit an existing form
+
+NOTE: For Bonita Enterprise, Performance and Efficiency editions only.
+
+. Go to the BPM tab.
+. Click _*Processes*_.
+. Click _*More*_ button.
+. Click _*Forms*_ in the left navigation.
+. Click _*Form list*_ tab.
+. A list of forms is displayed. These forms are only visible to the current process.
+. Click the _*pencil*_ button of a form line.
+. A file selector popup is displayed.
+. Browse to a .zip containing a form
+. Click _*NEXT*_, then if your form requires some authorization, it will be displayed.
+. Click _*CONFIRM*_.
+
+== Edit a script content
+
+NOTE: For Bonita Enterprise, Performance and Efficiency editions only.
+
+. Go to the BPM tab
+. Click _*Processes*_
+. Click _*More*_ button
+. Click _*Scripts*_ in the left navigation
+. A script content tree is displayed.
+. You can search for a script by typing text in the dedicated field
+. Click the _*pencil*_ button next to a script name
+. A popup window is displayed
+. Edit your script content
+. Click _*SAVE*_

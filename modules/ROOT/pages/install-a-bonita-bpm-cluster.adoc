@@ -1,0 +1,234 @@
+= Bonita cluster installation and configuration
+
+Discover how to create a cluster from scratch, convert a single node into a cluster, allow communication between nodes and manage a cluster.
+
+NOTE:
+*Note:* The cluster feature is a Subscription feature for *Enterprise* and *Performance* edition only.
+
+
+WARNING:
+It is possible to manage the lifecycle of a node using the API to connect directly to the node, but this bypasses the load balancer so should be done with care and only in exceptional circumstances.
+
+
+== Note when using the AWS support
+
+Please read the following to ensure that Bonita Cluster works correctly on AWS.
+
+=== IAM role configuration
+
+If you want to use IAM role for EC2 autodiscovery, you need to attach a role to your EC2 instances with a policy allowing "ec2:DescribeInstances" action. For details about IAM Roles for Amazon EC2 see https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html[AWS documentation]
+
+== Create a cluster from scratch
+
+In this part we will create a cluster from scratch. We will initialize the database on which the cluster will run, then we will configure nodes to run on this cluster.
+
+== Allow communication between servers
+
+Bonita cluster uses Hazelcast as the distributed cluster dispatcher layer.
+Hazelcast needs the port 5701 (by default) to be opened on all the servers that compose the cluster.
+Ensure that these ports are opened in all the nodes of your cluster.
+
+[#create_init_bonita_db]
+=== Create and initialize the database for Bonita Platform
+
+In this step you will create and initialize the database for the Bonita Platform cluster using the xref:BonitaBPM_platform_setup.adoc[platform setup tool].
+When done you will have a database with all tables created and with a table `CONFIGURATION` containing all configuration required for the cluster to start.
+
+. Ensure that you meet the xref:hardware-and-software-requirements.adoc[requirements].
+. link:database-configuration.md#database_creation[Create the database].
+. In case you use xref:define-and-deploy-the-bdm.adoc[Business data], link:database-configuration.md#database_creation[create a database for the Business Data].
+. Download a Bonita xref:tomcat-bundle.adoc[Tomcat bundle] or a Bonita xref:wildfly-bundle.adoc[WildFly bundle], and unzip it at some place of your choice.
+. Edit file *`setup/database.properties`* and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of link:BonitaBPM_platform_setup.md#backslash_support[backslash characters].
+
+In the following steps, you will update the configuration files that are in the `setup/platform_conf/initial` folder of the platform setup tool.
+
+. Edit the file `setup/platform_conf/initial/platform_engine/bonita-platform-sp-custom.properties`: Uncomment and set the *`bonita.cluster`* property to `true`, as follows: `bonita.cluster=true`
+. Edit the file `setup/platform_conf/initial/platform_engine/bonita-platform-sp-custom.properties`: +++<a id="disable-hibernate-cache">++++++</a>+++In order to keep consistency between nodes, the Hibernate cache must be disabled:
+Uncomment and change the line:
+   `#bonita.platform.persistence.use_second_level_cache=true`
+ change it to:
+   `bonita.platform.persistence.use_second_level_cache=false`
+. Edit the file `setup/platform_conf/initial/platform_engine/bonita-platform-sp-cluster-custom.properties`: uncomment and set the *`bonita.cluster.name`* property to a name of your own, e.g. `myBPMCluster`, *This name must be unique on the local network if you are using _multicast_*
+. Edit the file `setup/platform_conf/initial/platform_engine/bonita-platform-sp-cluster-custom.properties`: set to `true` one of `bonita.platform.cluster.hazelcast.multicast.enabled` or `bonita.platform.cluster.hazelcast.tcpip.enabled` or `bonita.platform.cluster.hazelcast.aws.enabled`, as follows:
+Uncomment the # properties and set only one of them to `true`, set the others to `false` depending on how you want your nodes to discover each others.
+Example:
++
+[source,properties]
+----
+ bonita.platform.cluster.hazelcast.multicast.enabled=false
+ bonita.platform.cluster.hazelcast.tcpip.enabled=true
+ bonita.platform.cluster.hazelcast.tcpip.members=ipServer01,ipServer02
+----
++
+IMPORTANT: If you don't use `bonita.platform.cluster.hazelcast.multicast.enabled`, *you must uncomment the # properties and set it to `false`* to deactivate it, as follows: `bonita.platform.cluster.hazelcast.multicast.enabled=false`.
+For more information on this take a look at the http://docs.hazelcast.org/docs/3.4/manual/html-single/hazelcast-documentation.html#hazelcast-cluster-discovery[Hazelcast Documentation].
+
+. Copy licenses of all your nodes in `setup/platform_conf/licenses`.
+. Run `setup.sh init` or `setup.bat init` as described in the link:BonitaBPM_platform_setup.md#init_platform_conf[platform setup tool page].
+
+At the end of the script, you should see the following line: "Initial configuration files successfully pushed to database".
+This creates the database tables needed by Bonita platform, stores the configuration into this database, and stores the license files for all your cluster nodes into the database.
+
+If later you need to change the configuration of the node discovery or add new licenses to the Bonita Platform configuration, you can update the configuration by following this link:BonitaBPM_platform_setup.md#update_platform_conf[guide].
+
+[#install_first_node]
+=== Install a first node
+
+. Once you have done all the steps from section *Create and initialize the database for Bonita Platform* above,  run `setup.sh configure` or `setup.bat configure` as described in the link:BonitaBPM_platform_setup.md#run_bundle_configure[Bundle configuration] to have your Tomcat / WildFly bundle configured to point to the right database.
+. Once the bundle is configured, and to avoid unsynchronized versions of the configuration files between several nodes, you are advised to delete
+the folder `[TOMCAT_DIRECTORY]/setup` and its entire content.
+Note:  if you want to keep it for future configuration changes, just move the folder `[TOMCAT_DIRECTORY]/setup` and its entire content outside the `[TOMCAT_DIRECTORY]`
+to use it as your main  link:BonitaBPM_platform_setup.md#init_platform_conf[platform setup tool].
+. If your Bonita installation is behind a proxy or is installed inside a Docker container (mainly in TcpIp or Aws
+discovery modes), you must declare its public address by adding the following property:
+`-Dhazelcast.local.publicAddress=*publicaddress*`, this property should be added in the `[TOMCAT_DIRECTORY]/setup/tomcat-templates/setenv.sh` or `[TOMCAT_DIRECTORY]/setup/tomcat-templates/setenv.bat`
+. When the installation is complete, start Tomcat on the node. This starts Bonita Platform:
++
+[source,bash]
+----
+./start-bonita.sh
+----
+
+. Then start the cluster in the load balancer.
+
+WARNING:
+If you are using apache-tomcat load-balancer whith mod_jk, make sure that jvmRoute attribute is set at your Engine +++<Engine name="Catalina" defaultHost="localhost" jvmRoute="node01">+++and that the jvmRoute attribute value matches your worker name in workers.properties. See official documentation: https://tomcat.apache.org/tomcat-7.0-doc/cluster-howto.html In the server.xml file, for example, change the line to: Engine name="Catalina" defaultHost="localhost" jvmRoute="node01" +++</Engine>+++
+
+. Check that the log file contains messages of the following form:
++
+----
+ March 22, 2016 5:07:07 PM INFO: com.hazelcast.cluster.ClusterService [10.0.5.3]:5701 [myBPMCluster]
+
+ Members [1] {
+         Member [10.0.5.3]:5701 this
+ }
+ [...]
+ March 22, 2016 5:09:18 PM INFO: org.apache.catalina.startup.Catalina start Server startup in 30333 ms
+----
+
+. Then deploy a basic process and check that it runs correctly, to validate the installation.
+
+=== Add a node to the cluster
+
+You can add a new node to a cluster without interrupting service on the existing nodes.
+
+. Copy the entire Tomcat / WildFly directory to another machine.
+. If Hazelcast Node discovery is configured with TCP, update the configuration in database using the xref:BonitaBPM_platform_setup.adoc[platform setup tool], as follows:
+ .. Run the `setup.sh pull` or `setup.bat pull`. This will retrieve the configuration of your platform under `platform_conf/current` folder.
+ .. Edit the file `platform_conf/current/platform_engine/bonita-platform-sp-cluster-custom.properties` and add the node to the list of members as follows for example: `bonita.platform.cluster.hazelcast.tcpip.members=ipServer01,ipServer02,ipServer03`
+. Start the Tomcat on the new node, running `./start-bonita.sh` script
+. Update the load balancer configuration to include the new node.
+The log file will contain messages of the following form:
++
+----
+ March 22, 2016 5:12:53 PM INFO: com.hazelcast.cluster.ClusterService [10.0.5.17]:5701 [myBPMCluster]
+
+ Members [2] {
+         Member [10.0.5.3]:5701
+         Member [10.0.5.17]:5701 this
+ }
+ [...]
+ March 22, 2016 5:12:28 PM INFO: org.apache.coyote.http11.Http11Protocol start Starting Coyote HTTP/1.1 on http-7280
+ March 22, 2016 5:12:28 PM INFO: org.apache.catalina.startup.Catalina start Server startup in 30333 ms
+----
+
+In the log, you can see how many nodes are in the cluster, and their IP addresses and port number. This node that has been started is indicated by `this`.
+The new node is now available to perform work as directed by the load balancer.
+
+== Convert a single node installation into a cluster
+
+In this case you already have a Bonita Platform running as single node installation, you will change the configuration to make it able to have multiple nodes.
+
+=== Update the configuration in database
+
+Some properties of the Bonita Platform needs to be changed in order to make your installation work as a cluster node.
+
+* Download the Bonita xref:deploy-bundle.adoc[Deploy bundle] and unzip it at some place of your choice.
+NOTE:
+The platform setup tool is also present in the Tomcat or WildFly bundle under the `setup` directory.
+
+* Configure it as described in the xref:BonitaBPM_platform_setup.adoc[platform setup tool page]
+* Run the `setup.sh pull` or `setup.bat pull`. This will retrieve the configuration of your platform under `platform_conf/current` folder.
+* Update configuration files that are in the `platform_conf/current` folder of the platform setup tool.
+ ** In `platform_engine/bonita-platform-sp-custom.properties`
+  *** uncomment and set the *`bonita.cluster`* property to `true`.
+ ** In `platform_engine/bonita-platform-sp-cluster-custom.properties`
+  *** uncomment and set the *`bonita.cluster.name`* property to a name of your own, e.g. `myBPMCluster`, *This name must be unique on the local network if you are using _multicast_*
+  *** set one of `bonita.platform.cluster.hazelcast.multicast.enabled`, `bonita.platform.cluster.hazelcast.tcpip.enabled` and `bonita.platform.cluster.hazelcast.aws.enabled` to `true`:
+  uncomment the # properties and set only one of them to `true`, set the others to `false` depending on how you want your nodes to discover each others,
+  for more information on this take a look at the http://docs.hazelcast.org/docs/3.4/manual/html-single/index.html#discovering-cluster-members[Hazelcast Documentation].
+ ** In `platform_engine/bonita-platform-sp-custom.properties`: In order to keep consistency between nodes, the Hibernate cache must be disabled:
+Uncomment and change the line:
+`#bonita.platform.persistence.use_second_level_cache=true`
+  change it to:
+`bonita.platform.persistence.use_second_level_cache=false`
+* Copy licenses of all your nodes in `platform_conf/licenses`
+* Run the `setup.sh push` or `setup.bat push`. This will update in database the configuration of your platform.
+
+=== Configure nodes to run on this cluster
+
+The configuration of the node you were using is still valid. You should be able to run it without any issue.
+
+If your Bonita installation is behind a proxy or is installed inside a Docker container, please refer to the
+<<install_first_node,Install a first node part>>.
+
+== Cluster management
+
+=== Stop a node
+
+Simply run `./stop-bonita.sh` script.
+
+=== Remove a node from a cluster
+
+This section explains how to perform a planned shutdown and remove a node from the cluster.
+
+. Update the load balancer configuration so that no further work is directed to the node. All work that is already in progress on the node that will be shutdown
+will continue until completion. Do not remove the node completely, because the load balancer needs to be informed when current work is finished.
+. Allow current activity instances to complete.
+. Stop the Tomcat server: run `./stop-bonita.sh`
+. Update the load balancer to remove the node from the cluster.
+
+The node is now removed from the cluster.
+
+=== Dismantle a cluster
+
+To dismantle a cluster:
+
+. Disable processes.
+. Allow current activity instances to complete.
+. When each node has finished executing, stop it.
+. When all nodes have been stopped, update the load balancer to remove the cluster.
+
+The individual nodes can now be used as standalone Bonita server, provided the following change in the configuration is done:
+Update file `bonita-platform-sp-custom.properties` located in the `platform_engine` folder of the configuration, use the link:BonitaBPM_platform_setup.md#configuration_files[platform setup tool] to update it and set back the *`bonita.cluster`* property to *`false`*.
+
+See link:BonitaBPM_platform_setup.md#updating_configuration[How to update a Bonita Tomcat Bundle configuration] for more details on updating the configuration.
+
+=== Managing the cluster with Hazelcast
+
+As said before, Bonita cluster uses Hazelcast as the distributed cluster dispatcher layer. Therefore you can use the Hazelcast tools to manage the cluster topology.
+See the http://www.hazelcast.com/docs.jsp[Hazelcast documentation] for details.
+
+Note that a Bonita cluster uses multicast for discovery by default. You can disable this in Hazelcast.
+If you are using multicast, you must ensure that your production environment is insulated from any test environment that might also contain cluster nodes.
+This is to ensure the nodes do not discover each other on the network, if they are not supposed to run inside the same cluster.
+
+It is possible to have more than one cluster on the same network. In this case, you must configure the cluster names to be sure that it is clear which node belongs to which cluster.
+You can configure the cluster name through Hazelcast or by updating `bonita-platform-sp-custom.properties` located in the `platform_engine` folder of the configuration, use the link:BonitaBPM_platform_setup.md#configuration_files[platform setup tool] to update it.
+
+== FAQ
+
+*Q*: I regularly get this warning message when 2 or more nodes are started in cluster:
+
+[source,log]
+----
+2016-06-13 11:41:22.783 +0200 WARNING: org.bonitasoft.engine.scheduler.impl.BonitaJobStoreCMT This scheduler instance (...) is still active but was recovered by another instance in the cluster.  This may cause inconsistent behavior.
+----
+
+*Symptom*:
+The clocks of the servers are not synchronized.
+
+*Resolution*:
+The system time of all cluster nodes must be maintained in synchronization with time servers.
+It is a good idea to have also the db server system time synchronized too.
+Synchronize the system time of all nodes and restart application servers.

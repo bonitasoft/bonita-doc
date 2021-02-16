@@ -1,0 +1,252 @@
+= REST API System API
+
+Get informations on the current session and on localisation/translation.
+
+== i18nlocale
+
+[discrete]
+==== Description
+
+List the available locales.
+
+[discrete]
+==== Representation
+
+[source,json]
+----
+{
+  "name":"_Name of the language_",
+  "locale":"_code of the locale_"
+}
+----
+
+[discrete]
+==== Methods
+
+The methods used for this resource are:
+
+* GET - list available locales
+
+[discrete]
+==== List available locales
+
+* *URL* +
+`/API/system/i18nlocale`
+* *Method* +
+`GET`
+* *Data Params* +
+link:rest-api-overview.md#resource_search[Standard search parameters] are available.
+* *Success Response* +
+The list of locales as JSON
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+[
+  {
+    "name":"English",
+    "locale":"en"
+  },
+  {
+    "name":"Italiano",
+    "locale":"it"
+  },
+  {
+    "name":"Deutsch",
+    "locale":"de"
+  }
+]
+----
+
+== i18ntranslation
+
+[discrete]
+==== Description
+
+Get the translations for the specified locale.
+
+[discrete]
+==== Representation
+
+[source,json]
+----
+{
+  "value":"_the translation_",
+  "key":"_the key of the translation_"
+}
+----
+
+[discrete]
+==== Methods
+
+The methods used for this resource are:
+
+* GET - the translations for the specified locale
+
+[discrete]
+==== List available translations
+
+Returns all translations of the product. If a locale is specified in the filter, that translation for that locale are returned. if no locale is specified, the translations in English are returned.
+
+* *URL* +
+`/API/system/i18ntranslation`
+* *Method* +
+`GET`
+* *Data Params* +
+link:rest-api-overview.md#resource_search[Standard search parameters] are available. +
+_Example_: `/API/system/i18ntranslation?p=0&c=2&f=locale%3dde`
+* *Success Response* +
+The list of translations as JSON
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+[
+  {
+    "value":" Um dies zu tun, gehen Sie zu %entitymappingprofilelink%.",
+    "key":" To do so, go to %entitymappingprofilelink%."
+  }, {
+    "value":" Um dies zu tun, gehen Sie zu %profilelink%.",
+    "key":" To do so, go to %profilelink%."
+  }
+]
+----
+
+== Session
+
+[discrete]
+==== Description
+
+Get the current session.
+
+[discrete]
+==== Identifier
+
+_unusedid_, the id is not used, the current session is always returned
+
+[discrete]
+==== Representation
+
+[source,json]
+----
+{
+  "user_id":"_id of the user_",
+  "user_name":"_name of the user_",
+  "session_id":"_id of the session_",
+  "conf":"_session configuration_",
+  "is_technical_user":"_true if the user is the technical user, false otherwise_",
+  "version":"_product version_"
+}
+----
+
+[discrete]
+==== Methods
+
+The methods used for this resource are:
+
+* GET - get the current session
+
+[discrete]
+==== Get the current session
+
+* *URL* +
+`/API/system/session/unusedid`
+* *Method* +
+`GET`
+* *Success Response* +
+The session in JSON
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+{
+  "user_id":"12",
+  "user_name":"william.jobs",
+  "session_id":"2885803778329414975",
+  "conf":"[\"D7A27EA0483FBAF903BD61BD16D70EF610DBE6D4\"]",
+  "is_technical_user":"false",
+  "version":"6.4.0"
+}
+----
+
+== Tenant
+
+[discrete]
+==== Description
+
+Pause and resume tenant services in order to do maintenance on a tenant.
+
+[discrete]
+==== Identifier
+
+_unusedid_, the id is not used, the current tenant is always returned
+
+[discrete]
+==== Representation
+
+[source,json]
+----
+{
+  "paused":"_true if the tenant is paused, false otherwise_",
+  "id":"_id of the tenant_"
+}
+----
+
+[discrete]
+==== Methods
+
+The methods used for this resource are:
+
+* GET - get the current tenant
+* PUT - pause or resume the tenant
+
+[discrete]
+==== Get the current tenant
+
+* *URL* +
+`/API/system/tenant/unusedid`
+* *Method* +
+`GET`
+* *Success Response* +
+The tenant id with its status in JSON
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+{
+  "paused":"false",
+  "id":"1"
+}
+----
+
+[discrete]
+==== Pause or resume the current tenant
+
+* *URL* +
+`/API/system/tenant/:tenantId`
+* *Method* +
+`PUT`
+* *Request Payload*
++
+[source,json]
+----
+{
+  "paused":"true"
+}
+----
++
+or
++
+[source,json]
+----
+{
+  "paused":"false"
+}
+----
+
+* *Success Response*
+ ** *Code*: 200

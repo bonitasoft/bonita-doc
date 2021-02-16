@@ -1,0 +1,314 @@
+= Database creation and configuration for Bonita engine and BDM
+
+This page describes the steps to create and customize the databases for Bonita Engine and Business Data Model in the Platform installation.
+
+== Database usage
+
+Bonita uses an RDBMS (Relational DataBase Management System) for the following purposes:
+
+* One database schema is required by Bonita Engine to store information about deployed process definitions, process configurations, history of process execution, users, as well as Bonita Platform configuration information.
+* We recommend that you configure a different database schema if your project uses xref:define-and-deploy-the-bdm.adoc[business data].
+
+Bonita supports MySQL, PostgreSQL, SQL Server, and Oracle RDBMSs.
+You can find the list of RDBMSs versions supported on the xref:hardware-and-software-requirements.adoc[supported database list] page.
+
+== Default H2 database
+
+Bonita Studio, the WildFly bundle, the Tomcat bundle, and the deploy bundle come by default with an embedded H2 RDBMS. The database is automatically created at first startup, and can be used for all purposes described earlier.
+
+However, H2 is only suitable for testing purposes. When building a production environment, you must switch to another RDBMS.
+
+== Steps to switch to another RDBMS
+
+WARNING:
+Please note this procedure cannot be performed using the Bonita Studio. The Bonita Studio can run only on the H2 Database.
+To use Bonita on another RDBMS, please use a xref:_basic-bonita-platform-installation.adoc[bundle] or set up a xref:deploy-bundle.adoc[standalone server].
+
+
+Here are the steps to follow. They are the same for the engine database and the business data database:
+
+. Create the database
+. Customize RDBMS to make it work with Bonita
+. Add the JDBC driver to the bundle if the database is proprietary
+. Configure the bundle with database information
+
+Steps 1 and 2 are detailed further down this page, steps 3 and 4 are part of the configuration part of xref:tomcat-bundle.adoc[Tomcat bundle] and xref:wildfly-bundle.adoc[WildFly bundle] pages.
+
+WARNING:
+All RDBMSs require <<specific_database_configuration,specific customization>>, which must be done before you complete your installation. +
+If you do not complete the specific configuration for your RDBMS, your installation may fail.
+
+
+WARNING:
+There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft for the Tomcat bundle & inside Deploy bundle for Tomcat) and Microsoft SQL Server driver (refer to: https://msdn.microsoft.com/en-us/library/aa342335.aspx[MSDN note], http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html[Bitronix note]). +
+Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. +
+We recommend that you use the WildFly bundle provided by Bonitasoft.
+*Note*: This limitation disappears in the 7.9 release.
+
+
++++<a id="proprietary_jdbc_drivers">++++++</a>+++
+
+=== Proprietary Jdbc drivers
+
+Bonita provides out of the box the Jdbc drivers for H2, PostgreSQL and MySQL. For other RDBMS, you have to retrieve the related Jdbc drivers.
+
+==== SQL Server
+
+. Download the zip package of https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774[Microsoft SQL Server JDBC Driver 6.0] and unzip it.
+. Get the `sqljdbc42.jar` file from `%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc_6.0\enu\jre8\`
+
+==== Oracle Database
+
+WARNING: Oracle drivers have the same name but are different from one version to the other. Make sure you use the one that works with your Oracle Database version.
+
+* For Oracle _12.1.0.2_, download https://www.oracle.com/database/technologies/jdbc-upc-downloads.html[ojdbc7.jar]( make sure it is the offical driver by checking the SHA1 Checksum: 7c9b5984b2c1e32e7c8cf3331df77f31e89e24c2 )
+* For Oracle _12.1.0.1_, download https://www.oracle.com/database/technologies/jdbc-drivers-12c-downloads.html[ojdbc7.jar] ( make sure it is the offical driver by checking the SHA1 Checksum: a2348e4944956fac05235f7cd5d30bf872afb157 )
+* For Oracle 11.2.0.x, download https://www.oracle.com/database/technologies/jdbcdriver-ucp-downloads.html[ojdbc6.jar] ( make sure it is the offical driver by checking the SHA1 Checksum: a483a046eee2f404d864a6ff5b09dc0e1be3fe6c )
+* Here is the list of all [jdbc-downloads] (https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html)
+
++++<a id="database_creation">++++++</a>+++
+
+=== Create the database(s)
+
+The first step in configuring Bonita with your RDBMS is to create the new databases (i.e. schemas): one for engine data, and another one, optionally, if you use business data.
+
+To do so, you need a RDBMS user account that has sufficient privileges (i.e. privileges to create new schema).
+
+Also, note that the owner of the new schemas must own the following privileges:
+
+* CREATE TABLE
+* CREATE INDEX
+* SELECT, INSERT, UPDATE, DELETE on created TABLE
+
+NOTE:
+CREATE TABLE and CREATE INDEX privileges are not required after first start in normal use. +
+If the same SQL user is used with the xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[migration tool], then this user needs such grants.
+
+
+To create the database(s), we recommend that you refer to your RDBMS documentation:
+
+* http://www.postgresql.org/docs/9.3/static/app-createdb.html[PostgreSQL]
+* https://docs.oracle.com/cd/E11882_01/server.112/e25494/create.htm#ADMIN002[Oracle database]
+* https://technet.microsoft.com/en-us/library/dd207005(v=sql.110).aspx[SQL Server]
+* http://dev.mysql.com/doc/refman/5.5/en/database-use.html[MySQL]
+
+Your database(s) must be configured to use the UTF-8 character set.
+Also, you are recommended to configure the database(s) to be case-insensitive so that searches in Bonita Portal, Bonita REST API and Bonita Engine API are case-insensitive.
+
++++<a id="specific_database_configuration">++++++</a>+++
+
+=== Customize RDBMS to make it work with Bonita
+
+==== PostgreSQL
+
+Configure the database to use UTF-8.
+
+Edit `postgresql.conf` and set a non-zero value for `max_prepared_transactions`. The default value, 0, disables prepared transactions, which is not compatible with Bonita Engine. +
+The value should be at least as large as the value set for `max_connections` (default is typically 100). +
+See the https://www.postgresql.org/docs/9.3/static/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS[PostgreSQL documentation] for details.
+
+==== Oracle Database
+
+Make sure your database is configured to use the AL32UTF8 character set.
+If your database already exists, see the Oracle documentation for details of how to http://docs.oracle.com/cd/E11882_01/server.112/e10729/ch11charsetmig.htm#NLSPG011[migrate the character set].
+
+Bonita Engine uses datasources that handle global transactions that span resources (XADataSource), so the Oracle user used by Bonita Engine, requires some specific privileges, and there are also specific settings for XA activation.
+
+===== *Important information for a successful connection*
+
+The procedure below is used to create the settings to enable Bonita Engine to connect to the Oracle database.
+
+It is assumed in the procedure that:
+
+* Oracle product is already installed and running
+* An 'Oracle' OS user is already created
+* A database already exists
+* The environment is already set:
++
+----
+  ORACLE_HOME=/u01/app/oracle/product/11.2.0/dbhome_1
+  ORACLE_SID=...
+----
+
+. Connect to the database as the System Administrator.
++
+[source,bash]
+----
+oracle@ubuntu:~$ sqlplus / as sysdba
+----
+
+. Check that the following components exist and are valid: +
+SQL query >
++
+[source,sql]
+----
+select comp_name, version, status from dba_registry;
+----
++
+|===
+| Comp_name | Version | Status
+
+| Oracle Database Catalog Views
+| 11.2.0.1.0
+| VALID
+
+| Oracle Database Packages and Types
+| 11.2.0.1.0
+| VALID
+
+| JServer JAVA Virtual Machine
+| 11.2.0.1.0
+| VALID
+
+| Oracle XDK
+| 11.2.0.1.0
+| VALID
+
+| Oracle Database Java Packages
+| 11.2.0.1.0
+| VALID
+|===
+
+. Add XA elements:
++
+SQL query >
++
+[source,sql]
+----
+@/u01/app/oracle/product/11.2.0/dbhome_1/javavm/install/initxa.sql
+----
++
+This only needs to be done once, after the installation of Oracle.
+
+. Create the database user to be used by the Bonita Engine and grant the required rights:
++
+SQL query >
++
+[source,sql]
+----
+@/u01/app/oracle/product/11.2.0/dbhome_1/rdbms/admin/xaview.sql
+----
++
+The following queries must be done for each new user: i.e. one user = one database schema.
++
+SQL query >
++
+[source,sql]
+----
+CREATE USER bonita IDENTIFIED BY bonita;
+GRANT connect, resource TO bonita IDENTIFIED BY bonita;
+GRANT select ON sys.dba_pending_transactions TO bonita;
+GRANT select ON sys.pending_trans$ TO bonita;
+GRANT select ON sys.dba_2pc_pending TO bonita;
+GRANT execute ON sys.dbms_system TO bonita;
+GRANT select ON sys.v$xatrans$ TO bonita;
+GRANT execute ON sys.dbms_xa TO bonita;
+GRANT FORCE ANY TRANSACTION TO bonita;
+----
+
+==== SQL Server
+
+WARNING:
+*Reminder:* There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft in the Tomcat bundle and in the Tomcat directories of the Deploy bundle) and the Microsoft SQL Server driver
+(refer to: https://msdn.microsoft.com/en-us/library/aa342335.aspx[MSDN note], http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html[Bitronix note]).
+Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the WildFly bundle provided by Bonitasoft.
+*Note*: This limitation disappears in the 7.9 release.
+
+
+===== XA Transactions
+
+To support XA transactions, SQL Server requires a specific configuration.
+You can refer to https://msdn.microsoft.com/en-us/library/aa342335(v=sql.110).aspx[MSDN] for more information.
+Here is the list of steps to perform (as an example, the database name BONITA is used):
+
+. Download the zip package of https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774[Microsoft SQL Server JDBC Driver 6.0] and unzip it.
+. Copy the `sqljdbc_xa.dll` from `%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc_6.0\enu\xa\x64\` (x64 for 64 bit version of Windows, x86 for 32 bit version of Windows) to `%SQLSERVER_INSTALL_ROOT%\MSSQL13.<instance_name>\MSSQL\Binn\.`
+. Copy/paste the content of `install.sql` file (located in `%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc\6.0\enu\xa`) to SQL Server Management Studio's Query Editor.
+. Execute the query in the Query Editor.
+. To confirm successful execution of the script, open the "Object Explorer" and go to: *Master* > *Programmability* > *Extended Stored Procedures*. +
+You should have 12 new procedures, each with a name starting with `dbo.xp.sqljdbc_xa_`.
+. Assign the new role 'SqlJDBCXAUser' to the user who owns the Bonita Engine database (`bonitadev` in our example). To do so, execute the following commands in SQL editor:
++
+[source,sql]
+----
+USE master;
+GO
+CREATE LOGIN bonitadev WITH PASSWORD = 'secret_password';
+GO
+CREATE USER bonitadev FOR LOGIN bonitadev;
+GO
+EXEC sp_addrolemember [SqlJDBCXAUser], 'bonitadev';
+GO
+----
+
+. In the Windows "Start" menu, select *Administrative Tools*\-> *Services*.
+. In the "Services" window, make sure that the *Distributed Transaction Coordinator* service is set to start automatically. If it's not yet started, start it.
+. Make sure that the other services it depends on, namely "Remote Procedure Call" and "Security Accounts Manager", are also set to start automatically.
+. Run the `dcomcnfg` command, or go to the "Start" menu, then Administrative Tools > Component Services.
+. In the left navigation pane, navigate to *Component Services* > *Computers* > *My Computer* > *Distributed Transaction Coordinator*.
+. Select and right-click on _*Local DTC*_ and then _*Properties*_.
+. Click on _*Security*_ tab. Ensure that the checkbox for *Enable XA Transactions* is checked.
+. Click _*Apply*_, then click _*OK*_
+. Then stop and restart SQLServer to ensure it syncs up with the MS DTC changes.
+. Create the BONITA database: `CREATE DATABASE BONITA GO`.
+. Set `bonitadev` as owner of BONITA database (use, for example, 'Microsoft SQL Management Studio')
+
+===== Recommended configuration for lock management
+
+Run the script below to avoid deadlocks:
+
+[source,sql]
+----
+ALTER DATABASE BONITA SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+ALTER DATABASE BONITA SET ALLOW_SNAPSHOT_ISOLATION ON
+ALTER DATABASE BONITA SET READ_COMMITTED_SNAPSHOT ON
+ALTER DATABASE BONITA SET MULTI_USER
+----
+
+See https://msdn.microsoft.com/en-us/library/ms175095(v=sql.110).aspx[MSDN].
+
+==== Recommended configuration for in-doubt xact resolution
+
+Run the script below to avoid that the SQL Server changes the status of databases to SUSPECT during database server startup when in-doubt XA transactions are found. +
+The value 2 in the block below means _presume abort_. +
+To minimize the possibility of extended down time, an administrator might choose to configure this option to presume abort, as shown in the following example
+
+[source,sql]
+----
+sp_configure 'show advanced options', 1
+GO
+RECONFIGURE
+GO
+sp_configure 'in-doubt xact resolution', 2
+GO
+RECONFIGURE
+GO
+sp_configure 'show advanced options', 0
+GO
+RECONFIGURE
+GO
+----
+
+See https://msdn.microsoft.com/en-us/library/ms179586%28v%3Dsql.110%29.aspx[in-doubt xact resolution Server Configuration Option].
+
+==== MySQL
+
+===== Maximum packet size
+
+MySQL defines a maximum packet size on the server side. The default value for this setting is appropriate for most standard use cases.
+However, you need to increase the packet size if you see the following error:
+`Error: 1153 SQLSTATE: 08S01 (ER_NET_PACKET_TOO_LARGE) Message: Got a packet bigger than 'max_allowed_packet' bytes`
+
+You need to update the file `my.ini` (for Windows) or `my.cnf` (for Linux) to avoid the `ER_NET_PACKET_TOO_LARGE` problem.
+Look for `max_allowed_packet` setting and increase the value.
+
+For more information, see the http://dev.mysql.com/doc/refman/5.5/en/packet-too-large.html[MySQL website].
+
+===== Surrogate characters not supported
+
+MySQL does not support https://en.wikipedia.org/wiki/Universal_Character_Set_characters#Surrogates[surrogate characters].
+If you want to use surrogate characters in your processes, you need to use another type of database.
+
+=== Bundle database configuration
+
+Now that your databases are created and customized to work with Bonita, you are ready to configure Bonita bundles, either the xref:tomcat-bundle.adoc[Tomcat bundle] or the xref:wildfly-bundle.adoc[WildFly bundle].
