@@ -45,6 +45,6 @@ Notes:
 1. Bonita can be executed on Java 8 or 11. All development artifacts (connectors, REST API extensions, etc) must be compiled with Java 8 byte code (target version).
 1. Memory usage: In a Studio, by default, the embedded Tomcat server is started with a maximum memory allocation set to 521Mo. Depending on your usage you may need to [increase this value](bonita-bpm-studio-installation.md).
 1. Your database must be configured to use the UTF-8 character set.
-1. MySQL must be configured to use UTF-8 (utfmb3). It is the only supported charset.
-MySQL must be configured with innoDB storage engine. Even if the 5.5.x line is recommended, tests have shown that Bonita can run with MySQL 5.6.x and 5.7.x (please make tests prior to using these versions, especially when using exotic encoding/charset).
+1. MySQL must be configured to use UTF-8, we recommand using `utf8mb4` because `utf8mb3` is deprecated, see [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-utf8mb3.html).
+MySQL must be configured with innoDB storage engine.
 1. Oracle must be configured using AL32UTF8 character set to store properly all *Char* data
