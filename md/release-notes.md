@@ -50,6 +50,10 @@ And the technical components of Bonita will keep their semantic versioning numbe
 
 ## Now, for the brand new values added
 
+::: info
+![videos](images/tv.png)  Discover what is new in Bonita 2021.1 thanks to these short videos in [English](https://www.youtube.com/playlist?list=PLvvoQatxaHOOcS6mu3PUFmVFd1lItLaXs), [French](https://www.youtube.com/playlist?list=PLvvoQatxaHOPWv6rMQPNIxzZjW6BNg75K), or [Spanish](https://www.youtube.com/playlist?list=PLvvoQatxaHOMepAeo0jDrIR9hHfzK1NPn)!
+:::
+
 <a id="administrator-app"/>
 
 ### New Bonita Administrator Application available
