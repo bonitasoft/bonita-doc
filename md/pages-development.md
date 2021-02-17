@@ -5,7 +5,7 @@ Displayed in a browser, a [page](pages.md) is intended for use in applications.
 
 ## Provided pages
 You do not need to create all your pages from scratch. Bonita already provides some pages.  
-Bonita Portal "Ressources" section lists all the non-UI Designer-made pages, that can be reused as is in an application.
+Bonita Portal "Resources" section lists all the non-UI Designer-made pages, that can be reused as is in an application.
 By downloading the Bonita User and Administrator applications from Bonita Studio Welcome page, you also download Bonita pages created with Bonita UI Designer.  
 Those pages can be customized and added to an application.
 
