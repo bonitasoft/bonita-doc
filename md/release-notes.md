@@ -2,6 +2,10 @@
 
 ## New values added
 
+::: info
+![videos](images/tv.png)  Discover what is new in Bonita 7.9 thanks to these short videos in [English](https://www.youtube.com/playlist?list=PLvvoQatxaHOMxnu-1S2lZ_NXk1Brq_WBK), [French](https://www.youtube.com/playlist?list=PLvvoQatxaHOMmpQL1nQTz8NPsX6W6GUId), or [Spanish](https://www.youtube.com/playlist?list=PLvvoQatxaHOP3QPSvmQhzfQtuw3mqMdHS)!
+:::
+
 <a id="improve-form-generation"/>
 
 ### Low code application development: business data management from the Studio to the UI Designer
