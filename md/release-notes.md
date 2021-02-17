@@ -183,11 +183,23 @@ Use BPMN 2 importer for model exchange with third-party editors.
 
 ## Bug fixes
 
-### Fixes in Bonita 2021.1-02?? (2021-02-??)
+### Fixes in Bonita 2021.1-0218 (2021-02-18)
 
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
 
+* STUDIO-3830 - Performance decreases direly as the number of diagrams and process definitions in the project increases 
+* STUDIO-3835 - Expression dialog is slow to open 
+* STUDIO-3819 - Documentation generation is missing task contract inputs  
+* STUDIO-3766 - Missing scroll bar on BDM editor queries table  
+* STUDIO-3800 - Validation error in a process when the call Activity does not have a version  
+* UID-364 - When the first fileUpload widget is removed from a collection, the new first widget still displays the file chosen in the removed item
+
 #### Fixes in Bonita Runtime (including Portal)
+
+* RUNTIME-69 - LDAP Synch: NullPointerException during manager synchronization makes synchronization fail and exit
+* RUNTIME-63 - Different xstream 1.4.14 and 1.4.13 versions between Bonita 7.11.4 and 7.12.0
+* RUNTIME-62 - Only finished gateway should be selected as a recover candidate
+* RUNTIME-50 - LDAP Synch: LDAP group objectclass check should be case insensitive
 
 ### Fixes in Bonita 2021.1 (2021-01-28)
 #### Fixes in Bonita Development Suite (Studio and UI Designer)
