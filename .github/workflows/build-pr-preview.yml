@@ -12,7 +12,7 @@ jobs:
   build_preview:
     runs-on: ubuntu-20.04
     env:
-      COMPONENT_NAME: bici
+      COMPONENT_NAME: bonita
       # Except if you want to test in progress work that your content depends on, keep it set to master
       DOC_SITE_BRANCH: master
       PR_NUMBER: ${{ github.event.pull_request.number }}
