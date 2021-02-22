@@ -12,7 +12,7 @@ xref:release-notes.adoc[[.card-title]#Release note {varVersion}# [.card-body]#pa
 
 [.card.card-index]
 --
-xref:release-notes.adoc#feature-transfer[[.card-title]#Stronger Open Source DNA# [.card-body]#pass:q[Everything gets clear between the Community and Enterprise editions .]#]
+xref:release-notes.adoc#feature-transfer[[.card-title]#Stronger Open Source DNA# [.card-body]#pass:q[Everything gets clear between the Community and Enterprise editions.]#]
 --
 
 [.card.card-index]
