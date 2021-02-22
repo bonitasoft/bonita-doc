@@ -203,22 +203,7 @@ Then restart Bonita Studio.
 ### OutOfMemory error in Bonita Studio embedded Tomcat server
 
 When using connectors having a large amount of dependencies you may encounter some memory issue with the default `-Xmx` used for the tomcat server.  
-You can increase this value in Studio preferences -> Server settings -> Tomcat Maximum memory allocation.  
-
-### Bonita Studio Welcome page stays blank on Linux (Ubuntu/Debian)
-
-If the Welcome page displays fully white when you start-up your Bonita Studio:
-
-<img src="bonita/images/${varVersion}/studio_welcome_page_ko.png" width="850px"/>
-
-just install the missing packet libwebkitgtk by running the following command:
-```shell
-sudo apt-get install libwebkitgtk-1.0-0
-```
-
-Then the welcome page should display well, like this:
-
-<img src="bonita/images/${varVersion}/studio_welcome_page_ok.png" width="850px"/>
+You can increase this value in Studio preferences -> Server settings -> Tomcat Maximum memory allocation.
 
 
 #### Bonita Studio installation fail due to JVM errors
