@@ -7,10 +7,14 @@ There are two main types of deployment
 using a Bonita bundle
 * Bonita Portal and Bonita Engine running on two different application servers
 
-## Foreword
-It is highly recommended to use the provided Tomcat or WildFly bundles in order to carry out these deployments
-successfully.
+::: warning
+The deployment of Bonita Portal and Bonita Engine running on two different application servers is **deprecated**.
+It will not be supported starting from **Bonita version 2021.2**.   
+:::
 
+## Foreword
+It is highly recommended using the provided Tomcat or WildFly bundles in order to carry out these deployments
+successfully.
 
 ## Bonita Portal + Bonita Engine on the same application server
 
