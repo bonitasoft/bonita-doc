@@ -22,22 +22,22 @@ xref:release-notes.adoc#admin-app[[.card-title]#New Bonita Administrator applica
 
 [.card.card-index]
 --
-xref:release-notes.adoc#maintenance-compatibility[[.card-title]#Maintenance versions compatibility in the development suite# [.card-body]#pass:q[No need to update your project when you use a more recent maintenance version of the Studio.]#]
+xref:release-notes.adoc#maintenance-compatibility[[.card-title]#Maintenance versions compatibility# [.card-body]#pass:q[Teams can work on the same Bonita project with different Bonita Studio maintenance versions.]#]
 --
 
 [.card.card-index]
 --
-xref:release-notes.adoc#simplified-script[[.card-title]#Simplified expression editor# [.card-body]#pass:q[Easy business rules creation with a drag-and-drop access to business data.]#]
+xref:release-notes.adoc#simplified-script[[.card-title]#Simplified expression editor# [.card-body]#pass:q[Business rules made accessible to business users.]#]
 --
 
 [.card.card-index]
 --
-xref:release-notes.adoc#fault-tolerance-mechanism[[.card-title]#Fault tolerance mechanism# [.card-body]#pass:q[A new mechanism to recover from database or network outages.]#]
+xref:release-notes.adoc#fault-tolerance-mechanism[[.card-title]#Fault tolerance mechanism# [.card-body]#pass:q[A new mechanism to recover from exceptional issues and ensure data resilience.]#]
 --
 
 [.card.card-index]
 --
-xref:release-notes.adoc#SSO-create-users[[.card-title]#Create Bonita users from SSO authenticated users# [.card-body]#pass:q[If the user is known by the SSO, let it become a Bonita user too.]#]
+xref:release-notes.adoc#SSO-create-users[[.card-title]#Create a new user automatically in Bonita# [.card-body]#pass:q[If the user is known by the SSO, let it become a Bonita user too.]#]
 --
 
 [.card-section]
@@ -49,17 +49,17 @@ xref:getting-started-tutorial.adoc[[.card-title]#Getting started tutorial# [.car
 
 [.card.card-index]
 --
-xref:diagram-overview.adoc[[.card-title]#Process diagram overview# [.card-body]#pass:q[A definition of the logic executing in the background of th application.]#]
+xref:diagram-overview.adoc[[.card-title]#Process diagram overview# [.card-body]#pass:q[A BPMN definition of the logic executing in the background of th application.]#]
 --
 
 [.card.card-index]
 --
-xref:key-concepts.adoc[[.card-title]#Key concepts# [.card-body]#pass:q[All the concepts needed to create a Living Application.]#]
+xref:key-concepts.adoc[[.card-title]#Key concepts# [.card-body]#pass:q[All the concepts needed to create a Bonita automation project.]#]
 --
 
 [.card.card-index]
 --
-xref:ui-designer-overview.adoc[[.card-title]#UI Designer overview# [.card-body]#pass:q[A presentation of the tool that allows you to create pages, forms, and more.]#]
+xref:ui-designer-overview.adoc[[.card-title]#UI Designer overview# [.card-body]#pass:q[A presentation of the tool that allows you to create pages, forms, and all UI-related artifacts.]#]
 --
 
 [.card.card-index]
@@ -69,7 +69,7 @@ xref:bonita-bpm-studio-installation.adoc[[.card-title]#Bonita Studio installatio
 
 [.card.card-index]
 --
-xref:tomcat-bundle.adoc[[.card-title]#Basic Bonita Runtime installation# [.card-body]#pass:q[Create your testing, production, and back-up environments.]#]
+xref:tomcat-bundle.adoc[[.card-title]#Basic Bonita Runtime installation# [.card-body]#pass:q[Create Production and non-Production environments to execute your Bonita automation project.]#]
 --
 
 [.card.card-index]
