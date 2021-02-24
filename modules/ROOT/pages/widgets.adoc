@@ -230,7 +230,8 @@ You can use a variable to hold the resulting data after success or failure.
 
 For pages that are displayed in a task or process context, the button widget can be used to submit a form, completing the human task or starting a process instance. For form submission, you need to define only the data to send. The URL is extracted from the context. When using the `Submit task` action, you can choose to automatically assign the task to the current user. It will assign and execute the task in a single action.
 
-====warning
+[WARNING]
+====
 *:fa-exclamation-triangle:* The Tasklist of the Bonita User App does not take that property into account and it is still required to `take` a task in order to execute it.
 ====
 
@@ -282,8 +283,8 @@ You can customize default display for zebra-striping or bordered. Here is an exa
 
 This styling can be done in the theme.css file in Bonita Studio part to customize *all* the tables. You need to use the following css selector:
 
-....
-```
+[source,css]
+----
 .table-striped > tbody > tr:nth-of-type(odd) {
   // Put you custome styling here
   background-color: chartreuse;
@@ -293,14 +294,14 @@ This styling can be done in the theme.css file in Bonita Studio part to customiz
   // Put you custome styling here
   background-color: black;
 }
-```
-....
+----
 
 In some case, you want override your theme to display custom style for only *one specific table*, to do this:
 
 * For table widget, in CSS Classes in property panel, add a class, `zebra-custom` for example
 * Add the following class in style.css asset
 +
+[source,css]
 ----
  .zebra-custom .table-striped > tbody > tr:nth-of-type(odd) {
    // Put you custome styling here
@@ -407,7 +408,8 @@ You can display a document in a modal dialog box or directly in a page.
 
 The previewable documents are limited to documents supported by the end user browser (by default pdf and images on usual browsers). Documents that are not previewable are prompted to be downloaded.
 
-====warning
+[WARNING]
+====
 *:fa-exclamation-triangle:* If you create a custom FileViewer: edit the `box-viewer.directive.js` file from the custom widget editor, and replace `pbFileViewer` by the name of your custom FileViewer prefixed by `custom` (for instance `customFileViewerSmart`).
 Limitation: adding several types of `FileViewer` in a page is not supported.
 ====

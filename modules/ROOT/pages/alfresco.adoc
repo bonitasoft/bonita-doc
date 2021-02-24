@@ -3,7 +3,8 @@
 
 Bonita allows you to connect Alfresco ECM content platform.
 
-====warning
+[WARNING]
+====
 Alfresco connectors has been deprecated in favor of xref:cmis.adoc[CMIS] connectors.
 ====
 

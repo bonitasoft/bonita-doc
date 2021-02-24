@@ -114,7 +114,8 @@ No migration is performed for existing artifacts (pages and fragments).
 If you want to benefit from readable Ids for your existing artifacts, you need to rename your artifacts from the homepage or the editor. The link with the process in Bonita Studio will be kept.
 ====
 
-====warning
+[WARNING]
+====
 If your project is under version control and you rename an artifact, you could loose the history of the artifact's resources depending on your version control system. If you use git, "git-log --follow" allows you to keep track of moved files.
 ====
 
@@ -150,8 +151,11 @@ Or from your file system here: `STUDIO_HOME/workspace/.metadata/.plugins/org.bon
 When reading the log file, you see this kind of error: +
 `Could not load component, unexpected structure in the file [timelineWidget.json]`
 
-Here is the full stack trace: +
-```16:32:41 [localhost-startStop-1] ERROR o.s.w.c.ContextLoader - Context initialization failed +
+Here is the full stack trace:
+
+[source,log]
+----
+16:32:41 [localhost-startStop-1] ERROR o.s.w.c.ContextLoader - Context initialization failed +
 org.bonitasoft.web.designer.repository.exception.NotFoundException: Could not load component, unexpected structure in the file [timelineWidget.json] +
 [...]
 Wrapped by: org.bonitasoft.web.designer.rendering.GenerationException: Build error for timelineWidget.json +
@@ -160,7 +164,6 @@ Wrapped by: org.springframework.beans.factory.BeanCreationException: Error creat
 [...]
 Wrapped by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'migrationResource' defined in file [/home/marielle/BonitaStudioSubscription-7.11.1/workspace/.metadata/.plugins/org.bonitasoft.studio.designer/.extract/webapps/bonita/WEB-INF/classes/org/bonitasoft/web/designer/controller/MigrationResource.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'workspaceInitializer': Invocation of init method failed; nested exception is org.bonitasoft.web.designer.rendering.GenerationException: Build error for timelineWidget.json +
 [...]
-
 ----
 
 #### Why do you have this error?
@@ -177,7 +180,8 @@ Depending on the type of the file missing, other error messages could be (where 
 "Template not found for [customInputTest.tpl.html]"
 "Controller not found for [customInputTest.ctrl.js]"
 
-====warning
+[WARNING]
+====
 The error message may vary depending on the Bonita version
 ====
 
@@ -185,20 +189,19 @@ The error message may vary depending on the Bonita version
 
 If you extended the Input standard widget, and called it SmartInput.
 You should have the following files in your <ProjectDir>/web_widgets directory:
-----
 
+----
 customSmartInput (the custom widget directory)
 	customSmartInput.ctrl.js
 	customSmartInput.js
 	customSmartInput.json
 	customSmartInput.tpl.html
-
 ----
 
 If you created a page called SmartPage:
 You should have the following files in your <ProjectDir>/web_pages directory (the content may vary if you added some assets):
-----
 
+----
 SmartPage (the page directory)
     SmartPage.json	assets/
     ./assets:
@@ -207,17 +210,16 @@ SmartPage (the page directory)
         style.css
     ./assets/json:
         localization.json
-
 ----
 
 If you created a fragment called SmartFragment:
 You should have the following files in your <ProjectDir>/web_fragments directory:
-----
 
+----
 SmartFragment (the fragment directory)
 	SmartFragment.js
 	SmartFragment.json
-```
+----
 
 ===== Error messages
 

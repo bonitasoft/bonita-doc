@@ -24,6 +24,7 @@ To install the OpenJDK JVM you need to install the `openjdk-8-jre-headless` pack
 To check that Java is correctly setup in a console/terminal, type: `java -version`.
 You should get a similar message to the one below:
 
+[source,log]
 ----
 openjdk version "1.8.0_111"
 OpenJDK Runtime Environment (build 1.8.0_111-8u111-b14-2ubuntu0.16.04.2-b14)
@@ -85,7 +86,8 @@ Tomcat 8.5 should now be installed on your computer. Now you should enable tomca
 
 * `sudo nano /etc/systemd/system/tomcat.service`
 * Copy the following code into the file
-```
+[source,ini]
+----
 [Unit]
 Description=Apache Tomcat Web Application Container
 After=network.target
@@ -111,7 +113,7 @@ Restart=always
 
 [Install]
 WantedBy=multi-user.target
-```
+----
 
 * Save and close the file
 * Reload the systemd daemon: `sudo systemctl daemon-reload`

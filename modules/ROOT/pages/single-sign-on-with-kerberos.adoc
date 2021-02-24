@@ -67,6 +67,7 @@ Note that this a different account than the machine object on which the service 
 
 2- Check that the service account is not already associated to any host by running this command (replace bonita.tomcat with your service account name):
 
+[source,bash]
 ----
 setspn -L bonita.tomcat
 ----
@@ -75,6 +76,7 @@ This will list the hosts associated to this service account. There should not be
 
 3- Run these two commands in order to declare the SPN (bonita.tomcat). The first command will use the simple host name (win2008tomcat):
 
+[source,bash]
 ----
 setspn -A HTTP/win2008tomcat bonita.tomcat
 
@@ -85,6 +87,7 @@ Updated object
 
 Second command with the fully qualified host name (win2008tomcat.corp.bonitasoft.com):
 
+[source,bash]
 ----
 setspn -A HTTP/win2008tomcat.corp.bonitasoft.com bonita.tomcat
 
@@ -95,6 +98,7 @@ Updated object
 
 4- Make sure the SPN is set up correctly by running this command:
 
+[source,bash]
 ----
 setspn -L bonita.tomcat
 

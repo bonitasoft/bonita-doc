@@ -212,6 +212,7 @@ If your report requires a connection to the reporting database, the archive must
 
 For example, connecting to a local MySQL database named _BonitaReport_ with a user _root_ and password _root_:
 
+[source,properties]
 ----
 dbUrl=jdbc:mysql://localhost:3306/BonitaReport
 dbDriverClassName=com.mysql.jdbc.Driver

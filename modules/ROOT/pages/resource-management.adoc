@@ -19,6 +19,7 @@ A resources is packaged as a .zip archive that contains a `page.properties` file
 
 For example:
 
+[source,properties]
 ----
 #The name must start with 'custompage_'
 name=custompage_layout
@@ -48,6 +49,7 @@ When a user is given access to a page/layout because they are in a profile that 
 
 The following example shows the permissions defined for a page that enables a user to view but not update organization information:
 
+[source,properties]
 ----
 #The name must start with 'custompage_'
 name=custompage_orgViewer

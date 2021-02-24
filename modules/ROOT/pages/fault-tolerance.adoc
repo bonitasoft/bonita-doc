@@ -80,6 +80,7 @@ There are two ways to monitor the recovery mechanism :
 
 The recovery mechanism produce `INFO` and``DEBUG`` logs each time the recovery is trigger, it's looks like :
 
+[source,log]
 ----
  INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Start detecting flow nodes to restart...
  INFO (internalTasksScheduler-1) org.bonitasoft.engine.tenant.restart.RecoveryMonitor Recovery of elements executed, 12006 elements recovered.

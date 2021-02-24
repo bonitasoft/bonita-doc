@@ -143,6 +143,7 @@ Next you need to add a -vm option and the path to the Java runtime in the ini fi
 
 For example on Windows:
 
+[source, shell]
 ----
 -startup
 plugins/org.eclipse.equinox.launcher_1.4.0.v20161219-1356.jar

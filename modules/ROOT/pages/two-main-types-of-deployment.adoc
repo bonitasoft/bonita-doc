@@ -92,6 +92,7 @@ We suggest to define a `ENGINE_OPTS` variable and add its content to the `CATALI
 
 On Linux (setenv.sh)
 
+[source,bash]
 ----
 ENGINE_OPTS="-Dorg.bonitasoft.engine.api-type=HTTP -Dorg.bonitasoft.engine.api-type.server.url=http://localhost:8080"
 ENGINE_OPTS="${ENGINE_OPTS} -Dorg.bonitasoft.engine.api-type.application.name=bonita -Dorg.bonitasoft.engine.api-type.connections.max=20"
@@ -103,6 +104,7 @@ export CATALINA_OPTS
 
 On Windows (setenv.bat)
 
+[source,shell]
 ----
 set ENGINE_OPTS="-Dorg.bonitasoft.engine.api-type=HTTP" "-Dorg.bonitasoft.engine.api-type.server.url=http://localhost:8080"
 set ENGINE_OPTS=%ENGINE_OPTS% "-Dorg.bonitasoft.engine.api-type.application.name=bonita -Dorg.bonitasoft.engine.api-type.connections.max=20"

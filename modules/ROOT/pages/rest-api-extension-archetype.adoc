@@ -165,6 +165,7 @@ A REST API Extensions must be deployed before any page or form resource using it
 A page that uses REST API Extensions must add the required resources in the page resource `page.properties` file.
 For example, if a page uses the demoHeaders, demoXml, and putResource API extensions, its `page.properties` must include this line:
 
+[source,properties]
 ----
 resources=[GET|extension/demoHeaders,POST|extension/demoXml,PUT|extension/putResource]
 ----

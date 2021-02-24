@@ -193,6 +193,7 @@ The version of those artifacts is fixed to 1.0.
 You have the possibility to edit the group id of those artifacts from the BDM edition wizard. +
 Those maven artifacts are meant to be used from REST API extensions, using the following dependencies:
 
+[source,xml]
 ----
 <dependency>
 	<groupId>[YOUR GROUP ID]</groupId>
@@ -218,6 +219,7 @@ Be aware that a poor implementation of a custom REST API accessing BDM objects c
 
 * I get the following stacktrace when using Java 8 Date types (LocalDate, LocalDateTime...) in my Rest API Extension
 
+[source,log]
 ----
 java.lang.StackOverflowError
 	at java.security.AccessController.doPrivileged(Native Method)

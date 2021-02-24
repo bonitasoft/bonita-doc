@@ -144,6 +144,7 @@ public class CustomAuthorizationRuleMapping implements AuthorizationRuleMapping 
 
 * build maven jar
 
+[source,bash]
 ----
 mvn clean install
 ----
@@ -153,6 +154,7 @@ mvn clean install
 * copy jar into `webapps/bonita/WEB-INF/lib/` folder (for default tomcat bundle)
 * pull current engine configuration using platform setup tool
 
+[source,bash]
 ----
  ./setup/setup.sh pull
 ----
@@ -178,18 +180,21 @@ mvn clean install
 
 * uncomment to declare customAuthorizationRuleMapping in `platform_conf/current/tenants/TENANT_ID/tenant_engine/bonita-tenant-community-custom.properties`
 
+[source,properties]
 ----
 bonita.tenant.authorization.rule.mapping=customAuthorizationRuleMapping
 ----
 
 * push current engine configuration using platform setup tool
 
+[source,bash]
 ----
  ./setup/setup.sh push
 ----
 
 * restart server
 
+[source,bash]
 ----
 ./stop-bonita.sh
 ./start-bonita.sh

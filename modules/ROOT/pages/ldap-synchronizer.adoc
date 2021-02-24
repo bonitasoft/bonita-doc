@@ -47,6 +47,7 @@ Set the HTTP connection parameters used by the LDAP Synchronizer, by editing the
 
 Add between `java` and `-classpath`:
 
+[source,bash]
 ----
 -Dorg.bonitasoft.engine.api-type.server.url=http://localhost:8080 -Dorg.bonitasoft.engine.api-type.application.name=bonita
 ----
@@ -265,6 +266,7 @@ The following items are configured by default:
 The prefix ''custom_'' is used to map any 'Custom User Information'. For example, to map the 'Custom User Information' "skypeId" and "room"
 from LDAP property "skype" and "roomNumber", the syntax is:
 
+[source,properties]
 ----
 custom_skypeId = skype
 custom_room = roomNumber
@@ -317,6 +319,7 @@ All examples are based on
 . Two Custom User Information exist in the Bonita database : _badgeId_ and _room_
 . The mapper.properties contains
 
+[source,properties]
 ----
 custom_badgeId = ldapBadgeIdentification
 ----
@@ -325,6 +328,7 @@ The _room_ is not declared in the mapper.properties.
 
 * *none*:
 
+[source,properties]
 ----
 bonita_user_custominfo_policy = none
 ----
@@ -333,6 +337,7 @@ no 'Custom User Information' is synchronized.
 
 * *partial* :
 
+[source,properties]
 ----
 bonita_user_custominfo_policy = partial
 ----
@@ -355,6 +360,7 @@ A 'Custom User Information' not declared in mapper.properties will not be modifi
 
 * *scope*:
 
+[source,properties]
 ----
 bonita_user_custominfo_policy = scope
 ----
@@ -376,6 +382,7 @@ Same as partial, plus if the Ldap Object doesn't have a property, it will be set
 
 * *full*:
 
+[source,properties]
 ----
 bonita_user_custominfo_policy = full
 ----
@@ -415,6 +422,7 @@ Here are the available object properties:
 
 Example of a watched directory declaration:
 
+[source,properties]
 ----
 # Declare a list of LDAP watched directories
 ldap_watched_directories = dir1,dir2
@@ -476,6 +484,7 @@ Groups can be declared individually in the configuration file with the following
 
 Example of group declarations:
 
+[source,properties]
 ----
 # List of groups to synchronize
 ldap_groups = group1, group2
@@ -509,6 +518,7 @@ In combination or as an alternative, groups can be declared using the result of 
 
 Example of group searches:
 
+[source,properties]
 ----
 #Specify search of groups
 ldap_search_filter_groups  =  search1,search2

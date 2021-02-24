@@ -436,8 +436,9 @@ please follow this procedure:
 
 *NB* : When upgrading the Oracle database ensure that the initialisation parameter https://docs.oracle.com/en/database/oracle/oracle-database/19/upgrd/what-is-oracle-database-compatibility.html#GUID-551DEA35-0A31-4D1C-A367-AFAF8906AEC8[Compatible] is not set to a previous version. You can check this with the query:
 
+[source,sql]
 ----
-SQL> SELECT name, value FROM v$parameter
+SELECT name, value FROM v$parameter
          WHERE name = 'compatible';
 ----
 
@@ -493,6 +494,7 @@ This issue happens because the xref:pause-and-resume-bpm-services.adoc[BPM servi
 _Solution_: If the BPM services were paused before migrating or had to be paused for whatever reason, then to resolve this,
 you need to execute the following database requests after the migration completes and before you restart your Bonita platform:
 
+[source,sql]
 ----
 DELETE FROM QRTZ_PAUSED_TRIGGER_GRPS;
 UPDATE QRTZ_TRIGGERS SET TRIGGER_STATE = 'WAITING' WHERE TRIGGER_STATE = 'PAUSED';

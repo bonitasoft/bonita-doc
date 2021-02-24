@@ -97,6 +97,7 @@ An increasing number of those logs can mean :
 
 The execution threshold value can be configured in `bonita-platform-community.properties`
 
+[source,properties]
 ----
 bonita.platform.persistence.dbquery.warnWhenLongerThanMillis=1000
 ----

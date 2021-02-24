@@ -17,7 +17,8 @@ Please verify the supported version in xref:hardware-and-software-requirements.a
 
 * *_Download_* apache-tomcat-x.y.exe from Tomcat website: https://tomcat.apache.org/
 
-====warning
+[WARNING]
+====
 Download the same apache-tomcat version (visible in xref:hardware-and-software-requirements.adoc[Installation/Basic Bonita Platform installation/hardware-and-software-requirements])
 Choose the "32-bit/64-bit Windows Service Installer" installation.
 ====
@@ -75,7 +76,8 @@ image::images/bonita-as-windows-service/bonitaXml.png[datasource configuration]
  ** -Dcom.arjuna.ats.arjuna.common.propertiesFile=C:\Program Files\Apache Software Foundation\Tomcat x.y\conf\jbossts-properties.xml
  ** -Dfile.encoding=UTF-8
 
-====warning
+[WARNING]
+====
 Replace the `%TOMCAT_INSTALL_FOLDER%` by the exact path where you move the setup folder, for example `C:\Program Files\Apache Software Foundation\setup`
 ====
 

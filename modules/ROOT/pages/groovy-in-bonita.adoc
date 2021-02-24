@@ -38,7 +38,8 @@ line three'''
 "a double quoted string"
 ----
 
-====warning
+[WARNING]
+====
 Double quoted strings are plain _java.lang.String_ if there's no interpolated expression, but are _groovy.lang.GString_ instances if interpolation is present.
 ====
 

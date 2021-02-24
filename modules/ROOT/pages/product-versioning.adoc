@@ -78,6 +78,7 @@ You will not be able to work with incompatible artifacts or deploy them. You wil
 
 The UI Designer will check the model version of all artifacts when it is launched and when a given artifact is opened. You will not be able to work with incompatible artifacts. You will be able if you desire to migrate older artifacts.
 
-====warning
+[WARNING]
+====
 *Warning*: Artifact migration is not reversible. Once the Studio or UI Designer has migrated an artifact it is no longer compatible with the previous version of the development suite.
 ====

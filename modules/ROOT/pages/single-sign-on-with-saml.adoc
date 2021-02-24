@@ -219,6 +219,7 @@ _If your IdP responses are not signed, you can remove the Keys node from the IDP
 *Note 3:* More configuration options can be found in https://www.keycloak.org/docs/latest/securing_apps/index.html#_saml-general-config[Keycloak official documentation]
 ====
 
+[source,xml]
 ----
        <keycloak-saml-adapter>
            <SP entityID="bonita"
@@ -363,6 +364,7 @@ Edit the _logger_ tags which _category_ matches `org.bonitasoft` and `com.bonita
 
 *Symptom:* The following stacktrace appears in the Bonita server log :
 
+[source,log]
 ----
 2018-10-10 13:22:45,921 SEVERE [org.bonitasoft.console.common.server.sso.filter.InternalSSOFilter] (default task-1) java.lang.RuntimeException: Sp signing key must have a PublicKey or Certificate defined: java.lang.RuntimeException: java.lang.RuntimeException: Sp signing key must have a PublicKey or Certificate defined
 	at org.keycloak.adapters.saml.config.parsers.DeploymentBuilder.build(DeploymentBuilder.java:119)
@@ -378,6 +380,7 @@ Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or C
 
 *Symptom:* The following stacktrace appears in the Bonita server log :
 
+[source,log]
 ----
 2018-10-11 20:11:37,314 ERROR [org.keycloak.adapters.saml.profile.webbrowsersso.WebBrowserSsoAuthenticationHandler] (default task-1) Failed to verify saml response signature: org.keycloak.common.VerificationException: Invalid signature on document
 	at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.verifyPostBindingSignature(AbstractSamlAuthenticationHandler.java:520)
@@ -393,6 +396,7 @@ Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or C
 
 *Symptom:* The following stacktrace appears in the Bonita server log :
 
+[source,log]
 ----
 2018-10-11 20:54:22,258 ERROR [org.keycloak.adapters.saml.profile.webbrowsersso.WebBrowserSsoAuthenticationHandler] (default task-2) Error extracting SAML assertion: Encryptd assertion and decrypt private key is null
 2018-10-11 20:54:22,260 ERROR [io.undertow.request] (default task-2) UT005023: Exception handling request to /bonita/saml: java.lang.NullPointerException
