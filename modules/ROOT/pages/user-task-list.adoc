@@ -34,7 +34,7 @@ image:images/tasklist-fullpage.png[]
 This list also leverages two legacy features (prior to Bonita 7.3.0):
 
 * xref:optimize-user-tasklist.adoc[Dynamic task display name], for efficient task identification (insert business values in task name)
-* link:using-list-and-search-methods.md#word_based_search[Word-based search], for efficient task name search (search for any word in the task name)
+* xref:using-list-and-search-methods.adoc]#word_based_search[Word-based search], for efficient task name search (search for any word in the task name)
 
 The task list also contains a _Done tasks_ filter, for the user to check if the task has been completed properly.
 

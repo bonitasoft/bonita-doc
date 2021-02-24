@@ -132,7 +132,7 @@ Before running it, make sure the setup tool is configured to point to the databa
 [NOTE]
 ====
 
-If you have already run `start-bonita` script inside a link:tomcat-bundle.md#configuration[Tomcat bundle] , those steps are already done.
+If you have already run `start-bonita` script inside a xref:tomcat-bundle.adoc]#configuration[Tomcat bundle] , those steps are already done.
 ====
 
 Here is how to do so:

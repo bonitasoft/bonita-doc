@@ -317,7 +317,7 @@ NOTE: In embedded Table widget documentation you can found an example for border
 
 === Data table widget
 
-NOTE: Read link:widgets.md#table-widget[Table widget] section to know how you can customize display of your data table widget.
+NOTE: Read xref:widgets.adoc]#table-widget[Table widget] section to know how you can customize display of your data table widget.
 
 An extended table widget that provides column sorting, filtering, and paging in addition to the standard table widget facilities.
 

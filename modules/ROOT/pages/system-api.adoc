@@ -36,7 +36,7 @@ The methods used for this resource are:
 * *Method* +
 `GET`
 * *Data Params* +
-link:rest-api-overview.md#resource_search[Standard search parameters] are available.
+xref:rest-api-overview.adoc]#resource_search[Standard search parameters] are available.
 * *Success Response* +
 The list of locales as JSON
  ** *Code*: 200
@@ -95,7 +95,7 @@ Returns all translations of the product. If a locale is specified in the filter,
 * *Method* +
 `GET`
 * *Data Params* +
-link:rest-api-overview.md#resource_search[Standard search parameters] are available. +
+xref:rest-api-overview.adoc]#resource_search[Standard search parameters] are available. +
 _Example_: `/API/system/i18ntranslation?p=0&c=2&f=locale%3dde`
 * *Success Response* +
 The list of translations as JSON

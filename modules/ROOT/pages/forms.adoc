@@ -33,7 +33,7 @@ Rarely, when a form is used by multiple processes, it can be deployed as a "Reso
 == Live update
 
 xref:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency. +
-You can link:live-update.md#form-list[update the form in the list] and link:live-update.md#form-mapping[modify the mapping with the process]. +
-You can also link:resource-management.md#modify[edit] a global form as a resource in Bonita Portal.
+You can xref:live-update.adoc]#form-list[update the form in the list] and xref:live-update.adoc]]#form-mapping[modify the mapping with the process]. +
+You can also xref:resource-management.adoc]#modify[edit] a global form as a resource in Bonita Portal.
 
 To know more about the development of forms, go to the xref:page-and-form-development-overview.adoc[page and form development overview] page.

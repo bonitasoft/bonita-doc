@@ -56,7 +56,7 @@ _Example_: `/API/form/mapping?p=0&c=10&f=processDefinitionId=7281286536417002543
 * *Method* +
 `GET`
 * *Data Params* +
-link:rest-api-overview.md#resource_search[Standard search parameters] are available to search form mappings. +
+xref:rest-api-overview.adoc]#resource_search[Standard search parameters] are available to search form mappings. +
 The following filters can be applied while searching form mappings:
  ** `+f=processDefinitionId={long}+` - get form mappings of a specific process definition
  ** `f=type=PROCESS_START` - get the process start form mapping. Example: `+http://localhost:8080/bonita/API/form/mapping?c=1&p=0&f=processDefinitionId=123456&f=type=PROCESS_START+`

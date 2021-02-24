@@ -341,7 +341,7 @@ Unlike the "technical" name and description of a task in the Studio, which are u
 Another feature you can use to improve end users efficiency and satisfaction is _word-based search_: +
 To allow users to efficiently search by task name, you can configure the search option: from _starts by_ (the beginning of the whole task name string), you can switch to _word-based search_ (the beginning of every word in the task name).
 
-To do so, go to link:using-list-and-search-methods.md#word_based_search[word-based search].
+To do so, go to xref:using-list-and-search-methods.adoc]#word_based_search[word-based search].
 
 ====info
 *Note:* Setting the word-based search may result in lesser performance, with some delay experienced by users on the display of search results. Turning this feature on requires some testing on your environment.

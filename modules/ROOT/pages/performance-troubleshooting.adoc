@@ -108,9 +108,9 @@ that take volume in the database and that slows some queries down.
 
 == Connectors
 
-Any connectors longer than 10 seconds will produce a warning log. See link:performance-tuning.md#connector_service[connector service] for more information.
+Any connectors longer than 10 seconds will produce a warning log. See xref:performance-tuning.adoc]#connector_service[connector service] for more information.
 
-In addition, performance of connectors can be measured using the link:performance-tuning.md#time_tracker[connector time tracker].
+In addition, performance of connectors can be measured using the xref:performance-tuning.adoc]#time_tracker[connector time tracker].
 
 == Cron jobs
 

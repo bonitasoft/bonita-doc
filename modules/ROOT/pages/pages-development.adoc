@@ -76,7 +76,7 @@ Two custom page examples are available in Bonita Portal. Both examples show how 
 *HTML example page* defines a custom page using only HTML.
 In practice, you will probably use a combination of Groovy and HTML to create your custom pages.
 
-To view an example page, map the page to an xref:applications.adoc[application] so that you can view it in Bonita Portal. To view the source of an example, link:resource-management.md#export[export the custom page].
+To view an example page, map the page to an xref:applications.adoc[application] so that you can view it in Bonita Portal. To view the source of an example, xref:resource-management.adoc]#export[export the custom page].
 
 === Reuse Bonita Portal content
 

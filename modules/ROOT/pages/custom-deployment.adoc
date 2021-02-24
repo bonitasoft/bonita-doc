@@ -87,11 +87,11 @@ When you receive your license, copy the file to the `TOMCAT_DIRECTORY/setup/plat
 
 == Database initialization
 
-We assume here that the database has already been link:database-configuration.md#database_creation[created and configured for Bonita].
+We assume here that the database has already been xref:database-configuration.adoc]#database_creation[created and configured for Bonita].
 Once created and configured you need to initialize it using the setup tool provided in the bundle.
 This will create database schema and initial values.
 
-. In TOMCAT_DIRECTORY/setup folder, edit the file database.properties with properties matching your rdbms. Beware of link:BonitaBPM_platform_setup.md#backslash_support[backslash characters].
+. In TOMCAT_DIRECTORY/setup folder, edit the file database.properties with properties matching your rdbms. Beware of xref:BonitaBPM_platform_setup.adoc]#backslash_support[backslash characters].
 . In TOMCAT_DIRECTORY/setup folder, run `setup.(sh|bat) init`
 
 == Next steps

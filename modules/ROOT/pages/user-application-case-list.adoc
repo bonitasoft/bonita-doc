@@ -92,7 +92,7 @@ To know more about how to implement search keys, go to the xref:define-a-search-
 Only cases which have been given values for their search keys during the execution of the case will be filtered.
 Search can be done on the value of a search key. +
 By default, the search is performed on the first word of the string. +
-In case the string contains several words and you would need the search to be performed on the beginning of either word, you need to activate the link:using-list-and-search-methods.md#word_based_search[word-based search]. +
+In case the string contains several words and you would need the search to be performed on the beginning of either word, you need to activate the xref:using-list-and-search-methods.adoc]#word_based_search[word-based search]. +
 The search is launched automatically after a character is typed, with no need to press the Enter key.
 
 === Search by Case Id

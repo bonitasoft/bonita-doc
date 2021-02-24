@@ -98,7 +98,7 @@ Edit `postgresql.conf` and set a non-zero value for `max_prepared_transactions`.
 The value should be at least as large as the value set for `max_connections` (default is typically 100). +
 See the https://www.postgresql.org/docs/11/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS[PostgreSQL documentation] for details.
 
-See also link:performance-tuning.md#postgresql-performance-tuning[how to finely tune performance for PostgreSQL].
+See also xref:performance-tuning.adoc]#postgresql-performance-tuning[how to finely tune performance for PostgreSQL].
 
 ==== Oracle Database
 

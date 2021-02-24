@@ -16,7 +16,7 @@ REST API Extensions use the same authorization mechanism as the standard Bonita 
 [NOTE]
 ====
 
-It is also possible to deploy a REST API Extensions using link:portal-api.md#page[REST portal API / "page" resource].
+It is also possible to deploy a REST API Extensions using xref:portal-api.adoc]#page[REST portal API / "page" resource].
 ====
 
 [NOTE]
@@ -34,7 +34,7 @@ If you are running Bonita in a cluster, after you import a REST API Extensions, 
 [WARNING]
 ====
 
-As the deployment of the REST API Extensions automatically creates the appropriate resource permission mapping, be careful not to link:BonitaBPM_platform_setup.md#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to the Bonita runtime in a pretty short amount of time.
+As the deployment of the REST API Extensions automatically creates the appropriate resource permission mapping, be careful not to xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to the Bonita runtime in a pretty short amount of time.
 ====
 
 [#usage]
@@ -57,4 +57,4 @@ xref:live-update.adoc[Live update] allows the Administrator to update one elemen
 
 === Edit the REST API extension
 
-You can link:resource-management.md#modify[edit the content of a REST API extension] by installing a new version.
+You can xref:resource-management.adoc]#modify[edit the content of a REST API extension] by installing a new version.

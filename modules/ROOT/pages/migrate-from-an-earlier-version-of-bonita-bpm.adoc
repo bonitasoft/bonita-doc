@@ -42,7 +42,7 @@ The version targeted may not support the version of the database that is being m
 
 * Please check the xref:hardware-and-software-requirements.adoc[database requirements].
 * If you need to upgrade your database:
- ** Please make sure to apply all the link:database-configuration.md#specific_database_configuration[RDBMS customisations required by Bonita] when setting up the new version.
+ ** Please make sure to apply all the xref:database-configuration.adoc]#specific_database_configuration[RDBMS customisations required by Bonita] when setting up the new version.
 ====
 
 *Community/Subscription edition:*
@@ -56,7 +56,7 @@ The tool migrates your platform (_bonita_home_ folder and the database). You can
 
 Starting from version 7.3 there is no more _bonita home_ folder. This means that, if your installation does not have any custom change, then you do not need to configure the bundle any further for an installation migrated in 7.3 or above.
 
-On the other hand, if you have customized your configuration, you will have to use the link:BonitaBPM_platform_setup.md#update_platform_conf[platform setup tool] to send your customized configuration files to the database where configuration is stored, for versions 7.3 and above.
+On the other hand, if you have customized your configuration, you will have to use the xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[platform setup tool] to send your customized configuration files to the database where configuration is stored, for versions 7.3 and above.
 ====
 
 image::images/images-6_0/migration_bigsteps.png[Migration steps]
@@ -80,7 +80,7 @@ The migration script migrates the following:
 
 The following are not migrated automatically:
 
-* Configuration of the platform: Before 7.3 in the _Bonita Home_ folder and after 7.3 in database. Reapply your customizations manually after the migration script has finished (using link:BonitaBPM_platform_setup.md#update_platform_conf[platform setup tool] if migrated to 7.3.0+).
+* Configuration of the platform: Before 7.3 in the _Bonita Home_ folder and after 7.3 in database. Reapply your customizations manually after the migration script has finished (using xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[platform setup tool] if migrated to 7.3.0+).
 * Deployed process definitions: The processes will continue to run using the definition created in the previous version of Bonita.
 * Process definition sources (`.bos` files): Migrate these by importing them into the new version of Bonita Studio.
 * +++<a id="bdm_redeploy">++++++</a>+++Business data model, and the business data database: if the migration path include version `7.0.0`,`7.2.0` or `7.2.4`, the Business data model must be redeployed after migration, using link:define-and-deploy-the-bdm[Define and deploy the BDM]). Otherwise, no action is required.
@@ -110,7 +110,7 @@ Then xref:managing-look-feel.adoc[import] your updated custom Look & Feel into B
 
 *Important:* +
 The migration operation resets the Bonita configuration files to default version for new settings to be applied (from the _$BONITA_HOME_ folder in <7.3.0 version or inside database in >=7.3.0).
-Therefore, you must do a link:BonitaBPM_platform_setup.md#update_platform_conf[backup of your configuration files] before starting the migration. +
+Therefore, you must do a xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[backup of your configuration files] before starting the migration. +
 You will need to merge custom properties and configurations to the migrated environment.
 
 Furthermore, from the database point of view, as any operations on a production system, a migration is not a zero risk operation. +
@@ -145,7 +145,7 @@ http://www.bonitasoft.com/downloads-v2[Bonitasoft site] for Bonita Community edi
 or from the https://customer.bonitasoft.com/download/request[Customer Portal] for Bonita Subscription Pack editions.
 . Check your current RDBMS version is compliant with the versions supported by the target version of Bonita (see <<rdbms_requirements,above>>)
 . Unzip the migration tool zip file into a directory. In the steps below, this directory is called `bonita-migration`.
-. If you use Oracle, you must upgrade to link:migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12[Oracle 12c (12.2.x.y)] in order to migrate to 7.9+ or to link:migrate-from-an-earlier-version-of-bonita-bpm.md#oracle19[Oracle 19c] in order to migrate to 7.11+
+. If you use Oracle, you must upgrade to xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc]#oracle12[Oracle 12c (12.2.x.y)] in order to migrate to 7.9+ or to xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc]]#oracle19[Oracle 19c] in order to migrate to 7.11+
 . Configure the database properties needed by the migration script, by editing `bonita-migration/Config.properties`.
 Specify the following information:
 +
@@ -237,7 +237,7 @@ There is below a Linux example:
 ----
 +
 You must reapply the configuration that had been done on the original instance's BONITA_HOME into the `bonita-target-version/setup/platform_conf/current`
-Please refer to the guide on updating the configuration file using the link:BonitaBPM_platform_setup.md#update_platform_conf[platform setup tool]
+Please refer to the guide on updating the configuration file using the xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[platform setup tool]
 +
 When done, push the updated configuration into the database:
 +
@@ -247,15 +247,15 @@ When done, push the updated configuration into the database:
 
 . If you have done specific configuration and customization in your server original version, re-do it by configuring the application server at `bonita-target-version/server` (or `bonita-target-version` if target version is 7.3.n): customization, libs etc.
 . *If your Bonita version is 7.4 or above before migrating, you can skip this point.* +++<a id="compound-permission-migration">++++++</a>+++
-In the case where deployed resources have required dedicated link:resource-management.md#permissions[authorizations to use the REST API], these authorizations are not automatically migrated.
-Some manual operations have to be done on files that are  located in the extracted `platform_conf/current` folder (see link:BonitaBPM_platform_setup.md#update_platform_conf[Update Bonita Platform configuration] for more information). You need to:
+In the case where deployed resources have required dedicated xref:resource-management.adoc]#permissions[authorizations to use the REST API], these authorizations are not automatically migrated.
+Some manual operations have to be done on files that are  located in the extracted `platform_conf/current` folder (see xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[Update Bonita Platform configuration] for more information). You need to:
  ** Perform a diff between the version before migration and the version after migration of `tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties` and put the additional lines into the file `tenants/[TENANT_ID]/conf/compound-permissions-mapping-custom.properties`
  ** Perform a diff between the version before migration and the version after migration of `tenants/[TENANT_ID]/conf/resources-permissions-mapping.properties` and put the additional lines into the file `tenants/[TENANT_ID]/conf/resources-permissions-mapping-custom.properties`
  ** Perform a diff between the version before migration and the version after migration of `tenants/[TENANT_ID]/conf/dynamic-permissions-checks.properties` and put the additional lines into the file `tenants/[TENANT_ID]/conf/dynamic-permissions-checks-custom.properties`
  ** Report all the content of the version before migration of``tenants/[TENANT_ID]/conf/custom-permissions-mapping.properties`` into the new version.
 . Configure License:
 +
-you need to put a new license in the database: see link:BonitaBPM_platform_setup.md#update_platform_conf[Platform configuration] for further details.
+you need to put a new license in the database: see xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[Platform configuration] for further details.
  There is below a Linux example:
 +
 ----
@@ -268,7 +268,7 @@ you need to put a new license in the database: see link:BonitaBPM_platform_setup
 If there is no valid license in the `./platform_conf/licenses/`, these 2 pages will help you to request and install a new one:
 
  ** https://documentation.bonitasoft.com/?page=licenses[Licenses]
- ** link:BonitaBPM_platform_setup.md#update_platform_conf[Platform configuration]
+ ** xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[Platform configuration]
 
 +
 Install the new license:
@@ -354,7 +354,11 @@ Note: This tool will only change case overview pages. This means that if some of
 you need to redesign them in the Studio using Bonita UI designer, as explained in the section above.
 ====
 
-Example of output issued when running the tool:+++<asciinema-player src="bonita/images/${varVersion}/case_overview_update_mode-ascii.cast" speed="2" theme="monokai" title="Update case overview console output example" cols="240" rows="32">++++++</asciinema-player>+++
+Example of output issued when running the tool:
+++++
+<asciinema-player src="bonita/images/${varVersion}/case_overview_update_mode-ascii.cast" speed="2" theme="monokai" title="Update case overview console output example" cols="240" rows="32"></asciinema-player>
+++++
+
 
 == Migrating to Java 11 in Bonita 7.9
 
@@ -367,7 +371,7 @@ To migrate a Bonita platform to Java 11, you need to follow the following steps:
 * Once tested, update what is required on the production server, and switch it to Java 11.
 
 The main parts that require attention and testing are connectors and custom code.
-While the 7.9.0 migration step tries its best to migrate the implementation of connectors that are known not to work in Java 11, namely link:release-notes.md#connector-dependency-updates[WebService, CMIS, Email and Twitter], custom connectors, groovy scripts, rest api extensions etc. are not migrated and might not work outright in Java 11.
+While the 7.9.0 migration step tries its best to migrate the implementation of connectors that are known not to work in Java 11, namely xref:release-notes.adoc]#connector-dependency-updates[WebService, CMIS, Email and Twitter], custom connectors, groovy scripts, rest api extensions etc. are not migrated and might not work outright in Java 11.
 Aside from just code incompatibility, special attention has to be given to the dependencies of the custom code, as they might either not work in Java 11, work fine but conflict with Bonita own dependencies or the script might use dependencies previously included in Bonita, but no more accessible, or accessible in a different version.
 
 [#postgres11]
