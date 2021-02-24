@@ -1,4 +1,5 @@
 = User authentication overview
+:description: Learn how user authentication is achieved in Bonita. This page can be helpful to troubleshoot and debug authentication issues.
 
 Learn how user authentication is achieved in Bonita. This page can be helpful to troubleshoot and debug authentication issues.
 

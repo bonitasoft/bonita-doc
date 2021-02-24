@@ -1,4 +1,5 @@
 = Flownode States
+:description: Each flownode has a Type. The flownode type determines which states the flownode can be in, and the sequence of the states it will follow during its lifecycle.
 
 Each flownode has a Type. The flownode type determines which states the flownode can be in, and the sequence of the states it will follow during its lifecycle.
 Each flownode object has a state (_FlowNodeState_) at a given time. The state of the Flownode determines how it will be handled by the Bonita Engine.

@@ -1,10 +1,13 @@
 = Live update
+:description: This page defines what is called "Live update" and details the process information that can be live-updated from the Administrator profile.
 
 This page defines what is called "Live update" and details the process information that can be live-updated from the Administrator profile.
 
-NOTE:
-*Note:* For Enterprise, Performance and Efficiency editions only.
+[NOTE]
+====
 
+For Enterprise, Performance and Efficiency editions only.
+====
 
 == Definition
 
@@ -12,10 +15,12 @@ Sometimes, in Non-Production or even Production Runtimes, there is a need for qu
 To save this situation before all changes are made in the project sources, validated as they should, and deployed in a new project version, here comes Bonita "Live Update".
 Live update is the procedure by which the Administrator can modify elements of an application on a Runtime environment (Production or Non-Production environments).
 
-WARNING:
+[WARNING]
+====
+
 This procedure should only be used to recover from an error encountered after the deployment and when there is no time to go through the normal release cycle: from the project sources through all the testing environments and then to the target environment. +
 Once such a procedure has been used, the development team should quickly report the change made on the Runtime in the source files, to insure the correct maintenance of the project, and tag a new project version.
-
+====
 
 == Parameters
 
@@ -107,6 +112,8 @@ The _Scripts_ section of the process "More details" page allows to update a _TYP
 . Edit the script in the displayed editor
 . Click on _Save_ to update the script content.
 
-WARNING:
-The script dependencies are fixed, i.e., when the process is implemented, the developer design the script to use some variables and/or parameters. The Live update capability cannot go against this design and only allows to change the script content. If the new script tries to use more variables, it will lead to execution errors. To change the script dependencies (data available in the script execution context), the process definition must be updated and a newer version of the process deployed.
+[WARNING]
+====
 
+The script dependencies are fixed, i.e., when the process is implemented, the developer design the script to use some variables and/or parameters. The Live update capability cannot go against this design and only allows to change the script content. If the new script tries to use more variables, it will lead to execution errors. To change the script dependencies (data available in the script execution context), the process definition must be updated and a newer version of the process deployed.
+====

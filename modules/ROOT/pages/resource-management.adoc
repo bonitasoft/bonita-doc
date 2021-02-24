@@ -1,4 +1,5 @@
 = Resources management
+:description: This page defines the term "Resources" and explains what a user with the _Administrator_ profile in Bonita Portal can see and do about resources.
 
 This page defines the term "Resources" and explains what a user with the _Administrator_ profile in Bonita Portal can see and do about resources.
 
@@ -75,9 +76,11 @@ If you have specified a resource permission that is not defined in the xref:rest
 
 After a resource is installed, it can be used in an xref:applications.adoc[application].
 
-WARNING:
-*Warning*: As the deployment of resources automatically creates the appropriate resource permissions mapping, be careful not to link:BonitaBPM_platform_setup.md#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to Bonita Runtime in a pretty short amount of time.
+[WARNING]
+====
 
+As the deployment of resources automatically creates the appropriate resource permissions mapping, be careful not to link:BonitaBPM_platform_setup.md#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to Bonita Runtime in a pretty short amount of time.
+====
 
 [#export]
 
@@ -120,6 +123,8 @@ To delete a resource:
 
 The selected resources are deleted.
 
-NOTE:
-Note: Either all the selected resources are deleted, or no resources are deleted. If you have selected a page, a layout or a theme that are used in an application or a custom profile, you will see an error message listing these resources and the User Interfaces where they are used. In this case, none of the pages you selected is deleted.
+[NOTE]
+====
 
+Note: Either all the selected resources are deleted, or no resources are deleted. If you have selected a page, a layout or a theme that are used in an application or a custom profile, you will see an error message listing these resources and the User Interfaces where they are used. In this case, none of the pages you selected is deleted.
+====

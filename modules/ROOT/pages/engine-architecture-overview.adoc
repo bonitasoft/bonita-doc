@@ -1,4 +1,5 @@
 = Bonita Engine architecture
+:description: Discover Bonita Engine architecture, its APIs, main services, and how they are packaged.
 
 Discover Bonita Engine architecture, its APIs, main services, and how they are packaged.
 
@@ -28,18 +29,40 @@ The Engine can be installed on a Java Virtual Machine (JVM), in any web/Java EE 
 
 This section contains a summary of the Bonita Engine APIs. For details of the APIs, the methods and related objects, see the
 http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[Javadoc].
-| | |
-|:-|:-|
-| Identity API | Manages information about an organization, that is, the set of users who can act in processes. Handles creation, modification, and deletion of organizations, groups, roles, memberships, and users.| +
-| Organization API | Import or export an organization.| +
-| Process API | Handles actions related to processes (deploy, enable, start, disable, delete), executes activities, updates process data, search for a retrieve process entities.| +
-| Login API | Logs in to the engine in a platform and creates a session.| +
-| Monitoring API | Retrieves information about current activity, such as the number of users logged in, or the number of processes currently being executed.| +
-| Log API | provides access to business logs, for searching and to retrieve information about current or archived processes.| +
-| Platform command API | Creates, starts, stops platform.| +
-| Document API | Manages documents that are attached to a process instance.| +
-| Theme API | Manages the Look & Feel of the Bonita Portal web and mobile interfaces and forms.| +
-| Tenant Management API | Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in Teamwork, Efficiency, Performance and Enterprise editions.|
+
+|===
+|  |
+
+| Identity API
+| Manages information about an organization, that is, the set of users who can act in processes. Handles creation, modification, and deletion of organizations, groups, roles, memberships, and users.
+
+| Organization API
+| Import or export an organization.
+
+| Process API
+| Handles actions related to processes (deploy, enable, start, disable, delete), executes activities, updates process data, search for a retrieve process entities.
+
+| Login API
+| Logs in to the engine in a platform and creates a session.
+
+| Monitoring API
+| Retrieves information about current activity, such as the number of users logged in, or the number of processes currently being executed.
+
+| Log API
+| provides access to business logs, for searching and to retrieve information about current or archived processes.
+
+| Platform command API
+| Creates, starts, stops platform.
+
+| Document API
+| Manages documents that are attached to a process instance.
+
+| Theme API
+| Manages the Look & Feel of the Bonita Portal web and mobile interfaces and forms.
+
+| Tenant Management API
+| Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in Teamwork, Efficiency, Performance and Enterprise editions.
+|===
 
 There is also a Web API, which is for internal use only, and a Command API, which is primarily for internal use.
 
@@ -51,9 +74,18 @@ BPM services are related to BPM activities.
 
 | | |
 |:-|:-|
-| Description: | Manage mapping between actors and users, roles, and groups. |
-| Used by:  |-|
-| Implementation: | org.bonitasoft.engine.actor.mapping.impl.ActorMappingServiceImpl|
+
+[cols=2*]
+|===
+| Description:
+| Manage mapping between actors and users, roles, and groups.
+
+| Used by:
+| -
+
+| Implementation:
+| org.bonitasoft.engine.actor.mapping.impl.ActorMappingServiceImpl
+|===
 
 === Category
 
@@ -633,9 +665,11 @@ Generic services  perform actions that are not related to BPM but are required f
 
 === Platform
 
-|===
-|  |
+| | |
+|:-|:-|
 
+[cols=2*]
+|===
 | Description:
 | Handle creation, activation, and deletion of platform.  The platform is the foundation of the Engine: creating the platform means creating database tables that are used by the Engine.
 
@@ -816,10 +850,12 @@ For example, the API interface is accessed both on the server side, which contai
 * bonita-server contains code used on by the server. For example, it contains service implementations, the services accessor, and API implementations.
 * bonita-client contains client-only code. For example, it contains the Accessor service for the APIs, which is not in the common or server packages to prevent the server code calling the client-side API accessor.
 
-NOTE:
+[NOTE]
+====
+
 In the Enterprise, Performance, Efficiency, and Teamwork editions, these jar files are respectively:
 
 * bonita-common-sp.jar
 * bonita-server-sp.jar
 * bonita-client-sp.jar
-
+====

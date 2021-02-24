@@ -1,4 +1,5 @@
 = Forms
+:description: Forms are critical to process execution. They are linked to both process instantiation and task execution.
 
 Forms are critical to process execution. They are linked to both process instantiation and task execution.
 

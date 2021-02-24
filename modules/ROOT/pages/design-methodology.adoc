@@ -1,4 +1,5 @@
 = Design methodology
+:description: Summary of the phases in creating a process-based application using Bonita (Definition, Development, and Testing).
 
 Summary of the phases in creating a process-based application using Bonita (Definition, Development, and Testing).
 
@@ -81,11 +82,13 @@ Our pages have been developed with different frameworks over time.
  .. Make it yours
  .. We recommend that you save it under another name, in case you need the original version at some point
 
-NOTE:
+[NOTE]
+====
+
 Note: While both the Bonita User Application and the Bonita Administrator Application are supported by Bonitasoft in their original versions, any customization of yours cannot be supported, as Bonitasoft cannot garantee the content of your custom development. +
 Similarly, the Adaptive Case Management example, which can only be used after it is customized, is not supported.
 However, our team of Professional Services consultants can assist you in the customization phase.
-
+====
 
 ==== List of Bonita Applications customizable pages
 
@@ -113,9 +116,11 @@ In this application, you can customize:
 
 The "_" in "V_" stands for the latest "version" of the resource.
 
-NOTE:
-*Note*: All the "Details" pages must be used as "orphan" pages in the application descriptor, since they need an id to be passed in order to display the details of the right item. They cannot be used at top-level menu.
+[NOTE]
+====
 
+All the "Details" pages must be used as "orphan" pages in the application descriptor, since they need an id to be passed in order to display the details of the right item. They cannot be used at top-level menu.
+====
 
 ==== Case overview
 

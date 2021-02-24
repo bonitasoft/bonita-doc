@@ -1,4 +1,5 @@
 = Develop a page
+:description: A page presents information to a user or can also collect information entered by a user. +
 
 A page presents information to a user or can also collect information entered by a user. +
 Displayed in a browser, a xref:pages.adoc[page] is intended for use in applications.
@@ -6,7 +7,7 @@ Displayed in a browser, a xref:pages.adoc[page] is intended for use in applicati
 == Provided pages
 
 You do not need to create all your pages from scratch. Bonita already provides some pages. +
-Bonita Portal "Ressources" section lists all the non-UI Designer-made pages, that can be reused as is in an application.
+Bonita Portal "Resources" section lists all the non-UI Designer-made pages, that can be reused as is in an application.
 By downloading the Bonita User and Administrator applications from Bonita Studio Welcome page, you also download Bonita pages created with Bonita UI Designer. +
 Those pages can be customized and added to an application.
 
@@ -103,9 +104,11 @@ To enable custom page debug mode, edit xref:BonitaBPM_platform_setup.adoc[`conso
 
 To work on a page in debug mode:
 
-NOTE:
-On a Tomcat installation, `<java.io.tmpdir>` points to `<BUNDLE_HOME>/temp/`
+[NOTE]
+====
 
+On a Tomcat installation, `<java.io.tmpdir>` points to `<BUNDLE_HOME>/temp/`
+====
 
 . Import your custom page zip archive into the portal. This creates a directory `<java.io.tmpdir>/bonita_portal_*/tenants/tenant_id/pages/custompage_<your custom page>`.
 . Publish the page to a profile, then log out and log in as a user having this profile.
@@ -114,10 +117,12 @@ On a Tomcat installation, `<java.io.tmpdir>` points to `<BUNDLE_HOME>/temp/`
 
 When you have finished developing the page, recreate the custom page zip archive, and then modify the page to import it. This makes your final version of the page permanently available.
 
-NOTE:
+[NOTE]
+====
+
 In Bonita Studio, the debug mode is enabled by default. +
 If you want to disable it, you need to use the setup tool provided in `workspace/tomcat/setup/` to update `console-config.properties` (Update the file database.properties first so it points to the target database. E.g.: h2.database.dir=../../default/h2_database).
-
+====
 
 === Constraints
 

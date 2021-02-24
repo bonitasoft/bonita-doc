@@ -1,10 +1,11 @@
 = Using Alfresco with Bonita
+:description: Bonita allows you to connect Alfresco ECM content platform.
 
 Bonita allows you to connect Alfresco ECM content platform.
 
-WARNING:
+====warning
 Alfresco connectors has been deprecated in favor of xref:cmis.adoc[CMIS] connectors.
-
+====
 
 == Connecting to Alfresco
 

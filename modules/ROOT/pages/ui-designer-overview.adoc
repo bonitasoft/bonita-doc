@@ -1,4 +1,5 @@
 = UI Designer overview
+:description: The UI Designer is a wysiwyg development environment for creating pages and forms for a Bonita application.
 
 The UI Designer is a wysiwyg development environment for creating pages and forms for a Bonita application.
 
@@ -108,14 +109,14 @@ For example:
 Following the second creation, when you are redirected to the editor, you can see in the URL that the id is in fact `myPageExample1`.
 However, it is a good practice to use a unique name for your page.
 
-NOTE:
+====info
 No migration is performed for existing artifacts (pages and fragments).
 If you want to benefit from readable Ids for your existing artifacts, you need to rename your artifacts from the homepage or the editor. The link with the process in Bonita Studio will be kept.
+====
 
-
-WARNING:
+====warning
 If your project is under version control and you rename an artifact, you could loose the history of the artifact's resources depending on your version control system. If you use git, "git-log --follow" allows you to keep track of moved files.
-
+====
 
 '''
 
@@ -176,9 +177,9 @@ Depending on the type of the file missing, other error messages could be (where 
 "Template not found for [customInputTest.tpl.html]"
 "Controller not found for [customInputTest.ctrl.js]"
 
-WARNING:
+====warning
 The error message may vary depending on the Bonita version
-
+====
 
 ##### Expected files for the different artifacts
 

@@ -1,13 +1,16 @@
 = Analytics and Reports in Bonita Portal
+:description: This page explains what a user with the _Administrator_ profile in Bonita Portal can see and do about reports.
 
 This page explains what a user with the _Administrator_ profile in Bonita Portal can see and do about reports.
 
 Those users can view statistics and reports of process execution in order to extract meaningful data and monitor how the process are performing, to pinpoints areas of improvements or satisfaction. +
 A report presents the Administrator with data about the usage of cases and tasks in processes.
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
 Here is a view of the page:
 image:images/UI2021.1/analytics.png[Analytics]

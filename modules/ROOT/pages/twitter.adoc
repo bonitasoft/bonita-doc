@@ -1,4 +1,6 @@
 = Twitter connector
+:description: :doctype: book
+
 :doctype: book
 
 Twitter connectors allows to publish Tweets or send direct messages from your processes.

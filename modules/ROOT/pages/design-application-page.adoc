@@ -1,12 +1,15 @@
 = Design an application page
+:description: So far, with a process, data, forms, and connectors, we've built a fully functional software solution to manage claims. But what if you need to have a dashboard showing all ongoing claims? Such a dashboard is not a process. You should not have to "start" it in order to view it.
 
 So far, with a process, data, forms, and connectors, we've built a fully functional software solution to manage claims. But what if you need to have a dashboard showing all ongoing claims? Such a dashboard is not a process. You should not have to "start" it in order to view it.
 
 A Bonita application is the answer. The first step to build such an application is to create pages.
 
-NOTE:
-xref:ui-designer-overview.adoc[Pages] in Bonita are a lot like forms. They are created with the UI Designer with the same sets of widgets. The main difference is that they are not bound to a process definition (like instantiation forms and user tasks forms). An application page can display business data values, charts and even let the user start a process or execute a task by displaying the appropriate form.
+[NOTE]
+====
 
+xref:ui-designer-overview.adoc[Pages] in Bonita are a lot like forms. They are created with the UI Designer with the same sets of widgets. The main difference is that they are not bound to a process definition (like instantiation forms and user tasks forms). An application page can display business data values, charts and even let the user start a process or execute a task by displaying the appropriate form.
+====
 
 For this example, we will build a basic page that displays, in a table, all the claims that have been submitted. To create a new page:
 
@@ -50,9 +53,11 @@ image:images/getting-started-tutorial/design-application-page/dashboard-page.png
 . Click on *Save* in the UI Designer
 . Click on *Preview* to get a preview of your page
 
-WARNING:
-In order for preview to access the data, a user needs to be logged in to the Bonita Portal. You can click on *Portal* in the Bonita Studio tool bar to make sure a user is logged in.
+[WARNING]
+====
 
+In order for preview to access the data, a user needs to be logged in to the Bonita Portal. You can click on *Portal* in the Bonita Studio tool bar to make sure a user is logged in.
+====
 
 The preview should look like this:
 

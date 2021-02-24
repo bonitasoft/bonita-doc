@@ -1,4 +1,5 @@
 = CSRF security
+:description: Bonita REST API is secured against Cross-Site Request Forgery (CSRF) attacks.
 
 Bonita REST API is secured against Cross-Site Request Forgery (CSRF) attacks.
 

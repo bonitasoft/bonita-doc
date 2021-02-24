@@ -1,4 +1,5 @@
 = Process list in Bonita Administrator Application
+:description: This page explains what a user with the _Administrator_ profile can see and do about processes in link:admin-application-overview[Bonita Administrator Application].
 
 This page explains what a user with the _Administrator_ profile can see and do about processes in link:admin-application-overview[Bonita Administrator Application].
 
@@ -60,9 +61,11 @@ To resolve a process for business variables:
 . In the confirmation modal window, click on _Enable_
 The process moves to the "Enabled" tab.
 
-NOTE:
-*Note:* You can also enable a process in the "Details" view, by clicking on the _Enable_ button.
+[NOTE]
+====
 
+You can also enable a process in the "Details" view, by clicking on the _Enable_ button.
+====
 
 == Disable a process
 
@@ -74,22 +77,28 @@ Disabling a process blocks the creation of new cases. This does not impact exist
 . In the confirmation modal window, click on _Disable_
 The process disappears from "Enabled" tab and is located in the "Disabled" tab
 
-NOTE:
-*Note:* You can also disable a process in the "Details" view, by clicking on the _Disable_ button.
+[NOTE]
+====
 
+You can also disable a process in the "Details" view, by clicking on the _Disable_ button.
+====
 
 == Delete a process
 
-NOTE:
-*Note:* A process must be disabled before it can be deleted.
+[NOTE]
+====
 
+A process must be disabled before it can be deleted.
+====
 
-WARNING:
-*Warning:* *Beware! Data loss risk!*
+[WARNING]
+====
+
+*Beware! Data loss risk!*
 Deleting a process will automatically delete all its cases (on-going and archived alike). Thus, the operation may take a long time, and fail if the transaction timeout is not large enough.
 This feature should only be used on non-production environments.
 *Proceed at your own risk.*
-
+====
 
 . Go to _BPM_>__Processes__
 . Find the process by clicking on the _Disabled_ tab
@@ -148,9 +157,11 @@ To remove entities:
 You can *undo* a removal by clicking on the _X_ button next to the entity or by clicking _Enable all_
 . Click on the _Apply_ button.
 
-NOTE:
-*Note:* Only the first 200 actors are displayed in the dropdown.
+[NOTE]
+====
 
+Only the first 200 actors are displayed in the dropdown.
+====
 
 == Define one or more Process managers
 
@@ -223,9 +234,11 @@ Only Administrators can do so.
 . Starting to type some text, and any matching names of installed forms will be proposed. If there is no match for the name you enter, it will be considered as a URL.
 . Click the _Tick_ button to validate your change or _X_ to dismiss your change.
 
-NOTE:
-*Note:* You can also upload a new form in order to create a new form mapping (see the above section Upload a new form).
+[NOTE]
+====
 
+You can also upload a new form in order to create a new form mapping (see the above section Upload a new form).
+====
 
 == Edit a script content
 

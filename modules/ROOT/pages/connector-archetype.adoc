@@ -1,4 +1,5 @@
 = Bonita connector archetype
+:description: A set of best of breed tools to develop and test custom connectors independently of the Bonita Studio.
 
 A set of best of breed tools to develop and test custom connectors independently of the Bonita Studio.
 
@@ -18,9 +19,11 @@ We provide a maven archetype to help you to bootstrap a connector project. The s
 A https://maven.apache.org/archetype/index.html[maven archetype] is a maven project templating toolkit. This archetype allows you to bootstrap a Bonita connector project on your file system. A Bonita connector project is a maven project. It can be built, tested and then imported into a Bonita project using Bonita Studio.
 
 To create your connector project, prompt a terminal and enter the following command:
-WARNING:
-*Warning:* Make sure that you are not executing the command from an existing maven project.
+[WARNING]
+====
 
+Make sure that you are not executing the command from an existing maven project.
+====
 
 ----
 mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype
@@ -141,10 +144,10 @@ Some widgets can require additional informations. For example, if you want to cr
 </widget>
 ----
 
-WARNING:
+====warning
 *Warning:* As widgets are displayed in a dialog window in the Studio, be careful to not use too many widgets in the same page.
 Use Group widget if you need to stack a lot of widgets in the same page.
-
+====
 
 ==== Connector implementation
 

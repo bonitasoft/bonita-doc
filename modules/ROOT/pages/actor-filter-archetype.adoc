@@ -1,4 +1,5 @@
 = Bonita actor filter archetype
+:description: A set of best of breed tools to develop and test custom actor filters independently of the Bonita Studio.
 
 A set of best of breed tools to develop and test custom actor filters independently of the Bonita Studio.
 
@@ -18,9 +19,11 @@ We provide a maven archetype to help you bootstrap an actor filter project. The 
 A https://maven.apache.org/archetype/index.html[maven archetype] is a maven project templating toolkit. This archetype allows you to bootstrap a Bonita actor filter project on your file system. A Bonita actor filter project is a maven project. It can be built, tested and then imported into a Bonita project using Bonita Studio.
 
 To create your actor filter project, prompt a terminal and enter the following command:
-WARNING:
-*Warning:* Make sure that you are not executing the command from an existing maven project.
+[WARNING]
+====
 
+Make sure that you are not executing the command from an existing maven project.
+====
 
 ----
 mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-actorfilter-archetype -DarchetypeVersion=1.0.0

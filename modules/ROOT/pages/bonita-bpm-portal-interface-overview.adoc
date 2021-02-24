@@ -1,4 +1,5 @@
 = Bonita User Interfaces overview
+:description: This page describes the runtime User Interfaces provided by Bonita. +
 
 This page describes the runtime User Interfaces provided by Bonita. +
 They rely on the analysis that four types of personas use process-based applications in a company:
@@ -12,9 +13,11 @@ They rely on the analysis that four types of personas use process-based applicat
 
 Starting with Bonita 2021.1, there are two types of runtime User Interfaces provided by Bonita: Bonita Portal (legacy), and Bonita Applications (the way to go).
 
-NOTE:
- *Note:* In next versions of Bonita, Portal will be replaced with Applications, so we encourage you to use the applications as of now.
- 
+[NOTE]
+====
+
+In next versions of Bonita, Portal will be replaced with Applications, so we encourage you to use the applications as of now.
+====
 
 Bonita Portal gives access to:
 
@@ -49,7 +52,9 @@ With Bonita 2021.1 and the availability of Administrator and User Applications, 
 
 To know more about how to create an application, or create an application from a Bonita Application, go to the xref:design-methodology.adoc[Design methodology] page.
 
-NOTE:
-*Note:* Again, as Bonita Portal will be replaced by applications in next versions of Bonita, we strongly advise you *not* to create Custom profiles with custom Portal navigations anymore, but applications. +
-For more information on how to migrate existing Custom profiles with Portal views into applications, go to the dedicated xref:custom-profiles.adoc[documentation page].
+[NOTE]
+====
 
+Again, as Bonita Portal will be replaced by applications in next versions of Bonita, we strongly advise you *not* to create Custom profiles with custom Portal navigations anymore, but applications. +
+For more information on how to migrate existing Custom profiles with Portal views into applications, go to the dedicated xref:custom-profiles.adoc[documentation page].
+====

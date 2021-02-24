@@ -1,8 +1,9 @@
 = Single sign-on with Kerberos
+:description: ====info
 
-NOTE:
+====info
 *Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
-
+====
 
 This pages explains how to configure your Bonita Platform system to use the Kerberos protocol to provide single sign-on (SSO). It assumes you already have a Correctly configured Windows Domain (AD/KDC/DNS services).
 
@@ -10,9 +11,9 @@ This information applies to a Bonita platform deployed from a bundle, not to the
 
 Kerberos configuration is at tenant level. Each tenant can use a different authentication method (over Kerberos or not).
 
-NOTE:
+====info
 *Note:* Bonita uses http://spnego.sourceforge.net/[Spnego] library that allows to request tickets using the Kerberos protocol.
-
+====
 
 == Kerberos single sign-on with Active Directory
 
@@ -42,10 +43,12 @@ The Spnego authenticator will then verify the user's Kerberos tickets if present
 
 * The Bonita Kerberos filter will automatically create a Bonita session and let the user through to access the Portal resources.
 
-WARNING: +
+[WARNING]
+====
+ +
  Bonita "username" should match the authenticated user login returned in the client response. +
 You can configure Bonita engine to create the accounts on the fly in the database when a user accessing Bonita is already authenticated with Kerberos (see the configuration of `bonita-tenant-sp-custom.properties` in the 6th section of the chapter "Configure Bonita Bundle for Kerberos").
-
+====
 
 == Pre-installation Environment Checks
 
@@ -299,12 +302,14 @@ com.bonitasoft.engine.authentication.level = ALL
 
 Edit the _logger_ tags which _category_ matches `org.bonitasoft.console.common.server.auth`, `org.bonitasoft.engine.authentication` and `com.bonitasoft.engine.authentication` packages: change the _level_ _name_ attribute of each _logger_ to `ALL` and add a new logger with the _category_ `net.sourceforge.spnego` (also with a _level_ _name_ set to `ALL`).
 
-NOTE:
+[NOTE]
+====
+
 *Common issues :* In the logs, you may get a IllegalArgumentException in the class `net.sourceforge.spnego.SpnegoFilterConfig`. +
 The most probable cause for that is that the login contexts (set in `login.conf`) for Tomcat or the security domain names (set in `standalone.xml`) for Wildfly (spnego-client and spnego-server by default) do not match the values of the properties `spnego.login.client.module` and `spnego.login.server.module` set in the file `spnego-config.properties`. +
 You may also see a NullPointerException in the class `net.sourceforge.spnego.SpnegoFilterConfig` +
 In that case, for Tomcat, you should make sure the properties `spnego.krb5.conf` and `spnego.login.conf` of `spnego-config.properties` target the right files (the path is relative to `<BUNDLE_HOME>/server`) and the  system property `java.security.auth.login.config` should not be set or, if it is, it should target the file `conf/login.conf`.
-
+====
 
 == Manage passwords
 
@@ -318,9 +323,11 @@ you can continue to do this and manage authentication over Kerberos. +
 The LDAP synchronizer user must be registered in Bonita (no need for an LDAP/AD account). It is recommended though to use the tenant admin account. +
 We recommend that you use LDAP or AD as your master source for information, synchronizing the relevant information with your Bonita platform.
 
-NOTE:
-*Note :* By default the xref:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `kerberos.auth.standard.allowed` in *authenticationManager-config.properties*), users won't be able to log in with the portal login page directly without going through the Domain Controller. +
+[NOTE]
+====
 
+*Note :* By default the xref:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `kerberos.auth.standard.allowed` in *authenticationManager-config.properties*), users won't be able to log in with the portal login page directly without going through the Domain Controller. +
+====
 
 == Single sign-on with Kerberos using the REST API
 

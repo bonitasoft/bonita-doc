@@ -1,4 +1,5 @@
 = Upgrade from Community to Subscription
+:description: Upgrading means moving from a Bonita Community edition environment to any Bonita Subscription
 
 Upgrading means moving from a Bonita Community edition environment to any Bonita Subscription
 edition environment.
@@ -31,9 +32,11 @@ while benefiting from the Subscription edition features.
 
 The upgrade procedure is quite simple and only requires a limited service downtime (less than an hour for basic configurations).
 
-WARNING:
-A Bonita platform upgrade can only be performed on the same database type.
+[WARNING]
+====
 
+A Bonita platform upgrade can only be performed on the same database type.
+====
 
 To upgrade a Bonita platform from Community edition to a Subscription edition, follow these steps:
 

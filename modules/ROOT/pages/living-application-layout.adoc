@@ -1,14 +1,19 @@
 = Living application layout
+:description: [NOTE]
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
-WARNING:
+[WARNING]
+====
+
 In 7.6 we made some improvements on the default layout.
 We recommand that you re-create your custom layout based on Bonita 7.6.0+ default layout.
 *:fa-exclamation-triangle: Warning:* This layout is deprecated starting with Bonita 7.9 because of the introduction of the xref:bonita-layout.adoc[Bonita Layout].
-
+====
 
 This layout contains a line with the name of the application, followed by the names of the pages.
 

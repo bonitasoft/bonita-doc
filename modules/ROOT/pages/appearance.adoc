@@ -1,4 +1,5 @@
 = Appearance of page and forms
+:description: Bonita allows you to define the appearance of a page or form using themes.
 
 Bonita allows you to define the appearance of a page or form using themes.
 

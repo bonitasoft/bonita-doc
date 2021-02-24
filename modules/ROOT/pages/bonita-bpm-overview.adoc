@@ -1,4 +1,5 @@
 = Bonita platform overview
+:description: Bonita is an open-source and extensible platform for business process automation and optimization. The Bonita platform accelerates development and production with clear separation between capabilities for visual programming and for coding.  BPMN graphical notation, full extensibility, and reusable components allow smooth collaboration among the different profiles on the IT team, and with the business teams. Bonita integrates with existing information systems, orchestrates heterogeneous systems, and provides deep visibility into processes across the organization.
 
 Bonita is an open-source and extensible platform for business process automation and optimization. The Bonita platform accelerates development and production with clear separation between capabilities for visual programming and for coding.  BPMN graphical notation, full extensibility, and reusable components allow smooth collaboration among the different profiles on the IT team, and with the business teams. Bonita integrates with existing information systems, orchestrates heterogeneous systems, and provides deep visibility into processes across the organization.
 
@@ -48,7 +49,7 @@ Until 2019 Bonita was provided in four different editions: Community, Teamwork, 
 
 Bonita 7.x provides new and improved features, including the xref:ui-designer-overview.adoc[UI Designer] for creating application pages and forms, as well as xref:contracts-and-contexts.adoc[contracts and context] to create a clear split between the process logic, the data, and the user views.
 
-WARNING: Attention: Starting with Bonita 7.8, 6.x forms and case overview pages are not available for modeling or execution. Before migrating to Bonita 7.8, you need to create all forms with Bonita UI Designer to benefit from technologies like html/AngularJS and use contracts in tasks and process instantiation. For more information, read the xref:migrate-a-form-from-6-x.adoc[migrate a form from 6.x] page. 
+====
 
 You will also find lots of familiar features, which continue to work as they did in 6.x.
 

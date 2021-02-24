@@ -1,4 +1,5 @@
 = Google Calendar connectors
+:description: Bonita native Google Calendar connectors allow to connect Bonita processes to Google calendar to manage events.
 
 Bonita native Google Calendar connectors allow to connect Bonita processes to Google calendar to manage events.
 

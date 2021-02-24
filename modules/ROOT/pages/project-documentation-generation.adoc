@@ -1,10 +1,13 @@
 = Generate project documentation
+:description: How to generate the project documentation in Bonita Studio.
 
 How to generate the project documentation in Bonita Studio.
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency and Teamwork editions only.
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency and Teamwork editions only.
+====
 
 == Overview
 
@@ -12,9 +15,11 @@ To collaborate efficiently with business users, Bonita studio allows you to gene
 
 The documentation generator will use mostly information stored in the objects of the studio such as the processes or tasks.
 
-WARNING:
-In order to fully use this feature, we recommend that you use extensively the provided description fields.
+[WARNING]
+====
 
+In order to fully use this feature, we recommend that you use extensively the provided description fields.
+====
 
 As we know that your needs in term of documentation can greatly vary from one project to another or from one team to another, you can easily customize both the generated documentation and the templates used by the generator.
 
@@ -69,9 +74,11 @@ To do it, open the `README.adoc` file with the Studio. The embedded editor is di
 
 Now you can edit the source code to customize the documentation. To refresh the preview, save your source code.
 
-WARNING:
-*Warning:* If you launch the documentation generation again it will overwrite your README.adoc file. To avoid this, rename your file.
+[WARNING]
+====
 
+If you launch the documentation generation again it will overwrite your README.adoc file. To avoid this, rename your file.
+====
 
 === Customizing the documentation templates
 

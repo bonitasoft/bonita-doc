@@ -1,10 +1,13 @@
 = Bonita Engine Queriable logger
+:description: Queriable logger provides information about important events that happened in the Bonita Platform.
 
 Queriable logger provides information about important events that happened in the Bonita Platform.
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
 == Purpose
 

@@ -1,4 +1,5 @@
 = Bonita Studio preferences
+:description: Learn about deployment, web and other Bonita Studio preferences, and the Bonita Studio embedded Tomcat configuration.
 
 Learn about deployment, web and other Bonita Studio preferences, and the Bonita Studio embedded Tomcat configuration.
 
@@ -63,10 +64,12 @@ Proxy
 Validation
 
 * Define the validation to be applied to the different components of your project: Business Data Model, Connector validation, KPI validation, and Processes.
-+
-NOTE:
-*Note*: You can activate this option for Business users so that they can create and share processes without worrying about the technical constraints
 
+[NOTE]
+====
+
+You can activate this option for Business users so that they can create and share processes without worrying about the technical constraints
+====
 
 Advanced
 

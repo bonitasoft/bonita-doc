@@ -1,4 +1,5 @@
 = Overview of connector development features
+:description: Description of the structure, definition, implementation and test of custom connectors in Bonita.
 
 Description of the structure, definition, implementation and test of custom connectors in Bonita.
 

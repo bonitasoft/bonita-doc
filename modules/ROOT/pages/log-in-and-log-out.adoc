@@ -1,10 +1,11 @@
 = Log in and log out
+:description: This page explains how to log in and log out of the Bonita User Interfaces.
 
 This page explains how to log in and log out of the Bonita User Interfaces.
 
-NOTE:
+====info
 Note: to avoid login problems, make sure you http://www.wikihow.com/Clear-Your-Browser's-Cache[empty your browser cache].
-
+====
 
 == Log in
 
@@ -44,9 +45,11 @@ For an application:
 image:images/UI2021.1/sign-out.png[Sign out]
 // {.img-responsive}
 
-NOTE:
-Note: in a system that uses a solution to provide single sign-on (with SAML, CAS, etc...), the administrator can remove the logout option. In this case, to log out of the portal or an application, you must log out of the SSO system or close your browser.
+[NOTE]
+====
 
+Note: in a system that uses a solution to provide single sign-on (with SAML, CAS, etc...), the administrator can remove the logout option. In this case, to log out of the portal or an application, you must log out of the SSO system or close your browser.
+====
 
 See also xref:first-steps-after-setup.adoc[First steps after setup]
 

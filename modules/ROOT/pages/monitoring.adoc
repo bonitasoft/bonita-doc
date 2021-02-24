@@ -1,11 +1,14 @@
 = Monitor open cases
+:description: This page describes the "Monitor open cases" page of the Administration profile in Bonita Portal and in the xref:admin-application-overview.adoc[Bonita Administrator Application]. +
 
 This page describes the "Monitor open cases" page of the Administration profile in Bonita Portal and in the xref:admin-application-overview.adoc[Bonita Administrator Application]. +
 In this page, _Administrators_ and _Process Managers_ can have a complete view of the sanity of the BPM operations, filter by process, access the process visualization and case details of a process.
 
-NOTE:
-*Note:* For Enterprise, Performance and Efficiency editions only.
+[NOTE]
+====
 
+For Enterprise, Performance and Efficiency editions only.
+====
 
 Here is a view of the Monitoring page
 image:images/UI2021.1/monitoring.png[Monitoring]
@@ -29,8 +32,10 @@ Click on the _Show key_ button to see an explanation of the display.
 
 The process diagram is constructed from the deployed process definition. This means that some details visible in Bonita Studio, such as descriptions are not available.
 
-NOTE:
+[NOTE]
+====
+
 Note: if a process was deployed from a .bar file created in Bonita Studio 6.3 or earlier, the diagram display is not available.
 This is because some details of the `.bar` structure have changed.
 To see the diagram for such a process, export the process definition from Bonita Studio 6.3 as a `.bos` file, import it into Bonita Studio 6.4 or later, generate a new `.bar` file, and deploy it.
-
+====

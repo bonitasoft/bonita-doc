@@ -1,4 +1,5 @@
 = UI Designer Embedded widgets
+:description: The UI Designer provides a set of default widgets that you can use or customize to design a page or form.
 
 The UI Designer provides a set of default widgets that you can use or customize to design a page or form.
 
@@ -24,9 +25,9 @@ From there, you can clone this widget (to modify or extend it) by clicking on *S
 
 Image below shows wizard of switch widget behaviour
 
-NOTE:
+====info
  This action is not available for containers.
-
+====
 
 image::images/widget_switch_mapping.png[widget_switch_mapping]
 
@@ -38,9 +39,9 @@ You can edit that or map more, then click on *Switch*.
 
 When the switch is completed, you still may have to set properties from the properties panel.
 
-NOTE:
+====info
  Switch feature not available for Internet Explorer 11 and Microsoft Edge.
-
+====
 
 == Containers
 
@@ -229,9 +230,9 @@ You can use a variable to hold the resulting data after success or failure.
 
 For pages that are displayed in a task or process context, the button widget can be used to submit a form, completing the human task or starting a process instance. For form submission, you need to define only the data to send. The URL is extracted from the context. When using the `Submit task` action, you can choose to automatically assign the task to the current user. It will assign and execute the task in a single action.
 
-WARNING:
+====warning
 *:fa-exclamation-triangle:* The Tasklist of the Bonita User App does not take that property into account and it is still required to `take` a task in order to execute it.
-
+====
 
 Another possible use of the widget button is to add or remove a data from a given collection.
 
@@ -406,10 +407,10 @@ You can display a document in a modal dialog box or directly in a page.
 
 The previewable documents are limited to documents supported by the end user browser (by default pdf and images on usual browsers). Documents that are not previewable are prompted to be downloaded.
 
-WARNING:
+====warning
 *:fa-exclamation-triangle:* If you create a custom FileViewer: edit the `box-viewer.directive.js` file from the custom widget editor, and replace `pbFileViewer` by the name of your custom FileViewer prefixed by `custom` (for instance `customFileViewerSmart`).
 Limitation: adding several types of `FileViewer` in a page is not supported.
-
+====
 
 [#rich-text-area]
 

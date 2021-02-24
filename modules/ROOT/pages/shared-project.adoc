@@ -1,8 +1,11 @@
 == Use a shared project
+:description: [NOTE]
 
-NOTE:
+[NOTE]
+====
+
 Bonita Studio provide a feature (*File* menu, *Import*, *Workspace...*) to import all the projects from a given workspace into your current workspace. If the workspace you import from includes shared projects (Git or Subversion), be aware that importing the workspace will result in having a local project instead of a shared one. For shared projects, it's advised to clone them directly from the remote Git repository instead of using the import workspace feature.
-
+====
 
 [#git]
 

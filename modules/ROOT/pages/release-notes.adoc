@@ -1,4 +1,5 @@
 = Release notes
+:description: +++<a id="renaming">++++++</a>+++
 
 [#renaming]
 

@@ -1,4 +1,5 @@
 = Two main types of Bonita deployment
+:description: Discover the two main types of deployments of a Bonita Platform.
 
 Discover the two main types of deployments of a Bonita Platform.
 
@@ -7,6 +8,18 @@ There are two main types of deployment
 * Bonita Portal + Bonita Engine on the same application server: this is the usual deployment and the default one when
 using a Bonita bundle
 * Bonita Portal and Bonita Engine running on two different application servers
+
+[WARNING]
+====
+
+The deployment of Bonita Portal and Bonita Engine running on two different application servers is *deprecated*.
+It will not be supported starting from *Bonita version 2021.2*. +
+====
+
+== Foreword
+
+It is highly recommended using the provided Tomcat or WildFly bundles in order to carry out these deployments
+successfully.
 
 == Bonita Portal + Bonita Engine on the same application server
 
@@ -67,9 +80,9 @@ For more details, please read link:configure-client-of-bonita-bpm-engine.md#clie
 
 ===== Configuring the Bonita Portal
 
-NOTE:
+====info
 *Note:* At the end of these steps, you can start the Bonita Portal bundle with the startup script.
-
+====
 
 Unarchive the bundle.
 Remove the content of the `setup` directory as the setup tool in not used on the Portal part

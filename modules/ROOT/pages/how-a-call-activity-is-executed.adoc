@@ -1,4 +1,5 @@
 = Call activity execution
+:description: Lean how the engine executes and aborts call activities.
 
 Lean how the engine executes and aborts call activities.
 

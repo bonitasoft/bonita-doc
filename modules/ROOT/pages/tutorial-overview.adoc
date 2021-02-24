@@ -1,4 +1,5 @@
 = Tutorial overview
+:description: Welcome to this Bonita getting started tutorial. On this page you will be guided throughout the steps required to create a Bonita application. +
 
 Welcome to this Bonita getting started tutorial. On this page you will be guided throughout the steps required to create a Bonita application. +
 An application offers customized user interfaces to end-users while standardized processes run in the background, to deliver the full potential of BPM solutions. +

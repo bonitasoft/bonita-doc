@@ -1,4 +1,5 @@
 = Application descriptor
+:description: Define your Bonita application descriptor.
 
 Define your Bonita application descriptor.
 

@@ -1,4 +1,5 @@
 = About Bonita Portal
+:description: Bonita Portal gives you access to a basic task preview and administration features.
 
 Bonita Portal gives you access to a basic task preview and administration features.
 

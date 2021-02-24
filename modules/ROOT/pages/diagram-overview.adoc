@@ -1,4 +1,5 @@
 = Diagram overview
+:description: A diagram is the representation in the Bonita studio of a group of processes (BPMN pools). A diagram saved, deployed all pools in one action
 
 A diagram is the representation in the Bonita studio of a group of processes (BPMN pools). A diagram saved, deployed all pools in one action
 

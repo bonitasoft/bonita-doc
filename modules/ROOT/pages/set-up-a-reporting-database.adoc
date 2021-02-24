@@ -1,10 +1,13 @@
 = Set up a reporting database
+:description: Learn how to set up a reporting database to put reporting in place
 
 Learn how to set up a reporting database to put reporting in place
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
 Before you put reporting in place, you need to create a dedicated reporting database.
 For performance reasons, it is a best practice to isolate reporting data from live data.

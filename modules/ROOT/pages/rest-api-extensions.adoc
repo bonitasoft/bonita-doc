@@ -1,4 +1,5 @@
 = REST API extensions
+:description: Create REST API extensions to use third party systems (databases, web services, Bonita Engine, etc) data in forms and pages.
 
 Create REST API extensions to use third party systems (databases, web services, Bonita Engine, etc) data in forms and pages.
 
@@ -264,8 +265,10 @@ def result = [
 return buildResponse(responseBuilder, HttpServletResponse.SC_OK,new JsonBuilder(result).toPrettyString())
 ----
 
-NOTE:
+[NOTE]
+====
+
 We do not recommend to manage time zone at the Rest API level, as the local of the Rest API server, the Bonita Engine server, and the End User machine could be different.
 So we encourage you to manipulate UTC dates only server-side.
 You can see how we link:datetimes-management-tutorial.md#toc2[manage the time zone using the date time picker]. This time zone should only be managed in the end user interface.
-
+====

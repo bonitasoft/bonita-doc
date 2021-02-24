@@ -1,4 +1,5 @@
 = Configure connection to Bonita Engine
+:description: Learn how to configure your application to connect to a remote Bonita Engine, in order to access Engine APIs
 
 Learn how to configure your application to connect to a remote Bonita Engine, in order to access Engine APIs
 
@@ -45,19 +46,23 @@ When using `HTTP` mode, you must set the following system properties
 
 In addition, starting from version 7.9.4, the number of connections used by the client can be configured with system property `org.bonitasoft.engine.api-type.connections.max`, the default is 20.
 
-WARNING:
+[WARNING]
+====
+
 We do not guarantee to keep the http protocol stable, so we strongly recommend that you use the same version for both
 the client and the server
-
+====
 
 * `LOCAL`
  This is the default connection mode, it connects to the server in the same JVM (not remote). If nothing is set this mode will be used.
 
 === Configure client using Bonita Home client
 
- danger
-Deprecated, use the programmatic way instead, see http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/util/APITypeManager.html[APITypeManager].
+[IMPORTANT]
+====
 
+Deprecated, use the programmatic way instead, see http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/util/APITypeManager.html[APITypeManager].
+====
 
 This is a legacy way to configure the connection to the remote engine.
 
@@ -96,6 +101,8 @@ It is configured in the `web.xml` file of the web application like this:
 </servlet>
 ----
 
-WARNING:
-This HTTP access  is not secured, it should not be exposed outside a trusted area. We recommend you to deactivate it if you expose directly your deployment to the outside world.
+[WARNING]
+====
 
+This HTTP access  is not secured, it should not be exposed outside a trusted area. We recommend you to deactivate it if you expose directly your deployment to the outside world.
+====

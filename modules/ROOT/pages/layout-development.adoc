@@ -1,4 +1,5 @@
 = Develop a layout
+:description: This pages describe how to create a layout and use it in an application.
 
 This pages describe how to create a layout and use it in an application.
 

@@ -1,4 +1,5 @@
 = Administrator Process list in Bonita Portal
+:description: This page explains what a user with the _Administrator_ or _Process Manager_ profile in Bonita Portal can see and do about processes.
 
 This page explains what a user with the _Administrator_ or _Process Manager_ profile in Bonita Portal can see and do about processes.
 
@@ -62,9 +63,11 @@ To resolve a process for business variables:
 . The activation state changes to "enabled"
 . The process disappears from the disabled filter and is now displayed in the enabled filter
 
-NOTE:
-*Note:* You can also select the processes you want to enable by checking the box in the _Resolved_ list, then click on the _ENABLE_ button in the bulk actions section, at the top of the list. +
+[NOTE]
+====
 
+You can also select the processes you want to enable by checking the box in the _Resolved_ list, then click on the _ENABLE_ button in the bulk actions section, at the top of the list. +
+====
 
 == Disable a process
 
@@ -77,22 +80,28 @@ Disabling a process blocks the creation of new cases. This does not impact exist
 . The activation state changes to "disabled"
 . The process disappears from enabled filter and is located in the disabled filter
 
-NOTE:
-*Note:* You can also disable a process in the _More details_ view, by clicking on the _Disable_ button.
+[NOTE]
+====
 
+You can also disable a process in the _More details_ view, by clicking on the _Disable_ button.
+====
 
 == Delete a process
 
-NOTE:
-*Note:* A process must be disabled before it can be deleted.
+[NOTE]
+====
 
+A process must be disabled before it can be deleted.
+====
 
-WARNING:
-*Warning:* *Beware! Data loss risk!*
+[WARNING]
+====
+
+*Beware! Data loss risk!*
 Deleting a process will automatically delete all its cases (on-going and archived alike). Thus, the operation may take a long time, and fail if the transaction timeout is not large enough.
 This feature should only be used on non-production environments.
 *Proceed at your own risk.*
-
+====
 
 . Go to _BPM_>__Processes__ (Administrators) or _Processes_ (Process Managers),
 . Select the process to delete by checking the tickbox next to the process
@@ -153,9 +162,11 @@ To remove entities:
 You can *undo* a removal by clicking on the _X_ button next to the entity or by clicking _Enable all_
 . Click on the _Apply_ button.
 
-NOTE:
-*Note:* Only the first 200 actors are displayed in the dropdown.
+[NOTE]
+====
 
+Only the first 200 actors are displayed in the dropdown.
+====
 
 == Define one or more Process managers
 
@@ -230,9 +241,11 @@ Only Administrators can do so.
 . Starting to type some text, and any matching names of installed forms will be proposed. If there is no match for the name you enter, it will be considered as a URL.
 . Click the _Tick_ button to validate your change or _*X*_ to dismiss your change.
 
-NOTE:
-*Note:* You can also upload a new form in order to create a new form mapping (see the above section Upload a new form).
+[NOTE]
+====
 
+You can also upload a new form in order to create a new form mapping (see the above section Upload a new form).
+====
 
 == Edit a script content
 

@@ -1,4 +1,5 @@
 = Custom user info API
+:description: The Custom user info Rest API allows to manage the custom information of the Bonita's users.
 
 The Custom user info Rest API allows to manage the custom information of the Bonita's users.
 

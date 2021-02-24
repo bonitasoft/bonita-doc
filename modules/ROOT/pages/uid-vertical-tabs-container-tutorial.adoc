@@ -1,8 +1,11 @@
 = How to display a vertical tabs container on all devices
+:description: [WARNING]
 
-WARNING:
+[WARNING]
+====
+
 *:fa-exclamation-triangle: Warning:* This tutorial is using "Vertical tabs container" available since Bonita 7.10
-
+====
 
 == Goal: Display stacked tabs on mobile and juxtaposed tabs on desktop
 

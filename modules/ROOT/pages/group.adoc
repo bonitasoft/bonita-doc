@@ -1,4 +1,5 @@
 = Administrator Group list in Bonita Portal
+:description: This page explains what a user with the _Administrator_ profile in Bonita Portal can see and do about groups in the organization. +
 
 This page explains what a user with the _Administrator_ profile in Bonita Portal can see and do about groups in the organization. +
 To easily manipulate users with the same rights, it is possible to group them together. +
@@ -15,9 +16,11 @@ image:images/UI2021.1/groups-portal.png[Administrator groups list Portal]
 . In the pop-up window, enter the name (required), the parent group and a description.
 . Click on _Create_.
 
-NOTE:
-*Note*: Bonita doesn't accept the '/' character in the group name field. A group name that contains a '/' may lead to unstable behaviour.
+[NOTE]
+====
 
+Bonita doesn't accept the '/' character in the group name field. A group name that contains a '/' may lead to unstable behaviour.
+====
 
 == Assign a user to a group
 

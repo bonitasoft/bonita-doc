@@ -1,4 +1,5 @@
 = User Interfaces development overview
+:description: This page summarizes the User Interface resources needed to create an application with Bonita.
 
 This page summarizes the User Interface resources needed to create an application with Bonita.
 

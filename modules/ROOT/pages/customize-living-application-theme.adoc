@@ -1,4 +1,5 @@
 = Customize the living application theme
+:description: This page explains how to create a theme project from the Studio or using the dedicated maven archetype.
 
 This page explains how to create a theme project from the Studio or using the dedicated maven archetype.
 
@@ -37,9 +38,11 @@ We provide a maven archetype to help you to bootstrap a theme project outside of
 A https://maven.apache.org/archetype/index.html[maven archetype] is a maven project templating toolkit. This archetype allows you to bootstrap a theme project on your file system. A theme project is a maven project. It can be built, tested and then imported into Bonita from the Bonita portal.
 
 To create your theme project, prompt a terminal and enter the following command:
-WARNING:
-*Warning:* Make sure that you are not executing the command from an existing maven project.
+[WARNING]
+====
 
+Make sure that you are not executing the command from an existing maven project.
+====
 
 ----
 mvn archetype:generate \
@@ -61,9 +64,11 @@ A folder named _[your artifact id]_ is created, with your theme project, ready t
 
 You start with a default project theme based on https://sass-lang.com/[Sass] preprocessor and SCSS syntax.
 
-NOTE:
-*Note:* Sass is a CSS preprocessor and SCSS syntax is a superset of CSS3. You can just write classic CSS 3 in a .scss file.
+[NOTE]
+====
 
+Sass is a CSS preprocessor and SCSS syntax is a superset of CSS3. You can just write classic CSS 3 in a .scss file.
+====
 
 === Default theme project
 
@@ -376,9 +381,11 @@ $icon-font-path: "./fonts/"; // path relative to the theme.css file in the dist 
 
 All the variables defined in this file are used by _bootstrap-sass_. You can look at the following scss file `node_modules/bootstratp-sass/assets/stylesheets/bootstrap/_variable.scss` to discover all available variables.
 
-NOTE:
-*Note:* Only variables declared with the `!default` flag can be overridden.
+[NOTE]
+====
 
+Only variables declared with the `!default` flag can be overridden.
+====
 
 Sass and SCSS have lots of other interesting features that you could use. Check https://sass-lang.com/documentation[Sass documentation] to known more.
 

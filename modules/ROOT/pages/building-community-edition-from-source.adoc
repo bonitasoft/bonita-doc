@@ -1,4 +1,6 @@
 = Build Bonita Community edition from the source
+:description: :doctype: book
+
 :doctype: book
 
 Bonita is an opensource Digital Process Automation platform, you can therefore build Bonita Community edition from the source.

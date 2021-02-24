@@ -1,4 +1,5 @@
 = Manage the platform
+:description: With Bonita Engine API, you can create and initialize the platform, start and stop the Bonita Engine.
 
 With Bonita Engine API, you can create and initialize the platform, start and stop the Bonita Engine.
 

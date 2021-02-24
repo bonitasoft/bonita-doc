@@ -1,4 +1,5 @@
 = Bonita Versioning
+:description: Discover how Bonita manages its product and artifacts versions and how it can impact your projects
 
 Discover how Bonita manages its product and artifacts versions and how it can impact your projects
 
@@ -21,9 +22,13 @@ A technical Id also exists for Bonita components, and it follows the usual seman
 For example, upgrading from a 2021.1-0205 to a 2021.1-0401 will not require any migration. However, upgrades from a 7.11.5 to a 2021.1-0205 will require a migration.
 
 Technical Id Bonita version correspondence table
-|Bonita Version            |Technical Id                          |
-|------------------|--------------------------|
-|2021.1                    |7.12.z                                |
+
+|===
+| Bonita Version | Technical Id
+
+| 2021.1
+| 7.12.z
+|===
 
 == Artifact version
 
@@ -51,9 +56,11 @@ The following artifacts have model versions:
 
 These model versions should not change between maintenance versions of a given minor version (e.g. between a 7.12.5 and a 7.12.3). This means that no migration is needed in production or the Studio when changing the maintenance version.
 
-NOTE:
-*Note:* Changing the minor version does not imply that the model version of all artifacts will change. Meaning that in some cases, upgrading to a new minor will not require migration.
+[NOTE]
+====
 
+Changing the minor version does not imply that the model version of all artifacts will change. Meaning that in some cases, upgrading to a new minor will not require migration.
+====
 
 == Version checks in the development suite
 
@@ -71,6 +78,6 @@ You will not be able to work with incompatible artifacts or deploy them. You wil
 
 The UI Designer will check the model version of all artifacts when it is launched and when a given artifact is opened. You will not be able to work with incompatible artifacts. You will be able if you desire to migrate older artifacts.
 
-WARNING:
+====warning
 *Warning*: Artifact migration is not reversible. Once the Studio or UI Designer has migrated an artifact it is no longer compatible with the previous version of the development suite.
-
+====

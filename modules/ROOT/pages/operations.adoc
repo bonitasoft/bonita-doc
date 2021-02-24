@@ -1,4 +1,5 @@
 = Operations to update variables value
+:description: An operation is an action that updates the value of a variable when a task is executed. You can specify any number of operations per task, they are executed in the order they are listed.
 
 An operation is an action that updates the value of a variable when a task is executed. You can specify any number of operations per task, they are executed in the order they are listed.
 
@@ -15,11 +16,13 @@ To define an operation at task level:
 . Using the Expression Editor, enter the expression to define the new value of the variable.
 If you define the expression with a script, you can use the current value of the variable being updated in the script, so, for example, you can increment a counter. Make sure that the return type matches the type of the variable being updated.
 
-WARNING:
+[WARNING]
+====
+
 *Important note*: The scripts used in the operations _at task level_ are designed to be read only scripts. It is therefor not recommended to use them to write data to the database.
 Ex: In a human task of a process, you add an operation that instantiates a business object with the result of a script. In the script you create and return the business object, and you also decide to update a document by calling a java API method.
 While this call _might_ succeed, such a process design is considered bad practice and its behaviour is not garanteed accross Bonita versions
-
+====
 
 You can define a sequence of operations at a task. The operations are performed in the order in which they are listed, at the end of the task. You cannot re-order operations after they are defined, so you need to define the operations in the order they are to be performed.
 

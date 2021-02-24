@@ -1,4 +1,5 @@
 = Profiles overview in Bonita User Interfaces
+:description: This page explains what a profile is for a user with the profile _Administrator_ in Bonita Portal.
 
 This page explains what a profile is for a user with the profile _Administrator_ in Bonita Portal.
 
@@ -17,10 +18,12 @@ One organization entity can be mapped to several profiles. In Bonita Portal, a l
 In development, the creation and edition of profiles is done through the xref:profileCreation.adoc[profile editor] in Bonita Studio. +
 In non-production and production, an Administrator can use the _Organization_>__Profiles__ menu of Bonita Portal.
 
-NOTE:
+[NOTE]
+====
+
 Changing the mapping of a profile on a non-production or production Runtime may lead to inconsistencies when updating the project or deploying it on another server. +
 It should only be done to recover from an error temporarily. We strongly encourage you to report all changes in the sources profiles files of the project.
-
+====
 
 == Default profiles
 
@@ -56,10 +59,12 @@ Someone mapped to the _Process manager_ profile has limited administration right
 * xref:cases.adoc[Case list]
 * xref:tasks.adoc[Task list]
 
-NOTE:
-*Note:* In Bonita ACME organization, all users have the role *Member*, and the role *Member* is mapped to all default profiles. +
-This simplifies process testing (log in as any user to see any Portal content).
+[NOTE]
+====
 
+In Bonita ACME organization, all users have the role *Member*, and the role *Member* is mapped to all default profiles. +
+This simplifies process testing (log in as any user to see any Portal content).
+====
 
 == Custom profiles
 

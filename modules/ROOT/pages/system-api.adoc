@@ -1,4 +1,5 @@
 = REST API System API
+:description: Get informations on the current session and on localisation/translation.
 
 Get informations on the current session and on localisation/translation.
 

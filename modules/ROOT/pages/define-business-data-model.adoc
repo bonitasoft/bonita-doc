@@ -1,4 +1,6 @@
 = Define business data model (BDM)
+:description: :experimental:
+
 :experimental:
 
 The Bonita platform provides a means to define, manipulate and store your business data. This data management service will create Java objects to allow data manipulation, database tables for storage, and all operations required to get the data from your process into the database and vice versa.
@@ -32,27 +34,35 @@ image:images/getting-started-tutorial/define-business-data-model/create-business
 
 . Click on *Finish* button
 
-NOTE:
+[NOTE]
+====
+
 *Mandatory* on a object attribute means that the object cannot be created with an empty value. If the *mandatory* option is not checked, it means that an object can be created with an empty value, for the attribute "not mandatory" (i.e. optional). In our example, the _answer_ attribute is optional because at process start it will be empty. Later in the process execution, an employee will provide an answer and doing so will be mandatory (but this will not be enforced by BDM definition).
+====
 
+[WARNING]
+====
 
-WARNING:
 When you edit the BDM in Bonita Studio, it is always recommended to reset the database after doing any modification on the model. Check the checkbox "Reset BDM database," available in the pop-up window display when you validate your modifications.
+====
 
+[NOTE]
+====
 
-NOTE:
 When you click on the "Finish" button three different operations are performed:
 
 * BDM definition is saved in your project (under *Business Data Model* category)
 * Java classes are generated, compiled, packaged and the resulting jar file is added to your project (under *Java dependencies* category)
 * Tables are created in the Bonita Studio embedded test database
 
-
+====
 
 Now you have a fully functional business data management model. You are ready to move to the next chapter and xref:declare-business-variables.adoc[start populating the database with data collected by the process].
 
-NOTE:
+[NOTE]
+====
+
 Bonita Studio uses h2 to provide the database for testing. (We recommend you to use other types of databases such as Oracle, PostgreSQL, MySQL and SQL Server for production). Bonita Studio provides two database schemas: one for the Bonita Engine and one dedicated to BDM.
 You can view the tables created in the h2 BDM database by clicking on menu:Development[Business Data Model > Browse data (h2 console)...]. In the h2 console (a web interface) you can see that a table named "CLAIM" was created. You can run an SQL query such as `SELECT * FROM CLAIM` which should return an empty result as there is no data yet. +
 You can also link:data-management#toc0[graphically explore the BDM database schema] by clicking on menu:Development[Business Data Model > Explore model (GraphQL voyager)...].
-
+====

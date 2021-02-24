@@ -1,4 +1,5 @@
 = REST API BPM API
+:description: Easily retrieve human or service tasks, call activities, and subprocesses with BPM APIs. Perform maintenance tasks.
 
 Easily retrieve human or service tasks, call activities, and subprocesses with BPM APIs. Perform maintenance tasks.
 
@@ -124,9 +125,11 @@ NOTE: if there is no data with the specified name in the activity, the update wi
 
 ==== Update activity variables and execute a task
 
-NOTE:
-Note: if the task definition includes a connector that is executed on finish and updates the value of a variable, the value set by the REST API call is overwritten.
+[NOTE]
+====
 
+Note: if the task definition includes a connector that is executed on finish and updates the value of a variable, the value set by the REST API call is overwritten.
+====
 
 * *URL* +
 `/API/bpm/activity/:id`
@@ -2064,9 +2067,11 @@ A representation of a list of case variables
 
 Use the document resource to access a document in an active case.
 
-WARNING:
-*:fa-exclamation-triangle: Caution:* This resource is deprecated and may be removed in a future release. Instead, use caseDocument or archivedCaseDocument.
+[WARNING]
+====
 
+*:fa-exclamation-triangle: Caution:* This resource is deprecated and may be removed in a future release. Instead, use caseDocument or archivedCaseDocument.
+====
 
 == CaseDocument
 
@@ -2075,10 +2080,12 @@ WARNING:
 
 Use the case document resource to access a document in an active case. For archived cases and previous document versions use archivedCaseDocument.
 
-WARNING:
+[WARNING]
+====
+
 
 * `author` in the payload is deprecated: use `submittedBy`
-
+====
 
 [discrete]
 ==== Identifier
@@ -2217,7 +2224,8 @@ To get the document information, specify the document id in the URL. The documen
 `GET`
 * *Success Response* +
 The response includes the "url" to use to download the content. Call the documentDownload servlet with this URL:
-`/portal/documentDownload?fileName=doc.jpg&contentStorageId=4`.
+`/portal/documentDownload?fileName=doc.jpg&contentStorageId=4`. +
+*Note:* The filename attribute is just a way to indicate to the browser under what name the document should be downloaded. There is no check to make sure that the filename passed matches he original one as the sensitive part is the content of the document not its name and when you develop a process/app you may want the documents to be downloaded under a specific name different from the initial document name. This is the purpose of this parameter.
 _Note_: Since Bonita 7.10, document url fileName is now URL encoded.
 This will avoid errors when a document to be downloaded contains special characters in its name. +
 In the previous versions, a workaround was necessary client-side using the javascript native function "encodeURI" to generate document download url. You can now remove this workaround.
@@ -3052,11 +3060,13 @@ The process definition id, in JSON
 
 ===== Create a case with variables
 
- danger
+[IMPORTANT]
+====
+
 :fa-exclamation-triangle: *Warning:* The attribute "variables" on the request payload is used to initialize the process variables (not BDM variables).
 If you want to initialize BDM variables at process instantiation, add a contract on the process and map BDM variables to the contract data.
 See <<start-a-process-using-an-instantiation-contract,Start a process using an instantiation contract>> for usage.
-
+====
 
 [source,json]
 ----
@@ -3515,7 +3525,9 @@ The `d` (deploy) used to link:rest-api-overview.md#extend-resource[extend respon
 
 * `userId`
 
-NOTE:
+[NOTE]
+====
+
 Note: if the `userId` is not provided as a deploy parameter, the `userId` property of a comment is filled with the system user :
 
 [source,json]
@@ -3526,7 +3538,7 @@ Note: if the `userId` is not provided as a deploy parameter, the `userId` proper
 }
 ----
 
-
+====
 
 ==== Create a comment
 
@@ -3653,7 +3665,9 @@ The `d` (deploy) used to link:rest-api-overview.md#extend-resource[extend respon
 
 * `userId`
 
-NOTE:
+[NOTE]
+====
+
 Note: if the `userId` is not provided as a deploy parameter, the `userId` property of a comment is filled with the system user :
 
 [source,json]
@@ -3664,7 +3678,7 @@ Note: if the `userId` is not provided as a deploy parameter, the `userId` proper
 }
 ----
 
-
+====
 
 ==== Search for archived comments
 
@@ -3871,12 +3885,14 @@ The fields to be updated, in JSON
 
 You can delete a process based on its ID.
 
-WARNING:
-*Warning:* *Beware! Data loss risk!*
+[WARNING]
+====
+
+*Beware! Data loss risk!*
 Deleting a process will automatically delete all its cases (on-going and archived alike). Thus, the operation may take a long time, and fail if the transaction timeout is not large enough.
 This feature should only be used on non-production environments.
 *Please proceed at your own risk.*
-
+====
 
 * *URL* +
 `/API/bpm/process/:processId`
@@ -3889,12 +3905,14 @@ This feature should only be used on non-production environments.
 
 You can also delete several processes.
 
-WARNING:
-*Warning:* *Beware! Data loss risk!*
+[WARNING]
+====
+
+*Beware! Data loss risk!*
 Deleting a process will automatically delete all its cases (on-going and archived alike). Thus, the operation may take a long time, and fail if the transaction timeout is not large enough.
 This feature should only be used on non-production environments.
 *Please proceed at your own risk.*
-
+====
 
 * *URL* +
 `/API/bpm/process`

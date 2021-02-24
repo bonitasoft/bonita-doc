@@ -1,13 +1,16 @@
 = How to implement Adaptive Case Management (ACM) with Bonita
+:description: This page explains how to enable Adaptive Case Management capacity in Bonita. +
 
 This page explains how to enable Adaptive Case Management capacity in Bonita. +
 https://www.bonitasoft.com/adaptative-case-management[Adaptive Case Management] is an approach to work that supports unstructured processes. The user is at the center of the process and ACM allows them to intervene to adapt to business situations and advance the case. Bonita brings together BPM and ACM by using the native flexibility of the Bonita platform and business rules to handle each case with its particular circumstances.
 
 Adaptive Case Management with Bonita offers dynamic modeling of all process possibilities in a unified environment. It allows management of structured data through Bonita's BDM capability, along with unstructured data such as PDFs and comments. Dynamic process actors, filters and profiles can be modified ad hoc. Customized user interface gives access to tasks according to context and we provide a Living Application for a seamless user experience connecting processes, business data and user interfaces.
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
 == Enable ACM Engine Plug-in
 

@@ -1,4 +1,5 @@
 = Search and list elements of Bonita Engine
+:description: Learn how to use search and list methods of the Bonita Engine APIs and how to configure word-based search.
 
 Learn how to use search and list methods of the Bonita Engine APIs and how to configure word-based search.
 
@@ -56,12 +57,30 @@ sob.differentFrom</b>(HumanTaskInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getI
 By default, search uses a "starts by" algorithm for searching, and finds matches where the search string occurs at the start of a phrase.
 If word-based search is enabled, you can search for a string that is preceded by white space or is at the start of the phrase.
 For example:
-| Phrase in database | Search string | Matches with "starts with" | Matches with word-based search |
-|:-|:-|:-|:-|
-| Hello Charles | charles | no | yes |
-| Hello Charles | he | yes | yes |
-| Hello Charles | carl | no | no |
-| Hello_Charles | ch | no | no |
+
+|===
+| Phrase in database | Search string | Matches with "starts with" | Matches with word-based search
+
+| Hello Charles
+| charles
+| no
+| yes
+
+| Hello Charles
+| he
+| yes
+| yes
+
+| Hello Charles
+| carl
+| no
+| no
+
+| Hello_Charles
+| ch
+| no
+| no
+|===
 
 Using word-based search has an impact on performance, so by default it is disabled. You can enable it for the platform or for a tenant. If you enable it, you can exclude any objects for which it is not useful.
 
@@ -72,10 +91,10 @@ edit `platform_engine/bonita-platform-community-custom.properties` and change th
 . For each object you be excluded from word-based search,  using xref:BonitaBPM_platform_setup.adoc[the setup tool],
 edit `platform_engine/bonita-platform-custom.xml` add a mapping to the `wordSearchExclusionMappings` set.
 Each mapping has the following form:
-+
+
 [source,xml]
 ----
-<value>org.bonitasoft.engine.identity.model.SUser</value>
+   <value>org.bonitasoft.engine.identity.model.SUser</value>
 ----
 
 Don't forget to push your modifications using setup push command.

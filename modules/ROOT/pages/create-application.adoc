@@ -1,4 +1,6 @@
 = Create an application
+:description: :experimental:
+
 :experimental:
 
 The last step of this Getting Started tutorial is to create an application.
@@ -34,9 +36,11 @@ To create an application, you have to define:
 image:images/getting-started-tutorial/create-application/create-application.gif[Application deployment]
 // {.img-responsive .img-thumbnail}
 
-NOTE:
-The look & feel can be fully customized by modifying the xref:layouts.adoc[layout] and adding a custom xref:customize-living-application-theme.adoc[theme].
+[NOTE]
+====
 
+The look & feel can be fully customized by modifying the xref:layouts.adoc[layout] and adding a custom xref:customize-living-application-theme.adoc[theme].
+====
 
 The application is ready to be used. Now you need to deploy it in Bonita Portal:
 
@@ -51,7 +55,9 @@ image:images/getting-started-tutorial/create-application/application-deployment.
 
 Congratulations! You have successfully created your first process and your first application with Bonita.
 
-NOTE:
+[NOTE]
+====
+
 Verify that the application has been created in Bonita Portal.
 
 . Click on the Portal icon image:images/getting-started-tutorial/create-application/portal-icon.png[Portal icon] in the Bonita Studio coolbar.
@@ -59,6 +65,6 @@ Verify that the application has been created in Bonita Portal.
 . Select *Administrator*
 . Click on the *Applications* tab
 You will see the application _Claims_ that you have just deployed listed in the *Applications list*. If you click on the URL, _My Dashboard_ page will be displayed in your brower.
-
+====
 
 To learn more about Bonita components and concepts, we recommend the https://www.youtube.com/playlist?list=PLvvoQatxaHOMHRiP7hFayNXTJNdxIEiYp[Bonita Camp tutorial]. Of course https://documentation.bonitasoft.com[official documentation] is also a great place to learn more about Bonita. If you prefer to learn from examples, you can find several on the https://community.bonitasoft.com/project?title=&field_type_tid=3869[community website]. And finally, remember that you can always get help and https://community.bonitasoft.com/questions-and-answers/[ask questions of the Bonita Community].

@@ -1,4 +1,5 @@
 = Multi-language applications
+:description: Throughout this page, you will see how you can translate the application menus.
 
 Throughout this page, you will see how you can translate the application menus.
 

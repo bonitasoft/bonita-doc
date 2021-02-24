@@ -1,4 +1,5 @@
 = Maintenance of the Bonita Platform
+:description: Learn how to execute maintenance tasks on your tenants by pausing and resuming services of the Bonita Platform.
 
 Learn how to execute maintenance tasks on your tenants by pausing and resuming services of the Bonita Platform.
 

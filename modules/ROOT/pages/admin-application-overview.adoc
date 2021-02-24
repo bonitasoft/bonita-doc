@@ -1,4 +1,5 @@
 = Bonita Administrator Application
+:description: This pages describes the Bonita Administrator Application: its values, how to access it, its differences with the _Administrator_ profile of Bonita Portal, and the details of its features. +
 
 This pages describes the Bonita Administrator Application: its values, how to access it, its differences with the _Administrator_ profile of Bonita Portal, and the details of its features. +
 The Bonita Administrator Application allows anyone with the _Administrator_ profile to manage the usages of Bonita throughout a department or a company.
@@ -14,9 +15,11 @@ We believe that Bonita Applications give our users much more freedom for customi
 
 We also want to remove the last parts of the platform that were still built with Google Web Toolkit framework; as useful as it has been when building Bonita Portal, we now find some limitations.
 
-NOTE:
-So far, the Bonita Administrator Application is mostly thought for desktop and laptop screen sizes, as we believe this is the most likely screen sizes to be used to administrate Bonita. +
+[NOTE]
+====
 
+So far, the Bonita Administrator Application is mostly thought for desktop and laptop screen sizes, as we believe this is the most likely screen sizes to be used to administrate Bonita. +
+====
 
 == Access during Implementation
 
@@ -34,7 +37,13 @@ After Studio validation, the application is imported or cloned; you can view its
 
 == Access in pre-Production and in Production
 
-To deploy the applications into a bundle or the Cloud, you can use https://documentation.bonitasoft.com/bcd//_manage_living_application[Bonita Continuous Delivery].
+To deploy the applications into a bundle or the Cloud, you can use https://documentation.bonitasoft.com/bcd//_manage_living_application[Bonita Continuous Delivery] (for Enterprise, Performance, Efficiency, and Teamwork editions, and using BCD).
+Alternatively, you can deploy an application by importing all its components in the following order:
+
+* Organization then profiles
+* API extensions then pages, layout, themes
+* Business Data Model then processes
+* Application descriptor
 
 == Similarities and differences with _Administrator_ profile of Bonita Portal
 
@@ -57,10 +66,10 @@ Now, in details:
   *** Task list: recreated with the UI Designer. It brings more clarity about what is displayed (all types of flow nodes or only human tasks), brings consistency in the page layout with the horizontal tabs, with the failed flownodes first as this is the main monitoring information to get a grip on.
   *** Task details: recreated with the UI Designer. For failed flow nodes, the error management "replay" functionality has been clarified.
 
- Warning
+==== Warning
 The _Analytics_ page has neither been wrapped nor recreated with the UI Designer. This value is about to be created as part of a new application soon to be released.
 If you use one of our four BPM reports or one of the Jasper reports you have created and installed, do continue to use Bonita Portal with the Administrator profile.
-
+====
 
 * Organization menu
  ** _Users_:
@@ -86,15 +95,17 @@ Note that for all pages recreated with the UI Designer, error management has bee
 . Open our UI Designer pages to customize them.
 . In Bonita Studio, go to the "Project explorer" on the left and double click on the "bonita-admin-application.xml" application descriptor for Community, or "bonita-admin-application-sp.xml" for Enterprise.
 . In the editor, rename the pages, change the order in the menu, remove the pages you do not need, add yours in the menu, or as orphan pages accessed through navigation from another page.
-WARNING:
+====warning
 Make sure our "details" pages are always used as orphan pages, as they need some parameters (usually just an ID) to be passed in the URL by a list or another page to show any content.
-
+====
 . To add other Bonita provided pages, open the portal from the coolbar, switch to the Administrator profile, and look in the "Resources" page, filtered by pages.
 
-NOTE:
+[NOTE]
+====
+
 Once a page has been customized, or when the Administrator application has been customized, it is no longer supported. +
 But you can reach one of our Professional Services team member to help you develop or maintain it.
-
+====
 
 == Login and sign out
 

@@ -1,4 +1,5 @@
 = Different process configuration scenarios
+:description: The Bonita Studio provides dedicated tooling to configure the different artefacts that are part of a process.
 
 The Bonita Studio provides dedicated tooling to configure the different artefacts that are part of a process.
 

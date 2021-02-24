@@ -1,10 +1,13 @@
 = Restore the default Look & Feel
+:description: Restoring default Look & Feel in case of errors
 
 Restoring default Look & Feel in case of errors
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
 Normally, the Look & Feel for Bonita Portal and for process forms is xref:managing-look-feel.adoc[managed using Bonita Portal]. However, it is also possible to restore the default Look & Feel using the Bonita Engine API.
 This provides an "escape" in case a Look & Feel that contains errors that make the Bonita Portal unusable is applied.

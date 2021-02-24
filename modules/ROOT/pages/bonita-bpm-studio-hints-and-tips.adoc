@@ -1,4 +1,5 @@
 = Bonita Studio hints and tips
+:description: Discover how to add items to a diagram in Bonita Studio, use the tree view, and search/edit diagrams.
 
 Discover how to add items to a diagram in Bonita Studio, use the tree view, and search/edit diagrams.
 

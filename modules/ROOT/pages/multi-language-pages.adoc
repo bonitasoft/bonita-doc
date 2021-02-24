@@ -1,10 +1,13 @@
 = Multi-language pages
+:description: The UI Designer includes a mechanism to add translations for page, layout and form elements, to support multi-language applications.
 
 The UI Designer includes a mechanism to add translations for page, layout and form elements, to support multi-language applications.
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
 == Visualization
 

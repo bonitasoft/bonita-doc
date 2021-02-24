@@ -1,4 +1,5 @@
 = Identity API
+:description: The Identity Rest API allows to manage the Bonita's organization.
 
 The Identity Rest API allows to manage the Bonita's organization.
 
@@ -991,10 +992,12 @@ Deactivate the user identified by id 9 : `/API/identity/user/9`
 
 === Remove a user
 
-WARNING:
+[WARNING]
+====
+
 Use this method with caution: some artifacts like applications, cases or users may present display problems in the Bonita Portal if the referenced user was deleted. +
 Note that you can disable a user instead of deleting it. To do so, use the `UPDATE` method and set the attribute 'enabled' to false
-
+====
 
 * *URL* +
 `/API/identity/user/:userId`

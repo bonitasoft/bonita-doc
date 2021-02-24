@@ -1,4 +1,5 @@
 = Manage JAR files
+:description: JAR files deployed with your application can be configured in the Bonita Studio.
 
 JAR files deployed with your application can be configured in the Bonita Studio.
 

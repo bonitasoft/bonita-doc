@@ -1,4 +1,5 @@
 = Work locking
+:description: Each work needs to lock resources to be executed.
 
 Each work needs to lock resources to be executed.
 It is unable to lock the given resource, it's execution is rejected and the work is put at the end of the queue

@@ -1,4 +1,5 @@
 = Bonita-ui-designer dependencies 7.12
+:description: List all dependencies uses for Bonita UI-Designer
 
 List all dependencies uses for Bonita UI-Designer
 

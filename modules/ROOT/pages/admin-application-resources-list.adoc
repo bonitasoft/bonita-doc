@@ -1,4 +1,5 @@
 = Resources list in the Bonita Administrator Application
+:description: This page defines the term "Resources" and explains what a user with the _Administrator_ profile can see and do about resources in link:admin-application-overview[Bonita Administrator Application].
 
 This page defines the term "Resources" and explains what a user with the _Administrator_ profile can see and do about resources in link:admin-application-overview[Bonita Administrator Application].
 
@@ -97,9 +98,11 @@ To do so:
 
 After a resource is installed, it can be used in an xref:applications.adoc[application].
 
-WARNING:
-*Warning*: As the deployment of resources automatically creates the appropriate resource permissions mapping, be careful not to link:BonitaBPM_platform_setup.md#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to Bonita Runtime in a pretty short amount of time.
+[WARNING]
+====
 
+As the deployment of resources automatically creates the appropriate resource permissions mapping, be careful not to link:BonitaBPM_platform_setup.md#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to Bonita Runtime in a pretty short amount of time.
+====
 
 === Delete a Resource
 

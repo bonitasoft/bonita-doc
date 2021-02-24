@@ -1,4 +1,5 @@
 = Applications
+:description: This page defines the term "Application" and explains what a user with the Administrator profile in Bonita Portal can see and do about them.
 
 This page defines the term "Application" and explains what a user with the Administrator profile in Bonita Portal can see and do about them.
 
@@ -139,7 +140,7 @@ To deploy an application, import the following *in this order*:
 
 . Organization then profiles
 . API extensions then pages, layout, themes
-. Business Data Dodel then processes
+. Business Data Model then processes
 . Application descriptor
 
 === Export an application

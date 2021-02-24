@@ -1,4 +1,5 @@
 = Database deletion volume testing
+:description: The following tests have been run in the following databases.
 
 The following tests have been run in the following databases.
 
@@ -349,7 +350,8 @@ ORDER BY Used_MB DESC
 
 [source,text]
 ----
-TableName               |RowCounts|Used_MB|
+TableName
+|RowCounts|Used_MB|
 ------------------------|---------|-------|
 arch_flownode_instance  |2 948 801|2227.38|
 document                |   227454| 988.68|

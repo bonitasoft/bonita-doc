@@ -1,4 +1,5 @@
 = Script connectors
+:description: Script connectors allows to execute groovy scripts and system scripts in your processes.
 
 Script connectors allows to execute groovy scripts and system scripts in your processes.
 

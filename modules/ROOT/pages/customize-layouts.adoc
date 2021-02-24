@@ -1,8 +1,11 @@
 = Customize layouts
+:description: [NOTE]
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
 == Overview
 

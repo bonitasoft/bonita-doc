@@ -1,9 +1,12 @@
 = Embed Bonita Engine in your application
+:description: image:images/bonita-lab.png[]
 
 image:images/bonita-lab.png[]
-WARNING:
-*Warning*: This is a Lab feature and is subject to change without warning in any version. It is not recommended for production.
+[WARNING]
+====
 
+This is a Lab feature and is subject to change without warning in any version. It is not recommended for production.
+====
 
 Starting from version 7.9.0, new artifacts allow to start an embedded engine in your application.
 
@@ -33,9 +36,11 @@ Maven
 </dependency>
 ----
 
-NOTE:
-If you are using Bonita subscription edition, change group id for `com.bonitasoft.engine` and artifact id for `bonita-engine-spring-boot-starter-sp`
+[NOTE]
+====
 
+If you are using Bonita subscription edition, change group id for `com.bonitasoft.engine` and artifact id for `bonita-engine-spring-boot-starter-sp`
+====
 
 This will embed and start Bonita Engine when your application starts. Also a spring bean `org.bonitasoft.engine.api.APIClient` will be available and injected in your Spring beans. (`com.bonitasoft.engine.api.APIClient` if you are using subscription edition).
 
@@ -88,9 +93,11 @@ Maven
 </dependency>
 ----
 
-NOTE:
-If you are using Bonita subscription edition, change group id for `com.bonitasoft.engine` and artifact id for `bonita-engine-standalone-sp`
+[NOTE]
+====
 
+If you are using Bonita subscription edition, change group id for `com.bonitasoft.engine` and artifact id for `bonita-engine-standalone-sp`
+====
 
 You can create a new instance of the engine like bellow
 
@@ -109,9 +116,11 @@ engine.start();
 APIClient client = new APIClient()
 ----
 
-NOTE:
-If you are using subscription edition, use `com.bonitasoft.engine.BonitaEngineSP` and `com.bonitasoft.engine.api.APIClient` objects instead.
+[NOTE]
+====
 
+If you are using subscription edition, use `com.bonitasoft.engine.BonitaEngineSP` and `com.bonitasoft.engine.api.APIClient` objects instead.
+====
 
 === Configuration
 
@@ -143,6 +152,8 @@ An example can be found in the https://github.com/bonitasoft/bonita-examples/tre
 
 == Known limitations
 
-WARNING:
-The portal cannot be used with the embedded engine due to missing web resources when initializing the engine. This will be fix in future versions.
+[WARNING]
+====
 
+The portal cannot be used with the embedded engine due to missing web resources when initializing the engine. This will be fix in future versions.
+====

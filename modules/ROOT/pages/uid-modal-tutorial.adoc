@@ -1,10 +1,13 @@
 = How to create a modal window in UI Designer
+:description: A nice aspect of Bonita UI Designer is that it allows users to apply or customize styles to the page as per their requirements through CSS.
 
 A nice aspect of Bonita UI Designer is that it allows users to apply or customize styles to the page as per their requirements through CSS.
 
-WARNING:
-*:fa-exclamation-triangle: Warning:* This tutorial is deprecated starting with Bonita 7.8 because of the introduction of the modal container as a provided container. For more information, read the link:widgets.md#modal-container[modal container] page.
+[WARNING]
+====
 
+*:fa-exclamation-triangle: Warning:* This tutorial is deprecated starting with Bonita 7.8 because of the introduction of the modal container as a provided container. For more information, read the link:widgets.md#modal-container[modal container] page.
+====
 
 Throughout this tutorial you will see how to build a modal window using only CSS.
 Let's get started by creating some content.
@@ -32,10 +35,12 @@ Create a CSS file with the following content.
  }
 ----
 
-NOTE:
+[NOTE]
+====
+
 Note that the name of the class used follows https://en.bem.info/[BEM] methodology. +
 BEM or any other structural naming convention enforces good practices such as responsibility segregation, reusability, name collision avoidance and more.
-
+====
 
 To use that file in the UI Designer you need to upload it as a page asset. +
 To do so, open your page. Go to the `Assets` section at the bottom of the screen and click on `Add a new asset`. +
@@ -48,11 +53,13 @@ Check out the result by hitting the `Preview` button.
 image:images/uid-modal-tutorial/modal-content-container.png[Modal content container]
 // {.img-responsive .img-thumbnail}
 
-NOTE:
+[NOTE]
+====
+
 While working on your CSS file, one could serve its local CSS file using a local https://www.npmjs.com/package/http-server[server]. +
 Then instead of uploading the file add an external CSS asset which point at your file. That would greatly speed up development. +
 For production, that file would still need to be uploaded as a CSS asset.
-
+====
 
 == Add an overlay to make underneath elements inaccessible
 

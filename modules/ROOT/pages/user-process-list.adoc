@@ -1,4 +1,5 @@
 = User process list
+:description: This page explains what a user with the _User_ profile in Bonita Portal or in xref:user-application-overview.adoc[Bonita User Application] can see and do about processes.
 
 This page explains what a user with the _User_ profile in Bonita Portal or in xref:user-application-overview.adoc[Bonita User Application] can see and do about processes.
 

@@ -1,4 +1,5 @@
 = Fragments
+:description: A fragment is a piece of a page, form or layout, composed of one or more widgets and/or containers. It can be inserted in other pages.
 
 A fragment is a piece of a page, form or layout, composed of one or more widgets and/or containers. It can be inserted in other pages.
 

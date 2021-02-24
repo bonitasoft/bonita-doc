@@ -1,4 +1,5 @@
 = Bonita User Application
+:description: This pages describes the Bonita User Application: its values, how to access it, its differences with the _User_ profile of Bonita Portal, and the details of its features. +
 
 This pages describes the Bonita User Application: its values, how to access it, its differences with the _User_ profile of Bonita Portal, and the details of its features. +
 The Bonita User Application allows anyone with the _User_ profile to view tasks and do them, get information and add comments on cases, get a list of processes to start.
@@ -30,7 +31,13 @@ After Studio validation, the application is imported or cloned; you can view its
 
 == Access in pre-Production and in Production
 
-To deploy the applications into a bundle or the Cloud, you can use https://documentation.bonitasoft.com/bcd//_manage_living_application[Bonita Continuous Delivery].
+To deploy the applications into a bundle or the Cloud, you can use https://documentation.bonitasoft.com/bcd//_manage_living_application[Bonita Continuous Delivery] (for Enterprise, Performance, Efficiency, and Teamwork editions, and using BCD).
+Alternatively, you can deploy an application by importing all its components in the following order:
+
+* Organization then profiles
+* API extensions then pages, layout, themes
+* Business Data Model then processes
+* Application descriptor
 
 == Similarities and differences with _User_ profile of Bonita Portal
 
@@ -53,15 +60,17 @@ Now, in details:
 . Open our UI Designer pages to customize them.
 . In Bonita Studio, go to the "Project explorer" on the left and double click on the "bonita-user-application.xml" application descriptor.
 . In the editor, rename the pages, change the order in the menu, remove the pages you do not need, add yours in the menu, or as orphan pages accessed through navigation from another page.
-WARNING:
+====warning
 Make sure our "details" pages are always used as orphan pages, as they need some parameters (usually just an ID) to be passed in the URL by a list or another page to show any content.
-
+====
 . To add other Bonita provided pages, open the portal from the coolbar, switch to the Administrator profile, and look in the "Resources" page, filtered by pages.
 
-NOTE:
+[NOTE]
+====
+
 Once a page has been customized, or when the User application has been customized, it is no longer supported. +
 But you can reach one of our Professional Services team member to help you develop or maintain it.
-
+====
 
 == Login and sign out
 

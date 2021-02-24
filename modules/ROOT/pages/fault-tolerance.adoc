@@ -1,4 +1,5 @@
 = Fault tolerance mechanisms
+:description: Learn which mechanism allows the platform to be fault tolerant.
 
 Learn which mechanism allows the platform to be fault tolerant.
 

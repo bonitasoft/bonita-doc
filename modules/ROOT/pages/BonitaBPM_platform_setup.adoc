@@ -1,11 +1,12 @@
 = Platform configuration setup tool
+:description: This page explains how to use the Platform setup tool to configure the Bonita platform (properties, permissions, license install...).
 
 This page explains how to use the Platform setup tool to configure the Bonita platform (properties, permissions, license install...).
 
-NOTE:
+====info
 *Note:* First thing to know is that for all basic installation and start scenarios, you don't need to use the setup tool.
 We made it easy for you by creating `start-bonita.bat`(for Windows) or `start-bonita.sh` (for Unix), a script that initializes, configures and starts the bundle, using the Platform setup tool.
-
+====
 
 [#platform_setup_tool]
 
@@ -49,20 +50,22 @@ It is run by the global script `start_bonita`, but you can also insert it in you
 +
 Eg. `setup.sh init` +
 Eg. `setup.sh init -Ddb.vendor=postgres` (see <<advanced_use,Advanced use>> for information on using `-D` properties)
-+
-NOTE:
-When `db.vendor` and `bdm.db.vendor` properties are both set to `h2` - which is the default configuration - the `init` command asks you to confirm this choice before continuing. The following message is displayed:
-+
-----
-[WARN] Default H2 configuration detected. This is not recommended for production. If this is not the required configuration, change file 'database.properties' and run again.
-Are you sure you want to continue? (y/n):
-----
-+
-If you want to bypass this confirmation prompt you can add the `h2.noconfirm` property to `setup` or `start-bonita` scripts.
-+
-Eg. `setup.sh init -Dh2.noconfirm`
-Eg. `start-bonita.sh -Dh2.noconfirm`
 
+[NOTE]
+====
+
+When `db.vendor` and `bdm.db.vendor` properties are both set to `h2` - which is the default configuration - the `init` command asks you to confirm this choice before continuing. The following message is displayed:
+
+----
+  [WARN] Default H2 configuration detected. This is not recommended for production. If this is not the required configuration, change file 'database.properties' and run again.
+  Are you sure you want to continue? (y/n):
+----
+
+If you want to bypass this confirmation prompt you can add the `h2.noconfirm` property to `setup` or `start-bonita` scripts.
+
+Eg. `setup.sh init -Dh2.noconfirm`
+  Eg. `start-bonita.sh -Dh2.noconfirm`
+====
 
 [#run_bundle_configure]
 
@@ -72,7 +75,9 @@ It is run by the global script `start-bonita`, but you can also insert it in you
 +
 Eg. `setup.sh configure`
 
-NOTE:
+[NOTE]
+====
+
 You do not need to configure Tomcat files directly anymore. The command `setup configure` does it for you.
 If you decide to do it anyway, the tool will overwrite your custom values (after storing a restore backup into the folder `tomcat-backups`).
 If you need to finely tune the configuration, modify the following template files, as they serve as a basis for configuration:
@@ -80,7 +85,7 @@ If you need to finely tune the configuration, modify the following template file
 * tomcat-templates/bonita.xml
 * tomcat-templates/setenv.sh
 * tomcat-templates/setenv.bat
-
+====
 
 [#update_platform_conf]
 
@@ -89,9 +94,11 @@ If you need to finely tune the configuration, modify the following template file
 It gets the current configuration of Bonita Platform from the database and saves it locally in the `platform_conf/current` folder.
 Eg. `setup.sh pull`
 
-WARNING:
-  *Warning:* You must pull the configuration from the database every time you need to update your license file or edit the configuration of Bonita BPM Platform. Since some information is inserted by the platform itself in the database, this prevents database inconsistency.
+[WARNING]
+====
 
+You must pull the configuration from the database every time you need to update your license file or edit the configuration of Bonita BPM Platform. Since some information is inserted by the platform itself in the database, this prevents database inconsistency.
+====
 
 * `push`, to update the configuration of Bonita Platform, and update your license
 +
@@ -101,16 +108,20 @@ To make the platform take your changes into account, you must (re-)start Bonita 
 +
 Eg. `setup.sh push`
 
-WARNING:
-Note that the _Platform Setup tool_ does not need Bonita Server to be running for the configuration to be updated. However, the server needs to be restarted for the changes to be taken into account.
+[WARNING]
+====
 
+Note that the _Platform Setup tool_ does not need Bonita Server to be running for the configuration to be updated. However, the server needs to be restarted for the changes to be taken into account.
+====
 
 Type `setup help` or `setup help <command>` to get detailed help on the tool syntax or on a specific command. +
 Eg. `setup.sh help configure`
 
-NOTE:
-Keep in mind that the folder *`platform_conf/initial`* is not used anymore once the platform has been initialized for the first time. To update your configuration, only the *`platform_conf/current`* folder is taken into account.
+[NOTE]
+====
 
+Keep in mind that the folder *`platform_conf/initial`* is not used anymore once the platform has been initialized for the first time. To update your configuration, only the *`platform_conf/current`* folder is taken into account.
+====
 
 [#configure_tool]
 
@@ -118,9 +129,11 @@ Keep in mind that the folder *`platform_conf/initial`* is not used anymore once 
 
 Before running it, make sure the setup tool is configured to point to the database of the Bonita Platform.
 
-NOTE:
-*Note:* If you have already run `start-bonita` script inside a link:tomcat-bundle.md#configuration[Tomcat bundle] , those steps are already done.
+[NOTE]
+====
 
+If you have already run `start-bonita` script inside a link:tomcat-bundle.md#configuration[Tomcat bundle] , those steps are already done.
+====
 
 Here is how to do so:
 
@@ -153,10 +166,12 @@ e.g. for Windows command line:
 setup.bat configure "-Ddb.vendor=postgres" "-Ddb.server.name=localhost" "-Ddb.server.port=5432" "-Ddb.database.name=bonita" "-Ddb.user=bonita" "-Ddb.password=bpm"
 ----
 
-WARNING:
+[WARNING]
+====
+
 For Windows users: Due to Windows Batch limitations, only 8 parameters are supported.
 If you need to pass more than 8 parameters, modify file `database.properties` instead.
-
+====
 
 === Advanced database configuration using file internal.properties
 

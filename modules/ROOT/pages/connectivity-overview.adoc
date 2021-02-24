@@ -1,4 +1,5 @@
 = Connecting to external systems from processes
+:description: Connectors are elements in Bonita that allows to read or write information from external systems from within a process or a task.
 
 Connectors are elements in Bonita that allows to read or write information from external systems from within a process or a task.
 

@@ -1,22 +1,28 @@
 = Automating build of artifacts outside the Studio
+:description: Learn how to build processes and other artifacts developed in Bonita Studio, but without the need to open
 
 Learn how to build processes and other artifacts developed in Bonita Studio, but without the need to open
 and interact with Bonita Studio.
 This allows to automate builds through scripts or any automation tooling.
 
-WARNING:
+[WARNING]
+====
+
 This way of building artifacts is deprecated. Use https://documentation.bonitasoft.com/bcd/latest/livingapp_build[Bonita Continuous Delivery add-on] instead.
+====
 
+[NOTE]
+====
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
+[WARNING]
+====
 
-WARNING:
-*Warning:*
 
 * The solution described here relies on the `Workspace API`/`BonitaStudioBuilder`, which has been deprecated since Bonita 7.7.0. Instead, we strongly encourage you to use the LA builder included in the tooling suite of https://documentation.bonitasoft.com/bcd/latest/[_Bonita Continuous Delivery_ add-on] add-on. One added-value is that LA builder does not need a studio to be installed.
-
+====
 
 == Overview
 

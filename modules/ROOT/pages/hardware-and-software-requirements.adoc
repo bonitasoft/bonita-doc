@@ -1,13 +1,16 @@
 = Hardware and software requirements
+:description: This page describes the suggested hardware and software requirements to install Bonita platform.
 
 This page describes the suggested hardware and software requirements to install Bonita platform.
 
 == Hardware
 
-NOTE:
-*Note:* The hardware recommended for Bonita Platform is strongly dependent on your environment and
-processes (number of processes instances, number of current users, operations and complexity...).
+[NOTE]
+====
 
+The hardware recommended for Bonita Platform is strongly dependent on your environment and
+processes (number of processes instances, number of current users, operations and complexity...).
+====
 
 Hardware required for Bonita Platform (Bonita Engine and Bonita Portal)
 | Type         | Minimum     | Recommended                       |
@@ -46,6 +49,6 @@ Notes:
 . Bonita can be executed on Java 8 or 11. All development artifacts (connectors, REST API extensions, etc) must be compiled with Java 8 byte code (target version). Bonita 2021.1 (7.12) is the latest version fully compatible with java 8 in production and development environment. JRE or JDK 11+ will be required to run. Bonita 2021.2+ won't be operated on Java 8.
 . Memory usage: In a Studio, by default, the embedded Tomcat server is started with a maximum memory allocation set to 521Mo. Depending on your usage you may need to xref:bonita-bpm-studio-installation.adoc[increase this value].
 . Your database must be configured to use the UTF-8 character set.
-. MySQL must be configured to use UTF-8 (utfmb3). It is the only supported charset.
-MySQL must be configured with innoDB storage engine. Even if the 5.5.x line is recommended, tests have shown that Bonita can run with MySQL 5.6.x and 5.7.x (please make tests prior to using these versions, especially when using exotic encoding/charset).
+. MySQL must be configured to use UTF-8, we recommand using `utf8mb4` because `utf8mb3` is deprecated, see https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-utf8mb3.html[MySQL documentation].
+MySQL must be configured with innoDB storage engine.
 . Oracle must be configured using AL32UTF8 character set to store properly all _Char_ data

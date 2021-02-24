@@ -1,4 +1,5 @@
 = Special users
+:description: This page explains the three other ways to log into Bonita than with a regular profile: Tenant Administrator (Technical user), Platform Administrator, and Guest user.
 
 This page explains the three other ways to log into Bonita than with a regular profile: Tenant Administrator (Technical user), Platform Administrator, and Guest user.
 

@@ -1,4 +1,5 @@
 = Data Management in the UI Designer
+:description: Discover how to explore xref:define-business-data-model.adoc[Business Data Model] (BDM) objects in the UI Designer, and use it to create user interfaces and variables.
 
 Discover how to explore xref:define-business-data-model.adoc[Business Data Model] (BDM) objects in the UI Designer, and use it to create user interfaces and variables.
 
@@ -13,9 +14,11 @@ A graphical view of the relationships between business objects (with their attri
 The left part provides a way to explore the BDM tree or search a specific object or attribute.
 You can use also the graphical view to explore the model.
 
-NOTE:
-Note: we are using the graphql-voyager tool, which represents a GraphQL schema as an interactive graph.
+[NOTE]
+====
 
+Note: we are using the graphql-voyager tool, which represents a GraphQL schema as an interactive graph.
+====
 
 image::images/uid_graphql_voyager.png[graphql_voyager]
 
@@ -37,12 +40,14 @@ The details section map each Business Object attribute to a corresponding widget
 If you need another widget for an attribute, you can xref:widgets.adoc[switch the widget].
 A set of variables are generated as well, to allow the user interface to operate.
 
-NOTE:
+[NOTE]
+====
+
 Notes:
 
 * All the widgets are in read-only mode since the purpose here is to visualize data
 * The pagination is not handled by the generated interface
-
+====
 
 You can try it with the Preview, and modify it as needed.
 

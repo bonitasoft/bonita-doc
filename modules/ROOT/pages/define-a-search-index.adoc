@@ -1,4 +1,5 @@
 = Search keys
+:description: Learn how you can set and use Bonita Search Keys to easily search for business values defined on your processes
 
 Learn how you can set and use Bonita Search Keys to easily search for business values defined on your processes
 

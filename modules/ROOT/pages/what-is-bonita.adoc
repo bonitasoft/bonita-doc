@@ -1,4 +1,5 @@
 = What is Bonita?
+:description: Bonita is an open-source and extensible platform for business process automation and optimization. Bonita Platform accelerates the development and production of business applications, with clear separation between capabilities for visual programming and for coding. +
 
 Bonita is an open-source and extensible platform for business process automation and optimization. Bonita Platform accelerates the development and production of business applications, with clear separation between capabilities for visual programming and for coding. +
 BPMN (Business Process Modeling Notation), full extensibility, and reusable components allow smooth collaboration among the different profiles on the IT team, and with the business teams. +

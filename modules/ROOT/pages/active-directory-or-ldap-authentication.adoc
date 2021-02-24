@@ -1,10 +1,13 @@
 = LDAP authentication configuration
+:description: Bonita can be configured to perform user authentication against an LDAP server such as Active Directory, Apache Directory Server, or OpenLDAP.
 
 Bonita can be configured to perform user authentication against an LDAP server such as Active Directory, Apache Directory Server, or OpenLDAP.
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
 *Important notes:*
 
@@ -64,9 +67,11 @@ Based on the information described in the "Before you start" section, you can id
 In this section we explain how to set `LdapLoginModule` attributes values. (For further information, check the https://docs.oracle.com/javase/8/docs/jre/api/security/jaas/spec/com/sun/security/auth/module/LdapLoginModule.html[`LdapLoginModule` javadoc] page.)
 
 *`userProvider`*: set this to `ldap://<ldap server address>:<ldap server port>/<DN of the LDAP entry under which all users are located>`.
-WARNING:
-*Warning:* Spaces in the distinguished name (DN) component of the URL must be escaped using the standard mechanism of percent character ('%') followed by two hexadecimal digits: replace them with '%20'. Query components must also be omitted from the URL.
+[WARNING]
+====
 
+Spaces in the distinguished name (DN) component of the URL must be escaped using the standard mechanism of percent character ('%') followed by two hexadecimal digits: replace them with '%20'. Query components must also be omitted from the URL.
+====
 For example, if your users are under `CN=Bonita Users,DC=MyDomain,DC=com`: `ldap://localhost:389/CN=Bonita%20Users,DC=MyDomain,DC=com`
 
 *`userFilter`* (only if needed): the value must be a search request that will find your users in the LDAP server. The search request can be for example: `+(&(objectClass=user)(userPrincipalName={USERNAME}@mydomain.com))+`.

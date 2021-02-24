@@ -1,4 +1,5 @@
 = User task list
+:description: This page explains what a user with the User profile in Bonita Portal or in xref:user-application-overview.adoc[Bonita User Application] can see and do about tasks. +
 
 This page explains what a user with the User profile in Bonita Portal or in xref:user-application-overview.adoc[Bonita User Application] can see and do about tasks. +
 _Users_ can view lists of tasks to do as a member of a team, view tasks precisely assigned to them, view tasks they have done related to different processes, take and release tasks, and do tasks, eventually.
@@ -37,6 +38,8 @@ This list also leverages two legacy features (prior to Bonita 7.3.0):
 
 The task list also contains a _Done tasks_ filter, for the user to check if the task has been completed properly.
 
-NOTE:
-*Note:* Since Bonita 7.3.0, creating subtasks is no longer possible. However, if subtasks have been created in a process instance in an old Bonita version, and if the Bonita Platform has been migrated to a later version while the case was open, then the subtasks will still be visible to the users assigned, and users will still be able to complete them.
+[NOTE]
+====
 
+Since Bonita 7.3.0, creating subtasks is no longer possible. However, if subtasks have been created in a process instance in an old Bonita version, and if the Bonita Platform has been migrated to a later version while the case was open, then the subtasks will still be visible to the users assigned, and users will still be able to complete them.
+====

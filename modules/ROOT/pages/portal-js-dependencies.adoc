@@ -1,4 +1,5 @@
 = Bonita-portal-js dependencies 7.12
+:description: List all dependencies uses for Bonita portal-js
 
 List all dependencies uses for Bonita portal-js
 

@@ -1,11 +1,14 @@
 = Workspaces and projects
+:description: Organize and share your Bonita project using workspaces and projects in order to ease developers team collaboration.
 
 Organize and share your Bonita project using workspaces and projects in order to ease developers team collaboration.
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
-Community Edition only support a single workspace with a single project. To use Git with Community Edition refer to the xref:git-versioning-community-edition.adoc[dedicated tutorial].
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+Community Edition only support a single workspace with a single project. To use Git with Community Edition refer to the xref:git-versioning-community-edition.adoc[dedicated tutorial].
+====
 
 == Workspaces and projects
 
@@ -80,9 +83,11 @@ If the list does not contain the name of the project you want to use, check that
 
 == Use a shared project
 
-NOTE:
-Bonita Studio provide a feature (*File* menu, *Import*, *Workspace...*) to import all the projects from a given workspace into your current workspace. If the workspace you import from includes shared projects (Git or Subversion), be aware that importing the workspace will result in having a local project instead of a shared one. For shared projects, it's advised to clone them directly from the remote Git repository instead of using the import workspace feature.
+[NOTE]
+====
 
+Bonita Studio provide a feature (*File* menu, *Import*, *Workspace...*) to import all the projects from a given workspace into your current workspace. If the workspace you import from includes shared projects (Git or Subversion), be aware that importing the workspace will result in having a local project instead of a shared one. For shared projects, it's advised to clone them directly from the remote Git repository instead of using the import workspace feature.
+====
 
 [#git]
 
@@ -148,9 +153,11 @@ This information is also available at the top of Bonita Studio window, as well a
 
 Those commands can be found in Team > Git menu.
 
-WARNING:
-*Branches can be merged/rebased into each others if and only if branches are in the same Bonita version.* Else, migration might be skipped.
+[WARNING]
+====
 
+*Branches can be merged/rebased into each others if and only if branches are in the same Bonita version.* Else, migration might be skipped.
+====
 
 ==== Conflict management
 

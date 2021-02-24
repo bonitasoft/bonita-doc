@@ -1,4 +1,5 @@
 = Database creation and configuration for Bonita engine and BDM
+:description: This page describes the steps to create and customize the databases for Bonita Engine and Business Data Model in the Platform installation.
 
 This page describes the steps to create and customize the databases for Bonita Engine and Business Data Model in the Platform installation.
 
@@ -20,10 +21,12 @@ However, H2 is only suitable for testing purposes. When building a production en
 
 == Steps to switch to another RDBMS
 
-WARNING:
+[WARNING]
+====
+
 Please note this procedure cannot be performed using the Bonita Studio. The Bonita Studio can run only on the H2 Database.
 To use Bonita on another RDBMS, please use a xref:_basic-bonita-platform-installation.adoc[bundle] or set up a xref:custom-deployment.adoc[standalone server].
-
+====
 
 Here are the steps to follow. They are the same for the engine database and the business data database:
 
@@ -34,10 +37,12 @@ Here are the steps to follow. They are the same for the engine database and the 
 
 Steps 1 and 2 are detailed further down this page, steps 3 and 4 are part of the configuration part of the xref:tomcat-bundle.adoc[Tomcat bundle] page.
 
-WARNING:
+[WARNING]
+====
+
 All RDBMSs require <<specific_database_configuration,specific customization>>, which must be done before you complete your installation. +
 If you do not complete the specific configuration for your RDBMS, your installation may fail.
-
+====
 
 == Jdbc drivers
 
@@ -62,10 +67,10 @@ Also, note that the owner of the new schemas must own the following privileges:
 * CREATE INDEX
 * SELECT, INSERT, UPDATE, DELETE on created TABLE
 
-NOTE:
+====info
 CREATE TABLE and CREATE INDEX privileges are not required after first start in normal use. +
 If the same SQL user is used with the xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[migration tool], then this user needs such grants.
-
+====
 
 To create the database(s), we recommend that you refer to your RDBMS documentation:
 
@@ -132,7 +137,7 @@ SQL query >
 ----
 select comp_name, version, status from dba_registry;
 ----
-+
+
 |===
 | Comp_name | Version | Status
 
@@ -273,9 +278,11 @@ GRANT XA_RECOVER_ADMIN ON *.* to bonita, business_data;
 FLUSH PRIVILEGES;
 ----
 
-WARNING:
-Please note that the above command, by specifying *`*.*`*, is granting privileges for all databases. You may want to limit them to the Bonita BPM and BDM databases if there are additional databases in your MySQL server.
+[WARNING]
+====
 
+Please note that the above command, by specifying *`*.*`*, is granting privileges for all databases. You may want to limit them to the Bonita BPM and BDM databases if there are additional databases in your MySQL server.
+====
 
 Refer to the https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html[Privileges section] in the official MySQL documentation for further information.
 

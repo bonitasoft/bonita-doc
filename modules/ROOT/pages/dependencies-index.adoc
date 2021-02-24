@@ -1,4 +1,5 @@
 = Dependencies
+:description: You will find below the list of dependencies used by Bonita.
 
 You will find below the list of dependencies used by Bonita.
 

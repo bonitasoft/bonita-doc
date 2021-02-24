@@ -1,4 +1,5 @@
 = Create administration tools
+:description: Discover how to create tools to administer your Bonita system using Maven and Java.
 
 Discover how to create tools to administer your Bonita system using Maven and Java.
 

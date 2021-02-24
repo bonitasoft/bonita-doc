@@ -1,4 +1,5 @@
 = Bonita Rest API Extension archetype
+:description: A set of best of breed tools to develop and test Rest API Extension independently of Bonita Studio.
 
 A set of best of breed tools to develop and test Rest API Extension independently of Bonita Studio.
 
@@ -53,9 +54,11 @@ A https://maven.apache.org/archetype/index.html[maven archetype] is a maven proj
 
 To create your Rest API Extension project, prompt a terminal and enter the following command:
 
-WARNING:
-*Warning:* Make sure that you are not executing the command from an existing maven project.
+[WARNING]
+====
 
+Make sure that you are not executing the command from an existing maven project.
+====
 
  $ mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-rest-api-extension-archetype
 
@@ -170,14 +173,18 @@ If the page declares its resources correctly, then every user able to access thi
 However, if you need to grant access to this REST API Extensions to some users regardless of the pages they have access to, then you need to add link:rest-api-authorization.md#custom-permissions-mapping[custom permissions] for these users. +
 In order to do so, edit `custom-permissions-mapping.properties` to give the permissions (value of the property `apiExtension.permissions`) declared in the page.properties of the REST API Extensions to the required profiles or users.
 
-NOTE:
-*Note*: REST API permissions are stored in the user's session and new permissions will only be effective for a user the next time they log into Bonita Portal.
+[NOTE]
+====
 
+REST API permissions are stored in the user's session and new permissions will only be effective for a user the next time they log into Bonita Portal.
+====
 
-WARNING:
+[WARNING]
+====
+
 In Bonita Studio, the debug mode is disabled by default. In debug mode, you can see changes on your REST API Extensions without importing a new .zip archive, but it means the classloader of the extension is recreated at each request. +
 If you want to enable the debug mode, you can activate it in Bonita Studio "Server" preferences.
-
+====
 
 === Configure the authorization
 

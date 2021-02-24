@@ -1,4 +1,5 @@
 = Pages
+:description: Pages are resources intended to be used in applications. They are xref:resource-management.adoc[added, exported, edited, and deleted] as resources in Bonita Portal.
 
 Pages are resources intended to be used in applications. They are xref:resource-management.adoc[added, exported, edited, and deleted] as resources in Bonita Portal.
 

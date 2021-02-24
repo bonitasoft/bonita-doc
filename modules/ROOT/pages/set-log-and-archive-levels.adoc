@@ -1,4 +1,5 @@
 = Logging and archiving of Bonita processes
+:description: How the information about your Bonita processes is recorded, and how to configure what is recorded.
 
 How the information about your Bonita processes is recorded, and how to configure what is recorded.
 

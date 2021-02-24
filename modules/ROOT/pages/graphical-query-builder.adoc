@@ -1,4 +1,5 @@
 = Graphical query builder
+:description: Build a database query graphically.
 
 Build a database query graphically.
 

@@ -1,9 +1,13 @@
 = Create web user interfaces (forms)
+:description: :experimental:
+
 :experimental:
 
 Generally, a user usually drives process execution using web interfaces. Bonita provides xref:ui-designer-overview.adoc[the UI Designer] to easily create such interfaces.
 
-NOTE:
+[NOTE]
+====
+
 The standard workflow would be to:
 
 * Create the Business Data Model
@@ -12,7 +16,7 @@ The standard workflow would be to:
 * Generate Bonita forms based on contracts
 
 If you have been following this Getting Started tutorial, you have already done the first three steps. Now it's time to create the forms.
-
+====
 
 Start with the process instantiation form:
 
@@ -37,9 +41,11 @@ Customize the form appearance. For example, you can switch from a one line text 
 image:images/getting-started-tutorial/create-web-user-interfaces/switch-widget.gif[Switch to a different widget type]
 // {.img-responsive .img-thumbnail}
 
-NOTE:
-The xref:widgets.adoc[switch menu option] can be used to replace one widget with another one while keepiing the current configuration.
+[NOTE]
+====
 
+The xref:widgets.adoc[switch menu option] can be used to replace one widget with another one while keepiing the current configuration.
+====
 
 You can now go back to Bonita Studio and create the form for the _Review and answer claim_ user task:
 

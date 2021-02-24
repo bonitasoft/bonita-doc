@@ -1,4 +1,5 @@
 = Bonita Data-repository dependencies 7.10
+:description: List all dependencies uses for Bonita Data-repository
 
 List all dependencies uses for Bonita Data-repository
 

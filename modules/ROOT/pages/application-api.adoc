@@ -1,4 +1,5 @@
 = Application API
+:description: Bonita application API allows you to retrieve the current deployed application definitions
 
 Bonita application API allows you to retrieve the current deployed application definitions
 

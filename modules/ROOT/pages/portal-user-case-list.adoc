@@ -1,4 +1,5 @@
 = User Case list in Bonita Portal
+:description: This page explains what a user with the _User_ profile in Bonita Portal can see and do about cases (the process instances).
 
 This page explains what a user with the _User_ profile in Bonita Portal can see and do about cases (the process instances).
 
@@ -40,9 +41,11 @@ If you select "Me", the list is refreshed and only displays the cases you have s
 
 === Filter by search key
 
-NOTE:
-This feature has been made available in the Community edition since Bonita 2021.1.
+[NOTE]
+====
 
+This feature has been made available in the Community edition since Bonita 2021.1.
+====
 
 ==== Search keys
 

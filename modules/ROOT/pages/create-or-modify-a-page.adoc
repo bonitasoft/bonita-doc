@@ -1,4 +1,5 @@
 = UI artifacts in UI Designer
+:description: How to create and modify UI artifacts to build powerful applications with Bonita UI Designer.
 
 How to create and modify UI artifacts to build powerful applications with Bonita UI Designer.
 

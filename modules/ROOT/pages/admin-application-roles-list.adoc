@@ -1,4 +1,5 @@
 = Role list in the Bonita Administrator Application
+:description: This page explains what a user with the _Administrator_ profile can see and do about roles (of the organization) in link:admin-application-overview[Bonita Administrator Application]. +
 
 This page explains what a user with the _Administrator_ profile can see and do about roles (of the organization) in link:admin-application-overview[Bonita Administrator Application]. +
 To easily manipulate users with the same rights, it is possible to give them the same role (in the same or in different groups), like "Project Manager", for example. +

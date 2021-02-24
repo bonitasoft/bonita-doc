@@ -1,4 +1,5 @@
 = Migration tool changelog
+:description: This is the changelog of the migration tool.
 
 This is the changelog of the migration tool.
 
