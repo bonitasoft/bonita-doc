@@ -176,7 +176,7 @@ Specify the following information:
 | The password used to authenticate to the database
 | bpm
 |===
-
++
 [NOTE]
 ====
 
@@ -184,14 +184,15 @@ Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. For exam
     `db.url=jdbc:mysql://localhost:3306/bonita_migration?allowMultiQueries=true`. +
     Also, if you are migrating to Bonita 7.9+, you must upgrade your database server to MySQL 8.0, see <<mysql8,Migrating to Bonita 7.9+ using MySQL>> specific procedure below.
 ====
-
++
 . If you use a custom Look & Feel, xref:managing-look-feel.adoc[export] it, and then xref:managing-look-feel.adoc[restore the default Look & Feel].
 . If you use a Business data model that requires to be redeployed (see <<bdm_redeploy,above>>), you can pause the tenant so that as a tenant admin, you'll be able to redeploy the BDM on a paused tenant once migration is done.
-
-==== warn
-    *IMPORTANT:* Do *not* xref:pause-and-resume-bpm-services.adoc[pause the BPM services] before you stop the application server. It will cause problems.
++
+[IMPORTANT]
 ====
-
+Do *not* xref:pause-and-resume-bpm-services.adoc[pause the BPM services] before you stop the application server. It will cause problems.
+====
++
 . Stop the application server.
 . *IMPORTANT:*
 xref:back-up-bonita-bpm-platform.adoc[Back up your platform] and database in case of problems during migration.
@@ -231,6 +232,7 @@ Download the configuration from database to the local disk.
 +
 There is below a Linux example:
 +
+[source,bash]
 ----
  cd setup
  ./setup.sh pull
@@ -241,6 +243,7 @@ Please refer to the guide on updating the configuration file using the xref:Boni
 +
 When done, push the updated configuration into the database:
 +
+[source,bash]
 ----
  ./setup.sh push
 ----
@@ -258,6 +261,7 @@ Some manual operations have to be done on files that are  located in the extract
 you need to put a new license in the database: see xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[Platform configuration] for further details.
  There is below a Linux example:
 +
+[source,bash]
 ----
  cd setup
  vi database.properties
@@ -269,10 +273,10 @@ If there is no valid license in the `./platform_conf/licenses/`, these 2 pages w
 
  ** https://documentation.bonitasoft.com/?page=licenses[Licenses]
  ** xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[Platform configuration]
-
 +
 Install the new license:
 +
+[source,bash]
 ----
  cp BonitaSubscription-7.n-Jerome-myHosname-20171023-20180122.lic ./platform_conf/licenses/
  ./setup.sh push
@@ -356,7 +360,7 @@ you need to redesign them in the Studio using Bonita UI designer, as explained i
 
 Example of output issued when running the tool:
 ++++
-<asciinema-player src="bonita/images/${varVersion}/case_overview_update_mode-ascii.cast" speed="2" theme="monokai" title="Update case overview console output example" cols="240" rows="32"></asciinema-player>
+<asciinema-player src="images/case_overview_update_mode-ascii.cast" speed="2" theme="monokai" title="Update case overview console output example" cols="240" rows="32"></asciinema-player>
 ++++
 
 
