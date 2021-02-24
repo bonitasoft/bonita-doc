@@ -360,7 +360,7 @@ you need to redesign them in the Studio using Bonita UI designer, as explained i
 
 Example of output issued when running the tool:
 ++++
-<asciinema-player src="images/case_overview_update_mode-ascii.cast" speed="2" theme="monokai" title="Update case overview console output example" cols="240" rows="32"></asciinema-player>
+<asciinema-player src="_images/images/case_overview_update_mode-ascii.cast" speed="2" theme="monokai" title="Update case overview console output example" cols="240" rows="32"></asciinema-player>
 ++++
 
 
