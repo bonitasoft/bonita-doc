@@ -214,7 +214,7 @@ _If your IdP responses are not signed, you can remove the Keys node from the IDP
                nameIDPolicyFormat="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
                forceAuthentication="false"
                isPassive="false"
-               turnOffChangeSessionIdOnLogin="true">
+               turnOffChangeSessionIdOnLogin="false">
                <Keys>
         -->        <Key signing="true"
         -->             encryption="true">
