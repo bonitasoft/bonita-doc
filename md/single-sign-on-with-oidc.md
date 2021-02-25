@@ -245,18 +245,18 @@ To setup Bonita for OIDC logout:
 
 ## Troubleshoot
 
-To troubleshoot SSO login issues, you need to increase the [log level](logging.md) to `ALL` for the packages `org.bonitasoft`, `com.bonitasoft`, and `org.keycloak` in order for errors to be displayed in the log files `bonita-*.log` (by default, they are not).
+To troubleshoot SSO login issues, you need to increase the [log level](logging.md) to `FINE` for the packages `org.bonitasoft`, `com.bonitasoft`, and `ALL` for `org.keycloak` in order for errors to be displayed in the log files `bonita-*.log` (by default, they are not).
 
 In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/logging.properties.`  
-* Make sure the following lines are not commented or add them if they are not present :  
+* Make sure the following lines are not commented or add them if they are not present (the syntaxe of the first line with `class\` is necessary because of the way the loggers are created in Keycloak):  
 ```
 class\ org.keycloak.level = ALL
 org.keycloak.level = ALL
 ```
 * Update the existing lines (to set the level to `ALL`):  
 ```
-org.bonitasoft.level = ALL
-com.bonitasoft.level = ALL
+org.bonitasoft.level = FINE
+com.bonitasoft.level = FINE
 ```
 
 Edit the *logger* tags which *category* matches `org.bonitasoft` and `com.bonitasoft` packages: change the *level* *name* attribute of each *logger* to `ALL` and add a new logger with the *category* `org.keyclock` (also with a *level* *name* set to `ALL`).
