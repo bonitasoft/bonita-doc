@@ -5,20 +5,23 @@ You can find here links to download old versions of the Bonita documentation.
 
 == HTML
 
-[INFO]
+[NOTE]
 ====
 Short description on how to use the HTML zip. Good luck Nath.
 ====
 
-=== 7.4 - www.heyImTheLink.com[Download 7.4 documentation]
+=== 7.4
+www.heyImTheLink.com[Download 7.4 documentation]
 
-=== 7.3 - www.heyImTheLink.com[Download 7.3 documentation]
+=== 7.3
+www.heyImTheLink.com[Download 7.3 documentation]
 
 == PDF
 
-[INFO]
+[NOTE]
 ====
 Short description on how to use the PDF. Good luck Nath.
 ====
 
-=== 7.2 - www.heyImTheLink.com[Download 7.2 documentation]
+=== 7.2
+www.heyImTheLink.com[Download 7.2 documentation]
