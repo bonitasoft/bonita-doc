@@ -1,6 +1,6 @@
 # OpenID Connect SSO configuration
 
-Bonita can be configured to use the OpenID Connect (OIDC) protocol to provide single sign-on (SSO), as long as you already have an OpenID Connect Identity Provider server up and running (IdP). OIDC is an extension of OAuth 2.0. Contrary to the SSO support of SAML2, Both Bonita Web User Interface and Bonita REST API can be secured and accessed using the OIDC protocol as authentication mechanism (versus just the Web User Interface for SAML2). 
+Bonita can be configured to use the OpenID Connect (OIDC) protocol to provide single sign-on (SSO), as long as you already have an OpenID Connect Identity Provider server up and running (IdP). OIDC is an extension of OAuth 2.0. Contrary to the SSO support of SAML2, both Bonita Web User Interface and Bonita REST API can be secured and accessed using the OIDC protocol as authentication mechanism (versus just the Web User Interface for SAML2). 
 
 :::info 
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
@@ -34,8 +34,8 @@ it is composed of:
 - An Implementation of the Authentication Manager extension point that retrieves the authentication information in the requests to log in to Bonita engine with the right credentials.  
 
 ::: warning  
- Bonita "username" should match the prefered_username or one attribute of the subject returned by the IdP in the response. 
- If some users need to be able to log in without having an account on the IdP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.  
+ Bonita `username` should match the `prefered_username` or one attribute of the subject returned by the IdP in the response. 
+ If some users need to be able to log in without having an account on the IdP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (`/login.jsp`) provided they have a Bonita account and their password is different from their username.  
  You can configure Bonita engine to create the accounts on the fly in the database once a user accessing Bonita has been authenticated with the IdP (see the configuration of `bonita-tenant-sp-custom.properties` in the 3rd section of the next chapter).
 :::
 
@@ -54,7 +54,7 @@ To configure Bonita for OIDC:
     1. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
     1. Stop it before modifying the configuration files below
 2. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
-   edit the authenticationManager-config.properties as follows:
+   edit the `authenticationManager-config.properties` as follows:
     ```
        -->  #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.standard.StandardAuthenticationManagerImpl
             (...)
@@ -72,9 +72,9 @@ To configure Bonita for OIDC:
     ```
     
     Make sure to [set the right tenant admin username](multi-tenancy-and-tenant-configuration#toc2).
-    It is recommended to also replace the value of the passphrase (property auth.passphrase) which is used by the engine to verify the authentication request.
+    It is recommended to also replace the value of the passphrase (property `auth.passphrase`) which is used by the engine to verify the authentication request.
     The value must be the same as in the file **bonita-tenant-sp-custom.properties**.  
-    If you need users to be able to log in without having an account on the IDP, you can authorize it by setting the property `oidc.auth.standard.allowed` to true. Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.  
+    If you need users to be able to log in without having an account on the IDP, you can authorize it by setting the property `oidc.auth.standard.allowed` to true. Users will then be able to log in using the portal login page (`/login.jsp`) provided they have a Bonita account and their password is different from their username.  
     If only a limited group of users need to bypass OIDC authentication method you can restrain it by setting the property `oidc.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (comma separated). Otherwise you can keep it commented.
 
 3. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
@@ -151,7 +151,7 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
       "cors-allowed-methods": "POST, PUT, DELETE, GET"
     }
     ```
-    + The property `realm` is only required if you use a Keycloak server as OIDC provider or if you want to benefit from the templating in the `-path` properties ({realm-name} will be replaced with the realm value). If you use a Keycloak server, make sure you set it with the name of the realm in which your Bonita OIDC client is/will be created.
+    + The property `realm` is only required if you use a Keycloak server as OIDC provider or if you want to benefit from the templating in the `*-path` properties ({realm-name} will be replaced with the realm value). If you use a Keycloak server, make sure you set it with the name of the realm in which your Bonita OIDC client is/will be created.
     + `auth-server-url` is the base URL of the OIDC provider server. All other service endpoints are derived from this.
     + `auth-path` needs to be set with the path of your OIDC provider Authorization endpoint. It is prefixed with the value of `auth-server-url` to build the request URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
     + `token-path` needs to be set with the path of your OIDC provider Token endpoint. It is prefixed with the value of `auth-server-url` to build the request URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
@@ -245,9 +245,9 @@ To setup Bonita for OIDC logout:
 
 ## Troubleshoot
 
-To troubleshoot SSO login issues, you need to increase the [log level](logging.md) to `ALL` for the packages `org.bonitasoft`, `com.bonitasoft`, and `org.keycloak` in order for errors to be displayed in the log files bonita-*.log (by default, they are not).
+To troubleshoot SSO login issues, you need to increase the [log level](logging.md) to `ALL` for the packages `org.bonitasoft`, `com.bonitasoft`, and `org.keycloak` in order for errors to be displayed in the log files `bonita-*.log` (by default, they are not).
 
-In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/logging.properties.  
+In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/logging.properties.`  
 * Make sure the following lines are not commented or add them if they are not present :  
 ```
 class\ org.keycloak.level = ALL
