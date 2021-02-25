@@ -1,6 +1,10 @@
 
 # Release notes
 
+::: info
+![videos](images/tv.png)  Discover what is new in Bonita 7.10 thanks to these short videos in [English](https://www.youtube.com/playlist?list=PLvvoQatxaHOMcgZXuoQcM_6txUhwqru4B), [French](https://www.youtube.com/playlist?list=PLvvoQatxaHOPe6RwaiAdbCV6k_RbyYj9d), or [Spanish](https://www.youtube.com/playlist?list=PLvvoQatxaHOO564ejh-EggWJ_D_1U4SxB)!
+:::
+
 ## New values added
 
 <a id="acm"/>
@@ -8,6 +12,8 @@
 ### Adaptive Case Management with Bonita
 It is now possible to create Living applications based on a mix of structured and unstructured processes. Users have more decision power on what to execute next, and can create their own task to adapt to a case specificities.
 Open the Credit Card Dispute Resolution Management application from Bonita Studio welcome page, and [learn more](what-is-bonita.md).
+
+![videos](images/tv.png)  Get an insight of this new value in this video in [English](https://www.youtube.com/watch?v=xxKwsvhfWM8&list=PLvvoQatxaHOMcgZXuoQcM_6txUhwqru4B&index=1), [French](https://www.youtube.com/watch?v=2_qmHZwUC5E&list=PLvvoQatxaHOPe6RwaiAdbCV6k_RbyYj9d&index=1), or [Spanish](https://www.youtube.com/watch?v=hMJFRRnn0cM&list=PLvvoQatxaHOO564ejh-EggWJ_D_1U4SxB&index=1).
 
 <a id="monitoring"/>
 
@@ -20,10 +26,14 @@ Bonita 7.10 now includes a brand new extensible [monitoring](runtime-monitoring.
 Opening the content of a living application to public access is now possible thanks to the new ["Guest User"](guest-user) feature. Used in process actor mappings, added to a custom profile to access applications, it allows anyone to access some public content.  
 The Bonita application layout has been updated accordingly, to allow a Bonita user with credentials to log in from a public application and access password-protected content, if any.
 
+![videos](images/tv.png)  Get an insight of this new value in this video in [English](https://www.youtube.com/watch?v=C9i8_zgJy80&list=PLvvoQatxaHOMcgZXuoQcM_6txUhwqru4B&index=5), [French](https://www.youtube.com/watch?v=pPKRc3tlxAg&list=PLvvoQatxaHOPe6RwaiAdbCV6k_RbyYj9d&index=5), or [Spanish](https://www.youtube.com/watch?v=ju_0CkHA2LI&list=PLvvoQatxaHOO564ejh-EggWJ_D_1U4SxB&index=5).
+
 <a id="deploy-project"/>
 
 ### Project deployment in Bonita Studio
 The new _Deploy..._ action in Bonita Studio allows you to [deploy a whole project](project_deploy_in_dev_suite.md) (or a subset) in the embedded runtime environment, taking care of deploying all artifacts on the right order. Import a .bos file, clone a Git repository, or right click on the project name, click on _Deploy..._ and save a lot of time.
+
+![videos](images/tv.png)  Get an insight of this new value in this video in [English](https://www.youtube.com/watch?v=3v1cC04jqaY&list=PLvvoQatxaHOMcgZXuoQcM_6txUhwqru4B&index=2), [French](https://www.youtube.com/watch?v=ThC65FHgIpo&list=PLvvoQatxaHOPe6RwaiAdbCV6k_RbyYj9d&index=2), or [Spanish](https://www.youtube.com/watch?v=b3pvl_isex8&list=PLvvoQatxaHOO564ejh-EggWJ_D_1U4SxB&index=2).
 
 <a id="bdm-multi-package"/>
 
@@ -32,19 +42,26 @@ Bonita 7.10 now allows to create different packages to store Business Objects.
 In the Development phase, it is also possible to import a BDM into the existing one, as long as Business Objects names are unique accross packages, so several teams can work on different packages and get their BDM integrated at some point, before deployment.    
 Learn more [here](define-and-deploy-the-bdm.md).
 
+![videos](images/tv.png)  Get an insight of this new value in this video in [English](https://www.youtube.com/watch?v=4q5FHQXoI3I&list=PLvvoQatxaHOMcgZXuoQcM_6txUhwqru4B&index=6), [French](https://www.youtube.com/watch?v=4nqVm9SHzcQ&list=PLvvoQatxaHOPe6RwaiAdbCV6k_RbyYj9d&index=6), or [Spanish](https://www.youtube.com/watch?v=M6H9PtGUmqY&list=PLvvoQatxaHOO564ejh-EggWJ_D_1U4SxB&index=6).
+
 ### A Bonita User Application example available 
 Create your own Living Application from a handy starting point with the new Bonita User Application. It contains the User Portal Tasklist, a new Case list developed in the UI Designer (i.e. customizable), and the User Portal Process list.   
 It is made available from Studio Welcome page, in the _Resources_ tile.
+
+![videos](images/tv.png)  Get an insight of this new value in this video in [English](https://www.youtube.com/watch?v=CNAFQU3rtl4&list=PLvvoQatxaHOMcgZXuoQcM_6txUhwqru4B&index=4), [French](https://www.youtube.com/watch?v=p74_PWxCrzE&list=PLvvoQatxaHOPe6RwaiAdbCV6k_RbyYj9d&index=4), or [Spanish](https://www.youtube.com/watch?v=M9g60jPpIqk&list=PLvvoQatxaHOO564ejh-EggWJ_D_1U4SxB&index=4).
 
 ### Archived contract data (Enterprise and Performance editions) 
 Bonita 7.10 now allows to disable the archiving of Contract Data, to improve the platform performance. More details as to how [here](configurable-archive.md).
 
 ### Dynamic tabs in tab container
 In the Tabs Container, you can now hide/show and enable/disable a tab given some conditions, customize a tab title and add CSS dynamically, or change tabs format to pills and build nice side menus thanks to vertical display.
+![videos](images/tv.png)  Get an insight of this new value in this video in [English](https://www.youtube.com/watch?v=x5zpeDhcv9s&list=PLvvoQatxaHOMcgZXuoQcM_6txUhwqru4B&index=8), [French](https://www.youtube.com/watch?v=3tTAm4jJMBU&list=PLvvoQatxaHOPe6RwaiAdbCV6k_RbyYj9d&index=8), or [Spanish](https://www.youtube.com/watch?v=-oQEhbn6gGI&list=PLvvoQatxaHOO564ejh-EggWJ_D_1U4SxB&index=8).
 
 ### Docker
 A Bonita docker distribution is now available for download and installation both in community and subscription editions.
 See [how to install and use it](bonita-docker-installation.md).
+
+![videos](images/tv.png)  Get an insight of this new value in this video in [English](https://www.youtube.com/watch?v=_7a3o6Y9kWI&list=PLvvoQatxaHOMcgZXuoQcM_6txUhwqru4B&index=9), [French](https://www.youtube.com/watch?v=2YteTFKFZsc&list=PLvvoQatxaHOPe6RwaiAdbCV6k_RbyYj9d&index=9), or [Spanish](https://www.youtube.com/watch?v=QbT4LTnEscA&list=PLvvoQatxaHOO564ejh-EggWJ_D_1U4SxB&index=9).
 
 ## Improvements
 
@@ -63,6 +80,8 @@ A new, simplified design has been implemented for the studio Welcome page. It is
 * Expense report example
 * Credit Card dispute resolution, with the implementation of an Adaptive Case Management use-case. (Enterprise only)  
 To easily learn about each new Bonita version highlights, you can now also find this Release notes page at first Studio launch, in a second tab right after the Welcome page. Once closed, you can retrieve it later from the studio (Menu _Help_ > _Open Release Notes_) option.
+
+![videos](images/tv.png)  Get an insight of this new value in a 5 min video in [English](https://www.youtube.com/watch?v=4mOepXITUFA&list=PLvvoQatxaHOMcgZXuoQcM_6txUhwqru4B&index=3), [French](https://www.youtube.com/watch?v=loN5v2s4qzI&list=PLvvoQatxaHOPe6RwaiAdbCV6k_RbyYj9d&index=3), or [Spanish](https://www.youtube.com/watch?v=ocb0D4C_Lqg&list=PLvvoQatxaHOO564ejh-EggWJ_D_1U4SxB&index=3).
 
 ### Table and Data table widgets
 You can add links, icons, and actions or customize styles with the new html support in the table cells.   
@@ -86,6 +105,8 @@ The following connectors have also been updated to be resilient to those charact
 ### MySql utf8mb4 support
 Previously, when using a Mysql database, the only supported encoding was utf8mb3, which was deprecated as of Mysql 8.
 Bonita now supports the (default) utf8mb4 encoding, and it is now the recommended configuration.
+
+![videos](images/tv.png)  Get an insight of this new value in a 5 min video in [English](https://www.youtube.com/watch?v=JPEGKAJTAgc&list=PLvvoQatxaHOMcgZXuoQcM_6txUhwqru4B&index=10), [French](https://www.youtube.com/watch?v=3bdm4tlN_Rg&list=PLvvoQatxaHOPe6RwaiAdbCV6k_RbyYj9d&index=10), or [Spanish](https://www.youtube.com/watch?v=bG7tqyMZfyE&list=PLvvoQatxaHOO564ejh-EggWJ_D_1U4SxB&index=10).
 
 ### Email connector
 Connector definition has been updated to add a Return-Path input parameter.

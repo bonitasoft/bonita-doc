@@ -2,6 +2,11 @@
 
 Learn how to use the Bonita Platform and all of its components.
 
+::: info
+![videos](images/tv.png)  Discover what is new in Bonita 7.10 thanks to these short videos in [English](https://www.youtube.com/playlist?list=PLvvoQatxaHOMcgZXuoQcM_6txUhwqru4B), [French](https://www.youtube.com/playlist?list=PLvvoQatxaHOPe6RwaiAdbCV6k_RbyYj9d), or [Spanish](https://www.youtube.com/playlist?list=PLvvoQatxaHOO564ejh-EggWJ_D_1U4SxB)!
+:::
+
+
 Click on the **links** below to find useful information quickly, or [browse the whole content tree](taxonomy.md), or use the **table of contents** to go straight to the information you want to read.
 
 <div class="col-md-4">
