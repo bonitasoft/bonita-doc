@@ -1,9 +1,7 @@
 name: bonita
 title: Bonita
-version: other
-asciidoc:
-  attributes:
-    varVersion: other
+version: old
+display_version: other
 # default
 #start_page: ROOT:index.adoc
 nav:
