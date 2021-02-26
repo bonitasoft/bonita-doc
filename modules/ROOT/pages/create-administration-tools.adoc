@@ -1,4 +1,5 @@
 = Create administration tools
+:description: Discover how to create tools to administer your Bonita system using Maven and Java.
 
 Discover how to create tools to administer your Bonita system using Maven and Java.
 
@@ -7,7 +8,7 @@ Discover how to create tools to administer your Bonita system using Maven and Ja
 The example proposes to list the failed tasks, and is wrapped in a script so that it can be executed in an environment with no window manager.
 
 You need to be familiar with building a Maven project with Bonita as a dependency. You also need to be familiar with using the Bonita Engine APIs.
-If this is not the case, follow this link:engine-api-overview.md#getting-started-engine-apis[tutorial].
+If this is not the case, follow this xref:engine-api-overview.adoc]#getting-started-engine-apis[tutorial].
 The xref:engine-api-overview.adoc[Engine API overview] contains a list of the APIs with a short description of each one. For details of the methods available in the Bonita Engine APIs, see the http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[Javadoc].
 
 This example uses the Bonita Engine Java APIs but there is also a xref:rest-api-overview.adoc[REST API].

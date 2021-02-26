@@ -1,10 +1,13 @@
 = Fragments
+:description: A fragment is a piece of a page, form or layout, composed of one or more widgets and/or containers. It can be inserted in other pages.
 
 A fragment is a piece of a page, form or layout, composed of one or more widgets and/or containers. It can be inserted in other pages.
 
-NOTE:
-*Note:* Available in the Bonita Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
 
+Available in the Bonita Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
 A fragment has its own widget configurations and data, but can also expose data to the pages that include it.
 

@@ -1,4 +1,5 @@
 = Subtasks
+:description: In Bonita 6.x and up to Bonita 7.2.x, for Enterprise, Performance and Efficiency editions only, it was possible for a user to add a subtask to a task, for example to track an external or off-line activity that needed to be completed before the task itself could be completed.
 
 In Bonita 6.x and up to Bonita 7.2.x, for Enterprise, Performance and Efficiency editions only, it was possible for a user to add a subtask to a task, for example to track an external or off-line activity that needed to be completed before the task itself could be completed.
 Starting from Bonita 7.3.0, creating subtasks is no longer possible.

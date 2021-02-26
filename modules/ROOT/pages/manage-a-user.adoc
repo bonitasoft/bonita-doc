@@ -1,10 +1,13 @@
 = Manage a user
+:description: How to manage users through Bonita Portal.
 
 How to manage users through Bonita Portal.
 
-NOTE:
-You must be logged on with the Administrator profile.
+[NOTE]
+====
 
+You must be logged on with the Administrator profile.
+====
 
 == How to create a user
 

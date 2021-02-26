@@ -1,4 +1,5 @@
 = Bonita Portal overview
+:description: Bonita Portal allows you to access server administration and monitoring for administrators, and a generic process view for users.
 
 Bonita Portal allows you to access server administration and monitoring for administrators, and a generic process view for users.
 
@@ -26,9 +27,11 @@ To know more about the use and optimization of the task list, go to xref:user-ta
 
 Each profile has access to a different set of single page menus or drop down menus, containing filters and action buttons related to their user rights.
 
-NOTE:
-*:fa-info-circle:Note*: The tenant administrator, logged as the Technical user, needs to map the Administrator profile with individuals in the company (or groups, or roles) to let the Administrator(s) manage the rest of the organization and other users. See xref:first-steps-after-setup.adoc[First steps after setup/Create an Administrator user].
+[NOTE]
+====
 
+*:fa-info-circle:Note*: The tenant administrator, logged as the Technical user, needs to map the Administrator profile with individuals in the company (or groups, or roles) to let the Administrator(s) manage the rest of the organization and other users. See xref:first-steps-after-setup.adoc[First steps after setup/Create an Administrator user].
+====
 
 See also xref:profiles-overview.adoc[Profiles overview]. +
 See also xref:custom-profiles.adoc[Custom profiles].

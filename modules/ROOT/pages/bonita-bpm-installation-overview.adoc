@@ -1,4 +1,5 @@
 = Bonita installation overview
+:description: Description of the different options for Bonita installation.
 
 Description of the different options for Bonita installation.
 
@@ -22,7 +23,7 @@ The package contains the individual launchers in one .zip file, and creates the 
 
 To know more, go to xref:bonita-bpm-studio-installation.adoc[Bonita Studio installation].
 
-+++<a id="platform">++++++</a>+++
+[#platform]
 
 Bonita Platform
 // {.h2}
@@ -37,8 +38,10 @@ Bonita Platform can be installed in several ways:
 
 For all options, you will need to xref:database-configuration.adoc[configure] Bonita Engine to work with the database of your choice (e.g. PostgreSQL or Oracle).
 
-WARNING:
-Starting from Bonita 7.3.0, there is no more bonita home to store the configuration, all the configuration is in the database. For more information, take a look at xref:BonitaBPM_platform_setup.adoc[Bonita Platform configuration]
+[WARNING]
+====
 
+Starting from Bonita 7.3.0, there is no more bonita home to store the configuration, all the configuration is in the database. For more information, take a look at xref:BonitaBPM_platform_setup.adoc[Bonita Platform configuration]
+====
 
 For detailed information on the Supported Environment Matrix, see the https://customer.bonitasoft.com/support-policies[Support Guide] or http://www.bonitasoft.com/contact-us[ask to be contacted by our commercial team].

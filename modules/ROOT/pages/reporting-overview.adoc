@@ -1,10 +1,13 @@
 = Reporting overview
+:description: Learn how reporting can be made on application of the Bonita Plaform.
 
 Learn how reporting can be made on application of the Bonita Plaform.
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
 == Terminology
 

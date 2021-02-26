@@ -1,11 +1,14 @@
 = Workspaces and projects
+:description: Organize and share your Bonita project using workspaces and projects in order to ease developers team collaboration.
 
 Organize and share your Bonita project using workspaces and projects in order to ease developers team collaboration.
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
-Community Edition only support a single workspace with a single project. To use Git with Community Edition refer to the xref:git-versioning-community-edition.adoc[dedicated tutorial].
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+Community Edition only support a single workspace with a single project. To use Git with Community Edition refer to the xref:git-versioning-community-edition.adoc[dedicated tutorial].
+====
 
 == Workspaces and projects
 
@@ -80,11 +83,13 @@ If the list does not contain the name of the project you want to use, check that
 
 == Use a shared project
 
-NOTE:
+[NOTE]
+====
+
 Bonita Studio provide a feature (*File* menu, *Import*, *Workspace...*) to import all the projects from a given workspace into your current workspace. If the workspace you import from includes shared projects (Git or Subversion), be aware that importing the workspace will result in having a local project instead of a shared one. For shared projects, it's advised to clone them directly from the remote Git repository instead of using the import workspace feature.
+====
 
-
-+++<a id="git">++++++</a>+++
+[#git]
 
 === Git
 
@@ -148,9 +153,11 @@ This information is also available at the top of Bonita Studio window, as well a
 
 Those commands can be found in Team > Git menu.
 
-WARNING:
-*Branches can be merged/rebased into each others if and only if branches are in the same Bonita version.* Else, migration might be skipped.
+[WARNING]
+====
 
+*Branches can be merged/rebased into each others if and only if branches are in the same Bonita version.* Else, migration might be skipped.
+====
 
 ==== Conflict management
 
@@ -161,7 +168,7 @@ Bonita Studio integrates the default merge tool of EGit. Here are some hints on 
 
 Git workflow offers a lot of other features that are not directly integrated in Bonita Studio. You can still use them using the command line interface (https://git-scm.com/download/[available here]). To retrieve the location of your project on your filesystem do a right click on the project name in the project explorer and select *Show in system explorer* (default location of your project would be: +++<bonita_studio_install_dir>+++/workspace/+++<name_of_the_project>+++).+++</name_of_the_project>++++++</bonita_studio_install_dir>+++
 
-+++<a id="git-troubleshooting">++++++</a>+++
+[#git-troubleshooting]
 
 ==== Troubleshooting
 

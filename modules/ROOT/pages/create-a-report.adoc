@@ -1,10 +1,13 @@
 = Create a report
+:description: The final step when setting up reporting in Bonita is to create a report template using a Business Intelligence (BI) tool.
 
 The final step when setting up reporting in Bonita is to create a report template using a Business Intelligence (BI) tool.
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
 == Prerequisites
 
@@ -44,7 +47,7 @@ This is how to add the query executor as a report dependency in iReport:
 . Select the *Query Executers* tab.
 . Click on the *_Add_* button.
 . Fill the form using the following values:
-+
+
 |===
 | Field | Value
 
@@ -161,10 +164,12 @@ image:images/images-6_0/exampleswidgets.png[Widget property example in iReport]
 
 To change style of your components in the HTML rendered reports, add CSS classes to them and update global Look'n'feel as described in xref:managing-look-feel.adoc[Bonita portal look'n'feel page].
 
-NOTE: +
-*Note:* If a JRTX file has been packaged inside the imported zip file, it will not be used to style HTML generated reports. +
+[NOTE]
+====
+ +
+If a JRTX file has been packaged inside the imported zip file, it will not be used to style HTML generated reports. +
 Using the global CSS look'n'feel of the Bonita Portal allows to have a consistent look'n'feel between HTML reports and Bonita Portal.
-
+====
 
 To add a CSS class to a component proceed as follow:
 
@@ -188,7 +193,7 @@ If your report requires a connection to the reporting database, the archive must
 
 * The JDBC driver jar file used to connect to the reporting database. Do not include this file in the archive if the driver is already deployed at server level.
 * A _connection.properties_ text file that contains the reporting database connection settings:
-+
+
 |===
 | Property | Description
 

@@ -1,4 +1,5 @@
 = UI Designer Embedded widgets
+:description: The UI Designer provides a set of default widgets that you can use or customize to design a page or form.
 
 The UI Designer provides a set of default widgets that you can use or customize to design a page or form.
 
@@ -135,7 +136,7 @@ If the values are JavaScript objects, you can also specify a *displayed key* tha
 
 The selected value should be bound to a variable that will hold the data for the chosen radio button.
 
-+++<a id="date-picker">++++++</a>+++
+[#date-picker]
 
 === Date picker widget
 
@@ -302,7 +303,7 @@ The list of values in the *Labels* property must be have same length as an assoc
 Charts can be customized more deeply using the *Advanced options* property. To specify advanced options, bind this property to a JSON variable that specifies the options. +
 Options are specific to each chart type and are listed in the http://www.chartjs.org/docs/[Chart.js documentation] in the _Chart options_ section for each chart style (for example, there are spacing http://www.chartjs.org/docs/#bar-chart-chart-options[options for bar charts]).
 
-+++<a id="file-viewer">++++++</a>+++
+[#file-viewer]
 
 == File viewer widget (Subscription editions)
 
@@ -311,7 +312,7 @@ You can display a document in a modal dialog box or directly in a page.
 
 The previewable documents are limited to documents supported by the end user browser (by default pdf and images on usual browsers). Documents that are not previewable are prompted to be downloaded.
 
-+++<a id="rich-text-area">++++++</a>+++
+[#rich-text-area]
 
 == Rich Text Area widget (Subscription editions)
 

@@ -1,4 +1,5 @@
 = Bonita naming conventions
+:description: Overview of the naming conventions that should be respected in Bonita.
 
 Overview of the naming conventions that should be respected in Bonita.
 

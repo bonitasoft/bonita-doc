@@ -1,4 +1,5 @@
 = Back up Bonita Platform
+:description: To provide continuity, regular backups of the platform (clustered or not) is advised.
 
 To provide continuity, regular backups of the platform (clustered or not) is advised.
 

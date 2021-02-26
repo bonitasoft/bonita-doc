@@ -1,4 +1,5 @@
 = Process Expressions and scripts
+:description: Learn how to define Expressions and script in Bonita Studio that will be executed in your processes.
 
 Learn how to define Expressions and script in Bonita Studio that will be executed in your processes.
 
@@ -124,10 +125,12 @@ You can xref:logging.adoc[add logging] to Groovy scripts or Java code that you d
 == Scripts in right operands of operations at task level
 
 Scripts can be used to define the result of the right operand of an xref:operations.adoc[operation]. Those scripts are created in the same editor as the others, and can also call external methods and resources, but are designed as read-only scripts in the product.
-WARNING:
+[WARNING]
+====
+
 It means that trying to directly write data to the database in those scripts (using java API methods), while it _might_ work, is considered as a bad practice, and the behaviour of those scripts is not guaranteed across versions of the product.
 Data in this case, refers to documents, business objects, pages, process commentaries.
-
+====
 
 For documents, you should use the xref:documents.adoc[document type] provided in the Studio and the associated xref:operations.adoc[operations] related to this document type.
 For business objects, you should use the xref:define-and-deploy-the-bdm.adoc[BDM type] provided in the Studio and the associated xref:operations.adoc[operations] related to this BDM type.

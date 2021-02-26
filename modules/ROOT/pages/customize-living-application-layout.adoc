@@ -1,15 +1,20 @@
 = Customize the living application layout
+:description: UI Designer allows the customization of the page layouts (header, body and footer).
 
 UI Designer allows the customization of the page layouts (header, body and footer).
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
-WARNING:
+[WARNING]
+====
+
 In 7.6 we made some improvements on the default layout.
 We recommand that you re-create your custom layout based on Bonita 7.6.0+ default layout.
-
+====
 
 ## Overview
 
@@ -100,7 +105,7 @@ As of version 7.5.x, the default provided layout does not allow this kind of cus
 
 == Take advantage of the latest improvement in a customized layout
 
-+++<a id="improve-navigation">++++++</a>+++
+[#improve-navigation]
 
 === Navigate between pages without reloading the entire page.
 

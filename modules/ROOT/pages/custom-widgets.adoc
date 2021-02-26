@@ -1,4 +1,5 @@
 = UI Designer Custom widgets
+:description: To extend the xref:widgets.adoc[standard widgets], develop your custom widgets using HTML, AngularJS and Javascript.
 
 To extend the xref:widgets.adoc[standard widgets], develop your custom widgets using HTML, AngularJS and Javascript.
 
@@ -22,11 +23,13 @@ For more information, see the AngularJS guide on https://docs.angularjs.org/guid
 
 For now, the definition of custom containers is not yet available in the product.
 
-WARNING:
+[WARNING]
+====
+
 Note that UI Designer always prefix the ID of the custom widgets by "custom",
 whereas the xref:widgets.adoc[standard widgets] are internally using the prefix "pb".
 If you build a widget outside of the UI Designer, your widget ID must not start with "pb".
-
+====
 
 == Custom widget properties
 

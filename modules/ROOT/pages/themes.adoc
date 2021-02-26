@@ -1,4 +1,5 @@
 = Application Themes
+:description: Create, import, define and use personal themes to skin your Bonita application.
 
 Create, import, define and use personal themes to skin your Bonita application.
 

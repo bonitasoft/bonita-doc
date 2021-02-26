@@ -1,4 +1,5 @@
 = Performance troubleshooting
+:description: Learn how to monitoring your Bonita Platform and troubleshoot performance issues.
 
 Learn how to monitoring your Bonita Platform and troubleshoot performance issues.
 

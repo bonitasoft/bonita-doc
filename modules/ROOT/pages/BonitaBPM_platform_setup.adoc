@@ -1,13 +1,16 @@
 = Platform configuration setup tool
+:description: This page explains how to use the Platform setup tool to configure the Bonita platform (properties, permissions, license install...).
 
 This page explains how to use the Platform setup tool to configure the Bonita platform (properties, permissions, license install...).
 
-NOTE:
-*Note:* First thing to know is that for all basic installation and start scenarios, you don't need to use the setup tool.
+[NOTE]
+====
+
+First thing to know is that for all basic installation and start scenarios, you don't need to use the setup tool.
 We made it easy for you by creating `start-bonita.bat`(for Windows) or `start-bonita.sh` (for Unix), a script that initializes, configures and starts the bundle, using the Platform setup tool.
+====
 
-
-+++<a id="platform_setup_tool">++++++</a>+++
+[#platform_setup_tool]
 
 == Platform setup tool overview and use
 
@@ -38,7 +41,7 @@ It is composed of the following items:
 
 The script `setup` comes with 4 commands:
 
-+++<a id="init_platform_conf">++++++</a>+++
+[#init_platform_conf]
 
 * `init`, to initialize the database
 +
@@ -48,22 +51,24 @@ It is run by the global script `start_bonita`, but you can also insert it in you
 +
 Eg. `setup.sh init` +
 Eg. `setup.sh init -Ddb.vendor=postgres` (see <<advanced_use,Advanced use>> for information on using `-D` properties)
-+
-NOTE:
+
+[NOTE]
+====
+
 When `db.vendor` and `bdm.db.vendor` properties are both set to `h2` - which is the default configuration - the `init` command asks you to confirm this choice before continuing. The following message is displayed:
-+
+
 ----
-[WARN] Default H2 configuration detected. This is not recommended for production. If this is not the required configuration, change file 'database.properties' and run again.
-Are you sure you want to continue? (y/n):
+  [WARN] Default H2 configuration detected. This is not recommended for production. If this is not the required configuration, change file 'database.properties' and run again.
+  Are you sure you want to continue? (y/n):
 ----
-+
+
 If you want to bypass this confirmation prompt you can add the `h2.noconfirm` property to `setup` or `start-bonita` scripts.
-+
+
 Eg. `setup.sh init -Dh2.noconfirm`
-Eg. `start-bonita.sh -Dh2.noconfirm`
+  Eg. `start-bonita.sh -Dh2.noconfirm`
+====
 
-
-+++<a id="run_bundle_configure">++++++</a>+++
+[#run_bundle_configure]
 
 * `configure`, to configure the server of a Bonita Tomcat / WildFly bundle to use the appropriate database:
 If run from inside a Bonita bundle, it configures the Application Server environment, so you don't need to configure all Tomcat / WildFly basic configuration files manually.
@@ -71,7 +76,9 @@ It is run by the global script `start-bonita`, but you can also insert it in you
 +
 Eg. `setup.sh configure`
 
-NOTE:
+[NOTE]
+====
+
 You do not need to configure Tomcat / WildFly files directly anymore. The command `setup configure` does it for you.
 If you decide to do it anyway, the tool will overwrite your custom values (after storing a restore backup into folder `tomcat-backups` or `wildfly-backups`).
 If you need to finely tune the configuration, modify the following template files, as they serve as a basis for configuration:
@@ -86,18 +93,20 @@ For Tomcat:
 For WildFly:
 
 * wildfly-templates/standalone.xml
+====
 
-
-+++<a id="update_platform_conf">++++++</a>+++
+[#update_platform_conf]
 
 * `pull`, to retrieve the current configuration
 +
 It gets the current configuration of Bonita Platform from the database and saves it locally in the `platform_conf/current` folder.
 Eg. `setup.sh pull`
 
-WARNING:
-  *Warning:* You must pull the configuration from the database every time you need to update your license file or edit the configuration of Bonita BPM Platform. Since some information is inserted by the platform itself in the database, this prevents database inconsistency.
+[WARNING]
+====
 
+You must pull the configuration from the database every time you need to update your license file or edit the configuration of Bonita BPM Platform. Since some information is inserted by the platform itself in the database, this prevents database inconsistency.
+====
 
 * `push`, to update the configuration of Bonita Platform, and update your license
 +
@@ -106,35 +115,41 @@ To make the platform take your changes into account, you must (re-)start Bonita 
 +
 Eg. `setup.sh push`
 
-WARNING:
-Note that the _Platform Setup tool_ does not need Bonita Server to be running for the configuration to be updated. However, the server needs to be restarted for the changes to be taken into account.
+[WARNING]
+====
 
+Note that the _Platform Setup tool_ does not need Bonita Server to be running for the configuration to be updated. However, the server needs to be restarted for the changes to be taken into account.
+====
 
 Type `setup help` or `setup help <command>` to get detailed help on the tool syntax or on a specific command. +
 Eg. `setup.sh help configure`
 
-NOTE:
+[NOTE]
+====
+
 Keep in mind that the folder *`platform_conf/initial`* is not used anymore once the platform has been initialized for the first time. To update your configuration, only the *`platform_conf/current`* folder is taken into account.
+====
 
-
-+++<a id="configure_tool">++++++</a>+++
+[#configure_tool]
 
 == Pre-requisites
 
 Before running it, make sure the setup tool is configured to point to the database of the Bonita Platform.
 
-NOTE:
-*Note:* If you have already run `start-bonita` script inside a link:tomcat-bundle.md#configuration[Tomcat bundle] or a link:wildfly-bundle.md#configuration[WildFly bundle], those steps are already done.
+[NOTE]
+====
 
+If you have already run `start-bonita` script inside a xref:tomcat-bundle.adoc]#configuration[Tomcat bundle] or a xref:wildfly-bundle.adoc]]#configuration[WildFly bundle], those steps are already done.
+====
 
 Here is how to do so:
 
 . Create the database
 . Customize it so it works with Bonita
 . Modify the `database.properties` file: Set the right db vendor and change connection url, user credentials, database name and so on.
-. If you are using an Oracle or Microsoft SQL Server database, add the related link:database-configuration.md#proprietary_jdbc_drivers[JDBC driver] in the `lib` folder.
+. If you are using an Oracle or Microsoft SQL Server database, add the related xref:database-configuration.adoc]#proprietary_jdbc_drivers[JDBC driver] in the `lib` folder.
 
-+++<a id="advanced_use">++++++</a>+++
+[#advanced_use]
 
 == Advanced use of the _Platform setup tool_
 
@@ -159,10 +174,12 @@ e.g. for Windows command line:
 setup.bat configure "-Ddb.vendor=postgres" "-Ddb.server.name=localhost" "-Ddb.server.port=5432" "-Ddb.database.name=bonita" "-Ddb.user=bonita" "-Ddb.password=bpm"
 ----
 
-WARNING:
+[WARNING]
+====
+
 For Windows users: Due to Windows Batch limitations, only 8 parameters are supported.
 If you need to pass more than 8 parameters, modify file `database.properties` instead.
-
+====
 
 === Advanced database configuration using file internal.properties
 
@@ -209,7 +226,7 @@ Or also if you need to use a specific *database Driver* java class name:
 
 '''
 
-+++<a id="backslash_support">++++++</a>+++
+[#backslash_support]
 
 *Issue*: My database name / password / ... contains a backslash (`\`) character. It seems to be ignored in file `database.properties`
 

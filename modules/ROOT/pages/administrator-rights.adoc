@@ -1,4 +1,5 @@
 = Bonita portal administrator profile
+:description: A user mapped to the Administration profile has the maximum rights to manage activity on Bonita Portal.
 
 A user mapped to the Administration profile has the maximum rights to manage activity on Bonita Portal.
 

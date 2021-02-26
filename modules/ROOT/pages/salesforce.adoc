@@ -1,4 +1,5 @@
 = Using SaleForce with Bonita
+:description: SaleForce connectors allow you to interact with Saleforce through Bonita.
 
 SaleForce connectors allow you to interact with Saleforce through Bonita.
 

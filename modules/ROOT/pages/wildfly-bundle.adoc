@@ -1,15 +1,16 @@
 = Bonita WildFly bundle
+:description: You will find here the mandatory and optional steps needed to install and configure the WildFly bundle to run the Bonita platform.
 
 You will find here the mandatory and optional steps needed to install and configure the WildFly bundle to run the Bonita platform.
 
-The WildFly bundle is a zip archive that contains the Red Hat WildFly Java EE application server packaged with Bonita and link:BonitaBPM_platform_setup.md#platform_setup_tool[Bonita platform setup tool].
+The WildFly bundle is a zip archive that contains the Red Hat WildFly Java EE application server packaged with Bonita and xref:BonitaBPM_platform_setup.adoc]#platform_setup_tool[Bonita platform setup tool].
 The WildFly bundle is a regular zip archive based on the WildFly zip distribution.
 
 == Installation of the WildFly bundle
 
 === Download and unzip the WildFly bundle
 
-+++<a id="download">++++++</a>+++
+[#download]
 
 ==== Download
 
@@ -28,9 +29,11 @@ The folder where you unzip the WildFly bundle is known as _`<WILDFLY_HOME>`_. We
 * Windows: `C:\Bonita`.
 * Linux: in `/opt/Bonita`. Make sure that Linux user account used to execute WildFly is the owner of the folders and files.
 
-WARNING:
-Whatever location you choose, *do not* leave blank spaces in the path to the directory, nor in the folder name.
+[WARNING]
+====
 
+Whatever location you choose, *do not* leave blank spaces in the path to the directory, nor in the folder name.
+====
 
 ==== Content of the WildFly bundle
 
@@ -46,11 +49,13 @@ The WildFly bundle is based on a standard WildFly installation with the followin
 * `start-bonita.bat`: script to start the bundle on Windows.
 * `start-bonita.sh`: script to start the bundle on Linux.
 
-NOTE:
-*Note:* Beginning with version 7.3.0, Bonita Platform configuration, including the license file, is stored in the same database as the Bonita Engine data, namely in the `CONFIGURATION` table.
+[NOTE]
+====
+
+Beginning with version 7.3.0, Bonita Platform configuration, including the license file, is stored in the same database as the Bonita Engine data, namely in the `CONFIGURATION` table.
 The initialization of this configuration happens during start-bonita.bat (for Windows) or start.bonita.sh (for Linux) execution. +
 Once initialized, to update this configuration, use the xref:BonitaBPM_platform_setup.adoc[_Platform setup tool_] embedded in Bonita bundles.
-
+====
 
 === Get and install a license (Subscription editions only)
 
@@ -72,11 +77,11 @@ Note: keep the brackets () in the key; if the key is separated by a line break, 
 
 The license file will be sent to you by email.
 
-+++<a id="license">++++++</a>+++
+[#license]
 
 When you receive your license:
 If this is your first installation, copy the file to the `<WILDFLY_HOME>/setup/platform_conf/licenses` folder before starting the bundle.
-If this is a license update, use link:BonitaBPM_platform_setup.md#update_platform_conf[the _Platform setup tool_].
+If this is a license update, use xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[the _Platform setup tool_].
 
 === Change the default credentials (optional, recommended for production)
 
@@ -103,27 +108,33 @@ When the platform is created, default values for the tenant administrator userna
 When you create a tenant, the tenant administrator is created with the default username and password, unless you specify new values.
 Change these tenant-specific credentials for an existing tenant by updating the `userName` and `userPassword` properties in `<WILDFLY_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/bonita-tenant-community-custom.properties`.
 
-WARNING:
+[WARNING]
+====
+
 For the *default tenant*, the tenant administrator username and password must also be changed in file xref:BonitaBPM_platform_setup.adoc[`<WILDFLY_HOME>/setup/platform_conf/initial/platform_portal/platform-tenant-config.properties`],
 with exactly the same values that you set in `bonita-tenant-community-custom.properties` (see above). At platform creation, this file contains the default username and password for the default tenant. +
 For further details and a better understanding, please read the section xref:tenant_admin_credentials.adoc[Tenant administrator credentials].
+====
 
-
-+++<a id="configuration">++++++</a>+++
+[#configuration]
 
 === Configure the WildFly bundle
 
-NOTE:
+[NOTE]
+====
+
 If you just want to try Bonita Platform with the embedded H2 database (only for development and testing phases of your project), you can skip this paragraph.
 For production, you are recommended to use one of the supported databases, with the following steps.
+====
 
-
-. Make sure link:database-configuration.md#database_creation[your databases are created] and link:database-configuration.md#specific_database_configuration[customized to work with Bonita].
-. Edit file `<WILDFLY_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of link:BonitaBPM_platform_setup.md#backslash_support[backslash characters].
-. If you use *Microsoft SQL Server* or *Oracle* database, copy your link:database-configuration.md#proprietary_jdbc_drivers[jdbc driver] in `<WILDFLY_HOME>/setup/lib` folder.
+. Make sure xref:database-configuration.adoc]#database_creation[your databases are created] and xref:database-configuration.adoc]]#specific_database_configuration[customized to work with Bonita].
+. Edit file `<WILDFLY_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of xref:BonitaBPM_platform_setup.adoc]#backslash_support[backslash characters].
+. If you use *Microsoft SQL Server* or *Oracle* database, copy your xref:database-configuration.adoc]#proprietary_jdbc_drivers[jdbc driver] in `<WILDFLY_HOME>/setup/lib` folder.
 . Run `<WILDFLY_HOME>\start-bonita.bat` (Windows system) or `<WILDFLY_HOME>/start-bonita.sh (Unix system)` to run Bonita WildFly bundle (see <<wildfly_start,WildFly start script>>)
 
-NOTE:
+[NOTE]
+====
+
 The *start-bonita* script does the following:
 
 . Runs the *`setup init`* command:
@@ -136,14 +147,14 @@ The *start-bonita* script does the following:
  .. copies your database vendor-specific drivers into `+<WILDFLY_HOME>/server/modules/**/main/+` folders
 . Starts the WildFly bundle
 
-For advanced server configuration needs: check out link:BonitaBPM_platform_setup.md#run_bundle_configure[Bundle configuration] to finely tune your WildFly bundle, using templates used by Bonita.
+For advanced server configuration needs: check out xref:BonitaBPM_platform_setup.adoc]#run_bundle_configure[Bundle configuration] to finely tune your WildFly bundle, using templates used by Bonita.
+====
 
-
-+++<a id="start">++++++</a>+++
+[#start]
 
 === Starting and shutting down WildFly
 
-+++<a id="wildfly_start">++++++</a>+++
+[#wildfly_start]
 
 ==== WildFly start script
 
@@ -169,16 +180,18 @@ Once you have your WildFly bundle up and running, complete these xref:first-step
 
 === Configuration update
 
-To update the configuration after the first run please take a look at the link:BonitaBPM_platform_setup.md#update_platform_conf[_Platform setup tool_]
+To update the configuration after the first run please take a look at the xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[_Platform setup tool_]
 
-NOTE:
+[NOTE]
+====
+
 File `database.properties` is the only entry point to configure the WildFly environment and the
-link:BonitaBPM_platform_setup.md#configure_tool[Bonita Platform configuration]
-
+xref:BonitaBPM_platform_setup.adoc]#configure_tool[Bonita Platform configuration]
+====
 
 === License update
 
-To update the licenses after the first run, take a look at the link:BonitaBPM_platform_setup.md#update_platform_conf[platform setup tool]
+To update the licenses after the first run, take a look at the xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[platform setup tool]
 
 == Troubleshooting
 

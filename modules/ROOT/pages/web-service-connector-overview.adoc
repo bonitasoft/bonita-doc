@@ -1,4 +1,5 @@
 = Overview of the generic web service connector
+:description: The Bonita Studio includes a generic web service connector that leverages SOAP 1.2 protocol.
 
 The Bonita Studio includes a generic web service connector that leverages SOAP 1.2 protocol.
 

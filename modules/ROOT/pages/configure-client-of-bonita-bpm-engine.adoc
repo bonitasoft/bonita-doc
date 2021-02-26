@@ -1,4 +1,5 @@
 = Configure connection to Bonita Engine
+:description: Learn how to configure your application to connect to a remote Bonita Engine, in order to access Engine APIs
 
 Learn how to configure your application to connect to a remote Bonita Engine, in order to access Engine APIs
 
@@ -10,7 +11,7 @@ The engine (the _server_) must also be configured to accept the connection.
 NOTE: the Bonita Portal can be configured to be used as a Client of the Bonita Engine. See the xref:two-main-types-of-deployment.adoc[Alternate Bonita Deployment]
 documentation for more information
 
-+++<a id="client_config">++++++</a>+++
+[#client_config]
 
 == Client configuration
 
@@ -43,13 +44,17 @@ When using `HTTP` mode, you must set the following system properties
  ** `org.bonitasoft.engine.api-type.server.url`: it is the url of the server, e.g. for a engine on the same host it can be `+http://localhost:8080+`
  ** `org.bonitasoft.engine.api-type.application.name`: it is the name of the web aplication on wich the engine HTTP API is deployed, e.g. `bonita`
 
-WARNING:
+[WARNING]
+====
+
 We do not guarantee to keep the http protocol stable, so we strongly recommend that you use the same version for both
 the client and the server
+====
+[IMPORTANT]
+====
 
- danger
 EJB communication protocol is removed in 7.10.
-
+====
 
 * `EJB3` (deprecated, removed in 7.10)
 The `EJB3` connection mode will connect the client to the engine using EJBs. +
@@ -59,9 +64,11 @@ You will need to specify at least `org.bonitasoft.engine.ejb.naming.reference` t
 
 === Configure client using Bonita Home client
 
- danger
-Deprecated, use the programmatic way instead, see http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/util/APITypeManager.html[APITypeManager].
+[IMPORTANT]
+====
 
+Deprecated, use the programmatic way instead, see http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/util/APITypeManager.html[APITypeManager].
+====
 
 This is a legacy way to configure the connection to the remote engine.
 
@@ -106,15 +113,19 @@ It is configured in the `web.xml` file of the web application like this:
 </servlet>
 ----
 
-WARNING:
-This HTTP access  is not secured, it should not be exposed outside a trusted area. We recommend you to deactivate it if you expose directly your deployment to the outside world.
+[WARNING]
+====
 
+This HTTP access  is not secured, it should not be exposed outside a trusted area. We recommend you to deactivate it if you expose directly your deployment to the outside world.
+====
 
 === Server configuration to accept EJB3 connection
 
- danger
-EJB communication protocol is removed in 7.10.
+[IMPORTANT]
+====
 
+EJB communication protocol is removed in 7.10.
+====
 
 By default the xref:wildfly-bundle.adoc[WildFly bundle] is configured to accept connection for EJB3.
 

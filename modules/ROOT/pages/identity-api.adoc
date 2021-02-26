@@ -1,4 +1,5 @@
 = Identity API
+:description: The Identity Rest API allows to manage the Bonita's organization.
 
 The Identity Rest API allows to manage the Bonita's organization.
 
@@ -272,7 +273,7 @@ _Example_: `/API/identity/group?p=0&c=100&f=parent_path%3d/acme&d=parent_group_i
 * *Method* +
 `GET`
 * *Data Params* +
-link:rest-api-overview.md#resource_search[Standard search parameters] are available to search form mappings. +
+xref:rest-api-overview.adoc]#resource_search[Standard search parameters] are available to search form mappings. +
 It is possible to filter on the following attributes:
  ** `name=<group_name>`
  ** `displayName=<group_displayName>`
@@ -455,7 +456,7 @@ This action search memberships of a user.
 * *Method* +
 `GET`
 * *Data Params* +
-link:rest-api-overview.md#resource_search[Standard search parameters] are available. +
+xref:rest-api-overview.adoc]#resource_search[Standard search parameters] are available. +
 *Required*
  ** filter is mandatory: `user_id=<id of the user>`
 
@@ -840,7 +841,7 @@ _Example_:  Get details of a specified user including professional and manager i
 * *Method* +
 `GET`
 * *Data Params* +
-link:rest-api-overview.md#resource_search[Standard search parameters] are available.
+xref:rest-api-overview.adoc]#resource_search[Standard search parameters] are available.
  ** `d=professional_data` - include professionnal data in response
  ** `d=manager_id` - include details of user's manager in response
 * *Success Response* +
@@ -906,7 +907,7 @@ _Example_:  Search for users with names that contain "will", filter to keep only
 * *Method* +
 `GET`
 * *Data Params* +
-link:rest-api-overview.md#resource_search[Standard search parameters] are available.
+xref:rest-api-overview.adoc]#resource_search[Standard search parameters] are available.
  ** `d=professional_data - include professionnal data in response
  ** `d=manager_id - include details of user's manager in response
 * *Success Response* +
@@ -991,10 +992,12 @@ Deactivate the user identified by id 9 : `/API/identity/user/9`
 
 === Remove a user
 
-WARNING:
+[WARNING]
+====
+
 Use this method with caution: some artifacts like applications, cases or users may present display problems in the Bonita Portal if the referenced user was deleted. +
 Note that you can disable a user instead of deleting it. To do so, use the `UPDATE` method and set the attribute 'enabled' to false
-
+====
 
 * *URL* +
 `/API/identity/user/:userId`

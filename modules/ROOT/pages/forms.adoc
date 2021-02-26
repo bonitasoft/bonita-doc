@@ -1,4 +1,5 @@
 = Forms for Process instantiation or Human Tasks
+:description: How to add a form resource to the Bonita Portal and make it available to users. Forms are intended to be used with one or several processes.
 
 How to add a form resource to the Bonita Portal and make it available to users. Forms are intended to be used with one or several processes.
 
@@ -33,12 +34,16 @@ If your forms is viewed in an application, you will have access facilities for x
 The `Theme.css` is directly accessible by adding the following link in `index.html`: `<link href="../theme/theme.css" rel="stylesheet" />`
 This link is already inserted in the forms you design with the UI Designer.
 
-NOTE:
+[NOTE]
+====
+
 The `app` URL parameter is used to retrieve the current application related Theme.    +
 The living application layout inject this `app` URL parameter in the targeted page/form URL, and the value is the application token.              +
 If you create your own navigation link, you will need to include this `app` URL parameter in the forged form URL, in order to be able to benefit from the application theme.
+====
 
+[NOTE]
+====
 
-NOTE:
 In the portal, the link `../theme/theme.css` will point the file `theme.css` from the portal theme. This portal forms theme is empty, and customizable to fit to the current portal theme.
-
+====

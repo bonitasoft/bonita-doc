@@ -1,4 +1,5 @@
 = Two main types of Bonita deployment
+:description: There are two main types of deployment
 
 There are two main types of deployment
 
@@ -78,7 +79,7 @@ In this deployment, the Engine Client used by the Bonita Portal is configured by
 * set the url to the Engine
 * use username and password that match credentials configured for the platform admin (see the xref:tomcat-bundle.adoc[Tomcat]
 or the xref:wildfly-bundle.adoc[Wildfly] bundle configuration page)
-* for more details, please read link:configure-client-of-bonita-bpm-engine.md#client_config[configuring the connection to a remote engine]
+* for more details, please read xref:configure-client-of-bonita-bpm-engine.adoc]#client_config[configuring the connection to a remote engine]
 
 In addition, all database datasources are disabled
 
@@ -194,9 +195,11 @@ Apply the same changes as for the Tomcat bundle to disable Engine resources
 
 === Accessible through RMI (EJB3) - Deprecated Solution
 
- danger
-EJB communication protocol is removed in 7.10.
+[IMPORTANT]
+====
 
+EJB communication protocol is removed in 7.10.
+====
 
 image::images/images-6_0/poss_deploy3.png[deploy3]
 

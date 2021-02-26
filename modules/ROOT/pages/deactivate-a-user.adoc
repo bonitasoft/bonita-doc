@@ -1,4 +1,5 @@
 = User activation / deactivation
+:description: Activation / deactivation of a user allows to revoke any access to the platform without
 
 Activation / deactivation of a user allows to revoke any access to the platform without
 deleting the user.
@@ -6,10 +7,12 @@ deleting the user.
 If a user is deactivated, the user cannot log in to Bonita Portal. However, all their past actions are kept
 intact and can be displayed.
 
-NOTE:
+[NOTE]
+====
+
 The Administrator cannot add a membership to a deactivated user.
 In consequence, the *Add membership button* is not displayed for a deactivated user.
-
+====
 
 == How to deactivate a user
 

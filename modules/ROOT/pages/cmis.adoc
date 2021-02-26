@@ -1,4 +1,5 @@
 = CMIS connectors
+:description: Bonita native CMIS connectors allow to connect Bonita processes to content management systems.
 
 Bonita native CMIS connectors allow to connect Bonita processes to content management systems.
 

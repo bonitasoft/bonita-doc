@@ -1,4 +1,5 @@
 = Pages
+:description: Page resources are intended for use in applications or to customize Bonita portal. See how to
 
 Page resources are intended for use in applications or to customize Bonita portal. See how to
 use it and make it available to users.
@@ -77,7 +78,7 @@ Two custom page examples are available in the Bonita Portal. Both examples show 
 *HTML example page* defines a custom page using only HTML.
 In practice, you will probably use a combination of Groovy and HTML to create your custom pages.
 
-To view an example page, publish the page to a xref:custom-profiles.adoc[custom profile] or an xref:applications.adoc[application] so that you can view it in the portal. To view the source of an example, link:resource-management.md#export[export the custom page].
+To view an example page, publish the page to a xref:custom-profiles.adoc[custom profile] or an xref:applications.adoc[application] so that you can view it in the portal. To view the source of an example, xref:resource-management.adoc]#export[export the custom page].
 
 On the https://customer.bonitasoft.com/[Customer Portal], there is also an example in the form of a seed project for creating custom pages using AngularJS and a customizable example task list page.
 
@@ -107,9 +108,11 @@ To enable custom page debug mode, edit xref:BonitaBPM_platform_setup.adoc[`conso
 
 To work on a page in debug mode:
 
-NOTE:
-On a Tomcat installation, `<java.io.tmpdir>` points to `<TOMCAT_HOME>/temp/`
+[NOTE]
+====
 
+On a Tomcat installation, `<java.io.tmpdir>` points to `<TOMCAT_HOME>/temp/`
+====
 
 . Import your custom page zip archive into the portal. This creates a directory `<java.io.tmpdir>/bonita_portal_*/tenants/tenant_id/pages/custompage_<your custom page>`.
 . Publish the page to a profile, then log out and log in as a user having this profile.
@@ -118,10 +121,12 @@ On a Tomcat installation, `<java.io.tmpdir>` points to `<TOMCAT_HOME>/temp/`
 
 When you have finished developing the page, recreate the custom page zip archive, and then modify the page to import it. This makes your final version of the page permanently available.
 
-NOTE:
+[NOTE]
+====
+
 In Bonita Studio, the debug mode is enabled by default. +
 If you want to disable it, you need to use the setup tool provided in `workspace/tomcat/setup/` to update `console-config.properties` (Update the file database.properties first so it points to the target database. E.g.: h2.database.dir=../../default/h2_database).
-
+====
 
 == Constraints
 

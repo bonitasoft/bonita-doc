@@ -1,4 +1,5 @@
 = REST API Extensions
+:description: Extend REST Resources using Bonita, to send information on a form. REST API Extensions are xref:resource-management.adoc[manage] as resources.
 
 Extend REST Resources using Bonita, to send information on a form. REST API Extensions are xref:resource-management.adoc[manage] as resources.
 
@@ -19,23 +20,31 @@ You need to deploy the REST API Extensions zip archive using Bonita Portal:
 
 REST API Extensions use the same authorization mechanism as the standard Bonita REST APIs. When you import the extension, the information in `page.properties` is used to create the appropriate resource permission mappings in Bonita (see xref:rest-api-authorization.adoc[REST API authorization] for information about REST API security configuration).
 
-NOTE:
-*Note*: It is also possible to deploy a REST API Extensions using link:portal-api.md#page[REST portal API / "page" resource].
+[NOTE]
+====
 
+It is also possible to deploy a REST API Extensions using xref:portal-api.adoc]#page[REST portal API / "page" resource].
+====
 
-NOTE:
-*Note*: The deployment of the REST API Extensions should always be made from the portal or its APIs, not directly from Engine APIs. Notably, the createPage() method of the Engine PageAPI would allow you to deploy a REST API Extensions, but would not update the security settings, meaning that you would not be able to access it at runtime.
+[NOTE]
+====
 
+The deployment of the REST API Extensions should always be made from the portal or its APIs, not directly from Engine APIs. Notably, the createPage() method of the Engine PageAPI would allow you to deploy a REST API Extensions, but would not update the security settings, meaning that you would not be able to access it at runtime.
+====
 
-WARNING:
-*Warning*: If you are running Bonita in a cluster, after you import a REST API Extensions, you must restart the application server on all the cluster nodes.
+[WARNING]
+====
 
+If you are running Bonita in a cluster, after you import a REST API Extensions, you must restart the application server on all the cluster nodes.
+====
 
-WARNING:
-*Warning*: As the deployment of the REST API Extensions automatically creates the appropriate resource permission mapping, be careful not to link:BonitaBPM_platform_setup.md#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to the Bonita runtime in a pretty short amount of time.
+[WARNING]
+====
 
+As the deployment of the REST API Extensions automatically creates the appropriate resource permission mapping, be careful not to xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to the Bonita runtime in a pretty short amount of time.
+====
 
-+++<a id="usage">++++++</a>+++
+[#usage]
 
 == Usage
 
@@ -50,26 +59,30 @@ resources=[GET|extension/demoHeaders,POST|extension/demoXml,PUT|extension/putRes
 
 If the page declares its resources correctly, then every user being able to access this page (because it is part of a custom profile or Living Application they have access to)
 will also be automatically granted the necessary permissions to call the REST API Extensions. This works the same way as with the other resources of the REST API. +
-However, if you need to grant access to this REST API Extensions to some users regardless of the pages they have access to, then you need to add link:rest-api-authorization.md#custom-permissions-mapping[custom permissions] for these users. +
+However, if you need to grant access to this REST API Extensions to some users regardless of the pages they have access to, then you need to add xref:rest-api-authorization.adoc]#custom-permissions-mapping[custom permissions] for these users. +
 In order to do so, edit `custom-permissions-mapping.properties` to give the permissions (value of the property `apiExtension.permissions`) declared in the page.properties of the REST API Extensions to the required profiles or users.
 
-NOTE:
-*Note*: REST API permissions are stored in the user's session and new permissions will only be effective for a user the next time he logs in to the portal.
+[NOTE]
+====
 
+REST API permissions are stored in the user's session and new permissions will only be effective for a user the next time he logs in to the portal.
+====
 
-WARNING:
+[WARNING]
+====
+
 In Bonita Studio, the debug mode is enabled by default. In debug mode, you can see changes on your REST API Extensions without importing a new zip archive, but it means the class of the extension is reloaded at each request. +
-If you want to disable the debug mode, you need to use the setup tool provided in `workspace/tomcat/setup/` to set `custom.page.debug` to `false` in `console-config.properties`. (Update the file database.properties first so it points to the target database. E.g.: h2.database.dir=../../+++<PROJECT NAME="">+++/h2_database). +++</PROJECT>+++
+If you want to disable the debug mode, you need to use the setup tool provided in `workspace/tomcat/setup/` to set `custom.page.debug` to `false` in `console-config.properties`. (Update the file database.properties first so it points to the target database. E.g.: h2.database.dir=../../+++<PROJECT NAME="">+++/h2_database).====+++</PROJECT>+++
 
 == REST API Extensions examples
 
 A REST API Extensions example resource and API extension viewer page are provided in administrator portal. They are located in administrator portal.
 
-To use the examples, define a link:rest-api-authorization.md#custom-permissions-mapping[custom permissions] mapping for `demoPermission`:
+To use the examples, define a xref:rest-api-authorization.adoc]#custom-permissions-mapping[custom permissions] mapping for `demoPermission`:
 
 In a Tomcat / WildFly bundle:
 
-* Retrieve platform configuration using the link:BonitaBPM_platform_setup.md#update_platform_conf[setup tool].
+* Retrieve platform configuration using the xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[setup tool].
 * Edit `platform_conf/current/tenants/<TENANT_ID>/tenant_portal/custom-permissions-mapping.properties`.
 * Add the following line: `profile|User=[demoPermission]`.
 * Push the changed platform configuration into database using the _setup tool_.

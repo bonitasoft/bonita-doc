@@ -1,11 +1,15 @@
 = Process monitoring
+:description: :experimental:
+
 :experimental:
 
 Monitoring gives information relative to a process ongoing execution.
 
-NOTE:
-*Note:* For Enterprise, Performance and Efficiency editions only.
+[NOTE]
+====
 
+For Enterprise, Performance and Efficiency editions only.
+====
 
 This is only available to the Administrator and Process Manager profile.
 

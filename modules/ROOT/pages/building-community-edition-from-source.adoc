@@ -1,4 +1,6 @@
 = Build Bonita Community edition from the source
+:description: :doctype: book
+
 :doctype: book
 
 Bonita is an opensource Digital Process Automation platform, you can therefore build Bonita Community edition from the source.
@@ -15,9 +17,11 @@ To build the product, you need the following:
 * Apache Maven 3.3.9 (version is mandatory)
 * NodeJS
 
-NOTE:
-We provide build script for Linux only. Therefore it is recommended to use Linux. If you don't have Linux you can either use a virtual machine or port the build script to Mac.
+[NOTE]
+====
 
+We provide build script for Linux only. Therefore it is recommended to use Linux. If you don't have Linux you can either use a virtual machine or port the build script to Mac.
+====
 
 ////
 -
@@ -25,9 +29,11 @@ BS-8375
 -
 ////
 
-WARNING:
-Note that you can run Bonita on Windows but you cannot build Bonita on Windows (known limitation).
+[WARNING]
+====
 
+Note that you can run Bonita on Windows but you cannot build Bonita on Windows (known limitation).
+====
 
 = Building Bonita
 

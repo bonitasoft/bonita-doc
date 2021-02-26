@@ -1,4 +1,5 @@
 = Variables in the UI Designer
+:description: Discover how to use variables in the UI Designer to manage information in artifacts.
 
 Discover how to use variables in the UI Designer to manage information in artifacts.
 
@@ -49,9 +50,11 @@ var result = $data.expenses * 2;
 ----
 
 An expression often relies on other variables as dependencies.
-WARNING:
-*Warning:* Every time one of these variables changes, the whole JavaScript expression is re-evaluated and the previous value is overwritten. +
+[WARNING]
+====
 
+Every time one of these variables changes, the whole JavaScript expression is re-evaluated and the previous value is overwritten. +
+====
 For example, create a `login` expression variable: `return $data.firstname.toLowercase() + '-' + $data.lastname.toLowercase()`. Its dependencies are the two variables `firstname` and `lastname`. +
 Create two input widgets "First name" and "Last name" and bind the values to two variables `firstname` and `lastname`. Add a text widget "Login" to display the result of the `login` expression. When the user fills out the two input fields, the expression is updated. If the login value is manually edited before the user fills out the fields, then its value is overwritten.
 

@@ -1,10 +1,13 @@
 = Configure the archiving of BPM elements
+:description: Learn how you can deactivate the archiving of some BPM elements if you don't need to keep track of them.
 
 Learn how you can deactivate the archiving of some BPM elements if you don't need to keep track of them.
 
-NOTE:
-*Note:* For Enterprise and Performance editions only.
+[NOTE]
+====
 
+For Enterprise and Performance editions only.
+====
 
 The Configurable Archive feature is provided by the ``com.bonitasoft.engine.archive.impl.ListArchivingStrategy ``service implementation, which only works with a *Enterprise or Performance license*.
 It enables you to specify for each FlowNode type whether or not to archive values when the flow node is changed. This determines what information

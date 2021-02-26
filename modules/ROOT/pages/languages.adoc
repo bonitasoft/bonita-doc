@@ -1,4 +1,5 @@
 = Bonita is available in different languages
+:description: Bonita is officially released in various languages.
 
 Bonita is officially released in various languages.
 
@@ -31,9 +32,11 @@ For the web mobile version:
 
 == Add a language to Bonita Portal
 
-NOTE:
-Instructions below assume that the language you want to add is already available in the community translation project. If translation is not available see <<Translate_BonitaB_PM_Portal,Translate Bonita Portal>> for instruction about how to collaborate to a new or ongoing translation.
+[NOTE]
+====
 
+Instructions below assume that the language you want to add is already available in the community translation project. If translation is not available see <<Translate_BonitaB_PM_Portal,Translate Bonita Portal>> for instruction about how to collaborate to a new or ongoing translation.
+====
 
 Instructions below explain how to add a language to Bonita Portal. Steps below involve using content created by Bonitasoft community and therefore not officially supported.
 
@@ -67,8 +70,10 @@ Instructions below explain how to add a language to Bonita Portal. Steps below i
 . Restart your application server (or Click on Server in the Bonita Studio menu bar, click on Restart Web Server).
 . Check that the new language is listed in Settings menu of the Bonita Portal.
 
-WARNING:
-*Warning:* The `mobile_xxxx.po/.pot` files used for the language of the https://documentation.bonitasoft.com/bonita/7.4/mobile-portal[Bonita Mobile Portal] may contain some keys missing translation. For the Mobile Portal to be displayed correctly in the new language, these keys must not be empty.
+[WARNING]
+====
+
+The `mobile_xxxx.po/.pot` files used for the language of the https://documentation.bonitasoft.com/bonita/7.4/mobile-portal[Bonita Mobile Portal] may contain some keys missing translation. For the Mobile Portal to be displayed correctly in the new language, these keys must not be empty.
 
 On the other hand, some of the keys in the `mobile_xxxx.po/.pot` files are duplicates from the ones in other non-mobile `.po/.pot` files. These keys must all have the same value (whether translated or chosen to be left in English) across all the `.po/.pot` files.
 
@@ -77,9 +82,9 @@ For example, if you are adding the German language to the Mobile portal, the "Do
 * `mobile_de_DE.po`
 * `portal_de_DE.po`
 * `portal-sp_de_DE.po`
+====
 
-
-+++<a id="Translate_BonitaB_PM_Portal">++++++</a>+++
+[#Translate_BonitaB_PM_Portal]
 
 == Translate Bonita Portal
 

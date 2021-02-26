@@ -1,4 +1,5 @@
 = User task list
+:description: The user task list page provides information such as: user's tasks, tasks to do, already done tasks related to different processes.
 
 The user task list page provides information such as: user's tasks, tasks to do, already done tasks related to different processes.
 
@@ -38,6 +39,8 @@ To know more about how to use both features, go to xref:optimize-user-tasklist.a
 
 The task list also contains a *Done tasks* filter, for the user to check if the task has been completed properly.
 
-NOTE:
-*Note:* Subtask creation has not been implemented in the task list. However, subtasks created in open cases that were started in a previous Bonita version are still available to their assignees when cases are migrated to Bonita 7.3.
+[NOTE]
+====
 
+Subtask creation has not been implemented in the task list. However, subtasks created in open cases that were started in a previous Bonita version are still available to their assignees when cases are migrated to Bonita 7.3.
+====

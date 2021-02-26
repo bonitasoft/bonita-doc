@@ -1,4 +1,5 @@
 = Manage a list of documents
+:description: Bonita allows you to group documents with lists.
 
 Bonita allows you to group documents with lists.
 
@@ -12,9 +13,13 @@ It is possible to add/remove elements to a list using the same methods as for a 
 In a case with `myDocList` as a list of documents, use the following request to sort the result by ascending index value:
 
 Request URL:
-|Method | Path + Query|
-|:-|:-|
-| GET |`/API/bpm/caseDocument?p=0&c=10&f=name=myDocList&o=index ASC`|
+
+|===
+| Method | Path + Query
+
+| GET
+| `/API/bpm/caseDocument?p=0&c=10&f=name=myDocList&o=index ASC`
+|===
 
 Response payload :
 

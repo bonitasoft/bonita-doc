@@ -1,4 +1,5 @@
 = BDM Management in Bonita Portal
+:description: Processes using Business Objects with persisted data need to run with a Business Data Model deployed in the Bonita Portal.
 
 Processes using Business Objects with persisted data need to run with a Business Data Model deployed in the Bonita Portal.
 
@@ -13,19 +14,23 @@ The Business objects must match the structure used by the deployed processes. Ma
 . Go to the *BPM Services* menu.
 . Click on *Pause* to xref:pause-and-resume-bpm-services.adoc[pause] the tenant.
 
-NOTE:
+[NOTE]
+====
+
 *:fa-info-circle: Note:* The deployment of a Business Data Model requires pausing the service during the operation, so that the update can be performed without affecting ongoing processes.
  For Enterprise, Efficiency and Performance editions, you must have no <<installAccessControl,access control>> file installed in order to be able to install or update the Business Data Model.
-
+====
 
 . When services are paused, go to the *BDM* menu.
 . A page called *Business Data Model definition* is displayed.
 . Click on install button and choose the file containing the Business Data Model exported from Bonita Studio, and click on _*install*_ button in the popup.
 . A warning is displayed:
 
-WARNING:
-*:fa-exclamation-triangle: Warning:* The Business Data Model will now be installed.
+[WARNING]
+====
 
+*:fa-exclamation-triangle: Warning:* The Business Data Model will now be installed.
+====
 
 Please note that existing business database tables will be modified definitively. This action cannot be reversed. It is highly recommended to back up the database before proceeding.
 
@@ -35,18 +40,22 @@ in the business database, so as to store business objects appropriately when mod
 . Go to the *BPM Services* menu.
 . Click on *Resume* to xref:pause-and-resume-bpm-services.adoc[resume tenant activity].
 
-WARNING:
+[WARNING]
+====
+
 *:fa-exclamation-triangle: Warning:*  Since business continually evolves, you may need to make some changes to a BDM already in production.
 Bonita uses Hibernate for data persistence, therefore some changes are handled well, like adding new objects or attributes, but some others, like changing the type of an attribute, we cannot guarantee so far.
 In such cases, you will have to implement the change on your own, through careful actions in a staging environment, and after the backup of your database.
 This limitation is well known and will be addressed in a future Bonita version.
+====
 
+[NOTE]
+====
 
-NOTE:
-*Note:* For Enterprise, Efficiency and Performance editions only.
+For Enterprise, Efficiency and Performance editions only.
+====
 
-
-+++<a id="installAccessControl">++++++</a>+++
+[#installAccessControl]
 
 It is possible to define Business Data Model access control rules in Bonita Studio and import them in Bonita Portal. +
 The Access control rules must match the Business Data model.
@@ -60,6 +69,8 @@ The Access control rules must match the Business Data model.
 
 Please note that a delay is required after the import for the engine to process the access control and for the filtering to be effective.
 
-NOTE:
-*:fa-info-circle: Note:* Contrary to the BDM definition, the deployment of a Business Data Model access control file doesn't require pausing the BPM services during the operation.
+[NOTE]
+====
 
+*:fa-info-circle: Note:* Contrary to the BDM definition, the deployment of a Business Data Model access control file doesn't require pausing the BPM services during the operation.
+====

@@ -1,4 +1,5 @@
 = Data handling overview
+:description: How to effectively use the different kinds of data available within Bonita Platform
 
 How to effectively use the different kinds of data available within Bonita Platform
 

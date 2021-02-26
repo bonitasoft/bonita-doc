@@ -1,4 +1,5 @@
 = Manage Tasks
+:description: A task is an element of a process. It defines an action to be performed (automatic or human).
 
 A task is an element of a process. It defines an action to be performed (automatic or human).
 

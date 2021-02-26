@@ -1,10 +1,13 @@
 = Live update
+:description: Some process definition information can be live updated from Administrator profile.
 
 Some process definition information can be live updated from Administrator profile.
 
-NOTE:
-*Note:* For Enterprise, Performance and Efficiency editions only.
+[NOTE]
+====
 
+For Enterprise, Performance and Efficiency editions only.
+====
 
 == Parameters
 
@@ -80,11 +83,13 @@ NOTE: For Bonita Enterprise, Performance and Efficiency editions.
 
 The Scripts section of the process more details page allows to update a _TYPE_READ_ONLY_SCRIPT_ Expression or a _TYPE_CONSTANT_ Expression when associated to a Groovy script connector
 
-WARNING:
+[WARNING]
+====
+
 *:fa-exclamation-triangle: Warning:* The script dependencies are fixed, i.e. when the process is implemented the developer designed the script to use some variables and/or parameters. The live update capability cannot go against this design and only allows to change the script content. If the new script tries to use more variables, it will lead to execution errors. To change the script dependencies (data available in the script execution context), the process definition must be updated and a newer version of the process deployed.
+====
 
-
-+++<a id="cache_busting">++++++</a>+++
+[#cache_busting]
 
 == Cache busting
 

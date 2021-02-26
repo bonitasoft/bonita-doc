@@ -1,4 +1,5 @@
 = Resources management
+:description: A resource is an artifact that extends Bonita platform. It is possible to add resources to Bonita Portal and make them available to users.
 
 A resource is an artifact that extends Bonita platform. It is possible to add resources to Bonita Portal and make them available to users.
 
@@ -48,7 +49,7 @@ resources=[GET|identity/user, GET|identity/personalcontactdata, GET|identity/pro
 contentType=page
 ----
 
-+++<a id="export">++++++</a>+++
+[#export]
 
 == Export a resource
 
@@ -76,11 +77,13 @@ If you have specified a resource permission that is not defined in the xref:rest
 
 After a resource is added to the portal, it can be used in an xref:applications.adoc[application] or in a custom profile.
 
-WARNING:
-*Warning*: As the deployment of resources automatically creates the appropriate resource permissions mapping, be careful not to link:BonitaBPM_platform_setup.md#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to the Bonita runtime in a pretty short amount of time.
+[WARNING]
+====
 
+As the deployment of resources automatically creates the appropriate resource permissions mapping, be careful not to xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to the Bonita runtime in a pretty short amount of time.
+====
 
-+++<a id="modify">++++++</a>+++
+[#modify]
 
 == Modify a resource
 

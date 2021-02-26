@@ -1,4 +1,5 @@
 = Groups of an organization
+:description: To easily manipulate users with the same rights, it is possible to group them together.
 
 To easily manipulate users with the same rights, it is possible to group them together.
 

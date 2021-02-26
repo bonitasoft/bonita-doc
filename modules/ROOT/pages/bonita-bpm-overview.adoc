@@ -1,4 +1,5 @@
 = Bonita platform overview
+:description: Build engaging, personalized, process-based business applications using BPM application platform. Adapt to business changes real-time
 
 Build engaging, personalized, process-based business applications using BPM application platform. Adapt to business changes real-time
 
@@ -22,7 +23,7 @@ Process forms, used to complete the human tasks, are created in the UI Designer,
 
 Users can use Bonita Portal (_User_ profile) to view and complete the process tasks for all processes. You can also build personalized process-based applications. To do so, use the UI Designer to create application pages that display business data from the data models, link the pages to processes thanks to action buttons, then use the Bonita Portal application builder to construct the application piece by piece.
 
-+++<a id="platform">++++++</a>+++
+[#platform]
 
 == Bonita Platform
 
@@ -32,7 +33,7 @@ As mentioned before, xref:bonita-bpm-portal-interface-overview.adoc[Bonita Porta
 
 But Bonita Portal is also the tool used by the tenant administrator to xref:processes.adoc[install, deploy and manage processes] and to xref:applications.adoc[build applications]. We use the word "tenant" here, in case the platform would be made of xref:multi-tenancy-and-tenant-configuration.adoc[several tenants].
 
-To install Bonita Engine and Bonita Portal in a qualification or production environment, link:bonita-bpm-installation-overview.md#platform[install Bonita Platform].
+To install Bonita Engine and Bonita Portal in a qualification or production environment, xref:bonita-bpm-installation-overview.adoc]#platform[install Bonita Platform].
 
 In Bonita Studio, once a process is ready, you can xref:build-a-process-for-deployment.adoc[build] it and deploy it on your Bonita qualification or production platform.
 
@@ -46,7 +47,7 @@ Bonita is provided in five different editions: Community, Teamwork, Efficiency, 
 
 Bonita 7.x provides new and improved features, including the xref:ui-designer-overview.adoc[UI Designer] for creating application pages and forms, as well as xref:contracts-and-contexts.adoc[contracts and context] to create a clear split between the process logic, the data, and the user views.
 
-WARNING: Attention: Starting with Bonita 7.8, 6.x forms and case overview pages are not available for modeling or execution. Before migrating to Bonita 7.8, you need to create all forms with Bonita UI Designer to benefit from technologies like html/AngularJS and use contracts in tasks and process instantiation. For more information, read the xref:migrate-a-form-from-6-x.adoc[migrate a form from 6.x] page. 
+====
 
 You will also find lots of familiar features, which continue to work as they did in 6.x.
 

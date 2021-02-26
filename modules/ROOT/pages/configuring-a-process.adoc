@@ -1,10 +1,13 @@
 = Configure a process
+:description: Process contains Actor mapping, Connectors, Actor filter, Parameters, Java dependencies. Configuration can be done per Environment.
 
 Process contains Actor mapping, Connectors, Actor filter, Parameters, Java dependencies. Configuration can be done per Environment.
 
-NOTE:
-*Note:* Multiple environments can be created with the Subscription.
+[NOTE]
+====
 
+Multiple environments can be created with the Subscription.
+====
 
 To configure a process in Bonita Studio, open the process diagram, select the pool, and click *_Configure_* in the Cool bar.
 

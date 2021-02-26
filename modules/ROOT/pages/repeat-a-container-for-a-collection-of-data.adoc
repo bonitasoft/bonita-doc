@@ -1,4 +1,5 @@
 = Repeat a container for a collection of data
+:description: Reuse a container inside a form more than once times to insert multiple-type data.
 
 Reuse a container inside a form more than once times to insert multiple-type data.
 

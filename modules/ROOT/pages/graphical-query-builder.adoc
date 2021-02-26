@@ -1,10 +1,13 @@
 = Graphical query builder
+:description: Build a database query graphically.
 
 Build a database query graphically.
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
 == Connect to the database
 

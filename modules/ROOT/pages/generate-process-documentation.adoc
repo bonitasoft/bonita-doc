@@ -1,10 +1,13 @@
 = Generate process documentation
+:description: This page explains how to generate process documentation and which elements are exported.
 
 This page explains how to generate process documentation and which elements are exported.
 
-NOTE:
-*Note:* For Bonita Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
 
+For Bonita Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
 == Overview
 

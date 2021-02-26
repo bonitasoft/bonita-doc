@@ -1,4 +1,5 @@
 = Role management
+:description: Roles can be defined in the organization, attached to users and used to map actors.
 
 Roles can be defined in the organization, attached to users and used to map actors.
 

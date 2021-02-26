@@ -1,4 +1,5 @@
 = Using Alfresco with Bonita
+:description: Bonita allows you to connect Alfresco ECM content platform.
 
 Bonita allows you to connect Alfresco ECM content platform.
 

@@ -1,4 +1,5 @@
 = Configure a test organization
+:description: A brief description on how to set up and manage a test organization in Bonita Studio, for process development and testing.
 
 A brief description on how to set up and manage a test organization in Bonita Studio, for process development and testing.
 

@@ -1,4 +1,5 @@
 = Custom User Information in Bonita Portal
+:description: Learn how you can use and display Custom User Information, previously defined in Bonita Studio, in Bonita Portal.
 
 Learn how you can use and display Custom User Information, previously defined in Bonita Studio, in Bonita Portal.
 

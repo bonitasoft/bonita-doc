@@ -1,4 +1,5 @@
 = Bonita Deploy bundle
+:description: Description on how to install Bonita Runtime on an existing and already installed Java EE Application Server like Tomcat or WildFly.
 
 Description on how to install Bonita Runtime on an existing and already installed Java EE Application Server like Tomcat or WildFly.
 
@@ -8,17 +9,19 @@ Description on how to install Bonita Runtime on an existing and already installe
 * The Bonita Deploy bundle is a way of setting up a Bonita Platform. You'll be able to get a setup quite similar to WildFly or Tomcat bundle.
 * It's also used to package other tools such as the LDAP synchronizer.
 
-WARNING:
+[WARNING]
+====
+
 This installation procedure only specifically targets the Java EE application Servers that have been installed under a single root folder (typically, from a .zip file).
 Thus, for installations using native distribution packages (that more often than not split the binaries and the configuration files into separate folder hierarchies),
 it would be up to you to adapt the documented steps to your very own folder layout.
-
+====
 
 == Deploy bundle content
 
 * `Tomcat-`_`version`_: a folder/file structure to be merged with an existing setup of Apache Tomcat, in order to install Bonita Portal and Bonita Engine.
 * `Wildfly-`_`version`_: a folder/file structure to be merged with an existing setup of WildFly in order to install Bonita Portal and Bonita Engine.
-+++<a id="platform_setup_tool">++++++</a>+++
+[#platform_setup_tool]
 * `setup`: a command-line tool that creates the Bonita Platform before it can be run. It creates the Bonita Platform internal database, and stores the runtime configuration.
 It is useful to update the configuration, locally or from a remote computer.
 * `Request_key_utils-`_`key_utils.version`_: include script files to generate license request keys.
@@ -34,20 +37,24 @@ or from the https://customer.bonitasoft.com/download/request[Customer Portal] fo
 . Unzip the `deploy.zip` into a temporary folder (DEPLOY_ZIP_HOME).
 . Follow the <<tomcat-installation,Tomcat bundle steps>> or <<wildfly-installation,WildFly bundle steps>>
 
-+++<a id="tomcat-installation">++++++</a>+++
+[#tomcat-installation]
 
 == Tomcat installation
 
 === Install Bonita Platform in Tomcat
 
 Copy all files and directories from DEPLOY_ZIP_HOME/Tomcat-8.5.34/server to your Tomcat root directory (TOMCAT_HOME).
-WARNING:
+[WARNING]
+====
+
 Some configuration files from the deploy zip will overwrite some default tomcat configuration files. Proceed
 with care in a tomcat where other applications are already installed.
+====
+[WARNING]
+====
 
-WARNING:
 There is an https://bz.apache.org/bugzilla/show_bug.cgi?id=58999[issue on tomcat 8.0.32] preventing the portal Look & feel to be compiled. If you deploy bonita on an existing tomcat installation, make sure it is a different version of tomcat (preferably 8.5.x with x>=23).
-
+====
 
 === Configure data sources
 
@@ -90,9 +97,9 @@ JTA data source (managed by Bitronix)
 
 You need to add your jdbc driver in TOMCAT_HOME/lib.
 MySQL and PostgreSQL drivers can be found in deploy bundle under DEPLOY_ZIP_HOME/setup/lib directory. For other RDBMS,
-use the link:database-configuration.md#proprietary_jdbc_drivers[jdbc driver] provided by your RDBMS vendor
+use the xref:database-configuration.adoc]#proprietary_jdbc_drivers[jdbc driver] provided by your RDBMS vendor
 
-+++<a id="wildfly-installation">++++++</a>+++
+[#wildfly-installation]
 
 == Wildfly installation
 
@@ -153,12 +160,12 @@ When you receive your license, copy the file to the `DEPLOY_ZIP_HOME/setup/platf
 
 == Database initialization
 
-We assume here that the database has already been link:database-configuration.md#database_creation[created and configured for Bonita].
+We assume here that the database has already been xref:database-configuration.adoc]#database_creation[created and configured for Bonita].
 Once created and configured you need to initialize it using the setup tool provided in the deploy bundle archive.
 This will create database schema and initial values.
 
-. In DEPLOY_ZIP_HOME/setup folder, edit the file database.properties with properties matching your rdbms. Beware of link:BonitaBPM_platform_setup.md#backslash_support[backslash characters].
-. In DEPLOY_ZIP_HOME/setup/lib add your jdbc driver if needed (only for Microsoft SQL Server or Oracle, see link:database-configuration.md#proprietary_jdbc_drivers[proprietary jdbc drivers])
+. In DEPLOY_ZIP_HOME/setup folder, edit the file database.properties with properties matching your rdbms. Beware of xref:BonitaBPM_platform_setup.adoc]#backslash_support[backslash characters].
+. In DEPLOY_ZIP_HOME/setup/lib add your jdbc driver if needed (only for Microsoft SQL Server or Oracle, see xref:database-configuration.adoc]#proprietary_jdbc_drivers[proprietary jdbc drivers])
 . In DEPLOY_ZIP_HOME/setup folder, run `setup.(sh|bat) init`
 
 == Next steps

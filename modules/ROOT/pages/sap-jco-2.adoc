@@ -1,12 +1,15 @@
 = SAP JCo 2 Connector
+:description: The Bonita SAP Java Connector 2 allows Bonita to communicate with any SAP system using the SAP JCo 2 toolkit.
 
 The Bonita SAP Java Connector 2 allows Bonita to communicate with any SAP system using the SAP JCo 2 toolkit.
 
 == Notice
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
 == Overview of the SAP Java Connector (SAP JCo 2) underlying toolkit
 

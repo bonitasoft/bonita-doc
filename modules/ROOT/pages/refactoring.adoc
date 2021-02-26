@@ -1,4 +1,5 @@
 = Process Refactoring
+:description: Learn what kind of refactoring can be made on your processes.
 
 Learn what kind of refactoring can be made on your processes.
 

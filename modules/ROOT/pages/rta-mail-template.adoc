@@ -1,4 +1,6 @@
 = How to use the rich textarea widget in a mail template
+:description: :doctype: book
+
 :doctype: book
 :experimental:
 

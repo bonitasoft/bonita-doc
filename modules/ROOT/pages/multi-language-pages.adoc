@@ -1,10 +1,13 @@
 = Multi-language pages
+:description: The UI Designer includes a mechanism to add translations for page, layout and form elements, to support multi-language applications.
 
 The UI Designer includes a mechanism to add translations for page, layout and form elements, to support multi-language applications.
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
 == Visualization
 
@@ -132,7 +135,7 @@ In the custom widget editor, use the the _uiTranslate_ filter or the _ui-transla
 
 The strings to translate in a fragment must be added to the localization.json file of each page, layout or form using the fragment.
 
-+++<a id="uiTranslate">++++++</a>+++
+[#uiTranslate]
 
 === Translate content in variables of type JavaScript Expression
 

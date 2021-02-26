@@ -1,4 +1,5 @@
 = Upgrade from Community to Subscription
+:description: Upgrading means moving from a Bonita Community edition environment to any Bonita Subscription
 
 Upgrading means moving from a Bonita Community edition environment to any Bonita Subscription
 edition environment.
@@ -31,18 +32,20 @@ while benefiting from the Subscription edition features.
 
 The upgrade procedure is quite simple and only requires a limited service downtime (less than an hour for basic configurations).
 
-WARNING:
-A Bonita platform upgrade can only be performed on the same database type.
+[WARNING]
+====
 
+A Bonita platform upgrade can only be performed on the same database type.
+====
 
 To upgrade a Bonita platform from Community edition to a Subscription edition, follow these steps:
 
 . xref:bonita-bpm-installation-overview.adoc[Install the Subscription Bundle] but do not start it. We will call this installation folder `bonita-subscription`.
-. Configure the Subscription installation to use your existing database editing the file `<bonita-subscription>/setup/database.properties`. Beware of link:BonitaBPM_platform_setup.md#backslash_support[backslash characters].
+. Configure the Subscription installation to use your existing database editing the file `<bonita-subscription>/setup/database.properties`. Beware of xref:BonitaBPM_platform_setup.adoc]#backslash_support[backslash characters].
 . Shut down the Community server being migrated using the `stop-bonita` script, we will call this installation folder `bonita-community`.
 . Run `<bonita-community>/setup/setup(.sh/.bat) pull` to fetch your current Community configuration in `<bonita-community>/setup/platform_conf/current` and copy this last in a different folder, we will call this new folder `bonita-community-configuration`.
 . xref:back-up-bonita-bpm-platform.adoc[Backup your Bonita platform and databases].
-. Update the configuration using the link:BonitaBPM_platform_setup.md#configure_tool[Platform setup tool] in `bonita-subscription`:
+. Update the configuration using the xref:BonitaBPM_platform_setup.adoc]#configure_tool[Platform setup tool] in `bonita-subscription`:
  .. Create the folder `<bonita-subscription>/setup/platform_conf/current`, we will call it `bonita-subscription-configuration`.
  .. Copy the content of the `<bonita-subscription>/setup/platform_conf/initial` to `bonita-subscription-configuration`.
  .. In the `bonita-subscription-configuration`, reapply the modifications for all the folders but the one named `tenants` (use `bonita-community-configuration` as a reference).

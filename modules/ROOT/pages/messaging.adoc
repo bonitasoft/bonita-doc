@@ -1,4 +1,5 @@
 = Email connector
+:description: This connector will send an email message when activated.
 
 This connector will send an email message when activated.
 

@@ -1,10 +1,13 @@
 = Performance tuning
+:description: Learn how to tune the Bonita Engine to get optimize the performance of your platform.
 
 Learn how to tune the Bonita Engine to get optimize the performance of your platform.
 
-NOTE:
-*Note:* For Enterprise and Performance edition only.
+[NOTE]
+====
 
+For Enterprise and Performance edition only.
+====
 
 It assumes that you are familiar with Java threads, concurrent execution, XML, DB connection pools, your DB instance, cache policies, scheduling, connectors, network speed, I/O, Java Virtual Machine configuration, JTA and transaction management. +
 You need to know how to install and configure Bonita.
@@ -48,7 +51,7 @@ Performance tuning checklist of best practises:
 * Add a reasonable number of well-developed <<event_handlers,event handlers>>.
 * Tuned the Bonita Engine <<cron,cron jobs>> for your needs.
 
-+++<a id="engine_access">++++++</a>+++
+[#engine_access]
 
 == Engine access
 
@@ -57,7 +60,7 @@ This section deals with performance impact of your choice of xref:engine-api-ove
 There are various ways to access the Engine APIs provided by Bonita Engine. Choose the most suitable access mode for your deployment, requirements, and preferences.
 The access modes rely on different technologies and have different benefits and drawbacks. In this section, we will describe the performance characteristics of each mode.
 
-+++<a id="local">++++++</a>+++
+[#local]
 
 [discrete]
 ==== Local access
@@ -65,7 +68,7 @@ The access modes rely on different technologies and have different benefits and 
 This is undoubtedly the fastest way to access this engine, because it means a direct Java call with nothing additional between client and server. +
 The deployment constraint is that the client of the engine must be located in the same JVM as the engine server.
 
-+++<a id="remote">++++++</a>+++
+[#remote]
 
 [discrete]
 ==== Remote access
@@ -80,7 +83,7 @@ The engine server access mode is defined per client and does not need to be the 
 If you have a client located in the same JVM as your server, configure it to use the local access mode. +
 You can then configure other clients to use one of the remote modes but you do not penalize the client able to leverage the local access performance.
 
-+++<a id="ejb3">++++++</a>+++
+[#ejb3]
 
 [discrete]
 ===== EJB3 (deprecated, removed in 7.10)
@@ -88,7 +91,7 @@ You can then configure other clients to use one of the remote modes but you do n
 EJB3 access is serialized data using RMI protocol. +
 This protocol comes with a cost, and this cost is dependent of the implementation in the EJB container you are using.
 
-+++<a id="http">++++++</a>+++
+[#http]
 
 [discrete]
 ===== HTTP
@@ -96,12 +99,14 @@ This protocol comes with a cost, and this cost is dependent of the implementatio
 The HTTP access mode is available using our natively provided link:configure-client-of-bonita-bpm-engine[bonita-client library]. It can also be used from other
 technologies like PHP, .Net or Javascript (in that case, you need to develop your our client).
 
-WARNING:
+[WARNING]
+====
+
 We do not guarantee to keep the http protocol stable, so we strongly recommend that you use
 
 * the standard bonita-client library
 * the same version for both the client and the server
-
+====
 
 This mode
 
@@ -118,7 +123,7 @@ open source library
 
 Data sent is serialized using a Java library called XStream. This serialization also has a cost.
 
-+++<a id="rest">++++++</a>+++
+[#rest]
 
 [discrete]
 ===== REST
@@ -141,7 +146,7 @@ The Bonita Engine is an asynchronous BPM process engine.
 This means that every thread that deals with process execution applies the following rule: do the minimum that makes sense in the current transaction to get to a stable state, and then continue in another transaction inside another thread. +
 The great benefit of this is that the caller is not locked while the engine processes something that might be long (such as a long sequence of tasks with connectors.).
 
-+++<a id="client_threads">++++++</a>+++
+[#client_threads]
 
 [discrete]
 ==== Client Threads
@@ -159,7 +164,7 @@ If you are running Bonita Engine inside a container, the maximum number of clien
 * *Red Hat WildFly* : add the attributes `io-threads="10"` and `task-max-threads="20"` in the _default_ _worker_ element in the io subdomain in `<WILDFLY_HOME>/setup/wildfly-templates/standalone.xml`.
    The WildFly administrator guide lacks some information about advanced worker configuration. Undertow (WildFly web service handler) relies on the http://docs.jboss.org/xnio/3.0/api/org/xnio/Options.html[XNIO API] for creating Worker threads. See https://developer.jboss.org/thread/241230?start=0&tstart=0[IO Worker configuration for Undertow] for information about worker configuration.
 
-+++<a id="work_service">++++++</a>+++
+[#work_service]
 
 [discrete]
 ==== Work service
@@ -196,7 +201,7 @@ Setting a high `queueCapacity` limit means that more work can be queued, but can
 It is essential to ensure that the queue never becomes full (`queueCapacity` is never reached). +
 If the queue becomes full, the application restarts in order to force the engine to generate all work from the database. This means that work is lost.
 
-+++<a id="connector_service">++++++</a>+++
+[#connector_service]
 
 [discrete]
 ==== Connector service
@@ -220,7 +225,7 @@ bonita.tenant.connector.timeout=300
 
 For details of these parameters, see <<work_service,Work service>>.
 
-+++<a id="scheduler_service">++++++</a>+++
+[#scheduler_service]
 
 [discrete]
 ==== Scheduler service
@@ -238,7 +243,7 @@ bonita.platform.scheduler.quartz.threadpool.size=5
 bonita.platform.scheduler.batchsize=1000
 ----
 
-+++<a id="db_connections">++++++</a>+++
+[#db_connections]
 
 [discrete]
 ==== Database connections
@@ -264,7 +269,7 @@ To make sure that this datasource is not a bottleneck, define the maximum number
 The desired number of parallel processing threads is the sum of the number of workers (see <<work_service,Work service>>) plus a percentage of the number of scheduler threads
 (see <<scheduler_service,Scheduler Service>>) plus a percentage of the number of concurrently external API calls (see <<client_threads,Client threads>>).
 
-+++<a id="datasource_settings">++++++</a>+++
+[#datasource_settings]
 
 [discrete]
 ==== Datasources settings
@@ -280,13 +285,13 @@ For WildFly:
 
 * For both bonitaDS and bonitaSequenceManagerDS, edit `server/default/deploy/bonita-ds.xml` and set `<max-pool-size>yourvalue</max-pool-size>`.
 
-+++<a id="volume">++++++</a>+++
+[#volume]
 
 == Volume
 
 This section deals with some aspects of engine configurations that have a performance impact in the case of high volume.
 
-+++<a id="seq_mgr">++++++</a>+++
+[#seq_mgr]
 
 [discrete]
 ==== Sequence manager
@@ -349,6 +354,7 @@ Bonita Engine uses an application cache to store specific objects. The default i
 * `bonita-tenant-sp-cluster-custom.properties`
 
 The following cache configurations can be defined:
+
 | Configuration | Purpose|
 |:-|:-|
 | connectorCacheConfig | stores connector implementations for a given connector definition|
@@ -472,7 +478,7 @@ The non-relevant options will be ignored at execution. Note that `memory` and `c
 
 == Process design, event handlers, and cron jobs
 
-+++<a id="process_design">++++++</a>+++
+[#process_design]
 
 [discrete]
 ==== Process design
@@ -481,7 +487,7 @@ There are several things you can do during the process design to reduce performa
 This is mostly related to reducing usage of extension points when possible. +
 Consider carefully your usage of connectors, groovy scripts, XML and serializable data.
 
-+++<a id="event_handlers">++++++</a>+++
+[#event_handlers]
 
 [discrete]
 ==== Event handlers
@@ -490,7 +496,7 @@ Events handlers are extensions of the engine configuration. +
 You can add event handlers for several purposes and you can configure which events you want to catch. +
 We strongly recommend that you add only appropriate handlers and carefully code the handler filters to handle only those events that you are interested in.
 
-+++<a id="cron">++++++</a>+++
+[#cron]
 
 [discrete]
 ==== Cron jobs

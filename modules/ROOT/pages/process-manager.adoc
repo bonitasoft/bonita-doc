@@ -1,10 +1,13 @@
 = Bonita portal Process manager profile
+:description: Users can be assigned as manager for processes. Then, users mapped to the Process manager profile will be able to manage those processes.
 
 Users can be assigned as manager for processes. Then, users mapped to the Process manager profile will be able to manage those processes.
 
-NOTE:
-*Note:* For Enterprise, Performance and Efficiency editions only.
+[NOTE]
+====
 
+For Enterprise, Performance and Efficiency editions only.
+====
 
 == Process manager description
 

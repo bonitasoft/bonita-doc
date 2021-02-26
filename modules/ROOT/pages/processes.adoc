@@ -1,4 +1,5 @@
 = Bonita Processes administration
+:description: Users with the Administrator profile can: install, enable and edit processes as well as categories, forms, entities, parameters, connectors
 
 Users with the Administrator profile can: install, enable and edit processes as well as categories, forms, entities, parameters, connectors
 
@@ -70,16 +71,20 @@ NOTE: You can also disable a process in the more details view, by clicking _*Ena
 
 == Delete a process
 
-NOTE:
-*Note:* A process must be disabled before it can be deleted.
+[NOTE]
+====
 
+A process must be disabled before it can be deleted.
+====
 
-WARNING:
-*Warning:* *Beware! Data loss risk!*
+[WARNING]
+====
+
+*Beware! Data loss risk!*
 Deleting a process will automatically delete all its cases (on-going and archived alike). Thus, the operation may take a long time, and fail if the transaction timeout is not large enough.
 This feature should only be used on non-production environments.
 *Please proceed at your own risk.*
-
+====
 
 . Go to BPM menu tab
 . Click _*Processes*_

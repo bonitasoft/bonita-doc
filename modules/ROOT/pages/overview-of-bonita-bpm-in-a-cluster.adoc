@@ -1,10 +1,13 @@
 = Overview of Bonita Platform in cluster
+:description: Learn how to achieve High availability by setting up Bonita Platform in cluster.
 
 Learn how to achieve High availability by setting up Bonita Platform in cluster.
 
-NOTE:
-*Note:* For Enterprise and Performance editions only.
+[NOTE]
+====
 
+For Enterprise and Performance editions only.
+====
 
 You can use Bonita in a cluster configuration to provide increased availability: more than one node runs Bonita Engine,
 so if a node becomes unavailable, the remaining nodes in the cluster can take over, minimizing the interruption to the service
@@ -82,7 +85,7 @@ The nodes must all be in the same datacenter, to keep latency of updates to shar
 
 All nodes must run the same software configuration (same versions on Bonita and application server).
 
-The link:install-a-bonita-bpm-cluster.md#disable-hibernate-cache[Hibernate cache must be disabled].
+The xref:install-a-bonita-bpm-cluster.adoc]#disable-hibernate-cache[Hibernate cache must be disabled].
 
 The load balancer must be configured to use sticky sessions (this is needed to manage sessions created when users log in to the Portal).
 

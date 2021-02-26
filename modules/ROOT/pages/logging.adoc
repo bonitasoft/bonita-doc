@@ -1,4 +1,5 @@
 = Logging in Bonita components
+:description: Learn how to view and configure logging of Bonita components.
 
 Learn how to view and configure logging of Bonita components.
 

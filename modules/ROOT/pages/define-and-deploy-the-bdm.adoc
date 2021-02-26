@@ -1,4 +1,5 @@
 = Define and deploy the Business Data Model (BDM)
+:description: This page explains how to define, deploy, and export Business Data Model (BDM) and how these objects can be used in processes.
 
 This page explains how to define, deploy, and export Business Data Model (BDM) and how these objects can be used in processes.
 
@@ -8,9 +9,11 @@ The business data model is the definition of the business data that is shared by
 
 Your business data is the information that is shared between your processes and applications. It is defined as a set of business object in a business data model (BDM). There is one BDM that is used by all processes and applications in a tenant.
 
-NOTE:
-*:fa-info-circle:*  A BDM is defined at tenant level. It means you can have different BDM per tenant on the same Bonita platform. See <<bdm_storage,BDM data storage>> for more information on how to configure a business data model per tenant.
+[NOTE]
+====
 
+*:fa-info-circle:*  A BDM is defined at tenant level. It means you can have different BDM per tenant on the same Bonita platform. See <<bdm_storage,BDM data storage>> for more information on how to configure a business data model per tenant.
+====
 
 When you define a process, you specify the business objects that are relevant to the process. When a process is instantiated (a case is started), the specified business objects are instantiated as required, becoming variables within the process instance.
 
@@ -25,7 +28,7 @@ To design your BDM, you need to consider the following:
 
 The <<bdm_spec,BDM specification>> explains the details of what you must configure in a BDM. Use Bonita Studio to <<define_bdm,define a BDM>>.
 
-+++<a id="bdm_storage">++++++</a>+++
+[#bdm_storage]
 
 == Business data storage
 
@@ -35,7 +38,7 @@ During development, you can use the tools in the `h2-1.3.170.jar` in the workspa
 
 When you are ready to go to production, you need to xref:database-configuration.adoc[configure a database and datasources for business data] in your production environment.
 
-+++<a id="bdm_spec">++++++</a>+++
+[#bdm_spec]
 
 == BDM specification
 
@@ -108,7 +111,7 @@ NOTE: If you are using an Oracle database, do not define an index on a unique co
 
 In a production environment, indexes are built when a tenant starts or after a new BDM is deployed. In a development environment, indexes are built when Bonita Studio starts and when the Studio BDM wizard is closed.
 
-+++<a id="compos">++++++</a>+++
+[#compos]
 
 [discrete]
 ==== Composition and aggregation
@@ -120,13 +123,17 @@ Composition and aggregation are two ways in which you can define a composite bus
 
 Example: A Purchase Order object consists of a set of primitive attribute variables (such as PO number, client, creation date), and a set of order item objects. The order items have no meaning outside the order, so have a composition relationship with the purchase order. An order item contains a product object and a simple attribute for quantity. The product object has an existence outside the order item (it is used in the product catalog), so has an aggregation relationship with the order item.
 
-WARNING:
+[WARNING]
+====
+
 In Bonita, a composition relationship is unique: A given object can only be used in one composition relationship. For exemple, you cannot use the same object _Wheel_ in composition for an object _Car_ and an object _Bike_. You will have to use an object _WheelCar_ and an object _WheelBike_.
+====
 
+[WARNING]
+====
 
-WARNING:
 In Bonita, in an aggregation relationship, a child must exist when creating its parent. When creating a parent, you must refer to an existing child to value an attribute with an aggregation relationship.
-
+====
 
 In the Bonita Studio BDM wizard, you can specify the objects that are related by composition and aggregation, as well as the simple attributes. A child object can be mandatory or optional. A child object can be multiple, which means that the composite object contains zero or more (if optional) or one or more (if mandatory) instances of the child object. You cannot set a unique constraint on a child object. The default relationship is aggregation.
 
@@ -141,7 +148,7 @@ When you create a process that uses a business object with a composition or aggr
 * You can use getter and setter methods in process or activity operations to set the composed objects as a single instance or as a `java.util.list` for a list of instances.
 * If your process uses a query from a Groovy expression or uses DAO objects from a client Java application, load the complete composite objects including the child objects.
 
-+++<a id="lazy_eager_loading">++++++</a>+++
+[#lazy_eager_loading]
 
 [discrete]
 ==== Loading
@@ -162,7 +169,7 @@ The list can be a multiple business data variable, a multivalued process variabl
 
 You can use a list business object or variable to create multiple instances of a task. The MultiInstanceIterator reference created at task level uses each item of the list to create an instance of the task.
 
-+++<a id="define_bdm">++++++</a>+++
+[#define_bdm]
 
 == Define the BDM
 
@@ -227,10 +234,12 @@ There are two ways to export a business data model: in a ZIP file for deployment
 
 To deploy the BDM, you export it as a ZIP file from Bonita Studio and then import it into Bonita Portal.
 
-WARNING:
+[WARNING]
+====
+
 :fa-exclamation-triangle: *Warning:* Before deploying the business data model, you must xref:pause-and-resume-bpm-services.adoc[pause] the BPM services, so that the update can be performed without affecting ongoing processes.
 *Important:* You are recommended xref:back-up-bonita-bpm-platform.adoc[Back up your platform] and database before deploying a new BDM in case of problems during the update.
-
+====
 
 Follow these steps:
 
@@ -315,7 +324,7 @@ When you declare a persisted business object instance in a process, there are tw
 
 After it is declared in the process, a business object instance can be adapted by reading or modifying its data attributes. The Engine will handle the persistence of the modification.
 
-+++<a id="initBDM">++++++</a>+++
+[#initBDM]
 
 [discrete]
 ==== Initialize BDM attributes from process instantiation contract inputs
@@ -364,9 +373,11 @@ Then, click on the _*pencil*_ button to open the _*Edit Expression*_ editor. Cho
 
 You can use business data in a Java program by using the DAO. DAO gives _*read*_ access to business objects.
 
-WARNING:
-*:fa-exclamation-triangle: Warning*: In a connector, code is executed outside a transaction, so retrieving or updating business data by DAO is not supported.
+[WARNING]
+====
 
+*:fa-exclamation-triangle: Warning*: In a connector, code is executed outside a transaction, so retrieving or updating business data by DAO is not supported.
+====
 
 You can however manipulate the business object outside the connector, and use business objects as connector input or output:
 
@@ -382,16 +393,18 @@ Be aware that a poor implementation of a custom REST API accessing BDM objects c
 [discrete]
 ==== Handle BDM database schema manually
 
-WARNING:
+[WARNING]
+====
+
 This section is for advanced usage. You should fully understand the database changes made when you update the Business Data Model before considering using
 this alternative.
-
+====
 
 You can use an alternative database `SchemaManager` implementation. A `SchemaManager` is responsible for updating the BDM Database schema, according to the changes you have made to your
 Business Data Model. As our third-party persistence layer _Hibernate_ does not support all type of schema updates, you may want to use a SchemaManager that does *not* update the database
 tables directly, but rather let you (or your Database Administrator) update the database "manually".
 
-For that, you can use the alternative we provide, by uncommenting the following lines in file `platform_conf/current/tenants/[TENANT_ID]/tenant_engine//bonita-tenants-custom.xml` using link:BonitaBPM_platform_setup.md#update_platform_conf[setup tool].
+For that, you can use the alternative we provide, by uncommenting the following lines in file `platform_conf/current/tenants/[TENANT_ID]/tenant_engine//bonita-tenants-custom.xml` using xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[setup tool].
 
 [source,xml]
 ----

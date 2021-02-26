@@ -1,4 +1,5 @@
 = Getting started tutorial
+:description: Follow this tutorial and create an application with a business travel process faster.
 
 Follow this tutorial and create an application with a business travel process faster.
 

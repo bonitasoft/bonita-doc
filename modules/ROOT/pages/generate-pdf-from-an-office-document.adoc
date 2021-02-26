@@ -1,12 +1,15 @@
 = Generate a PDF from an Office document
+:description: How to use the Generate PDF from an Office document connector.
 
 How to use the Generate PDF from an Office document connector.
 
 == Description
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
 The *Generate PDF from and Office document* connector converts a document from `.odt` or `.docx` format to PDF. +
 It can be used in conjunction with the xref:insert-data-in-a-docx-odt-template.adoc[Insert data in a .docx/.odt template connector]. +
@@ -19,9 +22,11 @@ WARNING: As an example when using special characters like '€' with an invalid 
 
 == Known limitations
 
-WARNING:
-*:fa-exclamation-triangle: Warning:* there are known issues when adding an image in a docx using drag'n drop instead of copy/paste. The image is not rendered properly when converted into PDF.
+[WARNING]
+====
 
+*:fa-exclamation-triangle: Warning:* there are known issues when adding an image in a docx using drag'n drop instead of copy/paste. The image is not rendered properly when converted into PDF.
+====
 
 Rendering issues (at worst the element will not be visible in the generated PDF; at best, it will be visible but not exactly as in the Office document):
 

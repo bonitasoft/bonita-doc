@@ -1,4 +1,5 @@
 = Widget properties
+:description: A page is constructed from xref:widgets.adoc[widgets]. The behavior of a widget is determined by its properties.
 
 A page is constructed from xref:widgets.adoc[widgets]. The behavior of a widget is determined by its properties.
 

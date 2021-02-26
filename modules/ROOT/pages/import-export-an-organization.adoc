@@ -1,4 +1,5 @@
 = Import/export an organization
+:description: Logged on with the Administrator profile, you have rights to import or export an organization.
 
 Logged on with the Administrator profile, you have rights to import or export an organization.
 

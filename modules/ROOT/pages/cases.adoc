@@ -1,4 +1,5 @@
 = Cases
+:description: How to manage cases in the Bonita Portal.
 
 How to manage cases in the Bonita Portal.
 

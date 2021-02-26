@@ -1,20 +1,31 @@
 = REST API authentication
+:description: To call the REST API, you must first log on with a user registered in the Engine database.
 
 To call the REST API, you must first log on with a user registered in the Engine database.
 
 == Login to Bonita
 
 To log in, use the following request:
-| | |
-|:-|:-|
-| Request URL | `+http://host:port/bonita/loginservice+`|
-| Request Method | POST|
-| Content-Type | application/x-www-form-urlencoded|
-| Form Data | username: a username +
+
+|===
+|  |
+
+| Request URL
+| `+http://host:port/bonita/loginservice+`
+
+| Request Method
+| POST
+
+| Content-Type
+| application/x-www-form-urlencoded
+
+| Form Data
+| username: a username +
 password: a password +
 redirect: true or false. false indicates that the service should not redirect to Bonita Portal (after a successful login) or to the login page (after a login failure). +
 redirectURL: the URL of the page to be displayed after login +
-tenant: the tenant to log in to (optional for Performance edition, not supported for Community, Teamwork and Efficiency editions)|
+tenant: the tenant to log in to (optional for Performance edition, not supported for Community, Teamwork and Efficiency editions)
+|===
 
 The response to this call generates cookies.
 The `JSESSIONID` must be transfered with each subsequent calls. If the REST API is used in an application running in a web browser, this is handled automatically by the web browser.
@@ -62,11 +73,19 @@ Let's list processes from the API by providing authentication information.
 When processing is complete, you must log out.
 
 To log out, use the following request:
-| | |
-|:-|:-|
-| Request URL | `+http://host:port/bonita/logoutservice+`|
-| Request Method | GET|
-| Query parameter | redirect: true or false (default set to true)|
+
+|===
+|  |
+
+| Request URL
+| `+http://host:port/bonita/logoutservice+`
+
+| Request Method
+| GET
+
+| Query parameter
+| redirect: true or false (default set to true)
+|===
 
 Setting the redirect parameter to false indicates that the service should not redirect to the login page after logging out.
 

@@ -1,4 +1,5 @@
 = Database creation and configuration for Bonita engine and BDM
+:description: This page describes the steps to create and customize the databases for Bonita Engine and Business Data Model in the Platform installation.
 
 This page describes the steps to create and customize the databases for Bonita Engine and Business Data Model in the Platform installation.
 
@@ -20,10 +21,12 @@ However, H2 is only suitable for testing purposes. When building a production en
 
 == Steps to switch to another RDBMS
 
-WARNING:
+[WARNING]
+====
+
 Please note this procedure cannot be performed using the Bonita Studio. The Bonita Studio can run only on the H2 Database.
 To use Bonita on another RDBMS, please use a xref:_basic-bonita-platform-installation.adoc[bundle] or set up a xref:deploy-bundle.adoc[standalone server].
-
+====
 
 Here are the steps to follow. They are the same for the engine database and the business data database:
 
@@ -34,19 +37,23 @@ Here are the steps to follow. They are the same for the engine database and the 
 
 Steps 1 and 2 are detailed further down this page, steps 3 and 4 are part of the configuration part of xref:tomcat-bundle.adoc[Tomcat bundle] and xref:wildfly-bundle.adoc[WildFly bundle] pages.
 
-WARNING:
+[WARNING]
+====
+
 All RDBMSs require <<specific_database_configuration,specific customization>>, which must be done before you complete your installation. +
 If you do not complete the specific configuration for your RDBMS, your installation may fail.
+====
 
+[WARNING]
+====
 
-WARNING:
 There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft for the Tomcat bundle & inside Deploy bundle for Tomcat) and Microsoft SQL Server driver (refer to: https://msdn.microsoft.com/en-us/library/aa342335.aspx[MSDN note], http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html[Bitronix note]). +
 Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. +
 We recommend that you use the WildFly bundle provided by Bonitasoft.
 *Note*: This limitation disappears in the 7.9 release.
+====
 
-
-+++<a id="proprietary_jdbc_drivers">++++++</a>+++
+[#proprietary_jdbc_drivers]
 
 === Proprietary Jdbc drivers
 
@@ -66,7 +73,7 @@ WARNING: Oracle drivers have the same name but are different from one version to
 * For Oracle 11.2.0.x, download https://www.oracle.com/database/technologies/jdbcdriver-ucp-downloads.html[ojdbc6.jar] ( make sure it is the offical driver by checking the SHA1 Checksum: a483a046eee2f404d864a6ff5b09dc0e1be3fe6c )
 * Here is the list of all [jdbc-downloads] (https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html)
 
-+++<a id="database_creation">++++++</a>+++
+[#database_creation]
 
 === Create the database(s)
 
@@ -80,10 +87,12 @@ Also, note that the owner of the new schemas must own the following privileges:
 * CREATE INDEX
 * SELECT, INSERT, UPDATE, DELETE on created TABLE
 
-NOTE:
+[NOTE]
+====
+
 CREATE TABLE and CREATE INDEX privileges are not required after first start in normal use. +
 If the same SQL user is used with the xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[migration tool], then this user needs such grants.
-
+====
 
 To create the database(s), we recommend that you refer to your RDBMS documentation:
 
@@ -95,7 +104,7 @@ To create the database(s), we recommend that you refer to your RDBMS documentati
 Your database(s) must be configured to use the UTF-8 character set.
 Also, you are recommended to configure the database(s) to be case-insensitive so that searches in Bonita Portal, Bonita REST API and Bonita Engine API are case-insensitive.
 
-+++<a id="specific_database_configuration">++++++</a>+++
+[#specific_database_configuration]
 
 === Customize RDBMS to make it work with Bonita
 
@@ -144,7 +153,7 @@ SQL query >
 ----
 select comp_name, version, status from dba_registry;
 ----
-+
+
 |===
 | Comp_name | Version | Status
 
@@ -208,12 +217,14 @@ GRANT FORCE ANY TRANSACTION TO bonita;
 
 ==== SQL Server
 
-WARNING:
+[WARNING]
+====
+
 *Reminder:* There is a known issue between Bitronix (the Transaction Manager shipped by Bonitasoft in the Tomcat bundle and in the Tomcat directories of the Deploy bundle) and the Microsoft SQL Server driver
 (refer to: https://msdn.microsoft.com/en-us/library/aa342335.aspx[MSDN note], http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html[Bitronix note]).
 Therefore, using Bitronix as a Transaction Manager with SQL Server is not recommended. Our recommendation is to use the WildFly bundle provided by Bonitasoft.
 *Note*: This limitation disappears in the 7.9 release.
-
+====
 
 ===== XA Transactions
 

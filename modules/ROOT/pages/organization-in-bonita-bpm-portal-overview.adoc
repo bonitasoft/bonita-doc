@@ -1,4 +1,5 @@
 = Overview of the organization in Bonita Portal
+:description: In Bonita Portal, a user with the Administrator profile can view all the parts of an organization.
 
 In Bonita Portal, a user with the Administrator profile can view all the parts of an organization.
 

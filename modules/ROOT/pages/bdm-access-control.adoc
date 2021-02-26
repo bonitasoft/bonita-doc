@@ -1,8 +1,11 @@
 = BDM access control
+:description: [NOTE]
 
-NOTE:
-*Note:* for Enterprise, Performance and Efficiency editions only. +
+[NOTE]
+====
 
+for Enterprise, Performance and Efficiency editions only. +
+====
 
 == Overview
 
@@ -36,10 +39,12 @@ On the left zone of the graphical editor, displaying business objects, you will 
 Since they are strongly related to their parent object, their access must be defined at their parent level. This is why they only appear in the parent object list of attributes, in the details of the rule you define. +
 The _Invoice example_ below gives more details on how to define access control for business objects used in a composition relationship.
 
-NOTE:
-*Note:* To allow an easy migration to this new feature, and to keep our BDM API working, all objects are visible by everyone by default. But as soon as you define an accss control rule for one object, the BDM access control switches to *a white list logic*, meaning that *for each business object of your BDM* that needs to be accessed, you must define at least one access control rule. Objects without rules won't be accessible by anyone. +
-The graphical editor helps you to achieve this by adding a warning icon close to business objects that have no access rule defined.
+[NOTE]
+====
 
+To allow an easy migration to this new feature, and to keep our BDM API working, all objects are visible by everyone by default. But as soon as you define an accss control rule for one object, the BDM access control switches to *a white list logic*, meaning that *for each business object of your BDM* that needs to be accessed, you must define at least one access control rule. Objects without rules won't be accessible by anyone. +
+The graphical editor helps you to achieve this by adding a warning icon close to business objects that have no access rule defined.
+====
 
 For development purposes, the studio can *deploy* access control onto Bonita Portal for you. Use the _Deploy_ option of the editor toolbar or from the menu. To install it in a production environment, export the access control file (using the _Export_ option of the editor toolbar or from the menu), login to the portal, and xref:bdm-management-in-bonita-bpm-portal.adoc[install it].
 
@@ -84,9 +89,11 @@ Define a _LeaveRequest_ business object, with the following attributes:
  ** *HR managers*, mapped with the membership _Manager of Human Resources_
 . Deploy those profiles.
 
-NOTE:
-*Note:* Steps 3. and 4. are not directly related to access control definition, it is just a convenient way to observe its results.
+[NOTE]
+====
 
+Steps 3. and 4. are not directly related to access control definition, it is just a convenient way to observe its results.
+====
 
 *3. Create a process and generate data*
 
@@ -96,9 +103,11 @@ NOTE:
 
 *4. Create a living application to display data*
 
-NOTE:
-*Note:* In this tutorial, we create a basic living application to observe the results of our access rules. You can also directly call the API and check the response. Here is the API to call: _../API/bdm/businessData/com.company.model.LeaveRequest?q=find&p=0&c=10_
+[NOTE]
+====
 
+In this tutorial, we create a basic living application to observe the results of our access rules. You can also directly call the API and check the response. Here is the API to call: _../API/bdm/businessData/com.company.model.LeaveRequest?q=find&p=0&c=10_
+====
 
 In the UI Designer, create an application page (_displayLeaveRequest_):
 
@@ -254,9 +263,11 @@ Define an _Invoice_ business object, with the following attributes:
  ** *Novice Sales*, mapped with the membership 'Novice member of Sales'
 * Deploy those profiles.
 
-NOTE:
-*Note:* Steps 3. and 4. are not directly related to access control definition, it is just a convenient way to observe its results.
+[NOTE]
+====
 
+Steps 3. and 4. are not directly related to access control definition, it is just a convenient way to observe its results.
+====
 
 -+++<a id="bdmFilling">++++++</a>+++
 
@@ -297,9 +308,11 @@ Run this process a couple of times to generate invoices.
 
 *4. Create a living application to display data*
 
-NOTE:
-*Note:* In this tutorial, we create a basic living application to observe the results of our access rules. You can also directly call the API and check the response. Here is the API to call: _../API/bdm/businessData/com.company.model.Invoice?q=find&p=0&c=10_
+[NOTE]
+====
 
+In this tutorial, we create a basic living application to observe the results of our access rules. You can also directly call the API and check the response. Here is the API to call: _../API/bdm/businessData/com.company.model.Invoice?q=find&p=0&c=10_
+====
 
 In the UI Designer, create an application page _displayInvoices_  :
 
@@ -396,11 +409,13 @@ Access to data is now controlled by the BDM Access Control file just deployed. T
 
 To grant access to specific instances of business objects, you will need to use xref:rest-api-authorization.adoc[rest-api authorizations].
 
-NOTE:
-*Note:* The example below accounts for a specific way to use a method introduced in Bonita 7.0, and updated in Bonita 7.6.
+[NOTE]
+====
+
+The example below accounts for a specific way to use a method introduced in Bonita 7.0, and updated in Bonita 7.6.
 It grants access to BDM query requests that retrieve object instances rather than to the instances themselves.
 This method is available starting from the Community version.
-
+====
 
 *Business use case:* Students of a university can make requests to their teachers about their marks. Each teacher teaches a different subject. A teacher should only be able to access requests that address their subject.
 
@@ -471,9 +486,11 @@ ORDER BY r.persistenceId
  ** *Teachers*, mapped with role 'Teachers'
 . Deploy those profiles.
 
-NOTE:
-*Note:* Steps 3. and 4. are not directly related to access control definition, it is just a convenient way to observe its results.
+[NOTE]
+====
 
+Steps 3. and 4. are not directly related to access control definition, it is just a convenient way to observe its results.
+====
 
 *3. Create a process and generate data*
 
@@ -574,10 +591,12 @@ class SubjectTeacherPermissionRule implements PermissionRule {
 . Restart the web server through the menu "Server > Restart Web server".
   The new security rule from the _dynamic-permissions-checks-custom.properties_ file is now active.
 
-NOTE:
-*Note:* For every change of the _dynamic-permissions-checks-custom.properties_ file, you must push it and restart the web server. However, since the Studio has the Debug mode active by default, you do not need to restart the web server after modifying the groovy script in this environnement.
-You still do on a production server.
+[NOTE]
+====
 
+For every change of the _dynamic-permissions-checks-custom.properties_ file, you must push it and restart the web server. However, since the Studio has the Debug mode active by default, you do not need to restart the web server after modifying the groovy script in this environnement.
+You still do on a production server.
+====
 
 *6. Access control validation*
 

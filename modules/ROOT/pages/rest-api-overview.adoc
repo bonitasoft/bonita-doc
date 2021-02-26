@@ -1,4 +1,5 @@
 = REST API Overview with a Getting started example
+:description: The REST API lets you access the data with HTTP requests; it is useful when implementing rich web forms / pages for a good user experience.
 
 The REST API lets you access the data with HTTP requests; it is useful when implementing rich web forms / pages for a good user experience.
 
@@ -8,9 +9,11 @@ If your application is using a technology other than Java, you can integrate it 
 
 Access to the Web REST API depends on xref:rest-api-authorization.adoc[REST API authorization] settings.
 
- danger
-EJB communication protocol is removed in 7.10.
+[IMPORTANT]
+====
 
+EJB communication protocol is removed in 7.10.
+====
 
 image::images/images-6_0/rest_overview_v2.png[diagram of architecture of a REST client integrated with Bonita]
 
@@ -18,23 +21,33 @@ image::images/images-6_0/rest_overview_v2.png[diagram of architecture of a REST 
 
 There are three phases of operation for an application that is integrated with Bonita through the Web REST API: authentication, execution, and logout.
 
-+++<a id="bonita-authentication">++++++</a>+++
+[#bonita-authentication]
 
 === Authenticate to Bonita
 
 See xref:rest-api-authentication.adoc[REST Authentication] details to understand how to login from Bonita REST APIs.
 
 To log in, use the following request:
-| | |
-|:-|:-|
-| Request URL | `+http://host:port/bonita/loginservice+`|
-| Request Method | POST|
-| Content-Type | application/x-www-form-urlencoded|
-| Form Data | username: a username +
+
+|===
+|  |
+
+| Request URL
+| `+http://host:port/bonita/loginservice+`
+
+| Request Method
+| POST
+
+| Content-Type
+| application/x-www-form-urlencoded
+
+| Form Data
+| username: a username +
 password: a password +
 redirect: true or false. false indicates that the service should not redirect to Bonita Portal (after a successful login) or to the login page (after a login failure). +
 redirectURL: the URL of the page to be displayed after login +
-tenant: the tenant to log in to (optional for Enterprise and Performance editions, not supported for Community, Teamwork and Efficiency editions)|
+tenant: the tenant to log in to (optional for Enterprise and Performance editions, not supported for Community, Teamwork and Efficiency editions)
+|===
 
 The response to this call generates cookies.
 The `JSESSIONID` must be transfered with each subsequent calls. If the REST API is used in an application running in a web browser, this is handled automatically by the web browser.
@@ -46,12 +59,12 @@ Make sure your application has authentified your user before calling other APIs 
 
 After the application is connected to the Bonita Engine, you can start calling API methods. The following is a typical scenario for an end user.
 
-. link:bpm-api.md#case[Start a new case with variables]: Provide a form for the user to enter initial data. Then call the method to start a new case using the values entered by the user to initialize some variables. The engine will start the execution of the process. Depending on the design of your process, there might then be some human tasks available for the end user.
-. link:bpm-api.md#human-task[List the pending tasks for a user]: Retrieve a list of available human tasks for the logged in user. When the user selects a task to do, you can display the corresponding form. It can be an external form or a Bonita form that can be accessed by url.
-. link:bpm-api.md#activity[Update variables and execute a task]: If your application is using an external form, update the values of the variables in your process.
+. xref:bpm-api.adoc]#case[Start a new case with variables]: Provide a form for the user to enter initial data. Then call the method to start a new case using the values entered by the user to initialize some variables. The engine will start the execution of the process. Depending on the design of your process, there might then be some human tasks available for the end user.
+. xref:bpm-api.adoc]#human-task[List the pending tasks for a user]: Retrieve a list of available human tasks for the logged in user. When the user selects a task to do, you can display the corresponding form. It can be an external form or a Bonita form that can be accessed by url.
+. xref:bpm-api.adoc]#activity[Update variables and execute a task]: If your application is using an external form, update the values of the variables in your process.
 You can use a method to update process or activity variables with values coming from your application. When the user submits the external form, you can call a method to execute a task.
 The engine will then continue the execution of the workflow as designed.
-. link:bpm-api.md#connector-instance[Handle tasks in error]: Get a list of tasks that are in the failed state, and then replay each task by doing three steps: get the list of failed connectors, reset the state of failed connectors and replay the failed task.
+. xref:bpm-api.adoc]#connector-instance[Handle tasks in error]: Get a list of tasks that are in the failed state, and then replay each task by doing three steps: get the list of failed connectors, reset the state of failed connectors and replay the failed task.
 
 === Logout from Bonita
 
@@ -66,12 +79,21 @@ It is possible for an extension to interact with the engine (via the API) or wit
 
 == Create a resource
 
-| | |
-|:-|:-|
-| Request URL | `+http://.../API/{API_name}/{resource_name}/  +`|
-| Request Method | POST|
-| Request Payload | an item in JSON|
-| Response | the same item in JSON, containing the values provided in the posted item, completed with default values and identifiers provided by Bonita Engine.|
+|===
+|  |
+
+| Request URL
+| `+http://.../API/\{API_name\}/\{resource_name\}/+`
+
+| Request Method
+| POST
+
+| Request Payload
+| an item in JSON
+
+| Response
+| the same item in JSON, containing the values provided in the posted item, completed with default values and identifiers provided by Bonita Engine.
+|===
 
 == Read a resource
 
@@ -79,7 +101,7 @@ It is possible for an extension to interact with the engine (via the API) or wit
 |  |
 
 | Request URL
-| `+http://.../API/{API_name}/{resource_name}/{id} +`
+| `+http://.../API/\{API_name\}/\{resource_name\}/\{id\}+`
 
 | Request Method
 | GET
@@ -88,9 +110,9 @@ It is possible for an extension to interact with the engine (via the API) or wit
 | an item in JSON
 |===
 
-Example `+http://.../API/identity/user/5 +`
+Example `+http://.../API/identity/user/5+`
 
-+++<a id="extend-resource">++++++</a>+++
+[#extend-resource]
 
 === Extend resource response
 
@@ -110,7 +132,7 @@ The order of the identifier parts for each resource type is given in the table a
 |  |
 
 | Request URL
-| `+http://.../API/{API_name}/{resource_name}/{id_part1}/{id_part2} +`
+| `+http://.../API/\{API_name\}/\{resource_name\}/\{id_part1\}/\{id_part2\}+`
 
 | Request Method
 | GET
@@ -119,46 +141,75 @@ The order of the identifier parts for each resource type is given in the table a
 | an item in JSON
 |===
 
-Example `+http://.../API/identity/membership/5/12/24 +`
+Example `+http://.../API/identity/membership/5/12/24+`
 
 == Update a resource
 
-| | |
-|:-|:-|
-| Request URL | `+http://.../API/{API_name}/{resource_name}/{id} +`|
-| Request Method | PUT|
-| Request Payload | a map in JSON containing the new values for the attributes you want to change.| +
-| Response | the corresponding item in JSON with new values where you requested a modification|
+|===
+|  |
+
+| Request URL
+| `+http://.../API/\{API_name\}/\{resource_name\}/\{id\}+`
+
+| Request Method
+| PUT
+
+| Request Payload
+| a map in JSON containing the new values for the attributes you want to change.
+
+| Response
+| the corresponding item in JSON with new values where you requested a modification
+|===
 
 Example `+http://.../API/identity/user/5+`
 
 === With compound identifier:
 
 Response: the corresponding item in JSON with new values where you requested a modification.
-| | |
-|:-|:-|
-| Request URL | `+http://.../API/{API_name}/{resource_name}/{id_part1}/{id_part2} +`|
-| Request Method | PUT|
-| Request Payload | ` a map in JSON containing the new values for the attributes you want to change `|
-| Response | ` the corresponding item in JSON with new values where you requested a modification`|
+
+|===
+|  |
+
+| Request URL
+| `+http://.../API/\{API_name\}/\{resource_name\}/\{id_part1\}/\{id_part2\}+`
+
+| Request Method
+| PUT
+
+| Request Payload
+| ` a map in JSON containing the new values for the attributes you want to change `
+
+| Response
+| ` the corresponding item in JSON with new values where you requested a modification`
+|===
 
 Example
-`+http://.../API/identity/membership/5/12/24 +`
+`+http://.../API/identity/membership/5/12/24+`
 
 == Delete resources
 
 Use the DELETE request to remove multiple resources.
-| | |
-|:-|:-|
-| Request URL | `+http://.../API/{API_name}/{resource_name}/ +`|
-| Request Method | DELETE|
-| Request Payload | A list of identifiers in JSON, for example `["id1","id2","id3"]`. Compound identifiers are separated by '/' characters.| +
-| Response | `empty `|
+
+|===
+|  |
+
+| Request URL
+| `+http://.../API/\{API_name\}/\{resource_name\}/+`
+
+| Request Method
+| DELETE
+
+| Request Payload
+| A list of identifiers in JSON, for example `["id1","id2","id3"]`. Compound identifiers are separated by '/' characters.
+
+| Response
+| `empty `
+|===
 
 Example
-`+http://.../API/identity/membership/ +`
+`+http://.../API/identity/membership/+`
 
-+++<a id="resource_search">++++++</a>+++
+[#resource_search]
 
 == Search for a resource
 
@@ -169,11 +220,19 @@ If you are searching for business data using a custom query, there must be a xre
 For business data default queries, the count query is defined automatically.
 
 The available filters are the attributes of the item plus some specific filters defined by each item.
-| | |
-|:-|:-|
-| Request URL | `+http://.../API/{API_name}/{resource_name}?p={page}&c={count}&o={order}&s={query}&f={filter_name}={filter_value}&f=... +`|
-| Request Method | GET|
-| Response | an array of items in JSON|
+
+|===
+|  |
+
+| Request URL
+| `+http://.../API/\{API_name\}/\{resource_name\}?p=\{page\}&c=\{count\}&o=\{order\}&s=\{query\}&f=\{filter_name\}=\{filter_value\}&f=...+`
+
+| Request Method
+| GET
+
+| Response
+| an array of items in JSON
+|===
 
 Example
 `/API/identity/user?p=0&c=10&o=firstname&s=test&f=manager_id=3`
@@ -196,7 +255,10 @@ If word-based search is disabled, `s=Valid` returns matches containing the strin
 
 `curl` is available on Linux OS and it transfers data from or to a server with various protocols such as HTTP and HTTPS.
 
+[source,console]
+----
  $ sudo apt install curl
+----
 
 NOTE: this is to be done only once.
 
@@ -210,9 +272,14 @@ NOTE: this is to be done only once.
 
 ==== Login
 
+[source,console]
+----
  $ curl -v -c saved_cookies.txt -X POST --url 'http://localhost:8080/bonita/loginservice' \
  --header 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' -O /dev/null \
- -d 'username=walter.bates&password=bpm&redirect=false&redirectURL=' The above `curl` command saved the cookies on the disk, in the `saved_cookies.txt` file.  The cookies file must be reused with the REST API calls (HTTP requests) in order to provide session information. The value of X-Bonita-API-Token cookie must be passed also in the header of the subsequent REST API calls, when any of the POST, PUT or DELETE HTTP method is used.
+ -d 'username=walter.bates&password=bpm&redirect=false&redirectURL='
+----
+
+The above `curl` command saved the cookies on the disk, in the `saved_cookies.txt` file.  The cookies file must be reused with the REST API calls (HTTP requests) in order to provide session information. The value of X-Bonita-API-Token cookie must be passed also in the header of the subsequent REST API calls, when any of the POST, PUT or DELETE HTTP method is used.
 
 The content of the cookies file is below:
 
@@ -227,6 +294,8 @@ localhost	FALSE	/	FALSE	0	X-Bonita-API-Token	2f86dcab-9b54-45e6-8eb1-f82c2a2f8e2
 
 ==== List installed process definitions
 
+[source,console]
+----
  $ curl -b saved_cookies.txt -X GET --url 'http://localhost:8080/bonita/API/bpm/process?c=10&p=0'
  [
    {
@@ -244,16 +313,19 @@ localhost	FALSE	/	FALSE	0	X-Bonita-API-Token	2f86dcab-9b54-45e6-8eb1-f82c2a2f8e2
      "version": "743.01"
    }
  ]
+----
 
 The response shows that there is 1 process definition installed.
 The `Registration` process has a process definition id equal to `6090246829515228480`
 
 ==== Instantiate one case of the `Registration` process
 
+[source,console]
+----
  $  curl -b saved_cookies.txt -X POST --url 'http://localhost:8080/bonita/API/bpm/case' \
  --header 'Content-Type: application/json' \
  --header 'X-Bonita-API-Token: 2f86dcab-9b54-45e6-8eb1-f82c2a2f8e25' \
- -d '{"processDefinitionId":"6090246829515228480"}'
+ -d '\{"processDefinitionId":"6090246829515228480"}'
  {
    "id": "1003",
    "end_date": "",
@@ -265,10 +337,14 @@ The `Registration` process has a process definition id equal to `609024682951522
    "processDefinitionId": "6090246829515228480",
    "last_update_date": "2017-06-08 14:40:35.272"
  }
+----
 
 ==== Logout
 
+[source,console]
+----
  $ curl -b saved_cookies.txt -X GET --url 'http://localhost:8080/bonita/logoutservice?redirect=false'
+----
 
 ==== Troubleshooting
 

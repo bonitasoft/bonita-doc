@@ -1,18 +1,23 @@
 = SAML SSO configuration
+:description: Bonita can be configured to use the SAML protocol to provide single sign-on (SSO), as long as you already have a SAML Identity Provider server up and running (IdP).
 
 Bonita can be configured to use the SAML protocol to provide single sign-on (SSO), as long as you already have a SAML Identity Provider server up and running (IdP).
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
 This information applies to a Bonita platform deployed from a bundle (Tomcat or WildFly), not to the Engine launched from Bonita Studio. `<BUNDLE_HOME>` refers to the root directory of the bundle.
 
 SAML configuration is at tenant level. Each tenant can use a different authentication method (over SAML or not).
 
-NOTE:
-*Note:* Bonita uses http://www.keycloak.org/[Keycloak] as SAML Service Provider adapter.
+[NOTE]
+====
 
+Bonita uses http://www.keycloak.org/[Keycloak] as SAML Service Provider adapter.
+====
 
 == SAML overview for Bonita
 
@@ -41,10 +46,11 @@ This service validates and process the SAML response :
  ** Connect to bonita using username
  ** Redirect to the initial requested resource (relayState)
 
-WARNING: +
- Bonita "username" should match the NameId or one attribute of the subject returned by the IdP in the response.
+[WARNING]
+====
+Bonita "username" should match the NameId or one attribute of the subject returned by the IdP in the response.
  If some users need to be able to log in without having an account on the IDP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.
-
+====
 
 == Configure Bonita Bundle for SAML
 
@@ -63,23 +69,24 @@ To configure Bonita for SAML:
 . In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
 edit the authenticationManager-config.properties as follows:
 +
+[source, properties]
 ----
-    -->  #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.standard.StandardAuthenticationManagerImpl
-    -->  auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.saml.SAML2AuthenticationManagerImpl
-    -->  saml.filter.active = true
-    -->  saml.auth.standard.allowed = false
-    -->  saml.logout.global = false
-    -->  auth.tenant.admin.username = install
-    -->  auth.passphrase = BonitaBPM
-         #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.oauth.OAuthAuthenticationManagerImpl
-         # OAuth.serviceProvider = LinkedIn
-         # OAuth.consumerKey = ove2vcdjptar
-         # OAuth.consumerSecret = vdaBrCmHvkgJoYz1
-         # OAuth.callbackURL = http://127.0.0.1:8888/loginservice
-         #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.jaas.cas.CASRemoteAuthenticationManagerImpl
-         # Cas.serverUrlPrefix = http://127.0.1.1:8180/cas
-         # Cas.bonitaServiceURL = http://127.0.1.1:8080/bonita/loginservice
-    -->  logout.link.hidden=true
+ #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.standard.StandardAuthenticationManagerImpl
+auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.saml.SAML2AuthenticationManagerImpl
+saml.filter.active = true
+saml.auth.standard.allowed = false
+saml.logout.global = false
+auth.tenant.admin.username = install
+auth.passphrase = BonitaBPM
+#auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.oauth.OAuthAuthenticationManagerImpl
+# OAuth.serviceProvider = LinkedIn
+# OAuth.consumerKey = ove2vcdjptar
+# OAuth.consumerSecret = vdaBrCmHvkgJoYz1
+# OAuth.callbackURL = http://127.0.0.1:8888/loginservice
+#auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.jaas.cas.CASRemoteAuthenticationManagerImpl
+# Cas.serverUrlPrefix = http://127.0.1.1:8180/cas
+# Cas.bonitaServiceURL = http://127.0.1.1:8080/bonita/loginservice
+logout.link.hidden=true
 ----
 +
 Make sure to link:multi-tenancy-and-tenant-configuration#toc2[set the right tenant admin username].
@@ -90,6 +97,7 @@ Make sure to link:multi-tenancy-and-tenant-configuration#toc2[set the right tena
 . In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`,
   edit the file *bonita-tenant-sp-custom.xml* to uncomment the bean passphraseOrPasswordAuthenticationService:
 +
+[source,xml]
 ----
      <bean id="passphraseOrPasswordAuthenticationService" class="com.bonitasoft.engine.authentication.impl.PassphraseOrPasswordAuthenticationService" lazy-init="true">
         <constructor-arg name="logger" ref="tenantTechnicalLoggerService" />
@@ -97,49 +105,51 @@ Make sure to link:multi-tenancy-and-tenant-configuration#toc2[set the right tena
         <constructor-arg name="configuredPassphrase" value="${authentication.service.ref.passphrase}" />
     </bean>
 ----
-
++
 . In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
   edit the file bonita-tenant-sp-custom.properties as follows:
 +
+[source, properties]
 ----
-         # Authentication service to use. Some are natively provided:
-         # authenticationService
-         #   * binded to bonita authentication mode
-         #   * impl: org.bonitasoft.engine.authentication.impl.AuthenticationServiceImpl
-         # jaasAuthenticationService
-         #   * to use JAAS
-         #   * impl: com.bonitasoft.engine.authentication.impl.JAASGenericAuthenticationServiceImpl
-         #   * this is the one to configure SSO over CAS (CAS properties to be defined hereafter
-         # noAuthenticationService
-         #   * does no authentication on the engine side
-         #   * impl: com.bonitasoft.engine.authentication.impl.NoAuthenticationServiceImpl
-         # passphraseOrPasswordAuthenticationService
-         #   * Used by SAML2 implementation, login only if a passphrase is valid, or if a username/password is valid.
-         #   * Requires PassphraseOrPasswordAuthenticationService bean to be uncommented in bonita-tenant-sp-custom.xml
-         #   * impl: com.bonitasoft.engine.authentication.impl.PassphraseOrPasswordAuthenticationService
-         # you can provide your own implementation in bonita-tenant-sp-custom.xml and refer to the bean name of your choice
-    -->  authentication.service.ref.name=passphraseOrPasswordAuthenticationService
+# Authentication service to use. Some are natively provided:
+# authenticationService
+#   * binded to bonita authentication mode
+#   * impl: org.bonitasoft.engine.authentication.impl.AuthenticationServiceImpl
+# jaasAuthenticationService
+#   * to use JAAS
+#   * impl: com.bonitasoft.engine.authentication.impl.JAASGenericAuthenticationServiceImpl
+#   * this is the one to configure SSO over CAS (CAS properties to be defined hereafter
+# noAuthenticationService
+#   * does no authentication on the engine side
+#   * impl: com.bonitasoft.engine.authentication.impl.NoAuthenticationServiceImpl
+# passphraseOrPasswordAuthenticationService
+#   * Used by SAML2 implementation, login only if a passphrase is valid, or if a username/password is valid.
+#   * Requires PassphraseOrPasswordAuthenticationService bean to be uncommented in bonita-tenant-sp-custom.xml
+#   * impl: com.bonitasoft.engine.authentication.impl.PassphraseOrPasswordAuthenticationService
+# you can provide your own implementation in bonita-tenant-sp-custom.xml and refer to the bean name of your choice
+authentication.service.ref.name=passphraseOrPasswordAuthenticationService
 
-         # If authentication.service.ref.name equals "PassphraseOrPasswordAuthenticationService",
-         # you need to configure the following passphrase
-    -->  authentication.service.ref.passphrase=BonitaBPM
+# If authentication.service.ref.name equals "PassphraseOrPasswordAuthenticationService",
+# you need to configure the following passphrase
+authentication.service.ref.passphrase=BonitaBPM
 
-         # CAS authentication delegate : enables the user, providing login/password,
-         # to be logged in automatically against CAS web application
-         # To be used in conjunction with the generic authentication service configured with CAS (jaasAuthenticationService)
-         #authenticator.delegate=casAuthenticatorDelegate
-         #authentication.delegate.cas.server.url.prefix=http://ip_address:port
-         #authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservice
+# CAS authentication delegate : enables the user, providing login/password,
+# to be logged in automatically against CAS web application
+# To be used in conjunction with the generic authentication service configured with CAS (jaasAuthenticationService)
+#authenticator.delegate=casAuthenticatorDelegate
+#authentication.delegate.cas.server.url.prefix=http://ip_address:port
+#authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservice
 ----
 +
 It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file *authenticationManager-config.properties* updated previously.
 
 . If your Identity Provider (IdP) requires requests to be signed, generate a private key.
 For example on linux, you can use the command ssh-keygen, then go to "`cd ~/.ssh`" to retrieve the key from the file id_rsa (more id_rsa, then copy the key).
-
-NOTE:
-*Note:* The expected format for Keys and certificates is PEM (with or without the comment header and footer). +
-
++
+[NOTE]
+====
+The expected format for Keys and certificates is PEM (with or without the comment header and footer). +
+====
 
 . In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`, +
  edit the file *keycloak-saml.xml* to setup Bonita webapp as a Service provider working with your IdP.
@@ -184,79 +194,87 @@ The policy can either be FROM_NAME_ID or FROM_ATTRIBUTE (in that case you need t
  ** You may also need to change the requestBinding and/or responseBinding from POST to REDIRECT depending on your IdP configuration.
  ** The url binding to your IdP also needs to be define by replacing the following string:
   *** http://idp.saml.binding.url.to.change
++
+[NOTE]
+====
+About SAML assertions encryption by the IdP: When the assertions encryption is active, the IdP uses a random key which in turn is encrypted with the SP's public key.
 
-NOTE:
-About SAML assertions encryption by the IdP: When the assertions encryption is active, the IdP uses a random key which in turn is encrypted with the SP's public key. +
 The SP uses its private key to decrypt the random key which in turn is used to decrypt the SAML assertion.
 This ensures that only the SP can decrypt the SAML assertion.
-
-
-WARNING:
+====
++
+[WARNING]
+====
 Due to an https://issues.redhat.com/browse/KEYCLOAK-4377[issue] with the version of Keycloak embedded in this version of Bonita, responses that are both signed and encrypted cannot be validated. As a result, the IdP needs to either sign the request or encrypt it (but not both) for the single sign on to work with Bonita.
+====
++
+[NOTE]
+====
+If your IdP neither requires the SSO requests to be signed nor encrypts its own responses, you can remove the Keys node from the SP and set the attributes signaturesRequired, signRequest and signResponse to false.
 
-
-NOTE:
-*Note 2:* _If your IdP neither requires the SSO requests to be signed nor encrypts its own responses, you can remove the Keys node from the SP and set the attributes signaturesRequired, signRequest and signResponse to false._ +
 _If your IdP responses are not signed, you can remove the Keys node from the IDP and set the attributes validateRequestSignature and validateResponseSignature to false._
-
-
-NOTE:
-*Note 3:* More configuration options can be found in https://www.keycloak.org/docs/latest/securing_apps/index.html#_saml-general-config[Keycloak official documentation]
-
-
+====
++
+[NOTE]
+====
+More configuration options can be found in https://www.keycloak.org/docs/latest/securing_apps/index.html#_saml-general-config[Keycloak official documentation]
+====
++
+[source,xml]
 ----
-       <keycloak-saml-adapter>
-           <SP entityID="bonita"
-               sslPolicy="EXTERNAL"
-               nameIDPolicyFormat="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
-               forceAuthentication="false"
-               isPassive="false"
-               turnOffChangeSessionIdOnLogin="true">
-               <Keys>
-        -->        <Key signing="true"
-        -->             encryption="true">
-        -->            <PrivateKeyPem>put your private key here</PrivateKeyPem>
-        -->            <CertificatePem>put your certificate here</CertificatePem>
-                   </Key>
-               </Keys>
-               <PrincipalNameMapping policy="FROM_ATTRIBUTE" attribute="username"/>
-               <IDP entityID="idp entity ID to change"
-        -->         signaturesRequired="true"
-        -->         signatureAlgorithm="RSA_SHA256">
-        -->        <SingleSignOnService signRequest="true"
-        -->           validateResponseSignature="true"
-                      requestBinding="POST"
-                      responseBinding="POST"
-        -->           bindingUrl="http://idp.saml.binding.url.to.change"/>
-        -->        <SingleLogoutService signRequest="true"
-        -->           signResponse="true"
-        -->           validateRequestSignature="true"
-        -->           validateResponseSignature="true"
-                      requestBinding="POST"
-                      responseBinding="POST"
-        -->           postBindingUrl="http://idp.saml.binding.url.to.change"
-        -->           redirectBindingUrl="http://idp.saml.binding.url.to.change"/>
-                   <Keys>
-        -->            <Key signing="true">
-        -->            <CertificatePem>put your certificate here</CertificatePem>
-                       </Key>
-                   </Keys>
-               </IDP>
-            </SP>
-       </keycloak-saml-adapter>
+  <keycloak-saml-adapter>
+      <SP entityID="bonita"
+          sslPolicy="EXTERNAL"
+          nameIDPolicyFormat="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+          forceAuthentication="false"
+          isPassive="false"
+          turnOffChangeSessionIdOnLogin="true">
+          <Keys>
+          <Key signing="true"
+               encryption="true">
+              <PrivateKeyPem>put your private key here</PrivateKeyPem>
+              <CertificatePem>put your certificate here</CertificatePem>
+              </Key>
+          </Keys>
+          <PrincipalNameMapping policy="FROM_ATTRIBUTE" attribute="username"/>
+          <IDP entityID="idp entity ID to change"
+           signaturesRequired="true"
+           signatureAlgorithm="RSA_SHA256">
+          <SingleSignOnService signRequest="true"
+             validateResponseSignature="true"
+                 requestBinding="POST"
+                 responseBinding="POST"
+             bindingUrl="http://idp.saml.binding.url.to.change"/>
+          <SingleLogoutService signRequest="true"
+             signResponse="true"
+             validateRequestSignature="true"
+             validateResponseSignature="true"
+                 requestBinding="POST"
+                 responseBinding="POST"
+             postBindingUrl="http://idp.saml.binding.url.to.change"
+             redirectBindingUrl="http://idp.saml.binding.url.to.change"/>
+              <Keys>
+              <Key signing="true">
+              <CertificatePem>put your certificate here</CertificatePem>
+                  </Key>
+              </Keys>
+          </IDP>
+       </SP>
+  </keycloak-saml-adapter>
 ----
 
 . If your Identity Provider is corectly configured (see the section _Configure the Identity Provider_), you are done.
 Then you can try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in). +
 Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `saml.auth.standard.allowed` to true) to be able to log in without an account on the Identity Provider.
 
-WARNING:
-*Note:* If your Bonita platform is behind a proxy server, You need to make sure the reverse proxy is configured
+[WARNING]
+====
+If your Bonita platform is behind a proxy server, You need to make sure the reverse proxy is configured
 to include the correct `Host:` header to the requests and the application server is configured to use this header (it is usually the case by default).
 This is required so that `HttpServletRequest.getRequestURL` returns the URL used by the user and not the internal URL used by the reverse proxy. +
 For example, if you are running Apache >=2.0.31 as reverse proxy, this configuration is controlled by the property http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypreservehost[ProxyPreserveHost].
 If you need more fine tuning or if you cannot update the reverse proxy configuration, you can consult the official documentation for https://tomcat.apache.org/connectors-doc/common_howto/proxy.html[Tomcat] or https://docs.jboss.org/author/display/WFLY10/Undertow+subsystem+configuration[WildFly].
-
+====
 
 == Configure the Identity Provider
 
@@ -269,9 +287,10 @@ Your IdP should declare a Service Provider named `bonita` (or the value of the `
 * if the IdP responses are signed, make sure the certificate of the IdP has been set in the IDP:Keys:Key section of the *keycloack-saml.xml*
 * the Name ID or a user attribute of the user principal sent back by the IdP should match the username of the user accounts in Bonita and the PrincipalNameMapping policy (and attribute value) in *keycloack-saml.xml* should reflect that
 
-NOTE:
-*Note:* If the IdP declares a redirect/target URL, it might override the target URL set by the Service Provider request, and you may always end up on the same page after logging in. In that case, try to remove the redirect URL. Bonita supports redirection to the URL initially requested after logging in on the IdP, provided the IdP doesn't force this URL.
-
+[NOTE]
+====
+If the IdP declares a redirect/target URL, it might override the target URL set by the Service Provider request, and you may always end up on the same page after logging in. In that case, try to remove the redirect URL. Bonita supports redirection to the URL initially requested after logging in on the IdP, provided the IdP doesn't force this URL.
+====
 
 == Configure logout behaviour
 
@@ -285,10 +304,11 @@ To avoid this, you have two options :
 This is the most commonly used solution. Users are logged in as long as they don't close their web browser (unless their session times out).
 To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
 
-NOTE:
-*Note:* When a user logs out from the IdP directly, Bonita Portal's session will remain active. The user's session time to live will be reset
+[NOTE]
+====
+When a user logs out from the IdP directly, Bonita Portal's session will remain active. The user's session time to live will be reset
 to the configured session timeout value upon each user interaction with the server.
-
+====
 
 [discrete]
 ==== Setup Bonita platform for SAML global logout
@@ -302,18 +322,20 @@ To setup Bonita for global logout:
 . Update the SingleLogoutService section of `keycloak-saml.xml` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` to match your Identity Provider configuration.
 . Update your Identity Provider configuration to setup the Logout Service POST/Redirect Binding URL to +++<Bonita_server_URL>+++/bonita/samlLogout+++</Bonita_server_URL>+++
 
-NOTE:
-*Note:* If the single logout flow supported by your IdP is not the same as the one supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutService and handle the logout programmatically.
-
+[NOTE]
+====
+If the single logout flow supported by your IdP is not the same as the one supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutService and handle the logout programmatically.
+====
 
 == Troubleshoot
 
 To troubleshoot SSO login issues, you need to add a logging handler for the package `org.keycloak` and increase the xref:logging.adoc[log level] to `ALL` for the packages `org.bonitasoft`, `com.bonitasoft`, and `org.keycloak` in order for errors to be displayed in the log files bonita-*.log (by default, they are not).
 
-In order to do that in a Tomcat bundle, you need to edit the file `+++<BUNDLE_HOME>+++/server/conf/logging.properties.+++</BUNDLE_HOME>+++
+In order to do that in a Tomcat bundle, you need to edit the file `+<BUNDLE_HOME>/server/conf/logging.properties.+`
 
 * Add the lines:
-+
+
+[source, properties]
 ----
 org.keycloak.handlers = 5bonita.org.apache.juli.AsyncFileHandler
 org.keycloak.level = ALL
@@ -321,6 +343,7 @@ org.keycloak.level = ALL
 
 * Update the existing lines (to set the level to `ALL`):
 +
+[source, properties]
 ----
 org.bonitasoft.level = ALL
 com.bonitasoft.level = ALL
@@ -342,6 +365,7 @@ Edit the _logger_ tags which _category_ matches `org.bonitasoft` and `com.bonita
 
 *Symptom:* The following stacktrace appears in the Bonita server log :
 
+[source, shell]
 ----
 2018-10-10 13:22:45,921 SEVERE [org.bonitasoft.console.common.server.sso.filter.InternalSSOFilter] (default task-1) java.lang.RuntimeException: Sp signing key must have a PublicKey or Certificate defined: java.lang.RuntimeException: java.lang.RuntimeException: Sp signing key must have a PublicKey or Certificate defined
 	at org.keycloak.adapters.saml.config.parsers.DeploymentBuilder.build(DeploymentBuilder.java:119)
@@ -404,9 +428,11 @@ you can continue to do this and manage authentication over SAML. +
 The LDAP synchronizer user must be registered in Bonita (no need for an SAML IdP account). It is recommended though to use the tenant admin account.
 We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your Bonita platform.
 
-NOTE:
-*Note :* By default the xref:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `saml.auth.standard.allowed` in *authenticationManager-config.properties*), users won't be able to log in with the portal login page directly without going through the IdP. +
+[NOTE]
+====
 
+*Note :* By default the xref:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `saml.auth.standard.allowed` in *authenticationManager-config.properties*), users won't be able to log in with the portal login page directly without going through the IdP. +
+====
 
 == Single sign-on with SAML using the REST API
 
@@ -425,4 +451,4 @@ Here is the subset of pages filtered by the SAML filter:
 
 REST API are not part of them, but if an http session already exists thanks to cookies, REST API can be used.
 
-The recommended way to authenticate to Bonita Portal to use the REST API is to use the link:rest-api-overview.md#bonita-authentication[login service]..
+The recommended way to authenticate to Bonita Portal to use the REST API is to use the xref:rest-api-overview.adoc]#bonita-authentication[login service]..

@@ -1,12 +1,15 @@
 = Applications
+:description: Bonita allows you to build business-centered web applications that provides access to processes and operational dashboards.
 
 Bonita allows you to build business-centered web applications that provides access to processes and operational dashboards.
 
-WARNING:
- Since 7.3, some changes have been made on the default layout.
+[WARNING]
+====
+
+Since 7.3, some changes have been made on the default layout.
  Those changes live in the `layout.css` page asset and allow us to better handle the content layout of the page displayed.
  Another consequence is that it removes a margin which was automatically added at the top of each pages.
-
+====
 
 == Application definition
 
@@ -40,11 +43,13 @@ To integrate a process into an application, you specify a link in an application
 
 == Defining a new application
 
-NOTE:
+[NOTE]
+====
+
 Since Bonita 7.5.0, the definition of applications can be done from the studio, which makes it more straightforward to develop and package with other application artifacts.
 For Enterprise, Efficiency and Performance editions, a graphical editor is provided on top of xml source code.
 For more details, go to xref:applicationCreation.adoc[Application descriptors]
-
+====
 
 When you have developed all the resources that are used in an application, you are ready to define the application itself.
 The application builder is a graphical interface in Bonita Portal for specifying the application pages and defining the menus.
@@ -70,7 +75,7 @@ However, at this stage the application contains only the default home page. You 
 
 NOTE: When you define the URL token for an application, you cannot use "API","content" or "theme" (case insensitive). Those words are reserved for internal use.
 
-+++<a id="layout">++++++</a>+++
+[#layout]
 
 [discrete]
 ==== Specifying application layout (Subscription editions)
@@ -86,7 +91,7 @@ To specify the application layout:
 . Choose the new layout from the drop down list. Layouts must be previously deployed.
 . Click on the validate button.
 
-+++<a id="theme">++++++</a>+++
+[#theme]
 
 [discrete]
 ==== Specifying application theme (Subscription editions)
@@ -218,7 +223,7 @@ There are two aspects to updating an application: changing the application defin
 . Click the Edit icon (...) for the application you want to edit. The application details page is displayed. From this page, you can edit the application metadata, layout, theme, pages, and navigation.
  ** To edit the metadata, click the Edit button. In the popup, modify the information about the application, then click *_Save_*.
  ** To edit the layout, see <<layout,Specifying application layout>>.
- ** To edit the theme, see <<theme,Specifying application theme>>. Note that the end user will see this modification with a delay (due to the link:cache-configuration-and-policy.md#portal_and_mobile[cache policy])
+ ** To edit the theme, see <<theme,Specifying application theme>>. Note that the end user will see this modification with a delay (due to the xref:cache-configuration-and-policy.adoc]#portal_and_mobile[cache policy])
  ** To edit the pages, go to the Pages zone. You can add a page by clicking *_Add_*. You can remove a page by clicking the trashcan icon for that page.
 Note that if you remove a page, the related menu items are automatically removed from the navigation.
  ** To edit the navigation, go to the Navigation zone. You can add a menu or menu item by clicking *_Add_*. You can remove a menu or menu item by clicking the trashcan icon for that page.

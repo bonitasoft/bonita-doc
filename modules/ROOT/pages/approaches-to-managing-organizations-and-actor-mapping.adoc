@@ -1,4 +1,5 @@
 = Manage organization, actors and users within Bonita
+:description: Bonita requires to define organizations, actors and users to execute your process
 
 Bonita requires to define organizations, actors and users to execute your process
 

@@ -1,10 +1,13 @@
 = SSO Log in with CAS
+:description: Use CAS as your Single Sign On (SSO) authentication server to log into Bonita Portal or REST APIs.
 
 Use CAS as your Single Sign On (SSO) authentication server to log into Bonita Portal or REST APIs.
 
-NOTE:
-*Note:* For Enterprise, Performance and Efficiency editions only.
+[NOTE]
+====
 
+For Enterprise, Performance and Efficiency editions only.
+====
 
 Depending on your underlying authentication service, you may need to provide other information with the API in order to log in. A login method with a map enables you to provide the set of credentials that the authentication service requires.
 The following example can be used if you are xref:single-sign-on-with-cas.adoc[using Bonita with CAS]:

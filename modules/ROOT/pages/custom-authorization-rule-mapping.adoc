@@ -1,4 +1,5 @@
 = How to map authorization rules
+:description: Custom authorization can be configured for pages and forms to restrict the access to selected profiles or users.
 
 Custom authorization can be configured for pages and forms to restrict the access to selected profiles or users.
 
@@ -16,9 +17,11 @@ Authorization Rule Mapping is a set of rules used to allow connected user to acc
 
 The tutorial can be used with Bonita Community edition, and uses features that are available in all editions.
 
-WARNING:
-The following elements may be used as extension points but could be subject to change across versions. No changes are planned, but we reserve the right to change make incompatible changes in any future version.
+[WARNING]
+====
 
+The following elements may be used as extension points but could be subject to change across versions. No changes are planned, but we reserve the right to change make incompatible changes in any future version.
+====
 
 == Create and deploy custom authorization rule
 
@@ -192,6 +195,8 @@ bonita.tenant.authorization.rule.mapping=customAuthorizationRuleMapping
 ./start-bonita.sh
 ----
 
-NOTE:
-You can find a complete implementation example of page mapping authorization rule and configuration in https://github.com/bonitasoft/bonita-page-authorization-rules[this project on GitHub].
+[NOTE]
+====
 
+You can find a complete implementation example of page mapping authorization rule and configuration in https://github.com/bonitasoft/bonita-page-authorization-rules[this project on GitHub].
+====

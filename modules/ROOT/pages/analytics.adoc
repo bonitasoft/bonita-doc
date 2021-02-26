@@ -1,10 +1,13 @@
 = Analytics and Reports
+:description: You can get custom statistics and reports in order to extract meaningful data and monitor how different processes are performing.
 
 You can get custom statistics and reports in order to extract meaningful data and monitor how different processes are performing.
 
-NOTE:
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
 
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
 
 == Purpose
 
@@ -98,7 +101,7 @@ NOTE: what is not exported in the .csv report
 * Comments
 * Human actions performed on *Parameters and variables*
 
-+++<a id="install">++++++</a>+++
+[#install]
 
 == Install a custom report
 
