@@ -262,10 +262,14 @@ NOTE: this is to be done only once.
 * Click on the Run button
 
 ==== Login
-
+[source,console]
+----
  $ curl -v -c saved_cookies.txt -X POST --url 'http://localhost:8080/bonita/loginservice' \
  --header 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' -O /dev/null \
- -d 'username=walter.bates&password=bpm' The above `curl` command saved the cookies on the disk, in the `saved_cookies.txt` file.  The cookies file must be reused with the REST API calls (HTTP requests) in order to provide session information. The value of X-Bonita-API-Token cookie must be passed also in the header of the subsequent REST API calls, when any of the POST, PUT or DELETE HTTP method is used.
+ -d 'username=walter.bates&password=bpm' 
+----
+
+The above `curl` command saved the cookies on the disk, in the `saved_cookies.txt` file.  The cookies file must be reused with the REST API calls (HTTP requests) in order to provide session information. The value of X-Bonita-API-Token cookie must be passed also in the header of the subsequent REST API calls, when any of the POST, PUT or DELETE HTTP method is used.
 
 The content of the cookies file is below:
 
