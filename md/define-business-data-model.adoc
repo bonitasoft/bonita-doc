@@ -1,0 +1,68 @@
+= Define business data model (BDM)
+:description: :experimental:
+
+:experimental:
+
+The Bonita platform provides a means to define, manipulate and store your business data. This data management service will create Java objects to allow data manipulation, database tables for storage, and all operations required to get the data from your process into the database and vice versa.
+
+Data management involves several steps:
+
+* Create the xref:define-and-deploy-the-bdm.adoc[Business Data Model (BDM)]. This is the definition of the types of data you will deal with in your processes and applications.
+* Declare link:specify-data-in-a-process-definition#toc4[business variables] in the process definition. Variables are used to make the link between your process definition and the data it needs to create, read, update, and delete. Data can be created as part of process execution (on start or on a task) but processes can also read and update data created by other processes and of course can choose to delete data.
+* Define process and task xref:contracts-and-contexts.adoc[contracts]. Contracts define the information process accepts from the user submitting the form.
+
+In this chapter we will focus on the creation of the Business Data Model (BDM) only. Declaration of business variables is part of the next chapter.
+You can read the chapter about xref:data-handling-overview.adoc[data handling] for more information on data management.
+
+In Bonita Studio, create a BDM:
+
+. Go to menu:Development[Business Data Model > Define...] menu
+
+image:images/getting-started-tutorial/define-business-data-model/define-business-data-model-menu.png[Define business data model menu]
+// {.img-responsive .img-thumbnail}
+
+. Click on *Add* button
+. Type the object name _Claim_ (objects name must always start with an uppercase letter)
+. In the *Attributes* tab, click on *Add* button
+. Add 3 attributes (attributes name must always start with a lowercase letter):
+. _description_ of type _STRING_ and _mandatory_ (check the checkbox in the *mandatory* column)
+. _answer_ of type _STRING_, _optional_
+. _satisfactionLevel_ of type _INTEGER_, _optional_
+
+image:images/getting-started-tutorial/define-business-data-model/create-business-object-with-attributes.gif[Create business object with attributes]
+// {.img-responsive .img-thumbnail}
+
+. Click on *Finish* button
+
+[NOTE]
+====
+
+*Mandatory* on a object attribute means that the object cannot be created with an empty value. If the *mandatory* option is not checked, it means that an object can be created with an empty value, for the attribute "not mandatory" (i.e. optional). In our example, the _answer_ attribute is optional because at process start it will be empty. Later in the process execution, an employee will provide an answer and doing so will be mandatory (but this will not be enforced by BDM definition).
+====
+
+[WARNING]
+====
+
+When you edit the BDM in Bonita Studio, it is always recommended to reset the database after doing any modification on the model. Check the checkbox "Reset BDM database," available in the pop-up window display when you validate your modifications.
+====
+
+[NOTE]
+====
+
+When you click on the "Finish" button three different operations are performed:
+
+* BDM definition is saved in your project (under *Business Data Model* category)
+* Java classes are generated, compiled, packaged and the resulting jar file is added to your project (under *Java dependencies* category)
+* Tables are created in the Bonita Studio embedded test database
+
+====
+
+Now you have a fully functional business data management model. You are ready to move to the next chapter and xref:declare-business-variables.adoc[start populating the database with data collected by the process].
+
+[NOTE]
+====
+
+Bonita Studio uses h2 to provide the database for testing. (We recommend you to use other types of databases such as Oracle, PostgreSQL, MySQL and SQL Server for production). Bonita Studio provides two database schemas: one for the Bonita Engine and one dedicated to BDM.
+You can view the tables created in the h2 BDM database by clicking on menu:Development[Business Data Model > Browse data (h2 console)...]. In the h2 console (a web interface) you can see that a table named "CLAIM" was created. You can run an SQL query such as `SELECT * FROM CLAIM` which should return an empty result as there is no data yet. +
+You can also link:data-management#toc0[graphically explore the BDM database schema] by clicking on menu:Development[Business Data Model > Explore model (GraphQL voyager)...].
+====

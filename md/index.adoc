@@ -1,0 +1,6 @@
+= Bonita Documentation
+:description: Learn how to use the Bonita Platform and all of its components.
+
+Learn how to use the Bonita Platform and all of its components.
+
+Click on the *links* below to find useful information quickly, or xref:taxonomy.adoc[browse the whole content tree], or use the *table of contents* to go straight to the information you want to read.+++<div class="col-md-4">++++++<div class="panel panel-default">+++Highlights+++<div class="panel-body">+++* [Release notes 2021.1](release-notes.md)+++</div>++++++</div>++++++</div>++++++<div class="col-md-4">++++++<div class="panel panel-default">+++Getting started+++<div class="panel-body">+++* [Getting started tutorial](_getting-started-tutorial.adoc])+++</div>++++++</div>++++++</div>++++++<div class="col-md-4">++++++<div class="panel panel-default">+++Resources+++<div class="panel-body">+++* [Download Bonita](https://www.bonitasoft.com/downloads)+++</div>++++++</div>++++++</div>+++

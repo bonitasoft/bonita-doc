@@ -1,0 +1,39 @@
+= Pages
+:description: Pages are resources intended to be used in applications. They are xref:resource-management.adoc[added, exported, edited, and deleted] as resources in Bonita Portal.
+
+Pages are resources intended to be used in applications. They are xref:resource-management.adoc[added, exported, edited, and deleted] as resources in Bonita Portal.
+
+== Provided pages
+
+Bonita Portal comes with some provided pages to use in applications. They are wrapped pages developed in other technologies than Bonita UI Designer (AngularJS, React, PortalJS). +
+Starting with Bonita 2021.1, you can also download the Bonita User and Administrator Applications (from Bonita Studio Welcome page), and get more provided pages, developped with Bonita UI Designer.
+
+== Custom pages
+
+To create the perfect user experience for different profiles of applications users, you need to create custom pages. This can be done with Bonita UI Designer, or in your favorite IDE.
+A few examples of custom pages:
+
+* Add a welcome page, with dashboards showing activity in Bonita and related external applications.
+* Provide a process owner with a dashboard showing the activity of open cases of the process.
+* Provide a busy user with a filtered view of the task list.
+* Provide an administrator with a multi-attribute search facility.
+* Integrate a page from an external application.
+
+For all information about developping a custom page, go to xref:page-and-form-development-overview.adoc[page and form development overview].
+
+== Use in applications
+
+Once the pages are all made available in the Resources section of Bonita Portal, they can be used to xref:applicationCreation.adoc[create applications]. +
+We highly recommend that the creation of applications is done in Bonita Studio, to be managed with all the other resources of the project in the Version Control System (Git).
+
+== Live update
+
+xref:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency.
+
+=== Edit a page
+
+You can xref:resource-management.adoc]#modify[edit the content of a page] by installing a new version of a page.
+
+=== Modify the pages in an application
+
+You can modify the pages in an application by xref:applications.adoc]#specify-pages[mapping other pages] in the application descriptor, and/or xref:applications.adoc]]#define-navigation[creating, moving, or deleting menus or menu options].
