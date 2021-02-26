@@ -102,7 +102,7 @@ It is possible for an extension to interact with the engine (via the API) or wit
 
 | Response
 | an item in JSON
-|===
+|===markdown
 
 Example `+http://.../API/identity/user/5+`
 
@@ -184,11 +184,11 @@ Example
 
 Use the DELETE request to remove multiple resources.
 
-|===
+|===markdown
 |  |
 
 | Request URL
-| `+http://.../API/\{API_name}/\{resource_name}/+`
+| `+http://.../API/\{API_name}/\{resource_name\}/+`
 
 | Request Method
 | DELETE
@@ -219,7 +219,7 @@ The available filters are the attributes of the item plus some specific filters 
 |  |
 
 | Request URL
-| `+http://.../API/\{API_name}/\{resource_name\}?p=\{page\}&c=\{count\}&o=\{order\}&s=\{query\}&f=\{filter_name\}=\{filter_value\}&f=...+`
+| `+http://.../API/\{API_name\}/\{resource_name\}?p=\{page\}&c=\{count\}&o=\{order\}&s=\{query\}&f=\{filter_name\}=\{filter_value\}&f=...+`
 
 | Request Method
 | GET
@@ -306,7 +306,7 @@ The `Registration` process has a process definition id equal to `609024682951522
  $  curl -b saved_cookies.txt -X POST --url 'http://localhost:8080/bonita/API/bpm/case' \
  --header 'Content-Type: application/json' \
  --header 'X-Bonita-API-Token: 2f86dcab-9b54-45e6-8eb1-f82c2a2f8e25' \
- -d '\{"processDefinitionId":"6090246829515228480"}'
+ -d '{"processDefinitionId":"6090246829515228480"}'
  {
    "id": "1003",
    "end_date": "",
