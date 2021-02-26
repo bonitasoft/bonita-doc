@@ -220,7 +220,7 @@ Both Windows and Mac have default security settings that will prevent execution 
 ```
 will be rendered as :
 
-![danger alert example](md/images/danger-alert-example.png)
+![danger alert example](modules/ROOT/assets/images/images/danger-alert-example.png)
 
 ### Decorate
 
