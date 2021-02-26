@@ -1,0 +1,60 @@
+= Community to Subscription upgrade
+:description: Upgrading means moving from a Bonita BPM Community edition environment to any Bonita BPM Subscription
+
+Upgrading means moving from a Bonita BPM Community edition environment to any Bonita BPM Subscription
+edition environment.
+
+*Warnings:*
+
+* An upgrade can only be performed on a single Bonita BPM versions. You cannot migrate to a new version at the same time as you update edition.
+* After it is applied, an upgrade cannot be undone.
+
+An upgrade is performed in two phases.
+
+== Bonita BPM Studio upgrade
+
+To upgrade a Community edition Bonita BPM Studio and its resources (such as process diagrams, data models), follow these steps:
+
+. xref:bonita-bpm-studio-installation.adoc[Install a Bonita BPM Studio] Subscription edition.
+. Export your resources from the Bonita BPM Studio Community edition to `.bos` files. We recommend that you keep these resource files as a backup.
+. Import your resource files into the Bonita BPM Studio in Subscription edition.
+
+The upgrade is performed automatically and silently when importing resources into Bonita BPM Studio Subscription edition.
+
+Remember that an upgrade is a non-reversible operation:
+after your resources are imported in the Subscription edition, you will not be able to export from the Subscription edition Studio and then import them back into the Community edition.
+
+== Bonita BPM platform upgrade
+
+Upgrading a Bonita BPM platform allows you to keep the platform data (process definitions, cases, BDM...)
+while benefiting from the Subscription edition features.
+
+The upgrade procedure is quite simple and only requires a limited service downtime (less than an hour for basic configurations).
+
+[WARNING]
+====
+
+A Bonita BPM platform upgrade can only be performed on the same database type.
+====
+
+To upgrade a Bonita BPM platform from Community edition to a Subscription edition, follow these steps:
+
+. xref:back-up-bonita-bpm-platform.adoc[Backup your Bonita BPM platform and databases].
+. Make sure that the platform is shut down.
+. Download the xref:deploy-bundle.adoc[Deploy bundle].
+. Update the configuration using the Platform setup tool included:
+ .. Configure the link:BonitaBPM_platform_setup#configure_tool[Platform setup tool] to use your database.
+ .. Copy the content of `platform_conf/initial` in a directory named e.g. `sp_conf`.
+ .. Run `setup.sh pull` or `setup.bat pull` to get your current configuration in `platform_conf/current`.
+ .. Reapply the customizations made in the current configuration to the configuration in the `sp_conf`.
+ .. Delete the content of the folder `platform_conf/current`.
+ .. Put the content of the folder `sp_conf` in `platform_conf/current`.
+ .. Set the edition in the `sp_conf` configuration folder, see xref:tomcat-bundle.adoc]#edition_specification[here].
+ .. xref:licenses.adoc[Put your license] in `platform_conf/licenses`.
+ .. Run `setup.sh push` or `setup.bat push` to push this configuration in database.
+. Replace the community bonita.war with the subscription version of bonita.war. You can find it in the Deploy bundle.
+ ** on Tomcat simply delete the `webapps/bonita.war` file and the `webapps/bonita` folder and copy the new war here.
+ ** on JBoss delete `standalone/deployments/bonita-all-in-one-<VERSION>.ear` and the file having the same name with `.deployed`, then copy the new ear in the same place.
+. Start you platform again.
+
+The Upgrade is now finished, you can verify that you are now running a subscription edition in the portal user interface, the dialog displayed from the top right "Settings / About" menu should indicates the correct Subscription edition.

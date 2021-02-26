@@ -1,0 +1,130 @@
+= Customize living application layout
+:description: [NOTE]
+
+[NOTE]
+====
+
+For Performance, Efficiency, and Teamwork editions only.
+====
+
+[WARNING]
+====
+
+Since 7.3 we made some changes on the default layout. You will have to remove `layout.css` from the page asset to make the following instructions relevant.
+====
+
+## Overview
+
+As explained in the xref:layouts.adoc[layouts] documentation page, it is possible to customize the existing application layout with the UI Designer.
+
+For example, you could:
+
+* Add a login box
+* Change the menu to add a side menu
+* Add a footer
+
+Prerequisites to customize the default living application layout:
+
+* Basic knowledge of Java script
+* Basic knowledge of AngularJS
+* Basic knowledge of Bootstrap
+* Basic knowledge of the UI Designer
+* An existing living application (to test the modified layout)
+
+The following example shows how to convert the default top menu of an application into a side menu. +
+The example sections show how to:
+
+* Export the default application layout from the Bonita BPM Portal
+* Import the default application layout into the UI Designer
+* Modify this layout
+* Apply the customized layout onto a living application.
+
+## Export the default application layout from Bonita BPM Portal
+
+. Open Bonita BPM Portal, and log in with username and password of someone mapped to the Administrator profile.
+. Click on the *Resources* menu.
+. Select the filter *Layouts*.
+. Select the element *Default layout*.
+. Click on *Export* and save this *Default layout* on your file system.
+
+== Import the default application layout into the UI Designer
+
+To facilitate the modifications, the *default layout* is built using the UI Designer. Then you just have to import it into the UI Designer to make changes.
+
+. Open the UI Designer.
+. Click on the *Import* button.
+. Retrieve the *Default layout* to import.
+
+== Edit the default layout using the UI Designer
+
+When you import the *Default layout* into the UI Designer, you can see that it generates three artefacts:
+
+. *Living application layout page*.
+. *Living application IFrame* widget to display the application page.
+. *Living application menu* widget to display the application menu.
+
+So we propose here to convert the *Living application menu* into a side menu.
+
+Into the UI Designer:
+
+. Click on *Living application menu* widget to open the widget editor.
+. Replace the template by using the following one:
+```html+++<div class="container" style="height:100%">++++++<div class="row">++++++<div id="leftCol">++++++<div class="well">+++* +++<a ng-if="!ctrl.isParentMenu(menu)" ng-href="../{{menu.applicationPageId.token}}/" ng-click="ctrl.reload()">+++{{menu.displayName}}+++</a>+++ +++<a ng-if="ctrl.isParentMenu(menu)" dropdown-toggle="">+++{{menu.displayName}}[.caret]##+++</a>+++
+ ** +++<a ng-href="../{{childMenu.applicationPageId.token}}/" ng-click="ctrl.reload()">+++{{childMenu.displayName}}+++</a>++++++</div>++++++</div>++++++</div>++++++</div>+++
+
+```
+
+. Click on *Save*.
+. Return to the UI Designer home page.
+. Click on *Living application layout page*.
+. Drag and drop the existing *living application Menu* on the left side of the *living application IFrame*.
+. Resize the *living Application Menu* by setting the width to 2.
+. Resize the *living Application IFrame* by setting the width to 10.
+. Click on *Save*.
+
+== Export the Side menu layout on your file system
+
+Once your changes are made, save the new layout using a new name and then export it.
+
+. Rename it into *SideMenuLayout*.
+. Click on *Save*.
+. Click on the *Export* button.
+
+== Import the *Side Menu Layout* into the portal
+
+. Open the Bonita BPM Portal, and again log in with username and password of someone mapped to the Administrator profile.
+. Click on the *Resources* menu.
+. Click on *Add*.
+. Add the new *Side Menu Layout Page*.
+. Click *Next*.
+. Click *Confirm*.
+
+== Configure your living application to use the modified layout
+
+. Click on the *Applications* menu.
+. Click on the edit action *...* of your living application.
+. In the *Look & Feel* section, click on the layout link
+. Select the *Side Menu layout*
+. Click on the validation button
+. In the application details section, click on the URL link to navigate to your living application.
+. See your new application layout with a side menu.
+. Feel free to add lots of new improvements to create the layout that fits your needs.
+
+== Troubleshooting
+
+=== Living application layout log 3 error 500 on loading
+
+This issue has been fixed in the 7.3.0 version ("[BS-14885] - Living application layout log 3 error 500 on loading").
+If you want to import a custom layout created with an oldest UIDesigner version (7.2.x or lower) in a 7.3.0 (or greater) version, you have to perform the following
+steps to prevent the issue to occur.
+
+. Import the CustomLayout_7.2.x in UIDesigner 7.3.3
+. Export the default layout from Bonita Portal
+. Import the default layout and confirm the overwrite of custom widgets
+. Open the CustomLayout_7.2.x Layout and remove the 3 variables AuthorizeApplicationAPI, AuthorizeApplicationPageAPI and AuthorizeApplicationMenuAPI (as shown below)
+Those variables are responsible of the SEVERE error logs on server.
+. Select the iFrame widget and set the reziseToContent option to yes
+. Save then Export the layout (feel free to rename the layout if you want)
+. On Bonita Portal server edit the layout and import the newly exported layout
+. confirm all the messages
+. Validate that your application has a layout that fits your requirements.
