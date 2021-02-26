@@ -253,13 +253,11 @@ In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>
 class\ org.keycloak.level = ALL
 org.keycloak.level = ALL
 ```
-* Update the existing lines (to set the level to `ALL`):  
+* Update the existing lines (to set the level to `FINE`):  
 ```
 org.bonitasoft.level = FINE
 com.bonitasoft.level = FINE
 ```
-
-Edit the *logger* tags which *category* matches `org.bonitasoft` and `com.bonitasoft` packages: change the *level* *name* attribute of each *logger* to `ALL` and add a new logger with the *category* `org.keyclock` (also with a *level* *name* set to `ALL`).
 
 #### Common error examples
 
