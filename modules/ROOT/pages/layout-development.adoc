@@ -37,7 +37,7 @@ For example, you could:
 A layout is deployed in a Bonita Runtime as a .zip archive containing a page.properties file and a resources folder.
 
 * The `page.properties` file contains the metadata for the layout (the name used in the URL, the display name, and a description). For example:
-+
+
 ----
 name=custompage_layout
 displayName=Application layout page

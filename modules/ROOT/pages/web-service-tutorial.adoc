@@ -42,21 +42,19 @@ image::images/connector_webservice_tuto/webservice_diagram.png[web service proce
 . Go back on the _country_ process variable, and set the _countryInput_ as default value.
 . Select the  _*No*_ flow,  go on the _*General tab*_ and set this flow as the Default flow.
 . Select the  _*Yes*_ flow, go on the _*General tab*_. Check _Use expression_, and add the following script as the expression to use:
-+
-[source,groovy]
-----
+```groovy
 !countryDAO.findById(country, 0, 100).isEmpty()
+
 ----
 
-. Select the _*Retrieve already known capital task*_, go on the _*Execution tab*_ and click on _*Operations*_. Add the following operation:
- ** *Left operand*: countryBo
- ** *Operation*: takeValueOf
- ** *Right operand*: A script _retrieveCountry_, with the following content:
-+
-[source,groovy]
-----
+9. Select the _**Retrieve already known capital task**_, go on the _**Execution tab**_ and click on _**Operations**_. Add the following operation:
+  - **Left operand**: countryBo
+  - **Operation**: takeValueOf
+  - **Right operand**: A script _retrieveCountry_, with the following content:
+```groovy
 countryDAO.findById(country, 0, 100).get(0)
 ----
+
 . Select the _*retrieveUnknownCapital*_ task, go on the _*Execution tab*_ and click on _*Connectors in*_.
 . Add a _*WebService SOAP 1.2*_ connector to this task and configure it using the wizard.
 . Enter the WDSL URL http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL, and click on the Introspect button, then leave the login info fields empty
@@ -105,13 +103,13 @@ return "../" + $data.context.countryBo_ref.link;
 ----
 
 * Create an _*External API*_ variable named _*country*_, with the following api url:
-+
+
 ----
 {{api}}
 ----
 
 * Insert a text widget in the form, with the following text property:
-+
+
 ----
 Capital: {{country.capital}}
 ----

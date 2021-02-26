@@ -328,25 +328,28 @@ Before going into production, we encourage to finely tune the "Level-2" object c
 
 * activate Hibernate cache statistics by setting to *true* the parameter *bonita.platform.persistence.generate_statistics* in file *bonita-platform-community-custom.properties*
 * activate logs at INFO level:
-```+++<logger name="org.bonitasoft.engine.persistence" level="INFO">++++++</logger>++++++<logger name="com.bonitasoft.engine.persistence" level="INFO">++++++</logger>+++
 
 ----
+<logger name="org.bonitasoft.engine.persistence" level="INFO"/>
+<logger name="com.bonitasoft.engine.persistence" level="INFO"/>
+----
+
 * run load tests to simulate a production environment
-* analyse the "2nd Level Cache Ratio" log messages generated, combined with the "soft-locked cache entry was expired" **warnings messages** to change the configuration in file **bonita-tenant-hibernate-cache.xml**.
-For instance, if on entity **org.bonitasoft.engine.core.document.model.impl.SDocumentImpl**, the "soft-locked cache entry was expired" warnings message occurs, it means the size of the **maxElementsInMemory** parameter must be increased, provided it is a reasonable memory size and provided the "2nd Level Cache Ratio" is not low for this element. If the "2nd Level Cache Ratio" is low or even 0, it means the cache is never used to read several times the same entity, which means the **timeToLiveSeconds** parameter should be increased, or that the cache should be completely deactivated for this entity.
+* analyse the "2nd Level Cache Ratio" log messages generated, combined with the "soft-locked cache entry was expired" *warnings messages* to change the configuration in file *bonita-tenant-hibernate-cache.xml*. +
+For instance, if on entity *org.bonitasoft.engine.core.document.model.impl.SDocumentImpl*, the "soft-locked cache entry was expired" warnings message occurs, it means the size of the *maxElementsInMemory* parameter must be increased, provided it is a reasonable memory size and provided the "2nd Level Cache Ratio" is not low for this element. If the "2nd Level Cache Ratio" is low or even 0, it means the cache is never used to read several times the same entity, which means the *timeToLiveSeconds* parameter should be increased, or that the cache should be completely deactivated for this entity.
 
 Below is an example of a "soft-locked cache entry was expired" warning message:
-----
 
+----
 WARNING: Cache org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl Key org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl#org.bonitasoft.engine.persistence.PersistentObjectId@25505ff
 Lockable : null
 A soft-locked cache entry was expired by the underlying Ehcache. If this happens regularly you should consider increasing the cache timeouts and/or capacity limits
-
 ----
 
-<a id="app_cache"/>
+[#app_cache]
 
-#### Application cache
+[discrete]
+==== Application cache
 
 Bonita Engine uses an application cache to store specific objects. The default implementation of this service relies on EhCache. It is configured in these files:
 
@@ -357,104 +360,128 @@ Bonita Engine uses an application cache to store specific objects. The default i
 
 The following cache configurations can be defined:
 
-| Configuration | Purpose|
-|:-|:-|
-| connectorCacheConfig | stores connector implementations for a given connector definition|
-| processDefCacheConfig | stores process definition objects|
-| userFilterCacheConfig | stores user filter implementations for a given user filter definition|
-| migrationPlanCacheConfig | not yet used|
-| breakpointCacheConfig | not yet used|
-| groovyScriptCacheConfig | stores compiled versions of Groovy scripts|
-| synchroServiceCacheConfig | used by the benchmark test infrastructure (and has no meaning outside of it)|
-| transientDataCacheConfig | stores transient data|
-| platformCacheConfig | used to store platform object, which contains general platform information such as the version, or start date|
-| parameterCacheConfig | stores process parameters|
+|===
+| Configuration | Purpose
 
-<a id="jvm"/>
+| connectorCacheConfig
+| stores connector implementations for a given connector definition
 
-#### Java Virtual Machine
+| processDefCacheConfig
+| stores process definition objects
 
-You can configure the JVM settings for the engine to tune performance.
-Check the [JVM documentation](http://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html) for details of the available settings.
+| userFilterCacheConfig
+| stores user filter implementations for a given user filter definition
 
-Notably, we recommend you to set the initial (`-Xms`) and maximum (`-Xmx`) heap sizes to the same value.
-This reduces the likelihood of the JVM garbage collector starting.
+| migrationPlanCacheConfig
+| not yet used
+
+| breakpointCacheConfig
+| not yet used
+
+| groovyScriptCacheConfig
+| stores compiled versions of Groovy scripts
+
+| synchroServiceCacheConfig
+| used by the benchmark test infrastructure (and has no meaning outside of it)
+
+| transientDataCacheConfig
+| stores transient data
+
+| platformCacheConfig
+| used to store platform object, which contains general platform information such as the version, or start date
+
+| parameterCacheConfig
+| stores process parameters
+|===
+
+[#jvm]
+
+[discrete]
+==== Java Virtual Machine
+
+You can configure the JVM settings for the engine to tune performance. +
+Check the http://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html[JVM documentation] for details of the available settings.
+
+Notably, we recommend you to set the initial (`-Xms`) and maximum (`-Xmx`) heap sizes to the same value. +
+This reduces the likelihood of the JVM garbage collector starting. +
 While the garbage collector is running, it prevents creation of new objects, which slows down the application server.
 
-<a id="network"/>
-<a id="hardware"/>
+[#network]
+[#hardware]
 
-## Hardware and network
+== Hardware and network
 
 This section deals with performance impact of hardware elements.
 
 Bonita performance is very correlated to the database connectivity and its behavior.
-Almost everything (API call, internal processing using workers, jobs scheduling, and so on) requires a database access.
-Two elements are critical: network latency, as in most cases your database is located on another server, and the I/O of your hard drives.
+Almost everything (API call, internal processing using workers, jobs scheduling, and so on) requires a database access. +
+Two elements are critical: network latency, as in most cases your database is located on another server, and the I/O of your hard drives. +
 In case of issues, you should monitor these two elements and consider improvements. For example:
 
 * locate your database in the same datacenter as the Bonita Engine, using gigabit network connections
 * use SSD hard drives, and RAID configuration with striping
 
 Network connectivity also impacts access to the engine APIs when you are not using local access, that is,
-if you are using [HTTP](#http), [REST](#rest).
+if you are using <<http,HTTP>>, <<rest,REST>>.
 
-## Database, Transaction Manager, and logs
+== Database, Transaction Manager, and logs
 
 This section is a reminder about some of the main dependencies Bonita Engine has that have a strong impact on the performance of the whole system.
 
 Bonita Engine relies on several other components that each have their own performance tuning options.
-Some of them are key for the system and you should pay a lot of attention to them.
-In most cases, the key things to consider are the [database](#db), [transaction manager](#tm), and [logs](#logs).
+Some of them are key for the system and you should pay a lot of attention to them. +
+In most cases, the key things to consider are the <<db,database>>, <<tm,transaction manager>>, and <<logs,logs>>.
 
-<a id="db"/>
+[#db]
 
-#### Database
+[discrete]
+==== Database
 
 Bonita Engine uses the database heavily, so in consequence a slow database makes the engine slow.
 
 It is essential that the hardware configuration of the server hosting the DB is powerful, considering resources like CPU, memory or others depending on your database instance.
 
-In addition to this, make sure that your database instance is well configured.
-Most database software provides many options for tuning, and some of them are easy to set up.
-Others may be more difficult and present choices between robustness and performance, fast read or fast write, etc.
+In addition to this, make sure that your database instance is well configured. +
+Most database software provides many options for tuning, and some of them are easy to set up. +
+Others may be more difficult and present choices between robustness and performance, fast read or fast write, etc. +
 Your database configuration must be correlated with the Bonita Engine usage pattern.
-To find the right characteristic to optimize, one good starting point is to consider whether you are creating a lot of process instances (in which case optimize database writes) or you are executing a lot of read queries like `getTaskList` (in which case optimize database reads).
-[Specific PostgreSQL performance tuning](#postgresql-performance-tuning) is given as a database tuning reference.
+To find the right characteristic to optimize, one good starting point is to consider whether you are creating a lot of process instances (in which case optimize database writes) or you are executing a lot of read queries like `getTaskList` (in which case optimize database reads). +
+<<postgresql-performance-tuning,Specific PostgreSQL performance tuning>> is given as a database tuning reference.
 
-<a id="tm"/>
+[#tm]
 
-#### Transaction manager
+[discrete]
+==== Transaction manager
 
 Bonita Engine is natively compatible with the Java Transaction API. This means transaction management relies on a transaction manager.
 
-Bonita Platform embed [Narayana](https://narayana.io/), an open source transaction manager.
+Bonita Platform embed https://narayana.io/[Narayana], an open source transaction manager.
 
 It uses the following configuraton file `server/conf/jbossts-properties.xml`.
 The most common configuration to change here would be `com.arjuna.ats.arjuna.coordinator.defaultTimeout` that is the timeout for transactions.
-More details on the configuration can be found in the [Narayana documentation](http://narayana.io/docs/product/index.html#d0e3473).
+More details on the configuration can be found in the http://narayana.io/docs/product/index.html#d0e3473[Narayana documentation].
 
-<a id="logs"/>
+[#logs]
 
-#### Logs
+[discrete]
+==== Logs
 
-In general, increasing the log level is useful for debugging but has a performance cost.
-With this in mind, [define the log level for technical logs, queriable logs and archives](set-log-and-archive-levels.md).
+In general, increasing the log level is useful for debugging but has a performance cost. +
+With this in mind, xref:set-log-and-archive-levels.adoc[define the log level for technical logs, queriable logs and archives].
 
 Remember that Bonita Engine dependencies also have their own log and debug options that may impact strongly the system performance.
 Be sure to configure these appropriately.
 
-<a id="time_tracker"/>
+[#time_tracker]
 
-## Connector time tracker
+== Connector time tracker
 
-It is now possible to track the duration of actions in a connector using a new time tracker. The tracker service tracks several connector lifecycle operations.
-This service can impact performance so is disabled by default.
+It is now possible to track the duration of actions in a connector using a new time tracker. The tracker service tracks several connector lifecycle operations. +
+This service can impact performance so is disabled by default. +
 It is configured by editing the following parameters in `bonita-tenant-community-custom.properties`.
+
 ----
-
-== Time tracker
-
+## Time tracker
 #bonita.tenant.timetracker.startTracking=false
 #bonita.tenant.timetracker.maxSize=1000
 #bonita.tenant.timetracker.flushIntervalInSeconds=30
@@ -464,78 +491,84 @@ It is configured by editing the following parameters in `bonita-tenant-community
 #bonita.tenant.timetracker.csv.separator=;
 #bonita.tenant.timetracker.memory.activateAtStart=false
 #bonita.tenant.timetracker.memory.maxSize=1000000
-
 ----
+
 To activate connector time tracking:
-1. Uncomment all the previous lines except ```## Time tracker```.
-2. Change the value of `startTracking` from `false` to `true`.
+
+. Uncomment all the previous lines except `## Time tracker`.
+. Change the value of `startTracking` from `false` to `true`.
 
 The other parameters can be left at their default value, left commented, or set to the desired value. What each of them does:
 
-1. `maxSize` maximum of records that will be saved by the time tracker before a flush. If the maximum number of records is reached before the scheduled flush, the older ones are discared. To avoid the loss of information, a number sufficiently big in comparison with `flushIntervalInSeconds` should be chosen
-2. `flushIntervalInSeconds` the interval beetween two flushes on the timetracker thread.
-3. `csv.activateAtStart` wether to save the result of the timetracker into a csv file.
-4. `csv.folder` the folder where to save the csv file.
-5. `csv.separator` the separator character in the csv file
-6. `memory.activateAtStart` wether to save the result of the timetracker in memory.
-7. `memory.maxSize` maximum amount of records saved in memory. If the maximum number of records is reached before the scheduled flush, the older ones are discared. To avoid the loss of information, a number sufficiently big in comparison with `flushIntervalInSeconds` should be chosen
+. `maxSize` maximum of records that will be saved by the time tracker before a flush. If the maximum number of records is reached before the scheduled flush, the older ones are discared. To avoid the loss of information, a number sufficiently big in comparison with `flushIntervalInSeconds` should be chosen
+. `flushIntervalInSeconds` the interval beetween two flushes on the timetracker thread.
+. `csv.activateAtStart` wether to save the result of the timetracker into a csv file.
+. `csv.folder` the folder where to save the csv file.
+. `csv.separator` the separator character in the csv file
+. `memory.activateAtStart` wether to save the result of the timetracker in memory.
+. `memory.maxSize` maximum amount of records saved in memory. If the maximum number of records is reached before the scheduled flush, the older ones are discared. To avoid the loss of information, a number sufficiently big in comparison with `flushIntervalInSeconds` should be chosen
 
 The non-relevant options will be ignored at execution. Note that `memory` and `csv` can both be activated at the same time.
 
+== Process design, event handlers, and cron jobs
 
-## Process design, event handlers, and cron jobs
+[#process_design]
 
-<a id="process_design"/>
+[discrete]
+==== Process design
 
-#### Process design
-
-There are several things you can do during the process design to reduce performance overheads.
-This is mostly related to reducing usage of extension points when possible.
+There are several things you can do during the process design to reduce performance overheads. +
+This is mostly related to reducing usage of extension points when possible. +
 Consider carefully your usage of connectors, groovy scripts, XML and serializable data.
 
-<a id="event_handlers"/>
+[#event_handlers]
 
-#### Event handlers
+[discrete]
+==== Event handlers
 
-Events handlers are extensions of the engine configuration.
-You can add event handlers for several purposes and you can configure which events you want to catch.
+Events handlers are extensions of the engine configuration. +
+You can add event handlers for several purposes and you can configure which events you want to catch. +
 We strongly recommend that you add only appropriate handlers and carefully code the handler filters to handle only those events that you are interested in.
 
-<a id="cron"/>
+[#cron]
 
-#### BPMN Timers execution
+[discrete]
+==== BPMN Timers execution
 
-Bonita Engine uses the [Scheduler service](engine-architecture-overview.md) to trigger timers.
+Bonita Engine uses the xref:engine-architecture-overview.adoc[Scheduler service] to trigger timers.
 
 The Bonita Scheduler service implementation uses the Quartz Scheduler. Some quartz properties can be modified to fine tune quartz jobs execution. These properties can be found in `bonita-platform-community-custom.properties`.
-----
 
+----
 org.quartz.jobStore.misfireThreshold
 org.quartz.jobStore.maxMisfiresToHandleAtATime
 org.quartz.jobStore.acquireTriggersWithinLock
 org.quartz.scheduler.batchTriggerAcquisitionMaxCount
 org.quartz.scheduler.batchTriggerAcquisitionFireAheadTimeWindow
-
 ----
-Details on these properties can be found in [the Quartz documentation](http://www.quartz-scheduler.org/documentation/).
+
+Details on these properties can be found in http://www.quartz-scheduler.org/documentation/[the Quartz documentation].
 
 They are not read subsequently, so changing the values in `bonita-tenant-community-custom.properties` after the Engine has been started has no effect on Quartz.
-For value definition, and information about how to update the Quartz trigger tables, see the [Quartz documentation](http://www.quartz-scheduler.org/documentation/) about Cron Triggers.
+For value definition, and information about how to update the Quartz trigger tables, see the http://www.quartz-scheduler.org/documentation/[Quartz documentation] about Cron Triggers.
 
-<a id="postgresql-performance-tuning"/>
+[#postgresql-performance-tuning]
 
-#### PostgreSQL performance tuning
+[discrete]
+==== PostgreSQL performance tuning
 
 Here is Bonita advice to finely tune PostgreSQL database server performance.
 
 In this example, we assume you have:
+
 * 12Gb of RAM
 * fast SSD storage
 
-Update **memory** configuration in file `postgresql.conf` (typically `/etc/postgresql/11/main/postgresql.conf`) with the
+Update *memory* configuration in file `postgresql.conf` (typically `/etc/postgresql/11/main/postgresql.conf`) with the
 following values:
 
-```properties
+[source,properties]
+----
 # MEMORY PARAMETERS:
 # shared_buffers SHOULD be set to 1/4 of the total memory available on the server, with a maximum of 8GB:
 shared_buffers = 3GB

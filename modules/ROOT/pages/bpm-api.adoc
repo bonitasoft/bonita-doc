@@ -4343,14 +4343,12 @@ xref:rest-api-overview.adoc]#resource_search[Standard search parameters] are ava
 * *Success Response* +
 JSON representations of matching process supervisors
  ** *Code*: 200
- ** *Payload*:
-+
-[source,json]
-----
+ ** *Payload*: +
+```json
 [
  {
  "process_id":"8040901857674754544",
- "user_id":{
+ "user_id":{ +
    "firstname":"April",
    "icon":"icons/default/icon_user.png",
    "creation_date":"2017-09-07 16:44:38.321",
@@ -4370,7 +4368,7 @@ JSON representations of matching process supervisors
  },
  {
  "process_id":"8040901857674754544",
- "user_id":{
+ "user_id":{ +
    "firstname":"Anthony",
    "icon":"icons/default/icon_user.png",
    "creation_date":"2017-09-07 16:44:38.456",
@@ -4389,23 +4387,22 @@ JSON representations of matching process supervisors
  "group_id":"-1"
  }
  ]
+
 ----
 
-==== Add a process Supervisor
+#### Add a process Supervisor
 
 You can assign a process to a user, a group, a role, or a membership (role and group). Note that in order to be able to manage the processes he supervises in the portal, a user should also have the profile "Process Manager".
 
-* *URL* +
-`/API/bpm/processSupervisor`
-* *Method* +
-`POST`
-* *Request Payload* +
-The process definition id and either the user, role and/or group id.
+* **URL**
+  `/API/bpm/processSupervisor`
+* **Method**
+  `POST`
+* **Request Payload**
+  The process definition id and either the user, role and/or group id.
 
-===== Add a process supervisor of type `User`
-
-[source,json]
-----
+##### Add a process supervisor of type `User`
+  ```json
   {
     "process_id":"5777042023671752656",
     "user_id":"11"

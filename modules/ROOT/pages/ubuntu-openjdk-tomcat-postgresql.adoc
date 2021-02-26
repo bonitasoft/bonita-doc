@@ -85,7 +85,8 @@ Tomcat 8.5 should now be installed on your computer. Now you should enable tomca
 
 * `sudo nano /etc/systemd/system/tomcat.service`
 * Copy the following code into the file
-```
+
+----
 [Unit]
 Description=Apache Tomcat Web Application Container
 After=network.target
@@ -111,7 +112,7 @@ Restart=always
 
 [Install]
 WantedBy=multi-user.target
-```
+----
 
 * Save and close the file
 * Reload the systemd daemon: `sudo systemctl daemon-reload`

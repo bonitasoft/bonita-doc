@@ -72,7 +72,7 @@ There is below a step by step procedure on Windows. It is assumed that the Studi
 [WARNING]
 ====
 
-*Note*: SAP JCo 3 connector supports a single destination for all connector instances in Bonita Engine. You also need to restart the web server when changing its value.
+SAP JCo 3 connector supports a single destination for all connector instances in Bonita Engine. You also need to restart the web server when changing its value.
 ====
 
 . Once all the fields are filled, test the connection by clicking on the _**test **_button.

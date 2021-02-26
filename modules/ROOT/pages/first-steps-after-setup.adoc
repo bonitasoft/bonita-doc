@@ -50,14 +50,14 @@ To do so:
 . Then edit the file: `/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/dynamic-permissions-checks-custom.properties`
 . Uncomment all the lines to restrict the authorization access on all the Bonita REST API (lines starting with `GET`, `PUT`, `POST`...).
 i.e. to restrict the authorization on the instantiation and humanTask API, to only users that are allowed to them (meaning that they are: assigned or pending to, or processes that they deployed or that they supervised), uncomment:
-+
+
 ----
 GET|bpm/process/*/instantiation=[profile|Administrator, check|org.bonitasoft.permissions.ProcessInstantiationPermissionRule]
 POST|bpm/process/*/instantiation=[profile|Administrator, check|org.bonitasoft.permissions.ProcessInstantiationPermissionRule]
 ----
-+
+
 And:
-+
+
 ----
 GET|bpm/humanTask=[profile|Administrator, check|org.bonitasoft.permissions.TaskPermissionRule]
 PUT|bpm/humanTask=[profile|Administrator, check|org.bonitasoft.permissions.TaskPermissionRule]

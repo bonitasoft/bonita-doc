@@ -272,7 +272,7 @@ Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, t
 [WARNING]
 ====
 
-*Note:* If your Bonita platform is behind a proxy server, You need to make sure the reverse proxy is configured
+If your Bonita platform is behind a proxy server, You need to make sure the reverse proxy is configured
 to include the correct `Host:` header to the requests and the application server is configured to use this header (it is usually the case by default).
 This is required so that `HttpServletRequest.getRequestURL` returns the URL used by the user and not the internal URL used by the reverse proxy. +
 For example, if you are running Apache >=2.0.31 as reverse proxy, this configuration is controlled by the property http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypreservehost[ProxyPreserveHost].
@@ -340,14 +340,14 @@ To troubleshoot SSO login issues, you need to add a logging handler for the pack
 In order to do that in a Tomcat bundle, you need to edit the file `+++<BUNDLE_HOME>+++/server/conf/logging.properties.+++</BUNDLE_HOME>+++
 
 * Add the lines:
-+
+
 ----
 org.keycloak.handlers = 5bonita.org.apache.juli.AsyncFileHandler
 org.keycloak.level = ALL
 ----
 
 * Update the existing lines (to set the level to `ALL`):
-+
+
 ----
 org.bonitasoft.level = ALL
 com.bonitasoft.level = ALL

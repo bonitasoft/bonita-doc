@@ -468,7 +468,7 @@ With this alternative, you should carefully update the database before deploying
 Errors you can get if you:
 
 * use a business object without updating the database schema:
-+
+
 ----
 15-May-2018 12:04:12.106 ERROR [http-nio-52162-exec-8] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions Table "BUSINESSOBJECT1" not found; SQL statement:
 insert into BUSINESSOBJECT1 (persistenceId, ATTRIBUT1, ATTRIBUT2, ATTRIBUT3, persistenceVersion) values (null, ?, ?, ?, ?) [42102-175]
@@ -477,7 +477,7 @@ insert into BUSINESSOBJECT1 (persistenceId, ATTRIBUT1, ATTRIBUT2, ATTRIBUT3, per
 ----
 
 * extend the length of a business object attribute without updating the database column:
-+
+
 ----
 15-May-2018 16:09:28.066 WARN [http-nio-52162-exec-4] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions SQL Error: 22001, SQLState: 22001
 15-May-2018 16:09:28.067 ERROR [http-nio-52162-exec-4] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions Value too long for column "ATTRIBUT1 VARCHAR_IGNORECASE(20)": "CAST(STRINGDECODE('   30     caract\u00e8res__________') AS VARCHAR_IGNORECASE) (30)"; SQL statement:
@@ -487,7 +487,7 @@ insert into BUSINESSOBJECT1 (persistenceId, ADDEDCOLUMN, ATTRIBUT1, ATTRIBUT2, N
 ----
 
 * change the type of a business object attribute without updating the database column:
-+
+
 ----
 15-May-2018 17:00:08.083 WARN [http-nio-52162-exec-5] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions SQL Error: 22018, SQLState: 22018
 15-May-2018 17:00:08.084 ERROR [http-nio-52162-exec-5] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions Data conversion error converting "'now is a String' (BUSINESSOBJECT1: NEWBOOLEAN BOOLEAN)"; SQL statement:
@@ -497,14 +497,14 @@ insert into BUSINESSOBJECT1 (persistenceId, ADDEDCOLUMN, ATTRIBUT1, ATTRIBUT2, N
 ----
 
 * change a relation between two business objects without updating the database / constraints:
-+
+
 ----
 [...]
 Caused by: groovy.lang.MissingMethodException: No signature of method: com.company.model.Invoice.addToLines() is applicable for argument types: (com.company.model.InvoiceLine) values: [com.company.model.InvoiceLine@623c31c]
 ----
 
 * remove a composition relation without removing the foreign key in database:
-+
+
 ----
 16-May-2018 10:25:01.030 WARN [http-nio-52162-exec-10] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions SQL Error: 23502, SQLState: 23502
 16-May-2018 10:25:01.030 ERROR [http-nio-52162-exec-10] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions NULL not allowed for column "INVOICE_PID"; SQL statement:

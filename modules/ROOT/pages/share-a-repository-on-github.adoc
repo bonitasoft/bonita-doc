@@ -18,7 +18,7 @@ Then you will be able to https://help.github.com/articles/create-a-repo/[create 
 [WARNING]
 ====
 
-*Note:* Leave the new repository empty. No .gitignore, no readme. Do not commit in the new repository.
+Leave the new repository empty. No .gitignore, no readme. Do not commit in the new repository.
 ====
 
 == Share with Git

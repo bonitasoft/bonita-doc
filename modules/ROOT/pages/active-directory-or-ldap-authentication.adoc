@@ -167,7 +167,7 @@ You should have a certificate from the ldaps server (i.e. certificate.pem).
 * Create the following folder:  `+${CATALINA_HOME}/conf/SSL+`.
 * Put the certificate.pem file into this folder.
 * Move to this directory and create a keystore with the keytool command (keytool is part of JDK):
-+
+
 ----
 keytool -importcert  -alias yourAlisaName -file certificate.pem -keystore certificateStore.jks
 ----
@@ -180,7 +180,7 @@ keytool -importcert  -alias yourAlisaName -file certificate.pem -keystore certif
 
 * Edit this file: `<BUNDLE_HOME>/setup/tomcat-templates/setenv.sh` (Linux) or `<BUNDLE_HOME>/setup/tomcat-templates/setenv.bat` (Windows)
 * Add the following line after the one that starts with set `SECURITY_OPTS`:
-+
+
 ----
 Linux: SSL_OPTS="-Djavax.net.ssl.trustStore=pathToTruststore -Djavax.net.ssl.trustStorePassword=keyStorePassword"
 Windows: set SSL_OPTS="-Djavax.net.ssl.trustStore=pathToTruststore -Djavax.net.ssl.trustStorePassword=keyStorePassword"

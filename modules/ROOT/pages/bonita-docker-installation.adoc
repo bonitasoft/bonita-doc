@@ -17,6 +17,7 @@ To start the latest subscription release
 
 ____
 Information on how to access Quay.io can be found https://customer.bonitasoft.com/download/request[here]
+____
 
 ----
 docker login quay.io
@@ -26,7 +27,6 @@ docker run --name=bonita -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:
 ----
 
 NOTE: You need to provide a valid licence, <<section-StepByStep,follow these steps>> in order to get and configure one.
-____
 
 [#section-StepByStep]
 

@@ -56,7 +56,7 @@ Need to be done in two successive steps: +
 [WARNING]
 ====
 
-*Note:* To do this, your tenant services need to be paused.
+To do this, your tenant services need to be paused.
 ====
 
 [discrete]
@@ -102,5 +102,5 @@ Use the file name returned in the first step to perform the second step.
 [WARNING]
 ====
 
-*Note:* In Efficiency, Performance and Enterprise editions, if you have an access control file installed on your tenant, you need to delete    it before installing or updating your BDM.
+In Efficiency, Performance and Enterprise editions, if you have an access control file installed on your tenant, you need to delete    it before installing or updating your BDM.
 ====

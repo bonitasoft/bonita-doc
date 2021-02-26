@@ -223,6 +223,7 @@ You should have the following files in your <ProjectDir>/web_fragments directory
 SmartFragment (the fragment directory)
 	SmartFragment.js
 	SmartFragment.json
+
 ```
 
 ===== Error messages

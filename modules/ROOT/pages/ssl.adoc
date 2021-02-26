@@ -128,7 +128,7 @@ This example shows you how to configure SSL if you run Tomcat behind a load bala
 
 . Make sure that your load balancer adds `X-Forwarded-Proto` and `X-Forwarded-For` headers.
 If you use HAProxy you can add following lines into your http://www.haproxy.org/download/1.5/doc/configuration.txt[HAProxy configuration] :
-+
+
 ----
 option forwardfor
 reqadd X-Forwarded-Proto:\ https

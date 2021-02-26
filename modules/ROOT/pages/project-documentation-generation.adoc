@@ -48,14 +48,13 @@ In order to generate BDM class diagram or Organization group hierarchy diagram i
 * On Windows: Download https://graphviz.gitlab.io/_pages/Download/windows/graphviz-2.38.msi[msi installer] and install it in the default folder. If you want to change the default folder, you'll need to configure the location in the Studio (Preferences > Eclipse > Plantuml > Path the dot executable of Graphviz).
 * On Ubuntu: `sudo apt-get install graphviz`
 * On MacOs:
-+
-[source,shell]
-----
+```shell
 brew install libtool
 brew link libtool
 brew install graphviz
 brew link --overwrite graphviz
-----
+
+```
 
 Once installed, it is possible to create your own https://plantuml.com/[plantuml] diagrams and integrate them in the documentation using template customization.
 

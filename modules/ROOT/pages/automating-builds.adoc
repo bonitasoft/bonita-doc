@@ -91,13 +91,12 @@ To run the script:
 . Check out the project to a directory in the Studio path.
 . Delete the content of the `workspace` directory in your Bonita Studio installation.
 . Run the script. For example:
-+
-[source,bash]
-----
+```bash
 ./BonitaStudioBuilder.sh -repoPath=/home/myBonitaRepoCheckedOut
 -outputFolder=/home/bonita/myArtefacts -buildAll -migrate
 -environment=Qualification -profile=qa
-----
+
+```
 
 When the script runs, information is logged in `workspace/.metadata/.log`.
 

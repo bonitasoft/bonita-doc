@@ -12,7 +12,6 @@ For Enterprise, Performance, Efficiency, and Teamwork editions only.
 [WARNING]
 ====
 
-*Note:*
 
 * The solution described here relies on the BonitaStudioBuilder, which has been deprecated since Bonita 7.7.0. Instead, we strongly encourage you to use the LA builder included in the tooling suite of Bonita Continuous Delivery add-on. One added-value is that LA builder does not need a studio to be installed.
 * https://documentation.bonitasoft.com/bcd/latest/[Bonita Continuous Delivery add-on] comes with an out-of-the-box solution based on Jenkins CI.
@@ -148,16 +147,14 @@ private void installOrganization() {
 ----
 
 . Then as a basic test, we try to deploy each generated processes. For example:
-+
-[source,groovy]
-----
+```groovy
 @Test
 void deploy() throws Exception {
  // Retrieve automatically generated bars as a Map<filename, fileContent>
  Map<String, InputStream> bars = getBars()
  Assert.assertTrue("No bar found in resources", !bars.isEmpty())
-
- // For each bar deploy and enable it
++
+// For each bar deploy and enable it
  for(Entry<String, InputStream> entry : bars.entrySet()) {
      BusinessArchive archive = BusinessArchiveFactory.readBusinessArchive(entry.getValue())
      final String entryKey = entry.getKey()
@@ -169,7 +166,8 @@ void deploy() throws Exception {
      getProcessAPI().deleteProcessDefinition(defId)
  }
 }
-----
+
+```
 
 Now configure a job to run this simple test case on your CI (these steps assume you have shared your generated processes as a Maven artifact, so you can use the maven-dependency plugin to retrieve the latest built processes):
 
