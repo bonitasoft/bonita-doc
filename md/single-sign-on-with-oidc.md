@@ -296,7 +296,8 @@ We recommend that you use LDAP as your master source for information, synchroniz
 When Bonita web application is configured for authentication with OpenID Connect, Bonita REST API is secured through OIDC too and it is possible to call it with an Oauth Access token. 
 To obtain the access token, there are several options depending on your OpenID provider configuration and you use case:  
 
-### Resource Owner Credentials Grant  
+#### Resource Owner Credentials Grant
+
 In this scenario, the client application that needs to use Bonita REST API performs a request to the token end point of the OIDC provider with the username and password of the user account to use in Bonita.  
 For example, using a Keyclaok server as OIDC provider, with a realm named `bonita` and a client Id `bonitaOIDC`:
 
@@ -311,6 +312,7 @@ For example, using a Keyclaok server as OIDC provider, with a realm named `bonit
   client_id:bonitaOIDC
 ```
    
-### Authorization Code or Implicit Grant  
+#### Authorization Code or Implicit Grant
+
 Those scenarios work the same way as when you login on Bonita portal/apps except it is the client application that needs to use Bonita REST API which needs to trigger the authentication process by calling the OIDC provider authorisation endpoint with Bonita OIDC client as `client_id`. The rest of the scenario is similar to what is described in the OIDC Authorization Code Flow schema.  
 Once you obtained the Access token, you can make your REST API request in a normal way, just adding a header `Authoritation` with value `Bearer <Access token>` (replace the placeholder <Access token> with the token returned by the OIDC provider and make sure to keep the whitespace after `Bearer`).
