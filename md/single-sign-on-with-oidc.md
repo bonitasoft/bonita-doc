@@ -34,7 +34,7 @@ it is composed of:
 - An Implementation of the Authentication Manager extension point that retrieves the authentication information in the requests to log in to Bonita engine with the right credentials.  
 
 ::: warning  
- Bonita `username` should match the `prefered_username` or one attribute of the subject returned by the IdP in the response. 
+ Bonita `username` should match the `prefered_username` or one attribute of the principal returned by the OIDC provider in the response. 
  If some users need to be able to log in without having an account on the IdP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (`/login.jsp`) provided they have a Bonita account and their password is different from their username.  
  You can configure Bonita engine to create the accounts on the fly in the database once a user accessing Bonita has been authenticated with the IdP (see the configuration of `bonita-tenant-sp-custom.properties` in the 3rd section of the next chapter).
 :::
@@ -156,11 +156,11 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
     + `auth-path` needs to be set with the path of your OIDC provider Authorization endpoint. It is prefixed with the value of `auth-server-url` to build the request URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
     + `token-path` needs to be set with the path of your OIDC provider Token endpoint. It is prefixed with the value of `auth-server-url` to build the request URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
     + `token-service-logout-path` needs to be set with the path of your OIDC provider Logout endpoint. It is prefixed with the value of `auth-server-url` to build the request URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
-    + `token-audience-path` needs to be set with the path of the URL that will be used as audience in the access token. It is prefixed with the value of `auth-server-url` to build the request URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+    + `token-audience-path` needs to be set with the path of the URL that will be used as audience in the access token (`aud` claim). It is prefixed with the value of `auth-server-url` to build the request URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
     + `jwks-path` needs to be set with the path of your OIDC provider JSON Web Key Set endpoint. It is prefixed with the value of `auth-server-url` to build the request URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
     + `resource` is the OIDC client Id given to your Bonita installation. You can change it if you want but you need to provide it to your OIDC provider.
     + the `ssl-required` property value may need to be changed if Bonita Portal and the IdP are not both accessed via HTTPS. Possible values for this property are: `all`, `external`, and `none`. For `all`, all requests must come in via HTTPS. For `external`, only non-private IP addresses must come over via HTTPS. For `none`, no requests are required to come over via HTTPS.
-    + the `principal-attribute` value indicates the OIDC ID Token attribute (`preferred_username`, `email`, `name`, etc...) to use to be considered as user identifier in the client application. It should match the Bonita username
+    + the `principal-attribute` value indicates the OIDC ID Token attribute (`preferred_username`, `sub`, `email`, `name`, etc...) to use to be considered as user identifier in the client application. It should match the Bonita username
     + `public-client` indicates that there are no credentials for the client sent to the OIDC provider server.
     + `enable-cors` is required only if you wan to be able to use Bonita REST API from a web application located on a different domain from your Bonita installation's. It comes with additional options `cors-max-age`, `cors-allowed-methods`, `cors-allowed-headers`, `cors-exposed-headers`. You can check Keycloak [client adpter config documentation](https://www.keycloak.org/docs/latest/securing_apps/#_java_adapter_config) for more information.
     + Some additional properties no present in the default file can be useful:
@@ -296,7 +296,7 @@ We recommend that you use LDAP as your master source for information, synchroniz
 When Bonita web application is configured for authentication with OpenID Connect, Bonita REST API is secured through OIDC too and it is possible to call it with an Oauth Access token. 
 To obtain the access token, there are several options depending on your OpenID provider configuration and you use case:  
 
-1. Resource Owner Credentials Grant  
+### Resource Owner Credentials Grant  
 In this scenario, the client application that needs to use Bonita REST API performs a request to the token end point of the OIDC provider with the username and password of the user account to use in Bonita.  
 For example, using a Keyclaok server as OIDC provider, with a realm named `bonita` and a client Id `bonitaOIDC`:
 
@@ -311,6 +311,6 @@ For example, using a Keyclaok server as OIDC provider, with a realm named `bonit
   client_id:bonitaOIDC
 ```
    
-2. Authorization Code or Implicit Grant  
+### Authorization Code or Implicit Grant  
 Those scenarios work the same way as when you login on Bonita portal/apps except it is the client application that needs to use Bonita REST API which needs to trigger the authentication process by calling the OIDC provider authorisation endpoint with Bonita OIDC client as `client_id`. The rest of the scenario is similar to what is described in the OIDC Authorization Code Flow schema.  
 Once you obtained the Access token, you can make your REST API request in a normal way, just adding a header `Authoritation` with value `Bearer <Access token>` (replace the placeholder <Access token> with the token returned by the OIDC provider and make sure to keep the whitespace after `Bearer`).
