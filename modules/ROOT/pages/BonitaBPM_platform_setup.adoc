@@ -5,7 +5,6 @@ This page explains how to use the Platform setup tool to configure the Bonita pl
 
 [NOTE]
 ====
-
 First thing to know is that for all basic installation and start scenarios, you don't need to use the setup tool.
 We made it easy for you by creating `start-bonita.bat`(for Windows) or `start-bonita.sh` (for Unix), a script that initializes, configures and starts the bundle, using the Platform setup tool.
 ====
