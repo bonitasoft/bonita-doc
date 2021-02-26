@@ -67,7 +67,9 @@ Also, note that the owner of the new schemas must own the following privileges:
 * CREATE INDEX
 * SELECT, INSERT, UPDATE, DELETE on created TABLE
 
-====info
+[NOTE]
+====
+
 CREATE TABLE and CREATE INDEX privileges are not required after first start in normal use. +
 If the same SQL user is used with the xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[migration tool], then this user needs such grants.
 ====

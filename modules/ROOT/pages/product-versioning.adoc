@@ -80,5 +80,6 @@ The UI Designer will check the model version of all artifacts when it is launche
 
 [WARNING]
 ====
-*Warning*: Artifact migration is not reversible. Once the Studio or UI Designer has migrated an artifact it is no longer compatible with the previous version of the development suite.
+
+Artifact migration is not reversible. Once the Studio or UI Designer has migrated an artifact it is no longer compatible with the previous version of the development suite.
 ====

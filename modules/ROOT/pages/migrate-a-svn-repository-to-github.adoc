@@ -41,7 +41,6 @@ Note: `<bonita-repo-name>` should have `trunk`, `branches`, `tags` children fold
 
 Add a .gitignore in `~/temp` with the following content
 
-[source,gitignore]
 ----
 bin
 .classpath

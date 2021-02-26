@@ -19,13 +19,12 @@ We provide a maven archetype to help you to bootstrap a connector project. The s
 A https://maven.apache.org/archetype/index.html[maven archetype] is a maven project templating toolkit. This archetype allows you to bootstrap a Bonita connector project on your file system. A Bonita connector project is a maven project. It can be built, tested and then imported into a Bonita project using Bonita Studio.
 
 To create your connector project, prompt a terminal and enter the following command:
-
 [WARNING]
 ====
+
 Make sure that you are not executing the command from an existing maven project.
 ====
 
-[source, bash]
 ----
 mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype
 ----
@@ -147,7 +146,8 @@ Some widgets can require additional informations. For example, if you want to cr
 
 [WARNING]
 ====
-*Warning:* As widgets are displayed in a dialog window in the Studio, be careful to not use too many widgets in the same page.
+
+As widgets are displayed in a dialog window in the Studio, be careful to not use too many widgets in the same page.
 Use Group widget if you need to stack a lot of widgets in the same page.
 ====
 
@@ -285,7 +285,6 @@ By importing this archive in a Bonita Studio you will import all the definitions
 
 To build the connector project, type the following command at the root of the project :
 
-[source, bash]
 ----
 ./mvnw clean install
 ----
@@ -306,7 +305,6 @@ This connector will be implemented using:
 
 The first step is to generate  the maven project using the archetype:
 
-[source,bash]
 ----
 mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype
 ----
@@ -430,7 +428,6 @@ Replace the default page by the following one:
 For each page and widget , a name and a description must be added  in the property file, else the Studio is unable to display the element. +
 Open the file _src/main/resources/connector-starwars.properties_ and replace the content for the default page and widgets by the following:
 
-[source,properties]
 ----
 starWarsPage.pageTitle=Star Wars connector - configuration page
 starWarsPage.pageDescription=Indicate a Star Wars character name, and the service base URl if required.
@@ -845,7 +842,6 @@ def should_handle_server_error() {
 The implementation of the connector is finished. +
 You can build the connector using the following command line at the root of the project:
 
-[source,bash]
 ----
 ./mvnw clean package
 ----

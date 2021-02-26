@@ -83,13 +83,12 @@ countryDAO.findById(country, 0, 100).get(0)
  ** *Left operand*: countryBo
  ** *Operation*: Java method \-> setCapital
  ** *Right operand*: A script _parseCapital_  returning a String, with the following content
-
-[source,groovy]
-----
+ ```groovy
 import org.codehaus.groovy.ast.stmt.ContinueStatement
 import org.w3c.dom.NodeList
 
 responseDocumentBody.childNodes.item(0).textContent
+
 ----
 
 And we are done for the connector configuration. If you want to test it from the wizard, replace _${country}_ by _FRA_ in the envelope, and ensure that _Paris_ is returned.
@@ -101,9 +100,7 @@ And we are done for the connector configuration. If you want to test it from the
 
 17. Select the _**Display capital**_ task, go on the _**Execution tab**_, click on _**Form**_ and click on the pencil to create the form of this task. The UI Designer should open. The idea here is to simply display the field _capital_ of the business object used in the case (which has been created during the case or retrieved from the database). This business object is accessible in the context.
 * Create a _**Javascript expression**_ variable named _**api**_, with the following content:
-
-[source,js]
-----
+```Javascript
 return "../" + $data.context.countryBo_ref.link;
 ----
 

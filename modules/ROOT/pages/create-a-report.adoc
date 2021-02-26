@@ -167,7 +167,7 @@ To change style of your components in the HTML rendered reports, add CSS classes
 [NOTE]
 ====
  +
-*Note:* If a JRTX file has been packaged inside the imported zip file, it will not be used to style HTML generated reports. +
+If a JRTX file has been packaged inside the imported zip file, it will not be used to style HTML generated reports. +
 Using the global CSS look'n'feel of the Bonita Portal allows to have a consistent look'n'feel between HTML reports and Bonita Portal.
 ====
 
@@ -212,7 +212,6 @@ If your report requires a connection to the reporting database, the archive must
 
 For example, connecting to a local MySQL database named _BonitaReport_ with a user _root_ and password _root_:
 
-[source,properties]
 ----
 dbUrl=jdbc:mysql://localhost:3306/BonitaReport
 dbDriverClassName=com.mysql.jdbc.Driver

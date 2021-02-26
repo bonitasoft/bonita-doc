@@ -63,7 +63,6 @@ You can use this mechanism in your custom widgets to process content to translat
 [discrete]
 ==== For instance, with a custom link widget :
 
-[source,html]
 ----
 <div>
     <a title="{{ properties.title | uiTranslate }}" ui-translate>Submit</a>

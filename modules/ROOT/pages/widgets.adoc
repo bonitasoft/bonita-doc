@@ -25,8 +25,10 @@ From there, you can clone this widget (to modify or extend it) by clicking on *S
 
 Image below shows wizard of switch widget behaviour
 
-====info
- This action is not available for containers.
+[NOTE]
+====
+
+This action is not available for containers.
 ====
 
 image::images/widget_switch_mapping.png[widget_switch_mapping]
@@ -39,8 +41,10 @@ You can edit that or map more, then click on *Switch*.
 
 When the switch is completed, you still may have to set properties from the properties panel.
 
-====info
- Switch feature not available for Internet Explorer 11 and Microsoft Edge.
+[NOTE]
+====
+
+Switch feature not available for Internet Explorer 11 and Microsoft Edge.
 ====
 
 == Containers
@@ -232,6 +236,7 @@ For pages that are displayed in a task or process context, the button widget can
 
 [WARNING]
 ====
+
 *:fa-exclamation-triangle:* The Tasklist of the Bonita User App does not take that property into account and it is still required to `take` a task in order to execute it.
 ====
 
@@ -283,8 +288,8 @@ You can customize default display for zebra-striping or bordered. Here is an exa
 
 This styling can be done in the theme.css file in Bonita Studio part to customize *all* the tables. You need to use the following css selector:
 
-[source,css]
-----
+....
+```
 .table-striped > tbody > tr:nth-of-type(odd) {
   // Put you custome styling here
   background-color: chartreuse;
@@ -294,14 +299,14 @@ This styling can be done in the theme.css file in Bonita Studio part to customiz
   // Put you custome styling here
   background-color: black;
 }
-----
+```
+....
 
 In some case, you want override your theme to display custom style for only *one specific table*, to do this:
 
 * For table widget, in CSS Classes in property panel, add a class, `zebra-custom` for example
 * Add the following class in style.css asset
 +
-[source,css]
 ----
  .zebra-custom .table-striped > tbody > tr:nth-of-type(odd) {
    // Put you custome styling here
@@ -410,6 +415,7 @@ The previewable documents are limited to documents supported by the end user bro
 
 [WARNING]
 ====
+
 *:fa-exclamation-triangle:* If you create a custom FileViewer: edit the `box-viewer.directive.js` file from the custom widget editor, and replace `pbFileViewer` by the name of your custom FileViewer prefixed by `custom` (for instance `customFileViewerSmart`).
 Limitation: adding several types of `FileViewer` in a page is not supported.
 ====

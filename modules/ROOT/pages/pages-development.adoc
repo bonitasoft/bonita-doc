@@ -49,7 +49,6 @@ You can find examples of the default resources in xref:BonitaBPM_platform_setup.
 
 The following example shows the resource authorizations defined for a custom page that enables a user to view but not update organization information:
 
-[source,properties]
 ----
 #The name must start with 'custompage_'
 name=custompage_orgViewer

@@ -58,7 +58,6 @@ When a work fails, there is a mechanism in place to retry it. If we identify tha
 
 A special logger can help identify potential issue of work execution:
 
-[source,log]
 ----
 29-Jul-2020 17:24:04.674 AVERTISSEMENT [Bonita-Worker-1-09] org.bonitasoft.engine.work.audit.AuditListener.abnormalExecutionStatusDetected Potential abnormal execution detected - cause TOO_MANY_EXECUTIONS. org.bonitasoft.engine.work.WorkDescriptor@323b63d6[uuid=55a92f06-7061-43e9-8523-1c6955a26fc2,type=EXECUTE_FLOWNODE,tenantId=1,parameters={processDefinitionId=XXXX, processInstanceId=XXXX, stateCanceling=false, stateExecuting=false, stateId=37, stateAborting=false, flowNodeInstanceId=CCC},retryCount=Y,executionThreshold=2020-07-29T06:24:04.674Z,executionCount=10,registrationDate=2020-07-29T06:11:44.943Z,abnormalExecutionDetected=true]
 ----

@@ -3,7 +3,9 @@
 
 This page explains how to log in and log out of the Bonita User Interfaces.
 
-====info
+[NOTE]
+====
+
 Note: to avoid login problems, make sure you http://www.wikihow.com/Clear-Your-Browser's-Cache[empty your browser cache].
 ====
 

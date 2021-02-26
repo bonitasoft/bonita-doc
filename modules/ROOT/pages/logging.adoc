@@ -36,7 +36,6 @@ For the Bonita Runtime embedded in the Bonita Studio, the JUL configuration file
 
 Here is an example of the JUL configuration for the logger used in the <<your_log,example below>>:
 
-[source,properties]
 ----
 # Set log level to "finest" for newly created connector
 org.mycompany.connector.level = FINEST

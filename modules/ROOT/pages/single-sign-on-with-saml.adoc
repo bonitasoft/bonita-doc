@@ -3,16 +3,20 @@
 
 Bonita can be configured to use the SAML protocol to provide single sign-on (SSO), as long as you already have a SAML Identity Provider server up and running (IdP).
 
-====info
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
+
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
 ====
 
 This information applies to a Bonita platform deployed from a bundle, not to the Engine launched from Bonita Studio. `<BUNDLE_HOME>` refers to the root directory of the bundle.
 
 SAML configuration is at tenant level. Each tenant can use a different authentication method (over SAML or not).
 
-====info
-*Note:* Bonita uses http://www.keycloak.org/[Keycloak] as SAML Service Provider adapter.
+[NOTE]
+====
+
+Bonita uses http://www.keycloak.org/[Keycloak] as SAML Service Provider adapter.
 ====
 
 == SAML overview for Bonita
@@ -45,7 +49,7 @@ This service validates and process the SAML response :
 [WARNING]
 ====
  +
- Bonita "username" should match the NameId or one attribute of the subject returned by the IdP in the response.
+Bonita "username" should match the NameId or one attribute of the subject returned by the IdP in the response.
  If some users need to be able to log in without having an account on the IdP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username. +
  You can configure Bonita engine to create the accounts on the fly in the database once a user accessing Bonita has been authenticated with the IdP (see the configuration of `bonita-tenant-sp-custom.properties` in the 3rd section of the next chapter).
 ====
@@ -219,7 +223,6 @@ _If your IdP responses are not signed, you can remove the Keys node from the IDP
 *Note 3:* More configuration options can be found in https://www.keycloak.org/docs/latest/securing_apps/index.html#_saml-general-config[Keycloak official documentation]
 ====
 
-[source,xml]
 ----
        <keycloak-saml-adapter>
            <SP entityID="bonita"
@@ -364,7 +367,6 @@ Edit the _logger_ tags which _category_ matches `org.bonitasoft` and `com.bonita
 
 *Symptom:* The following stacktrace appears in the Bonita server log :
 
-[source,log]
 ----
 2018-10-10 13:22:45,921 SEVERE [org.bonitasoft.console.common.server.sso.filter.InternalSSOFilter] (default task-1) java.lang.RuntimeException: Sp signing key must have a PublicKey or Certificate defined: java.lang.RuntimeException: java.lang.RuntimeException: Sp signing key must have a PublicKey or Certificate defined
 	at org.keycloak.adapters.saml.config.parsers.DeploymentBuilder.build(DeploymentBuilder.java:119)
@@ -380,7 +382,6 @@ Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or C
 
 *Symptom:* The following stacktrace appears in the Bonita server log :
 
-[source,log]
 ----
 2018-10-11 20:11:37,314 ERROR [org.keycloak.adapters.saml.profile.webbrowsersso.WebBrowserSsoAuthenticationHandler] (default task-1) Failed to verify saml response signature: org.keycloak.common.VerificationException: Invalid signature on document
 	at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.verifyPostBindingSignature(AbstractSamlAuthenticationHandler.java:520)
@@ -396,7 +397,6 @@ Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or C
 
 *Symptom:* The following stacktrace appears in the Bonita server log :
 
-[source,log]
 ----
 2018-10-11 20:54:22,258 ERROR [org.keycloak.adapters.saml.profile.webbrowsersso.WebBrowserSsoAuthenticationHandler] (default task-2) Error extracting SAML assertion: Encryptd assertion and decrypt private key is null
 2018-10-11 20:54:22,260 ERROR [io.undertow.request] (default task-2) UT005023: Exception handling request to /bonita/saml: java.lang.NullPointerException

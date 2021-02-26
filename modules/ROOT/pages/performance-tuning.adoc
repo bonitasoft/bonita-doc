@@ -155,7 +155,6 @@ A thread from the pool of the work service is known as a worker.
 
 The work service is configured in xref:BonitaBPM_platform_setup.adoc[`bonita-tenant-community-custom.properties`].
 
-[source,properties]
 ----
 bonita.tenant.work.terminationTimeout=30
 bonita.tenant.work.corePoolSize=25
@@ -219,7 +218,6 @@ Another log at the _debug_ level prints all input parameters of this connector.
 
 Here is a sample log produced using a connector that does a `Thread.sleep(15000)`
 
-[source,log]
 ----
 WARNING: Connector 15 sleep with id 20002 with class org.mycompany.connector.SleepImpl of process definition 6587226372021992905 on element flowNode with id 20003 took 15001 ms.
 FINE:  Input parameters of the connector with id 20002: {seconds: [15]}
@@ -245,7 +243,6 @@ The Bonita Engine Scheduler service uses the Quartz Scheduler. Quartz takes the 
 The Scheduler service configuration is in `bonita-platform-community-custom.properties`.
 You can configure:
 
-[source,properties]
 ----
 bonita.platform.scheduler.quartz.threadpool.size=5
 bonita.platform.scheduler.batchsize=1000
@@ -331,22 +328,20 @@ Before going into production, we encourage to finely tune the "Level-2" object c
 
 * activate Hibernate cache statistics by setting to *true* the parameter *bonita.platform.persistence.generate_statistics* in file *bonita-platform-community-custom.properties*
 * activate logs at INFO level:
-[source,xml]
-----
-<logger name="org.bonitasoft.engine.persistence" level="INFO"></logger>
-<logger name="com.bonitasoft.engine.persistence" level="INFO"></logger>
+```+++<logger name="org.bonitasoft.engine.persistence" level="INFO">++++++</logger>++++++<logger name="com.bonitasoft.engine.persistence" level="INFO">++++++</logger>+++
+
 ----
 * run load tests to simulate a production environment
 * analyse the "2nd Level Cache Ratio" log messages generated, combined with the "soft-locked cache entry was expired" **warnings messages** to change the configuration in file **bonita-tenant-hibernate-cache.xml**.
 For instance, if on entity **org.bonitasoft.engine.core.document.model.impl.SDocumentImpl**, the "soft-locked cache entry was expired" warnings message occurs, it means the size of the **maxElementsInMemory** parameter must be increased, provided it is a reasonable memory size and provided the "2nd Level Cache Ratio" is not low for this element. If the "2nd Level Cache Ratio" is low or even 0, it means the cache is never used to read several times the same entity, which means the **timeToLiveSeconds** parameter should be increased, or that the cache should be completely deactivated for this entity.
 
 Below is an example of a "soft-locked cache entry was expired" warning message:
-
-[source,log]
 ----
+
 WARNING: Cache org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl Key org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl#org.bonitasoft.engine.persistence.PersistentObjectId@25505ff
 Lockable : null
 A soft-locked cache entry was expired by the underlying Ehcache. If this happens regularly you should consider increasing the cache timeouts and/or capacity limits
+
 ----
 
 <a id="app_cache"/>
@@ -456,10 +451,9 @@ Be sure to configure these appropriately.
 It is now possible to track the duration of actions in a connector using a new time tracker. The tracker service tracks several connector lifecycle operations.
 This service can impact performance so is disabled by default.
 It is configured by editing the following parameters in `bonita-tenant-community-custom.properties`.
-
-[source,properties]
 ----
-## Time tracker
+
+== Time tracker
 
 #bonita.tenant.timetracker.startTracking=false
 #bonita.tenant.timetracker.maxSize=1000
@@ -470,8 +464,8 @@ It is configured by editing the following parameters in `bonita-tenant-community
 #bonita.tenant.timetracker.csv.separator=;
 #bonita.tenant.timetracker.memory.activateAtStart=false
 #bonita.tenant.timetracker.memory.maxSize=1000000
-----
 
+----
 To activate connector time tracking:
 1. Uncomment all the previous lines except ```## Time tracker```.
 2. Change the value of `startTracking` from `false` to `true`.
@@ -514,16 +508,15 @@ We strongly recommend that you add only appropriate handlers and carefully code 
 Bonita Engine uses the [Scheduler service](engine-architecture-overview.md) to trigger timers.
 
 The Bonita Scheduler service implementation uses the Quartz Scheduler. Some quartz properties can be modified to fine tune quartz jobs execution. These properties can be found in `bonita-platform-community-custom.properties`.
-
-[source,properties]
 ----
+
 org.quartz.jobStore.misfireThreshold
 org.quartz.jobStore.maxMisfiresToHandleAtATime
 org.quartz.jobStore.acquireTriggersWithinLock
 org.quartz.scheduler.batchTriggerAcquisitionMaxCount
 org.quartz.scheduler.batchTriggerAcquisitionFireAheadTimeWindow
-----
 
+----
 Details on these properties can be found in [the Quartz documentation](http://www.quartz-scheduler.org/documentation/).
 
 They are not read subsequently, so changing the values in `bonita-tenant-community-custom.properties` after the Engine has been started has no effect on Quartz.

@@ -57,10 +57,13 @@ You can use Pagination section to define the number of elements you want by page
 
 [WARNING]
 ====
+
 Business data variables will be always an array that contains the result of query execution. In case of single result queries, such as find by persistence Id, you may access the values like this InvoiceVar[0], knowing that 0 is first and only element of your array.
 ====
 
-====info
+[NOTE]
+====
+
 Read xref:ui-designer-overview.adoc]#integration-with-bonita-platform[Integration with Bonita Platform] to know how Business Data are connected with Bonita Platform.
 ====
 

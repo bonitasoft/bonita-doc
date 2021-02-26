@@ -16,7 +16,6 @@ Total Time: 71m30s
 
 === Execution
 
-[source,log]
 ----
 ╰─$ bin/bonita-purge-tool 6547377706517145159 1537600000000
   ____              _ _                                         _              _
@@ -68,15 +67,14 @@ Total Time: 25 minutes
 
 === Configuration ( mysql.cnf )
 
-[source,properties]
 ----
 max_connections = 200
 key_buffer_size = 512M
 innodb_buffer_pool_size = 5500M
 innodb_buffer_pool_instances=8
+125 Gb in the database
 ----
 
-125 Gb in the database
 chunk size :  500 k
 
 === Initial data volume
@@ -275,7 +273,6 @@ DATA_INSTANCE           5               28408
 
 === Execution
 
-[source,log]
 ----
 ╰─$ bin/bonita-purge-tool 5488089572307653177 1584631356000                                                                                                                                            2 ↵
   ____              _ _                                         _              _

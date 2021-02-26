@@ -65,7 +65,6 @@ After you modify the file, restart your application server and test with the fol
 
 Check that the header returned contains the line `Content-Encoding: gzip`. The output should be similar to this:
 
-[source,log]
 ----
 HTTP/1.1 200
 X-XSS-Protection: 1; mode=block

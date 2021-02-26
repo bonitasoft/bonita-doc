@@ -66,7 +66,9 @@ Now, in details:
   *** Task list: recreated with the UI Designer. It brings more clarity about what is displayed (all types of flow nodes or only human tasks), brings consistency in the page layout with the horizontal tabs, with the failed flownodes first as this is the main monitoring information to get a grip on.
   *** Task details: recreated with the UI Designer. For failed flow nodes, the error management "replay" functionality has been clarified.
 
-==== Warning
+[WARNING]
+====
+
 The _Analytics_ page has neither been wrapped nor recreated with the UI Designer. This value is about to be created as part of a new application soon to be released.
 If you use one of our four BPM reports or one of the Jasper reports you have created and installed, do continue to use Bonita Portal with the Administrator profile.
 ====
@@ -97,6 +99,7 @@ Note that for all pages recreated with the UI Designer, error management has bee
 . In the editor, rename the pages, change the order in the menu, remove the pages you do not need, add yours in the menu, or as orphan pages accessed through navigation from another page.
 [WARNING]
 ====
+
 Make sure our "details" pages are always used as orphan pages, as they need some parameters (usually just an ID) to be passed in the URL by a list or another page to show any content.
 ====
 . To add other Bonita provided pages, open the portal from the coolbar, switch to the Administrator profile, and look in the "Resources" page, filtered by pages.

@@ -51,9 +51,8 @@ You can not combine several comparison (no AND and OR operators).
 Example 1:
 Do transition only if myParameter value is "test"
 
-[source,groovy]
 ----
-myParameter1 == "test"
+myParameter1 =="test"
 ----
 
 === Constant
@@ -149,7 +148,6 @@ Here are some examples.
 Example 1:
 Do transition only if the change cost of my BDM object "Change request" is lower than 300.
 
-[source,groovy]
 ----
 return itemChangeRequest.changeCost <= 300
 ----
@@ -157,7 +155,6 @@ return itemChangeRequest.changeCost <= 300
 Example 2:
 Initialize a business data from an ID
 
-[source,groovy]
 ----
 def questionnaireVar = questionnaireDAO.findByPersistenceId(editquestionnaireInput.persistenceId_string.toLong())
 ----

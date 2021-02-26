@@ -1,8 +1,10 @@
 = Single sign-on with Kerberos
-:description: ====info
+:description: [NOTE]
 
-====info
-*Note:* For Enterprise, Performance, Efficiency, and Teamwork editions only.
+[NOTE]
+====
+
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
 ====
 
 This pages explains how to configure your Bonita Platform system to use the Kerberos protocol to provide single sign-on (SSO). It assumes you already have a Correctly configured Windows Domain (AD/KDC/DNS services).
@@ -11,8 +13,10 @@ This information applies to a Bonita platform deployed from a bundle, not to the
 
 Kerberos configuration is at tenant level. Each tenant can use a different authentication method (over Kerberos or not).
 
-====info
-*Note:* Bonita uses http://spnego.sourceforge.net/[Spnego] library that allows to request tickets using the Kerberos protocol.
+[NOTE]
+====
+
+Bonita uses http://spnego.sourceforge.net/[Spnego] library that allows to request tickets using the Kerberos protocol.
 ====
 
 == Kerberos single sign-on with Active Directory
@@ -46,7 +50,7 @@ The Spnego authenticator will then verify the user's Kerberos tickets if present
 [WARNING]
 ====
  +
- Bonita "username" should match the authenticated user login returned in the client response. +
+Bonita "username" should match the authenticated user login returned in the client response. +
 You can configure Bonita engine to create the accounts on the fly in the database when a user accessing Bonita is already authenticated with Kerberos (see the configuration of `bonita-tenant-sp-custom.properties` in the 6th section of the chapter "Configure Bonita Bundle for Kerberos").
 ====
 
@@ -67,7 +71,6 @@ Note that this a different account than the machine object on which the service 
 
 2- Check that the service account is not already associated to any host by running this command (replace bonita.tomcat with your service account name):
 
-[source,bash]
 ----
 setspn -L bonita.tomcat
 ----
@@ -76,7 +79,6 @@ This will list the hosts associated to this service account. There should not be
 
 3- Run these two commands in order to declare the SPN (bonita.tomcat). The first command will use the simple host name (win2008tomcat):
 
-[source,bash]
 ----
 setspn -A HTTP/win2008tomcat bonita.tomcat
 
@@ -87,7 +89,6 @@ Updated object
 
 Second command with the fully qualified host name (win2008tomcat.corp.bonitasoft.com):
 
-[source,bash]
 ----
 setspn -A HTTP/win2008tomcat.corp.bonitasoft.com bonita.tomcat
 
@@ -98,7 +99,6 @@ Updated object
 
 4- Make sure the SPN is set up correctly by running this command:
 
-[source,bash]
 ----
 setspn -L bonita.tomcat
 

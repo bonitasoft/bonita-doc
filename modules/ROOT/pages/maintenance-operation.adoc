@@ -22,6 +22,7 @@ These section will describe how to purge the `arch_contract_data` table, dependi
 [WARNING]
 ====
 
+
 _This operation is destructive, data will be not usable for audit or analytics purposes. It is highly recommended to backup data before the purge._
 ====
 
@@ -30,7 +31,6 @@ However, from version 7.10, it is possible to deactivate the archiving of `contr
 
 To delete all rows from the `arch_contract_data`, you can use the `TRUNCATE TABLE` statement.
 
-[source,sql]
 ----
     TRUNCATE TABLE arch_contract_data;
 ----
@@ -43,7 +43,6 @@ to a new table named `arch_contract_data_backup`, for migration purposes.
 In that case, if the `live-migration` tool was not executed (please see xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[Bonita migration steps]),
 you will also need to drop the table `arch_contract_data_backup`:
 
-[source,sql]
 ----
     DROP TABLE arch_contract_data_backup;
 ----

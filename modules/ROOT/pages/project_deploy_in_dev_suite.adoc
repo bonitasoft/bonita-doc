@@ -35,5 +35,6 @@ Common errors and warnings:
 
 [WARNING]
 ====
+
 API resources detection in pages and forms is a best effort detection. If API urls are forged using Javascript expression variables in you pages and forms, it will not be detected properly. In this case no error or warning will be thrown at deployment but you may have forbidden access error at runtime if permission mapping is invalid or if the Rest API Extension is missing.
 ====
