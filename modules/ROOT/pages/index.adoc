@@ -15,6 +15,7 @@ Short description on how to use the HTML zip. Good luck Nath.
 
 === 7.3 - https://www.heyImTheLink.com[Download 7.3 documentation]
 
+ 
 == PDF
 
 [NOTE]
@@ -22,4 +23,5 @@ Short description on how to use the HTML zip. Good luck Nath.
 Short description on how to use the PDF. Good luck Nath.
 ====
 
-=== 7.2 - https://www.heyImTheLink.com[Download 7.2 documentation]
+=== 7.2, 7.1, 7.0, 6.5, 6.4, 6.3, 6.2, 6.1, 6.0
+ https://documentation-legacy.bonitasoft.com[Go to oldest documentation]
