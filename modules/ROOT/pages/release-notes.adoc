@@ -389,7 +389,7 @@ If you need to use custom types, it is recommended to use Business Object from t
 * BS-18900	Operation does not apply changes within the same transaction for single document
 * BS-19062	Lazy referenced BO field to itself fails to serialize with StackOverflowError
 * BS-19073	Archived contract data are never deleted
-+
+
 ==== Fixes in Studio component
 * BS-18588	String process variable in diagram appears as Boolean in .proc file
 * BS-18664	Studio thread takes 100% CPU when selecting a call activity
@@ -400,13 +400,13 @@ If you need to use custom types, it is recommended to use Business Object from t
 * BS-18946	Studio launches several processes to open BDM H2 console
 * BS-19033	Git reset leaves files that should not be there
 * BS-19105	Studio Import: unable to recognize git repositories after studio migration
-+
+
 ==== Fixes in UI Designer component
 * BS-18472	Rename fragment does not rename fragment used in a container in a form
 * BS-18860	Date widget input not removed from binded variable
 * BS-19006	Cannot use a exported page from UID if one of widget asset is inactive
 * BS-19100	Rename a fragment replace others fragments reference use in a page same page
-+
+
 ==== Fixes in Web/Portal component
 * BS-18847	Parallel archive cases deletion via REST API does not delete all rows
 * BS-18672	Do some check in caseOverview to ensure display in any case.
