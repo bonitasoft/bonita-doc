@@ -114,7 +114,6 @@ A special attention has also been carried out to an improved deletion mechanism 
 
 [WARNING]
 ====
-
 As a result, some xref:event-handlers.adoc[Events] are not triggered anymore (among others: ARCHIVED_FLOWNODE_INSTANCE_DELETED, only concerns deletion of *archived* elements).
 If you used these events and still need them, there is a way to switch back to the previous deletion mechanism.
 In such cases, please contact Customer Support to activate this legacy deletion mechanism.
@@ -150,7 +149,7 @@ Then just import the connector using the `+Development > Connectors > Import con
 
 === UI Designer URL change
 
-The UI Designer webapp embedded in Bonita Studio is now deployed with the name "bonita" (instead of "designer") in its own container (different from the one of Bonita Engine and Portal). As a result, it is now accessible through the URL http://localhost:+++<designer_port>+++/bonita instead of http://localhost:+++<tomcat_port>+++/designer. This name update was a requirement in order for the UI Designer preview to continue working with bonita portal resources URLs starting with "/bonita".+++</tomcat_port>++++++</designer_port>+++
+The UI Designer webapp embedded in Bonita Studio is now deployed with the name "bonita" (instead of "designer") in its own container (different from the one of Bonita Engine and Portal). As a result, it is now accessible through the URL `http://localhost:<designer_port>/bonita` instead of `http://localhost:<tomcat_port>/designer`. This name update was a requirement in order for the UI Designer preview to continue working with bonita portal resources URLs starting with "/bonita".
 
 === Add comment with a Groovy script in an open case
 
@@ -226,11 +225,11 @@ In order to build business archives without having a constraint on a GUI, the pr
 * BS-18579 Irrecoverable error when message content does not match waiting event
 * BS-18615 Missing Hibernate query searchSProcessInstancewithSProcessSupervisor
 * BS-18657 Data truncation error when migrating from v7.6.3 to v7.7.0
-+
+
 ==== Fixes in Studio component
 * BS-18660 The bonita la builder doesn't build connectors jar correctly
 * BS-18673 Saving changes in BDM will install an empty Access Control and block permissions if bdm_access_control.xml has no rules
-+
+
 ==== Fixes in Web component
 * BS-18427 The task stays in pending state for a while before it fails and no error is visible in the Portal
 * BS-18437 ASSIGN button: popup displays NOT IMPLEMENTED when a PROCESS MANAGER is not ADMINISTRATOR
@@ -244,11 +243,11 @@ In order to build business archives without having a constraint on a GUI, the pr
 * BS-18312 A named Hibernate query to search Activities with type CALL_ACTIVITY is missing.
 * BS-18557 Missing Hibernate queries for running and archived process instances can lead to runtime errors when using the Engine API
 * BS-18575 "-Djava.security.egd=file:/dev/./urandom" option missing from setup/tomcat-templates/setenv.sh
-+
+
 ==== Fixes in Studio component
 * BS-18576 Can not import .bos file in 7.7.x Teamwork edition Studio
 * BS-18589 LA-Builder groovy script compilation fails due to classpath issues
-+
+
 ==== Fixes in Web component
 * BS-16976	FileNotFoundException/IOException issues when accessing/deploying custom pages/REST API extensions
 * BS-18570	Cannot retrive theme.css from a custom page into a portal profile
@@ -262,15 +261,15 @@ In order to build business archives without having a constraint on a GUI, the pr
 * BS-18428 Missing Hibernate queries for activity instances can lead to runtime errors when calling ProcessAPI.searchActivities()
 * BS-18439 BDM: extra lines generated with null values in table, with aggregation relation
 * BS-18445 Webservice connector fails in buildResponseDocumentBody with error: HIERARCHY_REQUEST_ERR: An attempt was made to insert a node where it is not permitted
-+
+
 ==== Fixes in Studio component
 * BS-18445 Webservice connector fails in buildResponseDocumentBody with error: HIERARCHY_REQUEST_ERR: An attempt was made to insert a node where it is not permitted.
 * BS-18467 Database connector wizard does not filter unaccessible connector outputs in scripting mode
-+
+
 ==== Fixes in UI Designer component
 * BS-18431 The LA-Builder hang for ever on UID page generation error
 * BS-18472 Rename fragment does not rename frament into Forms
-+
+
 ==== Fixes in Web component
 * BS-17975 As Sam, I want the Tomcat bundle to start in less than 7 minutes on my Docker env
 * BS-17880 Importing organization with expired session fails with misleading error message
@@ -314,8 +313,9 @@ In order to build business archives without having a constraint on a GUI, the pr
 * BS-18336 HazelcastSerializationException: Failed to serialize 'org.bonitasoft.engine.work.WorkDescriptor'
 * BS-18350 Fix Aws discovery sample hostHeader in bonita-platform-sp-cluster.properties
 * BS-18389 Tomcat outputs TechnicalLoggerSLF4JImpl for all logs in subscription editions
-+
+
 ==== Fixes in Studio component
+
 * BS-17267 engine-server temp folder keeps growing in size on windows environment
 * BS-17749 : surounded with space chars in task name generates an error when user clicks on the task in the portal's tasklist
 * BS-17939 Content Assist doesn't work without keyboard shortcut in Groovy expression editor
@@ -330,8 +330,9 @@ In order to build business archives without having a constraint on a GUI, the pr
 * BS-18343 Using loop "for" in Input Constraints fails with a validation error and a warning in the Editor
 * BS-18344 CPU spike and GC overhead limit exceeded when using groovy editor for Inputs constraints
 * BS-18381 Installer fails to launch BonitaStudio at end, if path contains space characters
-+
+
 ==== Fixes in UI Designer component
+
 * BS-16696 Autocomplete widget issue with asynchronous data (Rest API call)
 * BS-16997 File viewer preview display cut and not scrollable with pdf file in Mobile portal
 * BS-17809 HTML is not interpreted anymore after page import in studio 7.7.0 from 7.6.x and lower
@@ -340,8 +341,9 @@ In order to build business archives without having a constraint on a GUI, the pr
 * BS-18222 Bonita API resource not exported in page.properties when single resource call with id
 * BS-18256 Infinite loop creating css file after migration error
 * BS-18385 URL parameters are not decoded in UI Designer
-+
+
 ==== Fixes in Web component
+
 * BS-16440 Instance counter starts one day before subscription start date
 * BS-17924 CSRF cookie needs to be handled when implementing authentication manager
 * BS-18137 Changing filter does not refresh the case list properly
