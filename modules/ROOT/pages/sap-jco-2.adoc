@@ -61,10 +61,10 @@ There are different distribution packages for various JRE versions and hardware 
 To install JCo for Windows:
 
 . Unzip the appropriate distribution package into an arbitrary directory `+{sapjco-install-path}+`.
-
++
 IMPORTANT: Do not forget to install the .dll files in the System32 directory for the approptiate Jc0 version.
 If you already have an older `librfc32.dll` in the `+{windows-dir}\system32+` directory, replace it with the one that comes with JCo.
-
++
 . Add `+{sapjco-install-path}+` to the PATH environment variable.
 . Add `+{sapjco-install-path}\sapjco.jar+` to your CLASSPATH environment variable.
 
@@ -84,8 +84,7 @@ To install JCo for Linux:
 . Copy the appropriate distribution package into an arbitrary directory `+{sapjco-install-path}+`.
 . Change to the installation directory: +
 `+cd {sapjco-install-path}+`
-. Extract the archive: +
-`tar zxvf sapjco-linux*2.1.9.tgz `
+. Extract the archive: `tar zxvf sapjco-linux*2.1.9.tgz`
 . Add `+{sapjco-install-path}+` to the LD_LIBRARY_PATH environment variable.
 . Add `+{sapjco-install-path}/sapjco.jar+` to your CLASSPATH environment variable.
 
