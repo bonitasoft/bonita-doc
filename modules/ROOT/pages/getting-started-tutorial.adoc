@@ -230,7 +230,6 @@ To add each attribute:
  .. Change the temporary name to `findByUserIdAndStatus`.
  .. Click in the query column, and then click the edit icon at the right. This opens a popup with a proposed custom query that uses all the attributes.
  .. In the *JPQL Query* field, remove these lines:
-
 +
 ----
 AND t.departureDate = :departureDate
