@@ -105,7 +105,9 @@ And we are done for the connector configuration. If you want to test it from the
 
 . Select the _**Display capital**_ task, go on the _**Execution tab**_, click on _**Form**_ and click on the pencil to create the form of this task. The UI Designer should open. The idea here is to simply display the field _capital_ of the business object used in the case (which has been created during the case or retrieved from the database). This business object is accessible in the context.
 * Create a _**Javascript expression**_ variable named _**api**_, with the following content:
-```Javascript
++
+[source,Javascript]
+----
 return "../" + $data.context.countryBo_ref.link;
 ----
 
