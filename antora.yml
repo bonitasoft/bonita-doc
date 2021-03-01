@@ -1,7 +1,7 @@
 name: bonita
 title: Bonita
-version: old
-display_version: other
+version: archives
+display_version: Archives
 # default
 #start_page: ROOT:index.adoc
 nav:
