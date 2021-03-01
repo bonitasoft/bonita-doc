@@ -2,13 +2,14 @@
 
 A profile is an indirection to some entities of the organization: users, groups, roles, and/or memberships.
 Profiles work as permissions to give access to:
+
 - [Living Applications](applications.md)
 - Defined objects and attributes of the BDM (through [BDM Access Control](access-control-api.md))
 - Navigation (menus) of Bonita Portal
 
 One organization entity can be mapped to several profiles. In Bonita Portal, a loggued user can switch between his/her profiles in the navigation bar.
 
-In development, to map entities of the organization to a profile, use the [profile editor](profileCreation.md) in Bonita Studio.   
+In development, to map entities of the organization to a profile, use the [profile editor](profileCreation.md) in Bonita Studio.  
 In production, an administrator must use the **Organization**>**Profiles** menu of Bonita Portal.
 
 ## Default profiles
@@ -35,7 +36,6 @@ This profile is available for Subscription editions only.
 An employee mapped to the **Process manager** profile has limited administration rights for activities related to the processes they manage, as defined by the Administrator.
 
 **Note:** In Bonita ACME organization, all users have the role **Member**, and the role **Member** is mapped to all default profiles. This simplifies process testing (log in as any user to see any Portal content). 
-
 
 ## Custom profiles
 

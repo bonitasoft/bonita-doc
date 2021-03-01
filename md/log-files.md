@@ -1,6 +1,6 @@
 # Log files
-Studio log file is related to development activities, while Engine log file is related to process testing.
 
+Studio log file is related to development activities, while Engine log file is related to process testing.
 
 ::: info
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
@@ -17,12 +17,12 @@ To access the Studio log file, choose **Bonita Studio log** from the **Help** me
 
 For Bonita Studio, you can set the level of logging. Edit the `config.ini` in the Studio root configuration directory and set the value of `eclipse.log.level` to ERROR, WARNING, INFO, or ALL.
 
-| | |
-|:-|:-|
-| ERROR | Only error messages are logged| 
-| WARNING | Only error and warning messages are logged| 
-| INFO | Error, warning, and Info message are logged (this is the default)| 
-| ALL | All messages are logged, including debug information| 
+|         |                                                                   |
+| :------ | :---------------------------------------------------------------- |
+| ERROR   | Only error messages are logged                                    |
+| WARNING | Only error and warning messages are logged                        |
+| INFO    | Error, warning, and Info message are logged (this is the default) |
+| ALL     | All messages are logged, including debug information              |
 
 ## Engine log file
 
@@ -32,6 +32,6 @@ The logging level for Engine when it is started from Studio is always `INFO`.
 On a deployed system, you can configure the log level and you can access the log files directly, in `<BUNDLE_HOME>/server/logs`. 
 Each file name includes the date when the file was created. There are several log files:
 
-* _bonita.date_.log is the Bonita Engine log file.
-* _catalina.date_.log is the log file for the Tomcat application server used by Bonita Studio.
-* _host-manager.date_.log, _localhost.date_.log, and _manager.date_.log are internal Tomcat log files.
+- _bonita.date_.log is the Bonita Engine log file.
+- _catalina.date_.log is the log file for the Tomcat application server used by Bonita Studio.
+- _host-manager.date_.log, _localhost.date_.log, and _manager.date_.log are internal Tomcat log files.

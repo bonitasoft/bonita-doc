@@ -6,10 +6,10 @@ Discover how to add items to a diagram in Bonita Studio, use the tree view, and 
 
 There are several ways to add an item to the diagram:
 
-* Click-and-hold on a icon in the **BPMN elements** menu and drag it to where you want the item in the whiteboard.
-* Click-and-release on an icon in the **BPMN elements** then click where you want it to appear in the whiteboard.
-* Select the previous item in the flow, and drag the item from the context menu to where you want it in the whiteboard.
-* Copy and paste an item from another pool.
+- Click-and-hold on a icon in the **BPMN elements** menu and drag it to where you want the item in the whiteboard.
+- Click-and-release on an icon in the **BPMN elements** then click where you want it to appear in the whiteboard.
+- Select the previous item in the flow, and drag the item from the context menu to where you want it in the whiteboard.
+- Copy and paste an item from another pool.
 
 The advantage of selecting items from the **BPMN elements** menu is that you can choose precisely the item you want.  
 The advantage of using the content menu is that the transition is automatically created.

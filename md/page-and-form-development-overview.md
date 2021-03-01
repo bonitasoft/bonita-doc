@@ -36,6 +36,6 @@ The process instantiation and step execution temporary forms are based on the re
 
 The case overview contains three main sections:
 
-* List of business data: the content of the business variables used by the case
-* List of documents: the content of each document used by the case
-* Timeline: information in chronological order about all the actions that have been performed in the selected case
+- List of business data: the content of the business variables used by the case
+- List of documents: the content of each document used by the case
+- Timeline: information in chronological order about all the actions that have been performed in the selected case

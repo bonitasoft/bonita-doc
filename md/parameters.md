@@ -4,8 +4,11 @@ A parameter can be used to store a value that differs between deployments but is
 
 The value is set when you configure the process. For example, if you have a process for approving expense reports, you could define a parameter for the approver's email address that is set at deployment.  
 The value can also be changed after deployment:  
-     - In versions 7.0.x, if you are using the Enterprise or the Performance edition  
-     - In versions 7.1.0 and above, if you are using the Enterprise, Performance or Efficiency edition
+
+```
+ - In versions 7.0.x, if you are using the Enterprise or the Performance edition  
+ - In versions 7.1.0 and above, if you are using the Enterprise, Performance or Efficiency edition
+```
 
 ## Defining a process parameter
 
@@ -33,7 +36,7 @@ To set a parameter value:
 4. Select the table cell for the parameter value you want to set or modify, and enter the new value.
 5. When all the parameters values have been set, click **Finish**.
 
-You can export the parameter values to a file by clicking **Export parameters as file...**. The default file name is _process\_name_\_Parameters.properties. 
+You can export the parameter values to a file by clicking **Export parameters as file...**. The default file name is _process_name_\_Parameters.properties. 
 You can also set parameter values by importing a parameter.properties file. The values in the file are used to set the values of the corresponding parameters. Note that importing a parameters.properties file does not create parameters in the process, just sets the values of those that exist if they are present in the file.
 
 When you build a process for deployment (see [Import and export a process](import-and-export-a-process.md)), the .bar archive that is 

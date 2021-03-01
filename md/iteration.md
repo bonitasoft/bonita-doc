@@ -16,22 +16,22 @@ To configure multi-instantiation, select the element in the diagram and go to th
 
 1. Select _Parallel_ or _Sequential_ Multi-instantiation.
 2. Specify how many instances of the task you want. You can:
-   * Specify a defined number: Check Create a defined number of instances, open the expression editor, set the expression type to  Constant, and enter the number. You can also set the number by using the value of an integer parameter or variable.
-   * Define an expression: Check Create a defined number of instances, open the expression editor, set the expression type to Script, and define the script. This is useful if the number of iterations is conditional on some information in the process. The script must return an integer.
-   * Specify the number of iterations from a list: Check Create instances from a list, and choose the list from the existing lists or multiple data.
+   - Specify a defined number: Check Create a defined number of instances, open the expression editor, set the expression type to  Constant, and enter the number. You can also set the number by using the value of an integer parameter or variable.
+   - Define an expression: Check Create a defined number of instances, open the expression editor, set the expression type to Script, and define the script. This is useful if the number of iterations is conditional on some information in the process. The script must return an integer.
+   - Specify the number of iterations from a list: Check Create instances from a list, and choose the list from the existing lists or multiple data.
 3. If you are using a list, you may also edit the name of the multiInstanceIterator, a reference that takes the value of each item in the list to create the corresponding instance. Make sure that it has the same type as the list items. To access the referenced data use the same REST API format for retrieving data either using the caseId as in:
-../API/bpm/case/{{caseId}}/context
-or in the context of a process form:
-../{{context.businessVariableName_ref.link}}
-replacing `businessVariableName` with `multiInstanceIterator` or if you edited the `reference name` use this `reference name` instead of `businessVariableName`.
+   ../API/bpm/case/{{caseId}}/context
+   or in the context of a process form:
+   ../{{context.businessVariableName_ref.link}}
+   replacing `businessVariableName` with `multiInstanceIterator` or if you edited the `reference name` use this `reference name` instead of `businessVariableName`.
 4. If you want to save the results of user activities during all instances, check the Store output result box and specify:
-   * The result data of each instance to be stored in the output list
-   * The final list of appended results
-5. Specify the early completion condition. This is a Boolean that determines whether the iteration is complete. For example, if you have a maximum of 10 possible instances of a task and you require at least 8 to be completed, you could define a counter called completed\_instances and set the completion condition to true when completed\_instances reaches or exceeds 8. In this expression you have access to the following provided variables :
-   * `numberOfActiveInstances`: the number of instances that are currently active, that is, not yet finished (for a sequential multi-instance task, this will always be 1)
-   * `numberOfTerminatedInstances`: the number of instances terminated, successfully or not
-   * `numberOfCompletedInstances`: the number of instances terminated successfully
-   * `numberOfInstances`: the total number of instances
+   - The result data of each instance to be stored in the output list
+   - The final list of appended results
+5. Specify the early completion condition. This is a Boolean that determines whether the iteration is complete. For example, if you have a maximum of 10 possible instances of a task and you require at least 8 to be completed, you could define a counter called completed_instances and set the completion condition to true when completed_instances reaches or exceeds 8. In this expression you have access to the following provided variables :
+   - `numberOfActiveInstances`: the number of instances that are currently active, that is, not yet finished (for a sequential multi-instance task, this will always be 1)
+   - `numberOfTerminatedInstances`: the number of instances terminated, successfully or not
+   - `numberOfCompletedInstances`: the number of instances terminated successfully
+   - `numberOfInstances`: the total number of instances
 
 ### Loops
 

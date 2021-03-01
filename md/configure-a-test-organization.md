@@ -18,15 +18,15 @@ To an organization, you create the organization, create the group hierarchy, spe
 1. Start Bonita Studio.
 2. Go to the Organization menu and select **Manage....**
 3. Add a new organization:
-   1. Click **_Add_**. A line will be added to the table of organizations, with a placeholder name such as Organization1\.
+   1. Click **_Add_**. A line will be added to the table of organizations, with a placeholder name such as Organization1.
    2. Change the placeholder name to the name of your organization, and add a description.
 4. Add groups to your organization:
    1. Select the name of your organization and click **_Next_**.
    2. Click **_Add group_** to add a group. You can specify the following:
-     * the group Name, which is used internally by the Bonita software._**NB: Bonita doesn't support the '/' character in the group name field. A group name that contains a '/' may lead to unstable behaviour and may be forbidden in the future.**_ 
-     * the Display name, which is the group name displayed in lists and wizards
-     * the Path, which shows the hierarchical relationship between groups
-     * a Description of the group
+   - the group Name, which is used internally by the Bonita software._**NB: Bonita doesn't support the '/' character in the group name field. A group name that contains a '/' may lead to unstable behaviour and may be forbidden in the future.**_ 
+   - the Display name, which is the group name displayed in lists and wizards
+   - the Path, which shows the hierarchical relationship between groups
+   - a Description of the group
    3. Click **_Add group_** to add the next group, and continue until you have added all the groups required. You can also add a subgroup, by selecting a group and clicking **_Add subgroup_**
    4. When you have added all the groups you need, click **_Next_**.
 5. Specify roles in your organization:

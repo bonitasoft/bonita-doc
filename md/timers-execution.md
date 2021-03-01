@@ -18,12 +18,12 @@ Execution date for timer of type **DATE** or **DURATION** (not **CYCLE**) can be
 
 When a timer fails the following happens:
 
-* a FailJob is registered that contains
-  * The id of the `JobDescriptor` that failed
-  * The stacktrace of the last failure
-  * The date of the failure
-  * The number of times it has failed
-* If the timer is of type **CYCLE** subsequent executions will still be triggered
+- a FailJob is registered that contains
+  - The id of the `JobDescriptor` that failed
+  - The stacktrace of the last failure
+  - The date of the failure
+  - The number of times it has failed
+- If the timer is of type **CYCLE** subsequent executions will still be triggered
 
 ### Handling the failure
 
@@ -34,7 +34,6 @@ Then you can replay a timer that failed using `org.bonitasoft.engine.api.Process
 If the job failed more than one time, you can restart this job multiple times by calling this api method the number of times you wish.
 
 Once this method is called (at least once) the `FailedJob`s for this timer will be cleared.
-
 
 ## Tune performance of timers execution
 

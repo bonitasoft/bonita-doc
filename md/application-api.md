@@ -13,6 +13,7 @@ Manage applications. This enables you to build a consistent functional applicati
 The ID of the application (a long value).
 
 #### Representation
+
 ```json
 {
   "id":"id of the application",
@@ -24,7 +25,7 @@ The ID of the application (a long value).
   "creationDate":"creation date of the application",
   "createdBy":"user that created the application",
   "updatedBy":"user that that updated the application",
-  "lastUpdateDate":"last update date of the application"},
+  "lastUpdateDate":"last update date of the application",
   "homePageId":"id of the application page used as the home page"
 }
 ```
@@ -33,32 +34,32 @@ The ID of the application (a long value).
 
 The methods used for this resource are:
 
-* POST - Create an application
-* GET - Get the application information
-* PUT - Update an application
-* DELETE - Remove an application
+- POST - Create an application
+- GET - Get the application information
+- PUT - Update an application
+- DELETE - Remove an application
 
 #### Create an application
 
-* **URL:**  
+- **URL:**  
   `/API/living/application`  
-* **Method**  
+- **Method**  
   `POST`  
-* **Data params**:  
+- **Data params**:  
   A partial representation of an application in JSON  
-    ```json
-    {
-      "version":"1.0",
-      "profileId":"2",
-      "token":"myapp",
-      "displayName":"My app",
-      "description":"My application description"
-    }
-    ```
-* **Success Response**  
-  * **Code:** 200  
-  * **Payload**:  
-  The full JSON representation of the application that was created
+  ```json
+  {
+    "version":"1.0",
+    "profileId":"2",
+    "token":"myapp",
+    "displayName":"My app",
+    "description":"My application description"
+  }
+  ```
+- **Success Response**  
+  - **Code:** 200  
+  - **Payload**:  
+    The full JSON representation of the application that was created
     ```json
     {
       "id":"305",
@@ -79,14 +80,14 @@ The methods used for this resource are:
 
 #### Get an application
 
-* **URL:**  
+- **URL:**  
   `/API/living/application/:applicationId`
-* **Method:**  
+- **Method:**  
   GET
-* **Success Response**
-  * **Code**: 200
-  * **Payload** 
-  The full JSON representation of the application that was created with id="applicationId"
+- **Success Response**
+  - **Code**: 200
+  - **Payload** 
+    The full JSON representation of the application that was created with id="applicationId"
     ```json
     {
       "id":"305",
@@ -104,30 +105,33 @@ The methods used for this resource are:
       "homePageId":"-1"
     }
     ```
+
 #### Delete an application
 
-* **URL**  
+- **URL**  
   `/API/living/application/:applicationId`
-* **Method:**  
+- **Method:**  
   `DELETE`
-* **Success Response**
-  * **Code:** 200
+- **Success Response**
+  - **Code:** 200
 
 #### Update an Application
 
 You can update the following parameters:
 
-* token
-* displayName
-* version
-* profileId
-* description
+- token
+- displayName
+- version
+- profileId
+- description
 
-* **URL**  
+- **URL**  
   `/API/living/application/:applicationId`
-* **Method**  
+
+- **Method**  
   `PUT`
-* **Request Payload**  
+
+- **Request Payload**  
   A partial representation of an application with parameters to update
   ```json
   {
@@ -138,31 +142,36 @@ You can update the following parameters:
     "description":"My application description To Up Date"
   }
   ```
-* **Success Response**
-  * **Code**: 200
+
+- **Success Response**
+  - **Code**: 200
 
 #### Search for an application
 
-* **URL**  
+- **URL**  
   `/API/living/application`
   _Example_: /API/living/application?f=token%3dmyapp&d=createdBy
-* **Method**  
+
+- **Method**  
   `GET`
-* **URL Params**  
+
+- **URL Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available to search form mappings.  
   **Required**
-  * c: number of result per page to retrieve
-  * p: page number to retrieve
+
+  - c: number of result per page to retrieve
+  - p: page number to retrieve
 
   **Optional**:
-  * o: can order on "id","creationDate", "createdBy", "profileId", "token", "displayName", "updatedBy", "lastUpdateDate", "version" 
-  * s: can search on "token", "displayName", "version" 
-  * f: can filter on "token", "displayName", "version", "profileId", "creationDate", "createdBy", "updatedBy" , "lastUpdateDate" with the format `f={filter\_name}={filter\_value}`
-  * d: can directly access the details by of the "createdBy" or "updatedBy" user, or of the "profileId"
 
-* **Success Response**
-  * **Code**: 200 
-  * **Payload**:
+  - o: can order on "id","creationDate", "createdBy", "profileId", "token", "displayName", "updatedBy", "lastUpdateDate", "version" 
+  - s: can search on "token", "displayName", "version" 
+  - f: can filter on "token", "displayName", "version", "profileId", "creationDate", "createdBy", "updatedBy" , "lastUpdateDate" with the format `f={filter\_name}={filter\_value}`
+  - d: can directly access the details by of the "createdBy" or "updatedBy" user, or of the "profileId"
+
+- **Success Response**
+  - **Code**: 200 
+  - **Payload**:
     A JSON array of application
     ```json
     [{
@@ -196,6 +205,7 @@ You can update the following parameters:
       "homePageId":"-1"
     }]
     ```
+
 ## Application Theme
 
 #### Description
@@ -214,28 +224,28 @@ The ID of the application (a long value).
 {
   "themeId":"id of theme resource"
 }
-```   
+```
 
 #### Methods
 
 The methods used for this resource are:
 
-* PUT - Update an application theme
+- PUT - Update an application theme
 
 #### Update an application theme
 
-* **URL**  
+- **URL**  
   `/API/living/application/:applicationId`  
-* **Method**  
+- **Method**  
   `PUT`
-* **Request Payload**  
+- **Request Payload**  
   A partial representation of an theme resource in JSON  
   _Example_:
   ```json
   {"themeId":"2"}
   ```
-* **Success Response**
-  * **Code**: 200
+- **Success Response**
+  - **Code**: 200
 
 ## Application Menu
 
@@ -245,8 +255,8 @@ Manage the set of menus in an application. This set of menus enables a user to n
 
 There are two types of menu item: 
 
-* A top-level item appears in the navigation bar of the application. A top-level item can be clickable, leading to a page, or can be a parent for a menu of clickable items.
-* A child menu item becomes visible in a menu when the parent is selected. A child menu item is clickable and leads to a page.
+- A top-level item appears in the navigation bar of the application. A top-level item can be clickable, leading to a page, or can be a parent for a menu of clickable items.
+- A child menu item becomes visible in a menu when the parent is selected. A child menu item is clickable and leads to a page.
 
 Each menu item has an index that defines the position in the menu. For a top-level menu item, this is the position in the the navigation bar counting from the left. For a child menu item, this is the position in the menu counting from the top.
 
@@ -271,18 +281,18 @@ The ID of the application menu item (a long value).
 
 The methods used for this resource are:
 
-* POST - Create a menu item
-* GET - Read a menu item or search for a menu item
-* PUT - Update a menu item
-* DELETE - Remove a menu item
+- POST - Create a menu item
+- GET - Read a menu item or search for a menu item
+- PUT - Update a menu item
+- DELETE - Remove a menu item
 
 #### Create an application menu item
 
-* **URL**  
+- **URL**  
   `http://../API/living/application-menu`
-* **Method**  
+- **Method**  
   POST
-* **Request Payload**  
+- **Request Payload**  
   A partial representation of an application menu in JSON
   ```json
   {
@@ -293,10 +303,10 @@ The methods used for this resource are:
     "parentMenuId":"-1"
   }
   ```
-* **Success Response**
-  * **Code**: 200  
-  * **Payload**:  
-  The full JSON representation of the created application menu item
+- **Success Response**
+  - **Code**: 200  
+  - **Payload**:  
+    The full JSON representation of the created application menu item
   ```json
   {
     "id":"1",
@@ -310,14 +320,14 @@ The methods used for this resource are:
 
 #### Get an application menu item
 
-* **URL**  
+- **URL**  
   `http://../API/living/application-menu/:applicationMenuId`  
   _Example_: `http://../API/living/application-menu/1`
-* **Method**  
+- **Method**  
   `GET`
-* **Success Response**
-  * **Code**: 200
-  * **Payload**:
+- **Success Response**
+  - **Code**: 200
+  - **Payload**:
     The full JSON representation of the application menu with id="applicationMenuId"
     ```json
     {
@@ -332,27 +342,27 @@ The methods used for this resource are:
 
 #### Delete an application menu item
 
-* **URL**  
+- **URL**  
   `http://../API/living/application-menu/:applicationMenuId`
-* **Method**  
+- **Method**  
   `DELETE`
-* **Success Response**  
-  * **Code**: 200
+- **Success Response**  
+  - **Code**: 200
 
 #### Update an application menu item
 
-* **URL**  
+- **URL**  
   `http://../API/living/application-menu/:applicationMenuId`  
   _Example_: `http://../API/living/application-menu/1`
-* **Method**  
+- **Method**  
   `PUT`
-* **Request Payload**  
+- **Request Payload**  
   A partial representation of an application menu with parameters to update.  
   _Available parameters to update_: 
-  * displayName
-  * applicationPageId
-  * menuIndex
-  * parentMenuId
+  - displayName
+  - applicationPageId
+  - menuIndex
+  - parentMenuId
   ```json
   {
     "displayName":"updatedMenuLabel",
@@ -360,28 +370,28 @@ The methods used for this resource are:
     "menuIndex":"2"
   }
   ```
-* **Success Response**  
-  * **Code**: 200
+- **Success Response**  
+  - **Code**: 200
 
 #### Search the application menu items
 
-* **URL**  
+- **URL**  
   `http://../API/living/application-menu`  
   _Example_: `http://../API/living/application-menu?p=0&c=2&f=applicationId%3d1`
-* **Method**  
+- **Method**  
   `GET`
-* **Data Params**  
+- **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available to search form mappings.
-  * c: number of result per page
-  * p: page number
-  * o: can order on "id", "displayName", "applicationId", "applicationPageId", "index", "parentId"
-  * s: search on "displayName" 
-  * f: can filter on "id", "displayName", "applicationId", "applicationPageId", "index", "parentId" with the format `f={filter\_name}={filter\_value}`
-  * d: can deploy on "applicationPageId"
-* **Success Response**  
+  - c: number of result per page
+  - p: page number
+  - o: can order on "id", "displayName", "applicationId", "applicationPageId", "index", "parentId"
+  - s: search on "displayName" 
+  - f: can filter on "id", "displayName", "applicationId", "applicationPageId", "index", "parentId" with the format `f={filter\_name}={filter\_value}`
+  - d: can deploy on "applicationPageId"
+- **Success Response**  
   A JSON array of application menu
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     [{
       "id":"1",
@@ -420,21 +430,22 @@ The ID of the application page (a long value).
   "pageId":"_id of the custom page to display_"
 }
 ```
+
 #### Methods
 
 The methods used for this resource are:
 
-* POST - Create an application page
-* GET - Read an application page or search for an application page
-* DELETE - Remove an application page
+- POST - Create an application page
+- GET - Read an application page or search for an application page
+- DELETE - Remove an application page
 
 #### Create an application page
 
-* **URL**  
+- **URL**  
   `http://../API/living/application-page`  
-* **Method**  
+- **Method**  
   `POST`
-* **Request Payload**  
+- **Request Payload**  
   A partial representation of an application page in JSON
   ```json
   {
@@ -443,10 +454,10 @@ The methods used for this resource are:
     "applicationId":"1"
   }
   ```
-* **Success Response**  
-  * **Code**: 200
-  * **Payload**:  
-  The full JSON representation of the application page that was created
+- **Success Response**  
+  - **Code**: 200
+  - **Payload**:  
+    The full JSON representation of the application page that was created
     ```json
     {
       "id":"3",
@@ -458,11 +469,11 @@ The methods used for this resource are:
 
 #### Get an application page
 
-* **URL**  
+- **URL**  
   `http://../API/living/application-page/:applicationPageId`  
-* **Method**  
+- **Method**  
   `GET`
-* **Request Payload**  
+- **Request Payload**  
   The full JSON representation of the application page that was created with id="applicationPageId"
   ```json
   {
@@ -472,31 +483,31 @@ The methods used for this resource are:
     "applicationId":"1"
   }
   ```
-* **Success Response**  
-  * **Code**: 200
+- **Success Response**  
+  - **Code**: 200
 
 #### Delete an application page
 
-* **URL**  
+- **URL**  
   `http://../API/living/application-page/{applicationPageId}`  
-* **Method**  
+- **Method**  
   `DELETE`
 
 #### Search for an application page
 
-* **URL**  
+- **URL**  
   `http://../API/living/application-page`  
   _Example_: `http://../API/living/application-page?p=0&c=2&d=pageId&f=applicationId%3d1`
-* **Method**  
+- **Method**  
   `GET`
-* **Data Params**  
-  * o: can order on "id", "token", "applicationId", "pageId"
-  * s: search on "token" 
-  * f: can filter on "id", "token", "applicationId", "pageId" with the format `f={filter\_name}={filter\_value}`
-  * d: can deploy the "applicationId", "pageId"
-* **Success Response**  
-  * **Code**: 200
-  * **Payload**:  
+- **Data Params**  
+  - o: can order on "id", "token", "applicationId", "pageId"
+  - s: search on "token" 
+  - f: can filter on "id", "token", "applicationId", "pageId" with the format `f={filter\_name}={filter\_value}`
+  - d: can deploy the "applicationId", "pageId"
+- **Success Response**  
+  - **Code**: 200
+  - **Payload**:  
     A JSON array of application page  
     ```json
     [{
@@ -533,4 +544,3 @@ The methods used for this resource are:
       "applicationId":"1"
     }]
     ```
-

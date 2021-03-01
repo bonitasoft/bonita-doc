@@ -22,7 +22,7 @@ A process that already runs on Bonita will run without modification on Bonita in
 
 Bonita cluster characteristics: 
 
-* **High availability**: Provided you have at least two active nodes and the prerequisite infrastructure is highly available, your Bonita cluster is highly available.
+- **High availability**: Provided you have at least two active nodes and the prerequisite infrastructure is highly available, your Bonita cluster is highly available.
 
 ### Differences for Bonita Portal users
 
@@ -55,11 +55,10 @@ Assumptions: We assume that Ubuntu Linux is used as the operating system for Bon
 
 ### Prerequisite infrastructure:
 
-* A highly available load balancer
-* A highly available network, with all nodes able to see all other nodes
-* A highly available database accessible from all nodes
-* All nodes including the database one should be configured with the same clock (via NTP time synchronization for example) and same timezone (UTC is recommended)
-
+- A highly available load balancer
+- A highly available network, with all nodes able to see all other nodes
+- A highly available database accessible from all nodes
+- All nodes including the database one should be configured with the same clock (via NTP time synchronization for example) and same timezone (UTC is recommended)
 
 ### Cluster structure diagram
 
@@ -67,15 +66,15 @@ Assumptions: We assume that Ubuntu Linux is used as the operating system for Bon
 
 ### Definitions:
 
-* **Load balancer**: an HTTP load balancer manages the allocation of work to nodes in the cluster. 
-No load balancer is provided with Bonita, so you can choose the most appropriate for your system. For a production system with a high load, a hardware load balancer is recommended.
-* **Node**: a JVM running a Tomcat application server, Bonita Engine, and Bonita Portal. For high availability, separate physical nodes are required.
-* **Engine database**: a single database used by all the Bonita Engines in the cluster. It is the equivalent of the local database in a non-cluster configuration. 
-The database needs to be highly available and to handle multiple simultaneous accesses. 
-* **Failover**: if a node in the cluster fails, the work it was performing is redirected by the load balancer to another node in the cluster. 
-This is known as failover, and can be automated or manual.
-* **Client**: a process application client. A client application connects to the cluster through the load balancer, and uses the Bonita Engine API. 
-Even if your process users do not use Bonita Portal, it is still present in the cluster, so can be used for administration.
+- **Load balancer**: an HTTP load balancer manages the allocation of work to nodes in the cluster. 
+  No load balancer is provided with Bonita, so you can choose the most appropriate for your system. For a production system with a high load, a hardware load balancer is recommended.
+- **Node**: a JVM running a Tomcat application server, Bonita Engine, and Bonita Portal. For high availability, separate physical nodes are required.
+- **Engine database**: a single database used by all the Bonita Engines in the cluster. It is the equivalent of the local database in a non-cluster configuration. 
+  The database needs to be highly available and to handle multiple simultaneous accesses. 
+- **Failover**: if a node in the cluster fails, the work it was performing is redirected by the load balancer to another node in the cluster. 
+  This is known as failover, and can be automated or manual.
+- **Client**: a process application client. A client application connects to the cluster through the load balancer, and uses the Bonita Engine API. 
+  Even if your process users do not use Bonita Portal, it is still present in the cluster, so can be used for administration.
 
 ### Limitations
 
@@ -92,7 +91,7 @@ The load balancer must be configured to use sticky sessions (this is needed to m
 If an active node fails or is stopped, the load balancer redirects work to the remaining active nodes. This keeps the downtime to a minimum, but increases the load on the active nodes. 
 
 A passive node is installed with exactly the same software and has the same configuration as an active node, but the application server and Bonita Engine are not started. If you have a passive node in your cluster, there is no mechanism in bonita for starting that passive node if an active node goes out of service. This could be provided by a third-party application.  
-A passive node is a "cold standby". It does not consume computing resources.   
+A passive node is a "cold standby". It does not consume computing resources.  
 To add a cold-standby node to the cluster, the necessary licenses must be installed, the configuration must be completed and it must be activated in the load balancer. But the application server and Bonita Engine must not be started on the passive node.
 
 A cluster needs a minimum of two active nodes for high availability. The maximum number of nodes you can have depends on the load balancer you are using. 
@@ -101,15 +100,15 @@ A cluster needs a minimum of two active nodes for high availability. The maximum
 
 A Bonita cluster has the following advantages over a single-node system:
 
-* A cluster provides high availability, as long as your entire infrastructure, including the network and database are highly available. 
-If a node is shut down, stops, or crashes, anything that was running on that node is automatically retrieved by another running node in the cluster.
-* A new node is discovered and added to the cluster easily because of the Hazelcast in-memory data grid.
-* The network connection of a node is flexible: it can be configured with or without multicast.
-* A cluster is easy to configure.
-* BPM event matching and timer execution are distributed across the cluster by Quartz.
+- A cluster provides high availability, as long as your entire infrastructure, including the network and database are highly available. 
+  If a node is shut down, stops, or crashes, anything that was running on that node is automatically retrieved by another running node in the cluster.
+- A new node is discovered and added to the cluster easily because of the Hazelcast in-memory data grid.
+- The network connection of a node is flexible: it can be configured with or without multicast.
+- A cluster is easy to configure.
+- BPM event matching and timer execution are distributed across the cluster by Quartz.
 
 There are some drawbacks to the basic Bonita in a cluster configuration, but these can be addresses using other component in your infrastructure:
 
-* Only active-active modes is supported. There is no mechanism for starting a new node if a cluster node goes out of service. This could be provided by a third-party application.
-* There is no integrated load balancer, so the client application selects the node on which to make a API call. You should use an external load balancer. For high volume, a hardware load balancer is recommended.
-* All the nodes must use the same database, so the database itself must be highly available.
+- Only active-active modes is supported. There is no mechanism for starting a new node if a cluster node goes out of service. This could be provided by a third-party application.
+- There is no integrated load balancer, so the client application selects the node on which to make a API call. You should use an external load balancer. For high volume, a hardware load balancer is recommended.
+- All the nodes must use the same database, so the database itself must be highly available.

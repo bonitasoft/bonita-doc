@@ -17,6 +17,7 @@ This layout contains a line with the name of the application, followed by the na
 You can customize this layout by following the [customize-layouts](customize-layouts.md) steps.
 
 ## Build a Side menu layout
+
 As of version 7.5.x, the default provided layout does not allow this kind of customization anymore (at least not so easily), but if you start from a 7.4.x Layout you can follow the 7.4 documentation [customize-living-application-layout](/7.4?page=customize-living-application-layout#toc3) to build a side menu layout.
 
 ## Take advantage of the latest improvement in a customized layout
@@ -33,8 +34,8 @@ If you want to import a custom layout created with a UI Designer older than vers
 1. Import the CustomLayout_7.2.x in UI Designer 7.3.3  
 2. Export the default layout from Bonita Portal  
 3. Import the default layout and confirm that custom widgets will be overwritten  
-4. Open the CustomLayout_7.2.x Layout and remove the 3 variables _AuthorizeApplicationAPI_, _AuthorizeApplicationPageAPI_ and _AuthorizeApplicationMenuAPI_ (as shown below) 
-Those variables are responsible of the SEVERE error logs on server.  
+4. Open the CustomLayout_7.2.x Layout and remove the 3 variables \_AuthorizeApplicationAPI_, _AuthorizeApplicationPageAPI_ and _AuthorizeApplicationMenuAPI_ (as shown below) 
+   Those variables are responsible of the SEVERE error logs on server.  
 5. Select the iFrame widget and set the **reziseToContent** option to _yes_ (this option has been removed in 7.6.0, as the iframe is now resized using CSS)
 6. Save then Export the layout (feel free to rename the layout if you want)  
 7. On Bonita Portal edit the layout and import the newly exported layout  
@@ -42,6 +43,7 @@ Those variables are responsible of the SEVERE error logs on server.
 9. Validate that your application has a layout that fits your requirements. 
 
 ### Ui-bootstrap.js library removed from runtime
+
 In our first design iteration, forms, pages and layouts designed with the UI Designer embedded 
 [UI Bootstrap js, version 0.13.4](http://angular-ui.github.io/bootstrap/versioned-docs/0.13.4/) by default and silently, even when not needed. 
 This issue has been fixed in version 7.5.0, we removed it so you can embed it as an asset only when you need it, and in the version of your choice.
@@ -54,6 +56,7 @@ This will not affect any artifact that has been created with the UI Designer and
 In development though, if your custom widgets use angular-bootstrap, you need to add angular-bootstrap as an asset at widget level, and declare the appropriate required modules.
 
 #### Forms, pages, layouts CSS cleaned
+
 This cleaning has been made in 7.5.0 version, The default CSS file embedded in UI Designer artifacts (except custom widgets) has been cleaned. Indeed, some of this CSS
 rules were overall not used and cluttered this file.
 
@@ -62,6 +65,7 @@ This will not affect any artifact that has been created with the UI Designer and
 Nevertheless some unwanted style could appear when importing a custom layout based on the default layout of Bonita prior to 7.5.0.
 If you do so and observe that the layout menu does not fit the whole width of your page, you can bring back the default 
 style by adding the following lines in `layout.css` file.
+
 ```css
 .component .container {
      width: 100%;

@@ -19,22 +19,23 @@ The details of each step depend on your application server and SSL implementatio
 
 There are some examples below. In these examples:
 
-* We use the default application server SSL port number, 8443, for connections. If you use this port number, it needs to be specified in the URL by users. 
-If you use the default HTTPS port number, 443, users do not need to specify the port in the URL.
-* You must ensure that the SSL connector is configured with the parameter `URIEncoding="UTF-8"`.
-* When the configuration is complete, the web application is only available through HTTPS. For other configuration, allowing both HTTP and HTTPS access, see your application server or SSL service documentation. 
-* The operating system is Ubuntu.
-* The starting point is a bundle that has been installed and configured but not started.
+- We use the default application server SSL port number, 8443, for connections. If you use this port number, it needs to be specified in the URL by users. 
+  If you use the default HTTPS port number, 443, users do not need to specify the port in the URL.
+- You must ensure that the SSL connector is configured with the parameter `URIEncoding="UTF-8"`.
+- When the configuration is complete, the web application is only available through HTTPS. For other configuration, allowing both HTTP and HTTPS access, see your application server or SSL service documentation. 
+- The operating system is Ubuntu.
+- The starting point is a bundle that has been installed and configured but not started.
 
 ## Tomcat with APR and OpenSSL
 
 This example show how to configure SSL with APR and OpenSSL for a Bonita using Tomcat.
 
 1. Go to the `BUNDLE_HOME/conf` directory and create a directory called `ssl` to store certificate files.
-2. Create the self-signed certificate and its private key using `openssl`:   
-    `openssl req -new -x509 -days 365 -nodes -out conf/ssl/test.bonitasoft.net.pem -keyout conf/ssl/test.bonitasoft.net.key`
+2. Create the self-signed certificate and its private key using `openssl`:  
+   `openssl req -new -x509 -days 365 -nodes -out conf/ssl/test.bonitasoft.net.pem -keyout conf/ssl/test.bonitasoft.net.key`
 3. Provide the information about your system that `openssl` requires.
 4. Edit `conf/server.xml` and add the following definition for the Connector:
+
 ```xml
 <Connector port="8443" 
     protocol="HTTP/1.1" 
@@ -50,6 +51,7 @@ This example show how to configure SSL with APR and OpenSSL for a Bonita using T
     SSLProtocol="TLSv1.2">
 </Connector>
 ```
+
 5. Install the Tomcat native library, which contains APR: `sudo apt-get install libtcnative-1`
 6. Edit `BUNDLE_HOME/webapps/bonita/WEB-INF/web.xml` and add the following security definition:
 ```xml
@@ -66,6 +68,7 @@ This example show how to configure SSL with APR and OpenSSL for a Bonita using T
    </security-constraint>
 </web-app>
 ```
+
 7. Start Tomcat: `./bin/startup.sh`
 8. Check that everything is correctly configured, by opening `https://127.0.0.1:8443/bonita` in your browser. Your browser should warn you about the self-signed certificate used to perform the HTTPS connection. You can safely add this self-signed certificate to the exceptions allowed.
 
@@ -74,10 +77,11 @@ This example show how to configure SSL with APR and OpenSSL for a Bonita using T
 This example shows how to configure SSL with a keystore for Bonita on Tomcat.
 
 1. Run the Java `keytool` to create a certificate and store it in the keystore. 
-(Note: if you are using Windows, you need to run `keytool` as administrator.)
-`keytool -genkey -alias tomcat -keyalg RSA -keystore conf/ssl/keystore`
+   (Note: if you are using Windows, you need to run `keytool` as administrator.)
+   `keytool -genkey -alias tomcat -keyalg RSA -keystore conf/ssl/keystore`
 2. Answer the questions that `keytool` asks. When asked for your first name and last name, provide the hostname of your system. 
 3. Edit `conf/server.xml` and include the following configuration for the Connector:
+
 ```xml
 <Connector port="8443"
 protocol="org.apache.coyote.http11.Http11NioProtocol" 
@@ -91,6 +95,7 @@ keystorePass="password!"
 SSLVerifyClient="optional" 
 SSLProtocol="TLSv1"></Connector>
 ```
+
 4. Edit `BUNDLE_HOME/webapps/bonita/WEB-INF/web.xml` and add the following security definition:
 ```xml
 <web-app>
@@ -106,6 +111,7 @@ SSLProtocol="TLSv1"></Connector>
    </security-constraint>
 </web-app>
 ```
+
 5. Start Tomcat: `./bin/startup.sh`
 6. Check that everything is correctly configured, by opening `https://127.0.0.1:8443/bonita` in your browser. Your browser should warn you about the certificate used to perform the HTTPS connection. You can safely add this certificate to the exceptions allowed.
 
@@ -114,12 +120,15 @@ SSLProtocol="TLSv1"></Connector>
 This example shows you how to configure SSL if you run Tomcat behind a load balancer that features in SSL Accelerator or Offloading (sometimes called SSL Termination).
 
 1. Make sure that your load balancer adds `X-Forwarded-Proto` and `X-Forwarded-For` headers. 
-If you use HAProxy you can add following lines into your [HAProxy configuration](http://www.haproxy.org/download/1.5/doc/configuration.txt) :
+   If you use HAProxy you can add following lines into your [HAProxy configuration](http://www.haproxy.org/download/1.5/doc/configuration.txt) :
+
 ```
 option forwardfor
 reqadd X-Forwarded-Proto:\ https
 ```
+
 2. Edit `conf/server.xml` and include the `RemoteIpValve` configuration for the host:
+
 ```xml
 <Host name="localhost"  appBase="webapps" unpackWARs="true" autoDeploy="true">
 
@@ -137,9 +146,11 @@ As explained by the [RemoteIpValve documentation](https://tomcat.apache.org/tomc
 "This valve replaces the apparent client remote IP address and hostname for the request with the IP address list presented by a proxy or a load balancer via a request headers (e.g. "X-Forwarded-For"). 
 Another feature of this valve is to replace the apparent scheme (http/https) and server port with the scheme presented by a proxy or a load balancer via a request header (e.g. "X-Forwarded-Proto")."
 3. If you use the AccessLogValve, edit `conf/server.xml` and set `requestAttributesEnabled="true"`:
+
 ```xml
 <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
               prefix="localhost_access_log." suffix=".txt" requestAttributesEnabled="true"
               pattern="%a %{X-Forwarded-Proto}i %l %u %t "%r" %s %b" />
 ```
+
 If you omit this, %a will log your load balancer's IP address and not the client's IP address.

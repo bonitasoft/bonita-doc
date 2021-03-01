@@ -42,8 +42,8 @@ A fragment has its own variables, but can also expose variables to the pages tha
 
 When you add a variable to a fragment, specify whether the variable will be exposed in the pages, forms or layouts using this fragment.
 
-* If a fragment variable is not exposed, the variable data is specific to the fragment.
-* If a fragment variable is exposed, it can be bound to a variable of the page, layout or fragment that embeds the fragment. 
+- If a fragment variable is not exposed, the variable data is specific to the fragment.
+- If a fragment variable is exposed, it can be bound to a variable of the page, layout or fragment that embeds the fragment. 
 
 For example, take a fragment called "MyFragment". This fragment has two variables, one exposed (exposedVariable) and the other not (notExposedVariable). When you add this fragment to a page in the Page editor, you can bind the exposedVariable with a variable defined in the page.
 
@@ -57,15 +57,15 @@ If several fragments expose a variable and these variables are linked to the sam
 
 You can export a fragment from the UI Designer home page. The fragment is exported as a zip file that contains the following:
 
-* an HTML page
-* a resources folder containing
-  * CSS files
-  * JavaScript dependencies
-  * Widget files used by the fragment (a widget is an Angular JS directive)
-  * any sub-fragments that are used
+- an HTML page
+- a resources folder containing
+  - CSS files
+  - JavaScript dependencies
+  - Widget files used by the fragment (a widget is an Angular JS directive)
+  - any sub-fragments that are used
 
 You can use the HTML page as it is. You can also update the code outside the UI Designer. However, if you make changes that are not compatible with the UI Designer, you will not be able to import the fragment back into the UI Designer.
 
-## Import a fragment 
+## Import a fragment
 
 You can import a fragment that has been created in the UI Designer into the same or another UI Designer. The format of the imported zip file must be the same than the zip file created during an export, and no modification should have been made to the html, CSS, or JavaScript codes.
