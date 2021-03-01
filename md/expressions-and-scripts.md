@@ -53,11 +53,9 @@ In the previously created Groovy class you can declares methods (static or not).
 package com.mypackage
 
 class MyClass {
-	
 	static def myMethod(String input) {
 		return "Hello ${input}"
 	}
-
 }
 ```
 

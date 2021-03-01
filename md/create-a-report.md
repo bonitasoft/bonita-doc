@@ -44,14 +44,14 @@ This is how to add the query executor as a report dependency in iReport:
 3. Select the **Query Executers** tab.
 4. Click on the **_Add_** button.
 5. Fill the form using the following values:
-+
+
    | Field         | Value                                           |
    | :------------ | :---------------------------------------------- |
    | Language      | BONITASQL                                       |
    | Factory class | org.bonitasoft.JRBonitaJdbcQueryExecuterFactory |
 
     Fields Provider class (optional)com.jaspersoft.ireport.designer.data.fieldsproviders.SQLFieldsProvider
-+
+
 6. Click on **_OK_**.
 7. Still in the **Options** window, select the **Classpath** tab.
 8. Click on **_Add JAR_**.

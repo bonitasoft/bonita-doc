@@ -294,16 +294,19 @@ if (!userInput?.address) { // As Address is not mandatory it can be null
 	return null
 }
 def addressVar = user.address ?: new com.company.model.Address() // Retrieve the existing address or create a new one
+
 addressVar.street = { //Use a Closure to resolve the street value
-	if (!userInput?.address?.street) { // Street is mandatory so it can't be null here, protected by a contract constraint, null-check statement is generated anyway
-		return null
-	}
+    if (!userInput?.address?.street) { // Street is mandatory so it can't be null here, protected by a contract constraint, null-check statement is generated anyway
+        return null
+    }
 	def streetVar = addressVar.street ?: new com.company.model.Street() // Retrieve the existing street or create a new one
 	// Assign contract values, note that nullsafe navigators are used even if we know that userInput.address is not null here
 	streetVar.name = userInput?.address?.street?.name 
 	streetVar.number = userInput?.address?.street?.number
 	streetVar.additionalInfo = userInput?.address?.street?.additionalInfo
-	return streetVar}() //execute the Closure to assign  the Street value to address
+	return streetVar
+}() //execute the Closure to assign  the Street value to address
+
 addressVar.postalCode = userInput?.address?.postalCode
 addressVar.city = userInput?.address?.city
 return addressVar // Return the edited (or new) address

@@ -32,7 +32,6 @@ To use a localization asset, replace the default `localization.json` file with a
   {
     "english key":"translated key for language-B",
     "english key2":"translated key2 for language-B",
-
      ...
    }
   ...

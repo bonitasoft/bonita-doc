@@ -24,6 +24,7 @@ Now we are ready to actually create the application. In the Bonita Community Edi
    - Profile: _User_
    - Description: _Claims management application_
 7. Click on the **Create** button
+  
    ![Create an application](images/getting-started-tutorial/create-application/create-application.gif)
 
 You now need to edit the application to add the previously created application page:

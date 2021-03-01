@@ -10,7 +10,7 @@ Note: to avoid login problems, make sure you empty your browser cache [Empty you
 
 If for example, you receive an email with a link to start a case or a task in the Bonita Portal, you will need to log in.
 
-- Enter the login page url, `http://`_`hostname:port`_`/bonita/`, to get to the login page as a user. The default port number is 8080.
+- Enter the login page url, `http://hostname:port/bonita/`, to get to the login page as a user. The default port number is 8080.
 - In the user field, enter the **login**, and the **password** for this user.
 - Click on the _**Login button**_.
 

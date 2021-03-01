@@ -61,6 +61,7 @@ This is an example of how to log debug information in a Groovy script. Note that
 ```groovy
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 Logger logger = LoggerFactory.getLogger("org.bonitasoft.groovy.script.my_int_init_script");
 logger.debug("Set initial value of process variable using Groovy script");
 return Integer.valueOf(3 + 5);
@@ -73,10 +74,10 @@ private static final Logger LOGGER = LoggerFactory.getLogger(SumImpl.class);
 
 @Override 
 protected void executeBusinessLogic() throws ConnectorException {
-LOGGER.debug("Trying to sum {} and {}.", getIntegerA(), getIntegerB());
-int sum = getIntegerA() + getIntegerB(); 
-LOGGER.debug("The sum is: {}", sum);
-setSum(sum);
+    LOGGER.debug("Trying to sum {} and {}.", getIntegerA(), getIntegerB());
+    int sum = getIntegerA() + getIntegerB(); 
+    LOGGER.debug("The sum is: {}", sum);
+    setSum(sum);
 }
 ```
 

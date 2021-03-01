@@ -51,15 +51,15 @@ In the following steps, you will update the configuration files that are in the 
 4. Edit the file `setup/platform_conf/initial/platform_engine/bonita-platform-sp-cluster-custom.properties`: set to `true` one of `bonita.platform.cluster.hazelcast.multicast.enabled` or `bonita.platform.cluster.hazelcast.tcpip.enabled` or `bonita.platform.cluster.hazelcast.aws.enabled`, as follows:
    Uncomment the # properties and set only one of them to `true`, set the others to `false` depending on how you want your nodes to discover each others.
    Example:
-   ````
+   
    ```properties
    bonita.platform.cluster.hazelcast.multicast.enabled=false
    bonita.platform.cluster.hazelcast.tcpip.enabled=true
    bonita.platform.cluster.hazelcast.tcpip.members=ipServer01,ipServer02
    ```
    **Important**: If you don't use `bonita.platform.cluster.hazelcast.multicast.enabled`, **you must uncomment the # properties and set it to `false`** to deactivate it, as follows: `bonita.platform.cluster.hazelcast.multicast.enabled=false`.
-   ````
-   For more information on this take a look at the  [Hazelcast Documentation](http://docs.hazelcast.org/docs/3.4/manual/html-single/hazelcast-documentation.html#hazelcast-cluster-discovery).
+   
+    For more information on this take a look at the  [Hazelcast Documentation](http://docs.hazelcast.org/docs/3.4/manual/html-single/hazelcast-documentation.html#hazelcast-cluster-discovery).
 5. Copy licenses of all your nodes in `setup/platform_conf/licenses`.
 6. Run `setup.sh init` or `setup.bat init` as described in the  [platform setup tool page](BonitaBPM_platform_setup.md#init_platform_conf).
 

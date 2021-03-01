@@ -190,11 +190,9 @@ To map a document when using a call activity:
 5. Define the [variable mapping in the call activity](called-processes.md) so that docId in the call activity is mapped to docId in the called process.  
 6. In the called process, as the first task add an automatic task that will get the mainDoc, create a DocumentValue object with the content of mainDoc, and use it to update the content of subDoc.  
    To do this, define an operation in the automatic task as follows:
-   ```
-    1. In the first field, select subDoc.
-    2. Set the operator type to Set document.
-    3. Open the expression editor for the second field and create a script expression with the following content:
-   ```
+    - In the first field, select subDoc.
+    - Set the operator type to Set document.
+    - Open the expression editor for the second field and create a script expression with the following content:
 
 ```groovy
 import org.bonitasoft.engine.bpm.document.Document;

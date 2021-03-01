@@ -266,7 +266,7 @@ For example, to resume the service in a tenant:
 ```java
     TenantAdministrationAPI tenantAdministrationAPI = TenantAPIAccessor.getTenantAdministrationAPI(apiSession);
     if (tenantAdministrationAPI.isPaused()) {
-    tenantAdministrationAPI.resume();
+        tenantAdministrationAPI.resume();
     }
 ```
 

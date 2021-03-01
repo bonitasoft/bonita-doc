@@ -7,11 +7,14 @@ The first step in the configuration of "who can do what" is to create lanes with
 1. In Bonita Studio, from the palette on the left hand side of the diagram select the **lane** icon
 2. Click inside the diagram to add the lane. Do this twice to have a total of three lanes
 3. Select the employee lane and click on the down arrow icon to move it, so it is the middle lane
+   
    ![Add and organize lanes](images/getting-started-tutorial/define-who-can-do-what/add-and-organize-lanes.gif)
+
 4. Select _Lane1_, go to the **General > Lane** tab, and rename it _Customer lane_
 5. Select  _Lane2_, go to the **General > Lane** tab and rename it _Manager lane_
 6. Select the start event _Submit claim_ and move it (via drag and drop) to the _Customer lane_. Do the same for the task _Read the answer and rate it_
 7. Select the _Deal with unsatisfied customer_ task and move it to the _Manager lane_. Do the same with the end event _End client unsatisfied_
+
    ![Diagrams with lanes](images/getting-started-tutorial/define-who-can-do-what/diagrams-with-lanes.png)
 
 ::: info
@@ -26,10 +29,13 @@ Now we need to define "actors," one for each lane, and map them to the lane they
 4. Click on the default name of the actor (_Actor1_) and change it to: _Customer actor_
 5. Repeat to create _Manager actor_
 6. Select the _Customer actor_ and click on **Set as initiator** button. This will add a flag on this actor to mark it as the one can start the process
+
    ![Add and rename actors, define initiator](images/getting-started-tutorial/define-who-can-do-what/add-rename-actors-set-initiator.gif)
+
 7. Select _Customer lane_ (click on the lane name)
 8. Go to **General > Actors** and in the drop down list, select _Customer actor_
 9. Do the same for the _Manager lane_ with the _Manager actor_
+
    ![Map actor to lane](images/getting-started-tutorial/define-who-can-do-what/map-actor-to-lane.gif)
 
 Actor are just identifiers. In order to define the actual user, we need to configure the actors and map them with groups, roles , users, etc of the organization. We will use the Bonita Acme test organization for this example:
@@ -40,7 +46,9 @@ Actor are just identifiers. In order to define the actual user, we need to confi
 4. Unselect _/acme_
 5. Select _/acme/production/services_. We will use this group of users to act as support team in charge of answering claims. In the test organization, two users belong to this group: _mauro.zetticci_ and _thomas.wallis_. The manager of both users is: _michael.morrison_
 6. Click on the **Finish** button
+
    ![Configure actor mapping for customer actor](images/getting-started-tutorial/define-who-can-do-what/configure-actor-mapping.gif)
+
 7. Select **Customer actor**
 8. Click on the **Groups...** button
 9. Select _/acme/hr_. We will use this group of users to act as customers who can submit claims. In the test organization, three users belong to this group: _walter.bates_, _helen.kelly_ and _april.sanchez_
@@ -62,7 +70,9 @@ Currently, the task _Read the answer and rate it_ is available to all users in t
 5. Click on the **Next** button
 6. Set the name: _User who submit the claim_
 7. Click on the **Finish** button
+
    ![Configure initiator actor filter on Customer lane](images/getting-started-tutorial/define-who-can-do-what/configure-initiator-actor-filter.gif)
+
 8. Select _Manager lane_
 9. Follow the same steps but select the _user-manager_ actor filter
 10. Set the name: _Manager of the user who provided answer_

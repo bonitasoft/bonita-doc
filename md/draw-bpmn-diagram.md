@@ -82,7 +82,9 @@ In order to define another path in our process execution, we will add an exclusi
 2. Drag and drop the diamond-shaped gateway icon
 3. Click on the toolbox icon
 4. Change the gateway type from parallel (the one with the **+** sign) to exclusive (the one with the **x** sign)
+   
    ![Switch from parallel to exclusive gateway](images/getting-started-tutorial/draw-bpmn-diagram/switch-from-parallel-to-exclusive-gateway.png)
+   
 5. Rename the gateway to: _Satisfaction level_
 
 From the gateway, there are two possibles paths. The first one completes the process if the customer satisfaction level is good. The end of a process is identified by an end event, a red disc. Adding the end event is similar to how you added a task and a gateway:
@@ -90,7 +92,9 @@ From the gateway, there are two possibles paths. The first one completes the pro
 1. Select the gateway
 2. Drag and drop the event icon (the disc icon)
 3. Select the end event type (red disc icon)
+
    ![Event type selection: end event](images/getting-started-tutorial/draw-bpmn-diagram/event-type-selection.png)
+
 4. Rename the event to: _End client satisfied_
 
 The second path from the gateway will lead to another user task:
@@ -109,6 +113,7 @@ And from this _Deal with unsatisfied customer_ task we need to go to a second en
 4. Rename the event to: _End client unsatisfied_
 
 Your process diagram should look like this:
+
 ![Process diagram](images/getting-started-tutorial/draw-bpmn-diagram/process-diagram-before-transitions-configuration.png)
 
 ::: info
