@@ -74,9 +74,10 @@ When you configure a process that uses this connector, you must xref:manage-jar-
 
 == Output
 
-| Output type  | Description  | Type  |
-| -------- | -------- | ---- |
-| Response  | Result of execution  | Source  |
+|===
+| Output type  | Description  | Type  
+| Response  | Result of execution  | Source  
+|===
 
 == Result
 
