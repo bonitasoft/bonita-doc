@@ -74,7 +74,7 @@ xref:tomcat-bundle.adoc[[.card-title]#Basic Bonita Runtime installation# [.card-
 
 [.card.card-index]
 --
-xref:create-your-first-project-with-the-engine-apis-and-maven.adoc[[.card-title]#Create your first project with the Engine APIs and Maven# [.card-body]#pass:q[Set up a Maven client application using Bonita Engine APIs to run a process.]#]
+xref:create-your-first-project-with-the-engine-apis-and-maven.adoc[[.card-title]#Create your first project with Engine APIs and Maven# [.card-body]#pass:q[Set up a Maven client application using Bonita Engine APIs to run a process.]#]
 --
 
 [.card-section]
