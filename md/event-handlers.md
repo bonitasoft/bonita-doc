@@ -6,8 +6,8 @@ An event handler is an extension to the engine that is configured to run when a 
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
-You can add event handlers for several purposes and you can configure which events you want to catch.
-We strongly recommend that you add only appropriate handlers and carefully code the handler filters to handle only those events that you are interested in.
+Event handlers can help in adding new features to the Platform. You can use them to call your own services when specific events
+happen like when a case starts, or when a user submits a task.
 
 An event is a change to any object in the database (user, activity, processDefinition,... ).
 You can create an event handler to track any change to any object in the database and take the appropriate action. For example:
@@ -17,9 +17,27 @@ You can create an event handler to track any change to any object in the databas
 
 At the end of this page there is a list of all the events.
 
+
+## Constraints
+
+The platform executes events handlers synchronously at the exact moment the related entity is updated, therefore it executes 
+it in the same thread and same transaction that the one executing the element.
+
+It means that:
+* Events handlers should never block, i.e. no network call, no I/O on the filesystem.
+* Events handlers should never throw exception, if it does, the related element execution will fail, meaning that the transaction is rolled back and the task (for instance) goes to the failed state, which is generally NOT what one wants.
+
 ::: warning
 In a cluster environment, Event handlers must be Serializable (implements Serializable and have all its fields serializable or transient) because they are shared with other nodes of the cluster.
 :::
+
+
+What can be done is:
+* Calling your own services that should be retrieved statically. e.g. pushing information to a queue on which you will poll data.
+
+What should not be done is:
+* Call Rest APIs: Network call can drastically impact Bonita platform performance.
+* Call Bonita platform Java APIs: It will not work, APIs handle the transaction and when the handler is called, we are already in transaction.
 
 ## Example: deploy an event handler
 
