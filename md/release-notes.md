@@ -23,7 +23,7 @@ Expression : SExpressionImpl [name=aScript, content=1/0, returnType=java.lang.St
 	at org.codehaus.groovy.runtime.typehandling.BigDecimalMath.divideImpl(BigDecimalMath.java:68)
 	at org.codehaus.groovy.runtime.typehandling.IntegerMath.divideImpl(IntegerMath.java:49)
 ```
-A new property `bonita.tenant.work.exceptionsNumberOfFrameToLog` of `bonita-tenant-community-custom.properties` allows the change the number of frame display when an exception happens.
+A new property `bonita.tenant.work.exceptionsNumberOfFrameToLog` of `bonita-tenant-community-custom.properties` allows the change the number of frame displayed when an exception happens.
 
 
 ### Development suite changes
