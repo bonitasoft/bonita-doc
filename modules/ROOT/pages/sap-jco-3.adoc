@@ -38,8 +38,8 @@ Contents of `sapjco-ntamd64-3.0.3.zip`
 * `Readme.txt`: contains instructions
 * `sapjco3.jar`: must be installed in the `/endorsed` directory of your Bonita Studio installation and in class path of the bonita web server.
 * `sapjco3.dll` (`libspajco3.so`): must be installed in the native library search path:
- ** Windows: usually the dll file is stored in `C:\windows\system32`
- ** Linux: usually the dll file is stored in `/usr/lib`
+** Windows: usually the dll file is stored in `C:\windows\system32`
+** Linux: usually the dll file is stored in `/usr/lib`
 * `javadoc`: contains the .html help pages for installation
 * `examples`: contains some examples
 
@@ -71,7 +71,7 @@ It is assumed that both the Tomcat and the Bonita Engine were already successful
 . Create the `sapjco3\main` directories under `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\modules\system\layers\base\com\` directory
 . Copy the `sapjco3.jar` file into `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\modules\system\layers\base\com\sapjco3\main`
 . Create the `module.xml` file in the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\modules\system\layers\base\com\sapjco3\main` directory, with the content below:
-
++
 [source,xml]
 ----
 <?xml version="1.0" encoding="UTF-8"?>
@@ -84,22 +84,22 @@ It is assumed that both the Tomcat and the Bonita Engine were already successful
     </dependencies>
 </module>
 ----
-
++
 . Edit the `standalone.xml` file
-
++
 When the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\start-bonita.bat` script is used to start Wildfly, then edit the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\setup\wildfly-templates\standalone.xml` file.
-
++
 Otherwise edit the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\standalone\configuration\standalone.xml` file.
-
++
 Add these 3 lines under `subsystem xmlns="urn:jboss:domain:ee:4.0"`:
-
++
 [source,xml]
 ----
 <global-modules>
     <module name="com.sapjco3" slot="main"/>
 </global-modules>
 ----
-
++
 . Start Wildfly
 
 === Studio: How to import the SAP JCo3 library and make a request with an example function using the graphic display
