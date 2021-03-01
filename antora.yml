@@ -1,0 +1,8 @@
+name: bonita
+title: Bonita
+version: 7.5
+asciidoc:
+  attributes:
+    varVersion: 7.5
+nav:
+  - modules/ROOT/taxonomy.adoc
