@@ -162,7 +162,7 @@ This section explains how to migrate a platform that uses one of the Bonita bund
    `db.url=jdbc:mysql://localhost:3306/bonita_migration?allowMultiQueries=true`.  
    Also, if you are migrating to Bonita 7.9+, you must upgrade your database server to MySQL 8.0, see [Migrating to Bonita 7.9+ using MySQL](#mysql8) specific procedure below.
    :::
-   ```
+   
 
 7. If you use a custom Look & Feel,  [export](managing-look-feel.md) it, and then  [restore the default Look & Feel](managing-look-feel.md).
 
