@@ -44,7 +44,7 @@ A REST API Extensions must be deployed before any page or form resource using it
 A page that uses REST API Extensions must add the required resources in the page resource `page.properties` file.
 For example, if a page uses the demoHeaders, demoXml, and putResource API extensions, its `page.properties` must include this line:
 
-```
+```properties
 resources=[GET|extension/demoHeaders,POST|extension/demoXml,PUT|extension/putResource]
 ```
 
@@ -59,7 +59,7 @@ In order to do so, edit `custom-permissions-mapping.properties` to give the perm
 
 ::: warning
 In Bonita Studio, the debug mode is enabled by default. In debug mode, you can see changes on your REST API Extensions without importing a new zip archive, but it means the class of the extension is reloaded at each request.  
-If you want to disable the debug mode, you need to use the setup tool provided in `workspace/tomcat/setup/` to set `custom.page.debug` to `false` in `console-config.properties`. (Update the file database.properties first so it points to the target database. E.g.: h2.database.dir=../../<PROJECT NAME>/h2_database).
+If you want to disable the debug mode, you need to use the setup tool provided in `workspace/tomcat/setup/` to set `custom.page.debug` to `false` in `console-config.properties`. (Update the file database.properties first so it points to the target database. E.g.: h2.database.dir=../../**PROJECT_NAME**/h2_database).
 :::
 
 ## REST API Extensions examples

@@ -56,7 +56,7 @@ For example, you can create a file mycss.css with this content:
 6. Select this widget.
 7. In the property panel add your CSS class  
 
-![CSS asset](images/images-6_0/cssasset.png)
+    ![CSS asset](images/images-6_0/cssasset.png)
 
 8. Click on the preview button. You will see white text on a gray background.
 

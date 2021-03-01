@@ -42,8 +42,8 @@ The Spnego authenticator will then verify the user’s Kerberos tickets if prese
 
 - The Bonita Kerberos filter will automatically create a Bonita session and let the user through to access the Portal resources.
 
-::: warning  
- Bonita "username" should match the authenticated user login returned in the client response. 
+::: warning
+Bonita "username" should match the authenticated user login returned in the client response. 
 :::
 
 ## Pre-installation Environment Checks
@@ -133,20 +133,20 @@ To configure Bonita for Kerberos:
    edit the krb5.conf file as follows:
 
 ```conf
-		[libdefaults]
-	-->		default_realm = BONITA.LOCAL
-			default_tkt_enctypes = aes256-cts-hmac-sha1-96 aes128-cts rc4-hmac des3-cbc-sha1 des-cbc-md5 des-cbc-crc
-			default_tgs_enctypes = aes256-cts-hmac-sha1-96 aes128-cts rc4-hmac des3-cbc-sha1 des-cbc-md5 des-cbc-crc
-			permitted_enctypes   = aes256-cts-hmac-sha1-96 aes128-cts rc4-hmac des3-cbc-sha1 des-cbc-md5 des-cbc-crc
+    [libdefaults]
+-->		default_realm = BONITA.LOCAL
+        default_tkt_enctypes = aes256-cts-hmac-sha1-96 aes128-cts rc4-hmac des3-cbc-sha1 des-cbc-md5 des-cbc-crc
+        default_tgs_enctypes = aes256-cts-hmac-sha1-96 aes128-cts rc4-hmac des3-cbc-sha1 des-cbc-md5 des-cbc-crc
+        permitted_enctypes   = aes256-cts-hmac-sha1-96 aes128-cts rc4-hmac des3-cbc-sha1 des-cbc-md5 des-cbc-crc
 
-		[realms]
-	-->		BONITA.LOCAL  = {
-	-->			kdc = DC.bonita.local 
-	-->			default_domain = BONITA.LOCAL 
-			}
+    [realms]
+-->		BONITA.LOCAL  = {
+-->			kdc = DC.bonita.local 
+-->			default_domain = BONITA.LOCAL 
+        }
 
-		[domain_realm]
-	-->		.BONITA.LOCAL = BONITA.LOCAL
+    [domain_realm]
+-->		.BONITA.LOCAL = BONITA.LOCAL
 
 ```
 
@@ -244,15 +244,15 @@ If only a limited group of users need to bypass kerberos authentication method y
     spnego.login.server.module  = spnego-server
     spnego.prompt.ntlm          = true
     spnego.logger.level         = 1
-    spnego.preauth.username     = <username>
-    spnego.preauth.password     = <password> 
+    spnego.preauth.username     = **username**
+    spnego.preauth.password     = **password**
 ```
 
-<username> and <password> shoud be replaced with the domain account and password to use to pre-authenticate to on the Domain controller acting as Kerberos Key Distribution Center.  
+`username` and `password` shoud be replaced with the domain account and password to use to pre-authenticate to on the Domain controller acting as Kerberos Key Distribution Center.  
 `spnego.login.client.module` and `spnego.login.server.module` property values should match the login contexts set in `login.conf` for Tomcat or the security domain names set in `standalone.xml` for Wildfly (spnego-client and spnego-server by default).
 Note that for Wildfly, the properties `spnego.krb5.conf` and `spnego.login.conf` are not used as already set in the file satndalone.xml
 
-Make sure to set your principal user name and password.	
+Make sure to set your principal username and password.	
 
 6. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`,
     edit the file **bonita-tenant-sp-custom.xml** to uncomment the bean passphraseOrPasswordAuthenticationService:
@@ -269,34 +269,34 @@ Make sure to set your principal user name and password.
    edit the file bonita-tenant-sp-custom.properties as follows:
 
 ```properties
-		# Authentication service to use. Some are natively provided:
-		# authenticationService
-		#   * binded to bonita authentication mode
-		#   * impl: org.bonitasoft.engine.authentication.impl.AuthenticationServiceImpl
-		# jaasAuthenticationService
-		#   * to use JAAS
-		#   * impl: com.bonitasoft.engine.authentication.impl.JAASGenericAuthenticationServiceImpl
-		#   * this is the one to configure SSO over CAS (CAS properties to be defined hereafter
-		# noAuthenticationService
-		#   * does no authentication on the engine side
-		#   * impl: com.bonitasoft.engine.authentication.impl.NoAuthenticationServiceImpl
-		# passphraseOrPasswordAuthenticationService
-		#   * Used by SAML2 and Kerberos implementations, login only if a passphrase is valid, or if a username/password is valid.
-		#   * Requires PassphraseOrPasswordAuthenticationService bean to be uncommented in bonita-tenant-sp-custom.xml
-		#   * impl: com.bonitasoft.engine.authentication.impl.PassphraseOrPasswordAuthenticationService
-		# you can provide your own implementation in bonita-tenant-sp-custom.xml and refer to the bean name of your choice
-        authentication.service.ref.name=passphraseOrPasswordAuthenticationService
-		
-		# If authentication.service.ref.name equals "PassphraseOrPasswordAuthenticationService",
-		# you need to configure the following passphrase 
-        authentication.service.ref.passphrase=BonitaBPM
-		
-		# CAS authentication delegate : enables the user, providing login/password,
-		# to be logged in automatically against CAS web application 
-		# To be used in conjunction with the generic authentication service configured with CAS (jaasAuthenticationService)
-		#authenticator.delegate=casAuthenticatorDelegate
-		#authentication.delegate.cas.server.url.prefix=http://ip_address:port
-		#authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservice
+# Authentication service to use. Some are natively provided:
+# authenticationService
+#   * binded to bonita authentication mode
+#   * impl: org.bonitasoft.engine.authentication.impl.AuthenticationServiceImpl
+# jaasAuthenticationService
+#   * to use JAAS
+#   * impl: com.bonitasoft.engine.authentication.impl.JAASGenericAuthenticationServiceImpl
+#   * this is the one to configure SSO over CAS (CAS properties to be defined hereafter
+# noAuthenticationService
+#   * does no authentication on the engine side
+#   * impl: com.bonitasoft.engine.authentication.impl.NoAuthenticationServiceImpl
+# passphraseOrPasswordAuthenticationService
+#   * Used by SAML2 and Kerberos implementations, login only if a passphrase is valid, or if a username/password is valid.
+#   * Requires PassphraseOrPasswordAuthenticationService bean to be uncommented in bonita-tenant-sp-custom.xml
+#   * impl: com.bonitasoft.engine.authentication.impl.PassphraseOrPasswordAuthenticationService
+# you can provide your own implementation in bonita-tenant-sp-custom.xml and refer to the bean name of your choice
+authentication.service.ref.name=passphraseOrPasswordAuthenticationService
+
+# If authentication.service.ref.name equals "PassphraseOrPasswordAuthenticationService",
+# you need to configure the following passphrase 
+authentication.service.ref.passphrase=BonitaBPM
+
+# CAS authentication delegate : enables the user, providing login/password,
+# to be logged in automatically against CAS web application 
+# To be used in conjunction with the generic authentication service configured with CAS (jaasAuthenticationService)
+#authenticator.delegate=casAuthenticatorDelegate
+#authentication.delegate.cas.server.url.prefix=http://ip_address:port
+#authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservice
 ```
 
 It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file **authenticationManager-config.properties** updated previously.
