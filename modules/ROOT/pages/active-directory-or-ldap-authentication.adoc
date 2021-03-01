@@ -164,7 +164,7 @@ To define the JAAS configuration file location you need to set a JVM property, `
 * Locate the line that starts: `#SECURITY_OPTS`
 * Uncomment this line, i.e. remove the # sign and set property value to: `+${CATALINA_HOME}/conf/jaas.cfg+`
 * Locate the line that starts: `CATALINA_OPTS=`
-* Add the tag `+${SECURITY_OPTS} +` after the tag `+${PLATFORM_SETUP}+`
+* Add the tag `$\{SECURITY_OPTS}` after the tag `$\{PLATFORM_SETUP}`
 * Push into database the changes: `./setup.sh push`
 
 [discrete]

@@ -96,7 +96,7 @@ responseDocumentBody.childNodes.item(0).textContent
 
 ----
 +
-And we are done for the connector configuration. If you want to test it from the wizard, replace _${country}_ by _FRA_ in the envelope, and ensure that _Paris_ is returned.
+And we are done for the connector configuration. If you want to test it from the wizard, replace _$\{country}_ by _FRA_ in the envelope, and ensure that _Paris_ is returned.
 
 . Select the _**Retrieve unknown capital**_ task, go on the _**Execution tab**_, click on _**Operations**_ and add the following operation:
 * **Left operand**: countryBo
