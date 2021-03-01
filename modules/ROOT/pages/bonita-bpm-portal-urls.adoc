@@ -10,7 +10,7 @@ In these URLs, the process names, versions and the task names must be URL encode
 
 == URL of Bonita Portal
 
-You can connect to Bonita Portal from other tools using a URL of the form `http://`_`host`_`:`_`port`_`+/bonita#?....+`. Other forms of URL are liable to change in future versions. For example, use `+http://localhost:8081/bonita#?process=myProcessId+`, and do not use `+http://localhost:8081/bonita/console/homepage#?process=myProcessId+`.
+You can connect to Bonita Portal from other tools using a URL of the form `+http://_host_:_`port_+/bonita#?....+`. Other forms of URL are liable to change in future versions. For example, use `+http://localhost:8081/bonita#?process=myProcessId+`, and do not use `+http://localhost:8081/bonita/console/homepage#?process=myProcessId+`.
 
 == Process instantiation URL
 
