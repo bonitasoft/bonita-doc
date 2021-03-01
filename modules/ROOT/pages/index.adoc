@@ -1,27 +1,39 @@
 = Download old Bonita documentations
 :description: Download old Bonita documentation archives, in html or pdf format.
 
-You can find here links to download old versions of the Bonita documentation. 
+You can find here links to download old versions of the Bonita documentation.
 
-== HTML
+//== HTML
+//
+//[NOTE]
+//====
+//Short description on how to use the HTML zip. Good luck Nath.
+//====
+//
+//=== 7.4 - https://www.heyImTheLink.com[Download 7.4 documentation]
+//
+//
+//=== 7.3 - https://www.heyImTheLink.com[Download 7.3 documentation]
 
-[NOTE]
-====
-Short description on how to use the HTML zip. Good luck Nath.
-====
 
-=== 7.4 - https://www.heyImTheLink.com[Download 7.4 documentation]
+//== PDF
+//
+//[NOTE]
+//====
+//Short description on how to use the PDF. Good luck Nath.
+//====
+
+== 7.2, 7.1, 7.0
+
+https://documentation-legacy.bonitasoft.com[Go to legacy documentation site].
 
 
-=== 7.3 - https://www.heyImTheLink.com[Download 7.3 documentation]
+== 6.x
 
- 
-== PDF
+https://documentation-legacy.bonitasoft.com[Go to legacy documentation site].
 
-[NOTE]
-====
-Short description on how to use the PDF. Good luck Nath.
-====
 
-=== 7.2, 7.1, 7.0, 6.5, 6.4, 6.3, 6.2, 6.1, 6.0
- https://documentation-legacy.bonitasoft.com[Go to oldest documentation]
+== 5.x
+
+// this is the message displayed in the legacy documentation site
+The documentation of versions 5.x has been removed. If you want an offline archive please send a request to https://customer.bonitasoft.com/[support].
