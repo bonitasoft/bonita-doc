@@ -115,8 +115,7 @@ Example: +
 
 [IMPORTANT]
 ====
-
-:fa-exclamation-triangle: *Important:* A task is not automatically assigned to the user who accesses the task form. There must first be a xref:bpm-api.adoc[REST API call to assign the task to the user]. Otherwise, the user will not be able to execute the task.
+A task is not automatically assigned to the user who accesses the task form. There must first be a xref:bpm-api.adoc[REST API call to assign the task to the user]. Otherwise, the user will not be able to execute the task.
 ====
 
 The following code samples show how to generate a link to a human task.
@@ -196,8 +195,7 @@ Go to xref:bonita-bpm-portal-urls.adoc[Accessing Bonita Portal and forms by URL 
 
 [IMPORTANT]
 ====
-
-:fa-exclamation-triangle: *Warning:* The autologin feature only works with v6-type instantiation forms.
+The autologin feature only works with v6-type instantiation forms.
 ====
 
 == URL parameter summary
