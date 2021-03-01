@@ -16,6 +16,10 @@
 ### Runtime changes
 
 
+#### Easy upgrade from Community to Subscription
+
+From this release, upgrade from Community to Subscription is made [a lot easier](upgrade-from-community-to-a-subscription-edition.md#bonita-platform-upgrade):
+all the tricky configuration part is handled automatically by Bonita Runtime at server startup.
 
 ## Technical updates
 ### Libraries

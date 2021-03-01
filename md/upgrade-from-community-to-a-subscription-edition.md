@@ -50,3 +50,6 @@ To upgrade a Bonita platform from Community edition to a Subscription edition, f
 
 The Upgrade is now finished, you can verify that you are now running a subscription edition in the portal user interface, the dialog displayed from the top right "Settings / About" menu should indicate the correct Subscription edition.
 
+Once you have started Bonita Subscription platform at least once, you can pull your Subscription configuration (`<install>/setup/setup(.sh/.bat) pull`)
+and change the Subscription-specific configuration files to match your needs. See [Bonita platform setup tool](BonitaBPM_platform_setup.md) for details about
+how to apply configuration changes.
