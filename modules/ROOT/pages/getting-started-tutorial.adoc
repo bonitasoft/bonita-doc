@@ -83,7 +83,7 @@ To create *myPendingRequests*:
 . Enter the variable name, *myPendingRequests*.
 . Select the JSON type.
 . Enter this value:
-
++
 [source,json]
 ----
   [
@@ -119,7 +119,7 @@ To create *myPendingRequests*:
       }
   ]
 ----
-
++
 . Click *_Save_*.
 . Select the table widget for the pending requests.
 . In the *Content* property, click the link icon at the right ("*fx*"), then click in the box and choose `myPendingRequests` from the list of variables (start typing the variable name to get auto-completion).
@@ -263,9 +263,9 @@ Create the diagram as follows:
 . Now give the Pool a more descriptive name. Select the pool by clicking in the space between the pool border and the lane border at the left side of the diagram.
 Then go to the *Details* panel, *General* tab, *Pool* pane, and click *_Edit..._* next to the *Name* field. Enter the new pool name, _Travel Request_, in the popup.
 When you have renamed the diagram and the pool, the diagram looks like this:
-
++
 image::images/images-6_0/7.0-getting-started-renamed-diagram.png[Diagram with names changed]
-
++
 . This process starts when an employee fills in a travel request form. You do not need to create a task for this because it is this action that triggers the process to start. This is known as process instantiation. A *form for process instantiation* is defined at the pool level.
 . Define what happens after the user submits a request form: the manager reviews the travel request and approves or refuses it. You can use the example task that was added to the diagram automatically. Click on the task name and change it to _Manager review_.
 . In a future evolution of this process, the next task would be to send the travel request details to the admin team so they can handle the booking. For now, though we are just interested in getting the first part of the process working, so add an end after the review task. You can do this by dragging the end icon (red circle) from the palette to the whiteboard, and then connecting to the _Manager review_ task with a flow element.
