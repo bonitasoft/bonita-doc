@@ -10,7 +10,8 @@ This can be achieved using a specific logger called _Work execution audit_
 
 The logger produce a _Warning_ each time a work takes too much time to be executed or it was _rescheduled_ too much times.
 
-For these cases, it also produces an _Info_ log when the work was finally executed.
+For theses cases, it also produces an _Info_ log when the work was finally executed.
+
 
 A _reschedule_ happens when a work can't be executed right now because some other work already locked the same process instance.
 

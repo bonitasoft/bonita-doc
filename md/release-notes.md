@@ -2,6 +2,10 @@
 
 ## New values added
 
+::: info
+![videos](images/tv.png)  Discover what is new in Bonita 7.9 thanks to these short videos in [English](https://www.youtube.com/playlist?list=PLvvoQatxaHOMxnu-1S2lZ_NXk1Brq_WBK), [French](https://www.youtube.com/playlist?list=PLvvoQatxaHOMmpQL1nQTz8NPsX6W6GUId), or [Spanish](https://www.youtube.com/playlist?list=PLvvoQatxaHOP3QPSvmQhzfQtuw3mqMdHS)!
+:::
+
 <a id="improve-form-generation"/>
 
 ### Low code application development: business data management from the Studio to the UI Designer
@@ -134,7 +138,7 @@ See [Work execution audit page](work-execution-audit.md).
 The Bonita Runtime is now up to 10x more performant in a context of slow connectors, allowing more tasks to be executed and avoiding and SPOC (single point of contention). 
 
 - Connectors are executed in an asynchrous manner. In earlier versions each work was waiting for the connector to end before processing other workload. This resulted in degraded performance if few connectors had a long execution time. 
-- Worker threads are now released as soon as the execution of the connector is triggered. see  [connector execution page](connectors-execution.md) for more details.
+- Worker threads are now released as soon as the execution of the connector is triggered. see \[connector execution page](connectors-execution.md) for more details.
   As a consequence, in a context of connectors taking a lot of time (connecting to slow third party services, high computing, ...) the usual job executions are not blocking and can continue. 
 
 #### Timer execution
@@ -143,8 +147,8 @@ Bugs were fixed to increase stability of the integration with Quartz:
 
 - BS-19239 Exception during Quartz Job execution leaves the associated flownode in WAITING state and the process execution is stopped
 - BR-56 Failure in a cron timer cancels future executions
-  A  [new page](timers-execution.md) was added to explain how Timers are executed and how to handle time execution failures. 
-  Also details were added on how to configure Quartz for timers execution:  [quartz performance tuning](performance-tuning.md#cron)
+  A \[new page](timers-execution.md) was added to explain how Timers are executed and how to handle time execution failures. 
+  Also details were added on how to configure Quartz for timers execution: \[quartz performance tuning](performance-tuning.md#cron)
 
 #### Cluster locks
 
@@ -182,11 +186,11 @@ Within Tomcat and WildFly bundles, the License Request Key generator tool has be
 ### Java 11 Compliance
 
 Bonita now runs on Java 8 and Java 11. It is still compiled with java 8, but can now run on Java 11.  
-According to that, some libraries and dependencies of the product have been updated: they either presented security issues, or they did not work at runtime. The list can be found  [there](#java-11-lib-update).  
+According to that, some libraries and dependencies of the product have been updated: they either presented security issues, or they did not work at runtime. The list can be found \[there](#java-11-lib-update).  
 The others have been left as they were.  
 Some of those can generate warnings with Java 11, such as "WARNING: Illegal reflective access by \[.../]", but this has no consequence on Bonita execution, and they will be updated in the future.  
 
-If you are migrating to Bonita 7.9 and plan to run it on Java 11, some of your connectors will have to be migrated. See  [Connectors dependency updates](#connector-dependency-updates)  
+If you are migrating to Bonita 7.9 and plan to run it on Java 11, some of your connectors will have to be migrated. See \[Connectors dependency updates](#connector-dependency-updates)  
 Generally speaking, custom code and connectors might require updated versions of libraries used in Bonita. In such cases, those updated versions should be added as scripts/connector dependencies.  
 
 <a id="rest-api-extension-update"/>
@@ -255,7 +259,7 @@ The step works at best effort:
 - Beware that if one of these connectors' removed dependencies was used in one your scripts, it will still be removed/updated, and therefore your scripts might not work anymore after migration. The full list of updated and deleted dependencies can be found below.
 
 From Bonita 7.9+, the supported version of Oracle database is **12c (12.2.x.y)**
-To migrate to Bonita 7.9+ from an earlier version than Oracle 12c (12.2.x.y), see  [Migrating to Bonita 7.9+ using Oracle](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12).
+To migrate to Bonita 7.9+ from an earlier version than Oracle 12c (12.2.x.y), see \[Migrating to Bonita 7.9+ using Oracle](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12).
 
 #### WebService connector
 
@@ -326,7 +330,7 @@ In Bonita 7.9.0, we replaced the JTA transaction manager used to handle XA trans
 This change should not impact the way to use Bonita. 
 However, tuning Bonita transaction configuration is now a little different. If you wish to change the default transaction timeout,
 it is now done by changing the `defaultTimeout` property in file `server/conf/jbossts-properties.xml` instead of file `server/conf/bitronix-config.properties`
-More configuration info can be found  [here](tomcat-bundle.md).
+More configuration info can be found \[here](tomcat-bundle.md).
 
 ### Databases supported
 
@@ -334,12 +338,12 @@ More configuration info can be found  [here](tomcat-bundle.md).
 
 From Bonita 7.9, the supported version of Oracle database is **12c (12.2.x.y)**
 
-To migrate to Bonita 7.9+ from an earlier version, you need to run the  [Bonita Migration Tool](migrate-from-an-earlier-version-of-bonita-bpm.md) once with the version 7.8.4 target, so that the database and configuration is updated. Then you must upgrade your Oracle database to version 12c (12.2.x.y). Then run the migration tool again to target version 7.9+. See  [Migrating to Bonita 7.9+ using Oracle](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12) for more details.
+To migrate to Bonita 7.9+ from an earlier version, you need to run the \[Bonita Migration Tool](migrate-from-an-earlier-version-of-bonita-bpm.md) once with the version 7.8.4 target, so that the database and configuration is updated. Then you must upgrade your Oracle database to version 12c (12.2.x.y). Then run the migration tool again to target version 7.9+. See \[Migrating to Bonita 7.9+ using Oracle](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12) for more details.
 
 #### PostgreSQL
 
 From Bonita 7.9, the supported version of PostgreSQL database is **11.2**.  
-Some  [PostgreSQL-specific tuning](performance-tuning.md#postgresql-performance-tuning) recommendations are provided for
+Some [PostgreSQL-specific tuning](performance-tuning.md#postgresql-performance-tuning) recommendations are provided for
 improved database performance.
 
 #### Microsoft SQL Server
@@ -350,11 +354,11 @@ Microsoft SQL Server **open-source drivers** are now provided by Bonita. There i
 
 From Bonita 7.9, the supported version of MySQL database is **8.0 (8.0.x)**
 
-To migrate to Bonita 7.9+ from an earlier version, you need to run the [Bonita Migration Tool](migrate-from-an-earlier-version-of-bonita-bpm.md), so that the database and configuration is updated. Then you must upgrade MySQL to version 8.0. See  [Migrating to Bonita 7.9+ using MySQL](migrate-from-an-earlier-version-of-bonita-bpm.md#mysql8) for more details.
+To migrate to Bonita 7.9+ from an earlier version, you need to run the \[Bonita Migration Tool](migrate-from-an-earlier-version-of-bonita-bpm.md), so that the database and configuration is updated. Then you must upgrade MySQL to version 8.0. See \[Migrating to Bonita 7.9+ using MySQL](migrate-from-an-earlier-version-of-bonita-bpm.md#mysql8) for more details.
 
 ::: info
-**Note:** Up to 7.9 version Bonita requires MySQL to use [UTF-8 encoding](database-configuration.md#utf8_requirement), which is an alias for 'utf8mb3', now deprecated by MySQL. 
-The [official MySQL recommendation is to use 'utf8mb4'](https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-utf8.html). 'utf8mb4' is supported on Bonita starting from version 7.10.
+**Note:** Up to 7.9 version Bonita requires MySQL to use \[UTF-8 encoding](database-configuration.md#utf8_requirement), which is an alias for 'utf8mb3', now deprecated by MySQL. 
+The [official MySQL recommendation is to use 'utf8mb4'](http ://dev.mysql.com/doc/refman/8.0/en/charset-unicode-utf8.html). 'utf8mb4' is supported on Bonita starting from version 7.10.
 :::
 
 <a id="other-dependencies"/>
@@ -373,7 +377,7 @@ This can be done in two different ways:
 - using standard Spring Boot starter integration
 - programmatically, calling Bonita Engine code through Java, Kotlin, Groovy, or any other language running on JVM
 
-For more information, see  [how to embed Bonita Engine](embed-engine.md).
+For more information, see \[how to embed Bonita Engine](embed-engine.md).
 
 **Warning**: This is a Lab feature and is subject to change without warning in any version. It is not recommended for production.
 
@@ -406,7 +410,7 @@ The SAP JCO2 connector is no longer available. SAP JCO3 connector is more recent
 #### Deploy zip
 
 The BonitaSubscription-x.y.z-deploy.zip is no longer provided starting from Bonita 7.9.
-Please use the Tomcat bundle instead, or see the  [Custom Deployment](deploy-bundle.md) page for more specific needs.
+Please use the Tomcat bundle instead, or see the \[Custom Deployment](deploy-bundle.md) page for more specific needs.
 
 #### Dependency libraries
 
