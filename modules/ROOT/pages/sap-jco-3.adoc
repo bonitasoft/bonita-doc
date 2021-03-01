@@ -7,7 +7,6 @@ The Bonita SAP Java Connector 3 allows Bonita to communicate with any SAP system
 
 [NOTE]
 ====
-
 For Enterprise, Performance and Efficiency editions only.
 ====
 
@@ -67,15 +66,15 @@ There is below a step by step procedure on Windows. It is assumed that the Studi
 . In the function definition window, only the function name is required.
 . Click on the arrow at the end of the field to display a dropdown list of functions.
 . Click on `GET_SYSTEM_NAME` for example
-. Click _*Next*_
+. Click *_Next_*
 . This will display the *Input Parameters* window
-. Click _*Next*_
+. Click *_Next_*
 . This will display the *Output Parameters* window
 . The `GET_SYSTEM_NAME` is displayed to confirm the input is this function. Note: You can create a blank .html file on your c: drive, which will be filled with the output information from the SAP connector
 . Enter the path to the .html file in the field called "HTML File"
-. Click _*Next*_
+. Click *_Next_*
 . This will display an *Ouput operations* window
-. Click _*Finish*_
+. Click *_Finish_*
 
 == Advanced features in Subscription Editions
 
