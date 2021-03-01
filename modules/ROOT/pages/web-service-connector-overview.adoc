@@ -7,9 +7,9 @@ The Bonita Studio includes a generic web service connector that leverages SOAP 1
 
 . Go to Web services in the connectors list.
 . Select**Web Service Client.**
-. Click on _*Next*_
+. Click on *_Next_*
 . Enter a name and description for the connector.
-. Click on _*Next.*_
+. Click on *_Next._*
 
 To format your entries according to SOAP specifications, go to http://www.w3.org/TR/soap12-part1/#intro[SOAP!]
 
