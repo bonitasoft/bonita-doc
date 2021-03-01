@@ -29,7 +29,7 @@ In order to use the KPI feature, you need to:
 
 When creating a KPI definition, you must specify its database connection settings and its structure.
 
-. In Bonita Studio, open the *KPI* menu and select _**Create KPI*_*.
+. In Bonita Studio, open the *KPI* menu and select *_Create KPI_*.
 . Fill in the database JDBC connection settings:
  .. Choose the _Driver template_ that matches your reporting database type:
 +
