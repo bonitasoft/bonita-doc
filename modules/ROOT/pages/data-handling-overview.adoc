@@ -32,5 +32,5 @@ An application page accesses business data using the xref:bdm-api.adoc[bdm REST 
 
 The data that is passed from a form to a process is defined using a xref:contracts-and-contexts.adoc[contract]. Define a contract for process instantiation and for each human task.
 These contracts are part of the process definition.
-A form has access to business data and documents using the xref:contracts-and-contexts.adoc[context] and the xref:_rest-api.adoc[REST API].
+A form has access to business data and documents using the xref:contracts-and-contexts.adoc[context] and the xref:rest-api-overview.adoc[REST API].
 A form also contains form xref:variables.adoc[variables], which have no meaning outside the form.

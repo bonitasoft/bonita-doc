@@ -23,7 +23,7 @@ However, H2 is only suitable for testing purposes. When building a production en
 ====
 
 Please note this procedure cannot be performed using the Bonita Studio. The Bonita Studio can run only on the H2 Database.
-To use Bonita BPM on another RDBMS, please use a xref:_basic-bonita-bpm-platform-installation.adoc[bundle] or set up a xref:deploy-bundle.adoc[standalone server].
+To use Bonita BPM on another RDBMS, please use a xref:bonita-bpm-installation-overview.adoc[bundle] or set up a xref:deploy-bundle.adoc[standalone server].
 ====
 
 Here are the steps to follow. They are the same for the engine database and the business data database:
