@@ -8,7 +8,7 @@ REST API extensions can be used to query [business data](define-and-deploy-the-b
 
 Prerequisites for developing a REST API extension are:
 
-* Java/Groovy development expertise.
+- Java/Groovy development expertise.
 
 ## Example description
 
@@ -21,12 +21,14 @@ The following sections show how to create a REST API extension. As an example, w
 A single REST API extension can define several API extensions.
 
 A REST API extension includes two different type of files:
-* One Groovy script file per API extension. The Groovy script files define the business logic of the API extensions.
-* A `page.properties` file. It defines information such as REST API extension name but also for example mapping between URL and API extension Groovy script file.
+
+- One Groovy script file per API extension. The Groovy script files define the business logic of the API extensions.
+- A `page.properties` file. It defines information such as REST API extension name but also for example mapping between URL and API extension Groovy script file.
 
 To start create the following text files:
-* `Index.groovy`. We will define a single API extension so you only need one Groovy file.
-* `page.properties`. File encoding should be set to ISO 8859-1.
+
+- `Index.groovy`. We will define a single API extension so you only need one Groovy file.
+- `page.properties`. File encoding should be set to ISO 8859-1.
 
 ### Write the code
 
@@ -39,6 +41,7 @@ Our example also use Bonita API classes available from Maven in [bonita-common p
 In our example the class will be named Index and we will use the default package.
 
 You can create the Index.groovy using your favorite IDE or a simple text editor. Here is the content of the file:
+
 ```groovy
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
@@ -136,18 +139,18 @@ class Index implements RestApiController {
 
 First part of the file defines the information related to the REST API extension:
 
-* First line in the file should define the type of resource: `contentType=apiExtension`
-* Second line define the name of the REST API extension (e.g. custompage_userInformationRestAPIExension). Note that the name must start with `custompage_` and should not includes spaces or special characters: `name=custompage_userInformationRestAPIExension`
-* You can optionally define a display name that will be used in Portal administration view: `displayName=User information REST API Extension`
-* Also optionally you can include a description: `description=Query Bonita BPM Engine to retrieve user information`
-* Next you need to define the list of API extensions defined by your REST API extension. In our case we will have only one. Use comma separated values if you have multiple api extensions. `apiExtensions=userInformationRestAPIExension`
+- First line in the file should define the type of resource: `contentType=apiExtension`
+- Second line define the name of the REST API extension (e.g. custompage_userInformationRestAPIExension). Note that the name must start with \`custompage_`and should not includes spaces or special characters:`name=custompage_userInformationRestAPIExension\`
+- You can optionally define a display name that will be used in Portal administration view: `displayName=User information REST API Extension`
+- Also optionally you can include a description: `description=Query Bonita BPM Engine to retrieve user information`
+- Next you need to define the list of API extensions defined by your REST API extension. In our case we will have only one. Use comma separated values if you have multiple api extensions. `apiExtensions=userInformationRestAPIExension`
 
 Second part of the file defines information related to API extensions that are defined by the REST API extension. You can have this block multiple times, one for each API extension. The property name is prefixed by the name of the API extension previously defined in `apiExtensions` property.
 
-* Specify one HTTP verb from GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS|TRACE. GET is the recommended value for a REST API extension. Write operations should be performed by a process. `userInformationRestAPIExension.method=GET`
-* Define the URL path template. For a value `userInformation` the resulting URL will be: `../API/extension/userInformation`. `userInformationRestAPIExension.pathTemplate=userInformation`
-* Declare the associated RestAPIController Groovy file: `userInformationRestAPIExension.classFileName=Index.groovy`
-* Declare the permission required to call the API. You can learn more on [REST API authorization documentation page](rest-api-authorization.md). `userInformationRestAPIExension.permissions=organization_visualization`
+- Specify one HTTP verb from GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS|TRACE. GET is the recommended value for a REST API extension. Write operations should be performed by a process. `userInformationRestAPIExension.method=GET`
+- Define the URL path template. For a value `userInformation` the resulting URL will be: `../API/extension/userInformation`. `userInformationRestAPIExension.pathTemplate=userInformation`
+- Declare the associated RestAPIController Groovy file: `userInformationRestAPIExension.classFileName=Index.groovy`
+- Declare the permission required to call the API. You can learn more on [REST API authorization documentation page](rest-api-authorization.md). `userInformationRestAPIExension.permissions=organization_visualization`
 
 ### Package the files for deployment
 
@@ -158,10 +161,10 @@ Packaging of the REST API extension is simple: you only need to put all the file
 To deploy the REST API extension:
 
 1. Connect to Bonita Portal with a user account that have Administrator profile
-1. Switch to administration view
-1. Go in Resources and click on Add button
-1. Select the previously created zip file
-1. Click on Next and on Confirm
+2. Switch to administration view
+3. Go in Resources and click on Add button
+4. Select the previously created zip file
+5. Click on Next and on Confirm
 
 ### Configure the authorization
 
@@ -172,34 +175,33 @@ To configure the REST API authorization checkout the dedicated [documentation pa
 Now you can finally test your REST API extension:
 
 1. Open a new tab in the web browser
-1. Enter the following URL: `http://localhost:8080/bonita/API/extension/userInformation?p=0&c=10`.
-1. The JSON response body should be displayed.
+2. Enter the following URL: `http://localhost:8080/bonita/API/extension/userInformation?p=0&c=10`.
+3. The JSON response body should be displayed.
 
 The REST API extension can be used in forms and pages in the **UI Designer** using an `External API` variable.
-
 
 ## For Enterprise, Performance, Efficiency, and Teamwork editions only.
 
 There is some additional prerequisites when creating a REST API extension with Enterprise, Performance, Efficiency, and Teamwork editions:
 
-* Basic knowledge of Maven
-* **Access to [Maven central repository](http://central.maven.org/maven2)**.
-* More information on maven configuration [here](configure-maven.md)
+- Basic knowledge of Maven
+- **Access to [Maven central repository](http://central.maven.org/maven2)**.
+- More information on maven configuration [here](configure-maven.md)
 
 ### Generate a new REST API extension skeleton
 
 1. In the **Development** menu, choose **REST API Extension** then **New...**.
-1. Enter a **Name**, for example _User information REST API Extension_.
-1. Enter a **Description**, for example _Query Bonita Engine to retrieve user information_.
-1. Enter a package name, use to set the artifact **Group id**, for example: _com.company.rest.api_
-1. Enter a **Project name**, for example _userInformationRestAPIExtension_
-1. Click **Next**.
-1. Enter the **pathTemplate** for this REST API extension, for example _userInformation_. This will be the access point of the API, and follows this pattern: `{bonita_portal_context}/API/extension/userInformation`.
-1. As this REST API extension does not access business data you can safely uncheck "Add BDM dependencies" check box.
-1. Define a **Permission** name for the extension (replace the default one), for example _read\_user\_information_. This is the name of the permission the users should have to be granted access to the extension (see [REST API extensions usage](api-extensions.md#usage)
-1. Click **Next**
-1. This screen defines **URL parameters** that will be passed to the API. By default, _p_ and _c_ parameters are defined to enables paged result, it applies well in our examples as we want to return a list of users.
-1. Click **Create**.
+2. Enter a **Name**, for example _User information REST API Extension_.
+3. Enter a **Description**, for example _Query Bonita Engine to retrieve user information_.
+4. Enter a package name, use to set the artifact **Group id**, for example: _com.company.rest.api_
+5. Enter a **Project name**, for example _userInformationRestAPIExtension_
+6. Click **Next**.
+7. Enter the **pathTemplate** for this REST API extension, for example _userInformation_. This will be the access point of the API, and follows this pattern: `{bonita_portal_context}/API/extension/userInformation`.
+8. As this REST API extension does not access business data you can safely uncheck "Add BDM dependencies" check box.
+9. Define a **Permission** name for the extension (replace the default one), for example _read_user_information_. This is the name of the permission the users should have to be granted access to the extension (see [REST API extensions usage](api-extensions.md#usage)
+10. Click **Next**
+11. This screen defines **URL parameters** that will be passed to the API. By default, _p_ and _c_ parameters are defined to enables paged result, it applies well in our examples as we want to return a list of users.
+12. Click **Create**.
 
 ### Write the code
 
@@ -213,6 +215,7 @@ First step would be to remove files and code related to REST API configuration a
 4. Remove the example of configuration usage in `Index.groovy` file (see comment starting with: "Here is an example of you can...").
 
 Now we can add our business logic. In `Index.groovy`, in `doHandle` method, locate the "Your code goes here" comment and add your code below (removing the existing `result` and `return` statement):
+
 ```groovy
 // Convert parameters from string to int
 p = p as int
@@ -253,6 +256,7 @@ Make sure you are adding all missing imports (default shortcut CTRL+SHIFT+o).
 Now we need to update the test to verify the behavior of our REST API extension by editing `IndexTest.groovy`.
 
 First step is to define some mocks for our externals dependencies such as Engine Identity API. Add the following mocks declaration after the existing ones:
+
 ```groovy
 def apiClient = Mock(APIClient)
 def identityAPI = Mock(IdentityAPI)
@@ -263,6 +267,7 @@ def contactData = Mock(ContactData)
 ```
 
 Now we need to define the generic behavior of our mocks. `setup()` method should have the following content:
+
 ```groovy
 context.apiClient >> apiClient
 apiClient.identityAPI >> identityAPI
@@ -283,6 +288,7 @@ contactData.email >> "test@email"
 ```
 
 Now you can define a test method. Replace existing test `should_return_a_json_representation_as_result` method with the following one:
+
 ```groovy
 def should_return_a_json_representation_as_result() {
   given: "a RestAPIController"
@@ -309,7 +315,7 @@ def should_return_a_json_representation_as_result() {
 
 Make sure you are adding all missing imports (default shortcut CTRL+SHIFT+o).
 
-You should now be able to run your unit test. Right click the `IndexTest.groovy` file and click on **REST API Extension** \> **Run JUnit Test**. The JUnit view displays the test results. All tests should pass.
+You should now be able to run your unit test. Right click the `IndexTest.groovy` file and click on **REST API Extension** > **Run JUnit Test**. The JUnit view displays the test results. All tests should pass.
 
 ### Build, deploy and test the REST API extension
 
@@ -318,24 +324,24 @@ Studio let you build and deploy the REST API extension in the embedded test envi
 First step is to configure security mapping for your extension in Studio embedded test environment:
 
 1. In the **Development** menu, choose **REST API Extension** then **Edit permissions mapping**.
-1. Append this line at the end of the file:
-`profile|User=[read_user_information]` This means that anyone logged in with the user profile is granted this permission.
-1. Save and close the file.
+2. Append this line at the end of the file:
+   `profile|User=[read_user_information]` This means that anyone logged in with the user profile is granted this permission.
+3. Save and close the file.
 
 Now you can actually build and deploy the extension:
 
-1. In the **Development** menu, choose **REST API Extension** \> **Deploy...**
-1. Select the userInformationRestAPIExtension REST API extension.
-1. Click on **Deploy** button.
-1. In the coolbar, click the **Portal** icon. This opens the Bonita Portal in your browser.
-1. In the Portal, change to the **Administrator** profile.
-1. Go to the **Resources** tab, and check that the User information REST API extension is in the list of REST API extension resources.
+1. In the **Development** menu, choose **REST API Extension** > **Deploy...**
+2. Select the userInformationRestAPIExtension REST API extension.
+3. Click on **Deploy** button.
+4. In the coolbar, click the **Portal** icon. This opens the Bonita Portal in your browser.
+5. In the Portal, change to the **Administrator** profile.
+6. Go to the **Resources** tab, and check that the User information REST API extension is in the list of REST API extension resources.
 
 Now you can finally test your REST API extension:
 
 1. Open a new tab in the web browser
-1. Enter the following URL: `http://localhost:8080/bonita/API/extension/userInformation?p=0&c=10`.
-1. The JSON response body should be displayed.
+2. Enter the following URL: `http://localhost:8080/bonita/API/extension/userInformation?p=0&c=10`.
+3. The JSON response body should be displayed.
 
 The REST API extension can be used in forms and pages in the **UI Designer** using an `External API` variable.
 
@@ -347,20 +353,17 @@ You can download the [REST API extension described in the tutorial above](https:
 
 ### For Enterprise, Performance, Efficiency, and Teamwork editions
 
-You can checkout the Bonita Studio repository that include this extension and a process that use it directly from the Studio by provinding the Git repository URL: https://github.com/bonitasoft/rest-api-extension-user-information-example
-
-
+You can checkout the Bonita Studio repository that include this extension and a process that use it directly from the Studio by provinding the Git repository URL: <https://github.com/bonitasoft/rest-api-extension-user-information-example>
 
 ## BDM and Performance matters
 
 Be aware that a poor implementation of a custom REST API accessing BDM objects can lead to poor performance results. See the [best practice](bdm-in-rest-api.md) on this matter.
 
-
 ## Troubleshooting
 
-* I get the following stacktrace when using Java 8 Date types (LocalDate, LocalDateTime...) in my Rest API Extension
+- I get the following stacktrace when using Java 8 Date types (LocalDate, LocalDateTime...) in my Rest API Extension
 
-```
+```log
 java.lang.StackOverflowError
 	at java.security.AccessController.doPrivileged(Native Method)
 	at java.net.URLClassLoader.findClass(URLClassLoader.java:361)
@@ -395,6 +398,7 @@ The [`groovy.json.JSONBuilder`](http://docs.groovy-lang.org/2.4.4/html/gapi/groo
 As a workaround you have to format dates in a new data structure before using the JSONBuilder.
 
 Example:
+
 ```groovy
 def employee = //A given employee object
 def result = [
@@ -411,4 +415,3 @@ We do not recommend to manage time zone at the Rest API level, as the local of t
 So we encourage you to manipulate UTC dates only server-side.
 You can see how we [manage the time zone using the date time picker](datetimes-management-tutorial.md#toc2). This time zone should only be managed in the end user interface.
 :::
-

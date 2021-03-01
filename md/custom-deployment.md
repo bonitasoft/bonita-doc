@@ -14,28 +14,30 @@ It saves you from doing all the following configuration at hand, as the setup to
 ## Installation
 
 1. Download the Tomcat bundle file from the [Bonitasoft download page](http://www.bonitasoft.com/downloads-v2) for the Community edition 
-or from the [Customer Portal](https://customer.bonitasoft.com/download/request) for Subscription editions.
+   or from the [Customer Portal](https://customer.bonitasoft.com/download/request) for Subscription editions.
 2. Unzip it into a temporary folder (BUNDLE_DIRECTORY).
 3. Follow the [Tomcat bundle steps](#tomcat-installation).
 
 <a id="tomcat-installation" />
 
 ## Tomcat installation
+
 ### Install Bonita Platform in Tomcat
 
 Copy, from the bundle into your Tomcat server:
-* `server/bin/setenv.sh` or `server/bin/setenv.bat`, depending if you are on Unix or Windows, to `bin`
-* The entirety of the bundle `server/conf` folder to `conf`
-* The entirety of the bundle `server/lib/bonita` folder to `lib/bonita`
-* The `server/webapps/bonita.war` and `webapps/ROOT/favicon.ico` to `webapps` and `webapps/ROOT/`
-* The entirety of the `setup` directory at the root of your tomcat server.
-* The entirety of the `tools/request_key_utils-`. Includes script files to generate license request keys.
+
+- `server/bin/setenv.sh` or `server/bin/setenv.bat`, depending if you are on Unix or Windows, to `bin`
+- The entirety of the bundle `server/conf` folder to `conf`
+- The entirety of the bundle `server/lib/bonita` folder to `lib/bonita`
+- The `server/webapps/bonita.war` and `webapps/ROOT/favicon.ico` to `webapps` and `webapps/ROOT/`
+- The entirety of the `setup` directory at the root of your tomcat server.
+- The entirety of the `tools/request_key_utils-`. Includes script files to generate license request keys.
 
 :::warning
 Some of the libraries copied from the bundle `server/lib/bonita` may already exist (albeit in a different version) in your Tomcat server `lib` folder. e.g.:
 
-* bundle (Tomcat 8.5.40): `server/lib/bonita/tomcat-dbcp-9.0.16.jar`
-* Tomcat server (Tomcat 8.0.36): `lib/tomcat-dbcp-8.0.36.jar` and `lib/tomcat-dbcp.jar`
+- bundle (Tomcat 8.5.40): `server/lib/bonita/tomcat-dbcp-9.0.16.jar`
+- Tomcat server (Tomcat 8.0.36): `lib/tomcat-dbcp-8.0.36.jar` and `lib/tomcat-dbcp.jar`
 
 For such libraries, you should only keep the ones copied from the bundle under `lib/bonita`, or else the Bonita server may encounter `NoSuchMethodError`-type of issues.
 :::
@@ -53,11 +55,10 @@ There is an [issue on tomcat 8.0.32](https://bz.apache.org/bugzilla/show_bug.cgi
 2. Remove or comment out the lines regarding the h2 database.
 3. Uncomment the lines matching your RDBMS.
 4. Update following attributes value:
-    - username: your RDBMS user name.
-    - password: your RDBMS password.
-    - url: the URL, including the RDBMS server address, RDBMS server port and database (schema) name.
+   - username: your RDBMS user name.
+   - password: your RDBMS password.
+   - url: the URL, including the RDBMS server address, RDBMS server port and database (schema) name.
 5. There are 4 datasources declared. Make sure you made the change for them all, named RawBonitaDS, bonitaSequenceManagerDS, RawBusinessDataDS, NotManagedBizDataDS.
-
 
 ### Configure RDBMS vendor
 
@@ -66,10 +67,10 @@ There is an [issue on tomcat 8.0.32](https://bz.apache.org/bugzilla/show_bug.cgi
 3. Change the value of sysprop.bonita.bdm.db.vendor according to your RDBMS vendor
 
 ### Add Jdbc driver
+
 You need to add your jdbc driver in TOMCAT_HOME/lib. 
 MySQL, PostgreSQL and Microsoft SQL Server drivers can be found in the Tomcat bundle under DEPLOY_ZIP_HOME/setup/lib directory. For Oracle, 
 use the [jdbc driver](database-configuration.md#proprietary_jdbc_drivers) provided by Oracle.
-
 
 ## License installation
 
@@ -78,13 +79,16 @@ If you are installing a Subscription edition, you need to [request a license](li
 When you receive your license, copy the file to the `TOMCAT_DIRECTORY/setup/platform_conf/licenses` folder of your application server.
 
 ## Database initialization
+
 We assume here that the database has already been [created and configured for Bonita](database-configuration.md#database_creation).
 Once created and configured you need to initialize it using the setup tool provided in the bundle.
 This will create database schema and initial values.
+
 1. In TOMCAT_DIRECTORY/setup folder, edit the file database.properties with properties matching your rdbms. Beware of [backslash characters](BonitaBPM_platform_setup.md#backslash_support).
 2. In TOMCAT_DIRECTORY/setup/lib add your jdbc driver if needed (only for Oracle, see [proprietary jdbc drivers](database-configuration.md#proprietary_jdbc_drivers))
 3. In TOMCAT_DIRECTORY/setup folder, run `setup.(sh|bat) init`
 
 ## Next steps
+
 You're done with Bonita installation. You can now start your application server as usual.
 When you have finished installing the deploy bundle, [complete the setup](first-steps-after-setup.md) of your system by validating the installation, setting passwords, and creating the Administrator user.

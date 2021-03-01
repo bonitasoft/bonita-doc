@@ -1,12 +1,10 @@
 # Reporting overview
 
-
 Learn how reporting can be made on application of the Bonita Plaform.
 
 ::: info
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
-
 
 ## Terminology
 
@@ -19,8 +17,8 @@ Reporting is also know as Business Intelligence (BI) or Business Activity Monito
 
 Reporting involves Bonita and two other third-party software components:
 
-* A reporting database of your choice.
-* A BI tool of your choice.
+- A reporting database of your choice.
+- A BI tool of your choice.
 
 ## Reporting main steps
 

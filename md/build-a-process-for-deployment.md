@@ -1,4 +1,5 @@
 # Build a process for deployment
+
 Build deployment artifacts that will allow you to install your process onto a server. 
 
 ## How to
@@ -12,7 +13,7 @@ To create the business archive you can :
 1. Choose **Build...** from the **Server** menu.
 2. Select the process to be exported.
 3. Specify whether you want to export a configuration with the process. 
-Exporting a configuration will export all the information and other items that you configured, including connectors and dependencies.
+   Exporting a configuration will export all the information and other items that you configured, including connectors and dependencies.
 4. Specify the location where the .bar file will be created. The filename is determined by the process name and cannot be changed at this stage.
 5. Click **Finish**. The business archive is created.
 
@@ -24,7 +25,6 @@ or
 4. Click **Finish**. The business archive is created.
 
 When you build a process from the project explorer, the configuration used is the configuration saved as default. You can edit it from the [configure menu](configuring-a-process.md)
-
 
 You can now [install the process in Bonita Portal](processes.md).
 

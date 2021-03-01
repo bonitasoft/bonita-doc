@@ -9,7 +9,6 @@ First thing to know is that, in Bonita, a human task can be performed by a set o
 When a user is connected on Bonita Portal he/she can see the list of user task instances he/she can perform. But before actually performing the task, he/she needs to claim the task. By doing so he/she becomes the **task assignee**.  
 This action prevents concurrent actions from several candidates on a single user task instance.
 
-
 ::: info
 Note that if the task assignee realizes that he/she cannot actually perform a user task instance he/she can release it. Releasing a user task instance will make it available again to all the initial candidates.
 :::
@@ -20,11 +19,11 @@ In order to define the candidates of a user task instance Bonita offers two alte
 
 This is done in two stages:
 
-* When the process is designed, the business analyst designates an actor for the step. An actor is a placeholder that defines the theoretical user who will perform the step.
-* Before a process is deployed, the actors are mapped to the real users in an organization.
+- When the process is designed, the business analyst designates an actor for the step. An actor is a placeholder that defines the theoretical user who will perform the step.
+- Before a process is deployed, the actors are mapped to the real users in an organization.
 
 When you define a process, you define who will carry out a step in the process by specifying an actor. For example, if a step can be done by any member of the HR team, you could call the actor hr, or if a step can only be done by the sales team manager in Europe, you
-could call the actor sales\_mgr\_europe.
+could call the actor sales_mgr_europe.
 
 Typically, an actor is defined for each step in a process, but you can also specify an actor for all steps in a pool or lane. You can
 also use an actor filter to specify the logical relationships between actors. For example, in a process to request vacation days, the request step can be carried out by any user, but the approval step must be carried out by the manager of the requesting user.
@@ -34,11 +33,13 @@ You can define an actor at pool, lane, or step, and the definitions are related.
 To define actors for a process:
 
 1. Define the actors for the pool:
-     1. Select the  pool and go to the **Details** panel, **General** tab, **Actors** pane. If you have already defined any actors, they are shown in the table. 
-     2. Click **_Add_**. A new row is added to the table, with a temporary name for the new actor (for example, Actor1). To change the
-name, select it and type the name you want to use. You can also add a description.
-     3. Repeat step 2 to add all the actors required for the process. You can also remove an actor, by selecting it and clicking **_Remove_**.
-     4. Select the actor that will be the initiator of the process cases, and click **_Set as initiator_**. If you do not define an initiator for the pool, the process cannot be started in Bonita Portal. Instead, it will have to be started programmatically.
+   ```
+    1. Select the  pool and go to the **Details** panel, **General** tab, **Actors** pane. If you have already defined any actors, they are shown in the table. 
+    2. Click **_Add_**. A new row is added to the table, with a temporary name for the new actor (for example, Actor1). To change the
+   ```
+   name, select it and type the name you want to use. You can also add a description.
+        3. Repeat step 2 to add all the actors required for the process. You can also remove an actor, by selecting it and clicking **_Remove_**.
+        4. Select the actor that will be the initiator of the process cases, and click **_Set as initiator_**. If you do not define an initiator for the pool, the process cannot be started in Bonita Portal. Instead, it will have to be started programmatically.
 2. For each lane, define the actor. You can either select an actor that was defined for the pool, by selecting the actor from the drop-down list, or you can use an actor filter.
 3. For each step, define the actor. You can use the actor defined for the lane, or specify an actor for the step. To specify an actor for the step, you can either select an actor that was defined for the pool, by selecting the actor from the drop-down list, or you can use an actor filter.
 
@@ -68,7 +69,7 @@ Before a process can be tested, you must map the actors in the process to users 
 To map the process actors:
 
 1. Open the process diagram in Bonita Studio, and click **Configure** in the cool bar. The actor mapping dialog is displayed, and
-indicates any actors in the process that are not yet mapped.
+   indicates any actors in the process that are not yet mapped.
 2. For each unmapped actor, click the actor name to select it. You can then map it to a group, role, membership (that is, a role within a group), or specific user.
 
 When you deploy a process, if you have the same organization definition in Bonita Studio and Bonita Portal, you can map the actors first in Bonita Studio then include the mappings when you build the process for deployment. Otherwise, you can configure the actor mappings in Bonita Portal after the process is deployed, when you resolve the process.

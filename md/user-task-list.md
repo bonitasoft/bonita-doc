@@ -26,6 +26,7 @@ Here are the values of the user task list:
 ![](images/tasklist-fullpage.png)<!--{.img-responsive .img-thumbnail}-->
 
 This list also leverages two legacy features (prior to Bonita 7.3.0):
+
 - Dynamic task display name, for efficient task identification (insert case information in task name)
 - Word-based search, for efficient task name search (search for any word in the task name)
 

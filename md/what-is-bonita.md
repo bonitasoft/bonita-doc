@@ -15,6 +15,7 @@ Bonita is applicable to a wide range of use cases: applications can go from loan
 Thanks to the low-code Bonita platform you won't need to write a lot of code to create an application. Creation of Bonita applications relies heavily on models: a process model (using BPMN standard), a data model for business data management, a WYSIWYG tool for user interface design, and more.
 
 Creating an application in Bonita Studio (the Bonita development environment) requires the following steps:
+
 - graphically design one or several processes using BPMN notation
 - define the data model using the Bonita Business Data Management feature (you can of course use your own database if needed)
 - create web user interfaces using the Bonita UI Designer (or your preferred web framework)
@@ -32,6 +33,7 @@ We will cover these steps in this getting started tutorial so you can get famili
 Bonita Studio provides everything you need to develop and build a Bonita application. Bonita Studio is a desktop application built on Eclipse.
 
 It provides:
+
 - capabilities to model BPMN (Business Process Modeling Notation) processes
 - capabilities to model BDM (Business Data Model)
 - capabilities to model user interfaces (UI Designer)

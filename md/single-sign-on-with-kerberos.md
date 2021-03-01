@@ -20,12 +20,11 @@ Kerberos SSO with AD relies on a minimum on 3 physical machines that are member 
 
 ![Kerberos with AD](images/kerberos-ad.png)<!--{.img-responsive}-->
 
--	Domain Controller: the AD domain controller providing the SSO tickets through the Kerberos KDC component.
+- Domain Controller: the AD domain controller providing the SSO tickets through the Kerberos KDC component.
 
--	Service Server: the server on which resides the service we want to access (Bonita for instance). This server is referred to as the "Principal". It uses the credentials of an AD service account and is member of the domain.
+- Service Server: the server on which resides the service we want to access (Bonita for instance). This server is referred to as the "Principal". It uses the credentials of an AD service account and is member of the domain.
 
--	Client: the client is the end user’s machine. The client is referred to as the "Subject". It uses the credentials of an AD user account and is member of the domain.
-
+- Client: the client is the end user’s machine. The client is referred to as the "Subject". It uses the credentials of an AD user account and is member of the domain.
 
 ## Kerberos overview for Bonita
 
@@ -36,12 +35,11 @@ The target architecture for integrating Kerberos SSO with Bonita and Spnego will
 The scenario covered by the filter is the following: 
 
 - The Bonita Kerberos filter intercepts all the requests to bonita portal pages, and checks if the user is already logged in on Bonita 
-    
-    - If already logged in => Allow the access
-    - If not logged in => The request is transferred to the Spnego authenticator
+  - If already logged in => Allow the access
+  - If not logged in => The request is transferred to the Spnego authenticator
 
 The Spnego authenticator will then verify the user’s Kerberos tickets if present or create a new one. After obtaining a valid ticket the filter will store some information (the authenticated user login) in the client request and get back to the Bonita Kerberos filter.
-	
+
 - The Bonita Kerberos filter will automatically create a Bonita session and let the user through to access the Portal resources.
 
 ::: warning  
@@ -65,14 +63,15 @@ Note that this a different account than the machine object on which the service 
 
 2- Check that the service account is not already associated to any host by running this command (replace bonita.tomcat with your service account name):
 
-```
+```bash
 setspn -L bonita.tomcat
 ```
+
 This will list the hosts associated to this service account. There should not be any entry.
 
 3- Run these two commands in order to declare the SPN (bonita.tomcat). The first command will use the simple host name (win2008tomcat):
 
-```
+```bash
 setspn -A HTTP/win2008tomcat bonita.tomcat
 
 Registering ServicePrincipalNames for CN=Bonita Tomcat,OU=Service Accounts,OU=Grenoble,OU=Bonitasoft,DC=corp,DC=bonitasoft,DC=com
@@ -82,7 +81,7 @@ Updated object
 
 Second command with the fully qualified host name (win2008tomcat.corp.bonitasoft.com):
 
-```
+```bash
 setspn -A HTTP/win2008tomcat.corp.bonitasoft.com bonita.tomcat
 
 Registering ServicePrincipalNames for CN=Bonita Tomcat,OU=Service Accounts,OU=Grenoble,OU=Bonitasoft,DC=corp,DC=bonitasoft,DC=com
@@ -92,7 +91,7 @@ Updated object
 
 4- Make sure the SPN is set up correctly by running this command:
 
-```
+```bash
 setspn -L bonita.tomcat
 
 Registered ServicePrincipalNames for CN=Bonita Tomcat,OU=Service Accounts,OU=Grenoble,OU=Bonitasoft,DC=corp,DC=bonitasoft,DC=com:
@@ -102,35 +101,38 @@ Registered ServicePrincipalNames for CN=Bonita Tomcat,OU=Service Accounts,OU=Gre
 
 5- In Active directory, open the service account user properties and go to the account tab. Flag the following values:
 
-	-	Password never expires = true
-	-	User cannot change password = true
-	-	This account supports Kerberos AES128
-	-	This account supports Kerberos AES256
-	-	Use Kerberos DES encryption types for this account = should preferably be false
+```
+-	Password never expires = true
+-	User cannot change password = true
+-	This account supports Kerberos AES128
+-	This account supports Kerberos AES256
+-	Use Kerberos DES encryption types for this account = should preferably be false
+```
 
 6- Still in the service account user properties, go to the delegation tab and set the following value to true:
-	
-	Trust this user for delegation to any service (Kerberos only).
+
+```
+Trust this user for delegation to any service (Kerberos only).
+```
 
 ## Configure Bonita Bundle for Kerberos
 
 You need to execute the following actions in the folder of each tenant for which you want to support authentication over Kerberos.
-If you want this configuration to also apply to each tenant created later, make sure to also perform those actions in the *template* tenant configuration folder:
+If you want this configuration to also apply to each tenant created later, make sure to also perform those actions in the _template_ tenant configuration folder:
 `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_*` (if you have not started the Bonita bundle yet, the files are located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_*`)
 
 The bundle already contains the files needed to use Kerberos with Bonita platform.  
 To configure Bonita for Kerberos:
 
 1. If you do not already have one:
-    1. Download a Subscription edition bundle from the customer portal
-    1. [Configure](_basic-bonita-platform-installation) it as needed
-    1. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
-    1. Stop it before modifying the configuration files below
-	
+   1. Download a Subscription edition bundle from the customer portal
+   2. [Configure](_basic-bonita-platform-installation) it as needed
+   3. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
+   4. Stop it before modifying the configuration files below
 2. You will need to edit the Kerberos configuration file in order to select the desired encryption types used to secure the communication. In the following folder `<BUNDLE_HOME>/server/conf` (Tomcat) or `<BUNDLE_HOME>/server/bin` (Wildfly),
-	edit the krb5.conf file as follows:
-	
-```	
+   edit the krb5.conf file as follows:
+
+```conf
 		[libdefaults]
 	-->		default_realm = BONITA.LOCAL
 			default_tkt_enctypes = aes256-cts-hmac-sha1-96 aes128-cts rc4-hmac des3-cbc-sha1 des-cbc-md5 des-cbc-crc
@@ -147,17 +149,19 @@ To configure Bonita for Kerberos:
 	-->		.BONITA.LOCAL = BONITA.LOCAL
 
 ```
-	
+
 if you want to use the AES256-CTS encryption type, you need to update the Java security libraries (Java Cryptography Extension (JCE) Unlimited Strength) to those for Strong Encryption. Depending on your java version, you might have to download some extra files or not.
 
-	* For Java updates > Java 8 u162 and java 9, the unlimited policy is enabled by default. You no longer need to install the policy file in the JRE or set the security property crypto.policy
-	* For Java updates < Java 8 u162, you have to download the security libraries [Here](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html)
-		These libraries need to be put in jre/lib/security and jdk/jre/lib/security.
+```
+* For Java updates > Java 8 u162 and java 9, the unlimited policy is enabled by default. You no longer need to install the policy file in the JRE or set the security property crypto.policy
+* For Java updates < Java 8 u162, you have to download the security libraries [Here](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html)
+	These libraries need to be put in jre/lib/security and jdk/jre/lib/security.
+```
 
 3. (Tomcat) In the following folder `<BUNDLE_HOME>/server/conf`,
-	edit the login.conf file as follows:
-	
-```	
+   edit the login.conf file as follows:
+
+```
 	spnego-client {
 		com.sun.security.auth.module.Krb5LoginModule required;
 	};
@@ -173,15 +177,18 @@ In addition, the system property `java.security.auth.login.config` should not al
 `SECURITY_OPTS="-Djava.security.auth.login.config=${CATALINA_HOME}/conf/login.conf"`
 
 3. (Wildfly) In the following folder `<BUNDLE_HOME>/setup/wildfly-templates`,
-	edit the standalone.xml file as follows:
-	
+   edit the standalone.xml file as follows:
+
 In:
-```	
+
+```xml
 <subsystem xmlns="urn:jboss:domain:security:1.2">
             <security-domains>
 ```
+
 Make sure the following security domains are present:
-```
+
+```xml
 		<security-domain name="spnego-server">
 			<authentication>
 			  <login-module code="com.sun.security.auth.module.Krb5LoginModule" flag="required">
@@ -199,23 +206,23 @@ Make sure the following security domains are present:
 
 4. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
    edit the authenticationManager-config.properties as follows:
-   
-```
-		# saml.logout.global = false
-		# auth.tenant.admin.username = install
-		# auth.passphrase = BonitaBPM
-   
-	-->	auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.kerberos.RemoteAuthenticationManagerImpl
-	-->	kerberos.filter.active = true
-	-->	kerberos.auth.standard.allowed = false
-	-->	auth.tenant.admin.username = install
-	-->	auth.tenant.standard.whitelist = william.jobs
-	-->	auth.passphrase = Bonita
 
-		# auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.oauth.OAuthAuthenticationManagerImpl
-		# OAuth.serviceProvider = LinkedIn
-		# OAuth.consumerKey = ove2vcdjptar
-   -->  logout.link.hidden=true 
+```properties
+    # saml.logout.global = false
+    # auth.tenant.admin.username = install
+    # auth.passphrase = BonitaBPM
+    
+    auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.kerberos.RemoteAuthenticationManagerImpl
+    kerberos.filter.active = true
+    kerberos.auth.standard.allowed = false
+    auth.tenant.admin.username = install
+    auth.tenant.standard.whitelist = william.jobs
+    auth.passphrase = Bonita
+    
+    # auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.oauth.OAuthAuthenticationManagerImpl
+    # OAuth.serviceProvider = LinkedIn
+    # OAuth.consumerKey = ove2vcdjptar
+    logout.link.hidden=true 
 ```
 
 Make sure to [set the right tenant admin username](multi-tenancy-and-tenant-configuration#toc2).
@@ -226,19 +233,21 @@ If only a limited group of users need to bypass kerberos authentication method y
 
 5. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
    edit the spnego-config.properties file as follows:
+
+```properties
+    spnego.allow.basic          = true
+    spnego.allow.localhost      = true
+    spnego.allow.unsecure.basic = true
+    spnego.login.client.module  = spnego-client
+    spnego.krb5.conf            = conf/krb5.conf
+    spnego.login.conf           = conf/login.conf
+    spnego.login.server.module  = spnego-server
+    spnego.prompt.ntlm          = true
+    spnego.logger.level         = 1
+    spnego.preauth.username     = <username>
+    spnego.preauth.password     = <password> 
 ```
-	-->      spnego.allow.basic          = true
-	-->	 spnego.allow.localhost      = true
-	-->	 spnego.allow.unsecure.basic = true
-	-->	 spnego.login.client.module  = spnego-client
-	-->	 spnego.krb5.conf            = conf/krb5.conf
-	-->	 spnego.login.conf           = conf/login.conf
-	-->	 spnego.login.server.module  = spnego-server
-	-->	 spnego.prompt.ntlm          = true
-	-->	 spnego.logger.level         = 1
-	-->	 spnego.preauth.username     = <username>
-	-->	 spnego.preauth.password     = <password> 
-```
+
 <username> and <password> shoud be replaced with the domain account and password to use to pre-authenticate to on the Domain controller acting as Kerberos Key Distribution Center.  
 `spnego.login.client.module` and `spnego.login.server.module` property values should match the login contexts set in `login.conf` for Tomcat or the security domain names set in `standalone.xml` for Wildfly (spnego-client and spnego-server by default).
 Note that for Wildfly, the properties `spnego.krb5.conf` and `spnego.login.conf` are not used as already set in the file satndalone.xml
@@ -246,9 +255,9 @@ Note that for Wildfly, the properties `spnego.krb5.conf` and `spnego.login.conf`
 Make sure to set your principal user name and password.	
 
 6. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`,
-	  edit the file **bonita-tenant-sp-custom.xml** to uncomment the bean passphraseOrPasswordAuthenticationService:
+    edit the file **bonita-tenant-sp-custom.xml** to uncomment the bean passphraseOrPasswordAuthenticationService:
 
-```
+```xml
 	<bean id="passphraseOrPasswordAuthenticationService" class="com.bonitasoft.engine.authentication.impl.PassphraseOrPasswordAuthenticationService" lazy-init="true">
 	   <constructor-arg name="logger" ref="tenantTechnicalLoggerService" />
 	   <constructor-arg name="identityService" ref="identityService" />
@@ -257,9 +266,9 @@ Make sure to set your principal user name and password.
 ```
 
 7. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
-  edit the file bonita-tenant-sp-custom.properties as follows:
-  
-```
+   edit the file bonita-tenant-sp-custom.properties as follows:
+
+```properties
 		# Authentication service to use. Some are natively provided:
 		# authenticationService
 		#   * binded to bonita authentication mode
@@ -276,11 +285,11 @@ Make sure to set your principal user name and password.
 		#   * Requires PassphraseOrPasswordAuthenticationService bean to be uncommented in bonita-tenant-sp-custom.xml
 		#   * impl: com.bonitasoft.engine.authentication.impl.PassphraseOrPasswordAuthenticationService
 		# you can provide your own implementation in bonita-tenant-sp-custom.xml and refer to the bean name of your choice
-   -->  authentication.service.ref.name=passphraseOrPasswordAuthenticationService
+        authentication.service.ref.name=passphraseOrPasswordAuthenticationService
 		
 		# If authentication.service.ref.name equals "PassphraseOrPasswordAuthenticationService",
 		# you need to configure the following passphrase 
-   -->  authentication.service.ref.passphrase=BonitaBPM
+        authentication.service.ref.passphrase=BonitaBPM
 		
 		# CAS authentication delegate : enables the user, providing login/password,
 		# to be logged in automatically against CAS web application 
@@ -289,41 +298,43 @@ Make sure to set your principal user name and password.
 		#authentication.delegate.cas.server.url.prefix=http://ip_address:port
 		#authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservice
 ```
-  
+
 It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file **authenticationManager-config.properties** updated previously.
 
 8. If your Domain Controller is correctly configured, you are done.  
-Then you can start the bundle and try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are automatically logged in.  
+   Then you can start the bundle and try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are automatically logged in.  
 
 Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `kerberos.auth.standard.allowed` to true or define a whitelist with the property `auth.tenant.standard.whitelist`) to be able to log in without an account on AD.
-
 
 ## Logout behavior
 
 The most commonly used solution is to hide the logout button from the portal. Users are logged in as long as they don't close their web browser (unless their session times out).  
 To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
 
-
 ## Troubleshoot
 
-To troubleshoot Kerberos SSO login issues, you need to add a logging handler for the package `net.sourceforge.spnego` and increase the [log level](logging.md) to `ALL` for the packages `org.bonitasoft`, `com.bonitasoft`, and `net.sourceforge.spnego` in order for errors to be displayed in the log files bonita-*.log (by default, they are not).
+To troubleshoot Kerberos SSO login issues, you need to add a logging handler for the package `net.sourceforge.spnego` and increase the [log level](logging.md) to `ALL` for the packages `org.bonitasoft`, `com.bonitasoft`, and `net.sourceforge.spnego` in order for errors to be displayed in the log files bonita-\*.log (by default, they are not).
 
-In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/logging.properties.  
-* Add the lines:  
-```
+In order to do that in a Tomcat bundle, you need to edit the file \`&lt;BUNDLE_HOME>/server/conf/logging.properties.  
+
+- Add the lines:  
+
+```properties
 net.sourceforge.spnego.handlers = 5bonita.org.apache.juli.AsyncFileHandler
 net.sourceforge.spnego.level = ALL
 ```
-* Update the existing lines (to set the level to `ALL`):  
-```
+
+- Update the existing lines (to set the level to `ALL`):  
+
+```properties
 org.bonitasoft.console.common.server.auth.level = ALL
 org.bonitasoft.engine.authentication.level = ALL
 com.bonitasoft.engine.authentication.level = ALL
 ```
 
-In a WildFly bundle, you need to edit the file `<BUNDLE_HOME>/setup/wildfly-templates/standalone.xml` in the domain `urn:jboss:domain:logging:3.0` of the *subsystem* tag.
+In a WildFly bundle, you need to edit the file `<BUNDLE_HOME>/setup/wildfly-templates/standalone.xml` in the domain `urn:jboss:domain:logging:3.0` of the _subsystem_ tag.
 
-Edit the *logger* tags which *category* matches `org.bonitasoft.console.common.server.auth`, `org.bonitasoft.engine.authentication` and `com.bonitasoft.engine.authentication` packages: change the *level* *name* attribute of each *logger* to `ALL` and add a new logger with the *category* `net.sourceforge.spnego` (also with a *level* *name* set to `ALL`).
+Edit the _logger_ tags which _category_ matches `org.bonitasoft.console.common.server.auth`, `org.bonitasoft.engine.authentication` and `com.bonitasoft.engine.authentication` packages: change the _level_ _name_ attribute of each _logger_ to `ALL` and add a new logger with the _category_ `net.sourceforge.spnego` (also with a _level_ _name_ set to `ALL`).
 
 ::: info
 **Common issues :** In the logs, you may get a IllegalArgumentException in the class `net.sourceforge.spnego.SpnegoFilterConfig`.  
@@ -339,13 +350,13 @@ However, when you create a user in Bonita Portal, specifying a password is manda
 
 ## LDAP synchronizer and Kerberos
 
-If you are using an LDAP (or AD) service and the [LDAP synchronizer](ldap-synchronizer.md) to manage your user data,   
+If you are using an LDAP (or AD) service and the [LDAP synchronizer](ldap-synchronizer.md) to manage your user data,  
 you can continue to do this and manage authentication over Kerberos.  
-The LDAP synchronizer user must be registered in Bonita (no need for an LDAP/AD account). It is recommended though to use the tenant admin account.   
+The LDAP synchronizer user must be registered in Bonita (no need for an LDAP/AD account). It is recommended though to use the tenant admin account.  
 We recommend that you use LDAP or AD as your master source for information, synchronizing the relevant information with your Bonita platform.
 
 ::: info
-**Note :** By default the [LDAP synchronizer](ldap-synchronizer.md) sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `kerberos.auth.standard.allowed` in **authenticationManager-config.properties**), users won't be able to log in with the portal login page directly without going through the Domain Controller.   
+**Note :** By default the [LDAP synchronizer](ldap-synchronizer.md) sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `kerberos.auth.standard.allowed` in **authenticationManager-config.properties**), users won't be able to log in with the portal login page directly without going through the Domain Controller.  
 :::
 
 ## Single sign-on with Kerberos using the REST API
@@ -354,15 +365,17 @@ Only resources that require a direct access from a web browser are handled by th
 Access to other resources won't trigger a Kerberos authentication process. 
 Here is the subset of resources filtered by the Kerberos filter by default:
 
-* /portal/homepage
-* /portal/resource/*
-* /portal/form/*
-* /mobile/*
-* /apps/*
+- /portal/homepage
+- /portal/resource/\*
+- /portal/form/\*
+- /mobile/\*
+- /apps/\*
 
 REST API are not part of them by default, but if an http session already exists thanks to cookies, REST API can be used.
 
 The recommended way to authenticate to Bonita Portal to use the REST API is to use the [login service](rest-api-overview.md#bonita-authentication).  
 If you need the SSO to work with the APIs you can update the web.xml of bonita.war to add the following resources to the URL Mappings of AuthenticationFilter and KerberosFilter:
 
-        <url-pattern>/API/*</url-pattern>
+```xml
+    <url-pattern>/API/*</url-pattern>
+```

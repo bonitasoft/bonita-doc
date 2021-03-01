@@ -17,6 +17,7 @@ The following code samples show how to generate a link to a process instantiatio
 ### Complete URL
 
 This sample shows how to construct the complete URL. Prefer the short format for backward compatibility.
+
 ```java
     return new StringBuffer("URL: <a href=\"")
     .append("http://");
@@ -39,6 +40,7 @@ Example:
 ### Short URL
 
 This sample shows how to construct the short URL. Prefer this format for backward compatibility. You will automatically be redirected to the complete format.
+
 ```java
  return new StringBuffer("URL: <a href=\"")
     .append("http://");
@@ -63,6 +65,7 @@ The following code samples show how to generate a link to a process overview for
 ### Complete URL
 
 This sample shows how to construct the complete URL. Prefer the short format for backward compatibility.
+
 ```java
 return new StringBuffer("URL: <a href=\"")
     .append("http://")
@@ -85,6 +88,7 @@ Example:
 ### Short URL
 
 This sample shows how to construct the short URL. Prefer this format for backward compatibility. You will automatically be redirected to the complete format.
+
 ```java
  return new StringBuffer("URL: <a href=\"")
     .append("http://")
@@ -111,6 +115,7 @@ The following code samples show how to generate a link to a human task.
 ### Complete URL
 
 This sample shows how to construct the complete URL. Prefer the short format for backward compatibility.
+
 ```java
  return new StringBuffer("URL: <a href=\"")
     .append("http://")
@@ -135,6 +140,7 @@ Example:
 ### Short URL
 
 This sample shows how to construct the short URL. Prefer this format for backward compatibility. You will automatically be redirected to the complete format.
+
 ```java
 return new StringBuffer("URL: <a href=\"")
     .append("http://")
@@ -151,6 +157,7 @@ Example:
 `http://localhost:8080/bonita/portal/form/taskInstance/3`
 
 Or if you only have the process instance ID and the task name:
+
 ```java
   return new StringBuffer("URL: <a href=\"")
     .append("http://")
@@ -172,10 +179,10 @@ With the above format, the first task with the name "request approval" available
 
 ## URL parameter summary
 
-| | | |
-|:-|:-|:-|
-| Parameter | Description | Example |
-| `locale=<string>` | Optional. Identifies the language to be used. | `locale=en`  |
-| `id=<id>` | <ul><li>For process instantiation URL, identifies the process definition id.</li><li>For process overview URL, identifies the process instance id.</li><li>For task URL, identifies the activity instance of the task.</li> | `id=6972973247608922361` |
-| `user=<userId>` | Optional. Identifies the user you perform the task for (for administrators and process managers). | `user=201`  |
-| `tenant=<tenantId>` | Optional. Identifies the tenant on which the process is deployed for multiple tenants environments (Multi-tenancy is available with the Enterprise and Performance editions only). | `tenant=2` |
+|                     |                                                                                                                                                                                                                             |                          |
+| :------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------- |
+| Parameter           | Description                                                                                                                                                                                                                 | Example                  |
+| `locale=<string>`   | Optional. Identifies the language to be used.                                                                                                                                                                               | `locale=en`              |
+| `id=<id>`           | <ul><li>For process instantiation URL, identifies the process definition id.</li><li>For process overview URL, identifies the process instance id.</li><li>For task URL, identifies the activity instance of the task.</li> | `id=6972973247608922361` |
+| `user=<userId>`     | Optional. Identifies the user you perform the task for (for administrators and process managers).                                                                                                                           | `user=201`               |
+| `tenant=<tenantId>` | Optional. Identifies the tenant on which the process is deployed for multiple tenants environments (Multi-tenancy is available with the Enterprise and Performance editions only).                                          | `tenant=2`               |

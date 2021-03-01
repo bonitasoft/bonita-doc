@@ -1,6 +1,5 @@
 # Create a report
 
-
 The final step when setting up reporting in Bonita is to create a report template using a Business Intelligence (BI) tool.
 
 ::: info
@@ -11,8 +10,8 @@ The final step when setting up reporting in Bonita is to create a report templat
 
 You are free to choose any BI tool to do so, but if you want to display reports inside the Bonita Portal you should design your reports using one of the following tools:
 
-* [JasperReports iReport Designer](http://community.jaspersoft.com/project/ireport-designer) - Older stable tool in maintenance mode
-* [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) - Newer tool
+- [JasperReports iReport Designer](http://community.jaspersoft.com/project/ireport-designer) - Older stable tool in maintenance mode
+- [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) - Newer tool
 
 ## Bonita integration guidelines and tips for Jasper reports
 
@@ -20,8 +19,8 @@ This documentation does not detail the use of Jaspersoft Studio but provides som
 There are minor differences depending on which Japsersoft tool you are using, but these concern the user interface of the Japsersoft tools, not the Bonita behavior.
 For details about the use of the Jaspersoft products, please refer to their documentation:
 
-* [JasperReports iReport Designer documentation](http://community.jaspersoft.com/project/ireport-designer/resources)
-* [Jaspersoft Studio documentation](http://community.jaspersoft.com/project/jaspersoft-studio/resources)
+- [JasperReports iReport Designer documentation](http://community.jaspersoft.com/project/ireport-designer/resources)
+- [Jaspersoft Studio documentation](http://community.jaspersoft.com/project/jaspersoft-studio/resources)
 
 ### Change the script language to Java
 
@@ -45,14 +44,14 @@ This is how to add the query executor as a report dependency in iReport:
 3. Select the **Query Executers** tab.
 4. Click on the **_Add_** button.
 5. Fill the form using the following values:
++
+   | Field         | Value                                           |
+   | :------------ | :---------------------------------------------- |
+   | Language      | BONITASQL                                       |
+   | Factory class | org.bonitasoft.JRBonitaJdbcQueryExecuterFactory |
 
-   | Field | Value| 
-   |:-|:-|
-   | Language | BONITASQL| 
-   | Factory class | org.bonitasoft.JRBonitaJdbcQueryExecuterFactory| 
-
-Fields Provider class (optional)com.jaspersoft.ireport.designer.data.fieldsproviders.SQLFieldsProvider
-
+    Fields Provider class (optional)com.jaspersoft.ireport.designer.data.fieldsproviders.SQLFieldsProvider
++
 6. Click on **_OK_**.
 7. Still in the **Options** window, select the **Classpath** tab.
 8. Click on **_Add JAR_**.
@@ -86,6 +85,7 @@ This is how to do this in iReport:
 When the HTML form rendering parameter and component are ready, you need to set the report properties to configure the widgets that your report will integrate.
 
 All widgets share the following mandatory properties (`XXX` is replaced by a number used to identify the widget):
+
 <table>
         <tbody><tr>
                 <td>Property</td>
@@ -126,6 +126,7 @@ All widgets share the following mandatory properties (`XXX` is replaced by a num
 </tbody></table>
 
 The **SELECT** widget has the following extra properties:
+
 <table>
   <tbody><tr>
     <td>Property</td>
@@ -157,7 +158,8 @@ The **SELECT** widget has the following extra properties:
 
 Specifies the value returned when the "All" item is selected.
 
-The **DATE** and **DATE\_RANGE** widgets have the following extra properties:
+The **DATE** and **DATE_RANGE** widgets have the following extra properties:
+
 <table>
   <tbody><tr>
     <td>Property</td>
@@ -180,7 +182,7 @@ The **DATE** and **DATE\_RANGE** widgets have the following extra properties:
   </tr>
 </tbody></table>
 
-For a **DATE\_RANGE** widget, if you name the associated parameter `p_date` then `p_date_from` and `p_date_to` initial
+For a **DATE_RANGE** widget, if you name the associated parameter `p_date` then `p_date_from` and `p_date_to` initial
 value will automatically be set to `one week before today` and `today` respectively. Setting an initial value to this
 parameter using BONITA_FORM_XXX_INITIAL_VALUE will not be taken in account.
 
@@ -205,6 +207,7 @@ Using the global CSS look'n'feel of the Bonita Portal allows to have a consisten
 :::
 
 To add a CSS class to a component proceed as follow:
+
 - In the Component properties pane, click the _Properties expression_ button
 - Add a _Properties expressions_:
   - Set _Properties expressions_'s name to _net.sf.jasperreports.export.html.class_
@@ -223,18 +226,19 @@ The archive should contain at least the compiled Jasper report (a file with a .j
 
 If your report requires a connection to the reporting database, the archive must contain:
 
-* The JDBC driver jar file used to connect to the reporting database. Do not include this file in the archive if the driver is already deployed at server level.
-* A _connection.properties_ text file that contains the reporting database connection settings:
+- The JDBC driver jar file used to connect to the reporting database. Do not include this file in the archive if the driver is already deployed at server level.
+- A _connection.properties_ text file that contains the reporting database connection settings:
 
-  | Property | Description| 
-  |:-|:-|
-  | dbUrl | JDBC Url to access the reporting database| 
-  | dbDriverClassName | The JDBC driver's class name| 
-  | dbUser | The login of the database user| 
-  | dbPassword | The password of the database user| 
+  | Property          | Description                               |
+  | :---------------- | :---------------------------------------- |
+  | dbUrl             | JDBC Url to access the reporting database |
+  | dbDriverClassName | The JDBC driver's class name              |
+  | dbUser            | The login of the database user            |
+  | dbPassword        | The password of the database user         |
 
 For example, connecting to a local MySQL database named _BonitaReport_ with a user _root_ and password _root_:
-```
+
+```properties
 dbUrl=jdbc:mysql://localhost:3306/BonitaReport
 dbDriverClassName=com.mysql.jdbc.Driver
 dbUser=root

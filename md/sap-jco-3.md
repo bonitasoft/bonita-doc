@@ -2,7 +2,6 @@
 
 The Bonita SAP Java Connector 3 allows Bonita to communicate with any SAP system using the SAP JCo 3 toolkit.
 
-
 ## Notice
 
 ::: info
@@ -15,15 +14,15 @@ You must have an SAP license and an SAP server to use the connector.
 
 ### Overview of the SAP Java Connector (SAP JCo 3) underlying toolkit
 
-* The SAP JCo3 connector can be used to call a SAP function (BAPI, RFC or ZBAPI).
-* High-performance JNI-based RFC middleware.
-* Supports R/3 3.1H and higher. 
-* Supports inbound (Java client calls BAPI or RFM) and outbound (ABAP calls Java server) calls. 
-* Supports synchronous, transactional (important for IDocs), and queued RFC. 
-* Supports client pooling (good for web servers).
-* Has monitoring capabilities.
+- The SAP JCo3 connector can be used to call a SAP function (BAPI, RFC or ZBAPI).
+- High-performance JNI-based RFC middleware.
+- Supports R/3 3.1H and higher. 
+- Supports inbound (Java client calls BAPI or RFM) and outbound (ABAP calls Java server) calls. 
+- Supports synchronous, transactional (important for IDocs), and queued RFC. 
+- Supports client pooling (good for web servers).
+- Has monitoring capabilities.
 
-### Download and install the SAP connector .zip files 
+### Download and install the SAP connector .zip files
 
 To connect to an SAP system from Bonita Studio, and have the correct graphic display, you must install the SAP .dll and .jar files onto your (Windows) machine. You must have an SAP User ID and password to enter the SAP Support Portal to download the files.
 
@@ -33,13 +32,13 @@ JCo 3: `sapjco3-ntamd64-3.0.3`
 
 Contents of `sapjco-ntamd64-3.0.3.zip`
 
-* `Readme.txt`: contains instructions
-* `sapjco3.jar`: must be installed in the `/endorsed` directory of your Bonita Studio installation and in class path of the bonita web server.
-* `sapjco3.dll` (`libspajco3.so`): must be installed in the native library search path:
-  * Windows: usually the dll file is stored in `C:\windows\system32`
-  * Linux: usually the dll file is stored in `/usr/lib`
-* `javadoc`: contains the .html help pages for installation
-* `examples`: contains some examples
+- `Readme.txt`: contains instructions
+- `sapjco3.jar`: must be installed in the `/endorsed` directory of your Bonita Studio installation and in class path of the bonita web server.
+- `sapjco3.dll` (`libspajco3.so`): must be installed in the native library search path:
+  - Windows: usually the dll file is stored in `C:\windows\system32`
+  - Linux: usually the dll file is stored in `/usr/lib`
+- `javadoc`: contains the .html help pages for installation
+- `examples`: contains some examples
 
 ### How to use the contents of the sapjco-ntamd64-3.0.3.zip file with an application server?
 
@@ -69,6 +68,7 @@ It is assumed that both the Tomcat and the Bonita Engine were already successful
 1. Create the `sapjco3\main` directories under `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\modules\system\layers\base\com\` directory
 2. Copy the `sapjco3.jar` file into `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\modules\system\layers\base\com\sapjco3\main`
 3. Create the `module.xml` file in the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\modules\system\layers\base\com\sapjco3\main` directory, with the content below:
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <module xmlns="urn:jboss:module:1.0" name="com.sapjco3">
@@ -80,6 +80,7 @@ It is assumed that both the Tomcat and the Bonita Engine were already successful
     </dependencies>
 </module>
 ```
+
 4. Edit the `standalone.xml` file
 
 When the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\start-bonita.bat` script is used to start Wildfly, then edit the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\setup\wildfly-templates\standalone.xml` file.
@@ -87,11 +88,13 @@ When the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\start-bonita.bat` script
 Otherwise edit the `BonitaSubscription-7.8.3-wildfly-10.1.0.Final\server\standalone\configuration\standalone.xml` file.
 
 Add these 3 lines under `subsystem xmlns="urn:jboss:domain:ee:4.0"`:
+
 ```xml
 <global-modules>      
     <module name="com.sapjco3" slot="main"/>
 </global-modules> 
 ```
+
 5. Start Wildfly
 
 ### Studio: How to import the SAP JCo3 library and make a request with an example function using the graphic display
@@ -99,36 +102,36 @@ Add these 3 lines under `subsystem xmlns="urn:jboss:domain:ee:4.0"`:
 There is below a step by step procedure on Windows. It is assumed that the Studio had been started at least once successfully.
 
 1. Store the `sapjco.dll` in the `C:\windows\system32` directory
-1. Reboot
-1. Start the Studio
-1. Open a diagram
-1. Add a SAP JCo 3 connector on a task or a pool
-1. Use `import sapjco3.jar` button to add it to the embedded runtime environment
-1. Restart the Studio
-1. Fill in all the connection fields with the correct settings. 
+2. Reboot
+3. Start the Studio
+4. Open a diagram
+5. Add a SAP JCo 3 connector on a task or a pool
+6. Use `import sapjco3.jar` button to add it to the embedded runtime environment
+7. Restart the Studio
+8. Fill in all the connection fields with the correct settings. 
 
 :::warning
 **Note**: SAP JCo 3 connector supports a single destination for all connector instances in Bonita Engine. You also need to restart the web server when changing its value.
 :::
 
-1. Once all the fields are filled, test the connection by clicking on the _**test **_button.
-1. In the function definition window, only the function name is required.
-1. Click on the arrow at the end of the field to display a dropdown list of functions.
-1. Click on `GET_SYSTEM_NAME` for example
-1. Click _**Next**_
-1. This will display the **Input Parameters** window
-1. Click _**Next**_
-1. This will display the **Output Parameters** window
-1. The `GET_SYSTEM_NAME` is displayed to confirm the input is this function. Note: You can create a blank .html file on your c: drive, which will be filled with the output information from the SAP connector
-1. Enter the path to the .html file in the field called "HTML File"
-1. Click _**Next**_
-1. This will display an **Ouput operations** window
-1. Click _**Finish**_
+1. Once all the fields are filled, test the connection by clicking on the \_**test **\_button.
+2. In the function definition window, only the function name is required.
+3. Click on the arrow at the end of the field to display a dropdown list of functions.
+4. Click on `GET_SYSTEM_NAME` for example
+5. Click _**Next**_
+6. This will display the **Input Parameters** window
+7. Click _**Next**_
+8. This will display the **Output Parameters** window
+9. The `GET_SYSTEM_NAME` is displayed to confirm the input is this function. Note: You can create a blank .html file on your c: drive, which will be filled with the output information from the SAP connector
+10. Enter the path to the .html file in the field called "HTML File"
+11. Click _**Next**_
+12. This will display an **Ouput operations** window
+13. Click _**Finish**_
 
 ## Advanced features in Subscription Editions
 
 In the Efficiency, Performance and Enterprise editions, the SAP wizard has advanced features: You do not need to know the names of the functions by heart, as the functions are suggested in a dropdown menu. 
 
-* Filter functions by group: a dropdown list listing all the functions by group
-* Function description: a dropdown list listing all the functions. Auto complete (just type the first letter e.g. G to give a list of **Get** functions
-* Function name: dropdown list
+- Filter functions by group: a dropdown list listing all the functions by group
+- Function description: a dropdown list listing all the functions. Auto complete (just type the first letter e.g. G to give a list of **Get** functions
+- Function name: dropdown list

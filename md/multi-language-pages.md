@@ -42,8 +42,7 @@ The code that specifies a language in `localization.json` must be the same as th
 
 By default, US english strings are used as the keys for translation. But you could use any code or language for the keys, and create an en-US section of translations to consider english as any other translated language. That option allows to freely change english strings with no duplication on every other language section.
 
-In production, a page, layout or form is displayed in the language specified by the BOS\_locale cookie value. This value must match exactly one of the language codes in the `localization.json` asset. The BOS\_locale value is set by selecting a language in Bonita Portal or in a custom widget. If BOS\_locale is not set or its value does not match a language code, the browser language is used. If neither the BOS\_locale nor the browser language matches a language code in `localization.json`, the untranslated keys are displayed in the page.
-
+In production, a page, layout or form is displayed in the language specified by the BOS_locale cookie value. This value must match exactly one of the language codes in the `localization.json` asset. The BOS_locale value is set by selecting a language in Bonita Portal or in a custom widget. If BOS_locale is not set or its value does not match a language code, the browser language is used. If neither the BOS_locale nor the browser language matches a language code in `localization.json`, the untranslated keys are displayed in the page.
 
 ## Tutorial: creating a multi-language page
 
@@ -56,7 +55,8 @@ The first step is to create a list of all the english text strings used in the p
 However, to be sure that you identify all the items that need to be translated, export the page zip file, and edit the `page.json` file to retrieve all the text strings. In addition to the text strings, look for any date format strings and URLs that could contain a locale attribute.
 
 For the Travel Tool application page, this is the set of text strings to translate:
-```
+
+```text
 Travel Tool
 This page lists your pending and approved travel requests.
 My pending requests
@@ -156,7 +156,7 @@ After deployment, an application user will see the page in the language configur
 
 ## Sharing translations
 
-Depending on the applications and processes you have, there could be some strings that are common to many pages or forms.   
-If this is the case, consider using a single `localization.json` for all pages.   
-You still need to attach it as an asset to each page or form, but it could make your translation process more efficient by avoiding duplication.   
+Depending on the applications and processes you have, there could be some strings that are common to many pages or forms.  
+If this is the case, consider using a single `localization.json` for all pages.  
+You still need to attach it as an asset to each page or form, but it could make your translation process more efficient by avoiding duplication.  
 Alternatively, your translation management tools might provide a mechanism for sharing the translations required for various pages and forms, which would enable you to extract the keys and translations required for a page or form and construct the .json file.

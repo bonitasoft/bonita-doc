@@ -14,7 +14,7 @@ Logged on as an Administrator, you have the rights to manage a process as follow
 
 The .bar file is ready to be resolved and enabled
 
-**Note:** if you try to install the same process twice, a message is displayed: "Process \[yourProcessName\] in version \[yourProcessVersion\] already exists."
+**Note:** if you try to install the same process twice, a message is displayed: "Process \[yourProcessName] in version \[yourProcessVersion] already exists."
 
 You can only install a .bar file that was exported from a Bonita Studio of the same minor (7.x) version as your Bonita Portal and Bonita Engine. If you have a .bar file that was exported from an earlier version of Bonita Studio (7.x-1), it will not work with Bonita Engine. Export the process definition as a .bos file from your old Bonita Studio, import in into the new Studio, then export it as a .bar. This is necessary for a .bar that has not been deployed. A process that was developed in an older version of Bonita Studio and is already deployed is migrated automatically when you migrate your platform. However, for future maintenance of the process definition, you are recommended to update all your process bar files to the latest version each time you update your platform.
 
@@ -26,11 +26,11 @@ Resolving a process means completing the configuration in the Portal and making 
 
 To resolve a process, you must complete the configuration of the actor mappings, parameters, forms, and connectors defined for the process. You can also configure other information such as Categories and Scripts, but this is not mandatory for resolving a process.
 
-* **Actor mapping**; Every actor in a process must be mapped to at least one user, group, role or membership.
-* **Parameters**: Every parameter defined in a process must have a value.
-* **Connector definitions**: Every connector definition in a process must have a corresponding Class name.
-* **Business Data Model**: Every business data object defined in a process must have a corresponding model.
-* **Forms**: Every form defined in a process must be mapped to a page or a URL.
+- **Actor mapping**; Every actor in a process must be mapped to at least one user, group, role or membership.
+- **Parameters**: Every parameter defined in a process must have a value.
+- **Connector definitions**: Every connector definition in a process must have a corresponding Class name.
+- **Business Data Model**: Every business data object defined in a process must have a corresponding model.
+- **Forms**: Every form defined in a process must be mapped to a page or a URL.
 
 To resolve a process:
 
@@ -109,7 +109,9 @@ After you created a category and added to the process, you can add other process
 6. Click _**Save**_
 
 ## Make start a process available for more users
+
 You need to map more organization entities to the actor labelled _initiator_ in the process definition. To do so:
+
 1. Go to the BPM tab.
 2. Click _**Processes**_.
 3. Select a process in the list.

@@ -8,7 +8,7 @@ Some process definition information can be live updated from Administrator profi
 
 ## Parameters
 
-#### How to modify a parameter in Administrator view  
+#### How to modify a parameter in Administrator view
 
 **Note:** In versions 7.0.x, this feature is only available for Bonita Enterprise and Performance editions. Starting from version 7.1.0, this feature is available for Bonita Enterprise, Performance and Efficiency editions. 
 
@@ -22,7 +22,7 @@ Some process definition information can be live updated from Administrator profi
 
 ## Connectors
 
-#### How to edit connector implementation in Administrator view  
+#### How to edit connector implementation in Administrator view
 
 **Note:** In versions 7.0.x, this feature is only available for Bonita Enterprise and Performance editions. Starting from version 7.1.0, this feature is available for Bonita Enterprise, Performance and Efficiency editions. 
 
@@ -73,7 +73,7 @@ Some process definition information can be live updated from Administrator profi
 6. Edit the script in the displayed editor
 7. Click on _**Save**_ to update the script contents.
 
-The Scripts section of the process more details page allows to update a _TYPE\_READ\_ONLY\_SCRIPT_ Expression or a _TYPE\_CONSTANT_ Expression when associated to a Groovy script connector
+The Scripts section of the process more details page allows to update a _TYPE_READ_ONLY_SCRIPT_ Expression or a _TYPE_CONSTANT_ Expression when associated to a Groovy script connector
 
 ::: warning
 **:fa-exclamation-triangle: Warning:** The script dependencies are fixed, i.e. when the process is implemented the developer designed the script to use some variables and/or parameters. The live update capability cannot go against this design and only allows to change the script content. If the new script tries to use more variables, it will lead to execution errors. To change the script dependencies (data available in the script execution context), the process definition must be updated and a newer version of the process deployed.
@@ -90,4 +90,3 @@ If the page is updated, the resource filename will change, and the browser will 
 
 If you don't use the UI Designer to edit and export your custom page, don't forget to manually trigger the cache busting mechanism. It means that, as a developer, you must make sure to either change the file names of the modified resources (javacsript, CSS, images, etc...) or add a query parameter (e.g. ?version=2) to the URLs used in the HTML to access those resources. This way the web-browser will not use the version it has in cache but the new file instead. 
 Without this cache busting, end users won't benefit from the latest custom page changes, unless they empty their browser cache.
-

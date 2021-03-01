@@ -19,9 +19,9 @@ The process instantiation and step execution auto-generated forms are based on t
 
 The overview consists of three main sections:
 
-* List of business data: it shows the content of the business variables used by the case.
-* List of documents: it shows the content of each document used by the case.
-* Timeline: it shows in chronological order information about all the actions that have been performed in the selected case.
+- List of business data: it shows the content of the business variables used by the case.
+- List of documents: it shows the content of each document used by the case.
+- Timeline: it shows in chronological order information about all the actions that have been performed in the selected case.
 
 To learn how to manage the link between process and forms, go to the [live update](live-update.md) page.
 
@@ -33,8 +33,8 @@ The `Theme.css` is directly accessible by adding the following link in `index.ht
 This link is already inserted in the forms you design with the UI Designer.
 
 ::: info 
-The `app` URL parameter is used to retrieve the current application related Theme.      
-The living application layout inject this `app` URL parameter in the targeted page/form URL, and the value is the application token.                
+The `app` URL parameter is used to retrieve the current application related Theme.  
+The living application layout inject this `app` URL parameter in the targeted page/form URL, and the value is the application token.  
 If you create your own navigation link, you will need to include this `app` URL parameter in the forged form URL, in order to be able to benefit from the application theme. 
 :::
 

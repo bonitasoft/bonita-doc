@@ -11,6 +11,7 @@ If you face any difficulties in this getting started tutorial, please [ask for h
 To download the latest version of Bonita Studio, open the [download page](https://www.bonitasoft.com/downloads) and click on the "Download" button. This will start the download of Bonita Studio installer for your operating system.
 
 When the download is finished, you should have one of the following files on your computer (x.y.z refers to the version of Bonita Studio, e.g. 7.9.2):
+
 - Windows: `BonitaStudioCommunity-x.y.z-x86_64.exe`
 - macOS: `BonitaStudioCommunity-x.y.z-x86_64.dmg`
 - Linux: `BonitaStudioCommunity-x.y.z-x86_64.run`
@@ -22,18 +23,20 @@ You are now ready to start the installation process.
 To run the installer for Windows, macOS or Linux, double-click on the file you downloaded.
 
 The installer will guide you through a very basic installation configuration:
+
 1. Select installation language: this will be used for the installation process.
-1. Welcome message: click on "Next" button.
-1. License agreement: you need to accept this to continue.
-1. Installation directory: the default one should be fine.
-1. Confirmation that installation is about to start: click on "Next" button.
-1. Actual installation: wait a little bit.
-1. You'll see a confirmation message that offers the option to start Bonita Studio. Choose to start Bonita Studio and click on "Finish" button.
-1. A "thank you for downloading" page will be displayed in your web browser. You can close it.
+2. Welcome message: click on "Next" button.
+3. License agreement: you need to accept this to continue.
+4. Installation directory: the default one should be fine.
+5. Confirmation that installation is about to start: click on "Next" button.
+6. Actual installation: wait a little bit.
+7. You'll see a confirmation message that offers the option to start Bonita Studio. Choose to start Bonita Studio and click on "Finish" button.
+8. A "thank you for downloading" page will be displayed in your web browser. You can close it.
 
 ![Bonita Studio installer last screen](images/getting-started-tutorial/installation/studio-installation-installer-08-last-screen.png)
 
 Bonita Studio is now installed. Default installation folders are:
+
 - Windows: `C:\BonitaStudioCommunity-x.y.z`
 - macOS: `/Applications/BonitaStudioCommunity-x.y.z`
 - Linux: `/home/<username>/BonitaStudioCommunity-x.y.z`
@@ -63,8 +66,6 @@ In order to make sure that everything is properly installed, click on the **Port
 
 ![Bonita Portal display in a web browser](images/getting-started-tutorial/installation/web-browser-display-portal.png)
 
-
-
 Also click on the **UI Designer** button ![UI Designer icon](images/getting-started-tutorial/installation/ui-designer-icon.png) in the toolbar. This will display a pop-up window that you can ignore:
 
 ![UI Designer first launch pop-up window](images/getting-started-tutorial/installation/ui-designer-launch-pop-up.png)
@@ -72,7 +73,6 @@ Also click on the **UI Designer** button ![UI Designer icon](images/getting-star
 And then the UI Designer should be opened in your web browser:
 
 ![UI Designer, on first launch, displayed in a web browser](images/getting-started-tutorial/installation/ui-designer-first-start.png)
-
 
 ## Ready to move on
 

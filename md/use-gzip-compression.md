@@ -55,17 +55,19 @@ compressionMinSize="X"
 noCompressionUserAgents="Y"
 compressableMimeType="Z"
 ```
-| Property | Description | Example |
-|:-|:-|:-|
-| compression | Activates or deactivates gzip compression. | on |
-| compressionMinSize | The minimum size of resources to be compressed. It is not useful to compress resources that are already small. | 2048 |
-| noCompressionUserAgents | The User Agents for which compressions is not to be used. Some older browseers do not support compression. | gozilla, traviata |
-| compressableMimeType | The MIME types of the resources to be compressed. We recommend that all text files be compressed. | text/html,text/xml |
+
+| Property                | Description                                                                                                    | Example            |
+| :---------------------- | :------------------------------------------------------------------------------------------------------------- | :----------------- |
+| compression             | Activates or deactivates gzip compression.                                                                     | on                 |
+| compressionMinSize      | The minimum size of resources to be compressed. It is not useful to compress resources that are already small. | 2048               |
+| noCompressionUserAgents | The User Agents for which compressions is not to be used. Some older browseers do not support compression.     | gozilla, traviata  |
+| compressableMimeType    | The MIME types of the resources to be compressed. We recommend that all text files be compressed.              | text/html,text/xml |
 
 If you use the Tomcat bundle, the file to edit is `TOMCAT_HOME/server/conf/server.xml`.
 If you use a different package, use the corresponding path; for example on Ubuntu the file is located in `/etc/tomcat8/server.xml`.
 
 Connector configuration:
+
 ```xml
 <Connector port="8080" protocol="HTTP/1.1"
    connectionTimeout="20000"
@@ -84,6 +86,7 @@ After you modify the file, restart your application server and test with the fol
 `curl -I -H 'Accept-Encoding: gzip' http://`_`ip_address:port`_`/bonita/login.jsp`
 
 Check that the header returned contains the line `Content-Encoding: gzip`. For example, on a WildFly system the output will be similar to this:
+
 ```
 HTTP/1.1 200 OK
 Server: Apache-Coyote/1.1
